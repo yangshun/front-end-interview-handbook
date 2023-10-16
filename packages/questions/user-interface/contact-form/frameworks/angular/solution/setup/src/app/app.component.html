@@ -1,0 +1,20 @@
+<form
+  (ngSubmit)="submitForm($event)"
+  method="post"
+  action="https://www.greatfrontend.com/api/questions/contact-form">
+  <div>
+    <label for="name-input">Name</label>
+    <input id="name-input" name="name" type="text" />
+  </div>
+  <div>
+    <label for="email-input">Email</label>
+    <input id="email-input" name="email" type="email" />
+  </div>
+  <div>
+    <label for="message-input">Message</label>
+    <textarea id="message-input" name="message"></textarea>
+  </div>
+  <div>
+    <button>Send</button>
+  </div>
+</form>

@@ -1,0 +1,9 @@
+{
+  "visibleFiles": [
+    "/src/app/app.component.html",
+    "/src/app/app.component.ts",
+    "/src/app/submitForm.ts"
+  ],
+  "activeFile": "/src/app/app.component.html",
+  "environment": "angular-cli"
+}

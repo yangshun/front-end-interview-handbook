@@ -1,4 +1,5 @@
 import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
 
 ## Solution
 
@@ -33,7 +34,4 @@ This asynchronous method fetches the job details based on the job IDs obtained f
 The `useEffect` hook is responsible for triggering the `fetchJobs` method whenever the `page` state variable changes. It ensures that when the page number is updated (e.g., when the user clicks the "Load more" button), the `fetchJobs` method is called to fetch the corresponding job details for the new page. It's recommended to use `useEffect` to sync the jobs details data with the current page instead of triggering `fetchJobs` on clicking the "Load more" button because it can easily extend to additional sources of pagination, such as infinite scrolling, additional pagination buttons, etc.
 
 <TestCases />
-
-### Notes
-
-- Note that we aren't handling any API failure cases here. It'd be good for you to handle them!
+<Notes />

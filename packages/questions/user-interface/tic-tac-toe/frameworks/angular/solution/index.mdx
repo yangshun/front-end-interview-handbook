@@ -1,0 +1,84 @@
+import TestCases from '../../../test-cases.mdx';
+import A11y from '../../../a11y.mdx';
+
+## Solution
+
+We're going to display a message by calling `adjustStatusMessage` every turn to indicate whose turn it is and to convey
+the result of the game. Below that text, we will set up our 3x3 board. Underneath that, a reset button will be placed
+to start the game again.
+
+In our case, player X always takes the first turn. When a cell is clicked, we run the `onCellClick` method with the
+provided index from the board. If the cell is already filled, we exit from the function immediately. Otherwise,
+we place an `X` or `O` on the board, depending on whose turn it is at the moment and then checks if there is a winner
+already or a draw.
+
+The `determineWinner()` method is responsible for determining if there is a `winner` in the Tic-Tac-Toe game based on
+the current state of the board by iterating through all possible winning combinations and checks if the cells in each
+combination have the same mark. It returns the winning mark if a winning line is found, or `null` if there is no winner
+yet.
+
+The method takes a `board` parameter, which is an array representing the state of the game board. It iterates over
+the `CELLS_IN_A_LINE` array, which contains all the possible combinations of cell indices that form a winning line in
+the Tic-Tac-Toe game. Each combination consists of three indices representing the cells in a row, column, or diagonal.
+Since the board size is relatively small, it is possible to enumerate all the possible combinations. If the board size
+is larger then this approach won't scale well.
+
+Inside the loop, the current combination of cell indices is destructured into three variables: `x`, `y`, and `z`.
+These variables represent the indices of the cells that need to be checked for equality.
+
+The method then checks if the values in the `board` array at indices `x`, `y`, and `z` are not `null` (indicating
+that the cells are not empty) and are all equal to each other. If this condition is satisfied, it means that there is
+a winning line formed by the marks in the cells. If a winning line is found, the method returns the value of the mark
+(either `'X'` or `'O'`) that is present in the winning line. This indicates which player has won the game.
+
+If no winning line is found after checking all the combinations, the method returns `null`, indicating that there is no winner yet.
+
+### State
+
+There are two core pieces of state:
+
+1. `board` - An array representing the state of the game board. It is initialized as an array of `null` values with a
+ length of 9. Each element of the array corresponds to a cell on the game board and can have one of three values: `'X'`,
+  `'O'`, or `null`, representing the marks made by players `X`, `O`, or an empty cell, respectively. The state is updated
+  assigning `board` with current index to the value of `turn`.
+1. `xIsPlaying` - A boolean value indicating whether it is currently player X's turn. It is initialized as `true`. The
+ state is updated using the `get turn()` method.
+
+## Rendering
+
+To make the board responsive, CSS Grid was utilized in the code. CSS Grid is a powerful layout system that allows for the creation of two-dimensional grid layouts. Here's how CSS Grid was used to make the game board responsive:
+
+1. Grid Container: The game board is wrapped in a `<div>` element with the class name `board`. This element serves as the grid container for the cells.
+1. Grid Template Columns: To define the number and width of the columns in the grid, `display: grid` and `grid-template-columns: repeat(3, 1fr)` was applied to the grid container. This rule sets the grid container to use the grid layout and specifies that it should have three columns with equal widths. The `repeat(3, 1fr)` syntax means to repeat the column size definition (`1fr`) three times.
+1. Cell Sizing: Each cell within the grid is represented by a `<button>` element with the class name "cell". The following CSS rule defines the sizing and appearance of the cells:
+   - The `font-size` property is set using the `min()` function. It ensures that the font size of the cells is responsive and adapts based on the available width of the viewport. The `48px` value is the fallback size, and `10vw` represents 10% of the viewport width.
+   - The `aspect-ratio` property is set to `1 / 1`, ensuring that each cell maintains a square shape regardless of its content.
+1. Responsive Behavior: By using CSS Grid and defining the cell sizing based on the viewport width, the game board becomes responsive. As the viewport width decreases, the grid layout adapts, and the cells adjust their size accordingly. The `min()` function in the `font-size` property ensures that the font size does not become too large on smaller screens, providing a better user experience.
+
+Overall, CSS Grid provides a flexible and responsive layout for the game board by defining the number of columns and adjusting the cell size based on the available space. This allows the game board to maintain its structure and usability across different screen sizes and devices.
+
+### Models
+
+We suggest to create simple type for board cell to prevent typing `board: (string | null)[];`.
+
+```typescript
+type Cell = string | null;
+```
+
+### Angular Insights
+
+- You can adopt a more advanced, reactive-like approach using RxJS (without using subscriptions as possible).
+However, if you opt for subscriptions, remember about destroying them to prevent memory leaks.
+
+- You might create service for maintaining the state. Inject the service in smart component and crete dumb components
+that only display and interact with the UI and all events from dumb components are passed to the smart one.
+
+- If you're confident with the latest Angular versions, consider using signals standalone API.
+
+- You can try to focus more on keywords such as `readonly`, `private`, `public` and `void`.
+
+- If you're creating a bigger application it would be good practice to use styles per component instead of putting all
+styles in one file.
+
+<TestCases />
+<A11y />

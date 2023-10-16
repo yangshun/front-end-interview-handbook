@@ -12,6 +12,14 @@
     {
       "framework": "react",
       "href": "/questions/user-interface/transfer-list/react"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/transfer-list/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/transfer-list/svelte"
     }
   ],
   "href": "/questions/user-interface/transfer-list",

@@ -1,0 +1,113 @@
+body {
+  font-family: sans-serif;
+}
+
+.color-picker-container {
+  display: flex;
+  gap: 20px;
+}
+
+.color-picker__option {
+  height: 36px;
+  background-color: transparent;
+  border: 2px solid black;
+  font-size: 14px;
+}
+
+.color-picker__option--selected {
+  background-color: black;
+  color: white;
+}
+
+.color-picker {
+  display: flex;
+}
+
+.color {
+  width: 20px;
+  height: 20px;
+}
+
+.color--not-selected {
+  border: 2px solid transparent;
+}
+
+.white {
+  border: 2px solid #e9ecef;
+}
+
+.color--selected {
+  border: 2px solid black;
+}
+
+.grid {
+  margin-bottom: 20px;
+}
+
+.grid__row {
+  display: flex;
+}
+
+.grid__cell {
+  width: 20px;
+  height: 20px;
+  border: 0;
+  background-color: transparent;
+}
+
+.grid__row--even .grid__cell:nth-child(odd) {
+  background-color: #e9ecef;
+}
+
+.grid__row--odd .grid__cell:nth-child(even) {
+  background-color: #e9ecef;
+}
+
+.white,
+.grid .grid__row .white {
+  background-color: #ffffff;
+}
+
+.gray,
+.grid .grid__row .gray {
+  background-color: #e9ecef;
+}
+
+.red,
+.grid .grid__row .red {
+  background-color: #cc0001;
+}
+
+.orange .grid .grid__row .orange {
+  background-color: #fb940b;
+}
+
+.yellow,
+.grid .grid__row .yellow {
+  background-color: #ffff01;
+}
+
+.green,
+.grid .grid__row .green {
+  background-color: #01cc00;
+}
+
+.teal,
+.grid .grid__row .teal {
+  background-color: #38d9a9;
+}
+
+.blue,
+.grid .grid__row .blue {
+  background-color: #228be6;
+}
+
+.purple,
+.grid .grid__row .purple {
+  background-color: #7950f2;
+}
+
+.beige,
+.grid .grid__row .beige {
+  background-color: #ff8787;
+}

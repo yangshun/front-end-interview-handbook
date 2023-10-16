@@ -1,0 +1,35 @@
+{
+  "name": "@gfe-questions/undoable-counter-angular-skeleton",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@angular/common": "16.2.4",
+    "@angular/compiler": "16.2.4",
+    "@angular/core": "16.2.4",
+    "@angular/forms": "16.2.4",
+    "@angular/platform-browser": "16.2.4",
+    "@angular/platform-browser-dynamic": "16.2.4",
+    "rxjs": "7.8.0",
+    "zone.js": "0.13.1"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "16.2.1",
+    "@angular/cli": "16.2.1",
+    "@angular/compiler-cli": "16.2.4",
+    "@types/jasmine": "4.3.5",
+    "jasmine-core": "4.6.0",
+    "karma": "6.4.2",
+    "karma-chrome-launcher": "3.2.0",
+    "karma-coverage": "2.2.1",
+    "karma-jasmine": "5.1.0",
+    "karma-jasmine-html-reporter": "2.1.0",
+    "typescript": "5.0.2"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  }
+}

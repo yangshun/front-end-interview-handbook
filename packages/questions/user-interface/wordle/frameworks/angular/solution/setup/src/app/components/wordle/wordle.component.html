@@ -1,0 +1,11 @@
+<main class="root">
+  <h1 class="title">Wordle</h1>
+  <app-game-result
+    [gameState]="gameState"
+    [wordOfTheDay]="wordOfTheDay"
+    (resetClick)="resetGame()" />
+  <app-letter-grid [gridState]="gridState" />
+  <app-keyboard
+    [letterGuessState]="letterGuessState"
+    (keyPressed)="onPressKey($event)" />
+</main>

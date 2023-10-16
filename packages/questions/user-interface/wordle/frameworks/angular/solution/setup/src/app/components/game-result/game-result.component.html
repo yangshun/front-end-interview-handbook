@@ -1,0 +1,18 @@
+<div
+  *ngIf="gameState !== GameState.IN_PROGRESS"
+  class="result-row">
+  <strong>
+    <span *ngIf="gameState === GameState.GUESSED_CORRECTLY"
+      >Congratulations 🎉</span
+    >
+    <span *ngIf="gameState === GameState.NO_MORE_GUESSES"
+      >Word: {{ wordOfTheDay }}</span
+    >
+  </strong>
+  <button
+    type="button"
+    class="reset-button"
+    (click)="reset()">
+    Reset
+  </button>
+</div>

@@ -12,7 +12,11 @@ Since the dimensions of the board is not fixed and can only be determined at run
 
 ### State
 
-Other than the two core pieces of state as per 3 x 3 Tic-tac-toe, we now include a new `winner` state to track the state of the winning mark of the board. Strictly speaking, the `winner` is derived state and can be determined by processing the `board`, which is the approach taken by the 3 x 3 version. However, for N x N boards where N and M can be very large, we determine the winner only after every turn and store it in state, which is a more efficient approach as compared to determining on every render.
+Other than the two core pieces of state as per 3 x 3 Tic-tac-toe, we now include a new `winner`
+ state to track the state of the winning mark of the board. Strictly speaking, the `winner` is
+ derived state and can be determined by processing the `board`, which is the approach taken by the 3 x 3 version.
+  However, for N x N boards where N and M can be very large, we determine the winner only after every turn and store
+   it in state, which is a more efficient approach as compared to determining on every render.
 
 ### `determineWinner`
 

@@ -1,0 +1,58 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+### App Structure
+
+The application is broken down into modular components, making it easier to understand and maintain:
+
+- `App.svelte`: This is the main component that imports and renders the `Clock` component.
+- `Clock.svelte`: Represents the digital clock that displays the current time by hours, minutes, and seconds.
+- `Digit.svelte`: Renders a single digit of the clock, using a unique representation for numbers from 0 to 9.
+- `Separator.svelte`: Renders the colon (:) separators between hours, minutes, and seconds.
+
+### Clock Component
+
+The primary functionality of the clock exists in the `Clock.svelte` component:
+
+#### State Management
+
+- `date`: Maintains the current date and time. It gets updated every 100 milliseconds to ensure the clock's time is accurate.
+- Reactive statements (`$: ...`): Automatically update derived values such as `hours`, `minutes`, `seconds`, and `dateTimeDisplay` whenever the underlying `date` changes. This ensures the displayed time always matches the current time.
+- `padTwoDigit`: A utility function to format single-digit numbers by padding them with a leading zero.
+
+#### Rendering
+
+The clock time is displayed using individual digits and separators. For each component of the time (hours, minutes, seconds), the number is split into tens and units, and each digit is rendered using the `Digit` component. Separators are inserted between these components using the `Separator` component.
+
+The styling makes the clock prominent with a black background, white digits, and a gray border. Flexbox is used to align the digits and separators in a row, and they are center-aligned in the parent container.
+
+#### Lifecycles
+
+`onMount`: Initializes an interval timer that updates the `date` every 100 milliseconds. This frequent update ensures the displayed time is accurate up to the second. Importantly, when the component is destroyed or removed from the DOM, the interval is cleared to avoid potential memory leaks or unnecessary operations.
+
+### Digit Component
+
+The `Digit.svelte` component is a creative representation of numbers from 0 to 9:
+
+#### State Management
+
+- `number`: Represents the digit (from 0 to 9) that needs to be displayed.
+- `NUMBER_TO_CLASSES`: A mapping that defines which sides of the digit square should be visible for each number. It allows for a unique digital representation of each number.
+- Reactive statement (`$: ...`): Determines the sides that should be displayed based on the provided `number`.
+
+#### Rendering
+
+Each digit is represented as two squares (top and bottom). Each square can display borders on its top, right, left, or bottom side, giving the appearance of a digital number. For example, the number '8' displays borders on all sides of both squares, while the number '1' only displays the right borders.
+
+CSS custom properties (variables) are used to define the size and color of the segments, allowing for easy customization.
+
+### Separator Component
+
+The `Separator.svelte` component is straightforward. It renders two dots vertically aligned, simulating the colon (:) seen in digital clocks. The size and color of the dots are controlled by the same CSS custom properties used in the `Digit` component.
+
+In conclusion, this Svelte application provides a clean and modular approach to rendering a digital clock. Each component has a clear responsibility, making the solution both efficient and easy to understand.
+
+<TestCases />
+<Notes />

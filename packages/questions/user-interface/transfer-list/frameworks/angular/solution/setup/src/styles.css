@@ -1,0 +1,42 @@
+body {
+  font-family: sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.transfer-list {
+  border: 1px solid #ccc;
+  display: flex;
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.transfer-list__section {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.transfer-list__section__items {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+}
+
+.transfer-list__section__items__item {
+  display: flex;
+  gap: 8px;
+}
+
+.transfer-list__actions {
+  border-color: #ccc;
+  border-width: 0 1px 0 1px;
+  border-style: solid;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  row-gap: 12px;
+}

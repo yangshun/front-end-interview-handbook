@@ -1,0 +1,8 @@
+<app-whack-a-mole
+  [gameConfig]="gameConfig"
+  [score]="score"
+  [running]="running"
+  [timeLeft]="currLeftTime"
+  [visible]="visible"
+  (startGame)="startGame()"
+  (whackMole)="whackMole($event)" />

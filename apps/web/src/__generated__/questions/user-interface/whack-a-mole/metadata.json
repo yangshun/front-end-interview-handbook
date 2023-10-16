@@ -14,6 +14,14 @@
     {
       "framework": "react",
       "href": "/questions/user-interface/whack-a-mole/react"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/whack-a-mole/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/whack-a-mole/svelte"
     }
   ],
   "href": "/questions/user-interface/whack-a-mole",

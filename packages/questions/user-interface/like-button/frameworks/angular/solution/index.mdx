@@ -1,0 +1,45 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+The focus of this question is in the handling of the various states when there's a pending request.
+
+With every click, we run the `likeUnlikeAction`, which changes our state: it sets `pending` value to `true`, indicating
+that it is waiting for a response from the subsequent HTTP request. We use the HttpClient service with
+the link `https://www.greatfrontend.com/api/questions/like-button` to establish a new value for our button—either
+`unlike` or `like` — and we include this in the second argument as payload. By subscribing to this call,
+we will receive either a response or an error. If we receive a response, we change our `isPending` state to
+`false` because the call is finished and we no longer need to display a pending animation. We also set our
+`liked` value to the opposite because in request response we have only 'success response'. If we encounter
+an error, we set `isPending` to false and assign an error message from the error response.
+
+### State
+
+We'll need a few state variables:
+
+- `liked`: Tracks whether the button is in the default state or the liked state. Since there are only two states, we can use a boolean type to represent it.
+- `isPending`: Determines if there's a pending background request.
+- `errorMessage`: Error message obtained from the back end when the API request fails.
+
+### Rendering
+
+The rendering code is pretty straightforward since there isn't much dependency among the state variables when rendering the UI.
+No Typescript models (interface) required.
+
+### Angular Insights
+
+- You can adopt a more advanced, reactive-like approach using RxJS (without using subscriptions as possible).
+However, if you opt for subscriptions, remember about destroying them to prevent memory leaks.
+
+- You might create services for HTTP requests and another service for maintaining the state.
+
+- If you're confident with the latest Angular versions, consider using signals standalone API.
+
+- You can try to focus more on keywords such as `readonly`, `private`, `public` and `void`.
+
+- If you're creating a bigger application it would be good practice to use styles per component instead of putting all
+styles in one file.
+
+<TestCases />
+<Notes />

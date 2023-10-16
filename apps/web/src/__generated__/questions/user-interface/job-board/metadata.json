@@ -16,6 +16,14 @@
     {
       "framework": "vanilla",
       "href": "/questions/user-interface/job-board/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/job-board/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/job-board/svelte"
     }
   ],
   "href": "/questions/user-interface/job-board",

@@ -1,0 +1,67 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+In `AppComponent` we will create our game with given params and manage whole logic.
+'WhackAMoleComponent` will be dumb component only for displaying UI and reacting on events.
+
+In order to make game customizable, we can introduce following props:
+- `rows`: Number of rows.
+- `cols`: Number of columns.
+- `roundDuration`: How long the round lasts.
+- `molesAtOnce`: How many moles appear at once. In arcades, there could be multiple moles appearing at the same time for increased difficulty levels.
+- `molesAppearingInterval`: How long the moles show up for.
+
+
+### `WhackAMoleComponent`
+
+Every `molesAppearingInterval`, regardless of how many moles are visible on the page, we should generate positions for the next set of `molesAtOnce` moles. We can can randomly generate indices `molesAtOnce` times, but when `molesAtOnce` > 1, there's a slim chance that that the generated indices are repeated and you need to randomly generate again.
+
+An elegant way to generate unique indices is to create an array of indices, shuffling the array, and taking the first `molesAtOnce` values. It requires O(N) space but this approach is arguably simpler to understand and implement correctly.
+
+#### `startGame`
+
+This function is called at the start of a new round and a countdown timer is started. It starts an interval timer that runs every second, decrementing the `currTimeLeft` by 1 every second until `currTimeLeft` reaches 0.
+
+Note that the timer should also be cleared upon unmounting, hence we can assign the timerId to a `countdownTimerId` ref and clear it when the component unmounts. Otherwise the timer could be still running and attempting to update component state even when the component is no longer on-screen.
+
+#### `whackMole`
+
+This function removes indices from the `visible` set when the correct cells are clicked, if they are present in the set, and increments the score by 1.
+
+
+### Rendering
+
+CSS grid is used to render the cells in a 2-dimensional format. It's a great choice because you can render the cells as a single list of DOM elements but with the right CSS grid settings, they can be displayed in a `rows` x `cols` layout.
+
+
+### Models
+
+```typescript
+export interface GameConfig {
+  rows: number;
+  cols: number;
+  roundDuration: number;
+  molesAtOnce: number;
+  molesAppearingInterval: number;
+  totalCount: number;
+}
+```
+
+### Angular Insights
+
+- You can adopt a more advanced, reactive-like approach using RxJS (without using subscriptions as possible).
+However, if you opt for subscriptions, remember about destroying them to prevent memory leaks.
+
+- You might create service for maintaining the state. Inject the service in smart component and crete dumb components
+that only display and interact with the UI and all events from dumb components are passed to the smart one.
+
+- If you're confident with the latest Angular versions, consider using signals standalone API.
+
+- You can try to focus more on keywords such as `readonly`, `private`, `public` and `void`.
+
+- If you're creating a bigger application it would be good practice to use styles per component instead of putting all
+styles in one file.
+
+<TestCases />

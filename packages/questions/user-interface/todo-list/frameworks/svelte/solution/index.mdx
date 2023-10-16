@@ -1,0 +1,25 @@
+import TestCases from '../../../test-cases.mdx';
+import A11y from '../../../a11y.mdx';
+
+## Solution
+
+### State
+
+We will need two state variables: `tasks` and `newTask`.
+
+`tasks`: Since there's a list of tasks that can be modified, we will need it to be part of the component's state. If you are going to re-order the list of tasks, we need to specify a key for each item. This allow Svelte to track the reordering of the items, and reorder the DOM elements accordingly instead of update the DOM elements blindly. We cannot use the text of the task as the key because they are not guaranteed to be unique. Usually, the most foolproof method is to generate a unique ID for each task. Libraries like [`uuid`](https://github.com/uuidjs/uuid) come to mind, but in this case, a simple incrementing counter will do. Since we want `id`s to be globally unique, it is initialized in the module script, outside of the component script.
+
+`newTask`: this is the state to represent the text in our input field for creating a new task. When the user click on the submit button, we will be using the value of this state variables to add a new task in the `tasks` array.
+
+### Adding tasks
+
+New tasks should be added to the end of the `tasks` array. We can construct a new task object based on the value of the `newTask` value. To update the `tasks` array, we can either modify the `tasks` array directly or create a new array and assigned it to the `tasks` variable. Since Svelte tracks changes through assignment statements, if we call `tasks.push()` to modify the array directly, we need to add another assignment to hint Svelte that the `tasks` variable has changed. This could be as simple as assigning `tasks` to itself, `tasks = tasks`.
+
+After adding a new task using `newTask` value, we should clear the input for the next task by setting `newTask` to empty string `''`.
+
+### Deleting tasks
+
+Having a unique `id` for each task object simplifies things here because we can find through the existing list and remove the task corresponding to the `id` to be removed. Upon finding the index of the task object to be removed, you can use `Array.prototype.splice` to remove elements at that index.
+
+<A11y />
+<TestCases />

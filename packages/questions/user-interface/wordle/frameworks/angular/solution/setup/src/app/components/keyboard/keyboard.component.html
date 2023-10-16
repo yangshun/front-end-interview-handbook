@@ -1,0 +1,19 @@
+<section class="keyboard-section">
+  <div class="keyboard-row" *ngFor="let row of keyboard">
+    <button
+      class="keyboard-row__button"
+      *ngFor="let char of row"
+      (click)="onKeyClick(char)"
+      [class.guess--correct]="
+        letterGuessState[char] === LetterGuessState.CORRECT
+      "
+      [class.guess--present]="
+        letterGuessState[char] === LetterGuessState.PRESENT
+      "
+      [class.guess--absent]="
+        letterGuessState[char] === LetterGuessState.ABSENT
+      ">
+      {{ char }}
+    </button>
+  </div>
+</section>

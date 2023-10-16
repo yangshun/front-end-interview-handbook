@@ -1,0 +1,10 @@
+{
+  "visibleFiles": [
+    "/src/app/traffic-light.component.ts",
+    "/src/app/traffic-light.component.html",
+    "/src/app/app.component.ts",
+    "/src/app/app.component.html"
+  ],
+  "activeFile": "/src/app/traffic-light.component.ts",
+  "environment": "angular-cli"
+}

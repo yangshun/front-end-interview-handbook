@@ -1,0 +1,51 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+In `ngOnInit()` hook, we will run a timer to refresh the page and display the current time every second.
+To create the timer, we can use `setInterval` to initiate the update of our state properties. Within
+the `setInterval` body, we will update `hours`, `minutes`, `seconds` and `dateTimeDisplay`
+(required for `<timer>`) based on the current date. In `ngOnDestroy()`, we will terminate the
+interval to prevent memory leaks.
+
+Every `DigitComponent` displays one digit, so assuming we have time 22:04:22 we put to the first 2 digits and `floor`
+it with `pipe` hours / 10 and hours % 10.
+
+The numbers passed will be 2.1 floored to 2 and 1 which is hour we need to display and so on, you get the idea.
+
+`DigitComponent` is a typical dumb component, used solely for displaying UI based on a number passed by `@Input`.
+The responsibility of this component is to display one digit and most of the work here involves manipulating styles.
+
+`SeparatorComponent` is a dumb UI component designed to display two separator dots between digits.
+
+### Rendering
+
+Our HTML structure will look like this:
+
+- digit (hour first digit)
+- digit (hour second digit)
+- separator
+- digit (minute first digit)
+- digit (hour second digit)
+- separator
+- digit (second first digit)
+- digit (second second digit)
+
+### Angular Insights
+
+- You can adopt a more advanced, reactive-like approach using RxJS (without using subscriptions as possible).
+However, if you opt for subscriptions, remember about destroying them to prevent memory leaks.
+
+- You might create service for maintaining the state. Inject the service in smart component and crete dumb components
+that only display and interact with the UI and all events from dumb components are passed to the smart one.
+
+- If you're confident with the latest Angular versions, consider using signals standalone API.
+
+- You can try to focus more on keywords such as `readonly`, `private`, `public` and `void`.
+
+- If you're creating a bigger application it would be good practice to use styles per component instead of putting all
+styles in one file.
+
+<TestCases />
+<Notes />

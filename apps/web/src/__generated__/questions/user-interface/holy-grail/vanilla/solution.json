@@ -1,10 +1,10 @@
 {
   "files": {
     "/index.html": {
-      "code": "<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <header>Header</header>\n    <div class=\"columns\">\n      <nav>Navigation</nav>\n      <main>Main</main>\n      <aside>Sidebar</aside>\n    </div>\n    <footer>Footer</footer>\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"
+      "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <header>Header</header>\n    <div class=\"columns\">\n      <nav>Navigation</nav>\n      <main>Main</main>\n      <aside>Sidebar</aside>\n    </div>\n    <footer>Footer</footer>\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"
     },
     "/package.json": {
-      "code": "{\n  \"name\": \"@gfe-questions/holy-grail-vanilla-solution\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"devDependencies\": {\n    \"parcel\": \"2.9.3\"\n  },\n  \"source\": \"index.html\",\n  \"scripts\": {\n    \"start\": \"parcel\",\n    \"build\": \"parcel build\"\n  }\n}"
+      "code": "{\n  \"name\": \"@gfe-questions/holy-grail-vanilla-solution\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"devDependencies\": {\n    \"parcel\": \"2.9.3\"\n  },\n  \"source\": \"index.html\",\n  \"scripts\": {\n    \"start\": \"parcel\",\n    \"build\": \"parcel build\"\n  }\n}\n"
     },
     "/src/index.js": {
       "code": "import './styles.css';\n"

@@ -1,0 +1,9 @@
+body {
+  --indeterminate: #d3d6da;
+  --correct: #6aaa64;
+  --present: #c9b458;
+  --absent: #787c7e;
+
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+}

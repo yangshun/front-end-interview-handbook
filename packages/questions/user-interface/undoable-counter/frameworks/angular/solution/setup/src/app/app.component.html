@@ -1,0 +1,42 @@
+<div>
+  <div class="row">
+    <button
+      [disabled]="counterService.history.length === 0"
+      (click)="onUndo()">
+      Undo
+    </button>
+    <button
+      [disabled]="counterService.undoHistory.length === 0"
+      (click)="onRedo()">
+      Redo
+    </button>
+    <button (click)="onReset()">Reset</button>
+  </div>
+  <hr />
+  <div class="row">
+    <button (click)="onClickOperation('/2')">/2</button>
+    <button (click)="onClickOperation('-1')">-1</button>
+    <div class="counter">{{ counterService.counter }}</div>
+    <button (click)="onClickOperation('+1')">+1</button>
+    <button (click)="onClickOperation('x2')">x2</button>
+  </div>
+  <hr />
+  <div class="row">
+    <table *ngIf="counterService.history.length > 0">
+      <thead>
+        <tr>
+          <th>Operation</th>
+          <th>Old</th>
+          <th>New</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of counterService.history">
+          <td>{{ item.operation }}</td>
+          <td>{{ item.oldCounter }}</td>
+          <td>{{ item.newCounter }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

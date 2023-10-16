@@ -1,0 +1,16 @@
+body {
+  font-family: sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f6f6ef;
+  color: #000;
+  font-family: sans-serif;
+  font-size: 16px;
+  padding: 16px;
+}

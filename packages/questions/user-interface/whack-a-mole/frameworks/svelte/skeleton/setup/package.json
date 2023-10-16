@@ -1,0 +1,8 @@
+{
+  "name": "@gfe-questions/whack-a-mole-svelte-skeleton",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "dependencies": {
+    "svelte": "^3.58.0"
+  }
+}

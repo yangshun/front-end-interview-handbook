@@ -1,0 +1,29 @@
+<div>
+  <div class="temperature-converter">
+    <label class="temperature-converter-column">
+      <input
+        class="temperature-converter-column-top-row"
+        type="text"
+        [(ngModel)]="celsius"
+        (ngModelChange)="setCelsius($event)" />
+      <div class="temperature-converter-column-bottom-row">
+        Celsius
+      </div>
+    </label>
+    <div class="temperature-converter-column">
+      <div class="temperature-converter-column-top-row">
+        =
+      </div>
+    </div>
+    <label class="temperature-converter-column">
+      <input
+        class="temperature-converter-column-top-row"
+        type="text"
+        [(ngModel)]="fahrenheit"
+        (ngModelChange)="setFahrenheit($event)" />
+      <div class="temperature-converter-column-bottom-row">
+        Fahrenheit
+      </div>
+    </label>
+  </div>
+</div>

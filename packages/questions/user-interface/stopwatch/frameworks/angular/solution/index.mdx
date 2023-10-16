@@ -1,0 +1,53 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+This question looks simple on first glance but is actually more complex than it seems.
+Note that setInterval's delay parameter is unreliable. The actual amount of time that elapses between
+calls to the callback may be longer than the given delay due to various reasons. Because of
+this behavior, we cannot assume that each time the interval callback is fired, the same duration as
+passed. We will need to read the current time within the callback code to ensure that we are using
+the most updated timings.
+
+To run the timer we need to invoke `toggleTimer()` method that checks if we have active timer.
+If we don't - we're going to start it.
+
+In `startTimer()` method we calculate `lastTickTiming` as it was described above and start `setInterval()`.
+Each time variable is recalculated separately every 1ms (should be). Regarding to last variable `milliseconds` -
+we will use the pipe `padTwoDigit` to display it cleaner on the template so for example instead of displaying 65 we will
+display that as 06.5 and so on.
+
+Calling `resetTimer()` we run `stopInterval` that uses window function `clearInterval` to prevent memory leaks
+and we set all variables to initial state which is 0.
+
+### State
+
+In `AppComponent` we're going to store following variables:
+- `timerId` - Returned value from `setInterval` function to stop the interval to prevent memory leaks.
+As default we set this to 0.
+- `totalDuration`: Total time that has passed so far.
+- `lastTickTiming`: This is the time that the last interval callback has run. We will keep incrementing
+ the `totalDuration` by the delta between the current time (`Date.now()`) and the `lastTickTiming`.
+ Using this approach, the `totalDuration` will still be accurate even if the callbacks run at
+ irregular intervals.
+ - `hours`, `minutes`, `seconds`, `milliseconds` - time variables to be displayed on the template.
+
+### Angular Insights
+
+- You can adopt a more advanced, reactive-like approach using RxJS (without using subscriptions as possible).
+However, if you opt for subscriptions, remember about destroying them to prevent memory leaks.
+
+- You might create service for maintaining the state. Inject the service in smart component and crete dumb components
+that only display and interact with the UI and all events from dumb components are passed to the smart one.
+
+- If you're confident with the latest Angular versions, consider using signals standalone API.
+
+- You can try to focus more on keywords such as `readonly`, `private`, `public` and `void`.
+
+- If you're creating a bigger application it would be good practice to use styles per component instead of putting all
+styles in one file.
+
+
+<TestCases />
+<Notes />

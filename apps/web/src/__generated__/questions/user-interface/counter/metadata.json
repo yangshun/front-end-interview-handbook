@@ -16,12 +16,16 @@
       "href": "/questions/user-interface/counter/react"
     },
     {
+      "framework": "vanilla",
+      "href": "/questions/user-interface/counter/vanilla"
+    },
+    {
       "framework": "angular",
       "href": "/questions/user-interface/counter/angular"
     },
     {
-      "framework": "vanilla",
-      "href": "/questions/user-interface/counter/vanilla"
+      "framework": "svelte",
+      "href": "/questions/user-interface/counter/svelte"
     }
   ],
   "href": "/questions/user-interface/counter",

@@ -19,6 +19,14 @@
     {
       "framework": "vanilla",
       "href": "/questions/user-interface/stopwatch/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/stopwatch/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/stopwatch/svelte"
     }
   ],
   "href": "/questions/user-interface/stopwatch",

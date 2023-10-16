@@ -667,6 +667,14 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/contact-form/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/contact-form/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/contact-form/svelte"
       }
     ],
     "href": "/questions/user-interface/contact-form",
@@ -736,12 +744,16 @@
         "href": "/questions/user-interface/counter/react"
       },
       {
+        "framework": "vanilla",
+        "href": "/questions/user-interface/counter/vanilla"
+      },
+      {
         "framework": "angular",
         "href": "/questions/user-interface/counter/angular"
       },
       {
-        "framework": "vanilla",
-        "href": "/questions/user-interface/counter/vanilla"
+        "framework": "svelte",
+        "href": "/questions/user-interface/counter/svelte"
       }
     ],
     "href": "/questions/user-interface/counter",
@@ -1263,6 +1275,14 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/digital-clock/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/digital-clock/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/digital-clock/svelte"
       }
     ],
     "href": "/questions/user-interface/digital-clock",
@@ -2237,6 +2257,14 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/job-board/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/job-board/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/job-board/svelte"
       }
     ],
     "href": "/questions/user-interface/job-board",
@@ -2402,6 +2430,14 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/like-button/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/like-button/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/like-button/svelte"
       }
     ],
     "href": "/questions/user-interface/like-button",
@@ -2612,6 +2648,14 @@
       {
         "framework": "react",
         "href": "/questions/user-interface/memory-game/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/memory-game/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/memory-game/svelte"
       }
     ],
     "href": "/questions/user-interface/memory-game",
@@ -3617,6 +3661,14 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/stopwatch/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/stopwatch/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/stopwatch/svelte"
       }
     ],
     "href": "/questions/user-interface/stopwatch",
@@ -3834,6 +3886,14 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/temperature-converter/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/temperature-converter/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/temperature-converter/svelte"
       }
     ],
     "href": "/questions/user-interface/temperature-converter",
@@ -3970,6 +4030,14 @@
       {
         "framework": "react",
         "href": "/questions/user-interface/tic-tac-toe/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/tic-tac-toe/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/tic-tac-toe/svelte"
       }
     ],
     "href": "/questions/user-interface/tic-tac-toe",
@@ -4008,6 +4076,14 @@
       {
         "framework": "react",
         "href": "/questions/user-interface/tic-tac-toe-ii/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/tic-tac-toe-ii/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/tic-tac-toe-ii/svelte"
       }
     ],
     "href": "/questions/user-interface/tic-tac-toe-ii",
@@ -4123,6 +4199,14 @@
       {
         "framework": "vanilla",
         "href": "/questions/user-interface/traffic-light/vanilla"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/traffic-light/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/traffic-light/svelte"
       }
     ],
     "href": "/questions/user-interface/traffic-light",
@@ -4158,6 +4242,14 @@
       {
         "framework": "react",
         "href": "/questions/user-interface/transfer-list/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/transfer-list/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/transfer-list/svelte"
       }
     ],
     "href": "/questions/user-interface/transfer-list",
@@ -4358,6 +4450,14 @@
       {
         "framework": "react",
         "href": "/questions/user-interface/undoable-counter/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/undoable-counter/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/undoable-counter/svelte"
       }
     ],
     "href": "/questions/user-interface/undoable-counter",
@@ -4423,6 +4523,14 @@
       {
         "framework": "react",
         "href": "/questions/user-interface/whack-a-mole/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/whack-a-mole/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/whack-a-mole/svelte"
       }
     ],
     "href": "/questions/user-interface/whack-a-mole",
@@ -4458,6 +4566,14 @@
       {
         "framework": "react",
         "href": "/questions/user-interface/wordle/react"
+      },
+      {
+        "framework": "angular",
+        "href": "/questions/user-interface/wordle/angular"
+      },
+      {
+        "framework": "svelte",
+        "href": "/questions/user-interface/wordle/svelte"
       }
     ],
     "href": "/questions/user-interface/wordle",

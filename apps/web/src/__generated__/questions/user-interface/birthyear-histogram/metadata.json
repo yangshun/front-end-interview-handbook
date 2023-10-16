@@ -1,0 +1,28 @@
+{
+  "author": null,
+  "companies": [],
+  "created": 1682035200,
+  "difficulty": "medium",
+  "duration": 30,
+  "excerpt": "Build a widget that fetches birthyear data from an API and plot it on a histogram",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/user-interface/birthyear-histogram",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [],
+  "premium": true,
+  "published": false,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "birthyear-histogram",
+  "subtitle": null,
+  "title": "Birthyear Histogram",
+  "topics": []
+}

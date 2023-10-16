@@ -1,0 +1,28 @@
+{
+  "author": null,
+  "companies": [],
+  "created": 1682035200,
+  "difficulty": "hard",
+  "duration": 30,
+  "excerpt": "Build a dice roller app that simulates the results of rolling 6-sided dices",
+  "featured": false,
+  "format": "user-interface",
+  "frameworkDefault": null,
+  "frameworks": [],
+  "href": "/questions/user-interface/dice-roller",
+  "importance": "low",
+  "languages": [
+    "html",
+    "css",
+    "js"
+  ],
+  "nextQuestions": [],
+  "premium": true,
+  "published": false,
+  "ranking": 100,
+  "similarQuestions": [],
+  "slug": "dice-roller",
+  "subtitle": null,
+  "title": "Dice Roller",
+  "topics": []
+}

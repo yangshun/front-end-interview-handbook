@@ -17,6 +17,14 @@
     {
       "framework": "react",
       "href": "/questions/user-interface/tic-tac-toe-ii/react"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/tic-tac-toe-ii/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/tic-tac-toe-ii/svelte"
     }
   ],
   "href": "/questions/user-interface/tic-tac-toe-ii",

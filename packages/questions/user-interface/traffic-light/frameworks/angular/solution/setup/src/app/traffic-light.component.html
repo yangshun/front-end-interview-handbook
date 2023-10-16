@@ -1,0 +1,20 @@
+<div
+  aria-live="polite"
+  [attr.aria-label]="'Current light: ' + currentColor"
+  [ngClass]="{
+    'traffic-light-container': true,
+    'traffic-light-container--vertical':
+      layout === 'vertical'
+  }">
+  <div
+    *ngFor="
+      let color of config | keyvalue: trafficLightOrder
+    "
+    [attr.aria-hidden]="true"
+    class="traffic-light"
+    [style.background-color]="
+      color.key === currentColor
+        ? config[color.key].backgroundColor
+        : undefined
+    "></div>
+</div>

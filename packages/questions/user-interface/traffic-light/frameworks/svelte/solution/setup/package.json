@@ -1,0 +1,8 @@
+{
+  "name": "@gfe-questions/traffic-light-svelte-solution",
+  "version": "0.0.1",
+  "main": "src/index.js",
+  "dependencies": {
+    "svelte": "^3.58.0"
+  }
+}

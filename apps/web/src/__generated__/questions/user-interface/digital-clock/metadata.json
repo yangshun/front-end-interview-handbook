@@ -18,6 +18,14 @@
     {
       "framework": "vanilla",
       "href": "/questions/user-interface/digital-clock/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/digital-clock/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/digital-clock/svelte"
     }
   ],
   "href": "/questions/user-interface/digital-clock",

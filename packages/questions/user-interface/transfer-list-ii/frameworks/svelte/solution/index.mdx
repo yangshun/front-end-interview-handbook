@@ -1,0 +1,29 @@
+import TestCases from '../../../test-cases.mdx';
+import A11y from '../../../a11y.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+The following explanation assumes you have a good understanding of [Transfer List's Svelte solution](/questions/user-interface/transfer-list/svelte/solution).
+
+### State
+
+The state structure remains the same and the choice of `Map` is flexible enough to handle the new use case of adding items to the list.
+
+### Rendering
+
+The main additions in this question are:
+
+#### Input form
+
+We'll wrap the `<input>` in a `<form>` for built-in keyboard handling, a11y, and UX.
+
+#### Bulk Selection Checkbox
+
+Did you know that an HTML checkbox actually has 3 states? They are checked, unchecked, and indeterminate. Indeterminate state is not commonly used and cannot be set via HTML attributes. Hence we need to obtain a reference to the checkbox instance and do `checkboxInputElement.indeterminate = true`. This can be done in React via the `useRef` hook.
+
+We can write a new function called `determineListSelectionState` that accepts the `items` and determine the selection state of the list, whether no items are selected, some items are selected, or all items are selected. With this selection. With this state, we can render the appropriate appearance for the bulk selection checkbox. This state is also useful for determining what happens when the bulk selection checkbox is clicked/triggered. We can create a new function called `setAllItemsSelectionState` to return a new set of list items which are set to a specific selection state.
+
+<TestCases />
+<A11y />
+<Notes />

@@ -16,6 +16,14 @@
     {
       "framework": "vanilla",
       "href": "/questions/user-interface/temperature-converter/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/temperature-converter/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/temperature-converter/svelte"
     }
   ],
   "href": "/questions/user-interface/temperature-converter",

@@ -1,0 +1,40 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+### Properties and Reactive Statements
+
+In this Svelte code, we're simulating a traffic light behavior. We have a few properties (sometimes called "props"):
+
+- `initialColor`: This is the initial color of the traffic light. Its default value is set to `green`.
+- `config`: An object that provides configuration for each traffic light color. This includes the duration for which a color should be displayed and the next color that should be shown.
+- `layout`: Determines the layout orientation of the traffic light, either `vertical` or `horizontal`. By default, it is set to `vertical`.
+
+Furthermore, there's a reactive statement `$: setTimer(currentColor);` that watches the `currentColor` variable. Anytime `currentColor` changes, the `setTimer` function is invoked.
+
+### Timer Management
+
+The main logic in the code revolves around the timing mechanism:
+
+- `setTimer`: This function takes a color as its parameter. It looks up the duration for the given color from the `config` object and sets a timer (`setTimeout`) for that duration. When the timer expires, the `currentColor` is updated to the next color as specified in the `config`.
+
+- `onDestroy`: This lifecycle function ensures that when the component is destroyed (or removed from the DOM), any ongoing timers are cleared using `clearTimeout(timerId);`. This is important to prevent unexpected behaviors or memory leaks.
+
+### Rendering
+
+Key rendering features include:
+
+- ARIA Accessibility: The traffic light container has `aria-live="polite"` which indicates to screen readers that they should notify the user of changes, but not interrupt the current task. This way, users with assistive technologies will be informed about the current state of the traffic light.
+- Dynamic Classes: Based on the `layout` prop, the class `traffic-light-container--vertical` is conditionally applied to the container to adjust the direction of the traffic lights (vertical or horizontal).
+
+- Color Iteration: Using the `{#each ... as color}` block, the code iterates over each color in the `config` object. For each color, a `div` with class `traffic-light` is created. If the color matches the `currentColor`, it gets the appropriate background color. If not, it defaults to a dimmed light.
+
+- Styling: The CSS defines the appearance of the traffic light container and individual lights. Notably, it uses CSS variables (e.g., `var(--size)`) for defining dimensions, which offers flexibility in adjusting sizes if needed.
+
+### Conclusion
+
+The Svelte component simulates a traffic light with customizable behavior based on provided configurations. The reactive nature of Svelte is utilized to manage timers and switch light colors seamlessly, while also ensuring proper cleanup of resources when they're no longer needed. On the rendering front, the component employs a combination of Svelte's loop mechanism, conditional styling, and accessibility features to provide a visually appealing and user-friendly experience.
+
+<TestCases />
+<Notes />

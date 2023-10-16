@@ -1,0 +1,44 @@
+import Notes from '../../../notes.mdx';
+import TestCases from '../../../test-cases.mdx';
+
+## Solution
+
+### State
+
+The code's logic revolves around a few key reactive variables that define the application's behavior and data flow:
+
+- `counter`: This variable represents the current value of the counter. Any operation selected by the user will modify this value.
+- `history`: This array keeps track of every operation the user has performed on the counter. Each operation is recorded with its name, the old counter value, and the new counter value.
+- `undoHistory`: This array stores operations that have been undone. This allows the application to "redo" an operation if desired by the user.
+
+### Rendering
+
+Some points of interest in the rendering code are:
+
+- Flexbox Layout: The application uses the flexbox layout model to position elements in rows. The `.row` CSS class defines the behavior of these rows, ensuring that items within the rows are both centered and aligned.
+- Conditional Rendering of the Table: The history table will only appear if there have been any operations, thanks to the `{#if history.length > 0}` Svelte conditional rendering. This ensures that the user doesn't see an empty table when they first open the application.
+- The Counter Display: The counter's value is prominently displayed between the operation buttons, styled with a larger font size and margins to stand out.
+
+### User Interactions and Operations
+
+#### `onReset`
+
+This function resets the counter to its initial value of 0 and clears both the `history` and `undoHistory` arrays. Essentially, it brings the application back to its starting state.
+
+#### `undo`
+
+When called, this function undoes the most recent operation. It achieves this by retrieving the latest operation from the `history` array, restoring the counter to its previous state, and then moving that operation into the `undoHistory` array.
+
+#### `redo`
+
+This function does the opposite of the `undo` function. It takes the latest operation from the `undoHistory` array, applies it to the counter, and then moves that operation back into the `history` array.
+
+#### `performOperation`
+
+This is the function responsible for applying operations to the counter. It uses the `OPERATIONS` object to find the correct function based on the operation passed as an argument, and then applies this function to the `counter` value. The old and new counter values, along with the operation's name, are then stored in the `history` array. Additionally, the `undoHistory` array is cleared, as any operations stored there are no longer relevant after a new operation has been applied.
+
+### Conclusion
+
+This Svelte application provides a simple yet intuitive counter with undo, redo, and reset functionality. The design choices, from the reactive state management to the flexbox-based rendering, ensure that the app is both functional and user-friendly.
+
+<TestCases />

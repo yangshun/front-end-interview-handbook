@@ -1,6 +1,6 @@
 {
   "name": "@gfe-questions/counter-angular-skeleton",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
     "@angular/common": "16.2.4",

@@ -18,6 +18,14 @@
     {
       "framework": "vanilla",
       "href": "/questions/user-interface/like-button/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/like-button/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/like-button/svelte"
     }
   ],
   "href": "/questions/user-interface/like-button",

@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  --background-color: salmon;
+
+  background-color: var(--background-color);
+  font-family: sans-serif;
+  padding: 2rem;
+}

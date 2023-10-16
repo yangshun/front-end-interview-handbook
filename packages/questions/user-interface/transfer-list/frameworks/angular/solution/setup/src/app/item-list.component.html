@@ -1,0 +1,14 @@
+<div class="transfer-list__section">
+  <ul class="transfer-list__section__items">
+    <li *ngFor="let item of itemsArray">
+      <div class="transfer-list__section__items__item">
+        <input
+          type="checkbox"
+          [id]="item[0]"
+          [checked]="item[1]"
+          (change)="toggleItem(item[0])" />
+        <label [for]="item[0]">{{ item[0] }}</label>
+      </div>
+    </li>
+  </ul>
+</div>

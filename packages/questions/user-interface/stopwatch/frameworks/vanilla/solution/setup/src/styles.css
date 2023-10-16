@@ -20,7 +20,7 @@ body {
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0
+  right: 0;
 }
 
 .time-inner {
@@ -30,7 +30,7 @@ body {
 }
 
 .time-unit {
-  font-size: 24px
+  font-size: 24px;
 }
 
 .time-number {

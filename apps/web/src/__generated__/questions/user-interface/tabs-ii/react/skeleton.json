@@ -1,10 +1,10 @@
 {
   "files": {
     "/package.json": {
-      "code": "{\n  \"name\": \"@gfe-questions/tabs-ii-react-skeleton\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"dependencies\": {\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  }\n}"
+      "code": "{\n  \"name\": \"@gfe-questions/tabs-ii-react-skeleton\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"dependencies\": {\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  }\n}\n"
     },
     "/public/index.html": {
-      "code": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
+      "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
     },
     "/src/App.js": {
       "code": "import Tabs from './Tabs';\n\nimport './styles.css';\n\nexport default function App() {\n  return (\n    <div className=\"wrapper\">\n      <Tabs\n        items={[\n          {\n            value: 'html',\n            label: 'HTML',\n            panel:\n              'The HyperText Markup Language or HTML is the standard markup language for documents designed to be displayed in a web browser.',\n          },\n          {\n            value: 'css',\n            label: 'CSS',\n            panel:\n              'Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language such as HTML or XML.',\n          },\n          {\n            value: 'javascript',\n            label: 'JavaScript',\n            panel:\n              'JavaScript, often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS.',\n          },\n        ]}\n      />\n    </div>\n  );\n}\n"

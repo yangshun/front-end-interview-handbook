@@ -1,0 +1,46 @@
+import TestCases from '../../../test-cases.mdx';
+
+## Solution
+
+### Rendering
+
+To make the board responsive, CSS Grid was utilized in the code. CSS Grid is a powerful layout system that allows for the creation of two-dimensional grid layouts. Here's how CSS Grid was used to make the game board responsive:
+
+1. **Grid Container**: The game board is enclosed within a `<div>` element carrying the class name `board`. This element serves as our grid container for the cells.
+2. **Grid Template Columns**: The grid container is designated with `display: grid` and the property `grid-template-columns: repeat(3, 1fr)` is applied. This specifies that the grid should have three columns, each with equal width. The notation `repeat(3, 1fr)` is a concise way of saying, "three columns, each taking up one fraction (or 1/3) of the available space."
+3. **Cell Sizing**: Each grid cell is represented by a button element from the `Cell` component with the class name "cell". For the cell's appearance:
+   - The `font-size` is set using the `min()` function, ensuring that the text scales adaptively based on the viewport's width. A fallback size of `48px` is specified, but it can also use up to `10vw` (or 10% of the viewport width).
+   - The property `aspect-ratio: 1 / 1` makes sure each cell remains square-shaped regardless of the content.
+4. **Responsive Behavior**: By using CSS Grid and defining the cell sizing based on the viewport width, the game board becomes responsive. As the viewport width decreases, the grid layout adapts, and the cells adjust their size accordingly. The `min()` function in the `font-size` property ensures that the font size does not become too large on smaller screens, providing a better user experience.
+
+Overall, CSS Grid provides a flexible and responsive layout for the game board by defining the number of columns and adjusting the cell size based on the available space. This allows the game board to maintain its structure and usability across different screen sizes and devices.
+
+### State
+
+The game's logic is held together by two main state variables:
+
+1. `board`: An array representing the game board's current state. Initialized as an array filled with `undefined` with a length of 9, each array element corresponds to a board cell. The possible values each element can hold are either `'X'`, `'O'`, or `undefined`, representing the marks made by players X and O or an empty cell.
+2. `xIsPlaying`: A boolean to track which player's turn it is, initially set to `true` (indicating Player X).
+
+### `determineWinner`
+
+The `determineWinner` function is at the heart of the game's logic, determining if a player has won. By iterating over every possible winning line combination, this function checks if all cells in a given line have the same mark. If a winning line is found, the function returns the victorious player's mark (`'X'` or `'O'`), otherwise it returns `null` (indicating no winner yet).
+
+The function takes a `board` parameter, which is an array representing the state of the game board. It iterates over the `CELLS_IN_A_LINE` array, which contains all the possible combinations of cell indices that form a winning line in the Tic-Tac-Toe game. Each combination consists of three indices representing the cells in a row, column, or diagonal. Since the board size is relatively small, it is possible to enumerate all the possible combinations. If the board size is larger then this approach won't scale well.
+
+Inside the loop, the current combination of cell indices is destructured into three variables: `x`, `y`, and `z`. These variables represent the indices of the cells that need to be checked for equality.
+
+The function then checks if the values in the `board` array at indices `x`, `y`, and `z` are not `undefined` (indicating that the cells are not empty) and are all equal to each other. If this condition is satisfied, it means that there is a winning line formed by the marks in the cells. If a winning line is found, the function returns the value of the mark (either `'X'` or `'O'`) that is present in the winning line. This indicates which player has won the game.
+
+If no winning line is found after checking all the combinations, the function returns `null`, indicating that there is no winner yet.
+
+### Components and Interactivity
+
+The game's functionality and user interactivity are encapsulated within two Svelte components:
+
+1. **App Component**: It manages the game's overall state and logic. This is where we determine whose turn it is, whether there's a winner, and handle the game reset. We also iterate over the `board` state to render each cell using the `Cell` component.
+2. **Cell Component**: It represents individual game cells. It accepts props to determine its appearance and behavior, such as whether it should be disabled or what mark it currently holds. The component emits a 'click' event to notify the parent component (`App`) when a cell is clicked.
+
+Using these two components, we can efficiently manage the game's state and ensure smooth interactions for the players.
+
+<TestCases />

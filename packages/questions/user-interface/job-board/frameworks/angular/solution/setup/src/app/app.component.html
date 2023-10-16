@@ -1,0 +1,46 @@
+<div class="app">
+  <h1 class="title">Hacker News Jobs Board</h1>
+
+  <ng-container
+    *ngIf="allJobIds.length === 0; else loadedJobBoard">
+    <p class="loading">Loading...</p>
+  </ng-container>
+
+  <ng-template #loadedJobBoard>
+    <div class="jobs" role="list">
+      <div
+        *ngFor="let job of jobs"
+        class="post"
+        role="listitem">
+        <h2 class="post__title">
+          {{ job.id }}
+          <a
+            *ngIf="job.url"
+            [href]="job.url"
+            class="post__title__link"
+            rel="noopener"
+            target="_blank">
+            {{ job.title }}
+          </a>
+          <span *ngIf="!job.url">{{ job.title }}</span>
+        </h2>
+        <p class="post__metadata">
+          By {{ job.by }} &middot;
+          {{ job.time | date: 'short' }}
+        </p>
+      </div>
+    </div>
+    <button
+      (click)="fetchMoreJobs()"
+      *ngIf="
+        jobs.length > 0 &&
+        page * PAGE_SIZE + PAGE_SIZE < allJobIds.length
+      "
+      [disabled]="fetchingJobDetails"
+      class="load-more-button">
+      {{
+        fetchingJobDetails ? 'Loading...' : 'Load more jobs'
+      }}
+    </button>
+  </ng-template>
+</div>

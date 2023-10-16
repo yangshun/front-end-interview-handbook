@@ -1,0 +1,75 @@
+import TestCases from '../../../test-cases.mdx';
+
+## Solution
+
+The following explanation assumes you have a good understanding of
+[Tic-tac-toe's Angular solution](/questions/user-interface/tic-tac-toe/angular/solution).
+
+The standard tic-tac-toe game uses n = 3 and m = 3. In general it is a good practice to parameterize
+the app/components you're building, however the general version of tic-tac-toe takes significantly
+longer to implement.
+
+Once we initialize the component and enter the `ngOnInit` hook, we will reset the game. This involves
+setting all properties to their initial values and configuring the game board based on `@Input` values
+
+We call `determineWinner` after every turn as a winner can only emerge after a turn.
+
+The `determineWinner` method needs to handle four core values: `board` (the current state of the game board),
+`index` (passed index of the last marked cell), `n` (the size of the board), and `m` (the number of consecutive marks
+required to win).
+
+It firstly generates four arrays representing the winning `lines`:
+
+- `rowLine`: Contains the indices of all the cells in the same row as the last marked cell.
+- `colLine`: Contains the indices of all the cells in the same column as the last marked cell.
+- `leftToRightDiagonalLine`: Contains the indices of all the cells in the left-to-right diagonal that includes
+the last marked cell.
+- `rightToLeftDiagonalLine`: Contains the indices of all the cells in the right-to-left diagonal that includes
+the last marked cell.
+
+For each line in `lines`, it then counts if there are `m` consecutive cells with the same mark and returns the
+mark if there is, otherwise it returns `null`, indicating there's no winner for the board yet.
+
+Based on `board`, `xIsPlaying` and `winner` fields we can determine who is the winner or turn order by using
+`statusMessage` pipe.
+
+### State
+
+In our state we have `board`, `xIsPlaying` and `winner` (and of course `n` and `m` but those values are not
+supposed to be changed).
+
+Other than the two core pieces of state as per 3 x 3 Tic-tac-toe, we now include a new `winner`
+state to track the state of the winning mark of the board. Strictly speaking, the `winner` is
+derived state and can be determined by processing the `board`, which is the approach taken by the 3 x 3 version.
+However, for N x N boards where N and M can be very large, we determine the winner only after every turn and store
+it in state, which is a more efficient approach as compared to determining on every render.
+
+### Rendering
+
+Since the dimensions of the board is not fixed and can only be determined at runtime, we have to use inline
+styles to generate the required `grid-template-columns` property value.
+
+### Models
+
+Type for board cell to prevent typing `board: (string | null)[];`.
+
+```typescript
+type Cell = string | null;
+```
+
+### Angular Insights
+
+- You can adopt a more advanced, reactive-like approach using RxJS (without using subscriptions as possible).
+However, if you opt for subscriptions, remember about destroying them to prevent memory leaks.
+
+- You might create service for maintaining the state. Inject the service in smart component and crete dumb components
+that only display and interact with the UI and all events from dumb components are passed to the smart one.
+
+- If you're confident with the latest Angular versions, consider using signals standalone API.
+
+- You can try to focus more on keywords such as `readonly`, `private`, `public` and `void`.
+
+- If you're creating a bigger application it would be good practice to use styles per component instead of putting all
+styles in one file.
+
+<TestCases />

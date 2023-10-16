@@ -1,0 +1,38 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+This question looks simple on first glance but is actually more complex than it seems. Note that `setInterval`'s `delay` parameter is unreliable. The actual amount of time that elapses between calls to the callback may be [longer than the given delay due to various reasons](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout#reasons_for_delays_longer_than_specified). Because of this behavior, we cannot assume that each time the interval callback is fired, the same duration as passed. We will need to read the current time within the callback code to ensure that we are using the most updated timings.
+
+### State
+
+The tricky part of this question is deciding what goes into the component state and how to manage them. We need a few states:
+
+- `lastTickTiming`: A variable to hold the timestamp of the last timer tick. This is crucial to determine how much time has passed since the last tick.
+- `totalDuration`: Maintains the total time elapsed in milliseconds since the timer started.
+- `timerId`: A reference to the interval function, helping in starting, pausing, or stopping the timer.
+- `isRunning`: A derived state that checks if the timer is currently running. This is determined by whether `timerId` is null or not.
+
+Three main functions are central to the timer's operation:
+
+- `startTimer`: Initializes the timer by setting the last tick timing and creating an interval function that updates the `totalDuration` every millisecond.
+- `stopInterval`: Clears the interval, effectively pausing the timer.
+- `resetTimer`: Resets the timer's state to its initial values.
+
+Lastly, the `toggleTimer` function is a convenient way to switch between starting and stopping the timer based on its current state.
+
+### Rendering
+
+Some significant aspects of the rendering include:
+
+- **Dynamic Timer Display**: The time display is constructed dynamically, only showing hours or minutes if they are not zero. This avoids displaying "0h 0m" when the timer is just a few seconds or milliseconds in.
+- **Styling**: The timer is styled to make it look like a modern digital timer. The numbers are significantly larger than the units (like 'h', 'm', 's'), and milliseconds are slightly smaller than seconds for a clear hierarchy in the display. The `gap` CSS property is used to maintain a consistent spacing between the units.
+- **Timer Control Buttons**: Two primary buttons allow the user to control the timer:
+  - A button that toggles the timer's running state, displaying 'Stop' when the timer is running and 'Start' when it's paused.
+  - A 'Reset' button that sets the timer back to its initial state.
+
+By incorporating the described functionalities, this Svelte code provides a user-friendly, interactive stopwatch that accurately tracks and displays elapsed time.
+
+<TestCases />
+<Notes />

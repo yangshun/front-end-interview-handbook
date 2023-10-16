@@ -1,0 +1,43 @@
+import TestCases from '../../../test-cases.mdx';
+
+## Solution
+
+### Props
+
+For flexibility, the memory game can be modified using:
+
+- `rows`: Determines the number of rows.
+- `cols`: Determines the number of columns.
+- `matchCount`: Specifies how many identical images there should be. The default value is 2, but having it adjustable is a useful feature.
+- `delay`: Dictates the time lapse before non-matching cards turn back face-down.
+
+We need to validate these configurations to ensure they produce a playable game. One such validation is ensuring the total cell count can be divided by the match count without remainder.
+
+### State Management
+
+- `cards`: A one-dimensional array depicting the game board. It contains groups of emojis (based on `matchCount`). For instance, in a 4 x 4 board, the array has a size of 16, and `cards[4]` corresponds to the card in the 2nd row, 1st column. It is only re-generated when starting a new game.
+- `flipped`: Stores indices of flipped cards that haven't been matched yet.
+- `matched`: A set to store emojis that have found their matching pairs.
+- `waitTimer`: Used to keep track of the timer for auto-flipping cards after the `delay` duration.
+- `gameCompleted`: A boolean to track if all pairs have been matched.
+
+### Rendering
+
+CSS grid is used to render the cards in a 2-dimensional format. It's a great choice because you can render the cards as a single list of DOM elements but with the right CSS grid settings, they can be displayed in a rows x cols layout.
+
+### Generating the Cards
+
+The card creation is as follows:
+
+1. Make N groups of `matchCount` emojis where N = total cells / `matchCount` in a single array.
+1. Shuffle the array.
+
+### `onFlip`
+
+For the most part, `onFlip` adds cards to the `selected` array. If there aren't enough cards to make a decision whether there's a match yet, the function terminates. When enough cards are selected, check whether all the selected cards are similar. If so, we can add the selected emoji to the `matched` set and reset `selected` to be empty so that the player can continue with the game. If there isn't a match, we wait for `delay` duration to pass before flipping the selected cards back over. 
+
+If a player tries flipping more cards before the `delay` elapses, the already flipped cards (that aren't matched) need to be reset immediately. Using `clearTimeout` with the timer stored in `waitTimer` achieves this.
+
+In Svelte, the reactivity system via `$:` ensures the checks and updates to the game state are done efficiently. When props like `cols`, `rows`, or `matchCount` change, necessary functions and validations are automatically re-invoked.
+
+<TestCases />

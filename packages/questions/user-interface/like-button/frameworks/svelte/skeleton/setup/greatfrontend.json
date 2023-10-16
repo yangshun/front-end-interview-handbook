@@ -1,0 +1,9 @@
+{
+  "visibleFiles": [
+    "/src/App.svelte",
+    "/src/HeartIcon.svelte",
+    "/src/SpinnerIcon.svelte"
+  ],
+  "activeFile": "/src/App.svelte",
+  "environment": "svelte"
+}

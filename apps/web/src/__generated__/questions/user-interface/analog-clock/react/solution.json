@@ -1,10 +1,10 @@
 {
   "files": {
     "/package.json": {
-      "code": "{\n  \"name\": \"@gfe-questions/analog-clock-react-solution\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"dependencies\": {\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  }\n}"
+      "code": "{\n  \"name\": \"@gfe-questions/analog-clock-react-solution\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"dependencies\": {\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  }\n}\n"
     },
     "/public/index.html": {
-      "code": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
+      "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
     },
     "/src/App.js": {
       "code": "import Clock from './Clock';\n\nimport './styles.css';\n\nexport default function App() {\n  return (\n    <div className=\"wrapper\">\n      <Clock />\n    </div>\n  );\n}\n"
@@ -16,7 +16,7 @@
       "code": "import React, { StrictMode } from 'react';\nimport { createRoot } from 'react-dom/client';\n\nimport App from './App';\n\nconst root = createRoot(document.getElementById('root'));\nroot.render(\n  <StrictMode>\n    <App />\n  </StrictMode>,\n);\n"
     },
     "/src/styles.css": {
-      "code": "body {\n  font-family: sans-serif;\n}\n\n.wrapper {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.clock {\n  display: block;\n  flex-shrink: 0;\n  position: relative;\n  width: var(--size);\n  height: var(--size);\n  border-radius: 100%;\n  border: 2px solid #ccc;\n  transform: rotate(180deg);\n}\n\n.clock-hand {\n  background-color: #ccc;\n  position: absolute;\n  width: 1px;\n  height: calc(var(--size) / 2);\n  left: calc(var(--size) / 2);\n  top: calc(var(--size) / 2);\n  transform-origin: top center;\n}"
+      "code": "body {\n  font-family: sans-serif;\n}\n\n.wrapper {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.clock {\n  display: block;\n  flex-shrink: 0;\n  position: relative;\n  width: var(--size);\n  height: var(--size);\n  border-radius: 100%;\n  border: 2px solid #ccc;\n  transform: rotate(180deg);\n}\n\n.clock-hand {\n  background-color: #ccc;\n  position: absolute;\n  width: 1px;\n  height: calc(var(--size) / 2);\n  left: calc(var(--size) / 2);\n  top: calc(var(--size) / 2);\n  transform-origin: top center;\n}\n"
     }
   },
   "workspace": {

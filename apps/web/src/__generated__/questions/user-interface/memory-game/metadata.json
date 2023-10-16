@@ -12,6 +12,14 @@
     {
       "framework": "react",
       "href": "/questions/user-interface/memory-game/react"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/memory-game/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/memory-game/svelte"
     }
   ],
   "href": "/questions/user-interface/memory-game",

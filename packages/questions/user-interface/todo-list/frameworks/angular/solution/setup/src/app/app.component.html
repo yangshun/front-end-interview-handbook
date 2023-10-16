@@ -1,0 +1,19 @@
+<div>
+  <h1>Todo List</h1>
+  <div>
+    <input
+      aria-label="Add new task"
+      type="text"
+      placeholder="Add your task"
+      [(ngModel)]="newTask" />
+    <div>
+      <button (click)="addTask()">Submit</button>
+    </div>
+  </div>
+  <ul>
+    <li *ngFor="let task of tasks">
+      <span>{{ task.label }}</span>
+      <button (click)="deleteTask(task.id)">Delete</button>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,19 @@
+<div class="app">
+  <div aria-live="polite">
+    {{ board | statusMessage: xIsPlaying : winner }}
+  </div>
+  <div
+    class="board"
+    [style.grid-template-columns]="
+      'repeat(' + n + ', 1fr)'
+    ">
+    <button
+      *ngFor="let cell of board; let i = index"
+      class="cell"
+      [disabled]="cell !== null || winner !== null"
+      (click)="onCellClick(i)">
+      <span aria-hidden="true">{{ cell }}</span>
+    </button>
+  </div>
+  <button (click)="clickReset()">Reset</button>
+</div>

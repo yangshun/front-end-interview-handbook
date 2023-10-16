@@ -1,0 +1,30 @@
+<div class="app">
+  <div
+    class="grid"
+    [ngStyle]="{
+      'grid-template-rows':
+        'repeat(' + rows + ', var(--size))',
+      'grid-template-columns':
+        'repeat(' + cols + ', var(--size))'
+    }">
+    <button
+      *ngFor="let card of cards; let index = index"
+      class="card"
+      [ngClass]="{
+        'card--revealed': matched.has(cards[index])
+      }"
+      [disabled]="
+        matched.has(cards[index]) || flipped.includes(index)
+      "
+      (click)="onFlip(index)">
+      {{
+        matched.has(cards[index]) || flipped.includes(index)
+          ? card
+          : ''
+      }}
+    </button>
+  </div>
+  <button *ngIf="gameCompleted" (click)="resetGame()">
+    Play Again
+  </button>
+</div>

@@ -1,10 +1,10 @@
 {
   "files": {
     "/package.json": {
-      "code": "{\n  \"name\": \"@gfe-questions/generate-table-react-skeleton\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"dependencies\": {\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  }\n}"
+      "code": "{\n  \"name\": \"@gfe-questions/generate-table-react-skeleton\",\n  \"version\": \"0.0.1\",\n  \"private\": true,\n  \"dependencies\": {\n    \"react\": \"18.2.0\",\n    \"react-dom\": \"18.2.0\",\n    \"react-scripts\": \"5.0.1\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  }\n}\n"
     },
     "/public/index.html": {
-      "code": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
+      "code": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div id=\"root\"></div>\n  </body>\n</html>\n"
     },
     "/src/App.js": {
       "code": "import './styles.css';\n\nexport default function App() {\n  return <div>Hello World</div>;\n}\n"

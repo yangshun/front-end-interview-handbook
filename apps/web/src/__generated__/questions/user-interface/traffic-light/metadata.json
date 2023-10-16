@@ -18,6 +18,14 @@
     {
       "framework": "vanilla",
       "href": "/questions/user-interface/traffic-light/vanilla"
+    },
+    {
+      "framework": "angular",
+      "href": "/questions/user-interface/traffic-light/angular"
+    },
+    {
+      "framework": "svelte",
+      "href": "/questions/user-interface/traffic-light/svelte"
     }
   ],
   "href": "/questions/user-interface/traffic-light",

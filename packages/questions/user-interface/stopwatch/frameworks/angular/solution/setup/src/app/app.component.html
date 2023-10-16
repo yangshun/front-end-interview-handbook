@@ -1,0 +1,31 @@
+<div>
+  <button class="time" (click)="toggleTimer()">
+    <span *ngIf="hours > 0">
+      <span class="time-number">
+        {{ hours }}
+      </span>
+      <span class="time-unit">h</span>
+    </span>
+    <span *ngIf="minutes > 0">
+      <span class="time-number">
+        {{ minutes }}
+      </span>
+      <span class="time-unit">m</span>
+    </span>
+    <span>
+      <span class="time-number">
+        {{ seconds }}
+      </span>
+      <span class="time-unit">s</span>
+    </span>
+    <span class="time-number time-number--small">
+      {{ milliseconds | padTwoDigit }}
+    </span>
+  </button>
+  <div>
+    <button (click)="toggleTimer()">
+      {{ timerId ? 'Stop' : 'Start' }}
+    </button>
+    <button (click)="resetTimer()">Reset</button>
+  </div>
+</div>

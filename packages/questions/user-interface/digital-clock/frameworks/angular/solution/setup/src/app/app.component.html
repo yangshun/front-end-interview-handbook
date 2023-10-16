@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <!-- Use a <time> element with \`dateTime\` attribute set -->
+  <!-- to the current time in 24-hour format so that -->
+  <!-- screen readers can read this component. -->
+  <time class="clock" [dateTime]="dateTimeDisplay">
+    <app-digit [number]="hours / 10 | floor"></app-digit>
+    <app-digit [number]="hours % 10 | floor"></app-digit>
+
+    <app-separator></app-separator>
+
+    <app-digit [number]="minutes / 10 | floor"></app-digit>
+    <app-digit [number]="minutes % 10 | floor"></app-digit>
+
+    <app-separator></app-separator>
+
+    <app-digit [number]="seconds / 10 | floor"></app-digit>
+    <app-digit [number]="seconds % 10 | floor"></app-digit>
+  </time>
+</div>

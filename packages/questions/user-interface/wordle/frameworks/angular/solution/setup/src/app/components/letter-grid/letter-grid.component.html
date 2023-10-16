@@ -1,0 +1,33 @@
+<section
+  class="grid-section"
+  [style.grid-template-columns]="
+    'repeat(' + gridState[0].length + ', var(--size))'
+  "
+  [style.grid-template-rows]="
+    'repeat(' + gridState.length + ', var(--size))'
+  ">
+  <ng-container *ngFor="let lettersRow of gridState">
+    <div
+      *ngFor="
+        let letter of lettersRow;
+        let colIndex = index
+      "
+      [class.guess--correct]="
+        letter.state === LetterGuessState.CORRECT
+      "
+      [class.guess--present]="
+        letter.state === LetterGuessState.PRESENT
+      "
+      [class.guess--absent]="
+        letter.state === LetterGuessState.ABSENT
+      "
+      [style.transition-delay]="
+        letter.state !== LetterGuessState.INDETERMINATE
+          ? colIndex * 50 + 'ms'
+          : ''
+      "
+      class="grid-cell">
+      {{ letter.char }}
+    </div>
+  </ng-container>
+</section>

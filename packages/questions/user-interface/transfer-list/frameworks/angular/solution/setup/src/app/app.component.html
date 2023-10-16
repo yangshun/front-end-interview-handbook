@@ -1,0 +1,38 @@
+<div class="transfer-list">
+  <app-item-list
+    [items]="itemsLeft"
+    (updateItems)="setItemsLeft($event)" />
+  <div class="transfer-list__actions">
+    <button
+      aria-label="Transfer all items to left list"
+      [disabled]="itemsRight.size === 0"
+      (click)="transferAllItems(itemsRight, itemsLeft)">
+      <span aria-hidden="true">&lt;&lt;</span>
+    </button>
+    <button
+      aria-label="Transfer selected items to left list"
+      [disabled]="hasNoSelectedItems(itemsRight)"
+      (click)="
+        transferSelectedItems(itemsRight, itemsLeft)
+      ">
+      <span aria-hidden="true">&lt;</span>
+    </button>
+    <button
+      aria-label="Transfer selected items to right list"
+      [disabled]="hasNoSelectedItems(itemsLeft)"
+      (click)="
+        transferSelectedItems(itemsLeft, itemsRight)
+      ">
+      <span aria-hidden="true">&gt;</span>
+    </button>
+    <button
+      aria-label="Transfer all items to right list"
+      [disabled]="itemsLeft.size === 0"
+      (click)="transferAllItems(itemsLeft, itemsRight)">
+      <span aria-hidden="true">&gt;&gt;</span>
+    </button>
+  </div>
+  <app-item-list
+    [items]="itemsRight"
+    (updateItems)="setItemsRight($event)"></app-item-list>
+</div>

@@ -1,0 +1,10 @@
+{
+  "visibleFiles": [
+    "/src/App.svelte",
+    "/src/Clock.svelte",
+    "/src/Digit.svelte",
+    "/src/Separator.svelte"
+  ],
+  "activeFile": "/src/Clock.svelte",
+  "environment": "svelte"
+}

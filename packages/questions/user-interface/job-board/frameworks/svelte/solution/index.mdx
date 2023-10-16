@@ -1,0 +1,42 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+### Variables
+
+The Svelte code introduces the following variables to manage the application's behavior and data flow:
+
+- `PAGE_SIZE`: A constant that defines the number of jobs to be displayed on each page.
+- `pageCount`: This variable maintains the number of pages the user has navigated through, which determines the set of job details to be fetched.
+- `jobIdsCache`: It acts as a cache to store the array of job IDs from the Hacker News API. This avoids fetching the same data multiple times and impr oves the application's performance.
+
+### Fetching Data
+
+#### `fetchJobIds`
+
+This asynchronous function retrieves a list of job IDs from the Hacker News API based on the current page (`currPage`). If the `jobIdsCache` is empty (i.e., data hasn't been fetched before), the function fetches the job IDs from the API and then updates the `jobIdsCache` with the fetched data. After this, the function calculates the start and end indices for the current page based on the `PAGE_SIZE` and slices the array to return the relevant set of job IDs.
+
+#### `fetchJobs`
+
+Another asynchronous function, `fetchJobs`, is tasked with fetching the details for each job based on the job IDs obtained from `fetchJobIds`. It first fetches the job IDs for the current page and then, using `Promise.all`, it initiates multiple requests to the Hacker News API to get the details for each job. Once all the promises are resolved, it returns an array of job details which are then rendered on the page.
+
+### Rendering
+
+Some notable aspects of the rendering code include:
+
+#### `{#each}` Block:
+
+- The `{#each}` block is used to iterate over a range defined by the `pageCount`. For each page, it fetches and renders the job postings corresponding to that page. This is achieved by the line `{#each { length: pageCount } as _, page}`. Here, the `_` is a placeholder (which we aren't using), and `page` gives us the current page number.
+- Inside this block, another block `{#await fetchJobs(page)}` is used. The `{#await}` block in Svelte is a special construct designed to handle promises. It shows the `loading` message while the promise (in this case, fetching job details) is unresolved. Once the promise is resolved, the `{:then jobs}` block is executed, rendering the list of jobs for the current page using the `JobPosting` component.
+
+#### "Load More" Button:
+
+- Within the `{#each}` block, after listing the jobs for the current page, there's a conditional `{#if}` block that checks whether the "Load more jobs" button should be displayed. This condition evaluates to true if the current page is the last loaded page and the number of jobs fetched for that page equals `PAGE_SIZE` (indicating there might be more jobs to load). This is achieved by the condition `{#if page === pageCount - 1 && jobs.length === PAGE_SIZE}`.
+
+- The "Load more jobs" button, when clicked, increments the `pageCount`, effectively adding another page to our `{#each}` block and triggering the fetching and rendering of the next set of job postings. This is a neat trick to implement pagination without having to deal with complex state management. The button's behavior is governed by the line `on:click={() => pageCount++}`.
+
+By utilizing the above constructs, the Svelte application achieves an efficient paginated rendering of job postings, seamlessly integrating data fetching with user interactions.
+
+<TestCases />
+<Notes />

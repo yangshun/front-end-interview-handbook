@@ -1,0 +1,65 @@
+import TestCases from '../../../test-cases.mdx';
+import Notes from '../../../notes.mdx';
+
+## Solution
+
+In `AppComponent`, we define color configurations using the commonly used TypeScript `Record` type,
+`Record<Colors, ColorConfig<Colors>>` and pass that configuration into `TrafficLightComponent`.
+
+In `TrafficLightComponent`, during the `OnInit` hook, we set `currentColor`
+to the passed colors and invoke the `updateLight` method. During the update,
+we perpetually run `setTimeout` in a recursive manner. Upon entering the method,
+we destructure the config object and assign the `duration` and `next` variables. Then, we execute `setTimeout` with
+the provided `duration` and assign the `next` color from our config as the current color.
+After that, we run the `updateLight()` method again.
+
+### Rendering
+
+The rendering of this component is pretty straightforward and can be achieved with Flexbox. With Flexbox, it's also
+easy to change the layout of the lights from a vertical one to a horizontal one just by changing the `flex-direction`
+property.
+
+### Models
+
+```typescript
+type Layout = 'vertical' | 'horizontal';
+```
+
+```typescript
+type DefaultColors = 'green' | 'yellow' | 'red';
+```
+
+Note: Take a look how `Colors` is related here and in `next` field.
+```typescript
+type ColorConfig<Colors> = {
+    backgroundColor: string;
+    duration: number;
+    order: number;
+    next: Colors;
+};
+```
+
+Main config type for traffic lights that requires `Record` type (something like Map in JavaScript) where key has to be
+`Colors` and value `ColorConfig<Colors>` from previous type.
+```typescript
+export type TrafficLightConfig<
+    Colors extends DefaultColors,
+> = Record<Colors, ColorConfig<Colors>>;
+```
+
+### Angular Insights
+
+- You can adopt a more advanced, reactive-like approach using RxJS (without using subscriptions as possible).
+However, if you opt for subscriptions, remember about destroying them to prevent memory leaks.
+
+- You might create service for maintaining the state. Inject the service in smart component and crete dumb components
+that only display and interact with the UI and all events from dumb components are passed to the smart one.
+
+- If you're confident with the latest Angular versions, consider using signals standalone API.
+
+- You can try to focus more on keywords such as `readonly`, `private`, `public` and `void`.
+
+- If you're creating a bigger application it would be good practice to use styles per component instead of putting all
+styles in one file.
+<TestCases />
+<Notes />
