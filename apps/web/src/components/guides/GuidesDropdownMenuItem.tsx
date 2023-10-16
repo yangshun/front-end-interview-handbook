@@ -1,13 +1,14 @@
 import clsx from 'clsx';
 import React from 'react';
 
-import Text from '../ui/Text';
+import Anchor from '~/components/ui/Anchor';
+import Text from '~/components/ui/Text';
 import {
   themeBackgroundLayerEmphasized,
   themeGlassyBorder,
   themeTextBrandColor,
   themeTextSecondaryColor,
-} from '../ui/theme';
+} from '~/components/ui/theme';
 
 import { Menu } from '@headlessui/react';
 
@@ -63,8 +64,7 @@ export default function GuidesDropdownMenuItem({
           return <button type="button" {...props} />;
         }
 
-        // TODO: Change to <Anchor> when there's a need for client-side navigation.
-        return <a href={href} {...props} />;
+        return <Anchor href={href} variant="unstyled" {...props} />;
       }}
     </Menu.Item>
   );
