@@ -2,7 +2,6 @@ import { useAppThemePreferences } from '~/components/global/dark/AppThemePrefere
 import type { QuestionUserInterfaceBundle } from '~/components/questions/common/QuestionsTypes';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
-import Text from '~/components/ui/Text';
 
 import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
 import sandpackProviderOptions from '../common/sandpack/sandpackProviderOptions';
