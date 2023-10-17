@@ -77,6 +77,7 @@ export type QuestionUserInterfaceSandpackSetup = SandboxTemplate & {
   readonly visibleFiles?: Array<string>;
 };
 export type QuestionUserInterfaceBundle = Readonly<{
+  author: string | null;
   files: SandpackFiles;
   workspace: QuestionUserInterfaceWorkspace;
   writeup: string;

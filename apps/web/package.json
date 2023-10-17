@@ -69,6 +69,7 @@
     "next": "^13.4.19",
     "next-absolute-url": "^1.2.2",
     "next-seo": "^5.15.0",
+    "nullthrows": "^1.1.1",
     "prism-react-renderer": "^1.3.5",
     "radix-ui": "^1.0.1",
     "react": "^18.2.0",

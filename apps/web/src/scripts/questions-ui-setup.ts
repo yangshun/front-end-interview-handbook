@@ -2,9 +2,14 @@ import assert from 'assert';
 import fs from 'fs';
 import glob from 'glob';
 import lodash from 'lodash';
+import nullthrows from 'nullthrows';
 import path from 'path';
 
-import type { QuestionUserInterfaceSetupType } from '../components/questions/common/QuestionsTypes';
+import type {
+  QuestionUserInterfaceBundle,
+  QuestionUserInterfaceSetupType,
+  QuestionUserInterfaceWorkspace,
+} from '../components/questions/common/QuestionsTypes';
 import { type QuestionFramework } from '../components/questions/common/QuestionsTypes';
 import { readMDXFile } from '../db/questions-bundlers/QuestionsBundler';
 import { readQuestionMetadataUserInterface } from '../db/questions-bundlers/QuestionsBundlerUserInterface';
@@ -23,12 +28,6 @@ const SUPPORTED_FRAMEWORKS = new Set<QuestionFramework>([
   'svelte',
   'vue',
 ]);
-
-type GFEConfig = Readonly<{
-  activeFile?: string;
-  environment: string;
-  visibleFiles?: Array<string>;
-}>;
 
 async function generateSetupForQuestion(slug: string) {
   // TODO: Make this work.
@@ -103,7 +102,7 @@ async function generateSetupForQuestion(slug: string) {
           try {
             return JSON.parse(
               fs.readFileSync(greatfrontendConfigPath).toString(),
-            ) as GFEConfig;
+            ) as QuestionUserInterfaceWorkspace;
           } catch {
             return null;
           }
@@ -114,8 +113,8 @@ async function generateSetupForQuestion(slug: string) {
         files,
         framework,
         setupType,
-        workspace,
-        writeup: writeupMdx,
+        workspace: nullthrows(workspace),
+        writeup: nullthrows(writeupMdx),
       };
     }),
   );
@@ -150,7 +149,18 @@ async function generateSetupForQuestion(slug: string) {
 
         fs.mkdirSync(path.dirname(outPath), { recursive: true });
 
-        const bundle = {
+        const author: string | null = (() => {
+          try {
+            const pkgJSON = JSON.parse(files['/package.json'].code);
+
+            return pkgJSON.author ?? null;
+          } catch {
+            return null;
+          }
+        })();
+
+        const bundle: QuestionUserInterfaceBundle = {
+          author,
           files,
           workspace,
           writeup,
