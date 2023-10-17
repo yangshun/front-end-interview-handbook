@@ -58,43 +58,24 @@ function useNavLinks(
   const pathname = usePathname();
 
   const links: ReadonlyArray<NavbarPrimaryItem | null> = [
-    isLoggedIn
-      ? {
-          href: '/prepare',
-          itemKey: 'dashboard',
-          label: intl.formatMessage({
-            defaultMessage: 'Dashboard',
-            description: 'Link to dashboard page',
-            id: 'vi10y1',
-          }),
-          onClick: () => {
-            gtag.event({
-              action: `nav.dashboard.click`,
-              category: 'engagement',
-              label: 'Dashboard',
-            });
-          },
-          position: 'start',
-          type: 'link',
-        }
-      : {
-          href: '/',
-          itemKey: 'features',
-          label: intl.formatMessage({
-            defaultMessage: 'Features',
-            description: 'Link to features page',
-            id: 'xEvm93',
-          }),
-          onClick: () => {
-            gtag.event({
-              action: `nav.features.click`,
-              category: 'engagement',
-              label: 'Features',
-            });
-          },
-          position: 'start',
-          type: 'link',
-        },
+    {
+      href: '/prepare',
+      itemKey: 'dashboard',
+      label: intl.formatMessage({
+        defaultMessage: 'Dashboard',
+        description: 'Link to dashboard page',
+        id: 'vi10y1',
+      }),
+      onClick: () => {
+        gtag.event({
+          action: `nav.dashboard.click`,
+          category: 'engagement',
+          label: 'Dashboard',
+        });
+      },
+      position: 'start',
+      type: 'link',
+    },
     {
       itemKey: 'practice-questions',
       items: [
