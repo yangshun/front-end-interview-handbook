@@ -86,7 +86,15 @@ function UserInterfaceCodingWorkspaceImpl({
   question: QuestionUserInterface;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
 }>) {
-  const { framework, metadata, description, solution } = question;
+  const { framework, metadata: rawMetadata, description, solution } = question;
+
+  const metadata = {
+    ...rawMetadata,
+    author:
+      (mode === 'practice'
+        ? question.skeletonBundle.author
+        : question.solutionBundle.author) ?? rawMetadata.author,
+  };
 
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
   const { dispatch, getTabById, queryTabByPattern } =

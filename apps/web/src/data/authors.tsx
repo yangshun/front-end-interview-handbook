@@ -17,7 +17,7 @@ type Author = Readonly<{
 }>;
 
 const authors: Record<string, Author> = {
-  'sunny-dhillon': {
+  dhillon: {
     bio: (
       <>
         Sunny is a Senior Staff Software Engineer at Google and has over a
@@ -33,6 +33,39 @@ const authors: Record<string, Author> = {
     profileUrl: 'https://www.linkedin.com/in/dhillons/',
     role: 'Senior Staff Software Engineer, Google',
     subtitle: 'Senior Staff Engineer, Google',
+  },
+  'michalgrzegorczyk-dev': {
+    bio: (
+      <>
+        Lead Frontend Software Engineer at Ofair with over 6 years of experience
+        in Angular and its ecosystem. Deeply passionate about freelancing and am
+        actively seeking opportunities for side projects.
+      </>
+    ),
+    imageUrl: '/img/team/michal.jpg',
+    linkedInUrl: 'https://www.linkedin.com/in/michalgrzegorczyk-dev/',
+    name: 'Michal Grzegorczyk',
+    profileUrl: 'https://www.linkedin.com/in/michalgrzegorczyk-dev/',
+    role: 'Senior Front End Engineer, Ofair',
+    subtitle: 'Senior Front End Engineer, Ofair',
+  },
+  tanhauhau: {
+    bio: <>TODO</>,
+    imageUrl: '/img/team/lihau.jpg',
+    linkedInUrl: 'https://www.linkedin.com/in/lihautan/',
+    name: 'Tan Li Hau',
+    profileUrl: 'https://lihautan.com/',
+    role: 'Team lead @ Shopee, Svelte core team',
+    subtitle: 'Svelte core team',
+  },
+  'utpal-d4l': {
+    bio: <>TODO</>,
+    imageUrl: '/img/team/utpal.jpg',
+    linkedInUrl: 'https://www.linkedin.com/in/utpalsingh/',
+    name: 'Utpal Singh',
+    profileUrl: 'https://www.linkedin.com/in/utpalsingh/',
+    role: 'Frontend @ Rattle',
+    subtitle: 'Frontend @ Rattle',
   },
   yangshun: {
     bio: (
