@@ -153,14 +153,16 @@ export default function UserInterfaceCodingWorkspaceWriteup({
         <QuestionMetadataSection metadata={metadata} />
         <div className="flex flex-col gap-y-8">
           <QuestionContentProse contents={writeup} />
-          <div
-            className={clsx(
-              'rounded-md p-4 text-center',
-              'border-brand-light dark:border-brand-darkest border',
-              'bg-brand-darker/10',
-            )}>
-            <SolutionPreviewButton />
-          </div>
+          {contentType === 'description' && (
+            <div
+              className={clsx(
+                'rounded-md p-4 text-center',
+                'border-brand-light dark:border-brand-darkest border',
+                'bg-brand-darker/10',
+              )}>
+              <SolutionPreviewButton />
+            </div>
+          )}
           <QuestionCompanies
             canViewPremiumContent={canViewPremiumContent}
             companies={metadata.companies}
