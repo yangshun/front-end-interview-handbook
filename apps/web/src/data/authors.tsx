@@ -38,7 +38,7 @@ const authors: Record<string, Author> = {
     bio: (
       <>
         Lead Frontend Software Engineer at Ofair with over 6 years of experience
-        in Angular and its ecosystem. Deeply passionate about freelancing and am
+        in Angular and its ecosystem. Deeply passionate about freelancing and
         actively seeking opportunities for side projects.
       </>
     ),
@@ -77,7 +77,7 @@ const authors: Record<string, Author> = {
     ),
     companyIconUrl: '/img/marketing/meta-icon.svg',
     gitHubUrl: 'https://www.github.com/yangshun',
-    imageUrl: '/img/team/yangshun.png',
+    imageUrl: '/img/team/yangshun.jpg',
     linkedInUrl: 'https://www.linkedin.com/in/yangshun',
     name: 'Yangshun Tay',
     profileUrl: 'https://www.github.com/yangshun',
@@ -96,7 +96,7 @@ const authors: Record<string, Author> = {
     ),
     companyIconUrl: '/img/marketing/amazon-icon.svg',
     imageUrl: '/img/team/zhenghao.jpg',
-    linkedInUrl: 'https://www.linkedin.com/in/zhenghao-he-720510117/',
+    linkedInUrl: 'https://www.linkedin.com/in/zhenghao-he/',
     name: 'Zhenghao He',
     profileUrl: 'https://www.zhenghao.io',
     role: 'Senior Software Engineer, ex-Amazon, ex-Instacart',

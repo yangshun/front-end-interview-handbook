@@ -56,8 +56,7 @@ function useFooterNavigation() {
           id: '+5JohH',
         }),
       },
-      // Remove team page temporarily while we sort out incorporation.
-      // { href: '/team', key: 'team', name: 'Team' },
+      { href: '/team', key: 'team', name: 'Our Team' },
       {
         href: '/contact',
         key: 'contact',
