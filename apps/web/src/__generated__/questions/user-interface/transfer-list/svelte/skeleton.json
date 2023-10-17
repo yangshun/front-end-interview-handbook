@@ -1,8 +1,8 @@
 {
-  "author": null,
+  "author": "tanhauhau",
   "files": {
     "/package.json": {
-      "code": "{\n  \"name\": \"@gfe-questions/transfer-list-svelte-skeleton\",\n  \"version\": \"0.0.1\",\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"svelte\": \"^3.58.0\"\n  }\n}\n"
+      "code": "{\n  \"name\": \"@gfe-questions/transfer-list-svelte-skeleton\",\n  \"author\": \"tanhauhau\",\n  \"version\": \"0.0.1\",\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"svelte\": \"^3.58.0\"\n  }\n}\n"
     },
     "/public/index.html": {
       "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf8\" />\n    <meta name=\"viewport\" content=\"width=device-width\" />\n    <title>Svelte</title>\n    <link rel=\"stylesheet\" href=\"public/bundle.css\" />\n  </head>\n\n  <body>\n    <script src=\"bundle.js\"></script>\n  </body>\n</html>\n"

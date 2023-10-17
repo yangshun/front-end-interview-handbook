@@ -1,5 +1,6 @@
 {
   "name": "@gfe-questions/job-board-angular-solution",
+  "author": "michalgrzegorczyk-dev",
   "version": "0.0.1",
   "private": true,
   "dependencies": {

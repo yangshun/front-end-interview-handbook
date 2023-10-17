@@ -1,5 +1,6 @@
 {
   "name": "@gfe-questions/transfer-list-svelte-solution",
+  "author": "tanhauhau",
   "version": "0.0.1",
   "main": "src/index.js",
   "dependencies": {

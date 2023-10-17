@@ -1,5 +1,6 @@
 {
   "name": "@gfe-questions/progress-bars-react-skeleton",
+  "author": "yangshun",
   "version": "0.0.1",
   "private": true,
   "dependencies": {

@@ -1,5 +1,6 @@
 {
   "name": "@gfe-questions/memory-game-angular-skeleton",
+  "author": "michalgrzegorczyk-dev",
   "version": "0.0.1",
   "private": true,
   "dependencies": {

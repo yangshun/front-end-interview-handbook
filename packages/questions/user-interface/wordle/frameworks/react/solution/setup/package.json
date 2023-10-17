@@ -1,5 +1,6 @@
 {
   "name": "@gfe-questions/wordle-react-solution",
+  "author": "utpal-d4l",
   "version": "0.0.1",
   "private": true,
   "dependencies": {

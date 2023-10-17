@@ -1,5 +1,6 @@
 {
   "name": "@gfe-questions/mortgage-calculator-vanilla-skeleton",
+  "author": "dhillon",
   "version": "0.0.1",
   "private": true,
   "devDependencies": {

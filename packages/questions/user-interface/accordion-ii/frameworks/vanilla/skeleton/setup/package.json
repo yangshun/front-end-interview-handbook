@@ -1,5 +1,6 @@
 {
   "name": "@gfe-questions/accordion-ii-vanilla-skeleton",
+  "author": "yangshun",
   "version": "0.0.1",
   "private": true,
   "devDependencies": {

@@ -1,5 +1,6 @@
 {
   "name": "@gfe-questions/counter-svelte-skeleton",
+  "author": "yangshun",
   "version": "0.0.1",
   "main": "src/index.js",
   "dependencies": {

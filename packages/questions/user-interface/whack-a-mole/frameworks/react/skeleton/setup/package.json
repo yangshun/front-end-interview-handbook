@@ -1,5 +1,6 @@
 {
   "name": "@gfe-questions/whack-a-mole-react-skeleton",
+  "author": "utpal-d4l",
   "version": "0.0.1",
   "private": true,
   "dependencies": {

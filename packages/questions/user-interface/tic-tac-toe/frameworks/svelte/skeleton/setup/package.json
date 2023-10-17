@@ -1,5 +1,6 @@
 {
   "name": "@gfe-questions/tic-tac-toe-svelte-skeleton",
+  "author": "tanhauhau",
   "version": "0.0.1",
   "main": "src/index.js",
   "dependencies": {
