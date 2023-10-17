@@ -14,7 +14,7 @@
       "code": "<div>\n  <p>0s 00ms</p>\n  <div><button>Start</button> <button>Reset</button></div>\n</div>\n"
     },
     "/src/app/app.component.ts": {
-      "code": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.css'],\n})\nexport class AppComponent {\n  count = 0;\n\n  increment() {\n    this.count++;\n  }\n}\n"
+      "code": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.css'],\n})\nexport class AppComponent {}\n"
     },
     "/src/app/app.module.ts": {
       "code": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { FormsModule } from '@angular/forms';\n\nimport { AppComponent } from './app.component';\n\n@NgModule({\n  declarations: [AppComponent],\n  imports: [BrowserModule, FormsModule],\n  bootstrap: [AppComponent],\n})\nexport class AppModule {}\n"

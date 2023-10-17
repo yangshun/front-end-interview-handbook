@@ -3387,10 +3387,6 @@
     "defaultMessage": "Prepare for tackling form questions in front end interviews",
     "description": "Title for interview preparation focus area"
   },
-  "xEvm93": {
-    "defaultMessage": "Features",
-    "description": "Link to features page"
-  },
   "xU32y0": {
     "defaultMessage": "3 subcategories of questions: JavaScript, User Interfaces & Data Structures and Algorithms",
     "description": "Description of coding interview preparation"

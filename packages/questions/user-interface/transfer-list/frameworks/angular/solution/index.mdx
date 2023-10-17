@@ -30,12 +30,6 @@ from the list will require O(N) time if an array is used.
 
 ### Rendering
 
-Our HTML structure will look like this:
-
-- items on the left
-- action buttons
-- items on the right
-
 There's nothing particularly special about rendering the UI for the transfer lists. Flexboxes can help us render the
 three columns. Since the UI and the functionality of columns are identical, we can define a component `ItemList` that
 takes in a list of items and a setter callback to manipulate the list.

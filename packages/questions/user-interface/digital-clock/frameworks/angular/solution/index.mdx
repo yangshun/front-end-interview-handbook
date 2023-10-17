@@ -9,28 +9,15 @@ the `setInterval` body, we will update `hours`, `minutes`, `seconds` and `dateTi
 (required for `<timer>`) based on the current date. In `ngOnDestroy()`, we will terminate the
 interval to prevent memory leaks.
 
-Every `DigitComponent` displays one digit, so assuming we have time 22:04:22 we put to the first 2 digits and `floor`
-it with `pipe` hours / 10 and hours % 10.
+Every `DigitComponent` displays one digit in the clock, so assuming we have time 22:04:22, we put `hours` to the first
+two digits and `floor` it with `pipe` hours / 10 and hours % 10.
 
-The numbers passed will be 2.1 floored to 2 and 1 which is hour we need to display and so on, you get the idea.
+The numbers passed will be 2.1 floored to 2 and 1 which is exact hour we need to display and so on.
 
 `DigitComponent` is a typical dumb component, used solely for displaying UI based on a number passed by `@Input`.
 The responsibility of this component is to display one digit and most of the work here involves manipulating styles.
 
 `SeparatorComponent` is a dumb UI component designed to display two separator dots between digits.
-
-### Rendering
-
-Our HTML structure will look like this:
-
-- digit (hour first digit)
-- digit (hour second digit)
-- separator
-- digit (minute first digit)
-- digit (hour second digit)
-- separator
-- digit (second first digit)
-- digit (second second digit)
 
 ### Angular Insights
 
