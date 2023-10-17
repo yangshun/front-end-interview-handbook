@@ -10,6 +10,8 @@ import type { QuestionFilter } from '../QuestionFilterType';
 const FRAMEWORK_OPTIONS: ReadonlyArray<QuestionFramework> = [
   'react',
   'vanilla',
+  'angular',
+  'svelte',
 ];
 
 type Props = Readonly<{
