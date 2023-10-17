@@ -1,4 +1,5 @@
 {
+  "author": null,
   "files": {
     "/index.html": {
       "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div class=\"app\">\n      <h1 class=\"title\">Hacker News Jobs Board</h1>\n      <p class=\"loading\">Loading...</p>\n      <div id=\"job-list-container\" hidden>\n        <div class=\"jobs\" role=\"list\"></div>\n        <button class=\"load-more-button\"></button>\n      </div>\n    </div>\n    <template id=\"job-posting-template\">\n      <div class=\"post\" role=\"listitem\">\n        <h2 class=\"post__title\"></h2>\n        <p class=\"post__metadata\">\n          By <span class=\"post__author\"></span> &middot;\n          <span class=\"post__timestamp\"></span>\n        </p>\n      </div>\n    </template>\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"

@@ -1,4 +1,5 @@
 {
+  "author": null,
   "files": {
     "/package.json": {
       "code": "{\n  \"name\": \"@gfe-questions/temperature-converter-svelte-solution\",\n  \"version\": \"0.0.1\",\n  \"main\": \"src/index.js\",\n  \"dependencies\": {\n    \"svelte\": \"^3.58.0\"\n  }\n}\n"

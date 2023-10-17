@@ -1,4 +1,5 @@
 {
+  "author": null,
   "files": {
     "/index.html": {
       "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div class=\"temperature-converter\">\n      <label class=\"temperature-converter-column\">\n        <input\n          class=\"temperature-converter-column-top-row\"\n          id=\"celsius-input\"\n          type=\"number\" />\n        <div\n          class=\"temperature-converter-column-bottom-row\">\n          Celsius\n        </div>\n      </label>\n      <div class=\"temperature-converter-column\">\n        <div class=\"temperature-converter-column-top-row\">\n          =\n        </div>\n      </div>\n      <label class=\"temperature-converter-column\">\n        <input\n          class=\"temperature-converter-column-top-row\"\n          id=\"fahrenheit-input\"\n          type=\"number\" />\n        <div\n          class=\"temperature-converter-column-bottom-row\">\n          Fahrenheit\n        </div>\n      </label>\n    </div>\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"

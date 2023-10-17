@@ -1,4 +1,5 @@
 {
+  "author": null,
   "files": {
     "/index.html": {
       "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div class=\"wrapper\">\n      <div id=\"progress-0\" class=\"progress\"></div>\n      <div id=\"progress-25\" class=\"progress\"></div>\n      <div id=\"progress-50\" class=\"progress\"></div>\n      <div id=\"progress-75\" class=\"progress\"></div>\n      <div id=\"progress-100\" class=\"progress\"></div>\n      <div id=\"progress-2\" class=\"progress\"></div>\n      <div id=\"progress--10\" class=\"progress\"></div>\n      <div id=\"progress-120\" class=\"progress\"></div>\n      <hr />\n      <label>\n        <div>Control progress</div>\n        <input\n          type=\"range\"\n          min=\"0\"\n          max=\"100\"\n          value=\"50\"\n          id=\"slider\" />\n      </label>\n      <div id=\"progress-slider\" class=\"progress\"></div>\n    </div>\n\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"

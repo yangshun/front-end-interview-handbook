@@ -1,4 +1,5 @@
 {
+  "author": null,
   "files": {
     "/index.html": {
       "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div>\n      <h1>Todo List</h1>\n      <div>\n        <input\n          aria-label=\"Add new task\"\n          type=\"text\"\n          placeholder=\"Add your task\" />\n        <div>\n          <button id=\"submit\">Submit</button>\n        </div>\n      </div>\n      <ul>\n        <li>\n          <span>Walk the dog</span>\n          <button>Delete</button>\n        </li>\n        <li>\n          <span>Water the plants</span>\n          <button>Delete</button>\n        </li>\n        <li>\n          <span>Wash the dishes</span>\n          <button>Delete</button>\n        </li>\n      </ul>\n    </div>\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"

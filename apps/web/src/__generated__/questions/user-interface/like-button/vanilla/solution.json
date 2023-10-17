@@ -1,4 +1,5 @@
 {
+  "author": null,
   "files": {
     "/index.html": {
       "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <div class=\"button-container\">\n      <button id=\"like-button\"></button>\n      <div class=\"error-message\"></div>\n    </div>\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"

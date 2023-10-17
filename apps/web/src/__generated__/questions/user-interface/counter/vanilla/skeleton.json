@@ -1,4 +1,5 @@
 {
+  "author": null,
   "files": {
     "/index.html": {
       "code": "<!doctype html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta\n      name=\"viewport\"\n      content=\"width=device-width, initial-scale=1.0\" />\n  </head>\n  <body>\n    <!-- This is a warm up question to help\n    you get familiar with the editor. Most of the\n    code has been filled in for you.\n\n    Fix the bug in index.js to\n    complete this question -->\n    <button>Clicks: <span id=\"count\">0</span></button>\n    <script src=\"src/index.js\"></script>\n  </body>\n</html>\n"
