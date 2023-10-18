@@ -3,8 +3,10 @@
 import clsx from 'clsx';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import type { ReactNode } from 'react';
+import { useEffect, useRef } from 'react';
 
 import { trpc } from '~/hooks/trpc';
+import useScrollIntoView from '~/hooks/useScrollIntoView';
 
 import type { PreparationArea } from '~/data/PreparationAreas';
 
@@ -18,6 +20,7 @@ import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import type { QuestionTotalAvailableCount } from '~/db/QuestionsListReader';
+import { useI18nPathname } from '~/next-i18nostic/src';
 
 import DashboardContinueLearningWithFetching from './DashboardContinueLearningWithFetching';
 
@@ -30,13 +33,38 @@ export default function DashboardLayout({
   children,
   questionTotalAvailableCount,
 }: Props) {
-  const segment = useSelectedLayoutSegment() ?? 'coding';
+  const { pathname } = useI18nPathname();
+  const tabsRef = useRef<HTMLDivElement>(null);
+  const routeSegment = useSelectedLayoutSegment();
+  const resultSegment = routeSegment ?? 'coding';
   const { userProfile } = useUserProfile();
   const { data: questionListSessions } =
     trpc.questionLists.getActiveSessions.useQuery();
 
   const showContinueLearning =
     questionListSessions != null && questionListSessions.length > 0;
+
+  useEffect(() => {
+    if (routeSegment == null || pathname === '/prepare') {
+      return;
+    }
+
+    if (
+      tabsRef?.current?.offsetTop &&
+      // Only scroll if tab contents are not clearly in view.
+      Math.abs(window.scrollY - tabsRef?.current?.offsetTop) < 100
+    ) {
+      return;
+    }
+
+    setTimeout(() => {
+      window.scrollTo({
+        behavior: 'smooth',
+        left: 0,
+        top: tabsRef?.current?.offsetTop,
+      });
+    }, 300);
+  }, [pathname, routeSegment]);
 
   return (
     <Container
@@ -73,8 +101,8 @@ export default function DashboardLayout({
           )}
           <DashboardFeaturedFocusAreas limit={showContinueLearning ? 4 : 8} />
         </div>
-        <div>
-          <QuestionsPreparationTabs area={segment as PreparationArea} />
+        <div ref={tabsRef}>
+          <QuestionsPreparationTabs area={resultSegment as PreparationArea} />
         </div>
         {children}
       </Section>
