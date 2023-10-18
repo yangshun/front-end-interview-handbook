@@ -5,7 +5,6 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
-import MarketingParticles from './MarketingParticles';
 import AmazonLogo from '../icons/AmazonLogo';
 import FrontEndInterviewHandbookLogo from '../icons/FrontEndInterviewHandbookLogo';
 import GoogleLogo from '../icons/GoogleLogo';

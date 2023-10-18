@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { RiArrowRightLine, RiJavascriptLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
+import { useIsClient } from 'usehooks-ts';
 
 import gtag from '~/lib/gtag';
 
@@ -234,6 +235,7 @@ export default function MarketingEmbedSection({
 }>) {
   const intl = useIntl();
   const tabs = useTabs();
+  const isClient = useIsClient();
   const [selectedTab, setSelectedTab] = useState(tabs[0].value);
 
   return (
@@ -278,18 +280,22 @@ export default function MarketingEmbedSection({
         </div>
         <MarketingHeroBrowserWindowFrame>
           <div style={{ height: 600 }}>
-            {selectedTab === 'user-interface' && (
-              <MarketingEmbedUIQuestion question={uiEmbedExample} />
+            {isClient && (
+              <>
+                {selectedTab === 'user-interface' && (
+                  <MarketingEmbedUIQuestion question={uiEmbedExample} />
+                )}
+                {selectedTab === 'javascript' && (
+                  <MarketingEmbedJavaScriptQuestion
+                    javaScriptEmbedExample={javaScriptEmbedExample}
+                  />
+                )}
+                {selectedTab === 'system-design' && (
+                  <MarketingEmbedSystemDesignQuestion />
+                )}
+                {selectedTab === 'quiz' && <MarketingEmbedQuizQuestion />}
+              </>
             )}
-            {selectedTab === 'javascript' && (
-              <MarketingEmbedJavaScriptQuestion
-                javaScriptEmbedExample={javaScriptEmbedExample}
-              />
-            )}
-            {selectedTab === 'system-design' && (
-              <MarketingEmbedSystemDesignQuestion />
-            )}
-            {selectedTab === 'quiz' && <MarketingEmbedQuizQuestion />}
           </div>
         </MarketingHeroBrowserWindowFrame>
         {featuredQuestions.length > 0 && (
