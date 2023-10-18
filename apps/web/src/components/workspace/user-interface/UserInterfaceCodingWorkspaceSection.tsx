@@ -15,7 +15,6 @@ import { loadLocalUserInterfaceQuestionCode } from '~/components/workspace/user-
 
 import SandpackTimeoutLogger from '../common/sandpack/SandpackTimeoutLogger';
 
-import type { SandpackTheme } from '@codesandbox/sandpack-react';
 import { SandpackProvider } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
@@ -30,7 +29,6 @@ type Props = Readonly<{
   ) => void;
   question: QuestionUserInterface;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
-  theme?: SandpackTheme;
   timeoutLoggerInstance: string;
 }>;
 
@@ -41,7 +39,6 @@ export default function UserInterfaceCodingWorkspaceSection({
   nextQuestions,
   question,
   similarQuestions,
-  theme,
   embed = false,
   timeoutLoggerInstance,
   onFrameworkChange,
@@ -92,7 +89,7 @@ export default function UserInterfaceCodingWorkspaceSection({
         style={{
           height: embed ? '100%' : footerlessContainerHeight,
         }}
-        theme={theme ?? (appTheme === 'dark' ? 'dark' : undefined)}>
+        theme={appTheme === 'dark' ? 'dark' : undefined}>
         <UserInterfaceCodingWorkspace
           activeTabScrollIntoView={activeTabScrollIntoView}
           canViewPremiumContent={canViewPremiumContent}

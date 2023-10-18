@@ -5,7 +5,6 @@ import clsx from 'clsx';
 import footerlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
-import theme from '~/components/marketing/coding/MarketingCodeMirrorTheme';
 import type {
   QuestionFramework,
   QuestionMetadata,
@@ -75,7 +74,7 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
           style={{
             height: footerlessContainerHeight,
           }}
-          theme={theme ?? (appTheme === 'dark' ? 'dark' : undefined)}>
+          theme={appTheme === 'dark' ? 'dark' : undefined}>
           <UserInterfaceCodingWorkspace
             activeTabScrollIntoView={true}
             canViewPremiumContent={canViewPremiumContent}

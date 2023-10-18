@@ -16,7 +16,6 @@ import UserInterfaceCodingWorkspaceWriteup from '~/components/workspace/user-int
 
 import logEvent from '~/logging/logEvent';
 
-import MarketingCodeMirrorTheme from '../coding/MarketingCodeMirrorTheme';
 import type { QuestionFramework } from '../../questions/common/QuestionsTypes';
 
 export type EmbedUIQuestion = Readonly<{
@@ -63,7 +62,6 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
           nextQuestions={[]}
           question={question.frameworks[framework]}
           similarQuestions={[]}
-          theme={MarketingCodeMirrorTheme}
           timeoutLoggerInstance="marketing.embed.ui"
           onFrameworkChange={setFramework}
         />

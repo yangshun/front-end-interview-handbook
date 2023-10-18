@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from 'react';
 import { RiCheckLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
-import MarketingFeatureSolutions from '~/components/marketing/MarketingFeatureSolutions';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -17,7 +16,7 @@ import {
 } from '~/components/ui/theme';
 
 import MarketingSectionHeader from './MarketingSectionHeader';
-import type { QuestionUserInterfaceBundle } from '../questions/common/QuestionsTypes';
+import AuthorsCardSection from '../questions/listings/AuthorsCardsSection';
 import Card from '../ui/Card';
 
 function FeatureBlock({
@@ -152,14 +151,7 @@ function FeatureBlockCarousel({
   );
 }
 
-export default function MarketingFeaturesBlocks({
-  solutions,
-}: Readonly<{
-  solutions: Readonly<{
-    todoListReact: QuestionUserInterfaceBundle;
-    todoListVanilla: QuestionUserInterfaceBundle;
-  }>;
-}>) {
+export default function MarketingFeaturesBlocks() {
   return (
     <div
       className={clsx(
@@ -259,7 +251,8 @@ export default function MarketingFeaturesBlocks({
               description={
                 <>
                   Every question is accompanied by at least one official
-                  solution to learn from, written by big tech ex-interviewers.
+                  solution to learn from, written by experienced
+                  ex-interviewers.
                 </>
               }
               features={[
@@ -272,11 +265,7 @@ export default function MarketingFeaturesBlocks({
                   techniques and recognize design patterns
                 </>,
               ]}
-              media={
-                <div className="hidden lg:contents">
-                  <MarketingFeatureSolutions solutions={solutions} />
-                </div>
-              }
+              media={<AuthorsCardSection />}
               title={<>Learn from solutions by ex-interviewers</>}
             />
             <FeatureBlock

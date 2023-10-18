@@ -59,12 +59,7 @@ export default function MarketingHomePage({
           javaScriptEmbedExample={javaScriptEmbedExample}
           uiEmbedExample={uiCodingQuestion}
         />
-        <MarketingFeaturesBlocks
-          solutions={{
-            todoListReact: uiCodingQuestion.frameworks.react.solutionBundle,
-            todoListVanilla: uiCodingQuestion.frameworks.vanilla.solutionBundle,
-          }}
-        />
+        <MarketingFeaturesBlocks />
         <div ref={loadBottomHalfMarkerRef} />
         <MarketingFeaturedQuestions
           javaScriptQuestions={javaScriptQuestions}

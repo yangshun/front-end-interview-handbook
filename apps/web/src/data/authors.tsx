@@ -103,6 +103,6 @@ const authors: Record<string, Author> = {
     subtitle: 'Senior Engineer, Ex-Amazon',
     twitterUrl: 'https://twitter.com/he_zhenghao',
   },
-};
+} as const;
 
 export default authors;
