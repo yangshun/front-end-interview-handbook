@@ -5,7 +5,9 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundEmphasized,
   themeBackgroundEmphasizedHover,
+  themeBackgroundLayerEmphasizedHover,
   themeLineColor,
 } from '~/components/ui/theme';
 
@@ -34,9 +36,16 @@ export default function QuestionsGuidesGrid({
       <Section>
         <div
           className={clsx(
-            'isolate grid overflow-hidden border-l',
-            themeLineColor,
-            items.length >= columns ? 'md:border-t' : 'border-t md:border-t-0',
+            'isolate grid',
+            'overflow-hidden rounded-lg',
+            themeBackgroundEmphasized,
+            [
+              themeLineColor,
+              'border-l',
+              items.length >= columns
+                ? 'md:border-t'
+                : 'border-t md:border-t-0',
+            ],
             columns <= 4 && 'md:grid-cols-3',
             columns === 4 && 'md:grid-cols-4',
             columns === 5 && 'md:grid-cols-4',
@@ -47,9 +56,9 @@ export default function QuestionsGuidesGrid({
             <Anchor
               key={guide.slug}
               className={clsx(
-                'relative flex items-center gap-4 border-b border-r p-3 md:flex-col md:items-start md:gap-2 md:p-6',
+                'group relative flex items-center gap-4 border-b border-r p-3 md:flex-col md:items-start md:gap-2 md:p-6',
                 themeLineColor,
-                themeBackgroundEmphasizedHover,
+                themeBackgroundLayerEmphasizedHover,
                 items.length < columns && index < columns - 1 && 'md:border-t',
               )}
               href={guide.href}
@@ -59,6 +68,7 @@ export default function QuestionsGuidesGrid({
                   className={clsx(
                     'z-10 h-6 w-6 items-center justify-center rounded-full border-2',
                     themeLineColor,
+                    'group-hover:border-brand',
                   )}
                   display="flex"
                   size="body2"
