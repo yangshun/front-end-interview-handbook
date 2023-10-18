@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import { useReducedMotion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useInView, useReducedMotion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 
 type Direction = 'leftToRight' | 'rightToLeft';
 
@@ -25,6 +25,10 @@ export default function Marquee({
   periodSeconds = 5,
   startEndGap,
 }: Props) {
+  const containerRef = useRef(null);
+  const inView = useInView(containerRef, {
+    amount: 'some',
+  });
   const [reduceMotion, setReduceMotion] = useState(false);
   const reducedMotion = useReducedMotion();
 
@@ -37,12 +41,16 @@ export default function Marquee({
 
   return (
     <div
+      ref={containerRef}
       className={clsx(
         'relative flex overflow-x-auto motion-safe:overflow-x-hidden',
         maskEdges && maskClasses,
       )}>
       <div
-        className="motion-safe:animate-marquee whitespace-nowrap"
+        className={clsx(
+          'whitespace-nowrap',
+          inView && 'motion-safe:animate-marquee',
+        )}
         style={{
           animationDirection:
             direction === 'rightToLeft' ? 'normal' : 'reverse',
@@ -52,7 +60,10 @@ export default function Marquee({
         {children}
       </div>
       <div
-        className="motion-safe:animate-marquee2 absolute top-0 hidden whitespace-nowrap motion-safe:block"
+        className={clsx(
+          'absolute top-0 hidden whitespace-nowrap motion-safe:block',
+          inView && 'motion-safe:animate-marquee2',
+        )}
         style={{
           animationDirection:
             direction === 'rightToLeft' ? 'normal' : 'reverse',
