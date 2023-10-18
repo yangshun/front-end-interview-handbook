@@ -24,12 +24,8 @@ export default function GlobalBanner({
   variant?: 'primary' | 'special';
 }>) {
   const { userProfile, isUserProfileLoading } = useUserProfile();
-  const { showGlobalBanner, setShowGlobalBanner } = useUserPreferences();
+  const { setShowGlobalBanner } = useUserPreferences();
   const isPremium = userProfile?.isPremium ?? false;
-
-  if (!showGlobalBanner) {
-    return null;
-  }
 
   const saleMessage = (
     <FormattedMessage
