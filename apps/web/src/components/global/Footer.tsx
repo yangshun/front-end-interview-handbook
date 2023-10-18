@@ -56,7 +56,7 @@ function useFooterNavigation() {
           id: '+5JohH',
         }),
       },
-      { href: '/team', key: 'team', name: 'Our Team' },
+      // { href: '/team', key: 'team', name: 'Our Team' },
       {
         href: '/contact',
         key: 'contact',
