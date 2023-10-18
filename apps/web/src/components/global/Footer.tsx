@@ -268,7 +268,7 @@ export default function Footer() {
   return (
     <footer
       aria-labelledby="footer-heading"
-      className={clsx('border-t bg-[#070708]', themeLineColor)}>
+      className={clsx('border-t dark:bg-[#070708]', themeLineColor)}>
       <Heading className="sr-only" id="footer-heading" level="custom">
         <FormattedMessage
           defaultMessage="Footer"
