@@ -12,18 +12,18 @@ import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
-import MarketingEmbedJavaScriptQuestion from './embed/MarketingEmbedJavaScriptQuestion';
-import MarketingEmbedQuizQuestion from './embed/MarketingEmbedQuizQuestion';
-import MarketingEmbedSystemDesignQuestion from './embed/MarketingEmbedSystemDesignQuestion';
-import type { EmbedUIQuestion } from './embed/MarketingEmbedUIQuestion';
-import MarketingEmbedUIQuestion from './embed/MarketingEmbedUIQuestion';
-import MarketingHeroBrowserWindowFrame from './embed/MarketingHeroBrowserWindowFrame';
-import MarketingQuestionCardMarquee from './MarketingQuestionCardMarquee';
+import MarketingEmbedJavaScriptQuestion from './MarketingEmbedJavaScriptQuestion';
+import MarketingEmbedQuizQuestion from './MarketingEmbedQuizQuestion';
+import MarketingEmbedSystemDesignQuestion from './MarketingEmbedSystemDesignQuestion';
+import type { EmbedUIQuestion } from './MarketingEmbedUIQuestion';
+import MarketingEmbedUIQuestion from './MarketingEmbedUIQuestion';
+import MarketingHeroBrowserWindowFrame from './MarketingHeroBrowserWindowFrame';
+import MarketingQuestionCardMarquee from '../MarketingQuestionCardMarquee';
 import type {
   QuestionJavaScript,
   QuestionMetadata,
-} from '../questions/common/QuestionsTypes';
-import Heading from '../ui/Heading';
+} from '../../questions/common/QuestionsTypes';
+import Heading from '../../ui/Heading';
 
 function MarketingEmbedSectionBackground(props: React.SVGProps<SVGSVGElement>) {
   return (

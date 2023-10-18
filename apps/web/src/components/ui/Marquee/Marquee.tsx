@@ -49,7 +49,7 @@ export default function Marquee({
       <div
         className={clsx(
           'whitespace-nowrap',
-          inView && 'motion-safe:animate-marquee',
+          inView && 'motion-safe:animate-marquee will-change-transform',
         )}
         style={{
           animationDirection:

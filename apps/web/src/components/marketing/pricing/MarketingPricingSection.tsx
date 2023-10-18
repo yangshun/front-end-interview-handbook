@@ -43,10 +43,10 @@ import {
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
-import MarketingSectionHeader from './MarketingSectionHeader';
-import PricingBlockCard from '../pricing/PricingBlockCard';
-import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../pricing/pricingConfig';
-import { priceRoundToNearestNiceNumber } from '../pricing/pricingUtils';
+import MarketingSectionHeader from '../MarketingSectionHeader';
+import PricingBlockCard from '../../pricing/PricingBlockCard';
+import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../../pricing/pricingConfig';
+import { priceRoundToNearestNiceNumber } from '../../pricing/pricingUtils';
 
 import { loadStripe } from '@stripe/stripe-js';
 import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
@@ -690,7 +690,7 @@ export default function MarketingPricingSection({
           </Container>
         </div>
         <Section>
-          <div className="mt-4 lg:mt-8 pb-10 sm:mt-12 sm:pb-20">
+          <div className="mt-4 pb-10 sm:mt-12 sm:pb-20 lg:mt-8">
             <Container className="relative flex flex-col gap-y-12">
               {showPPPMessage && (
                 <Alert

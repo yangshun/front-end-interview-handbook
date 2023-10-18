@@ -12,7 +12,7 @@ import type {
 
 import MarketingFAQ from '~/components/marketing/MarketingFAQ';
 import MarketingFeatures from '~/components/marketing/MarketingFeatures';
-import MarketingPricingSection from '~/components/marketing/MarketingPricingSection';
+import MarketingPricingSection from '~/components/marketing/pricing/MarketingPricingSection';
 import MarketingTestimonialsSection from '~/components/marketing/testimonials/MarketingTestimonialsSection';
 import Section from '~/components/ui/Heading/HeadingContext';
 

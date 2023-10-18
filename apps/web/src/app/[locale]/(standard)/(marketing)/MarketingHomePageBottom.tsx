@@ -2,7 +2,7 @@ import { useUserProfile } from '~/components/global/UserProfileProvider';
 import MarketingContactUs from '~/components/marketing/contact/MarketingContactUs';
 import MarketingContinuousUpdates from '~/components/marketing/MarketingContinuousUpdates';
 import MarketingFAQ from '~/components/marketing/MarketingFAQ';
-import MarketingPricingSectionLocalizedContainer from '~/components/marketing/MarketingPricingSectionLocalizedContainer';
+import MarketingPricingSectionLocalizedContainer from '~/components/marketing/pricing/MarketingPricingSectionLocalizedContainer';
 import MarketingTestimonialsSection from '~/components/marketing/testimonials/MarketingTestimonialsSection';
 
 export default function MarketingHomePageBottom() {
