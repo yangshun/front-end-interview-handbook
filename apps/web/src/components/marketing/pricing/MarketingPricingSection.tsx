@@ -1,6 +1,8 @@
 import axios from 'axios';
 import clsx from 'clsx';
 import type { SVGProps } from 'react';
+import { useRef } from 'react';
+import { useEffect } from 'react';
 import { useId } from 'react';
 import { useState } from 'react';
 import {
@@ -49,7 +51,7 @@ import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../../pri
 import { priceRoundToNearestNiceNumber } from '../../pricing/pricingUtils';
 
 import { loadStripe } from '@stripe/stripe-js';
-import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
+import { useSessionContext } from '@supabase/auth-helpers-react';
 
 function PurpleGradientBackground() {
   return (
@@ -167,6 +169,7 @@ function PricingButton({
       isLoading={isLoading}
       label={label}
       size="lg"
+      target="_self"
       type="button"
       variant="primary"
       onClick={onClick}
@@ -174,24 +177,84 @@ function PricingButton({
   );
 }
 
-function PricingButtonSection({
+function PricingButtonNonLoggedIn({
   'aria-describedby': ariaDescribedBy,
-  countryCode,
+  isDisabled,
   plan,
 }: Readonly<{
   'aria-describedby': string;
-  countryCode: string;
+  isDisabled: boolean;
   plan: PricingPlanDetailsLocalized;
 }>) {
   const intl = useIntl();
-  const { isLoading: isUserLoading } = useSessionContext();
-  const user = useUser();
+
+  return (
+    <PricingButton
+      aria-describedby={ariaDescribedBy}
+      href={`/sign-up?next=${encodeURIComponent('/pricing')}&source=buy_now`}
+      icon={RiArrowRightLine}
+      isDisabled={isDisabled}
+      label={intl.formatMessage({
+        defaultMessage: 'Buy now',
+        description: 'Purchase button label',
+        id: '9gs1LO',
+      })}
+      onClick={() => {
+        gtag.event({
+          action: `checkout.sign_up`,
+          category: 'ecommerce',
+          label: 'Buy Now (not logged in)',
+        });
+        gtag.event({
+          action: `checkout.sign_up.${plan.planType}.purchase`,
+          category: 'ecommerce',
+          label: 'Buy Now (not logged in)',
+        });
+        logMessage({
+          level: 'info',
+          message: `${
+            plan.planType
+          } plan for ${plan.currency.toLocaleUpperCase()} ${
+            plan.unitCostCurrency.withPPP.after
+          } but not signed in`,
+          title: 'Checkout initiate (non-signed in)',
+        });
+        logEvent('checkout.attempt.not_logged_in', {
+          currency: plan.currency.toLocaleUpperCase(),
+          plan: plan.planType,
+          value: plan.unitCostCurrency.withPPP.after,
+        });
+      }}
+    />
+  );
+}
+
+function PricingButtonNonPremium({
+  'aria-describedby': ariaDescribedBy,
+  plan,
+}: Readonly<{
+  'aria-describedby': string;
+  plan: PricingPlanDetailsLocalized;
+}>) {
+  const intl = useIntl();
   const { userProfile, isUserProfileLoading } = useUserProfile();
+  const [checkoutSessionHref, setCheckoutSessionHref] = useState<string | null>(
+    null,
+  );
+  const [hasClicked, setHasClicked] = useState(false);
+  // HACK: Also add a ref so that the processSubscription callback can
+  // access the latest value.
+  const hasClickedRef = useRef(false);
+
   const [isCheckoutSessionLoading, setIsCheckoutSessionLoading] =
     useState(false);
   const [error, setError] = useState<string | null>(null);
 
   async function processSubscription(planType: PricingPlanType) {
+    if (isCheckoutSessionLoading) {
+      return;
+    }
+
     setIsCheckoutSessionLoading(true);
     setError(null);
     try {
@@ -204,17 +267,26 @@ function PricingButtonSection({
         process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY as string,
       );
 
-      await stripe?.redirectToCheckout({ sessionId: data.payload.id });
+      if (hasClickedRef.current) {
+        await stripe?.redirectToCheckout({ sessionId: data.payload.id });
+
+        return;
+      }
+
+      setCheckoutSessionHref(data.payload.url);
     } catch (err: any) {
-      setError(
-        intl.formatMessage({
-          defaultMessage:
-            'An error has occurred. Please try again later and contact support if the error persists.',
-          description:
-            'Error message shown to user when they are trying to checkout but it fails',
-          id: 'Hj6BTz',
-        }),
-      );
+      if (hasClickedRef.current) {
+        setError(
+          intl.formatMessage({
+            defaultMessage:
+              'An error has occurred. Please try again later and contact support if the error persists.',
+            description:
+              'Error message shown to user when they are trying to checkout but it fails',
+            id: 'Hj6BTz',
+          }),
+        );
+      }
+
       gtag.event({
         action: 'checkout.failure',
         category: 'ecommerce',
@@ -240,134 +312,137 @@ function PricingButtonSection({
     }
   }
 
+  useEffect(() => {
+    if (
+      userProfile != null &&
+      !userProfile.isPremium &&
+      plan.planType === 'lifetime' &&
+      checkoutSessionHref == null
+    ) {
+      // Eagerly generate the checkout page URL for lifetime plan
+      // in the background because it takes a while.
+      processSubscription(plan.planType);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userProfile, checkoutSessionHref, plan.planType]);
+
+  const showUserThereIsAsyncRequest = hasClicked && isCheckoutSessionLoading;
+
+  return (
+    <div className="flex flex-col gap-4">
+      <PricingButton
+        aria-describedby={ariaDescribedBy}
+        href={checkoutSessionHref ?? undefined}
+        icon={RiArrowRightLine}
+        isDisabled={showUserThereIsAsyncRequest || isUserProfileLoading}
+        isLoading={showUserThereIsAsyncRequest}
+        label={intl.formatMessage({
+          defaultMessage: 'Buy now',
+          description: 'Purchase button label',
+          id: '9gs1LO',
+        })}
+        onClick={() => {
+          setHasClicked(true);
+          hasClickedRef.current = true;
+          gtag.event({
+            action: `checkout.attempt`,
+            category: 'ecommerce',
+            label: 'Buy Now',
+          });
+          gtag.event({
+            action: `checkout.attempt.${plan.planType}`,
+            category: 'ecommerce',
+            label: 'Buy Now',
+          });
+          fbq.track('InitiateCheckout', {
+            content_category: plan.planType,
+            currency: plan.currency.toLocaleUpperCase(),
+            value: plan.unitCostCurrency.withPPP.after,
+          });
+          logMessage({
+            level: 'info',
+            message: `${
+              plan.planType
+            } plan for ${plan.currency.toLocaleUpperCase()} ${
+              plan.unitCostCurrency.withPPP.after
+            }`,
+            title: 'Checkout Initiate',
+          });
+          logEvent('checkout.attempt', {
+            currency: plan.currency.toLocaleUpperCase(),
+            plan: plan.planType,
+            value: plan.unitCostCurrency.withPPP.after,
+          });
+
+          if (checkoutSessionHref != null) {
+            return;
+          }
+
+          return processSubscription(plan.planType);
+        }}
+      />
+      {error && (
+        <Text className="text-center" color="error" size="body3">
+          {error}
+        </Text>
+      )}
+    </div>
+  );
+}
+
+function PricingButtonSection({
+  'aria-describedby': ariaDescribedBy,
+  countryCode,
+  plan,
+}: Readonly<{
+  'aria-describedby': string;
+  countryCode: string;
+  plan: PricingPlanDetailsLocalized;
+}>) {
+  const intl = useIntl();
+  const { isLoading: isUserLoading } = useSessionContext();
+  const { userProfile, isUserProfileLoading } = useUserProfile();
+
   const isPending = isUserLoading || isUserProfileLoading;
 
   if (isProhibitedCountry(countryCode)) {
     return null;
   }
 
+  if (userProfile) {
+    if (!userProfile.isPremium) {
+      // User is logged in but not a premium user.
+      return (
+        <PricingButtonNonPremium
+          aria-describedby={ariaDescribedBy}
+          plan={plan}
+        />
+      );
+    }
+
+    // User is already subscribed, link to billing page.
+    return (
+      <PricingButton
+        aria-describedby={ariaDescribedBy}
+        href="/profile/billing"
+        icon={RiArrowRightLine}
+        isDisabled={isPending}
+        label={intl.formatMessage({
+          defaultMessage: 'Manage subscription',
+          description: 'Manage user membership subscription button label',
+          id: 'sjLtW1',
+        })}
+      />
+    );
+  }
+
+  // User is not logged in, they have to create an account first.
   return (
-    <div>
-      {(() => {
-        // User is not logged in, they have to create an account first.
-        if (!user) {
-          return (
-            <PricingButton
-              aria-describedby={ariaDescribedBy}
-              href={`/sign-up?next=${encodeURIComponent(
-                '/pricing',
-              )}&source=buy_now`}
-              icon={RiArrowRightLine}
-              isDisabled={isPending}
-              label={intl.formatMessage({
-                defaultMessage: 'Buy now',
-                description: 'Purchase button label',
-                id: '9gs1LO',
-              })}
-              onClick={() => {
-                gtag.event({
-                  action: `checkout.sign_up`,
-                  category: 'ecommerce',
-                  label: 'Buy Now (not logged in)',
-                });
-                gtag.event({
-                  action: `checkout.sign_up.${plan.planType}.purchase`,
-                  category: 'ecommerce',
-                  label: 'Buy Now (not logged in)',
-                });
-                logMessage({
-                  level: 'info',
-                  message: `${
-                    plan.planType
-                  } plan for ${plan.currency.toLocaleUpperCase()} ${
-                    plan.unitCostCurrency.withPPP.after
-                  } but not signed in`,
-                  title: 'Checkout initiate (non-signed in)',
-                });
-                logEvent('checkout.attempt.not_logged_in', {
-                  currency: plan.currency.toLocaleUpperCase(),
-                  plan: plan.planType,
-                  value: plan.unitCostCurrency.withPPP.after,
-                });
-              }}
-            />
-          );
-        }
-        // User is logged in but not a premium user.
-        if (userProfile != null && !userProfile.isPremium) {
-          return (
-            <div className="flex flex-col gap-4">
-              <PricingButton
-                aria-describedby={ariaDescribedBy}
-                icon={RiArrowRightLine}
-                isDisabled={isPending}
-                isLoading={isCheckoutSessionLoading}
-                label={intl.formatMessage({
-                  defaultMessage: 'Buy now',
-                  description: 'Purchase button label',
-                  id: '9gs1LO',
-                })}
-                onClick={() => {
-                  gtag.event({
-                    action: `checkout.attempt`,
-                    category: 'ecommerce',
-                    label: 'Buy Now',
-                  });
-                  gtag.event({
-                    action: `checkout.attempt.${plan.planType}`,
-                    category: 'ecommerce',
-                    label: 'Buy Now',
-                  });
-                  fbq.track('InitiateCheckout', {
-                    content_category: plan.planType,
-                    currency: plan.currency.toLocaleUpperCase(),
-                    value: plan.unitCostCurrency.withPPP.after,
-                  });
-                  logMessage({
-                    level: 'info',
-                    message: `${
-                      plan.planType
-                    } plan for ${plan.currency.toLocaleUpperCase()} ${
-                      plan.unitCostCurrency.withPPP.after
-                    }`,
-                    title: 'Checkout Initiate',
-                  });
-                  logEvent('checkout.attempt', {
-                    currency: plan.currency.toLocaleUpperCase(),
-                    plan: plan.planType,
-                    value: plan.unitCostCurrency.withPPP.after,
-                  });
-
-                  return processSubscription(plan.planType);
-                }}
-              />
-              {error && (
-                <Text className="text-center" color="error" size="body3">
-                  {error}
-                </Text>
-              )}
-            </div>
-          );
-        }
-
-        // User is already subscribed.
-        if (!!userProfile && userProfile.isPremium) {
-          return (
-            <PricingButton
-              aria-describedby={ariaDescribedBy}
-              href="/profile"
-              icon={RiArrowRightLine}
-              isDisabled={isPending}
-              label={intl.formatMessage({
-                defaultMessage: 'Manage subscription',
-                description: 'Manage user membership subscription button label',
-                id: 'sjLtW1',
-              })}
-            />
-          );
-        }
-      })()}
-    </div>
+    <PricingButtonNonLoggedIn
+      aria-describedby={ariaDescribedBy}
+      isDisabled={isPending}
+      plan={plan}
+    />
   );
 }
 

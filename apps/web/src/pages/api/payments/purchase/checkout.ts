@@ -120,7 +120,7 @@ export default async function handler(req: NextRequest) {
         queryParams,
       )}`,
     );
-    const payload = (await response.json()) as PricingPlansLocalized;
+    const payload = await response.json();
 
     return NextResponse.json(payload);
   } catch (err: any) {

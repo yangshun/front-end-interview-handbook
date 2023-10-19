@@ -144,6 +144,7 @@ async function processSubscriptionPlan(
   return res.json({
     payload: {
       id: session.id,
+      url: session.url,
     },
     success: true,
   });
@@ -186,6 +187,7 @@ async function processOneTimePlan(
   return res.json({
     payload: {
       id: session.id,
+      url: session.url,
     },
     success: true,
   });
