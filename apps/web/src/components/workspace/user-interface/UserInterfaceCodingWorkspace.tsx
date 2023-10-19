@@ -21,6 +21,7 @@ import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
 
 import UserInterfaceCodingWorkspaceCodeEditor from './UserInterfaceCodingWorkspaceCodeEditor';
+import UserInterfaceCodingWorkspaceCommunitySolutionCreateTab from './UserInterfaceCodingWorkspaceCommunitySolutionCreateTab';
 import UserInterfaceCodingWorkspaceCommunitySolutionList from './UserInterfaceCodingWorkspaceCommunitySolutionList';
 import UserInterfaceCodingWorkspaceFileExplorer from './UserInterfaceCodingWorkspaceExplorer';
 import UserInterfaceCodingWorkspaceLayoutButton from './UserInterfaceCodingWorkspaceLayoutButton';
@@ -246,6 +247,16 @@ function UserInterfaceCodingWorkspaceImpl({
   );
 
   const predefinedTabs: UserInterfaceCodingWorkspacePredefinedTabsContents = {
+    community_solution_create: {
+      contents: (
+        <UserInterfaceCodingWorkspaceCommunitySolutionCreateTab
+          framework={framework}
+          metadata={metadata}
+        />
+      ),
+      icon: CodingWorkspaceTabIcons.community_solution_create.icon,
+      label: 'Post solution',
+    },
     community_solutions: {
       contents: (
         <UserInterfaceCodingWorkspaceCommunitySolutionList

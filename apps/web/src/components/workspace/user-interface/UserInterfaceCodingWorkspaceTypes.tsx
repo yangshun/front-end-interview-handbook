@@ -5,6 +5,7 @@ import type {
 } from '../common/tabs/codingWorkspaceTabId';
 
 export type UserInterfaceCodingWorkspacePredefinedTabsType =
+  | 'community_solution_create'
   | 'community_solutions'
   | 'console'
   | 'description'

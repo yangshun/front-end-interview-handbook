@@ -4,7 +4,10 @@ import prisma from '~/server/prisma';
 
 import { publicProcedure, router } from '../trpc';
 
-import { QuestionWorkingLanguage } from '@prisma/client';
+import {
+  QuestionUserInterfaceFramework,
+  QuestionWorkingLanguage,
+} from '@prisma/client';
 
 export const questionCommunitySolutionRouter = router({
   javaScriptAdd: publicProcedure
@@ -74,6 +77,44 @@ export const questionCommunitySolutionRouter = router({
         },
       });
     }),
+  userInterfaceAdd: publicProcedure
+    .input(
+      z.object({
+        files: z.string(),
+        framework: z.enum([
+          // TODO(prisma): Read from Prisma directly.
+          QuestionUserInterfaceFramework.REACT,
+          QuestionUserInterfaceFramework.VANILLA,
+          QuestionUserInterfaceFramework.ANGULAR,
+          QuestionUserInterfaceFramework.VUE,
+          QuestionUserInterfaceFramework.SVELTE,
+        ]),
+        slug: z.string(),
+        title: z.string(),
+        writeup: z.string(),
+      }),
+    )
+    .mutation(
+      async ({
+        input: { files, framework, slug, title, writeup },
+        ctx: { user },
+      }) => {
+        if (!user) {
+          return null;
+        }
+
+        return await prisma.questionUserInterfaceCommunitySolution.create({
+          data: {
+            files,
+            framework,
+            slug,
+            title,
+            userId: user.id,
+            writeup,
+          },
+        });
+      },
+    ),
   userInterfaceGetAll: publicProcedure
     .input(
       z.object({
