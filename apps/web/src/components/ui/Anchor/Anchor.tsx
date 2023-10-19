@@ -86,7 +86,7 @@ function Anchor(
       ),
     classNameProp,
   );
-  const target = targetProp ?? isExternalURL ? '_blank' : undefined;
+  const target = targetProp ?? (isExternalURL ? '_blank' : undefined);
 
   if (
     // Do a hard navigation when client and server versions mismatch.
