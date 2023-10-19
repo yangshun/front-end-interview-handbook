@@ -15,7 +15,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     category: 'team',
     companyLogos: ['/img/company-logos/meta-logomark.png'],
     description:
-      'Author of "Blind 75" and "Front End Interview Handbook". At Meta, he created Docusaurus 2 and led engineering teams to build www.meta.com and www.oculus.com.',
+      'Yangshun is the author of "Blind 75" and "Front End Interview Handbook". At Meta, he created Docusaurus 2 and led engineering teams to build www.meta.com and www.oculus.com.',
     href: 'https://www.linkedin.com/in/yangshun',
     image: '/img/team/yangshun.jpg',
     name: 'Yangshun Tay',
@@ -25,7 +25,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     category: 'team',
     companyLogos: ['/img/company-logos/svelte-logomark.svg'],
     description:
-      'Svelte Core Maintainer. At Shopee, he lead the web frontend platform team. Love sharing, making educational content on YouTube.',
+      'Li Hau is a Svelte Core Maintainer. At Shopee, he leads the web frontend platform team. He also lives sharing, making educational content on his YouTube channel.',
     href: 'https://www.youtube.com/c/lihautan',
     image: '/img/team/lihau.jpg',
     name: 'Tan Li Hau',
@@ -35,7 +35,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     category: 'team',
     companyLogos: [],
     description:
-      'Lead Frontend Software Engineer at Ofair with over 6 years of experience in Angular and its ecosystem. Deeply passionate about freelancing and actively seeking opportunities for side projects.',
+      'Michal is a Lead Frontend Software Engineer at Ofair with over 6 years of experience in Angular and its ecosystem. Deeply passionate about freelancing and actively seeking opportunities for side projects.',
     href: 'https://www.linkedin.com/in/michalgrzegorczyk-dev/',
     image: '/img/team/michal.jpg',
     name: 'Michal Grzegorczyk',
@@ -45,7 +45,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     category: 'expert',
     companyLogos: ['/img/company-logos/google-logomark.svg'],
     description:
-      'Senior Staff Software Engineer at Google with over a decade of experience managing teams on Google Search, Gmail, Google Chat, Google Maps, and more. He joined Google in 2011 when they acquired his startup, TalkBin (YC W11).',
+      'Sunny is a Senior Staff Software Engineer at Google with over a decade of experience managing teams on Google Search, Gmail, Google Chat, Google Maps, and more. He joined Google in 2011 when they acquired his startup, TalkBin (YC W11).',
     href: 'https://www.linkedin.com/in/dhillons/',
     image: '/img/team/sunny.jpg',
     name: 'Sunny Dhillon',
@@ -58,11 +58,11 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
       '/img/company-logos/amazon-logomark.png',
     ],
     description:
-      'Senior Software Engineer at DocuSign previously from Instacart and Amazon. He has developed multiple modern large-scale web apps and writes about software development and web technologies on zhenghao.io',
+      'Zhenghao is a Senior Software Engineer at DocuSign who was previously from Instacart and Amazon. He has developed multiple modern large-scale web apps and writes about software development and web technologies on zhenghao.io',
     href: 'https://www.linkedin.com/in/zhenghao-he/',
     image: '/img/team/zhenghao.jpg',
     name: 'Zhenghao He',
-    title: 'Senior Software Engineer @ DocuSign. Ex-Amazon',
+    title: 'Sr Software Engineer @ DocuSign. Ex-Amazon',
   },
   {
     category: 'expert',
@@ -71,7 +71,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
       '/img/company-logos/google-logomark.svg',
     ],
     description:
-      'Software engineer well-versed in databases and distributed systems. Previously Ad Speed tech lead at Google.',
+      'Beng is a software engineer who is well-versed in databases and distributed systems. Previously Ad Speed tech lead at Google.',
     href: 'https://www.linkedin.com/in/thebengeu/',
     image: '/img/team/beng.jpg',
     name: 'Beng Eu',
@@ -84,7 +84,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
       'Sébastien is a React early adopter, creator of the This Week In React newsletter, and maintains the Docusaurus project for Meta.',
     href: 'https://thisweekinreact.com/?utm_source=greatfrontend',
     image: '/img/team/sebastien-lorber.jpg',
-    name: 'Sebastien Lorber',
+    name: 'Sébastien Lorber',
     title: 'Creator of This Week In React, Docusaurus maintainer',
   },
   {
@@ -104,7 +104,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
       '/img/company-logos/apple-logomark.svg',
     ],
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'Quan Yang is an Application Security Tech Lead at Snap with over 6 years of experience in application security, with extra passion for vulnerability scanning, vulnerability management and web security.',
     href: 'https://www.linkedin.com/in/quanyang/',
     image: '/img/team/quanyang.jpg',
     name: 'Quan Yang Yeo',
@@ -114,7 +114,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     category: 'expert',
     companyLogos: ['/img/company-logos/flexport-logomark.png'],
     description:
-      'Software engineer who enjoys the front end ecosystem. At Flexport, he led several big refactors to modernize the frontend tech stack.',
+      'Kevin is a software engineer who enjoys the front end ecosystem. At Flexport, he led several big refactors to modernize the front end tech stack.',
     href: 'https://www.linkedin.com/in/gonzalezkev/',
     image: '/img/team/kevin-gonzalez.jpg',
     name: 'Kevin Gonzalez',
@@ -124,7 +124,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     category: 'expert',
     companyLogos: ['/img/company-logos/rattle-logo.webp'],
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      'Utpal is well-versed in React and React Native and an experienced interviewer.',
     href: 'https://www.linkedin.com/in/utpalsingh/',
     image: '/img/team/utpal.jpg',
     name: 'Utpal Singh',
@@ -135,7 +135,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     category: 'team',
     companyLogos: ['/img/company-logos/tiktok-logomark.svg'],
     description:
-      'Passionate about creating delightful user experiences and well-engineered software primarily using React and Flutter. Showcases his projects and other creations at jeffsieu.com',
+      'Jeff is passionate about creating delightful user experiences and well-engineered software primarily using React and Flutter. He showcases his projects and other creations at jeffsieu.com',
     href: 'https://jeffsieu.com',
     image: '/img/team/jeff-sieu-yong.jpg',
     name: 'Jeff Sieu',
@@ -145,7 +145,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     category: 'alumni',
     companyLogos: ['/img/company-logos/palantir-logomark.svg'],
     description:
-      'Full stack software engineer passionate about solving tough engineering challenges. Built the Tech Offers Repo',
+      'Ai Ling is a full stack software engineer who is passionate about solving tough engineering challenges. Built the Tech Offers Repo',
     href: 'https://www.linkedin.com/in/ai-ling-hong/',
     image: '/img/team/hong-ai-ling.jpg',
     name: 'Hong Ai Ling',
@@ -155,7 +155,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     category: 'alumni',
     companyLogos: ['/img/company-logos/tiktok-logomark.svg'],
     description:
-      'A software engineer who loves hackathons and supports diversity in tech industries. Received Generation Google Scholar Award in 2022.',
+      'Ziqing is a software engineer who loves hackathons and supports diversity in tech industries. She received the prestigious Generation Google Scholar Award in 2022.',
     href: 'https://www.linkedin.com/in/ziqingzhang26/',
     image: '/img/team/zhang-ziqing.jpg',
     name: 'Zhang Ziqing',
