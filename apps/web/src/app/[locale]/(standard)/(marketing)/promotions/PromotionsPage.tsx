@@ -317,7 +317,7 @@ function StudentDiscountCard() {
                     })}
                     size="md"
                     type="button"
-                    variant="secondary"
+                    variant="primary"
                   />
                 );
               }
@@ -446,6 +446,12 @@ function ReviewCashbackCard() {
             wordCount: 300,
           },
         ),
+        intl.formatMessage({
+          defaultMessage:
+            'Review must not be generated or written with the assistance of artificial intelligence.',
+          description: 'Condition for promotion',
+          id: 'SAjGy/',
+        }),
       ]}
       footer={
         <Text
@@ -476,10 +482,10 @@ function ReviewCashbackCard() {
         <>
           <div className="mt-4 flex items-end">
             <Text
-              className={clsx('inline-flex items-center text-5xl')}
+              className={clsx('inline-flex items-center text-5xl font-bold')}
               display="inline-flex"
               size="custom"
-              weight="bold">
+              weight="custom">
               {discountPercentage}%
             </Text>
           </div>

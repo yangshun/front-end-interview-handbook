@@ -1663,6 +1663,10 @@
     "defaultMessage": "Is it really worth it to buy GreatFrontEnd?",
     "description": "Question on Homepage's FAQ section - on the worthiness of purchasing the product"
   },
+  "SAjGy/": {
+    "defaultMessage": "Review must not be generated or written with the assistance of artificial intelligence.",
+    "description": "Condition for promotion"
+  },
   "SId1Gq": {
     "defaultMessage": "All rounded coverage to bring you to the next level.",
     "description": "Short description for one month study plan"
