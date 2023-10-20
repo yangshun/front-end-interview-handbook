@@ -18,7 +18,9 @@ type Props = Readonly<{
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug, locale } = params;
+  const { slug: rawSlug, locale } = params;
+  // So that we handle typos like extra characters.
+  const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
 
   const intl = await getIntlServerOnly(locale);
   const { question } = readQuestionJavaScriptContents(slug, locale);
@@ -40,8 +42,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
+  const { slug: rawSlug, locale } = params;
+  // So that we handle typos like extra characters.
+  const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
   const supabaseAdmin = createSupabaseAdminClientGFE();
-  const { slug, locale } = params;
 
   const user = await fetchUser();
   const { question } = readQuestionJavaScriptContents(slug, locale);
