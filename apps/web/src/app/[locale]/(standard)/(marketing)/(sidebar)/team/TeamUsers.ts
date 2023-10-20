@@ -17,7 +17,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     description:
       'Yangshun is the author of "Blind 75" and "Front End Interview Handbook". At Meta, he created Docusaurus 2 and led engineering teams to build www.meta.com and www.oculus.com.',
     href: 'https://www.linkedin.com/in/yangshun',
-    image: '/img/team/yangshun.jpg',
+    image: '/img/team/yangshun-team.jpg',
     name: 'Yangshun Tay',
     title: 'Ex-Meta Staff Engineer. Creator of Blind 75',
   },
@@ -25,9 +25,9 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     category: 'team',
     companyLogos: ['/img/company-logos/svelte-logomark.svg'],
     description:
-      'Li Hau is a Svelte Core Maintainer. At Shopee, he leads the web frontend platform team. He also lives sharing, making educational content on his YouTube channel.',
+      'Li Hau is a Svelte Core Maintainer and shipped many features for Svelte 3. At Shopee, he leads the web frontend platform team. He also loves sharing and making educational content on his YouTube channel.',
     href: 'https://www.youtube.com/c/lihautan',
-    image: '/img/team/lihau.jpg',
+    image: '/img/team/lihau-team.jpg',
     name: 'Tan Li Hau',
     title: 'Svelte Core Maintainer. Team Lead @ Shopee',
   },
@@ -35,7 +35,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     category: 'team',
     companyLogos: [],
     description:
-      'Michal is a Lead Frontend Software Engineer at Ofair with over 6 years of experience in Angular and its ecosystem. Deeply passionate about freelancing and actively seeking opportunities for side projects.',
+      'Michal is a Lead Frontend Software Engineer at Ofair with over 6 years of experience in Angular and its ecosystem. Experienced freelancer with a passion for teaching programming.',
     href: 'https://www.linkedin.com/in/michalgrzegorczyk-dev/',
     image: '/img/team/michal.jpg',
     name: 'Michal Grzegorczyk',
@@ -47,7 +47,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     description:
       'Sunny is a Senior Staff Software Engineer at Google with over a decade of experience managing teams on Google Search, Gmail, Google Chat, Google Maps, and more. He joined Google in 2011 when they acquired his startup, TalkBin (YC W11).',
     href: 'https://www.linkedin.com/in/dhillons/',
-    image: '/img/team/sunny.jpg',
+    image: '/img/team/sunny-team.jpg',
     name: 'Sunny Dhillon',
     title: 'Senior Staff Software Engineer @ Google',
   },
