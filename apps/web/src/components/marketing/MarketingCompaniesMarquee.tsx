@@ -13,22 +13,33 @@ const logos = [
     width: 120,
   },
   {
-    alt: 'DocuSign logo',
-    className: 'mt-1',
+    alt: 'TikTok logo',
+    height: 60,
+    src: '/img/company-logos/tiktok-logo.svg',
+    width: 150,
+  },
+  {
+    alt: 'Spotify logo',
     height: 48,
-    src: '/img/company-logos/docusign-logo.svg',
+    src: '/img/company-logos/spotify-logo.png',
     width: 130,
   },
   {
-    alt: 'Adobe logo',
+    alt: 'Shopify logo',
     height: 48,
-    src: '/img/company-logos/adobe-logo.svg',
+    src: '/img/company-logos/shopify-logo.svg',
     width: 130,
   },
   {
     alt: 'ByteDance logo',
     height: 48,
     src: '/img/company-logos/bytedance-logo.svg',
+    width: 130,
+  },
+  {
+    alt: 'Adobe logo',
+    height: 48,
+    src: '/img/company-logos/adobe-logo.svg',
     width: 130,
   },
   {
@@ -44,18 +55,31 @@ const logos = [
     width: 130,
   },
   {
+    alt: 'Brex logo',
+    height: 36,
+    src: '/img/company-logos/brex-logo.svg',
+    width: 100,
+  },
+  {
+    alt: 'DocuSign logo',
+    className: 'mt-1',
+    height: 36,
+    src: '/img/company-logos/docusign-logo.svg',
+    width: 100,
+  },
+  {
     alt: 'Seam logo',
     className: 'invert',
-    height: 48,
+    height: 36,
     src: '/img/company-logos/seam-wordmark.webp',
-    width: 130,
+    width: 100,
   },
 ];
 
 export default function MarketingCompaniesMarquee() {
   return (
     <Container
-      className="flex flex-col gap-y-6 lg:gap-y-12 py-8 lg:py-16"
+      className="flex flex-col gap-y-6 py-8 lg:gap-y-12 lg:py-16"
       variant="narrow">
       <Text
         className="text-center"
@@ -71,7 +95,7 @@ export default function MarketingCompaniesMarquee() {
       <Marquee periodSeconds={30} startEndGap={64}>
         <div
           className={clsx(
-            'flex h-12 items-center gap-16 invert dark:invert-0',
+            'flex h-12 items-center gap-16 overflow-hidden invert dark:invert-0',
           )}>
           {logos.map((logo) => (
             <div
