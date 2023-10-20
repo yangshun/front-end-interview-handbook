@@ -139,12 +139,6 @@ export default function FeedbackDialog({
             }}>
             <TextArea
               autoFocus={true}
-              description={intl.formatMessage({
-                defaultMessage:
-                  'Give us your feedback/suggestions and stand a chance to receive a discount/cashback!',
-                description: 'Feedback widget textarea description',
-                id: '8MHkPL',
-              })}
               errorMessage={submitFailureReason?.message}
               label={intl.formatMessage({
                 defaultMessage: 'Your Message',
@@ -163,6 +157,7 @@ export default function FeedbackDialog({
                 description: 'Feedback widget submit button label',
                 id: 'c2hcfm',
               })}
+              size="lg"
               type="submit"
               variant="primary"
             />
@@ -209,6 +204,7 @@ export default function FeedbackDialog({
                 description: 'Feedback widget submit button label',
                 id: 'c2hcfm',
               })}
+              size="lg"
               type="submit"
               variant="primary"
             />

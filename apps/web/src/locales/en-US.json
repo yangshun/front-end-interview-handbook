@@ -523,10 +523,6 @@
     "defaultMessage": "Intro to Quiz Questions",
     "description": "Introduction to front end quiz questions"
   },
-  "8MHkPL": {
-    "defaultMessage": "Give us your feedback/suggestions and stand a chance to receive a discount/cashback!",
-    "description": "Feedback widget textarea description"
-  },
   "8Nm9WZ": {
     "defaultMessage": "Walmart",
     "description": "Company name for Walmart"
@@ -2730,6 +2726,10 @@
   "kx0gZt": {
     "defaultMessage": "View questions",
     "description": "Label for button to view questions"
+  },
+  "kzxwOd": {
+    "defaultMessage": "We appreciate any feedback or bug reports on the product. Feedback that the team finds useful will be rewarded with freebies and discounts or even cashbacks on your order!",
+    "description": "Feedback widget description."
   },
   "l+OESW": {
     "defaultMessage": "Seattle, WA, USA",

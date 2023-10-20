@@ -10,6 +10,7 @@ import fbq from '~/lib/fbq';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 
 import FeedbackDialog from './FeedbackDialog';
+import Text from '../ui/Text';
 
 type Props = Readonly<{
   position: 'bottom' | 'end';
@@ -64,6 +65,16 @@ export default function FeedbackWidget({ position }: Props) {
       </button>
       <FeedbackDialog
         isShown={isOpen}
+        preBodyContents={
+          <Text color="secondary" size="body2">
+            <FormattedMessage
+              defaultMessage="We appreciate any feedback or bug reports on the product. Feedback that the team finds useful will be rewarded with freebies and
+            discounts or even cashbacks on your order!"
+              description="Feedback widget description."
+              id="kzxwOd"
+            />
+          </Text>
+        }
         onClose={() => setIsOpen(false)}
         onHideWidgetForSession={() => {
           setShowFeedbackWidget(false);
