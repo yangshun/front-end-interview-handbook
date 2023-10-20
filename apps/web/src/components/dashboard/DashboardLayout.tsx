@@ -6,7 +6,6 @@ import type { ReactNode } from 'react';
 import { useEffect, useRef } from 'react';
 
 import { trpc } from '~/hooks/trpc';
-import useScrollIntoView from '~/hooks/useScrollIntoView';
 
 import type { PreparationArea } from '~/data/PreparationAreas';
 

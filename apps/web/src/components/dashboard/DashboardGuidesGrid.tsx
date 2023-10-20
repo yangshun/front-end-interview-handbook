@@ -6,7 +6,6 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasized,
-  themeBackgroundEmphasizedHover,
   themeBackgroundLayerEmphasizedHover,
   themeLineColor,
 } from '~/components/ui/theme';

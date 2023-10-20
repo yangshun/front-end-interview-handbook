@@ -3,10 +3,7 @@ import { NextResponse } from 'next/server';
 
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 
-import type {
-  PricingPlansLocalized,
-  PricingPlanType,
-} from '~/data/PricingPlans';
+import type { PricingPlanType } from '~/data/PricingPlans';
 
 import {
   createSupabaseAdminClientGFE,
