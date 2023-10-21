@@ -42,11 +42,7 @@ async function generateSetupForQuestion(slug: string) {
     .sync(path.join(frameworksPath, '**/*.*'))
     .filter(
       (path_) =>
-        !(
-          path_.endsWith('mdx') ||
-          path_.endsWith('setup.json') ||
-          path_.endsWith('greatfrontend.json')
-        ),
+        !(path_.endsWith('mdx') || path_.endsWith('greatfrontend.json')),
     );
 
   // Group folders for a question by (framework, setup).

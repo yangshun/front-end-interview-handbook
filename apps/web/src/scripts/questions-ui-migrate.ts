@@ -113,9 +113,7 @@ async function restructureQuestion(dirPath: string, slug: string) {
 
   const allFilesForQuestion = glob
     .sync(path.join(frameworksPath, '**/*.*'))
-    .filter(
-      (path_) => !(path_.endsWith('mdx') || path_.endsWith('setup.json')),
-    );
+    .filter((path_) => !path_.endsWith('mdx'));
 
   // Group folders for a question by (framework, setup).
   const groupedFiles = lodash.groupBy(allFilesForQuestion, (filePath) => {
