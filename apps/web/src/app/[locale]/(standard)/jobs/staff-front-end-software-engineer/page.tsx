@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     locale,
-    pathname: '/jobs/senior-front-end-contributor-ui',
+    pathname: '/jobs/staff-front-end-software-engineer',
     title,
   });
 }

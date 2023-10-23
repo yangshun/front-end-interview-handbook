@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { cookies } from 'next/headers';
 import type { Metadata } from 'next/types';
 import { RiArrowRightLine, RiMapPinLine } from 'react-icons/ri';
 
@@ -20,6 +21,7 @@ type Props = Readonly<{
   params: Readonly<{
     locale: string;
   }>;
+  searchParams?: Readonly<{ cty?: string }>;
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -89,7 +91,14 @@ function JobPostingItem({
   );
 }
 
-export default function Page() {
+export default function Page({ searchParams }: Props) {
+  const cookieStore = cookies();
+  // 1. Read from query param (for overrides, useful for testing).
+  // 2. Read from cookie set during middleware.
+  // 3. Defaults to US in case something blows up.
+  const countryCode: string =
+    searchParams?.cty ?? cookieStore.get('country')?.value ?? 'US';
+
   return (
     <Container
       className="my-10 grid gap-y-8 md:my-20 md:gap-y-16"
@@ -103,24 +112,43 @@ export default function Page() {
       </div>
       <Section>
         <div className="grid gap-6 lg:grid-cols-2">
-          <JobPostingItem
-            department="Engineering"
-            href="/jobs/senior-front-end-contributor-ui"
-            location="Remote"
-            title="Senior Front End Contributor (UI Questions)"
-          />
-          <JobPostingItem
-            department="Engineering"
-            href="/jobs/senior-front-end-contributor-js"
-            location="Remote"
-            title="Senior Front End Contributor (JS Questions)"
-          />
-          <JobPostingItem
-            department="Engineering"
-            href="/jobs/front-end-software-engineer"
-            location="Remote"
-            title="Front End Software Engineer"
-          />
+          {countryCode === 'IN' ? (
+            <>
+              <JobPostingItem
+                department="Engineering"
+                href="/jobs/staff-front-end-software-engineer"
+                location="Remote"
+                title="Staff Front End Software Engineer"
+              />
+              <JobPostingItem
+                department="Engineering"
+                href="/jobs/senior-front-end-engineer-content"
+                location="Remote"
+                title="Senior Front End Engineer (Content)"
+              />
+            </>
+          ) : (
+            <>
+              <JobPostingItem
+                department="Engineering"
+                href="/jobs/senior-front-end-contributor-ui"
+                location="Remote"
+                title="Senior Front End Contributor (UI Questions)"
+              />
+              <JobPostingItem
+                department="Engineering"
+                href="/jobs/senior-front-end-contributor-js"
+                location="Remote"
+                title="Senior Front End Contributor (JS Questions)"
+              />
+              <JobPostingItem
+                department="Engineering"
+                href="/jobs/senior-front-end-software-engineer"
+                location="Remote"
+                title="Senior Front End Software Engineer"
+              />
+            </>
+          )}
           <JobPostingItem
             department="Marketing"
             href="/jobs/technical-marketing-specialist"

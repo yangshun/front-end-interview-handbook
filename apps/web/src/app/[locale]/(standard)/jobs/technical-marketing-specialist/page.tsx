@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return defaultMetadata({
     locale,
     pathname: '/jobs/technical-marketing-specialist',
-    title: 'Technical Marketing Specialist',
+    title,
   });
 }
 

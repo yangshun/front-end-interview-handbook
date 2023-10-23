@@ -2887,6 +2887,10 @@
     "defaultMessage": "Enjoy extra {discountPercentage}% off with the code {promoCode}",
     "description": "Subtitle of discount promotion card"
   },
+  "njNtN8": {
+    "defaultMessage": "YouTube profile link",
+    "description": "Link to YouTube profile"
+  },
   "npvgQq": {
     "defaultMessage": "Prepare for your front end interviews in one week. Efficiently focus on the most important concepts through a good mix of coding and quiz questions.",
     "description": "Description for one week study plan"
