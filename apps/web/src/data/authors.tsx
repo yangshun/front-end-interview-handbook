@@ -5,15 +5,17 @@ import Anchor from '~/components/ui/Anchor';
 type Author = Readonly<{
   bio: React.ReactNode;
   companyIconUrl?: string;
-  gitHubUrl?: string;
   imageUrl: string;
-  linkedInUrl?: string;
+  links: {
+    github?: string;
+    linkedin?: string;
+    twitter?: string;
+    website?: string;
+    youtube?: string;
+  };
   name: string;
-  profileUrl: string;
   role: string;
   subtitle?: string;
-  twitterUrl?: string;
-  websiteUrl?: string;
 }>;
 
 const authors: Record<string, Author> = {
@@ -28,42 +30,64 @@ const authors: Record<string, Author> = {
     ),
     companyIconUrl: '/img/marketing/google-g-icon.svg',
     imageUrl: '/img/team/sunny.jpg',
-    linkedInUrl: 'https://www.linkedin.com/in/dhillons/',
+    links: {
+      linkedin: 'https://www.linkedin.com/in/dhillons/',
+    },
     name: 'Sunny Dhillon',
-    profileUrl: 'https://www.linkedin.com/in/dhillons/',
     role: 'Senior Staff Software Engineer, Google',
     subtitle: 'Senior Staff Engineer, Google',
   },
   'michalgrzegorczyk-dev': {
     bio: (
       <>
-        Lead Frontend Software Engineer at Ofair with over 6 years of experience
-        in Angular and its ecosystem. Deeply passionate about freelancing and
-        actively seeking opportunities for side projects.
+        Michal is a lead Frontend Software Engineer at Ofair with over 6 years
+        of experience in Angular and its ecosystem. Deeply passionate about
+        teaching Angular via code exercises and high quality solutions.
       </>
     ),
     imageUrl: '/img/team/michal.jpg',
-    linkedInUrl: 'https://www.linkedin.com/in/michalgrzegorczyk-dev/',
+    links: {
+      github: 'https://www.github.com/michalgrzegorczyk-dev',
+      linkedin: 'https://www.linkedin.com/in/michalgrzegorczyk-dev/',
+    },
     name: 'Michal Grzegorczyk',
-    profileUrl: 'https://www.linkedin.com/in/michalgrzegorczyk-dev/',
     role: 'Senior Front End Engineer, Ofair',
     subtitle: 'Senior Front End Engineer, Ofair',
   },
   tanhauhau: {
-    bio: <>TODO</>,
+    bio: (
+      <>
+        Li Hau is a Svelte Core Maintainer and shipped many features for Svelte
+        3. At Shopee, he leads the web frontend platform team. He also loves
+        sharing and making educational content on his YouTube channel.
+      </>
+    ),
+    companyIconUrl: '/img/company-logos/svelte-logomark.svg',
     imageUrl: '/img/team/lihau.jpg',
-    linkedInUrl: 'https://www.linkedin.com/in/lihautan/',
+    links: {
+      github: 'https://github.com/tanhauhau',
+      linkedin: 'https://www.linkedin.com/in/lihautan/',
+      twitter: 'https://twitter.com/lihautan',
+      website: 'https://lihautan.com/',
+      youtube: 'https://www.youtube.com/@lihautan',
+    },
     name: 'Tan Li Hau',
-    profileUrl: 'https://lihautan.com/',
     role: 'Team lead @ Shopee, Svelte core team',
     subtitle: 'Svelte core team',
   },
   'utpal-d4l': {
-    bio: <>TODO</>,
+    bio: (
+      <>
+        Utpal is well-versed in React and React Native and an experienced
+        interviewer.
+      </>
+    ),
+    companyIconUrl: '/img/company-logos/rattle-logo.webp',
     imageUrl: '/img/team/utpal.jpg',
-    linkedInUrl: 'https://www.linkedin.com/in/utpalsingh/',
+    links: {
+      linkedin: 'https://www.linkedin.com/in/utpalsingh/',
+    },
     name: 'Utpal Singh',
-    profileUrl: 'https://www.linkedin.com/in/utpalsingh/',
     role: 'Frontend @ Rattle',
     subtitle: 'Frontend @ Rattle',
   },
@@ -76,14 +100,16 @@ const authors: Record<string, Author> = {
       </>
     ),
     companyIconUrl: '/img/marketing/meta-icon.svg',
-    gitHubUrl: 'https://www.github.com/yangshun',
     imageUrl: '/img/team/yangshun.jpg',
-    linkedInUrl: 'https://www.linkedin.com/in/yangshun',
+    links: {
+      github: 'https://www.github.com/yangshun',
+      linkedin: 'https://www.linkedin.com/in/yangshun',
+      twitter: 'https://www.twitter.com/yangshunz',
+      website: 'https://yangshuntay.com',
+    },
     name: 'Yangshun Tay',
-    profileUrl: 'https://www.github.com/yangshun',
     role: 'Staff Front End Engineer, ex-Meta',
     subtitle: 'Ex-Meta Staff Engineer',
-    twitterUrl: 'https://www.twitter.com/yangshunz',
   },
   zhenghao: {
     bio: (
@@ -96,12 +122,14 @@ const authors: Record<string, Author> = {
     ),
     companyIconUrl: '/img/marketing/amazon-icon.svg',
     imageUrl: '/img/team/zhenghao.jpg',
-    linkedInUrl: 'https://www.linkedin.com/in/zhenghao-he/',
+    links: {
+      linkedin: 'https://www.linkedin.com/in/zhenghao-he/',
+      twitter: 'https://twitter.com/he_zhenghao',
+      website: 'https://www.zhenghao.io',
+    },
     name: 'Zhenghao He',
-    profileUrl: 'https://www.zhenghao.io',
     role: 'Senior Software Engineer, ex-Amazon, ex-Instacart',
     subtitle: 'Senior Engineer, Ex-Amazon',
-    twitterUrl: 'https://twitter.com/he_zhenghao',
   },
 } as const;
 
