@@ -1,7 +1,7 @@
-import type { SandpackBundlerFile } from '@codesandbox/sandpack-client';
-
-export type { SandpackBundlerFile } from '@codesandbox/sandpack-client';
 import type { SandpackState } from '@codesandbox/sandpack-react';
+
+export type SandpackBundlerFiles = SandpackState['files'];
+export type SandpackBundlerFile = SandpackState['files'][string];
 
 export type FileExplorerFile = {
   fullPath: string;
@@ -18,5 +18,3 @@ export type FileExplorerDirectory = {
 };
 
 export type FileExplorerItem = FileExplorerDirectory | FileExplorerFile;
-
-export type SandpackBundlerFiles = SandpackState['files'];
