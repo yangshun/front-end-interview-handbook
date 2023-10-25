@@ -113,7 +113,7 @@ Most of the modal's contents in the header/body/footer will be provided by the u
 Rendering the modal is more tricky than it seems due to the fact that modals are being displayed over the page and does not follow the normal flow of page elements. It's important to render the modal outside of the DOM hierarchy of the parents, because if the parents contain styling that clips its contents, the modal contents might not be fully visible. Here's an example from the [React docs](https://beta.reactjs.org/reference/react-dom/createPortal#rendering-a-modal-dialog-with-a-portal) demonstrating the issue.
 
 <iframe
-  src="https://codesandbox.io/embed/modal-clipping-wnr51p?fontsize=14&hidenavigation=1&theme=dark&module=/App.js,/NoPortalExample.js,/PortalExample.js,/ModalContent.js,/styles.css&view=split"
+  src="https://codesandbox.io/embed/wnr51p?fontsize=14&hidenavigation=1&theme=dark&module=/App.js,/NoPortalExample.js,/PortalExample.js,/ModalContent.js,/styles.css&view=split"
   style={{
     width: '100%',
     height: 500,
@@ -170,7 +170,7 @@ If vertical centering of the contents is desired, `align-items: center` can be a
 Here's a basic example of a modal with an overlay and optional vertical center mode:
 
 <iframe
-  src="https://codesandbox.io/embed/modal-t1oldf?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
+  src="https://codesandbox.io/embed/t1oldf?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
   style={{
     width: '100%',
     height: 500,
@@ -228,7 +228,7 @@ Remember to remove the `clickListener`s when the modal is closed.
 Here's an example in React:
 
 <iframe
-  src="https://codesandbox.io/embed/modal-dismiss-click-outside-74fyqc?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
+  src="https://codesandbox.io/embed/74fyqc?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
   style={{
     width: '100%',
     height: 500,
@@ -243,7 +243,7 @@ Here's an example in React:
 
 #### Focus management
 
-Possibly the most complicated aspect of implementing a modal is focus management. Contents within modals are meant to be treated like a separate document; using the <kbd>Tab</kbd> key cycles through focusable elements within the dialog only and focus can never be on elements outside of the component for as long as the modal is shown. This behavior/phenomenon is known as "focus trapping".
+The most complicated aspect of implementing a modal is probably focus management. Contents within modals are meant to be treated like a separate document; using the <kbd>Tab</kbd> key cycles through focusable elements within the dialog only and focus can never be on elements outside of the component for as long as the modal is shown. This behavior/phenomenon is known as "focus trapping".
 
 When a modal opens, focus moves to an element inside the modal. Generally, focus is set on the first focusable element, but there are some exceptions as mentioned in [Dialog (Modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/).
 
@@ -260,11 +260,11 @@ When a modal closes, focus returns to the element that opened the modal (unless 
    1. Focus on that new element.
 1. When the modal is closed, hide the modal and move focus to the element that opened the modal.
 
-In practice, focus trapping can be done via or [focus-trap](https://focus-trap.github.io/focus-trap/) libraries or if using React, the [`react-focus-lock`](https://github.com/theKashey/react-focus-lock) library which is what [React UI's Dialog](https://reach.tech/dialog) uses.
+In practice, focus trapping can be done via [focus-trap](https://focus-trap.github.io/focus-trap/) libraries. If using React, the [`react-focus-lock`](https://github.com/theKashey/react-focus-lock) library which is what [Reach UI's Dialog component](https://reach.tech/dialog) uses.
 
 #### Keyboard interactions
 
-The following is extracted from the [Dialog (Modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/).
+The following is extracted from the [Dialog (Modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/):
 
 | Key | Description |
 | --- | --- |
@@ -272,7 +272,7 @@ The following is extracted from the [Dialog (Modal) pattern](https://www.w3.org/
 | <kbd>Shift</kbd> + <kbd>Tab</kbd> | Moves focus to the previous tabbable element inside the modal. If focus is on the first tabbable element inside the modal, moves focus to the last tabbable element inside the modal. |
 | <kbd>Esc</kbd> | Closes the modal. |
 
-Focus trapping is essential for the required <kbd>Tab</kbd>-ing behavior, otherwise the focus will "leak" out of the modal.
+Focus trapping is essential for the required <kbd>Tab</kbd>-ing behavior, otherwise the focus will "leak" out of the modal:
 
 #### WAI-ARIA roles, states, and properties
 
@@ -288,7 +288,9 @@ The following is extracted from the [Dialog (Modal) pattern](https://www.w3.org/
 
 #### `<dialog>` element
 
-HTML now has a native `<dialog>` element that can be used in creating modal dialogs as it provides usability and accessibility features that must be replicated if using other elements for a similar purpose. However, it is still relatively new and browser compatibility is not great. Moreover, behaviors like focus trapping still has to be manually implemented, which makes using the `<dialog>` element less compelling.
+HTML now has a native `<dialog>` element that can be used in creating modal dialogs as it provides usability and accessibility features that must be replicated if using other elements for a similar purpose.
+
+However, it is still relatively new and browser compatibility is not great. Moreover, behaviors like focus trapping still has to be manually implemented, which makes using a native `<dialog>` element less compelling.
 
 ### Animations and transitions
 
@@ -305,10 +307,10 @@ If animation of the modal elements is desired and the transitions of the overlay
 </div>
 ```
 
-Here's an example in React:
+Here's an example of the entrance animation in React:
 
 <iframe
-  src="https://codesandbox.io/embed/modal-animated-imlco8?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
+  src="https://codesandbox.io/embed/imlco8?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
   style={{
     width: '100%',
     height: 500,
@@ -321,7 +323,21 @@ Here's an example in React:
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 />
 
-_Note: Exit transitions are non-trivial to implement properly in React because the DOM elements are removed from the document immediately, so the example above doesn't show exit transitions._
+Exit transitions are non-trivial to implement properly in React because conditional rendering causes the DOM elements to be removed from the document when they are no longer needed on the page. Here's an example of a modal where the entrance and exit are both animated.
+
+<iframe
+  src="https://codesandbox.io/embed/t3wwxr?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
+  style={{
+    width: '100%',
+    height: 500,
+    border: 0,
+    borderRadius: 4,
+    overflow: 'hidden',
+  }}
+  title="Modal Animations"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+/>
 
 ### Internationalization (i18n)
 
@@ -333,9 +349,9 @@ For RTL languages, the modal elements have to be horizontally flipped. To achiev
 
 ### Stacked modals
 
-It is possible for modal contents to contain triggers that present even more modals.
+It is possible for modal contents to contain triggers that present even more modals, so the following needs to be considered:
 
-- Need to decide whether there should be an overlay per modal level, which will visually make the backdrop darker the higher the level of stacking.
+- Decide whether there should be an overlay per modal level, which will visually make the backdrop darker the higher the level of stacking.
 - Dismissing a modal via the <kbd>Esc</kbd> key or clicking outside the topmost modal's contents should only dismiss the topmost modal and not all the modals.
 - Dismissing a lower layer modal should also dismiss all the modals on top of it (or make this behavior customizable).
 
