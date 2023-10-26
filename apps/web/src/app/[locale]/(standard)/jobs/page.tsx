@@ -122,9 +122,9 @@ export default function Page({ searchParams }: Props) {
               />
               <JobPostingItem
                 department="Engineering"
-                href="/jobs/senior-front-end-engineer-content"
+                href="/jobs/senior-content-engineer"
                 location="Remote"
-                title="Senior Front End Engineer (Content)"
+                title="Senior Content Engineer"
               />
             </>
           ) : (
