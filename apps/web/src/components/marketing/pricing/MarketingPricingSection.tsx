@@ -205,11 +205,6 @@ function PricingButtonNonLoggedIn({
           category: 'ecommerce',
           label: 'Buy Now (not logged in)',
         });
-        gtag.event({
-          action: `checkout.sign_up.${plan.planType}.purchase`,
-          category: 'ecommerce',
-          label: 'Buy Now (not logged in)',
-        });
         logMessage({
           level: 'info',
           message: `${
@@ -292,11 +287,6 @@ function PricingButtonNonPremium({
         category: 'ecommerce',
         label: planType,
       });
-      gtag.event({
-        action: `checkout.failure.${planType}.${plan.countryCode}`,
-        category: 'ecommerce',
-        label: planType,
-      });
       logMessage({
         level: 'error',
         message: err?.message,
@@ -345,14 +335,17 @@ function PricingButtonNonPremium({
           setHasClicked(true);
           hasClickedRef.current = true;
           gtag.event({
-            action: `checkout.attempt`,
+            action: 'checkout.attempt',
             category: 'ecommerce',
             label: 'Buy Now',
           });
           gtag.event({
-            action: `checkout.attempt.${plan.planType}`,
+            action: 'begin_checkout',
             category: 'ecommerce',
-            label: 'Buy Now',
+            extra: {
+              currency: plan.currency.toLocaleUpperCase(),
+            },
+            value: plan.unitCostCurrency.withPPP.after,
           });
           fbq.track('InitiateCheckout', {
             content_category: plan.planType,

@@ -89,14 +89,6 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
         },
         label: planSearchParam,
       });
-      gtag.event({
-        action: `checkout.success.${planSearchParam}`,
-        category: 'ecommerce',
-        extra: {
-          ignore_referrer: 'true',
-        },
-        label: String(planSearchParam),
-      });
 
       const plan = plans[planSearchParam];
 
