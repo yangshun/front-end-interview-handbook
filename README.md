@@ -12,7 +12,7 @@
     <a href="https://www.frontendinterviewhandbook.com">Read on the website</a>
   </h3>
   <p>
-    Join/follow us on <a href="https://discord.gg/NDFx8f6P6B" target="_blank">Discord</a> | <a href="https://twitter.com/greatfrontend" target="_blank">Twitter</a> | <a href="https://facebook.com/greatfrontend" target="_blank">Facebook</a>
+    Join/follow us on <a href="https://discord.gg/NDFx8f6P6B" target="_blank">Discord</a> | <a href="https://twitter.com/greatfrontend" target="_blank">𝕏 (Twitter)</a> | <a href="https://facebook.com/greatfrontend" target="_blank">Facebook</a>
   </p>
 </div>
 
