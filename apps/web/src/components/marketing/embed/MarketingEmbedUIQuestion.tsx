@@ -39,10 +39,11 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
 
   return (
     <div className="relative flex h-full w-full flex-col gap-3">
-      <div className="h-0 grow overflow-y-auto lg:hidden">
+      <div className="lg:hidden">
         <UserInterfaceCodingWorkspaceWriteup
           canViewPremiumContent={false}
           contentType="description"
+          environment="embed"
           framework={framework}
           metadata={question.metadata}
           mode="practice"

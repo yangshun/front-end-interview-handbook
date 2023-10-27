@@ -109,7 +109,7 @@ export default function MarketingEmbedSection({
           </div>
         </div>
         <MarketingHeroBrowserWindowFrame>
-          <div style={{ height: 600 }}>
+          <div className="lg:h-[600px]">
             {isClient && (
               <>
                 {selectedTab === 'user-interface' && (

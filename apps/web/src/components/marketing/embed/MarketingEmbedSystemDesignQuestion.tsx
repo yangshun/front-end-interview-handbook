@@ -537,7 +537,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
     <div aria-hidden={true} className="relative flex h-full w-full flex-col">
       <PanelGroup className="h-0 w-full grow lg:flex" direction="horizontal">
         <Panel defaultSize={40} maxSize={60}>
-          <div className="h-full overflow-y-auto">
+          <div className="mx-auto h-full max-w-3xl overflow-y-auto lg:max-w-none">
             <div className="flex flex-col gap-y-4 p-4">
               <Text
                 className="text-base font-semibold sm:text-lg"
@@ -581,7 +581,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
                 />
               </div>
               <Divider />
-              <Prose>
+              <Prose textSize="sm">
                 <p>
                   Design a news feed application that contains a list of feed
                   posts users can interact with.
@@ -591,6 +591,9 @@ export default function MarketingEmbedSystemDesignQuestion() {
                   className="mx-auto w-full max-w-md"
                   src="/img/questions/news-feed-facebook/news-feed-example.png"
                 />
+                <div className="contents lg:hidden">
+                  <Requirements />
+                </div>
               </Prose>
             </div>
           </div>
@@ -601,9 +604,10 @@ export default function MarketingEmbedSystemDesignQuestion() {
             themeLineBackgroundColor,
             'hover:bg-brand-light dark:hover:bg-brand',
             'hover:border-brand-light dark:hover:border-brand border-transparent',
+            'hidden lg:flex',
           )}
         />
-        <Panel>
+        <Panel className="hidden lg:flex">
           <div className="flex h-full grow flex-col gap-4 overflow-y-auto p-4">
             <div>
               <TabsUnderline
@@ -620,7 +624,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
                 onSelect={setSelectedTab}
               />
             </div>
-            <Prose>
+            <Prose textSize="sm">
               {selectedTab === 'requirements' && <Requirements />}
               {selectedTab === 'architecture' && <Architecture />}
               {selectedTab === 'data-model' && <DataModel />}

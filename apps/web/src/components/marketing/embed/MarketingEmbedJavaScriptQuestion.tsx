@@ -24,7 +24,7 @@ export default function MarketingEmbedJavaScriptQuestion({
 
   return (
     <div className="relative flex h-full w-full flex-col">
-      <div className="h-0 grow overflow-y-auto lg:hidden">
+      <div className="lg:hidden">
         <JavaScriptCodingWorkspaceDescription
           canViewPremiumContent={false}
           description={javaScriptEmbedExample.description}

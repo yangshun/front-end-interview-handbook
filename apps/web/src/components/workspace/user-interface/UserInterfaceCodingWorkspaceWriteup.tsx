@@ -31,6 +31,7 @@ import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodin
 type Props = Readonly<{
   canViewPremiumContent: boolean;
   contentType: 'description' | 'solution';
+  environment?: 'embed' | 'workspace';
   framework: QuestionFramework;
   metadata: QuestionMetadata;
   mode: QuestionUserInterfaceMode;
@@ -46,6 +47,7 @@ type Props = Readonly<{
 export default function UserInterfaceCodingWorkspaceWriteup({
   canViewPremiumContent,
   contentType,
+  environment = 'workspace',
   framework,
   onFrameworkChange,
   metadata,
@@ -153,7 +155,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
         <QuestionMetadataSection metadata={metadata} />
         <div className="flex flex-col gap-y-8">
           <QuestionContentProse contents={writeup} />
-          {contentType === 'description' && (
+          {contentType === 'description' && environment === 'workspace' && (
             <div
               className={clsx(
                 'rounded-md p-4 text-center',

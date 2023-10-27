@@ -17,9 +17,9 @@ export default function MarketingEmbedQuizQuestion() {
   return (
     <div className="relative h-full w-full">
       <div className="h-full sm:overflow-y-scroll">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-y-4 pb-32 pt-4 sm:pt-10">
-            <Text className="text-base font-semibold sm:text-xl" size="custom">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-y-4 pb-32 pt-4 lg:pt-10">
+            <Text className="text-base font-semibold sm:text-lg" size="custom">
               Describe the difference between{' '}
               <code
                 className={clsx(
@@ -56,7 +56,7 @@ export default function MarketingEmbedQuizQuestion() {
               <QuestionTopicLabel value="performance" />
             </div>
             <Divider />
-            <Prose>
+            <Prose textSize="sm">
               <p>
                 For normal <code>&lt;script&gt;</code>s, when a{' '}
                 <code>&lt;script&gt;</code> tag is encountered, HTML parsing is
