@@ -265,7 +265,15 @@ export default function MarketingFeaturesBlocks() {
                   techniques and recognize design patterns
                 </>,
               ]}
-              media={<AuthorsCardSection />}
+              media={
+                <img
+                  alt="Learn from solutions by ex-interviewers"
+                  className="mx-auto w-full max-w-sm lg:max-w-none"
+                  decoding="async"
+                  loading="lazy"
+                  src="/img/marketing/questions-solution.webp"
+                />
+              }
               title={<>Learn from solutions by ex-interviewers</>}
             />
             <FeatureBlock

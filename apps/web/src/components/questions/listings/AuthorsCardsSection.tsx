@@ -82,6 +82,8 @@ export default function AuthorsCardSection() {
             <img
               alt={author.name}
               className="h-24 w-24 rounded-full"
+              decoding="async"
+              loading="lazy"
               src={author.imageUrl}
             />
             {author.companyIconUrl && (
