@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
@@ -5,6 +7,7 @@ import type { FAQItems } from '~/data/faqs/FAQs';
 
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 import {
   themeDivideColor,
@@ -28,7 +31,7 @@ export default function FAQSection({ faqs, title, hideTitle = false }: Props) {
       <Section>
         <dl className={clsx(['divide-y', themeDivideColor])}>
           {faqs.map((faq) => (
-            <Disclosure key={faq.key} as="div" className="py-4 md:py-8">
+            <Disclosure key={faq.key} as="div" className="py-4 md:py-6">
               {({ open }) => (
                 <>
                   <dt className="text-base sm:text-lg md:text-xl">
@@ -39,7 +42,7 @@ export default function FAQSection({ faqs, title, hideTitle = false }: Props) {
                         'focus-visible:ring-brand-dark dark:focus-visible:ring-brand',
                       )}>
                       <Text
-                        className="text-sm sm:text-lg md:text-xl"
+                        className="text-sm sm:text-lg"
                         color="subtitle"
                         display="block"
                         size="custom"
@@ -48,7 +51,7 @@ export default function FAQSection({ faqs, title, hideTitle = false }: Props) {
                       </Text>
                       <span
                         className={clsx(
-                          'ml-6 flex h-7 items-center',
+                          'ml-6 flex h-6 items-center',
                           themeTextSubtitleColor,
                         )}>
                         <RiArrowDownSLine
@@ -61,14 +64,10 @@ export default function FAQSection({ faqs, title, hideTitle = false }: Props) {
                       </span>
                     </Disclosure.Button>
                   </dt>
-                  <Disclosure.Panel as="dd" className="mt-4 pr-12 md:mt-8">
-                    <Text
-                      className="text-sm sm:text-base md:text-lg xl:text-xl"
-                      color="secondary"
-                      display="block"
-                      size="custom">
+                  <Disclosure.Panel as="dd" className="mt-4 pr-12">
+                    <Prose className="prose-sm sm:prose-base">
                       {faq.answer}
-                    </Text>
+                    </Prose>
                   </Disclosure.Panel>
                 </>
               )}

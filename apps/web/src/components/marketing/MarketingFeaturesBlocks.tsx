@@ -16,7 +16,6 @@ import {
 } from '~/components/ui/theme';
 
 import MarketingSectionHeader from './MarketingSectionHeader';
-import AuthorsCardSection from '../questions/listings/AuthorsCardsSection';
 import Card from '../ui/Card';
 
 function FeatureBlock({

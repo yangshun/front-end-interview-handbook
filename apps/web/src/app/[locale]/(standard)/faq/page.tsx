@@ -1,12 +1,9 @@
 import type { Metadata } from 'next/types';
 
-import Container from '~/components/ui/Container';
-import Prose from '~/components/ui/Prose';
-
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-import FrequentlyAskedQuestions from './faq.mdx';
+import FAQPage from './FAQPage';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -31,11 +28,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function Page() {
-  return (
-    <Container className="my-20" variant="4xl">
-      <Prose>
-        <FrequentlyAskedQuestions />
-      </Prose>
-    </Container>
-  );
+  return <FAQPage />;
 }

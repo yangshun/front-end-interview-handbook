@@ -10,8 +10,8 @@ import type {
   PricingPlanType,
 } from '~/data/PricingPlans';
 
-import MarketingFAQ from '~/components/marketing/MarketingFAQ';
 import MarketingFeatures from '~/components/marketing/MarketingFeatures';
+import MarketingPricingFAQSection from '~/components/marketing/pricing/MarketingPricingFAQSection';
 import MarketingPricingSection from '~/components/marketing/pricing/MarketingPricingSection';
 import MarketingTestimonialsSection from '~/components/marketing/testimonials/MarketingTestimonialsSection';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -75,7 +75,7 @@ export default function PricingPage({
       <Section>
         <MarketingFeatures />
         <div>
-          <MarketingFAQ />
+          <MarketingPricingFAQSection />
           <MarketingTestimonialsSection />
         </div>
       </Section>

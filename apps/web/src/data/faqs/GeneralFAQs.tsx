@@ -1,44 +1,93 @@
 import { FormattedMessage } from 'react-intl';
 
+import Anchor from '~/components/ui/Anchor';
+
 import type { FAQItem } from './FAQs';
 
-export const buying: FAQItem = {
+export const generalTarget: FAQItem = {
   answer: (
-    <FormattedMessage
-      defaultMessage="For a limited time, we are offering lifetime access at a discount, which will provide you immediate access to our huge question bank, guides, and study plans. All future updates to our interview preparation platform will also be completely free for you."
-      description="Answer to 'What does buying GreatFrontEnd get me' on Homepage's FAQ sections"
-      id="GYwmPt"
-    />
+    <>
+      <p>
+        GreatFrontEnd is excellent for engineers who are preparing for front
+        end-focused interviews. Front end interviews have a different focus from
+        traditional software engineering interviews as there is more emphasis on
+        front end technologies, building user interfaces using frameworks like
+        React, Vue, and Angular, and front end client architecture.
+      </p>
+      <p>
+        That said, even if you are not interviewing, engineers who develop for
+        the web will still benefit from the high quality content and questions
+        authored by our senior team of ex-FAANG engineers and interviewers.
+      </p>
+    </>
   ),
-  key: 'buying',
-  question: (
-    <FormattedMessage
-      defaultMessage="What does buying GreatFrontEnd get me?"
-      description="Question on Homepage's FAQ section - on what the user will receive after purchasing GreatFrontEnd"
-      id="0RaY4p"
-    />
-  ),
+  key: 'general-target',
+  question: <>Who is GreatFrontEnd for?</>,
 };
 
-export const questions: FAQItem = {
+export const generalBuying: FAQItem = {
   answer: (
-    <FormattedMessage
-      defaultMessage="There are currently quiz questions, JavaScript coding questions, User Interface coding questions and System Design content."
-      description="Answer to 'What types of questions do you have on your platform?' on Homepage's FAQ sections"
-      id="+ywzSI"
-    />
+    <ul>
+      <li>
+        <strong>Questions</strong>: There are over 200 questions across
+        JavaScript coding questions, User Interface coding questions, System
+        Design content and quiz questions. For coding questions, you can
+        practice within the browser without any installation needed, simulating
+        real interview conditions.
+      </li>
+      <li>
+        <strong>Guides</strong>: If you are new to front end interviews, we have
+        written in-depth guides to help you tackle front end interviews and
+        front end system design rounds, most of which are free.
+      </li>
+      <li>
+        <strong>Study plans</strong>: A list of most important questions to
+        practice and study, along with progress tracking.
+      </li>
+    </ul>
   ),
-  key: 'questions',
-  question: (
-    <FormattedMessage
-      defaultMessage="What types of questions do you have on your platform?"
-      description="Question on Homepage's FAQ section - on the types of practice questions available on the platform"
-      id="1FbA4H"
-    />
-  ),
+  key: 'general-buying',
+  question: <>What does GreatFrontEnd's interview platform offer?</>,
 };
 
-export const worthIt: FAQItem = {
+export const generalUnique: FAQItem = {
+  answer: (
+    <>
+      Out of the resources in the market for front end interview preparation,
+      our platform boasts the largest number of questions with solutions written
+      by experienced Senior Front End Engineers previously from FAANG, who were
+      also ex-interviewers.
+    </>
+  ),
+  key: 'general-unique',
+  question: <>What is unique about GreatFrontEnd?</>,
+};
+
+export const generalWhatsIncluded: FAQItem = {
+  answer: (
+    <>
+      More than half of our practice questions and all the study plans are
+      premium, which can be unlocked by purchasing a premium membership.
+    </>
+  ),
+  key: 'general-included',
+  question: <>What's included in GreatFrontEnd Premium?</>,
+};
+
+export const generalFreeUpdates: FAQItem = {
+  answer: (
+    <>
+      With a premium membership, you will get access to every new question and
+      any guide we add in future. As new technologies and trends emerge, we
+      update our questions and potentially add new questions/formats to keep up
+      with the trends and you will get access to all of them.
+    </>
+  ),
+  key: 'general-free-updates',
+  question: <>What does "free updates" include?</>,
+};
+
+export const generalWorthIt: FAQItem = {
   answer: (
     <>
       <FormattedMessage
@@ -58,7 +107,7 @@ export const worthIt: FAQItem = {
             answers). */}
     </>
   ),
-  key: 'worth-it',
+  key: 'general-worth-it',
   question: (
     <FormattedMessage
       defaultMessage="Is it really worth it to buy GreatFrontEnd?"
@@ -68,59 +117,30 @@ export const worthIt: FAQItem = {
   ),
 };
 
-export const seniority: FAQItem = {
+export const generalSeniority: FAQItem = {
   answer: (
-    <FormattedMessage
-      defaultMessage="There is something to learn from GreatFrontEnd for engineers of all seniority levels. Junior engineers will be able to solidify their fundamentals and learn techniques they never knew about. Mid-level engineers will benefit from more advanced concepts like internationalization, accessibility, and performance. Senior engineers will benefit most from the system design questions which impart architectural concepts."
-      description="Answer to 'Is GreatFrontEnd targeted at engineers of specific seniority?' on Homepage's FAQ sections"
-      id="TQLJ/G"
-    />
+    <>
+      <p>
+        <FormattedMessage
+          defaultMessage="There is something to learn from GreatFrontEnd for engineers of all seniority levels. Junior engineers will be able to solidify their fundamentals and learn techniques they never knew about. Mid-level engineers will benefit from more advanced concepts like internationalization, accessibility, and performance. Senior engineers will benefit most from the system design questions which impart architectural concepts."
+          description="Answer to 'Is GreatFrontEnd targeted at engineers of specific seniority?' on Homepage's FAQ sections"
+          id="TQLJ/G"
+        />
+      </p>
+      <p>
+        It's never too early to start. Many of our users are students who have
+        leveraged our ongoing{' '}
+        <Anchor href="/promotions">student discount</Anchor> for the annual
+        plan.
+      </p>
+    </>
   ),
-  key: 'seniority',
+  key: 'general-seniority',
   question: (
     <FormattedMessage
       defaultMessage="Is GreatFrontEnd targeted at engineers of specific seniority?"
       description="Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
       id="jzVpyI"
-    />
-  ),
-};
-
-export const lifetimeAccess: FAQItem = {
-  answer: (
-    <FormattedMessage
-      defaultMessage="It is a <strong>one-time purchase, with no recurring subscription</strong>. You get access to all the content in GreatFrontEnd's interview platform forever, along with any future updates. This will be useful and relevant for all future job hunts."
-      description="Answer to 'What does lifetime access mean?' on Homepage's FAQ sections"
-      id="IUYG0x"
-      values={{
-        strong: (chunks) => <strong className="font-medium">{chunks}</strong>,
-      }}
-    />
-  ),
-  key: 'lifetime-access',
-  question: (
-    <FormattedMessage
-      defaultMessage='What does "lifetime access" mean?'
-      description="Question on Homepage's FAQ section - on the scope of the lifetime access pricing plan on the interview platform"
-      id="2YMuJe"
-    />
-  ),
-};
-
-export const freeUpdates: FAQItem = {
-  answer: (
-    <FormattedMessage
-      defaultMessage="You will get access to every new question and any guide we add in future. As new technologies and trends emerge, we update our questions and potentially add new questions/formats to keep up with the trends and you will get access to all of them."
-      description="Answer to 'What does free updates include?' on Homepage's FAQ sections"
-      id="nOvXhk"
-    />
-  ),
-  key: 'free-updates',
-  question: (
-    <FormattedMessage
-      defaultMessage='What does "free updates" include?'
-      description="Question on Homepage's FAQ section - on the scope of complimentary updates to the GreatFrontEnd interview platform"
-      id="OcBA+t"
     />
   ),
 };
