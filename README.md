@@ -1,3 +1,12 @@
+<h1 align="center">
+  <a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.herokuapp.com/?lines=Hello,+There!+👋;Welcome+to;Frontend+Interview+Handbook;Nice+to+meet+you!&center=true&size=25">
+  </a>
+</h1>
+
+
+
+
 <div align="center">
   <h1>Front End Interview Handbook</h1>
   <p>By <a href="https://www.greatfrontend.com">GreatFrontEnd</a></p>
