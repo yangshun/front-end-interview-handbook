@@ -21,6 +21,19 @@
   </p>
 </div>
 
+[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)
+![Visitors](https://api.visitorbadge.io/api/visitors?path=yangshun%2Ffront-end-interview-handbook%20&countColor=%23263759&style=flat)
+![GitHub forks](https://img.shields.io/github/forks/yangshun/front-end-interview-handbook)
+![GitHub Repo stars](https://img.shields.io/github/stars/yangshun/front-end-interview-handbook)
+![GitHub contributors](https://img.shields.io/github/contributors/yangshun/front-end-interview-handbook)
+![GitHub last commit](https://img.shields.io/github/last-commit/yangshun/front-end-interview-handbook)
+  
+![GitHub repo size](https://img.shields.io/github/repo-size/yangshun/front-end-interview-handbook)
+
+
+
+
 ---
 
 <a href="https://www.frontendinterviewhandbook.com/introduction/" target="_blank">
