@@ -395,10 +395,6 @@
     "defaultMessage": "Study plans for Front End Interviews",
     "description": "Title of study plans page"
   },
-  "6KA0W1": {
-    "defaultMessage": "Summer Discount",
-    "description": "Promotion title"
-  },
   "6SEbWz": {
     "defaultMessage": "Annual plan",
     "description": "Title of annual pricing plan"
@@ -2290,6 +2286,10 @@
   "dOsu3y": {
     "defaultMessage": "Study plans",
     "description": "Preparation study plans"
+  },
+  "dPdK9A": {
+    "defaultMessage": "Fall Discount",
+    "description": "Promotion title"
   },
   "da4RLj": {
     "defaultMessage": "Google logo",

@@ -153,9 +153,9 @@ function SeasonalDiscountCard() {
       title={
         <div className="flex items-center gap-x-2">
           <FormattedMessage
-            defaultMessage="Summer Discount"
+            defaultMessage="Fall Discount"
             description="Promotion title"
-            id="6KA0W1"
+            id="dPdK9A"
           />
           <Badge
             label={intl.formatMessage({
