@@ -57,15 +57,23 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
       specMode="submit"
       specPath={specPath}
       onComplete={(outcome) => {
-        // We only care about correct or wrong outcomes.
-        if (outcome !== 'correct' && outcome !== 'wrong') {
-          return;
+        function saveSubmission(outcome_: 'correct' | 'wrong') {
+          if (user == null) {
+            return;
+          }
+
+          javaScriptAddSubmissionMutation.mutate({
+            code: mainFileCode,
+            language: staticUpperCase(language),
+            result: staticUpperCase(outcome_),
+            slug: metadata.slug,
+          });
         }
 
-        if (outcome === 'correct') {
+        function showSuccessToast() {
           showToast({
             title: intl.formatMessage({
-              defaultMessage: `Woohoo! You completed the question!`,
+              defaultMessage: 'Woohoo! You completed the question!',
               description:
                 'Toast congratulating user once they mark a question as complete',
               id: 'Gv0+LY',
@@ -74,24 +82,34 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
           });
         }
 
-        if (user != null) {
-          // Mark as completed in database for logged-in users.
-          if (questionProgress?.status !== 'complete') {
-            addProgressMutation.mutate({
-              format: metadata.format,
-              listKey: searchParams?.get('list') ?? undefined,
-              progressId: questionProgress?.id,
-              slug: metadata.slug,
-              status: 'complete',
-            });
+        function markAsComplete() {
+          if (user == null || questionProgress?.status === 'complete') {
+            return;
           }
 
-          javaScriptAddSubmissionMutation.mutate({
-            code: mainFileCode,
-            language: staticUpperCase(language),
-            result: staticUpperCase(outcome),
+          addProgressMutation.mutate({
+            format: metadata.format,
+            listKey: searchParams?.get('list') ?? undefined,
+            progressId: questionProgress?.id,
             slug: metadata.slug,
+            status: 'complete',
           });
+        }
+
+        // Only need to do something when correct or wrong outcome.
+        switch (outcome) {
+          case 'correct': {
+            saveSubmission(outcome);
+            showSuccessToast();
+            markAsComplete();
+
+            return;
+          }
+          case 'wrong': {
+            saveSubmission(outcome);
+
+            return;
+          }
         }
       }}
       onShowTestCase={(_, index, specParts) => {
