@@ -885,7 +885,7 @@ export default function MarketingPricingSection({
                         plan={featuredPlan.plan}
                       />
                     </div>
-                    {featuredPlan.plan.canUsePromoCode && (
+                    {featuredPlan.plan.allowPromoCode && (
                       <Text
                         className={clsx('mt-3')}
                         color="subtitle"
@@ -1090,7 +1090,7 @@ export default function MarketingPricingSection({
                             <Text
                               className={clsx(
                                 'mt-3',
-                                !plan.canUsePromoCode && 'invisible',
+                                !plan.allowPromoCode && 'invisible',
                               )}
                               color="subtitle"
                               display="block"

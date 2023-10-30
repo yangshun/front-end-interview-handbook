@@ -126,8 +126,7 @@ async function processSubscriptionPlan(
 
   const { cancelUrl, successUrl } = checkoutSessionUrls(req, plan);
   const session = await stripe.checkout.sessions.create({
-    // Only allow promo code for annual for now.
-    allow_promotion_codes: plan.planType === 'annual',
+    allow_promotion_codes: plan.allowPromoCode,
     cancel_url: cancelUrl,
     client_reference_id: firstPromoterTrackingId || 'fp_' + String(Date.now()),
     customer: stripeCustomerId,
@@ -163,7 +162,7 @@ async function processOneTimePlan(
 ) {
   const { cancelUrl, successUrl } = checkoutSessionUrls(req, plan);
   const session = await stripe.checkout.sessions.create({
-    allow_promotion_codes: false,
+    allow_promotion_codes: plan.allowPromoCode,
     cancel_url: cancelUrl,
     client_reference_id: firstPromoterTrackingId || 'fp_' + String(Date.now()),
     customer: stripeCustomerId,
