@@ -58,7 +58,7 @@ export const PricingPlansData: Record<PricingPlanType, PricingPlanDetails> = {
       after: 137,
       before: 274,
     },
-    canUsePromoCode: false,
+    canUsePromoCode: true,
     checkoutMode: 'payment',
     discount: 50,
     planType: 'lifetime',
@@ -70,7 +70,7 @@ export const PricingPlansData: Record<PricingPlanType, PricingPlanDetails> = {
       after: 28,
       before: 38, // Not used
     },
-    canUsePromoCode: false,
+    canUsePromoCode: true,
     checkoutMode: 'subscription',
     discount: 0,
     planType: 'monthly',
@@ -82,7 +82,7 @@ export const PricingPlansData: Record<PricingPlanType, PricingPlanDetails> = {
       after: 57,
       before: 78, // Not used
     },
-    canUsePromoCode: false,
+    canUsePromoCode: true,
     checkoutMode: 'subscription',
     discount: 30,
     planType: 'quarterly',
