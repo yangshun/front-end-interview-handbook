@@ -235,10 +235,6 @@
     "defaultMessage": "Minimum 6 characters",
     "description": "Description of password field indicating minimum character count, on Change Password page"
   },
-  "3G2d9k": {
-    "defaultMessage": "We're hiring question and solution authors! Check out the <link>job description</link>!",
-    "description": "Text on Promo Banner"
-  },
   "3HUfI+": {
     "defaultMessage": "You are doing great things for the Front End community. Especially for those who are Junior engineers like me, advanced solutions covering various aspects of front end development help a lot. Thank you to the team.",
     "description": "Anonymous Software Engineer's testimonial"
@@ -3350,6 +3346,10 @@
   "wdlzwm": {
     "defaultMessage": "Your Message",
     "description": "Feedback widget textarea title"
+  },
+  "wfod1+": {
+    "defaultMessage": "GreatFrontEnd is hiring! Check out our <link>jobs page</link>!",
+    "description": "Text on Promo Banner"
   },
   "wmvMT1": {
     "defaultMessage": "Pricing plans tailored to your needs. Grab our all-access lifetime plans at a 30% discount today!",

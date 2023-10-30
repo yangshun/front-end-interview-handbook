@@ -76,9 +76,9 @@ export default function GlobalBanner({
 
   const weAreHiringMessage = (
     <FormattedMessage
-      defaultMessage="We're hiring question and solution authors! Check out the <link>job description</link>!"
+      defaultMessage="GreatFrontEnd is hiring! Check out our <link>jobs page</link>!"
       description="Text on Promo Banner"
-      id="3G2d9k"
+      id="wfod1+"
       values={{
         link: (chunks) => (
           <Anchor
