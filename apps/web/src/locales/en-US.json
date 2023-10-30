@@ -55,10 +55,6 @@
     "defaultMessage": "Search React questions",
     "description": "Placeholder for search input of React question list"
   },
-  "+ywzSI": {
-    "defaultMessage": "There are currently quiz questions, JavaScript coding questions, User Interface coding questions and System Design content.",
-    "description": "Answer to 'What types of questions do you have on your platform?' on Homepage's FAQ sections"
-  },
   "/06NwY": {
     "defaultMessage": "Company-tagged questions",
     "description": "Title for company-tagged questions feature"
@@ -131,10 +127,6 @@
     "defaultMessage": "Recommended schedule",
     "description": "Recommended schedule tooltip displayed on question cards found on question lists"
   },
-  "0RaY4p": {
-    "defaultMessage": "What does buying GreatFrontEnd get me?",
-    "description": "Question on Homepage's FAQ section - on what the user will receive after purchasing GreatFrontEnd"
-  },
   "0hdhAz": {
     "defaultMessage": "Low",
     "description": "Label for low question importance"
@@ -171,10 +163,6 @@
     "defaultMessage": "Access updates to the interview platform for life.",
     "description": "Lifetime membership feature of accessing updates to interview platforms"
   },
-  "1FbA4H": {
-    "defaultMessage": "What types of questions do you have on your platform?",
-    "description": "Question on Homepage's FAQ section - on the types of practice questions available on the platform"
-  },
   "1PHE0Y": {
     "defaultMessage": "Most complete all-in-one front end interview preparation.",
     "description": "Short description for 3 months study plan"
@@ -206,6 +194,10 @@
   "2OmfN2": {
     "defaultMessage": "React",
     "description": "React questions category short title"
+  },
+  "2SDdF5": {
+    "defaultMessage": "Support",
+    "description": "Title for FAQ section"
   },
   "2XR9B5": {
     "defaultMessage": "{price} billed every 3 months",
@@ -595,6 +587,10 @@
     "defaultMessage": "Practice writing JavaScript and DOM API Polyfills",
     "description": "Title for interview preparation focus area"
   },
+  "9flnz3": {
+    "defaultMessage": "Halloween sale! Get {discountPercentage}% off all plans with the code {promoCode}, <discount>grab your discount today</discount> or check out other <promotion>promotions</promotion>",
+    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
+  },
   "9gs1LO": {
     "defaultMessage": "Buy now",
     "description": "Purchase button label"
@@ -923,10 +919,6 @@
     "defaultMessage": "Premium Feature",
     "description": "Title on question paywall appearing on the question pages of premium questions"
   },
-  "GYwmPt": {
-    "defaultMessage": "For a limited time, we are offering lifetime access at a discount, which will provide you immediate access to our huge question bank, guides, and study plans. All future updates to our interview preparation platform will also be completely free for you.",
-    "description": "Answer to 'What does buying GreatFrontEnd get me' on Homepage's FAQ sections"
-  },
   "GZnl60": {
     "defaultMessage": "Tips for making a strong first impression in your self introduction",
     "description": "How to make strong first impressions during self introductions"
@@ -1107,10 +1099,6 @@
     "defaultMessage": "Progress",
     "description": "Question progress"
   },
-  "JQa3Or": {
-    "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
-    "description": "Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
-  },
   "JhZ/aF": {
     "defaultMessage": "Quiz Questions",
     "description": "Quiz questions long title"
@@ -1126,10 +1114,6 @@
   "Jn7AHE": {
     "defaultMessage": "This is an irreversible action. You will lose all progress. Are you sure?",
     "description": "Confirmation text for reseting study plan progress"
-  },
-  "JnMOx/": {
-    "defaultMessage": "Summer sale! Get {discountPercentage}% off annual plan with the code {promoCode}, <discount>grab your discount today</discount>! Check out other <promotion>promotions</promotion>",
-    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
   },
   "JrmA6j": {
     "defaultMessage": "With over {numberOfQuestions} questions, this is the most complete all-in-one front end interview preparation you can ever dream of.",
@@ -1438,10 +1422,6 @@
   "OWKf+S": {
     "defaultMessage": "Overview",
     "description": "Overview of behavioral interview"
-  },
-  "OcBA+t": {
-    "defaultMessage": "What does \"free updates\" include?",
-    "description": "Question on Homepage's FAQ section - on the scope of complimentary updates to the GreatFrontEnd interview platform"
   },
   "Ol7K0w": {
     "defaultMessage": "You are on the <bold>Quarterly</bold> plan.",
@@ -1770,6 +1750,10 @@
   "UTE1L6": {
     "defaultMessage": "System",
     "description": "System theme option label"
+  },
+  "UWucPu": {
+    "defaultMessage": "Purchase",
+    "description": "Title for FAQ section"
   },
   "UXNTcT": {
     "defaultMessage": "India",
@@ -2867,10 +2851,6 @@
     "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
     "description": "Larry Almeida's testimonial"
   },
-  "nOvXhk": {
-    "defaultMessage": "You will get access to every new question and any guide we add in future. As new technologies and trends emerge, we update our questions and potentially add new questions/formats to keep up with the trends and you will get access to all of them.",
-    "description": "Answer to 'What does free updates include?' on Homepage's FAQ sections"
-  },
   "nSDLrS": {
     "defaultMessage": "More settings",
     "description": "Button label to show more settings for the console in the coding workspace"
@@ -3446,6 +3426,10 @@
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",
     "description": "Label for slideout for code editor shortcuts"
+  },
+  "yWnRZS": {
+    "defaultMessage": "Can't find the answer you are looking for? View all <link>frequently-asked questions</link>.",
+    "description": "Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
   },
   "yXYc5a": {
     "defaultMessage": "Features",

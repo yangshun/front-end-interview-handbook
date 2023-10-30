@@ -5,11 +5,6 @@ import { FormattedMessage } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
-import {
-  PERPETUAL_PROMO_CODE,
-  PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
-} from '~/data/PromotionConfig';
-
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 
@@ -29,9 +24,9 @@ export default function GlobalBanner({
 
   const saleMessage = (
     <FormattedMessage
-      defaultMessage="Summer sale! Get {discountPercentage}% off annual plan with the code {promoCode}, <discount>grab your discount today</discount>! Check out other <promotion>promotions</promotion>"
+      defaultMessage="Halloween sale! Get {discountPercentage}% off all plans with the code {promoCode}, <discount>grab your discount today</discount> or check out other <promotion>promotions</promotion>"
       description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
-      id="JnMOx/"
+      id="9flnz3"
       values={{
         discount: (chunks) => (
           <Anchor
@@ -53,8 +48,8 @@ export default function GlobalBanner({
             {chunks}
           </Anchor>
         ),
-        discountPercentage: PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
-        promoCode: PERPETUAL_PROMO_CODE,
+        discountPercentage: 20,
+        promoCode: 'HALLOWEEN23',
         promotion: (chunks) => (
           <Anchor
             className="whitespace-nowrap font-medium"
@@ -117,7 +112,7 @@ export default function GlobalBanner({
         'sticky top-0 z-30 w-full',
       )}>
       <Banner
-        className="h-14 lg:h-auto"
+        className="h-14 bg-orange-600 lg:h-auto"
         size="xs"
         variant={variant}
         onHide={() => {
