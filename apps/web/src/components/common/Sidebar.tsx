@@ -267,6 +267,7 @@ export default function Sidebar({
               {({ close, open }) => {
                 const button = (
                   <Popover.Button
+                    aria-label={isCollapsed ? item.name : undefined}
                     className={clsx(
                       itemClassname,
                       pathname != null && item.currentMatchRegex?.test(pathname)
