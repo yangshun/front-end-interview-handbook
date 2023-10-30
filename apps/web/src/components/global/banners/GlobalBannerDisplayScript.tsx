@@ -1,4 +1,4 @@
-export const GLOBAL_BANNER_STORAGE_KEY = 'gfe:global-banner-0';
+export const GLOBAL_BANNER_STORAGE_KEY = 'gfe:global-banner-1';
 
 export default function GlobalBannerDisplayScript() {
   return (
