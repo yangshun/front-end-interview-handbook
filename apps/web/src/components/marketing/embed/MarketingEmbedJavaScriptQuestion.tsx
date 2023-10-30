@@ -1,5 +1,7 @@
+import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
+import { useMediaQuery } from 'usehooks-ts';
 
 import gtag from '~/lib/gtag';
 
@@ -10,9 +12,21 @@ import type {
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import JavaScriptCodingWorkspaceDescription from '~/components/workspace/javascript/JavaScriptCodingWorkspaceDescription';
-import JavaScriptCodingWorkspaceSection from '~/components/workspace/javascript/JavaScriptCodingWorkspaceSection';
 
 import logEvent from '~/logging/logEvent';
+
+const JavaScriptCodingWorkspaceSection = dynamic(
+  () =>
+    import(
+      '~/components/workspace/javascript/JavaScriptCodingWorkspaceSection'
+    ),
+  {
+    loading: () => (
+      <div className="flex grow items-center justify-center">Loading...</div>
+    ),
+    ssr: false,
+  },
+);
 
 export default function MarketingEmbedJavaScriptQuestion({
   javaScriptEmbedExample,
@@ -21,19 +35,11 @@ export default function MarketingEmbedJavaScriptQuestion({
 }>) {
   const [language, setLanguage] = useState<QuestionCodingWorkingLanguage>('js');
   const intl = useIntl();
+  const laptopAndAbove = useMediaQuery('(min-width: 1024px)');
 
   return (
     <div className="relative flex h-full w-full flex-col">
-      <div className="lg:hidden">
-        <JavaScriptCodingWorkspaceDescription
-          canViewPremiumContent={false}
-          description={javaScriptEmbedExample.description}
-          metadata={javaScriptEmbedExample.metadata}
-          nextQuestions={[]}
-          similarQuestions={[]}
-        />
-      </div>
-      <div className="hidden lg:contents">
+      {laptopAndAbove ? (
         <JavaScriptCodingWorkspaceSection
           canViewPremiumContent={false}
           embed={true}
@@ -44,7 +50,15 @@ export default function MarketingEmbedJavaScriptQuestion({
           timeoutLoggerInstance="marketing.embed.js"
           onLanguageChange={setLanguage}
         />
-      </div>
+      ) : (
+        <JavaScriptCodingWorkspaceDescription
+          canViewPremiumContent={false}
+          description={javaScriptEmbedExample.description}
+          metadata={javaScriptEmbedExample.metadata}
+          nextQuestions={[]}
+          similarQuestions={[]}
+        />
+      )}
       <Anchor
         href={javaScriptEmbedExample.metadata.href}
         target="_blank"

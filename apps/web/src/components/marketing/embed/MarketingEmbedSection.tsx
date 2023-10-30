@@ -1,8 +1,9 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useInView } from 'framer-motion';
+import dynamic from 'next/dynamic';
+import { useRef, useState } from 'react';
 import { RiArrowRightLine, RiJavascriptLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { useIsClient } from 'usehooks-ts';
 
 import gtag from '~/lib/gtag';
 
@@ -13,8 +14,6 @@ import Container from '~/components/ui/Container';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 import MarketingEmbedJavaScriptQuestion from './MarketingEmbedJavaScriptQuestion';
-import MarketingEmbedQuizQuestion from './MarketingEmbedQuizQuestion';
-import MarketingEmbedSystemDesignQuestion from './MarketingEmbedSystemDesignQuestion';
 import type { EmbedUIQuestion } from './MarketingEmbedUIQuestion';
 import MarketingEmbedUIQuestion from './MarketingEmbedUIQuestion';
 import MarketingHeroBrowserWindowFrame from './MarketingHeroBrowserWindowFrame';
@@ -24,6 +23,25 @@ import type {
   QuestionMetadata,
 } from '../../questions/common/QuestionsTypes';
 import Heading from '../../ui/Heading';
+
+const MarketingEmbedSystemDesignQuestion = dynamic(
+  () => import('./MarketingEmbedSystemDesignQuestion'),
+  {
+    loading: () => (
+      <div className="flex h-[600px] grow items-center justify-center" />
+    ),
+    ssr: false,
+  },
+);
+const MarketingEmbedQuizQuestion = dynamic(
+  () => import('./MarketingEmbedQuizQuestion'),
+  {
+    loading: () => (
+      <div className="flex h-[600px] grow items-center justify-center" />
+    ),
+    ssr: false,
+  },
+);
 
 function useTabs() {
   const intl = useIntl();
@@ -70,11 +88,15 @@ export default function MarketingEmbedSection({
 }>) {
   const intl = useIntl();
   const tabs = useTabs();
-  const isClient = useIsClient();
   const [selectedTab, setSelectedTab] = useState(tabs[0].value);
+  const containerRef = useRef(null);
+  const showEmbed = useInView(containerRef, {
+    amount: 'some',
+    once: true,
+  });
 
   return (
-    <div className="relative pb-24 pt-16 lg:pb-32">
+    <div ref={containerRef} className="relative pb-24 pt-16 lg:pb-32">
       <Container
         className={clsx('relative flex flex-col gap-y-8')}
         variant="screen-2xl">
@@ -110,7 +132,7 @@ export default function MarketingEmbedSection({
         </div>
         <MarketingHeroBrowserWindowFrame>
           <div className="lg:h-[600px]">
-            {isClient && (
+            {showEmbed && (
               <>
                 {selectedTab === 'user-interface' && (
                   <MarketingEmbedUIQuestion question={uiEmbedExample} />

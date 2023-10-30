@@ -1,7 +1,9 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
+import { useMediaQuery } from 'usehooks-ts';
 
 import gtag from '~/lib/gtag';
 
@@ -11,7 +13,6 @@ import type {
 } from '~/components/questions/common/QuestionsTypes';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
-import UserInterfaceCodingWorkspaceSection from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceSection';
 import UserInterfaceCodingWorkspaceWriteup from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceWriteup';
 
 import logEvent from '~/logging/logEvent';
@@ -33,27 +34,27 @@ type Props = Readonly<{
   question: EmbedUIQuestion;
 }>;
 
+const UserInterfaceCodingWorkspaceSection = dynamic(
+  () =>
+    import(
+      '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceSection'
+    ),
+  {
+    loading: () => (
+      <div className="flex grow items-center justify-center">Loading...</div>
+    ),
+    ssr: false,
+  },
+);
+
 export default function MarketingEmbedUIQuestion({ question }: Props) {
   const intl = useIntl();
   const [framework, setFramework] = useState<QuestionFramework>('react');
+  const laptopAndAbove = useMediaQuery('(min-width: 1024px)');
 
   return (
     <div className="relative flex h-full w-full flex-col gap-3">
-      <div className="lg:hidden">
-        <UserInterfaceCodingWorkspaceWriteup
-          canViewPremiumContent={false}
-          contentType="description"
-          environment="embed"
-          framework={framework}
-          metadata={question.metadata}
-          mode="practice"
-          nextQuestions={[]}
-          similarQuestions={[]}
-          writeup={question.frameworks[framework].description}
-          onFrameworkChange={setFramework}
-        />
-      </div>
-      <div className="hidden lg:contents">
+      {laptopAndAbove ? (
         <UserInterfaceCodingWorkspaceSection
           key={framework}
           activeTabScrollIntoView={false}
@@ -66,7 +67,20 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
           timeoutLoggerInstance="marketing.embed.ui"
           onFrameworkChange={setFramework}
         />
-      </div>
+      ) : (
+        <UserInterfaceCodingWorkspaceWriteup
+          canViewPremiumContent={false}
+          contentType="description"
+          environment="embed"
+          framework={framework}
+          metadata={question.metadata}
+          mode="practice"
+          nextQuestions={[]}
+          similarQuestions={[]}
+          writeup={question.frameworks[framework].description}
+          onFrameworkChange={setFramework}
+        />
+      )}
       <Anchor
         href={question.metadata.href}
         target="_blank"
