@@ -49,6 +49,7 @@ export default {
   additionalPaths: async (config) => {
     const paths = [
       ...codingQuestionsList.map(({ href }) => href),
+      // Question list pages.
       '/get-started',
       '/prepare',
       '/prepare/behavioral',
@@ -57,18 +58,29 @@ export default {
       '/prepare/system-design',
       '/questions/quiz',
       '/questions/react',
+      '/questions/angular',
+      '/questions/svelte',
       '/questions/system-design',
       '/questions/vanilla',
-      '/about',
-      '/affiliate',
+      '/focus-areas',
+      '/study-plans',
+      // Marketing pages.
+      '/',
+      '/affiliates',
       '/contact',
-      '/hiring',
+      '/faq',
+      '/pricing',
+      '/promotions',
+      '/jobs',
+      // About the company.
+      '/about',
+      '/team',
+      // Legal.
       '/legal/privacy-policy',
       '/legal/terms',
-      '/pricing',
+      // Misc.
       '/login',
       '/sign-up',
-      '/',
     ];
 
     return await Promise.all(
