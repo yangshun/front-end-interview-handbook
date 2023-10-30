@@ -1,7 +1,11 @@
 import type { Monaco } from '@monaco-editor/react';
 
 type TsConfigJSX =
-  'preserve' | 'react-jsx' | 'react-jsxdev' | 'react-native' | 'react';
+  | 'preserve'
+  | 'react-jsx'
+  | 'react-jsxdev'
+  | 'react-native'
+  | 'react';
 
 function convertJsx(monaco: Monaco, value: TsConfigJSX) {
   const { JsxEmit } = monaco.languages.typescript;
@@ -28,7 +32,14 @@ function convertJsx(monaco: Monaco, value: TsConfigJSX) {
 }
 
 type TsConfigModuleKind =
-  'amd' | 'commonjs' | 'es6' | 'es2015' | 'esnext' | 'none' | 'system' | 'umd';
+  | 'amd'
+  | 'commonjs'
+  | 'es6'
+  | 'es2015'
+  | 'esnext'
+  | 'none'
+  | 'system'
+  | 'umd';
 
 function convertModuleKind(monaco: Monaco, value: TsConfigModuleKind) {
   const { ModuleKind } = monaco.languages.typescript;
@@ -157,32 +168,32 @@ export function convertTsConfigToTsCompilerOptions(
     ...tsConfig,
   };
 
-  if (Object.hasOwn(newConfig, 'jsx')) {
+  if (Object.prototype.hasOwnProperty.call(newConfig, 'jsx')) {
     newConfig.jsx = convertJsx(monaco, newConfig.jsx.toLowerCase());
   }
 
-  if (Object.hasOwn(newConfig, 'module')) {
+  if (Object.prototype.hasOwnProperty.call(newConfig, 'module')) {
     newConfig.module = convertModuleKind(
       monaco,
       newConfig.module.toLowerCase(),
     );
   }
 
-  if (Object.hasOwn(newConfig, 'moduleResolution')) {
+  if (Object.prototype.hasOwnProperty.call(newConfig, 'moduleResolution')) {
     newConfig.moduleResolution = convertModuleResolutionKind(
       monaco,
       newConfig.moduleResolution.toLowerCase(),
     );
   }
 
-  if (Object.hasOwn(newConfig, 'newLine')) {
+  if (Object.prototype.hasOwnProperty.call(newConfig, 'newLine')) {
     newConfig.newLine = convertNewLineKind(
       monaco,
       newConfig.newLine.toLowerCase(),
     );
   }
 
-  if (Object.hasOwn(newConfig, 'target')) {
+  if (Object.prototype.hasOwnProperty.call(newConfig, 'target')) {
     newConfig.target = convertScriptTarget(
       monaco,
       newConfig.target.toLowerCase(),

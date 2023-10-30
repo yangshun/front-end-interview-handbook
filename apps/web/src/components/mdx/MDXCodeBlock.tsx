@@ -87,7 +87,7 @@ export default function MDXCodeBlock({
   }
 
   for (lang in languages) {
-    if (Object.hasOwn(languages, lang)) {
+    if (Object.prototype.hasOwnProperty.call(languages, lang)) {
       const codeString = convertContentToCode(languages[lang]);
 
       if (codeString != null) {

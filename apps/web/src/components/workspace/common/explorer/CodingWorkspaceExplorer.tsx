@@ -96,7 +96,7 @@ export default function CodingWorkspaceExplorer({
     if (oldPath === newPath) {
       return true;
     }
-    if (Object.hasOwn(files, newPath)) {
+    if (Object.prototype.hasOwnProperty.call(files, newPath)) {
       return false;
     }
     if (isDirectory) {
