@@ -17,7 +17,7 @@ import type { TeamCategory, TeamUser } from './TeamUsers';
 
 const categoryToVariant: Record<TeamCategory, BadgeVariant> = {
   alumni: 'success',
-  community: 'success',
+  community: 'warning',
   expert: 'info',
   team: 'special',
 };

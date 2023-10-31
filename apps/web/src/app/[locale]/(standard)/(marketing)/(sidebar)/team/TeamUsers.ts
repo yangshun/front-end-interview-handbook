@@ -52,7 +52,7 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     title: 'Senior Staff Software Engineer @ Google',
   },
   {
-    category: 'expert',
+    category: 'team',
     companyLogos: [
       '/img/company-logos/docusign-logomark.svg',
       '/img/company-logos/amazon-logomark.png',
@@ -63,6 +63,19 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     image: '/img/team/zhenghao.jpg',
     name: 'Zhenghao He',
     title: 'Sr Software Engineer @ DocuSign. Ex-Amazon',
+  },
+  {
+    category: 'team',
+    companyLogos: [
+      '/img/company-logos/shopify-logomark.svg',
+      '/img/company-logos/axon-logomark.jpg',
+    ],
+    description:
+      'Nam is a Senior Software Engineer at Shopify, making commerce better for everyone. Previously, he was part of Axon\'s "Write Code. Save Lives" mission to build large-scale products that improve law enforcement globally.',
+    href: 'https://namnguyen.design/about',
+    image: '/img/team/nam.jpg',
+    name: 'Nam Nguyen',
+    title: 'Senior Software Engineer @ Shopify',
   },
   {
     category: 'expert',
@@ -130,6 +143,26 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     name: 'Utpal Singh',
     roundedCompanyLogo: true,
     title: 'Front End Engineer @ Rattle',
+  },
+  {
+    category: 'community',
+    companyLogos: [],
+    description:
+      'A passionate Front End Engineer and YouTuber who has helped hundreds of developers crack their dream jobs.',
+    href: 'https://www.linkedin.com/in/piyush-eon/',
+    image: '/img/team/piyush-agarwal.jpg',
+    name: 'Piyush Agarwal',
+    title: 'Software Engineer @ Cars24',
+  },
+  {
+    category: 'community',
+    companyLogos: [],
+    description:
+      "Luke's tenure as a software engineer narrates a tale of technical expertise intertwined with a keen enjoyment of sharing knowledge. Transitioning through various roles and projects, the space for sharing technical wisdom always finds a place.",
+    href: 'https://www.linkedin.com/in/lukefiji/',
+    image: '/img/team/luke-fiji.jpg',
+    name: 'Luke Fiji',
+    title: 'Front End Software Engineer, ex-Dapper Labs',
   },
   {
     category: 'team',
