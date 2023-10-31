@@ -93,7 +93,7 @@ describe('limit', () => {
   });
 
   test('can access this', () => {
-    const limited = limit(function (val) {
+    const limited = limit(function (this: any, val: number) {
       return this.multiplier * val;
     }, 3);
 

@@ -71,7 +71,7 @@ describe('setCancellableTimeout', () => {
       let i = 1;
 
       setCancellableTimeout(
-        (foo, bar) => {
+        (foo: number, bar: number) => {
           i += foo;
           i *= bar;
           expect(i).toBe(21);
@@ -90,7 +90,7 @@ describe('setCancellableTimeout', () => {
       let i = 1;
 
       const cancel = setCancellableTimeout(
-        (foo, bar) => {
+        (foo: number, bar: number) => {
           i += foo;
           i *= bar;
           expect(i).toBe(21);
@@ -113,7 +113,7 @@ describe('setCancellableTimeout', () => {
   test('callbacks can access `this`', (done) => {
     expect.assertions(2);
 
-    function increment(delta) {
+    function increment(this: any, delta: number) {
       this.val += delta;
     }
 

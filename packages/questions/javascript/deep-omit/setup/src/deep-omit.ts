@@ -9,7 +9,7 @@ export default function deepOmit(val: unknown, keys: Array<string>): unknown {
     const newObj: Record<string, unknown> = {};
     for (const key in val as Object) {
       if (!keys.includes(key)) {
-        newObj[key] = deepOmit((val as any)[key] as , keys);
+        newObj[key] = deepOmit((val as any)[key], keys);
       }
     }
 

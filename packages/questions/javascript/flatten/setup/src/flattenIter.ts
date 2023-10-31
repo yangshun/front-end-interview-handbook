@@ -1,8 +1,6 @@
-/**
- * @param {Array<*|Array>} value
- * @return {Array}
- */
-export default function flatten(value) {
+type ArrayValue = any | Array<ArrayValue>;
+
+export default function flatten(value: Array<ArrayValue>): Array<any> {
   const res = [];
   const copy = value.slice();
 

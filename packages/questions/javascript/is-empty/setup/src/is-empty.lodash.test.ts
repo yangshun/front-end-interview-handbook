@@ -37,7 +37,7 @@ describe('isEmpty', () => {
       function Foo() {}
       Foo.prototype.length = -1;
 
-      expect(isEmpty(new Foo())).toBe(true);
+      expect(isEmpty(new (Foo as any)())).toBe(true);
     });
 
     test('non-number lengths', function () {

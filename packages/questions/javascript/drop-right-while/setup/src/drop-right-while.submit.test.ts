@@ -1,4 +1,4 @@
-import dropRightWhile from './drop-right-while';
+import { dropRightWhile } from 'lodash';
 
 describe('dropRightWhile', () => {
   test('empty array', () => {

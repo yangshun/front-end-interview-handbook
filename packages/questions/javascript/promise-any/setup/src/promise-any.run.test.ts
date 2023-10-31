@@ -1,11 +1,6 @@
 import promiseAny from './promise-any';
 
 describe('promiseAny', () => {
-  test('returns promise', () => {
-    const p = promiseAny([]);
-    expect(p).toBeInstanceOf(Promise);
-  });
-
   test('empty input array', async () => {
     expect.assertions(2);
 

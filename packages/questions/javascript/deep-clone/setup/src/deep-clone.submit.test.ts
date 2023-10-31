@@ -27,7 +27,7 @@ describe('deepClone', () => {
     test('two levels of nesting', () => {
       const obj = { a: { b: { c: 'd' } }, e: 'f' };
       const clonedObj = deepClone(obj);
-      clonedObj.a.b = {};
+      (clonedObj.a.b as any) = {};
       expect(obj).toEqual({ a: { b: { c: 'd' } }, e: 'f' });
     });
 
