@@ -1,5 +1,5 @@
 export default function textSearch(
-  string: string,
+  text: string,
   queries: Array<string>,
 ): string {
   throw 'Not implemented!';
