@@ -53,9 +53,13 @@ export default function DashboardOnboarding() {
 
   return (
     <CardContainer>
-      <Card className="flex flex-col gap-6 p-8" padding={false}>
+      <Card className="flex flex-col gap-6 p-4 md:p-8" padding={false}>
         <div className="flex justify-between gap-x-6">
-          <Text className="max-w-3xl" color="secondary" display="block">
+          <Text
+            className="max-w-3xl"
+            color="secondary"
+            display="block"
+            size="body2">
             <FormattedMessage
               defaultMessage="We recommend these {numberOfAreas} areas of learning to prepare you holistically for your front end interview rounds. Explore guides and {count}+ practice questions here."
               description="Message in onboarding card on prepare page"
@@ -67,7 +71,7 @@ export default function DashboardOnboarding() {
             />
           </Text>
           <Button
-            className="-mr-3 -mt-2"
+            className="-mt-2 md:-mr-3"
             icon={RiCloseLine}
             isLabelHidden={true}
             label={intl.formatMessage({
@@ -80,11 +84,11 @@ export default function DashboardOnboarding() {
             onClick={() => setShouldHide(true)}
           />
         </div>
-        <div className="grid gap-4 lg:grid-cols-4">
+        <div className="hidden gap-4 lg:grid lg:grid-cols-4">
           {areas_.map(({ icon: Icon, label, description, value }) => (
             <div
               key={value}
-              className="dark:bg-neutral-800/40 flex flex-col gap-2 rounded-lg bg-neutral-200/40 px-6 py-5">
+              className="flex flex-col gap-2 rounded-lg bg-neutral-200/40 px-6 py-5 dark:bg-neutral-800/40">
               <div className="flex items-center gap-x-3">
                 <Icon className="h-6 w-6 text-neutral-400 dark:text-neutral-500" />
                 <Text display="block" weight="bold">
@@ -98,6 +102,20 @@ export default function DashboardOnboarding() {
                 size="body2">
                 {description}
               </Text>
+            </div>
+          ))}
+        </div>
+        <div className="grid grid-cols-2 gap-2 lg:hidden">
+          {areas_.map(({ icon: Icon, label, value }) => (
+            <div
+              key={value}
+              className="flex gap-2 rounded-md bg-neutral-200/40 px-4 py-2 dark:bg-neutral-800/40">
+              <div className="flex items-center gap-x-3">
+                <Icon className="h-6 w-6 text-neutral-400 dark:text-neutral-500" />
+                <Text display="block" size="body2" weight="bold">
+                  {label}
+                </Text>
+              </div>
             </div>
           ))}
         </div>
