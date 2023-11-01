@@ -37,7 +37,7 @@ function NavbarPopoverLink({
             className="group-hover:text-brand-dark dark:group-hover:text-brand h-6 w-6 transition-colors"
           />
         </div>
-        <div>
+        <div className="flex flex-col gap-y-1">
           <Text className="items-center gap-2" display="flex" weight="medium">
             <span className="shrink-0">{label}</span> {labelAddon}
           </Text>
@@ -62,11 +62,11 @@ function NavbarPopoverLink({
           />
         </div>
         <Text
-          className="items-center gap-2"
+          className="flex-wrap items-center gap-2"
           display="flex"
           size="body2"
           weight="medium">
-          <span className="shrink-0">{label}</span> {labelAddon}
+          <span>{label}</span> {labelAddon}
         </Text>
       </div>
     );

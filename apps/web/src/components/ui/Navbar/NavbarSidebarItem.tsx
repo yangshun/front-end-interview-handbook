@@ -85,7 +85,7 @@ function NavbarAccordionSubsection({
   }
 
   return (
-    <div className="flex flex-col gap-y-4">
+    <div className="flex flex-col gap-y-1 pb-2">
       <Text color="secondary" size="body2">
         {props.label}
       </Text>
@@ -119,7 +119,6 @@ function NavbarAccordionSubsection({
           }}
         />
       )}
-      <Divider />
     </div>
   );
 }
@@ -151,7 +150,7 @@ function NavbarSidebarAccordion({
         <DropdownIcon className={clsx(themeTextSecondaryColor, 'h-5 w-5')} />
       </Anchor>
       <ul
-        className={clsx('flex flex-col gap-y-4 px-4', !isOpen && 'hidden')}
+        className={clsx('flex flex-col gap-y-2 px-4 pt-1', !isOpen && 'hidden')}
         role="list">
         {props.items.map(({ onClick: onItemClick, ...item }) => (
           <li key={item.itemKey}>
@@ -184,18 +183,15 @@ export default function NavbarSidebarItem({
 
   if (props.type === 'link') {
     return (
-      <>
-        <Anchor
-          key={props.itemKey}
-          aria-current={isCurrent ? 'page' : undefined}
-          className={clsx(themeTextColor, !isCurrent && linkClass, 'p-4')}
-          href={props.href}
-          variant="unstyled"
-          onClick={onClick}>
-          {label}
-        </Anchor>
-        <Divider className="mx-4" />
-      </>
+      <Anchor
+        key={props.itemKey}
+        aria-current={isCurrent ? 'page' : undefined}
+        className={clsx(themeTextColor, !isCurrent && linkClass, 'p-4')}
+        href={props.href}
+        variant="unstyled"
+        onClick={onClick}>
+        {label}
+      </Anchor>
     );
   }
 

@@ -87,7 +87,7 @@ export default function DashboardLayout({
         </div>
         <div
           className={clsx(
-            'grid gap-6',
+            'hidden gap-6 md:grid',
             showContinueLearning && 'lg:grid-cols-2',
           )}>
           {showContinueLearning && questionListSessions != null && (

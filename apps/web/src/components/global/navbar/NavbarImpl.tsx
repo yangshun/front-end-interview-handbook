@@ -10,6 +10,8 @@ import { useIntl } from 'react-intl';
 import gtag from '~/lib/gtag';
 import useIsSticky from '~/hooks/useIsSticky';
 
+import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
+import { useFocusAreas } from '~/data/focus-areas/FocusAreasHooks';
 import { useGuidesData } from '~/data/Guides';
 import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 import { usePreparationPlans } from '~/data/plans/PreparationPlansHooks';
@@ -53,6 +55,7 @@ function useNavLinks(
   const questionTechnologyLists = useQuestionTechnologyLists();
   const questionFormatLists = useQuestionFormatLists();
   const preparationPlans = usePreparationPlans();
+  const focusAreas = useFocusAreas();
   const guides = useGuidesData();
   // To redirect post-login, so we can use the full pathname.
   const pathname = usePathname();
@@ -347,6 +350,52 @@ function useNavLinks(
           },
           type: 'popover-list',
         },
+        {
+          itemKey: 'focus-areas',
+          items: (
+            [
+              'async-operations',
+              'data-structures-algorithms',
+              'design-system-components',
+              'lodash',
+              'dom-manipulation',
+              'accessibility',
+              'javascript-polyfills',
+              'forms',
+            ] as const
+          ).map((focusArea) => ({
+            href: focusAreas[focusArea].href,
+            icon: getFocusAreaTheme(focusArea).iconOutline,
+            itemKey: focusAreas[focusArea].type,
+            key: focusArea,
+            label: focusAreas[focusArea].longName,
+            onClick: () => {
+              gtag.event({
+                action: `nav.practice.focus_areas.${focusAreas[focusArea].type}.click`,
+                category: 'engagement',
+                label: focusAreas[focusArea].longName,
+              });
+            },
+            type: 'popover-link',
+          })),
+          label: intl.formatMessage({
+            defaultMessage: 'Practice for specific focus areas',
+            description: 'Section title',
+            id: 'PigS2u',
+          }),
+          supplementaryItem: {
+            href: '/focus-areas',
+            icon: RiPlayLine,
+            itemKey: 'focus-areas',
+            label: intl.formatMessage({
+              defaultMessage: 'View focus areas',
+              description: 'Link label to view all focus areas',
+              id: 'PvVu6g',
+            }),
+            type: 'link',
+          },
+          type: 'popover-list',
+        },
       ],
       label: intl.formatMessage({
         defaultMessage: 'Practice Questions',
@@ -621,7 +670,7 @@ export default function NavbarImpl() {
   }>) {
     return (
       <div className="grid gap-y-2">
-        <div className="mt-1 px-4">
+        <div className="grid grid-cols-2 gap-2 px-4 pt-4">
           <I18nSelect
             display="block"
             locale={locale ?? 'en-US'}
@@ -633,8 +682,6 @@ export default function NavbarImpl() {
               router.push(pathname, { locale: newLocale });
             }}
           />
-        </div>
-        <div className="px-4">
           <AppThemeSelect
             colorScheme={appThemePreference}
             display="block"
