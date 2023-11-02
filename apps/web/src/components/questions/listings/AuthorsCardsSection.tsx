@@ -1,15 +1,17 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiYoutubeFill } from 'react-icons/ri';
+import {
+  RiGithubFill,
+  RiLinkedinBoxFill,
+  RiTwitterFill,
+  RiYoutubeFill,
+} from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
 import authors from '~/data/authors';
 
-import GitHubIcon from '~/components/icons/GitHubIcon';
-import LinkedInIcon from '~/components/icons/LinkedInIcon';
-import TwitterIcon from '~/components/icons/TwitterIcon';
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
@@ -106,7 +108,7 @@ export default function AuthorsCardSection() {
                   })}
                   href={author.links.github}
                   variant="blend">
-                  <GitHubIcon className="h-5 w-5" />
+                  <RiGithubFill className="h-5 w-5" />
                 </Anchor>
               )}
               {author.links.linkedin && (
@@ -118,7 +120,7 @@ export default function AuthorsCardSection() {
                   })}
                   href={author.links.linkedin}
                   variant="blend">
-                  <LinkedInIcon className="h-5 w-5" />
+                  <RiLinkedinBoxFill className="h-5 w-5" />
                 </Anchor>
               )}
               {author.links.twitter && (
@@ -130,7 +132,7 @@ export default function AuthorsCardSection() {
                   })}
                   href={author.links.twitter}
                   variant="blend">
-                  <TwitterIcon className="h-5 w-5" />
+                  <RiTwitterFill className="h-5 w-5" />
                 </Anchor>
               )}
               {author.links.youtube && (

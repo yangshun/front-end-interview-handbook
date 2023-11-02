@@ -5,10 +5,10 @@ import {
   RiAccountBoxLine,
   RiCheckLine,
   RiComputerLine,
+  RiGithubFill,
   RiSurveyLine,
 } from 'react-icons/ri';
 
-import GitHubIcon from '~/components/icons/GitHubIcon';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
@@ -45,7 +45,7 @@ const features = [
   {
     description:
       'We will conduct a review of your GitHub profile and conduct a critique of your top 3 pinned projects',
-    icon: GitHubIcon,
+    icon: RiGithubFill,
     name: 'GitHub Review',
     subfeatures: [
       'First impressions from experienced interviewers',
@@ -108,7 +108,7 @@ export default function ResumeReviewProcess() {
                     <span
                       aria-hidden="true"
                       className={clsx(
-                        'dark:bg-neutral-800/70 inline-block rounded-full p-3',
+                        'inline-block rounded-full p-3 dark:bg-neutral-800/70',
                         themeGlassyBorder,
                       )}>
                       <feature.icon

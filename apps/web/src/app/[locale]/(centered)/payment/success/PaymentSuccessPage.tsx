@@ -8,6 +8,7 @@ import {
   RiArrowRightSLine,
   RiCheckboxCircleLine,
   RiCodeSSlashLine,
+  RiDiscordFill,
 } from 'react-icons/ri';
 
 import fbq from '~/lib/fbq';
@@ -18,7 +19,6 @@ import type {
   PricingPlanType,
 } from '~/data/PricingPlans';
 
-import DiscordIcon from '~/components/icons/DiscordIcon';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -50,7 +50,7 @@ const links = [
   {
     description: 'Join the private Discord community for Premium users',
     href: 'https://discord.gg/8suTg77xXz',
-    icon: DiscordIcon,
+    icon: RiDiscordFill,
     title: 'Join Discord',
   },
 ];

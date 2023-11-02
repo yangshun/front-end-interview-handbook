@@ -4,6 +4,8 @@ import clsx from 'clsx';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import {
   RiCalendarLine,
+  RiDiscordFill,
+  RiGithubFill,
   RiMailLine,
   RiStarLine,
   RiUserLine,
@@ -11,8 +13,6 @@ import {
 import { useIntl } from 'react-intl';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import DiscordIcon from '~/components/icons/DiscordIcon';
-import GitHubIcon from '~/components/icons/GitHubIcon';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -215,7 +215,7 @@ export default function ProfileShell({ user, children }: Props) {
                           {user?.user_metadata.user_name &&
                             user?.user_metadata.iss.includes('github.com') && (
                               <div className="flex items-center gap-x-2">
-                                <GitHubIcon
+                                <RiGithubFill
                                   aria-hidden="true"
                                   className="h-5 w-5 shrink-0 text-neutral-500"
                                 />
@@ -228,7 +228,7 @@ export default function ProfileShell({ user, children }: Props) {
                               </div>
                             )}
                           <div className="flex items-center gap-x-2">
-                            <DiscordIcon
+                            <RiDiscordFill
                               aria-hidden="true"
                               className="h-5 w-5 shrink-0 text-neutral-500"
                             />
@@ -246,7 +246,7 @@ export default function ProfileShell({ user, children }: Props) {
                             userProfile?.plan === 'quarter' ||
                             userProfile?.plan === 'year') && (
                             <div className="flex items-center gap-x-2">
-                              <DiscordIcon
+                              <RiDiscordFill
                                 aria-hidden="true"
                                 className="h-5 w-5 shrink-0 text-pink-500"
                               />

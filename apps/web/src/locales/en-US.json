@@ -1491,9 +1491,17 @@
     "defaultMessage": "Subscribe early to lock in this earlybird price.",
     "description": "Tip at the bottom of the Pricing section"
   },
+  "PigS2u": {
+    "defaultMessage": "Practice for specific focus areas",
+    "description": "Section title"
+  },
   "Ptmnjq": {
     "defaultMessage": "Free continuous updates",
     "description": "Title for free continuous updates feature"
+  },
+  "PvVu6g": {
+    "defaultMessage": "View focus areas",
+    "description": "Link label to view all focus areas"
   },
   "PyDwDF": {
     "defaultMessage": "Close",
