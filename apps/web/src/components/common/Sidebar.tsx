@@ -14,6 +14,7 @@ import {
 import { useIntl } from 'react-intl';
 
 import { useGuidesData } from '~/data/Guides';
+import { SocialLinks } from '~/data/SocialLinks';
 
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -205,8 +206,8 @@ export default function Sidebar({
       });
 
   return (
-    <div className="flex h-full w-full flex-1 grow flex-col items-end justify-between p-4">
-      <div className={clsx('grid gap-2 self-stretch')}>
+    <div className="flex h-full w-full flex-1 grow flex-col justify-between p-4">
+      <div className={clsx('grid gap-2')}>
         {navigation.map((item) => {
           const itemClassname = clsx(
             'group flex w-full items-center gap-x-2 rounded text-xs font-medium',
@@ -354,15 +355,35 @@ export default function Sidebar({
           );
         })}
       </div>
-      <Button
-        icon={isCollapsed ? RiContractRightLine : RiContractLeftLine}
-        isLabelHidden={true}
-        label={collapseButtonLabel}
-        tooltip={isCollapsed ? collapseButtonLabel : undefined}
-        tooltipPosition="end"
-        variant="secondary"
-        onClick={() => onCollapseChange()}
-      />
+      <div
+        className={clsx(
+          'flex justify-between gap-6',
+          isCollapsed && 'flex-col',
+        )}>
+        <div className={clsx('flex gap-3', isCollapsed && 'flex-col')}>
+          {[SocialLinks.discord, SocialLinks.github, SocialLinks.linkedin].map(
+            ({ href, icon, name, key }) => (
+              <Button
+                key={key}
+                href={href}
+                icon={icon}
+                isLabelHidden={true}
+                label={name}
+                variant="secondary"
+              />
+            ),
+          )}
+        </div>
+        <Button
+          icon={isCollapsed ? RiContractRightLine : RiContractLeftLine}
+          isLabelHidden={true}
+          label={collapseButtonLabel}
+          tooltip={isCollapsed ? collapseButtonLabel : undefined}
+          tooltipPosition="end"
+          variant="secondary"
+          onClick={() => onCollapseChange()}
+        />
+      </div>
     </div>
   );
 }

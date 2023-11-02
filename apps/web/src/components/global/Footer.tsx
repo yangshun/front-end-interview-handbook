@@ -7,9 +7,8 @@ import gtag from '~/lib/gtag';
 
 import { useGuidesData } from '~/data/Guides';
 import { useQuestionFormatLists } from '~/data/QuestionFormats';
+import { SocialLinks } from '~/data/SocialLinks';
 
-import DiscordIcon from '~/components/icons/DiscordIcon';
-import GitHubIcon from '~/components/icons/GitHubIcon';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -21,7 +20,6 @@ import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
 import LogoLink from './Logo';
 import I18nSelect from '../i18n/I18nSelect';
-import TwitterIcon from '../icons/TwitterIcon';
 
 type FooterLink = Readonly<{
   href: string;
@@ -178,24 +176,10 @@ function useFooterNavigation() {
       },
     ],
     social: [
-      {
-        href: 'https://www.twitter.com/greatfrontend',
-        icon: TwitterIcon,
-        key: 'twitter',
-        name: 'Twitter',
-      },
-      {
-        href: 'https://discord.gg/NDFx8f6P6B',
-        icon: DiscordIcon,
-        key: 'discord',
-        name: 'Discord',
-      },
-      {
-        href: 'https://www.github.com/greatfrontend',
-        icon: GitHubIcon,
-        key: 'github',
-        name: 'GitHub',
-      },
+      SocialLinks.twitter,
+      SocialLinks.discord,
+      SocialLinks.github,
+      SocialLinks.linkedin,
     ],
   };
 
