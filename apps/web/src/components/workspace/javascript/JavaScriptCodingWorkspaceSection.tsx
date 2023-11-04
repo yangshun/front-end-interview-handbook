@@ -73,13 +73,12 @@ export default function JavaScriptCodingWorkspaceSection({
             'sp-stack': 'h-full',
             'sp-wrapper': clsx(
               '!w-full !text-sm',
-              !embed && '!bg-neutral-50 dark:!bg-[#070708] !pt-3',
+              embed
+                ? '!h-full'
+                : '!bg-neutral-50 dark:!bg-[#070708] !pt-3 lg:!h-[calc(100vh_-_var(--nav-top-offset))]',
             ),
           },
           visibleFiles: [workspace.main, workspace.run],
-        }}
-        style={{
-          height: embed ? '100%' : footerlessContainerHeight,
         }}
         theme={appTheme === 'dark' ? 'dark' : undefined}>
         <JavaScriptCodingWorkspace

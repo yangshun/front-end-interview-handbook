@@ -31,23 +31,25 @@ export default function JavaScriptCodingWorkspaceBottomBar({
 
   const runSubmitButtons = (
     <>
-      <Button
-        addonPosition="start"
-        tooltip="Run against test cases (customizable)"
-        tooltipPosition="above"
-        icon={RiPlayLine}
-        isDisabled={status !== 'idle'}
-        label="Run"
-        size="xs"
-        variant="secondary"
-        onClick={() => {
-          logEvent('question.run', {
-            format: metadata.format,
-            slug: metadata.slug,
-          });
-          runTests();
-        }}
-      />
+      <span className="hidden lg:inline">
+        <Button
+          addonPosition="start"
+          tooltip="Run against test cases (customizable)"
+          tooltipPosition="above"
+          icon={RiPlayLine}
+          isDisabled={status !== 'idle'}
+          label="Run"
+          size="xs"
+          variant="secondary"
+          onClick={() => {
+            logEvent('question.run', {
+              format: metadata.format,
+              slug: metadata.slug,
+            });
+            runTests();
+          }}
+        />
+      </span>
       <Button
         addonPosition="start"
         tooltip="Run against full test suite"

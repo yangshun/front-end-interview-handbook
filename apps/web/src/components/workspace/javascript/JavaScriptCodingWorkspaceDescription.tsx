@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useIntl } from 'react-intl';
 
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
@@ -14,6 +15,7 @@ import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 type Props = Readonly<{
   canViewPremiumContent: boolean;
   description: string | null;
+  alwaysShowExtraData?: boolean;
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   similarQuestions: ReadonlyArray<QuestionMetadata>;
@@ -21,8 +23,9 @@ type Props = Readonly<{
 
 export default function JavaScriptCodingWorkspaceDescription({
   canViewPremiumContent,
-  metadata,
   description,
+  alwaysShowExtraData = true,
+  metadata,
   nextQuestions,
   similarQuestions,
 }: Props) {
@@ -56,12 +59,18 @@ export default function JavaScriptCodingWorkspaceDescription({
         </div>
         <div className="flex flex-col gap-y-8">
           <QuestionContentProse contents={description} />
-          <QuestionCompanies
-            canViewPremiumContent={canViewPremiumContent}
-            companies={metadata.companies}
-          />
-          <QuestionNextQuestions questions={nextQuestions} />
-          <QuestionSimilarQuestions questions={similarQuestions} />
+          <div
+            className={clsx(
+              'flex-col gap-y-8 ',
+              !alwaysShowExtraData && 'hidden lg:flex',
+            )}>
+            <QuestionCompanies
+              canViewPremiumContent={canViewPremiumContent}
+              companies={metadata.companies}
+            />
+            <QuestionNextQuestions questions={nextQuestions} />
+            <QuestionSimilarQuestions questions={similarQuestions} />
+          </div>
         </div>
       </div>
     </div>

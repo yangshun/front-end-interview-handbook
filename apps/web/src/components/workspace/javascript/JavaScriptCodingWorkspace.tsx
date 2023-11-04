@@ -56,6 +56,8 @@ import {
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 import { useMonaco } from '@monaco-editor/react';
+import { themeLineColor } from '~/components/ui/theme';
+import JavaScriptCodingWorkspaceSolutionMobile from './JavaScriptCodingWorkspaceSolutionMobile';
 
 const JavaScriptCodingWorkspaceTilesPanelRoot =
   TilesPanelRoot<JavaScriptCodingWorkspaceTabsType>;
@@ -248,6 +250,7 @@ function JavaScriptCodingWorkspaceImpl({
     description: {
       contents: (
         <JavaScriptCodingWorkspaceDescription
+          alwaysShowExtraData={embed}
           canViewPremiumContent={canViewPremiumContent}
           description={description}
           metadata={metadata}
@@ -355,8 +358,52 @@ function JavaScriptCodingWorkspaceImpl({
         skeleton={skeleton}
         workspace={workspace}
         onLanguageChange={onLanguageChange}>
-        <div ref={copyRef} className="flex h-full w-full flex-col text-sm">
-          <div className="flex grow overflow-x-auto">
+        {!embed && (
+          <div className="flex flex-col gap-y-4 lg:hidden">
+            <JavaScriptCodingWorkspaceDescription
+              alwaysShowExtraData={false}
+              canViewPremiumContent={canViewPremiumContent}
+              description={description}
+              metadata={metadata}
+              nextQuestions={nextQuestions}
+              similarQuestions={similarQuestions}
+            />
+            <JavaScriptCodingWorkspaceSolutionMobile solution={solution} />
+            <div className="mx-auto flex w-full max-w-3xl flex-col gap-y-4 px-4 pb-4 md:gap-y-6">
+              <div
+                className={clsx(
+                  'flex h-[500px] rounded border',
+                  themeLineColor,
+                )}>
+                <JavaScriptCodingWorkspaceCodeEditor
+                  filePath={workspace.main}
+                />
+              </div>
+              <div
+                className={clsx(
+                  'flex h-[300px] rounded border',
+                  themeLineColor,
+                )}>
+                <JavaScriptCodingWorkspaceTestsSubmitTab
+                  metadata={metadata}
+                  specPath={workspace.submit}
+                />
+              </div>
+            </div>
+            <JavaScriptCodingWorkspaceBottomBar
+              metadata={metadata}
+              layout={embed ? 'minimal' : 'full'}
+              nextQuestions={nextQuestions}
+            />
+          </div>
+        )}
+        <div
+          ref={copyRef}
+          className={clsx(
+            'h-full w-full flex-col text-sm',
+            !embed ? 'hidden lg:flex' : 'flex',
+          )}>
+          <div className={clsx('flex grow overflow-x-auto')}>
             <div
               className={clsx(
                 'flex w-full grow px-3',
