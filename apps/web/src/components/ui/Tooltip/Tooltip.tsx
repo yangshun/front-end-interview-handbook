@@ -134,7 +134,6 @@ function TooltipLabel({
         'fixed z-40 rounded',
         sizeClasses[size],
         tooltipBackgroundColor,
-        invert === false && 'dark:border dark:border-neutral-700',
         position === 'above' && 'mb-1.5',
         position === 'below' && 'mt-1.5',
         position === 'start' && 'mr-1.5',

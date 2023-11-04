@@ -24,7 +24,7 @@ import UserInterfaceCodingWorkspaceCodeEditor from './UserInterfaceCodingWorkspa
 import UserInterfaceCodingWorkspaceCommunitySolutionCreateTab from './UserInterfaceCodingWorkspaceCommunitySolutionCreateTab';
 import UserInterfaceCodingWorkspaceCommunitySolutionList from './UserInterfaceCodingWorkspaceCommunitySolutionList';
 import UserInterfaceCodingWorkspaceFileExplorer from './UserInterfaceCodingWorkspaceExplorer';
-import UserInterfaceCodingWorkspaceLayoutButton from './UserInterfaceCodingWorkspaceLayoutButton';
+import UserInterfaceCodingWorkspaceLayoutButton from './UserInterfaceCodingWorkspaceLayoutDialog';
 import { getUserInterfaceCodingWorkspaceLayout } from './UserInterfaceCodingWorkspaceLayouts';
 import UserInterfaceCodingWorkspaceNewTab from './UserInterfaceCodingWorkspaceNewTab';
 import UserInterfaceCodingWorkspaceSaveButton from './UserInterfaceCodingWorkspaceSaveButton';
@@ -59,6 +59,7 @@ import {
 import type { SandpackFiles } from '@codesandbox/sandpack-react';
 import { SandpackPreview, useSandpack } from '@codesandbox/sandpack-react';
 import { useMonaco } from '@monaco-editor/react';
+import UserInterfaceCodingWorkspaceBottomBar from './UserInterfaceCodingWorkspaceBottomBar';
 
 const UserInterfaceCodingWorkspaceTilesPanelRoot =
   TilesPanelRoot<UserInterfaceCodingWorkspaceTabsType>;
@@ -477,36 +478,14 @@ function UserInterfaceCodingWorkspaceImpl({
           </div>
         </div>
         {!embed && (
-          <CodingWorkspaceBottomBar
-            leftElements={
-              <>
-                <div className="hidden md:inline">
-                  <UserInterfaceCodingWorkspaceLayoutButton
-                    frameworkSolutionPath={frameworkSolutionPath}
-                    mode={mode}
-                  />
-                </div>
-                <Button
-                  addonPosition="start"
-                  icon={RiArrowGoBackLine}
-                  label="Reset question"
-                  size="xs"
-                  variant="secondary"
-                  onClick={() => {
-                    if (confirm('Reset to initial code?')) {
-                      resetToDefaultCode();
-                    }
-                  }}
-                />
-              </>
-            }
+          <UserInterfaceCodingWorkspaceBottomBar
             metadata={metadata}
+            frameworkSolutionPath={frameworkSolutionPath}
+            layout={embed ? 'minimal' : 'full'}
+            mode={mode}
+            question={question}
             nextQuestions={nextQuestions}
-            rightElements={
-              mode === 'practice' ? (
-                <UserInterfaceCodingWorkspaceSaveButton question={question} />
-              ) : undefined
-            }
+            resetToDefaultCode={resetToDefaultCode}
           />
         )}
       </div>

@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { RiArrowGoBackLine } from 'react-icons/ri';
-import { RxPause, RxStopwatch } from 'react-icons/rx';
+import { RxPause, RxPlay, RxStopwatch } from 'react-icons/rx';
+import Button from '~/components/ui/Button';
 
 import {
   themeBackgroundColor,
@@ -17,9 +18,31 @@ export default function CodingWorkspaceTimer() {
   );
   const [isTimerHovered, setIsTimerHovered] = useState(false);
 
+  function startTimer() {
+    const timerId = setInterval(() => {
+      setTimePassedInSeconds((seconds) => seconds + 1);
+    }, 1000);
+
+    setTimer(timerId);
+  }
+
   function clearTimer() {
     clearInterval(timer);
     setTimer(undefined);
+  }
+
+  if (timer == null && timePassedInSeconds == 0) {
+    return (
+      <Button
+        isLabelHidden={true}
+        variant="secondary"
+        icon={RxStopwatch}
+        label="Start timer"
+        size="xs"
+        tooltip="Start timer"
+        onClick={startTimer}
+      />
+    );
   }
 
   return (
@@ -36,15 +59,7 @@ export default function CodingWorkspaceTimer() {
         title={timer === null ? 'Start' : 'Pause'}
         type="button"
         onClick={() => {
-          if (timer == null) {
-            const timerId = setInterval(() => {
-              setTimePassedInSeconds((seconds) => seconds + 1);
-            }, 1000);
-
-            setTimer(timerId);
-          } else {
-            clearTimer();
-          }
+          timer == null ? startTimer() : clearTimer();
         }}
         onMouseEnter={() => {
           setIsTimerHovered(true);
@@ -53,7 +68,7 @@ export default function CodingWorkspaceTimer() {
           setIsTimerHovered(false);
         }}>
         {timer == null ? (
-          <RxStopwatch aria-hidden={true} className="h-3 w-4" />
+          <RxPlay aria-hidden={true} className="h-3 w-4" />
         ) : (
           <RxPause aria-hidden={true} className="h-4 w-4" />
         )}

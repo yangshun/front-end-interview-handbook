@@ -1,29 +1,33 @@
-import type { ReactNode } from 'react';
-import { RiArrowGoBackLine, RiPlayLine } from 'react-icons/ri';
+import { ReactNode, useState } from 'react';
+import { RiArrowGoBackLine, RiPlayLine, RiSettings2Line } from 'react-icons/ri';
 
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import Button from '~/components/ui/Button';
 
 import logEvent from '~/logging/logEvent';
 
-import JavaScriptCodingWorkspaceLayoutButton from './JavaScriptCodingWorkspaceLayoutButton';
+import JavaScriptCodingWorkspaceLayoutDialog from './JavaScriptCodingWorkspaceLayoutDialog';
 import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
 import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
+import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
+import DropdownMenu from '~/components/ui/DropdownMenu';
+import { VscLayout } from 'react-icons/vsc';
 
 type Props = Readonly<{
   metadata: QuestionMetadata;
-  mode: 'full' | 'minimal';
+  layout: 'full' | 'minimal';
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   rightElements?: ReactNode;
 }>;
 
 export default function JavaScriptCodingWorkspaceBottomBar({
   metadata,
-  mode,
+  layout,
   nextQuestions,
 }: Props) {
   const { status, runTests, submit, resetToDefaultCode } =
     useCodingWorkspaceContext();
+  const [isLayoutDialogOpen, setIsLayoutDialogOpen] = useState(false);
 
   const runSubmitButtons = (
     <>
@@ -59,7 +63,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
     </>
   );
 
-  if (mode === 'minimal') {
+  if (layout === 'minimal') {
     return (
       <div className="flex flex-wrap items-center justify-end gap-2 px-3 py-3">
         {runSubmitButtons}
@@ -70,24 +74,55 @@ export default function JavaScriptCodingWorkspaceBottomBar({
   return (
     <CodingWorkspaceBottomBar
       leftElements={
-        mode === 'full' && (
+        layout === 'full' && (
           <>
-            <div className="hidden md:inline">
-              <JavaScriptCodingWorkspaceLayoutButton />
+            <div className="hidden items-center gap-x-2 md:inline-flex">
+              <DropdownMenu
+                icon={RiSettings2Line}
+                showChevron={false}
+                position="above"
+                label="Settings"
+                size="xs"
+                isLabelHidden={true}>
+                {[
+                  {
+                    icon: VscLayout,
+                    label: 'Layout',
+                    value: 'layout',
+                    onClick: () => {
+                      setIsLayoutDialogOpen(true);
+                    },
+                  },
+                  {
+                    icon: RiArrowGoBackLine,
+                    label: 'Reset question',
+                    value: 'reset',
+                    onClick: () => {
+                      if (confirm('Reset all changes made to this question?')) {
+                        resetToDefaultCode();
+                      }
+                    },
+                  },
+                ].map(({ onClick, icon, label, value }) => (
+                  <DropdownMenu.Item
+                    key={value}
+                    icon={icon}
+                    label={label}
+                    onClick={onClick}
+                  />
+                ))}
+              </DropdownMenu>
+              <QuestionReportIssueButton
+                format="javascript"
+                title={metadata.title}
+              />
+              <JavaScriptCodingWorkspaceLayoutDialog
+                isOpen={isLayoutDialogOpen}
+                onClose={() => {
+                  setIsLayoutDialogOpen(false);
+                }}
+              />
             </div>
-            <Button
-              addonPosition="start"
-              icon={RiArrowGoBackLine}
-              isDisabled={status !== 'idle'}
-              label="Reset question"
-              size="xs"
-              variant="secondary"
-              onClick={() => {
-                if (confirm('Reset all changes made to this question?')) {
-                  resetToDefaultCode();
-                }
-              }}
-            />
           </>
         )
       }

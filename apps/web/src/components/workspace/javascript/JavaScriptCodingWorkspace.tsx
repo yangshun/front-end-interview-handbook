@@ -406,7 +406,7 @@ function JavaScriptCodingWorkspaceImpl({
           </div>
           <JavaScriptCodingWorkspaceBottomBar
             metadata={metadata}
-            mode={embed ? 'minimal' : 'full'}
+            layout={embed ? 'minimal' : 'full'}
             nextQuestions={nextQuestions}
           />
         </div>

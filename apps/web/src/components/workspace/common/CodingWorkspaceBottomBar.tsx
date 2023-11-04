@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react';
 
 import QuestionProgressAction from '~/components/questions/common/QuestionProgressAction';
-import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import QuestionNextQuestions from '~/components/questions/content/QuestionNextQuestions';
 import Divider from '~/components/ui/Divider';
@@ -27,11 +26,12 @@ export default function CodingWorkspaceBottomBar({
   const { data: questionProgress } = useQueryQuestionProgress(metadata);
 
   return (
-    <div className="flex flex-wrap items-center justify-between gap-2 px-3 py-3">
-      <div className="flex items-center gap-x-2">
+    <div className="relative flex flex-wrap items-center justify-between gap-2 px-3 py-3">
+      {leftElements && (
+        <div className="flex items-center gap-x-2">{leftElements}</div>
+      )}
+      <div className="absolute left-1/2 hidden -translate-x-1/2 md:block">
         <CodingWorkspaceQuestionListSlideOutButton />
-        <QuestionReportIssueButton format="javascript" title={metadata.title} />
-        {leftElements}
       </div>
       <div className="flex items-center gap-x-2">
         <div className="hidden md:inline">

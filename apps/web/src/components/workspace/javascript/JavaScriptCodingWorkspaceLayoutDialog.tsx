@@ -17,12 +17,19 @@ import CodingWorkspaceLayoutDialog from '../common/CodingWorkspaceLayoutDialog';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 
-export default function JavaScriptCodingWorkspaceLayoutButton() {
+type Props = Readonly<{
+  isOpen: boolean;
+  onClose: () => void;
+}>;
+
+export default function JavaScriptCodingWorkspaceLayoutButton({
+  isOpen,
+  onClose,
+}: Props) {
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles } = sandpack;
   const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
   const { workspace } = useJavaScriptCodingWorkspaceContext();
-  const [isOpen, setIsOpen] = useState(false);
 
   const layouts: ReadonlyArray<CodingWorkspaceLayoutItem> = [
     {
@@ -45,7 +52,7 @@ export default function JavaScriptCodingWorkspaceLayoutButton() {
           },
           type: 'layout-change',
         });
-        setIsOpen(false);
+        onClose();
       },
     },
     {
@@ -68,7 +75,7 @@ export default function JavaScriptCodingWorkspaceLayoutButton() {
           },
           type: 'layout-change',
         });
-        setIsOpen(false);
+        onClose();
       },
     },
     {
@@ -88,28 +95,16 @@ export default function JavaScriptCodingWorkspaceLayoutButton() {
           },
           type: 'layout-change',
         });
-        setIsOpen(false);
+        onClose();
       },
     },
   ];
 
   return (
-    <div>
-      <Button
-        addonPosition="start"
-        icon={VscLayout}
-        label="Layout"
-        size="xs"
-        variant="secondary"
-        onClick={() => setIsOpen(true)}
-      />
-      <CodingWorkspaceLayoutDialog
-        isShown={isOpen}
-        layouts={layouts}
-        onClose={() => {
-          setIsOpen(false);
-        }}
-      />
-    </div>
+    <CodingWorkspaceLayoutDialog
+      isShown={isOpen}
+      layouts={layouts}
+      onClose={onClose}
+    />
   );
 }
