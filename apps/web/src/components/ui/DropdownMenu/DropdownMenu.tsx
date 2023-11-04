@@ -10,6 +10,7 @@ import { themeBackgroundColor } from '../theme';
 import { Menu, Transition } from '@headlessui/react';
 
 export type DropdownMenuAlignment = 'end' | 'start';
+export type DropdownMenuPosition = 'above' | 'below';
 export type DropdownMenuSize = 'md' | 'sm' | 'xs';
 export type DropdownMenuVariant = 'bordered' | 'flat';
 
@@ -20,6 +21,7 @@ type Props = Readonly<{
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isLabelHidden?: boolean;
   label: string;
+  position?: DropdownMenuPosition;
   showChevron?: boolean;
   size?: DropdownMenuSize;
   variant?: DropdownMenuVariant;
@@ -73,11 +75,18 @@ const variantClasses: Record<DropdownMenuVariant, string> = {
   flat: '',
 };
 
+const abovePositionClasses: Record<DropdownMenuSize, string> = {
+  md: 'bottom-11',
+  sm: 'bottom-10',
+  xs: 'bottom-9',
+};
+
 export default function DropdownMenu({
   align = 'start',
   children,
   isLabelHidden = false,
   label,
+  position = 'below',
   showChevron = true,
   size = 'md',
   variant = 'bordered',
@@ -140,11 +149,11 @@ export default function DropdownMenu({
         <Menu.Items
           className={clsx(
             alignmentClasses[align],
-            'absolute z-10 mt-2 w-48',
+            position === 'above' ? abovePositionClasses[size] : 'mt-2',
+            'absolute z-10 w-48',
             'rounded-md',
             themeBackgroundColor,
-            ['border', 'border-transparent dark:border-neutral-700'],
-            'shadow-lg',
+            ['border', 'border-neutral-300 dark:border-neutral-700'],
             'ring-brand ring-1 ring-opacity-5 focus:outline-none',
           )}>
           <Text className="p-2" display="block" size={textSizeVariants[size]}>

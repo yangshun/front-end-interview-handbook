@@ -86,7 +86,7 @@ export default function DropdownMenuExamples() {
         </DropdownMenu>
       </div>
       <div className="flex gap-x-12">
-        <DropdownMenu label="Align Start">
+        <DropdownMenu label="Align start">
           {menuItems.map(({ icon, label, value }) => (
             <DropdownMenu.Item
               key={value}
@@ -99,7 +99,48 @@ export default function DropdownMenuExamples() {
             />
           ))}
         </DropdownMenu>
-        <DropdownMenu align="end" label="Align End">
+        <DropdownMenu align="end" label="Align end">
+          {menuItems.map(({ icon, label, value }) => (
+            <DropdownMenu.Item
+              key={value}
+              icon={icon}
+              isSelected={value === selectedValue}
+              label={label}
+              onClick={() => {
+                setSelectedValue(value);
+              }}
+            />
+          ))}
+        </DropdownMenu>
+      </div>
+      <div className="flex gap-x-12">
+        <DropdownMenu label="Menu below" position="below">
+          {menuItems.map(({ icon, label, value }) => (
+            <DropdownMenu.Item
+              key={value}
+              icon={icon}
+              isSelected={value === selectedValue}
+              label={label}
+              onClick={() => {
+                setSelectedValue(value);
+              }}
+            />
+          ))}
+        </DropdownMenu>
+        <DropdownMenu label="Menu above" position="above">
+          {menuItems.map(({ icon, label, value }) => (
+            <DropdownMenu.Item
+              key={value}
+              icon={icon}
+              isSelected={value === selectedValue}
+              label={label}
+              onClick={() => {
+                setSelectedValue(value);
+              }}
+            />
+          ))}
+        </DropdownMenu>
+        <DropdownMenu align="end" label="Above + end" position="above">
           {menuItems.map(({ icon, label, value }) => (
             <DropdownMenu.Item
               key={value}
