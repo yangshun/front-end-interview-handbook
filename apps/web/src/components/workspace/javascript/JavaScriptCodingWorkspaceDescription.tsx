@@ -13,9 +13,9 @@ import Heading from '~/components/ui/Heading';
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
 type Props = Readonly<{
+  alwaysShowExtraData?: boolean;
   canViewPremiumContent: boolean;
   description: string | null;
-  alwaysShowExtraData?: boolean;
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   similarQuestions: ReadonlyArray<QuestionMetadata>;

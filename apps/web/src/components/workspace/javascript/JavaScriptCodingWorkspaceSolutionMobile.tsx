@@ -1,5 +1,7 @@
 import { useState } from 'react';
+
 import Button from '~/components/ui/Button';
+
 import JavaScriptCodingWorkspaceSolutionTab from './JavaScriptCodingWorkspaceSolutionTab';
 
 type Props = Readonly<{
@@ -16,8 +18,8 @@ export default function JavaScriptCodingWorkspaceSolutionMobile({
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-y-4 px-4">
         <Button
           display="block"
-          variant="secondary"
           label={showSolution ? 'Hide solution' : 'View the solution'}
+          variant="secondary"
           onClick={() => {
             setShowSolution(!showSolution);
           }}

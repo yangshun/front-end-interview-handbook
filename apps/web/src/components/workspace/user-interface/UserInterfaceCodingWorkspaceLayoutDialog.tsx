@@ -1,9 +1,7 @@
-import { useState } from 'react';
 import { TbColumns3 } from 'react-icons/tb';
-import { VscDebugConsole, VscLayout } from 'react-icons/vsc';
+import { VscDebugConsole } from 'react-icons/vsc';
 
 import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
-import Button from '~/components/ui/Button';
 
 import {
   getUserInterfaceCodingWorkspaceLayout,
@@ -16,10 +14,10 @@ import CodingWorkspaceLayoutDialog from '../common/CodingWorkspaceLayoutDialog';
 import { useSandpack } from '@codesandbox/sandpack-react';
 
 type Props = Readonly<{
-  isOpen: boolean;
-  onClose: () => void;
   frameworkSolutionPath: string;
+  isOpen: boolean;
   mode: QuestionUserInterfaceMode;
+  onClose: () => void;
 }>;
 
 export default function UserInterfaceCodingWorkspaceLayoutButton({

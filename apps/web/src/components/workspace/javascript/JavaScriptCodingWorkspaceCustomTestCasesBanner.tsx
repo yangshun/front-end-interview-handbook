@@ -1,8 +1,9 @@
 import { FormattedMessage } from 'react-intl';
 import { useLocalStorage } from 'usehooks-ts';
-import Anchor from '~/components/ui/Anchor';
 
+import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
+
 import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
 
 export default function JavaScriptCodingWorkspaceCustomTestCasesBanner() {
@@ -25,7 +26,7 @@ export default function JavaScriptCodingWorkspaceCustomTestCasesBanner() {
       <FormattedMessage
         defaultMessage='This subset of test cases are used when "Run"-ning your code.'
         description="Message to explain the custom tests cases"
-        id="OERnmz"
+        id="b/dKUR"
       />{' '}
       <Anchor
         className="underline"

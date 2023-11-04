@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { RiArrowGoBackLine } from 'react-icons/ri';
 import { RxPause, RxPlay, RxStopwatch } from 'react-icons/rx';
-import Button from '~/components/ui/Button';
 
+import Button from '~/components/ui/Button';
 import {
   themeBackgroundColor,
   themeBackgroundEmphasizedHover,
@@ -31,15 +31,15 @@ export default function CodingWorkspaceTimer() {
     setTimer(undefined);
   }
 
-  if (timer == null && timePassedInSeconds == 0) {
+  if (timer == null && timePassedInSeconds === 0) {
     return (
       <Button
-        isLabelHidden={true}
-        variant="secondary"
         icon={RxStopwatch}
+        isLabelHidden={true}
         label="Start timer"
         size="xs"
         tooltip="Start timer"
+        variant="secondary"
         onClick={startTimer}
       />
     );

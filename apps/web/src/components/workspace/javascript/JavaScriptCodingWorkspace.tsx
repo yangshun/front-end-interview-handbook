@@ -10,6 +10,7 @@ import type {
   QuestionMetadata,
 } from '~/components/questions/common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '~/components/questions/common/useQuestionLogEventCopyContents';
+import { themeLineColor } from '~/components/ui/theme';
 import { deleteLocalJavaScriptQuestionCode } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
 import JavaScriptCodingWorkspaceTestsCode from '~/components/workspace/javascript/JavaScriptCodingWorkspaceTestsCode';
 
@@ -26,6 +27,7 @@ import JavaScriptCodingWorkspaceDescription from './JavaScriptCodingWorkspaceDes
 import { getJavaScriptCodingWorkspaceLayoutTwoColumns } from './JavaScriptCodingWorkspaceLayouts';
 import JavaScriptCodingWorkspaceNewTab from './JavaScriptCodingWorkspaceNewTab';
 import JavaScriptCodingWorkspaceTestsRunTab from './JavaScriptCodingWorkspaceRunTab';
+import JavaScriptCodingWorkspaceSolutionMobile from './JavaScriptCodingWorkspaceSolutionMobile';
 import JavaScriptCodingWorkspaceSolutionTab from './JavaScriptCodingWorkspaceSolutionTab';
 import JavaScriptCodingWorkspaceSubmissionList from './JavaScriptCodingWorkspaceSubmissionList';
 import JavaScriptCodingWorkspaceSubmissionTab from './JavaScriptCodingWorkspaceSubmissionTab';
@@ -56,8 +58,6 @@ import {
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 import { useMonaco } from '@monaco-editor/react';
-import { themeLineColor } from '~/components/ui/theme';
-import JavaScriptCodingWorkspaceSolutionMobile from './JavaScriptCodingWorkspaceSolutionMobile';
 
 const JavaScriptCodingWorkspaceTilesPanelRoot =
   TilesPanelRoot<JavaScriptCodingWorkspaceTabsType>;
@@ -391,8 +391,8 @@ function JavaScriptCodingWorkspaceImpl({
               </div>
             </div>
             <JavaScriptCodingWorkspaceBottomBar
-              metadata={metadata}
               layout={embed ? 'minimal' : 'full'}
+              metadata={metadata}
               nextQuestions={nextQuestions}
             />
           </div>
@@ -452,8 +452,8 @@ function JavaScriptCodingWorkspaceImpl({
             </div>
           </div>
           <JavaScriptCodingWorkspaceBottomBar
-            metadata={metadata}
             layout={embed ? 'minimal' : 'full'}
+            metadata={metadata}
             nextQuestions={nextQuestions}
           />
         </div>

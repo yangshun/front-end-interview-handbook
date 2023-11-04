@@ -1,9 +1,5 @@
-import { useState } from 'react';
 import { RiLayout2Line, RiLayoutGridLine } from 'react-icons/ri';
 import { TbColumns3 } from 'react-icons/tb';
-import { VscLayout } from 'react-icons/vsc';
-
-import Button from '~/components/ui/Button';
 
 import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
 import {

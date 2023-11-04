@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useCallback, useEffect, useState } from 'react';
-import { RiArrowGoBackLine, RiCodeLine } from 'react-icons/ri';
+import { RiCodeLine } from 'react-icons/ri';
 
 import type {
   QuestionFramework,
@@ -20,14 +20,13 @@ import {
 import { TilesPanelRoot } from '~/react-tiling/components/TilesPanelRoot';
 import { TilesProvider } from '~/react-tiling/state/TilesProvider';
 
+import UserInterfaceCodingWorkspaceBottomBar from './UserInterfaceCodingWorkspaceBottomBar';
 import UserInterfaceCodingWorkspaceCodeEditor from './UserInterfaceCodingWorkspaceCodeEditor';
 import UserInterfaceCodingWorkspaceCommunitySolutionCreateTab from './UserInterfaceCodingWorkspaceCommunitySolutionCreateTab';
 import UserInterfaceCodingWorkspaceCommunitySolutionList from './UserInterfaceCodingWorkspaceCommunitySolutionList';
 import UserInterfaceCodingWorkspaceFileExplorer from './UserInterfaceCodingWorkspaceExplorer';
-import UserInterfaceCodingWorkspaceLayoutButton from './UserInterfaceCodingWorkspaceLayoutDialog';
 import { getUserInterfaceCodingWorkspaceLayout } from './UserInterfaceCodingWorkspaceLayouts';
 import UserInterfaceCodingWorkspaceNewTab from './UserInterfaceCodingWorkspaceNewTab';
-import UserInterfaceCodingWorkspaceSaveButton from './UserInterfaceCodingWorkspaceSaveButton';
 import UserInterfaceCodingWorkspaceSavesList from './UserInterfaceCodingWorkspaceSavesList';
 import UserInterfaceCodingWorkspaceSolutionPreviewTab from './UserInterfaceCodingWorkspaceSolutionPreviewTab';
 import type {
@@ -37,7 +36,6 @@ import type {
 import UserInterfaceCodingWorkspaceWriteup from './UserInterfaceCodingWorkspaceWriteup';
 import useUserInterfaceCodingWorkspaceTilesContext from './useUserInterfaceCodingWorkspaceTilesContext';
 import { codingFilesShouldUseTypeScript } from '../common/codingFilesShouldUseTypeScript';
-import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
 import type { CodingWorkspaceTabContents } from '../common/CodingWorkspaceContext';
 import { CodingWorkspaceProvider } from '../common/CodingWorkspaceContext';
 import { codingWorkspaceExtractFileNameFromPath } from '../common/codingWorkspaceExtractFileNameFromPath';
@@ -59,7 +57,6 @@ import {
 import type { SandpackFiles } from '@codesandbox/sandpack-react';
 import { SandpackPreview, useSandpack } from '@codesandbox/sandpack-react';
 import { useMonaco } from '@monaco-editor/react';
-import UserInterfaceCodingWorkspaceBottomBar from './UserInterfaceCodingWorkspaceBottomBar';
 
 const UserInterfaceCodingWorkspaceTilesPanelRoot =
   TilesPanelRoot<UserInterfaceCodingWorkspaceTabsType>;
@@ -479,12 +476,11 @@ function UserInterfaceCodingWorkspaceImpl({
         </div>
         {!embed && (
           <UserInterfaceCodingWorkspaceBottomBar
-            metadata={metadata}
             frameworkSolutionPath={frameworkSolutionPath}
-            layout={embed ? 'minimal' : 'full'}
+            metadata={metadata}
             mode={mode}
-            question={question}
             nextQuestions={nextQuestions}
+            question={question}
             resetToDefaultCode={resetToDefaultCode}
           />
         )}

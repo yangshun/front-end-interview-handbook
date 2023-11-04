@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 
-import footerlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
 import type {

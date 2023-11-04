@@ -1,21 +1,22 @@
-import { ReactNode, useState } from 'react';
+import type { ReactNode } from 'react';
+import { useState } from 'react';
 import { RiArrowGoBackLine, RiPlayLine, RiSettings2Line } from 'react-icons/ri';
+import { VscLayout } from 'react-icons/vsc';
 
+import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
 import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
 import Button from '~/components/ui/Button';
+import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import logEvent from '~/logging/logEvent';
 
 import JavaScriptCodingWorkspaceLayoutDialog from './JavaScriptCodingWorkspaceLayoutDialog';
 import CodingWorkspaceBottomBar from '../common/CodingWorkspaceBottomBar';
 import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
-import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
-import DropdownMenu from '~/components/ui/DropdownMenu';
-import { VscLayout } from 'react-icons/vsc';
 
 type Props = Readonly<{
-  metadata: QuestionMetadata;
   layout: 'full' | 'minimal';
+  metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   rightElements?: ReactNode;
 }>;
@@ -34,12 +35,12 @@ export default function JavaScriptCodingWorkspaceBottomBar({
       <span className="hidden lg:inline">
         <Button
           addonPosition="start"
-          tooltip="Run against test cases (customizable)"
-          tooltipPosition="above"
           icon={RiPlayLine}
           isDisabled={status !== 'idle'}
           label="Run"
           size="xs"
+          tooltip="Run against test cases (customizable)"
+          tooltipPosition="above"
           variant="secondary"
           onClick={() => {
             logEvent('question.run', {
@@ -52,11 +53,11 @@ export default function JavaScriptCodingWorkspaceBottomBar({
       </span>
       <Button
         addonPosition="start"
-        tooltip="Run against full test suite"
         isDisabled={status !== 'idle'}
-        tooltipPosition="above"
         label="Submit"
         size="xs"
+        tooltip="Run against full test suite"
+        tooltipPosition="above"
         variant="primary"
         onClick={() => {
           logEvent('question.submit', {
@@ -81,55 +82,53 @@ export default function JavaScriptCodingWorkspaceBottomBar({
     <CodingWorkspaceBottomBar
       leftElements={
         layout === 'full' && (
-          <>
-            <div className="hidden items-center gap-x-2 md:inline-flex">
-              <DropdownMenu
-                icon={RiSettings2Line}
-                showChevron={false}
-                position="above"
-                label="Settings"
-                size="xs"
-                isLabelHidden={true}>
-                {[
-                  {
-                    icon: VscLayout,
-                    label: 'Layout',
-                    value: 'layout',
-                    onClick: () => {
-                      setIsLayoutDialogOpen(true);
-                    },
+          <div className="hidden items-center gap-x-2 md:inline-flex">
+            <DropdownMenu
+              icon={RiSettings2Line}
+              isLabelHidden={true}
+              label="Settings"
+              position="above"
+              showChevron={false}
+              size="xs">
+              {[
+                {
+                  icon: VscLayout,
+                  label: 'Layout',
+                  onClick: () => {
+                    setIsLayoutDialogOpen(true);
                   },
-                  {
-                    icon: RiArrowGoBackLine,
-                    label: 'Reset question',
-                    value: 'reset',
-                    onClick: () => {
-                      if (confirm('Reset all changes made to this question?')) {
-                        resetToDefaultCode();
-                      }
-                    },
+                  value: 'layout',
+                },
+                {
+                  icon: RiArrowGoBackLine,
+                  label: 'Reset question',
+                  onClick: () => {
+                    if (confirm('Reset all changes made to this question?')) {
+                      resetToDefaultCode();
+                    }
                   },
-                ].map(({ onClick, icon, label, value }) => (
-                  <DropdownMenu.Item
-                    key={value}
-                    icon={icon}
-                    label={label}
-                    onClick={onClick}
-                  />
-                ))}
-              </DropdownMenu>
-              <QuestionReportIssueButton
-                format="javascript"
-                title={metadata.title}
-              />
-              <JavaScriptCodingWorkspaceLayoutDialog
-                isOpen={isLayoutDialogOpen}
-                onClose={() => {
-                  setIsLayoutDialogOpen(false);
-                }}
-              />
-            </div>
-          </>
+                  value: 'reset',
+                },
+              ].map(({ onClick, icon, label, value }) => (
+                <DropdownMenu.Item
+                  key={value}
+                  icon={icon}
+                  label={label}
+                  onClick={onClick}
+                />
+              ))}
+            </DropdownMenu>
+            <QuestionReportIssueButton
+              format="javascript"
+              title={metadata.title}
+            />
+            <JavaScriptCodingWorkspaceLayoutDialog
+              isOpen={isLayoutDialogOpen}
+              onClose={() => {
+                setIsLayoutDialogOpen(false);
+              }}
+            />
+          </div>
         )
       }
       metadata={metadata}
