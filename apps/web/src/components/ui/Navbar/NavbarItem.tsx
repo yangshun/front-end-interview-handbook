@@ -24,7 +24,7 @@ export default function NavbarItem({
 }: NavbarPrimaryItem) {
   const commonStyles = clsx(
     'inline-flex cursor-pointer items-center gap-2 px-3 py-1',
-    'text-sm font-medium whitespace-nowrap',
+    'text-[0.8125rem] font-medium whitespace-nowrap',
     'group rounded-full',
     [
       'focus-visible:ring-brand-dark dark:focus-visible:ring-brand',

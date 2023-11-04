@@ -107,9 +107,12 @@ a {
 }
 
 :root {
-  --navbar-height: 65px;
+  --navbar-height: 52px;
+  --navbar-border: 1px;
   --banner-height: 56px;
-  --nav-top-offset: calc(var(--navbar-height) + var(--banner-height));
+  --nav-top-offset: calc(
+    var(--navbar-height) + var(--navbar-border) + var(--banner-height)
+  );
 }
 
 @media (min-width: 1024px) {
