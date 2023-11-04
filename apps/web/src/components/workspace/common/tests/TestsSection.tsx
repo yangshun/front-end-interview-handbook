@@ -446,9 +446,12 @@ export default function TestsSection({
                                           button: (chunks) => (
                                             <Anchor
                                               href="#"
-                                              onClick={() =>
-                                                onShowTestsCases?.(specMode)
-                                              }>
+                                              onClick={(event) => {
+                                                event.preventDefault();
+                                                return onShowTestsCases?.(
+                                                  specMode,
+                                                );
+                                              }}>
                                               {chunks}
                                             </Anchor>
                                           ),
@@ -488,9 +491,12 @@ export default function TestsSection({
                                           button: (chunks) => (
                                             <Anchor
                                               href="#"
-                                              onClick={() =>
-                                                onShowTestsCases?.(specMode)
-                                              }>
+                                              onClick={(event) => {
+                                                event.preventDefault();
+                                                return onShowTestsCases?.(
+                                                  specMode,
+                                                );
+                                              }}>
                                               {chunks}
                                             </Anchor>
                                           ),

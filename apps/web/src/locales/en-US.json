@@ -1388,7 +1388,7 @@
     "description": "Study plans description"
   },
   "OERnmz": {
-    "defaultMessage": "Run your code against this subset of test cases.",
+    "defaultMessage": "This subset of test cases are used when \"Run\"-ning your code.",
     "description": "Message to explain the custom tests cases"
   },
   "OGpZxl": {

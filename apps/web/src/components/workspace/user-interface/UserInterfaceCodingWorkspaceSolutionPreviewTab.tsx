@@ -27,7 +27,8 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
           className="underline"
           href="#"
           variant="unstyled"
-          onClick={() => {
+          onClick={(event) => {
+            event.preventDefault();
             dispatch({
               payload: {
                 tabId: 'solution_preview',

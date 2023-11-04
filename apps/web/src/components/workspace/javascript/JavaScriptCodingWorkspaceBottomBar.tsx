@@ -33,6 +33,8 @@ export default function JavaScriptCodingWorkspaceBottomBar({
     <>
       <Button
         addonPosition="start"
+        tooltip="Run against test cases (customizable)"
+        tooltipPosition="above"
         icon={RiPlayLine}
         isDisabled={status !== 'idle'}
         label="Run"
@@ -48,7 +50,9 @@ export default function JavaScriptCodingWorkspaceBottomBar({
       />
       <Button
         addonPosition="start"
+        tooltip="Run against full test suite"
         isDisabled={status !== 'idle'}
+        tooltipPosition="above"
         label="Submit"
         size="xs"
         variant="primary"

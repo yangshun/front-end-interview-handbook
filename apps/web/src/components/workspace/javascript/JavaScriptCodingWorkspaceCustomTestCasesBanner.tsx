@@ -1,9 +1,12 @@
 import { FormattedMessage } from 'react-intl';
 import { useLocalStorage } from 'usehooks-ts';
+import Anchor from '~/components/ui/Anchor';
 
 import Banner from '~/components/ui/Banner';
+import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
 
 export default function JavaScriptCodingWorkspaceCustomTestCasesBanner() {
+  const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
   const [showCustomTestCasesMessage, setShowCustomTestCasesMessage] =
     useLocalStorage('gfe:workspace:run_tests_banner', true);
 
@@ -20,10 +23,25 @@ export default function JavaScriptCodingWorkspaceCustomTestCasesBanner() {
         setShowCustomTestCasesMessage(false);
       }}>
       <FormattedMessage
-        defaultMessage="Run your code against this subset of test cases."
+        defaultMessage='This subset of test cases are used when "Run"-ning your code.'
         description="Message to explain the custom tests cases"
         id="OERnmz"
-      />
+      />{' '}
+      <Anchor
+        className="underline"
+        href="#"
+        variant="unstyled"
+        onClick={(event) => {
+          event.preventDefault();
+          dispatch({
+            payload: {
+              tabId: 'test_cases',
+            },
+            type: 'tab-set-active',
+          });
+        }}>
+        View submission test cases.
+      </Anchor>
     </Banner>
   );
 }
