@@ -25,7 +25,7 @@ We don't have to worry about `this` within the callback function because there's
 
 ### Solution 2: Maintain a `cancelled` flag (non-optimal)
 
-Another way is to maintain a `cancelled` flag that the returned function will set to `true` when called. Before the `setTimeout` callback is called, check the value of `cancelled` before executing the `callback`. This is non-optimal because the `setTimeout` callback is still invoked unnecessarily and ends uo doing nothing.
+Another way is to maintain a `cancelled` flag that the returned function will set to `true` when called. Before the `setTimeout` callback is called, check the value of `cancelled` before executing the `callback`. This is non-optimal because the `setTimeout` callback is still invoked unnecessarily and ends up doing nothing.
 
 <MDXCodeBlock>{cancellableTimeoutBoolean}</MDXCodeBlock>
 
