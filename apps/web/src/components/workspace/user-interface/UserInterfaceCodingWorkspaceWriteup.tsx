@@ -158,6 +158,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
           {contentType === 'description' && environment === 'workspace' && (
             <div
               className={clsx(
+                'hidden lg:block',
                 'rounded-md p-4 text-center',
                 'border-brand-light dark:border-brand-darkest border',
                 'bg-brand-darker/10',
@@ -165,10 +166,12 @@ export default function UserInterfaceCodingWorkspaceWriteup({
               <SolutionPreviewButton />
             </div>
           )}
-          <QuestionCompanies
-            canViewPremiumContent={canViewPremiumContent}
-            companies={metadata.companies}
-          />
+          {contentType === 'description' && (
+            <QuestionCompanies
+              canViewPremiumContent={canViewPremiumContent}
+              companies={metadata.companies}
+            />
+          )}
           <QuestionNextQuestions questions={nextQuestions} />
           <QuestionSimilarQuestions questions={similarQuestions} />
         </div>

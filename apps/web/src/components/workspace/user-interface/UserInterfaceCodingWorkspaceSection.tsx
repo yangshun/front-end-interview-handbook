@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 
-import footerlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
 import type {
@@ -80,14 +79,13 @@ export default function UserInterfaceCodingWorkspaceSection({
             'sp-layout': 'h-full',
             'sp-stack': 'h-full',
             'sp-wrapper': clsx(
-              '!w-full !text-sm flex-1',
-              !embed && '!bg-neutral-50 dark:!bg-[#070708] !pt-3',
+              '!w-full !text-sm',
+              embed
+                ? '!h-full'
+                : '!bg-neutral-50 dark:!bg-[#070708] !pt-3 lg:!h-[calc(100vh_-_var(--nav-top-offset))]',
             ),
           },
           visibleFiles: workspace?.visibleFiles ?? undefined,
-        }}
-        style={{
-          height: embed ? '100%' : footerlessContainerHeight,
         }}
         theme={appTheme === 'dark' ? 'dark' : undefined}>
         <UserInterfaceCodingWorkspace

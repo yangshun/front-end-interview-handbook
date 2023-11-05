@@ -448,6 +448,7 @@ export default function TestsSection({
                                               href="#"
                                               onClick={(event) => {
                                                 event.preventDefault();
+
                                                 return onShowTestsCases?.(
                                                   specMode,
                                                 );
@@ -493,6 +494,7 @@ export default function TestsSection({
                                               href="#"
                                               onClick={(event) => {
                                                 event.preventDefault();
+
                                                 return onShowTestsCases?.(
                                                   specMode,
                                                 );

@@ -13,7 +13,6 @@ import Heading from '~/components/ui/Heading';
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';
 
 type Props = Readonly<{
-  alwaysShowExtraData?: boolean;
   canViewPremiumContent: boolean;
   description: string | null;
   metadata: QuestionMetadata;
@@ -24,7 +23,6 @@ type Props = Readonly<{
 export default function JavaScriptCodingWorkspaceDescription({
   canViewPremiumContent,
   description,
-  alwaysShowExtraData = true,
   metadata,
   nextQuestions,
   similarQuestions,
@@ -59,11 +57,7 @@ export default function JavaScriptCodingWorkspaceDescription({
         </div>
         <div className="flex flex-col gap-y-8">
           <QuestionContentProse contents={description} />
-          <div
-            className={clsx(
-              'flex-col gap-y-8 ',
-              !alwaysShowExtraData && 'hidden lg:flex',
-            )}>
+          <div className={clsx('flex flex-col gap-y-8')}>
             <QuestionCompanies
               canViewPremiumContent={canViewPremiumContent}
               companies={metadata.companies}

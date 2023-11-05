@@ -26,6 +26,7 @@ import UserInterfaceCodingWorkspaceCommunitySolutionCreateTab from './UserInterf
 import UserInterfaceCodingWorkspaceCommunitySolutionList from './UserInterfaceCodingWorkspaceCommunitySolutionList';
 import UserInterfaceCodingWorkspaceFileExplorer from './UserInterfaceCodingWorkspaceExplorer';
 import { getUserInterfaceCodingWorkspaceLayout } from './UserInterfaceCodingWorkspaceLayouts';
+import UserInterfaceCodingWorkspaceMobile from './UserInterfaceCodingWorkspaceMobile';
 import UserInterfaceCodingWorkspaceNewTab from './UserInterfaceCodingWorkspaceNewTab';
 import UserInterfaceCodingWorkspaceSavesList from './UserInterfaceCodingWorkspaceSavesList';
 import UserInterfaceCodingWorkspaceSolutionPreviewTab from './UserInterfaceCodingWorkspaceSolutionPreviewTab';
@@ -391,7 +392,62 @@ function UserInterfaceCodingWorkspaceImpl({
         question,
         resetToDefaultCode,
       }}>
-      <div ref={copyRef} className="flex h-full w-full flex-col text-sm">
+      {!embed && (
+        <div className="flex flex-col gap-y-4 lg:hidden">
+          {mode === 'practice' && (
+            <UserInterfaceCodingWorkspaceWriteup
+              canViewPremiumContent={canViewPremiumContent}
+              contentType="description"
+              framework={framework}
+              metadata={metadata}
+              mode={mode}
+              nextQuestions={[]}
+              similarQuestions={[]}
+              writeup={description}
+              onFrameworkChange={onFrameworkChange}
+            />
+          )}
+          {mode === 'solution' && (
+            <UserInterfaceCodingWorkspaceWriteup
+              canViewPremiumContent={canViewPremiumContent}
+              contentType="solution"
+              framework={framework}
+              metadata={metadata}
+              mode={mode}
+              nextQuestions={[]}
+              similarQuestions={[]}
+              writeup={solution}
+              onFrameworkChange={onFrameworkChange}
+            />
+          )}
+          <UserInterfaceCodingWorkspaceMobile
+            topAddOn={
+              mode === 'practice' && (
+                <Button
+                  display="block"
+                  href={frameworkSolutionPath}
+                  label="View solution"
+                  variant="secondary"
+                />
+              )
+            }
+          />
+          <UserInterfaceCodingWorkspaceBottomBar
+            frameworkSolutionPath={frameworkSolutionPath}
+            metadata={metadata}
+            mode={mode}
+            nextQuestions={nextQuestions}
+            question={question}
+            resetToDefaultCode={resetToDefaultCode}
+          />
+        </div>
+      )}
+      <div
+        ref={copyRef}
+        className={clsx(
+          'h-full w-full flex-col text-sm',
+          !embed ? 'hidden lg:flex' : 'flex',
+        )}>
         <div className="flex grow overflow-x-auto">
           <div
             className={clsx(

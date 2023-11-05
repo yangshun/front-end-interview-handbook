@@ -250,7 +250,6 @@ function JavaScriptCodingWorkspaceImpl({
     description: {
       contents: (
         <JavaScriptCodingWorkspaceDescription
-          alwaysShowExtraData={embed}
           canViewPremiumContent={canViewPremiumContent}
           description={description}
           metadata={metadata}
@@ -361,12 +360,11 @@ function JavaScriptCodingWorkspaceImpl({
         {!embed && (
           <div className="flex flex-col gap-y-4 lg:hidden">
             <JavaScriptCodingWorkspaceDescription
-              alwaysShowExtraData={false}
               canViewPremiumContent={canViewPremiumContent}
               description={description}
               metadata={metadata}
-              nextQuestions={nextQuestions}
-              similarQuestions={similarQuestions}
+              nextQuestions={[]}
+              similarQuestions={[]}
             />
             <JavaScriptCodingWorkspaceSolutionMobile solution={solution} />
             <div className="mx-auto flex w-full max-w-3xl flex-col gap-y-4 px-4 pb-4 md:gap-y-6">
