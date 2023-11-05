@@ -3,6 +3,7 @@ import type { editor } from 'monaco-editor';
 import { useIntl } from 'react-intl';
 import { useIsMounted } from 'usehooks-ts';
 
+import Button from '~/components/ui/Button';
 import { themeLineColor } from '~/components/ui/theme';
 import CodingWorkspaceEditorShortcutsButton from '~/components/workspace/common/editor/CodingWorkspaceEditorShortcutsButton';
 import CodingWorkspaceResetButton from '~/components/workspace/common/editor/CodingWorkspaceResetButton';
@@ -11,6 +12,7 @@ import JavaScriptCodingWorkspaceWorkingLanguageSelect from '~/components/workspa
 
 import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
 import JavaScriptCodingWorkspaceCustomTestCasesBanner from './JavaScriptCodingWorkspaceCustomTestCasesBanner';
+import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
 import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
 import CodingWorkspaceLoadedFilesBanner from '../common/editor/CodingWorkspaceLoadedFilesBanner';
 import MonacoCodeEditor from '../common/editor/MonacoCodeEditor';
@@ -24,6 +26,7 @@ export default function JavaScriptCodingWorkspaceCodeEditor({
   filePath: string;
   onMount?: (codeEditor: editor.IStandaloneCodeEditor) => void;
 }>) {
+  const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
   const {
     showLoadedFilesFromLocalStorageMessage,
     setShowLoadedFilesFromLocalStorageMessage,
@@ -68,6 +71,21 @@ export default function JavaScriptCodingWorkspaceCodeEditor({
             <JavaScriptCodingWorkspaceWorkingLanguageSelect
               value={language}
               onChange={setLanguage}
+            />
+          )}
+          {isRunFile && (
+            <Button
+              label="View submission tests"
+              size="xs"
+              variant="secondary"
+              onClick={() => {
+                dispatch({
+                  payload: {
+                    tabId: 'test_cases',
+                  },
+                  type: 'tab-set-active',
+                });
+              }}
             />
           )}
         </div>
