@@ -84,10 +84,10 @@ export function getFocusAreaLodash(intl: IntlShape): FocusArea {
   };
 }
 
-const gradient: ThemeGradient<'#4B79A1', '#283E51'> = {
-  className: 'bg-[linear-gradient(133.77deg,_#4B79A1_0%,_#283E51_97.95%)]',
-  endColor: '#283E51',
-  startColor: '#4B79A1',
+const gradient: ThemeGradient<'#7474BF', '#348AC7'> = {
+  className: 'bg-[linear-gradient(133.77deg,_#7474BF_0%,_#348AC7_97.95%)]',
+  endColor: '#348AC7',
+  startColor: '#7474BF',
 };
 
 export function getFocusAreaThemeLodash(): QuestionListTheme {

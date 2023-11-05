@@ -85,10 +85,10 @@ export function getFocusAreaAsyncOperations(intl: IntlShape): FocusArea {
   };
 }
 
-const gradient: ThemeGradient<'#2C3E50', '#FD746C'> = {
-  className: 'bg-[linear-gradient(133.77deg,_#2C3E50_0%,_#FD746C_97.95%)]',
-  endColor: '#FD746C',
-  startColor: '#2C3E50',
+const gradient: ThemeGradient<'#8E2DE2', '#4A00E0'> = {
+  className: 'bg-[linear-gradient(133.77deg,_#8E2DE2_0%,_#4A00E0_97.95%)]',
+  endColor: '#4A00E0',
+  startColor: '#8E2DE2',
 };
 
 export function getFocusAreaThemeAsyncOperations(): QuestionListTheme {

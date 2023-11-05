@@ -62,10 +62,10 @@ export function getFocusAreaAccessibility(intl: IntlShape): FocusArea {
   };
 }
 
-const gradient: ThemeGradient<'#42275a', '#734b6d'> = {
-  className: 'bg-[linear-gradient(133.77deg,_#42275a_0%,_#734b6d_97.95%)]',
-  endColor: '#734b6d',
-  startColor: '#42275a',
+const gradient: ThemeGradient<'#f953c6', '#b91d73'> = {
+  className: 'bg-[linear-gradient(133.77deg,_#f953c6_0%,_#b91d73_97.95%)]',
+  endColor: '#b91d73',
+  startColor: '#f953c6',
 };
 
 export function getFocusAreaThemeAccessibility(): QuestionListTheme {

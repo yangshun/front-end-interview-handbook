@@ -86,10 +86,10 @@ export function getFocusAreaDataStructuresAlgorithms(
   };
 }
 
-const gradient: ThemeGradient<'#e96443', '#904e95'> = {
-  className: 'bg-[linear-gradient(133.77deg,_#e96443_0%,_#904e95_97.95%)]',
-  endColor: '#904e95',
-  startColor: '#e96443',
+const gradient: ThemeGradient<'#50C9C3', '#96DEDA'> = {
+  className: 'bg-[linear-gradient(133.77deg,_#50C9C3_0%,_#96DEDA_97.95%)]',
+  endColor: '#96DEDA',
+  startColor: '#50C9C3',
 };
 
 export function getFocusAreaThemeDataStructuresAlgorithms(): QuestionListTheme {
