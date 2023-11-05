@@ -1,23 +1,91 @@
+import clsx from 'clsx';
+import {
+  RiDeleteBinLine,
+  RiErrorWarningLine,
+  RiToolsLine,
+} from 'react-icons/ri';
+
 import Button from '~/components/ui/Button';
+import Container from '~/components/ui/Container';
+import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
+import {
+  themeDivideColor,
+  themeLineColor,
+  themeTextBrandColor,
+} from '~/components/ui/theme';
+
+const links = [
+  {
+    description: "Please check if there's a typo in the URL.",
+    icon: RiErrorWarningLine,
+    name: 'Invalid URL',
+  },
+  {
+    description: 'The page does not exist or has been removed.',
+    icon: RiDeleteBinLine,
+    name: 'No such page',
+  },
+  {
+    description:
+      'You are using a browser extension that is incompatible with the page.',
+    icon: RiToolsLine,
+    name: 'Incompatible extension',
+  },
+];
 
 export default function ErrorMessageBlock() {
   return (
-    <div className="flex flex-col gap-y-4 py-12 text-center">
-      <h1 className="text-lg">
-        <Text>An error has occurred and we're looking into it.</Text>
-      </h1>
-      <div>
+    <Container className="flex flex-col gap-y-8 py-12">
+      <div className="mx-auto flex max-w-prose flex-col gap-y-4 md:gap-y-8">
+        <Heading className="text-center" level="heading4">
+          Oops! An error has occurred
+        </Heading>
+        <div>
+          <Text className="text-center" color="secondary" display="block">
+            Some common reasons include:
+          </Text>
+          <ul
+            className={clsx(
+              'mt-6',
+              ['border-y', themeLineColor],
+              ['divide-y', themeDivideColor],
+            )}
+            role="list">
+            {links.map((link) => (
+              <li key={link.name} className="relative flex gap-x-6 py-6">
+                <div
+                  className={clsx(
+                    'flex h-10 w-10 flex-none items-center justify-center rounded-lg shadow-sm',
+                    ['border', themeLineColor],
+                  )}>
+                  <link.icon
+                    aria-hidden="true"
+                    className={clsx('h-6 w-6', themeTextBrandColor)}
+                  />
+                </div>
+                <div className="flex flex-auto flex-col gap-1.5">
+                  <Text display="block" weight="medium">
+                    {link.name}
+                  </Text>
+                  <Text color="secondary" size="body2">
+                    {link.description}
+                  </Text>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div className="text-center">
         <Button
-          label="Reload page"
+          href="/prepare"
+          label="Return to dashboard"
           size="lg"
           type="button"
           variant="primary"
-          onClick={() => {
-            window.location.reload();
-          }}
         />
       </div>
-    </div>
+    </Container>
   );
 }
