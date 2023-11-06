@@ -583,10 +583,6 @@
     "defaultMessage": "Practice writing JavaScript and DOM API Polyfills",
     "description": "Title for interview preparation focus area"
   },
-  "9flnz3": {
-    "defaultMessage": "Halloween sale! Get {discountPercentage}% off all plans with the code {promoCode}, <discount>grab your discount today</discount> or check out other <promotion>promotions</promotion>",
-    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
-  },
   "9gs1LO": {
     "defaultMessage": "Buy now",
     "description": "Purchase button label"
@@ -1387,10 +1383,6 @@
     "defaultMessage": "We help you get ready within 1 week, 1 month or 3 months",
     "description": "Study plans description"
   },
-  "OERnmz": {
-    "defaultMessage": "This subset of test cases are used when \"Run\"-ning your code.",
-    "description": "Message to explain the custom tests cases"
-  },
   "OGpZxl": {
     "defaultMessage": "Top front end interview system design questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation System Design page"
@@ -2119,6 +2111,10 @@
     "defaultMessage": "Marked \"{questionTitle}\" as complete",
     "description": "Success message for marking a question as complete"
   },
+  "b/dKUR": {
+    "defaultMessage": "This subset of test cases are used when \"Run\"-ning your code.",
+    "description": "Message to explain the custom tests cases"
+  },
   "b0OofK": {
     "defaultMessage": "Front end coding interview questions come in many forms — practice writing JavaScript functions, data structures, and algorithms.",
     "description": "Subtitle for an example list of JavaScript Questions on marketing pages"
@@ -2738,6 +2734,10 @@
   "l9vVXY": {
     "defaultMessage": "LinkedIn profile link",
     "description": "Link to LinkedIn profile"
+  },
+  "lCkmFp": {
+    "defaultMessage": "Get {discountPercentage}% off the annual plan with the code {promoCode}, <discount>grab your discount today</discount> or check out other <promotion>promotions</promotion>",
+    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
   },
   "lD302L": {
     "defaultMessage": "Recommended duration to spend during interviews",
