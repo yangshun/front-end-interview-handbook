@@ -2585,9 +2585,9 @@
     "companies": [
       "lyft"
     ],
-    "created": 1683331200,
+    "created": 1699401600,
     "difficulty": "medium",
-    "duration": 15,
+    "duration": 20,
     "excerpt": "Implement a function that maps an array of items with an asynchronous mapping function.",
     "featured": false,
     "format": "javascript",
@@ -2599,14 +2599,49 @@
       "js",
       "ts"
     ],
+    "nextQuestions": [
+      "map-async-limit"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "promise-all"
+    ],
+    "slug": "map-async",
+    "subtitle": null,
+    "title": "Map Async",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [
+      "lyft"
+    ],
+    "created": 1699401600,
+    "difficulty": "medium",
+    "duration": 25,
+    "excerpt": "Implement a function that maps an array of items with an asynchronous mapping function while not exceeding the concurrency limit.",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/map-async-limit",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
     "nextQuestions": [],
     "premium": true,
     "published": true,
     "ranking": 100,
-    "similarQuestions": [],
-    "slug": "map-async",
+    "similarQuestions": [
+      "promise-all"
+    ],
+    "slug": "map-async-limit",
     "subtitle": null,
-    "title": "Map Async",
+    "title": "Map Async Limit",
     "topics": []
   },
   {

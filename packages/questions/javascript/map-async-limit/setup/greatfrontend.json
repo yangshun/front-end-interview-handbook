@@ -1,0 +1,8 @@
+{
+  "run": "/src/map-async-limit.run.test.ts",
+  "submit": "/src/map-async-limit.submit.test.ts",
+  "skeleton": {
+    "js": "/src/map-async-limit.skeleton.js",
+    "ts": "/src/map-async-limit.skeleton.ts"
+  }
+}

@@ -1,0 +1,65 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import mapAsyncLimitSequential from '../setup/src/map-async-limit-sequential';
+import mapAsyncLimitJs from '../setup/src/map-async-limit.js';
+import mapAsyncLimitTs from '../setup/src/map-async-limit.ts';
+import mapAsyncLimitAsync from '../setup/src/map-async-limit-async.ts';
+import mapAsyncLimitChunkless from '../setup/src/map-async-limit-chunkless.ts';
+import mapAsyncLimitChunklessAsync from '../setup/src/map-async-limit-chunkless-async.ts';
+
+## Solution
+
+The general idea is to slice the input array into chunks of `size` elements and processing one chunk at a time. The solutions presented here use `Promise.all` but if it's not allowed, you can use the self-implemented versions presented in the [`Promise.all` question](/questions/javascript/promise-all).
+
+### Solution 1: Sequential (Bad!)
+
+This approach ignores the `size` parameter and processes each item one-by-one. This is well within the concurrency limit, but defeats the purpose of the question.
+
+<MDXCodeBlock>{mapAsyncLimitSequential}</MDXCodeBlock>
+
+### Solution 2: Chunks with recursion
+
+Mapping an array of items in chunks can be broken down into smaller sub-problems and solved recursively:
+
+1. Process items in the current chunk concurrently via `Promise.all`.
+1. Recursively call `mapAsyncLimit` on the remaining items.
+1. Base case is when there are no more items left to be processed and an empty array is returned.
+1. Finally, merge the results from Step 1 and the mapped results from the remaining items in Step 2 and return it.
+
+We have to take note of making the recursive call to `mapAsyncLimit` only after Step 1 has concluded, otherwise we are exceeding the required concurrency limit and there will be no difference from `mapAsync`.
+
+<MDXCodeBlock languages={{ jsx: mapAsyncLimitJs, tsx: mapAsyncLimitTs }} />
+
+The downside of this solution (as with all recursive approaches) is that there's a limit to the recursion stack. However, there's a more modern and cleaner solution using `async`/`await`.
+
+### Solution 3: Chunks with `async`/`await`
+
+With `async`/`await`, the idea stays the same, but it's easier to write sequential `async` code by slicing the array into chunks of `size` and `await`-ing each chunk within a for-loop.
+
+<MDXCodeBlock>{mapAsyncLimitAsync}</MDXCodeBlock>
+
+### Solution 4: Chunkless (max concurrency)
+
+The previous approaches have a huge downside, that is there is some idleness and the available upper concurrency limit is not always fully-utilized.
+
+Imagine there are 7 items to be mapped, each requiring different durations. The diagram below shows the relative difference in the duration depending on the mapping approach taken.
+
+![Map async limit](/img/questions/map-async-limit/map-async-limit.png)
+
+- **Sequential**: A sequential (one at a time) approach will certainly stay within the concurrency limit, but is extremely slow and not utilizing the fact that we can have concurrent async tasks.
+- **Chunks**: The chunks approach improves the concurrency but it waits for all items in the current chunk to be completed before moving on to the next. If there's a task that is much slower than the rest, there will be idle cycles and the available limit is not fully-utilized.
+- **Chunkless**: The most efficient approach is to immediately start processing the next item when an item is completed. This ensures that there are always `size` ongoing async tasks (when there are unprocessed items) and the available limit is fully-utilized.
+
+Like in the custom implementation of `Promise.all`, we can track the number of resolved items and `resolve()` with the mapped results when every item has been processed.
+
+The idea here is to define a function `processItem` that takes in an index and processes the item at that index, adding the result to the final mapped `results` array when that item is complete. `processItem` is a recursive function that will call itself with the index of the next item to be processed.
+
+To do that, we need to track the index of the next item to be processed as `nextIndex`. Whenever an item starts processing, `nextIndex` is incremented. When an item has been processed, we can process the item at `nextIndex` as the next step. This ensures there are always `size` ongoing async tasks (while there are remaining unprocessed items) and it's always at the limit.
+
+This goes on until all the items have been processed or one of the items have been rejected/errored.
+
+<MDXCodeBlock>{mapAsyncLimitChunkless}</MDXCodeBlock>
+
+The following approach uses `async`/`await` for the internal recursive function:
+
+<MDXCodeBlock>{mapAsyncLimitChunklessAsync}</MDXCodeBlock>
