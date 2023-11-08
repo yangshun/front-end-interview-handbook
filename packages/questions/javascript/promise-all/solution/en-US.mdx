@@ -16,7 +16,11 @@ There are a few aspects to this question we need to bear in mind and handle:
 1. The returned `Promise` rejects immediately if any of the input values are rejected or throw an error.
 1. The input array can contain non-`Promise`s.
 
-We'll return a `Promise` at the top level of the function. We first check if the input array is empty, and resolve with an empty array if so.
+### Solution 1: Count unresolved promises using `async`
+
+Since the function needs to return a `Promise`, we can construct a `Promise` at the top level of the function and return it. The bulk of the code will be written within the constructor parameter.
+
+We first check if the input array is empty, and resolve with an empty array if so.
 
 We then need to attempt resolving every item in the input array. This can be achieved using `Array.prototype.forEach` or `Array.prototype.map`. As the returned values will need to preserve the order of the input array, we create a `results` array and slot the value in the right place using its `index` within the input array. To know when all the input array values have been resolved, we keep track of how many unresolved promises there are by initializing a counter of unresolved values and decrementing it whenever a value is resolved. When the counter reaches 0, we can return the `results` array.
 
@@ -25,6 +29,8 @@ One thing to note here is that because the input array can contain non-`Promise`
 Lastly, if any of the values are rejected, we reject the top-level `Promise` immediately without waiting for any other pending promises.
 
 <MDXCodeBlock languages={{ jsx: promiseAllJs, tsx: promiseAllTs }} />
+
+### Solution 2: Count unresolved promises using `Promise.then`
 
 Here's an alternative version which uses `Promise.then()` if you prefer not to use `async`/`await`.
 
