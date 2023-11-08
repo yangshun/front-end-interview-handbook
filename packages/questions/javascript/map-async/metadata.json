@@ -1,0 +1,13 @@
+{
+  "slug": "map-async",
+  "created": "2023-05-06T00:00:00.000Z",
+  "languages": ["js", "ts"],
+  "companies": ["lyft"],
+  "premium": true,
+  "duration": 15,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "similar_questions": [],
+  "next_questions": []
+}

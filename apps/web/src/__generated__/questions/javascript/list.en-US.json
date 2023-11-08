@@ -2043,6 +2043,35 @@
   },
   {
     "author": null,
+    "companies": [
+      "lyft"
+    ],
+    "created": 1683331200,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Implement a function that maps an array of items with an asynchronous mapping function.",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/map-async",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "map-async",
+    "subtitle": null,
+    "title": "Map Async",
+    "topics": []
+  },
+  {
+    "author": null,
     "companies": [],
     "created": 1690848000,
     "difficulty": "medium",

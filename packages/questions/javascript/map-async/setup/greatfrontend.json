@@ -1,0 +1,8 @@
+{
+  "run": "/src/map-async.run.test.ts",
+  "submit": "/src/map-async.submit.test.ts",
+  "skeleton": {
+    "js": "/src/map-async.skeleton.js",
+    "ts": "/src/map-async.skeleton.ts"
+  }
+}
