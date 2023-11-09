@@ -1,0 +1,23 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import toggleJs from '../setup/src/toggle.js';
+import toggleTs from '../setup/src/toggle.ts';
+import toggleAlt from '../setup/src/toggle-alt';
+
+## Solution
+
+In this implementation, we use a closure to keep track of the current index in the values array. Each time the returned function is called, it returns the current value and increments the `index`, wrapping around to the beginning of the array when it reaches the end with the help of the modulo operator.
+
+<MDXCodeBlock languages={{ jsx: toggleJs, tsx: toggleTs }} />
+
+An alternative shorter solution that increments before returning the value:
+
+<MDXCodeBlock>{toggleAlt}</MDXCodeBlock>
+
+## Edge Cases
+
+- The function should not be called without any arguments.
+
+## Resources
+
+- [JavaScript Code Challenges](https://jscodechallenges.vercel.app/challenges/functions#11-design-a-function-with-toggle-functionality-for-given-list-of-inputs-where-toggle-function-accepts-list-of-values-to-be-toggled-upon)

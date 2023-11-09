@@ -1,0 +1,48 @@
+{
+  "description": "var Component=(()=>{var g=Object.create;var s=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var d=Object.getPrototypeOf,p=Object.prototype.hasOwnProperty;var m=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),x=(n,e)=>{for(var t in e)s(n,t,{get:e[t],enumerable:!0})},a=(n,e,t,c)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let l of u(e))!p.call(n,l)&&l!==t&&s(n,l,{get:()=>e[l],enumerable:!(c=f(e,l))||c.enumerable});return n};var j=(n,e,t)=>(t=n!=null?g(d(n)):{},a(e||!n||!n.__esModule?s(t,\"default\",{value:n,enumerable:!0}):t,n)),v=n=>a(s({},\"__esModule\",{value:!0}),n);var i=m((M,r)=>{r.exports=_jsx_runtime});var w={};x(w,{default:()=>b,frontmatter:()=>_});var o=j(i()),_={title:\"Toggle\",excerpt:\"Implement a function that takes one or more values and returns a function that toggles between those values each time it's called.\"};function h(n){let e=Object.assign({p:\"p\",h2:\"h2\",pre:\"pre\",code:\"code\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,o.jsxs)(o.Fragment,{children:[(0,o.jsx)(e.p,{children:\"Implement a function that takes one or more values and returns a function that toggles between those values each time it's called.\"}),`\n`,(0,o.jsx)(e.h2,{children:\"Examples\"}),`\n`,(0,o.jsx)(e.pre,{children:(0,o.jsx)(e.code,{className:\"language-js\",children:`const hello = toggle('hello');\nconsole.log(hello()); // \"hello\"\nconsole.log(hello()); // \"hello\"\n\nconst onOff = toggle('on', 'off');\nconsole.log(onOff()); // \"on\"\nconsole.log(onOff()); // \"off\"\nconsole.log(onOff()); // \"on\"\n`})}),`\n`,(0,o.jsx)(e.h2,{children:\"Resources\"}),`\n`,(0,o.jsxs)(e.ul,{children:[`\n`,(0,o.jsx)(e.li,{children:(0,o.jsx)(e.a,{href:\"https://jscodechallenges.vercel.app/challenges/functions#11-design-a-function-with-toggle-functionality-for-given-list-of-inputs-where-toggle-function-accepts-list-of-values-to-be-toggled-upon\",children:\"JavaScript Code Challenges\"})}),`\n`]})]})}function O(n={}){let{wrapper:e}=n.components||{};return e?(0,o.jsx)(e,Object.assign({},n,{children:(0,o.jsx)(h,n)})):h(n)}var b=O;return v(w);})();\n;return Component;",
+  "files": {
+    "/package.json": "{\n  \"name\": \"@gfe-questions/toggle\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/toggle.ts\",\n  \"devDependencies\": {\n    \"@types/jest\": \"29.5.0\",\n    \"typescript\": \"5.0.2\"\n  }\n}\n",
+    "/tsconfig.json": "{\n  \"include\": [\"./**/*\"],\n  \"compilerOptions\": {\n    \"strict\": true,\n    \"esModuleInterop\": true,\n    \"lib\": [\"dom\", \"esnext\"],\n    \"jsx\": \"react-jsx\"\n  }\n}\n",
+    "/src/toggle.run.test.ts": "import toggle from './toggle';\n\ndescribe('toggle', () => {\n  test('returns function', () => {\n    const foo = toggle('foo');\n    expect(foo).toBeInstanceOf(Function);\n  });\n\n  test('single item', () => {\n    const hello = toggle('hello');\n    expect(hello()).toBe('hello');\n    expect(hello()).toBe('hello');\n  });\n\n  test('two values', () => {\n    const onOff = toggle('on', 'off');\n    expect(onOff()).toBe('on');\n    expect(onOff()).toBe('off');\n    expect(onOff()).toBe('on');\n  });\n});\n",
+    "/src/toggle.submit.test.ts": "import toggle from './toggle';\n\ndescribe('toggle', () => {\n  test('returns function', () => {\n    const foo = toggle('foo');\n    expect(foo).toBeInstanceOf(Function);\n  });\n\n  test('single item', () => {\n    const hello = toggle('hello');\n    expect(hello()).toBe('hello');\n    expect(hello()).toBe('hello');\n  });\n\n  test('two values', () => {\n    const onOff = toggle('on', 'off');\n    expect(onOff()).toBe('on');\n    expect(onOff()).toBe('off');\n    expect(onOff()).toBe('on');\n  });\n\n  test('three values', () => {\n    const speed = toggle('slow', 'medium', 'fast');\n    expect(speed()).toBe('slow');\n    expect(speed()).toBe('medium');\n    expect(speed()).toBe('fast');\n    expect(speed()).toBe('slow');\n  });\n});\n",
+    "/src/toggle.ts": "export default function toggle<T>(...values: Array<T>): () => T {\n  let index = 0;\n\n  return () => {\n    const currentValue = values[index];\n    index = (index + 1) % values.length;\n    return currentValue;\n  };\n}\n"
+  },
+  "format": "javascript",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1694390400,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "Implement a function that takes one or more values and returns a function that toggles between those values each time it's called.",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/toggle",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "toggle",
+    "subtitle": null,
+    "title": "Toggle",
+    "topics": []
+  },
+  "skeleton": {
+    "js": "/**\n * @template T\n * @param  {...T} values\n *\n * @returns () => T\n */\nexport default function toggle(...values) {\n  throw 'Not implemented';\n}",
+    "ts": "export default function toggle<T>(...values: Array<T>): () => T {\n  throw 'Not implemented';\n}"
+  },
+  "solution": "var Component=(()=>{var p=Object.create;var o=Object.defineProperty;var x=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var v=Object.getPrototypeOf,T=Object.prototype.hasOwnProperty;var j=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),w=(n,e)=>{for(var r in e)o(n,r,{get:e[r],enumerable:!0})},u=(n,e,r,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let l of m(e))!T.call(n,l)&&l!==r&&o(n,l,{get:()=>e[l],enumerable:!(a=x(e,l))||a.enumerable});return n};var y=(n,e,r)=>(r=n!=null?p(v(n)):{},u(e||!n||!n.__esModule?o(r,\"default\",{value:n,enumerable:!0}):r,n)),C=n=>u(o({},\"__esModule\",{value:!0}),n);var c=j((X,s)=>{s.exports=_jsx_runtime});var D={};w(D,{default:()=>A});var t=y(c());var i=MDXCodeBlock;var d=`/**\n * @template T\n * @param  {...T} values\n *\n * @returns () => T\n */\nexport default function toggle(...values) {\n  let index = 0;\n\n  return () => {\n    const currentValue = values[index];\n    index = (index + 1) % values.length;\n    return currentValue;\n  };\n}\n`;var h=`export default function toggle<T>(...values: Array<T>): () => T {\n  let index = 0;\n\n  return () => {\n    const currentValue = values[index];\n    index = (index + 1) % values.length;\n    return currentValue;\n  };\n}\n`;var g=`export default function toggle<T>(...values: Array<T>): () => T {\n  let index = -1;\n\n  return () => {\n    index = (index + 1) % values.length;\n    return values[index];\n  };\n}\n`;function f(n){let e=Object.assign({h2:\"h2\",p:\"p\",code:\"code\",ul:\"ul\",li:\"li\",a:\"a\"},n.components);return(0,t.jsxs)(t.Fragment,{children:[(0,t.jsx)(e.h2,{children:\"Solution\"}),`\n`,(0,t.jsxs)(e.p,{children:[\"In this implementation, we use a closure to keep track of the current index in the values array. Each time the returned function is called, it returns the current value and increments the \",(0,t.jsx)(e.code,{children:\"index\"}),\", wrapping around to the beginning of the array when it reaches the end with the help of the modulo operator.\"]}),`\n`,(0,t.jsx)(i,{languages:{jsx:d,tsx:h}}),`\n`,(0,t.jsx)(e.p,{children:\"An alternative shorter solution that increments before returning the value:\"}),`\n`,(0,t.jsx)(i,{children:g}),`\n`,(0,t.jsx)(e.h2,{children:\"Edge Cases\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:\"The function should not be called without any arguments.\"}),`\n`]}),`\n`,(0,t.jsx)(e.h2,{children:\"Resources\"}),`\n`,(0,t.jsxs)(e.ul,{children:[`\n`,(0,t.jsx)(e.li,{children:(0,t.jsx)(e.a,{href:\"https://jscodechallenges.vercel.app/challenges/functions#11-design-a-function-with-toggle-functionality-for-given-list-of-inputs-where-toggle-function-accepts-list-of-values-to-be-toggled-upon\",children:\"JavaScript Code Challenges\"})}),`\n`]})]})}function k(n={}){let{wrapper:e}=n.components||{};return e?(0,t.jsx)(e,Object.assign({},n,{children:(0,t.jsx)(f,n)})):f(n)}var A=k;return C(D);})();\n;return Component;",
+  "workspace": {
+    "main": "/src/toggle.ts",
+    "run": "/src/toggle.run.test.ts",
+    "submit": "/src/toggle.submit.test.ts"
+  }
+}

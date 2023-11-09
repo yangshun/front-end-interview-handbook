@@ -1,0 +1,8 @@
+{
+  "run": "/src/toggle.run.test.ts",
+  "submit": "/src/toggle.submit.test.ts",
+  "skeleton": {
+    "js": "/src/toggle.skeleton.js",
+    "ts": "/src/toggle.skeleton.ts"
+  }
+}
