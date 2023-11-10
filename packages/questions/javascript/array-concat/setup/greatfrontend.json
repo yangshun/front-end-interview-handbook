@@ -1,0 +1,8 @@
+{
+  "run": "/src/array-concat.run.test.ts",
+  "submit": "/src/array-concat.submit.test.ts",
+  "skeleton": {
+    "js": "/src/array-concat.skeleton.js",
+    "ts": "/src/array-concat.skeleton.ts"
+  }
+}

@@ -179,6 +179,43 @@
   {
     "author": null,
     "companies": [
+      "apple"
+    ],
+    "created": 1699574400,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Implement the Array.prototype.concat() method",
+    "featured": true,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/array-concat",
+    "importance": "mid",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "array-map",
+      "array-reduce",
+      "array-filter"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "array-square",
+      "array-map",
+      "array-reduce"
+    ],
+    "slug": "array-concat",
+    "subtitle": null,
+    "title": "Array.prototype.concat",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [
       "amazon",
       "apple"
     ],

@@ -1,0 +1,38 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import concatJs from '../setup/src/array-concat.js';
+import concatTs from '../setup/src/array-concat.ts';
+import concatSpec from '../setup/src/array-concat-spec';
+
+## Solution
+
+Start by creating a copy of the original array (`this`) using the spread operator (`[...this]`). This ensures that the polyfill operates on a copy of the array, leaving the original array unchanged.
+
+Iterate through the arguments passed to the `Array.prototype.myConcat` method. For each argument, check if it's an array using `Array.isArray()`. If it's an array, spread its elements into the `newArray`. If it's not an array, simply push the element into the `newArray`.
+
+Finally, return the `newArray`, which contains all the elements from the original array and the arguments passed to `Array.prototype.myConcat`. This mimics the behavior of the native `Array.prototype.concat` method.
+
+<MDXCodeBlock languages={{ jsx: concatJs, tsx: concatTs }} />
+
+## Edge Cases
+
+- Sparse arrays, e.g. `[1, 2, , 4]`. The empty values should be ignored while traversing the array.
+
+## One-liner Solution
+
+You can cheat the autograder by doing this:
+
+```js
+Array.prototype.myConcat = Array.prototype.concat;
+```
+
+## Spec Solution
+
+Here's a solution that is based off the [`Array.prototype.concat` ECMAScript specification](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.concat) but does not use the `Symbol.isConcatSpreadable` property.
+
+<MDXCodeBlock>{concatSpec}</MDXCodeBlock>
+
+## Resources
+
+- [`Array.prototype.concat` | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)
+- [`Array.prototype.concat` ECMAScript specification](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.concat)

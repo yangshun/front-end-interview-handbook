@@ -1,0 +1,14 @@
+{
+  "slug": "array-concat",
+  "created": "2023-11-10T00:00:00.000Z",
+  "languages": ["js", "ts"],
+  "companies": ["apple"],
+  "premium": true,
+  "duration": 15,
+  "published": true,
+  "importance": "mid",
+  "difficulty": "medium",
+  "featured": true,
+  "similar_questions": ["array-square", "array-map", "array-reduce"],
+  "next_questions": ["array-map", "array-reduce", "array-filter"]
+}
