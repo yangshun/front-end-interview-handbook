@@ -11,7 +11,7 @@
   "metadata": {
     "author": null,
     "companies": [],
-    "created": 1694390400,
+    "created": 1699488000,
     "difficulty": "easy",
     "duration": 15,
     "excerpt": "Implement a function that takes one or more values and returns a function that toggles between those values each time it's called.",

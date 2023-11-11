@@ -13,7 +13,7 @@
     "companies": [
       "airbnb"
     ],
-    "created": 1699574400,
+    "created": 1699660800,
     "difficulty": "hard",
     "duration": 30,
     "excerpt": "Implement a class resembling Backbone.Model which allows storing of attributes/values and responding to changes in specific attribute values",
