@@ -7,13 +7,15 @@ In the [**observer pattern**](https://www.patterns.dev/posts/observer-pattern/) 
 
 Implement an [`EventEmitter` class](https://nodejs.org/api/events.html#class-eventemitter) similar to the one in [Node.js](https://nodejs.org/api/events.html) that follows such an observer pattern. The difference between this question and the first [Event Emitter](/questions/javascript/event-emitter) question is the way listeners are unsubscribed. In this version, there's no `emitter.off()` method available on the `EventEmitter` instance. Instead, `emitter.on()` returns an object that has an `off()` method.
 
+## `EventEmitter` API
+
 Implement the following classes and APIs:
 
-## `new EventEmitter()`
+### `new EventEmitter()`
 
 Creates an instance of the `EventEmitter` class. Events and listeners are isolated within the `EventEmitter` instances they're added to, aka listeners shouldn't react to events emitted by other `EventEmitter` instances.
 
-## `emitter.on(eventName, listener)`
+### `emitter.on(eventName, listener)`
 
 Adds a callback function (`listener`) that will be invoked when an event with the name `eventName` is emitted.
 
@@ -24,7 +26,7 @@ Adds a callback function (`listener`) that will be invoked when an event with th
 
 Returns a subscription object that has an `off()` method that unsubscribes this listener from the event. More details below.
 
-## `emitter.emit(eventName[, ...args])`
+### `emitter.emit(eventName[, ...args])`
 
 Invokes each of the listeners listening to `eventName` with the supplied arguments in order.
 
@@ -33,7 +35,7 @@ Invokes each of the listeners listening to `eventName` with the supplied argumen
 | `eventName` | `string` | The name of the event. |
 | `...args` | `any` | Arguments to invoke the list of listener functions with. |
 
-## `sub.off()`
+### `sub.off()`
 
 This object is returned from `emitter.on()`. Calling `sub.off()` unsubscribes the respective listener from the event.
 

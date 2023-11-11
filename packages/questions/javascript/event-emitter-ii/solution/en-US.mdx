@@ -70,9 +70,9 @@ events = [
 
 Approach #1 is clearly superior, so we will use that. To mitigate the issue of user-provided `eventName`s conflicting with keys on `Object.prototype`, we can instantiate the `_events` object with `Object.create(null)` or use a ES6 `Map` class.
 
-### Implementing `EventEmitter.on()`
+### Implementing `emitter.on()`
 
-Implementing `EventEmitter.on()` is pretty straightforward. Firstly check if `eventName` is present as a key of the `_events` object and make the value an empty object (for the map of `listenerId`s to its listeners for that event) if it is the first time this `eventName` is encountered. Then push the `listener` into the array.
+Implementing `emitter.on()` is pretty straightforward. Firstly check if `eventName` is present as a key of the `_events` object and make the value an empty object (for the map of `listenerId`s to its listeners for that event) if it is the first time this `eventName` is encountered. Then push the `listener` into the array.
 
 ### Implementing `sub.off()`
 

@@ -9,5 +9,5 @@
   "importance": "mid",
   "difficulty": "medium",
   "similar_questions": ["event-emitter", "jquery-class-manipulation"],
-  "next_questions": ["jquery-class-manipulation"]
+  "next_questions": ["jquery-class-manipulation", "backbone-model"]
 }
