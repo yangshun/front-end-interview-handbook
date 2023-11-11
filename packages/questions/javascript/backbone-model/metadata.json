@@ -1,0 +1,13 @@
+{
+  "slug": "backbone-model",
+  "created": "2023-11-10T00:00:00.000Z",
+  "languages": ["js", "ts"],
+  "companies": ["airbnb"],
+  "premium": true,
+  "duration": 30,
+  "published": true,
+  "importance": "mid",
+  "difficulty": "hard",
+  "similar_questions": ["event-emitter", "event-emitter-ii"],
+  "next_questions": [""]
+}

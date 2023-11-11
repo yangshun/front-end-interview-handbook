@@ -212,6 +212,40 @@
   },
   {
     "author": null,
+    "companies": [
+      "airbnb"
+    ],
+    "created": 1699574400,
+    "difficulty": "hard",
+    "duration": 30,
+    "excerpt": "Implement a class resembling Backbone.Model which allows storing of attributes/values and responding to changes in specific attribute values",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/backbone-model",
+    "importance": "mid",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      ""
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "event-emitter",
+      "event-emitter-ii"
+    ],
+    "slug": "backbone-model",
+    "subtitle": null,
+    "title": "Backbone Model",
+    "topics": []
+  },
+  {
+    "author": null,
     "companies": [],
     "created": 1671667200,
     "difficulty": "medium",
@@ -1153,7 +1187,8 @@
       "ts"
     ],
     "nextQuestions": [
-      "jquery-class-manipulation"
+      "jquery-class-manipulation",
+      "backbone-model"
     ],
     "premium": true,
     "published": true,

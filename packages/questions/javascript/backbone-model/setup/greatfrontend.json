@@ -1,0 +1,8 @@
+{
+  "run": "/src/backbone-model.run.test.ts",
+  "submit": "/src/backbone-model.submit.test.ts",
+  "skeleton": {
+    "js": "/src/backbone-model.skeleton.js",
+    "ts": "/src/backbone-model.skeleton.ts"
+  }
+}

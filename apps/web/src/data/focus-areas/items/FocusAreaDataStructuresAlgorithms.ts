@@ -50,6 +50,7 @@ export function getFocusAreaDataStructuresAlgorithms(
         'data-selection',
         'event-emitter',
         'event-emitter-ii',
+        'backbone-model',
         'table-of-contents',
         'unique-array',
       ],
