@@ -6,7 +6,7 @@ import type {
   QuestionCodingWorkingLanguage,
   QuestionJavaScript,
   QuestionMetadata,
-} from '~/components/questions/common/QuestionsTypes';
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
 import JavaScriptCodingWorkspace from '~/components/workspace/javascript/JavaScriptCodingWorkspace';
 import { loadLocalJavaScriptQuestionCode } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';

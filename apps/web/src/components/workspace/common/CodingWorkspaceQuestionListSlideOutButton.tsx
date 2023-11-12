@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { RiListUnordered } from 'react-icons/ri';
 
-import QuestionCodingListSlideOut from '~/components/questions/listings/items/QuestionCodingListSlideOut';
+import QuestionCodingListSlideOut from '~/components/interviews/questions/listings/items/QuestionCodingListSlideOut';
 import Button from '~/components/ui/Button';
 
 export default function CodingWorkspaceQuestionListSlideOutButton() {

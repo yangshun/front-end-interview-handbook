@@ -1,4 +1,4 @@
-import MarketingRecentPurchasesToasts from '~/components/marketing/MarketingRecentPurchasesToasts';
+import MarketingRecentPurchasesToasts from '~/components/interviews/marketing/MarketingRecentPurchasesToasts';
 
 type Props = Readonly<{
   children: React.ReactNode;

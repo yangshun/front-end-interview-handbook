@@ -1,8 +1,8 @@
 import type { Metadata } from 'next/types';
 
-import type { EmbedUIQuestion } from '~/components/marketing/embed/MarketingEmbedUIQuestion';
-import { sortQuestions } from '~/components/questions/listings/filters/QuestionsProcessor';
-import { QuestionCount } from '~/components/questions/listings/stats/QuestionCount';
+import type { EmbedUIQuestion } from '~/components/interviews/marketing/embed/MarketingEmbedUIQuestion';
+import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
 import {
   readQuestionJavaScriptContents,

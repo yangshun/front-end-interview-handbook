@@ -1,4 +1,4 @@
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 

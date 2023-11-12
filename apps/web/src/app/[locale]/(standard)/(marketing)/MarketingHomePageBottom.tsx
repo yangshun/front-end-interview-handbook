@@ -1,9 +1,9 @@
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import MarketingContactUs from '~/components/marketing/contact/MarketingContactUs';
-import MarketingContinuousUpdates from '~/components/marketing/MarketingContinuousUpdates';
-import MarketingGeneralFAQSection from '~/components/marketing/MarketingGeneralFAQSection';
-import MarketingPricingSectionLocalizedContainer from '~/components/marketing/pricing/MarketingPricingSectionLocalizedContainer';
-import MarketingTestimonialsSection from '~/components/marketing/testimonials/MarketingTestimonialsSection';
+import MarketingContactUs from '~/components/interviews/marketing/contact/MarketingContactUs';
+import MarketingContinuousUpdates from '~/components/interviews/marketing/MarketingContinuousUpdates';
+import MarketingGeneralFAQSection from '~/components/interviews/marketing/MarketingGeneralFAQSection';
+import MarketingPricingSectionLocalizedContainer from '~/components/interviews/marketing/pricing/MarketingPricingSectionLocalizedContainer';
+import MarketingTestimonialsSection from '~/components/interviews/marketing/testimonials/MarketingTestimonialsSection';
 
 export default function MarketingHomePageBottom() {
   const { userProfile } = useUserProfile();

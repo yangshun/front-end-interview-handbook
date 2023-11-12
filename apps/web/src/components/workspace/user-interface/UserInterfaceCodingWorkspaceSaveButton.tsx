@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/ToastsProvider';
-import type { QuestionUserInterface } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionUserInterface } from '~/components/interviews/questions/common/QuestionsTypes';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import Divider from '~/components/ui/Divider';

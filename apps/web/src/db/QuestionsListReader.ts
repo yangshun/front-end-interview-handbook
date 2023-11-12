@@ -10,9 +10,9 @@ import type {
   QuestionFramework,
   QuestionMetadata,
   QuestionSlug,
-} from '~/components/questions/common/QuestionsTypes';
-import { ReadyQuestions } from '~/components/questions/content/system-design/SystemDesignConfig';
-import { filterQuestions } from '~/components/questions/listings/filters/QuestionsProcessor';
+} from '~/components/interviews/questions/common/QuestionsTypes';
+import { ReadyQuestions } from '~/components/interviews/questions/content/system-design/SystemDesignConfig';
+import { filterQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
 import { getQuestionsListOutFilenameCoding } from './questions-bundlers/QuestionsBundlerCodingConfig';
 import { getQuestionsListOutFilenameJavaScript } from './questions-bundlers/QuestionsBundlerJavaScriptConfig';

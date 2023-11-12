@@ -3,9 +3,9 @@
 import { RiArrowLeftLine } from 'react-icons/ri';
 
 import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
-import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
-import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
+import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';

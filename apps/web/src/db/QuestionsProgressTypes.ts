@@ -1,4 +1,4 @@
-import type { QuestionFormat } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionFormat } from '~/components/interviews/questions/common/QuestionsTypes';
 
 export type QuestionProgressStatus = 'complete' | 'in_progress';
 

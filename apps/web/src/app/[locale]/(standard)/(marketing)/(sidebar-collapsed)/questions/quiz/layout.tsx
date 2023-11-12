@@ -1,4 +1,4 @@
-import { sortQuestionsMultiple } from '~/components/questions/listings/filters/QuestionsProcessor';
+import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
 import { fetchQuestionsListQuiz } from '~/db/QuestionsListReader';
 

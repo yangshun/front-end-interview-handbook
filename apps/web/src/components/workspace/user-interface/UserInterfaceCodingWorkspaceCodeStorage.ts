@@ -1,7 +1,7 @@
 import type {
   QuestionUserInterface,
   QuestionUserInterfaceSandpackSetup,
-} from '../../questions/common/QuestionsTypes';
+} from '../../interviews/questions/common/QuestionsTypes';
 
 import type { SandpackFiles } from '@codesandbox/sandpack-react';
 

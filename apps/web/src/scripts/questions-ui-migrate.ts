@@ -4,7 +4,7 @@ import glob from 'glob';
 import lodash from 'lodash';
 import path from 'path';
 
-import type { QuestionFramework } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import {
   getQuestionSrcPathUserInterface,

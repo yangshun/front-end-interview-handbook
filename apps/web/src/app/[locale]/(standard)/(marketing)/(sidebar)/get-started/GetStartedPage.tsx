@@ -8,11 +8,11 @@ import gtag from '~/lib/gtag';
 import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 import { usePreparationPlans } from '~/data/plans/PreparationPlansHooks';
 
-import MarketingJavaScriptQuestionsExamples from '~/components/marketing/examples/MarketingJavaScriptQuestionsExamples';
-import MarketingQuizQuestionsExamples from '~/components/marketing/examples/MarketingQuizQuestionsExamples';
-import MarketingSystemDesignQuestionsExamples from '~/components/marketing/examples/MarketingSystemDesignQuestionsExamples';
-import MarketingUserInterfaceQuestionsExamples from '~/components/marketing/examples/MarketingUserInterfaceQuestionsExamples';
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
+import MarketingJavaScriptQuestionsExamples from '~/components/interviews/marketing/examples/MarketingJavaScriptQuestionsExamples';
+import MarketingQuizQuestionsExamples from '~/components/interviews/marketing/examples/MarketingQuizQuestionsExamples';
+import MarketingSystemDesignQuestionsExamples from '~/components/interviews/marketing/examples/MarketingSystemDesignQuestionsExamples';
+import MarketingUserInterfaceQuestionsExamples from '~/components/interviews/marketing/examples/MarketingUserInterfaceQuestionsExamples';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';

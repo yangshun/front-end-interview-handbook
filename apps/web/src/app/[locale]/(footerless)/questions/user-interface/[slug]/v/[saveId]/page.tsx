@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types';
 
-import { sortQuestionsMultiple } from '~/components/questions/listings/filters/QuestionsProcessor';
+import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import UserInterfaceCodingWorkspaceSavesPage from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceSavesPage';
 

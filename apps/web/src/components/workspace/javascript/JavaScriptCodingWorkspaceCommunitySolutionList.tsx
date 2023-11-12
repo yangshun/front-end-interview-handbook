@@ -1,6 +1,6 @@
 import { trpc } from '~/hooks/trpc';
 
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import CodingWorkspaceCommunitySolutionList from '../common/CodingWorkspaceCommunitySolutionList';
 

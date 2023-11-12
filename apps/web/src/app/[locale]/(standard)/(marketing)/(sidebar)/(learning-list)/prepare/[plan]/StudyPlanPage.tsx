@@ -10,15 +10,15 @@ import type { PreparationPlan } from '~/data/plans/PreparationPlans';
 import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
+import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type {
   QuestionDifficulty,
   QuestionMetadata,
-} from '~/components/questions/common/QuestionsTypes';
-import { countQuestionsTotalDurationMins } from '~/components/questions/listings/filters/QuestionsProcessor';
-import QuestionsList from '~/components/questions/listings/items/QuestionsList';
-import QuestionsLearningList from '~/components/questions/listings/learning/QuestionsLearningList';
-import QuestionsLearningListTitleSection from '~/components/questions/listings/learning/QuestionsLearningListTitleSection';
+} from '~/components/interviews/questions/common/QuestionsTypes';
+import { countQuestionsTotalDurationMins } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
+import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsLearningList';
+import QuestionsLearningListTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListTitleSection';
 import Alert from '~/components/ui/Alert';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';

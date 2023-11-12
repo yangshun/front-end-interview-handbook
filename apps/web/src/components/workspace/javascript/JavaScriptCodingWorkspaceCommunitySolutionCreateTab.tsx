@@ -7,7 +7,7 @@ import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type {
   QuestionCodingWorkingLanguage,
   QuestionMetadata,
-} from '~/components/questions/common/QuestionsTypes';
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';

@@ -6,11 +6,11 @@ import type {
   QuestionCodingWorkingLanguage,
   QuestionJavaScriptSkeleton,
   QuestionJavaScriptWorkspace,
-} from '~/components/questions/common/QuestionsTypes';
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import { saveJavaScriptQuestionCodeLocally } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
 
 import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
-import type { QuestionMetadata } from '../../questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '../../interviews/questions/common/QuestionsTypes';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 

@@ -11,7 +11,7 @@ import type {
   QuestionSystemDesign,
   QuestionUserInterface,
   QuestionUserInterfaceBundle,
-} from '~/components/questions/common/QuestionsTypes';
+} from '~/components/interviews/questions/common/QuestionsTypes';
 
 import { getQuestionOutPathJavaScript } from './questions-bundlers/QuestionsBundlerJavaScriptConfig';
 import { getQuestionOutPathQuiz } from './questions-bundlers/QuestionsBundlerQuizConfig';

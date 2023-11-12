@@ -15,7 +15,7 @@ import { GuidesSidebar } from './GuidesSidebar';
 import type { TableOfContents } from './GuidesTableOfContents';
 import GuidesTableOfContents from './GuidesTableOfContents';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
-import QuestionPagination from '../questions/content/QuestionPagination';
+import QuestionPagination from '../interviews/questions/content/QuestionPagination';
 
 type Props = Readonly<{
   children?: React.ReactNode;

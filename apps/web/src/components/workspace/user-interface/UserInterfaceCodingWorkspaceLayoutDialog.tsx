@@ -1,7 +1,7 @@
 import { TbColumns3 } from 'react-icons/tb';
 import { VscDebugConsole } from 'react-icons/vsc';
 
-import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
+import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 
 import {
   getUserInterfaceCodingWorkspaceLayout,

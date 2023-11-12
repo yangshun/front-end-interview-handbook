@@ -15,7 +15,7 @@ import {
 } from '~/data/PromotionConfig';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import PricingBlockCard from '~/components/pricing/PricingBlockCard';
+import PricingBlockCard from '~/components/interviews/pricing/PricingBlockCard';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';

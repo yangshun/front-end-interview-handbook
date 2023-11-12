@@ -2,10 +2,10 @@
 
 import clsx from 'clsx';
 
-import PreparationStudyGuideList from '~/components/dashboard/DashboardStudyGuideList';
-import DashboardStudyPlansCTA from '~/components/dashboard/DashboardStudyPlansCTA';
-import { useSystemDesignLearningContent } from '~/components/questions/content/system-design/SystemDesignNavigation';
-import QuestionsSystemDesignListWithFilters from '~/components/questions/listings/items/QuestionsSystemDesignListWithFilters';
+import PreparationStudyGuideList from '~/components/interviews/dashboard/DashboardStudyGuideList';
+import DashboardStudyPlansCTA from '~/components/interviews/dashboard/DashboardStudyPlansCTA';
+import { useSystemDesignLearningContent } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
+import QuestionsSystemDesignListWithFilters from '~/components/interviews/questions/listings/items/QuestionsSystemDesignListWithFilters';
 
 export default function PrepareSystemDesignPage() {
   const systemDesignLearningContent = useSystemDesignLearningContent();

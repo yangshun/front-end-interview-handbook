@@ -3,7 +3,7 @@
 import type {
   QuestionJavaScript,
   QuestionMetadata,
-} from '~/components/questions/common/QuestionsTypes';
+} from '~/components/interviews/questions/common/QuestionsTypes';
 
 import JavaScriptCodingWorkspaceSection from './JavaScriptCodingWorkspaceSection';
 import useCodingWorkspaceWorkingLanguage from '../common/useCodingWorkspaceWorkingLanguage';

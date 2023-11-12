@@ -1,7 +1,7 @@
 import { TbForms } from 'react-icons/tb';
 import type { IntlShape } from 'react-intl';
 
-import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionListTheme } from '~/components/interviews/questions/common/QuestionsTypes';
 import type { ThemeGradient } from '~/components/ui/theme';
 
 import type { FocusArea } from '../FocusAreas';

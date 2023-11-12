@@ -5,7 +5,7 @@ import { trpc } from '~/hooks/trpc';
 import type {
   QuestionFormat,
   QuestionMetadata,
-} from '~/components/questions/common/QuestionsTypes';
+} from '~/components/interviews/questions/common/QuestionsTypes';
 
 export function useQueryQuestionProgress(metadata: QuestionMetadata) {
   return trpc.questionProgress.get.useQuery({

@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 import countryNames from '~/data/countryCodesToNames.json';
 
-import fetchLocalizedPlanPricing from '~/components/pricing/fetchLocalizedPlanPricing';
+import fetchLocalizedPlanPricing from '~/components/interviews/pricing/fetchLocalizedPlanPricing';
 
 import logMessage from '~/logging/logMessage';
 

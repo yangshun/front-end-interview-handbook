@@ -1,4 +1,4 @@
-import QuestionsSystemDesignContentLayout from '~/components/questions/content/system-design/SystemDesignLayoutSidebar';
+import QuestionsSystemDesignContentLayout from '~/components/interviews/questions/content/system-design/SystemDesignLayoutSidebar';
 
 type Props = Readonly<{
   children: React.ReactNode;

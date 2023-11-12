@@ -7,8 +7,8 @@ import GuidesArticleJsonLd from './GuidesArticleJsonLd';
 import GuidesMainLayout from './GuidesMainLayout';
 import type { TableOfContents } from './GuidesTableOfContents';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
-import { useSystemDesignNavigation } from '../questions/content/system-design/SystemDesignNavigation';
-import SystemDesignPaywall from '../questions/content/system-design/SystemDesignPaywall';
+import { useSystemDesignNavigation } from '../interviews/questions/content/system-design/SystemDesignNavigation';
+import SystemDesignPaywall from '../interviews/questions/content/system-design/SystemDesignPaywall';
 
 type Props = Readonly<{
   children?: React.ReactNode;

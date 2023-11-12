@@ -1,5 +1,5 @@
 import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
-import type { QuestionUserInterfaceBundle } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionUserInterfaceBundle } from '~/components/interviews/questions/common/QuestionsTypes';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 

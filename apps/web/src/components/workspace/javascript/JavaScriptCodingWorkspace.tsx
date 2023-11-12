@@ -8,8 +8,8 @@ import type {
   QuestionJavaScriptSkeleton,
   QuestionJavaScriptWorkspace,
   QuestionMetadata,
-} from '~/components/questions/common/QuestionsTypes';
-import useQuestionLogEventCopyContents from '~/components/questions/common/useQuestionLogEventCopyContents';
+} from '~/components/interviews/questions/common/QuestionsTypes';
+import useQuestionLogEventCopyContents from '~/components/interviews/questions/common/useQuestionLogEventCopyContents';
 import { themeLineColor } from '~/components/ui/theme';
 import { deleteLocalJavaScriptQuestionCode } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
 import JavaScriptCodingWorkspaceTestsCode from '~/components/workspace/javascript/JavaScriptCodingWorkspaceTestsCode';

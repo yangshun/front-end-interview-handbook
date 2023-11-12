@@ -7,7 +7,7 @@ import useScrollToTop from '~/hooks/useScrollToTop';
 import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import SidebarCollapser from '~/components/common/SidebarCollapser';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

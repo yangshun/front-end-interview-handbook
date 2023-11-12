@@ -8,10 +8,10 @@ import { trpc } from '~/hooks/trpc';
 import type { FocusArea } from '~/data/focus-areas/FocusAreas';
 import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
 
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
-import { countQuestionsTotalDurationMins } from '~/components/questions/listings/filters/QuestionsProcessor';
-import QuestionsLearningList from '~/components/questions/listings/learning/QuestionsLearningList';
-import QuestionsLearningListTitleSection from '~/components/questions/listings/learning/QuestionsLearningListTitleSection';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import { countQuestionsTotalDurationMins } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsLearningList';
+import QuestionsLearningListTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListTitleSection';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';

@@ -5,11 +5,11 @@ import type { IntlShape } from 'react-intl';
 import type { PreparationPlanType } from '~/data/plans/PreparationPlans';
 import { getPreparationPlan } from '~/data/plans/PreparationPlans';
 
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import {
   countQuestionsByDifficulty,
   sortQuestions,
-} from '~/components/questions/listings/filters/QuestionsProcessor';
+} from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
 import { fetchPreparationPlans } from '~/db/PreparationPlansReader';
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';

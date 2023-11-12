@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { RiArrowGoBackLine, RiPlayLine, RiSettings2Line } from 'react-icons/ri';
 import { VscLayout } from 'react-icons/vsc';
 
-import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
+import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 

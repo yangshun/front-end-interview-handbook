@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import type { QuestionFormat } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionFormat } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import type { QuestionProgressStatus } from '~/db/QuestionsProgressTypes';
 import { hashQuestion } from '~/db/QuestionsUtils';

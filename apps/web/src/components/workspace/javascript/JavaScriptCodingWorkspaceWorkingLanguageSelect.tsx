@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 
 import Select from '~/components/ui/Select';
 
-import type { QuestionCodingWorkingLanguage } from '../../questions/common/QuestionsTypes';
+import type { QuestionCodingWorkingLanguage } from '../../interviews/questions/common/QuestionsTypes';
 
 const options: ReadonlyArray<{
   label: string;

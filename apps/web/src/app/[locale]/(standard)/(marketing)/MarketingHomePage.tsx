@@ -4,17 +4,17 @@ import { useInView } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useRef } from 'react';
 
-import MarketingEmbedSection from '~/components/marketing/embed/MarketingEmbedSection';
-import type { EmbedUIQuestion } from '~/components/marketing/embed/MarketingEmbedUIQuestion';
-import MarketingCompaniesMarquee from '~/components/marketing/MarketingCompaniesMarquee';
-import MarketingFeaturedQuestions from '~/components/marketing/MarketingFeaturedQuestions';
-import MarketingFeaturesBlocks from '~/components/marketing/MarketingFeaturesBlocks';
-import MarketingHero from '~/components/marketing/MarketingHero';
-import MarketingHomepageFeaturesRow from '~/components/marketing/MarketingHomepageFeaturesRow';
+import MarketingEmbedSection from '~/components/interviews/marketing/embed/MarketingEmbedSection';
+import type { EmbedUIQuestion } from '~/components/interviews/marketing/embed/MarketingEmbedUIQuestion';
+import MarketingCompaniesMarquee from '~/components/interviews/marketing/MarketingCompaniesMarquee';
+import MarketingFeaturedQuestions from '~/components/interviews/marketing/MarketingFeaturedQuestions';
+import MarketingFeaturesBlocks from '~/components/interviews/marketing/MarketingFeaturesBlocks';
+import MarketingHero from '~/components/interviews/marketing/MarketingHero';
+import MarketingHomepageFeaturesRow from '~/components/interviews/marketing/MarketingHomepageFeaturesRow';
 import type {
   QuestionJavaScript,
   QuestionMetadata,
-} from '~/components/questions/common/QuestionsTypes';
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 const MarketingHomePageBottom = dynamic(

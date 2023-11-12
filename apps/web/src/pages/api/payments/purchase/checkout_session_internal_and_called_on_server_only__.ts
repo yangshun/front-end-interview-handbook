@@ -6,7 +6,7 @@ import { normalizeCurrencyValue } from '~/lib/stripeUtils';
 
 import type { PricingPlanDetails, PricingPlanType } from '~/data/PricingPlans';
 
-import fetchLocalizedPlanPricing from '~/components/pricing/fetchLocalizedPlanPricing';
+import fetchLocalizedPlanPricing from '~/components/interviews/pricing/fetchLocalizedPlanPricing';
 
 const productId = process.env.STRIPE_MAIN_PRODUCT_ID;
 

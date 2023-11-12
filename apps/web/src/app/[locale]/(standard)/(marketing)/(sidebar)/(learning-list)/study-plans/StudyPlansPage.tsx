@@ -14,11 +14,11 @@ import type {
 import { getPreparationPlanTheme } from '~/data/plans/PreparationPlans';
 import { useTestimonials } from '~/data/Testimonials';
 
-import TestimonialCard from '~/components/marketing/testimonials/TestimonialCard';
-import type { QuestionDifficulty } from '~/components/questions/common/QuestionsTypes';
-import QuestionCountLabel from '~/components/questions/metadata/QuestionCountLabel';
-import QuestionDifficultySummary from '~/components/questions/metadata/QuestionDifficultySummary';
-import QuestionStudyAllocationLabel from '~/components/questions/metadata/QuestionStudyAllocationLabel';
+import TestimonialCard from '~/components/interviews/marketing/testimonials/TestimonialCard';
+import type { QuestionDifficulty } from '~/components/interviews/questions/common/QuestionsTypes';
+import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
+import QuestionDifficultySummary from '~/components/interviews/questions/metadata/QuestionDifficultySummary';
+import QuestionStudyAllocationLabel from '~/components/interviews/questions/metadata/QuestionStudyAllocationLabel';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import CardContainer from '~/components/ui/Card/CardContainer';
@@ -51,7 +51,7 @@ function PreparationPlanCard({
     <div
       className={clsx(
         'group relative flex flex-1 items-center gap-6 rounded-lg px-8 py-5',
-        'dark:bg-neutral-800/70 dark:hover:bg-neutral-800/80 bg-white transition',
+        'bg-white transition dark:bg-neutral-800/70 dark:hover:bg-neutral-800/80',
         themeGlassyBorder,
       )}>
       <div

@@ -6,7 +6,7 @@ import { trpc } from '~/hooks/trpc';
 import Timestamp from '~/components/common/Timestamp';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
-import QuestionLanguages from '~/components/questions/metadata/QuestionLanguages';
+import QuestionLanguages from '~/components/interviews/questions/metadata/QuestionLanguages';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Prose from '~/components/ui/Prose';

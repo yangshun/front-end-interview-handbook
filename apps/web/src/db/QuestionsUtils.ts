@@ -3,7 +3,7 @@ import type {
   QuestionFramework,
   QuestionMetadata,
   QuestionSlug,
-} from '~/components/questions/common/QuestionsTypes';
+} from '~/components/interviews/questions/common/QuestionsTypes';
 
 function createQuestionHref(
   format: QuestionFormat,

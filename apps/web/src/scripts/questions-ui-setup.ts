@@ -9,8 +9,8 @@ import type {
   QuestionUserInterfaceBundle,
   QuestionUserInterfaceSetupType,
   QuestionUserInterfaceWorkspace,
-} from '../components/questions/common/QuestionsTypes';
-import { type QuestionFramework } from '../components/questions/common/QuestionsTypes';
+} from '../components/interviews/questions/common/QuestionsTypes';
+import { type QuestionFramework } from '../components/interviews/questions/common/QuestionsTypes';
 import { readMDXFile } from '../db/questions-bundlers/QuestionsBundler';
 import { readQuestionMetadataUserInterface } from '../db/questions-bundlers/QuestionsBundlerUserInterface';
 import {

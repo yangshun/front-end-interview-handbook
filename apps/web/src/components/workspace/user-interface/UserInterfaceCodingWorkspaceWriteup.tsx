@@ -7,14 +7,14 @@ import { useQuestionTechnologyLists } from '~/data/QuestionFormats';
 import type {
   QuestionFramework,
   QuestionMetadata,
-} from '~/components/questions/common/QuestionsTypes';
-import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
-import QuestionCompanies from '~/components/questions/content/QuestionCompanies';
-import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
-import QuestionNextQuestions from '~/components/questions/content/QuestionNextQuestions';
-import QuestionSimilarQuestions from '~/components/questions/content/QuestionSimilarQuestions';
-import { questionUserInterfaceDescriptionPath } from '~/components/questions/content/user-interface/QuestionUserInterfaceRoutes';
-import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
+} from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
+import QuestionCompanies from '~/components/interviews/questions/content/QuestionCompanies';
+import QuestionContentProse from '~/components/interviews/questions/content/QuestionContentProse';
+import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
+import QuestionSimilarQuestions from '~/components/interviews/questions/content/QuestionSimilarQuestions';
+import { questionUserInterfaceDescriptionPath } from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
+import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
 import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';

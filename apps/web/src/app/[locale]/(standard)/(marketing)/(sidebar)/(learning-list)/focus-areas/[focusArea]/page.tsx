@@ -5,8 +5,8 @@ import type { IntlShape } from 'react-intl';
 import type { FocusAreaType } from '~/data/focus-areas/FocusAreas';
 import { getFocusAreas } from '~/data/focus-areas/FocusAreas';
 
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
-import { sortQuestions } from '~/components/questions/listings/filters/QuestionsProcessor';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';

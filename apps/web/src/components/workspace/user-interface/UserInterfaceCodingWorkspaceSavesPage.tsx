@@ -9,11 +9,11 @@ import type {
   QuestionFramework,
   QuestionMetadata,
   QuestionUserInterface,
-} from '~/components/questions/common/QuestionsTypes';
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import {
   questionUserInterfaceDescriptionPath,
   questionUserInterfaceSolutionPath,
-} from '~/components/questions/content/user-interface/QuestionUserInterfaceRoutes';
+} from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
 import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
 
 import { useI18nRouter } from '~/next-i18nostic/src';

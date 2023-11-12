@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 
 import { useQuestionFormatLists } from '~/data/QuestionFormats';
 
-import type { QuestionUserFacingFormat } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionUserFacingFormat } from '~/components/interviews/questions/common/QuestionsTypes';
 
 export type PreparationArea = QuestionUserFacingFormat | 'behavioral';
 type PreparationAreaData = Record<

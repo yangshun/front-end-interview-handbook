@@ -3,7 +3,7 @@ import type { IntlShape } from 'react-intl';
 import type {
   QuestionList,
   QuestionListTheme,
-} from '~/components/questions/common/QuestionsTypes';
+} from '~/components/interviews/questions/common/QuestionsTypes';
 
 import {
   getFocusAreaAccessibility,

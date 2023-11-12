@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import MarketingContactUs from '~/components/marketing/contact/MarketingContactUs';
+import MarketingContactUs from '~/components/interviews/marketing/contact/MarketingContactUs';
 
 import defaultMetadata from '~/seo/defaultMetadata';
 

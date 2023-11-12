@@ -6,8 +6,8 @@ import { getFocusAreas } from '~/data/focus-areas/FocusAreas';
 import type {
   QuestionDifficulty,
   QuestionList,
-} from '~/components/questions/common/QuestionsTypes';
-import { countQuestionsByDifficulty } from '~/components/questions/listings/filters/QuestionsProcessor';
+} from '~/components/interviews/questions/common/QuestionsTypes';
+import { countQuestionsByDifficulty } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 
 import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';

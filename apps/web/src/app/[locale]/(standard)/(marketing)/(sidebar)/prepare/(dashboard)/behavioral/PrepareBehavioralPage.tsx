@@ -2,8 +2,8 @@
 
 import { useIntl } from 'react-intl';
 
-import DashboardGuidesGrid from '~/components/dashboard/DashboardGuidesGrid';
 import useBehavioralInterviewGuidebookNavigation from '~/components/guides/useBehavioralInterviewGuidebookNavigation';
+import DashboardGuidesGrid from '~/components/interviews/dashboard/DashboardGuidesGrid';
 
 export default function PrepareBehavioralInterviewPage() {
   const intl = useIntl();

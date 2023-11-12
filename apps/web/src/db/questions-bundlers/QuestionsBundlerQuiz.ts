@@ -5,7 +5,7 @@ import path from 'path';
 import type {
   QuestionMetadata,
   QuestionQuiz,
-} from '~/components/questions/common/QuestionsTypes';
+} from '~/components/interviews/questions/common/QuestionsTypes';
 
 import { readMDXFile } from './QuestionsBundler';
 import {

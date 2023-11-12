@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 
-import QuestionProgressAction from '~/components/questions/common/QuestionProgressAction';
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
-import QuestionNextQuestions from '~/components/questions/content/QuestionNextQuestions';
+import QuestionProgressAction from '~/components/interviews/questions/common/QuestionProgressAction';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
 import Divider from '~/components/ui/Divider';
 
 import { useQueryQuestionProgress } from '~/db/QuestionsProgressClient';

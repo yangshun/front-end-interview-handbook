@@ -12,7 +12,7 @@ import JavaScriptLogoMonochrome from '~/components/icons/JavaScriptLogoMonochrom
 import ReactLogo from '~/components/icons/ReactLogo';
 import SvelteLogo from '~/components/icons/SvelteLogo';
 import VueLogoMonochrome from '~/components/icons/VueLogoMonochrome';
-import type { QuestionUserFacingFormat } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionUserFacingFormat } from '~/components/interviews/questions/common/QuestionsTypes';
 import {
   themeGradientBlueGreen,
   themeGradientGreenYellow,

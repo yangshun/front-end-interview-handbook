@@ -6,10 +6,10 @@ import type {
   QuestionFramework,
   QuestionMetadata,
   QuestionUserInterface,
-} from '~/components/questions/common/QuestionsTypes';
-import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
-import useQuestionLogEventCopyContents from '~/components/questions/common/useQuestionLogEventCopyContents';
-import { questionUserInterfaceSolutionPath } from '~/components/questions/content/user-interface/QuestionUserInterfaceRoutes';
+} from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
+import useQuestionLogEventCopyContents from '~/components/interviews/questions/common/useQuestionLogEventCopyContents';
+import { questionUserInterfaceSolutionPath } from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
 import {

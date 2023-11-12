@@ -1,7 +1,7 @@
 import type {
   QuestionList,
   QuestionListTheme,
-} from '~/components/questions/common/QuestionsTypes';
+} from '~/components/interviews/questions/common/QuestionsTypes';
 
 import { getFocusAreaThemes } from '../focus-areas/FocusAreas';
 import { useFocusAreas } from '../focus-areas/FocusAreasHooks';

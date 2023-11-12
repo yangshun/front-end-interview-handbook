@@ -1,4 +1,4 @@
-import FeedbackWidget from '~/components/feedback/FeedbackWidget';
+import FeedbackWidget from '~/components/global/feedback/FeedbackWidget';
 import GlobalBanner from '~/components/global/banners/GlobalBanner';
 import Footer from '~/components/global/Footer';
 import Navbar from '~/components/global/navbar/NavbarImpl';

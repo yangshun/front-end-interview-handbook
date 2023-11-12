@@ -10,10 +10,10 @@ import type {
   PricingPlanType,
 } from '~/data/PricingPlans';
 
-import MarketingFeatures from '~/components/marketing/MarketingFeatures';
-import MarketingPricingFAQSection from '~/components/marketing/pricing/MarketingPricingFAQSection';
-import MarketingPricingSection from '~/components/marketing/pricing/MarketingPricingSection';
-import MarketingTestimonialsSection from '~/components/marketing/testimonials/MarketingTestimonialsSection';
+import MarketingFeatures from '~/components/interviews/marketing/MarketingFeatures';
+import MarketingPricingFAQSection from '~/components/interviews/marketing/pricing/MarketingPricingFAQSection';
+import MarketingPricingSection from '~/components/interviews/marketing/pricing/MarketingPricingSection';
+import MarketingTestimonialsSection from '~/components/interviews/marketing/testimonials/MarketingTestimonialsSection';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import logEvent from '~/logging/logEvent';

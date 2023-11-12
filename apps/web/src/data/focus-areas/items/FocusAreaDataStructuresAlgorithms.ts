@@ -1,8 +1,8 @@
 import { TbBinaryTree } from 'react-icons/tb';
 import type { IntlShape } from 'react-intl';
 
-import type { QuestionListTheme } from '~/components/questions/common/QuestionsTypes';
-import { QuestionCount } from '~/components/questions/listings/stats/QuestionCount';
+import type { QuestionListTheme } from '~/components/interviews/questions/common/QuestionsTypes';
+import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 import type { ThemeGradient } from '~/components/ui/theme';
 
 import type { FocusArea } from '../FocusAreas';

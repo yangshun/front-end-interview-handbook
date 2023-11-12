@@ -29,7 +29,7 @@ import type {
   GuideNavigationLinks,
 } from './GuidesLayoutSidebar';
 import { useUserProfile } from '../global/UserProfileProvider';
-import { ReadyQuestions } from '../questions/content/system-design/SystemDesignConfig';
+import { ReadyQuestions } from '../interviews/questions/content/system-design/SystemDesignConfig';
 
 function LinksListItem({
   link,

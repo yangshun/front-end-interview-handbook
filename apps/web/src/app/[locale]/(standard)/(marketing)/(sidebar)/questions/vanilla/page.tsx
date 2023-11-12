@@ -1,7 +1,7 @@
 import type { Metadata } from 'next/types';
 
-import QuestionsFrameworkPage from '~/components/questions/category/QuestionsFrameworkPage';
-import type { QuestionFramework } from '~/components/questions/common/QuestionsTypes';
+import QuestionsFrameworkPage from '~/components/interviews/questions/category/QuestionsFrameworkPage';
+import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';

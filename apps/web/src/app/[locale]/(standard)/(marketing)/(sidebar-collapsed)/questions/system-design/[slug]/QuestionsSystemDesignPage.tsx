@@ -5,12 +5,12 @@ import { getMDXExport } from 'mdx-bundler/client';
 import GuidesMainLayout from '~/components/guides/GuidesMainLayout';
 import type { TableOfContents } from '~/components/guides/GuidesTableOfContents';
 import useFlattenedNavigationItems from '~/components/guides/useFlattenedNavigationItems';
-import QuestionPaywall from '~/components/questions/common/QuestionPaywall';
-import type { QuestionSystemDesign } from '~/components/questions/common/QuestionsTypes';
-import QuestionContentsSystemDesign from '~/components/questions/content/system-design/QuestionContentsSystemDesign';
-import { ReadyQuestions } from '~/components/questions/content/system-design/SystemDesignConfig';
-import { useSystemDesignNavigation } from '~/components/questions/content/system-design/SystemDesignNavigation';
-import SystemDesignPaywall from '~/components/questions/content/system-design/SystemDesignPaywall';
+import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
+import type { QuestionSystemDesign } from '~/components/interviews/questions/common/QuestionsTypes';
+import QuestionContentsSystemDesign from '~/components/interviews/questions/content/system-design/QuestionContentsSystemDesign';
+import { ReadyQuestions } from '~/components/interviews/questions/content/system-design/SystemDesignConfig';
+import { useSystemDesignNavigation } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
+import SystemDesignPaywall from '~/components/interviews/questions/content/system-design/SystemDesignPaywall';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
 

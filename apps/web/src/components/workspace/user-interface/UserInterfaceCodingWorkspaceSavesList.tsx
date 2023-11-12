@@ -4,8 +4,8 @@ import { trpc } from '~/hooks/trpc';
 
 import Timestamp from '~/components/common/Timestamp';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
-import QuestionFrameworkIcon from '~/components/questions/metadata/QuestionFrameworkIcon';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import QuestionFrameworkIcon from '~/components/interviews/questions/metadata/QuestionFrameworkIcon';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import EmptyState from '~/components/ui/EmptyState';

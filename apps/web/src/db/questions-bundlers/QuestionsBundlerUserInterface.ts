@@ -2,7 +2,7 @@ import fs from 'fs';
 import grayMatter from 'gray-matter';
 import path from 'path';
 
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import {
   getQuestionSrcPathUserInterface,

@@ -1,4 +1,4 @@
-import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
+import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 
 import type { TilesPanelConfig } from '~/react-tiling/types';
 

@@ -25,7 +25,7 @@ import {
 } from '~/data/faqs/PurchaseFAQs';
 import { supportHow, supportTechnical } from '~/data/faqs/SupportFAQs';
 
-import FAQSection from '~/components/marketing/faqs/FAQSection';
+import FAQSection from '~/components/interviews/marketing/faqs/FAQSection';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';

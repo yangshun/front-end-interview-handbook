@@ -3,7 +3,7 @@ import type { Metadata } from 'next/types';
 
 import countryNames from '~/data/countryCodesToNames.json';
 
-import fetchLocalizedPlanPricing from '~/components/pricing/fetchLocalizedPlanPricing';
+import fetchLocalizedPlanPricing from '~/components/interviews/pricing/fetchLocalizedPlanPricing';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';

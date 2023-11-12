@@ -11,7 +11,7 @@ import {
 import AmazonLogo from '~/components/icons/AmazonLogo';
 import GoogleLogo from '~/components/icons/GoogleLogo';
 import MetaLogo from '~/components/icons/MetaLogo';
-import MarketingFeaturesRow from '~/components/marketing/MarketingFeaturesRow';
+import MarketingFeaturesRow from '~/components/interviews/marketing/MarketingFeaturesRow';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 
@@ -100,7 +100,7 @@ export default function ResumeReviewHero() {
         </svg>
         <div
           aria-hidden="true"
-          className="sm:left-[calc(50%-18rem)] lg:top-[calc(50%-30rem)] xl:left-[calc(50%-24rem)] absolute left-[calc(50%-4rem)] top-10 -z-10 transform-gpu blur-3xl lg:left-48">
+          className="absolute left-[calc(50%-4rem)] top-10 -z-10 transform-gpu blur-3xl sm:left-[calc(50%-18rem)] lg:left-48 lg:top-[calc(50%-30rem)] xl:left-[calc(50%-24rem)]">
           <div
             className="aspect-[1108/632] w-[69.25rem] bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-20"
             style={{
@@ -165,7 +165,7 @@ export default function ResumeReviewHero() {
                 </div>
               </div>
             </div>
-            <div className="lg:w-2/6 hidden w-full pt-6 lg:ml-auto lg:block lg:flex-shrink-0">
+            <div className="hidden w-full pt-6 lg:ml-auto lg:block lg:w-2/6 lg:flex-shrink-0">
               {featuredReviews.map((review) => (
                 <figure
                   key={review.reviewerName}

@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 import { useIntl } from 'react-intl';
 
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
-import QuestionCompanies from '~/components/questions/content/QuestionCompanies';
-import QuestionContentProse from '~/components/questions/content/QuestionContentProse';
-import QuestionNextQuestions from '~/components/questions/content/QuestionNextQuestions';
-import QuestionSimilarQuestions from '~/components/questions/content/QuestionSimilarQuestions';
-import QuestionMetadataSection from '~/components/questions/metadata/QuestionMetadataSection';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
+import QuestionCompanies from '~/components/interviews/questions/content/QuestionCompanies';
+import QuestionContentProse from '~/components/interviews/questions/content/QuestionContentProse';
+import QuestionNextQuestions from '~/components/interviews/questions/content/QuestionNextQuestions';
+import QuestionSimilarQuestions from '~/components/interviews/questions/content/QuestionSimilarQuestions';
+import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 

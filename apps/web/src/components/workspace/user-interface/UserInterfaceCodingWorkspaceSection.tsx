@@ -6,8 +6,8 @@ import type {
   QuestionFramework,
   QuestionMetadata,
   QuestionUserInterface,
-} from '~/components/questions/common/QuestionsTypes';
-import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
+} from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import sandpackProviderOptions from '~/components/workspace/common/sandpack/sandpackProviderOptions';
 import UserInterfaceCodingWorkspace from '~/components/workspace/user-interface/UserInterfaceCodingWorkspace';
 import { loadLocalUserInterfaceQuestionCode } from '~/components/workspace/user-interface/UserInterfaceCodingWorkspaceCodeStorage';

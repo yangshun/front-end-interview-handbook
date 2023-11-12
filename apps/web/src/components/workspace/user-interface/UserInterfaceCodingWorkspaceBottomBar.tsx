@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { RiArrowGoBackLine, RiSettings2Line } from 'react-icons/ri';
 import { VscLayout } from 'react-icons/vsc';
 
-import QuestionReportIssueButton from '~/components/questions/common/QuestionReportIssueButton';
+import QuestionReportIssueButton from '~/components/interviews/questions/common/QuestionReportIssueButton';
 import type {
   QuestionMetadata,
   QuestionUserInterface,
-} from '~/components/questions/common/QuestionsTypes';
-import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
+} from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import UserInterfaceCodingWorkspaceLayoutDialog from './UserInterfaceCodingWorkspaceLayoutDialog';

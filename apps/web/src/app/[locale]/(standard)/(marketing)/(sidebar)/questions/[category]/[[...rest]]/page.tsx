@@ -3,18 +3,18 @@ import type { Metadata } from 'next/types';
 import CSS3Logo from '~/components/icons/CSS3Logo';
 import HTML5Logo from '~/components/icons/HTML5Logo';
 import JavaScriptLogo from '~/components/icons/JavaScriptLogo';
-import QuestionsCategoryPage from '~/components/questions/category/QuestionsCategoryPage';
+import QuestionsCategoryPage from '~/components/interviews/questions/category/QuestionsCategoryPage';
 import type {
   QuestionCodingFormat,
   QuestionLanguage,
   QuestionTopic,
   QuestionUserFacingFormat,
-} from '~/components/questions/common/QuestionsTypes';
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import {
   filterQuestions,
   sortQuestions,
-} from '~/components/questions/listings/filters/QuestionsProcessor';
-import type { QuestionListCategory } from '~/components/questions/listings/types';
+} from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import type { QuestionListCategory } from '~/components/interviews/questions/listings/types';
 
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import {

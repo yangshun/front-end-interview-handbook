@@ -1,11 +1,11 @@
 import type { Metadata } from 'next/types';
 import { ArticleJsonLd } from 'next-seo';
 
-import type { QuestionUserInterface } from '~/components/questions/common/QuestionsTypes';
-import { QuestionFrameworkLabels } from '~/components/questions/common/QuestionsTypes';
-import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
-import { determineFrameworkAndMode } from '~/components/questions/common/QuestionUserInterfacePath';
-import { sortQuestionsMultiple } from '~/components/questions/listings/filters/QuestionsProcessor';
+import type { QuestionUserInterface } from '~/components/interviews/questions/common/QuestionsTypes';
+import { QuestionFrameworkLabels } from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
+import { determineFrameworkAndMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
+import { sortQuestionsMultiple } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import CodingWorkspacePaywallPage from '~/components/workspace/common/CodingWorkspacePaywallPage';
 import UserInterfaceCodingWorkspacePage from '~/components/workspace/user-interface/UserInterfaceCodingWorkspacePage';
 

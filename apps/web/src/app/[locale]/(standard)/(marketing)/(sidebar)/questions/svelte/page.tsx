@@ -1,7 +1,7 @@
 import type { Metadata } from 'next/types';
 
 import SvelteLogo from '~/components/icons/SvelteLogo';
-import QuestionsFrameworkPage from '~/components/questions/category/QuestionsFrameworkPage';
+import QuestionsFrameworkPage from '~/components/interviews/questions/category/QuestionsFrameworkPage';
 
 import { fetchQuestionCompletionCount } from '~/db/QuestionsCount';
 import { fetchCodingQuestionsForFramework } from '~/db/QuestionsListReader';

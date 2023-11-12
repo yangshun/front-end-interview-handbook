@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import type { QuestionMetadata } from '../components/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '../components/interviews/questions/common/QuestionsTypes';
 import { getQuestionsListOutFilenameCoding } from '../db/questions-bundlers/QuestionsBundlerCodingConfig';
 import { readQuestionListMetadataJavaScript } from '../db/questions-bundlers/QuestionsBundlerJavaScript';
 import { getQuestionsListOutFilenameJavaScript } from '../db/questions-bundlers/QuestionsBundlerJavaScriptConfig';

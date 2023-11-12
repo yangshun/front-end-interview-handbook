@@ -14,7 +14,7 @@ import type {
   QuestionCodingWorkingLanguage,
   QuestionJavaScript,
   QuestionMetadata,
-} from '../../components/questions/common/QuestionsTypes';
+} from '../../components/interviews/questions/common/QuestionsTypes';
 
 async function readQuestionJavaScriptSkeleton(
   slug: string,

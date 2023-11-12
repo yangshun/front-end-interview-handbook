@@ -1,7 +1,7 @@
 import type {
   QuestionCodingWorkingLanguage,
   QuestionMetadata,
-} from '../../questions/common/QuestionsTypes';
+} from '../../interviews/questions/common/QuestionsTypes';
 
 function makeQuestionKey(
   metadata: QuestionMetadata,

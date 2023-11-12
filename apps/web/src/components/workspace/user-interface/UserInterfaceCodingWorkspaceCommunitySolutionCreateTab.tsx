@@ -8,7 +8,7 @@ import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type {
   QuestionFramework,
   QuestionMetadata,
-} from '~/components/questions/common/QuestionsTypes';
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
 import TextArea from '~/components/ui/TextArea';
@@ -49,7 +49,6 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
       writeup: '',
     },
   });
-
 
   const { isLoading, mutateAsync: addSolution } =
     trpc.questionCommunitySolution.userInterfaceAdd.useMutation({

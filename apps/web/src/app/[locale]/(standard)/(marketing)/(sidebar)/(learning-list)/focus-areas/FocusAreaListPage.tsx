@@ -13,9 +13,9 @@ import type {
 } from '~/data/focus-areas/FocusAreas';
 import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
 
-import type { QuestionDifficulty } from '~/components/questions/common/QuestionsTypes';
-import QuestionCountLabel from '~/components/questions/metadata/QuestionCountLabel';
-import QuestionDifficultySummary from '~/components/questions/metadata/QuestionDifficultySummary';
+import type { QuestionDifficulty } from '~/components/interviews/questions/common/QuestionsTypes';
+import QuestionCountLabel from '~/components/interviews/questions/metadata/QuestionCountLabel';
+import QuestionDifficultySummary from '~/components/interviews/questions/metadata/QuestionDifficultySummary';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Container from '~/components/ui/Container';

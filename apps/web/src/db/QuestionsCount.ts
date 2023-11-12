@@ -1,6 +1,6 @@
 import 'server-only';
 
-import type { QuestionFormat } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionFormat } from '~/components/interviews/questions/common/QuestionsTypes';
 
 import prisma from '~/server/prisma';
 

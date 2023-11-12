@@ -19,7 +19,7 @@ import { SiBytedance, SiPalantir, SiToptal } from 'react-icons/si';
 import { TbBrandWalmart } from 'react-icons/tb';
 import { useIntl } from 'react-intl';
 
-import type { QuestionCompany } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionCompany } from '~/components/interviews/questions/common/QuestionsTypes';
 
 export default function useCompanyNames(): Record<
   QuestionCompany,

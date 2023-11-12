@@ -4,12 +4,12 @@ import type {
   QuestionFramework,
   QuestionMetadata,
   QuestionUserInterface,
-} from '~/components/questions/common/QuestionsTypes';
-import type { QuestionUserInterfaceMode } from '~/components/questions/common/QuestionUserInterfacePath';
+} from '~/components/interviews/questions/common/QuestionsTypes';
+import type { QuestionUserInterfaceMode } from '~/components/interviews/questions/common/QuestionUserInterfacePath';
 import {
   questionUserInterfaceDescriptionPath,
   questionUserInterfaceSolutionPath,
-} from '~/components/questions/content/user-interface/QuestionUserInterfaceRoutes';
+} from '~/components/interviews/questions/content/user-interface/QuestionUserInterfaceRoutes';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 

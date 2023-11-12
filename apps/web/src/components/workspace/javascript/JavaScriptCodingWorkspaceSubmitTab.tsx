@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/ToastsProvider';
-import type { QuestionMetadata } from '~/components/questions/common/QuestionsTypes';
+import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import JavaScriptTestCodesEmitter from '~/components/workspace/javascript/JavaScriptTestCodesEmitter';
 
 import {

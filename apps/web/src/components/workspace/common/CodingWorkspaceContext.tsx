@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { createContext, useCallback, useContext, useState } from 'react';
 
-import type { QuestionBase } from '../../questions/common/QuestionsTypes';
+import type { QuestionBase } from '../../interviews/questions/common/QuestionsTypes';
 
 import type { SandpackFiles } from '@codesandbox/sandpack-react/types';
 
