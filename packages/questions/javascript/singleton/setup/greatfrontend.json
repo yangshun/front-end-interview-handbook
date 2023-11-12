@@ -1,0 +1,8 @@
+{
+  "run": "/src/singleton.run.test.ts",
+  "submit": "/src/singleton.submit.test.ts",
+  "skeleton": {
+    "js": "/src/singleton.skeleton.js",
+    "ts": "/src/singleton.skeleton.ts"
+  }
+}

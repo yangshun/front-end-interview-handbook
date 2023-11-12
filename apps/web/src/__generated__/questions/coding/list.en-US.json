@@ -3621,6 +3621,33 @@
   {
     "author": null,
     "companies": [],
+    "created": 1699747200,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a Singleton class that ensures a class has only one instance while providing a global point of access to that instance",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/singleton",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "singleton",
+    "subtitle": null,
+    "title": "Singleton",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
     "created": 1690502400,
     "difficulty": "easy",
     "duration": 15,
