@@ -8,6 +8,8 @@ import ProjectsMarketingHero from '~/components/projects/marketing/ProjectsMarke
 import ProjectsMarketingHomepageFeaturesRow from '~/components/projects/marketing/ProjectsMarketingHomepageFeaturesRow';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import ProjectsMarketingSkillsTracksProjects from './ProjectsMarketingSkillsTracksProjects';
+
 const MarketingHomePageBottom = dynamic(
   () => import('../MarketingHomePageBottom'),
   { ssr: false },
@@ -25,6 +27,7 @@ export default function MarketingHomePage() {
       <ProjectsMarketingHero />
       <Section>
         <ProjectsMarketingHomepageFeaturesRow />
+        <ProjectsMarketingSkillsTracksProjects />
         <div ref={loadBottomHalfMarkerRef} />
         {showBottomHalf && <MarketingHomePageBottom />}
       </Section>

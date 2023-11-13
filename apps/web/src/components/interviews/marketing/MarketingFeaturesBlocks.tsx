@@ -15,7 +15,7 @@ import {
   themeTextBrandColor,
 } from '~/components/ui/theme';
 
-import MarketingSectionHeader from './MarketingSectionHeader';
+import MarketingSectionHeader from '../../common/marketing/MarketingSectionHeader';
 import Card from '../../ui/Card';
 
 function FeatureBlock({

@@ -8,7 +8,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeRadialGlowBackground } from '~/components/ui/theme';
 
-import MarketingSectionHeader from './MarketingSectionHeader';
+import MarketingSectionHeader from '../../common/marketing/MarketingSectionHeader';
 import { QuestionCount } from '../questions/listings/stats/QuestionCount';
 
 export default function MarketingFeaturedQuestions({

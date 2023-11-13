@@ -16,7 +16,7 @@ import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import FAQSection from './faqs/FAQSection';
-import MarketingSectionHeader from './MarketingSectionHeader';
+import MarketingSectionHeader from '../../common/marketing/MarketingSectionHeader';
 
 const generalFaqs: FAQItems = [
   generalTarget,

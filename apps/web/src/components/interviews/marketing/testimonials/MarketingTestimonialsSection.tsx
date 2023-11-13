@@ -9,7 +9,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Marquee from '~/components/ui/Marquee';
 
 import TestimonialCard from './TestimonialCard';
-import MarketingSectionHeader from '../MarketingSectionHeader';
+import MarketingSectionHeader from '../../../common/marketing/MarketingSectionHeader';
 
 export default function MarketingTestimonialsSection() {
   const testimonialsObjects = useTestimonials();
@@ -65,17 +65,15 @@ export default function MarketingTestimonialsSection() {
         <div className="mt-12 lg:hidden">
           <CardContainer className="relative h-[500px]">
             <Marquee periodSeconds={100} startEndGap={24}>
-            <div className="grid grid-rows-1 gap-6 w-max grid-flow-col">
-              {testimonials.map((testimonial) => (
-                <div
-                  key={testimonial.id}
-                  className="w-auto max-w-[75vw]">
-                  <div className="flex flex-col whitespace-normal">
-                    <TestimonialCard {...testimonial} />
+              <div className="grid w-max grid-flow-col grid-rows-1 gap-6">
+                {testimonials.map((testimonial) => (
+                  <div key={testimonial.id} className="w-auto max-w-[75vw]">
+                    <div className="flex flex-col whitespace-normal">
+                      <TestimonialCard {...testimonial} />
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
             </Marquee>
           </CardContainer>
         </div>

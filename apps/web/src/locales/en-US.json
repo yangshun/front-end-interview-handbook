@@ -35,6 +35,10 @@
     "defaultMessage": "Billing | Profile",
     "description": "Title of Profile Billing page"
   },
+  "+P3MU0": {
+    "defaultMessage": "{skillName}: {completedProjectCount} out of {totalProjectCount}",
+    "description": "Label for Projects skill emblem"
+  },
   "+Vxpl1": {
     "defaultMessage": "Build projects that showcase skills that matter - like your own design system, component libraries, or full stack AI projects",
     "description": "Subtitle for Projects marketing hero section for portfolio projects"
@@ -78,6 +82,10 @@
   "/jCLBS": {
     "defaultMessage": "3 simple steps to start earning",
     "description": "Title for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
+  },
+  "/kX3pv": {
+    "defaultMessage": "We have a large bank of {projectCount}+ projects organized in 3 structured ways to help you achieve your objectives.",
+    "description": "Subtitle of the 'Build towards your goals' marketing section on Projects Homepage"
   },
   "032cio": {
     "defaultMessage": "Move line up",
@@ -479,6 +487,10 @@
     "defaultMessage": "Progress",
     "description": "Completion status"
   },
+  "7meg5a": {
+    "defaultMessage": "Submit your solution on the platform for code reviews from a large community of engineers.",
+    "description": "Description of 'Submit your solution for feedback' feature in Projects marketing page"
+  },
   "7solt2": {
     "defaultMessage": "Filter logs",
     "description": "Placeholder for filter input of console logs"
@@ -599,6 +611,10 @@
     "defaultMessage": "Buy now",
     "description": "Purchase button label"
   },
+  "9kF5T7": {
+    "defaultMessage": "{completedProjectCount}/{totalProjectCount}",
+    "description": "Progress indicator in Projects skills emblem"
+  },
   "9wRhlQ": {
     "defaultMessage": "Front End Interview",
     "description": "Short title for Front End Interview Guidebook"
@@ -666,6 +682,10 @@
   "BhmpD2": {
     "defaultMessage": "A structured way to approach system design questions",
     "description": "Sidebar link for front end system design interview"
+  },
+  "BnHLZU": {
+    "defaultMessage": "Submit your solution for feedback",
+    "description": "Title of 'Submit your solution for feedback' feature in Projects marketing page"
   },
   "BwHkBU": {
     "defaultMessage": "Profile",
@@ -867,6 +887,10 @@
     "defaultMessage": "Real-time support from the team and the growing community.",
     "description": "Lifetime membership feature of real-time support."
   },
+  "F95lg1": {
+    "defaultMessage": "Download assets",
+    "description": "Title of 'Download assets' feature in Projects marketing page"
+  },
   "F9Zh+J": {
     "defaultMessage": "{number} bite-sized focus areas that collectively cover the key topics required for front end interviews. If you prefer the topical approach, use these lists to systematically approach your preparation.",
     "description": "Tooltip of recommended focus areas"
@@ -942,6 +966,10 @@
   "Gjy+Iy": {
     "defaultMessage": "Preparation Guide",
     "description": "Front End interview preparation guide"
+  },
+  "GncBti": {
+    "defaultMessage": "Build towards your goals",
+    "description": "Heading of the 'Build towards your goals' marketing section on Projects Homepage"
   },
   "Gttxsq": {
     "defaultMessage": "Try these popular Svelte questions",
@@ -1058,6 +1086,10 @@
   "IXT5w0": {
     "defaultMessage": "Question Language",
     "description": "Coding question language"
+  },
+  "IXY4CG": {
+    "defaultMessage": "Reference official guides for practical software development, code from top submissions and clarify doubts in the community.",
+    "description": "Description of 'Learn while building' feature in Projects marketing page"
   },
   "IhJAk8": {
     "defaultMessage": "What's Included",
@@ -1539,6 +1571,10 @@
     "defaultMessage": "HTML Questions",
     "description": "HTML questions category long title"
   },
+  "QFZn7J": {
+    "defaultMessage": "Wide variety of projects",
+    "description": "Title of the 'Build towards your goals' marketing section on Projects Homepage"
+  },
   "QHtJPS": {
     "defaultMessage": "Practice end-to-end",
     "description": "Practice questions for all stages"
@@ -1630,6 +1666,10 @@
   "RhV5e8": {
     "defaultMessage": "Completed",
     "description": "The question has been completed"
+  },
+  "RmL0wL": {
+    "defaultMessage": "Select a project by skill or component out of {projectCount}+ projects.",
+    "description": "Description of 'Start a project' feature in Projects marketing page"
   },
   "RnHcaK": {
     "defaultMessage": "An account is required to purchase premium",
@@ -2211,6 +2251,10 @@
     "defaultMessage": "User Interface Questions",
     "description": "Title for an example list of User Interface Questions on marketing pages"
   },
+  "bzUPHh": {
+    "defaultMessage": "Use our Skills Tree to train a holistic front end skill set",
+    "description": "Heading of the 'Skill tree' marketing section on Projects Homepage"
+  },
   "c2bsgM": {
     "defaultMessage": "For Experienced",
     "description": "Button label for Projects marketing hero section for experienced users"
@@ -2342,6 +2386,10 @@
   "e+03Yz": {
     "defaultMessage": "Try out some Front End questions!",
     "description": "Subtext for call to action when no questions are completed."
+  },
+  "eBZAnY": {
+    "defaultMessage": "Find projects and curated resources to advance your skills all the way from beginner to senior engineer. Train a well-rounded skillset including full stack and AI skills.",
+    "description": "Subtitle of the 'Skill tree' marketing section on Projects Homepage"
   },
   "eBp6vh": {
     "defaultMessage": "Reset Progress",
@@ -2506,6 +2554,10 @@
   "gtouN7": {
     "defaultMessage": "Medium",
     "description": "Medium question difficulty"
+  },
+  "gv/ty5": {
+    "defaultMessage": "We'll provide starter code, production-grade Figma assets and even APIs as relevant.",
+    "description": "Description of 'Download assets' feature in Projects marketing page"
   },
   "gwrYNC": {
     "defaultMessage": "Software Engineer",
@@ -2810,6 +2862,10 @@
   "lNxRzi": {
     "defaultMessage": "Practice developing inclusive and accessible web experiences. Explore the principles and techniques of web accessibility, including semantic HTML, ARIA roles, keyboard navigation, and screen reader compatibility, a skill which differentiates senior from junior front end engineers.",
     "description": "Description for interview preparation focus area"
+  },
+  "lUACcQ": {
+    "defaultMessage": "Start a project",
+    "description": "Title of 'Start a project' feature in Projects marketing page"
   },
   "ldOgfx": {
     "defaultMessage": "Easy",
@@ -3295,6 +3351,10 @@
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all Quiz coding questions"
   },
+  "u1BtZ5": {
+    "defaultMessage": "Learn while building",
+    "description": "Title of 'Learn while building' feature in Projects marketing page"
+  },
   "uCbhIG": {
     "defaultMessage": "Go back to sign in",
     "description": "Label of link to return to Sign In Page on Password Reset page"
@@ -3302,6 +3362,10 @@
   "uDUEmN": {
     "defaultMessage": "JS functions, algorithms, building components, etc.",
     "description": "Description of coding questions"
+  },
+  "uEmQR4": {
+    "defaultMessage": "You're here to learn skills",
+    "description": "Title of the 'Skill tree' marketing section on Projects Homepage"
   },
   "uM5kA8": {
     "defaultMessage": "Toggle line comment",
