@@ -35,6 +35,10 @@
     "defaultMessage": "Billing | Profile",
     "description": "Title of Profile Billing page"
   },
+  "+Vxpl1": {
+    "defaultMessage": "Build projects that showcase skills that matter - like your own design system, component libraries, or full stack AI projects",
+    "description": "Subtitle for Projects marketing hero section for portfolio projects"
+  },
   "+eHFYh": {
     "defaultMessage": "Getting the Interview",
     "description": "Getting the front end interview"
@@ -178,6 +182,10 @@
   "1kiNiW": {
     "defaultMessage": "Accessibility",
     "description": "Name of focus area questions"
+  },
+  "1qu2NT": {
+    "defaultMessage": "For Portfolios",
+    "description": "Button label for Projects marketing hero section for portfolio projects"
   },
   "1wkHv2": {
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can change your email here to use email and password to log in instead.",
@@ -366,6 +374,10 @@
   "5usorl": {
     "defaultMessage": "React Questions",
     "description": "React questions category long title"
+  },
+  "63ddzp": {
+    "defaultMessage": "For Side Projects",
+    "description": "Button label for Projects marketing hero section for side projects"
   },
   "641P5n": {
     "defaultMessage": "Sign Out",
@@ -618,6 +630,10 @@
   "AmBMf9": {
     "defaultMessage": "No questions",
     "description": "Title for empty state when application of filters return no results"
+  },
+  "B6ilPG": {
+    "defaultMessage": "Something (cant see) to advanced",
+    "description": "Title for Projects hero section for beginners"
   },
   "B82jFj": {
     "defaultMessage": "Guidebooks",
@@ -1275,6 +1291,10 @@
     "defaultMessage": "Easy",
     "description": "Easy difficulty question"
   },
+  "MOOnVA": {
+    "defaultMessage": "Pick from <bold>skills roadmap</bold>",
+    "description": "Caption for Start a Project button in Projects marketing hero section for experienced users"
+  },
   "MOxuKN": {
     "defaultMessage": "Select question category",
     "description": "Tab label to select another question category"
@@ -1306,6 +1326,10 @@
   "MkjGJD": {
     "defaultMessage": "Top React front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of React Interview Questions page"
+  },
+  "Mm+ZFo": {
+    "defaultMessage": "Learn practical front end skills by building projects guided by a skills progression roadmap",
+    "description": "Subtitle for Projects marketing hero section for beginners"
   },
   "MyaXLl": {
     "defaultMessage": "Practice Top CSS Front End Interview Questions with Solutions",
@@ -1463,6 +1487,10 @@
     "defaultMessage": "Back to focus areas",
     "description": "Link text to navigate to focus areas list page"
   },
+  "PV4w5n": {
+    "defaultMessage": "Build to impress with unique portfolio projects",
+    "description": "Title for Projects marketing hero section for portfolio projects"
+  },
   "PWyAGW": {
     "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
     "description": "Subtitle for paywall over company tagging"
@@ -1542,6 +1570,10 @@
   "QjhN+w": {
     "defaultMessage": "Front end system design",
     "description": "Title for front end system design feature"
+  },
+  "QsA5iS": {
+    "defaultMessage": "Keep up with modern skills and frameworks by building hands-on projects",
+    "description": "Subtitle for Projects marketing hero section for experienced users"
   },
   "QsAiLH": {
     "defaultMessage": "Practice creating design system components",
@@ -1919,6 +1951,10 @@
     "defaultMessage": "What to expect, which rounds to expect them, and how to prepare",
     "description": "What to expect in front end quiz interviews"
   },
+  "XfFYoy": {
+    "defaultMessage": "Pick from <bold>component tracks</bold>",
+    "description": "Caption for Start a Project button in Projects marketing hero section for portfolio projects"
+  },
   "Xh+8s6": {
     "defaultMessage": "<completed>{completedQuestions}</completed>/{totalQuestions} completed",
     "description": "Line describing the number of questions completed by user over the total number of questions"
@@ -2175,6 +2211,10 @@
     "defaultMessage": "User Interface Questions",
     "description": "Title for an example list of User Interface Questions on marketing pages"
   },
+  "c2bsgM": {
+    "defaultMessage": "For Experienced",
+    "description": "Button label for Projects marketing hero section for experienced users"
+  },
   "c2hcfm": {
     "defaultMessage": "Submit",
     "description": "Feedback widget submit button label"
@@ -2262,6 +2302,10 @@
   "dFz30c": {
     "defaultMessage": "Reset",
     "description": "Label for button to confirm progress reset"
+  },
+  "dGtm/R": {
+    "defaultMessage": "Browse component libraries and even design systems you can build to support your next project",
+    "description": "Subtitle for Projects marketing hero section for side projects"
   },
   "dJf+5S": {
     "defaultMessage": "JavaScript Questions",
@@ -2547,6 +2591,10 @@
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
   },
+  "imwtWL": {
+    "defaultMessage": "Build great projects faster with libraries and design systems",
+    "description": "Title for Projects marketing hero section for side projects"
+  },
   "iqz/fo": {
     "defaultMessage": "Types of JS questions, concepts to cover and rubrics",
     "description": "JavaScript questions, concepts and rubrics during front end interviews"
@@ -2827,6 +2875,10 @@
     "defaultMessage": "Importance",
     "description": "Label for question importance - how important it is to practice this question"
   },
+  "mfVk6d": {
+    "defaultMessage": "Something (cant see) in up and coming skills",
+    "description": "Title for Projects marketing hero section for experienced users"
+  },
   "mkx/6U": {
     "defaultMessage": "Use code at checkout. Code expires in 3 days.",
     "description": "Instruction to apply discount"
@@ -3087,9 +3139,17 @@
     "defaultMessage": "Prepare for tackling data structures and algorithms questions in front end interviews",
     "description": "Title for interview preparation focus area"
   },
+  "rOzSWN": {
+    "defaultMessage": "Build entire design systems, component libraries or full stack apps",
+    "description": "Caption for component library showcase in Projects marketing hero section"
+  },
   "rWhQtZ": {
     "defaultMessage": "Full list of shortcuts can be found on the <link>Visual Studio Code website</link>.",
     "description": "Text in coding workspace shortcuts that provides user with the link to the full list of shortcuts"
+  },
+  "rbjUFF": {
+    "defaultMessage": "For Beginners",
+    "description": "Button label for Projects marketing hero section for beginners"
   },
   "rfI2w+": {
     "defaultMessage": "Cancel",
@@ -3147,9 +3207,17 @@
     "defaultMessage": "Study plans",
     "description": "Title of study plans page"
   },
+  "sxu/UG": {
+    "defaultMessage": "Start a project",
+    "description": "Label for Start a Project button in Hero section of HomePage."
+  },
   "t+g7fF": {
     "defaultMessage": "More on <link>Students Discount Terms and Conditions</link>",
     "description": "Link for discount terms and conditions"
+  },
+  "t1sNnD": {
+    "defaultMessage": "Advance more than 20 core skills",
+    "description": "Caption for skills showcase in Projects marketing hero section"
   },
   "t2Ll2e": {
     "defaultMessage": "Run your code with <button>custom test cases</button> before submitting.",
@@ -3383,6 +3451,10 @@
     "defaultMessage": "Prepare for tackling form questions in front end interviews",
     "description": "Title for interview preparation focus area"
   },
+  "xLVqYR": {
+    "defaultMessage": "Pick from <bold>skills roadmap</bold>",
+    "description": "Caption for Start a Project button in Projects marketing hero section for beginners"
+  },
   "xU32y0": {
     "defaultMessage": "3 subcategories of questions: JavaScript, User Interfaces & Data Structures and Algorithms",
     "description": "Description of coding interview preparation"
@@ -3486,6 +3558,10 @@
   "zUR/Om": {
     "defaultMessage": "The page you requested could not be found",
     "description": "Description of 404 page"
+  },
+  "zaJkwz": {
+    "defaultMessage": "Pick from <bold>component tracks</bold>",
+    "description": "Caption for Start a Project button in Projects marketing hero section for side projects"
   },
   "zn3iWx": {
     "defaultMessage": "Repeat Password",
