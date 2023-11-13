@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import { useRef } from 'react';
 
 import ProjectsMarketingHero from '~/components/projects/marketing/ProjectsMarketingHero';
+import ProjectsMarketingHomepageFeaturesRow from '~/components/projects/marketing/ProjectsMarketingHomepageFeaturesRow';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 const MarketingHomePageBottom = dynamic(
@@ -23,6 +24,7 @@ export default function MarketingHomePage() {
     <main className="bg-[#070708] pb-24" data-mode="dark">
       <ProjectsMarketingHero />
       <Section>
+        <ProjectsMarketingHomepageFeaturesRow />
         <div ref={loadBottomHalfMarkerRef} />
         {showBottomHalf && <MarketingHomePageBottom />}
       </Section>
