@@ -32,7 +32,9 @@ import type {
 import { ReadyQuestions } from '../../content/system-design/SystemDesignConfig';
 import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
 import QuestionFrameworks from '../../metadata/QuestionFrameworks';
+import QuestionImportanceLabel from '../../metadata/QuestionImportanceLabel';
 import QuestionLanguages from '../../metadata/QuestionLanguages';
+import QuestionTopics from '../../metadata/QuestionTopics';
 import QuestionUsersCompletedLabel from '../../metadata/QuestionUsersCompletedLabel';
 
 type Props<Q extends QuestionMetadata> = Readonly<{
@@ -43,6 +45,7 @@ type Props<Q extends QuestionMetadata> = Readonly<{
   mode?: 'default' | 'learning-list';
   onMarkAsCompleted?: (question: Q) => void;
   onMarkAsNotCompleted?: (question: Q) => void;
+  primaryLabel?: 'difficulty' | 'importance';
   questionCompletionCount?: QuestionCompletionCount;
   questions: ReadonlyArray<Q>;
   showProgress?: boolean;
@@ -84,6 +87,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
   checkIfCompletedQuestion,
   checkIfCompletedQuestionBefore,
   framework,
+  primaryLabel = 'difficulty',
   listKey,
   questions,
   questionCompletionCount,
@@ -338,15 +342,25 @@ export default function QuestionsList<Q extends QuestionMetadata>({
               )}
               <div className="mt-2 flex flex-wrap items-center gap-x-8 gap-y-2">
                 <span className="inline-flex">
-                  <QuestionDifficultyLabel
-                    showIcon={true}
-                    value={question.difficulty}
-                  />
+                  {primaryLabel === 'difficulty' && (
+                    <QuestionDifficultyLabel
+                      showIcon={true}
+                      value={question.difficulty}
+                    />
+                  )}
+                  {primaryLabel === 'importance' && (
+                    <QuestionImportanceLabel
+                      showIcon={true}
+                      value={question.importance}
+                    />
+                  )}
                 </span>
-                {question.frameworks.length === 0 ? (
-                  <QuestionLanguages languages={question.languages} />
-                ) : (
+                {question.topics.length > 0 ? (
+                  <QuestionTopics topics={question.topics} />
+                ) : question.frameworks.length > 0 ? (
                   <QuestionFrameworks frameworks={question.frameworks} />
+                ) : (
+                  <QuestionLanguages languages={question.languages} />
                 )}
                 {(() => {
                   const count =

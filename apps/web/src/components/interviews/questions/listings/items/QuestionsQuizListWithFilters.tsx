@@ -266,6 +266,7 @@ export default function QuestionsQuizListWithFilters({
                 checkIfCompletedQuestionBefore={checkIfCompletedQuestionBefore}
                 listKey={listKey}
                 mode={listMode}
+                primaryLabel="importance"
                 questionCompletionCount={questionCompletionCount}
                 questions={processedQuestions}
                 onMarkAsCompleted={onMarkAsCompleted}

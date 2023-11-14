@@ -7,15 +7,17 @@ import type { QuestionTopic } from '../common/QuestionsTypes';
 import useQuestionTopicLabels from '../listings/filters/useQuestionTopicLabels';
 
 const TopicLabelClasses: Record<QuestionTopic, string> = {
-  a11y: 'bg-blue text-white',
-  css: 'bg-sky-600 text-white',
-  html: 'bg-orange-600 text-white',
-  i18n: 'bg-neutral-700 text-white',
-  javascript: 'bg-yellow-500 text-black',
-  network: 'bg-teal-400 text-white',
-  performance: 'bg-indigo-500 text-white',
-  security: 'bg-red text-white',
-  testing: 'bg-green-dark text-white',
+  a11y: 'bg-pink-500 text-white dark:bg-neutral-800 dark:text-pink-500',
+  css: 'bg-sky-500 text-white dark:bg-neutral-800 dark:text-sky-500',
+  html: 'bg-orange-600 text-white dark:bg-neutral-800 dark:text-orange-600',
+  i18n: 'bg-neutral-700 text-white dark:bg-neutral-800 dark:text-neutral-300',
+  javascript:
+    'bg-yellow-500 text-black dark:bg-neutral-800 dark:text-yellow-500',
+  network: 'bg-teal-400 text-white dark:bg-neutral-800 dark:text-teal-400',
+  performance:
+    'bg-indigo-500 text-white dark:bg-neutral-800 dark:text-indigo-400',
+  security: 'bg-red text-white dark:bg-neutral-800 dark:text-red',
+  testing: 'bg-green-dark text-white dark:bg-neutral-800 dark:text-green',
 };
 
 export default function QuestionTopicLabel({
