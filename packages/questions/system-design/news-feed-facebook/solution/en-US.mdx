@@ -30,10 +30,10 @@ Not a priority, but a good mobile experience would be nice.
 
 - **Server**: Provides HTTP APIs to fetch feed posts and to create new feed posts.
 - **Controller**: Controls the flow of data within the application and makes network requests to the server.
-- **Client Store**: Stores data needed across the whole application. In the context of a news feed, most of the data in the store will be server-originated data needed by the feed UI.
+- **Client store**: Stores data needed across the whole application. In the context of a news feed, most of the data in the store will be server-originated data needed by the feed UI.
 - **Feed UI**: Contains a list of feed posts and the UI for composing new posts.
-  - **Feed Posts**: Presents the data for a feed post and contains buttons to interact with the post (like/react/share).
-  - **Post Composer**: WYSIWYG (what you see is what you get) editor for users to create new feed posts.
+  - **Feed posts**: Presents the data for a feed post and contains buttons to interact with the post (like/react/share).
+  - **Post composer**: WYSIWYG (what you see is what you get) editor for users to create new feed posts.
 
 ### Rendering approach
 
@@ -57,9 +57,9 @@ A news feed shows a list of posts fetched from the server, hence most of the dat
 | Entity | Source | Belongs To | Fields |
 | --- | --- | --- | --- |
 | `Feed` | Server | Feed UI | `posts` (list of `Post`s), `pagination` (pagination metadata) |
-| `Post` | Server | Feed Post | `id`, `created_time`, `content`, `author` (a `User`), `reactions`, `image_url` (for posts containing images) |
-| `User` | Server | Client Store | `id`, `name`, `profile_photo_url` |
-| `NewPost` | User input (Client) | Post Composer UI | `message`, `image` |
+| `Post` | Server | Feed post | `id`, `created_time`, `content`, `author` (a `User`), `reactions`, `image_url` (for posts containing images) |
+| `User` | Server | Client store | `id`, `name`, `profile_photo_url` |
+| `NewPost` | User input (Client) | Post composer UI | `message`, `image` |
 
 Although the `Post` and `Feed` entities belong to the feed post and feed UI respectively, all server-originated data can be stored in the client store and queried by the components which need them.
 
@@ -99,7 +99,7 @@ _Further reading: [Making Instagram.com faster: Part 3 — cache first](https://
 | Server | Controller | HTTP | Fetch feed posts |
 | Controller | Feed UI | JavaScript | Transfer feed posts data, Reactions |
 | Controller | Server | HTTP | Create new post |
-| Post Composer | Controller | JavaScript | Transfer new post data |
+| Post composer | Controller | JavaScript | Transfer new post data |
 
 The most interesting API to talk about will be the HTTP API to fetch a list of feed posts because the pagination approach is worth a discussion. The HTTP API for fetching feed posts from the server has the basic details:
 
@@ -262,8 +262,8 @@ _Reference: [Evolving API Pagination at Slack](https://slack.engineering/evolvin
 As there are a few sections within a news feed application, it will be easier to read by focusing on one section at a time and looking at the optimizations that can be done for each section:
 
 - Feed
-- Feed Posts
-- Post Composer
+- Feed posts
+- Post composer
 
 ### Feed optimizations
 
@@ -568,7 +568,7 @@ Non-crucial features that can be lazy loaded on demand:
 
 - Feed
   - Add `role="feed"` to the feed HTML element.
-- Feed Posts
+- Feed posts
   - Add `role="article"` to each feed post HTML element.
   - `aria-labelledby="<id>"` where the HTML tag containing the feed author name has that `id` attribute.
   - Contents within the feed post should be focusable via keyboards (add `tabindex="0"`) and the appropriate `aria-role`.

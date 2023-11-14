@@ -23,16 +23,16 @@ Primarily mobile, but should be usable on desktop and tablet as well.
 
 ## Architecture / high-level design
 
-### Server-side rendering (SSR) or Client-side rendering (CSR)?
+### Rendering approach
 
 Photo sharing applications have the following characteristics:
 
-- Posts are are viewable by non-logged in users.
+- Posts are viewable by non-logged in users.
 - Posts are searchable via search engines.
 - Application is interaction heavy due to post composing and liking/commenting functionality on posts.
 - Fast initial loading speed is desired.
 
-These are also characteristics of a [News Feed](/questions/system-design/news-feed-facebook) where there's a good amount of static content which also require interaction. Hence a combination of server-side rendering with hydration would be ideal. In reality, [instagram.com](https://instagram.com) is built using the same technology stack as facebook.com which uses React server-side rendering with hydration.
+These are also characteristics of a [News Feed](/questions/system-design/news-feed-facebook) where there's a good amount of static content which also require interaction. Hence a combination of server-side rendering with hydration and subsequent client-side rendering would be ideal. In reality, [instagram.com](https://instagram.com) is built using the same technology stack as facebook.com which uses React server-side rendering with hydration.
 
 ### Architecture diagram
 
@@ -40,10 +40,10 @@ These are also characteristics of a [News Feed](/questions/system-design/news-fe
 
 - **Server**: Provides HTTP APIs to fetch feed posts, upload images, and to create new image posts.
 - **Controller**: Controls the flow of data within the application and makes network requests to the server.
-- **Client Store**: Stores data needed across the whole application. In the context of a photo sharing application, most of the data in the store will be server-originated data needed by the feed UI.
+- **Client store**: Stores data needed across the whole application. In the context of a photo sharing application, most of the data in the store will be server-originated data needed by the feed UI.
 - **Feed UI**: Contains a list of image posts and the UI for creating new posts.
-  - **Image Post**: A post containing a list of one to many images.
-  - **Post Composer**: UI for uploading images, applying filters to them and adding a caption before submitting to the server.
+  - **Image post**: A post containing a list of one to many images.
+  - **Post composer**: UI for uploading images, applying filters to them and adding a caption before submitting to the server.
 
 ---
 
@@ -51,13 +51,13 @@ These are also characteristics of a [News Feed](/questions/system-design/news-fe
 
 A photo feed shows a list of image posts fetched from the server, hence most of the data involved in the application will be server-originated data. The only client-side data needed is for user-uploaded images and user-written captions in the post composer.
 
-| Entity | Source | Belongs To | Fields |
+| Entity | Source | Belongs to | Fields |
 | --- | --- | --- | --- |
 | `Feed` | Server | Feed UI | `posts` (list of `Post`s), `pagination` (pagination metadata) |
 | `Post` | Server | Feed Post | `id`, `created_time`, `caption`, `image`, `author` (a `User`), `images` |
-| `User` | Server | Client Store | `id`, `name`, `profile_photo_url` |
-| `NewPost` | User input (Client) | Post Composer UI | `caption`, `images` (`Image`) |
-| `Image` | Server/Client | Multiple | `url`, `alt`, `width`, `height` |
+| `User` | Server | Client store | `id`, `name`, `profile_photo_url` |
+| `NewPost` | User input (Client) | Post composer UI | `caption`, `images` (`Image`) |
+| `Image` | Server/client | Multiple | `url`, `alt`, `width`, `height` |
 
 Just like in the [News Feed](/questions/system-design/news-feed-facebook), a normalized client-side store will also be useful for a Photo Sharing application.
 
