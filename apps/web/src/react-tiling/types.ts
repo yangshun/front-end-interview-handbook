@@ -46,3 +46,7 @@ export type TilesPanelDragItem<TabType> = Readonly<{
   tabId: TabType;
   type: string;
 }>;
+
+export type TilesPanelDragPanel = Readonly<{
+  panelId:string;
+}>

@@ -1,10 +1,18 @@
 import clsx from 'clsx';
-import { useRef } from 'react';
-import { useDrop } from 'react-dnd';
+import { useEffect, useRef } from 'react';
+import { useDrag, useDrop } from 'react-dnd';
+import { getEmptyImage } from 'react-dnd-html5-backend';
 
 import TilesPanelTab from './TilesPanelTab';
+import { useDragHighlightContext } from '../state/useDragHighlightContext';
 import { useTilesContext } from '../state/useTilesContext';
-import type { TilesPanelDragItem, TilesPanelItemTab } from '../types';
+import type {
+  TilesPanelDragItem,
+  TilesPanelDragPanel,
+  TilesPanelItemTab,
+} from '../types';
+import getDragId from '../utils/getDragId';
+import isDragTab from '../utils/isDragTab';
 
 type Props<TabType> = Readonly<{
   activeTabId: TabType | null;
@@ -25,22 +33,29 @@ export default function TilesPanelTabsSection<TabType extends string>({
   getTabLabel,
 }: Props<TabType>) {
   const { dispatch } = useTilesContext();
+  const { parentRect, setPosition, draggedItemId, setDraggedItemId } =
+    useDragHighlightContext();
   const tabListRef = useRef<HTMLDivElement>(null);
   const tabRightEmptySpaceRef = useRef<HTMLDivElement>(null);
   const [{ isOver }, drop] = useDrop<
-    TilesPanelDragItem<TabType>,
+    TilesPanelDragItem<TabType> | TilesPanelDragPanel,
     void,
     { isOver: boolean }
   >({
-    accept: 'tab',
+    accept: ['panel', 'tab'],
     canDrop(item) {
-      // Item to be dropped is already at the last position
-      // in the same panel, it cannot be dropped.
-      return !(
-        item != null &&
-        item.panelId === panelId &&
-        tabs[tabs.length - 1]?.id === item.tabId
-      );
+      if (isDragTab(item)) {
+        // Item to be dropped is already at the last position
+        // in the same panel, it cannot be dropped.
+        return !(
+          item != null &&
+          item.panelId === panelId &&
+          tabs[tabs.length - 1]?.id === item.tabId
+        );
+      }
+
+      // Panel can only be dropped if it's not the same panel.
+      return panelId !== item.panelId;
     },
     collect(monitor) {
       return {
@@ -52,30 +67,101 @@ export default function TilesPanelTabsSection<TabType extends string>({
         return;
       }
 
-      if (item.panelId === panelId) {
-        const lastTab = tabs[tabs.length - 1];
+      if (isDragTab(item)) {
+        if (item.panelId === panelId) {
+          const lastTab = tabs[tabs.length - 1];
 
-        // Item to be dropped is already at the last position
-        // in the same panel, nothing to do.
-        if (lastTab != null && lastTab.id === item.tabId) {
-          return;
+          // Item to be dropped is already at the last position
+          // in the same panel, nothing to do.
+          if (lastTab != null && lastTab.id === item.tabId) {
+            return;
+          }
         }
-      }
 
-      dispatch({
-        payload: {
-          dst: {
-            dropAreaSection: 'tabs-row',
-            panelId,
+        dispatch({
+          payload: {
+            dst: {
+              dropAreaSection: 'tabs-row',
+              panelId,
+            },
+            src: item,
           },
-          src: item,
-        },
-        type: 'tab-drop',
-      });
+          type: 'tab-drop',
+        });
+      } else {
+        dispatch({
+          payload: {
+            dst: {
+              dropAreaSection: 'tabs-row',
+              panelId,
+            },
+            srcPanelId: item.panelId,
+          },
+          type: 'panel-drop',
+        });
+      }
     },
   });
 
-  drop(tabRightEmptySpaceRef);
+  const [{ isDragging }, drag, dragPreview] = useDrag<
+    TilesPanelDragPanel,
+    unknown,
+    { isDragging: boolean }
+  >({
+    collect: (monitor) => {
+      return {
+        isDragging: monitor.isDragging(),
+      };
+    },
+    end: (draggedItem) => {
+      if (draggedItem.panelId === panelId) {
+        setDraggedItemId(null);
+        setPosition(null);
+      }
+    },
+    item: () => {
+      return { panelId };
+    },
+    type: 'panel',
+  });
+
+  useEffect(() => {
+    // This useEffect hides the default preview
+    dragPreview(getEmptyImage(), { captureDraggingState: true });
+  }, [dragPreview]);
+
+  useEffect(() => {
+    if (isDragging && draggedItemId !== panelId) {
+      setDraggedItemId(panelId);
+    }
+  }, [draggedItemId, isDragging, panelId, setDraggedItemId]);
+
+  useEffect(() => {
+    const dragId = getDragId({
+      panelId,
+    });
+
+    if (isOver && dragId !== draggedItemId) {
+      const emptySpaceRect =
+        tabRightEmptySpaceRef.current?.getBoundingClientRect();
+
+      if (!emptySpaceRect || !parentRect) {
+        return;
+      }
+
+      const { height, width } = emptySpaceRect;
+
+      // Add py-1.5 (6px of vertical padding)
+      setPosition({
+        height: height - 12,
+        left: emptySpaceRect.left - parentRect.left,
+        top: emptySpaceRect.top - parentRect.top + 6,
+        width,
+      });
+    }
+  }, [draggedItemId, isOver, panelId, parentRect, setPosition]);
+
+  drag(drop(tabRightEmptySpaceRef));
 
   return (
     <div className="flex h-full grow overflow-x-auto">
@@ -114,7 +200,19 @@ export default function TilesPanelTabsSection<TabType extends string>({
                     type: 'tab-set-active',
                   });
                 }}
-                onDrop={(src, dst) => {
+                onPanelDrop={(src, dst) => {
+                  dispatch({
+                    payload: {
+                      dst: {
+                        dropAreaSection: 'tab',
+                        ...dst,
+                      },
+                      srcPanelId: src.panelId,
+                    },
+                    type: 'panel-drop',
+                  });
+                }}
+                onTabDrop={(src, dst) => {
                   dispatch({
                     payload: {
                       dst: {
@@ -133,10 +231,7 @@ export default function TilesPanelTabsSection<TabType extends string>({
       </div>
       <div
         ref={tabRightEmptySpaceRef}
-        className={clsx(
-          'h-full grow',
-          isOver && 'bg-brand-lightest dark:bg-neutral-800',
-        )}
+        className="h-full grow hover:cursor-pointer"
       />
     </div>
   );

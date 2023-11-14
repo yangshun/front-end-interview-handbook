@@ -1,6 +1,7 @@
 import type { TilesActionLayoutChange } from './layoutChange';
 import type { TilesActionPanelClose } from './panelClose';
 import type { TilesActionPanelCollapse } from './panelCollapse';
+import type { TilesActionPanelDrop } from './panelDrop';
 import type { TilesActionPanelFullScreen } from './panelFullScreen';
 import type { TilesActionPanelSplit } from './panelSplit';
 import type { TilesActionTabChangeId } from './tabChangeId';
@@ -13,6 +14,7 @@ export type TilesAction<TabType extends string> =
   | TilesActionLayoutChange<TabType>
   | TilesActionPanelClose<TabType>
   | TilesActionPanelCollapse
+  | TilesActionPanelDrop<TabType>
   | TilesActionPanelFullScreen
   | TilesActionPanelSplit<TabType>
   | TilesActionTabChangeId<TabType>

@@ -3,11 +3,13 @@ import { useReducer } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
+import DragHighlightProvider from './DragHighlightProvider';
 import { TilesContext } from './TilesContext';
 import type { TilesAction } from '../actions/actions';
 import layoutChange from '../actions/layoutChange';
 import panelClose from '../actions/panelClose';
 import panelCollapse from '../actions/panelCollapse';
+import panelDrop from '../actions/panelDrop';
 import panelFullScreen from '../actions/panelFullScreen';
 import panelSplit from '../actions/panelSplit';
 import tabChangeId from '../actions/tabChangeId';
@@ -41,6 +43,9 @@ function reducer<TabType extends string>(
     }
     case 'panel-full-screen': {
       return panelFullScreen(tiles, action.payload);
+    }
+    case 'panel-drop': {
+      return panelDrop(tiles, action.payload);
     }
     case 'tab-open': {
       return tabOpen(tiles, action.payload);
@@ -91,8 +96,10 @@ export function TilesProvider<TabType extends string>({
   ...props
 }: Props<TabType>) {
   return (
-    <DndProvider backend={HTML5Backend}>
-      <TilesProviderImpl {...props}>{children}</TilesProviderImpl>
-    </DndProvider>
+    <DragHighlightProvider>
+      <DndProvider backend={HTML5Backend}>
+        <TilesProviderImpl {...props}>{children}</TilesProviderImpl>
+      </DndProvider>
+    </DragHighlightProvider>
   );
 }

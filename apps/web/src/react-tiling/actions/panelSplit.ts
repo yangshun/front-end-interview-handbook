@@ -8,6 +8,7 @@ type TilesActionPanelSplitNewPanelOrder = 'after' | 'before';
 export type TilesActionPanelSplit<TabType> = Readonly<{
   payload: Readonly<{
     direction: PanelGroupProps['direction'];
+    newPanelId?: string;
     newPanelOrder: TilesActionPanelSplitNewPanelOrder;
     newTabCloseable?: boolean;
     newTabId?: TabType;
@@ -24,6 +25,7 @@ export default function panelSplit<TabType>(
   const {
     direction,
     panelId,
+    newPanelId,
     newPanelOrder,
     newTabId = null,
     newTabCloseable = true,
@@ -36,6 +38,7 @@ export default function panelSplit<TabType>(
     panelId,
     newPanelOrder,
     {
+      newPanelId,
       newTabCloseable,
       newTabId,
     },
@@ -57,9 +60,11 @@ function panelSplitImpl<TabType>(
   panelIdToSplit: string,
   newPanelOrder: TilesActionPanelSplitNewPanelOrder,
   {
+    newPanelId,
     newTabCloseable,
     newTabId,
   }: {
+    newPanelId?: string;
     newTabCloseable: boolean;
     newTabId: TabType | null;
   },
@@ -92,7 +97,7 @@ function panelSplitImpl<TabType>(
     const newPanel = {
       activeTabId: newTabId_,
       collapsible: true,
-      id: getUniqueId(),
+      id: newPanelId ?? getUniqueId(),
       tabs: [
         {
           closeable: newTabCloseable,
@@ -127,7 +132,7 @@ function panelSplitImpl<TabType>(
     const newPanel = {
       activeTabId: newTabId_,
       collapsible: true,
-      id: getUniqueId(),
+      id: newPanelId ?? getUniqueId(),
       tabs: [
         {
           closeable: newTabCloseable,
@@ -136,6 +141,7 @@ function panelSplitImpl<TabType>(
       ],
       type: 'item',
     } as const;
+
     const splitIndex =
       newPanelOrder === 'after' ? panelToSplitIndex + 1 : panelToSplitIndex;
 
@@ -158,6 +164,7 @@ function panelSplitImpl<TabType>(
         panelIdToSplit,
         newPanelOrder,
         {
+          newPanelId,
           newTabCloseable,
           newTabId,
         },

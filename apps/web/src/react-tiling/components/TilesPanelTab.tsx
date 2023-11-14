@@ -7,8 +7,11 @@ import { themeTextSubtleColor } from '~/components/ui/theme';
 
 import { I18nLink } from '~/next-i18nostic/src';
 
+import { useDragHighlightContext } from '../state/useDragHighlightContext';
 import { useTilesContext } from '../state/useTilesContext';
-import type { TilesPanelDragItem } from '../types';
+import type { TilesPanelDragItem, TilesPanelDragPanel } from '../types';
+import getDragId from '../utils/getDragId';
+import isDragTab from '../utils/isDragTab';
 
 function TabButton({
   onClick,
@@ -75,7 +78,8 @@ export default function TilesPanelTab<TabType extends string>({
   panelId,
   tabId,
   onClick,
-  onDrop,
+  onPanelDrop,
+  onTabDrop,
 }: Readonly<{
   closeable: boolean;
   href?: string;
@@ -84,7 +88,11 @@ export default function TilesPanelTab<TabType extends string>({
   isActive: boolean;
   label: string;
   onClick: () => void;
-  onDrop: (
+  onPanelDrop: (
+    src: Readonly<{ panelId: string }>,
+    dst: Readonly<{ panelId: string; tabId: TabType }>,
+  ) => void;
+  onTabDrop: (
     src: Readonly<{ panelId: string; tabCloseable: boolean; tabId: TabType }>,
     dst: Readonly<{ panelId: string; tabId: TabType }>,
   ) => void;
@@ -92,16 +100,18 @@ export default function TilesPanelTab<TabType extends string>({
   tabId: TabType;
 }>) {
   const { dispatch, activeTabScrollIntoView } = useTilesContext();
+  const { setDraggedItemId, setPosition, draggedItemId, parentRect } =
+    useDragHighlightContext();
   const tabRef = useRef<HTMLDivElement>(null);
   const [{ isOver }, drop] = useDrop<
-    TilesPanelDragItem<TabType>,
+    TilesPanelDragItem<TabType> | TilesPanelDragPanel,
     void,
     { isOver: boolean }
   >({
-    accept: 'tab',
+    accept: ['panel', 'tab'],
     collect(monitor) {
       return {
-        isOver: monitor.isOver(),
+        isOver: monitor.isOver() && monitor.canDrop(),
       };
     },
     drop(item) {
@@ -109,14 +119,18 @@ export default function TilesPanelTab<TabType extends string>({
         return;
       }
 
-      const { panelId: srcPanelId, tabId: srcTabId } = item;
+      if (isDragTab(item)) {
+        const { panelId: srcPanelId, tabId: srcTabId } = item;
 
-      // Don't replace items with themselves.
-      if (panelId === srcPanelId && tabId === srcTabId) {
-        return;
+        // Don't replace items with themselves.
+        if (panelId === srcPanelId && tabId === srcTabId) {
+          return;
+        }
+
+        onTabDrop(item, { panelId, tabId });
+      } else {
+        onPanelDrop(item, { panelId, tabId });
       }
-
-      onDrop(item, { panelId, tabId });
     },
   });
   const [{ isDragging }, drag] = useDrag<
@@ -149,6 +163,54 @@ export default function TilesPanelTab<TabType extends string>({
       }, 50);
     }
   }, [activeTabScrollIntoView, isActive]);
+
+  const setTabHoverIndicator = useCallback(() => {
+    const tabRect = tabRef.current?.getBoundingClientRect();
+
+    if (!tabRect || !parentRect) {
+      return;
+    }
+
+    const { height, width } = tabRect;
+
+    setPosition({
+      height,
+      left: tabRect.left - parentRect.left,
+      top: tabRect.top - parentRect.top,
+      width,
+    });
+  }, [parentRect, setPosition]);
+
+  useEffect(() => {
+    const dragId = getDragId({
+      panelId,
+      tabId,
+    });
+
+    if (isDragging) {
+      if (draggedItemId !== dragId) {
+        setDraggedItemId(dragId);
+        setTabHoverIndicator();
+      }
+    } else if (draggedItemId === dragId) {
+      setDraggedItemId(null);
+    }
+  }, [
+    draggedItemId,
+    isDragging,
+    panelId,
+    parentRect,
+    setDraggedItemId,
+    setPosition,
+    setTabHoverIndicator,
+    tabId,
+  ]);
+
+  useEffect(() => {
+    if (isOver) {
+      setTabHoverIndicator();
+    }
+  }, [isOver, setTabHoverIndicator]);
 
   return (
     <div
