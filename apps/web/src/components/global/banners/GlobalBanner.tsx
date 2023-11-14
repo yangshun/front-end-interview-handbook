@@ -18,16 +18,64 @@ import logEvent from '~/logging/logEvent';
 import { useUserPreferences } from '../UserPreferencesProvider';
 import { useUserProfile } from '../UserProfileProvider';
 
-export default function GlobalBanner({
-  variant = 'special',
-}: Readonly<{
-  variant?: 'primary' | 'special';
-}>) {
+export default function GlobalBanner() {
   const { userProfile, isUserProfileLoading } = useUserProfile();
   const { setShowGlobalBanner } = useUserPreferences();
   const isPremium = userProfile?.isPremium ?? false;
 
-  const saleMessage = (
+  const seasonalSaleMessage = (
+    <FormattedMessage
+      defaultMessage="<discount>Get {discountPercentage}% off all plans with {promoCode}</discount> or check out other <promotion>promotions</promotion>"
+      description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
+      id="XCPiLe"
+      values={{
+        discount: (chunks) => (
+          <Anchor
+            className="whitespace-nowrap font-medium"
+            href="/pricing"
+            underline={true}
+            variant="flat"
+            onClick={() => {
+              gtag.event({
+                action: `global.banner.discount.click`,
+                category: 'engagement',
+                label: 'Grab your discount today',
+              });
+              logEvent('click', {
+                element: 'Promo banner',
+                label: 'Grab your discount today',
+              });
+            }}>
+            {chunks}
+          </Anchor>
+        ),
+        discountPercentage: 20,
+        promoCode: 'LAUNCH20',
+        promotion: (chunks) => (
+          <Anchor
+            className="whitespace-nowrap font-medium"
+            href="/promotions"
+            underline={true}
+            variant="flat"
+            onClick={() => {
+              gtag.event({
+                action: `global.banner.promotions.click`,
+                category: 'engagement',
+                label: 'promotions',
+              });
+              logEvent('click', {
+                element: 'Promo banner',
+                label: 'Promotions',
+              });
+            }}>
+            {chunks}
+          </Anchor>
+        ),
+      }}
+    />
+  );
+
+  const _perpetualSaleMessage = (
     <FormattedMessage
       defaultMessage="Get {discountPercentage}% off the annual plan with the code {promoCode}, <discount>grab your discount today</discount> or check out other <promotion>promotions</promotion>"
       description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
@@ -117,9 +165,9 @@ export default function GlobalBanner({
         'sticky top-0 z-30 w-full',
       )}>
       <Banner
-        className="h-14 lg:h-auto"
+        className={clsx('h-14 lg:h-auto')}
         size="xs"
-        variant={variant}
+        variant="primary"
         onHide={() => {
           setShowGlobalBanner(false);
         }}>
@@ -129,7 +177,7 @@ export default function GlobalBanner({
             isUserProfileLoading ? 'opacity-0' : 'opacity-100',
           )}
           suppressHydrationWarning={true}>
-          {isPremium ? weAreHiringMessage : saleMessage}
+          {isPremium ? weAreHiringMessage : seasonalSaleMessage}
         </span>
       </Banner>
     </div>
