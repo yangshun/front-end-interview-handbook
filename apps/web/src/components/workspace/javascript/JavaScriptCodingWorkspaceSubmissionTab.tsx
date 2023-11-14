@@ -1,9 +1,9 @@
 import { trpc } from '~/hooks/trpc';
 
 import Timestamp from '~/components/common/Timestamp';
-import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionLanguages from '~/components/interviews/questions/metadata/QuestionLanguages';
+import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Prose from '~/components/ui/Prose';

@@ -8,8 +8,8 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeRadialGlowBackground } from '~/components/ui/theme';
 
-import MarketingSectionHeader from '../../common/marketing/MarketingSectionHeader';
 import { QuestionCount } from '../questions/listings/stats/QuestionCount';
+import MarketingSectionHeader from '../../common/marketing/MarketingSectionHeader';
 
 export default function MarketingFeaturedQuestions({
   javaScriptQuestions,

@@ -1,5 +1,5 @@
-import FeedbackWidget from '~/components/global/feedback/FeedbackWidget';
 import GlobalBanner from '~/components/global/banners/GlobalBanner';
+import FeedbackWidget from '~/components/global/feedback/FeedbackWidget';
 import Footer from '~/components/global/Footer';
 import Navbar from '~/components/global/navbar/NavbarImpl';
 import Section from '~/components/ui/Heading/HeadingContext';
