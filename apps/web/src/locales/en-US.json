@@ -83,10 +83,6 @@
     "defaultMessage": "3 simple steps to start earning",
     "description": "Title for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
   },
-  "/kX3pv": {
-    "defaultMessage": "We have a large bank of {projectCount}+ projects organized in 3 structured ways to help you achieve your objectives.",
-    "description": "Subtitle of the 'Build towards your goals' marketing section on Projects Homepage"
-  },
   "032cio": {
     "defaultMessage": "Move line up",
     "description": "Text describing command to move lines up in the coding workspace shortcuts menu"
@@ -426,6 +422,10 @@
   "6kLEK7": {
     "defaultMessage": "Common mistakes you should avoid.",
     "description": "Comon mistakes to avoid during system design interviews"
+  },
+  "6vsplp": {
+    "defaultMessage": "You're here to learn skills",
+    "description": "Title of the 'Skill tree' marketing section on Projects home page"
   },
   "6w1Z0V": {
     "defaultMessage": "Practice Questions",
@@ -831,6 +831,10 @@
     "defaultMessage": "(Save {discountPercentage}% vs monthly)",
     "description": "Save more compared to monthly plan."
   },
+  "E2hv0Z": {
+    "defaultMessage": "<bold>{value}</bold>/{total} projects",
+    "description": "Rep count label in Projects"
+  },
   "E6yHUQ": {
     "defaultMessage": "Evaluation Axes",
     "description": "Evaluation axes in front end system design interviews"
@@ -915,6 +919,10 @@
     "defaultMessage": "General",
     "description": "Title for FAQ section"
   },
+  "FUjO3W": {
+    "defaultMessage": "Build entire design systems or component libraries with our Component Tracks",
+    "description": "Heading of the 'Component tracks' marketing section on Projects home page"
+  },
   "FcKhvG": {
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch and practice the questions where algorithmic efficiency is key.",
     "description": "Description for interview preparation focus area"
@@ -966,10 +974,6 @@
   "Gjy+Iy": {
     "defaultMessage": "Preparation Guide",
     "description": "Front End interview preparation guide"
-  },
-  "GncBti": {
-    "defaultMessage": "Build towards your goals",
-    "description": "Heading of the 'Build towards your goals' marketing section on Projects Homepage"
   },
   "Gttxsq": {
     "defaultMessage": "Try these popular Svelte questions",
@@ -1167,6 +1171,10 @@
     "defaultMessage": "Try these popular Angular questions",
     "description": "Title for featured questions section"
   },
+  "Jyrm8/": {
+    "defaultMessage": "You're here for portfolio or side projects",
+    "description": "Title of the 'Component tracks' marketing section on Projects home page"
+  },
   "K/Nz6V": {
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation Quiz page"
@@ -1363,6 +1371,14 @@
     "defaultMessage": "Learn practical front end skills by building projects guided by a skills progression roadmap",
     "description": "Subtitle for Projects marketing hero section for beginners"
   },
+  "Mw/xN0": {
+    "defaultMessage": "Label for \"Completed projects\" progress bar of a Projects component track",
+    "description": "{value} out of {total} projects"
+  },
+  "MwvhTF": {
+    "defaultMessage": "See whole component track",
+    "description": "Label for \"See whole component track\" button in Component track accordion"
+  },
   "MyaXLl": {
     "defaultMessage": "Practice Top CSS Front End Interview Questions with Solutions",
     "description": "SEO title for CSS questions list page"
@@ -1467,6 +1483,10 @@
     "defaultMessage": "Overview",
     "description": "Overview of behavioral interview"
   },
+  "OfeY0a": {
+    "defaultMessage": "View all {trackCount} component tracks",
+    "description": "Label of 'Component tracks' view all button in Projects home page"
+  },
   "Ol7K0w": {
     "defaultMessage": "You are on the <bold>Quarterly</bold> plan.",
     "description": "Text describing user's subscription plan."
@@ -1570,10 +1590,6 @@
   "Q7EpE5": {
     "defaultMessage": "HTML Questions",
     "description": "HTML questions category long title"
-  },
-  "QFZn7J": {
-    "defaultMessage": "Wide variety of projects",
-    "description": "Title of the 'Build towards your goals' marketing section on Projects Homepage"
   },
   "QHtJPS": {
     "defaultMessage": "Practice end-to-end",
@@ -1727,6 +1743,10 @@
     "defaultMessage": "Practice developing inclusive and accessible web experiences.",
     "description": "Description for interview preparation focus area"
   },
+  "Sl00sj": {
+    "defaultMessage": "Explore {skillCount}+ more skills",
+    "description": "Label of 'Skill tree' view all button in Projects home page"
+  },
   "SuWvZa": {
     "defaultMessage": "Monthly plan",
     "description": "Title of monthly pricing plan"
@@ -1734,6 +1754,10 @@
   "T3JUSj": {
     "defaultMessage": "Master the art of building interactive and user-friendly forms by exploring various form components, validation techniques, and handling form submissions.",
     "description": "Description for interview preparation focus area"
+  },
+  "T7+/5t": {
+    "defaultMessage": "Use our Skills Tree to train a holistic front end skill set",
+    "description": "Heading of the 'Skill tree' marketing section on Projects home page"
   },
   "T8HWQC": {
     "defaultMessage": "Practice developing inclusive and accessible web experiences, a skill which differentiates senior from junior front end engineers.",
@@ -1826,6 +1850,14 @@
   "UXNTcT": {
     "defaultMessage": "India",
     "description": "India country"
+  },
+  "Udnya7": {
+    "defaultMessage": "{repCount} rep",
+    "description": "Rep count label in Projects"
+  },
+  "UelR8r": {
+    "defaultMessage": "Build towards your goals",
+    "description": "Heading of the 'Build towards your goals' marketing section on Projects home page"
   },
   "UiHdWK": {
     "defaultMessage": "Study plan to prepare for front end interviews in 1 week",
@@ -2151,6 +2183,10 @@
     "defaultMessage": "Reset password",
     "description": "Title of Password Reset page"
   },
+  "aWL34G": {
+    "defaultMessage": "Premium",
+    "description": "Label on Premium badge to indicate premium-only access"
+  },
   "aYUexA": {
     "defaultMessage": "The great way to prepare for Front End Interviews",
     "description": "Title of GreatFrontEnd standard page"
@@ -2250,10 +2286,6 @@
   "bxZm1S": {
     "defaultMessage": "User Interface Questions",
     "description": "Title for an example list of User Interface Questions on marketing pages"
-  },
-  "bzUPHh": {
-    "defaultMessage": "Use our Skills Tree to train a holistic front end skill set",
-    "description": "Heading of the 'Skill tree' marketing section on Projects Homepage"
   },
   "c2bsgM": {
     "defaultMessage": "For Experienced",
@@ -2386,10 +2418,6 @@
   "e+03Yz": {
     "defaultMessage": "Try out some Front End questions!",
     "description": "Subtext for call to action when no questions are completed."
-  },
-  "eBZAnY": {
-    "defaultMessage": "Find projects and curated resources to advance your skills all the way from beginner to senior engineer. Train a well-rounded skillset including full stack and AI skills.",
-    "description": "Subtitle of the 'Skill tree' marketing section on Projects Homepage"
   },
   "eBp6vh": {
     "defaultMessage": "Reset Progress",
@@ -2783,6 +2811,10 @@
     "defaultMessage": "Try these popular JavaScript questions",
     "description": "Title for featured questions section"
   },
+  "khoims": {
+    "defaultMessage": "We have a large bank of {projectCount}+ projects organized in 3 structured ways to help you achieve your objectives.",
+    "description": "Subtitle of the 'Build towards your goals' marketing section on Projects home page"
+  },
   "kmShy2": {
     "defaultMessage": "Changes to how study plan progress is calculated",
     "description": "Message about changes to study plans"
@@ -2926,6 +2958,10 @@
   "mOk1w0": {
     "defaultMessage": "Prepare end-to-end for front end interviews",
     "description": "Title for question format category links in navbar"
+  },
+  "mae10q": {
+    "defaultMessage": "Impress recruiters with entire component libraries or design systems build from scratch. Our component tracks cover components from various use cases and industries.",
+    "description": "Subtitle of the 'Component tracks' marketing section on Projects home page"
   },
   "mb7erW": {
     "defaultMessage": "Importance",
@@ -3227,6 +3263,10 @@
     "defaultMessage": "Notify Me",
     "description": "Button label for a newsletter subscription section"
   },
+  "s5GdUb": {
+    "defaultMessage": "Find projects and curated resources to advance your skills all the way from beginner to senior engineer. Train a well-rounded skillset including full stack and AI skills.",
+    "description": "Subtitle of the 'Skill tree' marketing section on Projects home page"
+  },
   "s7CwKz": {
     "defaultMessage": "Behavioral Interview Study Guides",
     "description": "Behavioral interview study guides"
@@ -3362,10 +3402,6 @@
   "uDUEmN": {
     "defaultMessage": "JS functions, algorithms, building components, etc.",
     "description": "Description of coding questions"
-  },
-  "uEmQR4": {
-    "defaultMessage": "You're here to learn skills",
-    "description": "Title of the 'Skill tree' marketing section on Projects Homepage"
   },
   "uM5kA8": {
     "defaultMessage": "Toggle line comment",
@@ -3546,6 +3582,10 @@
   "xsaQ0d": {
     "defaultMessage": "Student Discount",
     "description": "Promotion title"
+  },
+  "y0zT5M": {
+    "defaultMessage": "Wide variety of projects",
+    "description": "Title of the 'Build towards your goals' marketing section on Projects home page"
   },
   "y16Lzt": {
     "defaultMessage": "Find out what questions companies are asking their candidates.",
