@@ -1,4 +1,4 @@
-export default function toggle<T>(...values: Array<T>): () => T {
+export default function cycle<T>(...values: Array<T>): () => T {
   let index = -1;
 
   return () => {

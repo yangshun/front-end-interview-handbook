@@ -947,6 +947,33 @@
   },
   {
     "author": null,
+    "companies": [],
+    "created": 1699488000,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "Implement a function that takes one or more values and returns a function that cycles through those values each time it is called",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/cycle",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": false,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "cycle",
+    "subtitle": null,
+    "title": "Cycle",
+    "topics": []
+  },
+  {
+    "author": null,
     "companies": [
       "soundcloud"
     ],
@@ -4309,33 +4336,6 @@
     "slug": "todo-list",
     "subtitle": null,
     "title": "Todo List",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
-    "created": 1699488000,
-    "difficulty": "easy",
-    "duration": 15,
-    "excerpt": "Implement a function that takes one or more values and returns a function that toggles between those values each time it's called.",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/toggle",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": false,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "toggle",
-    "subtitle": null,
-    "title": "Toggle",
     "topics": []
   },
   {

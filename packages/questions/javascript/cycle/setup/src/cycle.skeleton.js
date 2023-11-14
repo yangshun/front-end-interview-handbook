@@ -4,6 +4,6 @@
  *
  * @returns () => T
  */
-export default function toggle(...values) {
+export default function cycle(...values) {
   throw 'Not implemented';
 }

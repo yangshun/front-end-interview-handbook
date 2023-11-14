@@ -1,10 +1,4 @@
-/**
- * @template T
- * @param  {...T} values
- *
- * @returns () => T
- */
-export default function toggle(...values) {
+export default function cycle<T>(...values: Array<T>): () => T {
   let index = 0;
 
   return () => {
