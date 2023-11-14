@@ -18,14 +18,12 @@ import QuestionMetadataSection from '../../metadata/QuestionMetadataSection';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;
-  hasCompletedQuestion: boolean;
   isQuestionLocked: boolean;
   question: QuestionBase;
 }>;
 
 export default function QuestionContentsSystemDesign({
   canViewPremiumContent,
-  hasCompletedQuestion,
   isQuestionLocked,
   question,
 }: Props) {
@@ -39,10 +37,22 @@ export default function QuestionContentsSystemDesign({
   return (
     <article ref={copyRef} className="space-y-8">
       <div className="grid gap-y-8">
-        <header>
-          <Heading className="flex items-center gap-x-2" level="heading4">
-            <span>{metadata.title}</span>
-            {hasCompletedQuestion && (
+        <header className="flex flex-wrap items-center gap-4">
+          <Heading className="inline-flex" level="heading4">
+            {metadata.title}
+          </Heading>
+          <div className="flex gap-2">
+            {metadata.premium && (
+              <Badge
+                label={intl.formatMessage({
+                  defaultMessage: 'Premium',
+                  description: 'Premium content',
+                  id: 'gIeLON',
+                })}
+                variant="special"
+              />
+            )}
+            {questionProgress?.status === 'complete' && (
               <Badge
                 label={intl.formatMessage({
                   defaultMessage: 'Completed',
@@ -53,7 +63,7 @@ export default function QuestionContentsSystemDesign({
                 variant="success"
               />
             )}
-          </Heading>
+          </div>
         </header>
         <div className="flex justify-between">
           <Section>

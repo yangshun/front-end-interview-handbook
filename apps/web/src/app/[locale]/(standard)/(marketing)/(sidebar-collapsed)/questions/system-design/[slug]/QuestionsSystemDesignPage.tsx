@@ -84,7 +84,6 @@ export default function QuestionsSystemDesignPage({
           <QuestionContentsSystemDesign
             key={question.metadata.slug}
             canViewPremiumContent={canViewPremiumContent}
-            hasCompletedQuestion={false}
             isQuestionLocked={isQuestionLocked}
             question={question}
           />

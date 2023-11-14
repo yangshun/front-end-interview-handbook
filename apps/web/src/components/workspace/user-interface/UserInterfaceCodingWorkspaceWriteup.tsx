@@ -118,6 +118,17 @@ export default function UserInterfaceCodingWorkspaceWriteup({
                 {metadata.title} {contentType === 'solution' && ' Solution'}
               </span>
             </Heading>
+            {metadata.premium && (
+              <Badge
+                label={intl.formatMessage({
+                  defaultMessage: 'Premium',
+                  description: 'Premium content',
+                  id: 'gIeLON',
+                })}
+                size="sm"
+                variant="special"
+              />
+            )}
             <div>
               {questionProgress?.status === 'complete' && (
                 <Badge

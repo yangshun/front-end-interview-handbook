@@ -37,20 +37,29 @@ export default function JavaScriptCodingWorkspaceDescription({
           <div className="flex items-center justify-between gap-x-4">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <Heading level="heading5">{metadata.title}</Heading>
-              <div>
-                {questionProgress?.status === 'complete' && (
-                  <Badge
-                    label={intl.formatMessage({
-                      defaultMessage: 'Completed',
-                      description:
-                        'Label indicating that the question has been completed',
-                      id: 'iIQL6V',
-                    })}
-                    size="sm"
-                    variant="success"
-                  />
-                )}
-              </div>
+              {metadata.premium && (
+                <Badge
+                  label={intl.formatMessage({
+                    defaultMessage: 'Premium',
+                    description: 'Premium content',
+                    id: 'gIeLON',
+                  })}
+                  size="sm"
+                  variant="special"
+                />
+              )}
+              {questionProgress?.status === 'complete' && (
+                <Badge
+                  label={intl.formatMessage({
+                    defaultMessage: 'Completed',
+                    description:
+                      'Label indicating that the question has been completed',
+                    id: 'iIQL6V',
+                  })}
+                  size="sm"
+                  variant="success"
+                />
+              )}
             </div>
           </div>
           <QuestionMetadataSection metadata={metadata} />
