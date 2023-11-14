@@ -39,7 +39,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
           isDisabled={status !== 'idle'}
           label="Run"
           size="xs"
-          tooltip="Run against test cases (customizable)"
+          tooltip="Run test cases (customizable)"
           tooltipPosition="above"
           variant="secondary"
           onClick={() => {
@@ -56,7 +56,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
         isDisabled={status !== 'idle'}
         label="Submit"
         size="xs"
-        tooltip="Run against full test suite"
+        tooltip="Runs submission test cases and marks complete"
         tooltipPosition="above"
         variant="primary"
         onClick={() => {

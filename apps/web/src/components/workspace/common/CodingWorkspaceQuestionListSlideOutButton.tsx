@@ -14,6 +14,8 @@ export default function CodingWorkspaceQuestionListSlideOutButton() {
         icon={RiListUnordered}
         label="All Questions"
         size="xs"
+        tooltip="View questions list"
+        tooltipPosition="above"
         variant="secondary"
         onClick={() => setShowQuestionsSlideOut(true)}
       />
