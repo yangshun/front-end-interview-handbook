@@ -1,7 +1,7 @@
 import assert from 'assert';
 import fs from 'fs';
 import glob from 'glob';
-import lodash from 'lodash';
+import lodash from 'lodash-es';
 import nullthrows from 'nullthrows';
 import path from 'path';
 

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { Console } from 'console-feed';
 import type { Variants } from 'console-feed/lib/definitions/Component';
 import type { Methods } from 'console-feed/lib/definitions/Methods';
-import { range } from 'lodash';
+import { range } from 'lodash-es';
 import type { UIEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import {

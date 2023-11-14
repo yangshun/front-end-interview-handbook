@@ -1,6 +1,6 @@
 import chalk from 'chalk';
 import chokidar from 'chokidar';
-import _ from 'lodash';
+import _ from 'lodash-es';
 import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
 

@@ -131,7 +131,7 @@
     "eslint-config-next": "13.4.19",
     "glob": "^8.1.0",
     "jest": "^29.5.0",
-    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
     "next-sitemap": "^3.1.52",
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",

@@ -1,7 +1,7 @@
 /* eslint-disable sort-keys-fix/sort-keys-fix */
 import fs from 'fs';
 import glob from 'glob';
-import lodash from 'lodash';
+import lodash from 'lodash-es';
 import path from 'path';
 
 import type { QuestionFramework } from '~/components/interviews/questions/common/QuestionsTypes';
