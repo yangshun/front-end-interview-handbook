@@ -12,7 +12,7 @@ for (const property in obj) {
 }
 ```
 
-The `for...in` statement iterates over all the object's **enumerable** properties (including inherited enumerable properties). Hence most of the time you should should check whether the property exists on directly on the object via `Object.hasOwn(object, property)` before using it.
+The `for...in` statement iterates over all the object's **enumerable** properties (including inherited enumerable properties). Hence most of the time you should check whether the property exists on directly on the object via `Object.hasOwn(object, property)` before using it.
 
 ```js
 for (const property in obj) {
