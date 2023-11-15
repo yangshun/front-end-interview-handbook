@@ -97,8 +97,7 @@ function UserInterfaceCodingWorkspaceImpl({
   };
 
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
-  const { dispatch, getTabById, queryTabByPattern } =
-    useUserInterfaceCodingWorkspaceTilesContext();
+  const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
   const { sandpack } = useSandpack();
   const { activeFile, visibleFiles, files } = sandpack;
 
@@ -177,67 +176,18 @@ function UserInterfaceCodingWorkspaceImpl({
       },
     });
 
-    const result = getTabById(tabIdForFile);
-
-    // File is already open. Just have to make it active.
-    if (result != null) {
-      dispatch({
-        payload: {
-          tabId: result.tabId,
-        },
-        type: 'tab-set-active',
-      });
-
-      return;
-    }
-
-    if (fromFilePath != null) {
-      const fromFileTab = getTabById(codingWorkspaceTabFileId(fromFilePath));
-
-      if (fromFileTab != null) {
-        // Open in the same panel as the source file.
-        dispatch({
-          payload: {
-            newTabCloseable: true,
-            newTabId: tabIdForFile,
-            newTabPosition: 'after',
-            panelId: fromFileTab.panelId,
-            tabId: fromFileTab.tabId,
-          },
-          type: 'tab-open',
-        });
-
-        return;
-      }
-    }
-
-    const otherCodeTabs = queryTabByPattern(codingWorkspaceTabFilePattern);
-
-    if (otherCodeTabs.length > 0) {
-      dispatch({
-        payload: {
-          newTabCloseable: true,
-          newTabId: tabIdForFile,
-          panelId: otherCodeTabs[0].panelId,
-        },
-        type: 'tab-open',
-      });
-
-      return;
-    }
-
-    const fileExplorerTab = getTabById('file_explorer');
-
-    if (fileExplorerTab != null) {
-      dispatch({
-        payload: {
-          newTabCloseable: true,
-          newTabId: tabIdForFile,
-          panelId: fileExplorerTab?.panelId,
-        },
-        type: 'tab-open',
-      });
-    }
+    dispatch({
+      payload: {
+        fallbackNeighborTabId: 'file_explorer',
+        openBesideTabId:
+          fromFilePath != null
+            ? codingWorkspaceTabFileId(fromFilePath)
+            : undefined,
+        tabCategoryPattern: codingWorkspaceTabFilePattern,
+        tabId: tabIdForFile,
+      },
+      type: 'tab-set-active-otherwise-open',
+    });
   }
 
   const frameworkSolutionPath = questionUserInterfaceSolutionPath(

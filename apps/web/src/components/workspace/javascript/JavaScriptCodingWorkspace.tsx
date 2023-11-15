@@ -88,8 +88,7 @@ function JavaScriptCodingWorkspaceImpl({
   workspace: QuestionJavaScriptWorkspace;
 }>) {
   const { description, metadata, solution } = question;
-  const { dispatch, getTabById, queryTabByPattern } =
-    useJavaScriptCodingWorkspaceTilesContext();
+  const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
 
   const copyRef = useQuestionLogEventCopyContents<HTMLDivElement>();
 
@@ -122,61 +121,6 @@ function JavaScriptCodingWorkspaceImpl({
 
   useMonacoEditorModels(monaco, files);
 
-  const openTabIfNotExists = useCallback(
-    ({
-      fallbackNeighborTabId,
-      tabId,
-      tabTypePattern,
-    }: {
-      fallbackNeighborTabId: JavaScriptCodingWorkspaceTabsType;
-      tabId: JavaScriptCodingWorkspaceTabsType;
-      tabTypePattern: RegExp;
-    }) => {
-      const result = getTabById(tabId);
-
-      // Submission is already open. Just have to make it active.
-      if (result != null) {
-        dispatch({
-          payload: {
-            tabId: result.tabId,
-          },
-          type: 'tab-set-active',
-        });
-
-        return;
-      }
-
-      const otherSubmissionTabs = queryTabByPattern(tabTypePattern);
-
-      if (otherSubmissionTabs.length > 0) {
-        dispatch({
-          payload: {
-            newTabCloseable: true,
-            newTabId: tabId,
-            panelId: otherSubmissionTabs[0].panelId,
-          },
-          type: 'tab-open',
-        });
-
-        return;
-      }
-
-      const fallbackNeighborTab = getTabById(fallbackNeighborTabId);
-
-      if (fallbackNeighborTab != null) {
-        dispatch({
-          payload: {
-            newTabCloseable: true,
-            newTabId: tabId,
-            panelId: fallbackNeighborTab?.panelId,
-          },
-          type: 'tab-open',
-        });
-      }
-    },
-    [dispatch, getTabById, queryTabByPattern],
-  );
-
   function openSubmission(submissionId: string) {
     const tabIdForSubmission = codingWorkspaceTabSubmissionId(submissionId);
 
@@ -194,10 +138,13 @@ function JavaScriptCodingWorkspaceImpl({
       },
     });
 
-    openTabIfNotExists({
-      fallbackNeighborTabId: 'description',
-      tabId: tabIdForSubmission,
-      tabTypePattern: codingWorkspaceTabSubmissionPattern,
+    dispatch({
+      payload: {
+        fallbackNeighborTabId: 'description',
+        tabCategoryPattern: codingWorkspaceTabSubmissionPattern,
+        tabId: tabIdForSubmission,
+      },
+      type: 'tab-set-active-otherwise-open',
     });
   }
 
@@ -218,10 +165,13 @@ function JavaScriptCodingWorkspaceImpl({
       },
     });
 
-    openTabIfNotExists({
-      fallbackNeighborTabId: 'community_solutions',
-      tabId: tabIdForCommunitySolution,
-      tabTypePattern: codingWorkspaceTabCommunitySolutionPattern,
+    dispatch({
+      payload: {
+        fallbackNeighborTabId: 'community_solutions',
+        tabCategoryPattern: codingWorkspaceTabCommunitySolutionPattern,
+        tabId: tabIdForCommunitySolution,
+      },
+      type: 'tab-set-active-otherwise-open',
     });
   }
 

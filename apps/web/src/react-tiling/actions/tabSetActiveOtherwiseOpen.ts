@@ -16,7 +16,7 @@ export type TilesActionTabSetActiveOtherwiseOpen<TabType> = Readonly<{
     // Open beside this tab.
     openBesideTabId?: TabType;
     // RegExp for tabs of the same category.
-    tabCategoryPattern: RegExp;
+    tabCategoryPattern?: RegExp;
     tabId: TabType;
   }>;
   type: 'tab-set-active-otherwise-open';
