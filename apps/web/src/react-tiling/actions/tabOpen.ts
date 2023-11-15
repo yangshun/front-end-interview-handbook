@@ -1,7 +1,7 @@
 import type { TilesPanelConfig } from '../types';
 import getUniqueId from '../utils/getUniqueId';
 
-type NewTabPosition = 'after' | 'before';
+export type NewTabPosition = 'after' | 'before';
 
 export type TilesActionTabOpen<TabType> = Readonly<{
   payload: Readonly<{

@@ -9,6 +9,7 @@ import type { TilesActionTabClose } from './tabClose';
 import type { TilesActionTabDrop } from './tabDrop';
 import type { TilesActionTabOpen } from './tabOpen';
 import type { TilesActionTabSetActive } from './tabSetActive';
+import type { TilesActionTabSetActiveOtherwiseOpen } from './tabSetActiveOtherwiseOpen';
 
 export type TilesAction<TabType extends string> =
   | TilesActionLayoutChange<TabType>
@@ -21,4 +22,5 @@ export type TilesAction<TabType extends string> =
   | TilesActionTabClose<TabType>
   | TilesActionTabDrop<TabType>
   | TilesActionTabOpen<TabType>
-  | TilesActionTabSetActive<TabType>;
+  | TilesActionTabSetActive<TabType>
+  | TilesActionTabSetActiveOtherwiseOpen<TabType>;

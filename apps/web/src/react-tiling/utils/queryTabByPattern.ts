@@ -1,6 +1,6 @@
 import type { TilesPanelConfig } from '../types';
 
-export default function queryTabByPattern<TabType extends string>(
+export default function queryTabByPattern<TabType>(
   tiles: TilesPanelConfig<TabType>,
   regex: RegExp,
 ): ReadonlyArray<Readonly<{ panelId: string; tabId: TabType }>> {
@@ -8,7 +8,7 @@ export default function queryTabByPattern<TabType extends string>(
 
   if (tiles.type === 'item') {
     tiles.tabs.forEach(({ id }) => {
-      if (regex.test(id)) {
+      if (regex.test(String(id))) {
         matchedTabs.push({
           panelId: tiles.id,
           tabId: id,

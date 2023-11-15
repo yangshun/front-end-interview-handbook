@@ -17,6 +17,7 @@ import tabClose from '../actions/tabClose';
 import tabDrop from '../actions/tabDrop';
 import tabOpen from '../actions/tabOpen';
 import tabSetActive from '../actions/tabSetActive';
+import tabSetActiveOtherwiseOpen from '../actions/tabSetActiveOtherwiseOpen';
 import type { TilesPanelConfig } from '../types';
 import getTabById from '../utils/getTabById';
 import queryTabByPattern from '../utils/queryTabByPattern';
@@ -55,6 +56,9 @@ function reducer<TabType extends string>(
     }
     case 'tab-set-active': {
       return tabSetActive(tiles, action.payload);
+    }
+    case 'tab-set-active-otherwise-open': {
+      return tabSetActiveOtherwiseOpen(tiles, action.payload);
     }
     case 'tab-drop': {
       return tabDrop(tiles, action.payload);
