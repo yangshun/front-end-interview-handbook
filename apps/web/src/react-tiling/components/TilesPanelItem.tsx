@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { RiAddLine, RiExpandLeftRightFill } from 'react-icons/ri';
 import type {
   ImperativePanelHandle,
@@ -20,10 +20,8 @@ import {
 import TilesPanelActions from './TilesPanelActions';
 import TilesPanelBody from './TilesPanelBody';
 import TilesPanelTabsSection from './TilesPanelTabsSection';
-import { useDragHighlightContext } from '../state/useDragHighlightContext';
 import { useTilesContext } from '../state/useTilesContext';
 import type { TilesPanelItemTab } from '../types';
-import getDragId from '../utils/getDragId';
 
 const MAXIMUM_LEVEL_FOR_SPLITTING = 2;
 
@@ -62,10 +60,7 @@ export default function TilesPanelItem<TabType extends string>({
   tabs: ReadonlyArray<TilesPanelItemTab<TabType>>;
 }>) {
   const { dispatch } = useTilesContext();
-  const { setPosition, parentRect, draggedItemId, setDraggedItemId } =
-    useDragHighlightContext();
   const ref = useRef<ImperativePanelHandle>(null);
-  const [isPanelDragging, setIsPanelDragging] = useState(false);
 
   useEffect(() => {
     if (!collapsible) {
@@ -99,37 +94,6 @@ export default function TilesPanelItem<TabType extends string>({
     order,
     ref,
   };
-
-  useEffect(() => {
-    const panelDragId = getDragId({
-      panelId,
-    });
-
-    if (isPanelDragging) {
-      const panelRect = panelRef.current?.getBoundingClientRect();
-
-      if (panelRect && parentRect && draggedItemId !== panelDragId) {
-        const { width, height } = panelRect;
-
-        setPosition({
-          height,
-          left: panelRect.left - parentRect.left,
-          top: panelRect.top - parentRect.top,
-          width,
-        });
-        setDraggedItemId(panelDragId);
-      }
-    } else if (draggedItemId === panelDragId) {
-      setDraggedItemId(null);
-    }
-  }, [
-    draggedItemId,
-    isPanelDragging,
-    panelId,
-    parentRect,
-    setDraggedItemId,
-    setPosition,
-  ]);
 
   const mode: TilesPanelItemMode = (() => {
     if (fullScreen) {

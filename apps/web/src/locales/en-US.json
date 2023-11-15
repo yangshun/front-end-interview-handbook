@@ -2011,6 +2011,10 @@
     "defaultMessage": "Premium Feature",
     "description": "Header for paywall over company tagging"
   },
+  "XCPiLe": {
+    "defaultMessage": "<discount>Get {discountPercentage}% off all plans with {promoCode}</discount> or check out other <promotion>promotions</promotion>",
+    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
+  },
   "XS6Jyn": {
     "defaultMessage": "Become an Affiliate",
     "description": "Link to affiliate marketing program page"
@@ -2550,6 +2554,10 @@
   "gDAVYm": {
     "defaultMessage": "Report an issue",
     "description": "Tooltip for button to report an issue"
+  },
+  "gIeLON": {
+    "defaultMessage": "Premium",
+    "description": "Premium content"
   },
   "gNEj/r": {
     "defaultMessage": "Implement various Lodash functions and methods to manipulate and transform data efficiently, a common task given during front end interviews and improve your front end interview readiness.",
