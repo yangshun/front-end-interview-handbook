@@ -12,9 +12,9 @@ export type JavaScriptCodingWorkspacePredefinedTabsType =
   | 'description'
   | 'run_tests'
   | 'solution'
+  | 'submission_test_cases'
   | 'submissions'
-  | 'submit'
-  | 'test_cases';
+  | 'submit';
 export type JavaScriptCodingWorkspaceTabsType =
   | CodingWorkspaceTabCommunitySolutionType
   | CodingWorkspaceTabFileType

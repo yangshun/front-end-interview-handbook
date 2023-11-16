@@ -16,6 +16,7 @@ import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorks
 import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
 import CodingWorkspaceLoadedFilesBanner from '../common/editor/CodingWorkspaceLoadedFilesBanner';
 import MonacoCodeEditor from '../common/editor/MonacoCodeEditor';
+import { codingWorkspaceTabFileId } from '../common/tabs/codingWorkspaceTabId';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 
@@ -81,9 +82,13 @@ export default function JavaScriptCodingWorkspaceCodeEditor({
               onClick={() => {
                 dispatch({
                   payload: {
-                    tabId: 'test_cases',
+                    fallbackNeighborTabId: codingWorkspaceTabFileId(
+                      workspace.main,
+                    ),
+                    openBesideTabId: codingWorkspaceTabFileId(workspace.run),
+                    tabId: 'submission_test_cases',
                   },
-                  type: 'tab-set-active',
+                  type: 'tab-set-active-otherwise-open',
                 });
               }}
             />

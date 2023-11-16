@@ -13,11 +13,6 @@ const solutionTab = {
   id: 'solution',
 } as const;
 
-const submissionTestCasesTab = {
-  closeable: false,
-  id: 'test_cases',
-} as const;
-
 const submissionsTab = {
   closeable: false,
   id: 'submissions',
@@ -75,14 +70,11 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
             collapsible: true,
             defaultSize: 95,
             id: 'right-top',
-            tabs: [
-              ...files.map((file) => ({
-                allowOverflow: true,
-                closeable: false,
-                id: codingWorkspaceTabFileId(file),
-              })),
-              submissionTestCasesTab,
-            ],
+            tabs: files.map((file) => ({
+              allowOverflow: true,
+              closeable: false,
+              id: codingWorkspaceTabFileId(file),
+            })),
             type: 'item',
           },
           {
@@ -131,14 +123,11 @@ export function getJavaScriptCodingWorkspaceLayoutThreeColumns(
         collapsible: true,
         defaultSize: 35,
         id: 'center-column',
-        tabs: [
-          ...files.map((file) => ({
-            allowOverflow: true,
-            closeable: false,
-            id: codingWorkspaceTabFileId(file),
-          })),
-          submissionTestCasesTab,
-        ],
+        tabs: files.map((file) => ({
+          allowOverflow: true,
+          closeable: false,
+          id: codingWorkspaceTabFileId(file),
+        })),
         type: 'item',
       },
       {
@@ -213,7 +202,6 @@ export function getJavaScriptCodingWorkspaceLayoutGrid(
                 closeable: false,
                 id: codingWorkspaceTabFileId(runFile),
               },
-              submissionTestCasesTab,
             ],
             type: 'item',
           },

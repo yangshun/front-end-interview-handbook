@@ -36,7 +36,7 @@ export default function JavaScriptCodingWorkspaceCustomTestCasesBanner() {
           event.preventDefault();
           dispatch({
             payload: {
-              tabId: 'test_cases',
+              tabId: 'submission_test_cases',
             },
             type: 'tab-set-active',
           });

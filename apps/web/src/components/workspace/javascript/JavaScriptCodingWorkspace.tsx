@@ -222,22 +222,7 @@ function JavaScriptCodingWorkspaceImpl({
       icon: CodingWorkspaceTabIcons.solution.icon,
       label: 'Solution',
     },
-    submissions: {
-      contents: <JavaScriptCodingWorkspaceSubmissionList metadata={metadata} />,
-      icon: CodingWorkspaceTabIcons.submissions.icon,
-      label: 'Submissions',
-    },
-    submit: {
-      contents: (
-        <JavaScriptCodingWorkspaceTestsSubmitTab
-          metadata={metadata}
-          specPath={workspace.submit}
-        />
-      ),
-      icon: CodingWorkspaceTabIcons.submit.icon,
-      label: 'Submit',
-    },
-    test_cases: {
+    submission_test_cases: {
       contents: (
         <div className="w-full">
           <div className="mx-auto max-w-3xl p-4">
@@ -250,6 +235,22 @@ function JavaScriptCodingWorkspaceImpl({
       ),
       icon: CodingWorkspaceTabIcons.test_cases_all.icon,
       label: 'Submission tests',
+    },
+    submissions: {
+      contents: <JavaScriptCodingWorkspaceSubmissionList metadata={metadata} />,
+      icon: CodingWorkspaceTabIcons.submissions.icon,
+      label: 'Submissions',
+    },
+    submit: {
+      contents: (
+        <JavaScriptCodingWorkspaceTestsSubmitTab
+          metadata={metadata}
+          openBesideTabId={codingWorkspaceTabFileId(workspace.run)}
+          specPath={workspace.submit}
+        />
+      ),
+      icon: CodingWorkspaceTabIcons.submit.icon,
+      label: 'Submit',
     },
   };
 
@@ -334,6 +335,7 @@ function JavaScriptCodingWorkspaceImpl({
                 )}>
                 <JavaScriptCodingWorkspaceTestsSubmitTab
                   metadata={metadata}
+                  openBesideTabId={codingWorkspaceTabFileId(workspace.run)}
                   specPath={workspace.submit}
                 />
               </div>

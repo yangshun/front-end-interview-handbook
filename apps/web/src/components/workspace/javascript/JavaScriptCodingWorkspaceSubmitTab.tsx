@@ -17,15 +17,18 @@ import { staticUpperCase } from '~/utils/typescript/stringTransform';
 import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
 import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
 import { useCodingWorkspaceContext } from '../common/CodingWorkspaceContext';
+import type { CodingWorkspaceTabFileType } from '../common/tabs/codingWorkspaceTabId';
 import TestsSection from '../common/tests/TestsSection';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
 export default function JavaScriptCodingWorkspaceTestsSubmitTab({
   metadata,
+  openBesideTabId,
   specPath,
 }: Readonly<{
   metadata: QuestionMetadata;
+  openBesideTabId: CodingWorkspaceTabFileType;
   specPath: string;
 }>) {
   const intl = useIntl();
@@ -115,22 +118,26 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
       onShowTestCase={(_, index, specParts) => {
         dispatch({
           payload: {
-            tabId: 'test_cases',
+            fallbackNeighborTabId: openBesideTabId,
+            tabId: 'submission_test_cases',
           },
-          type: 'tab-set-active',
+          type: 'tab-set-active-otherwise-open',
         });
-        JavaScriptTestCodesEmitter.emit('focus_on_test', {
-          filePath: specPath,
-          index,
-          specParts,
-        });
+        setTimeout(() => {
+          JavaScriptTestCodesEmitter.emit('focus_on_test', {
+            filePath: specPath,
+            index,
+            specParts,
+          });
+        }, 0);
       }}
       onShowTestsCases={() => {
         dispatch({
           payload: {
-            tabId: 'test_cases',
+            fallbackNeighborTabId: openBesideTabId,
+            tabId: 'submission_test_cases',
           },
-          type: 'tab-set-active',
+          type: 'tab-set-active-otherwise-open',
         });
       }}
     />
