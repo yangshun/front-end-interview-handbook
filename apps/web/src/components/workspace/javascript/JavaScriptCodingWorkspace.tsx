@@ -10,7 +10,6 @@ import type {
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '~/components/interviews/questions/common/useQuestionLogEventCopyContents';
-import { themeLineColor } from '~/components/ui/theme';
 import { deleteLocalJavaScriptQuestionCode } from '~/components/workspace/javascript/JavaScriptCodingWorkspaceCodeStorage';
 import JavaScriptCodingWorkspaceTestsCode from '~/components/workspace/javascript/JavaScriptCodingWorkspaceTestsCode';
 
@@ -318,28 +317,6 @@ function JavaScriptCodingWorkspaceImpl({
               similarQuestions={[]}
             />
             <JavaScriptCodingWorkspaceSolutionMobile solution={solution} />
-            <div className="mx-auto flex w-full max-w-3xl flex-col gap-y-4 px-4 pb-4 md:gap-y-6">
-              <div
-                className={clsx(
-                  'flex h-[500px] rounded border',
-                  themeLineColor,
-                )}>
-                <JavaScriptCodingWorkspaceCodeEditor
-                  filePath={workspace.main}
-                />
-              </div>
-              <div
-                className={clsx(
-                  'flex h-[300px] rounded border',
-                  themeLineColor,
-                )}>
-                <JavaScriptCodingWorkspaceTestsSubmitTab
-                  metadata={metadata}
-                  openBesideTabId={codingWorkspaceTabFileId(workspace.run)}
-                  specPath={workspace.submit}
-                />
-              </div>
-            </div>
             <JavaScriptCodingWorkspaceBottomBar
               layout={embed ? 'minimal' : 'full'}
               metadata={metadata}

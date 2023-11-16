@@ -30,11 +30,11 @@ export default function CodingWorkspaceBottomBar({
       {leftElements && (
         <div className="flex items-center gap-x-2">{leftElements}</div>
       )}
-      <div className="absolute left-1/2 hidden -translate-x-1/2 md:block">
+      <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2">
         <CodingWorkspaceQuestionListSlideOutButton />
       </div>
       <div className="flex items-center gap-x-2">
-        <div className="hidden md:inline">
+        <div className="hidden lg:inline">
           <CodingWorkspaceTimer />
         </div>
         <QuestionProgressAction

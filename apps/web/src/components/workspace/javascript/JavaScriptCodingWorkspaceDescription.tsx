@@ -33,34 +33,32 @@ export default function JavaScriptCodingWorkspaceDescription({
   return (
     <div className="w-full">
       <div className="mx-auto flex max-w-3xl flex-col gap-y-6 p-4">
-        <div className="flex flex-col gap-y-8">
-          <div className="flex items-center justify-between gap-x-4">
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-              <Heading level="heading5">{metadata.title}</Heading>
-              {metadata.premium && (
-                <Badge
-                  label={intl.formatMessage({
-                    defaultMessage: 'Premium',
-                    description: 'Premium content',
-                    id: 'gIeLON',
-                  })}
-                  size="sm"
-                  variant="special"
-                />
-              )}
-              {questionProgress?.status === 'complete' && (
-                <Badge
-                  label={intl.formatMessage({
-                    defaultMessage: 'Completed',
-                    description:
-                      'Label indicating that the question has been completed',
-                    id: 'iIQL6V',
-                  })}
-                  size="sm"
-                  variant="success"
-                />
-              )}
-            </div>
+        <div className="flex flex-col gap-y-6">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <Heading level="heading5">{metadata.title}</Heading>
+            {metadata.premium && (
+              <Badge
+                label={intl.formatMessage({
+                  defaultMessage: 'Premium',
+                  description: 'Premium content',
+                  id: 'gIeLON',
+                })}
+                size="sm"
+                variant="special"
+              />
+            )}
+            {questionProgress?.status === 'complete' && (
+              <Badge
+                label={intl.formatMessage({
+                  defaultMessage: 'Completed',
+                  description:
+                    'Label indicating that the question has been completed',
+                  id: 'iIQL6V',
+                })}
+                size="sm"
+                variant="success"
+              />
+            )}
           </div>
           <QuestionMetadataSection metadata={metadata} />
         </div>

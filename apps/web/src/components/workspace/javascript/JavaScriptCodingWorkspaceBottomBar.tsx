@@ -51,22 +51,24 @@ export default function JavaScriptCodingWorkspaceBottomBar({
           }}
         />
       </span>
-      <Button
-        addonPosition="start"
-        isDisabled={status !== 'idle'}
-        label="Submit"
-        size="xs"
-        tooltip="Runs submission test cases and marks complete"
-        tooltipPosition="above"
-        variant="primary"
-        onClick={() => {
-          logEvent('question.submit', {
-            format: metadata.format,
-            slug: metadata.slug,
-          });
-          submit();
-        }}
-      />
+      <span className="hidden lg:inline">
+        <Button
+          addonPosition="start"
+          isDisabled={status !== 'idle'}
+          label="Submit"
+          size="xs"
+          tooltip="Runs submission test cases and marks complete"
+          tooltipPosition="above"
+          variant="primary"
+          onClick={() => {
+            logEvent('question.submit', {
+              format: metadata.format,
+              slug: metadata.slug,
+            });
+            submit();
+          }}
+        />
+      </span>
     </>
   );
 
