@@ -56,6 +56,7 @@ export default function TilesPanel<TabType extends string>({
         key={id}
         activeTabId={props.activeTabId}
         collapsed={props.collapsed}
+        collapsedTitle={props.collapsedTitle}
         collapsible={props.collapsible}
         defaultSize={defaultSize}
         fullScreen={props.fullScreen}

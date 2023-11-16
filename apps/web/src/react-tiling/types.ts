@@ -10,6 +10,7 @@ export type TilesPanelItemTab<TabType> = Readonly<{
 export type TilesPanelItemConfig<TabType> = Readonly<{
   activeTabId: TabType | null;
   collapsed?: boolean;
+  collapsedTitle?: string;
   collapsible?: PanelProps['collapsible'];
   defaultSize?: PanelProps['defaultSize'];
   fullScreen?: boolean;
@@ -48,5 +49,5 @@ export type TilesPanelDragItem<TabType> = Readonly<{
 }>;
 
 export type TilesPanelDragPanel = Readonly<{
-  panelId:string;
-}>
+  panelId: string;
+}>;

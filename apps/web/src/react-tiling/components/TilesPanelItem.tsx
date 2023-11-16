@@ -1,6 +1,10 @@
 import clsx from 'clsx';
 import { useEffect, useRef } from 'react';
-import { RiAddLine, RiExpandLeftRightFill } from 'react-icons/ri';
+import {
+  RiAddLine,
+  RiArrowUpSLine,
+  RiExpandLeftRightFill,
+} from 'react-icons/ri';
 import type {
   ImperativePanelHandle,
   PanelGroupProps,
@@ -12,6 +16,7 @@ import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import {
   themeBackgroundColor,
+  themeBackgroundEmphasizedHover,
   themeDivideColor,
   themeLineColor,
   themeTextSubtleColor,
@@ -31,6 +36,7 @@ export default function TilesPanelItem<TabType extends string>({
   activeTabId,
   id: panelId,
   collapsed = false,
+  collapsedTitle,
   collapsible,
   defaultSize = 100,
   fullScreen,
@@ -44,6 +50,7 @@ export default function TilesPanelItem<TabType extends string>({
 }: Readonly<{
   activeTabId: TabType | null;
   collapsed?: boolean;
+  collapsedTitle?: string;
   collapsible?: PanelProps['collapsible'];
   defaultSize?: PanelProps['defaultSize'];
   fullScreen?: boolean;
@@ -171,6 +178,7 @@ export default function TilesPanelItem<TabType extends string>({
 
   const showSplitButton =
     mode === 'default' && level <= MAXIMUM_LEVEL_FOR_SPLITTING;
+  const showCollapsedTitle = collapsed && Boolean(collapsedTitle); // TODO(add special prop)
 
   return (
     <Panel
@@ -186,45 +194,69 @@ export default function TilesPanelItem<TabType extends string>({
       <div ref={panelRef} className="flex h-full w-full flex-col">
         <div
           className={clsx(
-            'flex shrink-0 items-center justify-between px-2',
+            'flex shrink-0 items-center justify-between',
             collapsed ? 'h-full' : 'h-10',
+            !showCollapsedTitle && 'px-2',
           )}>
-          {!collapsed && (
-            <span className={clsx('flex h-full items-center pr-0.5')}>
-              <Button
-                icon={RiAddLine}
-                isLabelHidden={true}
-                label="New tab"
-                size="xs"
-                tooltip="New tab"
-                variant="tertiary"
-                onClick={() => {
-                  dispatch({
-                    payload: {
-                      panelId,
-                    },
-                    type: 'tab-open',
-                  });
-                }}
+          {showCollapsedTitle ? (
+            <button
+              className={clsx(
+                'flex h-full w-full items-center gap-2 px-3 text-left text-xs font-medium transition-colors',
+                themeBackgroundEmphasizedHover,
+              )}
+              type="button"
+              onClick={() => {
+                dispatch({
+                  payload: {
+                    collapsed: false,
+                    panelId,
+                  },
+                  type: 'panel-collapse',
+                });
+              }}>
+              {collapsedTitle}
+              <RiArrowUpSLine aria-hidden={true} className="h-4 w-4 shrink-0" />
+            </button>
+          ) : (
+            <>
+              {!collapsed && (
+                <span className={clsx('flex h-full items-center pr-0.5')}>
+                  <Button
+                    icon={RiAddLine}
+                    isLabelHidden={true}
+                    label="New tab"
+                    size="xs"
+                    tooltip="New tab"
+                    variant="tertiary"
+                    onClick={() => {
+                      dispatch({
+                        payload: {
+                          panelId,
+                        },
+                        type: 'tab-open',
+                      });
+                    }}
+                  />
+                </span>
+              )}
+              <TilesPanelTabsSection
+                activeTabId={activeTabId}
+                getTabLabel={getTabLabel}
+                mode={collapsed ? 'readonly' : 'interactive'}
+                panelId={panelId}
+                tabs={tabs}
               />
-            </span>
+              <div className="flex h-full items-center">
+                <TilesPanelActions
+                  closeable={tabs.every((tab) => tab.closeable)}
+                  mode={mode}
+                  panelId={panelId}
+                  parentDirection={parentDirection}
+                  showSplitButton={showSplitButton}
+                />
+              </div>
+            </>
           )}
-          <TilesPanelTabsSection
-            activeTabId={activeTabId}
-            getTabLabel={getTabLabel}
-            mode={collapsed ? 'readonly' : 'interactive'}
-            panelId={panelId}
-            tabs={tabs}
-          />
-          <div className="flex h-full items-center">
-            <TilesPanelActions
-              closeable={tabs.every((tab) => tab.closeable)}
-              mode={mode}
-              panelId={panelId}
-              parentDirection={parentDirection}
-              showSplitButton={showSplitButton}
-            />
-          </div>
         </div>
         <TilesPanelBody
           allowDropping={!fullScreen}
