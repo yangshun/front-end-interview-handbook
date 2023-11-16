@@ -1,6 +1,6 @@
 import cleanSet from 'clean-set';
 
-import type { Describe, Spec, SuiteResults,Test, TestResults } from './types';
+import type { Describe, Spec, SuiteResults, Test, TestResults } from './types';
 
 export const getTests = (block: Describe | Spec): Array<Test> =>
   Object.values(block.tests ?? {}).concat(
@@ -63,7 +63,8 @@ export const getDuration = (specs: Array<Spec>): number =>
 
 export const isEmpty = (block: Describe | Spec): boolean =>
   Object.values(block.describes ?? {}).length === 0 &&
-  Object.values(block.tests ?? {}).length === 0;
+  Object.values(block.tests ?? {}).length === 0 &&
+  (block as Spec).error == null;
 
 export const splitTail = <A>(as: Array<A>): [Array<A>, A | undefined] => {
   const lastIndex = as.length - 1;

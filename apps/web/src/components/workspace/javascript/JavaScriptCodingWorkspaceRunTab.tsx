@@ -30,6 +30,14 @@ export default function JavaScriptCodingWorkspaceTestsRunTab({
     <TestsSection
       specMode="run"
       specPath={specPath}
+      onFocusConsole={() => {
+        dispatch({
+          payload: {
+            tabId: 'console',
+          },
+          type: 'tab-set-active',
+        });
+      }}
       onShowTestCase={(_, index, specParts) => {
         dispatch({
           payload: {

@@ -11,4 +11,4 @@ export const titleTextClassName = 'text-neutral-500';
 
 export const runBackgroundClassName = 'bg-yellow';
 export const passBackgroundClassName = 'bg-green';
-export const failBackgroundClassName = 'bg-red';
+export const failBackgroundClassName = 'bg-red text-white';

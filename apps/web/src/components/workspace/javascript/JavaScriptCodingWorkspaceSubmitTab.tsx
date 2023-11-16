@@ -115,6 +115,14 @@ export default function JavaScriptCodingWorkspaceTestsSubmitTab({
           }
         }
       }}
+      onFocusConsole={() => {
+        dispatch({
+          payload: {
+            tabId: 'console',
+          },
+          type: 'tab-set-active',
+        });
+      }}
       onShowTestCase={(_, index, specParts) => {
         dispatch({
           payload: {

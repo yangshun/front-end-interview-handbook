@@ -47,6 +47,7 @@ const INITIAL_STATE: State = {
 
 export type Props = Readonly<{
   onComplete?: (outcome: TestsOutcome) => void;
+  onFocusConsole: () => void;
   onShowTestCase: (
     type: SpecMode,
     index: number,
@@ -61,6 +62,7 @@ export default function TestsSection({
   specMode,
   specPath,
   onComplete,
+  onFocusConsole,
   onShowTestsCases,
   onShowTestCase,
 }: Props) {
@@ -136,12 +138,22 @@ export default function TestsSection({
         return;
       }
 
+      if (data.type === 'action' && data.action === 'show-error') {
+        executionComplete();
+
+        return setState((prevState) => ({
+          ...prevState,
+          status: 'error',
+        }));
+      }
+
       if (data.type === 'test') {
         if (data.event === 'initialize_tests') {
           currentDescribeBlocks = [];
           currentSpec = '';
 
-          // There's a pending test run to be executed after the bundler starts up (probably a restart).
+          // There's a pending test run to be executed after the bundler
+          // starts up (probably a restart).
           // Execute the pending test run and remove it...
           if (state.pendingTestRun) {
             const client = getClient();
@@ -534,6 +546,7 @@ export default function TestsSection({
                       openSpec={openSpec}
                       runStatus={state.status}
                       specs={specs}
+                      onFocusConsole={onFocusConsole}
                       onShowTestCase={(index, displayPath) => {
                         onShowTestCase(specMode, index, displayPath);
                       }}

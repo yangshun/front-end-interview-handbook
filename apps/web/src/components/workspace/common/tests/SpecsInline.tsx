@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
+import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeDivideColor } from '~/components/ui/theme';
 
@@ -17,6 +18,7 @@ import type { Spec } from './types';
 import { getSpecTestResults, getTests, isEmpty } from './utils';
 
 type Props = Readonly<{
+  onFocusConsole: () => void;
   onShowTestCase: (index: number, displayPath: Array<string>) => void;
   openSpec: (name: string) => void;
   runStatus: TestsRunStatus;
@@ -29,6 +31,7 @@ export default function SpecsInline({
   showSpecFile = false,
   openSpec,
   runStatus,
+  onFocusConsole,
   onShowTestCase,
 }: Props) {
   return (
@@ -38,17 +41,31 @@ export default function SpecsInline({
         .map((spec) => {
           if (spec.error) {
             return (
-              <div key={spec.name}>
-                <SpecLabel
-                  className={clsx('rounded-sm', failBackgroundClassName)}>
-                  Error
-                </SpecLabel>
-                <FilePath
-                  path={spec.name}
-                  onClick={(): void => openSpec(spec.name)}
-                />
+              <Text
+                key={spec.name}
+                className="flex-col gap-3 gap-y-2 p-3"
+                display="flex"
+                size="body3">
+                <div className="flex items-center">
+                  <SpecLabel
+                    className={clsx('rounded', failBackgroundClassName)}>
+                    Error
+                  </SpecLabel>
+                  <FilePath
+                    path={spec.name}
+                    onClick={(): void => openSpec(spec.name)}
+                  />
+                </div>
                 <FormattedError error={spec.error} path={spec.name} />
-              </div>
+                <div>
+                  <Button
+                    label="Check the console for more information"
+                    size="xs"
+                    variant="secondary"
+                    onClick={() => onFocusConsole()}
+                  />
+                </div>
+              </Text>
             );
           }
 
@@ -164,26 +181,15 @@ function SpecLabel({
   );
 }
 
-function FilePath({
-  onClick,
-  path,
-}: Readonly<{ onClick: () => void; path: string }>) {
+function FilePath({ path }: Readonly<{ onClick: () => void; path: string }>) {
   const parts = path.split('/');
   const basePath = parts.slice(0, parts.length - 1).join('/') + '/';
   const fileName = parts[parts.length - 1];
 
   return (
-    <button
-      className={clsx('pointer inline-block font-mono')}
-      type="button"
-      onClick={onClick}>
-      <span className={clsx('text-white underline decoration-dotted')}>
-        {basePath}
-      </span>
-      <span
-        className={clsx('font-bold text-white underline decoration-dotted')}>
-        {fileName}
-      </span>
-    </button>
+    <div className={clsx('font-mono')}>
+      <span>{basePath}</span>
+      <span className={clsx('font-bold')}>{fileName}</span>
+    </div>
   );
 }
