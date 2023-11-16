@@ -10,6 +10,9 @@ import ReactLogo from '~/components/icons/ReactLogo';
 import ProjectsMarketingComponentTrackAccordion from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordion';
 import type { ProjectsTrack } from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordionItem';
 import ProjectsMarketingComponentTrackAccordionItem from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordionItem';
+import ProjectsProjectGridList from '~/components/projects/projects/ProjectsProjectGridList';
+import ProjectsProjectGridListWithFilters from '~/components/projects/projects/ProjectsProjectGridListWithFilters';
+import type { ProjectsProject } from '~/components/projects/projects/types';
 import ProjectsSkillTree from '~/components/projects/skills/ProjectsSkillTree';
 import type { ProjectSkillTree } from '~/components/projects/skills/types';
 import Button from '~/components/ui/Button';
@@ -236,11 +239,164 @@ const hiddenTracks: Array<ProjectsTrack> = [
   },
 ];
 
+const projects: Array<ProjectsProject> = [
+  {
+    completedCount: 21,
+    completedUsers: [
+      {
+        id: 'user1',
+        imageSrc: 'https://source.unsplash.com/random/48×48',
+        userName: 'Hello',
+      },
+      {
+        id: 'user2',
+        imageSrc: 'https://source.unsplash.com/random/48×48',
+        userName: 'Hello',
+      },
+    ],
+    description: 'This is a short description for the newsletter section',
+    imgSrc: 'https://source.unsplash.com/random/960×360',
+    isStarter: true,
+    key: 'newsletter-section-1',
+    projectHref: '#',
+    repCount: 1000,
+    skills: ['React', 'HTML', 'JS'],
+    title: 'Newsletter section',
+    trackName: 'Design System Track',
+  },
+  {
+    completedCount: 21,
+    completedUsers: [
+      {
+        id: 'user1',
+        imageSrc: 'https://source.unsplash.com/random/48×48',
+        userName: 'Hello',
+      },
+      {
+        id: 'user2',
+        imageSrc: 'https://source.unsplash.com/random/48×48',
+        userName: 'Hello',
+      },
+    ],
+    description: 'This is a short description for the newsletter section',
+    imgSrc: 'https://source.unsplash.com/random/960×360',
+    isStarter: true,
+    key: 'newsletter-section-2',
+    projectHref: '#',
+    repCount: 1000,
+    skills: ['React', 'HTML', 'JS'],
+    title: 'Newsletter section',
+    trackName: 'Design System Track',
+  },
+
+  {
+    completedCount: 21,
+    completedUsers: [
+      {
+        id: 'user1',
+        imageSrc: 'https://source.unsplash.com/random/48×48',
+        userName: 'Hello',
+      },
+      {
+        id: 'user2',
+        imageSrc: 'https://source.unsplash.com/random/48×48',
+        userName: 'Hello',
+      },
+    ],
+    description: 'This is a short description for the newsletter section',
+    imgSrc: 'https://source.unsplash.com/random/960×360',
+    isStarter: true,
+    key: 'newsletter-section-3',
+    projectHref: '#',
+    repCount: 1000,
+    skills: ['React', 'HTML', 'JS'],
+    title: 'Newsletter section',
+    trackName: 'Design System Track',
+  },
+];
+
+const hiddenProjects: Array<ProjectsProject> = [
+  {
+    completedCount: 21,
+    completedUsers: [
+      {
+        id: 'user1',
+        imageSrc: 'https://source.unsplash.com/random/48×48',
+        userName: 'Hello',
+      },
+      {
+        id: 'user2',
+        imageSrc: 'https://source.unsplash.com/random/48×48',
+        userName: 'Hello',
+      },
+    ],
+    description: 'This is a short description for the newsletter section',
+    imgSrc: 'https://source.unsplash.com/random/960×360',
+    isStarter: true,
+    key: 'newsletter-section-1',
+    projectHref: '#',
+    repCount: 1000,
+    skills: ['React', 'HTML', 'JS'],
+    title: 'Newsletter section',
+    trackName: 'Design System Track',
+  },
+  {
+    completedCount: 21,
+    completedUsers: [
+      {
+        id: 'user1',
+        imageSrc: 'https://source.unsplash.com/random/48×48',
+        userName: 'Hello',
+      },
+      {
+        id: 'user2',
+        imageSrc: 'https://source.unsplash.com/random/48×48',
+        userName: 'Hello',
+      },
+    ],
+    description: 'This is a short description for the newsletter section',
+    imgSrc: 'https://source.unsplash.com/random/960×360',
+    isStarter: true,
+    key: 'newsletter-section-2',
+    projectHref: '#',
+    repCount: 1000,
+    skills: ['React', 'HTML', 'JS'],
+    title: 'Newsletter section',
+    trackName: 'Design System Track',
+  },
+  {
+    completedCount: 21,
+    completedUsers: [
+      {
+        id: 'user1',
+        imageSrc: 'https://source.unsplash.com/random/48×48',
+        userName: 'Hello',
+      },
+      {
+        id: 'user2',
+        imageSrc: 'https://source.unsplash.com/random/48×48',
+        userName: 'Hello',
+      },
+    ],
+    description: 'This is a short description for the newsletter section',
+    imgSrc: 'https://source.unsplash.com/random/960×360',
+    isStarter: true,
+    key: 'newsletter-section-3',
+    projectHref: '#',
+    repCount: 1000,
+    skills: ['React', 'HTML', 'JS'],
+    title: 'Newsletter section',
+    trackName: 'Design System Track',
+  },
+];
+
 function BlurOverlay({
   children: bottom,
   overlay: top,
+  maxHeight,
 }: {
   children: React.ReactNode;
+  maxHeight?: number;
   overlay: React.ReactNode;
 }) {
   return (
@@ -250,6 +406,7 @@ function BlurOverlay({
           style={{
             WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)',
             maskImage: 'linear-gradient(to bottom, black, transparent)',
+            maxHeight,
           }}>
           {bottom}
         </div>
@@ -447,6 +604,58 @@ export default function ProjectsMarketingSkillsTracksProjects() {
                   />
                 ))}
               </ProjectsMarketingComponentTrackAccordion>
+            </BlurOverlay>
+          </div>
+        </Section>
+        <Section>
+          <div className="flex flex-col gap-y-8 pb-12">
+            <MarketingSectionItemHeader
+              description={
+                <FormattedMessage
+                  defaultMessage="Search a keyword or sort by popularity, difficulty or skills"
+                  description="Subtitle of the 'Projects' marketing section on Projects home page"
+                  id="lWZZ9l"
+                />
+              }
+              heading={
+                <FormattedMessage
+                  defaultMessage="Find any project you can dream of"
+                  description="Heading of the 'Projects' marketing section on Projects home page"
+                  id="NGGXSc"
+                />
+              }
+              title={
+                <FormattedMessage
+                  defaultMessage="You're here to just build!"
+                  description="Title of the 'Projects' marketing section on Projects home page"
+                  id="LjXg3C"
+                />
+              }
+            />
+            <ProjectsProjectGridListWithFilters projects={projects} />
+            <BlurOverlay
+              maxHeight={256}
+              overlay={
+                <div className="flex justify-center">
+                  <Button
+                    icon={RiArrowRightLine}
+                    label={intl.formatMessage(
+                      {
+                        defaultMessage: 'Explore {projectCount}+ projects',
+                        description:
+                          "Label of 'Projects' view all button in Projects home page",
+                        id: 'sLFGSE',
+                      },
+                      {
+                        projectCount: 200,
+                      },
+                    )}
+                    size="md"
+                    variant="tertiary"
+                  />
+                </div>
+              }>
+              <ProjectsProjectGridList projects={hiddenProjects} />
             </BlurOverlay>
           </div>
         </Section>

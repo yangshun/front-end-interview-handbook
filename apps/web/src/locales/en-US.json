@@ -531,6 +531,10 @@
     "defaultMessage": "Intro to Quiz Questions",
     "description": "Introduction to front end quiz questions"
   },
+  "8LBjGN": {
+    "defaultMessage": "Difficulty",
+    "description": "Label for \"Difficulty\" filter for projects list"
+  },
   "8Nm9WZ": {
     "defaultMessage": "Walmart",
     "description": "Company name for Walmart"
@@ -675,6 +679,10 @@
     "defaultMessage": "Best value for money with real-time support from the team and community.",
     "description": "Supporting statement for an annual pricing plan"
   },
+  "BSw3M8": {
+    "defaultMessage": "Skills",
+    "description": "Label for \"Skills\" filter for projects list"
+  },
   "BgJTSk": {
     "defaultMessage": "Search system design questions",
     "description": "Placeholder for search input of system design question list"
@@ -814,6 +822,10 @@
   "DP3Y2U": {
     "defaultMessage": "Behavioral Interview",
     "description": "Short title for behavioral interview guidebook"
+  },
+  "DVZ1fN": {
+    "defaultMessage": "Status",
+    "description": "Label for \"Status\" filter for projects list"
   },
   "DbEF7d": {
     "defaultMessage": "Master the art of building interactive and user-friendly forms.",
@@ -1283,6 +1295,10 @@
     "defaultMessage": "Create a free account to track your progress",
     "description": "CTA to create a free account for non-logged in users"
   },
+  "LjXg3C": {
+    "defaultMessage": "You're here to just build!",
+    "description": "Title of the 'Projects' marketing section on Projects home page"
+  },
   "Ll7iob": {
     "defaultMessage": "Get Started",
     "description": "Title of Get Started page"
@@ -1322,6 +1338,10 @@
   "MHz32F": {
     "defaultMessage": "Overview",
     "description": "Overview section for front end system design interviews"
+  },
+  "MJGa2M": {
+    "defaultMessage": "{completedCount} completed",
+    "description": "Label for completed user count in Project card."
   },
   "MJyQhr": {
     "defaultMessage": "See all",
@@ -1398,6 +1418,10 @@
   "NAkpAg": {
     "defaultMessage": "Jump to matching bracket",
     "description": "Text describing jump command in the coding workspace shortcuts menu"
+  },
+  "NGGXSc": {
+    "defaultMessage": "Find any project you can dream of",
+    "description": "Heading of the 'Projects' marketing section on Projects home page"
   },
   "NMtINV": {
     "defaultMessage": "The <underline>great</underline> way to prepare for <span>front end</span> interviews",
@@ -1891,6 +1915,10 @@
     "defaultMessage": "Vue Questions",
     "description": "Vue questions category long title"
   },
+  "V4WC0s": {
+    "defaultMessage": "Component track",
+    "description": "Label for \"Component track\" filter for projects list"
+  },
   "V5oBr9": {
     "defaultMessage": "Can only be redeemed once per eligible user; duplicate accounts prohibited.",
     "description": "Condition for promotion"
@@ -2111,6 +2139,10 @@
     "defaultMessage": "Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>.",
     "description": "Subtitle for proven preparation plans feature"
   },
+  "YiTnlf": {
+    "defaultMessage": "+{repCount} rep",
+    "description": "Label for rep increase indicator in Project card"
+  },
   "Z4VfkU": {
     "defaultMessage": "Every question is accompanied by an official, well-explained solution from ex-interviewers.",
     "description": "Description of 'Learn from official solutions and guides' feature in marketing page"
@@ -2227,6 +2259,10 @@
     "defaultMessage": "Marked \"{questionTitle}\" as complete",
     "description": "Success message for marking a question as complete"
   },
+  "b+bj2C": {
+    "defaultMessage": "{projectCount} projects",
+    "description": "Label for total number of projects in Projects marketing page"
+  },
   "b/dKUR": {
     "defaultMessage": "This subset of test cases are used when \"Run\"-ning your code.",
     "description": "Message to explain the custom tests cases"
@@ -2274,6 +2310,10 @@
   "bZFghR": {
     "defaultMessage": "Twitter",
     "description": "Company name for Twitter"
+  },
+  "beN1QM": {
+    "defaultMessage": "Skills:",
+    "description": "Label for skills list in Project card"
   },
   "belvJ0": {
     "defaultMessage": "Svelte Coding Questions",
@@ -2891,6 +2931,10 @@
     "defaultMessage": "View study plans",
     "description": "Link label to view all study plans"
   },
+  "lGYkx/": {
+    "defaultMessage": "Filter",
+    "description": "Label for \"Filter\" button for projects list"
+  },
   "lJupPX": {
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all JavaScript coding questions"
@@ -2906,6 +2950,10 @@
   "lUACcQ": {
     "defaultMessage": "Start a project",
     "description": "Title of 'Start a project' feature in Projects marketing page"
+  },
+  "lWZZ9l": {
+    "defaultMessage": "Search a keyword or sort by popularity, difficulty or skills",
+    "description": "Subtitle of the 'Projects' marketing section on Projects home page"
   },
   "ldOgfx": {
     "defaultMessage": "Easy",
@@ -3235,6 +3283,10 @@
     "defaultMessage": "Preparation dashboard",
     "description": "Preparation dashboard section title"
   },
+  "r1Pjn6": {
+    "defaultMessage": "Go to project",
+    "description": "Label for \"Go to project\" button in Project card"
+  },
   "r1cPM9": {
     "defaultMessage": "Prepare for tackling data structures and algorithms questions in front end interviews",
     "description": "Title for interview preparation focus area"
@@ -3286,6 +3338,10 @@
   "sGSrxk": {
     "defaultMessage": "{numberOfHours} hours total",
     "description": "Total duration needed to complete the list of questions"
+  },
+  "sLFGSE": {
+    "defaultMessage": "Explore {projectCount}+ projects",
+    "description": "Label of 'Projects' view all button in Projects home page"
   },
   "sa8B3r": {
     "defaultMessage": "System Design Questions",
@@ -3438,6 +3494,10 @@
   "usTItb": {
     "defaultMessage": "Senior Software Engineer — Front End, UserTesting",
     "description": "Prashanth Reddy's job title"
+  },
+  "usqC5b": {
+    "defaultMessage": "Sort by",
+    "description": "Label for \"Sort by\" button for projects list"
   },
   "uz7f93": {
     "defaultMessage": "Salesforce",

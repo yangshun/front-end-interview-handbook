@@ -29,25 +29,25 @@ const variantClasses: Record<
   danger: {
     backgroundClass: 'bg-danger-lightest dark:bg-danger-darker',
     borderClass: 'border border-danger',
-    iconClass: '',
+    iconClass: 'text-danger',
     textClass: 'text-danger',
   },
   info: {
     backgroundClass: 'bg-info-lightest dark:bg-info-darker',
     borderClass: 'border border-info dark:border-info-light',
-    iconClass: '',
+    iconClass: 'text-info dark:text-info-light',
     textClass: 'text-info dark:text-info-light',
   },
   neutral: {
     backgroundClass: 'bg-neutral-100 dark:bg-neutral-900',
     borderClass: 'border border-neutral-300 dark:border-neutral-600',
-    iconClass: '',
+    iconClass: 'text-neutral-500',
     textClass: 'text-neutral-500',
   },
   primary: {
     backgroundClass: 'bg-brand-lightest dark:bg-neutral-800',
     borderClass: 'border border-brand-dark dark:border-brand',
-    iconClass: '',
+    iconClass: 'text-brand-dark dark:text-brand',
     textClass: 'text-brand-dark dark:text-brand',
   },
   special: {
@@ -59,13 +59,13 @@ const variantClasses: Record<
   success: {
     backgroundClass: 'bg-success-lightest dark:bg-success-darker',
     borderClass: 'border border-success dark:border-success-light',
-    iconClass: '',
+    iconClass: 'text-success dark:text-success-light',
     textClass: 'text-success dark:text-success-light',
   },
   warning: {
     backgroundClass: 'bg-warning-lightest dark:bg-warning-darker',
     borderClass: 'border border-warning dark:border-warning-light',
-    iconClass: '',
+    iconClass: 'text-warning dark:text-warning-light',
     textClass: 'text-warning dark:text-warning-light',
   },
 };

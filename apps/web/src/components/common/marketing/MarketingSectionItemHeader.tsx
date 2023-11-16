@@ -32,7 +32,7 @@ export default function MarketingSectionItemHeader({
       {description && (
         <Text
           className={clsx(
-            'mx-auto text-base lg:text-xl',
+            'text-base lg:text-xl',
             themeTextSecondaryColor,
           )}
           display="block"
