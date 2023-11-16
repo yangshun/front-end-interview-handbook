@@ -4,10 +4,13 @@ import { useLocalStorage } from 'usehooks-ts';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 
+import { useJavaScriptCodingWorkspaceContext } from './JavaScriptCodingWorkspaceContext';
 import useJavaScriptCodingWorkspaceTilesContext from './useJavaScriptCodingWorkspaceTilesContext';
+import { codingWorkspaceTabFileId } from '../common/tabs/codingWorkspaceTabId';
 
 export default function JavaScriptCodingWorkspaceCustomTestCasesBanner() {
   const { dispatch } = useJavaScriptCodingWorkspaceTilesContext();
+  const { workspace } = useJavaScriptCodingWorkspaceContext();
   const [showCustomTestCasesMessage, setShowCustomTestCasesMessage] =
     useLocalStorage('gfe:workspace:run_tests_banner', true);
 
@@ -36,9 +39,11 @@ export default function JavaScriptCodingWorkspaceCustomTestCasesBanner() {
           event.preventDefault();
           dispatch({
             payload: {
+              fallbackNeighborTabId: codingWorkspaceTabFileId(workspace.main),
+              openBesideTabId: codingWorkspaceTabFileId(workspace.run),
               tabId: 'submission_test_cases',
             },
-            type: 'tab-set-active',
+            type: 'tab-set-active-otherwise-open',
           });
         }}>
         View submission test cases.
