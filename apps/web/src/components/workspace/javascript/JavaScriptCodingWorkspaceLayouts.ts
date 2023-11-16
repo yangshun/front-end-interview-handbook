@@ -80,6 +80,7 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
           {
             activeTabId: 'run_tests',
             collapsed: true,
+            collapsedTitle: 'Run tests / Console',
             collapsible: true,
             defaultSize: 5,
             id: 'right-bottom',
