@@ -350,6 +350,7 @@ export default function QuestionsCodingListWithFilters({
           })}
           size="sm"
           startIcon={RiSearchLine}
+          type="search"
           value={query}
           onChange={(value) => setQuery(value)}
         />

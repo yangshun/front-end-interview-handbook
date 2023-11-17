@@ -32,7 +32,7 @@ type Props = Readonly<{
   onChange?: (value: string, event: ChangeEvent<HTMLInputElement>) => void;
   size?: TextInputSize;
   startIcon?: React.ComponentType<React.ComponentProps<'svg'>>;
-  type?: 'email' | 'password' | 'text';
+  type?: 'email' | 'password' | 'search' | 'text';
   value?: string;
 }> &
   Readonly<Attributes>;
