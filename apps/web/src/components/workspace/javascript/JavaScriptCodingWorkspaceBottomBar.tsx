@@ -136,6 +136,7 @@ export default function JavaScriptCodingWorkspaceBottomBar({
       metadata={metadata}
       nextQuestions={nextQuestions}
       rightElements={runSubmitButtons}
+      showQuestionsListButton={layout === 'full'}
     />
   );
 }

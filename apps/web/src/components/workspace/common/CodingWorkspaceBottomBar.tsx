@@ -15,6 +15,7 @@ type Props = Readonly<{
   metadata: QuestionMetadata;
   nextQuestions: ReadonlyArray<QuestionMetadata>;
   rightElements?: ReactNode;
+  showQuestionsListButton?: boolean;
 }>;
 
 export default function CodingWorkspaceBottomBar({
@@ -22,6 +23,7 @@ export default function CodingWorkspaceBottomBar({
   metadata,
   nextQuestions,
   rightElements,
+  showQuestionsListButton = true,
 }: Props) {
   const { data: questionProgress } = useQueryQuestionProgress(metadata);
 
@@ -30,9 +32,11 @@ export default function CodingWorkspaceBottomBar({
       {leftElements && (
         <div className="flex items-center gap-x-2">{leftElements}</div>
       )}
-      <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2">
-        <CodingWorkspaceQuestionListSlideOutButton metadata={metadata} />
-      </div>
+      {showQuestionsListButton && (
+        <div className="absolute left-4 md:left-1/2 md:-translate-x-1/2">
+          <CodingWorkspaceQuestionListSlideOutButton metadata={metadata} />
+        </div>
+      )}
       <div className="flex items-center gap-x-2">
         <div className="hidden lg:inline">
           <CodingWorkspaceTimer />
