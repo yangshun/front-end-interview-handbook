@@ -231,7 +231,7 @@ export default function Button({
       <Anchor href={href} {...commonProps} target={target} variant="unstyled" />
     );
 
-  return tooltip == null ? (
+  return tooltip == null || isDisabled ? (
     el
   ) : (
     <Tooltip
