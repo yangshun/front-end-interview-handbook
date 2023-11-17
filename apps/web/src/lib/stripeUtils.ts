@@ -47,6 +47,7 @@ const hugeAmountCurrencies = new Set([
   'khr',
   'krw',
   'lak',
+  'lbp',
   'mga',
   'mmk',
   'mnt',
