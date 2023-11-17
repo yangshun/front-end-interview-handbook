@@ -71,7 +71,7 @@ export function sortQuestions<T extends QuestionMetadata>(
         return isAscendingOrder ? value : -value;
       }
       case 'importance': {
-        const value =
+        const value: number =
           IMPORTANCE_MAPPING[a.importance] - IMPORTANCE_MAPPING[b.importance];
 
         return isAscendingOrder ? value : -value;

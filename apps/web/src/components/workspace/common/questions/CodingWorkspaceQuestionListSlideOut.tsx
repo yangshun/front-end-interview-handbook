@@ -1,8 +1,6 @@
 import { useId, useState } from 'react';
 import { RiSearchLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
-
-import { trpc } from '~/hooks/trpc';
+import { useSessionStorage } from 'usehooks-ts';
 
 import { useQuestionFormatLists } from '~/data/QuestionFormats';
 
@@ -12,13 +10,16 @@ import type {
   QuestionMetadataWithCompletedStatus,
   QuestionSortField,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import useQuestionCodingFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingFilters';
 import useQuestionCodingFormatFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingFormatFilter';
+import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
 import useQuestionCompanyFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionCompanyFilter';
 import useQuestionCompletionStatusFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionCompletionStatusFilter';
 import useQuestionDifficultyFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionDifficultyFilter';
 import useQuestionFrameworkFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionFrameworkFilter';
 import useQuestionLanguageFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionLanguageFilter';
-import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/filters/hooks/useQuestionsWithCompletionStatus';
+import { QuestionsCodingFiltersNamespaceKey } from '~/components/interviews/questions/listings/filters/hooks/useQuestionsCodingFiltersNamespace';
+import useQuestionSearchFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionSearchFilter';
 import type { QuestionFilter } from '~/components/interviews/questions/listings/filters/QuestionFilterType';
 import questionMatchesTextQuery from '~/components/interviews/questions/listings/filters/questionMatchesTextQuery';
 import {
@@ -27,9 +28,7 @@ import {
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsCodingListBrief from '~/components/interviews/questions/listings/items/QuestionsCodingListBrief';
 import CheckboxInput from '~/components/ui/CheckboxInput';
-import EmptyState from '~/components/ui/EmptyState';
 import SlideOut from '~/components/ui/SlideOut';
-import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
@@ -45,7 +44,7 @@ function FilterSection<T extends string, Q extends QuestionMetadata>({
   return (
     <div className="flex flex-col gap-y-1">
       <label id={sectionId}>
-        <Text size="body3" weight="medium">
+        <Text size="body3" weight="bold">
           {filterOptions.name}
         </Text>
       </label>
@@ -69,64 +68,53 @@ function FilterSection<T extends string, Q extends QuestionMetadata>({
 }
 
 function Contents({
-  questionsWithCompletionStatus,
+  questions,
 }: Readonly<{
-  questionsWithCompletionStatus: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
+  questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
 }>) {
   const { userProfile } = useUserProfile();
+  const [namespace] = useSessionStorage(
+    QuestionsCodingFiltersNamespaceKey,
+    'prepare-coding',
+  );
 
-  const defaultSortFields: ReadonlyArray<{
-    field: QuestionSortField;
-    isAscendingOrder: boolean;
-  }> = [
-    { field: 'ranking', isAscendingOrder: true },
-    { field: 'difficulty', isAscendingOrder: true },
-  ];
-  const premiumSortFields: ReadonlyArray<{
-    field: QuestionSortField;
-    isAscendingOrder: boolean;
-  }> = [{ field: 'premium', isAscendingOrder: true }];
-
-  const [query, setQuery] = useState('');
   const questionFormatLists = useQuestionFormatLists();
   const { searchPlaceholder } = questionFormatLists.coding;
 
-  const [difficultyFilters, difficultyFilterOptions] =
-    useQuestionDifficultyFilter({ namespace: 'coding' });
-  const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter({
-    namespace: 'coding',
+  // Filtering.
+  const {
+    query,
+    setQuery,
+    difficultyFilters,
+    difficultyFilterOptions,
+    companyFilters,
+    companyFilterOptions,
+    frameworkFilters,
+    frameworkFilterOptions,
+    completionStatusFilters,
+    completionStatusFilterOptions,
+    codingFormatFilters,
+    codingFormatFilterOptions,
+    filters,
+  } = useQuestionCodingFilters({
+    namespace,
   });
-  const [completionStatusFilters, completionStatusFilterOptions] =
-    useQuestionCompletionStatusFilter({
-      namespace: 'coding',
-    });
-  const [languageFilters, languageFilterOptions] = useQuestionLanguageFilter({
-    namespace: 'coding',
-  });
-  const [codingFormatFilters, codingFormatFilterOptions] =
-    useQuestionCodingFormatFilter({ namespace: 'coding' });
-  const [frameworkFilters, frameworkFilterOptions] = useQuestionFrameworkFilter(
-    { namespace: 'coding' },
-  );
 
-  const filters: ReadonlyArray<
-    [number, (question: QuestionMetadataWithCompletedStatus) => boolean]
-  > = [
-    // Query.
-    [0, (question) => questionMatchesTextQuery(question, query)],
-    // Difficulty.
-    [difficultyFilters.size, difficultyFilterOptions.matches],
-    // Company.
-    [companyFilters.size, companyFilterOptions.matches],
-    // Language.
-    [languageFilters.size, languageFilterOptions.matches],
-    // Coding Format.
-    [codingFormatFilters.size, codingFormatFilterOptions.matches],
-    // Framework.
-    [frameworkFilters.size, frameworkFilterOptions.matches],
-    // Completion Status.
-    [completionStatusFilters.size, completionStatusFilterOptions.matches],
-  ];
+  // Sorting.
+  const { defaultSortFields, premiumSortFields } = useQuestionCodingSorting();
+
+  // Processing.
+  const sortedQuestions = sortQuestionsMultiple(
+    questions,
+    userProfile?.isPremium
+      ? defaultSortFields
+      : // Show free questions first if user is not a premium user.
+        defaultSortFields.concat(premiumSortFields),
+  );
+  const processedQuestions = filterQuestions(
+    sortedQuestions,
+    filters.map(([_, filterFn]) => filterFn),
+  );
 
   return (
     <div className="flex flex-col gap-y-4">
@@ -170,30 +158,15 @@ function Contents({
           placeholder={searchPlaceholder}
           size="sm"
           startIcon={RiSearchLine}
+          type="search"
           value={query}
           onChange={(value) => setQuery(value)}
         />
       </form>
-      {(() => {
-        const sortedQuestions = sortQuestionsMultiple(
-          questionsWithCompletionStatus,
-          userProfile?.isPremium
-            ? defaultSortFields
-            : // Show free questions first if user is not a premium user.
-              defaultSortFields.concat(premiumSortFields),
-        );
-        const processedQuestions = filterQuestions(
-          sortedQuestions,
-          filters.map(([_, filterFn]) => filterFn),
-        );
-
-        return (
-          <QuestionsCodingListBrief
-            checkIfCompletedQuestion={(question) => question.isCompleted}
-            questions={processedQuestions}
-          />
-        );
-      })()}
+      <QuestionsCodingListBrief
+        checkIfCompletedQuestion={(question) => question.isCompleted}
+        questions={processedQuestions}
+      />
     </div>
   );
 }
@@ -201,13 +174,13 @@ function Contents({
 type Props = Readonly<{
   isShown: boolean;
   onClose: () => void;
-  questionsWithCompletionStatus: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
+  questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
 }>;
 
 export default function CodingWorkspaceQuestionListSlideOut({
   isShown,
   onClose,
-  questionsWithCompletionStatus,
+  questions,
 }: Props) {
   const questionFormatLists = useQuestionFormatLists();
 
@@ -218,11 +191,7 @@ export default function CodingWorkspaceQuestionListSlideOut({
       size="xl"
       title={questionFormatLists.coding.longName}
       onClose={onClose}>
-      {isShown && (
-        <Contents
-          questionsWithCompletionStatus={questionsWithCompletionStatus}
-        />
-      )}
+      {isShown && <Contents questions={questions} />}
     </SlideOut>
   );
 }

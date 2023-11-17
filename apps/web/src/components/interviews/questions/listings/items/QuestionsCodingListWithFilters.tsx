@@ -40,6 +40,10 @@ import TextInput from '~/components/ui/TextInput';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
+import useQuestionCodingFilters from '../filters/hooks/useQuestionCodingFilters';
+import useQuestionCodingSorting from '../filters/hooks/useQuestionCodingSorting';
+import useQuestionsCodingFiltersNamespace from '../filters/hooks/useQuestionsCodingFiltersNamespace';
+import useQuestionSearchFilter from '../filters/hooks/useQuestionSearchFilter';
 import QuestionFilterButton from '../filters/QuestionFilterButton';
 import QuestionListingCodingFilters from '../filters/QuestionListingCodingFilters';
 import questionMatchesTextQuery from '../filters/questionMatchesTextQuery';
@@ -87,39 +91,66 @@ export default function QuestionsCodingListWithFilters({
   onMarkAsCompleted,
   onMarkAsNotCompleted,
 }: Props) {
+  // Save the last-rendered filters in session storage to be retrieved
+  // on the coding workspace page for filtering all questions.
+  useQuestionsCodingFiltersNamespace(namespace);
+
   const intl = useIntl();
   const { userProfile } = useUserProfile();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const [isAscendingOrder, setIsAscendingOrder] = useState(true);
-  const [query, setQuery] = useState('');
-  const [sortField, setSortField] = useState<QuestionSortField>('difficulty');
-  const [difficultyFilters, difficultyFilterOptions] =
-    useQuestionDifficultyFilter({
-      namespace,
-    });
 
-  const [companyFilters, companyFilterOptions] = useQuestionCompanyFilter({
+  // Filtering.
+  const {
+    query,
+    setQuery,
+    difficultyFilters,
+    difficultyFilterOptions,
+    companyFilters,
+    companyFilterOptions,
+    languageFilters,
+    languageFilterOptions,
+    frameworkFilters,
+    frameworkFilterOptions,
+    completionStatusFilters,
+    completionStatusFilterOptions,
+    codingFormatFilters,
+    codingFormatFilterOptions,
+    filters,
+  } = useQuestionCodingFilters({
+    codingFormatFiltersFilterPredicate,
+    codingFormatFiltersOrderComparator,
+    initialCodingFormat,
     namespace,
   });
-  const [languageFilters, languageFilterOptions] = useQuestionLanguageFilter({
-    namespace,
-  });
-  const [frameworkFilters, frameworkFilterOptions] = useQuestionFrameworkFilter(
-    {
-      namespace,
-    },
+
+  // Sorting.
+  const {
+    isAscendingOrder,
+    setIsAscendingOrder,
+    sortField,
+    setSortField,
+    defaultSortFields,
+    premiumSortFields,
+  } = useQuestionCodingSorting();
+
+  // Processing.
+  const sortedQuestions = sortQuestionsMultiple(
+    questions,
+    userProfile?.isPremium
+      ? defaultSortFields
+      : // Show free questions first if user is not a premium user.
+        defaultSortFields.concat(premiumSortFields),
   );
-  const [completionStatusFilters, completionStatusFilterOptions] =
-    useQuestionCompletionStatusFilter({
-      namespace,
-    });
-  const [codingFormatFilters, codingFormatFilterOptions] =
-    useQuestionCodingFormatFilter({
-      filter: codingFormatFiltersFilterPredicate,
-      initialValue: initialCodingFormat == null ? [] : [initialCodingFormat],
-      namespace,
-      order: codingFormatFiltersOrderComparator,
-    });
+  const processedQuestions = filterQuestions(
+    sortedQuestions,
+    filters.map(([_, filterFn]) => filterFn),
+  );
+
+  const numberOfFilters = filters.filter(([size]) => size > 0).length;
+  const difficultyCount = countQuestionsByDifficulty(processedQuestions);
+  const premiumCount = countQuestionsByPremium(processedQuestions);
+  const totalDurationMins = countQuestionsTotalDurationMins(processedQuestions);
+  const showPaywall = !userProfile?.isPremium && companyFilters.size > 0;
 
   function makeDropdownItemProps(
     label: string,
@@ -135,53 +166,6 @@ export default function QuestionsCodingListWithFilters({
       },
     };
   }
-
-  const defaultSortFields: ReadonlyArray<{
-    field: QuestionSortField;
-    isAscendingOrder: boolean;
-  }> = [
-    { field: 'ranking', isAscendingOrder: true },
-    { field: sortField, isAscendingOrder },
-  ];
-  const premiumSortFields: ReadonlyArray<{
-    field: QuestionSortField;
-    isAscendingOrder: boolean;
-  }> = [{ field: 'premium', isAscendingOrder: true }];
-
-  const sortedQuestions = sortQuestionsMultiple(
-    questions,
-    userProfile?.isPremium
-      ? defaultSortFields
-      : // Show free questions first if user is not a premium user.
-        defaultSortFields.concat(premiumSortFields),
-  );
-  const filters: ReadonlyArray<
-    [number, (question: QuestionMetadataWithCompletedStatus) => boolean]
-  > = [
-    // Query.
-    [0, (question) => questionMatchesTextQuery(question, query)],
-    // Difficulty.
-    [difficultyFilters.size, difficultyFilterOptions.matches],
-    // Company.
-    [companyFilters.size, companyFilterOptions.matches],
-    // Language.
-    [languageFilters.size, languageFilterOptions.matches],
-    // Coding Format.
-    [codingFormatFilters.size, codingFormatFilterOptions.matches],
-    // Framework.
-    [frameworkFilters.size, frameworkFilterOptions.matches],
-    // Completion Status.
-    [completionStatusFilters.size, completionStatusFilterOptions.matches],
-  ];
-  const numberOfFilters = filters.filter(([size]) => size > 0).length;
-  const processedQuestions = filterQuestions(
-    sortedQuestions,
-    filters.map(([_, filterFn]) => filterFn),
-  );
-  const difficultyCount = countQuestionsByDifficulty(processedQuestions);
-  const premiumCount = countQuestionsByPremium(processedQuestions);
-  const totalDurationMins = countQuestionsTotalDurationMins(processedQuestions);
-  const showPaywall = !userProfile?.isPremium && companyFilters.size > 0;
 
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
