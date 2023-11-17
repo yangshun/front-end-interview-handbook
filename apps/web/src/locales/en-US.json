@@ -47,6 +47,10 @@
     "defaultMessage": "Getting the Interview",
     "description": "Getting the front end interview"
   },
+  "+hNsjW": {
+    "defaultMessage": "Сoncise step by step practical guides",
+    "description": "Short description for \"Skills roadmap\" feature on Projects home page"
+  },
   "+p6rsI": {
     "defaultMessage": "Practice Top JavaScript and TypeScript Front End Interview Questions with Solutions",
     "description": "SEO title for JavaScript questions list page"
@@ -54,6 +58,10 @@
   "+pieds": {
     "defaultMessage": "Sign up for our newsletter and join our community of passionate <span>Front End Engineers</span>.",
     "description": "Subtitle text for newsletter sign up section"
+  },
+  "+u6zX0": {
+    "defaultMessage": "Design systems",
+    "description": "Title for \"Design systems\" feature on Projects home page"
   },
   "+wR7CJ": {
     "defaultMessage": "Legal",
@@ -251,6 +259,10 @@
     "defaultMessage": "You are doing great things for the Front End community. Especially for those who are Junior engineers like me, advanced solutions covering various aspects of front end development help a lot. Thank you to the team.",
     "description": "Anonymous Software Engineer's testimonial"
   },
+  "3KGbuG": {
+    "defaultMessage": "Never waste your time building one-off projects",
+    "description": "Title for \"Never waste your time building one-off projects\" feature marketing section on Projects home page"
+  },
   "3NSzVn": {
     "defaultMessage": "Premium",
     "description": "Premium label for free vs premium question breakdown in question listing"
@@ -258,6 +270,10 @@
   "3WHiQS": {
     "defaultMessage": "Cheatsheet",
     "description": "One-page summary sheet for front end system design interviews"
+  },
+  "3c9VZh": {
+    "defaultMessage": "Clarify doubts in project-specific forums",
+    "description": "Short description for \"Learn from others\" feature on Projects home page"
   },
   "3du5bC": {
     "defaultMessage": "Toptal",
@@ -551,6 +567,10 @@
     "defaultMessage": "See plan",
     "description": "Link to view study plan details"
   },
+  "8YgB5f": {
+    "defaultMessage": "Don’t worry about losing steam. Track your progress and level up as you",
+    "description": "Description for \"Gamified learning and building\" feature marketing section on Projects home page"
+  },
   "8aQEL8": {
     "defaultMessage": "Your existing code will be discarded, are you sure?",
     "description": "Text on browser confirmation pop-up when user attempts to use the reset button to reset their code"
@@ -594,6 +614,10 @@
   "9DlLF1": {
     "defaultMessage": "GreatFrontEnd",
     "description": "Title of GreatFrontEnd page"
+  },
+  "9FUDxZ": {
+    "defaultMessage": "Know the recommended projects to do to progress from beginner to advanced with the skills roadmap",
+    "description": "Description for \"Skills roadmap\" feature on Projects home page"
   },
   "9KrOcn": {
     "defaultMessage": "The only platform with front end system design questions with official solutions written by senior engineers.",
@@ -767,6 +791,10 @@
     "defaultMessage": "You need to start the learning session first",
     "description": "Message telling users that need to start on a study plan session first"
   },
+  "CxfPVD": {
+    "defaultMessage": "Build together with other like-minded individuals",
+    "description": "Title for \"Build together with other like-minded individuals\" feature marketing section on Projects home page"
+  },
   "CyhMLj": {
     "defaultMessage": "Prepare for your front end interviews in one month. All rounded coverage that is sure to bring your front end interview skills to the next level.",
     "description": "Description for one month study plan"
@@ -894,6 +922,10 @@
   "F2QRYu": {
     "defaultMessage": "Please contact us at <link>contact@greatfrontend.com</link> should you require a purchase invoice.",
     "description": "Text describing contact method for purchase invoice."
+  },
+  "F4esBf": {
+    "defaultMessage": "Our projects are never one-off - they always fit into some component library or design system which can be composed into your very own toolset to build future projects",
+    "description": "Description for \"Never waste your time building one-off projects\" feature marketing section on Projects home page"
   },
   "F5oV3L": {
     "defaultMessage": "Delete line",
@@ -1027,10 +1059,6 @@
     "defaultMessage": "Created: Oldest to Newest",
     "description": "Sorting option on question list page to sort by creation time, from oldest to newest"
   },
-  "HHJYxM": {
-    "defaultMessage": "Failed to load coding questions",
-    "description": "Error message when the questions failed to load"
-  },
   "HMJJLh": {
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch.",
     "description": "Description for interview preparation focus area"
@@ -1038,6 +1066,10 @@
   "HOCjPY": {
     "defaultMessage": "Implement popular JavaScript library and utility functions",
     "description": "Description of JavaScript utility function questions"
+  },
+  "HRk5Ic": {
+    "defaultMessage": "Help others review their code and answer questions",
+    "description": "Description for \"Help others review their code and answer questions\" feature on Projects home page"
   },
   "HaIAzk": {
     "defaultMessage": "Light",
@@ -1062,6 +1094,10 @@
   "HlRbK4": {
     "defaultMessage": "High quality solutions",
     "description": "Title for high quality solutions feature"
+  },
+  "HtFDkf": {
+    "defaultMessage": "Official guides",
+    "description": "Title for \"Official guides\" feature on Projects home page"
   },
   "I4lo5m": {
     "defaultMessage": "Practice Svelte Interview Questions with Solutions",
@@ -1242,6 +1278,10 @@
   "LAWtL6": {
     "defaultMessage": "Software Engineer",
     "description": "Jacky Liang's job title"
+  },
+  "LGHLf5": {
+    "defaultMessage": "Gamified learning",
+    "description": "Title for \"Gamified learning\" feature on Projects home page"
   },
   "LGm3GF": {
     "defaultMessage": "Async Operations",
@@ -1435,6 +1475,10 @@
     "defaultMessage": "{questionCount}+ HTML interview questions, including quiz-style knowledge questions and HTML coding questions.",
     "description": "Subtitle for HTML questions list page"
   },
+  "NUrxUb": {
+    "defaultMessage": "Gain reputation and level up for productive actions",
+    "description": "Short description for \"Gamified learning\" feature on Projects home page"
+  },
   "NdDD5W": {
     "defaultMessage": "Front End System Design Guidebook",
     "description": "Front end system design guidebook title"
@@ -1510,6 +1554,10 @@
   "OfeY0a": {
     "defaultMessage": "View all {trackCount} component tracks",
     "description": "Label of 'Component tracks' view all button in Projects home page"
+  },
+  "OklFdI": {
+    "defaultMessage": "Gamified learning and building",
+    "description": "Title for \"Gamified learning and building\" feature marketing section on Projects home page"
   },
   "Ol7K0w": {
     "defaultMessage": "You are on the <bold>Quarterly</bold> plan.",
@@ -1679,6 +1727,10 @@
     "defaultMessage": "Sign In",
     "description": "Title of Login page"
   },
+  "RJ4spU": {
+    "defaultMessage": "Worry about a shaky foundation? Harness curated tools from senior engineers at big tech and learn the best practices for practical development",
+    "description": "Description for \"Get the right foundation for practical development\" feature marketing section on Projects home page"
+  },
   "RMBCok": {
     "defaultMessage": "Snap",
     "description": "Company name for Snap"
@@ -1694,6 +1746,10 @@
   "RTBOas": {
     "defaultMessage": "JavaScript",
     "description": "Label for JavaScript language"
+  },
+  "RYUQWi": {
+    "defaultMessage": "Gamified and socialized",
+    "description": "Short title for \"Build together with other like-minded individuals\" feature marketing section on Projects home page"
   },
   "Rdi3ic": {
     "defaultMessage": "Activity",
@@ -1835,6 +1891,10 @@
     "defaultMessage": "As a Frontend Engineer I had a hard time finding resources that focused specifically on Frontend interview questions, Data Structures & Algorithms etc., After I found GreatFrontEnd it made my life very easy because I found answers to all my questions. The program and questions are structured and categorized meticulously. If you are looking to improve your frontend interview skills I highly recommend their premium feature as it gives you access to not only data structures & algo questions but also front end system design questions with detailed answers. Not only that, they also have a vibrant and helpful Discord community. It's totally worth it.",
     "description": "Prashanth Reddy's testimonial"
   },
+  "U4YjHx": {
+    "defaultMessage": "Real world specs",
+    "description": "Title for \"Real world specs\" feature on Projects home page"
+  },
   "U9XHwD": {
     "defaultMessage": "Learn to ask insightful questions at the end of the interview",
     "description": "How to ask insightful questions during behavioral interviews"
@@ -1907,6 +1967,10 @@
     "defaultMessage": "View more",
     "description": "Label of collapsed dropdown button"
   },
+  "UwT84H": {
+    "defaultMessage": "Get the right foundation",
+    "description": "Short title for \"Get the right foundation for practical development\" feature marketing section on Projects home page"
+  },
   "V0hPhI": {
     "defaultMessage": "Sign Up",
     "description": "Title of Sign Up page"
@@ -1958,6 +2022,10 @@
   "VVf84T": {
     "defaultMessage": "Password",
     "description": "Label of password field on Change Password page"
+  },
+  "VWGWik": {
+    "defaultMessage": "Learn to work with specifications mimicking projects you will encounter as a full-time engineer",
+    "description": "Description for \"Real world specs\" feature on Projects home page"
   },
   "VcLkXG": {
     "defaultMessage": "Free",
@@ -2026,6 +2094,10 @@
   "WoqXSx": {
     "defaultMessage": "Behavioral",
     "description": "Title of behavioral interview preparation area"
+  },
+  "Wq6liX": {
+    "defaultMessage": "Complete projects, with rep awarded by difficulty",
+    "description": "Description for \"Complete projects, with rep awarded by difficulty\" feature on Projects home page"
   },
   "X/axGA": {
     "defaultMessage": "Affiliate Program",
@@ -2139,6 +2211,10 @@
     "defaultMessage": "Preparation plans for all kinds of preparation timelines — <owlink>1 week</owlink>, <omlink>1 month</omlink>, <tmlink>3 months</tmlink>.",
     "description": "Subtitle for proven preparation plans feature"
   },
+  "Yezbh0": {
+    "defaultMessage": "Level up in your skills or complete component track",
+    "description": "Description for \"Level up in your skills or complete component track\" feature on Projects home page"
+  },
   "YiTnlf": {
     "defaultMessage": "+{repCount} rep",
     "description": "Label for rep increase indicator in Project card"
@@ -2214,6 +2290,10 @@
   "aE1FCD": {
     "defaultMessage": "/month",
     "description": "Per month"
+  },
+  "aGGNiW": {
+    "defaultMessage": "Refer to tips and code from top submissions endorsed by the team and community",
+    "description": "Description for \"Gamified learning\" feature on Projects home page"
   },
   "aPfuzs": {
     "defaultMessage": "Reset password",
@@ -2303,6 +2383,10 @@
     "defaultMessage": "No Tests",
     "description": "Label indicating that no test cases are available for this question"
   },
+  "bSq02B": {
+    "defaultMessage": "Composable themes",
+    "description": "Title for \"Composable themes\" feature on Projects home page"
+  },
   "bWymcE": {
     "defaultMessage": "Guide to preparing for Front End-focused System Design questions in front end / web developer interviews",
     "description": "Front end system design guidebook description"
@@ -2346,6 +2430,10 @@
   "c7lcjj": {
     "defaultMessage": "HTML Questions",
     "description": "HTML Questions list page title"
+  },
+  "c9D1tn": {
+    "defaultMessage": "Only build useful projects",
+    "description": "Short title for \"Never waste your time building one-off projects\" feature marketing section on Projects home page"
   },
   "cB23kJ": {
     "defaultMessage": "Security | Profile",
@@ -2511,6 +2599,10 @@
     "defaultMessage": "Algorithm Questions",
     "description": "Algorithm Coding Interview Questions"
   },
+  "fG/W54": {
+    "defaultMessage": "Our projects are composable with different themes - choose the theme you want to personalize your project",
+    "description": "Description for \"Design systems\" feature on Projects home page"
+  },
   "fH+NAA": {
     "defaultMessage": "Account | Profile",
     "description": "Title of Profile Account page"
@@ -2594,6 +2686,10 @@
   "gDAVYm": {
     "defaultMessage": "Report an issue",
     "description": "Tooltip for button to report an issue"
+  },
+  "gHIBZl": {
+    "defaultMessage": "Our platform is built to support community-driven development",
+    "description": "Description for \"Build together with other like-minded individuals\" feature marketing section on Projects home page"
   },
   "gIeLON": {
     "defaultMessage": "Premium",
@@ -2823,9 +2919,17 @@
     "defaultMessage": "Reset this file",
     "description": "Label for button that allows users to reset their coding workspace to the initial code"
   },
+  "k84jl+": {
+    "defaultMessage": "Get the right foundation for practical development",
+    "description": "Title for \"Get the right foundation for practical development\" feature marketing section on Projects home page"
+  },
   "k964KU": {
     "defaultMessage": "HTML",
     "description": "CSS questions category short title"
+  },
+  "k9iwXD": {
+    "defaultMessage": "Code from submissions are pulled directly on the platform for convenient reference and feedback",
+    "description": "Description for \"Easy code reviews\" feature on Projects home page"
   },
   "kCkca8": {
     "defaultMessage": "Errors",
@@ -2882,6 +2986,10 @@
   "kvLlxS": {
     "defaultMessage": "Security",
     "description": "Security topic for quiz questions"
+  },
+  "kwHN0l": {
+    "defaultMessage": "Choose your component and pick any theme",
+    "description": "Short description for \"Composable themes\" feature on Projects home page"
   },
   "kwblYW": {
     "defaultMessage": "Performance",
@@ -3035,6 +3143,10 @@
     "defaultMessage": "Practice building Lodash utility functions",
     "description": "Title for interview preparation focus area"
   },
+  "msvqkR": {
+    "defaultMessage": "Every project belongs to 1 of 7 reusable components libraries",
+    "description": "Short description for \"Component libraries\" feature on Projects home page"
+  },
   "mt2ON4": {
     "defaultMessage": "Find out more about the team who built GreatFrontEnd and why we did it",
     "description": "Description of About Us page"
@@ -3078,6 +3190,10 @@
   "npvgQq": {
     "defaultMessage": "Prepare for your front end interviews in one week. Efficiently focus on the most important concepts through a good mix of coding and quiz questions.",
     "description": "Description for one week study plan"
+  },
+  "ntAmll": {
+    "defaultMessage": "Every project belongs to 1 of 7 tracks comprising of common components used in the industry / use case",
+    "description": "Description for \"Component libraries\" feature on Projects home page"
   },
   "nvhCqI": {
     "defaultMessage": "We recommend these {numberOfAreas} areas of learning to prepare you holistically for your front end interview rounds. Explore guides and {count}+ practice questions here.",
@@ -3171,6 +3287,10 @@
     "defaultMessage": "Network",
     "description": "Network topic for quiz questions"
   },
+  "pP8Sa9": {
+    "defaultMessage": "The fastest way to learn and build something useful",
+    "description": "Heading of the 'The fastest way to learn and build something useful' marketing section on Projects home page"
+  },
   "pRCMpc": {
     "defaultMessage": "View plans",
     "description": "Button displayed on paywall on premium question pages, leading to our pricing plans"
@@ -3178,6 +3298,14 @@
   "pRxRs2": {
     "defaultMessage": "Hear from our users",
     "description": "Title of testimonials section"
+  },
+  "pXuTMr": {
+    "defaultMessage": "Specs mimicking projects encountered as a full-timer",
+    "description": "Short description for \"Real world specs\" feature on Projects home page"
+  },
+  "pZq6+F": {
+    "defaultMessage": "Supercharge your growth with concise step-by-step guides for practical development",
+    "description": "Description for \"Official guides\" feature on Projects home page"
   },
   "pcKndh": {
     "defaultMessage": "Try a question",
@@ -3234,6 +3362,10 @@
   "qAxlQN": {
     "defaultMessage": "Sign in with magic link",
     "description": "Label of magic link sign in button on Email Sign In page"
+  },
+  "qMWBqm": {
+    "defaultMessage": "Easy code reviews",
+    "description": "Title for \"Easy code reviews\" feature on Projects home page"
   },
   "qR472c": {
     "defaultMessage": "Study guides",
@@ -3342,6 +3474,10 @@
   "sLFGSE": {
     "defaultMessage": "Explore {projectCount}+ projects",
     "description": "Label of 'Projects' view all button in Projects home page"
+  },
+  "sWyGax": {
+    "defaultMessage": "Features",
+    "description": "Title of the 'The fastest way to learn and build something useful' marketing section on Projects home page"
   },
   "sa8B3r": {
     "defaultMessage": "System Design Questions",
@@ -3475,6 +3611,10 @@
     "defaultMessage": "Or continue with",
     "description": "Label of divider preceding third party providers on Sign In page"
   },
+  "uieBjf": {
+    "defaultMessage": "Complete your own library of components for E-commerce, Games, AI apps, and even a design system",
+    "description": "Description for \"Composable themes\" feature on Projects home page"
+  },
   "ujL9EM": {
     "defaultMessage": "{questionTitle} | Front End System Design Interview Questions with Solutions",
     "description": "Title of system design question page"
@@ -3526,6 +3666,10 @@
   "vNa4Wc": {
     "defaultMessage": "While Offer Lasts",
     "description": "Label to indicate offer is a limited time deal"
+  },
+  "vbwUYs": {
+    "defaultMessage": "Clarify any doubts on a project in project-specific forums",
+    "description": "Description for \"Learn from others\" feature on Projects home page"
   },
   "vfVwh2": {
     "defaultMessage": "1 Week",
@@ -3583,6 +3727,10 @@
     "defaultMessage": "Similar Questions",
     "description": "Header for similar questions to the current question"
   },
+  "wO0zga": {
+    "defaultMessage": "Skills roadmap",
+    "description": "Title for \"Skills roadmap\" feature on Projects home page"
+  },
   "wbjMPn": {
     "defaultMessage": "Send magic link",
     "description": "Label of send magic link button on Magic Link Sign In page"
@@ -3635,6 +3783,14 @@
     "defaultMessage": "The ultimate Front End Interview preparation platform.",
     "description": "Description of GreatFrontEnd page"
   },
+  "xXWABp": {
+    "defaultMessage": "Receive feedback from a vibrant community",
+    "description": "Short description for \"Easy code reviews\" feature on Projects home page"
+  },
+  "xYKCsE": {
+    "defaultMessage": "Сoncise step by step practical guides",
+    "description": "Short description for \"Official guides\" feature on Projects home page"
+  },
   "xbmWBx": {
     "defaultMessage": "Framework",
     "description": "Question framework"
@@ -3642,6 +3798,10 @@
   "xjHSyF": {
     "defaultMessage": "All log levels",
     "description": "Select label for all log levels in console filter"
+  },
+  "xmK6tB": {
+    "defaultMessage": "Build the foundation from ground up for reuse",
+    "description": "Short description for \"Design systems\" feature on Projects home page"
   },
   "xsLz0P": {
     "defaultMessage": "Security",
@@ -3670,6 +3830,10 @@
   "y4l5Q0": {
     "defaultMessage": "Prep dashboard",
     "description": "Sidebar label for Front End Interview Prep Dashboard page"
+  },
+  "y4v8AZ": {
+    "defaultMessage": "Component libraries",
+    "description": "Title for \"Component libraries\" feature on Projects home page"
   },
   "y8zzVx": {
     "defaultMessage": "Email",
@@ -3734,6 +3898,10 @@
   "zaJkwz": {
     "defaultMessage": "Pick from <bold>component tracks</bold>",
     "description": "Caption for Start a Project button in Projects marketing hero section for side projects"
+  },
+  "zgj9Pd": {
+    "defaultMessage": "Learn from others",
+    "description": "Title for \"Learn from others\" feature on Projects home page"
   },
   "zn3iWx": {
     "defaultMessage": "Repeat Password",
