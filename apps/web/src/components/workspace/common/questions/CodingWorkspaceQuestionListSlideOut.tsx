@@ -7,37 +7,31 @@ import { trpc } from '~/hooks/trpc';
 import { useQuestionFormatLists } from '~/data/QuestionFormats';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import type {
+  QuestionMetadata,
+  QuestionMetadataWithCompletedStatus,
+  QuestionSortField,
+} from '~/components/interviews/questions/common/QuestionsTypes';
+import useQuestionCodingFormatFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingFormatFilter';
+import useQuestionCompanyFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionCompanyFilter';
+import useQuestionCompletionStatusFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionCompletionStatusFilter';
+import useQuestionDifficultyFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionDifficultyFilter';
+import useQuestionFrameworkFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionFrameworkFilter';
+import useQuestionLanguageFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionLanguageFilter';
+import useQuestionsWithCompletionStatus from '~/components/interviews/questions/listings/filters/hooks/useQuestionsWithCompletionStatus';
+import type { QuestionFilter } from '~/components/interviews/questions/listings/filters/QuestionFilterType';
+import questionMatchesTextQuery from '~/components/interviews/questions/listings/filters/questionMatchesTextQuery';
+import {
+  filterQuestions,
+  sortQuestionsMultiple,
+} from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
+import QuestionsCodingListBrief from '~/components/interviews/questions/listings/items/QuestionsCodingListBrief';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import EmptyState from '~/components/ui/EmptyState';
 import SlideOut from '~/components/ui/SlideOut';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
-
-import QuestionsCodingListBrief from './QuestionsCodingListBrief';
-import useQuestionCodingFormatFilter from '../filters/hooks/useQuestionCodingFormatFilter';
-import useQuestionCompanyFilter from '../filters/hooks/useQuestionCompanyFilter';
-import useQuestionCompletionStatusFilter from '../filters/hooks/useQuestionCompletionStatusFilter';
-import useQuestionDifficultyFilter from '../filters/hooks/useQuestionDifficultyFilter';
-import useQuestionFrameworkFilter from '../filters/hooks/useQuestionFrameworkFilter';
-import useQuestionLanguageFilter from '../filters/hooks/useQuestionLanguageFilter';
-import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
-import type { QuestionFilter } from '../filters/QuestionFilterType';
-import questionMatchesTextQuery from '../filters/questionMatchesTextQuery';
-import {
-  filterQuestions,
-  sortQuestionsMultiple,
-} from '../filters/QuestionsProcessor';
-import type {
-  QuestionMetadata,
-  QuestionMetadataWithCompletedStatus,
-  QuestionSortField,
-} from '../../common/QuestionsTypes';
-
-type Props = Readonly<{
-  isShown: boolean;
-  onClose: () => void;
-}>;
 
 function FilterSection<T extends string, Q extends QuestionMetadata>({
   filters,
@@ -74,17 +68,13 @@ function FilterSection<T extends string, Q extends QuestionMetadata>({
   );
 }
 
-function Contents() {
-  const intl = useIntl();
+function Contents({
+  questionsWithCompletionStatus,
+}: Readonly<{
+  questionsWithCompletionStatus: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
+}>) {
   const { userProfile } = useUserProfile();
-  const {
-    isLoading,
-    data: codingQuestions,
-    isSuccess,
-  } = trpc.questions.coding.useQuery();
-  const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
-    codingQuestions ?? [],
-  );
+
   const defaultSortFields: ReadonlyArray<{
     field: QuestionSortField;
     isAscendingOrder: boolean;
@@ -185,27 +175,6 @@ function Contents() {
         />
       </form>
       {(() => {
-        if (isLoading) {
-          return (
-            <div className="py-8">
-              <Spinner display="block" size="md" />
-            </div>
-          );
-        }
-
-        if (!isSuccess) {
-          return (
-            <EmptyState
-              title={intl.formatMessage({
-                defaultMessage: 'Failed to load coding questions',
-                description: 'Error message when the questions failed to load',
-                id: 'HHJYxM',
-              })}
-              variant="error"
-            />
-          );
-        }
-
         const sortedQuestions = sortQuestionsMultiple(
           questionsWithCompletionStatus,
           userProfile?.isPremium
@@ -229,9 +198,16 @@ function Contents() {
   );
 }
 
-export default function QuestionCodingListSlideOut({
+type Props = Readonly<{
+  isShown: boolean;
+  onClose: () => void;
+  questionsWithCompletionStatus: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
+}>;
+
+export default function CodingWorkspaceQuestionListSlideOut({
   isShown,
   onClose,
+  questionsWithCompletionStatus,
 }: Props) {
   const questionFormatLists = useQuestionFormatLists();
 
@@ -242,7 +218,11 @@ export default function QuestionCodingListSlideOut({
       size="xl"
       title={questionFormatLists.coding.longName}
       onClose={onClose}>
-      {isShown && <Contents />}
+      {isShown && (
+        <Contents
+          questionsWithCompletionStatus={questionsWithCompletionStatus}
+        />
+      )}
     </SlideOut>
   );
 }
