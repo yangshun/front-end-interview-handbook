@@ -11,4 +11,5 @@ export const ReadyQuestions: ReadonlyArray<string> = [
   'dropdown-menu',
   'modal-dialog',
   'pinterest',
+  'video-streaming-netflix',
 ];

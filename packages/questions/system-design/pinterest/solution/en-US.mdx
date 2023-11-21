@@ -338,19 +338,19 @@ The keyboard user has to tab through two columns of pins before finally reaching
 
 The following example is implemented using the "row of columns" layout and the numbers within the items indicate the elements tabbing order.
 
-<iframe
-  src="https://codesandbox.io/embed/f7s8vt?fontsize=14&hidenavigation=1&theme=dark&module=/src/index.html,/src/styles.css&view=split"
-  style={{
-    width: '100%',
-    height: 500,
-    border: 0,
-    borderRadius: 4,
-    overflow: 'hidden',
-  }}
-  title="Pinterest layout row of columns"
-  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-/>
+    <iframe
+          src="https://codesandbox.io/embed/f7s8vt?fontsize=14&hidenavigation=1&theme=dark&module=/src/index.html,/src/styles.css&view=split"
+          style={{
+            width: '100%',
+            height: 500,
+            border: 0,
+            borderRadius: 4,
+            overflow: 'hidden',
+          }}
+          title="Pinterest layout row of columns"
+          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+        />
 
 ---
 
@@ -377,19 +377,19 @@ With absolute positioning, the DOM order of the items does not affect the visual
 
 The following example is implemented using the absolute positioning approach and the numbers within the items indicate the elements' tabbing order. Notice that there's only one layer of children nodes within the container; there's no nesting involved and the markup is very clean.
 
-<iframe
-  src="https://codesandbox.io/embed/dqtrlk?fontsize=14&hidenavigation=1&theme=dark&module=/src/index.html,/src/styles.css&view=split"
-  style={{
-    width: '100%',
-    height: 500,
-    border: 0,
-    borderRadius: 4,
-    overflow: 'hidden',
-  }}
-  title="Pinterest layout position absolute"
-  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-/>
+    <iframe
+          src="https://codesandbox.io/embed/dqtrlk?fontsize=14&hidenavigation=1&theme=dark&module=/src/index.html,/src/styles.css&view=split"
+          style={{
+            width: '100%',
+            height: 500,
+            border: 0,
+            borderRadius: 4,
+            overflow: 'hidden',
+          }}
+          title="Pinterest layout position absolute"
+          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+        />
 
 Typically, `absolute`-positioned elements are taken out of the normal document flow and usually do not affect the positioning or layout of other elements on the page. As a result, changes to these elements, such as their size or position, usually do not trigger a browser reflow. However, adding more pins to the bottom of the container, even though they are `absolute`-ly positioned, will increase the height of the container and result in reflows.
 
@@ -430,19 +430,19 @@ In round robin placement, we put the pins in order into each column, wrapping ar
 
 The example below shows some pins that are ordered in a round robin fashion within a 3-column layout using absolute positioning, as well as the round robin algorithm to achieve it.
 
-<iframe
-  src="https://codesandbox.io/embed/gnszl2?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
-  style={{
-    width: '100%',
-    height: 500,
-    border: 0,
-    borderRadius: 4,
-    overflow: 'hidden',
-  }}
-  title="Pinterest order sequential"
-  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-/>
+    <iframe
+          src="https://codesandbox.io/embed/gnszl2?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.js,/src/styles.css&view=split"
+          style={{
+            width: '100%',
+            height: 500,
+            border: 0,
+            borderRadius: 4,
+            overflow: 'hidden',
+          }}
+          title="Pinterest order sequential"
+          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+        />
 
 The benefit of this approach is that the algorithm runs in O(N) and is easy to implement (just modulo by the columns size).
 
@@ -621,10 +621,10 @@ With an `absolute`ly-positioned layout:
 
 On desktop, Pinterest allows a maximum number of 40 pins in the DOM at any one time. On mobile, it's around 10 - 20. It's possible to use dynamic values based on network conditions, device dimensions, device processing abilities, etc. The GIF below shows list virtualization in action on the Pinterest homepage.
 
-<video
-  controls
-  src="/img/questions/pinterest/pinterest-virtualization-video.mp4"
-/>
+    <video
+          controls
+          src="/img/questions/pinterest/pinterest-virtualization-video.mp4"
+        />
 
 Some observations:
 

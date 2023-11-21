@@ -453,7 +453,7 @@
     "companies": [],
     "created": 1630800000,
     "difficulty": "hard",
-    "duration": 30,
+    "duration": 45,
     "excerpt": "Design a video streaming application like Netflix and YouTube",
     "featured": false,
     "format": "system-design",
