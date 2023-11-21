@@ -45,4 +45,4 @@ The following fields are accepted in the **request body**:
 The API has a 50% chance of succeeding (HTTP 200) or failing (HTTP 500) so as to make it easy for you to test the request failure cases. It returns a JSON payload of the following shape depending on the outcome.
 
 - Success: `{ message: 'Success!' }`
-- Failure: `{ error: 'Unknown error during attempted {{action}}. Please try again later.!' }`
+- Failure: `{ message: 'Unknown error during attempted {{action}}. Please try again later.!' }`
