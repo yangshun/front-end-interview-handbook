@@ -99,7 +99,7 @@ function useSystemDesignGuides() {
         id: 'twAHPt',
       }),
       href: `${basePath}/evaluation-axes`,
-      premium: true,
+      premium: false,
       slug: 'evaluation-axes',
       title: intl.formatMessage({
         defaultMessage: 'Evaluation Axes',
@@ -115,7 +115,7 @@ function useSystemDesignGuides() {
         id: '6kLEK7',
       }),
       href: `${basePath}/common-mistakes`,
-      premium: true,
+      premium: false,
       slug: 'common-mistakes',
       title: intl.formatMessage({
         defaultMessage: 'Common Mistakes',
@@ -133,7 +133,7 @@ function useSystemDesignGuides() {
         id: 'KdzvRx',
       }),
       href: `${basePath}/cheatsheet`,
-      premium: true,
+      premium: false,
       slug: 'cheatsheet',
       title: intl.formatMessage({
         defaultMessage: 'Cheatsheet',
