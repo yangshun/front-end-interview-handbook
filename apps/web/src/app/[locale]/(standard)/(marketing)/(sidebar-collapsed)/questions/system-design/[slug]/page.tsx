@@ -80,7 +80,7 @@ export default async function Page({ params }: Props) {
         canViewPremiumContent={canViewPremiumContent}
         isQuestionLocked={isQuestionLocked}
         question={{
-          description: isQuestionLocked ? null : question.description,
+          description: question.description,
           format: question.format,
           metadata: question.metadata,
           solution: isQuestionLocked ? null : question.solution,

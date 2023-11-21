@@ -4,17 +4,11 @@ import { getMDXExport } from 'mdx-bundler/client';
 
 import GuidesMainLayout from '~/components/guides/GuidesMainLayout';
 import type { TableOfContents } from '~/components/guides/GuidesTableOfContents';
-import useFlattenedNavigationItems from '~/components/guides/useFlattenedNavigationItems';
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type { QuestionSystemDesign } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionContentsSystemDesign from '~/components/interviews/questions/content/system-design/QuestionContentsSystemDesign';
 import { ReadyQuestions } from '~/components/interviews/questions/content/system-design/SystemDesignConfig';
 import { useSystemDesignNavigation } from '~/components/interviews/questions/content/system-design/SystemDesignNavigation';
-import SystemDesignPaywall from '~/components/interviews/questions/content/system-design/SystemDesignPaywall';
-import Button from '~/components/ui/Button';
-import EmptyState from '~/components/ui/EmptyState';
-
-import { useI18nPathname } from '~/next-i18nostic/src';
 
 type Props = Readonly<{
   canViewPremiumContent: boolean;
@@ -27,10 +21,7 @@ export default function QuestionsSystemDesignPage({
   isQuestionLocked,
   question,
 }: Props) {
-  const isAvailable =
-    process.env.NODE_ENV === 'development'
-      ? true
-      : ReadyQuestions.includes(question.metadata.slug);
+  const isAvailable = ReadyQuestions.includes(question.metadata.slug);
 
   const tableOfContents =
     question.solution != null
@@ -41,54 +32,24 @@ export default function QuestionsSystemDesignPage({
         ).tableOfContents
       : undefined;
 
-  const { pathname } = useI18nPathname();
   const navigation = useSystemDesignNavigation();
-
-  const flatNavigationItems = useFlattenedNavigationItems(navigation);
-
-  const currentItem = flatNavigationItems.find(
-    (item) => item.href === pathname,
-  )!;
-
-  const isComingSoon = !ReadyQuestions.includes(question.metadata.slug);
-  const shouldCheckPremium = isAvailable;
 
   return (
     <GuidesMainLayout navigation={navigation} tableOfContents={tableOfContents}>
-      <SystemDesignPaywall
-        isComingSoon={isComingSoon}
-        isPremium={currentItem.premium}
-        shouldCheckPremium={shouldCheckPremium}>
-        {!isAvailable ? (
-          canViewPremiumContent ? (
-            <EmptyState
-              action={
-                <Button
-                  href="/contact"
-                  label="Subscribe to Updates"
-                  variant="primary"
-                />
-              }
-              subtitle="System Design content will be released on a rolling basis. Subscribe to the newsletter to receive updates."
-              title="Coming Soon"
-              variant="under_construction"
-            />
-          ) : (
-            <QuestionPaywall
-              subtitle="System Design content will be released on a rolling basis. Prices will be increased after System Design content is complete. Subscribe to lifetime today and secure the better deal!"
-              title="Coming Soon"
-              variant="under_construction"
-            />
-          )
-        ) : (
-          <QuestionContentsSystemDesign
-            key={question.metadata.slug}
-            canViewPremiumContent={canViewPremiumContent}
-            isQuestionLocked={isQuestionLocked}
-            question={question}
-          />
-        )}
-      </SystemDesignPaywall>
+      {!isAvailable ? (
+        <QuestionPaywall
+          subtitle="System Design content will be released on a rolling basis. Prices will be increased after System Design content is complete. Subscribe to lifetime today and secure the better deal!"
+          title="Coming Soon"
+          variant="under_construction"
+        />
+      ) : (
+        <QuestionContentsSystemDesign
+          key={question.metadata.slug}
+          canViewPremiumContent={canViewPremiumContent}
+          isQuestionLocked={isQuestionLocked}
+          question={question}
+        />
+      )}
     </GuidesMainLayout>
   );
 }

@@ -90,11 +90,7 @@ export default function QuestionContentsSystemDesign({
               </>
             )}
           <Divider />
-          <QuestionContentProse
-            contents={description}
-            isContentsHidden={isQuestionLocked}
-            textSize="md"
-          />
+          <QuestionContentProse contents={description} textSize="md" />
         </div>
         <Divider />
         <div>
