@@ -531,6 +531,10 @@
     "defaultMessage": "Profile",
     "description": "Profile page title"
   },
+  "83GIBc": {
+    "defaultMessage": "Introduction",
+    "description": "Introduction to front end system design"
+  },
   "854lgU": {
     "defaultMessage": "Strategies to tackle the wide domain of behavioral interviews, specific to SWE",
     "description": "Description of behavioral interview preparation"
@@ -862,10 +866,6 @@
   "DiyRBB": {
     "defaultMessage": "Codeney Pte Ltd. All rights reserved.",
     "description": "Footer copyright text containing the company name"
-  },
-  "DtDE8k": {
-    "defaultMessage": "How to Prepare",
-    "description": "How to prepare for front end system design interviews"
   },
   "Dynazi": {
     "defaultMessage": "(Save {discountPercentage}% vs monthly)",
@@ -1375,10 +1375,6 @@
     "defaultMessage": "Billing",
     "description": "Profile billing tab title"
   },
-  "MHz32F": {
-    "defaultMessage": "Overview",
-    "description": "Overview section for front end system design interviews"
-  },
   "MJGa2M": {
     "defaultMessage": "{completedCount} completed",
     "description": "Label for completed user count in Project card."
@@ -1490,10 +1486,6 @@
   "Nh3PP/": {
     "defaultMessage": "Practice Questions",
     "description": "Title of question examples section on getting started page"
-  },
-  "Nidjwh": {
-    "defaultMessage": "Intro to System Design",
-    "description": "Introduction to front end system design"
   },
   "NoFZV/": {
     "defaultMessage": "Strengthen your proficiency in JavaScript through writing Lodash functions from scratch.",
@@ -2110,10 +2102,6 @@
   "X55xMA": {
     "defaultMessage": "Premium Feature",
     "description": "Header for paywall over company tagging"
-  },
-  "XCPiLe": {
-    "defaultMessage": "<discount>Get {discountPercentage}% off all plans with {promoCode}</discount> or check out other <promotion>promotions</promotion>",
-    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
   },
   "XS6Jyn": {
     "defaultMessage": "Become an Affiliate",
@@ -3315,6 +3303,10 @@
     "defaultMessage": "JavaScript Utilities",
     "description": "Front end JavaScript utility functions"
   },
+  "pgK6Eb": {
+    "defaultMessage": "Guidebook",
+    "description": "How to prepare for front end system design interviews"
+  },
   "piqimi": {
     "defaultMessage": "OFF",
     "description": "Amount cashback/discount"
@@ -3434,6 +3426,10 @@
   "rbjUFF": {
     "defaultMessage": "For Beginners",
     "description": "Button label for Projects marketing hero section for beginners"
+  },
+  "refCk9": {
+    "defaultMessage": "Black Friday Sale is LIVE! <discount>Get {discountPercentage}% off all purchases with {promoCode}</discount> and get free exclusive beta access to our new mystery product dropping in early 2024! 🚀",
+    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
   },
   "rfI2w+": {
     "defaultMessage": "Cancel",

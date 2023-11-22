@@ -8,6 +8,8 @@ import gtag from '~/lib/gtag';
 import {
   PERPETUAL_PROMO_CODE,
   PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
+  SEASONAL_PROMO_CODE,
+  SEASONAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
 } from '~/data/PromotionConfig';
 
 import Anchor from '~/components/ui/Anchor';
@@ -25,9 +27,9 @@ export default function GlobalBanner() {
 
   const seasonalSaleMessage = (
     <FormattedMessage
-      defaultMessage="<discount>Get {discountPercentage}% off all plans with {promoCode}</discount> or check out other <promotion>promotions</promotion>"
+      defaultMessage="Black Friday Sale is LIVE! <discount>Get {discountPercentage}% off all purchases with {promoCode}</discount> and get free exclusive beta access to our new mystery product dropping in early 2024! 🚀"
       description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
-      id="XCPiLe"
+      id="refCk9"
       values={{
         discount: (chunks) => (
           <Anchor
@@ -49,8 +51,8 @@ export default function GlobalBanner() {
             {chunks}
           </Anchor>
         ),
-        discountPercentage: 20,
-        promoCode: 'LAUNCH20',
+        discountPercentage: SEASONAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
+        promoCode: SEASONAL_PROMO_CODE,
         promotion: (chunks) => (
           <Anchor
             className="whitespace-nowrap font-medium"
