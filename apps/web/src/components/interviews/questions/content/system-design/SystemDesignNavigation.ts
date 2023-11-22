@@ -28,10 +28,10 @@ export const readySystemDesignQuestions = allSystemDesignQuestions.filter(
   (question) => ReadyQuestions.includes(question.slug),
 );
 
-function useSystemDesignIntroduction() {
+export function useSystemDesignGuides() {
   const intl = useIntl();
 
-  const systemDesignIntroduction: NavigationLinks = [
+  const systemDesignGuides: NavigationLinks = [
     {
       description: intl.formatMessage({
         defaultMessage: 'What to expect for Front End System Design interviews',
@@ -43,21 +43,12 @@ function useSystemDesignIntroduction() {
       premium: false,
       slug: 'introduction',
       title: intl.formatMessage({
-        defaultMessage: 'Intro to System Design',
+        defaultMessage: 'Introduction',
         description: 'Introduction to front end system design',
-        id: 'Nidjwh',
+        id: '83GIBc',
       }),
       type: 'guide',
     },
-  ];
-
-  return systemDesignIntroduction;
-}
-
-function useSystemDesignGuides() {
-  const intl = useIntl();
-
-  const systemDesignGuides: NavigationLinks = [
     {
       description: intl.formatMessage({
         defaultMessage: 'Overview of various question formats',
@@ -148,38 +139,17 @@ function useSystemDesignGuides() {
   return systemDesignGuides;
 }
 
-export function useSystemDesignLearningContent() {
-  const systemDesignIntroduction = useSystemDesignIntroduction();
-  const systemDesignGuides = useSystemDesignGuides();
-  const systemDesignLearningContent = [
-    ...systemDesignIntroduction,
-    ...systemDesignGuides,
-  ];
-
-  return systemDesignLearningContent;
-}
-
 export function useSystemDesignNavigation() {
   const intl = useIntl();
-  const systemDesignIntroduction = useSystemDesignIntroduction();
   const systemDesignGuides = useSystemDesignGuides();
   const navigation: GuideNavigation<SystemDesignNavigationLink> = {
     items: [
       {
-        links: systemDesignIntroduction,
-        title: intl.formatMessage({
-          defaultMessage: 'Overview',
-          description:
-            'Overview section for front end system design interviews',
-          id: 'MHz32F',
-        }),
-      },
-      {
         links: systemDesignGuides,
         title: intl.formatMessage({
-          defaultMessage: 'How to Prepare',
+          defaultMessage: 'Guidebook',
           description: 'How to prepare for front end system design interviews',
-          id: 'DtDE8k',
+          id: 'pgK6Eb',
         }),
       },
       {
