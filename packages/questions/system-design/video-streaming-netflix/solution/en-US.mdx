@@ -233,6 +233,17 @@ Buffered video data can be cached, especially for the billboard video which does
 
 Media players inherently contain state as well because `HTMLVideoObject`s in the DOM contain properties like `paused`, `muted`, etc. By building your own video player component in JavaScript, there will be state values that are duplicated and with duplication, values can go out-of-sync. The recommended approach is to let the UI component state be the source of truth and sync the component state with the DOM media player state, essentially making the media player a ["controlled" component](https://react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable) similar to how `<input>` elements are controlled in React.
 
+Here are some libraries that provide custom video players or help you build one:
+
+- [Shaka Player](https://github.com/shaka-project/shaka-player): An open-source JavaScript library for adaptive media that supports DASH and HLS.
+- [Video.js](https://videojs.com/): Similar to Shaka Player, with many different themes and skins.
+- [Media Chrome](https://www.media-chrome.org/): Elements for building media players.
+
+Tutorials:
+
+- [Mobile Web Video Playback | Articles | web.dev](https://web.dev/articles/media-mobile-web-video-playback)
+- [Building a Media Player Series | Chrome for Developers](https://www.youtube.com/watch?v=--KA2VrPDao&list=PLNYkxOF6rcIBykcJ7bvTpqU7vt-oey72J&index=20)
+
 ## Optimizations and deep dive
 
 ### Understanding native HTML `<video>` elements
@@ -322,19 +333,19 @@ Note that `<video>` elements also contain their own state as mentioned in the at
 
 In the following example, the React component state is synced with the DOM video state. Try playing the video using either "Play" buttons and see that the playback and custom UI states are synced properly.
 
-<iframe
-  src="https://codesandbox.io/embed/f6h325?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.tsx&view=split"
-  style={{
-    width: '100%',
-    height: 500,
-    border: 0,
-    borderRadius: 4,
-    overflow: 'hidden',
-  }}
-  title="React video component state sync"
-  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-/>
+    <iframe
+          src="https://codesandbox.io/embed/f6h325?fontsize=14&hidenavigation=1&theme=dark&module=/src/App.tsx&view=split"
+          style={{
+            width: '100%',
+            height: 500,
+            border: 0,
+            borderRadius: 4,
+            overflow: 'hidden',
+          }}
+          title="React video component state sync"
+          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+        />
 
 Also ensure that custom-built video controls meet the accessibility requirements and standards provided by the native video controls.
 
@@ -386,6 +397,11 @@ async function sourceOpen() {
 Segmented video files, along with the Media Source API, allows for clients to stream video content. This API also allows for the creation of more interactive video experiences, such as the ability to insert ads dynamically, switch between multiple video angles, or synchronize additional content with video playback. [Netflix's Bandersnatch](https://postperspective.com/netflixs-black-mirror-bandersnatch-lets-viewers-choose/) is an interactive film with 5 unique endings where users can "choose their own adventure" while watching. As such, the number of combinations is huge and it is not feasible to create video files for all possible film paths. Using `MediaSource` helps to dynamically stitch the different parts of the film together depending on the user's choice.
 
 If you inspect the `src` attribute of `<video>` elements on Netflix and YouTube, you'll see that they look like `<video src="blob:https://www.netflix.com/b4bc251f-5b0d-47a3-b0cb-4fbf653a16f4">`. This is because the `src` was created using `URL.createObjectURL()`.
+
+Read more about Media Source API on:
+
+- [Media Source API | Articles | web.dev](https://web.dev/articles/media-mse-basics)
+- [Media Source API | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Media_Source_Extensions_API)
 
 Now we know how video streaming works, but that's not all there is to know! Streaming can be further improved with adaptive bitrate streaming.
 
@@ -622,6 +638,7 @@ Performance in video streaming is vital for a seamless and enjoyable viewing exp
 - **Progressive streaming**: Use progressive streaming to enable users to start watching a video before it's fully loaded. This provides a more responsive experience.
 - **Lazy loading**: Implement lazy loading for videos so that they only load when they come into the user's viewport. Lazy load non-visible UI like dropdowns and modals during idle cycles or when it's being interacted with. This reduces initial page load times.
 - **Player responsiveness**: Ensure that video player controls and the user interface remain responsive during video playback. Users should be able to interact with the player without delays.
+- **Preloading media files**: Preload media either by using the `preload` attribute (only for predefined `src`, not compatible with Media Source API) or use link preload ([source](https://web.dev/articles/fast-playback-with-preload)).
 
 #### Improving video startup time by separating video lifecycle from UI lifecycle
 
@@ -674,6 +691,7 @@ A positive user experience in video streaming is crucial as it ensures user sati
 
 #### Enhanced experience
 
+- **Prevent layout shifts**: Set the `width` and `height` attributes on `<video>` tag to [prevent layout shifts](https://web.dev/patterns/web-vitals-patterns/video/video).
 - **Video thumbnail previews**: Offer video thumbnails or previews when users hover over the timeline. This helps users quickly identify specific scenes in the video.
 - **Poster image**: For autoplay videos, [YouTube found that using a solid black poster image](https://web.dev/case-studies/better-youtube-web-part1#improving_core_web_vitals) for autoplay videos was a better experience because the transition from solid black to the first frame of the video to be less-jarring.
 
@@ -686,6 +704,7 @@ Since video streaming applications serve a broad, international audience, access
 Accessibility for subtitles have been covered in the ["Subtitles"](#subtitles--closed-captions) section above. To recap:
 
 - **Audio impairment issues**: Closed captions or subtitles should be provided for videos to assist users who are deaf or hard of hearing.
+- **Implementation**: One way to implement subtitles is to use `<track>` tags within `<video>` tags.
 - **Readability**: Ensure subtitles are easy to read, with clear fonts, appropriate sizes, and high contrast against the video in the background. Common choices are white text with a drop shadow or white text highlighted in a dark color.
 - **Inclusion of non-speech elements**: Capture not just dialogue but also significant sounds and audio cues in the subtitles to provide a fuller understanding of the content.
 - **Customization options**: Support the display and customization of captions, including font size, color, and background.
