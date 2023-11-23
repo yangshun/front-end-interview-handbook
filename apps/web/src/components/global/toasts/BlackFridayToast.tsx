@@ -28,28 +28,36 @@ export default function BlackFridayToast() {
       subtitle: (
         <div className="flex flex-col gap-2 pt-2">
           <div className="flex items-center gap-2">
-            <div className="flex w-[175px] self-stretch">
+            <div className="flex w-full self-stretch sm:w-[175px]">
               <BlackFridayPromoCard />
             </div>
             <Text
-              className="text-lg leading-5"
+              className="hidden text-lg leading-5 sm:block"
               color="secondary"
               display="block"
               size="custom"
               weight="medium">
               +
             </Text>
-            <BlackFridayExclusiveTicket width={175} />
+            <div className="hidden sm:flex">
+              <BlackFridayExclusiveTicket width={175} />
+            </div>
           </div>
-          <Text color="secondary" display="block" size="body3">
+          <Text
+            className="hidden sm:block"
+            color="secondary"
+            display="block"
+            size="body3">
             With every purchase
           </Text>
         </div>
       ),
       title: (
-        <div className="flex gap-x-3">
+        <div className="flex items-center gap-x-3">
           <span>Black Friday Special</span>
-          <BlackFridayLiveBadge />
+          <div>
+            <BlackFridayLiveBadge />
+          </div>
         </div>
       ),
       variant: 'invert',

@@ -35,7 +35,7 @@ export function BlackFridayPromoCard() {
   return (
     <div
       className={clsx(
-        'flex flex-col gap-y-1 rounded-md p-4',
+        'flex w-full flex-col gap-y-1 rounded-md p-4',
         ['border', themeLineColor],
         themeBackgroundColor,
       )}>
