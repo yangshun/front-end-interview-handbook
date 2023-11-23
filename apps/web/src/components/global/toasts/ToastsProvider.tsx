@@ -34,15 +34,9 @@ export function useToast() {
 export default function ToastsProvider({ children }: Props) {
   const [toasts, setToasts] = useState<Array<ToastData>>([]);
 
-  const showToast = useCallback(
-    ({ title, subtitle, variant, duration, onClose }: ToastMessage) => {
-      setToasts((oldToasts) => [
-        { duration, id: getID(), onClose, subtitle, title, variant },
-        ...oldToasts,
-      ]);
-    },
-    [],
-  );
+  const showToast = useCallback((toast: ToastMessage) => {
+    setToasts((oldToasts) => [{ ...toast, id: getID() }, ...oldToasts]);
+  }, []);
 
   function closeToast(id: number) {
     setToasts((oldToasts) => {
@@ -60,12 +54,10 @@ export default function ToastsProvider({ children }: Props) {
         className="pointer-events-none fixed inset-0 z-50 flex items-end px-4 py-6 sm:p-6">
         <div className="flex w-full flex-col items-center space-y-4 sm:items-start">
           {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
-          {toasts.map(({ id, title, subtitle, variant, onClose }) => (
+          {toasts.map(({ id, onClose, ...toast }) => (
             <Toast
               key={id}
-              subtitle={subtitle}
-              title={title}
-              variant={variant}
+              {...toast}
               onClose={() => {
                 onClose?.();
                 closeToast(id);

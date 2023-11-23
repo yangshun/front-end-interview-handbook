@@ -20,14 +20,17 @@ export type ToastVariant =
   | 'danger'
   | 'dark'
   | 'info'
+  | 'invert'
   | 'plain'
   | 'special'
   | 'success'
   | 'warning';
 
 export type ToastMessage = Readonly<{
+  className?: string;
   duration?: number;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  maxWidth?: 'md' | 'sm';
   onClose?: () => void;
   subtitle?: ReactNode;
   title: ReactNode;
@@ -65,6 +68,12 @@ const classes: Record<
     iconClass: 'text-white focus:ring-white-500',
     textColor: 'light',
   },
+  invert: {
+    backgroundClass:
+      'bg-neutral-100 border border-neutral-20 dark:border-neutral-700 dark:bg-neutral-900',
+    iconClass: 'focus:ring-white-500',
+    textColor: 'default',
+  },
   plain: {
     backgroundClass: 'bg-neutral-900 dark:bg-neutral-100',
     iconClass: 'text-neutral-900 focus:ring-neutral-500',
@@ -91,8 +100,10 @@ const classes: Record<
 };
 
 export default function Toast({
+  className,
   duration = 4000,
   icon: IconProp,
+  maxWidth = 'sm',
   title,
   subtitle,
   variant,
@@ -146,8 +157,11 @@ export default function Toast({
       show={true}>
       <div
         className={clsx(
-          'pointer-events-auto w-full max-w-sm overflow-hidden rounded shadow-lg',
+          'pointer-events-auto w-full overflow-hidden rounded shadow-lg',
+          maxWidth === 'sm' && 'max-w-sm',
+          maxWidth === 'md' && 'max-w-md',
           backgroundClass,
+          className,
         )}>
         <Text
           className="w-full items-start gap-x-2 px-3 py-2"

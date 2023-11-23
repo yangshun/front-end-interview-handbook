@@ -11,6 +11,7 @@ import I18nBetaBanner from '~/components/global/banners/I18nBetaBanner';
 import AppThemeScript from '~/components/global/dark/AppThemeScript';
 import FirstPromoter from '~/components/global/FirstPromoter';
 import GlobalProviders from '~/components/global/GlobalProviders';
+import BlackFridayToast from '~/components/global/toasts/BlackFridayToast';
 import { themeBackgroundColor } from '~/components/ui/theme';
 
 import type { IntlMessages } from '~/i18n';
@@ -47,6 +48,7 @@ export default function RootLayout({ children, intlMessages, locale }: Props) {
           <FirstPromoter />
           <WebVitals />
           <I18nBetaBanner />
+          <BlackFridayToast />
         </GlobalProviders>
       </body>
     </html>
