@@ -11,6 +11,7 @@ import {
 } from 'react-icons/ri';
 import { TbBinaryTree } from 'react-icons/tb';
 
+import ExclusiveTicket from '~/components/common/ExclusiveTicket';
 import GuidesDropdownMenu from '~/components/guides/GuidesDropdownMenu';
 import DashboardContinueLearning from '~/components/interviews/dashboard/DashboardContinueLearning';
 import PreparationStudyGuideList from '~/components/interviews/dashboard/DashboardStudyGuideList';
@@ -27,12 +28,14 @@ import QuestionCountLabel from '~/components/interviews/questions/metadata/Quest
 import QuestionDifficultyLabel from '~/components/interviews/questions/metadata/QuestionDifficultyLabel';
 import QuestionProgressLabel from '~/components/interviews/questions/metadata/QuestionProgressLabel';
 import QuestionStudyAllocationLabel from '~/components/interviews/questions/metadata/QuestionStudyAllocationLabel';
+import Badge from '~/components/ui/Badge';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import UIExamplesGroup from '~/components/ui/misc/UIExamplesGroup';
+import Text from '~/components/ui/Text';
 import {
   themeGradientBlueGreen,
   themeGradientGreenYellow,
@@ -83,7 +86,44 @@ export default function ScrapbookPage() {
         <Divider />
       </Container>
       <Section>
-        <GuidesDropdownMenu />
+        <Container>
+          <Heading level="heading3">Tickets</Heading>
+        </Container>
+        <Section>
+          <UIExamplesGroup darkMode="horizontal">
+            <ExclusiveTicket
+              addOnElement={<Badge label="Coming soon" variant="warning" />}
+              ratio="wide"
+              subtitle="2 months free"
+              title="Exclusive beta access to our new mystery product"
+            />
+            <ExclusiveTicket
+              padding="md"
+              ratio="wide"
+              subtitle="2 months free"
+              title="Exclusive beta access to our new mystery product"
+              width={300}
+            />
+            <ExclusiveTicket
+              padding="md"
+              subtitle={
+                <Text
+                  className="text-2xs"
+                  color="inherit"
+                  display="block"
+                  size="custom">
+                  2 months free
+                </Text>
+              }
+              title={
+                <Text className="text-2xs" display="block" size="custom">
+                  Exclusive beta access to our new mystery product
+                </Text>
+              }
+              width={200}
+            />
+          </UIExamplesGroup>
+        </Section>
         <Container>
           <Heading level="heading3">Questions</Heading>
         </Container>
