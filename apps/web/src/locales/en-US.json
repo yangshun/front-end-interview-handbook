@@ -571,6 +571,10 @@
     "defaultMessage": "See plan",
     "description": "Link to view study plan details"
   },
+  "8XVsRJ": {
+    "defaultMessage": "Join Premium Discord",
+    "description": "Join Discord channel"
+  },
   "8YgB5f": {
     "defaultMessage": "Don’t worry about losing steam. Track your progress and level up as you",
     "description": "Description for \"Gamified learning and building\" feature marketing section on Projects home page"
@@ -1118,10 +1122,6 @@
   "IBP/D0": {
     "defaultMessage": "Tell us your email if you want us to follow up with you.",
     "description": "Feedback widget text to request for optional email input for following up"
-  },
-  "IGPTRv": {
-    "defaultMessage": "Join Discord (Premium)",
-    "description": "Join Discord channel"
   },
   "IQ9qW7": {
     "defaultMessage": "Get promo code",
@@ -1710,6 +1710,10 @@
   "RBApo9": {
     "defaultMessage": "Promotions",
     "description": "Promotions on the platform"
+  },
+  "RBB42Z": {
+    "defaultMessage": "Premium",
+    "description": "Premium badge on profile page"
   },
   "RDQ253": {
     "defaultMessage": "Sign in to save progress",
@@ -2626,10 +2630,6 @@
   "fevC5W": {
     "defaultMessage": "Free",
     "description": "Label indicating that quiz questions are free"
-  },
-  "fevxJB": {
-    "defaultMessage": "PREMIUM",
-    "description": "Premium badge on profile page"
   },
   "fhTYwQ": {
     "defaultMessage": "The only end-to-end front end interview preparation platform.{br} Brought to you by big tech Senior / Staff Front End Engineers.",

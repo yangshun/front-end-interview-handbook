@@ -5,12 +5,15 @@ import { useSelectedLayoutSegment } from 'next/navigation';
 import {
   RiCalendarLine,
   RiDiscordFill,
+  RiDiscordLine,
   RiGithubFill,
   RiMailLine,
   RiStarLine,
   RiUserLine,
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
+
+import { hasProjectsBetaAccess } from '~/data/PromotionConfig';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import Anchor from '~/components/ui/Anchor';
@@ -20,6 +23,10 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Tabs from '~/components/ui/Tabs';
 import Text from '~/components/ui/Text';
 import { themeLineColor } from '~/components/ui/theme';
+
+import ExclusiveTicket from '../common/ExclusiveTicket';
+import Badge from '../ui/Badge';
+import Tooltip from '../ui/Tooltip';
 
 import type { User } from '@supabase/auth-helpers-nextjs';
 
@@ -105,7 +112,7 @@ export default function ProfileShell({ user, children }: Props) {
           {/* Left sidebar & main wrapper */}
           <div className="min-w-0 flex-1 xl:flex">
             {/* Account profile */}
-            <div className="xl:w-64 xl:flex-shrink-0 xl:px-6">
+            <div className="xl:w-72 xl:flex-shrink-0 xl:px-6">
               <div className="px-4 py-6 sm:px-6 lg:px-8 xl:px-0">
                 <div className="flex items-center justify-between">
                   <div className="w-full flex-1 gap-y-8">
@@ -137,20 +144,14 @@ export default function ProfileShell({ user, children }: Props) {
                         <>
                           <div className="flex items-center gap-x-2">
                             {userProfile?.isPremium ? (
-                              <span className="to-brand-dark inline-flex items-center gap-x-1 rounded-full bg-gradient-to-r from-pink-500 py-1.5 pl-2 pr-2.5 text-sm font-medium text-white">
-                                <RiStarLine
-                                  aria-hidden="true"
-                                  className="text-white-400 h-5 w-5 shrink-0"
-                                />
-                                <Text size="body3" weight="bold">
-                                  {intl.formatMessage({
-                                    defaultMessage: 'PREMIUM',
-                                    description:
-                                      'Premium badge on profile page',
-                                    id: 'fevxJB',
-                                  })}
-                                </Text>
-                              </span>
+                              <Badge
+                                label={intl.formatMessage({
+                                  defaultMessage: 'Premium',
+                                  description: 'Premium badge on profile page',
+                                  id: 'RBB42Z',
+                                })}
+                                variant="special"
+                              />
                             ) : (
                               <Button
                                 display="block"
@@ -165,15 +166,30 @@ export default function ProfileShell({ user, children }: Props) {
                               />
                             )}
                           </div>
+                          {userProfile?.isPremium &&
+                            hasProjectsBetaAccess() && (
+                              <ExclusiveTicket
+                                addOnElement={
+                                  <Tooltip label="Arriving early 2024">
+                                    <Badge
+                                      label="Coming soon"
+                                      size="sm"
+                                      variant="warning"
+                                    />
+                                  </Tooltip>
+                                }
+                                padding="sm"
+                                ratio="wide"
+                                subtitle="2 months free"
+                                width={240}
+                              />
+                            )}
                           <div className="flex items-center gap-x-2">
                             <RiMailLine
                               aria-hidden="true"
                               className="h-5 w-5 shrink-0 text-neutral-500"
                             />
-                            <Text
-                              className="truncate"
-                              color="secondary"
-                              size="body2">
+                            <Text className="truncate" size="body2">
                               {user.email}
                             </Text>
                           </div>
@@ -183,9 +199,7 @@ export default function ProfileShell({ user, children }: Props) {
                                 aria-hidden="true"
                                 className="h-5 w-5 shrink-0 text-neutral-500"
                               />
-                              <Text color="secondary" size="body2">
-                                {user.id}
-                              </Text>
+                              <Text size="body2">{user.id}</Text>
                             </div>
                           )}
                           {userProfile?.createdAt && (
@@ -194,7 +208,7 @@ export default function ProfileShell({ user, children }: Props) {
                                 aria-hidden="true"
                                 className="h-5 w-5 shrink-0 text-neutral-500"
                               />
-                              <Text color="secondary" size="body2">
+                              <Text size="body2">
                                 {intl.formatMessage(
                                   {
                                     defaultMessage: 'Joined on {date}',
@@ -219,7 +233,7 @@ export default function ProfileShell({ user, children }: Props) {
                                   aria-hidden="true"
                                   className="h-5 w-5 shrink-0 text-neutral-500"
                                 />
-                                <Text color="secondary" size="body2">
+                                <Text size="body2">
                                   <Anchor
                                     href={`https://github.com/${user?.user_metadata.user_name}`}>
                                     {user?.user_metadata.user_name}
@@ -227,37 +241,32 @@ export default function ProfileShell({ user, children }: Props) {
                                 </Text>
                               </div>
                             )}
-                          <div className="flex items-center gap-x-2">
-                            <RiDiscordFill
-                              aria-hidden="true"
-                              className="h-5 w-5 shrink-0 text-neutral-500"
+
+                          {userProfile?.isPremium ? (
+                            <Button
+                              addonPosition="start"
+                              display="block"
+                              href="https://discord.gg/8suTg77xXz"
+                              icon={RiDiscordFill}
+                              label={intl.formatMessage({
+                                defaultMessage: 'Join Premium Discord',
+                                description: 'Join Discord channel',
+                                id: '8XVsRJ',
+                              })}
+                              variant="primary"
                             />
-                            <Text color="secondary" size="body2">
-                              <Anchor href="https://discord.gg/NDFx8f6P6B">
-                                {intl.formatMessage({
-                                  defaultMessage: 'Join Discord',
-                                  description: 'Join Discord channel',
-                                  id: 'l1ZqoW',
-                                })}
-                              </Anchor>
-                            </Text>
-                          </div>
-                          {(userProfile?.plan === 'lifetime' ||
-                            userProfile?.plan === 'quarter' ||
-                            userProfile?.plan === 'year') && (
+                          ) : (
                             <div className="flex items-center gap-x-2">
-                              <RiDiscordFill
+                              <RiDiscordLine
                                 aria-hidden="true"
-                                className="h-5 w-5 shrink-0 text-pink-500"
+                                className="h-5 w-5 shrink-0 text-neutral-500"
                               />
-                              <Text color="secondary" size="body2">
-                                <Anchor
-                                  className="text-pink-500"
-                                  href="https://discord.gg/8suTg77xXz">
+                              <Text size="body2">
+                                <Anchor href="https://discord.gg/NDFx8f6P6B">
                                   {intl.formatMessage({
-                                    defaultMessage: 'Join Discord (Premium)',
+                                    defaultMessage: 'Join Discord',
                                     description: 'Join Discord channel',
-                                    id: 'IGPTRv',
+                                    id: 'l1ZqoW',
                                   })}
                                 </Anchor>
                               </Text>
@@ -283,6 +292,7 @@ export default function ProfileShell({ user, children }: Props) {
                 <div className="flex items-center">
                   <Tabs
                     label="Select navigation item"
+                    size="sm"
                     tabs={tabsList}
                     value={segment}
                   />
