@@ -6,9 +6,9 @@ import { useEffect } from 'react';
 import {
   RiArrowRightCircleLine,
   RiArrowRightSLine,
-  RiCheckboxCircleLine,
   RiCodeSSlashLine,
   RiDiscordFill,
+  RiStarSmileFill,
 } from 'react-icons/ri';
 
 import fbq from '~/lib/fbq';
@@ -18,15 +18,18 @@ import type {
   PricingPlansLocalized,
   PricingPlanType,
 } from '~/data/PricingPlans';
+import { hasProjectsBetaAccess } from '~/data/PromotionConfig';
 
+import ExclusiveTicket from '~/components/common/ExclusiveTicket';
 import Anchor from '~/components/ui/Anchor';
+import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
   themeDivideColor,
+  themeLineBackgroundColor,
   themeLineColor,
-  themeTextInvertColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -36,22 +39,24 @@ import logMessage from '~/logging/logMessage';
 /* TODO: i18n */
 const links = [
   {
-    description: 'Get started with study plans and questions',
-    href: '/get-started',
-    icon: RiArrowRightCircleLine,
-    title: 'Get Started',
-  },
-  {
-    description: 'Start practicing front end interview questions',
-    href: '/prepare/coding',
-    icon: RiCodeSSlashLine,
-    title: 'Practice Questions',
-  },
-  {
-    description: 'Join the private Discord community for Premium users',
+    description:
+      'Join over 1000 users in our private Discord community for Premium users',
+    featured: true,
     href: 'https://discord.gg/8suTg77xXz',
     icon: RiDiscordFill,
-    title: 'Join Discord',
+    title: 'Join Premium Discord',
+  },
+  {
+    description: 'Start practicing coding and system design questions',
+    href: '/prepare',
+    icon: RiArrowRightCircleLine,
+    title: 'Start practicing',
+  },
+  {
+    description: 'Get started with study plans and focus areas',
+    href: '/study-plans',
+    icon: RiCodeSSlashLine,
+    title: 'Study plans',
   },
 ];
 
@@ -129,24 +134,47 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
   return (
     <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-xl py-12 sm:py-16">
-        <div className="mb-2 flex justify-center">
-          <RiCheckboxCircleLine
-            aria-hidden={true}
-            className="text-success h-16 w-16"
-          />
+        <div className="flex flex-col items-center justify-center gap-4">
+          <span
+            className={clsx(
+              'relative flex h-14 w-14 items-center justify-center rounded-full',
+              'shiny',
+              'bg-brand-dark dark:bg-brand/20',
+            )}>
+            <RiStarSmileFill
+              aria-hidden={true}
+              className="dark:text-brand h-10 w-10 shrink-0 text-white"
+            />
+          </span>
+          <Heading className="text-center" level="heading4">
+            {/* TODO: i18n */}
+            Welcome to the Premium Club for GreatFrontEnd Interviews!
+          </Heading>
         </div>
-        <Heading className="text-center" level="heading4">
-          {/* TODO: i18n */}
-          Welcome to the Premium Club!
-        </Heading>
         <Section>
+          {hasProjectsBetaAccess() && (
+            <div className="mt-12 flex flex-col items-center gap-y-5">
+              <Text color="secondary" display="block">
+                You've also earned:
+              </Text>
+              <ExclusiveTicket
+                addOnElement={<Badge label="Coming soon" variant="special" />}
+                ratio="wide"
+                subtitle="2 months free"
+                title="Exclusive beta access"
+              />
+              <Text color="secondary" display="block">
+                We'll send you email updates nearer to launch
+              </Text>
+            </div>
+          )}
           <div className="mt-12">
             <Heading
               className={clsx('text-base', themeTextSecondaryColor)}
               color="custom"
               level="custom">
               {/* TODO: i18n */}
-              Next Steps
+              Next steps
             </Heading>
             <Section>
               <ul
@@ -159,18 +187,24 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
                 {links.map((link) => (
                   <li
                     key={link.title}
-                    className="relative flex items-start space-x-4 py-6">
-                    <div className="flex-shrink-0">
+                    className="group relative flex items-start space-x-4 py-6">
+                    <div className="shrink-0">
                       <span
                         className={clsx(
-                          'bg-brand flex h-12 w-12 items-center justify-center rounded-lg',
-                          themeTextInvertColor,
+                          'inline-flex h-10 w-10 items-center justify-center rounded-md',
+                          themeLineBackgroundColor,
+                          themeTextSecondaryColor,
+                          'border border-transparent transition',
+                          'group-hover:border-brand-dark group-hover:text-brand-dark',
+                          'dark:group-hover:border-brand dark:group-hover:text-brand',
                         )}>
-                        <link.icon aria-hidden="true" className="h-6 w-6" />
+                        <link.icon aria-hidden={true} className="h-6 w-6" />
                       </span>
                     </div>
                     <div className="min-w-0 flex-1">
-                      <Heading className="text-base font-medium" level="custom">
+                      <Heading
+                        className="inline-flex gap-4 text-base font-medium"
+                        level="custom">
                         <span className="focus-within:ring-brand rounded-sm focus-within:ring-2 focus-within:ring-offset-2">
                           <Anchor
                             className="focus:outline-none"
@@ -183,9 +217,20 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
                             {link.title}
                           </Anchor>
                         </span>
+                        {link.featured && (
+                          <Badge
+                            label="Recommended!"
+                            size="sm"
+                            variant="success"
+                          />
+                        )}
                       </Heading>
                       <Section>
-                        <Text color="secondary" display="block" size="body2">
+                        <Text
+                          className="mt-1"
+                          color="secondary"
+                          display="block"
+                          size="body2">
                           {link.description}
                         </Text>
                       </Section>
