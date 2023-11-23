@@ -12,7 +12,6 @@ import {
 import { TbBinaryTree } from 'react-icons/tb';
 
 import ExclusiveTicket from '~/components/common/ExclusiveTicket';
-import GuidesDropdownMenu from '~/components/guides/GuidesDropdownMenu';
 import DashboardContinueLearning from '~/components/interviews/dashboard/DashboardContinueLearning';
 import PreparationStudyGuideList from '~/components/interviews/dashboard/DashboardStudyGuideList';
 import MarketingCompaniesMarquee from '~/components/interviews/marketing/MarketingCompaniesMarquee';

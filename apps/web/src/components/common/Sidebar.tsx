@@ -30,6 +30,8 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
+import { BlackFridaySpecial } from './marketing/BlackFridaySpecial';
+
 import { Popover, Transition } from '@headlessui/react';
 
 type SidebarItem = Readonly<{
@@ -355,14 +357,19 @@ export default function Sidebar({
           );
         })}
       </div>
-      <div
-        className={clsx(
-          'flex justify-between gap-6',
-          isCollapsed && 'flex-col',
-        )}>
-        <div className={clsx('flex gap-3', isCollapsed && 'flex-col')}>
-          {[SocialLinks.discord, SocialLinks.github, SocialLinks.linkedin].map(
-            ({ href, icon, name, key }) => (
+      <div className="flex flex-col gap-6">
+        {!isCollapsed && <BlackFridaySpecial />}
+        <div
+          className={clsx(
+            'flex justify-between gap-6',
+            isCollapsed && 'flex-col',
+          )}>
+          <div className={clsx('flex gap-3', isCollapsed && 'flex-col')}>
+            {[
+              SocialLinks.discord,
+              SocialLinks.github,
+              SocialLinks.linkedin,
+            ].map(({ href, icon, name, key }) => (
               <Button
                 key={key}
                 href={href}
@@ -371,18 +378,18 @@ export default function Sidebar({
                 label={name}
                 variant="secondary"
               />
-            ),
-          )}
+            ))}
+          </div>
+          <Button
+            icon={isCollapsed ? RiContractRightLine : RiContractLeftLine}
+            isLabelHidden={true}
+            label={collapseButtonLabel}
+            tooltip={isCollapsed ? collapseButtonLabel : undefined}
+            tooltipPosition="end"
+            variant="secondary"
+            onClick={() => onCollapseChange()}
+          />
         </div>
-        <Button
-          icon={isCollapsed ? RiContractRightLine : RiContractLeftLine}
-          isLabelHidden={true}
-          label={collapseButtonLabel}
-          tooltip={isCollapsed ? collapseButtonLabel : undefined}
-          tooltipPosition="end"
-          variant="secondary"
-          onClick={() => onCollapseChange()}
-        />
       </div>
     </div>
   );
