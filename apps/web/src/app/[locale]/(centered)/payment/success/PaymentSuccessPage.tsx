@@ -152,16 +152,17 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
           </Heading>
         </div>
         <Section>
-          {hasProjectsBetaAccess() && (
+          {hasProjectsBetaAccess(Date.now()) && (
             <div className="mt-12 flex flex-col items-center gap-y-5">
               <Text color="secondary" display="block">
                 You've also earned:
               </Text>
               <ExclusiveTicket
-                addOnElement={<Badge label="Coming soon" variant="special" />}
+                addOnElement={<Badge label="Coming soon" variant="warning" />}
                 ratio="wide"
                 subtitle="2 months free"
                 title="Exclusive beta access"
+                tooltip="Ticket for exclusive beta access to our new mystery product dropping in early 2024"
               />
               <Text color="secondary" display="block">
                 We'll send you email updates nearer to launch

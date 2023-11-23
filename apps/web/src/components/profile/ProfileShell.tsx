@@ -167,7 +167,9 @@ export default function ProfileShell({ user, children }: Props) {
                             )}
                           </div>
                           {userProfile?.isPremium &&
-                            hasProjectsBetaAccess() && (
+                            hasProjectsBetaAccess(
+                              new Date(userProfile?.createdAt).getTime(),
+                            ) && (
                               <ExclusiveTicket
                                 addOnElement={
                                   <Tooltip label="Arriving early 2024">
@@ -181,6 +183,7 @@ export default function ProfileShell({ user, children }: Props) {
                                 padding="sm"
                                 ratio="wide"
                                 subtitle="2 months free"
+                                tooltip="Ticket for exclusive beta access to our new mystery product dropping in early 2024"
                                 width={240}
                               />
                             )}

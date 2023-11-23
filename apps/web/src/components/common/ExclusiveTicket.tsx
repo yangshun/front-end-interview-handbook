@@ -1,8 +1,11 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { useId } from 'react';
+import { RiQuestionLine } from 'react-icons/ri';
 
 import Text from '../ui/Text';
+import { themeTextSecondaryColor } from '../ui/theme';
+import Tooltip from '../ui/Tooltip';
 
 const ORIGINAL_HEIGHT = 98;
 const ORIGINAL_WIDTH = 156;
@@ -104,6 +107,7 @@ export default function ExclusiveTicket({
   padding = 'lg',
   ratio = 'normal',
   title,
+  tooltip,
   subtitle,
   width = 400,
 }: Readonly<{
@@ -112,6 +116,7 @@ export default function ExclusiveTicket({
   ratio?: 'normal' | 'wide';
   subtitle?: ReactNode;
   title?: ReactNode;
+  tooltip?: string;
   width?: number;
 }>) {
   return (
@@ -136,7 +141,16 @@ export default function ExclusiveTicket({
           padding === 'md' && 'px-6 py-5',
           padding === 'sm' && 'px-5 py-4',
         )}>
-        <ProductLogoMark width={width * 0.6} />
+        <div className="flex justify-between">
+          <ProductLogoMark width={width * 0.6} />
+          {tooltip && (
+            <Tooltip label={tooltip}>
+              <RiQuestionLine
+                className={clsx('h-5 w-5 shrink-0', themeTextSecondaryColor)}
+              />
+            </Tooltip>
+          )}
+        </div>
         <div className="flex w-full items-center justify-between gap-4">
           <div
             className={clsx(
