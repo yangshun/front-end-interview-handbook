@@ -162,11 +162,6 @@ function useFeatures() {
         id: 'Ptmnjq',
       }),
     },
-    // {
-    //   name: 'Exclusive techniques and best practices guides',
-    //   description:
-    //     'TODO',
-    // },
   ];
 
   return features;
