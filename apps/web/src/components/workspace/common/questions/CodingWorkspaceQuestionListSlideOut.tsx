@@ -1,4 +1,4 @@
-import { useId, useState } from 'react';
+import { useId } from 'react';
 import { RiSearchLine } from 'react-icons/ri';
 import { useSessionStorage } from 'usehooks-ts';
 
@@ -8,20 +8,11 @@ import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type {
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
-  QuestionSortField,
 } from '~/components/interviews/questions/common/QuestionsTypes';
 import useQuestionCodingFilters from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingFilters';
-import useQuestionCodingFormatFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingFormatFilter';
 import useQuestionCodingSorting from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingSorting';
-import useQuestionCompanyFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionCompanyFilter';
-import useQuestionCompletionStatusFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionCompletionStatusFilter';
-import useQuestionDifficultyFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionDifficultyFilter';
-import useQuestionFrameworkFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionFrameworkFilter';
-import useQuestionLanguageFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionLanguageFilter';
 import { QuestionsCodingFiltersNamespaceKey } from '~/components/interviews/questions/listings/filters/hooks/useQuestionsCodingFiltersNamespace';
-import useQuestionSearchFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionSearchFilter';
 import type { QuestionFilter } from '~/components/interviews/questions/listings/filters/QuestionFilterType';
-import questionMatchesTextQuery from '~/components/interviews/questions/listings/filters/questionMatchesTextQuery';
 import {
   filterQuestions,
   sortQuestionsMultiple,

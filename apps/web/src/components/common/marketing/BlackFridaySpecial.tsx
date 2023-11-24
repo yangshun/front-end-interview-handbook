@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { RiFileCopyLine } from 'react-icons/ri';
 
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
@@ -9,11 +8,8 @@ import {
 } from '~/data/PromotionConfig';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import Badge from '~/components/ui/Badge';
-import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
-import Tooltip from '~/components/ui/Tooltip';
 
 import ExclusiveTicket from '../ExclusiveTicket';
 

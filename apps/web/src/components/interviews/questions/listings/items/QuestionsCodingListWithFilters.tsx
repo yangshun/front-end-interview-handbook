@@ -13,12 +13,6 @@ import type {
   QuestionMetadataWithCompletedStatus,
   QuestionSortField,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import useQuestionCodingFormatFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionCodingFormatFilter';
-import useQuestionCompanyFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionCompanyFilter';
-import useQuestionCompletionStatusFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionCompletionStatusFilter';
-import useQuestionDifficultyFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionDifficultyFilter';
-import useQuestionFrameworkFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionFrameworkFilter';
-import useQuestionLanguageFilter from '~/components/interviews/questions/listings/filters/hooks/useQuestionLanguageFilter';
 import QuestionListingTopicFilters from '~/components/interviews/questions/listings/filters/QuestionListingTopicFilters';
 import {
   countQuestionsByDifficulty,
@@ -43,10 +37,8 @@ import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import useQuestionCodingFilters from '../filters/hooks/useQuestionCodingFilters';
 import useQuestionCodingSorting from '../filters/hooks/useQuestionCodingSorting';
 import useQuestionsCodingFiltersNamespace from '../filters/hooks/useQuestionsCodingFiltersNamespace';
-import useQuestionSearchFilter from '../filters/hooks/useQuestionSearchFilter';
 import QuestionFilterButton from '../filters/QuestionFilterButton';
 import QuestionListingCodingFilters from '../filters/QuestionListingCodingFilters';
-import questionMatchesTextQuery from '../filters/questionMatchesTextQuery';
 import QuestionListingSummarySection from '../stats/QuestionListingSummarySection';
 import type { QuestionFramework } from '../../common/QuestionsTypes';
 import QuestionCountLabel from '../../metadata/QuestionCountLabel';

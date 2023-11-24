@@ -7,8 +7,8 @@ import { useRef } from 'react';
 import ProjectsMarketingHero from '~/components/projects/marketing/ProjectsMarketingHero';
 import ProjectsMarketingHomepageFeaturesRow from '~/components/projects/marketing/ProjectsMarketingHomepageFeaturesRow';
 import Section from '~/components/ui/Heading/HeadingContext';
-import ProjectsMarketingFeatures from './ProjectsMarketingFeatures';
 
+import ProjectsMarketingFeatures from './ProjectsMarketingFeatures';
 import ProjectsMarketingSkillsTracksProjects from './ProjectsMarketingSkillsTracksProjects';
 
 const MarketingHomePageBottom = dynamic(
@@ -29,7 +29,7 @@ export default function MarketingHomePage() {
       <Section>
         <ProjectsMarketingHomepageFeaturesRow />
         <ProjectsMarketingSkillsTracksProjects />
-        <ProjectsMarketingFeatures/>
+        <ProjectsMarketingFeatures />
         <div ref={loadBottomHalfMarkerRef} />
         {showBottomHalf && <MarketingHomePageBottom />}
       </Section>
