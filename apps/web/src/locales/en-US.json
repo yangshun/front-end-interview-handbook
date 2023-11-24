@@ -167,6 +167,10 @@
     "defaultMessage": "Study list session stopped",
     "description": "Success message for stopping a study plan"
   },
+  "13CKZ1": {
+    "defaultMessage": "I want to help <bold>mentor others</bold>",
+    "description": "Label for \"Mentor others\" onboarding option in Projects"
+  },
   "15O0qb": {
     "defaultMessage": "Get Started",
     "description": "Link to get started page"
@@ -443,6 +447,14 @@
     "defaultMessage": "Common mistakes you should avoid.",
     "description": "Comon mistakes to avoid during system design interviews"
   },
+  "6nt/n6": {
+    "defaultMessage": "I'm here to build my <bold>side projects</bold>",
+    "description": "Label for \"Side projects\" onboarding option in Projects"
+  },
+  "6ntGyS": {
+    "defaultMessage": "Next",
+    "description": "Label for \"Next\" button on Sign Up Reason section of Projects onboarding page"
+  },
   "6vsplp": {
     "defaultMessage": "You're here to learn skills",
     "description": "Title of the 'Skill tree' marketing section on Projects home page"
@@ -594,6 +606,10 @@
   "8klsso": {
     "defaultMessage": "Study Plans",
     "description": "Section heading in footer for links to study plans (i.e. recommended order to study and practice based on specific timelines e.g. prepare in 1 week, 1 month or 3 months)"
+  },
+  "8mCs6b": {
+    "defaultMessage": "Skip for now",
+    "description": "Label for \"Skip\" button on Sign Up Reason section of Projects onboarding page"
   },
   "8ulBJI": {
     "defaultMessage": "All questions come with solutions written by ex-FAANG Senior Front End Engineers.",
@@ -1007,6 +1023,10 @@
     "defaultMessage": "Perfect for short term job hunts.",
     "description": "Supporting statement for a monthly pricing plan"
   },
+  "GPp0wf": {
+    "defaultMessage": "Welcome to GreatFrontEnd Projects!",
+    "description": "Title for Projects onboarding page"
+  },
   "GVHds/": {
     "defaultMessage": "Premium Feature",
     "description": "Title on question paywall appearing on the question pages of premium questions"
@@ -1159,6 +1179,10 @@
     "defaultMessage": "Company",
     "description": "Header for company filters"
   },
+  "IlQ38m": {
+    "defaultMessage": "Tell us why you’re here so that we can customize your experience",
+    "description": "Subtitle for Projects onboarding page"
+  },
   "Im9sPX": {
     "defaultMessage": "We are also looking to include more framework-specific questions like React, Vue, Angular, etc.",
     "description": "Question base section subtitle - second paragraph"
@@ -1234,6 +1258,10 @@
   "KDDzWX": {
     "defaultMessage": "{questionExcerpt} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions practice page"
+  },
+  "KIUB2O": {
+    "defaultMessage": "Back",
+    "description": "Label for \"Back\" button on Sign Up Reason section of Projects onboarding page"
   },
   "KY8GB9": {
     "defaultMessage": "Failed to mark question as complete. Please try again",
@@ -1354,6 +1382,10 @@
   "LnzTdG": {
     "defaultMessage": "CSS",
     "description": "CSS questions category short title"
+  },
+  "LxlUHa": {
+    "defaultMessage": "Primary reason",
+    "description": "Label for \"Primary reason\" button on Sign Up Reason section of Projects onboarding page"
   },
   "LzKi2d": {
     "defaultMessage": "{questionCount}+ questions",
@@ -2267,6 +2299,10 @@
     "defaultMessage": "{questionCount}+ CSS interview questions, including quiz-style knowledge questions and CSS coding questions.",
     "description": "Subtitle for CSS questions list page"
   },
+  "Zdojj9": {
+    "defaultMessage": "Other",
+    "description": "Label for \"Other\" onboarding option in Projects"
+  },
   "Znv3Y6": {
     "defaultMessage": "Save Changes",
     "description": "Label for button to save changes to user account email"
@@ -2434,6 +2470,10 @@
   "cB23kJ": {
     "defaultMessage": "Security | Profile",
     "description": "Title of Profile Security page"
+  },
+  "cJY5Ir": {
+    "defaultMessage": "I'm a <bold>beginner</bold> and want to learn skills for practical front end development",
+    "description": "Label for \"Beginner\" onboarding option in Projects"
   },
   "cKn3cK": {
     "defaultMessage": "Started",
@@ -2751,6 +2791,10 @@
     "defaultMessage": "Why be a GreatFrontEnd Affiliate?",
     "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
   },
+  "hdlJES": {
+    "defaultMessage": "Secondary reason",
+    "description": "Label for \"Secondary reason\" button on Sign Up Reason section of Projects onboarding page"
+  },
   "hoQUfU": {
     "defaultMessage": "Importance: High to Low",
     "description": "Sorting option on quiz questions page - from High to Low"
@@ -2898,6 +2942,10 @@
   "jzVpyI": {
     "defaultMessage": "Is GreatFrontEnd targeted at engineers of specific seniority?",
     "description": "Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
+  },
+  "k08Rfb": {
+    "defaultMessage": "I'm here to build my <bold>portfolio</bold>",
+    "description": "Label for \"Portfolio\" onboarding option in Projects"
   },
   "k2Oi+j": {
     "defaultMessage": "Filters",
@@ -3594,6 +3642,10 @@
   "uCbhIG": {
     "defaultMessage": "Go back to sign in",
     "description": "Label of link to return to Sign In Page on Password Reset page"
+  },
+  "uCyL/V": {
+    "defaultMessage": "I'm <bold>experienced</bold> and here to bridge some skill gaps in modern front end or full stack",
+    "description": "Label for \"Experienced\" onboarding option in Projects"
   },
   "uDUEmN": {
     "defaultMessage": "JS functions, algorithms, building components, etc.",
