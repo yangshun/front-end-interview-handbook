@@ -4,6 +4,7 @@ import { useInView } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useRef } from 'react';
 
+import BlackFridayToast from '~/components/global/toasts/BlackFridayToast';
 import MarketingEmbedSection from '~/components/interviews/marketing/embed/MarketingEmbedSection';
 import type { EmbedUIQuestion } from '~/components/interviews/marketing/embed/MarketingEmbedUIQuestion';
 import MarketingCompaniesMarquee from '~/components/interviews/marketing/MarketingCompaniesMarquee';
@@ -69,6 +70,7 @@ export default function MarketingHomePage({
         />
         {showBottomHalf && <MarketingHomePageBottom />}
       </Section>
+      <BlackFridayToast />
     </main>
   );
 }
