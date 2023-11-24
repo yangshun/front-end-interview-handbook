@@ -776,7 +776,7 @@ export default function MarketingPricingSection({
                   {SEASONAL_PROMO_CODE}
                 </strong>{' '}
                 and gain exclusive beta access to our new mystery product
-                dropping in early 2024! 🚀
+                dropping in Jan – Feb 2024! 🚀
               </Alert>
               {showPPPMessage && (
                 <Alert

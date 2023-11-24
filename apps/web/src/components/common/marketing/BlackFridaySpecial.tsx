@@ -9,9 +9,11 @@ import {
 } from '~/data/PromotionConfig';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
 import ExclusiveTicket from '../ExclusiveTicket';
 
@@ -39,7 +41,7 @@ export function BlackFridayPromoCard() {
         ['border', themeLineColor],
         themeBackgroundColor,
       )}>
-      <Text className="text-2xl" display="block" size="custom" weight="bold">
+      <Text className="text-xl" display="block" size="custom" weight="bold">
         {SEASONAL_PROMO_CODE_DISCOUNT_PERCENTAGE}% off
       </Text>
       <div className="flex justify-between">
@@ -68,21 +70,13 @@ export function BlackFridayExclusiveTicket({
   return (
     <ExclusiveTicket
       padding="sm"
-      ratio="normal"
-      subtitle={
-        <Text
-          className="text-2xs"
-          color="inherit"
-          display="block"
-          size="custom">
-          2 months free
-        </Text>
-      }
+      ratio="wide"
       title={
         <Text className="text-2xs" display="block" size="custom">
-          Exclusive beta access to our new mystery product
+          Beta access to new product
         </Text>
       }
+      tooltip="2 months free exclusive beta access to our new mystery product dropping in Jan – Feb 2024"
       width={width}
     />
   );

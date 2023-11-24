@@ -162,7 +162,7 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
                 ratio="wide"
                 subtitle="2 months free"
                 title="Exclusive beta access"
-                tooltip="Ticket for exclusive beta access to our new mystery product dropping in early 2024"
+                tooltip="Ticket for exclusive beta access to our new mystery product dropping in Jan – Feb 2024"
               />
               <Text color="secondary" display="block">
                 We'll send you email updates nearer to launch

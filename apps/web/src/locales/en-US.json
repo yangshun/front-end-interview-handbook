@@ -415,6 +415,10 @@
     "defaultMessage": "Study plans for Front End Interviews",
     "description": "Title of study plans page"
   },
+  "6QXyf+": {
+    "defaultMessage": "Black Friday Sale is LIVE! <discount>Get {discountPercentage}% off all purchases with {promoCode}</discount> and get free exclusive access to our mystery product dropping in Jan – Feb 2024! 🚀",
+    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
+  },
   "6SEbWz": {
     "defaultMessage": "Annual plan",
     "description": "Title of annual pricing plan"
@@ -3426,10 +3430,6 @@
   "rbjUFF": {
     "defaultMessage": "For Beginners",
     "description": "Button label for Projects marketing hero section for beginners"
-  },
-  "refCk9": {
-    "defaultMessage": "Black Friday Sale is LIVE! <discount>Get {discountPercentage}% off all purchases with {promoCode}</discount> and get free exclusive beta access to our new mystery product dropping in early 2024! 🚀",
-    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
   },
   "rfI2w+": {
     "defaultMessage": "Cancel",

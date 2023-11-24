@@ -27,9 +27,9 @@ export default function GlobalBanner() {
 
   const seasonalSaleMessage = (
     <FormattedMessage
-      defaultMessage="Black Friday Sale is LIVE! <discount>Get {discountPercentage}% off all purchases with {promoCode}</discount> and get free exclusive access to our mystery product dropping in early 2024! 🚀"
+      defaultMessage="Black Friday Sale is LIVE! <discount>Get {discountPercentage}% off all purchases with {promoCode}</discount> and get free exclusive access to our mystery product dropping in Jan – Feb 2024! 🚀"
       description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
-      id="ypnUwi"
+      id="6QXyf+"
       values={{
         discount: (chunks) => (
           <Anchor

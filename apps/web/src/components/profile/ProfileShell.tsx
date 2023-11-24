@@ -172,7 +172,7 @@ export default function ProfileShell({ user, children }: Props) {
                             ) && (
                               <ExclusiveTicket
                                 addOnElement={
-                                  <Tooltip label="Arriving early 2024">
+                                  <Tooltip label="Arriving Jan – Feb 2024">
                                     <Badge
                                       label="Coming soon"
                                       size="sm"
@@ -183,7 +183,7 @@ export default function ProfileShell({ user, children }: Props) {
                                 padding="sm"
                                 ratio="wide"
                                 subtitle="2 months free"
-                                tooltip="Ticket for exclusive beta access to our new mystery product dropping in early 2024"
+                                tooltip="Ticket for exclusive beta access to our new mystery product dropping in Jan – Feb 2024"
                                 width={240}
                               />
                             )}
