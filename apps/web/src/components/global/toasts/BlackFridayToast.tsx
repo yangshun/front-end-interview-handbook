@@ -21,7 +21,7 @@ export default function BlackFridayToast() {
       return;
     }
 
-    showToast({
+    const { closeToast } = showToast({
       className: 'p-3',
       duration: 1200000,
       maxWidth: 'sm',
@@ -62,6 +62,10 @@ export default function BlackFridayToast() {
       ),
       variant: 'invert',
     });
+
+    return () => {
+      closeToast();
+    };
   }, [showToast, userProfile?.isPremium, isUserProfileLoading]);
 
   return null;

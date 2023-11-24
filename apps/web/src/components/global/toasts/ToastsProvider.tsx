@@ -3,12 +3,16 @@ import React, { createContext, useCallback, useContext, useState } from 'react';
 import type { ToastMessage } from '~/components/ui/Toast/Toast';
 import Toast from '~/components/ui/Toast/Toast';
 
+type ShowToast = (message: ToastMessage) => Readonly<{
+  closeToast: () => void;
+}>;
+
 type Context = Readonly<{
-  showToast: (message: ToastMessage) => void;
+  showToast: ShowToast;
 }>;
 
 export const ToastContext = createContext<Context>({
-  showToast: (_: ToastMessage) => {},
+  showToast: (_: ToastMessage) => ({ closeToast: () => {} }),
 });
 
 const getID = (() => {
@@ -35,7 +39,17 @@ export default function ToastsProvider({ children }: Props) {
   const [toasts, setToasts] = useState<Array<ToastData>>([]);
 
   const showToast = useCallback((toast: ToastMessage) => {
-    setToasts((oldToasts) => [{ ...toast, id: getID() }, ...oldToasts]);
+    const newToastID = getID();
+
+    setToasts((oldToasts) => [{ ...toast, id: newToastID }, ...oldToasts]);
+
+    function closeThisToast() {
+      closeToast(newToastID);
+    }
+
+    return {
+      closeToast: closeThisToast,
+    };
   }, []);
 
   function closeToast(id: number) {
