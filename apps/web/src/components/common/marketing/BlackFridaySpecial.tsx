@@ -49,16 +49,6 @@ export function BlackFridayPromoCard() {
           with code{' '}
           <strong className="text-medium">{SEASONAL_PROMO_CODE}</strong>
         </Text>
-        <Button
-          icon={RiFileCopyLine}
-          isLabelHidden={true}
-          label="Copy code"
-          tooltip={isCopied ? 'Copied!' : 'Copy promo code'}
-          variant="secondary"
-          onClick={() => {
-            onCopy(SEASONAL_PROMO_CODE);
-          }}
-        />
       </div>
     </div>
   );
@@ -70,10 +60,10 @@ export function BlackFridayExclusiveTicket({
   return (
     <ExclusiveTicket
       padding="sm"
-      ratio="wide"
+      ratio="normal"
       title={
         <Text className="text-2xs" display="block" size="custom">
-          Beta access to new product
+          Exclusive beta access to new product
         </Text>
       }
       tooltip="2 months free exclusive beta access to our new mystery product dropping in Jan – Feb 2024"
@@ -83,9 +73,9 @@ export function BlackFridayExclusiveTicket({
 }
 
 export function BlackFridaySpecial() {
-  const { userProfile } = useUserProfile();
+  const { userProfile, isUserProfileLoading } = useUserProfile();
 
-  if (userProfile?.isPremium) {
+  if (isUserProfileLoading || userProfile?.isPremium) {
     return null;
   }
 
@@ -102,7 +92,7 @@ export function BlackFridaySpecial() {
         </Text>
         <BlackFridayLiveBadge />
       </div>
-      <div className="mt-4 flex flex-col items-center gap-2">
+      <div className="flex flex-col items-center gap-2 pt-4">
         <BlackFridayPromoCard />
         <Text
           className="text-lg leading-5"

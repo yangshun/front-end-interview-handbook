@@ -12,6 +12,7 @@ const variants: ReadonlyArray<ToastVariant> = [
   'danger',
   'dark',
   'special',
+  'invert',
 ];
 
 export default function ToastExamples() {

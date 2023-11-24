@@ -98,10 +98,31 @@ export default function ScrapbookPage() {
             />
             <ExclusiveTicket
               padding="md"
-              ratio="wide"
               subtitle="2 months free"
-              title="Exclusive beta access to our new mystery product"
+              title={
+                <Text className="text-sm" display="block" size="custom">
+                  Exclusive beta access to our new mystery product
+                </Text>
+              }
               width={300}
+            />
+            <ExclusiveTicket
+              height={150}
+              padding="md"
+              subtitle={
+                <Text
+                  className="text-2xs"
+                  color="inherit"
+                  display="block"
+                  size="custom">
+                  2 months free
+                </Text>
+              }
+              title={
+                <Text className="text-2xs" display="block" size="custom">
+                  Exclusive beta access to our new mystery product
+                </Text>
+              }
             />
             <ExclusiveTicket
               padding="md"

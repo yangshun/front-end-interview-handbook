@@ -11,13 +11,12 @@ const ORIGINAL_HEIGHT = 98;
 const ORIGINAL_WIDTH = 156;
 const ORIGINAL_WIDTH_WIDE = 209;
 
-function TicketBorderWide({ width }: Readonly<{ width: number }>) {
+function TicketBorderWide() {
   const borderId = useId();
 
   return (
     <svg
-      className="absolute inset-0 fill-white dark:fill-neutral-950"
-      height={(ORIGINAL_HEIGHT / ORIGINAL_WIDTH_WIDE) * width}
+      className="absolute inset-0  aspect-[209/98] fill-white dark:fill-neutral-950"
       viewBox={`0 0 ${ORIGINAL_WIDTH_WIDE} ${ORIGINAL_HEIGHT}`}
       width="100%"
       xmlns="http://www.w3.org/2000/svg">
@@ -42,13 +41,12 @@ function TicketBorderWide({ width }: Readonly<{ width: number }>) {
   );
 }
 
-function TicketBorder({ width }: Readonly<{ width: number }>) {
+function TicketBorder() {
   const borderId = useId();
 
   return (
     <svg
-      className="absolute inset-0 fill-white dark:fill-neutral-950"
-      height={(ORIGINAL_HEIGHT / ORIGINAL_WIDTH) * width}
+      className="absolute inset-0 aspect-[156/98] fill-white dark:fill-neutral-950"
       viewBox={`0 0 ${ORIGINAL_WIDTH} ${ORIGINAL_HEIGHT}`}
       width="100%"
       xmlns="http://www.w3.org/2000/svg">
@@ -73,12 +71,12 @@ function TicketBorder({ width }: Readonly<{ width: number }>) {
   );
 }
 
-function ProductLogoMark({ width }: Readonly<{ width: number }>) {
+function ProductLogoMark() {
   return (
     <svg
       fill="none"
       viewBox="0 0 143 33"
-      width={width}
+      width="70%"
       xmlns="http://www.w3.org/2000/svg">
       <path
         clipRule="evenodd"
@@ -104,14 +102,16 @@ function ProductLogoMark({ width }: Readonly<{ width: number }>) {
 
 export default function ExclusiveTicket({
   addOnElement,
+  height,
   padding = 'lg',
   ratio = 'normal',
   title,
   tooltip,
   subtitle,
-  width = 400,
+  width,
 }: Readonly<{
   addOnElement?: ReactNode;
+  height?: number;
   padding?: 'lg' | 'md' | 'sm';
   ratio?: 'normal' | 'wide';
   subtitle?: ReactNode;
@@ -121,19 +121,15 @@ export default function ExclusiveTicket({
 }>) {
   return (
     <div
-      className="relative"
+      className={clsx(
+        'relative',
+        ratio === 'normal' ? 'aspect-[156/98]' : 'aspect-[209/98]',
+      )}
       style={{
-        height:
-          (ORIGINAL_HEIGHT /
-            (ratio === 'normal' ? ORIGINAL_WIDTH : ORIGINAL_WIDTH_WIDE)) *
-          width,
+        height,
         width,
       }}>
-      {ratio === 'normal' ? (
-        <TicketBorder width={width} />
-      ) : (
-        <TicketBorderWide width={width} />
-      )}
+      {ratio === 'normal' ? <TicketBorder /> : <TicketBorderWide />}
       <div
         className={clsx(
           'absolute inset-0 flex shrink-0 flex-col justify-between',
@@ -142,7 +138,7 @@ export default function ExclusiveTicket({
           padding === 'sm' && 'px-5 py-4',
         )}>
         <div className="flex justify-between">
-          <ProductLogoMark width={width * 0.6} />
+          <ProductLogoMark />
           {tooltip && (
             <Tooltip label={tooltip}>
               <RiQuestionLine
