@@ -23,11 +23,11 @@ export default function BlackFridayToast() {
 
     showToast({
       className: 'p-3',
-      duration: 120000,
-      maxWidth: 'md',
+      duration: 1200000,
+      maxWidth: 'sm',
       subtitle: (
-        <div className="flex flex-col gap-2 pt-2">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col gap-2 pt-4">
+          <div className="flex items-center justify-between gap-2">
             <div className="flex w-full self-stretch sm:w-[175px]">
               <BlackFridayPromoCard />
             </div>
@@ -40,7 +40,7 @@ export default function BlackFridayToast() {
               +
             </Text>
             <div className="hidden sm:flex">
-              <BlackFridayExclusiveTicket width={175} />
+              <BlackFridayExclusiveTicket width={156} />
             </div>
           </div>
           <Text
@@ -53,7 +53,7 @@ export default function BlackFridayToast() {
         </div>
       ),
       title: (
-        <div className="flex items-center gap-x-3">
+        <div className="flex w-full items-center justify-between gap-x-3">
           <span>Black Friday Special</span>
           <div>
             <BlackFridayLiveBadge />

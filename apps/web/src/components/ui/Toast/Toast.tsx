@@ -168,37 +168,38 @@ export default function Toast({
           color={textColor}
           display="flex">
           {Icon && <Icon className={clsx('h-5 w-5 shrink-0', iconClass)} />}
-          <div className="w-0 grow space-y-1">
-            <Text
-              color={textColor}
-              display="block"
-              size="body2"
-              weight="medium">
-              {title}
-            </Text>
+          <div className="flex w-full grow flex-col gap-y-1">
+            <div className="flex justify-between gap-2">
+              <Text
+                className="grow"
+                color={textColor}
+                display="flex"
+                size="body2"
+                weight="medium">
+                {title}
+              </Text>
+              <button
+                className={clsx(
+                  'inline-flex items-center justify-center rounded-full hover:opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2',
+                  iconClass,
+                )}
+                type="button"
+                onClick={close}>
+                <span className="sr-only">
+                  <FormattedMessage
+                    defaultMessage="Close"
+                    description="Close button label"
+                    id="PyDwDF"
+                  />
+                </span>
+                <RiCloseLine aria-hidden="true" className="h-5 w-5" />
+              </button>
+            </div>
             {subtitle && (
               <Text color={textColor} display="block" size="body3">
                 {subtitle}
               </Text>
             )}
-          </div>
-          <div className="flex shrink-0">
-            <button
-              className={clsx(
-                'inline-flex items-center justify-center rounded hover:opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2',
-                iconClass,
-              )}
-              type="button"
-              onClick={close}>
-              <span className="sr-only">
-                <FormattedMessage
-                  defaultMessage="Close"
-                  description="Close button label"
-                  id="PyDwDF"
-                />
-              </span>
-              <RiCloseLine aria-hidden="true" className="h-5 w-5" />
-            </button>
           </div>
         </Text>
       </div>
