@@ -635,7 +635,6 @@ Performance in video streaming is vital for a seamless and enjoyable viewing exp
 - **Network efficiency**: Leverage adaptive bitrate streaming to adjust video quality based on the user's available bandwidth. This ensures that users with slower connections can still watch videos (albeit at a lower quality) without frequent buffering.
 - **Video compression**: Use modern video compression codecs (e.g., H.264, H.265, VP9) to minimize the size of video files, reducing the amount of data that needs to be transferred over the internet.
 - **CDN usage**: Utilize Content Delivery Networks (CDNs) to serve video content from servers located closer to users, reducing latency and improving playback performance.
-- **Progressive streaming**: Use progressive streaming to enable users to start watching a video before it's fully loaded. This provides a more responsive experience.
 - **Lazy loading**: Implement lazy loading for videos so that they only load when they come into the user's viewport. Lazy load non-visible UI like dropdowns and modals during idle cycles or when it's being interacted with. This reduces initial page load times.
 - **Player responsiveness**: Ensure that video player controls and the user interface remain responsive during video playback. Users should be able to interact with the player without delays.
 - **Preloading media files**: Preload media either by using the `preload` attribute (only for predefined `src`, not compatible with Media Source API) or use link preload ([source](https://web.dev/articles/fast-playback-with-preload)).
@@ -729,7 +728,7 @@ Accessibility for subtitles have been covered in the ["Subtitles"](#subtitles--c
 
 - **Keyboard accessibility**: Video players should be operable using keyboard navigation alone. This includes allowing users to play, pause, adjust volume, and seek through the video using keyboard shortcuts. Keyboard focus should be visible and logical.
 - **Keyboard shortcuts**: Offer keyboard shortcuts for common actions, such as volume control, playback, and seeking within the video.
-- **Focus management**: Proper focus management is essential. The player should maintain a clear and logical focus order, ensuring that keyboard and screen reader users can easily navigate through controls without getting stuck.
+- **Focus management**: Maintain a clear and logical focus order, ensuring that keyboard and screen reader users can easily navigate through controls without getting stuck.
 
 #### External sources of control
 
@@ -742,7 +741,7 @@ _Source: [Accessible multimedia - Learn web development | MDN](https://developer
 
 Internationalization concerns for a web video player involve making sure that the player is designed and developed to support users from various regions and languages.
 
-- **Language support**: Ensure that the user interface of the video player can be easily translated into multiple languages. Use internationalization libraries or frameworks like i18next or `react-intl` to manage language translations.
+- **Language support**: User interface should be translated into multiple languages to support a global audience. Use internationalization libraries or frameworks like i18next or `react-intl` to manage language translations.
 - **Translated labels for buttons**: Non-visible button labels like `aria-label`s should also be translated for the user's selected language.
 - **Subtitle and captioning**: Support multiple languages for subtitles and closed captions. Users from different regions may require subtitles in their native languages to fully understand the content.
 - **Audio track selection**: Provide the ability for users to select audio tracks in different languages if the video offers multiple audio options, such as dubbing.
