@@ -74,7 +74,7 @@ child.cry();
 // waaaaaahhhh!
 
 child.greet();
-// hello from Parent
+// hello from undefined
 
 child.constructor;
 // ƒ Parent() {
