@@ -765,7 +765,7 @@ export default function MarketingPricingSection({
             <Container className="relative flex flex-col gap-y-12">
               <Alert
                 icon={RiShoppingBagLine}
-                title="Black Friday Special"
+                title="Cyber Monday Special"
                 variant="primary">
                 Limited time offer! Enjoy an extra{' '}
                 <strong className="text-neutral-100">

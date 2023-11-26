@@ -54,7 +54,7 @@ export default function BlackFridayToast() {
       ),
       title: (
         <div className="flex w-full items-center justify-between gap-x-3">
-          <span>Black Friday Special</span>
+          <span>Cyber Monday Special</span>
           <div>
             <BlackFridayLiveBadge />
           </div>

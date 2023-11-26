@@ -419,10 +419,6 @@
     "defaultMessage": "Study plans for Front End Interviews",
     "description": "Title of study plans page"
   },
-  "6QXyf+": {
-    "defaultMessage": "Black Friday Sale is LIVE! <discount>Get {discountPercentage}% off all purchases with {promoCode}</discount> and get free exclusive access to our mystery product dropping in Jan – Feb 2024! 🚀",
-    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
-  },
   "6SEbWz": {
     "defaultMessage": "Annual plan",
     "description": "Title of annual pricing plan"
@@ -2614,6 +2610,10 @@
   "eeWLAW": {
     "defaultMessage": "Framework",
     "description": "Label for the selection dropdown used to select the framework to use for the question"
+  },
+  "ejVSuu": {
+    "defaultMessage": "Cyber Monday Sale is LIVE! <discount>Get {discountPercentage}% off all purchases with {promoCode}</discount> and get free exclusive access to our mystery product dropping in Jan – Feb 2024! 🚀",
+    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
   },
   "ekSPPz": {
     "defaultMessage": "Flashcard format",

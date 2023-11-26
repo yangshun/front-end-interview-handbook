@@ -84,7 +84,7 @@ export function BlackFridaySpecial() {
       )}>
       <div className="flex w-full items-center justify-between">
         <Text display="block" size="body3" weight="medium">
-          Black Friday Special
+          Cyber Monday Sale
         </Text>
         <BlackFridayLiveBadge />
       </div>
