@@ -5,11 +5,9 @@
   "premium": false,
   "duration": 5,
   "published": true,
-  "topics": [
-    "javascript"
-  ],
+  "topics": ["javascript"],
   "importance": "high",
-  "difficulty": "medium",
+  "difficulty": "hard",
   "featured": true,
   "ranking": 1
 }

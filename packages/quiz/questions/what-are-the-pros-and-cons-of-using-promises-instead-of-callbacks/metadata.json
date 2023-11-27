@@ -1,15 +1,11 @@
 {
   "slug": "what-are-the-pros-and-cons-of-using-promises-instead-of-callbacks",
   "languages": [],
-  "companies": [
-    "linkedin"
-  ],
+  "companies": ["linkedin"],
   "premium": false,
   "duration": 5,
   "published": true,
-  "topics": [
-    "javascript"
-  ],
+  "topics": ["javascript"],
   "importance": "high",
   "difficulty": "medium"
 }

@@ -5,10 +5,7 @@
   "premium": false,
   "duration": 5,
   "published": true,
-  "topics": [
-    "javascript",
-    "network"
-  ],
+  "topics": ["javascript", "network"],
   "importance": "mid",
-  "difficulty": "medium"
+  "difficulty": "hard"
 }

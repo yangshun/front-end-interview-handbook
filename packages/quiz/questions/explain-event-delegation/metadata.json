@@ -1,16 +1,11 @@
 {
   "slug": "explain-event-delegation",
   "languages": [],
-  "companies": [
-    "linkedin"
-  ],
+  "companies": ["linkedin"],
   "premium": false,
   "duration": 5,
   "published": true,
-  "topics": [
-    "javascript",
-    "html"
-  ],
+  "topics": ["javascript", "html"],
   "importance": "high",
   "difficulty": "medium"
 }

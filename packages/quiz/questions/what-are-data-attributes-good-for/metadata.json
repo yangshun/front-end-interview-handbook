@@ -5,10 +5,7 @@
   "premium": false,
   "duration": 5,
   "published": true,
-  "topics": [
-    "html",
-    "testing"
-  ],
+  "topics": ["html", "testing"],
   "importance": "mid",
   "difficulty": "medium"
 }

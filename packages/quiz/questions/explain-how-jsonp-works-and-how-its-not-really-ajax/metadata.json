@@ -5,11 +5,7 @@
   "premium": false,
   "duration": 5,
   "published": true,
-  "topics": [
-    "javascript",
-    "network",
-    "security"
-  ],
+  "topics": ["javascript", "network", "security"],
   "importance": "mid",
-  "difficulty": "medium"
+  "difficulty": "hard"
 }

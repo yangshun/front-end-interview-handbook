@@ -1,13 +1,11 @@
 {
-  "slug": "what-language-constructions-do-you-use-for-iterating-over-object-properties-and-array-items",
+  "slug": "what-language-constructs-do-you-use-for-iterating-over-object-properties-and-array-items",
   "languages": [],
   "companies": [],
   "premium": false,
   "duration": 5,
   "published": true,
-  "topics": [
-    "javascript"
-  ],
+  "topics": ["javascript"],
   "importance": "high",
   "difficulty": "medium"
 }

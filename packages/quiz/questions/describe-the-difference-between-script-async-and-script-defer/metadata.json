@@ -5,10 +5,7 @@
   "premium": false,
   "duration": 5,
   "published": true,
-  "topics": [
-    "html",
-    "javascript"
-  ],
+  "topics": ["html", "javascript"],
   "importance": "high",
   "difficulty": "medium",
   "featured": false,

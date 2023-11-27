@@ -5,10 +5,7 @@
   "premium": false,
   "duration": 5,
   "published": true,
-  "topics": [
-    "css",
-    "performance"
-  ],
+  "topics": ["css", "performance"],
   "importance": "high",
-  "difficulty": "medium"
+  "difficulty": "hard"
 }

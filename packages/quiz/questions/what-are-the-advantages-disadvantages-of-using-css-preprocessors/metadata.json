@@ -1,15 +1,11 @@
 {
   "slug": "what-are-the-advantages-disadvantages-of-using-css-preprocessors",
   "languages": [],
-  "companies": [
-    "linkedin"
-  ],
+  "companies": ["linkedin"],
   "premium": false,
   "duration": 5,
   "published": true,
-  "topics": [
-    "css"
-  ],
+  "topics": ["css"],
   "importance": "mid",
   "difficulty": "medium"
 }

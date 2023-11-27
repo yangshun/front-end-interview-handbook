@@ -5,10 +5,7 @@
   "premium": false,
   "duration": 5,
   "published": true,
-  "topics": [
-    "html",
-    "i18n"
-  ],
+  "topics": ["html", "i18n"],
   "importance": "mid",
-  "difficulty": "medium"
+  "difficulty": "hard"
 }
