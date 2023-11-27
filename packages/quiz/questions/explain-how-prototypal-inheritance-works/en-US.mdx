@@ -22,8 +22,8 @@ function Dog(name) {
   Animal.call(this, name); // Call the parent constructor.
 }
 
-// Set the child object's prototype to be a new instance of the parent object.
-Object.setPrototypeOf(Dog.prototype, Animal.prototype)
+// Set the child object's prototype to be the parent's prototype.
+Object.setPrototypeOf(Dog.prototype, Animal.prototype);
 
 // Add a method to the child object's prototype.
 Dog.prototype.bark = function () {
@@ -35,14 +35,15 @@ const bolt = new Dog('Bolt');
 
 // Call methods on the child object.
 console.log(bolt.name); // "Bolt"
-bolt.makeSound(); // "The Animal makes a sound."
+bolt.makeSound(); // "The Dog makes a sound."
 bolt.bark(); // "Woof!"
 ```
 
 Things to note are:
 
 - `.makeSound` is not defined on `Dog`, so the engine goes up the prototype chain and finds `.makeSound` off the inherited `Animal`.
-- We need to call `Object.create` in one of following ways for the prototype methods to be inherited:
-  - `Object.create(Parent.prototype)`
-  - `Object.create(new Parent(null))`
-  - `Object.create(objLiteral)`
+- Using `Object.create` to build the inheritance chain is no longer recommended. Use `Object.setPrototypeOf` instead.
+
+## Resources
+
+- [Inheritance and the prototype chain | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)

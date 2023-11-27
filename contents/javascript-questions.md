@@ -51,75 +51,47 @@ ES6 allows you to use [arrow functions](http://2ality.com/2017/12/alternate-this
 
 ### Explain how prototypal inheritance works
 
-This is an extremely common JavaScript interview question. All JavaScript objects have a `__proto__` property with the exception of objects created with `Object.create(null)`, that is a reference to another object, which is called the object's "prototype". When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `__proto__`, and the `__proto__`'s `__proto__` and so on, until it finds the property defined on one of the `__proto__`s or until it reaches the end of the prototype chain. This behavior simulates classical inheritance, but it is really more of [delegation than inheritance](https://davidwalsh.name/javascript-objects).
+All JavaScript objects have a `__proto__` property with the exception of objects created with `Object.create(null)`, that is a reference to another object, which is called the object's "prototype". When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `__proto__`, and the `__proto__`'s `__proto__` and so on, until it finds the property defined on one of the `__proto__`s or until it reaches the end of the prototype chain. This behavior simulates classical inheritance, but it is really more of [delegation than inheritance](https://davidwalsh.name/javascript-objects).
 
 #### Example of Prototypal Inheritance
 
 ```js
-function Parent() {
-  this.name = 'Parent';
+// Parent object constructor.
+function Animal(name) {
+  this.name = name;
 }
 
-Parent.prototype.greet = function () {
-  console.log('Hello from ' + this.name);
+// Add a method to the parent object's prototype.
+Animal.prototype.makeSound = function () {
+  console.log('The ' + this.constructor.name + ' makes a sound.');
 };
 
-const child = Object.create(Parent.prototype);
+// Child object constructor.
+function Dog(name) {
+  Animal.call(this, name); // Call the parent constructor.
+}
 
-child.cry = function () {
-  console.log('waaaaaahhhh!');
+// Set the child object's prototype to be the parent's prototype.
+Object.setPrototypeOf(Dog.prototype, Animal.prototype);
+
+// Add a method to the child object's prototype.
+Dog.prototype.bark = function () {
+  console.log('Woof!');
 };
 
-child.cry();
-// waaaaaahhhh!
+// Create a new instance of Dog.
+const bolt = new Dog('Bolt');
 
-child.greet();
-// hello from undefined
-
-child.constructor;
-// ƒ Parent() {
-//   this.name = 'Parent';
-// }
-
-child.constructor.name;
-// 'Parent'
+// Call methods on the child object.
+console.log(bolt.name); // "Bolt"
+bolt.makeSound(); // "The Dog makes a sound."
+bolt.bark(); // "Woof!"
 ```
 
 Things to note are:
 
-- `.greet` is not defined on the _child_, so the engine goes up the prototype chain and finds `.greet` off the inherited from _Parent_.
-- We need to call `Object.create` in one of following ways for the prototype methods to be inherited:
-  - Object.create(Parent.prototype);
-  - Object.create(new Parent(null));
-  - Object.create(objLiteral);
-
-- Currently, `child.constructor` is pointing to the `Parent`. If we'd like to correct this, one option would be to do:
-
-```js
-function Parent() {
-  this.name = 'Parent';
-}
-
-Parent.prototype.greet = function () {
-  console.log('Hello from ' + this.name);
-};
-
-function Child() {
-  Parent.call(this);
-  this.name = 'Child';
-}
-
-Child.prototype = Object.create(Parent.prototype);
-Child.prototype.constructor = Child;
-
-const child = new Child();
-
-child.greet();
-// hello from Child
-
-child.constructor.name;
-// 'Child'
-```
+- `.makeSound` is not defined on `Dog`, so the engine goes up the prototype chain and finds `.makeSound` off the inherited `Animal`.
+- Using `Object.create` to build the inheritance chain is no longer recommended. Use `Object.setPrototypeOf` instead.
 
 ###### References
 
