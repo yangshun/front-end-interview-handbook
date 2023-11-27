@@ -26,6 +26,7 @@ import type {
   QuestionQuiz,
 } from '../../common/QuestionsTypes';
 import useQuestionLogEventCopyContents from '../../common/useQuestionLogEventCopyContents';
+import QuestionDifficultyLabel from '../../metadata/QuestionDifficultyLabel';
 import QuestionImportanceLabel from '../../metadata/QuestionImportanceLabel';
 import QuestionTopics from '../../metadata/QuestionTopics';
 
@@ -105,7 +106,7 @@ export default function QuestionQuizContents({
                     <Heading
                       className="pb-4"
                       id="question-title"
-                      level="heading5">
+                      level="heading4">
                       {question.metadata.title}
                     </Heading>
                     {question.metadata.subtitle && (
@@ -121,6 +122,10 @@ export default function QuestionQuizContents({
                         <QuestionImportanceLabel
                           showIcon={true}
                           value={question.metadata.importance}
+                        />
+                        <QuestionDifficultyLabel
+                          showIcon={true}
+                          value={question.metadata.difficulty}
                         />
                         <QuestionTopics topics={question.metadata.topics} />
                       </div>
