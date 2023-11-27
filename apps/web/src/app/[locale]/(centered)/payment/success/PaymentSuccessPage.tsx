@@ -70,11 +70,14 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
 
   useEffect(() => {
     if (planSearchParam != null) {
+      const plan = plans[planSearchParam];
+
       // Special conversion event expected by GA.
       gtag.event({
         action: 'purchase',
         category: 'ecommerce',
         extra: {
+          currency: plan.currency.toLocaleUpperCase(),
           ignore_referrer: 'true',
           items: [
             {
@@ -84,7 +87,9 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
           ],
         },
         label: planSearchParam,
+        value: plan.unitCostCurrency.withPPP.after,
       });
+
       // Custom event logging.
       gtag.event({
         action: 'checkout.success',
@@ -94,8 +99,6 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
         },
         label: planSearchParam,
       });
-
-      const plan = plans[planSearchParam];
 
       gtag.event({
         action: 'conversion',
