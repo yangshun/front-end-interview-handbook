@@ -2,7 +2,52 @@
 title: Explain event delegation
 ---
 
-Event delegation is a technique involving adding event listeners to a parent element instead of adding the event listeners to the descendant elements. The listener will fire whenever the event is triggered on the descendant elements due to the event bubbling up the DOM. The benefits of this technique are:
+Event delegation is a design pattern in JavaScript used to efficiently manage and handle events on multiple child elements by attaching a single event listener to a common ancestor element. This pattern is particularly valuable in scenarios where you have a large number of similar elements, such as list items, and want to streamline event handling.
 
-- Memory footprint goes down because only one single handler is needed on the parent element, rather than having to attach event handlers on each descendant.
-- There is no need to unbind the handler from elements that are removed and to bind the event for new elements.
+## How Event Delegation works
+
+1. **Attach a listener to a common ancestor**: Instead of attaching individual event listeners to each child element, you attach a single event listener to a common ancestor element higher in the DOM hierarchy.
+1. **Event bubbling**: When an event occurs on a child element, it bubbles up through the DOM tree to the common ancestor element. During this propagation, the event listener on the common ancestor can intercept and handle the event.
+1. **Determine the target**: Within the event listener, you can inspect the event object to identify the actual target of the event (the child element that triggered the event). You can use properties like `event.target` or `event.currentTarget` to determine which specific child element was interacted with.
+1. **Perform action based on target**: Based on the target element, you can perform the desired action or execute code specific to that element. This allows you to handle events for multiple child elements with a single event listener.
+
+## Benefits of event delegation
+
+1. **Efficiency**: Event delegation reduces the number of event listeners, improving memory usage and performance, especially when dealing with a large number of elements.
+1. **Dynamic elements**: It works seamlessly with dynamically added or removed child elements, as the common ancestor continues to listen for events on them.
+
+## Example
+
+Here's a simple example using modern ES6 syntax:
+
+```js
+// HTML:
+// <ul id="item-list">
+//   <li>Item 1</li>
+//   <li>Item 2</li>
+//   <li>Item 3</li>
+// </ul>
+
+const itemList = document.getElementById('item-list');
+
+itemList.addEventListener('click', (event) => {
+  if (event.target.tagName === 'LI') {
+    console.log(`Clicked on ${event.target.textContent}`);
+  }
+});
+```
+
+In this example, a single click event listener is attached to the `<ul>` element. When a click event occurs on an `<li>` element, the event bubbles up to the `<ul>` element, where the event listener checks the target's tag name to identify which list item was clicked.
+
+## Use Cases
+
+Event delegation is commonly used in scenarios like:
+
+- Managing lists, menus, or tables with many items or rows.
+- Handling dynamic content in single-page applications.
+- Simplifying code by avoiding the need to attach and remove event listeners for elements that change.
+
+## Resources
+
+- [MDN Web Docs on Event Delegation](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#event_delegation)
+- [JavaScript.info - Event Delegation](https://javascript.info/event-delegation)
