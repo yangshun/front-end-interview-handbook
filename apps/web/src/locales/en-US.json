@@ -87,6 +87,10 @@
     "defaultMessage": "Translations for {locale} are in beta and may not be accurate. Do give feedback or <link>contact us</link> if you are interested in helping to translate!",
     "description": "Banner about beta locale version"
   },
+  "/MJhXi": {
+    "defaultMessage": "Get unlimited access",
+    "description": "Label for Get unlimited access button in Monthly Plan CTA card in Projects sidebar"
+  },
   "/Xai24": {
     "defaultMessage": "MM/YYYY",
     "description": "Placeholder for \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
@@ -186,6 +190,10 @@
   "16RIbp": {
     "defaultMessage": "Try these popular CSS questions",
     "description": "Title for featured questions section"
+  },
+  "19GB65": {
+    "defaultMessage": "My profile",
+    "description": "Label for My profile button in profile header of Projects sidebar"
   },
   "1AGOZJ": {
     "defaultMessage": "Access updates to the interview platform for life.",
@@ -299,6 +307,10 @@
     "defaultMessage": "Toptal",
     "description": "Company name for Toptal"
   },
+  "3efYzQ": {
+    "defaultMessage": "Projects",
+    "description": "Label for Projects sidebar group in Projects sidebar"
+  },
   "3i5xK8": {
     "defaultMessage": "Large question bank",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
@@ -375,6 +387,10 @@
     "defaultMessage": "Select question format",
     "description": "Label for tabs to select sample interview question format"
   },
+  "50s+NV": {
+    "defaultMessage": "Dashboard",
+    "description": "Label for Dashboard sidebar item in Projects sidebar"
+  },
   "54g6sz": {
     "defaultMessage": "Preserve logs",
     "description": "Checkbox label to preserve logs in the console in the coding workspace"
@@ -410,6 +426,10 @@
   "5hTR16": {
     "defaultMessage": "Profile",
     "description": "Title of Profile page"
+  },
+  "5o0/kt": {
+    "defaultMessage": "Start a project",
+    "description": "Label for Start a project button in Start Project CTA card in Projects sidebar"
   },
   "5rd3TN": {
     "defaultMessage": "Companies",
@@ -663,6 +683,10 @@
     "defaultMessage": "Key features",
     "description": "Key features of the product"
   },
+  "98YCSU": {
+    "defaultMessage": "Learning by building has never been easier",
+    "description": "Subtitle of Start Project CTA card in Projects sidebar"
+  },
   "9DlLF1": {
     "defaultMessage": "GreatFrontEnd",
     "description": "Title of GreatFrontEnd page"
@@ -863,6 +887,10 @@
     "defaultMessage": "Prepare for your front end interviews in one month. All rounded coverage that is sure to bring your front end interview skills to the next level.",
     "description": "Description for one month study plan"
   },
+  "CyulG2": {
+    "defaultMessage": "Component Tracks",
+    "description": "Label for Component Tracks sidebar item in Projects sidebar"
+  },
   "D/cRh1": {
     "defaultMessage": "Practice everything here",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
@@ -1023,6 +1051,10 @@
     "defaultMessage": "Languages",
     "description": "Screenreader text to indicate the Programming Languages section"
   },
+  "FHaCBr": {
+    "defaultMessage": "Skill Tree",
+    "description": "Label for Skill Tree sidebar item in Projects sidebar"
+  },
   "FLKG3X": {
     "defaultMessage": "Cut line (empty selection)",
     "description": "Text describing command to cut line(s) in the coding workspace shortcuts menu"
@@ -1083,6 +1115,10 @@
     "defaultMessage": "Tips for making a strong first impression in your self introduction",
     "description": "How to make strong first impressions during self introductions"
   },
+  "Gcx+tu": {
+    "defaultMessage": "Yearly plan",
+    "description": "Title of Yearly Plan CTA card in Projects sidebar"
+  },
   "Gi1TRd": {
     "defaultMessage": "Filters",
     "description": "Screenreader text for Filters"
@@ -1138,6 +1174,10 @@
   "HEQbsp": {
     "defaultMessage": "Created: Oldest to Newest",
     "description": "Sorting option on question list page to sort by creation time, from oldest to newest"
+  },
+  "HEV8y4": {
+    "defaultMessage": "Mentor others",
+    "description": "Label for Mentor others sidebar item in Projects sidebar"
   },
   "HMJJLh": {
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch.",
@@ -1255,6 +1295,10 @@
     "defaultMessage": "Moreover, out of the resources in the market for front end interview preparation, our platform boasts the largest number of questions with solutions written by experienced Senior Front End Engineers previously from FAANG, who were also ex-interviewers.",
     "description": "Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
   },
+  "J6IHpl": {
+    "defaultMessage": "Features",
+    "description": "Label for Features sidebar item in Projects sidebar"
+  },
   "J90fcx": {
     "defaultMessage": "Preparation Plans",
     "description": "Preparation plans section title"
@@ -1275,6 +1319,10 @@
     "defaultMessage": "Vue",
     "description": "Vue questions category short title"
   },
+  "JPoqoi": {
+    "defaultMessage": "Yearly Plan CTA card tooltip",
+    "description": "Tooltip label for Yearly Plan CTA card in Projects sidebar"
+  },
   "JQ6swd": {
     "defaultMessage": "Progress",
     "description": "Question progress"
@@ -1290,6 +1338,10 @@
   "Jlr/Yy": {
     "defaultMessage": "<link>Contact us</link> if you would like to upgrade your plan.",
     "description": "Call to action text to uppgrade plan."
+  },
+  "JmdC8M": {
+    "defaultMessage": "Access to all {totalChallengeCount}+ challenges. Unlimited Figma & guides access",
+    "description": "Subtitle of Yearly Plan CTA card in Projects sidebar"
   },
   "Jn7AHE": {
     "defaultMessage": "This is an irreversible action. You will lose all progress. Are you sure?",
@@ -1367,6 +1419,10 @@
     "defaultMessage": "{numberOfQuestions} questions",
     "description": "Number of questions in a list"
   },
+  "L18d7M": {
+    "defaultMessage": "Let's start!",
+    "description": "Title of Start Project CTA card in Projects sidebar"
+  },
   "LAWtL6": {
     "defaultMessage": "Software Engineer",
     "description": "Jacky Liang's job title"
@@ -1442,6 +1498,10 @@
   "LnzTdG": {
     "defaultMessage": "CSS",
     "description": "CSS questions category short title"
+  },
+  "Loi5gN": {
+    "defaultMessage": "{repCount} Reputation",
+    "description": "Label showing reputation count in profile header of Projects sidebar"
   },
   "LxlUHa": {
     "defaultMessage": "Primary reason",
@@ -1791,6 +1851,10 @@
     "defaultMessage": "Practice creating design system components",
     "description": "Title for interview preparation focus area"
   },
+  "QzHPOD": {
+    "defaultMessage": "Access to {freeChallengeCount}+ free challenges. No access to Figma & guides",
+    "description": "Subtitle of Free Plan CTA card in Projects sidebar"
+  },
   "R1ji0N": {
     "defaultMessage": "Signing out. See you again!",
     "description": "Main content of Sign Out page"
@@ -2003,6 +2067,10 @@
     "defaultMessage": "UI / Components",
     "description": "User interface component questions"
   },
+  "UCsXAd": {
+    "defaultMessage": "Get full access",
+    "description": "Label for Get full access button in Free Plan CTA card in Projects sidebar"
+  },
   "UCt/lF": {
     "defaultMessage": "Coding Questions",
     "description": "Coding questions long title"
@@ -2135,6 +2203,10 @@
     "defaultMessage": "Learn to work with specifications mimicking projects you will encounter as a full-time engineer",
     "description": "Description for \"Real world specs\" feature on Projects home page"
   },
+  "VbvRHt": {
+    "defaultMessage": "Pricing",
+    "description": "Label for Pricing sidebar item in Projects sidebar"
+  },
   "VcLkXG": {
     "defaultMessage": "Free",
     "description": "Label to indicate that the item is free of charge"
@@ -2202,6 +2274,10 @@
   "WWdQAb": {
     "defaultMessage": "Other",
     "description": "Label for \"Other\" input for \"Years of experience replacement status\" on Projects profile onboarding page"
+  },
+  "WX+cIg": {
+    "defaultMessage": "Free Plan CTA card tooltip",
+    "description": "Tooltip label for Free Plan CTA card in Projects sidebar"
   },
   "WZy7m4": {
     "defaultMessage": "Table of Contents",
@@ -2407,6 +2483,10 @@
     "defaultMessage": "Save Changes",
     "description": "Label for button to save changes to user account email"
   },
+  "ZrtVIf": {
+    "defaultMessage": "Access to all {totalChallengeCount}+ challenges. {remainingGuideCount} Figma & guides access left",
+    "description": "Subtitle of Monthly Plan CTA card in Projects sidebar"
+  },
   "Zui1cu": {
     "defaultMessage": "Focus areas",
     "description": "Title of focus areas page"
@@ -2503,6 +2583,10 @@
     "defaultMessage": "Redo",
     "description": "Text describing redo command in the coding workspace shortcuts menu"
   },
+  "bESAtB": {
+    "defaultMessage": "Monthly plan",
+    "description": "Title of Monthly Plan CTA card in Projects sidebar"
+  },
   "bGwCko": {
     "defaultMessage": "GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front-end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.",
     "description": "Ryan Van Valkenburg's testimonial"
@@ -2571,6 +2655,10 @@
     "defaultMessage": "Only build useful projects",
     "description": "Short title for \"Never waste your time building one-off projects\" feature marketing section on Projects home page"
   },
+  "c9QTag": {
+    "defaultMessage": "Settings",
+    "description": "Label for Settings sidebar item in Projects sidebar"
+  },
   "cB23kJ": {
     "defaultMessage": "Security | Profile",
     "description": "Title of Profile Security page"
@@ -2599,6 +2687,10 @@
     "defaultMessage": "Delhi, India",
     "description": "Anonymous Front End Engineer's location"
   },
+  "cj9Pen": {
+    "defaultMessage": "Submissions",
+    "description": "Label for Submissions sidebar group in Projects sidebar"
+  },
   "cjgzTz": {
     "defaultMessage": "Read how to solve {questionTitle} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions solution page"
@@ -2626,6 +2718,10 @@
   "d+9jeS": {
     "defaultMessage": "Everything you need, in great quality",
     "description": "Title of the 'Features' marketing section on Homepage"
+  },
+  "d+eqOa": {
+    "defaultMessage": "Log out",
+    "description": "Label for Log out sidebar item in Projects sidebar"
   },
   "d+wYSW": {
     "defaultMessage": "Sign up for a free GreatFrontEnd account to track your progress and access premium",
@@ -2690,6 +2786,10 @@
   "e+03Yz": {
     "defaultMessage": "Try out some Front End questions!",
     "description": "Subtext for call to action when no questions are completed."
+  },
+  "e1ohyq": {
+    "defaultMessage": "Learn from others",
+    "description": "Label for Learn from others sidebar item in Projects sidebar"
   },
   "eBp6vh": {
     "defaultMessage": "Reset Progress",
@@ -2995,6 +3095,10 @@
     "defaultMessage": "Types of JS questions, concepts to cover and rubrics",
     "description": "JavaScript questions, concepts and rubrics during front end interviews"
   },
+  "iulVQA": {
+    "defaultMessage": "Dashboard | GFE Projects",
+    "description": "Title of Projects Dashboard page"
+  },
   "ivmSx0": {
     "defaultMessage": "We're Hiring",
     "description": "Link to careers page"
@@ -3299,6 +3403,10 @@
     "defaultMessage": "Started tracking progress",
     "description": "Success message for starting a study plan"
   },
+  "m8b+T6": {
+    "defaultMessage": "All projects",
+    "description": "Label for All projects sidebar item in Projects sidebar"
+  },
   "mDcqlX": {
     "defaultMessage": "<count>{questionCount}</count> <questions>questions</questions>",
     "description": "Number of questions"
@@ -3342,6 +3450,10 @@
   "mt2ON4": {
     "defaultMessage": "Find out more about the team who built GreatFrontEnd and why we did it",
     "description": "Description of About Us page"
+  },
+  "n+XFbs": {
+    "defaultMessage": "Free plan",
+    "description": "Title of Free Plan CTA card in Projects sidebar"
   },
   "n0mDHU": {
     "defaultMessage": "Author",
@@ -3851,6 +3963,10 @@
     "defaultMessage": "Complete your own library of components for E-commerce, Games, AI apps, and even a design system",
     "description": "Description for \"Composable themes\" feature on Projects home page"
   },
+  "ujBJq7": {
+    "defaultMessage": "All submissions",
+    "description": "Label for All submissions sidebar item in Projects sidebar"
+  },
   "ujL9EM": {
     "defaultMessage": "{questionTitle} | Front End System Design Interview Questions with Solutions",
     "description": "Title of system design question page"
@@ -3902,6 +4018,10 @@
   "vNa4Wc": {
     "defaultMessage": "While Offer Lasts",
     "description": "Label to indicate offer is a limited time deal"
+  },
+  "vYkB/0": {
+    "defaultMessage": "Sign in/up",
+    "description": "Label for Sign in/up button in profile header of Projects sidebar"
   },
   "vbwUYs": {
     "defaultMessage": "Clarify any doubts on a project in project-specific forums",
@@ -3991,6 +4111,10 @@
     "defaultMessage": "{questionTitle} | JavaScript Front End Interview Questions with Solutions",
     "description": "Title of Javascript Front End interview questions page"
   },
+  "wzLox4": {
+    "defaultMessage": "Monthly Plan CTA card tooltip",
+    "description": "Tooltip label for Monthly Plan CTA card in Projects sidebar"
+  },
   "wzQGxj": {
     "defaultMessage": "Start in minutes",
     "description": "Button leading user to sign up to be an affiliate on the Hero section of the 'Become An Affiliate' page"
@@ -4050,6 +4174,10 @@
   "xsaQ0d": {
     "defaultMessage": "Student Discount",
     "description": "Promotion title"
+  },
+  "xz0GES": {
+    "defaultMessage": "Get full access",
+    "description": "Label for Get full access button in profile header of Projects sidebar"
   },
   "y0zT5M": {
     "defaultMessage": "Wide variety of projects",
@@ -4126,6 +4254,10 @@
   "zIQsmk": {
     "defaultMessage": "Terms of Service",
     "description": "Link to terms of service page"
+  },
+  "zL/JCy": {
+    "defaultMessage": "Not signed in",
+    "description": "Label showing not signed in in profile header of Projects sidebar"
   },
   "zSySsj": {
     "defaultMessage": "Question Formats",

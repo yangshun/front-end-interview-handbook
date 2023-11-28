@@ -13,6 +13,7 @@ export type ButtonVariant =
   | 'danger'
   | 'primary'
   | 'secondary'
+  | 'special'
   | 'success'
   | 'tertiary'
   | 'unstyled';
@@ -112,6 +113,9 @@ const variantClasses: Record<ButtonVariant, string> = {
     'active:bg-neutral-200 dark:active:bg-neutral-800',
     'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
   ),
+  special: clsx(
+    'shiny bg-brand-lightest dark:bg-brand/20 border-transparent border-0 text-brand-dark dark:text-white dark:hover:bg-brand/30 hover:bg-brand-lighter/70 drop-shadow-none',
+  ),
   success: clsx(
     'border-transparent',
     'text-white dark:text-neutral-950',
@@ -153,6 +157,7 @@ const variantDisabledClasses: Record<ButtonVariant, string> = {
     'disabled:text-neutral-300 dark:disabled:text-neutral-700',
     'disabled:bg-transparent',
   ),
+  special: clsx(''),
   success: clsx(
     'disabled:border-transparent',
     'disabled:text-white dark:disabled:text-neutral-700',

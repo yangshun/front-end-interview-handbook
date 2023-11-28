@@ -7,10 +7,11 @@ import { themeElementBorderColor, themeTextSecondaryColor } from '../theme';
 
 import * as RadixAvatar from '@radix-ui/react-avatar';
 
-type AvatarSize = 'custom' | 'sm' | 'xs';
+type AvatarSize = 'custom' | 'lg' | 'sm' | 'xs';
 
 const sizeClasses: Record<AvatarSize, string> = {
   custom: '',
+  lg: 'h-10 w-10',
   sm: 'h-8 w-8',
   xs: 'h-5 w-5',
 };
