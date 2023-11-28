@@ -3811,6 +3811,10 @@
     "defaultMessage": "Explore {projectCount}+ projects",
     "description": "Label of 'Projects' view all button in Projects home page"
   },
+  "sStS22": {
+    "defaultMessage": "Back to all component tracks",
+    "description": "Label for \"Back to all component tracks\" button on Projects track page"
+  },
   "sWyGax": {
     "defaultMessage": "Features",
     "description": "Title of the 'The fastest way to learn and build something useful' marketing section on Projects home page"
