@@ -2,7 +2,12 @@
 
 import clsx from 'clsx';
 import React, { useState } from 'react';
-import { FormProvider, useForm, useFormContext } from 'react-hook-form';
+import {
+  Controller,
+  FormProvider,
+  useForm,
+  useFormContext,
+} from 'react-hook-form';
 import {
   RiArrowLeftLine,
   RiArrowRightLine,
@@ -161,7 +166,7 @@ function ReasonList({
   onChange: (value: ReasonValue | null) => void;
   reasonOptions: Array<ReasonOption>;
 }) {
-  const { register, watch, setValue } =
+  const { control, watch, setValue } =
     useFormContext<OnboardingReasonFormValues>();
   const valueKey = `${name}.type` as const;
   const value = watch(valueKey);
@@ -207,18 +212,17 @@ function ReasonList({
         </button>
       ))}
       {value === 'other' && (
-        <TextArea
-          isLabelHidden={true}
-          label="Your motivations"
-          placeholder="Tell us about your motivations"
-          {...register(`${name}.otherValue`)}
-          onChange={(newValue) => {
-            register(`${name}.otherValue`).onChange({
-              target: {
-                value: newValue,
-              },
-            });
-          }}
+        <Controller
+          control={control}
+          name={`${name}.otherValue` as const}
+          render={({ field }) => (
+            <TextArea
+              isLabelHidden={true}
+              label="Your motivations"
+              placeholder="Tell us about your motivations"
+              {...field}
+            />
+          )}
         />
       )}
     </div>
@@ -233,7 +237,7 @@ type OnboardingReasonFormValues = Record<
   }
 >;
 
-export default function ProjectsOnboardingPage() {
+export default function ProjectsOnboardingReasonPage() {
   const intl = useIntl();
   const reasonOptions = useReasonOptions();
 

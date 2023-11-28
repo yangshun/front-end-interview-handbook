@@ -43,6 +43,10 @@
     "defaultMessage": "Build projects that showcase skills that matter - like your own design system, component libraries, or full stack AI projects",
     "description": "Subtitle for Projects marketing hero section for portfolio projects"
   },
+  "+ahYqd": {
+    "defaultMessage": "Self-Learning",
+    "description": "Label for \"Self-Learning\" option in YOE replacement"
+  },
   "+eHFYh": {
     "defaultMessage": "Getting the Interview",
     "description": "Getting the front end interview"
@@ -82,6 +86,10 @@
   "/FyqAR": {
     "defaultMessage": "Translations for {locale} are in beta and may not be accurate. Do give feedback or <link>contact us</link> if you are interested in helping to translate!",
     "description": "Banner about beta locale version"
+  },
+  "/Xai24": {
+    "defaultMessage": "MM/YYYY",
+    "description": "Placeholder for \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
   },
   "/ftlBv": {
     "defaultMessage": "Undo",
@@ -187,6 +195,10 @@
     "defaultMessage": "Most complete all-in-one front end interview preparation.",
     "description": "Short description for 3 months study plan"
   },
+  "1SKRR/": {
+    "defaultMessage": "Month and year you started work as a Front End Engineer",
+    "description": "Label for \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
+  },
   "1gkgr4": {
     "defaultMessage": "Sign In",
     "description": "Label of Sign In button on Email Sign In page"
@@ -202,6 +214,10 @@
   "1qu2NT": {
     "defaultMessage": "For Portfolios",
     "description": "Button label for Projects marketing hero section for portfolio projects"
+  },
+  "1wTKEc": {
+    "defaultMessage": "Month and year you started work as a Front End Engineer description",
+    "description": "Description for \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
   },
   "1wkHv2": {
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can change your email here to use email and password to log in instead.",
@@ -319,6 +335,10 @@
     "defaultMessage": "Not Found",
     "description": "Title of 404 page"
   },
+  "40fcnl": {
+    "defaultMessage": "Select another status to display in place of your YOE:",
+    "description": "Label for \"Years of experience replacement status\" choices on Projects profile onboarding page"
+  },
   "434fyX": {
     "defaultMessage": "RADIO Framework",
     "description": "RADIO (acroynm) framework name for front end system design interviews. Don't translate RADIO"
@@ -399,6 +419,10 @@
     "defaultMessage": "React Questions",
     "description": "React questions category long title"
   },
+  "6+Kd4B": {
+    "defaultMessage": "+{repCount} rep",
+    "description": "Label for reputation count on Projects profile onboarding page"
+  },
   "63ddzp": {
     "defaultMessage": "For Side Projects",
     "description": "Button label for Projects marketing hero section for side projects"
@@ -474,6 +498,10 @@
   "73vnK2": {
     "defaultMessage": "Mid",
     "description": "Label for medium question importance"
+  },
+  "7GfgZR": {
+    "defaultMessage": "LinkedIn link description",
+    "description": "Description for LinkedIn link input on Projects profile onboarding page"
   },
   "7HLv+l": {
     "defaultMessage": "Try these questions next",
@@ -667,6 +695,14 @@
     "defaultMessage": "{completedProjectCount}/{totalProjectCount}",
     "description": "Progress indicator in Projects skills emblem"
   },
+  "9nq03w": {
+    "defaultMessage": "Others",
+    "description": "Label for \"Others\" option in YOE replacement"
+  },
+  "9qM8IM": {
+    "defaultMessage": "Tech stack to improve description",
+    "description": "Description for \"Tech stack to improve\" input on Projects profile onboarding page"
+  },
   "9wRhlQ": {
     "defaultMessage": "Front End Interview",
     "description": "Short title for Front End Interview Guidebook"
@@ -682,6 +718,10 @@
   "AJSVim": {
     "defaultMessage": "Seattle, WA, USA",
     "description": "Seattle in USA"
+  },
+  "AVk8pE": {
+    "defaultMessage": "Name",
+    "description": "Label for \"Name\" input on Projects profile onboarding page"
   },
   "AYkO94": {
     "defaultMessage": "Questions List",
@@ -883,9 +923,17 @@
     "defaultMessage": "Master the art of building interactive and user-friendly forms.",
     "description": "Description for interview preparation focus area"
   },
+  "DdbtcA": {
+    "defaultMessage": "Skills",
+    "description": "Label for Skills section of Projects profile onboarding page"
+  },
   "DiyRBB": {
     "defaultMessage": "Codeney Pte Ltd. All rights reserved.",
     "description": "Footer copyright text containing the company name"
+  },
+  "DjHA82": {
+    "defaultMessage": "Career Switcher",
+    "description": "Label for \"Career Switcher\" option in YOE replacement"
   },
   "Dynazi": {
     "defaultMessage": "(Save {discountPercentage}% vs monthly)",
@@ -894,6 +942,10 @@
   "E2hv0Z": {
     "defaultMessage": "<bold>{value}</bold>/{total} projects",
     "description": "Rep count label in Projects"
+  },
+  "E5x8uP": {
+    "defaultMessage": "Undergrad CS",
+    "description": "Label for \"Undergrad CS\" option in YOE replacement"
   },
   "E6yHUQ": {
     "defaultMessage": "Evaluation Axes",
@@ -1051,6 +1103,10 @@
     "defaultMessage": "Woohoo! You completed the question!",
     "description": "Toast congratulating user once they mark a question as complete"
   },
+  "GxJeqH": {
+    "defaultMessage": "Set up your profile",
+    "description": "Title for Projects profile onboarding page"
+  },
   "GyDKzV": {
     "defaultMessage": "Filters",
     "description": "Screenreader text indicating the filters component on question list pages"
@@ -1106,6 +1162,10 @@
   "HcBvYZ": {
     "defaultMessage": "Learn to answer \"Tell me about a time..\" collaboration questions",
     "description": "How to answer collaboration situation questions in behavioral interviews"
+  },
+  "HdBv6k": {
+    "defaultMessage": "Intern",
+    "description": "Label for \"Intern\" option in YOE replacement"
   },
   "HdWLAV": {
     "defaultMessage": "Test your code",
@@ -1166,6 +1226,10 @@
   "IhJAk8": {
     "defaultMessage": "What's Included",
     "description": "Section label for features included in a pricing plan"
+  },
+  "Ihutcw": {
+    "defaultMessage": "Jane Smith",
+    "description": "Placeholder for \"Name\" input on Projects profile onboarding page"
   },
   "IhvVOB": {
     "defaultMessage": "Search Vanilla JS questions",
@@ -1855,6 +1919,10 @@
     "defaultMessage": "Explore {skillCount}+ more skills",
     "description": "Label of 'Skill tree' view all button in Projects home page"
   },
+  "SpM0k8": {
+    "defaultMessage": "Bootcamp Grad",
+    "description": "Label for \"Bootcamp Grad\" option in YOE replacement"
+  },
   "SuWvZa": {
     "defaultMessage": "Monthly plan",
     "description": "Title of monthly pricing plan"
@@ -1943,6 +2011,10 @@
     "defaultMessage": "Email",
     "description": "Label of email field on Magic Link Sign In page"
   },
+  "UIOmIs": {
+    "defaultMessage": "Job Title",
+    "description": "Label for \"Job Title\" input on Projects profile onboarding page"
+  },
   "ULuy8I": {
     "defaultMessage": "Difficulty",
     "description": "Question difficulty"
@@ -1955,6 +2027,10 @@
     "defaultMessage": "System",
     "description": "System theme option label"
   },
+  "UTwUDd": {
+    "defaultMessage": "Job title description",
+    "description": "Description for \"Job Title\" input on Projects profile onboarding page"
+  },
   "UWucPu": {
     "defaultMessage": "Purchase",
     "description": "Title for FAQ section"
@@ -1962,6 +2038,10 @@
   "UXNTcT": {
     "defaultMessage": "India",
     "description": "India country"
+  },
+  "UZDhKH": {
+    "defaultMessage": "Tech stack you are hoping to grow in",
+    "description": "Label for \"Tech stack you are hoping to grow in\" input on Projects profile onboarding page"
   },
   "Udnya7": {
     "defaultMessage": "{repCount} rep",
@@ -2083,6 +2163,10 @@
     "defaultMessage": "{numberOfHours} hours weekly",
     "description": "Number of hours needed on a weekly basis. E.g. 4 hours weekly"
   },
+  "WBESe1": {
+    "defaultMessage": "Bootcamper",
+    "description": "Label for \"Bootcamper\" option in YOE replacement"
+  },
   "WBKQzA": {
     "defaultMessage": "Dark",
     "description": "Select label for dark console theme in console settings"
@@ -2090,6 +2174,10 @@
   "WDJgWl": {
     "defaultMessage": "Questions",
     "description": "Front end system design interviews questions"
+  },
+  "WH8fwr": {
+    "defaultMessage": "Write here",
+    "description": "Placeholder for \"Other\" input for \"Years of experience replacement status\" on Projects profile onboarding page"
   },
   "WIHUwS": {
     "defaultMessage": "Quarterly plan",
@@ -2110,6 +2198,10 @@
   "WWRfWH": {
     "defaultMessage": "If you are a developer or engineer looking to excel in the front-end world, GreatFrontEnd is an excellent resource to have. It's very common to practice LeetCode style questions in the world of engineering, but rarely does anyone talk about system designs and behavioral questions. This is one of the biggest reasons why I joined! It's challenging, fun, and there's also a community that looks out for you!",
     "description": "Jacky Liang's testimonial"
+  },
+  "WWdQAb": {
+    "defaultMessage": "Other",
+    "description": "Label for \"Other\" input for \"Years of experience replacement status\" on Projects profile onboarding page"
   },
   "WZy7m4": {
     "defaultMessage": "Table of Contents",
@@ -2215,6 +2307,10 @@
     "defaultMessage": "Review Cashback Terms and Conditions",
     "description": "Title of legal page"
   },
+  "YSJ2ji": {
+    "defaultMessage": "Tech stack proficient description",
+    "description": "Description for \"Tech stack proficient\" input on Projects profile onboarding page"
+  },
   "YWz2ko": {
     "defaultMessage": "Proven preparation plans",
     "description": "Title for proven preparation plans feature"
@@ -2275,6 +2371,10 @@
     "defaultMessage": "Completed",
     "description": "Completed status for a question"
   },
+  "ZNPYCk": {
+    "defaultMessage": "Bio",
+    "description": "Label for Biography input on Projects profile onboarding page"
+  },
   "ZRUNG5": {
     "defaultMessage": "Promotions",
     "description": "Title of Promotions page"
@@ -2298,6 +2398,10 @@
   "Zdojj9": {
     "defaultMessage": "Other",
     "description": "Label for \"Other\" onboarding option in Projects"
+  },
+  "Zk7X6D": {
+    "defaultMessage": "Software Engineer at Stripe | Ex-Google",
+    "description": "Placeholder for \"Job Title\" input on Projects profile onboarding page"
   },
   "Znv3Y6": {
     "defaultMessage": "Save Changes",
@@ -2382,6 +2486,10 @@
   "b2csyI": {
     "defaultMessage": "Next",
     "description": "Label for button leading to the next page"
+  },
+  "b7z86A": {
+    "defaultMessage": "I haven't started work yet",
+    "description": "Label for \"I haven't started work yet\" checkbox on Projects profile onboarding page"
   },
   "bAEOVz": {
     "defaultMessage": "Lifetime plan is a limited time offering and will be removed in future.",
@@ -2695,6 +2803,10 @@
     "defaultMessage": "Prev",
     "description": "Label for button leading to the previous page"
   },
+  "fs9YFE": {
+    "defaultMessage": "Skip for now",
+    "description": "Label for \"Skip for now\" button on Projects profile onboarding page"
+  },
   "ft4ubO": {
     "defaultMessage": "You won't find the same depth or quality elsewhere.",
     "description": "Subtitle of the 'Features' marketing section on Homepage"
@@ -2747,6 +2859,14 @@
     "defaultMessage": "Solved previously, mark as completed",
     "description": "Label for questions solved in the past"
   },
+  "ghssuE": {
+    "defaultMessage": "Next",
+    "description": "Label for Next button on Projects profile onboarding page"
+  },
+  "gm+QgP": {
+    "defaultMessage": "React, HTML, JS",
+    "description": "Placeholder for \"Tech stack you are proficient in\" input on Projects profile onboarding page"
+  },
   "gopXdP": {
     "defaultMessage": "Reset this file",
     "description": "Tooltip for button that allows users to reset their coding workspace to the initial code"
@@ -2754,6 +2874,10 @@
   "grmcEW": {
     "defaultMessage": "Your account email is a school email that contains \".edu\".",
     "description": "Condition for promotion"
+  },
+  "grrYsM": {
+    "defaultMessage": "Years of Experience",
+    "description": "Label for Years of Experience section of Projects profile onboarding page"
   },
   "gtouN7": {
     "defaultMessage": "Medium",
@@ -2779,6 +2903,10 @@
     "defaultMessage": "What to expect and how to prepare most efficiently",
     "description": "What to expect in behavioral interviews"
   },
+  "hJzsEb": {
+    "defaultMessage": "Bio description",
+    "description": "Description for Biography input on Projects profile onboarding page"
+  },
   "hNQSH/": {
     "defaultMessage": "Apple",
     "description": "Company name for Apple"
@@ -2794,6 +2922,10 @@
   "hdlJES": {
     "defaultMessage": "Secondary reason",
     "description": "Label for \"Secondary reason\" button on Sign Up Reason section of Projects onboarding page"
+  },
+  "hnDCXW": {
+    "defaultMessage": "NextJS, Vercel",
+    "description": "Placeholder for \"Tech stack you are hoping to grow in\" input on Projects profile onboarding page"
   },
   "hoQUfU": {
     "defaultMessage": "Importance: High to Low",
@@ -2822,6 +2954,10 @@
   "iAXU/e": {
     "defaultMessage": "Sign In / Sign Up",
     "description": "Sign in or up for the platform"
+  },
+  "iBfH9v": {
+    "defaultMessage": "Get started",
+    "description": "Label for Get Started button on Projects profile onboarding page"
   },
   "iCRUOb": {
     "defaultMessage": "Answering \"Why Work Here\"",
@@ -2875,6 +3011,10 @@
     "defaultMessage": "Top React coding interview questions to build the most commonly-asked front end UI components and applications.",
     "description": "Description for React questions page"
   },
+  "jCp/VW": {
+    "defaultMessage": "Social links",
+    "description": "Label for Social Links section of Projects profile onboarding page"
+  },
   "jEYebN": {
     "defaultMessage": "View subscription plans",
     "description": "Label for button to view subscription plans"
@@ -2882,6 +3022,10 @@
   "jGQnYd": {
     "defaultMessage": "Search coding questions",
     "description": "Placeholder for search input of coding question list"
+  },
+  "jGjXHp": {
+    "defaultMessage": "Github (optional)",
+    "description": "Label for Github link input on Projects profile onboarding page"
   },
   "jIpXy+": {
     "defaultMessage": "Coming Soon",
@@ -2918,6 +3062,10 @@
   "jblvez": {
     "defaultMessage": "Title: Z to A",
     "description": "Sorting option for question list - sort titles from Z to A"
+  },
+  "jeX0Hi": {
+    "defaultMessage": "Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others",
+    "description": "Placeholder for Biography input on Projects profile onboarding page"
   },
   "jgIdRC": {
     "defaultMessage": "Password",
@@ -3054,6 +3202,10 @@
   "l1ZqoW": {
     "defaultMessage": "Join Discord",
     "description": "Join Discord channel"
+  },
+  "l1pTwU": {
+    "defaultMessage": "LinkedIn (optional)",
+    "description": "Label for LinkedIn link input on Projects profile onboarding page"
   },
   "l9OWsu": {
     "defaultMessage": "Testing",
@@ -3195,9 +3347,17 @@
     "defaultMessage": "Author",
     "description": "Author of the question"
   },
+  "n2GZsD": {
+    "defaultMessage": "First, set up your public profile to help the community know you better (and assist you better!)",
+    "description": "Subtitle for Projects profile onboarding page"
+  },
   "n4aKYo": {
     "defaultMessage": "Theme",
     "description": "Change site theme button label"
+  },
+  "n76no0": {
+    "defaultMessage": "Select step",
+    "description": "Label for tabs to select step in Projects profile onboarding page"
   },
   "n9Ii7+": {
     "defaultMessage": "System Design",
@@ -3226,6 +3386,10 @@
   "njNtN8": {
     "defaultMessage": "YouTube profile link",
     "description": "Link to YouTube profile"
+  },
+  "nl1M2a": {
+    "defaultMessage": "Github link description",
+    "description": "Description for Github link input on Projects profile onboarding page"
   },
   "npvgQq": {
     "defaultMessage": "Prepare for your front end interviews in one week. Efficiently focus on the most important concepts through a good mix of coding and quiz questions.",
@@ -3299,6 +3463,10 @@
     "defaultMessage": "Menu",
     "description": "Guides navbar menu button label"
   },
+  "oxD4TD": {
+    "defaultMessage": "Fresh Grad",
+    "description": "Label for \"Fresh Grad\" option in YOE replacement"
+  },
   "ozQHOy": {
     "defaultMessage": "Hide widget for this session",
     "description": "Feedback widget button label to hide the feedback widget for their current session"
@@ -3362,6 +3530,10 @@
   "piqimi": {
     "defaultMessage": "OFF",
     "description": "Amount cashback/discount"
+  },
+  "pkWsMA": {
+    "defaultMessage": "Masters CS",
+    "description": "Label for \"Masters CS\" option in YOE replacement"
   },
   "pmgCza": {
     "defaultMessage": "Mark as not completed",
@@ -3467,6 +3639,10 @@
     "defaultMessage": "Prepare for tackling data structures and algorithms questions in front end interviews",
     "description": "Title for interview preparation focus area"
   },
+  "rAAfhQ": {
+    "defaultMessage": "Personal Website (optional)",
+    "description": "Label for Personal Website link input on Projects profile onboarding page"
+  },
   "rOzSWN": {
     "defaultMessage": "Build entire design systems, component libraries or full stack apps",
     "description": "Caption for component library showcase in Projects marketing hero section"
@@ -3474,6 +3650,10 @@
   "rWhQtZ": {
     "defaultMessage": "Full list of shortcuts can be found on the <link>Visual Studio Code website</link>.",
     "description": "Text in coding workspace shortcuts that provides user with the link to the full list of shortcuts"
+  },
+  "rax4QM": {
+    "defaultMessage": "Edit profile photo",
+    "description": "Label for \"Edit profile photo\" button on Projects profile onboarding page"
   },
   "rbjUFF": {
     "defaultMessage": "For Beginners",
@@ -3530,6 +3710,10 @@
   "sjLtW1": {
     "defaultMessage": "Manage subscription",
     "description": "Manage user membership subscription button label"
+  },
+  "sjcvmA": {
+    "defaultMessage": "Tech stack you are proficient in",
+    "description": "Label for \"Tech stack you are proficient in\" input on Projects profile onboarding page"
   },
   "sn/P86": {
     "defaultMessage": "Guides",
@@ -3650,6 +3834,10 @@
   "uDUEmN": {
     "defaultMessage": "JS functions, algorithms, building components, etc.",
     "description": "Description of coding questions"
+  },
+  "uGIcYs": {
+    "defaultMessage": "Welcome to GreatFrontEnd Projects!",
+    "description": "Title for Projects profile onboarding page"
   },
   "uM5kA8": {
     "defaultMessage": "Toggle line comment",
@@ -3790,6 +3978,10 @@
   "wfod1+": {
     "defaultMessage": "GreatFrontEnd is hiring! Check out our <link>jobs page</link>!",
     "description": "Text on Promo Banner"
+  },
+  "wjcqDA": {
+    "defaultMessage": "Personal Website link description",
+    "description": "Description for Personal Website link input on Projects profile onboarding page"
   },
   "wmvMT1": {
     "defaultMessage": "Pricing plans tailored to your needs. Grab our all-access lifetime plans at a 30% discount today!",

@@ -15,8 +15,10 @@ export type TabItem<T> = Readonly<{
 
 type TabDisplay = 'block' | 'inline';
 type TabSize = 'md' | 'sm' | 'xs';
+type TabAlignment = 'start' | 'stretch';
 
 type Props<T> = Readonly<{
+  alignment?: TabAlignment;
   display?: TabDisplay;
   label: string;
   onSelect?: (value: T) => void;
@@ -64,6 +66,7 @@ const sizeClasses: Record<
 };
 
 export default function TabsUnderline<T>({
+  alignment = 'start',
   display = 'block',
   label,
   tabs,
@@ -119,6 +122,7 @@ export default function TabsUnderline<T>({
                     themeTextSecondaryColor,
                   ),
               tabItemSize,
+              alignment === 'stretch' && 'flex-1',
             ),
             onClick: () => onSelect?.(tabItemValue),
           };
