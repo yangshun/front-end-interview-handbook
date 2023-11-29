@@ -19,11 +19,9 @@ import { countQuestionsTotalDurationMins } from '~/components/interviews/questio
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
 import QuestionsLearningList from '~/components/interviews/questions/listings/learning/QuestionsLearningList';
 import QuestionsLearningListTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListTitleSection';
-import Alert from '~/components/ui/Alert';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
 
 import {
   categorizeQuestionListSessionProgress,
@@ -114,39 +112,14 @@ export default function StudyPlanPage({
       <Section>
         <Container className="pb-12">
           {canViewStudyPlans ? (
-            <div className="flex flex-col gap-y-8">
-              {(questionsOverallProgress.javascript.size > 0 ||
-                questionsOverallProgress['user-interface'].size > 0) && (
-                <div className="max-w-3xl">
-                  <Alert
-                    title={intl.formatMessage({
-                      defaultMessage:
-                        'Changes to how study plan progress is calculated',
-                      description: 'Message about changes to study plans',
-                      id: 'kmShy2',
-                    })}
-                    variant="info">
-                    <Text color="secondary" display="block" size="body2">
-                      Study plan progress no longer reads from your overall
-                      question completion, so you might see changes in your
-                      study progress. This allows you to have study
-                      plan-specific progress by starting a question from this
-                      page. Your overall completion progress remains unchanged,
-                      and you can click on the left icon within each past solved
-                      question to mark them as completed for this study plan.
-                    </Text>
-                  </Alert>
-                </div>
-              )}
-              <QuestionsLearningList
-                codingQuestions={codingQuestions}
-                listKey={plan.type}
-                overallProgress={questionsOverallProgress}
-                quizQuestions={quizQuestions}
-                sessionProgress={questionsSessionProgress}
-                systemDesignQuestions={systemDesignQuestions}
-              />
-            </div>
+            <QuestionsLearningList
+              codingQuestions={codingQuestions}
+              listKey={plan.type}
+              overallProgress={questionsOverallProgress}
+              quizQuestions={quizQuestions}
+              sessionProgress={questionsSessionProgress}
+              systemDesignQuestions={systemDesignQuestions}
+            />
           ) : (
             <div className="relative">
               <div
