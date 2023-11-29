@@ -763,21 +763,6 @@ export default function MarketingPricingSection({
         <Section>
           <div className="mt-4 pb-10 sm:mt-12 sm:pb-20 lg:mt-8">
             <Container className="relative flex flex-col gap-y-12">
-              <Alert
-                icon={RiShoppingBagLine}
-                title="Cyber Monday Special"
-                variant="primary">
-                Limited time offer! Enjoy an extra{' '}
-                <strong className="text-neutral-100">
-                  {SEASONAL_PROMO_CODE_DISCOUNT_PERCENTAGE}% off
-                </strong>{' '}
-                all purchases using the code{' '}
-                <strong className="text-neutral-100">
-                  {SEASONAL_PROMO_CODE}
-                </strong>{' '}
-                and gain exclusive beta access to our new mystery product
-                dropping in Jan – Feb 2024! 🚀
-              </Alert>
               {showPPPMessage && (
                 <Alert
                   icon={RiExchangeDollarLine}

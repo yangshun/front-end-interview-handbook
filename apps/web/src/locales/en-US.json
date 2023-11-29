@@ -2819,10 +2819,6 @@
     "defaultMessage": "Framework",
     "description": "Label for the selection dropdown used to select the framework to use for the question"
   },
-  "ejVSuu": {
-    "defaultMessage": "Cyber Monday Sale is LIVE! <discount>Get {discountPercentage}% off all purchases with {promoCode}</discount> and get free exclusive access to our mystery product dropping in Jan – Feb 2024! 🚀",
-    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
-  },
   "ekSPPz": {
     "defaultMessage": "Flashcard format",
     "description": "Button label for flashcard display format of quiz questions"
@@ -3203,6 +3199,10 @@
     "defaultMessage": "Filters",
     "description": "Label for filters button"
   },
+  "k4i7ID": {
+    "defaultMessage": "<discount>Get {discountPercentage}% off the annual plan with the code {promoCode}</discount> or check out other <promotion>promotions</promotion>",
+    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
+  },
   "k64L83": {
     "defaultMessage": "{discountPercentage}% off GreatFrontEnd Annual plan.",
     "description": "Subtitle of discount promotion card"
@@ -3318,10 +3318,6 @@
   "l9vVXY": {
     "defaultMessage": "LinkedIn profile link",
     "description": "Link to LinkedIn profile"
-  },
-  "lCkmFp": {
-    "defaultMessage": "Get {discountPercentage}% off the annual plan with the code {promoCode}, <discount>grab your discount today</discount> or check out other <promotion>promotions</promotion>",
-    "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
   },
   "lD302L": {
     "defaultMessage": "Recommended duration to spend during interviews",

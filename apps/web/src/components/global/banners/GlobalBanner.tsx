@@ -8,8 +8,6 @@ import gtag from '~/lib/gtag';
 import {
   PERPETUAL_PROMO_CODE,
   PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
-  SEASONAL_PROMO_CODE,
-  SEASONAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
 } from '~/data/PromotionConfig';
 
 import Anchor from '~/components/ui/Anchor';
@@ -25,63 +23,11 @@ export default function GlobalBanner() {
   const { setShowGlobalBanner } = useUserPreferences();
   const isPremium = userProfile?.isPremium ?? false;
 
-  const seasonalSaleMessage = (
+  const perpetualSaleMessage = (
     <FormattedMessage
-      defaultMessage="Cyber Monday Sale is LIVE! <discount>Get {discountPercentage}% off all purchases with {promoCode}</discount> and get free exclusive access to our mystery product dropping in Jan – Feb 2024! 🚀"
+      defaultMessage="<discount>Get {discountPercentage}% off the annual plan with the code {promoCode}</discount> or check out other <promotion>promotions</promotion>"
       description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
-      id="ejVSuu"
-      values={{
-        discount: (chunks) => (
-          <Anchor
-            className="font-medium"
-            href="/pricing"
-            underline={true}
-            variant="flat"
-            onClick={() => {
-              gtag.event({
-                action: `global.banner.discount.click`,
-                category: 'engagement',
-                label: 'Grab your discount today',
-              });
-              logEvent('click', {
-                element: 'Promo banner',
-                label: 'Grab your discount today',
-              });
-            }}>
-            {chunks}
-          </Anchor>
-        ),
-        discountPercentage: SEASONAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
-        promoCode: SEASONAL_PROMO_CODE,
-        promotion: (chunks) => (
-          <Anchor
-            className="whitespace-nowrap font-medium"
-            href="/promotions"
-            underline={true}
-            variant="flat"
-            onClick={() => {
-              gtag.event({
-                action: `global.banner.promotions.click`,
-                category: 'engagement',
-                label: 'promotions',
-              });
-              logEvent('click', {
-                element: 'Promo banner',
-                label: 'Promotions',
-              });
-            }}>
-            {chunks}
-          </Anchor>
-        ),
-      }}
-    />
-  );
-
-  const _perpetualSaleMessage = (
-    <FormattedMessage
-      defaultMessage="Get {discountPercentage}% off the annual plan with the code {promoCode}, <discount>grab your discount today</discount> or check out other <promotion>promotions</promotion>"
-      description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
-      id="lCkmFp"
+      id="k4i7ID"
       values={{
         discount: (chunks) => (
           <Anchor
@@ -179,7 +125,7 @@ export default function GlobalBanner() {
             isUserProfileLoading ? 'opacity-0' : 'opacity-100',
           )}
           suppressHydrationWarning={true}>
-          {isPremium ? weAreHiringMessage : seasonalSaleMessage}
+          {isPremium ? weAreHiringMessage : perpetualSaleMessage}
         </span>
       </Banner>
     </div>
