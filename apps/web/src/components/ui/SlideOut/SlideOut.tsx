@@ -14,10 +14,13 @@ type SlideOutEnterFrom = 'end' | 'start';
 
 type Props = Readonly<{
   children: React.ReactNode;
+  className?: string;
   dark?: boolean;
   enterFrom?: SlideOutEnterFrom;
   isShown?: boolean;
+  isTitleHidden?: boolean;
   onClose?: () => void;
+  padding?: boolean;
   primaryButton?: React.ReactNode;
   secondaryButton?: React.ReactNode;
   size: SlideOutSize;
@@ -49,6 +52,7 @@ const enterFromClasses: Record<
 };
 
 export default function SlideOut({
+  className,
   children,
   dark = false,
   enterFrom = 'end',
@@ -58,14 +62,27 @@ export default function SlideOut({
   title,
   secondaryButton,
   onClose,
+  padding = true,
+  isTitleHidden = false,
 }: Props) {
   const enterFromClass = enterFromClasses[enterFrom];
+
+  const closeButton = (
+    <button
+      className="focus:ring-brand -mr-2 flex h-10 w-10 items-center justify-center rounded-full p-2 text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset"
+      type="button"
+      onClick={() => onClose?.()}>
+      {/* TODO: i18n */}
+      <span className="sr-only">Close menu</span>
+      <RiCloseLine aria-hidden="true" className="h-6 w-6" />
+    </button>
+  );
 
   return (
     <Transition.Root as={Fragment} show={isShown}>
       <Dialog
         as="div"
-        className={clsx('relative z-40')}
+        className={clsx('relative z-40', className)}
         data-mode={dark ? 'dark' : undefined}
         onClose={() => onClose?.()}>
         <Transition.Child
@@ -95,20 +112,24 @@ export default function SlideOut({
                 enterFromClass.position,
                 sizeClasses[size],
               )}>
-              <div className="flex items-center justify-between gap-x-4 px-6 py-6">
-                <Dialog.Title as="div">
-                  <Heading level="heading5">{title}</Heading>
-                </Dialog.Title>
-                <button
-                  className="focus:ring-brand -mr-2 flex h-10 w-10 items-center justify-center rounded-full p-2 text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset"
-                  type="button"
-                  onClick={() => onClose?.()}>
-                  {/* TODO: i18n */}
-                  <span className="sr-only">Close menu</span>
-                  <RiCloseLine aria-hidden="true" className="h-6 w-6" />
-                </button>
+              <div
+                className={clsx(
+                  isTitleHidden && [
+                    'absolute top-0 pt-2',
+                    enterFrom === 'start' && 'right-0 -mr-12',
+                    enterFrom === 'end' && 'left-0 -ml-12',
+                  ],
+                  !isTitleHidden &&
+                    'flex items-center justify-between gap-x-4 px-6 py-6',
+                )}>
+                {!isTitleHidden && (
+                  <Dialog.Title as="div">
+                    <Heading level="heading5">{title}</Heading>
+                  </Dialog.Title>
+                )}
+                {closeButton}
               </div>
-              <div className="grow overflow-y-auto px-6">
+              <div className={clsx('grow overflow-y-auto', padding && 'px-6')}>
                 <Section>
                   <Text display="block" size="body2">
                     {children}
@@ -123,6 +144,11 @@ export default function SlideOut({
               )}
             </Dialog.Panel>
           </Transition.Child>
+          {isTitleHidden && (
+            <div aria-hidden="true" className="w-14 flex-shrink-0">
+              {/* Force sidebar to shrink to fit close icon */}
+            </div>
+          )}
         </div>
       </Dialog>
     </Transition.Root>
