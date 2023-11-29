@@ -6,23 +6,23 @@ import linkedListSolution from '../setup/src/linkedListSolution';
 
 ## Solution
 
-### Array-based Solution
+### Array-based solution
 
 The stack abstract data type can be easily implement in JavaScript with JavaScript `Array`s. The main thing to note when implementing stacks is that that the operations should be O(1). Thankfully, JavaScript `Array`'s `push()` and `pop()` operations are O(1) and the method signatures match the `Stack`'s. Many of the methods are just simple wrappers around `Array` methods.
 
 <MDXCodeBlock languages={{ jsx: stackJs, tsx: stackTs }} />
 
-### Linked List-based Solution
+### Linked list-based solution
 
 Stacks can also be implemented with singly-linked lists which are essentially a chain of connected nodes. To do that, we need to create a `Node` class that has a `prev` pointer, a reference to the `Node` below if it's not the bottom item of the stack.
 
-`push()`-ing involves creating a new `Node` and pointing the current top of the stack to that new `Node`'s `prev` field and updating a reference to the new top of the stack. `pop()`-ing is the reverse where we find the `prev` node of the current top and set it to be the new stop of the stack.
+`push()`-ing involves creating a new `Node` and pointing the current top of the stack to that new `Node`'s `prev` field and updating a reference to the new top of the stack. `pop()`-ing is the reverse where we find the `prev` node of the current top and set it to be the new top of the stack.
 
 Since the time complexity of `length()` has to be O(1) and counting the number of items in a linked list will take O(n), we need to separately track the number of items in the list with a `_length` instance property and update it within the `push()` and `pop()` methods.
 
 <MDXCodeBlock>{linkedListSolution}</MDXCodeBlock>
 
-## Edge Cases
+## Edge cases
 
 - Calling `pop()` on empty stacks.
 - Calling `peek()` on empty stacks.
