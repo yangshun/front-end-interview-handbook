@@ -2,25 +2,27 @@ export function isValidStudentEmail(
   email: string,
 ): Readonly<{ reason?: string; valid: boolean }> {
   const parts = email.split('@');
+  const domain = parts[1];
 
-  if (parts.length < 2 || !parts[1]) {
+  if (parts.length < 2 || !domain) {
     return {
-      reason: 'Invalid email',
+      reason: 'Invalid email address.',
       valid: false,
     };
   }
 
   if (email.includes('alumn')) {
     return {
-      reason: 'Alumni emails are not eligible',
+      reason: 'Alumni email addresses are not eligible.',
       valid: false,
     };
   }
 
-  if (!parts[1].includes('.edu')) {
+  // Not perfect, allows john@lol.edureg.com, but we'll let it pass.
+  if (!domain.includes('.edu') && !domain.includes('.ac.in')) {
     return {
       reason:
-        'Email does not contain a .edu, only accredited educational institutions are eligible',
+        'Email address does not seem to belong to an accredited educational institution. Send us an email if you believe your school should qualify.',
       valid: false,
     };
   }

@@ -17,32 +17,44 @@ describe('isValidStudentEmail', () => {
     });
   });
 
+  test('valid .ac.in emails', () => {
+    expect(isValidStudentEmail('sahil.khan@iiitg.ac.in')).toEqual({
+      valid: true,
+    });
+    expect(isValidStudentEmail('prathamesh.redij@spit.ac.in')).toEqual({
+      valid: true,
+    });
+    expect(isValidStudentEmail('nishtha.kumari@nift.ac.in')).toEqual({
+      valid: true,
+    });
+  });
+
   describe('invalid emails', () => {
     test('invalid emails', () => {
       expect(isValidStudentEmail('john.doe@')).toEqual({
-        reason: 'Invalid email',
+        reason: 'Invalid email address.',
         valid: false,
       });
 
       expect(isValidStudentEmail('jane.smith')).toEqual({
-        reason: 'Invalid email',
+        reason: 'Invalid email address.',
         valid: false,
       });
 
       expect(isValidStudentEmail('info')).toEqual({
-        reason: 'Invalid email',
+        reason: 'Invalid email address.',
         valid: false,
       });
     });
 
     test('alumni emails', () => {
       expect(isValidStudentEmail('john.doe@alumn.mit.edu')).toEqual({
-        reason: 'Alumni emails are not eligible',
+        reason: 'Alumni email addresses are not eligible.',
         valid: false,
       });
 
       expect(isValidStudentEmail('john.doe@alumni.princeton.edu')).toEqual({
-        reason: 'Alumni emails are not eligible',
+        reason: 'Alumni email addresses are not eligible.',
         valid: false,
       });
     });
@@ -50,42 +62,42 @@ describe('isValidStudentEmail', () => {
     test("doesn't contain .edu", () => {
       expect(isValidStudentEmail('john.doe@example.com')).toEqual({
         reason:
-          'Email does not contain a .edu, only accredited educational institutions are eligible',
+          'Email address does not seem to belong to an accredited educational institution. Send us an email if you believe your school should qualify.',
         valid: false,
       });
 
       expect(isValidStudentEmail('john.edu@example.com')).toEqual({
         reason:
-          'Email does not contain a .edu, only accredited educational institutions are eligible',
+          'Email address does not seem to belong to an accredited educational institution. Send us an email if you believe your school should qualify.',
         valid: false,
       });
 
       expect(isValidStudentEmail('jane.smith@student.org')).toEqual({
         reason:
-          'Email does not contain a .edu, only accredited educational institutions are eligible',
+          'Email address does not seem to belong to an accredited educational institution. Send us an email if you believe your school should qualify.',
         valid: false,
       });
 
       expect(isValidStudentEmail('info@university.com')).toEqual({
         reason:
-          'Email does not contain a .edu, only accredited educational institutions are eligible',
+          'Email address does not seem to belong to an accredited educational institution. Send us an email if you believe your school should qualify.',
         valid: false,
       });
 
       expect(isValidStudentEmail('jane.smith@gmail.com')).toEqual({
         reason:
-          'Email does not contain a .edu, only accredited educational institutions are eligible',
+          'Email address does not seem to belong to an accredited educational institution. Send us an email if you believe your school should qualify.',
         valid: false,
       });
 
       expect(isValidStudentEmail('john.doe.example.edu')).toEqual({
-        reason: 'Invalid email',
+        reason: 'Invalid email address.',
         valid: false,
       });
 
       expect(isValidStudentEmail('info@university.com')).toEqual({
         reason:
-          'Email does not contain a .edu, only accredited educational institutions are eligible',
+          'Email address does not seem to belong to an accredited educational institution. Send us an email if you believe your school should qualify.',
         valid: false,
       });
     });
