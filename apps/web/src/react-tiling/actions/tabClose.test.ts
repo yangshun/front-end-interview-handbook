@@ -133,6 +133,7 @@ describe('tabClose', () => {
                     id: '2',
                   },
                 ],
+
                 type: 'item',
               },
               {
@@ -148,9 +149,11 @@ describe('tabClose', () => {
                     id: '6',
                   },
                 ],
+
                 type: 'item',
               },
             ],
+
             type: 'group',
           },
           {
@@ -175,6 +178,7 @@ describe('tabClose', () => {
             },
             {
               "activeTabId": "5",
+              "fullScreen": false,
               "id": "baz",
               "tabs": [
                 {
@@ -214,6 +218,7 @@ describe('tabClose', () => {
                     id: '2',
                   },
                 ],
+
                 type: 'item',
               },
               {
@@ -229,9 +234,11 @@ describe('tabClose', () => {
                     id: '6',
                   },
                 ],
+
                 type: 'item',
               },
             ],
+
             type: 'group',
           },
           {
@@ -256,6 +263,7 @@ describe('tabClose', () => {
             },
             {
               "activeTabId": "5",
+              "fullScreen": false,
               "id": "baz",
               "tabs": [
                 {
@@ -296,6 +304,7 @@ describe('tabClose', () => {
                       id: '2',
                     },
                   ],
+
                   type: 'item',
                 },
                 {
@@ -307,9 +316,11 @@ describe('tabClose', () => {
                       id: '5',
                     },
                   ],
+
                   type: 'item',
                 },
               ],
+
               type: 'group',
             },
             {
@@ -319,6 +330,7 @@ describe('tabClose', () => {
         ).toMatchInlineSnapshot(`
           {
             "activeTabId": "1",
+            "fullScreen": false,
             "id": "bar",
             "tabs": [
               {
@@ -355,6 +367,7 @@ describe('tabClose', () => {
                       id: '2',
                     },
                   ],
+
                   type: 'item',
                 },
                 {
@@ -366,9 +379,11 @@ describe('tabClose', () => {
                       id: '5',
                     },
                   ],
+
                   type: 'item',
                 },
               ],
+
               type: 'group',
             },
             {
@@ -383,6 +398,7 @@ describe('tabClose', () => {
             "items": [
               {
                 "activeTabId": "1",
+                "fullScreen": false,
                 "id": "foo",
                 "tabs": [
                   {

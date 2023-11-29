@@ -213,6 +213,7 @@ describe('tabOpen', () => {
                     id: '2',
                   },
                 ],
+
                 type: 'item',
               },
               {
@@ -228,9 +229,11 @@ describe('tabOpen', () => {
                     id: '6',
                   },
                 ],
+
                 type: 'item',
               },
             ],
+
             type: 'group',
           },
           {
@@ -264,6 +267,7 @@ describe('tabOpen', () => {
             },
             {
               "activeTabId": "5",
+              "fullScreen": false,
               "id": "baz",
               "tabs": [
                 {
@@ -303,6 +307,7 @@ describe('tabOpen', () => {
                     id: '2',
                   },
                 ],
+
                 type: 'item',
               },
               {
@@ -318,9 +323,11 @@ describe('tabOpen', () => {
                     id: '6',
                   },
                 ],
+
                 type: 'item',
               },
             ],
+
             type: 'group',
           },
           {
@@ -355,6 +362,7 @@ describe('tabOpen', () => {
             },
             {
               "activeTabId": "5",
+              "fullScreen": false,
               "id": "baz",
               "tabs": [
                 {
@@ -394,6 +402,7 @@ describe('tabOpen', () => {
                     id: '2',
                   },
                 ],
+
                 type: 'item',
               },
               {
@@ -409,9 +418,11 @@ describe('tabOpen', () => {
                     id: '6',
                   },
                 ],
+
                 type: 'item',
               },
             ],
+
             type: 'group',
           },
           {
@@ -446,6 +457,7 @@ describe('tabOpen', () => {
             },
             {
               "activeTabId": "5",
+              "fullScreen": false,
               "id": "baz",
               "tabs": [
                 {
@@ -485,6 +497,7 @@ describe('tabOpen', () => {
                     id: '2',
                   },
                 ],
+
                 type: 'item',
               },
               {
@@ -500,9 +513,11 @@ describe('tabOpen', () => {
                     id: '6',
                   },
                 ],
+
                 type: 'item',
               },
             ],
+
             type: 'group',
           },
           {
@@ -537,6 +552,7 @@ describe('tabOpen', () => {
             },
             {
               "activeTabId": "5",
+              "fullScreen": false,
               "id": "baz",
               "tabs": [
                 {

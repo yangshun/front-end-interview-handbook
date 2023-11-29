@@ -19,6 +19,7 @@ describe('tabSetActive', () => {
               id: '2',
             },
           ],
+
           type: 'item',
         },
         {
@@ -28,6 +29,7 @@ describe('tabSetActive', () => {
     ).toMatchInlineSnapshot(`
       {
         "activeTabId": "2",
+        "collapsed": false,
         "id": "foo",
         "tabs": [
           {
@@ -69,6 +71,7 @@ describe('tabSetActive', () => {
                         id: '2',
                       },
                     ],
+
                     type: 'item',
                   },
                   {
@@ -84,12 +87,15 @@ describe('tabSetActive', () => {
                         id: '4',
                       },
                     ],
+
                     type: 'item',
                   },
                 ],
+
                 type: 'group',
               },
             ],
+
             type: 'group',
           },
           {
@@ -107,6 +113,7 @@ describe('tabSetActive', () => {
               "items": [
                 {
                   "activeTabId": "2",
+                  "collapsed": false,
                   "id": "foo",
                   "tabs": [
                     {
@@ -122,6 +129,7 @@ describe('tabSetActive', () => {
                 },
                 {
                   "activeTabId": "3",
+                  "fullScreen": false,
                   "id": "barz",
                   "tabs": [
                     {
@@ -168,6 +176,7 @@ describe('tabSetActive', () => {
                         id: '2',
                       },
                     ],
+
                     type: 'item',
                   },
                   {
@@ -183,12 +192,15 @@ describe('tabSetActive', () => {
                         id: '4',
                       },
                     ],
+
                     type: 'item',
                   },
                 ],
+
                 type: 'group',
               },
             ],
+
             type: 'group',
           },
           {
@@ -207,6 +219,7 @@ describe('tabSetActive', () => {
               "items": [
                 {
                   "activeTabId": "1",
+                  "fullScreen": false,
                   "id": "foo",
                   "tabs": [
                     {
@@ -222,6 +235,7 @@ describe('tabSetActive', () => {
                 },
                 {
                   "activeTabId": "3",
+                  "fullScreen": false,
                   "id": "barz",
                   "tabs": [
                     {
@@ -270,6 +284,7 @@ describe('tabSetActive', () => {
                         id: '2',
                       },
                     ],
+
                     type: 'item',
                   },
                   {
@@ -285,12 +300,15 @@ describe('tabSetActive', () => {
                         id: '4',
                       },
                     ],
+
                     type: 'item',
                   },
                 ],
+
                 type: 'group',
               },
             ],
+
             type: 'group',
           },
           {
@@ -308,6 +326,7 @@ describe('tabSetActive', () => {
               "items": [
                 {
                   "activeTabId": "1",
+                  "fullScreen": false,
                   "id": "foo",
                   "tabs": [
                     {
@@ -323,6 +342,7 @@ describe('tabSetActive', () => {
                 },
                 {
                   "activeTabId": "3",
+                  "fullScreen": false,
                   "id": "barz",
                   "tabs": [
                     {

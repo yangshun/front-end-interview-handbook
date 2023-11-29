@@ -73,6 +73,7 @@ describe('panelSplit', () => {
             },
             {
               "activeTabId": "5",
+              "collapsible": true,
               "id": "0",
               "tabs": [
                 {
@@ -157,6 +158,7 @@ describe('panelSplit', () => {
           "items": [
             {
               "activeTabId": "5",
+              "collapsible": true,
               "id": "1",
               "tabs": [
                 {
@@ -262,6 +264,7 @@ describe('panelSplit', () => {
               "items": [
                 {
                   "activeTabId": "1",
+                  "fullScreen": false,
                   "id": "2",
                   "tabs": [
                     {
@@ -277,6 +280,7 @@ describe('panelSplit', () => {
                 },
                 {
                   "activeTabId": "5",
+                  "collapsible": true,
                   "id": "3",
                   "tabs": [
                     {
@@ -291,6 +295,7 @@ describe('panelSplit', () => {
             },
             {
               "activeTabId": "3",
+              "fullScreen": false,
               "id": "baz",
               "tabs": [
                 {
@@ -368,6 +373,7 @@ describe('panelSplit', () => {
               "items": [
                 {
                   "activeTabId": "5",
+                  "collapsible": true,
                   "id": "5",
                   "tabs": [
                     {
@@ -379,6 +385,7 @@ describe('panelSplit', () => {
                 },
                 {
                   "activeTabId": "1",
+                  "fullScreen": false,
                   "id": "4",
                   "tabs": [
                     {
@@ -397,6 +404,7 @@ describe('panelSplit', () => {
             },
             {
               "activeTabId": "3",
+              "fullScreen": false,
               "id": "baz",
               "tabs": [
                 {
@@ -471,6 +479,7 @@ describe('panelSplit', () => {
         "items": [
           {
             "activeTabId": "1",
+            "fullScreen": false,
             "id": "foo",
             "tabs": [
               {
@@ -486,6 +495,7 @@ describe('panelSplit', () => {
           },
           {
             "activeTabId": "3",
+            "fullScreen": false,
             "id": "baz",
             "tabs": [
               {

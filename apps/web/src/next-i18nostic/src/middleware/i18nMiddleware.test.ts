@@ -1,5 +1,4 @@
-import { NextRequest } from 'next/server';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
 import i18nMiddleware from './i18nMiddleware';
 
