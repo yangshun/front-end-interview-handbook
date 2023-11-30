@@ -8,7 +8,6 @@ export default class EventEmitter {
   }
 
   /**
-   *
    * @param {string} eventName
    * @param {Function} listener
    * @returns {EventEmitter}
@@ -21,14 +20,12 @@ export default class EventEmitter {
    * @param {string} eventName
    * @param {Function} listener
    * @returns {EventEmitter}
-   *
    */
   off(eventName, listener) {
     throw 'Not implemented!';
   }
 
   /**
-   *
    * @param {string} eventName
    * @param  {...any} args
    * @returns {boolean}

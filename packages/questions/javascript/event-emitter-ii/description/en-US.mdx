@@ -35,6 +35,8 @@ Invokes each of the listeners listening to `eventName` with the supplied argumen
 | `eventName` | `string` | The name of the event. |
 | `...args` | `any` | Arguments to invoke the list of listener functions with. |
 
+Returns `true` if the event had listeners, `false` otherwise.
+
 ### `sub.off()`
 
 This object is returned from `emitter.on()`. Calling `sub.off()` unsubscribes the respective listener from the event.

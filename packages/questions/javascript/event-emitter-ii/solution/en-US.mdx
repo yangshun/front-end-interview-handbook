@@ -113,6 +113,20 @@ Check if the `eventName` exists or has any events and we can terminate and retur
 
 To pass the rest of the arguments to each listener, we have to use `...args` in the method signature to capture all other arguments as the variable `args`. The listeners can be called with `args` via `Function.prototype.apply()` or `Function.prototype.call()`.
 
+### Built-in object properties colliding with user-provided `eventName`s
+
+As mentioned above, if you're using a plain JavaScript object to map `eventName` to callbacks, one potential issue is using `eventName`s that clash with properties existing on JavaScript objects such as `valueOf` and `toString`.
+
+```js
+const emitter = new EventEmitter();
+emitter.emit('toString'); // Might crash because the property does exist on the object.
+```
+
+Two ways to handle this:
+
+- Use a `Map` instead of an object. This is the modern approach.
+- Create your plain JavaScript object with `Object.create(null)` so that the object does not have a prototype and no additional properties.
+
 ### Class-based Solution
 
 <MDXCodeBlock languages={{ jsx: eventEmitterJs, tsx: eventEmitterTs }} />

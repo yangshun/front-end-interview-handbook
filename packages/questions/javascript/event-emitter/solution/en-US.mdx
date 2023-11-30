@@ -64,17 +64,17 @@ events = [
   - `emit()` and `off()` operations will require iterating through the array, you can't instantly determine if an event exists and ignore emission of non-existent events.
   - Potentially more space needed to store the data because of the repeated object fields and `eventName` strings.
 
-Approach #1 is clearly superior, so we will use that. To mitigate the issue of user-provided `eventName`s conflicting with keys on `Object.prototype`, we can instantiate the `events` object with `Object.create(null)` or use a ES6 `Map` class.
+Approach #1 is clearly superior, so we will use that. To mitigate the issue of user-provided `eventName`s conflicting with keys on `Object.prototype`, we can instantiate the `_events` object with `Object.create(null)` or use a ES6 `Map` class.
 
 ### Implementing `EventEmitter.on()`
 
-Implementing `EventEmitter.on()` is pretty straightforward. Firstly check if `eventName` is present as a key of the `events` object and make the value an empty array (for the list of listeners for that event) if it is the first time this `eventName` is encountered. Then push the `listener` into the array.
+Implementing `EventEmitter.on()` is pretty straightforward. Firstly check if `eventName` is present as a key of the `_events` object and make the value an empty array (for the list of listeners for that event) if it is the first time this `eventName` is encountered. Then push the `listener` into the array.
 
 Return `this` so that the method can be chained.
 
 ### Implementing `EventEmitter.off()`
 
-First check if `eventName` is present as a key of the `events` object. If no events with `eventName` exists, we do not need to proceed further and can do an early `return`.
+First check if `eventName` is present as a key of the `_events` object. If no events with `eventName` exists, we do not need to proceed further and can do an early `return`.
 
 Since we only want to remove the first instance of any matching `listener`, we'll use `listeners.findIndex()` and remove _only one_ instance via `.splice()`, instead of using something like `.filter()` which will remove all matching instances.
 
@@ -85,6 +85,20 @@ Return `this` so that the method can be chained.
 Check if the `eventName` exists or has any events and we can terminate and return `false` if the `eventName` doesn't exist or if there are no listeners for `eventName`.
 
 To pass the rest of the arguments to each listener, we have to use `...args` in the method signature to capture all other arguments as the variable `args`. The listeners can be called with `args` via `Function.prototype.apply()` or `Function.prototype.call()`.
+
+### Built-in object properties colliding with user-provided `eventName`s
+
+As mentioned above, if you're using a plain JavaScript object to map `eventName` to callbacks, one potential issue is using `eventName`s that clash with properties existing on JavaScript objects such as `valueOf` and `toString`.
+
+```js
+const emitter = new EventEmitter();
+emitter.emit('toString'); // Might crash because the property does exist on the object.
+```
+
+Two ways to handle this:
+
+- Use a `Map` instead of an object. This is the modern approach.
+- Create your plain JavaScript object with `Object.create(null)` so that the object does not have a prototype and no additional properties.
 
 ### Class-based Solution
 
@@ -99,6 +113,7 @@ To pass the rest of the arguments to each listener, we have to use `...args` in 
 - The same listener function can be added more than once for the same event. Removal should be done in order of adding.
 - `emitter.emit()` is called without any arguments.
 - Methods are called with non-existing `eventName`s.
+- `eventName`s are built-in object properties like `valueOf`, `toString`.
 
 ## Techniques
 

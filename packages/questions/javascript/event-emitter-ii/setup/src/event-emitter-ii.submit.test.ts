@@ -123,12 +123,18 @@ describe('EventEmitter', () => {
       });
     });
 
-    test("non-existing event doesn't crash", () => {
-      const emitter = new EventEmitter();
+    describe('non-existing event name returns false', () => {
+      test('custom event', () => {
+        const emitter = new EventEmitter();
 
-      expect(() => {
-        emitter.emit('foo');
-      }).not.toThrow();
+        expect(emitter.emit('foo')).toBe(false);
+      });
+
+      test('same name as built-in event', () => {
+        const emitter = new EventEmitter();
+
+        expect(emitter.emit('toString')).toBe(false);
+      });
     });
   });
 

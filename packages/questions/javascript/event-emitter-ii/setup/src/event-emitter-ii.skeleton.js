@@ -18,6 +18,7 @@ export default class EventEmitter {
   /**
    * @param {string} eventName
    * @param {...any} args
+   * @returns boolean
    */
   emit(eventName, ...args) {
     throw 'Not implemented!';

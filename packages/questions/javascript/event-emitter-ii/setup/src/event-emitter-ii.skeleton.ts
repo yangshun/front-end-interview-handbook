@@ -1,6 +1,6 @@
 interface IEventEmitter {
   on(eventName: string, listener: Function): { off: () => void };
-  emit(eventName: string, ...args: any[]): void;
+  emit(eventName: string, ...args: Array<any>): boolean;
 }
 
 // You are free to use alternative approaches of
@@ -15,7 +15,7 @@ export default class EventEmitter implements IEventEmitter {
     throw 'Not implemented!';
   }
 
-  emit(eventName: string, ...args: any[]) {
+  emit(eventName: string, ...args: Array<any>): boolean {
     throw 'Not implemented!';
   }
 }

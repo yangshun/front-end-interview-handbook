@@ -1,6 +1,6 @@
 interface IEventEmitter {
   on(eventName: string, listener: Function): { off: () => void };
-  emit(eventName: string, ...args: any[]): void;
+  emit(eventName: string, ...args: Array<any>): boolean;
 }
 
 // You are free to use alternative approaches of
@@ -11,7 +11,7 @@ export default class EventEmitter implements IEventEmitter {
   _events: Record<string, Record<string, Function>>;
 
   constructor() {
-    // Creating objects via {} will include unwanted properties
+    // Avoid creating objects via `{}` to exclude unwanted properties
     // on the prototype (such as `.toString`).
     this._events = Object.create(null);
     // Use an incrementing number to uniquely identify each listener.
@@ -19,7 +19,8 @@ export default class EventEmitter implements IEventEmitter {
   }
 
   on(eventName: string, listener: Function): { off: () => void } {
-    if (!(eventName in this._events)) {
+    if (!Object.hasOwn(this._events, eventName)) {
+      // It's ok to use `{}` here since the keys will just be numbers.
       this._events[eventName] = {};
     }
 
@@ -35,14 +36,13 @@ export default class EventEmitter implements IEventEmitter {
     };
   }
 
-  emit(eventName: string, ...args: any[]): void {
-    // Early return for non-existing eventNames or
-    // events without listeners.
+  emit(eventName: string, ...args: Array<any>): boolean {
+    // Return false for non-existing eventNames or events without listeners.
     if (
-      !(eventName in this._events) ||
+      !Object.hasOwn(this._events, eventName) ||
       Object.keys(this._events[eventName]).length === 0
     ) {
-      return;
+      return false;
     }
 
     // Make a clone of the listeners in case one of the
@@ -51,5 +51,7 @@ export default class EventEmitter implements IEventEmitter {
     Object.values(listeners).forEach((listener) => {
       listener.apply(null, args);
     });
+
+    return true;
   }
 }
