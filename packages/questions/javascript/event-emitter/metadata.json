@@ -3,7 +3,7 @@
   "created": "2022-11-26T00:00:00.000Z",
   "languages": ["js", "ts"],
   "companies": ["google", "lyft"],
-  "premium": true,
+  "premium": false,
   "duration": 20,
   "published": true,
   "importance": "mid",
