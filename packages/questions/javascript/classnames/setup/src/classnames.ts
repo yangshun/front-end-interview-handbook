@@ -36,6 +36,7 @@ export default function classNames(...args: Array<ClassValue>): string {
     if (argType === 'object') {
       const objArg = arg as ClassDictionary;
       for (const key in objArg) {
+        // Only process non-inherited keys.
         if (Object.hasOwn(objArg, key) && objArg[key]) {
           classes.push(key);
         }

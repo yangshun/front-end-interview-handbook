@@ -28,6 +28,7 @@ export default function classNames(...args) {
     // Handle objects.
     if (argType === 'object') {
       for (const key in arg) {
+        // Only process non-inherited keys.
         if (Object.hasOwn(arg, key) && arg[key]) {
           classes.push(key);
         }

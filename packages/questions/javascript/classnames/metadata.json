@@ -3,7 +3,7 @@
   "created": "2022-05-02T00:00:00.000Z",
   "languages": ["css", "js", "ts"],
   "companies": [],
-  "premium": true,
+  "premium": false,
   "duration": 20,
   "published": true,
   "importance": "mid",
