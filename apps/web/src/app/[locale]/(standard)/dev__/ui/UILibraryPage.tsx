@@ -8,6 +8,7 @@ import BannerExamples from '~/components/ui/Banner/BannerExamples';
 import ButtonExamples from '~/components/ui/Button/ButtonExamples';
 import CardExamples from '~/components/ui/Card/CardExamples';
 import CheckboxInputExamples from '~/components/ui/CheckboxInput/CheckboxInputExamples';
+import ChipExamples from '~/components/ui/Chip/ChipExamples';
 import ColorExamples from '~/components/ui/Color/ColorExamples';
 import Container from '~/components/ui/Container';
 import DialogExamples from '~/components/ui/Dialog/DialogExamples';
@@ -61,6 +62,7 @@ export default function UILibraryPage() {
         <SpinnerExamples />
         <AlertExamples />
         <BadgeExamples />
+        <ChipExamples />
         <EmptyStateExamples />
         <CardExamples />
         <BannerExamples />
