@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { RiMenuFill } from 'react-icons/ri';
 
 import LogoLink from '~/components/global/Logo';
-import Avatar from '~/components/ui/Avatar';
+import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Button from '~/components/ui/Button';
 
 import type { User } from '@supabase/supabase-js';
@@ -28,12 +28,7 @@ export default function ProjectsNavbar({
         <LogoLink />
       </div>
       <div className="-my-2 flex gap-4 sm:-mr-2 lg:hidden">
-        {user && (
-          <Avatar
-            src={user?.user_metadata?.avatar_url ?? undefined}
-            userName={user?.user_metadata?.name ?? user?.email ?? 'Unknown'}
-          />
-        )}
+        {user && <UserAvatar user={user} />}
         <Button
           icon={RiMenuFill}
           isLabelHidden={true}

@@ -51,10 +51,10 @@ const variantClasses: Record<
     textClass: 'text-brand-dark dark:text-brand',
   },
   special: {
-    backgroundClass: 'shiny bg-brand-dark dark:bg-brand/20',
-    borderClass: 'drop-shadow-md',
-    iconClass: 'text-brand',
-    textClass: 'text-white',
+    backgroundClass: 'shiny bg-brand-lightest dark:bg-brand/20',
+    borderClass: '',
+    iconClass: 'text-brand-dark dark:text-brand',
+    textClass: 'text-brand-dark dark:text-white',
   },
   success: {
     backgroundClass: 'bg-success-lightest dark:bg-success-darker',

@@ -43,6 +43,10 @@
     "defaultMessage": "Build projects that showcase skills that matter - like your own design system, component libraries, or full stack AI projects",
     "description": "Subtitle for Projects marketing hero section for portfolio projects"
   },
+  "+Yk101": {
+    "defaultMessage": "Step 3",
+    "description": "Title for \"Step 3\" tab on Projects project page"
+  },
   "+ahYqd": {
     "defaultMessage": "Self-Learning",
     "description": "Label for \"Self-Learning\" option in YOE replacement"
@@ -75,6 +79,10 @@
     "defaultMessage": "Search React questions",
     "description": "Placeholder for search input of React question list"
   },
+  "+y/iOY": {
+    "defaultMessage": "Support you can expect",
+    "description": "Title for Expected Support section on Projects project page"
+  },
   "/06NwY": {
     "defaultMessage": "Company-tagged questions",
     "description": "Title for company-tagged questions feature"
@@ -95,6 +103,10 @@
     "defaultMessage": "MM/YYYY",
     "description": "Placeholder for \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
   },
+  "/dWN/a": {
+    "defaultMessage": "Project Deployment & Completion",
+    "description": "Subtitle for \"Project Deployment & Completion\" tab on Projects project page"
+  },
   "/ftlBv": {
     "defaultMessage": "Undo",
     "description": "Text describing undo command in the coding workspace shortcuts menu"
@@ -102,6 +114,14 @@
   "/jCLBS": {
     "defaultMessage": "3 simple steps to start earning",
     "description": "Title for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
+  },
+  "/ncyOd": {
+    "defaultMessage": "README file to help you get started",
+    "description": "Label for README card in Assets Provided section of Projects project page"
+  },
+  "01jNoZ": {
+    "defaultMessage": "Get started",
+    "description": "Hint for \"Project Brief\" and \"Assets\" tab on Projects project page"
   },
   "032cio": {
     "defaultMessage": "Move line up",
@@ -383,6 +403,10 @@
     "defaultMessage": "Number of questions completed",
     "description": "Number of questions completed in a list of questions"
   },
+  "4q3pJW": {
+    "defaultMessage": "Optimized image assets",
+    "description": "Label for Image Assets card in Assets Provided section of Projects project page"
+  },
   "50kzzq": {
     "defaultMessage": "Select question format",
     "description": "Label for tabs to select sample interview question format"
@@ -443,6 +467,10 @@
     "defaultMessage": "+{repCount} rep",
     "description": "Label for reputation count on Projects profile onboarding page"
   },
+  "6/Qdew": {
+    "defaultMessage": "Start project",
+    "description": "Label for \"Start project\" button on Projects project page"
+  },
   "63ddzp": {
     "defaultMessage": "For Side Projects",
     "description": "Button label for Projects marketing hero section for side projects"
@@ -466,6 +494,10 @@
   "6SEbWz": {
     "defaultMessage": "Annual plan",
     "description": "Title of annual pricing plan"
+  },
+  "6U52IB": {
+    "defaultMessage": "FAQ",
+    "description": "Title for FAQ section on Projects project page"
   },
   "6Us9sa": {
     "defaultMessage": "Confirm action?",
@@ -751,6 +783,10 @@
     "defaultMessage": "Questions List",
     "description": "Screenreader text for quiz questions list"
   },
+  "AZInep": {
+    "defaultMessage": "{completedCount} completed",
+    "description": "Label for number of completed users for a project"
+  },
   "Aa86vz": {
     "defaultMessage": "Free",
     "description": "Label to indicate the item is free"
@@ -762,6 +798,10 @@
   "AmBMf9": {
     "defaultMessage": "No questions",
     "description": "Title for empty state when application of filters return no results"
+  },
+  "B4Jykm": {
+    "defaultMessage": "Project Brief",
+    "description": "Title for Project Brief section on Projects project page"
   },
   "B6ilPG": {
     "defaultMessage": "Something (cant see) to advanced",
@@ -838,6 +878,10 @@
   "CBhQ13": {
     "defaultMessage": "1 Month Plan",
     "description": "Link to one month study plan"
+  },
+  "CCiMOz": {
+    "defaultMessage": "We recommend well-rated submissions using the same stack for your reference",
+    "description": "Description for \"Learn from good code\" item in Expected Support section on Projects project page"
   },
   "CDrriz": {
     "defaultMessage": "Sign in with password",
@@ -946,6 +990,10 @@
   "DVZ1fN": {
     "defaultMessage": "Status",
     "description": "Label for \"Status\" filter for projects list"
+  },
+  "DZGIbR": {
+    "defaultMessage": "Starter",
+    "description": "Label for starter project"
   },
   "DbEF7d": {
     "defaultMessage": "Master the art of building interactive and user-friendly forms.",
@@ -1079,6 +1127,10 @@
     "defaultMessage": "All question progress has been reset.",
     "description": "Message shown when question reset progress action succeeds."
   },
+  "G5tU8P": {
+    "defaultMessage": "Step 4",
+    "description": "Title for \"Step 4\" tab on Projects project page"
+  },
   "G9r7uh": {
     "defaultMessage": "Coding questions supported in Vanilla JavaScript and React, with support for more libraries coming soon!",
     "description": "Subtitle for bringing your own framework feature"
@@ -1162,6 +1214,10 @@
   "H39M2g": {
     "defaultMessage": "What to expect for Front End System Design interviews",
     "description": "Sidebar link title for front end system design interviews"
+  },
+  "H5GY66": {
+    "defaultMessage": "Project Breakdown",
+    "description": "Label for Project Breakdown tabs on Projects project page"
   },
   "H8hr3R": {
     "defaultMessage": "Must have a personal website or other acceptable channel where you can publish the review. Please email us to check channel eligibility before posting.",
@@ -1371,6 +1427,10 @@
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation Quiz page"
   },
+  "KBBRmA": {
+    "defaultMessage": "While working on project",
+    "description": "Hint for \"Tips, Resources and Discussions\" tab on Projects project page"
+  },
   "KDDzWX": {
     "defaultMessage": "{questionExcerpt} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions practice page"
@@ -1431,6 +1491,10 @@
     "defaultMessage": "Software Engineer",
     "description": "Jacky Liang's job title"
   },
+  "LFg5Tg": {
+    "defaultMessage": "Style guide for fonts, colors, etc.",
+    "description": "Label for Style Guide card in Assets Provided section of Projects project page"
+  },
   "LGHLf5": {
     "defaultMessage": "Gamified learning",
     "description": "Title for \"Gamified learning\" feature on Projects home page"
@@ -1483,6 +1547,10 @@
     "defaultMessage": "Found a bug or have an improvement to suggest to a question? We would prefer if you could create an issue on <link>GitHub</link>.",
     "description": "Sentence to report bug on GitHub"
   },
+  "LfoHxa": {
+    "defaultMessage": "+{repCount} rep",
+    "description": "Rep count increase label in Projects"
+  },
   "Lh00HQ": {
     "defaultMessage": "Create a free account to track your progress",
     "description": "CTA to create a free account for non-logged in users"
@@ -1506,6 +1574,10 @@
   "Loi5gN": {
     "defaultMessage": "{repCount} Reputation",
     "description": "Label showing reputation count in profile header of Projects sidebar"
+  },
+  "Lwa7+3": {
+    "defaultMessage": "Have any doubts or need help? Ask in the community and discuss with others.",
+    "description": "Description for \"Ask any questions in community\" item in Expected Support section on Projects project page"
   },
   "LxlUHa": {
     "defaultMessage": "Primary reason",
@@ -1534,10 +1606,6 @@
   "MHO54p": {
     "defaultMessage": "Billing",
     "description": "Profile billing tab title"
-  },
-  "MJGa2M": {
-    "defaultMessage": "{completedCount} completed",
-    "description": "Label for completed user count in Project card."
   },
   "MJyQhr": {
     "defaultMessage": "See all",
@@ -1703,6 +1771,10 @@
     "defaultMessage": "Overview",
     "description": "Overview of behavioral interview"
   },
+  "OYgvni": {
+    "defaultMessage": "New here? <link>How it works</link>",
+    "description": "Link to 'How it works' page on Projects project page"
+  },
   "OfeY0a": {
     "defaultMessage": "View all {trackCount} component tracks",
     "description": "Label of 'Component tracks' view all button in Projects home page"
@@ -1815,6 +1887,10 @@
     "defaultMessage": "HTML Questions",
     "description": "HTML questions category long title"
   },
+  "Q8TmuY": {
+    "defaultMessage": "HTML file with pre-written content",
+    "description": "Label for HTML File card in Assets Provided section of Projects project page"
+  },
   "QHtJPS": {
     "defaultMessage": "Practice end-to-end",
     "description": "Practice questions for all stages"
@@ -1846,6 +1922,10 @@
   "QjhN+w": {
     "defaultMessage": "Front end system design",
     "description": "Title for front end system design feature"
+  },
+  "QkImfr": {
+    "defaultMessage": "After completion",
+    "description": "Hint for \"Project Deployment & Completion\" tab on Projects project page"
   },
   "QsA5iS": {
     "defaultMessage": "Keep up with modern skills and frameworks by building hands-on projects",
@@ -2051,9 +2131,17 @@
     "defaultMessage": "Senior Software Engineer",
     "description": "Ryan Van Valkenburg's job title"
   },
+  "Ty7LFA": {
+    "defaultMessage": "Step 1",
+    "description": "Title for \"Step 1\" tab on Projects project page"
+  },
   "U022No": {
     "defaultMessage": "Palantir",
     "description": "Company name for Palantir"
+  },
+  "U10C4D": {
+    "defaultMessage": "Tips, Resources and Discussions",
+    "description": "Subtitle for \"Tips, Resources and Discussions\" tab on Projects project page"
   },
   "U3qfpb": {
     "defaultMessage": "As a Frontend Engineer I had a hard time finding resources that focused specifically on Frontend interview questions, Data Structures & Algorithms etc., After I found GreatFrontEnd it made my life very easy because I found answers to all my questions. The program and questions are structured and categorized meticulously. If you are looking to improve your frontend interview skills I highly recommend their premium feature as it gives you access to not only data structures & algo questions but also front end system design questions with detailed answers. Not only that, they also have a vibrant and helpful Discord community. It's totally worth it.",
@@ -2118,10 +2206,6 @@
   "UZDhKH": {
     "defaultMessage": "Tech stack you are hoping to grow in",
     "description": "Label for \"Tech stack you are hoping to grow in\" input on Projects profile onboarding page"
-  },
-  "Udnya7": {
-    "defaultMessage": "{repCount} rep",
-    "description": "Rep count label in Projects"
   },
   "UelR8r": {
     "defaultMessage": "Build towards your goals",
@@ -2479,6 +2563,10 @@
     "defaultMessage": "{questionCount}+ CSS interview questions, including quiz-style knowledge questions and CSS coding questions.",
     "description": "Subtitle for CSS questions list page"
   },
+  "Zcjig8": {
+    "defaultMessage": "Assets provided",
+    "description": "Title for Assets Provided section on Projects project page"
+  },
   "Zdojj9": {
     "defaultMessage": "Other",
     "description": "Label for \"Other\" onboarding option in Projects"
@@ -2530,6 +2618,10 @@
   "aZqFm4": {
     "defaultMessage": "Completed",
     "description": "Tooltip for Completed questions label"
+  },
+  "abJ+kd": {
+    "defaultMessage": "Development guides written & curated by Sr engineers at Big tech, such as:",
+    "description": "Description for \"Official guides & resources\" item in Expected Support section on Projects project page"
   },
   "aeeTOy": {
     "defaultMessage": "Font size",
@@ -2963,6 +3055,10 @@
     "defaultMessage": "Premium Question",
     "description": "Title on question paywall displayed on premium question's pages"
   },
+  "ggSPoc": {
+    "defaultMessage": "Back to all projects",
+    "description": "Label for \"Back to all projects\" button on Projects project page"
+  },
   "ghmPBf": {
     "defaultMessage": "Solved previously, mark as completed",
     "description": "Label for questions solved in the past"
@@ -3111,6 +3207,10 @@
     "defaultMessage": "We're Hiring",
     "description": "Link to careers page"
   },
+  "izBHrw": {
+    "defaultMessage": "JPEG design files for mobile & desktop layouts",
+    "description": "Label for JPEG card in Assets Provided section of Projects project page"
+  },
   "j+FaML": {
     "defaultMessage": "Implement various Lodash functions and methods to manipulate and transform data efficiently and improve your front end interview readiness.",
     "description": "Description for interview preparation focus area"
@@ -3122,6 +3222,10 @@
   "j5W1/P": {
     "defaultMessage": "Top React coding interview questions to build the most commonly-asked front end UI components and applications.",
     "description": "Description for React questions page"
+  },
+  "j63zLB": {
+    "defaultMessage": "You can add more skills e.g. UI frameworks used after starting the project",
+    "description": "Additional information for skills section on Projects project page"
   },
   "jCp/VW": {
     "defaultMessage": "Social links",
@@ -3206,6 +3310,10 @@
   "jxXMtj": {
     "defaultMessage": "Prices shown are in {currency}.",
     "description": "Tip at the bottom of the Pricing section to clarify the currency of prices on the cards"
+  },
+  "jz6W//": {
+    "defaultMessage": "Learn from good code",
+    "description": "Label for \"Learn from good code\" item in Expected Support section on Projects project page"
   },
   "jzVpyI": {
     "defaultMessage": "Is GreatFrontEnd targeted at engineers of specific seniority?",
@@ -3446,6 +3554,10 @@
   "mfVk6d": {
     "defaultMessage": "Something (cant see) in up and coming skills",
     "description": "Title for Projects marketing hero section for experienced users"
+  },
+  "mjEvFf": {
+    "defaultMessage": "Step 2",
+    "description": "Title for \"Step 2\" tab on Projects project page"
   },
   "mkx/6U": {
     "defaultMessage": "Use code at checkout. Code expires in 3 days.",
@@ -3707,6 +3819,10 @@
     "defaultMessage": "Easy code reviews",
     "description": "Title for \"Easy code reviews\" feature on Projects home page"
   },
+  "qR0ILp": {
+    "defaultMessage": "Assets",
+    "description": "Subtitle for \"Assets\" tab on Projects project page"
+  },
   "qR472c": {
     "defaultMessage": "Study guides",
     "description": "Study guides list section title in preparation dashboard"
@@ -3722,6 +3838,10 @@
   "qcjD4a": {
     "defaultMessage": "Coding Questions",
     "description": "Coding interview questions"
+  },
+  "qfH1yK": {
+    "defaultMessage": "Unknown user",
+    "description": "Fallback text for unknown user"
   },
   "qh0zg0": {
     "defaultMessage": "For your reference, these are the tests used when your code is submitted. They cannot be modified.",
@@ -3766,6 +3886,10 @@
   "rAAfhQ": {
     "defaultMessage": "Personal Website (optional)",
     "description": "Label for Personal Website link input on Projects profile onboarding page"
+  },
+  "rH3Vfz": {
+    "defaultMessage": "Ask any questions in community",
+    "description": "Label for \"Ask any questions in community\" item in Expected Support section on Projects project page"
   },
   "rOzSWN": {
     "defaultMessage": "Build entire design systems, component libraries or full stack apps",
@@ -3967,6 +4091,10 @@
     "defaultMessage": "Welcome to GreatFrontEnd Projects!",
     "description": "Title for Projects profile onboarding page"
   },
+  "uKEj2Z": {
+    "defaultMessage": "Official guides & resources",
+    "description": "Label for \"Official guides & resources\" item in Expected Support section on Projects project page"
+  },
   "uM5kA8": {
     "defaultMessage": "Toggle line comment",
     "description": "Text describing command to toggle line comment in the coding workspace shortcuts menu"
@@ -4042,6 +4170,10 @@
   "vbwUYs": {
     "defaultMessage": "Clarify any doubts on a project in project-specific forums",
     "description": "Description for \"Learn from others\" feature on Projects home page"
+  },
+  "vdhmX1": {
+    "defaultMessage": "Project Brief",
+    "description": "Subtitle for \"Project Brief\" tab on Projects project page"
   },
   "vfVwh2": {
     "defaultMessage": "1 Week",

@@ -11,7 +11,7 @@ type Props = Readonly<{
   value: number;
 }>;
 
-export default function ProjectsProjectCount({ value, total }: Props) {
+export default function ProjectsProjectCountTag({ value, total }: Props) {
   const intl = useIntl();
 
   return (

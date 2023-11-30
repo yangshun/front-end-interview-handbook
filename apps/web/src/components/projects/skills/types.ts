@@ -15,6 +15,8 @@ export type ProjectSkillItem = {
   type: 'item';
 };
 
+export type ProjectSkillDifficulty = 'easy' | 'medium' | 'hard';
+
 export type ProjectSkillTree = ReadonlyArray<ProjectSkillGroup>;
 
 export type ProjectSkill = ProjectSkillGroup | ProjectSkillItem;

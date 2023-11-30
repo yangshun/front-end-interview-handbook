@@ -5,8 +5,8 @@ import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import type { ProjectsTrack } from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordionItem';
-import ProjectsProjectCount from '~/components/projects/stats/ProjectsProjectCount';
-import ProjectsReputationCount from '~/components/projects/stats/ProjectsReputationCount';
+import ProjectsProjectCountTag from '~/components/projects/stats/ProjectsProjectCountTag';
+import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import Heading from '~/components/ui/Heading';
@@ -52,8 +52,8 @@ export default function ProjectsTrackPage({
           <div className="flex flex-col gap-2">
             <Heading level="heading5">{title}</Heading>
             <div className="flex flex-wrap gap-x-4 gap-y-2">
-              <ProjectsReputationCount repCount={repCount} />
-              <ProjectsProjectCount
+              <ProjectsReputationCountIncreaseTag repCount={repCount} />
+              <ProjectsProjectCountTag
                 total={totalProjectCount}
                 value={completedProjectCount}
               />

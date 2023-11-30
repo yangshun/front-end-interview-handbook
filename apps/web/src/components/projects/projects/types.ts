@@ -1,17 +1,21 @@
+import type { ProjectSkillDifficulty } from '../skills/types';
+
+import type { User } from '@supabase/supabase-js';
+
 export type ProjectsProject = {
   completedCount: number;
-  completedUsers: Array<{
-    id: string;
-    imageSrc: string;
-    userName: string;
-  }>;
+  completedUsers: Array<User>;
   description: string;
   imgSrc: string;
   isStarter: boolean;
-  key: string;
   projectHref: string;
   repCount: number;
-  skills: Array<string>;
+  skills: Array<{
+    difficulty: ProjectSkillDifficulty;
+    key: string;
+    label: string;
+  }>;
+  slug: string;
   title: string;
   trackName: string;
 };

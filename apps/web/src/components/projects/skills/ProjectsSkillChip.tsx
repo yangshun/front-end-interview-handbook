@@ -1,7 +1,26 @@
+import clsx from 'clsx';
+
+import type { ProjectSkillDifficulty } from './types';
+
 type Props = Readonly<{
-  skill: string;
+  difficulty: ProjectSkillDifficulty;
+  label: string;
 }>;
 
-export default function ProjectsSkillChip({ skill }: Props) {
-  return <span className="px-2 py-0.5 text-xs bg-orange-700 text-white rounded-[4px]">{skill}</span>;
+const difficultyClasses: Record<ProjectSkillDifficulty, string> = {
+  easy: 'bg-success text-success-darker',
+  hard: 'bg-danger text-danger-darker',
+  medium: 'bg-warning text-warning-darker',
+};
+
+export default function ProjectsSkillChip({ label, difficulty }: Props) {
+  return (
+    <span
+      className={clsx(
+        'rounded-[4px] px-2 py-0.5 text-xs',
+        difficultyClasses[difficulty],
+      )}>
+      {label}
+    </span>
+  );
 }

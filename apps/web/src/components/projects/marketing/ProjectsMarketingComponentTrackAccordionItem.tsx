@@ -12,8 +12,8 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-import ProjectsProjectCount from '../stats/ProjectsProjectCount';
-import ProjectsReputationCount from '../stats/ProjectsReputationCount';
+import ProjectsProjectCountTag from '../stats/ProjectsProjectCountTag';
+import ProjectsReputationCountIncreaseTag from '../stats/ProjectsReputationCountIncreaseTag';
 
 import * as Accordion from '@radix-ui/react-accordion';
 
@@ -83,8 +83,8 @@ export default function ProjectsMarketingComponentTrackAccordionItem({
                   {description}
                 </Text>
                 <div className="mt-2 flex gap-4">
-                  <ProjectsReputationCount repCount={repCount} />
-                  <ProjectsProjectCount
+                  <ProjectsReputationCountIncreaseTag repCount={repCount} />
+                  <ProjectsProjectCountTag
                     total={totalProjectCount}
                     value={completedProjectCount}
                   />

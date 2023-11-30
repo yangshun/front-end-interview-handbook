@@ -7,7 +7,6 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import Avatar from '~/components/ui/Avatar';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -19,6 +18,7 @@ import {
 
 import type { ProjectsProject } from './types';
 import ProjectsSkillChip from '../skills/ProjectsSkillChip';
+import ProjectsCompletedUsersTag from '../stats/ProjectsCompletedUsersTag';
 
 type Props = Readonly<{
   project: ProjectsProject;
@@ -97,8 +97,11 @@ export default function ProjectsProjectCard({
             />
           </Text>
           {skills.map((skill) => (
-            <ul key={skill}>
-              <ProjectsSkillChip skill={skill} />
+            <ul key={skill.key}>
+              <ProjectsSkillChip
+                difficulty={skill.difficulty}
+                label={skill.label}
+              />
             </ul>
           ))}
         </li>
@@ -112,29 +115,10 @@ export default function ProjectsProjectCard({
             })}
             variant="primary"
           />
-          <div className="flex items-center gap-1">
-            <div className="flex items-center -space-x-3">
-              {completedUsers.map((user) => (
-                <Avatar
-                  key={user.id}
-                  className="border border-neutral-900"
-                  size="xs"
-                  src={user.imageSrc}
-                  userName={user.userName}
-                />
-              ))}
-            </div>
-            <Text color="secondary" size="body3">
-              <FormattedMessage
-                defaultMessage="{completedCount} completed"
-                description="Label for completed user count in Project card."
-                id="MJGa2M"
-                values={{
-                  completedCount,
-                }}
-              />
-            </Text>
-          </div>
+          <ProjectsCompletedUsersTag
+            count={completedCount}
+            users={completedUsers}
+          />
         </div>
       </div>
     </div>
