@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-import ProjectsDashboard from './ProjectsDashboard';
+import ProjectsAllProjects from './ProjectsAllProjects';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -18,15 +18,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     locale,
-    pathname: '/projects/dashboard',
+    pathname: '/projects/all',
     title: intl.formatMessage({
-      defaultMessage: 'Dashboard | GFE Projects',
-      description: 'Title of Projects Dashboard page',
-      id: 'iulVQA',
+      defaultMessage: 'All Projects | GFE Projects',
+      description: 'Title of Projects All Projects page',
+      id: 'jvJZyt',
     }),
   });
 }
 
-export default async function ProjectsDashboardPage() {
-  return <ProjectsDashboard />;
+export default async function ProjectsAllProjectsPage() {
+  return <ProjectsAllProjects />;
 }

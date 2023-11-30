@@ -80,7 +80,7 @@ export default function Tabs<T>({
   } = sizeClasses[size];
 
   return (
-    <div className="isolate w-full overflow-x-auto">
+    <div className="isolate w-full overflow-x-auto overflow-y-hidden">
       <div
         className={clsx('border-b border-neutral-300 dark:border-neutral-700')}>
         <nav aria-label={label} className={clsx('flex', tabGapSize)}>

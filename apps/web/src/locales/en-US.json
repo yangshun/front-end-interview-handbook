@@ -1115,6 +1115,10 @@
     "defaultMessage": "Tips for making a strong first impression in your self introduction",
     "description": "How to make strong first impressions during self introductions"
   },
+  "GcmSpX": {
+    "defaultMessage": "Select project category",
+    "description": "Tab label to select another project category"
+  },
   "Gcx+tu": {
     "defaultMessage": "Yearly plan",
     "description": "Title of Yearly Plan CTA card in Projects sidebar"
@@ -1934,6 +1938,10 @@
   "RvPm3x": {
     "defaultMessage": "DOM Manipulation",
     "description": "Name of focus area questions"
+  },
+  "RvuPjs": {
+    "defaultMessage": "Start building any project you can dream of - mentored by official how-to guides and production-grade specifications.",
+    "description": "Description of Projects Browse Projects page"
   },
   "RxZwQ9": {
     "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
@@ -2823,6 +2831,10 @@
     "defaultMessage": "Flashcard format",
     "description": "Button label for flashcard display format of quiz questions"
   },
+  "etGGVG": {
+    "defaultMessage": "Browse all projects",
+    "description": "Title of Projects Browse Projects page"
+  },
   "eyLjDz": {
     "defaultMessage": "Have questions, feedback or anything to say?",
     "description": "Title for contact us section"
@@ -3147,6 +3159,10 @@
     "defaultMessage": "Our users now work in these companies",
     "description": "Title of company logos section"
   },
+  "jShNbD": {
+    "defaultMessage": "Projects",
+    "description": "Title of Projects All Projects page"
+  },
   "jTXr+7": {
     "defaultMessage": "Intro to Behavioral Round",
     "description": "Introduction to behavioral interviews"
@@ -3182,6 +3198,10 @@
   "jtuJQk": {
     "defaultMessage": "About Us",
     "description": "Title of About Us page"
+  },
+  "jvJZyt": {
+    "defaultMessage": "All Projects | GFE Projects",
+    "description": "Title of Projects All Projects page"
   },
   "jxXMtj": {
     "defaultMessage": "Prices shown are in {currency}.",
