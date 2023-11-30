@@ -30,8 +30,6 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-import { BlackFridaySpecial } from './marketing/BlackFridaySpecial';
-
 import { Popover, Transition } from '@headlessui/react';
 
 type SidebarItem = Readonly<{
@@ -358,7 +356,6 @@ export default function Sidebar({
         })}
       </div>
       <div className="flex flex-col gap-6">
-        {!isCollapsed && <BlackFridaySpecial />}
         <div
           className={clsx(
             'flex justify-between gap-6',

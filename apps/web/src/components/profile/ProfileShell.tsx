@@ -8,7 +8,6 @@ import {
   RiDiscordLine,
   RiGithubFill,
   RiMailLine,
-  RiStarLine,
   RiUserLine,
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';

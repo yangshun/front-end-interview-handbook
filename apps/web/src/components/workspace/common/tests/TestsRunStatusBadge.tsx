@@ -1,9 +1,4 @@
-import {
-  RiCheckLine,
-  RiCloseLine,
-  RiCrossLine,
-  RiHourglassLine,
-} from 'react-icons/ri';
+import { RiCheckLine, RiCloseLine, RiHourglassLine } from 'react-icons/ri';
 
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';

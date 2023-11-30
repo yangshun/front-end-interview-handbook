@@ -9,7 +9,6 @@ import {
   RiArrowRightLine,
   RiCheckLine,
   RiExchangeDollarLine,
-  RiShoppingBagLine,
 } from 'react-icons/ri';
 import { FormattedMessage, FormattedNumberParts, useIntl } from 'react-intl';
 
@@ -25,8 +24,6 @@ import type {
 import {
   PERPETUAL_PROMO_CODE,
   PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
-  SEASONAL_PROMO_CODE,
-  SEASONAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
 } from '~/data/PromotionConfig';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';

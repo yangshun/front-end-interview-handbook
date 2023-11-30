@@ -1,7 +1,5 @@
 import clsx from 'clsx';
 
-import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
-
 import {
   SEASONAL_PROMO_CODE,
   SEASONAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
@@ -28,8 +26,6 @@ export function BlackFridayLiveBadge() {
 }
 
 export function BlackFridayPromoCard() {
-  const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
-
   return (
     <div
       className={clsx(
