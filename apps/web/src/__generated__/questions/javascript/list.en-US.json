@@ -485,6 +485,36 @@
   {
     "author": null,
     "companies": [],
+    "created": 1701302400,
+    "difficulty": "hard",
+    "duration": 25,
+    "excerpt": "Implement a function that conditionally joins CSS class names together and also handles de-duplication and function values",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/classnames-ii",
+    "importance": "mid",
+    "languages": [
+      "css",
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "classnames"
+    ],
+    "slug": "classnames-ii",
+    "subtitle": null,
+    "title": "Classnames II",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
     "created": 1682553600,
     "difficulty": "easy",
     "duration": 10,

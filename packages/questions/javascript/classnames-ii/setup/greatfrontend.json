@@ -1,0 +1,8 @@
+{
+  "run": "/src/classnames-ii.run.test.ts",
+  "submit": "/src/classnames-ii.submit.test.ts",
+  "skeleton": {
+    "js": "/src/classnames-ii.skeleton.js",
+    "ts": "/src/classnames-ii.skeleton.ts"
+  }
+}
