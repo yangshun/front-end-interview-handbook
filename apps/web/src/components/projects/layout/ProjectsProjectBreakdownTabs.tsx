@@ -6,7 +6,7 @@ import Text from '~/components/ui/Text';
 import {
   themeElementBorderColor,
   themeTextBrandHoverColor,
-  themeTextSecondaryColor,
+  themeTextColor,
 } from '~/components/ui/theme';
 
 export type ProjectBreakdownTabItem<T> = Readonly<{
@@ -17,7 +17,7 @@ export type ProjectBreakdownTabItem<T> = Readonly<{
   value: T;
 }>;
 
-type Props<T> = Readonly<{
+export type Props<T> = Readonly<{
   className?: string;
   label: string;
   onSelect?: (value: T) => void;
@@ -32,8 +32,8 @@ export default function ProjectsProjectBreakdownTabs<T>({
   value,
   onSelect,
 }: Props<T>) {
-  // Combined hints with the same value to form a larger hint
-  const combinedHints = useMemo(() => {
+  // Merge hints of the same value, and calculate the column span for each hint
+  const mergedHints = useMemo(() => {
     const result: Array<{
       columnSpan: number;
       hint: string;
@@ -79,7 +79,7 @@ export default function ProjectsProjectBreakdownTabs<T>({
           style={{
             gridTemplateColumns: `repeat(${tabs.length}, minmax(0, 1fr))`,
           }}>
-          {combinedHints.map(({ hint, columnSpan }) => (
+          {mergedHints.map(({ hint, columnSpan }) => (
             <div
               key={hint}
               className="flex min-w-[256px] flex-col gap-3"
@@ -123,7 +123,7 @@ export default function ProjectsProjectBreakdownTabs<T>({
                     ? 'border-brand'
                     : [
                         themeTextBrandHoverColor,
-                        themeTextSecondaryColor,
+                        themeTextColor,
                         'border-transparent',
                       ],
                 )}
@@ -131,7 +131,7 @@ export default function ProjectsProjectBreakdownTabs<T>({
                 variant="unstyled"
                 onClick={() => onSelect?.(tabItemValue)}>
                 <div className="flex flex-col">
-                  <Text color={isSelected ? 'active' : 'default'} weight="bold">
+                  <Text color={isSelected ? 'active' : 'inherit'} weight="bold">
                     {tabItemTitle}
                   </Text>
                   <Text color="secondary">{tabItemSubtitle}</Text>

@@ -95,10 +95,10 @@ export default function Tabs<T>({
             const commonProps = {
               children: (
                 <Text
-                  className={clsx('flex items-center', tabInternalGapSize)}
+                  className={clsx('flex items-center transition-all', tabInternalGapSize)}
                   color={isSelected ? 'active' : 'secondary'}
                   size={textSize}
-                  weight="medium">
+                  weight={isSelected ? 'medium' : 'normal'}>
                   {Icon && (
                     <Icon
                       className={clsx(
@@ -116,17 +116,17 @@ export default function Tabs<T>({
                 'flex items-center whitespace-nowrap -mb-px z-10 transition',
                 borderRadius,
                 isSelected
-                  ? clsx(
+                  ? [
                       'border',
                       'border-t-neutral-300 border-x-neutral-300 border-b-white',
                       'dark:border-t-neutral-700 dark:border-x-neutral-700 dark:border-b-neutral-950',
-                    )
-                  : clsx(
-                      'bg-neutral-100 hover:bg-neutral-50 dark:bg-neutral-700 dark:hover:bg-neutral-800/40',
+                    ]
+                  : [
+                      'bg-neutral-100 hover:bg-neutral-50 dark:bg-neutral-800 dark:hover:bg-neutral-800/40',
                       'border',
-                      'border-t-transparent border-x-transparent border-b-neutral-300 hover:border-neutral-300',
-                      'dark:border-t-neutral-700 dark:border-x-neutral-700 dark:border-b-neutral-700 dark:hover:border-t-neutral-700 dark:hover:border-x-neutral-700',
-                    ),
+                      'border-t-transparent border-x-transparent border-b-neutral-300',
+                      'dark:border-b-neutral-700',
+                    ],
                 tabItemSize,
               ),
               onClick: () => onSelect?.(tabItemValue),

@@ -1,5 +1,9 @@
 import clsx from 'clsx';
-import { RiArrowDownSLine, RiArrowRightLine, RiLockLine } from 'react-icons/ri';
+import {
+  RiArrowDownSLine,
+  RiArrowRightLine,
+  RiLock2Line,
+} from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Badge from '~/components/ui/Badge';
@@ -67,7 +71,7 @@ export default function ProjectsMarketingComponentTrackAccordionItem({
                   <Text weight="medium">{title}</Text>
                   {isPremium && (
                     <Badge
-                      icon={RiLockLine}
+                      icon={RiLock2Line}
                       label={intl.formatMessage({
                         defaultMessage: 'Premium',
                         description:

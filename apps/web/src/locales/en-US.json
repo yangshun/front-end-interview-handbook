@@ -283,6 +283,10 @@
     "defaultMessage": "Your code was restored from client storage. <link>Reset to default</link>",
     "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
   },
+  "2gImEH": {
+    "defaultMessage": "Online assets",
+    "description": "Title for Online Assets section on Projects project assets page"
+  },
   "2vDjTb": {
     "defaultMessage": "Discover study plans tailored to your needs to help your prepare for your upcoming technical interviews.",
     "description": "Description for study plans page"
@@ -815,6 +819,10 @@
     "defaultMessage": "Quiz Questions",
     "description": "Title for an example list of Quiz Questions on marketing pages"
   },
+  "BHvjJJ": {
+    "defaultMessage": "View plans",
+    "description": "Label for View Plans button on Projects project assets page"
+  },
   "BMBc9O": {
     "defaultMessage": "paid once",
     "description": "Pay the price once"
@@ -1159,6 +1167,10 @@
     "defaultMessage": "Welcome to GreatFrontEnd Projects!",
     "description": "Title for Projects onboarding page"
   },
+  "GUmfcW": {
+    "defaultMessage": "Figma design file",
+    "description": "Label for Figma Design File button on Projects project assets page"
+  },
   "GVHds/": {
     "defaultMessage": "Premium Feature",
     "description": "Title on question paywall appearing on the question pages of premium questions"
@@ -1359,6 +1371,10 @@
     "defaultMessage": "Features",
     "description": "Label for Features sidebar item in Projects sidebar"
   },
+  "J7Pskc": {
+    "defaultMessage": "Starter code",
+    "description": "Label for Starter Code button on Projects project assets page"
+  },
   "J90fcx": {
     "defaultMessage": "Preparation Plans",
     "description": "Preparation plans section title"
@@ -1414,6 +1430,10 @@
   "Js4axe": {
     "defaultMessage": "Vanilla JS",
     "description": "Vanilla JS questions category short title"
+  },
+  "Ju61WC": {
+    "defaultMessage": "To download",
+    "description": "Title for To Download section on Projects project assets page"
   },
   "JxbpKs": {
     "defaultMessage": "Try these popular Angular questions",
@@ -2535,6 +2555,10 @@
     "defaultMessage": "Submit your code to check against <button>all test cases</button>.",
     "description": "Text that appears in the DevTool under the Tests tab before the user has submitted their code"
   },
+  "ZJbXJQ": {
+    "defaultMessage": "Mobile",
+    "description": "Label for Mobile button in Projects project assets page"
+  },
   "ZN/wJM": {
     "defaultMessage": "Completed",
     "description": "Completed status for a question"
@@ -2582,6 +2606,10 @@
   "ZrtVIf": {
     "defaultMessage": "Access to all {totalChallengeCount}+ challenges. {remainingGuideCount} Figma & guides access left",
     "description": "Subtitle of Monthly Plan CTA card in Projects sidebar"
+  },
+  "ZsOMcv": {
+    "defaultMessage": "Select online asset type",
+    "description": "Label for tabs to select online asset type"
   },
   "Zui1cu": {
     "defaultMessage": "Focus areas",
@@ -2851,6 +2879,10 @@
     "defaultMessage": "Browse component libraries and even design systems you can build to support your next project",
     "description": "Subtitle for Projects marketing hero section for side projects"
   },
+  "dIwJQA": {
+    "defaultMessage": "Tablet",
+    "description": "Label for Tablet button in Projects project assets page"
+  },
   "dJf+5S": {
     "defaultMessage": "JavaScript Questions",
     "description": "Title for an example list of JavaScript Questions on marketing pages"
@@ -2894,6 +2926,10 @@
   "eBp6vh": {
     "defaultMessage": "Reset Progress",
     "description": "Title for reset progress confirmation dialog"
+  },
+  "eHUX9g": {
+    "defaultMessage": "Desktop",
+    "description": "Label for Desktop button in Projects project assets page"
   },
   "ePyk/V": {
     "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",
@@ -3126,6 +3162,10 @@
   "hdlJES": {
     "defaultMessage": "Secondary reason",
     "description": "Label for \"Secondary reason\" button on Sign Up Reason section of Projects onboarding page"
+  },
+  "hk/IIT": {
+    "defaultMessage": "Image assets",
+    "description": "Label for Image Assets button on Projects project assets page"
   },
   "hnDCXW": {
     "defaultMessage": "NextJS, Vercel",
@@ -3854,6 +3894,10 @@
   "qjKLfH": {
     "defaultMessage": "Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two.",
     "description": "Subtitle for contact us section"
+  },
+  "qmU2/H": {
+    "defaultMessage": "Purchase Premium to unlock access to the design file. Build accurately and learn to work with production-level specifications.",
+    "description": "CTA for Figma Design File button on Projects project assets page"
   },
   "qwP4CA": {
     "defaultMessage": "Huge question bank",

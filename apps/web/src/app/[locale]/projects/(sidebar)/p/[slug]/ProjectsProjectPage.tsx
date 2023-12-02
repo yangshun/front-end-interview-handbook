@@ -1,132 +1,23 @@
 'use client';
 
-import clsx from 'clsx';
-import { RiArrowLeftLine, RiInformationLine, RiLockLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import type { ProjectBreakdownTabItem } from '~/components/projects/layout/ProjectsProjectBreakdownTabs';
-import ProjectsProjectBreakdownTabs from '~/components/projects/layout/ProjectsProjectBreakdownTabs';
+import ProjectsProjectBreakdownTabsImpl from '~/components/projects/layout/ProjectsProjectBreakdownTabsImpl';
 import ProjectsAssetProvidedHtml from '~/components/projects/projects/assets-provided/ProjectsAssetProvidedHtml';
 import ProjectsAssetProvidedImageAssets from '~/components/projects/projects/assets-provided/ProjectsAssetProvidedImageAssets';
 import ProjectsAssetProvidedJpeg from '~/components/projects/projects/assets-provided/ProjectsAssetProvidedJpeg';
 import ProjectsAssetProvidedReadme from '~/components/projects/projects/assets-provided/ProjectsAssetProvidedReadme';
 import ProjectsAssetProvidedStyleGuide from '~/components/projects/projects/assets-provided/ProjectsAssetProvidedStyleGuide';
+import ProjectsProjectHeader from '~/components/projects/projects/ProjectsProjectHeader';
 import type { ProjectsProject } from '~/components/projects/projects/types';
-import ProjectsNestedSkillChip from '~/components/projects/skills/ProjectsNestedSkillChip';
-import ProjectsCompletedUsersTag from '~/components/projects/stats/ProjectsCompletedUsersTag';
-import ProjectsComponentTrackTag from '~/components/projects/stats/ProjectsComponentTrackTag';
-import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
-import ProjectsStarterTag from '~/components/projects/stats/ProjectsStarterTag';
-import Anchor from '~/components/ui/Anchor';
-import Badge from '~/components/ui/Badge';
-import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import { themeTextSubtleColor } from '~/components/ui/theme';
 
-export type Props = Readonly<{
+type Props = Readonly<{
   project: ProjectsProject;
 }>;
-
-type TabType =
-  | 'assets'
-  | 'project-brief'
-  | 'project-deployment-completion'
-  | 'tips-resources-discussions';
-
-function useTabs(slug: string) {
-  const intl = useIntl();
-
-  const tabs: Array<ProjectBreakdownTabItem<TabType>> = [
-    {
-      hint: intl.formatMessage({
-        defaultMessage: 'Get started',
-        description:
-          'Hint for "Project Brief" and "Assets" tab on Projects project page',
-        id: '01jNoZ',
-      }),
-      href: `/projects/p/${slug}/project-brief`,
-      subtitle: intl.formatMessage({
-        defaultMessage: 'Project Brief',
-        description:
-          'Subtitle for "Project Brief" tab on Projects project page',
-        id: 'vdhmX1',
-      }),
-      title: intl.formatMessage({
-        defaultMessage: 'Step 1',
-        description: 'Title for "Step 1" tab on Projects project page',
-        id: 'Ty7LFA',
-      }),
-      value: 'project-brief',
-    },
-    {
-      hint: intl.formatMessage({
-        defaultMessage: 'Get started',
-        description:
-          'Hint for "Project Brief" and "Assets" tab on Projects project page',
-        id: '01jNoZ',
-      }),
-      href: `/projects/p/${slug}/assets`,
-      subtitle: intl.formatMessage({
-        defaultMessage: 'Assets',
-        description: 'Subtitle for "Assets" tab on Projects project page',
-        id: 'qR0ILp',
-      }),
-      title: intl.formatMessage({
-        defaultMessage: 'Step 2',
-        description: 'Title for "Step 2" tab on Projects project page',
-        id: 'mjEvFf',
-      }),
-      value: 'assets',
-    },
-    {
-      hint: intl.formatMessage({
-        defaultMessage: 'While working on project',
-        description:
-          'Hint for "Tips, Resources and Discussions" tab on Projects project page',
-        id: 'KBBRmA',
-      }),
-      href: `/projects/p/${slug}/tips-resources-discussions`,
-      subtitle: intl.formatMessage({
-        defaultMessage: 'Tips, Resources and Discussions',
-        description:
-          'Subtitle for "Tips, Resources and Discussions" tab on Projects project page',
-        id: 'U10C4D',
-      }),
-      title: intl.formatMessage({
-        defaultMessage: 'Step 3',
-        description: 'Title for "Step 3" tab on Projects project page',
-        id: '+Yk101',
-      }),
-      value: 'tips-resources-discussions',
-    },
-    {
-      hint: intl.formatMessage({
-        defaultMessage: 'After completion',
-        description:
-          'Hint for "Project Deployment & Completion" tab on Projects project page',
-        id: 'QkImfr',
-      }),
-      href: `/projects/p/${slug}/project-deployment-completion`,
-      subtitle: intl.formatMessage({
-        defaultMessage: 'Project Deployment & Completion',
-        description:
-          'Subtitle for "Project Deployment & Completion" tab on Projects project page',
-        id: '/dWN/a',
-      }),
-      title: intl.formatMessage({
-        defaultMessage: 'Step 4',
-        description: 'Title for "Step 4" tab on Projects project page',
-        id: 'G5tU8P',
-      }),
-      value: 'project-deployment-completion',
-    },
-  ];
-
-  return tabs;
-}
 
 type SupportItem = Readonly<{
   description: string;
@@ -191,21 +82,8 @@ function useSupportItems() {
   return supportItems;
 }
 
-export default function ProjectsProjectPage({
-  project: {
-    completedCount,
-    completedUsers,
-    description,
-    isStarter,
-    slug,
-    repCount,
-    skills,
-    title,
-    trackName,
-  },
-}: Props) {
-  const intl = useIntl();
-  const tabs = useTabs(slug);
+export default function ProjectsProjectPage({ project }: Props) {
+  const { slug } = project;
   const supportItems = useSupportItems();
 
   const projectBrief =
@@ -213,130 +91,10 @@ export default function ProjectsProjectPage({
 
   return (
     <Container className="flex flex-col items-stretch pb-10 pt-4 lg:pb-20 lg:pt-16">
-      <div className="flex flex-col gap-y-6 lg:flex-row lg:justify-between">
-        <div className="flex flex-col">
-          <Button
-            addonPosition="start"
-            className="-ms-4 -mt-2 self-start"
-            href="/projects/all"
-            icon={RiArrowLeftLine}
-            label={intl.formatMessage({
-              defaultMessage: 'Back to all projects',
-              description:
-                'Label for "Back to all projects" button on Projects project page',
-              id: 'ggSPoc',
-            })}
-            variant="tertiary"
-          />
-          <div className="mt-4 flex flex-col gap-4">
-            <div className="flex items-center gap-2">
-              <Heading level="heading5">{title}</Heading>
-              <Badge
-                icon={RiLockLine}
-                label={intl.formatMessage({
-                  defaultMessage: 'Premium',
-                  description: 'Premium content',
-                  id: 'gIeLON',
-                })}
-                size="sm"
-                variant="special"
-              />
-            </div>
-            <Text color="secondary" size="body2">
-              {description}
-            </Text>
-            <div className="flex flex-wrap gap-x-4 gap-y-2">
-              {isStarter && <ProjectsStarterTag />}
-              <ProjectsComponentTrackTag trackName={trackName} />
-              <ProjectsReputationCountIncreaseTag repCount={repCount} />
-            </div>
-            <div className="flex flex-col">
-              <div className="flex flex-wrap gap-2">
-                {skills.map((skill) => (
-                  <ProjectsNestedSkillChip
-                    key={skill.key}
-                    isEditable={true}
-                    skill={skill}
-                    // TODO: Replace below with actual subSkills
-                    subSkills={[
-                      {
-                        difficulty: 'easy',
-                        key: 'dom-manipulation',
-                        label: 'DOM Manipulation',
-                      },
-                      {
-                        difficulty: 'medium',
-                        key: 'flex',
-                        label: 'Flex',
-                      },
-                      {
-                        difficulty: 'hard',
-                        key: 'typescript',
-                        label: 'TypeScript',
-                      },
-                    ]}
-                  />
-                ))}
-              </div>
-              <div
-                className={clsx(
-                  'mt-2 flex items-center gap-1',
-                  themeTextSubtleColor,
-                )}>
-                <RiInformationLine className="h-4 w-4" />
-                <Text color="inherit" size="body3">
-                  <FormattedMessage
-                    defaultMessage="You can add more skills e.g. UI frameworks used after starting the project"
-                    description="Additional information for skills section on Projects project page"
-                    id="j63zLB"
-                  />
-                </Text>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-shrink-0 flex-col gap-2 lg:items-end lg:gap-6">
-          <Text size="body3">
-            <FormattedMessage
-              defaultMessage="New here? <link>How it works</link>"
-              description="Link to 'How it works' page on Projects project page"
-              id="OYgvni"
-              values={{
-                link: (chunks) => (
-                  <Anchor {...chunks} href="#">
-                    {chunks}
-                  </Anchor>
-                ),
-              }}
-            />
-          </Text>
-          <div className="flex items-center gap-x-4 gap-y-4 lg:flex-col lg:items-end">
-            <Button
-              label={intl.formatMessage({
-                defaultMessage: 'Start project',
-                description:
-                  'Label for "Start project" button on Projects project page',
-                id: '6/Qdew',
-              })}
-              size="md"
-              variant="primary"
-            />
-            <ProjectsCompletedUsersTag
-              count={completedCount}
-              users={completedUsers}
-            />
-          </div>
-        </div>
-      </div>
-      <ProjectsProjectBreakdownTabs
+      <ProjectsProjectHeader project={project} />
+      <ProjectsProjectBreakdownTabsImpl
         className="mt-16"
-        label={intl.formatMessage({
-          defaultMessage: 'Project Breakdown',
-          description:
-            'Label for Project Breakdown tabs on Projects project page',
-          id: 'H5GY66',
-        })}
-        tabs={tabs}
+        slug={slug}
         value="project-brief"
       />
       <div className="mt-16 grid grid-cols-1 gap-x-12 gap-y-12 lg:grid-cols-2">
