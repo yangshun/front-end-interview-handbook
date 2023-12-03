@@ -66,7 +66,7 @@ export const PricingPlansData: Record<PricingPlanType, PricingPlanDetails> = {
     recurring: null,
   },
   monthly: {
-    allowPromoCode: true,
+    allowPromoCode: false,
     basePriceInUSD: {
       after: 28,
       before: 38, // Not used
@@ -78,7 +78,7 @@ export const PricingPlansData: Record<PricingPlanType, PricingPlanDetails> = {
     recurring: { count: 1, interval: 'month' },
   },
   quarterly: {
-    allowPromoCode: true,
+    allowPromoCode: false,
     basePriceInUSD: {
       after: 57,
       before: 78, // Not used
