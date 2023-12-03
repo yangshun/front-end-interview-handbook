@@ -1,6 +1,6 @@
 import { fetchUser } from '~/supabase/SupabaseServerGFE';
 
-import SidebarLayout from './SidebarLayout';
+import ProjectsSidebarLayout from './ProjectsSidebarLayout';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -9,5 +9,5 @@ type Props = Readonly<{
 export default async function Layout({ children }: Props) {
   const user = await fetchUser();
 
-  return <SidebarLayout user={user}>{children}</SidebarLayout>;
+  return <ProjectsSidebarLayout user={user}>{children}</ProjectsSidebarLayout>;
 }

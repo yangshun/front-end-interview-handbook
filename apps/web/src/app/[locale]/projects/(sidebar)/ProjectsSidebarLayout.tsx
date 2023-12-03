@@ -13,7 +13,7 @@ type Props = Readonly<{
   user: User | null;
 }>;
 
-export default function SidebarLayout({ children, user }: Props) {
+export default function ProjectsSidebarLayout({ children, user }: Props) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (

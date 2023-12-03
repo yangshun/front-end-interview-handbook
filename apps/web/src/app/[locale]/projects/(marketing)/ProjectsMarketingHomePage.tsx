@@ -12,7 +12,7 @@ import ProjectsMarketingFeatures from './ProjectsMarketingFeatures';
 import ProjectsMarketingSkillsTracksProjects from './ProjectsMarketingSkillsTracksProjects';
 
 const MarketingHomePageBottom = dynamic(
-  () => import('../MarketingHomePageBottom'),
+  () => import('../../(standard)/(marketing)/MarketingHomePageBottom'),
   { ssr: false },
 );
 
