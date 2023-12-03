@@ -77,7 +77,7 @@ function FeatureSection({ feature }: { feature: ProjectMarketingFeature }) {
               disableSpotlight={true}
               padding={false}>
               {isItemVisibleOnMobile(item) && (
-                <div className="p-4 lg:hidden flex flex-col gap-2.5">
+                <div className="flex flex-col gap-2.5 p-4 lg:hidden">
                   <Text size="body2" weight="bold">
                     {item.title}
                   </Text>

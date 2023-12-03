@@ -71,9 +71,7 @@ export default function QuestionFocusAreasSection({
             return (
               <Anchor key={type} href={href} variant="unstyled">
                 <Card
-                  className={clsx(
-                    'group/card relative isolate flex flex-col items-start gap-3 p-4',
-                  )}
+                  className="group/card relative isolate flex flex-col items-start gap-3 p-4"
                   padding={false}>
                   <div className="flex justify-between self-stretch">
                     <span

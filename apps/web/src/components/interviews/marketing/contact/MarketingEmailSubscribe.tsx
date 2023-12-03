@@ -147,7 +147,7 @@ export default function MarketingEmailSubscribe() {
           <div className="min-w-0 grow">
             <TextInput
               autoComplete="email"
-              className="grow max-lg:!border max-lg:!border-neutral-700 !ring-transparent lg:bg-white lg:!text-neutral-800 lg:placeholder:text-neutral-400"
+              className="grow !ring-transparent max-lg:!border max-lg:!border-neutral-700 lg:bg-white lg:!text-neutral-800 lg:placeholder:text-neutral-400"
               errorMessage={failureReason?.message}
               id={emailId}
               isLabelHidden={true}
@@ -196,7 +196,7 @@ export default function MarketingEmailSubscribe() {
     <>
       <div className="hidden lg:contents">{content}</div>
       <Card
-        className="block lg:hidden"
+        classNameOuter="lg:hidden"
         disableBackground={true}
         padding={false}
         pattern={false}>

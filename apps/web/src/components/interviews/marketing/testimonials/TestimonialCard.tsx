@@ -1,5 +1,3 @@
-import clsx from 'clsx';
-
 import type { Testimonial } from '~/data/Testimonials';
 
 import Anchor from '~/components/ui/Anchor';
@@ -16,7 +14,7 @@ export default function TestimonialCard({
 }: Testimonial) {
   return (
     <Card
-      className={clsx('rounded-2xl p-6 text-sm leading-6')}
+      className="rounded-2xl p-6 text-sm leading-6"
       padding={false}
       pattern={false}>
       <blockquote>

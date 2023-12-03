@@ -1,14 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import {
-  type ReactNode,
-  useContext,
-  useEffect,
-  useId,
-  useMemo,
-  useRef,
-} from 'react';
+import { type ReactNode, useContext, useEffect, useId, useRef } from 'react';
 
 import { themeBackgroundColor, themeGlassyBorder } from '~/components/ui/theme';
 
@@ -18,6 +11,7 @@ type Props = Readonly<{
   border?: boolean;
   children: ReactNode;
   className?: string;
+  classNameOuter?: string;
   disableBackground?: boolean;
   disableSpotlight?: boolean;
   padding?: boolean;
@@ -54,7 +48,8 @@ function isAllowedBrowser() {
 
 export default function Card({
   children,
-  className,
+  classNameOuter,
+  className: classNameInner,
   border = true,
   disableBackground = false,
   disableSpotlight = false,
@@ -85,19 +80,6 @@ export default function Card({
     };
   }, [addCard, removeCard, disableSpotlight]);
 
-  const { hiddenClasses, nonHiddenClasses } = useMemo(() => {
-    const hidden = className
-      ?.split(' ')
-      .filter((c) => c.endsWith('hidden'))
-      .join(' ');
-    const nonHidden = className
-      ?.split(' ')
-      .filter((c) => !c.endsWith('hidden'))
-      .join(' ');
-
-    return { hiddenClasses: hidden, nonHiddenClasses: nonHidden };
-  }, [className]);
-
   return (
     <div
       ref={cardRef}
@@ -105,7 +87,7 @@ export default function Card({
         'relative isolate grid grid-cols-1 rounded-lg',
         cardOuterContainerClassNames,
         !disableBackground && themeBackgroundColor,
-        hiddenClasses,
+        classNameOuter,
         !disableSpotlight &&
           isAllowedBrowser() &&
           cardOuterContainerSpotlightClassNames,
@@ -121,7 +103,7 @@ export default function Card({
           'relative isolate z-20 overflow-clip rounded-[inherit]',
           !disableBackground && 'bg-neutral-50 dark:bg-neutral-900',
           padding && 'px-6 py-5',
-          nonHiddenClasses,
+          classNameInner,
         )}
         id={id}>
         {children}

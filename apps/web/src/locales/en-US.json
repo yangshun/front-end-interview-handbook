@@ -519,6 +519,10 @@
     "defaultMessage": "Something went wrong",
     "description": "Text that appears when the solution fails to load"
   },
+  "6aAzFQ": {
+    "defaultMessage": "Host your site",
+    "description": "Description for Deployment step in project submission checklist"
+  },
   "6almL5": {
     "defaultMessage": "Check on eligibility or submit proof",
     "description": "Instruction to check for review cashback"
@@ -1719,6 +1723,10 @@
     "defaultMessage": "Jump to matching bracket",
     "description": "Text describing jump command in the coding workspace shortcuts menu"
   },
+  "NFH4kL": {
+    "defaultMessage": "Github repo",
+    "description": "Title for Github repo step in project submission checklist"
+  },
   "NGGXSc": {
     "defaultMessage": "Find any project you can dream of",
     "description": "Heading of the 'Projects' marketing section on Projects home page"
@@ -1999,6 +2007,10 @@
     "defaultMessage": "Sign in to save progress",
     "description": "Message shown when user completes a question without signing in"
   },
+  "RHPU56": {
+    "defaultMessage": "Deployment",
+    "description": "Title for Deployment step in project submission checklist"
+  },
   "RIhdqg": {
     "defaultMessage": "Sign In",
     "description": "Title of Login page"
@@ -2022,6 +2034,10 @@
   "RTBOas": {
     "defaultMessage": "JavaScript",
     "description": "Label for JavaScript language"
+  },
+  "RY1Vtk": {
+    "defaultMessage": "Ready to submit?",
+    "description": "Title for Submit step in project submission checklist"
   },
   "RYUQWi": {
     "defaultMessage": "Gamified and socialized",
@@ -2287,6 +2303,10 @@
     "defaultMessage": "Component track",
     "description": "Label for \"Component track\" filter for projects list"
   },
+  "V4qTW5": {
+    "defaultMessage": "Submission checklist",
+    "description": "Title for the project submission checklist section"
+  },
   "V5oBr9": {
     "defaultMessage": "Can only be redeemed once per eligible user; duplicate accounts prohibited.",
     "description": "Condition for promotion"
@@ -2339,6 +2359,10 @@
     "defaultMessage": "Free",
     "description": "Label to indicate that the item is free of charge"
   },
+  "VdG0l0": {
+    "defaultMessage": "As mentioned, there are many ways to host your site. Our recommended hosts are:<ul><li>Github Pages (<github>Deployment Guide</github>)</li><li>Vercel (<vercel>Deployment Guide</vercel>)</li><li>Netlify (<netlify>Deployment Guide</netlify>)</li></ul>",
+    "description": "Description for Deployment step in project submission checklist"
+  },
   "VfNkH+": {
     "defaultMessage": "CASHBACK",
     "description": "Amount cashback/discount"
@@ -2358,6 +2382,10 @@
   "W+ConA": {
     "defaultMessage": "Guided by well-known senior engineers",
     "description": "Title of 'Guided by well-known senior engineers' feature in marketing page"
+  },
+  "W6BfVJ": {
+    "defaultMessage": "Store your code in a public github repo",
+    "description": "Description for Github repo step in project submission checklist"
   },
   "WB/L0V": {
     "defaultMessage": "{numberOfHours} hours weekly",
@@ -2462,6 +2490,10 @@
   "Xka4d3": {
     "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget.",
     "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
+  },
+  "Xlmv0q": {
+    "defaultMessage": "Follow this step-by-step deployment and submission checklist",
+    "description": "Description for the project submission checklist section"
   },
   "XuVGsX": {
     "defaultMessage": "Account",
@@ -2782,6 +2814,10 @@
   "bxZm1S": {
     "defaultMessage": "User Interface Questions",
     "description": "Title for an example list of User Interface Questions on marketing pages"
+  },
+  "byPVGG": {
+    "defaultMessage": "Warning",
+    "description": "Warning badge label for Github repo step in project submission checklist"
   },
   "c2bsgM": {
     "defaultMessage": "For Experienced",
@@ -3207,6 +3243,10 @@
     "defaultMessage": "Search HTML questions",
     "description": "Placeholder for search input of HTML question list"
   },
+  "i3RRZo": {
+    "defaultMessage": "Before you deploy, always ensure the following:<ul><li>Backward compatibility: xxxx</li><li>Browser compatibility: xxx</li></ul>",
+    "description": "Warning message for Github repo step in project submission checklist"
+  },
   "i4MSQe": {
     "defaultMessage": "1 Week Plan",
     "description": "Link to one week study plan"
@@ -3250,6 +3290,10 @@
   "iSFCj/": {
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
+  },
+  "imHjx3": {
+    "defaultMessage": "Tip",
+    "description": "Tip badge label for Deployment step in project submission checklist"
   },
   "imwtWL": {
     "defaultMessage": "Build great projects faster with libraries and design systems",
@@ -3414,6 +3458,10 @@
   "kF3Llo": {
     "defaultMessage": "Knowledge is power. Over {count} short questions with answers to build and solidify your front end fundamentals.",
     "description": "Subtitle for an example list of Quiz Questions on marketing pages"
+  },
+  "kF4lTl": {
+    "defaultMessage": "You can edit your submission and code anytime",
+    "description": "Description for Submit step in project submission checklist"
   },
   "kGgqDu": {
     "defaultMessage": "Angular Questions",
@@ -3647,6 +3695,10 @@
     "defaultMessage": "Select step",
     "description": "Label for tabs to select step in Projects profile onboarding page"
   },
+  "n7Jv00": {
+    "defaultMessage": "Take care not to upload any premium figma or guide files. Doing so will cause an immediate membership termination. <link>View terms</link>",
+    "description": "Warning message for Github repo step in project submission checklist"
+  },
   "n9Ii7+": {
     "defaultMessage": "System Design",
     "description": "Label for system design questions"
@@ -3754,6 +3806,10 @@
   "oxD4TD": {
     "defaultMessage": "Fresh Grad",
     "description": "Label for \"Fresh Grad\" option in YOE replacement"
+  },
+  "oxeO+l": {
+    "defaultMessage": "Submit project",
+    "description": "Submit project button label for Submit step in project submission checklist"
   },
   "ozQHOy": {
     "defaultMessage": "Hide widget for this session",
@@ -4330,6 +4386,10 @@
   "wzQGxj": {
     "defaultMessage": "Start in minutes",
     "description": "Button leading user to sign up to be an affiliate on the Hero section of the 'Become An Affiliate' page"
+  },
+  "wzxWP7": {
+    "defaultMessage": "We will pull code from this repo for code reviews<ul><li>Follow <link>this guide</link> on how to create a Github repo</li><li>You will submit the link to your public github repo in the submission screen</li></ul>",
+    "description": "Description for Github repo step in project submission checklist"
   },
   "x8+4jJ": {
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",

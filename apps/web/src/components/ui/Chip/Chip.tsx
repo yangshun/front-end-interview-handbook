@@ -10,6 +10,7 @@ export type ChipVariant =
 
 type Props = Readonly<
   {
+    className?: string;
     label: string;
     variant: ChipVariant;
   } & (
@@ -73,6 +74,7 @@ export default function Chip({
   icon: Icon,
   variant,
   isLabelHidden,
+  className,
 }: Props) {
   const { backgroundClass, borderClass, textClass, iconClass } =
     variantClasses[variant];
@@ -85,6 +87,7 @@ export default function Chip({
         'h-8 w-8',
         backgroundClass,
         borderClass,
+        className,
       )}>
       {Icon && <Icon className={clsx(iconClass, 'h-4 w-4')} />}
       {!isLabelHidden && <span className={textClass}>{label}</span>}
