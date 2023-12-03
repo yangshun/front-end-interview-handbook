@@ -95,7 +95,7 @@ export default function ProjectsTrackPage({
               </div>
               <div
                 className={clsx(
-                  'bg-red self-start rounded-[4px]',
+                  'bg-red self-start rounded',
                   'md:h-[100px] md:w-[130px]',
                   'h-[62px] w-[80px]',
                 )}

@@ -283,6 +283,10 @@
     "defaultMessage": "Your code was restored from client storage. <link>Reset to default</link>",
     "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
   },
+  "2akDIG": {
+    "defaultMessage": "{yearCount} YOE",
+    "description": "Label showing years of experience of a user"
+  },
   "2gImEH": {
     "defaultMessage": "Online assets",
     "description": "Title for Online Assets section on Projects project assets page"
@@ -494,6 +498,10 @@
   "6A9LIb": {
     "defaultMessage": "Study plans for Front End Interviews",
     "description": "Title of study plans page"
+  },
+  "6PA1sS": {
+    "defaultMessage": "Submissions you can reference",
+    "description": "Title for Reference Submissions section on Projects project tips & resources page"
   },
   "6SEbWz": {
     "defaultMessage": "Annual plan",
@@ -1534,6 +1542,10 @@
   "LNK1eb": {
     "defaultMessage": "Premium Feature",
     "description": "Header on paywall over company tags on question list pages"
+  },
+  "LNxxS2": {
+    "defaultMessage": "Select tip type",
+    "description": "Label for tabs to select tip type"
   },
   "LNz/aW": {
     "defaultMessage": "By ex-interviewers at",
@@ -2654,6 +2666,10 @@
   "aeeTOy": {
     "defaultMessage": "Font size",
     "description": "Select label to choose console font size"
+  },
+  "aiI8c6": {
+    "defaultMessage": "Stack used",
+    "description": "Label for tech stack used in project"
   },
   "akHBWv": {
     "defaultMessage": "Outdent line",
@@ -3991,6 +4007,10 @@
     "defaultMessage": "Explore {projectCount}+ projects",
     "description": "Label of 'Projects' view all button in Projects home page"
   },
+  "sPnbze": {
+    "defaultMessage": "+{count} more",
+    "description": "Label for number of additional skills"
+  },
   "sStS22": {
     "defaultMessage": "Back to all component tracks",
     "description": "Label for \"Back to all component tracks\" button on Projects track page"
@@ -4398,6 +4418,10 @@
   "y8zzVx": {
     "defaultMessage": "Email",
     "description": "Email"
+  },
+  "y9NC4Q": {
+    "defaultMessage": "Here are some highly rated submissions you can reference while doing your project. We prioritize submissions by their ratings, the similarity of their tech stack to yours, and the seniority level of the commenter.",
+    "description": "Description for Reference Submissions section on Projects project tips & resources page"
   },
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",

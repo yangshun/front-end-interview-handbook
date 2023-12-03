@@ -56,7 +56,7 @@ function SubSkillChip({
   return (
     <span
       className={clsx(
-        'flex flex-shrink-0 items-center rounded-[4px] px-2 py-0.5',
+        'flex flex-shrink-0 items-center rounded px-2 py-0.5',
         difficultyClasses[difficulty].bg,
       )}>
       <Text
@@ -79,7 +79,7 @@ export default function ProjectsNestedSkillChip({
   isEditable,
 }: Props) {
   return (
-    <span className="flex items-center gap-x-1.5 rounded-[4px] bg-neutral-100 px-1.5 py-0.5 dark:bg-neutral-900">
+    <span className="flex items-center gap-x-1.5 rounded bg-neutral-100 px-1.5 py-0.5 dark:bg-neutral-900">
       <Text
         className="text-neutral-800 dark:text-neutral-200"
         color="inherit"

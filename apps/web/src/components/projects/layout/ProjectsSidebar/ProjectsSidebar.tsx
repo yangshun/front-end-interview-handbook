@@ -42,6 +42,8 @@ import { ProjectsSidebarProfileHeader } from './ProjectsSidebarProfileHeader';
 import { ProjectsSidebarStartProjectCTACard } from './ProjectsSidebarStartProjectCTACard';
 import { ProjectsSidebarYearlyPlanCTACard } from './ProjectsSidebarYearlyPlanCTACard';
 
+import type { User } from '@supabase/supabase-js';
+
 type SidebarItem = SidebarDivider | SidebarGroup | SidebarLink;
 
 export type SidebarLink = Readonly<{
@@ -67,10 +69,8 @@ export type SidebarDivider = Readonly<{
 
 export type Props = Readonly<{
   endAddonItems?: React.ReactNode;
-  user: {
-    jobTitle: string;
-    userName: string;
-  } | null;
+  jobTitle: string;
+  user: User | null;
 }>;
 
 function useSidebarItems() {
@@ -241,7 +241,7 @@ function SidebarLinkButton({
     <Anchor
       aria-current={isSelected ? 'page' : undefined}
       className={clsx(
-        'flex w-full items-center gap-3 rounded-[4px] px-3 py-2',
+        'flex w-full items-center gap-3 rounded px-3 py-2',
         themeBackgroundLayerEmphasizedHover,
         themeTextBrandHoverColor,
         isSelected && [themeTextBrandColor, themeBackgroundEmphasized],
@@ -269,7 +269,7 @@ function SidebarDivider() {
   );
 }
 
-export default function ProjectsSideBar({ user }: Props) {
+export default function ProjectsSideBar({ user, jobTitle }: Props) {
   const intl = useIntl();
   const sideBarItems = useSidebarItems();
   const endAddOnItems = (
@@ -349,9 +349,9 @@ export default function ProjectsSideBar({ user }: Props) {
       )}>
       {user !== null ? (
         <ProjectsSidebarProfileHeader
-          jobTitle={user.jobTitle}
+          jobTitle={jobTitle}
           repCount={1800}
-          userName={user.userName}
+          user={user}
         />
       ) : (
         <ProjectsSidebarNotSignedInHeader />

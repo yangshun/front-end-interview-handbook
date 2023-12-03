@@ -31,7 +31,7 @@ export default function Avatar({
 }: Props) {
   return (
     <RadixAvatar.Root
-      className={clsx('rounded-full', sizeClasses[size], className)}>
+      className={clsx('block rounded-full', sizeClasses[size], className)}>
       <RadixAvatar.Image
         alt={userName}
         className="h-full w-full rounded-[inherit] object-cover"

@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 
+import Text from '~/components/ui/Text';
+
 import type { ProjectSkillDifficulty } from './types';
 
 type Props = Readonly<{
@@ -15,12 +17,14 @@ const difficultyClasses: Record<ProjectSkillDifficulty, string> = {
 
 export default function ProjectsSkillChip({ label, difficulty }: Props) {
   return (
-    <span
+    <div
       className={clsx(
-        'rounded-[4px] px-2 py-0.5 text-xs',
+        'flex h-5 items-center justify-center rounded px-2 text-xs',
         difficultyClasses[difficulty],
       )}>
-      {label}
-    </span>
+      <Text color="inherit" size="body3">
+        {label}
+      </Text>
+    </div>
   );
 }

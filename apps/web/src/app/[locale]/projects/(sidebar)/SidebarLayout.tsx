@@ -25,18 +25,8 @@ export default function SidebarLayout({ children, user }: Props) {
           setIsDrawerOpen(true);
         }}
       />
-      <div className="hidden w-[240px] overflow-y-hidden lg:block">
-        <ProjectsSideBar
-          user={
-            user !== null
-              ? {
-                  jobTitle: 'Software Engineer',
-                  userName:
-                    user?.user_metadata?.name ?? user?.email ?? 'Unknown',
-                }
-              : null
-          }
-        />
+      <div className="hidden w-[240px] flex-shrink-0 overflow-y-hidden lg:block">
+        <ProjectsSideBar jobTitle="Software Engineer" user={user} />
       </div>
       <SlideOut
         className="lg:hidden"
@@ -48,17 +38,7 @@ export default function SidebarLayout({ children, user }: Props) {
         onClose={() => {
           setIsDrawerOpen(false);
         }}>
-        <ProjectsSideBar
-          user={
-            user !== null
-              ? {
-                  jobTitle: 'Software Engineer',
-                  userName:
-                    user?.user_metadata?.name ?? user?.email ?? 'Unknown',
-                }
-              : null
-          }
-        />
+        <ProjectsSideBar jobTitle="Software Engineer" user={user} />
       </SlideOut>
       <div className="flex-1">{children}</div>
     </div>

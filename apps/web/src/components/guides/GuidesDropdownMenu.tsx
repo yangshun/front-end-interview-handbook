@@ -56,7 +56,7 @@ export default function GuidesDropdownMenu({
           aria-label={isLabelHidden ? label : undefined}
           className={clsx(
             'group inline-flex flex-1 items-center justify-between gap-2',
-            'rounded-[4px]',
+            'rounded',
             'transition-colors',
             'border border-neutral-300 dark:border-neutral-700',
             [

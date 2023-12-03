@@ -18,6 +18,7 @@ import {
 
 import type { ProjectsProject } from './types';
 import ProjectsSkillChip from '../skills/ProjectsSkillChip';
+import ProjectsSkillRow from '../skills/ProjectsSkillRow';
 import ProjectsCompletedUsersTag from '../stats/ProjectsCompletedUsersTag';
 
 type Props = Readonly<{
@@ -88,23 +89,14 @@ export default function ProjectsProjectCard({
           <Text weight="bold">{title}</Text>
           <Text size="body2">{description}</Text>
         </div>
-        <li className="flex items-center gap-2">
-          <Text color="secondary" size="body2">
-            <FormattedMessage
-              defaultMessage="Skills:"
-              description="Label for skills list in Project card"
-              id="beN1QM"
-            />
-          </Text>
-          {skills.map((skill) => (
-            <ul key={skill.key}>
-              <ProjectsSkillChip
-                difficulty={skill.difficulty}
-                label={skill.label}
-              />
-            </ul>
-          ))}
-        </li>
+        <ProjectsSkillRow
+          label={intl.formatMessage({
+            defaultMessage: 'Skills:',
+            description: 'Label for skills list in Project card',
+            id: 'beN1QM',
+          })}
+          skills={skills}
+        />
         <div className="flex items-center gap-4">
           <Button
             icon={RiArrowRightLine}

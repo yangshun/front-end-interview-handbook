@@ -4,7 +4,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import Text from '~/components/ui/Text';
 import { themeBackgroundEmphasized } from '~/components/ui/theme';
 
-import type { ProjectSkill } from './types';
+import type { ProjectSkillDetailed } from './types';
 
 function SkillGroupIcon() {
   return (
@@ -21,7 +21,7 @@ function SkillItemIcon() {
 }
 
 const emblemClasses: Record<
-  ProjectSkill['type'],
+  ProjectSkillDetailed['type'],
   {
     margin: string;
     size: string;
@@ -37,7 +37,7 @@ const emblemClasses: Record<
   },
 };
 
-type Props = Readonly<{ disabled?: boolean; skill: ProjectSkill }>;
+type Props = Readonly<{ disabled?: boolean; skill: ProjectSkillDetailed }>;
 
 export default function ProjectsSkillEmblem({
   skill: { type, label, completedProjectCount, totalProjectCount },
@@ -74,7 +74,7 @@ export default function ProjectsSkillEmblem({
             )}
             className={clsx(
               emblemClasses[type].size,
-              'relative m-2 p-[2px] flex items-center justify-center rounded-md transition-transform hover:scale-110 focus:scale-110 focus:outline-brand focus:outline-offset-4',
+              'focus:outline-brand relative m-2 flex items-center justify-center rounded-md p-[2px] transition-transform hover:scale-110 focus:scale-110 focus:outline-offset-4',
             )}
             disabled={disabled}
             type="button">
