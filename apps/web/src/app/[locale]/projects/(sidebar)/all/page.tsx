@@ -20,9 +20,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     pathname: '/projects/all',
     title: intl.formatMessage({
-      defaultMessage: 'All Projects | GFE Projects',
+      defaultMessage: 'All | Projects',
       description: 'Title of Projects All Projects page',
-      id: 'jvJZyt',
+      id: 'zJ76Ak',
     }),
   });
 }

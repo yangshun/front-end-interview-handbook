@@ -35,7 +35,7 @@ export default function Page({ params }: Props) {
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
 
-  // TODO: Get track information from backend
+  // TODO(projects): Get track information from backend
 
   return <ProjectsTrackPage track={exampleTrack} />;
 }

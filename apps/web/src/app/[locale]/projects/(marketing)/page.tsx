@@ -13,13 +13,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const intl = await getIntlServerOnly(locale);
 
-  // TODO: Add metadata for projects page.
-
   return defaultMetadata({
-    description: '',
     locale,
-    pathname: '/',
-    title: '',
+    pathname: '/projects',
+    title: intl.formatMessage({
+      defaultMessage: 'GreatFrontEnd Projects',
+      description: 'Title of Projects All Projects page',
+      id: 'uBaCgb',
+    }),
   });
 }
 

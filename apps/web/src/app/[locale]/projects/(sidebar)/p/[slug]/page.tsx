@@ -68,7 +68,7 @@ export default function Page({ params }: Props) {
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
 
-  // TODO: Get project information from backend
+  // TODO(projects): Get project information from backend
 
   return <ProjectsProjectPage project={exampleProject} />;
 }

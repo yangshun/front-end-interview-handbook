@@ -6,14 +6,15 @@ import { themeTextColor } from '../ui/theme';
 
 type Props = Readonly<{
   height?: number;
+  href?: string;
 }>;
 
-export default function LogoLink({ height = 20 }: Props) {
+export default function LogoLink({ height = 20, href = '/' }: Props) {
   return (
     <Anchor
       aria-label="Go to the homepage"
       className={clsx('inline-block', themeTextColor)}
-      href="/"
+      href={href}
       variant="unstyled">
       <svg
         fill="none"

@@ -25,7 +25,7 @@ export default function ProjectsNavbar({
         className,
       )}>
       <div className="flex items-center justify-start lg:w-0 lg:grow">
-        <LogoLink />
+        <LogoLink href="/projects" />
       </div>
       <div className="-my-2 flex gap-4 sm:-mr-2 lg:hidden">
         {user && <UserAvatar user={user} />}

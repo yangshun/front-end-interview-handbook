@@ -1079,6 +1079,10 @@
     "defaultMessage": "Master async programming for front end interviews",
     "description": "Title for interview preparation focus area"
   },
+  "Eu20+q": {
+    "defaultMessage": "Dashboard | Projects",
+    "description": "Title of Projects Dashboard page"
+  },
   "F+dxo7": {
     "defaultMessage": "Recommended focus areas",
     "description": "Title of recommended focus areas section on preparation page"
@@ -3255,10 +3259,6 @@
     "defaultMessage": "Types of JS questions, concepts to cover and rubrics",
     "description": "JavaScript questions, concepts and rubrics during front end interviews"
   },
-  "iulVQA": {
-    "defaultMessage": "Dashboard | GFE Projects",
-    "description": "Title of Projects Dashboard page"
-  },
   "ivmSx0": {
     "defaultMessage": "We're Hiring",
     "description": "Link to careers page"
@@ -3358,10 +3358,6 @@
   "jtuJQk": {
     "defaultMessage": "About Us",
     "description": "Title of About Us page"
-  },
-  "jvJZyt": {
-    "defaultMessage": "All Projects | GFE Projects",
-    "description": "Title of Projects All Projects page"
   },
   "jxXMtj": {
     "defaultMessage": "Prices shown are in {currency}.",
@@ -4139,6 +4135,10 @@
     "defaultMessage": "Learn while building",
     "description": "Title of 'Learn while building' feature in Projects marketing page"
   },
+  "uBaCgb": {
+    "defaultMessage": "GreatFrontEnd Projects",
+    "description": "Title of Projects All Projects page"
+  },
   "uCbhIG": {
     "defaultMessage": "Go back to sign in",
     "description": "Label of link to return to Sign In Page on Password Reset page"
@@ -4470,6 +4470,10 @@
   "zIQsmk": {
     "defaultMessage": "Terms of Service",
     "description": "Link to terms of service page"
+  },
+  "zJ76Ak": {
+    "defaultMessage": "All | Projects",
+    "description": "Title of Projects All Projects page"
   },
   "zL/JCy": {
     "defaultMessage": "Not signed in",

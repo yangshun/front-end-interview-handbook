@@ -1,3 +1,3 @@
-import ProjectsSideBar from './ProjectsSidebar';
+import ProjectsSidebar from './ProjectsSidebar';
 
-export default ProjectsSideBar;
+export default ProjectsSidebar;
