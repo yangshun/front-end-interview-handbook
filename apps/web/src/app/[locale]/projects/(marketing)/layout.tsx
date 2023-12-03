@@ -1,5 +1,3 @@
-import { redirect } from 'next/navigation';
-
 import GlobalBanner from '~/components/global/banners/GlobalBanner';
 import FeedbackWidget from '~/components/global/feedback/FeedbackWidget';
 import Footer from '~/components/global/Footer';
@@ -10,12 +8,7 @@ type Props = Readonly<{
   children: React.ReactNode;
 }>;
 
-export default function StandardLayout({ children }: Props) {
-  // TODO(projects): Remove when launching.
-  if (process.env.NODE_ENV === 'production') {
-    redirect('/');
-  }
-
+export default function ProjectsMarketingLayout({ children }: Props) {
   return (
     <>
       <FeedbackWidget position="end" />
