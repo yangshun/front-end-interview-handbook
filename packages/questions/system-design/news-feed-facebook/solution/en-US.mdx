@@ -42,9 +42,9 @@ Traditional web applications have multiple choices on where to render the conten
 - **Server-side rendering (SSR)**: Rendering the HTML on the server side, which is the most traditional way. Best for static content that require SEO and does not require heavy user interaction. Websites like blogs, documentation sites, e-commerce websites are built using SSR.
 - **Client-side rendering (CSR)**: Rendering in the browser, by dynamically adding DOM elements into the page using JavaScript. Best for interactive content. Applications like dashboards, chat apps are built using CSR.
 
-Interestingly, news feed applications are somewhere in-between, there's a good amount of static content but they also require interaction. In reality, Facebook uses a hybrid approach which gives the best of both worlds: a fast initial load with SSR then hydrating the page to enable interactions. Subsequent content (e.g. more posts added once the user reaches the end of their feed) will be rendered via CSR.
+Interestingly, news feed applications are somewhere in-between, there's a good amount of static content but they also require interaction. In reality, Facebook uses a hybrid approach which gives the best of both worlds: a fast initial load with SSR then hydrating the page to attach event listeners for user interactions. Subsequent content (e.g. more posts added once the user reaches the end of their feed) and page navigation will use CSR.
 
-Modern UI JavaScript frameworks like React and Vue, along with meta frameworks like [Next.js](https://nextjs.org/) and [Nuxt](https://nuxtjs.org/) enable this.
+Modern UI JavaScript frameworks like React and Vue, along with meta frameworks like [Next.js](https://nextjs.org/) and [Nuxt](https://nuxtjs.org/) support this rendering strategy.
 
 Read more on [Rendering on the web](https://web.dev/rendering-on-the-web/) and ["Rebuilding our tech stack for the new Facebook.com" blog post](https://engineering.fb.com/2020/05/08/web/facebook-redesign/).
 
@@ -65,7 +65,7 @@ Although the `Post` and `Feed` entities belong to the feed post and feed UI resp
 
 The shape of the client store is not particularly important here, as long as it is in a format that can be easily retrieved from the components. New posts fetched from the second page should be joined with the previous posts into a single list with the pagination parameters (`cursor`) updated.
 
-### Advanced: normalized store
+### Advanced: Normalized store
 
 Both Facebook and Twitter use a normalized client side store. If the term "normalized" is new to you, have a read of [Redux's documentation on normalizing state shape](https://redux.js.org/usage/structuring-reducers/normalizing-state-shape). In a nutshell, normalized data stores:
 
@@ -268,43 +268,16 @@ _Reference: [Evolving API Pagination at Slack](https://slack.engineering/evolvin
 
 ## Optimizations and deep dive
 
-As there are a few sections within a news feed application, it will be easier to read by focusing on one section at a time and looking at the optimizations that can be done per section:
+As there are a few sections within a news feed application, it will be more organized to focus on one section at a time and looking at the optimizations that can be done on specific sections section:
 
-- Feed
-- Feed posts
-- Post composer
+- [General optimizations](#general-optimizations)
+- [Feed list optimizations](#feed-list-optimizations)
+- [Feed post optimizations](#feed-post-optimizations)
+- [Feed composer optimizations](#feed-composer-optimizations)
 
-### Feed optimizations
+### General optimizations
 
-#### Infinite scrolling
-
-An infinite scrolling feed works by fetching the next set of posts when the user has scrolled to the end of their current loaded feed. This results in the user seeing a loading indicator and a short delay where the user has to wait for the new posts to be fetched and displayed.
-
-A way to reduce or entirely eliminate the waiting time is to load the next set of feed posts before the user hits the bottom of the page so that the user never has to see any loading indicators.
-
-A trigger distance of around one viewport height should be sufficient for most cases. The ideal distance is short enough to avoid false positives and wasted bandwidth but also wide enough to load the rest of the contents before the user scrolls to the bottom of the page. A dynamic distance can be calculated based on the network connection speed and how fast the user is scrolling through the feed.
-
-There are two popular ways to implement infinite scroll, and both involve rendering a marker element at the bottom of the feed:
-
-1. **Listen for the `scroll`` event**: Add a `scroll` event listener (ideally debounced) to the page or a timer (via `setInterval`) that checks whether the position of the marker element is within a certain threshold from the bottom of the page. The position of the marker element can be obtained using [`Element.getBoundingClientRect`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect).
-1. **Intersection Observer API**: Use the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to monitor when the marker element is entering or exiting another element or intersecting by a specified amount.
-
-The Intersection Observer API is a browser native API and is preferred over `Element.getBoundingClientRect()`.
-
-> The Intersection Observer API lets code register a callback function that is executed whenever an element they wish to monitor enters or exits another element (or the viewport), or when the amount by which the two intersect changes by a requested amount. This way, sites no longer need to do anything on the main thread to watch for this kind of element intersection, and the browser is free to optimize the management of intersections as it sees fit.
-
-_Source: [Intersection Observer API | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)_
-
-#### Virtualized lists
-
-With infinite scrolling, all the loaded feed items are on one single page. As the user scrolls further down the page, more posts are appended to the DOM and with feed posts having complex DOM structure (lots of details to render), the DOM size rapidly increases. As social media websites are long-lived applications (especially if single-page app) and the feed items list can easily grow really long quickly, the number of feed items can be a cause of performance issues in terms of DOM size, rendering, and browser memory usage.
-
-Virtualized lists is a technique to render only the posts that are within the viewport. In practice, Facebook replaces the contents of off-screen feed posts with empty `<div>`s, add dynamically calculated inline styles (e.g. `style="height: 300px"`) to set the height of the posts so as to preserve the scroll position and add the [`hidden` attribute](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/hidden) to them. This will improve rendering performance in terms of:
-
-- **Browser painting**: Fewer DOM nodes to render and fewer layout computations to be made.
-- **Virtual DOM reconciliation (React-specific)**: Since the post is now a simpler empty version, it's easier for React (the UI library that Facebook is using to render the feed) to diff the virtual DOM vs the real DOM to determine what DOM updates have to be made.
-
-Both Facebook and Twitter websites use virtualized lists.
+These optimizations are applicable to every section of the page.
 
 #### Code splitting JavaScript for faster performance
 
@@ -333,6 +306,44 @@ Facebook has a number of news feed-specific shortcuts to help users navigate bet
 
 _Source: [Making Facebook.com accessible to as many people as possible](https://engineering.fb.com/2020/07/30/web/facebook-com-accessibility/)_
 
+#### Error states
+
+Clearly display error states if any network requests have failed, or when there's no network connectivity.
+
+### Feed list optimizations
+
+The feed list refers to the container element that contains the feed post items.
+
+#### Infinite scrolling
+
+An infinite scrolling feed works by fetching the next set of posts when the user has scrolled to the end of their current loaded feed. This results in the user seeing a loading indicator and a short delay where the user has to wait for the new posts to be fetched and displayed.
+
+A way to reduce or entirely eliminate the waiting time is to load the next set of feed posts before the user hits the bottom of the page so that the user never has to see any loading indicators.
+
+A trigger distance of around one viewport height should be sufficient for most cases. The ideal distance is short enough to avoid false positives and wasted bandwidth but also wide enough to load the rest of the contents before the user scrolls to the bottom of the page. A dynamic distance can be calculated based on the network connection speed and how fast the user is scrolling through the feed.
+
+There are two popular ways to implement infinite scroll, and both involve rendering a marker element at the bottom of the feed:
+
+1. **Listen for the `scroll` event**: Add a `scroll` event listener (ideally debounced) to the page or a timer (via `setInterval`) that checks whether the position of the marker element is within a certain threshold from the bottom of the page. The position of the marker element can be obtained using [`Element.getBoundingClientRect`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect).
+1. **Intersection Observer API**: Use the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to monitor when the marker element is entering or exiting another element or intersecting by a specified amount.
+
+The Intersection Observer API is a browser native API and is preferred over `Element.getBoundingClientRect()`.
+
+> The Intersection Observer API lets code register a callback function that is executed whenever an element they wish to monitor enters or exits another element (or the viewport), or when the amount by which the two intersect changes by a requested amount. This way, sites no longer need to do anything on the main thread to watch for this kind of element intersection, and the browser is free to optimize the management of intersections as it sees fit.
+
+_Source: [Intersection Observer API | MDN](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)_
+
+#### Virtualized lists
+
+With infinite scrolling, all the loaded feed items are on one single page. As the user scrolls further down the page, more posts are appended to the DOM and with feed posts having complex DOM structure (lots of details to render), the DOM size rapidly increases. As social media websites are long-lived applications (especially if single-page app) and the feed items list can easily grow really long quickly, the number of feed items can be a cause of performance issues in terms of DOM size, rendering, and browser memory usage.
+
+Virtualized lists is a technique to render only the posts that are within the viewport. In practice, Facebook replaces the contents of off-screen feed posts with empty `<div>`s, add dynamically calculated inline styles (e.g. `style="height: 300px"`) to set the height of the posts so as to preserve the scroll position and add the [`hidden` attribute](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/hidden) to them. This will improve rendering performance in terms of:
+
+- **Browser painting**: Fewer DOM nodes to render and fewer layout computations to be made.
+- **Virtual DOM reconciliation (React-specific)**: Since the post is now a simpler empty version, it's easier for React (the UI library that Facebook is using to render the feed) to diff the virtual DOM vs the real DOM to determine what DOM updates have to be made.
+
+Both Facebook and Twitter websites use virtualized lists.
+
 #### Loading indicators
 
 For users who scroll really fast, even though the browser kicks off the request for the next set of posts before the user even reaches the bottom of the page, the request might not have returned yet and a loading indicator should be shown to reflect the request status.
@@ -349,23 +360,31 @@ As mentioned above in the "Interface" section, cursor-based pagination is more s
 
 For the initial load, we do not know the window height so we need to be conservative and overfetch the number of posts needed. But for subsequent fetches, we know the browser window height and can customize the number of posts to fetch based on that.
 
-#### Preserving feed scroll position
+#### Preserving feed scroll position on remounting
 
-Feed scroll positions should be preserved if users navigate to another page and back to the feed. This can be achieved in SPAs if the feed posts are cached within the client store along with the scroll position and displayed with that scroll position when the user goes back to the feed page.
+Feed scroll positions should be preserved if users navigate to another page and back to the feed. This can be achieved in single-page applications if the feed list data is cached within the client store along with the scroll position. When the user goes back to the feed page, since the data is already on the client, the feed list can be read from the client store and immediately presented on the screen with the previous scroll position; no server round-trip is needed.
 
-#### Error states
+#### Stale feeds
 
-Clearly display error states if the list failed to fetch, or when there's no network connectivity.
+It's not uncommon for users to leave their news feed application open as a browser tab and not refresh it at all. It'd be a good idea to prompt the user to refresh or refetch the feed if the last fetched timestamp is more than a few hours ago, as there can be new posts and the loaded feed is considered stale. When a new feed is refetched, the current feed can be entirely removed from memory to free up memory space.
+
+Another approach is to automatically append new feed posts to the top of the feed, but that might not be desired and extra care has to be made in order not to affect the scroll position.
+
+As of writing, Facebook forces a feed refresh and scrolls to the top if the tab has been left open for some duration.
 
 ### Feed post optimizations
 
+The feed post refers to the individual post element that contains details of the post: author, timestamp, contents, like/commenting buttons.
+
 #### Delivering data-driven dependencies only when needed
 
-News feed posts can come in many different formats and require specialized rendering code but not all users will see all of them. One way to achieve this is to have the client load the component JavaScript code for all possible formats upfront so that any kind of feed post format can be rendered. However, this will quickly bloat the page's JavaScript size and there will likely be a lot of unused JavaScript. In practice, Facebook has over 50 different type of feed post formats, loading the code for all of them upfront is sure to cause performance issues.
+News feed posts can come in many different formats (text, image, videos, polls, etc) and each post requires custom rendering code. In reality, Facebook feed supports over 50 different post formats!
 
-Facebook fetches data from the server using [Relay](https://relay.dev), which is a JavaScript-based GraphQL client. Relay couples React components with GraphQL to allow React components to declare exactly which data fields are needed and Relay will fetch them via GraphQL and provide the components with data.
+One way to support all the post formats on the client is to have the client load the component JavaScript code for all possible formats upfront so that any kind of feed post format can be rendered. However, not all users' feed will contain all the post formats and and there will likely be a lot of unused JavaScript. With the large variety of feed post formats, loading the JavaScript code for all of them upfront is sure to cause performance issues.
 
-Relay has a feature called data-driven dependencies which delivers component code along with the respective type of data, effectively solving the problem mentioned above. You only load the relevant code when a particular format for a post is being shown.
+If only we could lazy load components depending on the data received! That's already possible but requires an extra network round-trip to lazy load the components after the data is fetched and we know the type of posts rendered.
+
+Facebook fetches data from the server using [Relay](https://relay.dev), which is a JavaScript-based GraphQL client. Relay couples React components with GraphQL to allow React components to declare exactly which data fields are needed and Relay will fetch them via GraphQL and provide the components with data. Relay has a feature called [data-driven dependencies](https://relay.dev/docs/glossary/#match) via the `@match` and `@module` GraphQL directives, which fetches component code along with the respective type of data, effectively solving the excess components problem mentioned above without an extra network round-trip. You only load the relevant code when a particular format for a post is being shown.
 
 ```js
 // Sample GraphQL query to demonstrate data-driven dependencies.
@@ -417,7 +436,7 @@ A custom syntax can be used to capture metadata about hashtags and mentions.
 - **Hashtags**: Hashtags don't actually need a special syntax, words that start with a "#" can be considered a hashtag.
 - **Mentions**: A syntax like `[[#1234: HBO Max]]` is sufficient to capture the entity ID and the text to display. It's not sufficient to just store the entity ID because sites like Facebook allow users to customize the text within the mention.
 
-Before rendering the message, the string can be parsed for hashtags and mentions using regex and replaced with custom-styled links. Custom syntax is a lightweight solution which is safe yet robust enough if you know beforehand that there will not be new kinds of rich text entities to render in future.
+Before rendering the message, the string can be parsed for hashtags and mentions using regex and replaced with custom-styled links. Custom syntax is a lightweight solution which is robust enough if you don't anticipate new kinds of rich text entities to be supported in future.
 
 ##### **Popular rich text editor format**
 
@@ -455,12 +474,11 @@ An example of how the post above can be represented in Draft.js.
 
 Since there can be images in a feed post, we can also briefly discuss some image optimization techniques:
 
-- Use a Content Delivery Network (CDN) to host and serve images for faster loading performance.
-- Use modern image formats such as [WebP](https://developers.google.com/speed/webp) which provides superior lossless and lossy image compression.
-- `<img>`s should use proper `alt` text.
-  - Facebook provides `alt` text for user-uploaded images by using Machine Learning and Computer Vision to process the images and generate a description.
+- **Content Delivery Network (CDN)**: Use a (CDN) to host and serve images for faster loading performance.
+- **Modern image formats**: Use modern image formats such as [WebP](https://developers.google.com/speed/webp) which provides superior lossless and lossy image compression.
+- **`<img>`s should use proper `alt` text**: Facebook provides `alt` text for user-uploaded images by using Machine Learning and Computer Vision to process the images and generate a description.
 - Image loading based on device screen properties
-  - Send the browser dimensions in the initial request (or subsequent is also fine) and server can decide what image size to return.
+  - Send the browser dimensions in the feed list requests so that server can decide what image size to return.
   - Use `srcset` if there are image processing (resizing) capabilities to load the most suitable image file for the current viewport.
 - Adaptive image loading based on network speed
   - **Devices with good internet connectivity/on WiFi**: Prefetch offscreen images that are not in the viewport yet but about to enter viewport.
@@ -531,11 +549,7 @@ Facebook and Twitter use inlined SVGs and that also seems to be the trend these 
 
 _Source: ["Rebuilding our tech stack for the new Facebook.com" blog post](https://engineering.fb.com/2020/05/08/web/facebook-redesign/)_
 
-#### Stale feeds
-
-It's not uncommon for users to leave their news feed application open as a browser tab and not refresh it at all. It'd be a good idea to prompt the user to refresh or refetch the feed if the last fetched timestamp is more than a few hours ago, i.e. feed is stale.
-
-#### User experience
+#### Post truncation
 
 Truncate posts which have super long message content and reveal the rest behind a "See more" button.
 
@@ -546,9 +560,38 @@ For posts with large amount of activity (e.g. many likes, reactions, shares), ab
 
 This summary line can be either constructed on the server or the client. The pros and cons of doing on the server vs the client is similar to that of timestamp rendering. However, you should definitely not send down the entire list of users if it's huge as it's likely not needed or useful.
 
+#### Feed comments
+
+If time permits, we can discuss how the feed comments can be built. In general, the same rules apply to comments rendering and comment drafting:
+
+- Cursor-based pagination for fetching the list of comments.
+- Drafting and editing comments can be done in a similar fashion as drafting/editing posts.
+- Lazy load emoji/sticker pickers in the comment inputs.
+- Optimistic updates
+  - Immediately reflect new comments by appending the user's new comment to the existing list of comments.
+  - Immediately display new reactions and updated reaction counts.
+
+#### Live comment updates
+
+Live updates for Facebook feed comments enhance user engagement and interaction by providing real-time visibility of new comments and updated reaction counts. This fosters a dynamic and responsive communication environment, encouraging users to actively participate in ongoing conversations without the need for manual refreshing. The immediacy of live updates contributes to increased user retention.
+
+The common ways to implement live updates on a client include:
+
+- **Short polling**: Short polling is a technique in which the client repeatedly sends requests to the server at fixed intervals to check for updates. The connection is closed after each request, and the server responds immediately with the current state or any available updates. While short polling is straightforward to implement, it may result in higher network traffic and server load compared to the more advanced techniques mentioned below.
+- **Long polling**: Long polling extends on the idea of short polling by keeping the connection open until new data is available. While simpler to implement, it may introduce latency and increased server load compared to other approaches.
+- **Server-Sent Events (SSE)**: SSE is a standard web technology that enables servers to push updates to web clients over a single HTTP connection. It's a simple and efficient mechanism for real-time updates, particularly well-suited for scenarios where updates are initiated by the server.
+- **WebSockets**: WebSockets provide a full-duplex communication channel over a single, long-lived connection. This bidirectional communication allows both the server and the client to send messages to each other at any time. WebSockets are suitable for applications that require low latency and high interactivity.
+- **HTTP/2 Server Push**: With HTTP/2, the server can push updates to the client without waiting for the client to request them. While HTTP/2 server push is not as widely used as other methods for live updates, it can be an efficient solution in certain scenarios.
+
+Facebook uses WebSockets for live updates on the website.
+
+While showing live updates is great, it is not efficient to be fetching updates for posts that have gone out of view in the feed. Clients can subscribe/unsubscribe to updates for posts based on whether the post is visible, which lightens the load on server infrastructure.
+
+Additionally, not all posts should be treated equally. Posts by users with many followers (e.g. celebrities and politicians) will be seen by many more people and hence more likely to receive an update. For such posts, new comments and reactions will be frequently added/updated and it will not be wise to fetch every new post or reaction since the update rate is too high for the user to read every new comment. Hence for such posts, the live updates can be debounced/throttled. Beyond a certain threshold, just fetching the updated comments and reactions count will be sufficient.
+
 ### Feed composer optimizations
 
-#### How to render rich text like hashtags and mentions
+#### Rich text for hashtags and mentions
 
 When drafting a post in the composer, it'd be a nice to have an WYSIWYG editing experience look like the result which contain hashtags and mentions. However, `<input>`s and `<textarea>`s only allows input and display of plain text. The [`contenteditable`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable) attribute turns an element into an editable rich text editor.
 
@@ -563,7 +606,9 @@ Try it for yourself here:
   Ctrl/Cmd + B).
 </div>
 
-However, it is not a good idea to use `contenteditable="true"` as-is in production because it [comes with many issues](https://medium.engineering/why-contenteditable-is-terrible-122d8a40e480?gi=6b03d73f8e36). It'd be better to use battle-tested rich text editor libraries. Facebook has built rich text editors like [Draft.js](https://draftjs.org) and [Lexical](https://lexical.dev) and use them for drafting post and comments. Other popular open sources alternatives include [TipTap](https://tiptap.dev/api/editor) and [Slate](https://www.slatejs.org/).
+However, it is not a good idea to use `contenteditable="true"` as-is in production because it [comes with many issues](https://medium.engineering/why-contenteditable-is-terrible-122d8a40e480?gi=6b03d73f8e36). It'd be better to use battle-tested rich text editor libraries.
+
+Meta has built rich text editors like [Draft.js](https://draftjs.org) (deprecated) and [Lexical](https://lexical.dev) and use them for drafting + displaying post and comments. Other popular open sources alternatives include [TipTap](https://tiptap.dev/api/editor) and [Slate](https://www.slatejs.org/).
 
 _Source: [Facebook open sources rich text editor framework Draft.js](https://engineering.fb.com/2016/02/26/web/facebook-open-sources-rich-text-editor-framework-draft-js/)_
 
@@ -581,29 +626,22 @@ Non-crucial features where the code can be lazy loaded on demand:
 
 ### Accessibility
 
-- Feed
-  - Add `role="feed"` to the feed HTML element.
-- Feed posts
-  - Add `role="article"` to each feed post HTML element.
-  - `aria-labelledby="<id>"` where the HTML tag containing the feed author name has that `id` attribute.
-  - Contents within the feed post should be focusable via keyboards (add `tabindex="0"`) and the appropriate `aria-role`.
-- Feed interactions
-  - On Facebook website, users can have more reaction options by hovering over the "Like" button. To allow the same functionality for keyboard users, Facebook displays a button that only appears on focus and the reactions menu can be opened via that button.
-  - Icon-only buttons should have `aria-label`s if there are no accompanying labels (e.g. Twitter).
+Here are some accessibility considerations for a news feed.
 
----
+#### Feed list
 
-## Bonus: Comments
+- Add `role="feed"` to the feed HTML element.
 
-If time permits and there's time to talk about extra features, we can talk about how comments can be built. In general, the same rules apply to comments rendering and comment drafting:
+#### Feed posts
 
-- Cursor-based pagination for fetching the list of comments.
-- Drafting and editing comments can be done in a similar fashion as drafting/editing posts.
-- Lazy load emoji/sticker pickers in the comment inputs.
-- Optimistic updates
-  - Immediately reflect new comments by appending the new comment to the existing list of comments.
-  - Immediately display new reactions and updated reaction counts.
-- How to reflect live updates for comments, e.g. for hot posts by celebrities, there are new comments every minute.
+- Add `role="article"` to each feed post HTML element.
+- `aria-labelledby="<id>"` where the HTML tag containing the feed author name has that `id` attribute.
+- Contents within the feed post should be focusable via keyboards (add `tabindex="0"`) and the appropriate `aria-role`.
+
+#### Feed interactions
+
+- On Facebook website, users can have more reaction options by hovering over the "Like" button. To allow the same functionality for keyboard users, Facebook displays a button that only appears on focus and the reactions menu can be opened via that button.
+- Icon-only buttons should have `aria-label`s if there are no accompanying labels (e.g. Twitter).
 
 ---
 
