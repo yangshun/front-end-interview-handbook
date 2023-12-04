@@ -31,6 +31,10 @@
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
   },
+  "+NgnE5": {
+    "defaultMessage": "GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front-end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.",
+    "description": "Ryan Van Valkenburg's testimonial"
+  },
   "+OVTKu": {
     "defaultMessage": "Billing | Profile",
     "description": "Title of Profile Billing page"
@@ -342,10 +346,6 @@
   "3i5xK8": {
     "defaultMessage": "Large question bank",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
-  },
-  "3iv+7q": {
-    "defaultMessage": "GreatFrontEnd has been a great help to me for prepping front end focussed interviews. Lot of focus on JavaScript utility and React/Vanilla implementations. The system design questions asked in interviews are slightly different in front end interviews and GreatFrontEnd really shines here. I will continue to use this amazing platform!",
-    "description": "Anand Dharne's testimonial"
   },
   "3lEE1N": {
     "defaultMessage": "New",
@@ -2231,6 +2231,10 @@
     "defaultMessage": "Job Title",
     "description": "Label for \"Job Title\" input on Projects profile onboarding page"
   },
+  "UJwK2W": {
+    "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
+    "description": "Larry Almeida's testimonial"
+  },
   "ULuy8I": {
     "defaultMessage": "Difficulty",
     "description": "Question difficulty"
@@ -2767,10 +2771,6 @@
     "defaultMessage": "Monthly plan",
     "description": "Title of Monthly Plan CTA card in Projects sidebar"
   },
-  "bGwCko": {
-    "defaultMessage": "GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front-end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.",
-    "description": "Ryan Van Valkenburg's testimonial"
-  },
   "bNW00Y": {
     "defaultMessage": "Available frameworks",
     "description": "Screenreader text to indicate the presence of available frameworks, displayed on question cards in question lists"
@@ -2926,6 +2926,10 @@
   "dAHBqv": {
     "defaultMessage": "Theme",
     "description": "Label for select that changes the theme of the editor"
+  },
+  "dBJLg6": {
+    "defaultMessage": "We appreciate any feedback or bug reports on the product. Feedback that the team finds useful will be rewarded with freebies and discounts or even cashbacks on your order!",
+    "description": "Feedback widget description."
   },
   "dFz30c": {
     "defaultMessage": "Reset",
@@ -3295,6 +3299,10 @@
     "defaultMessage": "Tip",
     "description": "Tip badge label for Deployment step in project submission checklist"
   },
+  "imWhIY": {
+    "defaultMessage": "GreatFrontEnd has been a great help to me for prepping front end focussed interviews. Lot of focus on JavaScript utility and React/Vanilla implementations. The system design questions asked in interviews are slightly different in front end interviews and GreatFrontEnd really shines here. I will continue to use this amazing platform!",
+    "description": "Anand Dharne's testimonial"
+  },
   "imwtWL": {
     "defaultMessage": "Build great projects faster with libraries and design systems",
     "description": "Title for Projects marketing hero section for side projects"
@@ -3515,10 +3523,6 @@
     "defaultMessage": "View questions",
     "description": "Label for button to view questions"
   },
-  "kzxwOd": {
-    "defaultMessage": "We appreciate any feedback or bug reports on the product. Feedback that the team finds useful will be rewarded with freebies and discounts or even cashbacks on your order!",
-    "description": "Feedback widget description."
-  },
   "l+OESW": {
     "defaultMessage": "Seattle, WA, USA",
     "description": "Seattle location"
@@ -3702,10 +3706,6 @@
   "n9Ii7+": {
     "defaultMessage": "System Design",
     "description": "Label for system design questions"
-  },
-  "nJYzIr": {
-    "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
-    "description": "Larry Almeida's testimonial"
   },
   "nSDLrS": {
     "defaultMessage": "More settings",
