@@ -37,7 +37,7 @@ For more senior candidates, expect to explain more advanced stuff with no absolu
 - How does React work? What is virtual DOM and what problems does it solve?
 - Why did you use library X over library Y?
 
-The best and correct way is to prepare for such questions is to really understand the concepts and get some hands-on experience in applying them in a project. Memorizing the answers is not recommended but is acceptable if you are running out of time.
+The best and correct way to prepare for such questions is to really understand the concepts and get some hands-on experience in applying them in a project. Memorizing the answers is not recommended but is acceptable if you are running out of time.
 
 ## Common questions
 
