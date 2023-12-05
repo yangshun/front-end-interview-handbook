@@ -4,6 +4,7 @@ import Stripe from 'stripe';
 
 import type { UserProfilePlan } from '~/components/global/UserProfileProvider';
 
+import { sendEmailPaymentFailed } from '~/emails/EmailSender';
 import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
 
 export const config = { api: { bodyParser: false } };
@@ -152,6 +153,31 @@ export default async function handler(
         .eq('stripeCustomer', customerId);
 
       return res.send(`Subscription removed from ${customerId}`);
+    }
+
+    case 'payment_intent.payment_failed': {
+      const paymentIntent = event.data.object as Stripe.PaymentIntent;
+      const { last_payment_error: error, customer: customerId } = paymentIntent;
+
+      if (error == null) {
+        return res.send(`No payment error found for ${customerId}`);
+      }
+
+      const paymentMethod = error.payment_method;
+
+      if (paymentMethod == null) {
+        return res.send(`No payment method found for error for ${customerId}`);
+      }
+
+      const { name, email } = paymentMethod.billing_details;
+
+      if (email == null) {
+        return res.send(`No email found for error for ${customerId}`);
+      }
+
+      const result = await sendEmailPaymentFailed(email, name);
+
+      return res.send(`Error email ${result.data?.id} sent for ${customerId}`);
     }
 
     default:
