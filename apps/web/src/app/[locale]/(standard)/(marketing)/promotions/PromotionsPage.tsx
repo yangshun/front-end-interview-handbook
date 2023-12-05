@@ -199,10 +199,9 @@ function StudentDiscountCard() {
           id: '4kQ6Kr',
         }),
         intl.formatMessage({
-          defaultMessage:
-            'Your account email is a school email that contains ".edu".',
+          defaultMessage: 'Your account email contains ".edu" or ".ac".',
           description: 'Condition for promotion',
-          id: 'grmcEW',
+          id: 'mvio4u',
         }),
       ]}
       footer={

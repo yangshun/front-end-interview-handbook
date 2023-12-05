@@ -3167,10 +3167,6 @@
     "defaultMessage": "Reset this file",
     "description": "Tooltip for button that allows users to reset their coding workspace to the initial code"
   },
-  "grmcEW": {
-    "defaultMessage": "Your account email is a school email that contains \".edu\".",
-    "description": "Condition for promotion"
-  },
   "grrYsM": {
     "defaultMessage": "Years of Experience",
     "description": "Label for Years of Experience section of Projects profile onboarding page"
@@ -3674,6 +3670,10 @@
   "mt2ON4": {
     "defaultMessage": "Find out more about the team who built GreatFrontEnd and why we did it",
     "description": "Description of About Us page"
+  },
+  "mvio4u": {
+    "defaultMessage": "Your account email contains \".edu\" or \".ac\".",
+    "description": "Condition for promotion"
   },
   "n+XFbs": {
     "defaultMessage": "Free plan",
