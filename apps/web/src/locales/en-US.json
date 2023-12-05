@@ -2927,10 +2927,6 @@
     "defaultMessage": "Theme",
     "description": "Label for select that changes the theme of the editor"
   },
-  "dBJLg6": {
-    "defaultMessage": "We appreciate any feedback or bug reports on the product. Feedback that the team finds useful will be rewarded with freebies and discounts or even cashbacks on your order!",
-    "description": "Feedback widget description."
-  },
   "dFz30c": {
     "defaultMessage": "Reset",
     "description": "Label for button to confirm progress reset"
@@ -3518,6 +3514,10 @@
   "kx0gZt": {
     "defaultMessage": "View questions",
     "description": "Label for button to view questions"
+  },
+  "kzxwOd": {
+    "defaultMessage": "We appreciate any feedback or bug reports on the product. Feedback that the team finds useful will be rewarded with freebies and discounts or even cashbacks on your order!",
+    "description": "Feedback widget description."
   },
   "l+OESW": {
     "defaultMessage": "Seattle, WA, USA",

@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import Text from '~/components/ui/Text';
 
 import ProjectsSkillChip from '../skills/ProjectsSkillChip';
-import type { ProjectSkill, ProjectSkillDetailed } from '../skills/types';
+import type { ProjectSkill } from '../skills/types';
 
 type Props = Readonly<{
   stack: Array<ProjectSkill>;

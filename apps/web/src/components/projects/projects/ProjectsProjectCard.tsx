@@ -17,7 +17,6 @@ import {
 } from '~/components/ui/theme';
 
 import type { ProjectsProject } from './types';
-import ProjectsSkillChip from '../skills/ProjectsSkillChip';
 import ProjectsSkillRow from '../skills/ProjectsSkillRow';
 import ProjectsCompletedUsersTag from '../stats/ProjectsCompletedUsersTag';
 
