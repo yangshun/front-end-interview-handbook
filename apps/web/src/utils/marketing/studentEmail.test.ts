@@ -17,15 +17,29 @@ describe('isValidStudentEmail', () => {
     });
   });
 
-  test('valid .ac.in emails', () => {
-    expect(isValidStudentEmail('sahil.khan@iiitg.ac.in')).toEqual({
-      valid: true,
+  describe('.ac emails', () => {
+    test('.ac.in substrings', () => {
+      expect(isValidStudentEmail('sahil.khan@iiitg.ac.in')).toEqual({
+        valid: true,
+      });
+      expect(isValidStudentEmail('prathamesh.redij@spit.ac.in')).toEqual({
+        valid: true,
+      });
+      expect(isValidStudentEmail('nishtha.kumari@nift.ac.in')).toEqual({
+        valid: true,
+      });
     });
-    expect(isValidStudentEmail('prathamesh.redij@spit.ac.in')).toEqual({
-      valid: true,
-    });
-    expect(isValidStudentEmail('nishtha.kumari@nift.ac.in')).toEqual({
-      valid: true,
+
+    test('.ac suffixes', () => {
+      expect(isValidStudentEmail('sahil.khan@iiitg.ac')).toEqual({
+        valid: true,
+      });
+      expect(isValidStudentEmail('prathamesh.redij@spit.ac')).toEqual({
+        valid: true,
+      });
+      expect(isValidStudentEmail('nishtha.kumari@nift.ac')).toEqual({
+        valid: true,
+      });
     });
   });
 

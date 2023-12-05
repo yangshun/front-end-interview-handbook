@@ -1,3 +1,8 @@
+const validDomains = Object.freeze({
+  substring: ['.edu.', '.ac.'],
+  suffixes: ['.edu', '.ac'],
+});
+
 export function isValidStudentEmail(
   email: string,
 ): Readonly<{ reason?: string; valid: boolean }> {
@@ -18,8 +23,14 @@ export function isValidStudentEmail(
     };
   }
 
-  // Not perfect, allows john@lol.edureg.com, but we'll let it pass.
-  if (!domain.includes('.edu') && !domain.includes('.ac.in')) {
+  const containsSubstring = validDomains.substring.some((substring) =>
+    email.includes(substring),
+  );
+  const containsSuffix = validDomains.suffixes.some((suffix) =>
+    email.toLowerCase().endsWith(suffix),
+  );
+
+  if (!containsSuffix && !containsSubstring) {
     return {
       reason:
         'Email address does not seem to belong to an accredited educational institution. Send us an email if you believe your school should qualify.',
