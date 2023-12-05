@@ -3,7 +3,7 @@ title: Intersection By
 excerpt: Implement a function that returns an array of unique values that are included in all given arrays based on a provided iteratee function
 ---
 
-The `intersectionBy` function takes an `iteratee` function and multiple arrays as arguments. It creates an array of unique values that are included in all given arrays based on the result of applying the `iteratee` function to each value. The order and references of result values are determined by the first array.
+The `intersectionBy` function takes an `iteratee` function and multiple arrays as arguments. It creates an array of unique values that are included in all given arrays based on the result of applying the `iteratee` function to each value. The order and references of result values are determined by the first array. Note that the values returned are the values _before_ the `iteratee` function is applied, while the comparison is based on the values _after_ the `iteratee` function is applied.
 
 The iteratee function is invoked with one argument: `value`, where value is the current value being iterated.
 
@@ -29,10 +29,10 @@ const result = intersectionBy(Math.floor, [1.2, 2.4], [2.5, 3.6]); // => [2.4]
 // Get the intersection based on the lowercase value of each string
 const result2 = intersectionBy(
   (str) => str.toLowerCase(),
-  ['apple', 'banana', 'orange'],
+  ['apple', 'banana', 'ORANGE', 'orange'],
   ['Apple', 'Banana', 'Orange'],
 );
-// => ['apple']
+// => ['apple', 'banana', 'ORANGE']
 ```
 
 ## Notes
