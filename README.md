@@ -1,11 +1,15 @@
 # GreatFrontEnd
 
-This repository is a monorepo using `npm`.
+This repository is a monorepo using [`pnpm`](https://pnpm.io/).
 
 ## Getting started
 
+Firstly, install [pnpm](https://pnpm.io/installation).
+
+Then run the following commands to install `node_modules` for every app and package.
+
 ```sh
-npm install
+pnpm i
 ```
 
 ### Important directories
@@ -29,7 +33,7 @@ This Turborepo has some additional tools already setup for you:
 To develop all apps and packages, run the following command:
 
 ```
-npm run dev
+pnpm dev
 ```
 
 ## Useful Links
