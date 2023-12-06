@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';
 
-import { getUserName } from '~/utils/user/getUserName';
+import useUserName from '~/utils/user/useUserName';
 
 import type { ProjectsSubmission } from './types';
 import ProjectsSkillRow from '../skills/ProjectsSkillRow';
@@ -31,6 +31,7 @@ export default function ProjectsSubmissionCard({
   },
 }: Props) {
   const intl = useIntl();
+  const authorUserName = useUserName(author);
 
   return (
     <Card padding={false} pattern={false}>
@@ -54,7 +55,7 @@ export default function ProjectsSubmissionCard({
             user={author}
           />
           <div className="flex flex-col gap-1">
-            <Text size="body2">{getUserName(author)}</Text>
+            <Text size="body2">{authorUserName}</Text>
             <div className="flex gap-4">
               <ProjectsUserJobTitle jobTitle="Software Engineer" />
               <ProjectsUserYearsOfExperience yearsOfExperience={2} />

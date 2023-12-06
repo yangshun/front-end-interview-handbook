@@ -30,6 +30,7 @@ export type TextAreaSize = 'md' | 'sm' | 'xs';
 export type TextAreaResize = 'both' | 'horizontal' | 'none' | 'vertical';
 
 type Props = Readonly<{
+  className?: string;
   defaultValue?: string;
   description?: React.ReactNode;
   errorMessage?: React.ReactNode;
@@ -98,6 +99,7 @@ function TextArea(
     required,
     size = 'md',
     value,
+    className,
     onChange,
     ...props
   }: Props,
@@ -110,7 +112,7 @@ function TextArea(
   const state: State = hasError ? 'error' : 'normal';
 
   return (
-    <div>
+    <div className={className}>
       <label
         className={clsx(isLabelHidden ? 'sr-only' : 'mb-2 block')}
         htmlFor={id}>

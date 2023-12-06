@@ -6,7 +6,7 @@ import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import { themeTextBrandColor } from '~/components/ui/theme';
 
-import { getUserName } from '~/utils/user/getUserName';
+import useUserName from '~/utils/user/useUserName';
 
 import ProjectsSidebarHeaderLogoBar from './ProjectsSidebarHeaderLogoBar';
 import ProjectsUserJobTitle from '../../users/ProjectsUserJobTitle';
@@ -29,6 +29,8 @@ export function ProjectsSidebarProfileHeader({
 }: Props) {
   const intl = useIntl();
 
+  const userName = useUserName(user);
+
   return (
     <header className={clsx('flex flex-col gap-6 p-4', className)}>
       <ProjectsSidebarHeaderLogoBar />
@@ -36,7 +38,7 @@ export function ProjectsSidebarProfileHeader({
         <div className="flex gap-3">
           <UserAvatarWithLevel level={11} progress={30} size="lg" />
           <div className="flex flex-col gap-1">
-            <Text size="body2">{getUserName(user)}</Text>
+            <Text size="body2">{userName}</Text>
             <div className={clsx('flex gap-1', themeTextBrandColor)}>
               <RiFireLine className="h-3 w-3" />
               <Text color="inherit" size="body3">

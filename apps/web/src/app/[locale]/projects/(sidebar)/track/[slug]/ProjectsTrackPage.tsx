@@ -52,7 +52,10 @@ export default function ProjectsTrackPage({
           <div className="flex flex-col gap-2">
             <Heading level="heading5">{title}</Heading>
             <div className="flex flex-wrap gap-x-4 gap-y-2">
-              <ProjectsReputationCountIncreaseTag repCount={repCount} />
+              <ProjectsReputationCountIncreaseTag
+                repCount={repCount}
+                variant="flat"
+              />
               <ProjectsProjectCountTag
                 total={totalProjectCount}
                 value={completedProjectCount}

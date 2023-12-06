@@ -79,7 +79,10 @@ export default function ProjectsProjectHeader({ project, hasSession }: Props) {
           <div className="flex flex-wrap gap-x-4 gap-y-2">
             {isStarter && <ProjectsStarterTag />}
             <ProjectsComponentTrackTag trackName={trackName} />
-            <ProjectsReputationCountIncreaseTag repCount={repCount} />
+            <ProjectsReputationCountIncreaseTag
+              repCount={repCount}
+              variant="flat"
+            />
           </div>
           <div className="flex flex-col">
             <div className="flex flex-wrap gap-2">

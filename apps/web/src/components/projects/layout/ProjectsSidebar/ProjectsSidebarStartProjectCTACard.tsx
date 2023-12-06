@@ -19,7 +19,7 @@ export function ProjectsSidebarStartProjectCTACard() {
               id="L18d7M"
             />
           </Text>
-          <Text className="text-center text-[10px]" size="custom">
+          <Text className="text-2xs text-center" size="custom">
             <FormattedMessage
               defaultMessage="Learning by building has never been easier"
               description="Subtitle of Start Project CTA card in Projects sidebar"

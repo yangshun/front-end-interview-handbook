@@ -46,7 +46,7 @@ export function ProjectsSidebarYearlyPlanCTACard() {
               />
             </Tooltip>
           </div>
-          <Text className="text-[10px]" size="custom">
+          <Text className="text-2xs" size="custom">
             <FormattedMessage
               defaultMessage="Access to all {totalChallengeCount}+ challenges. Unlimited Figma & guides access"
               description="Subtitle of Yearly Plan CTA card in Projects sidebar"

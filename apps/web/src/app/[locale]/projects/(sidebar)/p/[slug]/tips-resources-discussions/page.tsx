@@ -1,5 +1,7 @@
 import type { ProjectsProject } from '~/components/projects/projects/types';
 
+import { fetchUser } from '~/supabase/SupabaseServerGFE';
+
 import ProjectsTipsResourcesDiscussionsPage from './ProjectsTipsResourcesDiscussionsPage';
 
 type Props = Readonly<{
@@ -63,12 +65,18 @@ const exampleProject: ProjectsProject = {
   trackName: 'Design System Track',
 };
 
-export default function Page({ params }: Props) {
+export default async function Page({ params }: Props) {
   const { slug: rawSlug } = params;
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
 
+  const user = await fetchUser();
   // TODO(projects): Get project information from backend
 
-  return <ProjectsTipsResourcesDiscussionsPage project={exampleProject} />;
+  return (
+    <ProjectsTipsResourcesDiscussionsPage
+      project={exampleProject}
+      user={user}
+    />
+  );
 }

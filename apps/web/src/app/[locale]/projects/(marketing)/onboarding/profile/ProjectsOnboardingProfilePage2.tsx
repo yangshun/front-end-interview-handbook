@@ -3,6 +3,7 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
@@ -10,7 +11,6 @@ import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 
 import type { OnboardingProfileFormValues } from './ProjectsOnboardingProfilePage';
-import { ProjectsOnboardingRepBadge } from '../ProjectsOnboardingRepBadge';
 
 export type OnboardingProfilePage2FormValues = {
   bio: string;
@@ -49,9 +49,10 @@ export default function ProjectsOnboardingProfilePage1() {
       </div>
       <div className="mt-6 flex flex-col gap-y-16">
         <div className="relative">
-          <ProjectsOnboardingRepBadge
+          <ProjectsReputationCountIncreaseTag
             className="absolute end-0 top-0"
             repCount={25}
+            variant="filled"
           />
           <Controller
             control={control}
@@ -92,9 +93,10 @@ export default function ProjectsOnboardingProfilePage1() {
           </Text>
           <div className="space-y-4">
             <div className="relative">
-              <ProjectsOnboardingRepBadge
+              <ProjectsReputationCountIncreaseTag
                 className="absolute end-0 top-0"
                 repCount={25}
+                variant="filled"
               />
               <Controller
                 control={control}
@@ -119,9 +121,10 @@ export default function ProjectsOnboardingProfilePage1() {
               />
             </div>
             <div className="relative">
-              <ProjectsOnboardingRepBadge
+              <ProjectsReputationCountIncreaseTag
                 className="absolute end-0 top-0"
                 repCount={25}
+                variant="filled"
               />
               <Controller
                 control={control}
@@ -146,9 +149,10 @@ export default function ProjectsOnboardingProfilePage1() {
               />
             </div>
             <div className="relative">
-              <ProjectsOnboardingRepBadge
+              <ProjectsReputationCountIncreaseTag
                 className="absolute end-0 top-0"
                 repCount={25}
+                variant="filled"
               />
               <Controller
                 control={control}

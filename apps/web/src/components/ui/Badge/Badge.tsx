@@ -11,6 +11,7 @@ export type BadgeVariant =
 type BadgeSize = 'md' | 'sm';
 
 type Props = Readonly<{
+  className?: string;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   label: string;
   size?: BadgeSize;
@@ -81,6 +82,7 @@ const iconSizeClasses: Record<BadgeSize, string> = {
 };
 
 export default function Badge({
+  className,
   label,
   icon: Icon,
   size = 'md',
@@ -96,6 +98,7 @@ export default function Badge({
         sizeClasses[size],
         backgroundClass,
         borderClass,
+        className,
       )}>
       {Icon && <Icon className={clsx(iconClass, iconSizeClasses[size])} />}
       <span className={textClass}>{label}</span>

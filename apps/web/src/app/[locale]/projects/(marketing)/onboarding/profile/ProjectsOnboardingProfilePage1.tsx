@@ -3,6 +3,7 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
@@ -13,7 +14,6 @@ import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
 import type { OnboardingProfileFormValues } from './ProjectsOnboardingProfilePage';
-import { ProjectsOnboardingRepBadge } from '../ProjectsOnboardingRepBadge';
 
 function useYOEReplacementOptions() {
   const intl = useIntl();
@@ -131,7 +131,7 @@ export default function ProjectsOnboardingProfilePage1({
             id="GxJeqH"
           />
         </Heading>
-        <ProjectsOnboardingRepBadge repCount={100} />
+        <ProjectsReputationCountIncreaseTag repCount={100} variant="filled" />
       </div>
       <div className="mt-6 flex flex-col gap-y-16">
         <div className="flex flex-col items-start gap-x-16 gap-y-6 sm:flex-row sm:items-end">

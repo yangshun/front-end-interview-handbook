@@ -12,7 +12,53 @@ import type { ProjectsProject } from '~/components/projects/projects/types';
 import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
 
+import ProjectDiscussions from './ProjectDiscussions';
 import ReferenceSubmissions from './ReferenceSubmissions';
+
+import type { User } from '@supabase/supabase-js';
+
+export const exampleDiscussionPosts = [
+  {
+    author: {
+      app_metadata: {
+        provider: 'auth0',
+      },
+      aud: '',
+      created_at: '',
+      email: 'example@abc.com',
+      id: 'user2',
+      user_metadata: {
+        avatar_url: 'https://source.unsplash.com/random/48x48',
+        full_name: 'Jane Smith',
+      },
+    },
+    content: 'Sample post content',
+    id: '1',
+    isQuestion: true,
+    likeCount: 0,
+    replyCount: 2,
+  },
+  {
+    author: {
+      app_metadata: {
+        provider: 'auth0',
+      },
+      aud: '',
+      created_at: '',
+      email: 'example@abc.com',
+      id: 'user2',
+      user_metadata: {
+        avatar_url: 'https://source.unsplash.com/random/48x48',
+        full_name: 'Jane Smith',
+      },
+    },
+    content: 'Sample post content',
+    id: '2',
+    isQuestion: false,
+    likeCount: 0,
+    replyCount: 2,
+  },
+];
 
 type TipsResourcesDiscussionsTabType =
   | 'official-guides-resources'
@@ -43,10 +89,12 @@ function useTipsResourcesDiscussionsTabs() {
 
 type Props = Readonly<{
   project: ProjectsProject;
+  user: User | null;
 }>;
 
 export default function ProjectsProjectTipsResourcesDiscussionsPage({
   project,
+  user,
 }: Props) {
   const intl = useIntl();
   const { slug } = project;
@@ -73,6 +121,9 @@ export default function ProjectsProjectTipsResourcesDiscussionsPage({
         />
         {tipsResourcesDiscussionsTab === 'reference-submissions' && (
           <ReferenceSubmissions />
+        )}
+        {tipsResourcesDiscussionsTab === 'project-discussions' && (
+          <ProjectDiscussions posts={exampleDiscussionPosts} user={user} />
         )}
       </div>
     </div>

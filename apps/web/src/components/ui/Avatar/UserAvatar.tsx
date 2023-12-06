@@ -7,7 +7,7 @@ import type { User } from '@supabase/supabase-js';
 type AvatarProps = React.ComponentProps<typeof Avatar>;
 type UserAvatarProps = Readonly<
   Omit<AvatarProps, 'src' | 'userName'> & {
-    user?: User;
+    user?: User | null;
   }
 >;
 
