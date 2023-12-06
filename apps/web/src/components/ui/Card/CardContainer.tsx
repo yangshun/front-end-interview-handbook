@@ -44,6 +44,14 @@ export default function CardContainer({ children, className }: Props) {
     setCards((prevCards) => prevCards.filter((c) => c !== card));
   }, []);
 
+  // Hack to prevent cards being highlighted when mouse is not over yet
+  useEffect(() => {
+    cards.forEach((card) => {
+      card.style.setProperty('--mouse-x', `${-1000000}px`);
+      card.style.setProperty('--mouse-y', `${-1000000}px`);
+    });
+  }, [cards]);
+
   const onMouseMove = useCallback(
     (position: MousePosition) => {
       if (containerRef.current) {

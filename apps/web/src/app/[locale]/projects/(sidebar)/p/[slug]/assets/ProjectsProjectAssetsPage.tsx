@@ -15,11 +15,8 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import ProjectsProjectBreakdownTabsImpl from '~/components/projects/layout/ProjectsProjectBreakdownTabsImpl';
-import ProjectsProjectHeader from '~/components/projects/projects/ProjectsProjectHeader';
 import type { ProjectsProject } from '~/components/projects/projects/types';
 import Button from '~/components/ui/Button';
-import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import type { TabItem } from '~/components/ui/Tabs';
@@ -60,7 +57,6 @@ type Props = Readonly<{
 
 export default function ProjectsProjectAssetsPage({ project }: Props) {
   const intl = useIntl();
-  const { slug } = project;
   const onlineAssetsTabs = useOnlineAssetsTabs();
   const [onlineAssetsTab, setOnlineAssetsTab] = useState<OnlineAssetsTabType>(
     'responsive-breakpoints',
@@ -70,14 +66,8 @@ export default function ProjectsProjectAssetsPage({ project }: Props) {
   const isUserPremium = false;
 
   return (
-    <Container className="flex flex-col items-stretch pb-10 pt-4 lg:pb-20 lg:pt-16">
-      <ProjectsProjectHeader project={project} />
-      <ProjectsProjectBreakdownTabsImpl
-        className="mt-16"
-        slug={slug}
-        value="assets"
-      />
-      <div className="mt-16 grid grid-cols-1 gap-x-12 gap-y-12 lg:grid-cols-4">
+    <div className="flex flex-col items-stretch">
+      <div className="grid grid-cols-1 gap-x-12 gap-y-12 lg:grid-cols-4">
         <div className="flex flex-col gap-6">
           <Heading level="heading6">
             <FormattedMessage
@@ -219,6 +209,6 @@ export default function ProjectsProjectAssetsPage({ project }: Props) {
           </Section>
         </div>
       </div>
-    </Container>
+    </div>
   );
 }

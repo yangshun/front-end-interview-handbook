@@ -2,7 +2,6 @@ import { FormattedMessage } from 'react-intl';
 
 import ProjectsSubmissionCard from '~/components/projects/submissions/ProjectsSubmissionCard';
 import type { ProjectsSubmission } from '~/components/projects/submissions/types';
-import CardContainer from '~/components/ui/Card/CardContainer';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -65,14 +64,14 @@ export default function ReferenceSubmissions() {
             id="y9NC4Q"
           />
         </Text>
-        <CardContainer className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {exampleSubmissions.map((submission) => (
             <ProjectsSubmissionCard
               key={submission.slug}
               submission={submission}
             />
           ))}
-        </CardContainer>
+        </div>
       </Section>
     </div>
   );

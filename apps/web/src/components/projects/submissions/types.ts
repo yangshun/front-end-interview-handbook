@@ -1,4 +1,4 @@
-import type { ProjectSkill } from '../skills/types';
+import type { ProjectsSkill } from '../skills/types';
 
 import type { User } from '@supabase/supabase-js';
 
@@ -9,7 +9,7 @@ export type ProjectsSubmission = {
   imgSrc: string;
   likeCount: number;
   slug: string;
-  stack: Array<ProjectSkill>;
+  stack: Array<ProjectsSkill>;
   submissionDate: Date;
   title: string;
   viewCount: number;

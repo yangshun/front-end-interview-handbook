@@ -5,12 +5,12 @@ import Text from '~/components/ui/Text';
 import { themeElementBorderColor } from '~/components/ui/theme';
 
 import ProjectsSkillChip from './ProjectsSkillChip';
-import type { ProjectSkill } from './types';
+import type { ProjectsSkill } from './types';
 
 type Props = Readonly<{
   className?: string;
   label: string;
-  skills: Array<ProjectSkill>;
+  skills: Array<ProjectsSkill>;
 }>;
 
 export default function ProjectsSkillRow({ label, skills, className }: Props) {
@@ -25,10 +25,7 @@ export default function ProjectsSkillRow({ label, skills, className }: Props) {
       <ul className="flex items-center gap-2">
         {skills.map((skill) => (
           <li key={skill.key}>
-            <ProjectsSkillChip
-              difficulty={skill.difficulty}
-              label={skill.label}
-            />
+            <ProjectsSkillChip skill={skill} />
           </li>
         ))}
         {remainingCount > 0 && (

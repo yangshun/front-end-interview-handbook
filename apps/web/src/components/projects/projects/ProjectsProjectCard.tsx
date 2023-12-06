@@ -34,6 +34,7 @@ export default function ProjectsProjectCard({
     completedCount,
     trackName,
     repCount,
+    slug,
     isStarter,
   },
 }: Props) {
@@ -98,6 +99,7 @@ export default function ProjectsProjectCard({
         />
         <div className="flex items-center gap-4">
           <Button
+            href={`/projects/p/${slug}`}
             icon={RiArrowRightLine}
             label={intl.formatMessage({
               defaultMessage: 'Go to project',

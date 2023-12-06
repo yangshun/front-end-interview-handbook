@@ -10,16 +10,12 @@ import {
 import { FormattedMessage } from 'react-intl';
 import { useIntl } from 'react-intl';
 
-import ProjectsProjectBreakdownTabsImpl from '~/components/projects/layout/ProjectsProjectBreakdownTabsImpl';
-import ProjectsProjectHeader from '~/components/projects/projects/ProjectsProjectHeader';
 import type { ProjectsProject } from '~/components/projects/projects/types';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
-import CardContainer from '~/components/ui/Card/CardContainer';
 import Chip from '~/components/ui/Chip';
-import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -38,20 +34,13 @@ export default function ProjectsProjectDeploymentCompletionPage({
   project,
 }: Props) {
   const intl = useIntl();
-  const { slug } = project;
 
   // TODO: Replace below with actual logic
   const isUserPremium = false;
 
   return (
-    <Container className="flex flex-col items-stretch pb-10 pt-4 lg:pb-20 lg:pt-16">
-      <ProjectsProjectHeader project={project} />
-      <ProjectsProjectBreakdownTabsImpl
-        className="mt-16"
-        slug={slug}
-        value="project-deployment-completion"
-      />
-      <div className="mt-16 flex flex-col">
+    <div className="flex flex-col items-stretch">
+      <div className="flex flex-col">
         <Heading level="heading5">
           <FormattedMessage
             defaultMessage="Submission checklist"
@@ -60,7 +49,7 @@ export default function ProjectsProjectDeploymentCompletionPage({
           />
         </Heading>
         <Section>
-          <CardContainer className="flex flex-col">
+          <div className="flex flex-col">
             <Text className="mt-4" color="secondary" size="body2">
               <FormattedMessage
                 defaultMessage="Follow this step-by-step deployment and submission checklist"
@@ -300,9 +289,9 @@ export default function ProjectsProjectDeploymentCompletionPage({
                 </Card>
               </li>
             </ul>
-          </CardContainer>
+          </div>
         </Section>
       </div>
-    </Container>
+    </div>
   );
 }

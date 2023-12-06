@@ -1,9 +1,13 @@
 import clsx from 'clsx';
-import { RiArrowLeftLine, RiInformationLine, RiLock2Line } from 'react-icons/ri';
+import {
+  RiArrowLeftLine,
+  RiInformationLine,
+  RiLock2Line,
+} from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { ProjectsProject } from '~/components/projects/projects/types';
-import ProjectsNestedSkillChip from '~/components/projects/skills/ProjectsNestedSkillChip';
+import ProjectsSkillChip from '~/components/projects/skills/ProjectsSkillChip';
 import ProjectsCompletedUsersTag from '~/components/projects/stats/ProjectsCompletedUsersTag';
 import ProjectsComponentTrackTag from '~/components/projects/stats/ProjectsComponentTrackTag';
 import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
@@ -15,12 +19,16 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 
+import ProjectsProjectCurrentProjectSessionCard from './ProjectsProjectCurrentSessionCard';
+
 type Props = Readonly<{
+  hasSession: boolean;
   project: ProjectsProject;
 }>;
 
-export default function ProjectsProjectHeader({
-  project: {
+export default function ProjectsProjectHeader({ project, hasSession }: Props) {
+  const intl = useIntl();
+  const {
     completedCount,
     completedUsers,
     description,
@@ -29,12 +37,14 @@ export default function ProjectsProjectHeader({
     skills,
     title,
     trackName,
-  },
-}: Props) {
-  const intl = useIntl();
+  } = project;
 
   return (
-    <div className="flex flex-col gap-y-6 lg:flex-row lg:justify-between">
+    <div
+      className={clsx(
+        !hasSession && 'flex flex-col gap-y-6 lg:flex-row lg:justify-between',
+        hasSession && 'grid grid-cols-2 items-start',
+      )}>
       <div className="flex flex-col">
         <Button
           addonPosition="start"
@@ -74,7 +84,7 @@ export default function ProjectsProjectHeader({
           <div className="flex flex-col">
             <div className="flex flex-wrap gap-2">
               {skills.map((skill) => (
-                <ProjectsNestedSkillChip
+                <ProjectsSkillChip
                   key={skill.key}
                   isEditable={true}
                   skill={skill}
@@ -116,38 +126,43 @@ export default function ProjectsProjectHeader({
           </div>
         </div>
       </div>
-      <div className="flex flex-shrink-0 flex-col gap-2 lg:items-end lg:gap-6">
-        <Text size="body3">
-          <FormattedMessage
-            defaultMessage="New here? <link>How it works</link>"
-            description="Link to 'How it works' page on Projects project page"
-            id="OYgvni"
-            values={{
-              link: (chunks) => (
-                <Anchor {...chunks} href="#">
-                  {chunks}
-                </Anchor>
-              ),
-            }}
-          />
-        </Text>
-        <div className="flex items-center gap-x-4 gap-y-4 lg:flex-col lg:items-end">
-          <Button
-            label={intl.formatMessage({
-              defaultMessage: 'Start project',
-              description:
-                'Label for "Start project" button on Projects project page',
-              id: '6/Qdew',
-            })}
-            size="md"
-            variant="primary"
-          />
-          <ProjectsCompletedUsersTag
-            count={completedCount}
-            users={completedUsers}
-          />
+      {hasSession && (
+        <ProjectsProjectCurrentProjectSessionCard project={project} />
+      )}
+      {!hasSession && (
+        <div className="flex flex-shrink-0 flex-col gap-2 lg:items-end lg:gap-6">
+          <Text size="body3">
+            <FormattedMessage
+              defaultMessage="New here? <link>How it works</link>"
+              description="Link to 'How it works' page on Projects project page"
+              id="OYgvni"
+              values={{
+                link: (chunks) => (
+                  <Anchor {...chunks} href="#">
+                    {chunks}
+                  </Anchor>
+                ),
+              }}
+            />
+          </Text>
+          <div className="flex items-center gap-x-4 gap-y-4 lg:flex-col lg:items-end">
+            <Button
+              label={intl.formatMessage({
+                defaultMessage: 'Start project',
+                description:
+                  'Label for "Start project" button on Projects project page',
+                id: '6/Qdew',
+              })}
+              size="md"
+              variant="primary"
+            />
+            <ProjectsCompletedUsersTag
+              count={completedCount}
+              users={completedUsers}
+            />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

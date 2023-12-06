@@ -1,4 +1,4 @@
-import type { ProjectSkill } from '../skills/types';
+import type { ProjectsSkill } from '../skills/types';
 
 import type { User } from '@supabase/supabase-js';
 
@@ -10,7 +10,7 @@ export type ProjectsProject = {
   isStarter: boolean;
   projectHref: string;
   repCount: number;
-  skills: Array<ProjectSkill>;
+  skills: Array<ProjectsSkill>;
   slug: string;
   title: string;
   trackName: string;

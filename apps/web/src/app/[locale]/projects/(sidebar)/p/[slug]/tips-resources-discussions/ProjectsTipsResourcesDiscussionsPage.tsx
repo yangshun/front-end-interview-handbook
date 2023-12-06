@@ -8,10 +8,7 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import ProjectsProjectBreakdownTabsImpl from '~/components/projects/layout/ProjectsProjectBreakdownTabsImpl';
-import ProjectsProjectHeader from '~/components/projects/projects/ProjectsProjectHeader';
 import type { ProjectsProject } from '~/components/projects/projects/types';
-import Container from '~/components/ui/Container';
 import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
 
@@ -61,14 +58,8 @@ export default function ProjectsProjectTipsResourcesDiscussionsPage({
   const isUserPremium = false;
 
   return (
-    <Container className="flex flex-col items-stretch pb-10 pt-4 lg:pb-20 lg:pt-16">
-      <ProjectsProjectHeader project={project} />
-      <ProjectsProjectBreakdownTabsImpl
-        className="mt-16"
-        slug={slug}
-        value="tips-resources-discussions"
-      />
-      <div className="mt-16 flex flex-col gap-y-8">
+    <div className="flex flex-col items-stretch">
+      <div className="flex flex-col gap-y-8">
         <Tabs
           label={intl.formatMessage({
             defaultMessage: 'Select tip type',
@@ -84,6 +75,6 @@ export default function ProjectsProjectTipsResourcesDiscussionsPage({
           <ReferenceSubmissions />
         )}
       </div>
-    </Container>
+    </div>
   );
 }

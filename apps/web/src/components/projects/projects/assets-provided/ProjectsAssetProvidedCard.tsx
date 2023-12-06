@@ -14,7 +14,7 @@ export default function ProjectsAssetProvidedCard({
   label,
 }: Props) {
   return (
-    <Card disableSpotlight={true} padding={false} pattern={false}>
+    <Card padding={false} pattern={false}>
       <div
         className={clsx(
           'flex items-center gap-2 p-4',

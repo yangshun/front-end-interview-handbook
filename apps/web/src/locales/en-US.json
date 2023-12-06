@@ -227,6 +227,10 @@
     "defaultMessage": "Month and year you started work as a Front End Engineer",
     "description": "Label for \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
   },
+  "1e4fFu": {
+    "defaultMessage": "Edit skills",
+    "description": "Label for edit skills button in skills select"
+  },
   "1gkgr4": {
     "defaultMessage": "Sign In",
     "description": "Label of Sign In button on Email Sign In page"
@@ -810,6 +814,10 @@
   "Ad94JV": {
     "defaultMessage": "Use code at checkout",
     "description": "Instruction to apply discount"
+  },
+  "AfXYpF": {
+    "defaultMessage": "Current project session",
+    "description": "Title for current project session card"
   },
   "AmBMf9": {
     "defaultMessage": "No questions",
@@ -2367,6 +2375,10 @@
     "defaultMessage": "CASHBACK",
     "description": "Amount cashback/discount"
   },
+  "Vk81t3": {
+    "defaultMessage": "Skills",
+    "description": "Label for skills select"
+  },
   "VlLGKt": {
     "defaultMessage": "Payment Success",
     "description": "Title of Payment Success page"
@@ -2594,6 +2606,10 @@
   "ZCmkG3": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
+  },
+  "ZDZiwj": {
+    "defaultMessage": "Separate each tech stack with a comma",
+    "description": "Description for \"Other tech stack used\" text input"
   },
   "ZHuDIg": {
     "defaultMessage": "Joined on {date}",
@@ -2958,6 +2974,10 @@
   "dfAvc7": {
     "defaultMessage": "Footer",
     "description": "Footer section heading"
+  },
+  "dgTN/f": {
+    "defaultMessage": "More",
+    "description": "Label for \"More\" button on current project session card"
   },
   "dk2vXq": {
     "defaultMessage": "Terms of Service",
@@ -3367,6 +3387,10 @@
     "defaultMessage": "Intro to Behavioral Round",
     "description": "Introduction to behavioral interviews"
   },
+  "jUpKwE": {
+    "defaultMessage": "Submit project",
+    "description": "Label for \"Submit project\" button on current project session card"
+  },
   "jVSwXw": {
     "defaultMessage": "Purchase premium to unlock full access to the question.",
     "description": "Subtitle on question paywall appearing on the question pages of premium questions"
@@ -3398,6 +3422,10 @@
   "jtuJQk": {
     "defaultMessage": "About Us",
     "description": "Title of About Us page"
+  },
+  "jvi6yy": {
+    "defaultMessage": "Tech stack",
+    "description": "Placeholder for \"Other tech stack used\" text input"
   },
   "jxXMtj": {
     "defaultMessage": "Prices shown are in {currency}.",
@@ -3687,6 +3715,10 @@
     "defaultMessage": "First, set up your public profile to help the community know you better (and assist you better!)",
     "description": "Subtitle for Projects profile onboarding page"
   },
+  "n2UNgq": {
+    "defaultMessage": "Collapse",
+    "description": "Label for \"Collapse\" button on current project session card"
+  },
   "n4aKYo": {
     "defaultMessage": "Theme",
     "description": "Change site theme button label"
@@ -3923,6 +3955,10 @@
     "defaultMessage": "Sign in with magic link",
     "description": "Label of magic link sign in button on Email Sign In page"
   },
+  "qCCbPu": {
+    "defaultMessage": "Other tech stack used (not covered in skills tree)",
+    "description": "Label for \"Other tech stack used\" text input"
+  },
   "qMWBqm": {
     "defaultMessage": "Easy code reviews",
     "description": "Title for \"Easy code reviews\" feature on Projects home page"
@@ -4114,6 +4150,10 @@
   "t2Ll2e": {
     "defaultMessage": "Run your code with <button>custom test cases</button> before submitting.",
     "description": "Text that appears in the DevTool under the Tests tab before the user has submitted their code"
+  },
+  "t2WvF1": {
+    "defaultMessage": "Skills tooltip",
+    "description": "Tooltip for skills select"
   },
   "t5L0yE": {
     "defaultMessage": "Pricing",

@@ -3,10 +3,10 @@ import { FormattedMessage } from 'react-intl';
 import Text from '~/components/ui/Text';
 
 import ProjectsSkillChip from '../skills/ProjectsSkillChip';
-import type { ProjectSkill } from '../skills/types';
+import type { ProjectsSkill } from '../skills/types';
 
 type Props = Readonly<{
-  stack: Array<ProjectSkill>;
+  stack: Array<ProjectsSkill>;
 }>;
 
 export default function ProjectsSubmissionStack({ stack }: Props) {
@@ -19,8 +19,8 @@ export default function ProjectsSubmissionStack({ stack }: Props) {
           id="aiI8c6"
         />
       </Text>
-      {stack.map(({ key, label, difficulty }) => (
-        <ProjectsSkillChip key={key} difficulty={difficulty} label={label} />
+      {stack.map((skill) => (
+        <ProjectsSkillChip key={skill.key} skill={skill} />
       ))}
     </div>
   );

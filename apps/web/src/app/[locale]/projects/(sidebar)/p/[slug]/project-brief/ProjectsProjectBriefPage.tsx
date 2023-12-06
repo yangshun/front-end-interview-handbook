@@ -2,15 +2,12 @@
 
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import ProjectsProjectBreakdownTabsImpl from '~/components/projects/layout/ProjectsProjectBreakdownTabsImpl';
 import ProjectsAssetProvidedHtml from '~/components/projects/projects/assets-provided/ProjectsAssetProvidedHtml';
 import ProjectsAssetProvidedImageAssets from '~/components/projects/projects/assets-provided/ProjectsAssetProvidedImageAssets';
 import ProjectsAssetProvidedJpeg from '~/components/projects/projects/assets-provided/ProjectsAssetProvidedJpeg';
 import ProjectsAssetProvidedReadme from '~/components/projects/projects/assets-provided/ProjectsAssetProvidedReadme';
 import ProjectsAssetProvidedStyleGuide from '~/components/projects/projects/assets-provided/ProjectsAssetProvidedStyleGuide';
-import ProjectsProjectHeader from '~/components/projects/projects/ProjectsProjectHeader';
 import type { ProjectsProject } from '~/components/projects/projects/types';
-import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -82,22 +79,15 @@ function useSupportItems() {
   return supportItems;
 }
 
-export default function ProjectsProjectPage({ project }: Props) {
-  const { slug } = project;
+export default function ProjectsProjectBriefPage({ project }: Props) {
   const supportItems = useSupportItems();
 
   const projectBrief =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.';
 
   return (
-    <Container className="flex flex-col items-stretch pb-10 pt-4 lg:pb-20 lg:pt-16">
-      <ProjectsProjectHeader project={project} />
-      <ProjectsProjectBreakdownTabsImpl
-        className="mt-16"
-        slug={slug}
-        value="project-brief"
-      />
-      <div className="mt-16 grid grid-cols-1 gap-x-12 gap-y-12 lg:grid-cols-2">
+    <div className="flex flex-col items-stretch">
+      <div className="grid grid-cols-1 gap-x-12 gap-y-12 lg:grid-cols-2">
         <div className="flex flex-col gap-6">
           <Heading level="heading6">
             <FormattedMessage
@@ -169,6 +159,6 @@ export default function ProjectsProjectPage({ project }: Props) {
         {/* TODO: Replace below with FAQ accordion */}
         <div className="bg-red mt-6 h-[200px] w-full rounded-lg" />
       </div>
-    </Container>
+    </div>
   );
 }

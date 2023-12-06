@@ -1,5 +1,5 @@
-export type ProjectSkill = {
-  difficulty: ProjectSkillDifficulty;
+export type ProjectsSkill = {
+  difficulty?: ProjectSkillDifficulty;
   key: string;
   label: string;
 };
@@ -21,7 +21,7 @@ export type ProjectSkillItem = {
   type: 'item';
 };
 
-export type ProjectSkillDifficulty = 'easy' | 'hard' | 'medium';
+export type ProjectSkillDifficulty = 'easy' | 'hard' | 'medium' | 'unknown';
 
 export type ProjectSkillTree = ReadonlyArray<ProjectSkillGroup>;
 

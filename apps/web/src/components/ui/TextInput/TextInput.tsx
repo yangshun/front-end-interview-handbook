@@ -2,8 +2,11 @@ import clsx from 'clsx';
 import type { ChangeEvent, ForwardedRef, InputHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 import React, { useId } from 'react';
+import { RiInformationLine } from 'react-icons/ri';
 
 import Text from '../Text/Text';
+import { themeTextSecondaryColor } from '../theme';
+import Tooltip from '../Tooltip';
 
 export type TextInputSize = 'md' | 'sm' | 'xs';
 
@@ -21,11 +24,13 @@ type Attributes = Pick<
 
 type Props = Readonly<{
   className?: string;
+  classNameOuter?: string;
   defaultValue?: string;
   description?: React.ReactNode;
   endIcon?: React.ComponentType<React.ComponentProps<'svg'>>;
   errorMessage?: React.ReactNode;
   id?: string;
+  isDescriptionCollapsed?: boolean;
   isDisabled?: boolean;
   isLabelHidden?: boolean;
   label: string;
@@ -89,6 +94,7 @@ function TextInput(
     autoComplete,
     autoFocus,
     className,
+    classNameOuter,
     defaultValue,
     description,
     endIcon: EndIcon,
@@ -96,6 +102,7 @@ function TextInput(
     id: idParam,
     isDisabled,
     isLabelHidden = false,
+    isDescriptionCollapsed = false,
     label,
     name,
     placeholder,
@@ -118,21 +125,29 @@ function TextInput(
   const iconColorClass = 'text-neutral-400 dark:text-neutral-600';
 
   return (
-    <div>
+    <div className={classNameOuter}>
       <label
-        className={clsx(isLabelHidden ? 'sr-only' : 'mb-2 block')}
+        className={clsx(
+          isLabelHidden ? 'sr-only' : 'mb-2 flex items-center gap-1',
+        )}
         htmlFor={id}>
         <Text size="body2" weight="medium">
           {label}
         </Text>
         {required && (
           <span aria-hidden="true" className="text-danger">
-            {' '}
             *
           </span>
         )}
+        {isDescriptionCollapsed && description && (
+          <Tooltip label={description}>
+            <RiInformationLine
+              className={clsx(iconSizeClasses, themeTextSecondaryColor)}
+            />
+          </Tooltip>
+        )}
       </label>
-      {!hasError && description && (
+      {!hasError && description && !isDescriptionCollapsed && (
         <Text
           className="my-2"
           color="secondary"
