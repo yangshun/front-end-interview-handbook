@@ -10,7 +10,6 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
 
 :::
 
-
 ## Examples
 
 - News feed (e.g. Facebook): [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/news-feed-facebook)

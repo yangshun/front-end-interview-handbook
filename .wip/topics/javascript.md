@@ -1,5 +1,4 @@
-JavaScript
-==
+# JavaScript
 
 WIP.
 
@@ -18,7 +17,7 @@ WIP.
 - **Promise** - "The Promise object represents the eventual completion (or failure) of an asynchronous operation, and its resulting value." - [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
   - Promises can contain an immediate value.
 - **Prototype** - TBD
-- **This** - The `this` keyword does not refer to the function in which `this` is used or that function's scope. Javascript uses [4 rules](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch2.md#determining-this) to determine if `this` will reference an arbitrary object, *undefined* or the *global* object inside a particular function call.
+- **This** - The `this` keyword does not refer to the function in which `this` is used or that function's scope. Javascript uses [4 rules](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch2.md#determining-this) to determine if `this` will reference an arbitrary object, _undefined_ or the _global_ object inside a particular function call.
 
 ## Core Language
 

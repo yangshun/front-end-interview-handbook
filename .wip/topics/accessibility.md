@@ -1,5 +1,4 @@
-Accessibility
-==
+# Accessibility
 
 ## Glossary
 
@@ -77,17 +76,20 @@ The following is a checklist that contains recommendations for implementing HTML
 - `aria-role` attributes tell assistive technologies that the element should follow that role's accessibility patterns. There are well-defined roles in the HTML spec. Do not define them on your own.
   - `tabindex="0"` is usually added to it elements that have `role` added so that it can be focused.
 - Assistive labelling
+
   - `aria-label` is useful for labelling buttons where the content is empty or contains only icons.
   - `aria-labelledby` is similar to `<label>` elements, and can be used on any elements.
+
     ```html
     /* Normal label example */
-    <input type="radio" id="coffee-label">
+    <input type="radio" id="coffee-label" />
     <label for="coffee-label">Coffee</label>
 
     /* aria-labelledby example */
     <div role="radio" aria-labelledby="coffee-label"></div>
     <span id="coffee-label">Coffee</span>
     ```
+
 - ARIA Relationships
   - ARIA relationship attributes create semantic relationships between elements on the page. The `aria-labelledby` attribute in the previous example indicates that the `<div>` is labelled by the element with that `id`.
   - Possible relationship attributes include `aria-activedescendent`, `aria-describedby`, `aria-labelledby`, `aria-owns`, `aria-posinset` and `aria-setsize`.
@@ -137,23 +139,23 @@ The following is a checklist that contains recommendations for implementing HTML
 Consider using ARIA attributes in your CSS selectors to reduce some noise in your CSS. For custom toggle buttons, instead of doing this,
 
 ```html
-<div class="toggle pressed" role="button" tabindex="0" aria-pressed="true"></div> /* On */
-<div class="toggle" role="button" tabindex="0" aria-pressed="false"></div> /* Off */
-
-.toggle.pressed {
-  ...
-}
+<div
+  class="toggle pressed"
+  role="button"
+  tabindex="0"
+  aria-pressed="true"></div>
+/* On */
+<div class="toggle" role="button" tabindex="0" aria-pressed="false"></div>
+/* Off */ .toggle.pressed { ... }
 ```
 
 you can do this instead:
 
 ```html
-<div class="toggle" role="button" tabindex="0" aria-pressed="true"></div> /* On */
-<div class="toggle" role="button" tabindex="0" aria-pressed="false"></div> /* Off */
-
-.toggle[aria-pressed="true"] {
-  ...
-}
+<div class="toggle" role="button" tabindex="0" aria-pressed="true"></div>
+/* On */
+<div class="toggle" role="button" tabindex="0" aria-pressed="false"></div>
+/* Off */ .toggle[aria-pressed="true"] { ... }
 ```
 
 which removes the need for toggling the `press` class on the element.

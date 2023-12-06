@@ -459,7 +459,7 @@ JSONP działa poprzez wysłanie żądania do domeny cross-origin za pomocą znac
 
 ```js
 // File loaded from https://example.com?callback=printData
-printData({name: 'Yang Shun'});
+printData({ name: 'Yang Shun' });
 ```
 
 Klient musi mieć funkcję `printData` w swoim globalnym zasięgu, a funkcja zostanie wykonana przez klienta po otrzymaniu odpowiedzi z domeny cross-origin.
@@ -931,9 +931,9 @@ const arr = [1, 2, 3];
 const newArr = [...arr, 4]; // [1, 2, 3, 4]
 
 // Object Example
-const human = Object.freeze({race: 'human'});
-const john = {...human, name: 'John'}; // {race: "human", name: "John"}
-const alienJohn = {...john, race: 'alien'}; // {race: "alien", name: "John"}
+const human = Object.freeze({ race: 'human' });
+const john = { ...human, name: 'John' }; // {race: "human", name: "John"}
+const alienJohn = { ...john, race: 'alien' }; // {race: "alien", name: "John"}
 ```
 
 ###### Bibliografia
@@ -1237,8 +1237,8 @@ console.log(b); // 1
 
 ```js
 // Variable assignment.
-const o = {p: 42, q: true};
-const {p, q} = o;
+const o = { p: 42, q: true };
+const { p, q } = o;
 
 console.log(p); // 42
 console.log(q); // true
@@ -1254,7 +1254,7 @@ console.log(q); // true
 Literały szablonów ułatwiają interpolację stringów lub uwzględnianie zmiennych w stringach. Przed ES2015 było coś takiego:
 
 ```js
-var person = {name: 'Tyler', age: 28};
+var person = { name: 'Tyler', age: 28 };
 console.log(
   'Hi, my name is ' + person.name + ' and I am ' + person.age + ' years old!',
 );
@@ -1264,7 +1264,7 @@ console.log(
 With template literals, you can now create that same output like this instead:
 
 ```js
-const person = {name: 'Tyler', age: 28};
+const person = { name: 'Tyler', age: 28 };
 console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 // 'Hi, my name is Tyler and I am 28 years old!'
 ```
@@ -1299,7 +1299,7 @@ This is line two.`);
 Innym przykładem użycia literałów szablonów byłoby użycie jako zamiennika bibliotek szablonów dla prostych interpolacji zmiennych:
 
 ```js
-const person = {name: 'Tyler', age: 28};
+const person = { name: 'Tyler', age: 28 };
 document.body.innerHTML = `
   <div>
     <p>Name: ${person.name}</p>
@@ -1366,7 +1366,7 @@ const person = {
   age: 29,
 };
 
-const copyOfTodd = {...person};
+const copyOfTodd = { ...person };
 ```
 
 Rest syntax z ES6 oferuje skrót do włączenia dowolnej liczby argumentów, które należy przekazać do funkcji. To jest jak odwrotność spread syntax, biorąc dane i upychając je do tablicy, zamiast rozpakowywać tablicę danych, i działa w argumentach funkcyjnych, a także w przypisaniach destrukturyzacji tablicy i obiektów.
@@ -1380,7 +1380,7 @@ const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12
 
 const [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]
 
-const {e, f, ...others} = {
+const { e, f, ...others } = {
   e: 1,
   f: 2,
   g: 3,

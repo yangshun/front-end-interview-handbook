@@ -7,7 +7,7 @@ import styles from './styles.module.css';
 
 const BACKGROUNDS = [styles.backgroundOrange, styles.backgroundRed];
 
-function FAANGTechLeads({className, position}) {
+function FAANGTechLeads({ className, position }) {
   return (
     <a
       className={clsx(styles.container, className)}
@@ -30,7 +30,7 @@ function FAANGTechLeads({className, position}) {
   );
 }
 
-function GreatFrontEnd({position}) {
+function GreatFrontEnd({ position }) {
   return (
     <a
       className={clsx(styles.container, styles.backgroundPurple)}
@@ -44,15 +44,14 @@ function GreatFrontEnd({position}) {
         <strong className={styles.title}>
           LeetCode for Front End Interviews
         </strong>
-        Get 20% off <u>GreatFrontEnd</u>'s premium high quality
-        practice questions, answers and guides by{' '}
-        <u>ex-FAANG Senior Engineers</u>
+        Get 20% off <u>GreatFrontEnd</u>'s premium high quality practice
+        questions, answers and guides by <u>ex-FAANG Senior Engineers</u>
       </p>
     </a>
   );
 }
 
-export default React.memo(function SidebarAd({position}) {
+export default React.memo(function SidebarAd({ position }) {
   const backgroundClass =
     BACKGROUNDS[Math.floor(Math.random() * BACKGROUNDS.length)];
   // Because the SSR and client output can differ and hydration doesn't patch attribute differences,

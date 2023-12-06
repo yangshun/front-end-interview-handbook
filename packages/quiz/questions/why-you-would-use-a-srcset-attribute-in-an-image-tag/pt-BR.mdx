@@ -5,9 +5,9 @@ subtitle: Explique o processo que o navegador usa ao avaliar o conteúdo deste a
 
 Você usaria o atributo `srcset` quando desejar fornecer imagens diferentes aos usuários, dependendo da largura da tela de seus dispositivos - fornecer imagens de alta qualidade para dispositivos com tela Retina melhora a experiência do usuário, enquanto fornecer imagens de resolução mais baixa para dispositivos de baixo desempenho aumenta o desempenho e diminui o desperdício de dados (pois fornecer uma imagem maior não terá nenhuma diferença visível). Por exemplo: `<img srcset="small.jpg 500w, medium.jpg 1000w, large.jpg 2000w" src="..." alt="">` diz ao navegador para exibir o gráfico pequeno, médio ou grande `.jpg` dependendo da resolução do cliente. O primeiro valor é o nome da imagem e o segundo é a largura da imagem em pixels. Para uma largura de dispositivo de 320px, são feitos os seguintes cálculos:
 
--   500 / 320 = 1.5625
--   1000 / 320 = 3.125
--   2000 / 320 = 6.25
+- 500 / 320 = 1.5625
+- 1000 / 320 = 3.125
+- 2000 / 320 = 6.25
 
 Se a resolução do cliente for 1x, a 1.5625 é a mais próxima e a opção `500w` correspondente a `small.jpg` será selecionada pelo navegador.
 

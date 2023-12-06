@@ -19,11 +19,11 @@ JSONP 工作方式是通过一个 `<script>` 标签向一个跨源域提出请�
 
 ```js
 // 从 https://example.com?callback=printData 加载的文件
-printData({name: 'John Doe'});
+printData({ name: 'John Doe' });
 ```
 
 客户端必须将`printData`函数设在其全局范围内，当收到跨源域的响应时，该函数将由客户端执行。
 
-JSONP 可能是不安全的，并涉及一些安全问题。 因为JSONP 真的是JavaScript，它可以做所有其它JavaScript可以做的事情，所以你需要信任JSONP 数据的提供者。
+JSONP 可能是不安全的，并涉及一些安全问题。 因为 JSONP 真的是 JavaScript，它可以做所有其它 JavaScript 可以做的事情，所以你需要信任 JSONP 数据的提供者。
 
 这几天， [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 是推荐的方法，JSONP 被视为一种 hack（破解）。

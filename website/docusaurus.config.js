@@ -26,7 +26,7 @@ module.exports = {
         src: 'img/logo.svg',
       },
       items: [
-        {to: 'introduction', label: 'Start reading', position: 'left'},
+        { to: 'introduction', label: 'Start reading', position: 'left' },
         {
           type: 'dropdown',
           position: 'left',
@@ -51,7 +51,7 @@ module.exports = {
           label: 'System design',
           position: 'left',
         },
-        {to: 'blog', label: 'Blog', position: 'left'},
+        { to: 'blog', label: 'Blog', position: 'left' },
         {
           type: 'localeDropdown',
           position: 'right',

@@ -370,7 +370,7 @@ JSONP は、`<script>` タグを介してクロスオリジンドメインにリ
 
 ```js
 // File loaded from https://example.com?callback=printData
-printData({name: 'Yang Shun'});
+printData({ name: 'Yang Shun' });
 ```
 
 クライアントは、そのグローバルスコープ内に `printData` 関数を持たなければならず、関数はクロスオリジンドメインからの応答を受け取ったときにクライアントによって実行されます。
@@ -1014,8 +1014,8 @@ console.log(b); // 1
 
 ```js
 // Variable assignment.
-const o = {p: 42, q: true};
-const {p, q} = o;
+const o = { p: 42, q: true };
+const { p, q } = o;
 
 console.log(p); // 42
 console.log(q); // true
@@ -1032,7 +1032,7 @@ console.log(q); // true
 テンプレートリテラルは、文字列の補間や、文字列に変数を含めることを簡単にするのに役立ちます。ES2015 以前は、このようなことをするのが一般的でした。
 
 ```js
-var person = {name: 'Tyler', age: 28};
+var person = { name: 'Tyler', age: 28 };
 console.log(
   'Hi, my name is ' + person.name + ' and I am ' + person.age + ' years old!',
 );
@@ -1042,7 +1042,7 @@ console.log(
 テンプレートリテラルを使用すると、このような出力で作成できます。
 
 ```js
-const person = {name: 'Tyler', age: 28};
+const person = { name: 'Tyler', age: 28 };
 console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 // 'Hi, my name is Tyler and I am 28 years old!'
 ```
@@ -1077,7 +1077,7 @@ This is line two.`);
 テンプレートリテラルのもう 1 つの使用例は、単純な変数補間のためのテンプレートライブラリの代用として使用することです。
 
 ```js
-const person = {name: 'Tyler', age: 28};
+const person = { name: 'Tyler', age: 28 };
 document.body.innerHTML = `
   <div>
     <p>Name: ${person.name}</p>
@@ -1145,7 +1145,7 @@ const person = {
   age: 29,
 };
 
-const copyOfTodd = {...person};
+const copyOfTodd = { ...person };
 ```
 
 ES6 の rest 構文は、任意の数の引数を関数に渡すための省略表現です。これは、データの配列をアンパックするのではなく、データを取り込んで配列に埋め込み、配列やオブジェクトの構造の割り当てと同様に、関数の引数でも機能する、普及した構文の逆です。
@@ -1159,7 +1159,7 @@ const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12
 
 const [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]
 
-const {e, f, ...others} = {
+const { e, f, ...others } = {
   e: 1,
   f: 2,
   g: 3,

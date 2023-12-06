@@ -20,7 +20,6 @@ Not sure how to start? [GreatFrontEnd](https://www.greatfrontend.com) has front 
 
 :::
 
-
 ## Basic examples
 
 - Implement `Array.prototype` functions: `map`, `reduce`, `filter`, `sort`

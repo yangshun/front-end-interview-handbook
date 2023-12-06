@@ -36,7 +36,7 @@ Probably the most obvious downside of using objects for hash maps is that object
 ```jsx
 const foo = [];
 const bar = {};
-const obj = {[foo]: 'foo', [bar]: 'bar'};
+const obj = { [foo]: 'foo', [bar]: 'bar' };
 
 console.log(obj); // {"": 'foo', [object Object]: 'bar'}
 ```
@@ -115,7 +115,7 @@ We can use the good old `for ... in` loop. But it reveals inherited enumerable p
 ```jsx
 Object.prototype.foo = 'bar';
 
-const obj = {id: 1};
+const obj = { id: 1 };
 
 for (const key in obj) {
   console.log(key); // 'id', 'foo'
@@ -147,7 +147,7 @@ There is no easy way to remove all properties from an object, you have to delete
 Finally, we can't rely on the dot/bracket notation to check for existence of an property because the value itself could be set as `undefined`. Instead we have to use `Object.prototype.hasOwnProperty` or `Object.hasOwn`.
 
 ```jsx
-const obj = {a: undefined};
+const obj = { a: undefined };
 
 Object.hasOwn(obj, 'a'); // true
 ```

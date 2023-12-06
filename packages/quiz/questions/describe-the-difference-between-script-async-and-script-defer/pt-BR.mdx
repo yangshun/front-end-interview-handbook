@@ -20,11 +20,11 @@ Se um script depende de um DOM totalmente analisado, o atributo `defer` será ú
 
 ## Notas
 
--   Geralmente, o atributo `async` deve ser usado para scripts que não são críticos para a renderização inicial da página e não dependem um do outro. enquanto o atributo `defer` deve ser usado para scripts que dependem de / é dependente de outro script.
--   Os atributos `async` e `defer` são ignorados para scripts que não têm o atributo `src`.
--   `<script>`s com `defer` ou `async` que contêm `document.write()` serão ignorados com uma mensagem como "Uma chamada para o documento.write() de um script externo carregado de forma assíncrona foi ignorada".
+- Geralmente, o atributo `async` deve ser usado para scripts que não são críticos para a renderização inicial da página e não dependem um do outro. enquanto o atributo `defer` deve ser usado para scripts que dependem de / é dependente de outro script.
+- Os atributos `async` e `defer` são ignorados para scripts que não têm o atributo `src`.
+- `<script>`s com `defer` ou `async` que contêm `document.write()` serão ignorados com uma mensagem como "Uma chamada para o documento.write() de um script externo carregado de forma assíncrona foi ignorada".
 
 ## Referências
 
--   [`<script>`: O elemento Script | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#defer)
--   [async vs defer attributes](https://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html)
+- [`<script>`: O elemento Script | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#defer)
+- [async vs defer attributes](https://www.growingwiththeweb.com/2014/02/async-vs-defer-attributes.html)

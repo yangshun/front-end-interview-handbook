@@ -40,4 +40,4 @@ sayNameFromWindow2(); // John
 
 这里的主要启示是，对于普通函数\`this'可以改变，但对于箭头函数，上下文始终保持不变。 所以，即使你将箭头函数传递到应用程序的不同部分，你也不必担心上下文会发生变化。
 
-这对React类组件特别有用。 如果你定义了一个类方法，例如使用普通函数的点击处理程序，然后你把这个点击处理程序作为一个道具传递给子组件，你将需要在父组件的构造函数中绑定`this`。 如果你使用一个箭头函数，就不需要同时绑定 "this"，因为方法会自动从其包围的词法上下文中获得 "this "值。 (关于优秀演示和样本代码：https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb)
+这对 React 类组件特别有用。 如果你定义了一个类方法，例如使用普通函数的点击处理程序，然后你把这个点击处理程序作为一个道具传递给子组件，你将需要在父组件的构造函数中绑定`this`。 如果你使用一个箭头函数，就不需要同时绑定 "this"，因为方法会自动从其包围的词法上下文中获得 "this "值。 (关于优秀演示和样本代码：https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb)

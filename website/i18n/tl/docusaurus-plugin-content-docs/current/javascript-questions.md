@@ -363,7 +363,7 @@ Gumagana ang JSONP sa pamamagitan ng paggawa ng isang kahilingan sa isang cross-
 
 ```js
 // Ang file ay naload galing sa https://example.com?callback=printData
-printData({name: 'Yang Shun'});
+printData({ name: 'Yang Shun' });
 ```
 
 Ang kliyente ay dapat magkaroon ng punksyon na `printData` sa pandaigdigang saklaw nito at ang punksyon ay isasagawa ng kliyente kapag ang tugon mula sa cross-origin na domain ay natanggap na.
@@ -903,8 +903,8 @@ console.log(b); // 1
 
 ```js
 // Variable assignment.
-const o = {p: 42, q: true};
-const {p, q} = o;
+const o = { p: 42, q: true };
+const { p, q } = o;
 
 console.log(p); // 42
 console.log(q); // true
@@ -971,7 +971,7 @@ const person = {
   age: 29,
 };
 
-const copyOfTodd = {...person};
+const copyOfTodd = { ...person };
 ```
 
 ES6's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than unpacking an array of data, and it works in function arguments, as well as in array and object destructuring assignments.
@@ -985,7 +985,7 @@ const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12
 
 const [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]
 
-const {e, f, ...others} = {
+const { e, f, ...others } = {
   e: 1,
   f: 2,
   g: 3,

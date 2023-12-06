@@ -5,9 +5,13 @@ title: Template Literals do ES2015 oferecem muita flexibilidade na geração de 
 Os literais de template ajudam a simplificar a interpolação de strings ou a incluir variáveis em uma string. Antes do ES2015, era comum fazer algo assim:
 
 ```js
-var person = {name: 'Tyler', age: 28};
+var person = { name: 'Tyler', age: 28 };
 console.log(
-  'Oi, meu nome é ' + person.name + ' e eu sou ' + pessoa.age + ' anos de idade!',
+  'Oi, meu nome é ' +
+    person.name +
+    ' e eu sou ' +
+    pessoa.age +
+    ' anos de idade!',
 );
 // 'Oi, meu nome é Tyler e eu tenho 28 anos!'
 ```
@@ -15,7 +19,7 @@ console.log(
 Com os template literals, agora você pode criar a mesma saída assim:
 
 ```js
-const person = {name: 'Tyler', age: 28};
+const person = { name: 'Tyler', age: 28 };
 console.log(`Oi, meu nome é ${person.name} e tenho ${person.age} anos!`);
 // 'Oi, meu nome é Tyler e eu tenho 28 anos!'
 ```
@@ -50,7 +54,7 @@ Esta é a linha dois.`);
 Um outro caso de uso de template literals seria usar como substituto para as bibliotecas de templates para interpolações variáveis simples:
 
 ```js
-const person = {name: 'Tyler', age: 28};
+const person = { name: 'Tyler', age: 28 };
 document.body.innerHTML = `
   <div>
     <p>Nome: ${person.name}</p>

@@ -1,9 +1,9 @@
-Design Questions
-==
+# Design Questions
 
 ## Autocomplete Widget
 
 Talk me through a full stack implementation of an autocomplete widget. A user can type text into it, and get back results from a server.
+
 - How would you design a frontend to support the following features:
   - Fetch data from a backend API
   - Render results as a tree (items can have parents/children - it's not just a flat list)

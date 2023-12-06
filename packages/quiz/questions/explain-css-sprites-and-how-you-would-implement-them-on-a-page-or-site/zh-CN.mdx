@@ -4,12 +4,12 @@ title: 解释CSS 图片精灵（雪碧图），以及您如何在页面或网站
 
 CSS 图片精灵将多个图片合并为一个更大的图片文件，并使用 CSS `background-image`, `background-position` 和 `background-size` 来选择更大图片的特定部分作为所需图片。
 
-它曾经是用于图标的一种常用技术(例如，Gmail使用图片精灵作为其所有图片)。
+它曾经是用于图标的一种常用技术(例如，Gmail 使用图片精灵作为其所有图片)。
 
 ## 优点
 
--   减少多个图片的 HTTP 请求数量 (每张spritesheet 只需要一个请求)。 但是使用 HTTP2 加载多个图片已不再是一个问题。
--   预先下载在需要之前不会下载的资产，如只会出现在 `:hover` 伪状态上的图片。 闪烁不会被看到。
+- 减少多个图片的 HTTP 请求数量 (每张 spritesheet 只需要一个请求)。 但是使用 HTTP2 加载多个图片已不再是一个问题。
+- 预先下载在需要之前不会下载的资产，如只会出现在 `:hover` 伪状态上的图片。 闪烁不会被看到。
 
 ## 实现方式
 
@@ -45,4 +45,4 @@ CSS 图片精灵将多个图片合并为一个更大的图片文件，并使用 
 
 ## 参考资料
 
--   [在 CSS 中实现图片精灵 - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Implementing_image_sprites_in_CSS)
+- [在 CSS 中实现图片精灵 - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Images/Implementing_image_sprites_in_CSS)

@@ -5,10 +5,7 @@
   "premium": false,
   "duration": 5,
   "published": true,
-  "topics": [
-    "html",
-    "performance"
-  ],
+  "topics": ["html", "performance"],
   "importance": "high",
   "difficulty": "medium",
   "featured": true

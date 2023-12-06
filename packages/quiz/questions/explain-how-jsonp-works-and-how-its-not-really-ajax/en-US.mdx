@@ -19,7 +19,7 @@ JSONP works by making a request to a cross-origin domain via a `<script>` tag an
 
 ```js
 // File loaded from https://example.com?callback=printData
-printData({name: 'John Doe'});
+printData({ name: 'John Doe' });
 ```
 
 The client has to have the `printData` function in its global scope and the function will be executed by the client when the response from the cross-origin domain is received.

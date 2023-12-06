@@ -28,6 +28,6 @@ if (document.getElementsByTagName) {
 
 真不推荐这样做。 功能检测才是万无一失的。
 
-## UA字符串
+## UA 字符串
 
-这是一个浏览器报告的字符串，允许网络协议对等者识别请求软件用户代理的应用程序类型、操作系统、软件供应商或软件版本。 它可以通过 `navigator.userAgent` 访问。 然而，该字符串解析起来很棘手，可以被欺骗。 例如，Chrome同时报告为Chrome和Safari。 所以要检测Safari，你必须检查Safari字符串和Chrome字符串的缺失。 避免使用此方法。
+这是一个浏览器报告的字符串，允许网络协议对等者识别请求软件用户代理的应用程序类型、操作系统、软件供应商或软件版本。 它可以通过 `navigator.userAgent` 访问。 然而，该字符串解析起来很棘手，可以被欺骗。 例如，Chrome 同时报告为 Chrome 和 Safari。 所以要检测 Safari，你必须检查 Safari 字符串和 Chrome 字符串的缺失。 避免使用此方法。

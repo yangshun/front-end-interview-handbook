@@ -16,23 +16,23 @@ Os recursos de design de sistemas da GreatFrontEnd são talvez os mais abrangent
 
 Nas entrevistas tradicionais de design de sistemas para Engenheiros de Software, os candidatos serão solicitados a descrever a arquitetura de um sistema distribuído, geralmente envolvendo servidores web, balanceadores de carga, caches, bancos de dados, microsserviços, filas de tarefas, etc. Para Engenheiros Front-End, as entrevistas de design de sistemas são um pouco diferentes, com mais ênfase no que acontece no cliente e no design da API entre o cliente e o servidor, em vez do que acontece no back-end.
 
-| Proporção                                                | Back End                                                                                                                                                 | Front End                                                               |
-| -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| Coletar requisitos                                       | Obrigatório                                                                                                                                              | Obrigatório                                                             |
-| Arquitetura/design de alto nível                         | Serviços em nuvem distribuídos                                                                                                                           | Aplicação/Componente                                                    |
-| Estimativa rápida                                        | Obrigatório                                                                                                                                              | Não obrigatório                                                         |
-| Componentes do sistema                                   | Serviços em nuvem (por exemplo, balanceador de carga, servidor de aplicação, banco de dados, armazenamento de arquivos, caches, filas de mensagens, CDN) | Módulos de aplicação (Modelo, Visualização, Controlador)                |
-| Modelo de dados                                          | Esquema SQL                                                                                                                                              | Estado da aplicação                                                     |
-| Tipo de APIs entre os componentes                        | Rede (qualquer protocolo)                                                                                                                                | Rede (HTTP, WebSocket), funções JavaScript                              |
-| Áreas de foco                                            | Escalabilidade, Confiabilidade, Disponibilidade                                                                                                          | Desempenho, Experiência do Usuário, Acessibilidade, Internacionalização |
-| Menos importante (pode ser tratado como uma caixa-preta) | Cliente                                                                                                                                                  | Servidor                                                                |
+| Proporção | Back End | Front End |
+| --- | --- | --- |
+| Coletar requisitos | Obrigatório | Obrigatório |
+| Arquitetura/design de alto nível | Serviços em nuvem distribuídos | Aplicação/Componente |
+| Estimativa rápida | Obrigatório | Não obrigatório |
+| Componentes do sistema | Serviços em nuvem (por exemplo, balanceador de carga, servidor de aplicação, banco de dados, armazenamento de arquivos, caches, filas de mensagens, CDN) | Módulos de aplicação (Modelo, Visualização, Controlador) |
+| Modelo de dados | Esquema SQL | Estado da aplicação |
+| Tipo de APIs entre os componentes | Rede (qualquer protocolo) | Rede (HTTP, WebSocket), funções JavaScript |
+| Áreas de foco | Escalabilidade, Confiabilidade, Disponibilidade | Desempenho, Experiência do Usuário, Acessibilidade, Internacionalização |
+| Menos importante (pode ser tratado como uma caixa-preta) | Cliente | Servidor |
 
 Leia mais sobre as diferenças entre as entrevistas de Design de Sistema de Front End e Back End no blog de Zhenghao em (https://www.zhenghao.io/posts/system-design-interviews)
 
 Por exemplo, uma pergunta clássica é pedir para projetar uma interface de feed do Twitter, que pode ser feita tanto em entrevistas de sistemas de back end quanto de front end.
 
--   Back end: Estimativa de capacidade, projeto dos esquemas do banco de dados, como garantir que os serviços possam escalar com o tráfego, como gerar o feed do Twitter de um usuário?
--   Front end: Como você implementa as interações com um tweet, como implementar paginação no feed e como os usuários podem criar novos tweets?
+- Back end: Estimativa de capacidade, projeto dos esquemas do banco de dados, como garantir que os serviços possam escalar com o tráfego, como gerar o feed do Twitter de um usuário?
+- Front end: Como você implementa as interações com um tweet, como implementar paginação no feed e como os usuários podem criar novos tweets?
 
 Como você pode ver, o foco das entrevistas de design de sistemas de front end pode ser muito diferente das de back end, e respondê-las bem requer uma abordagem diferente.
 
@@ -40,7 +40,7 @@ Como você pode ver, o foco das entrevistas de design de sistemas de front end p
 
 Nosso guia de Design de Sistema de Front End está estruturado em duas partes. Primeiro, você obterá uma compreensão mais profunda do que se trata uma entrevista de design de sistema e, em seguida, mergulhará em alguns estudos de caso de design de sistema de front end usando o framework RADIO.
 
--   [Tipos de questões e exemplos do Front End System Design](/system-design/types-of-questions)
--   [Framework para responder perguntas sobre o Design do Sistema Front-end](/system-design/framework)
--   [Como você está sendo avaliado e o que os entrevistadores estão procurando](/system-design/evaluation-axes)
--   [Erros comuns para evitar](/system-design/common-mistakes)
+- [Tipos de questões e exemplos do Front End System Design](/system-design/types-of-questions)
+- [Framework para responder perguntas sobre o Design do Sistema Front-end](/system-design/framework)
+- [Como você está sendo avaliado e o que os entrevistadores estão procurando](/system-design/evaluation-axes)
+- [Erros comuns para evitar](/system-design/common-mistakes)

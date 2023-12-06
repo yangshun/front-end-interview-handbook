@@ -41,8 +41,8 @@ Vamos supor que você não tenha esclarecido em quais partes do produto focar, a
 
 Em primeiro lugar, o que são requisitos funcionais e não funcionais?
 
--   **Requisitos funcionais**: Requisitos básicos do produto de forma que o produto não possa funcionar sem eles. Isso geralmente se refere à capacidade do usuário de concluir corretamente as principais etapas do fluxo.
--   **Requisitos não funcionais**: São requisitos que são considerados melhorias para o produto, mas não são estritamente necessários para que o produto seja utilizável. Ou seja, o produto ainda pode ser utilizado sem esses requisitos. Isso inclui desempenho (quão rápido a página carrega, quão rápido a interação ocorre), escalabilidade (quantos itens podem estar presentes na página), boa experiência do usuário, entre outros.
+- **Requisitos funcionais**: Requisitos básicos do produto de forma que o produto não possa funcionar sem eles. Isso geralmente se refere à capacidade do usuário de concluir corretamente as principais etapas do fluxo.
+- **Requisitos não funcionais**: São requisitos que são considerados melhorias para o produto, mas não são estritamente necessários para que o produto seja utilizável. Ou seja, o produto ainda pode ser utilizado sem esses requisitos. Isso inclui desempenho (quão rápido a página carrega, quão rápido a interação ocorre), escalabilidade (quantos itens podem estar presentes na página), boa experiência do usuário, entre outros.
 
 Existem duas maneiras pelas quais você pode obter a resposta para essa pergunta:
 
@@ -59,16 +59,16 @@ Você deve esclarecer os recursos principais antecipadamente e projetar para ele
 
 ### Outras questões:
 
--   Quais dispositivos/plataformas (desktop, tablet, mobile) precisam ser suportados?
--   O suporte offline é necessário?
--   Quem são os principais usuários do produto?
--   Quais são os requisitos de desempenho, se houver? (Requisitos de desempenho geralmente se enquadram nos requisitos não funcionais.)
+- Quais dispositivos/plataformas (desktop, tablet, mobile) precisam ser suportados?
+- O suporte offline é necessário?
+- Quem são os principais usuários do produto?
+- Quais são os requisitos de desempenho, se houver? (Requisitos de desempenho geralmente se enquadram nos requisitos não funcionais.)
 
 A lista acima deve fornecer uma boa lista inicial de perguntas, mas não é uma lista exaustiva! Problemas diferentes exigirão que você faça perguntas específicas do domínio, o que abordaremos nos estudos de caso.
 
 Recomenda-se que você registre os requisitos acordados em algum lugar para poder consultá-los durante toda a entrevista e garantir que tenha abordado todos eles.
 
-* * *
+---
 
 ## Arquitetura/Design de Alto Nível
 
@@ -82,15 +82,15 @@ Diagramas são seus amigos nesse caso. Cada componente pode ser representado usa
 
 Aqui estão alguns exemplos de componentes/módulos comumente encontrados em um design de front-end de alto nível:
 
--   **Servidor**: Em entrevistas de design de sistemas front-end, podemos tratar o servidor como uma caixa preta e assumir que ele expõe algumas APIs que você pode chamar por meio de HTTP/WebSockets.
--   **View**: Isso representa o que o usuário vê e geralmente contém subvisualizações menores dentro dele. Pode conter estados exclusivos do lado do cliente.
--   **Controlador**: O módulo que responde às interações do usuário e processa os dados do armazenamento/modelo em um formato esperado pela visualização. Esse módulo nem sempre é necessário se a aplicação for pequena e não houver muita troca de dados entre os módulos.
--   **Store do Modelo/Cliente**: Onde os dados estão. Os armazenamentos contêm os dados que serão apresentados ao usuário por meio das visualizações e, em um contexto de entrevista, os armazenamentos tendem a abranger toda a aplicação. Na realidade, é possível ter vários armazenamentos dentro de uma aplicação, e os armazenamentos podem conter outros armazenamentos.
+- **Servidor**: Em entrevistas de design de sistemas front-end, podemos tratar o servidor como uma caixa preta e assumir que ele expõe algumas APIs que você pode chamar por meio de HTTP/WebSockets.
+- **View**: Isso representa o que o usuário vê e geralmente contém subvisualizações menores dentro dele. Pode conter estados exclusivos do lado do cliente.
+- **Controlador**: O módulo que responde às interações do usuário e processa os dados do armazenamento/modelo em um formato esperado pela visualização. Esse módulo nem sempre é necessário se a aplicação for pequena e não houver muita troca de dados entre os módulos.
+- **Store do Modelo/Cliente**: Onde os dados estão. Os armazenamentos contêm os dados que serão apresentados ao usuário por meio das visualizações e, em um contexto de entrevista, os armazenamentos tendem a abranger toda a aplicação. Na realidade, é possível ter vários armazenamentos dentro de uma aplicação, e os armazenamentos podem conter outros armazenamentos.
 
 Outros aspectos a serem considerados ao definir as responsabilidades dos componentes:
 
--   **Separação de Responsabilidades**: Os componentes devem ser modulares e servir para encapsular um conjunto de funcionalidades e dados. Considere o propósito/funcionalidade de cada componente, quais dados ele deve conter e como ele pode servir ao restante do sistema (o que ele pode fazer pelos outros componentes).
--   Onde a computação deve ocorrer: Se for necessária alguma quantidade de computação (por exemplo, filtrar resultados com base em um termo de pesquisa, calcular o valor total de um carrinho), o trabalho deve ser feito no servidor ou no cliente? Existem compensações para cada abordagem, e a decisão depende tanto da pergunta específica quanto do contexto em que ela é aplicada.
+- **Separação de Responsabilidades**: Os componentes devem ser modulares e servir para encapsular um conjunto de funcionalidades e dados. Considere o propósito/funcionalidade de cada componente, quais dados ele deve conter e como ele pode servir ao restante do sistema (o que ele pode fazer pelos outros componentes).
+- Onde a computação deve ocorrer: Se for necessária alguma quantidade de computação (por exemplo, filtrar resultados com base em um termo de pesquisa, calcular o valor total de um carrinho), o trabalho deve ser feito no servidor ou no cliente? Existem compensações para cada abordagem, e a decisão depende tanto da pergunta específica quanto do contexto em que ela é aplicada.
 
 É importante perceber que nem todos os componentes comuns mencionados acima serão relevantes e necessários para todas as perguntas, isso depende do produto em questão.
 
@@ -104,17 +104,16 @@ Aqui está um exemplo de diagrama de arquitetura para a pergunta do News Feed, d
 
 #### Responsabilidades do Componente
 
--   **Servidor**: Fornece os dados do feed e disponibiliza uma API HTTP para a criação de novas postagens no feed.
--   **Controlador**: Controla o fluxo de dados dentro da aplicação e faz solicitações de rede para o servidor.
--   **Armazenamento do Cliente**: Armazena dados necessários em toda a aplicação. No contexto de um feed de notícias, a maioria dos dados armazenados será originada do servidor e necessária para a interface do feed.
--   **Interface do Feed**: Contém uma lista de postagens do feed e a interface para compor novas postagens.
-    -   **Feed Post**: Mostra os dados de uma publicação e contém botões para interagir com a publicação (como /react/share/comment).
-    -   **Compositor de Postagens**: Interface do usuário para os usuários criarem novas postagens no feed.
+- **Servidor**: Fornece os dados do feed e disponibiliza uma API HTTP para a criação de novas postagens no feed.
+- **Controlador**: Controla o fluxo de dados dentro da aplicação e faz solicitações de rede para o servidor.
+- **Armazenamento do Cliente**: Armazena dados necessários em toda a aplicação. No contexto de um feed de notícias, a maioria dos dados armazenados será originada do servidor e necessária para a interface do feed.
+- **Interface do Feed**: Contém uma lista de postagens do feed e a interface para compor novas postagens.
+  - **Feed Post**: Mostra os dados de uma publicação e contém botões para interagir com a publicação (como /react/share/comment).
+  - **Compositor de Postagens**: Interface do usuário para os usuários criarem novas postagens no feed.
 
-Algumas ferramentas de desenho gratuitas comuns que você pode ser solicitado a usar incluem
- [diagrams.net](https://app.diagrams.net/) e [Excalidraw](https://excalidraw.com/). Seria uma boa ideia se familiarizar com essas ferramentas antecipadamente.
+Algumas ferramentas de desenho gratuitas comuns que você pode ser solicitado a usar incluem [diagrams.net](https://app.diagrams.net/) e [Excalidraw](https://excalidraw.com/). Seria uma boa ideia se familiarizar com essas ferramentas antecipadamente.
 
-* * *
+---
 
 ## Modelo de Dados
 
@@ -132,8 +131,8 @@ Dados que se originam no servidor, geralmente de um banco de dados, e são desti
 
 Dados exclusivos do cliente, também comumente conhecidos como estado, são dados que apenas precisam estar no cliente e não precisam ser enviados para o servidor para serem gravados no banco de dados. Os dados do cliente podem ser subdivididos em dois:
 
--   **Dados a serem persistidos**: Normalmente, entrada do usuário, como dados inseridos em campos de formulário. Esses dados geralmente precisam ser enviados para o servidor e salvos em um banco de dados para que sejam úteis.
--   Dados efêmeros: Estado temporário que dura por um curto período de tempo. Exemplos comuns incluem o estado de validação de um formulário, a aba atual, se uma seção está expandida, etc. Normalmente, é aceitável perder esses dados quando a guia do navegador é fechada.
+- **Dados a serem persistidos**: Normalmente, entrada do usuário, como dados inseridos em campos de formulário. Esses dados geralmente precisam ser enviados para o servidor e salvos em um banco de dados para que sejam úteis.
+- Dados efêmeros: Estado temporário que dura por um curto período de tempo. Exemplos comuns incluem o estado de validação de um formulário, a aba atual, se uma seção está expandida, etc. Normalmente, é aceitável perder esses dados quando a guia do navegador é fechada.
 
 Ao listar os campos de dados, seria útil identificar que tipo de dados esse campo é, se é um dado originado pelo servidor ou apenas pelo cliente.
 
@@ -141,18 +140,18 @@ Ao listar os campos de dados, seria útil identificar que tipo de dados esse cam
 
 Aqui está um exemplo básico de modelo de dados para as várias entidades usando a pergunta [Feed de notícias](/questions/system-design/news-feed-facebook).
 
-| Fonte                        | Entidade  | Pertence a                                 | Campos                                                                   |
-| ---------------------------- | --------- | ------------------------------------------ | ------------------------------------------------------------------------ |
-| Servidor                     | `Post`    | Postagem do Feed                           | `id`, `created_time`, `content`, `image`, `author` (`User`), `reactions` |
-| Servidor                     | `Feed`    | Interface do Feed                          | `posts` (lista de `Posts`s), `pagination` (metadados de paginação)       |
-| Servidor                     | `User`    | Store do cliente                           | `id`, `nome`, `profile_photo_url`                                        |
-| Entrada do usuário (cliente) | `NewPost` | Interface do Usuário (UI) do Feed Composer | `message`, `image`                                                       |
+| Fonte | Entidade | Pertence a | Campos |
+| --- | --- | --- | --- |
+| Servidor | `Post` | Postagem do Feed | `id`, `created_time`, `content`, `image`, `author` (`User`), `reactions` |
+| Servidor | `Feed` | Interface do Feed | `posts` (lista de `Posts`s), `pagination` (metadados de paginação) |
+| Servidor | `User` | Store do cliente | `id`, `nome`, `profile_photo_url` |
+| Entrada do usuário (cliente) | `NewPost` | Interface do Usuário (UI) do Feed Composer | `message`, `image` |
 
 Dependendo de quão longe você avança na pergunta e de como os requisitos evoluíram e cresceram durante a entrevista, você pode precisar adicionar mais campos. É um processo dinâmico e iterativo.
 
 Você pode querer escrever esses campos próximos aos componentes que os possuem no seu diagrama de arquitetura.
 
-* * *
+---
 
 ## Definição de Interface (API)
 
@@ -162,21 +161,21 @@ Você pode querer escrever esses campos próximos aos componentes que os possuem
 
 Com os componentes e dados dentro de cada componente, podemos prosseguir para discutir a interface (APIs) entre os componentes. API é um termo sobrecarregado e geralmente se refere ao protocolo pelo qual os componentes de software se comunicam e solicitam/enviam dados entre si. Client and server communicate via network layer APIs (HTTP/WebSockets). Componentes do cliente geralmente se comunicam por meio de funções no tempo de execução do navegador. Todas as APIs têm três coisas em comum, quer estejam entre o servidor e o cliente ou entre componentes do cliente:
 
-| Partes de uma API     | Servidor-Cliente                          | Client-Client              |
-| --------------------- | ----------------------------------------- | -------------------------- |
-| Nome e funcionalidade | Caminho HTTP                              | Função JavaScript          |
-| Parâmetros            | Parâmetros HTTP GET e POST                | Parâmetros da função       |
-| Valor de retorno      | Resposta HTTP, geralmente no formato JSON | Valor de retorno da função |
+| Partes de uma API | Servidor-Cliente | Client-Client |
+| --- | --- | --- |
+| Nome e funcionalidade | Caminho HTTP | Função JavaScript |
+| Parâmetros | Parâmetros HTTP GET e POST | Parâmetros da função |
+| Valor de retorno | Resposta HTTP, geralmente no formato JSON | Valor de retorno da função |
 
 ### Exemplo de API de Servidor-Cliente
 
 Usando o exemplo [News Feed](/questions/system-design/news-feed-facebook) mais uma vez, nós temos uma API de servidor que permite que o cliente busque os últimos posts de feeds.
 
-| Campo          | Valor                                           |
-| -------------- | ----------------------------------------------- |
-| Método HTTP    | `GET`                                           |
-| Caminho        | `/feed`                                         |
-| Descrição      | Recupera os resultados do feed para um usuário. |
+| Campo       | Valor                                           |
+| ----------- | ----------------------------------------------- |
+| Método HTTP | `GET`                                           |
+| Caminho     | `/feed`                                         |
+| Descrição   | Recupera os resultados do feed para um usuário. |
 
 #### Parâmetros
 
@@ -225,7 +224,7 @@ A API cliente-cliente pode ser escrita de maneira semelhante à API servidor-cli
 
 Se você foi solicitado a projetar um componente de interface do usuário, na seção "Interface", discuta sobre as opções de personalização para o componente, semelhantes às props para componentes React.
 
-* * *
+---
 
 ## Otimizações e Análise Detalhada
 
@@ -235,31 +234,31 @@ Se você foi solicitado a projetar um componente de interface do usuário, na se
 
 Não há uma maneira fixa de abordar a seção de otimização e aprofundamento, e você está livre para se concentrar em diferentes áreas do produto. Não haverá tempo suficiente para abordar todas as áreas, portanto, selecione como deseja gastar seu tempo cuidadosamente de acordo com essas diretrizes:
 
--   **Foque nas áreas importantes do produto**. Para sites de comércio eletrônico, o desempenho é crucial e você gostaria de dedicar a maior parte do seu tempo a mergulhar nas várias otimizações de desempenho que podem ser feitas. Para editores colaborativos, a complexidade está em como lidar com condições de corrida e modificações concorrentes, portanto, você gostaria de se concentrar em explicar isso.
--   **Concentre-se nos seus pontos fortes.** Demonstre seu conhecimento no domínio. Se você está familiarizado com acessibilidade, fale sobre as várias armadilhas de acessibilidade que podem ocorrer no produto e como abordá-las. Impressionar o entrevistador com seu conhecimento. Se você é um especialista em desempenho, explique as várias oportunidades de otimização de desempenho que podem proporcionar uma experiência do usuário extremamente fluida.
+- **Foque nas áreas importantes do produto**. Para sites de comércio eletrônico, o desempenho é crucial e você gostaria de dedicar a maior parte do seu tempo a mergulhar nas várias otimizações de desempenho que podem ser feitas. Para editores colaborativos, a complexidade está em como lidar com condições de corrida e modificações concorrentes, portanto, você gostaria de se concentrar em explicar isso.
+- **Concentre-se nos seus pontos fortes.** Demonstre seu conhecimento no domínio. Se você está familiarizado com acessibilidade, fale sobre as várias armadilhas de acessibilidade que podem ocorrer no produto e como abordá-las. Impressionar o entrevistador com seu conhecimento. Se você é um especialista em desempenho, explique as várias oportunidades de otimização de desempenho que podem proporcionar uma experiência do usuário extremamente fluida.
 
 ### Áreas gerais de otimização/aprofundamento
 
 Aqui está uma lista de tópicos sobre os quais você pode falar para esta seção. Tenha em mente que a importância de um tópico depende da pergunta e alguns tópicos são completamente irrelevantes para certas perguntas (possível, mas improvável).
 
--   Desempenho
--   Experiência de Usuário
--   Rede
--   Acessibilidade (a11y)
--   Suporte Multilíngue
--   Multi-device Support
--   Segurança
+- Desempenho
+- Experiência de Usuário
+- Rede
+- Acessibilidade (a11y)
+- Suporte Multilíngue
+- Multi-device Support
+- Segurança
 
 Consulte nosso [Guia de Melhores Práticas para Construção de Interfaces de Usuário](/front-end-interview-guidebook/user-interface-questions-cheatsheet) para obter detalhes sobre cada tópico.
 
-* * *
+---
 
 ## Resumo
 
-| Etapa                            | Objetivo                                                                                                             | Duração Recomendada |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| Exploração de requisitos         | Entenda o problema completamente e determine o escopo fazendo uma série de perguntas de esclarecimento.              | \<15%               |
-| Arquitetura/Design de Alto Nível | Identifique os principais componentes do produto e como eles estão relacionados entre si.                            | ~20%                |
-| Modelo de Dados                  | Descreva as várias entidades de dados, os campos que elas contêm e a(s) qual(is) componente(s) elas pertencem.       | ~10%                |
-| Definição de Interface           | Defina a interface (API) entre os componentes do produto, a funcionalidade de cada API, seus parâmetros e respostas. | ~15%                |
-| Otimizações e Análise Detalhada  | Discutir sobre possíveis oportunidades de otimização e áreas específicas de interesse ao construir o produto.        | ~40%                |
+| Etapa | Objetivo | Duração Recomendada |
+| --- | --- | --- |
+| Exploração de requisitos | Entenda o problema completamente e determine o escopo fazendo uma série de perguntas de esclarecimento. | \<15% |
+| Arquitetura/Design de Alto Nível | Identifique os principais componentes do produto e como eles estão relacionados entre si. | ~20% |
+| Modelo de Dados | Descreva as várias entidades de dados, os campos que elas contêm e a(s) qual(is) componente(s) elas pertencem. | ~10% |
+| Definição de Interface | Defina a interface (API) entre os componentes do produto, a funcionalidade de cada API, seus parâmetros e respostas. | ~15% |
+| Otimizações e Análise Detalhada | Discutir sobre possíveis oportunidades de otimização e áreas específicas de interesse ao construir o produto. | ~40% |

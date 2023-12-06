@@ -16,7 +16,7 @@ const person = {
   age: 29,
 };
 
-const copyOfTodd = {...person};
+const copyOfTodd = { ...person };
 ```
 
 A sintaxe rest do ES2015 oferece uma maneira mais fácil de incluir um número arbitrário de argumentos para serem passados para uma função. É como uma inversão da sintaxe spread, pegando dados e colocando-os em um array em vez de desempacotar um array de dados, e funciona em argumentos de função, bem como em atribuições de desconstrução de arrays e objetos.
@@ -30,7 +30,7 @@ const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12
 
 const [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]
 
-const {e, f, ...others} = {
+const { e, f, ...others } = {
   e: 1,
   f: 2,
   g: 3,

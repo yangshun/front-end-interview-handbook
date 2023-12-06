@@ -1,5 +1,4 @@
-DOM
-==
+# DOM
 
 ## Glossary
 

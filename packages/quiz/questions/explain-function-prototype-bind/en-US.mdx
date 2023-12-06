@@ -24,7 +24,7 @@ console.log(unboundGetAge()); // undefined
 const boundGetAge = john.getAge.bind(john);
 console.log(boundGetAge()); // 42
 
-const mary = {age: 21};
+const mary = { age: 21 };
 const boundGetAgeMary = john.getAge.bind(mary);
 console.log(boundGetAgeMary()); // 21
 ```

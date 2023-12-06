@@ -10,7 +10,7 @@ import styles from './styles.module.css';
 import successStories from '@site/src/data/successStories';
 
 export default function Home() {
-  const {siteConfig = {}} = useDocusaurusContext();
+  const { siteConfig = {} } = useDocusaurusContext();
 
   return (
     <Layout
@@ -30,7 +30,7 @@ export default function Home() {
 }
 
 function HeroSection() {
-  const {siteConfig = {}} = useDocusaurusContext();
+  const { siteConfig = {} } = useDocusaurusContext();
 
   return (
     <header className={clsx('hero', styles.heroBanner)}>
@@ -78,7 +78,7 @@ function GreatFrontEndSection() {
   return (
     <div
       className={clsx('padding-vert--lg')}
-      style={{backgroundColor: 'rgb(79, 70, 229)'}}>
+      style={{ backgroundColor: 'rgb(79, 70, 229)' }}>
       <div className="container">
         <div className="row">
           <div className="col col--10 col--offset-1">
@@ -86,15 +86,18 @@ function GreatFrontEndSection() {
               <div>
                 <h2
                   className={styles.sectionSponsorTitle}
-                  style={{fontSize: 'var(--ifm-h2-font-size)'}}>
+                  style={{ fontSize: 'var(--ifm-h2-font-size)' }}>
                   <strong>
-                    Want to practice front end questions and reference answers from experienced ex-FAANG senior engineers? Top front end interview practice platform{' '}
+                    Want to practice front end questions and reference answers
+                    from experienced ex-FAANG senior engineers? Top front end
+                    interview practice platform{' '}
                     <a
                       href="https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=homepage&fpr=frontendinterviewhandbook"
-                      style={{color: '#fff', textDecoration: 'underline'}}>
+                      style={{ color: '#fff', textDecoration: 'underline' }}>
                       GreatFrontEnd
                     </a>{' '}
-                    is now offering 25% off their lifetime plan! Try out their free questions today:
+                    is now offering 25% off their lifetime plan! Try out their
+                    free questions today:
                   </strong>
                 </h2>
                 <div className="margin-vert--lg">
@@ -139,7 +142,7 @@ function FAANGTechLeadsSection() {
   return (
     <div
       className={clsx('padding-vert--lg')}
-      style={{backgroundColor: 'rgb(244, 63, 94)'}}>
+      style={{ backgroundColor: 'rgb(244, 63, 94)' }}>
       <div className="container">
         <div className="row">
           <div className="col col--8 col--offset-2">
@@ -249,7 +252,7 @@ function FeaturesSection() {
   );
 }
 
-function Tweet({url, handle, name, content, avatar, date}) {
+function Tweet({ url, handle, name, content, avatar, date }) {
   return (
     <div className={clsx('card', styles.tweet)}>
       <div className="card__header">

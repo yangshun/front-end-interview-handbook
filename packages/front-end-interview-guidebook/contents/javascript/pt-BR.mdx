@@ -16,9 +16,9 @@ Exato, você provavelmente precisará utilizar Apis específicas do navegador/Ja
 
 Pode parecer redundante implementar classes/métodos padrão quando eles já fazem parte da linguagem. No entanto, inconsistências entre navegadores costumavam ser um problema comum, e algumas APIs da linguagem não eram encontradas em navegadores mais antigos. Portanto, os desenvolvedores tiveram que recorrer ao polyfilling, que é o ato de fornecer funcionalidade moderna em navegadores mais antigos que não a suportam nativamente, implementando essas APIs em JavaScript baixado. Ser capaz de implementar essas funções nativas também demonstra um bom entendimento dos fundamentos do desenvolvimento front-end.
 
--   Métodos `Array`: [`Array.prototype.map`](/questions/javascript/array-map), [`Array.prototype.reduce`](/questions/javascript/array-reduce), [`Array.prototype.filter`](/questions/javascript/array-filter).
--   `Promise` e outras funções `Promise`: [`Promise.all`](/questions/javascript/promise-all), [`Promise.any`](/questions/javascript/promise-any).
--   Métodos DOM: [`document.getElementsByTagName`](/questions/javascript/get-elements-by-tag-name), [`document.getElementsByClassName`](/questions/javascript/get-elements-by-class-name).
+- Métodos `Array`: [`Array.prototype.map`](/questions/javascript/array-map), [`Array.prototype.reduce`](/questions/javascript/array-reduce), [`Array.prototype.filter`](/questions/javascript/array-filter).
+- `Promise` e outras funções `Promise`: [`Promise.all`](/questions/javascript/promise-all), [`Promise.any`](/questions/javascript/promise-any).
+- Métodos DOM: [`document.getElementsByTagName`](/questions/javascript/get-elements-by-tag-name), [`document.getElementsByClassName`](/questions/javascript/get-elements-by-class-name).
 
 Há mais nessas funções do que aparenta à primeira vista. Vamos pegar o inocente `Array.prototype.map`, por exemplo. Você está ciente de que:
 
@@ -32,14 +32,14 @@ Sua implementação não precisa lidar com todos esses casos, especialmente o da
 
 Essas funções/classes são comumente necessárias ao construir software com JavaScript, mas não fazem parte da linguagem padrão (por enquanto).
 
--   Funções Lodash/Underscore: [`debounce`](/questions/javascript/debounce), [`throttle`](/questions/javascript/throttle), [`flatten`](/questions/javascript/flatten), [`curry`](/questions/javascript/curry), [`cloneDeep`](/questions/javascript/deep-clone).
--   Métodos jQuery: [`jQuery.css`](/questions/javascript/jquery-css), [`jQuery.toggleClass`](/questions/javascript/jquery-class-manipulation).
--   Bibliotecas populares:
-    -   [`classnames`](/questions/javascript/classnames)
-    -   `test`/`expect` funções de testes de frameworks como [Jest](https://jestjs.io/)/[Mocha](https://mochajs.org/)
-    -   [`Emitter`](/questions/javascript/event-emitter) (que existe como parte do Node.js e muitas bibliotecas de terceiros)
-    -   [Immutable.js](https://immutable-js.com/)
-    -   [Backbone.js](https://backbonejs.org/)
+- Funções Lodash/Underscore: [`debounce`](/questions/javascript/debounce), [`throttle`](/questions/javascript/throttle), [`flatten`](/questions/javascript/flatten), [`curry`](/questions/javascript/curry), [`cloneDeep`](/questions/javascript/deep-clone).
+- Métodos jQuery: [`jQuery.css`](/questions/javascript/jquery-css), [`jQuery.toggleClass`](/questions/javascript/jquery-class-manipulation).
+- Bibliotecas populares:
+  - [`classnames`](/questions/javascript/classnames)
+  - `test`/`expect` funções de testes de frameworks como [Jest](https://jestjs.io/)/[Mocha](https://mochajs.org/)
+  - [`Emitter`](/questions/javascript/event-emitter) (que existe como parte do Node.js e muitas bibliotecas de terceiros)
+  - [Immutable.js](https://immutable-js.com/)
+  - [Backbone.js](https://backbonejs.org/)
 
 Se você der uma olhada no código-fonte dessas bibliotecas, poderá encontrar algumas das implementações bastante complexas. Isso ocorre porque existem muitos casos de uso do mundo real obscuros que a biblioteca precisa suportar. Semelhante às funções padrão, você não é esperado para lidar com todos esses casos extremos durante uma entrevista, mas ganha pontos por reconhecê-los.
 
@@ -48,14 +48,14 @@ Se você der uma olhada no código-fonte dessas bibliotecas, poderá encontrar a
 Entrevistas de codificação em JavaScript compartilham muitas semelhanças com entrevistas de codificação algorítmica. Em geral, você deve:
 
 1.  Descubra em qual plataforma você está codificando e familiarize-se com o ambiente de codificação:
-    -   Os atalhos de editor suportados.
-    -   Se você pode executar código.
-    -   Se você pode instalar dependências de terceiros.
+    - Os atalhos de editor suportados.
+    - Se você pode executar código.
+    - Se você pode instalar dependências de terceiros.
 2.  Faça sua apresentação pessoal em menos de um minuto. A menos que seja solicitado, não leve mais tempo do que isso, caso contrário, você pode não ter tempo suficiente para programar.
 3.  Faça perguntas de esclarecimento ao receber a pergunta. Esclareça o seguinte:
-    -   Você pode usar a sintaxe mais recente do JavaScript (ES2016 e posteriores)?
-    -   Se o código se destina a ser executado no navegador ou no servidor (por exemplo, Node.js).
-    -   O suporte do navegador é importante, pois isso afetará as APIs do navegador que você pode utilizar.
+    - Você pode usar a sintaxe mais recente do JavaScript (ES2016 e posteriores)?
+    - Se o código se destina a ser executado no navegador ou no servidor (por exemplo, Node.js).
+    - O suporte do navegador é importante, pois isso afetará as APIs do navegador que você pode utilizar.
 4.  Proponha uma solução ao seu entrevistador. Ao contrário de entrevistas de programação convencionais, o foco das entrevistas de codificação em JavaScript geralmente não está em estruturas de dados complexas e algoritmos. É possível e provavelmente você pode ir direto para a solução ideal com a melhor escolha de estruturas de dados e algoritmos.
 5.  Codifique sua solução e explique o código ao seu entrevistador enquanto você está programando.
 6.  Após codificar, leia seu código uma vez e tente identificar erros básicos, como erros de digitação, uso de variáveis antes de inicializá-las, uso incorreto de APIs, etc.
@@ -71,48 +71,48 @@ Entrevistas de codificação em JavaScript compartilham muitas semelhanças com 
 
 ## Conceitos Importantes
 
-| Categoria                 | Tópicos Importantes                                                                                                                                                                                                                                                                                                                                                            |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Estruturas de Dados       | Arrays, Maps, Stacks, Trees, Sets                                                                                                                                                                                                                                                                                                                                              |
-| Algoritmos                | Busca Binária, Busca em Largura (Breadth-first Search), Busca em Profundidade (Depth-first Search), Recursão                                                                                                                                                                                                                                                                   |
-| Linguagem JavaScript      | Tipos de dados (verificação de tipos, coerção de tipos), Escopo, Closures, Callbacks, Funcionamento da palavra-chave `this`, Programação Orientada a Objetos em JavaScript (protótipos, classes, métodos), Funções de seta vs. funções normais, Invocando funções via `Function.prototype.apply()`/`Function.prototype.call()`, Promises, Manipulação de argumentos variádicos |
-| DOM                       | Navegação no DOM, Criação no DOM, Manipulação no DOM, Acesso a propriedades de elementos/nós, Delegação de Eventos                                                                                                                                                                                                                                                             |
-| APIs em Tempo de Execução | Temporizador (`setTimeout`, `setInterval`)                                                                                                                                                                                                                                                                                                                                     |
+| Categoria | Tópicos Importantes |
+| --- | --- |
+| Estruturas de Dados | Arrays, Maps, Stacks, Trees, Sets |
+| Algoritmos | Busca Binária, Busca em Largura (Breadth-first Search), Busca em Profundidade (Depth-first Search), Recursão |
+| Linguagem JavaScript | Tipos de dados (verificação de tipos, coerção de tipos), Escopo, Closures, Callbacks, Funcionamento da palavra-chave `this`, Programação Orientada a Objetos em JavaScript (protótipos, classes, métodos), Funções de seta vs. funções normais, Invocando funções via `Function.prototype.apply()`/`Function.prototype.call()`, Promises, Manipulação de argumentos variádicos |
+| DOM | Navegação no DOM, Criação no DOM, Manipulação no DOM, Acesso a propriedades de elementos/nós, Delegação de Eventos |
+| APIs em Tempo de Execução | Temporizador (`setTimeout`, `setInterval`) |
 
 ## Critérios de Avaliação para Entrevistas de Codificação em JavaScript
 
 As entrevistas de codificação em JavaScript são semelhantes às entrevistas de codificação algorítmica, e a abordagem para essas entrevistas deve ser semelhante. Naturalmente, haverá alguma sobreposição com entrevistas de codificação algorítmica no que diz respeito à avaliação dos candidatos durante entrevistas de codificação em JavaScript.
 
--   **Resolução de Problemas**: Utilize uma abordagem sistemática e lógica para compreender e resolver um problema. Divida o problema em problemas menores e independentes. Avalie diferentes abordagens e suas compensações (tradeoffs).
--   **Fundamentos de Engenharia de Software**: Familiaridade com estruturas de dados, algoritmos, análise de complexidade de tempo de execução, uso de padrões de design e elaboração de soluções com abstrações limpas.
--   **Expertise no Domínio**: Compreensão do domínio de front-end e das linguagens relevantes: Navegador (DOM e APIs DOM), HTML, CSS, JavaScript, Desempenho.
--   **Comunicação**: Fazer perguntas para esclarecer detalhes e explicar claramente a abordagem e as considerações.
--   **Verificação**: Identificar vários cenários para testar o código, incluindo casos extremos. Seja capaz de diagnosticar e corrigir quaisquer problemas que surjam.
+- **Resolução de Problemas**: Utilize uma abordagem sistemática e lógica para compreender e resolver um problema. Divida o problema em problemas menores e independentes. Avalie diferentes abordagens e suas compensações (tradeoffs).
+- **Fundamentos de Engenharia de Software**: Familiaridade com estruturas de dados, algoritmos, análise de complexidade de tempo de execução, uso de padrões de design e elaboração de soluções com abstrações limpas.
+- **Expertise no Domínio**: Compreensão do domínio de front-end e das linguagens relevantes: Navegador (DOM e APIs DOM), HTML, CSS, JavaScript, Desempenho.
+- **Comunicação**: Fazer perguntas para esclarecer detalhes e explicar claramente a abordagem e as considerações.
+- **Verificação**: Identificar vários cenários para testar o código, incluindo casos extremos. Seja capaz de diagnosticar e corrigir quaisquer problemas que surjam.
 
 ## Dicas Úteis
 
--   **Pensamento Positivo**. A biblioteca padrão do JavaScript não possui algumas estruturas de dados e algoritmos úteis, como fila, heap, pesquisa binária, que podem facilitar sua vida durante entrevistas de codificação em JavaScript. No entanto, você pode perguntar ao entrevistador se pode considerar que uma determinada estrutura de dados/algoritmo existe e usá-la diretamente em sua solução sem implementá-la.
--   **Funções Puras**. Aim to write pure functions which have the benefit of reusability and modularity, aka functions which don't rely on state outside of the function and doesn't cause side effects.
--   **Escolha as estruturas de dados sabiamente.** Preste atenção à escolha das estruturas de dados e esteja ciente das complexidades temporais do código. Esteja familiarizado com as complexidades de tempo/espaço das operações básicas de Array, Object, Set e Map em JavaScript, caso deseje usá-las em sua solução. Alguns desses tempos/complexidades de espaço podem variar entre diferentes linguagens de programação. É importante estar ciente das particularidades da linguagem que você está usando para garantir que suas escolhas sejam apropriadas para o contexto específico. Não escreva código que seja executado em O(n<sup>2</sup>) se ele puder ser executado em O(n) com o uso de hash mapas.
--   **`this` importa**. Se uma função aceita uma função de retorno de chamada como parâmetro, considere como a variável `this` deve se comportar. Para muitas funções internas, `this` é fornecido como um dos argumentos com os quais a função de retorno de chamada é invocada.
--   **Mutação dentro de funções de retorno de chamada.** Cuidado com as funções de retorno de chamada que realizam mutações na estrutura de dados na qual estão operando. Provavelmente, você não precisa lidar com esse caso durante entrevistas, mas deve mencionar explicitamente esses casos se forem relevantes.
--   **Casos limites de recursão**.
-    -   Se você identificou que resolver a pergunta requer recursão, pergunte sobre o tamanho da entrada e como lidar com o caso de estouro de pilha de recursão. Normalmente, você não precisará lidar com isso, mas levantar essa questão é um bom sinal.
-    -   Estruturas de dados profundamente aninhadas podem ter referências recursivas a si mesmas, o que torna certas operações, como serialização, muito mais complexas. Pergunte ao entrevistador se você precisa lidar com tais casos. Normalmente, você não precisará lidar com isso, mas levantar essa questão é um bom sinal.
+- **Pensamento Positivo**. A biblioteca padrão do JavaScript não possui algumas estruturas de dados e algoritmos úteis, como fila, heap, pesquisa binária, que podem facilitar sua vida durante entrevistas de codificação em JavaScript. No entanto, você pode perguntar ao entrevistador se pode considerar que uma determinada estrutura de dados/algoritmo existe e usá-la diretamente em sua solução sem implementá-la.
+- **Funções Puras**. Aim to write pure functions which have the benefit of reusability and modularity, aka functions which don't rely on state outside of the function and doesn't cause side effects.
+- **Escolha as estruturas de dados sabiamente.** Preste atenção à escolha das estruturas de dados e esteja ciente das complexidades temporais do código. Esteja familiarizado com as complexidades de tempo/espaço das operações básicas de Array, Object, Set e Map em JavaScript, caso deseje usá-las em sua solução. Alguns desses tempos/complexidades de espaço podem variar entre diferentes linguagens de programação. É importante estar ciente das particularidades da linguagem que você está usando para garantir que suas escolhas sejam apropriadas para o contexto específico. Não escreva código que seja executado em O(n<sup>2</sup>) se ele puder ser executado em O(n) com o uso de hash mapas.
+- **`this` importa**. Se uma função aceita uma função de retorno de chamada como parâmetro, considere como a variável `this` deve se comportar. Para muitas funções internas, `this` é fornecido como um dos argumentos com os quais a função de retorno de chamada é invocada.
+- **Mutação dentro de funções de retorno de chamada.** Cuidado com as funções de retorno de chamada que realizam mutações na estrutura de dados na qual estão operando. Provavelmente, você não precisa lidar com esse caso durante entrevistas, mas deve mencionar explicitamente esses casos se forem relevantes.
+- **Casos limites de recursão**.
+  - Se você identificou que resolver a pergunta requer recursão, pergunte sobre o tamanho da entrada e como lidar com o caso de estouro de pilha de recursão. Normalmente, você não precisará lidar com isso, mas levantar essa questão é um bom sinal.
+  - Estruturas de dados profundamente aninhadas podem ter referências recursivas a si mesmas, o que torna certas operações, como serialização, muito mais complexas. Pergunte ao entrevistador se você precisa lidar com tais casos. Normalmente, você não precisará lidar com isso, mas levantar essa questão é um bom sinal.
 
 ## **Perguntas sobre Melhores Práticas**
 
 Pela minha experiência, as melhores perguntas de entrevista de codificação em JavaScript para praticar, conforme determinado pela frequência e pelos conceitos importantes abordados são:
 
--   [Debounce](/questions/javascript/debounce)
--   [Throttle](/questions/javascript/debounce)
--   [Array.prototype.filter](/questions/javascript/array-filter)
--   [Promise.all](/questions/javascript/promise-all)
--   [Curry](/questions/javascript/curry)
--   [Flatten](/questions/javascript/flatten)
--   [getElementsByTagName](/questions/javascript/get-elements-by-class-name)
--   [Deep Clone](/questions/javascript/deep-clone)
--   [Seleção de Dados](/questions/javascript/data-seletion)
+- [Debounce](/questions/javascript/debounce)
+- [Throttle](/questions/javascript/debounce)
+- [Array.prototype.filter](/questions/javascript/array-filter)
+- [Promise.all](/questions/javascript/promise-all)
+- [Curry](/questions/javascript/curry)
+- [Flatten](/questions/javascript/flatten)
+- [getElementsByTagName](/questions/javascript/get-elements-by-class-name)
+- [Deep Clone](/questions/javascript/deep-clone)
+- [Seleção de Dados](/questions/javascript/data-seletion)
 
 A GreatFrontEnd possui uma [lista abrangente de perguntas de codificação JavaScript](/questions/js/coding/utilities) que você pode praticar. Também existem casos de testes automatizados que você pode executar em seu código para verificar a correção e soluções escritas por ex-engenheiros sênior da FAANG.
 

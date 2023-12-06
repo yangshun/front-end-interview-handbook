@@ -431,7 +431,7 @@ JSONP works by making a request to a cross-origin domain via a `<script>` tag an
 
 ```js
 // File loaded from https://example.com?callback=printData
-printData({name: 'Yang Shun'});
+printData({ name: 'Yang Shun' });
 ```
 
 The client has to have the `printData` function in its global scope and the function will be executed by the client when the response from the cross-origin domain is received.
@@ -903,9 +903,9 @@ const arr = [1, 2, 3];
 const newArr = [...arr, 4]; // [1, 2, 3, 4]
 
 // Object Example
-const human = Object.freeze({race: 'human'});
-const john = {...human, name: 'John'}; // {race: "human", name: "John"}
-const alienJohn = {...john, race: 'alien'}; // {race: "alien", name: "John"}
+const human = Object.freeze({ race: 'human' });
+const john = { ...human, name: 'John' }; // {race: "human", name: "John"}
+const alienJohn = { ...john, race: 'alien' }; // {race: "alien", name: "John"}
 ```
 
 ###### References
@@ -1208,8 +1208,8 @@ console.log(b); // 1
 
 ```js
 // Variable assignment.
-const o = {p: 42, q: true};
-const {p, q} = o;
+const o = { p: 42, q: true };
+const { p, q } = o;
 
 console.log(p); // 42
 console.log(q); // true
@@ -1225,7 +1225,7 @@ console.log(q); // true
 Template literals help make it simple to do string interpolation, or to include variables in a string. Before ES2015, it was common to do something like this:
 
 ```js
-var person = {name: 'Tyler', age: 28};
+var person = { name: 'Tyler', age: 28 };
 console.log(
   'Hi, my name is ' + person.name + ' and I am ' + person.age + ' years old!',
 );
@@ -1235,7 +1235,7 @@ console.log(
 With template literals, you can now create that same output like this instead:
 
 ```js
-const person = {name: 'Tyler', age: 28};
+const person = { name: 'Tyler', age: 28 };
 console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 // 'Hi, my name is Tyler and I am 28 years old!'
 ```
@@ -1270,7 +1270,7 @@ This is line two.`);
 Another use case of template literals would be to use as a substitute for templating libraries for simple variable interpolations:
 
 ```js
-const person = {name: 'Tyler', age: 28};
+const person = { name: 'Tyler', age: 28 };
 document.body.innerHTML = `
   <div>
     <p>Name: ${person.name}</p>
@@ -1337,7 +1337,7 @@ const person = {
   age: 29,
 };
 
-const copyOfTodd = {...person};
+const copyOfTodd = { ...person };
 ```
 
 ES6's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than unpacking an array of data, and it works in function arguments, as well as in array and object destructuring assignments.
@@ -1351,7 +1351,7 @@ const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12
 
 const [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]
 
-const {e, f, ...others} = {
+const { e, f, ...others } = {
   e: 1,
   f: 2,
   g: 3,

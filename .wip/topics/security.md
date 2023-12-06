@@ -1,5 +1,4 @@
-Security
-==
+# Security
 
 ## Glossary
 
@@ -52,7 +51,7 @@ XSS vulnerabilities allow attackers to bypass essentially all CSRF preventions.
 
 ###### References
 
-- [OWASP CSRF](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF))
+- [OWASP CSRF](<https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)>)
 
 ## HTTPS
 
@@ -99,7 +98,6 @@ http://shebang.brandonmintern.com/foolproof-html-escaping-in-javascript/
 
 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
 - https://www.nczonline.net/blog/2009/05/12/cookies-and-security/
-
 
 ## Framebusting
 

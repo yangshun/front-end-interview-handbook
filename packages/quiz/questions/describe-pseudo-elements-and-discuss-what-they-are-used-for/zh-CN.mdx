@@ -4,15 +4,15 @@ title: 描述伪元素并讨论其用途。
 
 CSS [伪元素](https://developer.mozilla.org/en-US/docs/Web/CS/Pseudo-elements) 是一个添加到选择器中的关键词，使您能够修改所选元素的特定部分的样式。 它们可以用于装饰 (`::first-line`, `::first-letter`) 或添加标签元素(结合`content: ...`) 无需修改标签(`:before`, `:after `)
 
--   `::firstline` 和 `::firstletter` 可以用于装饰文本。
--   用于 `.clearfix` 技巧，如上图所示，添加一个带有`clear: both`的零空间元素。
--   Tooltips 中的三角箭头使用 `::before` 和 `::after ` 。 鼓励关注点分离，因为三角形被视为样式的一部分，而不是真正的DOM。
+- `::firstline` 和 `::firstletter` 可以用于装饰文本。
+- 用于 `.clearfix` 技巧，如上图所示，添加一个带有`clear: both`的零空间元素。
+- Tooltips 中的三角箭头使用 `::before` 和 `::after ` 。 鼓励关注点分离，因为三角形被视为样式的一部分，而不是真正的 DOM。
 
 ## 备注
 
--   伪元素不同于 [伪类](https://developer.mozilla.org/en-US/docs/Web/CS/Pseudo-classes)，后者用于根据状态(例如`:hover`, `:focus`, 等等) 修改样式。
--   应使用双冒号而不是单冒号来区分伪类和伪元素。 大多数浏览器都支持这两种语法，因为旧的 W3C 视图中没有区分这点。
+- 伪元素不同于 [伪类](https://developer.mozilla.org/en-US/docs/Web/CS/Pseudo-classes)，后者用于根据状态(例如`:hover`, `:focus`, 等等) 修改样式。
+- 应使用双冒号而不是单冒号来区分伪类和伪元素。 大多数浏览器都支持这两种语法，因为旧的 W3C 视图中没有区分这点。
 
 ## 参考资料
 
--   [伪元素-CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CS/Pseudo-elements)
+- [伪元素-CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CS/Pseudo-elements)

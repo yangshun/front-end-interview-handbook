@@ -87,4 +87,3 @@ Many hours of hard work have gone into this project. Your support will be very a
 ## License
 
 All projects and packages in this repository are [MIT licensed](/LICENSE).
-

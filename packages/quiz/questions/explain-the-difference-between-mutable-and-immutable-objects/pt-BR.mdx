@@ -67,15 +67,15 @@ Congelar um objeto não permite que novas propriedades sejam adicionadas a um ob
 
 ### Prós
 
--   Detecção de mudanças mais fácil: A igualdade de objetos pode ser determinada de maneira eficiente e fácil por meio da igualdade referencial. Isso é útil para comparar diferenças de objetos no React e Redux.
--   Menos complicado: Programas com objetos imutáveis são menos complicados de se pensar, já que você não precisa se preocupar sobre como um objeto pode evoluir ao longo do tempo.
--   Compartilhamento fácil por referências: Uma cópia de um objeto é tão boa quanto outra, então você pode armazenar objetos em cache ou reutilizar o mesmo objeto várias vezes.
--   Seguro para threads: Objetos imutáveis podem ser usados com segurança entre threads em um ambiente multi-threaded, já que não há risco de serem modificados em outras threads que estão sendo executadas simultaneamente.
--   Menos necessidade de memória: Usando bibliotecas como [Immer](https://immerjs.github.io/immer/) e [Immutable.js](https://immutable-js.com/), objetos são modificados usando compartilhamento estrutural e menos memória é necessária para ter vários objetos com estruturas semelhantes.
--   Não há necessidade de cópias defensivas: cópias defensivas não são mais necessárias quando objetos imutáveis são retornados ou passados para funções, uma vez que não há possibilidade de um objeto imutável ser modificado por ela.
+- Detecção de mudanças mais fácil: A igualdade de objetos pode ser determinada de maneira eficiente e fácil por meio da igualdade referencial. Isso é útil para comparar diferenças de objetos no React e Redux.
+- Menos complicado: Programas com objetos imutáveis são menos complicados de se pensar, já que você não precisa se preocupar sobre como um objeto pode evoluir ao longo do tempo.
+- Compartilhamento fácil por referências: Uma cópia de um objeto é tão boa quanto outra, então você pode armazenar objetos em cache ou reutilizar o mesmo objeto várias vezes.
+- Seguro para threads: Objetos imutáveis podem ser usados com segurança entre threads em um ambiente multi-threaded, já que não há risco de serem modificados em outras threads que estão sendo executadas simultaneamente.
+- Menos necessidade de memória: Usando bibliotecas como [Immer](https://immerjs.github.io/immer/) e [Immutable.js](https://immutable-js.com/), objetos são modificados usando compartilhamento estrutural e menos memória é necessária para ter vários objetos com estruturas semelhantes.
+- Não há necessidade de cópias defensivas: cópias defensivas não são mais necessárias quando objetos imutáveis são retornados ou passados para funções, uma vez que não há possibilidade de um objeto imutável ser modificado por ela.
 
 ### Contras
 
--   Complexo para criar por si mesmo: Implementações ingênuas de estruturas de dados imutáveis e suas operações podem resultar em desempenho extremamente pobre porque novos objetos são criados cada vez. É recomendado o uso de bibliotecas para estruturas de dados imutáveis e operações eficientes que utilizam compartilhamento estrutural.
--   Potencial impacto negativo na performance: Alocação (e desalocação) de muitos objetos pequenos ao invés de modificar objetos existentes pode causar um impacto na performance. A complexidade do alocador ou do coletor de lixo geralmente depende do número de objetos no heap.
--   Complexidade para estruturas de dados cíclicas: estruturas de dados cíclicas como grafos são difíceis de construir. Se você tiver dois objetos que não podem ser modificados após a inicialização, como você pode fazer com que eles apontem um para o outro?
+- Complexo para criar por si mesmo: Implementações ingênuas de estruturas de dados imutáveis e suas operações podem resultar em desempenho extremamente pobre porque novos objetos são criados cada vez. É recomendado o uso de bibliotecas para estruturas de dados imutáveis e operações eficientes que utilizam compartilhamento estrutural.
+- Potencial impacto negativo na performance: Alocação (e desalocação) de muitos objetos pequenos ao invés de modificar objetos existentes pode causar um impacto na performance. A complexidade do alocador ou do coletor de lixo geralmente depende do número de objetos no heap.
+- Complexidade para estruturas de dados cíclicas: estruturas de dados cíclicas como grafos são difíceis de construir. Se você tiver dois objetos que não podem ser modificados após a inicialização, como você pode fazer com que eles apontem um para o outro?

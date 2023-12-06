@@ -1,5 +1,4 @@
-Widgets
-==
+# Widgets
 
 Here are some commonly seen widgets/components and the considerations we should take into account when designing them.
 

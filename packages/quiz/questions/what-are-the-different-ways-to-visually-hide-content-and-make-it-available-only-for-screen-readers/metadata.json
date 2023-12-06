@@ -5,10 +5,7 @@
   "premium": false,
   "duration": 5,
   "published": true,
-  "topics": [
-    "css",
-    "a11y"
-  ],
+  "topics": ["css", "a11y"],
   "importance": "mid",
   "difficulty": "medium"
 }

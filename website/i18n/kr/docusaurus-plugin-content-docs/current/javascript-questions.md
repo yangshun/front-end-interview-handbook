@@ -376,7 +376,7 @@ JSONP는 `<script>`태그를 통해 cross-origin 도메인에 요청하고 보�
 
 ```js
 // https://example.com?callback=printData 에서 로드된 파일
-printData({name: 'Yang Shun'});
+printData({ name: 'Yang Shun' });
 ```
 
 클라이언트는 전역 범위에 있는 `printData` 함수를 가져야만 하고, cross-origin domain으로부터의 응답이 수신될 때 함수가 클라이언트에 의해 실행됩니다.
@@ -1046,8 +1046,8 @@ console.log(b); // 1
 
 ```js
 // 변수 할당.
-const o = {p: 42, q: true};
-const {p, q} = o;
+const o = { p: 42, q: true };
+const { p, q } = o;
 
 console.log(p); // 42
 console.log(q); // true
@@ -1063,7 +1063,7 @@ console.log(q); // true
 템플릿 리터럴을 사용하면 문자열 보간을 하거나 문자열에 변수를 포함하는 작업을 간단하게 수행할 수 있습니다. ES2015 이전에는 아래와 같이하는 것이 일반적이었습니다.
 
 ```js
-var person = {name: 'Tyler', age: 28};
+var person = { name: 'Tyler', age: 28 };
 console.log(
   'Hi, my name is ' + person.name + ' and I am ' + person.age + ' years old!',
 );
@@ -1073,7 +1073,7 @@ console.log(
 템플릿 리터럴을 사용하면, 대신 이렇게해도 같은 출력을 만들 수 있습니다.
 
 ```js
-const person = {name: 'Tyler', age: 28};
+const person = { name: 'Tyler', age: 28 };
 console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 // 'Hi, my name is Tyler and I am 28 years old!'
 ```
@@ -1108,7 +1108,7 @@ This is line two.`);
 템플릿 리터럴의 또 다른 사용사례는 간단한 변수 보간을 위한 템플릿 라이브러리의 대체품으로 사용하는 것입니다.
 
 ```js
-const person = {name: 'Tyler', age: 28};
+const person = { name: 'Tyler', age: 28 };
 document.body.innerHTML = `
   <div>
     <p>Name: ${person.name}</p>
@@ -1175,7 +1175,7 @@ var person = {
   age: 29,
 };
 
-var copyOfTodd = {...person};
+var copyOfTodd = { ...person };
 ```
 
 ES6의 rest 구문은 함수에 전달할 임의의 수의 인수를 포함하는 약식을 제공합니다. 이는 데이터의 배열을 채우기보다는 데이터를 가져와서 배열로 채우는 spread 구문의 반대와 비슷하며, 배열이나 객체 디스트럭쳐링 할당뿐만 아니라 함수 인수에서도 작동합니다.
@@ -1189,7 +1189,7 @@ const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12
 
 const [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]
 
-const {e, f, ...others} = {
+const { e, f, ...others } = {
   e: 1,
   f: 2,
   g: 3,

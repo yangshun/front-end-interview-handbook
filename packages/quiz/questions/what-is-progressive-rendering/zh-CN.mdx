@@ -10,19 +10,19 @@ title: 什么是渐进式渲染？
 
 页面上的图片没有一次性全部加载。 只有当用户滚动到/靠近显示图片的页面部分时才加载图片。
 
--   `<img loading="lazy">`是指示浏览器推迟加载屏幕外图像直到用户滚动附近的现代方法。
--   使用 JavaScript 监听滚动位置，并在图片即将进入屏幕时加载图片(通过将图片坐标与滚动位置进行比较)。
+- `<img loading="lazy">`是指示浏览器推迟加载屏幕外图像直到用户滚动附近的现代方法。
+- 使用 JavaScript 监听滚动位置，并在图片即将进入屏幕时加载图片(通过将图片坐标与滚动位置进行比较)。
 
 ## 优先考虑可见内容（或正面渲染）。
 
-只包括必要的最小的CSS/内容/脚本，以便在用户浏览器中首先呈现尽可能快的页面量，然后你可以使用延迟脚本或监听`DOMContentLoaded`/`load`事件来加载其他资源和内容。
+只包括必要的最小的 CSS/内容/脚本，以便在用户浏览器中首先呈现尽可能快的页面量，然后你可以使用延迟脚本或监听`DOMContentLoaded`/`load`事件来加载其他资源和内容。
 
-## 异步HTML 片段
+## 异步 HTML 片段
 
-在后端构建页面时，将HTML的部分内容刷新到浏览器。 关于这一技术的更多详情可查阅 [这里](http://www.ebaytechblog.com/2014/12/08/async-fragments-reinding-progressive-html-rendering-with-marko/)。
+在后端构建页面时，将 HTML 的部分内容刷新到浏览器。 关于这一技术的更多详情可查阅 [这里](http://www.ebaytechblog.com/2014/12/08/async-fragments-reinding-progressive-html-rendering-with-marko/)。
 
 ## 其他现代技术
 
--   [渐进式水合](https://www.patterns.dev/posts/progressive-hydration/)
--   [流式SSR](https://www.patterns.dev/posts/server-side-rendering/)
--   [选择性水合](https://www.patterns.dev/posts/react-selective-hydration/)
+- [渐进式水合](https://www.patterns.dev/posts/progressive-hydration/)
+- [流式 SSR](https://www.patterns.dev/posts/server-side-rendering/)
+- [选择性水合](https://www.patterns.dev/posts/react-selective-hydration/)

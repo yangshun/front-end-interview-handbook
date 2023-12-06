@@ -6,13 +6,13 @@ title: 有哪些不同的方法可以在视觉上隐藏内容（并使其仅对�
 
 ## 小/零尺寸
 
-`width: 1px; height: 1px`和使用CSS clip 的组合，使该元素在屏幕上根本不占（几乎不占）空间。
+`width: 1px; height: 1px`和使用 CSS clip 的组合，使该元素在屏幕上根本不占（几乎不占）空间。
 
 不建议使用 "width: 0; height; 0"，因为搜索引擎可能会认为它有恶意的意图，比如关键词的填充，而对其进行惩罚。
 
 ## 绝对定位
 
-`position: absolute; left: -99999px` 会将元素放置在屏幕之外。 但是，根据[WebAIM的文章](https://webaim.org/techniques/css/invisiblecontent/)：
+`position: absolute; left: -99999px` 会将元素放置在屏幕之外。 但是，根据[WebAIM 的文章](https://webaim.org/techniques/css/invisiblecontent/)：
 
 > 导航元素，例如链接和表单控制，不应隐藏在屏幕外。 视力正常的键盘用户仍然可以浏览它们，但对他们来说是不可见的，除非它们被设计成在收到键盘焦点时变得可见。
 
@@ -26,15 +26,15 @@ title: 有哪些不同的方法可以在视觉上隐藏内容（并使其仅对�
 
 以下方式是不正确的，因为它们隐藏了用户**和**屏幕阅读器中的内容， 如果目的是只向屏幕阅读器曝光，则是不正确的。
 
--   `display: none`
--   `visibility: hidden`
--   `hidden`属性
+- `display: none`
+- `visibility: hidden`
+- `hidden`属性
 
 ## 野路子技术
 
 理想的情况是，建议将上述办法结合起来，以确保它在所有浏览器中正常运作。
 
-与其自己实现从渲染树和a11y树中删除一个元素的方法，我们建议你使用以下成熟的CSS框架中的一种方法，这些方法已经在许多网站上经过了实战检验。
+与其自己实现从渲染树和 a11y 树中删除一个元素的方法，我们建议你使用以下成熟的 CSS 框架中的一种方法，这些方法已经在许多网站上经过了实战检验。
 
 ### Tailwind CSS
 
@@ -71,4 +71,4 @@ title: 有哪些不同的方法可以在视觉上隐藏内容（并使其仅对�
 
 ## 参考资料
 
--   [CSS in Action - 屏幕阅读器用户的隐身内容](https://webaim.org/techniques/css/invisiblecontent/)
+- [CSS in Action - 屏幕阅读器用户的隐身内容](https://webaim.org/techniques/css/invisiblecontent/)
