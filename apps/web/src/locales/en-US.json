@@ -3774,6 +3774,7 @@
   "n2QhOj": {
     "defaultMessage": "Sort By",
     "description": "Label for sort button for projects discussion post list"
+  },
   "n2UNgq": {
     "defaultMessage": "Collapse",
     "description": "Label for \"Collapse\" button on current project session card"
@@ -3794,12 +3795,13 @@
     "defaultMessage": "System Design",
     "description": "Label for system design questions"
   },
-  "nQKtbN": {
-    "defaultMessage": "Discussion post content",
-    "description": "Label for discussion post input text area"
   "nJYzIr": {
     "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
     "description": "Larry Almeida's testimonial"
+  },
+  "nQKtbN": {
+    "defaultMessage": "Discussion post content",
+    "description": "Label for discussion post input text area"
   },
   "nSDLrS": {
     "defaultMessage": "More settings",
