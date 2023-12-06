@@ -6,3 +6,15 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model RedditPosts {
+  id        String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid // Depends on API
+  title     String    @db.VarChar
+  content   String    @db.VarChar
+  postedAt  DateTime  @default(now()) @db.Timestamp(6)
+  url       String    @db.VarChar
+  foundAt   DateTime  @default(now()) @db.Timestamp(6)
+  response  String?   @db.VarChar
+  replied   Boolean   @default(false)
+  repliedAt DateTime? @db.Timestamp(6)
+}
