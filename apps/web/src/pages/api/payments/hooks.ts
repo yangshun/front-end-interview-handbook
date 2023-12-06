@@ -53,6 +53,10 @@ export default async function handler(
       return res.send('Unknown checkout');
     }
 
+    if (customerId == null) {
+      return res.send('Missing customerId');
+    }
+
     if (price.type !== 'one_time') {
       return res.send(
         `Checkout is not for a one-time subscription, handled in subscription update event instead`,

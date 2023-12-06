@@ -92,7 +92,7 @@ async function preprocessRawFile(
   // Format the generated JS file
   const jsContent = fs.readFileSync(jsPath, 'utf-8');
 
-  const formattedJsContent = prettier.format(jsContent, prettierConfig);
+  const formattedJsContent = await prettier.format(jsContent, prettierConfig);
 
   fs.writeFileSync(jsPath, formattedJsContent, 'utf-8');
 
