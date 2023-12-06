@@ -1,5 +1,6 @@
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
+import Stripe from 'stripe';
 
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 
@@ -90,11 +91,32 @@ export default async function handler(req: NextRequest) {
       throw new Error(`No user found for ${user.id}`);
     }
 
-    if (data.stripeCustomer == null) {
-      throw new Error(`No Stripe customer found for ${user.id}`);
+    let stripeCustomerId = data.stripeCustomer;
+
+    // This happens when Supabase's webhooks don't fire during user signup
+    // and there's no corresponding Stripe customer for the user.
+    // We create a customer on the fly and update the `Profile` table.
+    if (!stripeCustomerId) {
+      console.info(`No Stripe customer found for ${user.id}, creating one`);
+
+      const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+        apiVersion: '2022-11-15',
+      });
+
+      const customer = await stripe.customers.create({
+        email: user.email,
+      });
+
+      stripeCustomerId = customer.id;
+
+      await supabaseAdmin
+        .from('Profile')
+        .update({
+          stripeCustomer: customer.id,
+        })
+        .eq('id', user.id);
     }
 
-    const stripeCustomerId = data.stripeCustomer;
     const queryParams: QueryParams = {
       country_code: countryCode,
       plan_type: searchParams.get('plan_type') as PricingPlanType,
