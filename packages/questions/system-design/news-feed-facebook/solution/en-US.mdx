@@ -322,10 +322,10 @@ A way to reduce or entirely eliminate the waiting time is to load the next set o
 
 A trigger distance of around one viewport height should be sufficient for most cases. The ideal distance is short enough to avoid false positives and wasted bandwidth but also wide enough to load the rest of the contents before the user scrolls to the bottom of the page. A dynamic distance can be calculated based on the network connection speed and how fast the user is scrolling through the feed.
 
-There are two popular ways to implement infinite scroll, and both involve rendering a marker element at the bottom of the feed:
+There are two popular ways to implement infinite scroll. Both involve rendering a marker element at the bottom of the feed:
 
-1. **Listen for the `scroll` event**: Add a `scroll` event listener (ideally debounced) to the page or a timer (via `setInterval`) that checks whether the position of the marker element is within a certain threshold from the bottom of the page. The position of the marker element can be obtained using [`Element.getBoundingClientRect`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect).
-1. **Intersection Observer API**: Use the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to monitor when the marker element is entering or exiting another element or intersecting by a specified amount.
+1. **Listen for the `scroll` event**: Add a `scroll` event listener (ideally throttled) to the page or a timer (via `setInterval`) that checks whether the position of the marker element is within a certain threshold from the bottom of the page. The position of the marker element can be obtained using [`Element.getBoundingClientRect`](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect).
+2. **Intersection Observer API**: Use the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) to monitor when the marker element is entering or exiting another element or intersecting by a specified amount.
 
 The Intersection Observer API is a browser native API and is preferred over `Element.getBoundingClientRect()`.
 
