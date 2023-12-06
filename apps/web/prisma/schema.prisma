@@ -13,20 +13,6 @@ model EmailSubscriber {
   createdAt DateTime? @default(now()) @db.Timestamp(6)
 }
 
-model Event {
-  id          BigInt    @id @default(autoincrement())
-  userId      String?   @db.Uuid
-  action      String
-  payload     Json?     @db.Json
-  createdAt   DateTime? @default(now()) @db.Timestamptz(6)
-  referer     String?   @db.VarChar
-  country     String?
-  fingerprint String?
-  clientSHA   String?
-  serverSHA   String?
-  Profile     Profile?  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-}
-
 model FeedbackMessage {
   id        String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   message   String    @db.VarChar
@@ -45,10 +31,8 @@ model Profile {
   plan                                    String?
   stripeCustomer                          String?
   createdAt                               DateTime                                 @default(now()) @db.Timestamptz(6)
-  Event                                   Event[]
   QuestionProgress                        QuestionProgress[]
   LearningSession                         LearningSession[]
-  SitePerformance                         SitePerformance[]
   questionDiscussionPosts                 QuestionDiscussionPost[]
   questionJavaScriptSubmissions           QuestionJavaScriptSubmission[]
   questionJavaScriptCommunitySolutions    QuestionJavaScriptCommunitySolution[]
@@ -142,22 +126,6 @@ model QuestionUserInterfaceCommunitySolution {
   createdAt DateTime                       @default(now()) @db.Timestamptz(6)
   updatedAt DateTime                       @updatedAt
   profile   Profile                        @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-}
-
-model SitePerformance {
-  createdAt   DateTime? @default(now()) @db.Timestamptz(6)
-  duration    Float?
-  country     String?
-  userEmail   String?
-  event       String?
-  id          String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  url         String?
-  referrer    String?
-  fingerprint String?
-  clientSHA   String?
-  serverSHA   String?
-  userId      String?   @db.Uuid
-  profile     Profile?  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 enum LearningSessionStatus {
