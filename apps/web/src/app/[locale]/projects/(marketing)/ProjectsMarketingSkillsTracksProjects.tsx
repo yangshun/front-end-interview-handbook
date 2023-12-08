@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import BlurOverlay from '~/components/common/BlurOverlay';
 import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
 import MarketingSectionItemHeader from '~/components/common/marketing/MarketingSectionItemHeader';
 import HTML5LogoMonochrome from '~/components/icons/HTML5LogoMonochrome';
@@ -582,32 +583,6 @@ const hiddenProjects: Array<ProjectsProject> = [
   },
 ];
 
-function BlurOverlay({
-  children: bottom,
-  overlay: top,
-  maxHeight,
-}: {
-  children: React.ReactNode;
-  maxHeight?: number;
-  overlay: React.ReactNode;
-}) {
-  return (
-    <div className="relative w-full overflow-visible">
-      <div aria-hidden={true} className="blur">
-        <div
-          style={{
-            WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)',
-            maskImage: 'linear-gradient(to bottom, black, transparent)',
-            maxHeight,
-          }}>
-          {bottom}
-        </div>
-      </div>
-      <div className="absolute bottom-0 left-0 right-0">{top}</div>
-    </div>
-  );
-}
-
 export default function ProjectsMarketingSkillsTracksProjects() {
   const intl = useIntl();
 
@@ -685,6 +660,7 @@ export default function ProjectsMarketingSkillsTracksProjects() {
                 <div className="flex flex-col gap-4">
                   <Text weight="bold">Intermediate skills</Text>
                   <BlurOverlay
+                    align="bottom"
                     overlay={
                       <div className="flex flex-col items-center gap-4">
                         <Button
@@ -760,6 +736,7 @@ export default function ProjectsMarketingSkillsTracksProjects() {
               ))}
             </ProjectsMarketingComponentTrackAccordion>
             <BlurOverlay
+              align="bottom"
               overlay={
                 <div className="flex flex-col items-center gap-4">
                   <Button
@@ -826,6 +803,7 @@ export default function ProjectsMarketingSkillsTracksProjects() {
             />
             <ProjectsProjectGridListWithFilters projects={projects} />
             <BlurOverlay
+              align="bottom"
               maxHeight={256}
               overlay={
                 <div className="flex justify-center">

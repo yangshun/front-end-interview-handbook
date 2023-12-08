@@ -41,7 +41,7 @@ export type TextDisplay =
   | 'inline-flex'
   | 'inline-grid'
   | 'inline';
-export type TextSize = 'body' | 'body2' | 'body3' | 'custom';
+export type TextSize = 'body' | 'body0' | 'body2' | 'body3' | 'custom';
 export type TextWeight = 'bold' | 'custom' | 'medium' | 'normal';
 
 type Props = Readonly<{
@@ -56,6 +56,7 @@ type Props = Readonly<{
 
 const sizeClasses: Record<TextSize, string> = {
   body: 'text-base',
+  body0: 'text-xl',
   body2: 'text-sm',
   body3: 'text-xs',
   custom: '',
