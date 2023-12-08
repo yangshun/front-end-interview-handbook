@@ -4,6 +4,7 @@ import {
   RiCheckboxMultipleLine,
   RiFireLine,
   RiFlashlightLine,
+  RiLock2Line,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -35,10 +36,14 @@ export default function ProjectsProjectCard({
     trackName,
     repCount,
     slug,
+    isPremium,
+    status,
     isStarter,
   },
 }: Props) {
   const intl = useIntl();
+
+  const hasTypeTags = isStarter || isPremium;
 
   return (
     <div
@@ -49,9 +54,52 @@ export default function ProjectsProjectCard({
       )}>
       <div className="relative">
         <img alt="" className="aspect-[16/9] object-cover" src={imgSrc} />
-        {isStarter && (
-          <div className="absolute left-2 top-2">
-            <Badge icon={RiFlashlightLine} label="Starter" variant="success" />
+        {status === 'in-progress' && (
+          <div className="absolute start-2 bottom-2 rounded px-2 bg-warning-light text-warning-darkest">
+            <Text color="inherit" size="body2" weight="bold">
+              <FormattedMessage
+                defaultMessage="Project in progress"
+                description="Label for in progress project tag"
+                id="6aKLc3"
+              />
+            </Text>
+          </div>
+        )}
+        {status === 'completed' && (
+          <div className="absolute start-2 bottom-2 rounded px-2 bg-success-light text-success-darkest">
+            <Text color="inherit" size="body2" weight="bold">
+              <FormattedMessage
+                defaultMessage="Project completed"
+                description="Label for completed project tag"
+                id="YwXYNT"
+              />
+            </Text>
+          </div>
+        )}
+        {hasTypeTags && (
+          <div className="absolute start-2 top-2 flex items-center gap-1">
+            {isStarter && (
+              <Badge
+                icon={RiFlashlightLine}
+                label={intl.formatMessage({
+                  defaultMessage: 'Starter',
+                  description: 'Label for starter project tag',
+                  id: 'fVpzUz',
+                })}
+                variant="success"
+              />
+            )}
+            {isPremium && (
+              <Badge
+                icon={RiLock2Line}
+                label={intl.formatMessage({
+                  defaultMessage: 'Premium',
+                  description: 'Label for premium project tag',
+                  id: 'szBcoh',
+                })}
+                variant="special"
+              />
+            )}
           </div>
         )}
       </div>

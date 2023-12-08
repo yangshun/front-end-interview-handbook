@@ -43,6 +43,7 @@ const projects: Array<ProjectsProject> = [
     ],
     description: 'This is a short description for the newsletter section',
     imgSrc: 'https://source.unsplash.com/random/960x360',
+    isPremium: true,
     isStarter: true,
     projectHref: '#',
     repCount: 1000,
@@ -64,6 +65,7 @@ const projects: Array<ProjectsProject> = [
       },
     ],
     slug: 'newsletter-section-1',
+    status: 'in-progress',
     title: 'Newsletter section',
     trackName: 'Design System Track',
   },
@@ -99,6 +101,7 @@ const projects: Array<ProjectsProject> = [
     ],
     description: 'This is a short description for the newsletter section',
     imgSrc: 'https://source.unsplash.com/random/960x360',
+    isPremium: false,
     isStarter: true,
     projectHref: '#',
     repCount: 1000,
@@ -120,10 +123,10 @@ const projects: Array<ProjectsProject> = [
       },
     ],
     slug: 'newsletter-section-2',
+    status: 'completed',
     title: 'Newsletter section',
     trackName: 'Design System Track',
   },
-
   {
     completedCount: 21,
     completedUsers: [
@@ -156,6 +159,7 @@ const projects: Array<ProjectsProject> = [
     ],
     description: 'This is a short description for the newsletter section',
     imgSrc: 'https://source.unsplash.com/random/960x360',
+    isPremium: true,
     isStarter: true,
     projectHref: '#',
     repCount: 1000,
@@ -177,6 +181,7 @@ const projects: Array<ProjectsProject> = [
       },
     ],
     slug: 'newsletter-section-3',
+    status: 'not-started',
     title: 'Newsletter section',
     trackName: 'Design System Track',
   },
@@ -206,9 +211,9 @@ export default function ProjectsAllProjects() {
             <Section>
               <Text className="mb-12" color="secondary">
                 <FormattedMessage
-                  defaultMessage="Start building any project you can dream of - mentored by official how-to guides and production-grade specifications."
+                  defaultMessage="Start building any project you can dream of to train your front end/full stack skills or to build a useful toolkit."
                   description="Description of Projects Browse Projects page"
-                  id="RvuPjs"
+                  id="9oiPRh"
                 />
               </Text>
               <ProjectsProjectGridListWithFilters projects={projects} />

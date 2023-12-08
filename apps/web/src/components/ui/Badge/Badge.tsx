@@ -52,7 +52,7 @@ const variantClasses: Record<
     textClass: 'text-brand-dark dark:text-brand',
   },
   special: {
-    backgroundClass: 'shiny bg-brand-lightest dark:bg-brand/20',
+    backgroundClass: 'shiny bg-brand-lightest dark:bg-neutral-800',
     borderClass: '',
     iconClass: 'text-brand-dark dark:text-brand',
     textClass: 'text-brand-dark dark:text-white',
