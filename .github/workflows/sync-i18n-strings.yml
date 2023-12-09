@@ -17,13 +17,17 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
       - name: Rename original en-US.json file
         run: mv apps/web/src/locales/en-US.json apps/web/src/locales/en-US.json.original
         working-directory: ${{ github.workspace }}
       - name: Extract i18n messages
-        run: npm run i18n:extract
+        run: pnpm i18n:extract
         working-directory: apps/web
       - name: 'Update i18n messages if required'
         run: |
