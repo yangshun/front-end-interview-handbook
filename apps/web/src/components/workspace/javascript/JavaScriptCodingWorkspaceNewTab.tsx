@@ -5,6 +5,7 @@ import type {
   JavaScriptCodingWorkspacePredefinedTabsContents,
   JavaScriptCodingWorkspacePredefinedTabsType,
 } from './JavaScriptCodingWorkspaceTypes';
+import { JS_COMMUNITY_SOLUTIONS_IS_LIVE } from '../../../data/FeatureFlags';
 
 export default function JavaScriptCodingWorkspaceNewTab({
   predefinedTabs,
@@ -21,20 +22,27 @@ export default function JavaScriptCodingWorkspaceNewTab({
         Tabs
       </Text>
       <div className="flex flex-wrap gap-2">
-        {Object.entries(predefinedTabs).map(([tabType, tabDetails]) => (
-          <Button
-            key={tabType}
-            addonPosition="start"
-            icon={tabDetails.icon}
-            label={tabDetails.label}
-            variant="secondary"
-            onClick={() => {
-              onSelectTabType(
-                tabType as JavaScriptCodingWorkspacePredefinedTabsType,
-              );
-            }}
-          />
-        ))}
+        {Object.entries(predefinedTabs)
+          .filter(([tabType]) =>
+            JS_COMMUNITY_SOLUTIONS_IS_LIVE
+              ? true
+              : tabType !== 'community_solutions' &&
+                tabType !== 'community_solution_create',
+          )
+          .map(([tabType, tabDetails]) => (
+            <Button
+              key={tabType}
+              addonPosition="start"
+              icon={tabDetails.icon}
+              label={tabDetails.label}
+              variant="secondary"
+              onClick={() => {
+                onSelectTabType(
+                  tabType as JavaScriptCodingWorkspacePredefinedTabsType,
+                );
+              }}
+            />
+          ))}
       </div>
     </div>
   );

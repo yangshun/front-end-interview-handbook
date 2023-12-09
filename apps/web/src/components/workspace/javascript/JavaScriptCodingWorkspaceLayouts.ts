@@ -1,3 +1,5 @@
+import { JS_COMMUNITY_SOLUTIONS_IS_LIVE } from '~/data/FeatureFlags';
+
 import type { TilesPanelConfig } from '~/react-tiling/types';
 
 import type { JavaScriptCodingWorkspaceTabsType } from './JavaScriptCodingWorkspaceTypes';
@@ -50,15 +52,9 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
         activeTabId: 'description',
         collapsible: true,
         id: 'left-column',
-        tabs:
-          process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
-            ? [descriptionTab, solutionTab, submissionsTab]
-            : [
-                descriptionTab,
-                solutionTab,
-                communitySolutionsTab,
-                submissionsTab,
-              ],
+        tabs: JS_COMMUNITY_SOLUTIONS_IS_LIVE
+          ? [descriptionTab, solutionTab, communitySolutionsTab, submissionsTab]
+          : [descriptionTab, solutionTab, submissionsTab],
         type: 'item',
       },
       {
@@ -108,15 +104,9 @@ export function getJavaScriptCodingWorkspaceLayoutThreeColumns(
         collapsible: true,
         defaultSize: 35,
         id: 'left-column',
-        tabs:
-          process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
-            ? [descriptionTab, solutionTab, submissionsTab]
-            : [
-                descriptionTab,
-                solutionTab,
-                communitySolutionsTab,
-                submissionsTab,
-              ],
+        tabs: JS_COMMUNITY_SOLUTIONS_IS_LIVE
+          ? [descriptionTab, solutionTab, communitySolutionsTab, submissionsTab]
+          : [descriptionTab, solutionTab, submissionsTab],
         type: 'item',
       },
       {
@@ -156,10 +146,9 @@ export function getJavaScriptCodingWorkspaceLayoutGrid(
         activeTabId: 'description',
         collapsible: true,
         id: 'left-column',
-        tabs:
-          process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
-            ? [descriptionTab, solutionTab]
-            : [descriptionTab, solutionTab, communitySolutionsTab],
+        tabs: JS_COMMUNITY_SOLUTIONS_IS_LIVE
+          ? [descriptionTab, solutionTab, communitySolutionsTab]
+          : [descriptionTab, solutionTab],
         type: 'item',
       },
       {
