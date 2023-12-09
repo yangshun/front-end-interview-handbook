@@ -39,6 +39,10 @@
     "defaultMessage": "{skillName}: {completedProjectCount} out of {totalProjectCount}",
     "description": "Label for Projects skill emblem"
   },
+  "+SiVOr": {
+    "defaultMessage": "Includes a hi-fidelity design and interaction specifications for this project.",
+    "description": "Description for Download Figma Design content section on Before You Get Started dialog"
+  },
   "+Vxpl1": {
     "defaultMessage": "Build projects that showcase skills that matter - like your own design system, component libraries, or full stack AI projects",
     "description": "Subtitle for Projects marketing hero section for portfolio projects"
@@ -170,6 +174,10 @@
   "0IALGm": {
     "defaultMessage": "Hello {userEmail}!",
     "description": "Title of AuthPage when logged in"
+  },
+  "0Lfmy2": {
+    "defaultMessage": "Component Track",
+    "description": "Label for Component Track filter for projects list"
   },
   "0Nq65E": {
     "defaultMessage": "Billing",
@@ -395,6 +403,10 @@
     "defaultMessage": "GreatFrontEnd uses Monaco Editor, the same code editor used in Visual Studio Code (VS Code). Most editor shortcuts in VS Code should work here as well. Here's a list of common shortcuts for your reference:",
     "description": "Description within code editor shortcuts"
   },
+  "4BBxZ1": {
+    "defaultMessage": "Start project",
+    "description": "Label for Start Project button on Projects project assets page"
+  },
   "4Bt00L": {
     "defaultMessage": "Don't have an account? <link>Sign up for free</link>",
     "description": "Prompt for account creation on Email Sign In page"
@@ -454,6 +466,10 @@
   "5XwjUN": {
     "defaultMessage": "Facing trouble? <link>Email us</link>",
     "description": "Section label for seasonal promotion details"
+  },
+  "5a8KFD": {
+    "defaultMessage": "Filter by Status",
+    "description": "Tooltip for Status filter for projects list"
   },
   "5c7RMQ": {
     "defaultMessage": "Practice by framework",
@@ -527,6 +543,10 @@
     "defaultMessage": "Host your site",
     "description": "Description for Deployment step in project submission checklist"
   },
+  "6aKLc3": {
+    "defaultMessage": "Project in progress",
+    "description": "Label for in progress project tag"
+  },
   "6almL5": {
     "defaultMessage": "Check on eligibility or submit proof",
     "description": "Instruction to check for review cashback"
@@ -571,6 +591,10 @@
     "defaultMessage": "Mid",
     "description": "Label for medium question importance"
   },
+  "79YODs": {
+    "defaultMessage": "Let's begin!",
+    "description": "Title for Start Coding content section on Before You Get Started dialog"
+  },
   "7GfgZR": {
     "defaultMessage": "LinkedIn link description",
     "description": "Description for LinkedIn link input on Projects profile onboarding page"
@@ -595,6 +619,10 @@
     "defaultMessage": "No ongoing learning session",
     "description": "No active study plan session started"
   },
+  "7Ozzmy": {
+    "defaultMessage": "Start coding!",
+    "description": "Label for \"Start coding!\" step in dialog on Projects project page"
+  },
   "7P0wF0": {
     "defaultMessage": "Get Full Access",
     "description": "Get full access button label"
@@ -610,6 +638,10 @@
   "7gb9hK": {
     "defaultMessage": "Everything you need",
     "description": "Label for an example list of JavaScript Questions on marketing pages"
+  },
+  "7jhWHe": {
+    "defaultMessage": "Download Figma design",
+    "description": "Label for \"Download Figma design\" button on Projects project page"
   },
   "7kN2mI": {
     "defaultMessage": "Progress",
@@ -627,6 +659,10 @@
     "defaultMessage": "{price} billed yearly",
     "description": "Description of billing frequency for annual plan"
   },
+  "7vvXZb": {
+    "defaultMessage": "Premium Projects",
+    "description": "Title for Premium Projects section on Projects project page"
+  },
   "7wqhjF": {
     "defaultMessage": "Practice Top HTML Front End Interview Questions with Solutions",
     "description": "SEO title for HTML questions list page"
@@ -634,6 +670,10 @@
   "7xAtDI": {
     "defaultMessage": "Implement important Data Structures & Algorithms",
     "description": "Description of data structures and algorithm questions"
+  },
+  "7xuDzw": {
+    "defaultMessage": "We are also the only platform offering decent front end system design content.",
+    "description": "FAQ answer"
   },
   "8+Ezk6": {
     "defaultMessage": "Chat with us directly!",
@@ -646,6 +686,10 @@
   "83GIBc": {
     "defaultMessage": "Introduction",
     "description": "Introduction to front end system design"
+  },
+  "84jjDe": {
+    "defaultMessage": "Filter by Skills",
+    "description": "Tooltip for Skills filter for projects list"
   },
   "854lgU": {
     "defaultMessage": "Strategies to tackle the wide domain of behavioral interviews, specific to SWE",
@@ -662,10 +706,6 @@
   "8KFYWs": {
     "defaultMessage": "Intro to Quiz Questions",
     "description": "Introduction to front end quiz questions"
-  },
-  "8LBjGN": {
-    "defaultMessage": "Difficulty",
-    "description": "Label for \"Difficulty\" filter for projects list"
   },
   "8Nm9WZ": {
     "defaultMessage": "Walmart",
@@ -755,6 +795,10 @@
     "defaultMessage": "Email",
     "description": "Label of email field on Sign In/Up page"
   },
+  "9POdEK": {
+    "defaultMessage": "View subscription plans",
+    "description": "Label for View subscription plans button on Projects project page"
+  },
   "9Q8e4/": {
     "defaultMessage": "JavaScript Polyfills",
     "description": "Name of focus area questions"
@@ -774,6 +818,10 @@
   "9nq03w": {
     "defaultMessage": "Others",
     "description": "Label for \"Others\" option in YOE replacement"
+  },
+  "9oiPRh": {
+    "defaultMessage": "Start building any project you can dream of to train your front end/full stack skills or to build a useful toolkit.",
+    "description": "Description of Projects Browse Projects page"
   },
   "9qM8IM": {
     "defaultMessage": "Tech stack to improve description",
@@ -827,6 +875,10 @@
     "defaultMessage": "No questions",
     "description": "Title for empty state when application of filters return no results"
   },
+  "B2171J": {
+    "defaultMessage": "Download design assets",
+    "description": "Label for \"Download design assets\" step in dialog on Projects project page"
+  },
   "B4Jykm": {
     "defaultMessage": "Project Brief",
     "description": "Title for Project Brief section on Projects project page"
@@ -862,10 +914,6 @@
   "BPQrNY": {
     "defaultMessage": "Best value for money with real-time support from the team and community.",
     "description": "Supporting statement for an annual pricing plan"
-  },
-  "BSw3M8": {
-    "defaultMessage": "Skills",
-    "description": "Label for \"Skills\" filter for projects list"
   },
   "BgJTSk": {
     "defaultMessage": "Search system design questions",
@@ -923,6 +971,10 @@
     "defaultMessage": "Interview guides",
     "description": "Sidebar label for Interview Guides category"
   },
+  "CNAh0z": {
+    "defaultMessage": "You can download assets after starting the project",
+    "description": "Title for start project overlay on Projects project assets page"
+  },
   "CNjnh0": {
     "defaultMessage": "Not written for this question.",
     "description": "Text that apppears if a solution has not been written for the question"
@@ -950,6 +1002,10 @@
   "CrNgUe": {
     "defaultMessage": "Questions List",
     "description": "Screenreader text for question list"
+  },
+  "CrPCIu": {
+    "defaultMessage": "Before you get started",
+    "description": "Title for \"Before you get started\" dialog on Projects project page"
   },
   "CvwT9O": {
     "defaultMessage": "You need to start the learning session first",
@@ -1019,10 +1075,6 @@
     "defaultMessage": "Behavioral Interview",
     "description": "Short title for behavioral interview guidebook"
   },
-  "DVZ1fN": {
-    "defaultMessage": "Status",
-    "description": "Label for \"Status\" filter for projects list"
-  },
   "DZGIbR": {
     "defaultMessage": "Starter",
     "description": "Label for starter project"
@@ -1030,6 +1082,10 @@
   "DbEF7d": {
     "defaultMessage": "Master the art of building interactive and user-friendly forms.",
     "description": "Description for interview preparation focus area"
+  },
+  "DdRaW3": {
+    "defaultMessage": "Filters",
+    "description": "Title of Projects project filter slide-out"
   },
   "DdbtcA": {
     "defaultMessage": "Skills",
@@ -1090,6 +1146,10 @@
   "EjbpUe": {
     "defaultMessage": "Open navigation profile menu",
     "description": "Screenreader text to open the profile menu"
+  },
+  "EmGSpN": {
+    "defaultMessage": "Optimized image assets",
+    "description": "Label for Optimized Image Assets asset item on provided assets card on Projects project assets page"
   },
   "EmirPr": {
     "defaultMessage": "Master async programming for front end interviews",
@@ -1154,6 +1214,10 @@
   "FUjO3W": {
     "defaultMessage": "Build entire design systems or component libraries with our Component Tracks",
     "description": "Heading of the 'Component tracks' marketing section on Projects home page"
+  },
+  "FYHKDB": {
+    "defaultMessage": "Sort By",
+    "description": "Label for Sort By button for projects list"
   },
   "FcKhvG": {
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch and practice the questions where algorithmic efficiency is key.",
@@ -1243,6 +1307,10 @@
     "defaultMessage": "Filters",
     "description": "Screenreader text indicating the filters component on question list pages"
   },
+  "Gzlz97": {
+    "defaultMessage": "README file to help you get started",
+    "description": "Label for README asset item on provided assets card on Projects project assets page"
+  },
   "H+BRfg": {
     "defaultMessage": "No completed questions",
     "description": "Text shown when no questions are completed."
@@ -1318,6 +1386,10 @@
   "HlRbK4": {
     "defaultMessage": "High quality solutions",
     "description": "Title for high quality solutions feature"
+  },
+  "HloN+i": {
+    "defaultMessage": "Start coding!",
+    "description": "Label for \"Start coding!\" button on Projects project page"
   },
   "HtFDkf": {
     "defaultMessage": "Official guides",
@@ -1498,6 +1570,14 @@
   "KKasxQ": {
     "defaultMessage": "Reply content",
     "description": "Label for discussion post reply input"
+  },
+  "KRHAyD": {
+    "defaultMessage": "Apply",
+    "description": "Label for \"Apply\" button for projects filter"
+  },
+  "KXpT3F": {
+    "defaultMessage": "Style guide for fonts, colors, etc.",
+    "description": "Label for Style Guide asset item on provided assets card on Projects project assets page"
   },
   "KY8GB9": {
     "defaultMessage": "Failed to mark question as complete. Please try again",
@@ -1719,6 +1799,10 @@
     "defaultMessage": "Learn practical front end skills by building projects guided by a skills progression roadmap",
     "description": "Subtitle for Projects marketing hero section for beginners"
   },
+  "Mq6LMy": {
+    "defaultMessage": "Next",
+    "description": "Label for \"Next\" button for \"Before you get started\" dialog on Projects project page"
+  },
   "Mw/xN0": {
     "defaultMessage": "Label for \"Completed projects\" progress bar of a Projects component track",
     "description": "{value} out of {total} projects"
@@ -1762,6 +1846,10 @@
   "NO9tAQ": {
     "defaultMessage": "This is an irreversible action. You will not be able to resume the study list and all progress will be erased. Are you sure?",
     "description": "Confirmation text for stopping a study plan"
+  },
+  "NONBB3": {
+    "defaultMessage": "Premium is required to unlock both figma files and how-to guides for a project. Learn how to built accurately and work with production-level specifications.",
+    "description": "Premium required label for Download Figma Design content section on Before You Get Started dialog"
   },
   "NPBHO+": {
     "defaultMessage": "{questionCount}+ HTML interview questions, including quiz-style knowledge questions and HTML coding questions.",
@@ -1822,6 +1910,10 @@
   "OHistx": {
     "defaultMessage": "Practice by framework",
     "description": "Questions list page title"
+  },
+  "OK3yL4": {
+    "defaultMessage": "No skills added",
+    "description": "Placeholder for skills filter when no skills are selected"
   },
   "OOYktU": {
     "defaultMessage": "Data structures and algorithms",
@@ -2099,10 +2191,6 @@
     "defaultMessage": "DOM Manipulation",
     "description": "Name of focus area questions"
   },
-  "RvuPjs": {
-    "defaultMessage": "Start building any project you can dream of - mentored by official how-to guides and production-grade specifications.",
-    "description": "Description of Projects Browse Projects page"
-  },
   "RxZwQ9": {
     "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
     "description": "Subtitle on paywall over company tags on question list pages"
@@ -2327,10 +2415,6 @@
     "defaultMessage": "Vue Questions",
     "description": "Vue questions category long title"
   },
-  "V4WC0s": {
-    "defaultMessage": "Component track",
-    "description": "Label for \"Component track\" filter for projects list"
-  },
   "V4qTW5": {
     "defaultMessage": "Submission checklist",
     "description": "Title for the project submission checklist section"
@@ -2350,6 +2434,10 @@
   "VCvG/R": {
     "defaultMessage": "You are on the <bold>Annual</bold> plan.",
     "description": "Text describing user's subscription plan."
+  },
+  "VElW3O": {
+    "defaultMessage": "Download starter code + image assets",
+    "description": "Label for \"Download starter code + image assets\" button on Projects project page"
   },
   "VJ8xZy": {
     "defaultMessage": "Prices will be increased as more content is being added to the website.",
@@ -2515,6 +2603,10 @@
     "defaultMessage": "Forgot your password?",
     "description": "Label of forget password button on Email Sign In page"
   },
+  "Xb4kCD": {
+    "defaultMessage": "Clear all",
+    "description": "Label for \"Clear all\" button for projects filter"
+  },
   "XdezZk": {
     "defaultMessage": "What to expect, which rounds to expect them, and how to prepare",
     "description": "What to expect in front end quiz interviews"
@@ -2618,6 +2710,10 @@
   "YiTnlf": {
     "defaultMessage": "+{repCount} rep",
     "description": "Label for rep increase indicator in Project card"
+  },
+  "YwXYNT": {
+    "defaultMessage": "Project completed",
+    "description": "Label for completed project tag"
   },
   "Z4VfkU": {
     "defaultMessage": "Every question is accompanied by an official, well-explained solution from ex-interviewers.",
@@ -2775,9 +2871,17 @@
     "defaultMessage": "Submit your code",
     "description": "Title of test panel for coding workspace"
   },
+  "atJ0hJ": {
+    "defaultMessage": "JPEG design files for mobile & desktop layouts",
+    "description": "Label for JPEG asset item on provided assets card on Projects project assets page"
+  },
   "au4m82": {
     "defaultMessage": "JavaScript",
     "description": "JavaScript questions category long title"
+  },
+  "avFFbN": {
+    "defaultMessage": "View plans",
+    "description": "View plans link for Download Figma Design content section on Before You Get Started dialog"
   },
   "awMxNG": {
     "defaultMessage": "Marked \"{questionTitle}\" as complete",
@@ -2890,6 +2994,10 @@
   "c5f6aC": {
     "defaultMessage": "Sharpen your skills in asynchronous programming by practicing the use of async/await, Promises, and callback functions. Dive into scenarios that require asynchronous operations, such as making API requests and delayed code execution.",
     "description": "Description for interview preparation focus area"
+  },
+  "c7eREh": {
+    "defaultMessage": "Status",
+    "description": "Label for Status filter for projects list"
   },
   "c7lcjj": {
     "defaultMessage": "HTML Questions",
@@ -3039,6 +3147,10 @@
     "defaultMessage": "Try out some Front End questions!",
     "description": "Subtext for call to action when no questions are completed."
   },
+  "e/t5dH": {
+    "defaultMessage": "Download starter files",
+    "description": "Label for \"Download starter files\" step in dialog on Projects project page"
+  },
   "e1ohyq": {
     "defaultMessage": "Learn from others",
     "description": "Label for Learn from others sidebar item in Projects sidebar"
@@ -3123,6 +3235,10 @@
     "defaultMessage": "As someone who has given as well as taken a lot of interviews, I can say GreatFrontEnd is a f'king goldmine. I would highly recommend GreatFrontEnd to anyone who is preparing for front end interviews or anyone who just wants to learn some new concepts. The content is well-organized, has some great practical coding challenges, and the system design part is just amazing!!!",
     "description": "Anonymous Front End Engineer's testimonial"
   },
+  "fVpzUz": {
+    "defaultMessage": "Starter",
+    "description": "Label for starter project tag"
+  },
   "fXNw/d": {
     "defaultMessage": "Your Email",
     "description": "Feedback widget email input field label"
@@ -3206,6 +3322,10 @@
   "gNEj/r": {
     "defaultMessage": "Implement various Lodash functions and methods to manipulate and transform data efficiently, a common task given during front end interviews and improve your front end interview readiness.",
     "description": "Description for interview preparation focus area"
+  },
+  "gRN6GJ": {
+    "defaultMessage": "Assets provided",
+    "description": "Label for Assets Provided card on start project overlay on Projects project assets page"
   },
   "gTFqs7": {
     "defaultMessage": "Top Angular front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
@@ -3323,6 +3443,10 @@
     "defaultMessage": "Mark as incomplete",
     "description": "Mark the question as incomplete"
   },
+  "i9ojv3": {
+    "defaultMessage": "All filters",
+    "description": "Label for All Filters button for projects list"
+  },
   "iAXU/e": {
     "defaultMessage": "Sign In / Sign Up",
     "description": "Sign in or up for the platform"
@@ -3338,6 +3462,10 @@
   "iElBQT": {
     "defaultMessage": "Pricing Plans",
     "description": "Screen reader text referring to the Pricing Plan cards"
+  },
+  "iHLvVo": {
+    "defaultMessage": "Find official guides, reference code from top submissions, and use our discussion forum to ask questions.",
+    "description": "Description for Important Info Guide section on Before You Get Started dialog"
   },
   "iIQL6V": {
     "defaultMessage": "Completed",
@@ -3375,6 +3503,10 @@
     "defaultMessage": "We're Hiring",
     "description": "Link to careers page"
   },
+  "ixwQtP": {
+    "defaultMessage": "HTML file with pre-written content",
+    "description": "Label for HTML File asset item on provided assets card on Projects project assets page"
+  },
   "izBHrw": {
     "defaultMessage": "JPEG design files for mobile & desktop layouts",
     "description": "Label for JPEG card in Assets Provided section of Projects project page"
@@ -3398,6 +3530,10 @@
   "jCp/VW": {
     "defaultMessage": "Social links",
     "description": "Label for Social Links section of Projects profile onboarding page"
+  },
+  "jDFcsE": {
+    "defaultMessage": "Filter by Component Track",
+    "description": "Tooltip for Component track filter for projects list"
   },
   "jEYebN": {
     "defaultMessage": "View subscription plans",
@@ -3555,6 +3691,10 @@
     "defaultMessage": "You can't find it elsewhere",
     "description": "Label for an example list of System Design Questions on marketing pages"
   },
+  "kNUgFO": {
+    "defaultMessage": "Purchase premium to unlock access to {premiumProjectCount}+ premium projects and tracks.",
+    "description": "Description for Premium Projects section on Projects project page"
+  },
   "kQgKV1": {
     "defaultMessage": "Learning progress cleared",
     "description": "Success message for clearing study plan progress"
@@ -3635,10 +3775,6 @@
     "defaultMessage": "View study plans",
     "description": "Link label to view all study plans"
   },
-  "lGYkx/": {
-    "defaultMessage": "Filter",
-    "description": "Label for \"Filter\" button for projects list"
-  },
   "lJupPX": {
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all JavaScript coding questions"
@@ -3698,6 +3834,10 @@
   "lztLqo": {
     "defaultMessage": "Front End Engineer",
     "description": "Anonymous Front End Engineer's job title"
+  },
+  "m/PYOV": {
+    "defaultMessage": "Filter by Difficulty",
+    "description": "Tooltip for Difficulty filter for projects list"
   },
   "m0cej4": {
     "defaultMessage": "Started tracking progress",
@@ -4035,6 +4175,10 @@
     "defaultMessage": "Study guides",
     "description": "Study guides list section title in preparation dashboard"
   },
+  "qRBY3O": {
+    "defaultMessage": "Difficulty",
+    "description": "Label for Difficulty filter for projects list"
+  },
   "qZRTqi": {
     "defaultMessage": "Data Structures & Algorithms",
     "description": "Name of focus area questions"
@@ -4066,6 +4210,10 @@
   "qmU2/H": {
     "defaultMessage": "Purchase Premium to unlock access to the design file. Build accurately and learn to work with production-level specifications.",
     "description": "CTA for Figma Design File button on Projects project assets page"
+  },
+  "qoTBLI": {
+    "defaultMessage": "Know where to find important info",
+    "description": "Label for \"Know where to find important info\" step in dialog on Projects project page"
   },
   "qwP4CA": {
     "defaultMessage": "Huge question bank",
@@ -4206,6 +4354,10 @@
   "sxu/UG": {
     "defaultMessage": "Start a project",
     "description": "Label for Start a Project button in Hero section of HomePage."
+  },
+  "szBcoh": {
+    "defaultMessage": "Premium",
+    "description": "Label for premium project tag"
   },
   "t+g7fF": {
     "defaultMessage": "More on <link>Students Discount Terms and Conditions</link>",
@@ -4359,10 +4511,6 @@
     "defaultMessage": "Senior Software Engineer — Front End, UserTesting",
     "description": "Prashanth Reddy's job title"
   },
-  "usqC5b": {
-    "defaultMessage": "Sort by",
-    "description": "Label for \"Sort by\" button for projects list"
-  },
   "uz7f93": {
     "defaultMessage": "Salesforce",
     "description": "Company name for Salesforce"
@@ -4386,6 +4534,10 @@
   "v7xpbV": {
     "defaultMessage": "Stripe",
     "description": "Company name for Stripe"
+  },
+  "vHNURr": {
+    "defaultMessage": "View all filters",
+    "description": "Tooltip for All Filters button for projects list"
   },
   "vNa4Wc": {
     "defaultMessage": "While Offer Lasts",
@@ -4495,6 +4647,10 @@
     "defaultMessage": "Start in minutes",
     "description": "Button leading user to sign up to be an affiliate on the Hero section of the 'Become An Affiliate' page"
   },
+  "wzV6ho": {
+    "defaultMessage": "Skills",
+    "description": "Label for Skills filter for projects list"
+  },
   "wzxWP7": {
     "defaultMessage": "We will pull code from this repo for code reviews<ul><li>Follow <link>this guide</link> on how to create a Github repo</li><li>You will submit the link to your public github repo in the submission screen</li></ul>",
     "description": "Description for Github repo step in project submission checklist"
@@ -4583,6 +4739,10 @@
     "defaultMessage": "Component libraries",
     "description": "Title for \"Component libraries\" feature on Projects home page"
   },
+  "y57tsU": {
+    "defaultMessage": "Add skills",
+    "description": "Label for \"Add skills\" button for skills filter"
+  },
   "y8zzVx": {
     "defaultMessage": "Email",
     "description": "Email"
@@ -4607,6 +4767,10 @@
     "defaultMessage": "UI Questions Cheatsheet",
     "description": "Best practices for building UI during front end interviews"
   },
+  "yZkY1S": {
+    "defaultMessage": "Tell us about the skills you will be using",
+    "description": "Label for \"Tell us about the skills you will be using\" step in dialog on Projects project page"
+  },
   "yeGTq1": {
     "defaultMessage": "Reset Password",
     "description": "Title of Password Reset page"
@@ -4618,6 +4782,10 @@
   "yhHx9e": {
     "defaultMessage": "All your question progress will be reset. This is an irreversible action, are you sure you want to proceed?",
     "description": "Warning message in reset progress confirmation dialog"
+  },
+  "ynLgE+": {
+    "defaultMessage": "Includes assets, JPG images of the design files, and a basic style guide. There's also a README to help you get started.",
+    "description": "Description for Download Starter Files content section on Before You Get Started dialog"
   },
   "yrC3kR": {
     "defaultMessage": "Editor shortcuts",

@@ -20,7 +20,7 @@ import QuestionPagination from '../interviews/questions/content/QuestionPaginati
 type Props = Readonly<{
   children?: React.ReactNode;
   isAccessibleForFree?: boolean;
-  navigation: GuideNavigation; // TODO: Consider reading from context instead.
+  navigation: GuideNavigation;
   tableOfContents?: TableOfContents;
 }>;
 

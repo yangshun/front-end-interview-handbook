@@ -23,7 +23,6 @@ export type DropdownMenuSize = 'md' | 'sm' | 'xs';
 
 type Props = Readonly<{
   align?: DropdownMenuAlignment;
-  // TODO: Change to strict children.
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isLabelHidden?: boolean;
   showChevron?: boolean;

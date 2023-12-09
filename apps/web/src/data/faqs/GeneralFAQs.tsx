@@ -102,9 +102,13 @@ export const generalWorthIt: FAQItem = {
         description="Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
         id="IuWsYS"
       />
-      {/* TODO: We
-            are also the only one carrying front end system design questions (with
-            answers). */}
+      <br />
+      <br />
+      <FormattedMessage
+        defaultMessage="We are also the only platform offering decent front end system design content."
+        description="FAQ answer"
+        id="7xuDzw"
+      />
     </>
   ),
   key: 'general-worth-it',

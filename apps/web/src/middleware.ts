@@ -20,34 +20,6 @@ function upsertCookie(request: NextRequest, response: NextResponse) {
   }
 }
 
-// Migrate tokens from supabase JS SDK v1 to v2 format to preserve
-// logged in state for users.
-// TODO: Remove after v2 has been in use for a while (in 2023 April/May).
-function migrateSupabaseAuthTokens(req: NextRequest, res: NextResponse) {
-  if (req.cookies.get('supabase-auth-token')?.value) {
-    return;
-  }
-
-  if (
-    req.cookies.get('sb-access-token')?.value != null &&
-    req.cookies.get('sb-refresh-token')?.value != null
-  ) {
-    const tokens = [
-      req.cookies.get('sb-access-token')?.value,
-      req.cookies.get('sb-refresh-token')?.value,
-      null,
-      null,
-    ];
-
-    res.cookies.set('supabase-auth-token', JSON.stringify(tokens));
-
-    res.cookies.delete('sb-access-token');
-    res.cookies.delete('sb-refresh-token');
-    req.cookies.delete('sb-access-token');
-    req.cookies.delete('sb-refresh-token');
-  }
-}
-
 function addBrowserFingerprint(req: NextRequest, res: NextResponse) {
   if (req.cookies.get('gfp')?.value) {
     return;
@@ -65,7 +37,6 @@ export function middleware(req: NextRequest) {
   const res = i18nMiddlewareRes ?? NextResponse.next();
 
   upsertCookie(req, res);
-  migrateSupabaseAuthTokens(req, res);
   addBrowserFingerprint(req, res);
 
   const country = req.geo?.country ?? null;
