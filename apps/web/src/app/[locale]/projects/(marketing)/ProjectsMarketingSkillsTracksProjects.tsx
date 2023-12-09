@@ -242,6 +242,8 @@ const hiddenTracks: Array<ProjectsTrack> = [
 
 const projects: Array<ProjectsProject> = [
   {
+    isPremium: false,
+    status: 'in-progress',
     completedCount: 21,
     completedUsers: [
       {
@@ -298,6 +300,8 @@ const projects: Array<ProjectsProject> = [
     trackName: 'Design System Track',
   },
   {
+    isPremium: false,
+    status: 'in-progress',
     completedCount: 21,
     completedUsers: [
       {
@@ -353,8 +357,9 @@ const projects: Array<ProjectsProject> = [
     title: 'Newsletter section',
     trackName: 'Design System Track',
   },
-
   {
+    isPremium: false,
+    status: 'in-progress',
     completedCount: 21,
     completedUsers: [
       {
@@ -414,6 +419,8 @@ const projects: Array<ProjectsProject> = [
 
 const hiddenProjects: Array<ProjectsProject> = [
   {
+    isPremium: false,
+    status: 'in-progress',
     completedCount: 21,
     completedUsers: [
       {
@@ -470,6 +477,8 @@ const hiddenProjects: Array<ProjectsProject> = [
     trackName: 'Design System Track',
   },
   {
+    isPremium: false,
+    status: 'in-progress',
     completedCount: 21,
     completedUsers: [
       {
@@ -526,6 +535,8 @@ const hiddenProjects: Array<ProjectsProject> = [
     trackName: 'Design System Track',
   },
   {
+    isPremium: false,
+    status: 'in-progress',
     completedCount: 21,
     completedUsers: [
       {

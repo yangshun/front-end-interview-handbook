@@ -4,6 +4,8 @@ import type { ProjectsProject } from '~/components/projects/projects/types';
 import { fetchUser } from '~/supabase/SupabaseServerGFE';
 
 const exampleProject: ProjectsProject = {
+  isPremium: false,
+  status: 'in-progress',
   completedCount: 21,
   completedUsers: [
     {

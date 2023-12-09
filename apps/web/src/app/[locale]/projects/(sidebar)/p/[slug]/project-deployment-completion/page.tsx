@@ -7,6 +7,8 @@ type Props = Readonly<{
 }>;
 
 const exampleProject: ProjectsProject = {
+  isPremium: false,
+  status: 'in-progress',
   completedCount: 21,
   completedUsers: [
     {
