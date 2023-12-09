@@ -38,14 +38,17 @@ async function generateSetupForQuestion(slug: string) {
     'frameworks',
   );
 
-  const allFilesForQuestion = await globby('**/*', {
-    cwd: frameworksPath,
-    ignore: ['.mdx', 'greatfrontend.json'],
-  });
+  const allFilesForQuestion = (
+    await globby(path.join('**', '*'), {
+      cwd: frameworksPath,
+    })
+  ).filter(
+    (path_) => !(path_.endsWith('mdx') || path_.endsWith('greatfrontend.json')),
+  );
 
   // Group folders for a question by (framework, setup).
   const groupedFiles = lodash.groupBy(allFilesForQuestion, (filePath) => {
-    const parts = path.relative(frameworksPath, filePath).split('/');
+    const parts = filePath.split('/');
 
     return parts[0] + '/' + parts[1];
   });
@@ -53,6 +56,7 @@ async function generateSetupForQuestion(slug: string) {
   const setups = await Promise.all(
     Object.entries(groupedFiles).map(async ([key, paths]) => {
       const parts = key.split('/');
+
       const framework = parts[0] as QuestionFramework;
       const setupType = parts[1] as QuestionUserInterfaceSetupType;
 
@@ -61,6 +65,8 @@ async function generateSetupForQuestion(slug: string) {
         `Unsupported framework: ${framework}`,
       );
 
+      paths.sort((a, b) => a.localeCompare(b));
+
       const [writeupMdx, files, workspace] = await Promise.all([
         // Read either description or solution Markdown file.
         readMDXFile(
@@ -68,11 +74,13 @@ async function generateSetupForQuestion(slug: string) {
           {},
         ),
         // Read files needed.
-        paths.reduce<Record<string, SandpackFile>>((accFiles, fullPath) => {
+        paths.reduce<Record<string, SandpackFile>>((accFiles, filePath) => {
           const relativePath = path.relative(
-            path.join(frameworksPath, framework, setupType, 'setup'),
-            fullPath,
+            path.join(framework, setupType, 'setup'),
+            filePath,
           );
+
+          const fullPath = path.join(frameworksPath, filePath);
           const contents = fs.readFileSync(fullPath).toString();
 
           // Sandpack requires all file paths to be from the root,
@@ -130,7 +138,7 @@ async function generateSetupForQuestion(slug: string) {
         workspace?.visibleFiles?.forEach((file) => {
           if (!(file in files)) {
             throw Error(
-              `Visible file "${file}" not found in files for ${setupType} of ${framework}`,
+              `Visible file "${file}" not found in files for ${setupType} of ${framework} for ${slug}`,
             );
           }
         });
