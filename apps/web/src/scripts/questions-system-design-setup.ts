@@ -1,5 +1,5 @@
 import fs from 'fs';
-import glob from 'glob';
+import { globby } from 'globby';
 import path, { parse } from 'path';
 
 import { readQuestionSystemDesign } from '../db/questions-bundlers/QuestionsBundlerSystemDesign';
@@ -11,10 +11,11 @@ import {
 
 async function generateSetupForQuestion(slug: string) {
   const questionPath = getQuestionSrcPathSystemDesign(slug);
-  const locales = glob
-    // This assumes if the locale file is present for the description
-    // it's also present for the solution.
-    .sync(path.join(questionPath, 'description', '*.mdx'))
+  // This assumes that if the locale file is present for the description
+  // it's also present for the solution.
+  const locales = (
+    await globby(path.join(questionPath, 'description', '*.mdx'))
+  )
     // Files are named after their locales.
     .map((filePath) => parse(filePath).name);
 

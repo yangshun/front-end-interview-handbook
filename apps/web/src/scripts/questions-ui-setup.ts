@@ -1,6 +1,6 @@
 import assert from 'assert';
 import fs from 'fs';
-import glob from 'glob';
+import { globby } from 'globby';
 import lodash from 'lodash-es';
 import nullthrows from 'nullthrows';
 import path from 'path';
@@ -38,12 +38,10 @@ async function generateSetupForQuestion(slug: string) {
     'frameworks',
   );
 
-  const allFilesForQuestion = glob
-    .sync(path.join(frameworksPath, '**/*.*'))
-    .filter(
-      (path_) =>
-        !(path_.endsWith('mdx') || path_.endsWith('greatfrontend.json')),
-    );
+  const allFilesForQuestion = await globby('**/*', {
+    cwd: frameworksPath,
+    ignore: ['.mdx', 'greatfrontend.json'],
+  });
 
   // Group folders for a question by (framework, setup).
   const groupedFiles = lodash.groupBy(allFilesForQuestion, (filePath) => {

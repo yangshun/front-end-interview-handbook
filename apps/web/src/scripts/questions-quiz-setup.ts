@@ -1,5 +1,5 @@
 import fs from 'fs';
-import glob from 'glob';
+import { globby } from 'globby';
 import path, { parse } from 'path';
 
 import { readQuestionQuiz } from '../db/questions-bundlers/QuestionsBundlerQuiz';
@@ -11,8 +11,7 @@ import {
 
 async function generateSetupForQuestion(slug: string) {
   const questionPath = getQuestionSrcPathQuiz(slug);
-  const locales = glob
-    .sync(path.join(questionPath, '*.mdx'))
+  const locales = (await globby(path.join(questionPath, '*.mdx')))
     // Files are named after their locales.
     .map((filePath) => parse(filePath).name);
 

@@ -140,7 +140,6 @@
     "encoding": "^0.1.13",
     "eslint": "8.34.0",
     "eslint-config-next": "13.4.19",
-    "glob": "^8.1.0",
     "jest": "^29.5.0",
     "lodash-es": "^4.17.21",
     "next-sitemap": "^3.1.52",
