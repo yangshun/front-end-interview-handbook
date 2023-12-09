@@ -2,8 +2,6 @@ import clsx from 'clsx';
 import { useCallback, useState } from 'react';
 import { RiCodeLine } from 'react-icons/ri';
 
-import { JS_COMMUNITY_SOLUTIONS_IS_LIVE } from '~/data/FeatureFlags';
-
 import type {
   QuestionCodingWorkingLanguage,
   QuestionJavaScript,

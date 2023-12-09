@@ -242,8 +242,6 @@ const hiddenTracks: Array<ProjectsTrack> = [
 
 const projects: Array<ProjectsProject> = [
   {
-    isPremium: false,
-    status: 'in-progress',
     completedCount: 21,
     completedUsers: [
       {
@@ -275,6 +273,7 @@ const projects: Array<ProjectsProject> = [
     ],
     description: 'This is a short description for the newsletter section',
     imgSrc: 'https://source.unsplash.com/random/9600x360',
+    isPremium: false,
     isStarter: true,
     projectHref: '#',
     repCount: 1000,
@@ -296,12 +295,11 @@ const projects: Array<ProjectsProject> = [
       },
     ],
     slug: 'newsletter-section-1',
+    status: 'in-progress',
     title: 'Newsletter section',
     trackName: 'Design System Track',
   },
   {
-    isPremium: false,
-    status: 'in-progress',
     completedCount: 21,
     completedUsers: [
       {
@@ -333,6 +331,7 @@ const projects: Array<ProjectsProject> = [
     ],
     description: 'This is a short description for the newsletter section',
     imgSrc: 'https://source.unsplash.com/random/960x360',
+    isPremium: false,
     isStarter: true,
     projectHref: '#',
     repCount: 1000,
@@ -354,12 +353,11 @@ const projects: Array<ProjectsProject> = [
       },
     ],
     slug: 'newsletter-section-2',
+    status: 'in-progress',
     title: 'Newsletter section',
     trackName: 'Design System Track',
   },
   {
-    isPremium: false,
-    status: 'in-progress',
     completedCount: 21,
     completedUsers: [
       {
@@ -391,6 +389,7 @@ const projects: Array<ProjectsProject> = [
     ],
     description: 'This is a short description for the newsletter section',
     imgSrc: 'https://source.unsplash.com/random/960x360',
+    isPremium: false,
     isStarter: true,
     projectHref: '#',
     repCount: 1000,
@@ -412,6 +411,7 @@ const projects: Array<ProjectsProject> = [
       },
     ],
     slug: 'newsletter-section-3',
+    status: 'in-progress',
     title: 'Newsletter section',
     trackName: 'Design System Track',
   },
@@ -419,8 +419,6 @@ const projects: Array<ProjectsProject> = [
 
 const hiddenProjects: Array<ProjectsProject> = [
   {
-    isPremium: false,
-    status: 'in-progress',
     completedCount: 21,
     completedUsers: [
       {
@@ -452,6 +450,7 @@ const hiddenProjects: Array<ProjectsProject> = [
     ],
     description: 'This is a short description for the newsletter section',
     imgSrc: 'https://source.unsplash.com/random/960x360',
+    isPremium: false,
     isStarter: true,
     projectHref: '#',
     repCount: 1000,
@@ -473,12 +472,11 @@ const hiddenProjects: Array<ProjectsProject> = [
       },
     ],
     slug: 'newsletter-section-1',
+    status: 'in-progress',
     title: 'Newsletter section',
     trackName: 'Design System Track',
   },
   {
-    isPremium: false,
-    status: 'in-progress',
     completedCount: 21,
     completedUsers: [
       {
@@ -510,6 +508,7 @@ const hiddenProjects: Array<ProjectsProject> = [
     ],
     description: 'This is a short description for the newsletter section',
     imgSrc: 'https://source.unsplash.com/random/960x360',
+    isPremium: false,
     isStarter: true,
     projectHref: '#',
     repCount: 1000,
@@ -531,12 +530,11 @@ const hiddenProjects: Array<ProjectsProject> = [
       },
     ],
     slug: 'newsletter-section-2',
+    status: 'in-progress',
     title: 'Newsletter section',
     trackName: 'Design System Track',
   },
   {
-    isPremium: false,
-    status: 'in-progress',
     completedCount: 21,
     completedUsers: [
       {
@@ -568,6 +566,7 @@ const hiddenProjects: Array<ProjectsProject> = [
     ],
     description: 'This is a short description for the newsletter section',
     imgSrc: 'https://source.unsplash.com/random/960x360',
+    isPremium: false,
     isStarter: true,
     projectHref: '#',
     repCount: 1000,
@@ -589,6 +588,7 @@ const hiddenProjects: Array<ProjectsProject> = [
       },
     ],
     slug: 'newsletter-section-3',
+    status: 'in-progress',
     title: 'Newsletter section',
     trackName: 'Design System Track',
   },

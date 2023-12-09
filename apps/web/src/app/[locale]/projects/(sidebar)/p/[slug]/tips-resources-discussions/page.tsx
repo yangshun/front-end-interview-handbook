@@ -9,8 +9,6 @@ type Props = Readonly<{
 }>;
 
 const exampleProject: ProjectsProject = {
-  isPremium: false,
-  status: 'in-progress',
   completedCount: 21,
   completedUsers: [
     {
@@ -42,6 +40,7 @@ const exampleProject: ProjectsProject = {
   ],
   description: 'This is a short description for the newsletter section',
   imgSrc: 'https://source.unsplash.com/random/960x360',
+  isPremium: false,
   isStarter: true,
   projectHref: '#',
   repCount: 1000,
@@ -63,6 +62,7 @@ const exampleProject: ProjectsProject = {
     },
   ],
   slug: 'newsletter-section-1',
+  status: 'in-progress',
   title: 'Newsletter section',
   trackName: 'Design System Track',
 };
