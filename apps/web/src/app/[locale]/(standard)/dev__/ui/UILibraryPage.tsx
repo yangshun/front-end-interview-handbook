@@ -18,6 +18,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import HeadingExamples from '~/components/ui/Heading/HeadingExamples';
 import PopoverExamples from '~/components/ui/Popover/PopoverExamples';
+import RadioGroupExamples from '~/components/ui/RadioGroup/RadioGroupExamples';
 import SelectExamples from '~/components/ui/Select/SelectExamples';
 import SlideOutExamples from '~/components/ui/SlideOut/SlideOutExamples';
 import SpinnerExamples from '~/components/ui/Spinner/SpinnerExamples';
@@ -57,6 +58,7 @@ export default function UILibraryPage() {
         <TextAreaExamples />
         <SelectExamples />
         <CheckboxInputExamples />
+        <RadioGroupExamples />
         {/* Others */}
         <TabsExamples />
         <SpinnerExamples />

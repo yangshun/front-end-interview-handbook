@@ -1,37 +1,37 @@
 import clsx from 'clsx';
+import type { ReactElement } from 'react';
 import { useId } from 'react';
 
+import type { RadioGroupItemProps } from './RadioGroupItem';
 import Text from '../Text';
-import { themeElementBorderColor } from '../theme';
 
 import * as RadixRadioGroup from '@radix-ui/react-radio-group';
 
-export type RadioOption<T extends string> = Readonly<{
-  label: string;
-  value: T;
-}>;
+type RadioGroupDirection = 'horizontal' | 'vertical';
 
 type Props<T extends string> = Readonly<{
+  children: ReadonlyArray<ReactElement<RadioGroupItemProps<T>>>;
   className?: string;
   description?: React.ReactNode;
+  direction?: RadioGroupDirection;
   errorMessage?: React.ReactNode;
   id?: string;
   isDisabled?: boolean;
   isLabelHidden?: boolean;
   label: string;
   onChange: (value: string) => void;
-  options: ReadonlyArray<RadioOption<T>>;
   value: string;
 }>;
 
 function RadioGroup<T extends string>({
+  children,
   className,
+  direction = 'horizontal',
   id: idParam,
   errorMessage,
   description,
   isDisabled = false,
   isLabelHidden = false,
-  options,
   onChange,
   value,
   label,
@@ -65,26 +65,15 @@ function RadioGroup<T extends string>({
           hasError || description != null ? messageId : undefined
         }
         aria-invalid={hasError ? true : undefined}
-        className={className}
+        className={clsx(
+          'flex gap-x-6 gap-y-1 flex-wrap',
+          direction === 'vertical' && 'flex-col',
+          className,
+        )}
         disabled={isDisabled}
         value={value}
         onValueChange={onChange}>
-        {options.map((option) => (
-          <div key={option.value} className="flex items-center gap-2 py-1">
-            <RadixRadioGroup.Item
-              className={clsx(
-                'h-5 w-5 rounded-full border',
-                themeElementBorderColor,
-              )}
-              id={`${id}-${option.value}`}
-              value={option.value}>
-              <RadixRadioGroup.Indicator className="after:bg-brand flex h-full w-full items-center justify-center after:h-3 after:w-3 after:rounded-full" />
-            </RadixRadioGroup.Item>
-            <label className="cursor-pointer" htmlFor={`${id}-${option.value}`}>
-              {option.label}
-            </label>
-          </div>
-        ))}
+        {children}
       </RadixRadioGroup.Root>
       {errorMessage && (
         <Text

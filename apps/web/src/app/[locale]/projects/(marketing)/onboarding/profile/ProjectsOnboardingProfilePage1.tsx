@@ -8,8 +8,9 @@ import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Heading from '~/components/ui/Heading';
-import type { RadioOption } from '~/components/ui/RadioGroup';
 import RadioGroup from '~/components/ui/RadioGroup';
+import type { RadioGroupItemProps } from '~/components/ui/RadioGroup/RadioGroupItem';
+import RadioGroupItem from '~/components/ui/RadioGroup/RadioGroupItem';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
@@ -91,7 +92,7 @@ function useYOEReplacementOptions() {
       }),
       value: 'others',
     },
-  ] as const satisfies ReadonlyArray<RadioOption<string>>;
+  ] as const satisfies ReadonlyArray<RadioGroupItemProps<string>>;
 
   return yoeReplacementOptions;
 }
@@ -328,9 +329,11 @@ export default function ProjectsOnboardingProfilePage1({
                       'Label for "Years of experience replacement status" choices on Projects profile onboarding page',
                     id: '40fcnl',
                   })}
-                  options={yoeReplacementOptions}
-                  {...field}
-                />
+                  {...field}>
+                  {yoeReplacementOptions.map((option) => (
+                    <RadioGroupItem key={option.value} {...option} />
+                  ))}
+                </RadioGroup>
               )}
             />
             {watchYoeReplacement === 'others' && (
