@@ -5,6 +5,7 @@ import Heading from '~/components/ui/Heading/Heading';
 
 import Section from '../Heading/HeadingContext';
 import Text from '../Text';
+import { themeBackgroundLayerColor } from '../theme';
 
 import { Dialog, Transition } from '@headlessui/react';
 
@@ -61,7 +62,7 @@ export default function DialogImpl({
                 className={clsx(
                   'relative transform overflow-hidden',
                   'rounded-lg',
-                  'bg-white dark:bg-neutral-900',
+                  themeBackgroundLayerColor,
                   'sm:w-full sm:max-w-sm',
                   'text-left shadow-xl transition-all',
                 )}>

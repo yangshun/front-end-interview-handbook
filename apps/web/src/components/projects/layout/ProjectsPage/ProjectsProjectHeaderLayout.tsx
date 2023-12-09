@@ -25,7 +25,7 @@ export default function ProjectsProjectHeaderLayout({
     typeof ProjectsProjectBreakdownTabsImpl
   >['value'];
 
-  const hasSession = true;
+  const hasSession = false;
 
   return (
     <CardContainer>

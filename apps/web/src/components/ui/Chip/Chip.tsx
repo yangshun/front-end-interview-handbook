@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 
+export type ChipSize = 'md' | 'sm';
+
 export type ChipVariant =
   | 'active'
   | 'neutral'
@@ -10,8 +12,10 @@ export type ChipVariant =
 
 type Props = Readonly<
   {
+    'aria-hidden'?: boolean;
     className?: string;
     label: string;
+    size?: ChipSize;
     variant: ChipVariant;
   } & (
     | {
@@ -69,11 +73,18 @@ const variantClasses: Record<
   },
 };
 
+const sizeClasses: Record<ChipSize, string> = {
+  md: 'h-8 w-8',
+  sm: 'h-6 w-6',
+};
+
 export default function Chip({
   label,
+  'aria-hidden': ariaHidden,
   icon: Icon,
   variant,
   isLabelHidden,
+  size = 'md',
   className,
 }: Props) {
   const { backgroundClass, borderClass, textClass, iconClass } =
@@ -81,10 +92,11 @@ export default function Chip({
 
   return (
     <span
+      aria-hidden={ariaHidden}
       aria-label={isLabelHidden ? label : undefined}
       className={clsx(
         'relative inline-flex items-center justify-center whitespace-nowrap rounded-full py-px font-medium',
-        'h-8 w-8',
+        sizeClasses[size],
         backgroundClass,
         borderClass,
         className,
