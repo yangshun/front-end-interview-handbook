@@ -197,7 +197,7 @@ export default function ProjectsProjectBriefPage({ project }: Props) {
               id="6U52IB"
             />
           </Heading>
-          {/* TODO: Replace below with FAQ accordion */}
+          {/* TODO(projects): Replace below with FAQ accordion */}
           <div className="bg-red mt-6 h-[200px] w-full rounded-lg" />
         </div>
       </div>

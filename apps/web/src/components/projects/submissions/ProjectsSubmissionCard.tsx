@@ -71,7 +71,7 @@ export default function ProjectsSubmissionCard({
             <ProjectsViewCountTag viewCount={viewCount} />
             <ProjectsCommentCountTag commentCount={commentCount} />
           </div>
-          {/* TODO: Format relative time */}
+          {/* TODO(projects): Format relative time */}
           <Text color="secondary" size="body3">
             12 h. ago
           </Text>

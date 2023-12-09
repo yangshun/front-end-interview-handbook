@@ -277,7 +277,7 @@ export default function ProjectsSideBar({ user, jobTitle }: Props) {
       {user === null && <ProjectsSidebarStartProjectCTACard />}
       {user !== null && (
         <>
-          {/* TODO: Show only one of these depending on subscription status */}
+          {/* TODO(projects): Show only one of these depending on subscription status */}
           <ProjectsSidebarFreePlanCTACard />
           <ProjectsSidebarMonthlyPlanCTACard />
           <ProjectsSidebarYearlyPlanCTACard />

@@ -62,7 +62,7 @@ export default function ProjectsSkillsSelect({ className, skills }: Props) {
             key={skill.key}
             isEditable={skill.isEditable}
             skill={skill}
-            // TODO: Replace below with actual subSkills
+            // TODO(projects): Replace below with actual subSkills
             subSkills={[
               {
                 difficulty: 'easy',

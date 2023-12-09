@@ -35,7 +35,7 @@ export default function ProjectsProjectDeploymentCompletionPage({
 }: Props) {
   const intl = useIntl();
 
-  // TODO: Replace below with actual logic
+  // TODO(projects): Replace below with actual logic
   const isUserPremium = false;
 
   return (

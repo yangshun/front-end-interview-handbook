@@ -28,7 +28,7 @@ function ProjectMarketingComponentLibraryDetails() {
           id="rOzSWN"
         />
       </Text>
-      {/* TODO: Add component examples */}
+      {/* TODO(projects): Add component examples */}
     </div>
   );
 }

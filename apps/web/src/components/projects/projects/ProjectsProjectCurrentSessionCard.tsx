@@ -42,7 +42,7 @@ export default function ProjectsProjectCurrentProjectSessionCard({
           <div className={clsx('flex gap-1', themeTextSecondaryColor)}>
             <RiTimerLine className="h-4 w-4" color="inherit" />
             <Text color="inherit" size="body3">
-              {/* TODO: i18n this */}
+              {/* TODO(projects): i18n this */}
               Since Jul 23
             </Text>
           </div>

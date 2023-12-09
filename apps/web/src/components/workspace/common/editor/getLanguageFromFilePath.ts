@@ -3,10 +3,9 @@ const languageMapping: Record<string, string> = {
   jsx: 'javascript',
   svelte: 'html',
   ts: 'typescript',
-  
   tsx: 'typescript',
   // TODO: Not ideal but works for now.
-vue: 'html',
+  vue: 'html',
 };
 
 export default function getLanguageFromFilePath(filePath: string): string {

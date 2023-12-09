@@ -106,7 +106,7 @@ export default function ProjectsProjectHeader({ project, hasSession }: Props) {
                     key={skill.key}
                     isEditable={true}
                     skill={skill}
-                    // TODO: Replace below with actual subSkills
+                    // TODO(projects): Replace below with actual subSkills
                     subSkills={[
                       {
                         difficulty: 'easy',

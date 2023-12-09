@@ -7,7 +7,7 @@ import { exampleDiscussionPosts } from '~/app/[locale]/projects/(sidebar)/p/[slu
 import DiscussionPost from './DiscussionPost';
 
 function useSubPosts(postId: string) {
-  // TODO: Load subposts
+  // TODO(projects): Load subposts
   return exampleDiscussionPosts;
 }
 
