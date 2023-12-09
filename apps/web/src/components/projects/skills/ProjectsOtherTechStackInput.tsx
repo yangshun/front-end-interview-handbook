@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { RiAddLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
+import Anchor from '~/components/ui/Anchor';
 import TextInput from '~/components/ui/TextInput';
 
 import ProjectsSkillChip from './ProjectsSkillChip';
@@ -30,13 +31,24 @@ export default function ProjectsOtherTechStackInput({
         <TextInput
           autoComplete="off"
           classNameOuter="mt-6"
-          description={intl.formatMessage({
-            defaultMessage: 'Separate each tech stack with a comma',
-            description: 'Description for "Other tech stack used" text input',
-            id: 'ZDZiwj',
-          })}
+          description={
+            <FormattedMessage
+              defaultMessage="Other skills you are using which are not within the skills tree. Also helps community members understand more about the tech stack.{br}{br}If you don't see the tag you need, email us at <email>{supportEmail}</email>"
+              description='Description for "Other tech stack used" text input'
+              id="xU7H/Y"
+              values={{
+                br: <br />,
+                email: (chunks) => (
+                  <Anchor href={`mailto:${chunks as unknown as string}`}>
+                    {chunks}
+                  </Anchor>
+                ),
+                supportEmail: 'support@greatfrontend.com',
+              }}
+            />
+          }
+          descriptionStyle="tooltip"
           endIcon={RiAddLine}
-          isDescriptionCollapsed={true}
           label={intl.formatMessage({
             defaultMessage:
               'Other tech stack used (not covered in skills tree)',

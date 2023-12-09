@@ -31,7 +31,7 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsProjectDeploymentCompletionPage({
-  project,
+  project: { slug },
 }: Props) {
   const intl = useIntl();
 
@@ -277,6 +277,7 @@ export default function ProjectsProjectDeploymentCompletionPage({
                     <Button
                       className="mt-4 self-start"
                       icon={RiArrowRightLine}
+                      href={`/projects/p/${slug}/submit`}
                       label={intl.formatMessage({
                         defaultMessage: 'Submit project',
                         description:

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import type { ChangeEvent, ForwardedRef, InputHTMLAttributes } from 'react';
-import { forwardRef } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import React, { useId } from 'react';
 
 import type { LabelDescriptionStyle } from '../Label';
@@ -30,14 +30,14 @@ type Props = Readonly<{
   endIcon?: React.ComponentType<React.ComponentProps<'svg'>>;
   errorMessage?: React.ReactNode;
   id?: string;
-  isDescriptionCollapsed?: boolean;
   isDisabled?: boolean;
   isLabelHidden?: boolean;
   label: string;
+  maxLength?: number;
   onChange?: (value: string, event: ChangeEvent<HTMLInputElement>) => void;
   size?: TextInputSize;
   startIcon?: React.ComponentType<React.ComponentProps<'svg'>>;
-  type?: 'email' | 'password' | 'search' | 'text';
+  type?: 'email' | 'password' | 'search' | 'text' | 'url';
   value?: string;
 }> &
   Readonly<Attributes>;
@@ -112,17 +112,27 @@ function TextInput(
     type = 'text',
     value,
     onChange,
+    maxLength,
   }: Props,
   ref: ForwardedRef<HTMLInputElement>,
 ) {
   const hasError = !!errorMessage;
   const generatedId = useId();
+  const [valueLength, setValueLength] = useState(
+    (value ?? defaultValue ?? '').length,
+  );
   const id = idParam ?? generatedId;
   const messageId = useId();
   const state = hasError ? 'error' : 'normal';
   const fontSizeClass = fontSizeClasses[size];
   const iconSizeClass = iconSizeClasses[size];
   const iconColorClass = 'text-neutral-400 dark:text-neutral-600';
+
+  const hasBottomSection = hasError || maxLength != null;
+
+  useEffect(() => {
+    setValueLength((value ?? defaultValue ?? '').length);
+  }, [value, defaultValue]);
 
   return (
     <div
@@ -184,16 +194,14 @@ function TextInput(
           defaultValue={defaultValue}
           disabled={isDisabled}
           id={id}
+          maxLength={maxLength}
           name={name}
           placeholder={placeholder}
           type={type}
-          value={value != null ? value : undefined}
+          value={value}
           onChange={(event) => {
-            if (!onChange) {
-              return;
-            }
-
-            onChange(event.target.value, event);
+            onChange?.(event.target.value, event);
+            setValueLength(event.target.value.length);
           }}
         />
         {EndIcon && (
@@ -205,10 +213,23 @@ function TextInput(
           </div>
         )}
       </div>
-      {errorMessage && (
-        <Text color="error" display="block" id={messageId} size="body3">
-          {errorMessage}
-        </Text>
+      {hasBottomSection && (
+        <div
+          className={clsx(
+            'flex mt-2 w-full',
+            errorMessage ? 'justify-between' : 'justify-end',
+          )}>
+          {errorMessage && (
+            <Text color="error" display="block" id={messageId} size="body3">
+              {errorMessage}
+            </Text>
+          )}
+          {maxLength && (
+            <Text color="subtle" size="body3">
+              {valueLength}/{maxLength}
+            </Text>
+          )}
+        </div>
       )}
     </div>
   );

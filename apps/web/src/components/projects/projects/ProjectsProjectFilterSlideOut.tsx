@@ -1,14 +1,14 @@
 import clsx from 'clsx';
 import { useMemo, useState } from 'react';
-import { RiAddLine, RiArrowDownSLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { RiArrowDownSLine } from 'react-icons/ri';
+import { useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
-import { themeLineColor, themeTextSecondaryColor } from '~/components/ui/theme';
+import { themeTextSecondaryColor } from '~/components/ui/theme';
 
 import type {
   ProjectsProjectFilter,
@@ -19,39 +19,9 @@ import {
   useProjectsProjectFilterContext,
   useProjectsProjectFilterState,
 } from './ProjectsProjectFilterContext';
+import ProjectsSkillInput from '../skills/ProjectsSkillInput';
 
 import * as Accordion from '@radix-ui/react-accordion';
-
-function FilterSkillInput() {
-  const intl = useIntl();
-
-  return (
-    <div
-      className={clsx(
-        'p-3 flex justify-between items-center border rounded mt-2',
-        themeLineColor,
-      )}>
-      {/* TODO(projects): Add skill selection input */}
-      <Text color="subtle" size="body2">
-        <FormattedMessage
-          defaultMessage="No skills added"
-          description="Placeholder for skills filter when no skills are selected"
-          id="OK3yL4"
-        />
-      </Text>
-      <Button
-        addonPosition="start"
-        icon={RiAddLine}
-        label={intl.formatMessage({
-          defaultMessage: 'Add skills',
-          description: 'Label for "Add skills" button for skills filter',
-          id: 'y57tsU',
-        })}
-        variant="secondary"
-      />
-    </div>
-  );
-}
 
 function FilterSection({ label, id, options, type }: ProjectsProjectFilter) {
   const [selectedOptions, setSelectedOptions] =
@@ -93,7 +63,13 @@ function FilterSection({ label, id, options, type }: ProjectsProjectFilter) {
             ))}
           </div>
         )}
-        {type === 'skill-selection' && <FilterSkillInput />}
+        {type === 'skill-selection' && (
+          <ProjectsSkillInput
+            className="mt-2"
+            isLabelHidden={true}
+            label={label}
+          />
+        )}
       </Accordion.Content>
     </Accordion.Item>
   );
