@@ -101,7 +101,7 @@ export default function Alert({
             className="text-neutral-500 dark:text-neutral-400"
             color="inherit"
             display="block"
-            size="body">
+            size="body1">
             {children}
           </Text>
         </Section>

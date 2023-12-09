@@ -146,7 +146,7 @@ function NavbarSidebarAccordion({
         onClick={() => {
           setIsOpen(!isOpen);
         }}>
-        <Text size="body">{props.label}</Text>
+        <Text size="body1">{props.label}</Text>
         <DropdownIcon className={clsx(themeTextSecondaryColor, 'h-5 w-5')} />
       </Anchor>
       <ul

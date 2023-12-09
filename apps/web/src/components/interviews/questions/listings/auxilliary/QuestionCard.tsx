@@ -46,7 +46,7 @@ export default function QuestionCard({
                 titleLines === 2 && '!line-clamp-2',
               )}
               display="block"
-              size={titleLines === 2 ? 'body2' : 'body'}
+              size={titleLines === 2 ? 'body2' : 'body1'}
               weight="medium">
               {metadata.title}
             </Text>

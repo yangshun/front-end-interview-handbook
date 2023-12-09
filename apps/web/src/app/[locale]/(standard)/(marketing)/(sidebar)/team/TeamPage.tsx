@@ -77,7 +77,7 @@ export default function TeamPage({
                           className="inline-flex items-center gap-x-1"
                           href={user.href}
                           target="_blank">
-                          <Text display="block" size="body" weight="bold">
+                          <Text display="block" size="body1" weight="bold">
                             {user.name}
                           </Text>
                           <span className="absolute inset-0" />

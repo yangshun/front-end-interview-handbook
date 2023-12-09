@@ -47,7 +47,7 @@ const sizeClasses: Record<
     tabGapSize: 'gap-x-8',
     tabInternalGapSize: 'gap-x-2',
     tabItemSize: 'py-2',
-    textSize: 'body',
+    textSize: 'body1',
   },
   sm: {
     iconSize: 'h-4 w-4',

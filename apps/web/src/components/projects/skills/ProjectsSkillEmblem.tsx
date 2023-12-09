@@ -95,7 +95,7 @@ export default function ProjectsSkillEmblem({
               <div className="flex -rotate-45 flex-col items-center gap-1">
                 {type === 'group' ? <SkillGroupIcon /> : <SkillItemIcon />}
                 <Text
-                  size={type === 'group' ? 'body' : 'body2'}
+                  size={type === 'group' ? 'body1' : 'body2'}
                   weight="medium">
                   <FormattedMessage
                     defaultMessage="{completedProjectCount}/{totalProjectCount}"
@@ -116,7 +116,7 @@ export default function ProjectsSkillEmblem({
         <Text
           aria-hidden={true}
           className={clsx('rounded-full px-4 py-2', themeBackgroundEmphasized)}
-          size={type === 'group' ? 'body' : 'body2'}>
+          size={type === 'group' ? 'body1' : 'body2'}>
           {label}
         </Text>
       </div>

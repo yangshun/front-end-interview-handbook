@@ -25,7 +25,7 @@ const specialColors: ReadonlyArray<TextColor> = [
   'inherit',
 ];
 
-const sizes: ReadonlyArray<TextSize> = ['body', 'body2', 'body3'];
+const sizes: ReadonlyArray<TextSize> = ['body0', 'body1', 'body2', 'body3'];
 const weights: ReadonlyArray<TextWeight> = ['normal', 'medium', 'bold'];
 
 export default function TextExamples() {

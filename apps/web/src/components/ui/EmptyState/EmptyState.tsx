@@ -48,7 +48,7 @@ const sizes: Record<
 > = {
   md: {
     subtitle: 'body2',
-    title: 'body',
+    title: 'body1',
   },
   sm: {
     subtitle: 'body3',

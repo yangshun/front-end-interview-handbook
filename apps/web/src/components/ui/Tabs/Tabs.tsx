@@ -42,7 +42,7 @@ const sizeClasses: Record<
     tabGapSize: 'gap-x-3',
     tabInternalGapSize: 'gap-x-2',
     tabItemSize: 'py-2.5 px-5',
-    textSize: 'body',
+    textSize: 'body1',
   },
   sm: {
     borderRadius: 'rounded-t',
@@ -95,7 +95,10 @@ export default function Tabs<T>({
             const commonProps = {
               children: (
                 <Text
-                  className={clsx('flex items-center transition-all', tabInternalGapSize)}
+                  className={clsx(
+                    'flex items-center transition-all',
+                    tabInternalGapSize,
+                  )}
                   color={isSelected ? 'active' : 'secondary'}
                   size={textSize}
                   weight={isSelected ? 'medium' : 'normal'}>
