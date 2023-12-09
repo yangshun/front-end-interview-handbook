@@ -55,6 +55,15 @@ export default function SelectExamples() {
           }}
         />
       </div>
+      <Select
+        isLabelHidden={true}
+        label="Framework"
+        options={options}
+        value={value}
+        onChange={(val) => {
+          setValue(val);
+        }}
+      />
     </UIExamplesGroup>
   );
 }

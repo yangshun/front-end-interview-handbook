@@ -21,6 +21,11 @@ export default function TextInputExamples() {
         ))}
       </div>
       <TextInput
+        description="Minimum 6 characters"
+        label="Password"
+        type="password"
+      />
+      <TextInput
         errorMessage="Incorrect password!"
         label="Password"
         type="password"
@@ -28,7 +33,7 @@ export default function TextInputExamples() {
       <TextInput
         isLabelHidden={true}
         label="Name"
-        placeholder="John Doe"
+        placeholder="Label is hidden"
         type="text"
       />
       <div className="flex gap-x-24">
@@ -59,6 +64,12 @@ export default function TextInputExamples() {
         isDisabled={true}
         label="Disabled input"
         placeholder="John Doe"
+        type="text"
+      />
+      <TextInput
+        label="Required input"
+        placeholder="You shouldn't leave this empty"
+        required={true}
         type="text"
       />
     </UIExamplesGroup>

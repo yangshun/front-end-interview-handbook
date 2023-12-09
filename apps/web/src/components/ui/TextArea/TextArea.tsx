@@ -49,7 +49,7 @@ type State = 'error' | 'normal';
 const stateClasses: Record<State, string> = {
   error: clsx(
     'text-neutral-700 dark:text-neutral-300',
-    'ring-danger-light',
+    'ring-danger',
     'placeholder:text-neutral-400 dark:placeholder:text-neutral-600',
     'focus:ring-danger',
   ),

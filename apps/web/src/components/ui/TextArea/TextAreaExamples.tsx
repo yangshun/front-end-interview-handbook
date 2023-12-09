@@ -18,9 +18,14 @@ export default function TextAreaExamples() {
         ))}
       </div>
       <TextArea
-        description="Enter your name, anything you want"
-        label="Name"
-        placeholder="John Doe"
+        description="Maximum of 200 characters"
+        label="Message"
+        placeholder="This is such a great product"
+      />
+      <TextArea
+        errorMessage="Enter more than 4 words please"
+        label="Message"
+        placeholder="This is such a great product"
       />
       <TextArea
         isLabelHidden={true}
@@ -29,13 +34,18 @@ export default function TextAreaExamples() {
       />
       <TextArea
         disabled={true}
-        label="Disabled Textarea"
+        label="Disabled textarea"
         placeholder="You can't type here"
       />
       <TextArea
-        errorMessage="Enter more than 4 words please"
-        label="Message"
-        placeholder="This is such a great product"
+        label="Required textarea"
+        placeholder="You shouldn't leave this empty"
+        required={true}
+      />
+      <TextArea
+        label="Resize horizontal"
+        placeholder="You can resize this textarea horizontally"
+        resize="horizontal"
       />
     </UIExamplesGroup>
   );
