@@ -72,6 +72,13 @@ export default function TextInputExamples() {
         required={true}
         type="text"
       />
+      <TextInput
+        description="There's nothing to see here"
+        descriptionStyle="tooltip"
+        label="Description in tooltip"
+        placeholder="You shouldn't leave this empty"
+        type="text"
+      />
     </UIExamplesGroup>
   );
 }

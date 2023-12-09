@@ -2,11 +2,10 @@ import clsx from 'clsx';
 import type { ChangeEvent, ForwardedRef, InputHTMLAttributes } from 'react';
 import { forwardRef } from 'react';
 import React, { useId } from 'react';
-import { RiInformationLine } from 'react-icons/ri';
 
+import type { LabelDescriptionStyle } from '../Label';
+import Label from '../Label';
 import Text from '../Text/Text';
-import { themeTextSecondaryColor } from '../theme';
-import Tooltip from '../Tooltip';
 
 export type TextInputSize = 'md' | 'sm' | 'xs';
 
@@ -27,6 +26,7 @@ type Props = Readonly<{
   classNameOuter?: string;
   defaultValue?: string;
   description?: React.ReactNode;
+  descriptionStyle?: LabelDescriptionStyle;
   endIcon?: React.ComponentType<React.ComponentProps<'svg'>>;
   errorMessage?: React.ReactNode;
   id?: string;
@@ -97,12 +97,12 @@ function TextInput(
     classNameOuter,
     defaultValue,
     description,
+    descriptionStyle,
     endIcon: EndIcon,
     errorMessage,
     id: idParam,
     isDisabled,
     isLabelHidden = false,
-    isDescriptionCollapsed = false,
     label,
     name,
     placeholder,
@@ -125,38 +125,23 @@ function TextInput(
   const iconColorClass = 'text-neutral-400 dark:text-neutral-600';
 
   return (
-    <div className={classNameOuter}>
-      <label
-        className={clsx(
-          isLabelHidden ? 'sr-only' : 'mb-2 flex items-center gap-1',
-        )}
-        htmlFor={id}>
-        <Text size="body2" weight="medium">
-          {label}
-        </Text>
-        {required && (
-          <span aria-hidden="true" className="text-danger">
-            *
-          </span>
-        )}
-        {isDescriptionCollapsed && description && (
-          <Tooltip label={description}>
-            <RiInformationLine
-              className={clsx(iconSizeClasses, themeTextSecondaryColor)}
-            />
-          </Tooltip>
-        )}
-      </label>
-      {!hasError && description && !isDescriptionCollapsed && (
-        <Text
-          className="my-2"
-          color="secondary"
-          display="block"
-          id={messageId}
-          size="body3">
-          {description}
-        </Text>
-      )}
+    <div
+      className={clsx(
+        'flex flex-col',
+        (description || !isLabelHidden) && 'gap-2',
+        classNameOuter,
+      )}>
+      <Label
+        description={
+          hasError && descriptionStyle === 'under' ? undefined : description
+        }
+        descriptionId={messageId}
+        descriptionStyle={descriptionStyle}
+        htmlFor={id}
+        isLabelHidden={isLabelHidden}
+        label={label}
+        required={required}
+      />
       <div className="relative">
         {StartIcon && (
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
@@ -221,12 +206,7 @@ function TextInput(
         )}
       </div>
       {errorMessage && (
-        <Text
-          className="mt-2"
-          color="error"
-          display="block"
-          id={messageId}
-          size="body3">
+        <Text color="error" display="block" id={messageId} size="body3">
           {errorMessage}
         </Text>
       )}

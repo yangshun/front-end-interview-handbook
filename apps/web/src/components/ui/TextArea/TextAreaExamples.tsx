@@ -47,6 +47,12 @@ export default function TextAreaExamples() {
         placeholder="You can resize this textarea horizontally"
         resize="horizontal"
       />
+      <TextArea
+        description="There's nothing to see here"
+        descriptionStyle="tooltip"
+        label="Description in tooltip"
+        placeholder="You shouldn't leave this empty"
+      />
     </UIExamplesGroup>
   );
 }
