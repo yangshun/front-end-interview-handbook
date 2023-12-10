@@ -21,8 +21,8 @@ importers:
         specifier: 5.7.0
         version: 5.7.0(prisma@5.7.0)
       clsx:
-        specifier: ^1.2.1
-        version: 1.2.1
+        specifier: ^2.0.0
+        version: 2.0.0
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
@@ -208,8 +208,8 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2
       clsx:
-        specifier: ^1.2.1
-        version: 1.2.1
+        specifier: ^2.0.0
+        version: 2.0.0
       console-feed:
         specifier: 3.3.0
         version: 3.3.0(jquery@3.7.1)(react-dom@18.2.0)(react@18.2.0)
@@ -5891,8 +5891,8 @@ packages:
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
 
-  /clsx@1.2.1:
-    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+  /clsx@2.0.0:
+    resolution: {integrity: sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==}
     engines: {node: '>=6'}
     dev: false
 

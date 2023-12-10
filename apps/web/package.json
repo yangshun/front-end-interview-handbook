@@ -58,7 +58,7 @@
     "@vercel/analytics": "^1.1.1",
     "axios": "^0.27.2",
     "clean-set": "^1.1.2",
-    "clsx": "^1.2.1",
+    "clsx": "^2.0.0",
     "console-feed": "3.3.0",
     "cookie": "^0.5.0",
     "cors": "^2.8.5",
