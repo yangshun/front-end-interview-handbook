@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "ci": "npm run tsc && next lint",
+    "check": "npm run tsc && next lint",
     "dev": "next dev",
     "dev:gen": "concurrently -n gfe,next -c green,blue -k \"npm run gen:watch\" \"next dev\"",
     "build": "npm run gen:all && next build",
@@ -12,11 +12,11 @@
     "lint": "next lint",
     "test": "jest",
     "tsc": "tsc",
-    "gen": "cross-env NODE_ENV=production ts-node --esm --experimentalSpecifierResolution node src/scripts/questions-gen-cli.ts",
-    "gen:watch": "npm run gen:all && ts-node --esm --experimentalSpecifierResolution node src/scripts/questions-watcher.ts",
+    "gen": "cross-env NODE_ENV=production ts-node --esm --experimentalSpecifierResolution node ./src/scripts/questions-gen-cli.ts",
+    "gen:watch": "npm run gen:all && ts-node --esm --experimentalSpecifierResolution node ./src/scripts/questions-watcher.ts",
     "//": "TODO: make gen:ts faster and use it somewhere",
-    "gen:ts": "ts-node --esm --experimentalSpecifierResolution node src/scripts/questions-javascript-preprocess.ts",
-    "gen:migrate": "ts-node --esm --experimentalSpecifierResolution node src/scripts/questions-ui-migrate.ts",
+    "gen:ts": "ts-node --esm --experimentalSpecifierResolution node ./src/scripts/questions-javascript-preprocess.ts",
+    "gen:migrate": "ts-node --esm --experimentalSpecifierResolution node ./src/scripts/questions-ui-migrate.ts",
     "gen:all": "npm run gen:clean && npm run gen",
     "gen:clean": "rimraf src/__generated__",
     "postinstall": "prisma generate",
@@ -121,7 +121,7 @@
     "@types/lodash-es": "^4.17.6",
     "@types/mdx": "^2.0.3",
     "@types/negotiator": "^0.6.1",
-    "@types/node": "^18.14.0",
+    "@types/node": "^18.18.0",
     "@types/nprogress": "^0.2.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
@@ -153,7 +153,7 @@
     "supabase": "^1.115.5",
     "tailwindcss": "^3.3.2",
     "ts-jest": "^29.1.1",
-    "ts-node": "^10.9.1",
-    "typescript": "^4.9.5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   }
 }
