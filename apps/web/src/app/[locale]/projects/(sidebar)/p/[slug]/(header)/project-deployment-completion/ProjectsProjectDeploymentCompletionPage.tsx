@@ -276,8 +276,8 @@ export default function ProjectsProjectDeploymentCompletionPage({
                     </Text>
                     <Button
                       className="mt-4 self-start"
-                      icon={RiArrowRightLine}
                       href={`/projects/p/${slug}/submit`}
+                      icon={RiArrowRightLine}
                       label={intl.formatMessage({
                         defaultMessage: 'Submit project',
                         description:
