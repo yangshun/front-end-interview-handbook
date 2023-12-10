@@ -16,7 +16,6 @@
     "gen:watch": "npm run gen:all && ts-node --esm --experimentalSpecifierResolution node ./src/scripts/questions-watcher.ts",
     "//": "TODO: make gen:ts faster and use it somewhere",
     "gen:ts": "ts-node --esm --experimentalSpecifierResolution node ./src/scripts/questions-javascript-preprocess.ts",
-    "gen:migrate": "ts-node --esm --experimentalSpecifierResolution node ./src/scripts/questions-ui-migrate.ts",
     "gen:all": "npm run gen:clean && npm run gen",
     "gen:clean": "rimraf src/__generated__",
     "postinstall": "prisma generate",
