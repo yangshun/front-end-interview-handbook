@@ -39,7 +39,7 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
       react-icons:
-        specifier: ^4.10.1
+        specifier: ^4.12.0
         version: 4.12.0(react@18.2.0)
       server-only:
         specifier: ^0.0.1
@@ -295,7 +295,7 @@ importers:
         specifier: ^7.47.0
         version: 7.48.2(react@18.2.0)
       react-icons:
-        specifier: ^4.10.1
+        specifier: ^4.12.0
         version: 4.12.0(react@18.2.0)
       react-intl:
         specifier: ^6.2.8
