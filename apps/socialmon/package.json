@@ -16,11 +16,11 @@
     "prisma:deploy": "dotenv -e .env.production.local -- prisma migrate deploy"
   },
   "dependencies": {
-    "@prisma/client": "4.11.0",
+    "@prisma/client": "5.7.0",
     "clsx": "^1.2.1",
     "lodash-es": "^4.17.21",
     "next": "13.4.19",
-    "prisma": "4.11.0",
+    "prisma": "5.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
