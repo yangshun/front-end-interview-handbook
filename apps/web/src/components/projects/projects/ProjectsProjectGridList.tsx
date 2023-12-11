@@ -1,13 +1,23 @@
+import clsx from 'clsx';
+
 import ProjectsProjectCard from './ProjectsProjectCard';
 import type { ProjectsProject } from './types';
 
 type Props = Readonly<{
+  className?: string;
   projects: Array<ProjectsProject>;
 }>;
 
-export default function ProjectsProjectGridList({ projects }: Props) {
+export default function ProjectsProjectGridList({
+  className,
+  projects,
+}: Props) {
   return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+    <div
+      className={clsx(
+        'grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3',
+        className,
+      )}>
       {projects.map((project) => (
         <ProjectsProjectCard key={project.slug} project={project} />
       ))}

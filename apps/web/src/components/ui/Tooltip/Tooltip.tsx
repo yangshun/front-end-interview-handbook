@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import type { ReactNode, RefObject } from 'react';
+import type { CSSProperties, ReactNode, RefObject } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -84,8 +84,8 @@ function TooltipLabel({
       alignment === 'center'
         ? (triggerLeft + triggerRight) / 2
         : alignment === 'start'
-        ? triggerLeft
-        : undefined,
+          ? triggerLeft
+          : undefined,
     right:
       alignment === 'end'
         ? document.body.clientWidth - triggerRight
@@ -98,8 +98,8 @@ function TooltipLabel({
       alignment === 'center'
         ? (triggerTop + triggerBottom) / 2
         : alignment === 'top'
-        ? triggerTop
-        : undefined,
+          ? triggerTop
+          : undefined,
   };
   const startPositionStyle = {
     right: document.body.clientWidth - triggerLeft,
@@ -186,6 +186,7 @@ type Props = Readonly<{
   label?: ReactNode;
   position?: TooltipPosition;
   size?: TooltipSize;
+  style?: CSSProperties;
 }>;
 
 type TooltipTriggerSource = 'focus' | 'mouseenter';
@@ -197,6 +198,7 @@ export default function Tooltip({
   invert = false,
   label,
   size = 'sm',
+  style,
   position = 'above',
 }: Props) {
   const [triggerSource, setTriggerSource] =
@@ -241,6 +243,7 @@ export default function Tooltip({
     <span
       ref={triggerRef}
       className={clsx('pointer-events-auto relative inline-block', className)}
+      style={style}
       onBlur={() => {
         if (triggerSource !== 'focus') {
           return;
