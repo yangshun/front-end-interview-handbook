@@ -7,11 +7,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model RedditPosts {
-  id        String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid // Depends on API
+model RedditPost {
+  id        String    @id @db.VarChar
   title     String    @db.VarChar
   content   String    @db.VarChar
-  postedAt  DateTime  @default(now()) @db.Timestamp(6)
+  postedAt  DateTime  @db.Timestamp(6)
   url       String    @db.VarChar
   foundAt   DateTime  @default(now()) @db.Timestamp(6)
   response  String?   @db.VarChar
