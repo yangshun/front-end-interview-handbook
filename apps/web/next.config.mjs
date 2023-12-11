@@ -1,5 +1,7 @@
 // @ts-check
 
+import { withContentlayer } from 'next-contentlayer';
+
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 import remarkGfm from 'remark-gfm';
@@ -78,4 +80,4 @@ const nextConfig = {
   },
 };
 
-export default withNextI18nostic(withMDX(nextConfig));
+export default withNextI18nostic(withContentlayer(withMDX(nextConfig)));

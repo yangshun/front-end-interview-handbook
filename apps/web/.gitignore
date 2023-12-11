@@ -41,3 +41,6 @@ yarn-error.log*
 # vercel
 .vercel
 tsconfig.tsbuildinfo
+
+# contentlayer
+.contentlayer

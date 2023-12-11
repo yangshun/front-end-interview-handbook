@@ -1,3 +1,5 @@
+import { allProjects } from 'contentlayer/generated';
+
 import type { ProjectsProject } from '~/components/projects/projects/types';
 
 import ProjectsProjectBriefPage from './ProjectsProjectBriefPage';
@@ -66,11 +68,16 @@ const exampleProject: ProjectsProject = {
 };
 
 export default function Page({ params }: Props) {
-  const { slug: rawSlug } = params;
+  const { locale, slug: rawSlug } = params;
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
 
-  // TODO(projects): Get project information from backend
+  const project = allProjects.find(
+    (projectItem) =>
+      projectItem._raw.flattenedPath === `projects/${slug}/${locale}`,
+  )!;
 
-  return <ProjectsProjectBriefPage project={exampleProject} />;
+  const fetchedProject = { ...exampleProject, ...project };
+
+  return <ProjectsProjectBriefPage project={fetchedProject} />;
 }

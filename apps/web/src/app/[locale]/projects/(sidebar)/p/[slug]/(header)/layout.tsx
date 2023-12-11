@@ -1,7 +1,7 @@
+import { allProjects } from 'contentlayer/generated';
+
 import ProjectsProjectHeaderLayout from '~/components/projects/layout/ProjectsPage/ProjectsProjectHeaderLayout';
 import type { ProjectsProject } from '~/components/projects/projects/types';
-
-import { fetchUser } from '~/supabase/SupabaseServerGFE';
 
 const exampleProject: ProjectsProject = {
   completedCount: 21,
@@ -64,11 +64,23 @@ const exampleProject: ProjectsProject = {
 
 type Props = Readonly<{
   children: React.ReactNode;
+  params: Readonly<{ locale: string; slug: string }>;
 }>;
 
-export default async function Layout({ children }: Props) {
+export default async function Layout({ children, params }: Props) {
+  const { locale, slug: rawSlug } = params;
+  // So that we handle typos like extra characters.
+  const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
+
+  const project = allProjects.find(
+    (projectItem) =>
+      projectItem._raw.flattenedPath === `projects/${slug}/${locale}`,
+  )!;
+
+  const fetchedProject = { ...exampleProject, ...project };
+
   return (
-    <ProjectsProjectHeaderLayout project={exampleProject}>
+    <ProjectsProjectHeaderLayout project={fetchedProject}>
       {children}
     </ProjectsProjectHeaderLayout>
   );
