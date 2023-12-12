@@ -99,6 +99,10 @@
     "defaultMessage": "Company-tagged questions",
     "description": "Title for company-tagged questions feature"
   },
+  "/9JvuU": {
+    "defaultMessage": "{trackName} progress",
+    "description": "Label for track progress on project submission success page"
+  },
   "/F80kH": {
     "defaultMessage": "Read our <link>Front End Interview Guidebook</link>",
     "description": "Link to front end interview guidebook"
@@ -234,6 +238,10 @@
   "1AGOZJ": {
     "defaultMessage": "Access updates to the interview platform for life.",
     "description": "Lifetime membership feature of accessing updates to interview platforms"
+  },
+  "1GF83M": {
+    "defaultMessage": "Based on your activity, we think you might be interested in these projects",
+    "description": "Description for projects you may be interested in section on project submission success page"
   },
   "1PHE0Y": {
     "defaultMessage": "Most complete all-in-one front end interview preparation.",
@@ -411,10 +419,6 @@
     "defaultMessage": "GreatFrontEnd uses Monaco Editor, the same code editor used in Visual Studio Code (VS Code). Most editor shortcuts in VS Code should work here as well. Here's a list of common shortcuts for your reference:",
     "description": "Description within code editor shortcuts"
   },
-  "4BBxZ1": {
-    "defaultMessage": "Start project",
-    "description": "Label for Start Project button on Projects project assets page"
-  },
   "4Bt00L": {
     "defaultMessage": "Don't have an account? <link>Sign up for free</link>",
     "description": "Prompt for account creation on Email Sign In page"
@@ -442,6 +446,10 @@
   "4q3pJW": {
     "defaultMessage": "Optimized image assets",
     "description": "Label for Image Assets card in Assets Provided section of Projects project page"
+  },
+  "5+8FGz": {
+    "defaultMessage": "Submission success",
+    "description": "Title for the project submission success page"
   },
   "50kzzq": {
     "defaultMessage": "Select question format",
@@ -667,10 +675,6 @@
     "defaultMessage": "{price} billed yearly",
     "description": "Description of billing frequency for annual plan"
   },
-  "7vvXZb": {
-    "defaultMessage": "Premium Projects",
-    "description": "Title for Premium Projects section on Projects project page"
-  },
   "7wqhjF": {
     "defaultMessage": "Practice Top HTML Front End Interview Questions with Solutions",
     "description": "SEO title for HTML questions list page"
@@ -771,6 +775,10 @@
     "defaultMessage": "Focus areas for Front End Interviews",
     "description": "Title of focus areas page"
   },
+  "8x/Gqb": {
+    "defaultMessage": "<bold>+{repCount}</bold> rep",
+    "description": "Tooltip for rep count increase in Projects level progress bar"
+  },
   "8yJWMC": {
     "defaultMessage": "Pay once, get full access to the interview platform forever, including updates.",
     "description": "Subtitle of LifeTime Access Pricing Plan found on Homepage or Pricing page"
@@ -806,10 +814,6 @@
   "9LT8eh": {
     "defaultMessage": "Email",
     "description": "Label of email field on Sign In/Up page"
-  },
-  "9POdEK": {
-    "defaultMessage": "View subscription plans",
-    "description": "Label for View subscription plans button on Projects project page"
   },
   "9Q8e4/": {
     "defaultMessage": "JavaScript Polyfills",
@@ -858,6 +862,10 @@
   "AJSVim": {
     "defaultMessage": "Seattle, WA, USA",
     "description": "Seattle in USA"
+  },
+  "AK/+j2": {
+    "defaultMessage": "Your code has been successfully submitted and is now available for community review.",
+    "description": "Description for the project submission success page"
   },
   "AVk8pE": {
     "defaultMessage": "Name",
@@ -982,10 +990,6 @@
   "CIPW07": {
     "defaultMessage": "Interview guides",
     "description": "Sidebar label for Interview Guides category"
-  },
-  "CNAh0z": {
-    "defaultMessage": "You can download assets after starting the project",
-    "description": "Title for start project overlay on Projects project assets page"
   },
   "CNjnh0": {
     "defaultMessage": "Not written for this question.",
@@ -1159,10 +1163,6 @@
     "defaultMessage": "Open navigation profile menu",
     "description": "Screenreader text to open the profile menu"
   },
-  "EmGSpN": {
-    "defaultMessage": "Optimized image assets",
-    "description": "Label for Optimized Image Assets asset item on provided assets card on Projects project assets page"
-  },
   "EmirPr": {
     "defaultMessage": "Master async programming for front end interviews",
     "description": "Title for interview preparation focus area"
@@ -1291,6 +1291,10 @@
     "defaultMessage": "Yearly plan",
     "description": "Title of Yearly Plan CTA card in Projects sidebar"
   },
+  "Geiogi": {
+    "defaultMessage": "View your submission",
+    "description": "Label for View your submission button on project submit page"
+  },
   "Gi1TRd": {
     "defaultMessage": "Filters",
     "description": "Screenreader text for Filters"
@@ -1318,10 +1322,6 @@
   "GyDKzV": {
     "defaultMessage": "Filters",
     "description": "Screenreader text indicating the filters component on question list pages"
-  },
-  "Gzlz97": {
-    "defaultMessage": "README file to help you get started",
-    "description": "Label for README asset item on provided assets card on Projects project assets page"
   },
   "H+BRfg": {
     "defaultMessage": "No completed questions",
@@ -1591,10 +1591,6 @@
     "defaultMessage": "Apply",
     "description": "Label for \"Apply\" button for projects filter"
   },
-  "KXpT3F": {
-    "defaultMessage": "Style guide for fonts, colors, etc.",
-    "description": "Label for Style Guide asset item on provided assets card on Projects project assets page"
-  },
   "KY8GB9": {
     "defaultMessage": "Failed to mark question as complete. Please try again",
     "description": "Error message shown when a question has failed to mark as complete"
@@ -1602,6 +1598,10 @@
   "KdzvRx": {
     "defaultMessage": "Summary of all the important things in a one-pager",
     "description": "Summary of important things in front end system design interviews"
+  },
+  "KgN46v": {
+    "defaultMessage": "Leveling progress",
+    "description": "Label for leveling progress on project submission success page"
   },
   "KhP4uM": {
     "defaultMessage": "Medium",
@@ -2179,6 +2179,10 @@
     "defaultMessage": "Gamified and socialized",
     "description": "Short title for \"Build together with other like-minded individuals\" feature marketing section on Projects home page"
   },
+  "RZedau": {
+    "defaultMessage": "See all",
+    "description": "Label for See all button on project submission success page"
+  },
   "Rdi3ic": {
     "defaultMessage": "Activity",
     "description": "Profile activity tab title"
@@ -2318,6 +2322,10 @@
   "TebaLD": {
     "defaultMessage": "Continue learning",
     "description": "Title of Continue Learning section in preparation dashboard"
+  },
+  "TgOWsI": {
+    "defaultMessage": "You've gained rep in these skills:",
+    "description": "Label for skills gained on project submission success page"
   },
   "Tvr6Mn": {
     "defaultMessage": "Senior Software Engineer",
@@ -2655,6 +2663,10 @@
     "defaultMessage": "Trivia-style front end questions asked across all interview rounds",
     "description": "Description of quiz interview preparation"
   },
+  "XkPGFj": {
+    "defaultMessage": "Projects you may be interested in",
+    "description": "Title for projects you may be interested in section on project submission success page"
+  },
   "Xka4d3": {
     "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget.",
     "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
@@ -2855,6 +2867,10 @@
     "defaultMessage": "Refer to tips and code from top submissions endorsed by the team and community",
     "description": "Description for \"Gamified learning\" feature on Projects home page"
   },
+  "aHGdFm": {
+    "defaultMessage": "{current}/{total} completed",
+    "description": "Label for Projects segmented progress bar"
+  },
   "aPfuzs": {
     "defaultMessage": "Reset password",
     "description": "Title of Password Reset page"
@@ -2898,10 +2914,6 @@
   "as1hw8": {
     "defaultMessage": "Submit your code",
     "description": "Title of test panel for coding workspace"
-  },
-  "atJ0hJ": {
-    "defaultMessage": "JPEG design files for mobile & desktop layouts",
-    "description": "Label for JPEG asset item on provided assets card on Projects project assets page"
   },
   "au4m82": {
     "defaultMessage": "JavaScript",
@@ -3355,10 +3367,6 @@
     "defaultMessage": "Implement various Lodash functions and methods to manipulate and transform data efficiently, a common task given during front end interviews and improve your front end interview readiness.",
     "description": "Description for interview preparation focus area"
   },
-  "gRN6GJ": {
-    "defaultMessage": "Assets provided",
-    "description": "Label for Assets Provided card on start project overlay on Projects project assets page"
-  },
   "gTFqs7": {
     "defaultMessage": "Top Angular front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Angular Interview Questions page"
@@ -3422,6 +3430,10 @@
   "hESyRg": {
     "defaultMessage": "What to expect and how to prepare most efficiently",
     "description": "What to expect in behavioral interviews"
+  },
+  "hEu8WR": {
+    "defaultMessage": "{repRemaining} rep to <emph>level {nextLevel}</emph>",
+    "description": "Rep remaining to next level"
   },
   "hJzsEb": {
     "defaultMessage": "Bio description",
@@ -3539,9 +3551,9 @@
     "defaultMessage": "We're Hiring",
     "description": "Link to careers page"
   },
-  "ixwQtP": {
-    "defaultMessage": "HTML file with pre-written content",
-    "description": "Label for HTML File asset item on provided assets card on Projects project assets page"
+  "iyz4Hv": {
+    "defaultMessage": "{skillPlanName} progress",
+    "description": "Label for skill plan progress on project submission success page"
   },
   "izBHrw": {
     "defaultMessage": "JPEG design files for mobile & desktop layouts",
@@ -3727,10 +3739,6 @@
     "defaultMessage": "You can't find it elsewhere",
     "description": "Label for an example list of System Design Questions on marketing pages"
   },
-  "kNUgFO": {
-    "defaultMessage": "Purchase premium to unlock access to {premiumProjectCount}+ premium projects and tracks.",
-    "description": "Description for Premium Projects section on Projects project page"
-  },
   "kQgKV1": {
     "defaultMessage": "Learning progress cleared",
     "description": "Success message for clearing study plan progress"
@@ -3790,6 +3798,10 @@
   "l1pTwU": {
     "defaultMessage": "LinkedIn (optional)",
     "description": "Label for LinkedIn link input on Projects profile onboarding page"
+  },
+  "l5t9Em": {
+    "defaultMessage": "<bold>+{count}</bold> completed",
+    "description": "Tooltip for completed segments in Projects segmented progress bar"
   },
   "l9OWsu": {
     "defaultMessage": "Testing",
@@ -4319,6 +4331,10 @@
     "defaultMessage": "Start learning",
     "description": "Button label to start study plan / focus area"
   },
+  "rxpmQt": {
+    "defaultMessage": "Next project:",
+    "description": "Title for next project section on project submission success page"
+  },
   "ryCcOP": {
     "defaultMessage": "Notify Me",
     "description": "Button label for a newsletter subscription section"
@@ -4491,6 +4507,10 @@
     "defaultMessage": "Learn while building",
     "description": "Title of 'Learn while building' feature in Projects marketing page"
   },
+  "u4JFGP": {
+    "defaultMessage": "<emph>+ {repCount}</emph><small>reputation points</small>",
+    "description": "Reputation point increase on project submission success page"
+  },
   "uBaCgb": {
     "defaultMessage": "GreatFrontEnd Projects",
     "description": "Title of Projects All Projects page"
@@ -4522,6 +4542,10 @@
   "ugHQqC": {
     "defaultMessage": "Or continue with",
     "description": "Label of divider preceding third party providers on Sign In page"
+  },
+  "ui3oY9": {
+    "defaultMessage": "Level {currentLevel}",
+    "description": "Current level"
   },
   "uieBjf": {
     "defaultMessage": "Complete your own library of components for E-commerce, Games, AI apps, and even a design system",

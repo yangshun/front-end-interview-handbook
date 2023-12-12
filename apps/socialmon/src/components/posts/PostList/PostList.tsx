@@ -2,48 +2,21 @@
 
 import { useEffect, useState } from 'react';
 
+import { trpc } from '~/hooks/trpc';
+
 import { type Post } from '~/models/Post';
 
 import PostItem from './PostItem';
 
 import '@mantine/core/styles.css';
 
-import { Box, Title } from '@mantine/core';
+import { Box, Text, Title } from '@mantine/core';
 
 export default function PostList() {
   const [unrepliedPosts, setUnrepliedPosts] = useState<Array<Post>>([]);
-
-  //   Async function getRelevantPosts() {
-  //     try {
-  //       const res = await fetch('/api/platform');
-  //       const data = await res.json();
-
-  //       console.info(data);
-
-  //       setUnrepliedPosts([...unrepliedPosts, ...data]);
-
-  //       return data;
-  //     } catch (error) {
-  //       console.error('Error fetching relevant posts:', error);
-
-  //       return [];
-  //     }
-  //   }
-
-  async function getUnrepliedPosts() {
-    try {
-      const res = await fetch('/api/db/unrepliedPosts');
-      const data = await res.json();
-
-      console.info(data);
-
-      return data;
-    } catch (error) {
-      console.error('Error fetching unreplied posts:', error);
-
-      return [];
-    }
-  }
+  const { isLoading, data } =  trpc.socialPosts.getUnrepliedPosts.useQuery();
+  const updatePostMutation = trpc.socialPosts.updatePost.useMutation();
+  const replyPostMutation = trpc.socialPosts.replyToPost.useMutation();
 
   async function updatePost(postId: string, response: string | null) {
     const postToEdit = unrepliedPosts.find((post) => post.id === postId);
@@ -59,19 +32,11 @@ export default function PostList() {
 
     console.info('Updating post:', postToEdit.title);
 
-    try {
-      const res = await fetch('/api/db/posts', {
-        body: JSON.stringify(postToEdit),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        method: 'PUT',
-      });
-      const data = await res.json();
+    const success = await updatePostMutation.mutateAsync({post: postToEdit});
 
-      console.info(data);
-    } catch (error) {
-      console.error('Error updating post:', error);
+    console.info(success);
+
+    if (!success) {
       // TODO: Handle error
       postToEdit.response = oldResponse;
     }
@@ -93,21 +58,12 @@ export default function PostList() {
 
     console.info('Replying to post:', postToReplyTo.title);
 
-    try {
-      const res = await fetch('/api/platform', {
-        body: JSON.stringify(postToReplyTo),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        method: 'POST',
-      });
+    const success = await replyPostMutation.mutateAsync({post: postToReplyTo});
 
-      const data = await res.json();
+    console.info(success);
 
-      console.info(data);
-    } catch (error) {
-      console.error('Error replying to post:', error);
-      // TODO: Handle error
+    if (!success) {
+      // TODO: handle error
       postToReplyTo.response = oldResponse;
       postToReplyTo.replied = false;
       postToReplyTo.repliedAt = null;
@@ -119,18 +75,23 @@ export default function PostList() {
   }
 
   useEffect(() => {
-    getUnrepliedPosts().then((posts) => {
-      const sortedPosts = posts.sort(sortByPostDate);
+    if (!data) {
+      // Something went wrong(?)
+      return;
+    }
 
-      setUnrepliedPosts(sortedPosts);
-    });
-  }, []);
+    const convertedPosts = data as unknown as Array<Post>;
+    const sortedPosts = convertedPosts.sort(sortByPostDate);
+
+    setUnrepliedPosts(sortedPosts);
+  }, [data]);
 
   return (
     <Box m="lg">
       <Title mb="md" order={2}>
         Unreplied Posts for [Platform Name]
       </Title>
+      <Text hidden={!isLoading} size="md">Loading...</Text>
       {unrepliedPosts.map((post) => (
         <PostItem
           key={post.id}

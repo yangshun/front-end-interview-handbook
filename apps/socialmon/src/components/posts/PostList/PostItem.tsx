@@ -34,6 +34,8 @@ export default function PostItem({ editResponse, post, replyToPost }: Props) {
 
   // TODO: truncate content and add url
   // TODO: minimise the card?
+  // TODO: grey out the button if replied is true
+  // TODO: if response is null, call the AIProvider to generate a response
   return (
     <Card mb="md" padding="lg" radius="md" shadow="sm" withBorder={true}>
       <Group justify="space-between" mb="xs" mt="md">
