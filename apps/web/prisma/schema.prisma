@@ -28,9 +28,10 @@ model FeedbackMessage {
 model Profile {
   id                                      String                                   @id(map: "profile_pkey") @db.Uuid
   name                                    String?
-  username                                String?                                  @unique
+  username                                String?
   stripeCustomer                          String?
   premium                                 Boolean                                  @default(false)
+  avatarUrl                               String?
   plan                                    String?
   createdAt                               DateTime                                 @default(now()) @db.Timestamptz(6)
   QuestionProgress                        QuestionProgress[]
