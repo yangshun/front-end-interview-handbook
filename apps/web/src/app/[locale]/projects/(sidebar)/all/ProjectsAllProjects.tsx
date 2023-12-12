@@ -11,7 +11,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
 type Props = Readonly<{
-  projects: Array<ProjectsProject>;
+  projects: ReadonlyArray<ProjectsProject>;
 }>;
 
 export default function ProjectsAllProjects({ projects }: Props) {

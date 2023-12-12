@@ -23,7 +23,7 @@ import type { ProjectsProject } from './types';
 import ProjectsListFilterDropdown from '../lists/ProjectsListFilterDropdown';
 
 type Props = Readonly<{
-  projects: Array<ProjectsProject>;
+  projects: ReadonlyArray<ProjectsProject>;
 }>;
 
 function ProjectsProjectGridListWithFiltersImpl({ projects }: Props) {

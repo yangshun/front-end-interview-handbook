@@ -5,7 +5,7 @@ import type { ProjectsProject } from './types';
 
 type Props = Readonly<{
   className?: string;
-  projects: Array<ProjectsProject>;
+  projects: ReadonlyArray<ProjectsProject>;
 }>;
 
 export default function ProjectsProjectGridList({
