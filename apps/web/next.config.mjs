@@ -78,6 +78,19 @@ const nextConfig = {
       },
     ];
   },
+  webpack: (config) => {
+    config.externals.push({
+      'utf-8-validate': 'commonjs utf-8-validate',
+      bufferutil: 'commonjs bufferutil',
+    });
+
+    // TODO: Remove when https://github.com/contentlayerdev/contentlayer/issues/313 is complete.
+    config.infrastructureLogging = {
+      level: 'error',
+    };
+
+    return config;
+  },
 };
 
 export default withNextI18nostic(withContentlayer(withMDX(nextConfig)));

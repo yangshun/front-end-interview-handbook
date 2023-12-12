@@ -375,7 +375,7 @@ export default function ProjectsSideBar({ user, jobTitle }: Props) {
                       </Text>
                     )}
                     <ul className="flex flex-col">
-                      {item.items.map((link) => (
+                      {item.items.map(({ key: _key, ...link }) => (
                         <li key={item.key}>
                           <SidebarLinkButton {...link} />
                         </li>

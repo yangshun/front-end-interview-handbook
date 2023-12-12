@@ -1,6 +1,8 @@
 import { allProjects } from 'contentlayer/generated';
 import type { Metadata } from 'next';
 
+import type { ProjectsProject } from '~/components/projects/projects/types';
+
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -28,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-const exampleProject = {
+const exampleProject: ProjectsProject = {
   completedCount: 21,
   completedUsers: [
     {

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useMemo, useState } from 'react';
+import { Fragment, useMemo, useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
@@ -177,10 +177,10 @@ export default function ProjectsProjectFilterSlideOut({
             defaultValue={initialFilters.map(({ id }) => id)}
             type="multiple">
             {initialFilters.map((filter, index) => (
-              <>
+              <Fragment key={filter.id}>
                 <Divider className={clsx('mb-5', index > 0 && 'mt-5')} />
                 <FilterSection key={filter.id} {...filter} />
-              </>
+              </Fragment>
             ))}
           </Accordion.Root>
           <Divider className="my-5" />
