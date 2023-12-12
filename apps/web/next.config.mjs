@@ -36,7 +36,12 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   // reactStrictMode: true, // TODO: re-enable this and fix the stale tests issue with coding workspace.
   experimental: {
-    serverComponentsExternalPackages: ['mdx-bundler'],
+    serverComponentsExternalPackages: [
+      'mdx-bundler',
+      '@react-email/components',
+      '@react-email/render',
+      '@react-email/tailwind',
+    ],
   },
   transpilePackages: ['next-i18nostic'],
   async redirects() {

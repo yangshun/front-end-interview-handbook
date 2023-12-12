@@ -74,7 +74,8 @@ export function EmailPaymentFailed({ name }: Props) {
           </Section>
           <Text style={paragraph}>
             Best,
-            <br />- GreatFrontEnd Team
+            <br />
+            GreatFrontEnd Team
           </Text>
           <Hr style={hr} />
           <Text style={footer}>Codeney Pte. Ltd.</Text>

@@ -9,7 +9,7 @@ export async function sendEmailPaymentFailed(
   name: string | null,
 ) {
   return await resend.emails.send({
-    from: 'GreatFrontEnd <team@greatfrontend.com>',
+    from: 'GreatFrontEnd <contact@greatfrontend.com>',
     react: <EmailPaymentFailed name={name} />,
     subject: `Your payment has failed, here's how you can fix it`,
     to: email,
