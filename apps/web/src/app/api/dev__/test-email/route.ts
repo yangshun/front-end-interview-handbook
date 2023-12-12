@@ -7,9 +7,9 @@ import { sendEmailPaymentFailed } from '~/emails/EmailSender';
  *
  * Reference: https://resend.com/docs/dashboard/emails/send-test-emails)
  */
-export async function GET(request: NextRequest) {
+export async function GET(req: NextRequest) {
   try {
-    const { searchParams } = request.nextUrl;
+    const { searchParams } = req.nextUrl;
 
     const data = await sendEmailPaymentFailed(
       searchParams.get('email') as string,

@@ -1,4 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { type NextRequest, NextResponse } from 'next/server';
+import projectNameGenerator from 'project-name-generator';
 import Stripe from 'stripe';
 
 import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
@@ -18,32 +19,30 @@ import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
 //    schema: 'public',
 //    old_record: null
 //  }
-// WARNING: Do not change this file name/path without changing
+// WARNING: Do not change this file name/path and parameters without changing
 // the database hook URL in Supabase!
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse,
-) {
-  if (req.query.API_ROUTE_SECRET !== process.env.API_ROUTE_SECRET) {
-    return res.status(401).send({
-      error: {
-        message: 'You are not authorized to call this API',
-      },
-      success: false,
-    });
+
+// This hook creates a corresponding Stripe customer for each user.
+export async function POST(req: NextRequest) {
+  const { searchParams } = req.nextUrl;
+
+  if (searchParams.get('api_route_secret') !== process.env.API_ROUTE_SECRET) {
+    return NextResponse.json(
+      { error: 'You are not authorized to call this API' },
+      { status: 401 },
+    );
   }
 
   const supabaseAdmin = createSupabaseAdminClientGFE();
 
-  const userId = req.body.record?.id as string; // Supabase auth user ID.
+  const result = await req.json();
+  const userId = result.record?.id as string; // Supabase auth user ID.
 
   if (userId == null) {
-    return res.status(401).send({
-      error: {
-        message: 'No user ID provided to create Stripe customer',
-      },
-      success: false,
-    });
+    return NextResponse.json(
+      { error: 'No user ID provided to update profile' },
+      { status: 401 },
+    );
   }
 
   const {
@@ -52,21 +51,17 @@ export default async function handler(
   } = await supabaseAdmin.auth.admin.getUserById(userId);
 
   if (error != null) {
-    return res.status(error.status ?? 500).send({
-      error: {
-        message: error.message,
-      },
-      success: false,
-    });
+    return NextResponse.json(
+      { error: error.message },
+      { status: error.status ?? 500 },
+    );
   }
 
   if (user == null) {
-    return res.status(500).send({
-      error: {
-        message: `No user found for ${userId}`,
-      },
-      success: false,
-    });
+    return NextResponse.json(
+      { error: `No user found for ${userId}` },
+      { status: 500 },
+    );
   }
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
@@ -75,14 +70,15 @@ export default async function handler(
 
   const customer = await stripe.customers.create({
     email: user.email,
+    name: user.user_metadata.full_name,
   });
 
-  await supabaseAdmin
+  const data = await supabaseAdmin
     .from('Profile')
     .update({
       stripeCustomer: customer.id,
     })
     .eq('id', userId);
 
-  res.send({ payload: { customer_id: customer.id }, success: true });
+  return NextResponse.json(data);
 }

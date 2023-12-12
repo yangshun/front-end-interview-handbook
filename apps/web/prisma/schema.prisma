@@ -26,12 +26,14 @@ model FeedbackMessage {
 }
 
 model Profile {
-  id                                      String                                   @id(map: "profile_pkey") @db.Uuid
-  name                                    String?
-  username                                String?
+  id        String  @id(map: "profile_pkey") @db.Uuid
+  name      String?
+  // TODO(projects): Make randomly-generated default username and unique constraint.
+  username  String?
+  avatarUrl String?
+
   stripeCustomer                          String?
   premium                                 Boolean                                  @default(false)
-  avatarUrl                               String?
   plan                                    String?
   createdAt                               DateTime                                 @default(now()) @db.Timestamptz(6)
   QuestionProgress                        QuestionProgress[]
