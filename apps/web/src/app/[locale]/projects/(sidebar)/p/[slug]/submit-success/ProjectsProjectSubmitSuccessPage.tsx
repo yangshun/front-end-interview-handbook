@@ -51,10 +51,10 @@ const suggestedProjects: Array<ProjectsProject> = [
       },
     ],
     description: 'This is a short description for the newsletter section',
+    href: '#',
     imgSrc: 'https://source.unsplash.com/random/960x360',
     isPremium: false,
     isStarter: true,
-    projectHref: '#',
     repCount: 1000,
     skills: [
       {

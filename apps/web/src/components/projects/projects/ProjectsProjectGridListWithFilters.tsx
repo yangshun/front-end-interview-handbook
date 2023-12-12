@@ -98,7 +98,7 @@ function ProjectsProjectGridListWithFiltersImpl({ projects }: Props) {
               description="Label for total number of projects in Projects marketing page"
               id="b+bj2C"
               values={{
-                projectCount: 200,
+                projectCount: projects.length,
               }}
             />
           </Text>

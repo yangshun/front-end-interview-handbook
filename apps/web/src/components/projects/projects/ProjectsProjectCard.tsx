@@ -25,8 +25,9 @@ type Props = Readonly<{
   project: ProjectsProject;
 }>;
 
-export default function ProjectsProjectCard({
-  project: {
+export default function ProjectsProjectCard({ project }: Props) {
+  const intl = useIntl();
+  const {
     title,
     description,
     skills,
@@ -35,13 +36,11 @@ export default function ProjectsProjectCard({
     completedCount,
     trackName,
     repCount,
-    slug,
+    href,
     isPremium,
     status,
     isStarter,
-  },
-}: Props) {
-  const intl = useIntl();
+  } = project;
 
   const hasTypeTags = isStarter || isPremium;
 
@@ -147,7 +146,7 @@ export default function ProjectsProjectCard({
         />
         <div className="flex items-center gap-4">
           <Button
-            href={`/projects/p/${slug}`}
+            href={href}
             icon={RiArrowRightLine}
             label={intl.formatMessage({
               defaultMessage: 'Go to project',

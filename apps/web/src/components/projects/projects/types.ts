@@ -8,10 +8,10 @@ export type ProjectsProject = {
   completedCount: number;
   completedUsers: Array<User>;
   description: string;
+  href: string;
   imgSrc: string;
   isPremium: boolean;
   isStarter: boolean;
-  projectHref: string;
   repCount: number;
   skills: Array<ProjectsSkill>;
   slug: string;

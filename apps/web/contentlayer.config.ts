@@ -5,21 +5,21 @@ const ProjectsProject = defineDocumentType(() => ({
   filePathPattern: 'projects/**/*.mdx',
   contentType: 'mdx',
   fields: {
-    title: {
+    slug: {
       type: 'string',
-      description: 'The title of the post',
+      description: 'Unique identifier of the project',
       required: true,
     },
-    date: {
-      type: 'date',
-      description: 'The date of the post',
+    title: {
+      type: 'string',
+      description: 'Title of the project',
       required: true,
     },
   },
   computedFields: {
-    url: {
+    href: {
       type: 'string',
-      resolve: (doc) => `/projects/${doc._raw.flattenedPath}`,
+      resolve: (doc) => `/projects/p/${doc.slug}`,
     },
   },
 }));
