@@ -33,8 +33,6 @@ const levelIcon: Record<MessageLevel, string> = {
   warning: '⚠️',
 };
 
-const telegramToken = `5829204757:AAGQhTP2-aWYDMu3vJHhJkJw2j62Y8bPiFo`;
-
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
@@ -76,18 +74,21 @@ export default async function handler(
     .filter(Boolean)
     .join('\n');
 
-  await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
-    body: JSON.stringify({
-      // GFE Internal Tg Chat.
-      chat_id: -1001857413784,
-      parse_mode: 'HTML',
-      text: finalMessage,
-    }),
-    headers: {
-      'Content-Type': 'application/json',
+  await fetch(
+    `https://api.telegram.org/bot${process.env.TELEGRAM_API_TOKEN}/sendMessage`,
+    {
+      body: JSON.stringify({
+        // GFE Internal Tg Chat.
+        chat_id: +(process.env.TELEGRAM_CHAT_ID ?? ''),
+        parse_mode: 'HTML',
+        text: finalMessage,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
     },
-    method: 'POST',
-  });
+  );
 
   return res.status(204).send(null);
 }
