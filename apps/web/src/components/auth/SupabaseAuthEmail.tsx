@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import fbq from '~/lib/fbq';
+import { trpc } from '~/hooks/trpc';
 
 import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
@@ -51,6 +52,9 @@ export default function SupabaseAuthEmail({
   const [message, setMessage] = useState<string | null>(null);
   const [signUpForMarketingEmails, setSignUpForMarketingEmails] =
     useState(true);
+  const {
+    mutate: signUpWithEmail,
+  } = trpc.marketing.signUpWithEmail.useMutation();
   const intl = useIntl();
   const router = useI18nRouter();
 
@@ -139,14 +143,8 @@ export default function SupabaseAuthEmail({
         }
 
         if (signUpForMarketingEmails) {
-          await fetch('/api/marketing/email-signup', {
-            body: JSON.stringify({
-              email,
-            }),
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            method: 'POST',
+          signUpWithEmail({
+            email,
           });
         }
         break;
