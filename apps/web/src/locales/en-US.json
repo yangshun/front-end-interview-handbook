@@ -643,6 +643,10 @@
     "defaultMessage": "Know your fundamentals",
     "description": "Label for an example list of Quiz Questions on marketing pages"
   },
+  "7V+oSQ": {
+    "defaultMessage": "Display name must contain at most 32 characters.",
+    "description": "Error message when display name is too long"
+  },
   "7Wsapt": {
     "defaultMessage": "Quiz",
     "description": "Quiz questions short title"
@@ -942,6 +946,10 @@
   "BnHLZU": {
     "defaultMessage": "Submit your solution for feedback",
     "description": "Title of 'Submit your solution for feedback' feature in Projects marketing page"
+  },
+  "Bqo66a": {
+    "defaultMessage": "Save Changes",
+    "description": "Label for button to save changes to display name"
   },
   "BwHkBU": {
     "defaultMessage": "Profile",
@@ -2563,6 +2571,10 @@
     "defaultMessage": "Write here",
     "description": "Placeholder for \"Other\" input for \"Years of experience replacement status\" on Projects profile onboarding page"
   },
+  "WHx4gl": {
+    "defaultMessage": "Display name cannot be empty.",
+    "description": "Error message when display name is too short"
+  },
   "WIHUwS": {
     "defaultMessage": "Quarterly plan",
     "description": "Title of quarterly pricing plan"
@@ -3519,6 +3531,10 @@
     "defaultMessage": "Completed",
     "description": "Label indicating that the question has been completed"
   },
+  "iIuSTk": {
+    "defaultMessage": "Display name",
+    "description": "Display name"
+  },
   "iLr1LJ": {
     "defaultMessage": "New York, NY, USA",
     "description": "Jacky Liang's location"
@@ -4470,6 +4486,10 @@
   "tfonOP": {
     "defaultMessage": "Premium Study Plans",
     "description": "Study plans paywall title"
+  },
+  "tg7jHB": {
+    "defaultMessage": "This is the name that will be shown on your profile. Use a maximum of 32 characters.",
+    "description": "Description of display name field."
   },
   "thqnR6": {
     "defaultMessage": "Click here to view the full solution and other System Design guides.",

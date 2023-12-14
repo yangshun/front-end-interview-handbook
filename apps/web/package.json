@@ -34,6 +34,7 @@
     "@formatjs/intl": "^2.9.9",
     "@formatjs/intl-localematcher": "^0.2.32",
     "@headlessui/react": "^1.7.11",
+    "@hookform/resolvers": "^3.3.2",
     "@mdx-js/react": "^2.3.0",
     "@monaco-editor/react": "^4.5.1",
     "@next/mdx": "13.4.19",

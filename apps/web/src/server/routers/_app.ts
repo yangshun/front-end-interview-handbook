@@ -1,6 +1,7 @@
 import { devRouter } from './dev';
 import { feedbackRouter } from './feedback';
 import { marketingRouter } from './marketing';
+import { profileRouter } from './profile';
 import { purchasesRouter } from './purchases';
 import { questionCommunitySolutionRouter } from './question-community-solution';
 import { questionListsRouter } from './question-lists';
@@ -14,6 +15,7 @@ export const appRouter = router({
   dev: devRouter,
   feedback: feedbackRouter,
   marketing: marketingRouter,
+  profile: profileRouter,
   purchases: purchasesRouter,
   questionCommunitySolution: questionCommunitySolutionRouter,
   questionLists: questionListsRouter,

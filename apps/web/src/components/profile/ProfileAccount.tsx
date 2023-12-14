@@ -11,6 +11,9 @@ import TextInput from '~/components/ui/TextInput';
 
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
+import ProfileAccountDisplayName from './ProfileAccountDisplayName';
+import Card from '../ui/Card';
+
 import type { User } from '@supabase/supabase-js';
 
 type Props = Readonly<{
@@ -54,7 +57,7 @@ export default function ProfileAccount({ user }: Props) {
   }
 
   return (
-    <div className="flex flex-col gap-y-6 md:max-w-md">
+    <div className="flex flex-col gap-y-6">
       <Heading className="sr-only" level="custom">
         <FormattedMessage
           defaultMessage="Account Settings"
@@ -72,43 +75,55 @@ export default function ProfileAccount({ user }: Props) {
         </Text>
       )}
       <Section>
-        <form className="space-y-6" onSubmit={handleEmailChange}>
-          <TextInput
-            autoComplete="email"
-            defaultValue={email}
-            isDisabled={isLoading}
-            label={intl.formatMessage({
-              defaultMessage: 'Email',
-              description: 'Email',
-              id: 'y8zzVx',
-            })}
-            type="email"
-            onChange={setEmail}
-          />
-          <Button
-            display="block"
-            isDisabled={email === user?.email || !isValidEmail || isLoading}
-            isLoading={isLoading}
-            label={intl.formatMessage({
-              defaultMessage: 'Save Changes',
-              description:
-                'Label for button to save changes to user account email',
-              id: 'Znv3Y6',
-            })}
-            type="submit"
-            variant="primary"
-          />
-          {message && (
-            <Text color="success" display="block" size="body2">
-              {message}
-            </Text>
-          )}
-          {error && (
-            <Text color="error" display="block" size="body2">
-              {error}
-            </Text>
-          )}
-        </form>
+        <ProfileAccountDisplayName user={user} />
+        <Card disableSpotlight={true} pattern={false}>
+          <Heading level="heading6">
+            <FormattedMessage
+              defaultMessage="Email"
+              description="Email"
+              id="y8zzVx"
+            />
+          </Heading>
+          <Section>
+            <form className="space-y-6 mt-2" onSubmit={handleEmailChange}>
+              <TextInput
+                autoComplete="email"
+                defaultValue={email}
+                isDisabled={isLoading}
+                isLabelHidden={true}
+                label={intl.formatMessage({
+                  defaultMessage: 'Email',
+                  description: 'Email',
+                  id: 'y8zzVx',
+                })}
+                type="email"
+                onChange={setEmail}
+              />
+              <Button
+                isDisabled={email === user?.email || !isValidEmail || isLoading}
+                isLoading={isLoading}
+                label={intl.formatMessage({
+                  defaultMessage: 'Save Changes',
+                  description:
+                    'Label for button to save changes to user account email',
+                  id: 'Znv3Y6',
+                })}
+                type="submit"
+                variant="primary"
+              />
+              {message && (
+                <Text color="success" display="block" size="body2">
+                  {message}
+                </Text>
+              )}
+              {error && (
+                <Text color="error" display="block" size="body2">
+                  {error}
+                </Text>
+              )}
+            </form>
+          </Section>
+        </Card>
       </Section>
     </div>
   );
