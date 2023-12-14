@@ -20,6 +20,18 @@ import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
 // WARNING: Do not change this file name/path and parameters without changing
 // the database hook URL in Supabase!
 
+const blackListedUsernames = new Set([
+  'gfe',
+  'greatfrontend',
+  'me',
+  'hello',
+  'hi',
+  'dev',
+  'info',
+  'contact',
+  '123',
+]);
+
 // This hook updates some fields on the Profile with information from email or GitHub OAuth.
 export async function POST(req: NextRequest) {
   const { searchParams } = req.nextUrl;
@@ -62,6 +74,16 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  const suggestedUsername =
+    user.user_metadata.user_name ||
+    user.email?.split('@')[0].replaceAll(/[^_a-zA-Z0-9]/g, '');
+
+  // Check if username is one of the banned/common words.
+  // If so, we'll just not update the username.
+  const username = blackListedUsernames.has(suggestedUsername)
+    ? null
+    : suggestedUsername;
+
   const data = await supabaseAdmin
     .from('Profile')
     .update({
@@ -70,9 +92,7 @@ export async function POST(req: NextRequest) {
       // Use GitHub name or leave empty.
       name: user.user_metadata.name,
       // Use GitHub username or derive from email.
-      username:
-        user.user_metadata.user_name ||
-        user.email?.split('@')[0].replaceAll(/[^_a-zA-Z0-9]/g, ''),
+      username,
     })
     .eq('id', userId);
 
