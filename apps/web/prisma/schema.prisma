@@ -28,7 +28,7 @@ model FeedbackMessage {
 model Profile {
   id        String   @id(map: "profile_pkey") @db.Uuid
   name      String?
-  username  String?  @default(dbgenerated("SUBSTRING((gen_random_uuid())::text FROM 1 FOR 8)"))
+  username  String?  @unique @default(dbgenerated("SUBSTRING((gen_random_uuid())::text FROM 1 FOR 8)")) @db.Citext
   avatarUrl String?
   createdAt DateTime @default(now()) @db.Timestamptz(6)
 
