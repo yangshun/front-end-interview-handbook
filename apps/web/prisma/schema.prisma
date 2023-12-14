@@ -43,6 +43,7 @@ model Profile {
   questionJavaScriptCommunitySolutions    QuestionJavaScriptCommunitySolution[]
   questionUserInterfaceSaves              QuestionUserInterfaceSave[]
   questionUserInterfaceCommunitySolutions QuestionUserInterfaceCommunitySolution[]
+  projectsProfile                         ProjectsProfile[]
 }
 
 model QuestionProgress {
@@ -162,4 +163,49 @@ model LearningSessionProgress {
   session   LearningSession               @relation(fields: [sessionId], references: [id])
 
   @@unique([sessionId, key])
+}
+
+model ProjectsProfile {
+  id                  String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  userId              String   @db.Uuid
+  userProfile         Profile? @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  primaryMotivation   String?
+  secondaryMotivation String?
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt
+
+  sessions    ProjectsProjectSession[]
+  submissions ProjectsProjectSubmission[]
+}
+
+enum ProjectsProjectSessionStatus {
+  IN_PROGRESS
+  STOPPED
+  COMPLETED
+}
+
+model ProjectsProjectSession {
+  id        String                       @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  profileId String                       @db.Uuid
+  slug      String
+  status    ProjectsProjectSessionStatus @default(IN_PROGRESS)
+  createdAt DateTime                     @default(now()) @db.Timestamptz(6)
+  stoppedAt DateTime?                    @db.Timestamptz(6)
+
+  profile ProjectsProfile? @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model ProjectsProjectSubmission {
+  id            String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  profileId     String   @db.Uuid
+  slug          String
+  title         String
+  summary       String
+  repositoryUrl String
+  deploymentUrl String
+  createdAt     DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt     DateTime @updatedAt
+
+  profile ProjectsProfile? @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
