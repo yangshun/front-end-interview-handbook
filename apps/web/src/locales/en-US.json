@@ -335,10 +335,6 @@
     "defaultMessage": "Security",
     "description": "Title for Security section on profile page"
   },
-  "3AfCoE": {
-    "defaultMessage": "Minimum 6 characters",
-    "description": "Description of password field indicating minimum character count, on Change Password page"
-  },
   "3HUfI+": {
     "defaultMessage": "You are doing great things for the Front End community. Especially for those who are Junior engineers like me, advanced solutions covering various aspects of front end development help a lot. Thank you to the team.",
     "description": "Anonymous Software Engineer's testimonial"
@@ -1522,6 +1518,10 @@
   "JQ6swd": {
     "defaultMessage": "Progress",
     "description": "Question progress"
+  },
+  "JUhFP/": {
+    "defaultMessage": "Minimum {minNumber} characters. Letters and digits required.",
+    "description": "Password creation criteria"
   },
   "JhZ/aF": {
     "defaultMessage": "Quiz Questions",

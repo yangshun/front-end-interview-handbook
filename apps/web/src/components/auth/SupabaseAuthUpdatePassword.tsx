@@ -83,12 +83,17 @@ export default function SupabaseAuthUpdatePassword() {
             <TextInput
               autoComplete="password"
               defaultValue={password}
-              description={intl.formatMessage({
-                defaultMessage: 'Minimum 6 characters',
-                description:
-                  'Description of password field indicating minimum character count, on Change Password page',
-                id: '3AfCoE',
-              })}
+              description={intl.formatMessage(
+                {
+                  defaultMessage:
+                    'Minimum {minNumber} characters. Letters and digits required.',
+                  description: 'Password creation criteria',
+                  id: 'JUhFP/',
+                },
+                {
+                  minNumber: 8,
+                },
+              )}
               isDisabled={isLoading}
               label={intl.formatMessage({
                 defaultMessage: 'Password',
