@@ -1,5 +1,4 @@
 import { type NextRequest, NextResponse } from 'next/server';
-import projectNameGenerator from 'project-name-generator';
 import Stripe from 'stripe';
 
 import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
@@ -70,7 +69,7 @@ export async function POST(req: NextRequest) {
 
   const customer = await stripe.customers.create({
     email: user.email,
-    name: user.user_metadata.full_name,
+    name: user.user_metadata.name,
   });
 
   const data = await supabaseAdmin

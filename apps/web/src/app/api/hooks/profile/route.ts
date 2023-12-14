@@ -1,5 +1,4 @@
 import { type NextRequest, NextResponse } from 'next/server';
-import projectNameGenerator from 'project-name-generator';
 
 import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
 
@@ -68,8 +67,8 @@ export async function POST(req: NextRequest) {
     .update({
       // Use GitHub avatar. Avatar field will be left empty for email signups.
       avatarUrl: user.user_metadata.avatar_url,
-      // Use GitHub name or generate a random name.
-      name: user.user_metadata.display_name || projectNameGenerator().spaced,
+      // Use GitHub name or leave empty.
+      name: user.user_metadata.name,
       // Use GitHub username or derive from email.
       username:
         user.user_metadata.user_name ||

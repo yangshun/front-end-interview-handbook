@@ -231,9 +231,6 @@ importers:
       '@trpc/server':
         specifier: ^10.18.0
         version: 10.44.1
-      '@types/project-name-generator':
-        specifier: ^2.1.3
-        version: 2.1.3
       '@vercel/analytics':
         specifier: ^1.1.1
         version: 1.1.1
@@ -318,9 +315,6 @@ importers:
       prisma:
         specifier: 5.7.0
         version: 5.7.0
-      project-name-generator:
-        specifier: ^2.1.9
-        version: 2.1.9
       radix-ui:
         specifier: ^1.0.1
         version: 1.0.1(@types/react-dom@18.0.11)(@types/react@18.0.28)(react-dom@18.2.0)(react@18.2.0)
@@ -5386,10 +5380,6 @@ packages:
     resolution: {integrity: sha512-Yll76ZHikRFCyz/pffKGjrCwe/le2CDwOP5F210KQo27kpRE46U2rDnzikNlVn6/ezH3Mhn46bJMTfeVTtcYMg==}
     dev: false
 
-  /@types/project-name-generator@2.1.3:
-    resolution: {integrity: sha512-uomLFTmq6/eyLlGLTw1KPcdAMes8WPqcPtoZIA3FaJ6fJR3snXqY3TmIzsKNa2b4WV5ZaN5brh2xgGkWKLGPoQ==}
-    dev: false
-
   /@types/prop-types@15.7.11:
     resolution: {integrity: sha512-ga8y9v9uyeiLdpKddhxYQkxNDrfvuPrlFb0N1qnZZByvcElJaXthF1UhvCh9TLWJBEHeNtdnbysW7Y6Uq8CVng==}
 
@@ -6514,11 +6504,6 @@ packages:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
     engines: {node: '>= 6'}
     dev: true
-
-  /commander@6.2.1:
-    resolution: {integrity: sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==}
-    engines: {node: '>= 6'}
-    dev: false
 
   /comment-json@4.2.3:
     resolution: {integrity: sha512-SsxdiOf064DWoZLH799Ata6u7iV658A11PlWtZATDlXPpKGJnbJZ5Z24ybixAi+LUUqJ/GKowAejtC5GFUG7Tw==}
@@ -10881,15 +10866,6 @@ packages:
     requiresBuild: true
     dependencies:
       '@prisma/engines': 5.7.0
-    dev: false
-
-  /project-name-generator@2.1.9:
-    resolution: {integrity: sha512-QmLHqz2C4VHmAyDEAFlVfnuWAHr4vwZhK2bbm4IrwuHNzNKOdG9b4U+NmQbsm1uOoV4kGWv7+FVLsu7Bb/ieYQ==}
-    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
-    hasBin: true
-    dependencies:
-      commander: 6.2.1
-      lodash: 4.17.21
     dev: false
 
   /promise-chains@0.3.12:
