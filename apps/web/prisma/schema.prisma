@@ -26,15 +26,24 @@ model FeedbackMessage {
 }
 
 model Profile {
-  id        String   @id(map: "profile_pkey") @db.Uuid
-  name      String?
-  username  String?  @unique @default(dbgenerated("SUBSTRING((gen_random_uuid())::text FROM 1 FOR 8)")) @db.Citext
-  avatarUrl String?
-  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  id               String    @id(map: "profile_pkey") @db.Uuid
+  name             String?
+  username         String?   @unique @default(dbgenerated("SUBSTRING((gen_random_uuid())::text FROM 1 FOR 8)")) @db.Citext
+  avatarUrl        String?
+  title            String?
+  bio              String?
+  githubUsername   String?
+  linkedInUsername String?
+  website          String?
+  startWorkDate    DateTime?
+  currentStatus    String?
 
   stripeCustomer String?
   premium        Boolean @default(false)
   plan           String?
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @default(now()) @updatedAt
 
   QuestionProgress                        QuestionProgress[]
   LearningSession                         LearningSession[]
