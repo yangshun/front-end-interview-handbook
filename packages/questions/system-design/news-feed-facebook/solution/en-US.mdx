@@ -93,12 +93,12 @@ _Further reading: [Making Instagram.com faster: Part 3 — cache first](https://
 
 ## Interface definition (API)
 
-| Source | Destination | API type | Functionality |
-| --- | --- | --- | --- |
-| Server | Controller | HTTP | Fetch feed posts |
-| Controller | Feed UI | JavaScript | Transfer feed posts data, Reactions |
-| Controller | Server | HTTP | Create new post |
-| Post composer | Controller | JavaScript | Transfer new post data |
+| Source        | Destination | API type   | Functionality                   |
+| ------------- | ----------- | ---------- | ------------------------------- |
+| Server        | Controller  | HTTP       | Fetch feed posts                |
+| Controller    | Server      | HTTP       | Create new post                 |
+| Controller    | Feed UI     | JavaScript | Pass feed posts data, Reactions |
+| Post composer | Controller  | JavaScript | Pass new post data              |
 
 The most interesting API to talk about will be the HTTP API to fetch a list of feed posts because the pagination approach is worth discussing. The HTTP API for fetching feed posts from the server has the basic details:
 
@@ -113,16 +113,18 @@ There are two common ways to return paginated content, each with its own pros an
 - Offset-based pagination
 - Cursor-based pagination
 
-{/* TODO: Pagination should work across devices, server shouldn't save a copy of the last sent post. */} {/* TODO: Should accept a count so that different clients can customize the number of posts. */}
+{/* TODO: Pagination should work across devices, server shouldn't save a copy of the last sent post. */}
 
 ### Offset-based pagination
 
-Offset-based pagination involves using an offset to specify where to start retrieving data and a limit to specify the number of records to retrieve. It's like saying, "Start from the 10th record and give me the next 20 records". An offset-based pagination API accepts the following parameters:
+Offset-based pagination involves using an offset to specify where to start retrieving data and a limit to specify the number of items to retrieve. It's like saying, "Start from the 10th record and give me the next 5 items". The offset can either be an explicit number or converted from the requested page number. Requesting page 3 with a page size of 5 will translate to an offset of 10 because there are 2 pages before the 3rd page and 2 x 5 = 10. It's more common for an offset-based pagination API to accept the `page` parameter and the server will convert it into the `offset` value when querying the database.
 
-| Parameter | Type   | Description                |
-| --------- | ------ | -------------------------- |
-| `size`    | number | Number of results per page |
-| `page`    | number | Page number to fetch       |
+An offset-based pagination API accepts the following parameters:
+
+| Parameter | Type   | Description              |
+| --------- | ------ | ------------------------ |
+| `size`    | number | Number of items per page |
+| `page`    | number | Page number to fetch     |
 
 Given 20 items in a feed, parameters of `{size: 5, page: 2}` will return items 6 - 10 along with pagination metadata:
 
@@ -163,16 +165,17 @@ SELECT * FROM posts LIMIT 5 OFFSET 5; -- Second page
 
 Offset-based pagination has the following advantages:
 
-- Users can jump to a specific page.
+- Users can directly jump to a specific page.
 - Easy to see the total number of pages.
-- Easy to implement on the back end. The offset for a SQL query is calculated using `(page - 1) * size`.
+- Easy to implement on the back end. The `OFFSET` value for a SQL query is calculated using `(page - 1) * size`.
+- Easily used with various database systems and not tied to specific data storage mechanisms
 
 However, offset-based pagination comes with some issues:
 
-**Inaccurate page results**: For data that updates frequently, the current page window might be inaccurate after some time. Imagine a user has fetched the first 5 posts in your feed. After sometime, 5 more posts were added. If the users scroll to the bottom of the feed and fetches page 2, the same posts in the original page 1 will be fetched, and the user will see duplicate posts.
+**Inaccurate page results**: For data that updates frequently, the current page window might be inaccurate after some time. Imagine a user has fetched the first 5 posts in their feed. After sometime, 5 more posts were added. If the users scroll to the bottom of the feed and fetches page 2, the same posts in the original page 1 will be fetched, and the user will see duplicate posts.
 
 ```txt
-// Initially
+// Initial posts (newest on the left, oldest on the right)
 Posts: A, B, C, D, E, F, G, H, I, J
        ^^^^^^^^^^^^^ Page 1 contains A - E
 
@@ -195,18 +198,24 @@ In the above example, the client will miss out on items 6 and 7 if it goes from 
 
 **Query performance degrades over time**: Lastly, query performance degrades as the table becomes larger. For huge offsets (e.g. `OFFSET 1000000`) the database still has to read up to those `count` + `offset` rows, discard the `offset` rows and only return the `count` rows, which results in very poor query performance for large offsets. This is considered back end knowledge but it's useful to know and you might get brownie points for mentioning it.
 
-Offset-based pagination is common in web applications for displaying lists like search results, where jumping to a specific page is required and if the results don't update too quickly.
+Offset-based pagination is common in web applications for displaying lists like search results, where jumping to a specific page is required and the results don't update too quickly. Hence blogs, travel booking websites, e-commerce websites will benefit from using offset-based pagination for their search results.
 
 ### Cursor-based pagination
 
-Cursor-based pagination uses a pointer (the cursor) to a specific record in a dataset. Instead of saying "give me records 10 to 30," it says "give me 20 records starting after this specific record.". On subsequent queries, the server passes the cursor to the database, and the database knows to return items after that cursor. The cursor is usually a unique identifier or timestamp of a record.
+Cursor-based pagination uses a pointer (the cursor) to a specific record in a dataset. Instead of saying "give me items 11 to 15," it says "give me 5 items starting after [specific item].".
+
+The cursor is usually a unique identifier, which can be the item id, timestamp, or something else. Subsequent requests use the identifier of the last item as the cursor to fetch the next set of items. In SQL, an example is:
+
+```sql
+SELECT * FROM table WHERE id > cursor LIMIT 5.
+```
 
 A cursor-based pagination API accepts the following parameters:
 
 | Parameter | Type | Description |
 | --- | --- | --- |
 | `size` | number | Number of results per page |
-| `cursor` | string | An identifier for the last item fetched. The database will know to continue from this item. |
+| `cursor` | string | An identifier for the last item fetched. The database query will make use of this identifier. |
 
 ```json
 {
@@ -241,9 +250,9 @@ Advantages of cursor-based pagination:
 
 [Facebook](https://developers.facebook.com/docs/graph-api/reference/page/feed/), [Slack](https://api.slack.com/docs/pagination#cursors), [Zendesk](https://developer.zendesk.com/documentation/developer-tools/pagination/paginating-through-lists-using-cursor-pagination/) use cursor-based pagination for their developer APIs.
 
-Downsides of cursor-based pagination since the client doesn't know the cursor:
+Downsides of cursor-based pagination:
 
-- Cannot jump to a specific page without going through the previous pages.
+- Since the client doesn't know the cursor, it cannot jump to a specific page without going through the previous pages.
 - Slightly more complex to implement compared to offset-based pagination.
 
 In order for the back end to implement cursor-based pagination, the database needs to uniquely map the cursor to a row, which can be done using a database table's primary key or in some cases, the timestamp.
@@ -258,11 +267,43 @@ For an infinite scrolling news feed where:
 - Newly fetched posts are appended to the end of the feed.
 - Table size can grow pretty quickly.
 
-Cursor-based pagination is clearly superior to offset-based pagination and is the most suitable for news feed use cases.
+Cursor-based pagination is clearly superior and should be used for a news feed.
 
 _Reference: [Evolving API Pagination at Slack](https://slack.engineering/evolving-api-pagination-at-slack)_
 
-{/* TODO: Talk about post creation API and how to merge new post into the existing list of posts. */}
+### Post creation
+
+This HTTP method is for users to create a new post, which will be shown in their own feed as well as others who they are friends with.
+
+| Field       | Value                           |
+| ----------- | ------------------------------- |
+| HTTP Method | `POST`                          |
+| Path        | `/posts`                        |
+| Description | Creates a new post.             |
+| Parameters  | `{ body: '...', media: '...' }` |
+
+The parameters of the HTTP API will depend on the type of post made. In most cases, it's not a key discussion point during an interview.
+
+The response format can be either just the single post, or a list of latest posts in the feed. If a single post is returned, the API response will be similar to the feed post item within the feed API:
+
+```json
+{
+  "id": "124",
+  "author": {
+    "id": "456",
+    "name": "John Doe"
+  },
+  "content": "Hello world",
+  "image": "https://www.example.com/feed-images.jpg",
+  "reactions": {
+    "likes": 20,
+    "haha": 15
+  },
+  "created_time": 1620639583
+}
+```
+
+Given this new post data, the client store will need to prepend it to the start of the feed list.
 
 ---
 
