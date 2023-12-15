@@ -25,7 +25,7 @@ export default function ProfileAccount({ user }: Props) {
         />
       </Heading>
       <Section>
-        <ProfileAccountDisplayName user={user} />
+        <ProfileAccountDisplayName />
         <ProfileAccountEmail user={user} />
       </Section>
     </div>

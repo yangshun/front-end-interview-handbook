@@ -35,11 +35,7 @@ function useDisplayNameFormSchema() {
   );
 }
 
-type Props = Readonly<{
-  user: User;
-}>;
-
-export default function ProfileAccountDisplayName({ user }: Props) {
+export default function ProfileAccountDisplayName() {
   const intl = useIntl();
   const profileNameStrings = getProfileNameStrings(intl);
 

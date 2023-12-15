@@ -8,13 +8,15 @@ import {
   RiDiscordLine,
   RiGithubFill,
   RiMailLine,
+  RiShieldUserLine,
   RiUserLine,
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
 import { hasProjectsBetaAccess } from '~/data/PromotionConfig';
 
-import { useUserProfile } from '~/components/global/UserProfileProvider';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -43,8 +45,9 @@ type ProfileTabItemData = Readonly<{
 
 export default function ProfileShell({ user, children }: Props) {
   const intl = useIntl();
-  const segment = useSelectedLayoutSegment() ?? 'activity';
-  const { userProfile, isUserProfileLoading } = useUserProfile();
+  const segment: ProfileTabItem =
+    (useSelectedLayoutSegment() as ProfileTabItem) ?? 'activity';
+  const profileDataQuery = trpc.profile.getProfile.useQuery();
 
   const tabsData: Record<ProfileTabItem, ProfileTabItemData> = {
     account: {
@@ -114,16 +117,16 @@ export default function ProfileShell({ user, children }: Props) {
             <div className="xl:w-72 xl:flex-shrink-0 xl:px-6">
               <div className="px-4 py-6 sm:px-6 lg:px-8 xl:px-0">
                 <div className="flex items-center justify-between">
-                  <div className="w-full flex-1 gap-y-8">
+                  <div className="w-full flex flex-col flex-1 gap-y-4">
                     <div className="gap-y-8 sm:flex sm:items-center sm:justify-between sm:gap-y-0 xl:block xl:gap-y-8">
                       {/* Profile */}
                       <div className="flex items-center gap-x-3">
-                        {user?.user_metadata?.avatar_url && (
-                          <div className="h-24 w-24 flex-shrink-0">
+                        {profileDataQuery.data?.avatarUrl && (
+                          <div className="h-32 w-32 flex-shrink-0">
                             <img
-                              alt={user?.user_metadata?.full_name}
-                              className="h-24 w-24 rounded-full"
-                              src={user?.user_metadata?.avatar_url}
+                              alt={profileDataQuery.data?.name ?? ''}
+                              className="h-32 w-32 rounded-full"
+                              src={profileDataQuery.data?.avatarUrl}
                             />
                           </div>
                         )}
@@ -131,18 +134,19 @@ export default function ProfileShell({ user, children }: Props) {
                     </div>
                     {/* Meta info */}
                     <div className="flex flex-col flex-wrap gap-4 sm:flex-row sm:gap-x-8 xl:flex-col xl:gap-x-0 xl:gap-y-4">
-                      {user?.user_metadata?.full_name && (
-                        <Text
-                          className="truncate"
-                          display="block"
-                          weight="bold">
-                          {user?.user_metadata?.full_name}
-                        </Text>
-                      )}
-                      {!isUserProfileLoading && (
+                      {!profileDataQuery.isLoading && (
                         <>
+                          {profileDataQuery.data?.name && (
+                            <Text
+                              className="truncate"
+                              display="block"
+                              size="body0"
+                              weight="bold">
+                              {profileDataQuery.data?.name}
+                            </Text>
+                          )}
                           <div className="flex items-center gap-x-2">
-                            {userProfile?.isPremium ? (
+                            {profileDataQuery.data?.premium ? (
                               <Badge
                                 label={intl.formatMessage({
                                   defaultMessage: 'Premium',
@@ -165,9 +169,11 @@ export default function ProfileShell({ user, children }: Props) {
                               />
                             )}
                           </div>
-                          {userProfile?.isPremium &&
+                          {profileDataQuery.data?.premium &&
                             hasProjectsBetaAccess(
-                              new Date(userProfile?.createdAt).getTime(),
+                              new Date(
+                                profileDataQuery.data?.createdAt,
+                              ).getTime(),
                             ) && (
                               <ExclusiveTicket
                                 addOnElement={
@@ -195,16 +201,27 @@ export default function ProfileShell({ user, children }: Props) {
                               {user.email}
                             </Text>
                           </div>
-                          {process.env.NODE_ENV === 'development' && (
+                          {profileDataQuery.data?.username && (
                             <div className="flex items-center gap-x-2">
                               <RiUserLine
+                                aria-hidden="true"
+                                className="h-5 w-5 shrink-0 text-neutral-500"
+                              />
+                              <Text className="truncate" size="body2">
+                                {profileDataQuery.data?.username}
+                              </Text>
+                            </div>
+                          )}
+                          {process.env.NODE_ENV === 'development' && (
+                            <div className="flex items-center gap-x-2">
+                              <RiShieldUserLine
                                 aria-hidden="true"
                                 className="h-5 w-5 shrink-0 text-neutral-500"
                               />
                               <Text size="body2">{user.id}</Text>
                             </div>
                           )}
-                          {userProfile?.createdAt && (
+                          {profileDataQuery.data?.createdAt && (
                             <div className="flex items-center gap-x-2">
                               <RiCalendarLine
                                 aria-hidden="true"
@@ -220,7 +237,7 @@ export default function ProfileShell({ user, children }: Props) {
                                   },
                                   {
                                     date: new Date(
-                                      userProfile?.createdAt,
+                                      profileDataQuery.data?.createdAt,
                                     ).toLocaleDateString(),
                                   },
                                 )}
@@ -243,8 +260,7 @@ export default function ProfileShell({ user, children }: Props) {
                                 </Text>
                               </div>
                             )}
-
-                          {userProfile?.isPremium ? (
+                          {profileDataQuery.data?.premium ? (
                             <Button
                               addonPosition="start"
                               display="block"
