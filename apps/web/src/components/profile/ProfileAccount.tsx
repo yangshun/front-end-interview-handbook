@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import { useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -12,7 +13,7 @@ import TextInput from '~/components/ui/TextInput';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
 import ProfileAccountDisplayName from './ProfileAccountDisplayName';
-import Card from '../ui/Card';
+import { themeLineColor } from '../ui/theme';
 
 import type { User } from '@supabase/supabase-js';
 
@@ -65,65 +66,58 @@ export default function ProfileAccount({ user }: Props) {
           id="C34sRh"
         />
       </Heading>
-      {user?.app_metadata.provider !== 'email' && (
-        <Text color="secondary" display="block" size="body2">
-          <FormattedMessage
-            defaultMessage="If you are logged in with OAuth (e.g. GitHub), you can change your email here to use email and password to log in instead."
-            description="Subtext above email settings."
-            id="1wkHv2"
-          />
-        </Text>
-      )}
       <Section>
         <ProfileAccountDisplayName user={user} />
-        <Card disableSpotlight={true} pattern={false}>
-          <Heading level="heading6">
-            <FormattedMessage
-              defaultMessage="Email"
-              description="Email"
-              id="y8zzVx"
+        <div className={clsx('p-4', 'rounded-lg border', themeLineColor)}>
+          <form className="space-y-6 mt-2" onSubmit={handleEmailChange}>
+            <TextInput
+              autoComplete="email"
+              defaultValue={email}
+              description={
+                user?.app_metadata.provider === 'email'
+                  ? intl.formatMessage({
+                      defaultMessage:
+                        'The email address you want to use to log in.',
+                      description: 'Email field description',
+                      id: 'DQayC1',
+                    })
+                  : intl.formatMessage({
+                      defaultMessage:
+                        'If you are logged in with OAuth (e.g. GitHub), you can change your email here to use email and password to log in instead.',
+                      description: 'Email field description',
+                      id: '8ujLk4',
+                    })
+              }
+              errorMessage={error || undefined}
+              isDisabled={isLoading}
+              label={intl.formatMessage({
+                defaultMessage: 'Email',
+                description: 'Email',
+                id: 'y8zzVx',
+              })}
+              type="email"
+              onChange={setEmail}
             />
-          </Heading>
-          <Section>
-            <form className="space-y-6 mt-2" onSubmit={handleEmailChange}>
-              <TextInput
-                autoComplete="email"
-                defaultValue={email}
-                isDisabled={isLoading}
-                isLabelHidden={true}
-                label={intl.formatMessage({
-                  defaultMessage: 'Email',
-                  description: 'Email',
-                  id: 'y8zzVx',
-                })}
-                type="email"
-                onChange={setEmail}
-              />
+            {message && (
+              <Text color="success" display="block" size="body2">
+                {message}
+              </Text>
+            )}
+            <div className="flex justify-end">
               <Button
                 isDisabled={email === user?.email || !isValidEmail || isLoading}
                 isLoading={isLoading}
                 label={intl.formatMessage({
-                  defaultMessage: 'Save Changes',
-                  description:
-                    'Label for button to save changes to user account email',
-                  id: 'Znv3Y6',
+                  defaultMessage: 'Save changes',
+                  description: 'Button label for a form',
+                  id: 'vSWYET',
                 })}
                 type="submit"
                 variant="primary"
               />
-              {message && (
-                <Text color="success" display="block" size="body2">
-                  {message}
-                </Text>
-              )}
-              {error && (
-                <Text color="error" display="block" size="body2">
-                  {error}
-                </Text>
-              )}
-            </form>
-          </Section>
-        </Card>
+            </div>
+          </form>
+        </div>
       </Section>
     </div>
   );

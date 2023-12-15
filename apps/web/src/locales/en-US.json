@@ -275,10 +275,6 @@
     "defaultMessage": "Month and year you started work as a Front End Engineer description",
     "description": "Description for \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
   },
-  "1wkHv2": {
-    "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can change your email here to use email and password to log in instead.",
-    "description": "Subtext above email settings."
-  },
   "1wrVTx": {
     "defaultMessage": "Edit on GitHub",
     "description": "Edit on GitHub button"
@@ -643,10 +639,6 @@
     "defaultMessage": "Know your fundamentals",
     "description": "Label for an example list of Quiz Questions on marketing pages"
   },
-  "7V+oSQ": {
-    "defaultMessage": "Display name must contain at most 32 characters.",
-    "description": "Error message when display name is too long"
-  },
   "7Wsapt": {
     "defaultMessage": "Quiz",
     "description": "Quiz questions short title"
@@ -762,6 +754,10 @@
   "8tdTMy": {
     "defaultMessage": "No skills added",
     "description": "Placeholder for skills input when no skills are selected"
+  },
+  "8ujLk4": {
+    "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can change your email here to use email and password to log in instead.",
+    "description": "Email field description"
   },
   "8ulBJI": {
     "defaultMessage": "All questions come with solutions written by ex-FAANG Senior Front End Engineers.",
@@ -947,10 +943,6 @@
     "defaultMessage": "Submit your solution for feedback",
     "description": "Title of 'Submit your solution for feedback' feature in Projects marketing page"
   },
-  "Bqo66a": {
-    "defaultMessage": "Save Changes",
-    "description": "Label for button to save changes to display name"
-  },
   "BwHkBU": {
     "defaultMessage": "Profile",
     "description": "Link label to the profile page"
@@ -1094,6 +1086,10 @@
   "DP3Y2U": {
     "defaultMessage": "Behavioral Interview",
     "description": "Short title for behavioral interview guidebook"
+  },
+  "DQayC1": {
+    "defaultMessage": "The email address you want to use to log in.",
+    "description": "Email field description"
   },
   "DZGIbR": {
     "defaultMessage": "Starter",
@@ -1750,6 +1746,10 @@
   "LxlUHa": {
     "defaultMessage": "Primary reason",
     "description": "Label for \"Primary reason\" button on Sign Up Reason section of Projects onboarding page"
+  },
+  "LyLGTu": {
+    "defaultMessage": "Your display name has been updated.",
+    "description": "Success message when for name change"
   },
   "LzKi2d": {
     "defaultMessage": "{questionCount}+ questions",
@@ -2842,10 +2842,6 @@
   "Zk7X6D": {
     "defaultMessage": "Software Engineer at Stripe | Ex-Google",
     "description": "Placeholder for \"Job Title\" input on Projects profile onboarding page"
-  },
-  "Znv3Y6": {
-    "defaultMessage": "Save Changes",
-    "description": "Label for button to save changes to user account email"
   },
   "ZpzyjO": {
     "defaultMessage": "Anonymous",
@@ -4023,6 +4019,10 @@
     "defaultMessage": "Enjoy extra {discountPercentage}% off with the code {promoCode}",
     "description": "Subtitle of discount promotion card"
   },
+  "nfWiNn": {
+    "defaultMessage": "This is the name that will be shown on your profile. Use a maximum of {maxLength} characters.",
+    "description": "Name field description"
+  },
   "njNtN8": {
     "defaultMessage": "YouTube profile link",
     "description": "Link to YouTube profile"
@@ -4487,10 +4487,6 @@
     "defaultMessage": "Premium Study Plans",
     "description": "Study plans paywall title"
   },
-  "tg7jHB": {
-    "defaultMessage": "This is the name that will be shown on your profile. Use a maximum of 32 characters.",
-    "description": "Description of display name field."
-  },
   "thqnR6": {
     "defaultMessage": "Click here to view the full solution and other System Design guides.",
     "description": "Button label within embed"
@@ -4627,6 +4623,10 @@
     "defaultMessage": "Stripe",
     "description": "Company name for Stripe"
   },
+  "v9aMaT": {
+    "defaultMessage": "Display name must contain at most {maxLength} characters.",
+    "description": "Error message when display name is too long"
+  },
   "vHNURr": {
     "defaultMessage": "View all filters",
     "description": "Tooltip for All Filters button for projects list"
@@ -4634,6 +4634,10 @@
   "vNa4Wc": {
     "defaultMessage": "While Offer Lasts",
     "description": "Label to indicate offer is a limited time deal"
+  },
+  "vSWYET": {
+    "defaultMessage": "Save changes",
+    "description": "Button label for a form"
   },
   "vYkB/0": {
     "defaultMessage": "Sign in/up",

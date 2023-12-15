@@ -2,11 +2,11 @@ import clsx from 'clsx';
 import { RiArrowRightLine, RiFireLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import useUserName from '~/hooks/user/useUserName';
+
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import { themeTextBrandColor } from '~/components/ui/theme';
-
-import useUserName from '~/utils/user/useUserName';
 
 import ProjectsSidebarHeaderLogoBar from './ProjectsSidebarHeaderLogoBar';
 import ProjectsUserJobTitle from '../../users/ProjectsUserJobTitle';

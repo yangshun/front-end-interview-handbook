@@ -1,9 +1,9 @@
 import { useIntl } from 'react-intl';
 
+import useUserName from '~/hooks/user/useUserName';
+
 import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';
-
-import useUserName from '~/utils/user/useUserName';
 
 import type { ProjectsSubmission } from './types';
 import ProjectsSkillRow from '../skills/ProjectsSkillRow';

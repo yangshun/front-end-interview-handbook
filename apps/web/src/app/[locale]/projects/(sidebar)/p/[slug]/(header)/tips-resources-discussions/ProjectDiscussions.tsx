@@ -1,5 +1,7 @@
 import { useIntl } from 'react-intl';
 
+import useUserName from '~/hooks/user/useUserName';
+
 import ProjectsDiscussionContextProvider from '~/components/projects/projects/discussions/ProjectsDiscussionContext';
 import ProjectsDiscussionPostList from '~/components/projects/projects/discussions/ProjectsDiscussionPostList';
 import type { Post } from '~/components/projects/projects/discussions/types';
@@ -11,8 +13,6 @@ import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
-
-import useUserName from '~/utils/user/useUserName';
 
 import type { User } from '@supabase/supabase-js';
 

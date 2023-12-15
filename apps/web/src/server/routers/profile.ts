@@ -1,7 +1,8 @@
 import { z } from 'zod';
 
+import { profileNameSchemaServer } from '~/hooks/user/profileName';
+
 import prisma from '~/server/prisma';
-import { profileNameSchemaServer } from '~/utils/user/profile';
 
 import { publicProcedure, router } from '../trpc';
 

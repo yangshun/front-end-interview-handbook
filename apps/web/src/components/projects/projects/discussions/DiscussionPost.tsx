@@ -8,6 +8,8 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import useUserName from '~/hooks/user/useUserName';
+
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -15,8 +17,6 @@ import {
   themeBackgroundColor,
   themeElementBorderColor,
 } from '~/components/ui/theme';
-
-import useUserName from '~/utils/user/useUserName';
 
 import DiscussionPostReplyInput from './DiscussionReplyInput';
 import DiscussionSubposts from './DiscussionSubPosts';
