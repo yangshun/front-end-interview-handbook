@@ -55,6 +55,7 @@ export default function ProfileAccountDisplayName({ user }: Props) {
     resolver: zodResolver(displayNameFormSchema),
   });
 
+  const profileDataQuery = trpc.profile.getProfile.useQuery();
   const nameUpdateMutation = trpc.profile.nameUpdate.useMutation();
 
   return (
@@ -74,8 +75,7 @@ export default function ProfileAccountDisplayName({ user }: Props) {
           render={({ field }) => (
             <TextInput
               autoComplete="off"
-              // TODO(projects): Add default value
-              defaultValue={user?.user_metadata?.full_name ?? ''}
+              defaultValue={profileDataQuery.data?.name ?? undefined}
               description={profileNameStrings.description}
               errorMessage={errors.name?.message}
               isDisabled={isLoading}
