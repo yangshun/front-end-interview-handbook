@@ -11,6 +11,10 @@
     "defaultMessage": "About",
     "description": "Link to company's about page"
   },
+  "+5baZ1": {
+    "defaultMessage": "Your username has been updated.",
+    "description": "Success message when for username changes"
+  },
   "+99sZT": {
     "defaultMessage": "{questionCount}+ interview questions across <clink>coding</clink> and <qlink>quiz</qlink> formats and new questions constantly being added.",
     "description": "Subtitle for huge question bank feature"
@@ -1503,6 +1507,10 @@
     "defaultMessage": "Authors",
     "description": "description"
   },
+  "JIywgW": {
+    "defaultMessage": "This is the unique username used to identify you. Use a maximum of {maxLength} characters.",
+    "description": "Username field description"
+  },
   "JJ0V4Y": {
     "defaultMessage": "Duration: Low to High",
     "description": "Sorting option for question list - sort by duration from low to high"
@@ -1974,6 +1982,10 @@
   "OoOyEp": {
     "defaultMessage": "More on <link>Review Cashback Discount Terms and Conditions</link>",
     "description": "Link for discount terms and conditions"
+  },
+  "Ooddpj": {
+    "defaultMessage": "Username",
+    "description": "Username"
   },
   "OrN/z/": {
     "defaultMessage": "Share your questions or thoughts",
@@ -2622,6 +2634,10 @@
   "Wgz18L": {
     "defaultMessage": "Try these popular HTML questions",
     "description": "Title for featured questions section"
+  },
+  "Wi3vIz": {
+    "defaultMessage": "Username must contain at most {maxLength} characters.",
+    "description": "Error message when username is too long"
   },
   "WoEmKY": {
     "defaultMessage": "Post as question",
@@ -3522,6 +3538,10 @@
   "iElBQT": {
     "defaultMessage": "Pricing Plans",
     "description": "Screen reader text referring to the Pricing Plan cards"
+  },
+  "iF3wN+": {
+    "defaultMessage": "Username cannot be empty.",
+    "description": "Error message when username is too short"
   },
   "iHLvVo": {
     "defaultMessage": "Find official guides, reference code from top submissions, and use our discussion forum to ask questions.",

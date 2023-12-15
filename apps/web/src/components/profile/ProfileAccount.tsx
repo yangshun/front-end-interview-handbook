@@ -7,6 +7,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import ProfileAccountDisplayName from './ProfileAccountDisplayName';
 import ProfileAccountEmail from './ProfileAccountEmail';
+import ProfileAccountUserName from './ProfileAccountUserName';
 
 import type { User } from '@supabase/supabase-js';
 
@@ -26,6 +27,7 @@ export default function ProfileAccount({ user }: Props) {
       </Heading>
       <Section>
         <ProfileAccountDisplayName />
+        <ProfileAccountUserName />
         <ProfileAccountEmail user={user} />
       </Section>
     </div>
