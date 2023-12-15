@@ -49,7 +49,7 @@ export default function ProfileAccountDisplayName({ user }: Props) {
     control,
     handleSubmit,
     reset,
-    formState: { errors, isDirty, isValid, isLoading },
+    formState: { errors, isDirty, isValid, isSubmitting },
   } = useForm<DisplayNameFormValues>({
     mode: 'all',
     resolver: zodResolver(displayNameFormSchema),
@@ -78,7 +78,7 @@ export default function ProfileAccountDisplayName({ user }: Props) {
               defaultValue={profileDataQuery.data?.name ?? undefined}
               description={profileNameStrings.description}
               errorMessage={errors.name?.message}
-              isDisabled={isLoading}
+              isDisabled={isSubmitting}
               label={profileNameStrings.label}
               {...field}
             />
@@ -88,7 +88,7 @@ export default function ProfileAccountDisplayName({ user }: Props) {
           <Button
             className="mt-4"
             isDisabled={!isDirty || !isValid}
-            isLoading={isLoading}
+            isLoading={isSubmitting}
             label={intl.formatMessage({
               defaultMessage: 'Save changes',
               description: 'Button label for a form',

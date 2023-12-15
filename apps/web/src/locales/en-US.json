@@ -1599,6 +1599,10 @@
     "defaultMessage": "Failed to mark question as complete. Please try again",
     "description": "Error message shown when a question has failed to mark as complete"
   },
+  "KZWEcx": {
+    "defaultMessage": "Please enter a different email address.",
+    "description": "Email validation error message"
+  },
   "KdzvRx": {
     "defaultMessage": "Summary of all the important things in a one-pager",
     "description": "Summary of important things in front end system design interviews"
@@ -4766,6 +4770,10 @@
   "xBj9I5": {
     "defaultMessage": "Prepare for tackling form questions in front end interviews",
     "description": "Title for interview preparation focus area"
+  },
+  "xK578g": {
+    "defaultMessage": "Please enter a valid email address.",
+    "description": "Email validation error message"
   },
   "xLVqYR": {
     "defaultMessage": "Pick from <bold>skills roadmap</bold>",
