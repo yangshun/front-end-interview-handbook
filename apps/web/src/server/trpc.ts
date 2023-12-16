@@ -9,7 +9,7 @@
  */
 import type { Context } from './context';
 
-import { initTRPC } from '@trpc/server';
+import { initTRPC, TRPCError } from '@trpc/server';
 
 const t = initTRPC.context<Context>().create();
 
@@ -20,3 +20,23 @@ export const publicProcedure = t.procedure;
 
 export const { router } = t;
 export const { middleware } = t;
+
+const isUser = middleware(async (opts) => {
+  const { ctx } = opts;
+
+  if (!ctx.user) {
+    throw new TRPCError({
+      code: 'UNAUTHORIZED',
+      message: 'User account required. Register or sign in first.',
+    });
+  }
+
+  return opts.next({
+    ctx: {
+      ...ctx,
+      user: ctx.user,
+    },
+  });
+});
+
+export const userProcedure = publicProcedure.use(isUser);

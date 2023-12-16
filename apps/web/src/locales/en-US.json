@@ -1475,10 +1475,6 @@
     "defaultMessage": "Company",
     "description": "Header for company filters"
   },
-  "IlQ38m": {
-    "defaultMessage": "Tell us why you’re here so that we can customize your experience",
-    "description": "Subtitle for Projects onboarding page"
-  },
   "Im9sPX": {
     "defaultMessage": "We are also looking to include more framework-specific questions like React, Vue, Angular, etc.",
     "description": "Question base section subtitle - second paragraph"
@@ -4827,6 +4823,10 @@
     "defaultMessage": "Framework",
     "description": "Question framework"
   },
+  "xg1qLW": {
+    "defaultMessage": "Tell us why you're here so that we can customize your experience",
+    "description": "Subtitle for Projects onboarding page"
+  },
   "xjHSyF": {
     "defaultMessage": "All log levels",
     "description": "Select label for all log levels in console filter"
@@ -4926,6 +4926,10 @@
   "z1Offf": {
     "defaultMessage": "Sign up with school email",
     "description": "Button label"
+  },
+  "zACRRV": {
+    "defaultMessage": "Please enter your motivations",
+    "description": "Error message for empty \"Other\" onboarding option in Projects"
   },
   "zDt/bH": {
     "defaultMessage": "Next",
