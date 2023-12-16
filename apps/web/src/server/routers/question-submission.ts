@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import prisma from '~/server/prisma';
 
-import { publicProcedure, router } from '../trpc';
+import { router, userProcedure } from '../trpc';
 
 import {
   QuestionSubmissionResult,
@@ -10,7 +10,7 @@ import {
 } from '@prisma/client';
 
 export const questionSubmissionRouter = router({
-  javaScriptAdd: publicProcedure
+  javaScriptAdd: userProcedure
     .input(
       z.object({
         code: z.string(),
@@ -29,10 +29,6 @@ export const questionSubmissionRouter = router({
     )
     .mutation(
       async ({ input: { code, slug, language, result }, ctx: { user } }) => {
-        if (!user) {
-          return null;
-        }
-
         return await prisma.questionJavaScriptSubmission.create({
           data: {
             code,
@@ -44,17 +40,13 @@ export const questionSubmissionRouter = router({
         });
       },
     ),
-  javaScriptGet: publicProcedure
+  javaScriptGet: userProcedure
     .input(
       z.object({
         submissionId: z.string(),
       }),
     )
     .query(async ({ input: { submissionId }, ctx: { user } }) => {
-      if (!user) {
-        return null;
-      }
-
       return await prisma.questionJavaScriptSubmission.findFirst({
         orderBy: {
           createdAt: 'desc',
@@ -65,17 +57,13 @@ export const questionSubmissionRouter = router({
         },
       });
     }),
-  javaScriptGetAll: publicProcedure
+  javaScriptGetAll: userProcedure
     .input(
       z.object({
         slug: z.string(),
       }),
     )
     .query(async ({ input: { slug }, ctx: { user } }) => {
-      if (!user) {
-        return null;
-      }
-
       return await prisma.questionJavaScriptSubmission.findMany({
         orderBy: {
           createdAt: 'desc',

@@ -24,7 +24,7 @@ export const { middleware } = t;
 const isUser = middleware(async (opts) => {
   const { ctx } = opts;
 
-  if (!ctx.user) {
+  if (ctx.user == null) {
     throw new TRPCError({
       code: 'UNAUTHORIZED',
       message: 'User account required. Register or sign in first.',

@@ -3,20 +3,16 @@ import { z } from 'zod';
 import { hashQuestion } from '~/db/QuestionsUtils';
 import prisma from '~/server/prisma';
 
-import { publicProcedure, router } from '../trpc';
+import { router, userProcedure } from '../trpc';
 
 export const questionListsRouter = router({
-  getActiveSession: publicProcedure
+  getActiveSession: userProcedure
     .input(
       z.object({
         listKey: z.string(),
       }),
     )
     .query(async ({ input: { listKey }, ctx: { user } }) => {
-      if (!user) {
-        return null;
-      }
-
       const session = await prisma.learningSession.findFirst({
         include: {
           progress: true,
@@ -30,11 +26,7 @@ export const questionListsRouter = router({
 
       return session;
     }),
-  getActiveSessions: publicProcedure.query(async ({ ctx: { user } }) => {
-    if (!user) {
-      return null;
-    }
-
+  getActiveSessions: userProcedure.query(async ({ ctx: { user } }) => {
     return await prisma.learningSession.findMany({
       include: {
         _count: {
@@ -49,17 +41,13 @@ export const questionListsRouter = router({
       },
     });
   }),
-  getSessionProgress: publicProcedure
+  getSessionProgress: userProcedure
     .input(
       z.object({
         listKey: z.string(),
       }),
     )
     .query(async ({ input: { listKey }, ctx: { user } }) => {
-      if (!user) {
-        return null;
-      }
-
       const session = await prisma.learningSession.findFirst({
         where: {
           key: listKey,
@@ -78,7 +66,7 @@ export const questionListsRouter = router({
         },
       });
     }),
-  markAsNotComplete: publicProcedure
+  markAsNotComplete: userProcedure
     .input(
       z.object({
         format: z.string(),
@@ -87,10 +75,6 @@ export const questionListsRouter = router({
       }),
     )
     .mutation(async ({ input: { format, slug, listKey }, ctx: { user } }) => {
-      if (!user) {
-        return null;
-      }
-
       try {
         const session = await prisma.learningSession.findFirst({
           where: {
@@ -114,7 +98,7 @@ export const questionListsRouter = router({
         // TODO: Report error
       }
     }),
-  markComplete: publicProcedure
+  markComplete: userProcedure
     .input(
       z.object({
         format: z.string(),
@@ -123,10 +107,6 @@ export const questionListsRouter = router({
       }),
     )
     .mutation(async ({ input: { format, slug, listKey }, ctx: { user } }) => {
-      if (!user) {
-        return null;
-      }
-
       try {
         const session = await prisma.learningSession.findFirst({
           where: {
@@ -151,17 +131,13 @@ export const questionListsRouter = router({
         // TODO: Report error
       }
     }),
-  resetSessionProgress: publicProcedure
+  resetSessionProgress: userProcedure
     .input(
       z.object({
         sessionId: z.string(),
       }),
     )
     .mutation(async ({ input: { sessionId }, ctx: { user } }) => {
-      if (!user) {
-        return null;
-      }
-
       // Make sure the session is active.
       const session = await prisma.learningSession.findFirst({
         where: {
@@ -181,17 +157,13 @@ export const questionListsRouter = router({
         },
       });
     }),
-  startSession: publicProcedure
+  startSession: userProcedure
     .input(
       z.object({
         listKey: z.string(),
       }),
     )
     .mutation(async ({ input: { listKey }, ctx: { user } }) => {
-      if (!user) {
-        return null;
-      }
-
       const existingSession = await prisma.learningSession.findFirst({
         where: {
           key: listKey,
@@ -215,17 +187,13 @@ export const questionListsRouter = router({
         data: createData,
       });
     }),
-  stopSession: publicProcedure
+  stopSession: userProcedure
     .input(
       z.object({
         sessionId: z.string(),
       }),
     )
     .mutation(async ({ input: { sessionId }, ctx: { user } }) => {
-      if (!user) {
-        return null;
-      }
-
       // Make sure the session is active.
       const session = await prisma.learningSession.findFirst({
         where: {

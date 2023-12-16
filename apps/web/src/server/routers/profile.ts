@@ -5,31 +5,23 @@ import { profileUserNameSchemaServer } from '~/hooks/user/profileUserName';
 
 import prisma from '~/server/prisma';
 
-import { publicProcedure, router } from '../trpc';
+import { router, userProcedure } from '../trpc';
 
 export const profileRouter = router({
-  getProfile: publicProcedure.query(async ({ ctx: { user } }) => {
-    if (!user) {
-      throw 'User account required. Register or sign in first.';
-    }
-
+  getProfile: userProcedure.query(async ({ ctx: { user } }) => {
     return await prisma.profile.findUnique({
       where: {
         id: user.id,
       },
     });
   }),
-  nameUpdate: publicProcedure
+  nameUpdate: userProcedure
     .input(
       z.object({
         name: profileNameSchemaServer,
       }),
     )
     .mutation(async ({ input: { name }, ctx: { user } }) => {
-      if (!user) {
-        throw 'User account required. Register or sign in first.';
-      }
-
       return await prisma.profile.update({
         data: {
           name,
@@ -40,17 +32,13 @@ export const profileRouter = router({
       });
     }),
 
-  userNameUpdate: publicProcedure
+  userNameUpdate: userProcedure
     .input(
       z.object({
         username: profileUserNameSchemaServer,
       }),
     )
     .mutation(async ({ input: { username }, ctx: { user } }) => {
-      if (!user) {
-        throw 'User account required. Register or sign in first.';
-      }
-
       return await prisma.profile.update({
         data: {
           username,

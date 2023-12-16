@@ -2,12 +2,12 @@ import { z } from 'zod';
 
 import prisma from '~/server/prisma';
 
-import { publicProcedure, router } from '../trpc';
+import { router, userProcedure } from '../trpc';
 
 import { QuestionUserInterfaceFramework } from '@prisma/client';
 
 export const questionSaveRouter = router({
-  userInterfaceAdd: publicProcedure
+  userInterfaceAdd: userProcedure
     .input(
       z.object({
         files: z.string(),
@@ -25,10 +25,6 @@ export const questionSaveRouter = router({
     )
     .mutation(
       async ({ input: { files, name, slug, framework }, ctx: { user } }) => {
-        if (!user) {
-          throw 'User account required. Register or sign in first.';
-        }
-
         return await prisma.questionUserInterfaceSave.create({
           data: {
             files,
@@ -40,17 +36,13 @@ export const questionSaveRouter = router({
         });
       },
     ),
-  userInterfaceDelete: publicProcedure
+  userInterfaceDelete: userProcedure
     .input(
       z.object({
         saveId: z.string(),
       }),
     )
     .mutation(async ({ input: { saveId }, ctx: { user } }) => {
-      if (!user) {
-        throw 'User account required. Register or sign in first.';
-      }
-
       // TODO(acl): prevent unauthorized deletions.
       return await prisma.questionUserInterfaceSave.delete({
         where: {
@@ -58,17 +50,13 @@ export const questionSaveRouter = router({
         },
       });
     }),
-  userInterfaceGet: publicProcedure
+  userInterfaceGet: userProcedure
     .input(
       z.object({
         saveId: z.string(),
       }),
     )
     .query(async ({ input: { saveId }, ctx: { user } }) => {
-      if (!user) {
-        throw 'User account required. Register or sign in first.';
-      }
-
       // TODO(acl): prevent unauthorized reads.
       return await prisma.questionUserInterfaceSave.findFirst({
         orderBy: {
@@ -80,17 +68,13 @@ export const questionSaveRouter = router({
         },
       });
     }),
-  userInterfaceGetAll: publicProcedure
+  userInterfaceGetAll: userProcedure
     .input(
       z.object({
         slug: z.string(),
       }),
     )
     .query(async ({ input: { slug }, ctx: { user } }) => {
-      if (!user) {
-        throw 'User account required. Register or sign in first.';
-      }
-
       return await prisma.questionUserInterfaceSave.findMany({
         orderBy: {
           createdAt: 'desc',
@@ -107,7 +91,7 @@ export const questionSaveRouter = router({
         },
       });
     }),
-  userInterfaceUpdate: publicProcedure
+  userInterfaceUpdate: userProcedure
     .input(
       z.object({
         files: z.string().optional(),
@@ -116,10 +100,6 @@ export const questionSaveRouter = router({
       }),
     )
     .mutation(async ({ input: { files, name, saveId }, ctx: { user } }) => {
-      if (!user) {
-        throw 'User account required. Register or sign in first.';
-      }
-
       // TODO(acl): prevent unauthorized updates.
       return await prisma.questionUserInterfaceSave.update({
         data: {

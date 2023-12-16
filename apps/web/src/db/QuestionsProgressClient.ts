@@ -44,7 +44,7 @@ export function useMutationQuestionProgressDeleteAll() {
   return trpc.questionProgress.deleteAll.useMutation({
     onSuccess: () => {
       context.questionProgress.getAll.invalidate();
-      context.questionProgress.getAll.setData(undefined, null);
+      context.questionProgress.getAll.setData(undefined, undefined);
     },
   });
 }

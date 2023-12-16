@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import prisma from '~/server/prisma';
 
-import { publicProcedure, router } from '../trpc';
+import { publicProcedure, router, userProcedure } from '../trpc';
 
 import {
   QuestionUserInterfaceFramework,
@@ -77,7 +77,7 @@ export const questionCommunitySolutionRouter = router({
         },
       });
     }),
-  userInterfaceAdd: publicProcedure
+  userInterfaceAdd: userProcedure
     .input(
       z.object({
         files: z.string(),
@@ -99,10 +99,6 @@ export const questionCommunitySolutionRouter = router({
         input: { files, framework, slug, title, writeup },
         ctx: { user },
       }) => {
-        if (!user) {
-          return null;
-        }
-
         return await prisma.questionUserInterfaceCommunitySolution.create({
           data: {
             files,

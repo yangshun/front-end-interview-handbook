@@ -6,10 +6,10 @@ import type { QuestionProgressStatus } from '~/db/QuestionsProgressTypes';
 import { hashQuestion } from '~/db/QuestionsUtils';
 import prisma from '~/server/prisma';
 
-import { publicProcedure, router } from '../trpc';
+import { publicProcedure, router, userProcedure } from '../trpc';
 
 export const questionProgressRouter = router({
-  add: publicProcedure
+  add: userProcedure
     .input(
       z.object({
         format: z.string(),
@@ -83,7 +83,7 @@ export const questionProgressRouter = router({
         };
       },
     ),
-  delete: publicProcedure
+  delete: userProcedure
     .input(
       z.object({
         format: z.string(),
@@ -91,9 +91,6 @@ export const questionProgressRouter = router({
       }),
     )
     .mutation(async ({ input: { slug, format }, ctx: { user } }) => {
-      if (!user) {
-        return;
-      }
       await prisma.questionProgress.deleteMany({
         where: {
           format,
@@ -102,17 +99,14 @@ export const questionProgressRouter = router({
         },
       });
     }),
-  deleteAll: publicProcedure.mutation(async ({ ctx: { user } }) => {
-    if (!user) {
-      return;
-    }
+  deleteAll: userProcedure.mutation(async ({ ctx: { user } }) => {
     await prisma.questionProgress.deleteMany({
       where: {
         userId: user.id,
       },
     });
   }),
-  get: publicProcedure
+  get: userProcedure
     .input(
       z.object({
         question: z.object({
@@ -122,10 +116,6 @@ export const questionProgressRouter = router({
       }),
     )
     .query(async ({ input: { question }, ctx: { user } }) => {
-      if (!user) {
-        return null;
-      }
-
       const questionProgress = await prisma.questionProgress.findFirst({
         orderBy: {
           createdAt: 'desc',
@@ -154,11 +144,7 @@ export const questionProgressRouter = router({
         status: questionProgress.status as QuestionProgressStatus,
       };
     }),
-  getAll: publicProcedure.query(async ({ ctx: { user } }) => {
-    if (!user) {
-      return null;
-    }
-
+  getAll: userProcedure.query(async ({ ctx: { user } }) => {
     const questionProgressList = await prisma.questionProgress.findMany({
       orderBy: {
         createdAt: 'desc',
