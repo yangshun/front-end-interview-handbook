@@ -176,7 +176,7 @@ model LearningSessionProgress {
 
 model ProjectsProfile {
   id                  String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  userId              String   @db.Uuid
+  userId              String   @unique @db.Uuid
   userProfile         Profile? @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   primaryMotivation   String?
   secondaryMotivation String?
