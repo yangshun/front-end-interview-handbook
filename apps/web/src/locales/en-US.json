@@ -835,12 +835,13 @@
     "defaultMessage": "Email",
     "description": "Label of email field on Sign In/Up page"
   },
-  "9POdEK": {
-    "defaultMessage": "View subscription plans",
-    "description": "Label for View subscription plans button on Projects project page"
   "9New5b": {
     "defaultMessage": "For Beginners",
     "description": "Link to Projects homepage for beginners"
+  },
+  "9POdEK": {
+    "defaultMessage": "View subscription plans",
+    "description": "Label for View subscription plans button on Projects project page"
   },
   "9Q8e4/": {
     "defaultMessage": "JavaScript Polyfills",
