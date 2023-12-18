@@ -3,46 +3,95 @@ import { z } from 'zod';
 import RedditPlatform from '~/interfaces/implementations/RedditPlatform';
 
 import { publicProcedure, router } from '../trpc';
+import { type AIProvider } from '../../interfaces/AIProvider';
+import OpenAIProvider from '../../interfaces/implementations/OpenAIProvider';
 import { type Platform } from '../../interfaces/Platform';
 import { type Post } from '../../models/Post';
 
 function getPlatform(): Platform {
-    const clientId = process.env.REDDIT_CLIENT_ID as string;
-    const clientSecret = process.env.REDDIT_CLIENT_SECRET as string;
-    const userAgent = process.env.REDDIT_USER_AGENT as string;
-    const username = process.env.REDDIT_USERNAME as string;
-    const password = process.env.REDDIT_PASSWORD as string;
-    const subreddits = ['reactjs', 'javascript'];
-    const keywords = ['typescript', 'javascript'];
-    const timeframeInHours = 1;
+  const clientId = process.env.REDDIT_CLIENT_ID as string;
+  const clientSecret = process.env.REDDIT_CLIENT_SECRET as string;
+  const userAgent = process.env.REDDIT_USER_AGENT as string;
+  const username = process.env.REDDIT_USERNAME as string;
+  const password = process.env.REDDIT_PASSWORD as string;
+  const subreddits = ['reactjs', 'javascript'];
+  const keywords = ['typescript', 'javascript'];
+  const timeframeInHours = 1;
 
-    const platform: Platform = new RedditPlatform(
-        clientId,
-        clientSecret,
-        userAgent,
-        username,
-        password,
-        subreddits,
-        keywords,
-        timeframeInHours,
-    );
+  const platform: Platform = new RedditPlatform(
+    clientId,
+    clientSecret,
+    userAgent,
+    username,
+    password,
+    subreddits,
+    keywords,
+    timeframeInHours,
+  );
 
-    return platform;
+  return platform;
+}
+
+function getAIProvider(): AIProvider {
+  const openaiApiKey = process.env.OPENAI_API_KEY as string;
+
+  return new OpenAIProvider(openaiApiKey);
 }
 
 const postSchema = z.object({
-    content: z.string(),
-    foundAt: z.union([z.date(), z.string()]).nullable(),
-    id: z.string(),
-    postedAt: z.union([z.date(), z.string()]).nullable(),
-    replied: z.boolean(),
-    repliedAt: z.union([z.date(), z.string()]).nullable(),
-    response: z.string().nullable(),
-    title: z.string(),
-    url: z.string(),
+  content: z.string(),
+  foundAt: z.union([z.date(), z.string()]).nullable(),
+  id: z.string(),
+  postedAt: z.union([z.date(), z.string()]).nullable(),
+  replied: z.boolean(),
+  repliedAt: z.union([z.date(), z.string()]).nullable(),
+  response: z.string().nullable(),
+  title: z.string(),
+  url: z.string(),
 });
 
 export const socialPostsRouter = router({
+  generateResponse: publicProcedure
+    .input(
+      z.object({
+        post: postSchema,
+      }),
+    )
+    .mutation(async (opts) => {
+      const { input } = opts;
+      const post = input.post as Post;
+      const aiProvider = getAIProvider();
+
+      try {
+        const response = await aiProvider.generateResponseTo(post);
+
+        const platform = getPlatform();
+        const success = await platform.updatePost({
+          content: post.content,
+          foundAt: post.foundAt,
+          id: post.id,
+          postedAt: post.postedAt,
+          replied: post.replied,
+          repliedAt: post.repliedAt,
+          response,
+          title: post.title,
+          url: post.url,
+        });
+
+        if (!success) {
+          console.error('Error updating post:', post.id);
+
+          return null;
+        }
+
+        return response;
+      } catch (error) {
+        console.error('Error generating response:', error);
+
+        return null;
+      }
+    }),
+
   getRepliedPosts: publicProcedure.query(async () => {
     const platform = getPlatform();
 
@@ -69,10 +118,6 @@ export const socialPostsRouter = router({
 
       return null;
     }
-  }),
-
-  helloWorld: publicProcedure.query(async () => {
-    return 'Hello world!';
   }),
 
   replyToPost: publicProcedure
@@ -138,8 +183,4 @@ export const socialPostsRouter = router({
         return false;
       }
     }),
-
-
-
-  // ReplyToPost
 });
