@@ -19,20 +19,15 @@ import type {
   QuestionJavaScriptCommunitySolution,
   QuestionUserInterfaceCommunitySolution,
 } from '@prisma/client';
-import type { SerializeObject } from '@trpc/server/shared';
 
 type Props =
   | {
       questionType: 'javascript';
-      solutions:
-        | Array<SerializeObject<QuestionJavaScriptCommunitySolution>>
-        | undefined;
+      solutions: Array<QuestionJavaScriptCommunitySolution> | undefined;
     }
   | {
       questionType: 'ui';
-      solutions:
-        | Array<SerializeObject<QuestionUserInterfaceCommunitySolution>>
-        | undefined;
+      solutions: Array<QuestionUserInterfaceCommunitySolution> | undefined;
     };
 
 export default function CodingWorkspaceCommunitySolutionList({
@@ -43,9 +38,9 @@ export default function CodingWorkspaceCommunitySolutionList({
 
   const isJavascript = (
     _:
-      | SerializeObject<QuestionJavaScriptCommunitySolution>
-      | SerializeObject<QuestionUserInterfaceCommunitySolution>,
-  ): _ is SerializeObject<QuestionJavaScriptCommunitySolution> => {
+      | QuestionJavaScriptCommunitySolution
+      | QuestionUserInterfaceCommunitySolution,
+  ): _ is QuestionJavaScriptCommunitySolution => {
     return questionType === 'javascript';
   };
 

@@ -100,6 +100,7 @@
     "resend": "^2.0.0",
     "server-only": "^0.0.1",
     "stripe": "11.11.0",
+    "superjson": "^2.2.1",
     "usehooks-ts": "^2.9.1",
     "uuid": "^9.0.0",
     "web-vitals": "^3.3.0",

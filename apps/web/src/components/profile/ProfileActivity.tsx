@@ -136,7 +136,7 @@ export default function ProfileActivity() {
           role="list">
           {questionsProgressWithMetadata.map(({ metadata, createdAt }) => (
             <li
-              key={createdAt}
+              key={createdAt.toDateString()}
               className={clsx(
                 'relative px-4 py-3',
                 themeBackgroundEmphasizedHover,

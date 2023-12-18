@@ -1,5 +1,5 @@
 type Props = Readonly<{
-  date: string;
+  date: Date;
 }>;
 
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
@@ -9,8 +9,6 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
 
 export default function Timestamp({ date }: Props) {
   return (
-    <span suppressHydrationWarning={true}>
-      {dateFormatter.format(new Date(date))}
-    </span>
+    <span suppressHydrationWarning={true}>{dateFormatter.format(date)}</span>
   );
 }

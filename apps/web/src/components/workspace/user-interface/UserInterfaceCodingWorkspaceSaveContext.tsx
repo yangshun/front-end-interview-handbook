@@ -32,11 +32,7 @@ export function UserInterfaceCodingWorkspaceSavesContextProvider({
       saveId: save.id,
     },
     {
-      initialData: {
-        ...save,
-        createdAt: save.createdAt.toISOString(),
-        updatedAt: save.updatedAt.toISOString(),
-      },
+      initialData: save,
     },
   );
 

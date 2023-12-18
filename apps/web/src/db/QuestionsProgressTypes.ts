@@ -3,7 +3,7 @@ import type { QuestionFormat } from '~/components/interviews/questions/common/Qu
 export type QuestionProgressStatus = 'complete' | 'in_progress';
 
 export type QuestionProgress = Readonly<{
-  createdAt: string;
+  createdAt: Date;
   format: QuestionFormat;
   id: string;
   slug: string;
