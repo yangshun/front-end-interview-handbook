@@ -30,7 +30,7 @@ Since `invoke` can be called from two places (within the `setTimeout` after a de
 
 ### `clearTimer`
 
-The implementation of `clearTimer` is simple, we can do `setTimeout(timeoutId)` and set `timeoutId` to be `null`.
+The implementation of `clearTimer` is simple, we can do `clearTimeout(timeoutId)` and set `timeoutId` to be `null`.
 
 <MDXCodeBlock languages={{ jsx: debounceJs, tsx: debounceTs }} />
 
