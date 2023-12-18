@@ -87,9 +87,9 @@ export default function ProjectsMarketingHero() {
         id: 'rbjUFF',
       }),
       title: intl.formatMessage({
-        defaultMessage: 'Something (cant see) to advanced',
+        defaultMessage: 'Build to learn from beginner to advanced',
         description: 'Title for Projects hero section for beginners',
-        id: 'B6ilPG',
+        id: 'ruGZIH',
       }),
     },
     experienced: {
@@ -114,10 +114,10 @@ export default function ProjectsMarketingHero() {
         id: 'c2bsgM',
       }),
       title: intl.formatMessage({
-        defaultMessage: 'Something (cant see) in up and coming skills',
+        defaultMessage: 'Build to cover skill gaps in up-and-coming skills',
         description:
           'Title for Projects marketing hero section for experienced users',
-        id: 'mfVk6d',
+        id: 'a3a9Yq',
       }),
     },
     portfolio: {

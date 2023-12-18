@@ -903,10 +903,6 @@
     "defaultMessage": "Project Brief",
     "description": "Title for Project Brief section on Projects project page"
   },
-  "B6ilPG": {
-    "defaultMessage": "Something (cant see) to advanced",
-    "description": "Title for Projects hero section for beginners"
-  },
   "B82jFj": {
     "defaultMessage": "Guidebooks",
     "description": "Guidebooks category"
@@ -2875,6 +2871,10 @@
     "defaultMessage": "Focus areas",
     "description": "Title of focus areas page"
   },
+  "a3a9Yq": {
+    "defaultMessage": "Build to cover skill gaps in up-and-coming skills",
+    "description": "Title for Projects marketing hero section for experienced users"
+  },
   "a6L95B": {
     "defaultMessage": "Check your email for the confirmation link.",
     "description": "Content of alert indicating a successful email sign up"
@@ -3951,10 +3951,6 @@
     "defaultMessage": "Importance",
     "description": "Label for question importance - how important it is to practice this question"
   },
-  "mfVk6d": {
-    "defaultMessage": "Something (cant see) in up and coming skills",
-    "description": "Title for Projects marketing hero section for experienced users"
-  },
   "mjEvFf": {
     "defaultMessage": "Step 2",
     "description": "Title for \"Step 2\" tab on Projects project page"
@@ -4366,6 +4362,10 @@
   "rmYPMV": {
     "defaultMessage": "Start learning",
     "description": "Button label to start study plan / focus area"
+  },
+  "ruGZIH": {
+    "defaultMessage": "Build to learn from beginner to advanced",
+    "description": "Title for Projects hero section for beginners"
   },
   "rxpmQt": {
     "defaultMessage": "Next project:",
