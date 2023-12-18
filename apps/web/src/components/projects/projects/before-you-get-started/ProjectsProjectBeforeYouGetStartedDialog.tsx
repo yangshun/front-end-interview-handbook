@@ -25,11 +25,6 @@ type DialogStep = {
   label: string;
 };
 
-type Props = Readonly<{
-  isShown: boolean;
-  onClose: () => void;
-}>;
-
 function useDialogSteps({
   onDownloadStarterFilesClick,
   onDownloadFigmaDesignClick,
@@ -105,9 +100,16 @@ function useDialogSteps({
   return dialogSteps;
 }
 
+type Props = Readonly<{
+  isShown: boolean;
+  onClose: () => void;
+  onStart: () => void;
+}>;
+
 export default function ProjectsProjectBeforeYouGetStartedDialog({
   isShown,
   onClose,
+  onStart,
 }: Props) {
   const intl = useIntl();
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
@@ -118,6 +120,7 @@ export default function ProjectsProjectBeforeYouGetStartedDialog({
     onStartClick: () => {
       onClose();
       setCurrentStepIndex(0);
+      onStart();
     },
   });
 

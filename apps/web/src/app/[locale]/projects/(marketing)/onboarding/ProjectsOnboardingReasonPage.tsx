@@ -328,7 +328,7 @@ export default function ProjectsOnboardingReasonPage() {
   const onboardingReasonSchema = useOnboardingReasonSchema();
   const reasonOptions = useReasonOptions();
 
-  const motivationUpdateMutation =
+  const motivationsUpdateMutation =
     trpc.projects.profile.motivationsUpdate.useMutation();
 
   const methods = useForm<
@@ -405,7 +405,7 @@ export default function ProjectsOnboardingReasonPage() {
                   primary: primaryMotivation,
                   secondary: secondaryMotivation,
                 }) => {
-                  await motivationUpdateMutation.mutateAsync({
+                  await motivationsUpdateMutation.mutateAsync({
                     primaryMotivation,
                     secondaryMotivation,
                   });

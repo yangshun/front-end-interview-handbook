@@ -7,7 +7,11 @@ import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
 
 import ProjectsProjectBreakdownTabsImpl from './ProjectsProjectBreakdownTabsImpl';
+import ProjectsProjectBeforeYouGetStartedDialog from '../../projects/before-you-get-started/ProjectsProjectBeforeYouGetStartedDialog';
 import ProjectsProjectHeader from '../../projects/ProjectsProjectHeader';
+import ProjectsProjectSessionContextProvider, {
+  useProjectsProjectSessionContext,
+} from '../../projects/ProjectsProjectSessionContext';
 import type { ProjectsProject } from '../../projects/types';
 
 type Props = Readonly<{
@@ -15,22 +19,29 @@ type Props = Readonly<{
   project: ProjectsProject;
 }>;
 
-export default function ProjectsProjectHeaderLayout({
-  project,
-  children,
-}: Props) {
+export function ProjectsProjectHeaderLayoutImpl({ project, children }: Props) {
   const { slug } = project;
 
   const segment = useSelectedLayoutSegment() as ComponentProps<
     typeof ProjectsProjectBreakdownTabsImpl
   >['value'];
 
-  const hasSession = false;
+  const { isGetStartedDialogShown, setIsGetStartedDialogShown, startSession } =
+    useProjectsProjectSessionContext();
 
   return (
     <CardContainer>
       <Container className="flex flex-col items-stretch pb-10 pt-4 lg:pb-20 lg:pt-16">
-        <ProjectsProjectHeader hasSession={hasSession} project={project} />
+        <ProjectsProjectBeforeYouGetStartedDialog
+          isShown={isGetStartedDialogShown}
+          onClose={() => {
+            setIsGetStartedDialogShown(false);
+          }}
+          onStart={() => {
+            startSession(slug);
+          }}
+        />
+        <ProjectsProjectHeader project={project} />
         <ProjectsProjectBreakdownTabsImpl
           className="mb-16 mt-16"
           slug={slug}
@@ -39,5 +50,19 @@ export default function ProjectsProjectHeaderLayout({
         {children}
       </Container>
     </CardContainer>
+  );
+}
+export default function ProjectsProjectHeaderLayout({
+  project,
+  children,
+}: Props) {
+  const { slug } = project;
+
+  return (
+    <ProjectsProjectSessionContextProvider slug={slug}>
+      <ProjectsProjectHeaderLayoutImpl project={project}>
+        {children}
+      </ProjectsProjectHeaderLayoutImpl>
+    </ProjectsProjectSessionContextProvider>
   );
 }

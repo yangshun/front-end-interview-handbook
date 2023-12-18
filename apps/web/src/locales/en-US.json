@@ -287,6 +287,10 @@
     "defaultMessage": "Holistic study plans",
     "description": "Title of list of study plans"
   },
+  "2MMkM0": {
+    "defaultMessage": "Cancel",
+    "description": "Label for cancel end session button on end project session dialog"
+  },
   "2OmfN2": {
     "defaultMessage": "React",
     "description": "React questions category short title"
@@ -414,6 +418,10 @@
   "44kz/c": {
     "defaultMessage": "GreatFrontEnd uses Monaco Editor, the same code editor used in Visual Studio Code (VS Code). Most editor shortcuts in VS Code should work here as well. Here's a list of common shortcuts for your reference:",
     "description": "Description within code editor shortcuts"
+  },
+  "4BBxZ1": {
+    "defaultMessage": "Start project",
+    "description": "Label for Start Project button on Projects project assets page"
   },
   "4Bt00L": {
     "defaultMessage": "Don't have an account? <link>Sign up for free</link>",
@@ -675,6 +683,10 @@
     "defaultMessage": "{price} billed yearly",
     "description": "Description of billing frequency for annual plan"
   },
+  "7vvXZb": {
+    "defaultMessage": "Premium Projects",
+    "description": "Title for Premium Projects section on Projects project page"
+  },
   "7wqhjF": {
     "defaultMessage": "Practice Top HTML Front End Interview Questions with Solutions",
     "description": "SEO title for HTML questions list page"
@@ -722,6 +734,10 @@
   "8Nm9WZ": {
     "defaultMessage": "Walmart",
     "description": "Company name for Walmart"
+  },
+  "8RXTKM": {
+    "defaultMessage": "Submit",
+    "description": "Label for \"Submit project\" button on current project session card"
   },
   "8Ti6rm": {
     "defaultMessage": "Your password has been updated",
@@ -819,6 +835,9 @@
     "defaultMessage": "Email",
     "description": "Label of email field on Sign In/Up page"
   },
+  "9POdEK": {
+    "defaultMessage": "View subscription plans",
+    "description": "Label for View subscription plans button on Projects project page"
   "9New5b": {
     "defaultMessage": "For Beginners",
     "description": "Link to Projects homepage for beginners"
@@ -998,6 +1017,10 @@
   "CIPW07": {
     "defaultMessage": "Interview guides",
     "description": "Sidebar label for Interview Guides category"
+  },
+  "CNAh0z": {
+    "defaultMessage": "You can download assets after starting the project",
+    "description": "Title for start project overlay on Projects project assets page"
   },
   "CNjnh0": {
     "defaultMessage": "Not written for this question.",
@@ -1179,6 +1202,10 @@
     "defaultMessage": "Open navigation profile menu",
     "description": "Screenreader text to open the profile menu"
   },
+  "EmGSpN": {
+    "defaultMessage": "Optimized image assets",
+    "description": "Label for Optimized Image Assets asset item on provided assets card on Projects project assets page"
+  },
   "EmirPr": {
     "defaultMessage": "Master async programming for front end interviews",
     "description": "Title for interview preparation focus area"
@@ -1343,6 +1370,10 @@
     "defaultMessage": "Filters",
     "description": "Screenreader text indicating the filters component on question list pages"
   },
+  "Gzlz97": {
+    "defaultMessage": "README file to help you get started",
+    "description": "Label for README asset item on provided assets card on Projects project assets page"
+  },
   "H+BRfg": {
     "defaultMessage": "No completed questions",
     "description": "Text shown when no questions are completed."
@@ -1454,6 +1485,10 @@
   "IEA3DS": {
     "defaultMessage": "Text here",
     "description": "Placeholder for discussion post reply input"
+  },
+  "IIyxmO": {
+    "defaultMessage": "End project session?",
+    "description": "Title for end project session dialog"
   },
   "IQ9qW7": {
     "defaultMessage": "Get promo code",
@@ -1615,6 +1650,10 @@
     "defaultMessage": "Apply",
     "description": "Label for \"Apply\" button for projects filter"
   },
+  "KXpT3F": {
+    "defaultMessage": "Style guide for fonts, colors, etc.",
+    "description": "Label for Style Guide asset item on provided assets card on Projects project assets page"
+  },
   "KY8GB9": {
     "defaultMessage": "Failed to mark question as complete. Please try again",
     "description": "Error message shown when a question has failed to mark as complete"
@@ -1670,6 +1709,10 @@
   "L18d7M": {
     "defaultMessage": "Let's start!",
     "description": "Title of Start Project CTA card in Projects sidebar"
+  },
+  "L4W5rT": {
+    "defaultMessage": "You can choose to end a project session if you choose not to work on it anymore. We will stop prompting you to continue the project in the dashboard",
+    "description": "Tooltip for \"End session\" button on current project session card"
   },
   "LAWtL6": {
     "defaultMessage": "Software Engineer",
@@ -2615,6 +2658,10 @@
     "defaultMessage": "The complete preparation platform for front end interviews. {questionCount}+ practice questions (with answers) across system design, UI and more. By ex-FAANG interviewers.",
     "description": "Description of GreatFrontEnd standard page"
   },
+  "WNERnb": {
+    "defaultMessage": "End session",
+    "description": "Label for \"End session\" button on current project session card"
+  },
   "WNRcvy": {
     "defaultMessage": "Study plans",
     "description": "Sidebar label for Study Plans category"
@@ -2867,6 +2914,10 @@
     "defaultMessage": "{questionCount}+ CSS interview questions, including quiz-style knowledge questions and CSS coding questions.",
     "description": "Subtitle for CSS questions list page"
   },
+  "ZZIJ0i": {
+    "defaultMessage": "Since {date}",
+    "description": "Since date for current project session card"
+  },
   "Zcjig8": {
     "defaultMessage": "Assets provided",
     "description": "Title for Assets Provided section on Projects project page"
@@ -2955,6 +3006,10 @@
     "defaultMessage": "Try changing the filters",
     "description": "Subtitle for empty state when no questions are returned from application of filters on quiz questions list"
   },
+  "amvNxY": {
+    "defaultMessage": "Are you sure you want to end this project session? You can always start a new one later.",
+    "description": "Content for end project session dialog"
+  },
   "apypGU": {
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can set a password here to use email and password to log in instead.",
     "description": "Tip to set password if third-party sign in methods were used, on Change Password page"
@@ -2966,6 +3021,10 @@
   "as1hw8": {
     "defaultMessage": "Submit your code",
     "description": "Title of test panel for coding workspace"
+  },
+  "atJ0hJ": {
+    "defaultMessage": "JPEG design files for mobile & desktop layouts",
+    "description": "Label for JPEG asset item on provided assets card on Projects project assets page"
   },
   "au4m82": {
     "defaultMessage": "JavaScript",
@@ -3419,6 +3478,10 @@
     "defaultMessage": "Implement various Lodash functions and methods to manipulate and transform data efficiently, a common task given during front end interviews and improve your front end interview readiness.",
     "description": "Description for interview preparation focus area"
   },
+  "gRN6GJ": {
+    "defaultMessage": "Assets provided",
+    "description": "Label for Assets Provided card on start project overlay on Projects project assets page"
+  },
   "gTFqs7": {
     "defaultMessage": "Top Angular front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Angular Interview Questions page"
@@ -3611,6 +3674,10 @@
     "defaultMessage": "We're Hiring",
     "description": "Link to careers page"
   },
+  "ixwQtP": {
+    "defaultMessage": "HTML file with pre-written content",
+    "description": "Label for HTML File asset item on provided assets card on Projects project assets page"
+  },
   "iyz4Hv": {
     "defaultMessage": "{skillPlanName} progress",
     "description": "Label for skill plan progress on project submission success page"
@@ -3686,10 +3753,6 @@
   "jTXr+7": {
     "defaultMessage": "Intro to Behavioral Round",
     "description": "Introduction to behavioral interviews"
-  },
-  "jUpKwE": {
-    "defaultMessage": "Submit project",
-    "description": "Label for \"Submit project\" button on current project session card"
   },
   "jVSwXw": {
     "defaultMessage": "Purchase premium to unlock full access to the question.",
@@ -3798,6 +3861,10 @@
   "kL0yEH": {
     "defaultMessage": "You can't find it elsewhere",
     "description": "Label for an example list of System Design Questions on marketing pages"
+  },
+  "kNUgFO": {
+    "defaultMessage": "Purchase premium to unlock access to {premiumProjectCount}+ premium projects and tracks.",
+    "description": "Description for Premium Projects section on Projects project page"
   },
   "kQgKV1": {
     "defaultMessage": "Learning progress cleared",
@@ -4846,6 +4913,10 @@
   "xLVqYR": {
     "defaultMessage": "Pick from <bold>skills roadmap</bold>",
     "description": "Caption for Start a Project button in Projects marketing hero section for beginners"
+  },
+  "xRx/Iq": {
+    "defaultMessage": "End session",
+    "description": "Label for end session button on end project session dialog"
   },
   "xU32y0": {
     "defaultMessage": "3 subcategories of questions: JavaScript, User Interfaces & Data Structures and Algorithms",

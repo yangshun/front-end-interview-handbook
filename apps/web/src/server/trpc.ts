@@ -21,7 +21,7 @@ export const publicProcedure = t.procedure;
 export const { router } = t;
 export const { middleware } = t;
 
-const isUser = middleware(async (opts) => {
+export const isUser = middleware(async (opts) => {
   const { ctx } = opts;
 
   if (ctx.user == null) {
