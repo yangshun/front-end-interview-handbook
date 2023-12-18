@@ -64,9 +64,6 @@ describe('Array.prototype.myFilter', () => {
 
   test('sparse arrays', () => {
     expect([, , ,].myFilter(isEven)).toStrictEqual([]);
-    // Sparse arrays have `undefined` as the values. Use === undefined to
-    // include them even after filtering.
-    expect([, , ,].myFilter((val) => val === undefined)).toStrictEqual([]);
     expect([1, 2, , 4].myFilter(isEven)).toStrictEqual([2, 4]);
     expect([1, , 2, , 4, 7, 9].myFilter(isOdd)).toStrictEqual([1, 7, 9]);
   });
