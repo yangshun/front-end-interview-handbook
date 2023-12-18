@@ -80,7 +80,7 @@ export default function QuestionQuizContents({
     <div>
       <div className="mx-auto w-full max-w-xl px-4 py-12 sm:max-w-3xl sm:px-6 md:max-w-4xl lg:px-8 2xl:max-w-5xl">
         <div className="grid gap-y-6">
-          <div>
+          <div className="overflow-auto">
             <Text
               className="mb-1"
               color="secondary"
