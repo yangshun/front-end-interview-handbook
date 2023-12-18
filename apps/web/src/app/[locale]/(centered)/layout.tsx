@@ -1,5 +1,5 @@
 import GlobalBanner from '~/components/global/banners/GlobalBanner';
-import Footer from '~/components/global/Footer';
+import FooterInterviews from '~/components/global/FooterInterviews';
 import Navbar from '~/components/global/navbar/NavbarImpl';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -15,7 +15,7 @@ export default function StandardLayout({ children }: Props) {
         <Navbar />
         <div className="flex flex-grow items-center">{children}</div>
         <Section>
-          <Footer />
+          <FooterInterviews />
         </Section>
       </div>
     </>

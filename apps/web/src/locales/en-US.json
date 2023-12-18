@@ -551,6 +551,10 @@
     "defaultMessage": "Something went wrong",
     "description": "Text that appears when the solution fails to load"
   },
+  "6ZmcXv": {
+    "defaultMessage": "Practice",
+    "description": "Section heading in Projects footer for links practice-related pages"
+  },
   "6aAzFQ": {
     "defaultMessage": "Host your site",
     "description": "Description for Deployment step in project submission checklist"
@@ -815,6 +819,10 @@
     "defaultMessage": "Email",
     "description": "Label of email field on Sign In/Up page"
   },
+  "9New5b": {
+    "defaultMessage": "For Beginners",
+    "description": "Link to Projects homepage for beginners"
+  },
   "9Q8e4/": {
     "defaultMessage": "JavaScript Polyfills",
     "description": "Name of focus area questions"
@@ -906,6 +914,10 @@
   "B82jFj": {
     "defaultMessage": "Guidebooks",
     "description": "Guidebooks category"
+  },
+  "B9vupD": {
+    "defaultMessage": "Submissions",
+    "description": "Link to submissions page"
   },
   "BGn++d": {
     "defaultMessage": "Quiz Questions",
@@ -1147,6 +1159,10 @@
     "defaultMessage": "Copied!",
     "description": "Indication that text has been copied"
   },
+  "EITf7R": {
+    "defaultMessage": "Pricing",
+    "description": "Link to pricing page"
+  },
   "EJRNjL": {
     "defaultMessage": "1 Month",
     "description": "Short label for one month study plan"
@@ -1238,6 +1254,10 @@
   "FonVOb": {
     "defaultMessage": "All question progress has been reset.",
     "description": "Message shown when question reset progress action succeeds."
+  },
+  "G0neZ5": {
+    "defaultMessage": "Projects",
+    "description": "Link to projects page"
   },
   "G5tU8P": {
     "defaultMessage": "Step 4",
@@ -2099,6 +2119,10 @@
     "defaultMessage": "Dropbox",
     "description": "Company name for Dropbox"
   },
+  "QdCE6p": {
+    "defaultMessage": "Main",
+    "description": "Section heading in Projects footer for links to home page"
+  },
   "Qe4ww/": {
     "defaultMessage": "Discover focus areas tailored to your needs to help you prepare for your upcoming technical interviews.",
     "description": "Description for focus areas page"
@@ -2934,6 +2958,10 @@
   "apypGU": {
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can set a password here to use email and password to log in instead.",
     "description": "Tip to set password if third-party sign in methods were used, on Change Password page"
+  },
+  "aqtrYi": {
+    "defaultMessage": "Dashboard",
+    "description": "Link to dashboard"
   },
   "as1hw8": {
     "defaultMessage": "Submit your code",
@@ -3895,6 +3923,10 @@
     "defaultMessage": "Dark",
     "description": "Dark theme option label"
   },
+  "lspF70": {
+    "defaultMessage": "For Side Projects",
+    "description": "Link to Projects homepage for side projects"
+  },
   "lt1xn6": {
     "defaultMessage": "Student Discount Terms and Conditions",
     "description": "Title of legal page"
@@ -3978,6 +4010,10 @@
   "n+XFbs": {
     "defaultMessage": "Free plan",
     "description": "Title of Free Plan CTA card in Projects sidebar"
+  },
+  "n/3FHx": {
+    "defaultMessage": "For Portfolios",
+    "description": "Link to Projects homepage for portfolios"
   },
   "n0mDHU": {
     "defaultMessage": "Author",
@@ -4535,6 +4571,10 @@
     "defaultMessage": "What interviewers are looking for",
     "description": "What front end system design interviewer are looking for"
   },
+  "txe6H8": {
+    "defaultMessage": "Info",
+    "description": "Section heading in Projects footer for links to more information"
+  },
   "u0dndi": {
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all Quiz coding questions"
@@ -4542,6 +4582,10 @@
   "u1BtZ5": {
     "defaultMessage": "Learn while building",
     "description": "Title of 'Learn while building' feature in Projects marketing page"
+  },
+  "u3bYHM": {
+    "defaultMessage": "FAQ",
+    "description": "Link to FAQ page"
   },
   "u4JFGP": {
     "defaultMessage": "<emph>+ {repCount}</emph><small>reputation points</small>",
@@ -4755,6 +4799,10 @@
     "defaultMessage": "Pricing plans tailored to your needs. Grab our all-access lifetime plans at a 30% discount today!",
     "description": "Description of Pricing page"
   },
+  "wnzGbx": {
+    "defaultMessage": "For Experienced",
+    "description": "Link to Projects homepage for experienced users"
+  },
   "wqIwvv": {
     "defaultMessage": "{questionTitle} | JavaScript Front End Interview Questions with Solutions",
     "description": "Title of Javascript Front End interview questions page"
@@ -4786,6 +4834,10 @@
   "xBj9I5": {
     "defaultMessage": "Prepare for tackling form questions in front end interviews",
     "description": "Title for interview preparation focus area"
+  },
+  "xEvm93": {
+    "defaultMessage": "Features",
+    "description": "Link to features page"
   },
   "xK578g": {
     "defaultMessage": "Please enter a valid email address.",

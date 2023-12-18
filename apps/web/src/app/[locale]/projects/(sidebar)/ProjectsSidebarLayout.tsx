@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 
+import FooterProjects from '~/components/global/FooterProjects';
 import ProjectsNavbar from '~/components/projects/layout/ProjectsNavbar/ProjectsNavbar';
 import ProjectsSideBar from '~/components/projects/layout/ProjectsSidebar';
 import SlideOut from '~/components/ui/SlideOut';
@@ -17,30 +18,33 @@ export default function ProjectsSidebarLayout({ children, user }: Props) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
-    <div className="flex flex-col lg:flex-row">
-      <ProjectsNavbar
-        className="lg:hidden"
-        user={user}
-        onMenuClick={() => {
-          setIsDrawerOpen(true);
-        }}
-      />
-      <div className="hidden w-[240px] flex-shrink-0 overflow-y-hidden lg:block">
-        <ProjectsSideBar jobTitle="Software Engineer" user={user} />
+    <div className="flex flex-col">
+      <div className="flex flex-col lg:flex-row">
+        <ProjectsNavbar
+          className="lg:hidden"
+          user={user}
+          onMenuClick={() => {
+            setIsDrawerOpen(true);
+          }}
+        />
+        <div className="hidden w-[240px] h-dvh flex-shrink-0 overflow-y-hidden lg:block sticky top-0">
+          <ProjectsSideBar jobTitle="Software Engineer" user={user} />
+        </div>
+        <SlideOut
+          className="lg:hidden"
+          enterFrom="start"
+          isShown={isDrawerOpen}
+          isTitleHidden={true}
+          padding={false}
+          size="xs"
+          onClose={() => {
+            setIsDrawerOpen(false);
+          }}>
+          <ProjectsSideBar jobTitle="Software Engineer" user={user} />
+        </SlideOut>
+        <div className="flex-1">{children}</div>
       </div>
-      <SlideOut
-        className="lg:hidden"
-        enterFrom="start"
-        isShown={isDrawerOpen}
-        isTitleHidden={true}
-        padding={false}
-        size="xs"
-        onClose={() => {
-          setIsDrawerOpen(false);
-        }}>
-        <ProjectsSideBar jobTitle="Software Engineer" user={user} />
-      </SlideOut>
-      <div className="flex-1">{children}</div>
+      <FooterProjects />
     </div>
   );
 }

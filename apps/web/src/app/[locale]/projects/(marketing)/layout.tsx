@@ -1,6 +1,6 @@
 import GlobalBanner from '~/components/global/banners/GlobalBanner';
 import FeedbackWidget from '~/components/global/feedback/FeedbackWidget';
-import Footer from '~/components/global/Footer';
+import FooterProjects from '~/components/global/FooterProjects';
 import Navbar from '~/components/global/navbar/NavbarImpl';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -17,7 +17,7 @@ export default function ProjectsMarketingLayout({ children }: Props) {
         <Navbar />
         <div className="flex-grow">{children}</div>
         <Section>
-          <Footer />
+          <FooterProjects />
         </Section>
       </div>
     </>

@@ -99,6 +99,11 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      // Temporary workaround before the below PR is released
+      // See: https://github.com/tailwindlabs/tailwindcss/pull/11317
+      height: {
+        dvh: '100dvh',
+      },
       colors: {
         indigo,
         brand: indigo,
