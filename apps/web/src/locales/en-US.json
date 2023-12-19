@@ -107,6 +107,10 @@
     "defaultMessage": "Company-tagged questions",
     "description": "Title for company-tagged questions feature"
   },
+  "/95uM9": {
+    "defaultMessage": "Username should begin and end with an alphanumeric character, and only contain alphanumeric characters or dashes.",
+    "description": "Error message when username contains invalid characters"
+  },
   "/9JvuU": {
     "defaultMessage": "{trackName} progress",
     "description": "Label for track progress on project submission success page"

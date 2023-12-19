@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
@@ -40,11 +40,14 @@ export default function ProfileAccountUserName() {
 
   const toast = useToast();
   const userNameFormSchema = useUserNameFormSchema();
+  const { data } =  trpc.profile.getProfile.useQuery();
+  const userNameUpdateMutation = trpc.profile.userNameUpdate.useMutation();
+
   const {
     control,
     handleSubmit,
     reset,
-    setValue,
+    setError,
     formState: { errors, isDirty, isValid, isLoading },
   } = useForm<UserNameFormValues>({
     defaultValues: {
@@ -52,22 +55,20 @@ export default function ProfileAccountUserName() {
     },
     mode: 'all',
     resolver: zodResolver(userNameFormSchema),
+    values: {username: data?.username ?? ''},
   });
-
-  const { data } =  trpc.profile.getProfile.useQuery();
-  const userNameUpdateMutation = trpc.profile.userNameUpdate.useMutation();
-
-  useEffect(() => {
-    if (data) {
-      setValue('username', data.username);
-    }
-  }, [data, setValue])
 
   return (
     <div className={clsx('p-4', 'rounded-lg border', themeLineColor)}>
       <form
         onSubmit={handleSubmit(async (username) => {
-          await userNameUpdateMutation.mutateAsync(username);
+          try {
+            await userNameUpdateMutation.mutateAsync(username);
+          } catch (error: any) {
+            setError('username', { message: error.message });
+
+            return;
+          }
           reset(username);
           toast.showToast({
             title: profileUserNameStrings.successMessage,

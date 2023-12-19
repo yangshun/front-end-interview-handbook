@@ -7,6 +7,9 @@ import prisma from '~/server/prisma';
 
 import { router, userProcedure } from '../trpc';
 
+import { Prisma } from '@prisma/client';
+import { TRPCError } from '@trpc/server';
+
 export const profileRouter = router({
   getProfile: userProcedure.query(async ({ ctx: { user } }) => {
     return await prisma.profile.findUnique({
@@ -31,7 +34,6 @@ export const profileRouter = router({
         },
       });
     }),
-
   userNameUpdate: userProcedure
     .input(
       z.object({
@@ -39,13 +41,29 @@ export const profileRouter = router({
       }),
     )
     .mutation(async ({ input: { username }, ctx: { user } }) => {
-      return await prisma.profile.update({
-        data: {
-          username,
-        },
-        where: {
-          id: user.id,
-        },
-      });
+      try {
+        return await prisma.profile.update({
+          data: {
+            username,
+          },
+          where: {
+            id: user.id,
+          },
+        });
+      } catch (err) {
+        if (err instanceof Prisma.PrismaClientKnownRequestError) {
+          if (err.code === 'P2002') {
+            throw new TRPCError({
+              code: 'CONFLICT',
+              message: 'Username already exists.',
+            });
+          }
+
+          throw new TRPCError({
+            code: 'INTERNAL_SERVER_ERROR',
+            message: 'An error occurred.',
+          });
+        }
+      }
     }),
 });

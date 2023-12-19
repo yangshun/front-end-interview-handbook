@@ -4,21 +4,20 @@ import { z } from 'zod';
 
 const MINIMUM_LENGTH = 1;
 const MAXIMUM_LENGTH = 48;
+const REGEX_VALIDATION = new RegExp(/^[a-zA-Z0-9]+([-]*[a-zA-Z0-9]+)*$/);
 
-/*
-Begin with an alphanumeric character followed by more alphanumeric characters or dashes and ending with an alphanumeric character.
-Lowercase is not necessary since I added a case-insensitive unique index.
-*/
 export function getProfileUserNameSchema(options?: {
   maxMessage: string;
   minMessage: string;
+  regexMessage: string;
 }) {
-  const { minMessage, maxMessage } = options ?? {};
+  const { minMessage, maxMessage, regexMessage } = options ?? {};
 
   return z
     .string()
     .min(MINIMUM_LENGTH, { message: minMessage })
     .max(MAXIMUM_LENGTH, { message: maxMessage })
+    .regex(REGEX_VALIDATION, { message: regexMessage })
     .trim();
 }
 
@@ -26,6 +25,7 @@ export function getProfileUserNameSchema(options?: {
 export const profileUserNameSchemaServer = getProfileUserNameSchema({
   maxMessage: `Username must contain at most ${MAXIMUM_LENGTH} characters.`,
   minMessage: 'Username cannot be empty.',
+  regexMessage: 'Username should begin and end with an alphanumeric character, and only contain alphanumeric characters or dashes.',
 });
 
 export function getProfileUserNameStrings(intl: IntlShape) {
@@ -61,6 +61,11 @@ export function getProfileUserNameStrings(intl: IntlShape) {
     description: 'Error message when username is too short',
     id: 'iF3wN+',
   });
+  const regexMessage = intl.formatMessage({
+    defaultMessage: 'Username should begin and end with an alphanumeric character, and only contain alphanumeric characters or dashes.',
+    description: 'Error message when username contains invalid characters',
+    id: '/95uM9',
+  });
   const successMessage = intl.formatMessage({
     defaultMessage: 'Your username has been updated.',
     description: 'Success message when for username changes',
@@ -72,6 +77,7 @@ export function getProfileUserNameStrings(intl: IntlShape) {
     label,
     maxMessage,
     minMessage,
+    regexMessage,
     successMessage,
   };
 }
@@ -83,5 +89,6 @@ export function useProfileUserNameSchema() {
   return getProfileUserNameSchema({
     maxMessage: intlStrings.maxMessage,
     minMessage: intlStrings.minMessage,
+    regexMessage: intlStrings.regexMessage,
   });
 }
