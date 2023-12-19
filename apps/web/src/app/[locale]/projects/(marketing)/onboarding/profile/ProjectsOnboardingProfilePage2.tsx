@@ -12,12 +12,12 @@ import TextInput from '~/components/ui/TextInput';
 
 import type { OnboardingProfileFormValues } from './ProjectsOnboardingProfilePage';
 
-export type OnboardingProfilePage2FormValues = {
+export type OnboardingProfilePage2FormValues = Readonly<{
   bio: string;
-  linkGithub: string;
+  linkGitHub: string;
   linkLinkedIn: string;
   linkPersonalWebsite: string;
-};
+}>;
 
 export default function ProjectsOnboardingProfilePage1() {
   const intl = useIntl();
@@ -100,20 +100,20 @@ export default function ProjectsOnboardingProfilePage1() {
               />
               <Controller
                 control={control}
-                name="linkGithub"
+                name="linkGitHub"
                 render={({ field }) => (
                   <TextInput
                     description={intl.formatMessage({
-                      defaultMessage: 'Github link description',
+                      defaultMessage: 'GitHub link description',
                       description:
-                        'Description for Github link input on Projects profile onboarding page',
-                      id: 'nl1M2a',
+                        'Description for GitHub link input on Projects profile onboarding page',
+                      id: 'c9Jgo2',
                     })}
                     label={intl.formatMessage({
-                      defaultMessage: 'Github (optional)',
+                      defaultMessage: 'GitHub (optional)',
                       description:
-                        'Label for Github link input on Projects profile onboarding page',
-                      id: 'jGjXHp',
+                        'Label for GitHub link input on Projects profile onboarding page',
+                      id: 'f6GjzW',
                     })}
                     {...field}
                   />

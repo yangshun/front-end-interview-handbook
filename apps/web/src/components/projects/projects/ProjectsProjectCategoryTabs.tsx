@@ -11,14 +11,14 @@ import Tabs from '~/components/ui/Tabs';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-type TabType = 'component-track' | 'projects' | 'skill-tree';
+type TabType = 'all-projects' | 'component-tracks' | 'skill-tree';
 
 const tabs: Array<TabItem<TabType>> = [
   {
     href: '/projects/all',
     icon: RiRocketLine,
-    label: 'Projects',
-    value: 'projects',
+    label: 'All projects',
+    value: 'all-projects',
   },
   {
     href: '/projects/skill-tree',
@@ -27,10 +27,10 @@ const tabs: Array<TabItem<TabType>> = [
     value: 'skill-tree',
   },
   {
-    href: '/projects/component-track',
+    href: '/projects/component-tracks',
     icon: RiCheckboxMultipleLine,
-    label: 'Component Track',
-    value: 'component-track',
+    label: 'Component Tracks',
+    value: 'component-tracks',
   },
 ];
 
@@ -51,6 +51,7 @@ export default function ProjectsProjectCategoryTabs() {
         description: 'Tab label to select another project category',
         id: 'GcmSpX',
       })}
+      size="sm"
       tabs={tabs}
       value={value}
     />

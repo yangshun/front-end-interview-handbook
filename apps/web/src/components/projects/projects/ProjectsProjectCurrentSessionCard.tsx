@@ -5,6 +5,7 @@ import {
   RiStopCircleLine,
   RiTimerLine,
 } from 'react-icons/ri';
+import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
@@ -27,9 +28,10 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsProjectCurrentProjectSessionCard({
-  project: { skills, slug },
+  project,
   session: { createdAt },
 }: Props) {
+  const { href, skills, slug } = project;
   const intl = useIntl();
   const [showEndSessionDialog, setShowEndSessionDialog] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -90,7 +92,11 @@ export default function ProjectsProjectCurrentProjectSessionCard({
           />
         </Text>
       </Dialog>
-      <Card className="p-6" padding={false} pattern={false}>
+      <Card
+        className="p-6"
+        disableSpotlight={true}
+        padding={false}
+        pattern={false}>
         <div className="flex justify-between">
           <div className="flex flex-col gap-1.5">
             <Text weight="bold">
@@ -119,6 +125,8 @@ export default function ProjectsProjectCurrentProjectSessionCard({
           </div>
           <div className="flex gap-2">
             <Button
+              href={href + '/submit'}
+              icon={RiArrowRightLine}
               label={intl.formatMessage({
                 defaultMessage: 'Submit',
                 description:

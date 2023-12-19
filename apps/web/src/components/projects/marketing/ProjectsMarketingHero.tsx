@@ -238,7 +238,7 @@ export default function ProjectsMarketingHero() {
             <div className="flex flex-col items-center gap-y-2">
               <Button
                 className="self-stretch sm:self-auto"
-                href="#"
+                href="/projects/all"
                 icon={RiArrowRightLine}
                 label={intl.formatMessage({
                   defaultMessage: 'Start a project',

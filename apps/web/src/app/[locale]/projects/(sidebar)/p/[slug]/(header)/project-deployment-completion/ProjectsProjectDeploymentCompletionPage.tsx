@@ -85,25 +85,25 @@ export default function ProjectsProjectDeploymentCompletionPage({
                     <div className="flex flex-col">
                       <Text>
                         <FormattedMessage
-                          defaultMessage="Github repo"
-                          description="Title for Github repo step in project submission checklist"
-                          id="NFH4kL"
+                          defaultMessage="GitHub repo"
+                          description="Title for GitHub repo step in project submission checklist"
+                          id="M3V59d"
                         />
                       </Text>
                       <Text color="secondary" size="body2">
                         <FormattedMessage
-                          defaultMessage="Store your code in a public github repo"
-                          description="Description for Github repo step in project submission checklist"
-                          id="W6BfVJ"
+                          defaultMessage="Store your code in a public GitHub repo"
+                          description="Description for GitHub repo step in project submission checklist"
+                          id="9EReUF"
                         />
                       </Text>
                     </div>
                   </div>
                   <Text color="secondary" size="body2">
                     <FormattedMessage
-                      defaultMessage="We will pull code from this repo for code reviews<ul><li>Follow <link>this guide</link> on how to create a Github repo</li><li>You will submit the link to your public github repo in the submission screen</li></ul>"
-                      description="Description for Github repo step in project submission checklist"
-                      id="wzxWP7"
+                      defaultMessage="We will pull code from this repo for code reviews<ul><li>Follow <link>this guide</link> on how to create a GitHub repo</li><li>You will submit the link to your public GitHub repo in the submission screen</li></ul>"
+                      description="Description for GitHub repo step in project submission checklist"
+                      id="Je9bp+"
                       values={{
                         li: (chunks) => (
                           <li className="ps-2">
@@ -123,8 +123,8 @@ export default function ProjectsProjectDeploymentCompletionPage({
                       label={intl.formatMessage({
                         defaultMessage: 'Warning',
                         description:
-                          'Warning badge label for Github repo step in project submission checklist',
-                        id: 'byPVGG',
+                          'Warning badge label for GitHub repo step in project submission checklist',
+                        id: 'k+T8RZ',
                       })}
                       size="sm"
                       variant="warning"
@@ -132,8 +132,8 @@ export default function ProjectsProjectDeploymentCompletionPage({
                     <Text color="secondary" size="body2">
                       <FormattedMessage
                         defaultMessage="Take care not to upload any premium figma or guide files. Doing so will cause an immediate membership termination. <link>View terms</link>"
-                        description="Warning message for Github repo step in project submission checklist"
-                        id="n7Jv00"
+                        description="Warning message for GitHub repo step in project submission checklist"
+                        id="fLUPys"
                         values={{
                           link: (chunks) => (
                             <Button
@@ -187,9 +187,9 @@ export default function ProjectsProjectDeploymentCompletionPage({
                   </div>
                   <Text color="secondary" size="body2">
                     <FormattedMessage
-                      defaultMessage="As mentioned, there are many ways to host your site. Our recommended hosts are:<ul><li>Github Pages (<github>Deployment Guide</github>)</li><li>Vercel (<vercel>Deployment Guide</vercel>)</li><li>Netlify (<netlify>Deployment Guide</netlify>)</li></ul>"
+                      defaultMessage="As mentioned, there are many ways to host your site. Our recommended hosts are:<ul><li>GitHub Pages (<github>Deployment Guide</github>)</li><li>Vercel (<vercel>Deployment Guide</vercel>)</li><li>Netlify (<netlify>Deployment Guide</netlify>)</li></ul>"
                       description="Description for Deployment step in project submission checklist"
-                      id="VdG0l0"
+                      id="R4+M9w"
                       values={{
                         github: (chunks) => <Anchor>{chunks}</Anchor>,
                         li: (chunks) => (
@@ -220,8 +220,8 @@ export default function ProjectsProjectDeploymentCompletionPage({
                     <Text color="secondary" size="body2">
                       <FormattedMessage
                         defaultMessage="Before you deploy, always ensure the following:<ul><li>Backward compatibility: xxxx</li><li>Browser compatibility: xxx</li></ul>"
-                        description="Warning message for Github repo step in project submission checklist"
-                        id="i3RRZo"
+                        description="Warning message for GitHub repo step in project submission checklist"
+                        id="bCv/WP"
                         values={{
                           li: (chunks) => (
                             <li className="ps-2">

@@ -20,9 +20,8 @@ type Props = Readonly<{
   project: ProjectsProject;
 }>;
 
-export default function ProjectsProjectSubmitPage({
-  project: { slug },
-}: Props) {
+export default function ProjectsProjectSubmitPage({ project }: Props) {
+  const { slug, href } = project;
   const intl = useIntl();
 
   // TODO: Replace below with actual logic
@@ -33,6 +32,7 @@ export default function ProjectsProjectSubmitPage({
       <Button
         addonPosition="start"
         className="self-start -ms-3"
+        href={href}
         icon={RiArrowLeftLine}
         label={intl.formatMessage({
           defaultMessage: 'To project',
@@ -128,17 +128,17 @@ export default function ProjectsProjectSubmitPage({
           <TextInput
             description={
               <FormattedMessage
-                defaultMessage="The URL of your github repository. We will also use it to pull files onto the platform for code reviews."
-                description="Description for Github repository input on project submit page"
-                id="RpWtyR"
+                defaultMessage="The URL of your GitHub repository. We will also use it to pull files onto the platform for code reviews."
+                description="Description for GitHub repository input on project submit page"
+                id="aW6XJi"
               />
             }
             descriptionStyle="tooltip"
             label={intl.formatMessage({
-              defaultMessage: 'Github code repository URL',
+              defaultMessage: 'GitHub code repository URL',
               description:
-                'Label for Github repository input on project submit page',
-              id: 'utzh/P',
+                'Label for GitHub repository input on project submit page',
+              id: 'ql7kBY',
             })}
             required={true}
             type="url"

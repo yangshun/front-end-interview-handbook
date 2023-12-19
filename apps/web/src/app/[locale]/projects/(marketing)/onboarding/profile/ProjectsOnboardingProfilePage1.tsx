@@ -97,7 +97,7 @@ function useYOEReplacementOptions() {
   return yoeReplacementOptions;
 }
 
-export type OnboardingProfilePage1FormValues = {
+export type OnboardingProfilePage1FormValues = Readonly<{
   jobTitle: string;
   monthYearExperience: string;
   name: string;
@@ -105,7 +105,7 @@ export type OnboardingProfilePage1FormValues = {
   techStackToImprove: string;
   yoeOtherText: string;
   yoeReplacement: string;
-};
+}>;
 
 type Props = Readonly<{
   onNextClick: () => void;

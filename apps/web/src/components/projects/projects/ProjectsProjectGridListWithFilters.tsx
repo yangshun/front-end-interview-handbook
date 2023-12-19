@@ -46,7 +46,7 @@ function ProjectsProjectGridListWithFiltersImpl({ projects }: Props) {
             <TextInput
               isLabelHidden={true}
               label="Search"
-              placeholder="Search"
+              placeholder="Search by name/project brief"
               startIcon={RiSearchLine}
               type="text"
             />
@@ -89,21 +89,42 @@ function ProjectsProjectGridListWithFiltersImpl({ projects }: Props) {
             </DropdownMenu>
           </div>
         </div>
-        <div
-          className={clsx('flex items-center gap-2', themeTextSecondaryColor)}>
-          <RiCodeSSlashLine className="h-4 w-4" />
-          <Text color="inherit" size="body3">
+        <div className="flex flex-col gap-y-4">
+          <div
+            className={clsx(
+              'flex items-center gap-2',
+              themeTextSecondaryColor,
+            )}>
+            <RiCodeSSlashLine className="h-4 w-4" />
+            <Text color="secondary" size="body3">
+              <FormattedMessage
+                defaultMessage="{projectCount} projects"
+                description="Label for total number of projects in Projects marketing page"
+                id="b+bj2C"
+                values={{
+                  projectCount: projects.length,
+                }}
+              />
+            </Text>
+          </div>
+          <ProjectsProjectGridList projects={projects} />
+        </div>
+        <div className="flex justify-between items-center">
+          <Text color="secondary" size="body3">
             <FormattedMessage
-              defaultMessage="{projectCount} projects"
-              description="Label for total number of projects in Projects marketing page"
-              id="b+bj2C"
+              defaultMessage="Showing {pageCount} out of {totalCount} projects"
+              description="Projects listing label"
+              id="Zuck2D"
               values={{
-                projectCount: projects.length,
+                pageCount: projects.length, // TODO(projects): fix when pagination done.
+                totalCount: projects.length,
               }}
             />
           </Text>
+          <Text color="secondary" size="body3">
+            TODO(projects): pagination component
+          </Text>
         </div>
-        <ProjectsProjectGridList projects={projects} />
       </div>
     </>
   );

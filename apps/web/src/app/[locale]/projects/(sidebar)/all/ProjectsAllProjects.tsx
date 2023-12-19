@@ -16,7 +16,7 @@ type Props = Readonly<{
 
 export default function ProjectsAllProjects({ projects }: Props) {
   return (
-    <Container className="pt-8">
+    <Container className="pt-16 pb-32">
       <div className="flex flex-col gap-8">
         <Heading level="heading5">
           <FormattedMessage
@@ -27,22 +27,26 @@ export default function ProjectsAllProjects({ projects }: Props) {
         </Heading>
         <Section>
           <ProjectsProjectCategoryTabs />
-          <div className="flex flex-col">
-            <Heading level="heading6">
-              <FormattedMessage
-                defaultMessage="Browse all projects"
-                description="Title of Projects Browse Projects page"
-                id="etGGVG"
-              />
-            </Heading>
-            <Section>
-              <Text className="mb-12" color="secondary">
+          <div className="flex flex-col gap-9">
+            <div className="flex flex-col max-w-2xl gap-1">
+              <Heading level="heading6">
                 <FormattedMessage
-                  defaultMessage="Start building any project you can dream of to train your front end/full stack skills or to build a useful toolkit."
-                  description="Description of Projects Browse Projects page"
-                  id="9oiPRh"
+                  defaultMessage="Browse all projects"
+                  description="Title of Projects Browse Projects page"
+                  id="etGGVG"
                 />
-              </Text>
+              </Heading>
+              <Section>
+                <Text color="secondary" size="body2">
+                  <FormattedMessage
+                    defaultMessage="Start building any project you can dream of to train your front end / full stack skills or to build a useful toolkit."
+                    description="Description of Projects Browse Projects page"
+                    id="5/4Bz+"
+                  />
+                </Text>
+              </Section>
+            </div>
+            <Section>
               <ProjectsProjectGridListWithFilters projects={projects} />
             </Section>
           </div>

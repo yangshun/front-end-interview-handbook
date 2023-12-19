@@ -455,6 +455,10 @@
     "defaultMessage": "Submission success",
     "description": "Title for the project submission success page"
   },
+  "5/4Bz+": {
+    "defaultMessage": "Start building any project you can dream of to train your front end / full stack skills or to build a useful toolkit.",
+    "description": "Description of Projects Browse Projects page"
+  },
   "50kzzq": {
     "defaultMessage": "Select question format",
     "description": "Label for tabs to select sample interview question format"
@@ -823,6 +827,10 @@
     "defaultMessage": "GreatFrontEnd",
     "description": "Title of GreatFrontEnd page"
   },
+  "9EReUF": {
+    "defaultMessage": "Store your code in a public GitHub repo",
+    "description": "Description for GitHub repo step in project submission checklist"
+  },
   "9FUDxZ": {
     "defaultMessage": "Know the recommended projects to do to progress from beginner to advanced with the skills roadmap",
     "description": "Description for \"Skills roadmap\" feature on Projects home page"
@@ -862,10 +870,6 @@
   "9nq03w": {
     "defaultMessage": "Others",
     "description": "Label for \"Others\" option in YOE replacement"
-  },
-  "9oiPRh": {
-    "defaultMessage": "Start building any project you can dream of to train your front end/full stack skills or to build a useful toolkit.",
-    "description": "Description of Projects Browse Projects page"
   },
   "9qM8IM": {
     "defaultMessage": "Tech stack to improve description",
@@ -1583,6 +1587,10 @@
     "defaultMessage": "Minimum {minNumber} characters. Letters and digits required.",
     "description": "Password creation criteria"
   },
+  "Je9bp+": {
+    "defaultMessage": "We will pull code from this repo for code reviews<ul><li>Follow <link>this guide</link> on how to create a GitHub repo</li><li>You will submit the link to your public GitHub repo in the submission screen</li></ul>",
+    "description": "Description for GitHub repo step in project submission checklist"
+  },
   "JhZ/aF": {
     "defaultMessage": "Quiz Questions",
     "description": "Quiz questions long title"
@@ -1827,6 +1835,10 @@
     "defaultMessage": "Reviews meeting eligibility and terms will be rewarded regardless of whether it was positive or negative.",
     "description": "Condition for promotion"
   },
+  "M3V59d": {
+    "defaultMessage": "GitHub repo",
+    "description": "Title for GitHub repo step in project submission checklist"
+  },
   "M9z02W": {
     "defaultMessage": "Airbnb",
     "description": "Company name for Airbnb"
@@ -1922,10 +1934,6 @@
   "NAkpAg": {
     "defaultMessage": "Jump to matching bracket",
     "description": "Text describing jump command in the coding workspace shortcuts menu"
-  },
-  "NFH4kL": {
-    "defaultMessage": "Github repo",
-    "description": "Title for Github repo step in project submission checklist"
   },
   "NGGXSc": {
     "defaultMessage": "Find any project you can dream of",
@@ -2203,6 +2211,10 @@
     "defaultMessage": "Signing out. See you again!",
     "description": "Main content of Sign Out page"
   },
+  "R4+M9w": {
+    "defaultMessage": "As mentioned, there are many ways to host your site. Our recommended hosts are:<ul><li>GitHub Pages (<github>Deployment Guide</github>)</li><li>Vercel (<vercel>Deployment Guide</vercel>)</li><li>Netlify (<netlify>Deployment Guide</netlify>)</li></ul>",
+    "description": "Description for Deployment step in project submission checklist"
+  },
   "R5FPug": {
     "defaultMessage": "Contact Us",
     "description": "Title of Contact Us page"
@@ -2294,10 +2306,6 @@
   "RnmVQU": {
     "defaultMessage": "View less",
     "description": "Label of expanded dropdown button"
-  },
-  "RpWtyR": {
-    "defaultMessage": "The URL of your github repository. We will also use it to pull files onto the platform for code reviews.",
-    "description": "Description for Github repository input on project submit page"
   },
   "RvPm3x": {
     "defaultMessage": "DOM Manipulation",
@@ -2595,10 +2603,6 @@
     "defaultMessage": "Free",
     "description": "Label to indicate that the item is free of charge"
   },
-  "VdG0l0": {
-    "defaultMessage": "As mentioned, there are many ways to host your site. Our recommended hosts are:<ul><li>Github Pages (<github>Deployment Guide</github>)</li><li>Vercel (<vercel>Deployment Guide</vercel>)</li><li>Netlify (<netlify>Deployment Guide</netlify>)</li></ul>",
-    "description": "Description for Deployment step in project submission checklist"
-  },
   "VfNkH+": {
     "defaultMessage": "CASHBACK",
     "description": "Amount cashback/discount"
@@ -2622,10 +2626,6 @@
   "W+ConA": {
     "defaultMessage": "Guided by well-known senior engineers",
     "description": "Title of 'Guided by well-known senior engineers' feature in marketing page"
-  },
-  "W6BfVJ": {
-    "defaultMessage": "Store your code in a public github repo",
-    "description": "Description for Github repo step in project submission checklist"
   },
   "WB/L0V": {
     "defaultMessage": "{numberOfHours} hours weekly",
@@ -2943,6 +2943,10 @@
     "defaultMessage": "Select online asset type",
     "description": "Label for tabs to select online asset type"
   },
+  "Zuck2D": {
+    "defaultMessage": "Showing {pageCount} out of {totalCount} projects",
+    "description": "Projects listing label"
+  },
   "Zui1cu": {
     "defaultMessage": "Focus areas",
     "description": "Title of focus areas page"
@@ -2974,6 +2978,10 @@
   "aPfuzs": {
     "defaultMessage": "Reset password",
     "description": "Title of Password Reset page"
+  },
+  "aW6XJi": {
+    "defaultMessage": "The URL of your GitHub repository. We will also use it to pull files onto the platform for code reviews.",
+    "description": "Description for GitHub repository input on project submit page"
   },
   "aWL34G": {
     "defaultMessage": "Premium",
@@ -3067,6 +3075,10 @@
     "defaultMessage": "Frequently asked questions",
     "description": "Title of frequently asked questions page"
   },
+  "bCv/WP": {
+    "defaultMessage": "Before you deploy, always ensure the following:<ul><li>Backward compatibility: xxxx</li><li>Browser compatibility: xxx</li></ul>",
+    "description": "Warning message for GitHub repo step in project submission checklist"
+  },
   "bDWkt7": {
     "defaultMessage": "An eye-catching name to describe your solution.{br}{br}Will be displayed under the original Project's name and help other users identify your submission.",
     "description": "Description for submission name input on project submit page"
@@ -3135,10 +3147,6 @@
     "defaultMessage": "User Interface Questions",
     "description": "Title for an example list of User Interface Questions on marketing pages"
   },
-  "byPVGG": {
-    "defaultMessage": "Warning",
-    "description": "Warning badge label for Github repo step in project submission checklist"
-  },
   "c2bsgM": {
     "defaultMessage": "For Experienced",
     "description": "Button label for Projects marketing hero section for experienced users"
@@ -3162,6 +3170,10 @@
   "c9D1tn": {
     "defaultMessage": "Only build useful projects",
     "description": "Short title for \"Never waste your time building one-off projects\" feature marketing section on Projects home page"
+  },
+  "c9Jgo2": {
+    "defaultMessage": "GitHub link description",
+    "description": "Description for GitHub link input on Projects profile onboarding page"
   },
   "c9QTag": {
     "defaultMessage": "Settings",
@@ -3363,6 +3375,10 @@
     "defaultMessage": "Review Cashback",
     "description": "Promotion title"
   },
+  "f6GjzW": {
+    "defaultMessage": "GitHub (optional)",
+    "description": "Label for GitHub link input on Projects profile onboarding page"
+  },
   "f89otf": {
     "defaultMessage": "Algorithm Questions",
     "description": "Algorithm Coding Interview Questions"
@@ -3382,6 +3398,10 @@
   "fJYFo8": {
     "defaultMessage": "Quiz",
     "description": "Label for quiz questions"
+  },
+  "fLUPys": {
+    "defaultMessage": "Take care not to upload any premium figma or guide files. Doing so will cause an immediate membership termination. <link>View terms</link>",
+    "description": "Warning message for GitHub repo step in project submission checklist"
   },
   "fRGOI+": {
     "defaultMessage": "Number of questions",
@@ -3595,10 +3615,6 @@
     "defaultMessage": "Search HTML questions",
     "description": "Placeholder for search input of HTML question list"
   },
-  "i3RRZo": {
-    "defaultMessage": "Before you deploy, always ensure the following:<ul><li>Backward compatibility: xxxx</li><li>Browser compatibility: xxx</li></ul>",
-    "description": "Warning message for Github repo step in project submission checklist"
-  },
   "i4MSQe": {
     "defaultMessage": "1 Week Plan",
     "description": "Link to one week study plan"
@@ -3719,10 +3735,6 @@
     "defaultMessage": "Search coding questions",
     "description": "Placeholder for search input of coding question list"
   },
-  "jGjXHp": {
-    "defaultMessage": "Github (optional)",
-    "description": "Label for Github link input on Projects profile onboarding page"
-  },
   "jIpXy+": {
     "defaultMessage": "Coming Soon",
     "description": "Coming soon label indicating that a feature will be launched soon"
@@ -3802,6 +3814,10 @@
   "jzVpyI": {
     "defaultMessage": "Is GreatFrontEnd targeted at engineers of specific seniority?",
     "description": "Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
+  },
+  "k+T8RZ": {
+    "defaultMessage": "Warning",
+    "description": "Warning badge label for GitHub repo step in project submission checklist"
   },
   "k08Rfb": {
     "defaultMessage": "I'm here to build my <bold>portfolio</bold>",
@@ -4107,10 +4123,6 @@
     "defaultMessage": "Select step",
     "description": "Label for tabs to select step in Projects profile onboarding page"
   },
-  "n7Jv00": {
-    "defaultMessage": "Take care not to upload any premium figma or guide files. Doing so will cause an immediate membership termination. <link>View terms</link>",
-    "description": "Warning message for Github repo step in project submission checklist"
-  },
   "n9Ii7+": {
     "defaultMessage": "System Design",
     "description": "Label for system design questions"
@@ -4146,10 +4158,6 @@
   "njNtN8": {
     "defaultMessage": "YouTube profile link",
     "description": "Link to YouTube profile"
-  },
-  "nl1M2a": {
-    "defaultMessage": "Github link description",
-    "description": "Description for Github link input on Projects profile onboarding page"
   },
   "npvgQq": {
     "defaultMessage": "Prepare for your front end interviews in one week. Efficiently focus on the most important concepts through a good mix of coding and quiz questions.",
@@ -4390,6 +4398,10 @@
   "qjKLfH": {
     "defaultMessage": "Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two.",
     "description": "Subtitle for contact us section"
+  },
+  "ql7kBY": {
+    "defaultMessage": "GitHub code repository URL",
+    "description": "Label for GitHub repository input on project submit page"
   },
   "qmU2/H": {
     "defaultMessage": "Purchase Premium to unlock access to the design file. Build accurately and learn to work with production-level specifications.",
@@ -4727,10 +4739,6 @@
     "defaultMessage": "Senior Software Engineer — Front End, UserTesting",
     "description": "Prashanth Reddy's job title"
   },
-  "utzh/P": {
-    "defaultMessage": "Github code repository URL",
-    "description": "Label for Github repository input on project submit page"
-  },
   "uz7f93": {
     "defaultMessage": "Salesforce",
     "description": "Company name for Salesforce"
@@ -4886,10 +4894,6 @@
   "wzV6ho": {
     "defaultMessage": "Skills",
     "description": "Label for Skills filter for projects list"
-  },
-  "wzxWP7": {
-    "defaultMessage": "We will pull code from this repo for code reviews<ul><li>Follow <link>this guide</link> on how to create a Github repo</li><li>You will submit the link to your public github repo in the submission screen</li></ul>",
-    "description": "Description for Github repo step in project submission checklist"
   },
   "x8+4jJ": {
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
