@@ -4,12 +4,11 @@ import { useInView } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useRef } from 'react';
 
+import ProjectsMarketingFeatures from '~/components/projects/marketing/ProjectsMarketingFeatures';
 import ProjectsMarketingHero from '~/components/projects/marketing/ProjectsMarketingHero';
 import ProjectsMarketingHomepageFeaturesRow from '~/components/projects/marketing/ProjectsMarketingHomepageFeaturesRow';
+import ProjectsMarketingSkillsTracksProjects from '~/components/projects/marketing/ProjectsMarketingSkillsTracksProjects';
 import Section from '~/components/ui/Heading/HeadingContext';
-
-import ProjectsMarketingFeatures from './ProjectsMarketingFeatures';
-import ProjectsMarketingSkillsTracksProjects from './ProjectsMarketingSkillsTracksProjects';
 
 const MarketingHomePageBottom = dynamic(
   () => import('../../(standard)/(marketing)/MarketingHomePageBottom'),

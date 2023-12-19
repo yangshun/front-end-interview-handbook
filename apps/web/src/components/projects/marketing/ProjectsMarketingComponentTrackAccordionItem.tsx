@@ -21,21 +21,21 @@ import ProjectsReputationCountIncreaseTag from '../stats/ProjectsReputationCount
 
 import * as Accordion from '@radix-ui/react-accordion';
 
-type ProjectsTrackProject = {
+type ProjectsTrackProject = Readonly<{
   key: string;
   title: string;
-};
+}>;
 
-export type ProjectsTrack = {
+export type ProjectsTrack = Readonly<{
   completedProjectCount: number;
   description: string;
   isPremium: boolean;
   key: string;
-  projects: Array<ProjectsTrackProject>;
+  projects: ReadonlyArray<ProjectsTrackProject>;
   repCount: number;
   title: string;
   totalProjectCount: number;
-};
+}>;
 
 type Props = Readonly<{
   track: ProjectsTrack;

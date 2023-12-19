@@ -116,7 +116,8 @@ export default function ProjectsSkillEmblem({
         <Text
           aria-hidden={true}
           className={clsx('rounded-full px-4 py-2', themeBackgroundEmphasized)}
-          size={type === 'group' ? 'body1' : 'body2'}>
+          size={type === 'group' ? 'body2' : 'body3'}
+          weight="medium">
           {label}
         </Text>
       </div>

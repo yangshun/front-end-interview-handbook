@@ -15,146 +15,15 @@ import ProjectsProjectGridList from '~/components/projects/projects/ProjectsProj
 import ProjectsProjectGridListWithFilters from '~/components/projects/projects/ProjectsProjectGridListWithFilters';
 import type { ProjectsProject } from '~/components/projects/projects/types';
 import ProjectsSkillTree from '~/components/projects/skills/ProjectsSkillTree';
-import type { ProjectSkillTree } from '~/components/projects/skills/types';
+import {
+  foundationalSkillTree,
+  intermediateSkillTree,
+} from '~/components/projects/skills/ProjectsSkillTreeData';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeRadialGlowBackground } from '~/components/ui/theme';
-
-const foundationalSkillTree: ProjectSkillTree = [
-  {
-    completedProjectCount: 5,
-    items: [
-      {
-        completedProjectCount: 5,
-        key: 'basics',
-        label: 'Basics',
-        totalProjectCount: 11,
-        type: 'item',
-      },
-      {
-        completedProjectCount: 5,
-        key: 'semantic',
-        label: 'Semantic',
-        totalProjectCount: 11,
-        type: 'item',
-      },
-      {
-        completedProjectCount: 5,
-        key: 'forms',
-        label: 'Forms',
-        totalProjectCount: 11,
-        type: 'item',
-      },
-      {
-        completedProjectCount: 5,
-        key: 'a11y',
-        label: 'A11y',
-        totalProjectCount: 11,
-        type: 'item',
-      },
-    ],
-    key: 'html',
-    label: 'HTML',
-    totalProjectCount: 11,
-    type: 'group',
-  },
-
-  {
-    completedProjectCount: 5,
-    items: [
-      {
-        completedProjectCount: 5,
-        key: 'basics',
-        label: 'Basics',
-        totalProjectCount: 11,
-        type: 'item',
-      },
-      {
-        completedProjectCount: 5,
-        key: 'layout',
-        label: 'Layout',
-        totalProjectCount: 11,
-        type: 'item',
-      },
-      {
-        completedProjectCount: 5,
-        key: 'flex',
-        label: 'Flex',
-        totalProjectCount: 11,
-        type: 'item',
-      },
-      {
-        completedProjectCount: 5,
-        key: 'grid',
-        label: 'Grid',
-        totalProjectCount: 11,
-        type: 'item',
-      },
-    ],
-    key: 'css',
-    label: 'CSS',
-    totalProjectCount: 11,
-    type: 'group',
-  },
-  {
-    completedProjectCount: 5,
-    items: [
-      {
-        completedProjectCount: 5,
-        key: 'basics',
-        label: 'Basics',
-        totalProjectCount: 11,
-        type: 'item',
-      },
-      {
-        completedProjectCount: 5,
-        key: 'dom',
-        label: 'DOM',
-        totalProjectCount: 11,
-        type: 'item',
-      },
-      {
-        completedProjectCount: 5,
-        key: 'fetch',
-        label: 'Fetch',
-        totalProjectCount: 11,
-        type: 'item',
-      },
-      {
-        completedProjectCount: 5,
-        key: 'storage',
-        label: 'Storage',
-        totalProjectCount: 11,
-        type: 'item',
-      },
-    ],
-    key: 'javascript',
-    label: 'JavaScript',
-    totalProjectCount: 11,
-    type: 'group',
-  },
-];
-
-const intermediateSkillTree: ProjectSkillTree = [
-  {
-    completedProjectCount: 5,
-    items: [
-      {
-        completedProjectCount: 5,
-        key: 'placeholder-item-1',
-        label: 'Placeholder',
-        totalProjectCount: 11,
-        type: 'item',
-      },
-    ],
-    key: 'placeholder-group-1',
-    label: 'Placeholder',
-    totalProjectCount: 11,
-    type: 'group',
-  },
-];
 
 const skills = [
   {
@@ -675,6 +544,7 @@ export default function ProjectsMarketingSkillsTracksProjects() {
                     overlay={
                       <div className="flex flex-col items-center gap-4">
                         <Button
+                          href="/projects/skill-tree"
                           icon={RiArrowRightLine}
                           label={intl.formatMessage(
                             {
@@ -751,6 +621,7 @@ export default function ProjectsMarketingSkillsTracksProjects() {
               overlay={
                 <div className="flex flex-col items-center gap-4">
                   <Button
+                    href="/projects/component-tracks"
                     icon={RiArrowRightLine}
                     label={intl.formatMessage(
                       {

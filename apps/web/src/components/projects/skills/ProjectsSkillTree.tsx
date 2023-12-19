@@ -3,10 +3,10 @@ import { Fragment } from 'react';
 import ProjectsSkillEmblem from './ProjectsSkillEmblem';
 import type { ProjectSkillTree } from './types';
 
-type Props = {
+type Props = Readonly<{
   disabled?: boolean;
   tree: ProjectSkillTree;
-};
+}>;
 
 export default function ProjectsSkillTree({ tree, disabled }: Props) {
   return (

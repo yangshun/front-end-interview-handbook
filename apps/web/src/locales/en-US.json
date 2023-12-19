@@ -3,6 +3,10 @@
     "defaultMessage": "Access to continuously updating questions and content.",
     "description": "Feature of monthly pricing plan"
   },
+  "+/f5eR": {
+    "defaultMessage": "Skill tree",
+    "description": "Title of Projects skill tree page"
+  },
   "+59/34": {
     "defaultMessage": "Questions to Ask (End of Interview)",
     "description": "Best questions to ask at the end of a behavioral interviews"
@@ -1175,6 +1179,10 @@
     "defaultMessage": "We have helped thousands of Software Engineers",
     "description": "Testimonial section heading"
   },
+  "E9mfba": {
+    "defaultMessage": "Build your way up to a well-rounded front end / full stack skillset. Hone a specific skill, or follow our skills progression starting from zero.",
+    "description": "Description of Projects skill tree page"
+  },
   "ECkWMR": {
     "defaultMessage": "Stop session",
     "description": "Label to stop study plan"
@@ -1286,6 +1294,10 @@
   "FonVOb": {
     "defaultMessage": "All question progress has been reset.",
     "description": "Message shown when question reset progress action succeeds."
+  },
+  "FrR1mB": {
+    "defaultMessage": "Skill tree | Projects",
+    "description": "Title of Projects skills tree page"
   },
   "G0neZ5": {
     "defaultMessage": "Projects",
@@ -2010,6 +2022,10 @@
   "OHistx": {
     "defaultMessage": "Practice by framework",
     "description": "Questions list page title"
+  },
+  "OLHi7N": {
+    "defaultMessage": "Component tracks | Projects",
+    "description": "Title of Projects component tracks page"
   },
   "OOYktU": {
     "defaultMessage": "Data structures and algorithms",
@@ -3431,6 +3447,10 @@
     "defaultMessage": "Free",
     "description": "Label indicating that quiz questions are free"
   },
+  "fg9e1P": {
+    "defaultMessage": "Component tracks",
+    "description": "Title of Projects component tracks page"
+  },
   "fhTYwQ": {
     "defaultMessage": "The only end-to-end front end interview preparation platform.{br} Brought to you by big tech Senior / Staff Front End Engineers.",
     "description": "Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."
@@ -4594,6 +4614,10 @@
   "tDJ0XN": {
     "defaultMessage": "Difficulty: Hard to Easy",
     "description": "Sorting option for question list - sort by difficulty from hard to easy"
+  },
+  "tK6m9g": {
+    "defaultMessage": "Build entire component libraries or design systems from scratch for your portfolio or as a toolkit for future projects.",
+    "description": "Description of Projects component tracks page"
   },
   "tNAIsO": {
     "defaultMessage": "JavaScript Questions",

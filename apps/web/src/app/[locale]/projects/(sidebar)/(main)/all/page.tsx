@@ -4,7 +4,7 @@ import { readProjectsProjectList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-import ProjectsAllProjects from './ProjectsAllProjects';
+import ProjectsAllProjectsPage from './ProjectsAllProjectsPage';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -28,9 +28,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function ProjectsAllProjectsPage({ params }: Props) {
+export default async function Page({ params }: Props) {
   const { locale } = params;
   const { projects } = await readProjectsProjectList(locale);
 
-  return <ProjectsAllProjects projects={projects} />;
+  return <ProjectsAllProjectsPage projects={projects} />;
 }
