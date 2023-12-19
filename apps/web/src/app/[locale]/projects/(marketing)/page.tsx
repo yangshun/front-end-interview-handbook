@@ -1,5 +1,6 @@
 import type { Metadata } from 'next/types';
 
+import { readProjectsProjectList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -28,6 +29,12 @@ type Props = Readonly<{
   params: Readonly<{ locale: string }>;
 }>;
 
-export default async function Page() {
-  return <ProjectsMarketingHomePage />;
+export default async function Page({ params }: Props) {
+  const { locale } = params;
+
+  const { projects } = await readProjectsProjectList(locale);
+  // TODO(projects): Actual featured projects.
+  const featuredProjects = projects.slice(0, 3);
+
+  return <ProjectsMarketingHomePage featuredProjects={featuredProjects} />;
 }

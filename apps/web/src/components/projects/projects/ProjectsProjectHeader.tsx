@@ -10,8 +10,8 @@ import type { ProjectsProjectMetadata } from '~/components/projects/projects/typ
 import ProjectsSkillChip from '~/components/projects/skills/ProjectsSkillChip';
 import ProjectsCompletedUsersTag from '~/components/projects/stats/ProjectsCompletedUsersTag';
 import ProjectsComponentTrackTag from '~/components/projects/stats/ProjectsComponentTrackTag';
+import ProjectsDifficultyTag from '~/components/projects/stats/ProjectsDifficultyTag';
 import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
-import ProjectsStarterTag from '~/components/projects/stats/ProjectsStarterTag';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
@@ -32,7 +32,7 @@ export default function ProjectsProjectHeader({ project }: Props) {
     completedCount,
     completedUsers,
     description,
-    isStarter,
+    difficulty,
     points,
     skills,
     title,
@@ -81,7 +81,7 @@ export default function ProjectsProjectHeader({ project }: Props) {
             {description}
           </Text>
           <div className="flex flex-wrap gap-x-4 gap-y-2">
-            {isStarter && <ProjectsStarterTag />}
+            <ProjectsDifficultyTag difficulty={difficulty} />
             <ProjectsComponentTrackTag trackName={trackName} />
             <ProjectsReputationCountIncreaseTag
               points={points}

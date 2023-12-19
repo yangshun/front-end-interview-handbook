@@ -8,6 +8,7 @@ import ProjectsMarketingFeatures from '~/components/projects/marketing/ProjectsM
 import ProjectsMarketingHero from '~/components/projects/marketing/ProjectsMarketingHero';
 import ProjectsMarketingHomepageFeaturesRow from '~/components/projects/marketing/ProjectsMarketingHomepageFeaturesRow';
 import ProjectsMarketingSkillsTracksProjects from '~/components/projects/marketing/ProjectsMarketingSkillsTracksProjects';
+import type { ProjectsProjectMetadata } from '~/components/projects/projects/types';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 const MarketingHomePageBottom = dynamic(
@@ -15,7 +16,11 @@ const MarketingHomePageBottom = dynamic(
   { ssr: false },
 );
 
-export default function MarketingHomePage() {
+type Props = Readonly<{
+  featuredProjects: ReadonlyArray<ProjectsProjectMetadata>;
+}>;
+
+export default function ProjectsMarketingHomePage({ featuredProjects }: Props) {
   const loadBottomHalfMarkerRef = useRef(null);
   const showBottomHalf = useInView(loadBottomHalfMarkerRef, {
     amount: 'some',
@@ -27,7 +32,9 @@ export default function MarketingHomePage() {
       <ProjectsMarketingHero />
       <Section>
         <ProjectsMarketingHomepageFeaturesRow />
-        <ProjectsMarketingSkillsTracksProjects />
+        <ProjectsMarketingSkillsTracksProjects
+          featuredProjects={featuredProjects}
+        />
         <ProjectsMarketingFeatures />
         <div ref={loadBottomHalfMarkerRef} />
         {showBottomHalf && <MarketingHomePageBottom />}

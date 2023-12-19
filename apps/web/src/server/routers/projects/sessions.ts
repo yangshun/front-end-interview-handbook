@@ -14,7 +14,7 @@ const sessionProcedure = projectsUserProcedure.input(
 export const sessionsRouter = router({
   create: sessionProcedure.mutation(
     async ({ input: { slug }, ctx: { profileId } }) => {
-      // TODO (projects): Validate slug
+      // TODO(projects): Validate slug
       return await prisma.projectsProjectSession.create({
         data: {
           profileId,

@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { startCase } from 'lodash-es';
 import {
   RiArrowRightLine,
   RiCheckboxMultipleLine,
@@ -29,6 +30,7 @@ export default function ProjectsProjectCard({ project }: Props) {
   const intl = useIntl();
   const {
     title,
+    difficulty,
     description,
     skills,
     imgSrc,
@@ -37,12 +39,9 @@ export default function ProjectsProjectCard({ project }: Props) {
     trackName,
     points,
     href,
-    isPremium,
+    access,
     status,
-    isStarter,
   } = project;
-
-  const hasTypeTags = isStarter || isPremium;
 
   return (
     <div
@@ -79,34 +78,26 @@ export default function ProjectsProjectCard({ project }: Props) {
             </Text>
           </div>
         )}
-        {hasTypeTags && (
-          <div className="absolute start-2 top-2 flex items-center gap-1">
-            {isStarter && (
-              <Badge
-                icon={RiFlashlightLine}
-                label={intl.formatMessage({
-                  defaultMessage: 'Starter',
-                  description: 'Label for starter project tag',
-                  id: 'fVpzUz',
-                })}
-                variant="success"
-              />
-            )}
-            {isPremium && (
-              <Badge
-                icon={RiLock2Line}
-                label={intl.formatMessage({
-                  defaultMessage: 'Premium',
-                  description: 'Label for premium project tag',
-                  id: 'szBcoh',
-                })}
-                variant="special"
-              />
-            )}
-          </div>
-        )}
+        <div className="absolute start-2 top-2 flex items-center gap-1">
+          <Badge
+            icon={RiFlashlightLine}
+            label={startCase(difficulty)}
+            variant="success"
+          />
+          {access === 'premium' && (
+            <Badge
+              icon={RiLock2Line}
+              label={intl.formatMessage({
+                defaultMessage: 'Premium',
+                description: 'Label for premium project tag',
+                id: 'szBcoh',
+              })}
+              variant="special"
+            />
+          )}
+        </div>
       </div>
-      <div className="mb-2 flex flex-col gap-4 p-4">
+      <div className="grow flex flex-col gap-4 p-4">
         <div className="flex flex-wrap gap-x-4 gap-y-2">
           <div
             className={clsx(
@@ -136,9 +127,11 @@ export default function ProjectsProjectCard({ project }: Props) {
             </Text>
           </div>
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="grow flex flex-col gap-2">
           <Text weight="bold">{title}</Text>
-          <Text size="body2">{description}</Text>
+          <Text className="grow" size="body2">
+            {description}
+          </Text>
         </div>
         <ProjectsSkillRow
           label={intl.formatMessage({

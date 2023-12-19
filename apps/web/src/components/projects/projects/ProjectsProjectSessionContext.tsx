@@ -74,7 +74,7 @@ export default function ProjectsProjectSessionContextProvider({
         });
       },
       isGetStartedDialogShown,
-      // TODO (projects): Replace when/if superjson is added to trpc
+      // TODO(projects): Replace when/if superjson is added to trpc
       session: session
         ? {
             ...session,

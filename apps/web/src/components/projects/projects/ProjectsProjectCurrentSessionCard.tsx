@@ -29,15 +29,17 @@ type Props = Readonly<{
 
 export default function ProjectsProjectCurrentProjectSessionCard({
   project,
-  session: { createdAt },
+  session,
 }: Props) {
-  const { href, skills, slug } = project;
   const intl = useIntl();
   const [showEndSessionDialog, setShowEndSessionDialog] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [otherTechStacks, setOtherTechStacks] = useState<Array<string>>([]);
 
   const { endSession } = useProjectsProjectSessionContext();
+
+  const { submitHref, skills, slug } = project;
+  const { createdAt } = session;
 
   const handleEndSession = async () => {
     await endSession(slug);
@@ -125,7 +127,7 @@ export default function ProjectsProjectCurrentProjectSessionCard({
           </div>
           <div className="flex gap-2">
             <Button
-              href={href + '/submit'}
+              href={submitHref}
               icon={RiArrowRightLine}
               label={intl.formatMessage({
                 defaultMessage: 'Submit',

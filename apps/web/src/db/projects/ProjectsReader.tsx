@@ -1,8 +1,10 @@
 import { allProjects } from 'contentlayer/generated';
 
-import type { ProjectsProject } from '~/components/projects/projects/types';
+import type { ProjectsProjectMetadata } from '~/components/projects/projects/types';
 
-export const exampleProject: ProjectsProject = {
+// TODO(projects): remove in future.
+export const exampleProject: ProjectsProjectMetadata = {
+  access: 'free',
   completedCount: 21,
   completedUsers: [
     {
@@ -33,10 +35,9 @@ export const exampleProject: ProjectsProject = {
     },
   ],
   description: 'This is a short description for the newsletter section',
+  difficulty: 'starter',
   href: '#',
   imgSrc: 'https://source.unsplash.com/random/960x360',
-  isPremium: true,
-  isStarter: true,
   points: 1000,
   skills: [
     {
@@ -57,13 +58,17 @@ export const exampleProject: ProjectsProject = {
   ],
   slug: 'newsletter-section',
   status: 'in-progress',
+  submitHref: '#',
   title: 'Newsletter section',
   trackName: 'Design System Track',
 };
 
 export async function readProjectsProjectList(
   requestedLocale = 'en-US',
-): Promise<{ loadedLocale: string; projects: ReadonlyArray<ProjectsProject> }> {
+): Promise<{
+  loadedLocale: string;
+  projects: ReadonlyArray<ProjectsProjectMetadata>;
+}> {
   const projects = allProjects.map((projectItem) => ({
     ...exampleProject,
     ...projectItem,
@@ -81,7 +86,7 @@ export async function readProjectsProjectDetails(
 ): Promise<
   Readonly<{
     loadedLocale: string;
-    project: ProjectsProject;
+    project: ProjectsProjectMetadata;
   }>
 > {
   // So that we handle typos like extra characters.
