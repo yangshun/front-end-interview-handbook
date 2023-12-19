@@ -4,7 +4,7 @@ import type { User } from '@supabase/supabase-js';
 
 export type ProjectProjectStatus = 'completed' | 'in-progress' | 'not-started';
 
-export type ProjectsProject = {
+export type ProjectsProjectMetadata = {
   completedCount: number;
   completedUsers: Array<User>;
   description: string;
@@ -16,6 +16,7 @@ export type ProjectsProject = {
   skills: Array<ProjectsSkill>;
   slug: string;
   status: ProjectProjectStatus;
+  submitHref: string;
   title: string;
   trackName: string;
 };

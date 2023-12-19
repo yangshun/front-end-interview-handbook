@@ -8,14 +8,14 @@ import ProjectsAssetProvidedImageAssets from '~/components/projects/projects/ass
 import ProjectsAssetProvidedJpeg from '~/components/projects/projects/assets-provided/ProjectsAssetProvidedJpeg';
 import ProjectsAssetProvidedReadme from '~/components/projects/projects/assets-provided/ProjectsAssetProvidedReadme';
 import ProjectsAssetProvidedStyleGuide from '~/components/projects/projects/assets-provided/ProjectsAssetProvidedStyleGuide';
-import type { ProjectsProject } from '~/components/projects/projects/types';
+import type { ProjectsProjectMetadata } from '~/components/projects/projects/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
 type Props = Readonly<{
-  project: ProjectsProject;
+  project: ProjectsProjectMetadata;
 }>;
 
 type SupportItem = Readonly<{

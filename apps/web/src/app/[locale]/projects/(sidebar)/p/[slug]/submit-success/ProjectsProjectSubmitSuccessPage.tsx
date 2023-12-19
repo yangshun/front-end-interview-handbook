@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import { useIntl } from 'react-intl';
 
 import ProjectsProjectGridList from '~/components/projects/projects/ProjectsProjectGridList';
-import type { ProjectsProject } from '~/components/projects/projects/types';
+import type { ProjectsProjectMetadata } from '~/components/projects/projects/types';
 import ProjectsSkillProgressBreakdownCard from '~/components/projects/skills/ProjectsSkillProgressBreakdownCard';
 import { ProjectsLevelingProgressBar } from '~/components/projects/stats/ProjectsLevelingProgressBar';
 import { ProjectsSegmentedProgressBar } from '~/components/projects/stats/ProjectsSegmentedProgressBar';
@@ -19,7 +19,7 @@ import Text from '~/components/ui/Text';
 
 import type { User } from '@supabase/supabase-js';
 
-const suggestedProjects: Array<ProjectsProject> = [
+const suggestedProjects: Array<ProjectsProjectMetadata> = [
   {
     completedCount: 21,
     completedUsers: [
@@ -226,7 +226,7 @@ function ReputationIncreaseBackground({ className }: { className?: string }) {
 }
 
 type Props = Readonly<{
-  project: ProjectsProject;
+  project: ProjectsProjectMetadata;
   user: User | null;
 }>;
 

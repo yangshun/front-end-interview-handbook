@@ -17,12 +17,12 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-import type { ProjectsProject } from './types';
+import type { ProjectsProjectMetadata } from './types';
 import ProjectsSkillRow from '../skills/ProjectsSkillRow';
 import ProjectsCompletedUsersTag from '../stats/ProjectsCompletedUsersTag';
 
 type Props = Readonly<{
-  project: ProjectsProject;
+  project: ProjectsProjectMetadata;
 }>;
 
 export default function ProjectsProjectCard({ project }: Props) {

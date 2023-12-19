@@ -3,13 +3,13 @@
 import { FormattedMessage } from 'react-intl';
 
 import ProjectsProjectGridListWithFilters from '~/components/projects/projects/ProjectsProjectGridListWithFilters';
-import type { ProjectsProject } from '~/components/projects/projects/types';
+import type { ProjectsProjectMetadata } from '~/components/projects/projects/types';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
 type Props = Readonly<{
-  projects: ReadonlyArray<ProjectsProject>;
+  projects: ReadonlyArray<ProjectsProjectMetadata>;
 }>;
 
 export default function ProjectsAllProjectsPage({ projects }: Props) {

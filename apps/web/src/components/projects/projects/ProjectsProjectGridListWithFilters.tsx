@@ -19,11 +19,11 @@ import ProjectsProjectFilterContextProvider, {
 } from './ProjectsProjectFilterContext';
 import ProjectsProjectFilterSlideOut from './ProjectsProjectFilterSlideOut';
 import ProjectsProjectGridList from './ProjectsProjectGridList';
-import type { ProjectsProject } from './types';
+import type { ProjectsProjectMetadata } from './types';
 import ProjectsListFilterDropdown from '../lists/ProjectsListFilterDropdown';
 
 type Props = Readonly<{
-  projects: ReadonlyArray<ProjectsProject>;
+  projects: ReadonlyArray<ProjectsProjectMetadata>;
 }>;
 
 function ProjectsProjectGridListWithFiltersImpl({ projects }: Props) {

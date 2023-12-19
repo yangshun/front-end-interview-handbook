@@ -16,14 +16,14 @@ import { themeTextSecondaryColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import { useProjectsProjectSessionContext } from './ProjectsProjectSessionContext';
-import type { ProjectsProject } from './types';
+import type { ProjectsProjectMetadata } from './types';
 import ProjectsOtherTechStackInput from '../skills/ProjectsOtherTechStackInput';
 import ProjectsSkillsSelect from '../skills/ProjectsSkillsSelect';
 
 import type { ProjectsProjectSession } from '@prisma/client';
 
 type Props = Readonly<{
-  project: ProjectsProject;
+  project: ProjectsProjectMetadata;
   session: ProjectsProjectSession;
 }>;
 

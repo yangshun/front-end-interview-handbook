@@ -4,7 +4,7 @@ import { RiArrowLeftLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 import { useIntl } from 'react-intl';
 
-import type { ProjectsProject } from '~/components/projects/projects/types';
+import type { ProjectsProjectMetadata } from '~/components/projects/projects/types';
 import ProjectsOtherTechStackInput from '~/components/projects/skills/ProjectsOtherTechStackInput';
 import ProjectsSkillInput from '~/components/projects/skills/ProjectsSkillInput';
 import Anchor from '~/components/ui/Anchor';
@@ -17,7 +17,7 @@ import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
 type Props = Readonly<{
-  project: ProjectsProject;
+  project: ProjectsProjectMetadata;
 }>;
 
 export default function ProjectsProjectSubmitPage({ project }: Props) {

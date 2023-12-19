@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 
 import ProjectsProjectCard from './ProjectsProjectCard';
-import type { ProjectsProject } from './types';
+import type { ProjectsProjectMetadata } from './types';
 
 type Props = Readonly<{
   className?: string;
-  projects: ReadonlyArray<ProjectsProject>;
+  projects: ReadonlyArray<ProjectsProjectMetadata>;
 }>;
 
 export default function ProjectsProjectGridList({

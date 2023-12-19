@@ -12,7 +12,7 @@ import ProjectsMarketingComponentTrackAccordion from '~/components/projects/mark
 import ProjectsMarketingComponentTrackAccordionItem from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordionItem';
 import ProjectsProjectGridList from '~/components/projects/projects/ProjectsProjectGridList';
 import ProjectsProjectGridListWithFilters from '~/components/projects/projects/ProjectsProjectGridListWithFilters';
-import type { ProjectsProject } from '~/components/projects/projects/types';
+import type { ProjectsProjectMetadata } from '~/components/projects/projects/types';
 import ProjectsSkillTree from '~/components/projects/skills/ProjectsSkillTree';
 import {
   foundationalSkillTree,
@@ -35,7 +35,7 @@ const skills = [
   { icon: ReactLogo, key: 'react' },
 ];
 
-const projects: Array<ProjectsProject> = [
+const projects: Array<ProjectsProjectMetadata> = [
   {
     completedCount: 21,
     completedUsers: [
@@ -212,7 +212,7 @@ const projects: Array<ProjectsProject> = [
   },
 ];
 
-const hiddenProjects: Array<ProjectsProject> = [
+const hiddenProjects: Array<ProjectsProjectMetadata> = [
   {
     completedCount: 21,
     completedUsers: [

@@ -12,11 +12,11 @@ import ProjectsProjectHeader from '../../projects/ProjectsProjectHeader';
 import ProjectsProjectSessionContextProvider, {
   useProjectsProjectSessionContext,
 } from '../../projects/ProjectsProjectSessionContext';
-import type { ProjectsProject } from '../../projects/types';
+import type { ProjectsProjectMetadata } from '../../projects/types';
 
 type Props = Readonly<{
   children: React.ReactNode;
-  project: ProjectsProject;
+  project: ProjectsProjectMetadata;
 }>;
 
 export function ProjectsProjectHeaderLayoutImpl({ project, children }: Props) {
