@@ -9,8 +9,8 @@ export type ProjectsTrack = Readonly<{
   description: string;
   href: string;
   isPremium: boolean;
+  points: number;
   projects: ReadonlyArray<ProjectsTrackProject>;
-  repCount: number;
   slug: string;
   title: string;
   totalProjectCount: number;
@@ -22,6 +22,7 @@ export const projectTracks: Array<ProjectsTrack> = [
     description: 'Learn how to build a whole design system from scratch',
     href: '/projects/tracks/design-system',
     isPremium: false,
+    points: 1000,
     projects: [
       {
         href: '/projects/p/button',
@@ -39,7 +40,6 @@ export const projectTracks: Array<ProjectsTrack> = [
         title: 'Alert',
       },
     ],
-    repCount: 1000,
     slug: 'design-system',
     title: 'Design system track',
     totalProjectCount: 11,
@@ -49,6 +49,7 @@ export const projectTracks: Array<ProjectsTrack> = [
     description: 'Learn how to build a portfolio to showcase yourself',
     href: '/projects/tracks/portfolio',
     isPremium: true,
+    points: 1000,
     projects: [
       {
         href: '/projects/p/homepage',
@@ -66,7 +67,6 @@ export const projectTracks: Array<ProjectsTrack> = [
         title: 'Article section',
       },
     ],
-    repCount: 1000,
     slug: 'portfolio',
     title: 'Portfolio track',
     totalProjectCount: 11,
@@ -76,6 +76,7 @@ export const projectTracks: Array<ProjectsTrack> = [
     description: 'Learn how to build marketing pages',
     href: '/projects/tracks/marketing',
     isPremium: true,
+    points: 1000,
     projects: [
       {
         href: '/projects/p/newsletter-section',
@@ -93,7 +94,6 @@ export const projectTracks: Array<ProjectsTrack> = [
         title: 'Feedback section',
       },
     ],
-    repCount: 1000,
     slug: 'marketing',
     title: 'Marketing track',
     totalProjectCount: 11,
@@ -103,6 +103,7 @@ export const projectTracks: Array<ProjectsTrack> = [
     description: 'Learn how to build e-commerce pages',
     href: '/projects/tracks/e-commerce',
     isPremium: true,
+    points: 1000,
     projects: [
       {
         href: '/projects/p/pricing-section',
@@ -120,7 +121,6 @@ export const projectTracks: Array<ProjectsTrack> = [
         title: 'Checkout section',
       },
     ],
-    repCount: 1000,
     slug: 'e-commerce',
     title: 'E-commerce track',
     totalProjectCount: 11,
@@ -134,6 +134,7 @@ export const hiddenTracks: Array<ProjectsTrack> = [
     description: 'Learn how to build a whole design system from scratch',
     href: '/projects/tracks/design-system',
     isPremium: false,
+    points: 1000,
     projects: [
       {
         href: '/projects/p/button',
@@ -151,7 +152,6 @@ export const hiddenTracks: Array<ProjectsTrack> = [
         title: 'Alert',
       },
     ],
-    repCount: 1000,
     slug: 'design-system',
     title: 'Design system track',
     totalProjectCount: 11,

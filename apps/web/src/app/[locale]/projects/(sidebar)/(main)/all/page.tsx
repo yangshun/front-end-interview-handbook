@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 
+import ProjectsAllProjectsPage from '~/components/projects/projects/ProjectsAllProjectsPage';
+
 import { readProjectsProjectList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import ProjectsAllProjectsPage from './ProjectsAllProjectsPage';
 
 type Props = Readonly<{
   params: Readonly<{

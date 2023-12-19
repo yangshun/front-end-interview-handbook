@@ -243,6 +243,10 @@
     "defaultMessage": "My profile",
     "description": "Label for My profile button in profile header of Projects sidebar"
   },
+  "19uyd3": {
+    "defaultMessage": "<bold>+{points}</bold> rep",
+    "description": "Tooltip for rep count increase in Projects level progress bar"
+  },
   "1AGOZJ": {
     "defaultMessage": "Access updates to the interview platform for life.",
     "description": "Lifetime membership feature of accessing updates to interview platforms"
@@ -806,10 +810,6 @@
   "8wt3/b": {
     "defaultMessage": "Focus areas for Front End Interviews",
     "description": "Title of focus areas page"
-  },
-  "8x/Gqb": {
-    "defaultMessage": "<bold>+{repCount}</bold> rep",
-    "description": "Tooltip for rep count increase in Projects level progress bar"
   },
   "8yJWMC": {
     "defaultMessage": "Pay once, get full access to the interview platform forever, including updates.",
@@ -1431,6 +1431,10 @@
     "defaultMessage": "Mentor others",
     "description": "Label for Mentor others sidebar item in Projects sidebar"
   },
+  "HGXFQP": {
+    "defaultMessage": "<emph>+ {points}</emph><small>reputation points</small>",
+    "description": "Reputation point increase on project submission success page"
+  },
   "HMJJLh": {
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch.",
     "description": "Description for interview preparation focus area"
@@ -1474,6 +1478,10 @@
   "HloN+i": {
     "defaultMessage": "Start coding!",
     "description": "Label for \"Start coding!\" button on Projects project page"
+  },
+  "HoFQuO": {
+    "defaultMessage": "+{points} rep",
+    "description": "Rep count increase label in Projects"
   },
   "HtFDkf": {
     "defaultMessage": "Official guides",
@@ -1803,10 +1811,6 @@
     "defaultMessage": "Found a bug or have an improvement to suggest to a question? We would prefer if you could create an issue on <link>GitHub</link>.",
     "description": "Sentence to report bug on GitHub"
   },
-  "LfoHxa": {
-    "defaultMessage": "+{repCount} rep",
-    "description": "Rep count increase label in Projects"
-  },
   "Lh00HQ": {
     "defaultMessage": "Create a free account to track your progress",
     "description": "CTA to create a free account for non-logged in users"
@@ -1826,10 +1830,6 @@
   "LnzTdG": {
     "defaultMessage": "CSS",
     "description": "CSS questions category short title"
-  },
-  "Loi5gN": {
-    "defaultMessage": "{repCount} Reputation",
-    "description": "Label showing reputation count in profile header of Projects sidebar"
   },
   "Lwa7+3": {
     "defaultMessage": "Have any doubts or need help? Ask in the community and discuss with others.",
@@ -2615,6 +2615,10 @@
     "defaultMessage": "Learn to work with specifications mimicking projects you will encounter as a full-time engineer",
     "description": "Description for \"Real world specs\" feature on Projects home page"
   },
+  "VXAI4w": {
+    "defaultMessage": "+{points} rep",
+    "description": "Label for rep increase indicator in Project card"
+  },
   "VbvRHt": {
     "defaultMessage": "Pricing",
     "description": "Label for Pricing sidebar item in Projects sidebar"
@@ -2866,10 +2870,6 @@
   "Yezbh0": {
     "defaultMessage": "Level up in your skills or complete component track",
     "description": "Description for \"Level up in your skills or complete component track\" feature on Projects home page"
-  },
-  "YiTnlf": {
-    "defaultMessage": "+{repCount} rep",
-    "description": "Label for rep increase indicator in Project card"
   },
   "YwXYNT": {
     "defaultMessage": "Project completed",
@@ -4687,10 +4687,6 @@
     "defaultMessage": "FAQ",
     "description": "Link to FAQ page"
   },
-  "u4JFGP": {
-    "defaultMessage": "<emph>+ {repCount}</emph><small>reputation points</small>",
-    "description": "Reputation point increase on project submission success page"
-  },
   "uBaCgb": {
     "defaultMessage": "GreatFrontEnd Projects",
     "description": "Title of Projects All Projects page"
@@ -4990,6 +4986,10 @@
   "xsaQ0d": {
     "defaultMessage": "Student Discount",
     "description": "Promotion title"
+  },
+  "xyPOJe": {
+    "defaultMessage": "{points} Reputation",
+    "description": "Label showing reputation count in profile header of Projects sidebar"
   },
   "xz0GES": {
     "defaultMessage": "Get full access",

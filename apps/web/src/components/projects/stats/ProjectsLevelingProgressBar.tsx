@@ -39,16 +39,16 @@ export function ProjectsLevelingProgressBar({
                 <RiFireLine className={clsx('w-5 h-5', themeTextColor)} />
                 <Text size="body2">
                   <FormattedMessage
-                    defaultMessage="<bold>+{repCount}</bold> rep"
+                    defaultMessage="<bold>+{points}</bold> rep"
                     description="Tooltip for rep count increase in Projects level progress bar"
-                    id="8x/Gqb"
+                    id="19uyd3"
                     values={{
                       bold: (chunks) => (
                         <Text size="custom" weight="bold">
                           {chunks}
                         </Text>
                       ),
-                      repCount: repIncrease,
+                      points: repIncrease,
                     }}
                   />
                 </Text>

@@ -35,7 +35,7 @@ export default function ProjectsProjectCard({ project }: Props) {
     completedUsers,
     completedCount,
     trackName,
-    repCount,
+    points,
     href,
     isPremium,
     status,
@@ -52,7 +52,11 @@ export default function ProjectsProjectCard({ project }: Props) {
         themeBackgroundEmphasized,
       )}>
       <div className="relative">
-        <img alt="" className="aspect-[16/9] object-cover" src={imgSrc} />
+        <img
+          alt={title}
+          className="aspect-[16/9] object-cover w-full"
+          src={imgSrc}
+        />
         {status === 'in-progress' && (
           <div className="absolute start-2 bottom-2 rounded px-2 bg-warning-light text-warning-darkest">
             <Text color="inherit" size="body2" weight="bold">
@@ -122,11 +126,11 @@ export default function ProjectsProjectCard({ project }: Props) {
             <RiFireLine className="h-4 w-4" />
             <Text color="inherit" size="body3">
               <FormattedMessage
-                defaultMessage="+{repCount} rep"
+                defaultMessage="+{points} rep"
                 description="Label for rep increase indicator in Project card"
-                id="YiTnlf"
+                id="VXAI4w"
                 values={{
-                  repCount,
+                  points,
                 }}
               />
             </Text>

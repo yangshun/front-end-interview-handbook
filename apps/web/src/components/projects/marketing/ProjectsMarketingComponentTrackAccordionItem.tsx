@@ -34,7 +34,7 @@ export default function ProjectsMarketingComponentTrackAccordionItem({
     slug,
     title,
     description,
-    repCount,
+    points,
     projects,
     totalProjectCount,
     completedProjectCount,
@@ -76,7 +76,7 @@ export default function ProjectsMarketingComponentTrackAccordionItem({
                 </Text>
                 <div className="mt-2 flex gap-4">
                   <ProjectsReputationCountIncreaseTag
-                    repCount={repCount}
+                    points={points}
                     variant="flat"
                   />
                   <ProjectsProjectCountTag

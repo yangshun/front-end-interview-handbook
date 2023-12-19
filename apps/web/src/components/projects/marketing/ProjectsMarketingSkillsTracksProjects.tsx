@@ -71,7 +71,7 @@ const projects: Array<ProjectsProject> = [
     imgSrc: 'https://source.unsplash.com/random/9600x360',
     isPremium: false,
     isStarter: true,
-    repCount: 1000,
+    points: 1000,
     skills: [
       {
         difficulty: 'hard',
@@ -129,7 +129,7 @@ const projects: Array<ProjectsProject> = [
     imgSrc: 'https://source.unsplash.com/random/960x360',
     isPremium: false,
     isStarter: true,
-    repCount: 1000,
+    points: 1000,
     skills: [
       {
         difficulty: 'hard',
@@ -187,7 +187,7 @@ const projects: Array<ProjectsProject> = [
     imgSrc: 'https://source.unsplash.com/random/960x360',
     isPremium: false,
     isStarter: true,
-    repCount: 1000,
+    points: 1000,
     skills: [
       {
         difficulty: 'hard',
@@ -248,7 +248,7 @@ const hiddenProjects: Array<ProjectsProject> = [
     imgSrc: 'https://source.unsplash.com/random/960x360',
     isPremium: false,
     isStarter: true,
-    repCount: 1000,
+    points: 1000,
     skills: [
       {
         difficulty: 'hard',
@@ -306,7 +306,7 @@ const hiddenProjects: Array<ProjectsProject> = [
     imgSrc: 'https://source.unsplash.com/random/960x360',
     isPremium: false,
     isStarter: true,
-    repCount: 1000,
+    points: 1000,
     skills: [
       {
         difficulty: 'hard',
@@ -364,7 +364,7 @@ const hiddenProjects: Array<ProjectsProject> = [
     imgSrc: 'https://source.unsplash.com/random/960x360',
     isPremium: false,
     isStarter: true,
-    repCount: 1000,
+    points: 1000,
     skills: [
       {
         difficulty: 'hard',

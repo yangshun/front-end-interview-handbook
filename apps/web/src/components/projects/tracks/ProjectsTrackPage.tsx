@@ -25,7 +25,7 @@ export default function ProjectsTrackPage({
     projects,
     totalProjectCount,
     completedProjectCount,
-    repCount,
+    points,
     title,
     description,
   },
@@ -53,7 +53,7 @@ export default function ProjectsTrackPage({
             <Heading level="heading5">{title}</Heading>
             <div className="flex flex-wrap gap-x-4 gap-y-2">
               <ProjectsReputationCountIncreaseTag
-                repCount={repCount}
+                points={points}
                 variant="flat"
               />
               <ProjectsProjectCountTag

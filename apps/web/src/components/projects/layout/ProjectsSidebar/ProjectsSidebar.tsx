@@ -350,7 +350,7 @@ export default function ProjectsSideBar({ user, jobTitle }: Props) {
       {user !== null ? (
         <ProjectsSidebarProfileHeader
           jobTitle={jobTitle}
-          repCount={1800}
+          points={1800}
           user={user}
         />
       ) : (

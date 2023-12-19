@@ -17,7 +17,7 @@ import type { User } from '@supabase/supabase-js';
 type Props = Readonly<{
   className?: string;
   jobTitle: string;
-  repCount: number;
+  points: number;
   user: User;
 }>;
 
@@ -25,7 +25,7 @@ export function ProjectsSidebarProfileHeader({
   className,
   user,
   jobTitle,
-  repCount,
+  points,
 }: Props) {
   const intl = useIntl();
 
@@ -43,10 +43,10 @@ export function ProjectsSidebarProfileHeader({
               <RiFireLine className="h-3 w-3" />
               <Text color="inherit" size="body3">
                 <FormattedMessage
-                  defaultMessage="{repCount} Reputation"
+                  defaultMessage="{points} Reputation"
                   description="Label showing reputation count in profile header of Projects sidebar"
-                  id="Loi5gN"
-                  values={{ repCount }}
+                  id="xyPOJe"
+                  values={{ points }}
                 />
               </Text>
             </div>

@@ -51,7 +51,7 @@ export default function ProjectsOnboardingProfilePage1() {
         <div className="relative">
           <ProjectsReputationCountIncreaseTag
             className="absolute end-0 top-0"
-            repCount={25}
+            points={25}
             variant="filled"
           />
           <Controller
@@ -95,7 +95,7 @@ export default function ProjectsOnboardingProfilePage1() {
             <div className="relative">
               <ProjectsReputationCountIncreaseTag
                 className="absolute end-0 top-0"
-                repCount={25}
+                points={25}
                 variant="filled"
               />
               <Controller
@@ -123,7 +123,7 @@ export default function ProjectsOnboardingProfilePage1() {
             <div className="relative">
               <ProjectsReputationCountIncreaseTag
                 className="absolute end-0 top-0"
-                repCount={25}
+                points={25}
                 variant="filled"
               />
               <Controller
@@ -151,7 +151,7 @@ export default function ProjectsOnboardingProfilePage1() {
             <div className="relative">
               <ProjectsReputationCountIncreaseTag
                 className="absolute end-0 top-0"
-                repCount={25}
+                points={25}
                 variant="filled"
               />
               <Controller

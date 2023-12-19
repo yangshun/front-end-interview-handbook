@@ -12,7 +12,7 @@ export type ProjectsProject = {
   imgSrc: string;
   isPremium: boolean;
   isStarter: boolean;
-  repCount: number;
+  points: number;
   skills: Array<ProjectsSkill>;
   slug: string;
   status: ProjectProjectStatus;

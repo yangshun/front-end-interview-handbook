@@ -82,10 +82,7 @@ export default function DiscussionPostReplyInput({ hasNext, onCancel }: Props) {
               })}
               variant="primary"
             />
-            <ProjectsReputationCountIncreaseTag
-              repCount={25}
-              variant="filled"
-            />
+            <ProjectsReputationCountIncreaseTag points={25} variant="filled" />
           </div>
         </div>
       </div>

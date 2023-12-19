@@ -37,7 +37,7 @@ export const exampleProject: ProjectsProject = {
   imgSrc: 'https://source.unsplash.com/random/960x360',
   isPremium: true,
   isStarter: true,
-  repCount: 1000,
+  points: 1000,
   skills: [
     {
       difficulty: 'hard',

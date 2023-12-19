@@ -33,7 +33,7 @@ export default function ProjectsProjectHeader({ project }: Props) {
     completedUsers,
     description,
     isStarter,
-    repCount,
+    points,
     skills,
     title,
     trackName,
@@ -84,7 +84,7 @@ export default function ProjectsProjectHeader({ project }: Props) {
             {isStarter && <ProjectsStarterTag />}
             <ProjectsComponentTrackTag trackName={trackName} />
             <ProjectsReputationCountIncreaseTag
-              repCount={repCount}
+              points={points}
               variant="flat"
             />
           </div>

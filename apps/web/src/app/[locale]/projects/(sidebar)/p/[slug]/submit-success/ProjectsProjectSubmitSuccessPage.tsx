@@ -55,7 +55,7 @@ const suggestedProjects: Array<ProjectsProject> = [
     imgSrc: 'https://source.unsplash.com/random/960x360',
     isPremium: false,
     isStarter: true,
-    repCount: 1000,
+    points: 1000,
     skills: [
       {
         difficulty: 'hard',
@@ -246,12 +246,12 @@ export default function ProjectsProjectSubmitSuccessPage({
           <ReputationIncreaseBackground />
           <div className="flex flex-col gap-2 absolute bottom-[90px] mx-auto start-0 end-0 items-center">
             <FormattedMessage
-              defaultMessage="<emph>+ {repCount}</emph><small>reputation points</small>"
+              defaultMessage="<emph>+ {points}</emph><small>reputation points</small>"
               description="Reputation point increase on project submission success page"
-              id="u4JFGP"
+              id="HGXFQP"
               values={{
                 emph: (chunks) => <Heading level="heading2">{chunks}</Heading>,
-                repCount: 237,
+                points: 237,
                 small: (chunks) => <Text size="body2">{chunks}</Text>,
               }}
             />

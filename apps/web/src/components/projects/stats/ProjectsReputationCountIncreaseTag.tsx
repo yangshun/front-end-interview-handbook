@@ -12,12 +12,12 @@ type TagVariant = 'filled' | 'flat';
 
 type Props = Readonly<{
   className?: string;
-  repCount: number;
+  points: number;
   variant: TagVariant;
 }>;
 
 export default function ProjectsReputationCountIncreaseTag({
-  repCount,
+  points,
   className,
   variant,
 }: Props) {
@@ -40,11 +40,11 @@ export default function ProjectsReputationCountIncreaseTag({
         size="body3"
         weight={variant === 'filled' ? 'medium' : 'normal'}>
         <FormattedMessage
-          defaultMessage="+{repCount} rep"
+          defaultMessage="+{points} rep"
           description="Rep count increase label in Projects"
-          id="LfoHxa"
+          id="HoFQuO"
           values={{
-            repCount,
+            points,
           }}
         />
       </Text>

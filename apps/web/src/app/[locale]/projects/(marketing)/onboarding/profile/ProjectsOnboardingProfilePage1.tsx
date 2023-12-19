@@ -132,7 +132,7 @@ export default function ProjectsOnboardingProfilePage1({
             id="GxJeqH"
           />
         </Heading>
-        <ProjectsReputationCountIncreaseTag repCount={100} variant="filled" />
+        <ProjectsReputationCountIncreaseTag points={100} variant="filled" />
       </div>
       <div className="mt-6 flex flex-col gap-y-16">
         <div className="flex flex-col items-start gap-x-16 gap-y-6 sm:flex-row sm:items-end">

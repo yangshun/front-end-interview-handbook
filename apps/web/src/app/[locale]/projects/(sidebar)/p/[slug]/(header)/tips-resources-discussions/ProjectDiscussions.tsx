@@ -73,7 +73,7 @@ export default function ProjectDiscussions({ user, posts }: Props) {
             type="submit"
             variant="primary"
           />
-          <ProjectsReputationCountIncreaseTag repCount={25} variant="filled" />
+          <ProjectsReputationCountIncreaseTag points={25} variant="filled" />
         </div>
         <ProjectsDiscussionPostList posts={posts} />
       </div>

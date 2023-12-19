@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
+import ProjectsSkillTreePage from '~/components/projects/skills/ProjectsSkillTreePage';
+
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import ProjectsSkillTreePage from './ProjectsSkillTreePage';
 
 type Props = Readonly<{
   params: Readonly<{
