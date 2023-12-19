@@ -14,7 +14,7 @@ import { useToast } from '~/components/global/toasts/ToastsProvider';
 import Button from '~/components/ui/Button';
 import TextInput from '~/components/ui/TextInput';
 
-import { themeLineColor } from '../ui/theme';
+import { themeLineColor } from '../../ui/theme';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -34,13 +34,13 @@ function useUserNameFormSchema() {
   );
 }
 
-export default function ProfileAccountUserName() {
+export default function ProfileAccountUsername() {
   const intl = useIntl();
   const profileUserNameStrings = getProfileUserNameStrings(intl);
 
   const toast = useToast();
   const userNameFormSchema = useUserNameFormSchema();
-  const { data } =  trpc.profile.getProfile.useQuery();
+  const { data } = trpc.profile.getProfile.useQuery();
   const userNameUpdateMutation = trpc.profile.userNameUpdate.useMutation();
 
   const {
@@ -48,14 +48,14 @@ export default function ProfileAccountUserName() {
     handleSubmit,
     reset,
     setError,
-    formState: { errors, isDirty, isValid, isLoading },
+    formState: { errors, isDirty, isValid, isSubmitting },
   } = useForm<UserNameFormValues>({
     defaultValues: {
       username: '',
     },
     mode: 'all',
     resolver: zodResolver(userNameFormSchema),
-    values: {username: data?.username ?? ''},
+    values: { username: data?.username ?? '' },
   });
 
   return (
@@ -83,7 +83,7 @@ export default function ProfileAccountUserName() {
               autoComplete="off"
               description={profileUserNameStrings.description}
               errorMessage={errors.username?.message}
-              isDisabled={isLoading}
+              isDisabled={isSubmitting}
               label={profileUserNameStrings.label}
               {...field}
             />
@@ -93,7 +93,7 @@ export default function ProfileAccountUserName() {
           <Button
             className="mt-4"
             isDisabled={!isDirty || !isValid}
-            isLoading={isLoading}
+            isLoading={isSubmitting}
             label={intl.formatMessage({
               defaultMessage: 'Save changes',
               description: 'Button label for a form',

@@ -10,7 +10,7 @@ import TextInput from '~/components/ui/TextInput';
 
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
-import { themeLineColor } from '../ui/theme';
+import { themeLineColor } from '../../ui/theme';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { User } from '@supabase/supabase-js';

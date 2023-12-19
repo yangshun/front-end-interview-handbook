@@ -62,8 +62,10 @@ export const marketingRouter = router({
             return 'Subscribed successfully!';
           }
 
-          return 'An error occurred';
+          return err.message;
         }
+
+        throw err;
       }
 
       return 'Subscribed successfully!';

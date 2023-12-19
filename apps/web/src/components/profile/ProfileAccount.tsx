@@ -5,9 +5,9 @@ import { FormattedMessage } from 'react-intl';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import ProfileAccountDisplayName from './ProfileAccountDisplayName';
-import ProfileAccountEmail from './ProfileAccountEmail';
-import ProfileAccountUserName from './ProfileAccountUserName';
+import ProfileAccountDisplayName from './fields/ProfileAccountDisplayName';
+import ProfileAccountEmail from './fields/ProfileAccountEmail';
+import ProfileAccountUsername from './fields/ProfileAccountUsername';
 
 import type { User } from '@supabase/supabase-js';
 
@@ -27,7 +27,7 @@ export default function ProfileAccount({ user }: Props) {
       </Heading>
       <Section>
         <ProfileAccountDisplayName />
-        <ProfileAccountUserName />
+        <ProfileAccountUsername />
         <ProfileAccountEmail user={user} />
       </Section>
     </div>

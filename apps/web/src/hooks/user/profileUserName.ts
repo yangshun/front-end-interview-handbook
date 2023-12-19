@@ -2,7 +2,7 @@ import type { IntlShape } from 'react-intl';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
-const MINIMUM_LENGTH = 1;
+const MINIMUM_LENGTH = 3;
 const MAXIMUM_LENGTH = 48;
 const REGEX_VALIDATION = new RegExp(/^[a-zA-Z0-9]+([-]*[a-zA-Z0-9]+)*$/);
 
@@ -24,8 +24,9 @@ export function getProfileUserNameSchema(options?: {
 // TODO: Figure out how to reuse intl strings for the server.
 export const profileUserNameSchemaServer = getProfileUserNameSchema({
   maxMessage: `Username must contain at most ${MAXIMUM_LENGTH} characters.`,
-  minMessage: 'Username cannot be empty.',
-  regexMessage: 'Username should begin and end with an alphanumeric character, and only contain alphanumeric characters or dashes.',
+  minMessage: `Username must contain at least ${MINIMUM_LENGTH} characters.`,
+  regexMessage:
+    'Username should begin and end with an alphanumeric character, and only contain alphanumeric characters or dashes.',
 });
 
 export function getProfileUserNameStrings(intl: IntlShape) {
@@ -47,8 +48,7 @@ export function getProfileUserNameStrings(intl: IntlShape) {
   );
   const maxMessage = intl.formatMessage(
     {
-      defaultMessage:
-        'Username must contain at most {maxLength} characters.',
+      defaultMessage: 'Username must contain at most {maxLength} characters.',
       description: 'Error message when username is too long',
       id: 'Wi3vIz',
     },
@@ -56,13 +56,19 @@ export function getProfileUserNameStrings(intl: IntlShape) {
       maxLength: MAXIMUM_LENGTH,
     },
   );
-  const minMessage = intl.formatMessage({
-    defaultMessage: 'Username cannot be empty.',
-    description: 'Error message when username is too short',
-    id: 'iF3wN+',
-  });
+  const minMessage = intl.formatMessage(
+    {
+      defaultMessage: 'Username must contain at least {minLength} characters.',
+      description: 'Error message when username is too short',
+      id: 'pomXxL',
+    },
+    {
+      minLength: MINIMUM_LENGTH,
+    },
+  );
   const regexMessage = intl.formatMessage({
-    defaultMessage: 'Username should begin and end with an alphanumeric character, and only contain alphanumeric characters or dashes.',
+    defaultMessage:
+      'Username should begin and end with an alphanumeric character, and only contain alphanumeric characters or dashes.',
     description: 'Error message when username contains invalid characters',
     id: '/95uM9',
   });

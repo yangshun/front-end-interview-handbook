@@ -3671,10 +3671,6 @@
     "defaultMessage": "Pricing Plans",
     "description": "Screen reader text referring to the Pricing Plan cards"
   },
-  "iF3wN+": {
-    "defaultMessage": "Username cannot be empty.",
-    "description": "Error message when username is too short"
-  },
   "iHLvVo": {
     "defaultMessage": "Find official guides, reference code from top submissions, and use our discussion forum to ask questions.",
     "description": "Description for Important Info Guide section on Before You Get Started dialog"
@@ -4334,6 +4330,10 @@
   "pmgCza": {
     "defaultMessage": "Mark as not completed",
     "description": "Tooltip to mark a button as incomplete"
+  },
+  "pomXxL": {
+    "defaultMessage": "Username must contain at least {minLength} characters.",
+    "description": "Error message when username is too short"
   },
   "pp1TOt": {
     "defaultMessage": "Copy line (empty selection)",

@@ -51,19 +51,17 @@ export const profileRouter = router({
           },
         });
       } catch (err) {
-        if (err instanceof Prisma.PrismaClientKnownRequestError) {
-          if (err.code === 'P2002') {
-            throw new TRPCError({
-              code: 'CONFLICT',
-              message: 'Username already exists.',
-            });
-          }
-
+        if (
+          err instanceof Prisma.PrismaClientKnownRequestError &&
+          err.code === 'P2002'
+        ) {
           throw new TRPCError({
-            code: 'INTERNAL_SERVER_ERROR',
-            message: 'An error occurred.',
+            code: 'CONFLICT',
+            message: 'Username already exists.',
           });
         }
+
+        throw err;
       }
     }),
 });

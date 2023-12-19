@@ -14,10 +14,9 @@ import { useToast } from '~/components/global/toasts/ToastsProvider';
 import Button from '~/components/ui/Button';
 import TextInput from '~/components/ui/TextInput';
 
-import { themeLineColor } from '../ui/theme';
+import { themeLineColor } from '../../ui/theme';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import type { User } from '@supabase/supabase-js';
 
 type DisplayNameFormValues = Readonly<{
   name: string;
