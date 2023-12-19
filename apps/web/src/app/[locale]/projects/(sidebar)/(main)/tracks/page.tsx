@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
+import ProjectsTracksListPage from '~/components/projects/tracks/ProjectsTracksListPage';
+
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import ProjectsComponentTracksPage from './ProjectsComponentTracksPage';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     locale,
-    pathname: '/projects/component-tracks',
+    pathname: '/projects/tracks',
     title: intl.formatMessage({
       defaultMessage: 'Component tracks | Projects',
       description: 'Title of Projects component tracks page',
@@ -28,5 +28,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  return <ProjectsComponentTracksPage />;
+  return <ProjectsTracksListPage />;
 }

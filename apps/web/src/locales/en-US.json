@@ -455,6 +455,10 @@
     "defaultMessage": "Optimized image assets",
     "description": "Label for Image Assets card in Assets Provided section of Projects project page"
   },
+  "4tgadO": {
+    "defaultMessage": "Impress recruiters with entire component libraries or design systems built from scratch. Our component tracks cover components from various use cases and industries.",
+    "description": "Subtitle of the 'Component tracks' marketing section on Projects home page"
+  },
   "5+8FGz": {
     "defaultMessage": "Submission success",
     "description": "Title for the project submission success page"
@@ -4079,10 +4083,6 @@
     "defaultMessage": "Prepare end-to-end for front end interviews",
     "description": "Title for question format category links in navbar"
   },
-  "mae10q": {
-    "defaultMessage": "Impress recruiters with entire component libraries or design systems build from scratch. Our component tracks cover components from various use cases and industries.",
-    "description": "Subtitle of the 'Component tracks' marketing section on Projects home page"
-  },
   "mb7erW": {
     "defaultMessage": "Importance",
     "description": "Label for question importance - how important it is to practice this question"
@@ -4538,10 +4538,6 @@
   "sPnbze": {
     "defaultMessage": "+{count} more",
     "description": "Label for number of additional skills"
-  },
-  "sStS22": {
-    "defaultMessage": "Back to all component tracks",
-    "description": "Label for \"Back to all component tracks\" button on Projects track page"
   },
   "sWyGax": {
     "defaultMessage": "Features",
@@ -5126,6 +5122,10 @@
   "zo65Ck": {
     "defaultMessage": "All Practice Questions",
     "description": "Header for all practice questions section in study plans"
+  },
+  "zpsjf3": {
+    "defaultMessage": "Back to all tracks",
+    "description": "Button label to go back to all projects tracks"
   },
   "zqNjnp": {
     "defaultMessage": "CSS",

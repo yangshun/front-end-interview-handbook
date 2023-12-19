@@ -6,8 +6,8 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
-import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';
 import {
@@ -18,32 +18,20 @@ import {
 
 import ProjectsProjectCountTag from '../stats/ProjectsProjectCountTag';
 import ProjectsReputationCountIncreaseTag from '../stats/ProjectsReputationCountIncreaseTag';
+import type { ProjectsTrack } from '../tracks/ProjectsTracksData';
 
 import * as Accordion from '@radix-ui/react-accordion';
-
-type ProjectsTrackProject = Readonly<{
-  key: string;
-  title: string;
-}>;
-
-export type ProjectsTrack = Readonly<{
-  completedProjectCount: number;
-  description: string;
-  isPremium: boolean;
-  key: string;
-  projects: ReadonlyArray<ProjectsTrackProject>;
-  repCount: number;
-  title: string;
-  totalProjectCount: number;
-}>;
 
 type Props = Readonly<{
   track: ProjectsTrack;
 }>;
 
 export default function ProjectsMarketingComponentTrackAccordionItem({
-  track: {
-    key,
+  track,
+}: Props) {
+  const {
+    href,
+    slug,
     title,
     description,
     repCount,
@@ -51,12 +39,12 @@ export default function ProjectsMarketingComponentTrackAccordionItem({
     totalProjectCount,
     completedProjectCount,
     isPremium,
-  },
-}: Props) {
+  } = track;
+
   const intl = useIntl();
 
   return (
-    <Accordion.Item value={key}>
+    <Accordion.Item value={slug}>
       <Card
         className="flex flex-col overflow-visible bg-neutral-800/40 hover:bg-neutral-800/50"
         disableBackground={true}
@@ -110,7 +98,9 @@ export default function ProjectsMarketingComponentTrackAccordionItem({
           <div className="-mx-6 overflow-hidden">
             <div className="flex overflow-x-auto px-6">
               {projects.map((project, i) => (
-                <div key={project.key} className="relative flex flex-col gap-4">
+                <div
+                  key={project.slug}
+                  className="relative flex flex-col gap-4">
                   <div className="flex items-center">
                     <div
                       className={clsx(
@@ -126,12 +116,12 @@ export default function ProjectsMarketingComponentTrackAccordionItem({
                       <div className="flex-1 border-t border-dashed border-neutral-800" />
                     )}
                   </div>
-                  <button
+                  <Anchor
                     className={clsx(
                       'outline-brand flex flex-col gap-2 rounded-md bg-neutral-900 p-2',
                       i < projects.length - 1 && 'me-4',
                     )}
-                    type="button">
+                    href={project.href}>
                     <img
                       alt=""
                       className="h-32 w-48 self-stretch rounded-md bg-neutral-800"
@@ -140,22 +130,29 @@ export default function ProjectsMarketingComponentTrackAccordionItem({
                     <Text size="body2" weight="medium">
                       {project.title}
                     </Text>
-                  </button>
+                  </Anchor>
                 </div>
               ))}
             </div>
           </div>
-          <Button
-            className="mt-6"
-            icon={RiArrowRightLine}
-            label={intl.formatMessage({
-              defaultMessage: 'See whole component track',
-              description:
-                'Label for "See whole component track" button in Component track accordion',
-              id: 'MwvhTF',
-            })}
-            variant="secondary"
-          />
+          <Anchor className="inline-flex mt-6" href={href}>
+            <Text
+              className="inline-flex gap-2 items-center"
+              color="inherit"
+              size="body2"
+              weight="medium">
+              {intl.formatMessage({
+                defaultMessage: 'See whole component track',
+                description:
+                  'Label for "See whole component track" button in Component track accordion',
+                id: 'MwvhTF',
+              })}
+              <RiArrowRightLine
+                aria-hidden={true}
+                className="w-4 h-4 shrink-0"
+              />
+            </Text>
+          </Anchor>
         </Accordion.Content>
       </Card>
     </Accordion.Item>

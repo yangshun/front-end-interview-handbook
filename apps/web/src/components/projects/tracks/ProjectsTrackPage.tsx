@@ -4,9 +4,9 @@ import clsx from 'clsx';
 import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import type { ProjectsTrack } from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordionItem';
 import ProjectsProjectCountTag from '~/components/projects/stats/ProjectsProjectCountTag';
 import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
+import type { ProjectsTrack } from '~/components/projects/tracks/ProjectsTracksData';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import Heading from '~/components/ui/Heading';
@@ -37,12 +37,12 @@ export default function ProjectsTrackPage({
       <Button
         addonPosition="start"
         className="-ms-4 self-start"
+        href="/projects/tracks"
         icon={RiArrowLeftLine}
         label={intl.formatMessage({
-          defaultMessage: 'Back to all component tracks',
-          description:
-            'Label for "Back to all component tracks" button on Projects track page',
-          id: 'sStS22',
+          defaultMessage: 'Back to all tracks',
+          description: 'Button label to go back to all projects tracks',
+          id: 'zpsjf3',
         })}
         variant="tertiary"
       />
@@ -78,7 +78,7 @@ export default function ProjectsTrackPage({
             'before:border-element before:absolute before:left-3 before:-z-10 before:h-full before:w-px before:border-l before:border-dashed dark:before:border-neutral-700',
           )}>
           {projects.map((project, index) => (
-            <div key={project.key} className="group flex items-center gap-6">
+            <div key={project.slug} className="group flex items-center gap-6">
               <div
                 className={clsx(
                   'relative flex flex-col justify-center self-stretch',
@@ -110,6 +110,7 @@ export default function ProjectsTrackPage({
                 </Text>
                 <Button
                   className="-ms-3"
+                  href={project.href}
                   icon={RiArrowRightLine}
                   label="Start building"
                   size="sm"

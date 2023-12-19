@@ -11,7 +11,7 @@ import Tabs from '~/components/ui/Tabs';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-type TabType = 'all-projects' | 'component-tracks' | 'skill-tree';
+type TabType = 'all-projects' | 'skill-tree' | 'tracks';
 
 const tabs: Array<TabItem<TabType>> = [
   {
@@ -27,10 +27,10 @@ const tabs: Array<TabItem<TabType>> = [
     value: 'skill-tree',
   },
   {
-    href: '/projects/component-tracks',
+    href: '/projects/tracks',
     icon: RiCheckboxMultipleLine,
-    label: 'Component Tracks',
-    value: 'component-tracks',
+    label: 'Component tracks',
+    value: 'tracks',
   },
 ];
 

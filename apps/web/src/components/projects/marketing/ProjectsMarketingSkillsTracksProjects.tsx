@@ -9,7 +9,6 @@ import HTML5LogoMonochrome from '~/components/icons/HTML5LogoMonochrome';
 import JavaScriptLogo from '~/components/icons/JavaScriptLogoMonochrome';
 import ReactLogo from '~/components/icons/ReactLogo';
 import ProjectsMarketingComponentTrackAccordion from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordion';
-import type { ProjectsTrack } from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordionItem';
 import ProjectsMarketingComponentTrackAccordionItem from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordionItem';
 import ProjectsProjectGridList from '~/components/projects/projects/ProjectsProjectGridList';
 import ProjectsProjectGridListWithFilters from '~/components/projects/projects/ProjectsProjectGridListWithFilters';
@@ -25,6 +24,8 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeRadialGlowBackground } from '~/components/ui/theme';
 
+import { hiddenTracks, projectTracks } from '../tracks/ProjectsTracksData';
+
 const skills = [
   {
     icon: HTML5LogoMonochrome,
@@ -32,81 +33,6 @@ const skills = [
   },
   { icon: JavaScriptLogo, key: 'javascript' },
   { icon: ReactLogo, key: 'react' },
-];
-
-const tracks: Array<ProjectsTrack> = [
-  {
-    completedProjectCount: 3,
-    description: 'Learn how to build a whole design system from scratch',
-    isPremium: false,
-    key: 'design-system',
-    projects: [
-      {
-        key: 'button',
-        title: 'Button',
-      },
-      {
-        key: 'text-input',
-        title: 'Button',
-      },
-      {
-        key: 'alert',
-        title: 'Alert',
-      },
-    ],
-    repCount: 1000,
-    title: 'Design system track',
-    totalProjectCount: 11,
-  },
-  {
-    completedProjectCount: 3,
-    description: 'Learn how to build a whole design system from scratch',
-    isPremium: true,
-    key: 'portfolio',
-    projects: [
-      {
-        key: 'button',
-        title: 'Button',
-      },
-      {
-        key: 'text-input',
-        title: 'Button',
-      },
-      {
-        key: 'alert',
-        title: 'Alert',
-      },
-    ],
-    repCount: 1000,
-    title: 'Portfolio track',
-    totalProjectCount: 11,
-  },
-];
-
-const hiddenTracks: Array<ProjectsTrack> = [
-  {
-    completedProjectCount: 3,
-    description: 'Learn how to build a whole design system from scratch',
-    isPremium: false,
-    key: 'design-system',
-    projects: [
-      {
-        key: 'button',
-        title: 'Button',
-      },
-      {
-        key: 'text-input',
-        title: 'Button',
-      },
-      {
-        key: 'alert',
-        title: 'Alert',
-      },
-    ],
-    repCount: 1000,
-    title: 'Design system track',
-    totalProjectCount: 11,
-  },
 ];
 
 const projects: Array<ProjectsProject> = [
@@ -585,9 +511,9 @@ export default function ProjectsMarketingSkillsTracksProjects() {
             <MarketingSectionItemHeader
               description={
                 <FormattedMessage
-                  defaultMessage="Impress recruiters with entire component libraries or design systems build from scratch. Our component tracks cover components from various use cases and industries."
+                  defaultMessage="Impress recruiters with entire component libraries or design systems built from scratch. Our component tracks cover components from various use cases and industries."
                   description="Subtitle of the 'Component tracks' marketing section on Projects home page"
-                  id="mae10q"
+                  id="4tgadO"
                   values={{
                     projectCount: 50,
                   }}
@@ -609,10 +535,10 @@ export default function ProjectsMarketingSkillsTracksProjects() {
               }
             />
             <ProjectsMarketingComponentTrackAccordion>
-              {tracks.map((track) => (
+              {projectTracks.map((projectTrack) => (
                 <ProjectsMarketingComponentTrackAccordionItem
-                  key={track.key}
-                  track={track}
+                  key={projectTrack.slug}
+                  track={projectTrack}
                 />
               ))}
             </ProjectsMarketingComponentTrackAccordion>
@@ -621,7 +547,7 @@ export default function ProjectsMarketingSkillsTracksProjects() {
               overlay={
                 <div className="flex flex-col items-center gap-4">
                   <Button
-                    href="/projects/component-tracks"
+                    href="/projects/tracks"
                     icon={RiArrowRightLine}
                     label={intl.formatMessage(
                       {
@@ -650,7 +576,7 @@ export default function ProjectsMarketingSkillsTracksProjects() {
                 disabled={true}>
                 {hiddenTracks.map((track) => (
                   <ProjectsMarketingComponentTrackAccordionItem
-                    key={track.key}
+                    key={track.slug}
                     track={track}
                   />
                 ))}
