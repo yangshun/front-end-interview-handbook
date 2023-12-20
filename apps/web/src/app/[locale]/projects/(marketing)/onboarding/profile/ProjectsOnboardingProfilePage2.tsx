@@ -1,7 +1,9 @@
 import React from 'react';
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
+
+import { trpc } from '~/hooks/trpc';
 
 import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
 import Button from '~/components/ui/Button';
@@ -10,19 +12,32 @@ import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 
-import type { OnboardingProfileFormValues } from './ProjectsOnboardingProfilePage';
-
-export type OnboardingProfilePage2FormValues = Readonly<{
+type OnboardingProfilePage2FormValues = Readonly<{
   bio: string;
-  linkGitHub: string;
-  linkLinkedIn: string;
-  linkPersonalWebsite: string;
+  githubUsername: string;
+  linkedInUsername: string;
+  website: string;
 }>;
 
 export default function ProjectsOnboardingProfilePage1() {
   const intl = useIntl();
+  const { data: initialValues } =
+    trpc.projects.profile.onboardingStep2Get.useQuery();
+  const onboardingStep2UpdateMutation =
+    trpc.projects.profile.onboardingStep2Update.useMutation();
 
-  const { control } = useFormContext<OnboardingProfileFormValues>();
+  const {
+    control,
+    handleSubmit,
+    formState: { isDirty, isSubmitting },
+  } = useForm<OnboardingProfilePage2FormValues>({
+    values: {
+      bio: initialValues?.bio ?? '',
+      githubUsername: initialValues?.githubUsername ?? '',
+      linkedInUsername: initialValues?.linkedInUsername ?? '',
+      website: initialValues?.website ?? '',
+    },
+  });
 
   return (
     <>
@@ -47,7 +62,11 @@ export default function ProjectsOnboardingProfilePage1() {
           variant="tertiary"
         />
       </div>
-      <div className="mt-6 flex flex-col gap-y-16">
+      <form
+        className="mt-6 flex flex-col gap-y-16"
+        onSubmit={handleSubmit(async (data) => {
+          await onboardingStep2UpdateMutation.mutateAsync(data);
+        })}>
         <div className="relative">
           <ProjectsReputationCountIncreaseTag
             className="absolute end-0 top-0"
@@ -60,11 +79,13 @@ export default function ProjectsOnboardingProfilePage1() {
             render={({ field }) => (
               <TextArea
                 description={intl.formatMessage({
-                  defaultMessage: 'Bio description',
+                  defaultMessage:
+                    'Tell the community about yourself - your background, skills, aspirations and skills and tools you hope to pick up!',
                   description:
                     'Description for Biography input on Projects profile onboarding page',
-                  id: 'hJzsEb',
+                  id: 'I60bQN',
                 })}
+                descriptionStyle="tooltip"
                 label={intl.formatMessage({
                   defaultMessage: 'Bio',
                   description:
@@ -100,15 +121,17 @@ export default function ProjectsOnboardingProfilePage1() {
               />
               <Controller
                 control={control}
-                name="linkGitHub"
+                name="githubUsername"
                 render={({ field }) => (
                   <TextInput
                     description={intl.formatMessage({
-                      defaultMessage: 'GitHub link description',
+                      defaultMessage:
+                        'Add your socials so that others can find you!',
                       description:
-                        'Description for GitHub link input on Projects profile onboarding page',
-                      id: 'c9Jgo2',
+                        'Description for social link input on Projects profile onboarding page',
+                      id: 'SbE8XR',
                     })}
+                    descriptionStyle="tooltip"
                     label={intl.formatMessage({
                       defaultMessage: 'GitHub (optional)',
                       description:
@@ -128,15 +151,17 @@ export default function ProjectsOnboardingProfilePage1() {
               />
               <Controller
                 control={control}
-                name="linkLinkedIn"
+                name="linkedInUsername"
                 render={({ field }) => (
                   <TextInput
                     description={intl.formatMessage({
-                      defaultMessage: 'LinkedIn link description',
+                      defaultMessage:
+                        'Add your socials so that others can find you!',
                       description:
-                        'Description for LinkedIn link input on Projects profile onboarding page',
-                      id: '7GfgZR',
+                        'Description for social link input on Projects profile onboarding page',
+                      id: 'SbE8XR',
                     })}
+                    descriptionStyle="tooltip"
                     label={intl.formatMessage({
                       defaultMessage: 'LinkedIn (optional)',
                       description:
@@ -156,15 +181,17 @@ export default function ProjectsOnboardingProfilePage1() {
               />
               <Controller
                 control={control}
-                name="linkPersonalWebsite"
+                name="website"
                 render={({ field }) => (
                   <TextInput
                     description={intl.formatMessage({
-                      defaultMessage: 'Personal Website link description',
+                      defaultMessage:
+                        'Add your socials so that others can find you!',
                       description:
-                        'Description for Personal Website link input on Projects profile onboarding page',
-                      id: 'wjcqDA',
+                        'Description for social link input on Projects profile onboarding page',
+                      id: 'SbE8XR',
                     })}
+                    descriptionStyle="tooltip"
                     label={intl.formatMessage({
                       defaultMessage: 'Personal Website (optional)',
                       description:
@@ -181,6 +208,8 @@ export default function ProjectsOnboardingProfilePage1() {
         <Button
           className="self-end"
           icon={RiArrowRightLine}
+          isDisabled={!isDirty || isSubmitting}
+          isLoading={isSubmitting}
           label={intl.formatMessage({
             defaultMessage: 'Get started',
             description:
@@ -188,9 +217,10 @@ export default function ProjectsOnboardingProfilePage1() {
             id: 'iBfH9v',
           })}
           size="lg"
+          type="submit"
           variant="primary"
         />
-      </div>
+      </form>
     </>
   );
 }

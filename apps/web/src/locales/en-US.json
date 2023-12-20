@@ -287,10 +287,6 @@
     "defaultMessage": "For Portfolios",
     "description": "Button label for Projects marketing hero section for portfolio projects"
   },
-  "1wTKEc": {
-    "defaultMessage": "Month and year you started work as a Front End Engineer description",
-    "description": "Description for \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
-  },
   "1wrVTx": {
     "defaultMessage": "Edit on GitHub",
     "description": "Edit on GitHub button"
@@ -362,6 +358,10 @@
   "3NSzVn": {
     "defaultMessage": "Premium",
     "description": "Premium label for free vs premium question breakdown in question listing"
+  },
+  "3QQssQ": {
+    "defaultMessage": "Please enter a valid date",
+    "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
   },
   "3WHiQS": {
     "defaultMessage": "Cheatsheet",
@@ -639,10 +639,6 @@
     "defaultMessage": "Let's begin!",
     "description": "Title for Start Coding content section on Before You Get Started dialog"
   },
-  "7GfgZR": {
-    "defaultMessage": "LinkedIn link description",
-    "description": "Description for LinkedIn link input on Projects profile onboarding page"
-  },
   "7HLv+l": {
     "defaultMessage": "Try these questions next",
     "description": "Text above suggested questions to indicate to the user that they can try those questions next"
@@ -702,6 +698,10 @@
   "7uB2Jj": {
     "defaultMessage": "{price} billed yearly",
     "description": "Description of billing frequency for annual plan"
+  },
+  "7uiIH5": {
+    "defaultMessage": "Similar to your LinkedIn title. Include your role and company, or your interests.",
+    "description": "Description for \"Job Title\" input on Projects profile onboarding page"
   },
   "7vvXZb": {
     "defaultMessage": "Premium Projects",
@@ -882,10 +882,6 @@
   "9nq03w": {
     "defaultMessage": "Others",
     "description": "Label for \"Others\" option in YOE replacement"
-  },
-  "9qM8IM": {
-    "defaultMessage": "Tech stack to improve description",
-    "description": "Description for \"Tech stack to improve\" input on Projects profile onboarding page"
   },
   "9wRhlQ": {
     "defaultMessage": "Front End Interview",
@@ -1143,10 +1139,6 @@
     "defaultMessage": "The email address you want to use to log in.",
     "description": "Email field description"
   },
-  "DZGIbR": {
-    "defaultMessage": "Starter",
-    "description": "Label for starter project"
-  },
   "DbEF7d": {
     "defaultMessage": "Master the art of building interactive and user-friendly forms.",
     "description": "Description for interview preparation focus area"
@@ -1218,6 +1210,10 @@
   "ENNKyg": {
     "defaultMessage": "View subscription plans",
     "description": "Button displayed on paywall on premium question pages, leading to our pricing plans"
+  },
+  "EjGug0": {
+    "defaultMessage": "We use this to calculate your YOE and keep it updated",
+    "description": "Description for \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
   },
   "EjbpUe": {
     "defaultMessage": "Open navigation profile menu",
@@ -1403,6 +1399,10 @@
     "defaultMessage": "No completed questions",
     "description": "Text shown when no questions are completed."
   },
+  "H+so3d": {
+    "defaultMessage": "The skills / tools / frameworks you are hoping to grow.. Cannot find the tag you need? Email us at {supportEmail}",
+    "description": "Description for \"Tech stack to improve\" input on Projects profile onboarding page"
+  },
   "H/u+cg": {
     "defaultMessage": "Guides",
     "description": "Guides navbar item"
@@ -1502,6 +1502,10 @@
   "I5iXtu": {
     "defaultMessage": "Solution for {questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions",
     "description": "Title of Front End Interview UI Coding Questions solution page"
+  },
+  "I60bQN": {
+    "defaultMessage": "Tell the community about yourself - your background, skills, aspirations and skills and tools you hope to pick up!",
+    "description": "Description for Biography input on Projects profile onboarding page"
   },
   "I619Rj": {
     "defaultMessage": "Profile image",
@@ -1682,6 +1686,10 @@
   "KKasxQ": {
     "defaultMessage": "Reply content",
     "description": "Label for discussion post reply input"
+  },
+  "KQXNDC": {
+    "defaultMessage": "Please enter your status",
+    "description": "Error message for empty \"Other\" input for \"Years of experience replacement status\" on Projects profile onboarding page"
   },
   "KRHAyD": {
     "defaultMessage": "Apply",
@@ -2371,6 +2379,10 @@
     "defaultMessage": "Not Subscribed",
     "description": "Text describing user's subscription status."
   },
+  "SbE8XR": {
+    "defaultMessage": "Add your socials so that others can find you!",
+    "description": "Description for social link input on Projects profile onboarding page"
+  },
   "SdXQye": {
     "defaultMessage": "Add selection to next find match",
     "description": "Text describing command to add selection to next find match in the coding workspace shortcuts menu"
@@ -2507,10 +2519,6 @@
     "defaultMessage": "System",
     "description": "System theme option label"
   },
-  "UTwUDd": {
-    "defaultMessage": "Job title description",
-    "description": "Description for \"Job Title\" input on Projects profile onboarding page"
-  },
   "UWucPu": {
     "defaultMessage": "Purchase",
     "description": "Title for FAQ section"
@@ -2590,6 +2598,10 @@
   "VElW3O": {
     "defaultMessage": "Download starter code + image assets",
     "description": "Label for \"Download starter code + image assets\" button on Projects project page"
+  },
+  "VGOH7F": {
+    "defaultMessage": "Please enter your job title",
+    "description": "Error message for empty \"Job title\" input on Projects profile onboarding page"
   },
   "VJ8xZy": {
     "defaultMessage": "Prices will be increased as more content is being added to the website.",
@@ -2847,10 +2859,6 @@
     "defaultMessage": "Review Cashback Terms and Conditions",
     "description": "Title of legal page"
   },
-  "YSJ2ji": {
-    "defaultMessage": "Tech stack proficient description",
-    "description": "Description for \"Tech stack proficient\" input on Projects profile onboarding page"
-  },
   "YWz2ko": {
     "defaultMessage": "Proven preparation plans",
     "description": "Title for proven preparation plans feature"
@@ -2874,6 +2882,10 @@
   "Yezbh0": {
     "defaultMessage": "Level up in your skills or complete component track",
     "description": "Description for \"Level up in your skills or complete component track\" feature on Projects home page"
+  },
+  "YiE5Xj": {
+    "defaultMessage": "The skills / tools / frameworks you are already familiar in. Cannot find the tag you need? Email us at {supportEmail}",
+    "description": "Description for \"Tech stack proficient\" input on Projects profile onboarding page"
   },
   "YwXYNT": {
     "defaultMessage": "Project completed",
@@ -3195,10 +3207,6 @@
     "defaultMessage": "Only build useful projects",
     "description": "Short title for \"Never waste your time building one-off projects\" feature marketing section on Projects home page"
   },
-  "c9Jgo2": {
-    "defaultMessage": "GitHub link description",
-    "description": "Description for GitHub link input on Projects profile onboarding page"
-  },
   "c9QTag": {
     "defaultMessage": "Settings",
     "description": "Label for Settings sidebar item in Projects sidebar"
@@ -3435,10 +3443,6 @@
     "defaultMessage": "As someone who has given as well as taken a lot of interviews, I can say GreatFrontEnd is a f'king goldmine. I would highly recommend GreatFrontEnd to anyone who is preparing for front end interviews or anyone who just wants to learn some new concepts. The content is well-organized, has some great practical coding challenges, and the system design part is just amazing!!!",
     "description": "Anonymous Front End Engineer's testimonial"
   },
-  "fVpzUz": {
-    "defaultMessage": "Starter",
-    "description": "Label for starter project tag"
-  },
   "fXNw/d": {
     "defaultMessage": "Your Email",
     "description": "Feedback widget email input field label"
@@ -3598,10 +3602,6 @@
   "hEu8WR": {
     "defaultMessage": "{repRemaining} rep to <emph>level {nextLevel}</emph>",
     "description": "Rep remaining to next level"
-  },
-  "hJzsEb": {
-    "defaultMessage": "Bio description",
-    "description": "Description for Biography input on Projects profile onboarding page"
   },
   "hNQSH/": {
     "defaultMessage": "Apple",
@@ -4887,10 +4887,6 @@
     "defaultMessage": "GreatFrontEnd is hiring! Check out our <link>jobs page</link>!",
     "description": "Text on Promo Banner"
   },
-  "wjcqDA": {
-    "defaultMessage": "Personal Website link description",
-    "description": "Description for Personal Website link input on Projects profile onboarding page"
-  },
   "wmvMT1": {
     "defaultMessage": "Pricing plans tailored to your needs. Grab our all-access lifetime plans at a 30% discount today!",
     "description": "Description of Pricing page"
@@ -5066,6 +5062,10 @@
   "ynLgE+": {
     "defaultMessage": "Includes assets, JPG images of the design files, and a basic style guide. There's also a README to help you get started.",
     "description": "Description for Download Starter Files content section on Before You Get Started dialog"
+  },
+  "yqjkfw": {
+    "defaultMessage": "Please enter your name",
+    "description": "Error message for empty \"Name\" input on Projects profile onboarding page"
   },
   "yrC3kR": {
     "defaultMessage": "Editor shortcuts",

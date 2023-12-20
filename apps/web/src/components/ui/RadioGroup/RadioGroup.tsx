@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import type { ReactElement } from 'react';
-import { useId } from 'react';
+import type { ReactElement, Ref } from 'react';
+import { forwardRef, useId } from 'react';
 
 import type { RadioGroupItemProps } from './RadioGroupItem';
 import Text from '../Text';
@@ -19,23 +19,26 @@ type Props<T extends string> = Readonly<{
   isDisabled?: boolean;
   isLabelHidden?: boolean;
   label: string;
-  onChange: (value: string) => void;
-  value: string;
+  onChange?: (value: string) => void;
+  value?: string | undefined;
 }>;
 
-function RadioGroup<T extends string>({
-  children,
-  className,
-  direction = 'horizontal',
-  id: idParam,
-  errorMessage,
-  description,
-  isDisabled = false,
-  isLabelHidden = false,
-  onChange,
-  value,
-  label,
-}: Props<T>) {
+function RadioGroup<T extends string>(
+  {
+    children,
+    className,
+    direction = 'horizontal',
+    id: idParam,
+    errorMessage,
+    description,
+    isDisabled = false,
+    isLabelHidden = false,
+    onChange,
+    value,
+    label,
+  }: Props<T>,
+  ref: Ref<HTMLDivElement>,
+) {
   const hasError = !!errorMessage;
   const generatedId = useId();
   const messageId = useId();
@@ -61,6 +64,7 @@ function RadioGroup<T extends string>({
         </Text>
       )}
       <RadixRadioGroup.Root
+        ref={ref}
         aria-describedby={
           hasError || description != null ? messageId : undefined
         }
@@ -89,4 +93,4 @@ function RadioGroup<T extends string>({
   );
 }
 
-export default RadioGroup;
+export default forwardRef(RadioGroup);
