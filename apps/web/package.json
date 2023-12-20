@@ -93,6 +93,7 @@
     "react-icons": "^4.12.0",
     "react-intl": "^6.2.8",
     "react-resizable-panels": "^0.0.55",
+    "reading-time": "^1.5.0",
     "remark-frontmatter": "^4.0.1",
     "remark-gfm": "^3.0.1",
     "remark-mdx-frontmatter": "^2.1.1",

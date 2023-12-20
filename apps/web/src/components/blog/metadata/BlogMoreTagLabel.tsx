@@ -1,0 +1,48 @@
+import clsx from 'clsx';
+import { capitalize } from 'lodash-es';
+import { FormattedMessage } from 'react-intl';
+
+import type { BlogTagType } from '~/components/blog/BlogTypes';
+import Tooltip from '~/components/ui/Tooltip';
+
+type LabelSize = 'md' | 'sm';
+
+type Props = Readonly<{
+  count: number;
+  moreTags: ReadonlyArray<BlogTagType>;
+  size?: LabelSize;
+}>;
+
+const sizeClasses: Record<LabelSize, string> = {
+  md: 'px-3 text-sm gap-1.5',
+  sm: 'px-2 text-xs gap-1',
+};
+
+export default function BlogMoreTagLabel({
+  count,
+  size = 'sm',
+  moreTags = [],
+}: Props) {
+  const tagsLabel = moreTags.map((tag) => capitalize(tag)).join(', ');
+
+  return (
+    <Tooltip className="inline-flex" label={tagsLabel} position="above">
+      <span
+        className={clsx(
+          'relative inline-flex items-center whitespace-nowrap rounded-full border border-neutral-700 bg-neutral-200 py-px font-medium dark:border-neutral-300 dark:bg-neutral-600',
+          sizeClasses[size],
+        )}>
+        <span className="text-neutral-700 dark:text-neutral-300">
+          <FormattedMessage
+            defaultMessage="+ {numberOfTags} more"
+            description="Number of tags in a list"
+            id="Ctnuuc"
+            values={{
+              numberOfTags: count,
+            }}
+          />
+        </span>
+      </span>
+    </Tooltip>
+  );
+}

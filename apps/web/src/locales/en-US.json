@@ -207,6 +207,10 @@
     "defaultMessage": "Recommended schedule",
     "description": "Recommended schedule tooltip displayed on question cards found on question lists"
   },
+  "0WJfoT": {
+    "defaultMessage": "Intermediate",
+    "description": "Intermediate level blog"
+  },
   "0hdhAz": {
     "defaultMessage": "Low",
     "description": "Label for low question importance"
@@ -291,6 +295,10 @@
     "defaultMessage": "Edit on GitHub",
     "description": "Edit on GitHub button"
   },
+  "23bxK1": {
+    "defaultMessage": "Blogs List",
+    "description": "Screen reader text indicating the blog list component on blog homepage"
+  },
   "2LouBj": {
     "defaultMessage": "Holistic study plans",
     "description": "Title of list of study plans"
@@ -330,6 +338,10 @@
   "2gImEH": {
     "defaultMessage": "Online assets",
     "description": "Title for Online Assets section on Projects project assets page"
+  },
+  "2nYCLe": {
+    "defaultMessage": "List View",
+    "description": "View option for blog list- List View"
   },
   "2vDjTb": {
     "defaultMessage": "Discover study plans tailored to your needs to help your prepare for your upcoming technical interviews.",
@@ -394,6 +406,10 @@
   "3lEE1N": {
     "defaultMessage": "New",
     "description": "Label for new questions ribbon"
+  },
+  "3n4NQB": {
+    "defaultMessage": "GreatFrontEnd Blog",
+    "description": "Title of GreatFrontEnd blog homepage"
   },
   "3t00jq": {
     "defaultMessage": "Confirm",
@@ -519,6 +535,10 @@
     "defaultMessage": "Someone from {country} subscribed to <link>Premium</link> recently",
     "description": "Marketing toast to show that someone has subscribed"
   },
+  "5grx3w": {
+    "defaultMessage": "Latest View",
+    "description": "Sorting option for blog list- Latest View"
+  },
   "5hTR16": {
     "defaultMessage": "Profile",
     "description": "Title of Profile page"
@@ -562,6 +582,10 @@
   "6PA1sS": {
     "defaultMessage": "Submissions you can reference",
     "description": "Title for Reference Submissions section on Projects project tips & resources page"
+  },
+  "6RhqF3": {
+    "defaultMessage": "Number of articles",
+    "description": "Total number of articles in a list"
   },
   "6SEbWz": {
     "defaultMessage": "Annual plan",
@@ -635,6 +659,10 @@
     "defaultMessage": "Mid",
     "description": "Label for medium question importance"
   },
+  "78MOQL": {
+    "defaultMessage": "No articles",
+    "description": "Title for empty state when application of filters return no results"
+  },
   "79YODs": {
     "defaultMessage": "Let's begin!",
     "description": "Title for Start Coding content section on Before You Get Started dialog"
@@ -659,6 +687,10 @@
     "defaultMessage": "No ongoing learning session",
     "description": "No active study plan session started"
   },
+  "7OMhXJ": {
+    "defaultMessage": "Level",
+    "description": "Blog Level"
+  },
   "7Ozzmy": {
     "defaultMessage": "Start coding!",
     "description": "Label for \"Start coding!\" step in dialog on Projects project page"
@@ -670,6 +702,10 @@
   "7Po5ci": {
     "defaultMessage": "Know your fundamentals",
     "description": "Label for an example list of Quiz Questions on marketing pages"
+  },
+  "7Rr7Yf": {
+    "defaultMessage": "{minutes} min read",
+    "description": "Blog read duration label"
   },
   "7Wsapt": {
     "defaultMessage": "Quiz",
@@ -823,9 +859,17 @@
     "defaultMessage": "Most Common Questions",
     "description": "Most common behavioral interview questions"
   },
+  "9+dL62": {
+    "defaultMessage": "Copy Link",
+    "description": "Blog copy Link button label"
+  },
   "94CGBX": {
     "defaultMessage": "Coding",
     "description": "Label for coding questions"
+  },
+  "958yDE": {
+    "defaultMessage": "Explore Series",
+    "description": "Sidebar label for explore series"
   },
   "97HVxk": {
     "defaultMessage": "Key features",
@@ -834,6 +878,14 @@
   "98YCSU": {
     "defaultMessage": "Learning by building has never been easier",
     "description": "Subtitle of Start Project CTA card in Projects sidebar"
+  },
+  "99F7Mt": {
+    "defaultMessage": "Tags",
+    "description": "Blog Tags"
+  },
+  "9CrbaQ": {
+    "defaultMessage": "What's New",
+    "description": "Sidebar label for What's New"
   },
   "9DlLF1": {
     "defaultMessage": "GreatFrontEnd",
@@ -895,6 +947,10 @@
     "defaultMessage": "Created: Newest to Oldest",
     "description": "Sorting option on question list page to sort by creation time, from newest to oldest"
   },
+  "A0i9qA": {
+    "defaultMessage": "Read more",
+    "description": "Read more"
+  },
   "AIcBCW": {
     "defaultMessage": "Question",
     "description": "Label for question badge on project discussions page"
@@ -930,6 +986,10 @@
   "AfXYpF": {
     "defaultMessage": "Current project session",
     "description": "Title for current project session card"
+  },
+  "Alqb51": {
+    "defaultMessage": "Blog Type",
+    "description": "Label for tabs for blog type"
   },
   "AmBMf9": {
     "defaultMessage": "No questions",
@@ -1043,6 +1103,10 @@
     "defaultMessage": "Practice with study plans and timelines",
     "description": "Section title for study plans"
   },
+  "CXadMv": {
+    "defaultMessage": "GreatFrontend Blog",
+    "description": "Blog home page title"
+  },
   "CXs8z4": {
     "defaultMessage": "Practice Front End Quiz Interview Questions With Solutions",
     "description": "Title of Interview Preparation Quiz page"
@@ -1066,6 +1130,10 @@
   "CrPCIu": {
     "defaultMessage": "Before you get started",
     "description": "Title for \"Before you get started\" dialog on Projects project page"
+  },
+  "Ctnuuc": {
+    "defaultMessage": "+ {numberOfTags} more",
+    "description": "Number of tags in a list"
   },
   "CvwT9O": {
     "defaultMessage": "You need to start the learning session first",
@@ -1126,6 +1194,10 @@
   "DLky7V": {
     "defaultMessage": "Practice UI and JavaScript/TypeScript Interview Questions with Solutions",
     "description": "Title of Interview Preparation Coding page"
+  },
+  "DNFfNt": {
+    "defaultMessage": "What's New",
+    "description": "What's New page title"
   },
   "DP3Y2U": {
     "defaultMessage": "Behavioral Interview",
@@ -1222,6 +1294,10 @@
   "EmirPr": {
     "defaultMessage": "Master async programming for front end interviews",
     "description": "Title for interview preparation focus area"
+  },
+  "EpJ74A": {
+    "defaultMessage": "Try changing the filters",
+    "description": "Subtitle for empty state when no articles are returned from application of filters on blog list"
   },
   "Eu20+q": {
     "defaultMessage": "Dashboard | Projects",
@@ -1655,6 +1731,10 @@
     "defaultMessage": "Try these popular Angular questions",
     "description": "Title for featured questions section"
   },
+  "JyoY2G": {
+    "defaultMessage": "See all",
+    "description": "See all button label in browse series section in blog homepage"
+  },
   "Jyrm8/": {
     "defaultMessage": "You're here for portfolio or side projects",
     "description": "Title of the 'Component tracks' marketing section on Projects home page"
@@ -1662,6 +1742,10 @@
   "K/Nz6V": {
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation Quiz page"
+  },
+  "K6BzpD": {
+    "defaultMessage": "Intermediate",
+    "description": "Intermediate blog"
   },
   "KBBRmA": {
     "defaultMessage": "While working on project",
@@ -1675,6 +1759,10 @@
     "defaultMessage": "{questionExcerpt} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions practice page"
   },
+  "KFBmPx": {
+    "defaultMessage": "What's New",
+    "description": "Title of GreatFrontEnd blog what's new page"
+  },
   "KIUB2O": {
     "defaultMessage": "Back",
     "description": "Label for \"Back\" button on Sign Up Reason section of Projects onboarding page"
@@ -1682,6 +1770,10 @@
   "KKasxQ": {
     "defaultMessage": "Reply content",
     "description": "Label for discussion post reply input"
+  },
+  "KPn83+": {
+    "defaultMessage": "Series Contents",
+    "description": "Series contents navigation menu button label"
   },
   "KQXNDC": {
     "defaultMessage": "Please enter your status",
@@ -1702,6 +1794,10 @@
   "KZWEcx": {
     "defaultMessage": "Please enter a different email address.",
     "description": "Email validation error message"
+  },
+  "KbgzvC": {
+    "defaultMessage": "Hide",
+    "description": "Hide articles"
   },
   "KdzvRx": {
     "defaultMessage": "Summary of all the important things in a one-pager",
@@ -1799,6 +1895,10 @@
     "defaultMessage": "Unlock all premium content including official solutions, company tags, and study plans.",
     "description": "Feature of quarterly pricing plan"
   },
+  "LSdhYS": {
+    "defaultMessage": "Series",
+    "description": "Label for Blog Series"
+  },
   "LU7oiZ": {
     "defaultMessage": "Preparation areas",
     "description": "Preparation tabs title"
@@ -1879,6 +1979,10 @@
     "defaultMessage": "Billing",
     "description": "Profile billing tab title"
   },
+  "MJYzca": {
+    "defaultMessage": "{readingTime} minutes",
+    "description": "Reading time of the article"
+  },
   "MJyQhr": {
     "defaultMessage": "See all",
     "description": "Link to all focus areas page"
@@ -1955,9 +2059,17 @@
     "defaultMessage": "Search Vue questions",
     "description": "Placeholder for search input of Vue question list"
   },
+  "NALiPB": {
+    "defaultMessage": "Home",
+    "description": "Sidebar label for Blog home page"
+  },
   "NAkpAg": {
     "defaultMessage": "Jump to matching bracket",
     "description": "Text describing jump command in the coding workspace shortcuts menu"
+  },
+  "NEkaZ4": {
+    "defaultMessage": "Starter",
+    "description": "Starter level blog"
   },
   "NGGXSc": {
     "defaultMessage": "Find any project you can dream of",
@@ -2043,6 +2155,10 @@
     "defaultMessage": "Data structures and algorithms",
     "description": "Title of study plan"
   },
+  "OP75e8": {
+    "defaultMessage": "Article View",
+    "description": "View option for blog list- Article View"
+  },
   "OPwgMT": {
     "defaultMessage": "Twitter profile link",
     "description": "Link to Twitter profile"
@@ -2050,6 +2166,10 @@
   "OQHvfy": {
     "defaultMessage": "I'm always on the lookout for resources that can help me level up my skills as a frontend engineer, and I can confidently say that GreatFrontEnd delivers in that regard. It is by far the most comprehensive frontend-focused interview prep platform I have come across. They've helped strengthen my fundamentals and given me the confidence I need to succeed in my job search. Additionally, the people behind the platform have been incredibly approachable and responsive to feedback - and I can't thank them enough!",
     "description": "Luke Fiji's testimonial"
+  },
+  "OSrT+C": {
+    "defaultMessage": "Share",
+    "description": "Blog share button label"
   },
   "OWKf+S": {
     "defaultMessage": "Overview",
@@ -2126,6 +2246,10 @@
   "PHhUwD": {
     "defaultMessage": "Back to focus areas",
     "description": "Link text to navigate to focus areas list page"
+  },
+  "PMvcx6": {
+    "defaultMessage": "Advanced",
+    "description": "Advanced level blog"
   },
   "PV4w5n": {
     "defaultMessage": "Build to impress with unique portfolio projects",
@@ -2235,6 +2359,10 @@
     "defaultMessage": "Access to {freeChallengeCount}+ free challenges. No access to Figma & guides",
     "description": "Subtitle of Free Plan CTA card in Projects sidebar"
   },
+  "R/FCLM": {
+    "defaultMessage": "Explore Series and Articles by {name} tag",
+    "description": "Title of GreatFrontEnd blog explore series page"
+  },
   "R1ji0N": {
     "defaultMessage": "Signing out. See you again!",
     "description": "Main content of Sign Out page"
@@ -2255,6 +2383,10 @@
     "defaultMessage": "To project",
     "description": "Label of To Project button on project submit page"
   },
+  "R8Jahp": {
+    "defaultMessage": "Open page",
+    "description": "Indication that text has been copied"
+  },
   "RBApo9": {
     "defaultMessage": "Promotions",
     "description": "Promotions on the platform"
@@ -2262,6 +2394,10 @@
   "RBB42Z": {
     "defaultMessage": "Premium",
     "description": "Premium badge on profile page"
+  },
+  "RDN4Md": {
+    "defaultMessage": "Series",
+    "description": "Label for series blog"
   },
   "RDQ253": {
     "defaultMessage": "Sign in to save progress",
@@ -2375,6 +2511,10 @@
     "defaultMessage": "Not Subscribed",
     "description": "Text describing user's subscription status."
   },
+  "SZ26iB": {
+    "defaultMessage": "Search",
+    "description": "Placeholder for search input of blog list"
+  },
   "SbE8XR": {
     "defaultMessage": "Add your socials so that others can find you!",
     "description": "Description for social link input on Projects profile onboarding page"
@@ -2390,6 +2530,10 @@
   "Sl00sj": {
     "defaultMessage": "Explore {skillCount}+ more skills",
     "description": "Label of 'Skill tree' view all button in Projects home page"
+  },
+  "Sp5xdN": {
+    "defaultMessage": "{numberOfBlogs} articles",
+    "description": "Number of articles in a list"
   },
   "SpM0k8": {
     "defaultMessage": "Bootcamp Grad",
@@ -2422,6 +2566,10 @@
   "TDzLXK": {
     "defaultMessage": "Lyft",
     "description": "Company name for Lyft"
+  },
+  "THb7DH": {
+    "defaultMessage": "Here you'll find curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing deep dive subject.",
+    "description": "what's new page description"
   },
   "TL822E": {
     "defaultMessage": "JavaScript Console",
@@ -2514,6 +2662,10 @@
   "UTE1L6": {
     "defaultMessage": "System",
     "description": "System theme option label"
+  },
+  "UWjXUO": {
+    "defaultMessage": "Category",
+    "description": "Category of the series"
   },
   "UWucPu": {
     "defaultMessage": "Purchase",
@@ -2739,6 +2891,10 @@
     "defaultMessage": "Username must contain at most {maxLength} characters.",
     "description": "Error message when username is too long"
   },
+  "WmI0h+": {
+    "defaultMessage": "{numberOfSeries} series",
+    "description": "Number of articles in a list"
+  },
   "WoEmKY": {
     "defaultMessage": "Post as question",
     "description": "Label for toggle to post as question"
@@ -2806,6 +2962,10 @@
   "Xlmv0q": {
     "defaultMessage": "Follow this step-by-step deployment and submission checklist",
     "description": "Description for the project submission checklist section"
+  },
+  "XqU8Op": {
+    "defaultMessage": "Explore Series",
+    "description": "Title of GreatFrontEnd blog explore series page"
   },
   "XuVGsX": {
     "defaultMessage": "Account",
@@ -2907,6 +3067,10 @@
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
   },
+  "ZGrehB": {
+    "defaultMessage": "What's New",
+    "description": "What's New section title for blog home page"
+  },
   "ZHuDIg": {
     "defaultMessage": "Joined on {date}",
     "description": "Date the user joined the service"
@@ -2918,6 +3082,10 @@
   "ZJbXJQ": {
     "defaultMessage": "Mobile",
     "description": "Label for Mobile button in Projects project assets page"
+  },
+  "ZMFRjh": {
+    "defaultMessage": "Nightmare",
+    "description": "Nightmare level blog"
   },
   "ZN/wJM": {
     "defaultMessage": "Completed",
@@ -2962,10 +3130,6 @@
   "Zk7X6D": {
     "defaultMessage": "Software Engineer at Stripe | Ex-Google",
     "description": "Placeholder for \"Job Title\" input on Projects profile onboarding page"
-  },
-  "ZpzyjO": {
-    "defaultMessage": "Anonymous",
-    "description": "Fallback user name for a non-logged in user"
   },
   "ZrtVIf": {
     "defaultMessage": "Access to all {totalChallengeCount}+ challenges. {remainingGuideCount} Figma & guides access left",
@@ -3059,6 +3223,10 @@
     "defaultMessage": "Dashboard",
     "description": "Link to dashboard"
   },
+  "aqy8J+": {
+    "defaultMessage": "Here you'll find a curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing a deep dive subject.",
+    "description": "Explore series page description"
+  },
   "as1hw8": {
     "defaultMessage": "Submit your code",
     "description": "Title of test panel for coding workspace"
@@ -3134,6 +3302,10 @@
   "bO2ju9": {
     "defaultMessage": "Failed to mark question as incomplete. Please try again",
     "description": "Error message shown when the question cannot be marked incomplete"
+  },
+  "bONB6m": {
+    "defaultMessage": "Level",
+    "description": "Blog level label"
   },
   "bQ3XUx": {
     "defaultMessage": "No Tests",
@@ -3214,6 +3386,10 @@
   "cB23kJ": {
     "defaultMessage": "Security | Profile",
     "description": "Title of Profile Security page"
+  },
+  "cIOUjN": {
+    "defaultMessage": "Oldest View",
+    "description": "Sorting option for blog list- Oldest View"
   },
   "cJY5Ir": {
     "defaultMessage": "I'm a <bold>beginner</bold> and want to learn skills for practical front end development",
@@ -3319,6 +3495,10 @@
     "defaultMessage": "Fall Discount",
     "description": "Promotion title"
   },
+  "dZGFzA": {
+    "defaultMessage": "Related Articles",
+    "description": "Blog related articles section"
+  },
   "da4RLj": {
     "defaultMessage": "Google logo",
     "description": "Google company logo"
@@ -3395,6 +3575,10 @@
     "defaultMessage": "Browse all projects",
     "description": "Title of Projects Browse Projects page"
   },
+  "etN1a1": {
+    "defaultMessage": "Explore Series",
+    "description": "Explore series page title"
+  },
   "eyLjDz": {
     "defaultMessage": "Have questions, feedback or anything to say?",
     "description": "Title for contact us section"
@@ -3447,9 +3631,17 @@
     "defaultMessage": "Your Email",
     "description": "Feedback widget email input field label"
   },
+  "fXyTam": {
+    "defaultMessage": "Nightmare",
+    "description": "Nightmare blog"
+  },
   "fYyYBk": {
     "defaultMessage": "GreatFrontEnd has really helped prepare me for many of my frontend internship interviews - their front end system design guidebook is stellar and it helped boost my confidence to write front end components faster during time paced interviews. Thank you, GFE!",
     "description": "Nafis Hasnain's testimonial"
+  },
+  "fcKx8Z": {
+    "defaultMessage": "Advanced",
+    "description": "Advanced blog"
   },
   "fcYNb3": {
     "defaultMessage": "{questionCount}+ JavaScript and TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.",
@@ -3466,6 +3658,10 @@
   "fhTYwQ": {
     "defaultMessage": "The only end-to-end front end interview preparation platform.{br} Brought to you by big tech Senior / Staff Front End Engineers.",
     "description": "Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."
+  },
+  "fiHpIm": {
+    "defaultMessage": "Here you'll find a curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing a deep dive subject.",
+    "description": "Description of GreatFrontEnd blog explore series page"
   },
   "fjKhks": {
     "defaultMessage": "Invest in fuss-free, quality preparation",
@@ -3563,6 +3759,10 @@
     "defaultMessage": "Next",
     "description": "Label for Next button on Projects profile onboarding page"
   },
+  "glQWNv": {
+    "defaultMessage": "Articles",
+    "description": "Label for articles blog"
+  },
   "gm+QgP": {
     "defaultMessage": "React, HTML, JS",
     "description": "Placeholder for \"Tech stack you are proficient in\" input on Projects profile onboarding page"
@@ -3570,6 +3770,10 @@
   "gopXdP": {
     "defaultMessage": "Reset this file",
     "description": "Tooltip for button that allows users to reset their coding workspace to the initial code"
+  },
+  "grLe+N": {
+    "defaultMessage": "Number of series",
+    "description": "Total number of series in a list"
   },
   "grrYsM": {
     "defaultMessage": "Years of Experience",
@@ -3595,6 +3799,10 @@
     "defaultMessage": "Discounted rate for a typical job hunt duration.",
     "description": "Supporting statement for a quarterly pricing plan"
   },
+  "h76ZX3": {
+    "defaultMessage": "Browse content series that are tailored to your experience level!",
+    "description": "Browse series section description in blog homepage"
+  },
   "hESyRg": {
     "defaultMessage": "What to expect and how to prepare most efficiently",
     "description": "What to expect in behavioral interviews"
@@ -3602,6 +3810,10 @@
   "hEu8WR": {
     "defaultMessage": "{repRemaining} rep to <emph>level {nextLevel}</emph>",
     "description": "Rep remaining to next level"
+  },
+  "hMx0CX": {
+    "defaultMessage": "Everything from the blog",
+    "description": "Blog listing title for blog home page"
   },
   "hNQSH/": {
     "defaultMessage": "Apple",
@@ -4083,6 +4295,10 @@
     "defaultMessage": "Prepare end-to-end for front end interviews",
     "description": "Title for question format category links in navbar"
   },
+  "mShEXL": {
+    "defaultMessage": "Back to Home",
+    "description": "Link text to navigate to blog home page"
+  },
   "mb7erW": {
     "defaultMessage": "Importance",
     "description": "Label for question importance - how important it is to practice this question"
@@ -4154,6 +4370,10 @@
   "nQKtbN": {
     "defaultMessage": "Discussion post content",
     "description": "Label for discussion post input text area"
+  },
+  "nS1I3k": {
+    "defaultMessage": "Author",
+    "description": "Author of the blog"
   },
   "nSDLrS": {
     "defaultMessage": "More settings",
@@ -4463,6 +4683,10 @@
     "defaultMessage": "Prepare for tackling data structures and algorithms questions in front end interviews",
     "description": "Title for interview preparation focus area"
   },
+  "r8JR1/": {
+    "defaultMessage": "Read less",
+    "description": "Read less"
+  },
   "rAAfhQ": {
     "defaultMessage": "Personal Website (optional)",
     "description": "Label for Personal Website link input on Projects profile onboarding page"
@@ -4543,6 +4767,10 @@
     "defaultMessage": "+{count} more",
     "description": "Label for number of additional skills"
   },
+  "sUQjXK": {
+    "defaultMessage": "Learn new skills, improve your techniques and stay updated on latest front end trends and developments.",
+    "description": "Blog home page description"
+  },
   "sWyGax": {
     "defaultMessage": "Features",
     "description": "Title of the 'The fastest way to learn and build something useful' marketing section on Projects home page"
@@ -4550,6 +4778,10 @@
   "sa8B3r": {
     "defaultMessage": "System Design Questions",
     "description": "System design questions long title"
+  },
+  "saFHOR": {
+    "defaultMessage": "Learn new skills, improve your techniques and stay updated on latest front end trends and developments.",
+    "description": "Description of GreatFrontEnd blog homepage"
   },
   "sjLtW1": {
     "defaultMessage": "Manage subscription",
@@ -4631,6 +4863,10 @@
     "defaultMessage": "Sign Up",
     "description": "Label of Sign Up button on Email Sign Up page"
   },
+  "tPpYwO": {
+    "defaultMessage": "Starter",
+    "description": "Starter blog"
+  },
   "tR0TIm": {
     "defaultMessage": "Meet our top authors:",
     "description": "Authors section title"
@@ -4646,6 +4882,10 @@
   "tfonOP": {
     "defaultMessage": "Premium Study Plans",
     "description": "Study plans paywall title"
+  },
+  "thlYdk": {
+    "defaultMessage": "Blog Menu",
+    "description": "Blog navbar menu button label"
   },
   "thqnR6": {
     "defaultMessage": "Click here to view the full solution and other System Design guides.",
@@ -4787,6 +5027,10 @@
     "defaultMessage": "Display name must contain at most {maxLength} characters.",
     "description": "Error message when display name is too long"
   },
+  "vC8ERT": {
+    "defaultMessage": "Copied",
+    "description": "Blog link copied button label"
+  },
   "vHNURr": {
     "defaultMessage": "View all filters",
     "description": "Tooltip for All Filters button for projects list"
@@ -4867,6 +5111,10 @@
     "defaultMessage": "Similar Questions",
     "description": "Header for similar questions to the current question"
   },
+  "wAZkHT": {
+    "defaultMessage": "Tags",
+    "description": "Screenreader text indicating component for blog tags"
+  },
   "wO0zga": {
     "defaultMessage": "Skills roadmap",
     "description": "Title for \"Skills roadmap\" feature on Projects home page"
@@ -4878,6 +5126,10 @@
   "wbjMPn": {
     "defaultMessage": "Send magic link",
     "description": "Label of send magic link button on Magic Link Sign In page"
+  },
+  "wdjeYA": {
+    "defaultMessage": "View",
+    "description": "Label for view button"
   },
   "wdlzwm": {
     "defaultMessage": "Your Message",
@@ -4959,6 +5211,10 @@
     "defaultMessage": "Receive feedback from a vibrant community",
     "description": "Short description for \"Easy code reviews\" feature on Projects home page"
   },
+  "xXXK+w": {
+    "defaultMessage": "Series",
+    "description": "Series tag for Article"
+  },
   "xYKCsE": {
     "defaultMessage": "Сoncise step by step practical guides",
     "description": "Short description for \"Official guides\" feature on Projects home page"
@@ -4970,6 +5226,10 @@
   "xg1qLW": {
     "defaultMessage": "Tell us why you're here so that we can customize your experience",
     "description": "Subtitle for Projects onboarding page"
+  },
+  "xgFUi6": {
+    "defaultMessage": "See all",
+    "description": "See all new blogs"
   },
   "xjHSyF": {
     "defaultMessage": "All log levels",
@@ -5019,6 +5279,10 @@
     "defaultMessage": "Component libraries",
     "description": "Title for \"Component libraries\" feature on Projects home page"
   },
+  "y5OP5O": {
+    "defaultMessage": "Here you'll find curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing deep dive subject.",
+    "description": "Description of GreatFrontEnd blog what's new page"
+  },
   "y8zzVx": {
     "defaultMessage": "Email",
     "description": "Email"
@@ -5026,6 +5290,10 @@
   "y9NC4Q": {
     "defaultMessage": "Here are some highly rated submissions you can reference while doing your project. We prioritize submissions by their ratings, the similarity of their tech stack to yours, and the seniority level of the commenter.",
     "description": "Description for Reference Submissions section on Projects project tips & resources page"
+  },
+  "y9hdD1": {
+    "defaultMessage": "Reading time",
+    "description": "Reading time of the article"
   },
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",
@@ -5054,6 +5322,10 @@
   "yeLNWe": {
     "defaultMessage": "ByteDance",
     "description": "Company name for ByteDance"
+  },
+  "yfYsUt": {
+    "defaultMessage": "Browser Series",
+    "description": "Browse series section title in blog homepage"
   },
   "yhHx9e": {
     "defaultMessage": "All your question progress will be reset. This is an irreversible action, are you sure you want to proceed?",
@@ -5090,6 +5362,10 @@
   "zIQsmk": {
     "defaultMessage": "Terms of Service",
     "description": "Link to terms of service page"
+  },
+  "zIZsqX": {
+    "defaultMessage": "See all",
+    "description": "See all articles"
   },
   "zJ76Ak": {
     "defaultMessage": "All | Projects",
