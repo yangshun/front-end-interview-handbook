@@ -1,8 +1,4 @@
-import {
-  readProjectsProjectDetails,
-  readProjectsProjectList,
-} from '~/db/projects/ProjectsReader';
-import { fetchUser } from '~/supabase/SupabaseServerGFE';
+import { readProjectsProjectList } from '~/db/projects/ProjectsReader';
 
 import ProjectsProjectSubmitSuccessPage from './ProjectsProjectSubmitSuccessPage';
 
@@ -13,16 +9,12 @@ type Props = Readonly<{
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [{ projects }, user] = await Promise.all([
-    readProjectsProjectList(locale),
-    fetchUser(),
-  ]);
+  const [{ projects }] = await Promise.all([readProjectsProjectList(locale)]);
 
   // TODO(projects): Actual suggested projects for the current project.
   return (
     <ProjectsProjectSubmitSuccessPage
       suggestedProjects={projects.slice(0, 3)}
-      user={user}
     />
   );
 }

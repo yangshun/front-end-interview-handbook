@@ -20,6 +20,8 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import useProfile from '~/hooks/user/useProfile';
+
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Popover from '~/components/ui/Popover';
@@ -42,8 +44,6 @@ import { ProjectsSidebarProfileHeader } from './ProjectsSidebarProfileHeader';
 import { ProjectsSidebarStartProjectCTACard } from './ProjectsSidebarStartProjectCTACard';
 import { ProjectsSidebarYearlyPlanCTACard } from './ProjectsSidebarYearlyPlanCTACard';
 
-import type { User } from '@supabase/supabase-js';
-
 type SidebarItem = SidebarDivider | SidebarGroup | SidebarLink;
 
 export type SidebarLink = Readonly<{
@@ -65,12 +65,6 @@ export type SidebarGroup = Readonly<{
 export type SidebarDivider = Readonly<{
   key: string;
   type: 'divider';
-}>;
-
-export type Props = Readonly<{
-  endAddonItems?: React.ReactNode;
-  jobTitle: string;
-  user: User | null;
 }>;
 
 function useSidebarItems() {
@@ -113,22 +107,22 @@ function useSidebarItems() {
           icon: RiNodeTree,
           key: 'skill-tree',
           label: intl.formatMessage({
-            defaultMessage: 'Skill Tree',
+            defaultMessage: 'Skill tree',
             description:
               'Label for Skill Tree sidebar item in Projects sidebar',
-            id: 'FHaCBr',
+            id: 'FC61kC',
           }),
           type: 'link',
         },
         {
-          href: '/projects/component-tracks',
+          href: '/projects/tracks',
           icon: RiCheckboxMultipleLine,
           key: 'component-tracks',
           label: intl.formatMessage({
-            defaultMessage: 'Component Tracks',
+            defaultMessage: 'Component tracks',
             description:
               'Label for Component Tracks sidebar item in Projects sidebar',
-            id: 'CyulG2',
+            id: 'bdjVW4',
           }),
           type: 'link',
         },
@@ -269,13 +263,14 @@ function SidebarDivider() {
   );
 }
 
-export default function ProjectsSideBar({ user, jobTitle }: Props) {
+export default function ProjectsSideBar() {
+  const { profile } = useProfile();
   const intl = useIntl();
   const sideBarItems = useSidebarItems();
   const endAddOnItems = (
     <ul className="flex flex-col gap-6">
-      {user === null && <ProjectsSidebarStartProjectCTACard />}
-      {user !== null && (
+      {profile == null && <ProjectsSidebarStartProjectCTACard />}
+      {profile != null && (
         <>
           {/* TODO(projects): Show only one of these depending on subscription status */}
           <ProjectsSidebarFreePlanCTACard />
@@ -347,12 +342,8 @@ export default function ProjectsSideBar({ user, jobTitle }: Props) {
         'relative flex h-full flex-col overflow-y-auto border-e',
         themeElementBorderColor,
       )}>
-      {user !== null ? (
-        <ProjectsSidebarProfileHeader
-          jobTitle={jobTitle}
-          points={1800}
-          user={user}
-        />
+      {profile !== null ? (
+        <ProjectsSidebarProfileHeader points={1800} />
       ) : (
         <ProjectsSidebarNotSignedInHeader />
       )}

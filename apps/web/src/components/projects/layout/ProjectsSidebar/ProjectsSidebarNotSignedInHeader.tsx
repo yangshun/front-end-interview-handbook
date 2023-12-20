@@ -20,7 +20,7 @@ export function ProjectsSidebarNotSignedInHeader({ className }: Props) {
       <ProjectsSidebarHeaderLogoBar />
       <div className="flex flex-col items-stretch gap-2">
         <div className="flex gap-3">
-          <Avatar size="lg" src="" userName="NA" />
+          <Avatar alt="N/A" size="lg" src="" />
           <div className="flex flex-col gap-1">
             <Text size="body2">
               <FormattedMessage

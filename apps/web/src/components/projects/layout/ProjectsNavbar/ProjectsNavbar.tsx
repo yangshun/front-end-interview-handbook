@@ -1,23 +1,20 @@
 import clsx from 'clsx';
 import { RiMenuFill } from 'react-icons/ri';
 
+import useProfile from '~/hooks/user/useProfile';
+
 import LogoLink from '~/components/global/Logo';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Button from '~/components/ui/Button';
 
-import type { User } from '@supabase/supabase-js';
-
 type Props = Readonly<{
   className?: string;
   onMenuClick?: () => void;
-  user: User | null;
 }>;
 
-export default function ProjectsNavbar({
-  className,
-  user,
-  onMenuClick,
-}: Props) {
+export default function ProjectsNavbar({ className, onMenuClick }: Props) {
+  const { profile } = useProfile();
+
   return (
     <div
       className={clsx(
@@ -28,7 +25,7 @@ export default function ProjectsNavbar({
         <LogoLink href="/projects" />
       </div>
       <div className="-my-2 flex gap-4 sm:-mr-2 lg:hidden">
-        {user && <UserAvatar user={user} />}
+        {profile != null && <UserAvatar profile={profile} />}
         <Button
           icon={RiMenuFill}
           isLabelHidden={true}

@@ -1,6 +1,6 @@
 import type { ProjectsSkill } from '../skills/types';
 
-import type { User } from '@supabase/supabase-js';
+import type { Profile } from '@prisma/client';
 
 export const projectDifficultyOptions = [
   'starter',
@@ -20,7 +20,7 @@ export type ProjectsProjectStatus = 'completed' | 'in-progress' | 'not-started';
 export type ProjectsProjectMetadata = Readonly<{
   access: ProjectsProjectAccess;
   completedCount: number; // TODO(projects): Remove from metadata
-  completedUsers: Array<User>; // TODO(projects): Remove from metadata
+  completedUsers: Array<Profile>; // TODO(projects): Remove from metadata
   description: string;
   difficulty: ProjectsProjectDifficulty;
   href: string;

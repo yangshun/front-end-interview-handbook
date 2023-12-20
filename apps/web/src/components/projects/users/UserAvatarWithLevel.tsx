@@ -5,7 +5,7 @@ import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 
 import 'react-circular-progressbar/dist/styles.css';
 
-import type { User } from '@supabase/supabase-js';
+import type { Profile } from '@prisma/client';
 
 type UserLevelWithAvatarSize = '2xl' | 'lg' | 'xl';
 
@@ -15,12 +15,12 @@ type Props = Readonly<{
    * Current level as a number
    */
   level: number;
+  profile?: Profile | null;
   /**
    * Progress to next level in percent
    */
   progress: number;
   size?: UserLevelWithAvatarSize;
-  user?: User | null;
 }>;
 
 const sizeClasses: Record<
@@ -49,7 +49,7 @@ const sizeClasses: Record<
 };
 
 export default function UserAvatarWithLevel({
-  user,
+  profile,
   className,
   level,
   progress,
@@ -79,7 +79,7 @@ export default function UserAvatarWithLevel({
           },
         }}
         value={progress}>
-        <UserAvatar className={innerSize} size="custom" user={user} />
+        <UserAvatar className={innerSize} profile={profile} size="custom" />
       </CircularProgressbarWithChildren>
       <div className="bg-success text-2xs absolute bottom-0 end-0 flex h-4 w-4 items-center justify-center rounded-full font-bold text-white">
         {level}

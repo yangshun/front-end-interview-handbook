@@ -1,9 +1,10 @@
 import type { ProjectsSkill } from '../skills/types';
 
-import type { User } from '@supabase/supabase-js';
+import type { Profile } from '@prisma/client';
 
-export type ProjectsSubmission = {
-  author: User;
+// TODO(projects): Use Prisma schema.
+export type ProjectsSubmission = Readonly<{
+  author: Profile;
   commentCount: number;
   description: string;
   imgSrc: string;
@@ -13,4 +14,4 @@ export type ProjectsSubmission = {
   submissionDate: Date;
   title: string;
   viewCount: number;
-};
+}>;

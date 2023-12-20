@@ -20,17 +20,22 @@ import type { User } from '@supabase/supabase-js';
 export const exampleDiscussionPosts = [
   {
     author: {
-      app_metadata: {
-        provider: 'auth0',
-      },
-      aud: '',
-      created_at: '',
-      email: 'example@abc.com',
-      id: 'user2',
-      user_metadata: {
-        avatar_url: 'https://source.unsplash.com/random/48x48',
-        full_name: 'Jane Smith',
-      },
+      avatarUrl: 'https://source.unsplash.com/random/48x48',
+      bio: null,
+      createdAt: new Date(),
+      currentStatus: null,
+      githubUsername: null,
+      id: '123',
+      linkedInUsername: null,
+      name: 'John Smith',
+      plan: null,
+      premium: false,
+      startWorkDate: null,
+      stripeCustomer: null,
+      title: 'Front End Engineer',
+      updatedAt: new Date(),
+      username: 'johnsmith',
+      website: null,
     },
     content: 'Sample post content',
     id: '1',
@@ -40,17 +45,22 @@ export const exampleDiscussionPosts = [
   },
   {
     author: {
-      app_metadata: {
-        provider: 'auth0',
-      },
-      aud: '',
-      created_at: '',
-      email: 'example@abc.com',
-      id: 'user2',
-      user_metadata: {
-        avatar_url: 'https://source.unsplash.com/random/48x48',
-        full_name: 'Jane Smith',
-      },
+      avatarUrl: 'https://source.unsplash.com/random/48x48',
+      bio: null,
+      createdAt: new Date(),
+      currentStatus: null,
+      githubUsername: null,
+      id: '124',
+      linkedInUsername: null,
+      name: 'Jane Smith',
+      plan: null,
+      premium: false,
+      startWorkDate: null,
+      stripeCustomer: null,
+      title: 'Front End Engineer',
+      updatedAt: new Date(),
+      username: 'janesmith',
+      website: null,
     },
     content: 'Sample post content',
     id: '2',
@@ -97,7 +107,6 @@ export default function ProjectsProjectTipsResourcesDiscussionsPage({
   user,
 }: Props) {
   const intl = useIntl();
-  const { slug } = project;
   const tipsResourcesDiscussionsTabs = useTipsResourcesDiscussionsTabs();
   const [tipsResourcesDiscussionsTab, setTipsResourcesDiscussionsTab] =
     useState<TipsResourcesDiscussionsTabType>('official-guides-resources');
@@ -123,7 +132,7 @@ export default function ProjectsProjectTipsResourcesDiscussionsPage({
           <ReferenceSubmissions />
         )}
         {tipsResourcesDiscussionsTab === 'project-discussions' && (
-          <ProjectDiscussions posts={exampleDiscussionPosts} user={user} />
+          <ProjectDiscussions posts={exampleDiscussionPosts} />
         )}
       </div>
     </div>

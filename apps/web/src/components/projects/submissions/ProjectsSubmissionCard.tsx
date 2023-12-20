@@ -1,7 +1,5 @@
 import { useIntl } from 'react-intl';
 
-import useUserName from '~/hooks/user/useUserName';
-
 import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';
 
@@ -18,8 +16,9 @@ type Props = Readonly<{
   submission: ProjectsSubmission;
 }>;
 
-export default function ProjectsSubmissionCard({
-  submission: {
+export default function ProjectsSubmissionCard({ submission }: Props) {
+  const intl = useIntl();
+  const {
     title,
     stack,
     author,
@@ -28,10 +27,7 @@ export default function ProjectsSubmissionCard({
     likeCount,
     viewCount,
     imgSrc,
-  },
-}: Props) {
-  const intl = useIntl();
-  const authorUserName = useUserName(author);
+  } = submission;
 
   return (
     <Card padding={false} pattern={false}>
@@ -50,14 +46,14 @@ export default function ProjectsSubmissionCard({
         <div className="mt-4 flex items-center gap-4">
           <UserAvatarWithLevel
             level={11}
+            profile={author}
             progress={40}
             size="xl"
-            user={author}
           />
           <div className="flex flex-col gap-1">
-            <Text size="body2">{authorUserName}</Text>
+            <Text size="body2">{author.name}</Text>
             <div className="flex gap-4">
-              <ProjectsUserJobTitle jobTitle="Software Engineer" />
+              {author.title && <ProjectsUserJobTitle jobTitle={author.title} />}
               <ProjectsUserYearsOfExperience yearsOfExperience={2} />
             </div>
           </div>

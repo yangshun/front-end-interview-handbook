@@ -1,10 +1,10 @@
-import type { User } from '@supabase/supabase-js';
+import type { Profile } from '@prisma/client';
 
-export type Post = {
-  author: User;
+export type Post = Readonly<{
+  author: Profile;
   content: string;
   id: string;
   isQuestion: boolean;
   likeCount: number;
   replyCount: number;
-};
+}>;

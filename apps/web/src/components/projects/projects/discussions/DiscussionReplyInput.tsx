@@ -1,12 +1,13 @@
 import clsx from 'clsx';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import useProfile from '~/hooks/user/useProfile';
+
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import { themeElementBorderColor } from '~/components/ui/theme';
 
-import { useProjectsDiscussionContext } from './ProjectsDiscussionContext';
 import ProjectsReputationCountIncreaseTag from '../../stats/ProjectsReputationCountIncreaseTag';
 import UserAvatarWithLevel from '../../users/UserAvatarWithLevel';
 
@@ -17,7 +18,7 @@ type Props = Readonly<{
 
 export default function DiscussionPostReplyInput({ hasNext, onCancel }: Props) {
   const intl = useIntl();
-  const { user } = useProjectsDiscussionContext();
+  const { profile } = useProfile();
 
   return (
     <div className="relative flex">
@@ -38,7 +39,12 @@ export default function DiscussionPostReplyInput({ hasNext, onCancel }: Props) {
         />
       </div>
       <div className={clsx('flex flex-1 items-start gap-4', hasNext && 'pb-6')}>
-        <UserAvatarWithLevel level={30} progress={50} size="xl" user={user} />
+        <UserAvatarWithLevel
+          level={30}
+          profile={profile}
+          progress={50}
+          size="xl"
+        />
         <div className="flex flex-1 flex-col">
           <Text size="body2" weight="medium">
             <FormattedMessage

@@ -3,6 +3,8 @@
 import { FormattedMessage } from 'react-intl';
 import { useIntl } from 'react-intl';
 
+import useProfile from '~/hooks/user/useProfile';
+
 import ProjectsProjectGridList from '~/components/projects/projects/ProjectsProjectGridList';
 import type { ProjectsProjectMetadata } from '~/components/projects/projects/types';
 import ProjectsSkillProgressBreakdownCard from '~/components/projects/skills/ProjectsSkillProgressBreakdownCard';
@@ -16,8 +18,6 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-
-import type { User } from '@supabase/supabase-js';
 
 function ReputationIncreaseBackground({ className }: { className?: string }) {
   return (
@@ -166,14 +166,13 @@ function ReputationIncreaseBackground({ className }: { className?: string }) {
 
 type Props = Readonly<{
   suggestedProjects: ReadonlyArray<ProjectsProjectMetadata>;
-  user: User | null;
 }>;
 
 export default function ProjectsProjectSubmitSuccessPage({
   suggestedProjects,
-  user,
 }: Props) {
   const intl = useIntl();
+  const { profile } = useProfile();
 
   // TODO: Replace below with actual logic
   const isUserPremium = false;
@@ -236,7 +235,11 @@ export default function ProjectsProjectSubmitSuccessPage({
                 />
               </Text>
               <div className="flex gap-6 self-stretch items-end">
-                <UserAvatar className="w-20 h-20" size="custom" user={user} />
+                <UserAvatar
+                  className="w-20 h-20"
+                  profile={profile}
+                  size="custom"
+                />
                 <ProjectsLevelingProgressBar
                   className="flex-1"
                   currentLevel={2}

@@ -2,31 +2,30 @@ import { useIntl } from 'react-intl';
 
 import Avatar from './Avatar';
 
-import type { User } from '@supabase/supabase-js';
+import type { Profile } from '@prisma/client';
 
 type AvatarProps = React.ComponentProps<typeof Avatar>;
 type UserAvatarProps = Readonly<
-  Omit<AvatarProps, 'src' | 'userName'> & {
-    user?: User | null;
+  Omit<AvatarProps, 'alt' | 'src'> & {
+    profile?: Profile | null;
   }
 >;
 
-export default function UserAvatar({ user, ...props }: UserAvatarProps) {
+export default function UserAvatar({ profile, ...props }: UserAvatarProps) {
   const intl = useIntl();
 
   return (
     <Avatar
       {...props}
-      src={user?.user_metadata?.avatar_url ?? undefined}
-      userName={
-        user?.user_metadata?.name ??
-        user?.email ??
+      alt={
+        profile?.name ??
         intl.formatMessage({
           defaultMessage: 'Unknown user',
           description: 'Fallback text for unknown user',
           id: 'qfH1yK',
         })
       }
+      src={profile?.avatarUrl ?? ''}
     />
   );
 }

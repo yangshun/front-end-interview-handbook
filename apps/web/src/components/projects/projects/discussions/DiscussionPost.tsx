@@ -8,8 +8,6 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import useUserName from '~/hooks/user/useUserName';
-
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -31,10 +29,15 @@ type Props = Readonly<{
   post: Post;
 }>;
 
-export default function DiscussionPost({
-  post: { author, likeCount, replyCount, content, isQuestion, id: postId },
-  className,
-}: Props) {
+export default function DiscussionPost({ post, className }: Props) {
+  const {
+    author,
+    likeCount,
+    replyCount,
+    content,
+    isQuestion,
+    id: postId,
+  } = post;
   const intl = useIntl();
 
   const [isExpanded, setIsExpanded] = useState(false);
@@ -42,17 +45,15 @@ export default function DiscussionPost({
 
   const shouldPadBottom = isExpanded || isReplying;
 
-  const authorUsername = useUserName(author);
-
   return (
     <div className={clsx('flex flex-col', className)}>
       <div className="flex items-start gap-4">
         <div className="relative flex flex-col items-center self-stretch">
           <UserAvatarWithLevel
             level={11}
+            profile={author}
             progress={50}
             size="2xl"
-            user={author}
           />
           <div
             className={clsx(
@@ -104,7 +105,7 @@ export default function DiscussionPost({
                   description="Label for author and date of discussion post on project discussions page"
                   id="WdiFBs"
                   values={{
-                    author: authorUsername,
+                    author: author.name,
                     date: intl.formatDate(new Date(), {
                       day: 'numeric',
                       month: 'short',
@@ -120,7 +121,9 @@ export default function DiscussionPost({
               </Text>
             </div>
             <div className="flex gap-4">
-              <ProjectsUserJobTitle jobTitle="Software Engineer" size="2xs" />
+              {author.title && (
+                <ProjectsUserJobTitle jobTitle={author.title} size="2xs" />
+              )}
               <ProjectsUserYearsOfExperience size="2xs" yearsOfExperience={2} />
             </div>
           </div>

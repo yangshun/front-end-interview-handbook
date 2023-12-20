@@ -4,17 +4,14 @@ import { useState } from 'react';
 
 import FooterProjects from '~/components/global/FooterProjects';
 import ProjectsNavbar from '~/components/projects/layout/ProjectsNavbar/ProjectsNavbar';
-import ProjectsSideBar from '~/components/projects/layout/ProjectsSidebar';
+import ProjectsSidebar from '~/components/projects/layout/ProjectsSidebar';
 import SlideOut from '~/components/ui/SlideOut';
-
-import type { User } from '@supabase/supabase-js';
 
 type Props = Readonly<{
   children: React.ReactNode;
-  user: User | null;
 }>;
 
-export default function ProjectsSidebarLayout({ children, user }: Props) {
+export default function ProjectsSidebarLayout({ children }: Props) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
@@ -22,13 +19,12 @@ export default function ProjectsSidebarLayout({ children, user }: Props) {
       <div className="flex flex-col lg:flex-row">
         <ProjectsNavbar
           className="lg:hidden"
-          user={user}
           onMenuClick={() => {
             setIsDrawerOpen(true);
           }}
         />
         <div className="hidden w-[240px] h-dvh flex-shrink-0 overflow-y-hidden lg:block sticky top-0">
-          <ProjectsSideBar jobTitle="Software Engineer" user={user} />
+          <ProjectsSidebar />
         </div>
         <SlideOut
           className="lg:hidden"
@@ -40,7 +36,7 @@ export default function ProjectsSidebarLayout({ children, user }: Props) {
           onClose={() => {
             setIsDrawerOpen(false);
           }}>
-          <ProjectsSideBar jobTitle="Software Engineer" user={user} />
+          <ProjectsSidebar />
         </SlideOut>
         <div className="flex-1">{children}</div>
       </div>

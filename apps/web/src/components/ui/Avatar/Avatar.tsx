@@ -17,23 +17,18 @@ const sizeClasses: Record<AvatarSize, string> = {
 };
 
 type Props = Readonly<{
+  alt: string;
   className?: string;
   size?: AvatarSize;
   src: string;
-  userName: string;
 }>;
 
-export default function Avatar({
-  src,
-  userName,
-  className,
-  size = 'sm',
-}: Props) {
+export default function Avatar({ src, alt, className, size = 'sm' }: Props) {
   return (
     <RadixAvatar.Root
       className={clsx('block rounded-full', sizeClasses[size], className)}>
       <RadixAvatar.Image
-        alt={userName}
+        alt={alt}
         className="h-full w-full rounded-[inherit] object-cover"
         src={src}
       />

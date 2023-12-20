@@ -10,17 +10,22 @@ const exampleSubmissions: Array<ProjectsSubmission> = Array.from(
   { length: 10 },
   (_, i) => ({
     author: {
-      app_metadata: {
-        provider: 'auth0',
-      },
-      aud: '',
-      created_at: '',
-      email: 'example@abc.com',
-      id: 'user1',
-      user_metadata: {
-        avatar_url: 'https://source.unsplash.com/random/48x48',
-        full_name: 'John Smith',
-      },
+      avatarUrl: 'https://source.unsplash.com/random/48x48',
+      bio: null,
+      createdAt: new Date(),
+      currentStatus: null,
+      githubUsername: null,
+      id: '123' + String(i),
+      linkedInUsername: null,
+      name: 'John Smith',
+      plan: null,
+      premium: false,
+      startWorkDate: null,
+      stripeCustomer: null,
+      title: 'Front End Engineer',
+      updatedAt: new Date(),
+      username: 'johnsmith',
+      website: null,
     },
     commentCount: 0,
     description:

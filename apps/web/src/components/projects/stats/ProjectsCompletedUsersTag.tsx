@@ -4,12 +4,12 @@ import { FormattedMessage } from 'react-intl';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Text from '~/components/ui/Text';
 
-import type { User } from '@supabase/supabase-js';
+import type { Profile } from '@prisma/client';
 
 type Props = Readonly<{
   className?: string;
   count: number;
-  users: ReadonlyArray<User>;
+  users: ReadonlyArray<Profile>;
 }>;
 
 export default function ProjectsCompletedUsersTag({
@@ -24,8 +24,8 @@ export default function ProjectsCompletedUsersTag({
           <UserAvatar
             key={user.id}
             className="border dark:border-neutral-900 border-white"
+            profile={user}
             size="xs"
-            user={user}
           />
         ))}
       </div>

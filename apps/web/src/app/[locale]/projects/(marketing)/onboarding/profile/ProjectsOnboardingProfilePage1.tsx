@@ -314,10 +314,10 @@ export default function ProjectsOnboardingProfilePage1({
         <div className="flex flex-col items-start gap-x-16 gap-y-6 sm:flex-row sm:items-end">
           <div className="flex flex-col items-center gap-4">
             <Avatar
+              alt={userName}
               className="h-[120px] w-[120px]"
               size="custom"
               src="https://source.unsplash.com/random/128x128"
-              userName={userName}
             />
             <Button
               label={intl.formatMessage({

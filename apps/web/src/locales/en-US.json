@@ -1079,10 +1079,6 @@
     "defaultMessage": "Prepare for your front end interviews in one month. All rounded coverage that is sure to bring your front end interview skills to the next level.",
     "description": "Description for one month study plan"
   },
-  "CyulG2": {
-    "defaultMessage": "Component Tracks",
-    "description": "Label for Component Tracks sidebar item in Projects sidebar"
-  },
   "D/cRh1": {
     "defaultMessage": "Practice everything here",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
@@ -1267,8 +1263,8 @@
     "defaultMessage": "Languages",
     "description": "Screenreader text to indicate the Programming Languages section"
   },
-  "FHaCBr": {
-    "defaultMessage": "Skill Tree",
+  "FC61kC": {
+    "defaultMessage": "Skill tree",
     "description": "Label for Skill Tree sidebar item in Projects sidebar"
   },
   "FLKG3X": {
@@ -3154,6 +3150,10 @@
   "bZFghR": {
     "defaultMessage": "Twitter",
     "description": "Company name for Twitter"
+  },
+  "bdjVW4": {
+    "defaultMessage": "Component tracks",
+    "description": "Label for Component Tracks sidebar item in Projects sidebar"
   },
   "beN1QM": {
     "defaultMessage": "Skills:",
