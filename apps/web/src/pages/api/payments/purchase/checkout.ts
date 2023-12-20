@@ -14,6 +14,7 @@ import {
 import type { QueryParams } from './checkout_session_internal_and_called_on_server_only__';
 
 export const config = {
+  // We have to use edge runtime because we need the geo data.
   runtime: 'edge',
 };
 
@@ -77,6 +78,7 @@ export default async function handler(req: NextRequest) {
       throw new Error(`Prohibited region: ${region}`);
     }
 
+    // Can't use Prisma here because it's not supported in edge functions.
     const { data, error } = await supabaseAdmin
       .from('Profile')
       .select('stripeCustomer')
@@ -99,7 +101,7 @@ export default async function handler(req: NextRequest) {
     if (!stripeCustomerId) {
       console.info(`No Stripe customer found for ${user.id}, creating one`);
 
-      const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+      const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
         apiVersion: '2022-11-15',
       });
 
@@ -109,6 +111,7 @@ export default async function handler(req: NextRequest) {
 
       stripeCustomerId = customer.id;
 
+      // Can't use Prisma here because it's not supported in edge functions.
       await supabaseAdmin
         .from('Profile')
         .update({

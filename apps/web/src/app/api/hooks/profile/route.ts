@@ -4,19 +4,19 @@ import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
 
 // This API is called by Supabase database hooks whenever a new
 // row in the `profile` table is created. It receives a `body` resembling:
-//  {
-//    type: 'INSERT',
-//    table: 'Profile',
-//    record: {
-//      id: 'ca139f0c-a6f2-48d9-958c-285968b27101',
-//      plan: null,
-//      premium: false,
-//      createdAt: '2022-08-06T11:26:38.52669+00:00',
-//      stripeCustomer: null
-//    },
-//    schema: 'public',
-//    old_record: null
-//  }
+// {
+//   "type": "INSERT",
+//   "table": "Profile",
+//   "record": {
+//     "id": "d220fee0-2e8c-4670-ba14-eb9881495df8",
+//     "plan": null,
+//     "premium": false,
+//     "createdAt": "2022-08-06T11:26:38.52669+00:00",
+//     "stripeCustomer": null
+//   },
+//   "schema": "public",
+//   "old_record": null
+// }
 // WARNING: Do not change this file name/path and parameters without changing
 // the database hook URL in Supabase!
 
@@ -89,6 +89,8 @@ export async function POST(req: NextRequest) {
     .update({
       // Use GitHub avatar. Avatar field will be left empty for email signups.
       avatarUrl: user.user_metadata.avatar_url,
+      // Use GitHub username or leave empty.
+      gitHubUsername: user.user_metadata.user_name || undefined,
       // Use GitHub name or leave empty.
       name: user.user_metadata.name,
       // Use GitHub username or derive from email.

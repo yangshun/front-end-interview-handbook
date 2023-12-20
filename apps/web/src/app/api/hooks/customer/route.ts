@@ -5,19 +5,19 @@ import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
 
 // This API is called by Supabase database hooks whenever a new
 // row in the `profile` table is created. It receives a `body` resembling:
-//  {
-//    type: 'INSERT',
-//    table: 'Profile',
-//    record: {
-//      id: 'ca139f0c-a6f2-48d9-958c-285968b27101',
-//      plan: null,
-//      premium: false,
-//      createdAt: '2022-08-06T11:26:38.52669+00:00',
-//      stripeCustomer: null
-//    },
-//    schema: 'public',
-//    old_record: null
-//  }
+// {
+//   "type": "INSERT",
+//   "table": "Profile",
+//   "record": {
+//     "id": "d220fee0-2e8c-4670-ba14-eb9881495df8",
+//     "plan": null,
+//     "premium": false,
+//     "createdAt": "2022-08-06T11:26:38.52669+00:00",
+//     "stripeCustomer": null
+//   },
+//   "schema": "public",
+//   "old_record": null
+// }
 // WARNING: Do not change this file name/path and parameters without changing
 // the database hook URL in Supabase!
 
@@ -63,15 +63,42 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
     apiVersion: '2022-11-15',
   });
+
+  // This is needed because sometimes this hook is called after the
+  // checkout route which would have created a Stripe customer.
+  // We don't want to create a duplicate Stripe customer.
+  // Can't use Prisma here because it's not supported in edge functions.
+  const { data: latestProfile } = await supabaseAdmin
+    .from('Profile')
+    .select('stripeCustomer')
+    .eq('id', userId)
+    .single();
+
+  // If the customer exists, we'll just update the name if it exists.
+  if (latestProfile?.stripeCustomer) {
+    console.info(
+      `Customer already exists (${latestProfile?.stripeCustomer}) for user ${userId}`,
+    );
+
+    const customer = await stripe.customers.update(
+      latestProfile?.stripeCustomer,
+      {
+        name: user.user_metadata.name,
+      },
+    );
+
+    return NextResponse.json(customer);
+  }
 
   const customer = await stripe.customers.create({
     email: user.email,
     name: user.user_metadata.name,
   });
 
+  // Can't use Prisma here because it's not supported in edge functions.
   const data = await supabaseAdmin
     .from('Profile')
     .update({
