@@ -237,7 +237,7 @@ export default function BlogListingWithFilters({
   );
 
   return (
-    <section className="flex flex-col gap-6 lg:col-span-9">
+    <section className="flex flex-col gap-8 lg:col-span-9">
       {showFilters && (
         <div className="flex flex-col gap-4">{searchFilterRow}</div>
       )}

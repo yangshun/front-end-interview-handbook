@@ -156,7 +156,11 @@ export default function DropdownMenu({
             ['border', 'border-neutral-300 dark:border-neutral-700'],
             'ring-brand ring-1 ring-opacity-5 focus:outline-none',
           )}>
-          <Text className="p-2" display="block" size={textSizeVariants[size]}>
+          <Text
+            className="p-2"
+            color="inherit"
+            display="block"
+            size={textSizeVariants[size]}>
             {children}
           </Text>
         </Menu.Items>

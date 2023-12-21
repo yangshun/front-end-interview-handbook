@@ -25,7 +25,7 @@ function SeriesItem({ href, title, rank }: SeriesItemProps) {
   return (
     <div
       className={clsx(
-        'group relative flex items-center justify-between px-4 py-3',
+        'group relative flex items-center justify-between px-4 py-3 gap-3',
         'border border-neutral-200 dark:border-transparent',
         'rounded-lg',
         'transition-colors',
@@ -45,7 +45,7 @@ function SeriesItem({ href, title, rank }: SeriesItemProps) {
         </div>
         <Anchor href={href} variant="unstyled">
           <span aria-hidden={true} className="absolute inset-0" />
-          <Text color="subtitle" size="body2" weight="medium">
+          <Text color="subtitle" display="block" size="body2" weight="medium">
             {title}
           </Text>
         </Anchor>
@@ -96,7 +96,7 @@ export default function BlogBrowseSeries({ href: seeAllHref, series }: Props) {
             variant="tertiary"
           />
         </div>
-        <Text size="body2">
+        <Text color="secondary" size="body2">
           <FormattedMessage
             defaultMessage="Browse content series that are tailored to your experience level!"
             description="Browse series section description in blog homepage"
@@ -105,7 +105,7 @@ export default function BlogBrowseSeries({ href: seeAllHref, series }: Props) {
         </Text>
       </div>
       <div className="flex flex-col gap-4">
-        <Text size="body3" weight="medium">
+        <Text color="secondary" size="body3" weight="medium">
           {series.title}
         </Text>
         <div className="flex w-full flex-col gap-2">

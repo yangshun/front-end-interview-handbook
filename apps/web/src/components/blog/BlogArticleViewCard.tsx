@@ -15,7 +15,7 @@ import BlogMdx from '~/components/blog/BlogMdx';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import Button from '~/components/ui/Button';
 import {
-  themeCardBackgroundColor,
+  themeCardBackgroundWhiteOnLightColor,
   themeGlassyBorder,
 } from '~/components/ui/theme';
 
@@ -31,7 +31,7 @@ export default function ArticleViewCard({ blog }: Props) {
     <div
       className={clsx(
         'flex h-full flex-col gap-y-4 overflow-hidden rounded-lg px-8 py-5',
-        themeCardBackgroundColor,
+        themeCardBackgroundWhiteOnLightColor,
         themeGlassyBorder,
       )}>
       <div
@@ -46,7 +46,7 @@ export default function ArticleViewCard({ blog }: Props) {
       <div className="flex items-center justify-between">
         <Button
           className={clsx(
-            'dark:text-brand text-brand-darker -ml-4 w-fit border-transparent',
+            'dark:text-brand text-brand-dark -ml-4 w-fit border-transparent',
           )}
           icon={isExpanded ? RiArrowUpSLine : RiArrowDownSLine}
           label={

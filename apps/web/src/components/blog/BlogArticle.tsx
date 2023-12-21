@@ -7,10 +7,10 @@ import { FormattedMessage } from 'react-intl';
 
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import BlogMetadataSection from '~/components/blog/metadata/BlogMetadataSection';
-import Prose from '~/components/ui/Prose';
-import Abstract from '~/components/ui/Prose/Abstract';
+import Divider from '~/components/ui/Divider';
 import Text from '~/components/ui/Text';
-import { themeLineBackgroundColor } from '~/components/ui/theme';
+
+import Heading from '../ui/Heading';
 
 type ArticleView = 'card' | 'default';
 
@@ -24,10 +24,10 @@ type Props = PropsWithChildren<
 const BlogArticle = forwardRef<HTMLDivElement, Props>(
   ({ metadata, view = 'default', children }: Props, ref) => {
     return (
-      <>
-        <Prose ref={ref}>
+      <div className="flex flex-col gap-12">
+        <div ref={ref} className={clsx('flex flex-col gap-3')}>
           {metadata.isSeries && (
-            <Text color="active" size="body2">
+            <Text color="active" display="block" size="body2" weight="medium">
               <FormattedMessage
                 defaultMessage="Series"
                 description="Series tag for Article"
@@ -35,19 +35,20 @@ const BlogArticle = forwardRef<HTMLDivElement, Props>(
               />
             </Text>
           )}
-          <h1 className={clsx({ 'text-sm lg:text-xl': view === 'card' })}>
+          <Heading level={view === 'card' ? 'heading6' : 'heading4'}>
             {metadata.title}
-          </h1>
-          <Abstract>
-            <div className={clsx({ '!text-sm': view === 'card' })}>
-              {metadata.description}
-            </div>
-          </Abstract>
-        </Prose>
-        <BlogMetadataSection metadata={metadata} />
-        <div className={clsx(themeLineBackgroundColor, 'my-5 h-[1px]')} />
+          </Heading>
+          <Text
+            color="secondary"
+            display="block"
+            size={view === 'card' ? 'body2' : 'body1'}>
+            {metadata.description}
+          </Text>
+          <BlogMetadataSection metadata={metadata} />
+          <Divider />
+        </div>
         {children}
-      </>
+      </div>
     );
   },
 );

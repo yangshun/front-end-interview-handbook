@@ -72,7 +72,7 @@ export function getBlogTagDefinition(tag: BlogTagType): BlogTag {
         style: {
           backgroundClass: 'bg-info-lightest dark:bg-info-darker',
           borderClass: 'border border-info dark:border-info',
-          textClass: 'text-warning dark:text-info',
+          textClass: 'text-info dark:text-info',
         },
         type: 'marketing',
       };
@@ -82,9 +82,9 @@ export function getBlogTagDefinition(tag: BlogTagType): BlogTag {
         href: '/blog/explore/security',
         name: 'Security',
         style: {
-          backgroundClass: 'bg-warning-lightest dark:bg-warning-darkest',
-          borderClass: 'border border-warning-darker dark:border-warning',
-          textClass: 'text-warning-darker dark:text-warning',
+          backgroundClass: 'bg-danger-lightest dark:bg-danger-darkest',
+          borderClass: 'border border-danger-darker dark:border-danger',
+          textClass: 'text-danger-darker dark:text-danger',
         },
         type: 'security',
       };

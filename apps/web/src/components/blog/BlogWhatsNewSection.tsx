@@ -4,7 +4,6 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import BlogCard from '~/components/blog/BlogCard';
 import Button from '~/components/ui/Button';
-import CardContainer from '~/components/ui/Card/CardContainer';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -39,7 +38,7 @@ export default function BlogWhatsNewSection() {
         />
       </div>
       <Section>
-        <CardContainer
+        <div
           className={clsx(
             'grid gap-6 lg:grid-cols-2',
             blogs.length === 3 && 'xl:grid-cols-3',
@@ -53,7 +52,7 @@ export default function BlogWhatsNewSection() {
               <BlogCard metadata={metadata} titleLines={2} />
             </div>
           ))}
-        </CardContainer>
+        </div>
       </Section>
     </div>
   );

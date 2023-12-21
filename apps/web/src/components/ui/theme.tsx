@@ -68,6 +68,9 @@ export const themeBackgroundLayerEmphasizedHover = clsx(
 export const themeCardBackgroundColor = clsx(
   'bg-neutral-50 dark:bg-neutral-800/40',
 );
+export const themeCardBackgroundWhiteOnLightColor = clsx(
+  'bg-white dark:bg-neutral-800/40',
+);
 
 // Line colors.
 export const themeLineColor = clsx(

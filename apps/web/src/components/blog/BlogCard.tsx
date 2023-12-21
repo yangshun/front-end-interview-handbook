@@ -10,7 +10,7 @@ import BlogTimestamp from '~/components/blog/metadata/BlogTimestamp';
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
-  themeCardBackgroundColor,
+  themeCardBackgroundWhiteOnLightColor,
   themeGlassyBorder,
   themeTextFaintColor,
 } from '~/components/ui/theme';
@@ -33,10 +33,10 @@ export default function BlogCard({
   return (
     <div
       className={clsx(
-        'group relative flex h-full items-center justify-between gap-x-4 overflow-hidden rounded-lg',
-        type === 'wide' && 'px-8 py-5',
-        type === 'default' && 'px-4 py-6',
-        themeCardBackgroundColor,
+        'group relative flex h-full items-center justify-between overflow-hidden rounded-lg',
+        type === 'wide' && 'px-8 py-5 gap-x-6',
+        type === 'default' && 'pl-6 pr-4 py-6 gap-x-4',
+        themeCardBackgroundWhiteOnLightColor,
         themeGlassyBorder,
       )}>
       {type === 'wide' && (
@@ -46,8 +46,13 @@ export default function BlogCard({
           src={metadata.imageUrl}
         />
       )}
-      <div className="flex flex-1 flex-col gap-y-4">
-        <div className="flex w-full flex-col gap-y-2">
+      <div className="flex flex-1 flex-col gap-y-4 h-full">
+        <div
+          className={clsx(
+            'flex w-full flex-col grow',
+            type === 'default' && 'gap-y-2',
+            type === 'wide' && 'gap-y-1',
+          )}>
           <div className="flex items-center gap-x-3">
             {type === 'wide' && (
               <img
@@ -77,7 +82,7 @@ export default function BlogCard({
           {metadata.description && (
             <Text
               className={clsx(type === 'default' && '!line-clamp-2')}
-              color="secondary"
+              color={type === 'default' ? 'subtitle' : 'secondary'}
               size="body2">
               {metadata.description}
             </Text>

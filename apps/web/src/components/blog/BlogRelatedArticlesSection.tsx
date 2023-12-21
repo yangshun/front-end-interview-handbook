@@ -3,7 +3,6 @@ import type { RelatedPost } from 'contentlayer/generated';
 import { FormattedMessage } from 'react-intl';
 
 import BlogRelatedArticleCard from '~/components/blog/BlogRelatedArticleCard';
-import CardContainer from '~/components/ui/Card/CardContainer';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -24,7 +23,7 @@ export default function BlogRelatedArticlesSection({
         />
       </Heading>
       <Section>
-        <CardContainer className={clsx('grid gap-6 lg:grid-cols-2')}>
+        <div className={clsx('grid gap-6 lg:grid-cols-2')}>
           {relatedPosts.map(({ slug }, index) => {
             const post = getAllPosts({ sort: true }).find(
               (_) => _.slug === slug.trim(),
@@ -40,7 +39,7 @@ export default function BlogRelatedArticlesSection({
               </div>
             );
           })}
-        </CardContainer>
+        </div>
       </Section>
     </div>
   );

@@ -457,7 +457,7 @@ export default function QuestionsCodingListWithFilters({
         layout === 'full' && 'lg:grid lg:grid-cols-12 lg:gap-x-6',
       )}>
       {/* Left Column */}
-      <section className="flex flex-col gap-6 lg:col-span-9">
+      <section className="flex flex-col gap-8 lg:col-span-9">
         <div className="flex flex-col gap-4">
           {topicFilters}
           {searchFilterRow}

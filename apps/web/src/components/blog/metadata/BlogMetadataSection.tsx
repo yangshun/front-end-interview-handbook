@@ -15,12 +15,12 @@ type Props = Readonly<{
   size?: TextSize;
 }>;
 
-function BlogMetadataSection({ metadata, size = 'body3' }: Props) {
+export default function BlogMetadataSection({
+  metadata,
+  size = 'body3',
+}: Props) {
   return (
-    <div
-      className={clsx('my-5', {
-        'lg:flex lg:justify-between': metadata.isSeries,
-      })}>
+    <div className={clsx(metadata.isSeries && 'lg:flex lg:justify-between')}>
       <section className="flex flex-wrap items-center gap-x-6 gap-y-4">
         {metadata.level && (
           <BlogLevelLabel showIcon={true} size={size} value={metadata.level} />
@@ -32,9 +32,7 @@ function BlogMetadataSection({ metadata, size = 'body3' }: Props) {
           <BlogTags showAll={true} tags={metadata.tags} />
         )}
       </section>
-
-      <div className={clsx(themeLineBackgroundColor, 'my-5 h-[1px]')} />
-
+      <div className={clsx(themeLineBackgroundColor, 'my-5 h-px')} />
       <section className="flex flex-wrap items-center justify-between gap-4">
         {metadata.author && <BlogAuthor metadata={metadata} />}
         <div className="flex items-center gap-x-4">
@@ -45,5 +43,3 @@ function BlogMetadataSection({ metadata, size = 'body3' }: Props) {
     </div>
   );
 }
-
-export default BlogMetadataSection;

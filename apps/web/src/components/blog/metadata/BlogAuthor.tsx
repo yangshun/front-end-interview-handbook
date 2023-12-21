@@ -6,7 +6,6 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import BlogTimestamp from '~/components/blog/metadata/BlogTimestamp';
 import Text from '~/components/ui/Text';
-import { themeTextLightColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
@@ -43,7 +42,10 @@ export default function BlogAuthor({ metadata }: Props) {
         </Tooltip>
         <div className="flex flex-col gap-y-1">
           <Text
-            className={clsx(themeTextLightColor, 'whitespace-nowrap')}
+            className={clsx(
+              'text-neutral-700 dark:text-neutral-100',
+              'whitespace-nowrap',
+            )}
             color="inherit"
             display="block"
             size="body2"

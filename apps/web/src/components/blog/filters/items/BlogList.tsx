@@ -8,7 +8,6 @@ import ArticleViewCard from '~/components/blog/BlogArticleViewCard';
 import BlogCard from '~/components/blog/BlogCard';
 import type { BlogMetadata, BlogViewField } from '~/components/blog/BlogTypes';
 import EmptyState from '~/components/ui/EmptyState';
-import { themeLineColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
   blogs: ReadonlyArray<BlogMetadata>;
@@ -25,7 +24,7 @@ export default function BlogList({
 
   if (blogs.length === 0) {
     return (
-      <div className={clsx('border p-10', themeLineColor)}>
+      <div className="p-10">
         <EmptyState
           subtitle={intl.formatMessage({
             defaultMessage: 'Try changing the filters',

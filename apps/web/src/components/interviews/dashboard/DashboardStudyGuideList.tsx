@@ -23,7 +23,7 @@ function GuideItem({ href, title, rank }: GuideItemProps) {
   return (
     <div
       className={clsx(
-        'group relative flex items-center justify-between py-3 px-4',
+        'group relative flex items-center justify-between px-4 py-3 gap-3',
         'border border-neutral-200 dark:border-transparent',
         'rounded-lg',
         'transition-colors',
@@ -43,7 +43,7 @@ function GuideItem({ href, title, rank }: GuideItemProps) {
         </div>
         <Anchor href={href} variant="unstyled">
           <span aria-hidden={true} className="absolute inset-0" />
-          <Text color="subtitle" size="body2" weight="medium">
+          <Text color="subtitle" display="block" size="body2" weight="medium">
             {title}
           </Text>
         </Anchor>

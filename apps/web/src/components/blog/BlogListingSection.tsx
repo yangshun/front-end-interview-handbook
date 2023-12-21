@@ -15,7 +15,7 @@ export default function BlogListingSection() {
 
   if (allCategories.length > 0) {
     const seriesData = allSeries.filter(
-      (_) => _?.category?.source === allCategories[0].source,
+      (seriesItem) => seriesItem?.category?.source === allCategories[0].source,
     );
 
     series = {
