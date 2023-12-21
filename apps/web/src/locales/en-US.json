@@ -211,6 +211,10 @@
     "defaultMessage": "Recommended schedule",
     "description": "Recommended schedule tooltip displayed on question cards found on question lists"
   },
+  "0UO/Ju": {
+    "defaultMessage": "I am Task 1",
+    "description": "Title for Task 1"
+  },
   "0WJfoT": {
     "defaultMessage": "Intermediate",
     "description": "Intermediate level blog"
@@ -238,6 +242,10 @@
   "0p6dRS": {
     "defaultMessage": "Practice makes perfect. With our collection of over {count} front end questions, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
     "description": "Title of question examples section on getting started page"
+  },
+  "0qd9FM": {
+    "defaultMessage": "I am Task 2",
+    "description": "Title for Task 2"
   },
   "0xSU4h": {
     "defaultMessage": "Study list session stopped",
@@ -378,6 +386,10 @@
   "3QQssQ": {
     "defaultMessage": "Please enter a valid date",
     "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
+  },
+  "3UVuxe": {
+    "defaultMessage": "for completing simple tasks like following our socials!",
+    "description": "Subtext for rewards page"
   },
   "3WHiQS": {
     "defaultMessage": "Cheatsheet",
@@ -1223,6 +1235,10 @@
     "defaultMessage": "Career Switcher",
     "description": "Label for \"Career Switcher\" option in YOE replacement"
   },
+  "Dq9yul": {
+    "defaultMessage": "Back",
+    "description": "Button label for back button"
+  },
   "Dynazi": {
     "defaultMessage": "(Save {discountPercentage}% vs monthly)",
     "description": "Save more compared to monthly plan."
@@ -1338,6 +1354,10 @@
   "FC61kC": {
     "defaultMessage": "Skill tree",
     "description": "Label for Skill Tree sidebar item in Projects sidebar"
+  },
+  "FCFcH2": {
+    "defaultMessage": "Start tasks",
+    "description": "Start tasks button"
   },
   "FLKG3X": {
     "defaultMessage": "Cut line (empty selection)",
@@ -1514,6 +1534,10 @@
   "HOCjPY": {
     "defaultMessage": "Implement popular JavaScript library and utility functions",
     "description": "Description of JavaScript utility function questions"
+  },
+  "HQunmZ": {
+    "defaultMessage": "Rewards",
+    "description": "Title of Rewards page"
   },
   "HRk5Ic": {
     "defaultMessage": "Help others review their code and answer questions",
@@ -2279,6 +2303,10 @@
     "defaultMessage": "Practice for specific focus areas",
     "description": "Section title"
   },
+  "PjWWze": {
+    "defaultMessage": "Ready to begin?",
+    "description": "Description for start tasks prompt"
+  },
   "Ptmnjq": {
     "defaultMessage": "Free continuous updates",
     "description": "Title for free continuous updates feature"
@@ -2506,6 +2534,10 @@
   "SKsPOw": {
     "defaultMessage": "Premium Content",
     "description": "Premium system design questions content"
+  },
+  "SMYzrt": {
+    "defaultMessage": "We are giving away an exclusive 20% of all plans",
+    "description": "Subtext for rewards page"
   },
   "SUjf8L": {
     "defaultMessage": "Not Subscribed",
@@ -2807,6 +2839,10 @@
     "defaultMessage": "Pricing",
     "description": "Link label to the pricing page"
   },
+  "Vpiw8N": {
+    "defaultMessage": "We are giving away exclusive promo codes for 20% off all plans.",
+    "description": "Subtext for rewards page"
+  },
   "Vvc37/": {
     "defaultMessage": "Sign up for an account",
     "description": "Title of Email Sign Up page"
@@ -3051,6 +3087,10 @@
     "defaultMessage": "The skills / tools / frameworks you are already familiar in. Cannot find the tag you need? Email us at {supportEmail}",
     "description": "Description for \"Tech stack proficient\" input on Projects profile onboarding page"
   },
+  "YkG6kJ": {
+    "defaultMessage": "Terms | Rewards",
+    "description": "Title of Rewards Terms page"
+  },
   "YwXYNT": {
     "defaultMessage": "Project completed",
     "description": "Label for completed project tag"
@@ -3246,6 +3286,10 @@
   "avFFbN": {
     "defaultMessage": "View plans",
     "description": "View plans link for Download Figma Design content section on Before You Get Started dialog"
+  },
+  "avuK5U": {
+    "defaultMessage": "Rewards Terms and Conditions",
+    "description": "Title of rewards terms page"
   },
   "awMxNG": {
     "defaultMessage": "Marked \"{questionTitle}\" as complete",
@@ -4459,6 +4503,10 @@
     "defaultMessage": "Software Engineer",
     "description": "Gouse Basha's job title"
   },
+  "oiMKy3": {
+    "defaultMessage": "Here are the tasks for this campaign:",
+    "description": "Description for campaign tasks"
+  },
   "oieVuW": {
     "defaultMessage": "Topic",
     "description": "Question quiz topic"
@@ -5123,6 +5171,10 @@
     "defaultMessage": "Tags",
     "description": "Screenreader text indicating component for blog tags"
   },
+  "wJFwf9": {
+    "defaultMessage": "Simply complete social tasks like following our socials to claim your code!",
+    "description": "Subtext for rewards page"
+  },
   "wO0zga": {
     "defaultMessage": "Skills roadmap",
     "description": "Title for \"Skills roadmap\" feature on Projects home page"
@@ -5302,6 +5354,10 @@
   "y9hdD1": {
     "defaultMessage": "Reading time",
     "description": "Reading time of the article"
+  },
+  "yLsxUM": {
+    "defaultMessage": "20% off all plans",
+    "description": "Title for rewards page"
   },
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",
