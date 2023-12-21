@@ -1,8 +1,8 @@
 {
-  "title": "Design Pattern in Javascript",
+  "title": "Top interview questions",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
   "imageUrl": "https://source.unsplash.com/random/960x360",
-  "level": "nightmare",
+  "level": "intermediate",
   "tags": ["network", "performance"],
-  "category": "blog/category/industry-best-practices.json"
+  "category": "blog/category/front-end-interviews.json"
 }

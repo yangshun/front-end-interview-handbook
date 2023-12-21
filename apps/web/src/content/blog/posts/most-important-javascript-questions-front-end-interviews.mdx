@@ -1,0 +1,155 @@
+---
+title: 5 Most Important JavaScript Questions to Master for Front End Interviews
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+imageUrl: https://source.unsplash.com/random/960x360
+tags:
+  - marketing
+  - network
+level: starter
+createdAt: 2023-12-18
+author: blog/author/yangshun.json
+category: blog/category/front-end-interviews.json
+series: blog/series/top-interview-questions.json
+---
+
+A common frustration when preparing for front end interviews is the sheer volume of questions to practice. There are over a 100 possible front end interview questions available on [GreatFrontEnd](/prepare). How do you choose the best questions to practice to get the highest return of investment on your time?
+
+Front end interview questions often revolve around a combination of fundamental JavaScript concepts, problem solving skills, layout building skills, and data structures and algorithms. To maximize your efficiency, we recommend practicing the most commonly-asked questions, along with those that touch multiple skills, so that you get all-rounded practice.
+
+In this list we will cover the most important JavaScript questions to practice. Let's go!
+
+## Debounce
+
+Debouncing is a crucial technique used to manage repetitive or frequent events, particularly in the context of user input, such as keyboard typing or resizing a browser window. The primary goal of debouncing is to improve performance and efficiency by reducing the number of times a particular function or event handler is triggered; the handler is only triggered when the input has stopped changing.
+
+```js
+import { debounce } from 'lodash';
+
+// Example usage for a search input field
+const searchInput = document.getElementById('search-input');
+
+const debouncedSearch = debounce(() => {
+  // Perform the search operation here
+  console.log('Searching for:', searchInput.value);
+}, 300);
+
+searchInput.addEventListener('input', debouncedSearch);
+```
+
+In this example, the `debounce` function creates a wrapper function that delays the execution of the provided callback until a certain amount of time has passed since the last input event. This helps optimize performance by preventing unnecessary computations or network requests during rapid user input. Adjust the `delay` parameter based on the specific requirements of your application.
+
+Debounce is a frequently asked question in front end interviews, especially by big tech companies because it assesses the candidate's understanding of asynchronous programming, closures, and the `this` callback. The basic version of debounce isn't too hard to implement, so you might be asked to implement additional functionality that's available on [Lodash's `_.debounce`](https://lodash.com/docs/4.17.15#debounce):
+
+- Leading version: Invoking the callback at the start of the timeout instead of at the end.
+- Trailing version: Invoking the callback at the end of the timeout.
+- Maximum delay: The maximum time the callback is allowed to be delayed before it is invoked.
+
+Or you could also be asked to implement the Throttle function, which is the sister function of Debounce; it's important to understand the differences between them. Throttle is a common follow-up question to Debounce and vice versa.
+
+[Practice implementing a Debounce function on GreatFrontEnd](#TODO)
+
+## `Promise.all()`
+
+`Promise.all()` is an important feature in JavaScript for simplifying code needed to handle multiple asynchronous operations concurrently, especially if there are dependencies between them. It takes an array of promises and returns a new promise that resolves to an array of the results when all of the input promises have resolved, or rejects if any of the input promises reject.
+
+Proficiency with `Promise.all()` is an indicator of a front end engineer's ability to handle complex asynchronous workflows efficiently and manage errors effectively, making it highly relevant to their daily tasks.
+
+```js
+const promise1 = fetch('https://api.example.com/data/1');
+const promise2 = fetch('https://api.example.com/data/2');
+const promise3 = fetch('https://api.example.com/data/3');
+
+Promise.all([promise1, promise2, promise3])
+  .then((responses) => {
+    // This callback is only ran when all promises in the input array are resolved.
+    console.log('All responses:', responses);
+  })
+  .catch((error) => {
+    // Handle any errors from any promise
+    console.error('Error:', error);
+  });
+```
+
+In this example, `Promise.all()` is used to fetch data from three different URLs concurrently, and the `.then()` block is executed only when all three promises have resolved. If any of the promises rejects, the `.catch()` block is triggered.
+
+It is a good question to practice for front end interviews because candidates are often evaluated on their mastery of asynchronous programming and whether they know how to implement polyfills. `Promise.all()` has many sister functions like `Promise.race()`, `Promise.any()`, which can also be asked in interviews, so you kill many birds with one stone by practicing `Promise.all()`.
+
+[Practice implementing `Promise.all()` on GreatFrontEnd](#TODO)
+
+## Deep Clone
+
+In JavaScript, a deep clone function is used to create a new object or array that is entirely independent of the original object/array. This means that not only the top-level structure is cloned, but all nested objects and arrays within the original structure are also duplicated. In other words, changes made to the cloned object do not affect the original, and vice versa.
+
+```js
+// Original user.
+const user = {
+  name: 'John',
+  age: 42,
+};
+
+// Create a deep clone of the user.
+const clonedUser = deepClone(user);
+
+// Modify the cloned user without affecting the original.
+clonedUser.name = 'Jane';
+
+// Output the original and cloned user. The original is not affected.
+console.log('Original User Data:', user); // { name: 'John', age: 42 }
+console.log('Cloned User Data:', clonedUser); // { name: Jane', age: 42 }
+```
+
+While not as frequently asked in interviews as some other questions, deep cloning showcases one's understanding of recursion and the various data types in JavaScript – how to recursively traverse an arbitrary object in JavaScript and process each encountered type.
+
+[Practice implementing the Deep Clone function on GreatFrontEnd](#TODO)
+
+## Event Emitter
+
+An Event Emitter class in JavaScript is a mechanism that allows objects to subscribe to and listen for events, and to emit events when certain actions or conditions occur. It facilitates the implementation of the observer pattern, where an object (the event emitter) maintains a list of dependents (observers) that are notified of changes or events. In fact, [EventEmitter is part of Node.js' API](https://nodejs.org/en/learn/asynchronous-work/the-nodejs-event-emitter).
+
+```js
+// Example usage
+const eventEmitter = new EventEmitter();
+
+// Subscribe to an event
+eventEmitter.on('customEvent', (data) => {
+  console.log('Event emitted with data:', data);
+});
+
+// Emit the event
+eventEmitter.emit('customEvent', { message: 'Hello, world!' });
+```
+
+Implementing an `EventEmitter` class involves knowledge of object-oriented programming, closures, `this` callback, and data structures and algorithms fundamentals. Possible follow-up questions include an alternative unsubscribing API.
+
+[Practice implementing an Event Emitter on GreatFrontEnd](#TODO)
+
+## Array.prototype.filter()
+
+`Array.prototype.filter()` is a built-in method in JavaScript that allows you to create a new array containing elements that satisfy a certain condition. It iterates over each element in the array and applies a callback function to determine whether the element should be included in the filtered array.
+
+```js
+// Example: Filtering out even numbers from an array
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const oddNumbers = numbers.filter(function (number) {
+  return number % 2 !== 0;
+});
+
+console.log(oddNumbers); // Output: [1, 3, 5, 7, 9]
+```
+
+`Array.prototype.filter()` is commonly-asked questions in front end interviews by big tech companies, along with its sister functions, `Array.prototype.map()`, `Array.prototype.reduce()`, and `Array.prototype.concat()`. Modern front end development favors functional programming style APIs like `Array.prototype.filter()` and it is also an opportunity for candidates to demonstrate their knowledge of prototypes and polyfills. It seems easy on the surface, but there's much more to it:
+
+1. Are you aware of all the parameters accepted by the filter callback? Hint: there are 4!
+1. How does the filter callback handle sparse arrays?
+1. Does your implementation call the callback function with the right `this` value?
+1. What if the array contents is mutated by the callback function mid-traversal?
+
+Nailing these edge cases is paramount for acing front end interviews.
+
+[Practice implementing the `Array.prototype.filter()` function on GreatFrontEnd](#TODO)
+
+---
+
+If you're short on time, we recommend practicing these 5 questions, which takes around 3 hours.
+
+What do you think of these questions? Do you think there are other important questions to cover?

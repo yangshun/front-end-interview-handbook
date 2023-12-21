@@ -1,8 +1,8 @@
 {
-  "title": "Working with React",
+  "title": "Top companies for front end",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
   "imageUrl": "https://source.unsplash.com/random/960x360",
-  "level": "intermediate",
+  "level": "nightmare",
   "tags": ["network", "performance"],
-  "category": "blog/category/modern-front-end.json"
+  "category": "blog/category/front-end-career.json"
 }

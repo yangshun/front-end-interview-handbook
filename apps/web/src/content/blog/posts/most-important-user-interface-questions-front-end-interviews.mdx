@@ -1,0 +1,123 @@
+---
+title: 5 Most Important User Interface Questions to Master for Front End Interviews
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+imageUrl: https://source.unsplash.com/random/960x360
+tags:
+  - marketing
+  - network
+level: starter
+createdAt: 2023-12-19
+author: blog/author/yangshun.json
+category: blog/category/front-end-interviews.json
+series: blog/series/top-interview-questions.json
+---
+
+A common frustration when preparing for front end interviews is the sheer volume of questions to practice. There are over a 100 possible front end interview questions available on [GreatFrontEnd](/prepare). How do you choose the best questions to practice to get the highest return of investment on your time?
+
+Front end interview questions often revolve around a combination of fundamental JavaScript concepts, problem solving skills, layout building skills, and data structures and algorithms. To maximize your efficiency, we recommend practicing the most commonly-asked questions, along with those that touch multiple skills, so that you get all-rounded practice.
+
+In this list we will cover the most important JavaScript questions to practice. Let's get started!
+
+## Todo List
+
+Building a Todo list is a practical exercise that evaluates a front end engineer's ability to work with user interfaces, handle state, and perform basic CRUD (Create, Read, Update, Delete) operations. In the most basic form, candidates are asked to create a simple todo list where users can:
+
+1. Add new tasks to the list.
+1. Mark tasks as completed.
+1. Delete tasks from the list.
+
+It is a common interview question because it reflects real-world scenarios in front end development, where developers often create user interfaces to add new entries to a list, manipulate the list, and remove entries from the list.
+
+Building a well-implemented Todo list demonstrates proficiency in DOM manipulation, event handling, building accessible forms, event delegation, and state management. This is a question that can also have multiple potential follow-up questions:
+
+- Fetch suggestions from an API and display the suggestions in a combobox pattern.
+- Save the items to a persistent storage like localStorage or to a database and read from the storage.
+- Add undo/redo functionality.
+- Add reordering functionality.
+
+The ease of successfully implementing the follow-up questions is highly dependent on the quality of the basic implementation, so it's important to get the basic implementation right.
+
+[Practice implementing a Todo List on GreatFrontEnd](#TODO)
+
+## Tabs
+
+Tabs are a common UI pattern in web development, making this question practical and applicable to a front end engineer's daily tasks. Typically, candidates are asked to create a tabs UI component with the following requirements:
+
+1. Display three tabs: Tab 1, Tab 2, and Tab 3.
+1. When a tab is clicked, show the corresponding content for that tab and hide the content for other tabs.
+1. Apply a visual indication (e.g., styling change) to the active tab to show which tab is currently selected.
+
+For such questions, candidates might be asked to implement without using any external libraries or frameworks. Building a well-implemented Tabs component demonstrates proficiency in DOM manipulation, event handling, accessibility, event delegation, state management, and designing component abstractions. This is a question that can also have multiple potential follow-up questions:
+
+- Is the component well-encapsulated? Is it possible to have multiple Tabs components on the page each with its own state?
+- Add full keyboard support as per the [WAI-ARIA Tabs pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tabs/).
+- Add an API to dynamically add/remove tab items after the component has been initialized.
+- Load tab contents over an API.
+
+[Practice implementing a Tabs component on GreatFrontEnd](#TODO)
+
+## Tic-tac-toe
+
+A "Tic-tac-toe" front-end interview question typically involves creating a web-based version of the classic Tic-tac-toe game using HTML, CSS, and JavaScript. Typically, candidates are asked to create a tabs UI component with the following requirements:
+
+1. Display a 3 x 3 game board with cells that users can interact with.
+1. Allow two players to take turns placing their symbols (X and O) on the board.
+1. Determine and display the winner when a player forms a horizontal, vertical, or diagonal line of three of their symbols.
+1. Allow the option to reset the game for a new round.
+
+Implementing Tic-tac-toe assesses a candidate's understanding of DOM manipulation, event handling, building a grid-based layout, implementing non-trivial game logic, data structures and algorithms, and state management. Potential follow-up questions include:
+
+- Extending the game board to N x N with M consecutive symbols to win. A well-designed solution will make this easy.
+- Implementing undo/redo functionality.
+- Implementing an AI for a single-player mode.
+
+[Practice implementing a Tic-tac-toe component on GreatFrontEnd](#TODO) .
+
+## Image Carousel
+
+An "Image Carousel" front end interview question typically involves creating a web-based image carousel or slider. The goal is to implement a user interface that allows users to view a sequence of images, navigate between them. More specifically:
+
+1. Display a series of images in a carousel format.
+1. Allow users to navigate between images using previous and next buttons.
+1. Include indicators (e.g., dots) to show the current position in the sequence.
+1. Implement a responsive design that works well on various screen sizes.
+
+For such questions, candidates might be asked to implement without using any external libraries or frameworks. Implementing an image carousel assesses a candidate's understanding of DOM manipulation, event handling, building a slider layout, CSS transitions, and more. There are many ways to implement an image carousel, each with its own pros and cons. Unsurprisingly, this question has tons of possible follow-up questions:
+
+- Adding animations or transitions to enhance the user experience.
+- Providing accessibility features like keyboard events, correct roles, states, and properties as per the [WAI-ARIA Carousel pattern](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/).
+- Loading images dynamically or from an external source.
+- Implementing additional features like autoplay, pause on hover, jumping to a specific image via an imperative API.
+
+Image carousel interview question, along with its follow-ups, can even evolve into a front end system design question as there are multiple performance optimizations to talk about, with image optimizations being key. It's a great front end interview question to practice.
+
+[Read about how to design an Image Carousel on GreatFrontEnd](#TODO)
+
+## Autocomplete
+
+An "Autocomplete" front end interview question typically involves creating an interactive autocomplete feature for a text input field. The goal is to implement a user interface that suggests and displays possible matches or completions as the user types into the input field.
+
+Here's a simplified example of an Autocomplete front end interview question has the following requirements:
+
+1. As the user types into the input field, use the input text to fetch and display matching suggestions.
+1. Display the suggestions in a dropdown or similar UI element below the input field.
+1. Allow the user to select a suggestion from the dropdown, updating the input field accordingly.
+1. Fetch suggestions asynchronously from a server (simulated with a mock API or using actual HTTP requests).
+
+Implementing an autocomplete assesses a candidate's understanding of DOM manipulation, event handling, asynchronous programming (fetching suggestions from a server), familiarity with CSS positioning, form handling, accessibility, performance, and the list goes on. It is the single most important question you can practice as it literally touches on every possible front end interview topic. Like the image carousel question, there are also many possible follow-up questions:
+
+- Debounce the API search.
+- Providing accessibility features like keyboard events, correct roles, states, and properties as per the [WAI-ARIA Combobox pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/).
+- Caching results and showing results from cache.
+- Handling network race conditions.
+- ... and many many more.
+
+With the amount of things to talk about, this can also evolve into a front end system design question to have further discussions about what other APIs an autocomplete component can include, performance improvements, etc.
+
+[Read about how to design an Autocomplete on GreatFrontEnd](#TODO)
+
+---
+
+It goes without saying that there are more possible interview questions to practice, but many other interview questions build on top of the skills evaluated for the above questions. If you are short on time, practicing the above questions first will give your the highest return on investment and is highly recommended.
+
+All the best for your interviews!
