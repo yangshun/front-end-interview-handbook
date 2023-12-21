@@ -487,6 +487,10 @@
     "defaultMessage": "Optimized image assets",
     "description": "Label for Image Assets card in Assets Provided section of Projects project page"
   },
+  "4s0hMm": {
+    "defaultMessage": "All tasks completed!",
+    "description": "Title for rewards complete page"
+  },
   "4tgadO": {
     "defaultMessage": "Impress recruiters with entire component libraries or design systems built from scratch. Our component tracks cover components from various use cases and industries.",
     "description": "Subtitle of the 'Component tracks' marketing section on Projects home page"
@@ -2379,6 +2383,10 @@
     "defaultMessage": "After completion",
     "description": "Hint for \"Project Deployment & Completion\" tab on Projects project page"
   },
+  "QrikGf": {
+    "defaultMessage": "Copy to clipboard",
+    "description": "Button label for copy button"
+  },
   "QsA5iS": {
     "defaultMessage": "Keep up with modern skills and frameworks by building hands-on projects",
     "description": "Subtitle for Projects marketing hero section for experienced users"
@@ -2478,6 +2486,10 @@
   "Rdi3ic": {
     "defaultMessage": "Activity",
     "description": "Profile activity tab title"
+  },
+  "RfVhtP": {
+    "defaultMessage": "Use now",
+    "description": "Button label for use now button"
   },
   "RhEhnv": {
     "defaultMessage": "Get started (free)",
@@ -2599,6 +2611,10 @@
     "defaultMessage": "Lyft",
     "description": "Company name for Lyft"
   },
+  "TGDIEP": {
+    "defaultMessage": "We also send the promo code to your email.",
+    "description": "Subtext for rewards complete page"
+  },
   "TL822E": {
     "defaultMessage": "JavaScript Console",
     "description": "Title of JavaScript console panel"
@@ -2626,6 +2642,10 @@
   "TgOWsI": {
     "defaultMessage": "You've gained rep in these skills:",
     "description": "Label for skills gained on project submission success page"
+  },
+  "TvPbBZ": {
+    "defaultMessage": "Promo code copied!",
+    "description": "Success message shown when promo code is copied"
   },
   "Tvr6Mn": {
     "defaultMessage": "Senior Software Engineer",
@@ -2947,6 +2967,10 @@
     "defaultMessage": "Cancel",
     "description": "Label for cancel button on project submit page"
   },
+  "Wx0nGc": {
+    "defaultMessage": "This is a one-time use promo code exclusive to your account.",
+    "description": "Subtext for rewards complete page"
+  },
   "X/axGA": {
     "defaultMessage": "Affiliate Program",
     "description": "Title of Affiliate Program page"
@@ -2958,6 +2982,10 @@
   "X55xMA": {
     "defaultMessage": "Premium Feature",
     "description": "Header for paywall over company tagging"
+  },
+  "XIMn32": {
+    "defaultMessage": "Complete | Rewards",
+    "description": "Title of Rewards Complete page"
   },
   "XS6Jyn": {
     "defaultMessage": "Become an Affiliate",
@@ -3498,6 +3526,10 @@
   "d+wYSW": {
     "defaultMessage": "Sign up for a free GreatFrontEnd account to track your progress and access premium",
     "description": "Description of Sign Up page"
+  },
+  "d15liP": {
+    "defaultMessage": "Exp on {EXPIRY_DATE} • {DISCOUNT_PERCENTAGE}% off all plans",
+    "description": "Subtext for rewards complete page"
   },
   "d3GL1v": {
     "defaultMessage": "Copy line down",
@@ -4910,6 +4942,10 @@
   "tK6m9g": {
     "defaultMessage": "Build entire component libraries or design systems from scratch for your portfolio or as a toolkit for future projects.",
     "description": "Description of Projects component tracks page"
+  },
+  "tMvSIc": {
+    "defaultMessage": "Enjoy your exclusive promo code",
+    "description": "Title for rewards complete page"
   },
   "tNAIsO": {
     "defaultMessage": "JavaScript Questions",

@@ -13,9 +13,10 @@ type Props = Readonly<{
   isSignedIn: boolean;
 }>;
 
+const DISCOUNT_PERCENTAGE = 20;
+
 export default function RewardsHeader({ isSignedIn }: Props) {
   const intl = useIntl();
-  const DISCOUNT_PERCENTAGE = 20;
 
   return (
     <div className="flex flex-col items-center mx-auto max-w-7xl px-4 pt-8 sm:px-4 lg:pt-12 gap-y-2 sm:gap-y-4">
