@@ -31,5 +31,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function RewardsPage() {
   const user = await fetchUser();
 
-  return <RewardsIntro isSignedIn={user == null} />
+  return <RewardsIntro isSignedIn={user != null} />;
 }

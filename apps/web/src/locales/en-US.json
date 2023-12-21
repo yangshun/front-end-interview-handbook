@@ -211,10 +211,6 @@
     "defaultMessage": "Recommended schedule",
     "description": "Recommended schedule tooltip displayed on question cards found on question lists"
   },
-  "0UO/Ju": {
-    "defaultMessage": "I am Task 1",
-    "description": "Title for Task 1"
-  },
   "0WJfoT": {
     "defaultMessage": "Intermediate",
     "description": "Intermediate level blog"
@@ -242,10 +238,6 @@
   "0p6dRS": {
     "defaultMessage": "Practice makes perfect. With our collection of over {count} front end questions, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
     "description": "Title of question examples section on getting started page"
-  },
-  "0qd9FM": {
-    "defaultMessage": "I am Task 2",
-    "description": "Title for Task 2"
   },
   "0xSU4h": {
     "defaultMessage": "Study list session stopped",
@@ -387,10 +379,6 @@
     "defaultMessage": "Please enter a valid date",
     "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
   },
-  "3UVuxe": {
-    "defaultMessage": "for completing simple tasks like following our socials!",
-    "description": "Subtext for rewards page"
-  },
   "3WHiQS": {
     "defaultMessage": "Cheatsheet",
     "description": "One-page summary sheet for front end system design interviews"
@@ -482,6 +470,10 @@
   "4cjRbk": {
     "defaultMessage": "Info",
     "description": "Select label for info log level in console filter"
+  },
+  "4eFF4E": {
+    "defaultMessage": "We are giving away exclusive promo codes for {DISCOUNT_PERCENTAGE}% off all plans.",
+    "description": "Subtext for rewards page"
   },
   "4kQ6Kr": {
     "defaultMessage": "Exclusive to currently enrolled students at accredited educational institutions.",
@@ -987,6 +979,10 @@
     "defaultMessage": "Free",
     "description": "Label to indicate the item is free"
   },
+  "Aarfzt": {
+    "defaultMessage": "Start task",
+    "description": "Label for button to start task"
+  },
   "Ad94JV": {
     "defaultMessage": "Use code at checkout",
     "description": "Instruction to apply discount"
@@ -1058,6 +1054,10 @@
   "BnHLZU": {
     "defaultMessage": "Submit your solution for feedback",
     "description": "Title of 'Submit your solution for feedback' feature in Projects marketing page"
+  },
+  "BqQdtB": {
+    "defaultMessage": "We are giving away an exclusive {DISCOUNT_PERCENTAGE}% off all plans for completing simple tasks like following our socials!",
+    "description": "Subtext for rewards page"
   },
   "BwHkBU": {
     "defaultMessage": "Profile",
@@ -1227,6 +1227,10 @@
     "defaultMessage": "Skills",
     "description": "Label for Skills section of Projects profile onboarding page"
   },
+  "De+COK": {
+    "defaultMessage": "{DISCOUNT_PERCENTAGE}% off all plans",
+    "description": "Title for rewards page"
+  },
   "DiyRBB": {
     "defaultMessage": "Codeney Pte Ltd. All rights reserved.",
     "description": "Footer copyright text containing the company name"
@@ -1266,6 +1270,10 @@
   "ECkWMR": {
     "defaultMessage": "Stop session",
     "description": "Label to stop study plan"
+  },
+  "EH6F7u": {
+    "defaultMessage": "Campaign's Terms",
+    "description": "Campaign terms link"
   },
   "EHPx/Z": {
     "defaultMessage": "Solving Common Questions",
@@ -2531,10 +2539,6 @@
     "defaultMessage": "Premium Content",
     "description": "Premium system design questions content"
   },
-  "SMYzrt": {
-    "defaultMessage": "We are giving away an exclusive 20% of all plans",
-    "description": "Subtext for rewards page"
-  },
   "SUjf8L": {
     "defaultMessage": "Not Subscribed",
     "description": "Text describing user's subscription status."
@@ -2834,10 +2838,6 @@
   "VlrCm6": {
     "defaultMessage": "Pricing",
     "description": "Link label to the pricing page"
-  },
-  "Vpiw8N": {
-    "defaultMessage": "We are giving away exclusive promo codes for 20% off all plans.",
-    "description": "Subtext for rewards page"
   },
   "Vvc37/": {
     "defaultMessage": "Sign up for an account",
@@ -3238,6 +3238,10 @@
   "aeeTOy": {
     "defaultMessage": "Font size",
     "description": "Select label to choose console font size"
+  },
+  "afi284": {
+    "defaultMessage": "Follow our LinkedIn page",
+    "description": "Title for LinkedIn follow task"
   },
   "aiI8c6": {
     "defaultMessage": "Stack used",
@@ -3822,6 +3826,10 @@
   "grrYsM": {
     "defaultMessage": "Years of Experience",
     "description": "Label for Years of Experience section of Projects profile onboarding page"
+  },
+  "gtnKcP": {
+    "defaultMessage": "Star our GitHub repo",
+    "description": "Title for GitHub star task"
   },
   "gtouN7": {
     "defaultMessage": "Medium",
@@ -4979,6 +4987,10 @@
     "defaultMessage": "Learn while building",
     "description": "Title of 'Learn while building' feature in Projects marketing page"
   },
+  "u2zHME": {
+    "defaultMessage": "Follow our GitHub organisation",
+    "description": "Title for GitHub follow task"
+  },
   "u3bYHM": {
     "defaultMessage": "FAQ",
     "description": "Link to FAQ page"
@@ -5179,6 +5191,10 @@
     "defaultMessage": "The URL where your solution is hosted. Find our <link>recommended free hosting providers</link> if you haven\\'t already.",
     "description": "Description for live site URL input on project submit page"
   },
+  "wR331j": {
+    "defaultMessage": "By proceeding, you agree to the",
+    "description": "Campaign terms agreement prompt"
+  },
   "wbjMPn": {
     "defaultMessage": "Send magic link",
     "description": "Label of send magic link button on Magic Link Sign In page"
@@ -5350,10 +5366,6 @@
   "y9hdD1": {
     "defaultMessage": "Reading time",
     "description": "Reading time of the article"
-  },
-  "yLsxUM": {
-    "defaultMessage": "20% off all plans",
-    "description": "Title for rewards page"
   },
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",
