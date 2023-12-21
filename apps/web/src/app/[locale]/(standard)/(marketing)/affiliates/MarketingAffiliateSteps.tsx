@@ -39,23 +39,23 @@ export default function MarketingAffiliateSteps() {
         {steps.map((step, stepIdx) => (
           <li key={step.title} className="flex flex-col md:col-span-1">
             <div className="flex items-center">
-              <div className="bg-brand-dark flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-xl text-white">
+              <div className="bg-brand-dark flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-base font-medium text-white">
                 <p>{stepIdx + 1}</p>
               </div>
               <Text
                 className="py-4 pl-4 text-2xl md:text-xl"
                 display="block"
                 size="custom"
-                weight="medium">
+                weight="bold">
                 {step.title}
               </Text>
             </div>
             <div className="flex grow flex-col pt-2">
               <Text
-                className="grow text-xl md:text-lg"
+                className="grow"
                 color="secondary"
                 display="block"
-                size="custom">
+                size="body1">
                 {step.subtitle}
               </Text>
               <div className="mt-12 flex grow">

@@ -1891,10 +1891,6 @@
     "defaultMessage": "Async Operations",
     "description": "Name of focus area questions"
   },
-  "LK0JHB": {
-    "defaultMessage": "FAQs.",
-    "description": "Frequently Asked Questions"
-  },
   "LNBK2M": {
     "defaultMessage": "Our services are unavailable at your location.",
     "description": "Message explaining that the website does not transact with the user's location."

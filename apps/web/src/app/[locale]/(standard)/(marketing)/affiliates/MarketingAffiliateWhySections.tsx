@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import {
+  RiArrowRightLine,
   RiCheckLine,
   RiHandCoinLine,
   RiMoneyDollarBoxLine,
@@ -11,7 +12,11 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import { themeLineBackgroundColor } from '~/components/ui/theme';
+import {
+  themeGlassyBorder,
+  themeLineBackgroundColor,
+  themeTextSubtitleColor,
+} from '~/components/ui/theme';
 
 import * as Slider from '@radix-ui/react-slider';
 
@@ -39,7 +44,7 @@ function ProductSection() {
           key={feature}
           className={clsx(
             'inline-flex items-center gap-1 rounded-lg px-4 py-2',
-            'bg-neutral-100 dark:bg-neutral-800',
+            'bg-neutral-100 dark:bg-neutral-800/40',
           )}>
           <RiCheckLine
             aria-hidden={true}
@@ -148,10 +153,18 @@ export default function MarketingAffiliateWhySections() {
           className="lg:mx-auto lg:grid lg:grid-flow-col-dense lg:grid-cols-2 lg:gap-24">
           <div className="mx-auto lg:col-start-2 lg:mx-0 lg:py-24">
             <div>
-              <span className="bg-brand-dark flex h-10 w-10 items-center justify-center rounded-xl sm:h-12 sm:w-12">
+              <span
+                aria-hidden="true"
+                className={clsx(
+                  'inline-flex',
+                  'rounded-full p-3 dark:bg-neutral-800/70',
+                  themeGlassyBorder,
+                )}>
                 <reason.icon
-                  aria-hidden="true"
-                  className="h-7 w-7 text-white sm:h-8 sm:w-8"
+                  className={clsx(
+                    'text-primary h-6 w-6',
+                    themeTextSubtitleColor,
+                  )}
                 />
               </span>
             </div>
@@ -169,9 +182,10 @@ export default function MarketingAffiliateWhySections() {
                   {reason.action && (
                     <Button
                       href={reason.action.href}
+                      icon={RiArrowRightLine}
                       label={reason.action.label}
                       size="md"
-                      variant="primary"
+                      variant="secondary"
                     />
                   )}
                   {reason.secondaryAction && (
@@ -179,7 +193,7 @@ export default function MarketingAffiliateWhySections() {
                       href={reason.secondaryAction.href}
                       label={reason.secondaryAction.label}
                       size="md"
-                      variant="secondary"
+                      variant="tertiary"
                     />
                   )}
                 </div>

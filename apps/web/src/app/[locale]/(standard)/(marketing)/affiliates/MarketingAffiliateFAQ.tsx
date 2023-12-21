@@ -1,15 +1,11 @@
 import clsx from 'clsx';
-import { RiArrowDownSLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
+import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
+import FAQSection from '~/components/interviews/marketing/faqs/FAQSection';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
-import Heading from '~/components/ui/Heading/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
-import { themeDivideColor } from '~/components/ui/theme';
-
-import { Disclosure } from '@headlessui/react';
 
 // TODO: i18n
 const faqs = [
@@ -50,7 +46,7 @@ const faqs = [
   },
   {
     answer: (
-      <div className="flex flex-col gap-y-4">
+      <>
         <p>
           Once accepted into the affiliate program, you will receive a unique
           reference handle and affiliate link which will be used to track all
@@ -66,7 +62,7 @@ const faqs = [
           purchases products within the duration of the cookie, you will earn
           15% commissions on their first order.
         </p>
-      </div>
+      </>
     ),
     key: 'tracking',
     question: <>How are referrals tracked?</>,
@@ -104,101 +100,50 @@ const faqs = [
   },
 ];
 
-export default function FrequentlyAskedQuestions() {
+export default function MarketingAffialiateFAQ() {
+  const intl = useIntl();
+
   return (
     <div>
-      <Container variant="narrow">
-        <div
-          className={clsx(
-            'relative py-24 transition-opacity duration-[1500ms] ease-in-out lg:pt-16',
-          )}>
-          <div>
-            <Heading className="text-center" level="heading2">
-              <FormattedMessage
-                defaultMessage="FAQs."
-                description="Frequently Asked Questions"
-                id="LK0JHB"
-              />
-            </Heading>
-            <Text
-              className="mx-auto mt-4 justify-center px-4 text-center text-lg sm:mt-8 md:px-10 md:text-xl lg:px-20"
-              color="secondary"
-              display="block"
-              size="custom">
-              <FormattedMessage
-                defaultMessage="Can't find the answer you are looking for? <link>Reach out to us!</link>"
-                description="Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
-                id="ZCmkG3"
-                values={{
-                  link: (chunks) => (
-                    <Anchor
-                      className="text-brand-dark hover:text-brand mx-auto justify-center whitespace-nowrap font-medium"
-                      href="mailto:contact@greatfrontend.com"
-                      variant="unstyled">
-                      {chunks}
-                    </Anchor>
-                  ),
-                }}
-              />
-            </Text>
-          </div>
-          <Section>
-            <div>
-              <dl
-                className={clsx(
-                  'mt-6 space-y-6 divide-y lg:mt-12 lg:space-y-8',
-                  themeDivideColor,
-                )}>
-                {faqs.map((faq) => (
-                  <Disclosure
-                    key={faq.key}
-                    as="div"
-                    className="pt-8"
-                    defaultOpen={true}>
-                    {({ open }) => (
-                      <>
-                        <dt>
-                          <Disclosure.Button
-                            className={clsx(
-                              'flex w-full items-start justify-between text-left',
-                              'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset',
-                              'focus-visible:ring-brand-dark dark:focus-visible:ring-brand',
-                            )}>
-                            <Text
-                              className="text-base sm:text-lg md:text-xl"
-                              display="block"
-                              size="custom"
-                              weight="medium">
-                              {faq.question}
-                            </Text>
-                            <span className="ml-6 flex h-7 items-center text-neutral-400 dark:text-neutral-600">
-                              <RiArrowDownSLine
-                                aria-hidden="true"
-                                className={clsx(
-                                  open ? '-rotate-180' : 'rotate-0',
-                                  'h-6 w-6 transform',
-                                )}
-                              />
-                            </span>
-                          </Disclosure.Button>
-                        </dt>
-                        <Disclosure.Panel as="dd" className="mt-8 pr-12">
-                          <Text
-                            className="text-base sm:text-lg md:text-xl"
-                            color="secondary"
-                            display="block"
-                            size="custom">
-                            {faq.answer}
-                          </Text>
-                        </Disclosure.Panel>
-                      </>
-                    )}
-                  </Disclosure>
-                ))}
-              </dl>
-            </div>
-          </Section>
-        </div>
+      <Container
+        className="max-lg:theme-bg-radial-glow relative isolate flex flex-col gap-y-12 py-24 max-lg:rounded-t-3xl lg:py-32"
+        variant="narrow">
+        <MarketingSectionHeader
+          description={
+            <FormattedMessage
+              defaultMessage="Can't find the answer you are looking for? <link>Reach out to us!</link>"
+              description="Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
+              id="ZCmkG3"
+              values={{
+                link: (chunks) => (
+                  <Anchor
+                    className="mx-auto justify-center whitespace-nowrap font-medium"
+                    href="mailto:contact@greatfrontend.com">
+                    {chunks}
+                  </Anchor>
+                ),
+              }}
+            />
+          }
+          heading={
+            <FormattedMessage
+              defaultMessage="FAQs"
+              description="Frequently Asked Questions"
+              id="DIs2lU"
+            />
+          }
+        />
+        <Section>
+          <FAQSection
+            faqs={faqs}
+            hideTitle={true}
+            title={intl.formatMessage({
+              defaultMessage: 'General',
+              description: 'Title for FAQ section',
+              id: 'FRg+qa',
+            })}
+          />
+        </Section>
       </Container>
     </div>
   );
