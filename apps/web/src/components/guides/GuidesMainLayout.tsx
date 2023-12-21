@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import { useRef } from 'react';
 
+import ArticlePagination from '~/components/common/ArticlePagination';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
@@ -15,7 +16,6 @@ import { GuidesSidebar } from './GuidesSidebar';
 import type { TableOfContents } from './GuidesTableOfContents';
 import GuidesTableOfContents from './GuidesTableOfContents';
 import useFlattenedNavigationItems from './useFlattenedNavigationItems';
-import QuestionPagination from '../interviews/questions/content/QuestionPagination';
 
 type Props = Readonly<{
   children?: React.ReactNode;
@@ -76,7 +76,7 @@ export default function GuidesMainLayout({
             </div>
             <Section>
               <div className="mt-8">
-                <QuestionPagination
+                <ArticlePagination
                   currentHref={pathname ?? ''}
                   items={flatNavigationItems}
                 />

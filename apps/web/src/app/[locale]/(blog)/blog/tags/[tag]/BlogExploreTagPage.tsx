@@ -2,8 +2,8 @@
 
 import type { BlogTag } from '~/data/blog/Tag';
 
-import BlogExploreTagList from '~/components/blog/BlogExploreTagList';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
+import BlogExploreTagList from '~/components/blog/listing/BlogExploreTagList';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';

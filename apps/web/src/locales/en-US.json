@@ -4935,6 +4935,10 @@
     "defaultMessage": "Discover study plans tailored to your needs to help you prepare for your upcoming technical interviews.",
     "description": "Description for study plans page"
   },
+  "tCiU5O": {
+    "defaultMessage": "No series",
+    "description": "Title for empty state when application of filters return no results"
+  },
   "tDJ0XN": {
     "defaultMessage": "Difficulty: Hard to Easy",
     "description": "Sorting option for question list - sort by difficulty from hard to easy"

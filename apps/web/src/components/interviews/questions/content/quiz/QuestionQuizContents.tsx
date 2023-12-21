@@ -6,6 +6,7 @@ import { useMemo } from 'react';
 import { RiEditBoxLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import ArticlePagination from '~/components/common/ArticlePagination';
 import MDXCodeBlock from '~/components/mdx/MDXCodeBlock';
 import MDXComponents from '~/components/mdx/MDXComponents';
 import Button from '~/components/ui/Button';
@@ -19,7 +20,6 @@ import { themeLineColor } from '~/components/ui/theme';
 import { useI18n } from '~/next-i18nostic/src';
 
 import QuestionQuizBottomNav from './QuestionQuizBottomNav';
-import QuestionPagination from '../QuestionPagination';
 import QuestionReportIssueButton from '../../common/QuestionReportIssueButton';
 import type {
   QuestionMetadata,
@@ -164,7 +164,7 @@ export default function QuestionQuizContents({
             <GitHubEditButton question={question} />
           </div>
           <Divider />
-          <QuestionPagination
+          <ArticlePagination
             currentHref={question.metadata.href}
             items={questionList.map(({ title: titleParam, href }) => ({
               href,

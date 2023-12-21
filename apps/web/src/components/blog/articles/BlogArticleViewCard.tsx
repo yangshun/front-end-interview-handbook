@@ -10,7 +10,7 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import BlogArticle from '~/components/blog/BlogArticle';
+import BlogArticle from '~/components/blog/articles/BlogArticle';
 import BlogMdx from '~/components/blog/BlogMdx';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import Button from '~/components/ui/Button';

@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
-import BlogListingWithFilters from '~/components/blog/BlogListingWithFilters';
 import type { BlogMetadata, BlogTagType } from '~/components/blog/BlogTypes';
 import type { FilterTab } from '~/components/blog/filters/BlogTypeTabs';
 import BlogTypeTabs from '~/components/blog/filters/BlogTypeTabs';
+import BlogListingWithFilters from '~/components/blog/listing/BlogListingWithFilters';
 
 type Props = Readonly<{
   articles: ReadonlyArray<BlogMetadata>;
@@ -23,8 +23,9 @@ export default function BlogExploreTagList({
   ).filter((blog) => blog.tags.includes(tagType));
 
   return (
-    <div className="flex flex-col gap-4">
+    <>
       <BlogTypeTabs value={selectedTab} onSelect={setSelectedTab} />
+
       <BlogListingWithFilters
         key={selectedTab}
         blogs={filteredByTagBlogs}
@@ -33,6 +34,6 @@ export default function BlogExploreTagList({
         showFilters={selectedTab === 'articles'}
         type={selectedTab}
       />
-    </div>
+    </>
   );
 }

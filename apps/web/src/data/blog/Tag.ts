@@ -31,7 +31,7 @@ export function getBlogTagDefinition(tag: BlogTagType): BlogTag {
     case 'performance':
       return {
         description: 'Find all series and articles related to performance',
-        href: '/blog/explore/performance',
+        href: '/blog/tags/performance',
         name: 'Performance',
         style: {
           backgroundClass: 'bg-success-lightest dark:bg-success-darker',
@@ -43,7 +43,7 @@ export function getBlogTagDefinition(tag: BlogTagType): BlogTag {
     case 'javascript':
       return {
         description: 'Find all series and articles related to javascript',
-        href: '/blog/explore/javascript',
+        href: '/blog/tags/javascript',
         name: 'Javascript',
         style: {
           backgroundClass: 'bg-warning-lightest dark:bg-warning-darker',
@@ -55,7 +55,7 @@ export function getBlogTagDefinition(tag: BlogTagType): BlogTag {
     case 'network':
       return {
         description: 'Find all series and articles related to network',
-        href: '/blog/explore/network',
+        href: '/blog/tags/network',
         name: 'Network',
         style: {
           backgroundClass: 'bg-brand-lightest dark:bg-neutral-800',
@@ -67,7 +67,7 @@ export function getBlogTagDefinition(tag: BlogTagType): BlogTag {
     case 'marketing':
       return {
         description: 'Find all series and articles related to marketing',
-        href: '/blog/explore/marketing',
+        href: '/blog/tags/marketing',
         name: 'Marketing',
         style: {
           backgroundClass: 'bg-info-lightest dark:bg-info-darker',
@@ -79,7 +79,7 @@ export function getBlogTagDefinition(tag: BlogTagType): BlogTag {
     case 'security':
       return {
         description: 'Find all series and articles related to security',
-        href: '/blog/explore/security',
+        href: '/blog/tags/security',
         name: 'Security',
         style: {
           backgroundClass: 'bg-danger-lightest dark:bg-danger-darkest',

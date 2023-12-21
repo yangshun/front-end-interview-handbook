@@ -1,21 +1,13 @@
-import type { Post, Series } from 'contentlayer/generated';
+import type { Post } from 'contentlayer/generated';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import BlogArticleLayout from '~/components/blog/BlogArticleLayout';
-import BlogArticleMainLayout from '~/components/blog/BlogArticleMainLayout';
+import BlogArticleLayout from '~/components/blog/articles/BlogArticleLayout';
+import BlogArticleMainLayout from '~/components/blog/articles/BlogArticleMainLayout';
 import BlogMdx from '~/components/blog/BlogMdx';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
-import BlogList from '~/components/blog/filters/items/BlogList';
-import BlogSubseriesSection from '~/components/blog/subseries/BlogSubseriesSection';
 
-import {
-  getAllPosts,
-  getPostFromSlug,
-  getSeriesFromSlug,
-  getSeriesPostNavigation,
-  getSubseriesAndPosts,
-} from '~/contentlayer/utils';
+import { getPostFromSlug, getSeriesPostNavigation } from '~/contentlayer/utils';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 type Props = Readonly<{
@@ -27,48 +19,17 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
-  const series = getSeriesFromSlug(slug || '');
   const post = getPostFromSlug(slug || '');
 
   return defaultMetadata({
-    description: (post || series)?.description,
+    description: post?.description,
     locale,
-    pathname: (post || series)?.href || '',
-    title: (post || series)?.title || '',
+    pathname: post?.href || '',
+    title: post?.title || '',
   });
 }
 
 function useBlogContent(slug: string) {
-  const series = getSeriesFromSlug(slug || '');
-
-  if (series) {
-    const subseriesData = getSubseriesAndPosts(series as Series);
-
-    if (subseriesData.length > 0) {
-      return {
-        seriesMetadata: {
-          ...series,
-          hasSubseries: true,
-          isSeries: true,
-        } as BlogMetadata,
-        subseriesData,
-      };
-    }
-
-    const seriesBlogs = getAllPosts({ sort: true }).filter(
-      (_) => (_ as Post).series === (series as Series).source,
-    );
-
-    return {
-      seriesBlogs,
-      seriesMetadata: {
-        ...series,
-        hasSubseries: false,
-        isSeries: true,
-      } as BlogMetadata,
-    };
-  }
-
   const post = getPostFromSlug(slug || '');
 
   if (post) {
@@ -92,30 +53,14 @@ function useBlogContent(slug: string) {
 
 export default function Page({ params }: Props) {
   const { slug } = params;
-  const {
-    subseriesData,
-    blogMetadata,
-    seriesMetadata,
-    seriesBlogs,
-    seriesArticleNavigation,
-  } = useBlogContent(slug || '');
+  const { blogMetadata, seriesArticleNavigation } = useBlogContent(slug || '');
 
   return (
     <BlogArticleLayout
-      metadata={blogMetadata || seriesMetadata}
-      navigation={
-        (blogMetadata as Post)?.series ? seriesArticleNavigation : undefined
-      }>
-      <BlogArticleMainLayout metadata={blogMetadata || seriesMetadata}>
-        {!seriesMetadata ? (
-          <BlogMdx code={(blogMetadata as Post)?.body.code || ''} />
-        ) : seriesMetadata.hasSubseries && subseriesData ? (
-          <BlogSubseriesSection subseriesData={subseriesData} />
-        ) : (
-          <div className="!list-none">
-            <BlogList blogs={seriesBlogs || []} />
-          </div>
-        )}
+      metadata={blogMetadata}
+      navigation={seriesArticleNavigation}>
+      <BlogArticleMainLayout metadata={blogMetadata}>
+        <BlogMdx code={(blogMetadata as Post)?.body.code || ''} />
       </BlogArticleMainLayout>
     </BlogArticleLayout>
   );

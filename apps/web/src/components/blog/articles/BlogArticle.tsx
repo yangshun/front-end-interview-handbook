@@ -8,9 +8,8 @@ import { FormattedMessage } from 'react-intl';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import BlogMetadataSection from '~/components/blog/metadata/BlogMetadataSection';
 import Divider from '~/components/ui/Divider';
+import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
-
-import Heading from '../ui/Heading';
 
 type ArticleView = 'card' | 'default';
 

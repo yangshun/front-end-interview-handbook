@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import type { RelatedPost } from 'contentlayer/generated';
 import { FormattedMessage } from 'react-intl';
 
-import BlogRelatedArticleCard from '~/components/blog/BlogRelatedArticleCard';
+import BlogRelatedArticleCard from '~/components/blog/articles/BlogRelatedArticleCard';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 

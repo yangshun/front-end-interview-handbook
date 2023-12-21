@@ -7,8 +7,8 @@ import { useIntl } from 'react-intl';
 
 import useIsSticky from '~/hooks/useIsSticky';
 
-import type { BlogArticleNavigationType } from '~/components/blog/BlogArticleSidebar';
-import { BlogArticleSidebar } from '~/components/blog/BlogArticleSidebar';
+import type { BlogArticleNavigationType } from '~/components/blog/articles/BlogArticleSidebar';
+import { BlogArticleSidebar } from '~/components/blog/articles/BlogArticleSidebar';
 import BlogSidebar from '~/components/blog/BlogSidebar';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
@@ -38,7 +38,7 @@ export default function BlogNavbar({ seriesContents }: Props) {
     <div
       ref={navbarRef}
       className={clsx(
-        'sticky z-30 border-b md:hidden',
+        'sticky z-30 border-b xl:hidden',
         [!isSticky && 'bg-white dark:bg-neutral-950/60', 'backdrop-blur'],
         themeLineColor,
       )}
@@ -46,6 +46,7 @@ export default function BlogNavbar({ seriesContents }: Props) {
       <Container className="flex h-10 items-center justify-between">
         <Button
           addonPosition="start"
+          className="lg:invisible"
           icon={RiMenu2Line}
           label={intl.formatMessage({
             defaultMessage: 'Blog Menu',

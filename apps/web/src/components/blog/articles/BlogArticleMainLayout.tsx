@@ -2,11 +2,11 @@
 
 import type { Post } from 'contentlayer/generated';
 
-import BlogArticlePagination from '~/components/blog/BlogArticlePagination';
 import BlogRelatedArticlesSection from '~/components/blog/BlogRelatedArticlesSection';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import BlogCopyLinkButton from '~/components/blog/metadata/BlogCopyLinkButton';
 import BlogShareButton from '~/components/blog/metadata/BlogShareButton';
+import ArticlePagination from '~/components/common/ArticlePagination';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import { getAllPostsForNavigation } from '~/contentlayer/utils';
@@ -34,10 +34,10 @@ export default function BlogArticleMainLayout({ children, metadata }: Props) {
         <>
           <div className="flex items-center justify-end gap-x-4">
             <BlogCopyLinkButton href={metadata.href} />
-            <BlogShareButton metadata={metadata}/>
+            <BlogShareButton metadata={metadata} />
           </div>
           <Section>
-            <BlogArticlePagination
+            <ArticlePagination
               currentHref={pathname ?? ''}
               items={flatNavigationItems}
             />

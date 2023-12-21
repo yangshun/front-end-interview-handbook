@@ -5,10 +5,10 @@ import { useState } from 'react';
 import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import BlogSubseriesItemCard from '~/components/blog/subseries/BlogSubseriesItemCard';
 import type { BlogSubseries } from '~/components/blog/BlogTypes';
 import BlogCountLabel from '~/components/blog/metadata/BlogCountLabel';
 import BlogReadingTimeLabel from '~/components/blog/metadata/BlogReadingTimeLabel';
-import BlogSubseriesItemCard from '~/components/blog/subseries/BlogSubseriesItemCard';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';

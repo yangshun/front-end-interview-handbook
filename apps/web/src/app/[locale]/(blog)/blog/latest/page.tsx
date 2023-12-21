@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import BlogWhatsNewListing from '~/components/blog/BlogWhatsNewListing';
+import BlogWhatsNewListing from '~/components/blog/listing/BlogWhatsNewListing';
 
 import { getAllPosts } from '~/contentlayer/utils';
 import { getIntlServerOnly } from '~/i18n';

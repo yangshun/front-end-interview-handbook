@@ -252,7 +252,7 @@ export default function BlogListingWithFilters({
             />
           </Heading>
           <Section>
-            <BlogList blogs={processedBlogs} view={viewField} />
+            <BlogList blogs={processedBlogs} type={type} view={viewField} />
           </Section>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import type { BlogArticleNavigationType } from '~/components/blog/BlogArticleSidebar';
+import type { BlogArticleNavigationType } from '~/components/blog/articles/BlogArticleSidebar';
 import BlogNavbar from '~/components/blog/BlogNavbar';
 
 type Props = Readonly<{

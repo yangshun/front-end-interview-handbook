@@ -6,7 +6,8 @@ export const BlogSeriesDocument = defineDocumentType(() => ({
   bodyType: 'none',
   computedFields: {
     href: {
-      resolve: (series) => `/blog/${series._raw.flattenedPath.split('/')[2]}`,
+      resolve: (series) =>
+        `/blog/series/${series._raw.flattenedPath.split('/')[2]}`,
       type: 'string',
     },
     slug: {

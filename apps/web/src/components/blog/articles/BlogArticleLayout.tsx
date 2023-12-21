@@ -2,10 +2,10 @@
 
 import clsx from 'clsx';
 
-import BlogArticle from '~/components/blog/BlogArticle';
-import BlogArticleJsonLd from '~/components/blog/BlogArticleJsonLd';
-import type { BlogArticleNavigationType } from '~/components/blog/BlogArticleSidebar';
-import { BlogArticleSidebar } from '~/components/blog/BlogArticleSidebar';
+import BlogArticle from '~/components/blog/articles/BlogArticle';
+import BlogArticleJsonLd from '~/components/blog/articles/BlogArticleJsonLd';
+import type { BlogArticleNavigationType } from '~/components/blog/articles/BlogArticleSidebar';
+import { BlogArticleSidebar } from '~/components/blog/articles/BlogArticleSidebar';
 import BlogMainLayout from '~/components/blog/BlogMainLayout';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import Container from '~/components/ui/Container';
@@ -44,7 +44,7 @@ export default function BlogArticleLayout({
           <div className="flex justify-center gap-x-10">
             {metadata.isSeriesArticle && navigation && (
               <div
-                className="sticky hidden md:contents"
+                className="sticky hidden xl:contents"
                 style={{ top: 'var(--nav-top-offset)' }}>
                 <BlogArticleSidebar navigation={navigation} />
               </div>

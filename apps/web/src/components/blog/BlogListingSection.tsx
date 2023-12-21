@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import { allCategories, allSeries } from 'contentlayer/generated';
 import { FormattedMessage } from 'react-intl';
 
-import BlogBrowseSeries from '~/components/blog/BlogBrowseSeries';
-import BlogListWithFilters from '~/components/blog/BlogListingWithFilters';
+import BlogListWithFilters from '~/components/blog/listing/BlogListingWithFilters';
+import BlogBrowseSeries from '~/components/blog/series/BlogBrowseSeries';
 import Heading from '~/components/ui/Heading';
 
 import { getAllPosts } from '~/contentlayer/utils';

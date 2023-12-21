@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 
 import { getBlogTags } from '~/data/blog/Tag';
 
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const blogTag = blogTags[tag];
 
   if (!blogTag) {
-    return redirect('/not-found');
+    notFound();
   }
 
   return defaultMetadata({
@@ -53,7 +53,7 @@ export default async function Page({ params }: Props) {
   const series = getAllSeries();
 
   if (!blogTag) {
-    return redirect('/not-found');
+    notFound();
   }
 
   return (
