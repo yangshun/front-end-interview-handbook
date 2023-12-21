@@ -73,6 +73,38 @@ export async function fetchUser(authToken?: string): Promise<User | null> {
   }
 }
 
+// TODO(auth): Migrate fetchUser() to this function as much as possible.
+export function readUserFromToken(authToken?: string): JwtUser | null {
+  try {
+    let supabaseAuthToken = authToken;
+
+    if (supabaseAuthToken == null) {
+      // TODO: Allow cookie to be passed in as a param because cookies()
+      // crashes when used in serverless API routes.
+      // Remove authToken param when fixed.
+      // https://github.com/vercel/next.js/issues/46356
+      const cookieStore = cookies();
+
+      supabaseAuthToken = cookieStore.get('supabase-auth-token')?.value;
+    }
+
+    if (supabaseAuthToken == null) {
+      return null;
+    }
+
+    const tokens = decodeSupabaseAuthTokens(supabaseAuthToken);
+
+    if (tokens == null || tokens.accessToken == null) {
+      return null;
+    }
+
+    return parseJWTAccessToken(supabaseAuthToken);
+  } catch (err) {
+    // TODO: Log error.
+    return null;
+  }
+}
+
 function decodeSupabaseAuthTokens(authTokens: string): Readonly<{
   accessToken: string | null;
   providerRefreshToken: string | null;
@@ -102,20 +134,30 @@ function decodeSupabaseAuthTokens(authTokens: string): Readonly<{
   }
 }
 
+type JwtUser = Readonly<{
+  email: string; // User Email.
+  id: string; // User ID.
+}>;
+
 type JwtPayload = Readonly<{
   email: string; // User Email.
   sub: string; // User ID.
 }>;
 
-export function parseJWTAccessToken(token: string): JwtPayload {
+export function parseJWTAccessToken(token: string): JwtUser {
   const { accessToken } = decodeSupabaseAuthTokens(token);
 
   if (!accessToken) {
     throw new Error('Unable to parse Supabase auth token');
   }
 
-  return jwt.verify(
+  const payload = jwt.verify(
     accessToken,
     process.env.SUPABASE_JWT_SECRET!,
   ) as JwtPayload;
+
+  return {
+    email: payload.email,
+    id: payload.sub,
+  };
 }

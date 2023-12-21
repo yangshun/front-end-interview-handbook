@@ -55,11 +55,9 @@ export default async function handler(
 
   try {
     if (cookies['supabase-auth-token']) {
-      const { sub, email } = parseJWTAccessToken(
-        cookies['supabase-auth-token'],
-      );
+      const { id, email } = parseJWTAccessToken(cookies['supabase-auth-token']);
 
-      userId = sub || null;
+      userId = id || null;
       userEmail = email || null;
     }
   } catch (err) {
