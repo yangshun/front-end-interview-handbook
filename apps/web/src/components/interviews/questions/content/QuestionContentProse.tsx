@@ -7,7 +7,6 @@ import MDXComponents from '~/components/mdx/MDXComponents';
 import EmptyState from '~/components/ui/EmptyState';
 import type { ProseTextSize } from '~/components/ui/Prose';
 import Prose from '~/components/ui/Prose';
-import Text from '~/components/ui/Text';
 
 import QuestionPaywall from '../common/QuestionPaywall';
 

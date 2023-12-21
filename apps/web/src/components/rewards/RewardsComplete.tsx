@@ -12,11 +12,10 @@ import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
 import { useToast } from '~/components/global/toasts/ToastsProvider';
 import RewardsTicket from '~/components/rewards/RewardsTicket';
+import Button from '~/components/ui/Button';
+import Dialog from '~/components/ui/Dialog';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
-
-import Button from '../ui/Button';
-import Dialog from '../ui/Dialog';
 
 const PROMO_CODE = 'GENCODE';
 const EXPIRY_DATE = '14/01/24';
@@ -25,7 +24,7 @@ const DISCOUNT_PERCENTAGE = 20;
 export default function RewardsComplete() {
   const intl = useIntl();
   const toast = useToast();
-  const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
+  const [, onCopy] = useCopyToClipboardWithRevert(1000);
   const [isShown, setIsShown] = useState(false);
 
   function handleCopy() {

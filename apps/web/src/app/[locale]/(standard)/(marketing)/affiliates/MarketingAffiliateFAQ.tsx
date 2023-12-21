@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';

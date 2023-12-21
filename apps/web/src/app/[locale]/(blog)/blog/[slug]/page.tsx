@@ -1,6 +1,6 @@
 import type { Post, Series } from 'contentlayer/generated';
 import type { Metadata } from 'next';
-import { notFound, redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 
 import BlogArticleLayout from '~/components/blog/BlogArticleLayout';
 import BlogArticleMainLayout from '~/components/blog/BlogArticleMainLayout';

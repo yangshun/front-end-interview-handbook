@@ -1,5 +1,5 @@
 import React from 'react';
-import { Controller, useForm, useFormContext } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { z } from 'zod';

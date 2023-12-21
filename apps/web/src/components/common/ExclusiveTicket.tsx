@@ -16,7 +16,7 @@ function TicketBorderWide() {
 
   return (
     <svg
-      className="absolute inset-0  aspect-[209/98] fill-white dark:fill-neutral-950"
+      className="absolute inset-0 aspect-[209/98] fill-white dark:fill-neutral-950"
       viewBox={`0 0 ${ORIGINAL_WIDTH_WIDE} ${ORIGINAL_HEIGHT}`}
       width="100%"
       xmlns="http://www.w3.org/2000/svg">
