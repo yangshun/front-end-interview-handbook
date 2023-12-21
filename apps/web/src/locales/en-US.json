@@ -139,6 +139,10 @@
     "defaultMessage": "Undo",
     "description": "Text describing undo command in the coding workspace shortcuts menu"
   },
+  "/iXiP2": {
+    "defaultMessage": "List view",
+    "description": "View option for blog list"
+  },
   "/jCLBS": {
     "defaultMessage": "3 simple steps to start earning",
     "description": "Title for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
@@ -210,6 +214,10 @@
   "0WJfoT": {
     "defaultMessage": "Intermediate",
     "description": "Intermediate level blog"
+  },
+  "0gmEji": {
+    "defaultMessage": "Browse series",
+    "description": "Browse series section title in blog homepage"
   },
   "0hdhAz": {
     "defaultMessage": "Low",
@@ -338,10 +346,6 @@
   "2gImEH": {
     "defaultMessage": "Online assets",
     "description": "Title for Online Assets section on Projects project assets page"
-  },
-  "2nYCLe": {
-    "defaultMessage": "List View",
-    "description": "View option for blog list- List View"
   },
   "2vDjTb": {
     "defaultMessage": "Discover study plans tailored to your needs to help your prepare for your upcoming technical interviews.",
@@ -534,10 +538,6 @@
   "5gqGca": {
     "defaultMessage": "Someone from {country} subscribed to <link>Premium</link> recently",
     "description": "Marketing toast to show that someone has subscribed"
-  },
-  "5grx3w": {
-    "defaultMessage": "Latest View",
-    "description": "Sorting option for blog list- Latest View"
   },
   "5hTR16": {
     "defaultMessage": "Profile",
@@ -859,10 +859,6 @@
     "defaultMessage": "Most Common Questions",
     "description": "Most common behavioral interview questions"
   },
-  "9+dL62": {
-    "defaultMessage": "Copy Link",
-    "description": "Blog copy Link button label"
-  },
   "94CGBX": {
     "defaultMessage": "Coding",
     "description": "Label for coding questions"
@@ -998,6 +994,10 @@
   "B2171J": {
     "defaultMessage": "Download design assets",
     "description": "Label for \"Download design assets\" step in dialog on Projects project page"
+  },
+  "B25v9/": {
+    "defaultMessage": "What's New",
+    "description": "Latest blog articles page title"
   },
   "B4Jykm": {
     "defaultMessage": "Project Brief",
@@ -1194,10 +1194,6 @@
   "DLky7V": {
     "defaultMessage": "Practice UI and JavaScript/TypeScript Interview Questions with Solutions",
     "description": "Title of Interview Preparation Coding page"
-  },
-  "DNFfNt": {
-    "defaultMessage": "What's New",
-    "description": "What's New page title"
   },
   "DP3Y2U": {
     "defaultMessage": "Behavioral Interview",
@@ -1691,6 +1687,10 @@
     "defaultMessage": "Minimum {minNumber} characters. Letters and digits required.",
     "description": "Password creation criteria"
   },
+  "JaQOv1": {
+    "defaultMessage": "Back to home",
+    "description": "Link text to navigate to blog home page"
+  },
   "Je9bp+": {
     "defaultMessage": "We will pull code from this repo for code reviews<ul><li>Follow <link>this guide</link> on how to create a GitHub repo</li><li>You will submit the link to your public GitHub repo in the submission screen</li></ul>",
     "description": "Description for GitHub repo step in project submission checklist"
@@ -2119,6 +2119,10 @@
     "defaultMessage": "Angular",
     "description": "Angular questions category short title"
   },
+  "O0Nl6x": {
+    "defaultMessage": "Article view",
+    "description": "View option for blog list"
+  },
   "O4XAXC": {
     "defaultMessage": "An email will be sent to the address above if an associated account exists",
     "description": "Message indicating a successful password reset request"
@@ -2154,10 +2158,6 @@
   "OOYktU": {
     "defaultMessage": "Data structures and algorithms",
     "description": "Title of study plan"
-  },
-  "OP75e8": {
-    "defaultMessage": "Article View",
-    "description": "View option for blog list- Article View"
   },
   "OPwgMT": {
     "defaultMessage": "Twitter profile link",
@@ -2567,10 +2567,6 @@
     "defaultMessage": "Lyft",
     "description": "Company name for Lyft"
   },
-  "THb7DH": {
-    "defaultMessage": "Here you'll find curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing deep dive subject.",
-    "description": "what's new page description"
-  },
   "TL822E": {
     "defaultMessage": "JavaScript Console",
     "description": "Title of JavaScript console panel"
@@ -2606,6 +2602,10 @@
   "Ty7LFA": {
     "defaultMessage": "Step 1",
     "description": "Title for \"Step 1\" tab on Projects project page"
+  },
+  "TyQdcx": {
+    "defaultMessage": "Sort by",
+    "description": "Label for sort button"
   },
   "U022No": {
     "defaultMessage": "Palantir",
@@ -2883,6 +2883,10 @@
     "defaultMessage": "<emphasis>{author}</emphasis> · {date}",
     "description": "Label for author and date of discussion post on project discussions page"
   },
+  "WelJgL": {
+    "defaultMessage": "Here you'll find curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing deep dive subject.",
+    "description": "Latest blog articles page subtitle"
+  },
   "Wgz18L": {
     "defaultMessage": "Try these popular HTML questions",
     "description": "Title for featured questions section"
@@ -2950,6 +2954,10 @@
   "XhK6jS": {
     "defaultMessage": "Trivia-style front end questions asked across all interview rounds",
     "description": "Description of quiz interview preparation"
+  },
+  "XjIm4S": {
+    "defaultMessage": "Oldest first",
+    "description": "Sorting option for blog list"
   },
   "XkPGFj": {
     "defaultMessage": "Projects you may be interested in",
@@ -3066,10 +3074,6 @@
   "ZCmkG3": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
-  },
-  "ZGrehB": {
-    "defaultMessage": "What's New",
-    "description": "What's New section title for blog home page"
   },
   "ZHuDIg": {
     "defaultMessage": "Joined on {date}",
@@ -3386,10 +3390,6 @@
   "cB23kJ": {
     "defaultMessage": "Security | Profile",
     "description": "Title of Profile Security page"
-  },
-  "cIOUjN": {
-    "defaultMessage": "Oldest View",
-    "description": "Sorting option for blog list- Oldest View"
   },
   "cJY5Ir": {
     "defaultMessage": "I'm a <bold>beginner</bold> and want to learn skills for practical front end development",
@@ -3718,6 +3718,10 @@
   "gHIBZl": {
     "defaultMessage": "Our platform is built to support community-driven development",
     "description": "Description for \"Build together with other like-minded individuals\" feature marketing section on Projects home page"
+  },
+  "gHQckf": {
+    "defaultMessage": "What's new",
+    "description": "Section title for blog home page"
   },
   "gIeLON": {
     "defaultMessage": "Premium",
@@ -4059,6 +4063,10 @@
     "defaultMessage": "I'm here to build my <bold>portfolio</bold>",
     "description": "Label for \"Portfolio\" onboarding option in Projects"
   },
+  "k1dcHz": {
+    "defaultMessage": "Latest first",
+    "description": "Sorting option for blog list"
+  },
   "k2Oi+j": {
     "defaultMessage": "Filters",
     "description": "Label for filters button"
@@ -4295,10 +4303,6 @@
     "defaultMessage": "Prepare end-to-end for front end interviews",
     "description": "Title for question format category links in navbar"
   },
-  "mShEXL": {
-    "defaultMessage": "Back to Home",
-    "description": "Link text to navigate to blog home page"
-  },
   "mb7erW": {
     "defaultMessage": "Importance",
     "description": "Label for question importance - how important it is to practice this question"
@@ -4494,6 +4498,10 @@
   "p42Bxa": {
     "defaultMessage": "USA",
     "description": "Anand Dharne's location"
+  },
+  "p6XoAn": {
+    "defaultMessage": "Copy link",
+    "description": "Blog copy Link button label"
   },
   "p97ubP": {
     "defaultMessage": "Coming Soon",
@@ -5322,10 +5330,6 @@
   "yeLNWe": {
     "defaultMessage": "ByteDance",
     "description": "Company name for ByteDance"
-  },
-  "yfYsUt": {
-    "defaultMessage": "Browser Series",
-    "description": "Browse series section title in blog homepage"
   },
   "yhHx9e": {
     "defaultMessage": "All your question progress will be reset. This is an irreversible action, are you sure you want to proceed?",

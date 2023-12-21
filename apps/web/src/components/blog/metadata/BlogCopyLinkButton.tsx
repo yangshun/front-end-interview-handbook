@@ -24,9 +24,9 @@ export default function BlogCopyLinkButton({ href }: { href: string }) {
               id: 'vC8ERT',
             })
           : intl.formatMessage({
-              defaultMessage: 'Copy Link',
+              defaultMessage: 'Copy link',
               description: 'Blog copy Link button label',
-              id: '9+dL62',
+              id: 'p6XoAn',
             })
       }
       size="sm"

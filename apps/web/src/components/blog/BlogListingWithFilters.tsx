@@ -131,26 +131,26 @@ export default function BlogListingWithFilters({
         align="end"
         icon={RiSortDesc}
         label={intl.formatMessage({
-          defaultMessage: 'Sort By',
+          defaultMessage: 'Sort by',
           description: 'Label for sort button',
-          id: 'oQiKcl',
+          id: 'TyQdcx',
         })}
         size="sm">
         {[
           makeDropdownItemProps(
             intl.formatMessage({
-              defaultMessage: 'Latest View',
-              description: 'Sorting option for blog list- Latest View',
-              id: '5grx3w',
+              defaultMessage: 'Latest first',
+              description: 'Sorting option for blog list',
+              id: 'k1dcHz',
             }),
             'createdAt',
             true,
           ),
           makeDropdownItemProps(
             intl.formatMessage({
-              defaultMessage: 'Oldest View',
-              description: 'Sorting option for blog list- Oldest View',
-              id: 'cIOUjN',
+              defaultMessage: 'Oldest first',
+              description: 'Sorting option for blog list',
+              id: 'XjIm4S',
             }),
             'createdAt',
             false,

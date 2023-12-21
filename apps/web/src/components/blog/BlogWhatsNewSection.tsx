@@ -20,9 +20,9 @@ export default function BlogWhatsNewSection() {
       <div className="flex items-center justify-between">
         <Heading className="text-xl font-semibold" level="custom">
           <FormattedMessage
-            defaultMessage="What's New"
-            description="What's New section title for blog home page"
-            id="ZGrehB"
+            defaultMessage="What's new"
+            description="Section title for blog home page"
+            id="gHQckf"
           />
         </Heading>
         <Button

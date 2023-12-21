@@ -31,9 +31,9 @@ export default function BlogExplorePage() {
             href="/blog"
             icon={RiArrowLeftLine}
             label={intl.formatMessage({
-              defaultMessage: 'Back to Home',
+              defaultMessage: 'Back to home',
               description: 'Link text to navigate to blog home page',
-              id: 'mShEXL',
+              id: 'JaQOv1',
             })}
             size="md"
             variant="tertiary"

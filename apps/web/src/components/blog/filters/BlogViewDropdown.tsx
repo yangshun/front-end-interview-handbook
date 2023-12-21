@@ -19,18 +19,18 @@ export default function BlogViewDropdown({ viewField, onChange }: Props) {
     {
       icon: RiListUnordered,
       label: intl.formatMessage({
-        defaultMessage: 'List View',
-        description: 'View option for blog list- List View',
-        id: '2nYCLe',
+        defaultMessage: 'List view',
+        description: 'View option for blog list',
+        id: '/iXiP2',
       }),
       value: 'list',
     },
     {
       icon: RiMacbookLine,
       label: intl.formatMessage({
-        defaultMessage: 'Article View',
-        description: 'View option for blog list- Article View',
-        id: 'OP75e8',
+        defaultMessage: 'Article view',
+        description: 'View option for blog list',
+        id: 'O0Nl6x',
       }),
       value: 'article',
     },

@@ -13,8 +13,8 @@ export function BlogLatestPage({ children }: { children: React.ReactNode }) {
         <Heading level="heading5">
           <FormattedMessage
             defaultMessage="What's New"
-            description="What's New page title"
-            id="DNFfNt"
+            description="Latest blog articles page title"
+            id="B25v9/"
           />
         </Heading>
         <Text
@@ -24,8 +24,8 @@ export function BlogLatestPage({ children }: { children: React.ReactNode }) {
           size="body2">
           <FormattedMessage
             defaultMessage="Here you'll find curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing deep dive subject."
-            description="what's new page description"
-            id="THb7DH"
+            description="Latest blog articles page subtitle"
+            id="WelJgL"
           />
         </Text>
       </div>

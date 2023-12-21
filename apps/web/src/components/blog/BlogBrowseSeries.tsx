@@ -77,9 +77,9 @@ export default function BlogBrowseSeries({ href: seeAllHref, series }: Props) {
         <div className="flex items-center justify-between">
           <Heading level="heading6">
             <FormattedMessage
-              defaultMessage="Browser Series"
+              defaultMessage="Browse series"
               description="Browse series section title in blog homepage"
-              id="yfYsUt"
+              id="0gmEji"
             />
           </Heading>
           <Button
