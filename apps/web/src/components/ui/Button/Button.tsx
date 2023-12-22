@@ -1,5 +1,9 @@
 import clsx from 'clsx';
-import type { HTMLAttributeAnchorTarget, ReactNode } from 'react';
+import type {
+  AriaAttributes,
+  HTMLAttributeAnchorTarget,
+  ReactNode,
+} from 'react';
 
 import Anchor from '../Anchor';
 import Spinner from '../Spinner';
@@ -20,7 +24,8 @@ export type ButtonVariant =
 
 export type Props = Readonly<{
   addonPosition?: 'end' | 'start';
-  'aria-controls'?: string;
+  'aria-controls'?: AriaAttributes['aria-controls'];
+  'aria-current'?: AriaAttributes['aria-current'];
   className?: string;
   display?: ButtonDisplay;
   href?: string;
@@ -173,6 +178,7 @@ const variantDisabledClasses: Record<ButtonVariant, string> = {
 export default function Button({
   addonPosition = 'end',
   'aria-controls': ariaControls,
+  'aria-current': ariaCurrent,
   className,
   display = 'inline',
   href,
@@ -207,7 +213,8 @@ export default function Button({
   );
 
   const commonProps = {
-    'aria-controls': ariaControls ?? undefined,
+    'aria-controls': ariaControls,
+    'aria-current': ariaCurrent,
     'aria-label': isLabelHidden ? label : undefined,
     children,
     className: clsx(

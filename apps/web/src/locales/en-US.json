@@ -1207,6 +1207,10 @@
     "defaultMessage": "The email address you want to use to log in.",
     "description": "Email field description"
   },
+  "DTIb2e": {
+    "defaultMessage": "Pagination",
+    "description": "Pagination label"
+  },
   "DbEF7d": {
     "defaultMessage": "Master the art of building interactive and user-friendly forms.",
     "description": "Description for interview preparation focus area"
@@ -2970,6 +2974,10 @@
   "X6kis4": {
     "defaultMessage": "Explore series",
     "description": "Explore series page title"
+  },
+  "XD52zM": {
+    "defaultMessage": "More",
+    "description": "Label for \"More\" button in pagination"
   },
   "XIMn32": {
     "defaultMessage": "Complete | Rewards",

@@ -21,6 +21,7 @@ import ProjectsProjectFilterSlideOut from './ProjectsProjectFilterSlideOut';
 import ProjectsProjectGridList from './ProjectsProjectGridList';
 import type { ProjectsProjectMetadata } from './types';
 import ProjectsListFilterDropdown from '../lists/ProjectsListFilterDropdown';
+import ProjectsListPagination from '../lists/ProjectsListPagination';
 
 type Props = Readonly<{
   projects: ReadonlyArray<ProjectsProjectMetadata>;
@@ -121,9 +122,11 @@ function ProjectsProjectGridListWithFiltersImpl({ projects }: Props) {
               }}
             />
           </Text>
-          <Text color="secondary" size="body3">
-            TODO(projects): pagination component
-          </Text>
+          <ProjectsListPagination
+            currentPage={1}
+            totalPageCount={10}
+            onPageChange={() => {}}
+          />
         </div>
       </div>
     </>
