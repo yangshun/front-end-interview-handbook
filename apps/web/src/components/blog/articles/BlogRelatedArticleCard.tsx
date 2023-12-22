@@ -7,7 +7,7 @@ import BlogTimestamp from '~/components/blog/metadata/BlogTimestamp';
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
-  themeCardBackgroundColor,
+  themeCardBackgroundWhiteOnLightColor,
   themeGlassyBorder,
 } from '~/components/ui/theme';
 
@@ -20,7 +20,7 @@ export default function BlogRelatedArticleCard({ metadata }: Props) {
     <div
       className={clsx(
         'group relative flex h-full flex-col justify-between gap-y-3 overflow-hidden rounded-lg p-4',
-        themeCardBackgroundColor,
+        themeCardBackgroundWhiteOnLightColor,
         themeGlassyBorder,
       )}>
       <img

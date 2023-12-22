@@ -12,9 +12,9 @@ export function BlogLatestPage({ children }: { children: React.ReactNode }) {
       <div className="flex flex-col gap-y-3">
         <Heading level="heading5">
           <FormattedMessage
-            defaultMessage="What's New"
+            defaultMessage="What's new"
             description="Latest blog articles page title"
-            id="B25v9/"
+            id="nv3dMg"
           />
         </Heading>
         <Text

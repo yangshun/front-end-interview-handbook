@@ -411,10 +411,6 @@
     "defaultMessage": "New",
     "description": "Label for new questions ribbon"
   },
-  "3n4NQB": {
-    "defaultMessage": "GreatFrontEnd Blog",
-    "description": "Title of GreatFrontEnd blog homepage"
-  },
   "3t00jq": {
     "defaultMessage": "Confirm",
     "description": "Confirmation button label"
@@ -871,10 +867,6 @@
     "defaultMessage": "Coding",
     "description": "Label for coding questions"
   },
-  "958yDE": {
-    "defaultMessage": "Explore Series",
-    "description": "Sidebar label for explore series"
-  },
   "97HVxk": {
     "defaultMessage": "Key features",
     "description": "Key features of the product"
@@ -886,10 +878,6 @@
   "99F7Mt": {
     "defaultMessage": "Tags",
     "description": "Blog Tags"
-  },
-  "9CrbaQ": {
-    "defaultMessage": "What's New",
-    "description": "Sidebar label for What's New"
   },
   "9DlLF1": {
     "defaultMessage": "GreatFrontEnd",
@@ -1006,10 +994,6 @@
   "B2171J": {
     "defaultMessage": "Download design assets",
     "description": "Label for \"Download design assets\" step in dialog on Projects project page"
-  },
-  "B25v9/": {
-    "defaultMessage": "What's New",
-    "description": "Latest blog articles page title"
   },
   "B4Jykm": {
     "defaultMessage": "Project Brief",
@@ -1150,6 +1134,10 @@
   "Ctnuuc": {
     "defaultMessage": "+ {numberOfTags} more",
     "description": "Number of tags in a list"
+  },
+  "CtpuLZ": {
+    "defaultMessage": "Blog",
+    "description": "Title of GreatFrontEnd blog homepage"
   },
   "CvwT9O": {
     "defaultMessage": "You need to start the learning session first",
@@ -1795,10 +1783,6 @@
     "defaultMessage": "{questionExcerpt} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions practice page"
   },
-  "KFBmPx": {
-    "defaultMessage": "What's New",
-    "description": "Title of GreatFrontEnd blog what's new page"
-  },
   "KIUB2O": {
     "defaultMessage": "Back",
     "description": "Label for \"Back\" button on Sign Up Reason section of Projects onboarding page"
@@ -2399,10 +2383,6 @@
     "defaultMessage": "Access to {freeChallengeCount}+ free challenges. No access to Figma & guides",
     "description": "Subtitle of Free Plan CTA card in Projects sidebar"
   },
-  "R/FCLM": {
-    "defaultMessage": "Explore Series and Articles by {name} tag",
-    "description": "Title of GreatFrontEnd blog explore series page"
-  },
   "R1ji0N": {
     "defaultMessage": "Signing out. See you again!",
     "description": "Main content of Sign Out page"
@@ -2422,10 +2402,6 @@
   "R8BLW9": {
     "defaultMessage": "To project",
     "description": "Label of To Project button on project submit page"
-  },
-  "R8Jahp": {
-    "defaultMessage": "Open page",
-    "description": "Indication that text has been copied"
   },
   "RBApo9": {
     "defaultMessage": "Promotions",
@@ -2482,6 +2458,10 @@
   "RZedau": {
     "defaultMessage": "See all",
     "description": "Label for See all button on project submission success page"
+  },
+  "Rbapby": {
+    "defaultMessage": "What's new | Blog",
+    "description": "Title of GreatFrontEnd blog what's new page"
   },
   "Rdi3ic": {
     "defaultMessage": "Activity",
@@ -2582,6 +2562,10 @@
   "SpM0k8": {
     "defaultMessage": "Bootcamp Grad",
     "description": "Label for \"Bootcamp Grad\" option in YOE replacement"
+  },
+  "SsWL2T": {
+    "defaultMessage": "Explore series",
+    "description": "Sidebar label for explore series"
   },
   "SuWvZa": {
     "defaultMessage": "Monthly plan",
@@ -2983,6 +2967,10 @@
     "defaultMessage": "Premium Feature",
     "description": "Header for paywall over company tagging"
   },
+  "X6kis4": {
+    "defaultMessage": "Explore series",
+    "description": "Explore series page title"
+  },
   "XIMn32": {
     "defaultMessage": "Complete | Rewards",
     "description": "Title of Rewards Complete page"
@@ -3030,10 +3018,6 @@
   "Xlmv0q": {
     "defaultMessage": "Follow this step-by-step deployment and submission checklist",
     "description": "Description for the project submission checklist section"
-  },
-  "XqU8Op": {
-    "defaultMessage": "Explore Series",
-    "description": "Title of GreatFrontEnd blog explore series page"
   },
   "XuVGsX": {
     "defaultMessage": "Account",
@@ -3463,6 +3447,10 @@
     "defaultMessage": "Security | Profile",
     "description": "Title of Profile Security page"
   },
+  "cCQIST": {
+    "defaultMessage": "Open in new tab",
+    "description": "Indication that text has been copied"
+  },
   "cJY5Ir": {
     "defaultMessage": "I'm a <bold>beginner</bold> and want to learn skills for practical front end development",
     "description": "Label for \"Beginner\" onboarding option in Projects"
@@ -3651,10 +3639,6 @@
     "defaultMessage": "Browse all projects",
     "description": "Title of Projects Browse Projects page"
   },
-  "etN1a1": {
-    "defaultMessage": "Explore Series",
-    "description": "Explore series page title"
-  },
   "eyLjDz": {
     "defaultMessage": "Have questions, feedback or anything to say?",
     "description": "Title for contact us section"
@@ -3770,6 +3754,10 @@
   "fv+TLc": {
     "defaultMessage": "Back to study plans",
     "description": "Link text to navigate to study plans page"
+  },
+  "fzfMZ2": {
+    "defaultMessage": "Explore series | Blog",
+    "description": "Title of GreatFrontEnd blog explore series page"
   },
   "g2Nt5j": {
     "defaultMessage": "Edit",
@@ -3966,6 +3954,10 @@
   "iElBQT": {
     "defaultMessage": "Pricing Plans",
     "description": "Screen reader text referring to the Pricing Plan cards"
+  },
+  "iFFbCA": {
+    "defaultMessage": "What's new",
+    "description": "Sidebar label for What's New"
   },
   "iHLvVo": {
     "defaultMessage": "Find official guides, reference code from top submissions, and use our discussion forum to ask questions.",
@@ -4491,6 +4483,10 @@
     "defaultMessage": "Every project belongs to 1 of 7 tracks comprising of common components used in the industry / use case",
     "description": "Description for \"Component libraries\" feature on Projects home page"
   },
+  "nv3dMg": {
+    "defaultMessage": "What's new",
+    "description": "Latest blog articles page title"
+  },
   "nvhCqI": {
     "defaultMessage": "We recommend these {numberOfAreas} areas of learning to prepare you holistically for your front end interview rounds. Explore guides and {count}+ practice questions here.",
     "description": "Message in onboarding card on prepare page"
@@ -4706,6 +4702,10 @@
   "qRBY3O": {
     "defaultMessage": "Difficulty",
     "description": "Label for Difficulty filter for projects list"
+  },
+  "qS3yTj": {
+    "defaultMessage": "{tagName} | Blog",
+    "description": "Title of GreatFrontEnd blog explore series page"
   },
   "qZRTqi": {
     "defaultMessage": "Data Structures & Algorithms",

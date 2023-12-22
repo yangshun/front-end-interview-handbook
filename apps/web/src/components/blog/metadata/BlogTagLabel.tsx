@@ -23,7 +23,7 @@ export default function BlogTagLabel({ value, size = 'sm' }: Props) {
   const { backgroundClass, borderClass, textClass } = blogTag.style;
 
   return (
-    <Anchor href={blogTag.href} variant="unstyled">
+    <Anchor className="flex" href={blogTag.href} variant="unstyled">
       <span
         className={clsx(
           'relative inline-flex items-center whitespace-nowrap rounded-full py-px font-medium',

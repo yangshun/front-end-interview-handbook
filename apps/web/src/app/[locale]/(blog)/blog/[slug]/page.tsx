@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: post?.description,
     locale,
     pathname: post?.href || '',
-    title: post?.title || '',
+    title: `${post?.title} | Blog`,
   });
 }
 

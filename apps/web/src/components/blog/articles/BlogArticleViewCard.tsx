@@ -72,11 +72,12 @@ export default function ArticleViewCard({ blog }: Props) {
           href={blog.href}
           icon={RiExternalLinkFill}
           label={intl.formatMessage({
-            defaultMessage: 'Open page',
+            defaultMessage: 'Open in new tab',
             description: 'Indication that text has been copied',
-            id: 'R8Jahp',
+            id: 'cCQIST',
           })}
           size="sm"
+          target="_blank"
           type="button"
           variant="secondary"
         />

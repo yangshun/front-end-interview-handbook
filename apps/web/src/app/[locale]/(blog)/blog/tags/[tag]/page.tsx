@@ -35,11 +35,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     pathname: blogTag.href,
     title: intl.formatMessage(
       {
-        defaultMessage: 'Explore Series and Articles by {name} tag',
+        defaultMessage: '{tagName} | Blog',
         description: 'Title of GreatFrontEnd blog explore series page',
-        id: 'R/FCLM',
+        id: 'qS3yTj',
       },
-      { name: blogTag.name },
+      { tagName: blogTag.name },
     ),
   });
 }

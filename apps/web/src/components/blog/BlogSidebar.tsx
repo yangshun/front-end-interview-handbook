@@ -1,8 +1,7 @@
 import clsx from 'clsx';
-import { type ReactNode, type SVGProps, useState } from 'react';
+import { type ReactNode, type SVGProps } from 'react';
 import {
   RiArrowDownSLine,
-  RiArrowUpSLine,
   RiHome3Line,
   RiTerminalWindowLine,
 } from 'react-icons/ri';
@@ -87,9 +86,9 @@ function useBlogSidebarNavigation() {
       icon: RiTerminalWindowLine,
       key: 'new',
       name: intl.formatMessage({
-        defaultMessage: "What's New",
+        defaultMessage: "What's new",
         description: "Sidebar label for What's New",
-        id: '9CrbaQ',
+        id: 'iFFbCA',
       }),
       type: 'link',
     },
@@ -99,9 +98,9 @@ function useBlogSidebarNavigation() {
       items: navigationTree,
       key: 'series',
       name: intl.formatMessage({
-        defaultMessage: 'Explore Series',
+        defaultMessage: 'Explore series',
         description: 'Sidebar label for explore series',
-        id: '958yDE',
+        id: 'SsWL2T',
       }),
       type: 'series',
     },
@@ -199,9 +198,6 @@ function SeriesList({
 export default function Sidebar() {
   const { pathname } = useI18nPathname();
   const navigation = useBlogSidebarNavigation();
-  const [isOpenSeries, setIsOpenSeries] = useState(true);
-
-  const DropdownIcon = isOpenSeries ? RiArrowUpSLine : RiArrowDownSLine;
 
   return (
     <div className="flex h-full w-full flex-1 grow flex-col justify-between lg:p-4">
@@ -221,7 +217,7 @@ export default function Sidebar() {
               size="body2"
               weight="medium">
               {item.icon != null && <SidebarIcon icon={item.icon} />}
-              {isSeries && <SidebarIcon icon={DropdownIcon} />}
+              {isSeries && <SidebarIcon icon={RiArrowDownSLine} />}
               {item.name}
             </Text>
           );
@@ -249,15 +245,10 @@ export default function Sidebar() {
                   current ? activeClassName : defaultClassName,
                 )}
                 href={item.href}
-                variant="unstyled"
-                onClick={() =>
-                  isSeries &&
-                  pathname === '/blog/explore' &&
-                  setIsOpenSeries(!isOpenSeries)
-                }>
+                variant="unstyled">
                 {label}
               </Anchor>
-              {isSeries && item.items != null && isOpenSeries && (
+              {isSeries && item.items != null && (
                 <SeriesList items={item.items} />
               )}
             </div>

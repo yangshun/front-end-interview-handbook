@@ -5,14 +5,17 @@ import { useState } from 'react';
 import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import BlogSubseriesItemCard from '~/components/blog/subseries/BlogSubseriesItemCard';
 import type { BlogSubseries } from '~/components/blog/BlogTypes';
 import BlogCountLabel from '~/components/blog/metadata/BlogCountLabel';
 import BlogReadingTimeLabel from '~/components/blog/metadata/BlogReadingTimeLabel';
+import BlogSubseriesItemCard from '~/components/blog/subseries/BlogSubseriesItemCard';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
-import { themeCardBackgroundColor } from '~/components/ui/theme';
+import {
+  themeCardBackgroundWhiteOnLightColor,
+  themeLineColor,
+} from '~/components/ui/theme';
 
 type Props = Readonly<{
   initialItemsToShow?: number;
@@ -32,8 +35,9 @@ export default function BlogSubseriesCard({
   return (
     <div
       className={clsx(
-        'flex h-full flex-col gap-x-4 gap-y-4 overflow-hidden rounded-lg border border-neutral-200 p-4 dark:border-neutral-800 lg:p-8',
-        themeCardBackgroundColor,
+        'flex h-full flex-col gap-x-4 gap-y-4 overflow-hidden rounded-lg border p-4 lg:p-8',
+        themeLineColor,
+        themeCardBackgroundWhiteOnLightColor,
       )}>
       <div className="flex flex-col gap-y-1">
         <Heading className="my-0" level="heading6">

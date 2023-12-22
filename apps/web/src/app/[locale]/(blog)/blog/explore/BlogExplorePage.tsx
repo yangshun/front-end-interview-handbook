@@ -41,9 +41,9 @@ export default function BlogExplorePage() {
         </div>
         <Heading level="heading5">
           <FormattedMessage
-            defaultMessage="Explore Series"
+            defaultMessage="Explore series"
             description="Explore series page title"
-            id="etN1a1"
+            id="X6kis4"
           />
         </Heading>
         <Text

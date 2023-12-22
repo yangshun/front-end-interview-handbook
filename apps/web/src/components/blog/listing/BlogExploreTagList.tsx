@@ -23,9 +23,8 @@ export default function BlogExploreTagList({
   ).filter((blog) => blog.tags.includes(tagType));
 
   return (
-    <>
+    <div className="flex flex-col gap-4">
       <BlogTypeTabs value={selectedTab} onSelect={setSelectedTab} />
-
       <BlogListingWithFilters
         key={selectedTab}
         blogs={filteredByTagBlogs}
@@ -34,6 +33,6 @@ export default function BlogExploreTagList({
         showFilters={selectedTab === 'articles'}
         type={selectedTab}
       />
-    </>
+    </div>
   );
 }

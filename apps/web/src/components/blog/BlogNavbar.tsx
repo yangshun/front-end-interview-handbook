@@ -38,7 +38,7 @@ export default function BlogNavbar({ seriesContents }: Props) {
     <div
       ref={navbarRef}
       className={clsx(
-        'sticky z-30 border-b xl:hidden',
+        'sticky z-30 border-b lg:hidden',
         [!isSticky && 'bg-white dark:bg-neutral-950/60', 'backdrop-blur'],
         themeLineColor,
       )}
@@ -88,7 +88,6 @@ export default function BlogNavbar({ seriesContents }: Props) {
         onClose={() => setIsLeftSidebarOpen(false)}>
         <BlogSidebar />
       </SlideOut>
-
       {seriesContents && (
         <SlideOut
           enterFrom="end"

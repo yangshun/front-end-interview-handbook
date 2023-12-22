@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: series?.description,
     locale,
     pathname: series?.href || '',
-    title: series?.title || '',
+    title: `${series?.title} | Blog`,
   });
 }
 
@@ -52,7 +52,7 @@ function useBlogContent(slug: string) {
     }
 
     const seriesBlogs = getAllPosts({ sort: true }).filter(
-      (_) => (_ as Post).series === (series as Series).source,
+      (postItem) => (postItem as Post).series === (series as Series).source,
     );
 
     return {
@@ -79,7 +79,7 @@ export default function Page({ params }: Props) {
         {seriesMetadata.hasSubseries && subseriesData ? (
           <BlogSubseriesSection subseriesData={subseriesData} />
         ) : (
-          <div className="!list-none">
+          <div className="list-none">
             <BlogList blogs={seriesBlogs || []} />
           </div>
         )}

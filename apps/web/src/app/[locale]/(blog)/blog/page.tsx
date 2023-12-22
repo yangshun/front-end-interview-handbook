@@ -26,9 +26,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     pathname: '/blog',
     title: intl.formatMessage({
-      defaultMessage: 'GreatFrontEnd Blog',
+      defaultMessage: 'Blog',
       description: 'Title of GreatFrontEnd blog homepage',
-      id: '3n4NQB',
+      id: 'CtpuLZ',
     }),
   });
 }

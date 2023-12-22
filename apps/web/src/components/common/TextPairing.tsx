@@ -8,7 +8,6 @@ import Text from '~/components/ui/Text';
 
 type Props = Readonly<{
   description?: ReactNode;
-  mode?: 'dark' | 'light';
   sectionLabel?: ReactNode;
   title?: string;
   titleAddOnText?: string;
@@ -16,7 +15,6 @@ type Props = Readonly<{
 
 export default function TextPairing({
   description,
-  mode = 'light',
   sectionLabel,
   title,
   titleAddOnText,
@@ -26,13 +24,7 @@ export default function TextPairing({
       {sectionLabel && (
         <MarketingSectionTitleLabel>{sectionLabel}</MarketingSectionTitleLabel>
       )}
-      <Heading
-        className={clsx(
-          'flex items-center gap-4',
-          mode === 'light' && 'text-neutral-900',
-          mode === 'dark' && 'text-white',
-        )}
-        level="heading6">
+      <Heading className={clsx('flex items-center gap-4')} level="heading6">
         {title}
         {titleAddOnText && (
           <Badge label={titleAddOnText} size="sm" variant="neutral" />
