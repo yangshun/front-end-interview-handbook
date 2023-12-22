@@ -53,6 +53,7 @@ model Profile {
   questionUserInterfaceSaves              QuestionUserInterfaceSave[]
   questionUserInterfaceCommunitySolutions QuestionUserInterfaceCommunitySolution[]
   projectsProfile                         ProjectsProfile[]
+  rewardsTaskCompletions                  RewardsTaskCompletion[]
 }
 
 model QuestionProgress {
@@ -217,4 +218,13 @@ model ProjectsProjectSubmission {
   updatedAt     DateTime @updatedAt
 
   profile ProjectsProfile? @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model RewardsTaskCompletion {
+  id         String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  userId     String  @db.Uuid
+  campaign   String
+  task       String
+  identifier String
+  profile    Profile @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
