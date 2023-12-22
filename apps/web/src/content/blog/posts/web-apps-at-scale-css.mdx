@@ -1,24 +1,79 @@
 ---
 title: CSS at Scale
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-imageUrl: https://source.unsplash.com/random/960x360
+description: How thousands of engineers at big tech companies write CSS.
+imageUrl: https://source.unsplash.com/random/960x360?sig=6
 tags:
-  - javascript
-  - performance
+  - css
 level: starter
-createdAt: 2023-12-19
+createdAt: 2023-12-18
 author: blog/author/yangshun.json
 category: blog/category/real-world-front-end.json
 series: blog/series/front-end-at-scale.json
 subseries: blog/subseries/big-tech-front-end.json
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porttitor lacus luctus accumsan tortor posuere ac ut. Eget est lorem ipsum dolor sit amet. Nisl suscipit adipiscing bibendum est ultricies. Massa ultricies mi quis hendrerit. Eget est lorem ipsum dolor sit amet consectetur adipiscing. Eget mi proin sed libero. Quam lacus suspendisse faucibus interdum posuere. Velit ut tortor pretium viverra suspendisse. Aliquam ultrices sagittis orci a scelerisque. Mauris nunc congue nisi vitae suscipit tellus.
+Writing CSS at scale, particularly in large and complex projects, can present several challenges. Here are some common problems associated with scaling CSS:
 
-Quis enim lobortis scelerisque fermentum dui faucibus in. Platea dictumst quisque sagittis purus sit. Scelerisque fermentum dui faucibus in ornare quam viverra orci. Varius vel pharetra vel turpis nunc eget lorem dolor. Libero justo laoreet sit amet. Ut pharetra sit amet aliquam. Volutpat lacus laoreet non curabitur gravida arcu ac tortor dignissim. Platea dictumst quisque sagittis purus sit amet volutpat. Commodo odio aenean sed adipiscing diam donec adipiscing tristique risus. Pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Risus ultricies tristique nulla aliquet enim. Volutpat blandit aliquam etiam erat velit scelerisque in dictum. Ut aliquam purus sit amet luctus venenatis. Diam maecenas ultricies mi eget mauris. Cras semper auctor neque vitae tempus quam pellentesque nec.
+- **Global namespace**: CSS operates in a global scope, which can lead to naming collisions and unintended style overrides. As a project grows, managing the global namespace becomes increasingly challenging, and conflicts between styles become more likely.
+- **Specificity issues**: CSS specificity determines which styles apply to an element. As the project scales, managing and understanding specificity can become complex, leading to unexpected styling outcomes and difficulties in maintaining a consistent design.
+- **Unclear dependencies**: CSS classes can be created on the fly, and you can't be sure where a style is being used and whether it's still being used.
+- **Huge stylesheets**: When it is hard to determine whether certain styles are still being used, stylesheets become “add-only”. This leads to redundant or unused styles, as well as overly specific selectors, which contribute to larger file sizes and slower loading and rendering times.
 
-Fermentum leo vel orci porta non pulvinar. Purus semper eget duis at tellus at urna condimentum. Turpis egestas maecenas pharetra convallis. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue. Nisi scelerisque eu ultrices vitae auctor eu augue. Viverra nam libero justo laoreet sit amet. Mattis vulputate enim nulla aliquet porttitor lacus luctus. Vulputate odio ut enim blandit. Viverra maecenas accumsan lacus vel facilisis. Risus viverra adipiscing at in tellus integer feugiat scelerisque.
+## CSS approach
 
-Tellus id interdum velit laoreet id donec ultrices tincidunt. Nunc sed velit dignissim sodales. Varius quam quisque id diam. Commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula. Nisi porta lorem mollis aliquam. Sit amet nisl suscipit adipiscing bibendum est ultricies integer. Diam ut venenatis tellus in metus vulputate eu. Diam donec adipiscing tristique risus nec feugiat. Ipsum dolor sit amet consectetur adipiscing elit ut. Lacus vel facilisis volutpat est velit egestas dui. Eget sit amet tellus cras adipiscing enim eu turpis. Sed nisi lacus sed viverra tellus in hac habitasse. Vel eros donec ac odio. Tempor id eu nisl nunc mi ipsum. Senectus et netus et malesuada fames. Non tellus orci ac auctor augue mauris augue neque. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. Est velit egestas dui id ornare arcu odio. Blandit volutpat maecenas volutpat blandit aliquam.
+CSS uses a global namespace, which causes many problems at scale when many developers are building into the same web application. Since the 2010s, Meta has been writing CSS using an approach called CSS modules, which solves some of the problems with CSS at scale – global namespace, including styles only on pages that use them, dead code elimination (only including the selectors that are still being referenced), and some others. Meta's CSS modules implementation is not open sourced but bundlers like [webpack add support for something similar](https://github.com/css-modules/css-modules).
 
-Faucibus in ornare quam viverra orci sagittis eu. Varius duis at consectetur lorem donec massa sapien. Egestas congue quisque egestas diam in. Odio aenean sed adipiscing diam donec adipiscing. Morbi blandit cursus risus at ultrices mi tempus imperdiet nulla. Quam id leo in vitae turpis. Sit amet commodo nulla facilisi nullam. Fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque. Amet volutpat consequat mauris nunc congue nisi vitae suscipit. Nunc eget lorem dolor sed viverra ipsum. Sociis natoque penatibus et magnis dis. Sagittis vitae et leo duis ut diam quam nulla porttitor. Fusce id velit ut tortor pretium viverra.
+In 2014, Christopher Chedeau gave an [insightful talk about writing CSS within your JS](https://blog.vjeux.com/2014/javascript/react-css-in-js-nationjs.html). In 2018, Meta started their rewrite of facebook.com and announced a new way of writing CSS in JS, which is called [StyleX](https://stylexjs.com/). StyleX's API resembles CSS-in-JS libraries like [Aphrodite](https://github.com/Khan/aphrodite) and [Glamor](https://github.com/threepointone/glamor), and has these key features:
+
+- **Generated atomic CSS stylesheet**: An atomic CSS stylesheet has a logarithmic (flatter) growth curve because it's proportional to the number of unique style declarations rather than to the number of styles and features written. Hence the stylesheet does not grow as fast as the number of features and the file size will stay relatively similar even with thousands of features and pages. The cost is being paid by each page as the HTML size is now larger.
+- **Type-safe**: Property keys can be checked for typo mistakes as only a recognized set of keys are allowed (e.g. margin, padding, color, etc.). Components can decide which CSS properties they want to allow to be passed in as props (e.g. only margins allowed). This prevents users of your components from customizing in ways you don't want them to.
+- **No runtime**: The styles are extracted into a static CSS file at build time. Little/no JavaScript needs to be run to inject the styles. This is important to prevent Flash of Unstyled Content and instances where JavaScript is not executed or supported.
+- **No specificity issues**: Each atomic class declaration only contains one property and is not nested.
+- **Determinism**: With atomic classes, each class on a DOM element specifies a different underlying property, and you won't run into the issue of non-deterministic result which depends on the order of the classes in the stylesheet.
+
+The team responsible for rebuilding facebook.com gave a [talk about StyleX during React Conf 2019](https://youtu.be/9JZHodNR184?si=Hf4yX0i5Tlx1wSkz&t=220) and also at [React Finland](https://www.youtube.com/watch?v=ur-sGzUWId4). The process of open sourcing StyleX has been a long one and as of [Nov 2023, StyleX is finally open sourced](https://stylex-docusaurus.vercel.app/blog/introducing-stylex/). A caveat about StyleX is that it needs [extra configuration](https://stylex-docusaurus.vercel.app/docs/learn/thinking-in-stylex/#when-authoring-your-ui-in-javascript) to work in UI frameworks that use custom file formats like Vue and Svelte.
+
+In the open source ecosystem, Tailwind CSS is the rage. Like StyleX, Tailwind also uses atomic CSS approach so they also share a similar benefit of a CSS stylesheet file that plateaus. However, since Tailwind CSS is just a set of atomic classes, you can use it within both JavaScript and HTML and even server-side Ruby templates. Out-of-the-box, the default Tailwind config provides a set of predefined classes (similar to design tokens) whereas StyleX does not.
+
+[Panda CSS](https://panda-css.com/) is a new atomic CSS-in-JS library by the creators of Chakra UI and it is the middleground of StyleX (library calls are compiled away, type-safe) and Tailwind (inline style declarations, provides some default styling tokens).
+
+The advent of React Server Components means that a whole category of styling libraries that relied on context for theming and runtime injection without any static stylesheet extraction will cease to work. Thankfully Tailwind and Panda CSS generate styles at build time and are fully-compatible with React Server Components.
+
+If you don't mind seeing multiple classes in your HTML or building only with HTML and CSS (or non-JavaScript templating approach), Tailwind CSS will be my recommendation. If you prefer a JavaScript-first approach for styling and type-safety is important to you, use Panda CSS. Panda CSS is similar to StyleX but has a larger community maintaining it.
+
+## CSS preprocessing
+
+Just like how developers can use the latest language features of JavaScript by using Babel, developers can also use the latest CSS features by using a CSS preprocessor like PostCSS to automate routine CSS operations, utilize future CSS syntax, and enhance CSS's functionality.
+
+Using Tailwind and Panda removes the need for writing CSS directly, so you might not actually need to use PostCSS in your applications at all. By the way, Tailwind and Panda use PostCSS under-the-hood so you will still be using PostCSS, just not directly.
+
+## Linting
+
+Because Meta uses StyleX for authoring styles, linting is done in JavaScript, which means ESLint and Flow. StyleX's type-safety features allow components to restrict styling props to be of only certain allowed properties (e.g. margin) and only allowed values (e.g. multiples of 4).
+
+Teams using Tailwind CSS should install the official [Tailwind CSS Intellisense plugin](https://tailwindcss.com/docs/editor-setup) which offers autocomplete, linting and previews for a class' underlying styles.
+
+If you're writing plain CSS or CSS modules, [stylelint](https://stylelint.io/) is the recommended linter.
+
+## Design tokens
+
+Design tokens are essentially variables used to store design decisions such as colors, fonts, border radii, spacings, animations, and more. These tokens can be simple values like a number, color hex code, or more complex information like a typography scale (font size, line height, letter spacing).
+
+By using design tokens, teams can ensure consistency across their product. As the design system evolves, changes made to the tokens automatically propagate throughout the product, ensuring uniformity and reducing the risk of inconsistencies.
+
+On the web, design tokens can be implemented using CSS variables, or an object in JavaScript. Meta uses CSS variables for color tokens so that dark mode is essentially another set of color tokens. For spacing, border radii and other kinds of numerical values, tokens are not being exposed to developers because most design choices have been abstracted behind UI components built by the product's design system team.
+
+In my opinion, UI components don't capture every design requirement and it's useful to make design tokens available for product engineers to use. Your company's product design team would probably already have selected design tokens and used them in their design system.
+
+If you are using Tailwind or Panda CSS, the default configuration includes tokens for spacing, colors, typography, etc but they can be configured for custom design tokens. If you are not using Tailwind or Panda CSS and don't have a design system but want a similar default set of tokens, [Open Props](https://open-props.style/) offers a good set of design tokens in the form of CSS variables.
+
+## Conclusion
+
+An Atomic stylesheet is the recommended approach for styling on the web because the stylesheet size does not grow proportionately to the number of features/developers/products. Tailwind CSS and Panda CSS are modern libraries to achieve atomic stylesheet generation in a futureproof fashion that's compatible with React Server Components and a server-first component era.
+
+## Styling scalability checklist
+
+- Use Atomic CSS to keep the stylesheet size small.
+- Use CSS preprocessors to enable the latest CSS language features.
+- Use CSS linters to standardize on practices.
+- Use standardized design tokens.

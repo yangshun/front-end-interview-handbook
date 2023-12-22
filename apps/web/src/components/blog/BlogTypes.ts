@@ -11,11 +11,11 @@ export type BlogSlug = string;
 export type BlogLevel = 'advanced' | 'intermediate' | 'nightmare' | 'starter';
 
 export type BlogTagType =
+  | 'career'
+  | 'css'
+  | 'interviews'
   | 'javascript'
-  | 'marketing'
-  | 'network'
-  | 'performance'
-  | 'security';
+  | 'scalability';
 
 export type BlogSortField = 'createdAt';
 

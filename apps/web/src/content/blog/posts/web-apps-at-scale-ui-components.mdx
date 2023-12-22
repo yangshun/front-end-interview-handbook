@@ -1,24 +1,63 @@
 ---
 title: User Interface Components at Scale
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-imageUrl: https://source.unsplash.com/random/960x360
+description: How thousands of engineers at big tech companies build user interface components.
+imageUrl: https://source.unsplash.com/random/960x360?sig=9
 tags:
   - javascript
-  - performance
+  - css
 level: starter
-createdAt: 2023-12-18
+createdAt: 2023-12-19
 author: blog/author/yangshun.json
 category: blog/category/real-world-front-end.json
 series: blog/series/front-end-at-scale.json
 subseries: blog/subseries/big-tech-front-end.json
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porttitor lacus luctus accumsan tortor posuere ac ut. Eget est lorem ipsum dolor sit amet. Nisl suscipit adipiscing bibendum est ultricies. Massa ultricies mi quis hendrerit. Eget est lorem ipsum dolor sit amet consectetur adipiscing. Eget mi proin sed libero. Quam lacus suspendisse faucibus interdum posuere. Velit ut tortor pretium viverra suspendisse. Aliquam ultrices sagittis orci a scelerisque. Mauris nunc congue nisi vitae suscipit tellus.
+Now that we know how Meta writes JavaScript and CSS, let's see how they're used to build UI components.
 
-Quis enim lobortis scelerisque fermentum dui faucibus in. Platea dictumst quisque sagittis purus sit. Scelerisque fermentum dui faucibus in ornare quam viverra orci. Varius vel pharetra vel turpis nunc eget lorem dolor. Libero justo laoreet sit amet. Ut pharetra sit amet aliquam. Volutpat lacus laoreet non curabitur gravida arcu ac tortor dignissim. Platea dictumst quisque sagittis purus sit amet volutpat. Commodo odio aenean sed adipiscing diam donec adipiscing tristique risus. Pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Risus ultricies tristique nulla aliquet enim. Volutpat blandit aliquam etiam erat velit scelerisque in dictum. Ut aliquam purus sit amet luctus venenatis. Diam maecenas ultricies mi eget mauris. Cras semper auctor neque vitae tempus quam pellentesque nec.
+## Standardize on a UI library/framework
 
-Fermentum leo vel orci porta non pulvinar. Purus semper eget duis at tellus at urna condimentum. Turpis egestas maecenas pharetra convallis. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue. Nisi scelerisque eu ultrices vitae auctor eu augue. Viverra nam libero justo laoreet sit amet. Mattis vulputate enim nulla aliquet porttitor lacus luctus. Vulputate odio ut enim blandit. Viverra maecenas accumsan lacus vel facilisis. Risus viverra adipiscing at in tellus integer feugiat scelerisque.
+Naturally the company that created React will build all their applications using React. You won't find Angular, Vue, or Svelte in Meta's codebase and Meta is all-in on React. By focusing on a single UI framework, tooling, knowledge and expertise can be shared and transferred more easily. Moreover, any issues faced by Meta engineers can be solved in-house, by consulting the React team. Longer term larger issues can be addressed in React's roadmap.
 
-Tellus id interdum velit laoreet id donec ultrices tincidunt. Nunc sed velit dignissim sodales. Varius quam quisque id diam. Commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula. Nisi porta lorem mollis aliquam. Sit amet nisl suscipit adipiscing bibendum est ultricies integer. Diam ut venenatis tellus in metus vulputate eu. Diam donec adipiscing tristique risus nec feugiat. Ipsum dolor sit amet consectetur adipiscing elit ut. Lacus vel facilisis volutpat est velit egestas dui. Eget sit amet tellus cras adipiscing enim eu turpis. Sed nisi lacus sed viverra tellus in hac habitasse. Vel eros donec ac odio. Tempor id eu nisl nunc mi ipsum. Senectus et netus et malesuada fames. Non tellus orci ac auctor augue mauris augue neque. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. Est velit egestas dui id ornare arcu odio. Blandit volutpat maecenas volutpat blandit aliquam.
+## Component documentation
 
-Faucibus in ornare quam viverra orci sagittis eu. Varius duis at consectetur lorem donec massa sapien. Egestas congue quisque egestas diam in. Odio aenean sed adipiscing diam donec adipiscing. Morbi blandit cursus risus at ultrices mi tempus imperdiet nulla. Quam id leo in vitae turpis. Sit amet commodo nulla facilisi nullam. Fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque. Amet volutpat consequat mauris nunc congue nisi vitae suscipit. Nunc eget lorem dolor sed viverra ipsum. Sociis natoque penatibus et magnis dis. Sagittis vitae et leo duis ut diam quam nulla porttitor. Fusce id velit ut tortor pretium viverra.
+To easily build and test React components, Meta engineers can write example files for these components to demonstrate how the component looks and behaves when using a certain combination of props, similar to stories in [Storybook](https://storybook.js.org/).
+
+All React components in the codebase that have example files are easily searchable within an internal tool and can be interacted with right within the browser. It is super handy for discovering common components and seeing how they are being used.
+
+## Testing
+
+Unit testing of component interaction and behavior can be done using [Jest](https://jestjs.io/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/). [Snapshot tests](https://jestjs.io/docs/snapshot-testing) and screenshot tests can also be conveniently generated from the component examples.
+
+## Headless components
+
+Each product Meta builds has its own design system with a React implementation of the UI components. Many UI components (e.g. buttons, dropdowns, modals, etc) have the same underlying logic, functionality, and accessibility features built in and that layer can be shared between UI components belonging to different design systems. Each design system only has to care about customizing the appearance. This shared logic and accessibility layer is known as headless UI components. Naturally, Meta has built its own headless components to be reused across product design systems.
+
+Companies looking to accelerate their UI components development should pick up one of the popular headless UI component libraries. For React, there's [Radix UI](https://www.radix-ui.com/), [React Aria](https://react-spectrum.adobe.com/react-aria/), and [Aria Kit](https://ariakit.org/).
+
+## Component analytics
+
+Meta also has internal tools to gain insights on how big a component's file size is (bytes) and analytics, e.g. which modules are depending on the component (importing the component) and how many times they are being used in the codebase. This is useful for tracking progress when deprecating components.
+
+## Monorepo perils
+
+In a monorepo, it becomes too easy to import components from anywhere in the codebase. However, this is bad when a component is still under development and not ready to be used widely or when a component is meant to be deprecated. To prevent unwarranted usage of components, lint rules can be used to flag usages of the components outside of directories they are not allowed to be used in.
+
+## Design-to-code
+
+An emerging technology trend / workflow is “Design to code”, meaning you turn designs from your designer into code that you can use directly within your app. Since Figma is the industry standard for designing digital products these days, a forward-looking styling approach will be one that's integrated with Figma and can support exporting of UI markup and styles from Figma designs. Companies like [Builder.io](https://www.builder.io/m/design-to-code) and [Locofy](https://www.locofy.ai/) offer such solutions.
+
+## Conclusion
+
+Over the years, new UI libraries offering different reactive approaches have emerged (e.g. Qwik and Solid). React may no longer be the most performant library, but in terms of the overall ecosystem, learning resources, financial backing, availability of developers proficient in it, React is still one of the safest choices. Moreover, React is still constantly innovating and improving, with projects like [React Server Components and an optimizing compiler](https://react.dev/blog/2023/03/22/react-labs-what-we-have-been-working-on-march-2023). However, it is more important to decide on a company-wide blessed framework that the team is comfortable with, than to choose the most trendy UI framework.
+
+For component examples and visual testing, [Chromatic](https://www.chromatic.com/) (by the maintainers of [Storybook](https://storybook.js.org/)) and [Percy](https://percy.io/) are the leading choices available in the market.
+
+## UI components scalability checklist
+
+- Company-wide recommendation for UI framework/library (e.g. React, Vue, Angular, Svelte)
+- Documentation of components
+- Testing of components (unit, screenshot, accessibility)
+- Use a headless UI component library
+- Component analytics
+- Design-to-code (optional)

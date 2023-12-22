@@ -1,10 +1,9 @@
 ---
 title: Web Apps at Scale – Introduction
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-imageUrl: https://source.unsplash.com/random/960x360
+description: How thousands of engineers at big tech companies build web apps.
+imageUrl: https://source.unsplash.com/random/960x360?sig=web-app
 tags:
-  - performance
-  - network
+  - scalability
 level: starter
 createdAt: 2023-12-16
 author: blog/author/yangshun.json
@@ -13,12 +12,50 @@ series: blog/series/front-end-at-scale.json
 subseries: blog/subseries/big-tech-front-end.json
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porttitor lacus luctus accumsan tortor posuere ac ut. Eget est lorem ipsum dolor sit amet. Nisl suscipit adipiscing bibendum est ultricies. Massa ultricies mi quis hendrerit. Eget est lorem ipsum dolor sit amet consectetur adipiscing. Eget mi proin sed libero. Quam lacus suspendisse faucibus interdum posuere. Velit ut tortor pretium viverra suspendisse. Aliquam ultrices sagittis orci a scelerisque. Mauris nunc congue nisi vitae suscipit tellus.
+Meta (previously Facebook) is known for its social media platforms and used by a huge number of users and services. Meta's websites include facebook.com, instagram.com, messenger.com, whatsapp.com, threads.net, meta.com, and more and are used by billions of global users monthly.
 
-Quis enim lobortis scelerisque fermentum dui faucibus in. Platea dictumst quisque sagittis purus sit. Scelerisque fermentum dui faucibus in ornare quam viverra orci. Varius vel pharetra vel turpis nunc eget lorem dolor. Libero justo laoreet sit amet. Ut pharetra sit amet aliquam. Volutpat lacus laoreet non curabitur gravida arcu ac tortor dignissim. Platea dictumst quisque sagittis purus sit amet volutpat. Commodo odio aenean sed adipiscing diam donec adipiscing tristique risus. Pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Risus ultricies tristique nulla aliquet enim. Volutpat blandit aliquam etiam erat velit scelerisque in dictum. Ut aliquam purus sit amet luctus venenatis. Diam maecenas ultricies mi eget mauris. Cras semper auctor neque vitae tempus quam pellentesque nec.
+Developing these websites consisting of thousands of pages by thousands of engineers is no simple feat. In this article, we will provide some insights of how big companies like Meta and Google handle front end development on such a large scale, the tools, methods, and strategies they use and how growing companies who face the same problems can adopt some of the approaches using alternatives in the open source ecosystem.
 
-Fermentum leo vel orci porta non pulvinar. Purus semper eget duis at tellus at urna condimentum. Turpis egestas maecenas pharetra convallis. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue. Nisi scelerisque eu ultrices vitae auctor eu augue. Viverra nam libero justo laoreet sit amet. Mattis vulputate enim nulla aliquet porttitor lacus luctus. Vulputate odio ut enim blandit. Viverra maecenas accumsan lacus vel facilisis. Risus viverra adipiscing at in tellus integer feugiat scelerisque.
+Aside from Meta's huge web user base, Meta is also an interesting company to look at because between 2015 to 2020, Meta was the forerunner of modern front end development with the creation of popular open source front end technologies like React, React Native, Flux, Jest, GraphQL, Docusaurus, Relay, Draft.js, Yarn, and more. It's fair to say that Meta had a significant impact on the modern front end ecosystem.
 
-Tellus id interdum velit laoreet id donec ultrices tincidunt. Nunc sed velit dignissim sodales. Varius quam quisque id diam. Commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula. Nisi porta lorem mollis aliquam. Sit amet nisl suscipit adipiscing bibendum est ultricies integer. Diam ut venenatis tellus in metus vulputate eu. Diam donec adipiscing tristique risus nec feugiat. Ipsum dolor sit amet consectetur adipiscing elit ut. Lacus vel facilisis volutpat est velit egestas dui. Eget sit amet tellus cras adipiscing enim eu turpis. Sed nisi lacus sed viverra tellus in hac habitasse. Vel eros donec ac odio. Tempor id eu nisl nunc mi ipsum. Senectus et netus et malesuada fames. Non tellus orci ac auctor augue mauris augue neque. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. Est velit egestas dui id ornare arcu odio. Blandit volutpat maecenas volutpat blandit aliquam.
+**Disclaimer**: I am no longer affiliated with Meta and this article does not represent Meta. Opinions and experiences are solely my own. I worked at Meta as a Front End Engineer from 2017 to early 2023 and things might have changed since then.
 
-Faucibus in ornare quam viverra orci sagittis eu. Varius duis at consectetur lorem donec massa sapien. Egestas congue quisque egestas diam in. Odio aenean sed adipiscing diam donec adipiscing. Morbi blandit cursus risus at ultrices mi tempus imperdiet nulla. Quam id leo in vitae turpis. Sit amet commodo nulla facilisi nullam. Fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque. Amet volutpat consequat mauris nunc congue nisi vitae suscipit. Nunc eget lorem dolor sed viverra ipsum. Sociis natoque penatibus et magnis dis. Sagittis vitae et leo duis ut diam quam nulla porttitor. Fusce id velit ut tortor pretium viverra.
+## Who am I?
+
+I am an ex-Meta Staff Engineer who led engineering teams to build meta.com and oculus.com. I was actively involved in the development of Meta's open source projects by creating [Docusaurus 2](https://docusaurus.io/), maintaining (and deprecating) [Flux](https://github.com/facebookarchive/flux), and making small contributions to [Lexical](https://lexical.dev/) and [Relay](https://relay.dev/). Outside of front end development, I have also written multiple technical interview resources like [Blind 75](https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions), [Tech Interview Handbook](https://www.techinterviewhandbook.org/), and [Front End Interview Handbook](https://www.frontendinterviewhandbook.com/), which have amassed over 100,000 GitHub stars.
+
+## Overview of Front End at scale
+
+As a company grows, the number of features and number of engineers developing those features increase. Look at your company's front end code base and see:
+
+- How many different JavaScript or CSS frameworks are being used?
+- How many custom Button components have been built?
+- How big is your utils folder and how many duplicate utilities are present?
+- How many different React hook libraries are being used?
+
+If there are too many to count, congratulations, you have just identified tech debt. These problems start to occur because:
+
+- Existing solutions do not work for new problems.
+- No recommended practices or standardized ways for doing the same thing.
+- Different teams face similar problems.
+
+As a result of the above, teams solve the problems for themselves, because it's much faster to solve their own problem than to solve it for everyone. What can also happen is that someone tries to solve it for everyone, but the solution isn't sufficient and the next person comes along to “improve” the solution for their own use case without understanding the use cases of others and ends up making things worse for everyone, often in subtle unnoticeable ways like performance degradations.
+
+Duplicated code, different approaches to achieving a similar outcome, unusable existing solutions all contribute to tech debt. At scale and over a long period of time, tech debt that is seemingly small can compound and lead to disastrous business consequences like bugs, downtimes, and developer burn out. Thankfully, even small improvements will also lead to large benefits at scale when lots of products and people benefit from it.
+
+## Metrics to measure
+
+Effective front end teams at scale score well on the following metrics:
+
+- **Lead time for feature development**: The amount of time it takes to develop a feature, get it reviewed, and ship it to production.
+- **Deployment frequency**: How often an organization successfully ships new releases to production.
+- **Change failure rate**: Percentage of changes that cause a bug/failure in production.
+- **Product quality**: Percentage of users having a good experience with the product. Does the website load fast enough? Does it mean the minimum accessibility standards? There are actually many ways to measure this, though they all have a varying level of subjectivity.
+
+## Caveats
+
+It is important to know the nature of the organization you are in. Different types of organizations have different focuses and you should adapt your approach to the nature of the company and product. Tech debt and engineering scalability is not as important in certain companies for good reasons.
+
+Be also aware of premature optimizations. Sometimes what you think is a problem might just be a minor inconvenience that is not actually a critical problem to solve right now. Without thorough understanding of the problem, solving a problem prematurely and having to revert it later costs more time overall.
+
+As a Front End Engineer who mostly worked in product teams I'm not all that familiar with deployment infrastructure and the amazing product infrastructure work, so some parts will be glossed over.

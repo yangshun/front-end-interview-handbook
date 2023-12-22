@@ -1,10 +1,9 @@
 ---
 title: JavaScript at Scale
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-imageUrl: https://source.unsplash.com/random/960x360
+description: How thousands of engineers at big tech companies write JavaScript.
+imageUrl: https://source.unsplash.com/random/960x360?sig=8
 tags:
-  - marketing
-  - network
+  - javascript
 level: starter
 createdAt: 2023-12-17
 author: blog/author/yangshun.json
@@ -13,12 +12,102 @@ series: blog/series/front-end-at-scale.json
 subseries: blog/subseries/big-tech-front-end.json
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Porttitor lacus luctus accumsan tortor posuere ac ut. Eget est lorem ipsum dolor sit amet. Nisl suscipit adipiscing bibendum est ultricies. Massa ultricies mi quis hendrerit. Eget est lorem ipsum dolor sit amet consectetur adipiscing. Eget mi proin sed libero. Quam lacus suspendisse faucibus interdum posuere. Velit ut tortor pretium viverra suspendisse. Aliquam ultrices sagittis orci a scelerisque. Mauris nunc congue nisi vitae suscipit tellus.
+As web development continued to evolve, the demand for more advanced and modern features led to the development of ECMAScript 6 (ES6), also known as ECMAScript 2015. Released in June 2015, ES6 introduced a range of new features, including arrow functions, classes, template literals, and destructuring assignments, among others.
 
-Quis enim lobortis scelerisque fermentum dui faucibus in. Platea dictumst quisque sagittis purus sit. Scelerisque fermentum dui faucibus in ornare quam viverra orci. Varius vel pharetra vel turpis nunc eget lorem dolor. Libero justo laoreet sit amet. Ut pharetra sit amet aliquam. Volutpat lacus laoreet non curabitur gravida arcu ac tortor dignissim. Platea dictumst quisque sagittis purus sit amet volutpat. Commodo odio aenean sed adipiscing diam donec adipiscing tristique risus. Pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Risus ultricies tristique nulla aliquet enim. Volutpat blandit aliquam etiam erat velit scelerisque in dictum. Ut aliquam purus sit amet luctus venenatis. Diam maecenas ultricies mi eget mauris. Cras semper auctor neque vitae tempus quam pellentesque nec.
+Today, JavaScript is a ubiquitous language used not only for client-side web development but also for server-side development (Node.js) and mobile app development (React Native). The language continues to evolve, with ongoing efforts to enhance performance, introduce new features, and address the needs of modern web development.
 
-Fermentum leo vel orci porta non pulvinar. Purus semper eget duis at tellus at urna condimentum. Turpis egestas maecenas pharetra convallis. Elit ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue. Nisi scelerisque eu ultrices vitae auctor eu augue. Viverra nam libero justo laoreet sit amet. Mattis vulputate enim nulla aliquet porttitor lacus luctus. Vulputate odio ut enim blandit. Viverra maecenas accumsan lacus vel facilisis. Risus viverra adipiscing at in tellus integer feugiat scelerisque.
+## Use latest (stable) language features
 
-Tellus id interdum velit laoreet id donec ultrices tincidunt. Nunc sed velit dignissim sodales. Varius quam quisque id diam. Commodo quis imperdiet massa tincidunt nunc pulvinar sapien et ligula. Nisi porta lorem mollis aliquam. Sit amet nisl suscipit adipiscing bibendum est ultricies integer. Diam ut venenatis tellus in metus vulputate eu. Diam donec adipiscing tristique risus nec feugiat. Ipsum dolor sit amet consectetur adipiscing elit ut. Lacus vel facilisis volutpat est velit egestas dui. Eget sit amet tellus cras adipiscing enim eu turpis. Sed nisi lacus sed viverra tellus in hac habitasse. Vel eros donec ac odio. Tempor id eu nisl nunc mi ipsum. Senectus et netus et malesuada fames. Non tellus orci ac auctor augue mauris augue neque. Morbi tincidunt augue interdum velit euismod in pellentesque massa. Aenean vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. Est velit egestas dui id ornare arcu odio. Blandit volutpat maecenas volutpat blandit aliquam.
+After the release of ES2015 / ES6, the ECMAScript specification transitioned to a yearly release cycle, allowing for a more agile development process and quicker incorporation of new features. Subsequent releases, such as ECMAScript 2016 (ES7), ECMAScript 2017 (ES8), and so on, brought additional improvements and features to the language.
 
-Faucibus in ornare quam viverra orci sagittis eu. Varius duis at consectetur lorem donec massa sapien. Egestas congue quisque egestas diam in. Odio aenean sed adipiscing diam donec adipiscing. Morbi blandit cursus risus at ultrices mi tempus imperdiet nulla. Quam id leo in vitae turpis. Sit amet commodo nulla facilisi nullam. Fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque. Amet volutpat consequat mauris nunc congue nisi vitae suscipit. Nunc eget lorem dolor sed viverra ipsum. Sociis natoque penatibus et magnis dis. Sagittis vitae et leo duis ut diam quam nulla porttitor. Fusce id velit ut tortor pretium viverra.
+Using the latest JavaScript language features in web development is crucial for several reasons. First and foremost, it ensures compatibility with modern browsers and leverages performance improvements introduced in newer language versions. This not only enhances the user experience but also aligns development efforts with the evolving standards of the JavaScript ecosystem. Furthermore, modern features contribute to enhanced productivity, readability, and maintainability of code. Syntax improvements, abstractions, and functionalities like arrow functions, async/await, and class syntax make code more concise, organized, and easier to understand. By staying current, developers gain access to a broader ecosystem of APIs, libraries, and community support, fostering a better development experience and future-proofing their code. Keep your developers happy by enabling the latest technologies and language features.
+
+A combination of JavaScript compilers and polyfills allow developers to use the latest ECMAScript features. JavaScript compilers like [Babel](https://babeljs.io/) transpile newer language syntax into an older version while polyfills like [core-js](https://github.com/zloirock/core-js) provide implementations for newer JavaScript APIs and they work together so that older browsers that do not support the features can still run the code. Google uses their homegrown [Google Closure Compiler](https://github.com/google/closure-compiler) while Meta uses a combination of Babel and [Flow](https://flow.org/).
+
+TypeScript, which offers type checking on top of enabling modern language features, is both a compiler and type checker, so you might not need Babel at all. Read on to find out more.
+
+## Type-safety first
+
+Type-safety is extremely important in large companies and large codebase. Type-safety helps to eliminate an entire class of bugs during development that will not make it into production.
+
+Meta places such a high importance in type-safety that they have developed type-safe versions of / type checkers for every dynamic-typed language they use:
+
+- JavaScript: [Flow](https://flow.org/)
+- PHP: [Hack](https://hacklang.org/)
+- Python: [Pyre](https://pyre-check.org/)
+
+Other big tech companies like Microsoft have developed [TypeScript](https://www.typescriptlang.org/) and Google has developed [Dart](https://dart.dev/), which further highlights the importance of using type-safe languages when developing at scale. These languages / type checkers are open sourced and available for all to use.
+
+Beyond catching and preventing type errors, type-safe languages are also easier to read and maintain. In VS Code, you can hover over a symbol to know its type. After all, code is read much more than it is written! The benefits of increased readability and clarity outweighs the learning curve in the long term. IDEs can also improve the developer experience by providing better autocompletion suggestions, and showing type errors inline.
+
+Although [Flow is open sourced](https://github.com/facebook/flow), the Flow team has [publicly stated that open source support is not a priority](https://medium.com/flow-type/clarity-on-flows-direction-and-open-source-engagement-e721a4eb4d8b). In the open source ecosystem, there are other alternatives for writing type-safe web applications like [ReScript](https://rescript-lang.org/) and [Reason](https://reasonml.github.io/), which also have their roots in Meta, but they have lost traction in recent years.
+
+## Automate via linters and formatters
+
+There are multiple ways to write and format code, and in a large codebase built by a large team, inconsistent coding styles across different files and developers make the code difficult to read and maintain. This lack of standardization can also hinder collaboration and slow down development, as more time is spent understanding and debugging the code instead of adding new features or improvements.
+
+Linting is the automated process of analyzing source code to detect errors, enforce coding conventions, and identify potential issues. Linters, or linting tools, play a crucial role in improving code quality by catching syntax errors, promoting consistent coding styles, and enforcing best practices. They contribute to error prevention, enhance code readability, and establish a uniform coding style across a project.
+
+Meta uses [ESLint](https://eslint.org/) with [eslint-plugin-flowtype](https://github.com/gajus/eslint-plugin-flowtype) for linting JavaScript. If you're using TypeScript, the recommendation would be ESLint with [typescript-eslint](https://typescript-eslint.io/). Configuring ESLint rules individually can be a chore, so it is recommended to use popular open source ESLint configs like [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb) as a starting point. Meta's internal ESLint config can be found at [eslint-config-fbjs](https://www.npmjs.com/package/eslint-config-fbjs).
+
+It is recommended to add ESLint rules around sorting imports, sorting object keys alphabetically, sorting React component props alphabetically, etc. This reduces the chances of merge conflicts when developers edit the same file. [Christoph Nakazawa](https://cpojer.net/), ex-manager on Meta's JavaScript infrastructure and React Native team published [@nkzw/eslint-config](https://github.com/cpojer/eslint-config) which has a high degree of overlap with Meta's ESLint configuration.
+
+Coding style is another aspect that can be automated and benefits from consistency. [Prettier](https://prettier.io/) is the de facto choice for formatting. In 2018, Christopher Chedeau [ran a format-athon at Meta](https://twitter.com/Vjeux/status/968310207305564161) where he rallied around 20 engineers across the company to format the codebase with Prettier.
+
+Linting should ideally be executed during development so that errors and warnings are reflected within the IDE instantly. The fast feedback loop increases productivity as the developer can fix the issues on-the-spot while the context is still fresh. Autofix lint issues and format the code on save by adding to VS Code's `settings.json`:
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
+```
+
+## Runtime
+
+A JavaScript runtime is an environment where JavaScript code is executed. JavaScript was originally designed to be run in the browser, but these days JavaScript can also be run on the server using Node.js, which is the most popular server-side JavaScript runtime built on Google Chrome's V8 engine.
+
+Meta uses [Hermes](https://hermesengine.dev/) for server-side rendering of React, although Hermes was originally designed to run React Native apps on mobile platforms.
+
+There isn't much of a choice to debate about here. In the wild, most companies use Node.js and it has gotten really good in recent years. [Deno](https://deno.com/) and [Bun](https://bun.sh/) are rising stars in the JavaScript runtime space and both offer TypeScript support out-of-the-box. Deno has a high focus on security by restricting access to sensitive runtime APIs by default, while Bun is extremely fast and includes a package manager, bundler, and test runner.
+
+Deno and Bun are still considered new so the risk is yours to bear if you decide to go with them.
+
+## Officially-endorsed/supported libraries
+
+While the JavaScript language is rapidly evolving, in the last decade, there were huge gaps where the language left in terms of providing solutions to common product needs like functional utilities, datetime formatting and manipulation, etc. As a result, a rich ecosystem of utilities and libraries that cater to various development needs have emerged:
+
+- State management: Redux, Zustand, Jotai
+- Functional utilities: [Lodash](https://lodash.com/), [Ramda](https://ramdajs.com/), [Underscore](https://underscorejs.org/)
+- Datetime: [Moment.js](https://momentjs.com/), [date-fns](https://date-fns.org/), [Day.js](https://day.js.org/)
+- Internationalization: [Format.js](https://formatjs.io/), [i18next](https://www.i18next.com/)
+- Reactive programming: [RxJS](https://rxjs.dev/)
+- Immutability: [Immer](https://immerjs.github.io/immer/), [Immutable.js](https://immutable-js.com/)
+- Classnames: [classnames](https://github.com/JedWatson/classnames), [clsx](https://github.com/lukeed/clsx)
+
+Engineering leadership or a front end infrastructure team should make a decision on which libraries to use for various purposes. This prevents different libraries serving the same purpose being shipped in the same app and users end up paying the cost of downloading the JavaScript twice. Resources should also be committed to supporting internal developers facing issues with them and performing periodic codebase-wide upgrading of the library versions being used.
+
+## Package management
+
+Finally, the last piece of JavaScript development to discuss is package management. Package management in JavaScript refers to the process of managing, distributing, and installing JavaScript libraries and tools within a project. A package manager is a tool that simplifies these tasks by automating the installation, versioning, and dependency resolution of external code packages.
+
+Back in 2016, [Meta created Yarn as an improvement over npm](https://engineering.fb.com/2016/10/11/web/yarn-a-new-package-manager-for-javascript/), it introduced the concepts of lockfiles, fast installs, global offline caches, workspaces, etc. A key feature of a scalable package manager is locking down the version dependencies and an offline mirror. You don't want to be blocked from deployment if the npm registry goes down. At Meta, node_modules are installed via Yarn v1, scanned for vulnerabilities, and checked into the monorepo.
+
+These days, npm has mostly caught up with Yarn in terms of feature parity and Yarn has also undergone many changes since its initial launch. As of writing, Yarn is now v4, [introduces Yarn Plug'n'Play](https://yarnpkg.com/features/pnp), and is no longer maintained by Meta. Personally, my goto package manager these days is [pnpm](https://pnpm.io/) because it has the most features, has an amazing development experience, and is frequently updated.
+
+## Conclusion
+
+[TypeScript](https://www.typescriptlang.org/) by Microsoft is now the de facto way to write type-safe web applications. Community support (learning resources, library type declarations) and developer tooling support (linters, IDE integration) for TypeScript is also extremely strong; new JavaScript runtimes like [Deno](https://deno.com/) and [Bun](https://bun.sh/) also support TypeScript out-of-the-box. Even Google uses TypeScript as the primary language for Angular development, a UI framework created by them.
+
+You will benefit from choosing TypeScript, even if the size of your codebase is small.
+
+#### JavaScript scalability checklist
+
+- Use modern language features, syntax, and APIs.
+- Use a type-safe language like TypeScript.
+- Leverage linting and formatting to enforce coding style and educate best practices.
+- Officially-endorsed/supported libraries.
+- Use features or modern package managers, check in your node_modules / use an offline mirror.
+- Upgrade runtime and package versions periodically.

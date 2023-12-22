@@ -16,11 +16,11 @@ export type BlogTags = Record<BlogTagType, BlogTag>;
 
 export function getBlogTags(): BlogTags {
   const blogTags: BlogTags = {
+    career: getBlogTagDefinition('career'),
+    css: getBlogTagDefinition('css'),
+    interviews: getBlogTagDefinition('interviews'),
     javascript: getBlogTagDefinition('javascript'),
-    marketing: getBlogTagDefinition('marketing'),
-    network: getBlogTagDefinition('network'),
-    performance: getBlogTagDefinition('performance'),
-    security: getBlogTagDefinition('security'),
+    scalability: getBlogTagDefinition('scalability'),
   };
 
   return blogTags;
@@ -28,23 +28,23 @@ export function getBlogTags(): BlogTags {
 
 export function getBlogTagDefinition(tag: BlogTagType): BlogTag {
   switch (tag) {
-    case 'performance':
+    case 'scalability':
       return {
-        description: 'Find all series and articles related to performance',
-        href: '/blog/tags/performance',
-        name: 'Performance',
+        description: 'Find all series and articles related to scalability',
+        href: '/blog/tags/scalability',
+        name: 'Scalability',
         style: {
           backgroundClass: 'bg-success-lightest dark:bg-success-darker',
           borderClass: 'border border-success dark:border-success-light',
           textClass: 'text-success dark:text-success-light',
         },
-        type: 'performance',
+        type: 'scalability',
       };
     case 'javascript':
       return {
         description: 'Find all series and articles related to javascript',
         href: '/blog/tags/javascript',
-        name: 'Javascript',
+        name: 'JavaScript',
         style: {
           backgroundClass: 'bg-warning-lightest dark:bg-warning-darker',
           borderClass: 'border border-warning dark:border-warning-light',
@@ -52,41 +52,41 @@ export function getBlogTagDefinition(tag: BlogTagType): BlogTag {
         },
         type: 'javascript',
       };
-    case 'network':
+    case 'css':
       return {
-        description: 'Find all series and articles related to network',
-        href: '/blog/tags/network',
-        name: 'Network',
+        description: 'Find all series and articles related to CSS',
+        href: '/blog/tags/css',
+        name: 'CSS',
         style: {
           backgroundClass: 'bg-brand-lightest dark:bg-neutral-800',
           borderClass: 'border border-brand-dark dark:border-brand',
           textClass: 'text-brand-dark dark:text-brand',
         },
-        type: 'network',
+        type: 'css',
       };
-    case 'marketing':
+    case 'career':
       return {
-        description: 'Find all series and articles related to marketing',
-        href: '/blog/tags/marketing',
-        name: 'Marketing',
+        description: 'Find all series and articles related to career',
+        href: '/blog/tags/career',
+        name: 'Career',
         style: {
           backgroundClass: 'bg-info-lightest dark:bg-info-darker',
           borderClass: 'border border-info dark:border-info',
           textClass: 'text-info dark:text-info',
         },
-        type: 'marketing',
+        type: 'career',
       };
-    case 'security':
+    case 'interviews':
       return {
-        description: 'Find all series and articles related to security',
-        href: '/blog/tags/security',
-        name: 'Security',
+        description: 'Find all series and articles related to interviews',
+        href: '/blog/tags/interviews',
+        name: 'Interviews',
         style: {
           backgroundClass: 'bg-danger-lightest dark:bg-danger-darkest',
           borderClass: 'border border-danger-darker dark:border-danger',
           textClass: 'text-danger-darker dark:text-danger',
         },
-        type: 'security',
+        type: 'interviews',
       };
   }
 }
