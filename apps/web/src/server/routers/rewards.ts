@@ -9,6 +9,10 @@ import { router, userProcedure } from '../trpc';
 const REPO_ID = 593048179;
 const ORG_NAME = 'greatfrontend';
 
+function delay(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 export const rewardsRouter = router({
   checkGitHubFollowing: userProcedure
     .input(
@@ -120,6 +124,84 @@ export const rewardsRouter = router({
       // Insert task into db
       const campaign = 'SOCIAL_MEDIA_PREMIUM_20';
       const task = 'GITHUB_STAR';
+      const userId = user.id;
+      const identifier = username;
+
+      await prisma.rewardsTaskCompletion.create({
+        data: {
+          campaign,
+          identifier,
+          task,
+          userId,
+        },
+      });
+
+      return true;
+    }),
+  checkTwitterFollowing: userProcedure
+    .input(
+      z.object({
+        username: z.string(),
+      }),
+    )
+    .query(async ({ input: { username }, ctx: { user } }) => {
+      await delay(1000);
+
+      // Insert task into db
+      const campaign = 'SOCIAL_MEDIA_PREMIUM_20';
+      const task = 'TWITTER_FOLLOW';
+      const userId = user.id;
+      const identifier = username;
+
+      await prisma.rewardsTaskCompletion.create({
+        data: {
+          campaign,
+          identifier,
+          task,
+          userId,
+        },
+      });
+
+      return true;
+    }),
+  checkTwitterLike: userProcedure
+    .input(
+      z.object({
+        username: z.string(),
+      }),
+    )
+    .query(async ({ input: { username }, ctx: { user } }) => {
+      await delay(1000);
+
+      // Insert task into db
+      const campaign = 'SOCIAL_MEDIA_PREMIUM_20';
+      const task = 'TWITTER_LIKE';
+      const userId = user.id;
+      const identifier = username;
+
+      await prisma.rewardsTaskCompletion.create({
+        data: {
+          campaign,
+          identifier,
+          task,
+          userId,
+        },
+      });
+
+      return true;
+    }),
+  checkTwitterRetweet: userProcedure
+    .input(
+      z.object({
+        username: z.string(),
+      }),
+    )
+    .query(async ({ input: { username }, ctx: { user } }) => {
+      await delay(1000);
+
+      // Insert task into db
+      const campaign = 'SOCIAL_MEDIA_PREMIUM_20';
+      const task = 'TWITTER_RETWEET';
       const userId = user.id;
       const identifier = username;
 
