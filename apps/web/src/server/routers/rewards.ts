@@ -57,20 +57,63 @@ export const rewardsRouter = router({
     )
     .query(async ({ input: { username }, ctx: { user } }) => {
       const octokit = new Octokit({});
+      const prevPattern = /(?<=<)([\S]*)(?=>; rel="prev")/i;
+      const lastPattern = /(?<=<)([\S]*)(?=>; rel="last")/i;
+      let pagesRemaining = 5;
+      let url = `/users/${username}/starred`;
+      let isStarred = false;
 
-      const data = await octokit.paginate(
-        'GET https://api.github.com/users/{username}/starred',
-        {
+      const initialResponse = await octokit.request(`GET ${url}`, {
+        headers: {
+          Accept: 'application/vnd.github+json',
+          Authorization: `token ${process.env.GITHUB_TOKEN}`,
+        },
+        per_page: 100,
+      });
+
+      // Check if there is a last page
+      const hasLastPage = initialResponse.headers.link?.includes(`rel="last"`);
+
+      if (!hasLastPage) {
+        const { data } = initialResponse;
+
+        if (!data.some((repo: any) => repo.id === REPO_ID)) {
+          return false;
+        }
+
+        isStarred = true;
+      }
+
+      // Get the last page
+      url = initialResponse.headers.link?.match(lastPattern)?.[0] ?? '';
+      while (pagesRemaining) {
+        const response = await octokit.request(`GET ${url}`, {
           headers: {
             Accept: 'application/vnd.github+json',
             Authorization: `token ${process.env.GITHUB_TOKEN}`,
           },
           per_page: 100,
-          username,
-        },
-      );
+        });
+        const { data } = response;
 
-      if (!data.some((repo: any) => repo.id === REPO_ID)) {
+        if (data.some((repo: any) => repo.id === REPO_ID)) {
+          isStarred = true;
+          break;
+        }
+
+        // Check if there is a previous page
+        const hasPrevPage = response.headers.link?.includes(`rel="prev"`);
+
+        if (!hasPrevPage) {
+          break;
+        }
+
+        // Get the previous page
+        url = response.headers.link?.match(prevPattern)?.[0] ?? '';
+        pagesRemaining--;
+      }
+
+      if (!isStarred && pagesRemaining > 0) {
         return false;
       }
 
