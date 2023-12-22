@@ -7,6 +7,7 @@ import type { BlogTagType } from '~/components/blog/BlogTypes';
 
 import { getAllPosts, getAllSeries } from '~/contentlayer/utils';
 import { getIntlServerOnly } from '~/i18n';
+import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 import BlogExploreTagPage from './BlogExploreTagPage';
@@ -17,6 +18,12 @@ type Props = Readonly<{
     tag: BlogTagType;
   };
 }>;
+
+export async function generateStaticParams() {
+  return generateStaticParamsWithLocale(
+    Object.keys(getBlogTags()).map((tag) => ({ tag })),
+  );
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, tag } = params;

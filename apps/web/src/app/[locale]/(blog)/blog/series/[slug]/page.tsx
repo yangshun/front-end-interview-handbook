@@ -10,9 +10,11 @@ import BlogSubseriesSection from '~/components/blog/subseries/BlogSubseriesSecti
 
 import {
   getAllPosts,
+  getAllSeries,
   getSeriesFromSlug,
   getSubseriesAndPosts,
 } from '~/contentlayer/utils';
+import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 type Props = Readonly<{
@@ -21,6 +23,14 @@ type Props = Readonly<{
     slug?: string;
   };
 }>;
+
+export async function generateStaticParams() {
+  return generateStaticParamsWithLocale(
+    getAllSeries().map((series) => ({
+      slug: series.slug,
+    })),
+  );
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;

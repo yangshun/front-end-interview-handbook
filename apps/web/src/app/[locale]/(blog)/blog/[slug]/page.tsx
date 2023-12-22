@@ -7,7 +7,12 @@ import BlogArticleMainLayout from '~/components/blog/articles/BlogArticleMainLay
 import BlogMdx from '~/components/blog/BlogMdx';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 
-import { getPostFromSlug, getSeriesPostNavigation } from '~/contentlayer/utils';
+import {
+  getAllPosts,
+  getPostFromSlug,
+  getSeriesPostNavigation,
+} from '~/contentlayer/utils';
+import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 type Props = Readonly<{
@@ -16,6 +21,14 @@ type Props = Readonly<{
     slug?: string;
   };
 }>;
+
+export async function generateStaticParams() {
+  return generateStaticParamsWithLocale(
+    getAllPosts({ sort: true }).map((post) => ({
+      slug: post.slug,
+    })),
+  );
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
