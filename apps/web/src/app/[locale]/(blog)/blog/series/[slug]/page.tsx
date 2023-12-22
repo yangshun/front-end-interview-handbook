@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-function useBlogContent(slug: string) {
+function getBlogContent(slug: string) {
   const series = getSeriesFromSlug(slug || '');
 
   if (series) {
@@ -69,7 +69,7 @@ function useBlogContent(slug: string) {
 
 export default function Page({ params }: Props) {
   const { slug } = params;
-  const { subseriesData, seriesMetadata, seriesBlogs } = useBlogContent(
+  const { subseriesData, seriesMetadata, seriesBlogs } = getBlogContent(
     slug || '',
   );
 

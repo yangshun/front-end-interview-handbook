@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-function useBlogContent(slug: string) {
+function getBlogContent(slug: string) {
   const post = getPostFromSlug(slug || '');
 
   if (post) {
@@ -53,7 +53,7 @@ function useBlogContent(slug: string) {
 
 export default function Page({ params }: Props) {
   const { slug } = params;
-  const { blogMetadata, seriesArticleNavigation } = useBlogContent(slug || '');
+  const { blogMetadata, seriesArticleNavigation } = getBlogContent(slug || '');
 
   return (
     <BlogArticleLayout

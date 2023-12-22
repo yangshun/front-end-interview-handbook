@@ -31,11 +31,15 @@ export const getTypeCastedMetadata = (item: Post | Series) => {
 };
 
 export const getSeriesPostNavigation = (post: Post) => {
-  const series = allSeries.find((_) => _.source === post.series);
-  const subseries = allSubseries.find((_) => _.source === post.subseries);
+  const series = allSeries.find(
+    (seriesItem) => seriesItem.source === post.series,
+  );
+  const subseries = allSubseries.find(
+    (subseriesItem) => subseriesItem.source === post.subseries,
+  );
 
   const posts = getAllPosts({ sort: true })
-    .filter((_) => (_ as Post).series === post?.series)
+    .filter((postItem) => (postItem as Post).series === post?.series)
     .map(({ href, slug, title }) => ({ href, slug, title }));
 
   return {
@@ -54,7 +58,7 @@ export const getSeriesFromSlug = (slug: string) => {
 export const buildNavigationTree = () => {
   const navigation = allCategories.map((category) => {
     const series = allSeries
-      .filter((_) => _.category?.source === category.source)
+      .filter((seriesItem) => seriesItem.category?.source === category.source)
       .map(({ href, slug, title }) => ({ href, slug, title }));
 
     return { links: series, title: category.title };
@@ -69,11 +73,11 @@ export const getSubseriesAndPosts = (series: Series) => {
     .map((subseries) => {
       let totalReadingTime = 0;
       const posts = getAllPosts({ sort: true })
-        .filter((_) => (_ as Post).subseries === subseries.source)
-        .map((_) => {
-          totalReadingTime += (_ as Post).readingTime;
+        .filter((postItem) => (postItem as Post).subseries === subseries.source)
+        .map((postItem) => {
+          totalReadingTime += (postItem as Post).readingTime;
 
-          const postMetadata = getTypeCastedMetadata(_);
+          const postMetadata = getTypeCastedMetadata(postItem);
 
           return postMetadata as BlogMetadata;
         });
@@ -130,7 +134,7 @@ export const getAllPostsForNavigation = () => {
   // Group the navigation by series
   allSeries.map((series) => {
     const posts = getAllPosts({ sort: true }).filter(
-      (_) => (_ as Post).series === series.source,
+      (postItem) => (postItem as Post).series === series.source,
     );
 
     sortedPosts = [...sortedPosts, ...posts];
