@@ -1,6 +1,7 @@
 // @ts-check
 
 import codingQuestionsList from './src/__generated__/questions/coding/list.en-US.json' assert { type: 'json' };
+import { allPosts, allSeries } from './.contentlayer/generated/index.mjs';
 import i18nConfig from './next-i18nostic.config.cjs';
 
 const priority = 0.7;
@@ -81,6 +82,12 @@ export default {
       // Misc.
       '/login',
       '/sign-up',
+      // Blog
+      '/blog',
+      '/blog/explore',
+      '/blog/latest',
+      ...allPosts.map(({ href }) => href),
+      ...allSeries.map(({ href }) => href),
     ];
 
     return await Promise.all(
