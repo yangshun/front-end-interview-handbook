@@ -16,8 +16,8 @@ import { themeLineColor } from '~/components/ui/theme';
 
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
-import LogoLink from './Logo';
-import I18nSelect from '../i18n/I18nSelect';
+import LogoLink from '../Logo';
+import I18nSelect from '../../i18n/I18nSelect';
 
 type FooterLink = Readonly<{
   href: string;
@@ -200,12 +200,6 @@ export default function Footer({ navigation }: Props) {
                     links={navigation[2].links}
                     title={navigation[2].title}
                   />
-                </div>
-                <div className="mt-12 md:mt-0">
-                  <FooterSection
-                    links={navigation[3].links}
-                    title={navigation[3].title}
-                  />
                   <div className="mt-12 md:mt-8">
                     <FooterSection
                       links={commonLinks.legal}
@@ -217,6 +211,12 @@ export default function Footer({ navigation }: Props) {
                       })}
                     />
                   </div>
+                </div>
+                <div className="mt-12 md:mt-0">
+                  <FooterSection
+                    links={navigation[3].links}
+                    title={navigation[3].title}
+                  />
                 </div>
               </div>
             </div>

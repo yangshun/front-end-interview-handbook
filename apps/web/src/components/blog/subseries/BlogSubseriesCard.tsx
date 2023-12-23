@@ -56,7 +56,6 @@ export default function BlogSubseriesCard({
           <BlogSubseriesItemCard data={item} />
         </div>
       ))}
-
       {subseries.items.length > initialItemsToShow && (
         <Button
           className={clsx(

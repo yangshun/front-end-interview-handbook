@@ -1,6 +1,6 @@
 import GlobalBanner from '~/components/global/banners/GlobalBanner';
 import FeedbackWidget from '~/components/global/feedback/FeedbackWidget';
-import FooterProjects from '~/components/global/FooterProjects';
+import FooterProjects from '~/components/global/footers/FooterProjects';
 import Navbar from '~/components/global/navbar/NavbarImpl';
 import Section from '~/components/ui/Heading/HeadingContext';
 

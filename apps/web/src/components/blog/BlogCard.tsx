@@ -39,7 +39,7 @@ export default function BlogCard({
         themeCardBackgroundWhiteOnLightColor,
         themeGlassyBorder,
       )}>
-      {type === 'wide' && (
+      {type === 'wide' && metadata.imageUrl && (
         <img
           alt={metadata.title}
           className="!m-0 hidden h-[80px] w-[80px] shrink-0 rounded object-cover lg:block"
@@ -54,7 +54,7 @@ export default function BlogCard({
             type === 'wide' && 'gap-y-1',
           )}>
           <div className="flex items-center gap-x-3">
-            {type === 'wide' && (
+            {type === 'wide' && metadata.imageUrl && (
               <img
                 alt={metadata.title}
                 className="!m-0 h-[32px] w-[32px] shrink-0 rounded object-cover lg:hidden"

@@ -82,9 +82,9 @@ export function getBlogTagDefinition(tag: BlogTagType): BlogTag {
         href: '/blog/tags/interviews',
         name: 'Interviews',
         style: {
-          backgroundClass: 'bg-danger-lightest dark:bg-danger-darkest',
-          borderClass: 'border border-danger-darker dark:border-danger',
-          textClass: 'text-danger-darker dark:text-danger',
+          backgroundClass: 'bg-red-lightest dark:bg-red-darkest',
+          borderClass: 'border border-red-darker dark:border-red',
+          textClass: 'text-red-darker dark:text-red',
         },
         type: 'interviews',
       };

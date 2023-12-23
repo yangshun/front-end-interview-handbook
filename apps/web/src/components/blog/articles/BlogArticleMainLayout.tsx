@@ -42,10 +42,10 @@ export default function BlogArticleMainLayout({ children, metadata }: Props) {
               items={flatNavigationItems}
             />
           </Section>
-          {(metadata as Post).related_posts && (
+          {(metadata as Post).relatedPosts && (
             <Section>
               <BlogRelatedArticlesSection
-                relatedPosts={(metadata as Post).related_posts || []}
+                relatedPosts={(metadata as Post).relatedPosts || []}
               />
             </Section>
           )}

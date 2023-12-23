@@ -20,6 +20,7 @@ const sizeClasses: Record<LabelSize, string> = {
 export default function BlogTagLabel({ value, size = 'sm' }: Props) {
   const blogTags = getBlogTags();
   const blogTag = blogTags[value];
+
   const { backgroundClass, borderClass, textClass } = blogTag.style;
 
   return (

@@ -503,6 +503,24 @@ function useNavLinks(
       position: 'start',
       type: 'popover',
     },
+    {
+      href: '/blog',
+      itemKey: 'blog',
+      label: intl.formatMessage({
+        defaultMessage: 'Blog',
+        description: 'Link to blog',
+        id: 'pBR3LI',
+      }),
+      onClick: () => {
+        gtag.event({
+          action: `nav.blog.click`,
+          category: 'engagement',
+          label: 'Blog',
+        });
+      },
+      position: 'start',
+      type: 'link',
+    },
     !isPremium
       ? {
           href: '/pricing',

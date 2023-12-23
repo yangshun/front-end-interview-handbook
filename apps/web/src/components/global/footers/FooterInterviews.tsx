@@ -125,6 +125,15 @@ function useFooterNavigation() {
           }),
         },
         {
+          href: '/blog',
+          key: 'blog',
+          name: intl.formatMessage({
+            defaultMessage: 'Blog',
+            description: 'Link to blog page',
+            id: '7lppmr',
+          }),
+        },
+        {
           href: '/about',
           key: 'about',
           name: intl.formatMessage({
@@ -133,7 +142,15 @@ function useFooterNavigation() {
             id: '+5JohH',
           }),
         },
-        // { href: '/team', key: 'team', name: 'Our Team' },
+        {
+          href: '/team',
+          key: 'team',
+          name: intl.formatMessage({
+            defaultMessage: 'Team',
+            description: "Link to company's team page",
+            id: 'w9U/8b',
+          }),
+        },
         {
           href: '/contact',
           key: 'contact',

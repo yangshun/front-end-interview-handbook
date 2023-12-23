@@ -1,5 +1,5 @@
 import GlobalBanner from '~/components/global/banners/GlobalBanner';
-import FooterInterviews from '~/components/global/FooterInterviews';
+import FooterInterviews from '~/components/global/footers/FooterInterviews';
 import Navbar from '~/components/global/navbar/NavbarImpl';
 import Section from '~/components/ui/Heading/HeadingContext';
 

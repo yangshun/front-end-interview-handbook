@@ -17,7 +17,6 @@ export const BlogCategoryDocument = defineDocumentType(() => ({
     },
   },
   fields: {
-    description: { required: true, type: 'string' },
     title: { required: true, type: 'string' },
   },
   filePathPattern: `blog/category/*.json`,

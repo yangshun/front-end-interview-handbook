@@ -1,13 +1,11 @@
 'use client';
 
-import clsx from 'clsx';
 import type { PropsWithChildren } from 'react';
 import { forwardRef } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import BlogMetadataSection from '~/components/blog/metadata/BlogMetadataSection';
-import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
@@ -24,7 +22,7 @@ const BlogArticle = forwardRef<HTMLDivElement, Props>(
   ({ metadata, view = 'default', children }: Props, ref) => {
     return (
       <div className="flex flex-col gap-12">
-        <div ref={ref} className={clsx('flex flex-col gap-3')}>
+        <div ref={ref} className="flex flex-col gap-5">
           {metadata.isSeries && (
             <Text color="active" display="block" size="body2" weight="medium">
               <FormattedMessage
@@ -44,8 +42,10 @@ const BlogArticle = forwardRef<HTMLDivElement, Props>(
             {metadata.description}
           </Text>
           <BlogMetadataSection metadata={metadata} />
-          <Divider />
         </div>
+        {metadata.imageUrl && (
+          <img alt={metadata.title} loading="lazy" src={metadata.imageUrl} />
+        )}
         {children}
       </div>
     );

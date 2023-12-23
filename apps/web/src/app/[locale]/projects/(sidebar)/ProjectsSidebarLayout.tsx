@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import FooterProjects from '~/components/global/FooterProjects';
+import FooterProjects from '~/components/global/footers/FooterProjects';
 import ProjectsNavbar from '~/components/projects/layout/ProjectsNavbar/ProjectsNavbar';
 import ProjectsSidebar from '~/components/projects/layout/ProjectsSidebar';
 import SlideOut from '~/components/ui/SlideOut';
