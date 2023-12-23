@@ -9,7 +9,6 @@ Array.prototype.myFilter = function (callbackFn, thisArg) {
   const results = [];
 
   for (let k = 0; k < len; k++) {
-    // Cache value in case the callback function modifies it.
     const kValue = this[k];
     if (
       // Ignore index if value is not defined for index (e.g. in sparse arrays).
