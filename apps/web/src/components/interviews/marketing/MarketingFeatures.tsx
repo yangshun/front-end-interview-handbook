@@ -16,12 +16,11 @@ import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 import {
   themeGlassyBorder,
   themeTextSubtitleColor,
 } from '~/components/ui/theme';
-
-import Text from '../../ui/Text';
 
 function useFeatures() {
   const intl = useIntl();

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 
-import RewardsIntro from '~/components/rewards/RewardsIntro';
+import RewardsTasksPage from '~/components/rewards/tasks/RewardsTasksPage';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -19,17 +20,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     locale,
-    pathname: '/rewards',
+    pathname: '/rewards/terms',
     title: intl.formatMessage({
-      defaultMessage: 'Rewards',
-      description: 'Title of Rewards page',
-      id: 'HQunmZ',
+      defaultMessage: 'Terms | Rewards',
+      description: 'Title of Rewards Terms page',
+      id: 'YkG6kJ',
     }),
   });
 }
 
-export default async function RewardsPage() {
+export default async function Page() {
   const user = await fetchUser();
 
-  return <RewardsIntro isSignedIn={user != null} />;
+  if (user == null) {
+    return redirect(`/login?next=${encodeURIComponent('/rewards')}`);
+  }
+
+  return <RewardsTasksPage />;
 }

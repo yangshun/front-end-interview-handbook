@@ -4,7 +4,7 @@ import { useId } from 'react';
 
 import Heading from '~/components/ui/Heading';
 
-import Text from '../ui/Text';
+import Text from '../../ui/Text';
 
 const ORIGINAL_HEIGHT = 98;
 const ORIGINAL_WIDTH = 156;

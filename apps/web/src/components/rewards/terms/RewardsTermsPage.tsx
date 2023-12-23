@@ -3,18 +3,17 @@
 import { RiArrowLeftLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import Container from '~/components/ui/Container';
+import Button from '~/components/ui/Button';
 import Prose from '~/components/ui/Prose';
 
 import Terms from './terms.mdx';
-import Button from '../ui/Button';
 
-export default function RewardsTerms() {
+export default function RewardsTermsPage() {
   const intl = useIntl();
 
   return (
-    <Container className="my-20" variant="4xl">
-      <div className="mb-20">
+    <div className="flex flex-col gap-y-12">
+      <div>
         <Button
           addonPosition="start"
           href="/rewards"
@@ -32,6 +31,6 @@ export default function RewardsTerms() {
       <Prose>
         <Terms />
       </Prose>
-    </Container>
+    </div>
   );
 }

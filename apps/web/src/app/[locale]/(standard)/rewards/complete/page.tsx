@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
-import RewardsComplete from '~/components/rewards/RewardsComplete';
+import RewardsCompletePage from '~/components/rewards/complete/RewardsCompletePage';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -29,12 +29,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function RewardsCompletePage() {
+export default async function Page() {
   const user = await fetchUser();
 
   if (user == null) {
     return redirect(`/login?next=${encodeURIComponent('/rewards')}`);
   }
 
-  return <RewardsComplete />;
+  return <RewardsCompletePage />;
 }

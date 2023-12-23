@@ -383,6 +383,10 @@
     "defaultMessage": "Cheatsheet",
     "description": "One-page summary sheet for front end system design interviews"
   },
+  "3bTpP/": {
+    "defaultMessage": "Verify your social accounts",
+    "description": "Rewards step label"
+  },
   "3c9VZh": {
     "defaultMessage": "Clarify doubts in project-specific forums",
     "description": "Short description for \"Learn from others\" feature on Projects home page"
@@ -466,10 +470,6 @@
   "4cjRbk": {
     "defaultMessage": "Info",
     "description": "Select label for info log level in console filter"
-  },
-  "4eFF4E": {
-    "defaultMessage": "We are giving away exclusive promo codes for {DISCOUNT_PERCENTAGE}% off all plans.",
-    "description": "Subtext for rewards page"
   },
   "4kQ6Kr": {
     "defaultMessage": "Exclusive to currently enrolled students at accredited educational institutions.",
@@ -827,6 +827,10 @@
     "defaultMessage": "Your existing code will be discarded, are you sure?",
     "description": "Text on browser confirmation pop-up when user attempts to use the reset button to reset their code"
   },
+  "8bXZIp": {
+    "defaultMessage": "Limited time campaign",
+    "description": "Label for rewards campaign"
+  },
   "8iiFM+": {
     "defaultMessage": "Contact Us",
     "description": "Link to contact us page"
@@ -1047,10 +1051,6 @@
     "defaultMessage": "Submit your solution for feedback",
     "description": "Title of 'Submit your solution for feedback' feature in Projects marketing page"
   },
-  "BqQdtB": {
-    "defaultMessage": "We are giving away an exclusive {DISCOUNT_PERCENTAGE}% off all plans for completing simple tasks like following our socials!",
-    "description": "Subtext for rewards page"
-  },
   "BwHkBU": {
     "defaultMessage": "Profile",
     "description": "Link label to the profile page"
@@ -1270,10 +1270,6 @@
   "ECkWMR": {
     "defaultMessage": "Stop session",
     "description": "Label to stop study plan"
-  },
-  "EH6F7u": {
-    "defaultMessage": "Campaign's Terms",
-    "description": "Campaign terms link"
   },
   "EHPx/Z": {
     "defaultMessage": "Solving Common Questions",
@@ -1918,6 +1914,10 @@
   "LPfKTO": {
     "defaultMessage": "Completed",
     "description": "Label to indicate that a question has been completed"
+  },
+  "LRBEVJ": {
+    "defaultMessage": "Follow our GitHub organization",
+    "description": "Title for GitHub follow task"
   },
   "LSKN5A": {
     "defaultMessage": "Unlock all premium content including official solutions, company tags, and study plans.",
@@ -2863,6 +2863,10 @@
     "defaultMessage": "Guided by well-known senior engineers",
     "description": "Title of 'Guided by well-known senior engineers' feature in marketing page"
   },
+  "W8ke1i": {
+    "defaultMessage": "We are giving away an exclusive {discountPercentage}% off all plans for completing simple tasks like following our socials!",
+    "description": "Subtext for rewards page"
+  },
   "WB/L0V": {
     "defaultMessage": "{numberOfHours} hours weekly",
     "description": "Number of hours needed on a weekly basis. E.g. 4 hours weekly"
@@ -3083,6 +3087,10 @@
     "defaultMessage": "Review Cashback Terms and Conditions",
     "description": "Title of legal page"
   },
+  "YVoNkr": {
+    "defaultMessage": "Start the tasks",
+    "description": "Rewards step label"
+  },
   "YWz2ko": {
     "defaultMessage": "Proven preparation plans",
     "description": "Title for proven preparation plans feature"
@@ -3178,6 +3186,10 @@
   "ZYFcYD": {
     "defaultMessage": "Report an issue",
     "description": "Label for reporting an issue"
+  },
+  "ZYXIkT": {
+    "defaultMessage": "Please enter your social media handles for us to verify.",
+    "description": "Rewards campaign help text"
   },
   "ZYtAFY": {
     "defaultMessage": "{questionCount}+ CSS interview questions, including quiz-style knowledge questions and CSS coding questions.",
@@ -3911,6 +3923,10 @@
     "defaultMessage": "Why be a GreatFrontEnd Affiliate?",
     "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
   },
+  "hdCLkO": {
+    "defaultMessage": "We are giving away exclusive promo codes for {discountPercentage}% off all plans.",
+    "description": "Subtext for rewards page"
+  },
   "hdlJES": {
     "defaultMessage": "Secondary reason",
     "description": "Label for \"Secondary reason\" button on Sign Up Reason section of Projects onboarding page"
@@ -3974,6 +3990,10 @@
   "iHLvVo": {
     "defaultMessage": "Find official guides, reference code from top submissions, and use our discussion forum to ask questions.",
     "description": "Description for Important Info Guide section on Before You Get Started dialog"
+  },
+  "iHPzK0": {
+    "defaultMessage": "By proceeding, you agree to the <link>campaign's terms</link>.",
+    "description": "Campaign terms agreement prompt"
   },
   "iIQL6V": {
     "defaultMessage": "Completed",
@@ -5043,10 +5063,6 @@
     "defaultMessage": "Learn while building",
     "description": "Title of 'Learn while building' feature in Projects marketing page"
   },
-  "u2zHME": {
-    "defaultMessage": "Follow our GitHub organisation",
-    "description": "Title for GitHub follow task"
-  },
   "u3bYHM": {
     "defaultMessage": "FAQ",
     "description": "Link to FAQ page"
@@ -5250,10 +5266,6 @@
   "wP8dNq": {
     "defaultMessage": "The URL where your solution is hosted. Find our <link>recommended free hosting providers</link> if you haven\\'t already.",
     "description": "Description for live site URL input on project submit page"
-  },
-  "wR331j": {
-    "defaultMessage": "By proceeding, you agree to the",
-    "description": "Campaign terms agreement prompt"
   },
   "wbjMPn": {
     "defaultMessage": "Send magic link",

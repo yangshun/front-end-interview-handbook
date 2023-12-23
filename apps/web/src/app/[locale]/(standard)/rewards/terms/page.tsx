@@ -1,9 +1,9 @@
 import type { Metadata } from 'next/types';
 
+import RewardsTermsPage from '~/components/rewards/terms/RewardsTermsPage';
+
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import RewardsTerms from '../../../../../components/rewards/RewardsTerms';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -28,7 +28,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function Page() {
-  return (
-    <RewardsTerms />
-  );
+  return <RewardsTermsPage />;
 }
