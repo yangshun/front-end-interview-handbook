@@ -6,6 +6,7 @@ import BlogArticleLayout from '~/components/blog/articles/BlogArticleLayout';
 import BlogArticleMainLayout from '~/components/blog/articles/BlogArticleMainLayout';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import BlogList from '~/components/blog/filters/items/BlogList';
+import BlogSeriesLayout from '~/components/blog/series/BlogSeriesLayout';
 import BlogSubseriesSection from '~/components/blog/subseries/BlogSubseriesSection';
 
 import {
@@ -84,7 +85,7 @@ export default function Page({ params }: Props) {
   );
 
   return (
-    <BlogArticleLayout metadata={seriesMetadata}>
+    <BlogSeriesLayout metadata={seriesMetadata}>
       <BlogArticleMainLayout metadata={seriesMetadata}>
         {seriesMetadata.hasSubseries && subseriesData ? (
           <BlogSubseriesSection subseriesData={subseriesData} />
@@ -94,6 +95,6 @@ export default function Page({ params }: Props) {
           </div>
         )}
       </BlogArticleMainLayout>
-    </BlogArticleLayout>
+    </BlogSeriesLayout>
   );
 }

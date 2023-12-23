@@ -27,9 +27,8 @@ export default function BlogArticleMainLayout({ children, metadata }: Props) {
   }));
 
   return (
-    <div className="mb-12 flex flex-col gap-y-16">
+    <div className="flex flex-col gap-y-16">
       <div>{children}</div>
-
       {!metadata.isSeries && (
         <>
           <div className="flex items-center justify-end gap-x-4">

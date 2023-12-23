@@ -15,11 +15,11 @@ type Props = Readonly<{
 export default function BlogRelatedArticlesSection({ relatedPosts }: Props) {
   return (
     <div className="flex flex-col gap-y-4">
-      <Heading className="my-0 text-xl font-semibold" level="custom">
+      <Heading level="heading6">
         <FormattedMessage
-          defaultMessage="Related Articles"
+          defaultMessage="Related articles"
           description="Blog related articles section"
-          id="dZGFzA"
+          id="Ia88Vb"
         />
       </Heading>
       <Section>

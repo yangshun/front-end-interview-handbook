@@ -18,7 +18,7 @@ type Props = Readonly<{
   navigation?: BlogArticleNavigationType | null;
 }>;
 
-export default function BlogArticleLayout({
+export default function BlogSeriesLayout({
   children,
   metadata,
   navigation,
@@ -37,7 +37,7 @@ export default function BlogArticleLayout({
         <Container
           className={clsx('flex flex-col', 'py-6 lg:py-8')}
           variant="normal">
-          <div className="flex gap-x-10 gap-y-8 md:gap-y-10 2xl:gap-y-12">
+          <div className="flex justify-center gap-x-10 gap-y-8 md:gap-y-10 2xl:gap-y-12">
             {metadata.isSeriesArticle && navigation && (
               <div
                 className="sticky hidden xl:contents"

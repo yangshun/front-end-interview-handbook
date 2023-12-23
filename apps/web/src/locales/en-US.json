@@ -727,6 +727,10 @@
     "defaultMessage": "Progress",
     "description": "Completion status"
   },
+  "7lppmr": {
+    "defaultMessage": "Blog",
+    "description": "Link to blog page"
+  },
   "7meg5a": {
     "defaultMessage": "Submit your solution on the platform for code reviews from a large community of engineers.",
     "description": "Description of 'Submit your solution for feedback' feature in Projects marketing page"
@@ -1642,6 +1646,10 @@
   "IXY4CG": {
     "defaultMessage": "Reference official guides for practical software development, code from top submissions and clarify doubts in the community.",
     "description": "Description of 'Learn while building' feature in Projects marketing page"
+  },
+  "Ia88Vb": {
+    "defaultMessage": "Related articles",
+    "description": "Blog related articles section"
   },
   "IhJAk8": {
     "defaultMessage": "What's Included",
@@ -3567,10 +3575,6 @@
     "defaultMessage": "Fall Discount",
     "description": "Promotion title"
   },
-  "dZGFzA": {
-    "defaultMessage": "Related Articles",
-    "description": "Blog related articles section"
-  },
   "da4RLj": {
     "defaultMessage": "Google logo",
     "description": "Google company logo"
@@ -4595,6 +4599,10 @@
     "defaultMessage": "Coming Soon",
     "description": "Front end system design questions that are coming soon"
   },
+  "pBR3LI": {
+    "defaultMessage": "Blog",
+    "description": "Link to blog"
+  },
   "pDo/V5": {
     "defaultMessage": "{price} billed per month.",
     "description": "Description of billing frequency for monthly plan"
@@ -5218,6 +5226,10 @@
   "w3pn1B": {
     "defaultMessage": "Pick your framework",
     "description": "Label for an example list of User Interface Questions on marketing pages"
+  },
+  "w9U/8b": {
+    "defaultMessage": "Team",
+    "description": "Link to company's team page"
   },
   "wAOHw9": {
     "defaultMessage": "Similar Questions",
