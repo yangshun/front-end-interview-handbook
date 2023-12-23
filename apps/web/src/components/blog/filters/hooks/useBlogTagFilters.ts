@@ -9,10 +9,11 @@ const TAG_OPTIONS: ReadonlyArray<{
   label: string;
   value: BlogTagType;
 }> = [
-  { label: 'Performance', value: 'performance' },
-  { label: 'Marketing', value: 'marketing' },
-  { label: 'Network', value: 'network' },
-  { label: 'Security', value: 'security' },
+  { label: 'Career', value: 'career' },
+  { label: 'CSS', value: 'css' },
+  { label: 'Interviews', value: 'interviews' },
+  { label: 'JavaScript', value: 'javascript' },
+  { label: 'Scalability', value: 'scalability' },
 ];
 
 type Props = Readonly<{

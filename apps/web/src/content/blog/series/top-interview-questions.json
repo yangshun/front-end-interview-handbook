@@ -1,8 +1,7 @@
 {
   "title": "Top interview questions",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
-  "imageUrl": "https://source.unsplash.com/random/960x360",
+  "description": "Preparing for front end interviews can be daunting with the sheer breadth and depth you have to cover. Practice efficiently by identifying the best questions that give you the highest return on investment.",
   "level": "intermediate",
-  "tags": ["network", "performance"],
+  "tags": ["interviews"],
   "category": "blog/category/front-end-interviews.json"
 }
