@@ -1,6 +1,7 @@
 import clsx from 'clsx';
-import { capitalize } from 'lodash-es';
 import { FormattedMessage } from 'react-intl';
+
+import { getBlogTags } from '~/data/blog/Tag';
 
 import type { BlogTagType } from '~/components/blog/BlogTypes';
 import Tooltip from '~/components/ui/Tooltip';
@@ -23,7 +24,8 @@ export default function BlogMoreTagLabel({
   size = 'sm',
   moreTags = [],
 }: Props) {
-  const tagsLabel = moreTags.map((tag) => capitalize(tag)).join(', ');
+  const blogTags = getBlogTags();
+  const tagsLabel = moreTags.map((tag) => blogTags[tag].name).join(', ');
 
   return (
     <Tooltip className="inline-flex" label={tagsLabel} position="above">
