@@ -7,6 +7,7 @@ import { themeDivideColor } from '~/components/ui/theme';
 import RewardsGitHubFollowTask from './RewardsGitHubFollowTask';
 import RewardsGitHubStarTask from './RewardsGitHubStarTask';
 import RewardsLinkedInFollowTask from './RewardsLinkedInFollowTask';
+import RewardsTwitterFollowTask from './RewardsTwitterFollowTask';
 
 type Props = Readonly<{
   showActions: boolean;
@@ -19,6 +20,7 @@ export default function RewardsTaskList({ showActions }: Props) {
       <RewardsGitHubStarTask showActions={showActions} />
       <RewardsGitHubFollowTask showActions={showActions} />
       <RewardsLinkedInFollowTask showActions={showActions} />
+      <RewardsTwitterFollowTask showActions={showActions} />
     </div>
   );
 }

@@ -267,6 +267,10 @@
     "defaultMessage": "Access updates to the interview platform for life.",
     "description": "Lifetime membership feature of accessing updates to interview platforms"
   },
+  "1Fl422": {
+    "defaultMessage": "Browse content series that are tailored to your experience level.",
+    "description": "Browse series section description in blog homepage"
+  },
   "1GF83M": {
     "defaultMessage": "Based on your activity, we think you might be interested in these projects",
     "description": "Description for projects you may be interested in section on project submission success page"
@@ -466,6 +470,10 @@
   "4WUroS": {
     "defaultMessage": "Efficiently focus on the most important concepts",
     "description": "Short description for one week study plan"
+  },
+  "4aoTWp": {
+    "defaultMessage": "Complete the tasks",
+    "description": "Rewards step label"
   },
   "4cjRbk": {
     "defaultMessage": "Info",
@@ -830,6 +838,10 @@
   "8bXZIp": {
     "defaultMessage": "Limited time campaign",
     "description": "Label for rewards campaign"
+  },
+  "8gXpts": {
+    "defaultMessage": "Tasks | Rewards",
+    "description": "Title of Rewards tasks page"
   },
   "8iiFM+": {
     "defaultMessage": "Contact Us",
@@ -2083,6 +2095,10 @@
     "defaultMessage": "While offer lasts",
     "description": "Label to indicate offer is a limited time deal"
   },
+  "N83hK6": {
+    "defaultMessage": "Follow our Twitter account",
+    "description": "Title for Twitter follow task"
+  },
   "N9hGOq": {
     "defaultMessage": "Search Vue questions",
     "description": "Placeholder for search input of Vue question list"
@@ -3087,10 +3103,6 @@
     "defaultMessage": "Review Cashback Terms and Conditions",
     "description": "Title of legal page"
   },
-  "YVoNkr": {
-    "defaultMessage": "Start the tasks",
-    "description": "Rewards step label"
-  },
   "YWz2ko": {
     "defaultMessage": "Proven preparation plans",
     "description": "Title for proven preparation plans feature"
@@ -3118,10 +3130,6 @@
   "YiE5Xj": {
     "defaultMessage": "The skills / tools / frameworks you are already familiar in. Cannot find the tag you need? Email us at {supportEmail}",
     "description": "Description for \"Tech stack proficient\" input on Projects profile onboarding page"
-  },
-  "YkG6kJ": {
-    "defaultMessage": "Terms | Rewards",
-    "description": "Title of Rewards Terms page"
   },
   "YwXYNT": {
     "defaultMessage": "Project completed",
@@ -3894,10 +3902,6 @@
   "h63G52": {
     "defaultMessage": "Discounted rate for a typical job hunt duration.",
     "description": "Supporting statement for a quarterly pricing plan"
-  },
-  "h76ZX3": {
-    "defaultMessage": "Browse content series that are tailored to your experience level!",
-    "description": "Browse series section description in blog homepage"
   },
   "hESyRg": {
     "defaultMessage": "What to expect and how to prepare most efficiently",

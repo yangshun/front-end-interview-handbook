@@ -1,9 +1,17 @@
 'use client';
 
 import clsx from 'clsx';
+import type { SVGProps } from 'react';
 import { type ReactNode, useState } from 'react';
-import { RiCheckLine } from 'react-icons/ri';
+import {
+  RiArrowLeftLine,
+  RiCheckLine,
+  RiGithubFill,
+  RiLinkedinFill,
+  RiTwitterXFill,
+} from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
+import { useSessionStorage } from 'usehooks-ts';
 
 import RewardsHeader from '~/components/rewards/RewardsHeader';
 import RewardsTaskList from '~/components/rewards/tasks/RewardsTaskList';
@@ -15,6 +23,7 @@ import {
   themeTextInvertColor,
 } from '~/components/ui/theme';
 
+import type { RewardsHandlesData } from './RewardsSocialHandlesForm';
 import RewardsSocialHandlesForm from './RewardsSocialHandlesForm';
 
 function RewardsStepLabel({
@@ -75,8 +84,40 @@ function determineStepStatus(step: number, currentStep: number) {
   return 'completed';
 }
 
+const handles: ReadonlyArray<{
+  field: keyof RewardsHandlesData;
+  icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+  type: string;
+}> = [
+  {
+    field: 'gitHubUsername',
+    icon: RiGithubFill,
+    type: 'github',
+  },
+  {
+    field: 'linkedInUrl',
+    icon: RiLinkedinFill,
+    type: 'linkedin',
+  },
+  {
+    field: 'twitterUsername',
+    icon: RiTwitterXFill,
+    type: 'twitter',
+  },
+];
+
 export default function RewardsTasksPage() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [handlesData, setHandlesData] = useSessionStorage<RewardsHandlesData>(
+    'gfe:rewards:social-handles',
+    {
+      gitHubUsername: '',
+      linkedInUrl: '',
+      twitterUsername: '',
+    },
+  );
+  const firstStepStatus = determineStepStatus(1, currentStep);
+  const secondStepStatus = determineStepStatus(2, currentStep);
 
   return (
     <div className="flex flex-col gap-y-12 items-center max-w-lg w-full mx-auto">
@@ -90,48 +131,62 @@ export default function RewardsTasksPage() {
               id="3bTpP/"
             />
           }
-          status={determineStepStatus(1, currentStep)}
+          status={firstStepStatus}
           step={1}
         />
-        {currentStep === 1 && (
-          <div className="flex flex-col gap-4 w-full pl-8">
-            <Text color="secondary" display="block" size="body2">
-              <FormattedMessage
-                defaultMessage="Please enter your social media handles for us to verify."
-                description="Rewards campaign help text"
-                id="ZYXIkT"
-              />
-            </Text>
-            <RewardsSocialHandlesForm />
-            <div className="flex justify-end">
-              <Button
-                label="Next"
-                size="sm"
-                variant="primary"
-                onClick={() => {
-                  setCurrentStep(2);
-                }}
-              />
+        <div className="w-full pl-8">
+          {firstStepStatus === 'active' ? (
+            <RewardsSocialHandlesForm
+              handlesData={handlesData}
+              onHandlesDataChange={setHandlesData}
+              onNextStage={(data) => {
+                setHandlesData(data);
+                setCurrentStep(2);
+              }}
+            />
+          ) : (
+            <div className="flex flex-wrap gap-4">
+              {handles.map(({ type, field, icon: Icon }) => (
+                <div key={type} className="flex gap-2 items-center">
+                  <Icon
+                    className={clsx(
+                      'h-5 w-5 shrink-0',
+                      'text-neutral-400 dark:text-neutral-500',
+                    )}
+                  />
+                  <Text size="body2">{handlesData?.[field]}</Text>
+                </div>
+              ))}
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
       <div className="flex flex-col gap-6 w-full">
         <RewardsStepLabel
           label={
             <FormattedMessage
-              defaultMessage="Start the tasks"
+              defaultMessage="Complete the tasks"
               description="Rewards step label"
-              id="YVoNkr"
+              id="4aoTWp"
             />
           }
-          status={determineStepStatus(2, currentStep)}
+          status={secondStepStatus}
           step={2}
         />
         {currentStep === 2 && (
           <div className="flex flex-col gap-4 w-full pl-8">
             <RewardsTaskList showActions={true} />
-            <div className="flex justify-end">
+            <div className="flex justify-between">
+              <Button
+                addonPosition="start"
+                icon={RiArrowLeftLine}
+                label="Back"
+                size="sm"
+                variant="secondary"
+                onClick={() => {
+                  setCurrentStep(1);
+                }}
+              />
               <Button
                 href="/rewards/complete"
                 label="Verify"

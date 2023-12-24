@@ -233,4 +233,50 @@ export const rewardsRouter = router({
 
       return tasks;
     }),
+  verifySocialHandles: userProcedure
+    .input(
+      z.object({
+        gitHubUsername: z.string(),
+        linkedInUrl: z.string(),
+        twitterUsername: z.string(),
+      }),
+    )
+    .mutation(
+      async ({ input: { gitHubUsername, linkedInUrl, twitterUsername } }) => {
+        return Promise.all([
+          (async () => {
+            if (!gitHubUsername.trim()) {
+              throw 'Empty GitHub username';
+            }
+
+            const res = await fetch(
+              `https://github.com/${encodeURIComponent(gitHubUsername.trim())}`,
+            );
+
+            if (!res.ok) {
+              throw 'GitHub profile error';
+            }
+          })(),
+          (async () => {
+            if (
+              !linkedInUrl.trim() ||
+              !/linkedin\.com\/in\//.test(linkedInUrl)
+            ) {
+              throw 'Invalid LinkedIn profile';
+            }
+
+            const res = await fetch(linkedInUrl.trim());
+
+            if (!res.ok) {
+              throw 'LinkedIn profile error';
+            }
+          })(),
+          (() => {
+            if (twitterUsername.trim() === '') {
+              throw 'Invalid Twitter username';
+            }
+          })(),
+        ]);
+      },
+    ),
 });

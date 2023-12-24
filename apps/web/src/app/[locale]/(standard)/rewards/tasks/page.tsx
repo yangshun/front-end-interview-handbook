@@ -20,11 +20,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     locale,
-    pathname: '/rewards/terms',
+    pathname: '/rewards/tasks',
     title: intl.formatMessage({
-      defaultMessage: 'Terms | Rewards',
-      description: 'Title of Rewards Terms page',
-      id: 'YkG6kJ',
+      defaultMessage: 'Tasks | Rewards',
+      description: 'Title of Rewards tasks page',
+      id: '8gXpts',
     }),
   });
 }
