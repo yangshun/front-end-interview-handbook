@@ -1,9 +1,10 @@
-import type { BlogSeriesNavigationLink } from '~/components/blog/BlogSidebar';
+import type { Category } from 'contentlayer/generated';
+
 import Select from '~/components/ui/Select';
 
 type Props = Readonly<{
   activeItem: string;
-  navigation: ReadonlyArray<BlogSeriesNavigationLink>;
+  navigation: ReadonlyArray<Category>;
   onChange: (value: string) => void;
 }>;
 
@@ -17,7 +18,7 @@ export default function BlogExploreSeriesDropdown({
     value: string;
   }> = navigation.map((series) => ({
     label: series.title,
-    value: series.href,
+    value: series.source,
   }));
 
   return (

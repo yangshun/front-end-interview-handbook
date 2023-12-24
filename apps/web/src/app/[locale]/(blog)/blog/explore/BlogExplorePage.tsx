@@ -74,7 +74,7 @@ export default function BlogExplorePage() {
           />
         </div>
 
-        <BlogList blogs={allSeries} showSeriesTag={false} />
+        <BlogList blogs={allSeries} showSeriesTag={false} type="series" />
       </div>
     </div>
   );
