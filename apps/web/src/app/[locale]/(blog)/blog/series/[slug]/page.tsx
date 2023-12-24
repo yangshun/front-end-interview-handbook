@@ -90,7 +90,7 @@ export default function Page({ params }: Props) {
         {seriesMetadata.hasSubseries && subseriesData ? (
           <BlogSubseriesSection subseriesData={subseriesData} />
         ) : (
-          <div className="list-none">
+          <div>
             <BlogList blogs={seriesBlogs || []} />
           </div>
         )}

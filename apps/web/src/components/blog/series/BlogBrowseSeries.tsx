@@ -9,13 +9,13 @@ import Text from '~/components/ui/Text';
 
 type Props = Readonly<{
   href: string;
-  series: {
-    items: ReadonlyArray<Series>;
-    title: string;
-  };
+  seriesList: ReadonlyArray<Series>;
 }>;
 
-export default function BlogBrowseSeries({ href: seeAllHref, series }: Props) {
+export default function BlogBrowseSeries({
+  href: seeAllHref,
+  seriesList,
+}: Props) {
   const intl = useIntl();
 
   return (
@@ -45,26 +45,21 @@ export default function BlogBrowseSeries({ href: seeAllHref, series }: Props) {
         </div>
         <Text color="secondary" size="body2">
           <FormattedMessage
-            defaultMessage="Browse content series that are tailored to your experience level!"
+            defaultMessage="Browse content series that are tailored to your experience level."
             description="Browse series section description in blog homepage"
-            id="h76ZX3"
+            id="1Fl422"
           />
         </Text>
       </div>
-      <div className="flex flex-col gap-4">
-        <Text color="secondary" size="body3" weight="medium">
-          {series.title}
-        </Text>
-        <div className="flex w-full flex-col gap-2">
-          {series.items.map(({ href, slug, title }, index) => (
-            <RankNavigationItem
-              key={slug}
-              href={href}
-              rank={index + 1}
-              title={title}
-            />
-          ))}
-        </div>
+      <div className="flex w-full flex-col gap-2">
+        {seriesList.map(({ href, slug, title }, index) => (
+          <RankNavigationItem
+            key={slug}
+            href={href}
+            rank={index + 1}
+            title={title}
+          />
+        ))}
       </div>
     </div>
   );

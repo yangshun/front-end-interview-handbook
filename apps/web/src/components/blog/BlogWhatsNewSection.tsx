@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import BlogCard from '~/components/blog/BlogCard';
+import BlogCard from '~/components/blog/listing/BlogCard';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

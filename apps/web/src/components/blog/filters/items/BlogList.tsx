@@ -4,10 +4,10 @@ import clsx from 'clsx';
 import type { Post } from 'contentlayer/generated';
 import { useIntl } from 'react-intl';
 
-import BlogArticleViewCard from '~/components/blog/articles/BlogArticleViewCard';
-import BlogCard from '~/components/blog/BlogCard';
 import type { BlogMetadata, BlogViewField } from '~/components/blog/BlogTypes';
 import type { FilterTab } from '~/components/blog/filters/BlogTypeTabs';
+import BlogArticleViewCard from '~/components/blog/listing/BlogArticleViewCard';
+import BlogCard from '~/components/blog/listing/BlogCard';
 import EmptyState from '~/components/ui/EmptyState';
 
 type Props = Readonly<{
@@ -57,7 +57,7 @@ export default function BlogList({
   }
 
   return (
-    <ul className={clsx('flex !list-none flex-col gap-y-4')}>
+    <ul className={clsx('flex !list-none flex-col gap-y-4 w-full')}>
       {blogs.map((blog) => {
         return (
           <li key={blog.href}>

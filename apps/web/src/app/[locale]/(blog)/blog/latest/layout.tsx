@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import BlogMainLayout from '~/components/blog/BlogMainLayout';
+import BlogMainLayout from '~/components/blog/layout/BlogMainLayout';
 import Container from '~/components/ui/Container';
 
 type Props = Readonly<{

@@ -6,7 +6,7 @@ import BlogArticle from '~/components/blog/articles/BlogArticle';
 import BlogArticleJsonLd from '~/components/blog/articles/BlogArticleJsonLd';
 import type { BlogArticleNavigationType } from '~/components/blog/articles/BlogArticleSidebar';
 import { BlogArticleSidebar } from '~/components/blog/articles/BlogArticleSidebar';
-import BlogMainLayout from '~/components/blog/BlogMainLayout';
+import BlogMainLayout from '~/components/blog/layout/BlogMainLayout';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import Container from '~/components/ui/Container';
 

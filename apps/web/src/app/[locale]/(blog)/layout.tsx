@@ -1,4 +1,4 @@
-import BlogSidebarContainer from '~/components/blog/BlogSidebarContainer';
+import BlogSidebarContainer from '~/components/blog/layout/BlogSidebarContainer';
 import GlobalBanner from '~/components/global/banners/GlobalBanner';
 import FooterInterviews from '~/components/global/footers/FooterInterviews';
 import Navbar from '~/components/global/navbar/NavbarImpl';

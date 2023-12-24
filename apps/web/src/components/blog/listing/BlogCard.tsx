@@ -42,7 +42,7 @@ export default function BlogCard({
       {type === 'wide' && metadata.imageUrl && (
         <img
           alt={metadata.title}
-          className="!m-0 hidden h-[80px] w-[80px] shrink-0 rounded object-cover lg:block"
+          className="!m-0 hidden h-[80px] aspect-[15/8] shrink-0 rounded object-cover lg:block"
           src={metadata.imageUrl}
         />
       )}
@@ -88,8 +88,8 @@ export default function BlogCard({
             </Text>
           )}
         </div>
-        <div className="flex items-center gap-x-4 gap-y-2">
-          {metadata.isSeries && (
+        <div className="flex items-center gap-x-6 gap-y-2">
+          {type === 'wide' && (
             <BlogLevelLabel showIcon={true} value={metadata.level} />
           )}
           {(metadata as Post).createdAt && !metadata.isSeries && (

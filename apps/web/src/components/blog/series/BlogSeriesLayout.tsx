@@ -1,16 +1,26 @@
 'use client';
 
 import clsx from 'clsx';
+import { FormattedMessage } from 'react-intl';
 
 import BlogArticle from '~/components/blog/articles/BlogArticle';
 import BlogArticleJsonLd from '~/components/blog/articles/BlogArticleJsonLd';
 import type { BlogArticleNavigationType } from '~/components/blog/articles/BlogArticleSidebar';
 import { BlogArticleSidebar } from '~/components/blog/articles/BlogArticleSidebar';
-import BlogMainLayout from '~/components/blog/BlogMainLayout';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
+import BlogMainLayout from '~/components/blog/layout/BlogMainLayout';
+import BlogCategoryLabel from '~/components/blog/metadata/BlogCategoryLabel';
+import BlogCopyLinkButton from '~/components/blog/metadata/BlogCopyLinkButton';
+import BlogLevelLabel from '~/components/blog/metadata/BlogLevelLabel';
+import BlogShareButton from '~/components/blog/metadata/BlogShareButton';
 import Container from '~/components/ui/Container';
+import Divider from '~/components/ui/Divider';
+import Heading from '~/components/ui/Heading';
+import Text from '~/components/ui/Text';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
+
+import BlogMetadataSection from '../metadata/BlogMetadataSection';
 
 type Props = Readonly<{
   children?: React.ReactNode;
@@ -46,7 +56,46 @@ export default function BlogSeriesLayout({
               </div>
             )}
             <div className={clsx('w-full max-w-2xl')}>
-              <BlogArticle metadata={metadata}>{children}</BlogArticle>
+              <div className="flex flex-col gap-12">
+                <div className="flex flex-col gap-3">
+                  <Text
+                    color="active"
+                    display="block"
+                    size="body2"
+                    weight="medium">
+                    <FormattedMessage
+                      defaultMessage="Series"
+                      description="Series tag for Article"
+                      id="xXXK+w"
+                    />
+                  </Text>
+                  <Heading level="heading4">{metadata.title}</Heading>
+                  <Text color="secondary" display="block" size="body1">
+                    {metadata.description}
+                  </Text>
+                  <div className="flex justify-between">
+                    <section className="flex flex-wrap items-center gap-x-6 gap-y-4">
+                      {metadata.level && (
+                        <BlogLevelLabel
+                          showIcon={true}
+                          value={metadata.level}
+                        />
+                      )}
+                      {metadata.category && (
+                        <BlogCategoryLabel name={metadata.category.title} />
+                      )}
+                    </section>
+                    <section className="flex flex-wrap items-center justify-between gap-4">
+                      <div className="flex items-center gap-x-4">
+                        <BlogCopyLinkButton href={metadata.href} />
+                        <BlogShareButton metadata={metadata} />
+                      </div>
+                    </section>
+                  </div>
+                  <Divider />
+                </div>
+                {children}
+              </div>
             </div>
           </div>
         </Container>

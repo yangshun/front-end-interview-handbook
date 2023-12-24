@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { allCategories, allSeries } from 'contentlayer/generated';
+import { allSeries } from 'contentlayer/generated';
 import { FormattedMessage } from 'react-intl';
 
 import BlogListWithFilters from '~/components/blog/listing/BlogListingWithFilters';
@@ -10,19 +10,6 @@ import { getAllPosts } from '~/contentlayer/utils';
 
 export default function BlogListingSection() {
   const blogs = getAllPosts({ sort: true });
-
-  let series = null;
-
-  if (allCategories.length > 0) {
-    const seriesData = allSeries.filter(
-      (seriesItem) => seriesItem?.category?.source === allCategories[0].source,
-    );
-
-    series = {
-      items: seriesData,
-      title: allCategories[0].title,
-    };
-  }
 
   return (
     <div className="flex flex-col gap-y-4">
@@ -41,14 +28,12 @@ export default function BlogListingSection() {
             namespace="blog-listing"
           />
         </div>
-        {series && (
-          <aside
-            className={clsx(
-              'hidden h-full flex-col gap-y-12 xl:col-span-3 xl:flex',
-            )}>
-            <BlogBrowseSeries href="/blog/explore" series={series} />
-          </aside>
-        )}
+        <aside
+          className={clsx(
+            'hidden h-full flex-col gap-y-12 xl:col-span-3 xl:flex',
+          )}>
+          <BlogBrowseSeries href="/blog/explore" seriesList={allSeries} />
+        </aside>
       </div>
     </div>
   );

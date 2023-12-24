@@ -47,7 +47,7 @@ export default function BlogSubseriesCard({
           {subseries.description}
         </Text>
       </div>
-      <div className="flex items-center gap-x-2">
+      <div className="flex items-center gap-4">
         <BlogCountLabel count={subseries.items.length} />
         <BlogReadingTimeLabel readingTime={subseries.readingTime} />
       </div>

@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 
 import BlogArticleLayout from '~/components/blog/articles/BlogArticleLayout';
 import BlogArticleMainLayout from '~/components/blog/articles/BlogArticleMainLayout';
-import BlogMdx from '~/components/blog/BlogMdx';
+import BlogMdx from '~/components/blog/articles/BlogMdx';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 
 import {

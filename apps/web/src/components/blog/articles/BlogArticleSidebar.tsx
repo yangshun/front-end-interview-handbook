@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 
-import type { BlogSeriesNavigationLink } from '~/components/blog/BlogSidebar';
+import type { BlogSeriesNavigationLink } from '~/components/blog/layout/BlogSidebar';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -67,7 +67,7 @@ export function BlogArticleSidebar({
   return (
     <nav
       className={clsx(
-        'flex w-[280px] flex-shrink-0 flex-col',
+        'flex w-[280px] flex-shrink-0 flex-col gap-4',
         sticky && 'sticky',
       )}
       style={{
@@ -78,20 +78,18 @@ export function BlogArticleSidebar({
       }}>
       {navigation.subseriesTitle && (
         <Text
-          className="mb-4 text-neutral-700 dark:text-neutral-500"
+          className="text-neutral-700 dark:text-neutral-500"
           size="body3"
           weight="bold">
           {navigation.seriesTitle}
         </Text>
       )}
-      <Heading
-        className="mb-[14px] text-sm font-semibold leading-6"
-        level="custom">
-        {navigation.subseriesTitle || navigation.seriesTitle}
-      </Heading>
-      <Section>
+      <div className="flex flex-col gap-3">
+        <Text size="body2" weight="bold">
+          {navigation.subseriesTitle || navigation.seriesTitle}
+        </Text>
         <LinksList items={navigation.items} />
-      </Section>
+      </div>
     </nav>
   );
 }

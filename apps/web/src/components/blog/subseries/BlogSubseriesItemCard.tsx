@@ -23,7 +23,7 @@ export default function BlogSubseriesItemCard({
       {data?.imageUrl && (
         <img
           alt={data.title}
-          className="!m-0 hidden h-[80px] w-[80px] shrink-0 rounded-lg bg-neutral-800 object-cover lg:block"
+          className="!m-0 hidden h-[80px] aspect-[15/8] shrink-0 rounded-lg bg-neutral-800 object-cover lg:block"
           src={data?.imageUrl}
         />
       )}

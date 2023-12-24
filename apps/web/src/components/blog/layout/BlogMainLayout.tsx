@@ -1,5 +1,5 @@
 import type { BlogArticleNavigationType } from '~/components/blog/articles/BlogArticleSidebar';
-import BlogNavbar from '~/components/blog/BlogNavbar';
+import BlogNavbar from '~/components/blog/layout/BlogNavbar';
 
 type Props = Readonly<{
   children: React.ReactNode;

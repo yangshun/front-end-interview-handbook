@@ -11,7 +11,7 @@ import {
 import { useIntl } from 'react-intl';
 
 import BlogArticle from '~/components/blog/articles/BlogArticle';
-import BlogMdx from '~/components/blog/BlogMdx';
+import BlogMdx from '~/components/blog/articles/BlogMdx';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import Button from '~/components/ui/Button';
 import {

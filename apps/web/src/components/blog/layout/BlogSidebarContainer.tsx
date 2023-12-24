@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 
-import BlogSidebar from '~/components/blog/BlogSidebar';
+import BlogSidebar from '~/components/blog/layout/BlogSidebar';
 import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import { themeLineColor } from '~/components/ui/theme';
 

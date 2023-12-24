@@ -9,7 +9,7 @@ import useIsSticky from '~/hooks/useIsSticky';
 
 import type { BlogArticleNavigationType } from '~/components/blog/articles/BlogArticleSidebar';
 import { BlogArticleSidebar } from '~/components/blog/articles/BlogArticleSidebar';
-import BlogSidebar from '~/components/blog/BlogSidebar';
+import BlogSidebar from '~/components/blog/layout/BlogSidebar';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import SlideOut from '~/components/ui/SlideOut';
