@@ -224,9 +224,9 @@ model RewardsTaskCompletion {
   id         String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   userId     String  @db.Uuid
   campaign   String
-  task       String
+  action     String
   identifier String
   profile    Profile @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
-  @@unique([userId, campaign, task])
+  @@unique([userId, campaign, action])
 }

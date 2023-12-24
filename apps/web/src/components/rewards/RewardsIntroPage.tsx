@@ -5,14 +5,21 @@ import { FormattedMessage } from 'react-intl';
 import RewardsFooter from '~/components/rewards/RewardsFooter';
 import RewardsHeader from '~/components/rewards/RewardsHeader';
 import RewardsTaskList from '~/components/rewards/tasks/RewardsTaskList';
+import Text from '~/components/ui/Text';
 
-import Text from '../ui/Text';
+import { useRewardsTasks } from './tasks/useRewardsTasks';
 
 type Props = Readonly<{
   isSignedIn: boolean;
 }>;
 
 export default function RewardsIntroPage({ isSignedIn }: Props) {
+  const tasks = useRewardsTasks();
+  const tasksWithStatus = tasks.map((task) => ({
+    ...task,
+    status: 'none' as const,
+  }));
+
   return (
     <div className="flex flex-col gap-y-12 items-center max-w-lg w-full mx-auto">
       <RewardsHeader isSignedIn={isSignedIn} />
@@ -24,7 +31,7 @@ export default function RewardsIntroPage({ isSignedIn }: Props) {
             id="oiMKy3"
           />
         </Text>
-        <RewardsTaskList showActions={false} />
+        <RewardsTaskList tasks={tasksWithStatus} />
       </div>
       <RewardsFooter isSignedIn={isSignedIn} />
     </div>

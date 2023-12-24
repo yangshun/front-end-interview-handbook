@@ -2,9 +2,10 @@
 
 import clsx from 'clsx';
 import type { SVGProps } from 'react';
-import { type ReactNode, useState } from 'react';
+import { type ReactNode, useEffect, useRef, useState } from 'react';
 import {
   RiArrowLeftLine,
+  RiArrowRightLine,
   RiCheckLine,
   RiGithubFill,
   RiLinkedinFill,
@@ -12,6 +13,8 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 import { useSessionStorage } from 'usehooks-ts';
+
+import { trpc } from '~/hooks/trpc';
 
 import RewardsHeader from '~/components/rewards/RewardsHeader';
 import RewardsTaskList from '~/components/rewards/tasks/RewardsTaskList';
@@ -25,6 +28,9 @@ import {
 
 import type { RewardsHandlesData } from './RewardsSocialHandlesForm';
 import RewardsSocialHandlesForm from './RewardsSocialHandlesForm';
+import type { Props as RewardsTaskProps } from './RewardsTaskItem';
+import type { RewardsTasksActionName } from './RewardsTaskItem';
+import { useRewardsTasks } from './useRewardsTasks';
 
 function RewardsStepLabel({
   label,
@@ -107,6 +113,15 @@ const handles: ReadonlyArray<{
 ];
 
 export default function RewardsTasksPage() {
+  const { data: completedTasks } = trpc.rewards.getTasksCompleted.useQuery();
+  const checkGitHubStarMutation = trpc.rewards.checkGitHubStarred.useMutation();
+  const checkGitHubFollowMutation =
+    trpc.rewards.checkGitHubFollowing.useMutation();
+  const checkLinkedInFollowMutation =
+    trpc.rewards.checkLinkedInFollowing.useMutation();
+  const checkTwitterFollowMutation =
+    trpc.rewards.checkTwitterFollowing.useMutation();
+
   const [currentStep, setCurrentStep] = useState(1);
   const [handlesData, setHandlesData] = useSessionStorage<RewardsHandlesData>(
     'gfe:rewards:social-handles',
@@ -116,8 +131,109 @@ export default function RewardsTasksPage() {
       twitterUsername: '',
     },
   );
+
+  const latestTasks = useRef<ReadonlyArray<RewardsTaskProps>>([]);
+  const [currentVerifyingTask, setCurrentVerifyingTask] =
+    useState<RewardsTasksActionName | null>(null);
+  const [taskWithError, setTaskWithError] =
+    useState<RewardsTasksActionName | null>(null);
+
+  const tasks = useRewardsTasks();
+  const tasksWithStatus = tasks.map((task) => ({
+    ...task,
+    status: (() => {
+      if (currentVerifyingTask === task.actionName) {
+        return 'verifying' as const;
+      }
+
+      if (completedTasks?.some(({ action }) => action === task.actionName)) {
+        return 'completed' as const;
+      }
+
+      if (taskWithError === task.actionName) {
+        return 'error' as const;
+      }
+
+      return 'pending' as const;
+    })(),
+  }));
+
+  latestTasks.current = tasksWithStatus;
+
   const firstStepStatus = determineStepStatus(1, currentStep);
   const secondStepStatus = determineStepStatus(2, currentStep);
+
+  function findNextTaskToVerify() {
+    setTaskWithError(null);
+
+    const task = latestTasks.current.find(
+      ({ status }) => status === 'pending' || status === 'error',
+    );
+
+    if (task == null) {
+      setCurrentVerifyingTask(null);
+
+      // TODO: Generate promo code.
+      return;
+    }
+
+    const verifyCallback = (actionName: RewardsTasksActionName) => ({
+      onError: () => {
+        setTaskWithError(actionName);
+        setCurrentVerifyingTask(null);
+      },
+      onSuccess: () => {
+        findNextTaskToVerify();
+      },
+    });
+
+    switch (task.actionName) {
+      case 'GITHUB_STAR': {
+        setCurrentVerifyingTask('GITHUB_STAR');
+        checkGitHubStarMutation.mutate(
+          {
+            username: handlesData.gitHubUsername,
+          },
+          verifyCallback('GITHUB_STAR'),
+        );
+        break;
+      }
+      case 'GITHUB_FOLLOW': {
+        setCurrentVerifyingTask('GITHUB_FOLLOW');
+        checkGitHubFollowMutation.mutate(
+          {
+            username: handlesData.gitHubUsername,
+          },
+          verifyCallback('GITHUB_FOLLOW'),
+        );
+        break;
+      }
+      case 'LINKEDIN_FOLLOW': {
+        setCurrentVerifyingTask('LINKEDIN_FOLLOW');
+        checkLinkedInFollowMutation.mutate(
+          {
+            linkedInUrl: handlesData.linkedInUrl,
+          },
+          verifyCallback('LINKEDIN_FOLLOW'),
+        );
+        break;
+      }
+      case 'TWITTER_FOLLOW': {
+        setCurrentVerifyingTask('TWITTER_FOLLOW');
+        checkTwitterFollowMutation.mutate(
+          {
+            username: handlesData.twitterUsername,
+          },
+          verifyCallback('TWITTER_FOLLOW'),
+        );
+        break;
+      }
+    }
+  }
+
+  const completedAllTasks = tasksWithStatus.every(
+    ({ status }) => status === 'completed',
+  );
 
   return (
     <div className="flex flex-col gap-y-12 items-center max-w-lg w-full mx-auto">
@@ -175,11 +291,12 @@ export default function RewardsTasksPage() {
         />
         {currentStep === 2 && (
           <div className="flex flex-col gap-4 w-full pl-8">
-            <RewardsTaskList showActions={true} />
+            <RewardsTaskList tasks={tasksWithStatus} />
             <div className="flex justify-between">
               <Button
                 addonPosition="start"
                 icon={RiArrowLeftLine}
+                isDisabled={currentVerifyingTask != null}
                 label="Back"
                 size="sm"
                 variant="secondary"
@@ -187,15 +304,25 @@ export default function RewardsTasksPage() {
                   setCurrentStep(1);
                 }}
               />
-              <Button
-                href="/rewards/complete"
-                label="Verify"
-                size="sm"
-                variant="primary"
-                onClick={() => {
-                  setCurrentStep(2);
-                }}
-              />
+              {completedAllTasks ? (
+                <Button
+                  icon={RiArrowRightLine}
+                  label="Claim promo code"
+                  size="sm"
+                  variant="primary"
+                  onClick={() => {}}
+                />
+              ) : (
+                <Button
+                  isDisabled={currentVerifyingTask != null}
+                  label="Verify"
+                  size="sm"
+                  variant="primary"
+                  onClick={() => {
+                    findNextTaskToVerify();
+                  }}
+                />
+              )}
             </div>
           </div>
         )}

@@ -20,7 +20,7 @@ export const rewardsRouter = router({
         username: z.string(),
       }),
     )
-    .query(async ({ input: { username }, ctx: { user } }) => {
+    .mutation(async ({ input: { username }, ctx: { user } }) => {
       const { status } = await fetch(
         `https://api.github.com/users/${username}/following/${ORG_NAME}`,
         {
@@ -36,17 +36,16 @@ export const rewardsRouter = router({
         return false;
       }
 
-      // Insert task into db
-      const campaign = 'SOCIAL_MEDIA_PREMIUM_20';
-      const task = 'GITHUB_FOLLOW';
+      const campaign = 'REWARDS_SOCIAL_TASKS_DISCOUNT';
+      const action = 'GITHUB_FOLLOW';
       const userId = user.id;
       const identifier = username;
 
       await prisma.rewardsTaskCompletion.create({
         data: {
+          action,
           campaign,
           identifier,
-          task,
           userId,
         },
       });
@@ -59,7 +58,7 @@ export const rewardsRouter = router({
         username: z.string(),
       }),
     )
-    .query(async ({ input: { username }, ctx: { user } }) => {
+    .mutation(async ({ input: { username }, ctx: { user } }) => {
       const octokit = new Octokit({});
       const prevPattern = /(?<=<)([\S]*)(?=>; rel="prev")/i;
       const lastPattern = /(?<=<)([\S]*)(?=>; rel="last")/i;
@@ -121,17 +120,41 @@ export const rewardsRouter = router({
         return false;
       }
 
-      // Insert task into db
-      const campaign = 'SOCIAL_MEDIA_PREMIUM_20';
-      const task = 'GITHUB_STAR';
+      const campaign = 'REWARDS_SOCIAL_TASKS_DISCOUNT';
+      const action = 'GITHUB_STAR';
       const userId = user.id;
       const identifier = username;
 
       await prisma.rewardsTaskCompletion.create({
         data: {
+          action,
           campaign,
           identifier,
-          task,
+          userId,
+        },
+      });
+
+      return true;
+    }),
+  checkLinkedInFollowing: userProcedure
+    .input(
+      z.object({
+        linkedInUrl: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { linkedInUrl }, ctx: { user } }) => {
+      await delay(1000);
+
+      const campaign = 'REWARDS_SOCIAL_TASKS_DISCOUNT';
+      const action = 'LINKEDIN_FOLLOW';
+      const userId = user.id;
+      const identifier = linkedInUrl;
+
+      await prisma.rewardsTaskCompletion.create({
+        data: {
+          action,
+          campaign,
+          identifier,
           userId,
         },
       });
@@ -144,72 +167,19 @@ export const rewardsRouter = router({
         username: z.string(),
       }),
     )
-    .query(async ({ input: { username }, ctx: { user } }) => {
+    .mutation(async ({ input: { username }, ctx: { user } }) => {
       await delay(1000);
 
-      // Insert task into db
-      const campaign = 'SOCIAL_MEDIA_PREMIUM_20';
-      const task = 'TWITTER_FOLLOW';
+      const campaign = 'REWARDS_SOCIAL_TASKS_DISCOUNT';
+      const action = 'TWITTER_FOLLOW';
       const userId = user.id;
       const identifier = username;
 
       await prisma.rewardsTaskCompletion.create({
         data: {
+          action,
           campaign,
           identifier,
-          task,
-          userId,
-        },
-      });
-
-      return true;
-    }),
-  checkTwitterLike: userProcedure
-    .input(
-      z.object({
-        username: z.string(),
-      }),
-    )
-    .query(async ({ input: { username }, ctx: { user } }) => {
-      await delay(1000);
-
-      // Insert task into db
-      const campaign = 'SOCIAL_MEDIA_PREMIUM_20';
-      const task = 'TWITTER_LIKE';
-      const userId = user.id;
-      const identifier = username;
-
-      await prisma.rewardsTaskCompletion.create({
-        data: {
-          campaign,
-          identifier,
-          task,
-          userId,
-        },
-      });
-
-      return true;
-    }),
-  checkTwitterRetweet: userProcedure
-    .input(
-      z.object({
-        username: z.string(),
-      }),
-    )
-    .query(async ({ input: { username }, ctx: { user } }) => {
-      await delay(1000);
-
-      // Insert task into db
-      const campaign = 'SOCIAL_MEDIA_PREMIUM_20';
-      const task = 'TWITTER_RETWEET';
-      const userId = user.id;
-      const identifier = username;
-
-      await prisma.rewardsTaskCompletion.create({
-        data: {
-          campaign,
-          identifier,
-          task,
           userId,
         },
       });
@@ -219,7 +189,7 @@ export const rewardsRouter = router({
   getTasksCompleted: userProcedure
     .input(
       z.object({
-        campaign: z.enum(['SOCIAL_MEDIA_PREMIUM_20']),
+        campaign: z.enum(['REWARDS_SOCIAL_TASKS_DISCOUNT']),
       }),
     )
     .query(async ({ input: { campaign }, ctx: { user } }) => {
@@ -263,12 +233,6 @@ export const rewardsRouter = router({
               !/linkedin\.com\/in\//.test(linkedInUrl)
             ) {
               throw 'Invalid LinkedIn profile';
-            }
-
-            const res = await fetch(linkedInUrl.trim());
-
-            if (!res.ok) {
-              throw 'LinkedIn profile error';
             }
           })(),
           (() => {

@@ -2,25 +2,25 @@
 
 import clsx from 'clsx';
 
-import { themeDivideColor } from '~/components/ui/theme';
+import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
 
-import RewardsGitHubFollowTask from './RewardsGitHubFollowTask';
-import RewardsGitHubStarTask from './RewardsGitHubStarTask';
-import RewardsLinkedInFollowTask from './RewardsLinkedInFollowTask';
-import RewardsTwitterFollowTask from './RewardsTwitterFollowTask';
+import type { Props as RewardsTaskProps } from './RewardsTaskItem';
+import RewardsTaskItem from './RewardsTaskItem';
 
 type Props = Readonly<{
-  showActions: boolean;
+  tasks: ReadonlyArray<RewardsTaskProps>;
 }>;
 
-export default function RewardsTaskList({ showActions }: Props) {
-  // TODO: get tasks completed (pending DB setup) and redirect to completed page
+export default function RewardsTaskList({ tasks }: Props) {
   return (
-    <div className={clsx('divide-y', themeDivideColor)}>
-      <RewardsGitHubStarTask showActions={showActions} />
-      <RewardsGitHubFollowTask showActions={showActions} />
-      <RewardsLinkedInFollowTask showActions={showActions} />
-      <RewardsTwitterFollowTask showActions={showActions} />
+    <div
+      className={clsx(
+        ['divide-y', themeDivideColor],
+        ['border-b', themeLineColor],
+      )}>
+      {tasks?.map((task) => (
+        <RewardsTaskItem key={task.actionName} {...task} />
+      ))}
     </div>
   );
 }
