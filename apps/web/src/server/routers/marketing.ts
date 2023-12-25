@@ -74,4 +74,28 @@ export const marketingRouter = router({
 
       return 'Subscribed successfully!';
     }),
+  userPromoCodes: userProcedure.query(async ({ ctx: { user } }) => {
+    const profile = await prisma.profile.findFirst({
+      where: {
+        id: user.id,
+      },
+    });
+
+    const customer = profile?.stripeCustomer;
+
+    if (profile == null || !customer) {
+      return null;
+    }
+
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+      apiVersion: '2022-11-15',
+    });
+
+    const promotionCodes = await stripe.promotionCodes.list({
+      active: true,
+      customer,
+    });
+
+    return promotionCodes;
+  }),
 });

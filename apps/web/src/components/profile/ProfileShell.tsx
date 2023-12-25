@@ -36,7 +36,12 @@ type Props = Readonly<{
   user: User;
 }>;
 
-type ProfileTabItem = 'account' | 'activity' | 'billing' | 'security';
+type ProfileTabItem =
+  | 'account'
+  | 'activity'
+  | 'billing'
+  | 'coupons'
+  | 'security';
 type ProfileTabItemData = Readonly<{
   href: string;
   label: string;
@@ -77,6 +82,15 @@ export default function ProfileShell({ user, children }: Props) {
       }),
       value: 'billing',
     },
+    coupons: {
+      href: '/profile/coupons',
+      label: intl.formatMessage({
+        defaultMessage: 'Coupons',
+        description: 'Profile coupons tab title',
+        id: 'uyXFhu',
+      }),
+      value: 'coupons',
+    },
     security: {
       href: '/profile/security',
       label: intl.formatMessage({
@@ -93,6 +107,7 @@ export default function ProfileShell({ user, children }: Props) {
     tabsData.account,
     tabsData.billing,
     tabsData.security,
+    tabsData.coupons,
   ];
 
   return (

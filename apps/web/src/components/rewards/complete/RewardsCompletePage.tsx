@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import {
   RiArrowRightLine,
   RiCheckboxCircleLine,
@@ -13,6 +12,7 @@ import { trpc } from '~/hooks/trpc';
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
 import RewardsTicket from '~/components/rewards/complete/RewardsTicket';
+import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
@@ -65,6 +65,22 @@ export default function RewardsCompletePage() {
               defaultMessage="This is a one-time use promo code exclusive to your account."
               description="Subtext for rewards complete page"
               id="Wx0nGc"
+            />
+          </Text>
+          <Text
+            className="text-center"
+            color="secondary"
+            display="block"
+            size="body1">
+            <FormattedMessage
+              defaultMessage="You can find your available promos codes on the <link>profile page</link>."
+              description="Subtext for rewards complete page"
+              id="3jZXpZ"
+              values={{
+                link: (chunks) => (
+                  <Anchor href="/profile/coupons">{chunks}</Anchor>
+                ),
+              }}
             />
           </Text>
         </div>

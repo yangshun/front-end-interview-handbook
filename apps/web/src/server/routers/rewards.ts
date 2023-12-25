@@ -276,6 +276,7 @@ export const rewardsRouter = router({
         : socialTasksDiscountCouponId_TEST;
 
     const promotionCodes = await stripe.promotionCodes.list({
+      active: true,
       coupon,
       customer,
     });

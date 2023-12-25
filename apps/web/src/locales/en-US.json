@@ -4439,6 +4439,10 @@
     "defaultMessage": "Your account email contains \".edu\" or \".ac\".",
     "description": "Condition for promotion"
   },
+  "myWGmV": {
+    "defaultMessage": "Coupons | Profile",
+    "description": "Title of Profile coupons page"
+  },
   "n+XFbs": {
     "defaultMessage": "Free plan",
     "description": "Title of Free Plan CTA card in Projects sidebar"
@@ -4575,6 +4579,10 @@
     "defaultMessage": "Software Engineer",
     "description": "Gouse Basha's job title"
   },
+  "ofFMGr": {
+    "defaultMessage": "Check out other available <link>promotions</link>.",
+    "description": "Promotional message"
+  },
   "oiMKy3": {
     "defaultMessage": "Here are the tasks for this campaign:",
     "description": "Description for campaign tasks"
@@ -4602,6 +4610,10 @@
   "oxeO+l": {
     "defaultMessage": "Submit project",
     "description": "Submit project button label for Submit step in project submission checklist"
+  },
+  "oy3YYM": {
+    "defaultMessage": "Coupons",
+    "description": "Screenreader text for account settings."
   },
   "ozQHOy": {
     "defaultMessage": "Hide widget for this session",
@@ -5115,6 +5127,10 @@
     "defaultMessage": "Toggle line comment",
     "description": "Text describing command to toggle line comment in the coding workspace shortcuts menu"
   },
+  "uRMJks": {
+    "defaultMessage": "No promo codes available",
+    "description": "Title of GreatFrontEnd page"
+  },
   "ugHQqC": {
     "defaultMessage": "Or continue with",
     "description": "Label of divider preceding third party providers on Sign In page"
@@ -5154,6 +5170,10 @@
   "usTItb": {
     "defaultMessage": "Senior Software Engineer — Front End, UserTesting",
     "description": "Prashanth Reddy's job title"
+  },
+  "uyXFhu": {
+    "defaultMessage": "Coupons",
+    "description": "Profile coupons tab title"
   },
   "uz7f93": {
     "defaultMessage": "Salesforce",
@@ -5226,6 +5246,10 @@
   "vp4zbB": {
     "defaultMessage": "Purchase premium to see companies which ask this question.",
     "description": "Subtitle for paywall over information about companies that asked the question"
+  },
+  "vpXZzv": {
+    "defaultMessage": "Check out the available <link>promotions</link>.",
+    "description": "Promotional message"
   },
   "vqKJ0D": {
     "defaultMessage": "Design patterns and architecture of front end apps",
