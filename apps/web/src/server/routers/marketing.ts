@@ -7,6 +7,10 @@ import { publicProcedure, router, userProcedure } from '../trpc';
 
 import { Prisma } from '@prisma/client';
 
+/* eslint-disable camelcase */
+const studentDiscountCouponId_TEST = 'r1nhvjSn';
+const studentDiscountCouponId_PROD = 'tgklHrfQ';
+
 export const marketingRouter = router({
   generateStudentDiscount: userProcedure.mutation(async ({ ctx: { user } }) => {
     const profile = await prisma.profile.findFirst({
@@ -27,11 +31,11 @@ export const marketingRouter = router({
     const nextThreeDays = new Date(today.setDate(today.getDate() + 3));
     const nextThreeDaysUnix = Math.round(nextThreeDays.getTime() / 1000);
 
-    const testPromoCode = 'r1nhvjSn';
-    const prodPromoCode = 'tgklHrfQ';
     const promotionCode = await stripe.promotionCodes.create({
       coupon:
-        process.env.NODE_ENV === 'production' ? prodPromoCode : testPromoCode,
+        process.env.NODE_ENV === 'production'
+          ? studentDiscountCouponId_PROD
+          : studentDiscountCouponId_TEST,
       customer: profile.stripeCustomer,
       expires_at: nextThreeDaysUnix,
       max_redemptions: 1,

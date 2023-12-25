@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import type { SVGProps } from 'react';
-import { type ReactNode, useEffect, useRef, useState } from 'react';
+import { type ReactNode, useRef, useState } from 'react';
 import {
   RiArrowLeftLine,
   RiArrowRightLine,
@@ -11,11 +11,12 @@ import {
   RiLinkedinFill,
   RiTwitterXFill,
 } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { useSessionStorage } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useToast } from '~/components/global/toasts/ToastsProvider';
 import RewardsHeader from '~/components/rewards/RewardsHeader';
 import RewardsTaskList from '~/components/rewards/tasks/RewardsTaskList';
 import Button from '~/components/ui/Button';
@@ -25,6 +26,8 @@ import {
   themeLineColor,
   themeTextInvertColor,
 } from '~/components/ui/theme';
+
+import { useI18nRouter } from '~/next-i18nostic/src';
 
 import type { RewardsHandlesData } from './RewardsSocialHandlesForm';
 import RewardsSocialHandlesForm from './RewardsSocialHandlesForm';
@@ -113,6 +116,10 @@ const handles: ReadonlyArray<{
 ];
 
 export default function RewardsTasksPage() {
+  const intl = useIntl();
+  const router = useI18nRouter();
+  const { showToast } = useToast();
+
   const { data: completedTasks } = trpc.rewards.getTasksCompleted.useQuery();
   const checkGitHubStarMutation = trpc.rewards.checkGitHubStarred.useMutation();
   const checkGitHubFollowMutation =
@@ -121,6 +128,8 @@ export default function RewardsTasksPage() {
     trpc.rewards.checkLinkedInFollowing.useMutation();
   const checkTwitterFollowMutation =
     trpc.rewards.checkTwitterFollowing.useMutation();
+  const generateSocialTasksPromoCodeMutation =
+    trpc.rewards.generateSocialTasksPromoCode.useMutation();
 
   const [currentStep, setCurrentStep] = useState(1);
   const [handlesData, setHandlesData] = useSessionStorage<RewardsHandlesData>(
@@ -307,10 +316,29 @@ export default function RewardsTasksPage() {
               {completedAllTasks ? (
                 <Button
                   icon={RiArrowRightLine}
+                  isDisabled={generateSocialTasksPromoCodeMutation.isLoading}
+                  isLoading={generateSocialTasksPromoCodeMutation.isLoading}
                   label="Claim promo code"
                   size="sm"
                   variant="primary"
-                  onClick={() => {}}
+                  onClick={() => {
+                    generateSocialTasksPromoCodeMutation.mutate(undefined, {
+                      onError: (error) => {
+                        showToast({
+                          subtitle: error.message,
+                          title: intl.formatMessage({
+                            defaultMessage: 'Error generating promo code',
+                            description: 'Error message',
+                            id: 'tPMvxG',
+                          }),
+                          variant: 'danger',
+                        });
+                      },
+                      onSuccess: () => {
+                        router.push('/rewards/complete');
+                      },
+                    });
+                  }}
                 />
               ) : (
                 <Button

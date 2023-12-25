@@ -1,4 +1,5 @@
 import { Octokit } from 'octokit';
+import Stripe from 'stripe';
 import { z } from 'zod';
 
 import prisma from '~/server/prisma';
@@ -6,8 +7,13 @@ import prisma from '~/server/prisma';
 import { router, userProcedure } from '../trpc';
 
 // ID for https://github.com/greatfrontend/awesome-front-end-system-design
-const REPO_ID = 593048179;
-const ORG_NAME = 'greatfrontend';
+const GITHUB_REPO_ID = 593048179;
+const GITHUB_ORG_NAME = 'greatfrontend';
+const SOCIAL_TASKS_DISCOUNT_CAMPAIGN = 'SOCIAL_TASKS_DISCOUNT';
+
+/* eslint-disable camelcase */
+const socialTasksDiscountCouponId_TEST = 'HvFQPL5W';
+const socialTasksDiscountCouponId_PROD = 'IAx9mkqM';
 
 function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -22,7 +28,7 @@ export const rewardsRouter = router({
     )
     .mutation(async ({ input: { username }, ctx: { user } }) => {
       const { status } = await fetch(
-        `https://api.github.com/users/${username}/following/${ORG_NAME}`,
+        `https://api.github.com/users/${username}/following/${GITHUB_ORG_NAME}`,
         {
           headers: {
             Accept: 'application/vnd.github+json',
@@ -33,10 +39,10 @@ export const rewardsRouter = router({
       );
 
       if (status !== 204) {
-        return false;
+        throw 'Not followed';
       }
 
-      const campaign = 'REWARDS_SOCIAL_TASKS_DISCOUNT';
+      const campaign = SOCIAL_TASKS_DISCOUNT_CAMPAIGN;
       const action = 'GITHUB_FOLLOW';
       const userId = user.id;
       const identifier = username;
@@ -80,8 +86,8 @@ export const rewardsRouter = router({
       if (!hasLastPage) {
         const { data } = initialResponse;
 
-        if (!data.some((repo: any) => repo.id === REPO_ID)) {
-          return false;
+        if (!data.some((repo: any) => repo.id === GITHUB_REPO_ID)) {
+          throw 'Not starred';
         }
 
         isStarred = true;
@@ -99,7 +105,7 @@ export const rewardsRouter = router({
         });
         const { data } = response;
 
-        if (data.some((repo: any) => repo.id === REPO_ID)) {
+        if (data.some((repo: any) => repo.id === GITHUB_REPO_ID)) {
           isStarred = true;
           break;
         }
@@ -117,10 +123,10 @@ export const rewardsRouter = router({
       }
 
       if (!isStarred && pagesRemaining > 0) {
-        return false;
+        throw 'Not starred';
       }
 
-      const campaign = 'REWARDS_SOCIAL_TASKS_DISCOUNT';
+      const campaign = SOCIAL_TASKS_DISCOUNT_CAMPAIGN;
       const action = 'GITHUB_STAR';
       const userId = user.id;
       const identifier = username;
@@ -145,7 +151,7 @@ export const rewardsRouter = router({
     .mutation(async ({ input: { linkedInUrl }, ctx: { user } }) => {
       await delay(1000);
 
-      const campaign = 'REWARDS_SOCIAL_TASKS_DISCOUNT';
+      const campaign = SOCIAL_TASKS_DISCOUNT_CAMPAIGN;
       const action = 'LINKEDIN_FOLLOW';
       const userId = user.id;
       const identifier = linkedInUrl;
@@ -170,7 +176,7 @@ export const rewardsRouter = router({
     .mutation(async ({ input: { username }, ctx: { user } }) => {
       await delay(1000);
 
-      const campaign = 'REWARDS_SOCIAL_TASKS_DISCOUNT';
+      const campaign = SOCIAL_TASKS_DISCOUNT_CAMPAIGN;
       const action = 'TWITTER_FOLLOW';
       const userId = user.id;
       const identifier = username;
@@ -186,23 +192,111 @@ export const rewardsRouter = router({
 
       return true;
     }),
-  getTasksCompleted: userProcedure
-    .input(
-      z.object({
-        campaign: z.enum(['REWARDS_SOCIAL_TASKS_DISCOUNT']),
-      }),
-    )
-    .query(async ({ input: { campaign }, ctx: { user } }) => {
+  generateSocialTasksPromoCode: userProcedure.mutation(
+    async ({ ctx: { user } }) => {
       const userId = user.id;
+
       const tasks = await prisma.rewardsTaskCompletion.findMany({
         where: {
-          campaign,
+          campaign: SOCIAL_TASKS_DISCOUNT_CAMPAIGN,
           userId,
         },
       });
 
-      return tasks;
-    }),
+      if (tasks.length < 4) {
+        throw 'Insufficient social tasks completed';
+      }
+
+      const profile = await prisma.profile.findFirst({
+        where: {
+          id: userId,
+        },
+      });
+
+      if (profile == null || profile?.stripeCustomer == null) {
+        throw 'No profile or Stripe customer found';
+      }
+
+      const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+        apiVersion: '2022-11-15',
+      });
+
+      const coupon =
+        process.env.NODE_ENV === 'production'
+          ? socialTasksDiscountCouponId_PROD
+          : socialTasksDiscountCouponId_TEST;
+      const customer = profile.stripeCustomer;
+
+      const promotionCodes = await stripe.promotionCodes.list({
+        coupon,
+        customer,
+      });
+
+      if (promotionCodes.data.length > 1) {
+        throw 'You have claimed this reward before.';
+      }
+
+      const today = new Date();
+      const nextThreeDays = new Date(today.setDate(today.getDate() + 3));
+      const nextThreeDaysUnix = Math.round(nextThreeDays.getTime() / 1000);
+
+      const promotionCode = await stripe.promotionCodes.create({
+        coupon,
+        customer,
+        expires_at: nextThreeDaysUnix,
+        max_redemptions: 1,
+        metadata: {
+          campaign: SOCIAL_TASKS_DISCOUNT_CAMPAIGN,
+        },
+      });
+
+      return promotionCode;
+    },
+  ),
+  getSocialTasksPromoCode: userProcedure.query(async ({ ctx: { user } }) => {
+    const userId = user.id;
+    const profile = await prisma.profile.findFirst({
+      where: {
+        id: userId,
+      },
+    });
+
+    if (profile == null || profile?.stripeCustomer == null) {
+      throw 'No profile or Stripe customer found';
+    }
+
+    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+      apiVersion: '2022-11-15',
+    });
+
+    const customer = profile.stripeCustomer;
+    const coupon =
+      process.env.NODE_ENV === 'production'
+        ? socialTasksDiscountCouponId_PROD
+        : socialTasksDiscountCouponId_TEST;
+
+    const promotionCodes = await stripe.promotionCodes.list({
+      coupon,
+      customer,
+    });
+
+    if (promotionCodes.data.length === 0) {
+      throw 'No promo codes found';
+    }
+
+    return promotionCodes.data[0];
+  }),
+  getTasksCompleted: userProcedure.query(async ({ ctx: { user } }) => {
+    const userId = user.id;
+    const tasks = await prisma.rewardsTaskCompletion.findMany({
+      where: {
+        campaign: SOCIAL_TASKS_DISCOUNT_CAMPAIGN,
+        userId,
+      },
+    });
+
+    return tasks;
+  }),
   verifySocialHandles: userProcedure
     .input(
       z.object({

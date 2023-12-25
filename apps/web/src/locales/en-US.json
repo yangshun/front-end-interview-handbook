@@ -727,6 +727,10 @@
     "defaultMessage": "Everything you need",
     "description": "Label for an example list of JavaScript Questions on marketing pages"
   },
+  "7hlP1A": {
+    "defaultMessage": "Task has not been completed! Please try again.",
+    "description": "Error task label"
+  },
   "7jhWHe": {
     "defaultMessage": "Download Figma design",
     "description": "Label for \"Download Figma design\" button on Projects project page"
@@ -1026,6 +1030,10 @@
   "B9vupD": {
     "defaultMessage": "Submissions",
     "description": "Link to submissions page"
+  },
+  "BDGx19": {
+    "defaultMessage": "Verifying",
+    "description": "Label for button"
   },
   "BGn++d": {
     "defaultMessage": "Quiz Questions",
@@ -1747,6 +1755,10 @@
     "defaultMessage": "Quiz Questions",
     "description": "Front end quiz interview questions"
   },
+  "Jkhbjw": {
+    "defaultMessage": "Completed",
+    "description": "Completed task label"
+  },
   "Jlr/Yy": {
     "defaultMessage": "<link>Contact us</link> if you would like to upgrade your plan.",
     "description": "Call to action text to uppgrade plan."
@@ -1927,9 +1939,9 @@
     "defaultMessage": "Completed",
     "description": "Label to indicate that a question has been completed"
   },
-  "LRBEVJ": {
-    "defaultMessage": "Follow our GitHub organization",
-    "description": "Title for GitHub follow task"
+  "LREMMc": {
+    "defaultMessage": "Retry task",
+    "description": "Label for button to start task"
   },
   "LSKN5A": {
     "defaultMessage": "Unlock all premium content including official solutions, company tags, and study plans.",
@@ -2095,10 +2107,6 @@
     "defaultMessage": "While offer lasts",
     "description": "Label to indicate offer is a limited time deal"
   },
-  "N83hK6": {
-    "defaultMessage": "Follow our Twitter account",
-    "description": "Title for Twitter follow task"
-  },
   "N9hGOq": {
     "defaultMessage": "Search Vue questions",
     "description": "Placeholder for search input of Vue question list"
@@ -2142,6 +2150,10 @@
   "NdDD5W": {
     "defaultMessage": "Front End System Design Guidebook",
     "description": "Front end system design guidebook title"
+  },
+  "Ne4i1M": {
+    "defaultMessage": "Star our GitHub repo",
+    "description": "Title for task"
   },
   "NgxUnY": {
     "defaultMessage": "Difficulty",
@@ -2266,6 +2278,10 @@
   "P4Or/u": {
     "defaultMessage": "CSS",
     "description": "CSS topic for quiz questions"
+  },
+  "P6iF2f": {
+    "defaultMessage": "Follow us on Twitter",
+    "description": "Title for task"
   },
   "P99cBr": {
     "defaultMessage": "Overview of various question formats",
@@ -2623,10 +2639,6 @@
     "defaultMessage": "Lyft",
     "description": "Company name for Lyft"
   },
-  "TGDIEP": {
-    "defaultMessage": "We also send the promo code to your email.",
-    "description": "Subtext for rewards complete page"
-  },
   "TL822E": {
     "defaultMessage": "JavaScript Console",
     "description": "Title of JavaScript console panel"
@@ -2654,10 +2666,6 @@
   "TgOWsI": {
     "defaultMessage": "You've gained rep in these skills:",
     "description": "Label for skills gained on project submission success page"
-  },
-  "TvPbBZ": {
-    "defaultMessage": "Promo code copied!",
-    "description": "Success message shown when promo code is copied"
   },
   "Tvr6Mn": {
     "defaultMessage": "Senior Software Engineer",
@@ -3135,6 +3143,10 @@
     "defaultMessage": "Project completed",
     "description": "Label for completed project tag"
   },
+  "YzW/Zb": {
+    "defaultMessage": "Expires on {expiryDate}",
+    "description": "Subtext for rewards complete page"
+  },
   "Z4VfkU": {
     "defaultMessage": "Every question is accompanied by an official, well-explained solution from ex-interviewers.",
     "description": "Description of 'Learn from official solutions and guides' feature in marketing page"
@@ -3286,10 +3298,6 @@
   "aeeTOy": {
     "defaultMessage": "Font size",
     "description": "Select label to choose console font size"
-  },
-  "afi284": {
-    "defaultMessage": "Follow our LinkedIn page",
-    "description": "Title for LinkedIn follow task"
   },
   "aiI8c6": {
     "defaultMessage": "Stack used",
@@ -3550,10 +3558,6 @@
   "d+wYSW": {
     "defaultMessage": "Sign up for a free GreatFrontEnd account to track your progress and access premium",
     "description": "Description of Sign Up page"
-  },
-  "d15liP": {
-    "defaultMessage": "Exp on {EXPIRY_DATE} • {DISCOUNT_PERCENTAGE}% off all plans",
-    "description": "Subtext for rewards complete page"
   },
   "d3GL1v": {
     "defaultMessage": "Copy line down",
@@ -3878,10 +3882,6 @@
   "grrYsM": {
     "defaultMessage": "Years of Experience",
     "description": "Label for Years of Experience section of Projects profile onboarding page"
-  },
-  "gtnKcP": {
-    "defaultMessage": "Star our GitHub repo",
-    "description": "Title for GitHub star task"
   },
   "gtouN7": {
     "defaultMessage": "Medium",
@@ -4567,6 +4567,10 @@
     "defaultMessage": "Marked question as incomplete",
     "description": "Success message shown when a question is marked as complete"
   },
+  "oS10TF": {
+    "defaultMessage": "Follow us on GitHub",
+    "description": "Title for task"
+  },
   "obU6+a": {
     "defaultMessage": "Software Engineer",
     "description": "Gouse Basha's job title"
@@ -4743,6 +4747,10 @@
     "defaultMessage": "Difficulty",
     "description": "Label for Difficulty filter for projects list"
   },
+  "qRa0sV": {
+    "defaultMessage": "Copied!",
+    "description": "Button label for copy button"
+  },
   "qS3yTj": {
     "defaultMessage": "{tagName} | Blog",
     "description": "Title of GreatFrontEnd blog explore series page"
@@ -4895,6 +4903,10 @@
     "defaultMessage": "Explore {projectCount}+ projects",
     "description": "Label of 'Projects' view all button in Projects home page"
   },
+  "sM1Ppu": {
+    "defaultMessage": "{discountPercentage}% off all plans",
+    "description": "Subtext for rewards complete page"
+  },
   "sPnbze": {
     "defaultMessage": "+{count} more",
     "description": "Label for number of additional skills"
@@ -5002,6 +5014,10 @@
   "tP5+Am": {
     "defaultMessage": "Sign Up",
     "description": "Label of Sign Up button on Email Sign Up page"
+  },
+  "tPMvxG": {
+    "defaultMessage": "Error generating promo code",
+    "description": "Error message"
   },
   "tPpYwO": {
     "defaultMessage": "Starter",
@@ -5198,6 +5214,10 @@
   "vfVwh2": {
     "defaultMessage": "1 Week",
     "description": "Short label for one week study plan"
+  },
+  "vg2xht": {
+    "defaultMessage": "Follow us on LinkedIn",
+    "description": "Title for task"
   },
   "vi10y1": {
     "defaultMessage": "Dashboard",

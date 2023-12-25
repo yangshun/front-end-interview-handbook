@@ -4,39 +4,35 @@ import { useState } from 'react';
 import {
   RiArrowRightLine,
   RiCheckboxCircleLine,
+  RiCheckLine,
   RiFileCopyLine,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
-import { useToast } from '~/components/global/toasts/ToastsProvider';
 import RewardsTicket from '~/components/rewards/complete/RewardsTicket';
 import Button from '~/components/ui/Button';
-import Dialog from '~/components/ui/Dialog';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
-const PROMO_CODE = 'GENCODE';
-const EXPIRY_DATE = '14/01/24';
-const DISCOUNT_PERCENTAGE = 20;
+const dateFormatter = new Intl.DateTimeFormat(undefined, {
+  dateStyle: 'medium',
+  timeStyle: 'short',
+});
 
 export default function RewardsCompletePage() {
   const intl = useIntl();
-  const toast = useToast();
-  const [, onCopy] = useCopyToClipboardWithRevert(1000);
-  const [isShown, setIsShown] = useState(false);
+  const { data: promoCode } = trpc.rewards.getSocialTasksPromoCode.useQuery();
+  const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
 
   function handleCopy() {
-    onCopy(PROMO_CODE);
-    toast.showToast({
-      title: intl.formatMessage({
-        defaultMessage: 'Promo code copied!',
-        description: 'Success message shown when promo code is copied',
-        id: 'TvPbBZ',
-      }),
-      variant: 'success',
-    });
+    if (!promoCode?.code) {
+      return;
+    }
+
+    onCopy(promoCode.code);
   }
 
   return (
@@ -71,88 +67,86 @@ export default function RewardsCompletePage() {
               id="Wx0nGc"
             />
           </Text>
-          <Text
-            className="text-center"
-            color="secondary"
-            display="block"
-            size="body1">
-            <FormattedMessage
-              defaultMessage="We also send the promo code to your email."
-              description="Subtext for rewards complete page"
-              id="TGDIEP"
+        </div>
+      </div>
+      {promoCode != null && (
+        <div className="flex flex-col gap-8 w-[400px]">
+          <RewardsTicket
+            ratio="wide"
+            subtitle={
+              <div className="flex flex-col gap-1">
+                {promoCode.expires_at && (
+                  <>
+                    {intl.formatMessage(
+                      {
+                        defaultMessage: 'Expires on {expiryDate}',
+                        description: 'Subtext for rewards complete page',
+                        id: 'YzW/Zb',
+                      },
+                      {
+                        discountPercentage: promoCode.coupon.percent_off,
+                        expiryDate: dateFormatter.format(
+                          promoCode.expires_at * 1000,
+                        ),
+                      },
+                    )}
+                  </>
+                )}
+                <span>
+                  {intl.formatMessage(
+                    {
+                      defaultMessage: '{discountPercentage}% off all plans',
+                      description: 'Subtext for rewards complete page',
+                      id: 'sM1Ppu',
+                    },
+                    {
+                      discountPercentage: promoCode.coupon.percent_off,
+                    },
+                  )}
+                </span>
+              </div>
+            }
+            title={promoCode.code}
+            width={400}
+          />
+          <div className="flex flex-col w-full gap-x-6 gap-y-4 sm:flex-row">
+            <Button
+              className="self-stretch sm:self-auto"
+              display="block"
+              icon={isCopied ? RiCheckLine : RiFileCopyLine}
+              label={
+                isCopied
+                  ? intl.formatMessage({
+                      defaultMessage: 'Copied!',
+                      description: 'Button label for copy button',
+                      id: 'qRa0sV',
+                    })
+                  : intl.formatMessage({
+                      defaultMessage: 'Copy to clipboard',
+                      description: 'Button label for copy button',
+                      id: 'QrikGf',
+                    })
+              }
+              size="md"
+              variant="secondary"
+              onClick={() => handleCopy()}
             />
-          </Text>
+            <Button
+              className="self-stretch sm:self-auto"
+              display="block"
+              href="/pricing"
+              icon={RiArrowRightLine}
+              label={intl.formatMessage({
+                defaultMessage: 'Use now',
+                description: 'Button label for use now button',
+                id: 'RfVhtP',
+              })}
+              size="md"
+              variant="primary"
+            />
+          </div>
         </div>
-      </div>
-      <div className="flex flex-col gap-8 w-[400px]">
-        <RewardsTicket
-          ratio="wide"
-          subtitle={intl.formatMessage(
-            {
-              defaultMessage:
-                'Exp on {EXPIRY_DATE} • {DISCOUNT_PERCENTAGE}% off all plans',
-              description: 'Subtext for rewards complete page',
-              id: 'd15liP',
-            },
-            {
-              DISCOUNT_PERCENTAGE,
-              EXPIRY_DATE,
-            },
-          )}
-          title={PROMO_CODE}
-          width={400}
-        />
-        <div className="flex flex-col w-full gap-x-6 gap-y-4 sm:flex-row">
-          <Button
-            className="self-stretch sm:self-auto"
-            display="block"
-            icon={RiFileCopyLine}
-            label={intl.formatMessage({
-              defaultMessage: 'Copy to clipboard',
-              description: 'Button label for copy button',
-              id: 'QrikGf',
-            })}
-            size="md"
-            variant="secondary"
-            onClick={() => handleCopy()}
-          />
-          <Button
-            className="self-stretch sm:self-auto"
-            display="block"
-            icon={RiArrowRightLine}
-            label={intl.formatMessage({
-              defaultMessage: 'Use now',
-              description: 'Button label for use now button',
-              id: 'RfVhtP',
-            })}
-            size="md"
-            variant="primary"
-            onClick={() => setIsShown(true)}
-          />
-        </div>
-      </div>
-      <Dialog
-        isShown={isShown}
-        primaryButton={
-          <Button
-            label="Primary Action"
-            size="md"
-            variant="primary"
-            onClick={() => setIsShown(false)}
-          />
-        }
-        secondaryButton={
-          <Button
-            label="Secondary Action"
-            size="md"
-            variant="secondary"
-            onClick={() => setIsShown(false)}
-          />
-        }
-        title="Pricing plans"
-        onClose={() => setIsShown(false)}>
-        <div>TODO: Add pricing plans here</div>
-      </Dialog>
+      )}
     </div>
   );
 }
