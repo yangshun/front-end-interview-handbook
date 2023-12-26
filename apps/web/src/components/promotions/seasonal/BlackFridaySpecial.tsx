@@ -1,15 +1,12 @@
 import clsx from 'clsx';
 
-import {
-  SEASONAL_PROMO_CODE,
-  SEASONAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
-} from '~/data/PromotionConfig';
-
+import ExclusiveTicket from '~/components/common/tickets/ExclusiveTicket';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
 
-import ExclusiveTicket from '../../common/tickets/ExclusiveTicket';
+export const SEASONAL_PROMO_CODE = 'CYBERMONDAY23';
+export const SEASONAL_PROMO_CODE_DISCOUNT_PERCENTAGE = 30;
 
 export function BlackFridayLiveBadge() {
   return (

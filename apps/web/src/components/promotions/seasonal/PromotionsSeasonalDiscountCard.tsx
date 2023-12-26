@@ -77,7 +77,6 @@ export function PromotionsSeasonalDiscountCard() {
           </Text>
           <div className="mt-4">
             <Button
-              addonPosition="start"
               display="block"
               icon={RiFileCopyLine}
               label={

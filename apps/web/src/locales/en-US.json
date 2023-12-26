@@ -91,10 +91,6 @@
     "defaultMessage": "Design systems",
     "description": "Title for \"Design systems\" feature on Projects home page"
   },
-  "+v0L3W": {
-    "defaultMessage": "You can find your available promos codes on the <link>profile page</link>.",
-    "description": "Subtext for rewards complete page"
-  },
   "+wR7CJ": {
     "defaultMessage": "Legal",
     "description": "Section heading in footer for links to legal pages like privacy policy and terms of service"
@@ -539,6 +535,10 @@
     "defaultMessage": "Leave more feedback",
     "description": "Feedback widget button label to leave more feedback before the session closes"
   },
+  "5BEps7": {
+    "defaultMessage": "You can find your promos codes on the <link>profile page</link>.",
+    "description": "Subtext for rewards complete page"
+  },
   "5RlLAP": {
     "defaultMessage": "Clear Console",
     "description": "Button tooltip to clear the console in the coding workspace"
@@ -870,6 +870,10 @@
   "8tdTMy": {
     "defaultMessage": "No skills added",
     "description": "Placeholder for skills input when no skills are selected"
+  },
+  "8tpjrI": {
+    "defaultMessage": "{discountPercentage}% off, expires on {expiryDate}",
+    "description": "Rewards discount message"
   },
   "8ujLk4": {
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can change your email here to use email and password to log in instead.",
@@ -1579,10 +1583,6 @@
     "defaultMessage": "Marked \"{questionTitle}\" as not completed",
     "description": "Success message for marking a question as not completed"
   },
-  "Hc2Ee0": {
-    "defaultMessage": "{discountPercentage}% off, expires {expiryDate}",
-    "description": "Rewards discount message"
-  },
   "HcBvYZ": {
     "defaultMessage": "Learn to answer \"Tell me about a time..\" collaboration questions",
     "description": "How to answer collaboration situation questions in behavioral interviews"
@@ -1710,6 +1710,10 @@
   "J7Pskc": {
     "defaultMessage": "Starter code",
     "description": "Label for Starter Code button on Projects project assets page"
+  },
+  "J7VxuG": {
+    "defaultMessage": "Social Rewards Discount",
+    "description": "Promotion title"
   },
   "J90fcx": {
     "defaultMessage": "Preparation Plans",
@@ -2631,6 +2635,10 @@
     "defaultMessage": "Master the art of building interactive and user-friendly forms by exploring various form components, validation techniques, and handling form submissions.",
     "description": "Description for interview preparation focus area"
   },
+  "T4ajXP": {
+    "defaultMessage": "{discountPercentage}% off",
+    "description": "Rewards discount message"
+  },
   "T7+/5t": {
     "defaultMessage": "Use our Skills Tree to train a holistic front end skill set",
     "description": "Heading of the 'Skill tree' marketing section on Projects home page"
@@ -3019,10 +3027,6 @@
     "defaultMessage": "Cancel",
     "description": "Label for cancel button on project submit page"
   },
-  "Wx0nGc": {
-    "defaultMessage": "This is a one-time use promo code exclusive to your account.",
-    "description": "Subtext for rewards complete page"
-  },
   "X/axGA": {
     "defaultMessage": "Affiliate Program",
     "description": "Title of Affiliate Program page"
@@ -3382,6 +3386,10 @@
   "awMxNG": {
     "defaultMessage": "Marked \"{questionTitle}\" as complete",
     "description": "Success message for marking a question as complete"
+  },
+  "ay9BLg": {
+    "defaultMessage": "All GreatFrontEnd plans",
+    "description": "All pricing plans"
   },
   "b+bj2C": {
     "defaultMessage": "{projectCount} projects",
@@ -4203,6 +4211,10 @@
     "defaultMessage": "I'm here to build my <bold>portfolio</bold>",
     "description": "Label for \"Portfolio\" onboarding option in Projects"
   },
+  "k18teo": {
+    "defaultMessage": "This is a one-time use promo code exclusive to your account and <strong>can only be generated once</strong>.",
+    "description": "Subtext for rewards complete page"
+  },
   "k1dcHz": {
     "defaultMessage": "Latest first",
     "description": "Sorting option for blog list"
@@ -4286,6 +4298,10 @@
   "knfvnJ": {
     "defaultMessage": "Filters",
     "description": "Screenreader text to indicate filters component on quiz questions list"
+  },
+  "kngdhG": {
+    "defaultMessage": "Start tasks",
+    "description": "Start rewards tasks to get discount"
   },
   "koTXam": {
     "defaultMessage": "In-browser coding workspace",
@@ -4583,6 +4599,10 @@
     "defaultMessage": "Light",
     "description": "Light theme option label"
   },
+  "oIktGl": {
+    "defaultMessage": "One-time use; can only be completed once.",
+    "description": "Condition for promotion"
+  },
   "oNMAi3": {
     "defaultMessage": "Difficulty: Easy to Hard",
     "description": "Sorting option for question list - sort by difficulty from easy to hard"
@@ -4799,6 +4819,10 @@
     "defaultMessage": "{tagName} | Blog",
     "description": "Title of GreatFrontEnd blog explore series page"
   },
+  "qTHHNG": {
+    "defaultMessage": "More on <link>Rewards Terms and Conditions</link>",
+    "description": "Link for discount terms and conditions"
+  },
   "qZRTqi": {
     "defaultMessage": "Data Structures & Algorithms",
     "description": "Name of focus area questions"
@@ -4826,10 +4850,6 @@
   "qjKLfH": {
     "defaultMessage": "Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two.",
     "description": "Subtitle for contact us section"
-  },
-  "qjR1Nj": {
-    "defaultMessage": "{discountPercentage}% off!",
-    "description": "Rewards discount message"
   },
   "ql7kBY": {
     "defaultMessage": "GitHub code repository URL",
@@ -5246,10 +5266,6 @@
   "vHNURr": {
     "defaultMessage": "View all filters",
     "description": "Tooltip for All Filters button for projects list"
-  },
-  "vNa4Wc": {
-    "defaultMessage": "While Offer Lasts",
-    "description": "Label to indicate offer is a limited time deal"
   },
   "vSWYET": {
     "defaultMessage": "Save changes",

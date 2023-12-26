@@ -24,7 +24,7 @@ export default function PromotionsPage() {
         />
       </Heading>
       <Section>
-        <div className="grid gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-1 lg:gap-12">
+        <div className="grid gap-4 md:gap-6 lg:gap-12">
           <PromotionsSeasonalDiscountCard />
           <PromotionsSocialDiscountCard />
           <PromotionsStudentDiscountCard />

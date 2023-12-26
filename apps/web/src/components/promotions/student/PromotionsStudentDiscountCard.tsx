@@ -174,7 +174,6 @@ export function PromotionsStudentDiscountCard() {
                 return (
                   <div>
                     <Button
-                      addonPosition="start"
                       display="block"
                       icon={RiFileCopyLine}
                       label={
