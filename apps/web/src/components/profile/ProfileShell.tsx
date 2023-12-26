@@ -25,7 +25,7 @@ import Tabs from '~/components/ui/Tabs';
 import Text from '~/components/ui/Text';
 import { themeLineColor } from '~/components/ui/theme';
 
-import ExclusiveTicket from '../common/ExclusiveTicket';
+import ExclusiveTicket from '../common/tickets/ExclusiveTicket';
 import Badge from '../ui/Badge';
 import Tooltip from '../ui/Tooltip';
 

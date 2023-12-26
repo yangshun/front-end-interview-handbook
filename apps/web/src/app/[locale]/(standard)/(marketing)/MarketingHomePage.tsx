@@ -15,6 +15,7 @@ import type {
   QuestionJavaScript,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
+import SocialDiscountToast from '~/components/promotions/SocialDiscountToast';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 const MarketingHomePageBottom = dynamic(
@@ -69,6 +70,7 @@ export default function MarketingHomePage({
         />
         {showBottomHalf && <MarketingHomePageBottom />}
       </Section>
+      <SocialDiscountToast />
     </main>
   );
 }

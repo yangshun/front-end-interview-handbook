@@ -9,7 +9,7 @@ import { useUserProfile } from '~/components/global/UserProfileProvider';
 import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
 
-import ExclusiveTicket from '../ExclusiveTicket';
+import ExclusiveTicket from '../common/tickets/ExclusiveTicket';
 
 export function BlackFridayLiveBadge() {
   return (

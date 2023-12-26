@@ -20,7 +20,7 @@ import type {
 } from '~/data/PricingPlans';
 import { hasProjectsBetaAccess } from '~/data/PromotionConfig';
 
-import ExclusiveTicket from '~/components/common/ExclusiveTicket';
+import ExclusiveTicket from '~/components/common/tickets/ExclusiveTicket';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';

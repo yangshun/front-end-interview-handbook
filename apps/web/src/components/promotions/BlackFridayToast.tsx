@@ -6,11 +6,11 @@ import {
   BlackFridayExclusiveTicket,
   BlackFridayLiveBadge,
   BlackFridayPromoCard,
-} from '~/components/common/marketing/BlackFridaySpecial';
+} from '~/components/promotions/BlackFridaySpecial';
 import Text from '~/components/ui/Text';
 
-import { useToast } from './ToastsProvider';
-import { useUserProfile } from '../UserProfileProvider';
+import { useToast } from '../global/toasts/ToastsProvider';
+import { useUserProfile } from '../global/UserProfileProvider';
 
 export default function BlackFridayToast() {
   const { showToast } = useToast();

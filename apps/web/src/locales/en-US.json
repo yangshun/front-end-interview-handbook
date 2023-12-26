@@ -91,6 +91,10 @@
     "defaultMessage": "Design systems",
     "description": "Title for \"Design systems\" feature on Projects home page"
   },
+  "+v0L3W": {
+    "defaultMessage": "You can find your available promos codes on the <link>profile page</link>.",
+    "description": "Subtext for rewards complete page"
+  },
   "+wR7CJ": {
     "defaultMessage": "Legal",
     "description": "Section heading in footer for links to legal pages like privacy policy and terms of service"
@@ -106,6 +110,10 @@
   "/06NwY": {
     "defaultMessage": "Company-tagged questions",
     "description": "Title for company-tagged questions feature"
+  },
+  "/8GtPZ": {
+    "defaultMessage": "All plans, including lifetime",
+    "description": "Rewards discount message"
   },
   "/95uM9": {
     "defaultMessage": "Username should begin and end with an alphanumeric character, and only contain alphanumeric characters or dashes.",
@@ -1247,10 +1255,6 @@
     "defaultMessage": "Skills",
     "description": "Label for Skills section of Projects profile onboarding page"
   },
-  "De+COK": {
-    "defaultMessage": "{DISCOUNT_PERCENTAGE}% off all plans",
-    "description": "Title for rewards page"
-  },
   "DiyRBB": {
     "defaultMessage": "Codeney Pte Ltd. All rights reserved.",
     "description": "Footer copyright text containing the company name"
@@ -1574,6 +1578,10 @@
   "Hav9UT": {
     "defaultMessage": "Marked \"{questionTitle}\" as not completed",
     "description": "Success message for marking a question as not completed"
+  },
+  "Hc2Ee0": {
+    "defaultMessage": "{discountPercentage}% off, expires {expiryDate}",
+    "description": "Rewards discount message"
   },
   "HcBvYZ": {
     "defaultMessage": "Learn to answer \"Tell me about a time..\" collaboration questions",
@@ -2579,6 +2587,10 @@
     "defaultMessage": "Not Subscribed",
     "description": "Text describing user's subscription status."
   },
+  "SUmtwn": {
+    "defaultMessage": "Check it out",
+    "description": "Button label"
+  },
   "SZ26iB": {
     "defaultMessage": "Search",
     "description": "Placeholder for search input of blog list"
@@ -2635,6 +2647,10 @@
     "defaultMessage": "Collapse side menu",
     "description": "Screenreader text for the button that collapses the side menu"
   },
+  "TDZuZW": {
+    "defaultMessage": "Use now",
+    "description": "Button label"
+  },
   "TDzLXK": {
     "defaultMessage": "Lyft",
     "description": "Company name for Lyft"
@@ -2666,6 +2682,10 @@
   "TgOWsI": {
     "defaultMessage": "You've gained rep in these skills:",
     "description": "Label for skills gained on project submission success page"
+  },
+  "Tjz+5U": {
+    "defaultMessage": "Giving away {discountPercentage}% off all plans!",
+    "description": "Rewards discount message"
   },
   "Tvr6Mn": {
     "defaultMessage": "Senior Software Engineer",
@@ -2843,6 +2863,10 @@
     "defaultMessage": "Coding",
     "description": "Coding questions short title"
   },
+  "VRv5cU": {
+    "defaultMessage": "You have an unused promo code",
+    "description": "Rewards discount message"
+  },
   "VVf84T": {
     "defaultMessage": "Password",
     "description": "Label of password field on Change Password page"
@@ -2878,6 +2902,10 @@
   "VlrCm6": {
     "defaultMessage": "Pricing",
     "description": "Link label to the pricing page"
+  },
+  "Vm0aAX": {
+    "defaultMessage": "{discountPercentage}% off all plans",
+    "description": "Title for rewards page"
   },
   "Vvc37/": {
     "defaultMessage": "Sign up for an account",
@@ -3018,6 +3046,10 @@
   "XIMn32": {
     "defaultMessage": "Complete | Rewards",
     "description": "Title of Rewards Complete page"
+  },
+  "XLT5qF": {
+    "defaultMessage": "Complete simple social tasks like following our social accounts to get {discountPercentage}% off all plans.",
+    "description": "Rewards discount message"
   },
   "XS6Jyn": {
     "defaultMessage": "Become an Affiliate",
@@ -4794,6 +4826,10 @@
   "qjKLfH": {
     "defaultMessage": "Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two.",
     "description": "Subtitle for contact us section"
+  },
+  "qjR1Nj": {
+    "defaultMessage": "{discountPercentage}% off!",
+    "description": "Rewards discount message"
   },
   "ql7kBY": {
     "defaultMessage": "GitHub code repository URL",

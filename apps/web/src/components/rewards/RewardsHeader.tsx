@@ -8,14 +8,12 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
+import { SOCIAL_DISCOUNT_PERCENTAGE } from '../promotions/SocialDiscountConfig';
 import Anchor from '../ui/Anchor';
-import Container from '../ui/Container';
 
 type Props = Readonly<{
   isSignedIn: boolean;
 }>;
-
-const DISCOUNT_PERCENTAGE = 20;
 
 export default function RewardsHeader({ isSignedIn }: Props) {
   const intl = useIntl();
@@ -46,12 +44,12 @@ export default function RewardsHeader({ isSignedIn }: Props) {
       <Heading level="heading2">
         {intl.formatMessage(
           {
-            defaultMessage: '{DISCOUNT_PERCENTAGE}% off all plans',
+            defaultMessage: '{discountPercentage}% off all plans',
             description: 'Title for rewards page',
-            id: 'De+COK',
+            id: 'Vm0aAX',
           },
           {
-            DISCOUNT_PERCENTAGE,
+            discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
           },
         )}
       </Heading>
@@ -71,7 +69,7 @@ export default function RewardsHeader({ isSignedIn }: Props) {
                   id: 'W8ke1i',
                 },
                 {
-                  discountPercentage: DISCOUNT_PERCENTAGE,
+                  discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
                 },
               )}
             </Text>
@@ -91,7 +89,7 @@ export default function RewardsHeader({ isSignedIn }: Props) {
                   id: 'hdCLkO',
                 },
                 {
-                  discountPercentage: DISCOUNT_PERCENTAGE,
+                  discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
                 },
               )}
             </Text>

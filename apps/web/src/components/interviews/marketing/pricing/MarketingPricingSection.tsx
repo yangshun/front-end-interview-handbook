@@ -27,6 +27,7 @@ import {
 } from '~/data/PromotionConfig';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import { SocialDiscountAlert } from '~/components/promotions/SocialDiscountAlert';
 import Alert from '~/components/ui/Alert';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
@@ -760,20 +761,25 @@ export default function MarketingPricingSection({
         <Section>
           <div className="mt-4 pb-10 sm:mt-12 sm:pb-20 lg:mt-8">
             <Container className="relative flex flex-col gap-y-12">
-              {showPPPMessage && (
-                <Alert
-                  icon={RiExchangeDollarLine}
-                  title={`Purchasing power parity for ${countryName}`}
-                  variant="success">
-                  We noticed you're in {countryName}. We support Purchasing
-                  Power Parity, so a{' '}
-                  <strong>
-                    {Math.ceil(100 - featuredPlan.plan.conversionFactor * 100)}%
-                    discount
-                  </strong>{' '}
-                  has been automatically applied! 🎉
-                </Alert>
-              )}
+              <div className="flex flex-col gap-y-5">
+                <SocialDiscountAlert />
+                {showPPPMessage && (
+                  <Alert
+                    icon={RiExchangeDollarLine}
+                    title={`Purchasing power parity for ${countryName}`}
+                    variant="success">
+                    We noticed you're in {countryName}. We support Purchasing
+                    Power Parity, so a{' '}
+                    <strong>
+                      {Math.ceil(
+                        100 - featuredPlan.plan.conversionFactor * 100,
+                      )}
+                      % discount
+                    </strong>{' '}
+                    has been automatically applied! 🎉
+                  </Alert>
+                )}
+              </div>
               <PricingBlockCard
                 features={featuredPlan.includedFeatures}
                 glow={true}

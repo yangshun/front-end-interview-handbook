@@ -75,7 +75,7 @@ export default function RewardsCompletePage() {
             <FormattedMessage
               defaultMessage="You can find your available promos codes on the <link>profile page</link>."
               description="Subtext for rewards complete page"
-              id="3jZXpZ"
+              id="+v0L3W"
               values={{
                 link: (chunks) => (
                   <Anchor href="/profile/coupons">{chunks}</Anchor>

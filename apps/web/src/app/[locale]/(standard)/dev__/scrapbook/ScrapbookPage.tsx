@@ -11,7 +11,8 @@ import {
 } from 'react-icons/ri';
 import { TbBinaryTree } from 'react-icons/tb';
 
-import ExclusiveTicket from '~/components/common/ExclusiveTicket';
+import ExclusiveTicket from '~/components/common/tickets/ExclusiveTicket';
+import Ticket from '~/components/common/tickets/Ticket';
 import DashboardContinueLearning from '~/components/interviews/dashboard/DashboardContinueLearning';
 import PreparationStudyGuideList from '~/components/interviews/dashboard/DashboardStudyGuideList';
 import MarketingCompaniesMarquee from '~/components/interviews/marketing/MarketingCompaniesMarquee';
@@ -142,6 +143,16 @@ export default function ScrapbookPage() {
               }
               width={200}
             />
+            <Ticket padding="md" width={200}>
+              <div className="flex flex-col justify-center items-center h-full">
+                <Text className="text-2xl" size="custom" weight="bold">
+                  20% off
+                </Text>
+                <Text color="secondary" size="body3">
+                  All plans, including lifetime
+                </Text>
+              </div>
+            </Ticket>
           </UIExamplesGroup>
         </Section>
         <Container>

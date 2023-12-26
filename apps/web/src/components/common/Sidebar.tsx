@@ -16,6 +16,7 @@ import { useIntl } from 'react-intl';
 import { useGuidesData } from '~/data/Guides';
 import { SocialLinks } from '~/data/SocialLinks';
 
+import { SocialDiscountSidebarMention } from '~/components/promotions/SocialDiscountSidebarMention';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
@@ -356,36 +357,39 @@ export default function Sidebar({
         })}
       </div>
       <div className="flex flex-col gap-6">
-        <div
-          className={clsx(
-            'flex justify-between gap-6',
-            isCollapsed && 'flex-col',
-          )}>
-          <div className={clsx('flex gap-3', isCollapsed && 'flex-col')}>
-            {[
-              SocialLinks.discord,
-              SocialLinks.github,
-              SocialLinks.linkedin,
-            ].map(({ href, icon, name, key }) => (
-              <Button
-                key={key}
-                href={href}
-                icon={icon}
-                isLabelHidden={true}
-                label={name}
-                variant="secondary"
-              />
-            ))}
+        <div className="flex flex-col gap-6">
+          {!isCollapsed && <SocialDiscountSidebarMention />}
+          <div
+            className={clsx(
+              'flex justify-between gap-6',
+              isCollapsed && 'flex-col',
+            )}>
+            <div className={clsx('flex gap-3', isCollapsed && 'flex-col')}>
+              {[
+                SocialLinks.discord,
+                SocialLinks.github,
+                SocialLinks.linkedin,
+              ].map(({ href, icon, name, key }) => (
+                <Button
+                  key={key}
+                  href={href}
+                  icon={icon}
+                  isLabelHidden={true}
+                  label={name}
+                  variant="secondary"
+                />
+              ))}
+            </div>
+            <Button
+              icon={isCollapsed ? RiContractRightLine : RiContractLeftLine}
+              isLabelHidden={true}
+              label={collapseButtonLabel}
+              tooltip={isCollapsed ? collapseButtonLabel : undefined}
+              tooltipPosition="end"
+              variant="secondary"
+              onClick={() => onCollapseChange()}
+            />
           </div>
-          <Button
-            icon={isCollapsed ? RiContractRightLine : RiContractLeftLine}
-            isLabelHidden={true}
-            label={collapseButtonLabel}
-            tooltip={isCollapsed ? collapseButtonLabel : undefined}
-            tooltipPosition="end"
-            variant="secondary"
-            onClick={() => onCollapseChange()}
-          />
         </div>
       </div>
     </div>
