@@ -39,8 +39,12 @@ export default function BlogRelatedArticleCard({ metadata }: Props) {
             {metadata.title}
           </Text>
         </Anchor>
-        <div className="flex items-center gap-x-4 gap-y-2">
-          <Text color="secondary" display="block" size="body3">
+        <div className="flex items-center gap-x-4 gap-y-2 flex-wrap">
+          <Text
+            className="whitespace-nowrap"
+            color="secondary"
+            display="inline-flex"
+            size="body3">
             <BlogTimestamp
               date={new Date((metadata as Post).createdAt).getTime()}
             />

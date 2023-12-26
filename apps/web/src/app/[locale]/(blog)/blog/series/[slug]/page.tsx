@@ -2,7 +2,6 @@ import type { Post, Series } from 'contentlayer/generated';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import BlogArticleLayout from '~/components/blog/articles/BlogArticleLayout';
 import BlogArticleMainLayout from '~/components/blog/articles/BlogArticleMainLayout';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import BlogList from '~/components/blog/filters/items/BlogList';

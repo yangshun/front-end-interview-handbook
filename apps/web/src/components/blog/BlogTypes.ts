@@ -22,6 +22,7 @@ export type BlogSortField = 'createdAt';
 export type BlogViewField = 'article' | 'list';
 
 export type BlogMetadata = Readonly<{
+  readonly articlesCount?: number;
   readonly author?: Author;
   readonly category?: Category;
   readonly hasSubseries?: boolean;

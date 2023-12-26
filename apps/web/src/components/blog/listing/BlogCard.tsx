@@ -3,6 +3,7 @@ import type { Post } from 'contentlayer/generated';
 import { RiArrowRightLine } from 'react-icons/ri';
 
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
+import BlogCountLabel from '~/components/blog/metadata/BlogCountLabel';
 import BlogLevelLabel from '~/components/blog/metadata/BlogLevelLabel';
 import BlogSeriesLabel from '~/components/blog/metadata/BlogSeriesLabel';
 import BlogTags from '~/components/blog/metadata/BlogTags';
@@ -88,12 +89,16 @@ export default function BlogCard({
             </Text>
           )}
         </div>
-        <div className="flex items-center gap-x-6 gap-y-2">
+        <div className="flex items-center gap-x-6 gap-y-2 flex-wrap w-full">
           {type === 'wide' && (
             <BlogLevelLabel showIcon={true} value={metadata.level} />
           )}
           {(metadata as Post).createdAt && !metadata.isSeries && (
-            <Text color="secondary" display="block" size="body3">
+            <Text
+              className="whitespace-nowrap"
+              color="secondary"
+              display="block"
+              size="body3">
               <BlogTimestamp
                 date={new Date((metadata as Post).createdAt).getTime()}
               />
@@ -101,6 +106,9 @@ export default function BlogCard({
           )}
           {metadata.tags.length > 0 && (
             <BlogTags showMultiple={type === 'wide'} tags={metadata.tags} />
+          )}
+          {metadata.isSeries && (
+            <BlogCountLabel count={metadata.articlesCount || 0} />
           )}
         </div>
       </div>

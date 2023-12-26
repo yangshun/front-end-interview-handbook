@@ -115,8 +115,15 @@ export const getAllSeries = (filterByCategory = '') => {
     : allSeries;
   const result = filteredSeries.map((series) => {
     const seriesMetadata = getTypeCastedMetadata(series);
+    const articlesCount = allPosts.filter(
+      (post) => post.series === series.source,
+    ).length;
 
-    return { ...seriesMetadata, isSeries: true } as BlogMetadata;
+    return {
+      ...seriesMetadata,
+      articlesCount,
+      isSeries: true,
+    } as BlogMetadata;
   });
 
   return result;

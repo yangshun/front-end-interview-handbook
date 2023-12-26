@@ -1,5 +1,3 @@
-import clsx from 'clsx';
-
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import BlogAuthor from '~/components/blog/metadata/BlogAuthor';
 import BlogCategoryLabel from '~/components/blog/metadata/BlogCategoryLabel';

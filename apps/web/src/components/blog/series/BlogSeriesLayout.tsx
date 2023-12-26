@@ -3,7 +3,6 @@
 import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
-import BlogArticle from '~/components/blog/articles/BlogArticle';
 import BlogArticleJsonLd from '~/components/blog/articles/BlogArticleJsonLd';
 import type { BlogArticleNavigationType } from '~/components/blog/articles/BlogArticleSidebar';
 import { BlogArticleSidebar } from '~/components/blog/articles/BlogArticleSidebar';
@@ -19,8 +18,6 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
-
-import BlogMetadataSection from '../metadata/BlogMetadataSection';
 
 type Props = Readonly<{
   children?: React.ReactNode;
@@ -73,7 +70,7 @@ export default function BlogSeriesLayout({
                   <Text color="secondary" display="block" size="body1">
                     {metadata.description}
                   </Text>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between flex-wrap gap-4">
                     <section className="flex flex-wrap items-center gap-x-6 gap-y-4">
                       {metadata.level && (
                         <BlogLevelLabel
