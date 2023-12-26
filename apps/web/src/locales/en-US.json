@@ -359,6 +359,10 @@
     "defaultMessage": "Discover study plans tailored to your needs to help your prepare for your upcoming technical interviews.",
     "description": "Description for study plans page"
   },
+  "2w8GaX": {
+    "defaultMessage": "Claim {discountPercentage}% off all plans by completing simple social tasks!",
+    "description": "Title for rewards page"
+  },
   "2wms0e": {
     "defaultMessage": "For a limited time, we are offering our lifetime plans at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation.",
     "description": "Subtitle of Pricing section on Homepage or Pricing page"
@@ -846,10 +850,6 @@
   "8aQEL8": {
     "defaultMessage": "Your existing code will be discarded, are you sure?",
     "description": "Text on browser confirmation pop-up when user attempts to use the reset button to reset their code"
-  },
-  "8bXZIp": {
-    "defaultMessage": "Limited time campaign",
-    "description": "Label for rewards campaign"
   },
   "8gXpts": {
     "defaultMessage": "Tasks | Rewards",
@@ -4266,6 +4266,10 @@
   "kNUgFO": {
     "defaultMessage": "Purchase premium to unlock access to {premiumProjectCount}+ premium projects and tracks.",
     "description": "Description for Premium Projects section on Projects project page"
+  },
+  "kPJCx6": {
+    "defaultMessage": "Limited",
+    "description": "Label for rewards campaign"
   },
   "kQgKV1": {
     "defaultMessage": "Learning progress cleared",

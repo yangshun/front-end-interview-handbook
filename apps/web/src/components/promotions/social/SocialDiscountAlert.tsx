@@ -35,7 +35,7 @@ function SocialDiscountAlertImpl() {
   return (
     <div
       className={clsx(
-        'flex gap-4 items-center',
+        'flex flex-col gap-4 items-center md:flex-row',
         'rounded-md p-3',
         ['border', themeLineColor],
         'bg-neutral-50 dark:bg-neutral-900',
@@ -64,9 +64,11 @@ function SocialDiscountAlertImpl() {
 
         return (
           <>
-            <SocialDiscountTicketSmall
-              title={socialDiscountLabels.ticketTitle}
-            />
+            <div className="hidden md:contents">
+              <SocialDiscountTicketSmall
+                title={socialDiscountLabels.ticketTitle}
+              />
+            </div>
             <div className="grow">
               <Text display="block" size="body1" weight="bold">
                 {socialDiscountLabels.title}
@@ -75,9 +77,10 @@ function SocialDiscountAlertImpl() {
                 {socialDiscountLabels.subtitle}
               </Text>
             </div>
-            <div className="items-center">
+            <div className="md:items-center w-full md:w-auto">
               <Button
                 addonPosition="end"
+                display="block"
                 href="/rewards/social"
                 icon={RiArrowRightLine}
                 label={socialDiscountLabels.ctaLabel}
