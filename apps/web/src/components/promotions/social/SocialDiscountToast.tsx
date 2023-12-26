@@ -1,6 +1,5 @@
 'use client';
 
-import type { ReactNode } from 'react';
 import { useEffect } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
@@ -13,27 +12,6 @@ import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
 import { useSocialDiscountLabels } from './SocialDiscountConfig';
-
-function SocialDiscountTicket({
-  title,
-  subtitle,
-}: Readonly<{
-  subtitle?: ReactNode;
-  title: ReactNode;
-}>) {
-  return (
-    <Ticket height={98} padding="none" width={156}>
-      <div className="flex flex-col justify-center items-center h-full">
-        <Text className="text-2xl" size="custom" weight="bold">
-          {title}
-        </Text>
-        <Text color="secondary" size="body3">
-          {subtitle}
-        </Text>
-      </div>
-    </Ticket>
-  );
-}
 
 function SocialDiscountToastImpl() {
   const socialDiscountLabels = useSocialDiscountLabels();
@@ -54,13 +32,17 @@ function SocialDiscountToastImpl() {
         duration: 1200000,
         maxWidth: 'sm',
         subtitle: (
-          <div className="flex gap-2 pt-4 flex-col items-center">
+          <div className="flex gap-2 pt-4 justify-between items-center">
             <Ticket height={85} padding="none" ratio="wide">
               <div className="flex flex-col justify-center items-center h-full">
                 <Text className="text-2xl" size="custom" weight="bold">
                   {promoCode.code}
                 </Text>
-                <Text color="secondary" display="block" size="body3">
+                <Text
+                  className="text-center px-6"
+                  color="secondary"
+                  display="block"
+                  size="body3">
                   {socialDiscountLabels.existingPromoSubtitle(
                     promoCode.expires_at!,
                     promoCode.coupon.percent_off,
@@ -71,7 +53,7 @@ function SocialDiscountToastImpl() {
             <div>
               <Button
                 addonPosition="end"
-                href="/rewards"
+                href="/pricing"
                 icon={RiArrowRightLine}
                 label={socialDiscountLabels.existingPromoCtaLabel}
                 variant="secondary"
@@ -124,6 +106,7 @@ function SocialDiscountToastImpl() {
     return () => {
       closeToast();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   return null;

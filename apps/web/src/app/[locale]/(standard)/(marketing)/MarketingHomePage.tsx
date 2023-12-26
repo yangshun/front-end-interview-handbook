@@ -15,7 +15,7 @@ import type {
   QuestionJavaScript,
   QuestionMetadata,
 } from '~/components/interviews/questions/common/QuestionsTypes';
-import SocialDiscountToast from '~/components/promotions/SocialDiscountToast';
+import SocialDiscountToast from '~/components/promotions/social/SocialDiscountToast';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 const MarketingHomePageBottom = dynamic(

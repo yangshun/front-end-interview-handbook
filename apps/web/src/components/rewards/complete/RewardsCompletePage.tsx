@@ -55,35 +55,24 @@ export default function RewardsCompletePage() {
             />
           </Heading>
         </div>
-        <div>
-          <Text
-            className="text-center"
-            color="secondary"
-            display="block"
-            size="body1">
-            <FormattedMessage
-              defaultMessage="This is a one-time use promo code exclusive to your account."
-              description="Subtext for rewards complete page"
-              id="Wx0nGc"
-            />
-          </Text>
-          <Text
-            className="text-center"
-            color="secondary"
-            display="block"
-            size="body1">
-            <FormattedMessage
-              defaultMessage="You can find your available promos codes on the <link>profile page</link>."
-              description="Subtext for rewards complete page"
-              id="+v0L3W"
-              values={{
-                link: (chunks) => (
-                  <Anchor href="/profile/coupons">{chunks}</Anchor>
-                ),
-              }}
-            />
-          </Text>
-        </div>
+        <Text
+          className="text-center"
+          color="secondary"
+          display="block"
+          size="body1">
+          <FormattedMessage
+            defaultMessage="This is a one-time use promo code exclusive to your account and <strong>can only be generated once</strong>."
+            description="Subtext for rewards complete page"
+            id="k18teo"
+            values={{
+              strong: (chunks) => (
+                <strong className="font-medium whitespace-nowrap">
+                  {chunks}
+                </strong>
+              ),
+            }}
+          />
+        </Text>
       </div>
       {promoCode != null && (
         <div className="flex flex-col gap-8 w-[400px]">
@@ -125,6 +114,22 @@ export default function RewardsCompletePage() {
             title={promoCode.code}
             width={400}
           />
+          <Text
+            className="text-center"
+            color="secondary"
+            display="block"
+            size="body1">
+            <FormattedMessage
+              defaultMessage="You can find your promos codes on the <link>profile page</link>."
+              description="Subtext for rewards complete page"
+              id="5BEps7"
+              values={{
+                link: (chunks) => (
+                  <Anchor href="/profile/coupons">{chunks}</Anchor>
+                ),
+              }}
+            />
+          </Text>
           <div className="flex flex-col w-full gap-x-6 gap-y-4 sm:flex-row">
             <Button
               className="self-stretch sm:self-auto"

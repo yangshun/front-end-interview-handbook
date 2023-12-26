@@ -1,9 +1,9 @@
 import type { Metadata } from 'next/types';
 
+import PromotionsPage from '~/components/promotions/PromotionsPage';
+
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import PromotionsPage from './PromotionsPage';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;

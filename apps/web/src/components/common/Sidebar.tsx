@@ -16,7 +16,7 @@ import { useIntl } from 'react-intl';
 import { useGuidesData } from '~/data/Guides';
 import { SocialLinks } from '~/data/SocialLinks';
 
-import { SocialDiscountSidebarMention } from '~/components/promotions/SocialDiscountSidebarMention';
+import { SocialDiscountSidebarMention } from '~/components/promotions/social/SocialDiscountSidebarMention';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';

@@ -27,7 +27,7 @@ import {
 } from '~/data/PromotionConfig';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import { SocialDiscountAlert } from '~/components/promotions/SocialDiscountAlert';
+import { SocialDiscountAlert } from '~/components/promotions/social/SocialDiscountAlert';
 import Alert from '~/components/ui/Alert';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';

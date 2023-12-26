@@ -8,7 +8,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
-import { SOCIAL_DISCOUNT_PERCENTAGE } from '../promotions/SocialDiscountConfig';
+import { SOCIAL_DISCOUNT_PERCENTAGE } from '../promotions/social/SocialDiscountConfig';
 import Anchor from '../ui/Anchor';
 
 type Props = Readonly<{

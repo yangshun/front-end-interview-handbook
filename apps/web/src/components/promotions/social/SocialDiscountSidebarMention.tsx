@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import type { ReactNode } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
@@ -9,7 +10,36 @@ import Text from '~/components/ui/Text';
 import { themeLineColor } from '~/components/ui/theme';
 
 import { useSocialDiscountLabels } from './SocialDiscountConfig';
-import { SocialDiscountSpecialTicket } from './SocialDiscountSpecialTicket';
+import Ticket from '../../common/tickets/Ticket';
+
+type Props = Readonly<{
+  height?: number;
+  subtitle?: ReactNode;
+  title: ReactNode;
+  width?: number;
+}>;
+
+function SocialDiscountSpecialTicket({
+  title,
+  subtitle,
+  height,
+  width,
+}: Props) {
+  return (
+    <Ticket height={height} padding="md" width={width}>
+      <div className="flex flex-col justify-center items-center h-full">
+        <Text className="text-2xl" size="custom" weight="bold">
+          {title}
+        </Text>
+        {subtitle && (
+          <Text className="text-center px-2" color="secondary" size="body3">
+            {subtitle}
+          </Text>
+        )}
+      </div>
+    </Ticket>
+  );
+}
 
 function SocialDiscountSidebarMentionImpl() {
   const socialDiscountLabels = useSocialDiscountLabels();

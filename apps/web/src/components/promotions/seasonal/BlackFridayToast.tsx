@@ -2,15 +2,14 @@
 
 import { useEffect } from 'react';
 
+import { useToast } from '~/components/global/toasts/ToastsProvider';
+import { useUserProfile } from '~/components/global/UserProfileProvider';
 import {
   BlackFridayExclusiveTicket,
   BlackFridayLiveBadge,
   BlackFridayPromoCard,
-} from '~/components/promotions/BlackFridaySpecial';
+} from '~/components/promotions/seasonal/BlackFridaySpecial';
 import Text from '~/components/ui/Text';
-
-import { useToast } from '../global/toasts/ToastsProvider';
-import { useUserProfile } from '../global/UserProfileProvider';
 
 export default function BlackFridayToast() {
   const { showToast } = useToast();

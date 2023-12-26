@@ -2,6 +2,10 @@ import { useIntl } from 'react-intl';
 
 export const SOCIAL_DISCOUNT_PERCENTAGE = 20;
 
+const dateFormatter = new Intl.DateTimeFormat(undefined, {
+  dateStyle: 'medium',
+});
+
 export function useSocialDiscountLabels() {
   const intl = useIntl();
 
@@ -22,13 +26,13 @@ export function useSocialDiscountLabels() {
     ) =>
       intl.formatMessage(
         {
-          defaultMessage: '{discountPercentage}% off, expires {expiryDate}',
+          defaultMessage: '{discountPercentage}% off, expires on {expiryDate}',
           description: 'Rewards discount message',
-          id: 'Hc2Ee0',
+          id: '8tpjrI',
         },
         {
           discountPercentage,
-          expiryDate,
+          expiryDate: dateFormatter.format(expiryDate * 1000),
         },
       ),
     existingPromoTitle: intl.formatMessage({
@@ -54,9 +58,9 @@ export function useSocialDiscountLabels() {
     }),
     ticketTitle: intl.formatMessage(
       {
-        defaultMessage: '{discountPercentage}% off!',
+        defaultMessage: '{discountPercentage}% off',
         description: 'Rewards discount message',
-        id: 'qjR1Nj',
+        id: 'T4ajXP',
       },
       {
         discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
