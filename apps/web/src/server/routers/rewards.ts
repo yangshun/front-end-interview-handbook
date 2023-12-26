@@ -234,7 +234,7 @@ export const rewardsRouter = router({
         customer,
       });
 
-      if (promotionCodes.data.length > 1) {
+      if (promotionCodes.data.length > 0) {
         throw 'You have claimed this reward before.';
       }
 

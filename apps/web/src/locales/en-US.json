@@ -1631,10 +1631,6 @@
     "defaultMessage": "Tell the community about yourself - your background, skills, aspirations and skills and tools you hope to pick up!",
     "description": "Description for Biography input on Projects profile onboarding page"
   },
-  "I619Rj": {
-    "defaultMessage": "Profile image",
-    "description": "Alt text for user profile image"
-  },
   "IBP/D0": {
     "defaultMessage": "Tell us your email if you want us to follow up with you.",
     "description": "Feedback widget text to request for optional email input for following up"
