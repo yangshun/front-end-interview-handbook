@@ -84,6 +84,8 @@ export const rewardsRouter = router({
       const hasLastPage = initialResponse.headers.link?.includes(`rel="last"`);
 
       if (!hasLastPage) {
+        pagesRemaining = 0;
+
         const { data } = initialResponse;
 
         if (!data.some((repo: any) => repo.id === GITHUB_REPO_ID)) {
