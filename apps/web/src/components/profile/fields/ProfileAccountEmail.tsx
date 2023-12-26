@@ -7,10 +7,9 @@ import { z } from 'zod';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
+import { themeLineColor } from '~/components/ui/theme';
 
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
-
-import { themeLineColor } from '../../ui/theme';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { User } from '@supabase/supabase-js';
@@ -74,7 +73,7 @@ export default function ProfileAccountEmail({ user }: Props) {
   return (
     <div className={clsx('p-4', 'rounded-lg border', themeLineColor)}>
       <form
-        className="space-y-6 mt-2"
+        className="flex flex-col gap-4"
         onSubmit={handleSubmit(async (data) => {
           setMessage('');
 
@@ -145,7 +144,7 @@ export default function ProfileAccountEmail({ user }: Props) {
               id: 'vSWYET',
             })}
             type="submit"
-            variant="primary"
+            variant="secondary"
           />
         </div>
       </form>

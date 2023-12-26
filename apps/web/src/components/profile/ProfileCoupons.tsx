@@ -21,11 +21,18 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
 
 export default function ProfileCoupons() {
   const intl = useIntl();
-
   const profilePromoCodes = trpc.marketing.userPromoCodes.useQuery();
 
+  if (profilePromoCodes.isLoading) {
+    return (
+      <div className="py-10">
+        <Spinner display="block" size="lg" />
+      </div>
+    );
+  }
+
   return (
-    <div className="flex flex-col gap-y-6">
+    <div className="flex flex-col gap-y-4">
       <Heading className="sr-only" level="custom">
         <FormattedMessage
           defaultMessage="Coupons"
@@ -34,9 +41,7 @@ export default function ProfileCoupons() {
         />
       </Heading>
       <Section>
-        {profilePromoCodes.isLoading ? (
-          <Spinner label="Loading..." size="md" />
-        ) : profilePromoCodes.data?.data.length === 0 ? (
+        {profilePromoCodes.data?.data.length === 0 ? (
           <EmptyState
             subtitle={
               <FormattedMessage

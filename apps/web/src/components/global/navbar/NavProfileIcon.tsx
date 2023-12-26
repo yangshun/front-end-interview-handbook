@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { forwardRef, Fragment } from 'react';
 import { RiAccountCircleLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import type { NavLinkItem } from '~/components/ui/Navbar/NavTypes';
@@ -16,9 +16,9 @@ import {
 import { Menu, Transition } from '@headlessui/react';
 
 type Props = Readonly<{
-  email?: string;
+  avatarUrl?: string; // Can be name or email.
   navItems: ReadonlyArray<NavLinkItem>;
-  thumbnailUrl?: string;
+  userIdentifierString?: string;
 }>;
 
 const NavProfileLink = forwardRef<
@@ -45,12 +45,10 @@ const NavProfileLink = forwardRef<
 });
 
 export default function NavProfileIcon({
-  email,
+  userIdentifierString,
   navItems,
-  thumbnailUrl,
+  avatarUrl,
 }: Props) {
-  const intl = useIntl();
-
   return (
     <Menu as="div" className="relative inline-block shrink-0">
       <div className="flex">
@@ -77,15 +75,11 @@ export default function NavProfileIcon({
               id="EjbpUe"
             />
           </span>
-          {thumbnailUrl ? (
+          {avatarUrl ? (
             <img
-              alt={intl.formatMessage({
-                defaultMessage: 'Profile image',
-                description: 'Alt text for user profile image',
-                id: 'I619Rj',
-              })}
+              alt={userIdentifierString}
               className="h-7 w-7 rounded-full"
-              src={thumbnailUrl}
+              src={avatarUrl}
             />
           ) : (
             <RiAccountCircleLine className={clsx('h-5 w-5', themeTextColor)} />
@@ -116,7 +110,7 @@ export default function NavProfileIcon({
             display="block"
             size="body2"
             weight="bold">
-            {email}
+            {userIdentifierString}
           </Text>
           <div className="p-2" role="none">
             {navItems.map((navItem) => (

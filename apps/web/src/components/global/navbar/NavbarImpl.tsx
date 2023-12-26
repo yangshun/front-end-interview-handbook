@@ -9,6 +9,7 @@ import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 import useIsSticky from '~/hooks/useIsSticky';
+import useProfile from '~/hooks/user/useProfile';
 
 import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
 import { useFocusAreas } from '~/data/focus-areas/FocusAreasHooks';
@@ -635,10 +636,10 @@ export default function NavbarImpl() {
   const { appThemePreference, setAppThemePreference } =
     useAppThemePreferences();
   const user = useUser();
-  const { isUserProfileLoading, userProfile } = useUserProfile();
+  const { isLoading: isUserProfileLoading, profile } = useProfile();
   const intl = useIntl();
   const isLoggedIn = user != null;
-  const isPremium = userProfile?.isPremium ?? false;
+  const isPremium = profile?.premium ?? false;
   const links = useNavLinks(isLoggedIn, isPremium);
   const userNavigationLinks = useUserNavigationLinks();
   const { locale, pathname } = useI18nPathname();
@@ -673,9 +674,9 @@ export default function NavbarImpl() {
       )}
       {isLoggedIn && (
         <NavProfileIcon
-          email={user?.email}
+          avatarUrl={profile?.avatarUrl ?? user?.user_metadata?.avatar_url}
           navItems={userNavigationLinks}
-          thumbnailUrl={user?.user_metadata?.avatar_url}
+          userIdentifierString={profile?.name ?? user?.email}
         />
       )}
     </>
@@ -756,11 +757,11 @@ export default function NavbarImpl() {
   const mobileSidebarBottomItems = isLoggedIn && (
     <div className="flex shrink-0 items-center gap-x-3">
       <div>
-        {user?.user_metadata?.avatar_url ? (
+        {profile?.avatarUrl ? (
           <img
-            alt=""
+            alt={profile?.name ?? user?.email}
             className="inline-block h-8 w-8 rounded-full"
-            src={user?.user_metadata?.avatar_url}
+            src={profile?.avatarUrl}
           />
         ) : (
           <RiAccountCircleLine
@@ -769,7 +770,7 @@ export default function NavbarImpl() {
         )}
       </div>
       <Text color="subtitle" display="block" size="body2" weight="medium">
-        {user?.user_metadata?.name ?? user?.email}
+        {profile?.name ?? user?.email}
       </Text>
     </div>
   );

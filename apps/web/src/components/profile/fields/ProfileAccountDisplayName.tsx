@@ -13,8 +13,7 @@ import {
 import { useToast } from '~/components/global/toasts/ToastsProvider';
 import Button from '~/components/ui/Button';
 import TextInput from '~/components/ui/TextInput';
-
-import { themeLineColor } from '../../ui/theme';
+import { themeLineColor } from '~/components/ui/theme';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -56,6 +55,7 @@ export default function ProfileAccountDisplayName() {
   return (
     <div className={clsx('p-4', 'rounded-lg border', themeLineColor)}>
       <form
+        className="flex flex-col gap-4"
         onSubmit={handleSubmit(async (data) => {
           await nameUpdateMutation.mutateAsync(data);
           reset(data);
@@ -81,8 +81,7 @@ export default function ProfileAccountDisplayName() {
         />
         <div className="flex justify-end">
           <Button
-            className="mt-4"
-            isDisabled={!isDirty || !isValid}
+            isDisabled={!isDirty || !isValid || isSubmitting}
             isLoading={isSubmitting}
             label={intl.formatMessage({
               defaultMessage: 'Save changes',
