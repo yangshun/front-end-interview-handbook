@@ -310,7 +310,7 @@ export const rewardsRouter = router({
     )
     .mutation(
       async ({ input: { gitHubUsername, linkedInUrl, twitterUsername } }) => {
-        return Promise.all([
+        const results = await Promise.allSettled([
           (async () => {
             if (!gitHubUsername.trim()) {
               throw 'Empty GitHub username';
@@ -332,12 +332,21 @@ export const rewardsRouter = router({
               throw 'Invalid LinkedIn profile';
             }
           })(),
-          (() => {
+          (async () => {
             if (twitterUsername.trim() === '') {
               throw 'Invalid Twitter username';
             }
           })(),
         ]);
+
+        return {
+          allValid: results.every(({ status }) => status === 'fulfilled'),
+          fields: {
+            gitHub: results[0],
+            linkedIn: results[1],
+            twitter: results[2],
+          },
+        };
       },
     ),
 });

@@ -83,7 +83,11 @@ export default function RewardsTaskItem({
 
   return (
     <div>
-      <div className="flex justify-between h-14 items-center">
+      <div
+        className={clsx(
+          'flex justify-between items-center',
+          status === 'none' ? 'h-11' : 'h-14',
+        )}>
         <div className="flex items-center gap-x-4">
           <Icon
             className={clsx(
@@ -91,7 +95,7 @@ export default function RewardsTaskItem({
               'text-neutral-400 dark:text-neutral-500',
             )}
           />
-          <Text display="block" size="body1">
+          <Text display="block" size="body2">
             {label}
           </Text>
         </div>

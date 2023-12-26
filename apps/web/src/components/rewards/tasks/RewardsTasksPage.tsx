@@ -245,9 +245,9 @@ export default function RewardsTasksPage() {
   );
 
   return (
-    <div className="flex flex-col gap-y-12 items-center max-w-lg w-full mx-auto">
-      <RewardsHeader isSignedIn={true} />
-      <div className="flex flex-col gap-6 w-full">
+    <div className="flex flex-col gap-y-10 items-center max-w-lg w-full mx-auto">
+      <RewardsHeader />
+      <div className="flex flex-col gap-4 w-full">
         <RewardsStepLabel
           label={
             <FormattedMessage
@@ -286,7 +286,7 @@ export default function RewardsTasksPage() {
           )}
         </div>
       </div>
-      <div className="flex flex-col gap-6 w-full">
+      <div className="flex flex-col gap-4 w-full">
         <RewardsStepLabel
           label={
             <FormattedMessage
@@ -335,7 +335,7 @@ export default function RewardsTasksPage() {
                         });
                       },
                       onSuccess: () => {
-                        router.push('/rewards/complete');
+                        router.push('/rewards/social/complete');
                       },
                     });
                   }}

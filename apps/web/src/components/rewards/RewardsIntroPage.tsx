@@ -9,11 +9,7 @@ import Text from '~/components/ui/Text';
 
 import { useRewardsTasks } from './tasks/useRewardsTasks';
 
-type Props = Readonly<{
-  isSignedIn: boolean;
-}>;
-
-export default function RewardsIntroPage({ isSignedIn }: Props) {
+export default function RewardsIntroPage() {
   const tasks = useRewardsTasks();
   const tasksWithStatus = tasks.map((task) => ({
     ...task,
@@ -21,10 +17,10 @@ export default function RewardsIntroPage({ isSignedIn }: Props) {
   }));
 
   return (
-    <div className="flex flex-col gap-y-12 items-center max-w-lg w-full mx-auto">
-      <RewardsHeader isSignedIn={isSignedIn} />
-      <div className="flex flex-col gap-y-4 w-full">
-        <Text color="secondary" display="block" size="body1">
+    <div className="flex flex-col gap-y-10 items-center max-w-lg w-full mx-auto">
+      <RewardsHeader />
+      <div className="flex flex-col gap-y-3 w-full">
+        <Text color="secondary" display="block" size="body2">
           <FormattedMessage
             defaultMessage="Here are the tasks for this campaign:"
             description="Description for campaign tasks"
@@ -33,7 +29,7 @@ export default function RewardsIntroPage({ isSignedIn }: Props) {
         </Text>
         <RewardsTaskList tasks={tasksWithStatus} />
       </div>
-      <RewardsFooter isSignedIn={isSignedIn} />
+      <RewardsFooter />
     </div>
   );
 }

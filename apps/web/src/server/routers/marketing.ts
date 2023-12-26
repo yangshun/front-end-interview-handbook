@@ -74,7 +74,14 @@ export const marketingRouter = router({
 
       return 'Subscribed successfully!';
     }),
-  userPromoCodes: userProcedure.query(async ({ ctx: { user } }) => {
+  // Intentionally make it publicProcedure since this can be called by
+  // non-logged in users and showing an error is ugly.
+  // We just return `null` if not logged in.
+  userPromoCodes: publicProcedure.query(async ({ ctx: { user } }) => {
+    if (user == null) {
+      return null;
+    }
+
     const profile = await prisma.profile.findFirst({
       where: {
         id: user.id,

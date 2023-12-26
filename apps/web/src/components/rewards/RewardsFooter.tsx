@@ -3,22 +3,21 @@
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import useProfile from '~/hooks/user/useProfile';
+
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Text from '~/components/ui/Text';
 
-type Props = Readonly<{
-  isSignedIn: boolean;
-}>;
-
-export default function RewardsHeader({ isSignedIn }: Props) {
+export default function RewardsHeader() {
   const intl = useIntl();
+  const { profile } = useProfile();
 
   return (
     <Container className="flex flex-col gap-6 items-center">
       <div className="flex flex-col gap-4 items-center">
-        <Text color="secondary" display="inline-flex" size="body1">
+        <Text color="secondary" display="inline-flex" size="body2">
           <FormattedMessage
             defaultMessage="Ready to begin?"
             description="Description for start tasks prompt"
@@ -28,9 +27,9 @@ export default function RewardsHeader({ isSignedIn }: Props) {
         <Button
           className="self-stretch sm:self-auto"
           href={
-            isSignedIn
-              ? '/rewards/tasks'
-              : `/login?next=${encodeURIComponent('/rewards')}`
+            profile != null
+              ? '/rewards/social/tasks'
+              : `/login?next=${encodeURIComponent('/rewards/social')}`
           }
           icon={RiArrowRightLine}
           label={intl.formatMessage({
@@ -49,7 +48,7 @@ export default function RewardsHeader({ isSignedIn }: Props) {
           id="iHPzK0"
           values={{
             link: (chunks) => (
-              <Anchor className="font-medium" href="/rewards/terms">
+              <Anchor className="font-medium" href="/rewards/social/terms">
                 {chunks}
               </Anchor>
             ),

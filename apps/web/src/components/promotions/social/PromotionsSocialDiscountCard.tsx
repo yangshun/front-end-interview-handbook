@@ -44,7 +44,7 @@ export function PromotionsSocialDiscountCard() {
                 link: (chunks) => (
                   <Anchor
                     className="mx-auto justify-center whitespace-nowrap font-medium"
-                    href="/rewards/terms">
+                    href="/rewards/social/terms">
                     {chunks}
                   </Anchor>
                 ),
@@ -91,7 +91,7 @@ export function PromotionsSocialDiscountCard() {
           <div className="mt-4">
             <Button
               display="block"
-              href="/rewards"
+              href="/rewards/social"
               icon={RiArrowRightLine}
               label={intl.formatMessage({
                 defaultMessage: 'Start tasks',

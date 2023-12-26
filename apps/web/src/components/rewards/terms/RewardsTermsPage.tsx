@@ -16,7 +16,7 @@ export default function RewardsTermsPage() {
       <div>
         <Button
           addonPosition="start"
-          href="/rewards"
+          href="/rewards/social"
           icon={RiArrowLeftLine}
           label={intl.formatMessage({
             defaultMessage: 'Back',

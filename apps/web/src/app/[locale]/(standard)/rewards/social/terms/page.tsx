@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     locale,
-    pathname: '/rewards/terms',
+    pathname: '/rewards/social/terms',
     title: intl.formatMessage({
       defaultMessage: 'Rewards Terms and Conditions',
       description: 'Title of rewards terms page',

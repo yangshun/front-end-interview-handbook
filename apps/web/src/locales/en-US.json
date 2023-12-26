@@ -947,6 +947,10 @@
     "defaultMessage": "JavaScript Polyfills",
     "description": "Name of focus area questions"
   },
+  "9Z/GHL": {
+    "defaultMessage": "Something went wrong, please check your input.",
+    "description": "Form error text"
+  },
   "9fclPT": {
     "defaultMessage": "Practice writing JavaScript and DOM API Polyfills",
     "description": "Title for interview preparation focus area"
@@ -1566,10 +1570,6 @@
   "HOCjPY": {
     "defaultMessage": "Implement popular JavaScript library and utility functions",
     "description": "Description of JavaScript utility function questions"
-  },
-  "HQunmZ": {
-    "defaultMessage": "Rewards",
-    "description": "Title of Rewards page"
   },
   "HRk5Ic": {
     "defaultMessage": "Help others review their code and answer questions",
@@ -2923,10 +2923,6 @@
     "defaultMessage": "Guided by well-known senior engineers",
     "description": "Title of 'Guided by well-known senior engineers' feature in marketing page"
   },
-  "W8ke1i": {
-    "defaultMessage": "We are giving away an exclusive {discountPercentage}% off all plans for completing simple tasks like following our socials!",
-    "description": "Subtext for rewards page"
-  },
   "WB/L0V": {
     "defaultMessage": "{numberOfHours} hours weekly",
     "description": "Number of hours needed on a weekly basis. E.g. 4 hours weekly"
@@ -3966,10 +3962,6 @@
   "hQa+4K": {
     "defaultMessage": "Why be a GreatFrontEnd Affiliate?",
     "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
-  },
-  "hdCLkO": {
-    "defaultMessage": "We are giving away exclusive promo codes for {discountPercentage}% off all plans.",
-    "description": "Subtext for rewards page"
   },
   "hdlJES": {
     "defaultMessage": "Secondary reason",
@@ -5115,6 +5107,10 @@
     "defaultMessage": "Click here to view the full solution and other System Design guides.",
     "description": "Button label within embed"
   },
+  "tk2fQh": {
+    "defaultMessage": "Social rewards",
+    "description": "Title of Rewards page"
+  },
   "tnHfa2": {
     "defaultMessage": "Move line down",
     "description": "Text describing command to move lines down in the coding workspace shortcuts menu"
@@ -5354,10 +5350,6 @@
   "wAZkHT": {
     "defaultMessage": "Tags",
     "description": "Screenreader text indicating component for blog tags"
-  },
-  "wJFwf9": {
-    "defaultMessage": "Simply complete social tasks like following our socials to claim your code!",
-    "description": "Subtext for rewards page"
   },
   "wO0zga": {
     "defaultMessage": "Skills roadmap",

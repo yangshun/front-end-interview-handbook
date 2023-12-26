@@ -102,7 +102,7 @@ function SocialDiscountSidebarMentionImpl() {
                 <div className="w-full">
                   <Button
                     addonPosition="end"
-                    href="/rewards"
+                    href="/rewards/social"
                     icon={RiArrowRightLine}
                     label={socialDiscountLabels.ctaLabel}
                     variant="secondary"

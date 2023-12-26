@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -14,6 +15,12 @@ export type RewardsHandlesData = Readonly<{
   twitterUsername: string;
 }>;
 
+type RewardsHandlesValidation = Readonly<{
+  gitHub: PromiseSettledResult<void>;
+  linkedIn: PromiseSettledResult<void>;
+  twitter: PromiseSettledResult<void>;
+}>;
+
 type Props = Readonly<{
   handlesData: RewardsHandlesData;
   onHandlesDataChange: (newData: RewardsHandlesData) => void;
@@ -27,10 +34,13 @@ export default function RewardsSocialHandlesForm({
 }: Props) {
   const { mutate: verifySocialHandles, isLoading } =
     trpc.rewards.verifySocialHandles.useMutation();
+  const [validationErrors, setValidationErrors] =
+    useState<RewardsHandlesValidation | null>(null);
+  const [hasError, setHasError] = useState(false);
 
   return (
     <form
-      className="flex flex-col gap-4 w-full"
+      className="flex flex-col gap-2 w-full"
       onSubmit={(event) => {
         event.preventDefault();
 
@@ -41,9 +51,20 @@ export default function RewardsSocialHandlesForm({
           twitterUsername: (formData.get('twitter') ?? '').toString(),
         };
 
+        setHasError(false);
+        setValidationErrors(null);
         verifySocialHandles(data, {
-          onSuccess: () => {
-            onNextStage(data);
+          onError: () => {
+            setHasError(true);
+          },
+          onSuccess: (res) => {
+            if (res.allValid) {
+              onNextStage(data);
+
+              return;
+            }
+
+            setValidationErrors(res.fields);
           },
         });
       }}>
@@ -60,6 +81,11 @@ export default function RewardsSocialHandlesForm({
           <div className="max-w-sm w-full">
             <TextInput
               autoFocus={true}
+              errorMessage={
+                validationErrors?.gitHub.status === 'rejected'
+                  ? validationErrors?.gitHub.reason
+                  : undefined
+              }
               isDisabled={isLoading}
               isLabelHidden={true}
               label="GitHub"
@@ -79,6 +105,11 @@ export default function RewardsSocialHandlesForm({
           <Text size="body2">LinkedIn</Text>
           <div className="max-w-sm w-full">
             <TextInput
+              errorMessage={
+                validationErrors?.linkedIn.status === 'rejected'
+                  ? validationErrors?.linkedIn.reason
+                  : undefined
+              }
               isDisabled={isLoading}
               isLabelHidden={true}
               label="LinkedIn"
@@ -99,6 +130,11 @@ export default function RewardsSocialHandlesForm({
           <div className="max-w-sm w-full">
             <TextInput
               className="w-full"
+              errorMessage={
+                validationErrors?.twitter.status === 'rejected'
+                  ? validationErrors?.twitter.reason
+                  : undefined
+              }
               isDisabled={isLoading}
               isLabelHidden={true}
               label="Twitter"
@@ -115,6 +151,15 @@ export default function RewardsSocialHandlesForm({
           </div>
         </div>
       </div>
+      {hasError && (
+        <Text color="error" display="block" size="body2">
+          <FormattedMessage
+            defaultMessage="Something went wrong, please check your input."
+            description="Form error text"
+            id="9Z/GHL"
+          />
+        </Text>
+      )}
       <div className="flex justify-end">
         <Button
           isDisabled={isLoading}

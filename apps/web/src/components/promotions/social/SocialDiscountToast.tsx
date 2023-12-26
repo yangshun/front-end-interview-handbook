@@ -83,7 +83,7 @@ function SocialDiscountToastImpl() {
             <div>
               <Button
                 addonPosition="end"
-                href="/rewards"
+                href="/rewards/social"
                 icon={RiArrowRightLine}
                 label={socialDiscountLabels.ctaLabel}
                 variant="secondary"

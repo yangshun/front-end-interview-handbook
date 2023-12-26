@@ -4,7 +4,6 @@ import RewardsIntroPage from '~/components/rewards/RewardsIntroPage';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-import { fetchUser } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -19,17 +18,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     locale,
-    pathname: '/rewards',
+    pathname: '/rewards/social',
     title: intl.formatMessage({
-      defaultMessage: 'Rewards',
+      defaultMessage: 'Social rewards',
       description: 'Title of Rewards page',
-      id: 'HQunmZ',
+      id: 'tk2fQh',
     }),
   });
 }
 
 export default async function Page() {
-  const user = await fetchUser();
-
-  return <RewardsIntroPage isSignedIn={user != null} />;
+  return <RewardsIntroPage />;
 }

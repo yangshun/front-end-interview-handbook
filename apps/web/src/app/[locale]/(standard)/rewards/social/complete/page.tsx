@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     locale,
-    pathname: '/rewards/complete',
+    pathname: '/rewards/social/complete',
     title: intl.formatMessage({
       defaultMessage: 'Complete | Rewards',
       description: 'Title of Rewards Complete page',
@@ -33,7 +33,7 @@ export default async function Page() {
   const user = await fetchUser();
 
   if (user == null) {
-    return redirect(`/login?next=${encodeURIComponent('/rewards')}`);
+    return redirect(`/login?next=${encodeURIComponent('/rewards/social')}`);
   }
 
   return <RewardsCompletePage />;
