@@ -66,13 +66,15 @@ export const rewardsRouter = router({
     )
     .mutation(async ({ input: { username }, ctx: { user } }) => {
       const octokit = new Octokit({});
-      const prevPattern = /(?<=<)([\S]*)(?=>; rel="prev")/i;
       const lastPattern = /(?<=<)([\S]*)(?=>; rel="last")/i;
-      let pagesRemaining = 5;
-      let url = `/users/${username}/starred`;
-      let isStarred = false;
+      const normalUrl = `/users/${username}/starred`;
+      const pagesToCheck = 5;
+      const campaign = SOCIAL_TASKS_DISCOUNT_CAMPAIGN;
+      const action = 'GITHUB_STAR';
+      const userId = user.id;
+      const identifier = username;
 
-      const initialResponse = await octokit.request(`GET ${url}`, {
+      const initialResponse = await octokit.request(`GET ${normalUrl}`, {
         headers: {
           Accept: 'application/vnd.github+json',
           Authorization: `token ${process.env.GITHUB_TOKEN}`,
@@ -84,54 +86,59 @@ export const rewardsRouter = router({
       const hasLastPage = initialResponse.headers.link?.includes(`rel="last"`);
 
       if (!hasLastPage) {
-        pagesRemaining = 0;
-
         const { data } = initialResponse;
 
         if (!data.some((repo: any) => repo.id === GITHUB_REPO_ID)) {
           throw 'Not starred';
         }
 
-        isStarred = true;
-      }
-
-      // Get the last page
-      url = initialResponse.headers.link?.match(lastPattern)?.[0] ?? '';
-      while (pagesRemaining) {
-        const response = await octokit.request(`GET ${url}`, {
-          headers: {
-            Accept: 'application/vnd.github+json',
-            Authorization: `token ${process.env.GITHUB_TOKEN}`,
+        await prisma.rewardsTaskCompletion.create({
+          data: {
+            action,
+            campaign,
+            identifier,
+            userId,
           },
-          per_page: 100,
         });
-        const { data } = response;
 
-        if (data.some((repo: any) => repo.id === GITHUB_REPO_ID)) {
-          isStarred = true;
-          break;
-        }
-
-        // Check if there is a previous page
-        const hasPrevPage = response.headers.link?.includes(`rel="prev"`);
-
-        if (!hasPrevPage) {
-          break;
-        }
-
-        // Get the previous page
-        url = response.headers.link?.match(prevPattern)?.[0] ?? '';
-        pagesRemaining--;
+        return true;
       }
 
-      if (!isStarred && pagesRemaining > 0) {
+      // Get the last 5 pages
+      const lastUrl =
+        initialResponse.headers.link?.match(lastPattern)?.[0] ?? '';
+      const lastNumberString = lastUrl.match(/\d+$/)?.[0] ?? '0';
+      const baseUrl = lastUrl.slice(0, -lastNumberString.length);
+      const lastNumber = Number(lastNumberString);
+      const urls =
+        lastNumber === 0
+          ? []
+          : Array.from(
+              { length: pagesToCheck },
+              (_, i) => `${baseUrl}${lastNumber - i}`,
+            );
+
+      const responses = await Promise.all(
+        urls.map((url) =>
+          octokit.request(`GET ${url}`, {
+            headers: {
+              Accept: 'application/vnd.github+json',
+              Authorization: `token ${process.env.GITHUB_TOKEN}`,
+            },
+            per_page: 100,
+          }),
+        ),
+      );
+
+      const ids = responses.flatMap((response) =>
+        response.data.map((repo: any) => repo.id),
+      );
+
+      const isStarred = ids.includes(GITHUB_REPO_ID);
+
+      if (!isStarred && lastNumber <= pagesToCheck) {
         throw 'Not starred';
       }
-
-      const campaign = SOCIAL_TASKS_DISCOUNT_CAMPAIGN;
-      const action = 'GITHUB_STAR';
-      const userId = user.id;
-      const identifier = username;
 
       await prisma.rewardsTaskCompletion.create({
         data: {
