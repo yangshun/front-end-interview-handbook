@@ -9,7 +9,7 @@ import intersectionWithTs from '../setup/src/intersection-with.ts';
   languages={{ jsx: intersectionWithJs, tsx: intersectionWithTs }}
 />
 
-The solution first maps each array using the iteratee function to transform the values. Then, it filters the values from the first mapped array that are present in all the other mapped arrays. Finally, it maps the intersected values back to the original values from the first array.
+The solution iterates over the values of the first array using `.filter`. For each value, it checks whether in every other array there is some value such that the comparator function returns true. If so, then the value passes the filter and is included in the returned array.
 
 ## Resources
 
