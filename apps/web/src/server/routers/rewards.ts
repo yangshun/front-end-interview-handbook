@@ -241,7 +241,9 @@ export const rewardsRouter = router({
         customer,
       });
 
-      if (promotionCodes.data.length > 0) {
+      // Allow 3 promo generations since some users
+      // might waste the promo code on failed payments (e.g. India).
+      if (promotionCodes.data.length > 3) {
         throw 'You have claimed this reward before.';
       }
 
