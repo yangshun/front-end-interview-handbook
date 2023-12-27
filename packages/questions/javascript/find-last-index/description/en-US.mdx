@@ -35,6 +35,7 @@ findLastIndex(arr, (num) => num < 1, 3); // => -1
 Your function should handle negative and out of bound indices.
 
 - Negative: negative integers count back from the last item in the array. `-1` means the last element in the array, `-2` means the second last element, and so on.
+- Negative and out of bounds: if the absolute value of the negative integer given is greater than the length of the array, then the search start defaults to the first item in the array.
 - Out of bound: if `index >= array.length`, start from the last index.
 
 ```js
@@ -48,9 +49,8 @@ findLastIndex(arr, (num) => num % 2 === 0, -3); // => 1
 // Start from the last index if fromIndex >= array.length.
 findLastIndex(arr, (num) => num > 0, 10); // => 4
 
-// Search leftwards from index that's already out of bounds,
-// which will always result in -1.
-findLastIndex(arr, (num) => num > 2, -10); // => -1
+// Negative and out of bounds, start searching from the first item in the array.
+findLastIndex(arr, (num) => num > 2, -10); // => 0
 ```
 
 ## Resources
