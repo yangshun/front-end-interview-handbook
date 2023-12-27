@@ -1,7 +1,8 @@
 {
-  "title": "Best companies for front end",
+  "title": "Best companies for Front End Engineers",
   "description": "The best companies for a fulfilling career as a Front End Engineer.",
   "level": "starter",
   "tags": ["career"],
-  "category": "blog/category/front-end-career.json"
+  "category": "blog/category/front-end-career.json",
+  "ranking": 500
 }

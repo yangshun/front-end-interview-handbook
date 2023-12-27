@@ -20,10 +20,10 @@ import {
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
-  blog: BlogMetadata;
+  metadata: BlogMetadata;
 }>;
 
-export default function ArticleViewCard({ blog }: Props) {
+export default function ArticleViewCard({ metadata }: Props) {
   const intl = useIntl();
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -39,8 +39,8 @@ export default function ArticleViewCard({ blog }: Props) {
           'max-h-[700px]': !isExpanded,
           'max-h-full': isExpanded,
         })}>
-        <BlogArticle metadata={blog} view="card">
-          <BlogMdx code={(blog as Post)?.body.code || ''} />
+        <BlogArticle metadata={metadata} view="card">
+          <BlogMdx code={(metadata as Post)?.body.code || ''} />
         </BlogArticle>
       </div>
       <div className="flex items-center justify-between">
@@ -69,7 +69,7 @@ export default function ArticleViewCard({ blog }: Props) {
         <Button
           addonPosition="start"
           display="inline"
-          href={blog.href}
+          href={metadata.href}
           icon={RiExternalLinkFill}
           label={intl.formatMessage({
             defaultMessage: 'Open in new tab',

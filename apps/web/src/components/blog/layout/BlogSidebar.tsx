@@ -195,7 +195,7 @@ function SeriesList({
   );
 }
 
-export default function Sidebar() {
+export default function BlogSidebar() {
   const { pathname } = useI18nPathname();
   const navigation = useBlogSidebarNavigation();
 

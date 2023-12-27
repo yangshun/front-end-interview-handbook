@@ -11,21 +11,21 @@ import BlogCard from '~/components/blog/listing/BlogCard';
 import EmptyState from '~/components/ui/EmptyState';
 
 type Props = Readonly<{
-  blogs: ReadonlyArray<BlogMetadata>;
+  posts: ReadonlyArray<BlogMetadata>;
   showSeriesTag?: boolean;
   type?: Readonly<FilterTab>;
   view?: BlogViewField;
 }>;
 
 export default function BlogList({
-  blogs,
+  posts,
   view = 'list',
   type = 'articles',
   showSeriesTag = true,
 }: Props) {
   const intl = useIntl();
 
-  if (blogs.length === 0) {
+  if (posts.length === 0) {
     return (
       <div className="p-10">
         <EmptyState
@@ -58,18 +58,18 @@ export default function BlogList({
 
   return (
     <ul className={clsx('flex !list-none flex-col gap-y-4 w-full')}>
-      {blogs.map((blog) => {
+      {posts.map((post) => {
         return (
-          <li key={blog.href}>
-            {view === 'list' || !(blog as Post)?.body?.code ? (
+          <li key={post.href}>
+            {view === 'list' || !(post as Post)?.body?.code ? (
               <BlogCard
-                metadata={blog}
+                metadata={post}
                 showSeriesTag={showSeriesTag}
                 titleLines={2}
                 type="wide"
               />
             ) : (
-              <BlogArticleViewCard blog={blog} />
+              <BlogArticleViewCard metadata={post} />
             )}
           </li>
         );

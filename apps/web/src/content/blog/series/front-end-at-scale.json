@@ -3,5 +3,6 @@
   "description": "Techniques employed by big companies to develop front end apps at scale.",
   "level": "advanced",
   "tags": ["scalability"],
-  "category": "blog/category/real-world-front-end.json"
+  "category": "blog/category/real-world-front-end.json",
+  "ranking": 100
 }

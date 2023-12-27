@@ -48,11 +48,13 @@ function getBlogContent(slug: string) {
   const series = getSeriesFromSlug(slug || '');
 
   if (series) {
-    const subseriesData = getSubseriesAndPosts(series as Series);
+    const subseriesData = getSubseriesAndPosts(series as Series, {
+      ascending: true,
+    });
 
     if (subseriesData.length > 0) {
       return {
-        seriesMetadata: {
+        metadata: {
           ...series,
           hasSubseries: true,
           isSeries: true,
@@ -61,36 +63,35 @@ function getBlogContent(slug: string) {
       };
     }
 
-    const seriesBlogs = getAllPosts({ sort: true }).filter(
+    const posts = getAllPosts({ ascending: false }).filter(
       (postItem) => (postItem as Post).series === (series as Series).source,
     );
 
     return {
-      seriesBlogs,
-      seriesMetadata: {
+      metadata: {
         ...series,
         hasSubseries: false,
         isSeries: true,
       } as BlogMetadata,
+      posts,
     };
   }
+
   notFound();
 }
 
 export default function Page({ params }: Props) {
   const { slug } = params;
-  const { subseriesData, seriesMetadata, seriesBlogs } = getBlogContent(
-    slug || '',
-  );
+  const { subseriesData, metadata, posts } = getBlogContent(slug || '');
 
   return (
-    <BlogSeriesLayout metadata={seriesMetadata}>
-      <BlogArticleMainLayout metadata={seriesMetadata}>
-        {seriesMetadata.hasSubseries && subseriesData ? (
+    <BlogSeriesLayout metadata={metadata}>
+      <BlogArticleMainLayout metadata={metadata}>
+        {metadata.hasSubseries && subseriesData ? (
           <BlogSubseriesSection subseriesData={subseriesData} />
         ) : (
           <div>
-            <BlogList blogs={seriesBlogs || []} />
+            <BlogList posts={posts || []} />
           </div>
         )}
       </BlogArticleMainLayout>

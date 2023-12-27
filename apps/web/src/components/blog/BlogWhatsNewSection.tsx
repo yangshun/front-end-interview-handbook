@@ -12,7 +12,7 @@ import { getAllPosts } from '~/contentlayer/utils';
 export default function BlogWhatsNewSection() {
   const intl = useIntl();
 
-  const blogs = getAllPosts({ sort: true }).slice(0, 3);
+  const blogs = getAllPosts().slice(0, 3);
 
   return (
     <div className="flex flex-col gap-y-4">

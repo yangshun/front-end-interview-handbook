@@ -20,7 +20,7 @@ export default function BlogWhatsNewListing({ blogs }: Props) {
         <BlogCountLabel count={blogs.length} showIcon={true} />
         <BlogViewDropdown viewField={viewField} onChange={setViewField} />
       </div>
-      <BlogList blogs={blogs} view={viewField} />
+      <BlogList posts={blogs} view={viewField} />
     </div>
   );
 }

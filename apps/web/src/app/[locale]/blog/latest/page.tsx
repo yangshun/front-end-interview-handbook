@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const blogs = getAllPosts({ sort: true });
+  const blogs = getAllPosts();
 
   return (
     <BlogLatestPage>

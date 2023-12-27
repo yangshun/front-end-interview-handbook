@@ -56,7 +56,7 @@ export default async function Page({ params }: Props) {
 
   const blogTags = getBlogTags();
   const blogTag = blogTags[tag];
-  const articles = getAllPosts({ sort: true });
+  const articles = getAllPosts();
   const series = getAllSeries();
 
   if (!blogTag) {

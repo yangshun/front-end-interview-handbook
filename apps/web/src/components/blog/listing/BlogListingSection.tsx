@@ -9,7 +9,8 @@ import Heading from '~/components/ui/Heading';
 import { getAllPosts } from '~/contentlayer/utils';
 
 export default function BlogListingSection() {
-  const blogs = getAllPosts({ sort: true });
+  const blogs = getAllPosts();
+  const sortedSeries = allSeries.slice().sort((a, b) => a.ranking - b.ranking);
 
   return (
     <div className="flex flex-col gap-y-4">
@@ -32,7 +33,7 @@ export default function BlogListingSection() {
           className={clsx(
             'hidden h-full flex-col gap-y-12 xl:col-span-3 xl:flex',
           )}>
-          <BlogBrowseSeries href="/blog/explore" seriesList={allSeries} />
+          <BlogBrowseSeries href="/blog/explore" seriesList={sortedSeries} />
         </aside>
       </div>
     </div>

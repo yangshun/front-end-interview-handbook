@@ -3,5 +3,6 @@
   "description": "Preparing for front end interviews can be daunting with the sheer breadth and depth you have to cover. Practice efficiently by identifying the best questions that give you the highest return on investment.",
   "level": "intermediate",
   "tags": ["interviews"],
-  "category": "blog/category/front-end-interviews.json"
+  "category": "blog/category/front-end-interviews.json",
+  "ranking": 300
 }

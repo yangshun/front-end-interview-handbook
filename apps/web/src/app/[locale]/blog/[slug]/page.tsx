@@ -24,7 +24,7 @@ type Props = Readonly<{
 
 export async function generateStaticParams() {
   return generateStaticParamsWithLocale(
-    getAllPosts({ sort: true }).map((post) => ({
+    getAllPosts().map((post) => ({
       slug: post.slug,
     })),
   );
@@ -49,7 +49,9 @@ function getBlogContent(slug: string) {
     let seriesArticleNavigation = null;
 
     if ((post as Post).series) {
-      seriesArticleNavigation = getSeriesPostNavigation(post as Post);
+      seriesArticleNavigation = getSeriesPostNavigation(post as Post, {
+        ascending: true,
+      });
     }
 
     return {

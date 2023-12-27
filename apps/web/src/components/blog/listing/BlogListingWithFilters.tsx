@@ -144,7 +144,7 @@ export default function BlogListingWithFilters({
               id: 'k1dcHz',
             }),
             'createdAt',
-            true,
+            false,
           ),
           makeDropdownItemProps(
             intl.formatMessage({
@@ -153,7 +153,7 @@ export default function BlogListingWithFilters({
               id: 'XjIm4S',
             }),
             'createdAt',
-            false,
+            true,
           ),
         ].map((props) => (
           <DropdownMenu.Item key={props.label} {...props} />
@@ -252,7 +252,7 @@ export default function BlogListingWithFilters({
             />
           </Heading>
           <Section>
-            <BlogList blogs={processedBlogs} type={type} view={viewField} />
+            <BlogList posts={processedBlogs} type={type} view={viewField} />
           </Section>
         </div>
       </div>

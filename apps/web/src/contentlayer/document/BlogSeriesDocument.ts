@@ -27,6 +27,7 @@ export const BlogSeriesDocument = defineDocumentType(() => ({
     },
     description: { embedDocument: true, required: true, type: 'string' },
     level: { required: true, type: 'string' },
+    ranking: { default: 999, required: false, type: 'number' },
     tags: { of: { type: 'string' }, required: true, type: 'list' },
     title: { required: true, type: 'string' },
   },

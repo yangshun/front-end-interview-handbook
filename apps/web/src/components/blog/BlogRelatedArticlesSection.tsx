@@ -25,7 +25,7 @@ export default function BlogRelatedArticlesSection({ relatedPosts }: Props) {
       <Section>
         <div className={clsx('grid gap-6 lg:grid-cols-2')}>
           {relatedPosts.map(({ slug }, index) => {
-            const post = getAllPosts({ sort: true }).find(
+            const post = getAllPosts().find(
               (postItem) => postItem.slug === slug.trim(),
             )!;
 

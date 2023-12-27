@@ -14,7 +14,7 @@ export function sortBlogs<T extends BlogMetadata>(
           new Date((a as Post).createdAt).getTime() -
           new Date((b as Post).createdAt).getTime();
 
-        return isAscendingOrder ? -value : value;
+        return isAscendingOrder ? value : -value;
       }
     }
   });

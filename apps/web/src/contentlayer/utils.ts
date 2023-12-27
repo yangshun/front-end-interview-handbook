@@ -13,13 +13,13 @@ import type {
 } from '~/components/blog/BlogTypes';
 import { sortBlogsMultiple } from '~/components/blog/filters/BlogsProcessor';
 
-export const getPostFromSlug = (slug: string) => {
+export function getPostFromSlug(slug: string) {
   const post = allPosts.find((blogPost) => blogPost.slug === slug);
 
   return post ? getTypeCastedMetadata(post) : null;
-};
+}
 
-export const getTypeCastedMetadata = (item: Post | Series) => {
+export function getTypeCastedMetadata(item: Post | Series) {
   const itemLevel = item.level as BlogLevel;
   const itemTags = item.tags as Array<BlogTagType>;
 
@@ -28,9 +28,12 @@ export const getTypeCastedMetadata = (item: Post | Series) => {
     level: itemLevel,
     tags: itemTags,
   };
-};
+}
 
-export const getSeriesPostNavigation = (post: Post) => {
+export function getSeriesPostNavigation(
+  post: Post,
+  options: PostSortingOptions = {},
+) {
   const series = allSeries.find(
     (seriesItem) => seriesItem.source === post.series,
   );
@@ -38,7 +41,7 @@ export const getSeriesPostNavigation = (post: Post) => {
     (subseriesItem) => subseriesItem.source === post.subseries,
   );
 
-  const posts = getAllPosts({ sort: true })
+  const posts = getAllPosts(options)
     .filter((postItem) => (postItem as Post).series === post?.series)
     .map(({ href, slug, title }) => ({ href, slug, title }));
 
@@ -47,16 +50,17 @@ export const getSeriesPostNavigation = (post: Post) => {
     seriesTitle: series?.title,
     subseriesTitle: subseries?.title,
   };
-};
+}
 
-export const getSeriesFromSlug = (slug: string) => {
+export function getSeriesFromSlug(slug: string) {
   const series = allSeries.find((seriesItem) => seriesItem.slug === slug);
 
   return series ? getTypeCastedMetadata(series) : null;
-};
+}
 
-export const buildNavigationTree = () => {
-  const navigation = allCategories.map((category) => {
+export function buildNavigationTree() {
+  const sortedCategories = allCategories.sort((a, b) => a.ranking - b.ranking);
+  const navigation = sortedCategories.map((category) => {
     const series = allSeries
       .filter((seriesItem) => seriesItem.category?.source === category.source)
       .map(({ href, slug, title }) => ({ href, slug, title }));
@@ -65,55 +69,59 @@ export const buildNavigationTree = () => {
   });
 
   return navigation;
-};
+}
 
-export const getSubseriesAndPosts = (series: Series) => {
+type PostSortingOptions =
+  | Readonly<{
+      ascending?: boolean;
+    }>
+  | undefined;
+
+export function getSubseriesAndPosts(
+  series: Series,
+  options: PostSortingOptions = {},
+) {
   const result = allSubseries
     .filter((subseries) => subseries.series === series.source)
     .map((subseries) => {
       let totalReadingTime = 0;
-      const posts = getAllPosts({ sort: true })
+
+      const posts = getAllPosts(options)
         .filter((postItem) => (postItem as Post).subseries === subseries.source)
         .map((postItem) => {
           totalReadingTime += (postItem as Post).readingTime;
 
-          const postMetadata = getTypeCastedMetadata(postItem);
-
-          return postMetadata as BlogMetadata;
+          return getTypeCastedMetadata(postItem) as BlogMetadata;
         });
 
       return { items: posts, ...subseries, readingTime: totalReadingTime };
     });
 
   return result;
-};
+}
 
-export const getAllPosts = ({ sort = true }) => {
+export function getAllPosts(options: PostSortingOptions = {}) {
+  const { ascending = false } = options;
   const blogs = allPosts.map((post) => {
     const postMetadata = getTypeCastedMetadata(post);
 
     return { ...postMetadata } as BlogMetadata;
   });
 
-  if (sort) {
-    const sortedBlogs = sortBlogsMultiple(blogs, [
-      {
-        field: 'createdAt',
-        isAscendingOrder: true,
-      },
-    ]);
+  return sortBlogsMultiple(blogs, [
+    {
+      field: 'createdAt',
+      isAscendingOrder: ascending,
+    },
+  ]);
+}
 
-    return sortedBlogs;
-  }
-
-  return blogs;
-};
-
-export const getAllSeries = (filterByCategory = '') => {
+export function getAllSeries(filterByCategory = '') {
   const filteredSeries = filterByCategory
     ? allSeries.filter((series) => series.category?.source === filterByCategory)
     : allSeries;
-  const result = filteredSeries.map((series) => {
+
+  return filteredSeries.map((series) => {
     const seriesMetadata = getTypeCastedMetadata(series);
     const articlesCount = allPosts.filter(
       (post) => post.series === series.source,
@@ -125,22 +133,18 @@ export const getAllSeries = (filterByCategory = '') => {
       isSeries: true,
     } as BlogMetadata;
   });
+}
 
-  return result;
-};
-
-export const getAllPostsForNavigation = () => {
+export function getAllPostsForNavigation() {
   let sortedPosts: Array<BlogMetadata> = [];
 
-  const nonSeriesPosts = getAllPosts({ sort: true }).filter(
-    (post) => !(post as Post).series,
-  );
+  const nonSeriesPosts = getAllPosts().filter((post) => !(post as Post).series);
 
   sortedPosts = [...sortedPosts, ...nonSeriesPosts];
 
   // Group the navigation by series
   allSeries.map((series) => {
-    const posts = getAllPosts({ sort: true }).filter(
+    const posts = getAllPosts().filter(
       (postItem) => (postItem as Post).series === series.source,
     );
 
@@ -148,4 +152,4 @@ export const getAllPostsForNavigation = () => {
   });
 
   return sortedPosts;
-};
+}
