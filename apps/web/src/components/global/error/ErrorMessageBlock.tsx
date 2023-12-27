@@ -3,6 +3,7 @@ import {
   RiDeleteBinLine,
   RiErrorWarningLine,
   RiToolsLine,
+  RiWindowLine,
 } from 'react-icons/ri';
 
 import Button from '~/components/ui/Button';
@@ -28,9 +29,15 @@ const links = [
   },
   {
     description:
-      'You are using a browser extension that is incompatible with the page.',
+      'Please update your browser to the latest version or try using another browser.',
+    icon: RiWindowLine,
+    name: 'Outdated browser',
+  },
+  {
+    description:
+      'You are using a browser extension that is incompatible with the page, e.g. extensions that modify code blocks.',
     icon: RiToolsLine,
-    name: 'Incompatible extension',
+    name: 'Incompatible extensions',
   },
 ];
 
