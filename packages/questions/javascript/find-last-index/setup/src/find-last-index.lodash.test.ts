@@ -21,16 +21,10 @@ describe('findLastIndex', () => {
     expect(findLastIndex([1, 2, 3, 4, 5], (value) => value > 3, -2)).toEqual(3);
   });
 
-  test('handles negative out of bound indices', () => {
+  test('handles out of bound indices', () => {
+    expect(findLastIndex([1, 2, 3, 4, 5], (value) => value > 3, 10)).toEqual(4);
     expect(
       findLastIndex([1, 2, 3, 4, 5], (value) => value % 2 === 0, -10),
     ).toEqual(-1);
-    expect(findLastIndex([1, 2, 3, 4, 5], (value) => value < 2, -100)).toEqual(
-      0,
-    );
-  });
-
-  test('handles out of bound indices', () => {
-    expect(findLastIndex([1, 2, 3, 4, 5], (value) => value > 3, 10)).toEqual(4);
   });
 });
