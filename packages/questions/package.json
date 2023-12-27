@@ -2,10 +2,11 @@
   "name": "@gfe/questions",
   "version": "0.0.1",
   "scripts": {
-    "test": "jest --env=jsdom"
+    "test": "jest"
   },
   "license": "ISC",
   "devDependencies": {
+    "@types/lodash": "^4.14.202",
     "@babel/core": "^7.21.4",
     "@babel/preset-env": "^7.21.4",
     "@types/jest": "^29.5.0",

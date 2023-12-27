@@ -6,10 +6,10 @@ module.exports = {
   testEnvironment: 'jsdom',
   verbose: false,
   silent: true,
-  // transform: {
-  //   '^.+\\.[t]sx?$': 'ts-jest',
-  // },
-  // transformIgnorePatterns: ['<rootDir>/node_modules/'],
+  transform: {
+    '^.+\\.[t]sx?$': 'ts-jest',
+  },
+  transformIgnorePatterns: ['<rootDir>/node_modules/'],
   testPathIgnorePatterns: ignoreDirs,
   coveragePathIgnorePatterns: ignoreDirs,
   coverageDirectory: '<rootDir>/coverage/',

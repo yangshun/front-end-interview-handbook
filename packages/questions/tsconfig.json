@@ -8,7 +8,7 @@
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "strict": true,
-    "lib": ["es2022"]
+    "lib": ["dom", "dom.iterable", "esnext"]
   },
   "exclude": ["node_modules", "dist"]
 }
