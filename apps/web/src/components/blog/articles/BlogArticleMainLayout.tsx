@@ -20,7 +20,10 @@ type Props = Readonly<{
 export default function BlogArticleMainLayout({ children, metadata }: Props) {
   const { pathname } = useI18nPathname();
 
-  const flatNavigationItems = getAllPostsForNavigation().map((post) => ({
+  const flatNavigationItems = getAllPostsForNavigation({
+    isSeriesArticle: metadata.isSeriesArticle,
+    seriesSource: (metadata as Post).series,
+  }).map((post) => ({
     href: post.href,
     slug: post.slug,
     title: post.title,

@@ -63,7 +63,7 @@ function getBlogContent(slug: string) {
       };
     }
 
-    const posts = getAllPosts({ ascending: false }).filter(
+    const posts = getAllPosts({ ascending: true }).filter(
       (postItem) => (postItem as Post).series === (series as Series).source,
     );
 

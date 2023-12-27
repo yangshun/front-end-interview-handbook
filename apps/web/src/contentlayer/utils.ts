@@ -42,7 +42,15 @@ export function getSeriesPostNavigation(
   );
 
   const posts = getAllPosts(options)
-    .filter((postItem) => (postItem as Post).series === post?.series)
+    .filter((postItem) => {
+      const isMatchingSeries = (postItem as Post).series === post?.series;
+      const isMatchingSubseries =
+        (postItem as Post).subseries === post?.subseries;
+
+      return post?.subseries
+        ? isMatchingSeries && isMatchingSubseries
+        : isMatchingSeries;
+    })
     .map(({ href, slug, title }) => ({ href, slug, title }));
 
   return {
@@ -76,6 +84,11 @@ type PostSortingOptions =
       ascending?: boolean;
     }>
   | undefined;
+
+type PostNavigationOptions = Readonly<{
+  isSeriesArticle?: boolean;
+  seriesSource?: string;
+}>;
 
 export function getSubseriesAndPosts(
   series: Series,
@@ -135,21 +148,36 @@ export function getAllSeries(filterByCategory = '') {
   });
 }
 
-export function getAllPostsForNavigation() {
+export function getAllPostsForNavigation(options: PostNavigationOptions) {
+  const { isSeriesArticle, seriesSource } = options;
+
+  // Return non series posts only
+  if (!isSeriesArticle) {
+    return getAllPosts({ ascending: true }).filter(
+      (post) => !(post as Post).series,
+    );
+  }
+
   let sortedPosts: Array<BlogMetadata> = [];
 
-  const nonSeriesPosts = getAllPosts().filter((post) => !(post as Post).series);
+  const nonSubseriesPosts = getAllPosts({ ascending: true }).filter(
+    (postItem) =>
+      (postItem as Post).series === seriesSource &&
+      !(postItem as Post).subseries,
+  );
 
-  sortedPosts = [...sortedPosts, ...nonSeriesPosts];
+  sortedPosts = [...sortedPosts, ...nonSubseriesPosts];
 
-  // Group the navigation by series
-  allSeries.map((series) => {
-    const posts = getAllPosts().filter(
-      (postItem) => (postItem as Post).series === series.source,
-    );
+  // Group pagination by subseries if subseries is present
+  allSubseries
+    .filter((subseries) => subseries.series === seriesSource)
+    .forEach((subseries) => {
+      const subseriesPosts = getAllPosts({ ascending: true }).filter(
+        (postItem) => (postItem as Post).subseries === subseries.source,
+      );
 
-    sortedPosts = [...sortedPosts, ...posts];
-  });
+      sortedPosts = [...sortedPosts, ...subseriesPosts];
+    });
 
   return sortedPosts;
 }
