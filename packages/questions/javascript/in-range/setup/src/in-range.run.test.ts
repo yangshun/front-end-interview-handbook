@@ -6,7 +6,7 @@ describe('inRange', () => {
     expect(inRange(0, 1, 5)).toBe(false);
   });
 
-  test('only `end` specified', () => {
+  test('only 2 arguments specified', () => {
     expect(inRange(3, 5)).toBe(true);
     expect(inRange(6, 5)).toBe(false);
   });
