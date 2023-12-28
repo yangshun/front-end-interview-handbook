@@ -6,6 +6,7 @@ export type PricingPlanDetails = Readonly<{
   // Only null when one-time payment.
   basePriceInUSD: PriceValues;
   checkoutMode: Stripe.Checkout.Session.Mode;
+  // Vs monthly for recurring. Vs before for one-time.
   discount: number;
   planType: PricingPlanType;
   priceType: Stripe.Price.Type;
@@ -44,11 +45,11 @@ export const PricingPlansData: Record<PricingPlanType, PricingPlanDetails> = {
   annual: {
     allowPromoCode: true,
     basePriceInUSD: {
-      after: 118,
-      before: 128, // Not used
+      after: 120,
+      before: 188, // Not used
     },
     checkoutMode: 'subscription',
-    discount: 60,
+    discount: 70,
     planType: 'annual',
     priceType: 'recurring',
     recurring: { count: 1, interval: 'year' },
@@ -56,8 +57,8 @@ export const PricingPlansData: Record<PricingPlanType, PricingPlanDetails> = {
   lifetime: {
     allowPromoCode: true,
     basePriceInUSD: {
-      after: 137,
-      before: 274,
+      after: 154,
+      before: 300,
     },
     checkoutMode: 'payment',
     discount: 50,
@@ -68,8 +69,8 @@ export const PricingPlansData: Record<PricingPlanType, PricingPlanDetails> = {
   monthly: {
     allowPromoCode: true,
     basePriceInUSD: {
-      after: 28,
-      before: 38, // Not used
+      after: 35,
+      before: 35, // Not used
     },
     checkoutMode: 'subscription',
     discount: 0,
@@ -80,11 +81,11 @@ export const PricingPlansData: Record<PricingPlanType, PricingPlanDetails> = {
   quarterly: {
     allowPromoCode: true,
     basePriceInUSD: {
-      after: 57,
-      before: 78, // Not used
+      after: 70,
+      before: 90, // Not used
     },
     checkoutMode: 'subscription',
-    discount: 30,
+    discount: 50,
     planType: 'quarterly',
     priceType: 'recurring',
     recurring: { count: 3, interval: 'month' },
