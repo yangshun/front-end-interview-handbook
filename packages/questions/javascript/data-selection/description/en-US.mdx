@@ -25,9 +25,9 @@ Each session has the following fields:
 
 Implement a method `selectData`, which is used to return sessions from the data. It has the interface `selectData(sessions [, options])`. The options available should include:
 
-- `user`: Select only sessions with this `id`.
-- `minDuration`: Select only sessions with `duration` equal to or greater than this value.
-- `equipment`: Select only sessions where at least one of the specified equipments were used.
+- `user`: Select only sessions with this `id`. If not specified, include all users (subject to other filters).
+- `minDuration`: Select only sessions with `duration` equal to or greater than this value. If not specified, include all sessions regardless of duration (subject to other filters).
+- `equipment`: Select only sessions where at least one of the specified equipments were used. If not specified, include all sessions regardless of equipment used (subject to other filters).
 - `merge`: If set to `true`
   - Sessions from the same `user` should be merged into one object. When merging:
     - Sum up the `duration` fields.
