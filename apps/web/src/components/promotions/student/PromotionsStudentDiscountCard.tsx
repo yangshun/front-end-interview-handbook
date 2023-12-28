@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { RiFileCopyLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
+import type Stripe from 'stripe';
 
 import { trpc } from '~/hooks/trpc';
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
@@ -14,8 +15,7 @@ import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
-import { isValidStudentEmail } from '~/utils/marketing/studentEmail';
-
+import { isValidStudentEmail } from './studentEmail';
 import { PromotionsEmailUsLink } from '../PromotionsEmailUsLink';
 
 import { useUser } from '@supabase/auth-helpers-react';
@@ -25,16 +25,16 @@ export function PromotionsStudentDiscountCard() {
   const discountPercentage = STUDENT_DISCOUNT_PERCENTAGE;
   const user = useUser();
   const { userProfile } = useUserProfile();
-  const [promoCode, setPromoCode] = useState<string | null>(null);
+  const [promoCode, setPromoCode] = useState<Stripe.PromotionCode | null>(null);
   const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
+  const { data: existingPromoCode } =
+    trpc.marketing.getStudentDiscountPromoCode.useQuery();
   const {
     isLoading: isGeneratingStudentDiscount,
-    mutate: generateStudentDiscount,
-  } = trpc.marketing.generateStudentDiscount.useMutation({
+    mutate: generateStudentDiscountPromoCode,
+  } = trpc.marketing.generateStudentDiscountPromoCode.useMutation({
     onSuccess: (data) => {
-      if (data?.code) {
-        setPromoCode(data.code);
-      }
+      setPromoCode(data);
     },
   });
 
@@ -170,7 +170,9 @@ export function PromotionsStudentDiscountCard() {
                 );
               }
 
-              if (promoCode) {
+              const promoCodeToDisplay = promoCode ?? existingPromoCode ?? null;
+
+              if (promoCodeToDisplay) {
                 return (
                   <div>
                     <Button
@@ -184,13 +186,13 @@ export function PromotionsStudentDiscountCard() {
                                 'Indication that text has been copied',
                               id: 'EHngws',
                             })
-                          : promoCode
+                          : promoCodeToDisplay.code
                       }
                       size="md"
                       type="button"
                       variant="primary"
                       onClick={() => {
-                        onCopy(promoCode);
+                        onCopy(promoCodeToDisplay.code);
                       }}
                     />
                     <Text
@@ -199,9 +201,14 @@ export function PromotionsStudentDiscountCard() {
                       display="block"
                       size="body3">
                       <FormattedMessage
-                        defaultMessage="Use code at checkout. Code expires in 3 days."
+                        defaultMessage="Use code at checkout. Code expires on {expiryDate}."
                         description="Instruction to apply discount"
-                        id="mkx/6U"
+                        id="UxRVYP"
+                        values={{
+                          expiryDate: new Intl.DateTimeFormat(undefined, {
+                            dateStyle: 'medium',
+                          }).format(promoCodeToDisplay.expires_at! * 1000),
+                        }}
                       />
                     </Text>
                   </div>
@@ -222,7 +229,7 @@ export function PromotionsStudentDiscountCard() {
                   type="button"
                   variant="primary"
                   onClick={() => {
-                    generateStudentDiscount();
+                    generateStudentDiscountPromoCode();
                   }}
                 />
               );

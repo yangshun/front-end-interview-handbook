@@ -293,7 +293,7 @@ export const rewardsRouter = router({
     });
 
     if (promotionCodes.data.length === 0) {
-      throw 'No promo codes found';
+      return null;
     }
 
     return promotionCodes.data[0];
