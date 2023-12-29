@@ -34,6 +34,19 @@ One thing to note here is that because the input array can contain non-`Promise`
 
 <MDXCodeBlock languages={{ jsx: promiseAnyJs, tsx: promiseAnyTs }} />
 
+The pending counter is essential in ensuring correct behavior. For example, an alternative approach that seems to work (but doesn't) is to check if the length of the `errors` array is equal to the length of the `iterable`:
+
+```js
+errors[index] = await error;
+if (errors.length == iterable.length) {
+  reject(new AggregateError(errors))
+}
+```
+
+Suppose we have passed in an array of 3 promises, and the last promise is rejected first, causing `errors[2]` to be assigned. When this happens, the length of `errors` array is now 3, and `reject()` will be invoked with an incomplete `errors` array because the other 2 promises are still pending; we should not call `reject()` yet.
+
+The pending values counter avoids this problem by ensuring that we only call `reject()` when all the promises have rejected and thus are no longer pending.
+
 Here's an alternative version which uses `Promise.then()` if you prefer not to use `async`/`await`.
 
 <MDXCodeBlock>{promiseAnyThen}</MDXCodeBlock>
