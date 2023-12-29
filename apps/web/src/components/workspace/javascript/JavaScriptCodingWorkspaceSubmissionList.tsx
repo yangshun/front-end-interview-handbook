@@ -76,7 +76,10 @@ function JavaScriptCodingWorkspaceSubmissionListImpl({ metadata }: Props) {
                   <tr
                     key={id}
                     className={clsx(
-                      'relative',
+                      // Safari has a problem with position: relative on <tr>
+                      // Use a CSS transform hack to work around it.
+                      // https://github.com/greatfrontend/greatfrontend/issues/92
+                      'relative scale-100',
                       themeBackgroundEmphasizedHover,
                     )}>
                     <td className="px-3 py-2">
