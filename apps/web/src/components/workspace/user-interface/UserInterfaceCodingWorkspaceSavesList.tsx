@@ -77,7 +77,10 @@ function UserInterfaceCodingWorkspaceSavesListImpl({ metadata }: Props) {
                   <tr
                     key={savedItem.id}
                     className={clsx(
-                      'relative',
+                      // Safari has a problem with position: relative on <tr>
+                      // Use a CSS transform hack to work around it.
+                      // https://github.com/greatfrontend/greatfrontend/issues/92
+                      'relative scale-100',
                       themeBackgroundEmphasizedHover,
                     )}>
                     <td className="w-5 py-2 pl-3">
