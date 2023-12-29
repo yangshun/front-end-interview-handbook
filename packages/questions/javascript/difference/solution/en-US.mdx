@@ -2,10 +2,20 @@ import MDXCodeBlock from 'MDXCodeBlock';
 
 import differenceJs from '../setup/src/difference.js';
 import differenceTs from '../setup/src/difference.ts';
+import differenceFilter from '../setup/src/difference-filter';
+import differenceFilterSet from '../setup/src/difference-filter-set';
 
 ## Solution
 
 <MDXCodeBlock languages={{ jsx: differenceJs, tsx: differenceTs }} />
+
+Here's a simpler solution that leverages `Array.prototype.filter` and checking of the set.
+
+<MDXCodeBlock>{differenceFilterSet}</MDXCodeBlock>
+
+The set can also be omitted by using `Array.prototype.includes` instead.
+
+<MDXCodeBlock>{differenceFilter}</MDXCodeBlock>
 
 ## Edge Cases
 
