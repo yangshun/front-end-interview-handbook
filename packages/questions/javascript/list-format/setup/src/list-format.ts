@@ -6,17 +6,17 @@ export default function listFormat(
   itemsParam: Array<string>,
   options?: { sorted?: boolean; length?: number; unique?: boolean },
 ): string {
-  if (!itemsParam || itemsParam.length === 0) {
+  // Filter falsey values.
+  let items = itemsParam.filter((item) => !!item);
+
+  if (!items || items.length === 0) {
     return '';
   }
 
   // No processing is needed if there's only one item.
-  if (itemsParam.length === 1) {
-    return itemsParam[0];
+  if (items.length === 1) {
+    return items[0];
   }
-
-  // Filter falsey values.
-  let items = itemsParam.filter((item) => !!item);
 
   // Sort values.
   if (options?.sorted) {

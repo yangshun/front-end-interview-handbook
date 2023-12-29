@@ -75,6 +75,8 @@ describe('listFormat', () => {
     expect(listFormat(['Bob', 'Ben', '', '', 'John'])).toEqual(
       'Bob, Ben and John',
     );
+    expect(listFormat(['Bob', ''])).toEqual('Bob');
+    expect(listFormat(['', ''])).toEqual('');
   });
 
   test('all the options', () => {

@@ -2811,6 +2811,10 @@
     "defaultMessage": "Get the right foundation",
     "description": "Short title for \"Get the right foundation for practical development\" feature marketing section on Projects home page"
   },
+  "UxRVYP": {
+    "defaultMessage": "Use code at checkout. Code expires on {expiryDate}.",
+    "description": "Instruction to apply discount"
+  },
   "V0hPhI": {
     "defaultMessage": "Sign Up",
     "description": "Title of Sign Up page"
@@ -4458,10 +4462,6 @@
   "mjEvFf": {
     "defaultMessage": "Step 2",
     "description": "Title for \"Step 2\" tab on Projects project page"
-  },
-  "mkx/6U": {
-    "defaultMessage": "Use code at checkout. Code expires in 3 days.",
-    "description": "Instruction to apply discount"
   },
   "mnJ9uY": {
     "defaultMessage": "Practice building Lodash utility functions",
