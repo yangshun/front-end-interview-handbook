@@ -9,6 +9,7 @@ Designing and developing for multilingual sites is part of internationalization 
 - Use the `lang` attribute on the `<html>` tag.
 - Include the locale in the URL (e.g en_US, zh_CN, etc).
 - Webpages should use `<link rel="alternate" hreflang="other_locale" href="url_for_other_locale">` to tell search engines that there is another page at the specified `href` with the same content but for another language/locale.
+- Use a fallback page for unmatched languages. Use the "x-default" value: `<link rel="alternate" href="url_for_fallback" hreflang="x-default" />`.
 
 ## Understanding the difference between locale vs language
 
