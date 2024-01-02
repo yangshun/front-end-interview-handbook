@@ -665,8 +665,6 @@ The `load` event fires at the end of the document loading process. At this point
 
 The DOM event `DOMContentLoaded` will fire after the DOM for the page has been constructed, but do not wait for other resources to finish loading. This is preferred in certain cases when you do not need the full page to be loaded before initializing.
 
-TODO.
-
 ###### References
 
 - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
