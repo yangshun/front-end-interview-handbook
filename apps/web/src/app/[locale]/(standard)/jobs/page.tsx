@@ -147,6 +147,18 @@ export default function Page({ searchParams }: Props) {
                 location="Remote"
                 title="Senior Front End Software Engineer"
               />
+              <JobPostingItem
+                department="Engineering"
+                href="/jobs/front-end-software-engineer"
+                location="Remote"
+                title="Front End Software Engineer"
+              />
+              <JobPostingItem
+                department="Engineering"
+                href="/jobs/front-end-software-engineer-intern"
+                location="Remote"
+                title="Front End Software Engineer Intern"
+              />
             </>
           )}
           <JobPostingItem
