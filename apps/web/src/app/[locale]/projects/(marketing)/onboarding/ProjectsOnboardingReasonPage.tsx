@@ -53,7 +53,8 @@ const reasonValue = z.enum([
 ]);
 
 type ReasonType = 'primary' | 'secondary';
-type ReasonValue = z.infer<typeof reasonValue>;
+
+export type ReasonValue = z.infer<typeof reasonValue>;
 
 type ReasonOption = {
   content: React.ReactNode;

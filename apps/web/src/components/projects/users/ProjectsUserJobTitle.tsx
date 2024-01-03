@@ -13,10 +13,21 @@ const textClasses: Record<Size, string> = {
   sm: 'text-sm',
 };
 
+const iconClasses: Record<Size, string> = {
+  '2xs': 'h-4 w-4',
+  sm: 'h-5 w-5',
+};
+
+const gap: Record<Size, string> = {
+  '2xs': 'gap-1',
+  sm: 'gap-2',
+};
+
 export default function ProjectsUserJobTitle({ jobTitle, size = 'sm' }: Props) {
   return (
-    <div className={clsx('flex items-center gap-1', themeTextSecondaryColor)}>
-      <RiBuildingLine className="h-4 w-4" />
+    <div
+      className={clsx('flex items-center', themeTextSecondaryColor, gap[size])}>
+      <RiBuildingLine className={iconClasses[size]} />
       <Text className={textClasses[size]} color="inherit" size="custom">
         {jobTitle}
       </Text>

@@ -1,15 +1,15 @@
 import clsx from 'clsx';
-import { RiArrowRightLine, RiFireLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { RiArrowRightLine } from 'react-icons/ri';
+import { useIntl } from 'react-intl';
 
 import useProfile from '~/hooks/user/useProfile';
 
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
-import { themeTextBrandColor } from '~/components/ui/theme';
 
 import ProjectsSidebarHeaderLogoBar from './ProjectsSidebarHeaderLogoBar';
 import ProjectsUserJobTitle from '../../users/ProjectsUserJobTitle';
+import ProjectsUserReputation from '../../users/ProjectsUserReputation';
 import UserAvatarWithLevel from '../../users/UserAvatarWithLevel';
 
 type Props = Readonly<{
@@ -33,23 +33,16 @@ export function ProjectsSidebarProfileHeader({ className, points }: Props) {
           <UserAvatarWithLevel level={11} progress={30} size="lg" />
           <div className="flex flex-col gap-1">
             <Text size="body2">{profile.name}</Text>
-            <div className={clsx('flex gap-1', themeTextBrandColor)}>
-              <RiFireLine className="h-3 w-3" />
-              <Text color="inherit" size="body3">
-                <FormattedMessage
-                  defaultMessage="{points} Reputation"
-                  description="Label showing reputation count in profile header of Projects sidebar"
-                  id="xyPOJe"
-                  values={{ points }}
-                />
-              </Text>
-            </div>
+            <ProjectsUserReputation points={points} size="2xs" />
           </div>
         </div>
-        {profile.title && <ProjectsUserJobTitle jobTitle={profile.title} />}
+        {profile.title && (
+          <ProjectsUserJobTitle jobTitle={profile.title} size="2xs" />
+        )}
         <Button
           addonPosition="end"
           className="dark:!text-brand !text-brand-dark -ms-3"
+          href={`/projects/u/${profile.username}`}
           icon={RiArrowRightLine}
           label={intl.formatMessage({
             defaultMessage: 'My profile',

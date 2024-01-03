@@ -7,7 +7,7 @@ import 'react-circular-progressbar/dist/styles.css';
 
 import type { Profile } from '@prisma/client';
 
-type UserLevelWithAvatarSize = '2xl' | 'lg' | 'xl';
+type UserLevelWithAvatarSize = '2xl' | '3xl' | 'lg' | 'xl';
 
 type Props = Readonly<{
   className?: string;
@@ -34,6 +34,11 @@ const sizeClasses: Record<
   '2xl': {
     innerSize: 'h-12 w-12',
     outerSize: 'h-14 w-14',
+    sizePixels: 56,
+  },
+  '3xl': {
+    innerSize: 'h-[86px] w-[86px]',
+    outerSize: 'h-24 w-24',
     sizePixels: 56,
   },
   lg: {
@@ -81,7 +86,13 @@ export default function UserAvatarWithLevel({
         value={progress}>
         <UserAvatar className={innerSize} profile={profile} size="custom" />
       </CircularProgressbarWithChildren>
-      <div className="bg-success text-2xs absolute bottom-0 end-0 flex h-4 w-4 items-center justify-center rounded-full font-bold text-white">
+      <div
+        className={clsx(
+          'bg-success text-2xs absolute bottom-0 end-0 flex h-4 w-4 items-center justify-center rounded-full font-bold text-white',
+          {
+            'w-[30px] h-[30px] text-base': size === '3xl',
+          },
+        )}>
         {level}
       </div>
     </div>

@@ -475,6 +475,10 @@
     "defaultMessage": "Reset progress",
     "description": "Label to reset study plan progress"
   },
+  "4Q3JMg": {
+    "defaultMessage": "Want to build my portfolio",
+    "description": "Motivation level for portfolio reason"
+  },
   "4WUroS": {
     "defaultMessage": "Efficiently focus on the most important concepts",
     "description": "Short description for one week study plan"
@@ -947,6 +951,10 @@
     "defaultMessage": "JavaScript Polyfills",
     "description": "Name of focus area questions"
   },
+  "9SQdvi": {
+    "defaultMessage": "Tech stack I proficient in",
+    "description": "Projects profile tech stack proficient section title"
+  },
   "9Z/GHL": {
     "defaultMessage": "Something went wrong, please check your input.",
     "description": "Form error text"
@@ -978,6 +986,10 @@
   "A+qESm": {
     "defaultMessage": "Created: Newest to Oldest",
     "description": "Sorting option on question list page to sort by creation time, from newest to oldest"
+  },
+  "A/9dZ7": {
+    "defaultMessage": "Other",
+    "description": "Motivation level for other reason"
   },
   "A0i9qA": {
     "defaultMessage": "Read more",
@@ -1094,6 +1106,10 @@
   "C+WlY+": {
     "defaultMessage": "Please create a free account in order to purchase the premium plans.",
     "description": "Content of alert requesting user to create an account to purchase premium plans"
+  },
+  "C0dq+J": {
+    "defaultMessage": "Want to bridge some skill gaps in modern front end or full stack",
+    "description": "Motivation level for experienced reason"
   },
   "C34sRh": {
     "defaultMessage": "Account Settings",
@@ -1647,6 +1663,10 @@
     "defaultMessage": "End project session?",
     "description": "Title for end project session dialog"
   },
+  "IO/eOZ": {
+    "defaultMessage": "Joined on {date}",
+    "description": "Projects profile created date"
+  },
   "IQ9qW7": {
     "defaultMessage": "Get promo code",
     "description": "Button label for student discount"
@@ -1778,6 +1798,10 @@
   "Jn7AHE": {
     "defaultMessage": "This is an irreversible action. You will lose all progress. Are you sure?",
     "description": "Confirmation text for reseting study plan progress"
+  },
+  "JotoOX": {
+    "defaultMessage": "My Profile",
+    "description": "Title of Projects Profile page"
   },
   "JrmA6j": {
     "defaultMessage": "With over {numberOfQuestions} questions, this is the most complete all-in-one front end interview preparation you can ever dream of.",
@@ -1926,6 +1950,10 @@
   "LGm3GF": {
     "defaultMessage": "Async Operations",
     "description": "Name of focus area questions"
+  },
+  "LLsMT8": {
+    "defaultMessage": "Want to build my side projects",
+    "description": "Motivation level for side projects reason"
   },
   "LNBK2M": {
     "defaultMessage": "Our services are unavailable at your location.",
@@ -2899,6 +2927,10 @@
     "defaultMessage": "CASHBACK",
     "description": "Amount cashback/discount"
   },
+  "Vg4mOg": {
+    "defaultMessage": "Tech stack I am hoping to grow in",
+    "description": "Projects profile tech stack I am hoping to grow section title"
+  },
   "Vk81t3": {
     "defaultMessage": "Skills",
     "description": "Label for skills select"
@@ -3258,6 +3290,10 @@
   "Zdojj9": {
     "defaultMessage": "Other",
     "description": "Label for \"Other\" onboarding option in Projects"
+  },
+  "Zeae/j": {
+    "defaultMessage": "Motivation for joining",
+    "description": "Projects profile motivation for joining section title"
   },
   "Zk7X6D": {
     "defaultMessage": "Software Engineer at Stripe | Ex-Google",
@@ -4567,6 +4603,10 @@
     "defaultMessage": "What's new",
     "description": "Latest blog articles page title"
   },
+  "nvBKGE": {
+    "defaultMessage": "Want to learn skills for practical front end development",
+    "description": "Motivation label for beginner reason"
+  },
   "nvhCqI": {
     "defaultMessage": "We recommend these {numberOfAreas} areas of learning to prepare you holistically for your front end interview rounds. Explore guides and {count}+ practice questions here.",
     "description": "Message in onboarding card on prepare page"
@@ -4779,6 +4819,10 @@
     "defaultMessage": "Language",
     "description": "Question programming language"
   },
+  "q9Y+cd": {
+    "defaultMessage": "Bio",
+    "description": "Project profile bio section title"
+  },
   "qAxlQN": {
     "defaultMessage": "Sign in with magic link",
     "description": "Label of magic link sign in button on Email Sign In page"
@@ -4874,6 +4918,10 @@
   "r0Ddhm": {
     "defaultMessage": "Preparation dashboard",
     "description": "Preparation dashboard section title"
+  },
+  "r14As6": {
+    "defaultMessage": "Want to help mentor others",
+    "description": "Motivation level for mentor others reason"
   },
   "r1Pjn6": {
     "defaultMessage": "Go to project",
