@@ -471,6 +471,10 @@
     "defaultMessage": "Don't have an account? <link>Sign up for free</link>",
     "description": "Prompt for account creation on Email Sign In page"
   },
+  "4C8Ad0": {
+    "defaultMessage": "We offer a discounted rate for upgrading to the lifetime plan, simply <link>contact us</link>.",
+    "description": "Call to action text to upgrade plan."
+  },
   "4FirvF": {
     "defaultMessage": "Reset progress",
     "description": "Label to reset study plan progress"
@@ -1371,10 +1375,6 @@
     "defaultMessage": "Recommended focus areas",
     "description": "Title of recommended focus areas section on preparation page"
   },
-  "F2QRYu": {
-    "defaultMessage": "Please contact us at <link>contact@greatfrontend.com</link> should you require a purchase invoice.",
-    "description": "Text describing contact method for purchase invoice."
-  },
   "F4esBf": {
     "defaultMessage": "Our projects are never one-off - they always fit into some component library or design system which can be composed into your very own toolset to build future projects",
     "description": "Description for \"Never waste your time building one-off projects\" feature marketing section on Projects home page"
@@ -1435,6 +1435,10 @@
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch and practice the questions where algorithmic efficiency is key.",
     "description": "Description for interview preparation focus area"
   },
+  "Fg3V0y": {
+    "defaultMessage": "Manage subscription on Stripe",
+    "description": "Label for button to manage subscription"
+  },
   "FonVOb": {
     "defaultMessage": "All question progress has been reset.",
     "description": "Message shown when question reset progress action succeeds."
@@ -1442,6 +1446,10 @@
   "FrR1mB": {
     "defaultMessage": "Skill tree | Projects",
     "description": "Title of Projects skills tree page"
+  },
+  "Ftjz7y": {
+    "defaultMessage": "Manage your subscription status and payment methods on the Stripe billing portal.",
+    "description": "Call to action text to uppgrade plan."
   },
   "G0neZ5": {
     "defaultMessage": "Projects",
@@ -1786,10 +1794,6 @@
   "Jkhbjw": {
     "defaultMessage": "Completed",
     "description": "Completed task label"
-  },
-  "Jlr/Yy": {
-    "defaultMessage": "<link>Contact us</link> if you would like to upgrade your plan.",
-    "description": "Call to action text to uppgrade plan."
   },
   "JmdC8M": {
     "defaultMessage": "Access to all {totalChallengeCount}+ challenges. Unlimited Figma & guides access",
@@ -2279,10 +2283,6 @@
     "defaultMessage": "Gamified learning and building",
     "description": "Title for \"Gamified learning and building\" feature marketing section on Projects home page"
   },
-  "Ol7K0w": {
-    "defaultMessage": "You are on the <bold>Quarterly</bold> plan.",
-    "description": "Text describing user's subscription plan."
-  },
   "OoOyEp": {
     "defaultMessage": "More on <link>Review Cashback Discount Terms and Conditions</link>",
     "description": "Link for discount terms and conditions"
@@ -2347,6 +2347,10 @@
     "defaultMessage": "Advanced",
     "description": "Advanced level blog"
   },
+  "PQRmTe": {
+    "defaultMessage": "You are on the <bold>Lifetime</bold> plan.",
+    "description": "Text describing user's subscription plan."
+  },
   "PV4w5n": {
     "defaultMessage": "Build to impress with unique portfolio projects",
     "description": "Title for Projects marketing hero section for portfolio projects"
@@ -2394,10 +2398,6 @@
   "PzZtIi": {
     "defaultMessage": "No sign in required",
     "description": "Additional text below Get Start button on Hero section of HomePage. To let users know that they can try the product without signing in."
-  },
-  "Q1WOVj": {
-    "defaultMessage": "Manage Subscription",
-    "description": "Label for button to manage subscription"
   },
   "Q7EpE5": {
     "defaultMessage": "HTML Questions",
@@ -2867,10 +2867,6 @@
     "defaultMessage": "Try these popular React questions",
     "description": "Title for featured questions section"
   },
-  "VCvG/R": {
-    "defaultMessage": "You are on the <bold>Annual</bold> plan.",
-    "description": "Text describing user's subscription plan."
-  },
   "VElW3O": {
     "defaultMessage": "Download starter code + image assets",
     "description": "Label for \"Download starter code + image assets\" button on Projects project page"
@@ -3339,6 +3335,10 @@
     "defaultMessage": "{current}/{total} completed",
     "description": "Label for Projects segmented progress bar"
   },
+  "aP9GUx": {
+    "defaultMessage": "[DEV-ONLY] Stripe Customer ID",
+    "description": "Label for Stripe customer ID."
+  },
   "aPfuzs": {
     "defaultMessage": "Reset password",
     "description": "Title of Password Reset page"
@@ -3427,6 +3427,10 @@
     "defaultMessage": "{projectCount} projects",
     "description": "Label for total number of projects in Projects marketing page"
   },
+  "b/4l5Z": {
+    "defaultMessage": "Subscriptions are automatically renewed and you will be charged again then. You may cancel your subscription anytime via the Stripe billing portal.",
+    "description": "Call to action text to uppgrade plan."
+  },
   "b/dKUR": {
     "defaultMessage": "This subset of test cases are used when \"Run\"-ning your code.",
     "description": "Message to explain the custom tests cases"
@@ -3510,10 +3514,6 @@
   "belvJ0": {
     "defaultMessage": "Svelte Coding Questions",
     "description": "Description for Svelte questions title"
-  },
-  "bfMxFC": {
-    "defaultMessage": "Stripe Customer ID:",
-    "description": "Label for Stripe customer ID."
   },
   "bnqijt": {
     "defaultMessage": "Post",
@@ -4031,6 +4031,10 @@
     "defaultMessage": "1 Week Plan",
     "description": "Link to one week study plan"
   },
+  "i7VsUe": {
+    "defaultMessage": "You are on the <bold>Monthly</bold> plan.",
+    "description": "Text describing user's subscription plan."
+  },
   "i7u7fD": {
     "defaultMessage": "Mark as incomplete",
     "description": "Mark the question as incomplete"
@@ -4162,6 +4166,10 @@
   "jLTDtP": {
     "defaultMessage": "Software Engineer — Front End, Perch",
     "description": "Anand Dharne's job title"
+  },
+  "jMTHcm": {
+    "defaultMessage": "Manage subscription",
+    "description": "Manage billing subscription"
   },
   "jN6xqZ": {
     "defaultMessage": "1 Week Plan",
@@ -4342,6 +4350,10 @@
   "kvLlxS": {
     "defaultMessage": "Security",
     "description": "Security topic for quiz questions"
+  },
+  "kvhZfI": {
+    "defaultMessage": "You are on the <bold>Annual</bold> plan.",
+    "description": "Text describing user's subscription plan."
   },
   "kwHN0l": {
     "defaultMessage": "Choose your component and pick any theme",
@@ -4527,6 +4539,10 @@
     "defaultMessage": "For Portfolios",
     "description": "Link to Projects homepage for portfolios"
   },
+  "n03lT2": {
+    "defaultMessage": "Current plan",
+    "description": "Current customer subscription plan"
+  },
   "n0mDHU": {
     "defaultMessage": "Author",
     "description": "Author of the question"
@@ -4622,10 +4638,6 @@
   "o+1cag": {
     "defaultMessage": "Clear Console",
     "description": "Button label to clear the console in the coding workspace"
-  },
-  "o2xbIW": {
-    "defaultMessage": "You are on the <bold>Lifetime</bold> plan.",
-    "description": "Text describing user's subscription plan."
   },
   "o6ktM9": {
     "defaultMessage": "Light",
@@ -5283,10 +5295,6 @@
     "defaultMessage": "Salesforce",
     "description": "Company name for Salesforce"
   },
-  "v+Q+mM": {
-    "defaultMessage": "You are on the <bold>Monthly</bold> plan.",
-    "description": "Text describing user's subscription plan."
-  },
   "v2TGFl": {
     "defaultMessage": "High",
     "description": "Label for high question importance"
@@ -5610,6 +5618,10 @@
   "yhHx9e": {
     "defaultMessage": "All your question progress will be reset. This is an irreversible action, are you sure you want to proceed?",
     "description": "Warning message in reset progress confirmation dialog"
+  },
+  "ykwubP": {
+    "defaultMessage": "You are on the <bold>Quarterly</bold> plan.",
+    "description": "Text describing user's subscription plan."
   },
   "ynLgE+": {
     "defaultMessage": "Includes assets, JPG images of the design files, and a basic style guide. There's also a README to help you get started.",

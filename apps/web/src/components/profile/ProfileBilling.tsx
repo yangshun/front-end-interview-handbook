@@ -1,16 +1,18 @@
 'use client';
 
-import axios from 'axios';
+import clsx from 'clsx';
 import { RiBankCardLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { UserProfilePlan } from '~/components/global/UserProfileProvider';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
+import { themeLineColor } from '~/components/ui/theme';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
@@ -23,11 +25,11 @@ function PlanLabel({
     return <Text>N/A</Text>;
   }
 
-  const contactUs = (
+  const autoRenewal = (
     <FormattedMessage
-      defaultMessage="<link>Contact us</link> if you would like to upgrade your plan."
+      defaultMessage="Subscriptions are automatically renewed and you will be charged again then. You may cancel your subscription anytime via the Stripe billing portal."
       description="Call to action text to uppgrade plan."
-      id="Jlr/Yy"
+      id="b/4l5Z"
       values={{
         link: (chunks) => (
           <Anchor href="mailto:contact@greatfrontend.com">{chunks}</Anchor>
@@ -39,66 +41,62 @@ function PlanLabel({
   switch (plan) {
     case 'year': {
       return (
-        <Text>
-          <FormattedMessage
-            defaultMessage="You are on the <bold>Annual</bold> plan. "
-            description="Text describing user's subscription plan."
-            id="VCvG/R"
-            values={{
-              bold: (chunks) => <Text weight="bold">{chunks}</Text>,
-            }}
-          />
-        </Text>
+        <FormattedMessage
+          defaultMessage="You are on the <bold>Annual</bold> plan."
+          description="Text describing user's subscription plan."
+          id="kvhZfI"
+          values={{
+            bold: (chunks) => <Text weight="bold">{chunks}</Text>,
+          }}
+        />
       );
     }
     case 'month': {
       return (
-        <Text>
+        <>
           <FormattedMessage
-            defaultMessage="You are on the <bold>Monthly</bold> plan. "
+            defaultMessage="You are on the <bold>Monthly</bold> plan."
             description="Text describing user's subscription plan."
-            id="v+Q+mM"
+            id="i7VsUe"
             values={{
               bold: (chunks) => <Text weight="bold">{chunks}</Text>,
             }}
-          />
-          {contactUs}
-        </Text>
+          />{' '}
+          {autoRenewal}
+        </>
       );
     }
     case 'quarter': {
       return (
-        <Text>
+        <>
           <FormattedMessage
-            defaultMessage="You are on the <bold>Quarterly</bold> plan. "
+            defaultMessage="You are on the <bold>Quarterly</bold> plan."
             description="Text describing user's subscription plan."
-            id="Ol7K0w"
+            id="ykwubP"
             values={{
               bold: (chunks) => <Text weight="bold">{chunks}</Text>,
             }}
-          />
-          {contactUs}
-        </Text>
+          />{' '}
+          {autoRenewal}
+        </>
       );
     }
     case 'lifetime': {
       return (
-        <Text>
-          <FormattedMessage
-            defaultMessage="You are on the <bold>Lifetime</bold> plan. "
-            description="Text describing user's subscription plan."
-            id="o2xbIW"
-            values={{
-              bold: (chunks) => <Text weight="bold">{chunks}</Text>,
-            }}
-          />
-        </Text>
+        <FormattedMessage
+          defaultMessage="You are on the <bold>Lifetime</bold> plan."
+          description="Text describing user's subscription plan."
+          id="PQRmTe"
+          values={{
+            bold: (chunks) => <Text weight="bold">{chunks}</Text>,
+          }}
+        />
       );
     }
   }
 }
 
-function ManageSubscriptionButton({
+function ManageSubscriptionSection({
   plan,
 }: Readonly<{
   plan?: UserProfilePlan | null;
@@ -110,8 +108,9 @@ function ManageSubscriptionButton({
     return null;
   }
 
-  async function loadPortal() {
-    const { data } = await axios.get('/api/payments/portal');
+  async function navigateToStripePortal() {
+    const res = await fetch('/api/payments/portal');
+    const data = await res.json();
 
     router.push(data.payload.url);
   }
@@ -121,16 +120,48 @@ function ManageSubscriptionButton({
     case 'month':
     case 'quarter': {
       return (
-        <div>
-          <Button
-            label={intl.formatMessage({
-              defaultMessage: 'Manage Subscription',
-              description: 'Label for button to manage subscription',
-              id: 'Q1WOVj',
-            })}
-            variant="secondary"
-            onClick={loadPortal}
-          />
+        <div
+          className={clsx(
+            'flex flex-col gap-4',
+            'p-4',
+            'border',
+            'rounded-lg',
+            themeLineColor,
+          )}>
+          <div className={clsx('flex flex-col gap-1')}>
+            <Heading level="heading6">
+              <FormattedMessage
+                defaultMessage="Manage subscription"
+                description="Manage billing subscription"
+                id="jMTHcm"
+              />
+            </Heading>
+            <Text color="secondary" display="block" size="body2">
+              <FormattedMessage
+                defaultMessage="Manage your subscription status and payment methods on the Stripe billing portal."
+                description="Call to action text to uppgrade plan."
+                id="Ftjz7y"
+                values={{
+                  link: (chunks) => (
+                    <Anchor href="mailto:contact@greatfrontend.com">
+                      {chunks}
+                    </Anchor>
+                  ),
+                }}
+              />
+            </Text>
+          </div>
+          <div>
+            <Button
+              label={intl.formatMessage({
+                defaultMessage: 'Manage subscription on Stripe',
+                description: 'Label for button to manage subscription',
+                id: 'Fg3V0y',
+              })}
+              variant="secondary"
+              onClick={navigateToStripePortal}
+            />
+          </div>
         </div>
       );
     }
@@ -189,7 +220,7 @@ export default function ProfileBilling() {
   const { userProfile } = useUserProfile();
 
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col gap-y-6">
       <Heading className="sr-only" level="custom">
         <FormattedMessage
           defaultMessage="Billing"
@@ -202,33 +233,69 @@ export default function ProfileBilling() {
           <NoBillingPlan />
         ) : (
           <>
-            <Text display="block">
-              <PlanLabel plan={userProfile?.plan} />
-            </Text>
-            <ManageSubscriptionButton plan={userProfile?.plan} />
-            <Text display="block" size="body2">
-              <FormattedMessage
-                defaultMessage="Please contact us at <link>contact@greatfrontend.com</link> should you require a purchase invoice."
-                description="Text describing contact method for purchase invoice."
-                id="F2QRYu"
-                values={{
-                  link: (chunks) => (
-                    <Anchor href="mailto:contact@greatfrontend.com">
-                      {chunks}
-                    </Anchor>
-                  ),
-                }}
-              />
-            </Text>
+            <div
+              className={clsx(
+                'p-4',
+                'rounded-lg',
+                'flex flex-col gap-4',
+                'border',
+                themeLineColor,
+              )}>
+              <div className="flex flex-col gap-1">
+                <Heading level="heading6">
+                  <FormattedMessage
+                    defaultMessage="Current plan"
+                    description="Current customer subscription plan"
+                    id="n03lT2"
+                  />
+                </Heading>
+                <Text color="secondary" display="block" size="body2">
+                  <PlanLabel plan={userProfile?.plan} />
+                </Text>
+              </div>
+              {(userProfile?.plan === 'month' ||
+                userProfile?.plan === 'quarter') && (
+                <Alert
+                  title="Upgrade to lifetime plan at a discount"
+                  variant="success">
+                  <Text color="inherit" display="block" size="body2">
+                    <FormattedMessage
+                      defaultMessage="We offer a discounted rate for upgrading to the lifetime plan, simply <link>contact us</link>."
+                      description="Call to action text to upgrade plan."
+                      id="4C8Ad0"
+                      values={{
+                        link: (chunks) => (
+                          <Anchor href="mailto:contact@greatfrontend.com">
+                            {chunks}
+                          </Anchor>
+                        ),
+                      }}
+                    />
+                  </Text>
+                </Alert>
+              )}
+            </div>
+            <ManageSubscriptionSection plan={userProfile?.plan} />
             {process.env.NODE_ENV === 'development' && (
-              <Text display="block" size="body2">
-                <FormattedMessage
-                  defaultMessage="Stripe Customer ID: "
-                  description="Label for Stripe customer ID."
-                  id="bfMxFC"
-                />
-                <code>{userProfile?.stripeCustomerID}</code>
-              </Text>
+              <div
+                className={clsx(
+                  'flex flex-col gap-1',
+                  'p-4',
+                  'border',
+                  'rounded-lg',
+                  themeLineColor,
+                )}>
+                <Heading level="heading6">
+                  <FormattedMessage
+                    defaultMessage="[DEV-ONLY] Stripe Customer ID"
+                    description="Label for Stripe customer ID."
+                    id="aP9GUx"
+                  />
+                </Heading>
+                <Text color="secondary" display="block" size="body2">
+                  <code>{userProfile?.stripeCustomerID}</code>
+                </Text>
+              </div>
             )}
           </>
         )}
