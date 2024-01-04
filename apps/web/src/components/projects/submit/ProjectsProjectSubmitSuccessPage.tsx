@@ -5,8 +5,8 @@ import { useIntl } from 'react-intl';
 
 import useProfile from '~/hooks/user/useProfile';
 
-import ProjectsProjectGridList from '~/components/projects/projects/ProjectsProjectGridList';
-import type { ProjectsProjectMetadata } from '~/components/projects/projects/types';
+import type { ProjectsProjectMetadata } from '~/components/projects/details/types';
+import ProjectsProjectGridList from '~/components/projects/lists/ProjectsProjectGridList';
 import ProjectsSkillProgressBreakdownCard from '~/components/projects/skills/ProjectsSkillProgressBreakdownCard';
 import { ProjectsLevelingProgressBar } from '~/components/projects/stats/ProjectsLevelingProgressBar';
 import { ProjectsSegmentedProgressBar } from '~/components/projects/stats/ProjectsSegmentedProgressBar';

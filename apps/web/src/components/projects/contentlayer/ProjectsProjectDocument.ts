@@ -1,6 +1,9 @@
 import { defineDocumentType } from 'contentlayer/source-files';
 
-import { projectAccessOptions, projectDifficultyOptions } from './types';
+import {
+  projectAccessOptions,
+  projectDifficultyOptions,
+} from '../details/types';
 
 export const ProjectsProjectDocument = defineDocumentType(() => ({
   computedFields: {

@@ -1,18 +1,18 @@
 import { useIntl } from 'react-intl';
 
 import type {
-  ProjectBreakdownTabItem,
-  Props as ProjectsProjectBreakdownTabsProps,
-} from './ProjectsProjectBreakdownTabs';
-import ProjectsProjectBreakdownTabs from './ProjectsProjectBreakdownTabs';
-import type { ProjectsProjectMetadata } from '../../projects/types';
+  ProjectStepsTabItem,
+  Props as ProjectsProjectStepsTabsProps,
+} from './ProjectsProjectStepsTabs';
+import ProjectsProjectStepsTabs from './ProjectsProjectStepsTabs';
+import type { ProjectsProjectMetadata } from './types';
 
 type TabType = 'assets' | 'completion' | 'project-brief' | 'resources';
 
 function useProjectDetailsStepsTabs(project: ProjectsProjectMetadata) {
   const intl = useIntl();
 
-  const tabs: Array<ProjectBreakdownTabItem<TabType>> = [
+  const tabs: Array<ProjectStepsTabItem<TabType>> = [
     {
       hint: intl.formatMessage({
         defaultMessage: 'Get started',
@@ -101,14 +101,11 @@ function useProjectDetailsStepsTabs(project: ProjectsProjectMetadata) {
   return tabs;
 }
 
-type Props = Omit<
-  ProjectsProjectBreakdownTabsProps<TabType>,
-  'label' | 'tabs'
-> & {
+type Props = Omit<ProjectsProjectStepsTabsProps<TabType>, 'label' | 'tabs'> & {
   project: ProjectsProjectMetadata;
 };
 
-export default function ProjectsProjectBreakdownTabsImpl({
+export default function ProjectsProjectStepsTabsImpl({
   project,
   ...props
 }: Props) {
@@ -116,7 +113,7 @@ export default function ProjectsProjectBreakdownTabsImpl({
   const tabs = useProjectDetailsStepsTabs(project);
 
   return (
-    <ProjectsProjectBreakdownTabs
+    <ProjectsProjectStepsTabs
       label={intl.formatMessage({
         defaultMessage: 'Project Breakdown',
         description:

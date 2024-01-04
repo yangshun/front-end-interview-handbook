@@ -1,7 +1,7 @@
 import { readProjectsProjectDetails } from '~/db/projects/ProjectsReader';
 import { fetchUser } from '~/supabase/SupabaseServerGFE';
 
-import ProjectsTipsResourcesDiscussionsPage from './ProjectsTipsResourcesDiscussionsPage';
+import ProjectsTipsResourcesDiscussionsPage from '../../../../../../../../components/projects/details/resources/ProjectsTipsResourcesDiscussionsPage';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;

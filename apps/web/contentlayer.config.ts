@@ -10,7 +10,7 @@ import { BlogCategoryDocument } from './src/contentlayer/document/BlogCategoryDo
 import { BlogPostDocument } from './src/contentlayer/document/BlogPostDocument';
 import { BlogSeriesDocument } from './src/contentlayer/document/BlogSeriesDocument';
 import { BlogSubseriesDocument } from './src/contentlayer/document/BlogSubseriesDocument';
-import { ProjectsProjectDocument } from './src/components/projects/projects/ProjectsContentLayer';
+import { ProjectsProjectDocument } from './src/components/projects/contentlayer/ProjectsProjectDocument';
 
 export default makeSource({
   contentDirPath: 'src/content',

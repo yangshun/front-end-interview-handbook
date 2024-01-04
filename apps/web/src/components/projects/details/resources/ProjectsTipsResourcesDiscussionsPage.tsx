@@ -8,7 +8,7 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import type { ProjectsProjectMetadata } from '~/components/projects/projects/types';
+import type { ProjectsProjectMetadata } from '~/components/projects/details/types';
 import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
 

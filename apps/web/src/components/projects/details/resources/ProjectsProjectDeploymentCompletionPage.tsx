@@ -10,7 +10,7 @@ import {
 import { FormattedMessage } from 'react-intl';
 import { useIntl } from 'react-intl';
 
-import type { ProjectsProjectMetadata } from '~/components/projects/projects/types';
+import type { ProjectsProjectMetadata } from '~/components/projects/details/types';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';

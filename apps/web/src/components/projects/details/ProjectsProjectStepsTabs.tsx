@@ -9,7 +9,7 @@ import {
   themeTextColor,
 } from '~/components/ui/theme';
 
-export type ProjectBreakdownTabItem<T> = Readonly<{
+export type ProjectStepsTabItem<T> = Readonly<{
   hint: string;
   href?: string;
   subtitle: string;
@@ -21,11 +21,11 @@ export type Props<T> = Readonly<{
   className?: string;
   label: string;
   onSelect?: (value: T) => void;
-  tabs: ReadonlyArray<ProjectBreakdownTabItem<T>>;
+  tabs: ReadonlyArray<ProjectStepsTabItem<T>>;
   value: T;
 }>;
 
-export default function ProjectsProjectBreakdownTabs<T>({
+export default function ProjectsProjectStepsTabs<T>({
   className,
   label,
   tabs,

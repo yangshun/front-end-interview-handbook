@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import ProjectsAllProjectsPage from '~/components/projects/projects/ProjectsAllProjectsPage';
+import ProjectsAllProjectsPage from '~/components/projects/lists/ProjectsAllProjectsPage';
 
 import { readProjectsProjectList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';

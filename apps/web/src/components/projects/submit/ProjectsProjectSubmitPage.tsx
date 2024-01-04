@@ -4,7 +4,7 @@ import { RiArrowLeftLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 import { useIntl } from 'react-intl';
 
-import type { ProjectsProjectMetadata } from '~/components/projects/projects/types';
+import type { ProjectsProjectMetadata } from '~/components/projects/details/types';
 import ProjectsOtherTechStackInput from '~/components/projects/skills/ProjectsOtherTechStackInput';
 import ProjectsSkillInput from '~/components/projects/skills/ProjectsSkillInput';
 import Anchor from '~/components/ui/Anchor';
@@ -21,11 +21,8 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsProjectSubmitPage({ project }: Props) {
-  const { slug, href } = project;
+  const { href } = project;
   const intl = useIntl();
-
-  // TODO: Replace below with actual logic
-  const isUserPremium = false;
 
   return (
     <Container className="flex flex-col items-stretch pb-10 pt-4 lg:pb-20 lg:pt-16">

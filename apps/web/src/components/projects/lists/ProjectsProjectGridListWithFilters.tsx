@@ -8,20 +8,20 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import ProjectsProjectGridList from '~/components/projects/lists/ProjectsProjectGridList';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 
+import ProjectsListFilterDropdown from './ProjectsListFilterDropdown';
+import ProjectsListPagination from './ProjectsListPagination';
 import ProjectsProjectFilterContextProvider, {
   useProjectsProjectFilterContext,
 } from './ProjectsProjectFilterContext';
 import ProjectsProjectFilterSlideOut from './ProjectsProjectFilterSlideOut';
-import ProjectsProjectGridList from './ProjectsProjectGridList';
-import type { ProjectsProjectMetadata } from './types';
-import ProjectsListFilterDropdown from '../lists/ProjectsListFilterDropdown';
-import ProjectsListPagination from '../lists/ProjectsListPagination';
+import type { ProjectsProjectMetadata } from '../details/types';
 
 type Props = Readonly<{
   projects: ReadonlyArray<ProjectsProjectMetadata>;

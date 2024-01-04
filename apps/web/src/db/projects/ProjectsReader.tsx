@@ -1,6 +1,6 @@
 import { allProjects } from 'contentlayer/generated';
 
-import type { ProjectsProjectMetadata } from '~/components/projects/projects/types';
+import type { ProjectsProjectMetadata } from '~/components/projects/details/types';
 
 // TODO(projects): remove in future.
 export const exampleProject: ProjectsProjectMetadata = {

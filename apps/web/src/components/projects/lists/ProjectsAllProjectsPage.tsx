@@ -2,8 +2,8 @@
 
 import { FormattedMessage } from 'react-intl';
 
-import ProjectsProjectGridListWithFilters from '~/components/projects/projects/ProjectsProjectGridListWithFilters';
-import type { ProjectsProjectMetadata } from '~/components/projects/projects/types';
+import type { ProjectsProjectMetadata } from '~/components/projects/details/types';
+import ProjectsProjectGridListWithFilters from '~/components/projects/lists/ProjectsProjectGridListWithFilters';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';

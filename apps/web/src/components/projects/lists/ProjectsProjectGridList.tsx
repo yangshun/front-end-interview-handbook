@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 import ProjectsProjectCard from './ProjectsProjectCard';
-import type { ProjectsProjectMetadata } from './types';
+import type { ProjectsProjectMetadata } from '../details/types';
 
 type Props = Readonly<{
   className?: string;

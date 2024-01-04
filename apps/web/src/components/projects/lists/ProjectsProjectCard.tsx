@@ -18,7 +18,7 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-import type { ProjectsProjectMetadata } from './types';
+import type { ProjectsProjectMetadata } from '../details/types';
 import ProjectsSkillRow from '../skills/ProjectsSkillRow';
 import ProjectsCompletedUsersTag from '../stats/ProjectsCompletedUsersTag';
 

@@ -1,4 +1,4 @@
-import ProjectsProjectHeaderLayout from '~/components/projects/layout/ProjectsPage/ProjectsProjectHeaderLayout';
+import ProjectsProjectHeaderLayout from '~/components/projects/details/ProjectsProjectHeaderLayout';
 
 import { readProjectsProjectDetails } from '~/db/projects/ProjectsReader';
 

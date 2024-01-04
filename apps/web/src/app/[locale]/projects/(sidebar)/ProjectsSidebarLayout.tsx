@@ -3,8 +3,8 @@
 import { useState } from 'react';
 
 import FooterProjects from '~/components/global/footers/FooterProjects';
-import ProjectsNavbar from '~/components/projects/layout/ProjectsNavbar/ProjectsNavbar';
-import ProjectsSidebar from '~/components/projects/layout/ProjectsSidebar';
+import ProjectsNavbar from '~/components/projects/layout/ProjectsNavbar';
+import ProjectsSidebar from '~/components/projects/layout/sidebar';
 import SlideOut from '~/components/ui/SlideOut';
 
 type Props = Readonly<{

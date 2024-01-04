@@ -17,8 +17,8 @@ import {
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
-import { useProjectsProjectSessionContext } from '~/components/projects/projects/ProjectsProjectSessionContext';
-import type { ProjectsProjectMetadata } from '~/components/projects/projects/types';
+import { useProjectsProjectSessionContext } from '~/components/projects/details/ProjectsProjectSessionContext';
+import type { ProjectsProjectMetadata } from '~/components/projects/details/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

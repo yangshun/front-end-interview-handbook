@@ -269,13 +269,14 @@ export default function ProjectsSideBar() {
   const sideBarItems = useSidebarItems();
   const endAddOnItems = (
     <ul className="flex flex-col gap-6">
-      {profile == null && <ProjectsSidebarStartProjectCTACard />}
-      {profile != null && (
+      {profile == null ? (
+        <ProjectsSidebarStartProjectCTACard />
+      ) : (
         <>
           {/* TODO(projects): Show only one of these depending on subscription status */}
           <ProjectsSidebarFreePlanCTACard />
-          <ProjectsSidebarMonthlyPlanCTACard />
-          <ProjectsSidebarYearlyPlanCTACard />
+          {/* <ProjectsSidebarMonthlyPlanCTACard /> */}
+          {/* <ProjectsSidebarYearlyPlanCTACard /> */}
         </>
       )}
       <SidebarDivider />

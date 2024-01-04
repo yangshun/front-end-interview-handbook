@@ -6,13 +6,13 @@ import type { ComponentProps } from 'react';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
 
-import ProjectsProjectBreakdownTabsImpl from './ProjectsProjectBreakdownTabsImpl';
-import ProjectsProjectBeforeYouGetStartedDialog from '../../projects/before-you-get-started/ProjectsProjectBeforeYouGetStartedDialog';
-import ProjectsProjectHeader from '../../projects/ProjectsProjectHeader';
+import ProjectsProjectHeader from './ProjectsProjectHeader';
 import ProjectsProjectSessionContextProvider, {
   useProjectsProjectSessionContext,
-} from '../../projects/ProjectsProjectSessionContext';
-import type { ProjectsProjectMetadata } from '../../projects/types';
+} from './ProjectsProjectSessionContext';
+import ProjectsProjectStepsTabsImpl from './ProjectsProjectStepsTabsImpl';
+import ProjectsProjectBeforeYouGetStartedDialog from './resources/ProjectsProjectBeforeYouGetStartedDialog';
+import type { ProjectsProjectMetadata } from './types';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -24,7 +24,7 @@ export function ProjectsProjectHeaderLayoutImpl({ project, children }: Props) {
 
   const segment =
     (useSelectedLayoutSegment() as ComponentProps<
-      typeof ProjectsProjectBreakdownTabsImpl
+      typeof ProjectsProjectStepsTabsImpl
     >['value']) || 'project-brief';
 
   const { isGetStartedDialogShown, setIsGetStartedDialogShown, startSession } =
@@ -43,7 +43,7 @@ export function ProjectsProjectHeaderLayoutImpl({ project, children }: Props) {
           }}
         />
         <ProjectsProjectHeader project={project} />
-        <ProjectsProjectBreakdownTabsImpl
+        <ProjectsProjectStepsTabsImpl
           className="my-16"
           project={project}
           value={segment}

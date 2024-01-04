@@ -8,11 +8,11 @@ import MarketingSectionItemHeader from '~/components/common/marketing/MarketingS
 import HTML5LogoMonochrome from '~/components/icons/HTML5LogoMonochrome';
 import JavaScriptLogo from '~/components/icons/JavaScriptLogoMonochrome';
 import ReactLogo from '~/components/icons/ReactLogo';
+import type { ProjectsProjectMetadata } from '~/components/projects/details/types';
+import ProjectsProjectGridList from '~/components/projects/lists/ProjectsProjectGridList';
+import ProjectsProjectGridListWithFilters from '~/components/projects/lists/ProjectsProjectGridListWithFilters';
 import ProjectsMarketingComponentTrackAccordion from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordion';
 import ProjectsMarketingComponentTrackAccordionItem from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordionItem';
-import ProjectsProjectGridList from '~/components/projects/projects/ProjectsProjectGridList';
-import ProjectsProjectGridListWithFilters from '~/components/projects/projects/ProjectsProjectGridListWithFilters';
-import type { ProjectsProjectMetadata } from '~/components/projects/projects/types';
 import ProjectsSkillTree from '~/components/projects/skills/ProjectsSkillTree';
 import {
   foundationalSkillTree,

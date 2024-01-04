@@ -1,6 +1,6 @@
-import { readProjectsProjectList } from '~/db/projects/ProjectsReader';
+import ProjectsProjectSubmitSuccessPage from '~/components/projects/submit/ProjectsProjectSubmitSuccessPage';
 
-import ProjectsProjectSubmitSuccessPage from './ProjectsProjectSubmitSuccessPage';
+import { readProjectsProjectList } from '~/db/projects/ProjectsReader';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;

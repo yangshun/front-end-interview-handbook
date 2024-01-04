@@ -3,12 +3,12 @@
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
-import ProjectsAssetProvidedHtml from '~/components/projects/projects/assets-provided/ProjectsAssetProvidedHtml';
-import ProjectsAssetProvidedImageAssets from '~/components/projects/projects/assets-provided/ProjectsAssetProvidedImageAssets';
-import ProjectsAssetProvidedJpeg from '~/components/projects/projects/assets-provided/ProjectsAssetProvidedJpeg';
-import ProjectsAssetProvidedReadme from '~/components/projects/projects/assets-provided/ProjectsAssetProvidedReadme';
-import ProjectsAssetProvidedStyleGuide from '~/components/projects/projects/assets-provided/ProjectsAssetProvidedStyleGuide';
-import type { ProjectsProjectMetadata } from '~/components/projects/projects/types';
+import ProjectsAssetProvidedHtml from '~/components/projects/details/assets/ProjectsAssetProvidedHtml';
+import ProjectsAssetProvidedImageAssets from '~/components/projects/details/assets/ProjectsAssetProvidedImageAssets';
+import ProjectsAssetProvidedJpeg from '~/components/projects/details/assets/ProjectsAssetProvidedJpeg';
+import ProjectsAssetProvidedReadme from '~/components/projects/details/assets/ProjectsAssetProvidedReadme';
+import ProjectsAssetProvidedStyleGuide from '~/components/projects/details/assets/ProjectsAssetProvidedStyleGuide';
+import type { ProjectsProjectMetadata } from '~/components/projects/details/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
