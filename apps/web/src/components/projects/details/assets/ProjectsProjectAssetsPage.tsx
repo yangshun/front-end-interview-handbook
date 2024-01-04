@@ -182,7 +182,7 @@ export default function ProjectsProjectAssetsPage({ project }: Props) {
         </div>
       }>
       <div className="flex flex-col items-stretch">
-        <div className="grid grid-cols-1 gap-x-12 gap-y-12 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-x-6 gap-y-12 lg:grid-cols-4">
           <div className="flex flex-col gap-6">
             <Heading level="heading6">
               <FormattedMessage
@@ -194,28 +194,19 @@ export default function ProjectsProjectAssetsPage({ project }: Props) {
             <Section>
               <div className="flex flex-col gap-4">
                 <Button
-                  icon={RiDownload2Line}
+                  addonPosition="start"
+                  icon={RiCodeSSlashLine}
                   label={intl.formatMessage({
-                    defaultMessage: 'Starter code',
+                    defaultMessage: 'Starter code + assets',
                     description:
                       'Label for Starter Code button on Projects project assets page',
-                    id: 'J7Pskc',
+                    id: 'Nemz26',
                   })}
                   size="lg"
                   variant="secondary"
                 />
                 <Button
-                  icon={RiDownload2Line}
-                  label={intl.formatMessage({
-                    defaultMessage: 'Image assets',
-                    description:
-                      'Label for Image Assets button on Projects project assets page',
-                    id: 'hk/IIT',
-                  })}
-                  size="lg"
-                  variant="secondary"
-                />
-                <Button
+                  addonPosition="start"
                   icon={isUserPremium ? RiDownload2Line : RiLock2Line}
                   label={intl.formatMessage({
                     defaultMessage: 'Figma design file',

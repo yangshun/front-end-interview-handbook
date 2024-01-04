@@ -1,4 +1,4 @@
-import ProjectsProjectBriefPage from '~/components/projects/details/ProjectsProjectBriefPage';
+import ProjectsProjectBriefPage from '~/components/projects/details/brief/ProjectsProjectBriefPage';
 
 import { readProjectsProjectDetails } from '~/db/projects/ProjectsReader';
 

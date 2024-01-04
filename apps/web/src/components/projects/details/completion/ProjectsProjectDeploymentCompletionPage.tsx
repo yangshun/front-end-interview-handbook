@@ -19,6 +19,7 @@ import Chip from '~/components/ui/Chip';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
@@ -50,7 +51,7 @@ export default function ProjectsProjectDeploymentCompletionPage({
           />
         </Heading>
         <Section>
-          <div className="flex flex-col">
+          <div className="flex flex-col max-w-prose">
             <Text className="mt-4" color="secondary" size="body2">
               <FormattedMessage
                 defaultMessage="Follow this step-by-step deployment and submission checklist"
@@ -83,8 +84,8 @@ export default function ProjectsProjectDeploymentCompletionPage({
                       )}>
                       <RiGithubLine className="h-6 w-6" />
                     </div>
-                    <div className="flex flex-col">
-                      <Text>
+                    <div className="flex flex-col gap-0.5">
+                      <Text weight="bold">
                         <FormattedMessage
                           defaultMessage="GitHub repo"
                           description="Title for GitHub repo step in project submission checklist"
@@ -100,11 +101,11 @@ export default function ProjectsProjectDeploymentCompletionPage({
                       </Text>
                     </div>
                   </div>
-                  <Text color="secondary" size="body2">
+                  <Prose textSize="sm">
                     <FormattedMessage
-                      defaultMessage="We will pull code from this repo for code reviews<ul><li>Follow <link>this guide</link> on how to create a GitHub repo</li><li>You will submit the link to your public GitHub repo in the submission screen</li></ul>"
+                      defaultMessage="We will pull code from this repo for code reviews"
                       description="Description for GitHub repo step in project submission checklist"
-                      id="Je9bp+"
+                      id="1L7vdf"
                       values={{
                         li: (chunks) => (
                           <li className="ps-2">
@@ -117,7 +118,30 @@ export default function ProjectsProjectDeploymentCompletionPage({
                         ),
                       }}
                     />
-                  </Text>
+                    <ul>
+                      <li>
+                        <FormattedMessage
+                          defaultMessage="Follow <link>this guide</link> on how to create a GitHub repo"
+                          description="Description for GitHub repo step in project submission checklist"
+                          id="GVNK36"
+                          values={{
+                            link: (chunks) => (
+                              <Anchor href="https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository">
+                                {chunks}
+                              </Anchor>
+                            ),
+                          }}
+                        />
+                      </li>
+                      <li>
+                        <FormattedMessage
+                          defaultMessage="You will submit the link to your public GitHub repo in the submission screen"
+                          description="Description for GitHub repo step in project submission checklist"
+                          id="8x6UPf"
+                        />
+                      </li>
+                    </ul>
+                  </Prose>
                   <Divider />
                   <div className="flex items-start gap-4">
                     <Badge
@@ -132,18 +156,12 @@ export default function ProjectsProjectDeploymentCompletionPage({
                     />
                     <Text color="secondary" size="body2">
                       <FormattedMessage
-                        defaultMessage="Take care not to upload any premium figma or guide files. Doing so will cause an immediate membership termination. <link>View terms</link>"
+                        defaultMessage="Take care not to upload any premium Figma or guide files. Doing so will cause an immediate membership termination. <link>View terms</link>"
                         description="Warning message for GitHub repo step in project submission checklist"
-                        id="fLUPys"
+                        id="0azrZ0"
                         values={{
                           link: (chunks) => (
-                            <Button
-                              className="!text-brand"
-                              display="inline"
-                              icon={RiArrowRightLine}
-                              label={chunks as unknown as string}
-                              variant="tertiary"
-                            />
+                            <Anchor href="#TODO(projects)">{chunks}</Anchor>
                           ),
                         }}
                       />
@@ -169,8 +187,8 @@ export default function ProjectsProjectDeploymentCompletionPage({
                       )}>
                       <RiCodeLine className="h-6 w-6" />
                     </div>
-                    <div className="flex flex-col">
-                      <Text>
+                    <div className="flex flex-col gap-0.5">
+                      <Text weight="bold">
                         <FormattedMessage
                           defaultMessage="Deployment"
                           description="Title for Deployment step in project submission checklist"
@@ -186,26 +204,30 @@ export default function ProjectsProjectDeploymentCompletionPage({
                       </Text>
                     </div>
                   </div>
-                  <Text color="secondary" size="body2">
+                  <Prose textSize="sm">
                     <FormattedMessage
-                      defaultMessage="As mentioned, there are many ways to host your site. Our recommended hosts are:<ul><li>GitHub Pages (<github>Deployment Guide</github>)</li><li>Vercel (<vercel>Deployment Guide</vercel>)</li><li>Netlify (<netlify>Deployment Guide</netlify>)</li></ul>"
+                      defaultMessage="As mentioned, there are many ways to host your site. Our recommended hosts are:"
                       description="Description for Deployment step in project submission checklist"
-                      id="R4+M9w"
-                      values={{
-                        github: (chunks) => <Anchor>{chunks}</Anchor>,
-                        li: (chunks) => (
-                          <li className="ps-2">
-                            <span className="-ms-1">{chunks}</span>
-                          </li>
-                        ),
-                        netlify: (chunks) => <Anchor>{chunks}</Anchor>,
-                        ul: (chunks) => (
-                          <ul className="list-inside list-disc">{chunks}</ul>
-                        ),
-                        vercel: (chunks) => <Anchor>{chunks}</Anchor>,
-                      }}
+                      id="GKha2+"
                     />
-                  </Text>
+                    <ul>
+                      <li>
+                        <Anchor href="https://docs.github.com/en/pages/quickstart">
+                          GitHub Pages
+                        </Anchor>
+                      </li>
+                      <li>
+                        <Anchor href="https://vercel.com/docs/getting-started-with-vercel/projects-deployments">
+                          Vercel
+                        </Anchor>
+                      </li>
+                      <li>
+                        <Anchor href="https://docs.netlify.com/get-started/">
+                          Netlify
+                        </Anchor>
+                      </li>
+                    </ul>
+                  </Prose>
                   <Divider />
                   <div className="flex items-start gap-4">
                     <Badge
@@ -218,11 +240,11 @@ export default function ProjectsProjectDeploymentCompletionPage({
                       size="sm"
                       variant="info"
                     />
-                    <Text color="secondary" size="body2">
+                    <Prose textSize="sm">
                       <FormattedMessage
-                        defaultMessage="Before you deploy, always ensure the following:<ul><li>Backward compatibility: xxxx</li><li>Browser compatibility: xxx</li></ul>"
+                        defaultMessage="Before you deploy, always ensure the following:"
                         description="Warning message for GitHub repo step in project submission checklist"
-                        id="bCv/WP"
+                        id="KM0VJJ"
                         values={{
                           li: (chunks) => (
                             <li className="ps-2">
@@ -234,7 +256,23 @@ export default function ProjectsProjectDeploymentCompletionPage({
                           ),
                         }}
                       />
-                    </Text>
+                      <ul>
+                        <li>
+                          <FormattedMessage
+                            defaultMessage="Backward compatibility: xxxx"
+                            description="Warning message for GitHub repo step in project submission checklist"
+                            id="3jfsNU"
+                          />
+                        </li>
+                        <li>
+                          <FormattedMessage
+                            defaultMessage="Browser compatibility: xxx"
+                            description="Warning message for GitHub repo step in project submission checklist"
+                            id="8OWx2n"
+                          />
+                        </li>
+                      </ul>
+                    </Prose>
                   </div>
                 </Card>
               </li>
@@ -260,8 +298,8 @@ export default function ProjectsProjectDeploymentCompletionPage({
                     )}>
                     <RiShareCircleLine className="h-6 w-6" />
                   </div>
-                  <div className="flex flex-col">
-                    <Text>
+                  <div className="flex flex-col gap-0.5">
+                    <Text weight="bold">
                       <FormattedMessage
                         defaultMessage="Ready to submit?"
                         description="Title for Submit step in project submission checklist"

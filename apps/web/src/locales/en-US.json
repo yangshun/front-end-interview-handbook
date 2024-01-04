@@ -219,6 +219,10 @@
     "defaultMessage": "Intermediate",
     "description": "Intermediate level blog"
   },
+  "0azrZ0": {
+    "defaultMessage": "Take care not to upload any premium Figma or guide files. Doing so will cause an immediate membership termination. <link>View terms</link>",
+    "description": "Warning message for GitHub repo step in project submission checklist"
+  },
   "0gmEji": {
     "defaultMessage": "Browse series",
     "description": "Browse series section title in blog homepage"
@@ -278,6 +282,10 @@
   "1GF83M": {
     "defaultMessage": "Based on your activity, we think you might be interested in these projects",
     "description": "Description for projects you may be interested in section on project submission success page"
+  },
+  "1L7vdf": {
+    "defaultMessage": "We will pull code from this repo for code reviews",
+    "description": "Description for GitHub repo step in project submission checklist"
   },
   "1PHE0Y": {
     "defaultMessage": "Most complete all-in-one front end interview preparation.",
@@ -422,6 +430,10 @@
   "3iv+7q": {
     "defaultMessage": "GreatFrontEnd has been a great help to me for prepping front end focussed interviews. Lot of focus on JavaScript utility and React/Vanilla implementations. The system design questions asked in interviews are slightly different in front end interviews and GreatFrontEnd really shines here. I will continue to use this amazing platform!",
     "description": "Anand Dharne's testimonial"
+  },
+  "3jfsNU": {
+    "defaultMessage": "Backward compatibility: xxxx",
+    "description": "Warning message for GitHub repo step in project submission checklist"
   },
   "3lEE1N": {
     "defaultMessage": "New",
@@ -831,6 +843,10 @@
     "defaultMessage": "Walmart",
     "description": "Company name for Walmart"
   },
+  "8OWx2n": {
+    "defaultMessage": "Browser compatibility: xxx",
+    "description": "Warning message for GitHub repo step in project submission checklist"
+  },
   "8RXTKM": {
     "defaultMessage": "Submit",
     "description": "Label for \"Submit project\" button on current project session card"
@@ -898,6 +914,10 @@
   "8wt3/b": {
     "defaultMessage": "Focus areas for Front End Interviews",
     "description": "Title of focus areas page"
+  },
+  "8x6UPf": {
+    "defaultMessage": "You will submit the link to your public GitHub repo in the submission screen",
+    "description": "Description for GitHub repo step in project submission checklist"
   },
   "8yJWMC": {
     "defaultMessage": "Pay once, get full access to the interview platform forever, including updates.",
@@ -1050,10 +1070,6 @@
   "B2171J": {
     "defaultMessage": "Download design assets",
     "description": "Label for \"Download design assets\" step in dialog on Projects project page"
-  },
-  "B4Jykm": {
-    "defaultMessage": "Project Brief",
-    "description": "Title for Project Brief section on Projects project page"
   },
   "B82jFj": {
     "defaultMessage": "Guidebooks",
@@ -1479,6 +1495,10 @@
     "defaultMessage": "Build user interface apps and components in JavaScript frameworks",
     "description": "Description of front end user interface questions"
   },
+  "GKha2+": {
+    "defaultMessage": "As mentioned, there are many ways to host your site. Our recommended hosts are:",
+    "description": "Description for Deployment step in project submission checklist"
+  },
   "GM9dpG": {
     "defaultMessage": "Failed to reset progress. Please try again.",
     "description": "Message shown when question reset progress action fails."
@@ -1498,6 +1518,10 @@
   "GVHds/": {
     "defaultMessage": "Premium Feature",
     "description": "Title on question paywall appearing on the question pages of premium questions"
+  },
+  "GVNK36": {
+    "defaultMessage": "Follow <link>this guide</link> on how to create a GitHub repo",
+    "description": "Description for GitHub repo step in project submission checklist"
   },
   "GZnl60": {
     "defaultMessage": "Tips for making a strong first impression in your self introduction",
@@ -1739,10 +1763,6 @@
     "defaultMessage": "Features",
     "description": "Label for Features sidebar item in Projects sidebar"
   },
-  "J7Pskc": {
-    "defaultMessage": "Starter code",
-    "description": "Label for Starter Code button on Projects project assets page"
-  },
   "J7VxuG": {
     "defaultMessage": "Social Rewards Discount",
     "description": "Promotion title"
@@ -1786,10 +1806,6 @@
   "JaQOv1": {
     "defaultMessage": "Back to home",
     "description": "Link text to navigate to blog home page"
-  },
-  "Je9bp+": {
-    "defaultMessage": "We will pull code from this repo for code reviews<ul><li>Follow <link>this guide</link> on how to create a GitHub repo</li><li>You will submit the link to your public GitHub repo in the submission screen</li></ul>",
-    "description": "Description for GitHub repo step in project submission checklist"
   },
   "JhZ/aF": {
     "defaultMessage": "Quiz Questions",
@@ -1866,6 +1882,10 @@
   "KKasxQ": {
     "defaultMessage": "Reply content",
     "description": "Label for discussion post reply input"
+  },
+  "KM0VJJ": {
+    "defaultMessage": "Before you deploy, always ensure the following:",
+    "description": "Warning message for GitHub repo step in project submission checklist"
   },
   "KPn83+": {
     "defaultMessage": "Series Contents",
@@ -2203,6 +2223,10 @@
     "defaultMessage": "Star our GitHub repo",
     "description": "Title for task"
   },
+  "Nemz26": {
+    "defaultMessage": "Starter code + assets",
+    "description": "Label for Starter Code button on Projects project assets page"
+  },
   "NgxUnY": {
     "defaultMessage": "Difficulty",
     "description": "Question difficulty label"
@@ -2479,10 +2503,6 @@
     "defaultMessage": "I'm experienced and here to bridge some skill gaps in modern front end or full stack",
     "description": "Label for \"Experienced\" onboarding option in Projects"
   },
-  "R4+M9w": {
-    "defaultMessage": "As mentioned, there are many ways to host your site. Our recommended hosts are:<ul><li>GitHub Pages (<github>Deployment Guide</github>)</li><li>Vercel (<vercel>Deployment Guide</vercel>)</li><li>Netlify (<netlify>Deployment Guide</netlify>)</li></ul>",
-    "description": "Description for Deployment step in project submission checklist"
-  },
   "R5FPug": {
     "defaultMessage": "Contact Us",
     "description": "Title of Contact Us page"
@@ -2606,6 +2626,10 @@
   "S21xBI": {
     "defaultMessage": "Login to track your progress and access premium",
     "description": "Description of Login page"
+  },
+  "S98EuF": {
+    "defaultMessage": "Project brief",
+    "description": "Title for Project Brief section on Projects project page"
   },
   "SAFY5p": {
     "defaultMessage": "Is it really worth it to buy GreatFrontEnd?",
@@ -3471,10 +3495,6 @@
     "defaultMessage": "Frequently asked questions",
     "description": "Title of frequently asked questions page"
   },
-  "bCv/WP": {
-    "defaultMessage": "Before you deploy, always ensure the following:<ul><li>Backward compatibility: xxxx</li><li>Browser compatibility: xxx</li></ul>",
-    "description": "Warning message for GitHub repo step in project submission checklist"
-  },
   "bDWkt7": {
     "defaultMessage": "An eye-catching name to describe your solution.{br}{br}Will be displayed under the original Project's name and help other users identify your submission.",
     "description": "Description for submission name input on project submit page"
@@ -3803,10 +3823,6 @@
     "defaultMessage": "Quiz",
     "description": "Label for quiz questions"
   },
-  "fLUPys": {
-    "defaultMessage": "Take care not to upload any premium figma or guide files. Doing so will cause an immediate membership termination. <link>View terms</link>",
-    "description": "Warning message for GitHub repo step in project submission checklist"
-  },
   "fRGOI+": {
     "defaultMessage": "Number of questions",
     "description": "Total number of questions in a list"
@@ -4022,10 +4038,6 @@
   "hdlJES": {
     "defaultMessage": "Secondary reason",
     "description": "Label for \"Secondary reason\" button on Sign Up Reason section of Projects onboarding page"
-  },
-  "hk/IIT": {
-    "defaultMessage": "Image assets",
-    "description": "Label for Image Assets button on Projects project assets page"
   },
   "hnDCXW": {
     "defaultMessage": "NextJS, Vercel",

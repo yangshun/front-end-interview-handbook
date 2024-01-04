@@ -1,4 +1,4 @@
-import ProjectsProjectDeploymentCompletionPage from '~/components/projects/details/resources/ProjectsProjectDeploymentCompletionPage';
+import ProjectsProjectDeploymentCompletionPage from '~/components/projects/details/completion/ProjectsProjectDeploymentCompletionPage';
 
 import { readProjectsProjectDetails } from '~/db/projects/ProjectsReader';
 
