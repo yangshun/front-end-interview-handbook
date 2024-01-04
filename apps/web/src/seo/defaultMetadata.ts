@@ -8,6 +8,7 @@ import { getSiteUrl } from './siteUrl';
 
 type PageMetadata = Readonly<{
   description?: string;
+  imageUrl?: string;
   locale: string;
   pathname: string;
   title: string;
@@ -18,6 +19,7 @@ export default function defaultMetadata({
   locale,
   pathname,
   title,
+  imageUrl,
 }: PageMetadata): Metadata {
   return i18nMetadata(
     {
@@ -28,7 +30,7 @@ export default function defaultMetadata({
       metadataBase: new URL(getSiteUrl()),
       openGraph: {
         description,
-        images: '/img/seo/og.jpg',
+        images: imageUrl ?? '/img/seo/og.jpg',
         locale,
         siteName: 'GreatFrontEnd',
         title,
@@ -43,7 +45,7 @@ export default function defaultMetadata({
         card: 'summary_large_image',
         creator: '@greatfrontend',
         description,
-        images: '/img/seo/og.jpg',
+        images: imageUrl ?? '/img/seo/og.jpg',
         site: '@greatfrontend',
         title,
       },

@@ -36,6 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     description: post?.description,
+    imageUrl: post?.imageUrl,
     locale,
     pathname: post?.href || '',
     title: `${post?.title} | Blog`,

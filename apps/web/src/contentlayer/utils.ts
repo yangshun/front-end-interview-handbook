@@ -19,7 +19,7 @@ export function getPostFromSlug(slug: string) {
   return post ? getTypeCastedMetadata(post) : null;
 }
 
-export function getTypeCastedMetadata(item: Post | Series) {
+export function getTypeCastedMetadata<T extends Post | Series>(item: T) {
   const itemLevel = item.level as BlogLevel;
   const itemTags = item.tags as Array<BlogTagType>;
 
