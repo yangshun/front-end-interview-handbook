@@ -2,6 +2,7 @@ import { cookies } from 'next/headers';
 import type { Metadata } from 'next/types';
 
 import countryNames from '~/data/countryCodesToNames.json';
+import { PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
 
 import fetchLocalizedPlanPricing from '~/components/interviews/pricing/fetchLocalizedPlanPricing';
 
@@ -16,12 +17,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const intl = await getIntlServerOnly(locale);
 
   return defaultMetadata({
-    description: intl.formatMessage({
-      defaultMessage:
-        'Pricing plans tailored to your needs. Grab our all-access lifetime plans at a 30% discount today!',
-      description: 'Description of Pricing page',
-      id: 'wmvMT1',
-    }),
+    description: intl.formatMessage(
+      {
+        defaultMessage:
+          'Pricing plans tailored to your needs. Grab our all-access lifetime plans at a {discountPercentage}% discount today!',
+        description: 'Description of Pricing page',
+        id: 'CxZ3Vp',
+      },
+      {
+        discountPercentage: PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
+      },
+    ),
     locale,
     pathname: '/pricing',
     title: intl.formatMessage({

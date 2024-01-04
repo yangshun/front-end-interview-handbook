@@ -27,9 +27,9 @@ export default function BlogHomePage() {
         <div className="flex flex-col gap-y-3">
           <Heading level="heading5">
             <FormattedMessage
-              defaultMessage="GreatFrontend Blog"
+              defaultMessage="GreatFrontEnd Blog"
               description="Blog home page title"
-              id="CXadMv"
+              id="uMAaCa"
             />
           </Heading>
           <Text

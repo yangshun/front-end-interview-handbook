@@ -1159,10 +1159,6 @@
     "defaultMessage": "Practice with study plans and timelines",
     "description": "Section title for study plans"
   },
-  "CXadMv": {
-    "defaultMessage": "GreatFrontend Blog",
-    "description": "Blog home page title"
-  },
   "CXs8z4": {
     "defaultMessage": "Practice Front End Quiz Interview Questions With Solutions",
     "description": "Title of Interview Preparation Quiz page"
@@ -1198,6 +1194,10 @@
   "CvwT9O": {
     "defaultMessage": "You need to start the learning session first",
     "description": "Message telling users that need to start on a study plan session first"
+  },
+  "CxZ3Vp": {
+    "defaultMessage": "Pricing plans tailored to your needs. Grab our all-access lifetime plans at a {discountPercentage}% discount today!",
+    "description": "Description of Pricing page"
   },
   "CxfPVD": {
     "defaultMessage": "Build together with other like-minded individuals",
@@ -5227,6 +5227,10 @@
     "defaultMessage": "Toggle line comment",
     "description": "Text describing command to toggle line comment in the coding workspace shortcuts menu"
   },
+  "uMAaCa": {
+    "defaultMessage": "GreatFrontEnd Blog",
+    "description": "Blog home page title"
+  },
   "uRMJks": {
     "defaultMessage": "No promo codes available",
     "description": "Title of GreatFrontEnd page"
@@ -5422,10 +5426,6 @@
   "wfod1+": {
     "defaultMessage": "GreatFrontEnd is hiring! Check out our <link>jobs page</link>!",
     "description": "Text on Promo Banner"
-  },
-  "wmvMT1": {
-    "defaultMessage": "Pricing plans tailored to your needs. Grab our all-access lifetime plans at a 30% discount today!",
-    "description": "Description of Pricing page"
   },
   "wnzGbx": {
     "defaultMessage": "For Experienced",
