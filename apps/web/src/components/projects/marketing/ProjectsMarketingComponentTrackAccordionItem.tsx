@@ -1,13 +1,8 @@
 import clsx from 'clsx';
-import {
-  RiArrowDownSLine,
-  RiArrowRightLine,
-  RiLock2Line,
-} from 'react-icons/ri';
+import { RiArrowDownSLine, RiArrowRightLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
-import Badge from '~/components/ui/Badge';
 import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';
 import {
@@ -16,9 +11,8 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-import ProjectsProjectCountTag from '../stats/ProjectsProjectCountTag';
-import ProjectsReputationCountIncreaseTag from '../stats/ProjectsReputationCountIncreaseTag';
 import type { ProjectsTrack } from '../tracks/ProjectsTracksData';
+import ProjectsTracksHeader from '../tracks/ProjectsTracksHeader';
 
 import * as Accordion from '@radix-ui/react-accordion';
 
@@ -29,17 +23,7 @@ type Props = Readonly<{
 export default function ProjectsMarketingComponentTrackAccordionItem({
   track,
 }: Props) {
-  const {
-    href,
-    slug,
-    title,
-    description,
-    points,
-    projects,
-    totalProjectCount,
-    completedProjectCount,
-    isPremium,
-  } = track;
+  const { href, slug, projects } = track;
 
   const intl = useIntl();
 
@@ -54,37 +38,7 @@ export default function ProjectsMarketingComponentTrackAccordionItem({
         <Accordion.Header asChild={true}>
           <Accordion.Trigger className="outline-brand group rounded-lg">
             <div className="flex items-center justify-between gap-2 p-6">
-              <div className="flex flex-col items-start text-start">
-                <div className="flex gap-2">
-                  <Text weight="medium">{title}</Text>
-                  {isPremium && (
-                    <Badge
-                      icon={RiLock2Line}
-                      label={intl.formatMessage({
-                        defaultMessage: 'Premium',
-                        description:
-                          'Label on Premium badge to indicate premium-only access',
-                        id: 'aWL34G',
-                      })}
-                      size="sm"
-                      variant="special"
-                    />
-                  )}
-                </div>
-                <Text className="mt-1" size="body2">
-                  {description}
-                </Text>
-                <div className="mt-2 flex gap-4">
-                  <ProjectsReputationCountIncreaseTag
-                    points={points}
-                    variant="flat"
-                  />
-                  <ProjectsProjectCountTag
-                    total={totalProjectCount}
-                    value={completedProjectCount}
-                  />
-                </div>
-              </div>
+              <ProjectsTracksHeader track={track} />
               <RiArrowDownSLine
                 className={clsx(
                   'h-5 w-5 transition-transform group-data-[state=open]:rotate-180',

@@ -36,7 +36,7 @@ export default function ProjectsProjectHeader({ project }: Props) {
     points,
     skills,
     title,
-    trackName,
+    track,
   } = project;
 
   const { session, startProject } = useProjectsProjectSessionContext();
@@ -82,7 +82,7 @@ export default function ProjectsProjectHeader({ project }: Props) {
           </Text>
           <div className="flex flex-wrap gap-x-4 gap-y-2">
             <ProjectsDifficultyTag difficulty={difficulty} />
-            <ProjectsComponentTrackTag trackName={trackName} />
+            <ProjectsComponentTrackTag track={track} />
             <ProjectsReputationCountIncreaseTag
               points={points}
               variant="flat"

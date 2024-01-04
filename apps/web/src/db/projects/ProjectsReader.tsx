@@ -91,7 +91,10 @@ export const exampleProject: ProjectsProjectMetadata = {
   status: 'in-progress',
   submitHref: '#',
   title: 'Newsletter section',
-  trackName: 'Design System Track',
+  track: {
+    name: 'Design System Track',
+    slug: 'design-system-track',
+  },
 };
 
 export async function readProjectsProjectList(

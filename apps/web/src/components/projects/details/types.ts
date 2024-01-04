@@ -17,6 +17,8 @@ export type ProjectsProjectAccess = (typeof projectAccessOptions)[number];
 
 export type ProjectsProjectStatus = 'completed' | 'in-progress' | 'not-started';
 
+// TODO(projects): Remove in future.
+export type ProjectsTrackMetadata = Readonly<{ name: string; slug: string }>;
 export type ProjectsProjectMetadata = Readonly<{
   access: ProjectsProjectAccess;
   assetsHref: string;
@@ -34,5 +36,5 @@ export type ProjectsProjectMetadata = Readonly<{
   status: ProjectsProjectStatus; // TODO(projects): Remove from metadata
   submitHref: string;
   title: string;
-  trackName: string;
+  track: ProjectsTrackMetadata;
 }>;

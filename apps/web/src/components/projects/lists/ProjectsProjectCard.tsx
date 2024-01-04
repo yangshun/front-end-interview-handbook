@@ -36,7 +36,7 @@ export default function ProjectsProjectCard({ project }: Props) {
     imgSrc,
     completedUsers,
     completedCount,
-    trackName,
+    track,
     points,
     href,
     access,
@@ -106,7 +106,7 @@ export default function ProjectsProjectCard({ project }: Props) {
             )}>
             <RiCheckboxMultipleLine className="h-4 w-4" />
             <Text color="inherit" size="body3">
-              {trackName}
+              {track.name}
             </Text>
           </div>
           <div
