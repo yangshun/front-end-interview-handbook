@@ -12,18 +12,20 @@ import {
   RiArrowLeftLine,
   RiArrowRightLine,
   RiCheckboxCircleFill,
-  RiNodeTree,
-  RiParentLine,
-  RiQuestionLine,
-  RiRocketLine,
-  RiSparklingLine,
-  RiStarLine,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { z } from 'zod';
+import type { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
+import useMotivationReasonOptions from '~/components/projects/hooks/useMotivationReasonOptions';
+import useMotivationReasonSchema from '~/components/projects/hooks/useMotivationReasonSchema';
+import type {
+  MotivationReasonFormValues,
+  MotivationReasonOption,
+  MotivationReasonType,
+} from '~/components/projects/types';
+import { type MotivationReasonValue } from '~/components/projects/types';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -43,184 +45,23 @@ import { useI18nRouter } from '~/next-i18nostic/src';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
-const reasonValue = z.enum([
-  'beginner',
-  'experienced',
-  'mentor-others',
-  'other',
-  'portfolio',
-  'side-projects',
-]);
-
-type ReasonType = 'primary' | 'secondary';
-
-export type ReasonValue = z.infer<typeof reasonValue>;
-
-type ReasonOption = {
-  content: React.ReactNode;
-  icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  id: ReasonValue;
-};
-
-function useReasonOptions() {
-  const reasonOptions: Array<ReasonOption> = [
-    {
-      content: (
-        <FormattedMessage
-          defaultMessage="I'm a <bold>beginner</bold> and want to learn skills for practical front end development"
-          description='Label for "Beginner" onboarding option in Projects'
-          id="cJY5Ir"
-          values={{
-            bold: (chunks) => (
-              <Text display="inline" weight="bold">
-                {chunks}
-              </Text>
-            ),
-          }}
-        />
-      ),
-      icon: RiRocketLine,
-      id: 'beginner',
-    },
-
-    {
-      content: (
-        <FormattedMessage
-          defaultMessage="I'm <bold>experienced</bold> and here to bridge some skill gaps in modern front end or full stack"
-          description='Label for "Experienced" onboarding option in Projects'
-          id="uCyL/V"
-          values={{
-            bold: (chunks) => (
-              <Text display="inline" weight="bold">
-                {chunks}
-              </Text>
-            ),
-          }}
-        />
-      ),
-      icon: RiNodeTree,
-      id: 'experienced',
-    },
-    {
-      content: (
-        <FormattedMessage
-          defaultMessage="I'm here to build my <bold>portfolio</bold>"
-          description='Label for "Portfolio" onboarding option in Projects'
-          id="k08Rfb"
-          values={{
-            bold: (chunks) => (
-              <Text display="inline" weight="bold">
-                {chunks}
-              </Text>
-            ),
-          }}
-        />
-      ),
-      icon: RiSparklingLine,
-      id: 'portfolio',
-    },
-    {
-      content: (
-        <FormattedMessage
-          defaultMessage="I'm here to build my <bold>side projects</bold>"
-          description='Label for "Side projects" onboarding option in Projects'
-          id="6nt/n6"
-          values={{
-            bold: (chunks) => (
-              <Text display="inline" weight="bold">
-                {chunks}
-              </Text>
-            ),
-          }}
-        />
-      ),
-      icon: RiStarLine,
-      id: 'side-projects',
-    },
-    {
-      content: (
-        <FormattedMessage
-          defaultMessage="I want to help <bold>mentor others</bold>"
-          description='Label for "Mentor others" onboarding option in Projects'
-          id="13CKZ1"
-          values={{
-            bold: (chunks) => (
-              <Text display="inline" weight="bold">
-                {chunks}
-              </Text>
-            ),
-          }}
-        />
-      ),
-      icon: RiParentLine,
-      id: 'mentor-others',
-    },
-    {
-      content: (
-        <FormattedMessage
-          defaultMessage="Other"
-          description='Label for "Other" onboarding option in Projects'
-          id="Zdojj9"
-        />
-      ),
-      icon: RiQuestionLine,
-      id: 'other',
-    },
-  ];
-
-  return reasonOptions;
-}
-
-function useOnboardingReasonSchema() {
-  const intl = useIntl();
-
-  const motivationSchema = z.union([
-    z
-      .object({
-        otherValue: z.string(),
-        type: reasonValue.exclude(['other']).nullable(),
-      })
-      .transform(({ type }) => type),
-    z
-      .object({
-        otherValue: z.string().min(1, {
-          message: intl.formatMessage({
-            defaultMessage: 'Please enter your motivations',
-            description:
-              'Error message for empty "Other" onboarding option in Projects',
-            id: 'zACRRV',
-          }),
-        }),
-        type: reasonValue.extract(['other']),
-      })
-      .transform(({ otherValue }) => otherValue),
-  ]);
-
-  return z.object({
-    primary: motivationSchema.transform((motivation) =>
-      motivation === null ? z.NEVER : motivation,
-    ),
-    secondary: motivationSchema,
-  });
-}
-
 function ReasonList({
   name,
   reasonOptions,
   previousValue,
   onChange,
 }: {
-  name: ReasonType;
-  onChange: (value: ReasonValue | null) => void;
-  previousValue?: ReasonValue | null;
-  reasonOptions: Array<ReasonOption>;
+  name: MotivationReasonType;
+  onChange: (value: MotivationReasonValue | null) => void;
+  previousValue?: MotivationReasonValue | null;
+  reasonOptions: Array<MotivationReasonOption>;
 }) {
   const {
     control,
     watch,
     setValue,
     formState: { errors },
-  } = useFormContext<OnboardingReasonFormValues>();
+  } = useFormContext<MotivationReasonFormValues>();
   const valueKey = `${name}.type` as const;
   const value = watch(valueKey);
 
@@ -311,29 +152,25 @@ function ReasonList({
   );
 }
 
-type OnboardingReasonFormValues = Record<
-  ReasonType,
-  {
-    otherValue: string;
-    type: ReasonValue | null;
-  }
->;
-
 type OnboardingProfileFormTransformedValues = z.infer<
-  ReturnType<typeof useOnboardingReasonSchema>
+  ReturnType<typeof useMotivationReasonSchema>
 >;
 
 export default function ProjectsOnboardingReasonPage() {
   const router = useI18nRouter();
   const intl = useIntl();
-  const onboardingReasonSchema = useOnboardingReasonSchema();
-  const reasonOptions = useReasonOptions();
+  const onboardingReasonSchema = useMotivationReasonSchema();
+  const { reasonOptions } = useMotivationReasonOptions((chunks) => (
+    <Text display="inline" weight="bold">
+      {chunks}
+    </Text>
+  ));
 
   const motivationsUpdateMutation =
     trpc.projects.profile.motivationsUpdate.useMutation();
 
   const methods = useForm<
-    OnboardingReasonFormValues,
+    MotivationReasonFormValues,
     unknown,
     OnboardingProfileFormTransformedValues
   >({
@@ -355,7 +192,7 @@ export default function ProjectsOnboardingReasonPage() {
     resetField,
     formState: { isSubmitting, errors },
   } = methods;
-  const [reasonType, setReasonType] = useState<ReasonType>('primary');
+  const [reasonType, setReasonType] = useState<MotivationReasonType>('primary');
   const primaryType = watch('primary.type');
   const secondaryType = watch('secondary.type');
 

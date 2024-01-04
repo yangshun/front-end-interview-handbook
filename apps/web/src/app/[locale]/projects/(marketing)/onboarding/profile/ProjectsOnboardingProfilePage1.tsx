@@ -6,148 +6,20 @@ import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
+import useMonthYearExperienceSchema from '~/components/projects/hooks/useMonthYearExperienceSchema';
+import { yoeReplacementSchema } from '~/components/projects/misc';
+import ProjectsProfileTechStackProficientInput from '~/components/projects/profile/ProjectsProfileTechStackProficientInput';
+import ProjectsProfileTechStackToImproveInput from '~/components/projects/profile/ProjectsProfileTechStackToImproveInput';
+import ProjectsProfileYOEInput from '~/components/projects/profile/ProjectsProfileYOEInput';
 import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
-import Anchor from '~/components/ui/Anchor';
+import type { OnboardingProfilePage1Values } from '~/components/projects/types';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
-import CheckboxInput from '~/components/ui/CheckboxInput';
 import Heading from '~/components/ui/Heading';
-import RadioGroup from '~/components/ui/RadioGroup';
-import type { RadioGroupItemProps } from '~/components/ui/RadioGroup/RadioGroupItem';
-import RadioGroupItem from '~/components/ui/RadioGroup/RadioGroupItem';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-
-const yoeReplacementSchema = z.enum([
-  'bootcamp-grad',
-  'bootcamper',
-  'career-switcher',
-  'fresh-grad',
-  'intern',
-  'masters-cs',
-  'others',
-  'self-learning',
-  'undergrad-cs',
-]);
-
-type YOEReplacement = z.infer<typeof yoeReplacementSchema>;
-
-function useYOEReplacementOptions() {
-  const intl = useIntl();
-
-  const yoeReplacementOptions = [
-    {
-      label: intl.formatMessage({
-        defaultMessage: 'Undergrad CS',
-        description: 'Label for "Undergrad CS" option in YOE replacement',
-        id: 'E5x8uP',
-      }),
-      value: 'undergrad-cs',
-    },
-    {
-      label: intl.formatMessage({
-        defaultMessage: 'Masters CS',
-        description: 'Label for "Masters CS" option in YOE replacement',
-        id: 'pkWsMA',
-      }),
-      value: 'masters-cs',
-    },
-    {
-      label: intl.formatMessage({
-        defaultMessage: 'Intern',
-        description: 'Label for "Intern" option in YOE replacement',
-        id: 'HdBv6k',
-      }),
-      value: 'intern',
-    },
-    {
-      label: intl.formatMessage({
-        defaultMessage: 'Fresh Grad',
-        description: 'Label for "Fresh Grad" option in YOE replacement',
-        id: 'oxD4TD',
-      }),
-      value: 'fresh-grad',
-    },
-    {
-      label: intl.formatMessage({
-        defaultMessage: 'Career Switcher',
-        description: 'Label for "Career Switcher" option in YOE replacement',
-        id: 'DjHA82',
-      }),
-      value: 'career-switcher',
-    },
-    {
-      label: intl.formatMessage({
-        defaultMessage: 'Bootcamp Grad',
-        description: 'Label for "Bootcamp Grad" option in YOE replacement',
-        id: 'SpM0k8',
-      }),
-      value: 'bootcamp-grad',
-    },
-    {
-      label: intl.formatMessage({
-        defaultMessage: 'Bootcamper',
-        description: 'Label for "Bootcamper" option in YOE replacement',
-        id: 'WBESe1',
-      }),
-      value: 'bootcamper',
-    },
-    {
-      label: intl.formatMessage({
-        defaultMessage: 'Self-Learning',
-        description: 'Label for "Self-Learning" option in YOE replacement',
-        id: '+ahYqd',
-      }),
-      value: 'self-learning',
-    },
-    {
-      label: intl.formatMessage({
-        defaultMessage: 'Others',
-        description: 'Label for "Others" option in YOE replacement',
-        id: '9nq03w',
-      }),
-      value: 'others',
-    },
-  ] as const satisfies ReadonlyArray<RadioGroupItemProps<YOEReplacement>>;
-
-  return yoeReplacementOptions;
-}
-
-function useMonthYearExperienceSchema() {
-  const intl = useIntl();
-
-  return z
-    .string()
-    .refine(
-      (value) => {
-        const [month, year] = value.split('/');
-
-        if (!month || !year) {
-          return false;
-        }
-
-        const monthInt = parseInt(month, 10);
-        const yearInt = parseInt(year, 10);
-
-        return monthInt >= 1 && monthInt <= 12 && yearInt >= 1900;
-      },
-      {
-        message: intl.formatMessage({
-          defaultMessage: 'Please enter a valid date',
-          description:
-            'Error message for invalid "Month and year you started work as a Front End Engineer" input on Projects profile onboarding page',
-          id: '3QQssQ',
-        }),
-      },
-    )
-    .transform((value) => {
-      const [month, year] = value.split('/');
-
-      return new Date(parseInt(year, 10), parseInt(month, 10) - 1);
-    });
-}
 
 function useOnboardingProfilePage1Schema() {
   const intl = useIntl();
@@ -214,19 +86,6 @@ function useOnboardingProfilePage1Schema() {
   ]);
 }
 
-type OnboardingProfilePage1Values = {
-  hasNotStartedWork: boolean;
-  jobTitle: string;
-  monthYearExperience: string | undefined;
-  name: string;
-  techStackProficient: string;
-  techStackToImprove: string;
-  yoeReplacement: {
-    option: string | undefined;
-    otherText: string | undefined;
-  };
-};
-
 type OnboardingProfilePage1TransformedValues = z.infer<
   ReturnType<typeof useOnboardingProfilePage1Schema>
 >;
@@ -242,7 +101,6 @@ export default function ProjectsOnboardingProfilePage1({
 }: Props) {
   const intl = useIntl();
   const onboardingProfilePage1Schema = useOnboardingProfilePage1Schema();
-  const yoeReplacementOptions = useYOEReplacementOptions();
   const { data: initialValues } =
     trpc.projects.profile.onboardingStep1Get.useQuery();
   const onboardingStep1UpdateMutation =
@@ -393,83 +251,13 @@ export default function ProjectsOnboardingProfilePage1({
               id="DdbtcA"
             />
           </Text>
-          <Controller
+          <ProjectsProfileTechStackProficientInput
             control={control}
-            name="techStackProficient"
-            render={({ field }) => (
-              <TextInput
-                description={intl.formatMessage(
-                  {
-                    defaultMessage:
-                      'The skills / tools / frameworks you are already familiar in. Cannot find the tag you need? Email us at {supportEmail}',
-                    description:
-                      'Description for "Tech stack proficient" input on Projects profile onboarding page',
-                    id: 'YiE5Xj',
-                  },
-                  {
-                    supportEmail: (
-                      <Anchor href="mailto:support@greatfrontend.com">
-                        support@greatfrontend.com
-                      </Anchor>
-                    ),
-                  },
-                )}
-                descriptionStyle="tooltip"
-                errorMessage={errors.techStackProficient?.message}
-                label={intl.formatMessage({
-                  defaultMessage: 'Tech stack you are proficient in',
-                  description:
-                    'Label for "Tech stack you are proficient in" input on Projects profile onboarding page',
-                  id: 'sjcvmA',
-                })}
-                placeholder={intl.formatMessage({
-                  defaultMessage: 'React, HTML, JS',
-                  description:
-                    'Placeholder for "Tech stack you are proficient in" input on Projects profile onboarding page',
-                  id: 'gm+QgP',
-                })}
-                {...field}
-              />
-            )}
+            errors={errors}
           />
-          <Controller
+          <ProjectsProfileTechStackToImproveInput
             control={control}
-            name="techStackToImprove"
-            render={({ field }) => (
-              <TextInput
-                description={intl.formatMessage(
-                  {
-                    defaultMessage:
-                      'The skills / tools / frameworks you are hoping to grow.. Cannot find the tag you need? Email us at {supportEmail}',
-                    description:
-                      'Description for "Tech stack to improve" input on Projects profile onboarding page',
-                    id: 'H+so3d',
-                  },
-                  {
-                    supportEmail: (
-                      <Anchor href="mailto:support@greatfrontend.com">
-                        support@greatfrontend.com
-                      </Anchor>
-                    ),
-                  },
-                )}
-                descriptionStyle="tooltip"
-                errorMessage={errors.techStackToImprove?.message}
-                label={intl.formatMessage({
-                  defaultMessage: 'Tech stack you are hoping to grow in',
-                  description:
-                    'Label for "Tech stack you are hoping to grow in" input on Projects profile onboarding page',
-                  id: 'UZDhKH',
-                })}
-                placeholder={intl.formatMessage({
-                  defaultMessage: 'NextJS, Vercel',
-                  description:
-                    'Placeholder for "Tech stack you are hoping to grow in" input on Projects profile onboarding page',
-                  id: 'hnDCXW',
-                })}
-                {...field}
-              />
-            )}
+            errors={errors}
           />
         </div>
         <div className="flex flex-col gap-y-6">
@@ -480,107 +268,12 @@ export default function ProjectsOnboardingProfilePage1({
               id="grrYsM"
             />
           </Text>
-          <div className="space-y-4">
-            <Controller
-              control={control}
-              disabled={watchHasNotStartedWork}
-              name="monthYearExperience"
-              render={({ field }) => (
-                <TextInput
-                  description={intl.formatMessage({
-                    defaultMessage:
-                      'We use this to calculate your YOE and keep it updated',
-                    description:
-                      'Description for "Month and year you started work as a Front End Engineer" input on Projects profile onboarding page',
-                    id: 'EjGug0',
-                  })}
-                  descriptionStyle="tooltip"
-                  errorMessage={errors.monthYearExperience?.message}
-                  isDisabled={field.disabled}
-                  label={intl.formatMessage({
-                    defaultMessage:
-                      'Month and year you started work as a Front End Engineer',
-                    description:
-                      'Label for "Month and year you started work as a Front End Engineer" input on Projects profile onboarding page',
-                    id: '1SKRR/',
-                  })}
-                  placeholder={intl.formatMessage({
-                    defaultMessage: 'MM/YYYY',
-                    description:
-                      'Placeholder for "Month and year you started work as a Front End Engineer" input on Projects profile onboarding page',
-                    id: '/Xai24',
-                  })}
-                  {...field}
-                />
-              )}
-            />
-            <Controller
-              control={control}
-              name="hasNotStartedWork"
-              render={({ field }) => (
-                <CheckboxInput
-                  label={intl.formatMessage({
-                    defaultMessage: "I haven't started work yet",
-                    description:
-                      'Label for "I haven\'t started work yet" checkbox on Projects profile onboarding page',
-                    id: 'b7z86A',
-                  })}
-                  {...field}
-                />
-              )}
-            />
-          </div>
-          {watchHasNotStartedWork && (
-            <Text>
-              <Controller
-                control={control}
-                name="yoeReplacement.option"
-                render={({ field }) => (
-                  <RadioGroup
-                    className="grid grid-cols-3 gap-x-12 gap-y-2"
-                    errorMessage={errors.yoeReplacement?.option?.message}
-                    label={intl.formatMessage({
-                      defaultMessage:
-                        'Select another status to display in place of your YOE:',
-                      description:
-                        'Label for "Years of experience replacement status" choices on Projects profile onboarding page',
-                      id: '40fcnl',
-                    })}
-                    {...field}>
-                    {yoeReplacementOptions.map((option) => (
-                      <RadioGroupItem key={option.value} {...option} />
-                    ))}
-                  </RadioGroup>
-                )}
-              />
-              {watchYoeReplacementOption === 'others' && (
-                <Controller
-                  control={control}
-                  name="yoeReplacement.otherText"
-                  render={({ field }) => (
-                    <TextInput
-                      className="mt-4"
-                      errorMessage={errors.yoeReplacement?.otherText?.message}
-                      isLabelHidden={true}
-                      label={intl.formatMessage({
-                        defaultMessage: 'Other',
-                        description:
-                          'Label for "Other" input for "Years of experience replacement status" on Projects profile onboarding page',
-                        id: 'WWdQAb',
-                      })}
-                      placeholder={intl.formatMessage({
-                        defaultMessage: 'Write here',
-                        description:
-                          'Placeholder for "Other" input for "Years of experience replacement status" on Projects profile onboarding page',
-                        id: 'WH8fwr',
-                      })}
-                      {...field}
-                    />
-                  )}
-                />
-              )}
-            </Text>
-          )}
+          <ProjectsProfileYOEInput
+            control={control}
+            errors={errors}
+            watchHasNotStartedWork={watchHasNotStartedWork}
+            watchYoeReplacementOption={watchYoeReplacementOption}
+          />
         </div>
         <Button
           className="self-end"

@@ -1119,6 +1119,10 @@
     "defaultMessage": "Account Settings",
     "description": "Screenreader text for account settings."
   },
+  "C70QCF": {
+    "defaultMessage": "I'm a beginner and want to learn skills for practical front end development",
+    "description": "Label for \"Beginner\" onboarding option in Projects"
+  },
   "C7tiFm": {
     "defaultMessage": "Why join us?",
     "description": "Section label for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
@@ -1678,6 +1682,10 @@
   "IQ9qW7": {
     "defaultMessage": "Get promo code",
     "description": "Button label for student discount"
+  },
+  "IQEeSq": {
+    "defaultMessage": "I'm here to build my portfolio",
+    "description": "Label for \"Portfolio\" onboarding option in Projects"
   },
   "ITq0p4": {
     "defaultMessage": "Privacy Policy",
@@ -2466,6 +2474,10 @@
   "R1ji0N": {
     "defaultMessage": "Signing out. See you again!",
     "description": "Main content of Sign Out page"
+  },
+  "R22hcT": {
+    "defaultMessage": "I'm experienced and here to bridge some skill gaps in modern front end or full stack",
+    "description": "Label for \"Experienced\" onboarding option in Projects"
   },
   "R4+M9w": {
     "defaultMessage": "As mentioned, there are many ways to host your site. Our recommended hosts are:<ul><li>GitHub Pages (<github>Deployment Guide</github>)</li><li>Vercel (<vercel>Deployment Guide</vercel>)</li><li>Netlify (<netlify>Deployment Guide</netlify>)</li></ul>",
@@ -3315,6 +3327,10 @@
     "defaultMessage": "Build to cover skill gaps in up-and-coming skills",
     "description": "Title for Projects marketing hero section for experienced users"
   },
+  "a3gDom": {
+    "defaultMessage": "Social links",
+    "description": "Title of social links section of projects profile edit page"
+  },
   "a6L95B": {
     "defaultMessage": "Check your email for the confirmation link.",
     "description": "Content of alert indicating a successful email sign up"
@@ -3558,6 +3574,10 @@
   "c9QTag": {
     "defaultMessage": "Settings",
     "description": "Label for Settings sidebar item in Projects sidebar"
+  },
+  "c9nv1K": {
+    "defaultMessage": "I want to help mentor others",
+    "description": "Label for \"Mentor others\" onboarding option in Projects"
   },
   "cB23kJ": {
     "defaultMessage": "Security | Profile",
@@ -4167,6 +4187,9 @@
     "defaultMessage": "Software Engineer — Front End, Perch",
     "description": "Anand Dharne's job title"
   },
+  "jMHsyQ": {
+    "defaultMessage": "Skills",
+    "description": "Title of skills section of projects profile edit page"
   "jMTHcm": {
     "defaultMessage": "Manage subscription",
     "description": "Manage billing subscription"
@@ -4203,6 +4226,10 @@
     "defaultMessage": "Title: Z to A",
     "description": "Sorting option for question list - sort titles from Z to A"
   },
+  "jeWrES": {
+    "defaultMessage": "I'm here to build my side projects",
+    "description": "Label for \"Side projects\" onboarding option in Projects"
+  },
   "jeX0Hi": {
     "defaultMessage": "Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others",
     "description": "Placeholder for Biography input on Projects profile onboarding page"
@@ -4238,6 +4265,10 @@
   "jzVpyI": {
     "defaultMessage": "Is GreatFrontEnd targeted at engineers of specific seniority?",
     "description": "Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
+  },
+  "k+36tk": {
+    "defaultMessage": "Motivation for joining",
+    "description": "Title of motivation for joining section of projects profile edit page"
   },
   "k+T8RZ": {
     "defaultMessage": "Warning",
@@ -4570,6 +4601,10 @@
   "n9Ii7+": {
     "defaultMessage": "System Design",
     "description": "Label for system design questions"
+  },
+  "nAm1Vk": {
+    "defaultMessage": "Years of Experience",
+    "description": "Title of years of experience section of projects profile edit page"
   },
   "nJYzIr": {
     "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
@@ -5298,6 +5333,10 @@
   "v2TGFl": {
     "defaultMessage": "High",
     "description": "Label for high question importance"
+  },
+  "v2g4rl": {
+    "defaultMessage": "Edit Profile",
+    "description": "Title of projects profile edit page"
   },
   "v4ChUi": {
     "defaultMessage": "Get started with GreatFrontEnd's study plans or practice over {questionCount} questions across all front end interview formats",
