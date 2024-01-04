@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import { themeElementBorderColor } from '~/components/ui/theme';
 
-import { exampleDiscussionPosts } from '~/app/[locale]/projects/(sidebar)/p/[slug]/(header)/tips-resources-discussions/ProjectsTipsResourcesDiscussionsPage';
+import { exampleDiscussionPosts } from '~/app/[locale]/projects/(sidebar)/p/[slug]/(header)/resources/ProjectsTipsResourcesDiscussionsPage';
 
 import DiscussionPost from './DiscussionPost';
 

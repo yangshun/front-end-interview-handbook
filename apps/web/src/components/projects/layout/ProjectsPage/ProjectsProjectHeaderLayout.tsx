@@ -22,9 +22,10 @@ type Props = Readonly<{
 export function ProjectsProjectHeaderLayoutImpl({ project, children }: Props) {
   const { slug } = project;
 
-  const segment = useSelectedLayoutSegment() as ComponentProps<
-    typeof ProjectsProjectBreakdownTabsImpl
-  >['value'];
+  const segment =
+    (useSelectedLayoutSegment() as ComponentProps<
+      typeof ProjectsProjectBreakdownTabsImpl
+    >['value']) || 'project-brief';
 
   const { isGetStartedDialogShown, setIsGetStartedDialogShown, startSession } =
     useProjectsProjectSessionContext();
@@ -43,8 +44,8 @@ export function ProjectsProjectHeaderLayoutImpl({ project, children }: Props) {
         />
         <ProjectsProjectHeader project={project} />
         <ProjectsProjectBreakdownTabsImpl
-          className="mb-16 mt-16"
-          slug={slug}
+          className="my-16"
+          project={project}
           value={segment}
         />
         {children}

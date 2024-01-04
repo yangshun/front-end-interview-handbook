@@ -4,8 +4,20 @@ import { projectAccessOptions, projectDifficultyOptions } from './types';
 
 export const ProjectsProjectDocument = defineDocumentType(() => ({
   computedFields: {
+    assetsHref: {
+      resolve: (doc) => `/projects/p/${doc.slug}/assets`,
+      type: 'string',
+    },
+    completionHref: {
+      resolve: (doc) => `/projects/p/${doc.slug}/completion`,
+      type: 'string',
+    },
     href: {
       resolve: (doc) => `/projects/p/${doc.slug}`,
+      type: 'string',
+    },
+    resourcesHref: {
+      resolve: (doc) => `/projects/p/${doc.slug}/resources`,
       type: 'string',
     },
     submitHref: {

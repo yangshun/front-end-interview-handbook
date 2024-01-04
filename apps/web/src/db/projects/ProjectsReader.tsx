@@ -5,6 +5,7 @@ import type { ProjectsProjectMetadata } from '~/components/projects/projects/typ
 // TODO(projects): remove in future.
 export const exampleProject: ProjectsProjectMetadata = {
   access: 'free',
+  assetsHref: '#',
   completedCount: 21,
   completedUsers: [
     {
@@ -62,11 +63,13 @@ export const exampleProject: ProjectsProjectMetadata = {
       website: null,
     },
   ],
+  completionHref: '#',
   description: 'This is a short description for the newsletter section',
   difficulty: 'starter',
   href: '#',
   imgSrc: 'https://source.unsplash.com/random/960x360',
   points: 1000,
+  resourcesHref: '#',
   skills: [
     {
       difficulty: 'hard',

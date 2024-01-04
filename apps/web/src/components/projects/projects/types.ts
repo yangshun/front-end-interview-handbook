@@ -19,13 +19,16 @@ export type ProjectsProjectStatus = 'completed' | 'in-progress' | 'not-started';
 
 export type ProjectsProjectMetadata = Readonly<{
   access: ProjectsProjectAccess;
+  assetsHref: string;
   completedCount: number; // TODO(projects): Remove from metadata
   completedUsers: Array<Profile>; // TODO(projects): Remove from metadata
+  completionHref: string;
   description: string;
   difficulty: ProjectsProjectDifficulty;
   href: string;
   imgSrc: string;
   points: number;
+  resourcesHref: string;
   skills: Array<ProjectsSkill>;
   slug: string;
   status: ProjectsProjectStatus; // TODO(projects): Remove from metadata

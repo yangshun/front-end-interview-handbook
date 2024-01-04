@@ -5,14 +5,11 @@ import type {
   Props as ProjectsProjectBreakdownTabsProps,
 } from './ProjectsProjectBreakdownTabs';
 import ProjectsProjectBreakdownTabs from './ProjectsProjectBreakdownTabs';
+import type { ProjectsProjectMetadata } from '../../projects/types';
 
-type TabType =
-  | 'assets'
-  | 'project-brief'
-  | 'project-deployment-completion'
-  | 'tips-resources-discussions';
+type TabType = 'assets' | 'completion' | 'project-brief' | 'resources';
 
-function useTabs(slug: string) {
+function useProjectDetailsStepsTabs(project: ProjectsProjectMetadata) {
   const intl = useIntl();
 
   const tabs: Array<ProjectBreakdownTabItem<TabType>> = [
@@ -23,7 +20,7 @@ function useTabs(slug: string) {
           'Hint for "Project Brief" and "Assets" tab on Projects project page',
         id: '01jNoZ',
       }),
-      href: `/projects/p/${slug}/project-brief`,
+      href: project.href,
       subtitle: intl.formatMessage({
         defaultMessage: 'Project Brief',
         description:
@@ -44,7 +41,7 @@ function useTabs(slug: string) {
           'Hint for "Project Brief" and "Assets" tab on Projects project page',
         id: '01jNoZ',
       }),
-      href: `/projects/p/${slug}/assets`,
+      href: project.assetsHref,
       subtitle: intl.formatMessage({
         defaultMessage: 'Assets',
         description: 'Subtitle for "Assets" tab on Projects project page',
@@ -64,7 +61,7 @@ function useTabs(slug: string) {
           'Hint for "Tips, Resources and Discussions" tab on Projects project page',
         id: 'KBBRmA',
       }),
-      href: `/projects/p/${slug}/tips-resources-discussions`,
+      href: project.resourcesHref,
       subtitle: intl.formatMessage({
         defaultMessage: 'Tips, Resources and Discussions',
         description:
@@ -76,7 +73,7 @@ function useTabs(slug: string) {
         description: 'Title for "Step 3" tab on Projects project page',
         id: '+Yk101',
       }),
-      value: 'tips-resources-discussions',
+      value: 'resources',
     },
     {
       hint: intl.formatMessage({
@@ -85,7 +82,7 @@ function useTabs(slug: string) {
           'Hint for "Project Deployment & Completion" tab on Projects project page',
         id: 'QkImfr',
       }),
-      href: `/projects/p/${slug}/project-deployment-completion`,
+      href: project.completionHref,
       subtitle: intl.formatMessage({
         defaultMessage: 'Project Deployment & Completion',
         description:
@@ -97,7 +94,7 @@ function useTabs(slug: string) {
         description: 'Title for "Step 4" tab on Projects project page',
         id: 'G5tU8P',
       }),
-      value: 'project-deployment-completion',
+      value: 'completion',
     },
   ];
 
@@ -108,15 +105,15 @@ type Props = Omit<
   ProjectsProjectBreakdownTabsProps<TabType>,
   'label' | 'tabs'
 > & {
-  slug: string;
+  project: ProjectsProjectMetadata;
 };
 
 export default function ProjectsProjectBreakdownTabsImpl({
-  slug,
+  project,
   ...props
 }: Props) {
   const intl = useIntl();
-  const tabs = useTabs(slug);
+  const tabs = useProjectDetailsStepsTabs(project);
 
   return (
     <ProjectsProjectBreakdownTabs
