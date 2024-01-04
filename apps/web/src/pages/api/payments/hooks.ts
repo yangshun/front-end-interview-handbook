@@ -74,6 +74,38 @@ export default async function handler(
     return res.send(`Lifetime subscription added to ${customerId}`);
   }
 
+  async function fulfillSubscriptionOrder(
+    subscription: Stripe.Subscription,
+  ): Promise<UserProfilePlan> {
+    const customerId = subscription.customer;
+
+    const planName: UserProfilePlan = (() => {
+      const { interval, interval_count: intervalCount } =
+        subscription.items.data[0].plan;
+
+      if (interval === 'year' && intervalCount === 1) {
+        return 'year';
+      }
+
+      if (interval === 'month' && intervalCount === 3) {
+        return 'quarter';
+      }
+
+      // Default is monthly.
+      return 'month';
+    })();
+
+    await supabaseAdmin
+      .from('Profile')
+      .update({
+        plan: planName,
+        premium: true,
+      })
+      .eq('stripeCustomer', customerId);
+
+    return planName;
+  }
+
   switch (event.type) {
     // Some payment methods like PayNow are async despite the
     // Stripe dashboard not mentioning that.
@@ -95,35 +127,31 @@ export default async function handler(
       return await fulfillLifetimeOrder(checkoutSession);
     }
 
+    // Zero-amount subscriptions (e.g. giveaways) have an `active` subscription created.
+    case 'customer.subscription.created': {
+      const subscription = event.data.object as Stripe.Subscription;
+      const customerId = subscription.customer;
+
+      switch (subscription.status) {
+        case 'active': {
+          const planName = await fulfillSubscriptionOrder(subscription);
+
+          return res.send(`${planName} subscription added to ${customerId}`);
+        }
+
+        default: {
+          return res.send(`Nothing done to subscription`);
+        }
+      }
+    }
+
     case 'customer.subscription.updated': {
       const subscription = event.data.object as Stripe.Subscription;
       const customerId = subscription.customer;
 
       switch (subscription.status) {
         case 'active': {
-          const planName: UserProfilePlan = (() => {
-            const { interval, interval_count: intervalCount } =
-              subscription.items.data[0].plan;
-
-            if (interval === 'year' && intervalCount === 1) {
-              return 'year';
-            }
-
-            if (interval === 'month' && intervalCount === 3) {
-              return 'quarter';
-            }
-
-            // Default is monthly.
-            return 'month';
-          })();
-
-          await supabaseAdmin
-            .from('Profile')
-            .update({
-              plan: planName,
-              premium: true,
-            })
-            .eq('stripeCustomer', customerId);
+          const planName = await fulfillSubscriptionOrder(subscription);
 
           return res.send(`${planName} subscription added to ${customerId}`);
         }
@@ -131,15 +159,11 @@ export default async function handler(
         case 'past_due': {
           await stripe.subscriptions.del(subscription.id);
 
-          return res.send(
-            `Subscription ${subscription.id} by ${customerId} cancelled because it's ${subscription.status}`,
-          );
+          return res.send(`Subscription cancelled`);
         }
 
         default: {
-          return res.send(
-            `Nothing done to subscription by ${customerId} with subscription status is ${subscription.status}`,
-          );
+          return res.send(`Nothing done to subscription`);
         }
       }
     }
