@@ -95,7 +95,9 @@ export default function Chip({
       aria-hidden={ariaHidden}
       aria-label={isLabelHidden ? label : undefined}
       className={clsx(
-        'relative inline-flex items-center justify-center whitespace-nowrap rounded-full py-px font-medium',
+        'relative inline-flex items-center justify-center rounded-full py-px',
+        'whitespace-nowrap font-medium',
+        'shrink-0',
         sizeClasses[size],
         backgroundClass,
         borderClass,
