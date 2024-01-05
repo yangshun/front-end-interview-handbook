@@ -18,7 +18,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
 import { useProjectsProjectSessionContext } from '~/components/projects/details/ProjectsProjectSessionContext';
-import type { ProjectsProjectMetadata } from '~/components/projects/details/types';
+import type { ProjectsProjectItem } from '~/components/projects/details/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -111,7 +111,7 @@ function useProvidedAssets() {
 }
 
 type Props = Readonly<{
-  project: ProjectsProjectMetadata;
+  project: ProjectsProjectItem;
 }>;
 
 export default function ProjectsProjectAssetsPage({ project }: Props) {

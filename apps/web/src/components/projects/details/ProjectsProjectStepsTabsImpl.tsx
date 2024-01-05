@@ -5,11 +5,11 @@ import type {
   Props as ProjectsProjectStepsTabsProps,
 } from './ProjectsProjectStepsTabs';
 import ProjectsProjectStepsTabs from './ProjectsProjectStepsTabs';
-import type { ProjectsProjectMetadata } from './types';
+import type { ProjectsProjectItem } from './types';
 
 type TabType = 'assets' | 'completion' | 'project-brief' | 'resources';
 
-function useProjectDetailsStepsTabs(project: ProjectsProjectMetadata) {
+function useProjectDetailsStepsTabs(project: ProjectsProjectItem) {
   const intl = useIntl();
 
   const tabs: Array<ProjectStepsTabItem<TabType>> = [
@@ -102,7 +102,7 @@ function useProjectDetailsStepsTabs(project: ProjectsProjectMetadata) {
 }
 
 type Props = Omit<ProjectsProjectStepsTabsProps<TabType>, 'label' | 'tabs'> & {
-  project: ProjectsProjectMetadata;
+  project: ProjectsProjectItem;
 };
 
 export default function ProjectsProjectStepsTabsImpl({

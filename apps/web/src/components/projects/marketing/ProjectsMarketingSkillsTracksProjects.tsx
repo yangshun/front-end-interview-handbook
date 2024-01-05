@@ -8,7 +8,7 @@ import MarketingSectionItemHeader from '~/components/common/marketing/MarketingS
 import HTML5LogoMonochrome from '~/components/icons/HTML5LogoMonochrome';
 import JavaScriptLogo from '~/components/icons/JavaScriptLogoMonochrome';
 import ReactLogo from '~/components/icons/ReactLogo';
-import type { ProjectsProjectMetadata } from '~/components/projects/details/types';
+import type { ProjectsProjectItem } from '~/components/projects/details/types';
 import ProjectsProjectGridList from '~/components/projects/lists/ProjectsProjectGridList';
 import ProjectsProjectGridListWithFilters from '~/components/projects/lists/ProjectsProjectGridListWithFilters';
 import ProjectsMarketingComponentTrackAccordion from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordion';
@@ -36,7 +36,7 @@ const skills = [
 ];
 
 type Props = Readonly<{
-  featuredProjects: ReadonlyArray<ProjectsProjectMetadata>;
+  featuredProjects: ReadonlyArray<ProjectsProjectItem>;
 }>;
 
 export default function ProjectsMarketingSkillsTracksProjects({

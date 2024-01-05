@@ -21,10 +21,10 @@ import ProjectsProjectFilterContextProvider, {
   useProjectsProjectFilterContext,
 } from './ProjectsProjectFilterContext';
 import ProjectsProjectFilterSlideOut from './ProjectsProjectFilterSlideOut';
-import type { ProjectsProjectMetadata } from '../details/types';
+import type { ProjectsProjectItem } from '../details/types';
 
 type Props = Readonly<{
-  projects: ReadonlyArray<ProjectsProjectMetadata>;
+  projects: ReadonlyArray<ProjectsProjectItem>;
 }>;
 
 function ProjectsProjectGridListWithFiltersImpl({ projects }: Props) {

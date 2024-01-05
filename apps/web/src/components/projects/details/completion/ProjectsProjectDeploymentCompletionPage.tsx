@@ -10,7 +10,7 @@ import {
 import { FormattedMessage } from 'react-intl';
 import { useIntl } from 'react-intl';
 
-import type { ProjectsProjectMetadata } from '~/components/projects/details/types';
+import type { ProjectsProjectItem } from '~/components/projects/details/types';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
@@ -28,7 +28,7 @@ import {
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
-  project: ProjectsProjectMetadata;
+  project: ProjectsProjectItem;
 }>;
 
 export default function ProjectsProjectDeploymentCompletionPage({

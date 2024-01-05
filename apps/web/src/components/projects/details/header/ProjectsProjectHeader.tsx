@@ -7,7 +7,7 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import type { ProjectsProjectMetadata } from '~/components/projects/details/types';
+import type { ProjectsProjectItem } from '~/components/projects/details/types';
 import ProjectsSkillChip from '~/components/projects/skills/ProjectsSkillChip';
 import ProjectsCompletedUsersTag from '~/components/projects/stats/ProjectsCompletedUsersTag';
 import ProjectsComponentTrackTag from '~/components/projects/stats/ProjectsComponentTrackTag';
@@ -26,7 +26,7 @@ import ProjectsProjectHowItWorksDialog from './ProjectsProjectHowItWorksDialog';
 import { useProjectsProjectSessionContext } from '../ProjectsProjectSessionContext';
 
 type Props = Readonly<{
-  project: ProjectsProjectMetadata;
+  project: ProjectsProjectItem;
 }>;
 
 export default function ProjectsProjectHeader({ project }: Props) {

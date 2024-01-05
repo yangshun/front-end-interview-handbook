@@ -11,11 +11,11 @@ import ProjectsProjectSessionContextProvider, {
 } from '../ProjectsProjectSessionContext';
 import ProjectsProjectStepsTabsImpl from '../ProjectsProjectStepsTabsImpl';
 import ProjectsProjectBeforeYouGetStartedDialog from '../resources/ProjectsProjectBeforeYouGetStartedDialog';
-import type { ProjectsProjectMetadata } from '../types';
+import type { ProjectsProjectItem } from '../types';
 
 type Props = Readonly<{
   children: React.ReactNode;
-  project: ProjectsProjectMetadata;
+  project: ProjectsProjectItem;
 }>;
 
 export function ProjectsProjectHeaderLayoutImpl({ project, children }: Props) {

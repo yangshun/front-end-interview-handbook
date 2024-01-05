@@ -1,3 +1,5 @@
+import type { ProjectMetadata } from 'contentlayer/generated';
+
 import type { ProjectsSkill } from '../skills/types';
 
 import type { Profile } from '@prisma/client';
@@ -19,7 +21,8 @@ export type ProjectsProjectStatus = 'completed' | 'in-progress' | 'not-started';
 
 // TODO(projects): Remove in future.
 export type ProjectsTrackMetadata = Readonly<{ name: string; slug: string }>;
-export type ProjectsProjectMetadata = Readonly<{
+
+export type ProjectsProjectItem = Readonly<{
   access: ProjectsProjectAccess;
   assetsHref: string;
   completedCount: number; // TODO(projects): Remove from metadata
@@ -29,11 +32,13 @@ export type ProjectsProjectMetadata = Readonly<{
   difficulty: ProjectsProjectDifficulty;
   href: string;
   imgSrc: string;
+  // Metadata: ProjectMetadata;
   points: number;
   resourcesHref: string;
   skills: Array<ProjectsSkill>;
   slug: string;
-  status: ProjectsProjectStatus; // TODO(projects): Remove from metadata
+  status: ProjectsProjectStatus;
+  // TODO(projects): Remove from metadata
   submitHref: string;
   title: string;
   track: ProjectsTrackMetadata;

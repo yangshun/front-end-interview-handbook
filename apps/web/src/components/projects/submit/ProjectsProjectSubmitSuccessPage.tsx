@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 
 import useProfile from '~/hooks/user/useProfile';
 
-import type { ProjectsProjectMetadata } from '~/components/projects/details/types';
+import type { ProjectsProjectItem } from '~/components/projects/details/types';
 import ProjectsProjectGridList from '~/components/projects/lists/ProjectsProjectGridList';
 import ProjectsSkillProgressBreakdownCard from '~/components/projects/skills/ProjectsSkillProgressBreakdownCard';
 import { ProjectsLevelingProgressBar } from '~/components/projects/stats/ProjectsLevelingProgressBar';
@@ -165,7 +165,7 @@ function ReputationIncreaseBackground({ className }: { className?: string }) {
 }
 
 type Props = Readonly<{
-  suggestedProjects: ReadonlyArray<ProjectsProjectMetadata>;
+  suggestedProjects: ReadonlyArray<ProjectsProjectItem>;
 }>;
 
 export default function ProjectsProjectSubmitSuccessPage({

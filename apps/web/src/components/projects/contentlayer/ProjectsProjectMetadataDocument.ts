@@ -5,7 +5,7 @@ import {
   projectDifficultyOptions,
 } from '../details/types';
 
-export const ProjectsProjectDocument = defineDocumentType(() => ({
+export const ProjectsProjectMetadataDocument = defineDocumentType(() => ({
   computedFields: {
     assetsHref: {
       resolve: (doc) => `/projects/p/${doc.slug}/assets`,
@@ -62,5 +62,5 @@ export const ProjectsProjectDocument = defineDocumentType(() => ({
     },
   },
   filePathPattern: 'projects/**/*.mdx',
-  name: 'Project',
+  name: 'ProjectMetadata',
 }));

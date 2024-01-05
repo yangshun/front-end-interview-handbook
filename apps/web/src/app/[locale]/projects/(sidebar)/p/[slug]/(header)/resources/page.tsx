@@ -1,4 +1,4 @@
-import { readProjectsProjectDetails } from '~/db/projects/ProjectsReader';
+import { readProjectsProjectMetadata } from '~/db/projects/ProjectsReader';
 import { fetchUser } from '~/supabase/SupabaseServerGFE';
 
 import ProjectsTipsResourcesDiscussionsPage from '../../../../../../../../components/projects/details/resources/ProjectsTipsResourcesDiscussionsPage';
@@ -11,7 +11,7 @@ export default async function Page({ params }: Props) {
   const { slug, locale } = params;
 
   const [{ project }, user] = await Promise.all([
-    readProjectsProjectDetails(slug, locale),
+    readProjectsProjectMetadata(slug, locale),
     fetchUser(),
   ]);
 

@@ -1,6 +1,6 @@
 import ProjectsProjectHeaderLayout from '~/components/projects/details/header/ProjectsProjectHeaderLayout';
 
-import { readProjectsProjectDetails } from '~/db/projects/ProjectsReader';
+import { readProjectsProjectMetadata } from '~/db/projects/ProjectsReader';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -10,7 +10,7 @@ type Props = Readonly<{
 export default async function Layout({ children, params }: Props) {
   const { locale, slug } = params;
 
-  const { project } = await readProjectsProjectDetails(slug, locale);
+  const { project } = await readProjectsProjectMetadata(slug, locale);
 
   return (
     <ProjectsProjectHeaderLayout project={project}>

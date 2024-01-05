@@ -4,7 +4,7 @@ import { useInView } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useRef } from 'react';
 
-import type { ProjectsProjectMetadata } from '~/components/projects/details/types';
+import type { ProjectsProjectItem } from '~/components/projects/details/types';
 import ProjectsMarketingFeatures from '~/components/projects/marketing/ProjectsMarketingFeatures';
 import ProjectsMarketingHero from '~/components/projects/marketing/ProjectsMarketingHero';
 import ProjectsMarketingHomepageFeaturesRow from '~/components/projects/marketing/ProjectsMarketingHomepageFeaturesRow';
@@ -17,7 +17,7 @@ const MarketingHomePageBottom = dynamic(
 );
 
 type Props = Readonly<{
-  featuredProjects: ReadonlyArray<ProjectsProjectMetadata>;
+  featuredProjects: ReadonlyArray<ProjectsProjectItem>;
 }>;
 
 export default function ProjectsMarketingHomePage({ featuredProjects }: Props) {

@@ -1,9 +1,9 @@
-import { allProjects } from 'contentlayer/generated';
+import { allProjectMetadata } from 'contentlayer/generated';
 
-import type { ProjectsProjectMetadata } from '~/components/projects/details/types';
+import type { ProjectsProjectItem } from '~/components/projects/details/types';
 
 // TODO(projects): remove in future.
-export const exampleProject: ProjectsProjectMetadata = {
+export const exampleProject: ProjectsProjectItem = {
   access: 'free',
   assetsHref: '#',
   completedCount: 21,
@@ -101,9 +101,9 @@ export async function readProjectsProjectList(
   requestedLocale = 'en-US',
 ): Promise<{
   loadedLocale: string;
-  projects: ReadonlyArray<ProjectsProjectMetadata>;
+  projects: ReadonlyArray<ProjectsProjectItem>;
 }> {
-  const projects = allProjects.map((projectItem) => ({
+  const projects = allProjectMetadata.map((projectItem) => ({
     ...exampleProject,
     ...projectItem,
   }));
@@ -114,19 +114,19 @@ export async function readProjectsProjectList(
   };
 }
 
-export async function readProjectsProjectDetails(
+export async function readProjectsProjectMetadata(
   slugParam: string,
   requestedLocale = 'en-US',
 ): Promise<
   Readonly<{
     loadedLocale: string;
-    project: ProjectsProjectMetadata;
+    project: ProjectsProjectItem;
   }>
 > {
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
 
-  const project = allProjects.find(
+  const project = allProjectMetadata.find(
     (projectItem) =>
       projectItem._raw.flattenedPath === `projects/${slug}/${requestedLocale}`,
   )!;
