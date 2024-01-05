@@ -21,7 +21,7 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsProjectSubmitPage({ project }: Props) {
-  const { href } = project;
+  const { href } = project.metadata;
   const intl = useIntl();
 
   return (

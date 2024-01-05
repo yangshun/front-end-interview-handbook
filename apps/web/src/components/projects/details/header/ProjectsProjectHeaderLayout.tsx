@@ -19,7 +19,7 @@ type Props = Readonly<{
 }>;
 
 export function ProjectsProjectHeaderLayoutImpl({ project, children }: Props) {
-  const { slug } = project;
+  const { slug } = project.metadata;
 
   const segment =
     (useSelectedLayoutSegment() as ComponentProps<
@@ -50,7 +50,7 @@ export default function ProjectsProjectHeaderLayout({
   project,
   children,
 }: Props) {
-  const { slug } = project;
+  const { slug } = project.metadata;
 
   return (
     <ProjectsProjectSessionContextProvider slug={slug}>

@@ -1583,10 +1583,6 @@
     "defaultMessage": "What to expect for Front End System Design interviews",
     "description": "Sidebar link title for front end system design interviews"
   },
-  "H5GY66": {
-    "defaultMessage": "Project Breakdown",
-    "description": "Label for Project Breakdown tabs on Projects project page"
-  },
   "H8hr3R": {
     "defaultMessage": "Must have a personal website or other acceptable channel where you can publish the review. Please email us to check channel eligibility before posting.",
     "description": "Condition for promotion"
@@ -2730,6 +2726,10 @@
   "TDzLXK": {
     "defaultMessage": "Lyft",
     "description": "Company name for Lyft"
+  },
+  "TJD+8A": {
+    "defaultMessage": "Project steps",
+    "description": "Label for Project steps tabs"
   },
   "TL822E": {
     "defaultMessage": "JavaScript Console",

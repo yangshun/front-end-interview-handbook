@@ -38,7 +38,7 @@ export default function ProjectsProjectCurrentProjectSessionCard({
 
   const { endSession } = useProjectsProjectSessionContext();
 
-  const { submitHref, skills, slug } = project;
+  const { submitHref, skills, slug } = project.metadata;
   const { createdAt } = session;
 
   const handleEndSession = async () => {

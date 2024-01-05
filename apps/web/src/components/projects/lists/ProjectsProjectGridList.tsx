@@ -19,7 +19,7 @@ export default function ProjectsProjectGridList({
         className,
       )}>
       {projects.map((project) => (
-        <ProjectsProjectCard key={project.slug} project={project} />
+        <ProjectsProjectCard key={project.metadata.slug} project={project} />
       ))}
     </div>
   );

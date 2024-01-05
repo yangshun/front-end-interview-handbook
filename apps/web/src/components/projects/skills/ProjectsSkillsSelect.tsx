@@ -12,7 +12,7 @@ import type { ProjectsSkill } from './types';
 
 type Props = Readonly<{
   className?: string;
-  skills: Array<
+  skills: ReadonlyArray<
     ProjectsSkill & {
       isEditable?: boolean;
     }

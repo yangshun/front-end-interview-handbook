@@ -31,16 +31,8 @@ type Props = Readonly<{
 
 export default function ProjectsProjectHeader({ project }: Props) {
   const intl = useIntl();
-  const {
-    completedCount,
-    completedUsers,
-    description,
-    difficulty,
-    points,
-    skills,
-    title,
-    track,
-  } = project;
+  const { completedCount, completedUsers, metadata } = project;
+  const { description, difficulty, points, skills, title, track } = metadata;
 
   const { session, startProject } = useProjectsProjectSessionContext();
   const [isHowItWorksDialogShown, setIsHowItWorksDialogShown] = useState(false);

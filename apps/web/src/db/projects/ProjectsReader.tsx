@@ -3,9 +3,7 @@ import { allProjectMetadata } from 'contentlayer/generated';
 import type { ProjectsProjectItem } from '~/components/projects/details/types';
 
 // TODO(projects): remove in future.
-export const exampleProject: ProjectsProjectItem = {
-  access: 'free',
-  assetsHref: '#',
+export const exampleProject: Omit<ProjectsProjectItem, 'metadata'> = {
   completedCount: 21,
   completedUsers: [
     {
@@ -63,13 +61,11 @@ export const exampleProject: ProjectsProjectItem = {
       website: null,
     },
   ],
-  completionHref: '#',
-  description: 'This is a short description for the newsletter section',
-  difficulty: 'starter',
-  href: '#',
+  status: 'in-progress',
+};
+
+const extraData = {
   imgSrc: 'https://source.unsplash.com/random/960x360',
-  points: 1000,
-  resourcesHref: '#',
   skills: [
     {
       difficulty: 'hard',
@@ -86,16 +82,12 @@ export const exampleProject: ProjectsProjectItem = {
       key: 'js',
       label: 'JS',
     },
-  ],
-  slug: 'newsletter-section',
-  status: 'in-progress',
-  submitHref: '#',
-  title: 'Newsletter section',
+  ] as const,
   track: {
     name: 'Design System Track',
     slug: 'design-system-track',
   },
-};
+} as const;
 
 export async function readProjectsProjectList(
   requestedLocale = 'en-US',
@@ -103,9 +95,12 @@ export async function readProjectsProjectList(
   loadedLocale: string;
   projects: ReadonlyArray<ProjectsProjectItem>;
 }> {
-  const projects = allProjectMetadata.map((projectItem) => ({
+  const projects = allProjectMetadata.map((projectMetadata) => ({
     ...exampleProject,
-    ...projectItem,
+    metadata: {
+      ...projectMetadata,
+      ...extraData,
+    },
   }));
 
   return {
@@ -133,6 +128,12 @@ export async function readProjectsProjectMetadata(
 
   return {
     loadedLocale: requestedLocale,
-    project: { ...exampleProject, ...project },
+    project: {
+      ...exampleProject,
+      metadata: {
+        ...project,
+        ...extraData,
+      },
+    },
   };
 }

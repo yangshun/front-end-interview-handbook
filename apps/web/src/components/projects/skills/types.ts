@@ -1,25 +1,25 @@
-export type ProjectsSkill = {
+export type ProjectsSkill = Readonly<{
   difficulty?: ProjectSkillDifficulty;
   key: string;
   label: string;
-};
+}>;
 
-export type ProjectSkillGroup = {
+export type ProjectSkillGroup = Readonly<{
   completedProjectCount: number;
-  items: Array<ProjectSkillItem>;
+  items: ReadonlyArray<ProjectSkillItem>;
   key: string;
   label: string;
   totalProjectCount: number;
   type: 'group';
-};
+}>;
 
-export type ProjectSkillItem = {
+export type ProjectSkillItem = Readonly<{
   completedProjectCount: number;
   key: string;
   label: string;
   totalProjectCount: number;
   type: 'item';
-};
+}>;
 
 export type ProjectSkillDifficulty = 'easy' | 'hard' | 'medium' | 'unknown';
 

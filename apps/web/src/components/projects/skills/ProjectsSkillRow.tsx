@@ -10,7 +10,7 @@ import type { ProjectsSkill } from './types';
 type Props = Readonly<{
   className?: string;
   label: string;
-  skills: Array<ProjectsSkill>;
+  skills: ReadonlyArray<ProjectsSkill>;
 }>;
 
 export default function ProjectsSkillRow({ label, skills, className }: Props) {

@@ -28,20 +28,18 @@ type Props = Readonly<{
 
 export default function ProjectsProjectCard({ project }: Props) {
   const intl = useIntl();
+  const { completedUsers, completedCount, metadata, status } = project;
   const {
     title,
     difficulty,
     description,
     skills,
     imgSrc,
-    completedUsers,
-    completedCount,
     track,
     points,
     href,
     access,
-    status,
-  } = project;
+  } = metadata;
 
   return (
     <div

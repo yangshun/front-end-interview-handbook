@@ -34,11 +34,9 @@ type Props = Readonly<{
 export default function ProjectsProjectDeploymentCompletionPage({
   project,
 }: Props) {
-  const { submitHref } = project;
+  const { metadata } = project;
+  const { submitHref } = metadata;
   const intl = useIntl();
-
-  // TODO(projects): Replace below with actual logic
-  const isUserPremium = false;
 
   return (
     <div className="flex flex-col items-stretch">

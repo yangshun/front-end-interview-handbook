@@ -11,6 +11,7 @@ type TabType = 'assets' | 'completion' | 'project-brief' | 'resources';
 
 function useProjectDetailsStepsTabs(project: ProjectsProjectItem) {
   const intl = useIntl();
+  const { metadata } = project;
 
   const tabs: Array<ProjectStepsTabItem<TabType>> = [
     {
@@ -20,7 +21,7 @@ function useProjectDetailsStepsTabs(project: ProjectsProjectItem) {
           'Hint for "Project Brief" and "Assets" tab on Projects project page',
         id: '01jNoZ',
       }),
-      href: project.href,
+      href: metadata.href,
       subtitle: intl.formatMessage({
         defaultMessage: 'Project Brief',
         description:
@@ -41,7 +42,7 @@ function useProjectDetailsStepsTabs(project: ProjectsProjectItem) {
           'Hint for "Project Brief" and "Assets" tab on Projects project page',
         id: '01jNoZ',
       }),
-      href: project.assetsHref,
+      href: metadata.assetsHref,
       subtitle: intl.formatMessage({
         defaultMessage: 'Assets',
         description: 'Subtitle for "Assets" tab on Projects project page',
@@ -61,7 +62,7 @@ function useProjectDetailsStepsTabs(project: ProjectsProjectItem) {
           'Hint for "Tips, Resources and Discussions" tab on Projects project page',
         id: 'KBBRmA',
       }),
-      href: project.resourcesHref,
+      href: metadata.resourcesHref,
       subtitle: intl.formatMessage({
         defaultMessage: 'Tips, Resources and Discussions',
         description:
@@ -82,7 +83,7 @@ function useProjectDetailsStepsTabs(project: ProjectsProjectItem) {
           'Hint for "Project Deployment & Completion" tab on Projects project page',
         id: 'QkImfr',
       }),
-      href: project.completionHref,
+      href: metadata.completionHref,
       subtitle: intl.formatMessage({
         defaultMessage: 'Project Deployment & Completion',
         description:
@@ -115,10 +116,9 @@ export default function ProjectsProjectStepsTabsImpl({
   return (
     <ProjectsProjectStepsTabs
       label={intl.formatMessage({
-        defaultMessage: 'Project Breakdown',
-        description:
-          'Label for Project Breakdown tabs on Projects project page',
-        id: 'H5GY66',
+        defaultMessage: 'Project steps',
+        description: 'Label for Project steps tabs',
+        id: 'TJD+8A',
       })}
       tabs={tabs}
       {...props}
