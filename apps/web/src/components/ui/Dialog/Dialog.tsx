@@ -9,6 +9,13 @@ import { themeBackgroundLayerColor } from '../theme';
 
 import { Dialog, Transition } from '@headlessui/react';
 
+export type DialogWidth =
+  | 'screen-lg'
+  | 'screen-md'
+  | 'screen-sm'
+  | 'screen-xl'
+  | 'sm';
+
 type Props = Readonly<{
   children: React.ReactNode;
   dark?: boolean;
@@ -17,15 +24,27 @@ type Props = Readonly<{
   primaryButton?: React.ReactNode;
   secondaryButton?: React.ReactNode;
   title: string;
+  width?: DialogWidth;
 }>;
+
+const widthClasses: Record<DialogWidth, string> = {
+  'screen-lg':
+    'sm:max-w-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg',
+  'screen-md': 'sm:max-w-sm md:max-w-screen-sm lg:max-w-screen-md',
+  'screen-sm': 'sm:max-w-sm md:max-w-screen-sm',
+  'screen-xl':
+    'sm:max-w-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl',
+  sm: 'sm:max-w-sm',
+};
 
 export default function DialogImpl({
   children,
   dark = false,
   isShown,
   primaryButton,
-  title,
   secondaryButton,
+  title,
+  width = 'sm',
   onClose,
 }: Props) {
   const cancelButtonRef = useRef(null);
@@ -63,7 +82,7 @@ export default function DialogImpl({
                   'relative transform overflow-hidden',
                   'rounded-lg',
                   themeBackgroundLayerColor,
-                  'sm:w-full sm:max-w-sm',
+                  ['sm:w-full', widthClasses[width]],
                   'text-left shadow-xl transition-all',
                 )}>
                 <div className="grid gap-y-2.5 px-6 pb-4 pt-6">
