@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useState } from 'react';
 import {
   RiArrowLeftLine,
   RiInformationLine,
@@ -15,12 +16,14 @@ import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/Proj
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
+import Dialog from '~/components/ui/Dialog';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 
 import ProjectsProjectCurrentProjectSessionCard from './ProjectsProjectCurrentSessionCard';
-import { useProjectsProjectSessionContext } from './ProjectsProjectSessionContext';
+import ProjectsProjectHowItWorksDialog from './ProjectsProjectHowItWorksDialog';
+import { useProjectsProjectSessionContext } from '../ProjectsProjectSessionContext';
 
 type Props = Readonly<{
   project: ProjectsProjectMetadata;
@@ -40,7 +43,7 @@ export default function ProjectsProjectHeader({ project }: Props) {
   } = project;
 
   const { session, startProject } = useProjectsProjectSessionContext();
-
+  const [isHowItWorksDialogShown, setIsHowItWorksDialogShown] = useState(false);
   const hasSession = session != null;
 
   return (
@@ -133,7 +136,7 @@ export default function ProjectsProjectHeader({ project }: Props) {
           </div>
         </div>
       </div>
-      {hasSession && (
+      {hasSession ? (
         <ProjectsProjectCurrentProjectSessionCard
           project={project}
           session={{
@@ -142,8 +145,7 @@ export default function ProjectsProjectHeader({ project }: Props) {
             stoppedAt: session.stoppedAt ? new Date(session.stoppedAt) : null,
           }}
         />
-      )}
-      {!hasSession && (
+      ) : (
         <div className="flex flex-shrink-0 flex-col gap-2 lg:items-end lg:gap-6">
           <Text size="body3">
             <FormattedMessage
@@ -152,7 +154,11 @@ export default function ProjectsProjectHeader({ project }: Props) {
               id="OYgvni"
               values={{
                 link: (chunks) => (
-                  <Anchor {...chunks} href="#">
+                  <Anchor
+                    href="#"
+                    onClick={() => {
+                      setIsHowItWorksDialogShown(true);
+                    }}>
                     {chunks}
                   </Anchor>
                 ),
@@ -178,6 +184,12 @@ export default function ProjectsProjectHeader({ project }: Props) {
           </div>
         </div>
       )}
+      <ProjectsProjectHowItWorksDialog
+        isShown={isHowItWorksDialogShown}
+        onClose={() => {
+          setIsHowItWorksDialogShown(false);
+        }}
+      />
     </div>
   );
 }

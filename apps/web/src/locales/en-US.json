@@ -1203,10 +1203,6 @@
     "defaultMessage": "Questions List",
     "description": "Screenreader text for question list"
   },
-  "CrPCIu": {
-    "defaultMessage": "Before you get started",
-    "description": "Title for \"Before you get started\" dialog on Projects project page"
-  },
   "Ctnuuc": {
     "defaultMessage": "+ {numberOfTags} more",
     "description": "Number of tags in a list"
@@ -1695,6 +1691,10 @@
     "defaultMessage": "Text here",
     "description": "Placeholder for discussion post reply input"
   },
+  "IG13JQ": {
+    "defaultMessage": "How it works",
+    "description": "Instruction for projects"
+  },
   "IIyxmO": {
     "defaultMessage": "End project session?",
     "description": "Title for end project session dialog"
@@ -1866,6 +1866,10 @@
   "KBBRmA": {
     "defaultMessage": "While working on project",
     "description": "Hint for \"Tips, Resources and Discussions\" tab on Projects project page"
+  },
+  "KBewzV": {
+    "defaultMessage": "Before you get started",
+    "description": "Section title for projects page"
   },
   "KC1Rzx": {
     "defaultMessage": "Skills",
@@ -2150,10 +2154,6 @@
   "Mm+ZFo": {
     "defaultMessage": "Learn practical front end skills by building projects guided by a skills progression roadmap",
     "description": "Subtitle for Projects marketing hero section for beginners"
-  },
-  "Mq6LMy": {
-    "defaultMessage": "Next",
-    "description": "Label for \"Next\" button for \"Before you get started\" dialog on Projects project page"
   },
   "Mw/xN0": {
     "defaultMessage": "Label for \"Completed projects\" progress bar of a Projects component track",
@@ -2595,6 +2595,10 @@
     "defaultMessage": "Add skills",
     "description": "Label for \"Add skills\" button for skills input"
   },
+  "RjpadL": {
+    "defaultMessage": "Reference practical guides, learn from other's submissions and ask any questions in the",
+    "description": "Instruction for projects"
+  },
   "RmL0wL": {
     "defaultMessage": "Select a project by skill or component out of {projectCount}+ projects.",
     "description": "Description of 'Start a project' feature in Projects marketing page"
@@ -2654,6 +2658,10 @@
   "SUmtwn": {
     "defaultMessage": "Check it out",
     "description": "Button label"
+  },
+  "SWdU2x": {
+    "defaultMessage": "Next",
+    "description": "Next step button label"
   },
   "SZ26iB": {
     "defaultMessage": "Search",
@@ -2978,6 +2986,10 @@
   "Vm0aAX": {
     "defaultMessage": "{discountPercentage}% off all plans",
     "description": "Title for rewards page"
+  },
+  "VuIvcH": {
+    "defaultMessage": "Read the project details",
+    "description": "Instruction for projects"
   },
   "Vvc37/": {
     "defaultMessage": "Sign up for an account",
@@ -4551,6 +4563,10 @@
     "defaultMessage": "Importance",
     "description": "Label for question importance - how important it is to practice this question"
   },
+  "mcOOtE": {
+    "defaultMessage": "Host the project for free on our recommended hosts and submit your project URL for reviews",
+    "description": "Instruction for projects"
+  },
   "mjEvFf": {
     "defaultMessage": "Step 2",
     "description": "Title for \"Step 2\" tab on Projects project page"
@@ -5462,6 +5478,10 @@
   "wAZkHT": {
     "defaultMessage": "Tags",
     "description": "Screenreader text indicating component for blog tags"
+  },
+  "wGf7+G": {
+    "defaultMessage": "Start the project and download starter code and assets",
+    "description": "Instruction for projects"
   },
   "wO0zga": {
     "defaultMessage": "Skills roadmap",

@@ -133,9 +133,8 @@ export default function ProjectsProjectBeforeYouGetStartedDialog({
             icon={RiArrowRightLine}
             label={intl.formatMessage({
               defaultMessage: 'Next',
-              description:
-                'Label for "Next" button for "Before you get started" dialog on Projects project page',
-              id: 'Mq6LMy',
+              description: 'Next step button label',
+              id: 'SWdU2x',
             })}
             variant="secondary"
             onClick={() => {
@@ -146,9 +145,8 @@ export default function ProjectsProjectBeforeYouGetStartedDialog({
       }
       title={intl.formatMessage({
         defaultMessage: 'Before you get started',
-        description:
-          'Title for "Before you get started" dialog on Projects project page',
-        id: 'CrPCIu',
+        description: 'Section title for projects page',
+        id: 'KBewzV',
       })}
       onClose={onClose}>
       <ol className="relative flex flex-col gap-y-6 mt-5">
