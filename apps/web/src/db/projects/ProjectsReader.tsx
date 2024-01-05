@@ -1,5 +1,9 @@
-import type { ProjectStyleGuide } from 'contentlayer/generated';
+import type {
+  ProjectAPIWriteup,
+  ProjectStyleGuide,
+} from 'contentlayer/generated';
 import {
+  allProjectAPIWriteups,
   allProjectMetadata,
   allProjectStyleGuides,
 } from 'contentlayer/generated';
@@ -164,5 +168,30 @@ export async function readProjectsProjectStyleGuide(
   return {
     loadedLocale: requestedLocale,
     styleGuide,
+  };
+}
+
+export async function readProjectsProjectAPIWriteup(
+  slugParam: string,
+  requestedLocale = 'en-US',
+): Promise<
+  Readonly<{
+    apiWriteup: ProjectAPIWriteup | null;
+    loadedLocale: string;
+  }>
+> {
+  // So that we handle typos like extra characters.
+  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
+
+  const apiWriteup =
+    allProjectAPIWriteups.find(
+      (styleGuideItem) =>
+        styleGuideItem._raw.flattenedPath ===
+        `projects/${slug}/api/${requestedLocale}`,
+    ) ?? null;
+
+  return {
+    apiWriteup,
+    loadedLocale: requestedLocale,
   };
 }

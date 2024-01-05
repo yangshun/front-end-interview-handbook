@@ -1,15 +1,14 @@
-import type { ProjectStyleGuide } from 'contentlayer/generated';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
 import MDXComponents from '~/components/mdx/MDXComponents';
 import Prose from '~/components/ui/Prose';
 
 type Props = Readonly<{
-  styleGuide: ProjectStyleGuide;
+  mdxCode: string;
 }>;
 
-export default function ProjectsProjectAssetsStyleGuide({ styleGuide }: Props) {
-  const MDXContent = useMDXComponent(styleGuide.body.code);
+export default function ProjectsProjectAssetsMdxContent({ mdxCode }: Props) {
+  const MDXContent = useMDXComponent(mdxCode);
 
   return (
     <Prose textSize="sm">

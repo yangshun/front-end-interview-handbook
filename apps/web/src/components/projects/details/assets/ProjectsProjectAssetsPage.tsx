@@ -1,7 +1,10 @@
 'use client';
 
 import clsx from 'clsx';
-import type { ProjectStyleGuide } from 'contentlayer/generated';
+import type {
+  ProjectAPIWriteup,
+  ProjectStyleGuide,
+} from 'contentlayer/generated';
 import { useState } from 'react';
 import {
   RiArrowRightLine,
@@ -32,11 +35,11 @@ import {
   themeTextColor,
 } from '~/components/ui/theme';
 
-import ProjectsProjectAssetsStyleGuide from './ProjectsProjectAssetsStyleGuide';
+import ProjectsProjectAssetsMdxContent from './ProjectsProjectAssetsMdxContent';
 
 type OnlineAssetsTabType = 'api' | 'responsive-breakpoints' | 'style-guide';
 
-function useOnlineAssetsTabs(hasStyleGuide: boolean, hasAPIdocument: boolean) {
+function useOnlineAssetsTabs(hasStyleGuide: boolean, hasAPIWriteup: boolean) {
   const tabs: Array<TabItem<OnlineAssetsTabType>> = [
     {
       icon: RiDragMove2Fill,
@@ -53,7 +56,7 @@ function useOnlineAssetsTabs(hasStyleGuide: boolean, hasAPIdocument: boolean) {
     });
   }
 
-  if (hasAPIdocument) {
+  if (hasAPIWriteup) {
     tabs.push({
       icon: RiCodeSSlashLine,
       label: 'API',
@@ -117,18 +120,23 @@ function useProvidedAssets() {
 }
 
 type Props = Readonly<{
+  apiWriteup?: ProjectAPIWriteup;
   project: ProjectsProjectItem;
   styleGuide?: ProjectStyleGuide;
 }>;
 
 export default function ProjectsProjectAssetsPage({
+  apiWriteup,
   project,
   styleGuide,
 }: Props) {
   const intl = useIntl();
   const { metadata } = project;
   const providedAssets = useProvidedAssets();
-  const onlineAssetsTabs = useOnlineAssetsTabs(styleGuide != null, true);
+  const onlineAssetsTabs = useOnlineAssetsTabs(
+    styleGuide != null,
+    apiWriteup != null,
+  );
   const [onlineAssetsTab, setOnlineAssetsTab] = useState<OnlineAssetsTabType>(
     'responsive-breakpoints',
   );
@@ -279,60 +287,71 @@ export default function ProjectsProjectAssetsPage({
                 value={onlineAssetsTab}
                 onSelect={setOnlineAssetsTab}
               />
-              <div className="flex flex-col items-stretch gap-6">
-                <div className="flex gap-6 self-end">
-                  <div className="flex gap-4">
-                    <Button
-                      icon={RiComputerLine}
-                      isLabelHidden={true}
-                      label={intl.formatMessage({
-                        defaultMessage: 'Desktop',
-                        description:
-                          'Label for Desktop button in Projects project assets page',
-                        id: 'eHUX9g',
-                      })}
-                      variant="tertiary"
-                    />
-                    <Button
-                      icon={RiTabletLine}
-                      isLabelHidden={true}
-                      label={intl.formatMessage({
-                        defaultMessage: 'Tablet',
-                        description:
-                          'Label for Tablet button in Projects project assets page',
-                        id: 'dIwJQA',
-                      })}
-                      variant="tertiary"
-                    />
-                    <Button
-                      icon={RiSmartphoneLine}
-                      isLabelHidden={true}
-                      label={intl.formatMessage({
-                        defaultMessage: 'Mobile',
-                        description:
-                          'Label for Mobile button in Projects project assets page',
-                        id: 'ZJbXJQ',
-                      })}
-                      variant="tertiary"
-                    />
+              {onlineAssetsTab === 'responsive-breakpoints' && (
+                <div className="flex flex-col items-stretch gap-6">
+                  <div className="flex gap-6 self-end">
+                    <div className="flex gap-4">
+                      <Button
+                        icon={RiComputerLine}
+                        isLabelHidden={true}
+                        label={intl.formatMessage({
+                          defaultMessage: 'Desktop',
+                          description:
+                            'Label for Desktop button in Projects project assets page',
+                          id: 'eHUX9g',
+                        })}
+                        variant="tertiary"
+                      />
+                      <Button
+                        icon={RiTabletLine}
+                        isLabelHidden={true}
+                        label={intl.formatMessage({
+                          defaultMessage: 'Tablet',
+                          description:
+                            'Label for Tablet button in Projects project assets page',
+                          id: 'dIwJQA',
+                        })}
+                        variant="tertiary"
+                      />
+                      <Button
+                        icon={RiSmartphoneLine}
+                        isLabelHidden={true}
+                        label={intl.formatMessage({
+                          defaultMessage: 'Mobile',
+                          description:
+                            'Label for Mobile button in Projects project assets page',
+                          id: 'ZJbXJQ',
+                        })}
+                        variant="tertiary"
+                      />
+                    </div>
+                    <div
+                      className={clsx(
+                        'flex items-center justify-center rounded-md border p-2',
+                        themeElementBorderColor,
+                      )}>
+                      <Text color="secondary" size="body3" weight="bold">
+                        1024px
+                      </Text>
+                    </div>
                   </div>
-                  <div
-                    className={clsx(
-                      'flex items-center justify-center rounded-md border p-2',
-                      themeElementBorderColor,
-                    )}>
-                    <Text color="secondary" size="body3" weight="bold">
-                      1024px
-                    </Text>
-                  </div>
-                </div>
-                {onlineAssetsTab === 'responsive-breakpoints' && (
                   <div className="bg-red h-[300px] w-full rounded-lg" />
-                )}
-                {onlineAssetsTab === 'style-guide' && styleGuide != null && (
-                  <ProjectsProjectAssetsStyleGuide styleGuide={styleGuide} />
-                )}
-              </div>
+                </div>
+              )}
+              {onlineAssetsTab === 'style-guide' && styleGuide != null && (
+                <div className="pt-2">
+                  <ProjectsProjectAssetsMdxContent
+                    mdxCode={styleGuide.body.code}
+                  />
+                </div>
+              )}
+              {onlineAssetsTab === 'api' && apiWriteup != null && (
+                <div className="pt-2">
+                  <ProjectsProjectAssetsMdxContent
+                    mdxCode={apiWriteup.body.code}
+                  />
+                </div>
+              )}
             </Section>
           </div>
         </div>
