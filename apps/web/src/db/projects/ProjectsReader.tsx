@@ -1,4 +1,8 @@
-import { allProjectMetadata } from 'contentlayer/generated';
+import type { ProjectStyleGuide } from 'contentlayer/generated';
+import {
+  allProjectMetadata,
+  allProjectStyleGuides,
+} from 'contentlayer/generated';
 
 import type { ProjectsProjectItem } from '~/components/projects/details/types';
 
@@ -135,5 +139,30 @@ export async function readProjectsProjectMetadata(
         ...extraData,
       },
     },
+  };
+}
+
+export async function readProjectsProjectStyleGuide(
+  slugParam: string,
+  requestedLocale = 'en-US',
+): Promise<
+  Readonly<{
+    loadedLocale: string;
+    styleGuide: ProjectStyleGuide | null;
+  }>
+> {
+  // So that we handle typos like extra characters.
+  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
+
+  const styleGuide =
+    allProjectStyleGuides.find(
+      (styleGuideItem) =>
+        styleGuideItem._raw.flattenedPath ===
+        `projects/${slug}/style-guide/${requestedLocale}`,
+    ) ?? null;
+
+  return {
+    loadedLocale: requestedLocale,
+    styleGuide,
   };
 }

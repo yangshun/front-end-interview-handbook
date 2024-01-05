@@ -69,6 +69,6 @@ export const ProjectsProjectMetadataDocument = defineDocumentType(() => ({
       type: 'string',
     },
   },
-  filePathPattern: 'projects/**/*.mdx',
+  filePathPattern: 'projects/*/*.mdx',
   name: 'ProjectMetadata',
 }));

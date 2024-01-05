@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import type { ProjectStyleGuide } from 'contentlayer/generated';
 import { useState } from 'react';
 import {
   RiArrowRightLine,
@@ -31,29 +32,34 @@ import {
   themeTextColor,
 } from '~/components/ui/theme';
 
-type OnlineAssetsTabType =
-  | 'api'
-  | 'basic-style-guide'
-  | 'responsive-breakpoints';
+import ProjectsProjectAssetsStyleGuide from './ProjectsProjectAssetsStyleGuide';
 
-function useOnlineAssetsTabs() {
+type OnlineAssetsTabType = 'api' | 'responsive-breakpoints' | 'style-guide';
+
+function useOnlineAssetsTabs(hasStyleGuide: boolean, hasAPIdocument: boolean) {
   const tabs: Array<TabItem<OnlineAssetsTabType>> = [
     {
       icon: RiDragMove2Fill,
       label: 'Responsive breakpoints',
       value: 'responsive-breakpoints',
     },
-    {
+  ];
+
+  if (hasStyleGuide) {
+    tabs.push({
       icon: RiBrush2Fill,
       label: 'Basic style guide',
-      value: 'basic-style-guide',
-    },
-    {
+      value: 'style-guide',
+    });
+  }
+
+  if (hasAPIdocument) {
+    tabs.push({
       icon: RiCodeSSlashLine,
       label: 'API',
       value: 'api',
-    },
-  ];
+    });
+  }
 
   return tabs;
 }
@@ -112,13 +118,17 @@ function useProvidedAssets() {
 
 type Props = Readonly<{
   project: ProjectsProjectItem;
+  styleGuide?: ProjectStyleGuide;
 }>;
 
-export default function ProjectsProjectAssetsPage({ project }: Props) {
+export default function ProjectsProjectAssetsPage({
+  project,
+  styleGuide,
+}: Props) {
   const intl = useIntl();
   const { metadata } = project;
   const providedAssets = useProvidedAssets();
-  const onlineAssetsTabs = useOnlineAssetsTabs();
+  const onlineAssetsTabs = useOnlineAssetsTabs(styleGuide != null, true);
   const [onlineAssetsTab, setOnlineAssetsTab] = useState<OnlineAssetsTabType>(
     'responsive-breakpoints',
   );
@@ -316,7 +326,12 @@ export default function ProjectsProjectAssetsPage({ project }: Props) {
                     </Text>
                   </div>
                 </div>
-                <div className="bg-red h-[300px] w-full rounded-lg" />
+                {onlineAssetsTab === 'responsive-breakpoints' && (
+                  <div className="bg-red h-[300px] w-full rounded-lg" />
+                )}
+                {onlineAssetsTab === 'style-guide' && styleGuide != null && (
+                  <ProjectsProjectAssetsStyleGuide styleGuide={styleGuide} />
+                )}
               </div>
             </Section>
           </div>

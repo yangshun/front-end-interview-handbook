@@ -11,6 +11,7 @@ import { BlogPostDocument } from './src/contentlayer/document/BlogPostDocument';
 import { BlogSeriesDocument } from './src/contentlayer/document/BlogSeriesDocument';
 import { BlogSubseriesDocument } from './src/contentlayer/document/BlogSubseriesDocument';
 import { ProjectsProjectMetadataDocument } from './src/components/projects/contentlayer/ProjectsProjectMetadataDocument';
+import { ProjectsProjectStyleGuideDocument } from './src/components/projects/contentlayer/ProjectsProjectStyleGuideDocument';
 
 export default makeSource({
   contentDirPath: 'src/content',
@@ -21,6 +22,7 @@ export default makeSource({
     BlogSeriesDocument,
     BlogSubseriesDocument,
     ProjectsProjectMetadataDocument,
+    ProjectsProjectStyleGuideDocument,
   ],
   mdx: {
     remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter],

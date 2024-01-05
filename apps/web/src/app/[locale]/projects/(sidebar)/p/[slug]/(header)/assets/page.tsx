@@ -1,6 +1,9 @@
 import ProjectsProjectAssetsPage from '~/components/projects/details/assets/ProjectsProjectAssetsPage';
 
-import { readProjectsProjectMetadata } from '~/db/projects/ProjectsReader';
+import {
+  readProjectsProjectMetadata,
+  readProjectsProjectStyleGuide,
+} from '~/db/projects/ProjectsReader';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
@@ -8,7 +11,15 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { slug, locale } = params;
-  const { project } = await readProjectsProjectMetadata(slug, locale);
+  const [{ project }, { styleGuide }] = await Promise.all([
+    readProjectsProjectMetadata(slug, locale),
+    readProjectsProjectStyleGuide(slug, locale),
+  ]);
 
-  return <ProjectsProjectAssetsPage project={project} />;
+  return (
+    <ProjectsProjectAssetsPage
+      project={project}
+      styleGuide={styleGuide ?? undefined}
+    />
+  );
 }
