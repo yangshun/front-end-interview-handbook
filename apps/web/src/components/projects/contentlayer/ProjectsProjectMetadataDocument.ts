@@ -15,6 +15,14 @@ export const ProjectsProjectMetadataDocument = defineDocumentType(() => ({
       resolve: (doc) => `/projects/p/${doc.slug}/completion`,
       type: 'string',
     },
+    downloadDesignFileHref: {
+      resolve: (doc) => `/projects/p/${doc.slug}/download/design`,
+      type: 'string',
+    },
+    downloadStarterFilesHref: {
+      resolve: (doc) => `/projects/p/${doc.slug}/download/starter`,
+      type: 'string',
+    },
     href: {
       resolve: (doc) => `/projects/p/${doc.slug}`,
       type: 'string',

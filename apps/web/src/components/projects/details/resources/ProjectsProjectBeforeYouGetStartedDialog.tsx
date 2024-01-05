@@ -18,6 +18,7 @@ import DownloadStarterFiles from './DownloadStarterFiles';
 import ImportantInfoGuide from './ImportantInfoGuide';
 import SkillSelection from './SkillSelection';
 import StartCoding from './StartCoding';
+import type { ProjectsProjectItem } from '../types';
 
 type DialogStep = {
   content: React.ReactNode;
@@ -26,21 +27,21 @@ type DialogStep = {
 };
 
 function useDialogSteps({
-  onDownloadStarterFilesClick,
-  onDownloadFigmaDesignClick,
+  project,
   onStartClick,
-  isUserPremium,
+  userCanAccess,
 }: {
-  isUserPremium: boolean;
-  onDownloadFigmaDesignClick: () => void;
-  onDownloadStarterFilesClick: () => void;
   onStartClick: () => void;
+  project: ProjectsProjectItem;
+  userCanAccess: boolean;
 }) {
   const intl = useIntl();
   const dialogSteps: Array<DialogStep> = [
     {
       content: (
-        <DownloadStarterFiles onDownloadClick={onDownloadStarterFilesClick} />
+        <DownloadStarterFiles
+          starterFilesHref={project.metadata.downloadStarterFilesHref}
+        />
       ),
       id: 'download-starter-files',
       label: intl.formatMessage({
@@ -53,8 +54,8 @@ function useDialogSteps({
     {
       content: (
         <DownloadFigmaDesign
-          isUserPremium={isUserPremium}
-          onDownloadClick={onDownloadFigmaDesignClick}
+          downloadDesignFileHref={project.metadata.downloadDesignFileHref}
+          userCanAccess={userCanAccess}
         />
       ),
       id: 'download-design-assets',
@@ -104,24 +105,25 @@ type Props = Readonly<{
   isShown: boolean;
   onClose: () => void;
   onStart: () => void;
+  project: ProjectsProjectItem;
 }>;
 
 export default function ProjectsProjectBeforeYouGetStartedDialog({
   isShown,
+  project,
   onClose,
   onStart,
 }: Props) {
   const intl = useIntl();
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const dialogSteps = useDialogSteps({
-    isUserPremium: true,
-    onDownloadFigmaDesignClick: () => {},
-    onDownloadStarterFilesClick: () => {},
     onStartClick: () => {
       onClose();
       setCurrentStepIndex(0);
       onStart();
     },
+    project,
+    userCanAccess: true,
   });
 
   return (
@@ -148,6 +150,7 @@ export default function ProjectsProjectBeforeYouGetStartedDialog({
         description: 'Section title for projects page',
         id: 'KBewzV',
       })}
+      width="screen-sm"
       onClose={onClose}>
       <ol className="relative flex flex-col gap-y-6 mt-5">
         <div
@@ -196,15 +199,15 @@ export default function ProjectsProjectBeforeYouGetStartedDialog({
                   />
                 )}
               </div>
-              <div className="flex flex-1 flex-col">
+              <div className="flex flex-1 flex-col gap-6">
                 <Text
-                  aria-hidden={true}
-                  color={isStepSelected ? 'active' : 'default'}>
+                  color={isStepSelected ? 'active' : 'default'}
+                  weight="medium">
                   {step.label}
                 </Text>
                 {isStepSelected && step.content}
                 {isStepSelected && index < dialogSteps.length - 1 && (
-                  <Divider className="mt-6" />
+                  <Divider />
                 )}
               </div>
             </li>

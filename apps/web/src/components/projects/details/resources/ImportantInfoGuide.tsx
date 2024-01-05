@@ -4,8 +4,8 @@ import Text from '~/components/ui/Text';
 
 export default function ImportantInfoGuide() {
   return (
-    <div className="flex flex-col gap-4 mt-6">
-      <Text size="body2">
+    <div className="flex flex-col gap-4">
+      <Text color="secondary" size="body2">
         <FormattedMessage
           defaultMessage="Find official guides, reference code from top submissions, and use our discussion forum to ask questions."
           description="Description for Important Info Guide section on Before You Get Started dialog"

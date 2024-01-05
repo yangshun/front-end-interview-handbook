@@ -6,18 +6,18 @@ import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
 type Props = Readonly<{
-  isUserPremium: boolean;
-  onDownloadClick: () => void;
+  downloadDesignFileHref: string;
+  userCanAccess: boolean;
 }>;
 
 export default function DownloadFigmaDesign({
-  isUserPremium,
-  onDownloadClick,
+  downloadDesignFileHref,
+  userCanAccess,
 }: Props) {
   const intl = useIntl();
 
   return (
-    <div className="flex flex-col items-start gap-4 mt-6">
+    <div className="flex flex-col items-start gap-4">
       <Text color="secondary" size="body2">
         <FormattedMessage
           defaultMessage="Includes a hi-fidelity design and interaction specifications for this project."
@@ -27,7 +27,8 @@ export default function DownloadFigmaDesign({
       </Text>
       <Button
         addonPosition="start"
-        icon={isUserPremium ? RiSparklingLine : RiLock2Line}
+        href={userCanAccess ? downloadDesignFileHref : undefined}
+        icon={userCanAccess ? RiSparklingLine : RiLock2Line}
         label={intl.formatMessage({
           defaultMessage: 'Download Figma design',
           description:
@@ -35,10 +36,9 @@ export default function DownloadFigmaDesign({
           id: '7jhWHe',
         })}
         size="md"
-        variant={isUserPremium ? 'primary' : 'special'}
-        onClick={onDownloadClick}
+        variant={userCanAccess ? 'primary' : 'special'}
       />
-      {!isUserPremium && (
+      {!userCanAccess && (
         <div className="flex flex-col">
           <Text color="secondary" size="body3">
             <FormattedMessage
@@ -47,7 +47,7 @@ export default function DownloadFigmaDesign({
               id="NONBB3"
             />
           </Text>
-          <Anchor href="#">
+          <Anchor href="/projects/pricing">
             <Text color="inherit" size="body3">
               <FormattedMessage
                 defaultMessage="View plans"

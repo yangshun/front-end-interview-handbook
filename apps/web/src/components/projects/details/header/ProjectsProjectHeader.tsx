@@ -16,7 +16,6 @@ import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/Proj
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
-import Dialog from '~/components/ui/Dialog';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
@@ -83,49 +82,51 @@ export default function ProjectsProjectHeader({ project }: Props) {
               variant="flat"
             />
           </div>
-          <div className="flex flex-col">
-            <div className="flex flex-wrap gap-2">
-              {skills.map((skill) => (
-                <ProjectsSkillChip
-                  key={skill.key}
-                  isEditable={true}
-                  skill={skill}
-                  // TODO(projects): Replace below with actual subSkills
-                  subSkills={[
-                    {
-                      difficulty: 'easy',
-                      key: 'dom-manipulation',
-                      label: 'DOM Manipulation',
-                    },
-                    {
-                      difficulty: 'medium',
-                      key: 'flex',
-                      label: 'Flex',
-                    },
-                    {
-                      difficulty: 'hard',
-                      key: 'typescript',
-                      label: 'TypeScript',
-                    },
-                  ]}
-                />
-              ))}
+          {!hasSession && (
+            <div className="flex flex-col">
+              <div className="flex flex-wrap gap-2">
+                {skills.map((skill) => (
+                  <ProjectsSkillChip
+                    key={skill.key}
+                    isEditable={true}
+                    skill={skill}
+                    // TODO(projects): Replace below with actual subSkills
+                    subSkills={[
+                      {
+                        difficulty: 'easy',
+                        key: 'dom-manipulation',
+                        label: 'DOM Manipulation',
+                      },
+                      {
+                        difficulty: 'medium',
+                        key: 'flex',
+                        label: 'Flex',
+                      },
+                      {
+                        difficulty: 'hard',
+                        key: 'typescript',
+                        label: 'TypeScript',
+                      },
+                    ]}
+                  />
+                ))}
+              </div>
+              <div
+                className={clsx(
+                  'mt-2 flex items-center gap-1',
+                  themeTextSubtleColor,
+                )}>
+                <RiInformationLine className="h-4 w-4" />
+                <Text color="inherit" size="body3">
+                  <FormattedMessage
+                    defaultMessage="You can add more skills e.g. UI frameworks used after starting the project"
+                    description="Additional information for skills section on Projects project page"
+                    id="j63zLB"
+                  />
+                </Text>
+              </div>
             </div>
-            <div
-              className={clsx(
-                'mt-2 flex items-center gap-1',
-                themeTextSubtleColor,
-              )}>
-              <RiInformationLine className="h-4 w-4" />
-              <Text color="inherit" size="body3">
-                <FormattedMessage
-                  defaultMessage="You can add more skills e.g. UI frameworks used after starting the project"
-                  description="Additional information for skills section on Projects project page"
-                  id="j63zLB"
-                />
-              </Text>
-            </div>
-          </div>
+          )}
         </div>
       </div>
       {hasSession ? (

@@ -116,6 +116,7 @@ type Props = Readonly<{
 
 export default function ProjectsProjectAssetsPage({ project }: Props) {
   const intl = useIntl();
+  const { metadata } = project;
   const providedAssets = useProvidedAssets();
   const onlineAssetsTabs = useOnlineAssetsTabs();
   const [onlineAssetsTab, setOnlineAssetsTab] = useState<OnlineAssetsTabType>(
@@ -195,6 +196,7 @@ export default function ProjectsProjectAssetsPage({ project }: Props) {
               <div className="flex flex-col gap-4">
                 <Button
                   addonPosition="start"
+                  href={metadata.downloadStarterFilesHref}
                   icon={RiCodeSSlashLine}
                   label={intl.formatMessage({
                     defaultMessage: 'Starter code + assets',
@@ -207,6 +209,9 @@ export default function ProjectsProjectAssetsPage({ project }: Props) {
                 />
                 <Button
                   addonPosition="start"
+                  href={
+                    isUserPremium ? undefined : metadata.downloadDesignFileHref
+                  }
                   icon={isUserPremium ? RiDownload2Line : RiLock2Line}
                   label={intl.formatMessage({
                     defaultMessage: 'Figma design file',
@@ -228,6 +233,7 @@ export default function ProjectsProjectAssetsPage({ project }: Props) {
                     </Text>
                     <Button
                       className="-ms-3 self-start"
+                      href="/projects/pricing"
                       icon={RiArrowRightLine}
                       label={intl.formatMessage({
                         defaultMessage: 'View plans',

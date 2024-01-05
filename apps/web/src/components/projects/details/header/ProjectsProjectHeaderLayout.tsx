@@ -36,6 +36,7 @@ export function ProjectsProjectHeaderLayoutImpl({ project, children }: Props) {
       {children}
       <ProjectsProjectBeforeYouGetStartedDialog
         isShown={isGetStartedDialogShown}
+        project={project}
         onClose={() => {
           setIsGetStartedDialogShown(false);
         }}
