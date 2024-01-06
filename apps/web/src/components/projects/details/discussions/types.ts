@@ -1,6 +1,6 @@
 import type { Profile } from '@prisma/client';
 
-export type Post = Readonly<{
+export type ProjectsProjectDiscussionPost = Readonly<{
   author: Profile;
   content: string;
   id: string;

@@ -6,7 +6,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
-const exampleSubmissions: Array<ProjectsSubmission> = Array.from(
+const exampleSubmissions: ReadonlyArray<ProjectsSubmission> = Array.from(
   { length: 10 },
   (_, i) => ({
     author: {
@@ -51,7 +51,7 @@ const exampleSubmissions: Array<ProjectsSubmission> = Array.from(
   }),
 );
 
-export default function ReferenceSubmissions() {
+export default function ProjectsProjectReferenceSubmissions() {
   return (
     <div className="flex flex-col">
       <Heading level="heading5">
@@ -62,11 +62,15 @@ export default function ReferenceSubmissions() {
         />
       </Heading>
       <Section>
-        <Text className="mt-4" color="secondary" size="body2">
+        <Text
+          className="mt-4 max-w-screen-md"
+          color="secondary"
+          display="block"
+          size="body2">
           <FormattedMessage
-            defaultMessage="Here are some highly rated submissions you can reference while doing your project. We prioritize submissions by their ratings, the similarity of their tech stack to yours, and the seniority level of the commenter."
+            defaultMessage="Here are some highly-rated submissions you can reference while doing your project. We prioritize submissions by their ratings, the similarity of their tech stack to yours, and the seniority level of the commenter."
             description="Description for Reference Submissions section on Projects project tips & resources page"
-            id="y9NC4Q"
+            id="TfBpeT"
           />
         </Text>
         <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

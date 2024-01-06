@@ -6,14 +6,14 @@ import DropdownMenu from '~/components/ui/DropdownMenu';
 import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 
-import DiscussionPost from './DiscussionPost';
-import type { Post } from './types';
+import DiscussionPost from './ProjectsProjectDiscussionPost';
+import type { ProjectsProjectDiscussionPost } from './types';
 
 type Props = Readonly<{
-  posts: ReadonlyArray<Post>;
+  posts: ReadonlyArray<ProjectsProjectDiscussionPost>;
 }>;
 
-export default function ProjectsDiscussionPostList({ posts }: Props) {
+export default function ProjectsProjectDiscussionPostList({ posts }: Props) {
   const intl = useIntl();
 
   return (

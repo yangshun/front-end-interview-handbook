@@ -16,9 +16,9 @@ import {
   themeElementBorderColor,
 } from '~/components/ui/theme';
 
-import DiscussionPostReplyInput from './DiscussionReplyInput';
-import DiscussionSubposts from './DiscussionSubPosts';
-import type { Post } from './types';
+import ProjectsProjectDiscussionPostReplyInput from './ProjectsProjectDiscussionReplyInput';
+import ProjectsProjectDiscussionSubposts from './ProjectsProjectDiscussionSubPosts';
+import type { ProjectsProjectDiscussionPost } from './types';
 import ProjectsLikeCountTag from '../../stats/ProjectsLikeCountTag';
 import ProjectsUserJobTitle from '../../users/ProjectsUserJobTitle';
 import ProjectsUserYearsOfExperience from '../../users/ProjectsUserYearsOfExperience';
@@ -26,7 +26,7 @@ import UserAvatarWithLevel from '../../users/UserAvatarWithLevel';
 
 type Props = Readonly<{
   className?: string;
-  post: Post;
+  post: ProjectsProjectDiscussionPost;
 }>;
 
 export default function DiscussionPost({ post, className }: Props) {
@@ -172,7 +172,7 @@ export default function DiscussionPost({ post, className }: Props) {
         </div>
       </div>
       {isReplying && (
-        <DiscussionPostReplyInput
+        <ProjectsProjectDiscussionPostReplyInput
           hasNext={replyCount > 0}
           onCancel={() => {
             setIsReplying(false);
@@ -209,7 +209,7 @@ export default function DiscussionPost({ post, className }: Props) {
           />
         </div>
       )}
-      {isExpanded && <DiscussionSubposts postId={postId} />}
+      {isExpanded && <ProjectsProjectDiscussionSubposts postId={postId} />}
     </div>
   );
 }

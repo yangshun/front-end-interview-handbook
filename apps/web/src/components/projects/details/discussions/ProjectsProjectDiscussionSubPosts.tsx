@@ -2,8 +2,8 @@ import clsx from 'clsx';
 
 import { themeElementBorderColor } from '~/components/ui/theme';
 
-import DiscussionPost from './DiscussionPost';
-import { exampleDiscussionPosts } from './ProjectsProjectDiscussions';
+import ProjectsProjectDiscussionPost from './ProjectsProjectDiscussionPost';
+import { exampleDiscussionPosts } from './ProjectsProjectDiscussionSection';
 
 function useSubPosts(postId: string) {
   // TODO(projects): Load subposts
@@ -14,7 +14,7 @@ type Props = Readonly<{
   postId: string;
 }>;
 
-export default function DiscussionSubposts({ postId }: Props) {
+export default function ProjectsProjectDiscussionSubposts({ postId }: Props) {
   const subPosts = useSubPosts(postId);
 
   return (
@@ -37,7 +37,7 @@ export default function DiscussionSubposts({ postId }: Props) {
               )}
             />
           </div>
-          <DiscussionPost
+          <ProjectsProjectDiscussionPost
             className={clsx(index < subPosts.length - 1 && 'pb-6')}
             post={post}
           />

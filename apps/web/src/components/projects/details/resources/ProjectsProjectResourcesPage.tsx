@@ -15,8 +15,8 @@ import Heading from '~/components/ui/Heading';
 import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
 
-import ReferenceSubmissions from './ReferenceSubmissions';
-import ProjectsProjectDiscussions from '../discussions/ProjectsProjectDiscussions';
+import ProjectsProjectReferenceSubmissions from './ProjectsProjectReferenceSubmissions';
+import ProjectsProjectDiscussionSection from '../discussions/ProjectsProjectDiscussionSection';
 import { useProjectsProjectSessionContext } from '../ProjectsProjectSessionContext';
 
 import type { User } from '@supabase/supabase-js';
@@ -101,10 +101,10 @@ export default function ProjectsProjectResourcesPage({ project, user }: Props) {
             onSelect={setTipsResourcesDiscussionsTab}
           />
           {tipsResourcesDiscussionsTab === 'references' && (
-            <ReferenceSubmissions />
+            <ProjectsProjectReferenceSubmissions />
           )}
           {tipsResourcesDiscussionsTab === 'discussions' && (
-            <ProjectsProjectDiscussions project={project} />
+            <ProjectsProjectDiscussionSection project={project} />
           )}
         </div>
       </div>

@@ -31,19 +31,20 @@ export default function ProjectsSubmissionCard({ submission }: Props) {
 
   return (
     <Card disableSpotlight={true} padding={false} pattern={false}>
-      <div className="flex flex-col px-4 py-6">
-        <Text weight="bold">{title}</Text>
-        <ProjectsSkillRow
-          className="mt-3"
-          label={intl.formatMessage({
-            defaultMessage: 'Stack used',
-            description: 'Label for tech stack used in project',
-            id: 'aiI8c6',
-          })}
-          skills={stack}
-        />
-        <img alt="" className="mt-4 h-[190px] w-full rounded-md" src={imgSrc} />
-        <div className="mt-4 flex items-center gap-4">
+      <div className="flex flex-col px-4 py-6 gap-4">
+        <div className="flex flex-col gap-3">
+          <Text weight="bold">{title}</Text>
+          <ProjectsSkillRow
+            label={intl.formatMessage({
+              defaultMessage: 'Stack used',
+              description: 'Label for tech stack used in project',
+              id: 'aiI8c6',
+            })}
+            skills={stack}
+          />
+        </div>
+        <img alt="" className="h-[190px] w-full rounded-md" src={imgSrc} />
+        <div className="flex items-center gap-4">
           <UserAvatarWithLevel
             level={11}
             profile={author}
@@ -58,10 +59,10 @@ export default function ProjectsSubmissionCard({ submission }: Props) {
             </div>
           </div>
         </div>
-        <Text className="mt-4" size="body3">
+        <Text display="block" size="body3">
           {description}
         </Text>
-        <div className="mt-4 flex justify-between gap-4">
+        <div className="flex justify-between gap-4">
           <div className="flex gap-4">
             <ProjectsLikeCountTag likeCount={likeCount} />
             <ProjectsViewCountTag viewCount={viewCount} />
