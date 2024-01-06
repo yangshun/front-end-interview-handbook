@@ -14,13 +14,13 @@ export default function ProjectsAssetProvidedCard({
   label,
 }: Props) {
   return (
-    <Card padding={false} pattern={false}>
+    <Card disableBackground={true} padding={false} pattern={false}>
       <div
         className={clsx(
           'flex items-center gap-2 p-4',
           themeTextSecondaryColor,
         )}>
-        <Icon className="h-4 w-4" />
+        <Icon className="h-4 w-4 shrink-0" />
         <Text color="inherit" size="body2">
           {label}
         </Text>

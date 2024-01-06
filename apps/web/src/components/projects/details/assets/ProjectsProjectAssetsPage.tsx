@@ -36,14 +36,21 @@ import {
 } from '~/components/ui/theme';
 
 import ProjectsProjectAssetsMdxContent from './ProjectsProjectAssetsMdxContent';
+import useProjectsProvidedResources from './useProjectsProvidedResources';
 
 type OnlineAssetsTabType = 'api' | 'responsive-breakpoints' | 'style-guide';
 
 function useOnlineAssetsTabs(hasStyleGuide: boolean, hasAPIWriteup: boolean) {
+  const intl = useIntl();
+
   const tabs: Array<TabItem<OnlineAssetsTabType>> = [
     {
       icon: RiDragMove2Fill,
-      label: 'Responsive breakpoints',
+      label: intl.formatMessage({
+        defaultMessage: 'Responsive breakpoints',
+        description: 'Project assets category label',
+        id: '5BQAdK',
+      }),
       value: 'responsive-breakpoints',
     },
   ];
@@ -51,7 +58,11 @@ function useOnlineAssetsTabs(hasStyleGuide: boolean, hasAPIWriteup: boolean) {
   if (hasStyleGuide) {
     tabs.push({
       icon: RiBrush2Fill,
-      label: 'Basic style guide',
+      label: intl.formatMessage({
+        defaultMessage: 'Basic style guide',
+        description: 'Project assets category label',
+        id: 'jVhr66',
+      }),
       value: 'style-guide',
     });
   }
@@ -59,64 +70,16 @@ function useOnlineAssetsTabs(hasStyleGuide: boolean, hasAPIWriteup: boolean) {
   if (hasAPIWriteup) {
     tabs.push({
       icon: RiCodeSSlashLine,
-      label: 'API',
+      label: intl.formatMessage({
+        defaultMessage: 'API',
+        description: 'Project assets category label',
+        id: 'NkqgLg',
+      }),
       value: 'api',
     });
   }
 
   return tabs;
-}
-
-function useProvidedAssets() {
-  const intl = useIntl();
-
-  return [
-    {
-      id: 'jpeg-design-files',
-      label: intl.formatMessage({
-        defaultMessage: 'JPEG design files for mobile & desktop layouts',
-        description:
-          'Label for JPEG asset item on provided assets card on Projects project assets page',
-        id: 'atJ0hJ',
-      }),
-    },
-    {
-      id: 'style-guide',
-      label: intl.formatMessage({
-        defaultMessage: 'Style guide for fonts, colors, etc.',
-        description:
-          'Label for Style Guide asset item on provided assets card on Projects project assets page',
-        id: 'KXpT3F',
-      }),
-    },
-    {
-      id: 'optimized-image-assets',
-      label: intl.formatMessage({
-        defaultMessage: 'Optimized image assets',
-        description:
-          'Label for Optimized Image Assets asset item on provided assets card on Projects project assets page',
-        id: 'EmGSpN',
-      }),
-    },
-    {
-      id: 'readme',
-      label: intl.formatMessage({
-        defaultMessage: 'README file to help you get started',
-        description:
-          'Label for README asset item on provided assets card on Projects project assets page',
-        id: 'Gzlz97',
-      }),
-    },
-    {
-      id: 'html-file',
-      label: intl.formatMessage({
-        defaultMessage: 'HTML file with pre-written content',
-        description:
-          'Label for HTML File asset item on provided assets card on Projects project assets page',
-        id: 'ixwQtP',
-      }),
-    },
-  ];
 }
 
 type Props = Readonly<{
@@ -132,7 +95,7 @@ export default function ProjectsProjectAssetsPage({
 }: Props) {
   const intl = useIntl();
   const { metadata } = project;
-  const providedAssets = useProvidedAssets();
+  const resources = useProjectsProvidedResources();
   const onlineAssetsTabs = useOnlineAssetsTabs(
     styleGuide != null,
     apiWriteup != null,
@@ -173,8 +136,8 @@ export default function ProjectsProjectAssetsPage({
               />
             </Text>
             <ul className="mt-4">
-              {providedAssets.map((asset) => (
-                <li key={asset.id} className="flex gap-2.5">
+              {resources.map(({ id, label }) => (
+                <li key={id} className="flex gap-2.5">
                   <RiCheckboxCircleFill
                     aria-hidden={true}
                     className={clsx(
@@ -182,7 +145,7 @@ export default function ProjectsProjectAssetsPage({
                       themeTextColor,
                     )}
                   />
-                  <Text size="body2">{asset.label}</Text>
+                  <Text size="body2">{label}</Text>
                 </li>
               ))}
             </ul>

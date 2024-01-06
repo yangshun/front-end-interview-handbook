@@ -1,13 +1,9 @@
 'use client';
 
+import clsx from 'clsx';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
-import ProjectsAssetProvidedHtml from '~/components/projects/details/assets/ProjectsAssetProvidedHtml';
-import ProjectsAssetProvidedImageAssets from '~/components/projects/details/assets/ProjectsAssetProvidedImageAssets';
-import ProjectsAssetProvidedJpeg from '~/components/projects/details/assets/ProjectsAssetProvidedJpeg';
-import ProjectsAssetProvidedReadme from '~/components/projects/details/assets/ProjectsAssetProvidedReadme';
-import ProjectsAssetProvidedStyleGuide from '~/components/projects/details/assets/ProjectsAssetProvidedStyleGuide';
 import type { ProjectsProjectItem } from '~/components/projects/details/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -15,6 +11,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 
+import ProjectsProjectBriefProvidedResources from './ProjectsProjectBriefProvidedResources';
 import ProjectsProjectBriefFAQSection from './ProjectsProjectBriefSection';
 import ProjectsProjectBriefSupportSection from './ProjectsProjectBriefSupportSection';
 
@@ -135,22 +132,16 @@ export default function ProjectsProjectBriefPage({ project }: Props) {
             </Section>
           </div>
           <div className="flex flex-col gap-6">
-            <div className="bg-red h-[372px] w-full rounded-lg" />
+            <div className={clsx('bg-red h-[372px] w-full rounded-lg')} />
             <Heading level="heading6">
               <FormattedMessage
-                defaultMessage="Assets provided"
+                defaultMessage="Resources provided"
                 description="Title for Assets Provided section on Projects project page"
-                id="Zcjig8"
+                id="R+pt9h"
               />
             </Heading>
             <Section>
-              <div className="flex flex-col items-stretch gap-4">
-                <ProjectsAssetProvidedJpeg />
-                <ProjectsAssetProvidedStyleGuide />
-                <ProjectsAssetProvidedImageAssets />
-                <ProjectsAssetProvidedReadme />
-                <ProjectsAssetProvidedHtml />
-              </div>
+              <ProjectsProjectBriefProvidedResources />
             </Section>
           </div>
         </div>
