@@ -1,4 +1,3 @@
-import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -11,7 +10,6 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
-import TextInput from '~/components/ui/TextInput';
 
 type OnboardingProfilePage2FormValues = Readonly<{
   bio: string;
@@ -113,7 +111,10 @@ export default function ProjectsOnboardingProfilePage1() {
               id="jCp/VW"
             />
           </Text>
-          <ProjectsProfileSocialInput control={control} showReputationCountIncreaseTag={true} />
+          <ProjectsProfileSocialInput
+            control={control}
+            showReputationCountIncreaseTag={true}
+          />
         </div>
         <Button
           className="self-end"

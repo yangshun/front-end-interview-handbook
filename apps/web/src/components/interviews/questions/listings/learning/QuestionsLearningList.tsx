@@ -4,6 +4,10 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/ToastsProvider';
+import type {
+  QuestionMetadata,
+  QuestionUserFacingFormat,
+} from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsCodingListWithFilters from '~/components/interviews/questions/listings/items/QuestionsCodingListWithFilters';
 import QuestionsQuizListWithFilters from '~/components/interviews/questions/listings/items/QuestionsQuizListWithFilters';
 import Heading from '~/components/ui/Heading';
@@ -15,10 +19,6 @@ import useQuestionsWithListProgressStatus from '../filters/hooks/useQuestionsWit
 import QuestionsFormatTabs from '../filters/QuestionsFormatsTabs';
 import { sortQuestionsMultiple } from '../filters/QuestionsProcessor';
 import QuestionsList from '../items/QuestionsList';
-import type {
-  QuestionMetadata,
-  QuestionUserFacingFormat,
-} from '../../common/QuestionsTypes';
 
 export default function QuestionsLearningList({
   listKey,

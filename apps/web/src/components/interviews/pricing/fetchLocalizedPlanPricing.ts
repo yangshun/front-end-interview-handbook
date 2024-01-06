@@ -2,6 +2,13 @@ import { clamp } from 'lodash-es';
 
 import { shouldUseCountryCurrency } from '~/lib/stripeUtils';
 
+import type {
+  PricingPlanDetails,
+  PricingPlanDetailsLocalized,
+  PricingPlansLocalized,
+} from '~/data/PricingPlans';
+import { PricingPlansData } from '~/data/PricingPlans';
+
 import logMessage from '~/logging/logMessage';
 
 import {
@@ -10,12 +17,6 @@ import {
 } from './pricingConfig';
 import { priceRoundToNearestNiceNumber } from './pricingUtils';
 import pppValues from './purchasingPowerParity.json';
-import type {
-  PricingPlanDetails,
-  PricingPlanDetailsLocalized,
-  PricingPlansLocalized,
-} from '../../../data/PricingPlans';
-import { PricingPlansData } from '../../../data/PricingPlans';
 
 type PurchasingPowerParity = Readonly<{
   conversionFactor: number;

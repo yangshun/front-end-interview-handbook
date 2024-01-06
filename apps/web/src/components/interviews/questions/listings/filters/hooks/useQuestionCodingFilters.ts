@@ -1,3 +1,8 @@
+import type {
+  QuestionCodingFormat,
+  QuestionMetadataWithCompletedStatus,
+} from '~/components/interviews/questions/common/QuestionsTypes';
+
 import useQuestionCodingFormatFilter from './useQuestionCodingFormatFilter';
 import useQuestionCompanyFilter from './useQuestionCompanyFilter';
 import useQuestionCompletionStatusFilter from './useQuestionCompletionStatusFilter';
@@ -6,10 +11,6 @@ import useQuestionFrameworkFilter from './useQuestionFrameworkFilter';
 import useQuestionLanguageFilter from './useQuestionLanguageFilter';
 import useQuestionSearchFilter from './useQuestionSearchFilter';
 import questionMatchesTextQuery from '../questionMatchesTextQuery';
-import type {
-  QuestionCodingFormat,
-  QuestionMetadataWithCompletedStatus,
-} from '../../../common/QuestionsTypes';
 
 type Props = Readonly<{
   codingFormatFiltersFilterPredicate?: (

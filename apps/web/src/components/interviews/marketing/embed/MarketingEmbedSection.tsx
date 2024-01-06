@@ -11,6 +11,7 @@ import { useQuestionFormatLists } from '~/data/QuestionFormats';
 
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
+import Heading from '~/components/ui/Heading';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
 import MarketingEmbedJavaScriptQuestion from './MarketingEmbedJavaScriptQuestion';
@@ -22,7 +23,6 @@ import type {
   QuestionJavaScript,
   QuestionMetadata,
 } from '../../questions/common/QuestionsTypes';
-import Heading from '../../../ui/Heading';
 
 const MarketingEmbedSystemDesignQuestion = dynamic(
   () => import('./MarketingEmbedSystemDesignQuestion'),

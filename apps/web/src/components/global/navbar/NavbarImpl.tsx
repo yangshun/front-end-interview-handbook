@@ -44,7 +44,6 @@ import NavLocaleDropdown from './NavLocaleDropdown';
 import NavProfileIcon from './NavProfileIcon';
 import { useAppThemePreferences } from '../dark/AppThemePreferencesProvider';
 import LogoLink from '../Logo';
-import { useUserProfile } from '../UserProfileProvider';
 
 import { useUser } from '@supabase/auth-helpers-react';
 

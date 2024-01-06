@@ -4,9 +4,10 @@ import { useIntl } from 'react-intl';
 
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
+import { DSAQuestions } from '~/components/interviews/questions/common/QuestionsCodingDataStructuresAlgorithms';
+import type { QuestionCodingFormat } from '~/components/interviews/questions/common/QuestionsTypes';
+
 import type { QuestionFilter } from '../QuestionFilterType';
-import { DSAQuestions } from '../../../common/QuestionsCodingDataStructuresAlgorithms';
-import type { QuestionCodingFormat } from '../../../common/QuestionsTypes';
 
 type Props = Readonly<{
   filter?: (format: QuestionCodingFormat) => boolean;

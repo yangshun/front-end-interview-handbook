@@ -49,7 +49,7 @@ import logMessage from '~/logging/logMessage';
 import PricingBlockCard from '../../pricing/PricingBlockCard';
 import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../../pricing/pricingConfig';
 import { priceRoundToNearestNiceNumber } from '../../pricing/pricingUtils';
-import MarketingSectionHeader from '../../../common/marketing/MarketingSectionHeader';
+import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
 
 import { loadStripe } from '@stripe/stripe-js';
 import { useSessionContext } from '@supabase/auth-helpers-react';

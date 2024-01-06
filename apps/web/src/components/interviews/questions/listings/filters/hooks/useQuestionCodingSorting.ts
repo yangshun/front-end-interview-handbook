@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import type { QuestionSortField } from '../../../common/QuestionsTypes';
+import type { QuestionSortField } from '~/components/interviews/questions/common/QuestionsTypes';
 
 export default function useQuestionCodingSorting() {
   const [isAscendingOrder, setIsAscendingOrder] = useState(true);

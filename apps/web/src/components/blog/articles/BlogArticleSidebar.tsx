@@ -4,8 +4,6 @@ import clsx from 'clsx';
 
 import type { BlogSeriesNavigationLink } from '~/components/blog/layout/BlogSidebar';
 import Anchor from '~/components/ui/Anchor';
-import Heading from '~/components/ui/Heading';
-import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
   themeLineColor,

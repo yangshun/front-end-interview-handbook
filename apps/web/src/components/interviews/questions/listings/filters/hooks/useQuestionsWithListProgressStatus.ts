@@ -4,12 +4,12 @@ import { useMemo } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
-import { hasCompletedQuestion } from '~/db/QuestionsUtils';
-
 import type {
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
-} from '../../../common/QuestionsTypes';
+} from '~/components/interviews/questions/common/QuestionsTypes';
+
+import { hasCompletedQuestion } from '~/db/QuestionsUtils';
 
 export default function useQuestionsWithListProgressStatus<
   Q extends QuestionMetadata,

@@ -9,7 +9,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Marquee from '~/components/ui/Marquee';
 
 import TestimonialCard from './TestimonialCard';
-import MarketingSectionHeader from '../../../common/marketing/MarketingSectionHeader';
+import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
 
 export default function MarketingTestimonialsSection() {
   const testimonialsObjects = useTestimonials();

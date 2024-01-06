@@ -13,12 +13,12 @@ import {
   purchaseSubscriptionRenew,
 } from '~/data/faqs/PurchaseFAQs';
 
+import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import FAQSection from '../faqs/FAQSection';
-import MarketingSectionHeader from '../../../common/marketing/MarketingSectionHeader';
 
 const purchaseFaqs: FAQItems = [
   purchaseOptions,
