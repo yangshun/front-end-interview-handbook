@@ -1,5 +1,5 @@
 'use client';
 
-export default function ProjectsDashboard() {
+export default function ProjectsDashboardPage() {
   return <div>Placeholder text</div>;
 }

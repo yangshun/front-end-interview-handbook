@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 
-import prisma from '~/server/prisma';
+import ProjectsProfilePage from '~/components/projects/profile/ProjectsProfilePage';
 
-import ProjectsProfilePage from './ProjectsProfilePage';
+import prisma from '~/server/prisma';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; username: string }>;

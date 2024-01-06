@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
+import ProjectsDashboardPage from '~/components/projects/dashboard/ProjectsDashboardPage';
+
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import ProjectsDashboard from './ProjectsDashboard';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -27,6 +27,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function ProjectsDashboardPage() {
-  return <ProjectsDashboard />;
+export default async function Page() {
+  return <ProjectsDashboardPage />;
 }

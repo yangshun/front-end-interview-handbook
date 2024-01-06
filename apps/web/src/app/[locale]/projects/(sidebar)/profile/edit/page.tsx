@@ -1,11 +1,9 @@
 import { notFound, redirect } from 'next/navigation';
 
-import Container from '~/components/ui/Container';
+import ProjectsProfileEditPage from '~/components/projects/profile/edit/ProjectsProfileEditPage';
 
 import prisma from '~/server/prisma';
 import { fetchUser } from '~/supabase/SupabaseServerGFE';
-
-import ProjectsProfileEditPage from './ProjectsProfileEditPage';
 
 export default async function Page() {
   const user = await fetchUser();
@@ -31,9 +29,5 @@ export default async function Page() {
     return notFound();
   }
 
-  return (
-    <Container className="md:pt-16 md:pb-32 pt-6 pb-8">
-      <ProjectsProfileEditPage profile={profile} />
-    </Container>
-  );
+  return <ProjectsProfileEditPage profile={profile} />;
 }
