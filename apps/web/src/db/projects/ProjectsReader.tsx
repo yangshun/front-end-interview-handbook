@@ -72,6 +72,7 @@ export const exampleProject: Omit<ProjectsProjectItem, 'metadata'> = {
   status: 'in-progress',
 };
 
+// TODO(projects): remove in future.
 const extraData = {
   imgSrc: 'https://source.unsplash.com/random/960x360',
   skills: [
@@ -131,7 +132,8 @@ export async function readProjectsProjectMetadata(
 
   const project = allProjectMetadata.find(
     (projectItem) =>
-      projectItem._raw.flattenedPath === `projects/${slug}/${requestedLocale}`,
+      projectItem._raw.flattenedPath ===
+      `projects/project/${slug}/${requestedLocale}`,
   )!;
 
   return {
@@ -162,7 +164,7 @@ export async function readProjectsProjectStyleGuide(
     allProjectStyleGuides.find(
       (styleGuideItem) =>
         styleGuideItem._raw.flattenedPath ===
-        `projects/${slug}/style-guide/${requestedLocale}`,
+        `projects/project/${slug}/style-guide/${requestedLocale}`,
     ) ?? null;
 
   return {
@@ -187,7 +189,7 @@ export async function readProjectsProjectAPIWriteup(
     allProjectAPIWriteups.find(
       (styleGuideItem) =>
         styleGuideItem._raw.flattenedPath ===
-        `projects/${slug}/api/${requestedLocale}`,
+        `projects/project/${slug}/api/${requestedLocale}`,
     ) ?? null;
 
   return {

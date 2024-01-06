@@ -2,6 +2,6 @@ import { defineDocumentType } from 'contentlayer/source-files';
 
 export const ProjectsProjectStyleGuideDocument = defineDocumentType(() => ({
   contentType: 'mdx',
-  filePathPattern: 'projects/*/style-guide/*.mdx',
+  filePathPattern: 'projects/project/*/style-guide/*.mdx',
   name: 'ProjectStyleGuide',
 }));

@@ -1,38 +1,66 @@
 import { defineDocumentType } from 'contentlayer/source-files';
+import path from 'node:path';
 
 import {
   projectAccessOptions,
   projectDifficultyOptions,
 } from '../details/types';
 
+function parseProjectSlug(sourceFilePath: string) {
+  return sourceFilePath.split(path.sep)[2];
+}
+
 export const ProjectsProjectMetadataDocument = defineDocumentType(() => ({
   computedFields: {
     assetsHref: {
-      resolve: (doc) => `/projects/p/${doc.slug}/assets`,
+      description: 'Link to projects assets step contents',
+      resolve: (doc) =>
+        `/projects/p/${parseProjectSlug(doc._raw.sourceFilePath)}/assets`,
       type: 'string',
     },
     completionHref: {
-      resolve: (doc) => `/projects/p/${doc.slug}/completion`,
+      description: 'Link to projects completion step contents',
+      resolve: (doc) =>
+        `/projects/p/${parseProjectSlug(doc._raw.sourceFilePath)}/completion`,
       type: 'string',
     },
     downloadDesignFileHref: {
-      resolve: (doc) => `/projects/p/${doc.slug}/download/design`,
+      description: 'Link to download design files',
+      resolve: (doc) =>
+        `/projects/p/${parseProjectSlug(
+          doc._raw.sourceFilePath,
+        )}/download/design`,
       type: 'string',
     },
     downloadStarterFilesHref: {
-      resolve: (doc) => `/projects/p/${doc.slug}/download/starter`,
+      description: 'Link to download starter files',
+      resolve: (doc) =>
+        `/projects/p/${parseProjectSlug(
+          doc._raw.sourceFilePath,
+        )}/download/starter`,
       type: 'string',
     },
     href: {
-      resolve: (doc) => `/projects/p/${doc.slug}`,
+      description: 'Link to project details page, also the brief page',
+      resolve: (doc) =>
+        `/projects/p/${parseProjectSlug(doc._raw.sourceFilePath)}`,
       type: 'string',
     },
     resourcesHref: {
-      resolve: (doc) => `/projects/p/${doc.slug}/resources`,
+      description: 'Link to projects resources step contents',
+      resolve: (doc) =>
+        `/projects/p/${parseProjectSlug(doc._raw.sourceFilePath)}/resources`,
+      type: 'string',
+    },
+    slug: {
+      description: 'Unique identifier of the project',
+      resolve: (doc) => parseProjectSlug(doc._raw.sourceFilePath),
       type: 'string',
     },
     submitHref: {
-      resolve: (doc) => `/projects/p/${doc.slug}/submit`,
+      description: 'Link to submit project',
+      resolve: (doc) =>
+        `/projects/p/${parseProjectSlug(doc._raw.sourceFilePath)}/submit`,
       type: 'string',
     },
   },
@@ -58,17 +86,12 @@ export const ProjectsProjectMetadataDocument = defineDocumentType(() => ({
       required: true,
       type: 'number',
     },
-    slug: {
-      description: 'Unique identifier of the project',
-      required: true,
-      type: 'string',
-    },
     title: {
       description: 'Title of the project',
       required: true,
       type: 'string',
     },
   },
-  filePathPattern: 'projects/*/*.mdx',
+  filePathPattern: 'projects/project/*/*.mdx',
   name: 'ProjectMetadata',
 }));
