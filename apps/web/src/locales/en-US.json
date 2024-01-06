@@ -51,6 +51,10 @@
     "defaultMessage": "{skillName}: {completedProjectCount} out of {totalProjectCount}",
     "description": "Label for Projects skill emblem"
   },
+  "+R1wGb": {
+    "defaultMessage": "Component track",
+    "description": "Label for Component Track filter for projects list"
+  },
   "+SiVOr": {
     "defaultMessage": "Includes a hi-fidelity design and interaction specifications for this project.",
     "description": "Description for Download Figma Design content section on Before You Get Started dialog"
@@ -167,6 +171,10 @@
     "defaultMessage": "Top Svelte front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Svelte Interview Questions page"
   },
+  "03TVln": {
+    "defaultMessage": "Filter by component track",
+    "description": "Tooltip for Component track filter for projects list"
+  },
   "03oqt6": {
     "defaultMessage": "Overview",
     "description": "Front End User Interface interviews overview"
@@ -198,10 +206,6 @@
   "0IALGm": {
     "defaultMessage": "Hello {userEmail}!",
     "description": "Title of AuthPage when logged in"
-  },
-  "0Lfmy2": {
-    "defaultMessage": "Component Track",
-    "description": "Label for Component Track filter for projects list"
   },
   "0Nq65E": {
     "defaultMessage": "Billing",
@@ -579,10 +583,6 @@
     "defaultMessage": "Facing trouble? <link>Email us</link>",
     "description": "Section label for seasonal promotion details"
   },
-  "5a8KFD": {
-    "defaultMessage": "Filter by Status",
-    "description": "Tooltip for Status filter for projects list"
-  },
   "5c7RMQ": {
     "defaultMessage": "Practice by framework",
     "description": "Sidebar label for Questions list page"
@@ -830,10 +830,6 @@
   "83GIBc": {
     "defaultMessage": "Introduction",
     "description": "Introduction to front end system design"
-  },
-  "84jjDe": {
-    "defaultMessage": "Filter by Skills",
-    "description": "Tooltip for Skills filter for projects list"
   },
   "854lgU": {
     "defaultMessage": "Strategies to tackle the wide domain of behavioral interviews, specific to SWE",
@@ -1451,10 +1447,6 @@
     "defaultMessage": "Build entire design systems or component libraries with our Component Tracks",
     "description": "Heading of the 'Component tracks' marketing section on Projects home page"
   },
-  "FYHKDB": {
-    "defaultMessage": "Sort By",
-    "description": "Label for Sort By button for projects list"
-  },
   "FcKhvG": {
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch and practice the questions where algorithmic efficiency is key.",
     "description": "Description for interview preparation focus area"
@@ -1871,6 +1863,10 @@
     "defaultMessage": "Before you get started",
     "description": "Section title for projects page"
   },
+  "KBkMan": {
+    "defaultMessage": "Filter by skills",
+    "description": "Tooltip for Skills filter for projects list"
+  },
   "KC1Rzx": {
     "defaultMessage": "Skills",
     "description": "Label for skills input on project submit page"
@@ -2230,6 +2226,10 @@
   "Nh3PP/": {
     "defaultMessage": "Practice Questions",
     "description": "Title of question examples section on getting started page"
+  },
+  "NjnYqU": {
+    "defaultMessage": "Sort by",
+    "description": "Label for sort button for projects discussion post list"
   },
   "NkqgLg": {
     "defaultMessage": "API",
@@ -4195,10 +4195,6 @@
     "defaultMessage": "Social links",
     "description": "Label for Social Links section of Projects profile onboarding page"
   },
-  "jDFcsE": {
-    "defaultMessage": "Filter by Component Track",
-    "description": "Tooltip for Component track filter for projects list"
-  },
   "jEYebN": {
     "defaultMessage": "View subscription plans",
     "description": "Label for button to view subscription plans"
@@ -4547,10 +4543,6 @@
     "defaultMessage": "Front End Engineer",
     "description": "Anonymous Front End Engineer's job title"
   },
-  "m/PYOV": {
-    "defaultMessage": "Filter by Difficulty",
-    "description": "Tooltip for Difficulty filter for projects list"
-  },
   "m0cej4": {
     "defaultMessage": "Started tracking progress",
     "description": "Success message for starting a study plan"
@@ -4626,10 +4618,6 @@
   "n2GZsD": {
     "defaultMessage": "First, set up your public profile to help the community know you better (and assist you better!)",
     "description": "Subtitle for Projects profile onboarding page"
-  },
-  "n2QhOj": {
-    "defaultMessage": "Sort By",
-    "description": "Label for sort button for projects discussion post list"
   },
   "n2UNgq": {
     "defaultMessage": "Collapse",
@@ -4742,10 +4730,6 @@
   "oPyUXk": {
     "defaultMessage": "Practice building all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
-  },
-  "oQiKcl": {
-    "defaultMessage": "Sort By",
-    "description": "Label for sort button"
   },
   "oR0ECI": {
     "defaultMessage": "Marked question as incomplete",
@@ -4930,6 +4914,10 @@
   "qCCbPu": {
     "defaultMessage": "Other tech stack used (not covered in skills tree)",
     "description": "Label for \"Other tech stack used\" text input"
+  },
+  "qEo3cR": {
+    "defaultMessage": "Filter by status",
+    "description": "Tooltip for Status filter for projects list"
   },
   "qMWBqm": {
     "defaultMessage": "Easy code reviews",
@@ -5443,6 +5431,10 @@
     "defaultMessage": "Project Brief",
     "description": "Subtitle for \"Project Brief\" tab on Projects project page"
   },
+  "vegaR1": {
+    "defaultMessage": "Sort by",
+    "description": "Label for sorting button"
+  },
   "vfVwh2": {
     "defaultMessage": "1 Week",
     "description": "Short label for one week study plan"
@@ -5730,6 +5722,10 @@
   "ynLgE+": {
     "defaultMessage": "Includes assets, JPG images of the design files, and a basic style guide. There's also a README to help you get started.",
     "description": "Description for Download Starter Files content section on Before You Get Started dialog"
+  },
+  "yptiXw": {
+    "defaultMessage": "Filter by difficulty",
+    "description": "Tooltip for Difficulty filter for projects list"
   },
   "yqjkfw": {
     "defaultMessage": "Please enter your name",

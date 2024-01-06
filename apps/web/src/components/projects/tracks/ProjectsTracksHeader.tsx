@@ -34,10 +34,10 @@ export default function ProjectsTrackHeader({ track }: Props) {
           />
         )}
       </div>
-      <Text className="mt-1" size="body2">
+      <Text className="mt-1" color="subtitle" size="body2">
         {description}
       </Text>
-      <div className="mt-2 flex gap-4">
+      <div className="mt-2 flex flex-wrap gap-4">
         <ProjectsReputationCountIncreaseTag points={points} variant="flat" />
         <ProjectsProjectCountTag
           total={projects.length}

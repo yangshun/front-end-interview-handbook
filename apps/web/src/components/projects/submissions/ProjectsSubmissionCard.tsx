@@ -63,7 +63,7 @@ export default function ProjectsSubmissionCard({ submission }: Props) {
             </div>
           </div>
         </div>
-        <Text display="block" size="body3">
+        <Text color="subtitle" display="block" size="body3">
           {description}
         </Text>
         <div className="flex justify-between gap-4">

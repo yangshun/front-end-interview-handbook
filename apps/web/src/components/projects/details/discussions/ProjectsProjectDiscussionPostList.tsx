@@ -40,10 +40,10 @@ export default function ProjectsProjectDiscussionPostList({ posts }: Props) {
           align="end"
           icon={RiSortDesc}
           label={intl.formatMessage({
-            defaultMessage: 'Sort By',
+            defaultMessage: 'Sort by',
             description:
               'Label for sort button for projects discussion post list',
-            id: 'n2QhOj',
+            id: 'NjnYqU',
           })}
           size="md">
           Placeholder

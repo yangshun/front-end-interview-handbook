@@ -30,7 +30,7 @@ export default function ProjectsTrackPage({ track }: Props) {
     <div className="flex flex-col">
       <Button
         addonPosition="start"
-        className="-ms-4 self-start"
+        className="-ms-4 -mt-2 self-start"
         href="/projects/tracks"
         icon={RiArrowLeftLine}
         label={intl.formatMessage({
@@ -100,7 +100,7 @@ export default function ProjectsTrackPage({ track }: Props) {
               <div className="flex flex-col items-start gap-2">
                 <Text weight="medium">{project.title}</Text>
                 <Text color="secondary" size="body3">
-                  This is some description
+                  {project.description}
                 </Text>
                 <Button
                   className="-ms-3"

@@ -1,3 +1,4 @@
+import { allProjectTrackMetadata } from 'contentlayer/generated';
 import { defineDocumentType } from 'contentlayer/source-files';
 import path from 'node:path';
 
@@ -92,13 +93,7 @@ export const ProjectsProjectMetadataDocument = defineDocumentType(() => ({
       type: 'string',
     },
     track: {
-      options: [
-        'design-system',
-        'portfolio',
-        'marketing',
-        'e-commerce',
-        'games',
-      ],
+      options: allProjectTrackMetadata.map((metadata) => metadata.slug),
       required: true,
       type: 'enum',
     },

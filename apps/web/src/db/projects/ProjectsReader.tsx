@@ -1,6 +1,7 @@
 import type {
   ProjectAPIWriteup,
   ProjectStyleGuide,
+  ProjectTrackMetadata,
 } from 'contentlayer/generated';
 import {
   allProjectAPIWriteups,
@@ -8,6 +9,7 @@ import {
   allProjectStyleGuides,
   allProjectTrackMetadata,
 } from 'contentlayer/generated';
+import { sum } from 'lodash-es';
 
 import type { ProjectsProjectItem } from '~/components/projects/details/types';
 import type { ProjectsTrack } from '~/components/projects/tracks/ProjectsTracksData';
@@ -75,31 +77,7 @@ export const exampleProject: Omit<ProjectsProjectItem, 'metadata'> = {
 };
 
 // TODO(projects): remove in future.
-export const exampleTrack: Omit<ProjectsTrack, 'metadata'> = {
-  completedProjectCount: 3,
-  isPremium: false,
-  points: 1000,
-  projects: [
-    {
-      href: '/projects/p/button',
-      slug: 'button',
-      title: 'Button',
-    },
-    {
-      href: '/projects/p/text-input',
-      slug: 'text-input',
-      title: 'Text Input',
-    },
-    {
-      href: '/projects/p/alert',
-      slug: 'alert',
-      title: 'Alert',
-    },
-  ],
-};
-
-// TODO(projects): remove in future.
-const extraData = {
+const extraProjectData = {
   imgSrc: 'https://source.unsplash.com/random/960x360',
   skills: [
     {
@@ -120,6 +98,15 @@ const extraData = {
   ] as const,
 } as const;
 
+// TODO(projects): remove in future.
+export const exampleTrack: Omit<
+  ProjectsTrack,
+  'metadata' | 'points' | 'projects'
+> = {
+  completedProjectCount: 3,
+  isPremium: true,
+};
+
 export async function readProjectsProjectList(
   requestedLocale = 'en-US',
 ): Promise<{
@@ -134,7 +121,7 @@ export async function readProjectsProjectList(
       ...exampleProject,
       metadata: {
         ...projectMetadata,
-        ...extraData,
+        ...extraProjectData,
       },
     }));
 
@@ -168,7 +155,7 @@ export async function readProjectsProjectMetadata(
       ...exampleProject,
       metadata: {
         ...project,
-        ...extraData,
+        ...extraProjectData,
       },
     },
   };
@@ -180,18 +167,42 @@ export async function readProjectsTrackList(
   loadedLocale: string;
   tracks: ReadonlyArray<ProjectsTrack>;
 }> {
-  const tracks = allProjectTrackMetadata
-    .filter((trackMetadata) =>
-      trackMetadata._raw.flattenedPath.endsWith(requestedLocale),
-    )
-    .map((trackMetadata) => ({
+  const [{ projects }, { trackMetadataList }] = await Promise.all([
+    readProjectsProjectList(requestedLocale),
+    readProjectsTrackMetadataList(requestedLocale),
+  ]);
+
+  const tracks = trackMetadataList.map((trackMetadata) => {
+    const trackProjects = projects
+      .filter((project) => project.metadata.track === trackMetadata.slug)
+      .map((project) => project.metadata);
+    const points = sum(trackProjects.map((metadata) => metadata.points));
+
+    return {
       ...exampleTrack,
       metadata: trackMetadata,
-    }));
+      points,
+      projects: trackProjects,
+    };
+  });
 
   return {
     loadedLocale: requestedLocale,
     tracks,
+  };
+}
+
+export async function readProjectsTrackMetadataList(
+  requestedLocale = 'en-US',
+): Promise<{
+  loadedLocale: string;
+  trackMetadataList: ReadonlyArray<ProjectTrackMetadata>;
+}> {
+  return {
+    loadedLocale: requestedLocale,
+    trackMetadataList: allProjectTrackMetadata.filter((trackMetadata) =>
+      trackMetadata._raw.flattenedPath.endsWith(requestedLocale),
+    ),
   };
 }
 
@@ -204,20 +215,30 @@ export async function readProjectsTrack(
     track: ProjectsTrack;
   }>
 > {
+  const { projects } = await readProjectsProjectList(requestedLocale);
+
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
 
-  const trackMetadata = allProjectTrackMetadata.find(
-    (trackItem) =>
-      trackItem._raw.flattenedPath ===
-      `projects/tracks/${slug}/${requestedLocale}`,
+  const { trackMetadataList } =
+    await readProjectsTrackMetadataList(requestedLocale);
+
+  const trackMetadata = trackMetadataList.find(
+    (trackMetadataItem) => trackMetadataItem.slug === slug,
   )!;
+
+  const trackProjects = projects
+    .filter((project) => project.metadata.track === trackMetadata.slug)
+    .map((project) => project.metadata);
+  const points = sum(trackProjects.map((metadata) => metadata.points));
 
   return {
     loadedLocale: requestedLocale,
     track: {
       ...exampleTrack,
       metadata: trackMetadata,
+      points,
+      projects: trackProjects,
     },
   };
 }

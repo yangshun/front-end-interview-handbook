@@ -1,15 +1,12 @@
-import type { ProjectTrackMetadata } from 'contentlayer/generated';
-
-type ProjectsTrackProject = Readonly<{
-  href: string;
-  slug: string;
-  title: string;
-}>;
+import type {
+  ProjectMetadata,
+  ProjectTrackMetadata,
+} from 'contentlayer/generated';
 
 export type ProjectsTrack = Readonly<{
   completedProjectCount: number;
   isPremium: boolean;
   metadata: ProjectTrackMetadata;
   points: number;
-  projects: ReadonlyArray<ProjectsTrackProject>;
+  projects: ReadonlyArray<ProjectMetadata>;
 }>;

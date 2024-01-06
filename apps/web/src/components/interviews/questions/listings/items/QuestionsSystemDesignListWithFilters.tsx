@@ -160,9 +160,9 @@ export default function QuestionsSystemDesignListWithFilters({
         align="end"
         icon={RiSortDesc}
         label={intl.formatMessage({
-          defaultMessage: 'Sort By',
-          description: 'Label for sort button',
-          id: 'oQiKcl',
+          defaultMessage: 'Sort by',
+          description: 'Label for sorting button',
+          id: 'vegaR1',
         })}
         size="sm">
         {[

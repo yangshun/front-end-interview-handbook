@@ -80,11 +80,12 @@ function ProjectsProjectGridListWithFiltersImpl({ projects }: Props) {
               }}
             />
             <DropdownMenu
+              align="end"
               icon={RiSortDesc}
               label={intl.formatMessage({
-                defaultMessage: 'Sort By',
-                description: 'Label for Sort By button for projects list',
-                id: 'FYHKDB',
+                defaultMessage: 'Sort by',
+                description: 'Label for sorting button',
+                id: 'vegaR1',
               })}>
               <div>Sort by placeholder</div>
             </DropdownMenu>

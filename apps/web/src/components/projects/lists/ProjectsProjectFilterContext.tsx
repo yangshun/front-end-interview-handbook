@@ -33,9 +33,9 @@ function useFilters() {
       {
         id: 'component-track',
         label: intl.formatMessage({
-          defaultMessage: 'Component Track',
+          defaultMessage: 'Component track',
           description: 'Label for Component Track filter for projects list',
-          id: '0Lfmy2',
+          id: '+R1wGb',
         }),
         options: [
           {
@@ -48,9 +48,9 @@ function useFilters() {
           },
         ],
         tooltip: intl.formatMessage({
-          defaultMessage: 'Filter by Component Track',
+          defaultMessage: 'Filter by component track',
           description: 'Tooltip for Component track filter for projects list',
-          id: 'jDFcsE',
+          id: '03TVln',
         }),
         type: 'checkbox',
       },
@@ -76,9 +76,9 @@ function useFilters() {
           },
         ],
         tooltip: intl.formatMessage({
-          defaultMessage: 'Filter by Difficulty',
+          defaultMessage: 'Filter by difficulty',
           description: 'Tooltip for Difficulty filter for projects list',
-          id: 'm/PYOV',
+          id: 'yptiXw',
         }),
         type: 'checkbox',
       },
@@ -91,9 +91,9 @@ function useFilters() {
         }),
         options: [],
         tooltip: intl.formatMessage({
-          defaultMessage: 'Filter by Skills',
+          defaultMessage: 'Filter by skills',
           description: 'Tooltip for Skills filter for projects list',
-          id: '84jjDe',
+          id: 'KBkMan',
         }),
         type: 'skill-selection',
       },
@@ -106,9 +106,9 @@ function useFilters() {
         }),
         options: [],
         tooltip: intl.formatMessage({
-          defaultMessage: 'Filter by Status',
+          defaultMessage: 'Filter by status',
           description: 'Tooltip for Status filter for projects list',
-          id: '5a8KFD',
+          id: 'qEo3cR',
         }),
         type: 'checkbox',
       },

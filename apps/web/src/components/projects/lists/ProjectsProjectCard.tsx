@@ -127,7 +127,7 @@ export default function ProjectsProjectCard({ project }: Props) {
         </div>
         <div className="grow flex flex-col gap-2">
           <Text weight="bold">{title}</Text>
-          <Text className="grow" size="body2">
+          <Text className="grow" color="subtitle" size="body2">
             {description}
           </Text>
         </div>
