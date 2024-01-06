@@ -151,10 +151,6 @@
     "defaultMessage": "3 simple steps to start earning",
     "description": "Title for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
   },
-  "/ncyOd": {
-    "defaultMessage": "README file to help you get started",
-    "description": "Label for README card in Assets Provided section of Projects project page"
-  },
   "01jNoZ": {
     "defaultMessage": "Get started",
     "description": "Hint for \"Project Brief\" and \"Assets\" tab on Projects project page"
@@ -515,10 +511,6 @@
     "defaultMessage": "Number of questions completed",
     "description": "Number of questions completed in a list of questions"
   },
-  "4q3pJW": {
-    "defaultMessage": "Optimized image assets",
-    "description": "Label for Image Assets card in Assets Provided section of Projects project page"
-  },
   "4s0hMm": {
     "defaultMessage": "All tasks completed!",
     "description": "Title for rewards complete page"
@@ -563,6 +555,10 @@
     "defaultMessage": "You can find your promos codes on the <link>profile page</link>.",
     "description": "Subtext for rewards complete page"
   },
+  "5BQAdK": {
+    "defaultMessage": "Responsive breakpoints",
+    "description": "Project assets category label"
+  },
   "5RlLAP": {
     "defaultMessage": "Clear Console",
     "description": "Button tooltip to clear the console in the coding workspace"
@@ -590,6 +586,10 @@
   "5o0/kt": {
     "defaultMessage": "Start a project",
     "description": "Label for Start a project button in Start Project CTA card in Projects sidebar"
+  },
+  "5ozhak": {
+    "defaultMessage": "Start the project to access guides, discussions and reference code",
+    "description": "Title for project overlay on projects details page"
   },
   "5rd3TN": {
     "defaultMessage": "Companies",
@@ -1059,6 +1059,10 @@
     "defaultMessage": "Current project session",
     "description": "Title for current project session card"
   },
+  "AjKgye": {
+    "defaultMessage": "Start the project to access submission and deployment steps",
+    "description": "Title for project overlay on projects details page"
+  },
   "Alqb51": {
     "defaultMessage": "Blog Type",
     "description": "Label for tabs for blog type"
@@ -1170,10 +1174,6 @@
   "CIPW07": {
     "defaultMessage": "Interview guides",
     "description": "Sidebar label for Interview Guides category"
-  },
-  "CNAh0z": {
-    "defaultMessage": "You can download assets after starting the project",
-    "description": "Title for start project overlay on Projects project assets page"
   },
   "CNjnh0": {
     "defaultMessage": "Not written for this question.",
@@ -1371,10 +1371,6 @@
     "defaultMessage": "Open navigation profile menu",
     "description": "Screenreader text to open the profile menu"
   },
-  "EmGSpN": {
-    "defaultMessage": "Optimized image assets",
-    "description": "Label for Optimized Image Assets asset item on provided assets card on Projects project assets page"
-  },
   "EmirPr": {
     "defaultMessage": "Master async programming for front end interviews",
     "description": "Title for interview preparation focus area"
@@ -1562,10 +1558,6 @@
   "GyDKzV": {
     "defaultMessage": "Filters",
     "description": "Screenreader text indicating the filters component on question list pages"
-  },
-  "Gzlz97": {
-    "defaultMessage": "README file to help you get started",
-    "description": "Label for README asset item on provided assets card on Projects project assets page"
   },
   "H+BRfg": {
     "defaultMessage": "No completed questions",
@@ -1899,10 +1891,6 @@
     "defaultMessage": "Apply",
     "description": "Label for \"Apply\" button for projects filter"
   },
-  "KXpT3F": {
-    "defaultMessage": "Style guide for fonts, colors, etc.",
-    "description": "Label for Style Guide asset item on provided assets card on Projects project assets page"
-  },
   "KY8GB9": {
     "defaultMessage": "Failed to mark question as complete. Please try again",
     "description": "Error message shown when a question has failed to mark as complete"
@@ -1970,10 +1958,6 @@
   "LAWtL6": {
     "defaultMessage": "Software Engineer",
     "description": "Jacky Liang's job title"
-  },
-  "LFg5Tg": {
-    "defaultMessage": "Style guide for fonts, colors, etc.",
-    "description": "Label for Style Guide card in Assets Provided section of Projects project page"
   },
   "LGHLf5": {
     "defaultMessage": "Gamified learning",
@@ -2231,6 +2215,10 @@
     "defaultMessage": "Practice Questions",
     "description": "Title of question examples section on getting started page"
   },
+  "NkqgLg": {
+    "defaultMessage": "API",
+    "description": "Project assets category label"
+  },
   "NoFZV/": {
     "defaultMessage": "Strengthen your proficiency in JavaScript through writing Lodash functions from scratch.",
     "description": "Description for interview preparation focus area"
@@ -2310,6 +2298,10 @@
   "OklFdI": {
     "defaultMessage": "Gamified learning and building",
     "description": "Title for \"Gamified learning and building\" feature marketing section on Projects home page"
+  },
+  "OoBbFR": {
+    "defaultMessage": "HTML file with pre-written content",
+    "description": "Provided resource for project"
   },
   "OoOyEp": {
     "defaultMessage": "More on <link>Review Cashback Discount Terms and Conditions</link>",
@@ -2431,10 +2423,6 @@
     "defaultMessage": "HTML Questions",
     "description": "HTML questions category long title"
   },
-  "Q8TmuY": {
-    "defaultMessage": "HTML file with pre-written content",
-    "description": "Label for HTML File card in Assets Provided section of Projects project page"
-  },
   "QHtJPS": {
     "defaultMessage": "Practice end-to-end",
     "description": "Practice questions for all stages"
@@ -2490,6 +2478,10 @@
   "QzHPOD": {
     "defaultMessage": "Access to {freeChallengeCount}+ free challenges. No access to Figma & guides",
     "description": "Subtitle of Free Plan CTA card in Projects sidebar"
+  },
+  "R+pt9h": {
+    "defaultMessage": "Resources provided",
+    "description": "Title for Assets Provided section on Projects project page"
   },
   "R1ji0N": {
     "defaultMessage": "Signing out. See you again!",
@@ -2670,6 +2662,10 @@
   "SdXQye": {
     "defaultMessage": "Add selection to next find match",
     "description": "Text describing command to add selection to next find match in the coding workspace shortcuts menu"
+  },
+  "Se4xmG": {
+    "defaultMessage": "Start project",
+    "description": "Start Project button label"
   },
   "Sj1CaY": {
     "defaultMessage": "Practice developing inclusive and accessible web experiences.",
@@ -3327,10 +3323,6 @@
     "defaultMessage": "Since {date}",
     "description": "Since date for current project session card"
   },
-  "Zcjig8": {
-    "defaultMessage": "Assets provided",
-    "description": "Title for Assets Provided section on Projects project page"
-  },
   "Zdojj9": {
     "defaultMessage": "Other",
     "description": "Label for \"Other\" onboarding option in Projects"
@@ -3427,6 +3419,10 @@
     "defaultMessage": "Outdent line",
     "description": "Text describing outdent line command in the coding workspace shortcuts menu"
   },
+  "all5El": {
+    "defaultMessage": "You can download assets after starting the project",
+    "description": "Title for project overlay on projects details page"
+  },
   "am2rVD": {
     "defaultMessage": "Try changing the filters",
     "description": "Subtitle for empty state when no questions are returned from application of filters on quiz questions list"
@@ -3450,10 +3446,6 @@
   "as1hw8": {
     "defaultMessage": "Submit your code",
     "description": "Title of test panel for coding workspace"
-  },
-  "atJ0hJ": {
-    "defaultMessage": "JPEG design files for mobile & desktop layouts",
-    "description": "Label for JPEG asset item on provided assets card on Projects project assets page"
   },
   "au4m82": {
     "defaultMessage": "JavaScript",
@@ -4155,17 +4147,9 @@
     "defaultMessage": "We're Hiring",
     "description": "Link to careers page"
   },
-  "ixwQtP": {
-    "defaultMessage": "HTML file with pre-written content",
-    "description": "Label for HTML File asset item on provided assets card on Projects project assets page"
-  },
   "iyz4Hv": {
     "defaultMessage": "{skillPlanName} progress",
     "description": "Label for skill plan progress on project submission success page"
-  },
-  "izBHrw": {
-    "defaultMessage": "JPEG design files for mobile & desktop layouts",
-    "description": "Label for JPEG card in Assets Provided section of Projects project page"
   },
   "j+FaML": {
     "defaultMessage": "Implement various Lodash functions and methods to manipulate and transform data efficiently and improve your front end interview readiness.",
@@ -4242,6 +4226,10 @@
   "jVSwXw": {
     "defaultMessage": "Purchase premium to unlock full access to the question.",
     "description": "Subtitle on question paywall appearing on the question pages of premium questions"
+  },
+  "jVhr66": {
+    "defaultMessage": "Basic style guide",
+    "description": "Project assets category label"
   },
   "jbJq96": {
     "defaultMessage": "Get premium to unlock <bold>full access to all questions and solutions</bold>!",
@@ -4803,6 +4791,10 @@
     "defaultMessage": "Blog",
     "description": "Link to blog"
   },
+  "pCZPGj": {
+    "defaultMessage": "README file to help you get started",
+    "description": "Provided resource for project"
+  },
   "pDo/V5": {
     "defaultMessage": "{price} billed per month.",
     "description": "Description of billing frequency for monthly plan"
@@ -5195,6 +5187,10 @@
     "defaultMessage": "Activity | Profile",
     "description": "Title of Profile Activity page"
   },
+  "tOPOx+": {
+    "defaultMessage": "Optimized image assets",
+    "description": "Provided resource for project"
+  },
   "tP5+Am": {
     "defaultMessage": "Sign Up",
     "description": "Label of Sign Up button on Email Sign Up page"
@@ -5311,6 +5307,10 @@
     "defaultMessage": "No promo codes available",
     "description": "Title of GreatFrontEnd page"
   },
+  "ueUG6Q": {
+    "defaultMessage": "JPEG design files for mobile & desktop layouts",
+    "description": "Provided resource for project"
+  },
   "ugHQqC": {
     "defaultMessage": "Or continue with",
     "description": "Label of divider preceding third party providers on Sign In page"
@@ -5382,6 +5382,10 @@
   "v9aMaT": {
     "defaultMessage": "Display name must contain at most {maxLength} characters.",
     "description": "Error message when display name is too long"
+  },
+  "vAyAVU": {
+    "defaultMessage": "Style guide for fonts, colors, etc.",
+    "description": "Provided resource for project"
   },
   "vC8ERT": {
     "defaultMessage": "Copied",

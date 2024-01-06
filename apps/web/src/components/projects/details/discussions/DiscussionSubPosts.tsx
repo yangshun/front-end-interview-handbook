@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { exampleDiscussionPosts } from '~/components/projects/details/resources/ProjectsTipsResourcesDiscussionsPage';
+import { exampleDiscussionPosts } from '~/components/projects/details/resources/ProjectsProjectResourcesPage';
 import { themeElementBorderColor } from '~/components/ui/theme';
 
 import DiscussionPost from './DiscussionPost';
