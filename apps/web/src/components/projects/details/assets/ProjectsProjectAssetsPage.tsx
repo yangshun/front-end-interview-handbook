@@ -32,6 +32,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasized,
   themeElementBorderColor,
+  themeLineColor,
   themeTextColor,
 } from '~/components/ui/theme';
 
@@ -165,7 +166,11 @@ export default function ProjectsProjectAssetsPage({
       }>
       <div className="flex flex-col items-stretch">
         <div className="grid grid-cols-1 gap-x-6 gap-y-12 lg:grid-cols-4">
-          <div className="flex flex-col gap-6">
+          <div
+            className={clsx('flex flex-col gap-6 pr-6', [
+              'lg:border-r',
+              themeLineColor,
+            ])}>
             <Heading level="heading6">
               <FormattedMessage
                 defaultMessage="To download"
