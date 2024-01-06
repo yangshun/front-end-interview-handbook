@@ -82,6 +82,11 @@ export const ProjectsProjectMetadataDocument = defineDocumentType(() => ({
       required: true,
       type: 'enum',
     },
+    imageUrl: {
+      description: 'Cover image for the project',
+      required: true,
+      type: 'string',
+    },
     points: {
       description: 'Reputation gained by completing the project',
       required: true,

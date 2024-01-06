@@ -78,7 +78,6 @@ export const exampleProject: Omit<ProjectsProjectItem, 'metadata'> = {
 
 // TODO(projects): remove in future.
 const extraProjectData = {
-  imgSrc: 'https://source.unsplash.com/random/960x360',
   skills: [
     {
       difficulty: 'hard',

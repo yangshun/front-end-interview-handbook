@@ -34,7 +34,7 @@ export default function ProjectsProjectCard({ project }: Props) {
     difficulty,
     description,
     skills,
-    imgSrc,
+    imageUrl,
     track,
     points,
     href,
@@ -52,7 +52,7 @@ export default function ProjectsProjectCard({ project }: Props) {
         <img
           alt={title}
           className="aspect-[16/9] object-cover w-full"
-          src={imgSrc}
+          src={imageUrl}
         />
         {status === 'in-progress' && (
           <div className="absolute start-2 bottom-2 rounded px-2 bg-warning-light text-warning-darkest">

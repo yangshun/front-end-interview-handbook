@@ -33,7 +33,6 @@ export type ProjectsProjectItem = Readonly<{
   completedUsers: Array<Profile>; // TODO(projects): Remove from metadata
   metadata: ProjectMetadata &
     Readonly<{
-      imgSrc: string;
       skills: ReadonlyArray<ProjectsSkill>;
     }>;
   status: ProjectsProjectStatus; // TODO(projects): Remove from metadata
