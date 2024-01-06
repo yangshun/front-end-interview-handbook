@@ -1,5 +1,5 @@
 export default function MarketingHeroBackground(
-  props: React.SVGProps<SVGSVGElement>,
+  props: React.ComponentProps<'svg'>,
 ) {
   return (
     <svg

@@ -14,7 +14,7 @@ import { Menu } from '@headlessui/react';
 
 type Props = Readonly<{
   href?: string;
-  icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
+  icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isSelected?: boolean;
   label: React.ReactNode;
   onClick: React.MouseEventHandler<HTMLElement>;

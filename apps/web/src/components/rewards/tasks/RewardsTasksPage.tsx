@@ -95,7 +95,7 @@ function determineStepStatus(step: number, currentStep: number) {
 
 const handles: ReadonlyArray<{
   field: keyof RewardsHandlesData;
-  icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+  icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   type: string;
 }> = [
   {

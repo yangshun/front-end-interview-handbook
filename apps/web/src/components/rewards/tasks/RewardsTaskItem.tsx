@@ -20,7 +20,7 @@ export type RewardsTasksActionName =
 
 export type Props = Readonly<{
   actionName: RewardsTasksActionName;
-  icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+  icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   label: string;
   status: RewardsTasksItemStatus;
   taskHref: string;

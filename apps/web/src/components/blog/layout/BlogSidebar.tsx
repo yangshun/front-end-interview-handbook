@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { type ReactNode, type SVGProps } from 'react';
+import { type ReactNode } from 'react';
 import {
   RiArrowDownSLine,
   RiHome3Line,
@@ -51,7 +51,7 @@ type BlogSidebarSeries = BlogSidebarItem &
 
 type BlogSidebarItem = Readonly<{
   currentMatchRegex?: RegExp;
-  icon?: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   key: string;
   labelAddon?: ReactNode;
   name: string;
@@ -112,7 +112,7 @@ function useBlogSidebarNavigation() {
 function SidebarIcon({
   icon: Icon,
 }: Readonly<{
-  icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+  icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
 }>) {
   return <Icon aria-hidden="true" className={clsx('h-5 w-5 shrink-0')} />;
 }

@@ -3,13 +3,13 @@ import { FormattedMessage } from 'react-intl';
 import type { Testimonial } from '~/data/Testimonials';
 import { useTestimonials } from '~/data/Testimonials';
 
+import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Marquee from '~/components/ui/Marquee';
 
 import TestimonialCard from './TestimonialCard';
-import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
 
 export default function MarketingTestimonialsSection() {
   const testimonialsObjects = useTestimonials();

@@ -1,4 +1,3 @@
-import type { SVGProps } from 'react';
 import { useId } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -11,7 +10,7 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
-function Background(props: SVGProps<SVGSVGElement>) {
+function Background(props: React.ComponentProps<'svg'>) {
   return (
     <svg
       fill="none"

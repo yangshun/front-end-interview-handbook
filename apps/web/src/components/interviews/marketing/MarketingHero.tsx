@@ -34,7 +34,7 @@ function MarketingHeroAuthorIntroduction({
   );
 }
 
-function MarketingHeroTextUnderline(props: React.SVGProps<SVGSVGElement>) {
+function MarketingHeroTextUnderline(props: React.ComponentProps<'svg'>) {
   return (
     <svg
       fill="none"

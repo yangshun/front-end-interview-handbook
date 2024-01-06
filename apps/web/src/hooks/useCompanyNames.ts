@@ -1,4 +1,3 @@
-import type { SVGProps } from 'react';
 import {
   FaAirbnb,
   FaAmazon,
@@ -25,7 +24,7 @@ export default function useCompanyNames(): Record<
   QuestionCompany,
   Readonly<{
     label: string;
-    logo: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+    logo: (props: React.ComponentProps<'svg'>) => JSX.Element;
   }>
 > {
   const intl = useIntl();

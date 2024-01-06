@@ -224,7 +224,7 @@ function SidebarLinkButton({
   onClick,
 }: {
   href: string;
-  icon: (props: React.SVGProps<SVGSVGElement>) => JSX.Element;
+  icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   label: string;
   onClick?: () => void;
 }) {

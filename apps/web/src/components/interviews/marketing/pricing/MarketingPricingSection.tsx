@@ -1,6 +1,5 @@
 import axios from 'axios';
 import clsx from 'clsx';
-import type { SVGProps } from 'react';
 import { useRef } from 'react';
 import { useEffect } from 'react';
 import { useId } from 'react';
@@ -26,6 +25,7 @@ import {
   PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
 } from '~/data/PromotionConfig';
 
+import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import { SocialDiscountAlert } from '~/components/promotions/social/SocialDiscountAlert';
 import Alert from '~/components/ui/Alert';
@@ -49,7 +49,6 @@ import logMessage from '~/logging/logMessage';
 import PricingBlockCard from '../../pricing/PricingBlockCard';
 import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../../pricing/pricingConfig';
 import { priceRoundToNearestNiceNumber } from '../../pricing/pricingUtils';
-import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
 
 import { loadStripe } from '@stripe/stripe-js';
 import { useSessionContext } from '@supabase/auth-helpers-react';
@@ -154,7 +153,7 @@ function PricingButton({
 }: Readonly<{
   'aria-describedby': string;
   href?: string;
-  icon?: (props: SVGProps<SVGSVGElement>) => JSX.Element;
+  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isDisabled?: boolean;
   isLoading?: boolean;
   label: string;
