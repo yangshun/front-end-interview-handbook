@@ -33,7 +33,7 @@ export default function ProjectsTrackPage({
   const intl = useIntl();
 
   return (
-    <div className="flex flex-col items-stretch p-4 md:p-[60px]">
+    <div className="flex flex-col">
       <Button
         addonPosition="start"
         className="-ms-4 self-start"

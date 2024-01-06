@@ -1,4 +1,4 @@
-import ProjectsSidebarLayout from './ProjectsSidebarLayout';
+import ProjectsSidebarLayout from '~/components/projects/layout/sidebar/ProjectsSidebarLayout';
 
 type Props = Readonly<{
   children: React.ReactNode;

@@ -9,7 +9,6 @@ import ProjectsOtherTechStackInput from '~/components/projects/skills/ProjectsOt
 import ProjectsSkillInput from '~/components/projects/skills/ProjectsSkillInput';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
-import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -25,10 +24,10 @@ export default function ProjectsProjectSubmitPage({ project }: Props) {
   const intl = useIntl();
 
   return (
-    <Container className="flex flex-col items-stretch pb-10 pt-4 lg:pb-20 lg:pt-16">
+    <div>
       <Button
         addonPosition="start"
-        className="self-start -ms-3"
+        className="-ms-4 -mt-2"
         href={href}
         icon={RiArrowLeftLine}
         label={intl.formatMessage({
@@ -40,9 +39,9 @@ export default function ProjectsProjectSubmitPage({ project }: Props) {
       />
       <Heading className="mt-8" level="heading5">
         <FormattedMessage
-          defaultMessage="Submission checklist"
+          defaultMessage="Project submission"
           description="Title for the project submission checklist section"
-          id="V4qTW5"
+          id="VuGzvG"
         />
       </Heading>
       <Section>
@@ -191,6 +190,6 @@ export default function ProjectsProjectSubmitPage({ project }: Props) {
           />
         </div>
       </Section>
-    </Container>
+    </div>
   );
 }

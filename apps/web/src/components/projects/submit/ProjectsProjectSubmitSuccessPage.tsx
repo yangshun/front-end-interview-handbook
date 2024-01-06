@@ -14,7 +14,6 @@ import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import CardContainer from '~/components/ui/Card/CardContainer';
-import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -179,284 +178,282 @@ export default function ProjectsProjectSubmitSuccessPage({
 
   return (
     <CardContainer>
-      <Container className="flex flex-col items-stretch pb-10 pt-4 xl:pb-20 xl:pt-16">
-        <div className="relative self-center">
-          <ReputationIncreaseBackground />
-          <div className="flex flex-col gap-2 absolute bottom-[90px] mx-auto start-0 end-0 items-center">
-            <FormattedMessage
-              defaultMessage="<emph>+ {points}</emph><small>reputation points</small>"
-              description="Reputation point increase on project submission success page"
-              id="HGXFQP"
-              values={{
-                emph: (chunks) => <Heading level="heading2">{chunks}</Heading>,
-                points: 237,
-                small: (chunks) => <Text size="body2">{chunks}</Text>,
-              }}
-            />
-          </div>
-        </div>
-        <div className="flex flex-col items-center gap-6">
-          <Heading level="heading4">
-            <FormattedMessage
-              defaultMessage="Submission success"
-              description="Title for the project submission success page"
-              id="5+8FGz"
-            />
-          </Heading>
-          <Text color="secondary" size="body1">
-            <FormattedMessage
-              defaultMessage="Your code has been successfully submitted and is now available for community review. "
-              description="Description for the project submission success page"
-              id="AK/+j2"
-            />
-          </Text>
-          <Button
-            label={intl.formatMessage({
-              defaultMessage: 'View your submission',
-              description:
-                'Label for View your submission button on project submit page',
-              id: 'Geiogi',
-            })}
-            size="lg"
-            variant="primary"
+      <div className="relative self-center">
+        <ReputationIncreaseBackground />
+        <div className="flex flex-col gap-2 absolute bottom-[90px] mx-auto start-0 end-0 items-center">
+          <FormattedMessage
+            defaultMessage="<emph>+ {points}</emph><small>reputation points</small>"
+            description="Reputation point increase on project submission success page"
+            id="HGXFQP"
+            values={{
+              emph: (chunks) => <Heading level="heading2">{chunks}</Heading>,
+              points: 237,
+              small: (chunks) => <Text size="body2">{chunks}</Text>,
+            }}
           />
         </div>
-        <Card
-          className="flex flex-col gap-16 xl:gap-8"
-          classNameOuter="mt-24"
-          pattern={false}>
-          <div className="grid gap-x-12 gap-y-8 xl:grid-cols-2">
-            <div className="flex flex-col gap-6">
-              <Text size="body1">
-                <FormattedMessage
-                  defaultMessage="Leveling progress"
-                  description="Label for leveling progress on project submission success page"
-                  id="KgN46v"
-                />
-              </Text>
-              <div className="flex gap-6 self-stretch items-end">
-                <UserAvatar
-                  className="w-20 h-20"
-                  profile={profile}
-                  size="custom"
-                />
-                <ProjectsLevelingProgressBar
-                  className="flex-1"
-                  currentLevel={2}
-                  currentRepCount={500}
-                  repIncrease={100}
-                  repTotal={700}
-                />
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <div className="flex justify-between items-center">
-                <Text color="secondary" size="body2">
-                  <FormattedMessage
-                    defaultMessage="You've gained rep in these skills:"
-                    description="Label for skills gained on project submission success page"
-                    id="TgOWsI"
-                  />
-                </Text>
-                <Button
-                  className="-me-3 !text-brand"
-                  label={intl.formatMessage({
-                    defaultMessage: 'See all',
-                    description:
-                      'Label for See all button on project submission success page',
-                    id: 'RZedau',
-                  })}
-                  variant="tertiary"
-                />
-              </div>
-              <div className="grid grid-cols-2 xl:grid-cols-3 mt-6 gap-2.5">
-                <ProjectsSkillProgressBreakdownCard
-                  skill={{
-                    difficulty: 'easy',
-                    key: 'java-script',
-                    label: 'JavaScript',
-                    repIncrease: 100,
-                    repTotal: 1000,
-                  }}
-                  subSkills={[
-                    {
-                      difficulty: 'easy',
-                      key: 'react',
-                      label: 'React',
-                      repIncrease: 1000,
-                    },
-                    {
-                      difficulty: 'easy',
-                      key: 'html',
-                      label: 'HTML',
-                      repIncrease: 1000,
-                    },
-                  ]}
-                />
-                <ProjectsSkillProgressBreakdownCard
-                  skill={{
-                    difficulty: 'medium',
-                    key: 'java-script',
-                    label: 'JavaScript',
-                    repIncrease: 100,
-                    repTotal: 1000,
-                  }}
-                  subSkills={[
-                    {
-                      difficulty: 'medium',
-                      key: 'react',
-                      label: 'React',
-                      repIncrease: 1000,
-                    },
-                    {
-                      difficulty: 'medium',
-                      key: 'html',
-                      label: 'HTML',
-                      repIncrease: 1000,
-                    },
-                  ]}
-                />
-                <ProjectsSkillProgressBreakdownCard
-                  className="hidden xl:flex"
-                  skill={{
-                    difficulty: 'hard',
-                    key: 'java-script',
-                    label: 'JavaScript',
-                    repIncrease: 100,
-                    repTotal: 1000,
-                  }}
-                  subSkills={[
-                    {
-                      difficulty: 'hard',
-                      key: 'react',
-                      label: 'React',
-                      repIncrease: 1000,
-                    },
-                    {
-                      difficulty: 'easy',
-                      key: 'html',
-                      label: 'HTML',
-                      repIncrease: 1000,
-                    },
-                  ]}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="grid gap-x-12 gap-y-8 xl:grid-cols-2">
-            <div className="flex flex-col gap-6">
-              <Text size="body1">
-                <FormattedMessage
-                  defaultMessage="{trackName} progress"
-                  description="Label for track progress on project submission success page"
-                  id="/9JvuU"
-                  values={{
-                    trackName: 'Design Systems Track',
-                  }}
-                />
-              </Text>
-              <div className="flex gap-6 self-stretch items-end">
-                <div className="w-20 h-20 rounded-lg bg-red" />
-                <ProjectsSegmentedProgressBar
-                  className="flex-1"
-                  currentSegmentCount={4}
-                  segmentIncrease={1}
-                  totalSegmentCount={11}
-                />
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <div className="flex justify-between items-center">
-                <Text color="secondary" size="body2">
-                  <FormattedMessage
-                    defaultMessage="Next project:"
-                    description="Title for next project section on project submission success page"
-                    id="rxpmQt"
-                  />
-                </Text>
-                <Button
-                  className="-me-3 !text-brand"
-                  label={intl.formatMessage({
-                    defaultMessage: 'See all',
-                    description:
-                      'Label for See all button on project submission success page',
-                    id: 'RZedau',
-                  })}
-                  variant="tertiary"
-                />
-              </div>
-              <div className="bg-red rounded-lg mt-6 h-[188px]" />
-            </div>
-          </div>
-          <div className="grid gap-x-12 gap-y-8 xl:grid-cols-2">
-            <div className="flex flex-col gap-6">
-              <Text size="body1">
-                <FormattedMessage
-                  defaultMessage="{skillPlanName} progress"
-                  description="Label for skill plan progress on project submission success page"
-                  id="iyz4Hv"
-                  values={{
-                    skillPlanName: 'HTML skill plan',
-                  }}
-                />
-              </Text>
-              <div className="flex gap-6 self-stretch items-end">
-                <div className="w-20 h-20 rounded-lg bg-red" />
-                <ProjectsSegmentedProgressBar
-                  className="flex-1"
-                  currentSegmentCount={4}
-                  segmentIncrease={1}
-                  totalSegmentCount={11}
-                />
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <div className="flex justify-between items-center">
-                <Text color="secondary" size="body2">
-                  <FormattedMessage
-                    defaultMessage="Next project:"
-                    description="Title for next project section on project submission success page"
-                    id="rxpmQt"
-                  />
-                </Text>
-                <Button
-                  className="-me-3 !text-brand"
-                  label={intl.formatMessage({
-                    defaultMessage: 'See all',
-                    description:
-                      'Label for See all button on project submission success page',
-                    id: 'RZedau',
-                  })}
-                  variant="tertiary"
-                />
-              </div>
-              <div className="bg-red rounded-lg mt-6 h-[188px]" />
-            </div>
-          </div>
-        </Card>
-        <div className="flex flex-col mt-24">
-          <Heading level="heading5">
-            <FormattedMessage
-              defaultMessage="Projects you may be interested in"
-              description="Title for projects you may be interested in section on project submission success page"
-              id="XkPGFj"
-            />
-          </Heading>
-          <Section>
-            <Text className="mt-4" color="secondary" size="body2">
+      </div>
+      <div className="flex flex-col items-center gap-6">
+        <Heading level="heading4">
+          <FormattedMessage
+            defaultMessage="Submission success"
+            description="Title for the project submission success page"
+            id="5+8FGz"
+          />
+        </Heading>
+        <Text color="secondary" size="body1">
+          <FormattedMessage
+            defaultMessage="Your code has been successfully submitted and is now available for community review. "
+            description="Description for the project submission success page"
+            id="AK/+j2"
+          />
+        </Text>
+        <Button
+          label={intl.formatMessage({
+            defaultMessage: 'View your submission',
+            description:
+              'Label for View your submission button on project submit page',
+            id: 'Geiogi',
+          })}
+          size="lg"
+          variant="primary"
+        />
+      </div>
+      <Card
+        className="flex flex-col gap-16 xl:gap-8"
+        classNameOuter="mt-24"
+        pattern={false}>
+        <div className="grid gap-x-12 gap-y-8 xl:grid-cols-2">
+          <div className="flex flex-col gap-6">
+            <Text size="body1">
               <FormattedMessage
-                defaultMessage="Based on your activity, we think you might be interested in these projects"
-                description="Description for projects you may be interested in section on project submission success page"
-                id="1GF83M"
+                defaultMessage="Leveling progress"
+                description="Label for leveling progress on project submission success page"
+                id="KgN46v"
               />
             </Text>
-            <ProjectsProjectGridList
-              className="mt-12"
-              projects={suggestedProjects}
-            />
-          </Section>
+            <div className="flex gap-6 self-stretch items-end">
+              <UserAvatar
+                className="w-20 h-20"
+                profile={profile}
+                size="custom"
+              />
+              <ProjectsLevelingProgressBar
+                className="flex-1"
+                currentLevel={2}
+                currentRepCount={500}
+                repIncrease={100}
+                repTotal={700}
+              />
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <div className="flex justify-between items-center">
+              <Text color="secondary" size="body2">
+                <FormattedMessage
+                  defaultMessage="You've gained rep in these skills:"
+                  description="Label for skills gained on project submission success page"
+                  id="TgOWsI"
+                />
+              </Text>
+              <Button
+                className="-me-3 !text-brand"
+                label={intl.formatMessage({
+                  defaultMessage: 'See all',
+                  description:
+                    'Label for See all button on project submission success page',
+                  id: 'RZedau',
+                })}
+                variant="tertiary"
+              />
+            </div>
+            <div className="grid grid-cols-2 xl:grid-cols-3 mt-6 gap-2.5">
+              <ProjectsSkillProgressBreakdownCard
+                skill={{
+                  difficulty: 'easy',
+                  key: 'java-script',
+                  label: 'JavaScript',
+                  repIncrease: 100,
+                  repTotal: 1000,
+                }}
+                subSkills={[
+                  {
+                    difficulty: 'easy',
+                    key: 'react',
+                    label: 'React',
+                    repIncrease: 1000,
+                  },
+                  {
+                    difficulty: 'easy',
+                    key: 'html',
+                    label: 'HTML',
+                    repIncrease: 1000,
+                  },
+                ]}
+              />
+              <ProjectsSkillProgressBreakdownCard
+                skill={{
+                  difficulty: 'medium',
+                  key: 'java-script',
+                  label: 'JavaScript',
+                  repIncrease: 100,
+                  repTotal: 1000,
+                }}
+                subSkills={[
+                  {
+                    difficulty: 'medium',
+                    key: 'react',
+                    label: 'React',
+                    repIncrease: 1000,
+                  },
+                  {
+                    difficulty: 'medium',
+                    key: 'html',
+                    label: 'HTML',
+                    repIncrease: 1000,
+                  },
+                ]}
+              />
+              <ProjectsSkillProgressBreakdownCard
+                className="hidden xl:flex"
+                skill={{
+                  difficulty: 'hard',
+                  key: 'java-script',
+                  label: 'JavaScript',
+                  repIncrease: 100,
+                  repTotal: 1000,
+                }}
+                subSkills={[
+                  {
+                    difficulty: 'hard',
+                    key: 'react',
+                    label: 'React',
+                    repIncrease: 1000,
+                  },
+                  {
+                    difficulty: 'easy',
+                    key: 'html',
+                    label: 'HTML',
+                    repIncrease: 1000,
+                  },
+                ]}
+              />
+            </div>
+          </div>
         </div>
-      </Container>
+        <div className="grid gap-x-12 gap-y-8 xl:grid-cols-2">
+          <div className="flex flex-col gap-6">
+            <Text size="body1">
+              <FormattedMessage
+                defaultMessage="{trackName} progress"
+                description="Label for track progress on project submission success page"
+                id="/9JvuU"
+                values={{
+                  trackName: 'Design Systems Track',
+                }}
+              />
+            </Text>
+            <div className="flex gap-6 self-stretch items-end">
+              <div className="w-20 h-20 rounded-lg bg-red" />
+              <ProjectsSegmentedProgressBar
+                className="flex-1"
+                currentSegmentCount={4}
+                segmentIncrease={1}
+                totalSegmentCount={11}
+              />
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <div className="flex justify-between items-center">
+              <Text color="secondary" size="body2">
+                <FormattedMessage
+                  defaultMessage="Next project:"
+                  description="Title for next project section on project submission success page"
+                  id="rxpmQt"
+                />
+              </Text>
+              <Button
+                className="-me-3 !text-brand"
+                label={intl.formatMessage({
+                  defaultMessage: 'See all',
+                  description:
+                    'Label for See all button on project submission success page',
+                  id: 'RZedau',
+                })}
+                variant="tertiary"
+              />
+            </div>
+            <div className="bg-red rounded-lg mt-6 h-[188px]" />
+          </div>
+        </div>
+        <div className="grid gap-x-12 gap-y-8 xl:grid-cols-2">
+          <div className="flex flex-col gap-6">
+            <Text size="body1">
+              <FormattedMessage
+                defaultMessage="{skillPlanName} progress"
+                description="Label for skill plan progress on project submission success page"
+                id="iyz4Hv"
+                values={{
+                  skillPlanName: 'HTML skill plan',
+                }}
+              />
+            </Text>
+            <div className="flex gap-6 self-stretch items-end">
+              <div className="w-20 h-20 rounded-lg bg-red" />
+              <ProjectsSegmentedProgressBar
+                className="flex-1"
+                currentSegmentCount={4}
+                segmentIncrease={1}
+                totalSegmentCount={11}
+              />
+            </div>
+          </div>
+          <div className="flex flex-col">
+            <div className="flex justify-between items-center">
+              <Text color="secondary" size="body2">
+                <FormattedMessage
+                  defaultMessage="Next project:"
+                  description="Title for next project section on project submission success page"
+                  id="rxpmQt"
+                />
+              </Text>
+              <Button
+                className="-me-3 !text-brand"
+                label={intl.formatMessage({
+                  defaultMessage: 'See all',
+                  description:
+                    'Label for See all button on project submission success page',
+                  id: 'RZedau',
+                })}
+                variant="tertiary"
+              />
+            </div>
+            <div className="bg-red rounded-lg mt-6 h-[188px]" />
+          </div>
+        </div>
+      </Card>
+      <div className="flex flex-col mt-24">
+        <Heading level="heading5">
+          <FormattedMessage
+            defaultMessage="Projects you may be interested in"
+            description="Title for projects you may be interested in section on project submission success page"
+            id="XkPGFj"
+          />
+        </Heading>
+        <Section>
+          <Text className="mt-4" color="secondary" size="body2">
+            <FormattedMessage
+              defaultMessage="Based on your activity, we think you might be interested in these projects"
+              description="Description for projects you may be interested in section on project submission success page"
+              id="1GF83M"
+            />
+          </Text>
+          <ProjectsProjectGridList
+            className="mt-12"
+            projects={suggestedProjects}
+          />
+        </Section>
+      </div>
     </CardContainer>
   );
 }

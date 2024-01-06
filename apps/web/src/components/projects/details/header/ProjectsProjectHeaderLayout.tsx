@@ -30,7 +30,7 @@ export function ProjectsProjectHeaderLayoutImpl({ project, children }: Props) {
     useProjectsProjectSessionContext();
 
   return (
-    <Container className="flex flex-col items-stretch pb-10 pt-4 lg:pb-20 lg:pt-16 gap-16">
+    <div className="flex flex-col items-stretch gap-16">
       <ProjectsProjectHeader project={project} />
       <ProjectsProjectStepsTabsImpl project={project} value={segment} />
       {children}
@@ -44,7 +44,7 @@ export function ProjectsProjectHeaderLayoutImpl({ project, children }: Props) {
           startSession(slug);
         }}
       />
-    </Container>
+    </div>
   );
 }
 export default function ProjectsProjectHeaderLayout({

@@ -43,10 +43,10 @@ export default function ProjectsProjectHeader({ project }: Props) {
         !hasSession && 'flex flex-col gap-y-6 lg:flex-row lg:justify-between',
         hasSession && 'grid grid-cols-2 items-start',
       )}>
-      <div className="flex flex-col">
+      <div>
         <Button
           addonPosition="start"
-          className="-ms-4 -mt-2 self-start"
+          className="-ms-4 -mt-2"
           href="/projects/all"
           icon={RiArrowLeftLine}
           label={intl.formatMessage({
@@ -57,7 +57,7 @@ export default function ProjectsProjectHeader({ project }: Props) {
           })}
           variant="tertiary"
         />
-        <div className="mt-4 flex flex-col gap-4">
+        <div className="mt-8 flex flex-col gap-4">
           <div className="flex items-center gap-2">
             <Heading level="heading5">{title}</Heading>
             <Badge
@@ -139,7 +139,7 @@ export default function ProjectsProjectHeader({ project }: Props) {
           }}
         />
       ) : (
-        <div className="flex flex-shrink-0 flex-col gap-2 lg:items-end lg:gap-6">
+        <div className="flex flex-shrink-0 flex-col gap-2 lg:items-end lg:gap-8">
           <Text size="body3">
             <FormattedMessage
               defaultMessage="New here? <link>How it works</link>"

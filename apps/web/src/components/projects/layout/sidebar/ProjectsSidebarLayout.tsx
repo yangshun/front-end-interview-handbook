@@ -5,6 +5,7 @@ import { useState } from 'react';
 import FooterProjects from '~/components/global/footers/FooterProjects';
 import ProjectsNavbar from '~/components/projects/layout/ProjectsNavbar';
 import ProjectsSidebar from '~/components/projects/layout/sidebar';
+import Container from '~/components/ui/Container';
 import SlideOut from '~/components/ui/SlideOut';
 
 type Props = Readonly<{
@@ -38,7 +39,7 @@ export default function ProjectsSidebarLayout({ children }: Props) {
           }}>
           <ProjectsSidebar />
         </SlideOut>
-        <div className="flex-1">{children}</div>
+        <Container className="py-4 lg:py-16">{children}</Container>
       </div>
       <FooterProjects />
     </div>
