@@ -1,4 +1,4 @@
-import ProjectsProjectAssetsProvidedResourceCard from '../assets/ProjectsProjectAssetsProvidedResourceCard';
+import ProjectsProjectProvidedResourceCard from '../assets/ProjectsProjectProvidedResourceCard';
 import useProjectsProvidedResources from '../assets/useProjectsProvidedResources';
 
 export default function ProjectsProjectBriefProvidedResources() {
@@ -7,7 +7,7 @@ export default function ProjectsProjectBriefProvidedResources() {
   return (
     <div className="flex flex-col items-stretch gap-4">
       {resources.map(({ id, icon, label }) => (
-        <ProjectsProjectAssetsProvidedResourceCard
+        <ProjectsProjectProvidedResourceCard
           key={id}
           icon={icon}
           label={label}

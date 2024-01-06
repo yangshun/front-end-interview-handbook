@@ -14,6 +14,7 @@ import Text from '~/components/ui/Text';
 import ProjectsProjectBriefProvidedResources from './ProjectsProjectBriefProvidedResources';
 import ProjectsProjectBriefFAQSection from './ProjectsProjectBriefSection';
 import ProjectsProjectBriefSupportSection from './ProjectsProjectBriefSupportSection';
+import ProjectsProjectMdxContent from '../../common/ProjectsProjectMdxContent';
 
 type Props = Readonly<{
   project: ProjectsProjectItem;
@@ -25,60 +26,6 @@ export default function ProjectsProjectBriefPage({ project }: Props) {
   // TODO(projects): Compute these values
   const isProjectPremium = true;
   const isUserPremium = true;
-
-  const projectBrief = (
-    <Prose textSize="sm">
-      <p>
-        Your challenge is to build out this newsletter form and get it looking
-        as close to the design as possible. You can use any tools you like to
-        help you complete the challenge. So if you've got something you'd like
-        to practice, feel free to give it a go. Your challenge is to build out
-        this newsletter form and get it looking as close to the design as
-        possible. You can use any tools you like to help you complete the
-        challenge. So if you've got something you'd like to practice, feel free
-        to give it a go.
-      </p>
-      <p>Your users should be able to:</p>
-      <ul>
-        <li>Add their email and submit the form</li>
-        <li>
-          See a success message with their email after successfully submitting
-          the form
-        </li>
-        <li>
-          See form validation messages if:{' '}
-          <ul>
-            <li>The field is left empty</li>
-            <li>The email address is not formatted correctly</li>
-          </ul>
-        </li>
-        <li>
-          View the optimal layout for the interface depending on their device's
-          screen size
-        </li>
-        <li>
-          See hover and focus states for all interactive elements on the page{' '}
-        </li>
-      </ul>
-      <p>
-        Your challenge is to build out this newsletter form and get it looking
-        as close the design as possible. You can use any tools you like to help
-        you complete the challenge. So if you've got something you'd like to
-        practice, feel free to give it a go. Your challenge is to build out this
-        newsletter form and get it looking as close to the design as possible.
-        You can use any tools you like to help you complete the challenge. So if
-        you've got something you'd like to practice, feel free to give it a go.
-      </p>
-      <p>Your users should be able to: </p>
-      <ul>
-        <li>Add their email and submit the form</li>
-        <li>
-          See a success message with their email after successfully submitting
-          the form
-        </li>
-      </ul>
-    </Prose>
-  );
 
   return (
     <BlurOverlay
@@ -126,9 +73,11 @@ export default function ProjectsProjectBriefPage({ project }: Props) {
               />
             </Heading>
             <Section>
-              <Text color="secondary" size="body2">
-                {projectBrief}
-              </Text>
+              <Prose textSize="sm">
+                <ProjectsProjectMdxContent
+                  mdxCode={project.metadata.body.code}
+                />
+              </Prose>
             </Section>
           </div>
           <div className="flex flex-col gap-6">

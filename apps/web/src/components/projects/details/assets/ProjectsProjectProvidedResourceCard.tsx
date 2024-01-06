@@ -9,12 +9,12 @@ type Props = Readonly<{
   label: string;
 }>;
 
-export default function ProjectsAssetProvidedCard({
+export default function ProjectsProjectProvidedResourceCard({
   icon: Icon,
   label,
 }: Props) {
   return (
-    <Card disableBackground={true} padding={false} pattern={false}>
+    <Card disableSpotlight={true} padding={false} pattern={false}>
       <div
         className={clsx(
           'flex items-center gap-2 p-4',

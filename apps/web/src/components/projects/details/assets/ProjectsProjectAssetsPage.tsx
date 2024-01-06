@@ -35,8 +35,8 @@ import {
   themeTextColor,
 } from '~/components/ui/theme';
 
-import ProjectsProjectAssetsMdxContent from './ProjectsProjectAssetsMdxContent';
 import useProjectsProvidedResources from './useProjectsProvidedResources';
+import ProjectsProjectMdxContent from '../../common/ProjectsProjectMdxContent';
 
 type OnlineAssetsTabType = 'api' | 'responsive-breakpoints' | 'style-guide';
 
@@ -303,16 +303,12 @@ export default function ProjectsProjectAssetsPage({
               )}
               {onlineAssetsTab === 'style-guide' && styleGuide != null && (
                 <div className="pt-2">
-                  <ProjectsProjectAssetsMdxContent
-                    mdxCode={styleGuide.body.code}
-                  />
+                  <ProjectsProjectMdxContent mdxCode={styleGuide.body.code} />
                 </div>
               )}
               {onlineAssetsTab === 'api' && apiWriteup != null && (
                 <div className="pt-2">
-                  <ProjectsProjectAssetsMdxContent
-                    mdxCode={apiWriteup.body.code}
-                  />
+                  <ProjectsProjectMdxContent mdxCode={apiWriteup.body.code} />
                 </div>
               )}
             </Section>

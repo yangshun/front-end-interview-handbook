@@ -11,7 +11,7 @@ import type { ProjectsProjectItem } from '~/components/projects/details/types';
 import ProjectsSkillChip from '~/components/projects/skills/ProjectsSkillChip';
 import ProjectsCompletedUsersTag from '~/components/projects/stats/ProjectsCompletedUsersTag';
 import ProjectsComponentTrackTag from '~/components/projects/stats/ProjectsComponentTrackTag';
-import ProjectsDifficultyTag from '~/components/projects/stats/ProjectsDifficultyTag';
+import ProjectsProjectDifficultyTag from '~/components/projects/stats/ProjectsProjectDifficultyTag';
 import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -75,7 +75,7 @@ export default function ProjectsProjectHeader({ project }: Props) {
             {description}
           </Text>
           <div className="flex flex-wrap gap-x-4 gap-y-2">
-            <ProjectsDifficultyTag difficulty={difficulty} />
+            <ProjectsProjectDifficultyTag difficulty={difficulty} />
             <ProjectsComponentTrackTag track={track} />
             <ProjectsReputationCountIncreaseTag
               points={points}

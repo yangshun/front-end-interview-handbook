@@ -7,7 +7,7 @@ type Props = Readonly<{
   mdxCode: string;
 }>;
 
-export default function ProjectsProjectAssetsMdxContent({ mdxCode }: Props) {
+export default function ProjectsProjectMdxContent({ mdxCode }: Props) {
   const MDXContent = useMDXComponent(mdxCode);
 
   return (
