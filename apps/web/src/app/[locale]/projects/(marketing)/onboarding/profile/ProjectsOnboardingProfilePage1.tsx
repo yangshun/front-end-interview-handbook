@@ -6,7 +6,7 @@ import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
-import useMonthYearExperienceSchema from '~/components/projects/hooks/useMonthYearExperienceSchema';
+import useProjectsMonthYearExperienceSchema from '~/components/projects/hooks/useProjectsMonthYearExperienceSchema';
 import { yoeReplacementSchema } from '~/components/projects/misc';
 import ProjectsProfileTechStackProficientInput from '~/components/projects/profile/ProjectsProfileTechStackProficientInput';
 import ProjectsProfileTechStackToImproveInput from '~/components/projects/profile/ProjectsProfileTechStackToImproveInput';
@@ -23,7 +23,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 function useOnboardingProfilePage1Schema() {
   const intl = useIntl();
-  const monthYearExperienceSchema = useMonthYearExperienceSchema();
+  const monthYearExperienceSchema = useProjectsMonthYearExperienceSchema();
 
   const baseSchema = z.object({
     jobTitle: z.string().min(1, {

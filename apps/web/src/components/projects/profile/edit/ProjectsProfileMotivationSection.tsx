@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import useMotivationReasonOptions from '~/components/projects/hooks/useMotivationReasonOptions';
+import useProjectsMotivationReasonOptions from '~/components/projects/hooks/useProjectsMotivationReasonOptions';
 import ProjectsProfileMotivationReasonList from '~/components/projects/profile/edit/ProjectsProfileMotivationReasonList';
 import type { MotivationReasonType } from '~/components/projects/types';
 import type { ProjectsEditProfileValues } from '~/components/projects/types';
@@ -18,7 +18,7 @@ export default function ProjectsProfileMotivationSection() {
     resetField,
     formState: { errors },
   } = useFormContext<ProjectsEditProfileValues>();
-  const { reasonOptions } = useMotivationReasonOptions((chunks) => (
+  const { reasonOptions } = useProjectsMotivationReasonOptions((chunks) => (
     <Text display="inline" size="body3" weight="bold">
       {chunks}
     </Text>
@@ -94,7 +94,7 @@ export default function ProjectsProfileMotivationSection() {
         previousValue={reasonType === 'secondary' ? primaryType : undefined}
         reasonOptions={reasonOptions}
         onChange={(value) => {
-          if (reasonType === 'primary' && value !== 'other') {
+          if (reasonType === 'primary' && value !== 'other' && value) {
             setReasonType('secondary');
           }
         }}

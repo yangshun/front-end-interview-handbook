@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 import { motivationReasonValue } from '~/components/projects/misc';
 
-export default function useMotivationReasonSchema() {
+export default function useProjectsMotivationReasonSchema() {
   const intl = useIntl();
 
   const motivationSchema = z.union([

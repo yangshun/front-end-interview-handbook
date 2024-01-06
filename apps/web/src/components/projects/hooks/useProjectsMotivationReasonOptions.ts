@@ -14,7 +14,7 @@ import type {
   MotivationReasonValue,
 } from '~/components/projects/types';
 
-export default function useMotivationReasonOptions(
+export default function useProjectsMotivationReasonOptions(
   bold?: (chunks: Array<React.ReactNode>) => React.ReactNode | undefined,
 ) {
   const intl = useIntl();

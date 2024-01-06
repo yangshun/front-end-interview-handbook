@@ -10,7 +10,10 @@ import TextInput from '~/components/ui/TextInput';
 export default function ProjectsProfileBasicInfoSection() {
   const intl = useIntl();
 
-  const { control } = useFormContext<ProjectsEditProfileValues>();
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext<ProjectsEditProfileValues>();
 
   return (
     <div className="flex md:gap-16 gap-6 md:flex-nowrap flex-wrap">
@@ -39,7 +42,7 @@ export default function ProjectsProfileBasicInfoSection() {
             name="name"
             render={({ field }) => (
               <TextInput
-                // ErrorMessage={errors.name?.message}
+                errorMessage={errors.name?.message}
                 label={intl.formatMessage({
                   defaultMessage: 'Name',
                   description:
@@ -61,7 +64,7 @@ export default function ProjectsProfileBasicInfoSection() {
             name="jobTitle"
             render={({ field }) => (
               <TextInput
-                // ErrorMessage={errors.jobTitle?.message}
+                errorMessage={errors.jobTitle?.message}
                 label={intl.formatMessage({
                   defaultMessage: 'Job Title',
                   description:
@@ -85,6 +88,7 @@ export default function ProjectsProfileBasicInfoSection() {
             name="bio"
             render={({ field }) => (
               <TextArea
+                errorMessage={errors.bio?.message}
                 label={intl.formatMessage({
                   defaultMessage: 'Bio',
                   description:

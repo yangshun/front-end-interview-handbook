@@ -1,7 +1,7 @@
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
-export default function useMonthYearExperienceSchema() {
+export default function useProjectsMonthYearExperienceSchema() {
   const intl = useIntl();
 
   return z

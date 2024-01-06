@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import type { YOEReplacement } from '~/components/projects/types';
 import type { RadioGroupItemProps } from '~/components/ui/RadioGroup/RadioGroupItem';
 
-export default function useYOEReplacementOptions() {
+export default function useProjectsYOEReplacementOptions() {
   const intl = useIntl();
 
   const yoeReplacementOptions = [

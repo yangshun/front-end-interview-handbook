@@ -33,7 +33,7 @@ export default async function Page() {
 
   return (
     <Container className="md:pt-16 md:pb-32 pt-6 pb-8">
-      <ProjectsProfileEditPage initialValues={profile} />
+      <ProjectsProfileEditPage profile={profile} />
     </Container>
   );
 }

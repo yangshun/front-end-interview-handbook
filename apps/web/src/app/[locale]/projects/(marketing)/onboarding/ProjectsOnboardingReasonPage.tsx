@@ -18,8 +18,8 @@ import type { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
-import useMotivationReasonOptions from '~/components/projects/hooks/useMotivationReasonOptions';
-import useMotivationReasonSchema from '~/components/projects/hooks/useMotivationReasonSchema';
+import useProjectsMotivationReasonOptions from '~/components/projects/hooks/useProjectsMotivationReasonOptions';
+import useProjectsMotivationReasonSchema from '~/components/projects/hooks/useProjectsMotivationReasonSchema';
 import type {
   MotivationReasonFormValues,
   MotivationReasonOption,
@@ -153,14 +153,14 @@ function ReasonList({
 }
 
 type OnboardingProfileFormTransformedValues = z.infer<
-  ReturnType<typeof useMotivationReasonSchema>
+  ReturnType<typeof useProjectsMotivationReasonSchema>
 >;
 
 export default function ProjectsOnboardingReasonPage() {
   const router = useI18nRouter();
   const intl = useIntl();
-  const onboardingReasonSchema = useMotivationReasonSchema();
-  const { reasonOptions } = useMotivationReasonOptions((chunks) => (
+  const onboardingReasonSchema = useProjectsMotivationReasonSchema();
+  const { reasonOptions } = useProjectsMotivationReasonOptions((chunks) => (
     <Text display="inline" weight="bold">
       {chunks}
     </Text>

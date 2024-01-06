@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 import prisma from '~/server/prisma';
 
+import { projectsUserProcedure } from './procedures';
 import { router, userProcedure } from '../../trpc';
 
 export const profileRouter = router({
@@ -111,6 +112,92 @@ export const profileRouter = router({
             id: user.id,
           },
         });
+      },
+    ),
+
+  projectsProfileGet: projectsUserProcedure.query(async ({ ctx: { user } }) => {
+    return await prisma.profile.findUnique({
+      include: {
+        projectsProfile: true,
+      },
+      where: {
+        id: user.id,
+      },
+    });
+  }),
+  projectsProfileUpdate: projectsUserProcedure
+    .input(
+      z.object({
+        bio: z.string(),
+        currentStatus: z.string().optional(),
+        githubUsername: z.string().optional(),
+        linkedInUsername: z.string().optional(),
+        motivationReasons: z.object({
+          primaryMotivation: z.string(),
+          secondaryMotivation: z.string().nullable(),
+        }),
+        name: z.string(),
+        startWorkDate: z.date().optional(),
+        title: z.string(),
+        website: z.string().optional(),
+      }),
+    )
+    .mutation(
+      async ({
+        input: {
+          currentStatus,
+          name,
+          startWorkDate,
+          title,
+          motivationReasons,
+          bio,
+          githubUsername,
+          linkedInUsername,
+          website,
+        },
+        ctx: { user },
+      }) => {
+        const { primaryMotivation, secondaryMotivation } = motivationReasons;
+
+        const transactionResult = await prisma.$transaction(async (_prisma) => {
+          const projectsProfile = await _prisma.projectsProfile.upsert({
+            create: {
+              primaryMotivation,
+              secondaryMotivation,
+              userId: user.id,
+            },
+            update: {
+              primaryMotivation,
+              secondaryMotivation,
+            },
+            where: {
+              userId: user.id,
+            },
+          });
+
+          const updatedUserProfile = await _prisma.profile.update({
+            data: {
+              bio,
+              currentStatus,
+              githubUsername,
+              linkedInUsername,
+              name,
+              startWorkDate,
+              title,
+              website,
+            },
+            where: {
+              id: user.id,
+            },
+          });
+
+          return {
+            projectsProfile,
+            userProfile: updatedUserProfile,
+          };
+        });
+
+        return transactionResult;
       },
     ),
 });

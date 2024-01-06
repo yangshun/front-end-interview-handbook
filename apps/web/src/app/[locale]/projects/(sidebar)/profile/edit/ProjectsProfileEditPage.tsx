@@ -4,9 +4,11 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { z } from 'zod';
 
-import useMonthYearExperienceSchema from '~/components/projects/hooks/useMonthYearExperienceSchema';
-import useMotivationReasonOptions from '~/components/projects/hooks/useMotivationReasonOptions';
-import useMotivationReasonSchema from '~/components/projects/hooks/useMotivationReasonSchema';
+import { trpc } from '~/hooks/trpc';
+
+import useProjectsMonthYearExperienceSchema from '~/components/projects/hooks/useProjectsMonthYearExperienceSchema';
+import useProjectsMotivationReasonOptions from '~/components/projects/hooks/useProjectsMotivationReasonOptions';
+import useProjectsMotivationReasonSchema from '~/components/projects/hooks/useProjectsMotivationReasonSchema';
 import { yoeReplacementSchema } from '~/components/projects/misc';
 import ProjectsProfileBasicInfoSection from '~/components/projects/profile/edit/ProjectsProfileBasicInfoSection';
 import ProjectsProfileMotivationSection from '~/components/projects/profile/edit/ProjectsProfileMotivationSection';
@@ -18,30 +20,44 @@ import type {
   MotivationReasonValue,
   ProjectsEditProfileValues,
 } from '~/components/projects/types';
+import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
+
+import { zodResolver } from '@hookform/resolvers/zod';
 
 function useProjectsProfileEditSchema() {
   const intl = useIntl();
-  const monthYearExperienceSchema = useMonthYearExperienceSchema();
-  const motivationReasonSchema = useMotivationReasonSchema();
+  const monthYearExperienceSchema = useProjectsMonthYearExperienceSchema();
+  const motivationReasonSchema = useProjectsMotivationReasonSchema();
 
   const baseSchema = z.object({
+    bio: z.string().min(1, {
+      message: intl.formatMessage({
+        defaultMessage: 'Please enter your bio',
+        description:
+          'Error message for empty "Job title" input on Projects profile  page',
+        id: '39nAV5',
+      }),
+    }),
     jobTitle: z.string().min(1, {
       message: intl.formatMessage({
         defaultMessage: 'Please enter your job title',
         description:
-          'Error message for empty "Job title" input on Projects profile onboarding page',
-        id: 'VGOH7F',
+          'Error message for empty "Bio" input on Projects profile  page',
+        id: '3QUN8S',
       }),
     }),
+    motivationReasons: motivationReasonSchema,
+
     name: z.string().min(1, {
       message: intl.formatMessage({
         defaultMessage: 'Please enter your name',
         description:
-          'Error message for empty "Name" input on Projects profile onboarding page',
-        id: 'yqjkfw',
+          'Error message for empty "Name" input on Projects profile page',
+        id: 'jfJK1r',
       }),
     }),
+
     // TODO (projects): add error message for empty input
     techStackProficient: z.string(),
     // TODO (projects): add error message for empty input
@@ -52,7 +68,6 @@ function useProjectsProfileEditSchema() {
     baseSchema.extend({
       hasNotStartedWork: z.literal(false),
       monthYearExperience: monthYearExperienceSchema,
-      motivationReasons: motivationReasonSchema,
     }),
     baseSchema.extend({
       hasNotStartedWork: z.literal(true),
@@ -67,8 +82,8 @@ function useProjectsProfileEditSchema() {
               message: intl.formatMessage({
                 defaultMessage: 'Please enter your status',
                 description:
-                  'Error message for empty "Other" input for "Years of experience replacement status" on Projects profile onboarding page',
-                id: 'KQXNDC',
+                  'Error message for empty "Other" input for "Years of experience replacement status" on Projects profile page',
+                id: '4rcZT1',
               }),
             }),
           }),
@@ -92,12 +107,26 @@ type ProjectsEditProfileTransformedValues = z.infer<
 >;
 
 type Props = Readonly<{
-  initialValues: ProjectsUserProfile;
+  profile: ProjectsUserProfile;
 }>;
 
-export default function ProjectsProfileEditPage({ initialValues }: Props) {
-  const { reasonOptions } = useMotivationReasonOptions();
-  const projectsProfile = initialValues.projectsProfile[0];
+export default function ProjectsProfileEditPage({ profile }: Props) {
+  const intl = useIntl();
+  const projectsProfileUpdateMutation =
+    trpc.projects.profile.projectsProfileUpdate.useMutation();
+  const { data: initialValues } =
+    trpc.projects.profile.projectsProfileGet.useQuery(undefined, {
+      initialData: profile,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+    });
+
+  const { reasonOptions } = useProjectsMotivationReasonOptions();
+  const projectsProfileEditSchema = useProjectsProfileEditSchema();
+  const projectsProfile = initialValues?.projectsProfile[0] || {
+    primaryMotivation: null,
+    secondaryMotivation: null,
+  };
   const hasPredefinedPrimaryReason = reasonOptions.find(
     (reason) => reason.id === projectsProfile.primaryMotivation,
   );
@@ -110,6 +139,7 @@ export default function ProjectsProfileEditPage({ initialValues }: Props) {
     undefined,
     ProjectsEditProfileTransformedValues
   >({
+    resolver: zodResolver(projectsProfileEditSchema),
     values: {
       bio: initialValues?.bio ?? '',
       githubUsername: initialValues?.githubUsername ?? '',
@@ -156,12 +186,11 @@ export default function ProjectsProfileEditPage({ initialValues }: Props) {
       },
     },
   });
-  // Const {
-  //   control,
-  //   watch,
-  //   handleSubmit,
-  //   formState: { isSubmitting, isDirty, errors },
-  // } = methods;
+  const {
+    handleSubmit,
+    reset,
+    formState: { isSubmitting, isDirty },
+  } = methods;
 
   return (
     <div className="flex flex-col gap-8">
@@ -173,18 +202,62 @@ export default function ProjectsProfileEditPage({ initialValues }: Props) {
         />
       </Heading>
       <FormProvider {...methods}>
-        <form>
-          <div className="flex flex-col md:gap-20 gap-14">
-            <ProjectsProfileBasicInfoSection />
-            <ProjectsProfileMotivationSection />
-            <ProjectsProfileSkillSection />
-            <div className="flex gap-6 md:flex-row flex-col">
-              <div className="flex-1">
-                <ProjectsProfileYOESection />
+        <form
+          onSubmit={handleSubmit(
+            async (data: ProjectsEditProfileTransformedValues) => {
+              await projectsProfileUpdateMutation.mutateAsync({
+                bio: data.bio,
+                currentStatus: data.hasNotStartedWork
+                  ? data.yoeReplacement
+                  : undefined,
+                motivationReasons: {
+                  primaryMotivation: data.motivationReasons.primary,
+                  secondaryMotivation: data.motivationReasons.secondary,
+                },
+                name: data.name,
+                startWorkDate: data.monthYearExperience,
+                title: data.jobTitle,
+              });
+            },
+          )}>
+          <div className="flex flex-col gap-8">
+            <div className="flex flex-col md:gap-20 gap-14">
+              <ProjectsProfileBasicInfoSection />
+              <ProjectsProfileMotivationSection />
+              <ProjectsProfileSkillSection />
+              <div className="flex gap-6 md:flex-row flex-col">
+                <div className="flex-1">
+                  <ProjectsProfileYOESection />
+                </div>
+                <div className="flex-1">
+                  <ProjectsProfileSocialSection />
+                </div>
               </div>
-              <div className="flex-1">
-                <ProjectsProfileSocialSection />
-              </div>
+            </div>
+
+            <div className="flex justify-end gap-4">
+              <Button
+                label={intl.formatMessage({
+                  defaultMessage: 'Cancel',
+                  description:
+                    'Label for cancel button for projects profile edit page',
+                  id: 'nepkqj',
+                })}
+                variant="secondary"
+                onClick={() => reset()}
+              />
+              <Button
+                isDisabled={!isDirty || isSubmitting}
+                isLoading={isSubmitting}
+                label={intl.formatMessage({
+                  defaultMessage: 'Save Changes',
+                  description:
+                    'Label for save changes button for projects profile edit page',
+                  id: 'LD3ES3',
+                })}
+                type="submit"
+                variant="primary"
+              />
             </div>
           </div>
         </form>

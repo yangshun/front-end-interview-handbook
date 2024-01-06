@@ -2,7 +2,7 @@ import type { Control, FieldErrors } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
-import useYOEReplacementOptions from '~/components/projects/hooks/useYOEReplacementOptions';
+import useProjectsYOEReplacementOptions from '~/components/projects/hooks/useProjectsYOEReplacementOptions';
 import type {
   OnboardingProfilePage1Values,
   ProjectsEditProfileValues,
@@ -27,7 +27,7 @@ export default function ProjectsProfileYOEInput({
   watchYoeReplacementOption,
 }: Props) {
   const intl = useIntl();
-  const yoeReplacementOptions = useYOEReplacementOptions();
+  const yoeReplacementOptions = useProjectsYOEReplacementOptions();
 
   return (
     <>

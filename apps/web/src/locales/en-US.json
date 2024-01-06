@@ -379,6 +379,10 @@
     "defaultMessage": "Security",
     "description": "Title for Security section on profile page"
   },
+  "39nAV5": {
+    "defaultMessage": "Please enter your bio",
+    "description": "Error message for empty \"Job title\" input on Projects profile  page"
+  },
   "3HUfI+": {
     "defaultMessage": "You are doing great things for the Front End community. Especially for those who are Junior engineers like me, advanced solutions covering various aspects of front end development help a lot. Thank you to the team.",
     "description": "Anonymous Software Engineer's testimonial"
@@ -394,6 +398,10 @@
   "3QQssQ": {
     "defaultMessage": "Please enter a valid date",
     "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
+  },
+  "3QUN8S": {
+    "defaultMessage": "Please enter your job title",
+    "description": "Error message for empty \"Bio\" input on Projects profile  page"
   },
   "3WHiQS": {
     "defaultMessage": "Cheatsheet",
@@ -510,6 +518,14 @@
   "4pEeq1": {
     "defaultMessage": "Number of questions completed",
     "description": "Number of questions completed in a list of questions"
+  },
+  "4q3pJW": {
+    "defaultMessage": "Optimized image assets",
+    "description": "Label for Image Assets card in Assets Provided section of Projects project page"
+  },
+  "4rcZT1": {
+    "defaultMessage": "Please enter your status",
+    "description": "Error message for empty \"Other\" input for \"Years of experience replacement status\" on Projects profile page"
   },
   "4s0hMm": {
     "defaultMessage": "All tasks completed!",
@@ -1958,6 +1974,14 @@
   "LAWtL6": {
     "defaultMessage": "Software Engineer",
     "description": "Jacky Liang's job title"
+  },
+  "LD3ES3": {
+    "defaultMessage": "Save Changes",
+    "description": "Label for save changes button for projects profile edit page"
+  },
+  "LFg5Tg": {
+    "defaultMessage": "Style guide for fonts, colors, etc.",
+    "description": "Label for Style Guide card in Assets Provided section of Projects project page"
   },
   "LGHLf5": {
     "defaultMessage": "Gamified learning",
@@ -4247,6 +4271,10 @@
     "defaultMessage": "Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others",
     "description": "Placeholder for Biography input on Projects profile onboarding page"
   },
+  "jfJK1r": {
+    "defaultMessage": "Please enter your name",
+    "description": "Error message for empty \"Name\" input on Projects profile page"
+  },
   "jgIdRC": {
     "defaultMessage": "Password",
     "description": "Label of password field on Sign In/Up page"
@@ -4650,6 +4678,10 @@
   "ndBo9F": {
     "defaultMessage": "Enjoy extra {discountPercentage}% off with the code {promoCode}",
     "description": "Subtitle of discount promotion card"
+  },
+  "nepkqj": {
+    "defaultMessage": "Cancel",
+    "description": "Label for cancel button for projects profile edit page"
   },
   "nfWiNn": {
     "defaultMessage": "This is the name that will be shown on your profile. Use a maximum of {maxLength} characters.",

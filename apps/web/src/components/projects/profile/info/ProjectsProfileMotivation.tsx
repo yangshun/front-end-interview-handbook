@@ -1,6 +1,6 @@
 import { useIntl } from 'react-intl';
 
-import useMotivationReasonOptions from '~/components/projects/hooks/useMotivationReasonOptions';
+import useProjectsMotivationReasonOptions from '~/components/projects/hooks/useProjectsMotivationReasonOptions';
 import ProjectsProfileInfoSectionLayout from '~/components/projects/profile/info/ProjectsProfileInfoSectionLayout';
 import type { MotivationReasonValue } from '~/components/projects/types';
 import Text from '~/components/ui/Text';
@@ -17,7 +17,7 @@ export default function ProjectsProfileMotivation({
     primaryMotivation,
     secondaryMotivation,
   ].filter(Boolean) as Array<MotivationReasonValue>;
-  const { reasons } = useMotivationReasonOptions();
+  const { reasons } = useProjectsMotivationReasonOptions();
 
   return (
     <ProjectsProfileInfoSectionLayout
