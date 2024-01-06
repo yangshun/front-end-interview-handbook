@@ -103,6 +103,7 @@ export default function ProjectsProjectDeploymentCompletionPage({
                   <Card
                     className="flex flex-col gap-6"
                     classNameOuter="flex-1"
+                    disableSpotlight={true}
                     pattern={false}>
                     <div className="flex gap-4">
                       <div
@@ -204,6 +205,7 @@ export default function ProjectsProjectDeploymentCompletionPage({
                     variant="neutral"
                   />
                   <Card
+                    disableSpotlight={true}
                     className="flex flex-col gap-6"
                     classNameOuter="flex-1"
                     pattern={false}>
@@ -318,6 +320,7 @@ export default function ProjectsProjectDeploymentCompletionPage({
                     />
                   </div>
                   <Card
+                    disableSpotlight={true}
                     className="flex items-start gap-4"
                     classNameOuter="flex-1"
                     pattern={false}>

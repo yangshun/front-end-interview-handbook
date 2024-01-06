@@ -30,7 +30,7 @@ export default function ProjectsSubmissionCard({ submission }: Props) {
   } = submission;
 
   return (
-    <Card padding={false} pattern={false}>
+    <Card disableSpotlight={true} padding={false} pattern={false}>
       <div className="flex flex-col px-4 py-6">
         <Text weight="bold">{title}</Text>
         <ProjectsSkillRow
