@@ -9,7 +9,7 @@ import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasized,
-  themeLineColor,
+  themeBorderColor,
   themeTextSubtitleColor,
 } from '~/components/ui/theme';
 
@@ -25,7 +25,7 @@ export default function MarketingEmbedQuizQuestion() {
                 className={clsx(
                   'rounded-lg px-2 py-0.5 font-thin before:content-none after:content-none',
                   themeBackgroundEmphasized,
-                  ['border', themeLineColor],
+                  ['border', themeBorderColor],
                   themeTextSubtitleColor,
                 )}>
                 &lt;script&gt;
@@ -35,7 +35,7 @@ export default function MarketingEmbedQuizQuestion() {
                 className={clsx(
                   'rounded-lg px-2 py-0.5 font-thin before:content-none after:content-none',
                   themeBackgroundEmphasized,
-                  ['border', themeLineColor],
+                  ['border', themeBorderColor],
                   themeTextSubtitleColor,
                 )}>
                 &lt;script async&gt;
@@ -45,7 +45,7 @@ export default function MarketingEmbedQuizQuestion() {
                 className={clsx(
                   'rounded-lg px-2 py-0.5 font-thin before:content-none after:content-none',
                   themeBackgroundEmphasized,
-                  ['border', themeLineColor],
+                  ['border', themeBorderColor],
                   themeTextSubtitleColor,
                 )}>
                 &lt;script defer&gt;

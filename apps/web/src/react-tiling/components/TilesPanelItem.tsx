@@ -17,8 +17,8 @@ import Divider from '~/components/ui/Divider';
 import {
   themeBackgroundColor,
   themeBackgroundEmphasizedHover,
+  themeBorderColor,
   themeDivideColor,
-  themeLineColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
@@ -122,7 +122,7 @@ export default function TilesPanelItem<TabType extends string>({
         {...commonProps}
         className={clsx(
           'flex flex-col items-stretch rounded-lg py-2',
-          ['border', themeLineColor],
+          ['border', themeBorderColor],
           themeBackgroundColor,
         )}
         collapsedSize={5}>
@@ -185,7 +185,7 @@ export default function TilesPanelItem<TabType extends string>({
       {...commonProps}
       className={clsx(
         'rounded-lg',
-        ['border', themeLineColor],
+        ['border', themeBorderColor],
         themeBackgroundColor,
         ['divide-y', themeDivideColor],
         fullScreen && 'absolute inset-0 z-20',

@@ -11,8 +11,8 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
+  themeBorderColor,
   themeDivideColor,
-  themeLineColor,
   themeTextBrandColor,
 } from '~/components/ui/theme';
 
@@ -55,7 +55,7 @@ export default function ErrorMessageBlock() {
           <ul
             className={clsx(
               'mt-6',
-              ['border-y', themeLineColor],
+              ['border-y', themeBorderColor],
               ['divide-y', themeDivideColor],
             )}
             role="list">
@@ -64,7 +64,7 @@ export default function ErrorMessageBlock() {
                 <div
                   className={clsx(
                     'flex h-10 w-10 flex-none items-center justify-center rounded-lg shadow-sm',
-                    ['border', themeLineColor],
+                    ['border', themeBorderColor],
                   )}>
                   <link.icon
                     aria-hidden="true"

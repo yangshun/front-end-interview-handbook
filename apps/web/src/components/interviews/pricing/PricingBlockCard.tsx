@@ -8,9 +8,9 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
+  themeBorderColor,
   themeBrandShadow,
   themeGlassyBorder,
-  themeLineColor,
   themeTextSubtitleColor,
 } from '~/components/ui/theme';
 
@@ -39,7 +39,7 @@ export default function PricingBlockCard({
         'mx-auto max-w-lg overflow-hidden rounded-2xl border sm:rounded-3xl lg:grid lg:max-w-none lg:grid-cols-3',
         glow
           ? ['border-brand', themeBrandShadow]
-          : [themeGlassyBorder, themeLineColor],
+          : [themeGlassyBorder, themeBorderColor],
       )}>
       <div
         className={clsx(

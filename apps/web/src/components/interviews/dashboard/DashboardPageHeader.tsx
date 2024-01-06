@@ -9,9 +9,9 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasizedHover,
   themeCardBackgroundColor,
+  themeChipBackgroundColor,
   themeGradientBlueGreen,
   themeGradientGreenYellow,
-  themeLineBackgroundColor,
   themeTextBrandColor,
   themeTextBrandGroupHoverColor,
   themeTextSecondaryColor,
@@ -92,7 +92,7 @@ export default function DashboardPageHeader() {
               aria-hidden="true"
               className={clsx(
                 'flex h-10 w-10 shrink-0 items-center justify-center rounded-md',
-                themeLineBackgroundColor,
+                themeChipBackgroundColor,
               )}>
               <RiBookOpenLine
                 className={clsx('h-5 w-5', themeTextSecondaryColor)}

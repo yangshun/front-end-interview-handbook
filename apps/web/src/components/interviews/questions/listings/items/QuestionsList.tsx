@@ -13,8 +13,8 @@ import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasizedHover,
+  themeBorderColor,
   themeDivideColor,
-  themeLineColor,
   themeTextBrandColor,
   themeTextBrandGroupHoverColor,
   themeTextFaintColor,
@@ -101,7 +101,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
 
   if (questions.length === 0) {
     return (
-      <div className={clsx('border p-10', themeLineColor)}>
+      <div className={clsx('border p-10', themeBorderColor)}>
         <EmptyState
           subtitle={intl.formatMessage({
             defaultMessage: 'Try changing the filters',
@@ -126,7 +126,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
       className={clsx(
         'isolate rounded-lg',
         ['divide-y', themeDivideColor],
-        ['border', themeLineColor],
+        ['border', themeBorderColor],
       )}>
       {questions.map((question, index) => {
         const hasCompletedQuestion = checkIfCompletedQuestion(question);

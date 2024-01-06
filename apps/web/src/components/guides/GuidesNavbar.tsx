@@ -10,7 +10,7 @@ import useIsSticky from '~/hooks/useIsSticky';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import SlideOut from '~/components/ui/SlideOut';
-import { themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor } from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
@@ -57,7 +57,7 @@ export default function GuidesNavbar({
       className={clsx(
         'sticky z-20 border-b lg:hidden',
         [!isSticky && 'bg-white dark:bg-neutral-950/60', 'backdrop-blur'],
-        themeLineColor,
+        themeBorderColor,
       )}
       style={{ top: 'var(--nav-top-offset)' }}>
       <Container className="flex h-10 items-center justify-between">

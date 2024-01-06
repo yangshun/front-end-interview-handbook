@@ -8,7 +8,7 @@ import useProfile from '~/hooks/user/useProfile';
 import Ticket from '~/components/common/tickets/Ticket';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
-import { themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor } from '~/components/ui/theme';
 
 import { useSocialDiscountLabels } from './SocialDiscountConfig';
 
@@ -37,7 +37,7 @@ function SocialDiscountAlertImpl() {
       className={clsx(
         'flex flex-col gap-4 items-center md:flex-row',
         'rounded-md p-3',
-        ['border', themeLineColor],
+        ['border', themeBorderColor],
         'bg-neutral-50 dark:bg-neutral-900',
       )}>
       {(() => {

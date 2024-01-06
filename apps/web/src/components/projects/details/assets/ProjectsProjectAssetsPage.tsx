@@ -31,8 +31,8 @@ import Tabs from '~/components/ui/Tabs';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasized,
+  themeBorderColor,
   themeElementBorderColor,
-  themeLineColor,
   themeTextColor,
 } from '~/components/ui/theme';
 
@@ -169,7 +169,7 @@ export default function ProjectsProjectAssetsPage({
           <div
             className={clsx('flex flex-col gap-6 pr-6', [
               'lg:border-r',
-              themeLineColor,
+              themeBorderColor,
             ])}>
             <Heading level="heading6">
               <FormattedMessage

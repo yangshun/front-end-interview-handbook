@@ -9,7 +9,7 @@ import type { QuestionCompany } from '~/components/interviews/questions/common/Q
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import { themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
   canViewPremiumContent?: boolean;
@@ -63,7 +63,7 @@ export default function QuestionCompanies({
                 <span
                   className={clsx(
                     'relative inline-flex items-center rounded-full border px-3 py-0.5',
-                    themeLineColor,
+                    themeBorderColor,
                   )}>
                   <Text color="secondary" size="body3">
                     {companyNames[company].label}

@@ -7,7 +7,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasized,
   themeBackgroundLayerEmphasizedHover,
-  themeLineColor,
+  themeBorderColor,
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
@@ -39,7 +39,7 @@ export default function QuestionsGuidesGrid({
             'overflow-hidden rounded-lg',
             themeBackgroundEmphasized,
             [
-              themeLineColor,
+              themeBorderColor,
               'border-l',
               items.length >= columns
                 ? 'md:border-t'
@@ -56,7 +56,7 @@ export default function QuestionsGuidesGrid({
               key={guide.slug}
               className={clsx(
                 'group relative flex items-center gap-4 border-b border-r p-3 md:flex-col md:items-start md:gap-2 md:p-6',
-                themeLineColor,
+                themeBorderColor,
                 themeBackgroundLayerEmphasizedHover,
                 items.length < columns && index < columns - 1 && 'md:border-t',
               )}
@@ -66,7 +66,7 @@ export default function QuestionsGuidesGrid({
                 <Text
                   className={clsx(
                     'z-10 h-6 w-6 items-center justify-center rounded-full border-2',
-                    themeLineColor,
+                    themeBorderColor,
                     'group-hover:border-brand',
                   )}
                   display="flex"

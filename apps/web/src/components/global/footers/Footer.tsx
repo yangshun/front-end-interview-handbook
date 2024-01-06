@@ -12,7 +12,7 @@ import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import { themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor } from '~/components/ui/theme';
 
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
@@ -142,7 +142,7 @@ export default function Footer({ navigation }: Props) {
   return (
     <footer
       aria-labelledby="footer-heading"
-      className={clsx('border-t dark:bg-[#070708]', themeLineColor)}>
+      className={clsx('border-t dark:bg-[#070708]', themeBorderColor)}>
       <Heading className="sr-only" id="footer-heading" level="custom">
         <FormattedMessage
           defaultMessage="Footer"
@@ -222,7 +222,7 @@ export default function Footer({ navigation }: Props) {
             </div>
           </div>
           <div
-            className={clsx('mt-12 border-t pt-8 lg:hidden', themeLineColor)}>
+            className={clsx('mt-12 border-t pt-8 lg:hidden', themeBorderColor)}>
             {copyrightStatement}
           </div>
         </Container>

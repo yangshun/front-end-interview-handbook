@@ -14,7 +14,7 @@ import Divider from '~/components/ui/Divider';
 import Prose from '~/components/ui/Prose';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 import Text from '~/components/ui/Text';
-import { themeLineBackgroundColor } from '~/components/ui/theme';
+import { themeChipBackgroundColor } from '~/components/ui/theme';
 
 import logEvent from '~/logging/logEvent';
 
@@ -601,7 +601,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
         <PanelResizeHandle
           className={clsx(
             'z-10 -mx-0.5 hidden h-full w-[5px] shrink-0 cursor-col-resize border-x-2 bg-clip-padding transition-colors lg:block',
-            themeLineBackgroundColor,
+            themeChipBackgroundColor,
             'hover:bg-brand-light dark:hover:bg-brand',
             'hover:border-brand-light dark:hover:border-brand border-transparent',
             'hidden lg:flex',

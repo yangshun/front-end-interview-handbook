@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import type { FilterItemGap } from '~/components/interviews/questions/listings/filters/QuestionListingFilterItem';
 import QuestionListingFilterItem from '~/components/interviews/questions/listings/filters/QuestionListingFilterItem';
-import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor, themeDivideColor } from '~/components/ui/theme';
 
 import type { QuestionFilter } from './QuestionFilterType';
 import type {
@@ -59,7 +59,7 @@ export default function QuestionListingCodingFilters({
     <form
       className={clsx(
         'flex flex-col divide-y border-y',
-        themeLineColor,
+        themeBorderColor,
         themeDivideColor,
       )}>
       <QuestionListingFilterItem

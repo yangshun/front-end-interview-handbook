@@ -6,7 +6,7 @@ import type { BlogSeriesNavigationLink } from '~/components/blog/layout/BlogSide
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
-  themeLineColor,
+  themeBorderColor,
   themeTextBrandColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
@@ -29,7 +29,7 @@ function LinksList({
 
   return (
     <ul
-      className={clsx('flex flex-col gap-y-[14px] border-l', themeLineColor)}
+      className={clsx('flex flex-col gap-y-[14px] border-l', themeBorderColor)}
       role="list">
       {items.map((link) => (
         <div key={link.href}>

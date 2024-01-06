@@ -14,7 +14,7 @@ import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasized,
-  themeLineColor,
+  themeBorderColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -45,7 +45,7 @@ export default function ProjectsProjectCard({ project }: Props) {
     <div
       className={clsx(
         'flex flex-col overflow-clip rounded-lg border',
-        themeLineColor,
+        themeBorderColor,
         themeBackgroundEmphasized,
       )}>
       <div className="relative">

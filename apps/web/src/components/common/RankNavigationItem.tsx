@@ -6,7 +6,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasizedHover,
   themeCardBackgroundColor,
-  themeLineBackgroundColor,
+  themeChipBackgroundColor,
   themeTextBrandGroupHoverColor,
 } from '~/components/ui/theme';
 
@@ -37,7 +37,7 @@ export default function RankNavigationItem({
           className={clsx(
             'flex h-5 w-5 shrink-0 items-center justify-center rounded-full',
             'font-bold text-neutral-500 dark:text-neutral-400',
-            themeLineBackgroundColor,
+            themeChipBackgroundColor,
           )}
           color="inherit">
           {rank}

@@ -7,7 +7,7 @@ import { z } from 'zod';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
-import { themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor } from '~/components/ui/theme';
 
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
@@ -71,7 +71,7 @@ export default function ProfileAccountEmail({ user }: Props) {
   });
 
   return (
-    <div className={clsx('p-4', 'rounded-lg border', themeLineColor)}>
+    <div className={clsx('p-4', 'rounded-lg border', themeBorderColor)}>
       <form
         className="flex flex-col gap-4"
         onSubmit={handleSubmit(async (data) => {

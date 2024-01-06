@@ -12,7 +12,7 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-import { themeLineBackgroundColor } from '../../ui/theme';
+import { themeChipBackgroundColor } from '../../ui/theme';
 
 export default function DashboardStudyPlansCTA() {
   return (
@@ -38,7 +38,7 @@ export default function DashboardStudyPlansCTA() {
             aria-hidden="true"
             className={clsx(
               'flex h-12 w-12 shrink-0 items-center justify-center rounded-md',
-              themeLineBackgroundColor,
+              themeChipBackgroundColor,
             )}>
             <RiCalendar2Line
               className={clsx('h-5 w-5', themeTextSecondaryColor)}

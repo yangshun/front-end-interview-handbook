@@ -297,9 +297,8 @@ async function processParams(params: Props['params']) {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { category, locale, seoTitle, description } = await processParams(
-    params,
-  );
+  const { category, locale, seoTitle, description } =
+    await processParams(params);
 
   return defaultMetadata({
     description,

@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
+import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
 
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
@@ -82,7 +82,7 @@ export default function Auth({
             {hasThirdPartyProviders && (
               <div className="relative">
                 <div className="absolute inset-0 flex items-center">
-                  <div className={clsx('w-full border-t', themeLineColor)} />
+                  <div className={clsx('w-full border-t', themeBorderColor)} />
                 </div>
                 <div className="relative flex justify-center">
                   <span className={clsx('px-2', themeBackgroundColor)}>

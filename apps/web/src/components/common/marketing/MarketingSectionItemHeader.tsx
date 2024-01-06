@@ -25,16 +25,11 @@ export default function MarketingSectionItemHeader({
             {title}
           </Text>
         )}
-        <Heading level="heading3">
-          {heading}
-        </Heading>
+        <Heading level="heading3">{heading}</Heading>
       </div>
       {description && (
         <Text
-          className={clsx(
-            'text-base lg:text-xl',
-            themeTextSecondaryColor,
-          )}
+          className={clsx('text-base lg:text-xl', themeTextSecondaryColor)}
           display="block"
           size="custom">
           {description}

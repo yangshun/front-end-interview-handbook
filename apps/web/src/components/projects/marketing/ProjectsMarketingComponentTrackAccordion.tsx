@@ -16,7 +16,11 @@ export default function ProjectsMarketingComponentTrackAccordion({
 }: Props) {
   return (
     <Accordion.Root
-      className={clsx('space-y-4', disabled && 'pointer-events-none' ,className)}
+      className={clsx(
+        'space-y-4',
+        disabled && 'pointer-events-none',
+        className,
+      )}
       disabled={disabled}
       type="multiple">
       {children}

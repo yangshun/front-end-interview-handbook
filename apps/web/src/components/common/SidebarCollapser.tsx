@@ -6,7 +6,7 @@ import { useUserPreferences } from '~/components/global/UserPreferencesProvider'
 import {
   themeBackgroundColor,
   themeBackgroundEmphasizedHover,
-  themeLineColor,
+  themeBorderColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -38,7 +38,7 @@ export default function SidebarCollapser() {
         'focus:outline-none focus:ring-2 focus:ring-offset-2',
         'focus:ring-brand-dark dark:focus:ring-brand',
         themeTextSecondaryColor,
-        themeLineColor,
+        themeBorderColor,
         themeBackgroundColor,
         themeBackgroundEmphasizedHover,
       )}

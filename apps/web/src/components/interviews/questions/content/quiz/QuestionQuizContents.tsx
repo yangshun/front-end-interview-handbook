@@ -15,7 +15,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
-import { themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor } from '~/components/ui/theme';
 
 import { useI18n } from '~/next-i18nostic/src';
 
@@ -101,7 +101,7 @@ export default function QuestionQuizContents({
                   <header
                     className={clsx(
                       'grid gap-y-4 border-b pb-10',
-                      themeLineColor,
+                      themeBorderColor,
                     )}>
                     <Heading
                       className="pb-4"

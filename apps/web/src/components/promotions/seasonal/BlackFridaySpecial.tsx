@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import ExclusiveTicket from '~/components/common/tickets/ExclusiveTicket';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import Text from '~/components/ui/Text';
-import { themeBackgroundColor, themeLineColor } from '~/components/ui/theme';
+import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
 
 export const SEASONAL_PROMO_CODE = 'CYBERMONDAY23';
 export const SEASONAL_PROMO_CODE_DISCOUNT_PERCENTAGE = 30;
@@ -27,7 +27,7 @@ export function BlackFridayPromoCard() {
     <div
       className={clsx(
         'flex w-full flex-col gap-y-1 rounded-md p-4',
-        ['border', themeLineColor],
+        ['border', themeBorderColor],
         themeBackgroundColor,
       )}>
       <Text className="text-xl" display="block" size="custom" weight="bold">
@@ -72,7 +72,7 @@ export function BlackFridaySpecial() {
     <div
       className={clsx(
         'rounded-md border p-3',
-        themeLineColor,
+        themeBorderColor,
         'bg-neutral-50 dark:bg-neutral-900',
       )}>
       <div className="flex w-full items-center justify-between">

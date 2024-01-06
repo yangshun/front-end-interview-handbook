@@ -12,7 +12,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 
-import { themeDivideColor, themeLineColor } from '../ui/theme';
+import { themeBorderColor, themeDivideColor } from '../ui/theme';
 
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
   dateStyle: 'medium',
@@ -67,7 +67,7 @@ export default function ProfileCoupons() {
               className={clsx(
                 'rounded-sm',
                 'border',
-                themeLineColor,
+                themeBorderColor,
                 'divide-y',
                 themeDivideColor,
               )}>

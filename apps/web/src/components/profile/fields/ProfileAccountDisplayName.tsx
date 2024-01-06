@@ -13,7 +13,7 @@ import {
 import { useToast } from '~/components/global/toasts/ToastsProvider';
 import Button from '~/components/ui/Button';
 import TextInput from '~/components/ui/TextInput';
-import { themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor } from '~/components/ui/theme';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -53,7 +53,7 @@ export default function ProfileAccountDisplayName() {
   const nameUpdateMutation = trpc.profile.nameUpdate.useMutation();
 
   return (
-    <div className={clsx('p-4', 'rounded-lg border', themeLineColor)}>
+    <div className={clsx('p-4', 'rounded-lg border', themeBorderColor)}>
       <form
         className="flex flex-col gap-4"
         onSubmit={handleSubmit(async (data) => {

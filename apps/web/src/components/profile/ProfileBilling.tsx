@@ -12,7 +12,7 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import { themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor } from '~/components/ui/theme';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
@@ -126,7 +126,7 @@ function ManageSubscriptionSection({
             'p-4',
             'border',
             'rounded-lg',
-            themeLineColor,
+            themeBorderColor,
           )}>
           <div className={clsx('flex flex-col gap-1')}>
             <Heading level="heading6">
@@ -239,7 +239,7 @@ export default function ProfileBilling() {
                 'rounded-lg',
                 'flex flex-col gap-4',
                 'border',
-                themeLineColor,
+                themeBorderColor,
               )}>
               <div className="flex flex-col gap-1">
                 <Heading level="heading6">
@@ -283,7 +283,7 @@ export default function ProfileBilling() {
                   'p-4',
                   'border',
                   'rounded-lg',
-                  themeLineColor,
+                  themeBorderColor,
                 )}>
                 <Heading level="heading6">
                   <FormattedMessage

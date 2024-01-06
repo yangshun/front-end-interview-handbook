@@ -7,8 +7,8 @@ import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasizedHover,
+  themeBorderColor,
   themeDivideColor,
-  themeLineColor,
 } from '~/components/ui/theme';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
@@ -29,7 +29,7 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
 
   if (questions.length === 0) {
     return (
-      <div className={clsx('border p-10', themeLineColor)}>
+      <div className={clsx('border p-10', themeBorderColor)}>
         <EmptyState
           subtitle={intl.formatMessage({
             defaultMessage: 'Try changing the filters',
@@ -53,7 +53,7 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
     <ul
       className={clsx(
         'isolate divide-y overflow-hidden rounded-md border sm:grid',
-        themeLineColor,
+        themeBorderColor,
         themeDivideColor,
       )}>
       {questions.map((question) => {
@@ -74,7 +74,7 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
                       'z-20 flex h-6 w-6 items-center justify-center rounded-full border-2',
                       hasCompletedQuestion
                         ? 'border-success bg-success text-white'
-                        : themeLineColor,
+                        : themeBorderColor,
                     )}>
                     {hasCompletedQuestion && (
                       <RiCheckLine aria-hidden="true" className="h-4 w-4" />

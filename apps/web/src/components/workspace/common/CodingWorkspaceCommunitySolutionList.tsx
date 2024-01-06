@@ -7,8 +7,8 @@ import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasizedHover,
+  themeBorderColor,
   themeDivideColor,
-  themeLineColor,
 } from '~/components/ui/theme';
 
 import { staticLowerCase } from '~/utils/typescript/stringTransform';
@@ -58,7 +58,7 @@ export default function CodingWorkspaceCommunitySolutionList({
             className={clsx(
               'overflow-auto',
               'rounded-md',
-              ['border', themeLineColor],
+              ['border', themeBorderColor],
               ['divide-y', themeDivideColor],
             )}>
             <table className="w-full">

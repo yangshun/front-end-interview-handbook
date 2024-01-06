@@ -23,7 +23,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Tabs from '~/components/ui/Tabs';
 import Text from '~/components/ui/Text';
-import { themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor } from '~/components/ui/theme';
 
 import ExclusiveTicket from '../common/tickets/ExclusiveTicket';
 import Badge from '../ui/Badge';
@@ -124,7 +124,7 @@ export default function ProfileShell({ user, children }: Props) {
         <div
           className={clsx(
             'mx-auto w-full max-w-6xl flex-grow lg:flex lg:border-x',
-            themeLineColor,
+            themeBorderColor,
           )}>
           {/* Left sidebar & main wrapper */}
           <div className="min-w-0 flex-1 xl:flex">
@@ -315,12 +315,12 @@ export default function ProfileShell({ user, children }: Props) {
             <div
               className={clsx(
                 'lg:min-w-0 lg:flex-1 lg:border-l',
-                themeLineColor,
+                themeBorderColor,
               )}>
               <div
                 className={clsx(
                   'border-t pb-4 pl-4 pr-4 pt-4 sm:pl-6 lg:pl-8 xl:border-t-0 xl:pl-6 xl:pt-6',
-                  themeLineColor,
+                  themeBorderColor,
                 )}>
                 <div className="flex items-center">
                   <Tabs

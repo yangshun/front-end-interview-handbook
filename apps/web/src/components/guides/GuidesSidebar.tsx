@@ -15,7 +15,7 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import {
-  themeLineColor,
+  themeBorderColor,
   themeTextBrandColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
@@ -125,7 +125,7 @@ function LinksList({
     <ul
       className={clsx(
         'flex flex-col',
-        nestedLevel === 0 && ['border-l', themeLineColor],
+        nestedLevel === 0 && ['border-l', themeBorderColor],
       )}
       role="list">
       {items.map((link) => (

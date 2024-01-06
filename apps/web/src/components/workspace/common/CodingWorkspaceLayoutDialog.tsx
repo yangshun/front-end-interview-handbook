@@ -5,9 +5,9 @@ import Dialog from '~/components/ui/Dialog';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundLayerEmphasizedHover,
+  themeBorderColor,
+  themeChipBackgroundColor,
   themeDivideColor,
-  themeLineBackgroundColor,
-  themeLineColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -39,7 +39,7 @@ export default function CodingWorkspaceLayoutDialog({
         <div
           className={clsx(
             'flex flex-col rounded border ',
-            ['border', themeLineColor],
+            ['border', themeBorderColor],
             ['divide-y', themeDivideColor],
           )}>
           {layouts.map(({ description, icon: Icon, name, onClick }) => (
@@ -54,7 +54,7 @@ export default function CodingWorkspaceLayoutDialog({
               <span
                 className={clsx(
                   'inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md',
-                  themeLineBackgroundColor,
+                  themeChipBackgroundColor,
                   themeTextSecondaryColor,
                   'border border-transparent transition',
                   'group-hover/card:border-brand-dark group-hover/card:text-brand-dark',

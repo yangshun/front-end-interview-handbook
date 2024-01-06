@@ -13,8 +13,8 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
+  themeBorderColor,
   themeDivideColor,
-  themeLineColor,
   themeTextBrandColor,
   themeTextBrandHoverColor,
 } from '~/components/ui/theme';
@@ -51,7 +51,7 @@ export default function QuestionsQuizContentLayout({
                 <div
                   className={clsx(
                     'relative flex h-full flex-col border-r',
-                    themeLineColor,
+                    themeBorderColor,
                     !showSidebar && 'hidden',
                   )}>
                   <Heading className="sr-only" level="custom">

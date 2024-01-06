@@ -16,7 +16,7 @@ import { useQuestionFormatLists } from '~/data/QuestionFormats';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor, themeDivideColor } from '~/components/ui/theme';
 
 export default function NotFoundPage() {
   // Useful to log the full pathname for a 404.
@@ -92,7 +92,7 @@ export default function NotFoundPage() {
                   <ul
                     className={clsx(
                       'mt-4 divide-y border-t border-b',
-                      themeLineColor,
+                      themeBorderColor,
                       themeDivideColor,
                     )}
                     role="list">

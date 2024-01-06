@@ -10,8 +10,8 @@ import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasized,
+  themeBorderColor,
   themeDivideColor,
-  themeLineColor,
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
@@ -45,7 +45,7 @@ export default function JobPage({
             <div
               className={clsx(
                 'rounded',
-                ['border', themeLineColor],
+                ['border', themeBorderColor],
                 ['divide-y', themeDivideColor],
               )}>
               <div className="grid gap-y-2 p-4">
@@ -90,7 +90,7 @@ export default function JobPage({
               className={clsx(
                 'mt-8 flex flex-col gap-y-4 rounded-lg border px-6 md:p-8',
                 themeBackgroundEmphasized,
-                themeLineColor,
+                themeBorderColor,
               )}>
               <Heading level="heading5">
                 We are excited to hear from you

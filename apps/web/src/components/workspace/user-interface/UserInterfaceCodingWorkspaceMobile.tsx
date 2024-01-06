@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import type { ReactNode } from 'react';
 import { useMediaQuery } from 'usehooks-ts';
 
-import { themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor } from '~/components/ui/theme';
 
 // Bug in Sandpack, cannot lazy load the preview otherwise
 // the bundling isn't triggered and no preview is shown.
@@ -70,7 +70,7 @@ export default function UserInterfaceCodingWorkspaceMobile({
         <SandpackFileExplorer />
         <SandpackCodeEditor />
       </SandpackLayout>
-      <div className={clsx('flex h-[500px] rounded border', themeLineColor)}>
+      <div className={clsx('flex h-[500px] rounded border', themeBorderColor)}>
         <SandpackPreview showNavigator={true} showOpenInCodeSandbox={false} />
       </div>
     </div>

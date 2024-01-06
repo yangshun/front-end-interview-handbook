@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
-import { themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor } from '~/components/ui/theme';
 
 export default function QuestionPaywall({
   title: titleProp,
@@ -43,7 +43,7 @@ export default function QuestionPaywall({
         background &&
           clsx(
             'rounded-lg border bg-white/60 px-8 backdrop-blur dark:bg-neutral-950/60',
-            themeLineColor,
+            themeBorderColor,
           ),
       )}>
       <EmptyState

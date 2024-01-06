@@ -12,7 +12,7 @@ import { FormattedMessage } from 'react-intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
-import { themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor } from '~/components/ui/theme';
 
 import SpecsInline from './SpecsInline';
 import type { TestsOutcome } from './TestsOutcomeBadge';
@@ -560,7 +560,7 @@ export default function TestsSection({
         <div
           className={clsx(
             'flex shrink-0 items-center justify-between border-t px-3 py-1.5',
-            themeLineColor,
+            themeBorderColor,
           )}>
           <div className="flex grow items-center">
             {state.outcome === 'none' && (

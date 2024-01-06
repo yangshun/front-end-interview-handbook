@@ -7,7 +7,7 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import type { ThemeGradient } from '~/components/ui/theme';
-import { themeGlassyBorder, themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor, themeGlassyBorder } from '~/components/ui/theme';
 
 import QuestionCountLabel from '../questions/metadata/QuestionCountLabel';
 import QuestionTotalTimeLabel from '../questions/metadata/QuestionTotalTimeLabel';
@@ -150,7 +150,7 @@ export default function DashboardContinueLearning({
         className={clsx(
           'flex flex-col divide-y rounded-lg bg-white dark:bg-neutral-800/40',
           themeGlassyBorder,
-          themeLineColor,
+          themeBorderColor,
         )}>
         {items.map(
           ({
@@ -169,7 +169,7 @@ export default function DashboardContinueLearning({
                 key={href}
                 className={clsx(
                   'flex items-center justify-between gap-4 px-5 py-4',
-                  themeLineColor,
+                  themeBorderColor,
                 )}>
                 <div className="flex items-center gap-4">
                   <GradientProgressBar

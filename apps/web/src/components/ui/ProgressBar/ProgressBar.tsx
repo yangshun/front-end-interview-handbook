@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { themeLineBackgroundColor } from '~/components/ui/theme';
+import { themeChipBackgroundColor } from '~/components/ui/theme';
 
 type ProgressBarSize = 'lg' | 'md';
 
@@ -38,7 +38,7 @@ export default function ProgressBar({
       <div
         className={clsx(
           'flex-grow-1 relative flex h-full w-full overflow-clip',
-          themeLineBackgroundColor,
+          themeChipBackgroundColor,
           size === 'md' && 'rounded-lg',
           size === 'lg' && 'rounded-xl',
         )}>

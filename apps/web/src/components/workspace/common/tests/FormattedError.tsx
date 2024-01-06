@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import {
   themeBackgroundEmphasized,
-  themeLineColor,
+  themeBorderColor,
   themeTextColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
@@ -31,7 +31,7 @@ export default function FormattedError({ error }: Props) {
         'overflow-x-auto whitespace-pre rounded p-3',
         themeBackgroundEmphasized,
         'text-xs',
-        ['border', themeLineColor],
+        ['border', themeBorderColor],
         ['font-mono', themeTextSecondaryColor],
       )}
     />

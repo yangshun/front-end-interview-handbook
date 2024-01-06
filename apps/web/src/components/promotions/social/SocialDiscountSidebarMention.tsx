@@ -7,7 +7,7 @@ import useProfile from '~/hooks/user/useProfile';
 
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
-import { themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor } from '~/components/ui/theme';
 
 import { useSocialDiscountLabels } from './SocialDiscountConfig';
 import Ticket from '../../common/tickets/Ticket';
@@ -49,7 +49,7 @@ function SocialDiscountSidebarMentionImpl() {
     <div
       className={clsx(
         'rounded-md border p-3',
-        themeLineColor,
+        themeBorderColor,
         'bg-neutral-50 dark:bg-neutral-900',
       )}>
       <div>

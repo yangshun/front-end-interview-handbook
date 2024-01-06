@@ -17,8 +17,8 @@ import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasizedHover,
+  themeBorderColor,
   themeDivideColor,
-  themeLineColor,
 } from '~/components/ui/theme';
 
 import { getQuestionMetadata } from '~/db/QuestionsProgressClient';
@@ -117,7 +117,7 @@ export default function ProfileActivity() {
   return (
     <div className="flex flex-col gap-y-4">
       <Heading
-        className={clsx('flex flex-row justify-between', themeLineColor)}
+        className={clsx('flex flex-row justify-between', themeBorderColor)}
         level="heading6">
         <FormattedMessage
           defaultMessage="Completed Questions"
@@ -130,7 +130,7 @@ export default function ProfileActivity() {
         <ul
           className={clsx(
             'relative z-0 rounded-md',
-            ['border', themeLineColor],
+            ['border', themeBorderColor],
             ['divide-y', themeDivideColor],
           )}
           role="list">

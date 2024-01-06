@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
-import { themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor } from '~/components/ui/theme';
 
 export default function QuestionPaywallSmall({
   title: titleProp,
@@ -37,7 +37,7 @@ export default function QuestionPaywallSmall({
     <div
       className={clsx(
         'flex items-center space-x-2 rounded border p-3',
-        themeLineColor,
+        themeBorderColor,
       )}>
       <RiLockLine className="h-8 w-8 text-neutral-500" />
       <div className="grow space-y-1">

@@ -13,7 +13,7 @@ import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
-  themeLineBackgroundColor,
+  themeChipBackgroundColor,
   themeTextFainterColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
@@ -77,7 +77,7 @@ export default function QuestionFocusAreasSection({
                     <span
                       className={clsx(
                         'inline-flex h-10 w-10 items-center justify-center rounded-md',
-                        themeLineBackgroundColor,
+                        themeChipBackgroundColor,
                         themeTextSecondaryColor,
                         'border border-transparent transition',
                         'group-hover/card:border-brand-dark group-hover/card:text-brand-dark',

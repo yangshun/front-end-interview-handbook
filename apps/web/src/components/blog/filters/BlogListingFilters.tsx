@@ -8,7 +8,7 @@ import type {
 import type { BlogFilter } from '~/components/blog/filters/BlogFilterType';
 import type { FilterItemGap } from '~/components/blog/filters/items/BlogListingFilterItem';
 import BlogListingFilterItem from '~/components/blog/filters/items/BlogListingFilterItem';
-import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor, themeDivideColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
   itemGap: FilterItemGap;
@@ -30,7 +30,7 @@ export default function BlogListingFilters({
     <form
       className={clsx(
         'flex flex-col divide-y border-y',
-        themeLineColor,
+        themeBorderColor,
         themeDivideColor,
       )}>
       <BlogListingFilterItem

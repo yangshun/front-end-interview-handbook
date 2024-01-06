@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 import { useIsMounted } from 'usehooks-ts';
 
 import Button from '~/components/ui/Button';
-import { themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor } from '~/components/ui/theme';
 import CodingWorkspaceEditorShortcutsButton from '~/components/workspace/common/editor/CodingWorkspaceEditorShortcutsButton';
 import CodingWorkspaceResetButton from '~/components/workspace/common/editor/CodingWorkspaceResetButton';
 import CodingWorkspaceThemeSelect from '~/components/workspace/common/editor/CodingWorkspaceThemeSelect';
@@ -65,7 +65,7 @@ export default function JavaScriptCodingWorkspaceCodeEditor({
       <div
         className={clsx(
           'flex items-center justify-between gap-x-2 px-3 py-1.5',
-          ['border-b', themeLineColor],
+          ['border-b', themeBorderColor],
         )}>
         <div>
           {isMainFile && (

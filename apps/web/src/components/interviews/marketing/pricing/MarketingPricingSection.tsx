@@ -36,8 +36,8 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
+  themeBorderColor,
   themeDivideColor,
-  themeLineColor,
   themeRadialGlowBackground,
   themeTextBrandColor,
   themeTextSubtitleColor,
@@ -944,7 +944,7 @@ export default function MarketingPricingSection({
                 className={clsx(
                   'mx-auto grid max-w-lg grid-cols-1 rounded-3xl dark:bg-neutral-800/20 md:max-w-none md:grid-cols-3',
                   ['divide-y md:divide-x md:divide-y-0', themeDivideColor],
-                  ['border', themeLineColor],
+                  ['border', themeBorderColor],
                 )}>
                 {planList.map(
                   ({
@@ -1125,7 +1125,7 @@ export default function MarketingPricingSection({
                             <ul
                               className={clsx(
                                 'divide-y border-y',
-                                themeLineColor,
+                                themeBorderColor,
                                 themeDivideColor,
                               )}
                               role="list">

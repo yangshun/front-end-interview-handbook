@@ -13,8 +13,8 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
+  themeBorderColor,
   themeCardBackgroundWhiteOnLightColor,
-  themeLineColor,
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
@@ -36,7 +36,7 @@ export default function BlogSubseriesCard({
     <div
       className={clsx(
         'flex h-full flex-col gap-x-4 gap-y-4 overflow-hidden rounded-lg border p-4 lg:p-8',
-        themeLineColor,
+        themeBorderColor,
         themeCardBackgroundWhiteOnLightColor,
       )}>
       <div className="flex flex-col gap-y-1">

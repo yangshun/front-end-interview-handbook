@@ -11,7 +11,7 @@ import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import {
-  themeLineColor,
+  themeBorderColor,
   themeTextBrandColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
@@ -28,7 +28,7 @@ export default function SystemDesignSidebar() {
     <div
       className={clsx(
         'w-[280px] overflow-y-auto border-r p-6 text-xs',
-        themeLineColor,
+        themeBorderColor,
       )}>
       <GuidesDropdownMenu />
       <nav>
@@ -45,7 +45,7 @@ export default function SystemDesignSidebar() {
                   <ul
                     className={clsx(
                       'mt-3 flex flex-col gap-y-2 border-l',
-                      themeLineColor,
+                      themeBorderColor,
                     )}
                     role="list">
                     {section.links.map((link) => (

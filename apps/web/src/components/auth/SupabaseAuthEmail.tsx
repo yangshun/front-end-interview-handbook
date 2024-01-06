@@ -52,9 +52,8 @@ export default function SupabaseAuthEmail({
   const [message, setMessage] = useState<string | null>(null);
   const [signUpForMarketingEmails, setSignUpForMarketingEmails] =
     useState(true);
-  const {
-    mutate: signUpWithEmail,
-  } = trpc.marketing.signUpWithEmail.useMutation();
+  const { mutate: signUpWithEmail } =
+    trpc.marketing.signUpWithEmail.useMutation();
   const intl = useIntl();
   const router = useI18nRouter();
 

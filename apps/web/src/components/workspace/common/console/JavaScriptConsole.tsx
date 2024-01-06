@@ -21,7 +21,7 @@ import Dialog from '~/components/ui/Dialog';
 import EmptyState from '~/components/ui/EmptyState';
 import Select from '~/components/ui/Select';
 import TextInput from '~/components/ui/TextInput';
-import { themeDivideColor, themeLineColor } from '~/components/ui/theme';
+import { themeBorderColor, themeDivideColor } from '~/components/ui/theme';
 
 import { getConsoleStyles } from './JavaScriptConsoleStyles';
 
@@ -113,7 +113,7 @@ export default function JavaScriptConsole({
   }, [logs, isScrollPositionAtBottom]);
 
   const toolbar = (
-    <div className={clsx('flex flex-col border-b', themeLineColor)}>
+    <div className={clsx('flex flex-col border-b', themeBorderColor)}>
       <div className="flex flex-row items-center gap-x-2 px-2 py-1">
         <Button
           icon={RiDeleteBinLine}

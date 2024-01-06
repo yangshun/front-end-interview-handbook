@@ -7,7 +7,7 @@ import { RiCloseLine, RiMenuFill } from 'react-icons/ri';
 
 import {
   themeBackgroundLayerColor,
-  themeLineColor,
+  themeBorderColor,
 } from '~/components/ui/theme';
 
 import NavbarItem from './NavbarItem';
@@ -59,7 +59,7 @@ function Navbar(
       ref={ref}
       className={clsx(
         'sticky top-0 z-30 backdrop-blur',
-        ['border-b', themeLineColor],
+        ['border-b', themeBorderColor],
         transparent && 'bg-white dark:bg-neutral-950/60',
         'transition-[background-color]',
         className,
@@ -188,7 +188,7 @@ function Navbar(
                   <div
                     className={clsx(
                       'flex flex-shrink-0 border-t p-4',
-                      themeLineColor,
+                      themeBorderColor,
                     )}>
                     {mobileSidebarBottomItems}
                   </div>

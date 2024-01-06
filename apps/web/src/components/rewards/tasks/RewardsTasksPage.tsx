@@ -22,8 +22,8 @@ import RewardsTaskList from '~/components/rewards/tasks/RewardsTaskList';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import {
+  themeBorderColor,
   themeCardBackgroundWhiteOnLightColor,
-  themeLineColor,
   themeTextInvertColor,
 } from '~/components/ui/theme';
 
@@ -55,7 +55,7 @@ function RewardsStepLabel({
           status === 'pending' &&
             clsx(
               'border',
-              themeLineColor,
+              themeBorderColor,
               themeCardBackgroundWhiteOnLightColor,
             ),
         )}>

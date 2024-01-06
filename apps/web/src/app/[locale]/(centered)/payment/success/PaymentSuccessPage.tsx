@@ -27,9 +27,9 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
+  themeBorderColor,
+  themeChipBackgroundColor,
   themeDivideColor,
-  themeLineBackgroundColor,
-  themeLineColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -185,7 +185,7 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
               <ul
                 className={clsx(
                   'mt-4 divide-y border-b border-t',
-                  themeLineColor,
+                  themeBorderColor,
                   themeDivideColor,
                 )}
                 role="list">
@@ -197,7 +197,7 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
                       <span
                         className={clsx(
                           'inline-flex h-10 w-10 items-center justify-center rounded-md',
-                          themeLineBackgroundColor,
+                          themeChipBackgroundColor,
                           themeTextSecondaryColor,
                           'border border-transparent transition',
                           'group-hover:border-brand-dark group-hover:text-brand-dark',

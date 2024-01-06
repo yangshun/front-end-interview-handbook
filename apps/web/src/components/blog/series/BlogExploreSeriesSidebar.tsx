@@ -3,7 +3,7 @@ import type { Category } from 'contentlayer/generated';
 
 import Section from '~/components/ui/Heading/HeadingContext';
 import {
-  themeLineColor,
+  themeBorderColor,
   themeTextBrandColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
@@ -19,7 +19,7 @@ function LinksList({
 }>) {
   return (
     <ul
-      className={clsx('flex flex-col gap-y-3 border-l', themeLineColor)}
+      className={clsx('flex flex-col gap-y-3 border-l', themeBorderColor)}
       role="list">
       {items.map((link) => (
         <div key={link.href}>
