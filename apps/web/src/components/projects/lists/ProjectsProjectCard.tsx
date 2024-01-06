@@ -104,7 +104,7 @@ export default function ProjectsProjectCard({ project }: Props) {
             )}>
             <RiCheckboxMultipleLine className="h-4 w-4" />
             <Text color="inherit" size="body3">
-              {track.name}
+              {track}
             </Text>
           </div>
           <div

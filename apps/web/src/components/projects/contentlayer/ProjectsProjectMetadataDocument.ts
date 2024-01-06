@@ -91,6 +91,17 @@ export const ProjectsProjectMetadataDocument = defineDocumentType(() => ({
       required: true,
       type: 'string',
     },
+    track: {
+      options: [
+        'design-system',
+        'portfolio',
+        'marketing',
+        'e-commerce',
+        'games',
+      ],
+      required: true,
+      type: 'enum',
+    },
   },
   filePathPattern: 'projects/project/*/*.mdx',
   name: 'ProjectMetadata',

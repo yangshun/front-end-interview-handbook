@@ -23,7 +23,8 @@ type Props = Readonly<{
 export default function ProjectsMarketingComponentTrackAccordionItem({
   track,
 }: Props) {
-  const { href, slug, projects } = track;
+  const { metadata, projects } = track;
+  const { href, slug } = metadata;
 
   const intl = useIntl();
 

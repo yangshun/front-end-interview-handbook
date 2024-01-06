@@ -24,7 +24,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeRadialGlowBackground } from '~/components/ui/theme';
 
-import { hiddenTracks, projectTracks } from '../tracks/ProjectsTracksData';
+import type { ProjectsTrack } from '../tracks/ProjectsTracksData';
 
 const skills = [
   {
@@ -37,10 +37,14 @@ const skills = [
 
 type Props = Readonly<{
   featuredProjects: ReadonlyArray<ProjectsProjectItem>;
+  hiddenTracks: ReadonlyArray<ProjectsTrack>;
+  projectTracks: ReadonlyArray<ProjectsTrack>;
 }>;
 
 export default function ProjectsMarketingSkillsTracksProjects({
   featuredProjects,
+  hiddenTracks,
+  projectTracks,
 }: Props) {
   const intl = useIntl();
 
@@ -189,7 +193,7 @@ export default function ProjectsMarketingSkillsTracksProjects({
             <ProjectsMarketingComponentTrackAccordion>
               {projectTracks.map((projectTrack) => (
                 <ProjectsMarketingComponentTrackAccordionItem
-                  key={projectTrack.slug}
+                  key={projectTrack.metadata.slug}
                   track={projectTrack}
                 />
               ))}
@@ -228,7 +232,7 @@ export default function ProjectsMarketingSkillsTracksProjects({
                 disabled={true}>
                 {hiddenTracks.map((track) => (
                   <ProjectsMarketingComponentTrackAccordionItem
-                    key={track.slug}
+                    key={track.metadata.slug}
                     track={track}
                   />
                 ))}

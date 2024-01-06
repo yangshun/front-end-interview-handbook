@@ -9,6 +9,7 @@ import ProjectsMarketingFeatures from '~/components/projects/marketing/ProjectsM
 import ProjectsMarketingHero from '~/components/projects/marketing/ProjectsMarketingHero';
 import ProjectsMarketingHomepageFeaturesRow from '~/components/projects/marketing/ProjectsMarketingHomepageFeaturesRow';
 import ProjectsMarketingSkillsTracksProjects from '~/components/projects/marketing/ProjectsMarketingSkillsTracksProjects';
+import type { ProjectsTrack } from '~/components/projects/tracks/ProjectsTracksData';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 const MarketingHomePageBottom = dynamic(
@@ -18,9 +19,13 @@ const MarketingHomePageBottom = dynamic(
 
 type Props = Readonly<{
   featuredProjects: ReadonlyArray<ProjectsProjectItem>;
+  projectTracks: ReadonlyArray<ProjectsTrack>;
 }>;
 
-export default function ProjectsMarketingHomePage({ featuredProjects }: Props) {
+export default function ProjectsMarketingHomePage({
+  featuredProjects,
+  projectTracks,
+}: Props) {
   const loadBottomHalfMarkerRef = useRef(null);
   const showBottomHalf = useInView(loadBottomHalfMarkerRef, {
     amount: 'some',
@@ -34,6 +39,8 @@ export default function ProjectsMarketingHomePage({ featuredProjects }: Props) {
         <ProjectsMarketingHomepageFeaturesRow />
         <ProjectsMarketingSkillsTracksProjects
           featuredProjects={featuredProjects}
+          hiddenTracks={projectTracks}
+          projectTracks={projectTracks}
         />
         <ProjectsMarketingFeatures />
         <div ref={loadBottomHalfMarkerRef} />

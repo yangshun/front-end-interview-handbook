@@ -19,9 +19,6 @@ export type ProjectsProjectAccess = (typeof projectAccessOptions)[number];
 
 export type ProjectsProjectStatus = 'completed' | 'in-progress' | 'not-started';
 
-// TODO(projects): Remove in future.
-export type ProjectsTrackMetadata = Readonly<{ name: string; slug: string }>;
-
 export type ProjectsProjectItem = Readonly<{
   completedCount: number; // TODO(projects): Remove from metadata
   completedUsers: Array<Profile>; // TODO(projects): Remove from metadata
@@ -29,7 +26,6 @@ export type ProjectsProjectItem = Readonly<{
     Readonly<{
       imgSrc: string;
       skills: ReadonlyArray<ProjectsSkill>;
-      track: ProjectsTrackMetadata;
     }>;
   status: ProjectsProjectStatus; // TODO(projects): Remove from metadata
 }>;

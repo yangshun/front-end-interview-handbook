@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import ProjectsTracksListPage from '~/components/projects/tracks/ProjectsTracksListPage';
 
+import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -27,6 +28,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page() {
-  return <ProjectsTracksListPage />;
+export default async function Page({ params }: Props) {
+  const { locale } = params;
+  const { tracks } = await readProjectsTrackList(locale);
+
+  return <ProjectsTracksListPage projectTracks={tracks} />;
 }

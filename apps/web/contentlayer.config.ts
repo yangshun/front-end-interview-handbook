@@ -13,6 +13,7 @@ import { BlogSubseriesDocument } from './src/contentlayer/document/BlogSubseries
 import { ProjectsProjectMetadataDocument } from './src/components/projects/contentlayer/ProjectsProjectMetadataDocument';
 import { ProjectsProjectStyleGuideDocument } from './src/components/projects/contentlayer/ProjectsProjectStyleGuideDocument';
 import { ProjectsProjectAPIWriteupDocument } from './src/components/projects/contentlayer/ProjectsProjectAPIWriteupDocument';
+import { ProjectsTrackMetadataDocument } from './src/components/projects/contentlayer/ProjectsTrackMetadataDocument';
 
 export default makeSource({
   contentDirPath: 'src/content',
@@ -25,6 +26,7 @@ export default makeSource({
     ProjectsProjectMetadataDocument,
     ProjectsProjectStyleGuideDocument,
     ProjectsProjectAPIWriteupDocument,
+    ProjectsTrackMetadataDocument,
   ],
   mdx: {
     remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter],

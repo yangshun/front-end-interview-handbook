@@ -20,16 +20,10 @@ export type Props = Readonly<{
   track: ProjectsTrack;
 }>;
 
-export default function ProjectsTrackPage({
-  track: {
-    projects,
-    totalProjectCount,
-    completedProjectCount,
-    points,
-    title,
-    description,
-  },
-}: Props) {
+export default function ProjectsTrackPage({ track }: Props) {
+  const { projects, completedProjectCount, points, metadata } = track;
+  const { title, description } = metadata;
+
   const intl = useIntl();
 
   return (
@@ -57,7 +51,7 @@ export default function ProjectsTrackPage({
                 variant="flat"
               />
               <ProjectsProjectCountTag
-                total={totalProjectCount}
+                total={projects.length}
                 value={completedProjectCount}
               />
             </div>

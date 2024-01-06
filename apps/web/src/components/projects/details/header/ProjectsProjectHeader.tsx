@@ -99,7 +99,7 @@ export default function ProjectsProjectHeader({ project }: Props) {
           </Text>
           <div className="flex flex-wrap gap-x-4 gap-y-2">
             <ProjectsProjectDifficultyTag difficulty={difficulty} />
-            <ProjectsComponentTrackTag track={track} />
+            <ProjectsComponentTrackTag trackName={track} />
             <ProjectsReputationCountIncreaseTag
               points={points}
               variant="flat"
