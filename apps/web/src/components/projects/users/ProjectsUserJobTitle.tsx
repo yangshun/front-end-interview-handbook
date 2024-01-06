@@ -25,10 +25,11 @@ const gap: Record<Size, string> = {
 
 export default function ProjectsUserJobTitle({ jobTitle, size = 'sm' }: Props) {
   return (
-    <div
-      className={clsx('flex items-center', themeTextSecondaryColor, gap[size])}>
-      <RiBuildingLine className={iconClasses[size]} />
-      <Text className={textClasses[size]} color="inherit" size="custom">
+    <div className={clsx('flex items-center', gap[size])}>
+      <RiBuildingLine
+        className={clsx(iconClasses[size], themeTextSecondaryColor)}
+      />
+      <Text className={textClasses[size]} color="secondary" size="custom">
         {jobTitle}
       </Text>
     </div>

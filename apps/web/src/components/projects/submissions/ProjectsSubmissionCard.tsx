@@ -52,10 +52,14 @@ export default function ProjectsSubmissionCard({ submission }: Props) {
             size="xl"
           />
           <div className="flex flex-col gap-1">
-            <Text size="body2">{author.name}</Text>
-            <div className="flex gap-4">
-              {author.title && <ProjectsUserJobTitle jobTitle={author.title} />}
-              <ProjectsUserYearsOfExperience yearsOfExperience={2} />
+            <Text size="body2" weight="medium">
+              {author.name}
+            </Text>
+            <div className="flex gap-x-4 flex-wrap gap-y-2">
+              {author.title && (
+                <ProjectsUserJobTitle jobTitle={author.title} size="2xs" />
+              )}
+              <ProjectsUserYearsOfExperience size="2xs" yearsOfExperience={2} />
             </div>
           </div>
         </div>

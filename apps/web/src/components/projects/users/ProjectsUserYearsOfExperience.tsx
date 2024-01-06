@@ -29,10 +29,11 @@ export default function ProjectsUserYearsOfExperience({
   size = 'sm',
 }: Props) {
   return (
-    <div
-      className={clsx('flex items-center', themeTextSecondaryColor, gap[size])}>
-      <RiGraduationCapLine className={iconClasses[size]} />
-      <Text className={textClasses[size]} color="inherit" size="custom">
+    <div className={clsx('flex items-center', gap[size])}>
+      <RiGraduationCapLine
+        className={clsx(iconClasses[size], themeTextSecondaryColor)}
+      />
+      <Text className={textClasses[size]} color="secondary" size="custom">
         <FormattedMessage
           defaultMessage="{yearCount} YOE"
           description="Label showing years of experience of a user"
