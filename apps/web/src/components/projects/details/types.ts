@@ -17,6 +17,15 @@ export type ProjectsProjectDifficulty =
 export const projectAccessOptions = ['free', 'free-plus', 'premium'];
 export type ProjectsProjectAccess = (typeof projectAccessOptions)[number];
 
+export const projectTrackOptions = [
+  'design-system',
+  'e-commerce',
+  'games',
+  'marketing',
+  'portfolio',
+];
+export type ProjectsTrackEnum = (typeof projectTrackOptions)[number];
+
 export type ProjectsProjectStatus = 'completed' | 'in-progress' | 'not-started';
 
 export type ProjectsProjectItem = Readonly<{

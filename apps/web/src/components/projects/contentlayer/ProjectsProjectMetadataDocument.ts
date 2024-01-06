@@ -1,10 +1,10 @@
-import { allProjectTrackMetadata } from 'contentlayer/generated';
 import { defineDocumentType } from 'contentlayer/source-files';
 import path from 'node:path';
 
 import {
   projectAccessOptions,
   projectDifficultyOptions,
+  projectTrackOptions,
 } from '../details/types';
 
 function parseProjectSlug(sourceFilePath: string) {
@@ -93,7 +93,9 @@ export const ProjectsProjectMetadataDocument = defineDocumentType(() => ({
       type: 'string',
     },
     track: {
-      options: allProjectTrackMetadata.map((metadata) => metadata.slug),
+      // Unfortunately there's no easy way to make this rely on all the available slugs in the track model.
+      // One way is references but they are quite underwhelming at the moment so we're not using them.
+      options: projectTrackOptions,
       required: true,
       type: 'enum',
     },
