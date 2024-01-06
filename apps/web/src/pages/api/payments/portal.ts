@@ -5,7 +5,7 @@ import Stripe from 'stripe';
 
 import {
   createSupabaseAdminClientGFE,
-  fetchUser,
+  readUserFromToken,
 } from '~/supabase/SupabaseServerGFE';
 
 export default async function handler(
@@ -14,7 +14,7 @@ export default async function handler(
 ) {
   const { origin } = absoluteUrl(req);
 
-  const user = await fetchUser(
+  const user = readUserFromToken(
     cookie.parse(req.headers?.cookie ?? '')['supabase-auth-token'],
   );
 

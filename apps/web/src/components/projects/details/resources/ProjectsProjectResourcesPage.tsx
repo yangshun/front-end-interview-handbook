@@ -47,17 +47,13 @@ function useTipsResourcesDiscussionsTabs() {
 
 type Props = Readonly<{
   project: ProjectsProjectItem;
-  user: User | null;
 }>;
 
-export default function ProjectsProjectResourcesPage({ project, user }: Props) {
+export default function ProjectsProjectResourcesPage({ project }: Props) {
   const intl = useIntl();
   const tipsResourcesDiscussionsTabs = useTipsResourcesDiscussionsTabs();
   const [tipsResourcesDiscussionsTab, setTipsResourcesDiscussionsTab] =
     useState<TipsResourcesDiscussionsTabType>('discussions');
-
-  // TODO(projects): Replace below with actual logic
-  const isUserPremium = false;
 
   const { startProject, session } = useProjectsProjectSessionContext();
   const hasSession = session != null;

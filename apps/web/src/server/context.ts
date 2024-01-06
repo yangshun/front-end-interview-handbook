@@ -1,4 +1,4 @@
-import { fetchUser } from '~/supabase/SupabaseServerGFE';
+import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
 
 import type { inferAsyncReturnType } from '@trpc/server';
 import type * as trpcNext from '@trpc/server/adapters/next';
@@ -6,7 +6,7 @@ import type * as trpcNext from '@trpc/server/adapters/next';
 export async function createContext({
   req,
 }: trpcNext.CreateNextContextOptions) {
-  const user = await fetchUser(req.cookies['supabase-auth-token']);
+  const user = readUserFromToken(req.cookies['supabase-auth-token']);
 
   return {
     req,

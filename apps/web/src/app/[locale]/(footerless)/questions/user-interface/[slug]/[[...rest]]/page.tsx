@@ -15,7 +15,7 @@ import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import {
   createSupabaseAdminClientGFE,
-  fetchUser,
+  readUserFromToken,
 } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
@@ -132,7 +132,7 @@ export default async function Page({ params }: Props) {
   } = determineFrameworkAndMode(rest);
 
   const [user, question] = await Promise.all([
-    fetchUser(),
+    readUserFromToken(),
     readQuestionUserInterface(slug, parsedFramework, codeId),
   ]);
 

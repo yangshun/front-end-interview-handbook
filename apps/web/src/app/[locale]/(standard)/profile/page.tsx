@@ -5,7 +5,7 @@ import ProfileActivity from '~/components/profile/ProfileActivity';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-import { fetchUser } from '~/supabase/SupabaseServerGFE';
+import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -29,8 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function ProfileActivityPage() {
-  const user = await fetchUser();
+export default async function Page() {
+  const user = readUserFromToken();
 
   if (user == null) {
     return redirect(`/login?next=${encodeURIComponent('/profile')}`);

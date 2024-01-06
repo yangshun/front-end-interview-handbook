@@ -5,7 +5,7 @@ import ProfileAccount from '~/components/profile/ProfileAccount';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-import { fetchUser } from '~/supabase/SupabaseServerGFE';
+import { fetchUserDoNotUseIfOnlyUserIdOrEmailNeeded } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ProfileAccountPage() {
-  const user = await fetchUser();
+  const user = await fetchUserDoNotUseIfOnlyUserIdOrEmailNeeded();
 
   // Strictly speaking not needed because the profile layout
   // should also blocked access to the page.

@@ -519,10 +519,6 @@
     "defaultMessage": "Number of questions completed",
     "description": "Number of questions completed in a list of questions"
   },
-  "4q3pJW": {
-    "defaultMessage": "Optimized image assets",
-    "description": "Label for Image Assets card in Assets Provided section of Projects project page"
-  },
   "4rcZT1": {
     "defaultMessage": "Please enter your status",
     "description": "Error message for empty \"Other\" input for \"Years of experience replacement status\" on Projects profile page"
@@ -1979,10 +1975,6 @@
     "defaultMessage": "Save Changes",
     "description": "Label for save changes button for projects profile edit page"
   },
-  "LFg5Tg": {
-    "defaultMessage": "Style guide for fonts, colors, etc.",
-    "description": "Label for Style Guide card in Assets Provided section of Projects project page"
-  },
   "LGHLf5": {
     "defaultMessage": "Gamified learning",
     "description": "Title for \"Gamified learning\" feature on Projects home page"
@@ -2775,6 +2767,10 @@
     "defaultMessage": "Continue learning",
     "description": "Title of Continue Learning section in preparation dashboard"
   },
+  "TfBpeT": {
+    "defaultMessage": "Here are some highly-rated submissions you can reference while doing your project. We prioritize submissions by their ratings, the similarity of their tech stack to yours, and the seniority level of the commenter.",
+    "description": "Description for Reference Submissions section on Projects project tips & resources page"
+  },
   "TgOWsI": {
     "defaultMessage": "You've gained rep in these skills:",
     "description": "Label for skills gained on project submission success page"
@@ -3006,6 +3002,10 @@
   "Vm0aAX": {
     "defaultMessage": "{discountPercentage}% off all plans",
     "description": "Title for rewards page"
+  },
+  "VuGzvG": {
+    "defaultMessage": "Project submission",
+    "description": "Title for the project submission checklist section"
   },
   "VuIvcH": {
     "defaultMessage": "Read the project details",
@@ -5686,10 +5686,6 @@
   "y8zzVx": {
     "defaultMessage": "Email",
     "description": "Email"
-  },
-  "y9NC4Q": {
-    "defaultMessage": "Here are some highly rated submissions you can reference while doing your project. We prioritize submissions by their ratings, the similarity of their tech stack to yours, and the seniority level of the commenter.",
-    "description": "Description for Reference Submissions section on Projects project tips & resources page"
   },
   "y9hdD1": {
     "defaultMessage": "Reading time",

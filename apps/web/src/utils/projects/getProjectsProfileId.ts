@@ -1,8 +1,8 @@
 import prisma from '~/server/prisma';
 
-import type { User } from '@supabase/supabase-js';
-
-export default async function getProjectsProfileId(user: User) {
+export default async function getProjectsProfileId(
+  user: Readonly<{ id: string }>,
+) {
   const profile = await prisma.projectsProfile.findUnique({
     select: {
       id: true,

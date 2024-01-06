@@ -8,7 +8,7 @@ import type { PricingPlanType } from '~/data/PricingPlans';
 
 import {
   createSupabaseAdminClientGFE,
-  fetchUser,
+  readUserFromToken,
 } from '~/supabase/SupabaseServerGFE';
 
 import type { QueryParams } from './checkout_session_internal_and_called_on_server_only__';
@@ -38,7 +38,7 @@ export default async function handler(req: NextRequest) {
   const { origin, searchParams } = url;
   const supabaseAdmin = createSupabaseAdminClientGFE();
 
-  const user = await fetchUser(req.cookies.get('supabase-auth-token')?.value);
+  const user = readUserFromToken(req.cookies.get('supabase-auth-token')?.value);
 
   if (user == null) {
     return new Response(

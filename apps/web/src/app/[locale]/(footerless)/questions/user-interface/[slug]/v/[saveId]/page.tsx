@@ -10,7 +10,7 @@ import defaultMetadata from '~/seo/defaultMetadata';
 import prisma from '~/server/prisma';
 import {
   createSupabaseAdminClientGFE,
-  fetchUser,
+  readUserFromToken,
 } from '~/supabase/SupabaseServerGFE';
 import { staticLowerCase } from '~/utils/typescript/stringTransform';
 
@@ -48,7 +48,7 @@ export default async function Page({ params }: Props) {
   const { slug, saveId } = params;
 
   const [user, save] = await Promise.all([
-    fetchUser(),
+    readUserFromToken(),
     prisma.questionUserInterfaceSave.findFirst({
       where: {
         id: saveId,

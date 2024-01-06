@@ -10,7 +10,7 @@ import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteUrl } from '~/seo/siteUrl';
-import { fetchUser } from '~/supabase/SupabaseServerGFE';
+import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
 import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
@@ -47,7 +47,7 @@ export default async function Page({ params }: Props) {
   const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
   const supabaseAdmin = createSupabaseAdminClientGFE();
 
-  const user = await fetchUser();
+  const user = readUserFromToken();
   const { question } = readQuestionJavaScriptContents(slug, locale);
 
   let canViewPremiumContent = false;

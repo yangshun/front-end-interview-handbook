@@ -36,7 +36,13 @@ export function createSupabaseAdminClientGFE() {
   );
 }
 
-export async function fetchUser(authToken?: string): Promise<User | null> {
+/**
+ * @deprecated Makes a database call to get the full user data from the `auth` schema.
+ * If you only need the user id or token, use `readUserFromToken` instead.
+ */
+export async function fetchUserDoNotUseIfOnlyUserIdOrEmailNeeded(
+  authToken?: string,
+): Promise<User | null> {
   try {
     let supabaseAuthToken = authToken;
 
