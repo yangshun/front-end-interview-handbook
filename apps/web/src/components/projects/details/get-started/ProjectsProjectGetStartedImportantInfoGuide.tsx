@@ -2,7 +2,7 @@ import { FormattedMessage } from 'react-intl';
 
 import Text from '~/components/ui/Text';
 
-export default function ImportantInfoGuide() {
+export default function ProjectsProjectGetStartedImportantInfoGuide() {
   return (
     <div className="flex flex-col gap-4">
       <Text color="secondary" size="body2">

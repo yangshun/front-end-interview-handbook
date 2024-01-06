@@ -13,11 +13,66 @@ import CheckboxInput from '~/components/ui/CheckboxInput';
 import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 
+import type { ProjectsProjectItem } from '../types';
+
+export const exampleDiscussionPosts: ReadonlyArray<Post> = [
+  {
+    author: {
+      avatarUrl: 'https://source.unsplash.com/random/48x48',
+      bio: null,
+      createdAt: new Date(),
+      currentStatus: null,
+      githubUsername: null,
+      id: '123',
+      linkedInUsername: null,
+      name: 'John Smith',
+      plan: null,
+      premium: false,
+      startWorkDate: null,
+      stripeCustomer: null,
+      title: 'Front End Engineer',
+      updatedAt: new Date(),
+      username: 'johnsmith',
+      website: null,
+    },
+    content: 'Sample post content',
+    id: '1',
+    isQuestion: true,
+    likeCount: 0,
+    replyCount: 2,
+  },
+  {
+    author: {
+      avatarUrl: 'https://source.unsplash.com/random/48x48',
+      bio: null,
+      createdAt: new Date(),
+      currentStatus: null,
+      githubUsername: null,
+      id: '124',
+      linkedInUsername: null,
+      name: 'Jane Smith',
+      plan: null,
+      premium: false,
+      startWorkDate: null,
+      stripeCustomer: null,
+      title: 'Front End Engineer',
+      updatedAt: new Date(),
+      username: 'janesmith',
+      website: null,
+    },
+    content: 'Sample post content',
+    id: '2',
+    isQuestion: false,
+    likeCount: 0,
+    replyCount: 2,
+  },
+];
+
 type Props = Readonly<{
-  posts: Array<Post>;
+  project: ProjectsProjectItem;
 }>;
 
-export default function ProjectDiscussions({ posts }: Props) {
+export default function ProjectsProjectDiscussions({ project }: Props) {
   const intl = useIntl();
 
   const { profile } = useProfile();
@@ -82,7 +137,7 @@ export default function ProjectDiscussions({ posts }: Props) {
         />
         <ProjectsReputationCountIncreaseTag points={25} variant="filled" />
       </div>
-      <ProjectsDiscussionPostList posts={posts} />
+      <ProjectsDiscussionPostList posts={exampleDiscussionPosts} />
     </div>
   );
 }

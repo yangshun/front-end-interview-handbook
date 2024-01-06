@@ -8,7 +8,9 @@ type Props = Readonly<{
   starterFilesHref: string;
 }>;
 
-export default function DownloadStarterFiles({ starterFilesHref }: Props) {
+export default function ProjectsProjectGetStartedDownloadStarterFiles({
+  starterFilesHref,
+}: Props) {
   const intl = useIntl();
 
   return (

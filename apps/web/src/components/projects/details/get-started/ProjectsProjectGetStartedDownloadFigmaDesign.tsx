@@ -10,7 +10,7 @@ type Props = Readonly<{
   userCanAccess: boolean;
 }>;
 
-export default function DownloadFigmaDesign({
+export default function ProjectsProjectGetStartedDownloadFigmaDesign({
   downloadDesignFileHref,
   userCanAccess,
 }: Props) {

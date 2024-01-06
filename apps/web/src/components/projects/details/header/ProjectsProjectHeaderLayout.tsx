@@ -6,11 +6,11 @@ import type { ComponentProps } from 'react';
 import Container from '~/components/ui/Container';
 
 import ProjectsProjectHeader from './ProjectsProjectHeader';
+import ProjectsProjectGetStartedDialog from '../get-started/ProjectsProjectGetStartedDialog';
 import ProjectsProjectSessionContextProvider, {
   useProjectsProjectSessionContext,
 } from '../ProjectsProjectSessionContext';
 import ProjectsProjectStepsTabsImpl from '../ProjectsProjectStepsTabsImpl';
-import ProjectsProjectBeforeYouGetStartedDialog from '../resources/ProjectsProjectBeforeYouGetStartedDialog';
 import type { ProjectsProjectItem } from '../types';
 
 type Props = Readonly<{
@@ -34,7 +34,7 @@ export function ProjectsProjectHeaderLayoutImpl({ project, children }: Props) {
       <ProjectsProjectHeader project={project} />
       <ProjectsProjectStepsTabsImpl project={project} value={segment} />
       {children}
-      <ProjectsProjectBeforeYouGetStartedDialog
+      <ProjectsProjectGetStartedDialog
         isShown={isGetStartedDialogShown}
         project={project}
         onClose={() => {

@@ -3,11 +3,14 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
+
 type Props = Readonly<{
   onStartClick: () => void;
 }>;
 
-export default function StartCoding({ onStartClick }: Props) {
+export default function ProjectsProjectGetStartedStartCoding({
+  onStartClick,
+}: Props) {
   const intl = useIntl();
 
   return (

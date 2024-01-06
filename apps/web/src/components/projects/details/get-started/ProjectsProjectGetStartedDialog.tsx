@@ -13,18 +13,18 @@ import {
   themeElementBorderColor,
 } from '~/components/ui/theme';
 
-import DownloadFigmaDesign from './DownloadFigmaDesign';
-import DownloadStarterFiles from './DownloadStarterFiles';
-import ImportantInfoGuide from './ImportantInfoGuide';
-import SkillSelection from './SkillSelection';
-import StartCoding from './StartCoding';
+import ProjectsProjectGetStartedDownloadFigmaDesignDownloadFigmaDesign from './ProjectsProjectGetStartedDownloadFigmaDesign';
+import ProjectsProjectGetStartedDownloadFigmaDesignDownloadStarterFiles from './ProjectsProjectGetStartedDownloadStarterFiles';
+import ProjectsProjectGetStartedDownloadFigmaDesignImportantInfoGuide from './ProjectsProjectGetStartedImportantInfoGuide';
+import ProjectsProjectGetStartedDownloadFigmaDesignSkillSelection from './ProjectsProjectGetStartedSkillSelection';
+import ProjectsProjectGetStartedDownloadFigmaDesignStartCoding from './ProjectsProjectGetStartedStartCoding';
 import type { ProjectsProjectItem } from '../types';
 
-type DialogStep = {
+type DialogStep = Readonly<{
   content: React.ReactNode;
   id: string;
   label: string;
-};
+}>;
 
 function useDialogSteps({
   project,
@@ -39,7 +39,7 @@ function useDialogSteps({
   const dialogSteps: Array<DialogStep> = [
     {
       content: (
-        <DownloadStarterFiles
+        <ProjectsProjectGetStartedDownloadFigmaDesignDownloadStarterFiles
           starterFilesHref={project.metadata.downloadStarterFilesHref}
         />
       ),
@@ -53,7 +53,7 @@ function useDialogSteps({
     },
     {
       content: (
-        <DownloadFigmaDesign
+        <ProjectsProjectGetStartedDownloadFigmaDesignDownloadFigmaDesign
           downloadDesignFileHref={project.metadata.downloadDesignFileHref}
           userCanAccess={userCanAccess}
         />
@@ -67,7 +67,7 @@ function useDialogSteps({
       }),
     },
     {
-      content: <SkillSelection />,
+      content: <ProjectsProjectGetStartedDownloadFigmaDesignSkillSelection />,
       id: 'select-skills',
       label: intl.formatMessage({
         defaultMessage: 'Tell us about the skills you will be using',
@@ -77,7 +77,9 @@ function useDialogSteps({
       }),
     },
     {
-      content: <ImportantInfoGuide />,
+      content: (
+        <ProjectsProjectGetStartedDownloadFigmaDesignImportantInfoGuide />
+      ),
       id: 'important-info-guide',
       label: intl.formatMessage({
         defaultMessage: 'Know where to find important info',
@@ -87,7 +89,11 @@ function useDialogSteps({
       }),
     },
     {
-      content: <StartCoding onStartClick={onStartClick} />,
+      content: (
+        <ProjectsProjectGetStartedDownloadFigmaDesignStartCoding
+          onStartClick={onStartClick}
+        />
+      ),
       id: 'start-coding',
       label: intl.formatMessage({
         defaultMessage: 'Start coding!',
@@ -108,7 +114,7 @@ type Props = Readonly<{
   project: ProjectsProjectItem;
 }>;
 
-export default function ProjectsProjectBeforeYouGetStartedDialog({
+export default function ProjectsProjectGetStartedDialog({
   isShown,
   project,
   onClose,

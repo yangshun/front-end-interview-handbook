@@ -69,11 +69,7 @@ export default function ProjectsProjectStepsTabs<T>({
 
   return (
     <div className={clsx('overflow-x-auto overflow-y-hidden', className)}>
-      <div
-        className="flex flex-col items-stretch"
-        style={{
-          minWidth: tabs.length * 256 + (tabs.length - 1) * 12,
-        }}>
+      <div className="flex flex-col items-stretch min-w-fit">
         <div
           className="grid gap-x-6"
           style={{
@@ -82,7 +78,7 @@ export default function ProjectsProjectStepsTabs<T>({
           {mergedHints.map(({ hint, columnSpan }) => (
             <div
               key={hint}
-              className="flex min-w-[256px] flex-col gap-3"
+              className="flex flex-col gap-3"
               style={{
                 gridColumn: `span ${columnSpan} / span ${columnSpan}`,
               }}>
@@ -100,11 +96,10 @@ export default function ProjectsProjectStepsTabs<T>({
         </div>
         <nav
           aria-label={label}
-          className={clsx(
-            '-mb-px mt-4 flex gap-x-6',
-            'overflow-x-visible border-t',
+          className={clsx('-mb-px mt-4', 'relative flex gap-x-6', [
+            'border-t',
             themeElementBorderColor,
-          )}>
+          ])}>
           {tabs.map((tabItem) => {
             const {
               title: tabItemTitle,
@@ -118,7 +113,7 @@ export default function ProjectsProjectStepsTabs<T>({
               <Anchor
                 key={String(tabItemValue)}
                 className={clsx(
-                  'group min-w-[256px] flex-1 whitespace-nowrap border-t-2 py-4',
+                  'group w-[160px] md:min-w-[256px] md:flex-grow shrink-0 border-t-2 pt-4',
                   isSelected
                     ? 'border-brand'
                     : [
@@ -130,11 +125,16 @@ export default function ProjectsProjectStepsTabs<T>({
                 href={href}
                 variant="unstyled"
                 onClick={() => onSelect?.(tabItemValue)}>
-                <div className="flex flex-col">
-                  <Text color={isSelected ? 'active' : 'inherit'} weight="bold">
+                <div className="w-[160px]">
+                  <Text
+                    color={isSelected ? 'active' : 'inherit'}
+                    display="block"
+                    weight="bold">
                     {tabItemTitle}
                   </Text>
-                  <Text color="secondary">{tabItemSubtitle}</Text>
+                  <Text color="secondary" display="block">
+                    {tabItemSubtitle}
+                  </Text>
                 </div>
               </Anchor>
             );

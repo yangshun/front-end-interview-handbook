@@ -10,7 +10,7 @@ import DiscussionPost from './DiscussionPost';
 import type { Post } from './types';
 
 type Props = Readonly<{
-  posts: Array<Post>;
+  posts: ReadonlyArray<Post>;
 }>;
 
 export default function ProjectsDiscussionPostList({ posts }: Props) {

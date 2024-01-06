@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 
-import { exampleDiscussionPosts } from '~/components/projects/details/resources/ProjectsProjectResourcesPage';
 import { themeElementBorderColor } from '~/components/ui/theme';
 
 import DiscussionPost from './DiscussionPost';
+import { exampleDiscussionPosts } from './ProjectsProjectDiscussions';
 
 function useSubPosts(postId: string) {
   // TODO(projects): Load subposts
