@@ -81,7 +81,11 @@ export default function ProjectsProjectBriefPage({ project }: Props) {
             </Section>
           </div>
           <div className="flex flex-col gap-6">
-            <div className={clsx('bg-red h-[372px] w-full rounded-lg')} />
+            <img
+              alt={project.metadata.title}
+              className={clsx('h-[372px] w-full rounded-lg')}
+              src={project.metadata.imageUrl}
+            />
             <Heading level="heading6">
               <FormattedMessage
                 defaultMessage="Resources provided"

@@ -303,7 +303,11 @@ export default function ProjectsProjectAssetsPage({
                       </Text>
                     </div>
                   </div>
-                  <div className="bg-red h-[300px] w-full rounded-lg" />
+                  <img
+                    alt={project.metadata.title}
+                    className={clsx('aspect-[4/3] w-full rounded-lg')}
+                    src={project.metadata.imageUrl}
+                  />
                 </div>
               )}
               {onlineAssetsTab === 'style-guide' && styleGuide != null && (
