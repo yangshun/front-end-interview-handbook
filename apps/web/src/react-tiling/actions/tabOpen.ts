@@ -95,16 +95,16 @@ function tabOpenImpl<TabType>(
       tabs: shouldAppend
         ? panel.tabs.concat(newTab)
         : newTabPosition === 'before'
-        ? [
-            ...panel.tabs.slice(0, insertionIndex),
-            newTab,
-            ...panel.tabs.slice(insertionIndex),
-          ]
-        : [
-            ...panel.tabs.slice(0, insertionIndex + 1),
-            newTab,
-            ...panel.tabs.slice(insertionIndex + 1),
-          ],
+          ? [
+              ...panel.tabs.slice(0, insertionIndex),
+              newTab,
+              ...panel.tabs.slice(insertionIndex),
+            ]
+          : [
+              ...panel.tabs.slice(0, insertionIndex + 1),
+              newTab,
+              ...panel.tabs.slice(insertionIndex + 1),
+            ],
     };
   }
 

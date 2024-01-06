@@ -158,7 +158,9 @@ html[data-global-banner-hidden='true'] .global-banner {
   mask-repeat: repeat, repeat;
   mask-clip: content-box, border-box;
   mask-origin: content-box, border-box;
-  mask-position: 0% 0%, 0% 0%;
+  mask-position:
+    0% 0%,
+    0% 0%;
   mask-size: auto, auto;
   mask-image: linear-gradient(black, black), linear-gradient(black, black);
   mask-composite: exclude;
@@ -182,7 +184,9 @@ html[data-global-banner-hidden='true'] .global-banner {
   mask-repeat: repeat, repeat;
   mask-clip: content-box, border-box;
   mask-origin: content-box, border-box;
-  mask-position: 0% 0%, 0% 0%;
+  mask-position:
+    0% 0%,
+    0% 0%;
   mask-size: auto, auto;
   mask-image: linear-gradient(black, black), linear-gradient(black, black);
   mask-composite: exclude;

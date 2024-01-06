@@ -19,8 +19,8 @@ export default function i18nHref(
     href instanceof Object
       ? href.pathname
       : typeof href === 'string'
-      ? href
-      : null;
+        ? href
+        : null;
 
   if (pathname == null) {
     return href;
