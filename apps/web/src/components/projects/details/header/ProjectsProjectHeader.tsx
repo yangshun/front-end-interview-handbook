@@ -38,12 +38,8 @@ export default function ProjectsProjectHeader({ project }: Props) {
   const hasSession = session != null;
 
   return (
-    <div
-      className={clsx(
-        !hasSession && 'flex flex-col gap-y-6 lg:flex-row lg:justify-between',
-        hasSession && 'grid grid-cols-2 items-start',
-      )}>
-      <div>
+    <div>
+      <div className="flex justify-between gap-4">
         <Button
           addonPosition="start"
           className="-ms-4 -mt-2"
@@ -57,7 +53,34 @@ export default function ProjectsProjectHeader({ project }: Props) {
           })}
           variant="tertiary"
         />
-        <div className="mt-8 flex flex-col gap-4">
+        {!hasSession && (
+          <Text size="body3">
+            <FormattedMessage
+              defaultMessage="New here? <link>How it works</link>"
+              description="Link to 'How it works' page on Projects project page"
+              id="OYgvni"
+              values={{
+                link: (chunks) => (
+                  <Anchor
+                    href="#"
+                    onClick={() => {
+                      setIsHowItWorksDialogShown(true);
+                    }}>
+                    {chunks}
+                  </Anchor>
+                ),
+              }}
+            />
+          </Text>
+        )}
+      </div>
+      <div
+        className={clsx(
+          !hasSession && 'flex flex-col lg:flex-row lg:justify-between',
+          hasSession && 'grid grid-cols-2 items-start',
+          'gap-6 mt-8',
+        )}>
+        <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2">
             <Heading level="heading5">{title}</Heading>
             <Badge
@@ -128,36 +151,16 @@ export default function ProjectsProjectHeader({ project }: Props) {
             </div>
           )}
         </div>
-      </div>
-      {hasSession ? (
-        <ProjectsProjectCurrentProjectSessionCard
-          project={project}
-          session={{
-            ...session,
-            createdAt: new Date(session.createdAt),
-            stoppedAt: session.stoppedAt ? new Date(session.stoppedAt) : null,
-          }}
-        />
-      ) : (
-        <div className="flex flex-shrink-0 flex-col gap-2 lg:items-end lg:gap-8">
-          <Text size="body3">
-            <FormattedMessage
-              defaultMessage="New here? <link>How it works</link>"
-              description="Link to 'How it works' page on Projects project page"
-              id="OYgvni"
-              values={{
-                link: (chunks) => (
-                  <Anchor
-                    href="#"
-                    onClick={() => {
-                      setIsHowItWorksDialogShown(true);
-                    }}>
-                    {chunks}
-                  </Anchor>
-                ),
-              }}
-            />
-          </Text>
+        {hasSession ? (
+          <ProjectsProjectCurrentProjectSessionCard
+            project={project}
+            session={{
+              ...session,
+              createdAt: new Date(session.createdAt),
+              stoppedAt: session.stoppedAt ? new Date(session.stoppedAt) : null,
+            }}
+          />
+        ) : (
           <div className="flex items-center gap-x-4 gap-y-4 lg:flex-col lg:items-end">
             <Button
               label={intl.formatMessage({
@@ -175,8 +178,8 @@ export default function ProjectsProjectHeader({ project }: Props) {
               users={completedUsers}
             />
           </div>
-        </div>
-      )}
+        )}
+      </div>
       <ProjectsProjectHowItWorksDialog
         isShown={isHowItWorksDialogShown}
         onClose={() => {
