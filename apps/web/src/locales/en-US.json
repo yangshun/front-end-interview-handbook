@@ -339,10 +339,6 @@
     "defaultMessage": "Support",
     "description": "Title for FAQ section"
   },
-  "2V4jN/": {
-    "defaultMessage": "Something went wrong. Try again later or contact {supportEmail}",
-    "description": "Title for Projects toast to show that user has ended the project session"
-  },
   "2XR9B5": {
     "defaultMessage": "{price} billed every 3 months",
     "description": "Description of billing frequency for quarterly plan"
@@ -582,6 +578,10 @@
   "5DXHOF": {
     "defaultMessage": "Download starter files",
     "description": "Label for \"Download starter files\" button on Projects project page"
+  },
+  "5Gjt4J": {
+    "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
+    "description": "Error toast for project"
   },
   "5RlLAP": {
     "defaultMessage": "Clear Console",
@@ -958,6 +958,10 @@
   "99F7Mt": {
     "defaultMessage": "Tags",
     "description": "Blog Tags"
+  },
+  "9CjNZn": {
+    "defaultMessage": "You have ended this project session. Returning you to the project detail page.",
+    "description": "Toast subtitle for project session ended"
   },
   "9DlLF1": {
     "defaultMessage": "GreatFrontEnd",
@@ -3147,6 +3151,10 @@
     "defaultMessage": "More",
     "description": "Label for \"More\" button in pagination"
   },
+  "XGThSq": {
+    "defaultMessage": "Open anyway",
+    "description": "Label for open external link button"
+  },
   "XIMn32": {
     "defaultMessage": "Complete | Rewards",
     "description": "Title of Rewards Complete page"
@@ -3394,10 +3402,6 @@
   "a3gDom": {
     "defaultMessage": "Social links",
     "description": "Title of social links section of projects profile edit page"
-  },
-  "a5gx67": {
-    "defaultMessage": "Woo hoo!",
-    "description": "Title for Projects toast to show that user has started the project"
   },
   "a6L95B": {
     "defaultMessage": "Check your email for the confirmation link.",
@@ -3795,10 +3799,6 @@
     "defaultMessage": "Desktop",
     "description": "Label for Desktop button in Projects project assets page"
   },
-  "eK8xyR": {
-    "defaultMessage": "Project started! Leverage guides and resources in the tabs below and submit a link to your site once ready!",
-    "description": "Subtitle for Projects toast to show that user has started the project"
-  },
   "ePyk/V": {
     "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",
     "description": "Title for newsletter sign up section"
@@ -3839,9 +3839,9 @@
     "defaultMessage": "Practice Angular Interview Questions with Solutions",
     "description": "Title of Angular Interview Questions page"
   },
-  "f3TP8G": {
+  "f/t2zt": {
     "defaultMessage": "Project session ended!",
-    "description": "Title for Projects toast to show that user has ended the project session"
+    "description": "Toast title for project session ended"
   },
   "f5UO3s": {
     "defaultMessage": "Review Cashback",
@@ -4110,6 +4110,10 @@
   "hxKyEy": {
     "defaultMessage": "Search HTML questions",
     "description": "Placeholder for search input of HTML question list"
+  },
+  "i0OBoj": {
+    "defaultMessage": "Project started! Leverage guides and resources in the tabs below and submit a link to your site once ready!",
+    "description": "Toast subtitle for project session started"
   },
   "i4MSQe": {
     "defaultMessage": "1 Week Plan",
@@ -4827,6 +4831,10 @@
     "defaultMessage": "Coming Soon",
     "description": "Front end system design questions that are coming soon"
   },
+  "p9Ml7d": {
+    "defaultMessage": "You're about to open an external website. Be cautious and keep your personal information safe",
+    "description": "Subtitle for external link page"
+  },
   "pBR3LI": {
     "defaultMessage": "Blog",
     "description": "Link to blog"
@@ -4854,6 +4862,10 @@
   "pRxRs2": {
     "defaultMessage": "Hear from our users",
     "description": "Title of testimonials section"
+  },
+  "pWwyKQ": {
+    "defaultMessage": "You're about to open a link:",
+    "description": "Title for external link page"
   },
   "pXuTMr": {
     "defaultMessage": "Specs mimicking projects encountered as a full-timer",
@@ -5046,6 +5058,10 @@
   "r8JR1/": {
     "defaultMessage": "Read less",
     "description": "Read less"
+  },
+  "r9Az7V": {
+    "defaultMessage": "Great start!",
+    "description": "Toast title for project session started"
   },
   "rAAfhQ": {
     "defaultMessage": "Personal Website (optional)",
@@ -5311,6 +5327,10 @@
     "defaultMessage": "Learn while building",
     "description": "Title of 'Learn while building' feature in Projects marketing page"
   },
+  "u3DZY0": {
+    "defaultMessage": "You have started your first project! ✨",
+    "description": "Toast subtitle for project session started"
+  },
   "u3bYHM": {
     "defaultMessage": "FAQ",
     "description": "Link to FAQ page"
@@ -5350,6 +5370,10 @@
   "uRMJks": {
     "defaultMessage": "No promo codes available",
     "description": "Title of GreatFrontEnd page"
+  },
+  "uaHuqt": {
+    "defaultMessage": "Woo hoo!",
+    "description": "Toast title for project session started"
   },
   "ueUG6Q": {
     "defaultMessage": "JPEG design files for mobile & desktop layouts",
@@ -5643,10 +5667,6 @@
     "defaultMessage": "See all",
     "description": "See all new blogs"
   },
-  "xgePZr": {
-    "defaultMessage": "You have started your first project! ✨",
-    "description": "Subtitle for Projects toast to show that user has started the project"
-  },
   "xjHSyF": {
     "defaultMessage": "All log levels",
     "description": "Select label for all log levels in console filter"
@@ -5727,10 +5747,6 @@
     "defaultMessage": "Tell us about the skills you will be using",
     "description": "Label for \"Tell us about the skills you will be using\" step in dialog on Projects project page"
   },
-  "yaMEA9": {
-    "defaultMessage": "Great Start!",
-    "description": "Title for Projects toast to show that user has started the project"
-  },
   "yeGTq1": {
     "defaultMessage": "Reset Password",
     "description": "Title of Password Reset page"
@@ -5762,10 +5778,6 @@
   "yrC3kR": {
     "defaultMessage": "Editor shortcuts",
     "description": "Label for button to open code editor shortcuts"
-  },
-  "yxkHW/": {
-    "defaultMessage": "You have ended this project session. Returning you to the project detail page.",
-    "description": "Subtitle for Projects toast to show that user has ended the project session"
   },
   "z+5YJV": {
     "defaultMessage": "View All Questions",
