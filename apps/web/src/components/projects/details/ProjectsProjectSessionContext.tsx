@@ -1,6 +1,16 @@
-import { createContext, useContext, useMemo, useState } from 'react';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
+
+import { useToast } from '~/components/global/toasts/ToastsProvider';
+import Anchor from '~/components/ui/Anchor';
 
 import type { ProjectsProjectSession } from '@prisma/client';
 import { useQueryClient } from '@tanstack/react-query';
@@ -12,7 +22,9 @@ const latestSessionQueryKey = getQueryKey(
 
 type ProjectsProjectSessionContextType = {
   endSession: (slug: string) => Promise<void>;
+  isEndSessionLoading: boolean;
   isGetStartedDialogShown: boolean;
+  isStartSessionLoading: boolean;
   session: ProjectsProjectSession | null;
   setIsGetStartedDialogShown: (value: boolean) => void;
   startProject: () => void;
@@ -22,7 +34,9 @@ type ProjectsProjectSessionContextType = {
 const ProjectsProjectSessionContext =
   createContext<ProjectsProjectSessionContextType>({
     endSession: async () => {},
+    isEndSessionLoading: false,
     isGetStartedDialogShown: false,
+    isStartSessionLoading: false,
     session: null,
     setIsGetStartedDialogShown: () => {},
     startProject: () => {},
@@ -43,6 +57,9 @@ export default function ProjectsProjectSessionContextProvider({
   slug,
 }: Props) {
   const queryClient = useQueryClient();
+  const { showToast } = useToast();
+  const { data: hasAnyProjectSession } =
+    trpc.projects.sessions.getAnySession.useQuery();
 
   const { data: session } = trpc.projects.sessions.getLatestInProgress.useQuery(
     {
@@ -66,14 +83,61 @@ export default function ProjectsProjectSessionContextProvider({
 
   const [isGetStartedDialogShown, setIsGetStartedDialogShown] = useState(false);
 
+  const showErrorToast = useCallback(() => {
+    showToast({
+      title: (
+        <FormattedMessage
+          defaultMessage="Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!"
+          description="Error toast for project"
+          id="5Gjt4J"
+          values={{
+            link: (chunks) => (
+              <Anchor href="mailto:support@greatfrontend.com">{chunks}</Anchor>
+            ),
+          }}
+        />
+      ),
+      variant: 'danger',
+    });
+  }, [showToast]);
+
   const value = useMemo(() => {
     return {
       endSession: async () => {
-        await endSessionMutation.mutateAsync({
-          slug,
-        });
+        await endSessionMutation.mutateAsync(
+          {
+            slug,
+          },
+          {
+            onError: () => {
+              showErrorToast();
+            },
+            onSuccess: () => {
+              showToast({
+                subtitle: (
+                  <FormattedMessage
+                    defaultMessage="You have ended this project session. Returning you to the project detail page."
+                    description="Toast subtitle for project session ended"
+                    id="9CjNZn"
+                  />
+                ),
+                title: (
+                  <FormattedMessage
+                    defaultMessage="Project session ended!"
+                    description="Toast title for project session ended"
+                    id="f/t2zt"
+                  />
+                ),
+                variant: 'success',
+              });
+            },
+          },
+        );
       },
+      isEndSessionLoading: endSessionMutation.isLoading,
+
       isGetStartedDialogShown,
+      isStartSessionLoading: startProjectMutation.isLoading,
       // TODO(projects): Replace when/if superjson is added to trpc
       session: session
         ? {
@@ -87,7 +151,45 @@ export default function ProjectsProjectSessionContextProvider({
         setIsGetStartedDialogShown(true);
       },
       startSession: async () => {
-        await startProjectMutation.mutateAsync({ slug });
+        await startProjectMutation.mutateAsync(
+          { slug },
+          {
+            onError: () => {
+              showErrorToast();
+            },
+            onSuccess: () => {
+              showToast({
+                subtitle: hasAnyProjectSession ? (
+                  <FormattedMessage
+                    defaultMessage="Project started! Leverage guides and resources in the tabs below and submit a link to your site once ready!"
+                    description="Toast subtitle for project session started"
+                    id="i0OBoj"
+                  />
+                ) : (
+                  <FormattedMessage
+                    defaultMessage="You have started your first project! ✨"
+                    description="Toast subtitle for project session started"
+                    id="u3DZY0"
+                  />
+                ),
+                title: hasAnyProjectSession ? (
+                  <FormattedMessage
+                    defaultMessage="Woo hoo!"
+                    description="Toast title for project session started"
+                    id="uaHuqt"
+                  />
+                ) : (
+                  <FormattedMessage
+                    defaultMessage="Great start!"
+                    description="Toast title for project session started"
+                    id="r9Az7V"
+                  />
+                ),
+                variant: 'success',
+              });
+            },
+          },
+        );
       },
     };
   }, [
@@ -96,6 +198,9 @@ export default function ProjectsProjectSessionContextProvider({
     session,
     slug,
     startProjectMutation,
+    showToast,
+    hasAnyProjectSession,
+    showErrorToast,
   ]);
 
   return (

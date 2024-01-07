@@ -1,5 +1,6 @@
 import { RiCodeSSlashLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
+import { useMediaQuery } from 'usehooks-ts';
 
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -12,6 +13,7 @@ export default function ProjectsProjectGetStartedDownloadStarterFiles({
   starterFilesHref,
 }: Props) {
   const intl = useIntl();
+  const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
 
   return (
     <div className="flex flex-col gap-4 items-start">
@@ -26,12 +28,21 @@ export default function ProjectsProjectGetStartedDownloadStarterFiles({
         addonPosition="start"
         href={starterFilesHref}
         icon={RiCodeSSlashLine}
-        label={intl.formatMessage({
-          defaultMessage: 'Download starter code + image assets',
-          description:
-            'Label for "Download starter code + image assets" button on Projects project page',
-          id: 'VElW3O',
-        })}
+        label={
+          isMobileAndBelow
+            ? intl.formatMessage({
+                defaultMessage: 'Download starter files',
+                description:
+                  'Label for "Download starter files" button on Projects project page',
+                id: '5DXHOF',
+              })
+            : intl.formatMessage({
+                defaultMessage: 'Download starter code + image assets',
+                description:
+                  'Label for "Download starter code + image assets" button on Projects project page',
+                id: 'VElW3O',
+              })
+        }
         size="md"
         variant="primary"
       />

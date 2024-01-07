@@ -30,7 +30,9 @@ function useDialogSteps({
   project,
   onStartClick,
   userCanAccess,
+  isLoading,
 }: {
+  isLoading: boolean;
   onStartClick: () => void;
   project: ProjectsProjectItem;
   userCanAccess: boolean;
@@ -91,6 +93,7 @@ function useDialogSteps({
     {
       content: (
         <ProjectsProjectGetStartedDownloadFigmaDesignStartCoding
+          isLoading={isLoading}
           onStartClick={onStartClick}
         />
       ),
@@ -108,6 +111,7 @@ function useDialogSteps({
 }
 
 type Props = Readonly<{
+  isLoading?: boolean;
   isShown: boolean;
   onClose: () => void;
   onStart: () => void;
@@ -119,14 +123,16 @@ export default function ProjectsProjectGetStartedDialog({
   project,
   onClose,
   onStart,
+  isLoading = false,
 }: Props) {
   const intl = useIntl();
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const dialogSteps = useDialogSteps({
-    onStartClick: () => {
+    isLoading,
+    onStartClick: async () => {
+      await onStart();
       onClose();
       setCurrentStepIndex(0);
-      onStart();
     },
     project,
     userCanAccess: true,
@@ -207,6 +213,7 @@ export default function ProjectsProjectGetStartedDialog({
               </div>
               <div className="flex flex-1 flex-col gap-6">
                 <Text
+                  className="md:text-base text-sm"
                   color={isStepSelected ? 'active' : 'default'}
                   weight="medium">
                   {step.label}

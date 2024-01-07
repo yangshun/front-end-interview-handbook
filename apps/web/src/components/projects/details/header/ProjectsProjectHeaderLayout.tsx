@@ -3,8 +3,6 @@
 import { useSelectedLayoutSegment } from 'next/navigation';
 import type { ComponentProps } from 'react';
 
-import Container from '~/components/ui/Container';
-
 import ProjectsProjectHeader from './ProjectsProjectHeader';
 import ProjectsProjectGetStartedDialog from '../get-started/ProjectsProjectGetStartedDialog';
 import ProjectsProjectSessionContextProvider, {
@@ -26,8 +24,12 @@ export function ProjectsProjectHeaderLayoutImpl({ project, children }: Props) {
       typeof ProjectsProjectStepsTabsImpl
     >['value']) || 'project-brief';
 
-  const { isGetStartedDialogShown, setIsGetStartedDialogShown, startSession } =
-    useProjectsProjectSessionContext();
+  const {
+    isGetStartedDialogShown,
+    setIsGetStartedDialogShown,
+    startSession,
+    isStartSessionLoading,
+  } = useProjectsProjectSessionContext();
 
   return (
     <div className="flex flex-col items-stretch gap-16">
@@ -35,13 +37,14 @@ export function ProjectsProjectHeaderLayoutImpl({ project, children }: Props) {
       <ProjectsProjectStepsTabsImpl project={project} value={segment} />
       {children}
       <ProjectsProjectGetStartedDialog
+        isLoading={isStartSessionLoading}
         isShown={isGetStartedDialogShown}
         project={project}
         onClose={() => {
           setIsGetStartedDialogShown(false);
         }}
-        onStart={() => {
-          startSession(slug);
+        onStart={async () => {
+          await startSession(slug);
         }}
       />
     </div>

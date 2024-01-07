@@ -5,16 +5,18 @@ import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
 type Props = Readonly<{
+  isLoading: boolean;
   onStartClick: () => void;
 }>;
 
 export default function ProjectsProjectGetStartedStartCoding({
   onStartClick,
+  isLoading,
 }: Props) {
   const intl = useIntl();
 
   return (
-    <div className="flex flex-col items-center gap-4 mb-20 mt-20">
+    <div className="flex flex-col items-center gap-4 mb-20 mt-20 -ml-10">
       <Text size="body0" weight="bold">
         <FormattedMessage
           defaultMessage="Let's begin!"
@@ -25,6 +27,8 @@ export default function ProjectsProjectGetStartedStartCoding({
       <Button
         addonPosition="start"
         icon={RiRocketLine}
+        isDisabled={isLoading}
+        isLoading={isLoading}
         label={intl.formatMessage({
           defaultMessage: 'Start coding!',
           description:

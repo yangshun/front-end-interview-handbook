@@ -339,6 +339,10 @@
     "defaultMessage": "Support",
     "description": "Title for FAQ section"
   },
+  "2V4jN/": {
+    "defaultMessage": "Something went wrong. Try again later or contact {supportEmail}",
+    "description": "Title for Projects toast to show that user has ended the project session"
+  },
   "2XR9B5": {
     "defaultMessage": "{price} billed every 3 months",
     "description": "Description of billing frequency for quarterly plan"
@@ -574,6 +578,10 @@
   "5BQAdK": {
     "defaultMessage": "Responsive breakpoints",
     "description": "Project assets category label"
+  },
+  "5DXHOF": {
+    "defaultMessage": "Download starter files",
+    "description": "Label for \"Download starter files\" button on Projects project page"
   },
   "5RlLAP": {
     "defaultMessage": "Clear Console",
@@ -1579,6 +1587,10 @@
     "defaultMessage": "What to expect for Front End System Design interviews",
     "description": "Sidebar link title for front end system design interviews"
   },
+  "H6Hg+y": {
+    "defaultMessage": "Are you sure you want to terminate this session? You will be able to restart the project anytime.",
+    "description": "Content for end project session dialog"
+  },
   "H8hr3R": {
     "defaultMessage": "Must have a personal website or other acceptable channel where you can publish the review. Please email us to check channel eligibility before posting.",
     "description": "Condition for promotion"
@@ -1686,10 +1698,6 @@
   "IG13JQ": {
     "defaultMessage": "How it works",
     "description": "Instruction for projects"
-  },
-  "IIyxmO": {
-    "defaultMessage": "End project session?",
-    "description": "Title for end project session dialog"
   },
   "IO/eOZ": {
     "defaultMessage": "Joined on {date}",
@@ -3203,6 +3211,10 @@
     "defaultMessage": "<code>console.log()</code> statements will appear here.",
     "description": "Text in coding workspace's console to let users know that they can expect console logs to be found there"
   },
+  "Y0v9Wp": {
+    "defaultMessage": "Confirm End Project Session?",
+    "description": "Title for end project session dialog"
+  },
   "Y4hby8": {
     "defaultMessage": "Easy: {numberOfEasy}, Medium: {numberOfMedium}, Hard: {numberOfHard}",
     "description": "Difficulty breakdown tooltip displayed on question cards found on question lists"
@@ -3383,6 +3395,10 @@
     "defaultMessage": "Social links",
     "description": "Title of social links section of projects profile edit page"
   },
+  "a5gx67": {
+    "defaultMessage": "Woo hoo!",
+    "description": "Title for Projects toast to show that user has started the project"
+  },
   "a6L95B": {
     "defaultMessage": "Check your email for the confirmation link.",
     "description": "Content of alert indicating a successful email sign up"
@@ -3450,10 +3466,6 @@
   "am2rVD": {
     "defaultMessage": "Try changing the filters",
     "description": "Subtitle for empty state when no questions are returned from application of filters on quiz questions list"
-  },
-  "amvNxY": {
-    "defaultMessage": "Are you sure you want to end this project session? You can always start a new one later.",
-    "description": "Content for end project session dialog"
   },
   "apypGU": {
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can set a password here to use email and password to log in instead.",
@@ -3783,6 +3795,10 @@
     "defaultMessage": "Desktop",
     "description": "Label for Desktop button in Projects project assets page"
   },
+  "eK8xyR": {
+    "defaultMessage": "Project started! Leverage guides and resources in the tabs below and submit a link to your site once ready!",
+    "description": "Subtitle for Projects toast to show that user has started the project"
+  },
   "ePyk/V": {
     "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",
     "description": "Title for newsletter sign up section"
@@ -3822,6 +3838,10 @@
   "ez5OLq": {
     "defaultMessage": "Practice Angular Interview Questions with Solutions",
     "description": "Title of Angular Interview Questions page"
+  },
+  "f3TP8G": {
+    "defaultMessage": "Project session ended!",
+    "description": "Title for Projects toast to show that user has ended the project session"
   },
   "f5UO3s": {
     "defaultMessage": "Review Cashback",
@@ -4046,6 +4066,10 @@
   "hEu8WR": {
     "defaultMessage": "{repRemaining} rep to <emph>level {nextLevel}</emph>",
     "description": "Rep remaining to next level"
+  },
+  "hFD3sp": {
+    "defaultMessage": "Confirm",
+    "description": "Label for confirm button on end project session dialog"
   },
   "hMx0CX": {
     "defaultMessage": "Everything from the blog",
@@ -5579,10 +5603,6 @@
     "defaultMessage": "Pick from <bold>skills roadmap</bold>",
     "description": "Caption for Start a Project button in Projects marketing hero section for beginners"
   },
-  "xRx/Iq": {
-    "defaultMessage": "End session",
-    "description": "Label for end session button on end project session dialog"
-  },
   "xU32y0": {
     "defaultMessage": "3 subcategories of questions: JavaScript, User Interfaces & Data Structures and Algorithms",
     "description": "Description of coding interview preparation"
@@ -5622,6 +5642,10 @@
   "xgFUi6": {
     "defaultMessage": "See all",
     "description": "See all new blogs"
+  },
+  "xgePZr": {
+    "defaultMessage": "You have started your first project! ✨",
+    "description": "Subtitle for Projects toast to show that user has started the project"
   },
   "xjHSyF": {
     "defaultMessage": "All log levels",
@@ -5703,6 +5727,10 @@
     "defaultMessage": "Tell us about the skills you will be using",
     "description": "Label for \"Tell us about the skills you will be using\" step in dialog on Projects project page"
   },
+  "yaMEA9": {
+    "defaultMessage": "Great Start!",
+    "description": "Title for Projects toast to show that user has started the project"
+  },
   "yeGTq1": {
     "defaultMessage": "Reset Password",
     "description": "Title of Password Reset page"
@@ -5734,6 +5762,10 @@
   "yrC3kR": {
     "defaultMessage": "Editor shortcuts",
     "description": "Label for button to open code editor shortcuts"
+  },
+  "yxkHW/": {
+    "defaultMessage": "You have ended this project session. Returning you to the project detail page.",
+    "description": "Subtitle for Projects toast to show that user has ended the project session"
   },
   "z+5YJV": {
     "defaultMessage": "View All Questions",

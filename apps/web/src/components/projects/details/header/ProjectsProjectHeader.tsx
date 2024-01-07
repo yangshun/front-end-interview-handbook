@@ -77,7 +77,7 @@ export default function ProjectsProjectHeader({ project }: Props) {
       <div
         className={clsx(
           !hasSession && 'flex flex-col lg:flex-row lg:justify-between',
-          hasSession && 'grid grid-cols-2 items-start',
+          hasSession && 'grid md:grid-cols-2 items-start grid-cols-1',
           'gap-6 mt-8',
         )}>
         <div className="flex flex-col gap-4">

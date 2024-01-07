@@ -36,7 +36,8 @@ export default function ProjectsProjectCurrentProjectSessionCard({
   const [isExpanded, setIsExpanded] = useState(false);
   const [otherTechStacks, setOtherTechStacks] = useState<Array<string>>([]);
 
-  const { endSession } = useProjectsProjectSessionContext();
+  const { endSession, isEndSessionLoading } =
+    useProjectsProjectSessionContext();
 
   const { submitHref, skills, slug } = project.metadata;
   const { createdAt } = session;
@@ -45,17 +46,45 @@ export default function ProjectsProjectCurrentProjectSessionCard({
     await endSession(slug);
   };
 
+  const expandButton = (
+    <Button
+      className={clsx('transition-transform', isExpanded && 'rotate-180')}
+      icon={RiArrowDownSLine}
+      isLabelHidden={true}
+      label={
+        isExpanded
+          ? intl.formatMessage({
+              defaultMessage: 'Collapse',
+              description:
+                'Label for "Collapse" button on current project session card',
+              id: 'n2UNgq',
+            })
+          : intl.formatMessage({
+              defaultMessage: 'More',
+              description:
+                'Label for "More" button on current project session card',
+              id: 'dgTN/f',
+            })
+      }
+      size="xs"
+      variant="tertiary"
+      onClick={() => setIsExpanded((expanded) => !expanded)}
+    />
+  );
+
   return (
     <>
       <Dialog
         isShown={showEndSessionDialog}
         primaryButton={
           <Button
+            isDisabled={isEndSessionLoading}
+            isLoading={isEndSessionLoading}
             label={intl.formatMessage({
-              defaultMessage: 'End session',
+              defaultMessage: 'Confirm',
               description:
-                'Label for end session button on end project session dialog',
-              id: 'xRx/Iq',
+                'Label for confirm button on end project session dialog',
+              id: 'hFD3sp',
             })}
             variant="danger"
             onClick={async () => {
@@ -66,6 +95,7 @@ export default function ProjectsProjectCurrentProjectSessionCard({
         }
         secondaryButton={
           <Button
+            isDisabled={isEndSessionLoading}
             label={intl.formatMessage({
               defaultMessage: 'Cancel',
               description:
@@ -79,18 +109,18 @@ export default function ProjectsProjectCurrentProjectSessionCard({
           />
         }
         title={intl.formatMessage({
-          defaultMessage: 'End project session?',
+          defaultMessage: 'Confirm End Project Session?',
           description: 'Title for end project session dialog',
-          id: 'IIyxmO',
+          id: 'Y0v9Wp',
         })}
         onClose={() => {
           setShowEndSessionDialog(false);
         }}>
         <Text>
           <FormattedMessage
-            defaultMessage="Are you sure you want to end this project session? You can always start a new one later."
+            defaultMessage="Are you sure you want to terminate this session? You will be able to restart the project anytime."
             description="Content for end project session dialog"
-            id="amvNxY"
+            id="H6Hg+y"
           />
         </Text>
       </Dialog>
@@ -99,15 +129,18 @@ export default function ProjectsProjectCurrentProjectSessionCard({
         disableSpotlight={true}
         padding={false}
         pattern={false}>
-        <div className="flex justify-between">
+        <div className="flex justify-between md:flex-row flex-col gap-3">
           <div className="flex flex-col gap-1.5">
-            <Text weight="bold">
-              <FormattedMessage
-                defaultMessage="Current project session"
-                description="Title for current project session card"
-                id="AfXYpF"
-              />
-            </Text>
+            <div className="flex items-center justify-between">
+              <Text weight="bold">
+                <FormattedMessage
+                  defaultMessage="Current project session"
+                  description="Title for current project session card"
+                  id="AfXYpF"
+                />
+              </Text>
+              <div className="block md:hidden">{expandButton}</div>
+            </div>
             <div className={clsx('flex gap-1', themeTextSecondaryColor)}>
               <RiTimerLine className="h-4 w-4" color="inherit" />
               <Text color="inherit" size="body3">
@@ -125,8 +158,9 @@ export default function ProjectsProjectCurrentProjectSessionCard({
               </Text>
             </div>
           </div>
-          <div className="flex gap-2">
+          <div className="flex md:gap-2 gap-4">
             <Button
+              className="md:inline-flex flex flex-1"
               href={submitHref}
               icon={RiArrowRightLine}
               label={intl.formatMessage({
@@ -139,6 +173,7 @@ export default function ProjectsProjectCurrentProjectSessionCard({
               variant="primary"
             />
             <Tooltip
+              className="md:inline-flex flex flex-1"
               label={intl.formatMessage({
                 defaultMessage:
                   'You can choose to end a project session if you choose not to work on it anymore. We will stop prompting you to continue the project in the dashboard',
@@ -148,6 +183,7 @@ export default function ProjectsProjectCurrentProjectSessionCard({
               })}
               position="below">
               <Button
+                className="md:inline-flex flex flex-1"
                 icon={RiStopCircleLine}
                 label={intl.formatMessage({
                   defaultMessage: 'End session',
@@ -162,32 +198,7 @@ export default function ProjectsProjectCurrentProjectSessionCard({
                 }}
               />
             </Tooltip>
-            <Button
-              className={clsx(
-                'transition-transform',
-                isExpanded && 'rotate-180',
-              )}
-              icon={RiArrowDownSLine}
-              isLabelHidden={true}
-              label={
-                isExpanded
-                  ? intl.formatMessage({
-                      defaultMessage: 'Collapse',
-                      description:
-                        'Label for "Collapse" button on current project session card',
-                      id: 'n2UNgq',
-                    })
-                  : intl.formatMessage({
-                      defaultMessage: 'More',
-                      description:
-                        'Label for "More" button on current project session card',
-                      id: 'dgTN/f',
-                    })
-              }
-              size="xs"
-              variant="tertiary"
-              onClick={() => setIsExpanded((expanded) => !expanded)}
-            />
+            <div className="md:block hidden">{expandButton}</div>
           </div>
         </div>
         {isExpanded && (

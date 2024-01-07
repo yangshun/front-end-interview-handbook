@@ -34,6 +34,9 @@ export const sessionsRouter = router({
       },
     });
   }),
+  getAnySession: projectsUserProcedure.query(async () => {
+    return await prisma.projectsProjectSession.findFirst();
+  }),
   getLatestInProgress: sessionProcedure.query(async ({ input: { slug } }) => {
     return await prisma.projectsProjectSession.findFirst({
       where: {
