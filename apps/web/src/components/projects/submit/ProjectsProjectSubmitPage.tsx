@@ -1,7 +1,11 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiArrowLeftLine, RiImageLine } from 'react-icons/ri';
+import {
+  RiArrowLeftLine,
+  RiImageLine,
+  RiInformationLine,
+} from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 import { useIntl } from 'react-intl';
 
@@ -21,8 +25,11 @@ import {
   themeElementBorderColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
+import ProjectsProjectSubmitPageDeploymentDialog from './ProjectsProjectSubmitPageDeploymentDialog';
 import RichTextEditor from './RichTextEditor';
+import { themeTextFaintColor } from '../../ui/theme';
 
 type Props = Readonly<{
   project: ProjectsProjectItem;
@@ -105,6 +112,25 @@ export default function ProjectsProjectSubmitPage({ project }: Props) {
                   })}
                 />
                 <ProjectsOtherTechStackInput value={[]} onChange={() => {}} />
+                <TextInput
+                  description={
+                    <FormattedMessage
+                      defaultMessage="The URL of your GitHub repository. We will also use it to pull files onto the platform for code reviews."
+                      description="Description for GitHub repository input on project submit page"
+                      id="aW6XJi"
+                    />
+                  }
+                  descriptionStyle="tooltip"
+                  label={intl.formatMessage({
+                    defaultMessage: 'GitHub code repository URL',
+                    description:
+                      'Label for GitHub repository input on project submit page',
+                    id: 'ql7kBY',
+                  })}
+                  placeholder="https://github.com/johndoe/my-awesome-project"
+                  required={true}
+                  type="url"
+                />
               </div>
               <div className="flex grow flex-col gap-2">
                 <Label
@@ -144,48 +170,61 @@ export default function ProjectsProjectSubmitPage({ project }: Props) {
               </div>
             </div>
             <Divider />
-            <div className="grid lg:grid-cols-2 gap-x-6">
-              <TextInput
-                description={
-                  <FormattedMessage
-                    defaultMessage="The URL where your solution is hosted. Find our <link>recommended free hosting providers</link> if you haven\'t already."
-                    description="Description for live site URL input on project submit page"
-                    id="wP8dNq"
-                    values={{
-                      link: (chunks) => <Anchor>{chunks}</Anchor>,
-                    }}
-                  />
-                }
-                descriptionStyle="tooltip"
-                label={intl.formatMessage({
-                  defaultMessage: 'Live site URL',
-                  description:
-                    'Label for live site URL input on project submit page',
-                  id: 't/yfeM',
-                })}
-                placeholder="https://my-awesome-project.vercel.app"
-                required={true}
-                type="url"
-              />
-              <TextInput
-                description={
-                  <FormattedMessage
-                    defaultMessage="The URL of your GitHub repository. We will also use it to pull files onto the platform for code reviews."
-                    description="Description for GitHub repository input on project submit page"
-                    id="aW6XJi"
-                  />
-                }
-                descriptionStyle="tooltip"
-                label={intl.formatMessage({
-                  defaultMessage: 'GitHub code repository URL',
-                  description:
-                    'Label for GitHub repository input on project submit page',
-                  id: 'ql7kBY',
-                })}
-                placeholder="https://github.com/johndoe/my-awesome-project"
-                required={true}
-                type="url"
-              />
+            <div>
+              <div className="flex justify-between">
+                <div className="flex items-center gap-1">
+                  <Text size="body2" weight="medium">
+                    Live site URL
+                  </Text>
+                  <Tooltip
+                    label={
+                      <FormattedMessage
+                        defaultMessage="The URL where your solution is hosted. Find our <link>recommended free hosting providers</link> if you haven\'t already."
+                        description="Description for live site URL input on project submit page"
+                        id="wP8dNq"
+                        values={{
+                          link: (chunks) => <Anchor>{chunks}</Anchor>,
+                        }}
+                      />
+                    }>
+                    <RiInformationLine
+                      className={clsx('h-4', themeTextFaintColor)}
+                    />
+                  </Tooltip>
+                </div>
+                <ProjectsProjectSubmitPageDeploymentDialog />
+              </div>
+              <Text color="secondary" size="body3">
+                <FormattedMessage
+                  defaultMessage="Provide at least 1 URL where you hosted your solution"
+                  description="Description for live site URL input on project submit page"
+                  id="g15ta9"
+                />
+              </Text>
+              <div className="grid lg:grid-cols-2 gap-x-6 pt-4">
+                <TextInput
+                  label={intl.formatMessage({
+                    defaultMessage: 'Pricing page',
+                    description:
+                      'Label for pricing page input on project submit page',
+                    id: 'XzVqzs',
+                  })}
+                  placeholder="www.solution.com"
+                  required={true}
+                  type="url"
+                />
+                <TextInput
+                  label={intl.formatMessage({
+                    defaultMessage: 'Home page',
+                    description:
+                      'Label for home page input on project submit page',
+                    id: 'FT5uOi',
+                  })}
+                  placeholder="www.solution.com"
+                  required={true}
+                  type="url"
+                />
+              </div>
             </div>
             <Divider />
             <div className="flex flex-col gap-6">
