@@ -1,5 +1,7 @@
-import { useIntl } from 'react-intl';
+import { RiPushpinFill } from 'react-icons/ri';
+import { FormattedMessage, useIntl } from 'react-intl';
 
+import Anchor from '~/components/ui/Anchor';
 import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';
 
@@ -13,12 +15,18 @@ import ProjectsUserYearsOfExperience from '../users/ProjectsUserYearsOfExperienc
 import UserAvatarWithLevel from '../users/UserAvatarWithLevel';
 
 type Props = Readonly<{
+  isPinnedOnProfile?: boolean;
   submission: ProjectsSubmission;
 }>;
 
-export default function ProjectsSubmissionCard({ submission }: Props) {
+export default function ProjectsSubmissionCard({
+  isPinnedOnProfile = false,
+  submission,
+}: Props) {
   const intl = useIntl();
   const {
+    briefDescription,
+    briefUrl,
     title,
     stack,
     author,
@@ -32,6 +40,22 @@ export default function ProjectsSubmissionCard({ submission }: Props) {
   return (
     <Card disableSpotlight={true} padding={false} pattern={false}>
       <div className="flex flex-col px-4 py-6 gap-4">
+        {isPinnedOnProfile && (
+          <div className="flex justify-between">
+            <Text color="secondary" size="body3">
+              <FormattedMessage
+                defaultMessage="Brief: <link>{briefDescription}</link>"
+                description="Link to brief for pinned project submission"
+                id="Ukm+GC"
+                values={{
+                  briefDescription,
+                  link: (chunks) => <Anchor href={briefUrl}>{chunks}</Anchor>,
+                }}
+              />
+            </Text>
+            <RiPushpinFill className="!text-brand" />
+          </div>
+        )}
         <div className="flex flex-col gap-3">
           <Text weight="bold">{title}</Text>
           <ProjectsSkillRow
@@ -44,25 +68,30 @@ export default function ProjectsSubmissionCard({ submission }: Props) {
           />
         </div>
         <img alt="" className="h-[190px] w-full rounded-md" src={imgSrc} />
-        <div className="flex items-center gap-4">
-          <UserAvatarWithLevel
-            level={11}
-            profile={author}
-            progress={40}
-            size="xl"
-          />
-          <div className="flex flex-col gap-1">
-            <Text size="body2" weight="medium">
-              {author.name}
-            </Text>
-            <div className="flex gap-x-4 flex-wrap gap-y-2">
-              {author.title && (
-                <ProjectsUserJobTitle jobTitle={author.title} size="2xs" />
-              )}
-              <ProjectsUserYearsOfExperience size="2xs" yearsOfExperience={2} />
+        {!isPinnedOnProfile && (
+          <div className="flex items-center gap-4">
+            <UserAvatarWithLevel
+              level={11}
+              profile={author}
+              progress={40}
+              size="xl"
+            />
+            <div className="flex flex-col gap-1">
+              <Text size="body2" weight="medium">
+                {author.name}
+              </Text>
+              <div className="flex gap-x-4 flex-wrap gap-y-2">
+                {author.title && (
+                  <ProjectsUserJobTitle jobTitle={author.title} size="2xs" />
+                )}
+                <ProjectsUserYearsOfExperience
+                  size="2xs"
+                  yearsOfExperience={2}
+                />
+              </div>
             </div>
           </div>
-        </div>
+        )}
         <Text color="subtitle" display="block" size="body3">
           {description}
         </Text>

@@ -2,6 +2,7 @@
 
 import { FormattedMessage } from 'react-intl';
 
+import ProjectsProfileFeaturedSubmissions from '~/components/projects/profile/ProjectsProfileFeaturedSubmissions';
 import ProjectsProfileInfo from '~/components/projects/profile/ProjectsProfileInfo';
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
 import type { ProjectsUserProfile } from '~/components/projects/profile/types';
@@ -23,6 +24,7 @@ export default function ProjectsProfilePage({ profile }: Props) {
       </Heading>
       <ProjectsProfileInfo profile={profile} />
       <ProjectsProfileStats />
+      <ProjectsProfileFeaturedSubmissions />
     </div>
   );
 }
