@@ -38,7 +38,9 @@ export default async function handler(req: NextRequest) {
   const { origin, searchParams } = url;
   const supabaseAdmin = createSupabaseAdminClientGFE();
 
-  const user = readUserFromToken(req.cookies.get('supabase-auth-token')?.value);
+  const user = await readUserFromToken(
+    req.cookies.get('supabase-auth-token')?.value,
+  );
 
   if (user == null) {
     return new Response(

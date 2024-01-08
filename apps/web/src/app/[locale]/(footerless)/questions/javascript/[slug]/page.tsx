@@ -47,7 +47,7 @@ export default async function Page({ params }: Props) {
   const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
   const supabaseAdmin = createSupabaseAdminClientGFE();
 
-  const user = readUserFromToken();
+  const user = await readUserFromToken();
   const { question } = readQuestionJavaScriptContents(slug, locale);
 
   let canViewPremiumContent = false;

@@ -3,13 +3,17 @@ import { NextResponse } from 'next/server';
 
 import { parseJWTAccessToken } from '~/supabase/SupabaseServerGFE';
 
+// Test that this API also works on Vercel's edge runtime, which
+// contains only a subset of Node.js APIs.
+export const runtime = 'edge';
+
 /**
  * Test parsing of the Supabase auth token.
  */
 export async function GET(request: NextRequest) {
   try {
     const token = request.cookies.get('supabase-auth-token');
-    const data = parseJWTAccessToken(token!.value);
+    const data = await parseJWTAccessToken(token!.value);
 
     return NextResponse.json(data);
   } catch (error) {

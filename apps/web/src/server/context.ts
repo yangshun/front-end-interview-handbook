@@ -6,7 +6,7 @@ import type * as trpcNext from '@trpc/server/adapters/next';
 export async function createContext({
   req,
 }: trpcNext.CreateNextContextOptions) {
-  const user = readUserFromToken(req.cookies['supabase-auth-token']);
+  const user = await readUserFromToken(req.cookies['supabase-auth-token']);
 
   return {
     req,

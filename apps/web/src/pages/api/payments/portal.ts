@@ -14,7 +14,7 @@ export default async function handler(
 ) {
   const { origin } = absoluteUrl(req);
 
-  const user = readUserFromToken(
+  const user = await readUserFromToken(
     cookie.parse(req.headers?.cookie ?? '')['supabase-auth-token'],
   );
 

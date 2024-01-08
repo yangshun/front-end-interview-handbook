@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const user = readUserFromToken();
+  const user = await readUserFromToken();
 
   if (user == null) {
     return redirect(`/login?next=${encodeURIComponent('/profile')}`);

@@ -6,7 +6,7 @@ import prisma from '~/server/prisma';
 import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
 
 export default async function Page() {
-  const user = readUserFromToken();
+  const user = await readUserFromToken();
 
   if (user == null) {
     return redirect(

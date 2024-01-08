@@ -49,7 +49,7 @@ export default async function Page({ params }: Props) {
   const { question } = readQuestionSystemDesignContents(slug, locale);
 
   const canViewPremiumContent: boolean = await (async () => {
-    const user = readUserFromToken();
+    const user = await readUserFromToken();
 
     if (user == null) {
       return false;

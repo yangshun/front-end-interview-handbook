@@ -282,12 +282,12 @@ importers:
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
+      jose:
+        specifier: ^5.2.0
+        version: 5.2.0
       js-cookie:
         specifier: ^3.0.1
         version: 3.0.5
-      jsonwebtoken:
-        specifier: ^9.0.2
-        version: 9.0.2
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
@@ -9853,6 +9853,10 @@ packages:
 
   /jose@4.15.4:
     resolution: {integrity: sha512-W+oqK4H+r5sITxfxpSU+MMdr/YSWGvgZMQDIsNoBDGGy4i7GBPTtvFKibQzW06n3U3TqHjhvBJsirShsEJ6eeQ==}
+    dev: false
+
+  /jose@5.2.0:
+    resolution: {integrity: sha512-oW3PCnvyrcm1HMvGTzqjxxfnEs9EoFOFWi2HsEGhlFVOXxTE3K9GKWVMFoFw06yPUqwpvEWic1BmtUZBI/tIjw==}
     dev: false
 
   /jquery@3.7.1:

@@ -2,7 +2,7 @@
 // The last time I tried the logging routes failed, saying that this can only be used in server components.
 // import 'server-only';
 
-import jwt from 'jsonwebtoken';
+import { jwtVerify } from 'jose';
 import { cookies } from 'next/headers';
 
 import type { Database } from './database.types';
@@ -67,7 +67,6 @@ export async function fetchUserDoNotUseIfOnlyUserIdOrEmailNeeded(
     }
 
     const supabaseAdmin = createSupabaseAdminClientGFE();
-    // TODO(supabase): replace with parseJWTAccessToken() to avoid a server round trip?
     const {
       data: { user },
     } = await supabaseAdmin.auth.getUser(tokens.accessToken);
@@ -80,7 +79,9 @@ export async function fetchUserDoNotUseIfOnlyUserIdOrEmailNeeded(
 }
 
 // TODO(auth): Migrate fetchUser() to this function as much as possible.
-export function readUserFromToken(authToken?: string): JwtUser | null {
+export async function readUserFromToken(
+  authToken?: string,
+): Promise<SupabaseJwtUser | null> {
   try {
     let supabaseAuthToken = authToken;
 
@@ -98,13 +99,7 @@ export function readUserFromToken(authToken?: string): JwtUser | null {
       return null;
     }
 
-    const tokens = decodeSupabaseAuthTokens(supabaseAuthToken);
-
-    if (tokens == null || tokens.accessToken == null) {
-      return null;
-    }
-
-    return parseJWTAccessToken(supabaseAuthToken);
+    return await parseJWTAccessToken(supabaseAuthToken);
   } catch (err) {
     // TODO: Log error.
     return null;
@@ -140,30 +135,35 @@ function decodeSupabaseAuthTokens(authTokens: string): Readonly<{
   }
 }
 
-type JwtUser = Readonly<{
+type SupabaseJwtUser = Readonly<{
   email: string; // User Email.
   id: string; // User ID.
 }>;
 
-type JwtPayload = Readonly<{
+type SupabaseJwtPayload = Readonly<{
   email: string; // User Email.
   sub: string; // User ID.
 }>;
 
-export function parseJWTAccessToken(token: string): JwtUser {
+const encodedSecret = new TextEncoder().encode(
+  process.env.SUPABASE_JWT_SECRET!,
+);
+
+export async function parseJWTAccessToken(
+  token: string,
+): Promise<SupabaseJwtUser> {
   const { accessToken } = decodeSupabaseAuthTokens(token);
 
   if (!accessToken) {
     throw new Error('Unable to parse Supabase auth token');
   }
 
-  const payload = jwt.verify(
-    accessToken,
-    process.env.SUPABASE_JWT_SECRET!,
-  ) as JwtPayload;
+  const { payload } = await jwtVerify(accessToken, encodedSecret);
+
+  const jwtPayload = payload as SupabaseJwtPayload;
 
   return {
-    email: payload.email,
-    id: payload.sub,
+    email: jwtPayload.email,
+    id: jwtPayload.sub,
   };
 }
