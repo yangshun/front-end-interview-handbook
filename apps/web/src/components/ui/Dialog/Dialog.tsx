@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 import { Fragment, useRef } from 'react';
+import { RiCloseLine } from 'react-icons/ri';
+import { useIntl } from 'react-intl';
 
 import Heading from '~/components/ui/Heading/Heading';
 
@@ -47,7 +49,24 @@ export default function DialogImpl({
   width = 'sm',
   onClose,
 }: Props) {
+  const intl = useIntl();
   const cancelButtonRef = useRef(null);
+
+  const closeButton = (
+    <button
+      className="focus:ring-brand -mr-2 flex h-10 w-10 items-center justify-center rounded-full p-2 text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset"
+      type="button"
+      onClick={() => onClose?.()}>
+      <span className="sr-only">
+        {intl.formatMessage({
+          defaultMessage: 'Close menu',
+          description: 'Button to close menu',
+          id: 'NVGZEe',
+        })}
+      </span>
+      <RiCloseLine aria-hidden="true" className="h-6 w-6" />
+    </button>
+  );
 
   return (
     <Transition.Root as={Fragment} show={isShown}>
@@ -86,9 +105,12 @@ export default function DialogImpl({
                   'text-left shadow-xl transition-all',
                 )}>
                 <div className="grid gap-y-2.5 px-6 pb-4 pt-6">
-                  <Dialog.Title as="div">
-                    <Heading level="heading6">{title}</Heading>
-                  </Dialog.Title>
+                  <div className="flex items-center justify-between">
+                    <Dialog.Title as="div">
+                      <Heading level="heading6">{title}</Heading>
+                    </Dialog.Title>
+                    {closeButton}
+                  </div>
                   <Section>
                     <Text display="block" size="body2">
                       {children}
