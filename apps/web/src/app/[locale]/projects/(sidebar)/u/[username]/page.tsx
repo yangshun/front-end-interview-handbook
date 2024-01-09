@@ -10,15 +10,17 @@ type Props = Readonly<{
 }>;
 
 export default async function Page({ params }: Props) {
-  const user = readUserFromToken();
-  const profile = await prisma.profile.findUnique({
-    include: {
-      projectsProfile: true,
-    },
-    where: {
-      username: params.username,
-    },
-  });
+  const [user, profile] = await Promise.all([
+    readUserFromToken(),
+    prisma.profile.findUnique({
+      include: {
+        projectsProfile: true,
+      },
+      where: {
+        username: params.username,
+      },
+    }),
+  ]);
 
   // If no user profile or no projects profile
   if (profile === null || profile?.projectsProfile.length === 0) {

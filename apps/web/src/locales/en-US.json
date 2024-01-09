@@ -395,10 +395,6 @@
     "defaultMessage": "Security",
     "description": "Title for Security section on profile page"
   },
-  "39nAV5": {
-    "defaultMessage": "Please enter your bio",
-    "description": "Error message for empty \"Job title\" input on Projects profile  page"
-  },
   "3HUfI+": {
     "defaultMessage": "You are doing great things for the Front End community. Especially for those who are Junior engineers like me, advanced solutions covering various aspects of front end development help a lot. Thank you to the team.",
     "description": "Anonymous Software Engineer's testimonial"
@@ -414,10 +410,6 @@
   "3QQssQ": {
     "defaultMessage": "Please enter a valid date",
     "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
-  },
-  "3QUN8S": {
-    "defaultMessage": "Please enter your job title",
-    "description": "Error message for empty \"Bio\" input on Projects profile  page"
   },
   "3WHiQS": {
     "defaultMessage": "Cheatsheet",
@@ -1087,6 +1079,10 @@
     "defaultMessage": "Start task",
     "description": "Label for button to start task"
   },
+  "Ad544L": {
+    "defaultMessage": "Edit Profile",
+    "description": "Label for edit projects profile button"
+  },
   "Ad94JV": {
     "defaultMessage": "Use code at checkout",
     "description": "Instruction to apply discount"
@@ -1106,6 +1102,10 @@
   "AmBMf9": {
     "defaultMessage": "No questions",
     "description": "Title for empty state when application of filters return no results"
+  },
+  "B+SjAW": {
+    "defaultMessage": "The skills / tools / frameworks I am hoping to grow",
+    "description": "Projects profile tech stack I am hoping to grow section title"
   },
   "B2171J": {
     "defaultMessage": "Download design assets",
@@ -1170,6 +1170,10 @@
   "C0dq+J": {
     "defaultMessage": "Want to bridge some skill gaps in modern front end or full stack",
     "description": "Motivation level for experienced reason"
+  },
+  "C34IkO": {
+    "defaultMessage": "The skills / tools / frameworks you are hoping to grow. Cannot find the tag you need? Email us at {supportEmail}",
+    "description": "Description for \"Tech stack to improve\" input on Projects profile onboarding page"
   },
   "C34sRh": {
     "defaultMessage": "Account Settings",
@@ -1611,10 +1615,6 @@
     "defaultMessage": "No completed questions",
     "description": "Text shown when no questions are completed."
   },
-  "H+so3d": {
-    "defaultMessage": "The skills / tools / frameworks you are hoping to grow.. Cannot find the tag you need? Email us at {supportEmail}",
-    "description": "Description for \"Tech stack to improve\" input on Projects profile onboarding page"
-  },
   "H/u+cg": {
     "defaultMessage": "Guides",
     "description": "Guides navbar item"
@@ -1838,6 +1838,10 @@
   "JQ6swd": {
     "defaultMessage": "Progress",
     "description": "Question progress"
+  },
+  "JQT5KD": {
+    "defaultMessage": "Profile",
+    "description": "Title of Projects Profile page"
   },
   "JUhFP/": {
     "defaultMessage": "Minimum {minNumber} characters. Letters and digits required.",
@@ -2927,6 +2931,10 @@
     "defaultMessage": "India",
     "description": "India country"
   },
+  "UYvCz8": {
+    "defaultMessage": "The skills / tools / frameworks I am already familiar in",
+    "description": "Projects profile tech stack proficient section title"
+  },
   "UZDhKH": {
     "defaultMessage": "Tech stack you are hoping to grow in",
     "description": "Label for \"Tech stack you are hoping to grow in\" input on Projects profile onboarding page"
@@ -3495,6 +3503,10 @@
     "defaultMessage": "{current}/{total} completed",
     "description": "Label for Projects segmented progress bar"
   },
+  "aIn0YC": {
+    "defaultMessage": "Tech stack {username} proficient in",
+    "description": "Projects profile tech stack proficient section title"
+  },
   "aP9GUx": {
     "defaultMessage": "[DEV-ONLY] Stripe Customer ID",
     "description": "Label for Stripe customer ID."
@@ -3678,6 +3690,10 @@
   "bxZm1S": {
     "defaultMessage": "User Interface Questions",
     "description": "Title for an example list of User Interface Questions on marketing pages"
+  },
+  "by2veu": {
+    "defaultMessage": "The skills / tools / frameworks {username} is hoping to grow",
+    "description": "Projects profile tech stack I am hoping to grow section title"
   },
   "c2bsgM": {
     "defaultMessage": "For Experienced",
@@ -3919,6 +3935,10 @@
     "defaultMessage": "GitHub (optional)",
     "description": "Label for GitHub link input on Projects profile onboarding page"
   },
+  "f7oS+z": {
+    "defaultMessage": "The skills / tools / frameworks {username} is already familiar in",
+    "description": "Projects profile tech stack proficient section title"
+  },
   "f89otf": {
     "defaultMessage": "Algorithm Questions",
     "description": "Algorithm Coding Interview Questions"
@@ -3986,6 +4006,10 @@
   "fjKhks": {
     "defaultMessage": "Invest in fuss-free, quality preparation",
     "description": "Title of Pricing section of Homepage or Pricing page"
+  },
+  "fjj5BL": {
+    "defaultMessage": "Profile saved!",
+    "description": "Toast for project profile saved"
   },
   "fmAcHR": {
     "defaultMessage": "Practice everything in popular frameworks",
@@ -4366,10 +4390,6 @@
   "jeX0Hi": {
     "defaultMessage": "Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others",
     "description": "Placeholder for Biography input on Projects profile onboarding page"
-  },
-  "jfJK1r": {
-    "defaultMessage": "Please enter your name",
-    "description": "Error message for empty \"Name\" input on Projects profile page"
   },
   "jgIdRC": {
     "defaultMessage": "Password",
@@ -4787,6 +4807,10 @@
     "defaultMessage": "Prepare for your front end interviews in one week. Efficiently focus on the most important concepts through a good mix of coding and quiz questions.",
     "description": "Description for one week study plan"
   },
+  "nsdh11": {
+    "defaultMessage": "Edit",
+    "description": "Label for edit projects profile button"
+  },
   "ntAmll": {
     "defaultMessage": "Every project belongs to 1 of 7 tracks comprising of common components used in the industry / use case",
     "description": "Description for \"Component libraries\" feature on Projects home page"
@@ -4910,6 +4934,10 @@
   "p9Ml7d": {
     "defaultMessage": "You're about to open an external website. Be cautious and keep your personal information safe",
     "description": "Subtitle for external link page"
+  },
+  "pABUkn": {
+    "defaultMessage": "Tech stack {username} is hoping to grow in",
+    "description": "Projects profile tech stack I am hoping to grow section title"
   },
   "pBR3LI": {
     "defaultMessage": "Blog",
