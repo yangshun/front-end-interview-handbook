@@ -1,7 +1,7 @@
 import ProjectsProjectResourcesPage from '~/components/projects/details/resources/ProjectsProjectResourcesPage';
 
 import {
-  readProjectsProjectMetadata,
+  readProjectsProjectItem,
   readProjectsProjectResourceGuideList,
 } from '~/db/projects/ProjectsReader';
 
@@ -13,7 +13,7 @@ export default async function Page({ params }: Props) {
   const { slug, locale } = params;
 
   const [{ project }, { resourceProjectGuides }] = await Promise.all([
-    readProjectsProjectMetadata(slug, locale),
+    readProjectsProjectItem(slug, locale),
     readProjectsProjectResourceGuideList(locale),
   ]);
 

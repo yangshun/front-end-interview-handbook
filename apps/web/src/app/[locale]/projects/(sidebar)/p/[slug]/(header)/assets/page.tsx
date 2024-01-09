@@ -2,7 +2,7 @@ import ProjectsProjectAssetsPage from '~/components/projects/details/assets/Proj
 
 import {
   readProjectsProjectAPIWriteup,
-  readProjectsProjectMetadata,
+  readProjectsProjectItem,
   readProjectsProjectStyleGuide,
 } from '~/db/projects/ProjectsReader';
 
@@ -13,7 +13,7 @@ type Props = Readonly<{
 export default async function Page({ params }: Props) {
   const { slug, locale } = params;
   const [{ project }, { styleGuide }, { apiWriteup }] = await Promise.all([
-    readProjectsProjectMetadata(slug, locale),
+    readProjectsProjectItem(slug, locale),
     readProjectsProjectStyleGuide(slug, locale),
     readProjectsProjectAPIWriteup(slug, locale),
   ]);

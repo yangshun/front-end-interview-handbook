@@ -1,6 +1,7 @@
 import type {
   ProjectAPIWriteup,
   ProjectGuide,
+  ProjectMetadata,
   ProjectStyleGuide,
   ProjectTrackMetadata,
 } from 'contentlayer/generated';
@@ -22,7 +23,7 @@ import type { ProjectsProjectSessionStatus } from '@prisma/client';
 
 // TODO(projects): remove in future.
 export const exampleProject: Omit<ProjectsProjectItem, 'metadata'> = {
-  completedCount: 21,
+  completedCount: null,
   completedUsers: [
     {
       avatarUrl: 'https://source.unsplash.com/random/48x48',
@@ -158,11 +159,9 @@ export async function readProjectsProjectList(
           const countsForProjectList =
             await prisma.projectsProjectSession.groupBy({
               _count: true,
-              by: 'slug',
+              by: ['slug', 'profileId'],
               where: {
-                status: {
-                  not: 'STOPPED',
-                },
+                status: 'COMPLETED',
               },
             });
 
@@ -200,7 +199,7 @@ export async function readProjectsProjectList(
   };
 }
 
-export async function readProjectsProjectMetadata(
+export async function readProjectsProjectItem(
   slugParam: string,
   requestedLocale = 'en-US',
 ): Promise<
@@ -212,7 +211,56 @@ export async function readProjectsProjectMetadata(
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
 
-  const project = allProjectMetadata.find(
+  const { projectMetadata } = await readProjectsProjectMetadata(
+    slug,
+    requestedLocale,
+  );
+
+  const [completedCount] = await Promise.all([
+    (async () => {
+      try {
+        const countsForProjectList =
+          await prisma.projectsProjectSession.groupBy({
+            _count: true,
+            by: ['slug', 'profileId'],
+            where: {
+              slug,
+              status: 'COMPLETED',
+            },
+          });
+
+        return countsForProjectList[0]._count;
+      } catch (_err) {
+        return null;
+      }
+    })(),
+  ]);
+
+  return {
+    loadedLocale: requestedLocale,
+    project: {
+      ...exampleProject,
+      completedCount,
+      metadata: {
+        ...projectMetadata,
+        ...extraProjectData,
+      },
+    },
+  };
+}
+
+async function readProjectsProjectMetadata(
+  slugParam: string,
+  requestedLocale = 'en-US',
+): Promise<
+  Readonly<{
+    loadedLocale: string;
+    projectMetadata: ProjectMetadata;
+  }>
+> {
+  // So that we handle typos like extra characters.
+  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
+  const projectMetadata = allProjectMetadata.find(
     (projectItem) =>
       projectItem._raw.flattenedPath ===
       `projects/project/${slug}/${requestedLocale}`,
@@ -220,13 +268,7 @@ export async function readProjectsProjectMetadata(
 
   return {
     loadedLocale: requestedLocale,
-    project: {
-      ...exampleProject,
-      metadata: {
-        ...project,
-        ...extraProjectData,
-      },
-    },
+    projectMetadata,
   };
 }
 
