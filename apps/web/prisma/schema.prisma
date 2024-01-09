@@ -200,8 +200,10 @@ model ProjectsProjectSession {
   profileId String                       @db.Uuid
   slug      String
   status    ProjectsProjectSessionStatus @default(IN_PROGRESS)
-  createdAt DateTime                     @default(now()) @db.Timestamptz(6)
-  stoppedAt DateTime?                    @db.Timestamptz(6)
+
+  createdAt DateTime  @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime  @updatedAt
+  stoppedAt DateTime? @db.Timestamptz(6)
 
   profile ProjectsProfile? @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
