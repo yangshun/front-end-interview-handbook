@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { RiRocketLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import QuestionsProgressBar from '~/components/interviews/questions/common/QuestionsProgressBar';
+import ProgressBar from '~/components/ui/ProgressBar';
 import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 
@@ -34,7 +34,7 @@ export default function ProjectsProjectCountTag({ value, total }: Props) {
         />
       </Text>
       <div>
-        <QuestionsProgressBar
+        <ProgressBar
           label={intl.formatMessage(
             {
               defaultMessage:

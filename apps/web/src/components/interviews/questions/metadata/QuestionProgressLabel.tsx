@@ -3,10 +3,10 @@ import { useId } from 'react';
 import { RiCheckboxCircleLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import ProgressBar from '~/components/ui/ProgressBar';
 import { themeIconColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import QuestionsProgressBar from '../common/QuestionsProgressBar';
 import QuestionsProgressFraction from '../common/QuestionsProgressFraction';
 
 type Props = Readonly<{
@@ -40,7 +40,7 @@ export default function QuestionProgressLabel({
           aria-hidden="true"
           className={clsx('h-5 w-5 shrink-0', themeIconColor)}
         />
-        <QuestionsProgressBar
+        <ProgressBar
           label={label}
           progressClass={barClassName}
           total={total}

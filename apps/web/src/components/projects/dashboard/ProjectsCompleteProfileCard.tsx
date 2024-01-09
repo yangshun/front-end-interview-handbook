@@ -10,10 +10,10 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import useProfile from '~/hooks/user/useProfile';
 
-import QuestionProgressBar from '~/components/interviews/questions/common/QuestionsProgressBar';
 import Anchor from '~/components/ui/Anchor';
 import Card from '~/components/ui/Card';
 import Chip from '~/components/ui/Chip';
+import ProgressBar from '~/components/ui/ProgressBar';
 import Text from '~/components/ui/Text';
 import { themeGradientBlueGreen } from '~/components/ui/theme';
 
@@ -108,7 +108,7 @@ export default function ProjectsCompleteProfileCard() {
         />
       </Text>
       {isCardOpen && (
-        <QuestionProgressBar
+        <ProgressBar
           label={intl.formatMessage({
             defaultMessage: 'Profile completion progress bar',
             description:

@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import ProgressBar from '~/components/ui/ProgressBar';
 import Text from '~/components/ui/Text';
 
 import QuestionListingSideCard from './QuestionListingSideCard';
-import QuestionsProgressBar from '../../common/QuestionsProgressBar';
 import type { QuestionDifficulty } from '../../common/QuestionsTypes';
 
 const difficultyBackgroundClasses: Record<QuestionDifficulty, string> = {
@@ -68,7 +68,7 @@ function QuestionListingDifficultySummaryItem({
           weight="medium">
           {barLabel}
         </Text>
-        <QuestionsProgressBar
+        <ProgressBar
           heightClass="h-1.5"
           label={barLabel}
           progressClass={difficultyBackgroundClasses[difficulty]}

@@ -1,60 +1,41 @@
 import clsx from 'clsx';
 
-import { themeChipBackgroundColor } from '~/components/ui/theme';
-
-type ProgressBarSize = 'lg' | 'md';
-
 type Props = Readonly<{
-  completed: number;
-  showKnob?: boolean;
-  size?: ProgressBarSize;
+  heightClass?: string;
+  label: string;
+  progressClass?: string;
   total: number;
+  value: number;
 }>;
 
 export default function ProgressBar({
-  completed,
-  showKnob = false,
-  size = 'md',
+  progressClass = 'bg-green',
+  heightClass = 'h-2',
+  value,
+  label,
   total,
 }: Props) {
-  if (total === 0) {
-    return null;
-  }
+  const widthPercentage = Math.min(value / Math.max(total, 1), 1);
 
   return (
     <div
+      aria-label={label}
+      aria-valuemax={total}
+      aria-valuemin={0}
+      aria-valuenow={value}
       className={clsx(
-        'relative w-full',
-        size === 'md' && 'h-3',
-        size === 'lg' && 'h-4',
-      )}>
-      {showKnob && (
-        <div
-          className="absolute -top-2 z-10 flex h-8 w-8 -translate-x-4 items-center justify-center rounded-full bg-neutral-100 drop-shadow-lg"
-          style={{ left: `calc(${(completed / total) * 100}%)` }}>
-          <div className="bg-success-light dark:bg-success-lighter h-4 w-4 rounded-full" />
-        </div>
+        'w-full rounded-full bg-neutral-200/70 dark:bg-neutral-800',
+        'min-w-[120px]',
+        heightClass,
       )}
+      role="progressbar">
       <div
         className={clsx(
-          'flex-grow-1 relative flex h-full w-full overflow-clip',
-          themeChipBackgroundColor,
-          size === 'md' && 'rounded-lg',
-          size === 'lg' && 'rounded-xl',
-        )}>
-        <div
-          aria-valuemax={total}
-          aria-valuemin={0}
-          aria-valuenow={completed}
-          className={clsx(
-            'bg-success h-full w-full origin-left transition-transform duration-500',
-            size === 'md' && 'rounded-lg',
-            size === 'lg' && 'rounded-xl',
-          )}
-          role="progressbar"
-          style={{ width: `${(completed / total) * 100}%` }}
-        />
-      </div>
+          'h-full rounded-full transition-[width]',
+          progressClass,
+        )}
+        style={{ width: `${widthPercentage * 100}%` }}
+      />
     </div>
   );
 }

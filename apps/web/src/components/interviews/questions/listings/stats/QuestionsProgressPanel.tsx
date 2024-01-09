@@ -1,8 +1,8 @@
 import { useIntl } from 'react-intl';
 
+import ProgressBar from '~/components/ui/ProgressBar';
 import Text from '~/components/ui/Text';
 
-import QuestionsProgressBar from '../../common/QuestionsProgressBar';
 import QuestionsProgressFraction from '../../common/QuestionsProgressFraction';
 
 type Props = Readonly<{
@@ -29,7 +29,7 @@ export default function QuestionsProgressPanel({
   );
 
   const progressBar = (
-    <QuestionsProgressBar
+    <ProgressBar
       label={title}
       progressClass={progressBarClassName}
       total={totalQuestions}
