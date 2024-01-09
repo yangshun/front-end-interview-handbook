@@ -107,6 +107,10 @@
     "defaultMessage": "Support you can expect",
     "description": "Title for Expected Support section on Projects project page"
   },
+  "//v4RL": {
+    "defaultMessage": "Deploying your project",
+    "description": "Title for Deployment Info in Projects"
+  },
   "/06NwY": {
     "defaultMessage": "Company-tagged questions",
     "description": "Title for company-tagged questions feature"
@@ -122,6 +126,10 @@
   "/9JvuU": {
     "defaultMessage": "{trackName} progress",
     "description": "Label for track progress on project submission success page"
+  },
+  "/ALUvk": {
+    "defaultMessage": "You can host your site using one of these solutions or any of our other trusted providers. Read more about our recommended and trusted hosts",
+    "description": "Text for Deployment Info in Projects"
   },
   "/F80kH": {
     "defaultMessage": "Read our <link>Front End Interview Guidebook</link>",
@@ -310,6 +318,10 @@
   "1kiNiW": {
     "defaultMessage": "Accessibility",
     "description": "Name of focus area questions"
+  },
+  "1q1I7J": {
+    "defaultMessage": "Vercel",
+    "description": "Label for \"Vercel\" option in Deployment Info"
   },
   "1qu2NT": {
     "defaultMessage": "For Portfolios",
@@ -718,6 +730,10 @@
   "72GwzV": {
     "defaultMessage": "Available in {frameworkLabel}",
     "description": "Label indicating what JavaScript frameworks this question is available in"
+  },
+  "73S/pd": {
+    "defaultMessage": "Netlify",
+    "description": "Label for \"Netlify\" option in Deployment Info"
   },
   "73vnK2": {
     "defaultMessage": "Mid",
@@ -1447,6 +1463,10 @@
     "defaultMessage": "Start tasks",
     "description": "Start tasks button"
   },
+  "FD+Giz": {
+    "defaultMessage": "Deployment instructions",
+    "description": "Label for button to open deployment instructions"
+  },
   "FLKG3X": {
     "defaultMessage": "Cut line (empty selection)",
     "description": "Text describing command to cut line(s) in the coding workspace shortcuts menu"
@@ -1458,6 +1478,10 @@
   "FRg+qa": {
     "defaultMessage": "General",
     "description": "Title for FAQ section"
+  },
+  "FT5uOi": {
+    "defaultMessage": "Home page",
+    "description": "Label for home page input on project submit page"
   },
   "FUjO3W": {
     "defaultMessage": "Build entire design systems or component libraries with our Component Tracks",
@@ -1522,6 +1546,10 @@
   "GPp0wf": {
     "defaultMessage": "Welcome to GreatFrontEnd Projects!",
     "description": "Title for Projects onboarding page"
+  },
+  "GRuYLb": {
+    "defaultMessage": "Top submissions you might learn from",
+    "description": "Title for Top submissions section on Projects dashboard page"
   },
   "GUmfcW": {
     "defaultMessage": "Figma design file",
@@ -1782,6 +1810,10 @@
   "JCFm+V": {
     "defaultMessage": "Authors",
     "description": "description"
+  },
+  "JIWdeN": {
+    "defaultMessage": "Continue tracks and skills",
+    "description": "Title for Continue tracks and skills section on Projects dashboard page"
   },
   "JIywgW": {
     "defaultMessage": "This is the unique username used to identify you. Use a maximum of {maxLength} characters.",
@@ -2147,6 +2179,10 @@
     "defaultMessage": "Microsoft",
     "description": "Company name for Microsoft"
   },
+  "MgVI6L": {
+    "defaultMessage": "Continue projects",
+    "description": "Title for Continue projects section on Projects dashboard page"
+  },
   "Mgs3RU": {
     "defaultMessage": "Console settings",
     "description": "Title for console settings dialog"
@@ -2222,6 +2258,10 @@
   "NUrxUb": {
     "defaultMessage": "Gain reputation and level up for productive actions",
     "description": "Short description for \"Gamified learning\" feature on Projects home page"
+  },
+  "NVGZEe": {
+    "defaultMessage": "Close menu",
+    "description": "Button to close menu"
   },
   "NdDD5W": {
     "defaultMessage": "Front End System Design Guidebook",
@@ -2390,6 +2430,10 @@
   "PGq6U8": {
     "defaultMessage": "Elevate your front-end skills by practicing the creation of front end design system components.",
     "description": "Description for interview preparation focus area"
+  },
+  "PHTFnA": {
+    "defaultMessage": "See all",
+    "description": "Label for See all button on Projects dashboard page"
   },
   "PHhUwD": {
     "defaultMessage": "Back to focus areas",
@@ -2867,6 +2911,10 @@
     "defaultMessage": "System",
     "description": "System theme option label"
   },
+  "UTPE3y": {
+    "defaultMessage": "Dashboard",
+    "description": "Title of Projects dashboard page"
+  },
   "UWjXUO": {
     "defaultMessage": "Category",
     "description": "Category of the series"
@@ -2890,6 +2938,10 @@
   "UiHdWK": {
     "defaultMessage": "Study plan to prepare for front end interviews in 1 week",
     "description": "Title of 1 Week Preparation Plan page"
+  },
+  "Ukm+GC": {
+    "defaultMessage": "Brief: <link>{briefDescription}</link>",
+    "description": "Link to brief for pinned project submission"
   },
   "UltF1J": {
     "defaultMessage": "Already an affiliate? <link>Access dashboard</link>",
@@ -3231,6 +3283,10 @@
     "defaultMessage": "<code>console.log()</code> statements will appear here.",
     "description": "Text in coding workspace's console to let users know that they can expect console logs to be found there"
   },
+  "XzVqzs": {
+    "defaultMessage": "Pricing page",
+    "description": "Label for pricing page input on project submit page"
+  },
   "Y0v9Wp": {
     "defaultMessage": "Confirm End Project Session?",
     "description": "Title for end project session dialog"
@@ -3246,6 +3302,10 @@
   "YAoXTu": {
     "defaultMessage": "Discover focus areas tailored to your needs to help your prepare for your upcoming technical interviews.",
     "description": "Description for focus areas page"
+  },
+  "YBlo/J": {
+    "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
+    "description": "Text for Deployment Info in Projects"
   },
   "YGqz7y": {
     "defaultMessage": "Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.",
@@ -3958,6 +4018,10 @@
   "fzfMZ2": {
     "defaultMessage": "Explore series | Blog",
     "description": "Title of GreatFrontEnd blog explore series page"
+  },
+  "g15ta9": {
+    "defaultMessage": "Provide at least 1 URL where you hosted your solution",
+    "description": "Description for live site URL input on project submit page"
   },
   "g2Nt5j": {
     "defaultMessage": "Edit",
@@ -4959,6 +5023,10 @@
     "defaultMessage": "Sign in with magic link",
     "description": "Label of magic link sign in button on Email Sign In page"
   },
+  "qBIBPw": {
+    "defaultMessage": "GitHub Pages",
+    "description": "Label for \"GitHub Pages\" option in Deployment Info"
+  },
   "qCCbPu": {
     "defaultMessage": "Other tech stack used (not covered in skills tree)",
     "description": "Label for \"Other tech stack used\" text input"
@@ -5211,10 +5279,6 @@
     "defaultMessage": "More on <link>Students Discount Terms and Conditions</link>",
     "description": "Link for discount terms and conditions"
   },
-  "t/yfeM": {
-    "defaultMessage": "Live site URL",
-    "description": "Label for live site URL input on project submit page"
-  },
   "t1sNnD": {
     "defaultMessage": "Advance more than 20 core skills",
     "description": "Caption for skills showcase in Projects marketing hero section"
@@ -5358,6 +5422,10 @@
   "uCyL/V": {
     "defaultMessage": "I'm <bold>experienced</bold> and here to bridge some skill gaps in modern front end or full stack",
     "description": "Label for \"Experienced\" onboarding option in Projects"
+  },
+  "uDIj6e": {
+    "defaultMessage": "Submissions",
+    "description": "Title for Featured Submissions section on Projects project profile page"
   },
   "uDUEmN": {
     "defaultMessage": "JS functions, algorithms, building components, etc.",
