@@ -100,7 +100,12 @@ export default function Badge({
         borderClass,
         className,
       )}>
-      {Icon && <Icon className={clsx(iconClass, iconSizeClasses[size])} />}
+      {Icon && (
+        <Icon
+          aria-hidden={true}
+          className={clsx('shrink-0', iconClass, iconSizeClasses[size])}
+        />
+      )}
       <span className={textClass}>{label}</span>
     </span>
   );
