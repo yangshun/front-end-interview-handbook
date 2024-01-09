@@ -59,7 +59,7 @@ export default function ProjectsProfileStats({ projectsCompleted }: Props) {
     {
       count: projectsCompleted,
       icon: RiRocketFill,
-      title: 'Projects Completed',
+      title: 'Challenges completed',
     },
     {
       count: 5653,
@@ -80,12 +80,12 @@ export default function ProjectsProfileStats({ projectsCompleted }: Props) {
 
   return (
     <Section>
-      <CardContainer className="xl:grid-cols-4 grid-cols-2 grid gap-3 md:gap-4 lg:gap-6">
+      <CardContainer className="xl:grid-cols-4 grid-cols-2 grid gap-4 lg:gap-6">
         {stats.map(({ title, count, icon: Icon }) => {
           return (
             <Card
               key={title}
-              className="group/card relative isolate flex flex-col items-start justify-between gap-3 px-6 py-4"
+              className="group/card relative isolate flex flex-col items-start justify-between gap-3 px-4 py-4 md:px-6"
               padding={false}>
               <div className="flex items-center gap-2">
                 <span

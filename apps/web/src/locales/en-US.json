@@ -2719,10 +2719,6 @@
     "defaultMessage": "All rounded coverage to bring you to the next level.",
     "description": "Short description for one month study plan"
   },
-  "SJA7IZ": {
-    "defaultMessage": "Add Website",
-    "description": "Title for Add Website task on Projects dashboard page"
-  },
   "SKsPOw": {
     "defaultMessage": "Premium Content",
     "description": "Premium system design questions content"
@@ -3054,10 +3050,6 @@
   "VWGWik": {
     "defaultMessage": "Learn to work with specifications mimicking projects you will encounter as a full-time engineer",
     "description": "Description for \"Real world specs\" feature on Projects home page"
-  },
-  "VXAI4w": {
-    "defaultMessage": "+{points} rep",
-    "description": "Label for rep increase indicator in Project card"
   },
   "VbvRHt": {
     "defaultMessage": "Pricing",
@@ -4974,6 +4966,10 @@
   "pDo/V5": {
     "defaultMessage": "{price} billed per month.",
     "description": "Description of billing frequency for monthly plan"
+  },
+  "pJja0T": {
+    "defaultMessage": "Add website",
+    "description": "Title for Add Website task on Projects dashboard page"
   },
   "pM/ZPq": {
     "defaultMessage": "Network",

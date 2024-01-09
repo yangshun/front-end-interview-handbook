@@ -14,7 +14,6 @@ import ProjectsUserJobTitle from '~/components/projects/users/ProjectsUserJobTit
 import ProjectsUserReputation from '~/components/projects/users/ProjectsUserReputation';
 import ProjectsUserYearsOfExperience from '~/components/projects/users/ProjectsUserYearsOfExperience';
 import UserAvatarWithLevel from '~/components/projects/users/UserAvatarWithLevel';
-import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Chip from '~/components/ui/Chip';
@@ -80,22 +79,22 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
                 variant="special"
               />
               {profile.githubUsername && (
-                <Anchor href={profile.githubUsername} variant="muted">
+                <a href={profile.githubUsername}>
                   <span className="sr-only">Github</span>
                   <RiGithubFill
                     aria-hidden="true"
                     className="h-[18px] w-[18px]"
                   />
-                </Anchor>
+                </a>
               )}
               {profile.linkedInUsername && (
-                <Anchor href={profile.linkedInUsername} variant="muted">
+                <a href={profile.linkedInUsername}>
                   <span className="sr-only">LinkedIn</span>
                   <RiLinkedinBoxFill
                     aria-hidden="true"
                     className="h-[18px] w-[18px]"
                   />
-                </Anchor>
+                </a>
               )}
               <Text className={themeTextFaintColor} size="body2">
                 <FormattedMessage
@@ -148,22 +147,22 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
                     variant="special"
                   />
                   {profile.githubUsername && (
-                    <Anchor href={profile.githubUsername} variant="muted">
+                    <a href={profile.githubUsername}>
                       <span className="sr-only">Github</span>
                       <RiGithubFill
                         aria-hidden="true"
                         className="h-[18px] w-[18px]"
                       />
-                    </Anchor>
+                    </a>
                   )}
                   {profile.linkedInUsername && (
-                    <Anchor href={profile.linkedInUsername} variant="muted">
+                    <a href={profile.linkedInUsername}>
                       <span className="sr-only">LinkedIn</span>
                       <RiLinkedinBoxFill
                         aria-hidden="true"
                         className="h-[18px] w-[18px]"
                       />
-                    </Anchor>
+                    </a>
                   )}
                 </div>
               </div>

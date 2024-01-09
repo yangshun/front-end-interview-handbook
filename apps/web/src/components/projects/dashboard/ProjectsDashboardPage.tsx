@@ -20,15 +20,17 @@ export default function ProjectsDashboardPage() {
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex justify-between">
-        <Heading className="md:block hidden" level="heading5">
+      <div className="flex flex-col lg:flex-row lg:justify-between relative gap-6">
+        <Heading level="heading5">
           <FormattedMessage
             defaultMessage="Dashboard"
             description="Title of Projects dashboard page"
             id="UTPE3y"
           />
         </Heading>
-        <ProjectsCompleteProfileCard />
+        <div className="lg:absolute right-0 -top-8 z-10">
+          <ProjectsCompleteProfileCard />
+        </div>
       </div>
       <ProjectsProfileStats projectsCompleted={submissions?.length ?? 0} />
       <Section>
@@ -66,8 +68,8 @@ export default function ProjectsDashboardPage() {
               </Heading>
               <Button
                 addonPosition="end"
-                className="dark:!text-brand !text-brand-dark -ms-3"
-                href="#"
+                className="-me-3"
+                href="/projects/submissions"
                 icon={RiArrowRightLine}
                 label={intl.formatMessage({
                   defaultMessage: 'See all',

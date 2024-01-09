@@ -52,9 +52,9 @@ export default function ProjectsCompleteProfileCard() {
     {
       isComplete: Boolean(profile?.website),
       title: intl.formatMessage({
-        defaultMessage: 'Add Website',
+        defaultMessage: 'Add website',
         description: 'Title for Add Website task on Projects dashboard page',
-        id: 'SJA7IZ',
+        id: 'pJja0T',
       }),
     },
   ];
@@ -67,16 +67,13 @@ export default function ProjectsCompleteProfileCard() {
 
   return (
     <Card
-      className={clsx(
-        isCardOpen ? 'gap-3' : 'gap-2',
-        'flex flex-col py-4 px-5',
-      )}
+      className={clsx('flex flex-col py-4 px-5 gap-3')}
       disableSpotlight={true}
       padding={false}
       pattern={false}>
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col gap-2">
         <button
-          className="flex items-start"
+          className="flex justify-between"
           type="button"
           onClick={() => {
             setIsCardOpen((isOpen) => !isOpen);
@@ -96,17 +93,16 @@ export default function ProjectsCompleteProfileCard() {
               variant="primary"
             />
           </div>
-          <span className="absolute inset-0" />
+          {isCardOpen ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
         </button>
-        {isCardOpen ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
+        <Text color="secondary" size="body3">
+          <FormattedMessage
+            defaultMessage="Completed profiles get 3x more responses"
+            description="Subtitle for Complete profile card on Projects dashboard page"
+            id="HP34xZ"
+          />
+        </Text>
       </div>
-      <Text color="secondary" size="body3">
-        <FormattedMessage
-          defaultMessage="Completed profiles get 3x more responses"
-          description="Subtitle for Complete profile card on Projects dashboard page"
-          id="HP34xZ"
-        />
-      </Text>
       {isCardOpen && (
         <ProgressBar
           label={intl.formatMessage({
@@ -123,28 +119,25 @@ export default function ProjectsCompleteProfileCard() {
       {isCardOpen && (
         <div className="flex flex-col gap-4">
           {profileTasks.map((task) => (
-            <div key={task.title} className="flex justify-between items-center">
-              <div className="flex items-center gap-4" role="listitem">
-                <Chip
-                  icon={RiCheckFill}
-                  isLabelHidden={true}
-                  label={task.isComplete ? 'Completed' : 'Not completed'}
-                  size="sm"
-                  variant={task.isComplete ? 'success' : 'neutral'}
-                />
+            <div key={task.title} className="flex items-center gap-4">
+              <Chip
+                icon={RiCheckFill}
+                isLabelHidden={true}
+                label={task.isComplete ? 'Completed' : 'Not completed'}
+                size="sm"
+                variant={task.isComplete ? 'success' : 'neutral'}
+              />
+              <Anchor
+                className="flex gap-3 justify-between grow"
+                href={`/projects/u/${profile?.username}`}
+                variant="muted">
                 <Text
                   className={clsx(task.isComplete && 'line-through')}
                   size="body2">
                   {task.title}
                 </Text>
-              </div>
-              {!task.isComplete && (
-                <Anchor
-                  className="z-10 dark:!text-neutral-500 !text-neutral-100 -ms-3"
-                  href={`/projects/u/${profile?.username}`}>
-                  <RiArrowRightLine />
-                </Anchor>
-              )}
+                {!task.isComplete && <RiArrowRightLine />}
+              </Anchor>
             </div>
           ))}
         </div>
