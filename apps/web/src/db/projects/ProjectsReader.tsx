@@ -119,32 +119,66 @@ export async function readProjectsProjectList(
   loadedLocale: string;
   projects: ReadonlyArray<ProjectsProjectItem>;
 }> {
-  const sessionsForUserGroupedBySlug: Record<
-    string,
-    ProjectsProjectSessionStatus
-  > = {};
+  const [sessionsForUserGroupedBySlug, countsGroupedBySlug] = await Promise.all(
+    [
+      (async () => {
+        if (userId == null) {
+          return null;
+        }
 
-  if (userId != null) {
-    const sessionsForUser = await prisma.projectsProjectSession.findMany({
-      orderBy: {
-        createdAt: 'asc',
-      },
-      where: {
-        profile: {
-          userProfile: {
-            id: userId,
+        const sessionsForUserGrouped: Record<
+          string,
+          ProjectsProjectSessionStatus
+        > = {};
+
+        const sessionsForUser = await prisma.projectsProjectSession.findMany({
+          orderBy: {
+            createdAt: 'asc',
           },
-        },
-        status: {
-          not: 'STOPPED',
-        },
-      },
-    });
+          where: {
+            profile: {
+              userProfile: {
+                id: userId,
+              },
+            },
+            status: {
+              not: 'STOPPED',
+            },
+          },
+        });
 
-    sessionsForUser?.forEach((session) => {
-      sessionsForUserGroupedBySlug[session.slug] = session.status;
-    });
-  }
+        sessionsForUser?.forEach((session) => {
+          sessionsForUserGrouped[session.slug] = session.status;
+        });
+
+        return sessionsForUserGrouped;
+      })(),
+      (async () => {
+        try {
+          const countsForProjectList =
+            await prisma.projectsProjectSession.groupBy({
+              _count: true,
+              by: 'slug',
+              where: {
+                status: {
+                  not: 'STOPPED',
+                },
+              },
+            });
+
+          const countsForProject: Record<string, number> = {};
+
+          countsForProjectList?.forEach((projectCount) => {
+            countsForProject[projectCount.slug] = projectCount._count;
+          });
+
+          return countsForProject;
+        } catch (_err) {
+          return null;
+        }
+      })(),
+    ],
+  );
 
   const projects = allProjectMetadata
     .filter((projectItem) =>
@@ -152,11 +186,12 @@ export async function readProjectsProjectList(
     )
     .map((projectMetadata) => ({
       ...exampleProject,
+      completedCount: countsGroupedBySlug?.[projectMetadata.slug] ?? null,
       metadata: {
         ...projectMetadata,
         ...extraProjectData,
       },
-      status: sessionsForUserGroupedBySlug[projectMetadata.slug] ?? null,
+      status: sessionsForUserGroupedBySlug?.[projectMetadata.slug] ?? null,
     }));
 
   return {

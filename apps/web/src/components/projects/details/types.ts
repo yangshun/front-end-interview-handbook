@@ -27,7 +27,7 @@ export const projectTrackOptions = [
 export type ProjectsTrackEnum = (typeof projectTrackOptions)[number];
 
 export type ProjectsProjectItem = Readonly<{
-  completedCount: number; // TODO(projects): Remove from metadata
+  completedCount: number | null;
   completedUsers: Array<Profile>; // TODO(projects): Remove from metadata
   metadata: ProjectMetadata &
     Readonly<{
