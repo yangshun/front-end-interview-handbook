@@ -29,10 +29,10 @@ export default function ProjectsProfileTechStackToImproveInput({
           description={intl.formatMessage(
             {
               defaultMessage:
-                'The skills / tools / frameworks you are hoping to grow.. Cannot find the tag you need? Email us at {supportEmail}',
+                'The skills / tools / frameworks you are hoping to grow. Cannot find the tag you need? Email us at {supportEmail}',
               description:
                 'Description for "Tech stack to improve" input on Projects profile onboarding page',
-              id: 'H+so3d',
+              id: 'C34IkO',
             },
             {
               supportEmail: (

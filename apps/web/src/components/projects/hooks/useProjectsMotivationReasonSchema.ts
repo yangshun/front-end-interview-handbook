@@ -3,8 +3,15 @@ import { z } from 'zod';
 
 import { motivationReasonValue } from '~/components/projects/misc';
 
-export default function useProjectsMotivationReasonSchema() {
+type Props =
+  | Readonly<{
+      isRequired?: boolean;
+    }>
+  | undefined;
+
+export default function useProjectsMotivationReasonSchema(options: Props = {}) {
   const intl = useIntl();
+  const { isRequired = true } = options;
 
   const motivationSchema = z.union([
     z
@@ -29,9 +36,11 @@ export default function useProjectsMotivationReasonSchema() {
   ]);
 
   return z.object({
-    primary: motivationSchema.transform((motivation) =>
-      motivation === null ? z.NEVER : motivation,
-    ),
+    primary: isRequired
+      ? motivationSchema.transform((motivation) =>
+          motivation === null ? z.NEVER : motivation,
+        )
+      : motivationSchema,
     secondary: motivationSchema,
   });
 }

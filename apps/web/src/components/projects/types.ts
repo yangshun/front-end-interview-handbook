@@ -27,6 +27,7 @@ export type MotivationReasonFormValues = Record<
 export type YOEReplacement = z.infer<typeof yoeReplacementSchema>;
 
 export type ProjectsEditProfileValues = {
+  avatarUrl?: string;
   bio: string;
   githubUsername: string;
   hasNotStartedWork: boolean;

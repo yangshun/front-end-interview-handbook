@@ -67,7 +67,7 @@ export default function ProjectsProfileMotivationReasonList({
             role="checkbox"
             type="button"
             onClick={() => {
-              setValue(valueKey, selected ? null : id);
+              setValue(valueKey, selected ? null : id, { shouldDirty: true });
               onChange(selected ? null : id);
             }}>
             <div className="flex items-start gap-4 rounded-md">

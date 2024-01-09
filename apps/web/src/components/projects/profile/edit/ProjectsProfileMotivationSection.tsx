@@ -15,7 +15,7 @@ export default function ProjectsProfileMotivationSection() {
   const intl = useIntl();
   const {
     watch,
-    resetField,
+    setValue,
     formState: { errors },
   } = useFormContext<ProjectsEditProfileValues>();
   const { reasonOptions } = useProjectsMotivationReasonOptions((chunks) => (
@@ -29,15 +29,22 @@ export default function ProjectsProfileMotivationSection() {
   const secondaryType = watch('motivationReasons.secondary.type');
 
   useEffect(() => {
-    if (primaryType === secondaryType && primaryType !== 'other') {
-      resetField('motivationReasons.secondary', {
-        defaultValue: {
+    if (
+      (primaryType === secondaryType && primaryType !== 'other') ||
+      (primaryType === null && secondaryType)
+    ) {
+      setValue(
+        'motivationReasons.secondary',
+        {
           otherValue: '',
           type: null,
         },
-      });
+        {
+          shouldDirty: true,
+        },
+      );
     }
-  }, [primaryType, resetField, secondaryType]);
+  }, [primaryType, setValue, secondaryType]);
 
   useEffect(() => {
     if (errors.motivationReasons?.primary) {

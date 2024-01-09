@@ -42,7 +42,7 @@ export default function ProjectsProfileStats() {
 
   return (
     <Section>
-      <CardContainer className="lg:grid-cols-4 grid-cols-2 grid grid-rows-2 gap-3 md:gap-4 lg:gap-6">
+      <CardContainer className="lg:grid-cols-4 grid-cols-2 grid gap-3 md:gap-4 lg:gap-6">
         {stats.map(({ title, count, icon: Icon }) => {
           return (
             <Card

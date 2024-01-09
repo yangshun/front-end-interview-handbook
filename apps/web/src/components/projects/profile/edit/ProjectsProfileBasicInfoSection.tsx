@@ -17,24 +17,30 @@ export default function ProjectsProfileBasicInfoSection() {
 
   return (
     <div className="flex md:gap-16 gap-6 md:flex-nowrap flex-wrap">
-      <div className="flex flex-col items-center gap-6">
-        <Avatar
-          alt="avatar"
-          className="h-[120px] w-[120px]"
-          size="custom"
-          src="https://source.unsplash.com/random/128x128"
-        />
-        <Button
-          label={intl.formatMessage({
-            defaultMessage: 'Edit profile photo',
-            description:
-              'Label for "Edit profile photo" button on Projects profile onboarding page',
-            id: 'rax4QM',
-          })}
-          size="sm"
-          variant="secondary"
-        />
-      </div>
+      <Controller
+        control={control}
+        name="avatarUrl"
+        render={({ field }) => (
+          <div className="flex flex-col items-center gap-6">
+            <Avatar
+              alt="avatar"
+              className="h-[120px] w-[120px]"
+              size="custom"
+              src={field.value ?? ''}
+            />
+            <Button
+              label={intl.formatMessage({
+                defaultMessage: 'Edit profile photo',
+                description:
+                  'Label for "Edit profile photo" button on Projects profile onboarding page',
+                id: 'rax4QM',
+              })}
+              size="sm"
+              variant="secondary"
+            />
+          </div>
+        )}
+      />
       <div className="w-full flex gap-6 md:mt-8 md:flex-row flex-col">
         <div className="flex flex-1 flex-col gap-4 self-stretch sm:self-auto">
           <Controller

@@ -9,7 +9,7 @@ export const profileRouter = router({
   motivationsUpdate: userProcedure
     .input(
       z.object({
-        primaryMotivation: z.string(),
+        primaryMotivation: z.string().nullable(),
         secondaryMotivation: z.string().nullable(),
       }),
     )
@@ -133,7 +133,7 @@ export const profileRouter = router({
         githubUsername: z.string().optional(),
         linkedInUsername: z.string().optional(),
         motivationReasons: z.object({
-          primaryMotivation: z.string(),
+          primaryMotivation: z.string().nullable(),
           secondaryMotivation: z.string().nullable(),
         }),
         name: z.string(),
