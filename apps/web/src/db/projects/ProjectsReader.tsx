@@ -16,6 +16,10 @@ import { sum } from 'lodash-es';
 import type { ProjectsProjectItem } from '~/components/projects/details/types';
 import type { ProjectsTrack } from '~/components/projects/tracks/ProjectsTracksData';
 
+import prisma from '~/server/prisma';
+
+import type { ProjectsProjectSessionStatus } from '@prisma/client';
+
 // TODO(projects): remove in future.
 export const exampleProject: Omit<ProjectsProjectItem, 'metadata'> = {
   completedCount: 21,
@@ -75,7 +79,7 @@ export const exampleProject: Omit<ProjectsProjectItem, 'metadata'> = {
       website: null,
     },
   ],
-  status: 'in-progress',
+  status: null,
 };
 
 // TODO(projects): remove in future.
@@ -110,10 +114,38 @@ export const exampleTrack: Omit<
 
 export async function readProjectsProjectList(
   requestedLocale = 'en-US',
+  userId?: string | null,
 ): Promise<{
   loadedLocale: string;
   projects: ReadonlyArray<ProjectsProjectItem>;
 }> {
+  const sessionsForUserGroupedBySlug: Record<
+    string,
+    ProjectsProjectSessionStatus
+  > = {};
+
+  if (userId != null) {
+    const sessionsForUser = await prisma.projectsProjectSession.findMany({
+      orderBy: {
+        createdAt: 'asc',
+      },
+      where: {
+        profile: {
+          userProfile: {
+            id: userId,
+          },
+        },
+        status: {
+          not: 'STOPPED',
+        },
+      },
+    });
+
+    sessionsForUser?.forEach((session) => {
+      sessionsForUserGroupedBySlug[session.slug] = session.status;
+    });
+  }
+
   const projects = allProjectMetadata
     .filter((projectItem) =>
       projectItem._raw.flattenedPath.endsWith(requestedLocale),
@@ -124,6 +156,7 @@ export async function readProjectsProjectList(
         ...projectMetadata,
         ...extraProjectData,
       },
+      status: sessionsForUserGroupedBySlug[projectMetadata.slug] ?? null,
     }));
 
   return {
@@ -164,12 +197,13 @@ export async function readProjectsProjectMetadata(
 
 export async function readProjectsTrackList(
   requestedLocale = 'en-US',
+  userId?: string | null,
 ): Promise<{
   loadedLocale: string;
   tracks: ReadonlyArray<ProjectsTrack>;
 }> {
   const [{ projects }, { trackMetadataList }] = await Promise.all([
-    readProjectsProjectList(requestedLocale),
+    readProjectsProjectList(requestedLocale, userId),
     readProjectsTrackMetadataList(requestedLocale),
   ]);
 

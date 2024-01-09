@@ -5,6 +5,7 @@ import ProjectsAllProjectsPage from '~/components/projects/lists/ProjectsAllProj
 import { readProjectsProjectList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
+import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -30,7 +31,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const { projects } = await readProjectsProjectList(locale);
+  const user = await readUserFromToken();
+  const { projects } = await readProjectsProjectList(locale, user?.id);
 
   return <ProjectsAllProjectsPage projects={projects} />;
 }

@@ -2,7 +2,7 @@ import type { ProjectMetadata } from 'contentlayer/generated';
 
 import type { ProjectsSkill } from '../skills/types';
 
-import type { Profile } from '@prisma/client';
+import type { Profile, ProjectsProjectSessionStatus } from '@prisma/client';
 
 export const projectDifficultyOptions = [
   'starter',
@@ -26,8 +26,6 @@ export const projectTrackOptions = [
 ];
 export type ProjectsTrackEnum = (typeof projectTrackOptions)[number];
 
-export type ProjectsProjectStatus = 'completed' | 'in-progress' | 'not-started';
-
 export type ProjectsProjectItem = Readonly<{
   completedCount: number; // TODO(projects): Remove from metadata
   completedUsers: Array<Profile>; // TODO(projects): Remove from metadata
@@ -35,5 +33,5 @@ export type ProjectsProjectItem = Readonly<{
     Readonly<{
       skills: ReadonlyArray<ProjectsSkill>;
     }>;
-  status: ProjectsProjectStatus; // TODO(projects): Remove from metadata
+  status: ProjectsProjectSessionStatus | null;
 }>;

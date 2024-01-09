@@ -3,6 +3,8 @@ import { startCase } from 'lodash-es';
 import {
   RiArrowRightLine,
   RiCheckboxMultipleLine,
+  RiCheckLine,
+  RiCircleFill,
   RiFireLine,
   RiFlashlightLine,
   RiLock2Line,
@@ -54,26 +56,32 @@ export default function ProjectsProjectCard({ project }: Props) {
           className="aspect-[16/9] object-cover w-full"
           src={imageUrl}
         />
-        {status === 'in-progress' && (
-          <div className="absolute start-2 bottom-2 rounded px-2 bg-warning-light text-warning-darkest">
-            <Text color="inherit" size="body2" weight="bold">
-              <FormattedMessage
-                defaultMessage="Project in progress"
-                description="Label for in progress project tag"
-                id="6aKLc3"
+        {status != null && (
+          <div className="absolute start-3 bottom-3">
+            {status === 'IN_PROGRESS' && (
+              <Badge
+                icon={RiCircleFill}
+                label={intl.formatMessage({
+                  defaultMessage: 'In progress',
+                  description: 'Project in progress label',
+                  id: 'nsk8M8',
+                })}
+                size="sm"
+                variant="warning"
               />
-            </Text>
-          </div>
-        )}
-        {status === 'completed' && (
-          <div className="absolute start-2 bottom-2 rounded px-2 bg-success-light text-success-darkest">
-            <Text color="inherit" size="body2" weight="bold">
-              <FormattedMessage
-                defaultMessage="Project completed"
-                description="Label for completed project tag"
-                id="YwXYNT"
+            )}
+            {status === 'COMPLETED' && (
+              <Badge
+                icon={RiCheckLine}
+                label={intl.formatMessage({
+                  defaultMessage: 'Completed',
+                  description: 'Project completed label',
+                  id: 'YY7lXv',
+                })}
+                size="sm"
+                variant="success"
               />
-            </Text>
+            )}
           </div>
         )}
         <div className="absolute start-2 top-2 flex items-center gap-1">
