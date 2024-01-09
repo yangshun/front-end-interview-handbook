@@ -30,8 +30,8 @@ type Props = Readonly<{
 
 export default function ProjectsProjectHeader({ project }: Props) {
   const intl = useIntl();
-  const { completedCount, completedProfiles, metadata } = project;
-  const { description, difficulty, points, skills, title, track } = metadata;
+  const { completedCount, completedProfiles, metadata, track } = project;
+  const { description, difficulty, points, skills, title } = metadata;
 
   const { session, startProject } = useProjectsProjectSessionContext();
   const [isHowItWorksDialogShown, setIsHowItWorksDialogShown] = useState(false);
@@ -99,7 +99,7 @@ export default function ProjectsProjectHeader({ project }: Props) {
           </Text>
           <div className="flex flex-wrap gap-x-4 gap-y-2">
             <ProjectsProjectDifficultyTag difficulty={difficulty} />
-            <ProjectsComponentTrackTag trackName={track} />
+            <ProjectsComponentTrackTag track={track} />
             <ProjectsReputationCountIncreaseTag
               points={points}
               variant="flat"

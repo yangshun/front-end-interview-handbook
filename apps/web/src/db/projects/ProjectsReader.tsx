@@ -121,16 +121,18 @@ export async function readProjectsProjectList(
     .filter((projectItem) =>
       projectItem._raw.flattenedPath.endsWith(requestedLocale),
     )
-    .map((projectMetadata) => ({
-      completedCount: countsGroupedBySlug?.[projectMetadata.slug] ?? null,
-      // TODO(projects): Fetch from db.
-      completedProfiles: [],
-      metadata: {
-        ...projectMetadata,
-        ...extraProjectData,
-      },
-      status: sessionsForUserGroupedBySlug?.[projectMetadata.slug] ?? null,
-    }));
+    .map((projectMetadata) =>
+      projectItemAddTrackMetadata({
+        completedCount: countsGroupedBySlug?.[projectMetadata.slug] ?? null,
+        // TODO(projects): Fetch from db.
+        completedProfiles: [],
+        metadata: {
+          ...projectMetadata,
+          ...extraProjectData,
+        },
+        status: sessionsForUserGroupedBySlug?.[projectMetadata.slug] ?? null,
+      }),
+    );
 
   return {
     loadedLocale: requestedLocale,
@@ -212,7 +214,7 @@ export async function readProjectsProjectItem(
 
   return {
     loadedLocale: requestedLocale,
-    project: {
+    project: projectItemAddTrackMetadata({
       completedCount,
       completedProfiles: completedUsers,
       metadata: {
@@ -221,7 +223,26 @@ export async function readProjectsProjectItem(
       },
       // If any page needs it in future, fetch from db.
       status: null,
-    },
+    }),
+  };
+}
+
+function projectItemAddTrackMetadata(
+  projectItem: Omit<ProjectsProjectItem, 'track'>,
+): ProjectsProjectItem {
+  return {
+    ...projectItem,
+    track: (() => {
+      const trackItem = allProjectTrackMetadata.find(
+        (trackMetadata) => trackMetadata.slug === projectItem.metadata.track,
+      )!;
+
+      return {
+        href: trackItem.href,
+        slug: trackItem.slug,
+        title: trackItem.title,
+      };
+    })(),
   };
 }
 

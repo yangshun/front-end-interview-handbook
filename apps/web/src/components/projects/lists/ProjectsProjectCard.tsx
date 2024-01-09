@@ -2,22 +2,22 @@ import clsx from 'clsx';
 import { startCase } from 'lodash-es';
 import {
   RiArrowRightLine,
-  RiCheckboxMultipleLine,
   RiCheckLine,
   RiCircleFill,
-  RiFireLine,
   RiFlashlightLine,
   RiLock2Line,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 
+import ProjectsComponentTrackTag from '~/components/projects/stats/ProjectsComponentTrackTag';
+import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasized,
   themeBorderColor,
-  themeTextSecondaryColor,
+  themeCardBackgroundColor,
 } from '~/components/ui/theme';
 
 import type { ProjectsProjectItem } from '../details/types';
@@ -30,14 +30,14 @@ type Props = Readonly<{
 
 export default function ProjectsProjectCard({ project }: Props) {
   const intl = useIntl();
-  const { completedProfiles, completedCount, metadata, status } = project;
+  const { completedProfiles, completedCount, metadata, status, track } =
+    project;
   const {
     title,
     difficulty,
     description,
     skills,
     imageUrl,
-    track,
     points,
     href,
     access,
@@ -46,9 +46,9 @@ export default function ProjectsProjectCard({ project }: Props) {
   return (
     <div
       className={clsx(
-        'flex flex-col overflow-clip rounded-lg border',
-        themeBorderColor,
-        themeBackgroundEmphasized,
+        'flex flex-col overflow-clip rounded-lg',
+        ['border', themeBorderColor],
+        themeCardBackgroundColor,
       )}>
       <div className="relative">
         <img
@@ -105,33 +105,8 @@ export default function ProjectsProjectCard({ project }: Props) {
       </div>
       <div className="grow flex flex-col gap-4 p-4">
         <div className="flex flex-wrap gap-x-4 gap-y-2">
-          <div
-            className={clsx(
-              'flex items-center gap-1',
-              themeTextSecondaryColor,
-            )}>
-            <RiCheckboxMultipleLine className="h-4 w-4" />
-            <Text color="inherit" size="body3">
-              {track}
-            </Text>
-          </div>
-          <div
-            className={clsx(
-              'flex items-center gap-1',
-              themeTextSecondaryColor,
-            )}>
-            <RiFireLine className="h-4 w-4" />
-            <Text color="inherit" size="body3">
-              <FormattedMessage
-                defaultMessage="+{points} rep"
-                description="Label for rep increase indicator in Project card"
-                id="VXAI4w"
-                values={{
-                  points,
-                }}
-              />
-            </Text>
-          </div>
+          <ProjectsComponentTrackTag track={track} />
+          <ProjectsReputationCountIncreaseTag points={points} variant="flat" />
         </div>
         <div className="grow flex flex-col gap-2">
           <Text weight="bold">{title}</Text>
