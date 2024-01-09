@@ -14,6 +14,7 @@ import { ProjectsProjectMetadataDocument } from './src/components/projects/conte
 import { ProjectsProjectStyleGuideDocument } from './src/components/projects/contentlayer/ProjectsProjectStyleGuideDocument';
 import { ProjectsProjectAPIWriteupDocument } from './src/components/projects/contentlayer/ProjectsProjectAPIWriteupDocument';
 import { ProjectsTrackMetadataDocument } from './src/components/projects/contentlayer/ProjectsTrackMetadataDocument';
+import { ProjectsProjectGuideDocument } from './src/components/projects/contentlayer/ProjectsProjectGuideDocument';
 
 export default makeSource({
   contentDirPath: 'src/content',
@@ -27,6 +28,7 @@ export default makeSource({
     ProjectsProjectStyleGuideDocument,
     ProjectsProjectAPIWriteupDocument,
     ProjectsTrackMetadataDocument,
+    ProjectsProjectGuideDocument,
   ],
   mdx: {
     remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter],

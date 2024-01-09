@@ -1,5 +1,6 @@
 'use client';
 
+import type { ProjectGuide } from 'contentlayer/generated';
 import { useState } from 'react';
 import {
   RiClipboardFill,
@@ -9,17 +10,15 @@ import {
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
+import ProjectsProjectDiscussionSection from '~/components/projects/details/discussions/ProjectsProjectDiscussionSection';
+import ProjectsProjectGuide from '~/components/projects/details/guides/ProjectsProjectGuide';
+import { useProjectsProjectSessionContext } from '~/components/projects/details/ProjectsProjectSessionContext';
+import ProjectsProjectReferenceSubmissions from '~/components/projects/details/resources/ProjectsProjectReferenceSubmissions';
 import type { ProjectsProjectItem } from '~/components/projects/details/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
-
-import ProjectsProjectReferenceSubmissions from './ProjectsProjectReferenceSubmissions';
-import ProjectsProjectDiscussionSection from '../discussions/ProjectsProjectDiscussionSection';
-import { useProjectsProjectSessionContext } from '../ProjectsProjectSessionContext';
-
-import type { User } from '@supabase/supabase-js';
 
 type TipsResourcesDiscussionsTabType = 'discussions' | 'guides' | 'references';
 
@@ -47,9 +46,13 @@ function useTipsResourcesDiscussionsTabs() {
 
 type Props = Readonly<{
   project: ProjectsProjectItem;
+  projectGuides: Array<ProjectGuide>;
 }>;
 
-export default function ProjectsProjectResourcesPage({ project }: Props) {
+export default function ProjectsProjectResourcesPage({
+  project,
+  projectGuides,
+}: Props) {
   const intl = useIntl();
   const tipsResourcesDiscussionsTabs = useTipsResourcesDiscussionsTabs();
   const [tipsResourcesDiscussionsTab, setTipsResourcesDiscussionsTab] =
@@ -101,6 +104,9 @@ export default function ProjectsProjectResourcesPage({ project }: Props) {
           )}
           {tipsResourcesDiscussionsTab === 'discussions' && (
             <ProjectsProjectDiscussionSection project={project} />
+          )}
+          {tipsResourcesDiscussionsTab === 'guides' && (
+            <ProjectsProjectGuide projectGuides={projectGuides} />
           )}
         </div>
       </div>

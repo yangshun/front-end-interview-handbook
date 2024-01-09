@@ -1,10 +1,12 @@
 import type {
   ProjectAPIWriteup,
+  ProjectGuide,
   ProjectStyleGuide,
   ProjectTrackMetadata,
 } from 'contentlayer/generated';
 import {
   allProjectAPIWriteups,
+  allProjectGuides,
   allProjectMetadata,
   allProjectStyleGuides,
   allProjectTrackMetadata,
@@ -289,5 +291,23 @@ export async function readProjectsProjectAPIWriteup(
   return {
     apiWriteup,
     loadedLocale: requestedLocale,
+  };
+}
+
+export async function readProjectsProjectResourceGuideList(
+  requestedLocale = 'en-US',
+): Promise<
+  Readonly<{
+    loadedLocale: string;
+    resourceProjectGuides: Array<ProjectGuide>;
+  }>
+> {
+  const resourceProjectGuides = allProjectGuides.filter((resourceGuideItem) =>
+    resourceGuideItem._raw.flattenedPath.endsWith(requestedLocale),
+  );
+
+  return {
+    loadedLocale: requestedLocale,
+    resourceProjectGuides,
   };
 }
