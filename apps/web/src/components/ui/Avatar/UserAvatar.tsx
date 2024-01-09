@@ -1,13 +1,13 @@
 import { useIntl } from 'react-intl';
 
-import Avatar from './Avatar';
+import type { ProjectsProfileAvatarData } from '~/components/projects/details/types';
 
-import type { Profile } from '@prisma/client';
+import Avatar from './Avatar';
 
 type AvatarProps = React.ComponentProps<typeof Avatar>;
 type UserAvatarProps = Readonly<
   Omit<AvatarProps, 'alt' | 'src'> & {
-    profile?: Profile | null;
+    profile?: ProjectsProfileAvatarData | null;
   }
 >;
 

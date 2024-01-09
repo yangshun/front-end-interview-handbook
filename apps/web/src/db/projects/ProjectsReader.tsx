@@ -22,68 +22,6 @@ import prisma from '~/server/prisma';
 import type { ProjectsProjectSessionStatus } from '@prisma/client';
 
 // TODO(projects): remove in future.
-export const exampleProject: Omit<ProjectsProjectItem, 'metadata'> = {
-  completedCount: null,
-  completedUsers: [
-    {
-      avatarUrl: 'https://source.unsplash.com/random/48x48',
-      bio: null,
-      createdAt: new Date(),
-      currentStatus: null,
-      githubUsername: null,
-      id: '123',
-      linkedInUsername: null,
-      name: 'John Smith',
-      plan: null,
-      premium: false,
-      startWorkDate: null,
-      stripeCustomer: null,
-      title: 'Front End Engineer',
-      updatedAt: new Date(),
-      username: 'johnsmith',
-      website: null,
-    },
-    {
-      avatarUrl: 'https://source.unsplash.com/random/48x48',
-      bio: null,
-      createdAt: new Date(),
-      currentStatus: null,
-      githubUsername: null,
-      id: '124',
-      linkedInUsername: null,
-      name: 'Jane Smith',
-      plan: null,
-      premium: false,
-      startWorkDate: null,
-      stripeCustomer: null,
-      title: 'Front End Engineer',
-      updatedAt: new Date(),
-      username: 'janesmith',
-      website: null,
-    },
-    {
-      avatarUrl: 'https://source.unsplash.com/random/48x48',
-      bio: null,
-      createdAt: new Date(),
-      currentStatus: null,
-      githubUsername: null,
-      id: '125',
-      linkedInUsername: null,
-      name: 'Gina Smith',
-      plan: null,
-      premium: false,
-      startWorkDate: null,
-      stripeCustomer: null,
-      title: 'Front End Engineer',
-      updatedAt: new Date(),
-      username: 'ginasmith',
-      website: null,
-    },
-  ],
-  status: null,
-};
-
-// TODO(projects): remove in future.
 const extraProjectData = {
   skills: [
     {
@@ -137,7 +75,7 @@ export async function readProjectsProjectList(
             createdAt: 'asc',
           },
           where: {
-            profile: {
+            projectsProfile: {
               userProfile: {
                 id: userId,
               },
@@ -159,7 +97,7 @@ export async function readProjectsProjectList(
           const countsForProjectList =
             await prisma.projectsProjectSession.groupBy({
               _count: true,
-              by: ['slug', 'profileId'],
+              by: ['slug'],
               where: {
                 status: 'COMPLETED',
               },
@@ -184,8 +122,9 @@ export async function readProjectsProjectList(
       projectItem._raw.flattenedPath.endsWith(requestedLocale),
     )
     .map((projectMetadata) => ({
-      ...exampleProject,
       completedCount: countsGroupedBySlug?.[projectMetadata.slug] ?? null,
+      // TODO(projects): Fetch from db.
+      completedProfiles: [],
       metadata: {
         ...projectMetadata,
         ...extraProjectData,
@@ -216,13 +155,13 @@ export async function readProjectsProjectItem(
     requestedLocale,
   );
 
-  const [completedCount] = await Promise.all([
+  const [completedCount, completedUsers] = await Promise.all([
     (async () => {
       try {
         const countsForProjectList =
           await prisma.projectsProjectSession.groupBy({
             _count: true,
-            by: ['slug', 'profileId'],
+            by: ['slug'],
             where: {
               slug,
               status: 'COMPLETED',
@@ -234,17 +173,54 @@ export async function readProjectsProjectItem(
         return null;
       }
     })(),
+    (async () => {
+      try {
+        const completedSessions = await prisma.projectsProjectSession.findMany({
+          distinct: ['profileId'],
+          include: {
+            projectsProfile: {
+              include: {
+                userProfile: {
+                  select: {
+                    avatarUrl: true,
+                    id: true,
+                    name: true,
+                    username: true,
+                  },
+                },
+              },
+            },
+          },
+          orderBy: {
+            createdAt: 'desc',
+          },
+          take: 4,
+          where: {
+            slug,
+            status: 'COMPLETED',
+          },
+        });
+
+        return completedSessions.map(
+          (session) => session.projectsProfile!.userProfile!,
+        );
+      } catch (_err) {
+        return [];
+      }
+    })(),
   ]);
 
   return {
     loadedLocale: requestedLocale,
     project: {
-      ...exampleProject,
       completedCount,
+      completedProfiles: completedUsers,
       metadata: {
         ...projectMetadata,
         ...extraProjectData,
       },
+      // If any page needs it in future, fetch from db.
+      status: null,
     },
   };
 }

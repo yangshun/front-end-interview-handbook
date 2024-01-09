@@ -30,7 +30,7 @@ type Props = Readonly<{
 
 export default function ProjectsProjectHeader({ project }: Props) {
   const intl = useIntl();
-  const { completedCount, completedUsers, metadata } = project;
+  const { completedCount, completedProfiles, metadata } = project;
   const { description, difficulty, points, skills, title, track } = metadata;
 
   const { session, startProject } = useProjectsProjectSessionContext();
@@ -175,7 +175,7 @@ export default function ProjectsProjectHeader({ project }: Props) {
             />
             <ProjectsCompletedUsersTag
               count={completedCount}
-              users={completedUsers}
+              profiles={completedProfiles}
             />
           </div>
         )}

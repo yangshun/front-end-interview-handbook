@@ -176,15 +176,15 @@ model LearningSessionProgress {
 }
 
 model ProjectsProfile {
-  id                  String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  userId              String   @unique @db.Uuid
-  userProfile         Profile? @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  id                  String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  userId              String  @unique @db.Uuid
   primaryMotivation   String?
   secondaryMotivation String?
 
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @updatedAt
 
+  userProfile Profile?                    @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   sessions    ProjectsProjectSession[]
   submissions ProjectsProjectSubmission[]
 }
@@ -205,7 +205,7 @@ model ProjectsProjectSession {
   updatedAt DateTime  @updatedAt
   stoppedAt DateTime? @db.Timestamptz(6)
 
-  profile ProjectsProfile? @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  projectsProfile ProjectsProfile? @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model ProjectsProjectSubmission {
@@ -219,7 +219,7 @@ model ProjectsProjectSubmission {
   createdAt     DateTime @default(now()) @db.Timestamptz(6)
   updatedAt     DateTime @updatedAt
 
-  profile ProjectsProfile? @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  projectsProfile ProjectsProfile? @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model RewardsTaskCompletion {

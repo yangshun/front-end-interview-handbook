@@ -26,9 +26,15 @@ export const projectTrackOptions = [
 ];
 export type ProjectsTrackEnum = (typeof projectTrackOptions)[number];
 
+export type ProjectsProfileAvatarData = Readonly<{
+  avatarUrl: string | null;
+  id: string;
+  name: string | null;
+  username: string;
+}>;
 export type ProjectsProjectItem = Readonly<{
   completedCount: number | null;
-  completedUsers: Array<Profile>; // TODO(projects): Remove from metadata
+  completedProfiles: ReadonlyArray<ProjectsProfileAvatarData>;
   metadata: ProjectMetadata &
     Readonly<{
       skills: ReadonlyArray<ProjectsSkill>;

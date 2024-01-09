@@ -15,7 +15,7 @@ export const submissionsRouter = router({
     .query(async ({ input: { id } }) => {
       return await prisma.projectsProjectSubmission.findMany({
         where: {
-          profile: {
+          projectsProfile: {
             userProfile: {
               id,
             },

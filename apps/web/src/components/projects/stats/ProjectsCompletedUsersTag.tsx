@@ -4,16 +4,16 @@ import { FormattedMessage } from 'react-intl';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Text from '~/components/ui/Text';
 
-import type { Profile } from '@prisma/client';
+import type { ProjectsProfileAvatarData } from '../details/types';
 
 type Props = Readonly<{
   className?: string;
   count: number | null;
-  users: ReadonlyArray<Profile>;
+  profiles: ReadonlyArray<ProjectsProfileAvatarData>;
 }>;
 
 export default function ProjectsCompletedUsersTag({
-  users,
+  profiles,
   count,
   className,
 }: Props) {
@@ -24,11 +24,11 @@ export default function ProjectsCompletedUsersTag({
   return (
     <div className={clsx('flex items-center gap-1', className)}>
       <div className="flex items-center -space-x-3">
-        {users.map((user) => (
+        {profiles.map((profile) => (
           <UserAvatar
-            key={user.id}
+            key={profile.id}
             className="border dark:border-neutral-900 border-white"
-            profile={user}
+            profile={profile}
             size="xs"
           />
         ))}

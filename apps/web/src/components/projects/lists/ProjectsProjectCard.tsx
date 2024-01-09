@@ -30,7 +30,7 @@ type Props = Readonly<{
 
 export default function ProjectsProjectCard({ project }: Props) {
   const intl = useIntl();
-  const { completedUsers, completedCount, metadata, status } = project;
+  const { completedProfiles, completedCount, metadata, status } = project;
   const {
     title,
     difficulty,
@@ -160,7 +160,7 @@ export default function ProjectsProjectCard({ project }: Props) {
           />
           <ProjectsCompletedUsersTag
             count={completedCount}
-            users={completedUsers}
+            profiles={completedProfiles}
           />
         </div>
       </div>
