@@ -4,11 +4,11 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
-import Card from '~/components/ui/Card';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
+
+import ProjectsCompleteProfileCard from './ProjectsCompleteProfileCard';
 
 export default function ProjectsDashboardPage() {
   const intl = useIntl();
@@ -23,13 +23,7 @@ export default function ProjectsDashboardPage() {
             id="UTPE3y"
           />
         </Heading>
-        <Card
-          className="flex flex-col gap-2"
-          disableSpotlight={true}
-          pattern={false}>
-          <Text size="body2">Complete your profile</Text>
-          <Text size="body3">Completed profiles get 3x more responses</Text>
-        </Card>
+        <ProjectsCompleteProfileCard />
       </div>
       <Section>
         <CardContainer className="lg:grid-cols-4 lg:grid-rows-1 grid-cols-2 grid grid-rows-2 gap-3 md:gap-4 lg:gap-6">

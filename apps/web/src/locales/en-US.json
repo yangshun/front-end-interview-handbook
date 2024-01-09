@@ -679,10 +679,6 @@
     "defaultMessage": "Host your site",
     "description": "Description for Deployment step in project submission checklist"
   },
-  "6aKLc3": {
-    "defaultMessage": "Project in progress",
-    "description": "Label for in progress project tag"
-  },
   "6almL5": {
     "defaultMessage": "Check on eligibility or submit proof",
     "description": "Instruction to check for review cashback"
@@ -1658,6 +1654,10 @@
   "HOCjPY": {
     "defaultMessage": "Implement popular JavaScript library and utility functions",
     "description": "Description of JavaScript utility function questions"
+  },
+  "HP34xZ": {
+    "defaultMessage": "Completed profiles get 3x more responses",
+    "description": "Subtitle for Complete profile card on Projects dashboard page"
   },
   "HRk5Ic": {
     "defaultMessage": "Help others review their code and answer questions",
@@ -2719,9 +2719,17 @@
     "defaultMessage": "All rounded coverage to bring you to the next level.",
     "description": "Short description for one month study plan"
   },
+  "SJA7IZ": {
+    "defaultMessage": "Add Website",
+    "description": "Title for Add Website task on Projects dashboard page"
+  },
   "SKsPOw": {
     "defaultMessage": "Premium Content",
     "description": "Premium system design questions content"
+  },
+  "SSiHbz": {
+    "defaultMessage": "Add LinkedIn",
+    "description": "Title for Add LinkedIn task on Projects dashboard page"
   },
   "SUjf8L": {
     "defaultMessage": "Not Subscribed",
@@ -3267,6 +3275,10 @@
     "defaultMessage": "Oldest first",
     "description": "Sorting option for blog list"
   },
+  "XkNVS1": {
+    "defaultMessage": "Complete your profile",
+    "description": "Title for Complete profile card on Projects dashboard page"
+  },
   "XkPGFj": {
     "defaultMessage": "Projects you may be interested in",
     "description": "Title for projects you may be interested in section on project submission success page"
@@ -3347,6 +3359,10 @@
     "defaultMessage": "Cancel",
     "description": "Cancel and close the sign in modal"
   },
+  "YY7lXv": {
+    "defaultMessage": "Completed",
+    "description": "Project completed label"
+  },
   "Yb2e9Q": {
     "defaultMessage": "HTML",
     "description": "HTML topic for quiz questions"
@@ -3366,10 +3382,6 @@
   "YiE5Xj": {
     "defaultMessage": "The skills / tools / frameworks you are already familiar in. Cannot find the tag you need? Email us at {supportEmail}",
     "description": "Description for \"Tech stack proficient\" input on Projects profile onboarding page"
-  },
-  "YwXYNT": {
-    "defaultMessage": "Project completed",
-    "description": "Label for completed project tag"
   },
   "YzW/Zb": {
     "defaultMessage": "Expires on {expiryDate}",
@@ -4167,6 +4179,10 @@
     "defaultMessage": "Confirm",
     "description": "Label for confirm button on end project session dialog"
   },
+  "hIOUCl": {
+    "defaultMessage": "Profile completion progress bar",
+    "description": "Label for Profile completion progress bar on Projects dashboard page"
+  },
   "hMx0CX": {
     "defaultMessage": "Everything from the blog",
     "description": "Blog listing title for blog home page"
@@ -4511,6 +4527,10 @@
     "defaultMessage": "Learning progress cleared",
     "description": "Success message for clearing study plan progress"
   },
+  "kaQWYn": {
+    "defaultMessage": "Add Bio",
+    "description": "Title for Add Bio task on Projects dashboard page"
+  },
   "ke8J8T": {
     "defaultMessage": "Try these popular JavaScript questions",
     "description": "Title for featured questions section"
@@ -4810,6 +4830,10 @@
   "nsdh11": {
     "defaultMessage": "Edit",
     "description": "Label for edit projects profile button"
+  },
+  "nsk8M8": {
+    "defaultMessage": "In progress",
+    "description": "Project in progress label"
   },
   "ntAmll": {
     "defaultMessage": "Every project belongs to 1 of 7 tracks comprising of common components used in the industry / use case",
@@ -5298,6 +5322,10 @@
   "sxu/UG": {
     "defaultMessage": "Start a project",
     "description": "Label for Start a Project button in Hero section of HomePage."
+  },
+  "syVPb5": {
+    "defaultMessage": "Add GitHub",
+    "description": "Title for Add GitHub task on Projects dashboard page"
   },
   "szBcoh": {
     "defaultMessage": "Premium",

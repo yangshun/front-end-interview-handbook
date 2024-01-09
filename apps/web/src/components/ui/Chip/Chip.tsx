@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-export type ChipSize = 'md' | 'sm';
+export type ChipSize = 'md' | 'sm' | 'xs';
 
 export type ChipVariant =
   | 'active'
@@ -76,6 +76,7 @@ const variantClasses: Record<
 const sizeClasses: Record<ChipSize, string> = {
   md: 'h-8 w-8',
   sm: 'h-6 w-6',
+  xs: 'h-5 w-5',
 };
 
 export default function Chip({
@@ -104,7 +105,11 @@ export default function Chip({
         className,
       )}>
       {Icon && <Icon className={clsx(iconClass, 'h-4 w-4')} />}
-      {!isLabelHidden && <span className={textClass}>{label}</span>}
+      {!isLabelHidden && (
+        <span className={clsx(textClass, size === 'xs' && 'text-xs')}>
+          {label}
+        </span>
+      )}
     </span>
   );
 }
