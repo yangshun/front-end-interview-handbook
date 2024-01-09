@@ -40,6 +40,11 @@ export default function ProjectsProfilePage({
     return notFound();
   }
 
+  const { data: submissions } =
+    trpc.projects.submissions.projectSubmissionsGetOthers.useQuery({
+      id: profile.id,
+    });
+
   return (
     <Container className="md:pt-16 md:pb-32 pt-6 pb-8">
       <div className="flex flex-col gap-8">
@@ -73,7 +78,7 @@ export default function ProjectsProfilePage({
           )}
         </div>
         <ProjectsProfileInfo isMyProfile={isMyProfile} profile={profile} />
-        <ProjectsProfileStats />
+        <ProjectsProfileStats projectsCompleted={submissions?.length ?? 0} />
         <ProjectsProfileFeaturedSubmissions />
       </div>
     </Container>

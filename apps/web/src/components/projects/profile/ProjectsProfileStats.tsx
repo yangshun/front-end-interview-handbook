@@ -15,11 +15,49 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-export default function ProjectsProfileStats() {
+function getFormattedNumber(num: number) {
+  if (num === 0) {
+    return '–';
+  }
+
+  const lookup = [
+    { symbol: '', value: 1 },
+    { symbol: 'k', value: 1e3 },
+    { symbol: 'M', value: 1e6 },
+    { symbol: 'G', value: 1e9 },
+    { symbol: 'T', value: 1e12 },
+    { symbol: 'P', value: 1e15 },
+    { symbol: 'E', value: 1e18 },
+  ];
+  const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+  const item = lookup
+    .slice()
+    .reverse()
+    .find((lookupItem) => {
+      return num >= lookupItem.value;
+    });
+
+  if (!item) {
+    return '–';
+  }
+
+  const maxNumberOfDigits = 3;
+  const decimalPart = Math.floor(num / item.value);
+  const numDecimalDegits = decimalPart.toString().length;
+  const digits = maxNumberOfDigits - numDecimalDegits;
+
+  return (num / item.value).toFixed(digits).replace(rx, '$1') + item.symbol;
+}
+
+type Props = Readonly<{
+  projectsCompleted: number;
+}>;
+
+export default function ProjectsProfileStats({ projectsCompleted }: Props) {
   // TODO(projects): remove hard coded stats data
   const stats = [
     {
-      count: 232,
+      count: projectsCompleted,
       icon: RiRocketFill,
       title: 'Projects Completed',
     },
@@ -29,12 +67,12 @@ export default function ProjectsProfileStats() {
       title: 'Number of upvotes',
     },
     {
-      count: 4,
+      count: 104000,
       icon: RiTerminalBoxFill,
       title: 'Code reviews done',
     },
     {
-      count: 824,
+      count: 5043000,
       icon: RiEyeFill,
       title: 'Project views',
     },
@@ -42,7 +80,7 @@ export default function ProjectsProfileStats() {
 
   return (
     <Section>
-      <CardContainer className="lg:grid-cols-4 grid-cols-2 grid gap-3 md:gap-4 lg:gap-6">
+      <CardContainer className="xl:grid-cols-4 grid-cols-2 grid gap-3 md:gap-4 lg:gap-6">
         {stats.map(({ title, count, icon: Icon }) => {
           return (
             <Card
@@ -69,7 +107,7 @@ export default function ProjectsProfileStats() {
                 className="md:text-5xl text-4xl font-bold"
                 size="custom"
                 weight="custom">
-                {count}
+                {getFormattedNumber(count)}
               </Text>
             </Card>
           );

@@ -3,8 +3,10 @@
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
+import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
 import Button from '~/components/ui/Button';
-import CardContainer from '~/components/ui/Card/CardContainer';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -12,6 +14,9 @@ import ProjectsCompleteProfileCard from './ProjectsCompleteProfileCard';
 
 export default function ProjectsDashboardPage() {
   const intl = useIntl();
+
+  const { data: submissions } =
+    trpc.projects.submissions.projectSubmissionsGetSelf.useQuery();
 
   return (
     <div className="flex flex-col gap-8">
@@ -25,11 +30,7 @@ export default function ProjectsDashboardPage() {
         </Heading>
         <ProjectsCompleteProfileCard />
       </div>
-      <Section>
-        <CardContainer className="lg:grid-cols-4 lg:grid-rows-1 grid-cols-2 grid grid-rows-2 gap-3 md:gap-4 lg:gap-6">
-          Placeholder for stats
-        </CardContainer>
-      </Section>
+      <ProjectsProfileStats projectsCompleted={submissions?.length ?? 0} />
       <Section>
         <div className="lg:grid-cols-2 lg:grid-rows-1 grid-cols-1 grid grid-rows-2 gap-3 md:gap-4 lg:gap-6">
           <div className="grid grid-cols-1 gap-3 md:gap-4 lg:gap-6">
