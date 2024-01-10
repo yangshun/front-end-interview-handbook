@@ -14,7 +14,19 @@ const projectsSessionProcedure = projectsUserProcedure.input(
 export const projectsSessionsRouter = router({
   create: projectsSessionProcedure.mutation(
     async ({ input: { slug }, ctx: { projectsProfileId } }) => {
-      // TODO(projects): Validate slug
+      // Don't allow creating multiple sessions.
+      const existingSession = await prisma.projectsProjectSession.findFirst({
+        where: {
+          profileId: projectsProfileId,
+          slug,
+          status: 'IN_PROGRESS',
+        },
+      });
+
+      if (existingSession != null) {
+        return existingSession;
+      }
+
       return await prisma.projectsProjectSession.create({
         data: {
           profileId: projectsProfileId,
