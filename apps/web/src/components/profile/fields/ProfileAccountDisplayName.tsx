@@ -5,12 +5,12 @@ import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
-import {
-  getProfileNameStrings,
-  useProfileNameSchema,
-} from '~/hooks/user/profileName';
 
 import { useToast } from '~/components/global/toasts/ToastsProvider';
+import {
+  getProfileNameAttrs,
+  useProfileNameSchema,
+} from '~/components/profile/fields/ProfileNameSchema';
 import Button from '~/components/ui/Button';
 import TextInput from '~/components/ui/TextInput';
 import { themeBorderColor } from '~/components/ui/theme';
@@ -35,7 +35,7 @@ function useDisplayNameFormSchema() {
 
 export default function ProfileAccountDisplayName() {
   const intl = useIntl();
-  const profileNameStrings = getProfileNameStrings(intl);
+  const attrs = getProfileNameAttrs(intl);
 
   const toast = useToast();
   const displayNameFormSchema = useDisplayNameFormSchema();
@@ -60,7 +60,7 @@ export default function ProfileAccountDisplayName() {
           await nameUpdateMutation.mutateAsync(data);
           reset(data);
           toast.showToast({
-            title: profileNameStrings.successMessage,
+            title: attrs.successMessage,
             variant: 'success',
           });
         })}>
@@ -71,10 +71,11 @@ export default function ProfileAccountDisplayName() {
             <TextInput
               autoComplete="off"
               defaultValue={profileDataQuery.data?.name ?? undefined}
-              description={profileNameStrings.description}
+              description={attrs.description}
               errorMessage={errors.name?.message}
               isDisabled={isSubmitting}
-              label={profileNameStrings.label}
+              label={attrs.label}
+              maxLength={attrs.validation.maxLength}
               {...field}
             />
           )}

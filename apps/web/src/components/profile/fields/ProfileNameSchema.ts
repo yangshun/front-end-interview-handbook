@@ -2,9 +2,9 @@ import type { IntlShape } from 'react-intl';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
-const MAXIMUM_LENGTH = 32;
+const MAX_LENGTH = 32;
 
-export function getProfileNameSchema(options?: {
+function profileNameSchema(options?: {
   maxMessage: string;
   minMessage: string;
 }) {
@@ -13,17 +13,17 @@ export function getProfileNameSchema(options?: {
   return z
     .string()
     .min(1, { message: minMessage })
-    .max(MAXIMUM_LENGTH, { message: maxMessage })
+    .max(MAX_LENGTH, { message: maxMessage })
     .trim();
 }
 
 // TODO: Figure out how to reuse intl strings for the server.
-export const profileNameSchemaServer = getProfileNameSchema({
-  maxMessage: `Display name must contain at most ${MAXIMUM_LENGTH} characters.`,
+export const profileNameSchemaServer = profileNameSchema({
+  maxMessage: `Display name must contain at most ${MAX_LENGTH} characters.`,
   minMessage: 'Display name cannot be empty.',
 });
 
-export function getProfileNameStrings(intl: IntlShape) {
+export function getProfileNameAttrs(intl: IntlShape) {
   const label = intl.formatMessage({
     defaultMessage: 'Display name',
     description: 'Display name',
@@ -37,7 +37,7 @@ export function getProfileNameStrings(intl: IntlShape) {
       id: 'nfWiNn',
     },
     {
-      maxLength: MAXIMUM_LENGTH,
+      maxLength: MAX_LENGTH,
     },
   );
   const maxMessage = intl.formatMessage(
@@ -48,7 +48,7 @@ export function getProfileNameStrings(intl: IntlShape) {
       id: 'v9aMaT',
     },
     {
-      maxLength: MAXIMUM_LENGTH,
+      maxLength: MAX_LENGTH,
     },
   );
   const minMessage = intl.formatMessage({
@@ -65,18 +65,21 @@ export function getProfileNameStrings(intl: IntlShape) {
   return {
     description,
     label,
-    maxMessage,
-    minMessage,
     successMessage,
+    validation: {
+      maxLength: MAX_LENGTH,
+      maxMessage,
+      minMessage,
+    },
   };
 }
 
 export function useProfileNameSchema() {
   const intl = useIntl();
-  const intlStrings = getProfileNameStrings(intl);
+  const intlStrings = getProfileNameAttrs(intl);
 
-  return getProfileNameSchema({
-    maxMessage: intlStrings.maxMessage,
-    minMessage: intlStrings.minMessage,
+  return profileNameSchema({
+    maxMessage: intlStrings.validation.maxMessage,
+    minMessage: intlStrings.validation.minMessage,
   });
 }

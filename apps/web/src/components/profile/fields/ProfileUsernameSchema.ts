@@ -2,11 +2,11 @@ import type { IntlShape } from 'react-intl';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
-const MINIMUM_LENGTH = 3;
-const MAXIMUM_LENGTH = 48;
+const MIN_LENGTH = 3;
+const MAX_LENGTH = 48;
 const REGEX_VALIDATION = new RegExp(/^[a-zA-Z0-9]+([-]*[a-zA-Z0-9]+)*$/);
 
-export function getProfileUserNameSchema(options?: {
+function profileUsernameSchema(options?: {
   maxMessage: string;
   minMessage: string;
   regexMessage: string;
@@ -15,21 +15,21 @@ export function getProfileUserNameSchema(options?: {
 
   return z
     .string()
-    .min(MINIMUM_LENGTH, { message: minMessage })
-    .max(MAXIMUM_LENGTH, { message: maxMessage })
+    .min(MIN_LENGTH, { message: minMessage })
+    .max(MAX_LENGTH, { message: maxMessage })
     .regex(REGEX_VALIDATION, { message: regexMessage })
     .trim();
 }
 
 // TODO: Figure out how to reuse intl strings for the server.
-export const profileUserNameSchemaServer = getProfileUserNameSchema({
-  maxMessage: `Username must contain at most ${MAXIMUM_LENGTH} characters.`,
-  minMessage: `Username must contain at least ${MINIMUM_LENGTH} characters.`,
+export const profileUserNameSchemaServer = profileUsernameSchema({
+  maxMessage: `Username must contain at most ${MAX_LENGTH} characters.`,
+  minMessage: `Username must contain at least ${MIN_LENGTH} characters.`,
   regexMessage:
     'Username should begin and end with an alphanumeric character, and only contain alphanumeric characters or dashes.',
 });
 
-export function getProfileUserNameStrings(intl: IntlShape) {
+export function getProfileUserNameAttrs(intl: IntlShape) {
   const label = intl.formatMessage({
     defaultMessage: 'Username',
     description: 'Username',
@@ -43,7 +43,7 @@ export function getProfileUserNameStrings(intl: IntlShape) {
       id: 'JIywgW',
     },
     {
-      maxLength: MAXIMUM_LENGTH,
+      maxLength: MAX_LENGTH,
     },
   );
   const maxMessage = intl.formatMessage(
@@ -53,7 +53,7 @@ export function getProfileUserNameStrings(intl: IntlShape) {
       id: 'Wi3vIz',
     },
     {
-      maxLength: MAXIMUM_LENGTH,
+      maxLength: MAX_LENGTH,
     },
   );
   const minMessage = intl.formatMessage(
@@ -63,7 +63,7 @@ export function getProfileUserNameStrings(intl: IntlShape) {
       id: 'pomXxL',
     },
     {
-      minLength: MINIMUM_LENGTH,
+      minLength: MIN_LENGTH,
     },
   );
   const regexMessage = intl.formatMessage({
@@ -81,20 +81,23 @@ export function getProfileUserNameStrings(intl: IntlShape) {
   return {
     description,
     label,
-    maxMessage,
-    minMessage,
-    regexMessage,
     successMessage,
+    validation: {
+      maxLength: MAX_LENGTH,
+      maxMessage,
+      minMessage,
+      regexMessage,
+    },
   };
 }
 
-export function useProfileUserNameSchema() {
+export function useProfileUsernameSchema() {
   const intl = useIntl();
-  const intlStrings = getProfileUserNameStrings(intl);
+  const intlStrings = getProfileUserNameAttrs(intl);
 
-  return getProfileUserNameSchema({
-    maxMessage: intlStrings.maxMessage,
-    minMessage: intlStrings.minMessage,
-    regexMessage: intlStrings.regexMessage,
+  return profileUsernameSchema({
+    maxMessage: intlStrings.validation.maxMessage,
+    minMessage: intlStrings.validation.minMessage,
+    regexMessage: intlStrings.validation.regexMessage,
   });
 }

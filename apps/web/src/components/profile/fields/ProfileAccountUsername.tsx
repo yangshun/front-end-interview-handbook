@@ -5,12 +5,12 @@ import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
-import {
-  getProfileUserNameStrings,
-  useProfileUserNameSchema,
-} from '~/hooks/user/profileUserName';
 
 import { useToast } from '~/components/global/toasts/ToastsProvider';
+import {
+  getProfileUserNameAttrs,
+  useProfileUsernameSchema,
+} from '~/components/profile/fields/ProfileUsernameSchema';
 import Button from '~/components/ui/Button';
 import TextInput from '~/components/ui/TextInput';
 import { themeBorderColor } from '~/components/ui/theme';
@@ -21,8 +21,8 @@ type UserNameFormValues = Readonly<{
   username: string;
 }>;
 
-function useUserNameFormSchema() {
-  const userNameSchema = useProfileUserNameSchema();
+function useUsernameFormSchema() {
+  const userNameSchema = useProfileUsernameSchema();
 
   return useMemo(
     () =>
@@ -35,10 +35,10 @@ function useUserNameFormSchema() {
 
 export default function ProfileAccountUsername() {
   const intl = useIntl();
-  const profileUserNameStrings = getProfileUserNameStrings(intl);
+  const attrs = getProfileUserNameAttrs(intl);
 
   const toast = useToast();
-  const userNameFormSchema = useUserNameFormSchema();
+  const userNameFormSchema = useUsernameFormSchema();
   const { data } = trpc.profile.getProfile.useQuery();
   const userNameUpdateMutation = trpc.profile.userNameUpdate.useMutation();
 
@@ -71,7 +71,7 @@ export default function ProfileAccountUsername() {
           }
           reset(username);
           toast.showToast({
-            title: profileUserNameStrings.successMessage,
+            title: attrs.successMessage,
             variant: 'success',
           });
         })}>
@@ -81,10 +81,11 @@ export default function ProfileAccountUsername() {
           render={({ field }) => (
             <TextInput
               autoComplete="off"
-              description={profileUserNameStrings.description}
+              description={attrs.description}
               errorMessage={errors.username?.message}
               isDisabled={isSubmitting}
-              label={profileUserNameStrings.label}
+              label={attrs.label}
+              maxLength={attrs.validation.maxLength}
               {...field}
             />
           )}

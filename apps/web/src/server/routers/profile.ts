@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
-import { profileNameSchemaServer } from '~/hooks/user/profileName';
-import { profileUserNameSchemaServer } from '~/hooks/user/profileUserName';
+import { profileNameSchemaServer } from '~/components/profile/fields/ProfileNameSchema';
+import { profileUserNameSchemaServer } from '~/components/profile/fields/ProfileUsernameSchema';
 
 import prisma from '~/server/prisma';
 
