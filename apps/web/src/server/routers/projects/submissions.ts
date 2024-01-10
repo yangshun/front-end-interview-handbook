@@ -23,12 +23,11 @@ export const submissionsRouter = router({
         },
       });
     }),
-
   projectSubmissionsGetSelf: projectsUserProcedure.query(
-    async ({ ctx: { profileId } }) => {
+    async ({ ctx: { projectsProfileId } }) => {
       return await prisma.projectsProjectSubmission.findMany({
         where: {
-          profileId,
+          profileId: projectsProfileId,
         },
       });
     },

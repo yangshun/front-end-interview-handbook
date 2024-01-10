@@ -5,25 +5,25 @@ import prisma from '~/server/prisma';
 import { projectsUserProcedure } from './procedures';
 import { router } from '../../trpc';
 
-const sessionProcedure = projectsUserProcedure.input(
+const projectsSessionProcedure = projectsUserProcedure.input(
   z.object({
     slug: z.string(),
   }),
 );
 
 export const sessionsRouter = router({
-  create: sessionProcedure.mutation(
-    async ({ input: { slug }, ctx: { profileId } }) => {
+  create: projectsSessionProcedure.mutation(
+    async ({ input: { slug }, ctx: { projectsProfileId } }) => {
       // TODO(projects): Validate slug
       return await prisma.projectsProjectSession.create({
         data: {
-          profileId,
+          profileId: projectsProfileId,
           slug,
         },
       });
     },
   ),
-  end: sessionProcedure.mutation(async ({ input: { slug } }) => {
+  end: projectsSessionProcedure.mutation(async ({ input: { slug } }) => {
     return await prisma.projectsProjectSession.updateMany({
       data: {
         status: 'STOPPED',
@@ -37,12 +37,14 @@ export const sessionsRouter = router({
   getAnySession: projectsUserProcedure.query(async () => {
     return await prisma.projectsProjectSession.findFirst();
   }),
-  getLatestInProgress: sessionProcedure.query(async ({ input: { slug } }) => {
-    return await prisma.projectsProjectSession.findFirst({
-      where: {
-        slug,
-        status: 'IN_PROGRESS',
-      },
-    });
-  }),
+  getLatestInProgress: projectsSessionProcedure.query(
+    async ({ input: { slug } }) => {
+      return await prisma.projectsProjectSession.findFirst({
+        where: {
+          slug,
+          status: 'IN_PROGRESS',
+        },
+      });
+    },
+  ),
 });
