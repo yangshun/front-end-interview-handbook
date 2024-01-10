@@ -41,7 +41,7 @@ export default function MarketingSectionHeader({
             themeTextSecondaryColor,
           )}
           display="block"
-          size="custom">
+          size="inherit">
           {description}
         </Text>
       )}

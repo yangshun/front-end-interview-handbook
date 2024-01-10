@@ -32,7 +32,7 @@ export default function TeamPage({
       <div className="flex flex-col gap-y-12 py-12 lg:gap-y-16 lg:py-16">
         <div className="flex flex-col gap-y-4">
           <Heading level="heading3">Our team</Heading>
-          <Text className="text-xl" display="block" size="custom">
+          <Text className="text-xl" display="block" size="inherit">
             Our diverse network of team members, contributors, industry experts,
             and community leaders spans across the globe.
           </Text>

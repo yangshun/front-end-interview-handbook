@@ -335,7 +335,7 @@ export default function MarketingContinuousUpdates() {
               className="relative max-w-5xl text-base md:text-xl"
               color="secondary"
               display="block"
-              size="custom">
+              size="inherit">
               <FormattedMessage
                 defaultMessage="Our focus is currently on expanding our question base. New coding and system design questions are added to the platform on a weekly basis."
                 description="Question base section subtitle - first paragraph"
@@ -346,7 +346,7 @@ export default function MarketingContinuousUpdates() {
               className="relative mt-10 max-w-5xl text-base md:text-xl"
               color="secondary"
               display="block"
-              size="custom">
+              size="inherit">
               <FormattedMessage
                 defaultMessage="We are also looking to include more framework-specific questions like React, Vue, Angular, etc."
                 description="Question base section subtitle - second paragraph"
@@ -357,7 +357,7 @@ export default function MarketingContinuousUpdates() {
               className="relative mt-10 max-w-5xl text-base md:text-xl"
               color="secondary"
               display="block"
-              size="custom">
+              size="inherit">
               <FormattedMessage
                 defaultMessage="Please <link>leave us an email</link> if you have any other needs or wants. We would love to discuss them!"
                 description="Question base section subtitle - third paragraph"

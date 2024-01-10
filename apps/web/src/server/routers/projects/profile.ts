@@ -152,7 +152,6 @@ export const projectsProfileRouter = router({
         });
       },
     ),
-
   projectsProfileGet: projectsUserProcedure.query(async ({ ctx: { user } }) => {
     return await prisma.profile.findUnique({
       include: {

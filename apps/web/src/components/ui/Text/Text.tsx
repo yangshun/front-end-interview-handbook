@@ -35,14 +35,15 @@ export type TextColor =
   | 'success';
 export type TextDisplay =
   | 'block'
+  | 'custom'
   | 'flex'
   | 'grid'
   | 'inline-block'
   | 'inline-flex'
   | 'inline-grid'
   | 'inline';
-export type TextSize = 'body0' | 'body1' | 'body2' | 'body3' | 'custom';
-export type TextWeight = 'bold' | 'custom' | 'medium' | 'normal';
+export type TextSize = 'body0' | 'body1' | 'body2' | 'body3' | 'inherit';
+export type TextWeight = 'bold' | 'inherit' | 'medium' | 'normal';
 
 type Props = Readonly<{
   children?: React.ReactNode;
@@ -59,12 +60,12 @@ const sizeClasses: Record<TextSize, string> = {
   body1: 'text-base',
   body2: 'text-sm',
   body3: 'text-xs',
-  custom: '',
+  inherit: '',
 };
 
 const weightClasses: Record<TextWeight, string> = {
   bold: 'font-semibold',
-  custom: '',
+  inherit: '',
   medium: 'font-medium',
   normal: 'font-normal',
 };
@@ -98,7 +99,7 @@ export default function Text({
   return (
     <span
       className={clsx(
-        display === 'inline' ? null : display,
+        display === 'inline' || display === 'custom' ? null : display,
         weightClasses[weight],
         colorClasses[color],
         sizeClasses[size],

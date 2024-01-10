@@ -44,7 +44,7 @@ export function ProjectsLevelingProgressBar({
                     id="19uyd3"
                     values={{
                       bold: (chunks) => (
-                        <Text size="custom" weight="bold">
+                        <Text size="inherit" weight="bold">
                           {chunks}
                         </Text>
                       ),

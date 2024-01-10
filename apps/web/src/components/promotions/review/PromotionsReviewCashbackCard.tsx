@@ -88,8 +88,8 @@ export function PromotionsReviewCashbackCard() {
             <Text
               className={clsx('inline-flex items-center text-5xl font-bold')}
               display="inline-flex"
-              size="custom"
-              weight="custom">
+              size="inherit"
+              weight="inherit">
               {discountPercentage}%
             </Text>
           </div>
@@ -97,7 +97,7 @@ export function PromotionsReviewCashbackCard() {
             className="text-xl"
             color="label"
             display="block"
-            size="custom"
+            size="inherit"
             weight="medium">
             <FormattedMessage
               defaultMessage="CASHBACK"

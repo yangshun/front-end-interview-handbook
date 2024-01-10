@@ -105,7 +105,7 @@ export default function Page({ searchParams }: Props) {
       variant="narrow">
       <div className="flex flex-col gap-y-6">
         <Heading level="heading2">Open positions</Heading>
-        <Text className="text-lg" color="subtitle" size="custom">
+        <Text className="text-lg" color="subtitle" size="inherit">
           Join us in building innovative products that are well-loved by Front
           End Engineers.
         </Text>

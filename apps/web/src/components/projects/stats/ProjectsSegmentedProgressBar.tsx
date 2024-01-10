@@ -41,7 +41,7 @@ export function ProjectsSegmentedProgressBar({
                 id="l5t9Em"
                 values={{
                   bold: (chunks) => (
-                    <Text size="custom" weight="bold">
+                    <Text size="inherit" weight="bold">
                       {chunks}
                     </Text>
                   ),

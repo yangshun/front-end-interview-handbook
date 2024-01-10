@@ -84,14 +84,14 @@ export function PromotionsStudentDiscountCard() {
             <Text
               className={clsx('inline-flex items-center text-5xl font-bold')}
               display="inline-flex"
-              size="custom"
-              weight="custom">
+              size="inherit"
+              weight="inherit">
               {discountPercentage}%
             </Text>
             <Text
               className="text-xl font-medium"
               color="label"
-              size="custom"
+              size="inherit"
               weight="bold">
               <FormattedMessage
                 defaultMessage="OFF"

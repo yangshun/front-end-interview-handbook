@@ -541,7 +541,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
             <div className="flex flex-col gap-y-4 p-4">
               <Text
                 className="text-base font-semibold sm:text-lg"
-                size="custom">
+                size="inherit">
                 {intl.formatMessage({
                   defaultMessage: 'Design a News Feed (e.g. Facebook)',
                   description: 'System design question title',
@@ -557,7 +557,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
                 <Text
                   className="text-base font-medium"
                   display="block"
-                  size="custom">
+                  size="inherit">
                   {intl.formatMessage({
                     defaultMessage: 'Companies',
                     description: 'Companies section label',

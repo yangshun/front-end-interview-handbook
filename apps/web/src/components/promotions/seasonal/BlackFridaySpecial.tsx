@@ -30,7 +30,7 @@ export function BlackFridayPromoCard() {
         ['border', themeBorderColor],
         themeBackgroundColor,
       )}>
-      <Text className="text-xl" display="block" size="custom" weight="bold">
+      <Text className="text-xl" display="block" size="inherit" weight="bold">
         {SEASONAL_PROMO_CODE_DISCOUNT_PERCENTAGE}% off
       </Text>
       <div className="flex justify-between">
@@ -51,7 +51,7 @@ export function BlackFridayExclusiveTicket({
       padding="sm"
       ratio="normal"
       title={
-        <Text className="text-2xs" display="block" size="custom">
+        <Text className="text-2xs" display="block" size="inherit">
           Exclusive beta access to new product
         </Text>
       }
@@ -87,7 +87,7 @@ export function BlackFridaySpecial() {
           className="text-lg leading-5"
           color="secondary"
           display="block"
-          size="custom"
+          size="inherit"
           weight="medium">
           +
         </Text>

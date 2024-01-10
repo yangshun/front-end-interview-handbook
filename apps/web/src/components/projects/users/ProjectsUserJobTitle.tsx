@@ -29,7 +29,7 @@ export default function ProjectsUserJobTitle({ jobTitle, size = 'sm' }: Props) {
       <RiBuildingLine
         className={clsx(iconClasses[size], themeTextSecondaryColor)}
       />
-      <Text className={textClasses[size]} color="secondary" size="custom">
+      <Text className={textClasses[size]} color="secondary" size="inherit">
         {jobTitle}
       </Text>
     </div>

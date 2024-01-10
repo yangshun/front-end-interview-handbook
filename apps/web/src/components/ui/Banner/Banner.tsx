@@ -71,7 +71,7 @@ export default function Banner({
             )}
             color="inherit"
             display="block"
-            size="custom"
+            size="inherit"
             weight="medium">
             {children}
           </Text>

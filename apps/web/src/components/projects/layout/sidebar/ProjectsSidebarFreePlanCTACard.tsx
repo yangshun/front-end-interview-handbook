@@ -36,7 +36,7 @@ export function ProjectsSidebarFreePlanCTACard() {
               />
             </Tooltip>
           </div>
-          <Text className="text-2xs" size="custom">
+          <Text className="text-2xs" size="inherit">
             <FormattedMessage
               defaultMessage="Access to {freeChallengeCount}+ free challenges. No access to Figma & guides"
               description="Subtitle of Free Plan CTA card in Projects sidebar"

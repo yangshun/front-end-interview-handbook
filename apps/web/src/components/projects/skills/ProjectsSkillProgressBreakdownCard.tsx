@@ -62,7 +62,7 @@ export default function ProjectsSkillProgressBreakdownCard({
         {skill.label}
       </Text>
 
-      <Text className="text-2xs mt-2" color="subtle" size="custom">
+      <Text className="text-2xs mt-2" color="subtle" size="inherit">
         +100 rep
       </Text>
       <div className={clsx('h-2 mt-1.5 rounded-full', progressBar)} />

@@ -19,7 +19,7 @@ export default function MarketingEmbedQuizQuestion() {
       <div className="h-full sm:overflow-y-scroll">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-y-4 pb-32 pt-4 lg:pt-10">
-            <Text className="text-base font-semibold sm:text-lg" size="custom">
+            <Text className="text-base font-semibold sm:text-lg" size="inherit">
               Describe the difference between{' '}
               <code
                 className={clsx(

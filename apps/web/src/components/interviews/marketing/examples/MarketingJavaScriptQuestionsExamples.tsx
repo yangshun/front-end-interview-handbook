@@ -26,7 +26,7 @@ export default function MarketingJavaScriptQuestionsExamples({
           className="text-base sm:text-lg"
           color="active"
           display="block"
-          size="custom"
+          size="inherit"
           weight="bold">
           <FormattedMessage
             defaultMessage="Everything you need"
@@ -46,7 +46,7 @@ export default function MarketingJavaScriptQuestionsExamples({
             className="py-10 text-lg md:text-xl"
             color="secondary"
             display="block"
-            size="custom">
+            size="inherit">
             <FormattedMessage
               defaultMessage="Front end coding interview questions come in many forms — practice writing JavaScript functions, data structures, and algorithms."
               description="Subtitle for an example list of JavaScript Questions on marketing pages"

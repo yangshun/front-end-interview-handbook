@@ -72,7 +72,7 @@ export default function MarketingFeaturedQuestions({
                 <Text
                   className="text-xl"
                   color="secondary"
-                  size="custom"
+                  size="inherit"
                   weight="bold">
                   (with TypeScript support)
                 </Text>

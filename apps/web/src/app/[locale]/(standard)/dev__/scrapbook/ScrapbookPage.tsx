@@ -101,7 +101,7 @@ export default function ScrapbookPage() {
               padding="md"
               subtitle="2 months free"
               title={
-                <Text className="text-sm" display="block" size="custom">
+                <Text className="text-sm" display="block" size="inherit">
                   Exclusive beta access to our new mystery product
                 </Text>
               }
@@ -115,12 +115,12 @@ export default function ScrapbookPage() {
                   className="text-2xs"
                   color="inherit"
                   display="block"
-                  size="custom">
+                  size="inherit">
                   2 months free
                 </Text>
               }
               title={
-                <Text className="text-2xs" display="block" size="custom">
+                <Text className="text-2xs" display="block" size="inherit">
                   Exclusive beta access to our new mystery product
                 </Text>
               }
@@ -132,12 +132,12 @@ export default function ScrapbookPage() {
                   className="text-2xs"
                   color="inherit"
                   display="block"
-                  size="custom">
+                  size="inherit">
                   2 months free
                 </Text>
               }
               title={
-                <Text className="text-2xs" display="block" size="custom">
+                <Text className="text-2xs" display="block" size="inherit">
                   Exclusive beta access to our new mystery product
                 </Text>
               }
@@ -145,7 +145,7 @@ export default function ScrapbookPage() {
             />
             <Ticket padding="md" width={200}>
               <div className="flex flex-col justify-center items-center h-full">
-                <Text className="text-2xl" size="custom" weight="bold">
+                <Text className="text-2xl" size="inherit" weight="bold">
                   20% off
                 </Text>
                 <Text color="secondary" size="body3">

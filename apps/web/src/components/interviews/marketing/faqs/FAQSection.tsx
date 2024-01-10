@@ -45,7 +45,7 @@ export default function FAQSection({ faqs, title, hideTitle = false }: Props) {
                         className="text-sm sm:text-lg"
                         color="subtitle"
                         display="block"
-                        size="custom"
+                        size="inherit"
                         weight="medium">
                         {faq.question}
                       </Text>

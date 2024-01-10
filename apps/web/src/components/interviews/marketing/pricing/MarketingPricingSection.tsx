@@ -794,7 +794,7 @@ export default function MarketingPricingSection({
                           )}
                           color="subtle"
                           display="inline-flex"
-                          size="custom"
+                          size="inherit"
                           weight="medium">
                           <PriceLabel
                             amount={priceRoundToNearestNiceNumber(
@@ -827,7 +827,7 @@ export default function MarketingPricingSection({
                         )}
                         color="subtitle"
                         display="inline-flex"
-                        size="custom"
+                        size="inherit"
                         weight="medium">
                         <span>
                           <PriceLabel
@@ -843,8 +843,8 @@ export default function MarketingPricingSection({
                                 <Text
                                   className="text-5xl font-bold tracking-tight"
                                   color="default"
-                                  size="custom"
-                                  weight="custom">
+                                  size="inherit"
+                                  weight="inherit">
                                   <>
                                     {parts
                                       .slice(1)
@@ -1042,8 +1042,8 @@ export default function MarketingPricingSection({
                                         <Text
                                           className="text-3xl font-bold tracking-tight"
                                           color="default"
-                                          size="custom"
-                                          weight="custom">
+                                          size="inherit"
+                                          weight="inherit">
                                           <>
                                             {parts
                                               .slice(1)

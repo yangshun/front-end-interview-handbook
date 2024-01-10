@@ -180,8 +180,8 @@ export default function MarketingHero() {
                       <Text
                         className="text-base font-semibold text-white sm:text-2xl"
                         color="inherit"
-                        size="custom"
-                        weight="custom">
+                        size="inherit"
+                        weight="inherit">
                         Blind 75
                       </Text>
                       <div className="flex items-center gap-2">
@@ -189,7 +189,7 @@ export default function MarketingHero() {
                         <Text
                           className="text-left font-bold leading-4"
                           size="body2"
-                          weight="custom">
+                          weight="inherit">
                           Front End Interview
                           <br />
                           Handbook
@@ -210,7 +210,7 @@ export default function MarketingHero() {
               className="mx-auto max-w-sm text-center text-base sm:text-base md:max-w-3xl md:text-lg xl:text-xl"
               color="subtitle"
               display="block"
-              size="custom">
+              size="inherit">
               <FormattedMessage
                 defaultMessage="The only end-to-end front end interview preparation platform.{br} Brought to you by big tech Senior / Staff Front End Engineers."
                 description="Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."

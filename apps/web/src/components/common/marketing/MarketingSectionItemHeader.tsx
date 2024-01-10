@@ -31,7 +31,7 @@ export default function MarketingSectionItemHeader({
         <Text
           className={clsx('text-base lg:text-xl', themeTextSecondaryColor)}
           display="block"
-          size="custom">
+          size="inherit">
           {description}
         </Text>
       )}

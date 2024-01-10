@@ -35,7 +35,7 @@ function SocialDiscountToastImpl() {
           <div className="flex gap-2 pt-4 justify-between items-center">
             <Ticket height={85} padding="none" ratio="wide">
               <div className="flex flex-col justify-center items-center h-full">
-                <Text className="text-2xl" size="custom" weight="bold">
+                <Text className="text-2xl" size="inherit" weight="bold">
                   {promoCode.code}
                 </Text>
                 <Text
@@ -92,7 +92,7 @@ function SocialDiscountToastImpl() {
           </div>
           <Ticket height={98} padding="none" width={156}>
             <div className="flex flex-col justify-center items-center h-full">
-              <Text className="text-2xl" size="custom" weight="bold">
+              <Text className="text-2xl" size="inherit" weight="bold">
                 {socialDiscountLabels.ticketTitle}
               </Text>
             </div>

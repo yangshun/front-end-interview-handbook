@@ -30,7 +30,7 @@ export default function ProjectsUserReputation({ points, size = 'sm' }: Props) {
   return (
     <div className={clsx('flex', themeTextBrandColor, gap[size])}>
       <RiFireLine className={iconClasses[size]} />
-      <Text className={textClasses[size]} color="inherit" size="custom">
+      <Text className={textClasses[size]} color="inherit" size="inherit">
         <FormattedMessage
           defaultMessage="{points} Reputation"
           description="Label showing reputation count in profile header of Projects sidebar"

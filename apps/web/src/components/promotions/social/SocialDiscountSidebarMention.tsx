@@ -28,7 +28,7 @@ function SocialDiscountSpecialTicket({
   return (
     <Ticket height={height} padding="md" width={width}>
       <div className="flex flex-col justify-center items-center h-full">
-        <Text className="text-2xl" size="custom" weight="bold">
+        <Text className="text-2xl" size="inherit" weight="bold">
           {title}
         </Text>
         {subtitle && (

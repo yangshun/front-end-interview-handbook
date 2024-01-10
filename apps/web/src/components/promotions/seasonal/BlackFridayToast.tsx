@@ -34,7 +34,7 @@ export default function BlackFridayToast() {
               className="hidden text-lg leading-5 sm:block"
               color="secondary"
               display="block"
-              size="custom"
+              size="inherit"
               weight="medium">
               +
             </Text>

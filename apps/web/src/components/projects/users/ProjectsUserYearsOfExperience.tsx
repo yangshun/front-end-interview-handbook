@@ -33,7 +33,7 @@ export default function ProjectsUserYearsOfExperience({
       <RiGraduationCapLine
         className={clsx(iconClasses[size], themeTextSecondaryColor)}
       />
-      <Text className={textClasses[size]} color="secondary" size="custom">
+      <Text className={textClasses[size]} color="secondary" size="inherit">
         <FormattedMessage
           defaultMessage="{yearCount} YOE"
           description="Label showing years of experience of a user"

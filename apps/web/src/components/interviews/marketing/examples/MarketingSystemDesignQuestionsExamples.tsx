@@ -26,7 +26,7 @@ export default function MarketingSystemDesignQuestionsExamples({
           className="text-base sm:text-lg"
           color="active"
           display="block"
-          size="custom"
+          size="inherit"
           weight="bold">
           <FormattedMessage
             defaultMessage="You can't find it elsewhere"
@@ -46,7 +46,7 @@ export default function MarketingSystemDesignQuestionsExamples({
             className="py-10 text-lg md:text-xl"
             color="secondary"
             display="block"
-            size="custom">
+            size="inherit">
             <FormattedMessage
               defaultMessage="Front end system design resources are virtually non-existent. This is the only place you'll find in-depth solutions for front end system design questions along with our proven answering framework."
               description="Subtitle for an example list of User Interface Questions on marketing pages"

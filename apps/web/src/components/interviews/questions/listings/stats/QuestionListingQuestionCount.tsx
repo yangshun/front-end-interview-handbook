@@ -71,7 +71,7 @@ export default function QuestionListingQuestionCount({
             id="mDcqlX"
             values={{
               count: (chunks) => (
-                <Text className="text-2xl" size="custom" weight="bold">
+                <Text className="text-2xl" size="inherit" weight="bold">
                   {chunks}
                 </Text>
               ),

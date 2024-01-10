@@ -131,8 +131,8 @@ export default function ProjectsProfileStats({
               </div>
               <Text
                 className="md:text-5xl text-4xl font-bold"
-                size="custom"
-                weight="custom">
+                size="inherit"
+                weight="inherit">
                 {count ? getFormattedNumber(count) : '-'}
               </Text>
             </Card>

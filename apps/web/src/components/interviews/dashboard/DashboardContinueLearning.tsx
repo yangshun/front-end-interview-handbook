@@ -101,7 +101,7 @@ function GradientProgressBar({
             id="lDlJyX"
             values={{
               percent: (chunks) => (
-                <Text className="font-bold" color="inherit" weight="custom">
+                <Text className="font-bold" color="inherit" weight="inherit">
                   {chunks}
                 </Text>
               ),

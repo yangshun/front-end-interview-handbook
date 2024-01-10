@@ -72,7 +72,7 @@ export default function BlogCard({
                     type === 'wide' && 'text-base lg:text-xl',
                   )}
                   display="block"
-                  size={type === 'default' ? 'body1' : 'custom'}
+                  size={type === 'default' ? 'body1' : 'inherit'}
                   weight="bold">
                   {metadata.title}
                 </Text>

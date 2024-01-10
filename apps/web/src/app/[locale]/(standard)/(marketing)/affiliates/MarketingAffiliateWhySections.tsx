@@ -69,7 +69,7 @@ function SliderSection() {
           className="flex justify-center gap-2 text-4xl font-bold"
           color="active"
           display="block"
-          size="custom"
+          size="inherit"
           weight="bold">
           ${Math.round(0.15 * sales * 99 * 100) / 100}{' '}
           <span className="self-end text-lg font-medium">USD</span>
@@ -99,7 +99,7 @@ function SliderSection() {
         className="mt-8 text-center text-2xl"
         color="secondary"
         display="block"
-        size="custom"
+        size="inherit"
         weight="medium">
         {sales} sales
       </Text>
@@ -175,7 +175,7 @@ export default function MarketingAffiliateWhySections() {
                   className="mt-4 text-lg lg:text-xl"
                   color="secondary"
                   display="block"
-                  size="custom">
+                  size="inherit">
                   {reason.subtitle}
                 </Text>
                 <div className="mt-12 space-x-4">

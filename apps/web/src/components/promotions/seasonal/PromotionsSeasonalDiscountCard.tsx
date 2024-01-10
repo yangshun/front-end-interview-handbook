@@ -47,14 +47,14 @@ export function PromotionsSeasonalDiscountCard() {
             <Text
               className={clsx('inline-flex items-center text-5xl font-bold')}
               display="inline-flex"
-              size="custom"
-              weight="custom">
+              size="inherit"
+              weight="inherit">
               {PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE}%
             </Text>
             <Text
               className="text-xl font-medium tracking-normal"
               color="label"
-              size="custom"
+              size="inherit"
               weight="bold">
               <FormattedMessage
                 defaultMessage="OFF"

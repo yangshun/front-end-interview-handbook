@@ -231,7 +231,7 @@ export default function ProjectsMarketingHero() {
                 className="mx-auto max-w-sm text-center text-base sm:text-base md:max-w-3xl md:text-lg xl:text-xl"
                 color="subtitle"
                 display="block"
-                size="custom">
+                size="inherit">
                 {subtitle}
               </Text>
             </div>

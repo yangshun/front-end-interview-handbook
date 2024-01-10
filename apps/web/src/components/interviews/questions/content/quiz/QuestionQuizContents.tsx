@@ -113,7 +113,7 @@ export default function QuestionQuizContents({
                       <Text
                         className="pb-4 text-lg sm:text-xl"
                         display="block"
-                        size="custom">
+                        size="inherit">
                         {question.metadata.subtitle}
                       </Text>
                     )}

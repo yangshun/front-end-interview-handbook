@@ -112,7 +112,7 @@ export default function DiscussionPost({ post, className }: Props) {
                       year: 'numeric',
                     }),
                     emphasis: (chunks) => (
-                      <Text size="custom" weight="medium">
+                      <Text size="inherit" weight="medium">
                         {chunks}
                       </Text>
                     ),

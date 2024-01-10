@@ -45,7 +45,7 @@ export default function MarketingAffiliateSteps() {
               <Text
                 className="py-4 pl-4 text-2xl md:text-xl"
                 display="block"
-                size="custom"
+                size="inherit"
                 weight="bold">
                 {step.title}
               </Text>
