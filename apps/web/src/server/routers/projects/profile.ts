@@ -8,7 +8,7 @@ import { publicProcedure, router, userProcedure } from '../../trpc';
 export const projectsProfileRouter = router({
   getDashboardStatistics: projectsUserProcedure.query(
     async ({ ctx: { projectsProfileId } }) => {
-      const completedProjects = await prisma.projectsProjectSubmission.count({
+      const completedProjects = await prisma.projectsChallengeSubmission.count({
         where: {
           profileId: projectsProfileId,
         },
@@ -30,7 +30,7 @@ export const projectsProfileRouter = router({
       }),
     )
     .query(async ({ input: { projectsProfileId } }) => {
-      const completedProjects = await prisma.projectsProjectSubmission.count({
+      const completedProjects = await prisma.projectsChallengeSubmission.count({
         where: {
           profileId: projectsProfileId,
         },

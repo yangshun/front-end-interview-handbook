@@ -6,8 +6,8 @@ import type { ComponentProps } from 'react';
 import ProjectsProjectHeader from './ProjectsProjectHeader';
 import ProjectsProjectGetStartedDialog from '../get-started/ProjectsProjectGetStartedDialog';
 import ProjectsProjectSessionContextProvider, {
-  useProjectsProjectSessionContext,
-} from '../ProjectsProjectSessionContext';
+  useProjectsChallengeSessionContext,
+} from '../ProjectsChallengeSessionContext';
 import ProjectsProjectStepsTabsImpl from '../ProjectsProjectStepsTabsImpl';
 import type { ProjectsProjectItem } from '../types';
 
@@ -29,7 +29,7 @@ export function ProjectsProjectHeaderLayoutImpl({ project, children }: Props) {
     setIsGetStartedDialogShown,
     startSession,
     isStartSessionLoading,
-  } = useProjectsProjectSessionContext();
+  } = useProjectsChallengeSessionContext();
 
   return (
     <div className="flex flex-col items-stretch gap-16">

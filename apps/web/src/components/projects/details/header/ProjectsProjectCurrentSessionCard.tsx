@@ -15,16 +15,16 @@ import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import { useProjectsProjectSessionContext } from '../ProjectsProjectSessionContext';
+import { useProjectsChallengeSessionContext } from '../ProjectsChallengeSessionContext';
 import type { ProjectsProjectItem } from '../types';
 import ProjectsOtherTechStackInput from '../../skills/ProjectsOtherTechStackInput';
 import ProjectsSkillsSelect from '../../skills/ProjectsSkillsSelect';
 
-import type { ProjectsProjectSession } from '@prisma/client';
+import type { ProjectsChallengeSession } from '@prisma/client';
 
 type Props = Readonly<{
   project: ProjectsProjectItem;
-  session: ProjectsProjectSession;
+  session: ProjectsChallengeSession;
 }>;
 
 export default function ProjectsProjectCurrentProjectSessionCard({
@@ -37,7 +37,7 @@ export default function ProjectsProjectCurrentProjectSessionCard({
   const [otherTechStacks, setOtherTechStacks] = useState<Array<string>>([]);
 
   const { endSession, isEndSessionLoading } =
-    useProjectsProjectSessionContext();
+    useProjectsChallengeSessionContext();
 
   const { submitHref, skills, slug } = project.metadata;
   const { createdAt } = session;

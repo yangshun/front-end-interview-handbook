@@ -22,7 +22,7 @@ import { themeTextSubtleColor } from '~/components/ui/theme';
 
 import ProjectsProjectCurrentProjectSessionCard from './ProjectsProjectCurrentSessionCard';
 import ProjectsProjectHowItWorksDialog from './ProjectsProjectHowItWorksDialog';
-import { useProjectsProjectSessionContext } from '../ProjectsProjectSessionContext';
+import { useProjectsChallengeSessionContext } from '../ProjectsChallengeSessionContext';
 
 type Props = Readonly<{
   project: ProjectsProjectItem;
@@ -33,7 +33,7 @@ export default function ProjectsProjectHeader({ project }: Props) {
   const { completedCount, completedProfiles, metadata, track } = project;
   const { description, difficulty, points, skills, title } = metadata;
 
-  const { session, startProject } = useProjectsProjectSessionContext();
+  const { session, startProject } = useProjectsChallengeSessionContext();
   const [isHowItWorksDialogShown, setIsHowItWorksDialogShown] = useState(false);
   const hasSession = session != null;
 

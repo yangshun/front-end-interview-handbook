@@ -12,7 +12,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import BlurOverlay from '~/components/common/BlurOverlay';
 import ProjectsProjectDiscussionSection from '~/components/projects/details/discussions/ProjectsProjectDiscussionSection';
 import ProjectsProjectGuide from '~/components/projects/details/guides/ProjectsProjectGuide';
-import { useProjectsProjectSessionContext } from '~/components/projects/details/ProjectsProjectSessionContext';
+import { useProjectsChallengeSessionContext } from '~/components/projects/details/ProjectsChallengeSessionContext';
 import ProjectsProjectReferenceSubmissions from '~/components/projects/details/resources/ProjectsProjectReferenceSubmissions';
 import type { ProjectsProjectItem } from '~/components/projects/details/types';
 import Button from '~/components/ui/Button';
@@ -58,7 +58,7 @@ export default function ProjectsProjectResourcesPage({
   const [tipsResourcesDiscussionsTab, setTipsResourcesDiscussionsTab] =
     useState<TipsResourcesDiscussionsTabType>('discussions');
 
-  const { startProject, session } = useProjectsProjectSessionContext();
+  const { startProject, session } = useProjectsChallengeSessionContext();
   const hasSession = session != null;
 
   return (

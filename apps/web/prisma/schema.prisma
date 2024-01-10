@@ -184,22 +184,22 @@ model ProjectsProfile {
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @updatedAt
 
-  userProfile Profile?                    @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  sessions    ProjectsProjectSession[]
-  submissions ProjectsProjectSubmission[]
+  userProfile Profile?                      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  sessions    ProjectsChallengeSession[]
+  submissions ProjectsChallengeSubmission[]
 }
 
-enum ProjectsProjectSessionStatus {
+enum ProjectsChallengeSessionStatus {
   IN_PROGRESS
   STOPPED
   COMPLETED
 }
 
-model ProjectsProjectSession {
-  id        String                       @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  profileId String                       @db.Uuid
+model ProjectsChallengeSession {
+  id        String                         @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  profileId String                         @db.Uuid
   slug      String
-  status    ProjectsProjectSessionStatus @default(IN_PROGRESS)
+  status    ProjectsChallengeSessionStatus @default(IN_PROGRESS)
 
   createdAt DateTime  @default(now()) @db.Timestamptz(6)
   updatedAt DateTime  @updatedAt
@@ -208,7 +208,7 @@ model ProjectsProjectSession {
   projectsProfile ProjectsProfile? @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
-model ProjectsProjectSubmission {
+model ProjectsChallengeSubmission {
   id            String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
   profileId     String   @db.Uuid
   slug          String

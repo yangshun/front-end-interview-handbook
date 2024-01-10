@@ -28,7 +28,7 @@ import {
   themeElementBorderColor,
 } from '~/components/ui/theme';
 
-import { useProjectsProjectSessionContext } from '../ProjectsProjectSessionContext';
+import { useProjectsChallengeSessionContext } from '../ProjectsChallengeSessionContext';
 
 type Props = Readonly<{
   project: ProjectsProjectItem;
@@ -41,7 +41,7 @@ export default function ProjectsProjectDeploymentCompletionPage({
   const { submitHref } = metadata;
   const intl = useIntl();
 
-  const { startProject, session } = useProjectsProjectSessionContext();
+  const { startProject, session } = useProjectsChallengeSessionContext();
   const hasSession = session != null;
 
   return (

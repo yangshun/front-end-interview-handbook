@@ -2,7 +2,7 @@ import type { ProjectMetadata } from 'contentlayer/generated';
 
 import type { ProjectsSkill } from '../skills/types';
 
-import type { ProjectsProjectSessionStatus } from '@prisma/client';
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 export const projectDifficultyOptions = [
   'starter',
@@ -44,6 +44,6 @@ export type ProjectsProjectItem = Readonly<{
     Readonly<{
       skills: ReadonlyArray<ProjectsSkill>;
     }>;
-  status: ProjectsProjectSessionStatus | null;
+  status: ProjectsChallengeSessionStatus | null;
   track: ProjectsProjectTrackPayload;
 }>;

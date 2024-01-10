@@ -19,7 +19,7 @@ import type { ProjectsTrack } from '~/components/projects/tracks/ProjectsTracksD
 
 import prisma from '~/server/prisma';
 
-import type { ProjectsProjectSessionStatus } from '@prisma/client';
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 // TODO(projects): remove in future.
 const extraProjectData = {
@@ -67,10 +67,10 @@ export async function readProjectsProjectList(
 
         const sessionsForUserGrouped: Record<
           string,
-          ProjectsProjectSessionStatus
+          ProjectsChallengeSessionStatus
         > = {};
 
-        const sessionsForUser = await prisma.projectsProjectSession.findMany({
+        const sessionsForUser = await prisma.projectsChallengeSession.findMany({
           orderBy: {
             createdAt: 'asc',
           },
@@ -95,7 +95,7 @@ export async function readProjectsProjectList(
       (async () => {
         try {
           const countsForProjectList =
-            await prisma.projectsProjectSession.groupBy({
+            await prisma.projectsChallengeSession.groupBy({
               _count: true,
               by: ['slug'],
               where: {
@@ -161,7 +161,7 @@ export async function readProjectsProjectItem(
     (async () => {
       try {
         const countsForProjectList =
-          await prisma.projectsProjectSession.groupBy({
+          await prisma.projectsChallengeSession.groupBy({
             _count: true,
             by: ['slug'],
             where: {
@@ -177,31 +177,32 @@ export async function readProjectsProjectItem(
     })(),
     (async () => {
       try {
-        const completedSessions = await prisma.projectsProjectSession.findMany({
-          distinct: ['profileId'],
-          include: {
-            projectsProfile: {
-              include: {
-                userProfile: {
-                  select: {
-                    avatarUrl: true,
-                    id: true,
-                    name: true,
-                    username: true,
+        const completedSessions =
+          await prisma.projectsChallengeSession.findMany({
+            distinct: ['profileId'],
+            include: {
+              projectsProfile: {
+                include: {
+                  userProfile: {
+                    select: {
+                      avatarUrl: true,
+                      id: true,
+                      name: true,
+                      username: true,
+                    },
                   },
                 },
               },
             },
-          },
-          orderBy: {
-            createdAt: 'desc',
-          },
-          take: 4,
-          where: {
-            slug,
-            status: 'COMPLETED',
-          },
-        });
+            orderBy: {
+              createdAt: 'desc',
+            },
+            take: 4,
+            where: {
+              slug,
+              status: 'COMPLETED',
+            },
+          });
 
         return completedSessions.map(
           (session) => session.projectsProfile!.userProfile!,

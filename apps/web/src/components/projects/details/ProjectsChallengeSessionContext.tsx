@@ -12,7 +12,7 @@ import { trpc } from '~/hooks/trpc';
 import { useToast } from '~/components/global/toasts/ToastsProvider';
 import Anchor from '~/components/ui/Anchor';
 
-import type { ProjectsProjectSession } from '@prisma/client';
+import type { ProjectsChallengeSession } from '@prisma/client';
 import { useQueryClient } from '@tanstack/react-query';
 import { getQueryKey } from '@trpc/react-query';
 
@@ -20,19 +20,19 @@ const latestSessionQueryKey = getQueryKey(
   trpc.projects.sessions.getLatestInProgress,
 );
 
-type ProjectsProjectSessionContextType = {
+type ProjectsChallengeSessionContextType = {
   endSession: (slug: string) => Promise<void>;
   isEndSessionLoading: boolean;
   isGetStartedDialogShown: boolean;
   isStartSessionLoading: boolean;
-  session: ProjectsProjectSession | null;
+  session: ProjectsChallengeSession | null;
   setIsGetStartedDialogShown: (value: boolean) => void;
   startProject: () => void;
   startSession: (slug: string) => Promise<void>;
 };
 
-const ProjectsProjectSessionContext =
-  createContext<ProjectsProjectSessionContextType>({
+const ProjectsChallengeSessionContext =
+  createContext<ProjectsChallengeSessionContextType>({
     endSession: async () => {},
     isEndSessionLoading: false,
     isGetStartedDialogShown: false,
@@ -43,8 +43,8 @@ const ProjectsProjectSessionContext =
     startSession: async () => {},
   });
 
-export function useProjectsProjectSessionContext() {
-  return useContext(ProjectsProjectSessionContext);
+export function useProjectsChallengeSessionContext() {
+  return useContext(ProjectsChallengeSessionContext);
 }
 
 type Props = Readonly<{
@@ -52,7 +52,7 @@ type Props = Readonly<{
   slug: string;
 }>;
 
-export default function ProjectsProjectSessionContextProvider({
+export default function ProjectsChallengeSessionContextProvider({
   children,
   slug,
 }: Props) {
@@ -204,8 +204,8 @@ export default function ProjectsProjectSessionContextProvider({
   ]);
 
   return (
-    <ProjectsProjectSessionContext.Provider value={value}>
+    <ProjectsChallengeSessionContext.Provider value={value}>
       {children}
-    </ProjectsProjectSessionContext.Provider>
+    </ProjectsChallengeSessionContext.Provider>
   );
 }

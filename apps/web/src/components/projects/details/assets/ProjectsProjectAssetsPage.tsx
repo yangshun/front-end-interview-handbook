@@ -21,7 +21,7 @@ import {
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
-import { useProjectsProjectSessionContext } from '~/components/projects/details/ProjectsProjectSessionContext';
+import { useProjectsChallengeSessionContext } from '~/components/projects/details/ProjectsChallengeSessionContext';
 import type { ProjectsProjectItem } from '~/components/projects/details/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -108,7 +108,7 @@ export default function ProjectsProjectAssetsPage({
   // TODO(projects): Replace below with actual logic
   const isUserPremium = false;
 
-  const { startProject, session } = useProjectsProjectSessionContext();
+  const { startProject, session } = useProjectsChallengeSessionContext();
   const hasSession = session != null;
 
   return (

@@ -15,7 +15,7 @@ export const projectsSessionsRouter = router({
   create: projectsSessionProcedure.mutation(
     async ({ input: { slug }, ctx: { projectsProfileId } }) => {
       // Don't allow creating multiple sessions.
-      const existingSession = await prisma.projectsProjectSession.findFirst({
+      const existingSession = await prisma.projectsChallengeSession.findFirst({
         where: {
           profileId: projectsProfileId,
           slug,
@@ -27,7 +27,7 @@ export const projectsSessionsRouter = router({
         return existingSession;
       }
 
-      return await prisma.projectsProjectSession.create({
+      return await prisma.projectsChallengeSession.create({
         data: {
           profileId: projectsProfileId,
           slug,
@@ -37,7 +37,7 @@ export const projectsSessionsRouter = router({
   ),
   end: projectsSessionProcedure.mutation(
     async ({ input: { slug }, ctx: { projectsProfileId } }) => {
-      return await prisma.projectsProjectSession.updateMany({
+      return await prisma.projectsChallengeSession.updateMany({
         data: {
           status: 'STOPPED',
           stoppedAt: new Date(),
@@ -52,7 +52,7 @@ export const projectsSessionsRouter = router({
   ),
   getLatestInProgress: projectsSessionProcedure.query(
     async ({ input: { slug }, ctx: { projectsProfileId } }) => {
-      return await prisma.projectsProjectSession.findFirst({
+      return await prisma.projectsChallengeSession.findFirst({
         where: {
           profileId: projectsProfileId,
           slug,
@@ -63,7 +63,7 @@ export const projectsSessionsRouter = router({
   ),
   startedBefore: projectsUserProcedure.query(
     async ({ ctx: { projectsProfileId } }) => {
-      const sessions = await prisma.projectsProjectSession.count({
+      const sessions = await prisma.projectsChallengeSession.count({
         where: {
           profileId: projectsProfileId,
         },
