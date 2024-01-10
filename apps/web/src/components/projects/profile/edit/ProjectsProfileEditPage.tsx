@@ -278,10 +278,10 @@ export default function ProjectsProfileEditPage({ profile }: Props) {
                 isDisabled={!isDirty || isSubmitting}
                 isLoading={isSubmitting}
                 label={intl.formatMessage({
-                  defaultMessage: 'Save Changes',
+                  defaultMessage: 'Save changes',
                   description:
                     'Label for save changes button for projects profile edit page',
-                  id: 'LD3ES3',
+                  id: 'Kne0pQ',
                 })}
                 type="submit"
                 variant="primary"

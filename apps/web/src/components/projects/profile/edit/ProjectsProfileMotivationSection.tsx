@@ -19,7 +19,7 @@ export default function ProjectsProfileMotivationSection() {
     formState: { errors },
   } = useFormContext<ProjectsEditProfileValues>();
   const { reasonOptions } = useProjectsMotivationReasonOptions((chunks) => (
-    <Text display="inline" size="body3" weight="bold">
+    <Text display="inline" size="inherit" weight="bold">
       {chunks}
     </Text>
   ));
@@ -94,7 +94,6 @@ export default function ProjectsProfileMotivationSection() {
           />
         </div>
       </div>
-
       <ProjectsProfileMotivationReasonList
         key={reasonType}
         name={reasonType}

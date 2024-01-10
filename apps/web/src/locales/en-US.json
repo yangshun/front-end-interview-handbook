@@ -1995,6 +1995,10 @@
     "defaultMessage": "I would like to sign up for GreatFrontEnd's newsletter to receive interview tips and question updates",
     "description": "Label of checkbox to sign up for newsletter on Email Sign Up page"
   },
+  "Kne0pQ": {
+    "defaultMessage": "Save changes",
+    "description": "Label for save changes button for projects profile edit page"
+  },
   "KsoiBa": {
     "defaultMessage": "Purchase premium to unlock full access to the study plans and all questions with high quality solutions",
     "description": "Study plans paywall description"
@@ -2026,10 +2030,6 @@
   "LAWtL6": {
     "defaultMessage": "Software Engineer",
     "description": "Jacky Liang's job title"
-  },
-  "LD3ES3": {
-    "defaultMessage": "Save Changes",
-    "description": "Label for save changes button for projects profile edit page"
   },
   "LGHLf5": {
     "defaultMessage": "Gamified learning",
