@@ -2,7 +2,7 @@
 
 import { FormattedMessage } from 'react-intl';
 
-import ProjectsProjectCategoryTabs from '~/components/projects/lists/ProjectsProjectCategoryTabs';
+import ProjectsChallengeCategoryTabs from '~/components/projects/lists/ProjectsChallengeCategoryTabs';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -21,7 +21,7 @@ export default function ProjectsMainLayout({ children }: Props) {
         />
       </Heading>
       <Section>
-        <ProjectsProjectCategoryTabs />
+        <ProjectsChallengeCategoryTabs />
         {children}
       </Section>
     </div>

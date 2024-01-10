@@ -1,6 +1,6 @@
-import ProjectsProjectBriefPage from '~/components/projects/details/brief/ProjectsProjectBriefPage';
+import ProjectsChallengeBriefPage from '~/components/projects/details/brief/ProjectsChallengeBriefPage';
 
-import { readProjectsProjectItem } from '~/db/projects/ProjectsReader';
+import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
@@ -8,7 +8,7 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { slug, locale } = params;
-  const { project } = await readProjectsProjectItem(slug, locale);
+  const { project } = await readProjectsChallengeItem(slug, locale);
 
-  return <ProjectsProjectBriefPage project={project} />;
+  return <ProjectsChallengeBriefPage project={project} />;
 }

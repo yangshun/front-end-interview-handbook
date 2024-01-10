@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import ProjectsAllProjectsPage from '~/components/projects/lists/ProjectsAllProjectsPage';
 
-import { readProjectsProjectList } from '~/db/projects/ProjectsReader';
+import { readProjectsChallengeList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
   const user = await readUserFromToken();
-  const { projects } = await readProjectsProjectList(locale, user?.id);
+  const { projects } = await readProjectsChallengeList(locale, user?.id);
 
   return <ProjectsAllProjectsPage projects={projects} />;
 }

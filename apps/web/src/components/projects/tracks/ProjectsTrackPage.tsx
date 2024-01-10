@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import ProjectsProjectCountTag from '~/components/projects/stats/ProjectsProjectCountTag';
+import ProjectsChallengeCountTag from '~/components/projects/stats/ProjectsChallengeCountTag';
 import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
 import type { ProjectsTrack } from '~/components/projects/tracks/ProjectsTracksData';
 import Button from '~/components/ui/Button';
@@ -50,7 +50,7 @@ export default function ProjectsTrackPage({ track }: Props) {
                 points={points}
                 variant="flat"
               />
-              <ProjectsProjectCountTag
+              <ProjectsChallengeCountTag
                 total={projects.length}
                 value={completedProjectCount}
               />

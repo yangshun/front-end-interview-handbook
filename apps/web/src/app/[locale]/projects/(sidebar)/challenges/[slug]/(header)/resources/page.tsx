@@ -1,8 +1,8 @@
-import ProjectsProjectResourcesPage from '~/components/projects/details/resources/ProjectsProjectResourcesPage';
+import ProjectsChallengeResourcesPage from '~/components/projects/details/resources/ProjectsChallengeResourcesPage';
 
 import {
-  readProjectsProjectItem,
-  readProjectsProjectResourceGuideList,
+  readProjectsChallengeItem,
+  readProjectsChallengeResourceGuideList,
 } from '~/db/projects/ProjectsReader';
 
 type Props = Readonly<{
@@ -13,12 +13,12 @@ export default async function Page({ params }: Props) {
   const { slug, locale } = params;
 
   const [{ project }, { resourceProjectsChallengeGuides }] = await Promise.all([
-    readProjectsProjectItem(slug, locale),
-    readProjectsProjectResourceGuideList(locale),
+    readProjectsChallengeItem(slug, locale),
+    readProjectsChallengeResourceGuideList(locale),
   ]);
 
   return (
-    <ProjectsProjectResourcesPage
+    <ProjectsChallengeResourcesPage
       project={project}
       projectGuides={resourceProjectsChallengeGuides}
     />

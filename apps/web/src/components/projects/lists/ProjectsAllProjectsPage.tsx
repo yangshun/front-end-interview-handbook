@@ -2,14 +2,14 @@
 
 import { FormattedMessage } from 'react-intl';
 
-import type { ProjectsProjectItem } from '~/components/projects/details/types';
-import ProjectsProjectGridListWithFilters from '~/components/projects/lists/ProjectsProjectGridListWithFilters';
+import type { ProjectsChallengeItem } from '~/components/projects/details/types';
+import ProjectsChallengeGridListWithFilters from '~/components/projects/lists/ProjectsChallengeGridListWithFilters';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
 type Props = Readonly<{
-  projects: ReadonlyArray<ProjectsProjectItem>;
+  projects: ReadonlyArray<ProjectsChallengeItem>;
 }>;
 
 export default function ProjectsAllProjectsPage({ projects }: Props) {
@@ -34,7 +34,7 @@ export default function ProjectsAllProjectsPage({ projects }: Props) {
         </Section>
       </div>
       <Section>
-        <ProjectsProjectGridListWithFilters projects={projects} />
+        <ProjectsChallengeGridListWithFilters projects={projects} />
       </Section>
     </div>
   );

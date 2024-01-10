@@ -1,6 +1,6 @@
-import ProjectsProjectDeploymentCompletionPage from '~/components/projects/details/completion/ProjectsProjectDeploymentCompletionPage';
+import ProjectsChallengeDeploymentCompletionPage from '~/components/projects/details/completion/ProjectsChallengeDeploymentCompletionPage';
 
-import { readProjectsProjectItem } from '~/db/projects/ProjectsReader';
+import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
@@ -8,7 +8,7 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { slug, locale } = params;
-  const { project } = await readProjectsProjectItem(slug, locale);
+  const { project } = await readProjectsChallengeItem(slug, locale);
 
-  return <ProjectsProjectDeploymentCompletionPage project={project} />;
+  return <ProjectsChallengeDeploymentCompletionPage project={project} />;
 }

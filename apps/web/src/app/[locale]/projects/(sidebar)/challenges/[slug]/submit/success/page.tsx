@@ -1,6 +1,6 @@
-import ProjectsProjectSubmitSuccessPage from '~/components/projects/submit/ProjectsProjectSubmitSuccessPage';
+import ProjectsChallengeSubmitSuccessPage from '~/components/projects/submit/ProjectsChallengeSubmitSuccessPage';
 
-import { readProjectsProjectList } from '~/db/projects/ProjectsReader';
+import { readProjectsChallengeList } from '~/db/projects/ProjectsReader';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
@@ -9,11 +9,11 @@ type Props = Readonly<{
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [{ projects }] = await Promise.all([readProjectsProjectList(locale)]);
+  const [{ projects }] = await Promise.all([readProjectsChallengeList(locale)]);
 
   // TODO(projects): Actual suggested projects for the current project.
   return (
-    <ProjectsProjectSubmitSuccessPage
+    <ProjectsChallengeSubmitSuccessPage
       suggestedProjects={projects.slice(0, 3)}
     />
   );

@@ -5,7 +5,7 @@ import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
 
 import type { ProjectsTrack } from './ProjectsTracksData';
-import ProjectsProjectCountTag from '../stats/ProjectsProjectCountTag';
+import ProjectsChallengeCountTag from '../stats/ProjectsChallengeCountTag';
 import ProjectsReputationCountIncreaseTag from '../stats/ProjectsReputationCountIncreaseTag';
 
 type Props = Readonly<{ track: ProjectsTrack }>;
@@ -39,7 +39,7 @@ export default function ProjectsTrackHeader({ track }: Props) {
       </Text>
       <div className="mt-2 flex flex-wrap gap-4">
         <ProjectsReputationCountIncreaseTag points={points} variant="flat" />
-        <ProjectsProjectCountTag
+        <ProjectsChallengeCountTag
           total={projects.length}
           value={completedProjectCount}
         />

@@ -14,7 +14,7 @@ import {
 } from 'contentlayer/generated';
 import { sum } from 'lodash-es';
 
-import type { ProjectsProjectItem } from '~/components/projects/details/types';
+import type { ProjectsChallengeItem } from '~/components/projects/details/types';
 import type { ProjectsTrack } from '~/components/projects/tracks/ProjectsTracksData';
 
 import prisma from '~/server/prisma';
@@ -51,12 +51,12 @@ export const exampleTrack: Omit<
   isPremium: true,
 };
 
-export async function readProjectsProjectList(
+export async function readProjectsChallengeList(
   requestedLocale = 'en-US',
   userId?: string | null,
 ): Promise<{
   loadedLocale: string;
-  projects: ReadonlyArray<ProjectsProjectItem>;
+  projects: ReadonlyArray<ProjectsChallengeItem>;
 }> {
   const [sessionsForUserGroupedBySlug, countsGroupedBySlug] = await Promise.all(
     [
@@ -118,11 +118,11 @@ export async function readProjectsProjectList(
   );
 
   const projects = allProjectsChallengeMetadata
-    .filter((projectItem) =>
-      projectItem._raw.flattenedPath.endsWith(requestedLocale),
+    .filter((challengeItem) =>
+      challengeItem._raw.flattenedPath.endsWith(requestedLocale),
     )
     .map((projectMetadata) =>
-      projectItemAddTrackMetadata({
+      challengeItemAddTrackMetadata({
         completedCount: countsGroupedBySlug?.[projectMetadata.slug] ?? null,
         // TODO(projects): Fetch from db.
         completedProfiles: [],
@@ -140,19 +140,19 @@ export async function readProjectsProjectList(
   };
 }
 
-export async function readProjectsProjectItem(
+export async function readProjectsChallengeItem(
   slugParam: string,
   requestedLocale = 'en-US',
 ): Promise<
   Readonly<{
     loadedLocale: string;
-    project: ProjectsProjectItem;
+    project: ProjectsChallengeItem;
   }>
 > {
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
 
-  const { projectMetadata } = await readProjectsProjectsChallengeMetadata(
+  const { projectMetadata } = await readProjectsChallengeMetadata(
     slug,
     requestedLocale,
   );
@@ -215,7 +215,7 @@ export async function readProjectsProjectItem(
 
   return {
     loadedLocale: requestedLocale,
-    project: projectItemAddTrackMetadata({
+    project: challengeItemAddTrackMetadata({
       completedCount,
       completedProfiles: completedUsers,
       metadata: {
@@ -228,14 +228,14 @@ export async function readProjectsProjectItem(
   };
 }
 
-function projectItemAddTrackMetadata(
-  projectItem: Omit<ProjectsProjectItem, 'track'>,
-): ProjectsProjectItem {
+function challengeItemAddTrackMetadata(
+  challengeItem: Omit<ProjectsChallengeItem, 'track'>,
+): ProjectsChallengeItem {
   return {
-    ...projectItem,
+    ...challengeItem,
     track: (() => {
       const trackItem = allProjectsTrackMetadata.find(
-        (trackMetadata) => trackMetadata.slug === projectItem.metadata.track,
+        (trackMetadata) => trackMetadata.slug === challengeItem.metadata.track,
       )!;
 
       return {
@@ -247,7 +247,7 @@ function projectItemAddTrackMetadata(
   };
 }
 
-async function readProjectsProjectsChallengeMetadata(
+async function readProjectsChallengeMetadata(
   slugParam: string,
   requestedLocale = 'en-US',
 ): Promise<
@@ -259,8 +259,8 @@ async function readProjectsProjectsChallengeMetadata(
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
   const projectMetadata = allProjectsChallengeMetadata.find(
-    (projectItem) =>
-      projectItem._raw.flattenedPath ===
+    (challengeItem) =>
+      challengeItem._raw.flattenedPath ===
       `projects/challenges/${slug}/${requestedLocale}`,
   )!;
 
@@ -278,7 +278,7 @@ export async function readProjectsTrackList(
   tracks: ReadonlyArray<ProjectsTrack>;
 }> {
   const [{ projects }, { trackMetadataList }] = await Promise.all([
-    readProjectsProjectList(requestedLocale, userId),
+    readProjectsChallengeList(requestedLocale, userId),
     readProjectsTrackMetadataList(requestedLocale),
   ]);
 
@@ -325,7 +325,7 @@ export async function readProjectsTrack(
     track: ProjectsTrack;
   }>
 > {
-  const { projects } = await readProjectsProjectList(requestedLocale);
+  const { projects } = await readProjectsChallengeList(requestedLocale);
 
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
@@ -353,7 +353,7 @@ export async function readProjectsTrack(
   };
 }
 
-export async function readProjectsProjectsChallengeStyleGuide(
+export async function readProjectsChallengeStyleGuide(
   slugParam: string,
   requestedLocale = 'en-US',
 ): Promise<
@@ -378,7 +378,7 @@ export async function readProjectsProjectsChallengeStyleGuide(
   };
 }
 
-export async function readProjectsProjectsChallengeAPIWriteup(
+export async function readProjectsChallengeAPIWriteup(
   slugParam: string,
   requestedLocale = 'en-US',
 ): Promise<
@@ -403,7 +403,7 @@ export async function readProjectsProjectsChallengeAPIWriteup(
   };
 }
 
-export async function readProjectsProjectResourceGuideList(
+export async function readProjectsChallengeResourceGuideList(
   requestedLocale = 'en-US',
 ): Promise<
   Readonly<{

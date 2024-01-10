@@ -8,9 +8,9 @@ import MarketingSectionItemHeader from '~/components/common/marketing/MarketingS
 import HTML5LogoMonochrome from '~/components/icons/HTML5LogoMonochrome';
 import JavaScriptLogo from '~/components/icons/JavaScriptLogoMonochrome';
 import ReactLogo from '~/components/icons/ReactLogo';
-import type { ProjectsProjectItem } from '~/components/projects/details/types';
-import ProjectsProjectGridList from '~/components/projects/lists/ProjectsProjectGridList';
-import ProjectsProjectGridListWithFilters from '~/components/projects/lists/ProjectsProjectGridListWithFilters';
+import type { ProjectsChallengeItem } from '~/components/projects/details/types';
+import ProjectsChallengeGridList from '~/components/projects/lists/ProjectsChallengeGridList';
+import ProjectsChallengeGridListWithFilters from '~/components/projects/lists/ProjectsChallengeGridListWithFilters';
 import ProjectsMarketingComponentTrackAccordion from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordion';
 import ProjectsMarketingComponentTrackAccordionItem from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordionItem';
 import ProjectsSkillTree from '~/components/projects/skills/ProjectsSkillTree';
@@ -36,7 +36,7 @@ const skills = [
 ];
 
 type Props = Readonly<{
-  featuredProjects: ReadonlyArray<ProjectsProjectItem>;
+  featuredProjects: ReadonlyArray<ProjectsChallengeItem>;
   hiddenTracks: ReadonlyArray<ProjectsTrack>;
   projectTracks: ReadonlyArray<ProjectsTrack>;
 }>;
@@ -265,7 +265,7 @@ export default function ProjectsMarketingSkillsTracksProjects({
                 />
               }
             />
-            <ProjectsProjectGridListWithFilters projects={featuredProjects} />
+            <ProjectsChallengeGridListWithFilters projects={featuredProjects} />
             <BlurOverlay
               align="bottom"
               maxHeight={256}
@@ -289,7 +289,7 @@ export default function ProjectsMarketingSkillsTracksProjects({
                   />
                 </div>
               }>
-              <ProjectsProjectGridList projects={featuredProjects} />
+              <ProjectsChallengeGridList projects={featuredProjects} />
             </BlurOverlay>
           </div>
         </Section>

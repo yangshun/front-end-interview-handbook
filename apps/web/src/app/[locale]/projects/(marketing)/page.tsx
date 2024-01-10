@@ -1,7 +1,7 @@
 import type { Metadata } from 'next/types';
 
 import {
-  readProjectsProjectList,
+  readProjectsChallengeList,
   readProjectsTrackList,
 } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -36,7 +36,7 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
 
   const [{ projects }, { tracks }] = await Promise.all([
-    readProjectsProjectList(locale),
+    readProjectsChallengeList(locale),
     readProjectsTrackList(locale),
   ]);
   // TODO(projects): Actual featured projects.

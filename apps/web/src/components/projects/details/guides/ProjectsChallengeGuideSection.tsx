@@ -4,7 +4,7 @@ import { RiMenu2Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { SidebarLinksList } from '~/components/common/SidebarLinksList';
-import ProjectsProjectMdxContent from '~/components/projects/common/ProjectsProjectMdxContent';
+import ProjectsChallengeMdxContent from '~/components/projects/common/ProjectsChallengeMdxContent';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import SlideOut from '~/components/ui/SlideOut';
@@ -103,7 +103,7 @@ export default function ProjectsChallengeGuideSection({
         <Heading level="heading4">{projectGuide.title}</Heading>
         {projectGuide != null && (
           <div className="pt-2">
-            <ProjectsProjectMdxContent mdxCode={projectGuide.body.code} />
+            <ProjectsChallengeMdxContent mdxCode={projectGuide.body.code} />
           </div>
         )}
       </div>

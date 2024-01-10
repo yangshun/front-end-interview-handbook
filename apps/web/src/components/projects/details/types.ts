@@ -11,11 +11,11 @@ export const projectDifficultyOptions = [
   'nightmare',
 ];
 
-export type ProjectsProjectDifficulty =
+export type ProjectsChallengeDifficulty =
   (typeof projectDifficultyOptions)[number];
 
 export const projectAccessOptions = ['free', 'free-plus', 'premium'];
-export type ProjectsProjectAccess = (typeof projectAccessOptions)[number];
+export type ProjectsChallengeAccess = (typeof projectAccessOptions)[number];
 
 export const projectTrackOptions = [
   'design-system',
@@ -32,12 +32,12 @@ export type ProjectsProfileAvatarData = Readonly<{
   name: string | null;
   username: string;
 }>;
-export type ProjectsProjectTrackPayload = Readonly<{
+export type ProjectsChallengeTrackPayload = Readonly<{
   href: string;
   slug: string;
   title: string;
 }>;
-export type ProjectsProjectItem = Readonly<{
+export type ProjectsChallengeItem = Readonly<{
   completedCount: number | null;
   completedProfiles: ReadonlyArray<ProjectsProfileAvatarData>;
   metadata: ProjectsChallengeMetadata &
@@ -45,5 +45,5 @@ export type ProjectsProjectItem = Readonly<{
       skills: ReadonlyArray<ProjectsSkill>;
     }>;
   status: ProjectsChallengeSessionStatus | null;
-  track: ProjectsProjectTrackPayload;
+  track: ProjectsChallengeTrackPayload;
 }>;
