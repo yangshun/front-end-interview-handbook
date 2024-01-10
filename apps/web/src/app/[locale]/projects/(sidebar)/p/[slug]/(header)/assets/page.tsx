@@ -1,9 +1,9 @@
 import ProjectsProjectAssetsPage from '~/components/projects/details/assets/ProjectsProjectAssetsPage';
 
 import {
-  readProjectsProjectAPIWriteup,
   readProjectsProjectItem,
-  readProjectsProjectStyleGuide,
+  readProjectsProjectsChallengeAPIWriteup,
+  readProjectsProjectsChallengeStyleGuide,
 } from '~/db/projects/ProjectsReader';
 
 type Props = Readonly<{
@@ -14,8 +14,8 @@ export default async function Page({ params }: Props) {
   const { slug, locale } = params;
   const [{ project }, { styleGuide }, { apiWriteup }] = await Promise.all([
     readProjectsProjectItem(slug, locale),
-    readProjectsProjectStyleGuide(slug, locale),
-    readProjectsProjectAPIWriteup(slug, locale),
+    readProjectsProjectsChallengeStyleGuide(slug, locale),
+    readProjectsProjectsChallengeAPIWriteup(slug, locale),
   ]);
 
   return (

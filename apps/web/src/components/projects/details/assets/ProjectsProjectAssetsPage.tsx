@@ -2,8 +2,8 @@
 
 import clsx from 'clsx';
 import type {
-  ProjectAPIWriteup,
-  ProjectStyleGuide,
+  ProjectsChallengeAPIWriteup,
+  ProjectsChallengeStyleGuide,
 } from 'contentlayer/generated';
 import { useState } from 'react';
 import {
@@ -84,9 +84,9 @@ function useOnlineAssetsTabs(hasStyleGuide: boolean, hasAPIWriteup: boolean) {
 }
 
 type Props = Readonly<{
-  apiWriteup?: ProjectAPIWriteup;
+  apiWriteup?: ProjectsChallengeAPIWriteup;
   project: ProjectsProjectItem;
-  styleGuide?: ProjectStyleGuide;
+  styleGuide?: ProjectsChallengeStyleGuide;
 }>;
 
 export default function ProjectsProjectAssetsPage({

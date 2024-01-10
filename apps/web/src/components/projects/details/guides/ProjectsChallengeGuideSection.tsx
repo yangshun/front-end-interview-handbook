@@ -1,4 +1,4 @@
-import type { ProjectGuide } from 'contentlayer/generated';
+import type { ProjectsChallengeGuide } from 'contentlayer/generated';
 import { useState } from 'react';
 import { RiMenu2Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
@@ -10,10 +10,12 @@ import Heading from '~/components/ui/Heading';
 import SlideOut from '~/components/ui/SlideOut';
 
 type Props = Readonly<{
-  projectGuides: Array<ProjectGuide>;
+  projectGuides: Array<ProjectsChallengeGuide>;
 }>;
 
-export default function ProjectsProjectGuide({ projectGuides }: Props) {
+export default function ProjectsChallengeGuideSection({
+  projectGuides,
+}: Props) {
   const intl = useIntl();
   const [activeGuideSlug, setActiveGuideSlug] = useState(projectGuides[0].slug);
   const [isLeftSidebarOpen, setIsLeftSidebarOpen] = useState(false);

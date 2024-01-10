@@ -5,7 +5,7 @@ function parseProjectSlug(sourceFilePath: string) {
   return sourceFilePath.split(path.sep)[2];
 }
 
-export const ProjectsProjectGuideDocument = defineDocumentType(() => ({
+export const ProjectsChallengeGuideDocument = defineDocumentType(() => ({
   computedFields: {
     slug: {
       description: 'Unique identifier of the project',
@@ -22,5 +22,5 @@ export const ProjectsProjectGuideDocument = defineDocumentType(() => ({
     },
   },
   filePathPattern: 'projects/guides/*/*.mdx',
-  name: 'ProjectGuide',
+  name: 'ProjectsChallengeGuide',
 }));

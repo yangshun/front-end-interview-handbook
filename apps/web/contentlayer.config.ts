@@ -10,11 +10,11 @@ import { BlogCategoryDocument } from './src/contentlayer/document/BlogCategoryDo
 import { BlogPostDocument } from './src/contentlayer/document/BlogPostDocument';
 import { BlogSeriesDocument } from './src/contentlayer/document/BlogSeriesDocument';
 import { BlogSubseriesDocument } from './src/contentlayer/document/BlogSubseriesDocument';
-import { ProjectsProjectMetadataDocument } from './src/components/projects/contentlayer/ProjectsProjectMetadataDocument';
-import { ProjectsProjectStyleGuideDocument } from './src/components/projects/contentlayer/ProjectsProjectStyleGuideDocument';
-import { ProjectsProjectAPIWriteupDocument } from './src/components/projects/contentlayer/ProjectsProjectAPIWriteupDocument';
+import { ProjectsChallengeMetadataDocument } from './src/components/projects/contentlayer/ProjectsChallengeMetadataDocument';
+import { ProjectsChallengeStyleGuideDocument } from './src/components/projects/contentlayer/ProjectsChallengeStyleGuideDocument';
+import { ProjectsChallengeAPIWriteupDocument } from './src/components/projects/contentlayer/ProjectsChallengeAPIWriteupDocument';
+import { ProjectsChallengeGuideDocument } from './src/components/projects/contentlayer/ProjectsChallengeGuideDocument';
 import { ProjectsTrackMetadataDocument } from './src/components/projects/contentlayer/ProjectsTrackMetadataDocument';
-import { ProjectsProjectGuideDocument } from './src/components/projects/contentlayer/ProjectsProjectGuideDocument';
 
 export default makeSource({
   contentDirPath: 'src/content',
@@ -24,11 +24,11 @@ export default makeSource({
     BlogPostDocument,
     BlogSeriesDocument,
     BlogSubseriesDocument,
-    ProjectsProjectMetadataDocument,
-    ProjectsProjectStyleGuideDocument,
-    ProjectsProjectAPIWriteupDocument,
+    ProjectsChallengeMetadataDocument,
+    ProjectsChallengeStyleGuideDocument,
+    ProjectsChallengeAPIWriteupDocument,
+    ProjectsChallengeGuideDocument,
     ProjectsTrackMetadataDocument,
-    ProjectsProjectGuideDocument,
   ],
   mdx: {
     remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter],

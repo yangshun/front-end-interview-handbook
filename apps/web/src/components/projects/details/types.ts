@@ -1,4 +1,4 @@
-import type { ProjectMetadata } from 'contentlayer/generated';
+import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 
 import type { ProjectsSkill } from '../skills/types';
 
@@ -40,7 +40,7 @@ export type ProjectsProjectTrackPayload = Readonly<{
 export type ProjectsProjectItem = Readonly<{
   completedCount: number | null;
   completedProfiles: ReadonlyArray<ProjectsProfileAvatarData>;
-  metadata: ProjectMetadata &
+  metadata: ProjectsChallengeMetadata &
     Readonly<{
       skills: ReadonlyArray<ProjectsSkill>;
     }>;

@@ -11,7 +11,7 @@ function parseProjectSlug(sourceFilePath: string) {
   return sourceFilePath.split(path.sep)[2];
 }
 
-export const ProjectsProjectMetadataDocument = defineDocumentType(() => ({
+export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
   computedFields: {
     assetsHref: {
       description: 'Link to projects assets step contents',
@@ -105,6 +105,6 @@ export const ProjectsProjectMetadataDocument = defineDocumentType(() => ({
       type: 'enum',
     },
   },
-  filePathPattern: 'projects/project/*/*.mdx',
-  name: 'ProjectMetadata',
+  filePathPattern: 'projects/challenges/*/*.mdx',
+  name: 'ProjectsChallengeMetadata',
 }));

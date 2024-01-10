@@ -1,6 +1,6 @@
 'use client';
 
-import type { ProjectGuide } from 'contentlayer/generated';
+import type { ProjectsChallengeGuide } from 'contentlayer/generated';
 import { useState } from 'react';
 import {
   RiClipboardFill,
@@ -11,7 +11,6 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
 import ProjectsProjectDiscussionSection from '~/components/projects/details/discussions/ProjectsProjectDiscussionSection';
-import ProjectsProjectGuide from '~/components/projects/details/guides/ProjectsProjectGuide';
 import { useProjectsChallengeSessionContext } from '~/components/projects/details/ProjectsChallengeSessionContext';
 import ProjectsProjectReferenceSubmissions from '~/components/projects/details/resources/ProjectsProjectReferenceSubmissions';
 import type { ProjectsProjectItem } from '~/components/projects/details/types';
@@ -19,6 +18,8 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
+
+import ProjectsChallengeGuideSection from '../guides/ProjectsChallengeGuideSection';
 
 type TipsResourcesDiscussionsTabType = 'discussions' | 'guides' | 'references';
 
@@ -46,7 +47,7 @@ function useTipsResourcesDiscussionsTabs() {
 
 type Props = Readonly<{
   project: ProjectsProjectItem;
-  projectGuides: Array<ProjectGuide>;
+  projectGuides: Array<ProjectsChallengeGuide>;
 }>;
 
 export default function ProjectsProjectResourcesPage({
@@ -106,7 +107,7 @@ export default function ProjectsProjectResourcesPage({
             <ProjectsProjectDiscussionSection project={project} />
           )}
           {tipsResourcesDiscussionsTab === 'guides' && (
-            <ProjectsProjectGuide projectGuides={projectGuides} />
+            <ProjectsChallengeGuideSection projectGuides={projectGuides} />
           )}
         </div>
       </div>

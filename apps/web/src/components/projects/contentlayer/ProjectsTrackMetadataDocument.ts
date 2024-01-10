@@ -33,5 +33,5 @@ export const ProjectsTrackMetadataDocument = defineDocumentType(() => ({
     },
   },
   filePathPattern: 'projects/tracks/*/*.json',
-  name: 'ProjectTrackMetadata',
+  name: 'ProjectsTrackMetadata',
 }));
