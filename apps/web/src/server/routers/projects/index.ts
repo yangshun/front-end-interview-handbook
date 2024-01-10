@@ -1,8 +1,8 @@
-import { profileRouter } from './profile';
-import { sessionsRouter } from './sessions';
+import { projectsProfileRouter } from './profile';
+import { projectsSessionsRouter } from './sessions';
 import { router } from '../../trpc';
 
 export const projectsRouter = router({
-  profile: profileRouter,
-  sessions: sessionsRouter,
+  profile: projectsProfileRouter,
+  sessions: projectsSessionsRouter,
 });

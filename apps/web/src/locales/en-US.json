@@ -2567,6 +2567,10 @@
     "defaultMessage": "Practice creating design system components",
     "description": "Title for interview preparation focus area"
   },
+  "QvLJda": {
+    "defaultMessage": "Project started! Leverage the provided guides and resources and submit a link to your site once ready!",
+    "description": "Toast subtitle for project session started"
+  },
   "QzHPOD": {
     "defaultMessage": "Access to {freeChallengeCount}+ free challenges. No access to Figma & guides",
     "description": "Subtitle of Free Plan CTA card in Projects sidebar"
@@ -2798,6 +2802,10 @@
   "T4ajXP": {
     "defaultMessage": "{discountPercentage}% off",
     "description": "Rewards discount message"
+  },
+  "T6+Y/z": {
+    "defaultMessage": "You have started your first project!",
+    "description": "Toast subtitle for project session started"
   },
   "T7+/5t": {
     "defaultMessage": "Use our Skills Tree to train a holistic front end skill set",
@@ -3414,6 +3422,10 @@
   "ZCmkG3": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
+  },
+  "ZFDU0d": {
+    "defaultMessage": "Woohoo!",
+    "description": "Toast title for project session started"
   },
   "ZHuDIg": {
     "defaultMessage": "Joined on {date}",
@@ -4234,10 +4246,6 @@
   "hxKyEy": {
     "defaultMessage": "Search HTML questions",
     "description": "Placeholder for search input of HTML question list"
-  },
-  "i0OBoj": {
-    "defaultMessage": "Project started! Leverage guides and resources in the tabs below and submit a link to your site once ready!",
-    "description": "Toast subtitle for project session started"
   },
   "i4MSQe": {
     "defaultMessage": "1 Week Plan",
@@ -5487,10 +5495,6 @@
     "defaultMessage": "Learn while building",
     "description": "Title of 'Learn while building' feature in Projects marketing page"
   },
-  "u3DZY0": {
-    "defaultMessage": "You have started your first project! ✨",
-    "description": "Toast subtitle for project session started"
-  },
   "u3bYHM": {
     "defaultMessage": "FAQ",
     "description": "Link to FAQ page"
@@ -5534,10 +5538,6 @@
   "uRMJks": {
     "defaultMessage": "No promo codes available",
     "description": "Title of GreatFrontEnd page"
-  },
-  "uaHuqt": {
-    "defaultMessage": "Woo hoo!",
-    "description": "Toast title for project session started"
   },
   "ueUG6Q": {
     "defaultMessage": "JPEG design files for mobile & desktop layouts",

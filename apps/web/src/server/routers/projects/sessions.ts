@@ -11,7 +11,7 @@ const projectsSessionProcedure = projectsUserProcedure.input(
   }),
 );
 
-export const sessionsRouter = router({
+export const projectsSessionsRouter = router({
   create: projectsSessionProcedure.mutation(
     async ({ input: { slug }, ctx: { projectsProfileId } }) => {
       // TODO(projects): Validate slug
@@ -23,28 +23,41 @@ export const sessionsRouter = router({
       });
     },
   ),
-  end: projectsSessionProcedure.mutation(async ({ input: { slug } }) => {
-    return await prisma.projectsProjectSession.updateMany({
-      data: {
-        status: 'STOPPED',
-      },
-      where: {
-        slug,
-        status: 'IN_PROGRESS',
-      },
-    });
-  }),
-  getAnySession: projectsUserProcedure.query(async () => {
-    return await prisma.projectsProjectSession.findFirst();
-  }),
-  getLatestInProgress: projectsSessionProcedure.query(
-    async ({ input: { slug } }) => {
-      return await prisma.projectsProjectSession.findFirst({
+  end: projectsSessionProcedure.mutation(
+    async ({ input: { slug }, ctx: { projectsProfileId } }) => {
+      return await prisma.projectsProjectSession.updateMany({
+        data: {
+          status: 'STOPPED',
+          stoppedAt: new Date(),
+        },
         where: {
+          profileId: projectsProfileId,
           slug,
           status: 'IN_PROGRESS',
         },
       });
+    },
+  ),
+  getLatestInProgress: projectsSessionProcedure.query(
+    async ({ input: { slug }, ctx: { projectsProfileId } }) => {
+      return await prisma.projectsProjectSession.findFirst({
+        where: {
+          profileId: projectsProfileId,
+          slug,
+          status: 'IN_PROGRESS',
+        },
+      });
+    },
+  ),
+  startedBefore: projectsUserProcedure.query(
+    async ({ ctx: { projectsProfileId } }) => {
+      const sessions = await prisma.projectsProjectSession.count({
+        where: {
+          profileId: projectsProfileId,
+        },
+      });
+
+      return sessions > 0;
     },
   ),
 });

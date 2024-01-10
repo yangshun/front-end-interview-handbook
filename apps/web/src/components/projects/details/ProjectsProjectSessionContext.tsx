@@ -58,8 +58,8 @@ export default function ProjectsProjectSessionContextProvider({
 }: Props) {
   const queryClient = useQueryClient();
   const { showToast } = useToast();
-  const { data: hasAnyProjectSession } =
-    trpc.projects.sessions.getAnySession.useQuery();
+  const { data: startedBefore } =
+    trpc.projects.sessions.startedBefore.useQuery();
 
   const { data: session } = trpc.projects.sessions.getLatestInProgress.useQuery(
     {
@@ -159,24 +159,24 @@ export default function ProjectsProjectSessionContextProvider({
             },
             onSuccess: () => {
               showToast({
-                subtitle: hasAnyProjectSession ? (
+                subtitle: startedBefore ? (
                   <FormattedMessage
-                    defaultMessage="Project started! Leverage guides and resources in the tabs below and submit a link to your site once ready!"
+                    defaultMessage="Project started! Leverage the provided guides and resources and submit a link to your site once ready!"
                     description="Toast subtitle for project session started"
-                    id="i0OBoj"
+                    id="QvLJda"
                   />
                 ) : (
                   <FormattedMessage
-                    defaultMessage="You have started your first project! ✨"
+                    defaultMessage="You have started your first project!"
                     description="Toast subtitle for project session started"
-                    id="u3DZY0"
+                    id="T6+Y/z"
                   />
                 ),
-                title: hasAnyProjectSession ? (
+                title: startedBefore ? (
                   <FormattedMessage
-                    defaultMessage="Woo hoo!"
+                    defaultMessage="Woohoo!"
                     description="Toast title for project session started"
-                    id="uaHuqt"
+                    id="ZFDU0d"
                   />
                 ) : (
                   <FormattedMessage
@@ -199,7 +199,7 @@ export default function ProjectsProjectSessionContextProvider({
     slug,
     startProjectMutation,
     showToast,
-    hasAnyProjectSession,
+    startedBefore,
     showErrorToast,
   ]);
 
