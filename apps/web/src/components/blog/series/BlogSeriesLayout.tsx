@@ -4,14 +4,16 @@ import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
 import BlogArticleJsonLd from '~/components/blog/articles/BlogArticleJsonLd';
-import type { BlogArticleNavigationType } from '~/components/blog/articles/BlogArticleSidebar';
-import { BlogArticleSidebar } from '~/components/blog/articles/BlogArticleSidebar';
-import type { BlogMetadata } from '~/components/blog/BlogTypes';
+import type {
+  BlogArticleNavigationType,
+  BlogMetadata,
+} from '~/components/blog/BlogTypes';
 import BlogMainLayout from '~/components/blog/layout/BlogMainLayout';
 import BlogCategoryLabel from '~/components/blog/metadata/BlogCategoryLabel';
 import BlogCopyLinkButton from '~/components/blog/metadata/BlogCopyLinkButton';
 import BlogLevelLabel from '~/components/blog/metadata/BlogLevelLabel';
 import BlogShareButton from '~/components/blog/metadata/BlogShareButton';
+import { SidebarLinksList } from '~/components/common/SidebarLinksList';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
@@ -49,7 +51,15 @@ export default function BlogSeriesLayout({
               <div
                 className="sticky hidden xl:contents"
                 style={{ top: 'var(--nav-top-offset)' }}>
-                <BlogArticleSidebar navigation={navigation} />
+                <SidebarLinksList
+                  navigation={[
+                    {
+                      items: navigation.items,
+                      subtitle: navigation.subseriesTitle,
+                      title: navigation.seriesTitle,
+                    },
+                  ]}
+                />
               </div>
             )}
             <div className={clsx('w-full max-w-2xl')}>

@@ -7,9 +7,9 @@ import { useIntl } from 'react-intl';
 
 import useIsSticky from '~/hooks/useIsSticky';
 
-import type { BlogArticleNavigationType } from '~/components/blog/articles/BlogArticleSidebar';
-import { BlogArticleSidebar } from '~/components/blog/articles/BlogArticleSidebar';
+import type { BlogArticleNavigationType } from '~/components/blog/BlogTypes';
 import BlogSidebar from '~/components/blog/layout/BlogSidebar';
+import { SidebarLinksList } from '~/components/common/SidebarLinksList';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import SlideOut from '~/components/ui/SlideOut';
@@ -94,7 +94,15 @@ export default function BlogNavbar({ seriesContents }: Props) {
           isShown={isRightSidebarOpen}
           size="sm"
           onClose={() => setIsRightSidebarOpen(false)}>
-          <BlogArticleSidebar navigation={seriesContents} />
+          <SidebarLinksList
+            navigation={[
+              {
+                items: seriesContents.items,
+                subtitle: seriesContents.subseriesTitle,
+                title: seriesContents.seriesTitle,
+              },
+            ]}
+          />
         </SlideOut>
       )}
     </div>

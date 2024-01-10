@@ -1099,6 +1099,10 @@
     "defaultMessage": "No questions",
     "description": "Title for empty state when application of filters return no results"
   },
+  "AzJz7v": {
+    "defaultMessage": "Menu",
+    "description": "Project guide navigation menu button label"
+  },
   "B+SjAW": {
     "defaultMessage": "The skills / tools / frameworks I am hoping to grow",
     "description": "Projects profile tech stack I am hoping to grow section title"
@@ -2650,6 +2654,10 @@
   "Rdi3ic": {
     "defaultMessage": "Activity",
     "description": "Profile activity tab title"
+  },
+  "Reu6X0": {
+    "defaultMessage": "Curated resources",
+    "description": "Project curated resources title"
   },
   "RfVhtP": {
     "defaultMessage": "Use now",
@@ -4371,6 +4379,10 @@
     "defaultMessage": "Projects",
     "description": "Title of Projects All Projects page"
   },
+  "jSue8y": {
+    "defaultMessage": "Guidebook",
+    "description": "Project guide menu header title"
+  },
   "jTXr+7": {
     "defaultMessage": "Intro to Behavioral Round",
     "description": "Introduction to behavioral interviews"
@@ -5218,6 +5230,10 @@
   "rfI2w+": {
     "defaultMessage": "Cancel",
     "description": "Label for button to cancel action"
+  },
+  "rgAZc7": {
+    "defaultMessage": "Official guides",
+    "description": "Project official guide title"
   },
   "rhLand": {
     "defaultMessage": "Navigate to preparation area",

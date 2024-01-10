@@ -6,6 +6,8 @@ import type {
   Subseries,
 } from 'contentlayer/generated';
 
+import type { BlogSeriesNavigationLink } from '~/components/blog/layout/BlogSidebar';
+
 export type BlogSlug = string;
 
 export type BlogLevel = 'advanced' | 'intermediate' | 'nightmare' | 'starter';
@@ -37,4 +39,10 @@ export type BlogMetadata = Readonly<{
 export type BlogSubseries = Subseries & {
   readonly items: ReadonlyArray<BlogMetadata>;
   readonly readingTime: number;
+};
+
+export type BlogArticleNavigationType = {
+  items: ReadonlyArray<BlogSeriesNavigationLink>;
+  seriesTitle?: string;
+  subseriesTitle?: string;
 };
