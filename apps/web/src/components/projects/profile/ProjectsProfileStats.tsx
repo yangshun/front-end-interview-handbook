@@ -5,6 +5,7 @@ import {
   RiTerminalBoxFill,
   RiThumbUpFill,
 } from 'react-icons/ri';
+import { useIntl } from 'react-intl';
 
 import Card from '~/components/ui/Card';
 import CardContainer from '~/components/ui/Card/CardContainer';
@@ -50,31 +51,56 @@ function getFormattedNumber(num: number) {
 }
 
 type Props = Readonly<{
-  projectsCompleted: number;
+  codeReviews: number | undefined;
+  completedProjects: number | undefined;
+  submissionViews: number | undefined;
+  upvotes: number | undefined;
 }>;
 
-export default function ProjectsProfileStats({ projectsCompleted }: Props) {
-  // TODO(projects): remove hard coded stats data
+export default function ProjectsProfileStats({
+  codeReviews,
+  completedProjects,
+  submissionViews,
+  upvotes,
+}: Props) {
+  const intl = useIntl();
+
   const stats = [
     {
-      count: projectsCompleted,
+      count: completedProjects,
       icon: RiRocketFill,
-      title: 'Challenges completed',
+      title: intl.formatMessage({
+        defaultMessage: 'Challenges completed',
+        description: 'Number of project challenges completed',
+        id: 'lWQA1A',
+      }),
     },
     {
-      count: 5653,
+      count: upvotes,
       icon: RiThumbUpFill,
-      title: 'Number of upvotes',
+      title: intl.formatMessage({
+        defaultMessage: 'Number of upvotes',
+        description: 'Number of upvotes received',
+        id: 'YKc6h5',
+      }),
     },
     {
-      count: 104000,
+      count: codeReviews,
       icon: RiTerminalBoxFill,
-      title: 'Code reviews done',
+      title: intl.formatMessage({
+        defaultMessage: 'Code reviews done',
+        description: 'Number of code reviews given',
+        id: 'axma2q',
+      }),
     },
     {
-      count: 5043000,
+      count: submissionViews,
       icon: RiEyeFill,
-      title: 'Project views',
+      title: intl.formatMessage({
+        defaultMessage: 'Views on your submissions',
+        description: 'Number of views on the project submissions',
+        id: 'KeMz9W',
+      }),
     },
   ];
 
@@ -107,7 +133,7 @@ export default function ProjectsProfileStats({ projectsCompleted }: Props) {
                 className="md:text-5xl text-4xl font-bold"
                 size="custom"
                 weight="custom">
-                {getFormattedNumber(count)}
+                {count ? getFormattedNumber(count) : '-'}
               </Text>
             </Card>
           );

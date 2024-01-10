@@ -3,9 +3,47 @@ import { z } from 'zod';
 import prisma from '~/server/prisma';
 
 import { projectsUserProcedure } from './procedures';
-import { router, userProcedure } from '../../trpc';
+import { publicProcedure, router, userProcedure } from '../../trpc';
 
-export const profileRouter = router({
+export const projectsProfileRouter = router({
+  getDashboardStatistics: projectsUserProcedure.query(
+    async ({ ctx: { projectsProfileId } }) => {
+      const completedProjects = await prisma.projectsProjectSubmission.count({
+        where: {
+          profileId: projectsProfileId,
+        },
+      });
+
+      // TODO(projects): remove random stats.
+      return {
+        codeReviews: Math.ceil(Math.random() * 1000),
+        completedProjects,
+        submissionViews: Math.ceil(Math.random() * 100000),
+        upvotes: Math.ceil(Math.random() * 10000),
+      };
+    },
+  ),
+  getDashboardStatisticsForProfile: publicProcedure
+    .input(
+      z.object({
+        projectsProfileId: z.string(),
+      }),
+    )
+    .query(async ({ input: { projectsProfileId } }) => {
+      const completedProjects = await prisma.projectsProjectSubmission.count({
+        where: {
+          profileId: projectsProfileId,
+        },
+      });
+
+      // TODO(projects): remove random stats.
+      return {
+        codeReviews: Math.ceil(Math.random() * 1000),
+        completedProjects,
+        submissionViews: Math.ceil(Math.random() * 100000),
+        upvotes: Math.ceil(Math.random() * 10000),
+      };
+    }),
   motivationsUpdate: userProcedure
     .input(
       z.object({

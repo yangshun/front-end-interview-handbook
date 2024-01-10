@@ -39,9 +39,9 @@ export default function ProjectsProfilePage({
     return notFound();
   }
 
-  const { data: submissions } =
-    trpc.projects.submissions.projectSubmissionsGetOthers.useQuery({
-      id: profile.id,
+  const { data: profileStatistics } =
+    trpc.projects.profile.getDashboardStatisticsForProfile.useQuery({
+      projectsProfileId: profile.id,
     });
 
   return (
@@ -76,7 +76,12 @@ export default function ProjectsProfilePage({
         )}
       </div>
       <ProjectsProfileInfo isMyProfile={isMyProfile} profile={profile} />
-      <ProjectsProfileStats projectsCompleted={submissions?.length ?? 0} />
+      <ProjectsProfileStats
+        codeReviews={profileStatistics?.codeReviews ?? 0}
+        completedProjects={profileStatistics?.completedProjects ?? 0}
+        submissionViews={profileStatistics?.submissionViews ?? 0}
+        upvotes={profileStatistics?.upvotes ?? 0}
+      />
       <ProjectsProfileFeaturedSubmissions />
     </div>
   );

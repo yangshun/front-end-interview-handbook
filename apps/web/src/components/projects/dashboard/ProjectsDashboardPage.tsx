@@ -15,8 +15,8 @@ import ProjectsCompleteProfileCard from './ProjectsCompleteProfileCard';
 export default function ProjectsDashboardPage() {
   const intl = useIntl();
 
-  const { data: submissions } =
-    trpc.projects.submissions.projectSubmissionsGetSelf.useQuery();
+  const { data: profileStatistics } =
+    trpc.projects.profile.getDashboardStatistics.useQuery();
 
   return (
     <div className="flex flex-col gap-8">
@@ -32,7 +32,12 @@ export default function ProjectsDashboardPage() {
           <ProjectsCompleteProfileCard />
         </div>
       </div>
-      <ProjectsProfileStats projectsCompleted={submissions?.length ?? 0} />
+      <ProjectsProfileStats
+        codeReviews={profileStatistics?.codeReviews ?? 0}
+        completedProjects={profileStatistics?.completedProjects ?? 0}
+        submissionViews={profileStatistics?.submissionViews ?? 0}
+        upvotes={profileStatistics?.upvotes ?? 0}
+      />
       <Section>
         <div className="lg:grid-cols-2 lg:grid-rows-1 grid-cols-1 grid grid-rows-2 gap-3 md:gap-4 lg:gap-6">
           <div className="grid grid-cols-1 gap-3 md:gap-4 lg:gap-6">

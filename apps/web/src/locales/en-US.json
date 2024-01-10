@@ -1971,6 +1971,10 @@
     "defaultMessage": "Summary of all the important things in a one-pager",
     "description": "Summary of important things in front end system design interviews"
   },
+  "KeMz9W": {
+    "defaultMessage": "Views on your submissions",
+    "description": "Number of views on the project submissions"
+  },
   "KgN46v": {
     "defaultMessage": "Leveling progress",
     "description": "Label for leveling progress on project submission success page"
@@ -3339,6 +3343,10 @@
     "defaultMessage": "Forms",
     "description": "Name of focus area questions"
   },
+  "YKc6h5": {
+    "defaultMessage": "Number of upvotes",
+    "description": "Number of upvotes received"
+  },
   "YM1bnf": {
     "defaultMessage": "An error has occurred",
     "description": "Title of alert indicating an error on Email Sign In/Up Page"
@@ -3598,6 +3606,10 @@
   "awMxNG": {
     "defaultMessage": "Marked \"{questionTitle}\" as complete",
     "description": "Success message for marking a question as complete"
+  },
+  "axma2q": {
+    "defaultMessage": "Code reviews done",
+    "description": "Number of code reviews given"
   },
   "ay9BLg": {
     "defaultMessage": "All GreatFrontEnd plans",
@@ -4638,6 +4650,10 @@
   "lUACcQ": {
     "defaultMessage": "Start a project",
     "description": "Title of 'Start a project' feature in Projects marketing page"
+  },
+  "lWQA1A": {
+    "defaultMessage": "Challenges completed",
+    "description": "Number of project challenges completed"
   },
   "lWZZ9l": {
     "defaultMessage": "Search a keyword or sort by popularity, difficulty or skills",

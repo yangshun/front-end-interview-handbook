@@ -22,8 +22,8 @@ export default async function Page({ params }: Props) {
     }),
   ]);
 
-  // If no user profile or no projects profile
-  if (profile === null || profile?.projectsProfile.length === 0) {
+  // If no user profile or no projects profile.
+  if (profile == null || profile?.projectsProfile.length === 0) {
     return notFound();
   }
 
