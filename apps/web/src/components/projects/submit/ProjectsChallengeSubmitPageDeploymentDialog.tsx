@@ -19,9 +19,9 @@ export default function ProjectsChallengeSubmitPageDeploymentDialog() {
   } = useProjectsDeploymentInfo();
 
   return (
-    <div>
+    <div className="-ms-3">
       <Button
-        className="dark:!text-brand !text-brand-dark -ms-3"
+        className="dark:!text-brand !text-brand-dark"
         href="#"
         label={intl.formatMessage({
           defaultMessage: 'Deployment instructions',
@@ -38,11 +38,11 @@ export default function ProjectsChallengeSubmitPageDeploymentDialog() {
       <Dialog
         isShown={isDeploymentDialogShown}
         title={title}
-        width="screen-md"
+        width="screen-sm"
         onClose={() => setIsDeploymentDialogShown(false)}>
         <Prose>
           <p>{preRecommendedHostsText}</p>
-          <ul className="list-outside">
+          <ul>
             {recommendedHosts.map((host) => (
               <li key={host.id}>
                 <Anchor href={host.href}>{host.content}</Anchor>

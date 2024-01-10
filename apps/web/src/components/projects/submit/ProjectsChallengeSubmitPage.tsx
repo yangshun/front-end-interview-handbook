@@ -27,6 +27,10 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
+import ProjectsChallengeDeploymentUrlField from './fields/ProjectsChallengeSubmissionDeploymentUrlField';
+import ProjectsChallengeRepositoryUrlField from './fields/ProjectsChallengeSubmissionRepositoryUrlField';
+import ProjectsChallengeSubmissionSummaryField from './fields/ProjectsChallengeSubmissionSummaryField';
+import ProjectsChallengeTitleField from './fields/ProjectsChallengeSubmissionTitleField';
 import ProjectsChallengeSubmitPageDeploymentDialog from './ProjectsChallengeSubmitPageDeploymentDialog';
 import RichTextEditor from './RichTextEditor';
 import { themeTextFaintColor } from '../../ui/theme';
@@ -70,31 +74,7 @@ export default function ProjectsChallengeSubmitPage({ project }: Props) {
           <div className="flex flex-col gap-10 mt-9">
             <div className="grid lg:grid-cols-2 gap-x-6">
               <div className="flex flex-col">
-                <TextInput
-                  description={intl.formatMessage({
-                    defaultMessage:
-                      "An eye-catching name to describe your solution. Will be displayed under the original Project's name and help other users identify your submission.",
-                    description:
-                      'Description for submission name input on project submit page',
-                    id: 'XYCpWf',
-                  })}
-                  descriptionStyle="tooltip"
-                  label={intl.formatMessage({
-                    defaultMessage: 'Submission name',
-                    description:
-                      'Label for submission name input on project submit page',
-                    id: '3igUzj',
-                  })}
-                  maxLength={80}
-                  placeholder={intl.formatMessage({
-                    defaultMessage:
-                      'E.g. "Responsive solution with React and Tailwind CSS"',
-                    description:
-                      'Placeholder for submission name input on project submit page',
-                    id: 'zeK111',
-                  })}
-                  required={true}
-                />
+                <ProjectsChallengeTitleField />
                 <ProjectsSkillInput
                   description={intl.formatMessage({
                     defaultMessage:
@@ -112,25 +92,7 @@ export default function ProjectsChallengeSubmitPage({ project }: Props) {
                   })}
                 />
                 <ProjectsOtherTechStackInput value={[]} onChange={() => {}} />
-                <TextInput
-                  description={
-                    <FormattedMessage
-                      defaultMessage="The URL of your GitHub repository. We will also use it to pull files onto the platform for code reviews."
-                      description="Description for GitHub repository input on project submit page"
-                      id="aW6XJi"
-                    />
-                  }
-                  descriptionStyle="tooltip"
-                  label={intl.formatMessage({
-                    defaultMessage: 'GitHub code repository URL',
-                    description:
-                      'Label for GitHub repository input on project submit page',
-                    id: 'ql7kBY',
-                  })}
-                  placeholder="https://github.com/johndoe/my-awesome-project"
-                  required={true}
-                  type="url"
-                />
+                <ProjectsChallengeRepositoryUrlField />
               </div>
               <div className="flex grow flex-col gap-2">
                 <Label
@@ -170,83 +132,16 @@ export default function ProjectsChallengeSubmitPage({ project }: Props) {
               </div>
             </div>
             <Divider />
-            <div>
-              <div className="flex justify-between">
-                <div className="flex items-center gap-1">
-                  <Text size="body2" weight="medium">
-                    Live site URL
-                  </Text>
-                  <Tooltip
-                    label={
-                      <FormattedMessage
-                        defaultMessage="The URL where your solution is hosted. Find our <link>recommended free hosting providers</link> if you haven\'t already."
-                        description="Description for live site URL input on project submit page"
-                        id="wP8dNq"
-                        values={{
-                          link: (chunks) => <Anchor>{chunks}</Anchor>,
-                        }}
-                      />
-                    }>
-                    <RiInformationLine
-                      className={clsx('h-4', themeTextFaintColor)}
-                    />
-                  </Tooltip>
-                </div>
+            <div className="grid lg:grid-cols-2 gap-x-6">
+              <div className="flex flex-col gap-2">
+                <ProjectsChallengeDeploymentUrlField />
                 <ProjectsChallengeSubmitPageDeploymentDialog />
-              </div>
-              <Text color="secondary" size="body3">
-                <FormattedMessage
-                  defaultMessage="Provide at least 1 URL where you hosted your solution"
-                  description="Description for live site URL input on project submit page"
-                  id="g15ta9"
-                />
-              </Text>
-              <div className="grid lg:grid-cols-2 gap-x-6 pt-4">
-                <TextInput
-                  label={intl.formatMessage({
-                    defaultMessage: 'Pricing page',
-                    description:
-                      'Label for pricing page input on project submit page',
-                    id: 'XzVqzs',
-                  })}
-                  placeholder="www.solution.com"
-                  required={true}
-                  type="url"
-                />
-                <TextInput
-                  label={intl.formatMessage({
-                    defaultMessage: 'Home page',
-                    description:
-                      'Label for home page input on project submit page',
-                    id: 'FT5uOi',
-                  })}
-                  placeholder="www.solution.com"
-                  required={true}
-                  type="url"
-                />
               </div>
             </div>
             <Divider />
             <div className="flex flex-col gap-6">
               <div className="grid lg:grid-cols-2 gap-x-6">
-                <TextInput
-                  description={
-                    <FormattedMessage
-                      defaultMessage="1-2 lines on what the project is about, to be displayed on the Submission cards to attract the community to comment on your project"
-                      description="Description for submission summary input on project submit page"
-                      id="UpQB3R"
-                    />
-                  }
-                  descriptionStyle="tooltip"
-                  label={intl.formatMessage({
-                    defaultMessage: 'Submission summary',
-                    description:
-                      'Label for submission summary input on project submit page',
-                    id: '+AO/s+',
-                  })}
-                  maxLength={40}
-                  required={true}
-                />
+                <ProjectsChallengeSubmissionSummaryField />
               </div>
               <div className="grid lg:grid-cols-2 gap-x-6 gap-y-8">
                 <div className="flex flex-col grow gap-2">
