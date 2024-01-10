@@ -16,19 +16,23 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
     assetsHref: {
       description: 'Link to projects assets step contents',
       resolve: (doc) =>
-        `/projects/p/${parseProjectSlug(doc._raw.sourceFilePath)}/assets`,
+        `/projects/challenges/${parseProjectSlug(
+          doc._raw.sourceFilePath,
+        )}/assets`,
       type: 'string',
     },
     completionHref: {
       description: 'Link to projects completion step contents',
       resolve: (doc) =>
-        `/projects/p/${parseProjectSlug(doc._raw.sourceFilePath)}/completion`,
+        `/projects/challenges/${parseProjectSlug(
+          doc._raw.sourceFilePath,
+        )}/completion`,
       type: 'string',
     },
     downloadDesignFileHref: {
       description: 'Link to download design files',
       resolve: (doc) =>
-        `/projects/p/${parseProjectSlug(
+        `/projects/challenges/${parseProjectSlug(
           doc._raw.sourceFilePath,
         )}/download/design`,
       type: 'string',
@@ -36,7 +40,7 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
     downloadStarterFilesHref: {
       description: 'Link to download starter files',
       resolve: (doc) =>
-        `/projects/p/${parseProjectSlug(
+        `/projects/challenges/${parseProjectSlug(
           doc._raw.sourceFilePath,
         )}/download/starter`,
       type: 'string',
@@ -44,13 +48,15 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
     href: {
       description: 'Link to project details page, also the brief page',
       resolve: (doc) =>
-        `/projects/p/${parseProjectSlug(doc._raw.sourceFilePath)}`,
+        `/projects/challenges/${parseProjectSlug(doc._raw.sourceFilePath)}`,
       type: 'string',
     },
     resourcesHref: {
       description: 'Link to projects resources step contents',
       resolve: (doc) =>
-        `/projects/p/${parseProjectSlug(doc._raw.sourceFilePath)}/resources`,
+        `/projects/challenges/${parseProjectSlug(
+          doc._raw.sourceFilePath,
+        )}/resources`,
       type: 'string',
     },
     slug: {
@@ -61,7 +67,9 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
     submitHref: {
       description: 'Link to submit project',
       resolve: (doc) =>
-        `/projects/p/${parseProjectSlug(doc._raw.sourceFilePath)}/submit`,
+        `/projects/challenges/${parseProjectSlug(
+          doc._raw.sourceFilePath,
+        )}/submit`,
       type: 'string',
     },
   },

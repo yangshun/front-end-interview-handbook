@@ -28,7 +28,7 @@ const exampleSubmissions: ReadonlyArray<ProjectsSubmission> = Array.from(
       website: null,
     },
     briefDescription: 'Newsletter Section',
-    briefUrl: '/projects/p/newsletter-section',
+    briefUrl: '/projects/challenges/newsletter-section',
     commentCount: 0,
     description:
       'On this project, I found validating the users email address difficult. I was unable to validate the users email because of I was unable to relate the EventListener and the validate email function. I will like to know the best way to go about this and I will appreciate any contributions.',
