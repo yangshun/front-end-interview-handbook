@@ -17,6 +17,7 @@ import EmptyStateExamples from '~/components/ui/EmptyState/EmptyStateExamples';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import HeadingExamples from '~/components/ui/Heading/HeadingExamples';
+import PaginationExamples from '~/components/ui/Pagination/PaginationExamples';
 import PopoverExamples from '~/components/ui/Popover/PopoverExamples';
 import ProgressBarExamples from '~/components/ui/ProgressBar/ProgressBarExamples';
 import RadioGroupExamples from '~/components/ui/RadioGroup/RadioGroupExamples';
@@ -62,6 +63,7 @@ export default function UILibraryPage() {
         <RadioGroupExamples />
         {/* Others */}
         <TabsExamples />
+        <PaginationExamples />
         <SpinnerExamples />
         <AlertExamples />
         <BadgeExamples />

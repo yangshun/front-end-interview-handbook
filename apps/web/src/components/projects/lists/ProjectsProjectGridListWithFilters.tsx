@@ -11,12 +11,12 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import ProjectsProjectGridList from '~/components/projects/lists/ProjectsProjectGridList';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
+import Pagination from '~/components/ui/Pagination';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 
 import ProjectsListFilterDropdown from './ProjectsListFilterDropdown';
-import ProjectsListPagination from './ProjectsListPagination';
 import ProjectsProjectFilterContextProvider, {
   useProjectsProjectFilterContext,
 } from './ProjectsProjectFilterContext';
@@ -123,11 +123,7 @@ function ProjectsProjectGridListWithFiltersImpl({ projects }: Props) {
               }}
             />
           </Text>
-          <ProjectsListPagination
-            currentPage={1}
-            totalPageCount={10}
-            onPageChange={() => {}}
-          />
+          <Pagination count={10} page={1} onPageChange={() => {}} />
         </div>
       </div>
     </>

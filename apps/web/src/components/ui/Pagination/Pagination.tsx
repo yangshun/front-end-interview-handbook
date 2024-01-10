@@ -84,31 +84,27 @@ function getVisiblePageNumbers({
 }
 
 // The number of pages to display before and after the current page
-const ADJACENT_PAGE_COUNT = 2;
+const ADJACENT_PAGE_COUNT = 1;
 // The number of pages to display at the start and end of the pagination
 const TERMINAL_PAGE_DISPLAY_COUNT = 2;
 
 type Props = Readonly<{
-  currentPage: number;
-  onPageChange: (pageNumber: number) => void;
-  totalPageCount: number;
+  count: number;
+  onPageChange?: (pageNumber: number) => void;
+  page: number;
 }>;
 
-export default function ProjectsListPagination({
-  currentPage,
-  totalPageCount,
-  onPageChange,
-}: Props) {
+export default function Pagination({ page, count, onPageChange }: Props) {
   const intl = useIntl();
   const visiblePageNumbers = useMemo(
     () =>
       getVisiblePageNumbers({
         adjacentPageCount: ADJACENT_PAGE_COUNT,
-        currentPageNumber: currentPage,
-        lastPageNumber: totalPageCount,
+        currentPageNumber: page,
+        lastPageNumber: count,
         terminalPageDisplayCount: TERMINAL_PAGE_DISPLAY_COUNT,
       }),
-    [currentPage, totalPageCount],
+    [page, count],
   );
 
   return (
@@ -122,10 +118,10 @@ export default function ProjectsListPagination({
       {visiblePageNumbers.map((pageNumber) => (
         <Button
           key={pageNumber.key}
-          aria-current={pageNumber.value === currentPage ? 'page' : undefined}
-          icon={pageNumber.value === null ? RiMoreLine : undefined}
-          isDisabled={pageNumber.value === null}
-          isLabelHidden={pageNumber.value === null}
+          aria-current={pageNumber.value === page ? 'page' : undefined}
+          icon={pageNumber.value == null ? RiMoreLine : undefined}
+          isDisabled={pageNumber.value == null}
+          isLabelHidden={pageNumber.value == null}
           label={
             pageNumber.value?.toString() ??
             intl.formatMessage({
@@ -134,9 +130,9 @@ export default function ProjectsListPagination({
               id: 'XD52zM',
             })
           }
-          variant={pageNumber.value === currentPage ? 'primary' : 'secondary'}
+          variant={pageNumber.value === page ? 'secondary' : 'tertiary'}
           onClick={() => {
-            if (pageNumber.value != null) {
+            if (onPageChange && pageNumber.value != null) {
               onPageChange(pageNumber.value);
             }
           }}
