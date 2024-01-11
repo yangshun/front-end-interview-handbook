@@ -17,7 +17,6 @@ import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Label from '~/components/ui/Label';
-import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 import {
   themeElementBorderColor,
@@ -76,7 +75,8 @@ export default function ProjectsChallengeSubmitPage({ project }: Props) {
   const intl = useIntl();
   const projectsChallengeSubmissionFormSchema =
     useProjectsChallengeSubmissionFormSchema();
-  const submitMutation = trpc.projects.challenges.submit.useMutation();
+  const createSubmissionMutation =
+    trpc.projects.submissions.create.useMutation();
 
   const formMethods = useForm<ProjectsChallengeSubmissionFormValues>({
     defaultValues: {
@@ -124,7 +124,7 @@ export default function ProjectsChallengeSubmitPage({ project }: Props) {
         <FormProvider {...formMethods}>
           <form
             onSubmit={handleSubmit((data) => {
-              submitMutation.mutate({
+              createSubmissionMutation.mutate({
                 slug: project.metadata.slug,
                 ...data,
               });

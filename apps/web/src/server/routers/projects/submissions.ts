@@ -17,7 +17,7 @@ const projectsChallengeProcedure = projectsUserProcedure.input(
   }),
 );
 
-const projectsChallengeFormSchema = z.object({
+const projectsChallengeSubmissionFormSchema = z.object({
   deploymentUrl: projectsChallengeSubmissionDeploymentUrlSchemaServer,
   implementation: projectsChallengeSubmissionImplementationSchemaServer,
   repositoryUrl: projectsChallengeSubmissionRepositoryUrlSchemaServer,
@@ -25,25 +25,9 @@ const projectsChallengeFormSchema = z.object({
   title: projectsChallengeSubmissionTitleSchemaServer,
 });
 
-export const projectsChallengesRouter = router({
-  delete: projectsChallengeProcedure
-    .input(
-      z.object({
-        submissionId: z.string().uuid(),
-      }),
-    )
-    .mutation(
-      async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
-        return await prisma.projectsChallengeSubmission.delete({
-          where: {
-            id: submissionId,
-            profileId: projectsProfileId,
-          },
-        });
-      },
-    ),
-  submit: projectsChallengeProcedure
-    .input(projectsChallengeFormSchema)
+export const projectsChallengeSubmissionRouter = router({
+  create: projectsChallengeProcedure
+    .input(projectsChallengeSubmissionFormSchema)
     .mutation(
       async ({
         input: {
@@ -103,9 +87,25 @@ export const projectsChallengesRouter = router({
         });
       },
     ),
+  delete: projectsChallengeProcedure
+    .input(
+      z.object({
+        submissionId: z.string().uuid(),
+      }),
+    )
+    .mutation(
+      async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
+        return await prisma.projectsChallengeSubmission.delete({
+          where: {
+            id: submissionId,
+            profileId: projectsProfileId,
+          },
+        });
+      },
+    ),
   update: projectsChallengeProcedure
     .input(
-      projectsChallengeFormSchema.partial().extend({
+      projectsChallengeSubmissionFormSchema.partial().extend({
         submissionId: z.string().uuid(),
       }),
     )
