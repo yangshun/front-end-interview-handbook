@@ -43,13 +43,12 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
         <Button
           addonPosition="start"
           className="-ms-4 -mt-2"
-          href="/projects/all"
+          href="/projects/challenges"
           icon={RiArrowLeftLine}
           label={intl.formatMessage({
-            defaultMessage: 'Back to all projects',
-            description:
-              'Label for "Back to all projects" button on Projects project page',
-            id: 'ggSPoc',
+            defaultMessage: 'Back to all challenges',
+            description: 'Back button label',
+            id: 'l27vTV',
           })}
           variant="tertiary"
         />

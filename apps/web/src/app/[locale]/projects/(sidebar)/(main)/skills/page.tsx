@@ -18,11 +18,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     locale,
-    pathname: '/projects/skill-tree',
+    pathname: '/projects/skills',
     title: intl.formatMessage({
-      defaultMessage: 'Skill tree | Projects',
-      description: 'Title of Projects skills tree page',
-      id: 'FrR1mB',
+      defaultMessage: 'Skills roadmap | Projects',
+      description: 'Title of Projects skills roadmap page',
+      id: 'NzvDd2',
     }),
   });
 }

@@ -111,12 +111,12 @@ function useFooterNavigation() {
           }),
         },
         {
-          href: '/projects/all',
+          href: '/projects/challenges',
           key: 'projects',
           name: intl.formatMessage({
-            defaultMessage: 'Projects',
-            description: 'Link to projects page',
-            id: 'G0neZ5',
+            defaultMessage: 'Challenges',
+            description: 'Link to all projects challenges page',
+            id: 'e/31yG',
           }),
         },
         {

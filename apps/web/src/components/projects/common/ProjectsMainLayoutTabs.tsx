@@ -20,10 +20,10 @@ export default function ProjectsMainLayoutTabs() {
     }),
   );
 
-  const value = useMemo(() => {
+  const value: ProjectsMainLayoutTabCategory = useMemo(() => {
     const tab = tabs.find((t) => t.href === pathname);
 
-    return tab?.value ?? 'projects';
+    return tab?.value ?? 'challenges';
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 

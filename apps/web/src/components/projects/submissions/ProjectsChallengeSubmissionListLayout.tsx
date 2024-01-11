@@ -18,7 +18,7 @@ export default function ProjectsChallengeSubmissionListLayout({
     <div className="flex flex-col gap-8">
       <Heading level="heading5">
         <FormattedMessage
-          defaultMessage="Submissions"
+          defaultMessage="User submissions"
           description="Projects submissions page title"
           id="0rACGl"
         />

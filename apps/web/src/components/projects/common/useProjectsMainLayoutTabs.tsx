@@ -5,10 +5,7 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-export type ProjectsMainLayoutTabCategory =
-  | 'all-projects'
-  | 'skill-tree'
-  | 'tracks';
+export type ProjectsMainLayoutTabCategory = 'challenges' | 'skills' | 'tracks';
 
 type TabItem = Readonly<{
   href: string;
@@ -23,24 +20,24 @@ export default function useProjectsMainLayoutTabs(): ReadonlyArray<TabItem> {
 
   return [
     {
-      href: '/projects/all',
+      href: '/projects/challenges',
       icon: RiRocketLine,
-      key: 'all-projects',
+      key: 'challenges',
       label: intl.formatMessage({
-        defaultMessage: 'All projects',
-        description: 'Label for All projects sidebar item in Projects sidebar',
-        id: 'm8b+T6',
+        defaultMessage: 'All challenges',
+        description: 'All projects item label',
+        id: 'uCT1Lh',
       }),
       type: 'link',
     },
     {
-      href: '/projects/skill-tree',
+      href: '/projects/skills',
       icon: RiNodeTree,
-      key: 'skill-tree',
+      key: 'skills',
       label: intl.formatMessage({
-        defaultMessage: 'Skill tree',
-        description: 'Label for Skill Tree sidebar item in Projects sidebar',
-        id: 'FC61kC',
+        defaultMessage: 'Skills roadmap',
+        description: 'Projects skills roadmap item label',
+        id: 'n1RgqQ',
       }),
       type: 'link',
     },
@@ -50,9 +47,8 @@ export default function useProjectsMainLayoutTabs(): ReadonlyArray<TabItem> {
       key: 'tracks',
       label: intl.formatMessage({
         defaultMessage: 'Component tracks',
-        description:
-          'Label for Component Tracks sidebar item in Projects sidebar',
-        id: 'bdjVW4',
+        description: 'Projects component tracks item label',
+        id: 'dKoCFD',
       }),
       type: 'link',
     },
