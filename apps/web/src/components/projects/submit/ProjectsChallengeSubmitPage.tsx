@@ -1,18 +1,13 @@
 'use client';
 
 import clsx from 'clsx';
-import {
-  RiArrowLeftLine,
-  RiImageLine,
-  RiInformationLine,
-} from 'react-icons/ri';
+import { RiArrowLeftLine, RiImageLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 import { useIntl } from 'react-intl';
 
 import type { ProjectsChallengeItem } from '~/components/projects/details/types';
 import ProjectsOtherTechStackInput from '~/components/projects/skills/ProjectsOtherTechStackInput';
 import ProjectsSkillInput from '~/components/projects/skills/ProjectsSkillInput';
-import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
@@ -20,20 +15,18 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Label from '~/components/ui/Label';
 import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
-import TextInput from '~/components/ui/TextInput';
 import {
   themeElementBorderColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
-import Tooltip from '~/components/ui/Tooltip';
 
 import ProjectsChallengeDeploymentUrlField from './fields/ProjectsChallengeSubmissionDeploymentUrlField';
+import ProjectsChallengeSubmissionImplementationField from './fields/ProjectsChallengeSubmissionImplementationField';
 import ProjectsChallengeRepositoryUrlField from './fields/ProjectsChallengeSubmissionRepositoryUrlField';
 import ProjectsChallengeSubmissionSummaryField from './fields/ProjectsChallengeSubmissionSummaryField';
 import ProjectsChallengeTitleField from './fields/ProjectsChallengeSubmissionTitleField';
 import ProjectsChallengeSubmitPageDeploymentDialog from './ProjectsChallengeSubmitPageDeploymentDialog';
 import RichTextEditor from './RichTextEditor';
-import { themeTextFaintColor } from '../../ui/theme';
 
 type Props = Readonly<{
   project: ProjectsChallengeItem;
@@ -143,51 +136,50 @@ export default function ProjectsChallengeSubmitPage({ project }: Props) {
               <div className="grid lg:grid-cols-2 gap-x-6">
                 <ProjectsChallengeSubmissionSummaryField />
               </div>
-              <div className="grid lg:grid-cols-2 gap-x-6 gap-y-8">
-                <div className="flex flex-col grow gap-2">
-                  <Label
-                    description={intl.formatMessage({
-                      defaultMessage:
-                        'Describe your project approach and take the opportunity to document challenges and how they were overcome. To help others in the community, also describe your general tech stack and how they were used together, as well as any guides or resources you used.',
-                      description: 'Project submission tooltip',
-                      id: 'EO+aoa',
-                    })}
-                    descriptionStyle="tooltip"
-                    label={intl.formatMessage({
-                      defaultMessage: 'Implementation details',
-                      description: 'Project submission label',
-                      id: 'ne3JuA',
-                    })}
-                    required={true}
-                  />
-                  <RichTextEditor />
-                </div>
-                <Prose textSize="sm">
-                  <h2>Example write-up</h2>
-                  <h3>Tech stack and approach</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur.
-                  </p>
-                  <h3>Useful resources and lessons</h3>
-                  <p>
-                    learnt Sed ut perspiciatis unde omnis iste natus error sit
-                    voluptatem accusantium doloremque laudantium, totam rem
-                    aperiam, eaque ipsa quae ab illo inventore veritatis et
-                    quasi architecto beatae vitae dicta sunt explicabo. Nemo
-                    enim ipsam voluptatem quia voluptas sit aspernatur aut odit
-                    aut fugit, sed quia consequuntur magni dolores eos qui
-                    ratione voluptatem sequi nesciunt. Notes / Questions for
-                    Community Ut enim ad minima veniam, quis nostrum
-                    exercitationem ullam corporis suscipit laboriosam, nisi ut
-                    aliquid ex ea commodi consequatur?
-                  </p>
-                </Prose>
+              <ProjectsChallengeSubmissionImplementationField />
+              <div className="flex flex-col grow gap-2">
+                <Label
+                  description={intl.formatMessage({
+                    defaultMessage:
+                      'Describe your project approach and take the opportunity to document challenges and how they were overcome. To help others in the community, also describe your general tech stack and how they were used together, as well as any guides or resources you used.',
+                    description: 'Project submission tooltip',
+                    id: 'EO+aoa',
+                  })}
+                  descriptionStyle="tooltip"
+                  label={intl.formatMessage({
+                    defaultMessage: 'Implementation details',
+                    description: 'Project submission label',
+                    id: 'ne3JuA',
+                  })}
+                  required={true}
+                />
+                <RichTextEditor />
               </div>
+              <Prose textSize="sm">
+                <h2>Example write-up</h2>
+                <h3>Tech stack and approach</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                  irure dolor in reprehenderit in voluptate velit esse cillum
+                  dolore eu fugiat nulla pariatur.
+                </p>
+                <h3>Useful resources and lessons</h3>
+                <p>
+                  learnt Sed ut perspiciatis unde omnis iste natus error sit
+                  voluptatem accusantium doloremque laudantium, totam rem
+                  aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
+                  architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+                  voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+                  sed quia consequuntur magni dolores eos qui ratione voluptatem
+                  sequi nesciunt. Notes / Questions for Community Ut enim ad
+                  minima veniam, quis nostrum exercitationem ullam corporis
+                  suscipit laboriosam, nisi ut aliquid ex ea commodi
+                  consequatur?
+                </p>
+              </Prose>
             </div>
           </div>
           <div className="flex gap-2 mt-6">
