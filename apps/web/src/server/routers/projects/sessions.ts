@@ -91,6 +91,17 @@ export const projectsSessionsRouter = router({
         };
       });
     }),
+  isNewToProjects: projectsUserProcedure.query(
+    async ({ ctx: { projectsProfileId } }) => {
+      const sessions = await prisma.projectsChallengeSession.count({
+        where: {
+          profileId: projectsProfileId,
+        },
+      });
+
+      return sessions === 0;
+    },
+  ),
   startedBefore: projectsUserProcedure.query(
     async ({ ctx: { projectsProfileId } }) => {
       const sessions = await prisma.projectsChallengeSession.count({

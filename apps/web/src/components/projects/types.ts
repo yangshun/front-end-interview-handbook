@@ -57,3 +57,10 @@ export type OnboardingProfilePage1Values = {
     otherText: string | undefined;
   };
 };
+
+export type RecommendedAction = {
+  cta: string;
+  description: string;
+  icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  title: string;
+};
