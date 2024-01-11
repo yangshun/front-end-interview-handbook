@@ -2,12 +2,9 @@
 
 import clsx from 'clsx';
 import {
-  RiBookOpenLine,
   RiCheckboxMultipleLine,
-  RiCodeSSlashLine,
   RiContractLeftLine,
   RiDiscordLine,
-  RiGraduationCapLine,
   RiHome3Line,
   RiLogoutBoxLine,
   RiMoreLine,
@@ -38,11 +35,11 @@ import {
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { ProjectsSidebarFreePlanCTACard } from './ProjectsSidebarFreePlanCTACard';
-import { ProjectsSidebarMonthlyPlanCTACard } from './ProjectsSidebarMonthlyPlanCTACard';
 import { ProjectsSidebarNotSignedInHeader } from './ProjectsSidebarNotSignedInHeader';
 import { ProjectsSidebarProfileHeader } from './ProjectsSidebarProfileHeader';
 import { ProjectsSidebarStartProjectCTACard } from './ProjectsSidebarStartProjectCTACard';
-import { ProjectsSidebarYearlyPlanCTACard } from './ProjectsSidebarYearlyPlanCTACard';
+import useProjectsMainLayoutTabs from '../../common/useProjectsMainLayoutTabs';
+import useProjectsChallengeSubmissionListTabs from '../../submissions/useProjectsChallengeSubmissionListTabs';
 
 type SidebarItem = SidebarDivider | SidebarGroup | SidebarLink;
 
@@ -69,6 +66,8 @@ export type SidebarDivider = Readonly<{
 
 function useSidebarItems() {
   const intl = useIntl();
+  const mainLayoutTabs = useProjectsMainLayoutTabs();
+  const submissionTabs = useProjectsChallengeSubmissionListTabs();
 
   return [
     {
@@ -89,44 +88,7 @@ function useSidebarItems() {
       type: 'group',
     },
     {
-      items: [
-        {
-          href: '/projects/all',
-          icon: RiRocketLine,
-          key: 'all-projects',
-          label: intl.formatMessage({
-            defaultMessage: 'All projects',
-            description:
-              'Label for All projects sidebar item in Projects sidebar',
-            id: 'm8b+T6',
-          }),
-          type: 'link',
-        },
-        {
-          href: '/projects/skill-tree',
-          icon: RiNodeTree,
-          key: 'skill-tree',
-          label: intl.formatMessage({
-            defaultMessage: 'Skill tree',
-            description:
-              'Label for Skill Tree sidebar item in Projects sidebar',
-            id: 'FC61kC',
-          }),
-          type: 'link',
-        },
-        {
-          href: '/projects/tracks',
-          icon: RiCheckboxMultipleLine,
-          key: 'tracks',
-          label: intl.formatMessage({
-            defaultMessage: 'Component tracks',
-            description:
-              'Label for Component Tracks sidebar item in Projects sidebar',
-            id: 'bdjVW4',
-          }),
-          type: 'link',
-        },
-      ],
+      items: mainLayoutTabs,
       key: 'projects',
       label: intl.formatMessage({
         defaultMessage: 'Projects',
@@ -136,44 +98,7 @@ function useSidebarItems() {
       type: 'group',
     },
     {
-      items: [
-        {
-          href: '/projects/submissions',
-          icon: RiCodeSSlashLine,
-          key: 'all-submissions',
-          label: intl.formatMessage({
-            defaultMessage: 'All submissions',
-            description:
-              'Label for All submissions sidebar item in Projects sidebar',
-            id: 'ujBJq7',
-          }),
-          type: 'link',
-        },
-        {
-          href: '/projects/submissions/learn',
-          icon: RiBookOpenLine,
-          key: 'learn',
-          label: intl.formatMessage({
-            defaultMessage: 'Learn from others',
-            description:
-              'Label for Learn from others sidebar item in Projects sidebar',
-            id: 'e1ohyq',
-          }),
-          type: 'link',
-        },
-        {
-          href: '/projects/submissions/mentor',
-          icon: RiGraduationCapLine,
-          key: 'mentor',
-          label: intl.formatMessage({
-            defaultMessage: 'Mentor others',
-            description:
-              'Label for Mentor others sidebar item in Projects sidebar',
-            id: 'HEV8y4',
-          }),
-          type: 'link',
-        },
-      ],
+      items: submissionTabs,
       key: 'submissions',
       label: intl.formatMessage({
         defaultMessage: 'Submissions',

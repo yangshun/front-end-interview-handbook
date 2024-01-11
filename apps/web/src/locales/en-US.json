@@ -263,6 +263,10 @@
     "defaultMessage": "Practice makes perfect. With our collection of over {count} front end questions, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
     "description": "Title of question examples section on getting started page"
   },
+  "0rACGl": {
+    "defaultMessage": "Submissions",
+    "description": "Projects submissions page title"
+  },
   "0xSU4h": {
     "defaultMessage": "Study list session stopped",
     "description": "Success message for stopping a study plan"
@@ -1375,6 +1379,10 @@
     "defaultMessage": "Skills",
     "description": "Label for Skills section of Projects profile onboarding page"
   },
+  "DfuYnf": {
+    "defaultMessage": "Select submission list category",
+    "description": "Tab label to select another submission page"
+  },
   "DiyRBB": {
     "defaultMessage": "Codeney Pte Ltd. All rights reserved.",
     "description": "Footer copyright text containing the company name"
@@ -2267,6 +2275,10 @@
     "defaultMessage": "See whole component track",
     "description": "Label for \"See whole component track\" button in Component track accordion"
   },
+  "My2yxp": {
+    "defaultMessage": "Learn from others | Projects",
+    "description": "Page title of projects learn from others page"
+  },
   "MyaXLl": {
     "defaultMessage": "Practice Top CSS Front End Interview Questions with Solutions",
     "description": "SEO title for CSS questions list page"
@@ -2518,6 +2530,10 @@
   "PWyAGW": {
     "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
     "description": "Subtitle for paywall over company tagging"
+  },
+  "PX6EUM": {
+    "defaultMessage": "Mentor others | Projects",
+    "description": "Page title of projects mentor page"
   },
   "PXLoIh": {
     "defaultMessage": "Focus areas",
@@ -3970,6 +3986,10 @@
   "dPdK9A": {
     "defaultMessage": "Fall Discount",
     "description": "Promotion title"
+  },
+  "dSRF8u": {
+    "defaultMessage": "Submissions | Projects",
+    "description": "Title of Projects submissions page"
   },
   "da4RLj": {
     "defaultMessage": "Google logo",
