@@ -34,23 +34,8 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
 
   const userFirstName = profile?.name?.split(' ')[0];
 
-  const proficientSkills = [
-    'React',
-    'HTML',
-    'CSS',
-    'JS',
-    'React',
-    'HTML',
-    'CSS',
-    'React',
-    'HTML',
-    'CSS',
-    'JS',
-    'React',
-    'HTML',
-    'CSS',
-  ];
-  const growSkills = ['NextJs', 'Vercel'];
+  const proficientSkills = ['React', 'HTML', 'CSS', 'JavaScript'];
+  const growSkills = ['Next.js', 'Vercel'];
 
   return (
     <>
@@ -230,17 +215,17 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
             heading={
               isMyProfile
                 ? intl.formatMessage({
-                    defaultMessage: 'Tech stack I proficient in',
+                    defaultMessage: 'Tech stack I am proficient in',
                     description:
                       'Projects profile tech stack proficient section title',
-                    id: '9SQdvi',
+                    id: 'wQsSoq',
                   })
                 : intl.formatMessage(
                     {
-                      defaultMessage: 'Tech stack {username} proficient in',
+                      defaultMessage: 'Tech stack {username} is proficient in',
                       description:
                         'Projects profile tech stack proficient section title',
-                      id: 'aIn0YC',
+                      id: '3sCoap',
                     },
                     { username: userFirstName },
                   )

@@ -117,7 +117,7 @@ function useSidebarItems() {
         {
           href: '/projects/tracks',
           icon: RiCheckboxMultipleLine,
-          key: 'component-tracks',
+          key: 'tracks',
           label: intl.formatMessage({
             defaultMessage: 'Component tracks',
             description:
@@ -150,9 +150,9 @@ function useSidebarItems() {
           type: 'link',
         },
         {
-          href: '/projects/submissions/learn-from-others',
+          href: '/projects/submissions/learn',
           icon: RiBookOpenLine,
-          key: 'learn-from-others',
+          key: 'learn',
           label: intl.formatMessage({
             defaultMessage: 'Learn from others',
             description:
@@ -162,9 +162,9 @@ function useSidebarItems() {
           type: 'link',
         },
         {
-          href: '/projects/submissions/mentor-others',
+          href: '/projects/submissions/mentor',
           icon: RiGraduationCapLine,
-          key: 'mentor-others',
+          key: 'mentor',
           label: intl.formatMessage({
             defaultMessage: 'Mentor others',
             description:
@@ -367,8 +367,8 @@ export default function ProjectsSideBar() {
                       </Text>
                     )}
                     <ul className="flex flex-col">
-                      {item.items.map(({ key: _key, ...link }) => (
-                        <li key={item.key}>
+                      {item.items.map(({ key: childKey, ...link }) => (
+                        <li key={childKey}>
                           <SidebarLinkButton {...link} />
                         </li>
                       ))}
