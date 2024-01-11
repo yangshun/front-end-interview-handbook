@@ -103,6 +103,29 @@ export const projectsChallengeSubmissionRouter = router({
         });
       },
     ),
+  list: projectsUserProcedure.query(async () => {
+    return await prisma.projectsChallengeSubmission.findMany({
+      include: {
+        projectsProfile: {
+          include: {
+            userProfile: {
+              select: {
+                avatarUrl: true,
+                id: true,
+                name: true,
+                title: true,
+                username: true,
+              },
+            },
+          },
+        },
+      },
+      orderBy: {
+        createdAt: 'desc',
+      },
+      take: 6,
+    });
+  }),
   reference: projectsChallengeProcedure.query(async ({ input: { slug } }) => {
     return await prisma.projectsChallengeSubmission.findMany({
       include: {

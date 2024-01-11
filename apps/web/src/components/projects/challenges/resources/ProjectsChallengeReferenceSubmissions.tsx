@@ -1,17 +1,14 @@
-import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import ProjectsChallengeSubmissionCard from '~/components/projects/submissions/ProjectsChallengeSubmissionCard';
-import { addMissingFieldsToSubmission } from '~/components/projects/submissions/types';
-import EmptyState from '~/components/ui/EmptyState';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
-import { themeBorderColor } from '~/components/ui/theme';
 
 import type { ProjectsChallengeItem } from '../types';
+import ProjectsChallengeSubmissionList from '../../submissions/ProjectsChallengeSubmissionList';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -20,7 +17,7 @@ type Props = Readonly<{
 export default function ProjectsChallengeReferenceSubmissions({
   challenge,
 }: Props) {
-  const { data: referenceSubmissions } =
+  const { data: referenceSubmissions, isLoading } =
     trpc.projects.submissions.reference.useQuery({
       slug: challenge.metadata.slug,
     });
@@ -47,21 +44,12 @@ export default function ProjectsChallengeReferenceSubmissions({
               id="TfBpeT"
             />
           </Text>
-          {referenceSubmissions == null ||
-          referenceSubmissions?.length === 0 ? (
-            <div
-              className={clsx('rounded-lg py-10', 'border', themeBorderColor)}>
-              <EmptyState title="No submissions" />
-            </div>
+          {isLoading ? (
+            <Spinner display="block" size="lg" />
           ) : (
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {referenceSubmissions?.map((submission) => (
-                <ProjectsChallengeSubmissionCard
-                  key={submission.id}
-                  submission={addMissingFieldsToSubmission(submission)}
-                />
-              ))}
-            </div>
+            <ProjectsChallengeSubmissionList
+              submissions={referenceSubmissions ?? []}
+            />
           )}
         </div>
       </Section>

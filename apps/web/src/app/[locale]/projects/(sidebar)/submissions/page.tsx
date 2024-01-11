@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
 
-import ProjectsAllProjectsPage from '~/components/projects/lists/ProjectsAllProjectsPage';
+import ProjectsChallengeSubmissionListSection from '~/components/projects/submissions/ProjectsChallengeSubmissionListSection';
 
-import { readProjectsChallengeList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -29,6 +27,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page({ params }: Props) {
-  return <div>Hello</div>;
+export default async function Page() {
+  return <ProjectsChallengeSubmissionListSection />;
 }

@@ -25,9 +25,8 @@ export type ProjectsChallengeSubmissionItem = Readonly<{
   views: number;
 }>;
 
-// TODO(projects): Remove in future.
-export function addMissingFieldsToSubmission<
-  T extends ProjectsChallengeSubmission &
+export type ProjectsChallengeSubmissionFromDatabase =
+  ProjectsChallengeSubmission &
     Readonly<{
       projectsProfile?:
         | {
@@ -35,7 +34,11 @@ export function addMissingFieldsToSubmission<
           }
         | null
         | undefined;
-    }>,
+    }>;
+
+// TODO(projects): Remove in future.
+export function addMissingFieldsToSubmission<
+  T extends ProjectsChallengeSubmissionFromDatabase,
 >(submission: T): ProjectsChallengeSubmissionItem {
   return {
     ...submission,
