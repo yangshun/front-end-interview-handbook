@@ -1,7 +1,6 @@
 import {
   RiCheckLine,
   RiCircleFill,
-  RiCircleLine,
   RiCloseLine,
   RiErrorWarningLine,
   RiInformationLine,

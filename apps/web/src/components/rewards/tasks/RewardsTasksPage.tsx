@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import type { SVGProps } from 'react';
 import { type ReactNode, useRef, useState } from 'react';
 import {
   RiArrowLeftLine,

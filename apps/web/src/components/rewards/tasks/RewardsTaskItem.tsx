@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import type { SVGProps } from 'react';
 import { RiArrowRightLine, RiCheckFill } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
