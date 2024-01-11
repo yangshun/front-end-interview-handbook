@@ -80,7 +80,7 @@ function LinksListItem({
                 ? clsx(themeTextBrandColor, 'border-current font-semibold')
                 : clsx(
                     themeTextSecondaryColor,
-                    'border-transparent hover:border-current hover:text-neutral-800 dark:hover:text-white',
+                    'border-transparent hover:border-current hover:text-neutral-800 dark:hover:text-neutral-100',
                   ),
             )}
             type="button"

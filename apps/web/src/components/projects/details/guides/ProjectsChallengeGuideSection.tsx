@@ -39,7 +39,7 @@ export default function ProjectsChallengeGuideSection({
     {
       items: [
         {
-          href: 'https://greatfrontend.com',
+          href: 'https://figma.com',
           title: 'How to use Figma for development',
         },
         {
