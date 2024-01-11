@@ -13,15 +13,15 @@ import { themeBorderColor } from '~/components/ui/theme';
 import type { ProjectsChallengeItem } from '../types';
 
 type Props = Readonly<{
-  project: ProjectsChallengeItem;
+  challenge: ProjectsChallengeItem;
 }>;
 
 export default function ProjectsChallengeReferenceSubmissions({
-  project,
+  challenge,
 }: Props) {
   const { data: referenceSubmissions } =
     trpc.projects.submissions.reference.useQuery({
-      slug: project.metadata.slug,
+      slug: challenge.metadata.slug,
     });
 
   return (

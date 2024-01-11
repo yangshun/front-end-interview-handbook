@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
   const user = await readUserFromToken();
-  const { projects } = await readProjectsChallengeList(locale, user?.id);
+  const { challenges } = await readProjectsChallengeList(locale, user?.id);
 
-  return <ProjectsAllProjectsPage projects={projects} />;
+  return <ProjectsAllProjectsPage challenges={challenges} />;
 }

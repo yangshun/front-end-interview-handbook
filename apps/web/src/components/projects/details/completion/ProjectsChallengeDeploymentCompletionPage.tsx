@@ -31,13 +31,13 @@ import {
 import { useProjectsChallengeSessionContext } from '../ProjectsChallengeSessionContext';
 
 type Props = Readonly<{
-  project: ProjectsChallengeItem;
+  challenge: ProjectsChallengeItem;
 }>;
 
 export default function ProjectsChallengeDeploymentCompletionPage({
-  project,
+  challenge,
 }: Props) {
-  const { metadata } = project;
+  const { metadata } = challenge;
   const { submitHref } = metadata;
   const intl = useIntl();
 

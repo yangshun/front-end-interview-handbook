@@ -23,7 +23,7 @@ type Props = Readonly<{
 export default function ProjectsMarketingComponentTrackAccordionItem({
   track,
 }: Props) {
-  const { metadata, projects } = track;
+  const { metadata, challenges } = track;
   const { href, slug } = metadata;
 
   const intl = useIntl();
@@ -52,9 +52,9 @@ export default function ProjectsMarketingComponentTrackAccordionItem({
         <Accordion.Content className="-mt-4 p-6">
           <div className="-mx-6 overflow-hidden">
             <div className="flex overflow-x-auto px-6">
-              {projects.map((project, i) => (
+              {challenges.map((challenge, i) => (
                 <div
-                  key={project.slug}
+                  key={challenge.slug}
                   className="relative flex flex-col gap-4">
                   <div className="flex items-center">
                     <div
@@ -67,23 +67,23 @@ export default function ProjectsMarketingComponentTrackAccordionItem({
                         {i + 1}
                       </Text>
                     </div>
-                    {i < projects.length - 1 && (
+                    {i < challenges.length - 1 && (
                       <div className="flex-1 border-t border-dashed border-neutral-800" />
                     )}
                   </div>
                   <Anchor
                     className={clsx(
                       'outline-brand flex flex-col gap-2 rounded-md bg-neutral-900 p-2',
-                      i < projects.length - 1 && 'me-4',
+                      i < challenges.length - 1 && 'me-4',
                     )}
-                    href={project.href}>
+                    href={challenge.href}>
                     <img
                       alt=""
                       className="h-32 w-48 self-stretch rounded-md bg-neutral-800"
                       src=""
                     />
                     <Text size="body2" weight="medium">
-                      {project.title}
+                      {challenge.title}
                     </Text>
                   </Anchor>
                 </div>

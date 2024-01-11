@@ -78,7 +78,7 @@ export default function ProjectsProfilePage({
       <ProjectsProfileInfo isMyProfile={isMyProfile} profile={profile} />
       <ProjectsProfileStats
         codeReviews={profileStatistics?.codeReviews ?? 0}
-        completedProjects={profileStatistics?.completedProjects ?? 0}
+        completedChallenges={profileStatistics?.completedChallenges ?? 0}
         submissionViews={profileStatistics?.submissionViews ?? 0}
         upvotes={profileStatistics?.upvotes ?? 0}
       />

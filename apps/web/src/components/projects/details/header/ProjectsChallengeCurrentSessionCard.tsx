@@ -23,12 +23,12 @@ import ProjectsSkillsSelect from '../../skills/ProjectsSkillsSelect';
 import type { ProjectsChallengeSession } from '@prisma/client';
 
 type Props = Readonly<{
-  project: ProjectsChallengeItem;
+  challenge: ProjectsChallengeItem;
   session: ProjectsChallengeSession;
 }>;
 
 export default function ProjectsChallengeCurrentProjectSessionCard({
-  project,
+  challenge,
   session,
 }: Props) {
   const intl = useIntl();
@@ -39,7 +39,7 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
   const { endSession, isEndSessionLoading } =
     useProjectsChallengeSessionContext();
 
-  const { submitHref, skills, slug } = project.metadata;
+  const { submitHref, skills, slug } = challenge.metadata;
   const { createdAt } = session;
 
   const handleEndSession = async () => {

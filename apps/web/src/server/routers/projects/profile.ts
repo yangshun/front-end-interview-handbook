@@ -22,7 +22,7 @@ export const projectsProfileRouter = router({
   ),
   getDashboardStatistics: projectsUserProcedure.query(
     async ({ ctx: { projectsProfileId } }) => {
-      const [completedProjects, submissionViews] = await Promise.all([
+      const [completedChallenges, submissionViews] = await Promise.all([
         prisma.projectsChallengeSubmission.count({
           where: {
             profileId: projectsProfileId,
@@ -41,7 +41,7 @@ export const projectsProfileRouter = router({
       // TODO(projects): remove random stats.
       return {
         codeReviews: Math.ceil(Math.random() * 1000),
-        completedProjects,
+        completedChallenges,
         submissionViews: submissionViews._sum.views,
         upvotes: Math.ceil(Math.random() * 10000),
       };
@@ -54,7 +54,7 @@ export const projectsProfileRouter = router({
       }),
     )
     .query(async ({ input: { projectsProfileId } }) => {
-      const [completedProjects, submissionViews] = await Promise.all([
+      const [completedChallenges, submissionViews] = await Promise.all([
         prisma.projectsChallengeSubmission.count({
           where: {
             profileId: projectsProfileId,
@@ -73,7 +73,7 @@ export const projectsProfileRouter = router({
       // TODO(projects): remove random stats.
       return {
         codeReviews: Math.ceil(Math.random() * 1000),
-        completedProjects,
+        completedChallenges,
         submissionViews: submissionViews._sum.views,
         upvotes: Math.ceil(Math.random() * 10000),
       };

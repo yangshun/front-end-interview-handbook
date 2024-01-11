@@ -4,13 +4,13 @@ import ProjectsChallengeCard from './ProjectsChallengeCard';
 import type { ProjectsChallengeItem } from '../details/types';
 
 type Props = Readonly<{
+  challenges: ReadonlyArray<ProjectsChallengeItem>;
   className?: string;
-  projects: ReadonlyArray<ProjectsChallengeItem>;
 }>;
 
 export default function ProjectsChallengeGridList({
   className,
-  projects,
+  challenges,
 }: Props) {
   return (
     <div
@@ -18,8 +18,11 @@ export default function ProjectsChallengeGridList({
         'grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3',
         className,
       )}>
-      {projects.map((project) => (
-        <ProjectsChallengeCard key={project.metadata.slug} project={project} />
+      {challenges.map((challenge) => (
+        <ProjectsChallengeCard
+          key={challenge.metadata.slug}
+          challenge={challenge}
+        />
       ))}
     </div>
   );

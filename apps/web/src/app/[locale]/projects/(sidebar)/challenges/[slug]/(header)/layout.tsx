@@ -10,10 +10,10 @@ type Props = Readonly<{
 export default async function Layout({ children, params }: Props) {
   const { locale, slug } = params;
 
-  const { project } = await readProjectsChallengeItem(slug, locale);
+  const { challenge } = await readProjectsChallengeItem(slug, locale);
 
   return (
-    <ProjectsChallengeHeaderLayout project={project}>
+    <ProjectsChallengeHeaderLayout challenge={challenge}>
       {children}
     </ProjectsChallengeHeaderLayout>
   );

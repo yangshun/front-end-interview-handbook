@@ -9,10 +9,10 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
 type Props = Readonly<{
-  projects: ReadonlyArray<ProjectsChallengeItem>;
+  challenges: ReadonlyArray<ProjectsChallengeItem>;
 }>;
 
-export default function ProjectsAllProjectsPage({ projects }: Props) {
+export default function ProjectsAllProjectsPage({ challenges }: Props) {
   return (
     <div className="flex flex-col gap-9">
       <div className="flex flex-col max-w-prose gap-1">
@@ -34,7 +34,7 @@ export default function ProjectsAllProjectsPage({ projects }: Props) {
         </Section>
       </div>
       <Section>
-        <ProjectsChallengeGridListWithFilters projects={projects} />
+        <ProjectsChallengeGridListWithFilters challenges={challenges} />
       </Section>
     </div>
   );

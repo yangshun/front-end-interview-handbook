@@ -46,12 +46,12 @@ function useTipsResourcesDiscussionsTabs() {
 }
 
 type Props = Readonly<{
-  project: ProjectsChallengeItem;
+  challenge: ProjectsChallengeItem;
   projectGuides: Array<ProjectsChallengeGuide>;
 }>;
 
 export default function ProjectsChallengeResourcesPage({
-  project,
+  challenge,
   projectGuides,
 }: Props) {
   const intl = useIntl();
@@ -101,10 +101,10 @@ export default function ProjectsChallengeResourcesPage({
             onSelect={setTipsResourcesDiscussionsTab}
           />
           {tipsResourcesDiscussionsTab === 'references' && (
-            <ProjectsChallengeReferenceSubmissions project={project} />
+            <ProjectsChallengeReferenceSubmissions challenge={challenge} />
           )}
           {tipsResourcesDiscussionsTab === 'discussions' && (
-            <ProjectsChallengeDiscussionSection project={project} />
+            <ProjectsChallengeDiscussionSection challenge={challenge} />
           )}
           {tipsResourcesDiscussionsTab === 'guides' && (
             <ProjectsChallengeGuideSection projectGuides={projectGuides} />

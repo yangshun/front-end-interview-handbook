@@ -18,12 +18,12 @@ const MarketingHomePageBottom = dynamic(
 );
 
 type Props = Readonly<{
-  featuredProjects: ReadonlyArray<ProjectsChallengeItem>;
+  featuredChallenges: ReadonlyArray<ProjectsChallengeItem>;
   projectTracks: ReadonlyArray<ProjectsTrack>;
 }>;
 
 export default function ProjectsMarketingHomePage({
-  featuredProjects,
+  featuredChallenges,
   projectTracks,
 }: Props) {
   const loadBottomHalfMarkerRef = useRef(null);
@@ -38,7 +38,7 @@ export default function ProjectsMarketingHomePage({
       <Section>
         <ProjectsMarketingHomepageFeaturesRow />
         <ProjectsMarketingSkillsTracksProjects
-          featuredProjects={featuredProjects}
+          featuredChallenges={featuredChallenges}
           hiddenTracks={projectTracks}
           projectTracks={projectTracks}
         />

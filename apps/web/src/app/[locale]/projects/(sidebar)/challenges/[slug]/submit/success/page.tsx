@@ -9,12 +9,14 @@ type Props = Readonly<{
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [{ projects }] = await Promise.all([readProjectsChallengeList(locale)]);
+  const [{ challenges }] = await Promise.all([
+    readProjectsChallengeList(locale),
+  ]);
 
   // TODO(projects): Actual suggested projects for the current project.
   return (
     <ProjectsChallengeSubmitSuccessPage
-      suggestedProjects={projects.slice(0, 3)}
+      suggestedChallenges={challenges.slice(0, 3)}
     />
   );
 }

@@ -35,16 +35,16 @@ type Props = Readonly<{
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [{ projects }, { tracks }] = await Promise.all([
+  const [{ challenges }, { tracks }] = await Promise.all([
     readProjectsChallengeList(locale),
     readProjectsTrackList(locale),
   ]);
   // TODO(projects): Actual featured projects.
-  const featuredProjects = projects.slice(0, 3);
+  const featuredChallenges = challenges.slice(0, 3);
 
   return (
     <ProjectsMarketingHomePage
-      featuredProjects={featuredProjects}
+      featuredChallenges={featuredChallenges}
       projectTracks={tracks}
     />
   );

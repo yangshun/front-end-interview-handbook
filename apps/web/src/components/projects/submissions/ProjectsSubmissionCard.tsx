@@ -15,17 +15,17 @@ import ProjectsUserYearsOfExperience from '../users/ProjectsUserYearsOfExperienc
 import UserAvatarWithLevel from '../users/UserAvatarWithLevel';
 
 type Props = Readonly<{
-  isPinnedOnProfile?: boolean;
-  project?: Readonly<{
+  challenge?: Readonly<{
     href: string;
     title: string;
   }>;
+  isPinnedOnProfile?: boolean;
   submission: ProjectsSubmission;
 }>;
 
 export default function ProjectsSubmissionCard({
   isPinnedOnProfile = false,
-  project,
+  challenge,
   submission,
 }: Props) {
   const intl = useIntl();
@@ -35,7 +35,7 @@ export default function ProjectsSubmissionCard({
   return (
     <Card disableSpotlight={true} padding={false} pattern={false}>
       <div className="flex flex-col px-4 py-6 gap-4">
-        {isPinnedOnProfile && project != null && (
+        {isPinnedOnProfile && challenge != null && (
           <div className="flex justify-between">
             <Text color="secondary" size="body3">
               <FormattedMessage
@@ -43,9 +43,9 @@ export default function ProjectsSubmissionCard({
                 description="Link to brief for pinned project submission"
                 id="Ukm+GC"
                 values={{
-                  briefDescription: project?.title,
+                  briefDescription: challenge?.title,
                   link: (chunks) => (
-                    <Anchor href={project?.href}>{chunks}</Anchor>
+                    <Anchor href={challenge?.href}>{chunks}</Anchor>
                   ),
                 }}
               />

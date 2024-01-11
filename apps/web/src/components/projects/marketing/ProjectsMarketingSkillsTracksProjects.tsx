@@ -36,13 +36,13 @@ const skills = [
 ];
 
 type Props = Readonly<{
-  featuredProjects: ReadonlyArray<ProjectsChallengeItem>;
+  featuredChallenges: ReadonlyArray<ProjectsChallengeItem>;
   hiddenTracks: ReadonlyArray<ProjectsTrack>;
   projectTracks: ReadonlyArray<ProjectsTrack>;
 }>;
 
 export default function ProjectsMarketingSkillsTracksProjects({
-  featuredProjects,
+  featuredChallenges,
   hiddenTracks,
   projectTracks,
 }: Props) {
@@ -265,7 +265,9 @@ export default function ProjectsMarketingSkillsTracksProjects({
                 />
               }
             />
-            <ProjectsChallengeGridListWithFilters projects={featuredProjects} />
+            <ProjectsChallengeGridListWithFilters
+              challenges={featuredChallenges}
+            />
             <BlurOverlay
               align="bottom"
               maxHeight={256}
@@ -289,7 +291,7 @@ export default function ProjectsMarketingSkillsTracksProjects({
                   />
                 </div>
               }>
-              <ProjectsChallengeGridList projects={featuredProjects} />
+              <ProjectsChallengeGridList challenges={featuredChallenges} />
             </BlurOverlay>
           </div>
         </Section>

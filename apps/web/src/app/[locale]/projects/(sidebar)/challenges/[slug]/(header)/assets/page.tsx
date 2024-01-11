@@ -12,7 +12,7 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { slug, locale } = params;
-  const [{ project }, { styleGuide }, { apiWriteup }] = await Promise.all([
+  const [{ challenge }, { styleGuide }, { apiWriteup }] = await Promise.all([
     readProjectsChallengeItem(slug, locale),
     readProjectsChallengeStyleGuide(slug, locale),
     readProjectsChallengeAPIWriteup(slug, locale),
@@ -21,7 +21,7 @@ export default async function Page({ params }: Props) {
   return (
     <ProjectsChallengeAssetsPage
       apiWriteup={apiWriteup ?? undefined}
-      project={project}
+      challenge={challenge}
       styleGuide={styleGuide ?? undefined}
     />
   );

@@ -27,14 +27,14 @@ type DialogStep = Readonly<{
 }>;
 
 function useDialogSteps({
-  project,
+  challenge,
   onStartClick,
   userCanAccess,
   isLoading,
 }: {
+  challenge: ProjectsChallengeItem;
   isLoading: boolean;
   onStartClick: () => void;
-  project: ProjectsChallengeItem;
   userCanAccess: boolean;
 }) {
   const intl = useIntl();
@@ -42,7 +42,7 @@ function useDialogSteps({
     {
       content: (
         <ProjectsChallengeGetStartedDownloadFigmaDesignDownloadStarterFiles
-          starterFilesHref={project.metadata.downloadStarterFilesHref}
+          starterFilesHref={challenge.metadata.downloadStarterFilesHref}
         />
       ),
       id: 'download-starter-files',
@@ -56,7 +56,7 @@ function useDialogSteps({
     {
       content: (
         <ProjectsChallengeGetStartedDownloadFigmaDesignDownloadFigmaDesign
-          downloadDesignFileHref={project.metadata.downloadDesignFileHref}
+          downloadDesignFileHref={challenge.metadata.downloadDesignFileHref}
           userCanAccess={userCanAccess}
         />
       ),
@@ -111,16 +111,16 @@ function useDialogSteps({
 }
 
 type Props = Readonly<{
+  challenge: ProjectsChallengeItem;
   isLoading?: boolean;
   isShown: boolean;
   onClose: () => void;
   onStart: () => void;
-  project: ProjectsChallengeItem;
 }>;
 
 export default function ProjectsChallengeGetStartedDialog({
   isShown,
-  project,
+  challenge,
   onClose,
   onStart,
   isLoading = false,
@@ -128,13 +128,13 @@ export default function ProjectsChallengeGetStartedDialog({
   const intl = useIntl();
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const dialogSteps = useDialogSteps({
+    challenge,
     isLoading,
     onStartClick: async () => {
       await onStart();
       onClose();
       setCurrentStepIndex(0);
     },
-    project,
     userCanAccess: true,
   });
 

@@ -11,7 +11,7 @@ import ProjectsReputationCountIncreaseTag from '../stats/ProjectsReputationCount
 type Props = Readonly<{ track: ProjectsTrack }>;
 
 export default function ProjectsTrackHeader({ track }: Props) {
-  const { isPremium, points, completedProjectCount, metadata, projects } =
+  const { isPremium, points, completedProjectCount, metadata, challenges } =
     track;
   const { description, title } = metadata;
   const intl = useIntl();
@@ -40,7 +40,7 @@ export default function ProjectsTrackHeader({ track }: Props) {
       <div className="mt-2 flex flex-wrap gap-4">
         <ProjectsReputationCountIncreaseTag points={points} variant="flat" />
         <ProjectsChallengeCountTag
-          total={projects.length}
+          total={challenges.length}
           value={completedProjectCount}
         />
       </div>

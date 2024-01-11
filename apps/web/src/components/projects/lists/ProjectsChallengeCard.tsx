@@ -15,7 +15,6 @@ import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundEmphasized,
   themeBorderColor,
   themeCardBackgroundColor,
 } from '~/components/ui/theme';
@@ -25,13 +24,13 @@ import ProjectsSkillRow from '../skills/ProjectsSkillRow';
 import ProjectsCompletedUsersTag from '../stats/ProjectsCompletedUsersTag';
 
 type Props = Readonly<{
-  project: ProjectsChallengeItem;
+  challenge: ProjectsChallengeItem;
 }>;
 
-export default function ProjectsChallengeCard({ project }: Props) {
+export default function ProjectsChallengeCard({ challenge }: Props) {
   const intl = useIntl();
   const { completedProfiles, completedCount, metadata, status, track } =
-    project;
+    challenge;
   const {
     title,
     difficulty,

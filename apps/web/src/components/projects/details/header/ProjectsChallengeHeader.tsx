@@ -9,9 +9,9 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { ProjectsChallengeItem } from '~/components/projects/details/types';
 import ProjectsSkillChip from '~/components/projects/skills/ProjectsSkillChip';
+import ProjectsChallengeDifficultyTag from '~/components/projects/stats/ProjectsChallengeDifficultyTag';
 import ProjectsCompletedUsersTag from '~/components/projects/stats/ProjectsCompletedUsersTag';
 import ProjectsComponentTrackTag from '~/components/projects/stats/ProjectsComponentTrackTag';
-import ProjectsChallengeDifficultyTag from '~/components/projects/stats/ProjectsChallengeDifficultyTag';
 import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -25,12 +25,12 @@ import ProjectsChallengeHowItWorksDialog from './ProjectsChallengeHowItWorksDial
 import { useProjectsChallengeSessionContext } from '../ProjectsChallengeSessionContext';
 
 type Props = Readonly<{
-  project: ProjectsChallengeItem;
+  challenge: ProjectsChallengeItem;
 }>;
 
-export default function ProjectsChallengeHeader({ project }: Props) {
+export default function ProjectsChallengeHeader({ challenge }: Props) {
   const intl = useIntl();
-  const { completedCount, completedProfiles, metadata, track } = project;
+  const { completedCount, completedProfiles, metadata, track } = challenge;
   const { description, difficulty, points, skills, title } = metadata;
 
   const { session, startProject } = useProjectsChallengeSessionContext();
@@ -153,7 +153,7 @@ export default function ProjectsChallengeHeader({ project }: Props) {
         </div>
         {hasSession ? (
           <ProjectsChallengeCurrentProjectSessionCard
-            project={project}
+            challenge={challenge}
             session={{
               ...session,
               createdAt: new Date(session.createdAt),

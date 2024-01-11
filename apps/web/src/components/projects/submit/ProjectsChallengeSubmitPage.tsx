@@ -38,7 +38,7 @@ import ProjectsChallengeSubmitPageDeploymentDialog from './ProjectsChallengeSubm
 import { zodResolver } from '@hookform/resolvers/zod';
 
 type Props = Readonly<{
-  project: ProjectsChallengeItem;
+  challenge: ProjectsChallengeItem;
 }>;
 
 export type ProjectsChallengeSubmissionFormValues = Readonly<{
@@ -70,8 +70,8 @@ function useProjectsChallengeSubmissionFormSchema() {
   });
 }
 
-export default function ProjectsChallengeSubmitPage({ project }: Props) {
-  const { href } = project.metadata;
+export default function ProjectsChallengeSubmitPage({ challenge }: Props) {
+  const { href } = challenge.metadata;
   const intl = useIntl();
   const projectsChallengeSubmissionFormSchema =
     useProjectsChallengeSubmissionFormSchema();
@@ -125,7 +125,7 @@ export default function ProjectsChallengeSubmitPage({ project }: Props) {
           <form
             onSubmit={handleSubmit((data) => {
               createSubmissionMutation.mutate({
-                slug: project.metadata.slug,
+                slug: challenge.metadata.slug,
                 ...data,
               });
             })}>

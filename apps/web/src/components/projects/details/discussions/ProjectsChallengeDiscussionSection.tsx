@@ -70,10 +70,12 @@ export const exampleDiscussionPosts: ReadonlyArray<ProjectsChallengeDiscussionPo
   ];
 
 type Props = Readonly<{
-  project: ProjectsChallengeItem;
+  challenge: ProjectsChallengeItem;
 }>;
 
-export default function ProjectsChallengeDiscussionSection({ project }: Props) {
+export default function ProjectsChallengeDiscussionSection({
+  challenge,
+}: Props) {
   const intl = useIntl();
 
   const { profile } = useProfile();

@@ -9,9 +9,9 @@ import type { ProjectsChallengeItem } from './types';
 
 type TabType = 'assets' | 'completion' | 'project-brief' | 'resources';
 
-function useProjectDetailsStepsTabs(project: ProjectsChallengeItem) {
+function useProjectDetailsStepsTabs(challenge: ProjectsChallengeItem) {
   const intl = useIntl();
-  const { metadata } = project;
+  const { metadata } = challenge;
 
   const tabs: Array<ProjectStepsTabItem<TabType>> = [
     {
@@ -106,15 +106,15 @@ type Props = Omit<
   ProjectsChallengeStepsTabsProps<TabType>,
   'label' | 'tabs'
 > & {
-  project: ProjectsChallengeItem;
+  challenge: ProjectsChallengeItem;
 };
 
 export default function ProjectsChallengeStepsTabsImpl({
-  project,
+  challenge,
   ...props
 }: Props) {
   const intl = useIntl();
-  const tabs = useProjectDetailsStepsTabs(project);
+  const tabs = useProjectDetailsStepsTabs(challenge);
 
   return (
     <ProjectsChallengeStepsTabs

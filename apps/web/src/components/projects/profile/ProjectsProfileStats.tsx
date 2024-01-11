@@ -52,14 +52,14 @@ function getFormattedNumber(num: number) {
 
 type Props = Readonly<{
   codeReviews: number | undefined;
-  completedProjects: number | undefined;
+  completedChallenges: number | undefined;
   submissionViews: number | undefined;
   upvotes: number | undefined;
 }>;
 
 export default function ProjectsProfileStats({
   codeReviews,
-  completedProjects,
+  completedChallenges,
   submissionViews,
   upvotes,
 }: Props) {
@@ -67,7 +67,7 @@ export default function ProjectsProfileStats({
 
   const stats = [
     {
-      count: completedProjects,
+      count: completedChallenges,
       icon: RiRocketFill,
       title: intl.formatMessage({
         defaultMessage: 'Challenges completed',

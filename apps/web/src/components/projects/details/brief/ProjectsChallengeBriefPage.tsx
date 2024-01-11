@@ -17,10 +17,10 @@ import ProjectsChallengeBriefSupportSection from './ProjectsChallengeBriefSuppor
 import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxContent';
 
 type Props = Readonly<{
-  project: ProjectsChallengeItem;
+  challenge: ProjectsChallengeItem;
 }>;
 
-export default function ProjectsChallengeBriefPage({ project }: Props) {
+export default function ProjectsChallengeBriefPage({ challenge }: Props) {
   const intl = useIntl();
 
   // TODO(projects): Compute these values
@@ -75,16 +75,16 @@ export default function ProjectsChallengeBriefPage({ project }: Props) {
             <Section>
               <Prose textSize="sm">
                 <ProjectsChallengeMdxContent
-                  mdxCode={project.metadata.body.code}
+                  mdxCode={challenge.metadata.body.code}
                 />
               </Prose>
             </Section>
           </div>
           <div className="flex flex-col gap-6">
             <img
-              alt={project.metadata.title}
+              alt={challenge.metadata.title}
               className={clsx('h-[372px] w-full rounded-lg')}
-              src={project.metadata.imageUrl}
+              src={challenge.metadata.imageUrl}
             />
             <Heading level="heading6">
               <FormattedMessage

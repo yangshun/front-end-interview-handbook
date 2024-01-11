@@ -8,7 +8,7 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { slug, locale } = params;
-  const { project } = await readProjectsChallengeItem(slug, locale);
+  const { challenge } = await readProjectsChallengeItem(slug, locale);
 
-  return <ProjectsChallengeDeploymentCompletionPage project={project} />;
+  return <ProjectsChallengeDeploymentCompletionPage challenge={challenge} />;
 }

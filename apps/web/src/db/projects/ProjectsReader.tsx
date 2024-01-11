@@ -45,7 +45,7 @@ const extraProjectData = {
 // TODO(projects): remove in future.
 export const exampleTrack: Omit<
   ProjectsTrack,
-  'metadata' | 'points' | 'projects'
+  'challenges' | 'metadata' | 'points'
 > = {
   completedProjectCount: 3,
   isPremium: true,
@@ -55,8 +55,8 @@ export async function readProjectsChallengeList(
   requestedLocale = 'en-US',
   userId?: string | null,
 ): Promise<{
+  challenges: ReadonlyArray<ProjectsChallengeItem>;
   loadedLocale: string;
-  projects: ReadonlyArray<ProjectsChallengeItem>;
 }> {
   const [sessionsForUserGroupedBySlug, countsGroupedBySlug] = await Promise.all(
     [
@@ -117,7 +117,7 @@ export async function readProjectsChallengeList(
     ],
   );
 
-  const projects = allProjectsChallengeMetadata
+  const challenges = allProjectsChallengeMetadata
     .filter((challengeItem) =>
       challengeItem._raw.flattenedPath.endsWith(requestedLocale),
     )
@@ -135,8 +135,8 @@ export async function readProjectsChallengeList(
     );
 
   return {
+    challenges,
     loadedLocale: requestedLocale,
-    projects,
   };
 }
 
@@ -145,8 +145,8 @@ export async function readProjectsChallengeItem(
   requestedLocale = 'en-US',
 ): Promise<
   Readonly<{
+    challenge: ProjectsChallengeItem;
     loadedLocale: string;
-    project: ProjectsChallengeItem;
   }>
 > {
   // So that we handle typos like extra characters.
@@ -214,8 +214,7 @@ export async function readProjectsChallengeItem(
   ]);
 
   return {
-    loadedLocale: requestedLocale,
-    project: challengeItemAddTrackMetadata({
+    challenge: challengeItemAddTrackMetadata({
       completedCount,
       completedProfiles: completedUsers,
       metadata: {
@@ -225,6 +224,7 @@ export async function readProjectsChallengeItem(
       // If any page needs it in future, fetch from db.
       status: null,
     }),
+    loadedLocale: requestedLocale,
   };
 }
 
@@ -277,22 +277,22 @@ export async function readProjectsTrackList(
   loadedLocale: string;
   tracks: ReadonlyArray<ProjectsTrack>;
 }> {
-  const [{ projects }, { trackMetadataList }] = await Promise.all([
+  const [{ challenges }, { trackMetadataList }] = await Promise.all([
     readProjectsChallengeList(requestedLocale, userId),
     readProjectsTrackMetadataList(requestedLocale),
   ]);
 
   const tracks = trackMetadataList.map((trackMetadata) => {
-    const trackProjects = projects
-      .filter((project) => project.metadata.track === trackMetadata.slug)
-      .map((project) => project.metadata);
-    const points = sum(trackProjects.map((metadata) => metadata.points));
+    const trackChallenges = challenges
+      .filter((challenge) => challenge.metadata.track === trackMetadata.slug)
+      .map((challenge) => challenge.metadata);
+    const points = sum(trackChallenges.map((metadata) => metadata.points));
 
     return {
       ...exampleTrack,
+      challenges: trackChallenges,
       metadata: trackMetadata,
       points,
-      projects: trackProjects,
     };
   });
 
@@ -325,7 +325,7 @@ export async function readProjectsTrack(
     track: ProjectsTrack;
   }>
 > {
-  const { projects } = await readProjectsChallengeList(requestedLocale);
+  const { challenges } = await readProjectsChallengeList(requestedLocale);
 
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
@@ -337,18 +337,18 @@ export async function readProjectsTrack(
     (trackMetadataItem) => trackMetadataItem.slug === slug,
   )!;
 
-  const trackProjects = projects
-    .filter((project) => project.metadata.track === trackMetadata.slug)
-    .map((project) => project.metadata);
-  const points = sum(trackProjects.map((metadata) => metadata.points));
+  const trackChallenges = challenges
+    .filter((challenge) => challenge.metadata.track === trackMetadata.slug)
+    .map((challenge) => challenge.metadata);
+  const points = sum(trackChallenges.map((metadata) => metadata.points));
 
   return {
     loadedLocale: requestedLocale,
     track: {
       ...exampleTrack,
+      challenges: trackChallenges,
       metadata: trackMetadata,
       points,
-      projects: trackProjects,
     },
   };
 }

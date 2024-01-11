@@ -85,17 +85,17 @@ function useOnlineAssetsTabs(hasStyleGuide: boolean, hasAPIWriteup: boolean) {
 
 type Props = Readonly<{
   apiWriteup?: ProjectsChallengeAPIWriteup;
-  project: ProjectsChallengeItem;
+  challenge: ProjectsChallengeItem;
   styleGuide?: ProjectsChallengeStyleGuide;
 }>;
 
 export default function ProjectsChallengeAssetsPage({
   apiWriteup,
-  project,
+  challenge,
   styleGuide,
 }: Props) {
   const intl = useIntl();
-  const { metadata } = project;
+  const { metadata } = challenge;
   const resources = useProjectsProvidedResources();
   const onlineAssetsTabs = useOnlineAssetsTabs(
     styleGuide != null,
@@ -304,9 +304,9 @@ export default function ProjectsChallengeAssetsPage({
                     </div>
                   </div>
                   <img
-                    alt={project.metadata.title}
+                    alt={challenge.metadata.title}
                     className={clsx('aspect-[4/3] w-full rounded-lg')}
-                    src={project.metadata.imageUrl}
+                    src={challenge.metadata.imageUrl}
                   />
                 </div>
               )}

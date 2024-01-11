@@ -16,18 +16,18 @@ import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 
-import ProjectsListFilterDropdown from './ProjectsListFilterDropdown';
 import ProjectsChallengeFilterContextProvider, {
   useProjectsChallengeFilterContext,
 } from './ProjectsChallengeFilterContext';
 import ProjectsChallengeFilterSlideOut from './ProjectsChallengeFilterSlideOut';
+import ProjectsListFilterDropdown from './ProjectsListFilterDropdown';
 import type { ProjectsChallengeItem } from '../details/types';
 
 type Props = Readonly<{
-  projects: ReadonlyArray<ProjectsChallengeItem>;
+  challenges: ReadonlyArray<ProjectsChallengeItem>;
 }>;
 
-function ProjectsChallengeGridListWithFiltersImpl({ projects }: Props) {
+function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
   const intl = useIntl();
   const { filters } = useProjectsChallengeFilterContext();
 
@@ -104,12 +104,12 @@ function ProjectsChallengeGridListWithFiltersImpl({ projects }: Props) {
                 description="Label for total number of projects in Projects marketing page"
                 id="b+bj2C"
                 values={{
-                  projectCount: projects.length,
+                  projectCount: challenges.length,
                 }}
               />
             </Text>
           </div>
-          <ProjectsChallengeGridList projects={projects} />
+          <ProjectsChallengeGridList challenges={challenges} />
         </div>
         <div className="flex justify-between items-center">
           <Text color="secondary" size="body3">
@@ -118,8 +118,8 @@ function ProjectsChallengeGridListWithFiltersImpl({ projects }: Props) {
               description="Projects listing label"
               id="Zuck2D"
               values={{
-                pageCount: projects.length, // TODO(projects): fix when pagination done.
-                totalCount: projects.length,
+                pageCount: challenges.length, // TODO(projects): fix when pagination done.
+                totalCount: challenges.length,
               }}
             />
           </Text>
@@ -131,11 +131,11 @@ function ProjectsChallengeGridListWithFiltersImpl({ projects }: Props) {
 }
 
 export default function ProjectsChallengeGridListWithFilters({
-  projects,
+  challenges,
 }: Props) {
   return (
     <ProjectsChallengeFilterContextProvider>
-      <ProjectsChallengeGridListWithFiltersImpl projects={projects} />
+      <ProjectsChallengeGridListWithFiltersImpl challenges={challenges} />
     </ProjectsChallengeFilterContextProvider>
   );
 }

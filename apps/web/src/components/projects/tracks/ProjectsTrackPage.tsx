@@ -21,7 +21,7 @@ export type Props = Readonly<{
 }>;
 
 export default function ProjectsTrackPage({ track }: Props) {
-  const { projects, completedProjectCount, points, metadata } = track;
+  const { challenges, completedProjectCount, points, metadata } = track;
   const { title, description } = metadata;
 
   const intl = useIntl();
@@ -51,7 +51,7 @@ export default function ProjectsTrackPage({ track }: Props) {
                 variant="flat"
               />
               <ProjectsChallengeCountTag
-                total={projects.length}
+                total={challenges.length}
                 value={completedProjectCount}
               />
             </div>
@@ -71,8 +71,8 @@ export default function ProjectsTrackPage({ track }: Props) {
             'relative flex flex-col gap-4',
             'before:border-element before:absolute before:left-3 before:-z-10 before:h-full before:w-px before:border-l before:border-dashed dark:before:border-neutral-700',
           )}>
-          {projects.map((project, index) => (
-            <div key={project.slug} className="group flex items-center gap-6">
+          {challenges.map((challenge, index) => (
+            <div key={challenge.slug} className="group flex items-center gap-6">
               <div
                 className={clsx(
                   'relative flex flex-col justify-center self-stretch',
@@ -98,13 +98,13 @@ export default function ProjectsTrackPage({ track }: Props) {
                 )}
               />
               <div className="flex flex-col items-start gap-2">
-                <Text weight="medium">{project.title}</Text>
+                <Text weight="medium">{challenge.title}</Text>
                 <Text color="secondary" size="body3">
-                  {project.description}
+                  {challenge.description}
                 </Text>
                 <Button
                   className="-ms-3"
-                  href={project.href}
+                  href={challenge.href}
                   icon={RiArrowRightLine}
                   label="Start building"
                   size="sm"

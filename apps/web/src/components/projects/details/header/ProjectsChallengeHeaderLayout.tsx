@@ -12,15 +12,15 @@ import ProjectsChallengeStepsTabsImpl from '../ProjectsChallengeStepsTabsImpl';
 import type { ProjectsChallengeItem } from '../types';
 
 type Props = Readonly<{
+  challenge: ProjectsChallengeItem;
   children: React.ReactNode;
-  project: ProjectsChallengeItem;
 }>;
 
 export function ProjectsChallengeHeaderLayoutImpl({
-  project,
+  challenge,
   children,
 }: Props) {
-  const { slug } = project.metadata;
+  const { slug } = challenge.metadata;
 
   const segment =
     (useSelectedLayoutSegment() as ComponentProps<
@@ -36,13 +36,13 @@ export function ProjectsChallengeHeaderLayoutImpl({
 
   return (
     <div className="flex flex-col items-stretch gap-16">
-      <ProjectsChallengeHeader project={project} />
-      <ProjectsChallengeStepsTabsImpl project={project} value={segment} />
+      <ProjectsChallengeHeader challenge={challenge} />
+      <ProjectsChallengeStepsTabsImpl challenge={challenge} value={segment} />
       {children}
       <ProjectsChallengeGetStartedDialog
+        challenge={challenge}
         isLoading={isStartSessionLoading}
         isShown={isGetStartedDialogShown}
-        project={project}
         onClose={() => {
           setIsGetStartedDialogShown(false);
         }}
@@ -54,14 +54,14 @@ export function ProjectsChallengeHeaderLayoutImpl({
   );
 }
 export default function ProjectsChallengeHeaderLayout({
-  project,
+  challenge,
   children,
 }: Props) {
-  const { slug } = project.metadata;
+  const { slug } = challenge.metadata;
 
   return (
     <ProjectsChallengeSessionContextProvider slug={slug}>
-      <ProjectsChallengeHeaderLayoutImpl project={project}>
+      <ProjectsChallengeHeaderLayoutImpl challenge={challenge}>
         {children}
       </ProjectsChallengeHeaderLayoutImpl>
     </ProjectsChallengeSessionContextProvider>

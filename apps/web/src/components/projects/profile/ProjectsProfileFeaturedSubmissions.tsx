@@ -37,11 +37,11 @@ export default function ProjectsProfileFeaturedSubmissions() {
             .map((submission) => (
               <ProjectsSubmissionCard
                 key={submission.id}
-                isPinnedOnProfile={true}
-                project={{
+                challenge={{
                   href: '/projects/challenges/newsletter-section',
                   title: 'Newsletter Section',
                 }}
+                isPinnedOnProfile={true}
                 submission={submission}
               />
             ))}

@@ -164,11 +164,11 @@ function ReputationIncreaseBackground({ className }: { className?: string }) {
 }
 
 type Props = Readonly<{
-  suggestedProjects: ReadonlyArray<ProjectsChallengeItem>;
+  suggestedChallenges: ReadonlyArray<ProjectsChallengeItem>;
 }>;
 
 export default function ProjectsChallengeSubmitSuccessPage({
-  suggestedProjects,
+  suggestedChallenges,
 }: Props) {
   const intl = useIntl();
   const { profile } = useProfile();
@@ -449,8 +449,8 @@ export default function ProjectsChallengeSubmitSuccessPage({
             />
           </Text>
           <ProjectsChallengeGridList
+            challenges={suggestedChallenges}
             className="mt-12"
-            projects={suggestedProjects}
           />
         </Section>
       </div>
