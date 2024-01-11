@@ -5,7 +5,7 @@ import {
   projectAccessOptions,
   projectDifficultyOptions,
   projectTrackOptions,
-} from '../details/types';
+} from '../challenges/types';
 
 function parseProjectSlug(sourceFilePath: string) {
   return sourceFilePath.split(path.sep)[2];

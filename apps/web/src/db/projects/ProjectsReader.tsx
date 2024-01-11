@@ -14,7 +14,7 @@ import {
 } from 'contentlayer/generated';
 import { sum } from 'lodash-es';
 
-import type { ProjectsChallengeItem } from '~/components/projects/details/types';
+import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import type { ProjectsTrack } from '~/components/projects/tracks/ProjectsTracksData';
 
 import prisma from '~/server/prisma';

@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsProfileAvatarData } from '../details/types';
+import type { ProjectsProfileAvatarData } from '../challenges/types';
 
 type Props = Readonly<{
   className?: string;

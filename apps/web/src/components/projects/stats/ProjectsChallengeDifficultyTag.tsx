@@ -5,7 +5,7 @@ import { RiFlashlightLine } from 'react-icons/ri';
 import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 
-import type { ProjectsChallengeDifficulty } from '../details/types';
+import type { ProjectsChallengeDifficulty } from '../challenges/types';
 
 type Props = Readonly<{
   difficulty: ProjectsChallengeDifficulty;

@@ -2,7 +2,7 @@
 
 import { FormattedMessage } from 'react-intl';
 
-import type { ProjectsChallengeItem } from '~/components/projects/details/types';
+import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsChallengeGridListWithFilters from '~/components/projects/lists/ProjectsChallengeGridListWithFilters';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

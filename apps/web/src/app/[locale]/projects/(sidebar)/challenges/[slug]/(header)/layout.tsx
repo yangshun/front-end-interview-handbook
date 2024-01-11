@@ -1,4 +1,4 @@
-import ProjectsChallengeHeaderLayout from '~/components/projects/details/header/ProjectsChallengeHeaderLayout';
+import ProjectsChallengeHeaderLayout from '~/components/projects/challenges/header/ProjectsChallengeHeaderLayout';
 
 import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
 

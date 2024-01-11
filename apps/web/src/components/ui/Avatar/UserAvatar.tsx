@@ -1,6 +1,6 @@
 import { useIntl } from 'react-intl';
 
-import type { ProjectsProfileAvatarData } from '~/components/projects/details/types';
+import type { ProjectsProfileAvatarData } from '~/components/projects/challenges/types';
 
 import Avatar from './Avatar';
 

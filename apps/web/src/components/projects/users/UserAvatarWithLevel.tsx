@@ -3,7 +3,7 @@ import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 
-import type { ProjectsProfileAvatarData } from '../details/types';
+import type { ProjectsProfileAvatarData } from '../challenges/types';
 
 import 'react-circular-progressbar/dist/styles.css';
 

@@ -21,7 +21,7 @@ import ProjectsChallengeFilterContextProvider, {
 } from './ProjectsChallengeFilterContext';
 import ProjectsChallengeFilterSlideOut from './ProjectsChallengeFilterSlideOut';
 import ProjectsListFilterDropdown from './ProjectsListFilterDropdown';
-import type { ProjectsChallengeItem } from '../details/types';
+import type { ProjectsChallengeItem } from '../challenges/types';
 
 type Props = Readonly<{
   challenges: ReadonlyArray<ProjectsChallengeItem>;

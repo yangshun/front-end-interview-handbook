@@ -4,7 +4,7 @@ import { useInView } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useRef } from 'react';
 
-import type { ProjectsChallengeItem } from '~/components/projects/details/types';
+import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsMarketingFeatures from '~/components/projects/marketing/ProjectsMarketingFeatures';
 import ProjectsMarketingHero from '~/components/projects/marketing/ProjectsMarketingHero';
 import ProjectsMarketingHomepageFeaturesRow from '~/components/projects/marketing/ProjectsMarketingHomepageFeaturesRow';

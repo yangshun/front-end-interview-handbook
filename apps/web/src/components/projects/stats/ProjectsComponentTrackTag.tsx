@@ -4,7 +4,7 @@ import { RiCheckboxMultipleLine } from 'react-icons/ri';
 import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 
-import type { ProjectsChallengeTrackPayload } from '../details/types';
+import type { ProjectsChallengeTrackPayload } from '../challenges/types';
 
 type Props = Readonly<{
   track: ProjectsChallengeTrackPayload;

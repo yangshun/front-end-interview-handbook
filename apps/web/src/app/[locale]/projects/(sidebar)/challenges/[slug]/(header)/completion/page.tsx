@@ -1,4 +1,4 @@
-import ProjectsChallengeDeploymentCompletionPage from '~/components/projects/details/completion/ProjectsChallengeDeploymentCompletionPage';
+import ProjectsChallengeDeploymentCompletionPage from '~/components/projects/challenges/completion/ProjectsChallengeDeploymentCompletionPage';
 
 import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
 

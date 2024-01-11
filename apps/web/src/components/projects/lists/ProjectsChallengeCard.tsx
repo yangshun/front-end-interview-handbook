@@ -19,7 +19,7 @@ import {
   themeCardBackgroundColor,
 } from '~/components/ui/theme';
 
-import type { ProjectsChallengeItem } from '../details/types';
+import type { ProjectsChallengeItem } from '../challenges/types';
 import ProjectsSkillRow from '../skills/ProjectsSkillRow';
 import ProjectsCompletedUsersTag from '../stats/ProjectsCompletedUsersTag';
 

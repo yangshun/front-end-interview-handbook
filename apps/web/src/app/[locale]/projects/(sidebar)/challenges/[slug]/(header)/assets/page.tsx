@@ -1,4 +1,4 @@
-import ProjectsChallengeAssetsPage from '~/components/projects/details/assets/ProjectsChallengeAssetsPage';
+import ProjectsChallengeAssetsPage from '~/components/projects/challenges/assets/ProjectsChallengeAssetsPage';
 
 import {
   readProjectsChallengeAPIWriteup,

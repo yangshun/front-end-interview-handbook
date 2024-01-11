@@ -11,7 +11,7 @@ import { FormattedMessage } from 'react-intl';
 import { useIntl } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
-import type { ProjectsChallengeItem } from '~/components/projects/details/types';
+import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';

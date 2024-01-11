@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
-import type { ProjectsChallengeItem } from '~/components/projects/details/types';
+import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

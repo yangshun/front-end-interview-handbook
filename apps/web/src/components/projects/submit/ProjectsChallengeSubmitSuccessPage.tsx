@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 
 import useProfile from '~/hooks/user/useProfile';
 
-import type { ProjectsChallengeItem } from '~/components/projects/details/types';
+import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsChallengeGridList from '~/components/projects/lists/ProjectsChallengeGridList';
 import ProjectsSkillProgressBreakdownCard from '~/components/projects/skills/ProjectsSkillProgressBreakdownCard';
 import { ProjectsLevelingProgressBar } from '~/components/projects/stats/ProjectsLevelingProgressBar';

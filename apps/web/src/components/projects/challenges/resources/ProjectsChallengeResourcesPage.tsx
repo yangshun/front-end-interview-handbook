@@ -10,10 +10,10 @@ import {
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
-import ProjectsChallengeDiscussionSection from '~/components/projects/details/discussions/ProjectsChallengeDiscussionSection';
-import { useProjectsChallengeSessionContext } from '~/components/projects/details/ProjectsChallengeSessionContext';
-import ProjectsChallengeReferenceSubmissions from '~/components/projects/details/resources/ProjectsChallengeReferenceSubmissions';
-import type { ProjectsChallengeItem } from '~/components/projects/details/types';
+import ProjectsChallengeDiscussionSection from '~/components/projects/challenges/discussions/ProjectsChallengeDiscussionSection';
+import { useProjectsChallengeSessionContext } from '~/components/projects/challenges/ProjectsChallengeSessionContext';
+import ProjectsChallengeReferenceSubmissions from '~/components/projects/challenges/resources/ProjectsChallengeReferenceSubmissions';
+import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import type { TabItem } from '~/components/ui/Tabs';

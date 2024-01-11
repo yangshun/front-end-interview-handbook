@@ -1,4 +1,4 @@
-import ProjectsChallengeResourcesPage from '~/components/projects/details/resources/ProjectsChallengeResourcesPage';
+import ProjectsChallengeResourcesPage from '~/components/projects/challenges/resources/ProjectsChallengeResourcesPage';
 
 import {
   readProjectsChallengeItem,

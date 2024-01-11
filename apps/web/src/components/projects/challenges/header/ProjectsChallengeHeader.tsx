@@ -7,7 +7,7 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import type { ProjectsChallengeItem } from '~/components/projects/details/types';
+import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsSkillChip from '~/components/projects/skills/ProjectsSkillChip';
 import ProjectsChallengeDifficultyTag from '~/components/projects/stats/ProjectsChallengeDifficultyTag';
 import ProjectsCompletedUsersTag from '~/components/projects/stats/ProjectsCompletedUsersTag';

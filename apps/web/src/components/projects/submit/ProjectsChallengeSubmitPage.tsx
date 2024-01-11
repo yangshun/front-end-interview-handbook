@@ -9,7 +9,7 @@ import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
-import type { ProjectsChallengeItem } from '~/components/projects/details/types';
+import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsOtherTechStackInput from '~/components/projects/skills/ProjectsOtherTechStackInput';
 import ProjectsSkillInput from '~/components/projects/skills/ProjectsSkillInput';
 import Button from '~/components/ui/Button';

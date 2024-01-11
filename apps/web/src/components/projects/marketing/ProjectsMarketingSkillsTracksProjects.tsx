@@ -8,7 +8,7 @@ import MarketingSectionItemHeader from '~/components/common/marketing/MarketingS
 import HTML5LogoMonochrome from '~/components/icons/HTML5LogoMonochrome';
 import JavaScriptLogo from '~/components/icons/JavaScriptLogoMonochrome';
 import ReactLogo from '~/components/icons/ReactLogo';
-import type { ProjectsChallengeItem } from '~/components/projects/details/types';
+import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsChallengeGridList from '~/components/projects/lists/ProjectsChallengeGridList';
 import ProjectsChallengeGridListWithFilters from '~/components/projects/lists/ProjectsChallengeGridListWithFilters';
 import ProjectsMarketingComponentTrackAccordion from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordion';

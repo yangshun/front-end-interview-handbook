@@ -1,4 +1,4 @@
-import ProjectsChallengeBriefPage from '~/components/projects/details/brief/ProjectsChallengeBriefPage';
+import ProjectsChallengeBriefPage from '~/components/projects/challenges/brief/ProjectsChallengeBriefPage';
 
 import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
 

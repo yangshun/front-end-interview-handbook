@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { trpc } from '~/hooks/trpc';
 
 import type { ProjectsChallengeSubmissionItem } from './types';
-import type { ProjectsChallengeItem } from '../details/types';
+import type { ProjectsChallengeItem } from '../challenges/types';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

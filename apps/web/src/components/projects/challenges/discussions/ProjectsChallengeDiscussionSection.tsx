@@ -2,8 +2,8 @@ import { useIntl } from 'react-intl';
 
 import useProfile from '~/hooks/user/useProfile';
 
-import ProjectsDiscussionPostList from '~/components/projects/details/discussions/ProjectsChallengeDiscussionPostList';
-import type { ProjectsChallengeDiscussionPost } from '~/components/projects/details/discussions/types';
+import ProjectsDiscussionPostList from '~/components/projects/challenges/discussions/ProjectsChallengeDiscussionPostList';
+import type { ProjectsChallengeDiscussionPost } from '~/components/projects/challenges/discussions/types';
 import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
 import ProjectsUserJobTitle from '~/components/projects/users/ProjectsUserJobTitle';
 import ProjectsUserYearsOfExperience from '~/components/projects/users/ProjectsUserYearsOfExperience';
