@@ -196,8 +196,8 @@ export const projectsProfileRouter = router({
       }) => {
         const { primaryMotivation, secondaryMotivation } = motivationReasons;
 
-        const transactionResult = await prisma.$transaction(async (_prisma) => {
-          const projectsProfile = await _prisma.projectsProfile.upsert({
+        const transactionResult = await prisma.$transaction(async (prisma_) => {
+          const projectsProfile = await prisma_.projectsProfile.upsert({
             create: {
               primaryMotivation,
               secondaryMotivation,
@@ -212,7 +212,7 @@ export const projectsProfileRouter = router({
             },
           });
 
-          const updatedUserProfile = await _prisma.profile.update({
+          const updatedUserProfile = await prisma_.profile.update({
             data: {
               bio,
               currentStatus,
