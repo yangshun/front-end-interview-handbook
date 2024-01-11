@@ -2,10 +2,11 @@ import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { addMissingFieldsToSubmission } from '~/components/projects/submissions/types';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import ProjectsSubmissionCard from '../submissions/ProjectsSubmissionCard';
+import ProjectsChallengeSubmissionCard from '../submissions/ProjectsChallengeSubmissionCard';
 
 export default function ProjectsProfileFeaturedSubmissions() {
   const { data: featuredSubmissions } =
@@ -26,25 +27,18 @@ export default function ProjectsProfileFeaturedSubmissions() {
       </Heading>
       <Section>
         <div className="md:grid-cols-2 lg:grid-cols-3 grid-cols-1 grid gap-3 md:gap-4 lg:gap-6">
-          {featuredSubmissions
-            ?.map((submission) => ({
-              ...submission,
-              comments: 23,
-              imgSrc: 'https://source.unsplash.com/random/48x48',
-              likes: 56,
-              stack: [],
-            }))
-            .map((submission) => (
-              <ProjectsSubmissionCard
-                key={submission.id}
-                challenge={{
-                  href: '/projects/challenges/newsletter-section',
-                  title: 'Newsletter Section',
-                }}
-                isPinnedOnProfile={true}
-                submission={submission}
-              />
-            ))}
+          {featuredSubmissions.map((submission) => (
+            <ProjectsChallengeSubmissionCard
+              key={submission.id}
+              // TODO(projects): Combine with challenges.
+              challenge={{
+                href: '/projects/challenges/newsletter-section',
+                title: 'Newsletter Section',
+              }}
+              isPinnedOnProfile={true}
+              submission={addMissingFieldsToSubmission(submission)}
+            />
+          ))}
         </div>
       </Section>
     </div>

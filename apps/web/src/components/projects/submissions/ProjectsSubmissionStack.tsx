@@ -9,7 +9,7 @@ type Props = Readonly<{
   stack: Array<ProjectsSkill>;
 }>;
 
-export default function ProjectsSubmissionStack({ stack }: Props) {
+export default function ProjectsChallengeSubmissionStack({ stack }: Props) {
   return (
     <div className="flex gap-2">
       <Text color="secondary" size="body3">

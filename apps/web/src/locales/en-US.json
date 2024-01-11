@@ -443,6 +443,10 @@
     "defaultMessage": "New",
     "description": "Label for new questions ribbon"
   },
+  "3sCoap": {
+    "defaultMessage": "Tech stack {username} is proficient in",
+    "description": "Projects profile tech stack proficient section title"
+  },
   "3t00jq": {
     "defaultMessage": "Confirm",
     "description": "Confirmation button label"
@@ -990,10 +994,6 @@
   "9Q8e4/": {
     "defaultMessage": "JavaScript Polyfills",
     "description": "Name of focus area questions"
-  },
-  "9SQdvi": {
-    "defaultMessage": "Tech stack I proficient in",
-    "description": "Projects profile tech stack proficient section title"
   },
   "9Z/GHL": {
     "defaultMessage": "Something went wrong, please check your input.",
@@ -3551,10 +3551,6 @@
     "defaultMessage": "{current}/{total} completed",
     "description": "Label for Projects segmented progress bar"
   },
-  "aIn0YC": {
-    "defaultMessage": "Tech stack {username} proficient in",
-    "description": "Projects profile tech stack proficient section title"
-  },
   "aP9GUx": {
     "defaultMessage": "[DEV-ONLY] Stripe Customer ID",
     "description": "Label for Stripe customer ID."
@@ -5766,6 +5762,10 @@
   "wO0zga": {
     "defaultMessage": "Skills roadmap",
     "description": "Title for \"Skills roadmap\" feature on Projects home page"
+  },
+  "wQsSoq": {
+    "defaultMessage": "Tech stack I am proficient in",
+    "description": "Projects profile tech stack proficient section title"
   },
   "wbjMPn": {
     "defaultMessage": "Send magic link",

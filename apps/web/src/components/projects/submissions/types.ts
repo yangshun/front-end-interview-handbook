@@ -1,16 +1,19 @@
 import type { ProjectsSkill } from '../skills/types';
 
-export type ProjectsSubmission = Readonly<{
-  author?:
-    | Readonly<{
-        avatarUrl: string | null;
-        id: string;
-        name: string | null;
-        title: string | null;
-        username: string;
-      }>
-    | null
-    | undefined;
+import type { ProjectsChallengeSubmission } from '@prisma/client';
+
+type ProjectsChallengeSubmissionAuthor = Readonly<{
+  avatarUrl: string | null;
+  githubUsername?: string | null;
+  id: string;
+  linkedInUsername?: string | null;
+  name: string | null;
+  title: string | null;
+  username: string;
+}>;
+
+export type ProjectsChallengeSubmissionItem = Readonly<{
+  author?: ProjectsChallengeSubmissionAuthor | null | undefined;
   comments: number;
   createdAt: Date;
   id: string;
@@ -21,3 +24,25 @@ export type ProjectsSubmission = Readonly<{
   title: string;
   views: number;
 }>;
+
+// TODO(projects): Remove in future.
+export function addMissingFieldsToSubmission<
+  T extends ProjectsChallengeSubmission &
+    Readonly<{
+      projectsProfile?:
+        | {
+            userProfile?: ProjectsChallengeSubmissionAuthor | null | undefined;
+          }
+        | null
+        | undefined;
+    }>,
+>(submission: T): ProjectsChallengeSubmissionItem {
+  return {
+    ...submission,
+    author: submission.projectsProfile?.userProfile,
+    comments: 23,
+    imgSrc: 'https://source.unsplash.com/random/48x48',
+    likes: 56,
+    stack: [],
+  };
+}

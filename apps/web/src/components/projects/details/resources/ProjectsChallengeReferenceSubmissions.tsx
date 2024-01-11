@@ -3,7 +3,8 @@ import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import ProjectsSubmissionCard from '~/components/projects/submissions/ProjectsSubmissionCard';
+import ProjectsChallengeSubmissionCard from '~/components/projects/submissions/ProjectsChallengeSubmissionCard';
+import { addMissingFieldsToSubmission } from '~/components/projects/submissions/types';
 import EmptyState from '~/components/ui/EmptyState';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -54,21 +55,12 @@ export default function ProjectsChallengeReferenceSubmissions({
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {referenceSubmissions
-                ?.map((submission) => ({
-                  ...submission,
-                  author: submission.projectsProfile?.userProfile,
-                  comments: 23,
-                  imgSrc: 'https://source.unsplash.com/random/48x48',
-                  likes: 56,
-                  stack: [],
-                }))
-                .map((submission) => (
-                  <ProjectsSubmissionCard
-                    key={submission.id}
-                    submission={submission}
-                  />
-                ))}
+              {referenceSubmissions?.map((submission) => (
+                <ProjectsChallengeSubmissionCard
+                  key={submission.id}
+                  submission={addMissingFieldsToSubmission(submission)}
+                />
+              ))}
             </div>
           )}
         </div>

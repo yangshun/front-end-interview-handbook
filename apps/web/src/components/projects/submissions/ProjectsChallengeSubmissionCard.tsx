@@ -5,7 +5,7 @@ import Anchor from '~/components/ui/Anchor';
 import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsSubmission } from './types';
+import type { ProjectsChallengeSubmissionItem } from './types';
 import ProjectsSkillRow from '../skills/ProjectsSkillRow';
 import ProjectsCommentCountTag from '../stats/ProjectsCommentCountTag';
 import ProjectsLikeCountTag from '../stats/ProjectsLikeCountTag';
@@ -20,10 +20,10 @@ type Props = Readonly<{
     title: string;
   }>;
   isPinnedOnProfile?: boolean;
-  submission: ProjectsSubmission;
+  submission: ProjectsChallengeSubmissionItem;
 }>;
 
-export default function ProjectsSubmissionCard({
+export default function ProjectsChallengeSubmissionCard({
   isPinnedOnProfile = false,
   challenge,
   submission,
