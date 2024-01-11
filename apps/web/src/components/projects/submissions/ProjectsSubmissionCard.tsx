@@ -16,31 +16,26 @@ import UserAvatarWithLevel from '../users/UserAvatarWithLevel';
 
 type Props = Readonly<{
   isPinnedOnProfile?: boolean;
+  project?: Readonly<{
+    href: string;
+    title: string;
+  }>;
   submission: ProjectsSubmission;
 }>;
 
 export default function ProjectsSubmissionCard({
   isPinnedOnProfile = false,
+  project,
   submission,
 }: Props) {
   const intl = useIntl();
-  const {
-    briefDescription,
-    briefUrl,
-    title,
-    stack,
-    author,
-    description,
-    commentCount,
-    likeCount,
-    viewCount,
-    imgSrc,
-  } = submission;
+  const { title, stack, author, summary, comments, likes, views, imgSrc } =
+    submission;
 
   return (
     <Card disableSpotlight={true} padding={false} pattern={false}>
       <div className="flex flex-col px-4 py-6 gap-4">
-        {isPinnedOnProfile && (
+        {isPinnedOnProfile && project != null && (
           <div className="flex justify-between">
             <Text color="secondary" size="body3">
               <FormattedMessage
@@ -48,8 +43,10 @@ export default function ProjectsSubmissionCard({
                 description="Link to brief for pinned project submission"
                 id="Ukm+GC"
                 values={{
-                  briefDescription,
-                  link: (chunks) => <Anchor href={briefUrl}>{chunks}</Anchor>,
+                  briefDescription: project?.title,
+                  link: (chunks) => (
+                    <Anchor href={project?.href}>{chunks}</Anchor>
+                  ),
                 }}
               />
             </Text>
@@ -68,7 +65,7 @@ export default function ProjectsSubmissionCard({
           />
         </div>
         <img alt="" className="h-[190px] w-full rounded-md" src={imgSrc} />
-        {!isPinnedOnProfile && (
+        {!isPinnedOnProfile && author != null && (
           <div className="flex items-center gap-4">
             <UserAvatarWithLevel
               level={11}
@@ -93,13 +90,13 @@ export default function ProjectsSubmissionCard({
           </div>
         )}
         <Text color="subtitle" display="block" size="body3">
-          {description}
+          {summary}
         </Text>
         <div className="flex justify-between gap-4">
           <div className="flex gap-4">
-            <ProjectsLikeCountTag likeCount={likeCount} />
-            <ProjectsViewCountTag viewCount={viewCount} />
-            <ProjectsCommentCountTag commentCount={commentCount} />
+            <ProjectsLikeCountTag likeCount={likes} />
+            <ProjectsViewCountTag viewCount={views} />
+            <ProjectsCommentCountTag commentCount={comments} />
           </div>
           {/* TODO(projects): Format relative time */}
           <Text color="secondary" size="body3">

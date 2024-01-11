@@ -3,9 +3,9 @@ import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 
-import 'react-circular-progressbar/dist/styles.css';
+import type { ProjectsProfileAvatarData } from '../details/types';
 
-import type { Profile } from '@prisma/client';
+import 'react-circular-progressbar/dist/styles.css';
 
 type UserLevelWithAvatarSize = '2xl' | '3xl' | 'lg' | 'xl';
 
@@ -15,7 +15,7 @@ type Props = Readonly<{
    * Current level as a number
    */
   level: number;
-  profile?: Profile | null;
+  profile?: ProjectsProfileAvatarData | null;
   /**
    * Progress to next level in percent
    */

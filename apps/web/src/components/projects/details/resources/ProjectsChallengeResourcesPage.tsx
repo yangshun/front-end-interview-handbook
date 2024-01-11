@@ -101,7 +101,7 @@ export default function ProjectsChallengeResourcesPage({
             onSelect={setTipsResourcesDiscussionsTab}
           />
           {tipsResourcesDiscussionsTab === 'references' && (
-            <ProjectsChallengeReferenceSubmissions />
+            <ProjectsChallengeReferenceSubmissions project={project} />
           )}
           {tipsResourcesDiscussionsTab === 'discussions' && (
             <ProjectsChallengeDiscussionSection project={project} />

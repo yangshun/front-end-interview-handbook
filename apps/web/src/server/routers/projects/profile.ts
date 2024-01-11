@@ -6,6 +6,20 @@ import { projectsUserProcedure } from './procedures';
 import { publicProcedure, router, userProcedure } from '../../trpc';
 
 export const projectsProfileRouter = router({
+  featuredSubmissions: projectsUserProcedure.query(
+    async ({ ctx: { projectsProfileId } }) => {
+      return await prisma.projectsChallengeSubmission.findMany({
+        orderBy: {
+          createdAt: 'desc',
+        },
+        // TODO(projects): fetch pinned submissions.
+        take: 3,
+        where: {
+          profileId: projectsProfileId,
+        },
+      });
+    },
+  ),
   getDashboardStatistics: projectsUserProcedure.query(
     async ({ ctx: { projectsProfileId } }) => {
       const [completedProjects, submissionViews] = await Promise.all([
@@ -36,7 +50,7 @@ export const projectsProfileRouter = router({
   getDashboardStatisticsForProfile: publicProcedure
     .input(
       z.object({
-        projectsProfileId: z.string(),
+        projectsProfileId: z.string().uuid(),
       }),
     )
     .query(async ({ input: { projectsProfileId } }) => {

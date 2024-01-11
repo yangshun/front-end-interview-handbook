@@ -1,19 +1,23 @@
 import type { ProjectsSkill } from '../skills/types';
 
-import type { Profile } from '@prisma/client';
-
-// TODO(projects): Use Prisma schema.
 export type ProjectsSubmission = Readonly<{
-  author: Profile;
-  briefDescription?: string;
-  briefUrl?: string;
-  commentCount: number;
-  description: string;
+  author?:
+    | Readonly<{
+        avatarUrl: string | null;
+        id: string;
+        name: string | null;
+        title: string | null;
+        username: string;
+      }>
+    | null
+    | undefined;
+  comments: number;
+  createdAt: Date;
+  id: string;
   imgSrc: string;
-  likeCount: number;
-  slug: string;
+  likes: number;
   stack: Array<ProjectsSkill>;
-  submissionDate: Date;
+  summary: string;
   title: string;
-  viewCount: number;
+  views: number;
 }>;

@@ -41,7 +41,7 @@ export default function ProjectsProfilePage({
 
   const { data: profileStatistics } =
     trpc.projects.profile.getDashboardStatisticsForProfile.useQuery({
-      projectsProfileId: profile.id,
+      projectsProfileId: profile.projectsProfile[0].id,
     });
 
   return (
