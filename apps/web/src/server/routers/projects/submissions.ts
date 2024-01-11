@@ -171,7 +171,7 @@ export const projectsChallengeSubmissionRouter = router({
       }),
     )
     .mutation(async ({ input: { submissionId } }) => {
-      return await prisma.projectsChallengeSubmission.update({
+      await prisma.projectsChallengeSubmission.update({
         data: {
           views: {
             increment: 1,
@@ -181,5 +181,7 @@ export const projectsChallengeSubmissionRouter = router({
           id: submissionId,
         },
       });
+
+      return null;
     }),
 });
