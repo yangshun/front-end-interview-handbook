@@ -1,8 +1,9 @@
 import type { ProjectsChallengeGuide } from 'contentlayer/generated';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { RiMenu2Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import ArticlePagination from '~/components/common/ArticlePagination';
 import { SidebarLinksList } from '~/components/common/SidebarLinksList';
 import ProjectsChallengeMdxContent from '~/components/projects/common/ProjectsChallengeMdxContent';
 import Button from '~/components/ui/Button';
@@ -17,6 +18,8 @@ export default function ProjectsChallengeGuideSection({
   projectGuides,
 }: Props) {
   const intl = useIntl();
+  const guideRef: React.RefObject<HTMLDivElement> = useRef(null);
+
   const [activeGuideSlug, setActiveGuideSlug] = useState(projectGuides[0].slug);
   const [isLeftSidebarOpen, setIsLeftSidebarOpen] = useState(false);
   const projectGuide =
@@ -52,15 +55,23 @@ export default function ProjectsChallengeGuideSection({
     },
   ];
 
+  const onGuideChange = (value: string) => {
+    setActiveGuideSlug(value);
+    guideRef?.current?.scrollIntoView({
+      behavior: 'auto',
+    });
+    setIsLeftSidebarOpen(false);
+  };
+
   return (
-    <div className="flex xl:gap-6 gap-4 xl:flex-row flex-col">
+    <div ref={guideRef} className="flex xl:gap-6 gap-4 xl:flex-row flex-col">
       <div
         className="sticky hidden xl:contents"
         style={{ top: 'var(--nav-top-offset)' }}>
         <SidebarLinksList
           activeItem={activeGuideSlug}
           navigation={sidebarNavigation}
-          onSelect={setActiveGuideSlug}
+          onSelect={onGuideChange}
         />
       </div>
       <div className="xl:hidden block">
@@ -91,10 +102,7 @@ export default function ProjectsChallengeGuideSection({
           <SidebarLinksList
             activeItem={activeGuideSlug}
             navigation={sidebarNavigation}
-            onSelect={(value) => {
-              setActiveGuideSlug(value);
-              setIsLeftSidebarOpen(false);
-            }}
+            onSelect={onGuideChange}
           />
         </SlideOut>
       </div>
@@ -106,6 +114,11 @@ export default function ProjectsChallengeGuideSection({
             <ProjectsChallengeMdxContent mdxCode={projectGuide.body.code} />
           </div>
         )}
+        <ArticlePagination
+          activeItem={activeGuideSlug}
+          items={projectGuides}
+          onSelect={onGuideChange}
+        />
       </div>
     </div>
   );

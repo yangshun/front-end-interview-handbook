@@ -40,7 +40,7 @@ export default function BlogArticleMainLayout({ children, metadata }: Props) {
           </div>
           <Section>
             <ArticlePagination
-              currentHref={pathname ?? ''}
+              activeItem={pathname ?? ''}
               items={flatNavigationItems}
             />
           </Section>

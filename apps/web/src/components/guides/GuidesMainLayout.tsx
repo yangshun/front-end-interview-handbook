@@ -77,7 +77,7 @@ export default function GuidesMainLayout({
             <Section>
               <div className="mt-8">
                 <ArticlePagination
-                  currentHref={pathname ?? ''}
+                  activeItem={pathname ?? ''}
                   items={flatNavigationItems}
                 />
               </div>
