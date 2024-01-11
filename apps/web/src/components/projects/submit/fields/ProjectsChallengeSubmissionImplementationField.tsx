@@ -1,14 +1,30 @@
+import type { Control } from 'react-hook-form';
+import { useController } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
 import Label from '~/components/ui/Label';
 import Prose from '~/components/ui/Prose';
 
 import { getProjectsChallengeSubmissionImplementationAttributes } from './ProjectsChallengeSubmissionImplementationSchema';
+import type { ProjectsChallengeSubmissionFormValues } from '../ProjectsChallengeSubmitPage';
 import RichTextEditor from '../RichTextEditor';
 
-export default function ProjectsChallengeSubmissionImplementationField() {
+type Props = Readonly<{
+  control: Control<ProjectsChallengeSubmissionFormValues>;
+}>;
+
+const fieldName = 'implementation';
+
+export default function ProjectsChallengeSubmissionImplementationField({
+  control,
+}: Props) {
   const intl = useIntl();
   const attrs = getProjectsChallengeSubmissionImplementationAttributes(intl);
+  const { field } = useController({
+    control,
+    name: fieldName,
+    rules: { required: true },
+  });
 
   return (
     <div className="grid lg:grid-cols-2 gap-x-6 gap-y-8">
@@ -19,7 +35,7 @@ export default function ProjectsChallengeSubmissionImplementationField() {
           label={attrs.label}
           required={attrs.validation.required}
         />
-        <RichTextEditor />
+        <RichTextEditor {...field} />
       </div>
       <Prose textSize="sm">
         <h2>Example write-up</h2>

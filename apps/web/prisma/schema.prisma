@@ -209,15 +209,17 @@ model ProjectsChallengeSession {
 }
 
 model ProjectsChallengeSubmission {
-  id            String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  profileId     String   @db.Uuid
-  slug          String
-  title         String
-  summary       String
-  repositoryUrl String
-  deploymentUrl String
-  createdAt     DateTime @default(now()) @db.Timestamptz(6)
-  updatedAt     DateTime @updatedAt
+  id             String @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  profileId      String @db.Uuid
+  slug           String
+  title          String
+  summary        String
+  repositoryUrl  String
+  deploymentUrl  String
+  implementation String
+
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt
 
   projectsProfile ProjectsProfile? @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }

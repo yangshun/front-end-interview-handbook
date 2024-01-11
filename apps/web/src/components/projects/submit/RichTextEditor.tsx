@@ -1,15 +1,25 @@
 'use client';
 
 import clsx from 'clsx';
+import { type FormEventHandler, type ForwardedRef, forwardRef } from 'react';
 
 import { themeElementBorderColor } from '~/components/ui/theme';
 
 import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 
-export default function RichTextEditor() {
+type Props = Readonly<{
+  onBlur?: FormEventHandler<HTMLDivElement>;
+  onChange?: FormEventHandler<HTMLDivElement>;
+  value: string;
+}>;
+
+function RichTextEditor(
+  { value, onBlur, onChange }: Props,
+  ref: ForwardedRef<HTMLDivElement>,
+) {
   const editor = useEditor({
-    content: '<p>Hello World! 🌎️</p>',
+    content: value,
     editorProps: {
       attributes: {
         class: clsx(
@@ -23,5 +33,14 @@ export default function RichTextEditor() {
     extensions: [StarterKit],
   });
 
-  return <EditorContent editor={editor} />;
+  return (
+    <EditorContent
+      ref={ref}
+      editor={editor}
+      onBlur={onBlur}
+      onChange={onChange}
+    />
+  );
 }
+
+export default forwardRef(RichTextEditor);

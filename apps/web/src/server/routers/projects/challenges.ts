@@ -1,5 +1,11 @@
 import { z } from 'zod';
 
+import { projectsChallengeSubmissionDeploymentUrlSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionDeploymentUrlSchema';
+import { projectsChallengeSubmissionImplementationSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionImplementationSchema';
+import { projectsChallengeSubmissionRepositoryUrlSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
+import { projectsChallengeSubmissionSummarySchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionSummarySchema';
+import { projectsChallengeSubmissionTitleSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionTitleSchema';
+
 import prisma from '~/server/prisma';
 
 import { projectsUserProcedure } from './procedures';
@@ -15,15 +21,23 @@ export const projectsChallengesRouter = router({
   submit: projectsChallengeProcedure
     .input(
       z.object({
-        deploymentUrl: z.string().url(),
-        repositoryUrl: z.string().url(),
-        summary: z.string().trim(),
-        title: z.string().trim(),
+        deploymentUrl: projectsChallengeSubmissionDeploymentUrlSchemaServer,
+        implementation: projectsChallengeSubmissionImplementationSchemaServer,
+        repositoryUrl: projectsChallengeSubmissionRepositoryUrlSchemaServer,
+        summary: projectsChallengeSubmissionSummarySchemaServer,
+        title: projectsChallengeSubmissionTitleSchemaServer,
       }),
     )
     .mutation(
       async ({
-        input: { slug, title, summary, deploymentUrl, repositoryUrl },
+        input: {
+          slug,
+          title,
+          summary,
+          deploymentUrl,
+          repositoryUrl,
+          implementation,
+        },
         ctx: { projectsProfileId },
       }) => {
         const existingSession = await prisma.projectsChallengeSession.findFirst(
@@ -61,6 +75,7 @@ export const projectsChallengesRouter = router({
         return await prisma.projectsChallengeSubmission.create({
           data: {
             deploymentUrl,
+            implementation,
             profileId: projectsProfileId,
             repositoryUrl,
             slug,

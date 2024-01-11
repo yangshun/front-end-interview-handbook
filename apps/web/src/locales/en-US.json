@@ -23,10 +23,6 @@
     "defaultMessage": "{questionCount}+ interview questions across <clink>coding</clink> and <qlink>quiz</qlink> formats and new questions constantly being added.",
     "description": "Subtitle for huge question bank feature"
   },
-  "+AO/s+": {
-    "defaultMessage": "Submission summary",
-    "description": "Label for submission summary input on project submit page"
-  },
   "+ESKYF": {
     "defaultMessage": "Svelte Questions",
     "description": "Svelte questions category long title"
@@ -434,10 +430,6 @@
   "3i5xK8": {
     "defaultMessage": "Large question bank",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
-  },
-  "3igUzj": {
-    "defaultMessage": "Submission name",
-    "description": "Label for submission name input on project submit page"
   },
   "3iv+7q": {
     "defaultMessage": "GreatFrontEnd has been a great help to me for prepping front end focussed interviews. Lot of focus on JavaScript utility and React/Vanilla implementations. The system design questions asked in interviews are slightly different in front end interviews and GreatFrontEnd really shines here. I will continue to use this amazing platform!",
@@ -1071,6 +1063,10 @@
     "defaultMessage": "Free",
     "description": "Label to indicate the item is free"
   },
+  "AaYDa2": {
+    "defaultMessage": "Implementation details",
+    "description": "Challenge submission form label"
+  },
   "Aarfzt": {
     "defaultMessage": "Start task",
     "description": "Label for button to start task"
@@ -1263,6 +1259,10 @@
     "defaultMessage": "Build together with other like-minded individuals",
     "description": "Title for \"Build together with other like-minded individuals\" feature marketing section on Projects home page"
   },
+  "Cxrh5Z": {
+    "defaultMessage": "Implementation can contain at most {maxLength} characters.",
+    "description": "Error message"
+  },
   "CyhMLj": {
     "defaultMessage": "Prepare for your front end interviews in one month. All rounded coverage that is sure to bring your front end interview skills to the next level.",
     "description": "Description for one month study plan"
@@ -1286,6 +1286,10 @@
   "D6iXh1": {
     "defaultMessage": "GitHub profile link",
     "description": "Link to GitHub profile"
+  },
+  "D8ZinO": {
+    "defaultMessage": "Summary cannot be empty.",
+    "description": "Error message"
   },
   "DAifYT": {
     "defaultMessage": "or",
@@ -1378,6 +1382,10 @@
   "ECkWMR": {
     "defaultMessage": "Stop session",
     "description": "Label to stop study plan"
+  },
+  "EGeNHT": {
+    "defaultMessage": "Title cannot be empty.",
+    "description": "Error message"
   },
   "EHPx/Z": {
     "defaultMessage": "Solving Common Questions",
@@ -1482,10 +1490,6 @@
   "FRg+qa": {
     "defaultMessage": "General",
     "description": "Title for FAQ section"
-  },
-  "FT5uOi": {
-    "defaultMessage": "Home page",
-    "description": "Label for home page input on project submit page"
   },
   "FUjO3W": {
     "defaultMessage": "Build entire design systems or component libraries with our Component Tracks",
@@ -2030,6 +2034,10 @@
   "LAWtL6": {
     "defaultMessage": "Software Engineer",
     "description": "Jacky Liang's job title"
+  },
+  "LEA1HM": {
+    "defaultMessage": "GitHub repository URL",
+    "description": "Form label"
   },
   "LGHLf5": {
     "defaultMessage": "Gamified learning",
@@ -2847,6 +2855,10 @@
     "defaultMessage": "Front End System Design",
     "description": "Short title of front end system design guidebook"
   },
+  "TSfoge": {
+    "defaultMessage": "Summary can contain at most {maxLength} characters.",
+    "description": "Error message"
+  },
   "TaIXVz": {
     "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
@@ -2931,6 +2943,10 @@
     "defaultMessage": "Difficulty",
     "description": "Question difficulty"
   },
+  "UOB+rs": {
+    "defaultMessage": "Implementation must contain at least {minLength} characters.",
+    "description": "Error message"
+  },
   "UQh7Xv": {
     "defaultMessage": "Filter by log level",
     "description": "Select label to filter console log by level"
@@ -2983,10 +2999,6 @@
     "defaultMessage": "Logging you in...",
     "description": "Subtitle of AuthPage when logged in"
   },
-  "UpQB3R": {
-    "defaultMessage": "1-2 lines on what the project is about, to be displayed on the Submission cards to attract the community to comment on your project",
-    "description": "Description for submission summary input on project submit page"
-  },
   "UrnJdy": {
     "defaultMessage": "Sharpen your skills in asynchronous programming by practicing the use of async/await, Promises, and callback functions.",
     "description": "Description for interview preparation focus area"
@@ -3026,6 +3038,10 @@
   "V5x4wO": {
     "defaultMessage": "System Design content will be released on a rolling basis. Purchase premium to unlock full access to exclusive System Design content including an interview guide, high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
+  },
+  "VA0CqT": {
+    "defaultMessage": "1-2 lines on what the project is about, to be displayed on the Submission cards to attract the community to comment on your project",
+    "description": "Form label tooltip"
   },
   "VBOVcb": {
     "defaultMessage": "Try these popular React questions",
@@ -3315,10 +3331,6 @@
     "defaultMessage": "<code>console.log()</code> statements will appear here.",
     "description": "Text in coding workspace's console to let users know that they can expect console logs to be found there"
   },
-  "XzVqzs": {
-    "defaultMessage": "Pricing page",
-    "description": "Label for pricing page input on project submit page"
-  },
   "Y0v9Wp": {
     "defaultMessage": "Confirm End Project Session?",
     "description": "Title for end project session dialog"
@@ -3547,10 +3559,6 @@
     "defaultMessage": "Reset password",
     "description": "Title of Password Reset page"
   },
-  "aW6XJi": {
-    "defaultMessage": "The URL of your GitHub repository. We will also use it to pull files onto the platform for code reviews.",
-    "description": "Description for GitHub repository input on project submit page"
-  },
   "aWL34G": {
     "defaultMessage": "Premium",
     "description": "Label on Premium badge to indicate premium-only access"
@@ -3671,6 +3679,10 @@
     "defaultMessage": "GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front-end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.",
     "description": "Ryan Van Valkenburg's testimonial"
   },
+  "bMdB2V": {
+    "defaultMessage": "Must be a URL.",
+    "description": "Error message"
+  },
   "bNW00Y": {
     "defaultMessage": "Available frameworks",
     "description": "Screenreader text to indicate the presence of available frameworks, displayed on question cards in question lists"
@@ -3698,6 +3710,10 @@
   "bZFghR": {
     "defaultMessage": "Twitter",
     "description": "Company name for Twitter"
+  },
+  "bdNUBu": {
+    "defaultMessage": "Must be a GitHub repository URL.",
+    "description": "Error message"
   },
   "bdjVW4": {
     "defaultMessage": "Component tracks",
@@ -3887,6 +3903,10 @@
     "defaultMessage": "More",
     "description": "Label for \"More\" button on current project session card"
   },
+  "djQlZs": {
+    "defaultMessage": "The URL where your solution is hosted. Find our recommended free hosting providers if you haven't already.",
+    "description": "Form description"
+  },
   "dk2vXq": {
     "defaultMessage": "Terms of Service",
     "description": "Title of Terms of Service page"
@@ -3979,6 +3999,10 @@
     "defaultMessage": "Algorithm Questions",
     "description": "Algorithm Coding Interview Questions"
   },
+  "fAZVc9": {
+    "defaultMessage": "Live site URL",
+    "description": "Form label"
+  },
   "fG/W54": {
     "defaultMessage": "Our projects are composable with different themes - choose the theme you want to personalize your project",
     "description": "Description for \"Design systems\" feature on Projects home page"
@@ -4022,6 +4046,10 @@
   "fcYNb3": {
     "defaultMessage": "{questionCount}+ JavaScript and TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.",
     "description": "Subtitle for JavaScript questions list page"
+  },
+  "feMH7c": {
+    "defaultMessage": "Submission title",
+    "description": "Label for submission name input on project submit page"
   },
   "fevC5W": {
     "defaultMessage": "Free",
@@ -4078,10 +4106,6 @@
   "fzfMZ2": {
     "defaultMessage": "Explore series | Blog",
     "description": "Title of GreatFrontEnd blog explore series page"
-  },
-  "g15ta9": {
-    "defaultMessage": "Provide at least 1 URL where you hosted your solution",
-    "description": "Description for live site URL input on project submit page"
   },
   "g2Nt5j": {
     "defaultMessage": "Edit",
@@ -4334,6 +4358,10 @@
   "iyz4Hv": {
     "defaultMessage": "{skillPlanName} progress",
     "description": "Label for skill plan progress on project submission success page"
+  },
+  "iyzDmo": {
+    "defaultMessage": "Submission summary",
+    "description": "Form label"
   },
   "j+FaML": {
     "defaultMessage": "Implement various Lodash functions and methods to manipulate and transform data efficiently and improve your front end interview readiness.",
@@ -4835,10 +4863,6 @@
     "defaultMessage": "Enjoy extra {discountPercentage}% off with the code {promoCode}",
     "description": "Subtitle of discount promotion card"
   },
-  "ne3JuA": {
-    "defaultMessage": "Implementation details",
-    "description": "Project submission label"
-  },
   "nepkqj": {
     "defaultMessage": "Cancel",
     "description": "Label for cancel button for projects profile edit page"
@@ -5071,6 +5095,10 @@
     "defaultMessage": "Top Svelte coding interview questions to build the most commonly-asked front end UI components and applications.",
     "description": "Description for Svelte questions page"
   },
+  "pvPxFe": {
+    "defaultMessage": "The URL of your GitHub repository. We will also use it to pull files onto the platform for code reviews.",
+    "description": "Form description"
+  },
   "q0+3Lk": {
     "defaultMessage": "Accessibility",
     "description": "Accessibility topic for quiz questions"
@@ -5174,10 +5202,6 @@
   "qjKLfH": {
     "defaultMessage": "Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two.",
     "description": "Subtitle for contact us section"
-  },
-  "ql7kBY": {
-    "defaultMessage": "GitHub code repository URL",
-    "description": "Label for GitHub repository input on project submit page"
   },
   "qmU2/H": {
     "defaultMessage": "Purchase Premium to unlock access to the design file. Build accurately and learn to work with production-level specifications.",
@@ -5499,6 +5523,10 @@
     "defaultMessage": "FAQ",
     "description": "Link to FAQ page"
   },
+  "uBXv8c": {
+    "defaultMessage": "Title can contain at most {maxLength} characters.",
+    "description": "Error message"
+  },
   "uBaCgb": {
     "defaultMessage": "GreatFrontEnd Projects",
     "description": "Title of Projects All Projects page"
@@ -5730,10 +5758,6 @@
   "wO0zga": {
     "defaultMessage": "Skills roadmap",
     "description": "Title for \"Skills roadmap\" feature on Projects home page"
-  },
-  "wP8dNq": {
-    "defaultMessage": "The URL where your solution is hosted. Find our <link>recommended free hosting providers</link> if you haven\\'t already.",
-    "description": "Description for live site URL input on project submit page"
   },
   "wbjMPn": {
     "defaultMessage": "Send magic link",
