@@ -11,6 +11,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import ProjectsCompleteProfileCard from './ProjectsCompleteProfileCard';
+import ProjectsContinueProjectsSection from './ProjectsContinueProjectsSection';
 
 export default function ProjectsDashboardPage() {
   const intl = useIntl();
@@ -41,16 +42,7 @@ export default function ProjectsDashboardPage() {
       <Section>
         <div className="lg:grid-cols-2 lg:grid-rows-1 grid-cols-1 grid grid-rows-2 gap-3 md:gap-4 lg:gap-6">
           <div className="grid grid-cols-1 gap-3 md:gap-4 lg:gap-6">
-            <div className="flex flex-col gap-4">
-              <Heading level="heading6">
-                <FormattedMessage
-                  defaultMessage="Continue projects"
-                  description="Title for Continue projects section on Projects dashboard page"
-                  id="MgVI6L"
-                />
-              </Heading>
-              <div>Placeholder for projects</div>
-            </div>
+            <ProjectsContinueProjectsSection />
             <div className="flex flex-col gap-4">
               <Heading level="heading6">
                 <FormattedMessage

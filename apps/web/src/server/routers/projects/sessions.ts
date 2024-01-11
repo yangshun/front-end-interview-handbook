@@ -1,3 +1,4 @@
+import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { z } from 'zod';
 
 import prisma from '~/server/prisma';
@@ -61,6 +62,35 @@ export const projectsSessionsRouter = router({
       });
     },
   ),
+  getMostRecentlyStarted: projectsUserProcedure
+    .input(
+      z.object({
+        limit: z.number().int().positive(),
+      }),
+    )
+    .query(async ({ input: { limit }, ctx: { projectsProfileId } }) => {
+      const sessions = await prisma.projectsChallengeSession.findMany({
+        orderBy: {
+          createdAt: 'desc',
+        },
+        take: limit,
+        where: {
+          profileId: projectsProfileId,
+          status: 'IN_PROGRESS',
+        },
+      });
+
+      return sessions.map((session) => {
+        const challenge = allProjectsChallengeMetadata.find(
+          (project) => project.slug === session.slug,
+        );
+
+        return {
+          ...session,
+          ...challenge,
+        };
+      });
+    }),
   startedBefore: projectsUserProcedure.query(
     async ({ ctx: { projectsProfileId } }) => {
       const sessions = await prisma.projectsChallengeSession.count({
