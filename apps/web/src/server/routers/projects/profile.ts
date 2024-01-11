@@ -8,17 +8,27 @@ import { publicProcedure, router, userProcedure } from '../../trpc';
 export const projectsProfileRouter = router({
   getDashboardStatistics: projectsUserProcedure.query(
     async ({ ctx: { projectsProfileId } }) => {
-      const completedProjects = await prisma.projectsChallengeSubmission.count({
-        where: {
-          profileId: projectsProfileId,
-        },
-      });
+      const [completedProjects, submissionViews] = await Promise.all([
+        prisma.projectsChallengeSubmission.count({
+          where: {
+            profileId: projectsProfileId,
+          },
+        }),
+        prisma.projectsChallengeSubmission.aggregate({
+          _sum: {
+            views: true,
+          },
+          where: {
+            profileId: projectsProfileId,
+          },
+        }),
+      ]);
 
       // TODO(projects): remove random stats.
       return {
         codeReviews: Math.ceil(Math.random() * 1000),
         completedProjects,
-        submissionViews: Math.ceil(Math.random() * 100000),
+        submissionViews: submissionViews._sum.views,
         upvotes: Math.ceil(Math.random() * 10000),
       };
     },
@@ -30,17 +40,27 @@ export const projectsProfileRouter = router({
       }),
     )
     .query(async ({ input: { projectsProfileId } }) => {
-      const completedProjects = await prisma.projectsChallengeSubmission.count({
-        where: {
-          profileId: projectsProfileId,
-        },
-      });
+      const [completedProjects, submissionViews] = await Promise.all([
+        prisma.projectsChallengeSubmission.count({
+          where: {
+            profileId: projectsProfileId,
+          },
+        }),
+        prisma.projectsChallengeSubmission.aggregate({
+          _sum: {
+            views: true,
+          },
+          where: {
+            profileId: projectsProfileId,
+          },
+        }),
+      ]);
 
       // TODO(projects): remove random stats.
       return {
         codeReviews: Math.ceil(Math.random() * 1000),
         completedProjects,
-        submissionViews: Math.ceil(Math.random() * 100000),
+        submissionViews: submissionViews._sum.views,
         upvotes: Math.ceil(Math.random() * 10000),
       };
     }),
