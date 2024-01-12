@@ -1,20 +1,15 @@
 import clsx from 'clsx';
-import { Fragment, useEffect, useMemo, useState } from 'react';
+import { Fragment } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 
-import type {
-  ProjectsChallengeFilter,
-  ProjectsChallengeFilterKey,
-} from './ProjectsChallengeFilterContext';
-import { ProjectsChallengeFilterContext } from './ProjectsChallengeFilterContext';
+import type { ProjectsChallengeFilter } from './ProjectsChallengeFilterContext';
 import {
   useProjectsChallengeFilterContext,
   useProjectsChallengeFilterState,
@@ -23,7 +18,13 @@ import ProjectsSkillInput from '../skills/ProjectsSkillInput';
 
 import * as Accordion from '@radix-ui/react-accordion';
 
-function FilterSection({ label, id, options, type }: ProjectsChallengeFilter) {
+function FilterSection({
+  longLabel,
+  label,
+  id,
+  options,
+  type,
+}: ProjectsChallengeFilter) {
   const [selectedOptions, setSelectedOptions] =
     useProjectsChallengeFilterState(id);
 
@@ -31,7 +32,7 @@ function FilterSection({ label, id, options, type }: ProjectsChallengeFilter) {
     <Accordion.Item value={id}>
       <Accordion.Trigger className="flex w-full group justify-between">
         <Text size="body2" weight="medium">
-          {label}
+          {longLabel || label}
         </Text>
         <RiArrowDownSLine
           className={clsx(
@@ -85,111 +86,33 @@ export default function ProjectsChallengeFilterSlideOut({
   onClose,
 }: Props) {
   const intl = useIntl();
-  const {
-    filters: initialFilters,
-    value: initialSelectedFilters,
-    setSelectedFilters: setInitialSelectedFilters,
-  } = useProjectsChallengeFilterContext();
-
-  const [selectedFilters, setSelectedFilters] = useState<
-    Record<ProjectsChallengeFilterKey, Array<string>>
-  >(initialSelectedFilters);
-
-  useEffect(() => {
-    setSelectedFilters(initialSelectedFilters);
-  }, [initialSelectedFilters]);
-
-  const value = useMemo(
-    () => ({
-      clearAll: () => {
-        setSelectedFilters({
-          'component-track': [],
-          difficulty: [],
-          skills: [],
-          status: [],
-        });
-      },
-      filters: initialFilters,
-      setFilterValue: (
-        key: ProjectsChallengeFilterKey,
-        newValue: Array<string>,
-      ) => {
-        setSelectedFilters((prev) => ({
-          ...prev,
-          [key]: newValue,
-        }));
-      },
-      setSelectedFilters,
-      value: selectedFilters,
-    }),
-    [initialFilters, selectedFilters],
-  );
-
-  const handleClearAll = () => {
-    setSelectedFilters({
-      'component-track': [],
-      difficulty: [],
-      skills: [],
-      status: [],
-    });
-  };
-
-  const handleApply = () => {
-    setInitialSelectedFilters(selectedFilters);
-    onClose();
-  };
+  const { filters: initialFilters } = useProjectsChallengeFilterContext();
 
   return (
-    <ProjectsChallengeFilterContext.Provider value={value}>
-      <SlideOut
-        enterFrom="end"
-        isShown={isShown}
-        primaryButton={
-          <Button
-            label={intl.formatMessage({
-              defaultMessage: 'Apply',
-              description: 'Label for "Apply" button for projects filter',
-              id: 'KRHAyD',
-            })}
-            size="md"
-            variant="primary"
-            onClick={handleApply}
-          />
-        }
-        secondaryButton={
-          <Button
-            label={intl.formatMessage({
-              defaultMessage: 'Clear all',
-              description: 'Label for "Clear all" button for projects filter',
-              id: 'Xb4kCD',
-            })}
-            size="md"
-            variant="secondary"
-            onClick={handleClearAll}
-          />
-        }
-        size="md"
-        title={intl.formatMessage({
-          defaultMessage: 'Filters',
-          description: 'Title of Projects project filter slide-out',
-          id: 'DdRaW3',
-        })}
-        onClose={onClose}>
-        <div className="flex flex-col">
-          <Accordion.Root
-            className="flex flex-col"
-            defaultValue={initialFilters.map(({ id }) => id)}
-            type="multiple">
-            {initialFilters.map((filter, index) => (
-              <Fragment key={filter.id}>
-                <Divider className={clsx('mb-5', index > 0 && 'mt-5')} />
-                <FilterSection key={filter.id} {...filter} />
-              </Fragment>
-            ))}
-          </Accordion.Root>
-          <Divider className="my-5" />
-        </div>
-      </SlideOut>
-    </ProjectsChallengeFilterContext.Provider>
+    <SlideOut
+      enterFrom="end"
+      isShown={isShown}
+      size="md"
+      title={intl.formatMessage({
+        defaultMessage: 'Filters',
+        description: 'Title of Projects project filter slide-out',
+        id: 'DdRaW3',
+      })}
+      onClose={onClose}>
+      <div className="flex flex-col">
+        <Accordion.Root
+          className="flex flex-col"
+          defaultValue={initialFilters.map(({ id }) => id)}
+          type="multiple">
+          {initialFilters.map((filter, index) => (
+            <Fragment key={filter.id}>
+              <Divider className={clsx('mb-5', index > 0 && 'mt-5')} />
+              <FilterSection key={filter.id} {...filter} />
+            </Fragment>
+          ))}
+        </Accordion.Root>
+        <Divider className="my-5" />
+      </div>
+    </SlideOut>
   );
 }

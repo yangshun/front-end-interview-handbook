@@ -210,6 +210,26 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
                   'difficulty',
                   false,
                 ),
+                makeDropdownItemProps(
+                  intl.formatMessage({
+                    defaultMessage: 'Created: Newest to oldest',
+                    description:
+                      'Sorting option for projects list - sort by created',
+                    id: 'ufyNP1',
+                  }),
+                  'createdAt',
+                  false,
+                ),
+                makeDropdownItemProps(
+                  intl.formatMessage({
+                    defaultMessage: 'Created: Oldest to newest',
+                    description:
+                      'Sorting option for projects list - sort by created',
+                    id: '5bW/ye',
+                  }),
+                  'createdAt',
+                  true,
+                ),
               ].map((props) => (
                 <DropdownMenu.Item key={props.label} {...props} />
               ))}

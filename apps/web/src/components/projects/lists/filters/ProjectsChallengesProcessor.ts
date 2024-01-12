@@ -66,7 +66,11 @@ export function sortProjectsChallenges<T extends ProjectsChallengeItem>(
 
       // TODO(projects):  Add createdAt sort logic for projects
       case 'createdAt': {
-        return isAscendingOrder ? -1 : 1;
+        const value =
+          new Date(a.metadata.createdAt).getTime() -
+          new Date(b.metadata.createdAt).getTime();
+
+        return isAscendingOrder ? value : -value;
       }
     }
   });

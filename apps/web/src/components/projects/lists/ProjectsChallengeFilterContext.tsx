@@ -12,6 +12,7 @@ export type ProjectsChallengeFilterType = 'checkbox' | 'skill-selection';
 export type ProjectsChallengeFilter = {
   id: ProjectsChallengeFilterKey;
   label: string;
+  longLabel?: string;
   options: Array<{
     label: string;
     value: string;
@@ -56,13 +57,18 @@ function useFilters() {
           description: 'Label for Difficulty filter for projects list',
           id: 'qRBY3O',
         }),
+        longLabel: intl.formatMessage({
+          defaultMessage: 'Challenge Difficulty',
+          description: 'Label for Difficulty filter for projects list',
+          id: 'wv55qz',
+        }),
         options: [
           {
             label: 'Starter',
             value: 'starter',
           },
           {
-            label: 'Mid-Level',
+            label: 'Mid-level',
             value: 'mid',
           },
           {
@@ -115,6 +121,11 @@ function useFilters() {
           defaultMessage: 'Status',
           description: 'Label for Status filter for projects list',
           id: 'c7eREh',
+        }),
+        longLabel: intl.formatMessage({
+          defaultMessage: 'Challenge Status',
+          description: 'Label for Status filter for projects list',
+          id: 'Gzdpp9',
         }),
         options: [
           {

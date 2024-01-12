@@ -611,6 +611,14 @@
     "defaultMessage": "Facing trouble? <link>Email us</link>",
     "description": "Section label for seasonal promotion details"
   },
+  "5ZA7Hl": {
+    "defaultMessage": "Browse all submissions",
+    "description": "Browser all submissions"
+  },
+  "5bW/ye": {
+    "defaultMessage": "Created: Oldest to newest",
+    "description": "Sorting option for projects list - sort by created"
+  },
   "5c7RMQ": {
     "defaultMessage": "Practice by framework",
     "description": "Sidebar label for Questions list page"
@@ -1659,6 +1667,10 @@
     "defaultMessage": "Filters",
     "description": "Screenreader text indicating the filters component on question list pages"
   },
+  "Gzdpp9": {
+    "defaultMessage": "Challenge Status",
+    "description": "Label for Status filter for projects list"
+  },
   "H+BRfg": {
     "defaultMessage": "No completed questions",
     "description": "Text shown when no questions are completed."
@@ -2002,10 +2014,6 @@
   "KQXNDC": {
     "defaultMessage": "Please enter your status",
     "description": "Error message for empty \"Other\" input for \"Years of experience replacement status\" on Projects profile onboarding page"
-  },
-  "KRHAyD": {
-    "defaultMessage": "Apply",
-    "description": "Label for \"Apply\" button for projects filter"
   },
   "KY8GB9": {
     "defaultMessage": "Failed to mark question as complete. Please try again",
@@ -3375,10 +3383,6 @@
     "defaultMessage": "An eye-catching name to describe your solution. Will be displayed under the original Project's name and help other users identify your submission.",
     "description": "Description for submission name input on project submit page"
   },
-  "Xb4kCD": {
-    "defaultMessage": "Clear all",
-    "description": "Label for \"Clear all\" button for projects filter"
-  },
   "XdezZk": {
     "defaultMessage": "What to expect, which rounds to expect them, and how to prepare",
     "description": "What to expect in front end quiz interviews"
@@ -3478,6 +3482,10 @@
   "YRVMeX": {
     "defaultMessage": "Review Cashback Terms and Conditions",
     "description": "Title of legal page"
+  },
+  "YS1B1R": {
+    "defaultMessage": "Find submissions suggested for your review, based on your completed challenges, tech skills, and experience.",
+    "description": "Page subtitle"
   },
   "YWz2ko": {
     "defaultMessage": "Proven preparation plans",
@@ -3831,6 +3839,10 @@
     "defaultMessage": "Post",
     "description": "Label for post button on project discussions page"
   },
+  "bofA5f": {
+    "defaultMessage": "Browse all user submissions",
+    "description": "Learn from other user submissions"
+  },
   "bsCmcK": {
     "defaultMessage": "Email Us",
     "description": "Button label to send to a support email"
@@ -4066,6 +4078,10 @@
   "eQwU0l": {
     "defaultMessage": "Copy line up",
     "description": "Text describing command to copy lines up in the coding workspace shortcuts menu"
+  },
+  "eRu+ff": {
+    "defaultMessage": "Browse project solutions from our community. Interact with each unique submission, share your expertise, and evolve alongside our collaborative coding community.",
+    "description": "Page subtitle"
   },
   "eT2mrq": {
     "defaultMessage": "View the full solution and other System Design guides.",
@@ -5731,6 +5747,10 @@
     "defaultMessage": "Learn from others",
     "description": "Title for experienced motivation"
   },
+  "ufyNP1": {
+    "defaultMessage": "Created: Newest to oldest",
+    "description": "Sorting option for projects list - sort by created"
+  },
   "ugHQqC": {
     "defaultMessage": "Or continue with",
     "description": "Label of divider preceding third party providers on Sign In page"
@@ -5947,6 +5967,10 @@
     "defaultMessage": "{questionTitle} | JavaScript Front End Interview Questions with Solutions",
     "description": "Title of Javascript Front End interview questions page"
   },
+  "wv55qz": {
+    "defaultMessage": "Challenge Difficulty",
+    "description": "Label for Difficulty filter for projects list"
+  },
   "wzLox4": {
     "defaultMessage": "Monthly Plan CTA card tooltip",
     "description": "Tooltip label for Monthly Plan CTA card in Projects sidebar"
@@ -6090,6 +6114,10 @@
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",
     "description": "Label for slideout for code editor shortcuts"
+  },
+  "yUfdpX": {
+    "defaultMessage": "Mentor others",
+    "description": "Page title for mentoring others in their projects"
   },
   "yWnRZS": {
     "defaultMessage": "Can't find the answer you are looking for? View all <link>frequently-asked questions</link>.",
