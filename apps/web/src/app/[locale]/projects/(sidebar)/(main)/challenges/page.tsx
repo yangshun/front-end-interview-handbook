@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import ProjectsAllProjectsPage from '~/components/projects/lists/ProjectsAllProjectsPage';
+import ProjectsChallengeListPage from '~/components/projects/lists/ProjectsChallengeListPage';
 
 import { readProjectsChallengeList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -34,5 +34,5 @@ export default async function Page({ params }: Props) {
   const user = await readUserFromToken();
   const { challenges } = await readProjectsChallengeList(locale, user?.id);
 
-  return <ProjectsAllProjectsPage challenges={challenges} />;
+  return <ProjectsChallengeListPage challenges={challenges} />;
 }

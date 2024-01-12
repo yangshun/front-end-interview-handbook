@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import ProjectsChallengeSubmissionListSection from '~/components/projects/submissions/ProjectsChallengeSubmissionListSection';
+import ProjectsChallengeSubmissionListAllPage from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListAllPage';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -28,5 +28,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  return <ProjectsChallengeSubmissionListSection />;
+  return <ProjectsChallengeSubmissionListAllPage />;
 }

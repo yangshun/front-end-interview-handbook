@@ -131,7 +131,6 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
             {filters.map((filter) => (
               <ProjectsListFilterDropdown key={filter.id} filter={filter} />
             ))}
-
             <FilterButton
               icon={RiFilterLine}
               isLabelHidden={true}
