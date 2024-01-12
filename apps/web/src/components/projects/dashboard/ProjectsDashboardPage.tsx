@@ -1,22 +1,19 @@
 'use client';
 
-import { RiArrowRightLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
-import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import ProjectsCompleteProfileCard from './ProjectsCompleteProfileCard';
 import ProjectsContinueProjectsSection from './ProjectsContinueProjectsSection';
 import ProjectsRecommendedActionsSection from './ProjectsRecommendedActionsSection';
+import ProjectsTrendingSubmissionsSection from './ProjectsTrendingSubmissionsSection';
 
 export default function ProjectsDashboardPage() {
-  const intl = useIntl();
-
   const { data: profileStatistics } =
     trpc.projects.profile.getDashboardStatistics.useQuery();
   const { data: isNewToProjects } =
@@ -64,32 +61,7 @@ export default function ProjectsDashboardPage() {
                 Placeholder for tracks and skills
               </div>
             </div>
-            <div className="flex flex-col gap-4">
-              <div className="flex justify-between">
-                <Heading level="heading6">
-                  <FormattedMessage
-                    defaultMessage="Top submissions you might learn from"
-                    description="Title for Top submissions section on Projects dashboard page"
-                    id="GRuYLb"
-                  />
-                </Heading>
-                <Button
-                  addonPosition="end"
-                  className="-me-3"
-                  href="/projects/submissions"
-                  icon={RiArrowRightLine}
-                  label={intl.formatMessage({
-                    defaultMessage: 'See all',
-                    description:
-                      'Label for See all button on Projects dashboard page',
-                    id: 'PHTFnA',
-                  })}
-                  size="sm"
-                  variant="tertiary"
-                />
-              </div>
-              Placeholder for top submissions
-            </div>
+            <ProjectsTrendingSubmissionsSection />
           </div>
         </Section>
       )}

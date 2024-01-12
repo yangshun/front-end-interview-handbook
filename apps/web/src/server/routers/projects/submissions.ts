@@ -1,3 +1,4 @@
+import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { z } from 'zod';
 
 import { projectsChallengeSubmissionDeploymentUrlSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionDeploymentUrlSchema';
@@ -105,6 +106,56 @@ export const projectsChallengeSubmissionRouter = router({
         return null;
       },
     ),
+  getLatestSubmitted: projectsUserProcedure
+    .input(
+      z.object({
+        limit: z.number().int().positive(),
+      }),
+    )
+    .query(async ({ input: { limit }, ctx: { projectsProfileId } }) => {
+      const submissions = await prisma.projectsChallengeSubmission.findMany({
+        include: {
+          _count: {
+            select: {
+              votes: true,
+            },
+          },
+          projectsProfile: {
+            include: {
+              userProfile: {
+                select: {
+                  avatarUrl: true,
+                  id: true,
+                  name: true,
+                  title: true,
+                  username: true,
+                },
+              },
+            },
+          },
+        },
+        orderBy: {
+          createdAt: 'desc',
+        },
+        take: limit,
+        where: {
+          NOT: {
+            profileId: projectsProfileId,
+          },
+        },
+      });
+
+      return submissions.map((submission) => {
+        const challenge = allProjectsChallengeMetadata.find(
+          (project) => project.slug === submission.slug,
+        );
+
+        return {
+          ...submission,
+          challenge,
+        };
+      });
+    }),
   list: projectsUserProcedure.query(async () => {
     return await prisma.projectsChallengeSubmission.findMany({
       include: {

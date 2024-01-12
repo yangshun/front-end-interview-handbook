@@ -1183,6 +1183,10 @@
     "defaultMessage": "Best value for money with real-time support from the team and community.",
     "description": "Supporting statement for an annual pricing plan"
   },
+  "BgJH+X": {
+    "defaultMessage": "Brief: <link>{briefDescription}</link>",
+    "description": "Link to brief for project submission"
+  },
   "BgJTSk": {
     "defaultMessage": "Search system design questions",
     "description": "Placeholder for search input of system design question list"
@@ -1607,10 +1611,6 @@
     "defaultMessage": "Welcome to GreatFrontEnd Projects!",
     "description": "Title for Projects onboarding page"
   },
-  "GRuYLb": {
-    "defaultMessage": "Top submissions you might learn from",
-    "description": "Title for Top submissions section on Projects dashboard page"
-  },
   "GUmfcW": {
     "defaultMessage": "Figma design file",
     "description": "Label for Figma Design File button on Projects project assets page"
@@ -1966,6 +1966,10 @@
   "Jyrm8/": {
     "defaultMessage": "You're here for portfolio or side projects",
     "description": "Title of the 'Component tracks' marketing section on Projects home page"
+  },
+  "K+j1lh": {
+    "defaultMessage": "{comments} Comments",
+    "description": "Number of comments for project submission"
   },
   "K/Nz6V": {
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
@@ -3370,6 +3374,10 @@
   "XLT5qF": {
     "defaultMessage": "Complete simple social tasks like following our social accounts to get {discountPercentage}% off all plans.",
     "description": "Rewards discount message"
+  },
+  "XMHcvt": {
+    "defaultMessage": "We recommend quality submissions from more senior engineers using a similar tech stack to you, or tech stack you expressed interest in learning",
+    "description": "Tooltip label for Trending submissions section on Projects dashboard page"
   },
   "XS6Jyn": {
     "defaultMessage": "Become an Affiliate",
@@ -5331,6 +5339,10 @@
     "defaultMessage": "More on <link>Rewards Terms and Conditions</link>",
     "description": "Link for discount terms and conditions"
   },
+  "qVn8Yq": {
+    "defaultMessage": "Trending user submissions",
+    "description": "Title for Trending submissions section on Projects dashboard page"
+  },
   "qZRTqi": {
     "defaultMessage": "Data Structures & Algorithms",
     "description": "Name of focus area questions"
@@ -5422,6 +5434,10 @@
   "rOzSWN": {
     "defaultMessage": "Build entire design systems, component libraries or full stack apps",
     "description": "Caption for component library showcase in Projects marketing hero section"
+  },
+  "rRJPN4": {
+    "defaultMessage": "{likes} Likes",
+    "description": "Number of likes for project submission"
   },
   "rWhQtZ": {
     "defaultMessage": "Full list of shortcuts can be found on the <link>Visual Studio Code website</link>.",
