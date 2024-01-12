@@ -9,6 +9,8 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import usePagination from '~/hooks/usePagination';
+
 import FilterButton from '~/components/common/FilterButton';
 import useProjectsChallengesFilters from '~/components/projects/lists/filters/hooks/useProjectsChallengesFilters';
 import useProjectsChallengesSorting from '~/components/projects/lists/filters/hooks/useProjectsChallengesSorting';
@@ -36,9 +38,12 @@ type Props = Readonly<{
   challenges: ReadonlyArray<ProjectsChallengeItem>;
 }>;
 
+const ITEMS_PER_PAGE = 12;
+
 function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
   const intl = useIntl();
-  const { filters } = useProjectsChallengeFilterContext();
+  const { filters, value: selectedFilters } =
+    useProjectsChallengeFilterContext();
   // Filtering.
   const {
     query,
@@ -63,6 +68,17 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
     sortedChallenges,
     filtersChallengesOpts.map(([_, filterFn]) => filterFn),
   );
+
+  // Pagination
+  const {
+    currentPageItems: currentPageChallenges,
+    totalPages,
+    setCurrentPage,
+    currentPage,
+  } = usePagination(processedChallenges, ITEMS_PER_PAGE, [
+    selectedFilters,
+    query,
+  ]);
 
   const numberOfFilters = filtersChallengesOpts.filter(
     ([size]) => size > 0,
@@ -254,26 +270,30 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
               />
             </Text>
           </div>
-          {processedChallenges.length === 0 ? (
+          {currentPageChallenges.length === 0 ? (
             emptyState
           ) : (
-            <ProjectsChallengeGridList challenges={processedChallenges} />
+            <ProjectsChallengeGridList challenges={currentPageChallenges} />
           )}
         </div>
-        {processedChallenges.length !== 0 && (
+        {totalPages > 1 && (
           <div className="flex justify-between items-center">
             <Text color="secondary" size="body3">
               <FormattedMessage
-                defaultMessage="Showing {pageCount} out of {totalCount} projects"
+                defaultMessage="Showing {currentPageCount} out of {totalCount} projects"
                 description="Projects listing label"
-                id="Zuck2D"
+                id="qBygAh"
                 values={{
-                  pageCount: challenges.length, // TODO(projects): fix when pagination done.
-                  totalCount: challenges.length,
+                  currentPageCount: currentPageChallenges.length,
+                  totalCount: processedChallenges.length,
                 }}
               />
             </Text>
-            <Pagination count={10} page={1} onPageChange={() => {}} />
+            <Pagination
+              count={totalPages}
+              page={currentPage}
+              onPageChange={setCurrentPage}
+            />
           </div>
         )}
       </div>

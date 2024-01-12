@@ -3631,10 +3631,6 @@
     "defaultMessage": "Select online asset type",
     "description": "Label for tabs to select online asset type"
   },
-  "Zuck2D": {
-    "defaultMessage": "Showing {pageCount} out of {totalCount} projects",
-    "description": "Projects listing label"
-  },
   "Zui1cu": {
     "defaultMessage": "Focus areas",
     "description": "Title of focus areas page"
@@ -5298,6 +5294,10 @@
   "qBIBPw": {
     "defaultMessage": "GitHub Pages",
     "description": "Label for \"GitHub Pages\" option in Deployment Info"
+  },
+  "qBygAh": {
+    "defaultMessage": "Showing {currentPageCount} out of {totalCount} projects",
+    "description": "Projects listing label"
   },
   "qCCbPu": {
     "defaultMessage": "Other tech stack used (not covered in skills tree)",
