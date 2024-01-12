@@ -14,6 +14,11 @@ export default async function Page({ params }: Props) {
   const { locale, id } = params;
   const submission = await prisma.projectsChallengeSubmission.findFirst({
     include: {
+      _count: {
+        select: {
+          votes: true,
+        },
+      },
       projectsProfile: {
         include: {
           userProfile: {

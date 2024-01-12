@@ -9,6 +9,13 @@ export const projectsProfileRouter = router({
   featuredSubmissions: projectsUserProcedure.query(
     async ({ ctx: { projectsProfileId } }) => {
       return await prisma.projectsChallengeSubmission.findMany({
+        include: {
+          _count: {
+            select: {
+              votes: true,
+            },
+          },
+        },
         orderBy: {
           createdAt: 'desc',
         },

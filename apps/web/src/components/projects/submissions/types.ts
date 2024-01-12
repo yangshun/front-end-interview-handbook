@@ -18,16 +18,19 @@ export type ProjectsChallengeSubmissionItem = Readonly<{
   createdAt: Date;
   id: string;
   imgSrc: string;
-  likes: number;
   stack: Array<ProjectsSkill>;
   summary: string;
   title: string;
   views: number;
+  votes: number;
 }>;
 
 export type ProjectsChallengeSubmissionFromDatabase =
   ProjectsChallengeSubmission &
     Readonly<{
+      _count: {
+        votes: number;
+      };
       projectsProfile?:
         | {
             userProfile?: ProjectsChallengeSubmissionAuthor | null | undefined;
@@ -43,9 +46,9 @@ export function addMissingFieldsToSubmission<
   return {
     ...submission,
     author: submission.projectsProfile?.userProfile,
-    comments: 23,
+    comments: 42,
     imgSrc: 'https://source.unsplash.com/random/48x48',
-    likes: 56,
     stack: [],
+    votes: submission._count.votes,
   };
 }

@@ -29,7 +29,7 @@ export default function ProjectsChallengeSubmissionCard({
   submission,
 }: Props) {
   const intl = useIntl();
-  const { title, stack, author, summary, comments, likes, views, imgSrc } =
+  const { id, title, stack, author, summary, comments, votes, views, imgSrc } =
     submission;
 
   return (
@@ -54,7 +54,9 @@ export default function ProjectsChallengeSubmissionCard({
           </div>
         )}
         <div className="flex flex-col gap-3">
-          <Text weight="bold">{title}</Text>
+          <Anchor href={`/projects/s/${id}`}>
+            <Text weight="bold">{title}</Text>
+          </Anchor>
           <ProjectsSkillRow
             label={intl.formatMessage({
               defaultMessage: 'Stack used',
@@ -94,7 +96,7 @@ export default function ProjectsChallengeSubmissionCard({
         </Text>
         <div className="flex justify-between gap-4">
           <div className="flex gap-4">
-            <ProjectsLikeCountTag likeCount={likes} />
+            <ProjectsLikeCountTag likeCount={votes} />
             <ProjectsViewCountTag viewCount={views} />
             <ProjectsCommentCountTag commentCount={comments} />
           </div>

@@ -108,6 +108,11 @@ export const projectsChallengeSubmissionRouter = router({
   list: projectsUserProcedure.query(async () => {
     return await prisma.projectsChallengeSubmission.findMany({
       include: {
+        _count: {
+          select: {
+            votes: true,
+          },
+        },
         projectsProfile: {
           include: {
             userProfile: {
@@ -131,6 +136,11 @@ export const projectsChallengeSubmissionRouter = router({
   reference: projectsChallengeProcedure.query(async ({ input: { slug } }) => {
     return await prisma.projectsChallengeSubmission.findMany({
       include: {
+        _count: {
+          select: {
+            votes: true,
+          },
+        },
         projectsProfile: {
           include: {
             userProfile: {
