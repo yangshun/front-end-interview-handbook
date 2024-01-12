@@ -26,7 +26,7 @@ const limit = 3;
 
 export default function ProjectsContinueProjectsSection() {
   const intl = useIntl();
-  const { data: recentProjects } =
+  const { data: recentSessions } =
     trpc.projects.sessions.getMostRecentlyStarted.useQuery({ limit });
 
   return (
@@ -44,9 +44,9 @@ export default function ProjectsContinueProjectsSection() {
           ['divide-y', themeDivideColor],
           ['border', themeBorderColor],
         )}>
-        {recentProjects?.map((project, index) => (
+        {recentSessions?.map((session, index) => (
           <li
-            key={project.id}
+            key={session.id}
             className={clsx(
               'group relative flex py-4 px-5',
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
@@ -54,24 +54,25 @@ export default function ProjectsContinueProjectsSection() {
               'transition-colors',
               themeBackgroundEmphasizedHover,
               index === 0 && 'rounded-t-lg',
-              index === recentProjects.length - 1 && 'rounded-b-lg',
+              index === recentSessions.length - 1 && 'rounded-b-lg',
             )}>
             <div className="flex flex-row gap-4 items-center">
-              <img
-                alt={project.title}
-                className="object-cover rounded w-1/4"
-                src={project.imageUrl}
-              />
+              {session.challenge && (
+                <img
+                  alt={session.challenge.title}
+                  className="object-cover rounded w-1/4"
+                  src={session.challenge.imageUrl}
+                />
+              )}
               <div className="flex flex-col gap-1 w-full">
-                <Text size="body1" weight="medium">
-                  <Anchor
-                    className="focus:outline-none"
-                    href={`${project.href}`}
-                    variant="unstyled">
-                    <span aria-hidden="true" className="absolute inset-0" />
-                    {project.title}
-                  </Anchor>
-                </Text>
+                {session.challenge && (
+                  <Text size="body1" weight="medium">
+                    <Anchor href={session.challenge.href} variant="unstyled">
+                      <span aria-hidden="true" className="absolute inset-0" />
+                      {session.challenge.title}
+                    </Anchor>
+                  </Text>
+                )}
                 <div className="flex flex-row gap-6">
                   <div className="flex flex-row gap-1.5 items-center">
                     <RiTimeLine className={clsx(themeIconColor)} />
@@ -85,28 +86,30 @@ export default function ProjectsContinueProjectsSection() {
                         },
                         {
                           daysSinceStarted: getDaysSinceStartedProject(
-                            project.createdAt,
+                            session.createdAt,
                           ),
                         },
                       )}
                     </Text>
                   </div>
-                  <div className="flex flex-row gap-1.5 items-center">
-                    <RiFireLine className={clsx(themeIconColor)} />
-                    <Text color="secondary" size="body3">
-                      {intl.formatMessage(
-                        {
-                          defaultMessage: '+ {points} rep',
-                          description:
-                            'Points for Continue projects section on Projects dashboard page',
-                          id: 'q8/ZEc',
-                        },
-                        {
-                          points: project.points,
-                        },
-                      )}
-                    </Text>
-                  </div>
+                  {session.challenge && (
+                    <div className="flex flex-row gap-1.5 items-center">
+                      <RiFireLine className={clsx(themeIconColor)} />
+                      <Text color="secondary" size="body3">
+                        {intl.formatMessage(
+                          {
+                            defaultMessage: '+ {points} rep',
+                            description:
+                              'Points for Continue projects section on Projects dashboard page',
+                            id: 'q8/ZEc',
+                          },
+                          {
+                            points: session.challenge.points,
+                          },
+                        )}
+                      </Text>
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="flex items-center justify-center">

@@ -87,7 +87,7 @@ export const projectsSessionsRouter = router({
 
         return {
           ...session,
-          ...challenge,
+          challenge,
         };
       });
     }),
