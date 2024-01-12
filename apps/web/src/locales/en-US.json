@@ -264,8 +264,12 @@
     "description": "Title of question examples section on getting started page"
   },
   "0rACGl": {
-    "defaultMessage": "Submissions",
+    "defaultMessage": "User submissions",
     "description": "Projects submissions page title"
+  },
+  "0ttv+M": {
+    "defaultMessage": "Adjust your filters a bit, and let's see what we can find!",
+    "description": "Subtitle for empty state when no projects are returned from application of filters on projects list"
   },
   "0xSU4h": {
     "defaultMessage": "Study list session stopped",
@@ -658,6 +662,10 @@
   "68EGSg": {
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all System Design questions"
+  },
+  "68EuCT": {
+    "defaultMessage": "Project challenges",
+    "description": "Title of Projects challenges page"
   },
   "6A9LIb": {
     "defaultMessage": "Study plans for Front End Interviews",
@@ -1327,6 +1335,10 @@
     "defaultMessage": "Summary cannot be empty.",
     "description": "Error message"
   },
+  "DAQ8QM": {
+    "defaultMessage": "Difficulty: Easy to Hard",
+    "description": "Sorting option for projects list - sort by difficulty from easy to hard"
+  },
   "DAifYT": {
     "defaultMessage": "or",
     "description": "Alternative contact way"
@@ -1334,6 +1346,10 @@
   "DAqJ87": {
     "defaultMessage": "Purchase premium to unlock full access to the question including high quality solutions and companies which ask this question.",
     "description": "Subtitle on question paywall displayed on premium question's pages"
+  },
+  "DBUWSi": {
+    "defaultMessage": "Challenges | Projects",
+    "description": "Title of Projects challenges listing page"
   },
   "DCBQiM": {
     "defaultMessage": "If you are looking for front end interviews, GreatFrontEnd is for you. It has a wide variety of coding questions ranging from HTML, CSS, JavaScript, to React. It also covers formats like functions, algorithms, user interface, quiz etc. If you want to get into top tech companies for front end roles, GreatFrontEnd is best for you.",
@@ -1511,10 +1527,6 @@
     "defaultMessage": "Languages",
     "description": "Screenreader text to indicate the Programming Languages section"
   },
-  "FC61kC": {
-    "defaultMessage": "Skill tree",
-    "description": "Label for Skill Tree sidebar item in Projects sidebar"
-  },
   "FCFcH2": {
     "defaultMessage": "Start tasks",
     "description": "Start tasks button"
@@ -1551,17 +1563,9 @@
     "defaultMessage": "All question progress has been reset.",
     "description": "Message shown when question reset progress action succeeds."
   },
-  "FrR1mB": {
-    "defaultMessage": "Skill tree | Projects",
-    "description": "Title of Projects skills tree page"
-  },
   "Ftjz7y": {
     "defaultMessage": "Manage your subscription status and payment methods on the Stripe billing portal.",
     "description": "Call to action text to uppgrade plan."
-  },
-  "G0neZ5": {
-    "defaultMessage": "Projects",
-    "description": "Link to projects page"
   },
   "G5tU8P": {
     "defaultMessage": "Step 4",
@@ -2375,6 +2379,10 @@
     "defaultMessage": "Simulate real interview conditions, no need for any setup!",
     "description": "Subtitle for in-browser coding workspace feature"
   },
+  "NzvDd2": {
+    "defaultMessage": "Skills roadmap | Projects",
+    "description": "Title of Projects skills roadmap page"
+  },
   "O+NT3M": {
     "defaultMessage": "Angular",
     "description": "Angular questions category short title"
@@ -2598,6 +2606,10 @@
   "QQPZy5": {
     "defaultMessage": "Take a screenshot of your solution, which will be used as your Submission display photo.",
     "description": "Project submission tooltip"
+  },
+  "QTT/Vt": {
+    "defaultMessage": "Popularity: Most to least completed",
+    "description": "Sorting option for projects list - popularity"
   },
   "QVh3mt": {
     "defaultMessage": "Dropbox",
@@ -2846,6 +2858,10 @@
   "SdXQye": {
     "defaultMessage": "Add selection to next find match",
     "description": "Text describing command to add selection to next find match in the coding workspace shortcuts menu"
+  },
+  "SdYw31": {
+    "defaultMessage": "Nothing found just yet",
+    "description": "Title for empty state when application of filters return no results"
   },
   "Se4xmG": {
     "defaultMessage": "Start project",
@@ -3807,10 +3823,6 @@
     "defaultMessage": "Must be a GitHub repository URL.",
     "description": "Error message"
   },
-  "bdjVW4": {
-    "defaultMessage": "Component tracks",
-    "description": "Label for Component Tracks sidebar item in Projects sidebar"
-  },
   "beN1QM": {
     "defaultMessage": "Skills:",
     "description": "Label for skills list in Project card"
@@ -3979,6 +3991,10 @@
     "defaultMessage": "JavaScript Questions",
     "description": "Title for an example list of JavaScript Questions on marketing pages"
   },
+  "dKoCFD": {
+    "defaultMessage": "Component tracks",
+    "description": "Projects component tracks item label"
+  },
   "dOsu3y": {
     "defaultMessage": "Study plans",
     "description": "Preparation study plans"
@@ -4022,6 +4038,10 @@
   "e+03Yz": {
     "defaultMessage": "Try out some Front End questions!",
     "description": "Subtext for call to action when no questions are completed."
+  },
+  "e/31yG": {
+    "defaultMessage": "Challenges",
+    "description": "Link to all projects challenges page"
   },
   "e/t5dH": {
     "defaultMessage": "Download starter files",
@@ -4266,10 +4286,6 @@
   "gdGavv": {
     "defaultMessage": "Premium Question",
     "description": "Title on question paywall displayed on premium question's pages"
-  },
-  "ggSPoc": {
-    "defaultMessage": "Back to all projects",
-    "description": "Label for \"Back to all projects\" button on Projects project page"
   },
   "ghmPBf": {
     "defaultMessage": "Solved previously, mark as completed",
@@ -4531,10 +4547,6 @@
     "defaultMessage": "Our users now work in these companies",
     "description": "Title of company logos section"
   },
-  "jShNbD": {
-    "defaultMessage": "Projects",
-    "description": "Title of Projects All Projects page"
-  },
   "jSue8y": {
     "defaultMessage": "Guidebook",
     "description": "Project guide menu header title"
@@ -4578,6 +4590,10 @@
   "jnV/ZP": {
     "defaultMessage": "System Design Questions",
     "description": "Title for an example list of System Design Questions on marketing pages"
+  },
+  "jp2HuK": {
+    "defaultMessage": "Recommended",
+    "description": "Sorting option for projects list - recommended"
   },
   "jtuJQk": {
     "defaultMessage": "About Us",
@@ -4755,6 +4771,10 @@
     "defaultMessage": "LinkedIn (optional)",
     "description": "Label for LinkedIn link input on Projects profile onboarding page"
   },
+  "l27vTV": {
+    "defaultMessage": "Back to all challenges",
+    "description": "Back button label"
+  },
   "l5t9Em": {
     "defaultMessage": "<bold>+{count}</bold> completed",
     "description": "Tooltip for completed segments in Projects segmented progress bar"
@@ -4851,10 +4871,6 @@
     "defaultMessage": "Started tracking progress",
     "description": "Success message for starting a study plan"
   },
-  "m8b+T6": {
-    "defaultMessage": "All projects",
-    "description": "Label for All projects sidebar item in Projects sidebar"
-  },
   "mDcqlX": {
     "defaultMessage": "<count>{questionCount}</count> <questions>questions</questions>",
     "description": "Number of questions"
@@ -4922,6 +4938,10 @@
   "n0mDHU": {
     "defaultMessage": "Author",
     "description": "Author of the question"
+  },
+  "n1RgqQ": {
+    "defaultMessage": "Skills roadmap",
+    "description": "Projects skills roadmap item label"
   },
   "n2GZsD": {
     "defaultMessage": "First, set up your public profile to help the community know you better (and assist you better!)",
@@ -5587,6 +5607,10 @@
     "defaultMessage": "Meet our top authors:",
     "description": "Authors section title"
   },
+  "tZPTnS": {
+    "defaultMessage": "Difficulty: Hard to Easy",
+    "description": "Sorting option for projects list - sort by difficulty from hard to easy"
+  },
   "taVYcT": {
     "defaultMessage": "Check your email for the magic link",
     "description": "Message indicating a successful magic link request"
@@ -5658,6 +5682,10 @@
   "uBaCgb": {
     "defaultMessage": "GreatFrontEnd Projects",
     "description": "Title of Projects All Projects page"
+  },
+  "uCT1Lh": {
+    "defaultMessage": "All challenges",
+    "description": "All projects item label"
   },
   "uCbhIG": {
     "defaultMessage": "Go back to sign in",
@@ -6135,13 +6163,13 @@
     "defaultMessage": "See all",
     "description": "See all articles"
   },
-  "zJ76Ak": {
-    "defaultMessage": "All | Projects",
-    "description": "Title of Projects All Projects page"
-  },
   "zL/JCy": {
     "defaultMessage": "Not signed in",
     "description": "Label showing not signed in in profile header of Projects sidebar"
+  },
+  "zMpEuy": {
+    "defaultMessage": "Popularity: Least to most completed",
+    "description": "Sorting option for projects list - popularity"
   },
   "zPd3X5": {
     "defaultMessage": "Explore community submissions",

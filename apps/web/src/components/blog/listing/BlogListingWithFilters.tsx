@@ -16,9 +16,9 @@ import {
 import type { FilterTab } from '~/components/blog/filters/BlogTypeTabs';
 import BlogViewDropdown from '~/components/blog/filters/BlogViewDropdown';
 import useBlogFilters from '~/components/blog/filters/hooks/useBlogFilters';
-import BlogFilterButton from '~/components/blog/filters/items/BlogFilterButton';
 import BlogList from '~/components/blog/filters/items/BlogList';
 import BlogCountLabel from '~/components/blog/metadata/BlogCountLabel';
+import FilterButton from '~/components/common/FilterButton';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
@@ -92,7 +92,7 @@ export default function BlogListingWithFilters({
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div className={clsx(layout === 'full' && 'lg:hidden')}>
-        <BlogFilterButton
+        <FilterButton
           icon={RiFilterLine}
           isLabelHidden={true}
           label={

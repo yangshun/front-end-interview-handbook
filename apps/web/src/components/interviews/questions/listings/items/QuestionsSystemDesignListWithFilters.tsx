@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { RiFilterLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import FilterButton from '~/components/common/FilterButton';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type {
@@ -25,7 +26,6 @@ import SlideOut from '~/components/ui/SlideOut';
 import TextInput from '~/components/ui/TextInput';
 
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
-import QuestionFilterButton from '../filters/QuestionFilterButton';
 import QuestionListingSystemDesignFilters from '../filters/QuestionListingSystemDesignFilters';
 import questionMatchesTextQuery from '../filters/questionMatchesTextQuery';
 import { allSystemDesignQuestions } from '../../content/system-design/SystemDesignNavigation';
@@ -119,7 +119,7 @@ export default function QuestionsSystemDesignListWithFilters({
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div className={clsx(layout === 'full' && 'lg:hidden')}>
-        <QuestionFilterButton
+        <FilterButton
           icon={RiFilterLine}
           isLabelHidden={true}
           label={

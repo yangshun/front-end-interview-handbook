@@ -1,3 +1,4 @@
+import { allProjectsTrackMetadata } from 'contentlayer/generated';
 import {
   createContext,
   useCallback,
@@ -37,16 +38,10 @@ function useFilters() {
           description: 'Label for Component Track filter for projects list',
           id: '+R1wGb',
         }),
-        options: [
-          {
-            label: 'Design system track',
-            value: 'design-system-track',
-          },
-          {
-            label: 'Marketing track',
-            value: 'marketing-track',
-          },
-        ],
+        options: allProjectsTrackMetadata.map((trackMetadata) => ({
+          label: `${trackMetadata.title} track`,
+          value: trackMetadata.slug,
+        })),
         tooltip: intl.formatMessage({
           defaultMessage: 'Filter by component track',
           description: 'Tooltip for Component track filter for projects list',
@@ -67,12 +62,16 @@ function useFilters() {
             value: 'starter',
           },
           {
-            label: 'Intermediate',
-            value: 'intermediate',
+            label: 'Mid-Level',
+            value: 'mid',
           },
           {
-            label: 'Advanced',
-            value: 'advanced',
+            label: 'Senior',
+            value: 'senior',
+          },
+          {
+            label: 'Nightmare',
+            value: 'nightmare',
           },
         ],
         tooltip: intl.formatMessage({
@@ -89,7 +88,20 @@ function useFilters() {
           description: 'Label for Skills filter for projects list',
           id: 'wzV6ho',
         }),
-        options: [],
+        options: [
+          {
+            label: 'HTML',
+            value: 'html',
+          },
+          {
+            label: 'React',
+            value: 'react',
+          },
+          {
+            label: 'JS',
+            value: 'js',
+          },
+        ],
         tooltip: intl.formatMessage({
           defaultMessage: 'Filter by skills',
           description: 'Tooltip for Skills filter for projects list',
@@ -104,7 +116,20 @@ function useFilters() {
           description: 'Label for Status filter for projects list',
           id: 'c7eREh',
         }),
-        options: [],
+        options: [
+          {
+            label: 'Completed',
+            value: 'COMPLETED',
+          },
+          {
+            label: 'In Progress',
+            value: 'IN_PROGRESS',
+          },
+          {
+            label: 'Not Started',
+            value: 'NOT_STARTED',
+          },
+        ],
         tooltip: intl.formatMessage({
           defaultMessage: 'Filter by status',
           description: 'Tooltip for Status filter for projects list',

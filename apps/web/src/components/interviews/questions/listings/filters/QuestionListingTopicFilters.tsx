@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
-import QuestionFilterButton from './QuestionFilterButton';
+import FilterButton from '~/components/common/FilterButton';
+
 import type { QuestionFilter } from './QuestionFilterType';
 import type { QuestionMetadata } from '../../common/QuestionsTypes';
 
@@ -18,7 +19,7 @@ export default function QuestionListingTopicFilters<
       <legend className="sr-only">{section.name}</legend>
       <div className={clsx('flex flex-wrap items-center gap-2')}>
         {section.options.map(({ icon: Icon, ...option }) => (
-          <QuestionFilterButton
+          <FilterButton
             key={option.value}
             icon={Icon}
             label={String(option.label)}

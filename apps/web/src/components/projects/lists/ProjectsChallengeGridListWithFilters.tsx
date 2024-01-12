@@ -3,18 +3,27 @@ import { useState } from 'react';
 import {
   RiCodeSSlashLine,
   RiFilterLine,
+  RiFolderOpenLine,
   RiSearchLine,
   RiSortDesc,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import FilterButton from '~/components/common/FilterButton';
+import useProjectsChallengesFilters from '~/components/projects/lists/filters/hooks/useProjectsChallengesFilters';
+import useProjectsChallengesSorting from '~/components/projects/lists/filters/hooks/useProjectsChallengesSorting';
+import {
+  filterProjectsChallenges,
+  sortProjectsChallenges,
+} from '~/components/projects/lists/filters/ProjectsChallengesProcessor';
 import ProjectsChallengeGridList from '~/components/projects/lists/ProjectsChallengeGridList';
-import Button from '~/components/ui/Button';
+import type { ProjectsSortField } from '~/components/projects/types';
 import DropdownMenu from '~/components/ui/DropdownMenu';
+import EmptyState from '~/components/ui/EmptyState';
 import Pagination from '~/components/ui/Pagination';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
-import { themeTextSecondaryColor } from '~/components/ui/theme';
+import { themeTextColor, themeTextSecondaryColor } from '~/components/ui/theme';
 
 import ProjectsChallengeFilterContextProvider, {
   useProjectsChallengeFilterContext,
@@ -30,8 +39,72 @@ type Props = Readonly<{
 function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
   const intl = useIntl();
   const { filters } = useProjectsChallengeFilterContext();
+  // Filtering.
+  const {
+    query,
+    setQuery,
+    filters: filtersChallengesOpts,
+  } = useProjectsChallengesFilters();
+
+  // Sorting.
+  const { isAscendingOrder, setIsAscendingOrder, sortField, setSortField } =
+    useProjectsChallengesSorting();
 
   const [areFiltersShown, setAreFiltersShown] = useState(false);
+
+  // Processing.
+  const sortedChallenges = sortProjectsChallenges(
+    challenges,
+    sortField,
+    isAscendingOrder,
+  );
+
+  const processedChallenges = filterProjectsChallenges(
+    sortedChallenges,
+    filtersChallengesOpts.map(([_, filterFn]) => filterFn),
+  );
+
+  const numberOfFilters = filtersChallengesOpts.filter(
+    ([size]) => size > 0,
+  ).length;
+
+  const emptyState = (
+    <div className="p-10">
+      <EmptyState
+        icon={RiFolderOpenLine}
+        iconClassName={themeTextColor}
+        subtitle={intl.formatMessage({
+          defaultMessage:
+            "Adjust your filters a bit, and let's see what we can find!",
+          description:
+            'Subtitle for empty state when no projects are returned from application of filters on projects list',
+          id: '0ttv+M',
+        })}
+        title={intl.formatMessage({
+          defaultMessage: 'Nothing found just yet',
+          description:
+            'Title for empty state when application of filters return no results',
+          id: 'SdYw31',
+        })}
+        variant="empty"
+      />
+    </div>
+  );
+
+  function makeDropdownItemProps(
+    label: string,
+    itemField: ProjectsSortField,
+    isItemAscendingOrder: boolean,
+  ) {
+    return {
+      isSelected:
+        sortField === itemField && isAscendingOrder === isItemAscendingOrder,
+      label,
+      onClick: () => {
+        setSortField(itemField), setIsAscendingOrder(isItemAscendingOrder);
+      },
+    };
+  }
 
   return (
     <>
@@ -50,17 +123,16 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
               placeholder="Search by name/project brief"
               startIcon={RiSearchLine}
               type="text"
+              value={query}
+              onChange={(value) => setQuery(value)}
             />
           </div>
           <div className="flex gap-3 flex-wrap">
             {filters.map((filter) => (
-              <ProjectsListFilterDropdown
-                key={filter.id}
-                label={filter.label}
-                tooltip={filter.tooltip}
-              />
+              <ProjectsListFilterDropdown key={filter.id} filter={filter} />
             ))}
-            <Button
+
+            <FilterButton
               icon={RiFilterLine}
               isLabelHidden={true}
               label={intl.formatMessage({
@@ -68,13 +140,14 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
                 description: 'Label for All Filters button for projects list',
                 id: 'i9ojv3',
               })}
+              purpose="button"
+              selected={numberOfFilters > 0}
               size="md"
               tooltip={intl.formatMessage({
                 defaultMessage: 'View all filters',
                 description: 'Tooltip for All Filters button for projects list',
                 id: 'vHNURr',
               })}
-              variant="secondary"
               onClick={() => {
                 setAreFiltersShown(true);
               }}
@@ -87,7 +160,60 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
                 description: 'Label for sorting button',
                 id: 'vegaR1',
               })}>
-              <div>Sort by placeholder</div>
+              {[
+                makeDropdownItemProps(
+                  intl.formatMessage({
+                    defaultMessage: 'Recommended',
+                    description:
+                      'Sorting option for projects list - recommended',
+                    id: 'jp2HuK',
+                  }),
+                  'recommended',
+                  true,
+                ),
+                makeDropdownItemProps(
+                  intl.formatMessage({
+                    defaultMessage: 'Popularity: Most to least completed',
+                    description:
+                      'Sorting option for projects list - popularity',
+                    id: 'QTT/Vt',
+                  }),
+                  'completedCount',
+                  false,
+                ),
+                makeDropdownItemProps(
+                  intl.formatMessage({
+                    defaultMessage: 'Popularity: Least to most completed',
+                    description:
+                      'Sorting option for projects list - popularity',
+                    id: 'zMpEuy',
+                  }),
+                  'completedCount',
+                  true,
+                ),
+                makeDropdownItemProps(
+                  intl.formatMessage({
+                    defaultMessage: 'Difficulty: Easy to Hard',
+                    description:
+                      'Sorting option for projects list - sort by difficulty from easy to hard',
+                    id: 'DAQ8QM',
+                  }),
+                  'difficulty',
+                  true,
+                ),
+                makeDropdownItemProps(
+                  intl.formatMessage({
+                    defaultMessage: 'Difficulty: Hard to Easy',
+                    description:
+                      'Sorting option for projects list - sort by difficulty from hard to easy',
+                    id: 'tZPTnS',
+                  }),
+                  'difficulty',
+                  false,
+                ),
+              ].map((props) => (
+                <DropdownMenu.Item key={props.label} {...props} />
+              ))}
             </DropdownMenu>
           </div>
         </div>
@@ -104,27 +230,33 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
                 description="Label for total number of projects in Projects marketing page"
                 id="b+bj2C"
                 values={{
-                  projectCount: challenges.length,
+                  projectCount: processedChallenges.length,
                 }}
               />
             </Text>
           </div>
-          <ProjectsChallengeGridList challenges={challenges} />
+          {processedChallenges.length === 0 ? (
+            emptyState
+          ) : (
+            <ProjectsChallengeGridList challenges={processedChallenges} />
+          )}
         </div>
-        <div className="flex justify-between items-center">
-          <Text color="secondary" size="body3">
-            <FormattedMessage
-              defaultMessage="Showing {pageCount} out of {totalCount} projects"
-              description="Projects listing label"
-              id="Zuck2D"
-              values={{
-                pageCount: challenges.length, // TODO(projects): fix when pagination done.
-                totalCount: challenges.length,
-              }}
-            />
-          </Text>
-          <Pagination count={10} page={1} onPageChange={() => {}} />
-        </div>
+        {processedChallenges.length !== 0 && (
+          <div className="flex justify-between items-center">
+            <Text color="secondary" size="body3">
+              <FormattedMessage
+                defaultMessage="Showing {pageCount} out of {totalCount} projects"
+                description="Projects listing label"
+                id="Zuck2D"
+                values={{
+                  pageCount: challenges.length, // TODO(projects): fix when pagination done.
+                  totalCount: challenges.length,
+                }}
+              />
+            </Text>
+            <Pagination count={10} page={1} onPageChange={() => {}} />
+          </div>
+        )}
       </div>
     </>
   );

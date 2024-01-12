@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { Fragment, useMemo, useState } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
@@ -94,6 +94,10 @@ export default function ProjectsChallengeFilterSlideOut({
   const [selectedFilters, setSelectedFilters] = useState<
     Record<ProjectsChallengeFilterKey, Array<string>>
   >(initialSelectedFilters);
+
+  useEffect(() => {
+    setSelectedFilters(initialSelectedFilters);
+  }, [initialSelectedFilters]);
 
   const value = useMemo(
     () => ({

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { RiFilterLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import FilterButton from '~/components/common/FilterButton';
 import type {
   QuestionMetadata,
   QuestionMetadataWithCompletedStatus,
@@ -26,7 +27,6 @@ import TextInput from '~/components/ui/TextInput';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 
-import QuestionFilterButton from '../filters/QuestionFilterButton';
 import QuestionListingQuizFilters from '../filters/QuestionListingQuizFilters';
 import questionMatchesTextQuery from '../filters/questionMatchesTextQuery';
 import QuestionTotalTimeLabel from '../../metadata/QuestionTotalTimeLabel';
@@ -108,7 +108,7 @@ export default function QuestionsQuizListWithFilters({
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div className={clsx(layout === 'full' && 'lg:hidden')}>
-        <QuestionFilterButton
+        <FilterButton
           icon={RiFilterLine}
           isLabelHidden={true}
           label={

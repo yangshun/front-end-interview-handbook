@@ -58,6 +58,18 @@ export type OnboardingProfilePage1Values = {
   };
 };
 
+export type ProjectsSortField =
+  | 'completedCount'
+  | 'createdAt'
+  | 'difficulty'
+  | 'recommended';
+
+export type ProjectsChallengesDifficulty =
+  | 'mid'
+  | 'nightmare'
+  | 'senior'
+  | 'starter';
+
 export type RecommendedAction = {
   cta: string;
   description: string;

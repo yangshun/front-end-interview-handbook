@@ -32,7 +32,7 @@ const purposeClasses: Record<FilterButtonPurpose, string> = {
   ),
 };
 
-export default function QuestionFilterButton({
+export default function FilterButton({
   selected,
   className,
   purpose = 'button',

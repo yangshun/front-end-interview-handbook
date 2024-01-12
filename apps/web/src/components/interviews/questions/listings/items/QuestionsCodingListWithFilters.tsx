@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { RiFilterLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import FilterButton from '~/components/common/FilterButton';
 import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
@@ -37,7 +38,6 @@ import type { QuestionCompletionCount } from '~/db/QuestionsCount';
 import useQuestionCodingFilters from '../filters/hooks/useQuestionCodingFilters';
 import useQuestionCodingSorting from '../filters/hooks/useQuestionCodingSorting';
 import useQuestionsCodingFiltersNamespace from '../filters/hooks/useQuestionsCodingFiltersNamespace';
-import QuestionFilterButton from '../filters/QuestionFilterButton';
 import QuestionListingCodingFilters from '../filters/QuestionListingCodingFilters';
 import QuestionListingSummarySection from '../stats/QuestionListingSummarySection';
 import type { QuestionFramework } from '../../common/QuestionsTypes';
@@ -162,7 +162,7 @@ export default function QuestionsCodingListWithFilters({
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div className={clsx(layout === 'full' && 'lg:hidden')}>
-        <QuestionFilterButton
+        <FilterButton
           icon={RiFilterLine}
           isLabelHidden={true}
           label={
