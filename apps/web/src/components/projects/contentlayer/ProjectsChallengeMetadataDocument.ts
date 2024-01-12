@@ -80,6 +80,7 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       required: true,
       type: 'enum',
     },
+    createdAt: { required: true, type: 'date' },
     description: {
       description: 'Short description of the project',
       required: true,

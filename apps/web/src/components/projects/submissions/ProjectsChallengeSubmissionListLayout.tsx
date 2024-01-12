@@ -20,7 +20,7 @@ export default function ProjectsChallengeSubmissionListLayout({
         <FormattedMessage
           defaultMessage="User submissions"
           description="Projects submissions page title"
-          id="0rACGl"
+          id="ctKiBc"
         />
       </Heading>
       <Section>
