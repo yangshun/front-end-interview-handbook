@@ -14,7 +14,10 @@ import {
 } from 'contentlayer/generated';
 import { sum } from 'lodash-es';
 
-import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
+import type {
+  ProjectsChallengeItem,
+  ProjectsProfileAvatarData,
+} from '~/components/projects/challenges/types';
 import type { ProjectsTrack } from '~/components/projects/tracks/ProjectsTracksData';
 
 import prisma from '~/server/prisma';
@@ -58,64 +61,115 @@ export async function readProjectsChallengeList(
   challenges: ReadonlyArray<ProjectsChallengeItem>;
   loadedLocale: string;
 }> {
-  const [sessionsForUserGroupedBySlug, countsGroupedBySlug] = await Promise.all(
-    [
-      (async () => {
-        if (userId == null) {
-          return null;
-        }
+  const [
+    sessionsForUserGroupedBySlug,
+    countsGroupedBySlug,
+    completedProfileIdsGroupedBySlug,
+  ] = await Promise.all([
+    (async () => {
+      if (userId == null) {
+        return null;
+      }
 
-        const sessionsForUserGrouped: Record<
-          string,
-          ProjectsChallengeSessionStatus
-        > = {};
+      const sessionsForUserGrouped: Record<
+        string,
+        ProjectsChallengeSessionStatus
+      > = {};
 
-        const sessionsForUser = await prisma.projectsChallengeSession.findMany({
-          orderBy: {
-            createdAt: 'asc',
-          },
-          where: {
-            projectsProfile: {
-              userProfile: {
-                id: userId,
-              },
+      const sessionsForUser = await prisma.projectsChallengeSession.findMany({
+        orderBy: {
+          createdAt: 'asc',
+        },
+        where: {
+          projectsProfile: {
+            userProfile: {
+              id: userId,
             },
-            status: {
-              not: 'STOPPED',
-            },
           },
-        });
+          status: {
+            not: 'STOPPED',
+          },
+        },
+      });
 
-        sessionsForUser?.forEach((session) => {
-          sessionsForUserGrouped[session.slug] = session.status;
-        });
+      sessionsForUser?.forEach((session) => {
+        sessionsForUserGrouped[session.slug] = session.status;
+      });
 
-        return sessionsForUserGrouped;
-      })(),
-      (async () => {
-        try {
-          const countsForProjectList =
-            await prisma.projectsChallengeSession.groupBy({
-              _count: true,
-              by: ['slug'],
-              where: {
-                status: 'COMPLETED',
-              },
-            });
-
-          const countsForProject: Record<string, number> = {};
-
-          countsForProjectList?.forEach((projectCount) => {
-            countsForProject[projectCount.slug] = projectCount._count;
+      return sessionsForUserGrouped;
+    })(),
+    (async () => {
+      try {
+        const countsForProjectList =
+          await prisma.projectsChallengeSession.groupBy({
+            _count: true,
+            by: ['slug'],
+            where: {
+              status: 'COMPLETED',
+            },
           });
 
-          return countsForProject;
-        } catch (_err) {
-          return null;
-        }
-      })(),
-    ],
-  );
+        const countsForProject: Record<string, number> = {};
+
+        countsForProjectList?.forEach((projectCount) => {
+          countsForProject[projectCount.slug] = projectCount._count;
+        });
+
+        return countsForProject;
+      } catch (_err) {
+        return null;
+      }
+    })(),
+    (async () => {
+      type CompletedProfileIdsWithSlug = {
+        avatarUrl: string;
+        name: string;
+        profileId: string;
+        slug: string;
+        username: string;
+      };
+
+      const limit = 4;
+
+      try {
+        const completedProfileIds: Array<CompletedProfileIdsWithSlug> =
+          await prisma.$queryRaw`SELECT q.slug, q."profileId", s.name, s.username, s."avatarUrl"
+          FROM (SELECT DISTINCT p_outer.slug, p_top."profileId"
+          FROM (SELECT DISTINCT slug FROM public."ProjectsChallengeSession") p_outer
+          JOIN LATERAL (
+            SELECT * FROM public."ProjectsChallengeSession" p_inner
+            WHERE p_inner.slug = p_outer.slug
+            AND p_inner."status" = 'COMPLETED'
+            LIMIT ${limit}
+          ) p_top ON TRUE
+          ORDER BY p_outer.slug) q
+          INNER JOIN public."ProjectsProfile" r ON q."profileId" = r.id
+          INNER JOIN public."Profile" s ON r."userId"=s.id`;
+
+        const slugToCompletedProfileIds: Record<
+          string,
+          Array<ProjectsProfileAvatarData>
+        > = {};
+
+        completedProfileIds.forEach((row) => {
+          if (!slugToCompletedProfileIds[row.slug]) {
+            slugToCompletedProfileIds[row.slug] = [];
+          }
+
+          slugToCompletedProfileIds[row.slug].push({
+            avatarUrl: row.avatarUrl,
+            id: row.profileId,
+            name: row.name,
+            username: row.username,
+          });
+        });
+
+        return slugToCompletedProfileIds;
+      } catch (_err) {
+        return null;
+      }
+    })(),
+  ]);
 
   const challenges = allProjectsChallengeMetadata
     .filter((challengeItem) =>
@@ -124,8 +178,8 @@ export async function readProjectsChallengeList(
     .map((projectMetadata) =>
       challengeItemAddTrackMetadata({
         completedCount: countsGroupedBySlug?.[projectMetadata.slug] ?? null,
-        // TODO(projects): Fetch from db.
-        completedProfiles: [],
+        completedProfiles:
+          completedProfileIdsGroupedBySlug?.[projectMetadata.slug] ?? [],
         metadata: {
           ...projectMetadata,
           ...extraProjectData,
