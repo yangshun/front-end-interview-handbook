@@ -95,12 +95,14 @@ export const projectsChallengeSubmissionRouter = router({
     )
     .mutation(
       async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
-        return await prisma.projectsChallengeSubmission.delete({
+        await prisma.projectsChallengeSubmission.delete({
           where: {
             id: submissionId,
             profileId: projectsProfileId,
           },
         });
+
+        return null;
       },
     ),
   list: projectsUserProcedure.query(async () => {

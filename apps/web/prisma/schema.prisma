@@ -184,9 +184,10 @@ model ProjectsProfile {
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @updatedAt
 
-  userProfile Profile?                      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  sessions    ProjectsChallengeSession[]
-  submissions ProjectsChallengeSubmission[]
+  userProfile                     Profile                           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  sessions                        ProjectsChallengeSession[]
+  submissions                     ProjectsChallengeSubmission[]
+  ProjectsChallengeSubmissionVote ProjectsChallengeSubmissionVote[]
 }
 
 enum ProjectsChallengeSessionStatus {
@@ -205,7 +206,7 @@ model ProjectsChallengeSession {
   updatedAt DateTime  @updatedAt
   stoppedAt DateTime? @db.Timestamptz(6)
 
-  projectsProfile ProjectsProfile? @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  projectsProfile ProjectsProfile @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model ProjectsChallengeSubmission {
@@ -222,7 +223,20 @@ model ProjectsChallengeSubmission {
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @updatedAt
 
-  projectsProfile ProjectsProfile? @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  projectsProfile ProjectsProfile?                  @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  votes           ProjectsChallengeSubmissionVote[]
+}
+
+model ProjectsChallengeSubmissionVote {
+  id           String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  submissionId String   @db.Uuid
+  profileId    String   @db.Uuid
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+
+  submission      ProjectsChallengeSubmission @relation(fields: [submissionId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  projectsProfile ProjectsProfile             @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([submissionId, profileId])
 }
 
 model RewardsTaskCompletion {
