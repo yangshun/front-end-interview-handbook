@@ -76,7 +76,7 @@ type Props = Readonly<{
   secondaryMotivation: string | null | undefined;
 }>;
 
-export default function ProjectsRecommendedActionsSection({
+export default function ProjectsDashboardRecommendedActionsSection({
   primaryMotivation,
   secondaryMotivation,
 }: Props) {

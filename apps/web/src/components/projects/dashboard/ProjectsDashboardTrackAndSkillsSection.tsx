@@ -26,11 +26,10 @@ import {
 } from '~/components/ui/theme';
 
 const trackGradient = themeGradientPinkPurple;
-const skillGradient = themeGradientBlueGreen;
 
 const limit = 2;
 
-export default function ProjectsTrackAndSkillsSection() {
+export default function ProjectsDashboardTrackAndSkillsSection() {
   const intl = useIntl();
 
   const { isLoading, data: tracks } =

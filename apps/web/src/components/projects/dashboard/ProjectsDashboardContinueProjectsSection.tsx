@@ -22,9 +22,9 @@ function getDaysSinceStartedProject(createdAt: Date) {
   return Math.floor((Date.now() - createdAt.getTime()) / (1000 * 60 * 60 * 24));
 }
 
-const limit = 3;
+const limit = 2;
 
-export default function ProjectsContinueProjectsSection() {
+export default function ProjectsDashboardContinueProjectsSection() {
   const intl = useIntl();
   const { isLoading, data: recentSessions } =
     trpc.projects.sessions.getMostRecentlyStarted.useQuery({ limit });
@@ -60,7 +60,7 @@ export default function ProjectsContinueProjectsSection() {
               index === 0 && 'rounded-t-lg',
               index === recentSessions.length - 1 && 'rounded-b-lg',
             )}>
-            <div className="flex flex-row gap-4 items-center">
+            <div className="flex gap-4 items-center">
               {session.challenge && (
                 <img
                   alt={session.challenge.title}
@@ -77,8 +77,8 @@ export default function ProjectsContinueProjectsSection() {
                     </Anchor>
                   </Text>
                 )}
-                <div className="flex flex-row gap-6">
-                  <div className="flex flex-row gap-1.5 items-center">
+                <div className="flex flex-wrap gap-y-2 gap-x-6">
+                  <div className="flex gap-1.5 items-center">
                     <RiTimeLine className={clsx(themeIconColor)} />
                     <Text color="secondary" size="body3">
                       {intl.formatMessage(
@@ -97,7 +97,7 @@ export default function ProjectsContinueProjectsSection() {
                     </Text>
                   </div>
                   {session.challenge && (
-                    <div className="flex flex-row gap-1.5 items-center">
+                    <div className="flex gap-1.5 items-center">
                       <RiFireLine className={clsx(themeIconColor)} />
                       <Text color="secondary" size="body3">
                         {intl.formatMessage(

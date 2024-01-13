@@ -19,7 +19,7 @@ import { themeGradientBlueGreen } from '~/components/ui/theme';
 
 const progressBarClassName = themeGradientBlueGreen.className;
 
-export default function ProjectsCompleteProfileCard() {
+export default function ProjectsDashboardCompleteProfileCard() {
   const intl = useIntl();
   const [isCardOpen, setIsCardOpen] = useState(false);
 

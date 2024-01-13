@@ -8,13 +8,13 @@ import { trpc } from '~/hooks/trpc';
 
 import Anchor from '~/components/ui/Anchor';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
+import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasizedHover,
   themeBorderColor,
   themeDivideColor,
-  themeTextBrandColor,
   themeTextBrandGroupHoverColor,
   themeTextFaintColor,
 } from '~/components/ui/theme';
@@ -22,7 +22,7 @@ import Tooltip from '~/components/ui/Tooltip';
 
 const limit = 4;
 
-export default function ProjectsTrendingSubmissionsSection() {
+export default function ProjectsDashboardTrendingSubmissionsSection() {
   const intl = useIntl();
 
   const { isLoading, data: submissions } =
@@ -30,21 +30,13 @@ export default function ProjectsTrendingSubmissionsSection() {
       limit,
     });
 
-  const tooltipLabel = intl.formatMessage({
-    defaultMessage:
-      'We recommend quality submissions from more senior engineers using a similar tech stack to you, or tech stack you expressed interest in learning',
-    description:
-      'Tooltip label for Trending submissions section on Projects dashboard page',
-    id: 'XMHcvt',
-  });
-
-  if (isLoading) {
+  if (isLoading || submissions?.length === 0) {
     return null;
   }
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex justify-between">
+      <div className="flex justify-between flex-wrap">
         <div className="flex gap-2.5 items-center">
           <Heading level="heading6">
             <FormattedMessage
@@ -53,25 +45,28 @@ export default function ProjectsTrendingSubmissionsSection() {
               id="qVn8Yq"
             />
           </Heading>
-          <Tooltip label={tooltipLabel}>
+          <Tooltip
+            label={intl.formatMessage({
+              defaultMessage:
+                'We recommend quality submissions from more senior engineers using a similar tech stack to you, or tech stack you expressed interest in learning',
+              description:
+                'Tooltip label for Trending submissions section on Projects dashboard page',
+              id: 'XMHcvt',
+            })}>
             <RiQuestionFill className="h-4 w-4 dark:text-neutral-500 text-neutral-400" />
           </Tooltip>
         </div>
-        <Anchor
-          className="group flex items-center gap-1"
-          href="/projects/submissions">
-          <Text color="active" size="body2" weight="medium">
-            <FormattedMessage
-              defaultMessage="See all"
-              description="Label for See all button on Projects dashboard page"
-              id="PHTFnA"
-            />
-          </Text>
-          <RiArrowRightLine
-            aria-hidden="true"
-            className={clsx('h-4 w-4 shrink-0', themeTextBrandColor)}
-          />
-        </Anchor>
+        <Button
+          className="-mr-4 -my-1"
+          href="/projects/submissions"
+          icon={RiArrowRightLine}
+          label={intl.formatMessage({
+            defaultMessage: 'See all',
+            description: 'Link to see all submissions',
+            id: 'Fgr6w/',
+          })}
+          variant="tertiary"
+        />
       </div>
       <ul
         className={clsx(
@@ -102,7 +97,9 @@ export default function ProjectsTrendingSubmissionsSection() {
               <div className="flex flex-col gap-3 w-full">
                 <div className="flex flex-col lg:gap-1 gap-2">
                   <Text size="body1" weight="medium">
-                    <Anchor href={submission.deploymentUrl} variant="unstyled">
+                    <Anchor
+                      href={`/projects/s/${submission.id}`}
+                      variant="unstyled">
                       <span aria-hidden="true" className="absolute inset-0" />
                       {submission.title}
                     </Anchor>
@@ -131,7 +128,7 @@ export default function ProjectsTrendingSubmissionsSection() {
                   {submission.projectsProfile?.userProfile && (
                     <div className="flex flex-row lg:gap-2 gap-1.5 items-center">
                       <UserAvatar
-                        className="border border-green-500"
+                        className="border border-green-400"
                         profile={{
                           avatarUrl:
                             submission.projectsProfile.userProfile.avatarUrl,
@@ -148,16 +145,18 @@ export default function ProjectsTrendingSubmissionsSection() {
                     </div>
                   )}
                   <div className="flex flex-row gap-4 items-center">
-                    <Text color="subtitle" size="body3">
-                      <FormattedMessage
-                        defaultMessage="{likes} Likes"
-                        description="Number of likes for project submission"
-                        id="rRJPN4"
-                        values={{
-                          likes: submission._count.votes,
-                        }}
-                      />
-                    </Text>
+                    {submission._count.votes > 0 && (
+                      <Text color="subtitle" size="body3">
+                        <FormattedMessage
+                          defaultMessage="{likes} Likes"
+                          description="Number of likes for project submission"
+                          id="rRJPN4"
+                          values={{
+                            likes: submission._count.votes,
+                          }}
+                        />
+                      </Text>
+                    )}
                     <Text color="subtitle" size="body3">
                       <FormattedMessage
                         defaultMessage="{comments} Comments"

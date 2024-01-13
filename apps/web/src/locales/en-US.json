@@ -1575,6 +1575,10 @@
     "defaultMessage": "Manage subscription on Stripe",
     "description": "Label for button to manage subscription"
   },
+  "Fgr6w/": {
+    "defaultMessage": "See all",
+    "description": "Link to see all submissions"
+  },
   "FonVOb": {
     "defaultMessage": "All question progress has been reset.",
     "description": "Message shown when question reset progress action succeeds."
@@ -2542,10 +2546,6 @@
   "PGq6U8": {
     "defaultMessage": "Elevate your front-end skills by practicing the creation of front end design system components.",
     "description": "Description for interview preparation focus area"
-  },
-  "PHTFnA": {
-    "defaultMessage": "See all",
-    "description": "Label for See all button on Projects dashboard page"
   },
   "PHhUwD": {
     "defaultMessage": "Back to focus areas",

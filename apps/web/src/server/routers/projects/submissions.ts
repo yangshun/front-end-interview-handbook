@@ -137,7 +137,7 @@ export const projectsChallengeSubmissionRouter = router({
         orderBy: {
           createdAt: 'desc',
         },
-        take: limit,
+        take: Math.min(limit, 10),
         where: {
           NOT: {
             profileId: projectsProfileId,
