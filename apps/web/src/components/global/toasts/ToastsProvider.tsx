@@ -65,7 +65,7 @@ export default function ToastsProvider({ children }: Props) {
       {children}
       <div
         aria-live="assertive"
-        className="pointer-events-none fixed inset-0 z-40 flex items-end px-4 py-6 sm:p-6">
+        className="pointer-events-none fixed inset-0 z-50 flex items-end px-4 py-6 sm:p-6">
         <div className="flex w-full flex-col items-center space-y-4 sm:items-start">
           {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
           {toasts.map(({ id, onClose, ...toast }) => (
