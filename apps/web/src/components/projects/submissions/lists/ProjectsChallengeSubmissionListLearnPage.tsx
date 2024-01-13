@@ -2,7 +2,8 @@
 
 import { FormattedMessage } from 'react-intl';
 
-import ProjectsChallengeSubmissionListSection from '~/components/projects/submissions/ProjectsChallengeSubmissionListSection';
+import ProjectsChallengeSubmissionFilterContextProvider from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionFilterContext';
+import ProjectsChallengeSubmissionListWithFilters from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListWithFilters';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -29,7 +30,9 @@ export default function ProjectsChallengeSubmissionListLearnPage() {
         </Section>
       </div>
       <Section>
-        <ProjectsChallengeSubmissionListSection />
+        <ProjectsChallengeSubmissionFilterContextProvider>
+          <ProjectsChallengeSubmissionListWithFilters />
+        </ProjectsChallengeSubmissionFilterContextProvider>
       </Section>
     </div>
   );

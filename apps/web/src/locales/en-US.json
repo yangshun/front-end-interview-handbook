@@ -331,6 +331,10 @@
     "defaultMessage": "Accessibility",
     "description": "Name of focus area questions"
   },
+  "1lAgj0": {
+    "defaultMessage": "YOE / Job status",
+    "description": "Label for experience filter for submissions list"
+  },
   "1q1I7J": {
     "defaultMessage": "Vercel",
     "description": "Label for \"Vercel\" option in Deployment Info"
@@ -1010,6 +1014,10 @@
   "9FUDxZ": {
     "defaultMessage": "Know the recommended projects to do to progress from beginner to advanced with the skills roadmap",
     "description": "Description for \"Skills roadmap\" feature on Projects home page"
+  },
+  "9Ftt1s": {
+    "defaultMessage": "Filter by component track of original project brief",
+    "description": "Tooltip for Component track filter for submissions list"
   },
   "9KrOcn": {
     "defaultMessage": "The only platform with front end system design questions with official solutions written by senior engineers.",
@@ -1915,6 +1923,10 @@
     "defaultMessage": "Profile",
     "description": "Title of Projects Profile page"
   },
+  "JSTYYJ": {
+    "defaultMessage": "{submissionsCount} submissions",
+    "description": "Label for total number of submissions in all submissions page"
+  },
   "JUhFP/": {
     "defaultMessage": "Minimum {minNumber} characters. Letters and digits required.",
     "description": "Password creation criteria"
@@ -2511,6 +2523,10 @@
     "defaultMessage": "Overview of various question formats",
     "description": "Overview of front end system design interview question formats"
   },
+  "P9nVrb": {
+    "defaultMessage": "Filter by Difficulty of the original project brief",
+    "description": "Tooltip for Difficulty filter for submissions list"
+  },
   "PB+rpp": {
     "defaultMessage": "Reset Progress",
     "description": "Label for button to reset progress"
@@ -2995,6 +3011,10 @@
     "defaultMessage": "Senior Software Engineer",
     "description": "Ryan Van Valkenburg's job title"
   },
+  "TxAh6E": {
+    "defaultMessage": "Filter by submissions of projects you have completed or in progress or not started",
+    "description": "Tooltip for Status filter for projects list"
+  },
   "Ty7LFA": {
     "defaultMessage": "Step 1",
     "description": "Title for \"Step 1\" tab on Projects project page"
@@ -3010,6 +3030,10 @@
   "U10C4D": {
     "defaultMessage": "Tips, Resources and Discussions",
     "description": "Subtitle for \"Tips, Resources and Discussions\" tab on Projects project page"
+  },
+  "U17xuY": {
+    "defaultMessage": "Filter by the creator’s years of experience or their job status",
+    "description": "Tooltip for experience filter for submissions list"
   },
   "U3qfpb": {
     "defaultMessage": "As a Frontend Engineer I had a hard time finding resources that focused specifically on Frontend interview questions, Data Structures & Algorithms etc., After I found GreatFrontEnd it made my life very easy because I found answers to all my questions. The program and questions are structured and categorized meticulously. If you are looking to improve your frontend interview skills I highly recommend their premium feature as it gives you access to not only data structures & algo questions but also front end system design questions with detailed answers. Not only that, they also have a vibrant and helpful Discord community. It's totally worth it.",
@@ -3395,6 +3419,10 @@
     "defaultMessage": "Forgot your password?",
     "description": "Label of forget password button on Email Sign In page"
   },
+  "XXLxeG": {
+    "defaultMessage": "Stack used",
+    "description": "Label for stack used filter for submissions list"
+  },
   "XYCpWf": {
     "defaultMessage": "An eye-catching name to describe your solution. Will be displayed under the original Project's name and help other users identify your submission.",
     "description": "Description for submission name input on project submit page"
@@ -3683,6 +3711,10 @@
     "defaultMessage": "Reset password",
     "description": "Title of Password Reset page"
   },
+  "aSyD6u": {
+    "defaultMessage": "Filters",
+    "description": "Title of Projects challenge submission filter slide-out"
+  },
   "aWL34G": {
     "defaultMessage": "Premium",
     "description": "Label on Premium badge to indicate premium-only access"
@@ -3950,6 +3982,10 @@
   "cktXm2": {
     "defaultMessage": "Get Started",
     "description": "Title of get started page"
+  },
+  "cotxax": {
+    "defaultMessage": "Component track",
+    "description": "Label for Component Track filter for submissions list"
   },
   "cqEIAI": {
     "defaultMessage": "{questionTitle} | Front End Quiz Interview Questions with Solutions",
@@ -4311,6 +4347,10 @@
     "defaultMessage": "Change password for {userEmail}",
     "description": "Title of Change Password page"
   },
+  "gZg1/f": {
+    "defaultMessage": "Filter by stack used by the creator",
+    "description": "Tooltip for stack used filter for submissions list"
+  },
   "gdGavv": {
     "defaultMessage": "Premium Question",
     "description": "Title on question paywall displayed on premium question's pages"
@@ -4410,6 +4450,10 @@
   "hoQUfU": {
     "defaultMessage": "Importance: High to Low",
     "description": "Sorting option on quiz questions page - from High to Low"
+  },
+  "hrg3Bt": {
+    "defaultMessage": "Challenge Difficulty",
+    "description": "Label for Difficulty filter for submissions list"
   },
   "huMizZ": {
     "defaultMessage": "Practice selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.",
@@ -4622,6 +4666,10 @@
   "jp2HuK": {
     "defaultMessage": "Recommended",
     "description": "Sorting option for projects list - recommended"
+  },
+  "jtnskJ": {
+    "defaultMessage": "Creator's YOE",
+    "description": "Label for experience filter for submissions list"
   },
   "jtuJQk": {
     "defaultMessage": "About Us",
@@ -5882,6 +5930,10 @@
   "vegaR1": {
     "defaultMessage": "Sort by",
     "description": "Label for sorting button"
+  },
+  "vepDCh": {
+    "defaultMessage": "Challenge Status",
+    "description": "Label for Status filter for submissions list"
   },
   "vfVwh2": {
     "defaultMessage": "1 Week",
