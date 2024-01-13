@@ -1,0 +1,210 @@
+import clsx from 'clsx';
+import { FormProvider, useForm } from 'react-hook-form';
+import { RiImageLine } from 'react-icons/ri';
+import { useIntl } from 'react-intl';
+import { z } from 'zod';
+
+import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
+import Label from '~/components/ui/Label';
+import Text from '~/components/ui/Text';
+import {
+  themeElementBorderColor,
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
+
+import ProjectsChallengeSubmissionDeploymentUrlField from './fields/ProjectsChallengeSubmissionDeploymentUrlField';
+import { useProjectsChallengeSubmissionDeploymentUrlSchema } from './fields/ProjectsChallengeSubmissionDeploymentUrlSchema';
+import ProjectsChallengeSubmissionImplementationField from './fields/ProjectsChallengeSubmissionImplementationField';
+import { useProjectsChallengeSubmissionImplementationSchema } from './fields/ProjectsChallengeSubmissionImplementationSchema';
+import ProjectsChallengeSubmissionRepositoryUrlField from './fields/ProjectsChallengeSubmissionRepositoryUrlField';
+import { useProjectsChallengeSubmissionRepositoryUrlSchema } from './fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
+import ProjectsChallengeSubmissionSummaryField from './fields/ProjectsChallengeSubmissionSummaryField';
+import { useProjectsChallengeSubmissionSummarySchema } from './fields/ProjectsChallengeSubmissionSummarySchema';
+import ProjectsChallengeSubmissionTitleField from './fields/ProjectsChallengeSubmissionTitleField';
+import { useProjectsChallengeSubmissionTitleSchema } from './fields/ProjectsChallengeSubmissionTitleSchema';
+import ProjectsChallengeSubmitPageDeploymentDialog from './ProjectsChallengeSubmitPageDeploymentDialog';
+import ProjectsOtherTechStackInput from '../skills/ProjectsOtherTechStackInput';
+import ProjectsSkillInput from '../skills/ProjectsSkillInput';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+
+export type ProjectsChallengeSubmissionFormValues = Readonly<{
+  deploymentUrl: string;
+  implementation: string;
+  repositoryUrl: string;
+  summary: string;
+  title: string;
+}>;
+
+function useProjectsChallengeSubmissionFormSchema() {
+  const projectsChallengeSubmissionTitleSchema =
+    useProjectsChallengeSubmissionTitleSchema();
+  const projectsChallengeSubmissionSummarySchema =
+    useProjectsChallengeSubmissionSummarySchema();
+  const projectsChallengeSubmissionRepositoryUrlSchema =
+    useProjectsChallengeSubmissionRepositoryUrlSchema();
+  const projectsChallengeSubmissionDeploymentUrlSchema =
+    useProjectsChallengeSubmissionDeploymentUrlSchema();
+  const projectsChallengeSubmissionImplementationSchema =
+    useProjectsChallengeSubmissionImplementationSchema();
+
+  return z.object({
+    deploymentUrl: projectsChallengeSubmissionDeploymentUrlSchema,
+    implementation: projectsChallengeSubmissionImplementationSchema,
+    repositoryUrl: projectsChallengeSubmissionRepositoryUrlSchema,
+    summary: projectsChallengeSubmissionSummarySchema,
+    title: projectsChallengeSubmissionTitleSchema,
+  });
+}
+
+type Props = Readonly<{
+  defaultValues?: ProjectsChallengeSubmissionFormValues;
+  mode: 'create' | 'edit';
+  onSubmit: (data: ProjectsChallengeSubmissionFormValues) => void;
+}>;
+
+export default function ProjectsChallengeSubmissionForm({
+  defaultValues = {
+    deploymentUrl: '',
+    implementation:
+      'Lorem <strong>ipsum dolor sit amet</strong>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    repositoryUrl: '',
+    summary: '',
+    title: '',
+  },
+  mode,
+  onSubmit,
+}: Props) {
+  const intl = useIntl();
+  const projectsChallengeSubmissionFormSchema =
+    useProjectsChallengeSubmissionFormSchema();
+
+  const formMethods = useForm<ProjectsChallengeSubmissionFormValues>({
+    defaultValues,
+    mode: 'all',
+    resolver: zodResolver(projectsChallengeSubmissionFormSchema),
+  });
+
+  const {
+    control,
+    formState: { isSubmitting },
+    handleSubmit,
+  } = formMethods;
+
+  return (
+    <FormProvider {...formMethods}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="flex flex-col gap-10 mt-9">
+          <div className="grid lg:grid-cols-2 gap-x-6">
+            <div className="flex flex-col">
+              <ProjectsChallengeSubmissionTitleField control={control} />
+              <ProjectsSkillInput
+                description={intl.formatMessage({
+                  defaultMessage:
+                    'The Skills you are using in this project, which are in our skills tree. Helps us track your progress on skills development',
+                  description:
+                    'Description for skills input on project submit page',
+                  id: 'gVRtnm',
+                })}
+                descriptionStyle="tooltip"
+                label={intl.formatMessage({
+                  defaultMessage: 'Skills',
+                  description: 'Label for skills input on project submit page',
+                  id: 'KC1Rzx',
+                })}
+              />
+              <ProjectsOtherTechStackInput value={[]} onChange={() => {}} />
+              <ProjectsChallengeSubmissionRepositoryUrlField
+                control={control}
+              />
+            </div>
+            <div className="flex grow flex-col gap-2">
+              <Label
+                description={intl.formatMessage({
+                  defaultMessage:
+                    'Take a screenshot of your solution, which will be used as your Submission display photo.',
+                  description: 'Project submission tooltip',
+                  id: 'QQPZy5',
+                })}
+                descriptionStyle="tooltip"
+                label={intl.formatMessage({
+                  defaultMessage: 'Screenshot of solution',
+                  description: 'Project submission label',
+                  id: 'vMmOYL',
+                })}
+                required={true}
+              />
+              <div
+                className={clsx(
+                  'flex grow rounded-lg items-center justify-center',
+                  'p-4',
+                  ['border', themeElementBorderColor, 'border-dashed'],
+                )}>
+                <div className="flex flex-col items-center gap-3">
+                  <RiImageLine
+                    aria-hidden={true}
+                    className={clsx(
+                      'w-10 h-10 shrink-0',
+                      themeTextSecondaryColor,
+                    )}
+                  />
+                  <Text color="secondary" display="block" size="body3">
+                    WebP, PNG, JPG, GIF up to 5MB
+                  </Text>
+                </div>
+              </div>
+            </div>
+          </div>
+          <Divider />
+          <div className="grid lg:grid-cols-2 gap-x-6">
+            <div className="flex flex-col gap-2">
+              <ProjectsChallengeSubmissionDeploymentUrlField
+                control={control}
+              />
+              <ProjectsChallengeSubmitPageDeploymentDialog />
+            </div>
+          </div>
+          <Divider />
+          <div className="flex flex-col gap-6">
+            <div className="grid lg:grid-cols-2 gap-x-6">
+              <ProjectsChallengeSubmissionSummaryField control={control} />
+            </div>
+            <ProjectsChallengeSubmissionImplementationField control={control} />
+          </div>
+        </div>
+        <div className="flex gap-2 mt-6">
+          <Button
+            isDisabled={isSubmitting}
+            isLoading={isSubmitting}
+            label={
+              mode === 'create'
+                ? intl.formatMessage({
+                    defaultMessage: 'Submit',
+                    description: 'Submit button label',
+                    id: 'WQaRlF',
+                  })
+                : intl.formatMessage({
+                    defaultMessage: 'Save',
+                    description: 'Save button label',
+                    id: '2y24a/',
+                  })
+            }
+            size="lg"
+            type="submit"
+            variant="primary"
+          />
+          <Button
+            label={intl.formatMessage({
+              defaultMessage: 'Cancel',
+              description: 'Cancel button label',
+              id: '0GT0SI',
+            })}
+            size="lg"
+            variant="secondary"
+          />
+        </div>
+      </form>
+    </FormProvider>
+  );
+}

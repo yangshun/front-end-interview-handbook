@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 import TextInput from '~/components/ui/TextInput';
 
 import { getProjectsChallengeSubmissionTitleAttributes } from './ProjectsChallengeSubmissionTitleSchema';
-import type { ProjectsChallengeSubmissionFormValues } from '../ProjectsChallengeSubmitPage';
+import type { ProjectsChallengeSubmissionFormValues } from '../ProjectsChallengeSubmissionForm';
 
 type Props = Readonly<{
   control: Control<ProjectsChallengeSubmissionFormValues>;

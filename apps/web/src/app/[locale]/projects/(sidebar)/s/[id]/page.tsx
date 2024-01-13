@@ -11,7 +11,7 @@ type Props = Readonly<{
 }>;
 
 export default async function Page({ params }: Props) {
-  const { locale, id } = params;
+  const { locale, id: submissionId } = params;
   const submission = await prisma.projectsChallengeSubmission.findFirst({
     include: {
       _count: {
@@ -36,7 +36,7 @@ export default async function Page({ params }: Props) {
       },
     },
     where: {
-      id,
+      id: submissionId,
     },
   });
 

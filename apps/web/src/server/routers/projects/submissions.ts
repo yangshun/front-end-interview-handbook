@@ -215,7 +215,7 @@ export const projectsChallengeSubmissionRouter = router({
       },
     });
   }),
-  update: projectsChallengeProcedure
+  update: projectsUserProcedure
     .input(
       projectsChallengeSubmissionFormSchema.partial().extend({
         submissionId: z.string().uuid(),
@@ -224,7 +224,6 @@ export const projectsChallengeSubmissionRouter = router({
     .mutation(
       async ({
         input: {
-          slug,
           submissionId,
           title,
           summary,
@@ -238,14 +237,13 @@ export const projectsChallengeSubmissionRouter = router({
           data: {
             deploymentUrl,
             implementation,
-            profileId: projectsProfileId,
             repositoryUrl,
-            slug,
             summary,
             title,
           },
           where: {
             id: submissionId,
+            profileId: projectsProfileId,
           },
         });
       },

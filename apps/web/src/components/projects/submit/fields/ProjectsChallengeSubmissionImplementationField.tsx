@@ -6,7 +6,7 @@ import Label from '~/components/ui/Label';
 import Prose from '~/components/ui/Prose';
 
 import { getProjectsChallengeSubmissionImplementationAttributes } from './ProjectsChallengeSubmissionImplementationSchema';
-import type { ProjectsChallengeSubmissionFormValues } from '../ProjectsChallengeSubmitPage';
+import type { ProjectsChallengeSubmissionFormValues } from '../ProjectsChallengeSubmissionForm';
 import RichTextEditor from '../RichTextEditor';
 
 type Props = Readonly<{
