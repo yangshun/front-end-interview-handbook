@@ -2,7 +2,7 @@ import type { Control } from 'react-hook-form';
 import { useController } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
-import TextInput from '~/components/ui/TextInput';
+import TextArea from '~/components/ui/TextArea';
 
 import { getProjectsChallengeSubmissionSummaryAttributes } from './ProjectsChallengeSubmissionSummarySchema';
 import type { ProjectsChallengeSubmissionFormValues } from '../ProjectsChallengeSubmissionForm';
@@ -25,13 +25,14 @@ export default function ProjectsChallengeSubmissionSummaryField({
   });
 
   return (
-    <TextInput
+    <TextArea
       description={attrs.description}
       descriptionStyle="tooltip"
       errorMessage={formState.errors[fieldName]?.message}
       label={attrs.label}
       maxLength={attrs.validation.maxLength}
       required={attrs.validation.required}
+      rows={2}
       {...field}
     />
   );

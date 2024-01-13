@@ -431,6 +431,10 @@
     "defaultMessage": "Please enter a valid date",
     "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
   },
+  "3UtpZS": {
+    "defaultMessage": "Submission deleted!",
+    "description": "Delete challenge success message"
+  },
   "3WHiQS": {
     "defaultMessage": "Cheatsheet",
     "description": "One-page summary sheet for front end system design interviews"
@@ -646,6 +650,10 @@
   "5ozhak": {
     "defaultMessage": "Start the project to access guides, discussions and reference code",
     "description": "Title for project overlay on projects details page"
+  },
+  "5qLBww": {
+    "defaultMessage": "Congratulations!",
+    "description": "Success message"
   },
   "5rd3TN": {
     "defaultMessage": "Companies",
@@ -1599,6 +1607,10 @@
     "defaultMessage": "Step 4",
     "description": "Title for \"Step 4\" tab on Projects project page"
   },
+  "G7d68r": {
+    "defaultMessage": "Changes saved successfully!",
+    "description": "Update challenge success message"
+  },
   "G9r7uh": {
     "defaultMessage": "Coding questions supported in Vanilla JavaScript and React, with support for more libraries coming soon!",
     "description": "Subtitle for bringing your own framework feature"
@@ -1955,6 +1967,10 @@
     "defaultMessage": "Quiz Questions",
     "description": "Front end quiz interview questions"
   },
+  "JiDkSH": {
+    "defaultMessage": "You have gained XXX rep!",
+    "description": "Success message after submitting a project"
+  },
   "Jkhbjw": {
     "defaultMessage": "Completed",
     "description": "Completed task label"
@@ -2046,6 +2062,10 @@
   "KQXNDC": {
     "defaultMessage": "Please enter your status",
     "description": "Error message for empty \"Other\" input for \"Years of experience replacement status\" on Projects profile onboarding page"
+  },
+  "KSCxTH": {
+    "defaultMessage": "Once a submission has been deleted, it cannot be recovered. All upvotes, reputation, skill and component track progression due to the submission will be reverted.",
+    "description": "Delete challenge submission confirmation subtitle"
   },
   "KY8GB9": {
     "defaultMessage": "Failed to mark question as complete. Please try again",
@@ -2415,6 +2435,10 @@
     "defaultMessage": "Simulate real interview conditions, no need for any setup!",
     "description": "Subtitle for in-browser coding workspace feature"
   },
+  "Nz7W/0": {
+    "defaultMessage": "Oops something went wrong",
+    "description": "Error message"
+  },
   "NzvDd2": {
     "defaultMessage": "Skills roadmap | Projects",
     "description": "Title of Projects skills roadmap page"
@@ -2774,6 +2798,10 @@
   "RZedau": {
     "defaultMessage": "See all",
     "description": "Label for See all button on project submission success page"
+  },
+  "RbQJUu": {
+    "defaultMessage": "You have deleted this submission. Returning you back to the challenges page.",
+    "description": "Delete challenge success message"
   },
   "Rbapby": {
     "defaultMessage": "What's new | Blog",
@@ -3655,6 +3683,10 @@
     "defaultMessage": "Since {date}",
     "description": "Since date for current project session card"
   },
+  "ZbtmL3": {
+    "defaultMessage": "Confirm delete submission",
+    "description": "Delete challenge submission confirmation"
+  },
   "Zdojj9": {
     "defaultMessage": "Other",
     "description": "Label for \"Other\" onboarding option in Projects"
@@ -4262,6 +4294,10 @@
   "fiHpIm": {
     "defaultMessage": "Here you'll find a curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing a deep dive subject.",
     "description": "Description of GreatFrontEnd blog explore series page"
+  },
+  "fifBZf": {
+    "defaultMessage": "Your edits have been successfully saved. Thank you for contributing to our community!",
+    "description": "Update challenge success message"
   },
   "fjKhks": {
     "defaultMessage": "Invest in fuss-free, quality preparation",

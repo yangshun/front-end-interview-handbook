@@ -6,6 +6,7 @@ import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useToast } from '~/components/global/toasts/ToastsProvider';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -21,11 +22,36 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeSubmitPage({ challenge }: Props) {
   const intl = useIntl();
+  const { showToast } = useToast();
   const router = useI18nRouter();
 
   const createSubmissionMutation = trpc.projects.submissions.create.useMutation(
     {
+      onError: () => {
+        showToast({
+          title: intl.formatMessage({
+            defaultMessage: 'Oops something went wrong',
+            description: 'Error message',
+            id: 'Nz7W/0',
+          }),
+          variant: 'danger',
+        });
+      },
       onSuccess: (submission) => {
+        showToast({
+          subtitle: intl.formatMessage({
+            // TODO(projects): Actual rep gained.
+            defaultMessage: 'You have gained XXX rep!',
+            description: 'Success message after submitting a project',
+            id: 'JiDkSH',
+          }),
+          title: intl.formatMessage({
+            defaultMessage: 'Congratulations!',
+            description: 'Success message',
+            id: '5qLBww',
+          }),
+          variant: 'info',
+        });
         router.push(`/projects/s/${submission.id}`);
       },
     },
