@@ -391,6 +391,10 @@
     "defaultMessage": "Online assets",
     "description": "Title for Online Assets section on Projects project assets page"
   },
+  "2sBv9j": {
+    "defaultMessage": "Popularity: Most to least upvotes",
+    "description": "Sorting option for submissions list - popularity"
+  },
   "2vDjTb": {
     "defaultMessage": "Discover study plans tailored to your needs to help your prepare for your upcoming technical interviews.",
     "description": "Description for study plans page"
@@ -2255,6 +2259,10 @@
     "defaultMessage": "GitHub repo",
     "description": "Title for GitHub repo step in project submission checklist"
   },
+  "M4er8i": {
+    "defaultMessage": "Brief: <link>{briefDescription}</link>",
+    "description": "Link to project challenge"
+  },
   "M9z02W": {
     "defaultMessage": "Airbnb",
     "description": "Company name for Airbnb"
@@ -2719,6 +2727,10 @@
     "defaultMessage": "Project started! Leverage the provided guides and resources and submit a link to your site once ready!",
     "description": "Toast subtitle for project session started"
   },
+  "QxlS4d": {
+    "defaultMessage": "Difficulty: Hard to Easy",
+    "description": "Sorting option for submissions list - sort by difficulty from hard to easy"
+  },
   "QzHPOD": {
     "defaultMessage": "Access to {freeChallengeCount}+ free challenges. No access to Figma & guides",
     "description": "Subtitle of Free Plan CTA card in Projects sidebar"
@@ -2978,6 +2990,10 @@
   "T8HWQC": {
     "defaultMessage": "Practice developing inclusive and accessible web experiences, a skill which differentiates senior from junior front end engineers.",
     "description": "Description for interview preparation focus area"
+  },
+  "T8giXw": {
+    "defaultMessage": "Popularity: Least to most upvotes",
+    "description": "Sorting option for submissions list - popularity"
   },
   "T9GECe": {
     "defaultMessage": "Dive into the world of element selection and modification in the DOM. Practice selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.",
@@ -6314,6 +6330,10 @@
   "zDt/bH": {
     "defaultMessage": "Next",
     "description": "Button to go to the next page"
+  },
+  "zEnL8r": {
+    "defaultMessage": "Difficulty: Easy to Hard",
+    "description": "Sorting option for submissions list - sort by difficulty from easy to hard"
   },
   "zIQsmk": {
     "defaultMessage": "Terms of Service",

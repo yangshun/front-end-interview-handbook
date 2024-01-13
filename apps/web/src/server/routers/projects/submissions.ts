@@ -1,6 +1,7 @@
 import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { z } from 'zod';
 
+import { yoeReplacementSchema } from '~/components/projects/misc';
 import { projectsChallengeSubmissionDeploymentUrlSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionDeploymentUrlSchema';
 import { projectsChallengeSubmissionImplementationSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionImplementationSchema';
 import { projectsChallengeSubmissionRepositoryUrlSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
@@ -11,6 +12,8 @@ import prisma from '~/server/prisma';
 
 import { projectsUserProcedure } from './procedures';
 import { publicProcedure, router } from '../../trpc';
+
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 const projectsChallengeProcedure = projectsUserProcedure.input(
   z.object({
@@ -156,34 +159,194 @@ export const projectsChallengeSubmissionRouter = router({
         };
       });
     }),
-  list: projectsUserProcedure.query(async () => {
-    return await prisma.projectsChallengeSubmission.findMany({
-      include: {
-        _count: {
-          select: {
-            votes: true,
-          },
+  list: projectsUserProcedure
+    .input(
+      z.object({
+        challengeSessionStatus: z.array(
+          z.enum(['IN_PROGRESS', 'COMPLETED', 'NOT_STARTED'] as const),
+        ),
+        challenges: z.array(z.string()),
+        profileStatus: z.array(yoeReplacementSchema),
+        query: z.string(),
+        sort: z.object({
+          field: z.enum(['createdAt', 'difficulty', 'votes']).nullable(),
+          isAscendingOrder: z.boolean(),
+        }),
+        yoeExperience: z.array(z.string()),
+      }),
+    )
+    .query(
+      async ({
+        input: {
+          challenges,
+          challengeSessionStatus,
+          profileStatus,
+          yoeExperience,
+          query,
+          sort,
         },
-        projectsProfile: {
+        ctx: { projectsProfileId },
+      }) => {
+        const hasNotStarted = challengeSessionStatus.includes('NOT_STARTED');
+        const statusWithoutNotStarted = challengeSessionStatus.filter(
+          (item) => item !== 'NOT_STARTED',
+        ) as Array<ProjectsChallengeSessionStatus>;
+
+        const startDateFilters = yoeExperience.map((experience) => {
+          const currentDate = new Date();
+          const filterYears = {
+            max: 0,
+            min: 0,
+          };
+
+          switch (experience) {
+            case 'junior':
+              filterYears.min = 1;
+              filterYears.max = 2;
+              break;
+            case 'mid':
+              filterYears.min = 3;
+              filterYears.max = 5;
+              break;
+            case 'senior':
+              filterYears.min = 6;
+              filterYears.max = 0;
+              break;
+
+            default:
+              filterYears.min = 0; // No filter
+              filterYears.max = 0; // No filter
+              break;
+          }
+
+          const minFilterYears =
+            filterYears.min > 0
+              ? {
+                  lt: new Date(
+                    currentDate.getFullYear() - filterYears.min,
+                    currentDate.getMonth(),
+                    currentDate.getDate(),
+                  ),
+                }
+              : {};
+          const maxFilterYears =
+            filterYears.max > 0
+              ? {
+                  gte: new Date(
+                    currentDate.getFullYear() - filterYears.max,
+                    currentDate.getMonth(),
+                    currentDate.getDate(),
+                  ),
+                }
+              : {};
+
+          return {
+            startWorkDate: {
+              ...minFilterYears,
+              ...maxFilterYears,
+            },
+          };
+        });
+
+        const isStatusNotEmpty = challengeSessionStatus.length > 0;
+
+        const sortFilter =
+          sort.field === 'votes'
+            ? {
+                orderBy: {
+                  votes: {
+                    _count: sort.isAscendingOrder ? 'asc' : 'desc',
+                  },
+                },
+              }
+            : sort.field === 'createdAt'
+              ? {
+                  orderBy: {
+                    createdAt: sort.isAscendingOrder ? 'asc' : 'desc',
+                  },
+                }
+              : {
+                  orderBy: {
+                    createdAt: 'desc',
+                  },
+                };
+
+        const submissions = await prisma.projectsChallengeSubmission.findMany({
           include: {
-            userProfile: {
+            _count: {
               select: {
-                avatarUrl: true,
-                id: true,
-                name: true,
-                title: true,
-                username: true,
+                votes: true,
+              },
+            },
+            projectsProfile: {
+              include: {
+                userProfile: {
+                  select: {
+                    avatarUrl: true,
+                    id: true,
+                    name: true,
+                    title: true,
+                    username: true,
+                  },
+                },
               },
             },
           },
-        },
+          take: 6,
+          where: {
+            OR: [
+              { title: { contains: query, mode: 'insensitive' } },
+              { summary: { contains: query, mode: 'insensitive' } },
+            ],
+            projectsProfile: {
+              ...(isStatusNotEmpty && {
+                id: projectsProfileId,
+                sessions: {
+                  some: {
+                    OR: [
+                      {
+                        status: { in: statusWithoutNotStarted },
+                      },
+                      ...(hasNotStarted
+                        ? [
+                            {
+                              NOT: {
+                                status: {
+                                  in: [
+                                    'IN_PROGRESS',
+                                    'COMPLETED',
+                                    'STOPPED',
+                                  ] as Array<ProjectsChallengeSessionStatus>,
+                                },
+                              },
+                            },
+                          ]
+                        : []),
+                    ],
+                  },
+                },
+              }),
+              userProfile: {
+                ...(profileStatus.length > 0 && {
+                  currentStatus: {
+                    in: profileStatus,
+                  },
+                }),
+                ...(startDateFilters.length > 0 && { OR: startDateFilters }),
+              },
+            },
+            ...(challenges.length > 0 && {
+              slug: {
+                in: challenges,
+              },
+            }),
+          },
+          ...(sort.field && sortFilter),
+        });
+
+        return submissions;
       },
-      orderBy: {
-        createdAt: 'desc',
-      },
-      take: 6,
-    });
-  }),
+    ),
   reference: projectsChallengeProcedure.query(async ({ input: { slug } }) => {
     return await prisma.projectsChallengeSubmission.findMany({
       include: {

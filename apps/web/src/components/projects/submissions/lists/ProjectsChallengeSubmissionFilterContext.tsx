@@ -151,7 +151,7 @@ function useFilters() {
             value: 'junior',
           },
           {
-            label: 'Mid-level (1-2)',
+            label: 'Mid-level (3-5)',
             value: 'mid',
           },
           {

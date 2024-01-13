@@ -35,13 +35,30 @@ export default function ProjectsChallengeSubmissionCard({
   return (
     <Card disableSpotlight={true} padding={false} pattern={false}>
       <div className="flex flex-col px-4 py-6 gap-4">
-        {isPinnedOnProfile && challenge != null && (
-          <div className="flex justify-between">
+        {challenge != null &&
+          (isPinnedOnProfile ? (
+            <div className="flex justify-between">
+              <Text color="secondary" size="body3">
+                <FormattedMessage
+                  defaultMessage="Brief: <link>{briefDescription}</link>"
+                  description="Link to brief for pinned project submission"
+                  id="Ukm+GC"
+                  values={{
+                    briefDescription: challenge?.title,
+                    link: (chunks) => (
+                      <Anchor href={challenge?.href}>{chunks}</Anchor>
+                    ),
+                  }}
+                />
+              </Text>
+              <RiPushpinFill className="!text-brand" />
+            </div>
+          ) : (
             <Text color="secondary" size="body3">
               <FormattedMessage
                 defaultMessage="Brief: <link>{briefDescription}</link>"
-                description="Link to brief for pinned project submission"
-                id="Ukm+GC"
+                description="Link to project challenge"
+                id="M4er8i"
                 values={{
                   briefDescription: challenge?.title,
                   link: (chunks) => (
@@ -50,9 +67,7 @@ export default function ProjectsChallengeSubmissionCard({
                 }}
               />
             </Text>
-            <RiPushpinFill className="!text-brand" />
-          </div>
-        )}
+          ))}
         <div className="flex flex-col gap-3">
           <Anchor href={`/projects/s/${id}`}>
             <Text weight="bold">{title}</Text>

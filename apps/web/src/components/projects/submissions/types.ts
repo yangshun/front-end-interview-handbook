@@ -53,3 +53,13 @@ export function addMissingFieldsToSubmission<
     votes: submission._count.votes,
   };
 }
+
+export type ProjectsChallengeSubmissionSortField =
+  | 'createdAt'
+  | 'difficulty'
+  | 'votes';
+
+export type ProjectsChallengeSubmissionStatusFilter =
+  | 'COMPLETED'
+  | 'IN_PROGRESS'
+  | 'NOT_STARTED';
