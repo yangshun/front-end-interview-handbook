@@ -403,6 +403,10 @@
     "defaultMessage": "For a limited time, we are offering our lifetime plans at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation.",
     "description": "Subtitle of Pricing section on Homepage or Pricing page"
   },
+  "2y24a/": {
+    "defaultMessage": "Save",
+    "description": "Save button label"
+  },
   "32cQk/": {
     "defaultMessage": "Warm Up Question",
     "description": "Label for warm up questions"
@@ -1815,6 +1819,10 @@
     "defaultMessage": "How it works",
     "description": "Instruction for projects"
   },
+  "IGlDjB": {
+    "defaultMessage": "To challenge",
+    "description": "Link label to go back to the challenge details page"
+  },
   "IK9Jmh": {
     "defaultMessage": "View other's code and learn from their approach",
     "description": "Description for side projects motivation"
@@ -2643,6 +2651,10 @@
     "defaultMessage": "Dropbox",
     "description": "Company name for Dropbox"
   },
+  "Qc3ZiZ": {
+    "defaultMessage": "Edit your submission",
+    "description": "Title for the challenge submission edit page"
+  },
   "QdCE6p": {
     "defaultMessage": "Main",
     "description": "Section heading in Projects footer for links to home page"
@@ -2706,10 +2718,6 @@
   "R68iHH": {
     "defaultMessage": "Search Svelte questions",
     "description": "Placeholder for search input of Svelte question list"
-  },
-  "R8BLW9": {
-    "defaultMessage": "To project",
-    "description": "Label of To Project button on project submit page"
   },
   "RBApo9": {
     "defaultMessage": "Promotions",
@@ -3319,6 +3327,10 @@
     "defaultMessage": "Cancel",
     "description": "Label for cancel reply button on project discussions page"
   },
+  "WQaRlF": {
+    "defaultMessage": "Submit",
+    "description": "Submit button label"
+  },
   "WRQRec": {
     "defaultMessage": "Regardless of preparation timeline, there's a plan for you.",
     "description": "Preparation plans section subtitle"
@@ -3370,10 +3382,6 @@
   "Wq6liX": {
     "defaultMessage": "Complete projects, with rep awarded by difficulty",
     "description": "Description for \"Complete projects, with rep awarded by difficulty\" feature on Projects home page"
-  },
-  "WsLzW7": {
-    "defaultMessage": "Cancel",
-    "description": "Label for cancel button on project submit page"
   },
   "X/axGA": {
     "defaultMessage": "Affiliate Program",
@@ -4339,10 +4347,6 @@
     "defaultMessage": "Top Angular front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Angular Interview Questions page"
   },
-  "gVRtnm": {
-    "defaultMessage": "The Skills you are using in this project, which are in our skills tree. Helps us track your progress on skills development",
-    "description": "Description for skills input on project submit page"
-  },
   "gZL62Q": {
     "defaultMessage": "Change password for {userEmail}",
     "description": "Title of Change Password page"
@@ -4786,6 +4790,10 @@
   "ke8J8T": {
     "defaultMessage": "Try these popular JavaScript questions",
     "description": "Title for featured questions section"
+  },
+  "kfKz/1": {
+    "defaultMessage": "Delete submission",
+    "description": "Delete challenge submission"
   },
   "khoims": {
     "defaultMessage": "We have a large bank of {projectCount}+ projects organized in 3 structured ways to help you achieve your objectives.",
@@ -5251,6 +5259,10 @@
     "defaultMessage": "View plans",
     "description": "Button displayed on paywall on premium question pages, leading to our pricing plans"
   },
+  "pRi/7+": {
+    "defaultMessage": "The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development",
+    "description": "Description for skills input on project submit page"
+  },
   "pRxRs2": {
     "defaultMessage": "Hear from our users",
     "description": "Title of testimonials section"
@@ -5707,6 +5719,10 @@
     "defaultMessage": "Design, architecture and optimization decisions for common front end apps",
     "description": "Description of system design interview preparation"
   },
+  "tdTeVR": {
+    "defaultMessage": "To submission",
+    "description": "Link label to go back to challenge submission"
+  },
   "tfonOP": {
     "defaultMessage": "Premium Study Plans",
     "description": "Study plans paywall title"
@@ -5850,10 +5866,6 @@
   "uogn1k": {
     "defaultMessage": "Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
-  },
-  "uqV/yJ": {
-    "defaultMessage": "Submit",
-    "description": "Label for submit button on project submit page"
   },
   "urvIL3": {
     "defaultMessage": "Sign in to your account",

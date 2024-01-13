@@ -88,7 +88,7 @@ export const projectsChallengeSubmissionRouter = router({
         });
       },
     ),
-  delete: projectsChallengeProcedure
+  delete: projectsUserProcedure
     .input(
       z.object({
         submissionId: z.string().uuid(),

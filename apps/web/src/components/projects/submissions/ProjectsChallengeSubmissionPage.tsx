@@ -4,6 +4,11 @@ import { useEffect } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
+import Divider from '~/components/ui/Divider';
+import Heading from '~/components/ui/Heading';
+import Section from '~/components/ui/Heading/HeadingContext';
+import Prose from '~/components/ui/Prose';
+
 import type { ProjectsChallengeSubmissionItem } from './types';
 import type { ProjectsChallengeItem } from '../challenges/types';
 
@@ -28,8 +33,18 @@ export default function ProjectsChallengeSubmissionPage({
 
   return (
     <div className="flex flex-col gap-8">
-      <h1>{submission.title}</h1>
-      <p>{submission.summary}</p>
+      <div className="flex flex-col gap-4">
+        <Heading level="heading5">{submission.title}</Heading>
+        <p>{submission.summary}</p>
+      </div>
+      <Divider />
+      <Section>
+        <Prose textSize="sm">
+          <div
+            dangerouslySetInnerHTML={{ __html: submission.implementation }}
+          />
+        </Prose>
+      </Section>
     </div>
   );
 }

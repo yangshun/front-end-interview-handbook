@@ -11,6 +11,8 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import { useI18nRouter } from '~/next-i18nostic/src';
+
 import ProjectsChallengeSubmissionForm from './ProjectsChallengeSubmissionForm';
 
 type Props = Readonly<{
@@ -19,8 +21,15 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeSubmitPage({ challenge }: Props) {
   const intl = useIntl();
-  const createSubmissionMutation =
-    trpc.projects.submissions.create.useMutation();
+  const router = useI18nRouter();
+
+  const createSubmissionMutation = trpc.projects.submissions.create.useMutation(
+    {
+      onSuccess: (submission) => {
+        router.push(`/projects/s/${submission.id}`);
+      },
+    },
+  );
 
   const { href } = challenge.metadata;
 
@@ -47,17 +56,19 @@ export default function ProjectsChallengeSubmitPage({ challenge }: Props) {
           id="VuGzvG"
         />
       </Heading>
-      <Section>
-        <ProjectsChallengeSubmissionForm
-          mode="create"
-          onSubmit={(data) => {
-            createSubmissionMutation.mutate({
-              slug: challenge.metadata.slug,
-              ...data,
-            });
-          }}
-        />
-      </Section>
+      <div className="mt-9">
+        <Section>
+          <ProjectsChallengeSubmissionForm
+            mode="create"
+            onSubmit={(data) => {
+              createSubmissionMutation.mutate({
+                slug: challenge.metadata.slug,
+                ...data,
+              });
+            }}
+          />
+        </Section>
+      </div>
     </div>
   );
 }

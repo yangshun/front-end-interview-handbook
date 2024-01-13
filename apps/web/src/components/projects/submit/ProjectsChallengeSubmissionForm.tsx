@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { FormProvider, useForm } from 'react-hook-form';
-import { RiImageLine } from 'react-icons/ri';
+import { RiDeleteBinLine, RiImageLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
@@ -58,11 +58,18 @@ function useProjectsChallengeSubmissionFormSchema() {
   });
 }
 
-type Props = Readonly<{
-  defaultValues?: ProjectsChallengeSubmissionFormValues;
-  mode: 'create' | 'edit';
-  onSubmit: (data: ProjectsChallengeSubmissionFormValues) => void;
-}>;
+type Props =
+  | Readonly<{
+      defaultValues?: ProjectsChallengeSubmissionFormValues;
+      mode: 'create';
+      onSubmit: (data: ProjectsChallengeSubmissionFormValues) => void;
+    }>
+  | Readonly<{
+      defaultValues?: ProjectsChallengeSubmissionFormValues;
+      mode: 'edit';
+      onDelete: () => void;
+      onSubmit: (data: ProjectsChallengeSubmissionFormValues) => void;
+    }>;
 
 export default function ProjectsChallengeSubmissionForm({
   defaultValues = {
@@ -73,8 +80,8 @@ export default function ProjectsChallengeSubmissionForm({
     summary: '',
     title: '',
   },
-  mode,
   onSubmit,
+  ...props
 }: Props) {
   const intl = useIntl();
   const projectsChallengeSubmissionFormSchema =
@@ -86,26 +93,22 @@ export default function ProjectsChallengeSubmissionForm({
     resolver: zodResolver(projectsChallengeSubmissionFormSchema),
   });
 
-  const {
-    control,
-    formState: { isSubmitting },
-    handleSubmit,
-  } = formMethods;
+  const { control, handleSubmit } = formMethods;
 
   return (
     <FormProvider {...formMethods}>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex flex-col gap-10 mt-9">
+      <form className="flex flex-col gap-12" onSubmit={handleSubmit(onSubmit)}>
+        <div className="flex flex-col gap-10">
           <div className="grid lg:grid-cols-2 gap-x-6">
             <div className="flex flex-col">
               <ProjectsChallengeSubmissionTitleField control={control} />
               <ProjectsSkillInput
                 description={intl.formatMessage({
                   defaultMessage:
-                    'The Skills you are using in this project, which are in our skills tree. Helps us track your progress on skills development',
+                    'The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development',
                   description:
                     'Description for skills input on project submit page',
-                  id: 'gVRtnm',
+                  id: 'pRi/7+',
                 })}
                 descriptionStyle="tooltip"
                 label={intl.formatMessage({
@@ -173,36 +176,53 @@ export default function ProjectsChallengeSubmissionForm({
             <ProjectsChallengeSubmissionImplementationField control={control} />
           </div>
         </div>
-        <div className="flex gap-2 mt-6">
-          <Button
-            isDisabled={isSubmitting}
-            isLoading={isSubmitting}
-            label={
-              mode === 'create'
-                ? intl.formatMessage({
-                    defaultMessage: 'Submit',
-                    description: 'Submit button label',
-                    id: 'WQaRlF',
-                  })
-                : intl.formatMessage({
-                    defaultMessage: 'Save',
-                    description: 'Save button label',
-                    id: '2y24a/',
-                  })
-            }
-            size="lg"
-            type="submit"
-            variant="primary"
-          />
-          <Button
-            label={intl.formatMessage({
-              defaultMessage: 'Cancel',
-              description: 'Cancel button label',
-              id: '0GT0SI',
-            })}
-            size="lg"
-            variant="secondary"
-          />
+        <div className="flex flex-col md:flex-row justify-between gap-2">
+          <div className="flex gap-2">
+            {/* Add disabled/loading states to the buttons. */}
+            <Button
+              label={
+                props.mode === 'create'
+                  ? intl.formatMessage({
+                      defaultMessage: 'Submit',
+                      description: 'Submit button label',
+                      id: 'WQaRlF',
+                    })
+                  : intl.formatMessage({
+                      defaultMessage: 'Save',
+                      description: 'Save button label',
+                      id: '2y24a/',
+                    })
+              }
+              size="lg"
+              type="submit"
+              variant="primary"
+            />
+            <Button
+              label={intl.formatMessage({
+                defaultMessage: 'Cancel',
+                description: 'Cancel button label',
+                id: '0GT0SI',
+              })}
+              size="lg"
+              variant="secondary"
+            />
+          </div>
+          {props.mode === 'edit' && (
+            <Button
+              addonPosition="start"
+              icon={RiDeleteBinLine}
+              label={intl.formatMessage({
+                defaultMessage: 'Delete submission',
+                description: 'Delete challenge submission',
+                id: 'kfKz/1',
+              })}
+              size="lg"
+              variant="danger"
+              onClick={() => {
+                props.onDelete();
+              }}
+            />
+          )}
         </div>
       </form>
     </FormProvider>

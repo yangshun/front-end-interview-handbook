@@ -25,10 +25,19 @@ export default function ProjectsChallengeSubmissionEditPage({
   const intl = useIntl();
   const router = useI18nRouter();
 
+  const submissionId = submission.id;
+
   const updateSubmissionMutation = trpc.projects.submissions.update.useMutation(
     {
       onSuccess: () => {
-        router.push(`/projects/s/${submission.id}`);
+        router.push(`/projects/s/${submissionId}`);
+      },
+    },
+  );
+  const deleteSubmissionMutation = trpc.projects.submissions.delete.useMutation(
+    {
+      onSuccess: () => {
+        router.push(`/projects/challenges`);
       },
     },
   );
@@ -39,7 +48,7 @@ export default function ProjectsChallengeSubmissionEditPage({
         <Button
           addonPosition="start"
           className="-ms-4 -mt-2"
-          href={`/projects/s/${submission.id}`}
+          href={`/projects/s/${submissionId}`}
           icon={RiArrowLeftLine}
           label={intl.formatMessage({
             defaultMessage: 'To submission',
@@ -56,18 +65,25 @@ export default function ProjectsChallengeSubmissionEditPage({
           id="Qc3ZiZ"
         />
       </Heading>
-      <Section>
-        <ProjectsChallengeSubmissionForm
-          defaultValues={submission}
-          mode="edit"
-          onSubmit={(data) => {
-            updateSubmissionMutation.mutate({
-              submissionId: submission.id,
-              ...data,
-            });
-          }}
-        />
-      </Section>
+      <div className="mt-9">
+        <Section>
+          <ProjectsChallengeSubmissionForm
+            defaultValues={submission}
+            mode="edit"
+            onDelete={() => {
+              deleteSubmissionMutation.mutate({
+                submissionId,
+              });
+            }}
+            onSubmit={(data) => {
+              updateSubmissionMutation.mutate({
+                submissionId,
+                ...data,
+              });
+            }}
+          />
+        </Section>
+      </div>
     </div>
   );
 }
