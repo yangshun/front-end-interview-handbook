@@ -176,7 +176,7 @@ export default function ProjectsChallengeSubmissionForm({
             <ProjectsChallengeSubmissionImplementationField control={control} />
           </div>
         </div>
-        <div className="flex flex-col md:flex-row justify-between gap-2">
+        <div className="flex flex-wrap sm:justify-between gap-2">
           <div className="flex gap-2">
             {/* Add disabled/loading states to the buttons. */}
             <Button

@@ -2,12 +2,11 @@ import type { Control } from 'react-hook-form';
 import { useController } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
-import Label from '~/components/ui/Label';
 import Prose from '~/components/ui/Prose';
+import RichTextEditor from '~/components/ui/RichTextEditor';
 
 import { getProjectsChallengeSubmissionImplementationAttributes } from './ProjectsChallengeSubmissionImplementationSchema';
 import type { ProjectsChallengeSubmissionFormValues } from '../ProjectsChallengeSubmissionForm';
-import RichTextEditor from '../RichTextEditor';
 
 type Props = Readonly<{
   control: Control<ProjectsChallengeSubmissionFormValues>;
@@ -20,7 +19,7 @@ export default function ProjectsChallengeSubmissionImplementationField({
 }: Props) {
   const intl = useIntl();
   const attrs = getProjectsChallengeSubmissionImplementationAttributes(intl);
-  const { field } = useController({
+  const { field, formState } = useController({
     control,
     name: fieldName,
     rules: { required: true },
@@ -28,24 +27,21 @@ export default function ProjectsChallengeSubmissionImplementationField({
 
   return (
     <div className="grid lg:grid-cols-2 gap-x-6 gap-y-8">
-      <div className="flex flex-col grow gap-2">
-        <Label
-          description={attrs.description}
-          descriptionStyle="tooltip"
-          label={attrs.label}
-          required={attrs.validation.required}
-        />
-        <RichTextEditor
-          {...field}
-          onChange={(newValue) => {
-            field.onChange({
-              target: {
-                value: newValue,
-              },
-            });
-          }}
-        />
-      </div>
+      <RichTextEditor
+        description={attrs.description}
+        descriptionStyle="tooltip"
+        errorMessage={formState.errors[fieldName]?.message}
+        label={attrs.label}
+        required={attrs.validation.required}
+        {...field}
+        onChange={(newValue) => {
+          field.onChange({
+            target: {
+              value: newValue,
+            },
+          });
+        }}
+      />
       <Prose textSize="sm">
         <h2>Example write-up</h2>
         <h3>Tech stack and approach</h3>
