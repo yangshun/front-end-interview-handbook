@@ -1575,6 +1575,10 @@
     "defaultMessage": "Manage your subscription status and payment methods on the Stripe billing portal.",
     "description": "Call to action text to uppgrade plan."
   },
+  "G2qoEJ": {
+    "defaultMessage": "{challengesCompleted}",
+    "description": "Challenges completed for track in Continue tracks and skills section on Projects dashboard page"
+  },
   "G5tU8P": {
     "defaultMessage": "Step 4",
     "description": "Title for \"Step 4\" tab on Projects project page"
@@ -2814,6 +2818,10 @@
   "S21xBI": {
     "defaultMessage": "Login to track your progress and access premium",
     "description": "Description of Login page"
+  },
+  "S4nrpS": {
+    "defaultMessage": "{trackName} Track",
+    "description": "Title for track in Continue tracks and skills section on Projects dashboard page"
   },
   "S98EuF": {
     "defaultMessage": "Project brief",
@@ -5935,6 +5943,10 @@
     "defaultMessage": "Pick your framework",
     "description": "Label for an example list of User Interface Questions on marketing pages"
   },
+  "w5+zQe": {
+    "defaultMessage": "{difficulty}",
+    "description": "Difficulty for track in Continue tracks and skills section on Projects dashboard page"
+  },
   "w9U/8b": {
     "defaultMessage": "Team",
     "description": "Link to company's team page"
@@ -6182,6 +6194,10 @@
   "yrC3kR": {
     "defaultMessage": "Editor shortcuts",
     "description": "Label for button to open code editor shortcuts"
+  },
+  "yyJnKs": {
+    "defaultMessage": "/{totalChallenges} recommended",
+    "description": "Total challenges recommended for track in Continue tracks and skills section on Projects dashboard page"
   },
   "z+5YJV": {
     "defaultMessage": "View All Questions",

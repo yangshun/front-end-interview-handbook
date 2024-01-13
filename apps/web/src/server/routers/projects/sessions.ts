@@ -1,6 +1,7 @@
 import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { z } from 'zod';
 
+import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 
 import { projectsUserProcedure } from './procedures';
@@ -62,6 +63,53 @@ export const projectsSessionsRouter = router({
       });
     },
   ),
+  getMostProgressTracks: projectsUserProcedure
+    .input(
+      z.object({
+        limit: z.number().int().positive(),
+      }),
+    )
+    .query(async ({ input: { limit }, ctx: { projectsProfileId } }) => {
+      const { tracks } = await readProjectsTrackList();
+      const completedSessions = await prisma.projectsChallengeSession.findMany({
+        where: {
+          profileId: projectsProfileId,
+          status: 'COMPLETED',
+        },
+      });
+
+      const userTracksData = tracks.map((track) => {
+        const completedChallengesForTrack = track.challenges.filter(
+          (challenge) =>
+            completedSessions.some(
+              (session) => session.slug === challenge.slug,
+            ),
+        );
+        const pointsCompleted = completedChallengesForTrack.reduce(
+          (total, challenge) => total + challenge.points,
+          0,
+        );
+        const totalPoints = track.challenges.reduce(
+          (total, challenge) => total + challenge.points,
+          0,
+        );
+        const percentageCompleted = (pointsCompleted / totalPoints) * 100;
+        const numChallengesCompleted = completedChallengesForTrack.length;
+        const numChallenges = track.challenges.length;
+
+        return {
+          ...track,
+          numChallenges,
+          numChallengesCompleted,
+          percentageCompleted,
+        };
+      });
+
+      return userTracksData
+        .filter((track) => track.percentageCompleted < 100)
+        .sort((a, b) => b.percentageCompleted - a.percentageCompleted)
+        .slice(0, limit);
+    }),
   getMostRecentlyStarted: projectsUserProcedure
     .input(
       z.object({

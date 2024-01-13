@@ -26,8 +26,12 @@ const limit = 3;
 
 export default function ProjectsContinueProjectsSection() {
   const intl = useIntl();
-  const { data: recentSessions } =
+  const { isLoading, data: recentSessions } =
     trpc.projects.sessions.getMostRecentlyStarted.useQuery({ limit });
+
+  if (isLoading || recentSessions?.length === 0) {
+    return null;
+  }
 
   return (
     <div className="flex flex-col gap-4">

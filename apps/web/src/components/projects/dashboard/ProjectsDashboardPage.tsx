@@ -11,6 +11,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import ProjectsCompleteProfileCard from './ProjectsCompleteProfileCard';
 import ProjectsContinueProjectsSection from './ProjectsContinueProjectsSection';
 import ProjectsRecommendedActionsSection from './ProjectsRecommendedActionsSection';
+import ProjectsTrackAndSkillsSection from './ProjectsTrackAndSkillsSection';
 import ProjectsTrendingSubmissionsSection from './ProjectsTrendingSubmissionsSection';
 
 export default function ProjectsDashboardPage() {
@@ -50,16 +51,7 @@ export default function ProjectsDashboardPage() {
           <div className="lg:grid-cols-2 lg:grid-rows-1 grid-cols-1 grid grid-rows-2 gap-3 md:gap-4 lg:gap-6">
             <div className="grid grid-cols-1 gap-3 md:gap-4 lg:gap-6">
               <ProjectsContinueProjectsSection />
-              <div className="flex flex-col gap-4">
-                <Heading level="heading6">
-                  <FormattedMessage
-                    defaultMessage="Continue tracks and skills"
-                    description="Title for Continue tracks and skills section on Projects dashboard page"
-                    id="JIWdeN"
-                  />
-                </Heading>
-                Placeholder for tracks and skills
-              </div>
+              <ProjectsTrackAndSkillsSection />
             </div>
             <ProjectsTrendingSubmissionsSection />
           </div>
