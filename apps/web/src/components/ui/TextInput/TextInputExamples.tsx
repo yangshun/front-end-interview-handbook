@@ -73,6 +73,12 @@ export default function TextInputExamples() {
         type="text"
       />
       <TextInput
+        label="Maximum length"
+        maxLength={10}
+        placeholder="Maximum of 10 characters"
+        type="text"
+      />
+      <TextInput
         description="There's nothing to see here"
         descriptionStyle="tooltip"
         label="Description in tooltip"

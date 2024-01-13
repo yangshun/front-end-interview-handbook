@@ -16,6 +16,7 @@ type Attributes = Pick<
   | 'autoComplete'
   | 'autoFocus'
   | 'id'
+  | 'maxLength'
   | 'name'
   | 'onBlur'
   | 'onFocus'
@@ -35,7 +36,6 @@ type Props = Readonly<{
   isDisabled?: boolean;
   isLabelHidden?: boolean;
   label: string;
-  maxLength?: number;
   onChange?: (value: string, event: ChangeEvent<HTMLInputElement>) => void;
   size?: TextInputSize;
   startIcon?: React.ComponentType<React.ComponentProps<'svg'>>;
@@ -106,6 +106,7 @@ function TextInput(
     isDisabled,
     isLabelHidden = false,
     label,
+    maxLength,
     name,
     placeholder,
     required,
@@ -114,7 +115,6 @@ function TextInput(
     type = 'text',
     value,
     onChange,
-    maxLength,
   }: Props,
   ref: ForwardedRef<HTMLInputElement>,
 ) {

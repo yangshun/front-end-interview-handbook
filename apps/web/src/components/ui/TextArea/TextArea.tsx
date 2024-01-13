@@ -5,7 +5,7 @@ import type {
   ForwardedRef,
   TextareaHTMLAttributes,
 } from 'react';
-import React, { forwardRef, useId } from 'react';
+import React, { forwardRef, useEffect, useId, useState } from 'react';
 
 import type { LabelDescriptionStyle } from '../Label';
 import Label from '../Label';
@@ -99,6 +99,7 @@ function TextArea(
     id: idParam,
     isLabelHidden,
     label,
+    maxLength,
     resize = 'vertical',
     required,
     size = 'md',
@@ -111,9 +112,18 @@ function TextArea(
 ) {
   const hasError = !!errorMessage;
   const generatedId = useId();
+  const [valueLength, setValueLength] = useState(
+    (value ?? defaultValue ?? '').length,
+  );
   const id = idParam ?? generatedId;
   const messageId = useId();
   const state: State = hasError ? 'error' : 'normal';
+
+  const hasBottomSection = hasError || maxLength != null;
+
+  useEffect(() => {
+    setValueLength((value ?? defaultValue ?? '').length);
+  }, [value, defaultValue]);
 
   return (
     <div
@@ -164,18 +174,27 @@ function TextArea(
         required={required}
         value={value != null ? value : undefined}
         onChange={(event) => {
-          if (!onChange) {
-            return;
-          }
-
-          onChange(event.target.value, event);
+          onChange?.(event.target.value, event);
         }}
         {...props}
       />
-      {errorMessage && (
-        <Text color="error" display="block" id={messageId} size="body3">
-          {errorMessage}
-        </Text>
+      {hasBottomSection && (
+        <div
+          className={clsx(
+            'flex w-full',
+            errorMessage ? 'justify-between' : 'justify-end',
+          )}>
+          {errorMessage && (
+            <Text color="error" display="block" id={messageId} size="body3">
+              {errorMessage}
+            </Text>
+          )}
+          {maxLength && (
+            <Text color="subtle" size="body3">
+              {valueLength}/{maxLength}
+            </Text>
+          )}
+        </div>
       )}
     </div>
   );

@@ -48,6 +48,11 @@ export default function TextAreaExamples() {
         resize="horizontal"
       />
       <TextArea
+        label="Maximum length"
+        maxLength={10}
+        placeholder="Maximum of 10 characters"
+      />
+      <TextArea
         description="There's nothing to see here"
         descriptionStyle="tooltip"
         label="Description in tooltip"
