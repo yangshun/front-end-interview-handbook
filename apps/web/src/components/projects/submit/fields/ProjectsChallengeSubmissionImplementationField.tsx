@@ -35,7 +35,16 @@ export default function ProjectsChallengeSubmissionImplementationField({
           label={attrs.label}
           required={attrs.validation.required}
         />
-        <RichTextEditor {...field} />
+        <RichTextEditor
+          {...field}
+          onChange={(newValue) => {
+            field.onChange({
+              target: {
+                value: newValue,
+              },
+            });
+          }}
+        />
       </div>
       <Prose textSize="sm">
         <h2>Example write-up</h2>

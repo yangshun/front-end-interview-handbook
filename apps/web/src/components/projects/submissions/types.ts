@@ -21,6 +21,7 @@ export type ProjectsChallengeSubmissionItem = Readonly<{
   stack: Array<ProjectsSkill>;
   summary: string;
   title: string;
+  implementation: string;
   views: number;
   votes: number;
 }>;

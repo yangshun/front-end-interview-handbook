@@ -10,7 +10,7 @@ import StarterKit from '@tiptap/starter-kit';
 
 type Props = Readonly<{
   onBlur?: FormEventHandler<HTMLDivElement>;
-  onChange?: FormEventHandler<HTMLDivElement>;
+  onChange?: (value: string) => void;
   value: string;
 }>;
 
@@ -31,16 +31,12 @@ function RichTextEditor(
       },
     },
     extensions: [StarterKit],
+    onUpdate: ({ editor: editor_ }) => {
+      onChange?.(editor_.getHTML());
+    },
   });
 
-  return (
-    <EditorContent
-      ref={ref}
-      editor={editor}
-      onBlur={onBlur}
-      onChange={onChange}
-    />
-  );
+  return <EditorContent ref={ref} editor={editor} onBlur={onBlur} />;
 }
 
 export default forwardRef(RichTextEditor);
