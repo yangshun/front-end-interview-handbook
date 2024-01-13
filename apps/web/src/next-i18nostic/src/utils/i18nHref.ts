@@ -26,11 +26,13 @@ export default function i18nHref(
     return href;
   }
 
-  // Throw if not an absolute URL.
-  if (!pathname.startsWith('/')) {
-    throw new Error(
-      `Only absolute URLs supported. Pathnames must start with /, but received ${pathname}`,
-    );
+  if (process.env.NODE_ENV === 'development') {
+    // Throw if not an absolute URL.
+    if (!pathname.startsWith('/')) {
+      throw new Error(
+        `Only absolute URLs supported. Pathnames must start with /, but received ${pathname}`,
+      );
+    }
   }
 
   const { pathname: rawPathname } = parseI18nPathname(pathname);
