@@ -19,7 +19,8 @@ export default function ProjectsDashboardPage() {
     trpc.projects.profile.getDashboardStatistics.useQuery();
   const { data: isNewToProjects } =
     trpc.projects.sessions.isNewToProjects.useQuery();
-  const { data: profile } = trpc.projects.profile.projectsProfileGet.useQuery();
+  const { data: userProfile } =
+    trpc.projects.profile.projectsProfileGet.useQuery();
 
   return (
     <div className="flex flex-col gap-16">
@@ -45,8 +46,10 @@ export default function ProjectsDashboardPage() {
       </div>
       {isNewToProjects ? (
         <ProjectsDashboardRecommendedActionsSection
-          primaryMotivation={profile?.projectsProfile[0].primaryMotivation}
-          secondaryMotivation={profile?.projectsProfile[0].secondaryMotivation}
+          primaryMotivation={userProfile?.projectsProfile?.primaryMotivation}
+          secondaryMotivation={
+            userProfile?.projectsProfile?.secondaryMotivation
+          }
         />
       ) : (
         <Section>

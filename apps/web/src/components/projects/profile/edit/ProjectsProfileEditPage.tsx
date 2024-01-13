@@ -16,7 +16,6 @@ import ProjectsProfileMotivationSection from '~/components/projects/profile/edit
 import ProjectsProfileSkillSection from '~/components/projects/profile/edit/ProjectsProfileSkillSection';
 import ProjectsProfileSocialSection from '~/components/projects/profile/edit/ProjectsProfileSocialSection';
 import ProjectsProfileYOESection from '~/components/projects/profile/edit/ProjectsProfileYOESection';
-import type { ProjectsUserProfile } from '~/components/projects/profile/types';
 import type {
   MotivationReasonValue,
   ProjectsEditProfileValues,
@@ -26,6 +25,7 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import type { Profile, ProjectsProfile } from '@prisma/client';
 
 function useProjectsProfileEditSchema() {
   const intl = useIntl();
@@ -92,24 +92,27 @@ type ProjectsEditProfileTransformedValues = z.infer<
 >;
 
 type Props = Readonly<{
-  profile: ProjectsUserProfile;
+  userProfile: Profile &
+    Readonly<{
+      projectsProfile: ProjectsProfile;
+    }>;
 }>;
 
-export default function ProjectsProfileEditPage({ profile }: Props) {
+export default function ProjectsProfileEditPage({ userProfile }: Props) {
   const intl = useIntl();
   const { showToast } = useToast();
   const projectsProfileUpdateMutation =
     trpc.projects.profile.projectsProfileUpdate.useMutation();
   const { data: initialValues } =
     trpc.projects.profile.projectsProfileGet.useQuery(undefined, {
-      initialData: profile,
+      initialData: userProfile,
       refetchOnMount: false,
       refetchOnReconnect: false,
     });
 
   const { reasonOptions } = useProjectsMotivationReasonOptions();
   const projectsProfileEditSchema = useProjectsProfileEditSchema();
-  const projectsProfile = initialValues?.projectsProfile[0] || {
+  const projectsProfile = initialValues?.projectsProfile || {
     primaryMotivation: null,
     secondaryMotivation: null,
   };

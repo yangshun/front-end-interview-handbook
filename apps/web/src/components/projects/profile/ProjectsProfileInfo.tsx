@@ -9,7 +9,6 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import ProjectsProfileBio from '~/components/projects/profile/info/ProjectsProfileBio';
 import ProjectsProfileMotivation from '~/components/projects/profile/info/ProjectsProfileMotivation';
 import ProjectsProfileTechList from '~/components/projects/profile/info/ProjectsProfileTechList';
-import type { ProjectsUserProfile } from '~/components/projects/profile/types';
 import ProjectsUserJobTitle from '~/components/projects/users/ProjectsUserJobTitle';
 import ProjectsUserReputation from '~/components/projects/users/ProjectsUserReputation';
 import ProjectsUserYearsOfExperience from '~/components/projects/users/ProjectsUserYearsOfExperience';
@@ -23,16 +22,24 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeTextFaintColor } from '~/components/ui/theme';
 
+import type { Profile, ProjectsProfile } from '@prisma/client';
+
 type Props = Readonly<{
-  isMyProfile: boolean;
-  profile: ProjectsUserProfile;
+  isViewingOwnProfile: boolean;
+  userProfile: Profile &
+    Readonly<{
+      projectsProfile: ProjectsProfile;
+    }>;
 }>;
 
-export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
+export default function ProjectsProfileInfo({
+  userProfile,
+  isViewingOwnProfile,
+}: Props) {
   const intl = useIntl();
-  const projectsProfile = profile.projectsProfile[0];
+  const { projectsProfile } = userProfile;
 
-  const userFirstName = profile?.name?.split(' ')[0];
+  const userFirstName = userProfile?.name?.split(' ')[0];
 
   const proficientSkills = ['React', 'HTML', 'CSS', 'JavaScript'];
   const growSkills = ['Next.js', 'Vercel'];
@@ -43,14 +50,14 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
         <div className="gap-6 items-center md:flex hidden">
           <UserAvatarWithLevel
             level={11}
-            profile={profile}
+            profile={userProfile}
             progress={30}
             size="3xl"
           />
           <div className="flex gap-3 flex-col">
             <div className="flex gap-2 items-center">
               <Text size="body1" weight="medium">
-                {profile.name}
+                {userProfile.name}
               </Text>
               {/* TODO(projects): Add actual premium logic */}
               <Badge
@@ -63,8 +70,8 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
                 size="md"
                 variant="special"
               />
-              {profile.githubUsername && (
-                <a href={profile.githubUsername}>
+              {userProfile.githubUsername && (
+                <a href={userProfile.githubUsername}>
                   <span className="sr-only">Github</span>
                   <RiGithubFill
                     aria-hidden="true"
@@ -72,8 +79,8 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
                   />
                 </a>
               )}
-              {profile.linkedInUsername && (
-                <a href={profile.linkedInUsername}>
+              {userProfile.linkedInUsername && (
+                <a href={userProfile.linkedInUsername}>
                   <span className="sr-only">LinkedIn</span>
                   <RiLinkedinBoxFill
                     aria-hidden="true"
@@ -88,7 +95,7 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
                   id="IO/eOZ"
                   values={{
                     date: new Date(
-                      projectsProfile?.createdAt,
+                      projectsProfile.createdAt,
                     ).toLocaleDateString('en-US', {
                       day: 'numeric',
                       month: 'short',
@@ -99,8 +106,8 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
               </Text>
             </div>
             <div className="flex gap-8 items-center">
-              {profile.title && (
-                <ProjectsUserJobTitle jobTitle={profile.title} />
+              {userProfile.title && (
+                <ProjectsUserJobTitle jobTitle={userProfile.title} />
               )}
 
               {/* TODO(projects): Remove the hardcoded YOE */}
@@ -113,14 +120,14 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
           <div className="flex gap-8 items-center">
             <UserAvatarWithLevel
               level={11}
-              profile={profile}
+              profile={userProfile}
               progress={30}
               size="3xl"
             />
             <div className="flex gap-2 flex-col">
               <div className="flex gap-2 items-center flex-wrap">
                 <Text size="body1" weight="medium">
-                  {profile.name}
+                  {userProfile.name}
                 </Text>
                 <div className="flex items-center gap-2">
                   {/* TODO(projects): Add actual premium logic */}
@@ -131,8 +138,8 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
                     size="sm"
                     variant="special"
                   />
-                  {profile.githubUsername && (
-                    <a href={profile.githubUsername}>
+                  {userProfile.githubUsername && (
+                    <a href={userProfile.githubUsername}>
                       <span className="sr-only">Github</span>
                       <RiGithubFill
                         aria-hidden="true"
@@ -140,8 +147,8 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
                       />
                     </a>
                   )}
-                  {profile.linkedInUsername && (
-                    <a href={profile.linkedInUsername}>
+                  {userProfile.linkedInUsername && (
+                    <a href={userProfile.linkedInUsername}>
                       <span className="sr-only">LinkedIn</span>
                       <RiLinkedinBoxFill
                         aria-hidden="true"
@@ -158,7 +165,7 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
                   id="IO/eOZ"
                   values={{
                     date: new Date(
-                      projectsProfile?.createdAt,
+                      projectsProfile.createdAt,
                     ).toLocaleDateString('en-US', {
                       day: 'numeric',
                       month: 'short',
@@ -173,7 +180,7 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
           <Divider className="mt-8 mb-6" />
           <div className="flex flex-col gap-8">
             <Heading level="heading6">
-              {isMyProfile ? (
+              {isViewingOwnProfile ? (
                 <FormattedMessage
                   defaultMessage="My Profile"
                   description="Title of Projects Profile page"
@@ -188,8 +195,8 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
               )}
             </Heading>
             <div className="flex gap-8 items-center flex-wrap">
-              {profile.title && (
-                <ProjectsUserJobTitle jobTitle={profile.title} />
+              {userProfile.title && (
+                <ProjectsUserJobTitle jobTitle={userProfile.title} />
               )}
 
               {/* TODO(projects): Remove the hardcoded YOE */}
@@ -198,10 +205,9 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
           </div>
         </div>
       </Section>
-
       <div className="flex justify-between md:flex-row flex-col gap-8">
         <div className="md:w-2/5 w-full gap-8 flex flex-col">
-          {profile.bio && <ProjectsProfileBio bio={profile.bio} />}
+          {userProfile.bio && <ProjectsProfileBio bio={userProfile.bio} />}
           {(projectsProfile.primaryMotivation ||
             projectsProfile.secondaryMotivation) && (
             <ProjectsProfileMotivation
@@ -213,7 +219,7 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
         <div className="md:w-2/5 w-full gap-8 flex flex-col">
           <ProjectsProfileTechList
             heading={
-              isMyProfile
+              isViewingOwnProfile
                 ? intl.formatMessage({
                     defaultMessage: 'Tech stack I am proficient in',
                     description:
@@ -232,7 +238,7 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
             }
             skills={proficientSkills}
             tooltipMessage={
-              isMyProfile
+              isViewingOwnProfile
                 ? intl.formatMessage({
                     defaultMessage:
                       'The skills / tools / frameworks I am already familiar in',
@@ -254,7 +260,7 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
           />
           <ProjectsProfileTechList
             heading={
-              isMyProfile
+              isViewingOwnProfile
                 ? intl.formatMessage({
                     defaultMessage: 'Tech stack I am hoping to grow in',
                     description:
@@ -274,7 +280,7 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
             }
             skills={growSkills}
             tooltipMessage={
-              isMyProfile
+              isViewingOwnProfile
                 ? intl.formatMessage({
                     defaultMessage:
                       'The skills / tools / frameworks I am hoping to grow',
@@ -296,7 +302,7 @@ export default function ProjectsProfileInfo({ profile, isMyProfile }: Props) {
           />
         </div>
       </div>
-      {isMyProfile && (
+      {isViewingOwnProfile && (
         <div className="md:hidden block">
           <Button
             href="/projects/profile/edit"

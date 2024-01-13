@@ -52,7 +52,7 @@ model Profile {
   questionJavaScriptCommunitySolutions    QuestionJavaScriptCommunitySolution[]
   questionUserInterfaceSaves              QuestionUserInterfaceSave[]
   questionUserInterfaceCommunitySolutions QuestionUserInterfaceCommunitySolution[]
-  projectsProfile                         ProjectsProfile[]
+  projectsProfile                         ProjectsProfile?
   rewardsTaskCompletions                  RewardsTaskCompletion[]
 }
 
@@ -184,10 +184,10 @@ model ProjectsProfile {
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @updatedAt
 
-  userProfile                     Profile                           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  sessions                        ProjectsChallengeSession[]
-  submissions                     ProjectsChallengeSubmission[]
-  ProjectsChallengeSubmissionVote ProjectsChallengeSubmissionVote[]
+  userProfile Profile                           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  sessions    ProjectsChallengeSession[]
+  submissions ProjectsChallengeSubmission[]
+  votesGiven  ProjectsChallengeSubmissionVote[]
 }
 
 enum ProjectsChallengeSessionStatus {

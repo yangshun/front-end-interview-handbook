@@ -9,46 +9,54 @@ import { trpc } from '~/hooks/trpc';
 import ProjectsProfileFeaturedSubmissions from '~/components/projects/profile/ProjectsProfileFeaturedSubmissions';
 import ProjectsProfileInfo from '~/components/projects/profile/ProjectsProfileInfo';
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
-import type { ProjectsUserProfile } from '~/components/projects/profile/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 
+import type { Profile, ProjectsProfile } from '@prisma/client';
+
 type Props = Readonly<{
-  initialProfile: ProjectsUserProfile;
-  isMyProfile: boolean;
+  initialUserProfile: Profile &
+    Readonly<{
+      projectsProfile: ProjectsProfile;
+    }>;
+  isViewingOwnProfile: boolean;
 }>;
 
 export default function ProjectsProfilePage({
-  initialProfile,
-  isMyProfile,
+  initialUserProfile,
+  isViewingOwnProfile,
 }: Props) {
   const intl = useIntl();
 
-  // For getting the updated profile data, when there is edit in profile edit page
-  const { data: profile } = trpc.projects.profile.projectsProfileGet.useQuery(
-    undefined,
-    {
-      enabled: isMyProfile,
-      initialData: initialProfile,
+  // For getting the updated profile data, when there is edit in profile edit page.
+  const { data: userProfile } =
+    trpc.projects.profile.projectsProfileGet.useQuery(undefined, {
+      enabled: isViewingOwnProfile,
+      initialData: initialUserProfile,
       refetchOnMount: false,
       refetchOnReconnect: false,
-    },
-  );
-
-  if (profile === null) {
-    return notFound();
-  }
+    });
 
   const { data: profileStatistics } =
     trpc.projects.profile.getDashboardStatisticsForProfile.useQuery({
-      projectsProfileId: profile.projectsProfile[0].id,
+      projectsProfileId: initialUserProfile.id,
     });
+
+  if (userProfile == null) {
+    return notFound();
+  }
+
+  const { projectsProfile } = userProfile;
+
+  if (projectsProfile == null) {
+    return notFound();
+  }
 
   return (
     <div className="flex flex-col gap-8">
       <div className="md:flex hidden items-center gap-6">
         <Heading level="heading5">
-          {isMyProfile ? (
+          {isViewingOwnProfile ? (
             <FormattedMessage
               defaultMessage="My Profile"
               description="Title of Projects Profile page"
@@ -62,7 +70,7 @@ export default function ProjectsProfilePage({
             />
           )}
         </Heading>
-        {isMyProfile && (
+        {isViewingOwnProfile && (
           <Button
             href="/projects/profile/edit"
             icon={RiPencilFill}
@@ -75,7 +83,10 @@ export default function ProjectsProfilePage({
           />
         )}
       </div>
-      <ProjectsProfileInfo isMyProfile={isMyProfile} profile={profile} />
+      <ProjectsProfileInfo
+        isViewingOwnProfile={isViewingOwnProfile}
+        userProfile={{ ...userProfile, projectsProfile }}
+      />
       <ProjectsProfileStats
         codeReviews={profileStatistics?.codeReviews ?? 0}
         completedChallenges={profileStatistics?.completedChallenges ?? 0}

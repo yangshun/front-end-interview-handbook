@@ -1,4 +1,4 @@
-import { notFound, redirect } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 import ProjectsProfileEditPage from '~/components/projects/profile/edit/ProjectsProfileEditPage';
 
@@ -14,7 +14,7 @@ export default async function Page() {
     );
   }
 
-  const profile = await prisma.profile.findUnique({
+  const userProfile = await prisma.profile.findUnique({
     include: {
       projectsProfile: true,
     },
@@ -23,11 +23,24 @@ export default async function Page() {
     },
   });
 
-  // If no user profile or no projects profile
-  if (profile === null || profile?.projectsProfile.length === 0) {
-    // TODO(projects): Redirect to projects onboarding page.
-    return notFound();
+  // If no user profile.
+  if (userProfile == null) {
+    return redirect(`/projects/challenges`);
   }
 
-  return <ProjectsProfileEditPage profile={profile} />;
+  const { projectsProfile } = userProfile;
+
+  // If no projects profile
+  if (projectsProfile == null) {
+    return redirect(`/projects/onboarding`);
+  }
+
+  return (
+    <ProjectsProfileEditPage
+      userProfile={{
+        ...userProfile,
+        projectsProfile,
+      }}
+    />
+  );
 }

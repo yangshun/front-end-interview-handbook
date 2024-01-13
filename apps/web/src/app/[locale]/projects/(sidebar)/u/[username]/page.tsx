@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 
 import ProjectsProfilePage from '~/components/projects/profile/ProjectsProfilePage';
 
@@ -10,7 +10,7 @@ type Props = Readonly<{
 }>;
 
 export default async function Page({ params }: Props) {
-  const [user, profile] = await Promise.all([
+  const [user, userProfile] = await Promise.all([
     readUserFromToken(),
     prisma.profile.findUnique({
       include: {
@@ -22,14 +22,32 @@ export default async function Page({ params }: Props) {
     }),
   ]);
 
-  // If no user profile or no projects profile.
-  if (profile == null || profile?.projectsProfile.length === 0) {
+  // If no user profile.
+  if (userProfile == null) {
+    return redirect(`/projects/challenges`);
+  }
+
+  const isViewingOwnProfile = user?.id === userProfile.id;
+
+  const { projectsProfile } = userProfile;
+
+  // If no projects profile.
+  if (projectsProfile == null) {
+    if (isViewingOwnProfile) {
+      return redirect(`/projects/onboarding`);
+    }
+
+    // Non-existent user.
     return notFound();
   }
 
-  const isMyProfile = user?.id === profile.id;
-
   return (
-    <ProjectsProfilePage initialProfile={profile} isMyProfile={isMyProfile} />
+    <ProjectsProfilePage
+      initialUserProfile={{
+        ...userProfile,
+        projectsProfile,
+      }}
+      isViewingOwnProfile={isViewingOwnProfile}
+    />
   );
 }
