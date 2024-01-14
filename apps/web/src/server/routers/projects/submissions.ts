@@ -15,6 +15,7 @@ import { projectsUserProcedure } from './procedures';
 import { publicProcedure, router } from '../../trpc';
 
 import type { Prisma, ProjectsChallengeSessionStatus } from '@prisma/client';
+import { TRPCError } from '@trpc/server';
 
 const projectsChallengeProcedure = projectsUserProcedure.input(
   z.object({
@@ -232,6 +233,24 @@ export const projectsChallengeSubmissionRouter = router({
           challenge,
         };
       });
+    }),
+  hasVoted: projectsUserProcedure
+    .input(
+      z.object({
+        submissionId: z.string(),
+      }),
+    )
+    .query(async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
+      // Check if the user has already voted for this submission
+      const existingVote =
+        await prisma.projectsChallengeSubmissionVote.findFirst({
+          where: {
+            profileId: projectsProfileId,
+            submissionId,
+          },
+        });
+
+      return existingVote;
     }),
   interested: projectsUserProcedure
     .input(
@@ -605,4 +624,38 @@ export const projectsChallengeSubmissionRouter = router({
 
       return null;
     }),
+  vote: projectsUserProcedure
+    .input(
+      z.object({
+        submissionId: z.string(),
+      }),
+    )
+    .mutation(
+      async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
+        // Check if the user has already voted for this submission
+        const existingVote =
+          await prisma.projectsChallengeSubmissionVote.findFirst({
+            where: {
+              profileId: projectsProfileId,
+              submissionId,
+            },
+          });
+
+        if (existingVote) {
+          // User has already voted, handle accordingly (throw an error, update vote, etc.)
+          throw new TRPCError({
+            code: 'BAD_REQUEST',
+            message: 'User has already voted for this submission.',
+          });
+        }
+
+        // Create a new vote for the submission
+        await prisma.projectsChallengeSubmissionVote.create({
+          data: {
+            profileId: projectsProfileId,
+            submissionId,
+          },
+        });
+      },
+    ),
 });

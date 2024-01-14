@@ -5043,6 +5043,10 @@
     "defaultMessage": "<count>{questionCount}</count> <questions>questions</questions>",
     "description": "Number of questions"
   },
+  "mGYl8O": {
+    "defaultMessage": "Upvoted successfully!",
+    "description": "Successful upvote toaster"
+  },
   "mLRZ25": {
     "defaultMessage": "See all",
     "description": "See all button label in study guides list section in preparation dashboard"

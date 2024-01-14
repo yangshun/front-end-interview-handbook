@@ -3,15 +3,14 @@ import { RiArrowLeftLine } from 'react-icons/ri';
 import MarketingHeroBackground from '~/components/common/marketing/MarketingHeroBackground';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsChallengeSubmissionHeroCommentButton from '~/components/projects/submissions//hero/ProjectsChallengeSubmissionHeroCommentButton';
-import ProjectsChallengeSubmissionHeroLikeButton from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroLikeButton';
 import ProjectsChallengeSubmissionHeroPinButton from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroPinButton';
 import ProjectsChallengeSubmissionHeroTimestamp from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroTimestamp';
+import ProjectsChallengeSubmissionHeroViews from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroViews';
+import ProjectsChallengeSubmissionHeroVoteButton from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroVoteButton';
 import ProjectsChallengeSubmissionHeroCard from '~/components/projects/submissions/ProjectsChallengeSubmissionHeroCard';
 import type { ProjectsChallengeSubmissionItem } from '~/components/projects/submissions/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
-
-import ProjectsChallengeSubmissionHeroViews from './hero/ProjectsChallengeSubmissionHeroViews';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -59,7 +58,8 @@ export default function ProjectsChallengeSubmissionHero({
                       views={submission.views}
                     />
                     <div className="flex items-center gap-2">
-                      <ProjectsChallengeSubmissionHeroLikeButton
+                      <ProjectsChallengeSubmissionHeroVoteButton
+                        submissionId={submission.id}
                         votes={submission.votes}
                       />
                       <ProjectsChallengeSubmissionHeroCommentButton
@@ -94,7 +94,8 @@ export default function ProjectsChallengeSubmissionHero({
             <Heading level="heading5">{submission.title}</Heading>
             <div className="flex gap-4">
               <ProjectsChallengeSubmissionHeroViews views={submission.views} />
-              <ProjectsChallengeSubmissionHeroLikeButton
+              <ProjectsChallengeSubmissionHeroVoteButton
+                submissionId={submission.id}
                 votes={submission.votes}
               />
               <ProjectsChallengeSubmissionHeroCommentButton
