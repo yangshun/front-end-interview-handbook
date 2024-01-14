@@ -13,6 +13,7 @@ type BadgeSize = 'md' | 'sm';
 type Props = Readonly<{
   className?: string;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  iconClassName?: string;
   label: string;
   size?: BadgeSize;
   variant: BadgeVariant;
@@ -87,6 +88,7 @@ export default function Badge({
   icon: Icon,
   size = 'md',
   variant,
+  iconClassName,
 }: Props) {
   const { backgroundClass, borderClass, textClass, iconClass } =
     variantClasses[variant];
@@ -103,7 +105,12 @@ export default function Badge({
       {Icon && (
         <Icon
           aria-hidden={true}
-          className={clsx('shrink-0', iconClass, iconSizeClasses[size])}
+          className={clsx(
+            'shrink-0',
+            iconClass,
+            iconSizeClasses[size],
+            iconClassName,
+          )}
         />
       )}
       <span className={textClass}>{label}</span>

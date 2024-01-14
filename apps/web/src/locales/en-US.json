@@ -131,6 +131,10 @@
     "defaultMessage": "You can host your site using one of these solutions or any of our other trusted providers. Read more about our recommended and trusted hosts",
     "description": "Text for Deployment Info in Projects"
   },
+  "/BGC+5": {
+    "defaultMessage": "Challenge brief",
+    "description": "Projects challenge submission hero card title"
+  },
   "/F80kH": {
     "defaultMessage": "Read our <link>Front End Interview Guidebook</link>",
     "description": "Link to front end interview guidebook"
@@ -998,6 +1002,10 @@
   "8yQk1V": {
     "defaultMessage": "Most Common Questions",
     "description": "Most common behavioral interview questions"
+  },
+  "92OX3Z": {
+    "defaultMessage": "{createdAt} • edited {updatedAt}",
+    "description": "Submission and updated time stamp for submission detail page"
   },
   "94CGBX": {
     "defaultMessage": "Coding",
@@ -5666,6 +5674,10 @@
   "sjcvmA": {
     "defaultMessage": "Tech stack you are proficient in",
     "description": "Label for \"Tech stack you are proficient in\" input on Projects profile onboarding page"
+  },
+  "sm2d2y": {
+    "defaultMessage": "Pin submission",
+    "description": "Label for pin submission button"
   },
   "sn/P86": {
     "defaultMessage": "Guides",

@@ -5,10 +5,10 @@ import { useEffect } from 'react';
 import { trpc } from '~/hooks/trpc';
 
 import Divider from '~/components/ui/Divider';
-import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
 
+import ProjectsChallengeSubmissionHero from './ProjectsChallengeSubmissionHero';
 import type { ProjectsChallengeSubmissionItem } from './types';
 import type { ProjectsChallengeItem } from '../challenges/types';
 
@@ -32,11 +32,11 @@ export default function ProjectsChallengeSubmissionPage({
   }, [submissionId]);
 
   return (
-    <div className="flex flex-col gap-8">
-      <div className="flex flex-col gap-4">
-        <Heading level="heading5">{submission.title}</Heading>
-        <p>{submission.summary}</p>
-      </div>
+    <div className="flex flex-col gap-8 -mt-4 lg:-mt-16">
+      <ProjectsChallengeSubmissionHero
+        challenge={challenge}
+        submission={submission}
+      />
       <Divider />
       <Section>
         <Prose textSize="sm">
