@@ -40,5 +40,12 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  return <ProjectsChallengeSubmissionEditPage submission={submission} />;
+  const submissionObj = {
+    ...submission,
+    deploymentUrls: submission.deploymentUrls as Array<
+      Readonly<{ href: string; label: string }>
+    >,
+  };
+
+  return <ProjectsChallengeSubmissionEditPage submission={submissionObj} />;
 }

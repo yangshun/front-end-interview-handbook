@@ -216,7 +216,7 @@ model ProjectsChallengeSubmission {
   title          String
   summary        String
   repositoryUrl  String
-  deploymentUrl  String
+  deploymentUrls Json
   implementation String
   views          Int    @default(0)
 

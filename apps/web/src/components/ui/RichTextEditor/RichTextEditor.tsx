@@ -76,6 +76,7 @@ function RichTextEditor(
           ],
           className,
         ),
+        id,
       },
     },
     extensions: [StarterKit],
@@ -102,7 +103,7 @@ function RichTextEditor(
         label={label}
         required={required}
       />
-      <EditorContent ref={ref} editor={editor} id={id} onBlur={onBlur} />
+      <EditorContent ref={ref} editor={editor} onBlur={onBlur} />
       {hasError && (
         <div
           className={clsx(

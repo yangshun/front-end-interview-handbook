@@ -19,7 +19,10 @@ import ProjectsChallengeSubmissionForm from '../submit/ProjectsChallengeSubmissi
 import type { ProjectsChallengeSubmission } from '@prisma/client';
 
 type Props = Readonly<{
-  submission: ProjectsChallengeSubmission;
+  submission: Omit<ProjectsChallengeSubmission, 'deploymentUrls'> &
+    Readonly<{
+      deploymentUrls: Array<Readonly<{ href: string; label: string }>>;
+    }>;
 }>;
 
 export default function ProjectsChallengeSubmissionEditPage({

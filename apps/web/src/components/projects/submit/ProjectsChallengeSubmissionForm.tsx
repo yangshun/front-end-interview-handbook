@@ -13,8 +13,8 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-import ProjectsChallengeSubmissionDeploymentUrlField from './fields/ProjectsChallengeSubmissionDeploymentUrlField';
-import { useProjectsChallengeSubmissionDeploymentUrlSchema } from './fields/ProjectsChallengeSubmissionDeploymentUrlSchema';
+import ProjectsChallengeSubmissionDeploymentUrlField from './fields/ProjectsChallengeSubmissionDeploymentUrlsField';
+import { useProjectsChallengeSubmissionDeploymentUrlsSchema } from './fields/ProjectsChallengeSubmissionDeploymentUrlsSchema';
 import ProjectsChallengeSubmissionImplementationField from './fields/ProjectsChallengeSubmissionImplementationField';
 import { useProjectsChallengeSubmissionImplementationSchema } from './fields/ProjectsChallengeSubmissionImplementationSchema';
 import ProjectsChallengeSubmissionRepositoryUrlField from './fields/ProjectsChallengeSubmissionRepositoryUrlField';
@@ -30,7 +30,7 @@ import ProjectsSkillInput from '../skills/ProjectsSkillInput';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 export type ProjectsChallengeSubmissionFormValues = Readonly<{
-  deploymentUrl: string;
+  deploymentUrls: Array<Readonly<{ href: string; label: string }>>;
   implementation: string;
   repositoryUrl: string;
   summary: string;
@@ -44,13 +44,13 @@ function useProjectsChallengeSubmissionFormSchema() {
     useProjectsChallengeSubmissionSummarySchema();
   const projectsChallengeSubmissionRepositoryUrlSchema =
     useProjectsChallengeSubmissionRepositoryUrlSchema();
-  const projectsChallengeSubmissionDeploymentUrlSchema =
-    useProjectsChallengeSubmissionDeploymentUrlSchema();
+  const projectsChallengeSubmissionDeploymentUrlsSchema =
+    useProjectsChallengeSubmissionDeploymentUrlsSchema();
   const projectsChallengeSubmissionImplementationSchema =
     useProjectsChallengeSubmissionImplementationSchema();
 
   return z.object({
-    deploymentUrl: projectsChallengeSubmissionDeploymentUrlSchema,
+    deploymentUrls: projectsChallengeSubmissionDeploymentUrlsSchema,
     implementation: projectsChallengeSubmissionImplementationSchema,
     repositoryUrl: projectsChallengeSubmissionRepositoryUrlSchema,
     summary: projectsChallengeSubmissionSummarySchema,
@@ -73,7 +73,7 @@ type Props =
 
 export default function ProjectsChallengeSubmissionForm({
   defaultValues = {
-    deploymentUrl: '',
+    deploymentUrls: [{ href: '', label: 'Main' }],
     implementation:
       'Lorem <strong>ipsum dolor sit amet</strong>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
     repositoryUrl: '',
@@ -160,14 +160,7 @@ export default function ProjectsChallengeSubmissionForm({
             </div>
           </div>
           <Divider />
-          <div className="grid lg:grid-cols-2 gap-x-6">
-            <div className="flex flex-col gap-2">
-              <ProjectsChallengeSubmissionDeploymentUrlField
-                control={control}
-              />
-              <ProjectsChallengeSubmitPageDeploymentDialog />
-            </div>
-          </div>
+          <ProjectsChallengeSubmissionDeploymentUrlField control={control} />
           <Divider />
           <div className="flex flex-col gap-6">
             <div className="grid lg:grid-cols-2 gap-x-6">

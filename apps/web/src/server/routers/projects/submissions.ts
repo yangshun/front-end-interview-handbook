@@ -2,7 +2,7 @@ import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { z } from 'zod';
 
 import { yoeReplacementSchema } from '~/components/projects/misc';
-import { projectsChallengeSubmissionDeploymentUrlSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionDeploymentUrlSchema';
+import { projectsChallengeSubmissionDeploymentUrlsSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionDeploymentUrlsSchema';
 import { projectsChallengeSubmissionImplementationSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionImplementationSchema';
 import { projectsChallengeSubmissionRepositoryUrlSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
 import { projectsChallengeSubmissionSummarySchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionSummarySchema';
@@ -23,7 +23,7 @@ const projectsChallengeProcedure = projectsUserProcedure.input(
 );
 
 const projectsChallengeSubmissionFormSchema = z.object({
-  deploymentUrl: projectsChallengeSubmissionDeploymentUrlSchemaServer,
+  deploymentUrls: projectsChallengeSubmissionDeploymentUrlsSchemaServer,
   implementation: projectsChallengeSubmissionImplementationSchemaServer,
   repositoryUrl: projectsChallengeSubmissionRepositoryUrlSchemaServer,
   summary: projectsChallengeSubmissionSummarySchemaServer,
@@ -112,7 +112,7 @@ export const projectsChallengeSubmissionRouter = router({
           slug,
           title,
           summary,
-          deploymentUrl,
+          deploymentUrls,
           repositoryUrl,
           implementation,
         },
@@ -153,7 +153,7 @@ export const projectsChallengeSubmissionRouter = router({
 
           return await prisma_.projectsChallengeSubmission.create({
             data: {
-              deploymentUrl,
+              deploymentUrls: deploymentUrls as Prisma.JsonArray,
               implementation,
               profileId: projectsProfileId,
               repositoryUrl,
@@ -539,7 +539,7 @@ export const projectsChallengeSubmissionRouter = router({
           submissionId,
           title,
           summary,
-          deploymentUrl,
+          deploymentUrls,
           repositoryUrl,
           implementation,
         },
@@ -547,7 +547,7 @@ export const projectsChallengeSubmissionRouter = router({
       }) => {
         return await prisma.projectsChallengeSubmission.update({
           data: {
-            deploymentUrl,
+            deploymentUrls: deploymentUrls as Prisma.JsonArray,
             implementation,
             repositoryUrl,
             summary,
