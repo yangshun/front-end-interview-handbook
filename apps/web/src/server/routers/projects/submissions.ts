@@ -233,6 +233,31 @@ export const projectsChallengeSubmissionRouter = router({
         };
       });
     }),
+  interested: projectsUserProcedure
+    .input(
+      z.object({
+        challenge: z.string(),
+        submissionId: z.string(),
+      }),
+    )
+    .query(async ({ input: { challenge, submissionId } }) => {
+      return await prisma.projectsChallengeSubmission.findMany({
+        include: {
+          _count: {
+            select: {
+              votes: true,
+            },
+          },
+        },
+        take: 15,
+        where: {
+          NOT: {
+            id: submissionId,
+          },
+          slug: challenge,
+        },
+      });
+    }),
   list: projectsUserProcedure
     .input(
       z.object({

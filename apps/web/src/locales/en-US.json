@@ -275,6 +275,10 @@
     "defaultMessage": "Study list session stopped",
     "description": "Success message for stopping a study plan"
   },
+  "1/mHuG": {
+    "defaultMessage": "Tech stack",
+    "description": "Section title for tech stack"
+  },
   "13CKZ1": {
     "defaultMessage": "I want to help <bold>mentor others</bold>",
     "description": "Label for \"Mentor others\" onboarding option in Projects"
@@ -1002,6 +1006,10 @@
   "8yQk1V": {
     "defaultMessage": "Most Common Questions",
     "description": "Most common behavioral interview questions"
+  },
+  "9//mtm": {
+    "defaultMessage": "You may be interested",
+    "description": "Title for you may be interested section on Projects challenge submission page"
   },
   "92OX3Z": {
     "defaultMessage": "{createdAt} • edited {updatedAt}",
@@ -2391,6 +2399,10 @@
     "defaultMessage": "Find any project you can dream of",
     "description": "Heading of the 'Projects' marketing section on Projects home page"
   },
+  "NL7HsI": {
+    "defaultMessage": "Preview solution",
+    "description": "Label for preview solution button"
+  },
   "NLxYcq": {
     "defaultMessage": "Explore community submissions",
     "description": "CTA for beginner motivation"
@@ -3495,6 +3507,10 @@
     "defaultMessage": "What to expect, which rounds to expect them, and how to prepare",
     "description": "What to expect in front end quiz interviews"
   },
+  "XejHfx": {
+    "defaultMessage": "Implementation details",
+    "description": "Section title for implementation detail"
+  },
   "XfFYoy": {
     "defaultMessage": "Pick from <bold>component tracks</bold>",
     "description": "Caption for Start a Project button in Projects marketing hero section for portfolio projects"
@@ -4094,6 +4110,10 @@
   "d7gVP2": {
     "defaultMessage": "Chennai, India",
     "description": "Chennai in India"
+  },
+  "d8RJic": {
+    "defaultMessage": "View code",
+    "description": "Label for view code button"
   },
   "d8XKhi": {
     "defaultMessage": "Change password",

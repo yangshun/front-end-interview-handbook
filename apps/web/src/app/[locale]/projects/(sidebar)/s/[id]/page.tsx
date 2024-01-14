@@ -5,6 +5,7 @@ import { addMissingFieldsToSubmission } from '~/components/projects/submissions/
 
 import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
+import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{ id: string; locale: string }>;
@@ -12,33 +13,36 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { locale, id: submissionId } = params;
-  const submission = await prisma.projectsChallengeSubmission.findFirst({
-    include: {
-      _count: {
-        select: {
-          votes: true,
+  const [user, submission] = await Promise.all([
+    readUserFromToken(),
+    prisma.projectsChallengeSubmission.findFirst({
+      include: {
+        _count: {
+          select: {
+            votes: true,
+          },
         },
-      },
-      projectsProfile: {
-        include: {
-          userProfile: {
-            select: {
-              avatarUrl: true,
-              githubUsername: true,
-              id: true,
-              linkedInUsername: true,
-              name: true,
-              title: true,
-              username: true,
+        projectsProfile: {
+          include: {
+            userProfile: {
+              select: {
+                avatarUrl: true,
+                githubUsername: true,
+                id: true,
+                linkedInUsername: true,
+                name: true,
+                title: true,
+                username: true,
+              },
             },
           },
         },
       },
-    },
-    where: {
-      id: submissionId,
-    },
-  });
+      where: {
+        id: submissionId,
+      },
+    }),
+  ]);
 
   if (submission == null) {
     return notFound();
@@ -52,6 +56,7 @@ export default async function Page({ params }: Props) {
   return (
     <ProjectsChallengeSubmissionPage
       challenge={challenge}
+      currentUserId={user?.id}
       submission={addMissingFieldsToSubmission(submission)}
     />
   );

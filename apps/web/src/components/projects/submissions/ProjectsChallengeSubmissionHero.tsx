@@ -15,12 +15,14 @@ import ProjectsChallengeSubmissionHeroViews from './hero/ProjectsChallengeSubmis
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
+  showPin: boolean;
   submission: ProjectsChallengeSubmissionItem;
 }>;
 
 export default function ProjectsChallengeSubmissionHero({
   challenge,
   submission,
+  showPin = false,
 }: Props) {
   return (
     <>
@@ -41,9 +43,11 @@ export default function ProjectsChallengeSubmissionHero({
                 size="sm"
                 variant="tertiary"
               />
-              <div>
-                <ProjectsChallengeSubmissionHeroPinButton />
-              </div>
+              {showPin && (
+                <div>
+                  <ProjectsChallengeSubmissionHeroPinButton />
+                </div>
+              )}
             </div>
             <div className="flex lg:flex-row flex-col gap-2 h-full justify-between w-full lg:items-center">
               <div className="flex flex-col gap-1">
@@ -83,7 +87,7 @@ export default function ProjectsChallengeSubmissionHero({
               size="sm"
               variant="tertiary"
             />
-            <ProjectsChallengeSubmissionHeroPinButton />
+            {showPin && <ProjectsChallengeSubmissionHeroPinButton />}
           </div>
           <div className="flex flex-col gap-4">
             <ProjectsChallengeSubmissionHeroTimestamp />
