@@ -76,3 +76,14 @@ export type RecommendedAction = {
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   title: string;
 };
+
+export type yoeReplacement =
+  | 'bootcamp-grad'
+  | 'bootcamper'
+  | 'career-switcher'
+  | 'fresh-grad'
+  | 'intern'
+  | 'masters-cs'
+  | 'others'
+  | 'self-learning'
+  | 'undergrad-cs';

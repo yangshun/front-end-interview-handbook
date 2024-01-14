@@ -31,7 +31,7 @@ export default function ProjectsChallengeSubmissionListLearnPage() {
       </div>
       <Section>
         <ProjectsChallengeSubmissionFilterContextProvider>
-          <ProjectsChallengeSubmissionListWithFilters />
+          <ProjectsChallengeSubmissionListWithFilters type="learn" />
         </ProjectsChallengeSubmissionFilterContextProvider>
       </Section>
     </div>

@@ -7,13 +7,14 @@ import { projectsChallengeSubmissionImplementationSchemaServer } from '~/compone
 import { projectsChallengeSubmissionRepositoryUrlSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
 import { projectsChallengeSubmissionSummarySchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionSummarySchema';
 import { projectsChallengeSubmissionTitleSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionTitleSchema';
+import type { yoeReplacement } from '~/components/projects/types';
 
 import prisma from '~/server/prisma';
 
 import { projectsUserProcedure } from './procedures';
 import { publicProcedure, router } from '../../trpc';
 
-import type { ProjectsChallengeSessionStatus } from '@prisma/client';
+import type { Prisma, ProjectsChallengeSessionStatus } from '@prisma/client';
 
 const projectsChallengeProcedure = projectsUserProcedure.input(
   z.object({
@@ -28,6 +29,79 @@ const projectsChallengeSubmissionFormSchema = z.object({
   summary: projectsChallengeSubmissionSummarySchemaServer,
   title: projectsChallengeSubmissionTitleSchemaServer,
 });
+
+type QueryMode = 'insensitive';
+
+const whereClauseForSubmissions = (
+  query: string,
+  isStatusNotEmpty: boolean,
+  projectsProfileId: string,
+  statusWithoutNotStarted: Array<ProjectsChallengeSessionStatus>,
+  hasNotStarted: boolean,
+  challenges: Array<string>,
+  startDateFilters: Array<{
+    startWorkDate: { gte?: Date | undefined; lt?: Date | undefined };
+  }>,
+  profileStatus: Array<yoeReplacement>,
+) => {
+  return [
+    {
+      // Filter by session title or summary
+      OR: [
+        { title: { contains: query, mode: 'insensitive' as QueryMode } },
+        { summary: { contains: query, mode: 'insensitive' as QueryMode } },
+      ],
+      projectsProfile: {
+        // Filter by submissions of projects you have completed or in progress or not started
+        ...(isStatusNotEmpty && {
+          id: projectsProfileId,
+          sessions: {
+            some: {
+              OR: [
+                {
+                  status: { in: statusWithoutNotStarted },
+                },
+                ...(hasNotStarted
+                  ? [
+                      {
+                        NOT: {
+                          status: {
+                            in: [
+                              'IN_PROGRESS',
+                              'COMPLETED',
+                              'STOPPED',
+                            ] as Array<ProjectsChallengeSessionStatus>,
+                          },
+                        },
+                      },
+                    ]
+                  : []),
+              ],
+            },
+          },
+        }),
+        // Filter by the creator’s years of experience or their job status
+        userProfile: {
+          ...(profileStatus.length > 0 && {
+            currentStatus: {
+              in: profileStatus,
+            },
+          }),
+          ...(startDateFilters.length > 0 && {
+            OR: startDateFilters,
+          }),
+        },
+      },
+
+      // Filter by challenges slug
+      ...(challenges.length > 0 && {
+        slug: {
+          in: challenges,
+        },
+      }),
+    },
+  ];
+};
 
 export const projectsChallengeSubmissionRouter = router({
   create: projectsChallengeProcedure
@@ -166,13 +240,16 @@ export const projectsChallengeSubmissionRouter = router({
           z.enum(['IN_PROGRESS', 'COMPLETED', 'NOT_STARTED'] as const),
         ),
         challenges: z.array(z.string()),
+        currentPage: z.number(),
+        itemPerPage: z.number(),
         profileStatus: z.array(yoeReplacementSchema),
         query: z.string(),
         sort: z.object({
           field: z.enum(['createdAt', 'difficulty', 'votes']).nullable(),
           isAscendingOrder: z.boolean(),
         }),
-        yoeExperience: z.array(z.string()),
+        submissionType: z.enum(['all', 'learn', 'mentor']),
+        yoeExperience: z.array(z.enum(['junior', 'mid', 'senior'])),
       }),
     )
     .query(
@@ -184,8 +261,11 @@ export const projectsChallengeSubmissionRouter = router({
           yoeExperience,
           query,
           sort,
+          submissionType,
+          itemPerPage,
+          currentPage,
         },
-        ctx: { projectsProfileId },
+        ctx: { projectsProfileId, user },
       }) => {
         const hasNotStarted = challengeSessionStatus.includes('NOT_STARTED');
         const statusWithoutNotStarted = challengeSessionStatus.filter(
@@ -250,101 +330,170 @@ export const projectsChallengeSubmissionRouter = router({
 
         const isStatusNotEmpty = challengeSessionStatus.length > 0;
 
-        const sortFilter =
-          sort.field === 'votes'
-            ? {
-                orderBy: {
-                  votes: {
-                    _count: sort.isAscendingOrder ? 'asc' : 'desc',
-                  },
+        const sortFilter = (() => {
+          if (sort.field === 'votes') {
+            return {
+              orderBy: {
+                votes: {
+                  _count: sort.isAscendingOrder ? 'asc' : 'desc',
                 },
-              }
-            : sort.field === 'createdAt'
-              ? {
-                  orderBy: {
-                    createdAt: sort.isAscendingOrder ? 'asc' : 'desc',
-                  },
-                }
-              : {
-                  orderBy: {
-                    createdAt: 'desc',
-                  },
-                };
+              },
+            };
+          }
 
-        const submissions = await prisma.projectsChallengeSubmission.findMany({
-          include: {
-            _count: {
-              select: {
-                votes: true,
+          if (sort.field === 'createdAt') {
+            return {
+              orderBy: {
+                createdAt: sort.isAscendingOrder ? 'asc' : 'desc',
               },
-            },
-            projectsProfile: {
-              include: {
-                userProfile: {
-                  select: {
-                    avatarUrl: true,
-                    id: true,
-                    name: true,
-                    title: true,
-                    username: true,
-                  },
+            };
+          }
+
+          if (submissionType === 'all') {
+            return {
+              orderBy: {
+                createdAt: 'desc',
+              },
+            };
+          }
+
+          if (submissionType === 'learn') {
+            return {
+              orderBy: {
+                votes: {
+                  _count: 'desc',
                 },
               },
+            };
+          }
+
+          if (submissionType === 'mentor') {
+            return {
+              orderBy: {
+                votes: {
+                  _count: 'asc',
+                },
+              },
+            };
+          }
+        })();
+
+        let userProfile = null;
+
+        if (submissionType === 'learn' || submissionType === 'mentor') {
+          userProfile = await prisma.profile.findUnique({
+            include: {
+              projectsProfile: true,
             },
-          },
-          take: 6,
-          where: {
-            OR: [
-              { title: { contains: query, mode: 'insensitive' } },
-              { summary: { contains: query, mode: 'insensitive' } },
-            ],
-            projectsProfile: {
-              ...(isStatusNotEmpty && {
-                id: projectsProfileId,
-                sessions: {
-                  some: {
-                    OR: [
-                      {
-                        status: { in: statusWithoutNotStarted },
+            where: {
+              id: user.id,
+            },
+          });
+        }
+
+        const commonWhere = whereClauseForSubmissions(
+          query,
+          isStatusNotEmpty,
+          projectsProfileId,
+          statusWithoutNotStarted,
+          hasNotStarted,
+          challenges,
+          startDateFilters,
+          profileStatus,
+        );
+
+        const where: Prisma.ProjectsChallengeSubmissionWhereInput = {
+          AND:
+            submissionType === 'all'
+              ? [...commonWhere]
+              : submissionType === 'learn'
+                ? [
+                    ...commonWhere,
+                    {
+                      projectsProfile: {
+                        // Filter challenge working on or completed
+                        sessions: {
+                          some: {
+                            status: { in: ['IN_PROGRESS', 'COMPLETED'] },
+                          },
+                        }, // User who has more YOE than current user
+                        ...(userProfile && {
+                          userProfile: {
+                            id: { not: userProfile.id },
+                            startWorkDate: userProfile?.startWorkDate
+                              ? {
+                                  lt: userProfile?.startWorkDate,
+                                }
+                              : {},
+                          },
+                        }),
                       },
-                      ...(hasNotStarted
-                        ? [
-                            {
-                              NOT: {
-                                status: {
-                                  in: [
-                                    'IN_PROGRESS',
-                                    'COMPLETED',
-                                    'STOPPED',
-                                  ] as Array<ProjectsChallengeSessionStatus>,
-                                },
-                              },
-                            },
-                          ]
-                        : []),
-                    ],
+                    },
+                  ]
+                : [
+                    ...commonWhere,
+                    {
+                      projectsProfile: {
+                        // Filter challenge working on
+                        // TODO(projects): Add filter for reviewed before
+                        sessions: {
+                          some: {
+                            status: { in: ['IN_PROGRESS'] },
+                          },
+                        },
+                        // User who has less YOE than current user
+                        ...(userProfile && {
+                          userProfile: {
+                            id: { not: userProfile.id },
+                            startWorkDate: userProfile?.startWorkDate
+                              ? {
+                                  gt: userProfile?.startWorkDate,
+                                }
+                              : {},
+                          },
+                        }),
+                        // Users who joined later than the current user
+                        createdAt: {
+                          gt: userProfile?.projectsProfile?.createdAt,
+                        },
+                      },
+                    },
+                  ],
+        };
+
+        const [totalCount, submissions] = await Promise.all([
+          prisma.projectsChallengeSubmission.count({
+            where,
+          }),
+          prisma.projectsChallengeSubmission.findMany({
+            include: {
+              _count: {
+                select: {
+                  votes: true,
+                },
+              },
+              projectsProfile: {
+                include: {
+                  userProfile: {
+                    select: {
+                      avatarUrl: true,
+                      id: true,
+                      name: true,
+                      title: true,
+                      username: true,
+                    },
                   },
                 },
-              }),
-              userProfile: {
-                ...(profileStatus.length > 0 && {
-                  currentStatus: {
-                    in: profileStatus,
-                  },
-                }),
-                ...(startDateFilters.length > 0 && { OR: startDateFilters }),
               },
             },
-            ...(challenges.length > 0 && {
-              slug: {
-                in: challenges,
-              },
-            }),
-          },
-          ...(sort.field && sortFilter),
-        });
+            skip: (currentPage - 1) * itemPerPage,
+            take: itemPerPage,
+            where,
+            ...(sortFilter ? sortFilter : {}),
+          }),
+        ]);
 
-        return submissions;
+        return { submissions, totalCount };
       },
     ),
   reference: projectsChallengeProcedure.query(async ({ input: { slug } }) => {

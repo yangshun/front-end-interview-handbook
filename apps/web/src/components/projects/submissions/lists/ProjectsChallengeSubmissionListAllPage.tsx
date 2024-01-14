@@ -31,7 +31,7 @@ export default function ProjectsChallengeSubmissionListAllPage() {
       </div>
       <Section>
         <ProjectsChallengeSubmissionFilterContextProvider>
-          <ProjectsChallengeSubmissionListWithFilters />
+          <ProjectsChallengeSubmissionListWithFilters type="all" />
         </ProjectsChallengeSubmissionFilterContextProvider>
       </Section>
     </div>

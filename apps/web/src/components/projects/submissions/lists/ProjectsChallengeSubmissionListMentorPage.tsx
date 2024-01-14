@@ -31,7 +31,7 @@ export default function ProjectsChallengeSubmissionListMentorPage() {
       </div>
       <Section>
         <ProjectsChallengeSubmissionFilterContextProvider>
-          <ProjectsChallengeSubmissionListWithFilters />
+          <ProjectsChallengeSubmissionListWithFilters type="mentor" />
         </ProjectsChallengeSubmissionFilterContextProvider>
       </Section>
     </div>

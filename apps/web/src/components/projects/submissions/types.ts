@@ -18,10 +18,10 @@ export type ProjectsChallengeSubmissionItem = Readonly<{
   createdAt: Date;
   id: string;
   imgSrc: string;
+  implementation: string;
   stack: Array<ProjectsSkill>;
   summary: string;
   title: string;
-  implementation: string;
   views: number;
   votes: number;
 }>;
@@ -63,3 +63,7 @@ export type ProjectsChallengeSubmissionStatusFilter =
   | 'COMPLETED'
   | 'IN_PROGRESS'
   | 'NOT_STARTED';
+
+export type ProjectsChallengeSubmissionYOEFilter = 'junior' | 'mid' | 'senior';
+
+export type ProjectsChallengeSubmissionTabType = 'all' | 'learn' | 'mentor';

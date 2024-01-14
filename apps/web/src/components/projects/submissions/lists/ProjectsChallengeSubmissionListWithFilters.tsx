@@ -5,12 +5,18 @@ import { FormattedMessage } from 'react-intl';
 import { useDebounce } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
+import usePagination from '~/hooks/usePagination';
+import useScrollToTop from '~/hooks/useScrollToTop';
 
 import useProjectsChallengesSorting from '~/components/projects/submissions/lists/filters/hooks/useProjectsChallengeSubmissionSorting';
 import ProjectsChallengeSubmissionFilters from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilters';
 import { useProjectsChallengeSubmissionFilterContext } from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionFilterContext';
 import ProjectsChallengeSubmissionList from '~/components/projects/submissions/ProjectsChallengeSubmissionList';
-import type { ProjectsChallengeSubmissionStatusFilter } from '~/components/projects/submissions/types';
+import type {
+  ProjectsChallengeSubmissionStatusFilter,
+  ProjectsChallengeSubmissionTabType,
+} from '~/components/projects/submissions/types';
+import Pagination from '~/components/ui/Pagination';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
@@ -18,7 +24,13 @@ import { themeTextSecondaryColor } from '~/components/ui/theme';
 import useProjectsChallengeSubmissionFilters from './filters/hooks/useProjectsChallengeSubmissionFilters';
 import { filterProjectsChallengeSubmission } from './filters/ProjectsChallengeSubmissionProcessor';
 
-export default function ProjectsChallengeSubmissionListWithFilters() {
+const ITEMS_PER_PAGE = 12;
+
+export default function ProjectsChallengeSubmissionListWithFilters({
+  type,
+}: {
+  type: ProjectsChallengeSubmissionTabType;
+}) {
   // Filtering.
   const {
     query,
@@ -43,21 +55,34 @@ export default function ProjectsChallengeSubmissionListWithFilters() {
 
   const debounceQuery = useDebounce(query, 300);
 
-  const { data: submissions, isLoading } =
+  // Pagination
+  const { setCurrentPage, currentPage } = usePagination([], ITEMS_PER_PAGE, [
+    selectedFilters,
+    query,
+  ]);
+
+  const { data: { submissions, totalCount } = {}, isLoading } =
     trpc.projects.submissions.list.useQuery(
       {
         challengeSessionStatus:
           selectedFilters.status as Array<ProjectsChallengeSubmissionStatusFilter>,
         challenges: processedChallenges.map((item) => item.slug),
+        currentPage,
+        itemPerPage: ITEMS_PER_PAGE,
         profileStatus,
         query: debounceQuery,
         sort: { field: sortField, isAscendingOrder },
+        submissionType: type,
         yoeExperience,
       },
       {
         keepPreviousData: true,
       },
     );
+
+  const totalPages = Math.ceil((totalCount ?? 0) / ITEMS_PER_PAGE);
+
+  useScrollToTop([currentPage]);
 
   return (
     <div className="flex flex-col gap-6">
@@ -89,10 +114,35 @@ export default function ProjectsChallengeSubmissionListWithFilters() {
         {isLoading && !submissions ? (
           <Spinner display="block" size="lg" />
         ) : (
-          <ProjectsChallengeSubmissionList
-            challenges={processedChallenges}
-            submissions={submissions ?? []}
-          />
+          <div className="flex flex-col gap-6">
+            <ProjectsChallengeSubmissionList
+              challenges={processedChallenges}
+              submissions={submissions ?? []}
+            />
+            {totalPages > 1 && (
+              <div className="flex justify-between items-center">
+                <Text color="secondary" size="body3">
+                  <FormattedMessage
+                    defaultMessage="Showing {startCount} to {endCount} out of {totalCount} projects"
+                    description="Projects listing label"
+                    id="HIz7N5"
+                    values={{
+                      endCount:
+                        (currentPage - 1) * ITEMS_PER_PAGE +
+                        (submissions ?? []).length,
+                      startCount: (currentPage - 1) * ITEMS_PER_PAGE + 1,
+                      totalCount,
+                    }}
+                  />
+                </Text>
+                <Pagination
+                  count={totalPages}
+                  page={currentPage}
+                  onPageChange={setCurrentPage}
+                />
+              </div>
+            )}
+          </div>
         )}
       </div>
     </div>
