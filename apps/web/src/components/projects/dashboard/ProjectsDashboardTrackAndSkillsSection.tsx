@@ -18,7 +18,6 @@ import {
   themeBackgroundEmphasizedHover,
   themeBorderColor,
   themeDivideColor,
-  themeGradientBlueGreen,
   themeGradientPinkPurple,
   themeIconColor,
   themeTextBrandGroupHoverColor,

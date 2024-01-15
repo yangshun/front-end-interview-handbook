@@ -60,15 +60,15 @@ export default function ProjectsDashboardContinueProjectsSection() {
               index === 0 && 'rounded-t-lg',
               index === recentSessions.length - 1 && 'rounded-b-lg',
             )}>
-            <div className="flex gap-4 items-center">
+            <div className="flex gap-4 items-center w-full">
               {session.challenge && (
                 <img
                   alt={session.challenge.title}
-                  className="object-cover rounded w-1/4"
+                  className="object-cover rounded w-[90px] h-[70px]"
                   src={session.challenge.imageUrl}
                 />
               )}
-              <div className="flex flex-col gap-1 w-full">
+              <div className="flex flex-col gap-1 grow">
                 {session.challenge && (
                   <Text size="body1" weight="medium">
                     <Anchor href={session.challenge.href} variant="unstyled">

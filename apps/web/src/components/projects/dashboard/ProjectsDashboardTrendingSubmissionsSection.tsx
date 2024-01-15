@@ -86,15 +86,9 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
               index === 0 && 'rounded-t-lg',
               index === submissions.length - 1 && 'rounded-b-lg',
             )}>
-            <div className="flex flex-row gap-4 lg:items-center">
-              {submission.challenge && (
-                <img
-                  alt={submission.challenge.metadata.title}
-                  className="object-cover rounded lg:w-1/5 w-1/4"
-                  src={submission.challenge.metadata.imageUrl}
-                />
-              )}
-              <div className="flex flex-col gap-3 w-full">
+            <div className="flex gap-4 lg:items-center w-full">
+              <div className="rounded w-[90px] h-[90px] bg-red shrink-0" />
+              <div className="flex flex-col gap-3 w-full grow">
                 <div className="flex flex-col lg:gap-1 gap-2">
                   <Text size="body1" weight="medium">
                     <Anchor href={submission.hrefs.detail} variant="unstyled">
@@ -124,7 +118,7 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                 </div>
                 <div className="flex lg:flex-row lg:gap-4 flex-col gap-3">
                   {submission.projectsProfile?.userProfile && (
-                    <div className="flex flex-row lg:gap-2 gap-1.5 items-center">
+                    <div className="flex lg:gap-2 gap-1.5 items-center">
                       <UserAvatar
                         className="border border-green-400"
                         profile={{
@@ -142,7 +136,7 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                       </Text>
                     </div>
                   )}
-                  <div className="flex flex-row gap-4 items-center">
+                  <div className="flex gap-4 items-center">
                     {submission._count.votes > 0 && (
                       <Text color="subtitle" size="body3">
                         <FormattedMessage
