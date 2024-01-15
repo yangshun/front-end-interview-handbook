@@ -564,6 +564,24 @@ export const projectsChallengeSubmissionRouter = router({
     )
     .mutation(
       async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
+        const existingPins =
+          await prisma.projectsChallengeSubmissionVote.findMany({
+            where: {
+              profileId: projectsProfileId,
+              submissionId,
+            },
+          });
+
+        if (
+          existingPins.map((pin) => pin.submissionId).includes(submissionId)
+        ) {
+          return; // No-op since already pinned.
+        }
+
+        if (existingPins.length > 3) {
+          throw 'Unable to pin more than 3 submissions';
+        }
+
         return await prisma.projectsChallengeSubmissionPin.create({
           data: {
             profileId: projectsProfileId,
