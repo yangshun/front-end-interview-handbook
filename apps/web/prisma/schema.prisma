@@ -73,7 +73,7 @@ model QuestionDiscussionPost {
   contents  String
   userId    String   @db.Uuid
   createdAt DateTime @default(now()) @db.Timestamptz(6)
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @default(now()) @updatedAt
   profile   Profile  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
@@ -114,7 +114,7 @@ model QuestionUserInterfaceSave {
   framework QuestionUserInterfaceFramework
   userId    String                         @db.Uuid
   createdAt DateTime                       @default(now()) @db.Timestamptz(6)
-  updatedAt DateTime                       @updatedAt
+  updatedAt DateTime                       @default(now()) @updatedAt
   profile   Profile                        @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
@@ -127,7 +127,7 @@ model QuestionJavaScriptCommunitySolution {
   language  QuestionWorkingLanguage
   userId    String                  @db.Uuid
   createdAt DateTime                @default(now()) @db.Timestamptz(6)
-  updatedAt DateTime                @updatedAt
+  updatedAt DateTime                @default(now()) @updatedAt
   profile   Profile                 @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
@@ -140,7 +140,7 @@ model QuestionUserInterfaceCommunitySolution {
   framework QuestionUserInterfaceFramework
   userId    String                         @db.Uuid
   createdAt DateTime                       @default(now()) @db.Timestamptz(6)
-  updatedAt DateTime                       @updatedAt
+  updatedAt DateTime                       @default(now()) @updatedAt
   profile   Profile                        @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
@@ -155,6 +155,7 @@ model LearningSession {
   key       String
   status    LearningSessionStatus     @default(IN_PROGRESS)
   createdAt DateTime                  @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime                  @default(now()) @updatedAt
   stoppedAt DateTime?                 @db.Timestamptz(6)
   profile   Profile?                  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   progress  LearningSessionProgress[]
@@ -182,12 +183,13 @@ model ProjectsProfile {
   secondaryMotivation String?
 
   createdAt DateTime @default(now()) @db.Timestamptz(6)
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @default(now()) @updatedAt
 
-  userProfile Profile                           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  sessions    ProjectsChallengeSession[]
-  submissions ProjectsChallengeSubmission[]
-  votesGiven  ProjectsChallengeSubmissionVote[]
+  userProfile                    Profile                           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  sessions                       ProjectsChallengeSession[]
+  submissions                    ProjectsChallengeSubmission[]
+  votesGiven                     ProjectsChallengeSubmissionVote[]
+  ProjectsChallengeSubmissionPin ProjectsChallengeSubmissionPin[]
 }
 
 enum ProjectsChallengeSessionStatus {
@@ -203,7 +205,7 @@ model ProjectsChallengeSession {
   status    ProjectsChallengeSessionStatus @default(IN_PROGRESS)
 
   createdAt DateTime  @default(now()) @db.Timestamptz(6)
-  updatedAt DateTime  @updatedAt
+  updatedAt DateTime  @default(now()) @updatedAt
   stoppedAt DateTime? @db.Timestamptz(6)
 
   projectsProfile ProjectsProfile @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
@@ -221,7 +223,7 @@ model ProjectsChallengeSubmission {
   views          Int    @default(0)
 
   createdAt DateTime @default(now()) @db.Timestamptz(6)
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @default(now()) @updatedAt
 
   projectsProfile ProjectsProfile?                  @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   votes           ProjectsChallengeSubmissionVote[]
