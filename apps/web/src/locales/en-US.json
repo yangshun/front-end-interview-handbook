@@ -2051,10 +2051,6 @@
     "defaultMessage": "You're here for portfolio or side projects",
     "description": "Title of the 'Component tracks' marketing section on Projects home page"
   },
-  "K+j1lh": {
-    "defaultMessage": "{comments} Comments",
-    "description": "Number of comments for project submission"
-  },
   "K/Nz6V": {
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation Quiz page"
@@ -2122,10 +2118,6 @@
   "KdzvRx": {
     "defaultMessage": "Summary of all the important things in a one-pager",
     "description": "Summary of important things in front end system design interviews"
-  },
-  "KeMz9W": {
-    "defaultMessage": "Views on your submissions",
-    "description": "Number of views on the project submissions"
   },
   "KgN46v": {
     "defaultMessage": "Leveling progress",
@@ -5231,6 +5223,10 @@
     "defaultMessage": "Light",
     "description": "Light theme option label"
   },
+  "oC86Nx": {
+    "defaultMessage": "Views on submissions",
+    "description": "Number of views on the project submissions"
+  },
   "oIktGl": {
     "defaultMessage": "One-time use; can only be completed once.",
     "description": "Condition for promotion"
@@ -6294,6 +6290,10 @@
   "y9hdD1": {
     "defaultMessage": "Reading time",
     "description": "Reading time of the article"
+  },
+  "yG+kp/": {
+    "defaultMessage": "{commentsCount} Comments",
+    "description": "Number of comments for project submission"
   },
   "yIseuh": {
     "defaultMessage": "Help others improve",
