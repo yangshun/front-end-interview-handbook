@@ -5,7 +5,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import ProjectsProfileSocialInput from '~/components/projects/profile/ProjectsProfileSocialInput';
-import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
+import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
@@ -67,7 +67,7 @@ export default function ProjectsOnboardingProfilePage1() {
           await onboardingStep2UpdateMutation.mutateAsync(data);
         })}>
         <div className="relative">
-          <ProjectsReputationCountIncreaseTag
+          <ProjectsChallengeReputationTag
             className="absolute end-0 top-0"
             points={25}
             variant="filled"

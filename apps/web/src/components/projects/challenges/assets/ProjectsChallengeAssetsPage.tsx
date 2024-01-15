@@ -36,7 +36,7 @@ import {
   themeTextColor,
 } from '~/components/ui/theme';
 
-import useProjectsProvidedResources from './useProjectsProvidedResources';
+import useProjectsChallengeProvidedResources from './useProjectsChallengeProvidedResources';
 import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxContent';
 
 type OnlineAssetsTabType = 'api' | 'responsive-breakpoints' | 'style-guide';
@@ -96,7 +96,7 @@ export default function ProjectsChallengeAssetsPage({
 }: Props) {
   const intl = useIntl();
   const { metadata } = challenge;
-  const resources = useProjectsProvidedResources();
+  const resources = useProjectsChallengeProvidedResources();
   const onlineAssetsTabs = useOnlineAssetsTabs(
     styleGuide != null,
     apiWriteup != null,

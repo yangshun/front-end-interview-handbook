@@ -1,18 +1,12 @@
 import clsx from 'clsx';
-import { startCase } from 'lodash-es';
-import {
-  RiArrowRightLine,
-  RiCheckLine,
-  RiCircleFill,
-  RiFlashlightLine,
-} from 'react-icons/ri';
+import { RiArrowRightLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'usehooks-ts';
 
+import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/metadata/ProjectsChallengeDifficultyTag';
+import ProjectsComponentTrackTag from '~/components/projects/challenges/metadata/ProjectsChallengeTrackTag';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import ProjectsComponentTrackTag from '~/components/projects/stats/ProjectsComponentTrackTag';
 import Anchor from '~/components/ui/Anchor';
-import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
@@ -20,6 +14,9 @@ import {
   themeGlassyBorder,
   themeTextFaintColor,
 } from '~/components/ui/theme';
+
+import ProjectsChallengeStatusBadgeCompleted from '../../challenges/status/ProjectsChallengeStatusBadgeCompleted';
+import ProjectsChallengeStatusBadgeInProgress from '../../challenges/status/ProjectsChallengeStatusBadgeCompletedInProgress';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -38,8 +35,7 @@ export default function ProjectsChallengeSubmissionHeroCard({
       className={clsx(
         'md:w-[436px] w-full px-4 py-6 rounded-lg group relative',
         themeGlassyBorder,
-        !isMobileAndBelow && themeBackgroundColor,
-        isMobileAndBelow && themeBackgroundLayerColor,
+        isMobileAndBelow ? themeBackgroundLayerColor : themeBackgroundColor,
       )}>
       <Anchor href={href} variant="unstyled">
         <div className="flex flex-col gap-4">
@@ -55,28 +51,10 @@ export default function ProjectsChallengeSubmissionHeroCard({
               {status != null && (
                 <>
                   {status === 'IN_PROGRESS' && (
-                    <Badge
-                      icon={RiCircleFill}
-                      label={intl.formatMessage({
-                        defaultMessage: 'In progress',
-                        description: 'Project in progress label',
-                        id: 'nsk8M8',
-                      })}
-                      size="sm"
-                      variant="warning"
-                    />
+                    <ProjectsChallengeStatusBadgeInProgress />
                   )}
                   {status === 'COMPLETED' && (
-                    <Badge
-                      icon={RiCheckLine}
-                      label={intl.formatMessage({
-                        defaultMessage: 'Completed',
-                        description: 'Project completed label',
-                        id: 'YY7lXv',
-                      })}
-                      size="sm"
-                      variant="success"
-                    />
+                    <ProjectsChallengeStatusBadgeCompleted />
                   )}
                 </>
               )}
@@ -90,18 +68,14 @@ export default function ProjectsChallengeSubmissionHeroCard({
               )}
             />
           </div>
-          <Text size="body0">{title}</Text>
-          <Text className="line-clamp-3" size="body3">
+          <Text size="body0" weight="bold">
+            {title}
+          </Text>
+          <Text className="line-clamp-3" color="subtitle" size="body3">
             {description}
           </Text>
           <div className="flex items-center gap-4">
-            <Badge
-              className="!bg-transparent border-none !p-0"
-              icon={RiFlashlightLine}
-              iconClassName="!text-neutral-500 dark:!text-neutral-500"
-              label={startCase(difficulty)}
-              variant="success"
-            />
+            <ProjectsChallengeDifficultyTag difficulty={difficulty} />
             <ProjectsComponentTrackTag track={track} />
           </div>
         </div>

@@ -18,7 +18,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 
-import ProjectsChallengeSubmissionInterested from '../ProjectsChallengeSubmissionInterested';
+import ProjectsChallengeSubmissionInterested from './ProjectsChallengeSubmissionInterested';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -147,6 +147,7 @@ export default function ProjectsChallengeSubmissionPage({
             </Heading>
             <Prose textSize="sm">
               <div
+                // TODO(projects): sanitize HTML first.
                 dangerouslySetInnerHTML={{ __html: submission.implementation }}
               />
             </Prose>

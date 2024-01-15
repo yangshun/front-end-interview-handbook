@@ -3,12 +3,12 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import useProfile from '~/hooks/user/useProfile';
 
+import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import { themeElementBorderColor } from '~/components/ui/theme';
 
-import ProjectsReputationCountIncreaseTag from '../../stats/ProjectsReputationCountIncreaseTag';
 import UserAvatarWithLevel from '../../users/UserAvatarWithLevel';
 
 type Props = Readonly<{
@@ -88,7 +88,7 @@ export default function DiscussionPostReplyInput({ hasNext, onCancel }: Props) {
               })}
               variant="primary"
             />
-            <ProjectsReputationCountIncreaseTag points={25} variant="filled" />
+            <ProjectsChallengeReputationTag points={25} variant="filled" />
           </div>
         </div>
       </div>

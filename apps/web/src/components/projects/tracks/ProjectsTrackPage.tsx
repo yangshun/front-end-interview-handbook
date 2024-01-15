@@ -4,8 +4,8 @@ import clsx from 'clsx';
 import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsChallengeCountTag from '~/components/projects/stats/ProjectsChallengeCountTag';
-import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
 import type { ProjectsTrack } from '~/components/projects/tracks/ProjectsTracksData';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
@@ -46,10 +46,7 @@ export default function ProjectsTrackPage({ track }: Props) {
           <div className="flex flex-col gap-2">
             <Heading level="heading5">{title}</Heading>
             <div className="flex flex-wrap gap-x-4 gap-y-2">
-              <ProjectsReputationCountIncreaseTag
-                points={points}
-                variant="flat"
-              />
+              <ProjectsChallengeReputationTag points={points} variant="flat" />
               <ProjectsChallengeCountTag
                 total={challenges.length}
                 value={completedProjectCount}
@@ -90,12 +87,14 @@ export default function ProjectsTrackPage({ track }: Props) {
                   </Text>
                 </div>
               </div>
-              <div
+              <img
+                alt={challenge.title}
                 className={clsx(
-                  'bg-red self-start rounded',
+                  'self-start rounded',
                   'md:h-[100px] md:w-[130px]',
                   'h-[62px] w-[80px]',
                 )}
+                src={challenge.imageUrl}
               />
               <div className="flex flex-col items-start gap-2">
                 <Text weight="medium">{challenge.title}</Text>

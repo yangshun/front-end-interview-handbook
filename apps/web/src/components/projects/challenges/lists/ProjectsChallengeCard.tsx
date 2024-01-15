@@ -1,16 +1,10 @@
 import clsx from 'clsx';
-import { startCase } from 'lodash-es';
-import {
-  RiArrowRightLine,
-  RiCheckLine,
-  RiCircleFill,
-  RiFlashlightLine,
-  RiLock2Line,
-} from 'react-icons/ri';
+import { RiArrowRightLine, RiLock2Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import ProjectsComponentTrackTag from '~/components/projects/stats/ProjectsComponentTrackTag';
-import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
+import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/metadata/ProjectsChallengeDifficultyTag';
+import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
+import ProjectsChallengeTrackTag from '~/components/projects/challenges/metadata/ProjectsChallengeTrackTag';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -19,6 +13,8 @@ import {
   themeCardBackgroundColor,
 } from '~/components/ui/theme';
 
+import ProjectsChallengeStatusBadgeCompleted from '../status/ProjectsChallengeStatusBadgeCompleted';
+import ProjectsChallengeStatusBadgeInProgress from '../status/ProjectsChallengeStatusBadgeCompletedInProgress';
 import type { ProjectsChallengeItem } from '../types';
 import ProjectsSkillRow from '../../skills/ProjectsSkillRow';
 import ProjectsCompletedUsersTag from '../../stats/ProjectsCompletedUsersTag';
@@ -58,37 +54,15 @@ export default function ProjectsChallengeCard({ challenge }: Props) {
         {status != null && (
           <div className="absolute start-3 bottom-3">
             {status === 'IN_PROGRESS' && (
-              <Badge
-                icon={RiCircleFill}
-                label={intl.formatMessage({
-                  defaultMessage: 'In progress',
-                  description: 'Project in progress label',
-                  id: 'nsk8M8',
-                })}
-                size="sm"
-                variant="warning"
-              />
+              <ProjectsChallengeStatusBadgeInProgress />
             )}
             {status === 'COMPLETED' && (
-              <Badge
-                icon={RiCheckLine}
-                label={intl.formatMessage({
-                  defaultMessage: 'Completed',
-                  description: 'Project completed label',
-                  id: 'YY7lXv',
-                })}
-                size="sm"
-                variant="success"
-              />
+              <ProjectsChallengeStatusBadgeCompleted />
             )}
           </div>
         )}
         <div className="absolute start-2 top-2 flex items-center gap-1">
-          <Badge
-            icon={RiFlashlightLine}
-            label={startCase(difficulty)}
-            variant="success"
-          />
+          <ProjectsChallengeDifficultyTag difficulty={difficulty} />
           {access === 'premium' && (
             <Badge
               icon={RiLock2Line}
@@ -104,8 +78,8 @@ export default function ProjectsChallengeCard({ challenge }: Props) {
       </div>
       <div className="grow flex flex-col gap-4 p-4">
         <div className="flex flex-wrap gap-x-4 gap-y-2">
-          <ProjectsComponentTrackTag track={track} />
-          <ProjectsReputationCountIncreaseTag points={points} variant="flat" />
+          <ProjectsChallengeTrackTag track={track} />
+          <ProjectsChallengeReputationTag points={points} variant="flat" />
         </div>
         <div className="grow flex flex-col gap-2">
           <Text weight="bold">{title}</Text>

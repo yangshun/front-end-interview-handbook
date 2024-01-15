@@ -7,12 +7,12 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/metadata/ProjectsChallengeDifficultyTag';
+import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
+import ProjectsChallengeTrackTag from '~/components/projects/challenges/metadata/ProjectsChallengeTrackTag';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsSkillChip from '~/components/projects/skills/ProjectsSkillChip';
-import ProjectsChallengeDifficultyTag from '~/components/projects/stats/ProjectsChallengeDifficultyTag';
 import ProjectsCompletedUsersTag from '~/components/projects/stats/ProjectsCompletedUsersTag';
-import ProjectsComponentTrackTag from '~/components/projects/stats/ProjectsComponentTrackTag';
-import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
@@ -98,11 +98,8 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
           </Text>
           <div className="flex flex-wrap gap-x-4 gap-y-2">
             <ProjectsChallengeDifficultyTag difficulty={difficulty} />
-            <ProjectsComponentTrackTag track={track} />
-            <ProjectsReputationCountIncreaseTag
-              points={points}
-              variant="flat"
-            />
+            <ProjectsChallengeTrackTag track={track} />
+            <ProjectsChallengeReputationTag points={points} variant="flat" />
           </div>
           {!hasSession && (
             <div className="flex flex-col">

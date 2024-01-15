@@ -1,12 +1,12 @@
 import { RiLock2Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
+import ProjectsChallengeCountTag from '~/components/projects/stats/ProjectsChallengeCountTag';
 import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
 
 import type { ProjectsTrack } from './ProjectsTracksData';
-import ProjectsChallengeCountTag from '../stats/ProjectsChallengeCountTag';
-import ProjectsReputationCountIncreaseTag from '../stats/ProjectsReputationCountIncreaseTag';
 
 type Props = Readonly<{ track: ProjectsTrack }>;
 
@@ -38,7 +38,7 @@ export default function ProjectsTrackHeader({ track }: Props) {
         {description}
       </Text>
       <div className="mt-2 flex flex-wrap gap-4">
-        <ProjectsReputationCountIncreaseTag points={points} variant="flat" />
+        <ProjectsChallengeReputationTag points={points} variant="flat" />
         <ProjectsChallengeCountTag
           total={challenges.length}
           value={completedProjectCount}

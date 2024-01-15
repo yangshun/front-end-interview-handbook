@@ -2,7 +2,7 @@ import type { Control } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
-import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
+import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import TextInput from '~/components/ui/TextInput';
 
 type Props = Readonly<{
@@ -20,7 +20,7 @@ export default function ProjectsProfileSocialInput({
     <div className="space-y-4">
       <div className="relative">
         {showReputationCountIncreaseTag && (
-          <ProjectsReputationCountIncreaseTag
+          <ProjectsChallengeReputationTag
             className="absolute end-0 top-0"
             points={25}
             variant="filled"
@@ -51,7 +51,7 @@ export default function ProjectsProfileSocialInput({
       </div>
       <div className="relative">
         {showReputationCountIncreaseTag && (
-          <ProjectsReputationCountIncreaseTag
+          <ProjectsChallengeReputationTag
             className="absolute end-0 top-0"
             points={25}
             variant="filled"
@@ -82,7 +82,7 @@ export default function ProjectsProfileSocialInput({
       </div>
       <div className="relative">
         {showReputationCountIncreaseTag && (
-          <ProjectsReputationCountIncreaseTag
+          <ProjectsChallengeReputationTag
             className="absolute end-0 top-0"
             points={25}
             variant="filled"

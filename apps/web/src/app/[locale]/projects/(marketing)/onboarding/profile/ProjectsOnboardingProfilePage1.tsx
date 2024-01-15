@@ -6,12 +6,12 @@ import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
+import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import useProjectsMonthYearExperienceSchema from '~/components/projects/hooks/useProjectsMonthYearExperienceSchema';
 import { yoeReplacementSchema } from '~/components/projects/misc';
 import ProjectsProfileTechStackProficientInput from '~/components/projects/profile/ProjectsProfileTechStackProficientInput';
 import ProjectsProfileTechStackToImproveInput from '~/components/projects/profile/ProjectsProfileTechStackToImproveInput';
 import ProjectsProfileYOEInput from '~/components/projects/profile/ProjectsProfileYOEInput';
-import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
 import type { OnboardingProfilePage1Values } from '~/components/projects/types';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
@@ -152,7 +152,7 @@ export default function ProjectsOnboardingProfilePage1({
             id="GxJeqH"
           />
         </Heading>
-        <ProjectsReputationCountIncreaseTag points={100} variant="filled" />
+        <ProjectsChallengeReputationTag points={100} variant="filled" />
       </div>
       <form
         className="mt-6 flex flex-col gap-y-16"

@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 
 import { convertToPlainObject } from '~/lib/convertToPlainObject';
 
-import ProjectsChallengeSubmissionPage from '~/components/projects/submissions/form/ProjectsChallengeSubmissionPage';
+import ProjectsChallengeSubmissionPage from '~/components/projects/submissions/ProjectsChallengeSubmissionPage';
 
 import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';

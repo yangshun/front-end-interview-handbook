@@ -78,9 +78,9 @@ export default function ProjectsMarketingComponentTrackAccordionItem({
                     )}
                     href={challenge.href}>
                     <img
-                      alt=""
+                      alt={challenge.title}
                       className="h-32 w-48 self-stretch rounded-md bg-neutral-800"
-                      src=""
+                      src={challenge.imageUrl}
                     />
                     <Text size="body2" weight="medium">
                       {challenge.title}

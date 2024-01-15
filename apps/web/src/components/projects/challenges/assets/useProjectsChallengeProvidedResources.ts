@@ -7,7 +7,7 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-export default function useProjectsProvidedResources() {
+export default function useProjectsChallengeProvidedResources() {
   const intl = useIntl();
 
   return [

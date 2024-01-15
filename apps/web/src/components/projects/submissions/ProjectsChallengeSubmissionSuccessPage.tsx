@@ -173,7 +173,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
   const intl = useIntl();
   const { profile } = useProfile();
 
-  // TODO: Replace below with actual logic
+  // TODO(projects): Replace below with actual logic
   const isUserPremium = false;
 
   return (

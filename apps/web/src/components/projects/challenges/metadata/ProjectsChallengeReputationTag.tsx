@@ -16,7 +16,7 @@ type Props = Readonly<{
   variant: TagVariant;
 }>;
 
-export default function ProjectsReputationCountIncreaseTag({
+export default function ProjectsChallengeReputationTag({
   points,
   className,
   variant,

@@ -4,7 +4,7 @@ import useProfile from '~/hooks/user/useProfile';
 
 import ProjectsDiscussionPostList from '~/components/projects/challenges/discussions/ProjectsChallengeDiscussionPostList';
 import type { ProjectsChallengeDiscussionPost } from '~/components/projects/challenges/discussions/types';
-import ProjectsReputationCountIncreaseTag from '~/components/projects/stats/ProjectsReputationCountIncreaseTag';
+import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsUserJobTitle from '~/components/projects/users/ProjectsUserJobTitle';
 import ProjectsUserYearsOfExperience from '~/components/projects/users/ProjectsUserYearsOfExperience';
 import UserAvatarWithLevel from '~/components/projects/users/UserAvatarWithLevel';
@@ -138,7 +138,7 @@ export default function ProjectsChallengeDiscussionSection({
           type="submit"
           variant="primary"
         />
-        <ProjectsReputationCountIncreaseTag points={25} variant="filled" />
+        <ProjectsChallengeReputationTag points={25} variant="filled" />
       </div>
       <ProjectsDiscussionPostList posts={exampleDiscussionPosts} />
     </div>

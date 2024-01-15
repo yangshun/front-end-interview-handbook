@@ -1,8 +1,8 @@
 import ProjectsChallengeProvidedResourceCard from '../assets/ProjectsChallengeProvidedResourceCard';
-import useProjectsProvidedResources from '../assets/useProjectsProvidedResources';
+import useProjectsChallengeProvidedResources from '../assets/useProjectsChallengeProvidedResources';
 
 export default function ProjectsChallengeBriefProvidedResources() {
-  const resources = useProjectsProvidedResources();
+  const resources = useProjectsChallengeProvidedResources();
 
   return (
     <div className="flex flex-col items-stretch gap-4">
