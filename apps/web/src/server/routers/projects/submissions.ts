@@ -17,7 +17,8 @@ import prisma from '~/server/prisma';
 import { projectsUserProcedure } from './procedures';
 import { publicProcedure, router } from '../../trpc';
 
-import type { Prisma, ProjectsChallengeSessionStatus } from '@prisma/client';
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
+import type { Prisma } from '@prisma/client';
 import { TRPCError } from '@trpc/server';
 
 const projectsChallengeProcedure = projectsUserProcedure.input(
@@ -186,36 +187,6 @@ export const projectsChallengeSubmissionRouter = router({
         return null;
       },
     ),
-  featured: publicProcedure
-    .input(
-      z.object({
-        projectsProfileId: z.string().uuid(),
-      }),
-    )
-    .query(async ({ ctx: { user }, input: { projectsProfileId } }) => {
-      const submissions = await prisma.projectsChallengeSubmission.findMany({
-        include: {
-          _count: {
-            select: {
-              votes: true,
-            },
-          },
-        },
-        orderBy: {
-          createdAt: 'desc',
-        },
-        // TODO(projects): fetch pinned submissions.
-        take: 3,
-        where: {
-          profileId: projectsProfileId,
-        },
-      });
-
-      return projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
-        user?.id ?? null,
-        submissions,
-      );
-    }),
   getLatestSubmitted: projectsUserProcedure
     .input(
       z.object({
@@ -579,6 +550,55 @@ export const projectsChallengeSubmissionRouter = router({
         return { submissions, totalCount };
       },
     ),
+  pin: projectsUserProcedure
+    .input(
+      z.object({
+        submissionId: z.string(),
+      }),
+    )
+    .mutation(
+      async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
+        return await prisma.projectsChallengeSubmissionPin.create({
+          data: {
+            profileId: projectsProfileId,
+            submissionId,
+          },
+        });
+      },
+    ),
+  pinned: publicProcedure
+    .input(
+      z.object({
+        projectsProfileId: z.string().uuid(),
+      }),
+    )
+    .query(async ({ ctx: { user }, input: { projectsProfileId } }) => {
+      const submissions = await prisma.projectsChallengeSubmission.findMany({
+        include: {
+          _count: {
+            select: {
+              votes: true,
+            },
+          },
+        },
+        orderBy: {
+          createdAt: 'desc',
+        },
+        take: 3,
+        where: {
+          pins: {
+            some: {
+              profileId: projectsProfileId,
+            },
+          },
+        },
+      });
+
+      return projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
+        user?.id ?? null,
+        submissions,
+      );
+    }),
   reference: projectsChallengeProcedure.query(async ({ input: { slug } }) => {
     return await prisma.projectsChallengeSubmission.findMany({
       include: {
@@ -610,6 +630,22 @@ export const projectsChallengeSubmissionRouter = router({
       },
     });
   }),
+  unpin: projectsUserProcedure
+    .input(
+      z.object({
+        submissionId: z.string(),
+      }),
+    )
+    .mutation(
+      async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
+        await prisma.projectsChallengeSubmissionPin.deleteMany({
+          where: {
+            profileId: projectsProfileId,
+            submissionId,
+          },
+        });
+      },
+    ),
   update: projectsUserProcedure
     .input(
       projectsChallengeSubmissionFormSchema.partial().extend({

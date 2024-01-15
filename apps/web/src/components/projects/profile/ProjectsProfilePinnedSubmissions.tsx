@@ -11,15 +11,16 @@ type Props = Readonly<{
   projectsProfileId: string;
 }>;
 
-export default function ProjectsProfileFeaturedSubmissions({
+export default function ProjectsProfilePinnedSubmissions({
   projectsProfileId,
 }: Props) {
-  const { data: featuredSubmissions } =
-    trpc.projects.submissions.featured.useQuery({
+  const { data: pinnedSubmissions } = trpc.projects.submissions.pinned.useQuery(
+    {
       projectsProfileId,
-    });
+    },
+  );
 
-  if (featuredSubmissions == null) {
+  if (pinnedSubmissions == null) {
     return null;
   }
 
@@ -34,7 +35,7 @@ export default function ProjectsProfileFeaturedSubmissions({
       </Heading>
       <Section>
         <div className="md:grid-cols-2 lg:grid-cols-3 grid-cols-1 grid gap-3 md:gap-4 lg:gap-6">
-          {featuredSubmissions.map((submission) => (
+          {pinnedSubmissions.map((submission) => (
             <ProjectsChallengeSubmissionCard
               key={submission.id}
               challenge={submission.challenge}

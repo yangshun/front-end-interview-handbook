@@ -1,7 +1,5 @@
 import { z } from 'zod';
 
-import { projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus } from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListUtil';
-
 import prisma from '~/server/prisma';
 
 import { projectsUserProcedure } from './procedures';

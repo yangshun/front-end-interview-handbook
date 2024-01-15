@@ -227,6 +227,19 @@ model ProjectsChallengeSubmission {
 
   projectsProfile ProjectsProfile?                  @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   votes           ProjectsChallengeSubmissionVote[]
+  pins            ProjectsChallengeSubmissionPin[]
+}
+
+model ProjectsChallengeSubmissionPin {
+  id           String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  submissionId String   @db.Uuid
+  profileId    String   @db.Uuid
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+
+  submission      ProjectsChallengeSubmission @relation(fields: [submissionId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  projectsProfile ProjectsProfile             @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([submissionId, profileId])
 }
 
 model ProjectsChallengeSubmissionVote {
