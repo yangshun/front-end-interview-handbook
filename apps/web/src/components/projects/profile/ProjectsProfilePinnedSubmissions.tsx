@@ -20,7 +20,7 @@ export default function ProjectsProfilePinnedSubmissions({
     },
   );
 
-  if (pinnedSubmissions == null) {
+  if (pinnedSubmissions == null || pinnedSubmissions.length === 0) {
     return null;
   }
 
@@ -29,8 +29,8 @@ export default function ProjectsProfilePinnedSubmissions({
       <Heading level="heading5">
         <FormattedMessage
           defaultMessage="Submissions"
-          description="Title for Featured Submissions section on Projects project profile page"
-          id="uDIj6e"
+          description="Project submissions"
+          id="p++huH"
         />
       </Heading>
       <Section>

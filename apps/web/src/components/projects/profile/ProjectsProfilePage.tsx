@@ -6,8 +6,8 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import ProjectsProfileFeaturedSubmissions from '~/components/projects/profile/ProjectsProfileFeaturedSubmissions';
 import ProjectsProfileInfo from '~/components/projects/profile/ProjectsProfileInfo';
+import ProjectsProfilePinnedSubmissions from '~/components/projects/profile/ProjectsProfilePinnedSubmissions';
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -95,7 +95,7 @@ export default function ProjectsProfilePage({
           submissionViews={profileStatistics?.submissionViews ?? 0}
           upvotes={profileStatistics?.upvotes ?? 0}
         />
-        <ProjectsProfileFeaturedSubmissions
+        <ProjectsProfilePinnedSubmissions
           projectsProfileId={projectsProfileId}
         />
       </div>
