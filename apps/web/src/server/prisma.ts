@@ -19,6 +19,12 @@ const prismaClientSingleton = () => {
               Readonly<{ href: string; label: string }>
             >,
         },
+        hrefs: {
+          compute: (submission) => ({
+            detail: `/projects/s/${submission.id}`,
+            edit: `/projects/s/${submission.id}/edit`,
+          }),
+        },
         imgSrc: {
           compute: () => 'https://source.unsplash.com/random/48x48',
         },

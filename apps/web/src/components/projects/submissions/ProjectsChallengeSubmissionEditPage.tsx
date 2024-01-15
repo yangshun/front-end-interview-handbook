@@ -43,7 +43,7 @@ export default function ProjectsChallengeSubmissionEditPage({
           variant: 'danger',
         });
       },
-      onSuccess: () => {
+      onSuccess: (submission_) => {
         showToast({
           subtitle: intl.formatMessage({
             defaultMessage:
@@ -58,7 +58,7 @@ export default function ProjectsChallengeSubmissionEditPage({
           }),
           variant: 'success',
         });
-        router.push(`/projects/s/${submissionId}`);
+        router.push(submission_.hrefs.detail);
       },
     },
   );
@@ -102,7 +102,7 @@ export default function ProjectsChallengeSubmissionEditPage({
         <Button
           addonPosition="start"
           className="-ms-4 -mt-2"
-          href={`/projects/s/${submissionId}`}
+          href={submission.hrefs.detail}
           icon={RiArrowLeftLine}
           label={intl.formatMessage({
             defaultMessage: 'To submission',

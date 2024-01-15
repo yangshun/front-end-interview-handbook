@@ -32,7 +32,8 @@ export default function ProjectsChallengeSubmissionCard({
   submission,
 }: Props) {
   const intl = useIntl();
-  const { id, title, stack, summary, comments, views, imgSrc } = submission;
+  const { hrefs, id, title, stack, summary, comments, views, imgSrc } =
+    submission;
   const author = submission.projectsProfile?.userProfile;
   const { votes } = submission._count;
 
@@ -73,7 +74,7 @@ export default function ProjectsChallengeSubmissionCard({
             </Text>
           ))}
         <div className="flex flex-col gap-3">
-          <Anchor href={`/projects/s/${id}`}>
+          <Anchor href={hrefs.detail}>
             <Text weight="bold">{title}</Text>
           </Anchor>
           <ProjectsSkillRow

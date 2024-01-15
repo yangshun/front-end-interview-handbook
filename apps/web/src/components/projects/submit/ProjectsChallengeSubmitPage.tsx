@@ -52,7 +52,7 @@ export default function ProjectsChallengeSubmitPage({ challenge }: Props) {
           }),
           variant: 'info',
         });
-        router.push(`/projects/s/${submission.id}`);
+        router.push(submission.hrefs.detail);
       },
     },
   );

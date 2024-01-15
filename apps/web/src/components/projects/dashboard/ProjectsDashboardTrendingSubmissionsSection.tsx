@@ -97,9 +97,7 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
               <div className="flex flex-col gap-3 w-full">
                 <div className="flex flex-col lg:gap-1 gap-2">
                   <Text size="body1" weight="medium">
-                    <Anchor
-                      href={`/projects/s/${submission.id}`}
-                      variant="unstyled">
+                    <Anchor href={submission.hrefs.detail} variant="unstyled">
                       <span aria-hidden="true" className="absolute inset-0" />
                       {submission.title}
                     </Anchor>
