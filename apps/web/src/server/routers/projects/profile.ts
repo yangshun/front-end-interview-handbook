@@ -1,9 +1,6 @@
 import { z } from 'zod';
 
-import {
-  projectsChallengeSubmissionListAugmentChallenge,
-  projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus,
-} from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListUtil';
+import { projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus } from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListUtil';
 
 import prisma from '~/server/prisma';
 

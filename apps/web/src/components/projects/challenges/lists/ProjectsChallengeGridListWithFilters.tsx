@@ -12,13 +12,13 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import usePagination from '~/hooks/usePagination';
 
 import FilterButton from '~/components/common/FilterButton';
-import useProjectsChallengesFilters from '~/components/projects/lists/filters/hooks/useProjectsChallengesFilters';
-import useProjectsChallengesSorting from '~/components/projects/lists/filters/hooks/useProjectsChallengesSorting';
+import useProjectsChallengesFilters from '~/components/projects/challenges/lists/filters/hooks/useProjectsChallengesFilters';
+import useProjectsChallengesSorting from '~/components/projects/challenges/lists/filters/hooks/useProjectsChallengesSorting';
 import {
   filterProjectsChallenges,
   sortProjectsChallenges,
-} from '~/components/projects/lists/filters/ProjectsChallengesProcessor';
-import ProjectsChallengeGridList from '~/components/projects/lists/ProjectsChallengeGridList';
+} from '~/components/projects/challenges/lists/filters/ProjectsChallengesProcessor';
+import ProjectsChallengeGridList from '~/components/projects/challenges/lists/ProjectsChallengeGridList';
 import type { ProjectsSortField } from '~/components/projects/types';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import EmptyState from '~/components/ui/EmptyState';
@@ -32,7 +32,7 @@ import ProjectsChallengeFilterContextProvider, {
 } from './ProjectsChallengeFilterContext';
 import ProjectsChallengeFilterSlideOut from './ProjectsChallengeFilterSlideOut';
 import ProjectsListFilterDropdown from './ProjectsListFilterDropdown';
-import type { ProjectsChallengeItem } from '../challenges/types';
+import type { ProjectsChallengeItem } from '../types';
 
 type Props = Readonly<{
   challenges: ReadonlyArray<ProjectsChallengeItem>;

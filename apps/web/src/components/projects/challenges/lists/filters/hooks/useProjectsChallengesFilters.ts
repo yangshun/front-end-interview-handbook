@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import { useProjectsChallengeFilterState } from '~/components/projects/lists/ProjectsChallengeFilterContext';
+import { useProjectsChallengeFilterState } from '~/components/projects/challenges/lists/ProjectsChallengeFilterContext';
 
 export default function useProjectsChallengesFilters() {
   // Filtering.

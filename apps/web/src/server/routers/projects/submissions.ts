@@ -1,15 +1,15 @@
 import { z } from 'zod';
 
 import { yoeReplacementSchema } from '~/components/projects/misc';
+import { projectsChallengeSubmissionDeploymentUrlsSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionDeploymentUrlsSchema';
+import { projectsChallengeSubmissionImplementationSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionImplementationSchema';
+import { projectsChallengeSubmissionRepositoryUrlSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
+import { projectsChallengeSubmissionSummarySchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionSummarySchema';
+import { projectsChallengeSubmissionTitleSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionTitleSchema';
 import {
   projectsChallengeSubmissionListAugmentChallenge,
   projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus,
 } from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListUtil';
-import { projectsChallengeSubmissionDeploymentUrlsSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionDeploymentUrlsSchema';
-import { projectsChallengeSubmissionImplementationSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionImplementationSchema';
-import { projectsChallengeSubmissionRepositoryUrlSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
-import { projectsChallengeSubmissionSummarySchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionSummarySchema';
-import { projectsChallengeSubmissionTitleSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionTitleSchema';
 import type { yoeReplacement } from '~/components/projects/types';
 
 import prisma from '~/server/prisma';

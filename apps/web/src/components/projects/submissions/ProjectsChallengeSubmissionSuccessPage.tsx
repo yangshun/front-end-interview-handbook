@@ -5,8 +5,8 @@ import { useIntl } from 'react-intl';
 
 import useProfile from '~/hooks/user/useProfile';
 
+import ProjectsChallengeGridList from '~/components/projects/challenges/lists/ProjectsChallengeGridList';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import ProjectsChallengeGridList from '~/components/projects/lists/ProjectsChallengeGridList';
 import ProjectsSkillProgressBreakdownCard from '~/components/projects/skills/ProjectsSkillProgressBreakdownCard';
 import { ProjectsLevelingProgressBar } from '~/components/projects/stats/ProjectsLevelingProgressBar';
 import { ProjectsSegmentedProgressBar } from '~/components/projects/stats/ProjectsSegmentedProgressBar';
@@ -167,7 +167,7 @@ type Props = Readonly<{
   suggestedChallenges: ReadonlyArray<ProjectsChallengeItem>;
 }>;
 
-export default function ProjectsChallengeSubmitSuccessPage({
+export default function ProjectsChallengeSubmissionSuccessPage({
   suggestedChallenges,
 }: Props) {
   const intl = useIntl();

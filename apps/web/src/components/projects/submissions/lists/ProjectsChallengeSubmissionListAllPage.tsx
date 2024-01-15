@@ -2,7 +2,7 @@
 
 import { FormattedMessage } from 'react-intl';
 
-import ProjectsChallengeSubmissionFilterContextProvider from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionFilterContext';
+import ProjectsChallengeSubmissionFilterContextProvider from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import ProjectsChallengeSubmissionListWithFilters from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListWithFilters';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

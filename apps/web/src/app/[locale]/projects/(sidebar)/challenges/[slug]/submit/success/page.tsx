@@ -1,4 +1,4 @@
-import ProjectsChallengeSubmitSuccessPage from '~/components/projects/submit/ProjectsChallengeSubmitSuccessPage';
+import ProjectsChallengeSubmissionSuccessPage from '~/components/projects/submissions/ProjectsChallengeSubmissionSuccessPage';
 
 import { readProjectsChallengeList } from '~/db/projects/ProjectsReader';
 
@@ -15,7 +15,7 @@ export default async function Page({ params }: Props) {
 
   // TODO(projects): Actual suggested projects for the current project.
   return (
-    <ProjectsChallengeSubmitSuccessPage
+    <ProjectsChallengeSubmissionSuccessPage
       suggestedChallenges={challenges.slice(0, 3)}
     />
   );

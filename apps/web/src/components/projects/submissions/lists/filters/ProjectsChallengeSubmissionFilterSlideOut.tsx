@@ -4,11 +4,11 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import ProjectsSkillInput from '~/components/projects/skills/ProjectsSkillInput';
-import type { ProjectsChallengeSubmissionFilter } from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionFilterContext';
+import type { ProjectsChallengeSubmissionFilter } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import {
   useProjectsChallengeSubmissionFilterContext,
   useProjectsChallengeSubmissionFilterState,
-} from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionFilterContext';
+} from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import SlideOut from '~/components/ui/SlideOut';

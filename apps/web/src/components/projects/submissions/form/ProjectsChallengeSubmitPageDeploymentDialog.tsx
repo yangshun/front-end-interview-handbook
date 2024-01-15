@@ -6,7 +6,7 @@ import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import Prose from '~/components/ui/Prose';
 
-import useProjectsDeploymentInfo from '../hooks/useProjectsDeploymentInfo';
+import useProjectsDeploymentInfo from '../../hooks/useProjectsDeploymentInfo';
 
 export default function ProjectsChallengeSubmitPageDeploymentDialog() {
   const intl = useIntl();
@@ -22,7 +22,6 @@ export default function ProjectsChallengeSubmitPageDeploymentDialog() {
     <div className="-ms-3">
       <Button
         className="dark:!text-brand !text-brand-dark"
-        href="#"
         label={intl.formatMessage({
           defaultMessage: 'Deployment instructions',
           description: 'Label for button to open deployment instructions',

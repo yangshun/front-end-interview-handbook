@@ -19,9 +19,9 @@ import {
   themeCardBackgroundColor,
 } from '~/components/ui/theme';
 
-import type { ProjectsChallengeItem } from '../challenges/types';
-import ProjectsSkillRow from '../skills/ProjectsSkillRow';
-import ProjectsCompletedUsersTag from '../stats/ProjectsCompletedUsersTag';
+import type { ProjectsChallengeItem } from '../types';
+import ProjectsSkillRow from '../../skills/ProjectsSkillRow';
+import ProjectsCompletedUsersTag from '../../stats/ProjectsCompletedUsersTag';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

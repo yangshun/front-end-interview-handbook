@@ -8,7 +8,7 @@ import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 
 import type { ProjectsChallengeItem } from '../types';
-import ProjectsChallengeSubmissionList from '../../submissions/ProjectsChallengeSubmissionList';
+import ProjectsChallengeSubmissionList from '../../submissions/lists/ProjectsChallengeSubmissionList';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

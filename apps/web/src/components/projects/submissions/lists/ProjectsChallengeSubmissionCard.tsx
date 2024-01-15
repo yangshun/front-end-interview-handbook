@@ -6,14 +6,14 @@ import Anchor from '~/components/ui/Anchor';
 import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from './types';
-import ProjectsSkillRow from '../skills/ProjectsSkillRow';
-import ProjectsCommentCountTag from '../stats/ProjectsCommentCountTag';
-import ProjectsLikeCountTag from '../stats/ProjectsLikeCountTag';
-import ProjectsViewCountTag from '../stats/ProjectsViewCountTag';
-import ProjectsUserJobTitle from '../users/ProjectsUserJobTitle';
-import ProjectsUserYearsOfExperience from '../users/ProjectsUserYearsOfExperience';
-import UserAvatarWithLevel from '../users/UserAvatarWithLevel';
+import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from '../types';
+import ProjectsSkillRow from '../../skills/ProjectsSkillRow';
+import ProjectsCommentCountTag from '../../stats/ProjectsCommentCountTag';
+import ProjectsLikeCountTag from '../../stats/ProjectsLikeCountTag';
+import ProjectsViewCountTag from '../../stats/ProjectsViewCountTag';
+import ProjectsUserJobTitle from '../../users/ProjectsUserJobTitle';
+import ProjectsUserYearsOfExperience from '../../users/ProjectsUserYearsOfExperience';
+import UserAvatarWithLevel from '../../users/UserAvatarWithLevel';
 
 import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
@@ -32,8 +32,7 @@ export default function ProjectsChallengeSubmissionCard({
   submission,
 }: Props) {
   const intl = useIntl();
-  const { hrefs, id, title, stack, summary, comments, views, imgSrc } =
-    submission;
+  const { hrefs, title, stack, summary, comments, views, imgSrc } = submission;
   const author = submission.projectsProfile?.userProfile;
   const { votes } = submission._count;
 

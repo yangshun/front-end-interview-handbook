@@ -9,8 +9,8 @@ import { trpc } from '~/hooks/trpc';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsSkillChip from '~/components/projects/skills/ProjectsSkillChip';
 import type { ProjectsSkill } from '~/components/projects/skills/types';
+import ProjectsChallengeSubmissionHero from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHero';
 import ProjectsChallengeSubmissionAuthorProfile from '~/components/projects/submissions/ProjectsChallengeSubmissionAuthorProfile';
-import ProjectsChallengeSubmissionHero from '~/components/projects/submissions/ProjectsChallengeSubmissionHero';
 import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from '~/components/projects/submissions/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -18,7 +18,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 
-import ProjectsChallengeSubmissionInterested from './ProjectsChallengeSubmissionInterested';
+import ProjectsChallengeSubmissionInterested from '../ProjectsChallengeSubmissionInterested';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

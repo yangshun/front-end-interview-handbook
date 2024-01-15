@@ -1,19 +1,18 @@
-import {
-  type ProjectsChallengeFilter,
-  useProjectsChallengeFilterState,
-} from '~/components/projects/lists/ProjectsChallengeFilterContext';
+import type { ProjectsChallengeSubmissionFilter } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
+import { useProjectsChallengeSubmissionFilterState } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Popover from '~/components/ui/Popover';
 import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
-  filter: ProjectsChallengeFilter;
+  filter: ProjectsChallengeSubmissionFilter;
 }>;
 
-export default function ProjectsListFilterDropdown({ filter }: Props) {
-  const [selectedOptions, setSelectedOptions] = useProjectsChallengeFilterState(
-    filter.id,
-  );
+export default function ProjectsChallengeSubmissionFilterDropdown({
+  filter,
+}: Props) {
+  const [selectedOptions, setSelectedOptions] =
+    useProjectsChallengeSubmissionFilterState(filter.id);
 
   const onChange = (value: string) => {
     const newFilters = new Set(selectedOptions);

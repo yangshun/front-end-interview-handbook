@@ -3,9 +3,9 @@ import { RiFilterLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import FilterButton from '~/components/common/FilterButton';
-import type { ProjectsChallengeSubmissionFilter } from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionFilterContext';
-import ProjectsChallengeSubmissionFilterDropdown from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionFilterDropdown';
-import ProjectsChallengeSubmissionFilterSlideOut from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionFilterSlideOut';
+import type { ProjectsChallengeSubmissionFilter } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
+import ProjectsChallengeSubmissionFilterDropdown from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterDropdown';
+import ProjectsChallengeSubmissionFilterSlideOut from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterSlideOut';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import TextInput from '~/components/ui/TextInput';
 

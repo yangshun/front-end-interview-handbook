@@ -23,8 +23,8 @@ import ProjectsChallengeSubmissionSummaryField from './fields/ProjectsChallengeS
 import { useProjectsChallengeSubmissionSummarySchema } from './fields/ProjectsChallengeSubmissionSummarySchema';
 import ProjectsChallengeSubmissionTitleField from './fields/ProjectsChallengeSubmissionTitleField';
 import { useProjectsChallengeSubmissionTitleSchema } from './fields/ProjectsChallengeSubmissionTitleSchema';
-import ProjectsOtherTechStackInput from '../skills/ProjectsOtherTechStackInput';
-import ProjectsSkillInput from '../skills/ProjectsSkillInput';
+import ProjectsOtherTechStackInput from '../../skills/ProjectsOtherTechStackInput';
+import ProjectsSkillInput from '../../skills/ProjectsSkillInput';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 

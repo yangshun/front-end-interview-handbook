@@ -5,7 +5,7 @@ import EmptyState from '~/components/ui/EmptyState';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import ProjectsChallengeSubmissionCard from './ProjectsChallengeSubmissionCard';
-import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from './types';
+import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from '../types';
 
 type Props = Readonly<{
   challenges?: ReadonlyArray<ProjectsChallengeMetadata>;

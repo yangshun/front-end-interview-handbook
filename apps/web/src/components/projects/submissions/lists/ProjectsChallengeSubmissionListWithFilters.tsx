@@ -10,8 +10,8 @@ import useScrollToTop from '~/hooks/useScrollToTop';
 
 import useProjectsChallengesSorting from '~/components/projects/submissions/lists/filters/hooks/useProjectsChallengeSubmissionSorting';
 import ProjectsChallengeSubmissionFilters from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilters';
-import { useProjectsChallengeSubmissionFilterContext } from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionFilterContext';
-import ProjectsChallengeSubmissionList from '~/components/projects/submissions/ProjectsChallengeSubmissionList';
+import { useProjectsChallengeSubmissionFilterContext } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
+import ProjectsChallengeSubmissionList from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionList';
 import type {
   ProjectsChallengeSubmissionStatusFilter,
   ProjectsChallengeSubmissionTabType,

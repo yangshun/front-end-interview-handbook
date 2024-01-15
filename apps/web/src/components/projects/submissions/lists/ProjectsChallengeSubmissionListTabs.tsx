@@ -6,8 +6,8 @@ import Tabs from '~/components/ui/Tabs';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-import type { ProjectsChallengeSubmissionListTabCategory } from './useProjectsChallengeSubmissionListTabs';
-import useProjectsChallengeSubmissionListTabs from './useProjectsChallengeSubmissionListTabs';
+import type { ProjectsChallengeSubmissionListTabCategory } from '../useProjectsChallengeSubmissionListTabs';
+import useProjectsChallengeSubmissionListTabs from '../useProjectsChallengeSubmissionListTabs';
 
 export default function ProjectsChallengeSubmissionListTabs() {
   const { pathname } = useI18nPathname();

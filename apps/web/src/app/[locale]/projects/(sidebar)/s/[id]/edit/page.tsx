@@ -1,7 +1,8 @@
 import { notFound, redirect } from 'next/navigation';
 
-import ProjectsChallengeSubmissionEditPage from '~/components/projects/submissions/ProjectsChallengeSubmissionEditPage';
 import { convertToPlainObject } from '~/lib/convertToPlainObject';
+
+import ProjectsChallengeSubmissionEditPage from '~/components/projects/submissions/form/ProjectsChallengeSubmissionEditPage';
 
 import prisma from '~/server/prisma';
 import { readUserFromToken } from '~/supabase/SupabaseServerGFE';

@@ -2,7 +2,7 @@ import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import ProjectsChallengeSubmissionCard from '~/components/projects/submissions/ProjectsChallengeSubmissionCard';
+import ProjectsChallengeSubmissionCard from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionCard';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 

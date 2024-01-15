@@ -1,4 +1,4 @@
-import ProjectsChallengeSubmitPage from '~/components/projects/submit/ProjectsChallengeSubmitPage';
+import ProjectsChallengeSubmitPage from '~/components/projects/submissions/form/ProjectsChallengeSubmitPage';
 
 import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
 

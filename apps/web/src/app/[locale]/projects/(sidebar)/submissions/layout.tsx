@@ -1,4 +1,4 @@
-import ProjectsChallengeSubmissionListLayout from '~/components/projects/submissions/ProjectsChallengeSubmissionListLayout';
+import ProjectsChallengeSubmissionListLayout from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListLayout';
 
 type Props = Readonly<{
   children: React.ReactNode;

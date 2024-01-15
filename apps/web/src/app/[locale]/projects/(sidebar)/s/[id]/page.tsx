@@ -1,7 +1,8 @@
 import { notFound } from 'next/navigation';
 
-import ProjectsChallengeSubmissionPage from '~/components/projects/submissions/ProjectsChallengeSubmissionPage';
 import { convertToPlainObject } from '~/lib/convertToPlainObject';
+
+import ProjectsChallengeSubmissionPage from '~/components/projects/submissions/form/ProjectsChallengeSubmissionPage';
 
 import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';

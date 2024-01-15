@@ -5,7 +5,7 @@ import { trpc } from '~/hooks/trpc';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import ProjectsChallengeSubmissionCard from '../submissions/ProjectsChallengeSubmissionCard';
+import ProjectsChallengeSubmissionCard from '../submissions/lists/ProjectsChallengeSubmissionCard';
 
 export default function ProjectsProfileFeaturedSubmissions() {
   const { data: featuredSubmissions } =

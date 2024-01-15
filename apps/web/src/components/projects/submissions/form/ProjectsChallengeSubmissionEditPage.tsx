@@ -14,8 +14,8 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
-import type { ProjectsChallengeSubmissionExtended } from './types';
-import ProjectsChallengeSubmissionForm from '../submit/ProjectsChallengeSubmissionForm';
+import ProjectsChallengeSubmissionForm from './ProjectsChallengeSubmissionForm';
+import type { ProjectsChallengeSubmissionExtended } from '../types';
 
 type Props = Readonly<{
   submission: NonNullable<ProjectsChallengeSubmissionExtended>;

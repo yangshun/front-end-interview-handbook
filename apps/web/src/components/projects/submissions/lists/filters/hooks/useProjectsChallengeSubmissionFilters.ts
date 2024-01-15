@@ -2,7 +2,7 @@ import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 import { useState } from 'react';
 
 import useProjectsYOEReplacementOptions from '~/components/projects/hooks/useProjectsYOEReplacementOptions';
-import { useProjectsChallengeSubmissionFilterState } from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionFilterContext';
+import { useProjectsChallengeSubmissionFilterState } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import type { ProjectsChallengeSubmissionYOEFilter } from '~/components/projects/submissions/types';
 import type { YOEReplacement } from '~/components/projects/types';
 
