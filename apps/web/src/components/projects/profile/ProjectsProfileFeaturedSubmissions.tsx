@@ -2,7 +2,6 @@ import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import { addMissingFieldsToSubmission } from '~/components/projects/submissions/types';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -36,7 +35,7 @@ export default function ProjectsProfileFeaturedSubmissions() {
                 title: 'Newsletter Section',
               }}
               isPinnedOnProfile={true}
-              submission={addMissingFieldsToSubmission(submission)}
+              submission={submission}
             />
           ))}
         </div>

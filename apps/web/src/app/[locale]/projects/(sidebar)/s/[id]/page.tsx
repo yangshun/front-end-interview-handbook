@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 
 import ProjectsChallengeSubmissionPage from '~/components/projects/submissions/ProjectsChallengeSubmissionPage';
-import { addMissingFieldsToSubmission } from '~/components/projects/submissions/types';
 
 import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
@@ -57,7 +56,7 @@ export default async function Page({ params }: Props) {
     <ProjectsChallengeSubmissionPage
       challenge={challenge}
       currentUserId={user?.id}
-      submission={addMissingFieldsToSubmission(submission)}
+      submission={submission}
     />
   );
 }

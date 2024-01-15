@@ -11,7 +11,7 @@ import ProjectsSkillChip from '~/components/projects/skills/ProjectsSkillChip';
 import type { ProjectsSkill } from '~/components/projects/skills/types';
 import ProjectsChallengeSubmissionAuthorProfile from '~/components/projects/submissions/ProjectsChallengeSubmissionAuthorProfile';
 import ProjectsChallengeSubmissionHero from '~/components/projects/submissions/ProjectsChallengeSubmissionHero';
-import type { ProjectsChallengeSubmissionItem } from '~/components/projects/submissions/types';
+import type { ProjectsChallengeSubmissionWithVotesAndAuthor } from '~/components/projects/submissions/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -23,7 +23,7 @@ import ProjectsChallengeSubmissionInterested from './ProjectsChallengeSubmission
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   currentUserId: string | undefined;
-  submission: ProjectsChallengeSubmissionItem;
+  submission: ProjectsChallengeSubmissionWithVotesAndAuthor;
 }>;
 
 export default function ProjectsChallengeSubmissionPage({
@@ -32,7 +32,8 @@ export default function ProjectsChallengeSubmissionPage({
   currentUserId,
 }: Props) {
   const intl = useIntl();
-  const isViewingOwnProfile = currentUserId === submission.author?.id;
+  const isViewingOwnProfile =
+    currentUserId === submission.projectsProfile?.userProfile?.id;
   const viewSubmissionMutation = trpc.projects.submissions.view.useMutation();
   const submissionId = submission.id;
   const { deploymentUrls, repositoryUrl } = submission;
@@ -82,9 +83,9 @@ export default function ProjectsChallengeSubmissionPage({
   const authorSection = (
     <Section>
       <div className="flex md:items-center items-start justify-between md:flex-row flex-col gap-6">
-        {submission.author && (
+        {submission.projectsProfile?.userProfile && (
           <ProjectsChallengeSubmissionAuthorProfile
-            author={submission.author}
+            author={submission.projectsProfile?.userProfile}
           />
         )}
         {(deploymentUrls.length > 0 || repositoryUrl) && (

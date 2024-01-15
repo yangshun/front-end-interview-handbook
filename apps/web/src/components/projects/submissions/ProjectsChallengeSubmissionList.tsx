@@ -5,12 +5,11 @@ import EmptyState from '~/components/ui/EmptyState';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import ProjectsChallengeSubmissionCard from './ProjectsChallengeSubmissionCard';
-import type { ProjectsChallengeSubmissionFromDatabase } from './types';
-import { addMissingFieldsToSubmission } from './types';
+import type { ProjectsChallengeSubmissionWithVotesAndAuthor } from './types';
 
 type Props = Readonly<{
   challenges?: ReadonlyArray<ProjectsChallengeMetadata>;
-  submissions: ReadonlyArray<ProjectsChallengeSubmissionFromDatabase>;
+  submissions: ReadonlyArray<ProjectsChallengeSubmissionWithVotesAndAuthor>;
 }>;
 
 export default function ProjectsChallengeSubmissionList({
@@ -30,7 +29,7 @@ export default function ProjectsChallengeSubmissionList({
           challenge={challenges?.find(
             (challengeItem) => challengeItem.slug === submission.slug,
           )}
-          submission={addMissingFieldsToSubmission(submission)}
+          submission={submission}
         />
       ))}
     </div>

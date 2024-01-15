@@ -3,7 +3,6 @@ import { FormattedMessage } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import ProjectsChallengeSubmissionCard from '~/components/projects/submissions/ProjectsChallengeSubmissionCard';
-import { addMissingFieldsToSubmission } from '~/components/projects/submissions/types';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -43,7 +42,7 @@ export default function ProjectsChallengeSubmissionInterested({
                 href: '/projects/challenges/newsletter-section',
                 title: 'Newsletter Section',
               }}
-              submission={addMissingFieldsToSubmission(submission)}
+              submission={submission}
             />
           ))}
         </div>

@@ -8,14 +8,14 @@ import ProjectsChallengeSubmissionHeroTimestamp from '~/components/projects/subm
 import ProjectsChallengeSubmissionHeroViews from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroViews';
 import ProjectsChallengeSubmissionHeroVoteButton from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroVoteButton';
 import ProjectsChallengeSubmissionHeroCard from '~/components/projects/submissions/ProjectsChallengeSubmissionHeroCard';
-import type { ProjectsChallengeSubmissionItem } from '~/components/projects/submissions/types';
+import type { ProjectsChallengeSubmissionWithVotesAndAuthor } from '~/components/projects/submissions/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   showPin: boolean;
-  submission: ProjectsChallengeSubmissionItem;
+  submission: ProjectsChallengeSubmissionWithVotesAndAuthor;
 }>;
 
 export default function ProjectsChallengeSubmissionHero({
@@ -60,7 +60,7 @@ export default function ProjectsChallengeSubmissionHero({
                     <div className="flex items-center gap-2">
                       <ProjectsChallengeSubmissionHeroVoteButton
                         submissionId={submission.id}
-                        votes={submission.votes}
+                        votes={submission._count.votes}
                       />
                       <ProjectsChallengeSubmissionHeroCommentButton
                         comments={submission.comments}
@@ -96,7 +96,7 @@ export default function ProjectsChallengeSubmissionHero({
               <ProjectsChallengeSubmissionHeroViews views={submission.views} />
               <ProjectsChallengeSubmissionHeroVoteButton
                 submissionId={submission.id}
-                votes={submission.votes}
+                votes={submission._count.votes}
               />
               <ProjectsChallengeSubmissionHeroCommentButton
                 comments={submission.comments}

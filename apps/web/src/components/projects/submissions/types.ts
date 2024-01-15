@@ -1,7 +1,14 @@
-import type { ProjectsSkill } from '../skills/types';
+import type { PrismaClientGFE } from '~/server/prisma';
 
-import type { ProjectsChallengeSubmission } from '@prisma/client';
+import type { Prisma } from '@prisma/client';
 
+export type ProjectsChallengeSubmissionExtended = Prisma.Result<
+  PrismaClientGFE['projectsChallengeSubmission'],
+  Prisma.Args<PrismaClientGFE['projectsChallengeSubmission'], 'findUnique'>,
+  'findUnique'
+>;
+
+// Subset of relevant fields from Prisma.Profile.
 export type ProjectsChallengeSubmissionAuthor = Readonly<{
   avatarUrl: string | null;
   githubUsername?: string | null;
@@ -12,25 +19,8 @@ export type ProjectsChallengeSubmissionAuthor = Readonly<{
   username: string;
 }>;
 
-export type ProjectsChallengeSubmissionItem = Readonly<{
-  author?: ProjectsChallengeSubmissionAuthor | null | undefined;
-  comments: number;
-  createdAt: Date;
-  deploymentUrls: Array<Readonly<{ href: string; label: string }>>;
-  id: string;
-  imgSrc: string;
-  implementation: string;
-  repositoryUrl: string;
-  slug: string;
-  stack: Array<ProjectsSkill>;
-  summary: string;
-  title: string;
-  views: number;
-  votes: number;
-}>;
-
-export type ProjectsChallengeSubmissionFromDatabase =
-  ProjectsChallengeSubmission &
+export type ProjectsChallengeSubmissionWithVotesAndAuthor =
+  ProjectsChallengeSubmissionExtended &
     Readonly<{
       _count: {
         votes: number;
@@ -42,23 +32,6 @@ export type ProjectsChallengeSubmissionFromDatabase =
         | null
         | undefined;
     }>;
-
-// TODO(projects): Remove in future.
-export function addMissingFieldsToSubmission<
-  T extends ProjectsChallengeSubmissionFromDatabase,
->(submission: T): ProjectsChallengeSubmissionItem {
-  return {
-    ...submission,
-    author: submission.projectsProfile?.userProfile,
-    comments: 42,
-    deploymentUrls: submission.deploymentUrls as Array<
-      Readonly<{ href: string; label: string }>
-    >,
-    imgSrc: 'https://source.unsplash.com/random/48x48',
-    stack: [],
-    votes: submission._count.votes,
-  };
-}
 
 export type ProjectsChallengeSubmissionSortField =
   | 'createdAt'

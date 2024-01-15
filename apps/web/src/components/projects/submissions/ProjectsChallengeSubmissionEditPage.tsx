@@ -14,15 +14,11 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
+import type { ProjectsChallengeSubmissionExtended } from './types';
 import ProjectsChallengeSubmissionForm from '../submit/ProjectsChallengeSubmissionForm';
 
-import type { ProjectsChallengeSubmission } from '@prisma/client';
-
 type Props = Readonly<{
-  submission: Omit<ProjectsChallengeSubmission, 'deploymentUrls'> &
-    Readonly<{
-      deploymentUrls: Array<Readonly<{ href: string; label: string }>>;
-    }>;
+  submission: NonNullable<ProjectsChallengeSubmissionExtended>;
 }>;
 
 export default function ProjectsChallengeSubmissionEditPage({

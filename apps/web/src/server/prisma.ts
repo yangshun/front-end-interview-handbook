@@ -4,13 +4,36 @@
 import { PrismaClient } from '@prisma/client';
 
 const prismaClientSingleton = () => {
-  return new PrismaClient();
+  return new PrismaClient().$extends({
+    name: 'ProjectsChallengeSubmission extension',
+    result: {
+      projectsChallengeSubmission: {
+        // TODO(projects): Remove fake fields in future.
+        // TODO(projects): Extend with challenge data.
+        comments: {
+          compute: () => 42,
+        },
+        deploymentUrls: {
+          compute: (submission) =>
+            submission.deploymentUrls as Array<
+              Readonly<{ href: string; label: string }>
+            >,
+        },
+        imgSrc: {
+          compute: () => 'https://source.unsplash.com/random/48x48',
+        },
+        stack: {
+          compute: () => [],
+        },
+      },
+    },
+  });
 };
 
-type PrismaClientSingleton = ReturnType<typeof prismaClientSingleton>;
+export type PrismaClientGFE = ReturnType<typeof prismaClientSingleton>;
 
 const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClientSingleton | undefined;
+  prisma: PrismaClientGFE | undefined;
 };
 
 const prisma = globalForPrisma.prisma ?? prismaClientSingleton();

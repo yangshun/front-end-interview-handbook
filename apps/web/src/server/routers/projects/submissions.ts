@@ -379,7 +379,9 @@ export const projectsChallengeSubmissionRouter = router({
             return {
               orderBy: {
                 votes: {
-                  _count: sort.isAscendingOrder ? 'asc' : 'desc',
+                  _count: sort.isAscendingOrder
+                    ? ('asc' as const)
+                    : ('desc' as const),
                 },
               },
             };
@@ -388,7 +390,9 @@ export const projectsChallengeSubmissionRouter = router({
           if (sort.field === 'createdAt') {
             return {
               orderBy: {
-                createdAt: sort.isAscendingOrder ? 'asc' : 'desc',
+                createdAt: sort.isAscendingOrder
+                  ? ('asc' as const)
+                  : ('desc' as const),
               },
             };
           }
@@ -396,7 +400,7 @@ export const projectsChallengeSubmissionRouter = router({
           if (submissionType === 'all') {
             return {
               orderBy: {
-                createdAt: 'desc',
+                createdAt: 'desc' as const,
               },
             };
           }
@@ -405,7 +409,7 @@ export const projectsChallengeSubmissionRouter = router({
             return {
               orderBy: {
                 votes: {
-                  _count: 'desc',
+                  _count: 'desc' as const,
                 },
               },
             };
@@ -415,7 +419,7 @@ export const projectsChallengeSubmissionRouter = router({
             return {
               orderBy: {
                 votes: {
-                  _count: 'asc',
+                  _count: 'asc' as const,
                 },
               },
             };
@@ -446,7 +450,12 @@ export const projectsChallengeSubmissionRouter = router({
           profileStatus,
         );
 
-        const where: Prisma.ProjectsChallengeSubmissionWhereInput = {
+        const inProgressAndCompletedSessionsStatus: Array<ProjectsChallengeSessionStatus> =
+          ['IN_PROGRESS', 'COMPLETED'];
+        const inProgressSessionsStatus: Array<ProjectsChallengeSessionStatus> =
+          ['IN_PROGRESS'];
+
+        const where = {
           AND:
             submissionType === 'all'
               ? [...commonWhere]
@@ -458,7 +467,9 @@ export const projectsChallengeSubmissionRouter = router({
                         // Filter challenge working on or completed
                         sessions: {
                           some: {
-                            status: { in: ['IN_PROGRESS', 'COMPLETED'] },
+                            status: {
+                              in: inProgressAndCompletedSessionsStatus,
+                            },
                           },
                         }, // User who has more YOE than current user
                         ...(userProfile && {
@@ -482,10 +493,10 @@ export const projectsChallengeSubmissionRouter = router({
                         // TODO(projects): Add filter for reviewed before
                         sessions: {
                           some: {
-                            status: { in: ['IN_PROGRESS'] },
+                            status: { in: inProgressSessionsStatus },
                           },
                         },
-                        // User who has less YOE than current user
+                        // User who has fewer YOE than current user
                         ...(userProfile && {
                           userProfile: {
                             id: { not: userProfile.id },

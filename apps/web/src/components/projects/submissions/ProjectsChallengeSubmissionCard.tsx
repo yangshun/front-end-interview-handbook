@@ -5,7 +5,7 @@ import Anchor from '~/components/ui/Anchor';
 import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsChallengeSubmissionItem } from './types';
+import type { ProjectsChallengeSubmissionWithVotesAndAuthor } from './types';
 import ProjectsSkillRow from '../skills/ProjectsSkillRow';
 import ProjectsCommentCountTag from '../stats/ProjectsCommentCountTag';
 import ProjectsLikeCountTag from '../stats/ProjectsLikeCountTag';
@@ -20,7 +20,7 @@ type Props = Readonly<{
     title: string;
   }>;
   isPinnedOnProfile?: boolean;
-  submission: ProjectsChallengeSubmissionItem;
+  submission: ProjectsChallengeSubmissionWithVotesAndAuthor;
 }>;
 
 export default function ProjectsChallengeSubmissionCard({
@@ -29,8 +29,9 @@ export default function ProjectsChallengeSubmissionCard({
   submission,
 }: Props) {
   const intl = useIntl();
-  const { id, title, stack, author, summary, comments, votes, views, imgSrc } =
-    submission;
+  const { id, title, stack, summary, comments, views, imgSrc } = submission;
+  const author = submission.projectsProfile?.userProfile;
+  const { votes } = submission._count;
 
   return (
     <Card disableSpotlight={true} padding={false} pattern={false}>
