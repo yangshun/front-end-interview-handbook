@@ -41,9 +41,9 @@ function useFilters() {
       {
         id: 'status',
         label: intl.formatMessage({
-          defaultMessage: 'Challenge Status',
+          defaultMessage: 'Challenge status',
           description: 'Label for Status filter for submissions list',
-          id: 'vepDCh',
+          id: 'ofUX5S',
         }),
         options: [
           {
@@ -70,9 +70,9 @@ function useFilters() {
       {
         id: 'difficulty',
         label: intl.formatMessage({
-          defaultMessage: 'Challenge Difficulty',
+          defaultMessage: 'Challenge difficulty',
           description: 'Label for Difficulty filter for submissions list',
-          id: 'hrg3Bt',
+          id: 'BfJL2V',
         }),
         options: [
           {

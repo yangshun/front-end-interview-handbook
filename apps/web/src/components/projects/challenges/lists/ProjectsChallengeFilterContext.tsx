@@ -58,9 +58,9 @@ function useFilters() {
           id: 'qRBY3O',
         }),
         longLabel: intl.formatMessage({
-          defaultMessage: 'Challenge Difficulty',
+          defaultMessage: 'Challenge difficulty',
           description: 'Label for Difficulty filter for projects list',
-          id: 'wv55qz',
+          id: 'WETxAT',
         }),
         options: [
           {
@@ -123,9 +123,9 @@ function useFilters() {
           id: 'c7eREh',
         }),
         longLabel: intl.formatMessage({
-          defaultMessage: 'Challenge Status',
+          defaultMessage: 'Challenge status',
           description: 'Label for Status filter for projects list',
-          id: 'Gzdpp9',
+          id: 'HCrCHg',
         }),
         options: [
           {

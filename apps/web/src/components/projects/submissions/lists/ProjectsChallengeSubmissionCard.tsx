@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 import { RiPushpinFill } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -5,6 +6,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import Anchor from '~/components/ui/Anchor';
 import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';
+import { themeTextBrandColor } from '~/components/ui/theme';
 
 import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from '../types';
 import ProjectsSkillRow from '../../skills/ProjectsSkillRow';
@@ -41,7 +43,7 @@ export default function ProjectsChallengeSubmissionCard({
       <div className="flex flex-col px-4 py-6 gap-4">
         {challenge != null &&
           (isPinnedOnProfile ? (
-            <div className="flex justify-between">
+            <div className="flex items-center justify-between">
               <Text color="secondary" size="body3">
                 <FormattedMessage
                   defaultMessage="Brief: <link>{title}</link>"
@@ -55,7 +57,9 @@ export default function ProjectsChallengeSubmissionCard({
                   }}
                 />
               </Text>
-              <RiPushpinFill className="!text-brand" />
+              <RiPushpinFill
+                className={clsx(themeTextBrandColor, 'h-6 w-6 shrink-0')}
+              />
             </div>
           ) : (
             <Text color="secondary" size="body3">

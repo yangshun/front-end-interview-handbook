@@ -151,11 +151,11 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                     )}
                     <Text color="subtitle" size="body3">
                       <FormattedMessage
-                        defaultMessage="{comments} Comments"
+                        defaultMessage="{commentsCount} Comments"
                         description="Number of comments for project submission"
-                        id="K+j1lh"
+                        id="yG+kp/"
                         values={{
-                          comments: 16, // TODO: get comments
+                          commentsCount: submission.comments,
                         }}
                       />
                     </Text>

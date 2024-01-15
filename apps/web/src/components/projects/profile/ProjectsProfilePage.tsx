@@ -37,9 +37,10 @@ export default function ProjectsProfilePage({
       refetchOnReconnect: false,
     });
 
+  const projectsProfileId = initialUserProfile.projectsProfile.id;
   const { data: profileStatistics } =
     trpc.projects.profile.getDashboardStatisticsForProfile.useQuery({
-      projectsProfileId: initialUserProfile.id,
+      projectsProfileId,
     });
 
   if (userProfile == null) {
@@ -87,13 +88,17 @@ export default function ProjectsProfilePage({
         isViewingOwnProfile={isViewingOwnProfile}
         userProfile={{ ...userProfile, projectsProfile }}
       />
-      <ProjectsProfileStats
-        codeReviews={profileStatistics?.codeReviews ?? 0}
-        completedChallenges={profileStatistics?.completedChallenges ?? 0}
-        submissionViews={profileStatistics?.submissionViews ?? 0}
-        upvotes={profileStatistics?.upvotes ?? 0}
-      />
-      <ProjectsProfileFeaturedSubmissions />
+      <div className="flex flex-col gap-12">
+        <ProjectsProfileStats
+          codeReviews={profileStatistics?.codeReviews ?? 0}
+          completedChallenges={profileStatistics?.completedChallenges ?? 0}
+          submissionViews={profileStatistics?.submissionViews ?? 0}
+          upvotes={profileStatistics?.upvotes ?? 0}
+        />
+        <ProjectsProfileFeaturedSubmissions
+          projectsProfileId={projectsProfileId}
+        />
+      </div>
     </div>
   );
 }

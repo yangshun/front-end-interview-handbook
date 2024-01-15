@@ -23,7 +23,7 @@ export function projectsChallengeSubmissionListAugmentChallenge<
 
 export async function projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus<
   T extends ProjectsChallengeSubmissionWithVotesAuthorChallenge,
->(userId: string, submissions: ReadonlyArray<T>) {
+>(userId: string | null, submissions: ReadonlyArray<T>) {
   const sessionsForUserGroupedBySlug =
     await fetchSessionsForUserGroupedBySlug(userId);
   const submissionsWithChallenge =

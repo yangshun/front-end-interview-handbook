@@ -97,9 +97,9 @@ export default function ProjectsProfileStats({
       count: submissionViews,
       icon: RiEyeFill,
       title: intl.formatMessage({
-        defaultMessage: 'Views on your submissions',
+        defaultMessage: 'Views on submissions',
         description: 'Number of views on the project submissions',
-        id: 'KeMz9W',
+        id: 'oC86Nx',
       }),
     },
   ];

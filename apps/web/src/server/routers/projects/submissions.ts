@@ -186,6 +186,36 @@ export const projectsChallengeSubmissionRouter = router({
         return null;
       },
     ),
+  featured: publicProcedure
+    .input(
+      z.object({
+        projectsProfileId: z.string().uuid(),
+      }),
+    )
+    .query(async ({ ctx: { user }, input: { projectsProfileId } }) => {
+      const submissions = await prisma.projectsChallengeSubmission.findMany({
+        include: {
+          _count: {
+            select: {
+              votes: true,
+            },
+          },
+        },
+        orderBy: {
+          createdAt: 'desc',
+        },
+        // TODO(projects): fetch pinned submissions.
+        take: 3,
+        where: {
+          profileId: projectsProfileId,
+        },
+      });
+
+      return projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
+        user?.id ?? null,
+        submissions,
+      );
+    }),
   getLatestSubmitted: projectsUserProcedure
     .input(
       z.object({

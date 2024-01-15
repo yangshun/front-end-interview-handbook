@@ -1,4 +1,5 @@
 import { RiArrowLeftLine } from 'react-icons/ri';
+import { useIntl } from 'react-intl';
 
 import MarketingHeroBackground from '~/components/common/marketing/MarketingHeroBackground';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
@@ -23,6 +24,24 @@ export default function ProjectsChallengeSubmissionHero({
   submission,
   showPin = false,
 }: Props) {
+  const intl = useIntl();
+
+  const backButton = (
+    <Button
+      addonPosition="start"
+      className="-ml-4"
+      href="/projects/submissions"
+      icon={RiArrowLeftLine}
+      label={intl.formatMessage({
+        defaultMessage: 'Back to all submissions',
+        description: 'Label to go back to submissions page',
+        id: '3T7UDC',
+      })}
+      size="sm"
+      variant="tertiary"
+    />
+  );
+
   return (
     <>
       <div className="relative md:block hidden">
@@ -34,14 +53,7 @@ export default function ProjectsChallengeSubmissionHero({
         <div className="relative pb-8 pt-5 sm:pb-16 md:pt-12 md:pb-8 md:px-8 h-full">
           <div className="flex flex-col justify-between items-start h-full gap-2">
             <div className="flex gap-2 justify-between w-full">
-              <Button
-                addonPosition="start"
-                className="-ml-4"
-                icon={RiArrowLeftLine}
-                label="Back to all submissions"
-                size="sm"
-                variant="tertiary"
-              />
+              {backButton}
               {showPin && (
                 <div>
                   <ProjectsChallengeSubmissionHeroPinButton />
@@ -79,14 +91,7 @@ export default function ProjectsChallengeSubmissionHero({
       <div className="mt-6 flex flex-col gap-10 md:hidden">
         <div className="flex flex-col gap-6">
           <div className="flex flex-wrap gap-2 justify-between">
-            <Button
-              addonPosition="start"
-              className="-ml-4"
-              icon={RiArrowLeftLine}
-              label="Back to all submissions"
-              size="sm"
-              variant="tertiary"
-            />
+            {backButton}
             {showPin && <ProjectsChallengeSubmissionHeroPinButton />}
           </div>
           <div className="flex flex-col gap-4">

@@ -7,16 +7,24 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 import ProjectsChallengeSubmissionCard from '../submissions/lists/ProjectsChallengeSubmissionCard';
 
-export default function ProjectsProfileFeaturedSubmissions() {
+type Props = Readonly<{
+  projectsProfileId: string;
+}>;
+
+export default function ProjectsProfileFeaturedSubmissions({
+  projectsProfileId,
+}: Props) {
   const { data: featuredSubmissions } =
-    trpc.projects.profile.featuredSubmissions.useQuery();
+    trpc.projects.submissions.featured.useQuery({
+      projectsProfileId,
+    });
 
   if (featuredSubmissions == null) {
     return null;
   }
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-4">
       <Heading level="heading5">
         <FormattedMessage
           defaultMessage="Submissions"

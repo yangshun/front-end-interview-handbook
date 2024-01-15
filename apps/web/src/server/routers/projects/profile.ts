@@ -8,56 +8,38 @@ import { projectsUserProcedure } from './procedures';
 import { publicProcedure, router, userProcedure } from '../../trpc';
 
 export const projectsProfileRouter = router({
-  featuredSubmissions: projectsUserProcedure.query(
-    async ({ ctx: { user, projectsProfileId } }) => {
-      const submissions = await prisma.projectsChallengeSubmission.findMany({
-        include: {
-          _count: {
-            select: {
-              votes: true,
-            },
-          },
-        },
-        orderBy: {
-          createdAt: 'desc',
-        },
-        // TODO(projects): fetch pinned submissions.
-        take: 3,
-        where: {
-          profileId: projectsProfileId,
-        },
-      });
-
-      return projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
-        user.id,
-        submissions,
-      );
-    },
-  ),
   getDashboardStatistics: projectsUserProcedure.query(
     async ({ ctx: { projectsProfileId } }) => {
-      const [completedChallenges, submissionViews] = await Promise.all([
-        prisma.projectsChallengeSubmission.count({
-          where: {
-            profileId: projectsProfileId,
-          },
-        }),
-        prisma.projectsChallengeSubmission.aggregate({
-          _sum: {
-            views: true,
-          },
-          where: {
-            profileId: projectsProfileId,
-          },
-        }),
-      ]);
+      const [completedChallenges, submissionUpvotes, submissionViews] =
+        await Promise.all([
+          prisma.projectsChallengeSubmission.count({
+            where: {
+              profileId: projectsProfileId,
+            },
+          }),
+          prisma.projectsChallengeSubmissionVote.count({
+            where: {
+              submission: {
+                profileId: projectsProfileId,
+              },
+            },
+          }),
+          prisma.projectsChallengeSubmission.aggregate({
+            _sum: {
+              views: true,
+            },
+            where: {
+              profileId: projectsProfileId,
+            },
+          }),
+        ]);
 
       // TODO(projects): remove when using real data.
       return {
         codeReviews: Math.ceil(Math.random() * 1000),
         completedChallenges,
         submissionViews: submissionViews._sum.views,
-        upvotes: Math.ceil(Math.random() * 10000),
+        upvotes: submissionUpvotes,
       };
     },
   ),
@@ -68,28 +50,36 @@ export const projectsProfileRouter = router({
       }),
     )
     .query(async ({ input: { projectsProfileId } }) => {
-      const [completedChallenges, submissionViews] = await Promise.all([
-        prisma.projectsChallengeSubmission.count({
-          where: {
-            profileId: projectsProfileId,
-          },
-        }),
-        prisma.projectsChallengeSubmission.aggregate({
-          _sum: {
-            views: true,
-          },
-          where: {
-            profileId: projectsProfileId,
-          },
-        }),
-      ]);
+      const [completedChallenges, submissionUpvotes, submissionViews] =
+        await Promise.all([
+          prisma.projectsChallengeSubmission.count({
+            where: {
+              profileId: projectsProfileId,
+            },
+          }),
+          prisma.projectsChallengeSubmissionVote.count({
+            where: {
+              submission: {
+                profileId: projectsProfileId,
+              },
+            },
+          }),
+          prisma.projectsChallengeSubmission.aggregate({
+            _sum: {
+              views: true,
+            },
+            where: {
+              profileId: projectsProfileId,
+            },
+          }),
+        ]);
 
       // TODO(projects): remove when using real data.
       return {
         codeReviews: Math.ceil(Math.random() * 1000),
         completedChallenges,
         submissionViews: submissionViews._sum.views,
-        upvotes: Math.ceil(Math.random() * 10000),
+        upvotes: submissionUpvotes,
       };
     }),
   motivationsUpdate: userProcedure

@@ -159,6 +159,10 @@
     "defaultMessage": "View other's code and learn from their approach",
     "description": "Description for experienced motivation"
   },
+  "/a3HVd": {
+    "defaultMessage": "Brief: <link>{title}</link>",
+    "description": "Link to project challenge"
+  },
   "/dWN/a": {
     "defaultMessage": "Project Deployment & Completion",
     "description": "Subtitle for \"Project Deployment & Completion\" tab on Projects project page"
@@ -442,6 +446,10 @@
   "3QQssQ": {
     "defaultMessage": "Please enter a valid date",
     "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
+  },
+  "3T7UDC": {
+    "defaultMessage": "Back to all submissions",
+    "description": "Label to go back to submissions page"
   },
   "3UtpZS": {
     "defaultMessage": "Submission deleted!",
@@ -1223,6 +1231,10 @@
     "defaultMessage": "Best value for money with real-time support from the team and community.",
     "description": "Supporting statement for an annual pricing plan"
   },
+  "BfJL2V": {
+    "defaultMessage": "Challenge difficulty",
+    "description": "Label for Difficulty filter for submissions list"
+  },
   "BgJH+X": {
     "defaultMessage": "Brief: <link>{briefDescription}</link>",
     "description": "Link to brief for project submission"
@@ -1583,6 +1595,10 @@
     "defaultMessage": "Deployment instructions",
     "description": "Label for button to open deployment instructions"
   },
+  "FDBVRf": {
+    "defaultMessage": "Brief: <link>{title}</link>",
+    "description": "Link to brief for pinned project submission"
+  },
   "FLKG3X": {
     "defaultMessage": "Cut line (empty selection)",
     "description": "Text describing command to cut line(s) in the coding workspace shortcuts menu"
@@ -1719,10 +1735,6 @@
     "defaultMessage": "Filters",
     "description": "Screenreader text indicating the filters component on question list pages"
   },
-  "Gzdpp9": {
-    "defaultMessage": "Challenge Status",
-    "description": "Label for Status filter for projects list"
-  },
   "H+BRfg": {
     "defaultMessage": "No completed questions",
     "description": "Text shown when no questions are completed."
@@ -1746,6 +1758,10 @@
   "H94EnK": {
     "defaultMessage": "<strong>Note</strong>: We have some basic policies on affiliate conduct. Please read the agreement carefully in the sign up process.",
     "description": "Tip at the bottom of the 'How does it work' section on the 'Become an Affiliate' page to highlight the affiliate agreement"
+  },
+  "HCrCHg": {
+    "defaultMessage": "Challenge status",
+    "description": "Label for Status filter for projects list"
   },
   "HDsjyG": {
     "defaultMessage": "Trivia-style questions on essential front end know-how",
@@ -2278,10 +2294,6 @@
   "M3V59d": {
     "defaultMessage": "GitHub repo",
     "description": "Title for GitHub repo step in project submission checklist"
-  },
-  "M4er8i": {
-    "defaultMessage": "Brief: <link>{briefDescription}</link>",
-    "description": "Link to project challenge"
   },
   "M9z02W": {
     "defaultMessage": "Airbnb",
@@ -3199,10 +3211,6 @@
     "defaultMessage": "Study plan to prepare for front end interviews in 1 week",
     "description": "Title of 1 Week Preparation Plan page"
   },
-  "Ukm+GC": {
-    "defaultMessage": "Brief: <link>{briefDescription}</link>",
-    "description": "Link to brief for pinned project submission"
-  },
   "UltF1J": {
     "defaultMessage": "Already an affiliate? <link>Access dashboard</link>",
     "description": "Button to access dashboard above the Title of the 'Become An Affiliate' page's Hero section"
@@ -3366,6 +3374,10 @@
   "WDJgWl": {
     "defaultMessage": "Questions",
     "description": "Front end system design interviews questions"
+  },
+  "WETxAT": {
+    "defaultMessage": "Challenge difficulty",
+    "description": "Label for Difficulty filter for projects list"
   },
   "WH8fwr": {
     "defaultMessage": "Write here",
@@ -4539,10 +4551,6 @@
     "defaultMessage": "Importance: High to Low",
     "description": "Sorting option on quiz questions page - from High to Low"
   },
-  "hrg3Bt": {
-    "defaultMessage": "Challenge Difficulty",
-    "description": "Label for Difficulty filter for submissions list"
-  },
   "huMizZ": {
     "defaultMessage": "Practice selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.",
     "description": "Description for interview preparation focus area"
@@ -5254,6 +5262,10 @@
   "ofFMGr": {
     "defaultMessage": "Check out other available <link>promotions</link>.",
     "description": "Promotional message"
+  },
+  "ofUX5S": {
+    "defaultMessage": "Challenge status",
+    "description": "Label for Status filter for submissions list"
   },
   "oiMKy3": {
     "defaultMessage": "Here are the tasks for this campaign:",
@@ -6035,10 +6047,6 @@
     "defaultMessage": "Sort by",
     "description": "Label for sorting button"
   },
-  "vepDCh": {
-    "defaultMessage": "Challenge Status",
-    "description": "Label for Status filter for submissions list"
-  },
   "vfVwh2": {
     "defaultMessage": "1 Week",
     "description": "Short label for one week study plan"
@@ -6150,10 +6158,6 @@
   "wqIwvv": {
     "defaultMessage": "{questionTitle} | JavaScript Front End Interview Questions with Solutions",
     "description": "Title of Javascript Front End interview questions page"
-  },
-  "wv55qz": {
-    "defaultMessage": "Challenge Difficulty",
-    "description": "Label for Difficulty filter for projects list"
   },
   "wzLox4": {
     "defaultMessage": "Monthly Plan CTA card tooltip",
