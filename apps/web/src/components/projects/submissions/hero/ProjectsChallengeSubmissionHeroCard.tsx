@@ -15,6 +15,7 @@ import {
   themeTextFaintColor,
 } from '~/components/ui/theme';
 
+import ProjectsChallengeStatusBadge from '../../challenges/status/ProjectsChallengeStatusBadge';
 import ProjectsChallengeStatusBadgeCompleted from '../../challenges/status/ProjectsChallengeStatusBadgeCompleted';
 import ProjectsChallengeStatusBadgeInProgress from '../../challenges/status/ProjectsChallengeStatusBadgeCompletedInProgress';
 
@@ -48,16 +49,7 @@ export default function ProjectsChallengeSubmissionHeroCard({
                   id: '/BGC+5',
                 })}
               </Text>
-              {status != null && (
-                <>
-                  {status === 'IN_PROGRESS' && (
-                    <ProjectsChallengeStatusBadgeInProgress />
-                  )}
-                  {status === 'COMPLETED' && (
-                    <ProjectsChallengeStatusBadgeCompleted />
-                  )}
-                </>
-              )}
+              <ProjectsChallengeStatusBadge status={status} />
             </div>
             <RiArrowRightLine
               aria-hidden={true}

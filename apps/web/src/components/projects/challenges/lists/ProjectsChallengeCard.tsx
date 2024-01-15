@@ -13,6 +13,7 @@ import {
   themeCardBackgroundColor,
 } from '~/components/ui/theme';
 
+import ProjectsChallengeStatusBadge from '../status/ProjectsChallengeStatusBadge';
 import ProjectsChallengeStatusBadgeCompleted from '../status/ProjectsChallengeStatusBadgeCompleted';
 import ProjectsChallengeStatusBadgeInProgress from '../status/ProjectsChallengeStatusBadgeCompletedInProgress';
 import type { ProjectsChallengeItem } from '../types';
@@ -53,12 +54,7 @@ export default function ProjectsChallengeCard({ challenge }: Props) {
         />
         {status != null && (
           <div className="absolute start-3 bottom-3">
-            {status === 'IN_PROGRESS' && (
-              <ProjectsChallengeStatusBadgeInProgress />
-            )}
-            {status === 'COMPLETED' && (
-              <ProjectsChallengeStatusBadgeCompleted />
-            )}
+            <ProjectsChallengeStatusBadge status={status} />
           </div>
         )}
         <div className="absolute start-2 top-2 flex items-center gap-1">
