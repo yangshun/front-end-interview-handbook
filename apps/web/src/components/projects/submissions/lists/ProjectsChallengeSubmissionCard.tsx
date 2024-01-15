@@ -9,6 +9,7 @@ import Text from '~/components/ui/Text';
 import { themeTextBrandColor } from '~/components/ui/theme';
 
 import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from '../types';
+import ProjectsChallengeStatusBadge from '../../challenges/status/ProjectsChallengeStatusBadge';
 import ProjectsSkillRow from '../../skills/ProjectsSkillRow';
 import ProjectsCommentCountTag from '../../stats/ProjectsCommentCountTag';
 import ProjectsLikeCountTag from '../../stats/ProjectsLikeCountTag';
@@ -24,12 +25,12 @@ type Props = Readonly<{
     metadata: ProjectsChallengeMetadata;
     status: ProjectsChallengeSessionStatus | null;
   }>;
-  isPinnedOnProfile?: boolean;
+  isPinned?: boolean;
   submission: ProjectsChallengeSubmissionWithVotesAuthorChallenge;
 }>;
 
 export default function ProjectsChallengeSubmissionCard({
-  isPinnedOnProfile = false,
+  isPinned = false,
   challenge,
   submission,
 }: Props) {
@@ -41,14 +42,14 @@ export default function ProjectsChallengeSubmissionCard({
   return (
     <Card disableSpotlight={true} padding={false} pattern={false}>
       <div className="flex flex-col px-4 py-6 gap-4">
-        {challenge != null &&
-          (isPinnedOnProfile ? (
-            <div className="flex items-center justify-between">
+        {challenge != null && (
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2">
               <Text color="secondary" size="body3">
                 <FormattedMessage
-                  defaultMessage="Brief: <link>{title}</link>"
-                  description="Link to brief for pinned project submission"
-                  id="FDBVRf"
+                  defaultMessage="Challenge: <link>{title}</link>"
+                  description="Link to project submission's original challenge"
+                  id="j6bW1T"
                   values={{
                     link: (chunks) => (
                       <Anchor href={challenge?.metadata.href}>{chunks}</Anchor>
@@ -57,25 +58,17 @@ export default function ProjectsChallengeSubmissionCard({
                   }}
                 />
               </Text>
+              {!isPinned && (
+                <ProjectsChallengeStatusBadge status={challenge.status} />
+              )}
+            </div>
+            {isPinned && (
               <RiPushpinFill
                 className={clsx(themeTextBrandColor, 'h-6 w-6 shrink-0')}
               />
-            </div>
-          ) : (
-            <Text color="secondary" size="body3">
-              <FormattedMessage
-                defaultMessage="Brief: <link>{title}</link>"
-                description="Link to project challenge"
-                id="/a3HVd"
-                values={{
-                  link: (chunks) => (
-                    <Anchor href={challenge?.metadata.href}>{chunks}</Anchor>
-                  ),
-                  title: challenge?.metadata.title,
-                }}
-              />
-            </Text>
-          ))}
+            )}
+          </div>
+        )}
         <div className="flex flex-col gap-3">
           <Anchor href={hrefs.detail}>
             <Text weight="bold">{title}</Text>
@@ -89,8 +82,8 @@ export default function ProjectsChallengeSubmissionCard({
             skills={stack}
           />
         </div>
-        <img alt="" className="h-[190px] w-full rounded-md" src={imgSrc} />
-        {!isPinnedOnProfile && author != null && (
+        <img alt={title} className="h-[190px] w-full rounded-md" src={imgSrc} />
+        {!isPinned && author != null && (
           <div className="flex items-center gap-4">
             <UserAvatarWithLevel
               level={11}

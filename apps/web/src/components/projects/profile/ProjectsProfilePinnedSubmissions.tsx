@@ -39,7 +39,7 @@ export default function ProjectsProfilePinnedSubmissions({
             <ProjectsChallengeSubmissionCard
               key={submission.id}
               challenge={submission.challenge}
-              isPinnedOnProfile={true}
+              isPinned={true}
               submission={submission}
             />
           ))}

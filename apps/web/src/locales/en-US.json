@@ -159,10 +159,6 @@
     "defaultMessage": "View other's code and learn from their approach",
     "description": "Description for experienced motivation"
   },
-  "/a3HVd": {
-    "defaultMessage": "Brief: <link>{title}</link>",
-    "description": "Link to project challenge"
-  },
   "/dWN/a": {
     "defaultMessage": "Project Deployment & Completion",
     "description": "Subtitle for \"Project Deployment & Completion\" tab on Projects project page"
@@ -1594,10 +1590,6 @@
   "FD+Giz": {
     "defaultMessage": "Deployment instructions",
     "description": "Label for button to open deployment instructions"
-  },
-  "FDBVRf": {
-    "defaultMessage": "Brief: <link>{title}</link>",
-    "description": "Link to brief for pinned project submission"
   },
   "FLKG3X": {
     "defaultMessage": "Cut line (empty selection)",
@@ -4663,6 +4655,10 @@
     "defaultMessage": "You can add more skills e.g. UI frameworks used after starting the project",
     "description": "Additional information for skills section on Projects project page"
   },
+  "j6bW1T": {
+    "defaultMessage": "Challenge: <link>{title}</link>",
+    "description": "Link to project submission's original challenge"
+  },
   "jCp/VW": {
     "defaultMessage": "Social links",
     "description": "Label for Social Links section of Projects profile onboarding page"
@@ -5299,6 +5295,10 @@
     "defaultMessage": "Hide widget for this session",
     "description": "Feedback widget button label to hide the feedback widget for their current session"
   },
+  "p++huH": {
+    "defaultMessage": "Submissions",
+    "description": "Project submissions"
+  },
   "p/R4cx": {
     "defaultMessage": "Learn from official solutions and guides",
     "description": "Title of 'Learn from official solutions and guides' feature in marketing page"
@@ -5898,10 +5898,6 @@
   "uCyL/V": {
     "defaultMessage": "I'm <bold>experienced</bold> and here to bridge some skill gaps in modern front end or full stack",
     "description": "Label for \"Experienced\" onboarding option in Projects"
-  },
-  "uDIj6e": {
-    "defaultMessage": "Submissions",
-    "description": "Title for Featured Submissions section on Projects project profile page"
   },
   "uDUEmN": {
     "defaultMessage": "JS functions, algorithms, building components, etc.",
