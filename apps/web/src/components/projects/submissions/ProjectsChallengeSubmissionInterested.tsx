@@ -8,15 +8,12 @@ import Section from '~/components/ui/Heading/HeadingContext';
 
 export default function ProjectsChallengeSubmissionInterested({
   challengeSlug,
-  submissionId,
 }: {
   challengeSlug: string;
-  submissionId: string;
 }) {
   const { data: interestedSubmissions } =
     trpc.projects.submissions.interested.useQuery({
       challenge: challengeSlug,
-      submissionId,
     });
 
   if (interestedSubmissions == null || interestedSubmissions.length === 0) {

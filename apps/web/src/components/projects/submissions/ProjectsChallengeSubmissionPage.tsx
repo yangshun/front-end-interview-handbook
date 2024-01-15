@@ -177,7 +177,6 @@ export default function ProjectsChallengeSubmissionPage({
       <div className="mt-10">
         <ProjectsChallengeSubmissionInterested
           challengeSlug={submission.slug}
-          submissionId={submissionId}
         />
       </div>
     </div>

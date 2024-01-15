@@ -246,14 +246,13 @@ export const projectsChallengeSubmissionRouter = router({
 
       return existingVote;
     }),
-  interested: projectsUserProcedure
+  interested: publicProcedure
     .input(
       z.object({
         challenge: z.string(),
-        submissionId: z.string(),
       }),
     )
-    .query(async ({ input: { challenge, submissionId }, ctx: { user } }) => {
+    .query(async ({ input: { challenge }, ctx: { user } }) => {
       const submissions = await prisma.projectsChallengeSubmission.findMany({
         include: {
           _count: {
@@ -263,16 +262,23 @@ export const projectsChallengeSubmissionRouter = router({
           },
         },
         take: 15,
-        where: {
-          NOT: {
-            id: submissionId,
-          },
-          slug: challenge,
-        },
+        where:
+          user?.id == null
+            ? { slug: challenge }
+            : {
+                projectsProfile: {
+                  isNot: {
+                    userProfile: {
+                      id: user?.id,
+                    },
+                  },
+                },
+                slug: challenge,
+              },
       });
 
       return projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
-        user.id,
+        user?.id ?? null,
         submissions,
       );
     }),
