@@ -1,5 +1,10 @@
 import { z } from 'zod';
 
+import {
+  projectsChallengeSubmissionListAugmentChallenge,
+  projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus,
+} from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListUtil';
+
 import prisma from '~/server/prisma';
 
 import { projectsUserProcedure } from './procedures';
@@ -7,8 +12,8 @@ import { publicProcedure, router, userProcedure } from '../../trpc';
 
 export const projectsProfileRouter = router({
   featuredSubmissions: projectsUserProcedure.query(
-    async ({ ctx: { projectsProfileId } }) => {
-      return await prisma.projectsChallengeSubmission.findMany({
+    async ({ ctx: { user, projectsProfileId } }) => {
+      const submissions = await prisma.projectsChallengeSubmission.findMany({
         include: {
           _count: {
             select: {
@@ -25,6 +30,11 @@ export const projectsProfileRouter = router({
           profileId: projectsProfileId,
         },
       });
+
+      return projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
+        user.id,
+        submissions,
+      );
     },
   ),
   getDashboardStatistics: projectsUserProcedure.query(
@@ -45,7 +55,7 @@ export const projectsProfileRouter = router({
         }),
       ]);
 
-      // TODO(projects): remove random stats.
+      // TODO(projects): remove when using real data.
       return {
         codeReviews: Math.ceil(Math.random() * 1000),
         completedChallenges,
@@ -77,7 +87,7 @@ export const projectsProfileRouter = router({
         }),
       ]);
 
-      // TODO(projects): remove random stats.
+      // TODO(projects): remove when using real data.
       return {
         codeReviews: Math.ceil(Math.random() * 1000),
         completedChallenges,

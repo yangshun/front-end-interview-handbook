@@ -1,6 +1,7 @@
 /**
  * @link https://prisma.io/docs/support/help-articles/nextjs-prisma-client-dev-practices
  */
+
 import { PrismaClient } from '@prisma/client';
 
 const prismaClientSingleton = () => {
@@ -8,8 +9,7 @@ const prismaClientSingleton = () => {
     name: 'ProjectsChallengeSubmission extension',
     result: {
       projectsChallengeSubmission: {
-        // TODO(projects): Remove fake fields in future.
-        // TODO(projects): Extend with challenge data.
+        // TODO(projects): remove when using real data.
         comments: {
           compute: () => 42,
         },

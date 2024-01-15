@@ -1,6 +1,8 @@
+import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
+
 import type { PrismaClientGFE } from '~/server/prisma';
 
-import type { Prisma } from '@prisma/client';
+import type { Prisma, ProjectsChallengeSessionStatus } from '@prisma/client';
 
 export type ProjectsChallengeSubmissionExtended = Prisma.Result<
   PrismaClientGFE['projectsChallengeSubmission'],
@@ -19,12 +21,16 @@ export type ProjectsChallengeSubmissionAuthor = Readonly<{
   username: string;
 }>;
 
-export type ProjectsChallengeSubmissionWithVotesAndAuthor =
+export type ProjectsChallengeSubmissionWithVotesAuthorChallenge =
   ProjectsChallengeSubmissionExtended &
     Readonly<{
       _count: {
         votes: number;
       };
+      challenge?: Readonly<{
+        metadata: ProjectsChallengeMetadata;
+        status: ProjectsChallengeSessionStatus | null;
+      }>;
       projectsProfile?:
         | {
             userProfile?: ProjectsChallengeSubmissionAuthor | null | undefined;

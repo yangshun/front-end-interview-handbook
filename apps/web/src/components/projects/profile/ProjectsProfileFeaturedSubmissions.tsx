@@ -29,11 +29,7 @@ export default function ProjectsProfileFeaturedSubmissions() {
           {featuredSubmissions.map((submission) => (
             <ProjectsChallengeSubmissionCard
               key={submission.id}
-              // TODO(projects): Combine with challenges.
-              challenge={{
-                href: '/projects/challenges/newsletter-section',
-                title: 'Newsletter Section',
-              }}
+              challenge={submission.challenge}
               isPinnedOnProfile={true}
               submission={submission}
             />

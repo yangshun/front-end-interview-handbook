@@ -1,7 +1,10 @@
-import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { z } from 'zod';
 
 import { yoeReplacementSchema } from '~/components/projects/misc';
+import {
+  projectsChallengeSubmissionListAugmentChallenge,
+  projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus,
+} from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListUtil';
 import { projectsChallengeSubmissionDeploymentUrlsSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionDeploymentUrlsSchema';
 import { projectsChallengeSubmissionImplementationSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionImplementationSchema';
 import { projectsChallengeSubmissionRepositoryUrlSchemaServer } from '~/components/projects/submit/fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
@@ -129,10 +132,9 @@ export const projectsChallengeSubmissionRouter = router({
           },
         );
 
-        return await prisma.$transaction(async (prisma_) => {
-          // TODO(projects): Wrap in transaction.
+        return await prisma.$transaction(async (tx) => {
           if (existingSession == null) {
-            await prisma_.projectsChallengeSession.create({
+            await tx.projectsChallengeSession.create({
               data: {
                 profileId: projectsProfileId,
                 slug,
@@ -140,7 +142,7 @@ export const projectsChallengeSubmissionRouter = router({
               },
             });
           } else {
-            await prisma_.projectsChallengeSession.updateMany({
+            await tx.projectsChallengeSession.updateMany({
               data: {
                 status: 'COMPLETED',
               },
@@ -152,7 +154,7 @@ export const projectsChallengeSubmissionRouter = router({
             });
           }
 
-          return await prisma_.projectsChallengeSubmission.create({
+          return await tx.projectsChallengeSubmission.create({
             data: {
               deploymentUrls: deploymentUrls as Prisma.JsonArray,
               implementation,
@@ -223,16 +225,7 @@ export const projectsChallengeSubmissionRouter = router({
         },
       });
 
-      return submissions.map((submission) => {
-        const challenge = allProjectsChallengeMetadata.find(
-          (project) => project.slug === submission.slug,
-        );
-
-        return {
-          ...submission,
-          challenge,
-        };
-      });
+      return projectsChallengeSubmissionListAugmentChallenge(submissions);
     }),
   hasVoted: projectsUserProcedure
     .input(
@@ -259,8 +252,8 @@ export const projectsChallengeSubmissionRouter = router({
         submissionId: z.string(),
       }),
     )
-    .query(async ({ input: { challenge, submissionId } }) => {
-      return await prisma.projectsChallengeSubmission.findMany({
+    .query(async ({ input: { challenge, submissionId }, ctx: { user } }) => {
+      const submissions = await prisma.projectsChallengeSubmission.findMany({
         include: {
           _count: {
             select: {
@@ -276,6 +269,11 @@ export const projectsChallengeSubmissionRouter = router({
           slug: challenge,
         },
       });
+
+      return projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
+        user.id,
+        submissions,
+      );
     }),
   list: projectsUserProcedure
     .input(

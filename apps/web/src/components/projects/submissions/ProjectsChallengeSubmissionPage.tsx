@@ -11,7 +11,7 @@ import ProjectsSkillChip from '~/components/projects/skills/ProjectsSkillChip';
 import type { ProjectsSkill } from '~/components/projects/skills/types';
 import ProjectsChallengeSubmissionAuthorProfile from '~/components/projects/submissions/ProjectsChallengeSubmissionAuthorProfile';
 import ProjectsChallengeSubmissionHero from '~/components/projects/submissions/ProjectsChallengeSubmissionHero';
-import type { ProjectsChallengeSubmissionWithVotesAndAuthor } from '~/components/projects/submissions/types';
+import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from '~/components/projects/submissions/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -23,7 +23,7 @@ import ProjectsChallengeSubmissionInterested from './ProjectsChallengeSubmission
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   currentUserId: string | undefined;
-  submission: ProjectsChallengeSubmissionWithVotesAndAuthor;
+  submission: ProjectsChallengeSubmissionWithVotesAuthorChallenge;
 }>;
 
 export default function ProjectsChallengeSubmissionPage({

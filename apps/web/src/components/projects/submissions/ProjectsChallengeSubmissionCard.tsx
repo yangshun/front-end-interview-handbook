@@ -1,3 +1,4 @@
+import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 import { RiPushpinFill } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -5,7 +6,7 @@ import Anchor from '~/components/ui/Anchor';
 import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsChallengeSubmissionWithVotesAndAuthor } from './types';
+import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from './types';
 import ProjectsSkillRow from '../skills/ProjectsSkillRow';
 import ProjectsCommentCountTag from '../stats/ProjectsCommentCountTag';
 import ProjectsLikeCountTag from '../stats/ProjectsLikeCountTag';
@@ -14,13 +15,15 @@ import ProjectsUserJobTitle from '../users/ProjectsUserJobTitle';
 import ProjectsUserYearsOfExperience from '../users/ProjectsUserYearsOfExperience';
 import UserAvatarWithLevel from '../users/UserAvatarWithLevel';
 
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
+
 type Props = Readonly<{
   challenge?: Readonly<{
-    href: string;
-    title: string;
+    metadata: ProjectsChallengeMetadata;
+    status: ProjectsChallengeSessionStatus | null;
   }>;
   isPinnedOnProfile?: boolean;
-  submission: ProjectsChallengeSubmissionWithVotesAndAuthor;
+  submission: ProjectsChallengeSubmissionWithVotesAuthorChallenge;
 }>;
 
 export default function ProjectsChallengeSubmissionCard({
@@ -41,14 +44,14 @@ export default function ProjectsChallengeSubmissionCard({
             <div className="flex justify-between">
               <Text color="secondary" size="body3">
                 <FormattedMessage
-                  defaultMessage="Brief: <link>{briefDescription}</link>"
+                  defaultMessage="Brief: <link>{title}</link>"
                   description="Link to brief for pinned project submission"
-                  id="Ukm+GC"
+                  id="FDBVRf"
                   values={{
-                    briefDescription: challenge?.title,
                     link: (chunks) => (
-                      <Anchor href={challenge?.href}>{chunks}</Anchor>
+                      <Anchor href={challenge?.metadata.href}>{chunks}</Anchor>
                     ),
+                    title: challenge?.metadata.title,
                   }}
                 />
               </Text>
@@ -57,14 +60,14 @@ export default function ProjectsChallengeSubmissionCard({
           ) : (
             <Text color="secondary" size="body3">
               <FormattedMessage
-                defaultMessage="Brief: <link>{briefDescription}</link>"
+                defaultMessage="Brief: <link>{title}</link>"
                 description="Link to project challenge"
-                id="M4er8i"
+                id="/a3HVd"
                 values={{
-                  briefDescription: challenge?.title,
                   link: (chunks) => (
-                    <Anchor href={challenge?.href}>{chunks}</Anchor>
+                    <Anchor href={challenge?.metadata.href}>{chunks}</Anchor>
                   ),
+                  title: challenge?.metadata.title,
                 }}
               />
             </Text>

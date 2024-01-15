@@ -89,9 +89,9 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
             <div className="flex flex-row gap-4 lg:items-center">
               {submission.challenge && (
                 <img
-                  alt={submission.challenge.title}
+                  alt={submission.challenge.metadata.title}
                   className="object-cover rounded lg:w-1/5 w-1/4"
-                  src={submission.challenge.imageUrl}
+                  src={submission.challenge.metadata.imageUrl}
                 />
               )}
               <div className="flex flex-col gap-3 w-full">
@@ -111,11 +111,11 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                         description="Link to brief for project submission"
                         id="BgJH+X"
                         values={{
-                          briefDescription: submission.challenge.title,
+                          briefDescription: submission.challenge.metadata.title,
                           link: (chunks) => (
                             <Anchor
                               className="relative"
-                              href={submission.challenge?.href}>
+                              href={submission.challenge.metadata.href}>
                               {chunks}
                             </Anchor>
                           ),

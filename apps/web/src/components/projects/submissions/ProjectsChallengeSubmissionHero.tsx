@@ -8,14 +8,14 @@ import ProjectsChallengeSubmissionHeroTimestamp from '~/components/projects/subm
 import ProjectsChallengeSubmissionHeroViews from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroViews';
 import ProjectsChallengeSubmissionHeroVoteButton from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroVoteButton';
 import ProjectsChallengeSubmissionHeroCard from '~/components/projects/submissions/ProjectsChallengeSubmissionHeroCard';
-import type { ProjectsChallengeSubmissionWithVotesAndAuthor } from '~/components/projects/submissions/types';
+import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from '~/components/projects/submissions/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   showPin: boolean;
-  submission: ProjectsChallengeSubmissionWithVotesAndAuthor;
+  submission: ProjectsChallengeSubmissionWithVotesAuthorChallenge;
 }>;
 
 export default function ProjectsChallengeSubmissionHero({

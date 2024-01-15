@@ -24,7 +24,7 @@ import prisma from '~/server/prisma';
 
 import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
-// TODO(projects): remove in future.
+// TODO(projects): remove when using real data.
 const extraProjectData = {
   skills: [
     {
@@ -45,7 +45,7 @@ const extraProjectData = {
   ] as const,
 } as const;
 
-// TODO(projects): remove in future.
+// TODO(projects): remove when using real data.
 export const exampleTrack: Omit<
   ProjectsTrack,
   'challenges' | 'metadata' | 'points'
@@ -53,6 +53,39 @@ export const exampleTrack: Omit<
   completedProjectCount: 3,
   isPremium: true,
 };
+
+export async function fetchSessionsForUserGroupedBySlug(
+  userId?: string | null,
+): Promise<Record<string, ProjectsChallengeSessionStatus> | null> {
+  if (userId == null) {
+    return null;
+  }
+
+  const sessionsForUserGrouped: Record<string, ProjectsChallengeSessionStatus> =
+    {};
+
+  const sessionsForUser = await prisma.projectsChallengeSession.findMany({
+    orderBy: {
+      createdAt: 'asc',
+    },
+    where: {
+      projectsProfile: {
+        userProfile: {
+          id: userId,
+        },
+      },
+      status: {
+        not: 'STOPPED',
+      },
+    },
+  });
+
+  sessionsForUser?.forEach((session) => {
+    sessionsForUserGrouped[session.slug] = session.status;
+  });
+
+  return sessionsForUserGrouped;
+}
 
 export async function readProjectsChallengeList(
   requestedLocale = 'en-US',
@@ -66,38 +99,7 @@ export async function readProjectsChallengeList(
     countsGroupedBySlug,
     completedProfileIdsGroupedBySlug,
   ] = await Promise.all([
-    (async () => {
-      if (userId == null) {
-        return null;
-      }
-
-      const sessionsForUserGrouped: Record<
-        string,
-        ProjectsChallengeSessionStatus
-      > = {};
-
-      const sessionsForUser = await prisma.projectsChallengeSession.findMany({
-        orderBy: {
-          createdAt: 'asc',
-        },
-        where: {
-          projectsProfile: {
-            userProfile: {
-              id: userId,
-            },
-          },
-          status: {
-            not: 'STOPPED',
-          },
-        },
-      });
-
-      sessionsForUser?.forEach((session) => {
-        sessionsForUserGrouped[session.slug] = session.status;
-      });
-
-      return sessionsForUserGrouped;
-    })(),
+    fetchSessionsForUserGroupedBySlug(userId),
     (async () => {
       try {
         const countsForProjectList =
@@ -175,16 +177,16 @@ export async function readProjectsChallengeList(
     .filter((challengeItem) =>
       challengeItem._raw.flattenedPath.endsWith(requestedLocale),
     )
-    .map((projectMetadata) =>
+    .map((challengeMetadata) =>
       challengeItemAddTrackMetadata({
-        completedCount: countsGroupedBySlug?.[projectMetadata.slug] ?? null,
+        completedCount: countsGroupedBySlug?.[challengeMetadata.slug] ?? null,
         completedProfiles:
-          completedProfileIdsGroupedBySlug?.[projectMetadata.slug] ?? [],
+          completedProfileIdsGroupedBySlug?.[challengeMetadata.slug] ?? [],
         metadata: {
-          ...projectMetadata,
+          ...challengeMetadata,
           ...extraProjectData,
         },
-        status: sessionsForUserGroupedBySlug?.[projectMetadata.slug] ?? null,
+        status: sessionsForUserGroupedBySlug?.[challengeMetadata.slug] ?? null,
       }),
     );
 
@@ -206,7 +208,7 @@ export async function readProjectsChallengeItem(
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
 
-  const { projectMetadata } = await readProjectsChallengeMetadata(
+  const { challengeMetadata } = await readProjectsChallengeMetadata(
     slug,
     requestedLocale,
   );
@@ -272,7 +274,7 @@ export async function readProjectsChallengeItem(
       completedCount,
       completedProfiles: completedUsers,
       metadata: {
-        ...projectMetadata,
+        ...challengeMetadata,
         ...extraProjectData,
       },
       // If any page needs it in future, fetch from db.
@@ -306,21 +308,21 @@ async function readProjectsChallengeMetadata(
   requestedLocale = 'en-US',
 ): Promise<
   Readonly<{
+    challengeMetadata: ProjectsChallengeMetadata;
     loadedLocale: string;
-    projectMetadata: ProjectsChallengeMetadata;
   }>
 > {
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
-  const projectMetadata = allProjectsChallengeMetadata.find(
+  const challengeMetadata = allProjectsChallengeMetadata.find(
     (challengeItem) =>
       challengeItem._raw.flattenedPath ===
       `projects/challenges/${slug}/${requestedLocale}`,
   )!;
 
   return {
+    challengeMetadata,
     loadedLocale: requestedLocale,
-    projectMetadata,
   };
 }
 
