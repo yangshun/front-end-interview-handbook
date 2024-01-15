@@ -1,6 +1,7 @@
 import { notFound, redirect } from 'next/navigation';
 
 import ProjectsChallengeSubmissionEditPage from '~/components/projects/submissions/ProjectsChallengeSubmissionEditPage';
+import { convertToPlainObject } from '~/lib/convertToPlainObject';
 
 import prisma from '~/server/prisma';
 import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
@@ -40,5 +41,9 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  return <ProjectsChallengeSubmissionEditPage submission={submission} />;
+  return (
+    <ProjectsChallengeSubmissionEditPage
+      submission={convertToPlainObject(submission)}
+    />
+  );
 }

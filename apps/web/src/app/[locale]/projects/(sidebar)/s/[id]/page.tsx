@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 
 import ProjectsChallengeSubmissionPage from '~/components/projects/submissions/ProjectsChallengeSubmissionPage';
+import { convertToPlainObject } from '~/lib/convertToPlainObject';
 
 import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
@@ -56,7 +57,7 @@ export default async function Page({ params }: Props) {
     <ProjectsChallengeSubmissionPage
       challenge={challenge}
       currentUserId={user?.id}
-      submission={submission}
+      submission={convertToPlainObject(submission)}
     />
   );
 }
