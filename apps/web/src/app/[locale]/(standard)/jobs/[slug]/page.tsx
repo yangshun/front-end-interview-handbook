@@ -11,6 +11,12 @@ type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
 }>;
 
+export async function generateStaticParams() {
+  return allJobsPostings.map((jobPosting) => ({
+    slug: jobPosting.slug,
+  }));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = params;
 
