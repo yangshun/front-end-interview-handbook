@@ -100,11 +100,18 @@ export default function Page({ searchParams }: Props) {
   const countryCode: string =
     searchParams?.cty ?? cookieStore.get('country')?.value ?? 'US';
 
-  const jobs = allJobsPostings.filter((job) => {
-    return (
-      job.notInParticularLocale !== countryCode &&
-      (!job.inParticularLocale || job.inParticularLocale === countryCode)
-    );
+  const jobPostings = allJobsPostings.filter((jobPosting) => {
+    // If there's a location requirement,
+    // check if the current country meets the req.
+    if (jobPosting.locationRequirements) {
+      return jobPosting.locationRequirements.includes(countryCode);
+    }
+
+    if (jobPosting.hideFromLocations?.includes(countryCode)) {
+      return false;
+    }
+
+    return true;
   });
 
   return (
@@ -120,13 +127,13 @@ export default function Page({ searchParams }: Props) {
       </div>
       <Section>
         <div className="grid gap-6 lg:grid-cols-2">
-          {jobs.map((job) => (
+          {jobPostings.map((jobPosting) => (
             <JobPostingItem
-              key={job.slug}
-              department={job.department}
-              href={job.href}
+              key={jobPosting.slug}
+              department={jobPosting.department}
+              href={jobPosting.href}
               location="Remote"
-              title={job.title}
+              title={jobPosting.title}
             />
           ))}
         </div>

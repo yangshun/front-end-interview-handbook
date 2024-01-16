@@ -36,20 +36,22 @@ export const JobsPostingDocument = defineDocumentType(() => ({
       required: true,
       type: 'enum',
     },
-    inParticularLocale: {
-      description: 'Locales the job should be shown in',
+    hideFromLocations: {
+      description: 'Locations the job should not be shown',
+      of: { type: 'string' },
       required: false,
-      type: 'string',
+      type: 'list',
+    },
+    locationRequirements: {
+      description: 'Locations the job should be shown to',
+      of: { type: 'string' },
+      required: false,
+      type: 'list',
     },
     minimumMonthsOfExperience: {
       description: 'Minimum months of experience',
       required: false,
       type: 'number',
-    },
-    notInParticularLocale: {
-      description: 'Locale the job should not be shown in',
-      required: false,
-      type: 'string',
     },
     payRange: {
       description: 'Pay range of the job',

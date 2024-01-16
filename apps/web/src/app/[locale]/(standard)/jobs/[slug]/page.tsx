@@ -34,18 +34,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { slug, locale } = params;
+  const { slug } = params;
 
   const job = allJobsPostings.find((jobPosting) => jobPosting.slug === slug);
 
   if (!job) {
-    notFound();
-  }
-
-  if (
-    job.notInParticularLocale === locale ||
-    (job.inParticularLocale && job.inParticularLocale !== locale)
-  ) {
     notFound();
   }
 
@@ -57,7 +50,9 @@ export default async function Page({ params }: Props) {
   return (
     <>
       <JobPostingJsonLd
-        // ApplicantLocationRequirements="FR" // TODO(jobs): location reqs.
+        applicantLocationRequirements={
+          job.locationRequirements ? job.locationRequirements[0] : undefined
+        }
         datePosted={today.toISOString()}
         description={job.body.html}
         employmentType={job.employmentType}
