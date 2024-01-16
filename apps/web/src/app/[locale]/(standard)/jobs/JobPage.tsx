@@ -84,9 +84,7 @@ export default function JobPage({
             </div>
           </div>
           <div className="md:col-span-3">
-            <Prose>
-              <div dangerouslySetInnerHTML={{ __html: content }} />
-            </Prose>
+            <Prose dangerouslySetInnerHTML={{ __html: content }} />
             <div
               className={clsx(
                 'mt-8 flex flex-col gap-y-4 rounded-lg border px-6 md:p-8',

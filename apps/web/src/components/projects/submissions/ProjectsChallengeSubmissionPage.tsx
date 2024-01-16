@@ -145,12 +145,11 @@ export default function ProjectsChallengeSubmissionPage({
                 id="XejHfx"
               />
             </Heading>
-            <Prose textSize="sm">
-              <div
-                // TODO(projects): sanitize HTML first.
-                dangerouslySetInnerHTML={{ __html: submission.implementation }}
-              />
-            </Prose>
+            <Prose
+              // TODO(projects): sanitize HTML first.
+              dangerouslySetInnerHTML={{ __html: submission.implementation }}
+              textSize="sm"
+            />
           </div>
           <div className="flex flex-col gap-3 flex-1">
             <Heading level="heading6">

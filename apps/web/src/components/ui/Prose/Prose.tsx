@@ -4,8 +4,9 @@ import { forwardRef } from 'react';
 export type ProseTextSize = 'md' | 'sm';
 
 type Props = Readonly<{
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
+  dangerouslySetInnerHTML?: Readonly<{ __html: string }>;
   textSize?: ProseTextSize;
 }>;
 
@@ -15,9 +16,13 @@ const textSizes: Record<ProseTextSize, string> = {
 };
 
 const Prose = forwardRef<HTMLDivElement, Props>(
-  ({ children, className, textSize = 'md' }: Props, ref) => {
+  (
+    { children, className, dangerouslySetInnerHTML, textSize = 'md' }: Props,
+    ref,
+  ) => {
     return (
       <div
+        dangerouslySetInnerHTML={dangerouslySetInnerHTML}
         ref={ref}
         className={clsx(
           'prose dark:prose-invert',
