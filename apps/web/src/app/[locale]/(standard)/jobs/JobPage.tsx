@@ -1,6 +1,7 @@
 import clsx from 'clsx';
-import type { MDXProps } from 'mdx/types';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 
+import MDXComponents from '~/components/mdx/MDXComponents';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
@@ -15,7 +16,7 @@ import {
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
-  content: (props: MDXProps) => JSX.Element;
+  content: string;
   href: string;
   jobType: string;
   payRange: string;
@@ -23,12 +24,14 @@ type Props = Readonly<{
 }>;
 
 export default function JobPage({
-  content: Content,
+  content,
   href,
   jobType,
   payRange,
   title,
 }: Props) {
+  const MDXContent = useMDXComponent(content);
+
   return (
     <Container
       className="my-10 grid gap-y-8 md:my-20 md:gap-y-16"
@@ -84,7 +87,7 @@ export default function JobPage({
           </div>
           <div className="md:col-span-3">
             <Prose>
-              <Content />
+              <MDXContent components={MDXComponents} />
             </Prose>
             <div
               className={clsx(

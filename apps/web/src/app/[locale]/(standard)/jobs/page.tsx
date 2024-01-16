@@ -1,4 +1,6 @@
 import clsx from 'clsx';
+import { type JobDocument } from 'contentlayer/generated';
+import { allJobDocuments } from 'contentlayer/generated';
 import { cookies } from 'next/headers';
 import type { Metadata } from 'next/types';
 import { RiArrowRightLine, RiMapPinLine } from 'react-icons/ri';
@@ -99,6 +101,13 @@ export default function Page({ searchParams }: Props) {
   const countryCode: string =
     searchParams?.cty ?? cookieStore.get('country')?.value ?? 'US';
 
+  const jobs = allJobDocuments.filter((job: JobDocument) => {
+    return (
+      job.notInParticularLocale !== countryCode &&
+      (!job.inParticularLocale || job.inParticularLocale === countryCode)
+    );
+  });
+
   return (
     <Container
       className="my-10 grid gap-y-8 md:my-20 md:gap-y-16"
@@ -112,61 +121,15 @@ export default function Page({ searchParams }: Props) {
       </div>
       <Section>
         <div className="grid gap-6 lg:grid-cols-2">
-          {countryCode === 'IN' ? (
-            <>
-              <JobPostingItem
-                department="Engineering"
-                href="/jobs/staff-front-end-software-engineer"
-                location="Remote"
-                title="Staff Front End Software Engineer"
-              />
-              <JobPostingItem
-                department="Engineering"
-                href="/jobs/senior-content-engineer"
-                location="Remote"
-                title="Senior Content Engineer"
-              />
-            </>
-          ) : (
-            <>
-              <JobPostingItem
-                department="Engineering"
-                href="/jobs/senior-front-end-contributor-ui"
-                location="Remote"
-                title="Senior Front End Contributor (UI Questions)"
-              />
-              <JobPostingItem
-                department="Engineering"
-                href="/jobs/senior-front-end-contributor-js"
-                location="Remote"
-                title="Senior Front End Contributor (JS Questions)"
-              />
-              <JobPostingItem
-                department="Engineering"
-                href="/jobs/senior-front-end-software-engineer"
-                location="Remote"
-                title="Senior Front End Software Engineer"
-              />
-              <JobPostingItem
-                department="Engineering"
-                href="/jobs/front-end-software-engineer"
-                location="Remote"
-                title="Front End Software Engineer"
-              />
-              <JobPostingItem
-                department="Engineering"
-                href="/jobs/front-end-software-engineer-intern"
-                location="Remote"
-                title="Front End Software Engineer Intern"
-              />
-            </>
-          )}
-          <JobPostingItem
-            department="Marketing"
-            href="/jobs/technical-marketing-specialist"
-            location="Remote"
-            title="Technical Marketing Specialist"
-          />
+          {jobs.map((job: JobDocument) => (
+            <JobPostingItem
+              key={job.slug}
+              department={job.department}
+              href={job.href}
+              location="Remote"
+              title={job.title}
+            />
+          ))}
         </div>
       </Section>
     </Container>
