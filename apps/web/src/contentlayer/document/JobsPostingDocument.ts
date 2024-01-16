@@ -5,7 +5,7 @@ function parseJobSlug(sourceFilePath: string) {
   return sourceFilePath.split(path.sep)[2].replace(/\.mdx$/, '');
 }
 
-export const JobDocument = defineDocumentType(() => ({
+export const JobsPostingDocument = defineDocumentType(() => ({
   computedFields: {
     href: {
       description: 'Link to job details page',
@@ -18,9 +18,9 @@ export const JobDocument = defineDocumentType(() => ({
       type: 'string',
     },
   },
-  contentType: 'mdx',
+  contentType: 'markdown',
   fields: {
-    apply_href: {
+    applyHref: {
       description: 'Link to apply to the job',
       required: true,
       type: 'string',
@@ -30,22 +30,28 @@ export const JobDocument = defineDocumentType(() => ({
       required: true,
       type: 'string',
     },
+    employmentType: {
+      description: 'Type of employment',
+      options: ['FULL_TIME', 'PART_TIME', 'INTERN', 'CONTRACTOR'],
+      required: true,
+      type: 'enum',
+    },
     inParticularLocale: {
-      description: 'Locale the job should be shown in',
+      description: 'Locales the job should be shown in',
       required: false,
       type: 'string',
     },
-    job_type: {
-      description: 'Type of the job',
-      required: true,
-      type: 'string',
+    minimumMonthsOfExperience: {
+      description: 'Minimum months of experience',
+      required: false,
+      type: 'number',
     },
     notInParticularLocale: {
       description: 'Locale the job should not be shown in',
       required: false,
       type: 'string',
     },
-    pay_range: {
+    payRange: {
       description: 'Pay range of the job',
       required: true,
       type: 'string',
@@ -57,5 +63,5 @@ export const JobDocument = defineDocumentType(() => ({
     },
   },
   filePathPattern: 'jobs/*/*.mdx',
-  name: 'JobDocument',
+  name: 'JobsPosting',
 }));

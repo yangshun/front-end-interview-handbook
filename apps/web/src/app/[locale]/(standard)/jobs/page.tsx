@@ -1,6 +1,5 @@
 import clsx from 'clsx';
-import { type JobDocument } from 'contentlayer/generated';
-import { allJobDocuments } from 'contentlayer/generated';
+import { allJobsPostings } from 'contentlayer/generated';
 import { cookies } from 'next/headers';
 import type { Metadata } from 'next/types';
 import { RiArrowRightLine, RiMapPinLine } from 'react-icons/ri';
@@ -101,7 +100,7 @@ export default function Page({ searchParams }: Props) {
   const countryCode: string =
     searchParams?.cty ?? cookieStore.get('country')?.value ?? 'US';
 
-  const jobs = allJobDocuments.filter((job: JobDocument) => {
+  const jobs = allJobsPostings.filter((job) => {
     return (
       job.notInParticularLocale !== countryCode &&
       (!job.inParticularLocale || job.inParticularLocale === countryCode)
@@ -121,7 +120,7 @@ export default function Page({ searchParams }: Props) {
       </div>
       <Section>
         <div className="grid gap-6 lg:grid-cols-2">
-          {jobs.map((job: JobDocument) => (
+          {jobs.map((job) => (
             <JobPostingItem
               key={job.slug}
               department={job.department}

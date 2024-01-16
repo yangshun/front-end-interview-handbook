@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import { useMDXComponent } from 'next-contentlayer/hooks';
+import type { JobsPosting } from 'contentlayer/generated';
+import { startCase } from 'lodash-es';
 
-import MDXComponents from '~/components/mdx/MDXComponents';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
@@ -17,8 +17,8 @@ import {
 
 type Props = Readonly<{
   content: string;
+  employmentType: JobsPosting['employmentType'];
   href: string;
-  jobType: string;
   payRange: string;
   title: string;
 }>;
@@ -26,12 +26,10 @@ type Props = Readonly<{
 export default function JobPage({
   content,
   href,
-  jobType,
+  employmentType,
   payRange,
   title,
 }: Props) {
-  const MDXContent = useMDXComponent(content);
-
   return (
     <Container
       className="my-10 grid gap-y-8 md:my-20 md:gap-y-16"
@@ -53,14 +51,14 @@ export default function JobPage({
               )}>
               <div className="grid gap-y-2 p-4">
                 <Text display="block" size="body2" weight="medium">
-                  Job Type
+                  Employment Type
                 </Text>
                 <Text
                   color="secondary"
                   display="block"
                   size="body2"
                   weight="medium">
-                  {jobType}
+                  {startCase(employmentType.toLowerCase())}
                 </Text>
               </div>
               <div className="grid gap-y-2 p-4">
@@ -87,7 +85,7 @@ export default function JobPage({
           </div>
           <div className="md:col-span-3">
             <Prose>
-              <MDXContent components={MDXComponents} />
+              <div dangerouslySetInnerHTML={{ __html: content }} />
             </Prose>
             <div
               className={clsx(

@@ -15,7 +15,7 @@ import { ProjectsChallengeStyleGuideDocument } from './src/components/projects/c
 import { ProjectsChallengeAPIWriteupDocument } from './src/components/projects/contentlayer/ProjectsChallengeAPIWriteupDocument';
 import { ProjectsChallengeGuideDocument } from './src/components/projects/contentlayer/ProjectsChallengeGuideDocument';
 import { ProjectsTrackMetadataDocument } from './src/components/projects/contentlayer/ProjectsTrackMetadataDocument';
-import { JobDocument } from './src/contentlayer/job/JobDocument';
+import { JobsPostingDocument } from './src/contentlayer/document/JobsPostingDocument';
 
 export default makeSource({
   contentDirPath: 'src/content',
@@ -30,7 +30,7 @@ export default makeSource({
     ProjectsChallengeAPIWriteupDocument,
     ProjectsChallengeGuideDocument,
     ProjectsTrackMetadataDocument,
-    JobDocument,
+    JobsPostingDocument,
   ],
   mdx: {
     remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMdxFrontmatter],

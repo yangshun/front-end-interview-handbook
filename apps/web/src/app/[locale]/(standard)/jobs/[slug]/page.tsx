@@ -1,4 +1,4 @@
-import { allJobDocuments } from 'contentlayer/generated';
+import { allJobsPostings } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
@@ -13,7 +13,7 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = params;
 
-  const job = allJobDocuments.find((jobDoc) => jobDoc.slug === slug);
+  const job = allJobsPostings.find((jobPosting) => jobPosting.slug === slug);
 
   if (!job) {
     return notFound();
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { slug, locale } = params;
 
-  const job = allJobDocuments.find((jobDoc) => jobDoc.slug === slug);
+  const job = allJobsPostings.find((jobPosting) => jobPosting.slug === slug);
 
   if (!job) {
     notFound();
@@ -43,12 +43,12 @@ export default async function Page({ params }: Props) {
   }
 
   return (
-    <JobPage
-      content={job.body.code}
-      href={job.apply_href}
-      jobType={job.job_type}
-      payRange={job.pay_range}
-      title={job.title}
-    />
+      <JobPage
+        content={job.body.html}
+        employmentType={job.employmentType}
+        href={job.applyHref}
+        payRange={job.payRange}
+        title={job.title}
+      />
   );
 }
