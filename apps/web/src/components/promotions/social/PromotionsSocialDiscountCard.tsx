@@ -8,10 +8,8 @@ import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
-import {
-  SOCIAL_DISCOUNT_PERCENTAGE,
-  useSocialDiscountLabels,
-} from './SocialDiscountConfig';
+import { SOCIAL_DISCOUNT_PERCENTAGE } from './SocialDiscountConfig';
+import { useSocialDiscountLabels } from './useSocialDiscountLabels';
 import { PromotionsEmailUsLink } from '../PromotionsEmailUsLink';
 
 export function PromotionsSocialDiscountCard() {

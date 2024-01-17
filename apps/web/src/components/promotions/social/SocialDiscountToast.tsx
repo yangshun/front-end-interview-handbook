@@ -11,7 +11,7 @@ import { useToast } from '~/components/global/toasts/ToastsProvider';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
-import { useSocialDiscountLabels } from './SocialDiscountConfig';
+import { useSocialDiscountLabels } from './useSocialDiscountLabels';
 
 function SocialDiscountToastImpl() {
   const socialDiscountLabels = useSocialDiscountLabels();

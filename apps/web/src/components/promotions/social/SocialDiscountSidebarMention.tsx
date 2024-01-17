@@ -9,7 +9,7 @@ import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
-import { useSocialDiscountLabels } from './SocialDiscountConfig';
+import { useSocialDiscountLabels } from './useSocialDiscountLabels';
 import Ticket from '../../common/tickets/Ticket';
 
 type Props = Readonly<{
