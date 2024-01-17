@@ -1,7 +1,10 @@
 import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { z } from 'zod';
 
-import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
+import {
+  readProjectsChallengeList,
+  readProjectsTrackList,
+} from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 
 import { projectsUserProcedure } from './procedures';
@@ -49,6 +52,32 @@ export const projectsSessionsRouter = router({
           slug,
           status: 'IN_PROGRESS',
         },
+      });
+    },
+  ),
+  getInProgressAndCompleted: projectsUserProcedure.query(
+    async ({ ctx: { projectsProfileId } }) => {
+      const sessions = await prisma.projectsChallengeSession.findMany({
+        where: {
+          profileId: projectsProfileId,
+          status: {
+            in: ['IN_PROGRESS', 'COMPLETED'],
+          },
+        },
+      });
+
+      const { challenges: projectsChallengeList } =
+        await readProjectsChallengeList();
+
+      return sessions.map((session) => {
+        const challenge = projectsChallengeList.find(
+          (project) => project.metadata.slug === session.slug,
+        );
+
+        return {
+          ...session,
+          challenge,
+        };
       });
     },
   ),

@@ -6,6 +6,7 @@ import { useIntl } from 'react-intl';
 import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
 
+import ProjectsAllChallengesTab from './ProjectsAllChallengesTab';
 import type { ProjectsMainTabCategory } from './useProjectsCategoryTabs';
 import useProjectsCategoryTabs from './useProjectsCategoryTabs';
 import type { ProjectsMainLayoutTabCategory } from './useProjectsMainLayoutTabs';
@@ -53,6 +54,8 @@ export default function ProjectsProgressAndContributionsSection() {
           onSelect={setCurrentProgressTab}
         />
       )}
+      {currentDashboardTab === 'progress' &&
+        currentProgressTab === 'challenges' && <ProjectsAllChallengesTab />}
     </div>
   );
 }

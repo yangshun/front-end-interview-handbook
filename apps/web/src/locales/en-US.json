@@ -239,6 +239,10 @@
     "defaultMessage": "Intermediate",
     "description": "Intermediate level blog"
   },
+  "0ZZ4Vl": {
+    "defaultMessage": "In progress",
+    "description": "Projects challenge in progress"
+  },
   "0azrZ0": {
     "defaultMessage": "Take care not to upload any premium Figma or guide files. Doing so will cause an immediate membership termination. <link>View terms</link>",
     "description": "Warning message for GitHub repo step in project submission checklist"
@@ -2087,6 +2091,10 @@
     "defaultMessage": "{questionExcerpt} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions practice page"
   },
+  "KIP7Ey": {
+    "defaultMessage": "Show in progress challenges",
+    "description": "Description of in progress challenges filter"
+  },
   "KIUB2O": {
     "defaultMessage": "Back",
     "description": "Label for \"Back\" button on Sign Up Reason section of Projects onboarding page"
@@ -2182,6 +2190,10 @@
   "LAWtL6": {
     "defaultMessage": "Software Engineer",
     "description": "Jacky Liang's job title"
+  },
+  "LChIT/": {
+    "defaultMessage": "Show completed challenges",
+    "description": "Description of completed challenges filter"
   },
   "LEA1HM": {
     "defaultMessage": "GitHub repository URL",
@@ -5239,6 +5251,10 @@
     "defaultMessage": "Clear Console",
     "description": "Button label to clear the console in the coding workspace"
   },
+  "o3nhZ8": {
+    "defaultMessage": "Session status",
+    "description": "Completed and in progress challenges"
+  },
   "o6ktM9": {
     "defaultMessage": "Light",
     "description": "Light theme option label"
@@ -6138,6 +6154,10 @@
   "wAZkHT": {
     "defaultMessage": "Tags",
     "description": "Screenreader text indicating component for blog tags"
+  },
+  "wDKscz": {
+    "defaultMessage": "Completed",
+    "description": "Projects challenge completed"
   },
   "wGf7+G": {
     "defaultMessage": "Start the project and download starter code and assets",
