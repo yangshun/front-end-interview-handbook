@@ -10,6 +10,7 @@ import { BlogCategoryDocument } from './src/contentlayer/document/BlogCategoryDo
 import { BlogPostDocument } from './src/contentlayer/document/BlogPostDocument';
 import { BlogSeriesDocument } from './src/contentlayer/document/BlogSeriesDocument';
 import { BlogSubseriesDocument } from './src/contentlayer/document/BlogSubseriesDocument';
+import { ProjectsChallengeBriefDocument } from './src/components/projects/contentlayer/ProjectsChallengeBriefDocument';
 import { ProjectsChallengeMetadataDocument } from './src/components/projects/contentlayer/ProjectsChallengeMetadataDocument';
 import { ProjectsChallengeStyleGuideDocument } from './src/components/projects/contentlayer/ProjectsChallengeStyleGuideDocument';
 import { ProjectsChallengeAPIWriteupDocument } from './src/components/projects/contentlayer/ProjectsChallengeAPIWriteupDocument';
@@ -25,6 +26,7 @@ export default makeSource({
     BlogPostDocument,
     BlogSeriesDocument,
     BlogSubseriesDocument,
+    ProjectsChallengeBriefDocument,
     ProjectsChallengeMetadataDocument,
     ProjectsChallengeStyleGuideDocument,
     ProjectsChallengeAPIWriteupDocument,

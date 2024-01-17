@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { allProjectsChallengeBriefs } from 'contentlayer/generated';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
@@ -22,6 +23,13 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeBriefPage({ challenge }: Props) {
   const intl = useIntl();
+  const brief = allProjectsChallengeBriefs.find((challengeBrief) => {
+    return challengeBrief.slug === challenge.metadata.slug;
+  });
+
+  if (!brief) {
+    return null;
+  }
 
   // TODO(projects): Compute these values
   const isProjectPremium = true;
@@ -74,9 +82,7 @@ export default function ProjectsChallengeBriefPage({ challenge }: Props) {
             </Heading>
             <Section>
               <Prose textSize="sm">
-                <ProjectsChallengeMdxContent
-                  mdxCode={challenge.metadata.body.code}
-                />
+                <ProjectsChallengeMdxContent mdxCode={brief.body.code} />
               </Prose>
             </Section>
           </div>

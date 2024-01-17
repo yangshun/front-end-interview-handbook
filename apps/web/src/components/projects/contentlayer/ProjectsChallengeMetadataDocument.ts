@@ -73,7 +73,7 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       type: 'string',
     },
   },
-  contentType: 'mdx',
+  contentType: 'data',
   fields: {
     access: {
       options: projectAccessOptions,
@@ -114,6 +114,6 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       type: 'enum',
     },
   },
-  filePathPattern: 'projects/challenges/*/*.mdx',
+  filePathPattern: 'projects/challenges/*/*.json',
   name: 'ProjectsChallengeMetadata',
 }));
