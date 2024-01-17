@@ -17,6 +17,7 @@ export type TabItem<T> = Readonly<{
 type TabSize = 'md' | 'sm' | 'xs';
 
 type Props<T> = Readonly<{
+  hasBorder?: boolean;
   label: string;
   onSelect?: (value: T) => void;
   scrollToTop?: boolean;
@@ -63,6 +64,7 @@ const sizeClasses: Record<
 };
 
 export default function Tabs<T>({
+  hasBorder = true,
   label,
   tabs,
   scrollToTop = true,
@@ -118,17 +120,24 @@ export default function Tabs<T>({
               className: clsx(
                 'flex items-center whitespace-nowrap -mb-px z-10 transition',
                 borderRadius,
-                isSelected
-                  ? [
+                hasBorder
+                  ? isSelected
+                    ? [
+                        'border',
+                        'border-t-neutral-300 border-x-neutral-300 border-b-white',
+                        'dark:border-t-neutral-700 dark:border-x-neutral-700 dark:border-b-neutral-950',
+                      ]
+                    : [
+                        'bg-neutral-100 hover:bg-neutral-50 dark:bg-neutral-800 dark:hover:bg-neutral-800/40',
+                        'border',
+                        'border-t-transparent border-x-transparent border-b-neutral-300',
+                        'dark:border-b-neutral-700',
+                      ]
+                  : isSelected && [
                       'border',
-                      'border-t-neutral-300 border-x-neutral-300 border-b-white',
-                      'dark:border-t-neutral-700 dark:border-x-neutral-700 dark:border-b-neutral-950',
-                    ]
-                  : [
-                      'bg-neutral-100 hover:bg-neutral-50 dark:bg-neutral-800 dark:hover:bg-neutral-800/40',
-                      'border',
-                      'border-t-transparent border-x-transparent border-b-neutral-300',
-                      'dark:border-b-neutral-700',
+                      'border-x-0',
+                      'border-t-0',
+                      'border-b-brand',
                     ],
                 tabItemSize,
               ),

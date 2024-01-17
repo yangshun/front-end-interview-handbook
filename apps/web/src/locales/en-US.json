@@ -315,6 +315,10 @@
     "defaultMessage": "We will pull code from this repo for code reviews",
     "description": "Description for GitHub repo step in project submission checklist"
   },
+  "1O3xR8": {
+    "defaultMessage": "Select dashboard category",
+    "description": "Tab label to select another dashboard category"
+  },
   "1PHE0Y": {
     "defaultMessage": "Most complete all-in-one front end interview preparation.",
     "description": "Short description for 3 months study plan"
@@ -334,6 +338,10 @@
   "1hBmJl": {
     "defaultMessage": "{QuestionCount}+ of the most important questions — from building user interfaces in popular front end frameworks to system design.",
     "description": "Description of 'Practice everything in popular frameworks' feature in marketing page"
+  },
+  "1i1F/f": {
+    "defaultMessage": "Project progress",
+    "description": "Project progress item label"
   },
   "1kiNiW": {
     "defaultMessage": "Accessibility",
@@ -4734,6 +4742,10 @@
   "jVhr66": {
     "defaultMessage": "Basic style guide",
     "description": "Project assets category label"
+  },
+  "jb3oKk": {
+    "defaultMessage": "Community contributions",
+    "description": "Community contributions item label"
   },
   "jbJq96": {
     "defaultMessage": "Get premium to unlock <bold>full access to all questions and solutions</bold>!",

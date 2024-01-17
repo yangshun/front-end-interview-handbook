@@ -13,6 +13,7 @@ import ProjectsDashboardContinueProjectsSection from './ProjectsDashboardContinu
 import ProjectsDashboardRecommendedActionsSection from './ProjectsDashboardRecommendedActionsSection';
 import ProjectsDashboardTrackAndSkillsSection from './ProjectsDashboardTrackAndSkillsSection';
 import ProjectsDashboardTrendingSubmissionsSection from './ProjectsDashboardTrendingSubmissionsSection';
+import ProjectsProgressAndContributionsSection from '../common/ProjectsProgressAndContributionsSection';
 
 export default function ProjectsDashboardPage() {
   const { data: profileStatistics } =
@@ -62,9 +63,7 @@ export default function ProjectsDashboardPage() {
           </div>
         </Section>
       )}
-      <Section>
-        Placeholder for project progress and community contributions
-      </Section>
+      <ProjectsProgressAndContributionsSection />
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import ProjectsProgressAndContributionsSection from '~/components/projects/common/ProjectsProgressAndContributionsSection';
 import ProjectsProfileInfo from '~/components/projects/profile/ProjectsProfileInfo';
 import ProjectsProfilePinnedSubmissions from '~/components/projects/profile/ProjectsProfilePinnedSubmissions';
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
@@ -99,6 +100,7 @@ export default function ProjectsProfilePage({
           projectsProfileId={projectsProfileId}
         />
       </div>
+      <ProjectsProgressAndContributionsSection />
     </div>
   );
 }
