@@ -48,6 +48,7 @@ const whereClauseForSubmissions = (
     startWorkDate: { gte?: Date | undefined; lt?: Date | undefined };
   }>,
   profileStatus: Array<yoeReplacement>,
+  hasClientFilterApplied: boolean,
 ) => {
   return [
     {
@@ -99,7 +100,7 @@ const whereClauseForSubmissions = (
       },
 
       // Filter by challenges slug
-      ...(challenges.length > 0 && {
+      ...(hasClientFilterApplied && {
         slug: {
           in: challenges,
         },
@@ -290,6 +291,7 @@ export const projectsChallengeSubmissionRouter = router({
         ),
         challenges: z.array(z.string()),
         currentPage: z.number(),
+        hasClientFilterApplied: z.boolean(),
         itemPerPage: z.number(),
         profileStatus: z.array(yoeReplacementSchema),
         query: z.string(),
@@ -313,6 +315,7 @@ export const projectsChallengeSubmissionRouter = router({
           submissionType,
           itemPerPage,
           currentPage,
+          hasClientFilterApplied,
         },
         ctx: { projectsProfileId, user },
       }) => {
@@ -453,6 +456,7 @@ export const projectsChallengeSubmissionRouter = router({
           challenges,
           startDateFilters,
           profileStatus,
+          hasClientFilterApplied,
         );
 
         const inProgressAndCompletedSessionsStatus: Array<ProjectsChallengeSessionStatus> =

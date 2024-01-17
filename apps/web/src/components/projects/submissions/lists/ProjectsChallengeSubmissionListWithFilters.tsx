@@ -2,15 +2,16 @@ import clsx from 'clsx';
 import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { RiCodeSSlashLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
-import { useDebounce } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
 import usePagination from '~/hooks/usePagination';
 import useScrollToTop from '~/hooks/useScrollToTop';
 
+import useProjectsChallengeSubmissionFilters from '~/components/projects/submissions/lists/filters/hooks/useProjectsChallengeSubmissionFilters';
 import useProjectsChallengesSorting from '~/components/projects/submissions/lists/filters/hooks/useProjectsChallengeSubmissionSorting';
-import ProjectsChallengeSubmissionFilters from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilters';
 import { useProjectsChallengeSubmissionFilterContext } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
+import ProjectsChallengeSubmissionFilters from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilters';
+import { filterProjectsChallengeSubmission } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionProcessor';
 import ProjectsChallengeSubmissionList from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionList';
 import type {
   ProjectsChallengeSubmissionStatusFilter,
@@ -20,9 +21,6 @@ import Pagination from '~/components/ui/Pagination';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
-
-import useProjectsChallengeSubmissionFilters from './filters/hooks/useProjectsChallengeSubmissionFilters';
-import { filterProjectsChallengeSubmission } from './filters/ProjectsChallengeSubmissionProcessor';
 
 const ITEMS_PER_PAGE = 12;
 
@@ -34,11 +32,12 @@ export default function ProjectsChallengeSubmissionListWithFilters({
   // Filtering.
   const {
     query,
-    setQuery,
+    onChangeQuery,
     filters: filtersChallengesOpts,
     filterSize,
     profileStatus,
     yoeExperience,
+    hasClientFilterApplied,
   } = useProjectsChallengeSubmissionFilters();
 
   // Sorting.
@@ -50,16 +49,20 @@ export default function ProjectsChallengeSubmissionListWithFilters({
     allProjectsChallengeMetadata,
     filtersChallengesOpts.map((filterFn) => filterFn),
   );
-  const { filters, value: selectedFilters } =
-    useProjectsChallengeSubmissionFilterContext();
-
-  const debounceQuery = useDebounce(query, 300);
+  const {
+    filters,
+    value: selectedFilters,
+    updateSearchParams,
+    getStringTypeSearchParams,
+  } = useProjectsChallengeSubmissionFilterContext();
 
   // Pagination
-  const { setCurrentPage, currentPage } = usePagination([], ITEMS_PER_PAGE, [
-    selectedFilters,
-    query,
-  ]);
+  const { setCurrentPage, currentPage } = usePagination(
+    [],
+    ITEMS_PER_PAGE,
+    [selectedFilters, query],
+    Number(getStringTypeSearchParams('page')) || 1,
+  );
 
   const { data: { submissions, totalCount } = {}, isLoading } =
     trpc.projects.submissions.list.useQuery(
@@ -68,9 +71,10 @@ export default function ProjectsChallengeSubmissionListWithFilters({
           selectedFilters.status as Array<ProjectsChallengeSubmissionStatusFilter>,
         challenges: processedChallenges.map((item) => item.slug),
         currentPage,
+        hasClientFilterApplied,
         itemPerPage: ITEMS_PER_PAGE,
         profileStatus,
-        query: debounceQuery,
+        query,
         sort: { field: sortField, isAscendingOrder },
         submissionType: type,
         yoeExperience,
@@ -92,7 +96,7 @@ export default function ProjectsChallengeSubmissionListWithFilters({
         isAscendingOrder={isAscendingOrder}
         query={query}
         setIsAscendingOrder={setIsAscendingOrder}
-        setQuery={setQuery}
+        setQuery={onChangeQuery}
         setSortField={setSortField}
         sortField={sortField}
       />
@@ -138,7 +142,10 @@ export default function ProjectsChallengeSubmissionListWithFilters({
                 <Pagination
                   count={totalPages}
                   page={currentPage}
-                  onPageChange={setCurrentPage}
+                  onPageChange={(value) => {
+                    setCurrentPage(value);
+                    updateSearchParams('page', value.toString());
+                  }}
                 />
               </div>
             )}

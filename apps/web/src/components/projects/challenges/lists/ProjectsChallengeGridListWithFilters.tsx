@@ -47,7 +47,7 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
   // Filtering.
   const {
     query,
-    setQuery,
+    onChangeQuery,
     filters: filtersChallengesOpts,
   } = useProjectsChallengesFilters();
 
@@ -140,7 +140,7 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
               startIcon={RiSearchLine}
               type="text"
               value={query}
-              onChange={(value) => setQuery(value)}
+              onChange={onChangeQuery}
             />
           </div>
           <div className="flex gap-3 flex-wrap">

@@ -8,6 +8,8 @@ import {
 } from 'react';
 import { useIntl } from 'react-intl';
 
+import useFilterSearchParams from '~/hooks/useFilterSearchParams';
+
 export type ProjectsChallengeFilterType = 'checkbox' | 'skill-selection';
 export type ProjectsChallengeFilter = {
   id: ProjectsChallengeFilterKey;
@@ -157,6 +159,8 @@ function useFilters() {
 type ProjectsChallengeFilterContextType = {
   clearAll: () => void;
   filters: Array<ProjectsChallengeFilter>;
+  getArrayTypeSearchParams: (key: string) => Array<string> | undefined;
+  getStringTypeSearchParams: (key: string) => string;
   setFilterValue: (
     key: ProjectsChallengeFilterKey,
     value: Array<string>,
@@ -164,6 +168,7 @@ type ProjectsChallengeFilterContextType = {
   setSelectedFilters: (
     value: Record<ProjectsChallengeFilterKey, Array<string>>,
   ) => void;
+  updateSearchParams: (key: string, value: Array<string> | string) => void;
   value: Record<ProjectsChallengeFilterKey, Array<string>>;
 };
 
@@ -171,8 +176,11 @@ export const ProjectsChallengeFilterContext =
   createContext<ProjectsChallengeFilterContextType>({
     clearAll: () => {},
     filters: [],
+    getArrayTypeSearchParams: () => [],
+    getStringTypeSearchParams: () => '',
     setFilterValue: () => {},
     setSelectedFilters: () => {},
+    updateSearchParams: () => {},
     value: {
       'component-track': [],
       difficulty: [],
@@ -207,25 +215,39 @@ type Props = Readonly<{
 export default function ProjectsChallengeFilterContextProvider({
   children,
 }: Props) {
+  const {
+    updateSearchParams,
+    getArrayTypeSearchParams,
+    getStringTypeSearchParams,
+  } = useFilterSearchParams();
+
+  const initialComponentTrack = getArrayTypeSearchParams('component-track');
+  const initialDifficulty = getArrayTypeSearchParams('difficulty');
+  const initialStatus = getArrayTypeSearchParams('status');
+  const initialSkills = getArrayTypeSearchParams('skills');
   const [selectedFilters, setSelectedFilters] = useState<
     Record<ProjectsChallengeFilterKey, Array<string>>
   >({
-    'component-track': [],
-    difficulty: [],
-    skills: [],
-    status: [],
+    'component-track': initialComponentTrack ?? [],
+    difficulty: initialDifficulty ?? [],
+    skills: initialSkills ?? [],
+    status: initialStatus ?? [],
   });
 
   const filters = useFilters();
 
   const setFilterValue = useCallback(
     (key: ProjectsChallengeFilterKey, value: Array<string>) => {
+      // Update search params in the current url
+      updateSearchParams(key, value);
+      // Reset page number on URL when query changes
+      updateSearchParams('page', '1');
       setSelectedFilters((prev) => ({
         ...prev,
         [key]: value,
       }));
     },
-    [],
+    [updateSearchParams],
   );
 
   const clearAll = useCallback(() => {
@@ -241,11 +263,22 @@ export default function ProjectsChallengeFilterContextProvider({
     return {
       clearAll,
       filters,
+      getArrayTypeSearchParams,
+      getStringTypeSearchParams,
       setFilterValue,
       setSelectedFilters,
+      updateSearchParams,
       value: selectedFilters,
     };
-  }, [filters, clearAll, selectedFilters, setFilterValue]);
+  }, [
+    filters,
+    clearAll,
+    selectedFilters,
+    setFilterValue,
+    getArrayTypeSearchParams,
+    getStringTypeSearchParams,
+    updateSearchParams,
+  ]);
 
   return (
     <ProjectsChallengeFilterContext.Provider value={value}>

@@ -1,14 +1,18 @@
 import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 import { useState } from 'react';
 
+import useFilterSearchParams from '~/hooks/useFilterSearchParams';
+
 import useProjectsYOEReplacementOptions from '~/components/projects/hooks/useProjectsYOEReplacementOptions';
 import { useProjectsChallengeSubmissionFilterState } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import type { ProjectsChallengeSubmissionYOEFilter } from '~/components/projects/submissions/types';
 import type { YOEReplacement } from '~/components/projects/types';
 
 export default function useProjectsChallengeSubmissionFilters() {
+  const { updateSearchParams, getStringTypeSearchParams } =
+    useFilterSearchParams();
   // Filtering.
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(getStringTypeSearchParams('search'));
   const [selectedComponentTrack] =
     useProjectsChallengeSubmissionFilterState('component-track');
   const [selectedDifficulty] =
@@ -58,12 +62,23 @@ export default function useProjectsChallengeSubmissionFilters() {
     selectedStatus.length +
     selectedExperience.length;
 
+  const hasClientFilterApplied =
+    selectedComponentTrack.length + selectedDifficulty.length > 0;
+
+  const onChangeQuery = (value: string) => {
+    setQuery(value);
+    updateSearchParams('search', value);
+    // Reset page number on URL when query changes
+    updateSearchParams('page', '1');
+  };
+
   return {
     filterSize,
     filters,
+    hasClientFilterApplied,
+    onChangeQuery,
     profileStatus,
     query,
-    setQuery,
     yoeExperience,
   };
 }

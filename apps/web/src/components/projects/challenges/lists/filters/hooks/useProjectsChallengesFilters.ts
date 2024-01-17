@@ -1,11 +1,15 @@
 import { useState } from 'react';
 
-import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
+import useFilterSearchParams from '~/hooks/useFilterSearchParams';
+
 import { useProjectsChallengeFilterState } from '~/components/projects/challenges/lists/ProjectsChallengeFilterContext';
+import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 
 export default function useProjectsChallengesFilters() {
+  const { updateSearchParams, getStringTypeSearchParams } =
+    useFilterSearchParams();
   // Filtering.
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(getStringTypeSearchParams('search') ?? '');
   const [selectedComponentTrack] =
     useProjectsChallengeFilterState('component-track');
   const [selectedDifficulty] = useProjectsChallengeFilterState('difficulty');
@@ -55,9 +59,16 @@ export default function useProjectsChallengesFilters() {
     [selectedStatus.length, filterByStatus],
   ];
 
+  const onChangeQuery = (value: string) => {
+    setQuery(value);
+    updateSearchParams('search', value);
+    // Reset page number on URL when query changes
+    updateSearchParams('page', '1');
+  };
+
   return {
     filters,
+    onChangeQuery,
     query,
-    setQuery,
   };
 }

@@ -14,7 +14,7 @@ const usePagination = <T>(
   page?: number,
 ): PaginatedList<T> => {
   const isMounted = useRef(false);
-  const [currentPage, setCurrentPage] = useState<number>(page ?? 1);
+  const [currentPage, setCurrentPage] = useState<number>(page || 1);
   const totalPages = Math.ceil(totalList.length / itemsPerPage);
 
   const startIndex = (currentPage - 1) * itemsPerPage;

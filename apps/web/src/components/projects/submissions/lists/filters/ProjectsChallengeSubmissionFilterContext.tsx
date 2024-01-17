@@ -8,6 +8,8 @@ import {
 } from 'react';
 import { useIntl } from 'react-intl';
 
+import useFilterSearchParams from '~/hooks/useFilterSearchParams';
+
 import useProjectsYOEReplacementOptions from '~/components/projects/hooks/useProjectsYOEReplacementOptions';
 
 export type ProjectsChallengeSubmissionFilterType =
@@ -177,6 +179,8 @@ function useFilters() {
 type ProjectsChallengeSubmissionFilterContextType = {
   clearAll: () => void;
   filters: Array<ProjectsChallengeSubmissionFilter>;
+  getArrayTypeSearchParams: (key: string) => Array<string> | undefined;
+  getStringTypeSearchParams: (key: string) => string;
   setFilterValue: (
     key: ProjectsChallengeSubmissionFilterKey,
     value: Array<string>,
@@ -184,6 +188,7 @@ type ProjectsChallengeSubmissionFilterContextType = {
   setSelectedFilters: (
     value: Record<ProjectsChallengeSubmissionFilterKey, Array<string>>,
   ) => void;
+  updateSearchParams: (key: string, value: Array<string> | string) => void;
   value: Record<ProjectsChallengeSubmissionFilterKey, Array<string>>;
 };
 
@@ -191,8 +196,11 @@ export const ProjectsChallengeSubmissionFilterContext =
   createContext<ProjectsChallengeSubmissionFilterContextType>({
     clearAll: () => {},
     filters: [],
+    getArrayTypeSearchParams: () => [],
+    getStringTypeSearchParams: () => '',
     setFilterValue: () => {},
     setSelectedFilters: () => {},
+    updateSearchParams: () => {},
     value: {
       'component-track': [],
       difficulty: [],
@@ -230,26 +238,42 @@ type Props = Readonly<{
 export default function ProjectsChallengeSubmissionFilterContextProvider({
   children,
 }: Props) {
+  const {
+    updateSearchParams,
+    getArrayTypeSearchParams,
+    getStringTypeSearchParams,
+  } = useFilterSearchParams();
+
+  const initialComponentTrack = getArrayTypeSearchParams('component-track');
+  const initialExperience = getArrayTypeSearchParams('experience');
+  const initialDifficulty = getArrayTypeSearchParams('difficulty');
+  const initialStatus = getArrayTypeSearchParams('status');
+  const initialStack = getArrayTypeSearchParams('stack-used');
+
   const [selectedFilters, setSelectedFilters] = useState<
     Record<ProjectsChallengeSubmissionFilterKey, Array<string>>
   >({
-    'component-track': [],
-    difficulty: [],
-    experience: [],
-    'stack-used': [],
-    status: [],
+    'component-track': initialComponentTrack ?? [],
+    difficulty: initialDifficulty ?? [],
+    experience: initialExperience ?? [],
+    'stack-used': initialStack ?? [],
+    status: initialStatus ?? [],
   });
 
   const filters = useFilters();
 
   const setFilterValue = useCallback(
     (key: ProjectsChallengeSubmissionFilterKey, value: Array<string>) => {
+      // Update search params in the current url
+      updateSearchParams(key, value);
+      // Reset page number on URL when query changes
+      updateSearchParams('page', '1');
       setSelectedFilters((prev) => ({
         ...prev,
         [key]: value,
       }));
     },
-    [],
+    [updateSearchParams],
   );
 
   const clearAll = useCallback(() => {
@@ -266,11 +290,22 @@ export default function ProjectsChallengeSubmissionFilterContextProvider({
     return {
       clearAll,
       filters,
+      getArrayTypeSearchParams,
+      getStringTypeSearchParams,
       setFilterValue,
       setSelectedFilters,
+      updateSearchParams,
       value: selectedFilters,
     };
-  }, [filters, clearAll, selectedFilters, setFilterValue]);
+  }, [
+    filters,
+    clearAll,
+    selectedFilters,
+    setFilterValue,
+    updateSearchParams,
+    getStringTypeSearchParams,
+    getArrayTypeSearchParams,
+  ]);
 
   return (
     <ProjectsChallengeSubmissionFilterContext.Provider value={value}>

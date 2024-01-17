@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RiFilterLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
+import { useDebounce } from 'usehooks-ts';
 
 import FilterButton from '~/components/common/FilterButton';
 import type { ProjectsChallengeSubmissionFilter } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
@@ -33,6 +34,7 @@ export default function ProjectsChallengeSubmissionFilters({
   setSortField,
 }: Props) {
   const intl = useIntl();
+  const [searchQuery, setSearchQuery] = useState(query);
   const [areFiltersShown, setAreFiltersShown] = useState(false);
 
   function makeDropdownItemProps(
@@ -49,6 +51,12 @@ export default function ProjectsChallengeSubmissionFilters({
       },
     };
   }
+
+  const debouncedQuery = useDebounce(searchQuery, 500);
+
+  useEffect(() => {
+    setQuery(debouncedQuery);
+  }, [debouncedQuery, setQuery]);
 
   const sortAndFilterButton = (
     <>
@@ -162,8 +170,8 @@ export default function ProjectsChallengeSubmissionFilters({
             placeholder="Search by name/project brief"
             startIcon={RiSearchLine}
             type="text"
-            value={query}
-            onChange={(value) => setQuery(value)}
+            value={searchQuery}
+            onChange={setSearchQuery}
           />
         </div>
         <div className="gap-3 flex-wrap hidden md:flex">
