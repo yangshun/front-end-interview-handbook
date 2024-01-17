@@ -54,7 +54,7 @@ export default async function handler(
 
   const session = await stripe.billingPortal.sessions.create({
     customer: stripeCustomerId,
-    return_url: `${origin}/profile`,
+    return_url: `${origin}/profile/billing`,
   });
 
   res.send({
