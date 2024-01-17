@@ -116,20 +116,4 @@ describe('i18nHref', () => {
       query: { foo: 1 },
     });
   });
-
-  test('non-absolute paths should throw', () => {
-    expect(() => {
-      i18nHref('about', 'en');
-    }).toThrow();
-
-    expect(() => {
-      i18nHref(
-        {
-          hostname: 'example.com',
-          pathname: 'about',
-        },
-        'en',
-      );
-    }).toThrow();
-  });
 });

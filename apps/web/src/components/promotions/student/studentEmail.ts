@@ -1,4 +1,5 @@
 const validDomains = Object.freeze({
+  prefixes: ['edu.'],
   substring: ['.edu.', '.ac.'],
   suffixes: ['.edu', '.ac'],
 });
@@ -23,14 +24,17 @@ export function isValidStudentEmail(
     };
   }
 
+  const containsPrefix = validDomains.prefixes.some((prefix) =>
+    domain.toLowerCase().startsWith(prefix),
+  );
   const containsSubstring = validDomains.substring.some((substring) =>
-    email.includes(substring),
+    domain.includes(substring),
   );
   const containsSuffix = validDomains.suffixes.some((suffix) =>
-    email.toLowerCase().endsWith(suffix),
+    domain.toLowerCase().endsWith(suffix),
   );
 
-  if (!containsSuffix && !containsSubstring) {
+  if (!containsPrefix && !containsSubstring && !containsSuffix) {
     return {
       reason:
         'Email address does not seem to belong to an accredited educational institution. Send us an email if you believe your school should qualify.',

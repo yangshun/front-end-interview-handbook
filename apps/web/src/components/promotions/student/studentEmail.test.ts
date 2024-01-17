@@ -15,6 +15,9 @@ describe('isValidStudentEmail', () => {
     expect(isValidStudentEmail('john.doe@ufl.edu')).toEqual({
       valid: true,
     });
+    expect(isValidStudentEmail('abdi.bala@edu.uwaterloo.ca')).toEqual({
+      valid: true,
+    });
   });
 
   describe('.ac emails', () => {
