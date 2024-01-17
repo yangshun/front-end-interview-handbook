@@ -1,13 +1,11 @@
-import clsx from 'clsx';
 import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
-import { RiPushpinFill } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';
-import { themeTextBrandColor } from '~/components/ui/theme';
 
+import ProjectsChallengeSubmissionCardPinButton from './ProjectsChallengeSubmissionCardPinButton';
 import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from '../types';
 import ProjectsChallengeStatusBadge from '../../challenges/status/ProjectsChallengeStatusBadge';
 import ProjectsSkillRow from '../../skills/ProjectsSkillRow';
@@ -63,8 +61,8 @@ export default function ProjectsChallengeSubmissionCard({
               )}
             </div>
             {isPinned && (
-              <RiPushpinFill
-                className={clsx(themeTextBrandColor, 'h-6 w-6 shrink-0')}
+              <ProjectsChallengeSubmissionCardPinButton
+                submissionId={submission.id}
               />
             )}
           </div>

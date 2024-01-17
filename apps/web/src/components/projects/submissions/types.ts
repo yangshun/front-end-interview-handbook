@@ -2,7 +2,11 @@ import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 
 import type { PrismaClientGFE } from '~/server/prisma';
 
-import type { Prisma, ProjectsChallengeSessionStatus } from '@prisma/client';
+import type {
+  Prisma,
+  ProjectsChallengeSessionStatus,
+  ProjectsProfile,
+} from '@prisma/client';
 
 export type ProjectsChallengeSubmissionExtended = Prisma.Result<
   PrismaClientGFE['projectsChallengeSubmission'],
@@ -32,9 +36,9 @@ export type ProjectsChallengeSubmissionWithVotesAuthorChallenge =
         status: ProjectsChallengeSessionStatus | null;
       }>;
       projectsProfile?:
-        | {
+        | (ProjectsProfile & {
             userProfile?: ProjectsChallengeSubmissionAuthor | null | undefined;
-          }
+          })
         | null
         | undefined;
     }>;

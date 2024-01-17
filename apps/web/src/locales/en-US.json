@@ -679,6 +679,10 @@
     "defaultMessage": "React Questions",
     "description": "React questions category long title"
   },
+  "5wzYep": {
+    "defaultMessage": "Submission successfully unpin!",
+    "description": "Submission unpin toaster"
+  },
   "6/Qdew": {
     "defaultMessage": "Start project",
     "description": "Label for \"Start project\" button on Projects project page"
@@ -2931,6 +2935,10 @@
     "defaultMessage": "Add LinkedIn",
     "description": "Title for Add LinkedIn task on Projects dashboard page"
   },
+  "ST/oVm": {
+    "defaultMessage": "Submission pinned!",
+    "description": "Submission pin toaster"
+  },
   "SUjf8L": {
     "defaultMessage": "Not Subscribed",
     "description": "Text describing user's subscription status."
@@ -4615,6 +4623,10 @@
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
   },
+  "ih3LXL": {
+    "defaultMessage": "Unpin some submissions to pin, <link>Manage</link>",
+    "description": "Manage pin submission message"
+  },
   "imHjx3": {
     "defaultMessage": "Tip",
     "description": "Tip badge label for Deployment step in project submission checklist"
@@ -4982,6 +4994,10 @@
   "lWQA1A": {
     "defaultMessage": "Challenges completed",
     "description": "Number of project challenges completed"
+  },
+  "lWREsY": {
+    "defaultMessage": "Unpin submission",
+    "description": "Label for unpin submission button"
   },
   "lWZZ9l": {
     "defaultMessage": "Search a keyword or sort by popularity, difficulty or skills",

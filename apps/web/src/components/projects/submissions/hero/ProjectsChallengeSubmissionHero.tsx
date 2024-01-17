@@ -42,6 +42,13 @@ export default function ProjectsChallengeSubmissionHero({
     />
   );
 
+  const pinButton = (
+    <ProjectsChallengeSubmissionHeroPinButton
+      projectsProfile={submission.projectsProfile}
+      submissionId={submission.id}
+    />
+  );
+
   return (
     <>
       <div className="relative md:block hidden">
@@ -54,11 +61,7 @@ export default function ProjectsChallengeSubmissionHero({
           <div className="flex flex-col justify-between items-start h-full gap-2">
             <div className="flex gap-2 justify-between w-full">
               {backButton}
-              {showPin && (
-                <div>
-                  <ProjectsChallengeSubmissionHeroPinButton />
-                </div>
-              )}
+              {showPin && <div>{pinButton}</div>}
             </div>
             <div className="flex lg:flex-row flex-col gap-2 h-full justify-between w-full lg:items-center">
               <div className="flex flex-col gap-1">
@@ -92,7 +95,7 @@ export default function ProjectsChallengeSubmissionHero({
         <div className="flex flex-col gap-6">
           <div className="flex flex-wrap gap-2 justify-between">
             {backButton}
-            {showPin && <ProjectsChallengeSubmissionHeroPinButton />}
+            {showPin && pinButton}
           </div>
           <div className="flex flex-col gap-4">
             <ProjectsChallengeSubmissionHeroTimestamp />

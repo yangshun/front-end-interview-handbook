@@ -569,7 +569,7 @@ export const projectsChallengeSubmissionRouter = router({
     .mutation(
       async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
         const existingPins =
-          await prisma.projectsChallengeSubmissionVote.findMany({
+          await prisma.projectsChallengeSubmissionPin.findMany({
             where: {
               profileId: projectsProfileId,
               submissionId,
