@@ -8,6 +8,8 @@ import FilterButton from '~/components/common/FilterButton';
 import ProjectsChallengeCard from '~/components/projects/challenges/lists/ProjectsChallengeCard';
 import useProjectsSessionStatusFilter from '~/components/projects/common/useProjectsSessionStatusFilter';
 
+import { ProjectsChallengeSessionStatus } from '@prisma/client';
+
 export default function ProjectsAllChallengesTab() {
   const [challengeFilters, challengeFilterOptions] =
     useProjectsSessionStatusFilter({
@@ -16,7 +18,12 @@ export default function ProjectsAllChallengesTab() {
     });
 
   const { data: allSessions } =
-    trpc.projects.sessions.getInProgressAndCompleted.useQuery();
+    trpc.projects.sessions.getSessionsBasedOnStatus.useQuery({
+      statuses: [
+        ProjectsChallengeSessionStatus.IN_PROGRESS,
+        ProjectsChallengeSessionStatus.COMPLETED,
+      ],
+    });
 
   const shownSessions = allSessions?.filter((session) => {
     return challengeFilterOptions.matches(session);

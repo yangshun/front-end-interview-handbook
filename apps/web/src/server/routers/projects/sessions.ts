@@ -55,32 +55,6 @@ export const projectsSessionsRouter = router({
       });
     },
   ),
-  getInProgressAndCompleted: projectsUserProcedure.query(
-    async ({ ctx: { projectsProfileId } }) => {
-      const sessions = await prisma.projectsChallengeSession.findMany({
-        where: {
-          profileId: projectsProfileId,
-          status: {
-            in: ['IN_PROGRESS', 'COMPLETED'],
-          },
-        },
-      });
-
-      const { challenges: projectsChallengeList } =
-        await readProjectsChallengeList();
-
-      return sessions.map((session) => {
-        const challenge = projectsChallengeList.find(
-          (project) => project.metadata.slug === session.slug,
-        );
-
-        return {
-          ...session,
-          challenge,
-        };
-      });
-    },
-  ),
   getLatestInProgress: projectsSessionProcedure.query(
     async ({ input: { slug }, ctx: { projectsProfileId } }) => {
       return await prisma.projectsChallengeSession.findFirst({
@@ -160,6 +134,38 @@ export const projectsSessionsRouter = router({
       return sessions.map((session) => {
         const challenge = allProjectsChallengeMetadata.find(
           (project) => project.slug === session.slug,
+        );
+
+        return {
+          ...session,
+          challenge,
+        };
+      });
+    }),
+  getSessionsBasedOnStatus: projectsUserProcedure
+    .input(
+      z.object({
+        statuses: z
+          .array(z.enum(['COMPLETED', 'IN_PROGRESS', 'STOPPED']))
+          .nonempty(),
+      }),
+    )
+    .query(async ({ input: { statuses }, ctx: { projectsProfileId } }) => {
+      const sessions = await prisma.projectsChallengeSession.findMany({
+        where: {
+          profileId: projectsProfileId,
+          status: {
+            in: statuses,
+          },
+        },
+      });
+
+      const { challenges: projectsChallengeList } =
+        await readProjectsChallengeList();
+
+      return sessions.map((session) => {
+        const challenge = projectsChallengeList.find(
+          (project) => project.metadata.slug === session.slug,
         );
 
         return {
