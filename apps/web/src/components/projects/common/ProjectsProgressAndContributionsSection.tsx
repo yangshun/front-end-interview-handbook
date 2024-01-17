@@ -9,6 +9,7 @@ import Tabs from '~/components/ui/Tabs';
 
 import ProjectsAllChallengesTab from './ProjectsAllChallengesTab';
 import ProjectsComponentTrackTab from './ProjectsComponentTrackTab';
+import ProjectsSkillsTab from './ProjectsSkillsTab';
 import type { ProjectsMainTabCategory } from './useProjectsCategoryTabs';
 import useProjectsCategoryTabs from './useProjectsCategoryTabs';
 import type { ProjectsMainLayoutTabCategory } from './useProjectsMainLayoutTabs';
@@ -71,6 +72,8 @@ export default function ProjectsProgressAndContributionsSection({
         currentProgressTab === 'tracks' && (
           <ProjectsComponentTrackTab projectTracks={projectTracks} />
         )}
+      {currentDashboardTab === 'progress' &&
+        currentProgressTab === 'skills' && <ProjectsSkillsTab />}
     </div>
   );
 }
