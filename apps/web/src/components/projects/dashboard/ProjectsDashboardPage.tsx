@@ -5,6 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
+import type { ProjectsTrack } from '~/components/projects/tracks/ProjectsTracksData';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -15,7 +16,11 @@ import ProjectsDashboardTrackAndSkillsSection from './ProjectsDashboardTrackAndS
 import ProjectsDashboardTrendingSubmissionsSection from './ProjectsDashboardTrendingSubmissionsSection';
 import ProjectsProgressAndContributionsSection from '../common/ProjectsProgressAndContributionsSection';
 
-export default function ProjectsDashboardPage() {
+type Props = Readonly<{
+  projectTracks: ReadonlyArray<ProjectsTrack>;
+}>;
+
+export default function ProjectsDashboardPage({ projectTracks }: Props) {
   const { data: profileStatistics } =
     trpc.projects.profile.getDashboardStatistics.useQuery();
   const { data: isNewToProjects } =
@@ -63,7 +68,7 @@ export default function ProjectsDashboardPage() {
           </div>
         </Section>
       )}
-      <ProjectsProgressAndContributionsSection />
+      <ProjectsProgressAndContributionsSection projectTracks={projectTracks} />
     </div>
   );
 }

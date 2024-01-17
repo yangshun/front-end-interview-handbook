@@ -10,6 +10,7 @@ import ProjectsProgressAndContributionsSection from '~/components/projects/commo
 import ProjectsProfileInfo from '~/components/projects/profile/ProjectsProfileInfo';
 import ProjectsProfilePinnedSubmissions from '~/components/projects/profile/ProjectsProfilePinnedSubmissions';
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
+import type { ProjectsTrack } from '~/components/projects/tracks/ProjectsTracksData';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 
@@ -21,11 +22,13 @@ type Props = Readonly<{
       projectsProfile: ProjectsProfile;
     }>;
   isViewingOwnProfile: boolean;
+  projectTracks: ReadonlyArray<ProjectsTrack>;
 }>;
 
 export default function ProjectsProfilePage({
   initialUserProfile,
   isViewingOwnProfile,
+  projectTracks,
 }: Props) {
   const intl = useIntl();
 
@@ -100,7 +103,7 @@ export default function ProjectsProfilePage({
           projectsProfileId={projectsProfileId}
         />
       </div>
-      <ProjectsProgressAndContributionsSection />
+      <ProjectsProgressAndContributionsSection projectTracks={projectTracks} />
     </div>
   );
 }

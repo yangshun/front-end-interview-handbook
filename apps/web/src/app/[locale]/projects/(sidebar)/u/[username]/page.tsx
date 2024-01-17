@@ -2,6 +2,7 @@ import { notFound, redirect } from 'next/navigation';
 
 import ProjectsProfilePage from '~/components/projects/profile/ProjectsProfilePage';
 
+import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
 
@@ -41,6 +42,9 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
+  const { locale } = params;
+  const { tracks } = await readProjectsTrackList(locale);
+
   return (
     <ProjectsProfilePage
       initialUserProfile={{
@@ -48,6 +52,7 @@ export default async function Page({ params }: Props) {
         projectsProfile,
       }}
       isViewingOwnProfile={isViewingOwnProfile}
+      projectTracks={tracks}
     />
   );
 }
