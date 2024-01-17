@@ -14,13 +14,6 @@ export const ProjectsChallengeBriefDocument = defineDocumentType(() => ({
     },
   },
   contentType: 'mdx',
-  fields: {
-    title: {
-      description: 'Title of the project',
-      required: true,
-      type: 'string',
-    },
-  },
   filePathPattern: 'projects/challenges/*/brief/*.mdx',
   name: 'ProjectsChallengeBrief',
 }));
