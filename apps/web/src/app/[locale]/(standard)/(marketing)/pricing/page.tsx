@@ -2,9 +2,9 @@ import { cookies } from 'next/headers';
 import type { Metadata } from 'next/types';
 
 import countryNames from '~/data/countryCodesToNames.json';
-import { PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
 
 import fetchLocalizedPlanPricing from '~/components/interviews/pricing/fetchLocalizedPlanPricing';
+import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'CxZ3Vp',
       },
       {
-        discountPercentage: PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
+        discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
       },
     ),
     locale,

@@ -20,15 +20,13 @@ import type {
   PricingPlansLocalized,
   PricingPlanType,
 } from '~/data/PricingPlans';
-import {
-  PERPETUAL_PROMO_CODE,
-  PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
-} from '~/data/PromotionConfig';
 
 import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import { SocialDiscountAlert } from '~/components/promotions/social/SocialDiscountAlert';
+import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 import Alert from '~/components/ui/Alert';
+import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
@@ -702,6 +700,57 @@ export default function MarketingPricingSection({
     featuredPlan.plan.conversionFactor <
     MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE;
 
+  const promoMessage = (
+    <FormattedMessage
+      defaultMessage="Enjoy {discountPercentage}% off all plans by <follow>following us on social media</follow>. Check out other <promotion>promotions</promotion>!"
+      description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
+      id="47LloU"
+      values={{
+        discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
+        follow: (chunks) => (
+          <Anchor
+            className="whitespace-nowrap font-medium"
+            href="/rewards/social"
+            underline={true}
+            variant="flat"
+            onClick={() => {
+              gtag.event({
+                action: `global.banner.rewards.click`,
+                category: 'engagement',
+                label: 'following us on social media',
+              });
+              logEvent('click', {
+                element: 'Promo banner rewards',
+                label: 'following us on social media',
+              });
+            }}>
+            {chunks}
+          </Anchor>
+        ),
+        promotion: (chunks) => (
+          <Anchor
+            className="whitespace-nowrap font-medium"
+            href="/promotions"
+            underline={true}
+            variant="flat"
+            onClick={() => {
+              gtag.event({
+                action: `global.banner.promotions.click`,
+                category: 'engagement',
+                label: 'promotions',
+              });
+              logEvent('click', {
+                element: 'Promo banner',
+                label: 'Promotions',
+              });
+            }}>
+            {chunks}
+          </Anchor>
+        ),
+      }}
+    />
+  );
+
   return (
     <div
       className={clsx(
@@ -896,16 +945,7 @@ export default function MarketingPricingSection({
                         color="subtitle"
                         display="block"
                         size="body3">
-                        <FormattedMessage
-                          defaultMessage="Enjoy extra {discountPercentage}% off with the code {promoCode}"
-                          description="Subtitle of discount promotion card"
-                          id="ndBo9F"
-                          values={{
-                            discountPercentage:
-                              PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
-                            promoCode: PERPETUAL_PROMO_CODE,
-                          }}
-                        />
+                        {promoMessage}
                       </Text>
                     )}
                   </>
@@ -1100,16 +1140,7 @@ export default function MarketingPricingSection({
                               color="subtitle"
                               display="block"
                               size="body3">
-                              <FormattedMessage
-                                defaultMessage="Enjoy extra {discountPercentage}% off with the code {promoCode}"
-                                description="Subtitle of discount promotion card"
-                                id="ndBo9F"
-                                values={{
-                                  discountPercentage:
-                                    PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
-                                  promoCode: PERPETUAL_PROMO_CODE,
-                                }}
-                              />
+                              {promoMessage}
                             </Text>
                           </Section>
                         </div>

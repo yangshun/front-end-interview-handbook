@@ -5,11 +5,7 @@ import { FormattedMessage } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
-import {
-  PERPETUAL_PROMO_CODE,
-  PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
-} from '~/data/PromotionConfig';
-
+import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 
@@ -25,32 +21,31 @@ export default function GlobalBanner() {
 
   const perpetualSaleMessage = (
     <FormattedMessage
-      defaultMessage="<discount>Get {discountPercentage}% off the annual plan with the code {promoCode}</discount> or check out other <promotion>promotions</promotion>"
+      defaultMessage="Enjoy {discountPercentage}% off all plans by <follow>following us on social media</follow>. Check out other <promotion>promotions</promotion>!"
       description="Text on Promo Banner appearing almost on all application pages to inform user of a discount"
-      id="k4i7ID"
+      id="47LloU"
       values={{
-        discount: (chunks) => (
+        discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
+        follow: (chunks) => (
           <Anchor
             className="whitespace-nowrap font-medium"
-            href="/pricing"
+            href="/rewards/social"
             underline={true}
             variant="flat"
             onClick={() => {
               gtag.event({
-                action: `global.banner.discount.click`,
+                action: `global.banner.rewards.click`,
                 category: 'engagement',
-                label: 'Grab your discount today',
+                label: 'following us on social media',
               });
               logEvent('click', {
-                element: 'Promo banner',
-                label: 'Grab your discount today',
+                element: 'Promo banner rewards',
+                label: 'following us on social media',
               });
             }}>
             {chunks}
           </Anchor>
         ),
-        discountPercentage: PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
-        promoCode: PERPETUAL_PROMO_CODE,
         promotion: (chunks) => (
           <Anchor
             className="whitespace-nowrap font-medium"
