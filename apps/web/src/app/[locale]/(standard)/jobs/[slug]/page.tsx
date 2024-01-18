@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 import { JobPostingJsonLd } from 'next-seo';
 
+import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 
 import JobPostingPage from './JobPostingPage';
@@ -12,9 +13,11 @@ type Props = Readonly<{
 }>;
 
 export async function generateStaticParams() {
-  return allJobsPostings.map((jobPosting) => ({
-    slug: jobPosting.slug,
-  }));
+  return generateStaticParamsWithLocale(
+    allJobsPostings.map((jobPosting) => ({
+      slug: jobPosting.slug,
+    })),
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

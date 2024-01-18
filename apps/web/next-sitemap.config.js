@@ -72,6 +72,7 @@ export default {
       '/pricing',
       '/promotions',
       '/jobs',
+      '/rewards/social',
       // About the company.
       '/about',
       '/team',
