@@ -25,9 +25,18 @@ export default function ProjectsAllChallengesTab() {
       ],
     });
 
-  const shownSessions = allSessions?.filter((session) => {
-    return challengeFilterOptions.matches(session);
-  });
+  const shownSessions = allSessions
+    ?.filter((session) => {
+      return challengeFilterOptions.matches(session);
+    })
+    .filter((session, index, self) => {
+      return (
+        self.findIndex(
+          (s) =>
+            s.challenge?.metadata.slug === session.challenge?.metadata.slug,
+        ) === index
+      );
+    });
 
   return (
     <div className="flex flex-col gap-8">
