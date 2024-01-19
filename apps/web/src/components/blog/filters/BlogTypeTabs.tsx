@@ -14,8 +14,8 @@ const DEFAULT_TABS: ReadonlyArray<FilterTab> = ['articles', 'series'];
 export default function BlogTypeTabs({ value, onSelect }: Props) {
   const intl = useIntl();
 
-  function getLabelForTab(_value: FilterTab) {
-    switch (_value) {
+  function getLabelForTab(value_: FilterTab) {
+    switch (value_) {
       case 'articles': {
         return intl.formatMessage({
           defaultMessage: 'Articles',

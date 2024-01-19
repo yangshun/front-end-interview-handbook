@@ -16,7 +16,7 @@ export default function BlogTags({
   tags,
   showMultiple = false,
   showAll = false,
-  showTagCount = 2,
+  showTagCount = 3,
 }: Props) {
   const id = useId();
 

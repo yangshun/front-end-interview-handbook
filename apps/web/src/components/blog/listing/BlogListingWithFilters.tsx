@@ -44,7 +44,7 @@ export default function BlogListingWithFilters({
 }: Props) {
   const intl = useIntl();
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-  const [isAscendingOrder, setIsAscendingOrder] = useState(true);
+  const [isAscendingOrder, setIsAscendingOrder] = useState(false);
   const [sortField, setSortField] = useState<BlogSortField>('createdAt');
   const [viewField, setViewField] = useState<BlogViewField>('list');
 
