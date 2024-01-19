@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import type { ComponentProps } from 'react';
-import { Fragment, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 
 import { Dialog, Transition } from '@headlessui/react';
 
@@ -10,6 +10,18 @@ export default function MDXImage({ alt, ...props }: ComponentProps<'img'>) {
   const [isShown, setIsShown] = useState(false);
   const [canExpand, setCanExpand] = useState(false);
   const ref = useRef<HTMLImageElement>(null);
+
+  const onLoad = () => {
+    if (ref.current && ref.current.naturalWidth > ref.current.width) {
+      setCanExpand(true);
+    }
+  };
+
+  useEffect(() => {
+    if (ref.current?.complete) {
+      onLoad();
+    }
+  }, [props.src]);
 
   return (
     <>
@@ -21,11 +33,7 @@ export default function MDXImage({ alt, ...props }: ComponentProps<'img'>) {
           canExpand && 'cursor-zoom-in',
         )}
         onClick={canExpand ? () => setIsShown(true) : undefined}
-        onLoad={() => {
-          if (ref.current && ref.current.naturalWidth > ref.current.width) {
-            setCanExpand(true);
-          }
-        }}
+        onLoad={onLoad}
         {...props}
       />
       <ExpandedImageDialog isShown={isShown} onClose={() => setIsShown(false)}>
