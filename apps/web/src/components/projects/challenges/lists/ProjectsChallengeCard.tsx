@@ -58,7 +58,10 @@ export default function ProjectsChallengeCard({ challenge }: Props) {
           </div>
         )}
         <div className="absolute start-2 top-2 flex items-center gap-1">
-          <ProjectsChallengeDifficultyTag difficulty={difficulty} />
+          <ProjectsChallengeDifficultyTag
+            difficulty={difficulty}
+            variant="badge"
+          />
           {access === 'premium' && (
             <Badge
               icon={RiLock2Line}
