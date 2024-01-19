@@ -1495,6 +1495,10 @@
     "defaultMessage": "(Save {discountPercentage}% vs monthly)",
     "description": "Save more compared to monthly plan."
   },
+  "E10QYm": {
+    "defaultMessage": "Others",
+    "description": "Others item label"
+  },
   "E2hv0Z": {
     "defaultMessage": "<bold>{value}</bold>/{total} projects",
     "description": "Rep count label in Projects"
@@ -3331,6 +3335,10 @@
     "defaultMessage": "Learn to work with specifications mimicking projects you will encounter as a full-time engineer",
     "description": "Description for \"Real world specs\" feature on Projects home page"
   },
+  "VXu04X": {
+    "defaultMessage": "Code reviews",
+    "description": "Code reviews item label"
+  },
   "VbvRHt": {
     "defaultMessage": "Pricing",
     "description": "Label for Pricing sidebar item in Projects sidebar"
@@ -4318,6 +4326,10 @@
   "fAZVc9": {
     "defaultMessage": "Live site URL",
     "description": "Form label"
+  },
+  "fDl2Op": {
+    "defaultMessage": "Select community contributions category",
+    "description": "Tab label to select another community contributions category"
   },
   "fEoTGW": {
     "defaultMessage": "Start a project",

@@ -12,6 +12,8 @@ import ProjectsComponentTrackTab from './ProjectsComponentTrackTab';
 import ProjectsSkillsTab from './ProjectsSkillsTab';
 import type { ProjectsMainTabCategory } from './useProjectsCategoryTabs';
 import useProjectsCategoryTabs from './useProjectsCategoryTabs';
+import type { ProjectsCommunityContributionsTabCategory } from './useProjectsCommunityContributionsTabs';
+import useProjectsCommunityContributionsTabs from './useProjectsCommunityContributionsTabs';
 import type { ProjectsMainLayoutTabCategory } from './useProjectsMainLayoutTabs';
 import useProjectsMainLayoutTabs from './useProjectsMainLayoutTabs';
 
@@ -34,10 +36,13 @@ export default function ProjectsProgressAndContributionsSection({
         value: tab.key,
       };
     });
+  const contributionsTabs = useProjectsCommunityContributionsTabs();
   const [currentDashboardTab, setCurrentDashboardTab] =
     useState<ProjectsMainTabCategory>('progress');
   const [currentProgressTab, setCurrentProgressTab] =
     useState<ProjectsMainLayoutTabCategory>('challenges');
+  const [currentContributionsTab, setCurrentContributionsTab] =
+    useState<ProjectsCommunityContributionsTabCategory>('reviews');
 
   return (
     <div className="flex flex-col gap-8">
@@ -64,6 +69,21 @@ export default function ProjectsProgressAndContributionsSection({
           tabs={progressTabs}
           value={currentProgressTab}
           onSelect={setCurrentProgressTab}
+        />
+      )}
+      {currentDashboardTab === 'contributions' && (
+        <Tabs
+          hasBorder={false}
+          label={intl.formatMessage({
+            defaultMessage: 'Select community contributions category',
+            description:
+              'Tab label to select another community contributions category',
+            id: 'fDl2Op',
+          })}
+          size="sm"
+          tabs={contributionsTabs}
+          value={currentContributionsTab}
+          onSelect={setCurrentContributionsTab}
         />
       )}
       {currentDashboardTab === 'progress' &&
