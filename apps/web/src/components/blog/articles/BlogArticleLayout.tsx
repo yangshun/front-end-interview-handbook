@@ -39,7 +39,11 @@ export default function BlogArticleLayout({
         <Container
           className={clsx('flex flex-col', 'py-6 lg:py-8')}
           variant="normal">
-          <div className="flex gap-x-10 gap-y-8 md:gap-y-10 2xl:gap-y-12">
+          <div
+            className={clsx(
+              'flex gap-x-10 gap-y-8 md:gap-y-10 2xl:gap-y-12',
+              !navigation && 'justify-center',
+            )}>
             {metadata.isSeriesArticle && navigation && (
               <div
                 className="sticky hidden xl:contents"
