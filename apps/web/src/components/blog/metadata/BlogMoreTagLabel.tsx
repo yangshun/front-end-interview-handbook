@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
-import { getBlogTags } from '~/data/blog/Tag';
-
 import type { BlogTagType } from '~/components/blog/BlogTypes';
 import Tooltip from '~/components/ui/Tooltip';
 
@@ -24,11 +22,11 @@ export default function BlogMoreTagLabel({
   size = 'sm',
   moreTags = [],
 }: Props) {
-  const blogTags = getBlogTags();
-  const tagsLabel = moreTags.map((tag) => blogTags[tag].name).join(', ');
-
   return (
-    <Tooltip className="inline-flex" label={tagsLabel} position="above">
+    <Tooltip
+      className="inline-flex"
+      label={moreTags.join(', ')}
+      position="above">
       <span
         className={clsx(
           'relative inline-flex items-center whitespace-nowrap rounded-full border border-neutral-700 bg-neutral-200 py-px font-medium dark:border-neutral-300 dark:bg-neutral-600',

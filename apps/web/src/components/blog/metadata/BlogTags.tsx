@@ -36,7 +36,7 @@ export default function BlogTags({
       </span>
       <div
         aria-labelledby={id}
-        className="inline-flex flex-wrap items-center gap-2">
+        className="inline-flex flex-wrap items-center gap-3">
         {showAll ? (
           tags.map((tag) => <BlogTagLabel key={tag} value={tag} />)
         ) : showMultiple ? (

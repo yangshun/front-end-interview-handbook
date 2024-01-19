@@ -16,10 +16,10 @@ type Props = Readonly<{
 }>;
 
 const DifficultyLabelClasses: Record<BlogLevel, string> = {
-  advanced: 'dark:text-warning-light text-warning',
-  intermediate: 'dark:text-info-light text-info',
-  nightmare: 'dark:text-danger-light text-danger',
-  starter: 'dark:text-success-light text-success',
+  advanced: 'text-warning dark:text-warning-light',
+  intermediate: 'text-info dark:text-info-light',
+  nightmare: 'text-danger dark:text-danger-light',
+  starter: 'text-success dark:text-success-light',
 };
 
 export default function BlogLevelLabel({

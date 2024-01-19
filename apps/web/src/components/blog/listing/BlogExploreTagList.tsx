@@ -8,19 +8,15 @@ import BlogListingWithFilters from '~/components/blog/listing/BlogListingWithFil
 type Props = Readonly<{
   articles: ReadonlyArray<BlogMetadata>;
   series: ReadonlyArray<BlogMetadata>;
-  tagType: BlogTagType;
+  tag: string;
 }>;
 
-export default function BlogExploreTagList({
-  articles,
-  series,
-  tagType,
-}: Props) {
+export default function BlogExploreTagList({ articles, series, tag }: Props) {
   const [selectedTab, setSelectedTab] = useState<FilterTab>('articles');
 
   const filteredByTagBlogs = (
     selectedTab === 'articles' ? articles : series
-  ).filter((blog) => blog.tags.includes(tagType));
+  ).filter((blog) => blog.tags.includes(tag));
 
   return (
     <div className="flex flex-col gap-4">
@@ -29,7 +25,7 @@ export default function BlogExploreTagList({
         key={selectedTab}
         blogs={filteredByTagBlogs}
         layout="explore"
-        namespace={`explore-${selectedTab}-${tagType}`}
+        namespace={`explore-${selectedTab}-${tag}`}
         showFilters={selectedTab === 'articles'}
         type={selectedTab}
       />

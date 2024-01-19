@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { getBlogTags } from '~/data/blog/Tag';
-
 import type { BlogTagType } from '~/components/blog/BlogTypes';
 
 import { getAllPosts, getAllSeries } from '~/contentlayer/utils';
@@ -20,8 +18,14 @@ type Props = Readonly<{
 }>;
 
 export async function generateStaticParams() {
+  const tagsSet = new Set(
+    getAllPosts()
+      .map((post) => post.tags)
+      .flat(),
+  );
+
   return generateStaticParamsWithLocale(
-    Object.keys(getBlogTags()).map((tag) => ({ tag })),
+    Array.from(tagsSet).map((tag) => ({ tag })),
   );
 }
 
@@ -29,24 +33,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, tag } = params;
   const intl = await getIntlServerOnly(locale);
 
-  const blogTags = getBlogTags();
-  const blogTag = blogTags[tag];
-
-  if (!blogTag) {
-    notFound();
-  }
-
   return defaultMetadata({
-    description: blogTag.description,
+    description: intl.formatMessage(
+      {
+        defaultMessage: 'Explore articles related to "{tagName}"',
+        description: 'Description of GreatFrontEnd blog tag page',
+        id: 'YMPsHi',
+      },
+      { tagName: tag },
+    ),
     locale,
-    pathname: blogTag.href,
+    pathname: `/blog/tags/${tag}`,
     title: intl.formatMessage(
       {
         defaultMessage: '{tagName} | Blog',
-        description: 'Title of GreatFrontEnd blog explore series page',
-        id: 'qS3yTj',
+        description: 'Title of GreatFrontEnd blog tag page',
+        id: 'JWwqmr',
       },
-      { tagName: blogTag.name },
+      { tagName: tag },
     ),
   });
 }
@@ -54,16 +58,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { tag } = params;
 
-  const blogTags = getBlogTags();
-  const blogTag = blogTags[tag];
   const articles = getAllPosts();
   const series = getAllSeries();
 
-  if (!blogTag) {
-    notFound();
-  }
-
-  return (
-    <BlogExploreTagPage articles={articles} blogTag={blogTag} series={series} />
-  );
+  return <BlogExploreTagPage articles={articles} series={series} tag={tag} />;
 }

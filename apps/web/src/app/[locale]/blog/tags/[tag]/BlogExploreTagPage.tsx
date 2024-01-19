@@ -1,6 +1,7 @@
 'use client';
 
-import type { BlogTag } from '~/data/blog/Tag';
+import { startCase } from 'lodash-es';
+import { useIntl } from 'react-intl';
 
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import BlogExploreTagList from '~/components/blog/listing/BlogExploreTagList';
@@ -10,29 +11,30 @@ import Text from '~/components/ui/Text';
 
 type Props = Readonly<{
   articles: ReadonlyArray<BlogMetadata>;
-  blogTag: BlogTag;
   series: ReadonlyArray<BlogMetadata>;
+  tag: string;
 }>;
 
-export default function BlogExploreTagPage({
-  blogTag,
-  articles,
-  series,
-}: Props) {
+export default function BlogExploreTagPage({ articles, series, tag }: Props) {
+  const intl = useIntl();
+
   return (
     <div className="flex flex-col gap-y-10">
       <div className="flex flex-col gap-y-3">
-        <Heading level="heading5">{blogTag.name}</Heading>
+        <Heading level="heading5">{startCase(tag)}</Heading>
         <Text color="secondary" size="body1">
-          {blogTag.description}
+          {intl.formatMessage(
+            {
+              defaultMessage: 'Explore articles related to "{tagName}".',
+              description: 'Description of GreatFrontEnd blog tag page',
+              id: 'pDlGO7',
+            },
+            { tagName: tag },
+          )}
         </Text>
       </div>
       <Section>
-        <BlogExploreTagList
-          articles={articles}
-          series={series}
-          tagType={blogTag.type}
-        />
+        <BlogExploreTagList articles={articles} series={series} tag={tag} />
       </Section>
     </div>
   );

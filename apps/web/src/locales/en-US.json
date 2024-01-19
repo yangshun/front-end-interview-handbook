@@ -2011,6 +2011,10 @@
     "defaultMessage": "Minimum {minNumber} characters. Letters and digits required.",
     "description": "Password creation criteria"
   },
+  "JWwqmr": {
+    "defaultMessage": "{tagName} | Blog",
+    "description": "Title of GreatFrontEnd blog tag page"
+  },
   "JaQOv1": {
     "defaultMessage": "Back to home",
     "description": "Link text to navigate to blog home page"
@@ -3630,6 +3634,10 @@
   "YM1bnf": {
     "defaultMessage": "An error has occurred",
     "description": "Title of alert indicating an error on Email Sign In/Up Page"
+  },
+  "YMPsHi": {
+    "defaultMessage": "Explore articles related to \"{tagName}\"",
+    "description": "Description of GreatFrontEnd blog tag page"
   },
   "YMfxks": {
     "defaultMessage": "Our lifetime access plan costs less than 1 hour of an average Front End Engineer's salary. Meanwhile, the reward for acing your interviews could be an increase in hundreds of thousands of total compensation.",
@@ -5383,6 +5391,10 @@
     "defaultMessage": "README file to help you get started",
     "description": "Provided resource for project"
   },
+  "pDlGO7": {
+    "defaultMessage": "Explore articles related to \"{tagName}\".",
+    "description": "Description of GreatFrontEnd blog tag page"
+  },
   "pDo/V5": {
     "defaultMessage": "{price} billed per month.",
     "description": "Description of billing frequency for monthly plan"
@@ -5542,10 +5554,6 @@
   "qRa0sV": {
     "defaultMessage": "Copied!",
     "description": "Button label for copy button"
-  },
-  "qS3yTj": {
-    "defaultMessage": "{tagName} | Blog",
-    "description": "Title of GreatFrontEnd blog explore series page"
   },
   "qTHHNG": {
     "defaultMessage": "More on <link>Rewards Terms and Conditions</link>",
