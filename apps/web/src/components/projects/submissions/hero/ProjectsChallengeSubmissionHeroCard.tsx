@@ -16,8 +16,6 @@ import {
 } from '~/components/ui/theme';
 
 import ProjectsChallengeStatusBadge from '../../challenges/status/ProjectsChallengeStatusBadge';
-import ProjectsChallengeStatusBadgeCompleted from '../../challenges/status/ProjectsChallengeStatusBadgeCompleted';
-import ProjectsChallengeStatusBadgeInProgress from '../../challenges/status/ProjectsChallengeStatusBadgeCompletedInProgress';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

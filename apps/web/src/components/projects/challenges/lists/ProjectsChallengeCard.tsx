@@ -14,8 +14,6 @@ import {
 } from '~/components/ui/theme';
 
 import ProjectsChallengeStatusBadge from '../status/ProjectsChallengeStatusBadge';
-import ProjectsChallengeStatusBadgeCompleted from '../status/ProjectsChallengeStatusBadgeCompleted';
-import ProjectsChallengeStatusBadgeInProgress from '../status/ProjectsChallengeStatusBadgeCompletedInProgress';
 import type { ProjectsChallengeItem } from '../types';
 import ProjectsSkillRow from '../../skills/ProjectsSkillRow';
 import ProjectsCompletedUsersTag from '../../stats/ProjectsCompletedUsersTag';

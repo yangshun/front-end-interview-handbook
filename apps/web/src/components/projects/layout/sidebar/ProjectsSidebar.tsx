@@ -2,16 +2,13 @@
 
 import clsx from 'clsx';
 import {
-  RiCheckboxMultipleLine,
   RiContractLeftLine,
   RiDiscordLine,
   RiHome3Line,
   RiLogoutBoxLine,
   RiMoreLine,
-  RiNodeTree,
   RiNotification3Line,
   RiPriceTag3Line,
-  RiRocketLine,
   RiSettings4Line,
   RiShiningLine,
 } from 'react-icons/ri';

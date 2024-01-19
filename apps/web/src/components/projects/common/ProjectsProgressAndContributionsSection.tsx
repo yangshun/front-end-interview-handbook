@@ -25,11 +25,11 @@ export default function ProjectsProgressAndContributionsSection({
   projectTracks,
 }: Props) {
   const intl = useIntl();
-  const mainTabs = useProjectsCategoryTabs();
-  const tabs_ = useProjectsMainLayoutTabs();
+  const categoryTabs = useProjectsCategoryTabs();
+  const mainLayoutTabs = useProjectsMainLayoutTabs();
   const progressTabs: ReadonlyArray<TabItem<ProjectsMainLayoutTabCategory>> =
-    tabs_.map((tab) => {
-      const { href, ...tabWithoutHref } = tab;
+    mainLayoutTabs.map((tab) => {
+      const { href: _href, ...tabWithoutHref } = tab;
 
       return {
         ...tabWithoutHref,
@@ -53,7 +53,7 @@ export default function ProjectsProgressAndContributionsSection({
           id: '1O3xR8',
         })}
         size="md"
-        tabs={mainTabs}
+        tabs={categoryTabs}
         value={currentDashboardTab}
         onSelect={setCurrentDashboardTab}
       />

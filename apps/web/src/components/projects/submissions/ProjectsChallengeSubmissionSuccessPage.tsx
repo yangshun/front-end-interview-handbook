@@ -173,9 +173,6 @@ export default function ProjectsChallengeSubmissionSuccessPage({
   const intl = useIntl();
   const { profile } = useProfile();
 
-  // TODO(projects): Replace below with actual logic
-  const isUserPremium = false;
-
   return (
     <CardContainer>
       <div className="relative self-center">
