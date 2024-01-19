@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import type { BlogMetadata, BlogTagType } from '~/components/blog/BlogTypes';
+import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import type { FilterTab } from '~/components/blog/filters/BlogTypeTabs';
 import BlogTypeTabs from '~/components/blog/filters/BlogTypeTabs';
 import BlogListingWithFilters from '~/components/blog/listing/BlogListingWithFilters';

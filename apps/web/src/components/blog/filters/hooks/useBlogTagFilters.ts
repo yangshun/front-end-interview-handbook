@@ -2,18 +2,20 @@ import { useIntl } from 'react-intl';
 
 import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
 
-import type { BlogTagType } from '~/components/blog/BlogTypes';
 import type { BlogFilter } from '~/components/blog/filters/BlogFilterType';
 
+// TODO(blog): Read all available tags from ContentLayer.
 const TAG_OPTIONS: ReadonlyArray<{
   label: string;
-  value: BlogTagType;
+  value: string;
 }> = [
   { label: 'Career', value: 'career' },
   { label: 'CSS', value: 'css' },
   { label: 'Interviews', value: 'interviews' },
   { label: 'JavaScript', value: 'javascript' },
   { label: 'Scalability', value: 'scalability' },
+  { label: 'Performance', value: 'performance' },
+  { label: 'React', value: 'react' },
 ];
 
 type Props = Readonly<{
@@ -22,14 +24,14 @@ type Props = Readonly<{
 
 export default function useBlogTagFilter({
   namespace,
-}: Props): [Set<BlogTagType>, BlogFilter<BlogTagType>] {
+}: Props): [Set<string>, BlogFilter<string>] {
   const intl = useIntl();
-  const [tagFilters, setTagFilters] = useSessionStorageForSets<BlogTagType>(
+  const [tagFilters, setTagFilters] = useSessionStorageForSets<string>(
     `gfe:${namespace}:tag-filter`,
     new Set(),
   );
 
-  const tagFilterOptions: BlogFilter<BlogTagType> = {
+  const tagFilterOptions: BlogFilter<string> = {
     id: 'tag',
     matches: (blog) =>
       tagFilters.size === 0 || blog.tags.some((tag) => tagFilters.has(tag)),

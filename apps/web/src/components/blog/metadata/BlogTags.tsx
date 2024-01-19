@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { useId } from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import type { BlogTagType } from '~/components/blog/BlogTypes';
 import BlogMoreTagLabel from '~/components/blog/metadata/BlogMoreTagLabel';
 import BlogTagLabel from '~/components/blog/metadata/BlogTagLabel';
 
@@ -10,7 +9,7 @@ type Props = Readonly<{
   showAll?: boolean;
   showMultiple?: boolean;
   showTagCount?: number;
-  tags: ReadonlyArray<BlogTagType>;
+  tags: ReadonlyArray<string>;
 }>;
 
 export default function BlogTags({

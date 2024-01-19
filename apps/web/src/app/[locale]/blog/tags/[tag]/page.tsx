@@ -1,7 +1,4 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-
-import type { BlogTagType } from '~/components/blog/BlogTypes';
 
 import { getAllPosts, getAllSeries } from '~/contentlayer/utils';
 import { getIntlServerOnly } from '~/i18n';
@@ -13,7 +10,7 @@ import BlogExploreTagPage from './BlogExploreTagPage';
 type Props = Readonly<{
   params: {
     locale: string;
-    tag: BlogTagType;
+    tag: string;
   };
 }>;
 

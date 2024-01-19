@@ -48,7 +48,7 @@ export const BlogPostDocument = defineDocumentType(() => ({
     },
     createdAt: { required: true, type: 'date' },
     description: { required: true, type: 'string' },
-    imageUrl: { required: true, type: 'string' },
+    imageUrl: { required: false, type: 'string' },
     level: { required: true, type: 'string' },
     relatedPosts: {
       of: RelatedPost,

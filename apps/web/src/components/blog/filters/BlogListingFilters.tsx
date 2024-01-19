@@ -1,10 +1,6 @@
 import clsx from 'clsx';
 
-import type {
-  BlogLevel,
-  BlogMetadata,
-  BlogTagType,
-} from '~/components/blog/BlogTypes';
+import type { BlogLevel, BlogMetadata } from '~/components/blog/BlogTypes';
 import type { BlogFilter } from '~/components/blog/filters/BlogFilterType';
 import type { FilterItemGap } from '~/components/blog/filters/items/BlogListingFilterItem';
 import BlogListingFilterItem from '~/components/blog/filters/items/BlogListingFilterItem';
@@ -15,8 +11,8 @@ type Props = Readonly<{
   levelFilterOptions: BlogFilter<BlogLevel, BlogMetadata>;
   levelFilters: Set<BlogLevel>;
   mode?: 'default' | 'framework';
-  tagFilterOptions: BlogFilter<BlogTagType, BlogMetadata>;
-  tagFilters: Set<BlogTagType>;
+  tagFilterOptions: BlogFilter<string, BlogMetadata>;
+  tagFilters: Set<string>;
 }>;
 
 export default function BlogListingFilters({

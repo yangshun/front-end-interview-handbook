@@ -6,11 +6,7 @@ import {
   allSubseries,
 } from 'contentlayer/generated';
 
-import type {
-  BlogLevel,
-  BlogMetadata,
-  BlogTagType,
-} from '~/components/blog/BlogTypes';
+import type { BlogLevel, BlogMetadata } from '~/components/blog/BlogTypes';
 import { sortBlogsMultiple } from '~/components/blog/filters/BlogsProcessor';
 
 export function getPostFromSlug(slug: string) {
@@ -21,7 +17,7 @@ export function getPostFromSlug(slug: string) {
 
 export function getTypeCastedMetadata<T extends Post | Series>(item: T) {
   const itemLevel = item.level as BlogLevel;
-  const itemTags = item.tags as Array<BlogTagType>;
+  const itemTags = item.tags;
 
   return {
     ...item,

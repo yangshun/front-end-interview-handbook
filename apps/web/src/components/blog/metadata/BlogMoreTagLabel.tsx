@@ -1,14 +1,13 @@
 import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
-import type { BlogTagType } from '~/components/blog/BlogTypes';
 import Tooltip from '~/components/ui/Tooltip';
 
 type LabelSize = 'md' | 'sm';
 
 type Props = Readonly<{
   count: number;
-  moreTags: ReadonlyArray<BlogTagType>;
+  moreTags: ReadonlyArray<string>;
   size?: LabelSize;
 }>;
 
