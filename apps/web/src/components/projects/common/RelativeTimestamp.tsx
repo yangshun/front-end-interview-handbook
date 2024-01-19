@@ -44,5 +44,9 @@ function getRelativeTimestamp(
 export default function RelativeTimestamp({ timestamp }: Props) {
   const { unit, value } = getTimeUnitAndValue(timestamp);
 
-  return <Text>{getRelativeTimestamp(timestamp, unit, value)}</Text>;
+  return (
+    <Text color="secondary" size="body3">
+      {getRelativeTimestamp(timestamp, unit, value)}
+    </Text>
+  );
 }

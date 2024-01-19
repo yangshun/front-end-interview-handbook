@@ -1251,6 +1251,10 @@
     "defaultMessage": "Best value for money with real-time support from the team and community.",
     "description": "Supporting statement for an annual pricing plan"
   },
+  "BUK7YK": {
+    "defaultMessage": "Last week",
+    "description": "Title for last week list of code reviews"
+  },
   "BfJL2V": {
     "defaultMessage": "Challenge difficulty",
     "description": "Label for Difficulty filter for submissions list"
@@ -3791,6 +3795,10 @@
     "defaultMessage": "Software Engineer at Stripe | Ex-Google",
     "description": "Placeholder for \"Job Title\" input on Projects profile onboarding page"
   },
+  "ZqRybm": {
+    "defaultMessage": "Last month",
+    "description": "Title for last month list of code reviews"
+  },
   "ZrtVIf": {
     "defaultMessage": "Access to all {totalChallengeCount}+ challenges. {remainingGuideCount} Figma & guides access left",
     "description": "Subtitle of Monthly Plan CTA card in Projects sidebar"
@@ -4022,6 +4030,10 @@
   "bsCmcK": {
     "defaultMessage": "Email Us",
     "description": "Button label to send to a support email"
+  },
+  "buCV7d": {
+    "defaultMessage": "Earlier",
+    "description": "Title for earlier list of code reviews"
   },
   "buggxJ": {
     "defaultMessage": "Reply",
@@ -5134,6 +5146,10 @@
   "mcOOtE": {
     "defaultMessage": "Host the project for free on our recommended hosts and submit your project URL for reviews",
     "description": "Instruction for projects"
+  },
+  "mfu/G5": {
+    "defaultMessage": "<medium>{author}</medium> left a code review for <medium>{recipient}</medium> on <link>{submissionTitle}</link><comment>: \"{description}\"</comment>",
+    "description": "Comment"
   },
   "mjEvFf": {
     "defaultMessage": "Step 2",
