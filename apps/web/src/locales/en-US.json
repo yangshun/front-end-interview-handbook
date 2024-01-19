@@ -487,6 +487,10 @@
     "defaultMessage": "Projects",
     "description": "Label for Projects sidebar group in Projects sidebar"
   },
+  "3ffp8N": {
+    "defaultMessage": "Solution vs Design comparison",
+    "description": "Solution vs design comparison title"
+  },
   "3i5xK8": {
     "defaultMessage": "Large question bank",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
@@ -4222,6 +4226,10 @@
   "e/t5dH": {
     "defaultMessage": "Download starter files",
     "description": "Label for \"Download starter files\" step in dialog on Projects project page"
+  },
+  "e0C2cj": {
+    "defaultMessage": "Retake screenshot",
+    "description": "Retake screenshot button label"
   },
   "e1ohyq": {
     "defaultMessage": "Learn from others",

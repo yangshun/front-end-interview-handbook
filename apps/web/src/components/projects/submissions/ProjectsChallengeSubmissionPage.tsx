@@ -11,14 +11,14 @@ import ProjectsSkillChip from '~/components/projects/skills/ProjectsSkillChip';
 import type { ProjectsSkill } from '~/components/projects/skills/types';
 import ProjectsChallengeSubmissionHero from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHero';
 import ProjectsChallengeSubmissionAuthorProfile from '~/components/projects/submissions/ProjectsChallengeSubmissionAuthorProfile';
+import ProjectsChallengeSubmissionComparison from '~/components/projects/submissions/ProjectsChallengeSubmissionComparison';
+import ProjectsChallengeSubmissionInterested from '~/components/projects/submissions/ProjectsChallengeSubmissionInterested';
 import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from '~/components/projects/submissions/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
-
-import ProjectsChallengeSubmissionInterested from './ProjectsChallengeSubmissionInterested';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -135,6 +135,7 @@ export default function ProjectsChallengeSubmissionPage({
           </div>
         </Section>
       )}
+      <ProjectsChallengeSubmissionComparison deploymentUrls={deploymentUrls} />
       <Section>
         <div className="flex md:gap-10 gap-8 md:flex-row flex-col">
           <div className="flex flex-col gap-3 flex-1">
