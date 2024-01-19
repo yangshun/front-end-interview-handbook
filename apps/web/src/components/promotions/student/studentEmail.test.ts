@@ -1,22 +1,37 @@
 import { isValidStudentEmail } from './studentEmail';
 
 describe('isValidStudentEmail', () => {
-  test('valid .edu emails', () => {
-    expect(isValidStudentEmail('john.doe@u.nus.edu')).toEqual({ valid: true });
-    expect(isValidStudentEmail('john.doe@hawk.iit.edu')).toEqual({
-      valid: true,
+  describe('valid .edu emails', () => {
+    test('.edu suffix', () => {
+      expect(isValidStudentEmail('john.doe@u.nus.edu')).toEqual({
+        valid: true,
+      });
+      expect(isValidStudentEmail('john.doe@hawk.iit.edu')).toEqual({
+        valid: true,
+      });
+      expect(isValidStudentEmail('john.doe@g.ucla.edu')).toEqual({
+        valid: true,
+      });
+      expect(isValidStudentEmail('john.doe@ufl.edu')).toEqual({
+        valid: true,
+      });
     });
-    expect(isValidStudentEmail('john.doe@ci.suez.edu.eg')).toEqual({
-      valid: true,
+
+    test('.edu in the middle', () => {
+      expect(isValidStudentEmail('john.doe@ci.suez.edu.eg')).toEqual({
+        valid: true,
+      });
+      expect(
+        isValidStudentEmail('aabhishekbtech20@ced.alliance.edu.in'),
+      ).toEqual({
+        valid: true,
+      });
     });
-    expect(isValidStudentEmail('john.doe@g.ucla.edu')).toEqual({
-      valid: true,
-    });
-    expect(isValidStudentEmail('john.doe@ufl.edu')).toEqual({
-      valid: true,
-    });
-    expect(isValidStudentEmail('abdi.bala@edu.uwaterloo.ca')).toEqual({
-      valid: true,
+
+    test('.edu prefix', () => {
+      expect(isValidStudentEmail('abdi.bala@edu.uwaterloo.ca')).toEqual({
+        valid: true,
+      });
     });
   });
 
