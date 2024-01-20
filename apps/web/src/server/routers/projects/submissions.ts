@@ -232,7 +232,7 @@ export const projectsChallengeSubmissionRouter = router({
   hasVoted: projectsUserProcedure
     .input(
       z.object({
-        submissionId: z.string(),
+        submissionId: z.string().uuid(),
       }),
     )
     .query(async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
@@ -563,7 +563,7 @@ export const projectsChallengeSubmissionRouter = router({
   pin: projectsUserProcedure
     .input(
       z.object({
-        submissionId: z.string(),
+        submissionId: z.string().uuid(),
       }),
     )
     .mutation(
@@ -661,7 +661,7 @@ export const projectsChallengeSubmissionRouter = router({
   unpin: projectsUserProcedure
     .input(
       z.object({
-        submissionId: z.string(),
+        submissionId: z.string().uuid(),
       }),
     )
     .mutation(
@@ -730,7 +730,7 @@ export const projectsChallengeSubmissionRouter = router({
   vote: projectsUserProcedure
     .input(
       z.object({
-        submissionId: z.string(),
+        submissionId: z.string().uuid(),
       }),
     )
     .mutation(
