@@ -1,10 +1,17 @@
+import clsx from 'clsx';
 import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import Card from '~/components/ui/Card';
+import {
+  Hovercard,
+  HovercardContent,
+  HovercardTrigger,
+} from '~/components/ui/Hovercard/Hovercard';
 import Text from '~/components/ui/Text';
 
+import ProjectsChallengeHoverCard from './ProjectsChallengeHoverCard';
 import ProjectsChallengeSubmissionCardPinButton from './ProjectsChallengeSubmissionCardPinButton';
 import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from '../types';
 import ProjectsChallengeStatusBadge from '../../challenges/status/ProjectsChallengeStatusBadge';
@@ -45,12 +52,27 @@ export default function ProjectsChallengeSubmissionCard({
             <div className="flex items-center gap-2">
               <Text color="secondary" size="body3">
                 <FormattedMessage
-                  defaultMessage="Challenge: <link>{title}</link>"
+                  defaultMessage="Challenge: <hover>{title}</hover>"
                   description="Link to project submission's original challenge"
-                  id="j6bW1T"
+                  id="WUv05Y"
                   values={{
-                    link: (chunks) => (
-                      <Anchor href={challenge?.metadata.href}>{chunks}</Anchor>
+                    hover: (chunks) => (
+                      <Hovercard>
+                        <HovercardTrigger>
+                          <Anchor href={challenge?.metadata.href}>
+                            {chunks}
+                          </Anchor>
+                        </HovercardTrigger>
+                        <HovercardContent
+                          className={clsx(
+                            'border-none bg-neutral-50 dark:bg-neutral-900',
+                          )}>
+                          <ProjectsChallengeHoverCard
+                            challengeSlug={challenge.metadata.slug}
+                            profileId={submission.profileId}
+                          />
+                        </HovercardContent>
+                      </Hovercard>
                     ),
                     title: challenge?.metadata.title,
                   }}

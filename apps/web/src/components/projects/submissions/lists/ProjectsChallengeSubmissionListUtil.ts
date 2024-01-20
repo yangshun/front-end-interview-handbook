@@ -16,6 +16,7 @@ export function projectsChallengeSubmissionListAugmentChallenge<
       ...submission,
       challenge: {
         metadata: challengeMetadata,
+        status: null,
       },
     };
   });

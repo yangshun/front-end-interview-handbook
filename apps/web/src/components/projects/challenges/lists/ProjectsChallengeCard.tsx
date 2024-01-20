@@ -18,11 +18,17 @@ import type { ProjectsChallengeItem } from '../types';
 import ProjectsSkillRow from '../../skills/ProjectsSkillRow';
 import ProjectsCompletedUsersTag from '../../stats/ProjectsCompletedUsersTag';
 
+type ChallengeCardType = 'hover' | 'normal';
+
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
+  type?: ChallengeCardType;
 }>;
 
-export default function ProjectsChallengeCard({ challenge }: Props) {
+export default function ProjectsChallengeCard({
+  challenge,
+  type = 'normal',
+}: Props) {
   const intl = useIntl();
   const { completedProfiles, completedCount, metadata, status, track } =
     challenge;
@@ -41,13 +47,19 @@ export default function ProjectsChallengeCard({ challenge }: Props) {
     <div
       className={clsx(
         'flex flex-col overflow-clip rounded-lg',
-        ['border', themeBorderColor],
-        themeCardBackgroundColor,
+        type === 'normal' && [
+          'border',
+          themeBorderColor,
+          themeCardBackgroundColor,
+        ],
       )}>
       <div className="relative">
         <img
           alt={title}
-          className="aspect-[16/9] object-cover w-full"
+          className={clsx(
+            'aspect-[16/9] object-cover w-full',
+            type === 'hover' && 'rounded-md',
+          )}
           src={imageUrl}
         />
         {status != null && (
@@ -73,7 +85,11 @@ export default function ProjectsChallengeCard({ challenge }: Props) {
           )}
         </div>
       </div>
-      <div className="grow flex flex-col gap-4 p-4">
+      <div
+        className={clsx(
+          'grow flex flex-col gap-4 pt-4',
+          type === 'normal' && 'p-4',
+        )}>
         <div className="flex flex-wrap gap-x-4 gap-y-2">
           <ProjectsChallengeTrackTag track={track} />
           <ProjectsChallengeReputationTag points={points} variant="flat" />
@@ -93,16 +109,18 @@ export default function ProjectsChallengeCard({ challenge }: Props) {
           skills={skills}
         />
         <div className="flex items-center gap-4">
-          <Button
-            href={href}
-            icon={RiArrowRightLine}
-            label={intl.formatMessage({
-              defaultMessage: 'Go to project',
-              description: 'Label for "Go to project" button in Project card',
-              id: 'r1Pjn6',
-            })}
-            variant="primary"
-          />
+          {type === 'normal' && (
+            <Button
+              href={href}
+              icon={RiArrowRightLine}
+              label={intl.formatMessage({
+                defaultMessage: 'Go to project',
+                description: 'Label for "Go to project" button in Project card',
+                id: 'r1Pjn6',
+              })}
+              variant="primary"
+            />
+          )}
           <ProjectsCompletedUsersTag
             count={completedCount}
             profiles={completedProfiles}

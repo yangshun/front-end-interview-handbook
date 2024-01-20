@@ -557,7 +557,11 @@ export const projectsChallengeSubmissionRouter = router({
           }),
         ]);
 
-        return { submissions, totalCount };
+        return {
+          submissions:
+            projectsChallengeSubmissionListAugmentChallenge(submissions),
+          totalCount,
+        };
       },
     ),
   pin: projectsUserProcedure
