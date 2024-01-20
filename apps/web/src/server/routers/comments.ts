@@ -105,4 +105,23 @@ export const commentsRouter = router({
         });
       },
     ),
+  update: userProcedure
+    .input(
+      z.object({
+        commentId: z.string().uuid(),
+        // TODO(projects): reuse validation on client.
+        content: z.string().trim().min(10).max(40000),
+      }),
+    )
+    .mutation(async ({ input: { commentId, content }, ctx: { user } }) => {
+      return await prisma.discussionComment.update({
+        data: {
+          content,
+        },
+        where: {
+          id: commentId,
+          userId: user.id,
+        },
+      });
+    }),
 });

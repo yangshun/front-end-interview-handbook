@@ -16,6 +16,7 @@ import {
   themeElementBorderColor,
 } from '~/components/ui/theme';
 
+import DiscussionsCommentEditInput from './DiscussionsCommentEditInput';
 import DiscussionsCommentReplies from './DiscussionsCommentReplies';
 import DiscussionsCommentRepliesThreadLines from './DiscussionsCommentRepliesThreadLines';
 import DiscussionsReplyInput from './DiscussionsReplyInput';
@@ -146,7 +147,16 @@ export default function DiscussionsComment({
             </div>
           </div>
           {category && <Badge label={category} size="sm" variant="primary" />}
-          <Text size="body2">{content}</Text>
+          {mode === 'edit' ? (
+            <DiscussionsCommentEditInput
+              comment={comment}
+              onCancel={() => {
+                setMode(null);
+              }}
+            />
+          ) : (
+            <Text size="body2">{content}</Text>
+          )}
           <div className="flex -mt-1">
             <ProjectsLikeCountTag likeCount={votesCount} />
             {viewer != null && (
