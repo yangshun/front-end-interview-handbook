@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import {
   RiAddCircleLine,
+  RiDeleteBinLine,
   RiIndeterminateCircleLine,
   RiPencilFill,
   RiReplyFill,
@@ -16,6 +17,7 @@ import {
   themeElementBorderColor,
 } from '~/components/ui/theme';
 
+import DiscussionsCommentDeleteButton from './DiscussionsCommentDeleteButton';
 import DiscussionsCommentEditInput from './DiscussionsCommentEditInput';
 import DiscussionsCommentReplies from './DiscussionsCommentReplies';
 import DiscussionsCommentRepliesThreadLines from './DiscussionsCommentRepliesThreadLines';
@@ -54,7 +56,7 @@ export default function DiscussionsComment({
   const replyCount = replies?.length ?? 0;
   const hasReplies = replyCount > 0;
 
-  const [mode, setMode] = useState<'edit' | 'reply' | null>(null);
+  const [mode, setMode] = useState<'delete' | 'edit' | 'reply' | null>(null);
   const [showReplies, setShowReplies] = useState(false);
 
   const shouldPadBottom = mode === 'reply' || showReplies;
@@ -186,6 +188,14 @@ export default function DiscussionsComment({
                 })}
                 variant="tertiary"
                 onClick={() => setMode(mode === 'edit' ? null : 'edit')}
+              />
+            )}
+            {viewer?.id === user.id && (
+              <DiscussionsCommentDeleteButton
+                commentId={comment.id}
+                dialogShown={mode === 'delete'}
+                onClick={() => setMode('delete')}
+                onDismiss={() => setMode(null)}
               />
             )}
           </div>

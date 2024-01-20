@@ -33,6 +33,20 @@ export const commentsRouter = router({
         });
       },
     ),
+  delete: userProcedure
+    .input(
+      z.object({
+        commentId: z.string().uuid(),
+      }),
+    )
+    .mutation(async ({ input: { commentId }, ctx: { user } }) => {
+      return await prisma.discussionComment.delete({
+        where: {
+          id: commentId,
+          userId: user.id,
+        },
+      });
+    }),
   list: publicProcedure
     .input(
       z.object({
