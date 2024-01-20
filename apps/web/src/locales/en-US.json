@@ -703,6 +703,10 @@
     "defaultMessage": "Submission successfully unpin!",
     "description": "Submission unpin toaster"
   },
+  "6+IMdW": {
+    "defaultMessage": "Question",
+    "description": "Label for question badge"
+  },
   "6/Qdew": {
     "defaultMessage": "Start project",
     "description": "Label for \"Start project\" button on Projects project page"
@@ -4431,6 +4435,10 @@
     "defaultMessage": "on your first order amount",
     "description": "GFE discount"
   },
+  "frNmwL": {
+    "defaultMessage": "<medium>{author}</medium> left a code review for <medium>{recipient}</medium> on <link>{submissionTitle}</link><comment>: \"{description}\"</comment><date></date>",
+    "description": "Comment"
+  },
   "frl+Af": {
     "defaultMessage": "Prev",
     "description": "Label for button leading to the previous page"
@@ -5146,10 +5154,6 @@
   "mcOOtE": {
     "defaultMessage": "Host the project for free on our recommended hosts and submit your project URL for reviews",
     "description": "Instruction for projects"
-  },
-  "mfu/G5": {
-    "defaultMessage": "<medium>{author}</medium> left a code review for <medium>{recipient}</medium> on <link>{submissionTitle}</link><comment>: \"{description}\"</comment>",
-    "description": "Comment"
   },
   "mjEvFf": {
     "defaultMessage": "Step 2",
