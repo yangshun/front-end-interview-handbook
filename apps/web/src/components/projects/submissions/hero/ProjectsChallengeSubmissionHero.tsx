@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { RiArrowLeftLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'usehooks-ts';
@@ -22,6 +22,7 @@ import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
+  isParentInView: boolean;
   showPin: boolean;
   submission: ProjectsChallengeSubmissionWithVotesAuthorChallenge;
 }>;
@@ -30,18 +31,47 @@ export default function ProjectsChallengeSubmissionHero({
   challenge,
   submission,
   showPin = false,
+  isParentInView,
 }: Props) {
   const intl = useIntl();
   const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
-  const heroRef = useRef(null);
-  const mobileHeroRef = useRef(null);
-  const actionBarRef = useRef(null);
+  const heroRef = useRef<HTMLDivElement>(null);
+  const parentWidthRef = useRef<HTMLDivElement>(null);
+  const mobileHeroRef = useRef<HTMLDivElement>(null);
   const isHeroInView = useInView(heroRef);
   const isHeroMobileInView = useInView(mobileHeroRef);
-  const isActionBarInView = useInView(actionBarRef);
+  const [width, setWidth] = useState({ main: 0, parent: 0 });
+
   const showStickyActionBar =
-    isActionBarInView &&
-    !(isMobileAndBelow ? isHeroMobileInView : isHeroInView);
+    isParentInView && !(isMobileAndBelow ? isHeroMobileInView : isHeroInView);
+
+  const sideMargin = (width.parent - width.main) / 2;
+
+  // To calculate the sticky action bar full width
+  useEffect(() => {
+    const moveOnWindowResize = () => {
+      setWidth({
+        main:
+          (isMobileAndBelow
+            ? mobileHeroRef.current?.offsetWidth
+            : heroRef.current?.offsetWidth) ?? 0,
+        parent: parentWidthRef.current?.offsetWidth ?? 0,
+      });
+    };
+
+    window.addEventListener('resize', moveOnWindowResize);
+
+    return () => window.removeEventListener('resize', moveOnWindowResize);
+  });
+  useEffect(() => {
+    setWidth({
+      main:
+        (isMobileAndBelow
+          ? mobileHeroRef.current?.offsetWidth
+          : heroRef.current?.offsetWidth) ?? 0,
+      parent: parentWidthRef.current?.offsetWidth ?? 0,
+    });
+  }, [heroRef, parentWidthRef, mobileHeroRef, isMobileAndBelow]);
 
   const backButton = (
     <Button
@@ -85,82 +115,85 @@ export default function ProjectsChallengeSubmissionHero({
 
   return (
     <>
-      <div>
-        <div ref={heroRef} className="relative md:block hidden">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -z-10 -mb-28 -mt-28 flex h-[calc(100%_+_112px)] w-full justify-center overflow-hidden rounded-b-[16px]">
-            <MarketingHeroBackground className="h-full  min-w-[1200px]" />
+      {/* To calculate the width of the parent element */}
+      <div
+        ref={parentWidthRef}
+        className="absolute top-0 left-0 right-0 -z-1"
+      />
+      {/* Sticky action bar */}
+      <div
+        className={clsx(
+          `sticky top-0 z-30 py-4  border-b hidden`,
+          themeBorderColor,
+          themeBackgroundColor,
+          showStickyActionBar && '!block',
+        )}
+        style={{
+          marginLeft: `-${sideMargin}px`,
+          marginRight: `-${sideMargin}px`,
+        }}>
+        <Container className="flex md:flex-row flex-col">
+          <Text className="flex-1">{submission.title}</Text>
+          <div className="flex gap-4">
+            {views}
+            <div className="flex gap-3 w-full">
+              {voteButton}
+              {commentButton}
+            </div>
           </div>
-          <div className="relative pb-8 pt-5 sm:pb-16 md:pt-12 md:pb-8 md:px-8 h-full">
-            <div className="flex flex-col justify-between items-start h-full gap-2">
-              <div className="flex gap-2 justify-between w-full">
-                {backButton}
-                {showPin && <div>{pinButton}</div>}
-              </div>
-              <div className="flex lg:flex-row flex-col gap-2 h-full justify-between w-full lg:items-center">
-                <div className="flex flex-col gap-1">
-                  <ProjectsChallengeSubmissionHeroTimestamp />
-                  <div className="flex flex-col gap-5">
-                    <Heading level="heading4">{submission.title}</Heading>
-                    <div className="flex gap-6 items-center">
-                      {views}
-                      <div className="flex items-center gap-2">
-                        {voteButton}
-                        {commentButton}
-                      </div>
+        </Container>
+      </div>
+
+      <div ref={heroRef} className="relative md:block hidden">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute -z-10 -mb-28 -mt-28 flex h-[calc(100%_+_112px)] w-full justify-center overflow-hidden rounded-b-[16px]">
+          <MarketingHeroBackground className="h-full  min-w-[1200px]" />
+        </div>
+        <div className="relative pb-8 pt-5 sm:pb-16 md:pt-12 md:pb-8 md:px-8 h-full">
+          <div className="flex flex-col justify-between items-start h-full gap-2">
+            <div className="flex gap-2 justify-between w-full">
+              {backButton}
+              {showPin && <div>{pinButton}</div>}
+            </div>
+            <div className="flex lg:flex-row flex-col gap-2 h-full justify-between w-full lg:items-center">
+              <div className="flex flex-col gap-1">
+                <ProjectsChallengeSubmissionHeroTimestamp />
+                <div className="flex flex-col gap-5">
+                  <Heading level="heading4">{submission.title}</Heading>
+                  <div className="flex gap-6 items-center">
+                    {views}
+                    <div className="flex items-center gap-2">
+                      {voteButton}
+                      {commentButton}
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col gap-[29px]">
-                  <ProjectsChallengeSubmissionHeroCard challenge={challenge} />
-                </div>
+              </div>
+              <div className="flex flex-col gap-[29px]">
+                <ProjectsChallengeSubmissionHeroCard challenge={challenge} />
               </div>
             </div>
           </div>
-        </div>
-        <div className="mt-6 flex flex-col gap-10 md:hidden">
-          <div ref={mobileHeroRef} className="flex flex-col gap-6">
-            <div className="flex flex-wrap gap-2 justify-between">
-              {backButton}
-              {showPin && pinButton}
-            </div>
-            <div className="flex flex-col gap-4">
-              <ProjectsChallengeSubmissionHeroTimestamp />
-              <Heading level="heading5">{submission.title}</Heading>
-              <div className="flex gap-4">
-                {views}
-                {voteButton}
-                {commentButton}
-              </div>
-            </div>
-          </div>
-          <ProjectsChallengeSubmissionHeroCard challenge={challenge} />
         </div>
       </div>
-      <div
-        ref={actionBarRef}
-        className={clsx(
-          'absolute z-30 top-0 left-0 bottom-0 right-0 transition-opacity ease-in-out',
-          showStickyActionBar ? 'opacity-100' : 'opacity-0',
-        )}>
-        <div
-          className={clsx(
-            'sticky top-0 py-4 border-b',
-            themeBorderColor,
-            themeBackgroundColor,
-          )}>
-          <Container className="flex gap-4 md:flex-row flex-col">
-            <Text className="flex-1">{submission.title}</Text>
+      <div className="mt-6 flex flex-col gap-10 md:hidden">
+        <div ref={mobileHeroRef} className="flex flex-col gap-6">
+          <div className="flex flex-wrap gap-2 justify-between">
+            {backButton}
+            {showPin && pinButton}
+          </div>
+          <div className="flex flex-col gap-4">
+            <ProjectsChallengeSubmissionHeroTimestamp />
+            <Heading level="heading5">{submission.title}</Heading>
             <div className="flex gap-4">
               {views}
-              <div className="flex gap-3 w-full">
-                {voteButton}
-                {commentButton}
-              </div>
+              {voteButton}
+              {commentButton}
             </div>
-          </Container>
+          </div>
         </div>
+        <ProjectsChallengeSubmissionHeroCard challenge={challenge} />
       </div>
     </>
   );

@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useInView } from 'framer-motion';
+import { useEffect, useRef } from 'react';
 import { RiShareCircleLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -32,6 +33,8 @@ export default function ProjectsChallengeSubmissionPage({
   currentUserId,
 }: Props) {
   const intl = useIntl();
+  const parentRef = useRef(null);
+  const isParentInView = useInView(parentRef);
   const isViewingOwnProfile =
     currentUserId === submission.projectsProfile?.userProfile?.id;
   const viewSubmissionMutation = trpc.projects.submissions.view.useMutation();
@@ -121,9 +124,10 @@ export default function ProjectsChallengeSubmissionPage({
   );
 
   return (
-    <div className="flex flex-col gap-8 -mt-4 lg:-mt-16">
+    <div ref={parentRef} className="flex flex-col gap-8 -mt-4 lg:-mt-16">
       <ProjectsChallengeSubmissionHero
         challenge={challenge}
+        isParentInView={isParentInView}
         showPin={isViewingOwnProfile}
         submission={submission}
       />
