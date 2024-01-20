@@ -23,6 +23,7 @@ export default function TextAreaExamples() {
         placeholder="This is such a great product"
       />
       <TextArea
+        description="Maximum of 200 characters"
         errorMessage="Enter more than 4 words please"
         label="Message"
         placeholder="This is such a great product"
@@ -57,6 +58,18 @@ export default function TextAreaExamples() {
         descriptionStyle="tooltip"
         label="Description in tooltip"
         placeholder="You shouldn't leave this empty"
+      />
+      <TextArea
+        description="Still has a description"
+        isLabelHidden={true}
+        label="Name"
+        placeholder="Hidden labels cannot have descriptions"
+      />
+      <TextArea
+        isLabelHidden={true}
+        label="Name"
+        maxLength={100}
+        placeholder="Hidden labels with max length"
       />
     </UIExamplesGroup>
   );

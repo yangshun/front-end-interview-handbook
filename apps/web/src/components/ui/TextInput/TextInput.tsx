@@ -137,23 +137,18 @@ function TextInput(
   }, [value, defaultValue]);
 
   return (
-    <div
-      className={clsx(
-        'flex flex-col',
-        (description || !isLabelHidden) && 'gap-2',
-        classNameOuter,
-      )}>
-      <Label
-        description={
-          hasError && descriptionStyle === 'under' ? undefined : description
-        }
-        descriptionId={messageId}
-        descriptionStyle={descriptionStyle}
-        htmlFor={id}
-        isLabelHidden={isLabelHidden}
-        label={label}
-        required={required}
-      />
+    <div className={classNameOuter}>
+      <div className={clsx(!isLabelHidden && 'mb-2')}>
+        <Label
+          description={description}
+          descriptionId={messageId}
+          descriptionStyle={descriptionStyle}
+          htmlFor={id}
+          isLabelHidden={isLabelHidden}
+          label={label}
+          required={required}
+        />
+      </div>
       <div className="relative">
         {StartIcon && (
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
@@ -218,7 +213,7 @@ function TextInput(
       {hasBottomSection && (
         <div
           className={clsx(
-            'flex w-full',
+            'flex w-full mt-2',
             errorMessage ? 'justify-between' : 'justify-end',
           )}>
           {errorMessage && (

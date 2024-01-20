@@ -33,6 +33,7 @@ export type TextAreaResize = 'both' | 'horizontal' | 'none' | 'vertical';
 
 type Props = Readonly<{
   className?: string;
+  classNameOuter?: string;
   defaultValue?: string;
   description?: React.ReactNode;
   descriptionStyle?: LabelDescriptionStyle;
@@ -92,6 +93,8 @@ const horizontalPaddingSizeClasses: Record<TextAreaSize, string> = {
 function TextArea(
   {
     defaultValue,
+    className,
+    classNameOuter,
     description,
     descriptionStyle,
     disabled,
@@ -104,7 +107,6 @@ function TextArea(
     required,
     size = 'md',
     value,
-    className,
     onChange,
     ...props
   }: Props,
@@ -126,23 +128,18 @@ function TextArea(
   }, [value, defaultValue]);
 
   return (
-    <div
-      className={clsx(
-        'flex flex-col',
-        (description || !isLabelHidden) && 'gap-2',
-        className,
-      )}>
-      <Label
-        description={
-          hasError && descriptionStyle === 'under' ? undefined : description
-        }
-        descriptionId={messageId}
-        descriptionStyle={descriptionStyle}
-        htmlFor={id}
-        isLabelHidden={isLabelHidden}
-        label={label}
-        required={required}
-      />
+    <div className={classNameOuter}>
+      <div className={clsx(!isLabelHidden && 'mb-2')}>
+        <Label
+          description={description}
+          descriptionId={messageId}
+          descriptionStyle={descriptionStyle}
+          htmlFor={id}
+          isLabelHidden={isLabelHidden}
+          label={label}
+          required={required}
+        />
+      </div>
       <textarea
         ref={ref}
         aria-describedby={
@@ -174,6 +171,10 @@ function TextArea(
         required={required}
         value={value != null ? value : undefined}
         onChange={(event) => {
+          // Component has to track the value if it's an uncontrolled component.
+          if (value === undefined) {
+            setValueLength(event.target.value.trim().length);
+          }
           onChange?.(event.target.value, event);
         }}
         {...props}
@@ -181,7 +182,7 @@ function TextArea(
       {hasBottomSection && (
         <div
           className={clsx(
-            'flex w-full',
+            'flex w-full mt-2',
             errorMessage ? 'justify-between' : 'justify-end',
           )}>
           {errorMessage && (

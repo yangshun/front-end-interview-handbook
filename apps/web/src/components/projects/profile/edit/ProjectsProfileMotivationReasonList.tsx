@@ -118,7 +118,7 @@ export default function ProjectsProfileMotivationReasonList({
           render={({ field }) => (
             <TextArea
               autoFocus={true}
-              className="md:col-span-3"
+              classNameOuter="md:col-span-3"
               errorMessage={
                 errors.motivationReasons?.[name]?.otherValue?.message
               }

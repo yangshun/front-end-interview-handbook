@@ -26,7 +26,8 @@ export default function TextInputExamples() {
         type="password"
       />
       <TextInput
-        errorMessage="Incorrect password!"
+        description="Minimum 6 characters"
+        errorMessage="Password is too simple!"
         label="Password"
         type="password"
       />
@@ -84,6 +85,18 @@ export default function TextInputExamples() {
         label="Description in tooltip"
         placeholder="You shouldn't leave this empty"
         type="text"
+      />
+      <TextInput
+        description="Still has a description"
+        isLabelHidden={true}
+        label="Name"
+        placeholder="Hidden labels cannot have descriptions"
+      />
+      <TextInput
+        isLabelHidden={true}
+        label="Name"
+        maxLength={100}
+        placeholder="Hidden labels with max length"
       />
     </UIExamplesGroup>
   );

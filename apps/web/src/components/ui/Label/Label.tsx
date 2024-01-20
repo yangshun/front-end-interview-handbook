@@ -45,7 +45,7 @@ export default function Label({
           </Tooltip>
         )}
       </label>
-      {description && descriptionStyle === 'under' && (
+      {!isLabelHidden && description && descriptionStyle === 'under' && (
         <Text
           className="mt-1"
           color="secondary"

@@ -55,7 +55,7 @@ export default function DiscussionsReplyInput({ hasNext, onCancel }: Props) {
           </Text>
           <TextArea
             autoComplete="off"
-            className="mt-2"
+            classNameOuter="mt-2"
             isLabelHidden={true}
             label={intl.formatMessage({
               defaultMessage: 'Reply content',
