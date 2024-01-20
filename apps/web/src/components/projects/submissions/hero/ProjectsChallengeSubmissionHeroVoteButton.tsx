@@ -62,7 +62,8 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
       className={clsx(
         'flex items-center justify-center gap-1 py-2 px-3 rounded-2xl border md:w-auto w-full',
         themeBackgroundLayerEmphasized,
-        themeElementBorderColor,
+        !hasVoted && themeElementBorderColor,
+        hasVoted && 'border-brand-dark dark:border-brand',
       )}
       disabled={isLoading || hasVoted}
       type="button"

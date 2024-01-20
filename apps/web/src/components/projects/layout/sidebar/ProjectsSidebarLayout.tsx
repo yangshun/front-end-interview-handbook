@@ -39,7 +39,9 @@ export default function ProjectsSidebarLayout({ children }: Props) {
           }}>
           <ProjectsSidebar />
         </SlideOut>
-        <Container className="py-4 lg:py-16">{children}</Container>
+        <div className="relative w-full">
+          <Container className="py-4 lg:py-16">{children}</Container>
+        </div>
       </div>
       <FooterProjects />
     </div>

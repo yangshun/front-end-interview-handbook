@@ -1,5 +1,9 @@
+import clsx from 'clsx';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { RiArrowLeftLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
+import { useMediaQuery } from 'usehooks-ts';
 
 import MarketingHeroBackground from '~/components/common/marketing/MarketingHeroBackground';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
@@ -11,7 +15,10 @@ import ProjectsChallengeSubmissionHeroViews from '~/components/projects/submissi
 import ProjectsChallengeSubmissionHeroVoteButton from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroVoteButton';
 import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from '~/components/projects/submissions/types';
 import Button from '~/components/ui/Button';
+import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
+import Text from '~/components/ui/Text';
+import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -25,6 +32,16 @@ export default function ProjectsChallengeSubmissionHero({
   showPin = false,
 }: Props) {
   const intl = useIntl();
+  const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
+  const heroRef = useRef(null);
+  const mobileHeroRef = useRef(null);
+  const actionBarRef = useRef(null);
+  const isHeroInView = useInView(heroRef);
+  const isHeroMobileInView = useInView(mobileHeroRef);
+  const isActionBarInView = useInView(actionBarRef);
+  const showStickyActionBar =
+    isActionBarInView &&
+    !(isMobileAndBelow ? isHeroMobileInView : isHeroInView);
 
   const backButton = (
     <Button
@@ -49,70 +66,101 @@ export default function ProjectsChallengeSubmissionHero({
     />
   );
 
+  const voteButton = (
+    <ProjectsChallengeSubmissionHeroVoteButton
+      submissionId={submission.id}
+      votes={submission._count.votes}
+    />
+  );
+
+  const commentButton = (
+    <ProjectsChallengeSubmissionHeroCommentButton
+      comments={submission.comments}
+    />
+  );
+
+  const views = (
+    <ProjectsChallengeSubmissionHeroViews views={submission.views} />
+  );
+
   return (
     <>
-      <div className="relative md:block hidden">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -z-10 -mb-28 -mt-28 flex h-[calc(100%_+_112px)] w-full justify-center overflow-hidden rounded-b-[16px]">
-          <MarketingHeroBackground className="h-full  min-w-[1200px]" />
-        </div>
-        <div className="relative pb-8 pt-5 sm:pb-16 md:pt-12 md:pb-8 md:px-8 h-full">
-          <div className="flex flex-col justify-between items-start h-full gap-2">
-            <div className="flex gap-2 justify-between w-full">
-              {backButton}
-              {showPin && <div>{pinButton}</div>}
-            </div>
-            <div className="flex lg:flex-row flex-col gap-2 h-full justify-between w-full lg:items-center">
-              <div className="flex flex-col gap-1">
-                <ProjectsChallengeSubmissionHeroTimestamp />
-                <div className="flex flex-col gap-5">
-                  <Heading level="heading4">{submission.title}</Heading>
-                  <div className="flex gap-6 items-center">
-                    <ProjectsChallengeSubmissionHeroViews
-                      views={submission.views}
-                    />
-                    <div className="flex items-center gap-2">
-                      <ProjectsChallengeSubmissionHeroVoteButton
-                        submissionId={submission.id}
-                        votes={submission._count.votes}
-                      />
-                      <ProjectsChallengeSubmissionHeroCommentButton
-                        comments={submission.comments}
-                      />
+      <div>
+        <div ref={heroRef} className="relative md:block hidden">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -z-10 -mb-28 -mt-28 flex h-[calc(100%_+_112px)] w-full justify-center overflow-hidden rounded-b-[16px]">
+            <MarketingHeroBackground className="h-full  min-w-[1200px]" />
+          </div>
+          <div className="relative pb-8 pt-5 sm:pb-16 md:pt-12 md:pb-8 md:px-8 h-full">
+            <div className="flex flex-col justify-between items-start h-full gap-2">
+              <div className="flex gap-2 justify-between w-full">
+                {backButton}
+                {showPin && <div>{pinButton}</div>}
+              </div>
+              <div className="flex lg:flex-row flex-col gap-2 h-full justify-between w-full lg:items-center">
+                <div className="flex flex-col gap-1">
+                  <ProjectsChallengeSubmissionHeroTimestamp />
+                  <div className="flex flex-col gap-5">
+                    <Heading level="heading4">{submission.title}</Heading>
+                    <div className="flex gap-6 items-center">
+                      {views}
+                      <div className="flex items-center gap-2">
+                        {voteButton}
+                        {commentButton}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="flex flex-col gap-[29px]">
-                <ProjectsChallengeSubmissionHeroCard challenge={challenge} />
+                <div className="flex flex-col gap-[29px]">
+                  <ProjectsChallengeSubmissionHeroCard challenge={challenge} />
+                </div>
               </div>
             </div>
           </div>
+        </div>
+        <div className="mt-6 flex flex-col gap-10 md:hidden">
+          <div ref={mobileHeroRef} className="flex flex-col gap-6">
+            <div className="flex flex-wrap gap-2 justify-between">
+              {backButton}
+              {showPin && pinButton}
+            </div>
+            <div className="flex flex-col gap-4">
+              <ProjectsChallengeSubmissionHeroTimestamp />
+              <Heading level="heading5">{submission.title}</Heading>
+              <div className="flex gap-4">
+                {views}
+                {voteButton}
+                {commentButton}
+              </div>
+            </div>
+          </div>
+          <ProjectsChallengeSubmissionHeroCard challenge={challenge} />
         </div>
       </div>
-      <div className="mt-6 flex flex-col gap-10 md:hidden">
-        <div className="flex flex-col gap-6">
-          <div className="flex flex-wrap gap-2 justify-between">
-            {backButton}
-            {showPin && pinButton}
-          </div>
-          <div className="flex flex-col gap-4">
-            <ProjectsChallengeSubmissionHeroTimestamp />
-            <Heading level="heading5">{submission.title}</Heading>
+      <div
+        ref={actionBarRef}
+        className={clsx(
+          'absolute z-30 top-0 left-0 bottom-0 right-0 transition-opacity ease-in-out',
+          showStickyActionBar ? 'opacity-100' : 'opacity-0',
+        )}>
+        <div
+          className={clsx(
+            'sticky top-0 py-4 border-b',
+            themeBorderColor,
+            themeBackgroundColor,
+          )}>
+          <Container className="flex gap-4 md:flex-row flex-col">
+            <Text className="flex-1">{submission.title}</Text>
             <div className="flex gap-4">
-              <ProjectsChallengeSubmissionHeroViews views={submission.views} />
-              <ProjectsChallengeSubmissionHeroVoteButton
-                submissionId={submission.id}
-                votes={submission._count.votes}
-              />
-              <ProjectsChallengeSubmissionHeroCommentButton
-                comments={submission.comments}
-              />
+              {views}
+              <div className="flex gap-3 w-full">
+                {voteButton}
+                {commentButton}
+              </div>
             </div>
-          </div>
+          </Container>
         </div>
-        <ProjectsChallengeSubmissionHeroCard challenge={challenge} />
       </div>
     </>
   );
