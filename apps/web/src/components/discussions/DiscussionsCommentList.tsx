@@ -14,9 +14,20 @@ import DiscussionsComment from './DiscussionsComment';
 type Props = Readonly<{
   domain: 'PROJECTS_CHALLENGE' | 'PROJECTS_SUBMISSION';
   entityId: string;
+  viewer?: Readonly<{
+    avatarUrl: string | null;
+    id: string;
+    name: string | null;
+    title: string | null;
+    username: string;
+  }> | null;
 }>;
 
-export default function DiscussionsCommentList({ entityId, domain }: Props) {
+export default function DiscussionsCommentList({
+  entityId,
+  domain,
+  viewer,
+}: Props) {
   const intl = useIntl();
   const { data: comments, isLoading } = trpc.comments.list.useQuery({
     domain,
@@ -24,7 +35,11 @@ export default function DiscussionsCommentList({ entityId, domain }: Props) {
   });
 
   if (isLoading) {
-    return <Spinner display="block" size="lg" />;
+    return (
+      <div className="w-full p-8">
+        <Spinner display="block" size="lg" />
+      </div>
+    );
   }
 
   return (
@@ -61,7 +76,11 @@ export default function DiscussionsCommentList({ entityId, domain }: Props) {
         </DropdownMenu>
       </div>
       {comments?.map((comment) => (
-        <DiscussionsComment key={comment.id} comment={comment} />
+        <DiscussionsComment
+          key={comment.id}
+          comment={comment}
+          viewer={viewer}
+        />
       ))}
     </div>
   );

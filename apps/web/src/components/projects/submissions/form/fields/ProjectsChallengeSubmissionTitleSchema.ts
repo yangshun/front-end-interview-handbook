@@ -12,9 +12,9 @@ function projectsChallengeSubmissionTitleSchema(options?: {
 
   return z
     .string()
+    .trim()
     .min(1, { message: minMessage })
-    .max(MAX_LENGTH, { message: maxMessage })
-    .trim();
+    .max(MAX_LENGTH, { message: maxMessage });
 }
 
 // TODO: Figure out how to reuse intl strings for the server.

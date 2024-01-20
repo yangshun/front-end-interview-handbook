@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import useProfile from '~/hooks/user/useProfile';
-
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -14,11 +12,21 @@ import UserAvatarWithLevel from '../projects/users/UserAvatarWithLevel';
 type Props = Readonly<{
   hasNext: boolean;
   onCancel: () => void;
+  viewer?: Readonly<{
+    avatarUrl: string | null;
+    id: string;
+    name: string | null;
+    title: string | null;
+    username: string;
+  }> | null;
 }>;
 
-export default function DiscussionsReplyInput({ hasNext, onCancel }: Props) {
+export default function DiscussionsReplyInput({
+  hasNext,
+  onCancel,
+  viewer,
+}: Props) {
   const intl = useIntl();
-  const { profile } = useProfile();
 
   return (
     <div className="relative flex">
@@ -41,11 +49,11 @@ export default function DiscussionsReplyInput({ hasNext, onCancel }: Props) {
       <div className={clsx('flex flex-1 items-start gap-4', hasNext && 'pb-6')}>
         <UserAvatarWithLevel
           level={30}
-          profile={profile}
+          profile={viewer}
           progress={50}
           size="xl"
         />
-        <div className="flex flex-1 flex-col">
+        <div className="flex flex-grow flex-col">
           <Text size="body2" weight="medium">
             <FormattedMessage
               defaultMessage="You are replying"
@@ -70,6 +78,7 @@ export default function DiscussionsReplyInput({ hasNext, onCancel }: Props) {
           />
           <div className="mt-4 flex items-center gap-4">
             <Button
+              className="w-[100px]"
               label={intl.formatMessage({
                 defaultMessage: 'Cancel',
                 description:
@@ -80,6 +89,7 @@ export default function DiscussionsReplyInput({ hasNext, onCancel }: Props) {
               onClick={onCancel}
             />
             <Button
+              className="w-[100px]"
               label={intl.formatMessage({
                 defaultMessage: 'Post',
                 description:

@@ -11,7 +11,8 @@ export const commentsRouter = router({
     .input(
       z.object({
         category: z.string().optional(),
-        content: z.string().trim().max(40000),
+        // TODO(projects): reuse validation on client.
+        content: z.string().trim().min(10).max(40000),
         domain: z.enum(domains),
         entityId: z.string(),
         parentCommentId: z.string().uuid().optional(),
@@ -70,6 +71,9 @@ export const commentsRouter = router({
             },
           },
           ...commentIncludeFields,
+        },
+        orderBy: {
+          createdAt: 'desc',
         },
         where: {
           entityId,

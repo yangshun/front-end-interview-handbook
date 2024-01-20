@@ -27,9 +27,20 @@ import UserAvatarWithLevel from '../projects/users/UserAvatarWithLevel';
 type Props = Readonly<{
   className?: string;
   comment: DiscussionsCommentItem;
+  viewer?: Readonly<{
+    avatarUrl: string | null;
+    id: string;
+    name: string | null;
+    title: string | null;
+    username: string;
+  }> | null;
 }>;
 
-export default function DiscussionsComment({ comment, className }: Props) {
+export default function DiscussionsComment({
+  comment,
+  className,
+  viewer,
+}: Props) {
   const {
     user,
     _count: { votes: votesCount },
@@ -135,38 +146,43 @@ export default function DiscussionsComment({ comment, className }: Props) {
           <Text size="body2">{content}</Text>
           <div className="flex">
             <ProjectsLikeCountTag likeCount={votesCount} />
-            <Button
-              addonPosition="start"
-              className="ms-2"
-              icon={RiReplyFill}
-              label={intl.formatMessage({
-                defaultMessage: 'Reply',
-                description:
-                  'Label for reply button on project discussions page',
-                id: 'buggxJ',
-              })}
-              variant="tertiary"
-              onClick={() => {
-                setIsReplying((replying) => !replying);
-              }}
-            />
-            <Button
-              addonPosition="start"
-              icon={RiPencilFill}
-              label={intl.formatMessage({
-                defaultMessage: 'Edit',
-                description:
-                  'Label for edit button on project discussions page',
-                id: 'g2Nt5j',
-              })}
-              variant="tertiary"
-            />
+            {viewer != null && (
+              <Button
+                addonPosition="start"
+                className="ms-2"
+                icon={RiReplyFill}
+                label={intl.formatMessage({
+                  defaultMessage: 'Reply',
+                  description:
+                    'Label for reply button on project discussions page',
+                  id: 'buggxJ',
+                })}
+                variant="tertiary"
+                onClick={() => {
+                  setIsReplying((replying) => !replying);
+                }}
+              />
+            )}
+            {viewer?.id === user.id && (
+              <Button
+                addonPosition="start"
+                icon={RiPencilFill}
+                label={intl.formatMessage({
+                  defaultMessage: 'Edit',
+                  description:
+                    'Label for edit button on project discussions page',
+                  id: 'g2Nt5j',
+                })}
+                variant="tertiary"
+              />
+            )}
           </div>
         </div>
       </div>
       {isReplying && (
         <DiscussionsReplyInput
           hasNext={hasReplies}
+          viewer={viewer}
           onCancel={() => {
             setIsReplying(false);
           }}
