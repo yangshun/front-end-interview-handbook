@@ -17,6 +17,7 @@ import EmptyStateExamples from '~/components/ui/EmptyState/EmptyStateExamples';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import HeadingExamples from '~/components/ui/Heading/HeadingExamples';
+import HovercardExamples from '~/components/ui/Hovercard/HovercardExamples';
 import PaginationExamples from '~/components/ui/Pagination/PaginationExamples';
 import PopoverExamples from '~/components/ui/Popover/PopoverExamples';
 import ProgressBarExamples from '~/components/ui/ProgressBar/ProgressBarExamples';
@@ -79,6 +80,7 @@ export default function UILibraryPage() {
         <SlideOutExamples />
         <DialogExamples />
         <ToastExamples />
+        <HovercardExamples />
       </Section>
     </div>
   );
