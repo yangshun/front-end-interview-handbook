@@ -2,21 +2,30 @@ import clsx from 'clsx';
 import { RiQuestionnaireLine, RiSortDesc } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
 import DropdownMenu from '~/components/ui/DropdownMenu';
+import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 
-import ProjectsChallengeDiscussionComment from './ProjectsChallengeDiscussionComment';
-import type { ProjectsChallengeDiscussionCommentData } from './types';
+import DiscussionsComment from './DiscussionsComment';
 
 type Props = Readonly<{
-  comments: ReadonlyArray<ProjectsChallengeDiscussionCommentData>;
+  domain: 'PROJECTS_CHALLENGE' | 'PROJECTS_SUBMISSION';
+  entityId: string;
 }>;
 
-export default function ProjectsChallengeDiscussionCommentList({
-  comments,
-}: Props) {
+export default function DiscussionsCommentList({ entityId, domain }: Props) {
   const intl = useIntl();
+  const { data: comments, isLoading } = trpc.comments.list.useQuery({
+    domain,
+    entityId,
+  });
+
+  if (isLoading) {
+    return <Spinner display="block" size="lg" />;
+  }
 
   return (
     <div className="flex flex-col gap-6 w-full">
@@ -33,7 +42,7 @@ export default function ProjectsChallengeDiscussionCommentList({
               description="Label for comment count on project discussions page"
               id="g5XqyS"
               values={{
-                commentCount: comments.length,
+                commentCount: comments?.length,
               }}
             />
           </Text>
@@ -51,11 +60,8 @@ export default function ProjectsChallengeDiscussionCommentList({
           Placeholder
         </DropdownMenu>
       </div>
-      {comments.map((comment) => (
-        <ProjectsChallengeDiscussionComment
-          key={comment.id}
-          comment={comment}
-        />
+      {comments?.map((comment) => (
+        <DiscussionsComment key={comment.id} comment={comment} />
       ))}
     </div>
   );

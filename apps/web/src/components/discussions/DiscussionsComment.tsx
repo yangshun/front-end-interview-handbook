@@ -16,29 +16,31 @@ import {
   themeElementBorderColor,
 } from '~/components/ui/theme';
 
-import ProjectsChallengeDiscussionCommentReplies from './ProjectsChallengeDiscussionCommentReplies';
-import ProjectsChallengeDiscussionPostReplyInput from './ProjectsChallengeDiscussionReplyInput';
-import type { ProjectsChallengeDiscussionCommentData } from './types';
-import ProjectsLikeCountTag from '../../stats/ProjectsLikeCountTag';
-import ProjectsUserJobTitle from '../../users/ProjectsUserJobTitle';
-import ProjectsUserYearsOfExperience from '../../users/ProjectsUserYearsOfExperience';
-import UserAvatarWithLevel from '../../users/UserAvatarWithLevel';
+import DiscussionsCommentReplies from './DiscussionsCommentReplies';
+import DiscussionsReplyInput from './DiscussionsReplyInput';
+import type { DiscussionsCommentItem } from './types';
+import ProjectsLikeCountTag from '../projects/stats/ProjectsLikeCountTag';
+import ProjectsUserJobTitle from '../projects/users/ProjectsUserJobTitle';
+import ProjectsUserYearsOfExperience from '../projects/users/ProjectsUserYearsOfExperience';
+import UserAvatarWithLevel from '../projects/users/UserAvatarWithLevel';
 
 type Props = Readonly<{
   className?: string;
-  comment: ProjectsChallengeDiscussionCommentData;
+  comment: DiscussionsCommentItem;
 }>;
 
-export default function ProjectsChallengeDiscussionComment({ comment, className }: Props) {
+export default function DiscussionsComment({ comment, className }: Props) {
   const {
-    author,
-    likeCount,
-    replyCount,
+    user,
+    _count: { votes: votesCount },
     content,
-    isQuestion,
+    category,
+    replies,
     id: commentId,
   } = comment;
   const intl = useIntl();
+  const replyCount = replies?.length ?? 0;
+  const hasReplies = replyCount > 0;
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [isReplying, setIsReplying] = useState(false);
@@ -51,16 +53,18 @@ export default function ProjectsChallengeDiscussionComment({ comment, className 
         <div className="relative flex flex-col items-center self-stretch">
           <UserAvatarWithLevel
             level={11}
-            profile={author}
+            profile={user}
             progress={50}
             size="2xl"
           />
-          <div
-            className={clsx(
-              'h-full w-px flex-1 border-l',
-              themeElementBorderColor,
-            )}
-          />
+          {(hasReplies || isReplying) && (
+            <div
+              className={clsx(
+                'h-full w-px flex-1 border-l',
+                themeElementBorderColor,
+              )}
+            />
+          )}
           {isExpanded && (
             <>
               <div
@@ -105,7 +109,7 @@ export default function ProjectsChallengeDiscussionComment({ comment, className 
                   description="Label for author and date of discussion post on project discussions page"
                   id="WdiFBs"
                   values={{
-                    author: author.name,
+                    author: user.name,
                     date: intl.formatDate(new Date(), {
                       day: 'numeric',
                       month: 'short',
@@ -121,27 +125,16 @@ export default function ProjectsChallengeDiscussionComment({ comment, className 
               </Text>
             </div>
             <div className="flex gap-4">
-              {author.title && (
-                <ProjectsUserJobTitle jobTitle={author.title} size="2xs" />
+              {user.title && (
+                <ProjectsUserJobTitle jobTitle={user.title} size="2xs" />
               )}
               <ProjectsUserYearsOfExperience size="2xs" yearsOfExperience={2} />
             </div>
           </div>
-          {isQuestion && (
-            <Badge
-              label={intl.formatMessage({
-                defaultMessage: 'Question',
-                description:
-                  'Label for question badge on project discussions page',
-                id: 'AIcBCW',
-              })}
-              size="sm"
-              variant="primary"
-            />
-          )}
+          {category && <Badge label={category} size="sm" variant="primary" />}
           <Text size="body2">{content}</Text>
           <div className="flex">
-            <ProjectsLikeCountTag likeCount={likeCount} />
+            <ProjectsLikeCountTag likeCount={votesCount} />
             <Button
               addonPosition="start"
               className="ms-2"
@@ -172,14 +165,14 @@ export default function ProjectsChallengeDiscussionComment({ comment, className 
         </div>
       </div>
       {isReplying && (
-        <ProjectsChallengeDiscussionPostReplyInput
-          hasNext={replyCount > 0}
+        <DiscussionsReplyInput
+          hasNext={hasReplies}
           onCancel={() => {
             setIsReplying(false);
           }}
         />
       )}
-      {!isExpanded && replyCount > 0 && (
+      {!isExpanded && hasReplies && (
         <div className="flex">
           <div className="flex flex-col">
             <div
@@ -209,8 +202,8 @@ export default function ProjectsChallengeDiscussionComment({ comment, className 
           />
         </div>
       )}
-      {isExpanded && (
-        <ProjectsChallengeDiscussionCommentReplies commentId={commentId} />
+      {isExpanded && comment.replies && comment.replies.length > 0 && (
+        <DiscussionsCommentReplies replies={comment.replies} />
       )}
     </div>
   );

@@ -10,8 +10,8 @@ import {
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
-import ProjectsChallengeDiscussionSection from '~/components/projects/challenges/discussions/ProjectsChallengeDiscussionSection';
 import { useProjectsChallengeSessionContext } from '~/components/projects/challenges/ProjectsChallengeSessionContext';
+import ProjectsChallengeDiscussionsSection from '~/components/projects/challenges/resources/ProjectsChallengeDiscussionsSection';
 import ProjectsChallengeReferenceSubmissions from '~/components/projects/challenges/resources/ProjectsChallengeReferenceSubmissions';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import Button from '~/components/ui/Button';
@@ -104,7 +104,7 @@ export default function ProjectsChallengeResourcesPage({
             <ProjectsChallengeReferenceSubmissions challenge={challenge} />
           )}
           {tipsResourcesDiscussionsTab === 'discussions' && (
-            <ProjectsChallengeDiscussionSection challenge={challenge} />
+            <ProjectsChallengeDiscussionsSection challenge={challenge} />
           )}
           {tipsResourcesDiscussionsTab === 'guides' && (
             <ProjectsChallengeGuideSection projectGuides={projectGuides} />

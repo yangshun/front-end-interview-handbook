@@ -6,23 +6,23 @@ import useProfile from '~/hooks/user/useProfile';
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
-import TextInput from '~/components/ui/TextInput';
+import TextArea from '~/components/ui/TextArea';
 import { themeElementBorderColor } from '~/components/ui/theme';
 
-import UserAvatarWithLevel from '../../users/UserAvatarWithLevel';
+import UserAvatarWithLevel from '../projects/users/UserAvatarWithLevel';
 
 type Props = Readonly<{
   hasNext: boolean;
   onCancel: () => void;
 }>;
 
-export default function DiscussionPostReplyInput({ hasNext, onCancel }: Props) {
+export default function DiscussionsReplyInput({ hasNext, onCancel }: Props) {
   const intl = useIntl();
   const { profile } = useProfile();
 
   return (
     <div className="relative flex">
-      <div className="relative flex w-14 flex-shrink-0 flex-col items-center">
+      <div className="relative flex w-[72px] flex-shrink-0 flex-col items-center">
         {hasNext && (
           <div
             className={clsx(
@@ -33,7 +33,7 @@ export default function DiscussionPostReplyInput({ hasNext, onCancel }: Props) {
         )}
         <div
           className={clsx(
-            'absolute end-0 top-0 h-7 w-[calc(50%_+_0.5px)] rounded-es-2xl border-b border-s',
+            'absolute end-0 top-0 h-7 w-[calc(50%_+_8.5px)] rounded-es-2xl border-b border-s',
             themeElementBorderColor,
           )}
         />
@@ -53,7 +53,7 @@ export default function DiscussionPostReplyInput({ hasNext, onCancel }: Props) {
               id="IBaiFq"
             />
           </Text>
-          <TextInput
+          <TextArea
             autoComplete="off"
             className="mt-2"
             isLabelHidden={true}

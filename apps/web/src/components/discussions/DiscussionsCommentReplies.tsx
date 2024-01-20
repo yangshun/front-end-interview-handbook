@@ -2,23 +2,14 @@ import clsx from 'clsx';
 
 import { themeElementBorderColor } from '~/components/ui/theme';
 
-import ProjectsChallengeDiscussionComment from './ProjectsChallengeDiscussionComment';
-import { exampleDiscussionComments } from './ProjectsChallengeDiscussionSection';
-
-function useCommentReplies(commentId: string) {
-  // TODO(projects): Load replies
-  return exampleDiscussionComments;
-}
+import DiscussionsComment from './DiscussionsComment';
+import type { DiscussionsCommentItem } from './types';
 
 type Props = Readonly<{
-  commentId: string;
+  replies: ReadonlyArray<DiscussionsCommentItem>;
 }>;
 
-export default function ProjectsChallengeDiscussionCommentReplies({
-  commentId,
-}: Props) {
-  const replies = useCommentReplies(commentId);
-
+export default function DiscussionsCommentReplies({ replies }: Props) {
   return (
     <>
       {replies.map((comment, index) => (
@@ -39,7 +30,7 @@ export default function ProjectsChallengeDiscussionCommentReplies({
               )}
             />
           </div>
-          <ProjectsChallengeDiscussionComment
+          <DiscussionsComment
             className={clsx(index < replies.length - 1 && 'pb-6')}
             comment={comment}
           />
