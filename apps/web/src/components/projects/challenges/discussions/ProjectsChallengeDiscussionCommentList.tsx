@@ -6,19 +6,21 @@ import DropdownMenu from '~/components/ui/DropdownMenu';
 import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 
-import DiscussionPost from './ProjectsChallengeDiscussionPost';
-import type { ProjectsChallengeDiscussionPost } from './types';
+import ProjectsChallengeDiscussionComment from './ProjectsChallengeDiscussionComment';
+import type { ProjectsChallengeDiscussionCommentData } from './types';
 
 type Props = Readonly<{
-  posts: ReadonlyArray<ProjectsChallengeDiscussionPost>;
+  comments: ReadonlyArray<ProjectsChallengeDiscussionCommentData>;
 }>;
 
-export default function ProjectsChallengeDiscussionPostList({ posts }: Props) {
+export default function ProjectsChallengeDiscussionCommentList({
+  comments,
+}: Props) {
   const intl = useIntl();
 
   return (
-    <div className="flex flex-col gap-6">
-      <div className="mt-9 flex items-center justify-between">
+    <div className="flex flex-col gap-6 w-full">
+      <div className="flex items-center justify-between">
         <div
           className={clsx(
             'flex items-center gap-1.5',
@@ -31,7 +33,7 @@ export default function ProjectsChallengeDiscussionPostList({ posts }: Props) {
               description="Label for comment count on project discussions page"
               id="g5XqyS"
               values={{
-                commentCount: posts.length,
+                commentCount: comments.length,
               }}
             />
           </Text>
@@ -49,8 +51,11 @@ export default function ProjectsChallengeDiscussionPostList({ posts }: Props) {
           Placeholder
         </DropdownMenu>
       </div>
-      {posts.map((post) => (
-        <DiscussionPost key={post.id} post={post} />
+      {comments.map((comment) => (
+        <ProjectsChallengeDiscussionComment
+          key={comment.id}
+          comment={comment}
+        />
       ))}
     </div>
   );

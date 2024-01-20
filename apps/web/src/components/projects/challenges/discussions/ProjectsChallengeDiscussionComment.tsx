@@ -16,9 +16,9 @@ import {
   themeElementBorderColor,
 } from '~/components/ui/theme';
 
+import ProjectsChallengeDiscussionCommentReplies from './ProjectsChallengeDiscussionCommentReplies';
 import ProjectsChallengeDiscussionPostReplyInput from './ProjectsChallengeDiscussionReplyInput';
-import ProjectsChallengeDiscussionSubposts from './ProjectsChallengeDiscussionSubPosts';
-import type { ProjectsChallengeDiscussionPost } from './types';
+import type { ProjectsChallengeDiscussionCommentData } from './types';
 import ProjectsLikeCountTag from '../../stats/ProjectsLikeCountTag';
 import ProjectsUserJobTitle from '../../users/ProjectsUserJobTitle';
 import ProjectsUserYearsOfExperience from '../../users/ProjectsUserYearsOfExperience';
@@ -26,18 +26,18 @@ import UserAvatarWithLevel from '../../users/UserAvatarWithLevel';
 
 type Props = Readonly<{
   className?: string;
-  post: ProjectsChallengeDiscussionPost;
+  comment: ProjectsChallengeDiscussionCommentData;
 }>;
 
-export default function DiscussionPost({ post, className }: Props) {
+export default function ProjectsChallengeDiscussionComment({ comment, className }: Props) {
   const {
     author,
     likeCount,
     replyCount,
     content,
     isQuestion,
-    id: postId,
-  } = post;
+    id: commentId,
+  } = comment;
   const intl = useIntl();
 
   const [isExpanded, setIsExpanded] = useState(false);
@@ -95,7 +95,7 @@ export default function DiscussionPost({ post, className }: Props) {
         <div
           className={clsx(
             'flex flex-1 flex-col items-start gap-3',
-            shouldPadBottom ? 'mb-6' : 'mb-1',
+            shouldPadBottom ? 'pb-6' : 'pb-1',
           )}>
           <div className="flex flex-col gap-1">
             <div className="flex gap-3">
@@ -209,7 +209,9 @@ export default function DiscussionPost({ post, className }: Props) {
           />
         </div>
       )}
-      {isExpanded && <ProjectsChallengeDiscussionSubposts postId={postId} />}
+      {isExpanded && (
+        <ProjectsChallengeDiscussionCommentReplies commentId={commentId} />
+      )}
     </div>
   );
 }

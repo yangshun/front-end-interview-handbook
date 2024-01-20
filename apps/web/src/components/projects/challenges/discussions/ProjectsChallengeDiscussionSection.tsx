@@ -2,8 +2,8 @@ import { useIntl } from 'react-intl';
 
 import useProfile from '~/hooks/user/useProfile';
 
-import ProjectsDiscussionPostList from '~/components/projects/challenges/discussions/ProjectsChallengeDiscussionPostList';
-import type { ProjectsChallengeDiscussionPost } from '~/components/projects/challenges/discussions/types';
+import ProjectsChallengeDiscussionCommentList from '~/components/projects/challenges/discussions/ProjectsChallengeDiscussionCommentList';
+import type { ProjectsChallengeDiscussionCommentData } from '~/components/projects/challenges/discussions/types';
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsUserJobTitle from '~/components/projects/users/ProjectsUserJobTitle';
 import ProjectsUserYearsOfExperience from '~/components/projects/users/ProjectsUserYearsOfExperience';
@@ -15,7 +15,7 @@ import TextArea from '~/components/ui/TextArea';
 
 import type { ProjectsChallengeItem } from '../types';
 
-export const exampleDiscussionPosts: ReadonlyArray<ProjectsChallengeDiscussionPost> =
+export const exampleDiscussionComments: ReadonlyArray<ProjectsChallengeDiscussionCommentData> =
   [
     {
       author: {
@@ -140,7 +140,11 @@ export default function ProjectsChallengeDiscussionSection({
         />
         <ProjectsChallengeReputationTag points={25} variant="filled" />
       </div>
-      <ProjectsDiscussionPostList posts={exampleDiscussionPosts} />
+      <div className="mt-9 flex w-full">
+        <ProjectsChallengeDiscussionCommentList
+          comments={exampleDiscussionComments}
+        />
+      </div>
     </div>
   );
 }
