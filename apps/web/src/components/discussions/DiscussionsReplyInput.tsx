@@ -1,17 +1,25 @@
 import clsx from 'clsx';
+import type { SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { FormattedMessage, useIntl } from 'react-intl';
+import { z } from 'zod';
 
-import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
+import { trpc } from '~/hooks/trpc';
+
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
-import { themeElementBorderColor } from '~/components/ui/theme';
 
+import DiscussionsCommentRepliesThreadLines from './DiscussionsCommentRepliesThreadLines';
+import type { DiscussionsCommentItem } from './types';
 import UserAvatarWithLevel from '../projects/users/UserAvatarWithLevel';
+
+import { zodResolver } from '@hookform/resolvers/zod';
 
 type Props = Readonly<{
   hasNext: boolean;
   onCancel: () => void;
+  parentComment: DiscussionsCommentItem;
   viewer?: Readonly<{
     avatarUrl: string | null;
     id: string;
@@ -21,31 +29,55 @@ type Props = Readonly<{
   }> | null;
 }>;
 
+type CommentFormInput = Readonly<{
+  body: string;
+}>;
+
 export default function DiscussionsReplyInput({
   hasNext,
   onCancel,
   viewer,
+  parentComment,
 }: Props) {
   const intl = useIntl();
+  const createReplyMutation = trpc.comments.reply.useMutation();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<CommentFormInput>({
+    defaultValues: {
+      body: '',
+    },
+    mode: 'onSubmit',
+    resolver: zodResolver(
+      z.object({
+        body: z.string().trim().min(10).max(40000),
+      }),
+    ),
+  });
+  const onSubmit: SubmitHandler<CommentFormInput> = (data) =>
+    createReplyMutation.mutate(
+      {
+        content: data.body,
+        domain: parentComment.domain as any,
+        entityId: parentComment.entityId,
+        parentCommentId: parentComment.id,
+      },
+      {
+        onSuccess: () => {
+          onCancel();
+        },
+      },
+    );
 
   return (
     <div className="relative flex">
-      <div className="relative flex w-[72px] flex-shrink-0 flex-col items-center">
-        {hasNext && (
-          <div
-            className={clsx(
-              'absolute h-full w-px border-l',
-              themeElementBorderColor,
-            )}
-          />
-        )}
-        <div
-          className={clsx(
-            'absolute end-0 top-0 h-7 w-[calc(50%_+_8.5px)] rounded-es-2xl border-b border-s',
-            themeElementBorderColor,
-          )}
-        />
-      </div>
+      <DiscussionsCommentRepliesThreadLines
+        branchHeightClass="h-7"
+        drawVerticalLine={hasNext}
+      />
       <div className={clsx('flex flex-1 items-start gap-4', hasNext && 'pb-6')}>
         <UserAvatarWithLevel
           level={30}
@@ -53,7 +85,9 @@ export default function DiscussionsReplyInput({
           progress={50}
           size="xl"
         />
-        <div className="flex flex-grow flex-col">
+        <form
+          className="flex flex-grow flex-col"
+          onSubmit={handleSubmit(onSubmit)}>
           <Text size="body2" weight="medium">
             <FormattedMessage
               defaultMessage="You are replying"
@@ -62,23 +96,31 @@ export default function DiscussionsReplyInput({
             />
           </Text>
           <TextArea
-            autoComplete="off"
+            autoFocus={true}
             classNameOuter="mt-2"
+            errorMessage={errors.body?.message}
             isLabelHidden={true}
             label={intl.formatMessage({
-              defaultMessage: 'Reply content',
+              defaultMessage: 'Reply to comment',
               description: 'Label for discussion post reply input',
-              id: 'KKasxQ',
+              id: 'YpJ3q8',
             })}
             placeholder={intl.formatMessage({
               defaultMessage: 'Text here',
               description: 'Placeholder for discussion post reply input',
               id: 'IEA3DS',
             })}
+            required={true}
+            {...register('body')}
+            disabled={createReplyMutation.isLoading}
+            onChange={(value) =>
+              register('body').onChange({ target: { value } })
+            }
           />
           <div className="mt-4 flex items-center gap-4">
             <Button
               className="w-[100px]"
+              isDisabled={createReplyMutation.isLoading}
               label={intl.formatMessage({
                 defaultMessage: 'Cancel',
                 description:
@@ -90,17 +132,19 @@ export default function DiscussionsReplyInput({
             />
             <Button
               className="w-[100px]"
+              isDisabled={createReplyMutation.isLoading}
+              isLoading={createReplyMutation.isLoading}
               label={intl.formatMessage({
                 defaultMessage: 'Post',
                 description:
                   'Label for post reply button on project discussions page',
                 id: '+dUPPi',
               })}
+              type="submit"
               variant="primary"
             />
-            <ProjectsChallengeReputationTag points={25} variant="filled" />
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

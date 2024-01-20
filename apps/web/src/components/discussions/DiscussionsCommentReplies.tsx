@@ -3,36 +3,33 @@ import clsx from 'clsx';
 import { themeElementBorderColor } from '~/components/ui/theme';
 
 import DiscussionsComment from './DiscussionsComment';
+import DiscussionsCommentRepliesThreadLines from './DiscussionsCommentRepliesThreadLines';
 import type { DiscussionsCommentItem } from './types';
 
 type Props = Readonly<{
   replies: ReadonlyArray<DiscussionsCommentItem>;
+  viewer?: Readonly<{
+    avatarUrl: string | null;
+    id: string;
+    name: string | null;
+    title: string | null;
+    username: string;
+  }> | null;
 }>;
 
-export default function DiscussionsCommentReplies({ replies }: Props) {
+export default function DiscussionsCommentReplies({ replies, viewer }: Props) {
   return (
     <>
       {replies.map((comment, index) => (
-        <div key={comment.id} className="relative flex">
-          <div className="relative flex w-14 flex-shrink-0 flex-col items-center">
-            {index < replies.length - 1 && (
-              <div
-                className={clsx(
-                  'absolute h-full w-px border-l',
-                  themeElementBorderColor,
-                )}
-              />
-            )}
-            <div
-              className={clsx(
-                'absolute end-0 top-0 h-7 w-[calc(50%_+_0.5px)] rounded-es-2xl border-b border-s',
-                themeElementBorderColor,
-              )}
-            />
-          </div>
+        <div key={comment.id} className="relative flex w-full">
+          <DiscussionsCommentRepliesThreadLines
+            branchHeightClass="h-7"
+            drawVerticalLine={index < replies.length - 1}
+          />
           <DiscussionsComment
             className={clsx(index < replies.length - 1 && 'pb-6')}
             comment={comment}
+            viewer={viewer}
           />
         </div>
       ))}

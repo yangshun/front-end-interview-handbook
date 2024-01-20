@@ -17,6 +17,7 @@ import {
 } from '~/components/ui/theme';
 
 import DiscussionsCommentReplies from './DiscussionsCommentReplies';
+import DiscussionsCommentRepliesThreadLines from './DiscussionsCommentRepliesThreadLines';
 import DiscussionsReplyInput from './DiscussionsReplyInput';
 import type { DiscussionsCommentItem } from './types';
 import ProjectsLikeCountTag from '../projects/stats/ProjectsLikeCountTag';
@@ -47,19 +48,29 @@ export default function DiscussionsComment({
     content,
     category,
     replies,
-    id: commentId,
   } = comment;
   const intl = useIntl();
   const replyCount = replies?.length ?? 0;
   const hasReplies = replyCount > 0;
 
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [isReplying, setIsReplying] = useState(false);
+  const [mode, setMode] = useState<'edit' | 'reply' | null>(null);
+  const [showReplies, setShowReplies] = useState(false);
 
-  const shouldPadBottom = isExpanded || isReplying;
+  const shouldPadBottom = mode === 'reply' || showReplies;
+  const collapseButtonLabel = intl.formatMessage(
+    {
+      defaultMessage:
+        'Collapse {replyCount, plural, =0 {none} one {# reply} other {# replies}}',
+      description: 'Label for collapse replies button',
+      id: 'puP8B5',
+    },
+    {
+      replyCount,
+    },
+  );
 
   return (
-    <div className={clsx('flex flex-col', className)}>
+    <div className={clsx('flex flex-col grow', className)}>
       <div className="flex items-start gap-4">
         <div className="relative flex flex-col items-center self-stretch">
           <UserAvatarWithLevel
@@ -68,7 +79,7 @@ export default function DiscussionsComment({
             progress={50}
             size="2xl"
           />
-          {(hasReplies || isReplying) && (
+          {(hasReplies || mode === 'reply') && (
             <div
               className={clsx(
                 'h-full w-px flex-1 border-l',
@@ -76,7 +87,7 @@ export default function DiscussionsComment({
               )}
             />
           )}
-          {isExpanded && (
+          {showReplies && (
             <>
               <div
                 className={clsx(
@@ -84,26 +95,18 @@ export default function DiscussionsComment({
                   themeBackgroundColor,
                 )}
               />
-              <Button
-                className="absolute bottom-6 self-center"
-                icon={RiIndeterminateCircleLine}
-                isLabelHidden={true}
-                label={intl.formatMessage(
-                  {
-                    defaultMessage: 'Collapse {replyCount} replies',
-                    description:
-                      'Label for collapse replies button on project discussions page',
-                    id: 'jRGPwh',
-                  },
-                  {
-                    replyCount,
-                  },
-                )}
-                variant="tertiary"
-                onClick={() => {
-                  setIsExpanded(false);
-                }}
-              />
+              <div className="absolute bottom-6 self-center">
+                <Button
+                  icon={RiIndeterminateCircleLine}
+                  isLabelHidden={true}
+                  label={collapseButtonLabel}
+                  tooltip={collapseButtonLabel}
+                  variant="tertiary"
+                  onClick={() => {
+                    setShowReplies(false);
+                  }}
+                />
+              </div>
             </>
           )}
         </div>
@@ -144,7 +147,7 @@ export default function DiscussionsComment({
           </div>
           {category && <Badge label={category} size="sm" variant="primary" />}
           <Text size="body2">{content}</Text>
-          <div className="flex">
+          <div className="flex -mt-1">
             <ProjectsLikeCountTag likeCount={votesCount} />
             {viewer != null && (
               <Button
@@ -158,9 +161,7 @@ export default function DiscussionsComment({
                   id: 'buggxJ',
                 })}
                 variant="tertiary"
-                onClick={() => {
-                  setIsReplying((replying) => !replying);
-                }}
+                onClick={() => setMode(mode === 'reply' ? null : 'reply')}
               />
             )}
             {viewer?.id === user.id && (
@@ -174,52 +175,48 @@ export default function DiscussionsComment({
                   id: 'g2Nt5j',
                 })}
                 variant="tertiary"
+                onClick={() => setMode(mode === 'edit' ? null : 'edit')}
               />
             )}
           </div>
         </div>
       </div>
-      {isReplying && (
+      {mode === 'reply' && (
         <DiscussionsReplyInput
           hasNext={hasReplies}
+          parentComment={comment}
           viewer={viewer}
           onCancel={() => {
-            setIsReplying(false);
+            setMode(null);
           }}
         />
       )}
-      {!isExpanded && hasReplies && (
+      {!showReplies && hasReplies && (
         <div className="flex">
-          <div className="flex flex-col">
-            <div
-              className={clsx(
-                'ms-[27.5px] h-1/2 w-[45.5px] self-stretch rounded-es-2xl border-b border-s',
-                themeElementBorderColor,
-              )}
-            />
-          </div>
+          <DiscussionsCommentRepliesThreadLines branchHeightClass="h-5 -translate-y-1" />
           <Button
             addonPosition="start"
             className="-ms-3.5"
             icon={RiAddCircleLine}
             label={intl.formatMessage(
               {
-                defaultMessage: '{replyCount} more replies',
+                defaultMessage:
+                  '{replyCount, plural, one {Show # reply} other {Show # replies}}',
                 description:
                   'Label for more replies button on project discussions page',
-                id: 's1tiYn',
+                id: 'g9OX0J',
               },
               { replyCount },
             )}
             variant="tertiary"
             onClick={() => {
-              setIsExpanded(true);
+              setShowReplies(true);
             }}
           />
         </div>
       )}
-      {isExpanded && comment.replies && comment.replies.length > 0 && (
-        <DiscussionsCommentReplies replies={comment.replies} />
+      {showReplies && comment.replies && comment.replies.length > 0 && (
+        <DiscussionsCommentReplies replies={comment.replies} viewer={viewer} />
       )}
     </div>
   );

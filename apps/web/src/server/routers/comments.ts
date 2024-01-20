@@ -15,12 +15,11 @@ export const commentsRouter = router({
         content: z.string().trim().min(10).max(40000),
         domain: z.enum(domains),
         entityId: z.string(),
-        parentCommentId: z.string().uuid().optional(),
       }),
     )
     .mutation(
       async ({
-        input: { entityId, domain, category, content, parentCommentId },
+        input: { entityId, domain, category, content },
         ctx: { user },
       }) => {
         return await prisma.discussionComment.create({
@@ -29,7 +28,6 @@ export const commentsRouter = router({
             content,
             domain,
             entityId,
-            parentCommentId,
             userId: user.id,
           },
         });
@@ -81,4 +79,30 @@ export const commentsRouter = router({
         },
       });
     }),
+  reply: userProcedure
+    .input(
+      z.object({
+        // TODO(projects): reuse validation on client.
+        content: z.string().trim().min(10).max(40000),
+        domain: z.enum(domains),
+        entityId: z.string(),
+        parentCommentId: z.string().uuid(),
+      }),
+    )
+    .mutation(
+      async ({
+        input: { entityId, domain, content, parentCommentId },
+        ctx: { user },
+      }) => {
+        return await prisma.discussionComment.create({
+          data: {
+            content,
+            domain,
+            entityId,
+            parentCommentId,
+            userId: user.id,
+          },
+        });
+      },
+    ),
 });

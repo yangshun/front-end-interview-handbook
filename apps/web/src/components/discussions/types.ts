@@ -5,6 +5,7 @@ export type DiscussionsCommentItem = Readonly<{
   category: string | null;
   content: string;
   createdAt: Date;
+  domain: string;
   entityId: string;
   id: string;
   replies?: ReadonlyArray<DiscussionsCommentItem>;

@@ -28,7 +28,7 @@ type Props = Readonly<{
 }>;
 
 type CommentFormInput = Readonly<{
-  comment: string;
+  body: string;
   isQuestion: boolean;
 }>;
 
@@ -46,13 +46,13 @@ export default function ProjectsChallengeDiscussionsNewComment({
     reset,
   } = useForm<CommentFormInput>({
     defaultValues: {
-      comment: '',
+      body: '',
       isQuestion: false,
     },
     mode: 'onSubmit',
     resolver: zodResolver(
       z.object({
-        comment: z.string().trim().min(10).max(40000),
+        body: z.string().trim().min(10).max(40000),
       }),
     ),
   });
@@ -60,7 +60,7 @@ export default function ProjectsChallengeDiscussionsNewComment({
     createCommentMutation.mutate(
       {
         category: data.isQuestion ? 'QUESTION' : undefined,
-        content: data.comment,
+        content: data.body,
         domain: 'PROJECTS_CHALLENGE',
         entityId: challenge.metadata.slug,
       },
@@ -93,7 +93,7 @@ export default function ProjectsChallengeDiscussionsNewComment({
       </div>
       <TextArea
         classNameOuter="my-3"
-        errorMessage={errors.comment?.message}
+        errorMessage={errors.body?.message}
         isLabelHidden={true}
         label={intl.formatMessage({
           defaultMessage: 'Discussion post comment',
@@ -107,11 +107,9 @@ export default function ProjectsChallengeDiscussionsNewComment({
           id: 'OrN/z/',
         })}
         required={true}
-        {...register('comment', { required: true })}
+        {...register('body')}
         disabled={createCommentMutation.isLoading}
-        onChange={(value) =>
-          register('comment').onChange({ target: { value } })
-        }
+        onChange={(value) => register('body').onChange({ target: { value } })}
       />
       <CheckboxInput
         disabled={createCommentMutation.isLoading}
