@@ -1143,10 +1143,6 @@
     "defaultMessage": "Read more",
     "description": "Read more"
   },
-  "AIcBCW": {
-    "defaultMessage": "Question",
-    "description": "Label for question badge on project discussions page"
-  },
   "AJSVim": {
     "defaultMessage": "Seattle, WA, USA",
     "description": "Seattle in USA"
@@ -1258,6 +1254,10 @@
   "BUK7YK": {
     "defaultMessage": "Last week",
     "description": "Title for last week list of code reviews"
+  },
+  "BUdbpg": {
+    "defaultMessage": "No",
+    "description": "Cancel button label in confirmation dialog"
   },
   "BfJL2V": {
     "defaultMessage": "Challenge difficulty",
@@ -2119,10 +2119,6 @@
     "defaultMessage": "Back",
     "description": "Label for \"Back\" button on Sign Up Reason section of Projects onboarding page"
   },
-  "KKasxQ": {
-    "defaultMessage": "Reply content",
-    "description": "Label for discussion post reply input"
-  },
   "KM0VJJ": {
     "defaultMessage": "Before you deploy, always ensure the following:",
     "description": "Warning message for GitHub repo step in project submission checklist"
@@ -2426,6 +2422,10 @@
   "N9hGOq": {
     "defaultMessage": "Search Vue questions",
     "description": "Placeholder for search input of Vue question list"
+  },
+  "NA1S3Z": {
+    "defaultMessage": "Discussion post comment",
+    "description": "Label for discussion post input textarea"
   },
   "NALiPB": {
     "defaultMessage": "Home",
@@ -3475,10 +3475,6 @@
     "defaultMessage": "Table of Contents",
     "description": "Guides table of contents menu button label"
   },
-  "WdiFBs": {
-    "defaultMessage": "<emphasis>{author}</emphasis> · {date}",
-    "description": "Label for author and date of discussion post on project discussions page"
-  },
   "WelJgL": {
     "defaultMessage": "Here you'll find curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing deep dive subject.",
     "description": "Latest blog articles page subtitle"
@@ -3498,6 +3494,10 @@
   "WoEmKY": {
     "defaultMessage": "Post as question",
     "description": "Label for toggle to post as question"
+  },
+  "WodcPq": {
+    "defaultMessage": "Delete",
+    "description": "Delete button label"
   },
   "WoqXSx": {
     "defaultMessage": "Behavioral",
@@ -3582,6 +3582,10 @@
   "XjIm4S": {
     "defaultMessage": "Oldest first",
     "description": "Sorting option for blog list"
+  },
+  "XjwGKd": {
+    "defaultMessage": "Are you sure you want to delete this comment?",
+    "description": "Confirmation text for deleting a comment"
   },
   "XkNVS1": {
     "defaultMessage": "Complete your profile",
@@ -3706,6 +3710,10 @@
   "YmW2e9": {
     "defaultMessage": "Build to learn",
     "description": "Title for beginner motivation"
+  },
+  "YpJ3q8": {
+    "defaultMessage": "Reply to comment",
+    "description": "Label for discussion post reply input"
   },
   "YzW/Zb": {
     "defaultMessage": "Expires on {expiryDate}",
@@ -3866,6 +3874,10 @@
   "aWL34G": {
     "defaultMessage": "Premium",
     "description": "Label on Premium badge to indicate premium-only access"
+  },
+  "aYJLMU": {
+    "defaultMessage": "Save",
+    "description": "Save update button label"
   },
   "aYUexA": {
     "defaultMessage": "The great way to prepare for Front End Interviews",
@@ -4483,6 +4495,10 @@
     "defaultMessage": "3 Months Plan",
     "description": "Short label for 3 months study plan"
   },
+  "g9OX0J": {
+    "defaultMessage": "{replyCount, plural, one {Show # reply} other {Show # replies}}",
+    "description": "Label for more replies button on project discussions page"
+  },
   "gDAVYm": {
     "defaultMessage": "Report an issue",
     "description": "Tooltip for button to report an issue"
@@ -4610,6 +4626,10 @@
   "hdlJES": {
     "defaultMessage": "Secondary reason",
     "description": "Label for \"Secondary reason\" button on Sign Up Reason section of Projects onboarding page"
+  },
+  "hm0ODb": {
+    "defaultMessage": "Delete comment?",
+    "description": "Delete comment confirmation dialog title"
   },
   "hnDCXW": {
     "defaultMessage": "NextJS, Vercel",
@@ -4778,10 +4798,6 @@
   "jN6xqZ": {
     "defaultMessage": "1 Week Plan",
     "description": "Long label for one week study plan"
-  },
-  "jRGPwh": {
-    "defaultMessage": "Collapse {replyCount} replies",
-    "description": "Label for collapse replies button on project discussions page"
   },
   "jROOlG": {
     "defaultMessage": "Our users now work in these companies",
@@ -5227,10 +5243,6 @@
     "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
     "description": "Larry Almeida's testimonial"
   },
-  "nQKtbN": {
-    "defaultMessage": "Discussion post content",
-    "description": "Label for discussion post input text area"
-  },
   "nS1I3k": {
     "defaultMessage": "Author",
     "description": "Author of the blog"
@@ -5499,6 +5511,10 @@
     "defaultMessage": "Copy line (empty selection)",
     "description": "Text describing command to copy line(s) in the coding workspace shortcuts menu"
   },
+  "puP8B5": {
+    "defaultMessage": "Collapse {replyCount, plural, =0 {none} one {# reply} other {# replies}}",
+    "description": "Label for collapse replies button"
+  },
   "puirr6": {
     "defaultMessage": "Top Svelte coding interview questions to build the most commonly-asked front end UI components and applications.",
     "description": "Description for Svelte questions page"
@@ -5734,10 +5750,6 @@
   "ryCcOP": {
     "defaultMessage": "Notify Me",
     "description": "Button label for a newsletter subscription section"
-  },
-  "s1tiYn": {
-    "defaultMessage": "{replyCount} more replies",
-    "description": "Label for more replies button on project discussions page"
   },
   "s5GdUb": {
     "defaultMessage": "Find projects and curated resources to advance your skills all the way from beginner to senior engineer. Train a well-rounded skillset including full stack and AI skills.",

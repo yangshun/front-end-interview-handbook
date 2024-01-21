@@ -1,3 +1,36 @@
+export function getRelativeTimestamp(timestamp: Date) {
+  const { unit, value } = getTimeUnitAndValue(timestamp);
+
+  if (unit === 'Just now' || unit === 'Yesterday') {
+    return unit;
+  }
+
+  if (unit === 'month') {
+    // Show exact date without the year
+    return new Intl.DateTimeFormat('en-US', {
+      day: 'numeric',
+      month: 'short',
+    }).format(timestamp);
+  }
+
+  if (unit === 'year') {
+    // Show exact date with the year
+    return new Intl.DateTimeFormat('en-US', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    }).format(timestamp);
+  }
+
+  if (!value) {
+    return '';
+  }
+
+  return new Intl.RelativeTimeFormat('en-US', {
+    numeric: 'auto',
+  }).format(-value, unit);
+}
+
 export function getTimeUnitAndValue(timestamp: Date): {
   unit: Intl.RelativeTimeFormatUnit | 'Just now' | 'Yesterday';
   value: number | null;

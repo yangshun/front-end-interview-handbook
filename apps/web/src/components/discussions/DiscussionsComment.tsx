@@ -9,6 +9,7 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -23,6 +24,8 @@ import DiscussionsCommentReplies from './DiscussionsCommentReplies';
 import DiscussionsCommentRepliesThreadLines from './DiscussionsCommentRepliesThreadLines';
 import DiscussionsReplyInput from './DiscussionsReplyInput';
 import type { DiscussionsCommentItem } from './types';
+import RelativeTimestamp from '../projects/common/RelativeTimestamp';
+import { getRelativeTimestamp } from '../projects/common/relativeTimestampValues';
 import ProjectsLikeCountTag from '../projects/stats/ProjectsLikeCountTag';
 import ProjectsUserJobTitle from '../projects/users/ProjectsUserJobTitle';
 import ProjectsUserYearsOfExperience from '../projects/users/ProjectsUserYearsOfExperience';
@@ -121,30 +124,20 @@ export default function DiscussionsComment({
           <div className="flex flex-col gap-1">
             <div className="flex gap-3">
               <Text color="secondary" size="body2">
-                <FormattedMessage
-                  defaultMessage="<emphasis>{author}</emphasis> · {date}"
-                  description="Label for author and date of discussion post on project discussions page"
-                  id="WdiFBs"
-                  values={{
-                    author: user.name,
-                    date: intl.formatDate(new Date(), {
-                      day: 'numeric',
-                      month: 'short',
-                      year: 'numeric',
-                    }),
-                    emphasis: (chunks) => (
-                      <Text size="inherit" weight="medium">
-                        {chunks}
-                      </Text>
-                    ),
-                  }}
-                />
+                <Text size="inherit" weight="medium">
+                  <Anchor href={`/projects/u/${user.username}`} variant="flat">
+                    {user.name}
+                  </Anchor>
+                </Text>
+                {' · '}
+                <span>{getRelativeTimestamp(comment.createdAt)}</span>
               </Text>
             </div>
             <div className="flex gap-4">
               {user.title && (
                 <ProjectsUserJobTitle jobTitle={user.title} size="2xs" />
               )}
+              {/* TODO(projects): render from user */}
               <ProjectsUserYearsOfExperience size="2xs" yearsOfExperience={2} />
             </div>
           </div>
