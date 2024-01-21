@@ -1,16 +1,20 @@
 import clsx from 'clsx';
-import { RiQuestionnaireLine, RiSortDesc } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useState } from 'react';
+import { RiQuestionnaireLine } from 'react-icons/ri';
+import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import DropdownMenu from '~/components/ui/DropdownMenu';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 
 import DiscussionsComment from './DiscussionsComment';
-import type { DiscussionsCommentUserProfile } from './types';
+import DiscussionsCommentSort from './DiscussionsCommentSort';
+import type {
+  DiscussionsCommentSortField,
+  DiscussionsCommentUserProfile,
+} from './types';
 
 type Props = Readonly<{
   domain: 'PROJECTS_CHALLENGE' | 'PROJECTS_SUBMISSION';
@@ -23,10 +27,16 @@ export default function DiscussionsCommentList({
   domain,
   viewer,
 }: Props) {
-  const intl = useIntl();
+  const [isAscendingOrder, setIsAscendingOrder] = useState(false);
+  const [sortField, setSortField] =
+    useState<DiscussionsCommentSortField>('votes');
   const { data, isLoading } = trpc.comments.list.useQuery({
     domain,
     entityId,
+    sort: {
+      field: sortField,
+      isAscendingOrder,
+    },
   });
 
   if (isLoading) {
@@ -59,18 +69,12 @@ export default function DiscussionsCommentList({
             />
           </Text>
         </div>
-        <DropdownMenu
-          align="end"
-          icon={RiSortDesc}
-          label={intl.formatMessage({
-            defaultMessage: 'Sort by',
-            description:
-              'Label for sort button for projects discussion post list',
-            id: 'NjnYqU',
-          })}
-          size="md">
-          Placeholder
-        </DropdownMenu>
+        <DiscussionsCommentSort
+          isAscendingOrder={isAscendingOrder}
+          setIsAscendingOrder={setIsAscendingOrder}
+          setSortField={setSortField}
+          sortField={sortField}
+        />
       </div>
       {comments?.map((comment) => (
         <DiscussionsComment

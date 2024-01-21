@@ -947,6 +947,10 @@
     "defaultMessage": "Angular Coding Questions",
     "description": "Description for Angular questions title"
   },
+  "87c2KI": {
+    "defaultMessage": "Created: Newest to oldest",
+    "description": "Sorting option for discussions comment - sort by created"
+  },
   "8KFYWs": {
     "defaultMessage": "Intro to Quiz Questions",
     "description": "Introduction to front end quiz questions"
@@ -1667,6 +1671,10 @@
     "defaultMessage": "{challengesCompleted}",
     "description": "Challenges completed for track in Continue tracks and skills section on Projects dashboard page"
   },
+  "G3byny": {
+    "defaultMessage": "Created: Oldest to newest",
+    "description": "Sorting option for discussions comment - sort by created"
+  },
   "G5tU8P": {
     "defaultMessage": "Step 4",
     "description": "Title for \"Step 4\" tab on Projects project page"
@@ -2199,6 +2207,10 @@
     "defaultMessage": "Let's start!",
     "description": "Title of Start Project CTA card in Projects sidebar"
   },
+  "L33SIl": {
+    "defaultMessage": "Popularity: Least to most upvotes",
+    "description": "Sorting option for discussions comment - popularity"
+  },
   "L4W5rT": {
     "defaultMessage": "You can choose to end a project session if you choose not to work on it anymore. We will stop prompting you to continue the project in the dashboard",
     "description": "Tooltip for \"End session\" button on current project session card"
@@ -2583,6 +2595,10 @@
     "defaultMessage": "New here? <link>How it works</link>",
     "description": "Link to 'How it works' page on Projects project page"
   },
+  "Oc17My": {
+    "defaultMessage": "Unvote comment",
+    "description": "Vote button label"
+  },
   "OfeY0a": {
     "defaultMessage": "View all {trackCount} component tracks",
     "description": "Label of 'Component tracks' view all button in Projects home page"
@@ -2618,6 +2634,10 @@
   "OumyBP": {
     "defaultMessage": "Showcase your knowledge of web accessibility in front end interviews",
     "description": "Title for interview preparation focus area"
+  },
+  "Ox+G1g": {
+    "defaultMessage": "Upvote comment",
+    "description": "Vote button label"
   },
   "P2baTC": {
     "defaultMessage": "Coding Format",
@@ -5378,6 +5398,10 @@
   "oo7GzR": {
     "defaultMessage": "Menu",
     "description": "Guides navbar menu button label"
+  },
+  "ooGnHf": {
+    "defaultMessage": "Popularity: Most to least upvotes",
+    "description": "Sorting option for discussions comment - popularity"
   },
   "oxD4TD": {
     "defaultMessage": "Fresh Grad",

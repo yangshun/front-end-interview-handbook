@@ -77,9 +77,13 @@ export const commentsRouter = router({
       z.object({
         domain: z.enum(domains),
         entityId: z.string(),
+        sort: z.object({
+          field: z.enum(['createdAt', 'votes']),
+          isAscendingOrder: z.boolean(),
+        }),
       }),
     )
-    .query(async ({ input: { domain, entityId } }) => {
+    .query(async ({ input: { domain, entityId, sort } }) => {
       const commentIncludeFields = {
         _count: {
           select: {
@@ -96,6 +100,17 @@ export const commentsRouter = router({
           },
         },
       };
+
+      const sortBy =
+        sort.field === 'votes'
+          ? ({
+              votes: {
+                _count: sort.isAscendingOrder ? 'asc' : 'desc',
+              },
+            } as const)
+          : ({
+              createdAt: sort.isAscendingOrder ? 'asc' : 'desc',
+            } as const);
 
       const [count, comments] = await Promise.all([
         prisma.discussionComment.count({
@@ -115,9 +130,7 @@ export const commentsRouter = router({
             },
             ...commentIncludeFields,
           },
-          orderBy: {
-            createdAt: 'desc',
-          },
+          orderBy: sortBy,
           where: {
             domain,
             entityId,

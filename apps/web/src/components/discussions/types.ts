@@ -20,3 +20,5 @@ export type DiscussionsCommentItem = Readonly<{
   replies?: ReadonlyArray<DiscussionsCommentItem>;
   updatedAt: Date;
 }>;
+
+export type DiscussionsCommentSortField = 'createdAt' | 'votes';
