@@ -23,6 +23,7 @@ import DiscussionsCommentDeleteButton from './DiscussionsCommentDeleteButton';
 import DiscussionsCommentEditInput from './DiscussionsCommentEditInput';
 import DiscussionsCommentReplies from './DiscussionsCommentReplies';
 import DiscussionsCommentRepliesThreadLines from './DiscussionsCommentRepliesThreadLines';
+import DiscussionsCommentVoteButton from './DiscussionsCommentVoteButton';
 import DiscussionsReplyInput from './DiscussionsReplyInput';
 import type { DiscussionsCommentItem } from './types';
 import RelativeTimestamp from '../projects/common/RelativeTimestamp';
@@ -50,6 +51,7 @@ export default function DiscussionsComment({
   viewer,
 }: Props) {
   const {
+    id: commentId,
     user,
     _count: { votes: votesCount },
     content,
@@ -159,8 +161,11 @@ export default function DiscussionsComment({
           ) : (
             <Text size="body2">{content}</Text>
           )}
-          <div className="flex -mt-1">
-            <ProjectsLikeCountTag likeCount={votesCount} />
+          <div className="flex -mt-1 -ml-3">
+            <DiscussionsCommentVoteButton
+              commentId={commentId}
+              count={votesCount}
+            />
             {viewer != null && (
               <Button
                 addonPosition="start"
@@ -192,7 +197,7 @@ export default function DiscussionsComment({
             )}
             {viewer?.id === user.id && (
               <DiscussionsCommentDeleteButton
-                commentId={comment.id}
+                commentId={commentId}
                 dialogShown={mode === 'delete'}
                 onClick={() => setMode('delete')}
                 onDismiss={() => setMode(null)}

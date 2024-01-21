@@ -4,6 +4,8 @@ import prisma from '~/server/prisma';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
 
+import { Prisma } from '@prisma/client';
+
 const domains = ['PROJECTS_SUBMISSION', 'PROJECTS_CHALLENGE'] as const;
 
 export const commentsRouter = router({
@@ -131,6 +133,20 @@ export const commentsRouter = router({
         });
       },
     ),
+  unvote: userProcedure
+    .input(
+      z.object({
+        commentId: z.string().uuid(),
+      }),
+    )
+    .mutation(async ({ input: { commentId }, ctx: { user } }) => {
+      await prisma.discussionCommentVote.deleteMany({
+        where: {
+          commentId,
+          userId: user.id,
+        },
+      });
+    }),
   update: userProcedure
     .input(
       z.object({
@@ -149,5 +165,30 @@ export const commentsRouter = router({
           userId: user.id,
         },
       });
+    }),
+  vote: userProcedure
+    .input(
+      z.object({
+        commentId: z.string().uuid(),
+      }),
+    )
+    .mutation(async ({ input: { commentId }, ctx: { user } }) => {
+      try {
+        await prisma.discussionCommentVote.create({
+          data: {
+            commentId,
+            userId: user.id,
+          },
+        });
+      } catch (err) {
+        if (
+          err instanceof Prisma.PrismaClientKnownRequestError &&
+          err.code === 'P2002'
+        ) {
+          // No-op.
+          return;
+        }
+        throw err;
+      }
     }),
 });
