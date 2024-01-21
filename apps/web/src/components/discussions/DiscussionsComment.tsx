@@ -34,6 +34,7 @@ import UserAvatarWithLevel from '../projects/users/UserAvatarWithLevel';
 type Props = Readonly<{
   className?: string;
   comment: DiscussionsCommentItem;
+  level: number;
   viewer?: Readonly<{
     avatarUrl: string | null;
     id: string;
@@ -43,8 +44,11 @@ type Props = Readonly<{
   }> | null;
 }>;
 
+const MAX_LEVEL_TO_ALLOW_REPLIES = 2;
+
 export default function DiscussionsComment({
   comment,
+  level,
   className,
   viewer,
 }: Props) {
@@ -170,7 +174,7 @@ export default function DiscussionsComment({
                 />
               </div>
             )}
-            {viewer != null && (
+            {viewer != null && level <= MAX_LEVEL_TO_ALLOW_REPLIES && (
               <Button
                 addonPosition="start"
                 className="ms-2"
@@ -245,7 +249,11 @@ export default function DiscussionsComment({
         </div>
       )}
       {showReplies && comment.replies && comment.replies.length > 0 && (
-        <DiscussionsCommentReplies replies={comment.replies} viewer={viewer} />
+        <DiscussionsCommentReplies
+          level={level + 1}
+          replies={comment.replies}
+          viewer={viewer}
+        />
       )}
     </div>
   );

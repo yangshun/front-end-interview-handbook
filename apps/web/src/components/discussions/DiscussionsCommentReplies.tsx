@@ -7,6 +7,7 @@ import DiscussionsCommentRepliesThreadLines from './DiscussionsCommentRepliesThr
 import type { DiscussionsCommentItem } from './types';
 
 type Props = Readonly<{
+  level: number;
   replies: ReadonlyArray<DiscussionsCommentItem>;
   viewer?: Readonly<{
     avatarUrl: string | null;
@@ -17,7 +18,11 @@ type Props = Readonly<{
   }> | null;
 }>;
 
-export default function DiscussionsCommentReplies({ replies, viewer }: Props) {
+export default function DiscussionsCommentReplies({
+  level,
+  replies,
+  viewer,
+}: Props) {
   return (
     <>
       {replies.map((comment, index) => (
@@ -29,6 +34,7 @@ export default function DiscussionsCommentReplies({ replies, viewer }: Props) {
           <DiscussionsComment
             className={clsx(index < replies.length - 1 && 'pb-6')}
             comment={comment}
+            level={level}
             viewer={viewer}
           />
         </div>

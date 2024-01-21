@@ -81,6 +81,7 @@ export default function DiscussionsCommentList({
         <DiscussionsComment
           key={comment.id}
           comment={comment}
+          level={1}
           viewer={viewer}
         />
       ))}
