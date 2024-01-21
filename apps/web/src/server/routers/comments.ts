@@ -86,7 +86,7 @@ export const commentsRouter = router({
             votes: true,
           },
         },
-        user: {
+        author: {
           select: {
             avatarUrl: true,
             id: true,

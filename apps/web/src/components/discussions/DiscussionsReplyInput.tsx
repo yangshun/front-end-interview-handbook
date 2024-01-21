@@ -11,7 +11,10 @@ import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 
 import DiscussionsCommentRepliesThreadLines from './DiscussionsCommentRepliesThreadLines';
-import type { DiscussionsCommentItem } from './types';
+import type {
+  DiscussionsCommentItem,
+  DiscussionsCommentUserProfile,
+} from './types';
 import UserAvatarWithLevel from '../projects/users/UserAvatarWithLevel';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -20,13 +23,7 @@ type Props = Readonly<{
   hasNext: boolean;
   onCancel: () => void;
   parentComment: DiscussionsCommentItem;
-  viewer?: Readonly<{
-    avatarUrl: string | null;
-    id: string;
-    name: string | null;
-    title: string | null;
-    username: string;
-  }> | null;
+  viewer: DiscussionsCommentUserProfile;
 }>;
 
 type CommentFormInput = Readonly<{

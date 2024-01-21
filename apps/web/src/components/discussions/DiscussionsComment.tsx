@@ -24,7 +24,10 @@ import DiscussionsCommentReplies from './DiscussionsCommentReplies';
 import DiscussionsCommentRepliesThreadLines from './DiscussionsCommentRepliesThreadLines';
 import DiscussionsCommentVoteButton from './DiscussionsCommentVoteButton';
 import DiscussionsReplyInput from './DiscussionsReplyInput';
-import type { DiscussionsCommentItem } from './types';
+import type {
+  DiscussionsCommentItem,
+  DiscussionsCommentUserProfile,
+} from './types';
 import { getRelativeTimestamp } from '../projects/common/relativeTimestampValues';
 import ProjectsLikeCountTag from '../projects/stats/ProjectsLikeCountTag';
 import ProjectsUserJobTitle from '../projects/users/ProjectsUserJobTitle';
@@ -35,13 +38,7 @@ type Props = Readonly<{
   className?: string;
   comment: DiscussionsCommentItem;
   level: number;
-  viewer?: Readonly<{
-    avatarUrl: string | null;
-    id: string;
-    name: string | null;
-    title: string | null;
-    username: string;
-  }> | null;
+  viewer?: DiscussionsCommentUserProfile | null;
 }>;
 
 const MAX_LEVEL_TO_ALLOW_REPLIES = 2;
@@ -54,7 +51,7 @@ export default function DiscussionsComment({
 }: Props) {
   const {
     id: commentId,
-    user,
+    author,
     _count: { votes: votesCount },
     content,
     category,
@@ -86,7 +83,7 @@ export default function DiscussionsComment({
         <div className="relative flex flex-col items-center self-stretch">
           <UserAvatarWithLevel
             level={11}
-            profile={user}
+            profile={author}
             progress={50}
             size="2xl"
           />
@@ -130,8 +127,10 @@ export default function DiscussionsComment({
             <div className="flex gap-3">
               <Text color="secondary" size="body2">
                 <Text size="inherit" weight="medium">
-                  <Anchor href={`/projects/u/${user.username}`} variant="flat">
-                    {user.name}
+                  <Anchor
+                    href={`/projects/u/${author.username}`}
+                    variant="flat">
+                    {author.name}
                   </Anchor>
                 </Text>
                 {' · '}
@@ -139,8 +138,8 @@ export default function DiscussionsComment({
               </Text>
             </div>
             <div className="flex gap-4">
-              {user.title && (
-                <ProjectsUserJobTitle jobTitle={user.title} size="2xs" />
+              {author.title && (
+                <ProjectsUserJobTitle jobTitle={author.title} size="2xs" />
               )}
               {/* TODO(projects): render from user */}
               <ProjectsUserYearsOfExperience size="2xs" yearsOfExperience={2} />
@@ -189,7 +188,7 @@ export default function DiscussionsComment({
                 onClick={() => setMode(mode === 'reply' ? null : 'reply')}
               />
             )}
-            {viewer?.id === user.id && (
+            {viewer?.id === author.id && (
               <Button
                 addonPosition="start"
                 icon={RiPencilFill}
@@ -203,7 +202,7 @@ export default function DiscussionsComment({
                 onClick={() => setMode(mode === 'edit' ? null : 'edit')}
               />
             )}
-            {viewer?.id === user.id && (
+            {viewer?.id === author.id && (
               <DiscussionsCommentDeleteButton
                 commentId={commentId}
                 dialogShown={mode === 'delete'}
@@ -214,7 +213,7 @@ export default function DiscussionsComment({
           </div>
         </div>
       </div>
-      {mode === 'reply' && (
+      {mode === 'reply' && viewer != null && (
         <DiscussionsReplyInput
           hasNext={hasReplies}
           parentComment={comment}

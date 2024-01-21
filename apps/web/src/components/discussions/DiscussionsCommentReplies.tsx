@@ -1,21 +1,16 @@
 import clsx from 'clsx';
 
-import { themeElementBorderColor } from '~/components/ui/theme';
-
 import DiscussionsComment from './DiscussionsComment';
 import DiscussionsCommentRepliesThreadLines from './DiscussionsCommentRepliesThreadLines';
-import type { DiscussionsCommentItem } from './types';
+import type {
+  DiscussionsCommentItem,
+  DiscussionsCommentUserProfile,
+} from './types';
 
 type Props = Readonly<{
   level: number;
   replies: ReadonlyArray<DiscussionsCommentItem>;
-  viewer?: Readonly<{
-    avatarUrl: string | null;
-    id: string;
-    name: string | null;
-    title: string | null;
-    username: string;
-  }> | null;
+  viewer?: DiscussionsCommentUserProfile | null;
 }>;
 
 export default function DiscussionsCommentReplies({

@@ -10,17 +10,12 @@ import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 
 import DiscussionsComment from './DiscussionsComment';
+import type { DiscussionsCommentUserProfile } from './types';
 
 type Props = Readonly<{
   domain: 'PROJECTS_CHALLENGE' | 'PROJECTS_SUBMISSION';
   entityId: string;
-  viewer?: Readonly<{
-    avatarUrl: string | null;
-    id: string;
-    name: string | null;
-    title: string | null;
-    username: string;
-  }> | null;
+  viewer?: DiscussionsCommentUserProfile | null;
 }>;
 
 export default function DiscussionsCommentList({
