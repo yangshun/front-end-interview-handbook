@@ -29,7 +29,7 @@ export default function DiscussionsCommentList({
   viewer,
 }: Props) {
   const intl = useIntl();
-  const { data: comments, isLoading } = trpc.comments.list.useQuery({
+  const { data, isLoading } = trpc.comments.list.useQuery({
     domain,
     entityId,
   });
@@ -41,6 +41,8 @@ export default function DiscussionsCommentList({
       </div>
     );
   }
+
+  const { count, comments } = data ?? {};
 
   return (
     <div className="flex flex-col gap-6 w-full">
@@ -57,7 +59,7 @@ export default function DiscussionsCommentList({
               description="Label for comment count on project discussions page"
               id="g5XqyS"
               values={{
-                commentCount: comments?.length,
+                commentCount: count,
               }}
             />
           </Text>

@@ -72,26 +72,38 @@ export const commentsRouter = router({
         },
       };
 
-      return await prisma.discussionComment.findMany({
-        include: {
-          replies: {
-            include: {
-              replies: {
-                include: commentIncludeFields,
-              },
-              ...commentIncludeFields,
-            },
+      const [count, comments] = await Promise.all([
+        prisma.discussionComment.count({
+          where: {
+            entityId,
           },
-          ...commentIncludeFields,
-        },
-        orderBy: {
-          createdAt: 'desc',
-        },
-        where: {
-          entityId,
-          parentCommentId: null, // Fetch top-level comments only.
-        },
-      });
+        }),
+        prisma.discussionComment.findMany({
+          include: {
+            replies: {
+              include: {
+                replies: {
+                  include: commentIncludeFields,
+                },
+                ...commentIncludeFields,
+              },
+            },
+            ...commentIncludeFields,
+          },
+          orderBy: {
+            createdAt: 'desc',
+          },
+          where: {
+            entityId,
+            parentCommentId: null, // Fetch top-level comments only.
+          },
+        }),
+      ]);
+
+      return {
+        comments,
+        count,
+      };
     }),
   reply: userProcedure
     .input(
