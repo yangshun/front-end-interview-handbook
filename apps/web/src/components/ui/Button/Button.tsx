@@ -26,6 +26,7 @@ export type Props = Readonly<{
   addonPosition?: 'end' | 'start';
   'aria-controls'?: AriaAttributes['aria-controls'];
   'aria-current'?: AriaAttributes['aria-current'];
+  'aria-label'?: AriaAttributes['aria-controls'];
   className?: string;
   display?: ButtonDisplay;
   href?: string;
@@ -179,6 +180,7 @@ export default function Button({
   addonPosition = 'end',
   'aria-controls': ariaControls,
   'aria-current': ariaCurrent,
+  'aria-label': ariaLabel,
   className,
   display = 'inline',
   href,
@@ -215,7 +217,7 @@ export default function Button({
   const commonProps = {
     'aria-controls': ariaControls,
     'aria-current': ariaCurrent,
-    'aria-label': isLabelHidden ? label : undefined,
+    'aria-label': ariaLabel ?? (isLabelHidden ? label : undefined),
     children,
     className: clsx(
       display === 'block' ? 'flex w-full' : 'inline-flex',
