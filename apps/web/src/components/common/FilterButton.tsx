@@ -46,6 +46,7 @@ export default function FilterButton({
         selected
           ? clsx(
               themeTextBrandColor,
+              'border',
               'border-brand-dark dark:border-brand',
               'bg-brand-lightest dark:bg-neutral-800',
             )

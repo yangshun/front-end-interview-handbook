@@ -49,6 +49,29 @@ export const commentsRouter = router({
         },
       });
     }),
+  liked: userProcedure
+    .input(
+      z.object({
+        domain: z.enum(domains),
+        entityId: z.string(),
+      }),
+    )
+    .query(async ({ input: { domain, entityId }, ctx: { user } }) => {
+      const likedComments = await prisma.discussionCommentVote.findMany({
+        select: {
+          commentId: true,
+        },
+        where: {
+          comment: {
+            domain,
+            entityId,
+          },
+          userId: user.id,
+        },
+      });
+
+      return likedComments.map(({ commentId }) => commentId);
+    }),
   list: publicProcedure
     .input(
       z.object({
@@ -56,7 +79,7 @@ export const commentsRouter = router({
         entityId: z.string(),
       }),
     )
-    .query(async ({ input: { entityId } }) => {
+    .query(async ({ input: { domain, entityId } }) => {
       const commentIncludeFields = {
         _count: {
           select: {
@@ -96,6 +119,7 @@ export const commentsRouter = router({
             createdAt: 'desc',
           },
           where: {
+            domain,
             entityId,
             parentCommentId: null, // Fetch top-level comments only.
           },

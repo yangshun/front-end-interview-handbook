@@ -3,12 +3,11 @@ import { startCase } from 'lodash-es';
 import { useState } from 'react';
 import {
   RiAddCircleLine,
-  RiDeleteBinLine,
   RiIndeterminateCircleLine,
   RiPencilFill,
   RiReplyFill,
 } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -26,7 +25,6 @@ import DiscussionsCommentRepliesThreadLines from './DiscussionsCommentRepliesThr
 import DiscussionsCommentVoteButton from './DiscussionsCommentVoteButton';
 import DiscussionsReplyInput from './DiscussionsReplyInput';
 import type { DiscussionsCommentItem } from './types';
-import RelativeTimestamp from '../projects/common/RelativeTimestamp';
 import { getRelativeTimestamp } from '../projects/common/relativeTimestampValues';
 import ProjectsLikeCountTag from '../projects/stats/ProjectsLikeCountTag';
 import ProjectsUserJobTitle from '../projects/users/ProjectsUserJobTitle';
@@ -161,11 +159,17 @@ export default function DiscussionsComment({
           ) : (
             <Text size="body2">{content}</Text>
           )}
-          <div className="flex -mt-1 -ml-3">
-            <DiscussionsCommentVoteButton
-              commentId={commentId}
-              count={votesCount}
-            />
+          <div className="flex -mt-1">
+            {viewer == null ? (
+              <ProjectsLikeCountTag likeCount={votesCount} />
+            ) : (
+              <div className="-ml-3">
+                <DiscussionsCommentVoteButton
+                  comment={comment}
+                  count={votesCount}
+                />
+              </div>
+            )}
             {viewer != null && (
               <Button
                 addonPosition="start"

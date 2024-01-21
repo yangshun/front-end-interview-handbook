@@ -61,6 +61,7 @@ export default function DiscussionsReplyInput({
     createReplyMutation.mutate(
       {
         content: data.body,
+        // TODO(projects): Make domain an enum.
         domain: parentComment.domain as any,
         entityId: parentComment.entityId,
         parentCommentId: parentComment.id,
