@@ -62,7 +62,7 @@ export default function DiscussionsComment({
   const hasReplies = replyCount > 0;
 
   const [mode, setMode] = useState<'delete' | 'edit' | 'reply' | null>(null);
-  const [showReplies, setShowReplies] = useState(false);
+  const [showReplies, setShowReplies] = useState(true);
 
   const shouldPadBottom = mode === 'reply' || showReplies;
   const collapseButtonLabel = intl.formatMessage(
@@ -95,7 +95,7 @@ export default function DiscussionsComment({
               )}
             />
           )}
-          {showReplies && (
+          {showReplies && hasReplies && (
             <>
               <div
                 className={clsx(
@@ -223,37 +223,37 @@ export default function DiscussionsComment({
           }}
         />
       )}
-      {!showReplies && hasReplies && (
-        <div className="flex">
-          <DiscussionsCommentRepliesThreadLines branchHeightClass="h-5 -translate-y-1" />
-          <Button
-            addonPosition="start"
-            className="-ms-3.5"
-            icon={RiAddCircleLine}
-            label={intl.formatMessage(
-              {
-                defaultMessage:
-                  '{replyCount, plural, one {Show # reply} other {Show # replies}}',
-                description:
-                  'Label for more replies button on project discussions page',
-                id: 'g9OX0J',
-              },
-              { replyCount },
-            )}
-            variant="tertiary"
-            onClick={() => {
-              setShowReplies(true);
-            }}
+      {hasReplies &&
+        (showReplies ? (
+          <DiscussionsCommentReplies
+            level={level + 1}
+            replies={comment.replies ?? []}
+            viewer={viewer}
           />
-        </div>
-      )}
-      {showReplies && comment.replies && comment.replies.length > 0 && (
-        <DiscussionsCommentReplies
-          level={level + 1}
-          replies={comment.replies}
-          viewer={viewer}
-        />
-      )}
+        ) : (
+          <div className="flex">
+            <DiscussionsCommentRepliesThreadLines branchHeightClass="h-5 -translate-y-1" />
+            <Button
+              addonPosition="start"
+              className="-ms-3.5"
+              icon={RiAddCircleLine}
+              label={intl.formatMessage(
+                {
+                  defaultMessage:
+                    '{replyCount, plural, one {Show # reply} other {Show # replies}}',
+                  description:
+                    'Label for more replies button on project discussions page',
+                  id: 'g9OX0J',
+                },
+                { replyCount },
+              )}
+              variant="tertiary"
+              onClick={() => {
+                setShowReplies(true);
+              }}
+            />
+          </div>
+        ))}
     </div>
   );
 }
