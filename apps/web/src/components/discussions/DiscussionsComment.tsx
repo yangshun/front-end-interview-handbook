@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { startCase } from 'lodash-es';
 import { useState } from 'react';
 import {
   RiAddCircleLine,
@@ -141,7 +142,13 @@ export default function DiscussionsComment({
               <ProjectsUserYearsOfExperience size="2xs" yearsOfExperience={2} />
             </div>
           </div>
-          {category && <Badge label={category} size="sm" variant="primary" />}
+          {category && (
+            <Badge
+              label={startCase(category.toLowerCase())}
+              size="sm"
+              variant="primary"
+            />
+          )}
           {mode === 'edit' ? (
             <DiscussionsCommentEditInput
               comment={comment}
