@@ -8,33 +8,50 @@ import { publicProcedure, router, userProcedure } from '../../trpc';
 export const projectsProfileRouter = router({
   getDashboardStatistics: projectsUserProcedure.query(
     async ({ ctx: { projectsProfileId } }) => {
-      const [completedChallenges, submissionUpvotes, submissionViews] =
-        await Promise.all([
-          prisma.projectsChallengeSubmission.count({
-            where: {
-              profileId: projectsProfileId,
-            },
-          }),
-          prisma.projectsChallengeSubmissionVote.count({
-            where: {
-              submission: {
-                profileId: projectsProfileId,
+      // TODO(projects): Unify with getDashboardStatisticsForProfile
+      const [
+        codeReviews,
+        completedChallenges,
+        submissionUpvotes,
+        submissionViews,
+      ] = await Promise.all([
+        prisma.discussionComment.count({
+          where: {
+            author: {
+              projectsProfile: {
+                id: projectsProfileId,
               },
             },
-          }),
-          prisma.projectsChallengeSubmission.aggregate({
-            _sum: {
-              views: true,
+            category: 'CODE_REVIEW',
+            domain: {
+              in: ['PROJECTS_CHALLENGE', 'PROJECTS_SUBMISSION'],
             },
-            where: {
+          },
+        }),
+        prisma.projectsChallengeSubmission.count({
+          where: {
+            profileId: projectsProfileId,
+          },
+        }),
+        prisma.projectsChallengeSubmissionVote.count({
+          where: {
+            submission: {
               profileId: projectsProfileId,
             },
-          }),
-        ]);
+          },
+        }),
+        prisma.projectsChallengeSubmission.aggregate({
+          _sum: {
+            views: true,
+          },
+          where: {
+            profileId: projectsProfileId,
+          },
+        }),
+      ]);
 
-      // TODO(projects): remove when using real data.
       return {
-        codeReviews: Math.ceil(Math.random() * 1000),
+        codeReviews,
         completedChallenges,
         submissionViews: submissionViews._sum.views,
         upvotes: submissionUpvotes,
@@ -48,33 +65,49 @@ export const projectsProfileRouter = router({
       }),
     )
     .query(async ({ input: { projectsProfileId } }) => {
-      const [completedChallenges, submissionUpvotes, submissionViews] =
-        await Promise.all([
-          prisma.projectsChallengeSubmission.count({
-            where: {
-              profileId: projectsProfileId,
-            },
-          }),
-          prisma.projectsChallengeSubmissionVote.count({
-            where: {
-              submission: {
-                profileId: projectsProfileId,
+      const [
+        codeReviews,
+        completedChallenges,
+        submissionUpvotes,
+        submissionViews,
+      ] = await Promise.all([
+        prisma.discussionComment.count({
+          where: {
+            author: {
+              projectsProfile: {
+                id: projectsProfileId,
               },
             },
-          }),
-          prisma.projectsChallengeSubmission.aggregate({
-            _sum: {
-              views: true,
+            category: 'CODE_REVIEW',
+            domain: {
+              in: ['PROJECTS_CHALLENGE', 'PROJECTS_SUBMISSION'],
             },
-            where: {
+          },
+        }),
+        prisma.projectsChallengeSubmission.count({
+          where: {
+            profileId: projectsProfileId,
+          },
+        }),
+        prisma.projectsChallengeSubmissionVote.count({
+          where: {
+            submission: {
               profileId: projectsProfileId,
             },
-          }),
-        ]);
+          },
+        }),
+        prisma.projectsChallengeSubmission.aggregate({
+          _sum: {
+            views: true,
+          },
+          where: {
+            profileId: projectsProfileId,
+          },
+        }),
+      ]);
 
-      // TODO(projects): remove when using real data.
       return {
-        codeReviews: Math.ceil(Math.random() * 1000),
+        codeReviews,
         completedChallenges,
         submissionViews: submissionViews._sum.views,
         upvotes: submissionUpvotes,
