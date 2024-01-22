@@ -5,57 +5,72 @@ import prisma from '~/server/prisma';
 import { projectsUserProcedure } from './procedures';
 import { publicProcedure, router, userProcedure } from '../../trpc';
 
+async function fetchProjectsProfileStatistics(projectsProfileId: string) {
+  const [
+    codeReviews,
+    completedChallenges,
+    submissionUpvotes,
+    discussionUpvotes,
+    submissionViews,
+  ] = await Promise.all([
+    prisma.discussionComment.count({
+      where: {
+        author: {
+          projectsProfile: {
+            id: projectsProfileId,
+          },
+        },
+        category: 'CODE_REVIEW',
+        domain: {
+          in: ['PROJECTS_CHALLENGE', 'PROJECTS_SUBMISSION'],
+        },
+      },
+    }),
+    prisma.projectsChallengeSubmission.count({
+      where: {
+        profileId: projectsProfileId,
+      },
+    }),
+    prisma.projectsChallengeSubmissionVote.count({
+      where: {
+        submission: {
+          profileId: projectsProfileId,
+        },
+      },
+    }),
+    prisma.discussionCommentVote.count({
+      where: {
+        comment: {
+          author: {
+            projectsProfile: {
+              id: projectsProfileId,
+            },
+          },
+        },
+      },
+    }),
+    prisma.projectsChallengeSubmission.aggregate({
+      _sum: {
+        views: true,
+      },
+      where: {
+        profileId: projectsProfileId,
+      },
+    }),
+  ]);
+
+  return {
+    codeReviews,
+    completedChallenges,
+    submissionViews: submissionViews._sum.views,
+    upvotes: Number(submissionUpvotes) + Number(discussionUpvotes),
+  };
+}
+
 export const projectsProfileRouter = router({
   getDashboardStatistics: projectsUserProcedure.query(
     async ({ ctx: { projectsProfileId } }) => {
-      // TODO(projects): Unify with getDashboardStatisticsForProfile
-      const [
-        codeReviews,
-        completedChallenges,
-        submissionUpvotes,
-        submissionViews,
-      ] = await Promise.all([
-        prisma.discussionComment.count({
-          where: {
-            author: {
-              projectsProfile: {
-                id: projectsProfileId,
-              },
-            },
-            category: 'CODE_REVIEW',
-            domain: {
-              in: ['PROJECTS_CHALLENGE', 'PROJECTS_SUBMISSION'],
-            },
-          },
-        }),
-        prisma.projectsChallengeSubmission.count({
-          where: {
-            profileId: projectsProfileId,
-          },
-        }),
-        prisma.projectsChallengeSubmissionVote.count({
-          where: {
-            submission: {
-              profileId: projectsProfileId,
-            },
-          },
-        }),
-        prisma.projectsChallengeSubmission.aggregate({
-          _sum: {
-            views: true,
-          },
-          where: {
-            profileId: projectsProfileId,
-          },
-        }),
-      ]);
-
-      return {
-        codeReviews,
-        completedChallenges,
-        submissionViews: submissionViews._sum.views,
-        upvotes: submissionUpvotes,
-      };
+      return await fetchProjectsProfileStatistics(projectsProfileId);
     },
   ),
   getDashboardStatisticsForProfile: publicProcedure
@@ -65,53 +80,7 @@ export const projectsProfileRouter = router({
       }),
     )
     .query(async ({ input: { projectsProfileId } }) => {
-      const [
-        codeReviews,
-        completedChallenges,
-        submissionUpvotes,
-        submissionViews,
-      ] = await Promise.all([
-        prisma.discussionComment.count({
-          where: {
-            author: {
-              projectsProfile: {
-                id: projectsProfileId,
-              },
-            },
-            category: 'CODE_REVIEW',
-            domain: {
-              in: ['PROJECTS_CHALLENGE', 'PROJECTS_SUBMISSION'],
-            },
-          },
-        }),
-        prisma.projectsChallengeSubmission.count({
-          where: {
-            profileId: projectsProfileId,
-          },
-        }),
-        prisma.projectsChallengeSubmissionVote.count({
-          where: {
-            submission: {
-              profileId: projectsProfileId,
-            },
-          },
-        }),
-        prisma.projectsChallengeSubmission.aggregate({
-          _sum: {
-            views: true,
-          },
-          where: {
-            profileId: projectsProfileId,
-          },
-        }),
-      ]);
-
-      return {
-        codeReviews,
-        completedChallenges,
-        submissionViews: submissionViews._sum.views,
-        upvotes: submissionUpvotes,
-      };
+      return await fetchProjectsProfileStatistics(projectsProfileId);
     }),
   motivationsUpdate: userProcedure
     .input(

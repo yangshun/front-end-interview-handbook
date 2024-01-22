@@ -79,9 +79,9 @@ export default function ProjectsProfileStats({
       count: upvotes,
       icon: RiThumbUpFill,
       title: intl.formatMessage({
-        defaultMessage: 'Number of upvotes',
+        defaultMessage: 'Upvotes received',
         description: 'Number of upvotes received',
-        id: 'YKc6h5',
+        id: 'JinTBm',
       }),
     },
     {

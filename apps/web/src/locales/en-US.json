@@ -2051,6 +2051,10 @@
     "defaultMessage": "You have gained XXX rep!",
     "description": "Success message after submitting a project"
   },
+  "JinTBm": {
+    "defaultMessage": "Upvotes received",
+    "description": "Number of upvotes received"
+  },
   "Jkhbjw": {
     "defaultMessage": "Completed",
     "description": "Completed task label"
@@ -3670,10 +3674,6 @@
   "YKZzqP": {
     "defaultMessage": "Forms",
     "description": "Name of focus area questions"
-  },
-  "YKc6h5": {
-    "defaultMessage": "Number of upvotes",
-    "description": "Number of upvotes received"
   },
   "YM1bnf": {
     "defaultMessage": "An error has occurred",
