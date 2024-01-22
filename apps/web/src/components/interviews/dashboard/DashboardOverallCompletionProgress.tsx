@@ -5,6 +5,7 @@ import { trpc } from '~/hooks/trpc';
 import { useQuestionFormatLists } from '~/data/QuestionFormats';
 
 import QuestionsProgressPanel from '~/components/interviews/questions/listings/stats/QuestionsProgressPanel';
+import { themeCardBackgroundWhiteOnLightColor } from '~/components/ui/theme';
 
 import type { QuestionTotalAvailableCount } from '~/db/QuestionsListReader';
 import { categorizeQuestionsProgress } from '~/db/QuestionsUtils';
@@ -28,7 +29,7 @@ export default function PreparationOverallCompletionProgress({
       className={clsx(
         'relative grid gap-x-12 gap-y-4 rounded-lg px-6 py-4 md:grid-cols-3',
         'glassbox border border-neutral-200 dark:border-transparent',
-        'bg-white dark:bg-neutral-800/40',
+        themeCardBackgroundWhiteOnLightColor,
       )}>
       {[
         {

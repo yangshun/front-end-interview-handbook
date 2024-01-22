@@ -14,6 +14,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasizedHover,
   themeBorderColor,
+  themeCardBackgroundWhiteOnLightColor,
   themeDivideColor,
   themeTextBrandColor,
   themeTextBrandGroupHoverColor,
@@ -146,7 +147,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
             className={clsx(
               'group relative flex gap-x-4 px-6 py-4',
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-              'bg-white dark:bg-neutral-800/40',
+              themeCardBackgroundWhiteOnLightColor,
               'transition-colors',
               themeBackgroundEmphasizedHover,
               index === 0 && 'rounded-t-lg',

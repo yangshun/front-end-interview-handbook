@@ -7,8 +7,8 @@ import DiscussionsCommentList from '~/components/discussions/DiscussionsCommentL
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import {
-  themeBackgroundEmphasized,
   themeBorderColor,
+  themeCardBackgroundColor,
 } from '~/components/ui/theme';
 
 import ProjectsChallengeSubmissionDiscussionsNewComment from './ProjectsChallengeSubmissionDiscussionsNewComment';
@@ -28,7 +28,7 @@ export default function ProjectsChallengeSubmissionDiscussionsSection({
       className={clsx(
         'flex flex-col gap-8 py-8 px-4 md:px-8 rounded-lg',
         ['border', themeBorderColor],
-        'bg-neutral-50 dark:bg-neutral-800/40',
+        themeCardBackgroundColor,
       )}>
       <Heading level="heading6">
         <FormattedMessage

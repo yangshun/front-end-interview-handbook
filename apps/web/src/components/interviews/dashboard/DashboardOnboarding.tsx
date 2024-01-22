@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { RiCloseLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { useLocalStorage } from 'usehooks-ts';
@@ -8,6 +9,7 @@ import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Text from '~/components/ui/Text';
+import { themeCardBackgroundColor } from '~/components/ui/theme';
 
 import { QuestionCount } from '../questions/listings/stats/QuestionCount';
 
@@ -88,7 +90,10 @@ export default function DashboardOnboarding() {
           {areas_.map(({ icon: Icon, label, description, value }) => (
             <div
               key={value}
-              className="flex flex-col gap-2 rounded-lg bg-neutral-200/40 px-6 py-5 dark:bg-neutral-800/40">
+              className={clsx(
+                'flex flex-col gap-2 rounded-lg px-6 py-5',
+                themeCardBackgroundColor,
+              )}>
               <div className="flex items-center gap-x-3">
                 <Icon className="h-6 w-6 text-neutral-400 dark:text-neutral-500" />
                 <Text display="block" weight="bold">
@@ -109,7 +114,10 @@ export default function DashboardOnboarding() {
           {areas_.map(({ icon: Icon, label, value }) => (
             <div
               key={value}
-              className="flex gap-2 rounded-md bg-neutral-200/40 px-4 py-2 dark:bg-neutral-800/40">
+              className={clsx(
+                'flex gap-2 rounded-md px-4 py-2',
+                themeCardBackgroundColor,
+              )}>
               <div className="flex items-center gap-x-3">
                 <Icon className="h-6 w-6 text-neutral-400 dark:text-neutral-500" />
                 <Text display="block" size="body2" weight="bold">

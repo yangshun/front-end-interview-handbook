@@ -12,6 +12,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasizedHover,
   themeBorderColor,
+  themeCardBackgroundWhiteOnLightColor,
   themeDivideColor,
   themeIconColor,
   themeTextBrandGroupHoverColor,
@@ -54,7 +55,7 @@ export default function ProjectsDashboardContinueProjectsSection() {
             className={clsx(
               'group relative flex py-4 pl-5 pr-8',
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-              'bg-white dark:bg-neutral-800/40',
+              themeCardBackgroundWhiteOnLightColor,
               'transition-colors',
               themeBackgroundEmphasizedHover,
               index === 0 && 'rounded-t-lg',

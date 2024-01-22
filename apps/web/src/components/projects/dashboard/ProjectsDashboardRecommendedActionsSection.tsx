@@ -18,6 +18,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasizedHover,
   themeBorderColor,
+  themeCardBackgroundWhiteOnLightColor,
   themeChipBackgroundColor,
   themeElementBorderColor,
   themeTextBrandGroupHoverColor,
@@ -103,7 +104,7 @@ export default function ProjectsDashboardRecommendedActionsSection({
             'isolate grid px-8 py-6',
             'overflow-hidden rounded-lg',
             'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-            'bg-white dark:bg-neutral-800/40',
+            themeCardBackgroundWhiteOnLightColor,
             'transition-colors',
             [themeBorderColor, 'border-l', 'md:border-t'],
             'md:grid-cols-2',

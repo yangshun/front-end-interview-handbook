@@ -7,6 +7,7 @@ import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasized,
+  themeCardBackgroundWhiteOnLightColor,
   themeGlassyBorder,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
@@ -31,7 +32,10 @@ export default function ProjectsMarketingComponentTrackAccordionItem({
   return (
     <Accordion.Item value={slug}>
       <Card
-        className="flex flex-col overflow-visible bg-neutral-800/40 hover:bg-neutral-800/50"
+        className={clsx(
+          'flex flex-col overflow-visible',
+          themeCardBackgroundWhiteOnLightColor,
+        )}
         disableBackground={true}
         disableSpotlight={true}
         padding={false}

@@ -8,6 +8,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasizedHover,
   themeBorderColor,
+  themeCardBackgroundWhiteOnLightColor,
   themeDivideColor,
 } from '~/components/ui/theme';
 
@@ -39,7 +40,7 @@ export default function ProjectsCommentList({ comments, title }: Props) {
             className={clsx(
               'group relative flex py-5 pl-4 pr-6',
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-              'bg-white dark:bg-neutral-800/40',
+              themeCardBackgroundWhiteOnLightColor,
               'transition-colors',
               themeBackgroundEmphasizedHover,
               index === 0 && 'rounded-t-lg',

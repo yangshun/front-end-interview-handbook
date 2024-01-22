@@ -6,7 +6,11 @@ import GradientProgressBar from '~/components/ui/GradientProgressBar/GradientPro
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import type { ThemeGradient } from '~/components/ui/theme';
-import { themeBorderColor, themeGlassyBorder } from '~/components/ui/theme';
+import {
+  themeBorderColor,
+  themeCardBackgroundWhiteOnLightColor,
+  themeGlassyBorder,
+} from '~/components/ui/theme';
 
 import QuestionCountLabel from '../questions/metadata/QuestionCountLabel';
 import QuestionTotalTimeLabel from '../questions/metadata/QuestionTotalTimeLabel';
@@ -44,7 +48,8 @@ export default function DashboardContinueLearning({
       )}
       <div
         className={clsx(
-          'flex flex-col divide-y rounded-lg bg-white dark:bg-neutral-800/40',
+          'flex flex-col divide-y rounded-lg',
+          themeCardBackgroundWhiteOnLightColor,
           themeGlassyBorder,
           themeBorderColor,
         )}>

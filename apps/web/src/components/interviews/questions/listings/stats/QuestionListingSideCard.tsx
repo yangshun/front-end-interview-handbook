@@ -1,7 +1,10 @@
 import clsx from 'clsx';
 import type { PropsWithChildren } from 'react';
 
-import { themeGlassyBorder } from '~/components/ui/theme';
+import {
+  themeCardBackgroundWhiteOnLightColor,
+  themeGlassyBorder,
+} from '~/components/ui/theme';
 
 type Props = PropsWithChildren<{
   stripClassName?: string;
@@ -14,7 +17,8 @@ export default function QuestionListingSideCard({
   return (
     <div
       className={clsx(
-        'relative flex overflow-clip rounded-lg bg-white dark:bg-neutral-800/40',
+        'relative flex overflow-clip rounded-lg',
+        themeCardBackgroundWhiteOnLightColor,
         themeGlassyBorder,
       )}>
       <div
