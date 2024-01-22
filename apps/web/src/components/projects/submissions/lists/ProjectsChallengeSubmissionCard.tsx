@@ -11,18 +11,17 @@ import {
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardAltColor,
-  themeBorderColor,
   themeGlassyBorder,
 } from '~/components/ui/theme';
 
 import ProjectsChallengeHoverCard from './ProjectsChallengeHoverCard';
 import ProjectsChallengeSubmissionCardPinButton from './ProjectsChallengeSubmissionCardPinButton';
-import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from '../types';
+import type { ProjectsChallengeSubmissionAugmented } from '../types';
 import ProjectsChallengeStatusBadge from '../../challenges/status/ProjectsChallengeStatusBadge';
 import ProjectsSkillRow from '../../skills/ProjectsSkillRow';
 import ProjectsCommentCountTag from '../../stats/ProjectsCommentCountTag';
-import ProjectsLikeCountTag from '../../stats/ProjectsLikeCountTag';
 import ProjectsViewCountTag from '../../stats/ProjectsViewCountTag';
+import ProjectsVoteCountTag from '../../stats/ProjectsVoteCountTag';
 import ProjectsUserJobTitle from '../../users/ProjectsUserJobTitle';
 import ProjectsUserYearsOfExperience from '../../users/ProjectsUserYearsOfExperience';
 import UserAvatarWithLevel from '../../users/UserAvatarWithLevel';
@@ -35,7 +34,7 @@ type Props = Readonly<{
     status: ProjectsChallengeSessionStatus | null;
   }>;
   isPinned?: boolean;
-  submission: ProjectsChallengeSubmissionWithVotesAuthorChallenge;
+  submission: ProjectsChallengeSubmissionAugmented;
 }>;
 
 export default function ProjectsChallengeSubmissionCard({
@@ -139,9 +138,9 @@ export default function ProjectsChallengeSubmissionCard({
       </Text>
       <div className="flex justify-between gap-4">
         <div className="flex gap-4">
-          <ProjectsLikeCountTag likeCount={votes} />
-          <ProjectsViewCountTag viewCount={views} />
-          <ProjectsCommentCountTag commentCount={comments} />
+          <ProjectsVoteCountTag count={votes} />
+          <ProjectsViewCountTag count={views} />
+          <ProjectsCommentCountTag count={comments ?? 0} />
         </div>
         {/* TODO(projects): Format relative time */}
         <Text color="secondary" size="body3">

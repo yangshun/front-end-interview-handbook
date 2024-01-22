@@ -1,11 +1,14 @@
 import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 
-import { fetchSessionsForUserGroupedBySlug } from '~/db/projects/ProjectsReader';
+import {
+  fetchSessionsForUserGroupedBySlug,
+  fetchSubmissionCommentCountsGroupedById,
+} from '~/db/projects/ProjectsReader';
 
-import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge as ProjectsChallengeSubmissionWithVotesAuthorChallenge } from '../types';
+import type { ProjectsChallengeSubmissionAugmented as ProjectsChallengeSubmissionAugmented } from '../types';
 
 export function projectsChallengeSubmissionListAugmentChallenge<
-  T extends ProjectsChallengeSubmissionWithVotesAuthorChallenge,
+  T extends ProjectsChallengeSubmissionAugmented,
 >(submissions: ReadonlyArray<T>) {
   return submissions.map((submission) => {
     const challengeMetadata = allProjectsChallengeMetadata.find(
@@ -23,12 +26,16 @@ export function projectsChallengeSubmissionListAugmentChallenge<
 }
 
 export async function projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus<
-  T extends ProjectsChallengeSubmissionWithVotesAuthorChallenge,
+  T extends ProjectsChallengeSubmissionAugmented,
 >(userId: string | null, submissions: ReadonlyArray<T>) {
-  const sessionsForUserGroupedBySlug =
-    await fetchSessionsForUserGroupedBySlug(userId);
   const submissionsWithChallenge =
     projectsChallengeSubmissionListAugmentChallenge(submissions);
+  const submissionIds = submissions.map(({ id }) => id);
+  const [sessionsForUserGroupedBySlug, commentCountsGroupedBySubmissionId] =
+    await Promise.all([
+      fetchSessionsForUserGroupedBySlug(userId),
+      fetchSubmissionCommentCountsGroupedById(submissionIds),
+    ]);
 
   return submissionsWithChallenge.map((submission) => {
     return {
@@ -39,6 +46,7 @@ export async function projectsChallengeSubmissionListAugmentChallengeWithComplet
           sessionsForUserGroupedBySlug?.[submission.challenge.metadata.slug] ??
           null,
       },
+      comments: commentCountsGroupedBySubmissionId?.[submission.id] ?? null,
     };
   });
 }

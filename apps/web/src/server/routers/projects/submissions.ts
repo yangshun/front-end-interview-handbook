@@ -6,10 +6,7 @@ import { projectsChallengeSubmissionImplementationSchemaServer } from '~/compone
 import { projectsChallengeSubmissionRepositoryUrlSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
 import { projectsChallengeSubmissionSummarySchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionSummarySchema';
 import { projectsChallengeSubmissionTitleSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionTitleSchema';
-import {
-  projectsChallengeSubmissionListAugmentChallenge,
-  projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus,
-} from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListUtil';
+import { projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus } from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListUtil';
 import type { yoeReplacement } from '~/components/projects/types';
 
 import prisma from '~/server/prisma';
@@ -227,7 +224,10 @@ export const projectsChallengeSubmissionRouter = router({
         },
       });
 
-      return projectsChallengeSubmissionListAugmentChallenge(submissions);
+      return await projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
+        null,
+        submissions,
+      );
     }),
   hasVoted: projectsUserProcedure
     .input(
@@ -278,7 +278,7 @@ export const projectsChallengeSubmissionRouter = router({
               },
       });
 
-      return projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
+      return await projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
         user?.id ?? null,
         submissions,
       );
@@ -557,9 +557,14 @@ export const projectsChallengeSubmissionRouter = router({
           }),
         ]);
 
+        const submissionsAugmented =
+          await projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
+            user?.id ?? null,
+            submissions,
+          );
+
         return {
-          submissions:
-            projectsChallengeSubmissionListAugmentChallenge(submissions),
+          submissions: submissionsAugmented,
           totalCount,
         };
       },
@@ -626,7 +631,7 @@ export const projectsChallengeSubmissionRouter = router({
         },
       });
 
-      return projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
+      return await projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
         user?.id ?? null,
         submissions,
       );

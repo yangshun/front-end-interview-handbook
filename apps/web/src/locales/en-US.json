@@ -583,6 +583,10 @@
     "defaultMessage": "Info",
     "description": "Select label for info log level in console filter"
   },
+  "4g6SOx": {
+    "defaultMessage": "{upvoteCount, plural, =0 {No upvotes} one {# upvote} other {# upvotes}}",
+    "description": "Number of upvotes for project submission"
+  },
   "4kQ6Kr": {
     "defaultMessage": "Exclusive to currently enrolled students at accredited educational institutions.",
     "description": "Condition for promotion"
@@ -806,6 +810,10 @@
   "6yAWpI": {
     "defaultMessage": "With over {QuestionCount} practice questions curated by senior front end engineers, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
     "description": "Subtitle of the 'Practice Everything Here' marketing section on Homepage"
+  },
+  "6zZ5vj": {
+    "defaultMessage": "{commentsCount, plural, =0 {No comments} one {# comment} other {# comments}}",
+    "description": "Number of comments for project submission"
   },
   "72GwzV": {
     "defaultMessage": "Available in {frameworkLabel}",
@@ -1259,10 +1267,6 @@
     "defaultMessage": "Last week",
     "description": "Title for last week list of code reviews"
   },
-  "BUdbpg": {
-    "defaultMessage": "No",
-    "description": "Cancel button label in confirmation dialog"
-  },
   "BfJL2V": {
     "defaultMessage": "Challenge difficulty",
     "description": "Label for Difficulty filter for submissions list"
@@ -1630,6 +1634,10 @@
   "FD+Giz": {
     "defaultMessage": "Deployment instructions",
     "description": "Label for button to open deployment instructions"
+  },
+  "FEamkQ": {
+    "defaultMessage": "Submit a comment",
+    "description": "Label for discussion input textarea"
   },
   "FLKG3X": {
     "defaultMessage": "Cut line (empty selection)",
@@ -4463,6 +4471,10 @@
     "defaultMessage": "Profile saved!",
     "description": "Toast for project profile saved"
   },
+  "fklQmL": {
+    "defaultMessage": "Discussions",
+    "description": "Challenge submission discussion section title"
+  },
   "fmAcHR": {
     "defaultMessage": "Practice everything in popular frameworks",
     "description": "Title of 'Practice everything in popular frameworks' feature in marketing page"
@@ -4506,10 +4518,6 @@
   "g3PJQr": {
     "defaultMessage": "LinkedIn",
     "description": "Company name for LinkedIn"
-  },
-  "g5XqyS": {
-    "defaultMessage": "{commentCount} comments",
-    "description": "Label for comment count on project discussions page"
   },
   "g65B9h": {
     "defaultMessage": "3 Months Plan",
@@ -5115,6 +5123,10 @@
     "defaultMessage": "Easy",
     "description": "Easy question difficulty"
   },
+  "ldxi7D": {
+    "defaultMessage": "Cancel",
+    "description": "Cancel button label in confirmation dialog"
+  },
   "lfKH/E": {
     "defaultMessage": "Mark as complete",
     "description": "Mark the question as complete"
@@ -5342,6 +5354,10 @@
   "oC86Nx": {
     "defaultMessage": "Views on submissions",
     "description": "Number of views on the project submissions"
+  },
+  "oFz9cs": {
+    "defaultMessage": "{commentCount, plural, =0 {No comments} one {# comment} other {# comments}}",
+    "description": "Label for comment count on project discussions page"
   },
   "oIktGl": {
     "defaultMessage": "One-time use; can only be completed once.",
@@ -5726,10 +5742,6 @@
   "rOzSWN": {
     "defaultMessage": "Build entire design systems, component libraries or full stack apps",
     "description": "Caption for component library showcase in Projects marketing hero section"
-  },
-  "rRJPN4": {
-    "defaultMessage": "{likes} Likes",
-    "description": "Number of likes for project submission"
   },
   "rWhQtZ": {
     "defaultMessage": "Full list of shortcuts can be found on the <link>Visual Studio Code website</link>.",
@@ -6414,10 +6426,6 @@
   "y9hdD1": {
     "defaultMessage": "Reading time",
     "description": "Reading time of the article"
-  },
-  "yG+kp/": {
-    "defaultMessage": "{commentsCount} Comments",
-    "description": "Number of comments for project submission"
   },
   "yIseuh": {
     "defaultMessage": "Help others improve",

@@ -5,11 +5,11 @@ import EmptyState from '~/components/ui/EmptyState';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import ProjectsChallengeSubmissionCard from './ProjectsChallengeSubmissionCard';
-import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from '../types';
+import type { ProjectsChallengeSubmissionAugmented } from '../types';
 
 type Props = Readonly<{
   challenges?: ReadonlyArray<ProjectsChallengeMetadata>;
-  submissions: ReadonlyArray<ProjectsChallengeSubmissionWithVotesAuthorChallenge>;
+  submissions: ReadonlyArray<ProjectsChallengeSubmissionAugmented>;
 }>;
 
 export default function ProjectsChallengeSubmissionList({

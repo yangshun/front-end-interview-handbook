@@ -29,7 +29,7 @@ import type {
   DiscussionsCommentUserProfile,
 } from './types';
 import { getRelativeTimestamp } from '../projects/common/relativeTimestampValues';
-import ProjectsLikeCountTag from '../projects/stats/ProjectsLikeCountTag';
+import ProjectsVoteCountTag from '../projects/stats/ProjectsVoteCountTag';
 import ProjectsUserJobTitle from '../projects/users/ProjectsUserJobTitle';
 import ProjectsUserYearsOfExperience from '../projects/users/ProjectsUserYearsOfExperience';
 import UserAvatarWithLevel from '../projects/users/UserAvatarWithLevel';
@@ -168,7 +168,7 @@ export default function DiscussionsComment({
               viewer != null && '-ml-3', // Because the upvote button has some horizontal padding.
             )}>
             {viewer == null ? (
-              <ProjectsLikeCountTag likeCount={votesCount} />
+              <ProjectsVoteCountTag count={votesCount} />
             ) : (
               <DiscussionsCommentVoteButton
                 comment={comment}

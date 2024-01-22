@@ -12,10 +12,10 @@ import {
 } from '~/components/ui/theme';
 
 import ProjectsChallengeSubmissionDiscussionsNewComment from './ProjectsChallengeSubmissionDiscussionsNewComment';
-import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from '../types';
+import type { ProjectsChallengeSubmissionAugmented } from '../types';
 
 type Props = Readonly<{
-  submission: ProjectsChallengeSubmissionWithVotesAuthorChallenge;
+  submission: ProjectsChallengeSubmissionAugmented;
 }>;
 
 export default function ProjectsChallengeSubmissionDiscussionsSection({

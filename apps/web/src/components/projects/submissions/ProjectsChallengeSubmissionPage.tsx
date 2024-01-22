@@ -14,7 +14,7 @@ import ProjectsChallengeSubmissionHero from '~/components/projects/submissions/h
 import ProjectsChallengeSubmissionAuthorProfile from '~/components/projects/submissions/ProjectsChallengeSubmissionAuthorProfile';
 import ProjectsChallengeSubmissionComparison from '~/components/projects/submissions/ProjectsChallengeSubmissionComparison';
 import ProjectsChallengeSubmissionInterested from '~/components/projects/submissions/ProjectsChallengeSubmissionInterested';
-import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from '~/components/projects/submissions/types';
+import type { ProjectsChallengeSubmissionAugmented } from '~/components/projects/submissions/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -26,7 +26,7 @@ import ProjectsChallengeSubmissionDiscussionsSection from './discussions/Project
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   currentUserId: string | undefined;
-  submission: ProjectsChallengeSubmissionWithVotesAuthorChallenge;
+  submission: ProjectsChallengeSubmissionAugmented;
 }>;
 
 export default function ProjectsChallengeSubmissionPage({

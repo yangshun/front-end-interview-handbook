@@ -52,9 +52,9 @@ export default function ConfirmationDialog({
         <Button
           isDisabled={isConfirming}
           label={intl.formatMessage({
-            defaultMessage: 'No',
+            defaultMessage: 'Cancel',
             description: 'Cancel button label in confirmation dialog',
-            id: 'BUdbpg',
+            id: 'ldxi7D',
           })}
           size="md"
           variant="secondary"

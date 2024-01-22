@@ -13,7 +13,7 @@ import ProjectsChallengeSubmissionHeroPinButton from '~/components/projects/subm
 import ProjectsChallengeSubmissionHeroTimestamp from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroTimestamp';
 import ProjectsChallengeSubmissionHeroViews from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroViews';
 import ProjectsChallengeSubmissionHeroVoteButton from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroVoteButton';
-import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from '~/components/projects/submissions/types';
+import type { ProjectsChallengeSubmissionAugmented } from '~/components/projects/submissions/types';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -24,7 +24,7 @@ type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   isParentInView: boolean;
   showPin: boolean;
-  submission: ProjectsChallengeSubmissionWithVotesAuthorChallenge;
+  submission: ProjectsChallengeSubmissionAugmented;
 }>;
 
 export default function ProjectsChallengeSubmissionHero({
@@ -105,7 +105,7 @@ export default function ProjectsChallengeSubmissionHero({
 
   const commentButton = (
     <ProjectsChallengeSubmissionHeroCommentButton
-      comments={submission.comments}
+      comments={submission.comments ?? 0}
     />
   );
 

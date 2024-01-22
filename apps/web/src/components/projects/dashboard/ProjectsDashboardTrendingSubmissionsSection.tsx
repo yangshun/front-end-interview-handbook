@@ -141,25 +141,27 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                     {submission._count.votes > 0 && (
                       <Text color="subtitle" size="body3">
                         <FormattedMessage
-                          defaultMessage="{likes} Likes"
-                          description="Number of likes for project submission"
-                          id="rRJPN4"
+                          defaultMessage="{upvoteCount, plural, =0 {No upvotes} one {# upvote} other {# upvotes}}"
+                          description="Number of upvotes for project submission"
+                          id="4g6SOx"
                           values={{
-                            likes: submission._count.votes,
+                            upvoteCount: submission._count.votes,
                           }}
                         />
                       </Text>
                     )}
-                    <Text color="subtitle" size="body3">
-                      <FormattedMessage
-                        defaultMessage="{commentsCount} Comments"
-                        description="Number of comments for project submission"
-                        id="yG+kp/"
-                        values={{
-                          commentsCount: submission.comments,
-                        }}
-                      />
-                    </Text>
+                    {(submission?.comments ?? 0) > 0 && (
+                      <Text color="subtitle" size="body3">
+                        <FormattedMessage
+                          defaultMessage="{commentsCount, plural, =0 {No comments} one {# comment} other {# comments}}"
+                          description="Number of comments for project submission"
+                          id="6zZ5vj"
+                          values={{
+                            commentsCount: submission.comments ?? 0,
+                          }}
+                        />
+                      </Text>
+                    )}
                   </div>
                 </div>
               </div>

@@ -25,7 +25,7 @@ export type ProjectsChallengeSubmissionAuthor = Readonly<{
   username: string;
 }>;
 
-export type ProjectsChallengeSubmissionWithVotesAuthorChallenge =
+export type ProjectsChallengeSubmissionAugmented =
   ProjectsChallengeSubmissionExtended &
     Readonly<{
       _count: {
@@ -35,6 +35,7 @@ export type ProjectsChallengeSubmissionWithVotesAuthorChallenge =
         metadata: ProjectsChallengeMetadata;
         status: ProjectsChallengeSessionStatus | null;
       }>;
+      comments?: number | null;
       projectsProfile?:
         | (ProjectsProfile & {
             userProfile?: ProjectsChallengeSubmissionAuthor | null | undefined;

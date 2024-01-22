@@ -14,12 +14,12 @@ import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 
-import type { ProjectsChallengeSubmissionWithVotesAuthorChallenge } from '../types';
+import type { ProjectsChallengeSubmissionAugmented } from '../types';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
 type Props = Readonly<{
-  submission: ProjectsChallengeSubmissionWithVotesAuthorChallenge;
+  submission: ProjectsChallengeSubmissionAugmented;
   viewer: DiscussionsCommentUserProfile;
 }>;
 

@@ -14,7 +14,7 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { locale, id: submissionId } = params;
-  const [user, submission] = await Promise.all([
+  const [user, submission, commentCount] = await Promise.all([
     readUserFromToken(),
     prisma.projectsChallengeSubmission.findFirst({
       include: {
@@ -43,6 +43,12 @@ export default async function Page({ params }: Props) {
         id: submissionId,
       },
     }),
+    prisma.discussionComment.count({
+      where: {
+        domain: 'PROJECTS_SUBMISSION',
+        entityId: submissionId,
+      },
+    }),
   ]);
 
   if (submission == null) {
@@ -58,7 +64,10 @@ export default async function Page({ params }: Props) {
     <ProjectsChallengeSubmissionPage
       challenge={challenge}
       currentUserId={user?.id}
-      submission={convertToPlainObject(submission)}
+      submission={convertToPlainObject({
+        ...submission,
+        comments: commentCount,
+      })}
     />
   );
 }

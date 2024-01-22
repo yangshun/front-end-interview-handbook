@@ -8,11 +8,7 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import {
-  themeBackgroundColor,
-  themeBorderElementColor,
-  themeTextSecondaryColor,
-} from '~/components/ui/theme';
+import { themeBorderElementColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
   deploymentUrls: Array<

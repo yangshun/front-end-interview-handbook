@@ -87,6 +87,30 @@ export async function fetchSessionsForUserGroupedBySlug(
   return sessionsForUserGrouped;
 }
 
+export async function fetchSubmissionCommentCountsGroupedById(
+  submissionIds: Array<string>,
+): Promise<Record<string, number>> {
+  const commentsCount: Record<string, number> = {};
+
+  const countsList = await prisma.discussionComment.groupBy({
+    _count: {
+      id: true,
+    },
+    by: ['entityId'],
+    where: {
+      entityId: {
+        in: submissionIds,
+      },
+    },
+  });
+
+  countsList?.forEach(({ _count, entityId }) => {
+    commentsCount[entityId] = _count.id;
+  });
+
+  return commentsCount;
+}
+
 export async function readProjectsChallengeList(
   requestedLocale = 'en-US',
   userId?: string | null,

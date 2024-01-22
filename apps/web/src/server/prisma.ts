@@ -9,10 +9,6 @@ const prismaClientSingleton = () => {
     name: 'ProjectsChallengeSubmission extension',
     result: {
       projectsChallengeSubmission: {
-        // TODO(projects): remove when using real data.
-        comments: {
-          compute: () => 42,
-        },
         deploymentUrls: {
           compute: (submission) =>
             submission.deploymentUrls as Array<
