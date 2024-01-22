@@ -138,14 +138,7 @@ export default function ProjectsChallengeSessionContextProvider({
 
       isGetStartedDialogShown,
       isStartSessionLoading: startProjectMutation.isLoading,
-      // TODO(projects): Replace when/if superjson is added to trpc
-      session: session
-        ? {
-            ...session,
-            createdAt: new Date(session.createdAt),
-            stoppedAt: session.stoppedAt ? new Date(session.stoppedAt) : null,
-          }
-        : session,
+      session,
       setIsGetStartedDialogShown,
       startProject: () => {
         setIsGetStartedDialogShown(true);

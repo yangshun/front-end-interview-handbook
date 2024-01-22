@@ -64,7 +64,6 @@ export function sortProjectsChallenges<T extends ProjectsChallengeItem>(
         return isAscendingOrder ? value : -value;
       }
 
-      // TODO(projects):  Add createdAt sort logic for projects
       case 'createdAt': {
         const value =
           new Date(a.metadata.createdAt).getTime() -

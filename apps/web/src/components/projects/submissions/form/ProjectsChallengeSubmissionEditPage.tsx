@@ -90,8 +90,7 @@ export default function ProjectsChallengeSubmissionEditPage({
           }),
           variant: 'info',
         });
-        // TODO(projects): Find a better route to go to.
-        router.push('/projects/challenges');
+        router.push('/projects/dashboard');
       },
     },
   );
