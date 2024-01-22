@@ -5,6 +5,7 @@ import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
+import type { DiscussionsCommentUserProfile } from '~/components/discussions/types';
 import ProjectsUserJobTitle from '~/components/projects/users/ProjectsUserJobTitle';
 import UserAvatarWithLevel from '~/components/projects/users/UserAvatarWithLevel';
 import Anchor from '~/components/ui/Anchor';
@@ -19,13 +20,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
-  viewer: Readonly<{
-    avatarUrl: string | null;
-    id: string;
-    name: string | null;
-    title: string | null;
-    username: string;
-  }>;
+  viewer: DiscussionsCommentUserProfile;
 }>;
 
 type CommentFormInput = Readonly<{

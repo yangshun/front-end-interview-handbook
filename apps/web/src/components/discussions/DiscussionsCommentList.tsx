@@ -11,6 +11,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBorderColor,
   themeTextSecondaryColor,
+  themeTextSubtleColor,
 } from '~/components/ui/theme';
 
 import DiscussionsComment from './DiscussionsComment';
@@ -35,7 +36,7 @@ export default function DiscussionsCommentList({
 }: Props) {
   const [isAscendingOrder, setIsAscendingOrder] = useState(false);
   const [sortField, setSortField] =
-    useState<DiscussionsCommentSortField>('votes');
+    useState<DiscussionsCommentSortField>('createdAt');
   const { data, isLoading } = trpc.comments.list.useQuery({
     domain,
     entityId,
@@ -71,16 +72,13 @@ export default function DiscussionsCommentList({
     <div className="flex flex-col gap-6 w-full">
       <div className="flex items-center justify-between">
         <div
-          className={clsx(
-            'flex items-center gap-1.5',
-            themeTextSecondaryColor,
-          )}>
+          className={clsx('flex items-center gap-1.5', themeTextSubtleColor)}>
           <RiQuestionnaireLine className="h-5 w-5" />
           <Text color="inherit" size="body3">
             <FormattedMessage
-              defaultMessage="{commentCount} comments"
+              defaultMessage="{commentCount, plural, =0 {No comments} one {# comment} other {# comments}}"
               description="Label for comment count on project discussions page"
-              id="g5XqyS"
+              id="oFz9cs"
               values={{
                 commentCount: count,
               }}

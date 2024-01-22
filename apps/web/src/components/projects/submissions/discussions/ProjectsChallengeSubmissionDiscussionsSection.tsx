@@ -26,9 +26,9 @@ export default function ProjectsChallengeSubmissionDiscussionsSection({
   return (
     <div
       className={clsx(
-        'flex flex-col gap-8 p-8 rounded-lg',
-        themeBackgroundEmphasized,
+        'flex flex-col gap-8 py-8 px-4 md:px-8 rounded-lg',
         ['border', themeBorderColor],
+        'bg-neutral-50 dark:bg-neutral-800/40',
       )}>
       <Heading level="heading6">
         <FormattedMessage
