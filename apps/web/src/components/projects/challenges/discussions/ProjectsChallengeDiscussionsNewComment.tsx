@@ -59,8 +59,8 @@ export default function ProjectsChallengeDiscussionsNewComment({
   const onSubmit: SubmitHandler<CommentFormInput> = (data) =>
     createCommentMutation.mutate(
       {
+        body: data.body,
         category: data.isQuestion ? 'QUESTION' : undefined,
-        content: data.body,
         domain: 'PROJECTS_CHALLENGE',
         entityId: challenge.metadata.slug,
       },

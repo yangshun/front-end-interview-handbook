@@ -4,30 +4,34 @@ import prisma from '~/server/prisma';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
 
-import { Prisma } from '@prisma/client';
+import { DiscussionCommentDomain, Prisma } from '@prisma/client';
 
-const domains = ['PROJECTS_SUBMISSION', 'PROJECTS_CHALLENGE'] as const;
+// TODO(prisma): Read from Prisma directly.
+const domains = [
+  DiscussionCommentDomain.PROJECTS_SUBMISSION,
+  DiscussionCommentDomain.PROJECTS_CHALLENGE,
+] as const;
 
 export const commentsRouter = router({
   create: userProcedure
     .input(
       z.object({
-        category: z.string().optional(),
         // TODO(projects): reuse validation on client.
-        content: z.string().trim().min(10).max(40000),
+        body: z.string().trim().min(10).max(40000),
+        category: z.string().optional(),
         domain: z.enum(domains),
         entityId: z.string(),
       }),
     )
     .mutation(
       async ({
-        input: { entityId, domain, category, content },
+        input: { entityId, domain, category, body },
         ctx: { user },
       }) => {
         return await prisma.discussionComment.create({
           data: {
+            body,
             category,
-            content,
             domain,
             entityId,
             userId: user.id,
@@ -148,7 +152,7 @@ export const commentsRouter = router({
     .input(
       z.object({
         // TODO(projects): reuse validation on client.
-        content: z.string().trim().min(10).max(40000),
+        body: z.string().trim().min(10).max(40000),
         domain: z.enum(domains),
         entityId: z.string(),
         parentCommentId: z.string().uuid(),
@@ -156,12 +160,12 @@ export const commentsRouter = router({
     )
     .mutation(
       async ({
-        input: { entityId, domain, content, parentCommentId },
+        input: { entityId, domain, body, parentCommentId },
         ctx: { user },
       }) => {
         return await prisma.discussionComment.create({
           data: {
-            content,
+            body,
             domain,
             entityId,
             parentCommentId,
@@ -187,15 +191,15 @@ export const commentsRouter = router({
   update: userProcedure
     .input(
       z.object({
-        commentId: z.string().uuid(),
         // TODO(projects): reuse validation on client.
-        content: z.string().trim().min(10).max(40000),
+        body: z.string().trim().min(10).max(40000),
+        commentId: z.string().uuid(),
       }),
     )
-    .mutation(async ({ input: { commentId, content }, ctx: { user } }) => {
+    .mutation(async ({ input: { commentId, body }, ctx: { user } }) => {
       return await prisma.discussionComment.update({
         data: {
-          content,
+          body,
         },
         where: {
           id: commentId,

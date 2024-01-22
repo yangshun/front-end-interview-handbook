@@ -50,10 +50,10 @@ export default function DiscussionsComment({
   viewer,
 }: Props) {
   const {
+    _count: { votes: votesCount },
     id: commentId,
     author,
-    _count: { votes: votesCount },
-    content,
+    body,
     category,
     replies,
   } = comment;
@@ -130,7 +130,7 @@ export default function DiscussionsComment({
                   <Anchor
                     href={`/projects/u/${author.username}`}
                     variant="flat">
-                    {author.name}
+                    {author.name ?? author.username}
                   </Anchor>
                 </Text>
                 {' · '}
@@ -160,23 +160,24 @@ export default function DiscussionsComment({
               }}
             />
           ) : (
-            <Text size="body2">{content}</Text>
+            <Text size="body2">{body}</Text>
           )}
-          <div className="flex -mt-1">
+          <div
+            className={clsx(
+              'flex -mt-1',
+              viewer != null && '-ml-3', // Because the upvote button has some horizontal padding.
+            )}>
             {viewer == null ? (
               <ProjectsLikeCountTag likeCount={votesCount} />
             ) : (
-              <div className="-ml-3">
-                <DiscussionsCommentVoteButton
-                  comment={comment}
-                  count={votesCount}
-                />
-              </div>
+              <DiscussionsCommentVoteButton
+                comment={comment}
+                count={votesCount}
+              />
             )}
             {viewer != null && level <= MAX_LEVEL_TO_ALLOW_REPLIES && (
               <Button
                 addonPosition="start"
-                className="ms-2"
                 icon={RiReplyFill}
                 label={intl.formatMessage({
                   defaultMessage: 'Reply',

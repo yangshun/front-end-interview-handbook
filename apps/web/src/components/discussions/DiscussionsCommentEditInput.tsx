@@ -34,7 +34,7 @@ export default function DiscussionsCommentEditInput({
     formState: { errors },
   } = useForm<CommentFormInput>({
     defaultValues: {
-      body: comment.content,
+      body: comment.body,
     },
     mode: 'onSubmit',
     resolver: zodResolver(
@@ -46,8 +46,8 @@ export default function DiscussionsCommentEditInput({
   const onSubmit: SubmitHandler<CommentFormInput> = (data) =>
     updateCommentMutation.mutate(
       {
+        body: data.body,
         commentId: comment.id,
-        content: data.body,
       },
       {
         onSuccess: () => {

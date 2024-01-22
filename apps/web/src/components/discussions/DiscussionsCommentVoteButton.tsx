@@ -24,8 +24,7 @@ export default function DiscussionsCommentVoteButton({
   const unvoteCommentMutation = trpc.comments.unvote.useMutation();
 
   const { data: likedComments } = trpc.comments.liked.useQuery({
-    // TODO(projects): Make domain an enum.
-    domain: comment.domain as any,
+    domain: comment.domain,
     entityId: comment.entityId,
   });
 

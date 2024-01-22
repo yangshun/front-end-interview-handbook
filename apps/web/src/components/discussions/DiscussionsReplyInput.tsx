@@ -57,9 +57,8 @@ export default function DiscussionsReplyInput({
   const onSubmit: SubmitHandler<CommentFormInput> = (data) =>
     createReplyMutation.mutate(
       {
-        content: data.body,
-        // TODO(projects): Make domain an enum.
-        domain: parentComment.domain as any,
+        body: data.body,
+        domain: parentComment.domain,
         entityId: parentComment.entityId,
         parentCommentId: parentComment.id,
       },

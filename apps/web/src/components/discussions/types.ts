@@ -1,3 +1,5 @@
+import type { DiscussionCommentDomain } from '@prisma/client';
+
 export type DiscussionsCommentUserProfile = Readonly<{
   avatarUrl: string | null;
   id: string;
@@ -11,10 +13,10 @@ export type DiscussionsCommentItem = Readonly<{
     votes: number;
   };
   author: DiscussionsCommentUserProfile;
+  body: string;
   category: string | null;
-  content: string;
   createdAt: Date;
-  domain: string;
+  domain: DiscussionCommentDomain;
   entityId: string;
   id: string;
   replies?: ReadonlyArray<DiscussionsCommentItem>;

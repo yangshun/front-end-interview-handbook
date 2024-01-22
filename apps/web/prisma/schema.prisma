@@ -257,13 +257,18 @@ model ProjectsChallengeSubmissionVote {
   @@unique([submissionId, profileId])
 }
 
-model DiscussionComment {
-  id              String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  entityId        String
-  domain          String
-  parentCommentId String? @db.Uuid
+enum DiscussionCommentDomain {
+  PROJECTS_CHALLENGE
+  PROJECTS_SUBMISSION
+}
 
-  content  String
+model DiscussionComment {
+  id              String                  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  entityId        String
+  domain          DiscussionCommentDomain
+  parentCommentId String?                 @db.Uuid
+
+  body     String
   category String?
   userId   String  @db.Uuid
 
