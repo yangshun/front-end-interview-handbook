@@ -38,9 +38,10 @@ export default function ProjectsChallengeSubmissionComparison({
     <Section>
       <div
         className={clsx(
-          'border rounded-lg flex flex-col',
-          themeBorderElementColor,
-          themeBackgroundColor,
+          'flex flex-col',
+          'rounded-lg',
+          ['border', themeBorderElementColor],
+          'bg-neutral-50 dark:bg-neutral-950',
         )}>
         {/* Header */}
         <div className="flex md:px-6 px-4 py-4 justify-between md:flex-row flex-col gap-4">
@@ -78,21 +79,18 @@ export default function ProjectsChallengeSubmissionComparison({
             />
           </div>
         </div>
-
         {/* Image Comparison Slider */}
         <div className="flex-1">
           <ProjectsChallengeSubmissionImageComparisonSlider
             image={images[selectedScreenIndex]}
           />
         </div>
-
         {/* Footer */}
         <div className="grid md:grid-cols-8 grid-col-2 md:px-6 px-4 py-4 w-full">
           <Text
-            className={clsx(
-              'md:col-span-2 col-span-1 flex items-center',
-              themeTextSecondaryColor,
-            )}>
+            className={clsx('md:col-span-2 col-span-1 flex items-center')}
+            color="secondary"
+            weight="medium">
             {deploymentUrls[selectedScreenIndex].label}
           </Text>
           <div className="md:col-span-2 col-span-1 md:order-last"></div>

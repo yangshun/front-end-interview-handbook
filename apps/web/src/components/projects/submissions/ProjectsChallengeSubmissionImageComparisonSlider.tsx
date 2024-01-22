@@ -15,7 +15,7 @@ export default function ProjectsChallengeSubmissionImageComparisonSlider({
   image,
 }: Props) {
   return (
-    <div className="md:max-h-[610px] md:min-h-[610px]  max-h-[272pxpx] min-h-[272px]  overflow-y-auto">
+    <div className="max-h-[272px] min-h-[272px] md:max-h-[610px] md:min-h-[610px] overflow-y-auto">
       <ReactCompareImage
         handle={
           <div className="bg-brand-dark dark:bg-brand justify-center items-center w-[42px] h-[42px] rounded-full flex">

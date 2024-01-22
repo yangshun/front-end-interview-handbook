@@ -123,7 +123,7 @@ export default function ProjectsChallengeSubmissionHero({
       {/* Sticky action bar */}
       <div
         className={clsx(
-          `sticky top-0 z-30 py-4  border-b hidden`,
+          'sticky top-0 z-30 py-4 border-b hidden',
           themeBorderColor,
           themeBackgroundColor,
           showStickyActionBar && '!block',
@@ -132,8 +132,10 @@ export default function ProjectsChallengeSubmissionHero({
           marginLeft: `-${sideMargin}px`,
           marginRight: `-${sideMargin}px`,
         }}>
-        <Container className="flex md:flex-row flex-col">
-          <Text className="flex-1">{submission.title}</Text>
+        <Container className="flex md:flex-row flex-col items-center">
+          <Text className="flex-1" weight="medium">
+            {submission.title}
+          </Text>
           <div className="flex gap-4">
             {views}
             <div className="flex gap-3 w-full">
