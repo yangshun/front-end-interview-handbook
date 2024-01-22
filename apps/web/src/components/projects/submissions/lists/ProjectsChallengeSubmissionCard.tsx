@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Anchor from '~/components/ui/Anchor';
 import {
   Hovercard,
@@ -24,7 +25,6 @@ import ProjectsViewCountTag from '../../stats/ProjectsViewCountTag';
 import ProjectsVoteCountTag from '../../stats/ProjectsVoteCountTag';
 import ProjectsUserJobTitle from '../../users/ProjectsUserJobTitle';
 import ProjectsUserYearsOfExperience from '../../users/ProjectsUserYearsOfExperience';
-import UserAvatarWithLevel from '../../users/UserAvatarWithLevel';
 
 import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
@@ -114,7 +114,7 @@ export default function ProjectsChallengeSubmissionCard({
       <img alt={title} className="h-[190px] w-full rounded-md" src={imgSrc} />
       {!isPinned && author != null && (
         <div className="flex items-center gap-4">
-          <UserAvatarWithLevel
+          <ProjectsProfileAvatar
             level={11}
             profile={author}
             progress={40}

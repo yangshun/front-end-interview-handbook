@@ -131,7 +131,7 @@ function TooltipLabel({
   return (
     <span
       className={clsx(
-        'fixed z-40 rounded',
+        'fixed z-[100] rounded',
         sizeClasses[size],
         tooltipBackgroundColor,
         position === 'above' && 'mb-1.5',

@@ -1,11 +1,4 @@
 import clsx from 'clsx';
-import {
-  RiEyeFill,
-  RiRocketFill,
-  RiTerminalBoxFill,
-  RiThumbUpFill,
-} from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import Card from '~/components/ui/Card';
 import CardContainer from '~/components/ui/Card/CardContainer';
@@ -15,6 +8,8 @@ import {
   themeBackgroundChipColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
+
+import useProjectsProfileStats from '../hooks/useProjectsProfileStats';
 
 function getFormattedNumber(num: number) {
   if (num === 0) {
@@ -63,46 +58,12 @@ export default function ProjectsProfileStats({
   submissionViews,
   upvotes,
 }: Props) {
-  const intl = useIntl();
-
-  const stats = [
-    {
-      count: completedChallenges,
-      icon: RiRocketFill,
-      title: intl.formatMessage({
-        defaultMessage: 'Challenges completed',
-        description: 'Number of project challenges completed',
-        id: 'lWQA1A',
-      }),
-    },
-    {
-      count: upvotes,
-      icon: RiThumbUpFill,
-      title: intl.formatMessage({
-        defaultMessage: 'Upvotes received',
-        description: 'Number of upvotes received',
-        id: 'JinTBm',
-      }),
-    },
-    {
-      count: codeReviews,
-      icon: RiTerminalBoxFill,
-      title: intl.formatMessage({
-        defaultMessage: 'Code reviews done',
-        description: 'Number of code reviews given',
-        id: 'axma2q',
-      }),
-    },
-    {
-      count: submissionViews,
-      icon: RiEyeFill,
-      title: intl.formatMessage({
-        defaultMessage: 'Views on submissions',
-        description: 'Number of views on the project submissions',
-        id: 'oC86Nx',
-      }),
-    },
-  ];
+  const stats = useProjectsProfileStats({
+    codeReviews,
+    completedChallenges,
+    submissionViews,
+    upvotes,
+  });
 
   return (
     <Section>

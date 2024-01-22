@@ -9,10 +9,10 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import ProjectsProfileBio from '~/components/projects/profile/info/ProjectsProfileBio';
 import ProjectsProfileMotivation from '~/components/projects/profile/info/ProjectsProfileMotivation';
 import ProjectsProfileTechList from '~/components/projects/profile/info/ProjectsProfileTechList';
+import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import ProjectsUserJobTitle from '~/components/projects/users/ProjectsUserJobTitle';
 import ProjectsUserReputation from '~/components/projects/users/ProjectsUserReputation';
 import ProjectsUserYearsOfExperience from '~/components/projects/users/ProjectsUserYearsOfExperience';
-import UserAvatarWithLevel from '~/components/projects/users/UserAvatarWithLevel';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Chip from '~/components/ui/Chip';
@@ -48,7 +48,7 @@ export default function ProjectsProfileInfo({
     <>
       <Section>
         <div className="gap-6 items-center md:flex hidden">
-          <UserAvatarWithLevel
+          <ProjectsProfileAvatar
             level={11}
             profile={userProfile}
             progress={30}
@@ -118,7 +118,7 @@ export default function ProjectsProfileInfo({
         </div>
         <div className="md:hidden flex flex-col">
           <div className="flex gap-8 items-center">
-            <UserAvatarWithLevel
+            <ProjectsProfileAvatar
               level={11}
               profile={userProfile}
               progress={30}

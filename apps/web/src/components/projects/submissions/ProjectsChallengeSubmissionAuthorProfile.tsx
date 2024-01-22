@@ -6,10 +6,10 @@ import {
 import { useIntl } from 'react-intl';
 
 import type { ProjectsChallengeSubmissionAuthor } from '~/components/projects/submissions/types';
+import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import ProjectsUserJobTitle from '~/components/projects/users/ProjectsUserJobTitle';
 import ProjectsUserReputation from '~/components/projects/users/ProjectsUserReputation';
 import ProjectsUserYearsOfExperience from '~/components/projects/users/ProjectsUserYearsOfExperience';
-import UserAvatarWithLevel from '~/components/projects/users/UserAvatarWithLevel';
 import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
 
@@ -22,7 +22,7 @@ export default function ProjectsChallengeSubmissionAuthorProfile({
 
   return (
     <div className="gap-4 items-center flex">
-      <UserAvatarWithLevel
+      <ProjectsProfileAvatar
         level={11}
         profile={author}
         progress={30}

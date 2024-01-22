@@ -82,6 +82,72 @@ export const projectsProfileRouter = router({
     .query(async ({ input: { projectsProfileId } }) => {
       return await fetchProjectsProfileStatistics(projectsProfileId);
     }),
+  getProfileHoverData: publicProcedure
+    .input(
+      z.object({
+        profileId: z.string().uuid(),
+      }),
+    )
+    .query(async ({ input: { profileId } }) => {
+      const [profile, pinnedSubmissions, latestSubmissions] = await Promise.all(
+        [
+          prisma.profile.findUnique({
+            include: {
+              projectsProfile: {
+                select: {
+                  id: true,
+                },
+              },
+            },
+            where: {
+              id: profileId,
+            },
+          }),
+          prisma.projectsChallengeSubmission.findMany({
+            orderBy: {
+              createdAt: 'desc',
+            },
+            take: 2,
+            where: {
+              pins: {
+                some: {
+                  projectsProfile: {
+                    userId: profileId,
+                  },
+                },
+              },
+            },
+          }),
+          prisma.projectsChallengeSubmission.findMany({
+            orderBy: {
+              createdAt: 'desc',
+            },
+            take: 2,
+            where: {
+              projectsProfile: {
+                userId: profileId,
+              },
+            },
+          }),
+        ],
+      );
+      const { completedChallenges, upvotes, submissionViews, codeReviews } =
+        await fetchProjectsProfileStatistics(
+          profile?.projectsProfile?.id ?? '',
+        );
+
+      return {
+        profile,
+        stats: {
+          codeReviews,
+          completedChallenges,
+          submissionViews,
+          upvotes,
+        },
+        submissions:
+          pinnedSubmissions.length >= 2 ? pinnedSubmissions : latestSubmissions,
+      };
+    }),
   motivationsUpdate: userProcedure
     .input(
       z.object({

@@ -16,6 +16,7 @@ type Props = Readonly<
   {
     'aria-hidden'?: boolean;
     className?: string;
+    iconClassName?: string;
     label: string;
     size?: ChipSize;
     variant: ChipVariant;
@@ -89,6 +90,7 @@ export default function Chip({
   isLabelHidden,
   size = 'md',
   className,
+  iconClassName,
 }: Props) {
   const { backgroundClass, borderClass, textClass, iconClass } =
     variantClasses[variant];
@@ -106,7 +108,7 @@ export default function Chip({
         borderClass,
         className,
       )}>
-      {Icon && <Icon className={clsx(iconClass, 'h-4 w-4')} />}
+      {Icon && <Icon className={clsx(iconClass, 'h-4 w-4', iconClassName)} />}
       {!isLabelHidden && (
         <span className={clsx(textClass, size === 'xs' && 'text-xs')}>
           {label}

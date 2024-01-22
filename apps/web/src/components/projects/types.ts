@@ -1,5 +1,6 @@
 import type { z } from 'zod';
 
+import type { ProjectsProfileAvatarData } from '~/components/projects/challenges/types';
 import type {
   motivationReasonValue,
   yoeReplacementSchema,
@@ -87,3 +88,19 @@ export type yoeReplacement =
   | 'others'
   | 'self-learning'
   | 'undergrad-cs';
+
+export type UserLevelWithAvatarSize = '2xl' | '3xl' | 'lg' | 'xl';
+
+export type ProjectsUserAvatarProps = Readonly<{
+  className?: string;
+  /**
+   * Current level as a number
+   */
+  level: number;
+  profile?: ProjectsProfileAvatarData | null;
+  /**
+   * Progress to next level in percent
+   */
+  progress: number;
+  size?: UserLevelWithAvatarSize;
+}>;

@@ -1115,6 +1115,10 @@
     "defaultMessage": "JavaScript Polyfills",
     "description": "Name of focus area questions"
   },
+  "9WoF/6": {
+    "defaultMessage": "View Github profile",
+    "description": "Tooltip for github profile icon"
+  },
   "9Z/GHL": {
     "defaultMessage": "Something went wrong, please check your input.",
     "description": "Form error text"
@@ -2783,6 +2787,10 @@
     "defaultMessage": "Dropbox",
     "description": "Company name for Dropbox"
   },
+  "QYVlxD": {
+    "defaultMessage": "Premium User",
+    "description": "Tooltip for premium icon"
+  },
   "Qc3ZiZ": {
     "defaultMessage": "Edit your submission",
     "description": "Title for the challenge submission edit page"
@@ -3638,6 +3646,10 @@
   "Xlmv0q": {
     "defaultMessage": "Follow this step-by-step deployment and submission checklist",
     "description": "Description for the project submission checklist section"
+  },
+  "Xq6/V6": {
+    "defaultMessage": "View LinkedIn profile",
+    "description": "Tooltip for LinkedIn profile icon"
   },
   "XuVGsX": {
     "defaultMessage": "Account",
@@ -6470,6 +6482,10 @@
   "ykwubP": {
     "defaultMessage": "You are on the <bold>Quarterly</bold> plan.",
     "description": "Text describing user's subscription plan."
+  },
+  "ymmDf7": {
+    "defaultMessage": "Premium",
+    "description": "Label for premium"
   },
   "ynLgE+": {
     "defaultMessage": "Includes assets, JPG images of the design files, and a basic style guide. There's also a README to help you get started.",

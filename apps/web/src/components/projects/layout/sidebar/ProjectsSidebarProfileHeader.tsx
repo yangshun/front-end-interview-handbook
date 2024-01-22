@@ -4,13 +4,13 @@ import { useIntl } from 'react-intl';
 
 import useProfile from '~/hooks/user/useProfile';
 
+import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
 import ProjectsSidebarHeaderLogoBar from './ProjectsSidebarHeaderLogoBar';
 import ProjectsUserJobTitle from '../../users/ProjectsUserJobTitle';
 import ProjectsUserReputation from '../../users/ProjectsUserReputation';
-import UserAvatarWithLevel from '../../users/UserAvatarWithLevel';
 
 type Props = Readonly<{
   className?: string;
@@ -30,7 +30,12 @@ export function ProjectsSidebarProfileHeader({ className, points }: Props) {
       <ProjectsSidebarHeaderLogoBar />
       <div className="flex flex-col items-start gap-2">
         <div className="flex gap-3">
-          <UserAvatarWithLevel level={11} progress={30} size="lg" />
+          <ProjectsProfileAvatar
+            level={11}
+            profile={profile}
+            progress={30}
+            size="lg"
+          />
           <div className="flex flex-col gap-1">
             <Text size="body2">{profile.name}</Text>
             <ProjectsUserReputation points={points} size="2xs" />
