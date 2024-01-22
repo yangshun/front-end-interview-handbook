@@ -92,6 +92,7 @@ export default function ProjectsChallengeDiscussionsNewComment({
         </div>
       </div>
       <TextArea
+        autoResize={true}
         classNameOuter="my-3"
         errorMessage={errors.body?.message}
         isLabelHidden={true}
@@ -107,6 +108,7 @@ export default function ProjectsChallengeDiscussionsNewComment({
           id: 'OrN/z/',
         })}
         required={true}
+        rows={5}
         {...register('body')}
         disabled={createCommentMutation.isLoading}
         onChange={(value) => register('body').onChange({ target: { value } })}

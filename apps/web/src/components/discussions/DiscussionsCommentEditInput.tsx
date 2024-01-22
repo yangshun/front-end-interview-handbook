@@ -62,6 +62,7 @@ export default function DiscussionsCommentEditInput({
       onSubmit={handleSubmit(onSubmit)}>
       <TextArea
         autoFocus={true}
+        autoResize={true}
         classNameOuter="mt-2"
         errorMessage={errors.body?.message}
         isLabelHidden={true}
