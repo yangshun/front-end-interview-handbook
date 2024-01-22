@@ -112,7 +112,7 @@ export default function FeedbackDialog({
 
   return (
     <Dialog isShown={isShown} title={title} onClose={onClose}>
-      <div className="grid gap-y-4 overflow-y-auto pt-4">
+      <div className="grid gap-y-4 overflow-y-auto">
         {preBodyContents}
         {feedbackState === 'message' && (
           <form
@@ -139,6 +139,7 @@ export default function FeedbackDialog({
             }}>
             <TextArea
               autoFocus={true}
+              autoResize={false}
               errorMessage={submitFailureReason?.message}
               label={intl.formatMessage({
                 defaultMessage: 'Your Message',

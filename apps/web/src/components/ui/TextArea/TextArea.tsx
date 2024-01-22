@@ -5,7 +5,8 @@ import type {
   ForwardedRef,
   TextareaHTMLAttributes,
 } from 'react';
-import React, { forwardRef, useEffect, useId, useState } from 'react';
+import React, { forwardRef, useEffect, useId, useRef, useState } from 'react';
+import { mergeRefs } from 'react-merge-refs';
 
 import type { LabelDescriptionStyle } from '../Label';
 import Label from '../Label';
@@ -32,6 +33,7 @@ export type TextAreaSize = 'md' | 'sm' | 'xs';
 export type TextAreaResize = 'both' | 'horizontal' | 'none' | 'vertical';
 
 type Props = Readonly<{
+  autoResize?: boolean;
   className?: string;
   classNameOuter?: string;
   defaultValue?: string;
@@ -92,6 +94,7 @@ const horizontalPaddingSizeClasses: Record<TextAreaSize, string> = {
 
 function TextArea(
   {
+    autoResize = true,
     defaultValue,
     className,
     classNameOuter,
@@ -112,6 +115,9 @@ function TextArea(
   }: Props,
   ref: ForwardedRef<HTMLTextAreaElement>,
 ) {
+  const selfRef = useRef<HTMLTextAreaElement>();
+  const mergedRef = mergeRefs([ref, selfRef]);
+
   const hasError = !!errorMessage;
   const generatedId = useId();
   const [valueLength, setValueLength] = useState(
@@ -127,6 +133,23 @@ function TextArea(
     setValueLength((value ?? defaultValue ?? '').length);
   }, [value, defaultValue]);
 
+  useEffect(() => {
+    if (!autoResize) {
+      return;
+    }
+
+    autoResizeFn();
+  }, [autoResize]);
+
+  function autoResizeFn() {
+    if (!selfRef.current) {
+      return;
+    }
+
+    selfRef.current.style.height = 'auto';
+    selfRef.current.style.height = `${selfRef.current?.scrollHeight}px`;
+  }
+
   return (
     <div className={classNameOuter}>
       <div className={clsx(!isLabelHidden && 'mb-2')}>
@@ -141,7 +164,7 @@ function TextArea(
         />
       </div>
       <textarea
-        ref={ref}
+        ref={mergedRef}
         aria-describedby={
           hasError || description != null ? messageId : undefined
         }
@@ -164,6 +187,7 @@ function TextArea(
           horizontalPaddingSizeClasses[size],
           stateClasses[state],
           resizeClasses[resize],
+          className,
         )}
         defaultValue={defaultValue}
         disabled={disabled}
@@ -176,6 +200,10 @@ function TextArea(
             setValueLength(event.target.value.trim().length);
           }
           onChange?.(event.target.value, event);
+
+          if (autoResize) {
+            autoResizeFn();
+          }
         }}
         {...props}
       />

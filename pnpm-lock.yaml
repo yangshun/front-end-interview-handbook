@@ -363,6 +363,9 @@ importers:
       react-intl:
         specifier: ^6.2.8
         version: 6.5.5(react@18.2.0)(typescript@5.3.3)
+      react-merge-refs:
+        specifier: ^2.1.1
+        version: 2.1.1
       react-resizable-panels:
         specifier: ^0.0.55
         version: 0.0.55(react-dom@18.2.0)(react@18.2.0)
@@ -12069,6 +12072,10 @@ packages:
 
   /react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
+
+  /react-merge-refs@2.1.1:
+    resolution: {integrity: sha512-jLQXJ/URln51zskhgppGJ2ub7b2WFKGq3cl3NYKtlHoTG+dN2q7EzWrn3hN3EgPsTMvpR9tpq5ijdp7YwFZkag==}
+    dev: false
 
   /react-number-format@5.3.1(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-qpYcQLauIeEhCZUZY9jXZnnroOtdy3jYaS1zQ3M1Sr6r/KMOBEIGNIb7eKT19g2N1wbYgFgvDzs19hw5TrB8XQ==}
