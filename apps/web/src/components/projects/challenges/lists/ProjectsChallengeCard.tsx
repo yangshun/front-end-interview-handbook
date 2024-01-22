@@ -9,8 +9,8 @@ import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import {
-  themeBorderColor,
-  themeCardBackgroundColor,
+  themeBackgroundCardAltColor,
+  themeGlassyBorder,
 } from '~/components/ui/theme';
 
 import ProjectsChallengeStatusBadge from '../status/ProjectsChallengeStatusBadge';
@@ -47,11 +47,7 @@ export default function ProjectsChallengeCard({
     <div
       className={clsx(
         'flex flex-col overflow-clip rounded-lg',
-        type === 'normal' && [
-          'border',
-          themeBorderColor,
-          themeCardBackgroundColor,
-        ],
+        type === 'normal' && [themeGlassyBorder, themeBackgroundCardAltColor],
       )}>
       <div className="relative">
         <img

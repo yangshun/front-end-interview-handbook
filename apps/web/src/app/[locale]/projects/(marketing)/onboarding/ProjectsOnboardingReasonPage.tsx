@@ -33,9 +33,9 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 import {
+  themeBackgroundCardColor,
   themeBackgroundLayerEmphasized,
-  themeCardBackgroundColor,
-  themeElementBorderColor,
+  themeBorderElementColor,
   themeTextBrandColor,
   themeTextDisabledColor,
   themeTextSecondaryColor,
@@ -78,12 +78,12 @@ function ReasonList({
             aria-checked={selected}
             className={clsx(
               'relative rounded-lg border px-6 py-4',
-              themeCardBackgroundColor,
+              themeBackgroundCardColor,
               selected
                 ? 'border-brand'
                 : ['glassbox hover:border-brand/50 border-transparent'],
               'focus:outline-brand outline-offset-8',
-              disabled && themeElementBorderColor,
+              disabled && themeBorderElementColor,
             )}
             disabled={disabled}
             role="checkbox"

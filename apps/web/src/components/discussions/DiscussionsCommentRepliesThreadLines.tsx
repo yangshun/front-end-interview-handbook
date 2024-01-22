@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { themeElementBorderColor } from '../ui/theme';
+import { themeBorderElementColor } from '../ui/theme';
 
 type Props = Readonly<{
   branchHeightClass: string;
@@ -19,14 +19,14 @@ export default function DiscussionsCommentRepliesThreadLines({
         <div
           className={clsx(
             'absolute h-full w-px border-l -translate-x-2',
-            themeElementBorderColor,
+            themeBorderElementColor,
           )}
         />
       )}
       <div
         className={clsx(
           'absolute end-0 top-0 w-[44.5px] rounded-es-2xl border-b border-s',
-          themeElementBorderColor,
+          themeBorderElementColor,
           branchHeightClass,
         )}
       />

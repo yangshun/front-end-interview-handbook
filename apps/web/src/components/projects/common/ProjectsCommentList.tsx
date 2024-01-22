@@ -6,9 +6,9 @@ import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundCardWhiteOnLightColor,
   themeBackgroundEmphasizedHover,
   themeBorderColor,
-  themeCardBackgroundWhiteOnLightColor,
   themeDivideColor,
 } from '~/components/ui/theme';
 
@@ -40,7 +40,7 @@ export default function ProjectsCommentList({ comments, title }: Props) {
             className={clsx(
               'group relative flex py-5 pl-4 pr-6',
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-              themeCardBackgroundWhiteOnLightColor,
+              themeBackgroundCardWhiteOnLightColor,
               'transition-colors',
               themeBackgroundEmphasizedHover,
               index === 0 && 'rounded-t-lg',

@@ -7,6 +7,11 @@ import type {
 } from 'react';
 import { forwardRef, useId } from 'react';
 
+import {
+  themeBorderElementColor,
+  themeTextBrandColor,
+} from '~/components/ui/theme';
+
 import type { TextSize } from '../Text';
 import Text from '../Text';
 
@@ -75,9 +80,9 @@ function CheckboxInput(
             className={clsx(
               'h-4 w-4',
               'rounded',
-              'text-brand-dark dark:text-brand',
+              themeTextBrandColor,
               'bg-transparent',
-              'border-neutral-300 dark:border-neutral-700',
+              themeBorderElementColor,
               // Important! needed to override hover styles.
               [
                 'disabled:!bg-neutral-300 dark:disabled:!bg-neutral-700',

@@ -27,8 +27,8 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundChipColor,
   themeBorderColor,
-  themeChipBackgroundColor,
   themeDivideColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
@@ -197,7 +197,7 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
                       <span
                         className={clsx(
                           'inline-flex h-10 w-10 items-center justify-center rounded-md',
-                          themeChipBackgroundColor,
+                          themeBackgroundChipColor,
                           themeTextSecondaryColor,
                           'border border-transparent transition',
                           'group-hover:border-brand-dark group-hover:text-brand-dark',

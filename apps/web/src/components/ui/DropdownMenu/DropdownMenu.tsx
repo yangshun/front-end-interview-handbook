@@ -2,6 +2,13 @@ import clsx from 'clsx';
 import React, { Fragment } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
+import {
+  themeBackgroundElementColor,
+  themeBackgroundElementHoverStateColor,
+  themeBackgroundElementPressedStateColor,
+  themeBorderElementColor,
+} from '~/components/ui/theme';
+
 import DropdownMenuItem from './DropdownMenuItem';
 import type { TextSize } from '../Text';
 import Text from '../Text';
@@ -71,7 +78,7 @@ const sizeIconClasses: Record<DropdownMenuSize, string> = {
 };
 
 const variantClasses: Record<DropdownMenuVariant, string> = {
-  bordered: 'border border-neutral-300 dark:border-neutral-700',
+  bordered: clsx(['border', themeBorderElementColor]),
   flat: '',
 };
 
@@ -102,10 +109,9 @@ export default function DropdownMenu({
             'rounded-full',
             'transition-colors',
             variantClasses[variant],
-            [
-              'bg-white dark:bg-neutral-950',
-              'hover:bg-neutral-100 dark:hover:bg-neutral-900',
-            ],
+            themeBackgroundElementColor,
+            themeBackgroundElementHoverStateColor,
+            themeBackgroundElementPressedStateColor,
             [
               'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
               'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
@@ -153,7 +159,7 @@ export default function DropdownMenu({
             'absolute z-10 w-48',
             'rounded-md',
             themeBackgroundColor,
-            ['border', 'border-neutral-300 dark:border-neutral-700'],
+            ['border', themeBorderElementColor],
             'ring-brand ring-1 ring-opacity-5 focus:outline-none',
           )}>
           <Text

@@ -22,8 +22,10 @@ import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundElementActiveColor,
+  themeBackgroundElementHoverStateColor,
   themeBackgroundLayerColor,
-  themeBackgroundLayerEmphasizedHover,
+  themeTextBrandColor,
   themeTextBrandHoverColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
@@ -227,8 +229,8 @@ export default function Sidebar({
           );
 
           const activeClassName = clsx(
-            'text-brand-dark dark:text-brand',
-            'bg-neutral-100 dark:bg-neutral-800/70',
+            themeTextBrandColor,
+            themeBackgroundElementActiveColor,
           );
           const defaultClassName = clsx(
             themeTextSecondaryColor,
@@ -318,7 +320,7 @@ export default function Sidebar({
                               key={popoverItem.key}
                               className={clsx(
                                 'group gap-x-2 rounded px-2 py-3',
-                                themeBackgroundLayerEmphasizedHover,
+                                themeBackgroundElementHoverStateColor,
                               )}
                               href={popoverItem.href}
                               variant="unstyled"

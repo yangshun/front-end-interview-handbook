@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 
+import { themeTextBrandColor } from '../theme';
+
 export type ChipSize = 'md' | 'sm' | 'xs';
 
 export type ChipVariant =
@@ -56,8 +58,8 @@ const variantClasses: Record<
   secondary: {
     backgroundClass: 'bg-brand-lightest dark:bg-neutral-800',
     borderClass: 'border border-dashed border-brand-dark dark:border-brand',
-    iconClass: 'text-brand-dark dark:text-brand',
-    textClass: 'text-brand-dark dark:text-brand',
+    iconClass: themeTextBrandColor,
+    textClass: themeTextBrandColor,
   },
   special: {
     backgroundClass: 'shiny bg-brand-dark dark:bg-brand/20',

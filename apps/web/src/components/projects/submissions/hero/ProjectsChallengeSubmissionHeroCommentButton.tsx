@@ -4,7 +4,7 @@ import { RiMessage2Fill } from 'react-icons/ri';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundLayerEmphasized,
-  themeElementBorderColor,
+  themeBorderElementColor,
   themeTextColor,
 } from '~/components/ui/theme';
 
@@ -18,7 +18,7 @@ export default function ProjectsChallengeSubmissionHeroCommentButton({
       className={clsx(
         'flex items-center gap-1 py-2 px-3 md:w-auto justify-center w-full rounded-2xl border',
         themeBackgroundLayerEmphasized,
-        themeElementBorderColor,
+        themeBorderElementColor,
       )}
       type="button">
       <RiMessage2Fill className={clsx('h-4 w-4', themeTextColor)} />

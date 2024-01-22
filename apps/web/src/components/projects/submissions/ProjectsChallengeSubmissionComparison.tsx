@@ -10,7 +10,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
-  themeElementBorderColor,
+  themeBorderElementColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -39,7 +39,7 @@ export default function ProjectsChallengeSubmissionComparison({
       <div
         className={clsx(
           'border rounded-lg flex flex-col',
-          themeElementBorderColor,
+          themeBorderElementColor,
           themeBackgroundColor,
         )}>
         {/* Header */}
@@ -104,7 +104,7 @@ export default function ProjectsChallengeSubmissionComparison({
                   'w-12 h-12 rounded border',
                   index === selectedScreenIndex
                     ? 'border-brand-dark dark:border-brand'
-                    : themeElementBorderColor,
+                    : themeBorderElementColor,
                 )}
                 type="button"
                 onClick={() => setSelectedScreenIndex(index)}>

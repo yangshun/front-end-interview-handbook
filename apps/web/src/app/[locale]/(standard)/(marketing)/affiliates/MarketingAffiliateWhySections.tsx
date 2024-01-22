@@ -13,7 +13,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
-  themeChipBackgroundColor,
+  themeBackgroundChipColor,
   themeGlassyBorder,
   themeTextSubtitleColor,
 } from '~/components/ui/theme';
@@ -89,7 +89,7 @@ function SliderSection() {
         <Slider.Track
           className={clsx(
             'flex-grow-1 relative !h-3 w-full rounded-full',
-            themeChipBackgroundColor,
+            themeBackgroundChipColor,
           )}>
           <Slider.Range className="bg-brand-dark absolute h-full rounded" />
         </Slider.Track>

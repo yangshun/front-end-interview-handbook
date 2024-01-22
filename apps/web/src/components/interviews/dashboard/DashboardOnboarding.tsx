@@ -9,7 +9,7 @@ import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Text from '~/components/ui/Text';
-import { themeCardBackgroundColor } from '~/components/ui/theme';
+import { themeBackgroundCardColor } from '~/components/ui/theme';
 
 import { QuestionCount } from '../questions/listings/stats/QuestionCount';
 
@@ -92,7 +92,7 @@ export default function DashboardOnboarding() {
               key={value}
               className={clsx(
                 'flex flex-col gap-2 rounded-lg px-6 py-5',
-                themeCardBackgroundColor,
+                themeBackgroundCardColor,
               )}>
               <div className="flex items-center gap-x-3">
                 <Icon className="h-6 w-6 text-neutral-400 dark:text-neutral-500" />
@@ -116,7 +116,7 @@ export default function DashboardOnboarding() {
               key={value}
               className={clsx(
                 'flex gap-2 rounded-md px-4 py-2',
-                themeCardBackgroundColor,
+                themeBackgroundCardColor,
               )}>
               <div className="flex items-center gap-x-3">
                 <Icon className="h-6 w-6 text-neutral-400 dark:text-neutral-500" />

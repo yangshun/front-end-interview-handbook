@@ -15,7 +15,7 @@ import BlogMdx from '~/components/blog/articles/BlogMdx';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import Button from '~/components/ui/Button';
 import {
-  themeCardBackgroundWhiteOnLightColor,
+  themeBackgroundCardWhiteOnLightColor,
   themeGlassyBorder,
 } from '~/components/ui/theme';
 
@@ -31,7 +31,7 @@ export default function ArticleViewCard({ metadata }: Props) {
     <div
       className={clsx(
         'flex h-full flex-col gap-y-4 overflow-hidden rounded-lg px-8 py-5',
-        themeCardBackgroundWhiteOnLightColor,
+        themeBackgroundCardWhiteOnLightColor,
         themeGlassyBorder,
       )}>
       <div

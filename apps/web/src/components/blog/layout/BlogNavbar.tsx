@@ -39,7 +39,7 @@ export default function BlogNavbar({ seriesContents }: Props) {
       ref={navbarRef}
       className={clsx(
         'sticky z-30 border-b lg:hidden',
-        [!isSticky && 'bg-white dark:bg-neutral-950/60', 'backdrop-blur'],
+        [!isSticky && 'bg-white dark:bg-neutral-900/60', 'backdrop-blur'],
         themeBorderColor,
       )}
       style={{ top: 'var(--nav-top-offset)' }}>

@@ -2,6 +2,13 @@ import clsx from 'clsx';
 import React, { Fragment } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
+import {
+  themeBackgroundElementColor,
+  themeBackgroundElementHoverStateColor,
+  themeBackgroundElementPressedStateColor,
+  themeBorderElementColor,
+} from '~/components/ui/theme';
+
 import type { TextSize } from '../Text';
 import Text from '../Text';
 import { themeBackgroundColor } from '../theme';
@@ -90,12 +97,10 @@ export default function Popover({
             'group inline-flex items-center justify-center',
             'rounded-full',
             'transition-colors',
-            'border',
-            'border border-neutral-300 dark:border-neutral-700',
-            [
-              'bg-white dark:bg-neutral-950',
-              'hover:bg-neutral-100 dark:hover:bg-neutral-900',
-            ],
+            ['border', themeBorderElementColor],
+            themeBackgroundElementColor,
+            themeBackgroundElementHoverStateColor,
+            themeBackgroundElementPressedStateColor,
             [
               'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
               'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',

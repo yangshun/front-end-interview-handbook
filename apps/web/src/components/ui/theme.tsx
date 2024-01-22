@@ -46,12 +46,10 @@ export const themeTextLabelColor = clsx(
 export const themeIconColor = clsx('text-neutral-400 dark:text-neutral-500');
 
 // Background colors.
-export const themeBackgroundColor = clsx('bg-white dark:bg-neutral-950');
+export const themeBackgroundColor = clsx('bg-white dark:bg-neutral-900');
 export const themeBackgroundInvertColor = clsx('bg-neutral-950 dark:bg-white');
 export const themeBackgroundLayerColor = clsx('bg-white dark:bg-neutral-900');
-export const themeBackgroundLayerColorHover = clsx(
-  'hover:bg-white dark:hover:bg-neutral-900',
-);
+
 export const themeBackgroundEmphasized = clsx(
   'bg-neutral-50 dark:bg-neutral-900',
 );
@@ -64,14 +62,27 @@ export const themeBackgroundLayerEmphasized = clsx(
 export const themeBackgroundLayerEmphasizedHover = clsx(
   'hover:bg-neutral-50 dark:hover:bg-neutral-800',
 );
-export const themeCardBackgroundColor = clsx(
+export const themeBackgroundCardColor = clsx(
   'bg-neutral-50 dark:bg-neutral-800/40',
 );
-export const themeCardBackgroundWhiteOnLightColor = clsx(
+export const themeBackgroundCardAltColor = clsx(
+  'bg-neutral-50 dark:bg-neutral-800/70',
+);
+export const themeBackgroundCardWhiteOnLightColor = clsx(
   'bg-white dark:bg-neutral-800/40',
 );
-export const themeChipBackgroundColor = clsx(
+export const themeBackgroundChipColor = clsx(
   'bg-neutral-200 dark:bg-neutral-800',
+);
+export const themeBackgroundElementColor = clsx('bg-white dark:bg-neutral-900');
+export const themeBackgroundElementHoverStateColor = clsx(
+  'hover:bg-neutral-100 dark:hover:bg-neutral-800/70',
+);
+export const themeBackgroundElementPressedStateColor = clsx(
+  'active:bg-neutral-200 dark:active:bg-neutral-700',
+);
+export const themeBackgroundElementActiveColor = clsx(
+  'bg-neutral-100 dark:bg-neutral-800/70',
 );
 
 // Line colors.
@@ -81,7 +92,7 @@ export const themeBorderColor = clsx(
 export const themeDivideColor = clsx(
   'divide-neutral-200 dark:divide-neutral-800',
 );
-export const themeElementBorderColor = clsx(
+export const themeBorderElementColor = clsx(
   'border-neutral-300 dark:border-neutral-700',
 );
 export const themeGlassyBorder = clsx(

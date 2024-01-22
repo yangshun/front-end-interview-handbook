@@ -12,9 +12,10 @@ import Badge from '~/components/ui/Badge';
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundCardWhiteOnLightColor,
   themeBackgroundEmphasizedHover,
   themeBorderColor,
-  themeCardBackgroundWhiteOnLightColor,
+  themeBorderElementColor,
   themeDivideColor,
   themeTextBrandColor,
   themeTextBrandGroupHoverColor,
@@ -147,7 +148,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
             className={clsx(
               'group relative flex gap-x-4 px-6 py-4',
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-              themeCardBackgroundWhiteOnLightColor,
+              themeBackgroundCardWhiteOnLightColor,
               'transition-colors',
               themeBackgroundEmphasizedHover,
               index === 0 && 'rounded-t-lg',
@@ -268,10 +269,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                       <span
                         className={clsx(
                           'flex h-8 w-8 items-center justify-center rounded-full',
-                          [
-                            'border',
-                            'border-neutral-300 dark:border-neutral-700',
-                          ],
+                          ['border', themeBorderElementColor],
                           'bg-neutral-100 dark:bg-neutral-900',
                         )}
                       />

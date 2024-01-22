@@ -7,9 +7,9 @@ import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundEmphasizedHover,
-  themeCardBackgroundColor,
-  themeChipBackgroundColor,
+  themeBackgroundCardColor,
+  themeBackgroundChipColor,
+  themeBackgroundElementHoverStateColor,
   themeGradientBlueGreen,
   themeGradientGreenYellow,
   themeTextBrandColor,
@@ -84,15 +84,15 @@ export default function DashboardPageHeader() {
             'border border-neutral-200 dark:border-transparent',
             'rounded-lg',
             'transition-colors',
-            themeCardBackgroundColor,
-            themeBackgroundEmphasizedHover,
+            themeBackgroundCardColor,
+            themeBackgroundElementHoverStateColor,
           )}>
           <div className="flex items-center gap-3">
             <div
               aria-hidden="true"
               className={clsx(
                 'flex h-10 w-10 shrink-0 items-center justify-center rounded-md',
-                themeChipBackgroundColor,
+                themeBackgroundChipColor,
               )}>
               <RiBookOpenLine
                 className={clsx('h-5 w-5', themeTextSecondaryColor)}
@@ -140,8 +140,8 @@ export default function DashboardPageHeader() {
             'group relative flex justify-between',
             'border border-neutral-200 dark:border-transparent',
             'overflow-hidden rounded-lg',
-            themeCardBackgroundColor,
-            themeBackgroundEmphasizedHover,
+            themeBackgroundCardColor,
+            themeBackgroundElementHoverStateColor,
           )}>
           <div
             className={clsx(

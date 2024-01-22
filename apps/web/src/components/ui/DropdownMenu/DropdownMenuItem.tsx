@@ -3,6 +3,7 @@ import React from 'react';
 
 import type { TextColor } from '../Text';
 import Text from '../Text';
+import { themeBackgroundElementHoverStateColor } from '../theme';
 
 import { Menu } from '@headlessui/react';
 
@@ -41,7 +42,7 @@ export default function DropdownMenuItem({
             'block px-2 py-1.5',
             'w-full text-left',
             'rounded',
-            active && 'bg-neutral-100 dark:bg-neutral-900',
+            active && themeBackgroundElementHoverStateColor,
           ),
           onClick,
         };

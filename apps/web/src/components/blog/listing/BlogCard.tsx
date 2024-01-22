@@ -11,7 +11,7 @@ import BlogTimestamp from '~/components/blog/metadata/BlogTimestamp';
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
-  themeCardBackgroundWhiteOnLightColor,
+  themeBackgroundCardWhiteOnLightColor,
   themeGlassyBorder,
   themeTextFaintColor,
 } from '~/components/ui/theme';
@@ -37,7 +37,7 @@ export default function BlogCard({
         'group relative flex h-full items-center justify-between overflow-hidden rounded-lg',
         type === 'wide' && 'px-8 py-5 gap-x-6',
         type === 'default' && 'pl-6 pr-4 py-6 gap-x-4',
-        themeCardBackgroundWhiteOnLightColor,
+        themeBackgroundCardWhiteOnLightColor,
         themeGlassyBorder,
       )}>
       {type === 'wide' && metadata.imageUrl && (

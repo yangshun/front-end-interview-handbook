@@ -6,13 +6,13 @@ import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundEmphasizedHover,
-  themeCardBackgroundColor,
+  themeBackgroundCardColor,
+  themeBackgroundElementHoverStateColor,
   themeTextBrandGroupHoverColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-import { themeChipBackgroundColor } from '../../ui/theme';
+import { themeBackgroundChipColor } from '../../ui/theme';
 
 export default function DashboardStudyPlansCTA() {
   return (
@@ -30,15 +30,15 @@ export default function DashboardStudyPlansCTA() {
           'border border-neutral-200 dark:border-transparent',
           'rounded-lg',
           'transition-colors',
-          themeCardBackgroundColor,
-          themeBackgroundEmphasizedHover,
+          themeBackgroundCardColor,
+          themeBackgroundElementHoverStateColor,
         )}>
         <div className="flex items-center gap-3">
           <div
             aria-hidden="true"
             className={clsx(
               'flex h-12 w-12 shrink-0 items-center justify-center rounded-md',
-              themeChipBackgroundColor,
+              themeBackgroundChipColor,
             )}>
             <RiCalendar2Line
               className={clsx('h-5 w-5', themeTextSecondaryColor)}

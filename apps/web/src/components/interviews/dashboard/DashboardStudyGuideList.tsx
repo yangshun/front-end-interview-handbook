@@ -15,7 +15,7 @@ type Props = Readonly<{
   }>;
 }>;
 
-export default function PreparationStudyGuideList({
+export default function DashboardStudyGuideList({
   href: seeAllHref,
   items,
 }: Props) {

@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
-  themeElementBorderColor,
+  themeBorderElementColor,
   themeTextBrandHoverColor,
   themeTextColor,
 } from '~/components/ui/theme';
@@ -88,7 +88,7 @@ export default function ProjectsChallengeStepsTabs<T>({
               <div
                 className={clsx(
                   'h-4 w-full border-l border-r border-t border-dashed',
-                  themeElementBorderColor,
+                  themeBorderElementColor,
                 )}
               />
             </div>
@@ -98,7 +98,7 @@ export default function ProjectsChallengeStepsTabs<T>({
           aria-label={label}
           className={clsx('-mb-px mt-4', 'relative flex gap-x-6', [
             'border-t',
-            themeElementBorderColor,
+            themeBorderElementColor,
           ])}>
           {tabs.map((tabItem) => {
             const {

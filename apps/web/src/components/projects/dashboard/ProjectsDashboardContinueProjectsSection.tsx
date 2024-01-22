@@ -10,9 +10,9 @@ import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundCardWhiteOnLightColor,
   themeBackgroundEmphasizedHover,
   themeBorderColor,
-  themeCardBackgroundWhiteOnLightColor,
   themeDivideColor,
   themeIconColor,
   themeTextBrandGroupHoverColor,
@@ -55,7 +55,7 @@ export default function ProjectsDashboardContinueProjectsSection() {
             className={clsx(
               'group relative flex py-4 pl-5 pr-8',
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-              themeCardBackgroundWhiteOnLightColor,
+              themeBackgroundCardWhiteOnLightColor,
               'transition-colors',
               themeBackgroundEmphasizedHover,
               index === 0 && 'rounded-t-lg',

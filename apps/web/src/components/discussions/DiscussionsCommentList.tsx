@@ -8,11 +8,7 @@ import { trpc } from '~/hooks/trpc';
 import EmptyState from '~/components/ui/EmptyState';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
-import {
-  themeBorderColor,
-  themeTextSecondaryColor,
-  themeTextSubtleColor,
-} from '~/components/ui/theme';
+import { themeBorderColor, themeTextSubtleColor } from '~/components/ui/theme';
 
 import DiscussionsComment from './DiscussionsComment';
 import DiscussionsCommentSort from './DiscussionsCommentSort';

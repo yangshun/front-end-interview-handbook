@@ -23,7 +23,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasized,
   themeBackgroundLayerEmphasizedHover,
-  themeElementBorderColor,
+  themeBorderElementColor,
   themeTextBrandColor,
   themeTextBrandHoverColor,
   themeTextSecondaryColor,
@@ -263,7 +263,7 @@ export default function ProjectsSideBar() {
     <div
       className={clsx(
         'relative flex h-full flex-col overflow-y-auto border-e',
-        themeElementBorderColor,
+        themeBorderElementColor,
       )}>
       {profile !== null ? (
         <ProjectsSidebarProfileHeader points={1800} />

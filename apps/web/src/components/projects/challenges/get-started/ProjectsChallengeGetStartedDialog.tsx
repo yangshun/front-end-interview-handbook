@@ -10,7 +10,7 @@ import Divider from '~/components/ui/Divider';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundLayerColor,
-  themeElementBorderColor,
+  themeBorderElementColor,
 } from '~/components/ui/theme';
 
 import ProjectsChallengeGetStartedDownloadFigmaDesignDownloadFigmaDesign from './ProjectsChallengeGetStartedDownloadFigmaDesign';
@@ -168,7 +168,7 @@ export default function ProjectsChallengeGetStartedDialog({
         <div
           className={clsx(
             'border-l border-dashed absolute h-full start-3',
-            themeElementBorderColor,
+            themeBorderElementColor,
           )}
         />
         {dialogSteps.map((step, index) => {

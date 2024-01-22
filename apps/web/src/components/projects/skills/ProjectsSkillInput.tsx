@@ -7,6 +7,7 @@ import Button from '~/components/ui/Button';
 import type { LabelDescriptionStyle } from '~/components/ui/Label';
 import Label from '~/components/ui/Label';
 import Text from '~/components/ui/Text';
+import { themeBorderElementColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
   className?: string;
@@ -42,7 +43,7 @@ export default function ProjectsSkillInput({
       <div
         className={clsx(
           'py-2 px-3 mt-2 flex justify-between items-center border rounded',
-          'border-neutral-300 dark:border-neutral-700',
+          themeBorderElementColor,
         )}>
         {/* TODO(projects): Add skill selection input */}
         <Text color="subtle" size="body2">

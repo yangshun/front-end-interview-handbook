@@ -1,5 +1,7 @@
 import clsx from 'clsx';
 
+import { themeTextBrandColor } from '~/components/ui/theme';
+
 export type BadgeVariant =
   | 'danger'
   | 'info'
@@ -49,13 +51,13 @@ const variantClasses: Record<
   primary: {
     backgroundClass: 'bg-brand-lightest dark:bg-neutral-800',
     borderClass: 'border border-brand-dark dark:border-brand',
-    iconClass: 'text-brand-dark dark:text-brand',
-    textClass: 'text-brand-dark dark:text-brand',
+    iconClass: themeTextBrandColor,
+    textClass: themeTextBrandColor,
   },
   special: {
     backgroundClass: 'shiny bg-brand-lightest dark:bg-neutral-800',
     borderClass: '',
-    iconClass: 'text-brand-dark dark:text-brand',
+    iconClass: themeTextBrandColor,
     textClass: 'text-brand-dark dark:text-white',
   },
   success: {

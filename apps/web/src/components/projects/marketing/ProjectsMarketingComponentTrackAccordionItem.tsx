@@ -6,8 +6,8 @@ import Anchor from '~/components/ui/Anchor';
 import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundCardWhiteOnLightColor,
   themeBackgroundEmphasized,
-  themeCardBackgroundWhiteOnLightColor,
   themeGlassyBorder,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
@@ -34,7 +34,7 @@ export default function ProjectsMarketingComponentTrackAccordionItem({
       <Card
         className={clsx(
           'flex flex-col overflow-visible',
-          themeCardBackgroundWhiteOnLightColor,
+          themeBackgroundCardWhiteOnLightColor,
         )}
         disableBackground={true}
         disableSpotlight={true}

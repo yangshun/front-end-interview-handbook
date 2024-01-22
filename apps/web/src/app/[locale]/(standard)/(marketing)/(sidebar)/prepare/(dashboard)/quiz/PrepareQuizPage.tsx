@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 
 import { useQuizSectionItem } from '~/components/guides/useFrontEndInterviewGuidebookNavigation';
-import PreparationStudyGuideList from '~/components/interviews/dashboard/DashboardStudyGuideList';
+import DashboardStudyGuideList from '~/components/interviews/dashboard/DashboardStudyGuideList';
 import DashboardStudyPlansCTA from '~/components/interviews/dashboard/DashboardStudyPlansCTA';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionsQuizListWithFiltersAndProgress from '~/components/interviews/questions/listings/items/QuestionsQuizListWithFiltersAndProgress';
@@ -38,7 +38,7 @@ export default function PrepareQuizPage({
           'hidden h-full flex-col gap-y-12 xl:col-span-3 xl:flex',
         )}>
         <DashboardStudyPlansCTA />
-        <PreparationStudyGuideList
+        <DashboardStudyGuideList
           href={quizSectionItem.href}
           items={[quizSectionItem]}
         />

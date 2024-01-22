@@ -4,7 +4,7 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
-  themeCardBackgroundColor,
+  themeBackgroundCardColor,
   themeGlassyBorder,
   themeTextFaintColor,
 } from '~/components/ui/theme';
@@ -33,7 +33,7 @@ export default function QuestionCard({
         'group relative flex items-center justify-between gap-x-4 overflow-hidden rounded-lg py-3',
         paddingSize === 'wide' && 'px-8',
         paddingSize === 'default' && 'px-4',
-        themeCardBackgroundColor,
+        themeBackgroundCardColor,
         themeGlassyBorder,
       )}>
       <div className="flex flex-col gap-2">

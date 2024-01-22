@@ -15,7 +15,7 @@ import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
-  themeElementBorderColor,
+  themeBorderElementColor,
 } from '~/components/ui/theme';
 
 import DiscussionsCommentDeleteButton from './DiscussionsCommentDeleteButton';
@@ -91,7 +91,7 @@ export default function DiscussionsComment({
             <div
               className={clsx(
                 'h-full w-px flex-1 border-l',
-                themeElementBorderColor,
+                themeBorderElementColor,
               )}
             />
           )}

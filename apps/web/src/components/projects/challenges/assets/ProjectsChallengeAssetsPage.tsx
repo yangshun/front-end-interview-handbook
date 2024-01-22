@@ -32,7 +32,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasized,
   themeBorderColor,
-  themeElementBorderColor,
+  themeBorderElementColor,
   themeTextColor,
 } from '~/components/ui/theme';
 
@@ -296,7 +296,7 @@ export default function ProjectsChallengeAssetsPage({
                     <div
                       className={clsx(
                         'flex items-center justify-center rounded-md border p-2',
-                        themeElementBorderColor,
+                        themeBorderElementColor,
                       )}>
                       <Text color="secondary" size="body3" weight="bold">
                         1024px

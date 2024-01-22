@@ -5,6 +5,8 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 
 import { useGuidesData } from '~/data/Guides';
 
+import { themeBorderElementColor } from '~/components/ui/theme';
+
 import GuidesDropdownMenuItem from './GuidesDropdownMenuItem';
 import Text from '../ui/Text';
 import {
@@ -57,7 +59,7 @@ export default function GuidesDropdownMenu({
             'group inline-flex flex-1 items-center justify-between gap-2',
             'rounded',
             'transition-colors',
-            'border border-neutral-300 dark:border-neutral-700',
+            ['border', themeBorderElementColor],
             [
               'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
               'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',

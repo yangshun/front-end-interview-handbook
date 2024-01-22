@@ -21,8 +21,8 @@ import RewardsTaskList from '~/components/rewards/tasks/RewardsTaskList';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundCardWhiteOnLightColor,
   themeBorderColor,
-  themeCardBackgroundWhiteOnLightColor,
   themeTextInvertColor,
 } from '~/components/ui/theme';
 
@@ -49,13 +49,13 @@ function RewardsStepLabel({
         className={clsx(
           'w-6 h-6 inline-flex items-center justify-center rounded-full',
           status === 'active' &&
-            clsx('border border-brand', themeCardBackgroundWhiteOnLightColor),
+            clsx('border border-brand', themeBackgroundCardWhiteOnLightColor),
           status === 'completed' && 'bg-success',
           status === 'pending' &&
             clsx(
               'border',
               themeBorderColor,
-              themeCardBackgroundWhiteOnLightColor,
+              themeBackgroundCardWhiteOnLightColor,
             ),
         )}>
         {status === 'completed' ? (

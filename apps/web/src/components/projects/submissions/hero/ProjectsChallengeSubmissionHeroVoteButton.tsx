@@ -9,7 +9,7 @@ import { useToast } from '~/components/global/toasts/ToastsProvider';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundLayerEmphasized,
-  themeElementBorderColor,
+  themeBorderElementColor,
   themeTextBrandColor,
   themeTextColor,
 } from '~/components/ui/theme';
@@ -62,7 +62,7 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
       className={clsx(
         'flex items-center justify-center gap-1 py-2 px-3 rounded-2xl border md:w-auto w-full',
         themeBackgroundLayerEmphasized,
-        !hasVoted && themeElementBorderColor,
+        !hasVoted && themeBorderElementColor,
         hasVoted && 'border-brand-dark dark:border-brand',
       )}
       disabled={isLoading || hasVoted}

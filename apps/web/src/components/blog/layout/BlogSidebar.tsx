@@ -12,6 +12,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundElementActiveColor,
   themeBorderColor,
   themeTextBrandColor,
   themeTextBrandHoverColor,
@@ -223,8 +224,8 @@ export default function BlogSidebar() {
           );
 
           const activeClassName = clsx(
-            'text-brand-dark dark:text-brand',
-            'bg-neutral-100 dark:bg-neutral-800/70',
+            themeTextBrandColor,
+            themeBackgroundElementActiveColor,
           );
           const defaultClassName = clsx(
             themeTextSecondaryColor,

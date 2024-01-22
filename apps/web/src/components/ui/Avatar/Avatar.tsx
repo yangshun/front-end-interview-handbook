@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import { RiAccountCircleLine } from 'react-icons/ri';
 
-import { themeElementBorderColor, themeTextSecondaryColor } from '../theme';
+import { themeBorderElementColor, themeTextSecondaryColor } from '../theme';
 
 import * as RadixAvatar from '@radix-ui/react-avatar';
 
@@ -36,7 +36,7 @@ export default function Avatar({ src, alt, className, size = 'sm' }: Props) {
         asChild={true}
         className={clsx(
           'flex h-full w-full items-center justify-center rounded-full border',
-          themeElementBorderColor,
+          themeBorderElementColor,
           themeTextSecondaryColor,
         )}
         delayMs={600}>

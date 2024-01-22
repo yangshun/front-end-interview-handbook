@@ -3,6 +3,10 @@ import clsx from 'clsx';
 import type { Props as ButtonProps } from '~/components/ui/Button';
 import Button from '~/components/ui/Button';
 import {
+  themeBackgroundElementColor,
+  themeBackgroundElementHoverStateColor,
+  themeBackgroundElementPressedStateColor,
+  themeBorderElementColor,
   themeTextBrandColor,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
@@ -17,17 +21,17 @@ type Props = Omit<ButtonProps, 'variant'> &
 
 const purposeClasses: Record<FilterButtonPurpose, string> = {
   button: clsx(
-    'border-neutral-300 dark:border-neutral-700',
+    themeBorderElementColor,
     'text-neutral-600 dark:text-neutral-200',
-    'bg-white dark:bg-neutral-950',
-    'hover:bg-neutral-100 dark:hover:bg-neutral-900',
-    'active:bg-neutral-200 dark:active:bg-neutral-800',
+    themeBackgroundElementColor,
+    themeBackgroundElementHoverStateColor,
+    themeBackgroundElementPressedStateColor,
     'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
   ),
   tab: clsx(
     themeTextSubtleColor,
     'border-transparent',
-    'bg-neutral-100 dark:bg-neutral-900',
+    'bg-neutral-200 dark:bg-neutral-800',
     'hover:text-brand-dark dark:hover:text-brand',
   ),
 };

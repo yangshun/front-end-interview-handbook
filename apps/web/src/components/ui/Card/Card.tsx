@@ -3,7 +3,11 @@
 import clsx from 'clsx';
 import { type ReactNode, useContext, useEffect, useId, useRef } from 'react';
 
-import { themeBackgroundColor, themeGlassyBorder } from '~/components/ui/theme';
+import {
+  themeBackgroundCardColor,
+  themeBackgroundColor,
+  themeGlassyBorder,
+} from '~/components/ui/theme';
 
 import { MousePositionContext } from './CardContainer';
 
@@ -28,7 +32,7 @@ const cardOuterContainerSpotlightClassNames = clsx(
 
   'after:absolute after:rounded-full after:pointer-events-none after:transition-opacity after:duration-500',
   'after:w-32 after:h-32 after:-left-16 after:-top-16 after:blur-[72px]',
-  'after:opacity-0 dark:after:hover:opacity-80 after:hover:opacity-70',
+  'after:opacity-0 after:hover:opacity-70 dark:after:hover:opacity-10',
   'after:bg-brand-dark',
   'after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)]',
   'after:z-30',
@@ -101,7 +105,7 @@ export default function Card({
       <div
         className={clsx(
           'relative isolate z-20 overflow-clip rounded-[inherit]',
-          !disableBackground && 'bg-neutral-50 dark:bg-neutral-900',
+          !disableBackground && themeBackgroundCardColor,
           padding && 'px-6 py-5',
           classNameInner,
         )}

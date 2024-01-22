@@ -4,9 +4,9 @@ import type { ReactNode } from 'react';
 import Dialog from '~/components/ui/Dialog';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundChipColor,
   themeBackgroundLayerEmphasizedHover,
   themeBorderColor,
-  themeChipBackgroundColor,
   themeDivideColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
@@ -54,7 +54,7 @@ export default function CodingWorkspaceLayoutDialog({
               <span
                 className={clsx(
                   'inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md',
-                  themeChipBackgroundColor,
+                  themeBackgroundChipColor,
                   themeTextSecondaryColor,
                   'border border-transparent transition',
                   'group-hover/card:border-brand-dark group-hover/card:text-brand-dark',

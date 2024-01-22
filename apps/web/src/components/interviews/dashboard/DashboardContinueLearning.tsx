@@ -7,8 +7,8 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import type { ThemeGradient } from '~/components/ui/theme';
 import {
+  themeBackgroundCardWhiteOnLightColor,
   themeBorderColor,
-  themeCardBackgroundWhiteOnLightColor,
   themeGlassyBorder,
 } from '~/components/ui/theme';
 
@@ -49,7 +49,7 @@ export default function DashboardContinueLearning({
       <div
         className={clsx(
           'flex flex-col divide-y rounded-lg',
-          themeCardBackgroundWhiteOnLightColor,
+          themeBackgroundCardWhiteOnLightColor,
           themeGlassyBorder,
           themeBorderColor,
         )}>

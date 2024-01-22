@@ -2,6 +2,13 @@ import clsx from 'clsx';
 import type { ForwardedRef } from 'react';
 import { forwardRef, useId } from 'react';
 
+import {
+  themeBackgroundElementColor,
+  themeBackgroundElementHoverStateColor,
+  themeBackgroundElementPressedStateColor,
+  themeBorderElementColor,
+} from '~/components/ui/theme';
+
 import type { TextSize } from '../Text';
 import Text from '../Text';
 
@@ -84,14 +91,14 @@ function Select<T>(
           'rounded-full',
           'transition-colors',
           [
-            'border border-neutral-300 dark:border-neutral-700',
+            'border',
+            themeBorderElementColor,
             'focus-visible:border-neutral-300 dark:focus-visible:border-neutral-700',
           ],
           'text-neutral-700 dark:text-neutral-300',
-          [
-            'bg-white dark:bg-neutral-950',
-            'hover:bg-neutral-100 dark:hover:bg-neutral-900',
-          ],
+          themeBackgroundElementColor,
+          themeBackgroundElementHoverStateColor,
+          themeBackgroundElementPressedStateColor,
           [
             'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
             'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:ring-0',

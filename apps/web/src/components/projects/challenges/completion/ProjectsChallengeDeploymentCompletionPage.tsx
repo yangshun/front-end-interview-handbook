@@ -25,7 +25,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
   themeBackgroundLayerEmphasized,
-  themeElementBorderColor,
+  themeBorderElementColor,
 } from '~/components/ui/theme';
 
 import { useProjectsChallengeSessionContext } from '../ProjectsChallengeSessionContext';
@@ -91,7 +91,7 @@ export default function ProjectsChallengeDeploymentCompletionPage({
                 <div
                   className={clsx(
                     'absolute bottom-0 left-4 top-16 w-px border-l border-dashed',
-                    themeElementBorderColor,
+                    themeBorderElementColor,
                   )}
                 />
                 <li className="mt-8 flex gap-x-4">

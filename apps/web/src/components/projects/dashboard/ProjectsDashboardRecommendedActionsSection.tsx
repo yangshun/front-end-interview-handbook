@@ -16,11 +16,11 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundCardWhiteOnLightColor,
+  themeBackgroundChipColor,
   themeBackgroundEmphasizedHover,
   themeBorderColor,
-  themeCardBackgroundWhiteOnLightColor,
-  themeChipBackgroundColor,
-  themeElementBorderColor,
+  themeBorderElementColor,
   themeTextBrandGroupHoverColor,
   themeTextColor,
   themeTextSecondaryColor,
@@ -104,7 +104,7 @@ export default function ProjectsDashboardRecommendedActionsSection({
             'isolate grid px-8 py-6',
             'overflow-hidden rounded-lg',
             'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
-            themeCardBackgroundWhiteOnLightColor,
+            themeBackgroundCardWhiteOnLightColor,
             'transition-colors',
             [themeBorderColor, 'border-l', 'md:border-t'],
             'md:grid-cols-2',
@@ -113,7 +113,7 @@ export default function ProjectsDashboardRecommendedActionsSection({
             className={clsx(
               'group relative flex flex-col md:gap-10 gap-6',
               'md:border-r md:border-b-0 border-b md:pr-6 md:pb-0 pb-8',
-              themeElementBorderColor,
+              themeBorderElementColor,
             )}>
             <div className="flex flex-col gap-2">
               <Text size="body1" weight="bold">
@@ -152,7 +152,7 @@ export default function ProjectsDashboardRecommendedActionsSection({
                   <span
                     className={clsx(
                       'inline-flex items-center justify-center p-2.5 rounded-lg',
-                      themeChipBackgroundColor,
+                      themeBackgroundChipColor,
                       themeTextColor,
                       'border border-transparent transition',
                     )}>

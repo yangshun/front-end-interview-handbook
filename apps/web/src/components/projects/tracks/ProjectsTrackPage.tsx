@@ -13,7 +13,7 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundLayerEmphasized,
-  themeElementBorderColor,
+  themeBorderElementColor,
 } from '~/components/ui/theme';
 
 export type Props = Readonly<{
@@ -80,7 +80,7 @@ export default function ProjectsTrackPage({ track }: Props) {
                   className={clsx(
                     'z-10 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full',
                     themeBackgroundLayerEmphasized,
-                    themeElementBorderColor,
+                    themeBorderElementColor,
                   )}>
                   <Text color="secondary" size="body2" weight="medium">
                     {index + 1}

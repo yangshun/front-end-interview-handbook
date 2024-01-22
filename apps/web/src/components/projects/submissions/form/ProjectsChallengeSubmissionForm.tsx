@@ -9,7 +9,7 @@ import Divider from '~/components/ui/Divider';
 import Label from '~/components/ui/Label';
 import Text from '~/components/ui/Text';
 import {
-  themeElementBorderColor,
+  themeBorderElementColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -141,7 +141,7 @@ export default function ProjectsChallengeSubmissionForm({
                 className={clsx(
                   'flex grow rounded-lg items-center justify-center',
                   'p-4',
-                  ['border', themeElementBorderColor, 'border-dashed'],
+                  ['border', themeBorderElementColor, 'border-dashed'],
                 )}>
                 <div className="flex flex-col items-center gap-3">
                   <RiImageLine

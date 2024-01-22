@@ -8,7 +8,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
-  themeCardBackgroundColor,
+  themeBackgroundCardColor,
   themeRadialGlowBackground,
 } from '~/components/ui/theme';
 
@@ -72,7 +72,7 @@ function FeatureSection({ feature }: { feature: ProjectMarketingFeature }) {
           return (
             <Card
               key={item.key}
-              className={themeCardBackgroundColor}
+              className={themeBackgroundCardColor}
               disableBackground={true}
               disableSpotlight={true}
               padding={false}>

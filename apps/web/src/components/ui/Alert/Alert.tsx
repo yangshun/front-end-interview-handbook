@@ -8,6 +8,8 @@ import {
   RiStarFill,
 } from 'react-icons/ri';
 
+import { themeTextBrandColor } from '~/components/ui/theme';
+
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 import Text from '../Text';
@@ -45,8 +47,8 @@ const classes: Record<
   primary: {
     backgroundClass: 'bg-brand-lighter dark:bg-neutral-800/70',
     icon: RiStarFill,
-    iconClass: 'text-brand-dark dark:text-brand',
-    titleClass: 'text-brand-dark dark:text-brand',
+    iconClass: themeTextBrandColor,
+    titleClass: themeTextBrandColor,
   },
   success: {
     backgroundClass: 'bg-success-lightest dark:bg-neutral-800/70',

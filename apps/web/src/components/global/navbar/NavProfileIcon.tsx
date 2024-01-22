@@ -8,6 +8,10 @@ import type { NavLinkItem } from '~/components/ui/Navbar/NavTypes';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
+  themeBackgroundElementColor,
+  themeBackgroundElementHoverStateColor,
+  themeBackgroundElementPressedStateColor,
+  themeBorderElementColor,
   themeDivideColor,
   themeTextColor,
   themeTextSecondaryColor,
@@ -58,11 +62,10 @@ export default function NavProfileIcon({
             'rounded-full',
             'h-8 w-8',
             'transition-colors',
-            'border border-neutral-300 dark:border-neutral-700',
-            [
-              'bg-white dark:bg-neutral-950',
-              'hover:bg-neutral-100 dark:hover:bg-neutral-900',
-            ],
+            ['border', themeBorderElementColor],
+            themeBackgroundElementColor,
+            themeBackgroundElementHoverStateColor,
+            themeBackgroundElementPressedStateColor,
             [
               'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
               'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',

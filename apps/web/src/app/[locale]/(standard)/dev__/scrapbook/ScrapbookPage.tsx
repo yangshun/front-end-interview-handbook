@@ -14,7 +14,7 @@ import { TbBinaryTree } from 'react-icons/tb';
 import ExclusiveTicket from '~/components/common/tickets/ExclusiveTicket';
 import Ticket from '~/components/common/tickets/Ticket';
 import DashboardContinueLearning from '~/components/interviews/dashboard/DashboardContinueLearning';
-import PreparationStudyGuideList from '~/components/interviews/dashboard/DashboardStudyGuideList';
+import DashboardStudyGuideList from '~/components/interviews/dashboard/DashboardStudyGuideList';
 import MarketingCompaniesMarquee from '~/components/interviews/marketing/MarketingCompaniesMarquee';
 import MarketingHomepageFeaturesRow from '~/components/interviews/marketing/MarketingHomepageFeaturesRow';
 import MarketingQuestionCardMarquee from '~/components/interviews/marketing/MarketingQuestionCardMarquee';
@@ -337,7 +337,7 @@ export default function ScrapbookPage() {
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
               <div className="inline-flex flex-col items-start gap-y-6">
-                <PreparationStudyGuideList
+                <DashboardStudyGuideList
                   href="#"
                   items={[
                     {

@@ -11,9 +11,9 @@ import type {
 import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 import {
+  themeBackgroundCardColor,
   themeBackgroundLayerEmphasized,
-  themeCardBackgroundColor,
-  themeElementBorderColor,
+  themeBorderElementColor,
   themeTextBrandColor,
   themeTextDisabledColor,
   themeTextSecondaryColor,
@@ -52,12 +52,12 @@ export default function ProjectsProfileMotivationReasonList({
             aria-checked={selected}
             className={clsx(
               'relative rounded-lg border px-6 py-4',
-              themeCardBackgroundColor,
+              themeBackgroundCardColor,
               selected
                 ? 'border-brand'
                 : ['glassbox hover:border-brand/50 border-transparent'],
               'focus:outline-brand outline-offset-8',
-              disabled && themeElementBorderColor,
+              disabled && themeBorderElementColor,
               {
                 'md:col-span-2': index >= 2 && index < 5,
                 'md:col-span-3': index < 2 || index >= 5,

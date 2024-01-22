@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
 import Text from '~/components/ui/Text';
-import { themeElementBorderColor } from '~/components/ui/theme';
+import { themeBorderElementColor } from '~/components/ui/theme';
 
 import ProjectsSkillChip from './ProjectsSkillChip';
 import type { ProjectsSkill } from './types';
@@ -32,7 +32,7 @@ export default function ProjectsSkillRow({ label, skills, className }: Props) {
           <li
             className={clsx(
               'flex h-5 items-center justify-center rounded border px-2 text-xs',
-              themeElementBorderColor,
+              themeBorderElementColor,
             )}>
             <Text color="secondary" size="body3" weight="medium">
               <FormattedMessage

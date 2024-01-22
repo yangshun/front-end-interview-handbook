@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import type { PropsWithChildren } from 'react';
 
 import {
-  themeCardBackgroundWhiteOnLightColor,
+  themeBackgroundCardWhiteOnLightColor,
   themeGlassyBorder,
 } from '~/components/ui/theme';
 
@@ -18,7 +18,7 @@ export default function QuestionListingSideCard({
     <div
       className={clsx(
         'relative flex overflow-clip rounded-lg',
-        themeCardBackgroundWhiteOnLightColor,
+        themeBackgroundCardWhiteOnLightColor,
         themeGlassyBorder,
       )}>
       <div

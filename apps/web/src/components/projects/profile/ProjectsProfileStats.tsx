@@ -12,7 +12,7 @@ import CardContainer from '~/components/ui/Card/CardContainer';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
-  themeChipBackgroundColor,
+  themeBackgroundChipColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -117,7 +117,7 @@ export default function ProjectsProfileStats({
                 <span
                   className={clsx(
                     'md:inline-flex h-9 w-9 items-center justify-center rounded-md hidden',
-                    themeChipBackgroundColor,
+                    themeBackgroundChipColor,
                     themeTextSecondaryColor,
                     'border border-transparent transition',
                     'group-hover/card:border-brand-dark group-hover/card:text-brand-dark',

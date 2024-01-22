@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 
 import Anchor from '~/components/ui/Anchor';
+import { themeBorderElementColor } from '~/components/ui/theme';
 
 import type { TextSize } from '../Text';
 import Text from '../Text';
@@ -83,8 +84,7 @@ export default function Tabs<T>({
 
   return (
     <div className="isolate w-full overflow-x-auto overflow-y-hidden">
-      <div
-        className={clsx('border-b border-neutral-300 dark:border-neutral-700')}>
+      <div className={clsx('border-b', themeBorderElementColor)}>
         <nav aria-label={label} className={clsx('flex', tabGapSize)}>
           {tabs.map((tabItem) => {
             const {
@@ -125,7 +125,7 @@ export default function Tabs<T>({
                     ? [
                         'border',
                         'border-t-neutral-300 border-x-neutral-300 border-b-white',
-                        'dark:border-t-neutral-700 dark:border-x-neutral-700 dark:border-b-neutral-950',
+                        'dark:border-t-neutral-700 dark:border-x-neutral-700 dark:border-b-neutral-900',
                       ]
                     : [
                         'bg-neutral-100 hover:bg-neutral-50 dark:bg-neutral-800 dark:hover:bg-neutral-800/40',

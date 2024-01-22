@@ -15,7 +15,7 @@ import Anchor from '../Anchor';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 import Text from '../Text';
 import {
-  themeChipBackgroundColor,
+  themeBackgroundChipColor,
   themeTextFaintColor,
   themeTextSubtleColor,
 } from '../theme';
@@ -30,7 +30,7 @@ export default function CardExamples() {
               <span
                 className={clsx(
                   'inline-flex h-10 w-10 items-center justify-center rounded-md',
-                  themeChipBackgroundColor,
+                  themeBackgroundChipColor,
                   'text-neutral-400',
                   'dark:border-brand dark:text-brand dark:border',
                 )}>
@@ -52,7 +52,7 @@ export default function CardExamples() {
               <span
                 className={clsx(
                   'inline-flex h-10 w-10 items-center justify-center rounded-md',
-                  themeChipBackgroundColor,
+                  themeBackgroundChipColor,
                   'text-neutral-400',
                   'border border-transparent transition',
                   'dark:group-hover:border-brand dark:group-hover:text-brand',

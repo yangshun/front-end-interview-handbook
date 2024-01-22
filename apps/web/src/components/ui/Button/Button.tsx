@@ -5,6 +5,13 @@ import type {
   ReactNode,
 } from 'react';
 
+import {
+  themeBackgroundElementColor,
+  themeBackgroundElementHoverStateColor,
+  themeBackgroundElementPressedStateColor,
+  themeBorderElementColor,
+} from '~/components/ui/theme';
+
 import Anchor from '../Anchor';
 import Spinner from '../Spinner';
 import type { TooltipPosition } from '../Tooltip';
@@ -112,15 +119,20 @@ const variantClasses: Record<ButtonVariant, string> = {
     'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
   ),
   secondary: clsx(
-    'border-neutral-300 dark:border-neutral-700',
+    themeBorderElementColor,
     'text-neutral-600 dark:text-neutral-200',
-    'bg-white dark:bg-neutral-950',
-    'hover:bg-neutral-100 dark:hover:bg-neutral-900',
-    'active:bg-neutral-200 dark:active:bg-neutral-800',
+    themeBackgroundElementColor,
+    themeBackgroundElementHoverStateColor,
+    themeBackgroundElementPressedStateColor,
     'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
   ),
   special: clsx(
-    'shiny bg-brand-lightest dark:bg-brand/20 border-transparent border-0 text-brand-dark dark:text-white dark:hover:bg-brand/30 hover:bg-brand-lighter/70 drop-shadow-none',
+    'shiny',
+    'border-transparent border-0',
+    'text-brand-dark dark:text-white',
+    'bg-brand-lightest dark:bg-brand/20',
+    'dark:hover:bg-brand/30 hover:bg-brand-lighter/70',
+    'drop-shadow-none',
   ),
   success: clsx(
     'border-transparent',
@@ -135,11 +147,11 @@ const variantClasses: Record<ButtonVariant, string> = {
     'text-neutral-600 dark:text-neutral-200',
     'bg-transparent',
     [
-      'hover:bg-neutral-100 dark:hover:bg-neutral-900',
+      themeBackgroundElementHoverStateColor,
       'hover:text-brand-darker dark:hover:text-brand',
     ],
     [
-      'active:bg-neutral-200 dark:active:bg-neutral-800',
+      themeBackgroundElementPressedStateColor,
       'active:text-brand-dark dark:active:text-brand-light',
     ],
     'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',

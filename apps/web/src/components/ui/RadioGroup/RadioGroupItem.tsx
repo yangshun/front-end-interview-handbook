@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useId } from 'react';
 
-import { themeElementBorderColor } from '../theme';
+import { themeBorderElementColor } from '../theme';
 
 import * as RadixRadioGroup from '@radix-ui/react-radio-group';
 
@@ -21,7 +21,7 @@ export default function RadioGroupItem<T extends string>({
       <RadixRadioGroup.Item
         className={clsx(
           'h-5 w-5 rounded-full border',
-          themeElementBorderColor,
+          themeBorderElementColor,
           'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
         )}
         id={id}

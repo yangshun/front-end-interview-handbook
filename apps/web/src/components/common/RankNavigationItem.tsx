@@ -4,9 +4,9 @@ import { RiArrowRightSLine } from 'react-icons/ri';
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundEmphasizedHover,
-  themeCardBackgroundColor,
-  themeChipBackgroundColor,
+  themeBackgroundCardColor,
+  themeBackgroundChipColor,
+  themeBackgroundElementHoverStateColor,
   themeTextBrandGroupHoverColor,
 } from '~/components/ui/theme';
 
@@ -28,8 +28,8 @@ export default function RankNavigationItem({
         'border border-neutral-200 dark:border-transparent',
         'rounded-lg',
         'transition-colors',
-        themeCardBackgroundColor,
-        themeBackgroundEmphasizedHover,
+        themeBackgroundCardColor,
+        themeBackgroundElementHoverStateColor,
       )}>
       <div className="flex items-center gap-3">
         <div
@@ -37,7 +37,7 @@ export default function RankNavigationItem({
           className={clsx(
             'flex h-5 w-5 shrink-0 items-center justify-center rounded-full',
             'font-bold text-neutral-500 dark:text-neutral-400',
-            themeChipBackgroundColor,
+            themeBackgroundChipColor,
           )}
           color="inherit">
           {rank}
