@@ -21,6 +21,8 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 
+import ProjectsChallengeSubmissionDiscussionsSection from './discussions/ProjectsChallengeSubmissionDiscussionsSection';
+
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   currentUserId: string | undefined;
@@ -178,6 +180,11 @@ export default function ProjectsChallengeSubmissionPage({
         </div>
       </Section>
       {isViewingOwnProfile && authorSection}
+      <div className="mt-10">
+        <ProjectsChallengeSubmissionDiscussionsSection
+          submission={submission}
+        />
+      </div>
       <div className="mt-10">
         <ProjectsChallengeSubmissionInterested
           challengeSlug={submission.slug}

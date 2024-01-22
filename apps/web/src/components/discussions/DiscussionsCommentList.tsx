@@ -5,9 +5,13 @@ import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import EmptyState from '~/components/ui/EmptyState';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
-import { themeTextSecondaryColor } from '~/components/ui/theme';
+import {
+  themeBorderColor,
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
 
 import DiscussionsComment from './DiscussionsComment';
 import DiscussionsCommentSort from './DiscussionsCommentSort';
@@ -16,8 +20,10 @@ import type {
   DiscussionsCommentUserProfile,
 } from './types';
 
+import type { DiscussionCommentDomain } from '@prisma/client';
+
 type Props = Readonly<{
-  domain: 'PROJECTS_CHALLENGE' | 'PROJECTS_SUBMISSION';
+  domain: DiscussionCommentDomain;
   entityId: string;
   viewer?: DiscussionsCommentUserProfile | null;
 }>;
@@ -48,6 +54,18 @@ export default function DiscussionsCommentList({
   }
 
   const { count, comments } = data ?? {};
+
+  if (comments?.length === 0) {
+    return (
+      <div
+        className={clsx('rounded-lg py-10 w-full', 'border', themeBorderColor)}>
+        <EmptyState
+          subtitle="Be the first to leave a comment"
+          title="No comments yet"
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col gap-6 w-full">
