@@ -7,6 +7,7 @@ import { trpc } from '~/hooks/trpc';
 
 import ProjectsUserJobTitle from '~/components/projects/users/ProjectsUserJobTitle';
 import UserAvatarWithLevel from '~/components/projects/users/UserAvatarWithLevel';
+import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Text from '~/components/ui/Text';
@@ -44,6 +45,7 @@ export default function ProjectsChallengeDiscussionsNewComment({
     handleSubmit,
     formState: { errors },
     reset,
+    setValue,
   } = useForm<CommentFormInput>({
     defaultValues: {
       body: '',
@@ -53,11 +55,12 @@ export default function ProjectsChallengeDiscussionsNewComment({
     resolver: zodResolver(
       z.object({
         body: z.string().trim().min(10).max(40000),
+        isQuestion: z.boolean(),
       }),
     ),
   });
-  const onSubmit: SubmitHandler<CommentFormInput> = (data) =>
-    createCommentMutation.mutate(
+  const onSubmit: SubmitHandler<CommentFormInput> = (data) => {
+    return createCommentMutation.mutate(
       {
         body: data.body,
         category: data.isQuestion ? 'QUESTION' : undefined,
@@ -70,6 +73,7 @@ export default function ProjectsChallengeDiscussionsNewComment({
         },
       },
     );
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -81,11 +85,11 @@ export default function ProjectsChallengeDiscussionsNewComment({
           size="xl"
         />
         <div className="flex flex-col">
-          {viewer?.username && (
-            <Text size="body2" weight="medium">
-              {viewer.username}
-            </Text>
-          )}
+          <Text size="body2" weight="medium">
+            <Anchor href={`/projects/u/${viewer.username}`} variant="flat">
+              {viewer.name ?? viewer.username}
+            </Anchor>
+          </Text>
           {viewer?.title && (
             <ProjectsUserJobTitle jobTitle={viewer.title} size="2xs" />
           )}
@@ -94,6 +98,7 @@ export default function ProjectsChallengeDiscussionsNewComment({
       <TextArea
         autoResize={true}
         classNameOuter="my-3"
+        disabled={createCommentMutation.isLoading}
         errorMessage={errors.body?.message}
         isLabelHidden={true}
         label={intl.formatMessage({
@@ -110,7 +115,6 @@ export default function ProjectsChallengeDiscussionsNewComment({
         required={true}
         rows={5}
         {...register('body')}
-        disabled={createCommentMutation.isLoading}
         onChange={(value) => register('body').onChange({ target: { value } })}
       />
       <CheckboxInput
@@ -121,9 +125,9 @@ export default function ProjectsChallengeDiscussionsNewComment({
           id: 'WoEmKY',
         })}
         {...register('isQuestion')}
-        onChange={(value) => {
-          register('isQuestion').onChange({ target: { value } });
-        }}
+        // For some reason RHF doesn't work with uncontrolled checkboxes.
+        // Spent an hour debugging still can't find the reason.
+        onChange={(value) => setValue('isQuestion', value)}
       />
       <div className="mt-4 flex items-center gap-4">
         <Button
