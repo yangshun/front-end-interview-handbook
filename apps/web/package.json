@@ -90,6 +90,7 @@
     "radix-ui": "^1.0.1",
     "react": "^18.2.0",
     "react-circular-progressbar": "^2.1.0",
+    "react-compare-image": "^3.4.0",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0",
@@ -109,8 +110,7 @@
     "usehooks-ts": "^2.9.1",
     "uuid": "^9.0.0",
     "web-vitals": "^3.3.0",
-    "zod": "^3.21.4",
-    "react-compare-image": "^3.4.0"
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@formatjs/cli": "^6.0.1",
