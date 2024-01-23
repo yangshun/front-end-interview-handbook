@@ -21,6 +21,17 @@ type RewardsHandlesValidation = Readonly<{
   twitter: PromiseSettledResult<void>;
 }>;
 
+function cleanGitHubUserInput(value: string) {
+  const gitHubUrlRegex = /github\.com\/([a-zA-Z0-9-]+)/;
+  const match = value.match(gitHubUrlRegex);
+
+  if (match) {
+    return match[1];
+  }
+
+  return value;
+}
+
 type Props = Readonly<{
   handlesData: RewardsHandlesData;
   onHandlesDataChange: (newData: RewardsHandlesData) => void;
@@ -46,7 +57,9 @@ export default function RewardsSocialHandlesForm({
 
         const formData = new FormData(event.target as HTMLFormElement);
         const data = {
-          gitHubUsername: (formData.get('github') ?? '').toString(),
+          gitHubUsername: cleanGitHubUserInput(
+            (formData.get('github') ?? '').toString(),
+          ),
           linkedInUrl: (formData.get('linkedin') ?? '').toString(),
           twitterUsername: (formData.get('twitter') ?? '').toString(),
         };
