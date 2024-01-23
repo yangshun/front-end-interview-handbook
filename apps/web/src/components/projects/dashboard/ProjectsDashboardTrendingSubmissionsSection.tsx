@@ -21,6 +21,8 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
+import ProjectsProfileLink from '../users/ProjectsProfileLink';
+
 const limit = 4;
 
 export default function ProjectsDashboardTrendingSubmissionsSection() {
@@ -122,18 +124,13 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                     <div className="flex lg:gap-2 gap-1.5 items-center">
                       <UserAvatar
                         className="border border-green-400"
-                        profile={{
-                          avatarUrl:
-                            submission.projectsProfile.userProfile.avatarUrl,
-                          id: submission.projectsProfile.userProfile.id,
-                          name: submission.projectsProfile.userProfile.name,
-                          username:
-                            submission.projectsProfile.userProfile.username,
-                        }}
+                        profile={submission.projectsProfile.userProfile}
                         size="xs"
                       />
-                      <Text size="body3" weight="medium">
-                        {submission.projectsProfile.userProfile.name}
+                      <Text className="z-10" size="body3" weight="medium">
+                        <ProjectsProfileLink
+                          profile={submission.projectsProfile.userProfile}
+                        />
                       </Text>
                     </div>
                   )}

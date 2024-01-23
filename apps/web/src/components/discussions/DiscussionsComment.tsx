@@ -30,6 +30,7 @@ import type {
 } from './types';
 import { getRelativeTimestamp } from '../projects/common/relativeTimestampValues';
 import ProjectsVoteCountTag from '../projects/stats/ProjectsVoteCountTag';
+import ProjectsProfileLink from '../projects/users/ProjectsProfileLink';
 import ProjectsUserJobTitle from '../projects/users/ProjectsUserJobTitle';
 import ProjectsUserYearsOfExperience from '../projects/users/ProjectsUserYearsOfExperience';
 import UserAvatarWithLevel from '../projects/users/UserAvatarWithLevel';
@@ -126,13 +127,7 @@ export default function DiscussionsComment({
           <div className="flex flex-col gap-1">
             <div className="flex gap-3">
               <Text color="secondary" size="body2">
-                <Text size="inherit" weight="medium">
-                  <Anchor
-                    href={`/projects/u/${author.username}`}
-                    variant="flat">
-                    {author.name ?? author.username}
-                  </Anchor>
-                </Text>
+                <ProjectsProfileLink profile={author} />
                 {' · '}
                 <span>{getRelativeTimestamp(comment.createdAt)}</span>
               </Text>

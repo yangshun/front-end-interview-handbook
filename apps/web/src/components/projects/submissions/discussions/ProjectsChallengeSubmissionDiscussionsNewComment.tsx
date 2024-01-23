@@ -7,9 +7,9 @@ import { trpc } from '~/hooks/trpc';
 
 import FilterButton from '~/components/common/FilterButton';
 import type { DiscussionsCommentUserProfile } from '~/components/discussions/types';
+import UserProfileDisplayName from '~/components/profile/UserProfileDisplayName';
 import ProjectsUserJobTitle from '~/components/projects/users/ProjectsUserJobTitle';
 import UserAvatarWithLevel from '~/components/projects/users/UserAvatarWithLevel';
-import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
@@ -81,9 +81,7 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
         />
         <div className="flex flex-col">
           <Text size="body2" weight="medium">
-            <Anchor href={`/projects/u/${viewer.username}`} variant="flat">
-              {viewer.name ?? viewer.username}
-            </Anchor>
+            <UserProfileDisplayName profile={viewer} />
           </Text>
           {viewer?.title && (
             <ProjectsUserJobTitle jobTitle={viewer.title} size="2xs" />

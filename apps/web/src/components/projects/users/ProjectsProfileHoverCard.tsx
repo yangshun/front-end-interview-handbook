@@ -18,6 +18,7 @@ import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import Tooltip from '~/components/ui/Tooltip';
 
+import ProjectsProfileLink from './ProjectsProfileLink';
 import useProjectsProfileStats from '../hooks/useProjectsProfileStats';
 
 type Props = Readonly<{
@@ -64,13 +65,7 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
             </Anchor>
             <div className="flex gap-1 flex-col">
               <div className="flex gap-2 items-center">
-                <Anchor
-                  href={`/projects/u/${profile?.username}`}
-                  variant="unstyled">
-                  <Text size="body2" weight="medium">
-                    {profile?.name ?? profile?.username}
-                  </Text>
-                </Anchor>
+                <ProjectsProfileLink profile={profile!} />
                 {/* TODO(projects): Add actual premium logic */}
                 <Tooltip
                   className="flex items-center"

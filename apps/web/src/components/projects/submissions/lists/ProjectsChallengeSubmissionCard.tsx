@@ -24,6 +24,7 @@ import ProjectsSkillRow from '../../skills/ProjectsSkillRow';
 import ProjectsCommentCountTag from '../../stats/ProjectsCommentCountTag';
 import ProjectsViewCountTag from '../../stats/ProjectsViewCountTag';
 import ProjectsVoteCountTag from '../../stats/ProjectsVoteCountTag';
+import ProjectsProfileLink from '../../users/ProjectsProfileLink';
 import ProjectsUserJobTitle from '../../users/ProjectsUserJobTitle';
 import ProjectsUserYearsOfExperience from '../../users/ProjectsUserYearsOfExperience';
 
@@ -123,7 +124,7 @@ export default function ProjectsChallengeSubmissionCard({
           />
           <div className="flex flex-col gap-1">
             <Text size="body2" weight="medium">
-              {author.name}
+              <ProjectsProfileLink profile={author} />
             </Text>
             <div className="flex gap-x-4 flex-wrap gap-y-2">
               {author.title && (
