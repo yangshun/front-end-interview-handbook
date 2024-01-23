@@ -9,7 +9,7 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import Anchor from '~/components/ui/Anchor';
+import RelativeTimestamp from '~/components/projects/common/RelativeTimestamp';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -28,7 +28,6 @@ import type {
   DiscussionsCommentItem,
   DiscussionsCommentUserProfile,
 } from './types';
-import { getRelativeTimestamp } from '../projects/common/relativeTimestampValues';
 import ProjectsVoteCountTag from '../projects/stats/ProjectsVoteCountTag';
 import ProjectsProfileLink from '../projects/users/ProjectsProfileLink';
 import ProjectsUserJobTitle from '../projects/users/ProjectsUserJobTitle';
@@ -129,7 +128,7 @@ export default function DiscussionsComment({
               <Text color="secondary" size="body2">
                 <ProjectsProfileLink profile={author} />
                 {' · '}
-                <span>{getRelativeTimestamp(comment.createdAt)}</span>
+                <RelativeTimestamp timestamp={comment.createdAt} />
               </Text>
             </div>
             <div className="flex gap-4">
