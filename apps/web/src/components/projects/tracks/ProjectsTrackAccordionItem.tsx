@@ -11,9 +11,9 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
+import ProjectsTrackChallengeStatusChip from './ProjectsTrackChallengeStatusChip';
 import ProjectsTracksHeader from './ProjectsTrackHeader';
 import type { ProjectsTrackItem } from './ProjectsTracksData';
-import ProjectsTrackStepLabel from './ProjectsTrackStepLabel';
 
 import * as Accordion from '@radix-ui/react-accordion';
 
@@ -59,7 +59,10 @@ export default function ProjectsTrackAccordionItem({ track }: Props) {
                   key={challenge.slug}
                   className="relative flex flex-col gap-4 shrink-0">
                   <div className="flex items-center">
-                    <ProjectsTrackStepLabel label={i + 1} />
+                    <ProjectsTrackChallengeStatusChip
+                      label={i + 1}
+                      status="IN_PROGRESS"
+                    />
                     {i < challenges.length - 1 && (
                       <div
                         className={clsx(

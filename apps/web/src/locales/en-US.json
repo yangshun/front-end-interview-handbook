@@ -3547,6 +3547,10 @@
     "defaultMessage": "We add more questions and guides from time to time, available for free to premium subscribers.",
     "description": "Subtitle for free continuous updates feature"
   },
+  "X1lkot": {
+    "defaultMessage": "Locked",
+    "description": "Locked status"
+  },
   "X55xMA": {
     "defaultMessage": "Premium Feature",
     "description": "Header for paywall over company tagging"
@@ -4406,6 +4410,10 @@
   "fJYFo8": {
     "defaultMessage": "Quiz",
     "description": "Label for quiz questions"
+  },
+  "fKFJZE": {
+    "defaultMessage": "Completed",
+    "description": "Completed status"
   },
   "fRGOI+": {
     "defaultMessage": "Number of questions",
@@ -6322,6 +6330,10 @@
   "xU7H/Y": {
     "defaultMessage": "Other skills you are using which are not within the skills tree. Also helps community members understand more about the tech stack.{br}{br}If you don't see the tag you need, email us at <email>{supportEmail}</email>",
     "description": "Description for \"Other tech stack used\" text input"
+  },
+  "xVBxp3": {
+    "defaultMessage": "In progress",
+    "description": "In progress status"
   },
   "xVsq55": {
     "defaultMessage": "{numUsers} completed",

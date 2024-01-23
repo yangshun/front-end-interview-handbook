@@ -14,7 +14,7 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
-import ProjectsTrackStepLabel from './ProjectsTrackStepLabel';
+import ProjectsTrackChallengeStatusChip from './ProjectsTrackChallengeStatusChip';
 import ProjectsChallengeStatusBadgeCompleted from '../challenges/status/ProjectsChallengeStatusBadgeCompleted';
 
 export type Props = Readonly<{
@@ -90,7 +90,10 @@ export default function ProjectsTrackPage({ track }: Props) {
                 className={clsx(
                   'relative flex flex-col justify-center self-stretch',
                 )}>
-                <ProjectsTrackStepLabel label={index + 1} />
+                <ProjectsTrackChallengeStatusChip
+                  label={index + 1}
+                  status="NOT_STARTED"
+                />
                 {index < challenges.length - 1 && (
                   <div
                     className={clsx(

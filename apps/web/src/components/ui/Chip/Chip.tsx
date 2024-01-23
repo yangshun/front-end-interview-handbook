@@ -82,6 +82,12 @@ const sizeClasses: Record<ChipSize, string> = {
   xs: 'h-5 w-5',
 };
 
+const textSizeClasses: Record<ChipSize, string> = {
+  md: 'text-sm',
+  sm: 'text-sm',
+  xs: 'text-xs',
+};
+
 export default function Chip({
   label,
   'aria-hidden': ariaHidden,
@@ -108,11 +114,9 @@ export default function Chip({
         borderClass,
         className,
       )}>
-      {Icon && <Icon className={clsx(iconClass, 'h-4 w-4', iconClassName)} />}
+      {Icon && <Icon className={clsx(iconClass, 'h-3 w-3', iconClassName)} />}
       {!isLabelHidden && (
-        <span className={clsx(textClass, size === 'xs' && 'text-xs')}>
-          {label}
-        </span>
+        <span className={clsx(textClass, textSizeClasses[size])}>{label}</span>
       )}
     </span>
   );
