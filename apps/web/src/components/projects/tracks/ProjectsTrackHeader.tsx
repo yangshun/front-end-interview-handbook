@@ -6,21 +6,26 @@ import ProjectsChallengeCountTag from '~/components/projects/stats/ProjectsChall
 import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsTrack } from './ProjectsTracksData';
+import type { ProjectsTrackItem } from './ProjectsTracksData';
+import ProjectsChallengeStatusBadgeCompleted from '../challenges/status/ProjectsChallengeStatusBadgeCompleted';
 
-type Props = Readonly<{ track: ProjectsTrack }>;
+type Props = Readonly<{ completedCount?: number; track: ProjectsTrackItem }>;
 
-export default function ProjectsTrackHeader({ track }: Props) {
-  const { isPremium, points, completedProjectCount, metadata, challenges } =
-    track;
-  const { description, title } = metadata;
+export default function ProjectsTrackHeader({
+  completedCount = 0,
+  track,
+}: Props) {
   const intl = useIntl();
 
+  const { points, metadata, challenges } = track;
+  const { description, title } = metadata;
+  const completed = completedCount === challenges.length;
+
   return (
-    <div className="flex flex-col items-start text-start">
-      <div className="flex gap-2">
+    <div className="flex flex-col items-start text-start gap-1.5">
+      <div className="flex gap-2 items-center">
         <Text weight="medium">{title}</Text>
-        {isPremium && (
+        {metadata.premium && (
           <Badge
             icon={RiLock2Line}
             label={intl.formatMessage({
@@ -33,15 +38,16 @@ export default function ProjectsTrackHeader({ track }: Props) {
             variant="special"
           />
         )}
+        {completed && <ProjectsChallengeStatusBadgeCompleted />}
       </div>
-      <Text className="mt-1" color="subtitle" size="body2">
+      <Text color="subtitle" display="block" size="body2">
         {description}
       </Text>
-      <div className="mt-2 flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-4">
         <ProjectsChallengeReputationTag points={points} variant="flat" />
         <ProjectsChallengeCountTag
           total={challenges.length}
-          value={completedProjectCount}
+          value={completedCount}
         />
       </div>
     </div>

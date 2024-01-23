@@ -2,15 +2,15 @@
 
 import { FormattedMessage } from 'react-intl';
 
-import ProjectsMarketingComponentTrackAccordion from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordion';
-import ProjectsMarketingComponentTrackAccordionItem from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordionItem';
-import type { ProjectsTrack } from '~/components/projects/tracks/ProjectsTracksData';
+import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
+import ProjectsTrackSection from './ProjectsTrackSection';
+
 type Props = Readonly<{
-  projectTracks: ReadonlyArray<ProjectsTrack>;
+  projectTracks: ReadonlyArray<ProjectsTrackItem>;
 }>;
 
 export default function ProjectsTracksListPage({ projectTracks }: Props) {
@@ -35,14 +35,10 @@ export default function ProjectsTracksListPage({ projectTracks }: Props) {
         </Section>
       </div>
       <Section>
-        <ProjectsMarketingComponentTrackAccordion>
-          {projectTracks.map((projectTrack) => (
-            <ProjectsMarketingComponentTrackAccordionItem
-              key={projectTrack.metadata.slug}
-              track={projectTrack}
-            />
-          ))}
-        </ProjectsMarketingComponentTrackAccordion>
+        <ProjectsTrackSection
+          defaultOpen={true}
+          projectTracks={projectTracks}
+        />
       </Section>
     </div>
   );

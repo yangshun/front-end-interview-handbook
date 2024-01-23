@@ -6,24 +6,22 @@ import Anchor from '~/components/ui/Anchor';
 import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundCardWhiteOnLightColor,
-  themeBackgroundEmphasized,
-  themeGlassyBorder,
+  themeBackgroundCardColor,
+  themeBorderElementColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-import type { ProjectsTrack } from '../tracks/ProjectsTracksData';
-import ProjectsTracksHeader from '../tracks/ProjectsTracksHeader';
+import ProjectsTracksHeader from './ProjectsTrackHeader';
+import type { ProjectsTrackItem } from './ProjectsTracksData';
+import ProjectsTrackStepLabel from './ProjectsTrackStepLabel';
 
 import * as Accordion from '@radix-ui/react-accordion';
 
 type Props = Readonly<{
-  track: ProjectsTrack;
+  track: ProjectsTrackItem;
 }>;
 
-export default function ProjectsMarketingComponentTrackAccordionItem({
-  track,
-}: Props) {
+export default function ProjectsTrackAccordionItem({ track }: Props) {
   const { metadata, challenges } = track;
   const { href, slug } = metadata;
 
@@ -34,7 +32,7 @@ export default function ProjectsMarketingComponentTrackAccordionItem({
       <Card
         className={clsx(
           'flex flex-col overflow-visible',
-          themeBackgroundCardWhiteOnLightColor,
+          themeBackgroundCardColor,
         )}
         disableBackground={true}
         disableSpotlight={true}
@@ -54,36 +52,38 @@ export default function ProjectsMarketingComponentTrackAccordionItem({
           </Accordion.Trigger>
         </Accordion.Header>
         <Accordion.Content className="-mt-4 p-6">
-          <div className="-mx-6 overflow-hidden">
-            <div className="flex overflow-x-auto px-6">
+          <div className="-mr-6 overflow-hidden">
+            <div className="flex overflow-x-auto pr-6 pb-3">
               {challenges.map((challenge, i) => (
                 <div
                   key={challenge.slug}
-                  className="relative flex flex-col gap-4">
+                  className="relative flex flex-col gap-4 shrink-0">
                   <div className="flex items-center">
-                    <div
-                      className={clsx(
-                        'flex h-6 w-6 shrink-0 items-center justify-center rounded-full',
-                        themeGlassyBorder,
-                        themeBackgroundEmphasized,
-                      )}>
-                      <Text color="secondary" size="body2">
-                        {i + 1}
-                      </Text>
-                    </div>
+                    <ProjectsTrackStepLabel label={i + 1} />
                     {i < challenges.length - 1 && (
-                      <div className="flex-1 border-t border-dashed border-neutral-800" />
+                      <div
+                        className={clsx(
+                          'flex-1 border-t border-dashed',
+                          themeBorderElementColor,
+                        )}
+                      />
                     )}
                   </div>
                   <Anchor
                     className={clsx(
-                      'outline-brand flex flex-col gap-2 rounded-md bg-neutral-900 p-2',
+                      'outline-brand flex flex-col gap-1.5 rounded-lg p-2',
+                      'bg-neutral-200/40 dark:bg-neutral-800/40',
                       i < challenges.length - 1 && 'me-4',
                     )}
-                    href={challenge.href}>
+                    href={challenge.href}
+                    variant="unstyled">
                     <img
                       alt={challenge.title}
-                      className="h-32 w-48 self-stretch rounded-md bg-neutral-800"
+                      className={clsx(
+                        'h-[100px] w-[160px]',
+                        'rounded',
+                        'bg-neutral-200 dark:bg-neutral-800',
+                      )}
                       src={challenge.imageUrl}
                     />
                     <Text size="body2" weight="medium">
@@ -94,7 +94,7 @@ export default function ProjectsMarketingComponentTrackAccordionItem({
               ))}
             </div>
           </div>
-          <Anchor className="inline-flex mt-6" href={href}>
+          <Anchor className="inline-flex mt-3" href={href}>
             <Text
               className="inline-flex gap-2 items-center"
               color="inherit"

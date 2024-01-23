@@ -1,28 +1,32 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiArrowLeftLine, RiArrowRightLine } from 'react-icons/ri';
+import { RiArrowLeftLine, RiArrowRightLine, RiLock2Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsChallengeCountTag from '~/components/projects/stats/ProjectsChallengeCountTag';
-import type { ProjectsTrack } from '~/components/projects/tracks/ProjectsTracksData';
+import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
+import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
-import {
-  themeBackgroundLayerEmphasized,
-  themeBorderElementColor,
-} from '~/components/ui/theme';
+import { themeBorderElementColor } from '~/components/ui/theme';
+
+import ProjectsTrackStepLabel from './ProjectsTrackStepLabel';
+import ProjectsChallengeStatusBadgeCompleted from '../challenges/status/ProjectsChallengeStatusBadgeCompleted';
 
 export type Props = Readonly<{
-  track: ProjectsTrack;
+  track: ProjectsTrackItem;
 }>;
 
 export default function ProjectsTrackPage({ track }: Props) {
-  const { challenges, completedProjectCount, points, metadata } = track;
+  const { challenges, points, metadata } = track;
   const { title, description } = metadata;
+  // TODO(projects): actual number
+  const completionCount = 2;
+  const completed = completionCount === challenges.length;
 
   const intl = useIntl();
 
@@ -44,12 +48,28 @@ export default function ProjectsTrackPage({ track }: Props) {
         <div className="flex items-center gap-6">
           <div className="bg-red h-16 w-16 rounded-lg" />
           <div className="flex flex-col gap-2">
-            <Heading level="heading5">{title}</Heading>
+            <div className="flex flex-wrap gap-y-2 gap-x-4 items-center">
+              <Heading level="heading5">{title}</Heading>
+              {metadata.premium && (
+                <Badge
+                  icon={RiLock2Line}
+                  label={intl.formatMessage({
+                    defaultMessage: 'Premium',
+                    description:
+                      'Label on Premium badge to indicate premium-only access',
+                    id: 'aWL34G',
+                  })}
+                  size="sm"
+                  variant="special"
+                />
+              )}
+              {completed && <ProjectsChallengeStatusBadgeCompleted />}
+            </div>
             <div className="flex flex-wrap gap-x-4 gap-y-2">
               <ProjectsChallengeReputationTag points={points} variant="flat" />
               <ProjectsChallengeCountTag
                 total={challenges.length}
-                value={completedProjectCount}
+                value={completionCount}
               />
             </div>
           </div>
@@ -63,36 +83,29 @@ export default function ProjectsTrackPage({ track }: Props) {
         disableSpotlight={true}
         padding={false}
         pattern={false}>
-        <div
-          className={clsx(
-            'relative flex flex-col gap-4',
-            'before:border-element before:absolute before:left-3 before:-z-10 before:h-full before:w-px before:border-l before:border-dashed dark:before:border-neutral-700',
-          )}>
+        <div className={clsx('relative flex flex-col gap-4')}>
           {challenges.map((challenge, index) => (
             <div key={challenge.slug} className="group flex items-center gap-6">
               <div
                 className={clsx(
                   'relative flex flex-col justify-center self-stretch',
-                  'before:absolute before:top-0 before:hidden before:h-1/2 before:w-full before:bg-white group-first:before:block dark:before:bg-neutral-900',
-                  'after:absolute after:bottom-0 after:hidden after:h-1/2 after:w-full after:bg-white group-last:after:block dark:after:bg-neutral-900',
                 )}>
-                <div
-                  className={clsx(
-                    'z-10 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full',
-                    themeBackgroundLayerEmphasized,
-                    themeBorderElementColor,
-                  )}>
-                  <Text color="secondary" size="body2" weight="medium">
-                    {index + 1}
-                  </Text>
-                </div>
+                <ProjectsTrackStepLabel label={index + 1} />
+                {index < challenges.length - 1 && (
+                  <div
+                    className={clsx(
+                      'w-px h-[90%] border-l border-dashed absolute self-center top-1/2 -z-10 translate-y-3',
+                      themeBorderElementColor,
+                    )}
+                  />
+                )}
               </div>
               <img
                 alt={challenge.title}
                 className={clsx(
                   'self-start rounded',
-                  'md:h-[100px] md:w-[130px]',
                   'h-[62px] w-[80px]',
+                  'md:h-[100px] md:w-[130px]',
                 )}
                 src={challenge.imageUrl}
               />

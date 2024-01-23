@@ -6,21 +6,24 @@ import * as Accordion from '@radix-ui/react-accordion';
 type Props = Readonly<{
   children: React.ReactNode;
   className?: string;
+  defaultValue?: Array<string>;
   disabled?: boolean;
 }>;
 
-export default function ProjectsMarketingComponentTrackAccordion({
+export default function ProjectsTrackAccordion({
   children,
   className,
+  defaultValue,
   disabled,
 }: Props) {
   return (
     <Accordion.Root
       className={clsx(
-        'space-y-4',
+        'flex flex-col gap-y-6',
         disabled && 'pointer-events-none',
         className,
       )}
+      defaultValue={defaultValue}
       disabled={disabled}
       type="multiple">
       {children}

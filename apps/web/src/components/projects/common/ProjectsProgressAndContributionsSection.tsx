@@ -3,13 +3,12 @@
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
-import type { ProjectsTrack } from '~/components/projects/tracks/ProjectsTracksData';
+import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
 import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
 
 import ProjectsAllChallengesTab from './ProjectsAllChallengesTab';
 import ProjectsCodeReviewsTab from './ProjectsCodeReviewsTab';
-import ProjectsComponentTrackTab from './ProjectsComponentTrackTab';
 import ProjectsSkillsTab from './ProjectsSkillsTab';
 import type { ProjectsMainTabCategory } from './useProjectsCategoryTabs';
 import useProjectsCategoryTabs from './useProjectsCategoryTabs';
@@ -17,10 +16,11 @@ import type { ProjectsCommunityContributionsTabCategory } from './useProjectsCom
 import useProjectsCommunityContributionsTabs from './useProjectsCommunityContributionsTabs';
 import type { ProjectsMainLayoutTabCategory } from './useProjectsMainLayoutTabs';
 import useProjectsMainLayoutTabs from './useProjectsMainLayoutTabs';
+import ProjectsTrackSection from '../tracks/ProjectsTrackSection';
 
 type Props = Readonly<{
   currentTab: ProjectsMainTabCategory;
-  projectTracks: ReadonlyArray<ProjectsTrack>;
+  projectTracks: ReadonlyArray<ProjectsTrackItem>;
 }>;
 
 export default function ProjectsProgressAndContributionsSection({
@@ -93,7 +93,10 @@ export default function ProjectsProgressAndContributionsSection({
         currentProgressTab === 'challenges' && <ProjectsAllChallengesTab />}
       {currentDashboardTab === 'progress' &&
         currentProgressTab === 'tracks' && (
-          <ProjectsComponentTrackTab projectTracks={projectTracks} />
+          <ProjectsTrackSection
+            defaultOpen={true}
+            projectTracks={projectTracks}
+          />
         )}
       {currentDashboardTab === 'progress' &&
         currentProgressTab === 'skills' && <ProjectsSkillsTab />}

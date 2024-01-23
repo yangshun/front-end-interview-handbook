@@ -3,10 +3,8 @@ import type {
   ProjectsTrackMetadata,
 } from 'contentlayer/generated';
 
-export type ProjectsTrack = Readonly<{
+export type ProjectsTrackItem = Readonly<{
   challenges: ReadonlyArray<ProjectsChallengeMetadata>;
-  completedProjectCount: number;
-  isPremium: boolean;
   metadata: ProjectsTrackMetadata;
   points: number;
 }>;

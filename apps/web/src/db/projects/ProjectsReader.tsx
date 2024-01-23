@@ -15,7 +15,7 @@ import {
 import { sum } from 'lodash-es';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import type { ProjectsTrack } from '~/components/projects/tracks/ProjectsTracksData';
+import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
 import type { ProjectsProfileAvatarData } from '~/components/projects/types';
 
 import prisma from '~/server/prisma';
@@ -42,15 +42,6 @@ const extraProjectData = {
     },
   ] as const,
 } as const;
-
-// TODO(projects): remove when using real data.
-export const exampleTrack: Omit<
-  ProjectsTrack,
-  'challenges' | 'metadata' | 'points'
-> = {
-  completedProjectCount: 3,
-  isPremium: true,
-};
 
 export async function fetchSessionsForUserGroupedBySlug(
   userId?: string | null,
@@ -353,7 +344,7 @@ export async function readProjectsTrackList(
   userId?: string | null,
 ): Promise<{
   loadedLocale: string;
-  tracks: ReadonlyArray<ProjectsTrack>;
+  tracks: ReadonlyArray<ProjectsTrackItem>;
 }> {
   const [{ challenges }, { trackMetadataList }] = await Promise.all([
     readProjectsChallengeList(requestedLocale, userId),
@@ -367,7 +358,6 @@ export async function readProjectsTrackList(
     const points = sum(trackChallenges.map((metadata) => metadata.points));
 
     return {
-      ...exampleTrack,
       challenges: trackChallenges,
       metadata: trackMetadata,
       points,
@@ -400,7 +390,7 @@ export async function readProjectsTrack(
 ): Promise<
   Readonly<{
     loadedLocale: string;
-    track: ProjectsTrack;
+    track: ProjectsTrackItem;
   }>
 > {
   const { challenges } = await readProjectsChallengeList(requestedLocale);
@@ -423,7 +413,6 @@ export async function readProjectsTrack(
   return {
     loadedLocale: requestedLocale,
     track: {
-      ...exampleTrack,
       challenges: trackChallenges,
       metadata: trackMetadata,
       points,

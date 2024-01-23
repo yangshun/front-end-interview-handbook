@@ -9,7 +9,7 @@ import ProjectsMarketingFeatures from '~/components/projects/marketing/ProjectsM
 import ProjectsMarketingHero from '~/components/projects/marketing/ProjectsMarketingHero';
 import ProjectsMarketingHomepageFeaturesRow from '~/components/projects/marketing/ProjectsMarketingHomepageFeaturesRow';
 import ProjectsMarketingSkillsTracksProjects from '~/components/projects/marketing/ProjectsMarketingSkillsTracksProjects';
-import type { ProjectsTrack } from '~/components/projects/tracks/ProjectsTracksData';
+import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 const MarketingHomePageBottom = dynamic(
@@ -19,7 +19,7 @@ const MarketingHomePageBottom = dynamic(
 
 type Props = Readonly<{
   featuredChallenges: ReadonlyArray<ProjectsChallengeItem>;
-  projectTracks: ReadonlyArray<ProjectsTrack>;
+  projectTracks: ReadonlyArray<ProjectsTrackItem>;
 }>;
 
 export default function ProjectsMarketingHomePage({

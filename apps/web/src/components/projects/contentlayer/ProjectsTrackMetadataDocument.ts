@@ -26,6 +26,11 @@ export const ProjectsTrackMetadataDocument = defineDocumentType(() => ({
       required: true,
       type: 'string',
     },
+    premium: {
+      description: 'Whether the track is premium',
+      required: true,
+      type: 'boolean',
+    },
     title: {
       description: 'Name of the track',
       required: true,

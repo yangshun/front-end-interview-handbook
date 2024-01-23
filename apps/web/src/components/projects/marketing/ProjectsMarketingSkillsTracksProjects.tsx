@@ -11,20 +11,20 @@ import ReactLogo from '~/components/icons/ReactLogo';
 import ProjectsChallengeGridList from '~/components/projects/challenges/lists/ProjectsChallengeGridList';
 import ProjectsChallengeGridListWithFilters from '~/components/projects/challenges/lists/ProjectsChallengeGridListWithFilters';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import ProjectsMarketingComponentTrackAccordion from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordion';
-import ProjectsMarketingComponentTrackAccordionItem from '~/components/projects/marketing/ProjectsMarketingComponentTrackAccordionItem';
 import ProjectsSkillTree from '~/components/projects/skills/ProjectsSkillTree';
 import {
   foundationalSkillTree,
   intermediateSkillTree,
 } from '~/components/projects/skills/ProjectsSkillTreeData';
+import ProjectsTrackAccordion from '~/components/projects/tracks/ProjectsTrackAccordion';
+import ProjectsTrackAccordionItem from '~/components/projects/tracks/ProjectsTrackAccordionItem';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeRadialGlowBackground } from '~/components/ui/theme';
 
-import type { ProjectsTrack } from '../tracks/ProjectsTracksData';
+import type { ProjectsTrackItem } from '../tracks/ProjectsTracksData';
 
 const skills = [
   {
@@ -37,8 +37,8 @@ const skills = [
 
 type Props = Readonly<{
   featuredChallenges: ReadonlyArray<ProjectsChallengeItem>;
-  hiddenTracks: ReadonlyArray<ProjectsTrack>;
-  projectTracks: ReadonlyArray<ProjectsTrack>;
+  hiddenTracks: ReadonlyArray<ProjectsTrackItem>;
+  projectTracks: ReadonlyArray<ProjectsTrackItem>;
 }>;
 
 export default function ProjectsMarketingSkillsTracksProjects({
@@ -190,14 +190,14 @@ export default function ProjectsMarketingSkillsTracksProjects({
                 />
               }
             />
-            <ProjectsMarketingComponentTrackAccordion>
+            <ProjectsTrackAccordion>
               {projectTracks.map((projectTrack) => (
-                <ProjectsMarketingComponentTrackAccordionItem
+                <ProjectsTrackAccordionItem
                   key={projectTrack.metadata.slug}
                   track={projectTrack}
                 />
               ))}
-            </ProjectsMarketingComponentTrackAccordion>
+            </ProjectsTrackAccordion>
             <BlurOverlay
               align="bottom"
               overlay={
@@ -227,16 +227,14 @@ export default function ProjectsMarketingSkillsTracksProjects({
                   </div>
                 </div>
               }>
-              <ProjectsMarketingComponentTrackAccordion
-                className="-mt-4"
-                disabled={true}>
+              <ProjectsTrackAccordion className="-mt-4" disabled={true}>
                 {hiddenTracks.map((track) => (
-                  <ProjectsMarketingComponentTrackAccordionItem
+                  <ProjectsTrackAccordionItem
                     key={track.metadata.slug}
                     track={track}
                   />
                 ))}
-              </ProjectsMarketingComponentTrackAccordion>
+              </ProjectsTrackAccordion>
             </BlurOverlay>
           </div>
         </Section>

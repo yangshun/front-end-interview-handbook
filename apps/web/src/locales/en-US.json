@@ -403,10 +403,6 @@
     "defaultMessage": "Your code was restored from client storage. <link>Reset to default</link>",
     "description": "Message that appears under the coding workspace when user has previously worked on this problem and we restored their code"
   },
-  "2akDIG": {
-    "defaultMessage": "{yearCount} YOE",
-    "description": "Label showing years of experience of a user"
-  },
   "2gImEH": {
     "defaultMessage": "Online assets",
     "description": "Title for Online Assets section on Projects project assets page"
@@ -430,6 +426,10 @@
   "2y24a/": {
     "defaultMessage": "Save",
     "description": "Save button label"
+  },
+  "2yhoAr": {
+    "defaultMessage": "Familiar with these skills / tools / frameworks",
+    "description": "Projects profile tech stack proficient section title"
   },
   "32cQk/": {
     "defaultMessage": "Warm Up Question",
@@ -506,10 +506,6 @@
   "3lEE1N": {
     "defaultMessage": "New",
     "description": "Label for new questions ribbon"
-  },
-  "3sCoap": {
-    "defaultMessage": "Tech stack {username} is proficient in",
-    "description": "Projects profile tech stack proficient section title"
   },
   "3t00jq": {
     "defaultMessage": "Confirm",
@@ -602,6 +598,10 @@
   "4s0hMm": {
     "defaultMessage": "All tasks completed!",
     "description": "Title for rewards complete page"
+  },
+  "4s0s2J": {
+    "defaultMessage": "Edit profile",
+    "description": "Label for edit projects profile button"
   },
   "4tgadO": {
     "defaultMessage": "Impress recruiters with entire component libraries or design systems built from scratch. Our component tracks cover components from various use cases and industries.",
@@ -1187,10 +1187,6 @@
     "defaultMessage": "Start task",
     "description": "Label for button to start task"
   },
-  "Ad544L": {
-    "defaultMessage": "Edit Profile",
-    "description": "Label for edit projects profile button"
-  },
   "Ad94JV": {
     "defaultMessage": "Use code at checkout",
     "description": "Instruction to apply discount"
@@ -1214,10 +1210,6 @@
   "AzJz7v": {
     "defaultMessage": "Menu",
     "description": "Project guide navigation menu button label"
-  },
-  "B+SjAW": {
-    "defaultMessage": "The skills / tools / frameworks I am hoping to grow",
-    "description": "Projects profile tech stack I am hoping to grow section title"
   },
   "B2171J": {
     "defaultMessage": "Download design assets",
@@ -2343,6 +2335,10 @@
     "defaultMessage": "Reviews meeting eligibility and terms will be rewarded regardless of whether it was positive or negative.",
     "description": "Condition for promotion"
   },
+  "M1iUIY": {
+    "defaultMessage": "Hoping to grow in",
+    "description": "Projects profile tech stack I am hoping to grow section title"
+  },
   "M3V59d": {
     "defaultMessage": "GitHub repo",
     "description": "Title for GitHub repo step in project submission checklist"
@@ -2654,6 +2650,10 @@
   "P2baTC": {
     "defaultMessage": "Coding Format",
     "description": "Front end coding interview questions"
+  },
+  "P3mHDw": {
+    "defaultMessage": "Hoping to grow in skills / tools / frameworks",
+    "description": "Projects profile tech stack I am hoping to grow section title"
   },
   "P4Or/u": {
     "defaultMessage": "CSS",
@@ -3267,10 +3267,6 @@
     "defaultMessage": "India",
     "description": "India country"
   },
-  "UYvCz8": {
-    "defaultMessage": "The skills / tools / frameworks I am already familiar in",
-    "description": "Projects profile tech stack proficient section title"
-  },
   "UZDhKH": {
     "defaultMessage": "Tech stack you are hoping to grow in",
     "description": "Label for \"Tech stack you are hoping to grow in\" input on Projects profile onboarding page"
@@ -3398,10 +3394,6 @@
   "Vg4BgA": {
     "defaultMessage": "Learn from others",
     "description": "Title for portfolio motivation"
-  },
-  "Vg4mOg": {
-    "defaultMessage": "Tech stack I am hoping to grow in",
-    "description": "Projects profile tech stack I am hoping to grow section title"
   },
   "Vk81t3": {
     "defaultMessage": "Skills",
@@ -3542,6 +3534,10 @@
   "Wq6liX": {
     "defaultMessage": "Complete projects, with rep awarded by difficulty",
     "description": "Description for \"Complete projects, with rep awarded by difficulty\" feature on Projects home page"
+  },
+  "WyHdb2": {
+    "defaultMessage": "Proficient skills",
+    "description": "Projects profile tech stack proficient section title"
   },
   "X/axGA": {
     "defaultMessage": "Affiliate Program",
@@ -4099,10 +4095,6 @@
     "defaultMessage": "User Interface Questions",
     "description": "Title for an example list of User Interface Questions on marketing pages"
   },
-  "by2veu": {
-    "defaultMessage": "The skills / tools / frameworks {username} is hoping to grow",
-    "description": "Projects profile tech stack I am hoping to grow section title"
-  },
   "c2bsgM": {
     "defaultMessage": "For Experienced",
     "description": "Button label for Projects marketing hero section for experienced users"
@@ -4382,10 +4374,6 @@
   "f6GjzW": {
     "defaultMessage": "GitHub (optional)",
     "description": "Label for GitHub link input on Projects profile onboarding page"
-  },
-  "f7oS+z": {
-    "defaultMessage": "The skills / tools / frameworks {username} is already familiar in",
-    "description": "Projects profile tech stack proficient section title"
   },
   "f89otf": {
     "defaultMessage": "Algorithm Questions",
@@ -5475,10 +5463,6 @@
     "defaultMessage": "You're about to open an external website. Be cautious and keep your personal information safe",
     "description": "Subtitle for external link page"
   },
-  "pABUkn": {
-    "defaultMessage": "Tech stack {username} is hoping to grow in",
-    "description": "Projects profile tech stack I am hoping to grow section title"
-  },
   "pBR3LI": {
     "defaultMessage": "Blog",
     "description": "Link to blog"
@@ -5674,10 +5658,6 @@
   "qcjD4a": {
     "defaultMessage": "Coding Questions",
     "description": "Coding interview questions"
-  },
-  "qfH1yK": {
-    "defaultMessage": "Unknown user",
-    "description": "Fallback text for unknown user"
   },
   "qh0zg0": {
     "defaultMessage": "For your reference, these are the tests used when your code is submitted. They cannot be modified.",
@@ -6274,10 +6254,6 @@
   "wO0zga": {
     "defaultMessage": "Skills roadmap",
     "description": "Title for \"Skills roadmap\" feature on Projects home page"
-  },
-  "wQsSoq": {
-    "defaultMessage": "Tech stack I am proficient in",
-    "description": "Projects profile tech stack proficient section title"
   },
   "wbjMPn": {
     "defaultMessage": "Send magic link",
