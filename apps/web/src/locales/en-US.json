@@ -5031,6 +5031,10 @@
     "defaultMessage": "In-browser coding workspace",
     "description": "Title for in-browser coding workspace feature"
   },
+  "kuPMCs": {
+    "defaultMessage": "edited {updatedAtTime}",
+    "description": "Updated time stamp for submission detail page"
+  },
   "kvLlxS": {
     "defaultMessage": "Security",
     "description": "Security topic for quiz questions"
@@ -5742,10 +5746,6 @@
   "rByL/3": {
     "defaultMessage": "Explore skill tree",
     "description": "CTA for beginner motivation"
-  },
-  "rGeyo+": {
-    "defaultMessage": "• edited",
-    "description": "Submission and updated time stamp for submission detail page"
   },
   "rH3Vfz": {
     "defaultMessage": "Ask any questions in community",

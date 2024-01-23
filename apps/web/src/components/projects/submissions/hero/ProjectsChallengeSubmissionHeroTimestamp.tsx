@@ -1,37 +1,35 @@
 import { FormattedMessage } from 'react-intl';
 
-import RelativeTimestamp from '~/components/projects/common/RelativeTimestamp';
 import Text from '~/components/ui/Text';
 
+import type { ProjectsChallengeSubmissionAugmented } from '../types';
+import RelativeTimestamp from '../../common/RelativeTimestamp';
+
 type Props = Readonly<{
-  createdAt: Date;
-  updatedAt: Date;
+  submission: ProjectsChallengeSubmissionAugmented;
 }>;
 
 export default function ProjectsChallengeSubmissionHeroTimestamp({
-  createdAt,
-  updatedAt,
+  submission,
 }: Props) {
-  const createdAtDate = new Date(createdAt);
-  const updatedAtDate = new Date(updatedAt);
+  const { createdAt, updatedAt } = submission;
 
   return (
-    <div>
-      <Text color="secondary" size="body3">
-        <RelativeTimestamp timestamp={createdAtDate} />
-      </Text>
-      {createdAt !== updatedAt && (
-        <span>
-          <Text color="secondary" size="body3">
-            <FormattedMessage
-              defaultMessage=" • edited "
-              description="Submission and updated time stamp for submission detail page"
-              id="rGeyo+"
-            />
-            <RelativeTimestamp timestamp={updatedAtDate} />
-          </Text>
-        </span>
+    <Text color="secondary" size="body3">
+      <RelativeTimestamp timestamp={createdAt} />
+      {createdAt.getTime() !== updatedAt.getTime() && (
+        <>
+          {' • '}
+          <FormattedMessage
+            defaultMessage="edited {updatedAtTime}"
+            description="Updated time stamp for submission detail page"
+            id="kuPMCs"
+            values={{
+              updatedAtTime: <RelativeTimestamp timestamp={updatedAt} />,
+            }}
+          />
+        </>
       )}
-    </div>
+    </Text>
   );
 }
