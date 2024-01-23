@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import ProjectsTrackPage from '~/components/projects/tracks/ProjectsTrackPage';
+import ProjectsTrackDetailsPage from '~/components/projects/tracks/ProjectsTrackDetailsPage';
 
 import { readProjectsTrack } from '~/db/projects/ProjectsReader';
 
@@ -19,5 +19,5 @@ export default async function Page({ params }: Props) {
     notFound();
   }
 
-  return <ProjectsTrackPage track={track} />;
+  return <ProjectsTrackDetailsPage track={track} />;
 }

@@ -7,21 +7,28 @@ import { useIntl } from 'react-intl';
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsChallengeCountTag from '~/components/projects/stats/ProjectsChallengeCountTag';
 import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
+import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
-import Card from '~/components/ui/Card';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
-import { themeBorderElementColor } from '~/components/ui/theme';
+import {
+  themeBackgroundCardColor,
+  themeBorderColor,
+  themeBorderElementColor,
+  themeTextBrandGroupHoverColor,
+  themeTextFaintColor,
+} from '~/components/ui/theme';
 
 import ProjectsTrackChallengeStatusChip from './ProjectsTrackChallengeStatusChip';
+import ProjectsChallengeDifficultyTag from '../challenges/metadata/ProjectsChallengeDifficultyTag';
 import ProjectsChallengeStatusBadgeCompleted from '../challenges/status/ProjectsChallengeStatusBadgeCompleted';
 
 export type Props = Readonly<{
   track: ProjectsTrackItem;
 }>;
 
-export default function ProjectsTrackPage({ track }: Props) {
+export default function ProjectsTrackDetailsPage({ track }: Props) {
   const { challenges, points, metadata } = track;
   const { title, description } = metadata;
   // TODO(projects): actual number
@@ -78,58 +85,76 @@ export default function ProjectsTrackPage({ track }: Props) {
           {description}
         </Text>
       </div>
-      <Card
-        className="p-6"
-        disableSpotlight={true}
-        padding={false}
-        pattern={false}>
-        <div className={clsx('relative flex flex-col gap-4')}>
-          {challenges.map((challenge, index) => (
-            <div key={challenge.slug} className="group flex items-center gap-6">
-              <div
-                className={clsx(
-                  'relative flex flex-col justify-center self-stretch',
-                )}>
-                <ProjectsTrackChallengeStatusChip
-                  label={index + 1}
-                  status="NOT_STARTED"
+      <div className={clsx('relative flex flex-col gap-4')}>
+        {challenges.map((challenge, index) => (
+          <div key={challenge.slug} className="flex gap-4 w-full">
+            <div
+              className={clsx(
+                'relative flex flex-col justify-center self-stretch',
+              )}>
+              <ProjectsTrackChallengeStatusChip
+                label={index + 1}
+                status="NOT_STARTED"
+              />
+              {index < challenges.length - 1 && (
+                <div
+                  className={clsx(
+                    'w-px h-[90%] border-l border-dashed absolute self-center top-1/2 -z-10 translate-y-3',
+                    themeBorderElementColor,
+                  )}
                 />
-                {index < challenges.length - 1 && (
-                  <div
-                    className={clsx(
-                      'w-px h-[90%] border-l border-dashed absolute self-center top-1/2 -z-10 translate-y-3',
-                      themeBorderElementColor,
-                    )}
-                  />
-                )}
-              </div>
+              )}
+            </div>
+            <div
+              className={clsx(
+                'group flex items-center gap-6 grow overflow-hidden',
+                'rounded-lg',
+                'relative',
+                themeBackgroundCardColor,
+                ['border', themeBorderColor],
+                'pe-6',
+              )}>
               <img
                 alt={challenge.title}
                 className={clsx(
-                  'self-start rounded',
-                  'h-[62px] w-[80px]',
-                  'md:h-[100px] md:w-[130px]',
+                  'h-[100%] w-[104px] md:w-[130px]',
+                  'object-cover',
                 )}
                 src={challenge.imageUrl}
               />
-              <div className="flex flex-col items-start gap-2">
-                <Text weight="medium">{challenge.title}</Text>
-                <Text color="secondary" size="body3">
-                  {challenge.description}
-                </Text>
-                <Button
-                  className="-ms-3"
-                  href={challenge.href}
-                  icon={RiArrowRightLine}
-                  label="Start building"
-                  size="sm"
-                  variant="tertiary"
+              <div className="flex flex-col items-start gap-4 py-4 grow">
+                <div className="flex flex-col items-start gap-2">
+                  <Anchor href={challenge.href} variant="unstyled">
+                    <span aria-hidden="true" className="absolute inset-0" />
+                    <Text weight="medium">{challenge.title}</Text>
+                  </Anchor>
+                  <Text
+                    className="hidden lg:block"
+                    color="secondary"
+                    size="body3">
+                    {challenge.description}
+                  </Text>
+                </div>
+                <div>
+                  <ProjectsChallengeDifficultyTag
+                    difficulty={challenge.difficulty}
+                  />
+                </div>
+              </div>
+              <div className="flex items-center justify-center">
+                <RiArrowRightLine
+                  aria-hidden="true"
+                  className={clsx(
+                    'h-6 w-6 shrink-0',
+                    themeTextFaintColor,
+                    themeTextBrandGroupHoverColor,
+                  )}
                 />
               </div>
             </div>
-          ))}
-        </div>
-      </Card>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
