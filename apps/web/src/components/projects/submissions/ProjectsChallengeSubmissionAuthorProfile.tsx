@@ -5,6 +5,7 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import UserProfileDisplayName from '~/components/profile/info/UserProfileDisplayName';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import type { ProjectsChallengeSubmissionAuthor } from '~/components/projects/submissions/types';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
@@ -20,16 +21,11 @@ export default function ProjectsChallengeSubmissionAuthorProfile({
 
   return (
     <div className="gap-4 items-center flex">
-      <ProjectsProfileAvatar
-        level={11}
-        profile={author}
-        progress={30}
-        size="2xl"
-      />
+      <ProjectsProfileAvatar profile={author} size="2xl" />
       <div className="flex gap-3 flex-col">
         <div className="flex gap-2 items-center">
           <Text size="body2" weight="medium">
-            {author.name}
+            <UserProfileDisplayName profile={author} />
           </Text>
           {/* TODO(projects): Add actual premium logic */}
           <Badge
@@ -43,18 +39,15 @@ export default function ProjectsChallengeSubmissionAuthorProfile({
             variant="special"
           />
           {author.githubUsername && (
-            <a href={author.githubUsername}>
+            <a href={author.githubUsername} target="_blank">
               <span className="sr-only">Github</span>
-              <RiGithubFill aria-hidden="true" className="h-[18px] w-[18px]" />
+              <RiGithubFill aria-hidden="true" className="h-5 w-5" />
             </a>
           )}
           {author.linkedInUsername && (
-            <a href={author.linkedInUsername}>
+            <a href={author.linkedInUsername} target="_blank">
               <span className="sr-only">LinkedIn</span>
-              <RiLinkedinBoxFill
-                aria-hidden="true"
-                className="h-[18px] w-[18px]"
-              />
+              <RiLinkedinBoxFill aria-hidden="true" className="h-5 w-5" />
             </a>
           )}
         </div>

@@ -9,7 +9,8 @@ import { useMediaQuery } from 'usehooks-ts';
 import { trpc } from '~/hooks/trpc';
 
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
-import UserAvatarWithLevel from '~/components/projects/users/UserAvatarWithLevel';
+import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
+
 import Anchor from '~/components/ui/Anchor';
 import Chip from '~/components/ui/Chip';
 import Spinner from '~/components/ui/Spinner';
@@ -54,10 +55,9 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
         <>
           <div className="gap-4 items-center flex">
             <Anchor href={`/projects/u/${profile?.username}`}>
-              <UserAvatarWithLevel
-                level={11}
-                profile={profile}
-                progress={30}
+              <ProjectsProfileAvatar
+                hovercard={false}
+                profile={profile!}
                 size="2xl"
               />
             </Anchor>

@@ -32,9 +32,8 @@ export function ProjectsSidebarProfileHeader({ className, points }: Props) {
       <div className="flex flex-col items-start gap-2">
         <div className="flex gap-3">
           <ProjectsProfileAvatar
-            level={11}
+            hovercard={false}
             profile={profile}
-            progress={30}
             size="lg"
           />
           <div className="flex flex-col gap-1">

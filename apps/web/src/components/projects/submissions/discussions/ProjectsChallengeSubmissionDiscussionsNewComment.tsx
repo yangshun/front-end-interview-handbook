@@ -9,12 +9,12 @@ import FilterButton from '~/components/common/FilterButton';
 import type { DiscussionsCommentUserProfile } from '~/components/discussions/types';
 import UserProfileDisplayName from '~/components/profile/info/UserProfileDisplayName';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
-import UserAvatarWithLevel from '~/components/projects/users/UserAvatarWithLevel';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 
 import type { ProjectsChallengeSubmissionAugmented } from '../types';
+import ProjectsProfileAvatar from '../../users/ProjectsProfileAvatar';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -73,12 +73,7 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex items-center gap-4">
-        <UserAvatarWithLevel
-          level={11}
-          profile={viewer}
-          progress={50}
-          size="xl"
-        />
+        <ProjectsProfileAvatar hovercard={false} profile={viewer} size="xl" />
         <div className="flex flex-col gap-y-1">
           <Text size="body2" weight="medium">
             <UserProfileDisplayName profile={viewer} />

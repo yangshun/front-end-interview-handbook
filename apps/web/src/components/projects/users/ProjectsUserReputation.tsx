@@ -19,7 +19,7 @@ const textClasses: Record<Size, string> = {
 
 const iconClasses: Record<Size, string> = {
   '2xs': 'h-3 w-3',
-  sm: 'h-[18px] w-[18px]',
+  sm: 'h-5 w-5',
 };
 const gap: Record<Size, string> = {
   '2xs': 'gap-1',

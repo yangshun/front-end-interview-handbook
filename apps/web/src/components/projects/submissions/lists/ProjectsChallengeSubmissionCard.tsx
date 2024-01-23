@@ -115,12 +115,7 @@ export default function ProjectsChallengeSubmissionCard({
       <img alt={title} className="h-[190px] w-full rounded-md" src={imgSrc} />
       {!isPinned && author != null && (
         <div className="flex items-center gap-4">
-          <ProjectsProfileAvatar
-            level={11}
-            profile={author}
-            progress={40}
-            size="xl"
-          />
+          <ProjectsProfileAvatar profile={author} size="xl" />
           <div className="flex flex-col gap-1">
             <Text size="body2" weight="medium">
               <ProjectsProfileLink profile={author} />

@@ -88,22 +88,6 @@ export type yoeReplacement =
   | 'self-learning'
   | 'undergrad-cs';
 
-export type UserLevelWithAvatarSize = '2xl' | '3xl' | 'lg' | 'xl';
-
-export type ProjectsUserAvatarProps = Readonly<{
-  className?: string;
-  /**
-   * Current level as a number
-   */
-  level: number;
-  profile?: ProjectsProfileAvatarData | null;
-  /**
-   * Progress to next level in percent
-   */
-  progress: number;
-  size?: UserLevelWithAvatarSize;
-}>;
-
 export type ProjectsProfileAvatarData = Readonly<{
   avatarUrl: string | null;
   id: string;

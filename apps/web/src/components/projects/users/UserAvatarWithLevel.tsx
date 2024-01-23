@@ -1,13 +1,28 @@
 import clsx from 'clsx';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 
-import type {
-  ProjectsUserAvatarProps,
-  UserLevelWithAvatarSize,
-} from '~/components/projects/types';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 
 import 'react-circular-progressbar/dist/styles.css';
+
+type Props = Readonly<{
+  className?: string;
+  /**
+   * Current level as a number.
+   */
+  level: number;
+  profile?: Readonly<{
+    avatarUrl: string | null;
+    id: string;
+    name: string | null;
+    username: string;
+  }> | null;
+  /**
+   * Progress to next level in percent.
+   */
+  progress: number;
+  size?: UserLevelWithAvatarSize;
+}>;
 
 const sizeClasses: Record<
   UserLevelWithAvatarSize,
@@ -39,13 +54,15 @@ const sizeClasses: Record<
   },
 };
 
+export type UserLevelWithAvatarSize = '2xl' | '3xl' | 'lg' | 'xl';
+
 export default function UserAvatarWithLevel({
-  profile,
   className,
   level,
+  profile,
   progress,
   size = 'lg',
-}: ProjectsUserAvatarProps) {
+}: Props) {
   const { innerSize, outerSize, sizePixels } = sizeClasses[size];
 
   return (

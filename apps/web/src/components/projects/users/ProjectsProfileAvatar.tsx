@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 
-import type { ProjectsUserAvatarProps } from '~/components/projects/types';
 import {
   Hovercard,
   HovercardContent,
@@ -9,38 +8,47 @@ import {
 import { themeBackgroundLayerEmphasized } from '~/components/ui/theme';
 
 import ProjectsProfileHoverCard from './ProjectsProfileHoverCard';
+import type { UserLevelWithAvatarSize } from './UserAvatarWithLevel';
 import UserAvatarWithLevel from './UserAvatarWithLevel';
 
+type Props = Readonly<{
+  className?: string;
+  hovercard?: boolean;
+  profile?: Readonly<{
+    avatarUrl: string | null;
+    id: string;
+    name: string | null;
+    username: string;
+  }>;
+  size?: UserLevelWithAvatarSize;
+}>;
+
 export default function ProjectsProfileAvatar({
+  hovercard = true,
   profile,
   className,
-  level,
-  progress,
   size = 'lg',
-}: ProjectsUserAvatarProps) {
-  return profile ? (
+}: Props) {
+  const avatar = (
+    <UserAvatarWithLevel
+      className={className}
+      // TODO(projects): Fetch level and progress.
+      level={10}
+      profile={profile}
+      progress={80}
+      size={size}
+    />
+  );
+
+  return profile != null && hovercard ? (
     <Hovercard>
-      <HovercardTrigger>
-        <UserAvatarWithLevel
-          className={className}
-          level={level}
-          profile={profile}
-          progress={progress}
-          size={size}
-        />
-      </HovercardTrigger>
+      <HovercardTrigger>{avatar}</HovercardTrigger>
       <HovercardContent
         className={clsx('border-none', themeBackgroundLayerEmphasized)}>
         <ProjectsProfileHoverCard profileId={profile.id} />
       </HovercardContent>
     </Hovercard>
   ) : (
-    <UserAvatarWithLevel
-      className={className}
-      level={level}
-      profile={profile}
-      progress={progress}
-      size={size}
-    />
+    avatar
   );
 }

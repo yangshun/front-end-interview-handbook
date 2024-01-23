@@ -27,7 +27,7 @@ export default function ProjectsProfileInfoSectionLayout({
         {showTooltip && (
           <Tooltip label={tooltipMessage}>
             <RiInformationLine
-              className={clsx('h-[18px] w-[18px]', themeTextSecondaryColor)}
+              className={clsx('h-5 w-5', themeTextSecondaryColor)}
             />
           </Tooltip>
         )}
