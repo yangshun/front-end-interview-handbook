@@ -3,7 +3,7 @@ import ProjectsProgressAndContributionsSection from '~/components/projects/commo
 import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
 
 type Props = Readonly<{
-  params: Readonly<{ locale: string; username: string }>;
+  params: Readonly<{ locale: string }>;
 }>;
 
 export default async function Page({ params }: Props) {
@@ -12,7 +12,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <ProjectsProgressAndContributionsSection
-      currentTab="progress"
+      currentTab="contributions"
       projectTracks={tracks}
     />
   );

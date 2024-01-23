@@ -6,29 +6,27 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import ProjectsProgressAndContributionsSection from '~/components/projects/common/ProjectsProgressAndContributionsSection';
 import ProjectsProfileInfo from '~/components/projects/profile/ProjectsProfileInfo';
 import ProjectsProfilePinnedSubmissions from '~/components/projects/profile/ProjectsProfilePinnedSubmissions';
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
-import type { ProjectsTrack } from '~/components/projects/tracks/ProjectsTracksData';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 
 import type { Profile, ProjectsProfile } from '@prisma/client';
 
 type Props = Readonly<{
+  children: React.ReactNode;
   initialUserProfile: Profile &
     Readonly<{
       projectsProfile: ProjectsProfile;
     }>;
   isViewingOwnProfile: boolean;
-  projectTracks: ReadonlyArray<ProjectsTrack>;
 }>;
 
 export default function ProjectsProfilePage({
+  children,
   initialUserProfile,
   isViewingOwnProfile,
-  projectTracks,
 }: Props) {
   const intl = useIntl();
 
@@ -103,7 +101,7 @@ export default function ProjectsProfilePage({
           projectsProfileId={projectsProfileId}
         />
       </div>
-      <ProjectsProgressAndContributionsSection projectTracks={projectTracks} />
+      {children}
     </div>
   );
 }

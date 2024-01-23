@@ -19,10 +19,12 @@ import type { ProjectsMainLayoutTabCategory } from './useProjectsMainLayoutTabs'
 import useProjectsMainLayoutTabs from './useProjectsMainLayoutTabs';
 
 type Props = Readonly<{
+  currentTab: ProjectsMainTabCategory;
   projectTracks: ReadonlyArray<ProjectsTrack>;
 }>;
 
 export default function ProjectsProgressAndContributionsSection({
+  currentTab,
   projectTracks,
 }: Props) {
   const intl = useIntl();
@@ -39,7 +41,7 @@ export default function ProjectsProgressAndContributionsSection({
     });
   const contributionsTabs = useProjectsCommunityContributionsTabs();
   const [currentDashboardTab, setCurrentDashboardTab] =
-    useState<ProjectsMainTabCategory>('progress');
+    useState<ProjectsMainTabCategory>(currentTab);
   const [currentProgressTab, setCurrentProgressTab] =
     useState<ProjectsMainLayoutTabCategory>('challenges');
   const [currentContributionsTab, setCurrentContributionsTab] =
