@@ -79,12 +79,15 @@ export default function ProjectsCommentList({ comments, title }: Props) {
                             </Text>
                           ),
                           date: (chunks) => (
-                            <span className="pl-2 lg:hidden">
+                            <Text
+                              className="pl-2 lg:hidden"
+                              color="secondary"
+                              size="body3">
                               <RelativeTimestamp
                                 timestamp={new Date(comment.createdAt)}
                               />
                               {chunks}
-                            </span>
+                            </Text>
                           ),
                           description: comment.description,
                           link: (chunks) => (
@@ -107,7 +110,9 @@ export default function ProjectsCommentList({ comments, title }: Props) {
                 </div>
               </div>
               <div className="lg:flex whitespace-nowrap lg:visible hidden">
-                <RelativeTimestamp timestamp={new Date(comment.createdAt)} />
+                <Text color="secondary" size="body3">
+                  <RelativeTimestamp timestamp={new Date(comment.createdAt)} />
+                </Text>
               </div>
             </div>
           </li>
