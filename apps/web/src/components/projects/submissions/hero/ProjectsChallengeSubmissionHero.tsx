@@ -160,7 +160,10 @@ export default function ProjectsChallengeSubmissionHero({
             </div>
             <div className="flex lg:flex-row flex-col gap-2 h-full justify-between w-full lg:items-center">
               <div className="flex flex-col gap-1">
-                <ProjectsChallengeSubmissionHeroTimestamp />
+                <ProjectsChallengeSubmissionHeroTimestamp
+                  createdAt={submission.createdAt}
+                  updatedAt={submission.updatedAt}
+                />
                 <div className="flex flex-col gap-5">
                   <Heading level="heading4">{submission.title}</Heading>
                   <div className="flex gap-6 items-center">
@@ -186,7 +189,10 @@ export default function ProjectsChallengeSubmissionHero({
             {showPin && pinButton}
           </div>
           <div className="flex flex-col gap-4">
-            <ProjectsChallengeSubmissionHeroTimestamp />
+            <ProjectsChallengeSubmissionHeroTimestamp
+              createdAt={submission.createdAt}
+              updatedAt={submission.updatedAt}
+            />
             <Heading level="heading5">{submission.title}</Heading>
             <div className="flex gap-4">
               {views}

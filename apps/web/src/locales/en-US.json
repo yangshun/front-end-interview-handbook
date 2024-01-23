@@ -1055,10 +1055,6 @@
     "defaultMessage": "You may be interested",
     "description": "Title for you may be interested section on Projects challenge submission page"
   },
-  "92OX3Z": {
-    "defaultMessage": "{createdAt} • edited {updatedAt}",
-    "description": "Submission and updated time stamp for submission detail page"
-  },
   "94CGBX": {
     "defaultMessage": "Coding",
     "description": "Label for coding questions"
@@ -5746,6 +5742,10 @@
   "rByL/3": {
     "defaultMessage": "Explore skill tree",
     "description": "CTA for beginner motivation"
+  },
+  "rGeyo+": {
+    "defaultMessage": "• edited",
+    "description": "Submission and updated time stamp for submission detail page"
   },
   "rH3Vfz": {
     "defaultMessage": "Ask any questions in community",

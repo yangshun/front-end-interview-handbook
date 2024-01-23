@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import RelativeTimestamp from '~/components/projects/common/RelativeTimestamp';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Anchor from '~/components/ui/Anchor';
 import {
@@ -142,9 +143,8 @@ export default function ProjectsChallengeSubmissionCard({
           <ProjectsViewCountTag count={views} />
           <ProjectsCommentCountTag count={comments ?? 0} />
         </div>
-        {/* TODO(projects): Format relative time */}
         <Text color="secondary" size="body3">
-          12 h. ago
+          <RelativeTimestamp timestamp={submission.createdAt} />
         </Text>
       </div>
     </div>
