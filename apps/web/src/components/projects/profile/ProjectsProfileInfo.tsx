@@ -6,13 +6,14 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import UserProfileExperience from '~/components/profile/info/UserProfileExperience';
+import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
+import UserProfileTitle from '~/components/profile/info/UserProfileTitle';
 import ProjectsProfileBio from '~/components/projects/profile/info/ProjectsProfileBio';
 import ProjectsProfileMotivation from '~/components/projects/profile/info/ProjectsProfileMotivation';
 import ProjectsProfileTechList from '~/components/projects/profile/info/ProjectsProfileTechList';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
-import ProjectsUserJobTitle from '~/components/projects/users/ProjectsUserJobTitle';
 import ProjectsUserReputation from '~/components/projects/users/ProjectsUserReputation';
-import ProjectsUserYearsOfExperience from '~/components/projects/users/ProjectsUserYearsOfExperience';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Chip from '~/components/ui/Chip';
@@ -105,14 +106,7 @@ export default function ProjectsProfileInfo({
                 />
               </Text>
             </div>
-            <div className="flex gap-8 items-center">
-              {userProfile.title && (
-                <ProjectsUserJobTitle jobTitle={userProfile.title} />
-              )}
-
-              {/* TODO(projects): Remove the hardcoded YOE */}
-              <ProjectsUserYearsOfExperience yearsOfExperience={2} />
-            </div>
+            <UserProfileInformationRow profile={userProfile} />
             <ProjectsUserReputation points={1650} />
           </div>
         </div>
@@ -194,14 +188,7 @@ export default function ProjectsProfileInfo({
                 />
               )}
             </Heading>
-            <div className="flex gap-8 items-center flex-wrap">
-              {userProfile.title && (
-                <ProjectsUserJobTitle jobTitle={userProfile.title} />
-              )}
-
-              {/* TODO(projects): Remove the hardcoded YOE */}
-              <ProjectsUserYearsOfExperience yearsOfExperience={2} />
-            </div>
+            <UserProfileInformationRow profile={userProfile} />
           </div>
         </div>
       </Section>

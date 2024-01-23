@@ -5,11 +5,9 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import type { ProjectsChallengeSubmissionAuthor } from '~/components/projects/submissions/types';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
-import ProjectsUserJobTitle from '~/components/projects/users/ProjectsUserJobTitle';
-import ProjectsUserReputation from '~/components/projects/users/ProjectsUserReputation';
-import ProjectsUserYearsOfExperience from '~/components/projects/users/ProjectsUserYearsOfExperience';
 import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
 
@@ -60,15 +58,7 @@ export default function ProjectsChallengeSubmissionAuthorProfile({
             </a>
           )}
         </div>
-        <div className="flex gap-x-4 gapy-0.5 items-center flex-wrap">
-          {author.title && (
-            <ProjectsUserJobTitle jobTitle={author.title} size="2xs" />
-          )}
-
-          {/* TODO(projects): Remove the hardcoded YOE */}
-          <ProjectsUserYearsOfExperience size="2xs" yearsOfExperience={2} />
-          <ProjectsUserReputation points={1650} size="2xs" />
-        </div>
+        <UserProfileInformationRow profile={author} size="xs" />
       </div>
     </div>
   );

@@ -8,9 +8,7 @@ import { useMediaQuery } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
 
-import ProjectsUserJobTitle from '~/components/projects/users/ProjectsUserJobTitle';
-import ProjectsUserReputation from '~/components/projects/users/ProjectsUserReputation';
-import ProjectsUserYearsOfExperience from '~/components/projects/users/ProjectsUserYearsOfExperience';
+import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import UserAvatarWithLevel from '~/components/projects/users/UserAvatarWithLevel';
 import Anchor from '~/components/ui/Anchor';
 import Chip from '~/components/ui/Chip';
@@ -119,18 +117,7 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
                   </Tooltip>
                 )}
               </div>
-              <div className="flex gap-x-4 gap-y-0.5 items-center flex-wrap">
-                {profile?.title && (
-                  <ProjectsUserJobTitle jobTitle={profile.title} size="2xs" />
-                )}
-
-                {/* TODO(projects): Remove the hardcoded YOE */}
-                <ProjectsUserYearsOfExperience
-                  size="2xs"
-                  yearsOfExperience={2}
-                />
-              </div>
-              <ProjectsUserReputation points={1650} size="2xs" />
+              <UserProfileInformationRow profile={profile!} size="xs" />
             </div>
           </div>
           <div className="grid md:grid-cols-4 grid-cols-2 gap-4">

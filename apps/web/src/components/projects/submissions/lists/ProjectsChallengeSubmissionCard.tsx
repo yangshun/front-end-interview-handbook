@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import RelativeTimestamp from '~/components/projects/common/RelativeTimestamp';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Anchor from '~/components/ui/Anchor';
@@ -25,8 +26,6 @@ import ProjectsCommentCountTag from '../../stats/ProjectsCommentCountTag';
 import ProjectsViewCountTag from '../../stats/ProjectsViewCountTag';
 import ProjectsVoteCountTag from '../../stats/ProjectsVoteCountTag';
 import ProjectsProfileLink from '../../users/ProjectsProfileLink';
-import ProjectsUserJobTitle from '../../users/ProjectsUserJobTitle';
-import ProjectsUserYearsOfExperience from '../../users/ProjectsUserYearsOfExperience';
 
 import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
@@ -126,12 +125,7 @@ export default function ProjectsChallengeSubmissionCard({
             <Text size="body2" weight="medium">
               <ProjectsProfileLink profile={author} />
             </Text>
-            <div className="flex gap-x-4 flex-wrap gap-y-2">
-              {author.title && (
-                <ProjectsUserJobTitle jobTitle={author.title} size="2xs" />
-              )}
-              <ProjectsUserYearsOfExperience size="2xs" yearsOfExperience={2} />
-            </div>
+            <UserProfileInformationRow profile={author} size="xs" />
           </div>
         </div>
       )}

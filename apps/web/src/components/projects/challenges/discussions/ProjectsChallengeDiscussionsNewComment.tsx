@@ -6,8 +6,8 @@ import { z } from 'zod';
 import { trpc } from '~/hooks/trpc';
 
 import type { DiscussionsCommentUserProfile } from '~/components/discussions/types';
-import UserProfileDisplayName from '~/components/profile/UserProfileDisplayName';
-import ProjectsUserJobTitle from '~/components/projects/users/ProjectsUserJobTitle';
+import UserProfileDisplayName from '~/components/profile/info/UserProfileDisplayName';
+import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import UserAvatarWithLevel from '~/components/projects/users/UserAvatarWithLevel';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
@@ -79,13 +79,11 @@ export default function ProjectsChallengeDiscussionsNewComment({
           progress={50}
           size="xl"
         />
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-y-1">
           <Text size="body2" weight="medium">
             <UserProfileDisplayName profile={viewer} />
           </Text>
-          {viewer?.title && (
-            <ProjectsUserJobTitle jobTitle={viewer.title} size="2xs" />
-          )}
+          <UserProfileInformationRow profile={viewer} size="xs" />
         </div>
       </div>
       <TextArea

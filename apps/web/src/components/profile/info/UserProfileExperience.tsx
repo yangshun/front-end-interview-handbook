@@ -5,29 +5,31 @@ import { FormattedMessage } from 'react-intl';
 import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 
-type Size = '2xs' | 'sm';
+type Size = 'sm' | 'xs';
 
-type Props = Readonly<{ size?: Size; yearsOfExperience: number }>;
+type Props = Readonly<{
+  profile: Readonly<{
+    title: string | null;
+  }>;
+  size?: Size;
+}>;
 
 const textClasses: Record<Size, string> = {
-  '2xs': 'text-2xs',
   sm: 'text-sm',
+  xs: 'text-xs',
 };
 
 const iconClasses: Record<Size, string> = {
-  '2xs': 'h-4 w-4',
   sm: 'h-5 w-5',
+  xs: 'h-4 w-4',
 };
 
 const gap: Record<Size, string> = {
-  '2xs': 'gap-1',
   sm: 'gap-2',
+  xs: 'gap-1',
 };
 
-export default function ProjectsUserYearsOfExperience({
-  yearsOfExperience: yearsOfExperience,
-  size = 'sm',
-}: Props) {
+export default function UserProfileExperience({ size = 'sm' }: Props) {
   return (
     <div className={clsx('flex items-center', gap[size])}>
       <RiGraduationCapLine
@@ -38,7 +40,8 @@ export default function ProjectsUserYearsOfExperience({
           defaultMessage="{yearCount} YOE"
           description="Label showing years of experience of a user"
           id="2akDIG"
-          values={{ yearCount: yearsOfExperience }}
+          // TODO(projects): Remove the hardcoded YOE
+          values={{ yearCount: 2 }}
         />
       </Text>
     </div>

@@ -28,10 +28,9 @@ import type {
   DiscussionsCommentItem,
   DiscussionsCommentUserProfile,
 } from './types';
+import UserProfileInformationRow from '../profile/info/UserProfileInformationRow';
 import ProjectsVoteCountTag from '../projects/stats/ProjectsVoteCountTag';
 import ProjectsProfileLink from '../projects/users/ProjectsProfileLink';
-import ProjectsUserJobTitle from '../projects/users/ProjectsUserJobTitle';
-import ProjectsUserYearsOfExperience from '../projects/users/ProjectsUserYearsOfExperience';
 import UserAvatarWithLevel from '../projects/users/UserAvatarWithLevel';
 
 type Props = Readonly<{
@@ -126,18 +125,14 @@ export default function DiscussionsComment({
           <div className="flex flex-col gap-1">
             <div className="flex gap-3">
               <Text color="secondary" size="body2">
-                <ProjectsProfileLink profile={author} />
+                <Text color="default" size="body2">
+                  <ProjectsProfileLink profile={author} />
+                </Text>
                 {' · '}
                 <RelativeTimestamp timestamp={comment.createdAt} />
               </Text>
             </div>
-            <div className="flex gap-4">
-              {author.title && (
-                <ProjectsUserJobTitle jobTitle={author.title} size="2xs" />
-              )}
-              {/* TODO(projects): render from user */}
-              <ProjectsUserYearsOfExperience size="2xs" yearsOfExperience={2} />
-            </div>
+            <UserProfileInformationRow profile={author} size="xs" />
           </div>
           {category && (
             <Badge

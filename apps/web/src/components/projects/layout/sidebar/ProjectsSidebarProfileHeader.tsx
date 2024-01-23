@@ -4,13 +4,14 @@ import { useIntl } from 'react-intl';
 
 import useProfile from '~/hooks/user/useProfile';
 
+import UserProfileDisplayName from '~/components/profile/info/UserProfileDisplayName';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
 import ProjectsSidebarHeaderLogoBar from './ProjectsSidebarHeaderLogoBar';
-import ProjectsUserJobTitle from '../../users/ProjectsUserJobTitle';
 import ProjectsUserReputation from '../../users/ProjectsUserReputation';
+import UserProfileTitle from '../../../profile/info/UserProfileTitle';
 
 type Props = Readonly<{
   className?: string;
@@ -37,13 +38,13 @@ export function ProjectsSidebarProfileHeader({ className, points }: Props) {
             size="lg"
           />
           <div className="flex flex-col gap-1">
-            <Text size="body2">{profile.name}</Text>
+            <Text size="body2">
+              <UserProfileDisplayName profile={profile} />
+            </Text>
             <ProjectsUserReputation points={points} size="2xs" />
           </div>
         </div>
-        {profile.title && (
-          <ProjectsUserJobTitle jobTitle={profile.title} size="2xs" />
-        )}
+        <UserProfileTitle profile={profile} size="xs" />
         <Button
           addonPosition="end"
           className="dark:!text-brand !text-brand-dark -ms-3"

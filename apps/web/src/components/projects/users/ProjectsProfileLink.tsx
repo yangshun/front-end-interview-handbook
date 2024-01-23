@@ -1,4 +1,4 @@
-import UserProfileDisplayName from '~/components/profile/UserProfileDisplayName';
+import UserProfileDisplayName from '~/components/profile/info/UserProfileDisplayName';
 import Anchor from '~/components/ui/Anchor';
 
 type Props = Readonly<{
