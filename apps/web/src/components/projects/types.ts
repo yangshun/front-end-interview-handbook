@@ -1,6 +1,5 @@
 import type { z } from 'zod';
 
-import type { ProjectsProfileAvatarData } from '~/components/projects/challenges/types';
 import type {
   motivationReasonValue,
   yoeReplacementSchema,
@@ -103,4 +102,11 @@ export type ProjectsUserAvatarProps = Readonly<{
    */
   progress: number;
   size?: UserLevelWithAvatarSize;
+}>;
+
+export type ProjectsProfileAvatarData = Readonly<{
+  avatarUrl: string | null;
+  id: string;
+  name: string | null;
+  username: string;
 }>;

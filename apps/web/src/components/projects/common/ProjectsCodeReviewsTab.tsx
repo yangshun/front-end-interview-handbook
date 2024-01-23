@@ -1,9 +1,9 @@
 import { useIntl } from 'react-intl';
 
-import type { ProjectsProfileAvatarData } from '~/components/projects/challenges/types';
 import type { ProjectsChallengeSubmissionAuthor } from '~/components/projects/submissions/types';
 
 import ProjectsCommentList from './ProjectsCommentList';
+import type { ProjectsProfileAvatarData } from '../types';
 
 export type CommentActivity = Readonly<{
   author: ProjectsProfileAvatarData;

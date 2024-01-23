@@ -1,6 +1,7 @@
 import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 
 import type { ProjectsSkill } from '../skills/types';
+import type { ProjectsProfileAvatarData } from '../types';
 
 import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
@@ -26,17 +27,12 @@ export const projectTrackOptions = [
 ];
 export type ProjectsTrackEnum = (typeof projectTrackOptions)[number];
 
-export type ProjectsProfileAvatarData = Readonly<{
-  avatarUrl: string | null;
-  id: string;
-  name: string | null;
-  username: string;
-}>;
 export type ProjectsChallengeTrackPayload = Readonly<{
   href: string;
   slug: string;
   title: string;
 }>;
+
 export type ProjectsChallengeItem = Readonly<{
   completedCount: number | null;
   completedProfiles: ReadonlyArray<ProjectsProfileAvatarData>;
