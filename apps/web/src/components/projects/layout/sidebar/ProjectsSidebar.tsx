@@ -185,7 +185,7 @@ function SidebarDivider() {
   );
 }
 
-export default function ProjectsSideBar() {
+export default function ProjectsSidebar() {
   const { profile } = useProfile();
   const intl = useIntl();
   const sideBarItems = useSidebarItems();
@@ -262,7 +262,7 @@ export default function ProjectsSideBar() {
   return (
     <div
       className={clsx(
-        'relative flex h-full flex-col overflow-y-auto border-e',
+        'relative flex h-full flex-col border-e',
         themeBorderElementColor,
       )}>
       {profile !== null ? (
