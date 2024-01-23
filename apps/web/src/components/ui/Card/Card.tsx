@@ -32,7 +32,7 @@ const cardOuterContainerSpotlightClassNames = clsx(
 
   'after:absolute after:rounded-full after:pointer-events-none after:transition-opacity after:duration-500',
   'after:w-32 after:h-32 after:-left-16 after:-top-16 after:blur-[72px]',
-  'after:opacity-0 after:hover:opacity-70 dark:after:hover:opacity-10',
+  'after:opacity-0 after:hover:opacity-70 dark:after:hover:opacity-80',
   'after:bg-brand-dark',
   'after:translate-x-[var(--mouse-x)] after:translate-y-[var(--mouse-y)]',
   'after:z-30',
