@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { RiGraduationCapLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
 
 import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';

@@ -9,7 +9,7 @@ type Props = Readonly<{
   }>;
 }>;
 
-export default function ProjectsProfileLink({ profile }: Props) {
+export default function ProjectsProfileDisplayNameLink({ profile }: Props) {
   const { username } = profile;
 
   return (

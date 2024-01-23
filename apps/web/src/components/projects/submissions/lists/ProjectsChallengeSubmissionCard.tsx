@@ -25,7 +25,7 @@ import ProjectsSkillRow from '../../skills/ProjectsSkillRow';
 import ProjectsCommentCountTag from '../../stats/ProjectsCommentCountTag';
 import ProjectsViewCountTag from '../../stats/ProjectsViewCountTag';
 import ProjectsVoteCountTag from '../../stats/ProjectsVoteCountTag';
-import ProjectsProfileLink from '../../users/ProjectsProfileLink';
+import ProjectsProfileDisplayNameLink from '../../users/ProjectsProfileDisplayNameLink';
 
 import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
@@ -118,7 +118,7 @@ export default function ProjectsChallengeSubmissionCard({
           <ProjectsProfileAvatar profile={author} size="xl" />
           <div className="flex flex-col gap-1">
             <Text size="body2" weight="medium">
-              <ProjectsProfileLink profile={author} />
+              <ProjectsProfileDisplayNameLink profile={author} />
             </Text>
             <UserProfileInformationRow profile={author} size="xs" />
           </div>

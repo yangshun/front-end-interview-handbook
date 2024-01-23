@@ -30,7 +30,7 @@ import type {
 } from './types';
 import UserProfileInformationRow from '../profile/info/UserProfileInformationRow';
 import ProjectsVoteCountTag from '../projects/stats/ProjectsVoteCountTag';
-import ProjectsProfileLink from '../projects/users/ProjectsProfileLink';
+import ProjectsProfileDisplayNameLink from '../projects/users/ProjectsProfileDisplayNameLink';
 import UserAvatarWithLevel from '../projects/users/UserAvatarWithLevel';
 
 type Props = Readonly<{
@@ -125,8 +125,8 @@ export default function DiscussionsComment({
           <div className="flex flex-col gap-1">
             <div className="flex gap-3">
               <Text color="secondary" size="body2">
-                <Text color="default" size="body2">
-                  <ProjectsProfileLink profile={author} />
+                <Text color="default" size="inherit">
+                  <ProjectsProfileDisplayNameLink profile={author} />
                 </Text>
                 {' · '}
                 <RelativeTimestamp timestamp={comment.createdAt} />

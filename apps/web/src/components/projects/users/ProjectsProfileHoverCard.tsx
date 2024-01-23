@@ -10,14 +10,13 @@ import { trpc } from '~/hooks/trpc';
 
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
-
 import Anchor from '~/components/ui/Anchor';
 import Chip from '~/components/ui/Chip';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import Tooltip from '~/components/ui/Tooltip';
 
-import ProjectsProfileLink from './ProjectsProfileLink';
+import ProjectsProfileDisplayNameLink from './ProjectsProfileDisplayNameLink';
 import useProjectsProfileStats from '../hooks/useProjectsProfileStats';
 
 type Props = Readonly<{
@@ -63,7 +62,7 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
             </Anchor>
             <div className="flex gap-1 flex-col">
               <div className="flex gap-2 items-center">
-                <ProjectsProfileLink profile={profile!} />
+                <ProjectsProfileDisplayNameLink profile={profile!} />
                 {/* TODO(projects): Add actual premium logic */}
                 <Tooltip
                   className="flex items-center"

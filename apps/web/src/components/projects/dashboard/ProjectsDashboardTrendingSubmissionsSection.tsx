@@ -21,7 +21,7 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import ProjectsProfileLink from '../users/ProjectsProfileLink';
+import ProjectsProfileDisplayNameLink from '../users/ProjectsProfileDisplayNameLink';
 
 const limit = 4;
 
@@ -128,7 +128,7 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                         size="xs"
                       />
                       <Text className="z-10" size="body3" weight="medium">
-                        <ProjectsProfileLink
+                        <ProjectsProfileDisplayNameLink
                           profile={submission.projectsProfile.userProfile}
                         />
                       </Text>
