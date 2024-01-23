@@ -2,8 +2,10 @@ import type { DiscussionCommentDomain } from '@prisma/client';
 
 export type DiscussionsCommentUserProfile = Readonly<{
   avatarUrl: string | null;
+  currentStatus: string | null;
   id: string;
   name: string | null;
+  startWorkDate: Date | null;
   title: string | null;
   username: string;
 }>;

@@ -9,7 +9,8 @@ type Size = 'sm' | 'xs';
 
 type Props = Readonly<{
   profile: Readonly<{
-    title: string | null;
+    currentStatus: string | null;
+    startWorkDate: Date | null;
   }>;
   size?: Size;
 }>;
@@ -29,20 +30,18 @@ const gap: Record<Size, string> = {
   xs: 'gap-1',
 };
 
-export default function UserProfileExperience({ size = 'sm' }: Props) {
+export default function UserProfileExperience({ profile, size = 'sm' }: Props) {
+  if (profile.currentStatus == null && profile.startWorkDate == null) {
+    return null;
+  }
+
   return (
     <div className={clsx('flex items-center', gap[size])}>
       <RiGraduationCapLine
         className={clsx(iconClasses[size], themeTextSecondaryColor)}
       />
       <Text className={textClasses[size]} color="secondary" size="inherit">
-        <FormattedMessage
-          defaultMessage="{yearCount} YOE"
-          description="Label showing years of experience of a user"
-          id="2akDIG"
-          // TODO(projects): Remove the hardcoded YOE
-          values={{ yearCount: 2 }}
-        />
+        {profile.startWorkDate?.getTime() ?? profile.currentStatus}
       </Text>
     </div>
   );

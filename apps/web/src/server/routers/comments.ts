@@ -97,8 +97,10 @@ export const commentsRouter = router({
         author: {
           select: {
             avatarUrl: true,
+            currentStatus: true,
             id: true,
             name: true,
+            startWorkDate: true,
             title: true,
             username: true,
           },

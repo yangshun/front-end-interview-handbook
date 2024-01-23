@@ -31,16 +31,20 @@ const user2: ProjectsProfileAvatarData = {
 
 const user2Submission1: ProjectsChallengeSubmissionAuthor = {
   avatarUrl: null,
+  currentStatus: null,
   id: 'id2',
   name: 'Weiqing 2406',
+  startWorkDate: null,
   title: 'Title 1',
   username: 'weiquu',
 };
 
 const user2Submission2: ProjectsChallengeSubmissionAuthor = {
   avatarUrl: null,
+  currentStatus: null,
   id: 'id2',
   name: 'Weiqing 2406',
+  startWorkDate: null,
   title: 'Title 2',
   username: 'weiquu',
 };

@@ -17,10 +17,12 @@ export type ProjectsChallengeSubmissionExtended = Prisma.Result<
 // Subset of relevant fields from Prisma.Profile.
 export type ProjectsChallengeSubmissionAuthor = Readonly<{
   avatarUrl: string | null;
+  currentStatus: string | null;
   githubUsername?: string | null;
   id: string;
   linkedInUsername?: string | null;
   name: string | null;
+  startWorkDate: Date | null;
   title: string | null;
   username: string;
 }>;
