@@ -30,8 +30,8 @@ import type {
 } from './types';
 import UserProfileInformationRow from '../profile/info/UserProfileInformationRow';
 import ProjectsVoteCountTag from '../projects/stats/ProjectsVoteCountTag';
+import ProjectsProfileAvatar from '../projects/users/ProjectsProfileAvatar';
 import ProjectsProfileDisplayNameLink from '../projects/users/ProjectsProfileDisplayNameLink';
-import UserAvatarWithLevel from '../projects/users/UserAvatarWithLevel';
 
 type Props = Readonly<{
   className?: string;
@@ -80,12 +80,7 @@ export default function DiscussionsComment({
     <div className={clsx('flex flex-col grow', className)}>
       <div className="flex items-start gap-4">
         <div className="relative flex flex-col items-center self-stretch">
-          <UserAvatarWithLevel
-            level={11}
-            profile={author}
-            progress={50}
-            size="2xl"
-          />
+          <ProjectsProfileAvatar profile={author} size="2xl" />
           {(hasReplies || mode === 'reply') && (
             <div
               className={clsx(

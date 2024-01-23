@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+import Anchor from '~/components/ui/Anchor';
 import {
   Hovercard,
   HovercardContent,
@@ -42,7 +43,15 @@ export default function ProjectsProfileAvatar({
 
   return profile != null && hovercard ? (
     <Hovercard>
-      <HovercardTrigger>{avatar}</HovercardTrigger>
+      <HovercardTrigger>
+        <Anchor
+          aria-label={profile.name ?? profile.username}
+          className="font-medium"
+          href={`/projects/u/${profile.username}`}
+          variant="unstyled">
+          {avatar}
+        </Anchor>
+      </HovercardTrigger>
       <HovercardContent
         className={clsx('border-none', themeBackgroundLayerEmphasized)}>
         <ProjectsProfileHoverCard profileId={profile.id} />

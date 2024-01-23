@@ -6,7 +6,6 @@ import { z } from 'zod';
 import { trpc } from '~/hooks/trpc';
 
 import type { DiscussionsCommentUserProfile } from '~/components/discussions/types';
-import UserProfileDisplayName from '~/components/profile/info/UserProfileDisplayName';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Button from '~/components/ui/Button';
@@ -15,6 +14,7 @@ import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 
 import type { ProjectsChallengeItem } from '../types';
+import ProjectsProfileDisplayNameLink from '../../users/ProjectsProfileDisplayNameLink';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -73,10 +73,10 @@ export default function ProjectsChallengeDiscussionsNewComment({
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex items-center gap-4">
-        <ProjectsProfileAvatar hovercard={false} profile={viewer} size="xl" />
+        <ProjectsProfileAvatar profile={viewer} size="xl" />
         <div className="flex flex-col gap-y-1">
           <Text size="body2" weight="medium">
-            <UserProfileDisplayName profile={viewer} />
+            <ProjectsProfileDisplayNameLink profile={viewer} />
           </Text>
           <UserProfileInformationRow profile={viewer} size="xs" />
         </div>

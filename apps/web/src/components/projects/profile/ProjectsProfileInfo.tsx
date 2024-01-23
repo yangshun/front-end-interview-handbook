@@ -6,7 +6,6 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import UserProfileDisplayName from '~/components/profile/info/UserProfileDisplayName';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import ProjectsProfileBio from '~/components/projects/profile/info/ProjectsProfileBio';
 import ProjectsProfileMotivation from '~/components/projects/profile/info/ProjectsProfileMotivation';
@@ -20,6 +19,8 @@ import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
+
+import ProjectsProfileDisplayNameLink from '../users/ProjectsProfileDisplayNameLink';
 
 import type { Profile, ProjectsProfile } from '@prisma/client';
 
@@ -45,15 +46,11 @@ export default function ProjectsProfileInfo({
     <>
       <Section>
         <div className="gap-6 items-center md:flex hidden">
-          <ProjectsProfileAvatar
-            hovercard={false}
-            profile={userProfile}
-            size="3xl"
-          />
+          <ProjectsProfileAvatar profile={userProfile} size="3xl" />
           <div className="flex gap-3 flex-col">
             <div className="flex gap-2 items-center">
               <Text size="body1" weight="medium">
-                <UserProfileDisplayName profile={userProfile} />
+                <ProjectsProfileDisplayNameLink profile={userProfile} />
               </Text>
               {/* TODO(projects): Add actual premium logic */}
               <Badge
@@ -101,15 +98,11 @@ export default function ProjectsProfileInfo({
         </div>
         <div className="md:hidden flex flex-col">
           <div className="flex gap-8 items-center">
-            <ProjectsProfileAvatar
-              hovercard={false}
-              profile={userProfile}
-              size="3xl"
-            />
+            <ProjectsProfileAvatar profile={userProfile} size="3xl" />
             <div className="flex gap-2 flex-col">
               <div className="flex gap-2 items-center flex-wrap">
                 <Text size="body1" weight="medium">
-                  <UserProfileDisplayName profile={userProfile} />
+                  <ProjectsProfileDisplayNameLink profile={userProfile} />
                 </Text>
                 <div className="flex items-center gap-2">
                   {/* TODO(projects): Add actual premium logic */}
