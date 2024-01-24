@@ -371,6 +371,10 @@
     "defaultMessage": "Blogs List",
     "description": "Screen reader text indicating the blog list component on blog homepage"
   },
+  "26Xmcd": {
+    "defaultMessage": "<bold>{completedCount}</bold>/{totalCount} challenges",
+    "description": "Rep count label in Projects"
+  },
   "2LouBj": {
     "defaultMessage": "Holistic study plans",
     "description": "Title of list of study plans"
@@ -1515,10 +1519,6 @@
     "defaultMessage": "Others",
     "description": "Others item label"
   },
-  "E2hv0Z": {
-    "defaultMessage": "<bold>{value}</bold>/{total} projects",
-    "description": "Rep count label in Projects"
-  },
   "E5x8uP": {
     "defaultMessage": "Undergrad CS",
     "description": "Label for \"Undergrad CS\" option in YOE replacement"
@@ -1722,6 +1722,10 @@
   "GPp0wf": {
     "defaultMessage": "Welcome to GreatFrontEnd Projects!",
     "description": "Title for Projects onboarding page"
+  },
+  "GSfE/S": {
+    "defaultMessage": "Label for \"Completed projects\" progress bar of a Projects component track",
+    "description": "{completedCount} out of {totalCount} challenges"
   },
   "GUmfcW": {
     "defaultMessage": "Figma design file",
@@ -2426,10 +2430,6 @@
   "Mm+ZFo": {
     "defaultMessage": "Learn practical front end skills by building projects guided by a skills progression roadmap",
     "description": "Subtitle for Projects marketing hero section for beginners"
-  },
-  "Mw/xN0": {
-    "defaultMessage": "Label for \"Completed projects\" progress bar of a Projects component track",
-    "description": "{value} out of {total} projects"
   },
   "MwvhTF": {
     "defaultMessage": "See whole component track",

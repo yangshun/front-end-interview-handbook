@@ -2,7 +2,7 @@ import { RiLock2Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
-import ProjectsChallengeCountTag from '~/components/projects/stats/ProjectsChallengeCountTag';
+import ProjectsTrackProgressTag from '~/components/projects/tracks/ProjectsTrackProgressTag';
 import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
 
@@ -45,9 +45,9 @@ export default function ProjectsTrackHeader({
       </Text>
       <div className="flex flex-wrap gap-4">
         <ProjectsChallengeReputationTag points={points} variant="flat" />
-        <ProjectsChallengeCountTag
+        <ProjectsTrackProgressTag
+          completed={completedCount}
           total={challenges.length}
-          value={completedCount}
         />
       </div>
     </div>

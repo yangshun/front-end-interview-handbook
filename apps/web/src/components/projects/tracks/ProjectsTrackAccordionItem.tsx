@@ -14,18 +14,27 @@ import {
 import ProjectsTrackChallengeStatusChip from './ProjectsTrackChallengeStatusChip';
 import ProjectsTracksHeader from './ProjectsTrackHeader';
 import type { ProjectsTrackItem } from './ProjectsTracksData';
+import {
+  projectsTrackCountCompleted,
+  projectsTrackDetermineChallengeStatus,
+} from './ProjectsTrackUtils';
+import type { ProjectsChallengeStatuses } from '../challenges/types';
 
 import * as Accordion from '@radix-ui/react-accordion';
 
 type Props = Readonly<{
+  challengeStatuses?: ProjectsChallengeStatuses;
   track: ProjectsTrackItem;
 }>;
 
-export default function ProjectsTrackAccordionItem({ track }: Props) {
+export default function ProjectsTrackAccordionItem({
+  challengeStatuses = {},
+  track,
+}: Props) {
+  const intl = useIntl();
+
   const { metadata, challenges } = track;
   const { href, slug } = metadata;
-
-  const intl = useIntl();
 
   return (
     <Accordion.Item value={slug}>
@@ -41,7 +50,13 @@ export default function ProjectsTrackAccordionItem({ track }: Props) {
         <Accordion.Header asChild={true}>
           <Accordion.Trigger className="outline-brand group rounded-lg">
             <div className="flex items-center justify-between gap-2 p-6">
-              <ProjectsTracksHeader track={track} />
+              <ProjectsTracksHeader
+                completedCount={projectsTrackCountCompleted(
+                  challengeStatuses ?? {},
+                  challenges,
+                )}
+                track={track}
+              />
               <RiArrowDownSLine
                 className={clsx(
                   'h-5 w-5 transition-transform group-data-[state=open]:rotate-180',
@@ -61,7 +76,10 @@ export default function ProjectsTrackAccordionItem({ track }: Props) {
                   <div className="flex items-center">
                     <ProjectsTrackChallengeStatusChip
                       label={i + 1}
-                      status="IN_PROGRESS"
+                      status={projectsTrackDetermineChallengeStatus(
+                        challengeStatuses,
+                        challenge.slug,
+                      )}
                     />
                     {i < challenges.length - 1 && (
                       <div

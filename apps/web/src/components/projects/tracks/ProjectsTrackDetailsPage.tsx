@@ -4,8 +4,10 @@ import clsx from 'clsx';
 import { RiArrowLeftLine, RiArrowRightLine, RiLock2Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
-import ProjectsChallengeCountTag from '~/components/projects/stats/ProjectsChallengeCountTag';
+import ProjectsTrackProgressTag from '~/components/projects/tracks/ProjectsTrackProgressTag';
 import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -21,19 +23,34 @@ import {
 } from '~/components/ui/theme';
 
 import ProjectsTrackChallengeStatusChip from './ProjectsTrackChallengeStatusChip';
+import {
+  projectsTrackCountCompleted,
+  projectsTrackDetermineChallengeStatus,
+} from './ProjectsTrackUtils';
 import ProjectsChallengeDifficultyTag from '../challenges/metadata/ProjectsChallengeDifficultyTag';
 import ProjectsChallengeStatusBadgeCompleted from '../challenges/status/ProjectsChallengeStatusBadgeCompleted';
 
-export type Props = Readonly<{
+type Props = Readonly<{
   track: ProjectsTrackItem;
+  userId: string | null;
 }>;
 
-export default function ProjectsTrackDetailsPage({ track }: Props) {
+export default function ProjectsTrackDetailsPage({ track, userId }: Props) {
   const { challenges, points, metadata } = track;
+  const { data: challengeStatuses } =
+    trpc.projects.challenges.progressStatus.useQuery(
+      { trackSlug: track.metadata.slug, userId: userId! },
+      {
+        enabled: userId != null,
+      },
+    );
+
   const { title, description } = metadata;
-  // TODO(projects): actual number
-  const completionCount = 2;
-  const completed = completionCount === challenges.length;
+  const completionCount = projectsTrackCountCompleted(
+    challengeStatuses ?? {},
+    challenges,
+  );
+  const completedTrack = completionCount === challenges.length;
 
   const intl = useIntl();
 
@@ -70,13 +87,13 @@ export default function ProjectsTrackDetailsPage({ track }: Props) {
                   variant="special"
                 />
               )}
-              {completed && <ProjectsChallengeStatusBadgeCompleted />}
+              {completedTrack && <ProjectsChallengeStatusBadgeCompleted />}
             </div>
             <div className="flex flex-wrap gap-x-4 gap-y-2">
               <ProjectsChallengeReputationTag points={points} variant="flat" />
-              <ProjectsChallengeCountTag
+              <ProjectsTrackProgressTag
+                completed={completionCount}
                 total={challenges.length}
-                value={completionCount}
               />
             </div>
           </div>
@@ -94,7 +111,10 @@ export default function ProjectsTrackDetailsPage({ track }: Props) {
               )}>
               <ProjectsTrackChallengeStatusChip
                 label={index + 1}
-                status="NOT_STARTED"
+                status={projectsTrackDetermineChallengeStatus(
+                  challengeStatuses ?? {},
+                  challenge.slug,
+                )}
               />
               {index < challenges.length - 1 && (
                 <div

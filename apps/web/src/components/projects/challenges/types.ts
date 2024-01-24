@@ -43,3 +43,8 @@ export type ProjectsChallengeItem = Readonly<{
   status: ProjectsChallengeSessionStatus | null;
   track: ProjectsChallengeTrackPayload;
 }>;
+
+export type ProjectsChallengeStatuses = Record<
+  ProjectsChallengeMetadata['slug'],
+  { completedBefore: boolean; currentStatus: ProjectsChallengeSessionStatus }
+>;

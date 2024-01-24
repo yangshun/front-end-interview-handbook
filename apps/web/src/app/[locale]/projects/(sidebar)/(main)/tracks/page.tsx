@@ -5,6 +5,9 @@ import ProjectsTracksListPage from '~/components/projects/tracks/ProjectsTracksL
 import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
+import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
+
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -30,7 +33,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const { tracks } = await readProjectsTrackList(locale);
+  const [user, { tracks }] = await Promise.all([
+    readUserFromToken(),
+    readProjectsTrackList(locale),
+  ]);
 
-  return <ProjectsTracksListPage projectTracks={tracks} />;
+  return (
+    <ProjectsTracksListPage projectTracks={tracks} userId={user?.id ?? null} />
+  );
 }

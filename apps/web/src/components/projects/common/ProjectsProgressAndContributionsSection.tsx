@@ -115,6 +115,8 @@ export default function ProjectsProgressAndContributionsSection({
           <ProjectsTrackSection
             defaultOpen={true}
             projectTracks={projectTracks}
+            // TODO(projects): Pass in userId.
+            userId={null}
           />
         )}
       {currentDashboardTab === 'progress' &&

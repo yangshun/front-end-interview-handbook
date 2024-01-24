@@ -7,11 +7,11 @@ import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
+  completed: number;
   total: number;
-  value: number;
 }>;
 
-export default function ProjectsChallengeCountTag({ value, total }: Props) {
+export default function ProjectsTrackProgressTag({ completed, total }: Props) {
   const intl = useIntl();
 
   return (
@@ -19,17 +19,17 @@ export default function ProjectsChallengeCountTag({ value, total }: Props) {
       <RiRocketLine className="h-5 w-5" />
       <Text color="inherit" size="body2">
         <FormattedMessage
-          defaultMessage="<bold>{value}</bold>/{total} projects"
+          defaultMessage="<bold>{completedCount}</bold>/{totalCount} challenges"
           description="Rep count label in Projects"
-          id="E2hv0Z"
+          id="26Xmcd"
           values={{
             bold: (chunks) => (
               <Text color="secondary" size="body2" weight="medium">
                 {chunks}
               </Text>
             ),
-            total,
-            value,
+            completedCount: completed,
+            totalCount: total,
           }}
         />
       </Text>
@@ -39,16 +39,16 @@ export default function ProjectsChallengeCountTag({ value, total }: Props) {
             {
               defaultMessage:
                 'Label for "Completed projects" progress bar of a Projects component track',
-              description: '{value} out of {total} projects',
-              id: 'Mw/xN0',
+              description: '{completedCount} out of {totalCount} challenges',
+              id: 'GSfE/S',
             },
             {
-              total,
-              value,
+              completedCount: completed,
+              totalCount: total,
             },
           )}
           total={total}
-          value={value}
+          value={completed}
         />
       </div>
     </div>
