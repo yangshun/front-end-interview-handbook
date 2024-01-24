@@ -24,11 +24,13 @@ import { themeTextSecondaryColor } from '~/components/ui/theme';
 
 const ITEMS_PER_PAGE = 12;
 
+type Props = Readonly<{
+  type: ProjectsChallengeSubmissionTabType;
+}>;
+
 export default function ProjectsChallengeSubmissionListWithFilters({
   type,
-}: {
-  type: ProjectsChallengeSubmissionTabType;
-}) {
+}: Props) {
   // Filtering.
   const {
     query,

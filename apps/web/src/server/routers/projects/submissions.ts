@@ -11,7 +11,7 @@ import type { yoeReplacement } from '~/components/projects/types';
 
 import prisma from '~/server/prisma';
 
-import { projectsUserProcedure } from './procedures';
+import { projectsUserProcedure, publicProjectsProcedure } from './procedures';
 import { publicProcedure, router } from '../../trpc';
 
 import type { ProjectsChallengeSessionStatus } from '@prisma/client';
@@ -37,7 +37,7 @@ type QueryMode = 'insensitive';
 const whereClauseForSubmissions = (
   query: string,
   isStatusNotEmpty: boolean,
-  projectsProfileId: string,
+  projectsProfileId: string | null,
   statusWithoutNotStarted: Array<ProjectsChallengeSessionStatus>,
   hasNotStarted: boolean,
   challenges: Array<string>,
@@ -57,7 +57,8 @@ const whereClauseForSubmissions = (
       projectsProfile: {
         // Filter by submissions of projects you have completed or in progress or not started
         ...(isStatusNotEmpty && {
-          id: projectsProfileId,
+          // Filter with empty id to get empty result if the user is not logged in
+          id: projectsProfileId === null ? '' : projectsProfileId,
           sessions: {
             some: {
               OR: [
@@ -285,7 +286,7 @@ export const projectsChallengeSubmissionRouter = router({
         submissions,
       );
     }),
-  list: projectsUserProcedure
+  list: publicProjectsProcedure
     .input(
       z.object({
         challengeSessionStatus: z.array(
@@ -319,7 +320,7 @@ export const projectsChallengeSubmissionRouter = router({
           currentPage,
           hasClientFilterApplied,
         },
-        ctx: { projectsProfileId, user },
+        ctx: { user, projectsProfileId },
       }) => {
         const hasNotStarted = challengeSessionStatus.includes('NOT_STARTED');
         const statusWithoutNotStarted = challengeSessionStatus.filter(
@@ -438,7 +439,11 @@ export const projectsChallengeSubmissionRouter = router({
 
         let userProfile = null;
 
-        if (submissionType === 'learn' || submissionType === 'mentor') {
+        // Check if user is logged in
+        if (
+          (submissionType === 'learn' || submissionType === 'mentor') &&
+          user
+        ) {
           userProfile = await prisma.profile.findUnique({
             include: {
               projectsProfile: true,
