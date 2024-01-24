@@ -12,11 +12,11 @@ import {
   themeDivideColor,
 } from '~/components/ui/theme';
 
-import type { CommentActivity } from './ProjectsCodeReviewsTab';
+import type { ContributionComment } from './ProjectsProgressAndContributionsSection';
 import RelativeTimestamp from './RelativeTimestamp';
 
 type Props = Readonly<{
-  comments: ReadonlyArray<Readonly<CommentActivity>>;
+  comments: ReadonlyArray<ContributionComment>;
   title: string;
 }>;
 
@@ -36,7 +36,7 @@ export default function ProjectsCommentList({ comments, title }: Props) {
         )}>
         {comments.map((comment, index) => (
           <li
-            key={comment.createdAt}
+            key={comment.id}
             className={clsx(
               'group relative flex py-5 pl-4 pr-6',
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
@@ -54,7 +54,7 @@ export default function ProjectsCommentList({ comments, title }: Props) {
                   size="xs"
                 />
                 <div className="flex lg:flex-row flex-col gap-3">
-                  {comment.isQuestion && (
+                  {comment.category === 'QUESTION' && (
                     <Badge
                       className="h-6 w-min"
                       label={intl.formatMessage({
@@ -65,14 +65,25 @@ export default function ProjectsCommentList({ comments, title }: Props) {
                       variant="primary"
                     />
                   )}
+                  {comment.category === 'CODE_REVIEW' && (
+                    <Badge
+                      className="h-6 w-min"
+                      label={intl.formatMessage({
+                        defaultMessage: 'Code review',
+                        description: 'Label for question badge',
+                        id: 'pJA5oJ',
+                      })}
+                      variant="info"
+                    />
+                  )}
                   <div className="flex items-start">
                     <Text color="secondary" size="body2">
                       <FormattedMessage
-                        defaultMessage='<medium>{author}</medium> left a code review for <medium>{recipient}</medium> on <link>{submissionTitle}</link><comment>: "{description}"</comment><date></date>'
+                        defaultMessage='<medium>{author}</medium> left a comment{ for }<medium>{recipient}</medium> on <link>{submissionTitle}</link><comment>: "{description}"</comment><date></date>'
                         description="Comment"
-                        id="frNmwL"
+                        id="tNnZD7"
                         values={{
-                          author: comment.author.name,
+                          author: 'You',
                           comment: (chunks) => (
                             <Text color="default" size="body2">
                               {chunks}
@@ -89,10 +100,12 @@ export default function ProjectsCommentList({ comments, title }: Props) {
                               {chunks}
                             </Text>
                           ),
-                          description: comment.description,
+                          description: comment.body,
+                          for: comment.parentComment ? ' for ' : '',
                           link: (chunks) => (
-                            // TODO: get the href
-                            <Anchor className="relative" href="#">
+                            <Anchor
+                              className="relative"
+                              href={comment.entity?.href}>
                               {chunks}
                             </Anchor>
                           ),
@@ -101,8 +114,10 @@ export default function ProjectsCommentList({ comments, title }: Props) {
                               {chunks}
                             </Text>
                           ),
-                          recipient: comment.recipient.name,
-                          submissionTitle: comment.submission.title,
+                          recipient: comment.parentComment
+                            ? comment.parentComment.author.name
+                            : '',
+                          submissionTitle: comment.entity?.title ?? '',
                         }}
                       />
                     </Text>

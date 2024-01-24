@@ -451,6 +451,10 @@
     "defaultMessage": "Premium",
     "description": "Premium label for free vs premium question breakdown in question listing"
   },
+  "3OlyG+": {
+    "defaultMessage": "Filters",
+    "description": "Title of Projects contribution filter slide-out"
+  },
   "3QQssQ": {
     "defaultMessage": "Please enter a valid date",
     "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
@@ -654,6 +658,10 @@
   "5Gjt4J": {
     "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
     "description": "Error toast for project"
+  },
+  "5MW6Tr": {
+    "defaultMessage": "Forum type",
+    "description": "Label for forum type filter for contribution list"
   },
   "5RlLAP": {
     "defaultMessage": "Clear Console",
@@ -2199,6 +2207,10 @@
     "defaultMessage": "Uber",
     "description": "Company name for Uber"
   },
+  "KugqYl": {
+    "defaultMessage": "Adjust your filters a bit, and let's see what we can find!",
+    "description": "Subtitle for empty state when no comments are returned from application of filters on comments list"
+  },
   "L/BHun": {
     "defaultMessage": "Send us a Message",
     "description": "Title for send us a feedback modal"
@@ -2646,6 +2658,10 @@
   "Ox+G1g": {
     "defaultMessage": "Upvote comment",
     "description": "Vote button label"
+  },
+  "Oy+yWc": {
+    "defaultMessage": "Filter by contribution type",
+    "description": "Tooltip for contribution type filter for contribution list"
   },
   "P2baTC": {
     "defaultMessage": "Coding Format",
@@ -3579,6 +3595,10 @@
     "defaultMessage": "We recommend quality submissions from more senior engineers using a similar tech stack to you, or tech stack you expressed interest in learning",
     "description": "Tooltip label for Trending submissions section on Projects dashboard page"
   },
+  "XOtMNQ": {
+    "defaultMessage": "Contribution type",
+    "description": "Label for contribution type filter for contribution list"
+  },
   "XS6Jyn": {
     "defaultMessage": "Become an Affiliate",
     "description": "Link to affiliate marketing program page"
@@ -4391,10 +4411,6 @@
     "defaultMessage": "Live site URL",
     "description": "Form label"
   },
-  "fDl2Op": {
-    "defaultMessage": "Select community contributions category",
-    "description": "Tab label to select another community contributions category"
-  },
   "fEoTGW": {
     "defaultMessage": "Start a project",
     "description": "Label for Start a project button on Projects dashboard page"
@@ -4490,10 +4506,6 @@
   "fmPah2": {
     "defaultMessage": "on your first order amount",
     "description": "GFE discount"
-  },
-  "frNmwL": {
-    "defaultMessage": "<medium>{author}</medium> left a code review for <medium>{recipient}</medium> on <link>{submissionTitle}</link><comment>: \"{description}\"</comment><date></date>",
-    "description": "Comment"
   },
   "frl+Af": {
     "defaultMessage": "Prev",
@@ -5491,6 +5503,10 @@
     "defaultMessage": "{price} billed per month.",
     "description": "Description of billing frequency for monthly plan"
   },
+  "pJA5oJ": {
+    "defaultMessage": "Code review",
+    "description": "Label for question badge"
+  },
   "pJja0T": {
     "defaultMessage": "Add website",
     "description": "Title for Add Website task on Projects dashboard page"
@@ -5883,6 +5899,10 @@
     "defaultMessage": "More on <link>Students Discount Terms and Conditions</link>",
     "description": "Link for discount terms and conditions"
   },
+  "t+sW3R": {
+    "defaultMessage": "Filter by forum type",
+    "description": "Tooltip for forum type filter for contribution list"
+  },
   "t1sNnD": {
     "defaultMessage": "Advance more than 20 core skills",
     "description": "Caption for skills showcase in Projects marketing hero section"
@@ -5922,6 +5942,10 @@
   "tNAIsO": {
     "defaultMessage": "JavaScript Questions",
     "description": "JavaScript questions category long title"
+  },
+  "tNnZD7": {
+    "defaultMessage": "<medium>{author}</medium> left a comment{ for }<medium>{recipient}</medium> on <link>{submissionTitle}</link><comment>: \"{description}\"</comment><date></date>",
+    "description": "Comment"
   },
   "tO/Ph4": {
     "defaultMessage": "Activity | Profile",

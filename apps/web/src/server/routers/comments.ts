@@ -1,3 +1,4 @@
+import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { z } from 'zod';
 
 import prisma from '~/server/prisma';
@@ -149,6 +150,93 @@ export const commentsRouter = router({
         comments,
         count,
       };
+    }),
+  listUserComments: userProcedure
+    .input(
+      z.object({
+        domainList: z.array(z.enum(domains)),
+      }),
+    )
+    .query(async ({ input: { domainList }, ctx: { user } }) => {
+      const comments = await prisma.discussionComment.findMany({
+        include: {
+          author: {
+            select: {
+              avatarUrl: true,
+              name: true,
+              username: true,
+            },
+          },
+          parentComment: {
+            include: {
+              author: {
+                select: {
+                  avatarUrl: true,
+                  name: true,
+                  username: true,
+                },
+              },
+            },
+          },
+        },
+        orderBy: {
+          createdAt: 'desc',
+        },
+        where: {
+          domain: {
+            in: domainList,
+          },
+          userId: user.id,
+        },
+      });
+
+      const commentsWithInfo = Promise.all(
+        comments.map(async (comment) => {
+          if (comment.domain === DiscussionCommentDomain.PROJECTS_CHALLENGE) {
+            const challengeMetadata = allProjectsChallengeMetadata.find(
+              (challenge) => challenge.slug === comment.entityId,
+            );
+
+            if (!challengeMetadata?.href || !challengeMetadata?.title) {
+              return comment;
+            }
+
+            return {
+              ...comment,
+              entity: {
+                href: challengeMetadata.href,
+                title: challengeMetadata.title,
+              },
+            };
+          }
+          if (comment.domain === DiscussionCommentDomain.PROJECTS_SUBMISSION) {
+            const title = await prisma.projectsChallengeSubmission.findUnique({
+              select: {
+                title: true,
+              },
+              where: {
+                id: comment.entityId,
+              },
+            });
+
+            if (!title?.title) {
+              return comment;
+            }
+
+            return {
+              ...comment,
+              entity: {
+                href: `/projects/s/${comment.entityId}`,
+                title: title.title,
+              },
+            };
+          }
+
+          return comment;
+        }),
+      );
+
+      return commentsWithInfo;
     }),
   reply: userProcedure
     .input(
