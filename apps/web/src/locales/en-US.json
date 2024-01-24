@@ -4355,6 +4355,10 @@
     "defaultMessage": "Flashcard format",
     "description": "Button label for flashcard display format of quiz questions"
   },
+  "er6Ns7": {
+    "defaultMessage": "{yoe} YOE",
+    "description": "Years of experience"
+  },
   "etGGVG": {
     "defaultMessage": "Browse all projects",
     "description": "Title of Projects Browse Projects page"

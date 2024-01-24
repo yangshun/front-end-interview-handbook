@@ -27,7 +27,7 @@ export default function ProjectsProfileYOEInput({
   watchYoeReplacementOption,
 }: Props) {
   const intl = useIntl();
-  const yoeReplacementOptions = useProjectsYOEReplacementOptions();
+  const { yoeReplacementOptions } = useProjectsYOEReplacementOptions();
 
   return (
     <>

@@ -47,7 +47,8 @@ export default function useProjectsChallengeSubmissionFilters() {
     filterByDifficulty,
   ];
 
-  const experienceOptions = useProjectsYOEReplacementOptions();
+  const { yoeReplacementOptions: experienceOptions } =
+    useProjectsYOEReplacementOptions();
 
   const profileStatus = experienceOptions
     .filter((exp) => selectedExperience.includes(exp.value))

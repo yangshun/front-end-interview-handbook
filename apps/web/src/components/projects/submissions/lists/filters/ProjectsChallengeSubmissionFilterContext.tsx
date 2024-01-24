@@ -36,7 +36,8 @@ export type ProjectsChallengeSubmissionFilterKey =
 
 function useFilters() {
   const intl = useIntl();
-  const experienceOptions = useProjectsYOEReplacementOptions();
+  const { yoeReplacementOptions: experienceOptions } =
+    useProjectsYOEReplacementOptions();
 
   return useMemo(() => {
     const filters: Array<ProjectsChallengeSubmissionFilter> = [

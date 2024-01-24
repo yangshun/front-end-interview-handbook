@@ -1,6 +1,10 @@
 import clsx from 'clsx';
+import { useCallback } from 'react';
 import { RiGraduationCapLine } from 'react-icons/ri';
+import { FormattedMessage } from 'react-intl';
 
+import useProjectsYOEReplacementOptions from '~/components/projects/hooks/useProjectsYOEReplacementOptions';
+import type { YOEReplacement } from '~/components/projects/types';
 import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 
@@ -30,9 +34,26 @@ const gap: Record<Size, string> = {
 };
 
 export default function UserProfileExperience({ profile, size = 'sm' }: Props) {
+  const { yoeOptionMap } = useProjectsYOEReplacementOptions();
+
+  const calculateYearsOfExperience = useCallback((timestamp: Date) => {
+    const startDate = new Date(timestamp);
+    const currentDate = new Date();
+
+    return (
+      currentDate.getFullYear() -
+      startDate.getFullYear() +
+      (currentDate.getMonth() < startDate.getMonth() ? -1 : 0)
+    );
+  }, []);
+
   if (profile.currentStatus == null && profile.startWorkDate == null) {
     return null;
   }
+
+  const yearsOfExperience = profile.startWorkDate
+    ? calculateYearsOfExperience(profile.startWorkDate)
+    : 0;
 
   return (
     <div className={clsx('flex items-center', gap[size])}>
@@ -40,7 +61,19 @@ export default function UserProfileExperience({ profile, size = 'sm' }: Props) {
         className={clsx(iconClasses[size], themeTextSecondaryColor)}
       />
       <Text className={textClasses[size]} color="secondary" size="inherit">
-        {profile.startWorkDate?.getTime() ?? profile.currentStatus}
+        {profile.startWorkDate ? (
+          <FormattedMessage
+            defaultMessage="{yoe} YOE"
+            description="Years of experience"
+            id="er6Ns7"
+            values={{
+              yoe: yearsOfExperience,
+            }}
+          />
+        ) : (
+          profile.currentStatus &&
+          yoeOptionMap[profile.currentStatus as YOEReplacement].label
+        )}
       </Text>
     </div>
   );
