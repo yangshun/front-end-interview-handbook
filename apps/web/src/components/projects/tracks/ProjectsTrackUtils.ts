@@ -1,4 +1,5 @@
 import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
+
 import type { ProjectsChallengeStatuses } from '../challenges/types';
 
 export function projectsTrackDetermineChallengeStatus(
@@ -28,7 +29,7 @@ export function projectsTrackCountCompleted(
   const slugs = challenges.map(({ slug }) => slug);
 
   return Object.entries(challengeStatuses).filter(
-    ([challengeSlug, { currentStatus, completedBefore }]) => {
+    ([challengeSlug, { completedBefore }]) => {
       if (!slugs.includes(challengeSlug)) {
         return false;
       }

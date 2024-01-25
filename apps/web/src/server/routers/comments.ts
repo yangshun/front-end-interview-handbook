@@ -1,6 +1,8 @@
 import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { z } from 'zod';
 
+import { discussionsCommentBodySchemaServer } from '~/components/discussions/DiscussionsCommentBodySchema';
+
 import prisma from '~/server/prisma';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
@@ -17,8 +19,7 @@ export const commentsRouter = router({
   create: userProcedure
     .input(
       z.object({
-        // TODO(projects): reuse validation on client.
-        body: z.string().trim().min(10).max(40000),
+        body: discussionsCommentBodySchemaServer,
         category: z.string().optional(),
         domain: z.enum(domains),
         entityId: z.string(),
@@ -241,8 +242,7 @@ export const commentsRouter = router({
   reply: userProcedure
     .input(
       z.object({
-        // TODO(projects): reuse validation on client.
-        body: z.string().trim().min(10).max(40000),
+        body: discussionsCommentBodySchemaServer,
         domain: z.enum(domains),
         entityId: z.string(),
         parentCommentId: z.string().uuid(),
@@ -281,8 +281,7 @@ export const commentsRouter = router({
   update: userProcedure
     .input(
       z.object({
-        // TODO(projects): reuse validation on client.
-        body: z.string().trim().min(10).max(40000),
+        body: discussionsCommentBodySchemaServer,
         commentId: z.string().uuid(),
       }),
     )

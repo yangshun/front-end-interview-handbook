@@ -11,18 +11,18 @@ const exePath =
     : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 
 const desktopViewportConfig = {
-  width: 1440,
   height: 1080,
+  width: 1440,
 };
 const tabletViewportConfig = {
-  width: 768,
   height: 1080,
   isMobile: true,
+  width: 768,
 };
 const mobileViewportConfig = {
-  width: 640,
   height: 1080,
   isMobile: true,
+  width: 640,
 };
 
 type Browser = Awaited<ReturnType<typeof puppeteer.launch>>;
@@ -34,14 +34,15 @@ async function takeScreenshotForViewport(
   viewport: Parameters<Page['setViewport']>[0],
 ) {
   const urlObj = new URL(url);
+
   await page.goto(url, { waitUntil: 'load' });
   await page.setViewport(viewport);
   await page?.screenshot({
-    type: 'webp',
+    captureBeyondViewport: true,
     path: `screenshots/${urlObj.host}-${urlObj.pathname.replaceAll('/', '_')}-${
       viewport.width
     }x${viewport.height}.webp`,
-    captureBeyondViewport: true,
+    type: 'webp',
   });
 }
 

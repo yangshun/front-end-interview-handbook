@@ -1795,6 +1795,10 @@
     "defaultMessage": "What to expect for Front End System Design interviews",
     "description": "Sidebar link title for front end system design interviews"
   },
+  "H4UZ2+": {
+    "defaultMessage": "At least {minLength} characters.",
+    "description": "Error message"
+  },
   "H6Hg+y": {
     "defaultMessage": "Are you sure you want to terminate this session? You will be able to restart the project anytime.",
     "description": "Content for end project session dialog"
@@ -1910,10 +1914,6 @@
   "IBaiFq": {
     "defaultMessage": "You are replying",
     "description": "Label for replying to discussion post on project discussions page"
-  },
-  "IEA3DS": {
-    "defaultMessage": "Text here",
-    "description": "Placeholder for discussion post reply input"
   },
   "IG13JQ": {
     "defaultMessage": "How it works",
@@ -4482,6 +4482,10 @@
   "fiHpIm": {
     "defaultMessage": "Here you'll find a curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing a deep dive subject.",
     "description": "Description of GreatFrontEnd blog explore series page"
+  },
+  "fibgI3": {
+    "defaultMessage": "At most {maxLength} characters.",
+    "description": "Error message"
   },
   "fifBZf": {
     "defaultMessage": "Your edits have been successfully saved. Thank you for contributing to our community!",

@@ -6,6 +6,10 @@ import { z } from 'zod';
 import { trpc } from '~/hooks/trpc';
 
 import FilterButton from '~/components/common/FilterButton';
+import {
+  getDiscussionsCommentBodyAttributes,
+  useDiscussionsCommentBodySchema,
+} from '~/components/discussions/DiscussionsCommentBodySchema';
 import type { DiscussionsCommentUserProfile } from '~/components/discussions/types';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import Button from '~/components/ui/Button';
@@ -34,6 +38,8 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
 }: Props) {
   const intl = useIntl();
   const createCommentMutation = trpc.comments.create.useMutation();
+  const attrs = getDiscussionsCommentBodyAttributes(intl);
+  const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
 
   const {
     register,
@@ -49,7 +55,7 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
     mode: 'onSubmit',
     resolver: zodResolver(
       z.object({
-        body: z.string().trim().min(10).max(40000),
+        body: discussionsCommentBodySchema,
         category: z.string().nullable(), // TODO(projects): change to enum.
       }),
     ),
@@ -126,12 +132,9 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
           description: 'Label for discussion input textarea',
           id: 'FEamkQ',
         })}
-        maxLength={40000}
-        placeholder={intl.formatMessage({
-          defaultMessage: 'Share your questions or thoughts',
-          description: 'Placeholder for discussion post input text area',
-          id: 'OrN/z/',
-        })}
+        maxLength={attrs.validation.maxLength}
+        minLength={attrs.validation.minLength}
+        placeholder={attrs.placeholder}
         required={true}
         rows={5}
         {...register('body')}

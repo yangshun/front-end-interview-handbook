@@ -10,6 +10,10 @@ import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 
+import {
+  getDiscussionsCommentBodyAttributes,
+  useDiscussionsCommentBodySchema,
+} from './DiscussionsCommentBodySchema';
 import DiscussionsCommentRepliesThreadLines from './DiscussionsCommentRepliesThreadLines';
 import type {
   DiscussionsCommentItem,
@@ -38,6 +42,8 @@ export default function DiscussionsReplyInput({
 }: Props) {
   const intl = useIntl();
   const createReplyMutation = trpc.comments.reply.useMutation();
+  const attrs = getDiscussionsCommentBodyAttributes(intl);
+  const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
 
   const {
     register,
@@ -50,7 +56,7 @@ export default function DiscussionsReplyInput({
     mode: 'onSubmit',
     resolver: zodResolver(
       z.object({
-        body: z.string().trim().min(10).max(40000),
+        body: discussionsCommentBodySchema,
       }),
     ),
   });
@@ -103,11 +109,9 @@ export default function DiscussionsReplyInput({
               description: 'Label for discussion post reply input',
               id: 'YpJ3q8',
             })}
-            placeholder={intl.formatMessage({
-              defaultMessage: 'Text here',
-              description: 'Placeholder for discussion post reply input',
-              id: 'IEA3DS',
-            })}
+            maxLength={attrs.validation.maxLength}
+            minLength={attrs.validation.minLength}
+            placeholder={attrs.placeholder}
             required={true}
             {...register('body')}
             disabled={createReplyMutation.isLoading}
