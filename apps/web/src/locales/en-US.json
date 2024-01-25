@@ -1659,6 +1659,10 @@
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch and practice the questions where algorithmic efficiency is key.",
     "description": "Description for interview preparation focus area"
   },
+  "Ff2kvb": {
+    "defaultMessage": "See more child skills",
+    "description": "Label for see more child skills"
+  },
   "Fg3V0y": {
     "defaultMessage": "Manage subscription on Stripe",
     "description": "Label for button to manage subscription"
@@ -2330,6 +2334,10 @@
   "LnzTdG": {
     "defaultMessage": "CSS",
     "description": "CSS questions category short title"
+  },
+  "Lvmetb": {
+    "defaultMessage": "+{points} rep (in total)",
+    "description": "Total rep count increase label in Projects"
   },
   "Lwa7+3": {
     "defaultMessage": "Have any doubts or need help? Ask in the community and discuss with others.",
@@ -4390,6 +4398,10 @@
   "ez5OLq": {
     "defaultMessage": "Practice Angular Interview Questions with Solutions",
     "description": "Title of Angular Interview Questions page"
+  },
+  "f+oxmk": {
+    "defaultMessage": "See lesser child skills",
+    "description": "Label for see lesser child skills"
   },
   "f/t2zt": {
     "defaultMessage": "Project session ended!",

@@ -8,15 +8,22 @@ import { themeTextSubtleColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
   completed: number;
+  iconClassName?: string;
+  showProgress?: boolean;
   total: number;
 }>;
 
-export default function ProjectsTrackProgressTag({ completed, total }: Props) {
+export default function ProjectsTrackProgressTag({
+  completed,
+  total,
+  showProgress = true,
+  iconClassName,
+}: Props) {
   const intl = useIntl();
 
   return (
     <div className={clsx('flex items-center gap-1', themeTextSubtleColor)}>
-      <RiRocketLine className="h-5 w-5" />
+      <RiRocketLine className={clsx('h-5 w-5', iconClassName)} />
       <Text color="inherit" size="body2">
         <FormattedMessage
           defaultMessage="<bold>{completedCount}</bold>/{totalCount} challenges"
@@ -33,24 +40,26 @@ export default function ProjectsTrackProgressTag({ completed, total }: Props) {
           }}
         />
       </Text>
-      <div>
-        <ProgressBar
-          label={intl.formatMessage(
-            {
-              defaultMessage:
-                'Label for "Completed projects" progress bar of a Projects component track',
-              description: '{completedCount} out of {totalCount} challenges',
-              id: 'GSfE/S',
-            },
-            {
-              completedCount: completed,
-              totalCount: total,
-            },
-          )}
-          total={total}
-          value={completed}
-        />
-      </div>
+      {showProgress && (
+        <div>
+          <ProgressBar
+            label={intl.formatMessage(
+              {
+                defaultMessage:
+                  'Label for "Completed projects" progress bar of a Projects component track',
+                description: '{completedCount} out of {totalCount} challenges',
+                id: 'GSfE/S',
+              },
+              {
+                completedCount: completed,
+                totalCount: total,
+              },
+            )}
+            total={total}
+            value={completed}
+          />
+        </div>
+      )}
     </div>
   );
 }

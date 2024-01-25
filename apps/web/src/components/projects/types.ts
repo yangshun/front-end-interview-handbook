@@ -94,3 +94,16 @@ export type ProjectsProfileAvatarData = Readonly<{
   name: string | null;
   username: string;
 }>;
+
+export type ProjectsSkillItem = Readonly<{
+  completedChallenges: number;
+  points: number;
+  title: string;
+  totalChallenges: number;
+}>;
+
+export type ProjectsSkillFamily = ProjectsSkillItem &
+  Readonly<{
+    childSkills: ReadonlyArray<ProjectsSkillItem>;
+    description: string;
+  }>;
