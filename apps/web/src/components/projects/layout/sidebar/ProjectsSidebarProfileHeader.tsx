@@ -12,6 +12,7 @@ import Text from '~/components/ui/Text';
 import ProjectsSidebarHeaderLogoBar from './ProjectsSidebarHeaderLogoBar';
 import ProjectsUserReputation from '../../users/ProjectsUserReputation';
 import UserProfileTitle from '../../../profile/info/UserProfileTitle';
+import Anchor from '~/components/ui/Anchor';
 
 type Props = Readonly<{
   className?: string;
@@ -37,27 +38,24 @@ export function ProjectsSidebarProfileHeader({ className, points }: Props) {
             size="lg"
           />
           <div className="flex flex-col gap-1">
-            <Text size="body2">
+            <Text size="body2" weight="medium">
               <UserProfileDisplayName profile={profile} />
             </Text>
             <ProjectsUserReputation points={points} size="2xs" />
           </div>
         </div>
         <UserProfileTitle profile={profile} size="xs" />
-        <Button
-          addonPosition="end"
-          className="dark:!text-brand !text-brand-dark -ms-3"
-          href={`/projects/u/${profile.username}`}
-          icon={RiArrowRightLine}
-          label={intl.formatMessage({
-            defaultMessage: 'My profile',
-            description:
-              'Label for My profile button in profile header of Projects sidebar',
-            id: '19GB65',
-          })}
-          size="sm"
-          variant="tertiary"
-        />
+        <Text size="body3" weight="medium">
+          <Anchor href={`/projects/u/${profile.username}`}>
+            {intl.formatMessage({
+              defaultMessage: 'My profile',
+              description:
+                'Label for My profile button in profile header of Projects sidebar',
+              id: '19GB65',
+            })}
+            <RiArrowRightLine className="h-4 w-4 ms-1 shrink-0 inline-flex" />
+          </Anchor>
+        </Text>
       </div>
     </header>
   );

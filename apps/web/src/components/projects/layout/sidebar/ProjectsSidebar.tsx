@@ -21,8 +21,7 @@ import Button from '~/components/ui/Button';
 import Popover from '~/components/ui/Popover';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundEmphasized,
-  themeBackgroundLayerEmphasizedHover,
+  themeBackgroundElementActiveColor,
   themeBorderElementColor,
   themeTextBrandColor,
   themeTextBrandHoverColor,
@@ -152,16 +151,22 @@ function SidebarLinkButton({
 }) {
   const { pathname } = useI18nPathname();
   const isSelected = pathname === href;
+  const activeClassName = clsx(
+    themeTextBrandColor,
+    themeBackgroundElementActiveColor,
+  );
+  const defaultClassName = clsx(
+    themeTextSecondaryColor,
+    themeTextBrandHoverColor,
+  );
 
   return (
     <Anchor
       aria-current={isSelected ? 'page' : undefined}
       className={clsx(
         'flex w-full items-center gap-3 rounded px-3 py-2',
-        themeBackgroundLayerEmphasizedHover,
         themeTextBrandHoverColor,
-        isSelected && [themeTextBrandColor, themeBackgroundEmphasized],
-        !isSelected && themeTextSecondaryColor,
+        isSelected ? activeClassName : defaultClassName,
       )}
       href={href}
       variant="unstyled"
