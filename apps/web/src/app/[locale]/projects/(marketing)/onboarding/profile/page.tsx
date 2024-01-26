@@ -1,5 +1,5 @@
-import ProjectsOnboardingProfilePage from './ProjectsOnboardingProfilePage';
+import ProjectsOnboardingProfilePage from '~/components/projects/onboarding/ProjectsOnboardingProfilePage';
 
 export default function Page() {
-  return <ProjectsOnboardingProfilePage userName="John Doe" />;
+  return <ProjectsOnboardingProfilePage />;
 }

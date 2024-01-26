@@ -1,17 +1,22 @@
 import { useFormContext } from 'react-hook-form';
 import { FormattedMessage } from 'react-intl';
 
-import type { ProjectsEditProfileValues } from '~/components/projects/types';
+import type {
+  ProjectsEditProfileValues,
+  ProjectsOnboardingProfileStep1Values,
+} from '~/components/projects/types';
 import Heading from '~/components/ui/Heading';
 
 import ProjectsProfileYOEInput from '../ProjectsProfileYOEInput';
+
+type Values = ProjectsEditProfileValues | ProjectsOnboardingProfileStep1Values;
 
 export default function ProjectsProfileYOESection() {
   const {
     control,
     watch,
     formState: { errors },
-  } = useFormContext<ProjectsEditProfileValues>();
+  } = useFormContext<Values>();
   const watchHasNotStartedWork = watch('hasNotStartedWork');
   const watchYoeReplacementOption = watch('yoeReplacement.option');
 

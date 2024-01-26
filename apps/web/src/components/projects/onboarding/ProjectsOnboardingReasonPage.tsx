@@ -21,11 +21,11 @@ import { trpc } from '~/hooks/trpc';
 import useProjectsMotivationReasonOptions from '~/components/projects/hooks/useProjectsMotivationReasonOptions';
 import useProjectsMotivationReasonSchema from '~/components/projects/hooks/useProjectsMotivationReasonSchema';
 import type {
-  MotivationReasonFormValues,
-  MotivationReasonOption,
-  MotivationReasonType,
+  ProjectsMotivationReasonFormValues,
+  ProjectsMotivationReasonOption,
+  ProjectsMotivationReasonType,
 } from '~/components/projects/types';
-import { type MotivationReasonValue } from '~/components/projects/types';
+import { type ProjectsMotivationReasonValue } from '~/components/projects/types';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -51,17 +51,17 @@ function ReasonList({
   previousValue,
   onChange,
 }: {
-  name: MotivationReasonType;
-  onChange: (value: MotivationReasonValue | null) => void;
-  previousValue?: MotivationReasonValue | null;
-  reasonOptions: Array<MotivationReasonOption>;
+  name: ProjectsMotivationReasonType;
+  onChange: (value: ProjectsMotivationReasonValue | null) => void;
+  previousValue?: ProjectsMotivationReasonValue | null;
+  reasonOptions: Array<ProjectsMotivationReasonOption>;
 }) {
   const {
     control,
     watch,
     setValue,
     formState: { errors },
-  } = useFormContext<MotivationReasonFormValues>();
+  } = useFormContext<ProjectsMotivationReasonFormValues>();
   const valueKey = `${name}.type` as const;
   const value = watch(valueKey);
 
@@ -170,7 +170,7 @@ export default function ProjectsOnboardingReasonPage() {
     trpc.projects.profile.motivationsUpdate.useMutation();
 
   const methods = useForm<
-    MotivationReasonFormValues,
+    ProjectsMotivationReasonFormValues,
     unknown,
     OnboardingProfileFormTransformedValues
   >({
@@ -192,7 +192,8 @@ export default function ProjectsOnboardingReasonPage() {
     resetField,
     formState: { isSubmitting, errors },
   } = methods;
-  const [reasonType, setReasonType] = useState<MotivationReasonType>('primary');
+  const [reasonType, setReasonType] =
+    useState<ProjectsMotivationReasonType>('primary');
   const primaryType = watch('primary.type');
   const secondaryType = watch('secondary.type');
 
@@ -217,9 +218,9 @@ export default function ProjectsOnboardingReasonPage() {
     <FormProvider {...methods}>
       <main>
         <Container
-          className="mt-8 flex flex-col items-center pb-24"
+          className="pt-8 flex flex-col items-center pb-24 gap-12"
           variant="2xl">
-          <div className="flex flex-col items-stretch gap-4">
+          <div className="flex flex-col items-center gap-4">
             <Heading level="heading5">
               <FormattedMessage
                 defaultMessage="Welcome to GreatFrontEnd Projects!"
@@ -251,7 +252,7 @@ export default function ProjectsOnboardingReasonPage() {
                   router.push('/projects/onboarding/profile');
                 },
               )}>
-              <div className="-ms-4 mb-4 mt-10 flex justify-between self-stretch">
+              <div className="-ms-4 mb-4 flex justify-between self-stretch items-center">
                 <div className="flex">
                   <Button
                     className={clsx(reasonType === 'primary' && '!text-brand')}
@@ -261,7 +262,7 @@ export default function ProjectsOnboardingReasonPage() {
                         'Label for "Primary reason" button on Sign Up Reason section of Projects onboarding page',
                       id: 'LxlUHa',
                     })}
-                    size="lg"
+                    size="md"
                     variant="tertiary"
                     onClick={() => {
                       setReasonType('primary');
@@ -278,7 +279,7 @@ export default function ProjectsOnboardingReasonPage() {
                         'Label for "Secondary reason" button on Sign Up Reason section of Projects onboarding page',
                       id: 'hdlJES',
                     })}
-                    size="lg"
+                    size="md"
                     variant="tertiary"
                     onClick={() => {
                       setReasonType('secondary');
@@ -287,6 +288,7 @@ export default function ProjectsOnboardingReasonPage() {
                 </div>
                 {reasonType === 'secondary' && (
                   <Button
+                    href="/projects/challenges"
                     icon={RiArrowRightLine}
                     label={intl.formatMessage({
                       defaultMessage: 'Skip for now',
@@ -294,7 +296,6 @@ export default function ProjectsOnboardingReasonPage() {
                         'Label for "Skip" button on Sign Up Reason section of Projects onboarding page',
                       id: '8mCs6b',
                     })}
-                    size="lg"
                     type="submit"
                     variant="secondary"
                   />

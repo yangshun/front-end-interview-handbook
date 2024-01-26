@@ -3,10 +3,10 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { RiCheckboxCircleFill } from 'react-icons/ri';
 
 import type {
-  MotivationReasonOption,
-  MotivationReasonType,
-  MotivationReasonValue,
   ProjectsEditProfileValues,
+  ProjectsMotivationReasonOption,
+  ProjectsMotivationReasonType,
+  ProjectsMotivationReasonValue,
 } from '~/components/projects/types';
 import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
@@ -25,10 +25,10 @@ export default function ProjectsProfileMotivationReasonList({
   previousValue,
   onChange,
 }: {
-  name: MotivationReasonType;
-  onChange: (value: MotivationReasonValue | null) => void;
-  previousValue?: MotivationReasonValue | null;
-  reasonOptions: Array<MotivationReasonOption>;
+  name: ProjectsMotivationReasonType;
+  onChange: (value: ProjectsMotivationReasonValue | null) => void;
+  previousValue?: ProjectsMotivationReasonValue | null;
+  reasonOptions: Array<ProjectsMotivationReasonOption>;
 }) {
   const {
     control,

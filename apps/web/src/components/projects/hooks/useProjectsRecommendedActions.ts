@@ -2,14 +2,17 @@ import { RiEyeLine, RiNodeTree } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import type {
-  MotivationReasonValue,
-  RecommendedAction,
+  ProjectsMotivationReasonValue,
+  ProjectsRecommendedAction,
 } from '~/components/projects/types';
 
 export default function useProjectsRecommendedActions() {
   const intl = useIntl();
 
-  const actions: Record<MotivationReasonValue, Array<RecommendedAction>> = {
+  const actions: Record<
+    ProjectsMotivationReasonValue,
+    Array<ProjectsRecommendedAction>
+  > = {
     beginner: [
       {
         cta: intl.formatMessage({

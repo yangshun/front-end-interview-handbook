@@ -7,8 +7,6 @@ import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
 
-import type { ProjectsChallengeSessionStatus } from '@prisma/client';
-
 type Props = Readonly<{
   params: Readonly<{
     locale: string;

@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 
 import useProjectsMotivationReasonOptions from '~/components/projects/hooks/useProjectsMotivationReasonOptions';
 import ProjectsProfileInfoSectionLayout from '~/components/projects/profile/info/ProjectsProfileInfoSectionLayout';
-import type { MotivationReasonValue } from '~/components/projects/types';
+import type { ProjectsMotivationReasonValue } from '~/components/projects/types';
 import Text from '~/components/ui/Text';
 import { themeBackgroundElementActiveColor } from '~/components/ui/theme';
 
@@ -15,10 +15,10 @@ export default function ProjectsProfileMotivation({
   secondaryMotivation: string | null;
 }) {
   const intl = useIntl();
-  const motivations: Array<MotivationReasonValue> = [
+  const motivations: Array<ProjectsMotivationReasonValue> = [
     primaryMotivation,
     secondaryMotivation,
-  ].filter(Boolean) as Array<MotivationReasonValue>;
+  ].filter(Boolean) as Array<ProjectsMotivationReasonValue>;
   const { reasons } = useProjectsMotivationReasonOptions();
 
   return (

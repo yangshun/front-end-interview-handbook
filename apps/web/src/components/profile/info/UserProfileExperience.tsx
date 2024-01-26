@@ -4,7 +4,7 @@ import { RiGraduationCapLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import useProjectsYOEReplacementOptions from '~/components/projects/hooks/useProjectsYOEReplacementOptions';
-import type { YOEReplacement } from '~/components/projects/types';
+import type { ProjectsYoeReplacement } from '~/components/projects/types';
 import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 
@@ -72,7 +72,7 @@ export default function UserProfileExperience({ profile, size = 'sm' }: Props) {
           />
         ) : (
           profile.currentStatus &&
-          yoeOptionMap[profile.currentStatus as YOEReplacement].label
+          yoeOptionMap[profile.currentStatus as ProjectsYoeReplacement].label
         )}
       </Text>
     </div>

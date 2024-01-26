@@ -5,8 +5,15 @@ import { useIntl } from 'react-intl';
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import TextInput from '~/components/ui/TextInput';
 
+import type { ProjectsOnboardingProfileStep2FormValues } from '../onboarding/ProjectsOnboardingProfileStep2';
+import type { ProjectsEditProfileValues } from '../types';
+
+type Values =
+  | ProjectsEditProfileValues
+  | ProjectsOnboardingProfileStep2FormValues;
+
 type Props = Readonly<{
-  control: Control<any>;
+  control: Control<Values>;
   showReputationCountIncreaseTag?: boolean;
 }>;
 
@@ -17,7 +24,7 @@ export default function ProjectsProfileSocialInput({
   const intl = useIntl();
 
   return (
-    <div className="space-y-4">
+    <div className="flex flex-col gap-4">
       <div className="relative">
         {showReputationCountIncreaseTag && (
           <ProjectsChallengeReputationTag

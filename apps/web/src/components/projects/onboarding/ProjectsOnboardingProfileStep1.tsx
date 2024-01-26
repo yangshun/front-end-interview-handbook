@@ -12,7 +12,7 @@ import { yoeReplacementSchema } from '~/components/projects/misc';
 import ProjectsProfileTechStackProficientInput from '~/components/projects/profile/ProjectsProfileTechStackProficientInput';
 import ProjectsProfileTechStackToImproveInput from '~/components/projects/profile/ProjectsProfileTechStackToImproveInput';
 import ProjectsProfileYOEInput from '~/components/projects/profile/ProjectsProfileYOEInput';
-import type { OnboardingProfilePage1Values } from '~/components/projects/types';
+import type { ProjectsOnboardingProfileStep1Values } from '~/components/projects/types';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -21,7 +21,7 @@ import TextInput from '~/components/ui/TextInput';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
-function useOnboardingProfilePage1Schema() {
+function useOnboardingProfileStep1Schema() {
   const intl = useIntl();
   const monthYearExperienceSchema = useProjectsMonthYearExperienceSchema();
 
@@ -86,21 +86,17 @@ function useOnboardingProfilePage1Schema() {
   ]);
 }
 
-type OnboardingProfilePage1TransformedValues = z.infer<
-  ReturnType<typeof useOnboardingProfilePage1Schema>
+type OnboardingProfileStep1TransformedValues = z.infer<
+  ReturnType<typeof useOnboardingProfileStep1Schema>
 >;
 
 type Props = Readonly<{
   onFinish: () => void;
-  userName: string;
 }>;
 
-export default function ProjectsOnboardingProfilePage1({
-  userName,
-  onFinish,
-}: Props) {
+export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
   const intl = useIntl();
-  const onboardingProfilePage1Schema = useOnboardingProfilePage1Schema();
+  const onboardingProfileStep1Schema = useOnboardingProfileStep1Schema();
   const { data: initialValues } =
     trpc.projects.profile.onboardingStep1Get.useQuery();
   const onboardingStep1UpdateMutation =
@@ -112,11 +108,11 @@ export default function ProjectsOnboardingProfilePage1({
     handleSubmit,
     formState: { isSubmitting, isDirty, errors },
   } = useForm<
-    OnboardingProfilePage1Values,
+    ProjectsOnboardingProfileStep1Values,
     unknown,
-    OnboardingProfilePage1TransformedValues
+    OnboardingProfileStep1TransformedValues
   >({
-    resolver: zodResolver(onboardingProfilePage1Schema),
+    resolver: zodResolver(onboardingProfileStep1Schema),
     values: {
       hasNotStartedWork: initialValues?.currentStatus !== null,
       jobTitle: initialValues?.title ?? '',
@@ -157,7 +153,7 @@ export default function ProjectsOnboardingProfilePage1({
       <form
         className="mt-6 flex flex-col gap-y-16"
         onSubmit={handleSubmit(
-          async (data: OnboardingProfilePage1TransformedValues) => {
+          async (data: OnboardingProfileStep1TransformedValues) => {
             await onboardingStep1UpdateMutation.mutateAsync({
               currentStatus: data.hasNotStartedWork
                 ? data.yoeReplacement
@@ -172,7 +168,7 @@ export default function ProjectsOnboardingProfilePage1({
         <div className="flex flex-col items-start gap-x-16 gap-y-6 sm:flex-row sm:items-end">
           <div className="flex flex-col items-center gap-4">
             <Avatar
-              alt={userName}
+              alt=""
               className="h-[120px] w-[120px]"
               size="custom"
               src="https://source.unsplash.com/random/128x128"

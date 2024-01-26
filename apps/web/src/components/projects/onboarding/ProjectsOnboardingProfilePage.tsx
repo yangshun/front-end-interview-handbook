@@ -9,8 +9,8 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 import Text from '~/components/ui/Text';
 
-import ProjectsOnboardingProfilePage1 from './ProjectsOnboardingProfilePage1';
-import ProjectsOnboardingProfilePage2 from './ProjectsOnboardingProfilePage2';
+import ProjectsOnboardingProfileStep1 from './ProjectsOnboardingProfileStep1';
+import ProjectsOnboardingProfileStep2 from './ProjectsOnboardingProfileStep2';
 
 function useTabs() {
   const tabs = [
@@ -21,11 +21,7 @@ function useTabs() {
   return tabs;
 }
 
-type Props = Readonly<{
-  userName: string;
-}>;
-
-export default function ProjectsOnboardingProfilePage({ userName }: Props) {
+export default function ProjectsOnboardingProfilePage() {
   const tabs = useTabs();
   const [tab, setTab] = useState<(typeof tabs)[number]['value']>('step-1');
   const intl = useIntl();
@@ -33,9 +29,9 @@ export default function ProjectsOnboardingProfilePage({ userName }: Props) {
   return (
     <main>
       <Container
-        className="mt-8 flex flex-col items-stretch pb-24"
+        className="pt-8 flex flex-col items-stretch pb-24 gap-12"
         variant="2xl">
-        <div className="mb-12 flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-4">
           <Heading level="heading5">
             <FormattedMessage
               defaultMessage="Welcome to GreatFrontEnd Projects!"
@@ -65,14 +61,13 @@ export default function ProjectsOnboardingProfilePage({ userName }: Props) {
             onSelect={setTab}
           />
           {tab === 'step-1' && (
-            <ProjectsOnboardingProfilePage1
-              userName={userName}
+            <ProjectsOnboardingProfileStep1
               onFinish={() => {
                 setTab('step-2');
               }}
             />
           )}
-          {tab === 'step-2' && <ProjectsOnboardingProfilePage2 />}
+          {tab === 'step-2' && <ProjectsOnboardingProfileStep2 />}
         </Section>
       </Container>
     </main>

@@ -4,8 +4,8 @@ import { useIntl } from 'react-intl';
 
 import useProjectsYOEReplacementOptions from '~/components/projects/hooks/useProjectsYOEReplacementOptions';
 import type {
-  OnboardingProfilePage1Values,
   ProjectsEditProfileValues,
+  ProjectsOnboardingProfileStep1Values,
 } from '~/components/projects/types';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import RadioGroup from '~/components/ui/RadioGroup';
@@ -13,9 +13,11 @@ import RadioGroupItem from '~/components/ui/RadioGroup/RadioGroupItem';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
+type Values = ProjectsEditProfileValues | ProjectsOnboardingProfileStep1Values;
+
 type Props = Readonly<{
-  control: Control<any>;
-  errors: FieldErrors<OnboardingProfilePage1Values | ProjectsEditProfileValues>;
+  control: Control<Values>;
+  errors: FieldErrors<Values>;
   watchHasNotStartedWork: boolean;
   watchYoeReplacementOption: string | undefined;
 }>;

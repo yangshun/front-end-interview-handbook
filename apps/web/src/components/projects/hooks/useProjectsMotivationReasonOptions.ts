@@ -10,15 +10,15 @@ import {
 import { useIntl } from 'react-intl';
 
 import type {
-  MotivationReasonOption,
-  MotivationReasonValue,
+  ProjectsMotivationReasonOption,
+  ProjectsMotivationReasonValue,
 } from '~/components/projects/types';
 
 export default function useProjectsMotivationReasonOptions(
   bold?: (chunks: Array<React.ReactNode>) => React.ReactNode | undefined,
 ) {
   const intl = useIntl();
-  const reasons: Record<MotivationReasonValue, string> = {
+  const reasons: Record<ProjectsMotivationReasonValue, string> = {
     beginner: intl.formatMessage({
       defaultMessage:
         'Want to learn skills for practical front end development',
@@ -52,7 +52,7 @@ export default function useProjectsMotivationReasonOptions(
       id: 'LLsMT8',
     }),
   };
-  const reasonOptions: Array<MotivationReasonOption> = [
+  const reasonOptions: Array<ProjectsMotivationReasonOption> = [
     {
       content: bold
         ? intl.formatMessage(

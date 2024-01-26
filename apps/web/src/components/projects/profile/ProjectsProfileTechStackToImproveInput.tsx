@@ -3,15 +3,17 @@ import { Controller } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
 import type {
-  OnboardingProfilePage1Values,
   ProjectsEditProfileValues,
+  ProjectsOnboardingProfileStep1Values,
 } from '~/components/projects/types';
 import Anchor from '~/components/ui/Anchor';
 import TextInput from '~/components/ui/TextInput';
 
+type Values = ProjectsEditProfileValues | ProjectsOnboardingProfileStep1Values;
+
 type Props = Readonly<{
-  control: Control<any>;
-  errors: FieldErrors<OnboardingProfilePage1Values | ProjectsEditProfileValues>;
+  control: Control<Values>;
+  errors: FieldErrors<Values>;
 }>;
 
 export default function ProjectsProfileTechStackToImproveInput({

@@ -6,13 +6,12 @@ import useProfile from '~/hooks/user/useProfile';
 
 import UserProfileDisplayName from '~/components/profile/info/UserProfileDisplayName';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
-import Button from '~/components/ui/Button';
+import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 
 import ProjectsSidebarHeaderLogoBar from './ProjectsSidebarHeaderLogoBar';
 import ProjectsUserReputation from '../../users/ProjectsUserReputation';
 import UserProfileTitle from '../../../profile/info/UserProfileTitle';
-import Anchor from '~/components/ui/Anchor';
 
 type Props = Readonly<{
   className?: string;

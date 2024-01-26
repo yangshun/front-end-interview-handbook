@@ -11,25 +11,32 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 
-type OnboardingProfilePage2FormValues = Readonly<{
+import { useI18nRouter } from '~/next-i18nostic/src';
+
+export type ProjectsOnboardingProfileStep2FormValues = Readonly<{
   bio: string;
   githubUsername: string;
   linkedInUsername: string;
   website: string;
 }>;
 
-export default function ProjectsOnboardingProfilePage1() {
+export default function ProjectsOnboardingProfileStep2() {
+  const router = useI18nRouter();
   const intl = useIntl();
   const { data: initialValues } =
     trpc.projects.profile.onboardingStep2Get.useQuery();
   const onboardingStep2UpdateMutation =
-    trpc.projects.profile.onboardingStep2Update.useMutation();
+    trpc.projects.profile.onboardingStep2Update.useMutation({
+      onSuccess: () => {
+        router.push('/projects/challenges');
+      },
+    });
 
   const {
     control,
     handleSubmit,
     formState: { isDirty, isSubmitting },
-  } = useForm<OnboardingProfilePage2FormValues>({
+  } = useForm<ProjectsOnboardingProfileStep2FormValues>({
     values: {
       bio: initialValues?.bio ?? '',
       githubUsername: initialValues?.githubUsername ?? '',
@@ -50,6 +57,7 @@ export default function ProjectsOnboardingProfilePage1() {
         </Heading>
         <Button
           className="-me-5"
+          href="/projects/challenges"
           icon={RiArrowRightLine}
           label={intl.formatMessage({
             defaultMessage: 'Skip for now',
@@ -57,7 +65,6 @@ export default function ProjectsOnboardingProfilePage1() {
               'Label for "Skip for now" button on Projects profile onboarding page',
             id: 'fs9YFE',
           })}
-          size="md"
           variant="tertiary"
         />
       </div>

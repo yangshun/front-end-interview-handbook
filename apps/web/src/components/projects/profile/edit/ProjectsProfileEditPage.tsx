@@ -17,8 +17,8 @@ import ProjectsProfileSkillSection from '~/components/projects/profile/edit/Proj
 import ProjectsProfileSocialSection from '~/components/projects/profile/edit/ProjectsProfileSocialSection';
 import ProjectsProfileYOESection from '~/components/projects/profile/edit/ProjectsProfileYOESection';
 import type {
-  MotivationReasonValue,
   ProjectsEditProfileValues,
+  ProjectsMotivationReasonValue,
 } from '~/components/projects/types';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
@@ -148,7 +148,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
             : projectsProfile.primaryMotivation ?? '',
           type: projectsProfile.primaryMotivation
             ? hasPredefinedPrimaryReason
-              ? (projectsProfile.primaryMotivation as MotivationReasonValue)
+              ? (projectsProfile.primaryMotivation as ProjectsMotivationReasonValue)
               : 'other'
             : null,
         },
@@ -158,7 +158,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
             : projectsProfile.secondaryMotivation ?? '',
           type: projectsProfile.secondaryMotivation
             ? hasPredefinedSecondaryReason
-              ? (projectsProfile.secondaryMotivation as MotivationReasonValue)
+              ? (projectsProfile.secondaryMotivation as ProjectsMotivationReasonValue)
               : 'other'
             : null,
         },

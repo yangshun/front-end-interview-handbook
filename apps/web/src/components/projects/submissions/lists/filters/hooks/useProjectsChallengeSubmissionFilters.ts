@@ -6,7 +6,7 @@ import useFilterSearchParams from '~/hooks/useFilterSearchParams';
 import useProjectsYOEReplacementOptions from '~/components/projects/hooks/useProjectsYOEReplacementOptions';
 import { useProjectsChallengeSubmissionFilterState } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import type { ProjectsChallengeSubmissionYOEFilter } from '~/components/projects/submissions/types';
-import type { YOEReplacement } from '~/components/projects/types';
+import type { ProjectsYoeReplacement } from '~/components/projects/types';
 
 export default function useProjectsChallengeSubmissionFilters() {
   const { updateSearchParams, getStringTypeSearchParams } =
@@ -54,7 +54,7 @@ export default function useProjectsChallengeSubmissionFilters() {
     .filter((exp) => selectedExperience.includes(exp.value))
     .map((exp) => exp.value);
   const yoeExperience = selectedExperience.filter(
-    (exp) => !profileStatus.includes(exp as YOEReplacement),
+    (exp) => !profileStatus.includes(exp as ProjectsYoeReplacement),
   ) as Array<ProjectsChallengeSubmissionYOEFilter>;
 
   const filterSize =

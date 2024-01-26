@@ -5,7 +5,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import useProjectsMotivationReasonOptions from '~/components/projects/hooks/useProjectsMotivationReasonOptions';
 import ProjectsProfileMotivationReasonList from '~/components/projects/profile/edit/ProjectsProfileMotivationReasonList';
-import type { MotivationReasonType } from '~/components/projects/types';
+import type { ProjectsMotivationReasonType } from '~/components/projects/types';
 import type { ProjectsEditProfileValues } from '~/components/projects/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -23,7 +23,8 @@ export default function ProjectsProfileMotivationSection() {
       {chunks}
     </Text>
   ));
-  const [reasonType, setReasonType] = useState<MotivationReasonType>('primary');
+  const [reasonType, setReasonType] =
+    useState<ProjectsMotivationReasonType>('primary');
 
   const primaryType = watch('motivationReasons.primary.type');
   const secondaryType = watch('motivationReasons.secondary.type');

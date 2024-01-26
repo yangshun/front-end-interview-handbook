@@ -5,26 +5,29 @@ import type {
   yoeReplacementSchema,
 } from '~/components/projects/misc';
 
-export type MotivationReasonType = 'primary' | 'secondary';
+export type ProjectsMotivationReasonType = 'primary' | 'secondary';
 
-export type MotivationReasonValue = z.infer<typeof motivationReasonValue>;
+export type ProjectsMotivationReasonValue = z.infer<
+  typeof motivationReasonValue
+>;
 
-export type MotivationReasonOption = {
+export type ProjectsMotivationReasonOption = Readonly<{
   content: React.ReactNode;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  id: MotivationReasonValue;
+  id: ProjectsMotivationReasonValue;
   label: string;
-};
+}>;
 
-export type MotivationReasonFormValues = Record<
-  MotivationReasonType,
+export type ProjectsMotivationReasonFormValues = Record<
+  ProjectsMotivationReasonType,
   {
     otherValue: string;
-    type: MotivationReasonValue | null;
+    type: ProjectsMotivationReasonValue | null;
   }
 >;
 
-export type YOEReplacement = z.infer<typeof yoeReplacementSchema>;
+// TODO(projects): generalize this field.
+export type ProjectsYoeReplacement = z.infer<typeof yoeReplacementSchema>;
 
 export type ProjectsEditProfileValues = {
   avatarUrl?: string;
@@ -34,7 +37,7 @@ export type ProjectsEditProfileValues = {
   jobTitle: string;
   linkedInUsername: string;
   monthYearExperience: string | undefined;
-  motivationReasons: MotivationReasonFormValues;
+  motivationReasons: ProjectsMotivationReasonFormValues;
   name: string;
   techStackProficient: string;
   techStackToImprove: string;
@@ -45,7 +48,7 @@ export type ProjectsEditProfileValues = {
   };
 };
 
-export type OnboardingProfilePage1Values = {
+export type ProjectsOnboardingProfileStep1Values = {
   hasNotStartedWork: boolean;
   jobTitle: string;
   monthYearExperience: string | undefined;
@@ -70,23 +73,12 @@ export type ProjectsChallengesDifficulty =
   | 'senior'
   | 'starter';
 
-export type RecommendedAction = {
+export type ProjectsRecommendedAction = {
   cta: string;
   description: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   title: string;
 };
-
-export type yoeReplacement =
-  | 'bootcamp-grad'
-  | 'bootcamper'
-  | 'career-switcher'
-  | 'fresh-grad'
-  | 'intern'
-  | 'masters-cs'
-  | 'others'
-  | 'self-learning'
-  | 'undergrad-cs';
 
 export type ProjectsProfileAvatarData = Readonly<{
   avatarUrl: string | null;

@@ -1,12 +1,12 @@
 import { useIntl } from 'react-intl';
 
-import type { YOEReplacement } from '~/components/projects/types';
+import type { ProjectsYoeReplacement } from '~/components/projects/types';
 import type { RadioGroupItemProps } from '~/components/ui/RadioGroup/RadioGroupItem';
 
 export default function useProjectsYOEReplacementOptions() {
   const intl = useIntl();
 
-  const yoeOptionMap: Record<YOEReplacement, { label: string }> = {
+  const yoeOptionMap: Record<ProjectsYoeReplacement, { label: string }> = {
     'bootcamp-grad': {
       label: intl.formatMessage({
         defaultMessage: 'Bootcamp Grad',
@@ -109,7 +109,9 @@ export default function useProjectsYOEReplacementOptions() {
       label: yoeOptionMap.others.label,
       value: 'others',
     },
-  ] as const satisfies ReadonlyArray<RadioGroupItemProps<YOEReplacement>>;
+  ] as const satisfies ReadonlyArray<
+    RadioGroupItemProps<ProjectsYoeReplacement>
+  >;
 
   return { yoeOptionMap, yoeReplacementOptions };
 }

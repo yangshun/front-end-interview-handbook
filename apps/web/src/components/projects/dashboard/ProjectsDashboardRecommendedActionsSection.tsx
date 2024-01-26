@@ -7,8 +7,8 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import useProjectsRecommendedActions from '~/components/projects/hooks/useProjectsRecommendedActions';
 import { motivationReasonValue } from '~/components/projects/misc';
 import type {
-  MotivationReasonValue,
-  RecommendedAction,
+  ProjectsMotivationReasonValue,
+  ProjectsRecommendedAction,
 } from '~/components/projects/types';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
@@ -27,7 +27,10 @@ import {
 } from '~/components/ui/theme';
 
 function getRecommendedActions(
-  actions: Record<MotivationReasonValue, Array<RecommendedAction>>,
+  actions: Record<
+    ProjectsMotivationReasonValue,
+    Array<ProjectsRecommendedAction>
+  >,
   primaryMotivation: string | null | undefined,
   secondaryMotivation: string | null | undefined,
 ) {

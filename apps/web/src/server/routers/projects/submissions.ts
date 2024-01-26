@@ -7,7 +7,7 @@ import { projectsChallengeSubmissionRepositoryUrlSchemaServer } from '~/componen
 import { projectsChallengeSubmissionSummarySchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionSummarySchema';
 import { projectsChallengeSubmissionTitleSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionTitleSchema';
 import { projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus } from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListUtil';
-import type { yoeReplacement } from '~/components/projects/types';
+import type { ProjectsYoeReplacement } from '~/components/projects/types';
 
 import prisma from '~/server/prisma';
 
@@ -44,7 +44,7 @@ const whereClauseForSubmissions = (
   startDateFilters: Array<{
     startWorkDate: { gte?: Date | undefined; lt?: Date | undefined };
   }>,
-  profileStatus: Array<yoeReplacement>,
+  profileStatus: Array<ProjectsYoeReplacement>,
   hasClientFilterApplied: boolean,
 ) => {
   return [
