@@ -135,6 +135,10 @@
     "defaultMessage": "Challenge brief",
     "description": "Projects challenge submission hero card title"
   },
+  "/CfHhU": {
+    "defaultMessage": "Special case for richtext editor",
+    "description": "Special case action for richtext editor toolbar"
+  },
   "/F80kH": {
     "defaultMessage": "Read our <link>Front End Interview Guidebook</link>",
     "description": "Link to front end interview guidebook"
@@ -4282,6 +4286,10 @@
   "d3GL1v": {
     "defaultMessage": "Copy line down",
     "description": "Text describing command to copy lines down in the coding workspace shortcuts menu"
+  },
+  "d4ZiFU": {
+    "defaultMessage": "Quote",
+    "description": "Quote tooltip for richtext toolbar"
   },
   "d7gVP2": {
     "defaultMessage": "Chennai, India",

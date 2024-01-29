@@ -1,13 +1,32 @@
+import {
+  CAN_REDO_COMMAND,
+  COMMAND_PRIORITY_CRITICAL,
+  REDO_COMMAND,
+} from 'lexical';
+import { useEffect, useState } from 'react';
 import { RiArrowGoForwardLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import RichTextEditorToolbarActionNode from '~/components/ui/RichTextEditor/components/RichTextEditorToolbarActionNode';
-import useRichTextEditorOnClickListener from '~/components/ui/RichTextEditor/hooks/useRichTextEditorOnClickListener';
-import { richTextEditorToolbarEventTypes } from '~/components/ui/RichTextEditor/misc';
+
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 
 export default function RichTextEditorRedoPlugin() {
   const intl = useIntl();
-  const { canRedo, onClick } = useRichTextEditorOnClickListener();
+  const [editor] = useLexicalComposerContext();
+  const [canRedo, setCanRedo] = useState(false);
+
+  useEffect(() => {
+    return editor.registerCommand(
+      CAN_REDO_COMMAND,
+      (payload) => {
+        setCanRedo(payload);
+
+        return false;
+      },
+      COMMAND_PRIORITY_CRITICAL,
+    );
+  }, [editor]);
 
   return (
     <RichTextEditorToolbarActionNode
@@ -18,7 +37,7 @@ export default function RichTextEditorRedoPlugin() {
         description: 'Redo tooltip for Richtext toolbar',
         id: 'u2wpqq',
       })}
-      onClick={() => onClick(richTextEditorToolbarEventTypes.redo)}
+      onClick={() => editor.dispatchCommand(REDO_COMMAND, undefined)}
     />
   );
 }

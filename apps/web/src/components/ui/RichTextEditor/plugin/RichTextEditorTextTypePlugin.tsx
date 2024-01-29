@@ -1,13 +1,27 @@
+import {
+  $createParagraphNode,
+  $getSelection,
+  $isRangeSelection,
+  COMMAND_PRIORITY_CRITICAL,
+  SELECTION_CHANGE_COMMAND,
+} from 'lexical';
+import { useCallback, useEffect, useState } from 'react';
 import { RiFontSize2, RiH1, RiH2, RiH3 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import DropdownMenu from '~/components/ui/DropdownMenu';
-import useRichTextEditorOnClickListener from '~/components/ui/RichTextEditor/hooks/useRichTextEditorOnClickListener';
 import type { RichTextEditorHeadingType } from '~/components/ui/RichTextEditor/types';
+
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
+import { $createHeadingNode, $isHeadingNode } from '@lexical/rich-text';
+import { $setBlocksType } from '@lexical/selection';
+import { mergeRegister } from '@lexical/utils';
 
 export default function RichTextEditorTextTypePlugin() {
   const intl = useIntl();
-  const { headingType, onClick } = useRichTextEditorOnClickListener();
+  const [editor] = useLexicalComposerContext();
+  const [headingType, setHeadingType] = useState('normal');
+
   const typeOptions: Array<{
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
@@ -51,7 +65,75 @@ export default function RichTextEditorTextTypePlugin() {
     },
   ];
 
+  const $updateState = useCallback(() => {
+    const selection = $getSelection();
+
+    if (!$isRangeSelection(selection)) {
+      return;
+    }
+
+    const anchorNode = selection.anchor.getNode();
+    const element =
+      anchorNode.getKey() === 'root'
+        ? anchorNode
+        : anchorNode.getTopLevelElementOrThrow();
+    const elementKey = element.getKey();
+    const elementDOM = editor.getElementByKey(elementKey);
+
+    if (elementDOM === null) {
+      return;
+    }
+
+    const type = $isHeadingNode(element) ? element.getTag() : element.getType();
+
+    if (type === 'paragraph') {
+      setHeadingType('normal');
+    }
+    if (type === 'h1') {
+      setHeadingType('h1');
+    }
+    if (type === 'h2') {
+      setHeadingType('h2');
+    }
+    if (type === 'h3') {
+      setHeadingType('h3');
+    }
+  }, [editor]);
+
+  useEffect(() => {
+    return mergeRegister(
+      editor.registerCommand(
+        SELECTION_CHANGE_COMMAND,
+        () => {
+          $updateState();
+
+          return false;
+        },
+        COMMAND_PRIORITY_CRITICAL,
+      ),
+      editor.registerUpdateListener(({ editorState }) => {
+        editorState.read(() => {
+          $updateState();
+        });
+      }),
+    );
+  }, [editor, $updateState]);
+
   const selectedValue = typeOptions.find((type) => type.value === headingType);
+
+  const onFormatHeading = (type: RichTextEditorHeadingType) => {
+    editor.update(() => {
+      const selection = $getSelection();
+
+      if ($isRangeSelection(selection)) {
+        if (type === 'normal') {
+          $setBlocksType(selection, () => $createParagraphNode());
+        } else {
+          $setBlocksType(selection, () => $createHeadingNode(type));
+        }
+      }
+    });
+  };
 
   return (
     <DropdownMenu
@@ -74,7 +156,7 @@ export default function RichTextEditorTextTypePlugin() {
           icon={icon}
           isSelected={headingType === value}
           label={label}
-          onClick={() => onClick(value)}
+          onClick={() => onFormatHeading(value)}
         />
       ))}
     </DropdownMenu>
