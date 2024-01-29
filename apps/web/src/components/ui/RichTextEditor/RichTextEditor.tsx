@@ -9,8 +9,8 @@ import { FormattedMessage } from 'react-intl';
 
 import type { LabelDescriptionStyle } from '~/components/ui/Label';
 import Label from '~/components/ui/Label';
+import RichTextEditorToolbar from '~/components/ui/RichTextEditor/components/RichTextEditorToolbar';
 import RichTextEditorCodeHighlightPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorCodeHighlightPlugin';
-import RichTextEditorToolbarPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorToolbarPlugin';
 import RichTextEditorTheme from '~/components/ui/RichTextEditor/theme/RichTextEditorTheme';
 import Text from '~/components/ui/Text';
 
@@ -46,7 +46,7 @@ type Props = Readonly<{
 type State = 'error' | 'normal';
 
 const stateClasses: Record<State, string> = {
-  error: clsx('border-danger', 'focus:border-danger'),
+  error: clsx('border-danger focus:border-danger'),
   normal: clsx('border-neutral-300 dark:border-neutral-700'),
 };
 
@@ -128,11 +128,12 @@ export default function RichTextEditor({
           className={clsx(
             'relative border rounded',
             themeBackgroundElementColor,
-            'prose prose-sm dark:prose-invert focus-within:border-brand-dark  focus-within:dark:!border-brand',
+            'prose prose-sm dark:prose-invert',
+            'focus-within:border-brand-dark  focus-within:dark:border-brand',
             stateClasses[state],
             className,
           )}>
-          <RichTextEditorToolbarPlugin />
+          <RichTextEditorToolbar />
           <div className="relative h-full" style={{ minHeight }}>
             <RichTextPlugin
               ErrorBoundary={LexicalErrorBoundary}

@@ -3,12 +3,15 @@ import UIExamplesGroup from '../misc/UIExamplesGroup';
 
 export default function RichTextEditorExamples() {
   return (
-    <UIExamplesGroup darkMode="horizontal" gapSize="lg" title="Richtext Editor">
+    <UIExamplesGroup
+      darkMode="horizontal"
+      gapSize="lg"
+      title="Rich Text Editor">
       <RichTextEditor
         isLabelHidden={true}
-        label="Richtext Editor"
+        label="Summary"
         minHeight="300px"
-        placeholder="Enter"
+        placeholder="Enter something"
       />
     </UIExamplesGroup>
   );

@@ -42,12 +42,7 @@ export default function RichTextEditorInsertPlugin() {
   ];
 
   return (
-    <DropdownMenu
-      align="end"
-      label="Insert"
-      labelVariant="brand"
-      size="sm"
-      variant="flat">
+    <DropdownMenu align="start" label="Insert" size="xs" variant="flat">
       {insertOptions.map(({ label, value, icon }) => (
         <DropdownMenu.Item
           key={value}

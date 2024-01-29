@@ -56,8 +56,8 @@ export default function RichTextEditorSpecialCasePlugin() {
       icon={selectedValue?.icon ?? RiFontSize}
       isLabelHidden={true}
       label={selectedValue?.label ?? ''}
-      labelVariant="brand"
-      size="sm"
+      labelColor="inherit"
+      size="xs"
       variant="flat">
       {caseOptions.map(({ label, value, icon }) => (
         <DropdownMenu.Item
@@ -71,7 +71,7 @@ export default function RichTextEditorSpecialCasePlugin() {
     </DropdownMenu>
   );
 
-  return specialCase === null ? (
+  return specialCase == null ? (
     menu
   ) : (
     <Tooltip label={selectedValue?.label} position="above">

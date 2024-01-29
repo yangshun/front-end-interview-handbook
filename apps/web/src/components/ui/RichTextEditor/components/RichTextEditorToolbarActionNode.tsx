@@ -2,6 +2,11 @@ import clsx from 'clsx';
 
 import Tooltip from '~/components/ui/Tooltip';
 
+import {
+  themeBackgroundElementHoverStateColor,
+  themeBackgroundElementPressedStateColor,
+} from '../../theme';
+
 type ActionNodeProps = Readonly<{
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isActive?: boolean;
@@ -20,10 +25,14 @@ export default function RichTextEditorToolbarActionNode({
   const node = (
     <button
       className={clsx(
-        'p-[6px]',
+        'p-1.5',
+        'rounded-full',
         isActive && 'text-brand-dark dark:text-brand',
-        !isDisabled && 'hover:text-brand-dark dark:hover:text-brand',
-        'disabled:text-white dark:disabled:text-neutral-700 disabled:cursor-not-allowed',
+        isActive && 'bg-neutral-100 dark:bg-neutral-800/70',
+        'disabled:text-neutral-300 dark:disabled:text-neutral-700',
+        'disabled:cursor-not-allowed',
+        themeBackgroundElementHoverStateColor,
+        themeBackgroundElementPressedStateColor,
       )}
       disabled={isDisabled}
       type="button"

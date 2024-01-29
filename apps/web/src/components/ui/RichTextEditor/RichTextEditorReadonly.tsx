@@ -2,7 +2,6 @@ import RichTextEditorTheme from '~/components/ui/RichTextEditor/theme/RichTextEd
 
 import { CodeHighlightNode, CodeNode } from '@lexical/code';
 import { ListItemNode, ListNode } from '@lexical/list';
-
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';

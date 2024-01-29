@@ -65,8 +65,8 @@ export default function RichTextEditorTextTypePlugin() {
           id: 'hYp7sF',
         })
       }
-      labelVariant="brand"
-      size="sm"
+      labelColor="inherit"
+      size="xs"
       variant="flat">
       {typeOptions.map(({ label, value, icon }) => (
         <DropdownMenu.Item

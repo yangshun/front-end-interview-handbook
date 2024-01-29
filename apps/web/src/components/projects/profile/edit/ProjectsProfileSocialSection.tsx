@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import ProjectsProfileSocialInput from '~/components/projects/profile/ProjectsProfileSocialInput';
 import type { ProjectsEditProfileValues } from '~/components/projects/types';
 import Heading from '~/components/ui/Heading';
+
 import type { ProjectsOnboardingProfileStep2FormValues } from '../../onboarding/ProjectsOnboardingProfileStep2';
 
 type Values =

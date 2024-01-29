@@ -1,9 +1,9 @@
 import { RiCodeSSlashLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import RichTextEditorToolbarActionNode from '~/components/ui/RichTextEditor/components/RichTextEditorToolbarActionNode';
 import useRichTextEditorOnClickListener from '~/components/ui/RichTextEditor/hooks/useRichTextEditorOnClickListener';
 import { richTextEditorToolbarEventTypes } from '~/components/ui/RichTextEditor/misc';
-import RichTextEditorToolbarActionNode from '~/components/ui/RichTextEditor/plugin/RichTextEditorToolbarActionNode';
 
 export default function RichTextEditorCodePlugin() {
   const intl = useIntl();

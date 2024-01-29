@@ -20,16 +20,16 @@ export type DropdownMenuAlignment = 'end' | 'start';
 export type DropdownMenuPosition = 'above' | 'below';
 export type DropdownMenuSize = 'md' | 'sm' | 'xs';
 export type DropdownMenuVariant = 'bordered' | 'flat';
-export type DropdownLabelVariant = 'brand' | 'normal';
+export type DropdownLabelColor = 'default' | 'inherit';
 
 type Props = Readonly<{
   align?: DropdownMenuAlignment;
-  children: React.ReactNode;
   // TODO: Change to strict children.
+  children: React.ReactNode;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isLabelHidden?: boolean;
   label: string;
-  labelVariant?: DropdownLabelVariant;
+  labelColor?: DropdownLabelColor;
   position?: DropdownMenuPosition;
   showChevron?: boolean;
   size?: DropdownMenuSize;
@@ -99,7 +99,7 @@ export default function DropdownMenu({
   showChevron = true,
   size = 'md',
   variant = 'bordered',
-  labelVariant = 'normal',
+  labelColor,
   icon: Icon,
 }: Props) {
   return (
@@ -129,7 +129,7 @@ export default function DropdownMenu({
               'flex items-center justify-center',
               spacingClasses[size],
             )}
-            color={labelVariant === 'brand' ? 'active' : 'default'}
+            color={labelColor}
             size={textSizeVariants[size]}
             weight="medium">
             {Icon != null && (
