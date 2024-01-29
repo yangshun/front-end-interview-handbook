@@ -1,5 +1,4 @@
 export type RichTextEditorEventType =
-  | 'bold'
   | 'code'
   | 'h1'
   | 'h2'

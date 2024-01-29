@@ -1,13 +1,52 @@
+import {
+  $getSelection,
+  $isRangeSelection,
+  COMMAND_PRIORITY_CRITICAL,
+  FORMAT_TEXT_COMMAND,
+  SELECTION_CHANGE_COMMAND,
+} from 'lexical';
+import { useCallback, useEffect, useState } from 'react';
 import { RiBold } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import RichTextEditorToolbarActionNode from '~/components/ui/RichTextEditor/components/RichTextEditorToolbarActionNode';
-import useRichTextEditorOnClickListener from '~/components/ui/RichTextEditor/hooks/useRichTextEditorOnClickListener';
-import { richTextEditorToolbarEventTypes } from '~/components/ui/RichTextEditor/misc';
+
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
+import { mergeRegister } from '@lexical/utils';
 
 export default function RichTextEditorBoldPlugin() {
   const intl = useIntl();
-  const { isBold, onClick } = useRichTextEditorOnClickListener();
+  const [editor] = useLexicalComposerContext();
+  const [isBold, setIsBold] = useState(false);
+
+  const $updateState = useCallback(() => {
+    const selection = $getSelection();
+
+    if (!$isRangeSelection(selection)) {
+      return;
+    }
+
+    setIsBold(selection.hasFormat('bold'));
+  }, []);
+
+  useEffect(() => {
+    return mergeRegister(
+      editor.registerCommand(
+        SELECTION_CHANGE_COMMAND,
+        () => {
+          $updateState();
+
+          return false;
+        },
+        COMMAND_PRIORITY_CRITICAL,
+      ),
+      editor.registerUpdateListener(({ editorState }) => {
+        editorState.read(() => {
+          $updateState();
+        });
+      }),
+    );
+  }, [editor, $updateState]);
 
   return (
     <RichTextEditorToolbarActionNode
@@ -18,7 +57,9 @@ export default function RichTextEditorBoldPlugin() {
         description: 'Bold tooltip for Richtext toolbar',
         id: '8yHADh',
       })}
-      onClick={() => onClick(richTextEditorToolbarEventTypes.bold)}
+      onClick={() => {
+        editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'bold');
+      }}
     />
   );
 }

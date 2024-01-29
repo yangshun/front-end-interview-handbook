@@ -5,6 +5,7 @@ import {
   $isRangeSelection,
   CAN_REDO_COMMAND,
   CAN_UNDO_COMMAND,
+  COMMAND_PRIORITY_CRITICAL,
   FORMAT_TEXT_COMMAND,
   REDO_COMMAND,
   SELECTION_CHANGE_COMMAND,
@@ -43,11 +44,11 @@ import {
 import { $setBlocksType } from '@lexical/selection';
 import { $getNearestNodeOfType, mergeRegister } from '@lexical/utils';
 
+const priority = COMMAND_PRIORITY_CRITICAL;
+
 export default function useRichTextEditorOnClickListener() {
-  const LowPriority = 1;
   const [editor] = useLexicalComposerContext();
 
-  const [isBold, setIsBold] = useState(false);
   const [isItalic, setIsItalic] = useState(false);
   const [canRedo, setCanRedo] = useState(false);
   const [canUndo, setCanUndo] = useState(false);
@@ -121,7 +122,6 @@ export default function useRichTextEditorOnClickListener() {
         }
       }
 
-      setIsBold(selection.hasFormat('bold'));
       setIsItalic(selection.hasFormat('italic'));
       setIsUnderline(selection.hasFormat('underline'));
       if (selection.hasFormat('strikethrough')) {
@@ -145,7 +145,7 @@ export default function useRichTextEditorOnClickListener() {
 
           return false;
         },
-        LowPriority,
+        priority,
       ),
       editor.registerCommand(
         CAN_REDO_COMMAND,
@@ -154,7 +154,7 @@ export default function useRichTextEditorOnClickListener() {
 
           return false;
         },
-        LowPriority,
+        priority,
       ),
       editor.registerCommand(
         CAN_UNDO_COMMAND,
@@ -163,7 +163,7 @@ export default function useRichTextEditorOnClickListener() {
 
           return false;
         },
-        LowPriority,
+        priority,
       ),
       editor.registerCommand(
         INSERT_ORDERED_LIST_COMMAND,
@@ -172,7 +172,7 @@ export default function useRichTextEditorOnClickListener() {
 
           return true;
         },
-        LowPriority,
+        priority,
       ),
       editor.registerCommand(
         INSERT_UNORDERED_LIST_COMMAND,
@@ -181,7 +181,7 @@ export default function useRichTextEditorOnClickListener() {
 
           return true;
         },
-        LowPriority,
+        priority,
       ),
       editor.registerCommand(
         REMOVE_LIST_COMMAND,
@@ -192,7 +192,7 @@ export default function useRichTextEditorOnClickListener() {
 
           return true;
         },
-        LowPriority,
+        priority,
       ),
     );
   }, [editor, updateToolbar]);
@@ -200,9 +200,6 @@ export default function useRichTextEditorOnClickListener() {
   const onClick = (
     event: RichTextEditorEventType | RichTextEditorSpecialCase,
   ) => {
-    if (event === richTextEditorToolbarEventTypes.bold) {
-      editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'bold');
-    }
     if (event === richTextEditorToolbarEventTypes.italic) {
       editor.dispatchCommand(FORMAT_TEXT_COMMAND, 'italic');
     }
@@ -338,7 +335,6 @@ export default function useRichTextEditorOnClickListener() {
     codeLanguage,
     codeLanguages,
     headingType,
-    isBold,
     isCode,
     isItalic,
     isOrderedList,

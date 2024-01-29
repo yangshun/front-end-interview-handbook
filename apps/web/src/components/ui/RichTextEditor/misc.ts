@@ -4,7 +4,6 @@ export const richTextEditorToolbarEventTypes: Record<
   RichTextEditorEventType,
   RichTextEditorEventType
 > = {
-  bold: 'bold',
   code: 'code',
   h1: 'h1',
   h2: 'h2',
