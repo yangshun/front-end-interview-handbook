@@ -14,6 +14,8 @@ import RichTextEditorToolbarPlugin from '~/components/ui/RichTextEditor/plugin/R
 import RichTextEditorTheme from '~/components/ui/RichTextEditor/theme/RichTextEditorTheme';
 import Text from '~/components/ui/Text';
 
+import { themeBackgroundElementColor } from '../theme';
+
 import { CodeHighlightNode, CodeNode } from '@lexical/code';
 import { ListItemNode, ListNode } from '@lexical/list';
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
@@ -125,8 +127,9 @@ export default function RichTextEditor({
         <div
           className={clsx(
             'relative border rounded',
+            themeBackgroundElementColor,
             'prose prose-sm dark:prose-invert focus-within:border-brand-dark  focus-within:dark:!border-brand',
-            [stateClasses[state]],
+            stateClasses[state],
             className,
           )}>
           <RichTextEditorToolbarPlugin />

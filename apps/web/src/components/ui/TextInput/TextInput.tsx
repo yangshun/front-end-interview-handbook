@@ -8,6 +8,7 @@ import React, { useId } from 'react';
 import type { LabelDescriptionStyle } from '../Label';
 import Label from '../Label';
 import Text from '../Text/Text';
+import { themeBackgroundElementColor } from '../theme';
 
 export type TextInputSize = 'md' | 'sm' | 'xs';
 
@@ -168,7 +169,7 @@ function TextInput(
           autoFocus={autoFocus}
           className={clsx(
             'block w-full',
-            'bg-transparent',
+            themeBackgroundElementColor,
             [
               'disabled:bg-neutral-200 disabled:text-neutral-300',
               'dark:disabled:bg-neutral-800 dark:disabled:text-neutral-700',
