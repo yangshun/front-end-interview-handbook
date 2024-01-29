@@ -19,6 +19,7 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
+import RichTextEditorReadonly from '~/components/ui/RichTextEditor/RichTextEditorReadonly';
 import Text from '~/components/ui/Text';
 
 import ProjectsChallengeSubmissionDiscussionsSection from './discussions/ProjectsChallengeSubmissionDiscussionsSection';
@@ -152,11 +153,9 @@ export default function ProjectsChallengeSubmissionPage({
                 id="XejHfx"
               />
             </Heading>
-            <Prose
-              // TODO(projects): sanitize HTML first.
-              dangerouslySetInnerHTML={{ __html: submission.implementation }}
-              textSize="sm"
-            />
+            <Prose textSize="sm">
+              <RichTextEditorReadonly value={submission.implementation} />
+            </Prose>
           </div>
           <div className="flex flex-col gap-3 flex-1">
             <Heading level="heading6">

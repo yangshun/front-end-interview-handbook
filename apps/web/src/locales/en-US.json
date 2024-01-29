@@ -4315,6 +4315,10 @@
     "defaultMessage": "Terms of Service",
     "description": "Title of Terms of Service page"
   },
+  "doYVKC": {
+    "defaultMessage": "Enter",
+    "description": "Richtext placeholder"
+  },
   "drvlbZ": {
     "defaultMessage": "Efficient strategies to prepare and ace behavioral interviews.",
     "description": "Behavioral interview guidebook description"

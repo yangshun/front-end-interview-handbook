@@ -22,6 +22,7 @@ import PaginationExamples from '~/components/ui/Pagination/PaginationExamples';
 import PopoverExamples from '~/components/ui/Popover/PopoverExamples';
 import ProgressBarExamples from '~/components/ui/ProgressBar/ProgressBarExamples';
 import RadioGroupExamples from '~/components/ui/RadioGroup/RadioGroupExamples';
+import RichTextEditorExamples from '~/components/ui/RichTextEditor/RichTextEditorExamples';
 import SelectExamples from '~/components/ui/Select/SelectExamples';
 import SlideOutExamples from '~/components/ui/SlideOut/SlideOutExamples';
 import SpinnerExamples from '~/components/ui/Spinner/SpinnerExamples';
@@ -81,6 +82,8 @@ export default function UILibraryPage() {
         <DialogExamples />
         <ToastExamples />
         <HovercardExamples />
+
+        <RichTextEditorExamples />
       </Section>
     </div>
   );
