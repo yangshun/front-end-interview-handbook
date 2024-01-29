@@ -615,6 +615,10 @@
     "defaultMessage": "Impress recruiters with entire component libraries or design systems built from scratch. Our component tracks cover components from various use cases and industries.",
     "description": "Subtitle of the 'Component tracks' marketing section on Projects home page"
   },
+  "4uXotU": {
+    "defaultMessage": "Italic",
+    "description": "Italic tooltip for Richtext toolbar"
+  },
   "5+8FGz": {
     "defaultMessage": "Submission success",
     "description": "Title for the project submission success page"
@@ -919,6 +923,10 @@
     "defaultMessage": "Filter logs",
     "description": "Placeholder for filter input of console logs"
   },
+  "7tztU9": {
+    "defaultMessage": "Underline",
+    "description": "Underline tooltip for Richtext toolbar"
+  },
   "7uB2Jj": {
     "defaultMessage": "{price} billed yearly",
     "description": "Description of billing frequency for annual plan"
@@ -1054,6 +1062,10 @@
   "8x6UPf": {
     "defaultMessage": "You will submit the link to your public GitHub repo in the submission screen",
     "description": "Description for GitHub repo step in project submission checklist"
+  },
+  "8yHADh": {
+    "defaultMessage": "Bold",
+    "description": "Bold tooltip for Richtext toolbar"
   },
   "8yJWMC": {
     "defaultMessage": "Pay once, get full access to the interview platform forever, including updates.",
@@ -1602,6 +1614,10 @@
   "F4esBf": {
     "defaultMessage": "Our projects are never one-off - they always fit into some component library or design system which can be composed into your very own toolset to build future projects",
     "description": "Description for \"Never waste your time building one-off projects\" feature marketing section on Projects home page"
+  },
+  "F4qs12": {
+    "defaultMessage": "Heading 3",
+    "description": "Label for heading 3"
   },
   "F5oV3L": {
     "defaultMessage": "Delete line",
@@ -2159,6 +2175,10 @@
     "defaultMessage": "Please enter your status",
     "description": "Error message for empty \"Other\" input for \"Years of experience replacement status\" on Projects profile onboarding page"
   },
+  "KQfZUe": {
+    "defaultMessage": "Undo",
+    "description": "Undo tooltip for richtext toolbar"
+  },
   "KSCxTH": {
     "defaultMessage": "Once a submission has been deleted, it cannot be recovered. All upvotes, reputation, skill and component track progression due to the submission will be reverted.",
     "description": "Delete challenge submission confirmation subtitle"
@@ -2170,6 +2190,10 @@
   "KZWEcx": {
     "defaultMessage": "Please enter a different email address.",
     "description": "Email validation error message"
+  },
+  "KbLzJO": {
+    "defaultMessage": "Bullet list",
+    "description": "Bullet list tooltip for Richtext toolbar"
   },
   "KbgzvC": {
     "defaultMessage": "Hide",
@@ -2990,6 +3014,14 @@
   "RoPJ/d": {
     "defaultMessage": "Choose any modern stack and find recommended projects to practice",
     "description": "Description for experienced motivation"
+  },
+  "RsPxKM": {
+    "defaultMessage": "Superscript",
+    "description": "Label for superscript"
+  },
+  "RuN/vS": {
+    "defaultMessage": "Horizontal rule",
+    "description": "Label for horizontal rule"
   },
   "RvPm3x": {
     "defaultMessage": "DOM Manipulation",
@@ -3875,6 +3907,10 @@
     "defaultMessage": "Software Engineer at Stripe | Ex-Google",
     "description": "Placeholder for \"Job Title\" input on Projects profile onboarding page"
   },
+  "ZqJYfb": {
+    "defaultMessage": "Subscript",
+    "description": "Label for subscript"
+  },
   "ZqRybm": {
     "defaultMessage": "Last month",
     "description": "Title for last month list of code reviews"
@@ -4539,6 +4575,10 @@
     "defaultMessage": "You won't find the same depth or quality elsewhere.",
     "description": "Subtitle of the 'Features' marketing section on Homepage"
   },
+  "ftK9zU": {
+    "defaultMessage": "Link",
+    "description": "Label for link"
+  },
   "ftr2lo": {
     "defaultMessage": "No tagged companies",
     "description": "Text that appears if the question does not have any tagged comppanies (where the question was known to be asked)"
@@ -4566,6 +4606,10 @@
   "g9OX0J": {
     "defaultMessage": "{replyCount, plural, one {Show # reply} other {Show # replies}}",
     "description": "Label for more replies button on project discussions page"
+  },
+  "gAcM0t": {
+    "defaultMessage": "Heading 2",
+    "description": "Label for heading 2"
   },
   "gDAVYm": {
     "defaultMessage": "Report an issue",
@@ -4691,9 +4735,17 @@
     "defaultMessage": "Why be a GreatFrontEnd Affiliate?",
     "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
   },
+  "hYp7sF": {
+    "defaultMessage": "Normal",
+    "description": "Label for Normal"
+  },
   "hdlJES": {
     "defaultMessage": "Secondary reason",
     "description": "Label for \"Secondary reason\" button on Sign Up Reason section of Projects onboarding page"
+  },
+  "hkKaPn": {
+    "defaultMessage": "Numbered list",
+    "description": "Numbered list tooltip for Richtext toolbar"
   },
   "hm0ODb": {
     "defaultMessage": "Delete comment?",
@@ -4822,6 +4874,10 @@
   "j+MqYO": {
     "defaultMessage": "Premium Content Coming Soon",
     "description": "System design questions paywall"
+  },
+  "j06fZl": {
+    "defaultMessage": "Strikethrough",
+    "description": "Label for strikethrough"
   },
   "j5W1/P": {
     "defaultMessage": "Top React coding interview questions to build the most commonly-asked front end UI components and applications.",
@@ -5215,6 +5271,10 @@
     "defaultMessage": "Started tracking progress",
     "description": "Success message for starting a study plan"
   },
+  "m2WYh/": {
+    "defaultMessage": "Insert code block",
+    "description": "Insert code block tooltip for Richtext toolbar"
+  },
   "mDcqlX": {
     "defaultMessage": "<count>{questionCount}</count> <questions>questions</questions>",
     "description": "Number of questions"
@@ -5374,6 +5434,10 @@
   "nvhCqI": {
     "defaultMessage": "We recommend these {numberOfAreas} areas of learning to prepare you holistically for your front end interview rounds. Explore guides and {count}+ practice questions here.",
     "description": "Message in onboarding card on prepare page"
+  },
+  "nw9bBh": {
+    "defaultMessage": "Image",
+    "description": "Label for image"
   },
   "nwtLb2": {
     "defaultMessage": "Senior Software Engineer — Front End",
@@ -6003,6 +6067,10 @@
     "defaultMessage": "Design, architecture and optimization decisions for common front end apps",
     "description": "Description of system design interview preparation"
   },
+  "td/xb6": {
+    "defaultMessage": "Heading 1",
+    "description": "Label for heading 1"
+  },
   "tdTeVR": {
     "defaultMessage": "To submission",
     "description": "Link label to go back to challenge submission"
@@ -6058,6 +6126,10 @@
   "u1BtZ5": {
     "defaultMessage": "Learn while building",
     "description": "Title of 'Learn while building' feature in Projects marketing page"
+  },
+  "u2wpqq": {
+    "defaultMessage": "Redo",
+    "description": "Redo tooltip for Richtext toolbar"
   },
   "u3bYHM": {
     "defaultMessage": "FAQ",

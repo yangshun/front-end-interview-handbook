@@ -4,18 +4,26 @@ import clsx from 'clsx';
 import type { LexicalEditor } from 'lexical';
 import { $getRoot, type EditorState } from 'lexical';
 import type { FormEventHandler } from 'react';
-import { useId, useState } from 'react';
+import { useId } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import type { LabelDescriptionStyle } from '~/components/ui/Label';
 import Label from '~/components/ui/Label';
+import RichTextEditorCodeHighlightPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorCodeHighlightPlugin';
+import RichTextEditorToolbarPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorToolbarPlugin';
+import RichTextEditorTheme from '~/components/ui/RichTextEditor/theme/RichTextEditorTheme';
 import Text from '~/components/ui/Text';
 
+import { CodeHighlightNode, CodeNode } from '@lexical/code';
+import { ListItemNode, ListNode } from '@lexical/list';
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
+import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
+import { ListPlugin } from '@lexical/react/LexicalListPlugin';
 import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
+import { HeadingNode, QuoteNode } from '@lexical/rich-text';
 
 type Props = Readonly<{
   className?: string;
@@ -25,6 +33,7 @@ type Props = Readonly<{
   id?: string;
   isLabelHidden?: boolean;
   label: string;
+  minHeight?: string;
   onBlur?: FormEventHandler<HTMLDivElement>;
   onChange?: (value: string, plainValue: string) => void;
   placeholder?: string;
@@ -41,8 +50,16 @@ const stateClasses: Record<State, string> = {
 
 const editorConfig = {
   namespace: 'MyEditor',
-  nodes: [],
+  nodes: [
+    ListItemNode,
+    ListNode,
+    CodeNode,
+    CodeHighlightNode,
+    QuoteNode,
+    HeadingNode,
+  ],
   onError() {},
+  theme: RichTextEditorTheme,
 };
 
 export default function RichTextEditor({
@@ -58,8 +75,8 @@ export default function RichTextEditor({
   onBlur,
   onChange,
   placeholder,
+  minHeight = '50px',
 }: Props) {
-  const [isFocus, setIsFocus] = useState(false);
   const generatedId = useId();
   const id = idParam ?? generatedId;
   const messageId = useId();
@@ -89,40 +106,38 @@ export default function RichTextEditor({
           'flex flex-col',
           (description || !isLabelHidden) && 'gap-2',
         )}>
-        {/* TODO: Make it such that the editor can be focused as well.  */}
-        <Label
-          description={
-            hasError && descriptionStyle === 'under' ? undefined : description
-          }
-          descriptionId={messageId}
-          descriptionStyle={descriptionStyle}
-          htmlFor={id}
-          isLabelHidden={isLabelHidden}
-          label={label}
-          required={required}
-        />
+        <div
+          onClick={() =>
+            (document.getElementById(id) as HTMLInputElement).focus()
+          }>
+          <Label
+            description={
+              hasError && descriptionStyle === 'under' ? undefined : description
+            }
+            descriptionId={messageId}
+            descriptionStyle={descriptionStyle}
+            htmlFor={id}
+            isLabelHidden={isLabelHidden}
+            label={label}
+            required={required}
+          />
+        </div>
         <div
           className={clsx(
-            'relative border rounded min-h-[50px]',
-            'prose prose-sm dark:prose-invert',
+            'relative border rounded',
+            'prose prose-sm dark:prose-invert focus-within:border-brand-dark  focus-within:dark:!border-brand',
             [stateClasses[state]],
-            isFocus &&
-              state === 'normal' &&
-              '!border-brand-dark dark:!border-brand',
             className,
           )}>
-          <div className="relative h-full">
+          <RichTextEditorToolbarPlugin />
+          <div className="relative h-full" style={{ minHeight }}>
             <RichTextPlugin
               ErrorBoundary={LexicalErrorBoundary}
               contentEditable={
                 <ContentEditable
                   className="h-full p-3 focus:outline-none prose prose-sm dark:prose-invert"
                   id={id}
-                  onBlur={(e) => {
-                    setIsFocus(false);
-                    onBlur?.(e);
-                  }}
-                  onFocus={() => setIsFocus(true)}
+                  onBlur={(e) => onBlur?.(e)}
                 />
               }
               placeholder={
@@ -154,6 +169,9 @@ export default function RichTextEditor({
           </div>
         )}
       </div>
+      <HistoryPlugin />
+      <ListPlugin />
+      <RichTextEditorCodeHighlightPlugin />
     </LexicalComposer>
   );
 }

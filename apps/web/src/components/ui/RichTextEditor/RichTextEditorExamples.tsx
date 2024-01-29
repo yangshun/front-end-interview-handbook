@@ -7,6 +7,7 @@ export default function RichTextEditorExamples() {
       <RichTextEditor
         isLabelHidden={true}
         label="Richtext Editor"
+        minHeight="300px"
         placeholder="Enter"
       />
     </UIExamplesGroup>

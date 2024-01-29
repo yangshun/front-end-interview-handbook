@@ -2,7 +2,6 @@ import { z } from 'zod';
 
 import { yoeReplacementSchema } from '~/components/projects/misc';
 import { projectsChallengeSubmissionDeploymentUrlsSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionDeploymentUrlsSchema';
-import { projectsChallengeSubmissionImplementationSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionImplementationSchema';
 import { projectsChallengeSubmissionRepositoryUrlSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
 import { projectsChallengeSubmissionSummarySchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionSummarySchema';
 import { projectsChallengeSubmissionTitleSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionTitleSchema';
@@ -26,7 +25,7 @@ const projectsChallengeProcedure = projectsUserProcedure.input(
 
 const projectsChallengeSubmissionFormSchema = z.object({
   deploymentUrls: projectsChallengeSubmissionDeploymentUrlsSchemaServer,
-  implementation: projectsChallengeSubmissionImplementationSchemaServer,
+  implementation: z.string(),
   repositoryUrl: projectsChallengeSubmissionRepositoryUrlSchemaServer,
   summary: projectsChallengeSubmissionSummarySchemaServer,
   title: projectsChallengeSubmissionTitleSchemaServer,
