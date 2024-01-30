@@ -16,7 +16,7 @@ import { sum } from 'lodash-es';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
-import type { ProjectsProfileAvatarData } from '~/components/projects/types';
+import type { ProjectsProfileAvatarDataSlim } from '~/components/projects/types';
 
 import prisma from '~/server/prisma';
 
@@ -163,7 +163,7 @@ export async function readProjectsChallengeList(
 
         const slugToCompletedProfileIds: Record<
           string,
-          Array<ProjectsProfileAvatarData>
+          Array<ProjectsProfileAvatarDataSlim>
         > = {};
 
         completedProfileIds.forEach((row) => {

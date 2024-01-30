@@ -44,8 +44,17 @@ export default function ProjectsChallengeSubmissionCard({
   submission,
 }: Props) {
   const intl = useIntl();
-  const { hrefs, title, stack, summary, comments, views, imgSrc } = submission;
-  const author = submission.projectsProfile?.userProfile;
+  const {
+    hrefs,
+    title,
+    stack,
+    summary,
+    comments,
+    views,
+    imgSrc,
+    projectsProfile,
+  } = submission;
+  const author = projectsProfile?.userProfile;
   const { votes } = submission._count;
 
   return (
@@ -115,7 +124,13 @@ export default function ProjectsChallengeSubmissionCard({
       <img alt={title} className="h-[190px] w-full rounded-md" src={imgSrc} />
       {!isPinned && author != null && (
         <div className="flex items-center gap-4">
-          <ProjectsProfileAvatar profile={author} size="xl" />
+          <ProjectsProfileAvatar
+            profile={{
+              ...author,
+              points: projectsProfile?.points ?? 0,
+            }}
+            size="xl"
+          />
           <div className="flex flex-col gap-1">
             <Text size="body2" weight="medium">
               <ProjectsProfileDisplayNameLink profile={author} />

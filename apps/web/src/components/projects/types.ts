@@ -80,7 +80,12 @@ export type ProjectsRecommendedAction = {
   title: string;
 };
 
-export type ProjectsProfileAvatarData = Readonly<{
+export type ProjectsProfileAvatarData = ProjectsProfileAvatarDataSlim &
+  Readonly<{
+    points: number;
+  }>;
+
+export type ProjectsProfileAvatarDataSlim = Readonly<{
   avatarUrl: string | null;
   id: string;
   name: string | null;

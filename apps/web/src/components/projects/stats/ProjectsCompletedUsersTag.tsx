@@ -4,12 +4,12 @@ import { FormattedMessage } from 'react-intl';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsProfileAvatarData } from '../types';
+import type { ProjectsProfileAvatarDataSlim } from '../types';
 
 type Props = Readonly<{
   className?: string;
   count: number | null;
-  profiles: ReadonlyArray<ProjectsProfileAvatarData>;
+  profiles: ReadonlyArray<ProjectsProfileAvatarDataSlim>;
 }>;
 
 export default function ProjectsCompletedUsersTag({

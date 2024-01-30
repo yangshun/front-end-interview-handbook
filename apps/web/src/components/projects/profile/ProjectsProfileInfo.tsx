@@ -42,11 +42,17 @@ export default function ProjectsProfileInfo({
   const proficientSkills = ['React', 'HTML', 'CSS', 'JavaScript'];
   const growSkills = ['Next.js', 'Vercel'];
 
+  const avatarProfile = {
+    // TODO(projects): Use projects profile.
+    ...userProfile,
+    points: projectsProfile.points,
+  };
+
   return (
     <>
       <Section>
         <div className="gap-6 items-center md:flex hidden">
-          <ProjectsProfileAvatar profile={userProfile} size="3xl" />
+          <ProjectsProfileAvatar profile={avatarProfile} size="3xl" />
           <div className="flex gap-3 flex-col">
             <div className="flex gap-2 items-center">
               <Text size="body1" weight="medium">
@@ -93,12 +99,12 @@ export default function ProjectsProfileInfo({
               </Text>
             </div>
             <UserProfileInformationRow profile={userProfile} />
-            <ProjectsUserReputation points={1650} />
+            <ProjectsUserReputation points={projectsProfile.points} />
           </div>
         </div>
         <div className="md:hidden flex flex-col">
           <div className="flex gap-8 items-center">
-            <ProjectsProfileAvatar profile={userProfile} size="3xl" />
+            <ProjectsProfileAvatar profile={avatarProfile} size="3xl" />
             <div className="flex gap-2 flex-col">
               <div className="flex gap-2 items-center flex-wrap">
                 <Text size="body1" weight="medium">

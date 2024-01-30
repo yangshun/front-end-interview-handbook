@@ -41,14 +41,16 @@ export default function ProjectsChallengeSubmissionDiscussionsSection({
         {profile && (
           <ProjectsChallengeSubmissionDiscussionsNewComment
             submission={submission}
-            viewer={profile}
+            // TODO(projects): fetch real points
+            viewer={{ ...profile, points: 42 }}
           />
         )}
         <div className="w-full">
           <DiscussionsCommentList
             domain="PROJECTS_SUBMISSION"
             entityId={submission.id}
-            viewer={profile}
+            // TODO(projects): fetch real points
+            viewer={profile == null ? null : { ...profile, points: 42 }}
           />
         </div>
       </Section>

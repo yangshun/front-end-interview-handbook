@@ -24,7 +24,14 @@ export default function ProjectsChallengeSubmissionAuthorProfile({
 
   return (
     <div className="gap-4 items-center flex">
-      <ProjectsProfileAvatar profile={author} size="2xl" />
+      <ProjectsProfileAvatar
+        profile={{
+          ...author,
+          // TODO(projects): use actual points.
+          points: 42,
+        }}
+        size="2xl"
+      />
       <div className="flex gap-3 flex-col">
         <div className="flex gap-2 items-center">
           <Text size="body2" weight="medium">

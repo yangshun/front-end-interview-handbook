@@ -19,14 +19,16 @@ export default function ProjectsChallengeDiscussionsSection({
       {profile && (
         <ProjectsChallengeDiscussionsNewComment
           challenge={challenge}
-          viewer={profile}
+          // TODO(projects): fetch real points.
+          viewer={{ ...profile, points: 42 }}
         />
       )}
       <div className="flex w-full">
         <DiscussionsCommentList
           domain="PROJECTS_CHALLENGE"
           entityId={challenge.metadata.slug}
-          viewer={profile}
+          // TODO(projects): fetch real points.
+          viewer={profile == null ? profile : { ...profile, points: 42 }}
         />
       </div>
     </div>

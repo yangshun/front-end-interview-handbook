@@ -148,7 +148,11 @@ export const commentsRouter = router({
       ]);
 
       return {
-        comments,
+        comments: comments.map((comment) => ({
+          ...comment,
+          // TODO(projects): fetch real points.
+          author: { ...comment.author, points: 42 },
+        })),
         count,
       };
     }),

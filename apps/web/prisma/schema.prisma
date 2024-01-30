@@ -184,6 +184,7 @@ model ProjectsProfile {
   userId              String  @unique @db.Uuid
   primaryMotivation   String?
   secondaryMotivation String?
+  points              Int     @default(0)
 
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @default(now()) @updatedAt

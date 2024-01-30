@@ -79,7 +79,8 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex items-center gap-4">
-        <ProjectsProfileAvatar profile={viewer} size="xl" />
+        {/* TODO(projects): fetch real points */}
+        <ProjectsProfileAvatar profile={{ ...viewer, points: 42 }} size="xl" />
         <div className="flex flex-col gap-y-1">
           <Text size="body2" weight="medium">
             <ProjectsProfileDisplayNameLink profile={viewer} />

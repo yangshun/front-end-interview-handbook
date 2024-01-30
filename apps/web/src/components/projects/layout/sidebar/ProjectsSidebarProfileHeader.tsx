@@ -33,7 +33,11 @@ export function ProjectsSidebarProfileHeader({ className, points }: Props) {
         <div className="flex gap-3">
           <ProjectsProfileAvatar
             hovercard={false}
-            profile={profile}
+            // TODO(projects): use actual points
+            profile={{
+              ...profile,
+              points: 42,
+            }}
             size="lg"
           />
           <div className="flex flex-col gap-1">

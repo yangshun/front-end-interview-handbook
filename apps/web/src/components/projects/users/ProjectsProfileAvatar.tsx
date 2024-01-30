@@ -19,6 +19,7 @@ type Props = Readonly<{
     avatarUrl: string | null;
     id: string;
     name: string | null;
+    points: number;
     username: string;
   }>;
   size?: UserLevelWithAvatarSize;

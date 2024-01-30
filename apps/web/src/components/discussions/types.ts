@@ -5,6 +5,8 @@ export type DiscussionsCommentUserProfile = Readonly<{
   currentStatus: string | null;
   id: string;
   name: string | null;
+  // TODO(projects): make compulsory.
+  points?: number;
   startWorkDate: Date | null;
   title: string | null;
   username: string;

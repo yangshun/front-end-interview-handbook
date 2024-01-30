@@ -1,7 +1,7 @@
 import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 
 import type { ProjectsSkill } from '../skills/types';
-import type { ProjectsProfileAvatarData } from '../types';
+import type { ProjectsProfileAvatarDataSlim } from '../types';
 
 import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
@@ -35,7 +35,7 @@ export type ProjectsChallengeTrackPayload = Readonly<{
 
 export type ProjectsChallengeItem = Readonly<{
   completedCount: number | null;
-  completedProfiles: ReadonlyArray<ProjectsProfileAvatarData>;
+  completedProfiles: ReadonlyArray<ProjectsProfileAvatarDataSlim>;
   metadata: ProjectsChallengeMetadata &
     Readonly<{
       skills: ReadonlyArray<ProjectsSkill>;

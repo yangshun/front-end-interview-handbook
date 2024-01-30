@@ -81,7 +81,11 @@ export default function DiscussionsComment({
     <div className={clsx('flex flex-col grow', className)}>
       <div className="flex items-start gap-4">
         <div className="relative flex flex-col items-center self-stretch">
-          <ProjectsProfileAvatar profile={author} size="2xl" />
+          {/* TODO(projects): fetch real points */}
+          <ProjectsProfileAvatar
+            profile={{ ...author, points: 42 }}
+            size="2xl"
+          />
           {(hasReplies || mode === 'reply') && (
             <div
               className={clsx(
@@ -145,7 +149,7 @@ export default function DiscussionsComment({
               }}
             />
           ) : (
-            <RichText textSize="sm" value={comment.body} />
+            <RichText textSize="sm" value={body} />
           )}
           <div
             className={clsx(
