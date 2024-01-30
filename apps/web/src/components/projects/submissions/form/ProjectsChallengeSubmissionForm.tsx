@@ -32,7 +32,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 export type ProjectsChallengeSubmissionFormValues = Readonly<{
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
   implementation: string;
-  plainImplementation?: string;
   repositoryUrl: string;
   summary: string;
   title: string;
@@ -52,8 +51,7 @@ function useProjectsChallengeSubmissionFormSchema() {
 
   return z.object({
     deploymentUrls: projectsChallengeSubmissionDeploymentUrlsSchema,
-    implementation: z.string(),
-    plainImplementation: projectsChallengeSubmissionImplementationSchema,
+    implementation: projectsChallengeSubmissionImplementationSchema,
     repositoryUrl: projectsChallengeSubmissionRepositoryUrlSchema,
     summary: projectsChallengeSubmissionSummarySchema,
     title: projectsChallengeSubmissionTitleSchema,
@@ -76,9 +74,7 @@ type Props =
 export default function ProjectsChallengeSubmissionForm({
   defaultValues = {
     deploymentUrls: [{ href: '', label: 'Main' }],
-    implementation:
-      'Lorem <strong>ipsum dolor sit amet</strong>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-    plainImplementation: '',
+    implementation: '',
     repositoryUrl: '',
     summary: '',
     title: '',

@@ -37,6 +37,7 @@
     "@headlessui/react": "^1.7.11",
     "@hookform/resolvers": "^3.3.2",
     "@lexical/code": "^0.13.1",
+    "@lexical/headless": "^0.13.1",
     "@lexical/list": "^0.13.1",
     "@lexical/react": "^0.13.0",
     "@lexical/rich-text": "^0.13.1",

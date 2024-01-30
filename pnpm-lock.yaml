@@ -180,6 +180,9 @@ importers:
       '@lexical/code':
         specifier: ^0.13.1
         version: 0.13.1(lexical@0.13.0)
+      '@lexical/headless':
+        specifier: ^0.13.1
+        version: 0.13.1(lexical@0.13.0)
       '@lexical/list':
         specifier: ^0.13.1
         version: 0.13.1(lexical@0.13.0)
@@ -3031,6 +3034,14 @@ packages:
       lexical: 0.13.0
     dependencies:
       '@lexical/utils': 0.13.0(lexical@0.13.0)
+      lexical: 0.13.0
+    dev: false
+
+  /@lexical/headless@0.13.1(lexical@0.13.0):
+    resolution: {integrity: sha512-W2mLUuWPrsyf2n73NWM8nKiBI11lEpVVzKE0OzMsjTskv5+AAMaeu1wQ7M1508vKdCcUZwA6AOh3To/hstLEpw==}
+    peerDependencies:
+      lexical: 0.13.1
+    dependencies:
       lexical: 0.13.0
     dev: false
 

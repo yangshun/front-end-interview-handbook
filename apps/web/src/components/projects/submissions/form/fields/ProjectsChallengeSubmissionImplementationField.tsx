@@ -19,14 +19,9 @@ export default function ProjectsChallengeSubmissionImplementationField({
 }: Props) {
   const intl = useIntl();
   const attrs = getProjectsChallengeSubmissionImplementationAttributes(intl);
-  const { field } = useController({
+  const { field, formState } = useController({
     control,
     name: fieldName,
-    rules: { required: true },
-  });
-  const { field: plainField, formState } = useController({
-    control,
-    name: 'plainImplementation',
     rules: { required: true },
   });
 
@@ -35,25 +30,21 @@ export default function ProjectsChallengeSubmissionImplementationField({
       <RichTextEditor
         description={attrs.description}
         descriptionStyle="tooltip"
-        errorMessage={formState.errors.plainImplementation?.message}
+        errorMessage={formState.errors[fieldName]?.message}
         label={attrs.label}
         required={attrs.validation.required}
         {...field}
         minHeight="300px"
-        onChange={(newValue, plainValue) => {
+        onChange={(newValue) => {
           field.onChange({
             target: {
               value: newValue,
             },
           });
-          plainField.onChange({
-            target: {
-              value: plainValue,
-            },
-          });
         }}
       />
       <Prose textSize="sm">
+        {/* TODO(projects): add a proper example */}
         <h2>Example write-up</h2>
         <h3>Tech stack and approach</h3>
         <p>
