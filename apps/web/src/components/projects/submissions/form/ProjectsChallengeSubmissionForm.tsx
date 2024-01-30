@@ -60,11 +60,13 @@ function useProjectsChallengeSubmissionFormSchema() {
 
 type Props =
   | Readonly<{
+      cancelButtonHref: string;
       defaultValues?: ProjectsChallengeSubmissionFormValues;
       mode: 'create';
       onSubmit: (data: ProjectsChallengeSubmissionFormValues) => void;
     }>
   | Readonly<{
+      cancelButtonHref: string;
       defaultValues?: ProjectsChallengeSubmissionFormValues;
       mode: 'edit';
       onDelete: () => void;
@@ -72,6 +74,7 @@ type Props =
     }>;
 
 export default function ProjectsChallengeSubmissionForm({
+  cancelButtonHref,
   defaultValues = {
     deploymentUrls: [{ href: '', label: 'Main' }],
     implementation: '',
@@ -190,6 +193,7 @@ export default function ProjectsChallengeSubmissionForm({
               variant="primary"
             />
             <Button
+              href={cancelButtonHref}
               label={intl.formatMessage({
                 defaultMessage: 'Cancel',
                 description: 'Cancel button label',

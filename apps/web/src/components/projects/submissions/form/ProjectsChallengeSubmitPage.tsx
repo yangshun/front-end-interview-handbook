@@ -85,6 +85,7 @@ export default function ProjectsChallengeSubmitPage({ challenge }: Props) {
       <div className="mt-9">
         <Section>
           <ProjectsChallengeSubmissionForm
+            cancelButtonHref={challenge.metadata.completionHref}
             mode="create"
             onSubmit={(data) => {
               createSubmissionMutation.mutate({

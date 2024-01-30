@@ -121,6 +121,7 @@ export default function ProjectsChallengeSubmissionEditPage({
       <div className="mt-9">
         <Section>
           <ProjectsChallengeSubmissionForm
+            cancelButtonHref={submission.hrefs.detail}
             defaultValues={submission}
             mode="edit"
             onDelete={() => {
