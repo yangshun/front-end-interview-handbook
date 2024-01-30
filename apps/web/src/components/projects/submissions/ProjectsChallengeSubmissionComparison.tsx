@@ -10,6 +10,7 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import FilterButton from '~/components/common/FilterButton';
 import ProjectsChallengeSubmissionImageComparisonSlider from '~/components/projects/submissions/ProjectsChallengeSubmissionImageComparisonSlider';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -99,33 +100,38 @@ export default function ProjectsChallengeSubmissionComparison({
             {deploymentUrls[selectedScreenIndex].label}
           </Text>
           <div className="col-span-1 md:col-span-2 md:order-last justify-end items-center flex gap-2">
-            <Button
-              icon={RiComputerLine}
-              isLabelHidden={true}
-              label="Desktop"
-              variant="secondary"
-              onClick={() => {
-                setSelectedDevice('desktop');
-              }}
-            />
-            <Button
-              icon={RiTabletLine}
-              isLabelHidden={true}
-              label="Tablet"
-              variant="secondary"
-              onClick={() => {
-                setSelectedDevice('tablet');
-              }}
-            />
-            <Button
-              icon={RiSmartphoneLine}
-              isLabelHidden={true}
-              label="Mobile"
-              variant="secondary"
-              onClick={() => {
-                setSelectedDevice('mobile');
-              }}
-            />
+            {(
+              [
+                {
+                  icon: RiComputerLine,
+                  label: 'Desktop',
+                  value: 'desktop',
+                },
+                {
+                  icon: RiTabletLine,
+                  label: 'Tablet',
+                  value: 'tablet',
+                },
+                {
+                  icon: RiSmartphoneLine,
+                  label: 'Mobile',
+                  value: 'mobile',
+                },
+              ] as const
+            ).map(({ icon, label, value }) => (
+              <FilterButton
+                key={label}
+                icon={icon}
+                isLabelHidden={true}
+                label={label}
+                purpose="tab"
+                selected={selectedDevice === value}
+                tooltip={label}
+                onClick={() => {
+                  setSelectedDevice(value);
+                }}
+              />
+            ))}
           </div>
           <div
             className={clsx(
