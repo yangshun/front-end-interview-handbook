@@ -11,13 +11,11 @@ import type { LabelDescriptionStyle } from '~/components/ui/Label';
 import Label from '~/components/ui/Label';
 import RichTextEditorToolbar from '~/components/ui/RichTextEditor/components/RichTextEditorToolbar';
 import RichTextEditorCodeHighlightPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorCodeHighlightPlugin';
-import RichTextEditorTheme from '~/components/ui/RichTextEditor/theme/RichTextEditorTheme';
 import Text from '~/components/ui/Text';
 
+import { RichTextEditorConfig } from './RichTextEditorConfig';
 import { themeBackgroundElementColor } from '../theme';
 
-import { CodeHighlightNode, CodeNode } from '@lexical/code';
-import { ListItemNode, ListNode } from '@lexical/list';
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
@@ -25,7 +23,6 @@ import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { ListPlugin } from '@lexical/react/LexicalListPlugin';
 import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
-import { HeadingNode, QuoteNode } from '@lexical/rich-text';
 
 type Props = Readonly<{
   className?: string;
@@ -37,7 +34,7 @@ type Props = Readonly<{
   label: string;
   minHeight?: string;
   onBlur?: FormEventHandler<HTMLDivElement>;
-  onChange?: (value: string, plainValue: string) => void;
+  onChange?: (value: string) => void;
   placeholder?: string;
   required?: boolean;
   value?: string;
@@ -48,20 +45,6 @@ type State = 'error' | 'normal';
 const stateClasses: Record<State, string> = {
   error: clsx('border-danger focus:border-danger'),
   normal: clsx('border-neutral-300 dark:border-neutral-700'),
-};
-
-const editorConfig = {
-  namespace: 'MyEditor',
-  nodes: [
-    ListItemNode,
-    ListNode,
-    CodeNode,
-    CodeHighlightNode,
-    QuoteNode,
-    HeadingNode,
-  ],
-  onError() {},
-  theme: RichTextEditorTheme,
 };
 
 export default function RichTextEditor({
@@ -100,7 +83,7 @@ export default function RichTextEditor({
   return (
     <LexicalComposer
       initialConfig={{
-        ...editorConfig,
+        ...RichTextEditorConfig,
         editorState: value ? value : undefined,
       }}>
       <div
