@@ -34,6 +34,7 @@ export default function ProjectsMainLayoutTabs() {
         description: 'Tab label to select another project category',
         id: 'GcmSpX',
       })}
+      scrollToTop={false}
       size="sm"
       tabs={tabs}
       value={value}
