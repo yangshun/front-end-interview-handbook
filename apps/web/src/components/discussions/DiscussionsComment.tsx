@@ -12,6 +12,7 @@ import { useIntl } from 'react-intl';
 import RelativeTimestamp from '~/components/projects/common/RelativeTimestamp';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
+import RichText from '~/components/ui/RichTextEditor/RichText';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
@@ -144,7 +145,7 @@ export default function DiscussionsComment({
               }}
             />
           ) : (
-            <Text size="body2">{body}</Text>
+            <RichText textSize="sm" value={comment.body} />
           )}
           <div
             className={clsx(
