@@ -4,6 +4,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import Anchor from '~/components/ui/Anchor';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Badge from '~/components/ui/Badge';
+import plainText from '~/components/ui/RichTextEditor/plainText';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardWhiteOnLightColor,
@@ -62,6 +63,7 @@ export default function ProjectsCommentList({ comments, title }: Props) {
                         description: 'Label for question badge',
                         id: '6+IMdW',
                       })}
+                      size="sm"
                       variant="primary"
                     />
                   )}
@@ -73,15 +75,16 @@ export default function ProjectsCommentList({ comments, title }: Props) {
                         description: 'Label for question badge',
                         id: 'pJA5oJ',
                       })}
+                      size="sm"
                       variant="info"
                     />
                   )}
                   <div className="flex items-start">
                     <Text color="secondary" size="body2">
                       <FormattedMessage
-                        defaultMessage='<medium>{author}</medium> left a comment{ for }<medium>{recipient}</medium> on <link>{submissionTitle}</link><comment>: "{description}"</comment><date></date>'
+                        defaultMessage='<medium>{author}</medium> left a comment {for} <medium>{recipient}</medium> on <link>{submissionTitle}</link><comment>: "{description}"</comment><date></date>'
                         description="Comment"
-                        id="tNnZD7"
+                        id="rvsHso"
                         values={{
                           author: 'You',
                           comment: (chunks) => (
@@ -100,8 +103,8 @@ export default function ProjectsCommentList({ comments, title }: Props) {
                               {chunks}
                             </Text>
                           ),
-                          description: comment.body,
-                          for: comment.parentComment ? ' for ' : '',
+                          description: plainText(comment.body),
+                          for: comment.parentComment ? 'for' : '',
                           link: (chunks) => (
                             <Anchor
                               className="relative"
