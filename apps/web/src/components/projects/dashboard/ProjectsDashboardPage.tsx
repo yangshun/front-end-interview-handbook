@@ -1,12 +1,15 @@
 'use client';
 
 import { useSelectedLayoutSegment } from 'next/navigation';
-import { FormattedMessage } from 'react-intl';
+import { RiArrowRightLine } from 'react-icons/ri';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import BlurOverlay from '~/components/common/BlurOverlay';
 import ProjectsProgressAndContributionsTabs from '~/components/projects/common/progress-and-contributions/ProjectsProgressAndContributionsTabs';
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
+import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -22,6 +25,7 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsDashboardPage({ children }: Props) {
+  const intl = useIntl();
   const currentTab: ProjectsMainTabCategory =
     useSelectedLayoutSegment() === 'community' ? 'contributions' : 'progress';
 
@@ -33,52 +37,79 @@ export default function ProjectsDashboardPage({ children }: Props) {
     trpc.projects.profile.projectsProfileGet.useQuery();
 
   return (
-    <div className="flex flex-col gap-16">
-      <div className="flex flex-col gap-8">
-        <div className="flex flex-col lg:flex-row lg:justify-between relative gap-6">
+    <BlurOverlay
+      align="center"
+      disableOverlay={!!userProfile}
+      overlay={
+        <div className="flex flex-col gap-y-7 items-center max-w-lg mx-auto text-center">
           <Heading level="heading5">
             <FormattedMessage
-              defaultMessage="Dashboard"
-              description="Title of Projects dashboard page"
-              id="UTPE3y"
+              defaultMessage="Create a free account to track your progress"
+              description="Title for overlay on Projects dashboard page"
+              id="nRFkBV"
             />
           </Heading>
-          <div className="lg:absolute right-0 -top-8 z-10">
-            <ProjectsDashboardCompleteProfileCard />
-          </div>
+          <Button
+            href="/projects/onboarding"
+            icon={RiArrowRightLine}
+            label={intl.formatMessage({
+              defaultMessage: 'Get started',
+              description:
+                'Label for Get started button on Projects dashboard page',
+              id: 'iCm44V',
+            })}
+            size="lg"
+            variant="primary"
+          />
         </div>
-        <ProjectsProfileStats
-          codeReviews={profileStatistics?.codeReviews ?? 0}
-          completedChallenges={profileStatistics?.completedChallenges ?? 0}
-          submissionViews={profileStatistics?.submissionViews ?? 0}
-          upvotes={profileStatistics?.upvotes ?? 0}
-        />
-      </div>
-      {isNewToProjects ? (
-        <ProjectsDashboardRecommendedActionsSection
-          primaryMotivation={userProfile?.projectsProfile?.primaryMotivation}
-          secondaryMotivation={
-            userProfile?.projectsProfile?.secondaryMotivation
-          }
-        />
-      ) : (
-        <Section>
-          <div className="lg:grid-cols-2 lg:grid-rows-1 grid-cols-1 grid grid-rows-2 gap-y-6 gap-x-3 md:gap-x-4 lg:gap-x-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-y-6 gap-x-3 md:gap-x-4 lg:gap-x-6">
-              <ProjectsDashboardContinueProjectsSection />
-              <ProjectsDashboardTrackAndSkillsSection />
+      }>
+      <div className="flex flex-col gap-16">
+        <div className="flex flex-col gap-8">
+          <div className="flex flex-col lg:flex-row lg:justify-between relative gap-6">
+            <Heading level="heading5">
+              <FormattedMessage
+                defaultMessage="Dashboard"
+                description="Title of Projects dashboard page"
+                id="UTPE3y"
+              />
+            </Heading>
+            <div className="lg:absolute right-0 -top-8 z-10">
+              <ProjectsDashboardCompleteProfileCard />
             </div>
-            <ProjectsDashboardTrendingSubmissionsSection />
           </div>
-        </Section>
-      )}
-      <div className="flex flex-col gap-8">
-        <ProjectsProgressAndContributionsTabs
-          baseUrl="/projects/dashboard"
-          currentTab={currentTab}
-        />
-        {children}
+          <ProjectsProfileStats
+            codeReviews={profileStatistics?.codeReviews ?? 232}
+            completedChallenges={profileStatistics?.completedChallenges ?? 5653}
+            submissionViews={profileStatistics?.submissionViews ?? 4}
+            upvotes={profileStatistics?.upvotes ?? 842}
+          />
+        </div>
+        {!userProfile || isNewToProjects ? (
+          <ProjectsDashboardRecommendedActionsSection
+            primaryMotivation={userProfile?.projectsProfile?.primaryMotivation}
+            secondaryMotivation={
+              userProfile?.projectsProfile?.secondaryMotivation
+            }
+          />
+        ) : (
+          <Section>
+            <div className="lg:grid-cols-2 lg:grid-rows-1 grid-cols-1 grid grid-rows-2 gap-y-6 gap-x-3 md:gap-x-4 lg:gap-x-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-y-6 gap-x-3 md:gap-x-4 lg:gap-x-6">
+                <ProjectsDashboardContinueProjectsSection />
+                <ProjectsDashboardTrackAndSkillsSection />
+              </div>
+              <ProjectsDashboardTrendingSubmissionsSection />
+            </div>
+          </Section>
+        )}
+        <div className="flex flex-col gap-8">
+          <ProjectsProgressAndContributionsTabs
+            baseUrl="/projects/dashboard"
+            currentTab={currentTab}
+          />
+          {children}
+        </div>
       </div>
-    </div>
+    </BlurOverlay>
   );
 }

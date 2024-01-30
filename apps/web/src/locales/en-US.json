@@ -4811,6 +4811,10 @@
     "defaultMessage": "Answering \"Why Work Here\"",
     "description": "How to answer the \"why work here\" question in behavioral interviews"
   },
+  "iCm44V": {
+    "defaultMessage": "Get started",
+    "description": "Label for Get started button on Projects dashboard page"
+  },
   "iElBQT": {
     "defaultMessage": "Pricing Plans",
     "description": "Screen reader text referring to the Pricing Plan cards"
@@ -5406,6 +5410,10 @@
   "nJYzIr": {
     "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
     "description": "Larry Almeida's testimonial"
+  },
+  "nRFkBV": {
+    "defaultMessage": "Create a free account to track your progress",
+    "description": "Title for overlay on Projects dashboard page"
   },
   "nS1I3k": {
     "defaultMessage": "Author",
