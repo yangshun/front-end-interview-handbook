@@ -29,8 +29,10 @@ type Browser = Awaited<ReturnType<typeof puppeteer.launch>>;
 type Page = Awaited<ReturnType<Browser['newPage']>>;
 
 async function takeScreenshotForViewport(
-  url: string,
+  submissionId: string,
+  device: 'desktop' | 'mobile' | 'tablet',
   page: Page,
+  url: string,
   viewport: Parameters<Page['setViewport']>[0],
 ) {
   const urlObj = new URL(url);
@@ -39,19 +41,39 @@ async function takeScreenshotForViewport(
   await page.setViewport(viewport);
   await page?.screenshot({
     captureBeyondViewport: true,
-    path: `screenshots/${urlObj.host}-${urlObj.pathname.replaceAll('/', '_')}-${
-      viewport.width
-    }x${viewport.height}.webp`,
+    path: `tmp/${submissionId}.${urlObj.pathname.replaceAll(
+      '/',
+      '_',
+    )}.${device}.webp`,
     type: 'webp',
   });
 }
 
 async function takePageScreenshotForURL(browser: Browser, url: string) {
   const page = await browser.newPage();
+  const submissionId = '1580867e-04e3-44ab-ac08-b2841348de14';
 
-  await takeScreenshotForViewport(url, page, desktopViewportConfig);
-  await takeScreenshotForViewport(url, page, tabletViewportConfig);
-  await takeScreenshotForViewport(url, page, mobileViewportConfig);
+  await takeScreenshotForViewport(
+    submissionId,
+    'desktop',
+    page,
+    url,
+    desktopViewportConfig,
+  );
+  await takeScreenshotForViewport(
+    submissionId,
+    'tablet',
+    page,
+    url,
+    tabletViewportConfig,
+  );
+  await takeScreenshotForViewport(
+    submissionId,
+    'mobile',
+    page,
+    url,
+    mobileViewportConfig,
+  );
 }
 
 async function takeScreenshots(urls: ReadonlyArray<string>) {
@@ -65,8 +87,4 @@ async function takeScreenshots(urls: ReadonlyArray<string>) {
   await browser.close();
 }
 
-takeScreenshots([
-  'https://www.astro.build',
-  'https://www.docusaurus.io',
-  'https://www.yangshuntay.com',
-]);
+takeScreenshots(['https://www.astro.build', 'https://astro.build/showcase/']);
