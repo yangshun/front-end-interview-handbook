@@ -1,6 +1,5 @@
 'use client';
 
-import { useSelectedLayoutSegment } from 'next/navigation';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -18,7 +17,6 @@ import ProjectsDashboardContinueProjectsSection from './ProjectsDashboardContinu
 import ProjectsDashboardRecommendedActionsSection from './ProjectsDashboardRecommendedActionsSection';
 import ProjectsDashboardTrackAndSkillsSection from './ProjectsDashboardTrackAndSkillsSection';
 import ProjectsDashboardTrendingSubmissionsSection from './ProjectsDashboardTrendingSubmissionsSection';
-import type { ProjectsMainTabCategory } from '../common/progress-and-contributions/useProjectsCategoryTabs';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -26,8 +24,6 @@ type Props = Readonly<{
 
 export default function ProjectsDashboardPage({ children }: Props) {
   const intl = useIntl();
-  const currentTab: ProjectsMainTabCategory =
-    useSelectedLayoutSegment() === 'community' ? 'contributions' : 'progress';
 
   const { data: profileStatistics } =
     trpc.projects.profile.getDashboardStatistics.useQuery();
@@ -103,10 +99,7 @@ export default function ProjectsDashboardPage({ children }: Props) {
           </Section>
         )}
         <div className="flex flex-col gap-8">
-          <ProjectsProgressAndContributionsTabs
-            baseUrl="/projects/dashboard"
-            currentTab={currentTab}
-          />
+          <ProjectsProgressAndContributionsTabs baseUrl="/projects/dashboard" />
           {children}
         </div>
       </div>

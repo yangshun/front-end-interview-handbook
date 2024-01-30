@@ -1,16 +1,16 @@
 import { RiDiscussLine, RiRocketLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-export type ProjectsMainTabCategory = 'contributions' | 'progress';
+export type ProjectsProfileTabCategory = 'contributions' | 'progress';
 
 type TabItem = Readonly<{
   href: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   label: string;
-  value: ProjectsMainTabCategory;
+  value: ProjectsProfileTabCategory;
 }>;
 
-export default function useProjectsCategoryTabs(): ReadonlyArray<TabItem> {
+export default function useProjectsProfileCategoryTabs(): ReadonlyArray<TabItem> {
   const intl = useIntl();
 
   return [

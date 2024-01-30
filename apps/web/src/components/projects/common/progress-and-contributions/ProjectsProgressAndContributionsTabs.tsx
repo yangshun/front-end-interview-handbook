@@ -1,24 +1,28 @@
 'use client';
 
-import { useState } from 'react';
+import { useMemo } from 'react';
 import { useIntl } from 'react-intl';
 
 import Tabs from '~/components/ui/Tabs';
 
-import type { ProjectsMainTabCategory } from './useProjectsCategoryTabs';
-import useProjectsCategoryTabs from './useProjectsCategoryTabs';
+import { useI18nPathname } from '~/next-i18nostic/src';
+
+import type { ProjectsProfileTabCategory } from './useProjectsProfileCategoryTabs';
+import useProjectsProfileCategoryTabs from './useProjectsProfileCategoryTabs';
 
 type Props = Readonly<{
   baseUrl: string;
-  currentTab: ProjectsMainTabCategory;
 }>;
 
 export default function ProjectsProgressAndContributionsTabs({
   baseUrl,
-  currentTab,
 }: Props) {
+  const { pathname } = useI18nPathname();
   const intl = useIntl();
-  const categoryTabs = useProjectsCategoryTabs().map((tab) => {
+
+  const categoryTabs = useProjectsProfileCategoryTabs();
+
+  const tabs = categoryTabs.map((tab) => {
     const { href: relativeHref, ...tabWithoutHref } = tab;
 
     return {
@@ -26,8 +30,12 @@ export default function ProjectsProgressAndContributionsTabs({
       href: baseUrl + relativeHref,
     };
   });
-  const [currentDashboardTab, setCurrentDashboardTab] =
-    useState<ProjectsMainTabCategory>(currentTab);
+
+  const value: ProjectsProfileTabCategory = useMemo(() => {
+    const tab = tabs.find((t) => t.href === pathname);
+
+    return tab?.value ?? 'progress';
+  }, [pathname, tabs]);
 
   return (
     <Tabs
@@ -36,10 +44,10 @@ export default function ProjectsProgressAndContributionsTabs({
         description: 'Tab label to select another dashboard category',
         id: '1O3xR8',
       })}
+      scrollToTop={false}
       size="md"
-      tabs={categoryTabs}
-      value={currentDashboardTab}
-      onSelect={setCurrentDashboardTab}
+      tabs={tabs}
+      value={value}
     />
   );
 }

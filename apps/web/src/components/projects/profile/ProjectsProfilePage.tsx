@@ -1,6 +1,5 @@
 'use client';
 
-import { useSelectedLayoutSegment } from 'next/navigation';
 import { notFound } from 'next/navigation';
 import { RiPencilFill } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -13,8 +12,6 @@ import ProjectsProfilePinnedSubmissions from '~/components/projects/profile/Proj
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
-
-import type { ProjectsMainTabCategory } from '../common/progress-and-contributions/useProjectsCategoryTabs';
 
 import type { Profile, ProjectsProfile } from '@prisma/client';
 
@@ -33,8 +30,6 @@ export default function ProjectsProfilePage({
   isViewingOwnProfile,
 }: Props) {
   const intl = useIntl();
-  const currentTab: ProjectsMainTabCategory =
-    useSelectedLayoutSegment() === 'community' ? 'contributions' : 'progress';
 
   // For getting the updated profile data, when there is edit in profile edit page.
   const { data: userProfile } =
@@ -110,7 +105,6 @@ export default function ProjectsProfilePage({
       <div className="flex flex-col gap-8">
         <ProjectsProgressAndContributionsTabs
           baseUrl={`/projects/u/${initialUserProfile.username}`}
-          currentTab={currentTab}
         />
         {children}
       </div>
