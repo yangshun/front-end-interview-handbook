@@ -95,6 +95,10 @@
     "defaultMessage": "Design systems",
     "description": "Title for \"Design systems\" feature on Projects home page"
   },
+  "+uw4/h": {
+    "defaultMessage": "No projects matching those filters",
+    "description": "Title for no projects yet on projects progress tab"
+  },
   "+wR7CJ": {
     "defaultMessage": "Legal",
     "description": "Section heading in footer for links to legal pages like privacy policy and terms of service"
@@ -542,6 +546,10 @@
   "4/GKns": {
     "defaultMessage": "Not Found",
     "description": "Title of 404 page"
+  },
+  "4/SGqe": {
+    "defaultMessage": "Earlier",
+    "description": "Title for earlier list of comments"
   },
   "40fcnl": {
     "defaultMessage": "Select another status to display in place of your YOE:",
@@ -1251,6 +1259,10 @@
     "defaultMessage": "Explore component tracks",
     "description": "CTA for portfolio motivation"
   },
+  "B8uTwW": {
+    "defaultMessage": "No contributions in the community matching those filters",
+    "description": "Subtitle for empty state when there are no contributions matching filters"
+  },
   "B9vupD": {
     "defaultMessage": "Submissions",
     "description": "Link to submissions page"
@@ -1282,10 +1294,6 @@
   "BPQrNY": {
     "defaultMessage": "Best value for money with real-time support from the team and community.",
     "description": "Supporting statement for an annual pricing plan"
-  },
-  "BUK7YK": {
-    "defaultMessage": "Last week",
-    "description": "Title for last week list of code reviews"
   },
   "BfJL2V": {
     "defaultMessage": "Challenge difficulty",
@@ -1330,6 +1338,10 @@
   "C70QCF": {
     "defaultMessage": "I'm a beginner and want to learn skills for practical front end development",
     "description": "Label for \"Beginner\" onboarding option in Projects"
+  },
+  "C79VF0": {
+    "defaultMessage": "Last week",
+    "description": "Title for last week list of comments"
   },
   "C7tiFm": {
     "defaultMessage": "Why join us?",
@@ -1479,6 +1491,10 @@
     "defaultMessage": "Users completed",
     "description": "Number of users who completed the question"
   },
+  "DHQOPk": {
+    "defaultMessage": "No contributions in the community so far",
+    "description": "Subtitle for empty state when there are no contributions"
+  },
   "DIs2lU": {
     "defaultMessage": "FAQs",
     "description": "Frequently Asked Questions"
@@ -1527,13 +1543,13 @@
     "defaultMessage": "Back",
     "description": "Button label for back button"
   },
+  "Dt0MpD": {
+    "defaultMessage": "This user has not started any projects matching those filters.",
+    "description": "Subtitle for no projects yet on projects progress tab"
+  },
   "Dynazi": {
     "defaultMessage": "(Save {discountPercentage}% vs monthly)",
     "description": "Save more compared to monthly plan."
-  },
-  "E10QYm": {
-    "defaultMessage": "Others",
-    "description": "Others item label"
   },
   "E5x8uP": {
     "defaultMessage": "Undergrad CS",
@@ -2242,10 +2258,6 @@
   "Ku3VdX": {
     "defaultMessage": "Uber",
     "description": "Company name for Uber"
-  },
-  "KugqYl": {
-    "defaultMessage": "Adjust your filters a bit, and let's see what we can find!",
-    "description": "Subtitle for empty state when no comments are returned from application of filters on comments list"
   },
   "L/BHun": {
     "defaultMessage": "Send us a Message",
@@ -3435,10 +3447,6 @@
     "defaultMessage": "Learn to work with specifications mimicking projects you will encounter as a full-time engineer",
     "description": "Description for \"Real world specs\" feature on Projects home page"
   },
-  "VXu04X": {
-    "defaultMessage": "Code reviews",
-    "description": "Code reviews item label"
-  },
   "VbvRHt": {
     "defaultMessage": "Pricing",
     "description": "Label for Pricing sidebar item in Projects sidebar"
@@ -3470,6 +3478,10 @@
   "Vm0aAX": {
     "defaultMessage": "{discountPercentage}% off all plans",
     "description": "Title for rewards page"
+  },
+  "Vtp5JU": {
+    "defaultMessage": "A long time ago",
+    "description": "Title for a long time ago list of comments"
   },
   "VuGzvG": {
     "defaultMessage": "Project submission",
@@ -3915,10 +3927,6 @@
     "defaultMessage": "Subscript",
     "description": "Label for subscript"
   },
-  "ZqRybm": {
-    "defaultMessage": "Last month",
-    "description": "Title for last month list of code reviews"
-  },
   "ZrtVIf": {
     "defaultMessage": "Access to all {totalChallengeCount}+ challenges. {remainingGuideCount} Figma & guides access left",
     "description": "Subtitle of Monthly Plan CTA card in Projects sidebar"
@@ -4154,10 +4162,6 @@
   "bsCmcK": {
     "defaultMessage": "Email Us",
     "description": "Button label to send to a support email"
-  },
-  "buCV7d": {
-    "defaultMessage": "Earlier",
-    "description": "Title for earlier list of code reviews"
   },
   "buggxJ": {
     "defaultMessage": "Reply",
@@ -4867,6 +4871,10 @@
     "defaultMessage": "We're Hiring",
     "description": "Link to careers page"
   },
+  "iw1XYQ": {
+    "defaultMessage": "No community contributions",
+    "description": "Title for empty state when there are no contributions"
+  },
   "iyz4Hv": {
     "defaultMessage": "{skillPlanName} progress",
     "description": "Label for skill plan progress on project submission success page"
@@ -5127,6 +5135,10 @@
     "defaultMessage": "In-browser coding workspace",
     "description": "Title for in-browser coding workspace feature"
   },
+  "kpP56G": {
+    "defaultMessage": "Last month",
+    "description": "Title for last month list of comments"
+  },
   "kuPMCs": {
     "defaultMessage": "edited {updatedAtTime}",
     "description": "Updated time stamp for submission detail page"
@@ -5259,6 +5271,10 @@
     "defaultMessage": "Student Discount Terms and Conditions",
     "description": "Title of legal page"
   },
+  "lu/XVn": {
+    "defaultMessage": "No community contributions",
+    "description": "Title for empty state when there are no contributions matching filters"
+  },
   "lyjVwD": {
     "defaultMessage": "1 Month Plan",
     "description": "Long label for one month study plan"
@@ -5282,6 +5298,10 @@
   "m2WYh/": {
     "defaultMessage": "Insert code block",
     "description": "Insert code block tooltip for Richtext toolbar"
+  },
+  "m7aGNO": {
+    "defaultMessage": "You have not started any projects.",
+    "description": "Subtitle for no projects yet on projects progress tab"
   },
   "mDcqlX": {
     "defaultMessage": "<count>{questionCount}</count> <questions>questions</questions>",
@@ -5538,6 +5558,10 @@
   "oxD4TD": {
     "defaultMessage": "Fresh Grad",
     "description": "Label for \"Fresh Grad\" option in YOE replacement"
+  },
+  "oxI61h": {
+    "defaultMessage": "No projects yet",
+    "description": "Title for no projects yet on projects progress tab"
   },
   "oxeO+l": {
     "defaultMessage": "Submit project",
@@ -6103,6 +6127,10 @@
     "defaultMessage": "Move line down",
     "description": "Text describing command to move lines down in the coding workspace shortcuts menu"
   },
+  "tnyBDF": {
+    "defaultMessage": "This user has not started any projects.",
+    "description": "Subtitle for no projects yet on projects progress tab"
+  },
   "tonRki": {
     "defaultMessage": "Internationalization",
     "description": "Internationalization topic for quiz questions"
@@ -6334,6 +6362,10 @@
   "vrK3ev": {
     "defaultMessage": "Prepare for Front End Behavioral Interviews",
     "description": "Title of Behavioral Interview Preparation page"
+  },
+  "vvPx/k": {
+    "defaultMessage": "You have not started any projects matching those filters.",
+    "description": "Subtitle for no projects yet on projects progress tab"
   },
   "vx/nPL": {
     "defaultMessage": "Email",
@@ -6702,6 +6734,10 @@
   "zs7+sC": {
     "defaultMessage": "A confirmation link has been sent to the new email address. The email will not be changed until the confirmation link has been accessed.",
     "description": "Message shown after an email change request is successful."
+  },
+  "zul/L1": {
+    "defaultMessage": "Earlier this month",
+    "description": "Title for earlier this month list of comments"
   },
   "zw0Ov8": {
     "defaultMessage": "Hard",

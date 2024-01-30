@@ -156,9 +156,10 @@ export const commentsRouter = router({
     .input(
       z.object({
         domainList: z.array(z.enum(domains)),
+        userId: z.string().uuid().optional(),
       }),
     )
-    .query(async ({ input: { domainList }, ctx: { user } }) => {
+    .query(async ({ input: { domainList, userId }, ctx: { user } }) => {
       const comments = await prisma.discussionComment.findMany({
         include: {
           author: {
@@ -187,7 +188,7 @@ export const commentsRouter = router({
           domain: {
             in: domainList,
           },
-          userId: user.id,
+          userId: userId ?? user.id,
         },
       });
 

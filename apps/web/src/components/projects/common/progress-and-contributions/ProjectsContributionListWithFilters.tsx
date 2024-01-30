@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { RiFilterLine, RiFolderOpenLine } from 'react-icons/ri';
+import { RiDiscussLine, RiFilterLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import FilterButton from '~/components/common/FilterButton';
@@ -12,7 +12,7 @@ import ProjectsContributionFilterContextProvider, {
 } from './ProjectsContributionFilterContext';
 import ProjectsContributionFilterDropdown from './ProjectsContributionFilterDropdown';
 import ProjectsContributionFilterSlideOut from './ProjectsContributionFilterSlideOut';
-import type { ContributionComment } from './ProjectsProgressAndContributionsSection';
+import type { ContributionComment } from './ProjectsContributionsSection';
 import useProjectsContributionFilters from './useProjectsContributionFilters';
 
 import type { DiscussionComment } from '@prisma/client';
@@ -33,8 +33,7 @@ function filterProjectsContributions<T extends DiscussionComment>(
 function ProjectsContributionListWithFiltersImpl({ comments }: Props) {
   const intl = useIntl();
   const { filters } = useProjectsContributionFilterContext();
-  const { filters: filtersContributionsOpts } =
-    useProjectsContributionFilters();
+  const filtersContributionsOpts = useProjectsContributionFilters();
 
   const [areFiltersShown, setAreFiltersShown] = useState(false);
 
@@ -47,28 +46,44 @@ function ProjectsContributionListWithFiltersImpl({ comments }: Props) {
     ([size]) => size > 0,
   ).length;
 
-  const emptyState = (
-    <div className="p-10">
+  const emptyState =
+    numberOfFilters === 0 ? (
       <EmptyState
-        icon={RiFolderOpenLine}
+        icon={RiDiscussLine}
         iconClassName={themeTextColor}
         subtitle={intl.formatMessage({
-          defaultMessage:
-            "Adjust your filters a bit, and let's see what we can find!",
+          defaultMessage: 'No contributions in the community so far',
           description:
-            'Subtitle for empty state when no comments are returned from application of filters on comments list',
-          id: 'KugqYl',
+            'Subtitle for empty state when there are no contributions',
+          id: 'DHQOPk',
         })}
         title={intl.formatMessage({
-          defaultMessage: 'Nothing found just yet',
-          description:
-            'Title for empty state when application of filters return no results',
-          id: 'SdYw31',
+          defaultMessage: 'No community contributions',
+          description: 'Title for empty state when there are no contributions',
+          id: 'iw1XYQ',
         })}
         variant="empty"
       />
-    </div>
-  );
+    ) : (
+      <EmptyState
+        icon={RiDiscussLine}
+        iconClassName={themeTextColor}
+        subtitle={intl.formatMessage({
+          defaultMessage:
+            'No contributions in the community matching those filters',
+          description:
+            'Subtitle for empty state when there are no contributions matching filters',
+          id: 'B8uTwW',
+        })}
+        title={intl.formatMessage({
+          defaultMessage: 'No community contributions',
+          description:
+            'Title for empty state when there are no contributions matching filters',
+          id: 'lu/XVn',
+        })}
+        variant="empty"
+      />
+    );
 
   return (
     <>

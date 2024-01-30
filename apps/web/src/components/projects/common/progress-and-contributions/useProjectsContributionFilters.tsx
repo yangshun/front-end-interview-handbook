@@ -1,16 +1,8 @@
-import { useState } from 'react';
-
-import useFilterSearchParams from '~/hooks/useFilterSearchParams';
-
 import { useProjectsContributionFilterState } from './ProjectsContributionFilterContext';
 
 import type { DiscussionComment } from '@prisma/client';
 
 export default function useProjectsContributionFilters() {
-  const { updateSearchParams, getStringTypeSearchParams } =
-    useFilterSearchParams();
-  // Filtering.
-  const [query, setQuery] = useState(getStringTypeSearchParams('search'));
   const [selectedContributionType] =
     useProjectsContributionFilterState('contribution-type');
   const [selectedForumType] = useProjectsContributionFilterState('forum-type');
@@ -30,16 +22,5 @@ export default function useProjectsContributionFilters() {
     [selectedForumType.length, filterByForumType],
   ];
 
-  const onChangeQuery = (value: string) => {
-    setQuery(value);
-    updateSearchParams('search', value);
-    // Reset page number on URL when query changes
-    updateSearchParams('page', '1');
-  };
-
-  return {
-    filters,
-    onChangeQuery,
-    query,
-  };
+  return filters;
 }

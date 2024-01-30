@@ -4,6 +4,7 @@ import { useIntl } from 'react-intl';
 export type ProjectsMainTabCategory = 'contributions' | 'progress';
 
 type TabItem = Readonly<{
+  href: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   label: string;
   value: ProjectsMainTabCategory;
@@ -14,6 +15,7 @@ export default function useProjectsCategoryTabs(): ReadonlyArray<TabItem> {
 
   return [
     {
+      href: '/',
       icon: RiRocketLine,
       label: intl.formatMessage({
         defaultMessage: 'Project progress',
@@ -23,6 +25,7 @@ export default function useProjectsCategoryTabs(): ReadonlyArray<TabItem> {
       value: 'progress',
     },
     {
+      href: '/community',
       icon: RiDiscussLine,
       label: intl.formatMessage({
         defaultMessage: 'Community contributions',

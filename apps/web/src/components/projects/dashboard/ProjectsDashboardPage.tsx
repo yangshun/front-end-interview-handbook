@@ -1,9 +1,11 @@
 'use client';
 
+import { useSelectedLayoutSegment } from 'next/navigation';
 import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import ProjectsProgressAndContributionsTabs from '~/components/projects/common/progress-and-contributions/ProjectsProgressAndContributionsTabs';
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -13,12 +15,16 @@ import ProjectsDashboardContinueProjectsSection from './ProjectsDashboardContinu
 import ProjectsDashboardRecommendedActionsSection from './ProjectsDashboardRecommendedActionsSection';
 import ProjectsDashboardTrackAndSkillsSection from './ProjectsDashboardTrackAndSkillsSection';
 import ProjectsDashboardTrendingSubmissionsSection from './ProjectsDashboardTrendingSubmissionsSection';
+import type { ProjectsMainTabCategory } from '../common/progress-and-contributions/useProjectsCategoryTabs';
 
 type Props = Readonly<{
   children: React.ReactNode;
 }>;
 
 export default function ProjectsDashboardPage({ children }: Props) {
+  const currentTab: ProjectsMainTabCategory =
+    useSelectedLayoutSegment() === 'community' ? 'contributions' : 'progress';
+
   const { data: profileStatistics } =
     trpc.projects.profile.getDashboardStatistics.useQuery();
   const { data: isNewToProjects } =
@@ -66,7 +72,13 @@ export default function ProjectsDashboardPage({ children }: Props) {
           </div>
         </Section>
       )}
-      {children}
+      <div className="flex flex-col gap-8">
+        <ProjectsProgressAndContributionsTabs
+          baseUrl="/projects/dashboard"
+          currentTab={currentTab}
+        />
+        {children}
+      </div>
     </div>
   );
 }

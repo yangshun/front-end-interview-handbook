@@ -8,6 +8,7 @@ import {
 import prisma from '~/server/prisma';
 
 import { projectsUserProcedure } from './procedures';
+import { userProcedure } from '../../trpc';
 import { router } from '../../trpc';
 
 const projectsSessionProcedure = projectsUserProcedure.input(
@@ -142,18 +143,22 @@ export const projectsSessionsRouter = router({
         };
       });
     }),
-  getSessionsBasedOnStatus: projectsUserProcedure
+  getSessionsBasedOnStatus: userProcedure
     .input(
       z.object({
         statuses: z
           .array(z.enum(['COMPLETED', 'IN_PROGRESS', 'STOPPED']))
           .nonempty(),
+        userId: z.string().uuid().optional(),
       }),
     )
-    .query(async ({ input: { statuses }, ctx: { projectsProfileId } }) => {
+    .query(async ({ input: { statuses, userId }, ctx: { user } }) => {
       const sessions = await prisma.projectsChallengeSession.findMany({
         where: {
-          profileId: projectsProfileId,
+          // ProfileId: profileId ?? projectsProfileId,
+          projectsProfile: {
+            userId: userId ?? user.id,
+          },
           status: {
             in: statuses,
           },
