@@ -14,6 +14,20 @@ export type ProjectsChallengeSubmissionExtended = Prisma.Result<
   'findUnique'
 >;
 
+export type ProjectsChallengeSubmissionDeploymentScreenshotDevice =
+  | 'desktop'
+  | 'mobile'
+  | 'tablet';
+
+export type ProjectsChallengeSubmissionDeploymentUrls = Array<{
+  href: string;
+  label: string;
+  screenshots?: Record<
+    ProjectsChallengeSubmissionDeploymentScreenshotDevice,
+    string
+  >;
+}>;
+
 // Subset of relevant fields from Prisma.Profile.
 export type ProjectsChallengeSubmissionAuthor = Readonly<{
   avatarUrl: string | null;

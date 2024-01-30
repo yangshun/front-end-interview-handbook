@@ -23,13 +23,14 @@ import ProjectsChallengeSubmissionSummaryField from './fields/ProjectsChallengeS
 import { useProjectsChallengeSubmissionSummarySchema } from './fields/ProjectsChallengeSubmissionSummarySchema';
 import ProjectsChallengeSubmissionTitleField from './fields/ProjectsChallengeSubmissionTitleField';
 import { useProjectsChallengeSubmissionTitleSchema } from './fields/ProjectsChallengeSubmissionTitleSchema';
+import type { ProjectsChallengeSubmissionDeploymentUrls } from '../types';
 import ProjectsOtherTechStackInput from '../../skills/ProjectsOtherTechStackInput';
 import ProjectsSkillInput from '../../skills/ProjectsSkillInput';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
 export type ProjectsChallengeSubmissionFormValues = Readonly<{
-  deploymentUrls: Array<{ href: string; label: string }>;
+  deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
   implementation: string;
   plainImplementation?: string;
   repositoryUrl: string;

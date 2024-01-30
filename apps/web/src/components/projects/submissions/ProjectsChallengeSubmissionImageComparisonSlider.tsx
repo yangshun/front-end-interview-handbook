@@ -5,9 +5,9 @@ import Spinner from '~/components/ui/Spinner';
 
 type Props = Readonly<{
   image: Readonly<{
-    deployed: string;
     label: string;
     original: string;
+    screenshot: string | null | undefined;
   }>;
 }>;
 
@@ -25,7 +25,7 @@ export default function ProjectsChallengeSubmissionImageComparisonSlider({
             </div>
           </div>
         }
-        leftImage={image.deployed}
+        leftImage={image.screenshot ?? ''}
         leftImageCss={{ objectFit: 'contain', objectPosition: 'top' }}
         rightImage={image.original}
         rightImageCss={{ objectFit: 'contain', objectPosition: 'top' }}

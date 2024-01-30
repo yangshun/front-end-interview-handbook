@@ -1,6 +1,13 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiAddLine, RiImageLine, RiSubtractLine } from 'react-icons/ri';
+import {
+  RiAddLine,
+  RiComputerLine,
+  RiImageLine,
+  RiSmartphoneLine,
+  RiSubtractLine,
+  RiTabletLine,
+} from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import ProjectsChallengeSubmissionImageComparisonSlider from '~/components/projects/submissions/ProjectsChallengeSubmissionImageComparisonSlider';
@@ -10,24 +17,26 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
+import type {
+  ProjectsChallengeSubmissionDeploymentScreenshotDevice,
+  ProjectsChallengeSubmissionDeploymentUrls,
+} from './types';
+
 type Props = Readonly<{
-  deploymentUrls: Array<
-    Readonly<{
-      href: string;
-      label: string;
-    }>
-  >;
+  deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
 }>;
 
 export default function ProjectsChallengeSubmissionComparison({
   deploymentUrls,
 }: Props) {
   const intl = useIntl();
+  const [selectedDevice, setSelectedDevice] =
+    useState<ProjectsChallengeSubmissionDeploymentScreenshotDevice>('desktop');
   const [selectedScreenIndex, setSelectedScreenIndex] = useState(0);
-  const images = deploymentUrls.map((item) => ({
-    deployed: `https://source.unsplash.com/random/1080x900?random=${item.label}`,
-    label: item.label,
-    original: `https://source.unsplash.com/random/1080x700?random=${item.label}`,
+  const pages = deploymentUrls.map((page) => ({
+    label: page.label,
+    original: `https://source.unsplash.com/random/1080x700?random=${page.label}`,
+    screenshot: page.screenshots?.[selectedDevice],
   }));
 
   return (
@@ -78,24 +87,56 @@ export default function ProjectsChallengeSubmissionComparison({
         {/* Image Comparison Slider */}
         <div className="flex-1">
           <ProjectsChallengeSubmissionImageComparisonSlider
-            image={images[selectedScreenIndex]}
+            image={pages[selectedScreenIndex]}
           />
         </div>
         {/* Footer */}
-        <div className="grid md:grid-cols-8 grid-col-2 md:px-6 px-4 py-4 w-full">
+        <div className="grid grid-col-2 md:grid-cols-8 md:px-6 px-4 py-4 w-full">
           <Text
-            className={clsx('md:col-span-2 col-span-1 flex items-center')}
+            className={clsx('col-span-1 md:col-span-2 flex items-center')}
             color="secondary"
             weight="medium">
             {deploymentUrls[selectedScreenIndex].label}
           </Text>
-          <div className="md:col-span-2 col-span-1 md:order-last"></div>
-          <div className="flex justify-center md:col-span-4 col-span-2 gap-2">
-            {images.map((image, index) => (
+          <div className="col-span-1 md:col-span-2 md:order-last justify-end items-center flex gap-2">
+            <Button
+              icon={RiComputerLine}
+              isLabelHidden={true}
+              label="Desktop"
+              variant="secondary"
+              onClick={() => {
+                setSelectedDevice('desktop');
+              }}
+            />
+            <Button
+              icon={RiTabletLine}
+              isLabelHidden={true}
+              label="Tablet"
+              variant="secondary"
+              onClick={() => {
+                setSelectedDevice('tablet');
+              }}
+            />
+            <Button
+              icon={RiSmartphoneLine}
+              isLabelHidden={true}
+              label="Mobile"
+              variant="secondary"
+              onClick={() => {
+                setSelectedDevice('mobile');
+              }}
+            />
+          </div>
+          <div
+            className={clsx(
+              'flex justify-center gap-2',
+              'col-span-2 md:col-span-4',
+            )}>
+            {pages.map((page, index) => (
               <button
-                key={image.label}
+                key={page.label}
                 className={clsx(
-                  'w-12 h-12 rounded border',
+                  'w-12 h-12 rounded border overflow-clip',
                   index === selectedScreenIndex
                     ? 'border-brand-dark dark:border-brand'
                     : themeBorderElementColor,
@@ -103,9 +144,9 @@ export default function ProjectsChallengeSubmissionComparison({
                 type="button"
                 onClick={() => setSelectedScreenIndex(index)}>
                 <img
-                  alt="deployed image preview"
+                  alt={page.label}
                   className="object-cover w-full h-full"
-                  src={image.deployed}
+                  src={page.screenshot}
                 />
               </button>
             ))}
