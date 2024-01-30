@@ -1,7 +1,7 @@
 export function getRelativeTimestamp(timestamp: Date) {
   const { unit, value } = getTimeUnitAndValue(timestamp);
 
-  if (unit === 'Just now' || unit === 'Yesterday') {
+  if (unit === 'just now' || unit === 'yesterday') {
     return unit;
   }
 
@@ -32,7 +32,7 @@ export function getRelativeTimestamp(timestamp: Date) {
 }
 
 export function getTimeUnitAndValue(timestamp: Date): {
-  unit: Intl.RelativeTimeFormatUnit | 'Just now' | 'Yesterday';
+  unit: Intl.RelativeTimeFormatUnit | 'just now' | 'yesterday';
   value: number | null;
 } {
   const now = new Date();
@@ -52,7 +52,7 @@ export function getTimeUnitAndValue(timestamp: Date): {
   }
 
   if (diffDays === 1) {
-    return { unit: 'Yesterday', value: null };
+    return { unit: 'yesterday', value: null };
   }
 
   const diffHours = Math.floor(diff / (1000 * 3600));
@@ -73,5 +73,5 @@ export function getTimeUnitAndValue(timestamp: Date): {
     return { unit: 'second', value: diffSeconds };
   }
 
-  return { unit: 'Just now', value: null };
+  return { unit: 'just now', value: null };
 }

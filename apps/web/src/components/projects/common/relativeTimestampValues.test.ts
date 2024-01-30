@@ -7,7 +7,7 @@ describe('getTimeUnitAndValue', () => {
 
       now.setSeconds(now.getSeconds() - 5);
       expect(getTimeUnitAndValue(now)).toEqual({
-        unit: 'Just now',
+        unit: 'just now',
         value: null,
       });
     });
@@ -44,7 +44,7 @@ describe('getTimeUnitAndValue', () => {
 
       now.setDate(now.getDate() - 1);
       expect(getTimeUnitAndValue(now)).toEqual({
-        unit: 'Yesterday',
+        unit: 'yesterday',
         value: null,
       });
     });
