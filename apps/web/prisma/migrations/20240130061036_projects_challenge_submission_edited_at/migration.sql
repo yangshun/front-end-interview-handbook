@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "ProjectsChallengeSubmission" ADD COLUMN     "editedAt" TIMESTAMPTZ(6) NOT NULL DEFAULT CURRENT_TIMESTAMP;

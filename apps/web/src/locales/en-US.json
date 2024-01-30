@@ -5119,6 +5119,10 @@
     "defaultMessage": "Delete submission",
     "description": "Delete challenge submission"
   },
+  "kgoB9+": {
+    "defaultMessage": "edited {editedAtTime}",
+    "description": "Updated time stamp for submission detail page"
+  },
   "khoims": {
     "defaultMessage": "We have a large bank of {projectCount}+ projects organized in 3 structured ways to help you achieve your objectives.",
     "description": "Subtitle of the 'Build towards your goals' marketing section on Projects home page"
@@ -5142,10 +5146,6 @@
   "kpP56G": {
     "defaultMessage": "Last month",
     "description": "Title for last month list of comments"
-  },
-  "kuPMCs": {
-    "defaultMessage": "edited {updatedAtTime}",
-    "description": "Updated time stamp for submission detail page"
   },
   "kvLlxS": {
     "defaultMessage": "Security",

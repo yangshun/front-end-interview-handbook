@@ -714,6 +714,7 @@ export const projectsChallengeSubmissionRouter = router({
         return await prisma.projectsChallengeSubmission.update({
           data: {
             deploymentUrls: deploymentUrls as Prisma.JsonArray,
+            editedAt: new Date(),
             implementation,
             repositoryUrl,
             summary,

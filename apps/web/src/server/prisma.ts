@@ -2,6 +2,8 @@
  * @link https://prisma.io/docs/support/help-articles/nextjs-prisma-client-dev-practices
  */
 
+import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/projects/submissions/types';
+
 import { PrismaClient } from '@prisma/client';
 
 const prismaClientSingleton = () => {
@@ -11,9 +13,7 @@ const prismaClientSingleton = () => {
       projectsChallengeSubmission: {
         deploymentUrls: {
           compute: (submission) =>
-            submission.deploymentUrls as Array<
-              Readonly<{ href: string; label: string }>
-            >,
+            submission.deploymentUrls as ProjectsChallengeSubmissionDeploymentUrls,
         },
         hrefs: {
           compute: (submission) => ({
@@ -22,7 +22,12 @@ const prismaClientSingleton = () => {
           }),
         },
         imgSrc: {
-          compute: () => 'https://source.unsplash.com/random/48x48',
+          compute: (submission) =>
+            (
+              submission.deploymentUrls as ProjectsChallengeSubmissionDeploymentUrls
+            )[0].screenshots?.desktop ??
+            // TODO(projects): Replace with placeholder.
+            'https://source.unsplash.com/random/48x48',
         },
         stack: {
           compute: () => [],

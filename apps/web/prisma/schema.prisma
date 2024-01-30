@@ -227,6 +227,7 @@ model ProjectsChallengeSubmission {
 
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @default(now()) @updatedAt
+  editedAt  DateTime @default(now()) @db.Timestamptz(6) // Manual edited by the user.
 
   projectsProfile ProjectsProfile?                  @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   votes           ProjectsChallengeSubmissionVote[]

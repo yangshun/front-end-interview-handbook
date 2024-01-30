@@ -12,20 +12,20 @@ type Props = Readonly<{
 export default function ProjectsChallengeSubmissionHeroTimestamp({
   submission,
 }: Props) {
-  const { createdAt, updatedAt } = submission;
+  const { createdAt, editedAt } = submission;
 
   return (
     <Text color="secondary" size="body3">
       <RelativeTimestamp timestamp={createdAt} />
-      {createdAt.getTime() !== updatedAt.getTime() && (
+      {createdAt.getTime() !== editedAt.getTime() && (
         <>
           {' • '}
           <FormattedMessage
-            defaultMessage="edited {updatedAtTime}"
+            defaultMessage="edited {editedAtTime}"
             description="Updated time stamp for submission detail page"
-            id="kuPMCs"
+            id="kgoB9+"
             values={{
-              updatedAtTime: <RelativeTimestamp timestamp={updatedAt} />,
+              editedAtTime: <RelativeTimestamp timestamp={editedAt} />,
             }}
           />
         </>

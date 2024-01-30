@@ -20,6 +20,7 @@ function projectsChallengeSubmissionDeploymentUrlsSchema(options?: {
         .min(MIN_LENGTH, { message: minMessage })
         .max(MAX_LENGTH, { message: maxMessage })
         .trim(),
+      screenshots: z.record(z.string().min(1), z.string().min(1)).optional(),
     }),
   );
 }
