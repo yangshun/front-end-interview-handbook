@@ -9,10 +9,7 @@ import {
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { richTextEditorToolbarEventTypes } from '~/components/ui/RichTextEditor/misc';
-import type {
-  RichTextEditorEventType,
-  RichTextEditorSpecialCase,
-} from '~/components/ui/RichTextEditor/types';
+import type { RichTextEditorEventType } from '~/components/ui/RichTextEditor/types';
 
 import {
   $createCodeNode,
@@ -73,9 +70,7 @@ export default function useRichTextEditorOnClickListener() {
     );
   }, [editor, updateToolbar]);
 
-  const onClick = (
-    event: RichTextEditorEventType | RichTextEditorSpecialCase,
-  ) => {
+  const onClick = (event: RichTextEditorEventType) => {
     if (event === richTextEditorToolbarEventTypes.code) {
       editor.update(() => {
         const selection = $getSelection();

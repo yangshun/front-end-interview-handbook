@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import type { EditorState, LexicalEditor } from 'lexical';
+import type { EditorState } from 'lexical';
 import type { FormEventHandler } from 'react';
 import { useId } from 'react';
 import { FormattedMessage } from 'react-intl';
@@ -13,6 +13,7 @@ import RichTextEditorCodeHighlightPlugin from '~/components/ui/RichTextEditor/pl
 import Text from '~/components/ui/Text';
 
 import { RichTextEditorConfig } from './RichTextEditorConfig';
+import { proseStyle } from '../Prose';
 import { themeBackgroundElementColor } from '../theme';
 
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
@@ -42,8 +43,11 @@ type Props = Readonly<{
 type State = 'error' | 'normal';
 
 const stateClasses: Record<State, string> = {
-  error: clsx('border-danger focus:border-danger'),
-  normal: clsx('border-neutral-300 dark:border-neutral-700'),
+  error: clsx('ring-danger', 'focus:ring-danger'),
+  normal: clsx(
+    'ring-neutral-300 dark:ring-neutral-700',
+    'focus-within:ring-brand-dark dark:focus-within:ring-brand',
+  ),
 };
 
 export default function RichTextEditor({
@@ -100,10 +104,12 @@ export default function RichTextEditor({
         </div>
         <div
           className={clsx(
-            'relative border rounded',
+            'relative',
             themeBackgroundElementColor,
-            'prose prose-sm dark:prose-invert',
-            'focus-within:border-brand-dark  focus-within:dark:border-brand',
+            'rounded',
+            'border-0',
+            'ring-1 ring-inset',
+            'focus-within:ring-2 focus-within:ring-inset',
             stateClasses[state],
             className,
           )}>
@@ -113,7 +119,10 @@ export default function RichTextEditor({
               ErrorBoundary={LexicalErrorBoundary}
               contentEditable={
                 <ContentEditable
-                  className="h-full p-3 focus:outline-none prose prose-sm dark:prose-invert"
+                  className={clsx(
+                    'h-full p-3 focus:outline-none',
+                    proseStyle('sm'),
+                  )}
                   id={id}
                   onBlur={(e) => onBlur?.(e)}
                 />

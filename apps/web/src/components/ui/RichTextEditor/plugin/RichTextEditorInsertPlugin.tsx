@@ -3,14 +3,14 @@ import { useIntl } from 'react-intl';
 
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
-type InsertType = 'horizontal' | 'image' | 'link';
+type RichTextEditorInsertType = 'horizontal' | 'image' | 'link';
 
 export default function RichTextEditorInsertPlugin() {
   const intl = useIntl();
   const insertOptions: Array<{
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
-    value: InsertType;
+    value: RichTextEditorInsertType;
   }> = [
     {
       icon: RiLink,

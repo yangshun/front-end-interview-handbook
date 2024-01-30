@@ -15,10 +15,11 @@ import {
 import { useIntl } from 'react-intl';
 
 import DropdownMenu from '~/components/ui/DropdownMenu';
-import type { RichTextEditorSpecialCase } from '~/components/ui/RichTextEditor/types';
 
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import { mergeRegister } from '@lexical/utils';
+
+type RichTextEditorSpecialCase = 'strikethrough' | 'subscript' | 'superscript';
 
 export default function RichTextEditorSpecialCasePlugin() {
   const intl = useIntl();
@@ -27,6 +28,7 @@ export default function RichTextEditorSpecialCasePlugin() {
   const [isStrikethrough, setIsStrikethrough] = useState(false);
   const [isSubscript, setIsSubscript] = useState(false);
   const [isSuperscript, setIsSuperscript] = useState(false);
+
   const caseOptions: Array<{
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
@@ -92,20 +94,8 @@ export default function RichTextEditorSpecialCasePlugin() {
     );
   }, [editor, $updateState]);
 
-  const isSelectedValue = (value: RichTextEditorSpecialCase) => {
-    if (value === 'strikethrough') {
-      return isStrikethrough;
-    }
-    if (value === 'subscript') {
-      return isSubscript;
-    }
-
-    return isSuperscript;
-  };
-
   return (
     <DropdownMenu
-      align="end"
       icon={RiFontSize}
       isLabelHidden={true}
       label={intl.formatMessage({
@@ -120,7 +110,13 @@ export default function RichTextEditorSpecialCasePlugin() {
         <DropdownMenu.Item
           key={value}
           icon={icon}
-          isSelected={isSelectedValue(value)}
+          isSelected={
+            {
+              strikethrough: isStrikethrough,
+              subscript: isSubscript,
+              superscript: isSuperscript,
+            }[value]
+          }
           label={label}
           onClick={() => editor.dispatchCommand(FORMAT_TEXT_COMMAND, value)}
         />
