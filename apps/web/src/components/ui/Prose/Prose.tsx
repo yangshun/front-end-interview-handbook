@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import type { ForwardedRef } from 'react';
 import { forwardRef } from 'react';
 
 export type ProseTextSize = 'md' | 'sm';
@@ -15,24 +16,22 @@ const textSizes: Record<ProseTextSize, string> = {
   sm: 'prose-sm',
 };
 
-const Prose = forwardRef<HTMLDivElement, Props>(
-  (
-    { children, className, dangerouslySetInnerHTML, textSize = 'md' }: Props,
-    ref,
-  ) => {
-    return (
-      <div
-        dangerouslySetInnerHTML={dangerouslySetInnerHTML}
-        ref={ref}
-        className={clsx(
-          'prose dark:prose-invert',
-          textSizes[textSize],
-          className,
-        )}>
-        {children}
-      </div>
-    );
-  },
-);
+export function proseStyle(textSize: ProseTextSize = 'md', className?: string) {
+  return clsx('prose dark:prose-invert', textSizes[textSize], className);
+}
 
-export default Prose;
+function Prose(
+  { children, className, dangerouslySetInnerHTML, textSize = 'md' }: Props,
+  ref: ForwardedRef<HTMLDivElement>,
+) {
+  return (
+    <div
+      dangerouslySetInnerHTML={dangerouslySetInnerHTML}
+      ref={ref}
+      className={proseStyle(textSize, className)}>
+      {children}
+    </div>
+  );
+}
+
+export default forwardRef(Prose);

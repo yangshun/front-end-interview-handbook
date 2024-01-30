@@ -1,20 +1,33 @@
 import { RichTextEditorConfig } from './RichTextEditorConfig';
+import type { ProseTextSize } from '../Prose';
+import { proseStyle } from '../Prose';
 
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
 
-export default function RichTextEditorReadonly({ value }: { value: string }) {
+type Props = Readonly<{
+  className?: string;
+  textSize?: ProseTextSize;
+  value: string;
+}>;
+
+export default function RichText({ value, ...props }: Props) {
   return (
     <LexicalComposer
       initialConfig={{
         ...RichTextEditorConfig,
-        editorState: value ? value : undefined,
+        editable: false,
+        editorState: value,
       }}>
       <RichTextPlugin
         ErrorBoundary={LexicalErrorBoundary}
-        contentEditable={<ContentEditable />}
+        contentEditable={
+          <ContentEditable
+            className={proseStyle(props.textSize, props.className)}
+          />
+        }
         placeholder={null}
       />
     </LexicalComposer>

@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import type { EditorState } from 'lexical';
+import type { EditorState, LexicalEditor } from 'lexical';
 import type { FormEventHandler } from 'react';
 import { useId } from 'react';
 import { FormattedMessage } from 'react-intl';
@@ -68,10 +68,7 @@ export default function RichTextEditor({
   const state = hasError ? 'error' : 'normal';
 
   const onUpdate = (editorState: EditorState) => {
-    const editorStateJSON = editorState.toJSON();
-    const stringifiedEditorState = JSON.stringify(editorStateJSON);
-
-    onChange?.(stringifiedEditorState);
+    onChange?.(JSON.stringify(editorState));
   };
 
   return (
