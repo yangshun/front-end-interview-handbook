@@ -27,6 +27,7 @@ type Props = Readonly<{
   secondaryButton?: React.ReactNode;
   title: string;
   width?: DialogWidth;
+  wrapContents?: (contents: React.ReactNode) => React.ReactNode;
 }>;
 
 const widthClasses: Record<DialogWidth, string> = {
@@ -47,6 +48,7 @@ export default function DialogImpl({
   secondaryButton,
   title,
   width = 'sm',
+  wrapContents,
   onClose,
 }: Props) {
   const intl = useIntl();
@@ -66,6 +68,30 @@ export default function DialogImpl({
       </span>
       <RiCloseLine aria-hidden="true" className="h-6 w-6" />
     </button>
+  );
+
+  const contents = (
+    <>
+      <div className="grid gap-y-2.5 px-6 pb-4 pt-6">
+        <div className="flex items-center justify-between">
+          <Dialog.Title as="div">
+            <Heading level="heading6">{title}</Heading>
+          </Dialog.Title>
+          {closeButton}
+        </div>
+        <Section>
+          <Text display="block" size="body2">
+            {children}
+          </Text>
+        </Section>
+      </div>
+      {primaryButton && (
+        <div className={clsx('flex justify-end gap-2 px-6 py-4')}>
+          {secondaryButton}
+          {primaryButton}
+        </div>
+      )}
+    </>
   );
 
   return (
@@ -104,25 +130,7 @@ export default function DialogImpl({
                   ['sm:w-full', widthClasses[width]],
                   'text-left shadow-xl transition-all',
                 )}>
-                <div className="grid gap-y-2.5 px-6 pb-4 pt-6">
-                  <div className="flex items-center justify-between">
-                    <Dialog.Title as="div">
-                      <Heading level="heading6">{title}</Heading>
-                    </Dialog.Title>
-                    {closeButton}
-                  </div>
-                  <Section>
-                    <Text display="block" size="body2">
-                      {children}
-                    </Text>
-                  </Section>
-                </div>
-                {primaryButton && (
-                  <div className={clsx('flex justify-end gap-2 px-6 py-4')}>
-                    {secondaryButton}
-                    {primaryButton}
-                  </div>
-                )}
+                {wrapContents ? wrapContents(contents) : contents}
               </Dialog.Panel>
             </Transition.Child>
           </div>
