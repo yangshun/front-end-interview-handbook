@@ -18,7 +18,6 @@ import type { ProjectsChallengeSubmissionAugmented } from '~/components/projects
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Prose from '~/components/ui/Prose';
 import RichText from '~/components/ui/RichTextEditor/RichText';
 import Text from '~/components/ui/Text';
 
@@ -38,7 +37,7 @@ export default function ProjectsChallengeSubmissionPage({
   const intl = useIntl();
   const parentRef = useRef(null);
   const isParentInView = useInView(parentRef);
-  const isViewingOwnProfile =
+  const isViewingOwnSubmission =
     currentUserId === submission.projectsProfile?.userProfile?.id;
   const viewSubmissionMutation = trpc.projects.submissions.view.useMutation();
   const submissionId = submission.id;
@@ -87,15 +86,15 @@ export default function ProjectsChallengeSubmissionPage({
   }, [submissionId]);
 
   return (
-    <div ref={parentRef} className="flex flex-col gap-8 -mt-4 lg:-mt-16">
+    <div ref={parentRef} className="flex flex-col -mt-4 lg:-mt-16">
       <ProjectsChallengeSubmissionHero
         challenge={challenge}
         isParentInView={isParentInView}
-        showPin={isViewingOwnProfile}
+        isViewingOwnSubmission={isViewingOwnSubmission}
         submission={submission}
       />
       <Section>
-        <div className="flex md:items-center items-start justify-between md:flex-row flex-col gap-6">
+        <div className="flex md:items-center items-start justify-between md:flex-row flex-col gap-6 mt-10 lg:mt-16">
           {submission.projectsProfile?.userProfile && (
             <ProjectsChallengeSubmissionAuthorProfile
               author={submission.projectsProfile?.userProfile}
@@ -130,20 +129,18 @@ export default function ProjectsChallengeSubmissionPage({
             </div>
           )}
         </div>
-      </Section>
-      {submission.summary && (
-        <Section>
-          <div className="md:w-8/12 w-full">
-            <Text size="body2">{submission.summary}</Text>
-          </div>
-        </Section>
-      )}
-      <ProjectsChallengeSubmissionComparison
-        deploymentUrls={deploymentUrls}
-        submissionId={submissionId}
-      />
-      <Section>
-        <div className="flex md:gap-10 gap-8 md:flex-row flex-col">
+        {submission.summary && (
+          <Text className="max-w-prose my-8" display="block" size="body2">
+            {submission.summary}
+          </Text>
+        )}
+        <div className="mt-10 lg:mt-12">
+          <ProjectsChallengeSubmissionComparison
+            deploymentUrls={deploymentUrls}
+            submissionId={submissionId}
+          />
+        </div>
+        <div className="flex flex-col md:flex-row gap-x-10 gap-8 mt-10 lg:mt-16">
           <div className="flex flex-col gap-3 flex-1">
             <Heading level="heading6">
               <FormattedMessage
@@ -174,17 +171,17 @@ export default function ProjectsChallengeSubmissionPage({
             </div>
           </div>
         </div>
+        <div className="mt-16">
+          <ProjectsChallengeSubmissionDiscussionsSection
+            submission={submission}
+          />
+        </div>
+        <div className="mt-10">
+          <ProjectsChallengeSubmissionInterested
+            challengeSlug={submission.slug}
+          />
+        </div>
       </Section>
-      <div className="mt-10">
-        <ProjectsChallengeSubmissionDiscussionsSection
-          submission={submission}
-        />
-      </div>
-      <div className="mt-10">
-        <ProjectsChallengeSubmissionInterested
-          challengeSlug={submission.slug}
-        />
-      </div>
     </div>
   );
 }
