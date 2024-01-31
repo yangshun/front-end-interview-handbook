@@ -18,6 +18,7 @@ type Attributes = Pick<
   | 'autoFocus'
   | 'id'
   | 'maxLength'
+  | 'minLength'
   | 'name'
   | 'onBlur'
   | 'onFocus'
@@ -108,6 +109,7 @@ function TextInput(
     isLabelHidden = false,
     label,
     maxLength,
+    minLength,
     name,
     placeholder,
     required,
@@ -193,8 +195,10 @@ function TextInput(
           disabled={isDisabled}
           id={id}
           maxLength={maxLength}
+          minLength={minLength}
           name={name}
           placeholder={placeholder}
+          required={required}
           type={type}
           value={value}
           onChange={(event) => {
