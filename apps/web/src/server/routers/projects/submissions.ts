@@ -9,6 +9,7 @@ import { projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus } f
 import type { ProjectsYoeReplacement } from '~/components/projects/types';
 
 import prisma from '~/server/prisma';
+import { getScreenshots } from '~/utils/projects/getScreenshots';
 
 import { projectsUserProcedure, publicProjectsProcedure } from './procedures';
 import { publicProcedure, router } from '../../trpc';
@@ -677,6 +678,42 @@ export const projectsChallengeSubmissionRouter = router({
       },
     });
   }),
+  takeScreenshot: publicProcedure
+    .input(
+      z.object({
+        submissionId: z.string().uuid(),
+      }),
+    )
+    .mutation(async ({ input: { submissionId } }) => {
+      const submission = await prisma.projectsChallengeSubmission.findUnique({
+        where: {
+          id: submissionId,
+        },
+      });
+
+      if (submission == null) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: 'Submission not found',
+        });
+      }
+
+      const screenshots = await getScreenshots(
+        submissionId,
+        submission.deploymentUrls,
+      );
+
+      await prisma.projectsChallengeSubmission.update({
+        data: {
+          deploymentUrls: screenshots,
+        },
+        where: {
+          id: submissionId,
+        },
+      });
+
+      return screenshots;
+    }),
   unpin: projectsUserProcedure
     .input(
       z.object({

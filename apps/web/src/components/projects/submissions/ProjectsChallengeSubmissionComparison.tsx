@@ -10,6 +10,8 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
 import FilterButton from '~/components/common/FilterButton';
 import ProjectsChallengeSubmissionImageComparisonSlider from '~/components/projects/submissions/ProjectsChallengeSubmissionImageComparisonSlider';
 import Button from '~/components/ui/Button';
@@ -25,20 +27,28 @@ import type {
 
 type Props = Readonly<{
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
+  submissionId: string;
 }>;
 
 export default function ProjectsChallengeSubmissionComparison({
   deploymentUrls,
+  submissionId,
 }: Props) {
   const intl = useIntl();
   const [selectedDevice, setSelectedDevice] =
     useState<ProjectsChallengeSubmissionDeploymentScreenshotDevice>('desktop');
+  // TODO(projects): refetch submission to prevent storing duplicated state
+  const [deploymentScreenshots, setDeploymentScreenshots] =
+    useState<ProjectsChallengeSubmissionDeploymentUrls>(deploymentUrls);
   const [selectedScreenIndex, setSelectedScreenIndex] = useState(0);
-  const pages = deploymentUrls.map((page) => ({
+  const pages = deploymentScreenshots.map((page) => ({
     label: page.label,
     original: `https://source.unsplash.com/random/1080x700?random=${page.label}`,
     screenshot: page.screenshots?.[selectedDevice],
   }));
+
+  const takeScreenshotMutation =
+    trpc.projects.submissions.takeScreenshot.useMutation();
 
   return (
     <Section>
@@ -63,12 +73,21 @@ export default function ProjectsChallengeSubmissionComparison({
               addonPosition="start"
               className="flex-1 md:flex-auto"
               icon={RiImageLine}
+              isDisabled={takeScreenshotMutation.isLoading}
+              isLoading={takeScreenshotMutation.isLoading}
               label={intl.formatMessage({
                 defaultMessage: 'Retake screenshot',
                 description: 'Retake screenshot button label',
                 id: 'e0C2cj',
               })}
               variant="secondary"
+              onClick={() => {
+                takeScreenshotMutation
+                  .mutateAsync({ submissionId })
+                  .then((newDeploymentScreenshots) => {
+                    setDeploymentScreenshots(newDeploymentScreenshots);
+                  });
+              }}
             />
             <Button
               icon={RiSubtractLine}
@@ -97,7 +116,7 @@ export default function ProjectsChallengeSubmissionComparison({
             className={clsx('col-span-1 md:col-span-2 flex items-center')}
             color="secondary"
             weight="medium">
-            {deploymentUrls[selectedScreenIndex].label}
+            {deploymentScreenshots[selectedScreenIndex].label}
           </Text>
           <div className="col-span-1 md:col-span-2 md:order-last justify-end items-center flex gap-2">
             {(

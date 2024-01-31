@@ -26,6 +26,7 @@ export type ProjectsChallengeSubmissionDeploymentUrls = Array<{
     ProjectsChallengeSubmissionDeploymentScreenshotDevice,
     string
   >;
+  updatedAt?: Date | null;
 }>;
 
 // Subset of relevant fields from Prisma.Profile.

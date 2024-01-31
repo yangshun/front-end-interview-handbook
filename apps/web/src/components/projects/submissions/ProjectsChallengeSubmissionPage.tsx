@@ -142,7 +142,10 @@ export default function ProjectsChallengeSubmissionPage({
           </div>
         </Section>
       )}
-      <ProjectsChallengeSubmissionComparison deploymentUrls={deploymentUrls} />
+      <ProjectsChallengeSubmissionComparison
+        deploymentUrls={deploymentUrls}
+        submissionId={submissionId}
+      />
       <Section>
         <div className="flex md:gap-10 gap-8 md:flex-row flex-col">
           <div className="flex flex-col gap-3 flex-1">
