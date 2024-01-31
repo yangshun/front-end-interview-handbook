@@ -123,6 +123,7 @@ export default function ProjectsChallengeStepsTabs<T>({
                       ],
                 )}
                 href={href}
+                scrollToTop={false}
                 variant="unstyled"
                 onClick={() => onSelect?.(tabItemValue)}>
                 <div className="w-[160px]">
