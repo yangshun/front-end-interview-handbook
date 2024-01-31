@@ -12,8 +12,8 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 
+import ProjectsChallengeBriefFAQSection from './ProjectsChallengeBriefFAQSection';
 import ProjectsChallengeBriefProvidedResources from './ProjectsChallengeBriefProvidedResources';
-import ProjectsChallengeBriefFAQSection from './ProjectsChallengeBriefSection';
 import ProjectsChallengeBriefSupportSection from './ProjectsChallengeBriefSupportSection';
 import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxContent';
 
