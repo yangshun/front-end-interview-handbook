@@ -235,6 +235,10 @@
     "defaultMessage": "Hello {userEmail}!",
     "description": "Title of AuthPage when logged in"
   },
+  "0K1Xot": {
+    "defaultMessage": "We offer a few guidance options",
+    "description": "FAQ answer for projects platform"
+  },
   "0Nq65E": {
     "defaultMessage": "Billing",
     "description": "Screenreader text for subscription billing."
@@ -703,6 +707,10 @@
     "defaultMessage": "Practice by framework",
     "description": "Sidebar label for Questions list page"
   },
+  "5gYLMr": {
+    "defaultMessage": "Once you're done, host your project with <tooltip>our recommended hosts</tooltip> and submit your project URL for code reviews.",
+    "description": "FAQ answer for projects platform"
+  },
   "5gqGca": {
     "defaultMessage": "Someone from {country} subscribed to <link>Premium</link> recently",
     "description": "Marketing toast to show that someone has subscribed"
@@ -906,6 +914,10 @@
   "7Wsapt": {
     "defaultMessage": "Quiz",
     "description": "Quiz questions short title"
+  },
+  "7fCoNs": {
+    "defaultMessage": "Will I have to code within the platform, or use my own IDE?",
+    "description": "FAQ question for projects platform"
   },
   "7gb9hK": {
     "defaultMessage": "Everything you need",
@@ -1567,6 +1579,10 @@
     "defaultMessage": "Build your way up to a well-rounded front end / full stack skillset. Hone a specific skill, or follow our skills progression starting from zero.",
     "description": "Description of Projects skill tree page"
   },
+  "EBw1EY": {
+    "defaultMessage": "I want to use React on this project, but it's not listed as one of the skills. Can I still use it?",
+    "description": "FAQ question for projects platform"
+  },
   "ECkWMR": {
     "defaultMessage": "Stop session",
     "description": "Label to stop study plan"
@@ -2095,6 +2111,10 @@
     "defaultMessage": "Back to home",
     "description": "Link text to navigate to blog home page"
   },
+  "JeIp7K": {
+    "defaultMessage": "If you're stuck, clarify any doubts within the project discussion forums in Step 3's tab. If you need answers urgently for a critical issue, email as at <link>support@greatfrontend.com</link>.",
+    "description": "FAQ answer for projects platform"
+  },
   "JhZ/aF": {
     "defaultMessage": "Quiz Questions",
     "description": "Quiz questions long title"
@@ -2302,6 +2322,10 @@
   "LGm3GF": {
     "defaultMessage": "Async Operations",
     "description": "Name of focus area questions"
+  },
+  "LHxvVR": {
+    "defaultMessage": "Yes. Every project you start creates a 'session' of the project, which you can end. You can start a new session anytime.",
+    "description": "FAQ answer for projects platform"
   },
   "LLsMT8": {
     "defaultMessage": "Want to build my side projects",
@@ -2783,6 +2807,10 @@
     "defaultMessage": "Focus areas",
     "description": "Sidebar label for interview focus area category"
   },
+  "PeCsAb": {
+    "defaultMessage": "Can I stop a challenge once I start it?",
+    "description": "FAQ question for projects platform"
+  },
   "PeXK7/": {
     "defaultMessage": "Pricing",
     "description": "Title of Pricing page"
@@ -3219,6 +3247,10 @@
     "defaultMessage": "Summary can contain at most {maxLength} characters.",
     "description": "Error message"
   },
+  "TWZbhr": {
+    "defaultMessage": "Recommended user submissions you can reference",
+    "description": "FAQ answer for projects platform"
+  },
   "TaIXVz": {
     "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
@@ -3378,6 +3410,10 @@
   "UwT84H": {
     "defaultMessage": "Get the right foundation",
     "description": "Short title for \"Get the right foundation for practical development\" feature marketing section on Projects home page"
+  },
+  "Uwu0Y3": {
+    "defaultMessage": "Yes of course! You are encouraged to use your own customized stack to build the projects and share your implementation approach.",
+    "description": "FAQ answer for projects platform"
   },
   "UxRVYP": {
     "defaultMessage": "Use code at checkout. Code expires on {expiryDate}.",
@@ -4111,6 +4147,10 @@
     "defaultMessage": "GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front-end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.",
     "description": "Ryan Van Valkenburg's testimonial"
   },
+  "bJ3A5y": {
+    "defaultMessage": "You will be able to modify the skills and tech stack used once you start the project.",
+    "description": "FAQ answer for projects platform"
+  },
   "bMdB2V": {
     "defaultMessage": "Must be a URL.",
     "description": "Error message"
@@ -4266,6 +4306,10 @@
   "ctKiBc": {
     "defaultMessage": "User submissions",
     "description": "Projects submissions page title"
+  },
+  "cvjpKx": {
+    "defaultMessage": "There are many ways to host your site. Our recommended hosts are:",
+    "description": "Description for recommended hosts in project challenge FAQs"
   },
   "cx8XeF": {
     "defaultMessage": "Invalid student email",
@@ -4447,9 +4491,17 @@
     "defaultMessage": "Browse all projects",
     "description": "Title of Projects Browse Projects page"
   },
+  "eucnNd": {
+    "defaultMessage": "What kind of guidance will this platform provide me?",
+    "description": "FAQ question for projects platform"
+  },
   "eyLjDz": {
     "defaultMessage": "Have questions, feedback or anything to say?",
     "description": "Title for contact us section"
+  },
+  "ez3Cqu": {
+    "defaultMessage": "What if I get stuck in a challenge?",
+    "description": "FAQ question for projects platform"
   },
   "ez5OLq": {
     "defaultMessage": "Practice Angular Interview Questions with Solutions",
@@ -4502,6 +4554,10 @@
   "fKFJZE": {
     "defaultMessage": "Completed",
     "description": "Completed status"
+  },
+  "fO8U+i": {
+    "defaultMessage": "Will this be a timed challenge?",
+    "description": "FAQ question for projects platform"
   },
   "fRGOI+": {
     "defaultMessage": "Number of questions",
@@ -4674,6 +4730,10 @@
   "ghssuE": {
     "defaultMessage": "Next",
     "description": "Label for Next button on Projects profile onboarding page"
+  },
+  "gkQHSv": {
+    "defaultMessage": "Official solutions from senior engineers, possibly using different stacks",
+    "description": "FAQ answer for projects platform"
   },
   "glQWNv": {
     "defaultMessage": "Articles",
@@ -5339,6 +5399,10 @@
     "defaultMessage": "Prepare end-to-end for front end interviews",
     "description": "Title for question format category links in navbar"
   },
+  "mU6vix": {
+    "defaultMessage": "[For complete beginners] Basic general development guides, such as how to download and use an IDE, how to use tools like Github and Figma",
+    "description": "FAQ answer for projects platform"
+  },
   "mb7erW": {
     "defaultMessage": "Importance",
     "description": "Label for question importance - how important it is to practice this question"
@@ -5514,6 +5578,10 @@
   "oIktGl": {
     "defaultMessage": "One-time use; can only be completed once.",
     "description": "Condition for promotion"
+  },
+  "oJPsPU": {
+    "defaultMessage": "Curated, external resources that could be helpful",
+    "description": "FAQ answer for projects platform"
   },
   "oNMAi3": {
     "defaultMessage": "Difficulty: Easy to Hard",
@@ -6127,6 +6195,10 @@
     "defaultMessage": "To submission",
     "description": "Link label to go back to challenge submission"
   },
+  "termd9": {
+    "defaultMessage": "We will keep track of when you start the project, for your personal reference on the time you take building it.",
+    "description": "FAQ answer for projects platform"
+  },
   "tfonOP": {
     "defaultMessage": "Premium Study Plans",
     "description": "Study plans paywall title"
@@ -6198,6 +6270,10 @@
   "uBaCgb": {
     "defaultMessage": "GreatFrontEnd Projects",
     "description": "Title of Projects All Projects page"
+  },
+  "uBhDCw": {
+    "defaultMessage": "A forum where you can clarify doubts",
+    "description": "FAQ answer for projects platform"
   },
   "uCT1Lh": {
     "defaultMessage": "All challenges",
@@ -6467,6 +6543,10 @@
     "defaultMessage": "{questionTitle} | JavaScript Front End Interview Questions with Solutions",
     "description": "Title of Javascript Front End interview questions page"
   },
+  "wrdmxS": {
+    "defaultMessage": "You will have to use your own IDE, just as any developer should for a real project. If you're a complete beginner and are not sure what an IDE is, we will have a basic guide within Step 3's tab teaching you how to download and set-up an IDE for the first time.",
+    "description": "FAQ answer for projects platform"
+  },
   "wzLox4": {
     "defaultMessage": "Monthly Plan CTA card tooltip",
     "description": "Tooltip label for Monthly Plan CTA card in Projects sidebar"
@@ -6539,6 +6619,10 @@
     "defaultMessage": "Framework",
     "description": "Question framework"
   },
+  "xegXNt": {
+    "defaultMessage": "Step-by-step guides on how to approach the challenge",
+    "description": "FAQ answer for projects platform"
+  },
   "xg1qLW": {
     "defaultMessage": "Tell us why you're here so that we can customize your experience",
     "description": "Subtitle for Projects onboarding page"
@@ -6574,6 +6658,10 @@
   "y0zT5M": {
     "defaultMessage": "Wide variety of projects",
     "description": "Title of the 'Build towards your goals' marketing section on Projects home page"
+  },
+  "y1/vKv": {
+    "defaultMessage": "Deployment and submission checklist and guide",
+    "description": "FAQ answer for projects platform"
   },
   "y16Lzt": {
     "defaultMessage": "Find out what questions companies are asking their candidates.",
@@ -6694,6 +6782,10 @@
   "zEnL8r": {
     "defaultMessage": "Difficulty: Easy to Hard",
     "description": "Sorting option for submissions list - sort by difficulty from easy to hard"
+  },
+  "zGTH+Q": {
+    "defaultMessage": "What do I do once I'm done coding?",
+    "description": "FAQ question for projects platform"
   },
   "zIQsmk": {
     "defaultMessage": "Terms of Service",
