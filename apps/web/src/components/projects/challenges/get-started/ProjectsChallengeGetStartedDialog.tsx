@@ -13,11 +13,11 @@ import {
   themeBorderElementColor,
 } from '~/components/ui/theme';
 
-import ProjectsChallengeGetStartedDownloadFigmaDesignDownloadFigmaDesign from './ProjectsChallengeGetStartedDownloadFigmaDesign';
-import ProjectsChallengeGetStartedDownloadFigmaDesignDownloadStarterFiles from './ProjectsChallengeGetStartedDownloadStarterFiles';
-import ProjectsChallengeGetStartedDownloadFigmaDesignImportantInfoGuide from './ProjectsChallengeGetStartedImportantInfoGuide';
-import ProjectsChallengeGetStartedDownloadFigmaDesignSkillSelection from './ProjectsChallengeGetStartedSkillSelection';
-import ProjectsChallengeGetStartedDownloadFigmaDesignStartCoding from './ProjectsChallengeGetStartedStartCoding';
+import ProjectsChallengeGetStartedDownloadFigmaDesign from './ProjectsChallengeGetStartedDownloadFigmaDesign';
+import ProjectsChallengeGetStartedDownloadStarterFiles from './ProjectsChallengeGetStartedDownloadStarterFiles';
+import ProjectsChallengeGetStartedImportantInfoGuide from './ProjectsChallengeGetStartedImportantInfoGuide';
+import ProjectsChallengeGetStartedSkillSelection from './ProjectsChallengeGetStartedSkillSelection';
+import ProjectsChallengeGetStartedStartCoding from './ProjectsChallengeGetStartedStartCoding';
 import type { ProjectsChallengeItem } from '../types';
 
 type DialogStep = Readonly<{
@@ -41,7 +41,7 @@ function useDialogSteps({
   const dialogSteps: Array<DialogStep> = [
     {
       content: (
-        <ProjectsChallengeGetStartedDownloadFigmaDesignDownloadStarterFiles
+        <ProjectsChallengeGetStartedDownloadStarterFiles
           starterFilesHref={challenge.metadata.downloadStarterFilesHref}
         />
       ),
@@ -55,7 +55,7 @@ function useDialogSteps({
     },
     {
       content: (
-        <ProjectsChallengeGetStartedDownloadFigmaDesignDownloadFigmaDesign
+        <ProjectsChallengeGetStartedDownloadFigmaDesign
           downloadDesignFileHref={challenge.metadata.downloadDesignFileHref}
           userCanAccess={userCanAccess}
         />
@@ -69,7 +69,7 @@ function useDialogSteps({
       }),
     },
     {
-      content: <ProjectsChallengeGetStartedDownloadFigmaDesignSkillSelection />,
+      content: <ProjectsChallengeGetStartedSkillSelection />,
       id: 'select-skills',
       label: intl.formatMessage({
         defaultMessage: 'Tell us about the skills you will be using',
@@ -79,9 +79,7 @@ function useDialogSteps({
       }),
     },
     {
-      content: (
-        <ProjectsChallengeGetStartedDownloadFigmaDesignImportantInfoGuide />
-      ),
+      content: <ProjectsChallengeGetStartedImportantInfoGuide />,
       id: 'important-info-guide',
       label: intl.formatMessage({
         defaultMessage: 'Know where to find important info',
@@ -92,7 +90,7 @@ function useDialogSteps({
     },
     {
       content: (
-        <ProjectsChallengeGetStartedDownloadFigmaDesignStartCoding
+        <ProjectsChallengeGetStartedStartCoding
           isLoading={isLoading}
           onStartClick={onStartClick}
         />
