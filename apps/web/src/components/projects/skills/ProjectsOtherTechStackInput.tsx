@@ -24,7 +24,6 @@ export default function ProjectsOtherTechStackInput({
     <div className="flex flex-col">
       <TextInput
         autoComplete="off"
-        classNameOuter="mt-6"
         description={
           <FormattedMessage
             defaultMessage="Other skills you are using which are not within the skills tree. Also helps community members understand more about the tech stack.{br}{br}If you don't see the tag you need, email us at <email>{supportEmail}</email>"
@@ -56,21 +55,23 @@ export default function ProjectsOtherTechStackInput({
         value={inputValue}
         onChange={setInputValue}
       />
-      <div className="mt-4 flex gap-3">
-        {value.map((techStack) => (
-          <ProjectsSkillChip
-            key={techStack}
-            isEditable={true}
-            skill={{
-              key: techStack,
-              label: techStack,
-            }}
-            onDelete={() => {
-              onChange(value.filter((skill) => skill !== techStack));
-            }}
-          />
-        ))}
-      </div>
+      {value.length > 0 && (
+        <div className="mt-4 flex gap-3">
+          {value.map((techStack) => (
+            <ProjectsSkillChip
+              key={techStack}
+              isEditable={true}
+              skill={{
+                key: techStack,
+                label: techStack,
+              }}
+              onDelete={() => {
+                onChange(value.filter((skill) => skill !== techStack));
+              }}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

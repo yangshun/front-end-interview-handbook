@@ -367,6 +367,10 @@
     "defaultMessage": "YOE / Job status",
     "description": "Label for experience filter for submissions list"
   },
+  "1m0p3c": {
+    "defaultMessage": "Edit submission",
+    "description": "Button to edit project submission"
+  },
   "1q1I7J": {
     "defaultMessage": "Vercel",
     "description": "Label for \"Vercel\" option in Deployment Info"
@@ -2866,10 +2870,6 @@
   "QPEzBY": {
     "defaultMessage": "Build projects to train every front end skill from beginner to advanced",
     "description": "Description for beginner motivation"
-  },
-  "QQPZy5": {
-    "defaultMessage": "Take a screenshot of your solution, which will be used as your Submission display photo.",
-    "description": "Project submission tooltip"
   },
   "QTT/Vt": {
     "defaultMessage": "Popularity: Most to least completed",
@@ -6402,10 +6402,6 @@
   "vHNURr": {
     "defaultMessage": "View all filters",
     "description": "Tooltip for All Filters button for projects list"
-  },
-  "vMmOYL": {
-    "defaultMessage": "Screenshot of solution",
-    "description": "Project submission label"
   },
   "vSWYET": {
     "defaultMessage": "Save changes",

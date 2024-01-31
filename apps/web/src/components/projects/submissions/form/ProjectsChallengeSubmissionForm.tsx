@@ -1,17 +1,10 @@
-import clsx from 'clsx';
 import { FormProvider, useForm } from 'react-hook-form';
-import { RiDeleteBinLine, RiImageLine } from 'react-icons/ri';
+import { RiDeleteBinLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
-import Label from '~/components/ui/Label';
-import Text from '~/components/ui/Text';
-import {
-  themeBorderElementColor,
-  themeTextSecondaryColor,
-} from '~/components/ui/theme';
 
 import ProjectsChallengeSubmissionDeploymentUrlField from './fields/ProjectsChallengeSubmissionDeploymentUrlsField';
 import { useProjectsChallengeSubmissionDeploymentUrlsSchema } from './fields/ProjectsChallengeSubmissionDeploymentUrlsSchema';
@@ -101,8 +94,8 @@ export default function ProjectsChallengeSubmissionForm({
     <FormProvider {...formMethods}>
       <form className="flex flex-col gap-12" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-10">
-          <div className="grid lg:grid-cols-2 gap-x-6">
-            <div className="flex flex-col">
+          <div className="grid lg:grid-cols-2 gap-6">
+            <div className="flex flex-col gap-6">
               <ProjectsChallengeSubmissionTitleField control={control} />
               <ProjectsSkillInput
                 description={intl.formatMessage({
@@ -124,45 +117,8 @@ export default function ProjectsChallengeSubmissionForm({
                 control={control}
               />
             </div>
-            <div className="flex grow flex-col gap-2">
-              <Label
-                description={intl.formatMessage({
-                  defaultMessage:
-                    'Take a screenshot of your solution, which will be used as your Submission display photo.',
-                  description: 'Project submission tooltip',
-                  id: 'QQPZy5',
-                })}
-                descriptionStyle="tooltip"
-                label={intl.formatMessage({
-                  defaultMessage: 'Screenshot of solution',
-                  description: 'Project submission label',
-                  id: 'vMmOYL',
-                })}
-                required={true}
-              />
-              <div
-                className={clsx(
-                  'flex grow rounded-lg items-center justify-center',
-                  'p-4',
-                  ['border', themeBorderElementColor, 'border-dashed'],
-                )}>
-                <div className="flex flex-col items-center gap-3">
-                  <RiImageLine
-                    aria-hidden={true}
-                    className={clsx(
-                      'w-10 h-10 shrink-0',
-                      themeTextSecondaryColor,
-                    )}
-                  />
-                  <Text color="secondary" display="block" size="body3">
-                    WebP, PNG, JPG, GIF up to 5MB
-                  </Text>
-                </div>
-              </div>
-            </div>
+            <ProjectsChallengeSubmissionDeploymentUrlField control={control} />
           </div>
-          <Divider />
-          <ProjectsChallengeSubmissionDeploymentUrlField control={control} />
           <Divider />
           <div className="flex flex-col gap-6">
             <div className="grid lg:grid-cols-2 gap-x-6">

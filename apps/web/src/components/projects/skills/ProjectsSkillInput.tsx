@@ -31,7 +31,7 @@ export default function ProjectsSkillInput({
   const id = useId();
 
   return (
-    <div className={clsx('flex flex-col', className)}>
+    <div className={clsx('flex flex-col gap-2', className)}>
       <Label
         description={description}
         descriptionStyle={descriptionStyle}
@@ -42,7 +42,7 @@ export default function ProjectsSkillInput({
       />
       <div
         className={clsx(
-          'py-2 px-3 mt-2 flex justify-between items-center border rounded',
+          'py-2 px-3 flex justify-between items-center border rounded',
           themeBorderElementColor,
         )}>
         {/* TODO(projects): Add skill selection input */}

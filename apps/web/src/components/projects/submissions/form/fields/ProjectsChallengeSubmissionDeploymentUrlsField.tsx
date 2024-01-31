@@ -1,14 +1,18 @@
-import { useId } from 'react';
+import clsx from 'clsx';
+import { useId, useState } from 'react';
 import type { Control } from 'react-hook-form';
 import { useController } from 'react-hook-form';
-import { RiAddLine, RiCloseLine } from 'react-icons/ri';
+import { RiAddLine, RiCloseLine, RiPencilLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Label from '~/components/ui/Label';
 import Text from '~/components/ui/Text';
-import TextInput from '~/components/ui/TextInput';
+import { themeBorderElementColor } from '~/components/ui/theme';
 
+import type { DeploymentUrlDialogMode } from './ProjectsChallengeSubmissionDeploymentUrlFormDialog';
+import ProjectsChallengeSubmissionDeploymentUrlFormDialog from './ProjectsChallengeSubmissionDeploymentUrlFormDialog';
 import { getProjectsChallengeSubmissionDeploymentUrlsAttributes } from './ProjectsChallengeSubmissionDeploymentUrlsSchema';
 import type { ProjectsChallengeSubmissionFormValues } from '../ProjectsChallengeSubmissionForm';
 import ProjectsChallengeSubmitPageDeploymentDialog from '../ProjectsChallengeSubmitPageDeploymentDialog';
@@ -19,11 +23,18 @@ type Props = Readonly<{
 
 const fieldName = 'deploymentUrls';
 
+const maximumUrls = 4;
+
 export default function ProjectsChallengeSubmissionDeploymentUrlsField({
   control,
 }: Props) {
   const intl = useIntl();
   const messageId = useId();
+
+  const [dialogMode, setDialogMode] = useState<DeploymentUrlDialogMode | null>(
+    null,
+  );
+  const [editingIndex, setEditingIndex] = useState<number | null>(null);
   const attrs = getProjectsChallengeSubmissionDeploymentUrlsAttributes(intl);
   const { field, formState } = useController({
     control,
@@ -32,7 +43,7 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
   });
 
   return (
-    <div className="flex flex-col gap-y-5">
+    <div className="flex flex-col gap-y-4">
       <div className="flex flex-col gap-y-4">
         <div className="flex justify-between gap-4">
           <div className="flex flex-col gap-y-2">
@@ -41,6 +52,7 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
               descriptionId={messageId}
               descriptionStyle="tooltip"
               label={attrs.label}
+              required={true}
             />
             <Text color="secondary" display="block" size="body3">
               Provide at least 1 URL where you hosted your solution
@@ -50,64 +62,105 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
             <ProjectsChallengeSubmitPageDeploymentDialog />
           </div>
         </div>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="flex flex-col gap-2">
           {field.value.map((item, index) => (
-            <div key={item.href} className="flex gap-2 items-center">
-              <TextInput
-                classNameOuter="grow"
-                errorMessage={
-                  formState.errors[fieldName]?.[index]?.href?.message
-                }
-                label={item.label}
-                placeholder={attrs.placeholder}
-                type={attrs.type}
-                value={item.href}
-                onChange={(value) => {
-                  field.onChange([
-                    ...field.value.slice(0, index),
-                    {
-                      ...item,
-                      href: value,
-                    },
-                    ...field.value.slice(index + 1),
-                  ]);
-                }}
-              />
-              <Button
-                addonPosition="start"
-                icon={RiCloseLine}
-                isLabelHidden={true}
-                label="Delete"
-                size="md"
-                variant="tertiary"
-                onClick={() => {
-                  if (field.value.length === 1) {
-                    return;
-                  }
+            <div
+              key={item.href}
+              className={clsx(
+                'flex gap-4 items-center justify-between',
+                'py-0.5 px-3 rounded',
+                ['border', themeBorderElementColor],
+              )}>
+              <Text
+                className="whitespace-nowrap truncate w-full"
+                display="block"
+                size="body3">
+                {item.label}: <Anchor href={item.href}>{item.href}</Anchor>
+              </Text>
+              <div className="flex -me-2 shrink-0">
+                <Button
+                  addonPosition="start"
+                  icon={RiPencilLine}
+                  isLabelHidden={true}
+                  label="Edit"
+                  size="md"
+                  variant="tertiary"
+                  onClick={() => {
+                    setDialogMode('edit');
+                    setEditingIndex(index);
+                  }}
+                />
+                {field.value.length > 1 && (
+                  <Button
+                    addonPosition="start"
+                    icon={RiCloseLine}
+                    isLabelHidden={true}
+                    label="Delete"
+                    size="md"
+                    variant="tertiary"
+                    onClick={() => {
+                      if (field.value.length === 1) {
+                        return;
+                      }
 
-                  field.onChange([
-                    ...field.value.slice(0, index),
-                    ...field.value.slice(index + 1),
-                  ]);
-                }}
-              />
+                      field.onChange([
+                        ...field.value.slice(0, index),
+                        ...field.value.slice(index + 1),
+                      ]);
+                    }}
+                  />
+                )}
+              </div>
             </div>
           ))}
         </div>
       </div>
-      <div>
-        <Button
-          addonPosition="start"
-          className="-ms-4 -mt-2"
-          icon={RiAddLine}
-          label="Add another URL"
-          size="sm"
-          variant="tertiary"
-          onClick={() => {
-            field.onChange([...field.value, { href: '', label: 'Hello' }]);
-          }}
-        />
-      </div>
+      {field.value.length < maximumUrls && (
+        <div>
+          <Button
+            addonPosition="start"
+            display="block"
+            icon={RiAddLine}
+            label="Add another URL"
+            size="sm"
+            variant="secondary"
+            onClick={() => {
+              setDialogMode('add');
+            }}
+          />
+        </div>
+      )}
+      <ProjectsChallengeSubmissionDeploymentUrlFormDialog
+        isShown={dialogMode != null}
+        mode={dialogMode!}
+        value={editingIndex != null ? field.value[editingIndex] : undefined}
+        onClose={() => {
+          setDialogMode(null);
+        }}
+        onSubmit={(value) => {
+          if (dialogMode === 'add') {
+            field.onChange([...field.value, value]);
+          }
+
+          if (dialogMode === 'edit' && editingIndex != null) {
+            field.onChange([
+              ...field.value.slice(0, editingIndex),
+              // If the URL is the same, means only the label is updated,
+              // so preserve any existing screenshots.
+              value.href === field.value[editingIndex].href
+                ? {
+                    ...field.value[editingIndex],
+                    ...value,
+                  }
+                : value,
+              ...field.value.slice(editingIndex + 1),
+            ]);
+            setEditingIndex(null);
+          }
+
+          setDialogMode(null);
+        }}
+      />
     </div>
   );
 }

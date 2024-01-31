@@ -19,7 +19,7 @@ export type ProjectsChallengeSubmissionDeploymentScreenshotDevice =
   | 'mobile'
   | 'tablet';
 
-export type ProjectsChallengeSubmissionDeploymentUrls = Array<{
+export type ProjectsChallengeSubmissionDeploymentUrlItem = {
   href: string;
   label: string;
   screenshots?: Record<
@@ -27,7 +27,10 @@ export type ProjectsChallengeSubmissionDeploymentUrls = Array<{
     string
   >;
   updatedAt?: Date | null;
-}>;
+};
+
+export type ProjectsChallengeSubmissionDeploymentUrls =
+  Array<ProjectsChallengeSubmissionDeploymentUrlItem>;
 
 // Subset of relevant fields from Prisma.Profile.
 export type ProjectsChallengeSubmissionAuthor = Readonly<{
