@@ -23,14 +23,14 @@ import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   isParentInView: boolean;
-  showPin: boolean;
+  isViewingOwnSubmission?: boolean;
   submission: ProjectsChallengeSubmissionAugmented;
 }>;
 
 export default function ProjectsChallengeSubmissionHero({
   challenge,
   submission,
-  showPin = false,
+  isViewingOwnSubmission = false,
   isParentInView,
 }: Props) {
   const intl = useIntl();
@@ -86,6 +86,19 @@ export default function ProjectsChallengeSubmissionHero({
       })}
       size="sm"
       variant="tertiary"
+    />
+  );
+
+  const editButton = (
+    <Button
+      href={submission.hrefs.edit}
+      label={intl.formatMessage({
+        defaultMessage: 'Edit submission',
+        description: 'Button to edit project submission',
+        id: '1m0p3c',
+      })}
+      size="sm"
+      variant="secondary"
     />
   );
 
@@ -145,18 +158,22 @@ export default function ProjectsChallengeSubmissionHero({
           </div>
         </Container>
       </div>
-
       <div ref={heroRef} className="relative md:block hidden">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -z-10 -mb-28 -mt-28 flex h-[calc(100%_+_112px)] w-full justify-center overflow-hidden rounded-b-[16px]">
-          <MarketingHeroBackground className="h-full  min-w-[1200px]" />
+          <MarketingHeroBackground className="h-full min-w-[1200px]" />
         </div>
         <div className="relative pb-8 pt-5 sm:pb-16 md:pt-12 md:pb-8 md:px-8 h-full">
           <div className="flex flex-col justify-between items-start h-full gap-2">
             <div className="flex gap-2 justify-between w-full">
               {backButton}
-              {showPin && <div>{pinButton}</div>}
+              {isViewingOwnSubmission && (
+                <div className="flex gap-2 items-center">
+                  {pinButton}
+                  {editButton}
+                </div>
+              )}
             </div>
             <div className="flex lg:flex-row flex-col gap-2 h-full justify-between w-full lg:items-center">
               <div className="flex flex-col gap-1">
@@ -181,11 +198,11 @@ export default function ProjectsChallengeSubmissionHero({
           </div>
         </div>
       </div>
-      <div className="mt-6 flex flex-col gap-10 md:hidden">
-        <div ref={mobileHeroRef} className="flex flex-col gap-6">
-          <div className="flex flex-wrap gap-2 justify-between">
+      <div className="mt-6 flex flex-col gap-6 md:hidden">
+        <div ref={mobileHeroRef} className="flex flex-col gap-4">
+          <div className="flex flex-wrap gap-4 justify-between">
             {backButton}
-            {showPin && pinButton}
+            {isViewingOwnSubmission && pinButton}
           </div>
           <div className="flex flex-col gap-4">
             <ProjectsChallengeSubmissionHeroTimestamp submission={submission} />
