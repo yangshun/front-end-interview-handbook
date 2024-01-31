@@ -748,6 +748,24 @@ export const projectsChallengeSubmissionRouter = router({
         });
       },
     ),
+  unvote: projectsUserProcedure
+    .input(
+      z.object({
+        submissionId: z.string().uuid(),
+      }),
+    )
+    .mutation(
+      async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
+        await prisma.projectsChallengeSubmissionVote.deleteMany({
+          where: {
+            profileId: projectsProfileId,
+            submissionId,
+          },
+        });
+
+        return null;
+      },
+    ),
   update: projectsUserProcedure
     .input(
       projectsChallengeSubmissionFormSchema.partial().extend({

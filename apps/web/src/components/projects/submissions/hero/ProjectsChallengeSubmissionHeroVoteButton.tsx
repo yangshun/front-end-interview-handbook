@@ -23,8 +23,6 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
 }) {
   const { showToast } = useToast();
   const intl = useIntl();
-  const [currentVotes, setCurrentVotes] = useState(votes);
-  const [hasVoted, setHasVoted] = useState(false);
 
   const { isLoading } = trpc.projects.submissions.hasVoted.useQuery(
     {
@@ -37,7 +35,10 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
     },
   );
 
-  // Optimistic update
+  const [currentVotes, setCurrentVotes] = useState(votes);
+  const [hasVoted, setHasVoted] = useState(false);
+
+  // TODO(projects): refetch submission instead of maintaining local state.
   const vote = trpc.projects.submissions.vote.useMutation({
     onError: () => {
       setCurrentVotes((prevVotes) => prevVotes - 1);
@@ -56,23 +57,39 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
       });
     },
   });
+  const unvote = trpc.projects.submissions.unvote.useMutation({
+    onError: () => {
+      setCurrentVotes((prevVotes) => prevVotes + 1);
+      setHasVoted(true);
+    },
+    onMutate: () => {
+      setCurrentVotes((prevVotes) => prevVotes - 1);
+      setHasVoted(false);
+    },
+  });
 
   return (
     <button
       className={clsx(
-        'flex items-center justify-center gap-1 py-2 px-3 rounded-2xl border md:w-auto w-full',
+        'flex items-center justify-center gap-1 py-2 px-3 rounded-2xl md:w-auto w-full',
         themeBackgroundLayerEmphasized,
-        !hasVoted && themeBorderElementColor,
-        hasVoted && 'border-brand-dark dark:border-brand',
+        'border',
+        hasVoted
+          ? 'border-brand-dark dark:border-brand'
+          : themeBorderElementColor,
       )}
-      disabled={isLoading || hasVoted}
+      disabled={isLoading || vote.isLoading || unvote.isLoading}
       type="button"
-      onClick={() => vote.mutate({ submissionId })}>
+      onClick={() =>
+        hasVoted
+          ? unvote.mutate({ submissionId })
+          : vote.mutate({ submissionId })
+      }>
       <RiThumbUpFill
         className={clsx(
           'h-4 w-4',
-          !hasVoted && themeTextColor,
-          hasVoted && themeTextBrandColor,
+          'shrink-0',
+          hasVoted ? themeTextBrandColor : themeTextColor,
         )}
       />
       <Text size="body3">{currentVotes}</Text>
