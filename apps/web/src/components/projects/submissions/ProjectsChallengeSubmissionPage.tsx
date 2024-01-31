@@ -86,46 +86,6 @@ export default function ProjectsChallengeSubmissionPage({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [submissionId]);
 
-  const authorSection = (
-    <Section>
-      <div className="flex md:items-center items-start justify-between md:flex-row flex-col gap-6">
-        {submission.projectsProfile?.userProfile && (
-          <ProjectsChallengeSubmissionAuthorProfile
-            author={submission.projectsProfile?.userProfile}
-          />
-        )}
-        {(deploymentUrls.length > 0 || repositoryUrl) && (
-          <div className="flex gap-4">
-            {deploymentUrls.length > 0 && (
-              <Button
-                href={deploymentUrls[0].href}
-                icon={RiShareCircleLine}
-                label={intl.formatMessage({
-                  defaultMessage: 'Preview solution',
-                  description: 'Label for preview solution button',
-                  id: 'NL7HsI',
-                })}
-                variant="primary"
-              />
-            )}
-            {repositoryUrl && (
-              <Button
-                href={repositoryUrl}
-                icon={RiShareCircleLine}
-                label={intl.formatMessage({
-                  defaultMessage: 'View code',
-                  description: 'Label for view code button',
-                  id: 'd8RJic',
-                })}
-                variant="secondary"
-              />
-            )}
-          </div>
-        )}
-      </div>
-    </Section>
-  );
-
   return (
     <div ref={parentRef} className="flex flex-col gap-8 -mt-4 lg:-mt-16">
       <ProjectsChallengeSubmissionHero
@@ -134,7 +94,43 @@ export default function ProjectsChallengeSubmissionPage({
         showPin={isViewingOwnProfile}
         submission={submission}
       />
-      {!isViewingOwnProfile && authorSection}
+      <Section>
+        <div className="flex md:items-center items-start justify-between md:flex-row flex-col gap-6">
+          {submission.projectsProfile?.userProfile && (
+            <ProjectsChallengeSubmissionAuthorProfile
+              author={submission.projectsProfile?.userProfile}
+            />
+          )}
+          {(deploymentUrls.length > 0 || repositoryUrl) && (
+            <div className="flex gap-4">
+              {deploymentUrls.length > 0 && (
+                <Button
+                  href={deploymentUrls[0].href}
+                  icon={RiShareCircleLine}
+                  label={intl.formatMessage({
+                    defaultMessage: 'Preview solution',
+                    description: 'Label for preview solution button',
+                    id: 'NL7HsI',
+                  })}
+                  variant="primary"
+                />
+              )}
+              {repositoryUrl && (
+                <Button
+                  href={repositoryUrl}
+                  icon={RiShareCircleLine}
+                  label={intl.formatMessage({
+                    defaultMessage: 'View code',
+                    description: 'Label for view code button',
+                    id: 'd8RJic',
+                  })}
+                  variant="secondary"
+                />
+              )}
+            </div>
+          )}
+        </div>
+      </Section>
       {submission.summary && (
         <Section>
           <div className="md:w-8/12 w-full">
@@ -179,7 +175,6 @@ export default function ProjectsChallengeSubmissionPage({
           </div>
         </div>
       </Section>
-      {isViewingOwnProfile && authorSection}
       <div className="mt-10">
         <ProjectsChallengeSubmissionDiscussionsSection
           submission={submission}
