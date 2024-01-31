@@ -57,6 +57,19 @@ async function saveScreenshot(screenshotBuffer: Buffer, path: string) {
   return imageUrl.publicUrl;
 }
 
+function createStoragePath(
+  submissionId: string,
+  url: string,
+  device: ProjectsChallengeSubmissionDeploymentScreenshotDevice,
+): string {
+  const urlObj = new URL(url);
+
+  return `${submissionId}/${(urlObj.host + urlObj.pathname).replaceAll(
+    '/',
+    '_',
+  )}/${device}.webp`;
+}
+
 async function takeScreenshotForViewport(
   submissionId: string,
   device: ProjectsChallengeSubmissionDeploymentScreenshotDevice,
@@ -64,11 +77,7 @@ async function takeScreenshotForViewport(
   url: string,
   viewport: Parameters<Page['setViewport']>[0],
 ) {
-  const urlObj = new URL(url);
-  const path = `${submissionId}/${urlObj.pathname.replaceAll(
-    '/',
-    '_',
-  )}.${device}.webp`;
+  const path = createStoragePath(submissionId, url, device);
 
   await page.goto(url, { waitUntil: 'load' });
   await page.setViewport(viewport);
@@ -126,7 +135,7 @@ async function takeScreenshots(
 }
 
 // Returns an array of objects with screenshot URLs for each device type
-export async function getScreenshots(
+export async function generateScreenshots(
   submissionId: string,
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls,
 ): Promise<ProjectsChallengeSubmissionDeploymentUrls> {
@@ -157,19 +166,14 @@ export async function getScreenshots(
   return deploymentUrlsWithScreenshots;
 }
 
-export async function deleteScreenshot(
-  submissionId: string,
-  deploymentUrl: string,
-) {
-  const urlObj = new URL(deploymentUrl);
-  const basePath = `${submissionId}/${urlObj.pathname.replaceAll('/', '_')}`;
-  const desktopPath = `${basePath}.desktop.webp`;
-  const mobilePath = `${basePath}.mobile.webp`;
-  const tabletPath = `${basePath}.tablet.webp`;
-
+export async function deleteScreenshot(submissionId: string, url: string) {
   const supabaseAdmin = createSupabaseAdminClientGFE();
 
   await supabaseAdmin.storage
     .from('projects-screenshots')
-    .remove([desktopPath, mobilePath, tabletPath]);
+    .remove(
+      (['desktop', 'tablet', 'mobile'] as const).map((device) =>
+        createStoragePath(submissionId, url, device),
+      ),
+    );
 }

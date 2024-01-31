@@ -11,8 +11,8 @@ import type { ProjectsYoeReplacement } from '~/components/projects/types';
 import prisma from '~/server/prisma';
 import {
   deleteScreenshot,
-  getScreenshots,
-} from '~/utils/projects/getScreenshots';
+  generateScreenshots,
+} from '~/utils/projects/screenshotUtils';
 
 import { projectsUserProcedure, publicProjectsProcedure } from './procedures';
 import { publicProcedure, router } from '../../trpc';
@@ -172,16 +172,18 @@ export const projectsChallengeSubmissionRouter = router({
         });
 
         // Non-blocking request to take screenshots and update database
-        getScreenshots(res.id, res.deploymentUrls).then(async (screenshots) => {
-          await prisma.projectsChallengeSubmission.update({
-            data: {
-              deploymentUrls: screenshots,
-            },
-            where: {
-              id: res.id,
-            },
-          });
-        });
+        generateScreenshots(res.id, res.deploymentUrls).then(
+          async (screenshots) => {
+            await prisma.projectsChallengeSubmission.update({
+              data: {
+                deploymentUrls: screenshots,
+              },
+              where: {
+                id: res.id,
+              },
+            });
+          },
+        );
 
         return res;
       },
@@ -716,7 +718,7 @@ export const projectsChallengeSubmissionRouter = router({
         });
       }
 
-      const screenshots = await getScreenshots(
+      const screenshots = await generateScreenshots(
         submissionId,
         submission.deploymentUrls,
       );
@@ -824,7 +826,7 @@ export const projectsChallengeSubmissionRouter = router({
         });
 
         // Update deploymentUrls field with new screenshots
-        getScreenshots(submissionId, newDeploymentUrls).then(
+        generateScreenshots(submissionId, newDeploymentUrls).then(
           async (screenshots) => {
             await prisma.projectsChallengeSubmission.update({
               data: {
