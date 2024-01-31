@@ -9,7 +9,10 @@ import { projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus } f
 import type { ProjectsYoeReplacement } from '~/components/projects/types';
 
 import prisma from '~/server/prisma';
-import { getScreenshots } from '~/utils/projects/getScreenshots';
+import {
+  deleteScreenshot,
+  getScreenshots,
+} from '~/utils/projects/getScreenshots';
 
 import { projectsUserProcedure, publicProjectsProcedure } from './procedures';
 import { publicProcedure, router } from '../../trpc';
@@ -132,7 +135,8 @@ export const projectsChallengeSubmissionRouter = router({
           },
         );
 
-        return await prisma.$transaction(async (tx) => {
+        // Write to database first
+        const res = await prisma.$transaction(async (tx) => {
           if (existingSession == null) {
             await tx.projectsChallengeSession.create({
               data: {
@@ -166,6 +170,20 @@ export const projectsChallengeSubmissionRouter = router({
             },
           });
         });
+
+        // Non-blocking request to take screenshots and update database
+        getScreenshots(res.id, res.deploymentUrls).then(async (screenshots) => {
+          await prisma.projectsChallengeSubmission.update({
+            data: {
+              deploymentUrls: screenshots,
+            },
+            where: {
+              id: res.id,
+            },
+          });
+        });
+
+        return res;
       },
     ),
   delete: projectsUserProcedure
@@ -748,7 +766,17 @@ export const projectsChallengeSubmissionRouter = router({
         },
         ctx: { projectsProfileId },
       }) => {
-        return await prisma.projectsChallengeSubmission.update({
+        const oldDeploymentUrls =
+          await prisma.projectsChallengeSubmission.findUnique({
+            select: {
+              deploymentUrls: true,
+            },
+            where: {
+              id: submissionId,
+            },
+          });
+
+        const res = await prisma.projectsChallengeSubmission.update({
           data: {
             deploymentUrls: deploymentUrls as Prisma.JsonArray,
             editedAt: new Date(),
@@ -762,6 +790,36 @@ export const projectsChallengeSubmissionRouter = router({
             profileId: projectsProfileId,
           },
         });
+
+        // For deleted pages, remove files from the bucket
+        const newDeploymentUrls = res.deploymentUrls;
+
+        oldDeploymentUrls?.deploymentUrls.forEach(async (oldDeploymentUrl) => {
+          if (
+            !newDeploymentUrls.some(
+              (newDeploymentUrl) =>
+                newDeploymentUrl.label === oldDeploymentUrl.label,
+            )
+          ) {
+            await deleteScreenshot(submissionId, oldDeploymentUrl.href);
+          }
+        });
+
+        // Update deploymentUrls field with new screenshots
+        getScreenshots(submissionId, newDeploymentUrls).then(
+          async (screenshots) => {
+            await prisma.projectsChallengeSubmission.update({
+              data: {
+                deploymentUrls: screenshots,
+              },
+              where: {
+                id: submissionId,
+              },
+            });
+          },
+        );
+
+        return res;
       },
     ),
   view: publicProcedure

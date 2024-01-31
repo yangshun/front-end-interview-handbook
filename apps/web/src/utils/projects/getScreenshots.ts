@@ -156,3 +156,20 @@ export async function getScreenshots(
 
   return deploymentUrlsWithScreenshots;
 }
+
+export async function deleteScreenshot(
+  submissionId: string,
+  deploymentUrl: string,
+) {
+  const urlObj = new URL(deploymentUrl);
+  const basePath = `${submissionId}/${urlObj.pathname.replaceAll('/', '_')}`;
+  const desktopPath = `${basePath}.desktop.webp`;
+  const mobilePath = `${basePath}.mobile.webp`;
+  const tabletPath = `${basePath}.tablet.webp`;
+
+  const supabaseAdmin = createSupabaseAdminClientGFE();
+
+  await supabaseAdmin.storage
+    .from('projects-screenshots')
+    .remove([desktopPath, mobilePath, tabletPath]);
+}
