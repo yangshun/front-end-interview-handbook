@@ -12,6 +12,7 @@ import RichTextEditorToolbar from '~/components/ui/RichTextEditor/components/Ric
 import RichTextEditorCodeHighlightPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorCodeHighlightPlugin';
 import Text from '~/components/ui/Text';
 
+import { PLAYGROUND_TRANSFORMERS } from './plugin/MarkdownTransformers';
 import { RichTextEditorConfig } from './RichTextEditorConfig';
 import { proseStyle } from '../Prose';
 import { themeBackgroundElementColor } from '../theme';
@@ -21,6 +22,7 @@ import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import { ListPlugin } from '@lexical/react/LexicalListPlugin';
+import { MarkdownShortcutPlugin } from '@lexical/react/LexicalMarkdownShortcutPlugin';
 import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
 
@@ -158,6 +160,7 @@ export default function RichTextEditor({
       </div>
       <HistoryPlugin />
       <ListPlugin />
+      <MarkdownShortcutPlugin transformers={PLAYGROUND_TRANSFORMERS} />
       <RichTextEditorCodeHighlightPlugin />
     </LexicalComposer>
   );

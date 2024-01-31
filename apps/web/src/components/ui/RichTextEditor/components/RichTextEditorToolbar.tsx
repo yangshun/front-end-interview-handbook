@@ -1,8 +1,7 @@
 import clsx from 'clsx';
-import { capitalize } from 'lodash-es';
+import { useState } from 'react';
 import { useMediaQuery } from 'usehooks-ts';
 
-import useRichTextEditorOnClickListener from '~/components/ui/RichTextEditor/hooks/useRichTextEditorOnClickListener';
 import RichTextEditorBoldPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorBoldPlugin';
 import RichTextEditorCodePlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorCodePlugin';
 import RichTextEditorInsertPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorInsertPlugin';
@@ -15,7 +14,6 @@ import RichTextEditorTextTypePlugin from '~/components/ui/RichTextEditor/plugin/
 import RichTextEditorUnderlinePlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorUnderlinePlugin';
 import RichTextEditorUndoPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorUndoPlugin';
 import RichTextEditorUnorderedListPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorUnorderedListPlugin';
-import Select from '~/components/ui/Select';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
 function Divider() {
@@ -24,8 +22,22 @@ function Divider() {
 
 export default function RichTextEditorToolbar() {
   const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
-  const { isCode, codeLanguage, onCodeLanguageSelect, codeLanguages } =
-    useRichTextEditorOnClickListener();
+  const [isCode, setIsCode] = useState(false);
+  const [codeLanguage, setCodeLanguage] = useState('');
+  const [selectedElementKey, setSelectedElementKey] = useState<string | null>(
+    null,
+  );
+
+  const codePlugin = (
+    <RichTextEditorCodePlugin
+      codeLanguage={codeLanguage}
+      isCode={isCode}
+      selectedElementKey={selectedElementKey}
+      setCodeLanguage={setCodeLanguage}
+      setIsCode={setIsCode}
+      setSelectedElementKey={setSelectedElementKey}
+    />
+  );
 
   return (
     <div
@@ -37,20 +49,7 @@ export default function RichTextEditorToolbar() {
         ['border-b', themeBorderElementColor],
       )}>
       {isCode ? (
-        <>
-          <RichTextEditorCodePlugin />
-          <Select
-            isLabelHidden={true}
-            label="Code"
-            options={codeLanguages.map((code) => ({
-              label: capitalize(code),
-              value: code,
-            }))}
-            size="sm"
-            value={codeLanguage}
-            onChange={onCodeLanguageSelect}
-          />
-        </>
+        codePlugin
       ) : (
         <>
           <RichTextEditorUndoPlugin />
@@ -66,7 +65,7 @@ export default function RichTextEditorToolbar() {
             <>
               <RichTextEditorUnorderedListPlugin />
               <RichTextEditorOrderedListPlugin />
-              <RichTextEditorCodePlugin />
+              {codePlugin}
               <RichTextEditorQuotePlugin />
               <RichTextEditorInsertPlugin />
             </>

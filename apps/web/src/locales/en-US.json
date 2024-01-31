@@ -1743,6 +1743,10 @@
     "defaultMessage": "Cancel anytime.",
     "description": "Cancel the subscription anytime."
   },
+  "GI36TV": {
+    "defaultMessage": "Paragraph",
+    "description": "Label for Normal"
+  },
   "GJt7KQ": {
     "defaultMessage": "Build user interface apps and components in JavaScript frameworks",
     "description": "Description of front end user interface questions"
@@ -5923,6 +5927,10 @@
     "defaultMessage": "Build to learn from beginner to advanced",
     "description": "Title for Projects hero section for beginners"
   },
+  "rvsHso": {
+    "defaultMessage": "<medium>{author}</medium> left a comment {for} <medium>{recipient}</medium> on <link>{submissionTitle}</link><comment>: \"{description}\"</comment><date></date>",
+    "description": "Comment"
+  },
   "rxpmQt": {
     "defaultMessage": "Next project:",
     "description": "Title for next project section on project submission success page"
@@ -6066,10 +6074,6 @@
   "tNAIsO": {
     "defaultMessage": "JavaScript Questions",
     "description": "JavaScript questions category long title"
-  },
-  "tNnZD7": {
-    "defaultMessage": "<medium>{author}</medium> left a comment{ for }<medium>{recipient}</medium> on <link>{submissionTitle}</link><comment>: \"{description}\"</comment><date></date>",
-    "description": "Comment"
   },
   "tO/Ph4": {
     "defaultMessage": "Activity | Profile",

@@ -186,6 +186,9 @@ importers:
       '@lexical/list':
         specifier: ^0.13.1
         version: 0.13.1(lexical@0.13.1)
+      '@lexical/markdown':
+        specifier: ^0.13.1
+        version: 0.13.1(@lexical/clipboard@0.13.1)(@lexical/selection@0.13.1)(lexical@0.13.1)
       '@lexical/react':
         specifier: ^0.13.1
         version: 0.13.1(lexical@0.13.1)(react-dom@18.2.0)(react@18.2.0)(yjs@13.6.11)

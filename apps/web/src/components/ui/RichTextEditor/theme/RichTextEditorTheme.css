@@ -1,0 +1,45 @@
+.EditorTheme__tokenComment {
+  color: slategray;
+}
+.EditorTheme__tokenPunctuation {
+  color: #999;
+}
+.EditorTheme__tokenProperty {
+  color: #905;
+}
+.EditorTheme__tokenSelector {
+  color: #690;
+}
+.EditorTheme__tokenOperator {
+  color: #9a6e3a;
+}
+.EditorTheme__tokenAttr {
+  color: #07a;
+}
+.EditorTheme__tokenVariable {
+  color: #e90;
+}
+.EditorTheme__tokenFunction {
+  color: #dd4a68;
+}
+
+.EditorTheme__code {
+  background-color: #282a36;
+  font-family: Menlo, Consolas, Monaco, monospace;
+  display: block;
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  line-height: 1.53;
+  font-size: 13px;
+  margin: 0;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  overflow-x: auto;
+  position: relative;
+  tab-size: 2;
+  color: #f8f8f2 !important;
+}
+.EditorTheme__code:before,
+.EditorTheme__code:after {
+  content: '';
+}
