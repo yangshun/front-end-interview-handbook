@@ -108,13 +108,12 @@ export default function ProjectsChallengeAssetsPage({
   // TODO(projects): Replace below with actual logic
   const isUserPremium = false;
 
-  const { startProject, session } = useProjectsChallengeSessionContext();
-  const hasSession = session != null;
+  const { startProject, accessAllSteps } = useProjectsChallengeSessionContext();
 
   return (
     <BlurOverlay
       align="center"
-      disableOverlay={hasSession}
+      disableOverlay={accessAllSteps}
       overlay={
         <div className="flex flex-col gap-y-6 items-center max-w-lg mx-auto text-center">
           <Heading level="heading5">

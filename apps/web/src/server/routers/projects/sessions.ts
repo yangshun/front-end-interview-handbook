@@ -18,6 +18,21 @@ const projectsSessionProcedure = projectsUserProcedure.input(
 );
 
 export const projectsSessionsRouter = router({
+  accessAllSteps: projectsSessionProcedure.query(
+    async ({ input: { slug }, ctx: { projectsProfileId } }) => {
+      const sessions = await prisma.projectsChallengeSession.count({
+        where: {
+          profileId: projectsProfileId,
+          slug,
+          status: {
+            in: ['IN_PROGRESS', 'COMPLETED'],
+          },
+        },
+      });
+
+      return sessions > 0;
+    },
+  ),
   create: projectsSessionProcedure.mutation(
     async ({ input: { slug }, ctx: { projectsProfileId } }) => {
       // Don't allow creating multiple sessions.

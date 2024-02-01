@@ -40,7 +40,7 @@ function ProjectsChallengeStepsTabItem({
   item: ProjectStepsTabItem;
   onSelect?: (value: ProjectsChallengeItemStepsTabType) => void;
 }>) {
-  const { session } = useProjectsChallengeSessionContext();
+  const { accessAllSteps } = useProjectsChallengeSessionContext();
 
   const value: ProjectsChallengeItemStepsTabType =
     (useSelectedLayoutSegment() as ProjectsChallengeItemStepsTabType) ||
@@ -83,7 +83,7 @@ function ProjectsChallengeStepsTabItem({
           display="block"
           weight="bold">
           {tabItemTitle}
-          {session != null && !hasRead && (
+          {accessAllSteps && !hasRead && (
             <span className="inline-block h-2 w-2 ms-1 mb-2 bg-red rounded-full" />
           )}
         </Text>

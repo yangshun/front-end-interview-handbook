@@ -21,8 +21,10 @@ const latestSessionQueryKey = getQueryKey(
 );
 
 type ProjectsChallengeSessionContextType = {
+  accessAllSteps: boolean;
   endSession: (slug: string) => Promise<void>;
   isEndSessionLoading: boolean;
+  isGetLatestSessionFetched: boolean;
   isGetStartedDialogShown: boolean;
   isStartSessionLoading: boolean;
   session: ProjectsChallengeSession | null;
@@ -33,8 +35,10 @@ type ProjectsChallengeSessionContextType = {
 
 const ProjectsChallengeSessionContext =
   createContext<ProjectsChallengeSessionContextType>({
+    accessAllSteps: false,
     endSession: async () => {},
     isEndSessionLoading: false,
+    isGetLatestSessionFetched: false,
     isGetStartedDialogShown: false,
     isStartSessionLoading: false,
     session: null,
@@ -60,15 +64,19 @@ export default function ProjectsChallengeSessionContextProvider({
   const { showToast } = useToast();
   const { data: startedBefore } =
     trpc.projects.sessions.startedBefore.useQuery();
+  const { data: accessAllSteps } =
+    trpc.projects.sessions.accessAllSteps.useQuery({ slug });
 
-  const { data: session } = trpc.projects.sessions.getLatestInProgress.useQuery(
-    {
-      slug,
-    },
-    {
-      initialData: null,
-    },
-  );
+  const { data: session, isFetched: isGetLatestSessionFetched } =
+    trpc.projects.sessions.getLatestInProgress.useQuery(
+      {
+        slug,
+      },
+      // TODO(projects): remove this initialData.
+      {
+        initialData: null,
+      },
+    );
 
   const startProjectMutation = trpc.projects.sessions.create.useMutation({
     onSuccess: () => {
@@ -103,6 +111,7 @@ export default function ProjectsChallengeSessionContextProvider({
 
   const value = useMemo(() => {
     return {
+      accessAllSteps: accessAllSteps ?? false,
       endSession: async () => {
         await endSessionMutation.mutateAsync(
           {
@@ -135,7 +144,7 @@ export default function ProjectsChallengeSessionContextProvider({
         );
       },
       isEndSessionLoading: endSessionMutation.isLoading,
-
+      isGetLatestSessionFetched,
       isGetStartedDialogShown,
       isStartSessionLoading: startProjectMutation.isLoading,
       session,
@@ -186,8 +195,10 @@ export default function ProjectsChallengeSessionContextProvider({
       },
     };
   }, [
+    accessAllSteps,
     endSessionMutation,
     isGetStartedDialogShown,
+    isGetLatestSessionFetched,
     session,
     slug,
     startProjectMutation,

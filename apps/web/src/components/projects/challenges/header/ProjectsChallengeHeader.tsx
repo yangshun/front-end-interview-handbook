@@ -33,7 +33,8 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
   const { completedCount, completedProfiles, metadata, track } = challenge;
   const { description, difficulty, points, skills, title } = metadata;
 
-  const { session, startProject } = useProjectsChallengeSessionContext();
+  const { session, startProject, isGetLatestSessionFetched } =
+    useProjectsChallengeSessionContext();
   const [isHowItWorksDialogShown, setIsHowItWorksDialogShown] = useState(false);
   const hasSession = session != null;
 
@@ -52,7 +53,7 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
           })}
           variant="tertiary"
         />
-        {!hasSession && (
+        {isGetLatestSessionFetched && !hasSession && (
           <Text size="body3">
             <FormattedMessage
               defaultMessage="New here? <link>How it works</link>"
@@ -75,8 +76,9 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
       </div>
       <div
         className={clsx(
-          !hasSession && 'flex flex-col lg:flex-row lg:justify-between',
-          hasSession && 'grid md:grid-cols-2 items-start grid-cols-1',
+          hasSession
+            ? 'grid md:grid-cols-2 items-start grid-cols-1'
+            : 'flex flex-col lg:flex-row lg:justify-between',
           'gap-6 mt-8',
         )}>
         <div className="flex flex-col gap-4">
@@ -101,7 +103,7 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
             <ProjectsChallengeTrackTag track={track} />
             <ProjectsChallengeReputationTag points={points} variant="flat" />
           </div>
-          {!hasSession && (
+          {isGetLatestSessionFetched && !hasSession && (
             <div className="flex flex-col">
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill) => (
@@ -147,7 +149,7 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
             </div>
           )}
         </div>
-        {hasSession ? (
+        {!isGetLatestSessionFetched ? null : hasSession ? (
           <ProjectsChallengeCurrentProjectSessionCard
             challenge={challenge}
             session={{
