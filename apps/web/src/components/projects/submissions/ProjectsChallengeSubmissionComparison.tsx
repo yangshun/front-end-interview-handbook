@@ -60,7 +60,11 @@ export default function ProjectsChallengeSubmissionComparison({
           'bg-neutral-50 dark:bg-neutral-950',
         )}>
         {/* Header */}
-        <div className="flex md:px-6 px-4 py-4 justify-between md:flex-row flex-col gap-4">
+        <div
+          className={clsx(
+            'flex flex-col justify-between md:flex-row gap-4',
+            'px-4 py-4 md:px-6',
+          )}>
           <Heading level="heading6">
             <FormattedMessage
               defaultMessage="Solution vs Design comparison"
@@ -68,41 +72,25 @@ export default function ProjectsChallengeSubmissionComparison({
               id="3ffp8N"
             />
           </Heading>
-          <div className="flex gap-2 items-center">
-            <Button
-              addonPosition="start"
-              className="flex-1 md:flex-auto"
-              icon={RiImageLine}
-              isDisabled={takeScreenshotMutation.isLoading}
-              isLoading={takeScreenshotMutation.isLoading}
-              label={intl.formatMessage({
-                defaultMessage: 'Retake screenshot',
-                description: 'Retake screenshot button label',
-                id: 'e0C2cj',
-              })}
-              variant="secondary"
-              onClick={() => {
-                takeScreenshotMutation
-                  .mutateAsync({ submissionId })
-                  .then((newDeploymentScreenshots) => {
-                    setDeploymentScreenshots(newDeploymentScreenshots);
-                  });
-              }}
-            />
-            <Button
-              icon={RiSubtractLine}
-              isLabelHidden={true}
-              label="Zoom out"
-              variant="secondary"
-            />
-            <Text size="body3">100%</Text>
-            <Button
-              icon={RiAddLine}
-              isLabelHidden={true}
-              label="Zoom in"
-              variant="secondary"
-            />
-          </div>
+          <Button
+            addonPosition="start"
+            icon={RiImageLine}
+            isDisabled={takeScreenshotMutation.isLoading}
+            isLoading={takeScreenshotMutation.isLoading}
+            label={intl.formatMessage({
+              defaultMessage: 'Retake screenshot',
+              description: 'Retake screenshot button label',
+              id: 'e0C2cj',
+            })}
+            variant="secondary"
+            onClick={() => {
+              takeScreenshotMutation
+                .mutateAsync({ submissionId })
+                .then((newDeploymentScreenshots) => {
+                  setDeploymentScreenshots(newDeploymentScreenshots);
+                });
+            }}
+          />
         </div>
         {/* Image Comparison Slider */}
         <div className="flex-1">
