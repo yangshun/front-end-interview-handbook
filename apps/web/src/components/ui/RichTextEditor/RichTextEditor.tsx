@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import type { EditorState } from 'lexical';
 import type { FormEventHandler } from 'react';
-import { useId } from 'react';
+import { useId, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import type { LabelDescriptionStyle } from '~/components/ui/Label';
@@ -13,6 +13,8 @@ import RichTextEditorCodeHighlightPlugin from '~/components/ui/RichTextEditor/pl
 import Text from '~/components/ui/Text';
 
 import { PLAYGROUND_TRANSFORMERS } from './plugin/MarkdownTransformers';
+import RichTextEditorAutoLinkPlugin from './plugin/RichTextEditorAutoLinkPlugin';
+import RichTextEditorLinkPlugin from './plugin/RichTextEditorLinkPlugin';
 import { RichTextEditorConfig } from './RichTextEditorConfig';
 import { proseStyle } from '../Prose';
 import { themeBackgroundElementColor } from '../theme';
@@ -72,9 +74,17 @@ export default function RichTextEditor({
   const messageId = useId();
   const hasError = !!errorMessage;
   const state = hasError ? 'error' : 'normal';
+  const [floatingAnchorElem, setFloatingAnchorElem] =
+    useState<HTMLDivElement | null>(null);
 
   const onUpdate = (editorState: EditorState) => {
     onChange?.(JSON.stringify(editorState));
+  };
+
+  const onRef = (_floatingAnchorElem: HTMLDivElement) => {
+    if (_floatingAnchorElem !== null) {
+      setFloatingAnchorElem(_floatingAnchorElem);
+    }
   };
 
   return (
@@ -115,19 +125,21 @@ export default function RichTextEditor({
             stateClasses[state],
             className,
           )}>
-          <RichTextEditorToolbar />
+          <RichTextEditorToolbar floatingAnchorElem={floatingAnchorElem} />
           <div className="relative h-full" style={{ minHeight }}>
             <RichTextPlugin
               ErrorBoundary={LexicalErrorBoundary}
               contentEditable={
-                <ContentEditable
-                  className={clsx(
-                    'h-full p-3 focus:outline-none',
-                    proseStyle('sm'),
-                  )}
-                  id={id}
-                  onBlur={(e) => onBlur?.(e)}
-                />
+                <div ref={onRef} className="relative">
+                  <ContentEditable
+                    className={clsx(
+                      'h-full p-3 focus:outline-none',
+                      proseStyle('sm'),
+                    )}
+                    id={id}
+                    onBlur={(e) => onBlur?.(e)}
+                  />
+                </div>
               }
               placeholder={
                 <div className="absolute left-3 top-3 inline-block overflow-hidden">
@@ -162,6 +174,8 @@ export default function RichTextEditor({
       <ListPlugin />
       <MarkdownShortcutPlugin transformers={PLAYGROUND_TRANSFORMERS} />
       <RichTextEditorCodeHighlightPlugin />
+      <RichTextEditorLinkPlugin />
+      <RichTextEditorAutoLinkPlugin />
     </LexicalComposer>
   );
 }

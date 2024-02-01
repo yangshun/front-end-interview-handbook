@@ -38,6 +38,7 @@
     "@hookform/resolvers": "^3.3.2",
     "@lexical/code": "^0.13.1",
     "@lexical/headless": "^0.13.1",
+    "@lexical/link": "^0.13.1",
     "@lexical/list": "^0.13.1",
     "@lexical/markdown": "^0.13.1",
     "@lexical/react": "^0.13.1",

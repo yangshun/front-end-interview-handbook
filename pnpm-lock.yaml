@@ -183,6 +183,9 @@ importers:
       '@lexical/headless':
         specifier: ^0.13.1
         version: 0.13.1(lexical@0.13.1)
+      '@lexical/link':
+        specifier: ^0.13.1
+        version: 0.13.1(lexical@0.13.1)
       '@lexical/list':
         specifier: ^0.13.1
         version: 0.13.1(lexical@0.13.1)

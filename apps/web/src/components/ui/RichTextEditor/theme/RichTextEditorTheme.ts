@@ -34,6 +34,7 @@ const RichTextEditorTheme = {
     url: 'EditorTheme__tokenOperator',
     variable: 'EditorTheme__tokenVariable',
   },
+  link: 'transition-colors font-medium text-brand-dark dark:text-brand hover:text-brand-dark dark:hover:text-brand hover:underline cursor-pointer',
   text: {
     bold: 'medium',
     italic: 'italic',

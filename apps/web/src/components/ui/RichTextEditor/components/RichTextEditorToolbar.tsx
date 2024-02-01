@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { useMediaQuery } from 'usehooks-ts';
 
 import RichTextEditorBoldPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorBoldPlugin';
@@ -16,11 +16,15 @@ import RichTextEditorUndoPlugin from '~/components/ui/RichTextEditor/plugin/Rich
 import RichTextEditorUnorderedListPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorUnorderedListPlugin';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
+type Props = Readonly<{
+  floatingAnchorElem: HTMLDivElement | null;
+}>;
+
 function Divider() {
   return <div className={clsx('h-5 border-l', themeBorderElementColor)} />;
 }
 
-export default function RichTextEditorToolbar() {
+export default function RichTextEditorToolbar({ floatingAnchorElem }: Props) {
   const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
   const [isCode, setIsCode] = useState(false);
   const [codeLanguage, setCodeLanguage] = useState('');
@@ -38,6 +42,8 @@ export default function RichTextEditorToolbar() {
       setSelectedElementKey={setSelectedElementKey}
     />
   );
+
+  const MemoizedInsertPlugin = memo(RichTextEditorInsertPlugin);
 
   return (
     <div
@@ -67,7 +73,7 @@ export default function RichTextEditorToolbar() {
               <RichTextEditorOrderedListPlugin />
               {codePlugin}
               <RichTextEditorQuotePlugin />
-              <RichTextEditorInsertPlugin />
+              <MemoizedInsertPlugin floatingAnchorElem={floatingAnchorElem} />
             </>
           )}
         </>
