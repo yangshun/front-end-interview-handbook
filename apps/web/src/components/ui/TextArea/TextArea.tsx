@@ -107,7 +107,6 @@ function TextArea(
     isLabelHidden,
     label,
     maxLength,
-    minLength,
     resize = 'vertical',
     required,
     size = 'md',
