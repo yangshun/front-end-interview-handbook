@@ -20,6 +20,7 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 
+import ProjectsChallengeCompletedCountButton from './ProjectsChallengeCompletedCountButton';
 import ProjectsChallengeCurrentProjectSessionCard from './ProjectsChallengeCurrentSessionCard';
 import ProjectsChallengeHowItWorksDialog from './ProjectsChallengeHowItWorksDialog';
 import { useProjectsChallengeSessionContext } from '../ProjectsChallengeSessionContext';
@@ -149,34 +150,41 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
             </div>
           )}
         </div>
-        {!isGetLatestSessionFetched ? null : hasSession ? (
-          <ProjectsChallengeCurrentProjectSessionCard
-            challenge={challenge}
-            session={{
-              ...session,
-              createdAt: new Date(session.createdAt),
-              stoppedAt: session.stoppedAt ? new Date(session.stoppedAt) : null,
-            }}
+        <div className="flex flex-col gap-4 items-end">
+          {!isGetLatestSessionFetched ? null : hasSession ? (
+            <ProjectsChallengeCurrentProjectSessionCard
+              challenge={challenge}
+              session={{
+                ...session,
+                createdAt: new Date(session.createdAt),
+                stoppedAt: session.stoppedAt
+                  ? new Date(session.stoppedAt)
+                  : null,
+              }}
+            />
+          ) : (
+            <div className="flex items-center gap-x-4 gap-y-4 lg:flex-col lg:items-end">
+              <Button
+                label={intl.formatMessage({
+                  defaultMessage: 'Start project',
+                  description:
+                    'Label for "Start project" button on Projects project page',
+                  id: '6/Qdew',
+                })}
+                size="md"
+                variant="primary"
+                onClick={startProject}
+              />
+              <ProjectsCompletedUsersTag
+                count={completedCount}
+                profiles={completedProfiles}
+              />
+            </div>
+          )}
+          <ProjectsChallengeCompletedCountButton
+            challengeSlug={metadata.slug}
           />
-        ) : (
-          <div className="flex items-center gap-x-4 gap-y-4 lg:flex-col lg:items-end">
-            <Button
-              label={intl.formatMessage({
-                defaultMessage: 'Start project',
-                description:
-                  'Label for "Start project" button on Projects project page',
-                id: '6/Qdew',
-              })}
-              size="md"
-              variant="primary"
-              onClick={startProject}
-            />
-            <ProjectsCompletedUsersTag
-              count={completedCount}
-              profiles={completedProfiles}
-            />
-          </div>
-        )}
+        </div>
       </div>
       <ProjectsChallengeHowItWorksDialog
         isShown={isHowItWorksDialogShown}

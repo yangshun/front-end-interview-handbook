@@ -121,10 +121,7 @@ export default function ProjectsChallengeSubmissionListWithFilters({
           <Spinner display="block" size="lg" />
         ) : (
           <div className="flex flex-col gap-6">
-            <ProjectsChallengeSubmissionList
-              challenges={processedChallenges}
-              submissions={submissions ?? []}
-            />
+            <ProjectsChallengeSubmissionList submissions={submissions ?? []} />
             {totalPages > 1 && (
               <div className="flex justify-between items-center">
                 <Text color="secondary" size="body3">

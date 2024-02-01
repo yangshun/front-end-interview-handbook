@@ -211,6 +211,10 @@
     "defaultMessage": "TypeScript supported",
     "description": "JavaScript questions can be done in TypeScript"
   },
+  "08L9Y1": {
+    "defaultMessage": "Previous submissions",
+    "description": "Historical project submissions"
+  },
   "0BbsyI": {
     "defaultMessage": "Algo concepts to cover and tips to succeed",
     "description": "Algorithm concepts needed in front end coding interviews"
@@ -590,6 +594,10 @@
   "4FirvF": {
     "defaultMessage": "Reset progress",
     "description": "Label to reset study plan progress"
+  },
+  "4KwvEP": {
+    "defaultMessage": "Tablet",
+    "description": "Responsive breakpoint category"
   },
   "4Q3JMg": {
     "defaultMessage": "Want to build my portfolio",
@@ -1062,6 +1070,10 @@
   "8mCs6b": {
     "defaultMessage": "Skip for now",
     "description": "Label for \"Skip\" button on Sign Up Reason section of Projects onboarding page"
+  },
+  "8tTY7b": {
+    "defaultMessage": "Loading submissions",
+    "description": "Loading historical project submissions"
   },
   "8tdTMy": {
     "defaultMessage": "No skills added",
@@ -3899,13 +3911,13 @@
     "defaultMessage": "Joined on {date}",
     "description": "Date the user joined the service"
   },
+  "ZIM+0x": {
+    "defaultMessage": "Desktop",
+    "description": "Responsive breakpoint category"
+  },
   "ZJQ+uw": {
     "defaultMessage": "Submit your code to check against <button>all test cases</button>.",
     "description": "Text that appears in the DevTool under the Tests tab before the user has submitted their code"
-  },
-  "ZJbXJQ": {
-    "defaultMessage": "Mobile",
-    "description": "Label for Mobile button in Projects project assets page"
   },
   "ZMFRjh": {
     "defaultMessage": "Nightmare",
@@ -4367,10 +4379,6 @@
     "defaultMessage": "Browse component libraries and even design systems you can build to support your next project",
     "description": "Subtitle for Projects marketing hero section for side projects"
   },
-  "dIwJQA": {
-    "defaultMessage": "Tablet",
-    "description": "Label for Tablet button in Projects project assets page"
-  },
   "dJf+5S": {
     "defaultMessage": "JavaScript Questions",
     "description": "Title for an example list of JavaScript Questions on marketing pages"
@@ -4446,10 +4454,6 @@
   "eBp6vh": {
     "defaultMessage": "Reset Progress",
     "description": "Title for reset progress confirmation dialog"
-  },
-  "eHUX9g": {
-    "defaultMessage": "Desktop",
-    "description": "Label for Desktop button in Projects project assets page"
   },
   "ePyk/V": {
     "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",
@@ -5591,6 +5595,10 @@
     "defaultMessage": "Answering \"Tell Me About Yourself\"",
     "description": "How to answer the self introduction question in behavioral interviews"
   },
+  "oPK+Ef": {
+    "defaultMessage": "You completed {completedTimes, plural, one {once} other {# times}}",
+    "description": "Number of times the project was completed"
+  },
   "oPyUXk": {
     "defaultMessage": "Practice building all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
@@ -5614,6 +5622,10 @@
   "ofUX5S": {
     "defaultMessage": "Challenge status",
     "description": "Label for Status filter for submissions list"
+  },
+  "ohDwTa": {
+    "defaultMessage": "Mobile",
+    "description": "Responsive breakpoint category"
   },
   "oiMKy3": {
     "defaultMessage": "Here are the tasks for this campaign:",

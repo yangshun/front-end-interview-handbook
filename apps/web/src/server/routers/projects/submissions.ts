@@ -111,6 +111,36 @@ const whereClauseForSubmissions = (
 };
 
 export const projectsChallengeSubmissionRouter = router({
+  completed: projectsUserProcedure
+    .input(
+      z.object({
+        challengeSlug: z.string(),
+      }),
+    )
+    .query(async ({ input: { challengeSlug }, ctx: { user } }) => {
+      const submissions = await prisma.projectsChallengeSubmission.findMany({
+        include: {
+          _count: {
+            select: {
+              votes: true,
+            },
+          },
+        },
+        where: {
+          projectsProfile: {
+            userProfile: {
+              id: user?.id,
+            },
+          },
+          slug: challengeSlug,
+        },
+      });
+
+      return await projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
+        null,
+        submissions,
+      );
+    }),
   create: projectsChallengeProcedure
     .input(projectsChallengeSubmissionFormSchema)
     .mutation(

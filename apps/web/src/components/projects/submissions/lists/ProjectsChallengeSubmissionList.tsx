@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 
 import EmptyState from '~/components/ui/EmptyState';
 import { themeBorderColor } from '~/components/ui/theme';
@@ -8,7 +7,6 @@ import ProjectsChallengeSubmissionCard from './ProjectsChallengeSubmissionCard';
 import type { ProjectsChallengeSubmissionAugmented } from '../types';
 
 type Props = Readonly<{
-  challenges?: ReadonlyArray<ProjectsChallengeMetadata>;
   submissions: ReadonlyArray<ProjectsChallengeSubmissionAugmented>;
 }>;
 

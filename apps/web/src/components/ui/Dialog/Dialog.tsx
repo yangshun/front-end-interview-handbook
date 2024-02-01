@@ -43,7 +43,7 @@ const widthClasses: Record<DialogWidth, string> = {
 export default function DialogImpl({
   children,
   dark = false,
-  isShown,
+  isShown = false,
   primaryButton,
   secondaryButton,
   title,
@@ -72,7 +72,7 @@ export default function DialogImpl({
 
   const contents = (
     <>
-      <div className="grid gap-y-2.5 px-6 pb-4 pt-6">
+      <div className="grid gap-y-2.5 px-6 py-6">
         <div className="flex items-center justify-between">
           <Dialog.Title as="div">
             <Heading level="heading6">{title}</Heading>

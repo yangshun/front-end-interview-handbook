@@ -216,4 +216,17 @@ export const projectsSessionsRouter = router({
       return sessions > 0;
     },
   ),
+  userCompletedTimes: projectsSessionProcedure.query(
+    async ({ input: { slug }, ctx: { projectsProfileId } }) => {
+      return await prisma.projectsChallengeSession.count({
+        where: {
+          profileId: projectsProfileId,
+          slug,
+          status: {
+            in: ['COMPLETED'],
+          },
+        },
+      });
+    },
+  ),
 });
