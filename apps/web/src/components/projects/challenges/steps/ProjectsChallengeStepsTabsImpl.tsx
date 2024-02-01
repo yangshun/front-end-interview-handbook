@@ -5,15 +5,19 @@ import type {
   Props as ProjectsChallengeStepsTabsProps,
 } from './ProjectsChallengeStepsTabs';
 import ProjectsChallengeStepsTabs from './ProjectsChallengeStepsTabs';
-import type { ProjectsChallengeItem } from './types';
+import type { ProjectsChallengeItem } from '../types';
 
-type TabType = 'assets' | 'completion' | 'project-brief' | 'resources';
+export type ProjectsChallengeItemStepsTabType =
+  | 'assets'
+  | 'brief'
+  | 'completion'
+  | 'resources';
 
 function useProjectDetailsStepsTabs(challenge: ProjectsChallengeItem) {
   const intl = useIntl();
   const { metadata } = challenge;
 
-  const tabs: Array<ProjectStepsTabItem<TabType>> = [
+  const tabs: Array<ProjectStepsTabItem> = [
     {
       hint: intl.formatMessage({
         defaultMessage: 'Get started',
@@ -33,7 +37,7 @@ function useProjectDetailsStepsTabs(challenge: ProjectsChallengeItem) {
         description: 'Title for "Step 1" tab on Projects project page',
         id: 'Ty7LFA',
       }),
-      value: 'project-brief',
+      value: 'brief',
     },
     {
       hint: intl.formatMessage({
@@ -102,10 +106,7 @@ function useProjectDetailsStepsTabs(challenge: ProjectsChallengeItem) {
   return tabs;
 }
 
-type Props = Omit<
-  ProjectsChallengeStepsTabsProps<TabType>,
-  'label' | 'tabs'
-> & {
+type Props = Omit<ProjectsChallengeStepsTabsProps, 'label' | 'tabs'> & {
   challenge: ProjectsChallengeItem;
 };
 
@@ -118,6 +119,7 @@ export default function ProjectsChallengeStepsTabsImpl({
 
   return (
     <ProjectsChallengeStepsTabs
+      challenge={challenge}
       label={intl.formatMessage({
         defaultMessage: 'Project steps',
         description: 'Label for Project steps tabs',

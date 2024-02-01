@@ -1,14 +1,11 @@
 'use client';
 
-import { useSelectedLayoutSegment } from 'next/navigation';
-import type { ComponentProps } from 'react';
-
 import ProjectsChallengeHeader from './ProjectsChallengeHeader';
 import ProjectsChallengeGetStartedDialog from '../get-started/ProjectsChallengeGetStartedDialog';
 import ProjectsChallengeSessionContextProvider, {
   useProjectsChallengeSessionContext,
 } from '../ProjectsChallengeSessionContext';
-import ProjectsChallengeStepsTabsImpl from '../ProjectsChallengeStepsTabsImpl';
+import ProjectsChallengeStepsTabsImpl from '../steps/ProjectsChallengeStepsTabsImpl';
 import type { ProjectsChallengeItem } from '../types';
 
 type Props = Readonly<{
@@ -22,11 +19,6 @@ export function ProjectsChallengeHeaderLayoutImpl({
 }: Props) {
   const { slug } = challenge.metadata;
 
-  const segment =
-    (useSelectedLayoutSegment() as ComponentProps<
-      typeof ProjectsChallengeStepsTabsImpl
-    >['value']) || 'project-brief';
-
   const {
     isGetStartedDialogShown,
     setIsGetStartedDialogShown,
@@ -37,7 +29,7 @@ export function ProjectsChallengeHeaderLayoutImpl({
   return (
     <div className="flex flex-col items-stretch gap-16">
       <ProjectsChallengeHeader challenge={challenge} />
-      <ProjectsChallengeStepsTabsImpl challenge={challenge} value={segment} />
+      <ProjectsChallengeStepsTabsImpl challenge={challenge} />
       {children}
       <ProjectsChallengeGetStartedDialog
         challenge={challenge}
