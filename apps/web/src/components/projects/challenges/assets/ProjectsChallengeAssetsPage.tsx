@@ -11,12 +11,9 @@ import {
   RiBrush2Fill,
   RiCheckboxCircleFill,
   RiCodeSSlashLine,
-  RiComputerLine,
   RiDownload2Line,
   RiDragMove2Fill,
   RiLock2Line,
-  RiSmartphoneLine,
-  RiTabletLine,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -32,10 +29,10 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasized,
   themeBorderColor,
-  themeBorderElementColor,
   themeTextColor,
 } from '~/components/ui/theme';
 
+import ProjectsChallengeAssetsResponsiveBreakpointsTab from './ProjectsChallengeAssetsResponsiveBreakpointsTab';
 import useProjectsChallengeProvidedResources from './useProjectsChallengeProvidedResources';
 import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxContent';
 
@@ -255,59 +252,9 @@ export default function ProjectsChallengeAssetsPage({
                 onSelect={setOnlineAssetsTab}
               />
               {onlineAssetsTab === 'responsive-breakpoints' && (
-                <div className="flex flex-col items-stretch gap-6">
-                  <div className="flex gap-6 self-end">
-                    <div className="flex gap-4">
-                      <Button
-                        icon={RiComputerLine}
-                        isLabelHidden={true}
-                        label={intl.formatMessage({
-                          defaultMessage: 'Desktop',
-                          description:
-                            'Label for Desktop button in Projects project assets page',
-                          id: 'eHUX9g',
-                        })}
-                        variant="tertiary"
-                      />
-                      <Button
-                        icon={RiTabletLine}
-                        isLabelHidden={true}
-                        label={intl.formatMessage({
-                          defaultMessage: 'Tablet',
-                          description:
-                            'Label for Tablet button in Projects project assets page',
-                          id: 'dIwJQA',
-                        })}
-                        variant="tertiary"
-                      />
-                      <Button
-                        icon={RiSmartphoneLine}
-                        isLabelHidden={true}
-                        label={intl.formatMessage({
-                          defaultMessage: 'Mobile',
-                          description:
-                            'Label for Mobile button in Projects project assets page',
-                          id: 'ZJbXJQ',
-                        })}
-                        variant="tertiary"
-                      />
-                    </div>
-                    <div
-                      className={clsx(
-                        'flex items-center justify-center rounded-md border p-2',
-                        themeBorderElementColor,
-                      )}>
-                      <Text color="secondary" size="body3" weight="bold">
-                        1024px
-                      </Text>
-                    </div>
-                  </div>
-                  <img
-                    alt={challenge.metadata.title}
-                    className={clsx('aspect-[4/3] w-full rounded-lg')}
-                    src={challenge.metadata.imageUrl}
-                  />
-                </div>
+                <ProjectsChallengeAssetsResponsiveBreakpointsTab
+                  challenge={challenge}
+                />
               )}
               {onlineAssetsTab === 'style-guide' && styleGuide != null && (
                 <div className="pt-2">

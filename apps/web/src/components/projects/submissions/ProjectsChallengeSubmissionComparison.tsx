@@ -1,18 +1,10 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import {
-  RiAddLine,
-  RiComputerLine,
-  RiImageLine,
-  RiSmartphoneLine,
-  RiSubtractLine,
-  RiTabletLine,
-} from 'react-icons/ri';
+import { RiImageLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import FilterButton from '~/components/common/FilterButton';
 import ProjectsChallengeSubmissionImageComparisonSlider from '~/components/projects/submissions/ProjectsChallengeSubmissionImageComparisonSlider';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -24,6 +16,7 @@ import type {
   ProjectsChallengeSubmissionDeploymentScreenshotDevice,
   ProjectsChallengeSubmissionDeploymentUrls,
 } from './types';
+import ProjectsImageBreakpointButtonGroup from '../common/ProjectsImageBreakpointButtonGroup';
 
 type Props = Readonly<{
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
@@ -106,39 +99,11 @@ export default function ProjectsChallengeSubmissionComparison({
             weight="medium">
             {deploymentScreenshots[selectedScreenIndex].label}
           </Text>
-          <div className="col-span-1 md:col-span-2 md:order-last justify-end items-center flex gap-2">
-            {(
-              [
-                {
-                  icon: RiComputerLine,
-                  label: 'Desktop',
-                  value: 'desktop',
-                },
-                {
-                  icon: RiTabletLine,
-                  label: 'Tablet',
-                  value: 'tablet',
-                },
-                {
-                  icon: RiSmartphoneLine,
-                  label: 'Mobile',
-                  value: 'mobile',
-                },
-              ] as const
-            ).map(({ icon, label, value }) => (
-              <FilterButton
-                key={label}
-                icon={icon}
-                isLabelHidden={true}
-                label={label}
-                purpose="tab"
-                selected={selectedDevice === value}
-                tooltip={label}
-                onClick={() => {
-                  setSelectedDevice(value);
-                }}
-              />
-            ))}
+          <div className="flex col-span-1 md:col-span-2 md:order-last justify-end items-center">
+            <ProjectsImageBreakpointButtonGroup
+              device={selectedDevice}
+              setDevice={setSelectedDevice}
+            />
           </div>
           <div
             className={clsx(
