@@ -6,17 +6,17 @@ import FilterButton from '~/components/common/FilterButton';
 import type { ProjectsImageBreakpointCategory } from './ProjectsImageBreakpoints';
 
 type Props = Readonly<{
-  device: ProjectsImageBreakpointCategory;
-  setDevice: (device: ProjectsImageBreakpointCategory) => void;
+  breakpoint: ProjectsImageBreakpointCategory;
+  setBreakpoint: (device: ProjectsImageBreakpointCategory) => void;
 }>;
 
 export default function ProjectsImageBreakpointButtonGroup({
-  device,
-  setDevice,
+  breakpoint,
+  setBreakpoint,
 }: Props) {
   const intl = useIntl();
 
-  const devices = [
+  const breakpoints = [
     {
       icon: RiComputerLine,
       label: intl.formatMessage({
@@ -48,17 +48,17 @@ export default function ProjectsImageBreakpointButtonGroup({
 
   return (
     <div className="flex gap-2">
-      {devices.map(({ icon, label, value }) => (
+      {breakpoints.map(({ icon, label, value }) => (
         <FilterButton
           key={value}
           icon={icon}
           isLabelHidden={true}
           label={label}
           purpose="tab"
-          selected={device === value}
+          selected={breakpoint === value}
           tooltip={label}
           onClick={() => {
-            setDevice(value);
+            setBreakpoint(value);
           }}
         />
       ))}

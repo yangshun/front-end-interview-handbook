@@ -1,6 +1,9 @@
 import puppeteer from 'puppeteer';
 
-import type { ProjectsImageBreakpointCategory } from '~/components/projects/common/ProjectsImageBreakpoints';
+import {
+  type ProjectsImageBreakpointCategory,
+  ProjectsImageBreakpointDimensions,
+} from '~/components/projects/common/ProjectsImageBreakpoints';
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/projects/submissions/types.ts';
 
 import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
@@ -15,19 +18,14 @@ const exePath =
     ? 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'
     : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 
-const desktopViewportConfig = {
-  height: 1080,
-  width: 1440,
-};
+const desktopViewportConfig = ProjectsImageBreakpointDimensions.desktop;
 const tabletViewportConfig = {
-  height: 1080,
+  ...ProjectsImageBreakpointDimensions.tablet,
   isMobile: true,
-  width: 768,
 };
 const mobileViewportConfig = {
-  height: 1080,
+  ...ProjectsImageBreakpointDimensions.mobile,
   isMobile: true,
-  width: 640,
 };
 
 type Browser = Awaited<ReturnType<typeof puppeteer.launch>>;

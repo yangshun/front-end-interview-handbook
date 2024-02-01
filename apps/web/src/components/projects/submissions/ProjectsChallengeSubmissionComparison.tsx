@@ -6,6 +6,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import ProjectsChallengeSubmissionImageComparisonSlider from '~/components/projects/submissions/ProjectsChallengeSubmissionImageComparisonSlider';
+import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -26,7 +27,7 @@ export default function ProjectsChallengeSubmissionComparison({
   submissionId,
 }: Props) {
   const intl = useIntl();
-  const [selectedDevice, setSelectedDevice] =
+  const [selectedBreakpoint, setSelectedBreakpoint] =
     useState<ProjectsImageBreakpointCategory>('desktop');
   // TODO(projects): refetch submission to prevent storing duplicated state
   const [deploymentScreenshots, setDeploymentScreenshots] =
@@ -34,8 +35,9 @@ export default function ProjectsChallengeSubmissionComparison({
   const [selectedScreenIndex, setSelectedScreenIndex] = useState(0);
   const pages = deploymentScreenshots.map((page) => ({
     label: page.label,
+    // TODO(projects): Pick from challenge assets.
     original: `https://source.unsplash.com/random/1080x700?random=${page.label}`,
-    screenshot: page.screenshots?.[selectedDevice],
+    screenshot: page.screenshots?.[selectedBreakpoint],
   }));
 
   const takeScreenshotMutation =
@@ -91,16 +93,26 @@ export default function ProjectsChallengeSubmissionComparison({
         </div>
         {/* Footer */}
         <div className="grid grid-col-2 md:grid-cols-8 md:px-6 px-4 py-4 w-full">
-          <Text
-            className={clsx('col-span-1 md:col-span-2 flex items-center')}
-            color="secondary"
-            weight="medium">
-            {deploymentScreenshots[selectedScreenIndex].label}
-          </Text>
+          <div
+            className={clsx(
+              'col-span-1 md:col-span-2 flex flex-col justify-center',
+            )}>
+            <Text color="secondary" weight="medium">
+              {deploymentScreenshots[selectedScreenIndex].label}
+            </Text>
+            <Text
+              className="whitespace-nowrap truncate"
+              display="block"
+              size="body2">
+              <Anchor href={deploymentScreenshots[selectedScreenIndex].href}>
+                {deploymentScreenshots[selectedScreenIndex].href}
+              </Anchor>
+            </Text>
+          </div>
           <div className="flex col-span-1 md:col-span-2 md:order-last justify-end items-center">
             <ProjectsImageBreakpointButtonGroup
-              device={selectedDevice}
-              setDevice={setSelectedDevice}
+              breakpoint={selectedBreakpoint}
+              setBreakpoint={setSelectedBreakpoint}
             />
           </div>
           <div
