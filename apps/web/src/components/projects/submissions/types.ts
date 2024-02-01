@@ -2,6 +2,8 @@ import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 
 import type { PrismaClientGFE } from '~/server/prisma';
 
+import type { ProjectsImageBreakpointCategory } from '../common/ProjectsImageBreakpoints';
+
 import type {
   Prisma,
   ProjectsChallengeSessionStatus,
@@ -14,18 +16,10 @@ export type ProjectsChallengeSubmissionExtended = Prisma.Result<
   'findUnique'
 >;
 
-export type ProjectsChallengeSubmissionDeploymentScreenshotDevice =
-  | 'desktop'
-  | 'mobile'
-  | 'tablet';
-
 export type ProjectsChallengeSubmissionDeploymentUrlItem = {
   href: string;
   label: string;
-  screenshots?: Record<
-    ProjectsChallengeSubmissionDeploymentScreenshotDevice,
-    string
-  >;
+  screenshots?: Record<ProjectsImageBreakpointCategory, string>;
   updatedAt?: Date | null;
 };
 

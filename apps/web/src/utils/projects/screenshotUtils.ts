@@ -1,9 +1,7 @@
 import puppeteer from 'puppeteer';
 
-import type {
-  ProjectsChallengeSubmissionDeploymentScreenshotDevice,
-  ProjectsChallengeSubmissionDeploymentUrls,
-} from '~/components/projects/submissions/types.ts';
+import type { ProjectsImageBreakpointCategory } from '~/components/projects/common/ProjectsImageBreakpoints';
+import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/projects/submissions/types.ts';
 
 import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
 
@@ -60,7 +58,7 @@ async function saveScreenshot(screenshotBuffer: Buffer, path: string) {
 function createStoragePath(
   submissionId: string,
   url: string,
-  device: ProjectsChallengeSubmissionDeploymentScreenshotDevice,
+  device: ProjectsImageBreakpointCategory,
 ): string {
   const urlObj = new URL(url);
 
@@ -72,7 +70,7 @@ function createStoragePath(
 
 async function takeScreenshotForViewport(
   submissionId: string,
-  device: ProjectsChallengeSubmissionDeploymentScreenshotDevice,
+  device: ProjectsImageBreakpointCategory,
   page: Page,
   url: string,
   viewport: Parameters<Page['setViewport']>[0],
@@ -122,10 +120,7 @@ async function takeScreenshots(
     tabletViewportConfig,
   );
 
-  const screenshots: Record<
-    ProjectsChallengeSubmissionDeploymentScreenshotDevice,
-    string
-  > = {
+  const screenshots: Record<ProjectsImageBreakpointCategory, string> = {
     desktop: desktopScreenshot,
     mobile: mobileScreenshot,
     tablet: tabletScreenshot,

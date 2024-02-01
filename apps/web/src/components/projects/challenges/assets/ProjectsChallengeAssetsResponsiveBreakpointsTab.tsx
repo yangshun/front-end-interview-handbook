@@ -6,7 +6,7 @@ import { themeBorderElementColor } from '~/components/ui/theme';
 
 import type { ProjectsChallengeItem } from '../types';
 import ProjectsImageBreakpointButtonGroup from '../../common/ProjectsImageBreakpointButtonGroup';
-import type { ProjectsChallengeSubmissionDeploymentScreenshotDevice } from '../../submissions/types';
+import type { ProjectsImageBreakpointCategory } from '../../common/ProjectsImageBreakpoints';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -16,7 +16,7 @@ export default function ProjectsChallengeAssetsResponsiveBreakpointsTab({
   challenge,
 }: Props) {
   const [selectedDevice, setSelectedDevice] =
-    useState<ProjectsChallengeSubmissionDeploymentScreenshotDevice>('desktop');
+    useState<ProjectsImageBreakpointCategory>('desktop');
 
   return (
     <div className="flex flex-col items-stretch gap-6">

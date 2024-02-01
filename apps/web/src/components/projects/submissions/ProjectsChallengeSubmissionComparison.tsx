@@ -12,11 +12,9 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
-import type {
-  ProjectsChallengeSubmissionDeploymentScreenshotDevice,
-  ProjectsChallengeSubmissionDeploymentUrls,
-} from './types';
+import type { ProjectsChallengeSubmissionDeploymentUrls } from './types';
 import ProjectsImageBreakpointButtonGroup from '../common/ProjectsImageBreakpointButtonGroup';
+import type { ProjectsImageBreakpointCategory } from '../common/ProjectsImageBreakpoints';
 
 type Props = Readonly<{
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
@@ -29,7 +27,7 @@ export default function ProjectsChallengeSubmissionComparison({
 }: Props) {
   const intl = useIntl();
   const [selectedDevice, setSelectedDevice] =
-    useState<ProjectsChallengeSubmissionDeploymentScreenshotDevice>('desktop');
+    useState<ProjectsImageBreakpointCategory>('desktop');
   // TODO(projects): refetch submission to prevent storing duplicated state
   const [deploymentScreenshots, setDeploymentScreenshots] =
     useState<ProjectsChallengeSubmissionDeploymentUrls>(deploymentUrls);

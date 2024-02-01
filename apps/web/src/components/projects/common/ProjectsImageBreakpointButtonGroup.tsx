@@ -3,13 +3,11 @@ import { useIntl } from 'react-intl';
 
 import FilterButton from '~/components/common/FilterButton';
 
-import type { ProjectsChallengeSubmissionDeploymentScreenshotDevice } from '../submissions/types';
+import type { ProjectsImageBreakpointCategory } from './ProjectsImageBreakpoints';
 
 type Props = Readonly<{
-  device: ProjectsChallengeSubmissionDeploymentScreenshotDevice;
-  setDevice: (
-    device: ProjectsChallengeSubmissionDeploymentScreenshotDevice,
-  ) => void;
+  device: ProjectsImageBreakpointCategory;
+  setDevice: (device: ProjectsImageBreakpointCategory) => void;
 }>;
 
 export default function ProjectsImageBreakpointButtonGroup({
