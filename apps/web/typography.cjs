@@ -49,7 +49,7 @@ module.exports = ({ theme }) => ({
         font: 'inherit',
       },
       a: {
-        fontWeight: theme('fontWeight.semibold'),
+        fontWeight: theme('fontWeight.medium'),
         textDecoration: 'none',
       },
       'a code': {
@@ -57,8 +57,7 @@ module.exports = ({ theme }) => ({
         fontWeight: 'inherit',
       },
       strong: {
-        color: theme('colors.neutral.900'),
-        fontWeight: theme('fontWeight.semibold'),
+        fontWeight: theme('fontWeight.medium'),
       },
       'a strong': {
         color: 'inherit',
@@ -107,7 +106,7 @@ module.exports = ({ theme }) => ({
       },
       'thead th': {
         paddingTop: 0,
-        fontWeight: theme('fontWeight.semibold'),
+        fontWeight: theme('fontWeight.medium'),
       },
       'tbody tr': {
         borderBottomColor: theme('colors.neutral.100'),
@@ -129,12 +128,12 @@ module.exports = ({ theme }) => ({
   },
   invert: {
     css: {
-      color: theme('colors.neutral.400'),
+      color: theme('colors.neutral.100'),
       'h2, h3, h4, thead th': {
-        color: theme('colors.neutral.200'),
+        color: theme('colors.neutral.100'),
       },
       'h2 small, h3 small, h4 small': {
-        color: theme('colors.neutral.400'),
+        color: theme('colors.neutral.100'),
       },
       kbd: {
         background: theme('colors.neutral.700'),
@@ -147,9 +146,6 @@ module.exports = ({ theme }) => ({
       hr: {
         borderColor: theme('colors.neutral.200'),
         opacity: '0.05',
-      },
-      strong: {
-        color: theme('colors.neutral.200'),
       },
       thead: {
         color: theme('colors.neutral.300'),
