@@ -1,6 +1,5 @@
 'use client';
 
-import clsx from 'clsx';
 import { allProjectsChallengeBriefs } from 'contentlayer/generated';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -13,6 +12,7 @@ import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 
 import ProjectsChallengeBriefFAQSection from './ProjectsChallengeBriefFAQSection';
+import ProjectsChallengeBriefImageCarousel from './ProjectsChallengeBriefImageCarousel';
 import ProjectsChallengeBriefProvidedResources from './ProjectsChallengeBriefProvidedResources';
 import ProjectsChallengeBriefSupportSection from './ProjectsChallengeBriefSupportSection';
 import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxContent';
@@ -34,6 +34,16 @@ export default function ProjectsChallengeBriefPage({ challenge }: Props) {
   // TODO(projects): Compute these values
   const isProjectPremium = true;
   const isUserPremium = true;
+
+  // TODO(projects): Add real images url
+  const images = [
+    `https://source.unsplash.com/random/640x360?random=${Math.random()}`,
+    `https://source.unsplash.com/random/640x560?random=${Math.random()}`,
+    `https://source.unsplash.com/random/340x260?random=${Math.random()}`,
+    `https://source.unsplash.com/random/140x360?random=${Math.random()}`,
+    `https://source.unsplash.com/random/940x360?random=${Math.random()}`,
+    `https://source.unsplash.com/random/240x160?random=${Math.random()}`,
+  ];
 
   return (
     <BlurOverlay
@@ -87,11 +97,7 @@ export default function ProjectsChallengeBriefPage({ challenge }: Props) {
             </Section>
           </div>
           <div className="flex flex-col gap-6">
-            <img
-              alt={challenge.metadata.title}
-              className={clsx('h-[372px] w-full rounded-lg')}
-              src={challenge.metadata.imageUrl}
-            />
+            <ProjectsChallengeBriefImageCarousel images={images} />
             <Heading level="heading6">
               <FormattedMessage
                 defaultMessage="Resources provided"

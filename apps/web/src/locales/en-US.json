@@ -99,6 +99,10 @@
     "defaultMessage": "No projects matching those filters",
     "description": "Title for no projects yet on projects progress tab"
   },
+  "+vnNEk": {
+    "defaultMessage": "Previous image",
+    "description": "Label for previous image"
+  },
   "+wR7CJ": {
     "defaultMessage": "Legal",
     "description": "Section heading in footer for links to legal pages like privacy policy and terms of service"
@@ -6066,6 +6070,10 @@
   "sUQjXK": {
     "defaultMessage": "Learn new skills, improve your techniques and stay updated on latest front end trends and developments.",
     "description": "Blog home page description"
+  },
+  "sV/OUK": {
+    "defaultMessage": "Next image",
+    "description": "Label for next image"
   },
   "sWyGax": {
     "defaultMessage": "Features",
