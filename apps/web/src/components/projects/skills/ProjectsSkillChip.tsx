@@ -1,126 +1,43 @@
 import clsx from 'clsx';
-import { RiCloseLine } from 'react-icons/ri';
 
 import Text from '~/components/ui/Text';
 
-import type { ProjectSkillDifficulty, ProjectsSkill } from './types';
-
-type Props = Readonly<{
-  isEditable?: boolean;
-  onDelete?: () => void;
-  skill: ProjectsSkill;
-  subSkills?: Array<ProjectsSkill>;
-}>;
-
-const difficultyClasses: Record<
-  ProjectSkillDifficulty,
+const styles = [
   {
-    bg: string;
-    closeButton: string;
-    text: string;
-  }
-> = {
-  easy: {
-    bg: 'bg-success',
-    closeButton: 'text-success-darker',
-    text: 'text-success-darker',
+    bgColor: 'bg-[#00ABDF] dark:bg-[#00ABDF]',
+    textColor: 'text-white dark:text-white',
   },
-  hard: {
-    bg: 'bg-danger',
-    closeButton: 'text-danger-darker',
-    text: 'text-danger-darker',
+  {
+    bgColor: 'bg-[#FACC15] dark:bg-[#FACC15]',
+    textColor: 'text-neutral-950 dark:text-neutral-950',
   },
-  medium: {
-    bg: 'bg-warning',
-    closeButton: 'text-warning-darker',
-    text: 'text-warning-darker',
+  {
+    bgColor: 'bg-[#6AD2CC] dark:bg-[#6AD2CC]',
+    textColor: 'text-neutral-950 dark:text-neutral-950',
   },
-  unknown: {
-    bg: 'bg-neutral-200 dark:bg-neutral-800',
-    closeButton: 'text-neutral-400',
-    text: 'text-neutral-950 dark:text-white',
+  {
+    bgColor: 'bg-neutral-300 dark:bg-neutral-300',
+    textColor: 'text-neutral-950 dark:text-neutral-950',
   },
-};
+];
 
-function DeleteButton({
-  className,
-  onClick,
-}: {
-  className?: string;
-  onClick?: () => void;
-}) {
-  return (
-    <button className={className} type="button" onClick={onClick}>
-      <RiCloseLine className="h-4 w-4" />
-    </button>
-  );
-}
+export default function ProjectsSkillChip({ value }: { value: string }) {
+  // TODO(projects): Might have to update the logic to how to apply specific styles for each tech
+  const randomStylesIndex = Math.floor(Math.random() * styles.length);
+  const { bgColor, textColor } = styles[randomStylesIndex];
 
-function SubSkillChip({
-  subSkill: { label, difficulty = 'unknown' },
-  isEditable,
-}: {
-  isEditable?: boolean;
-  subSkill: ProjectsSkill;
-}) {
   return (
-    <span
+    <div
       className={clsx(
-        'flex flex-shrink-0 items-center rounded px-2 py-0.5',
-        difficultyClasses[difficulty].bg,
+        'rounded py-[2px] px-[7px] w-fit flex items-center justify-center',
+        bgColor,
       )}>
       <Text
-        className={difficultyClasses[difficulty].text}
-        color="inherit"
+        className={clsx('whitespace-nowrap', textColor)}
         size="body3"
         weight="medium">
-        {label}
+        {value}
       </Text>
-      {isEditable && (
-        <DeleteButton className={difficultyClasses[difficulty].closeButton} />
-      )}
-    </span>
-  );
-}
-
-export default function ProjectsSkillChip({
-  skill: { label, difficulty = 'unknown' },
-  subSkills,
-  isEditable,
-  onDelete,
-}: Props) {
-  return (
-    <span
-      className={clsx(
-        'flex items-center gap-x-1.5 rounded px-1.5 py-0.5',
-        subSkills !== undefined && 'bg-neutral-100 dark:bg-neutral-900',
-        subSkills === undefined && difficultyClasses[difficulty].bg,
-      )}>
-      <Text
-        // ClassName="text-neutral-800 dark:text-neutral-200"
-        className={
-          subSkills !== undefined
-            ? 'text-neutral-800 dark:text-neutral-200'
-            : difficultyClasses[difficulty].text
-        }
-        color="inherit"
-        size="body3"
-        weight="medium">
-        {label}
-      </Text>
-      {(subSkills ?? []).map((subSkill) => (
-        <SubSkillChip
-          key={subSkill.key}
-          isEditable={isEditable}
-          subSkill={subSkill}
-        />
-      ))}
-      {isEditable && (
-        <DeleteButton
-          className="text-neutral-400 dark:text-neutral-500"
-          onClick={onDelete}
-        />
-      )}
-    </span>
+    </div>
   );
 }

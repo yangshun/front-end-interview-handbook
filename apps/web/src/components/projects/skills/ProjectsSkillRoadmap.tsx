@@ -8,7 +8,7 @@ type Props = Readonly<{
   tree: ProjectSkillTree;
 }>;
 
-export default function ProjectsSkillTree({ tree, disabled }: Props) {
+export default function ProjectsSkillRoadmap({ tree, disabled }: Props) {
   return (
     <div className="flex flex-col gap-2">
       {tree.map((group, i) => (

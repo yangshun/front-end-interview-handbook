@@ -11,11 +11,11 @@ import ReactLogo from '~/components/icons/ReactLogo';
 import ProjectsChallengeGridList from '~/components/projects/challenges/lists/ProjectsChallengeGridList';
 import ProjectsChallengeGridListWithFilters from '~/components/projects/challenges/lists/ProjectsChallengeGridListWithFilters';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import ProjectsSkillTree from '~/components/projects/skills/ProjectsSkillTree';
+import ProjectsSkillTree from '~/components/projects/skills/ProjectsSkillRoadmap';
 import {
   foundationalSkillTree,
   intermediateSkillTree,
-} from '~/components/projects/skills/ProjectsSkillTreeData';
+} from '~/components/projects/skills/ProjectsSkillRoadmapData';
 import ProjectsTrackAccordion from '~/components/projects/tracks/ProjectsTrackAccordion';
 import ProjectsTrackAccordionItem from '~/components/projects/tracks/ProjectsTrackAccordionItem';
 import Button from '~/components/ui/Button';

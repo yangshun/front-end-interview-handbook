@@ -4,9 +4,9 @@ import Text from '~/components/ui/Text';
 import {
   foundationalSkills,
   intermediateSkills,
-} from './ProjectsSkillTreeData';
+} from './ProjectsSkillRoadmapData';
 
-export default function ProjectsSkillTreeSection() {
+export default function ProjectsSkillRoadmapSection() {
   return (
     <div className="flex flex-col gap-10">
       <div className="flex flex-col gap-4">

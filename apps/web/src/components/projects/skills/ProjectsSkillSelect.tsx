@@ -7,7 +7,7 @@ import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import ProjectsSkillChip from './ProjectsSkillChip';
+import ProjectsSkillRoadmapChips from './ProjectsSkillRoadmapChips';
 import type { ProjectsSkill } from './types';
 
 type Props = Readonly<{
@@ -19,7 +19,7 @@ type Props = Readonly<{
   >;
 }>;
 
-export default function ProjectsSkillsSelect({ className, skills }: Props) {
+export default function ProjectsSkillSelect({ className, skills }: Props) {
   const intl = useIntl();
 
   return (
@@ -58,7 +58,7 @@ export default function ProjectsSkillsSelect({ className, skills }: Props) {
       </div>
       <div className="flex flex-wrap gap-2">
         {skills.map((skill) => (
-          <ProjectsSkillChip
+          <ProjectsSkillRoadmapChips
             key={skill.key}
             isEditable={skill.isEditable}
             skill={skill}

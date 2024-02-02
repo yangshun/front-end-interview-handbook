@@ -17,8 +17,8 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import { useProjectsChallengeSessionContext } from '../ProjectsChallengeSessionContext';
 import type { ProjectsChallengeItem } from '../types';
-import ProjectsOtherTechStackInput from '../../skills/ProjectsOtherTechStackInput';
-import ProjectsSkillsSelect from '../../skills/ProjectsSkillsSelect';
+import ProjectsSkillSelect from '../../skills/ProjectsSkillSelect';
+import ProjectsSkillTechStackInput from '../../skills/ProjectsSkillTechStackInput';
 
 import type { ProjectsChallengeSession } from '@prisma/client';
 
@@ -203,8 +203,8 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
         </div>
         {isExpanded && (
           <>
-            <ProjectsSkillsSelect className="mt-6" skills={skills} />
-            <ProjectsOtherTechStackInput
+            <ProjectsSkillSelect className="mt-6" skills={skills} />
+            <ProjectsSkillTechStackInput
               value={otherTechStacks}
               onChange={setOtherTechStacks}
             />

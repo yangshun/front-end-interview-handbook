@@ -11,7 +11,7 @@ import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/met
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsChallengeTrackTag from '~/components/projects/challenges/metadata/ProjectsChallengeTrackTag';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import ProjectsSkillChip from '~/components/projects/skills/ProjectsSkillChip';
+import ProjectsSkillRoadmapChips from '~/components/projects/skills/ProjectsSkillRoadmapChips';
 import ProjectsCompletedUsersTag from '~/components/projects/stats/ProjectsCompletedUsersTag';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -108,7 +108,7 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
             <div className="flex flex-col">
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill) => (
-                  <ProjectsSkillChip
+                  <ProjectsSkillRoadmapChips
                     key={skill.key}
                     isEditable={true}
                     skill={skill}

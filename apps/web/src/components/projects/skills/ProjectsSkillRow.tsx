@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import Text from '~/components/ui/Text';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
-import ProjectsSkillChip from './ProjectsSkillChip';
+import ProjectsSkillRoadmapChips from './ProjectsSkillRoadmapChips';
 import type { ProjectsSkill } from './types';
 
 type Props = Readonly<{
@@ -25,7 +25,7 @@ export default function ProjectsSkillRow({ label, skills, className }: Props) {
       <ul className="flex items-center gap-2">
         {firstThreeSkills.map((skill) => (
           <li key={skill.key}>
-            <ProjectsSkillChip skill={skill} />
+            <ProjectsSkillRoadmapChips skill={skill} />
           </li>
         ))}
         {remainingCount > 0 && (

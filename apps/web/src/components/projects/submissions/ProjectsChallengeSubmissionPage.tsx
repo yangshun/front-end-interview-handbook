@@ -9,7 +9,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import ProjectsSkillChip from '~/components/projects/skills/ProjectsSkillChip';
+import ProjectsSkillRoadmapChips from '~/components/projects/skills/ProjectsSkillRoadmapChips';
 import type { ProjectsSkill } from '~/components/projects/skills/types';
 import ProjectsChallengeSubmissionHero from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHero';
 import ProjectsChallengeSubmissionAuthorProfile from '~/components/projects/submissions/ProjectsChallengeSubmissionAuthorProfile';
@@ -180,7 +180,7 @@ export default function ProjectsChallengeSubmissionPage({
             </Heading>
             <div className="flex flex-wrap gap-2">
               {skills.map((skill) => (
-                <ProjectsSkillChip
+                <ProjectsSkillRoadmapChips
                   key={skill.key}
                   skill={skill}
                   // TODO(projects): Replace below with actual subSkills

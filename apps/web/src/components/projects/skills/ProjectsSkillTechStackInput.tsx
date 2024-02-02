@@ -5,14 +5,14 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import Anchor from '~/components/ui/Anchor';
 import TextInput from '~/components/ui/TextInput';
 
-import ProjectsSkillChip from './ProjectsSkillChip';
+import ProjectsSkillRoadmapChips from './ProjectsSkillRoadmapChips';
 
 type Props = Readonly<{
   onChange: (value: Array<string>) => void;
   value: Array<string>;
 }>;
 
-export default function ProjectsOtherTechStackInput({
+export default function ProjectsSkillTechStackInput({
   value,
   onChange,
 }: Props) {
@@ -58,7 +58,7 @@ export default function ProjectsOtherTechStackInput({
       {value.length > 0 && (
         <div className="mt-4 flex gap-3">
           {value.map((techStack) => (
-            <ProjectsSkillChip
+            <ProjectsSkillRoadmapChips
               key={techStack}
               isEditable={true}
               skill={{

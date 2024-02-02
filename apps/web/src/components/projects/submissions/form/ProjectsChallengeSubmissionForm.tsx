@@ -17,8 +17,8 @@ import { useProjectsChallengeSubmissionSummarySchema } from './fields/ProjectsCh
 import ProjectsChallengeSubmissionTitleField from './fields/ProjectsChallengeSubmissionTitleField';
 import { useProjectsChallengeSubmissionTitleSchema } from './fields/ProjectsChallengeSubmissionTitleSchema';
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '../types';
-import ProjectsOtherTechStackInput from '../../skills/ProjectsOtherTechStackInput';
 import ProjectsSkillInput from '../../skills/ProjectsSkillInput';
+import ProjectsSkillTechStackInput from '../../skills/ProjectsSkillTechStackInput';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -112,7 +112,7 @@ export default function ProjectsChallengeSubmissionForm({
                   id: 'KC1Rzx',
                 })}
               />
-              <ProjectsOtherTechStackInput value={[]} onChange={() => {}} />
+              <ProjectsSkillTechStackInput value={[]} onChange={() => {}} />
               <ProjectsChallengeSubmissionRepositoryUrlField
                 control={control}
               />

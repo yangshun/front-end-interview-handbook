@@ -2,12 +2,12 @@
 
 import { FormattedMessage } from 'react-intl';
 
-import ProjectsSkillTreeSection from '~/components/projects/skills/ProjectsSkillTreeSection';
+import ProjectsSkillTreeSection from '~/components/projects/skills/ProjectsSkillRoadmapSection';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
-export default function ProjectsSkillTreePage() {
+export default function ProjectsSkillRoadmapPage() {
   return (
     <div className="flex flex-col gap-9">
       <div className="flex flex-col max-w-prose gap-1">
