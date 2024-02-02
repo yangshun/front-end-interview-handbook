@@ -1,10 +1,15 @@
+import React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import ProjectsChallengeBriefGuidesResourcesSupportCard from '~/components/projects/challenges/brief/support/ProjectsChallengeBriefGuidesResourcesSupportCard';
+import ProjectsChallengeBriefQuestionSupportCard from '~/components/projects/challenges/brief/support/ProjectsChallengeBriefQuestionSupportCard';
+import ProjectsChallengeBriefSubmissionSupportCard from '~/components/projects/challenges/brief/support/ProjectsChallengeBriefSubmissionSupportCard';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
 type SupportItem = Readonly<{
+  card: React.ReactNode;
   description: string;
   key: string;
   title: string;
@@ -15,6 +20,7 @@ function useSupportItems() {
 
   const supportItems: Array<SupportItem> = [
     {
+      card: <ProjectsChallengeBriefGuidesResourcesSupportCard />,
       description: intl.formatMessage({
         defaultMessage:
           'Development guides written & curated by Sr engineers at Big tech, such as:',
@@ -31,6 +37,7 @@ function useSupportItems() {
       }),
     },
     {
+      card: <ProjectsChallengeBriefSubmissionSupportCard />,
       description: intl.formatMessage({
         defaultMessage:
           'We recommend well-rated submissions using the same stack for your reference',
@@ -47,6 +54,7 @@ function useSupportItems() {
       }),
     },
     {
+      card: <ProjectsChallengeBriefQuestionSupportCard />,
       description: intl.formatMessage({
         defaultMessage:
           'Have any doubts or need help? Ask in the community and discuss with others.',
@@ -82,14 +90,14 @@ export default function ProjectsChallengeBriefSupportSection() {
       <Section>
         <div className="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-3">
           {supportItems.map(
-            ({ key, title: itemTitle, description: itemDescription }) => (
+            ({ key, title: itemTitle, description: itemDescription, card }) => (
               <div key={key} className="flex flex-col">
                 <Text weight="bold">{itemTitle}</Text>
                 <div className="mt-4 flex flex-col-reverse gap-y-4 lg:mt-3 lg:flex-col lg:gap-y-6">
                   <Text color="secondary" size="body2">
                     {itemDescription}
                   </Text>
-                  <div className="bg-red h-[200px] w-full rounded-lg" />
+                  {card}
                 </div>
               </div>
             ),

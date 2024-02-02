@@ -23,7 +23,7 @@ export default function ProjectsSkillRow({ label, skills, className }: Props) {
         {label}
       </Text>
       <ul className="flex items-center gap-2">
-        {skills.map((skill) => (
+        {firstThreeSkills.map((skill) => (
           <li key={skill.key}>
             <ProjectsSkillChip skill={skill} />
           </li>
