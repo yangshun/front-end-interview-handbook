@@ -128,6 +128,7 @@ export default function RichTextEditorTextTypePlugin() {
   return (
     <DropdownMenu
       icon={selectedValue?.icon ?? RiFontSize2}
+      isDisabled={!editor.isEditable()}
       label={
         selectedValue?.label ??
         intl.formatMessage({

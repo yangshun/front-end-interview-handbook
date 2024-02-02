@@ -1,9 +1,16 @@
+import { $getRoot } from 'lexical';
 import type { IntlShape } from 'react-intl';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
+import { RichTextEditorConfig } from '~/components/ui/RichTextEditor/RichTextEditorConfig';
+
+import { createHeadlessEditor } from '@lexical/headless';
+
 const MIN_LENGTH = 6;
 const MAX_LENGTH = 40000;
+
+const editor = createHeadlessEditor(RichTextEditorConfig);
 
 function discussionsCommentBodySchema(options?: {
   maxMessage: string;
@@ -13,9 +20,29 @@ function discussionsCommentBodySchema(options?: {
 
   return z
     .string()
-    .min(MIN_LENGTH, { message: minMessage })
-    .max(MAX_LENGTH, { message: maxMessage })
-    .trim();
+    .trim()
+    .refine(
+      (value) => {
+        const editorState = editor.parseEditorState(value);
+        const text = editorState.read(() => $getRoot().getTextContent());
+
+        return text.length >= MIN_LENGTH;
+      },
+      {
+        message: minMessage,
+      },
+    )
+    .refine(
+      (value) => {
+        const editorState = editor.parseEditorState(value);
+        const text = editorState.read(() => $getRoot().getTextContent());
+
+        return text.length <= MAX_LENGTH;
+      },
+      {
+        message: maxMessage,
+      },
+    );
 }
 
 // TODO: Figure out how to reuse intl strings for the server.

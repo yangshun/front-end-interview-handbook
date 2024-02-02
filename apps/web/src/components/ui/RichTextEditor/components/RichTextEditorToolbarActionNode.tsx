@@ -7,6 +7,8 @@ import {
   themeBackgroundElementPressedStateColor,
 } from '../../theme';
 
+import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
+
 type ActionNodeProps = Readonly<{
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isActive?: boolean;
@@ -22,6 +24,8 @@ export default function RichTextEditorToolbarActionNode({
   isDisabled,
   isActive,
 }: ActionNodeProps) {
+  const [editor] = useLexicalComposerContext();
+
   const node = (
     <button
       className={clsx(
@@ -34,7 +38,7 @@ export default function RichTextEditorToolbarActionNode({
         themeBackgroundElementHoverStateColor,
         themeBackgroundElementPressedStateColor,
       )}
-      disabled={isDisabled}
+      disabled={isDisabled || !editor.isEditable()}
       type="button"
       onClick={onClick}>
       <Icon className="h-4 w-4" />

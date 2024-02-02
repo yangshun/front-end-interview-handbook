@@ -27,6 +27,7 @@ type Props = Readonly<{
   // TODO: Change to strict children.
   children: React.ReactNode;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  isDisabled?: boolean;
   isLabelHidden?: boolean;
   label: string;
   labelColor?: DropdownLabelColor;
@@ -101,6 +102,7 @@ export default function DropdownMenu({
   variant = 'bordered',
   labelColor,
   icon: Icon,
+  isDisabled = false,
 }: Props) {
   return (
     <Menu as="div" className="relative inline-block shrink-0">
@@ -118,12 +120,14 @@ export default function DropdownMenu({
             [
               'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
               'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
+              'disabled:border-transparent disabled:text-white dark:disabled:text-neutral-700',
             ],
             isLabelHidden && !showChevron
               ? widthClasses[size]
               : horizontalPaddingClasses[size],
             heightClasses[size],
-          )}>
+          )}
+          disabled={isDisabled}>
           <Text
             className={clsx(
               'flex items-center justify-center',

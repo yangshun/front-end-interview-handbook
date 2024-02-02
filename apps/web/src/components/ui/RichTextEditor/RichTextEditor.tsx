@@ -1,9 +1,10 @@
 'use client';
 
 import clsx from 'clsx';
-import type { EditorState } from 'lexical';
-import type { FormEventHandler } from 'react';
-import { useId, useState } from 'react';
+import type { EditorState, LexicalEditor } from 'lexical';
+import type { FormEventHandler, ForwardedRef } from 'react';
+import type { MutableRefObject } from 'react';
+import { forwardRef, useId, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import type { LabelDescriptionStyle } from '~/components/ui/Label';
@@ -14,11 +15,15 @@ import Text from '~/components/ui/Text';
 
 import { PLAYGROUND_TRANSFORMERS } from './plugin/MarkdownTransformers';
 import RichTextEditorAutoLinkPlugin from './plugin/RichTextEditorAutoLinkPlugin';
+import RichTextEditorDisablePlugin from './plugin/RichTextEditorDisablePlugin';
 import RichTextEditorLinkPlugin from './plugin/RichTextEditorLinkPlugin';
+import RichTextEditorRefPlugin from './plugin/RichTextEditorRefPlugin';
 import { RichTextEditorConfig } from './RichTextEditorConfig';
 import { proseStyle } from '../Prose';
 import { themeBackgroundElementColor } from '../theme';
 
+import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin';
+import { ClearEditorPlugin } from '@lexical/react/LexicalClearEditorPlugin';
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
@@ -32,7 +37,9 @@ type Props = Readonly<{
   className?: string;
   description?: React.ReactNode;
   descriptionStyle?: LabelDescriptionStyle;
+  disabled?: boolean;
   errorMessage?: React.ReactNode;
+  focus?: boolean;
   id?: string;
   isLabelHidden?: boolean;
   label: string;
@@ -54,21 +61,26 @@ const stateClasses: Record<State, string> = {
   ),
 };
 
-export default function RichTextEditor({
-  className,
-  description,
-  descriptionStyle,
-  errorMessage,
-  id: idParam,
-  isLabelHidden = false,
-  label,
-  required,
-  value,
-  onBlur,
-  onChange,
-  placeholder,
-  minHeight = '50px',
-}: Props) {
+function RichTextEditor(
+  {
+    className,
+    description,
+    descriptionStyle,
+    errorMessage,
+    id: idParam,
+    isLabelHidden = false,
+    label,
+    required,
+    value,
+    onBlur,
+    onChange,
+    placeholder,
+    minHeight = '50px',
+    focus = false,
+    disabled = false,
+  }: Props,
+  ref: ForwardedRef<LexicalEditor | null>,
+) {
   const generatedId = useId();
   const id = idParam ?? generatedId;
   const messageId = useId();
@@ -175,7 +187,17 @@ export default function RichTextEditor({
       <MarkdownShortcutPlugin transformers={PLAYGROUND_TRANSFORMERS} />
       <RichTextEditorCodeHighlightPlugin />
       <RichTextEditorLinkPlugin />
-      <RichTextEditorAutoLinkPlugin />
+      {focus && <RichTextEditorAutoLinkPlugin />}
+      <RichTextEditorDisablePlugin disableEditor={disabled} />
+      {ref && (
+        <RichTextEditorRefPlugin
+          editorRef={ref as MutableRefObject<LexicalEditor>}
+        />
+      )}
+      <ClearEditorPlugin />
+      <AutoFocusPlugin />
     </LexicalComposer>
   );
 }
+
+export default forwardRef(RichTextEditor);

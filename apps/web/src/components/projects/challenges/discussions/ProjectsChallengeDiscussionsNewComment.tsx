@@ -1,3 +1,5 @@
+import type { LexicalEditor } from 'lexical';
+import { useRef } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
@@ -14,8 +16,9 @@ import UserProfileInformationRow from '~/components/profile/info/UserProfileInfo
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
+import RichTextEditor from '~/components/ui/RichTextEditor';
+import clearEditor from '~/components/ui/RichTextEditor/clearEditor';
 import Text from '~/components/ui/Text';
-import TextArea from '~/components/ui/TextArea';
 
 import type { ProjectsChallengeItem } from '../types';
 import ProjectsProfileDisplayNameLink from '../../users/ProjectsProfileDisplayNameLink';
@@ -37,16 +40,18 @@ export default function ProjectsChallengeDiscussionsNewComment({
   viewer,
 }: Props) {
   const intl = useIntl();
+  const editorRef = useRef<LexicalEditor>(null);
   const createCommentMutation = trpc.comments.create.useMutation();
   const attrs = getDiscussionsCommentBodyAttributes(intl);
   const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
 
   const {
     register,
+    setValue,
+    getValues,
     handleSubmit,
     formState: { errors },
     reset,
-    setValue,
   } = useForm<CommentFormInput>({
     defaultValues: {
       body: '',
@@ -60,6 +65,7 @@ export default function ProjectsChallengeDiscussionsNewComment({
       }),
     ),
   });
+
   const onSubmit: SubmitHandler<CommentFormInput> = (data) => {
     return createCommentMutation.mutate(
       {
@@ -71,6 +77,7 @@ export default function ProjectsChallengeDiscussionsNewComment({
       {
         onSuccess: () => {
           reset();
+          clearEditor(editorRef.current);
         },
       },
     );
@@ -88,25 +95,24 @@ export default function ProjectsChallengeDiscussionsNewComment({
           <UserProfileInformationRow profile={viewer} size="xs" />
         </div>
       </div>
-      <TextArea
-        autoResize={true}
-        classNameOuter="my-3"
-        disabled={createCommentMutation.isLoading}
-        errorMessage={errors.body?.message}
-        isLabelHidden={true}
-        label={intl.formatMessage({
-          defaultMessage: 'Discussion post comment',
-          description: 'Label for discussion post input textarea',
-          id: 'NA1S3Z',
-        })}
-        maxLength={attrs.validation.maxLength}
-        minLength={attrs.validation.minLength}
-        placeholder={attrs.placeholder}
-        required={true}
-        rows={5}
-        {...register('body')}
-        onChange={(value) => register('body').onChange({ target: { value } })}
-      />
+      <div className="my-3">
+        <RichTextEditor
+          ref={editorRef}
+          disabled={createCommentMutation.isLoading}
+          errorMessage={errors.body?.message}
+          isLabelHidden={true}
+          label={intl.formatMessage({
+            defaultMessage: 'Discussion post comment',
+            description: 'Label for discussion post input textarea',
+            id: 'NA1S3Z',
+          })}
+          minHeight="100px"
+          placeholder={attrs.placeholder}
+          required={true}
+          value={getValues('body')}
+          onChange={(value) => setValue('body', value)}
+        />
+      </div>
       <CheckboxInput
         disabled={createCommentMutation.isLoading}
         label={intl.formatMessage({

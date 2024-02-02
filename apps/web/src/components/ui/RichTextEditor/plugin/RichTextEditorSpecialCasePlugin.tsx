@@ -97,6 +97,7 @@ export default function RichTextEditorSpecialCasePlugin() {
   return (
     <DropdownMenu
       icon={RiFontSize}
+      isDisabled={!editor.isEditable()}
       isLabelHidden={true}
       label={intl.formatMessage({
         defaultMessage: 'Special case for richtext editor',

@@ -8,7 +8,6 @@ import { trpc } from '~/hooks/trpc';
 
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
-import TextArea from '~/components/ui/TextArea';
 
 import {
   getDiscussionsCommentBodyAttributes,
@@ -20,6 +19,7 @@ import type {
   DiscussionsCommentUserProfile,
 } from './types';
 import UserAvatarWithLevel from '../projects/users/UserAvatarWithLevel';
+import RichTextEditor from '../ui/RichTextEditor';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -46,8 +46,9 @@ export default function DiscussionsReplyInput({
   const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
 
   const {
-    register,
     handleSubmit,
+    setValue,
+    getValues,
     formState: { errors },
   } = useForm<CommentFormInput>({
     defaultValues: {
@@ -98,27 +99,24 @@ export default function DiscussionsReplyInput({
               id="IBaiFq"
             />
           </Text>
-          <TextArea
-            autoFocus={true}
-            autoResize={true}
-            classNameOuter="mt-2"
-            errorMessage={errors.body?.message}
-            isLabelHidden={true}
-            label={intl.formatMessage({
-              defaultMessage: 'Reply to comment',
-              description: 'Label for discussion post reply input',
-              id: 'YpJ3q8',
-            })}
-            maxLength={attrs.validation.maxLength}
-            minLength={attrs.validation.minLength}
-            placeholder={attrs.placeholder}
-            required={true}
-            {...register('body')}
-            disabled={createReplyMutation.isLoading}
-            onChange={(value) =>
-              register('body').onChange({ target: { value } })
-            }
-          />
+          <div className="mt-2">
+            <RichTextEditor
+              disabled={createReplyMutation.isLoading}
+              errorMessage={errors.body?.message}
+              focus={true}
+              isLabelHidden={true}
+              label={intl.formatMessage({
+                defaultMessage: 'Reply to comment',
+                description: 'Label for discussion post reply input',
+                id: 'YpJ3q8',
+              })}
+              minHeight="100px"
+              placeholder={attrs.placeholder}
+              required={true}
+              value={getValues('body')}
+              onChange={(value) => setValue('body', value)}
+            />
+          </div>
           <div className="mt-4 flex items-center gap-4">
             <Button
               className="w-[100px]"

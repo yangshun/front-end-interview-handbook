@@ -1,3 +1,5 @@
+import { type LexicalEditor } from 'lexical';
+import { useRef } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { Controller, useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
@@ -13,8 +15,9 @@ import {
 import type { DiscussionsCommentUserProfile } from '~/components/discussions/types';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import Button from '~/components/ui/Button';
+import RichTextEditor from '~/components/ui/RichTextEditor';
+import clearEditor from '~/components/ui/RichTextEditor/clearEditor';
 import Text from '~/components/ui/Text';
-import TextArea from '~/components/ui/TextArea';
 
 import type { ProjectsChallengeSubmissionAugmented } from '../types';
 import ProjectsProfileAvatar from '../../users/ProjectsProfileAvatar';
@@ -37,13 +40,15 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
   viewer,
 }: Props) {
   const intl = useIntl();
+  const editorRef = useRef<LexicalEditor | null>(null);
   const createCommentMutation = trpc.comments.create.useMutation();
   const attrs = getDiscussionsCommentBodyAttributes(intl);
   const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
 
   const {
-    register,
     handleSubmit,
+    setValue,
+    getValues,
     formState: { errors },
     reset,
     control,
@@ -70,6 +75,7 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
       },
       {
         onSuccess: () => {
+          clearEditor(editorRef.current);
           reset();
         },
       },
@@ -122,25 +128,26 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
           )}
         />
       </div>
-      <TextArea
-        autoResize={true}
-        classNameOuter="my-3"
-        disabled={createCommentMutation.isLoading}
-        errorMessage={errors.body?.message}
-        isLabelHidden={true}
-        label={intl.formatMessage({
-          defaultMessage: 'Submit a comment',
-          description: 'Label for discussion input textarea',
-          id: 'FEamkQ',
-        })}
-        maxLength={attrs.validation.maxLength}
-        minLength={attrs.validation.minLength}
-        placeholder={attrs.placeholder}
-        required={true}
-        rows={5}
-        {...register('body')}
-        onChange={(value) => register('body').onChange({ target: { value } })}
-      />
+      <div className="my-3">
+        <RichTextEditor
+          ref={editorRef}
+          disabled={createCommentMutation.isLoading}
+          errorMessage={errors.body?.message}
+          isLabelHidden={true}
+          label={intl.formatMessage({
+            defaultMessage: 'Submit a comment',
+            description: 'Label for discussion input textarea',
+            id: 'FEamkQ',
+          })}
+          minHeight="100px"
+          placeholder={attrs.placeholder}
+          required={true}
+          value={getValues('body')}
+          onChange={(value) => {
+            setValue('body', value);
+          }}
+        />
+      </div>
       <div className="flex items-center gap-4">
         <Button
           className="w-[120px]"

@@ -146,7 +146,13 @@ export default function RichTextEditorInsertPlugin({
 
   return (
     <>
-      <DropdownMenu align="start" label="Insert" size="xs" variant="flat">
+      <DropdownMenu
+        align="start"
+        isDisabled={!editor.isEditable()}
+        label="Insert"
+        labelColor="inherit"
+        size="xs"
+        variant="flat">
         {insertOptions.map(({ label, value, icon }) => (
           <DropdownMenu.Item
             key={value}
