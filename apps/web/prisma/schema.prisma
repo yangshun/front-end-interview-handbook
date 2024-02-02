@@ -303,5 +303,7 @@ model RewardsTaskCompletion {
   identifier String
   profile    Profile @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
   @@unique([userId, campaign, action])
 }
