@@ -8,19 +8,27 @@ import {
   themeTextColor,
 } from '~/components/ui/theme';
 
+type Props = Readonly<{
+  comments: number;
+  onClick: () => void;
+}>;
+
 export default function ProjectsChallengeSubmissionHeroCommentButton({
   comments,
-}: {
-  comments: number;
-}) {
+  onClick,
+}: Props) {
   return (
     <button
       className={clsx(
-        'flex items-center gap-1 py-2 px-3 md:w-auto justify-center w-full rounded-2xl border',
+        'flex items-center gap-1 py-2 px-3 justify-center',
+        'w-full md:w-auto',
         themeBackgroundLayerEmphasized,
+        'border',
         themeBorderElementColor,
+        'rounded-2xl',
       )}
-      type="button">
+      type="button"
+      onClick={onClick}>
       <RiMessage2Fill className={clsx('h-4 w-4', themeTextColor)} />
       <Text size="body3">{comments}</Text>
     </button>

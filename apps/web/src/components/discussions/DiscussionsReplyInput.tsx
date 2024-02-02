@@ -101,9 +101,9 @@ export default function DiscussionsReplyInput({
           </Text>
           <div className="mt-2">
             <RichTextEditor
+              autoFocus={true}
               disabled={createReplyMutation.isLoading}
               errorMessage={errors.body?.message}
-              focus={true}
               isLabelHidden={true}
               label={intl.formatMessage({
                 defaultMessage: 'Reply to comment',

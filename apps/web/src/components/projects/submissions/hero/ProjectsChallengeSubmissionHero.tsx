@@ -24,6 +24,7 @@ type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   isParentInView: boolean;
   isViewingOwnSubmission?: boolean;
+  onScrollToDiscussionsButtonClick: () => void;
   submission: ProjectsChallengeSubmissionAugmented;
 }>;
 
@@ -32,6 +33,7 @@ export default function ProjectsChallengeSubmissionHero({
   submission,
   isViewingOwnSubmission = false,
   isParentInView,
+  onScrollToDiscussionsButtonClick,
 }: Props) {
   const intl = useIntl();
   const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
@@ -119,6 +121,7 @@ export default function ProjectsChallengeSubmissionHero({
   const commentButton = (
     <ProjectsChallengeSubmissionHeroCommentButton
       comments={submission.comments ?? 0}
+      onClick={onScrollToDiscussionsButtonClick}
     />
   );
 

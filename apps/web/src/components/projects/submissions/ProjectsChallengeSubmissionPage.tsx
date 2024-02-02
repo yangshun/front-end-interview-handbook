@@ -45,6 +45,7 @@ export default function ProjectsChallengeSubmissionPage({
   currentUserId,
 }: Props) {
   const intl = useIntl();
+  const discussionSectionRef = useRef<HTMLDivElement>(null);
   const parentRef = useRef(null);
   const isParentInView = useInView(parentRef);
   const isViewingOwnSubmission =
@@ -107,6 +108,9 @@ export default function ProjectsChallengeSubmissionPage({
         isParentInView={isParentInView}
         isViewingOwnSubmission={isViewingOwnSubmission}
         submission={submission}
+        onScrollToDiscussionsButtonClick={() => {
+          discussionSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+        }}
       />
       <Section>
         <div className="flex md:items-center items-start justify-between md:flex-row flex-col gap-6 mt-10 lg:mt-16">
@@ -206,7 +210,7 @@ export default function ProjectsChallengeSubmissionPage({
             />
           </div>
         </div>
-        <div className="mt-16">
+        <div ref={discussionSectionRef} className="mt-16">
           <ProjectsChallengeSubmissionDiscussionsSection
             submission={submission}
           />
