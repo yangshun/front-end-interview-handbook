@@ -69,6 +69,7 @@ export default function DiscussionsCommentEditInput({
       onSubmit={handleSubmit(onSubmit)}>
       <div className="mt-2">
         <RichTextEditor
+          autoFocus={true}
           disabled={updateCommentMutation.isLoading}
           errorMessage={errors.body?.message}
           isLabelHidden={true}

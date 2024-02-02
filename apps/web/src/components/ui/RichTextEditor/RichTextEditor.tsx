@@ -34,12 +34,12 @@ import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 import { RichTextPlugin } from '@lexical/react/LexicalRichTextPlugin';
 
 type Props = Readonly<{
+  autoFocus?: boolean;
   className?: string;
   description?: React.ReactNode;
   descriptionStyle?: LabelDescriptionStyle;
   disabled?: boolean;
   errorMessage?: React.ReactNode;
-  focus?: boolean;
   id?: string;
   isLabelHidden?: boolean;
   label: string;
@@ -63,21 +63,21 @@ const stateClasses: Record<State, string> = {
 
 function RichTextEditor(
   {
+    autoFocus = false,
     className,
     description,
     descriptionStyle,
+    disabled = false,
     errorMessage,
     id: idParam,
     isLabelHidden = false,
     label,
+    minHeight = '50px',
     required,
     value,
     onBlur,
     onChange,
     placeholder,
-    minHeight = '50px',
-    focus = false,
-    disabled = false,
   }: Props,
   ref: ForwardedRef<LexicalEditor | null>,
 ) {
@@ -184,10 +184,11 @@ function RichTextEditor(
       </div>
       <HistoryPlugin />
       <ListPlugin />
+      {autoFocus && <AutoFocusPlugin />}
       <MarkdownShortcutPlugin transformers={PLAYGROUND_TRANSFORMERS} />
       <RichTextEditorCodeHighlightPlugin />
       <RichTextEditorLinkPlugin />
-      {focus && <RichTextEditorAutoLinkPlugin />}
+      <RichTextEditorAutoLinkPlugin />
       <RichTextEditorDisablePlugin disableEditor={disabled} />
       {ref && (
         <RichTextEditorRefPlugin
@@ -195,7 +196,6 @@ function RichTextEditor(
         />
       )}
       <ClearEditorPlugin />
-      <AutoFocusPlugin />
     </LexicalComposer>
   );
 }
