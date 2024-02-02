@@ -1,11 +1,6 @@
-import type {
-  FileExplorerDirectory,
-  FileExplorerFile,
-  SandpackBundlerFile,
-  SandpackBundlerFiles,
-} from './types';
+import type { FileExplorerDirectory, FileExplorerFile } from './types';
 
-export function parseFiles(files: SandpackBundlerFiles): {
+export function createDirectoriesFromFilePaths(filePaths: Array<string>): {
   directoryPaths: Set<string>;
   rootDirectory: FileExplorerDirectory;
 } {
@@ -42,7 +37,7 @@ export function parseFiles(files: SandpackBundlerFiles): {
     return createDirectoryIfNotExists(pathSegments.slice(1), innerDirectory);
   };
 
-  const createFile = (fullPath: string, sandpackFile: SandpackBundlerFile) => {
+  const createFile = (fullPath: string) => {
     const pathSegments = fullPath.split('/').filter(Boolean);
     const fileName = pathSegments[pathSegments.length - 1];
     const directoryPathSegments = pathSegments.slice(
@@ -50,19 +45,17 @@ export function parseFiles(files: SandpackBundlerFiles): {
       pathSegments.length - 1,
     );
     const directory = createDirectoryIfNotExists(directoryPathSegments);
+
     const file: FileExplorerFile = {
       fullPath,
       isDirectory: false,
       name: fileName,
-      sandpackFile,
     };
 
     directory.contents[fileName] = file;
   };
 
-  Object.entries(files).forEach(([fullPath, file]) => {
-    createFile(fullPath, file);
-  });
+  filePaths.forEach(createFile);
 
   return { directoryPaths, rootDirectory };
 }

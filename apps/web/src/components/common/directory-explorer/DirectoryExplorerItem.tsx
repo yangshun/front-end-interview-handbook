@@ -16,9 +16,12 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
-import { useCodingWorkspaceExplorerContext } from './CodingWorkspaceExplorer';
-import { codingWorkspaceExplorerFilePathToIcon } from './codingWorkspaceExplorerFilePathToIcon';
-import type { FileExplorerDirectory, FileExplorerFile } from './types';
+import { useDirectoryExplorerContext } from './DirectoryExplorerContext';
+import { codingWorkspaceExplorerFilePathToIcon } from '../../workspace/common/explorer/codingWorkspaceExplorerFilePathToIcon';
+import type {
+  FileExplorerDirectory,
+  FileExplorerFile,
+} from '../../workspace/common/explorer/types';
 
 export type ExplorerItemProps = PropsWithChildren<{
   className?: string;
@@ -49,7 +52,7 @@ function ExplorerItem({
   onRenameStart,
 }: ExplorerItemProps) {
   const [renameText, setRenameText] = useState(name);
-  const { readOnly } = useCodingWorkspaceExplorerContext();
+  const { readOnly } = useDirectoryExplorerContext();
 
   return (
     <button
@@ -136,14 +139,12 @@ export function ExplorerFile({
   name,
   fullPath,
   isDirectory,
-  sandpackFile,
   indent,
 }: ExplorerPassdownProps & FileExplorerFile) {
   const file: FileExplorerFile = {
     fullPath,
     isDirectory,
     name,
-    sandpackFile,
   };
   const {
     activeFile,
@@ -153,7 +154,7 @@ export function ExplorerFile({
     renamingItem,
     setActiveFile,
     startItemRename,
-  } = useCodingWorkspaceExplorerContext();
+  } = useDirectoryExplorerContext();
 
   const isRenaming = renamingItem === fullPath;
   const isActive = activeFile === fullPath;
@@ -171,18 +172,16 @@ export function ExplorerFile({
         setActiveFile(fullPath);
       }}
       onDelete={() => {
-        deleteItem(fullPath);
+        deleteItem?.(fullPath);
       }}
       onRename={(newName) => {
         const folderName = fullPath.slice(0, fullPath.lastIndexOf('/'));
 
-        return renameItem(file, folderName + '/' + newName);
+        return renameItem?.(file, folderName + '/' + newName) ?? false;
       }}
-      onRenameCancel={() => {
-        cancelItemRename();
-      }}
+      onRenameCancel={cancelItemRename}
       onRenameStart={() => {
-        startItemRename(fullPath);
+        startItemRename?.(fullPath);
       }}>
       <span className="truncate">{name}</span>
     </ExplorerItem>
@@ -210,7 +209,7 @@ export function ExplorerDirectory({
     renamingItem,
     setDirectoryOpen,
     startItemRename,
-  } = useCodingWorkspaceExplorerContext();
+  } = useDirectoryExplorerContext();
 
   const isRenaming = renamingItem === fullPath;
   const isDirectoryOpen = openDirectories.has(fullPath);
@@ -240,18 +239,16 @@ export function ExplorerDirectory({
             setDirectoryOpen(fullPath, !isDirectoryOpen);
           }}
           onDelete={() => {
-            deleteItem(fullPath);
+            deleteItem?.(fullPath);
           }}
           onRename={(newName) => {
             const folderName = fullPath.slice(0, fullPath.lastIndexOf('/'));
 
-            return renameItem(folder, folderName + '/' + newName);
+            return renameItem?.(folder, folderName + '/' + newName) ?? false;
           }}
-          onRenameCancel={() => {
-            cancelItemRename();
-          }}
+          onRenameCancel={cancelItemRename}
           onRenameStart={() => {
-            startItemRename(fullPath);
+            startItemRename?.(fullPath);
           }}>
           {name}
         </ExplorerItem>

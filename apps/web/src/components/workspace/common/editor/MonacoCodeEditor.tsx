@@ -20,13 +20,24 @@ loader.config({
   },
 });
 
-type Props = Readonly<{
-  filePath: string;
-  onChange: (value: string) => void;
-  onFocus?: () => void;
-  onMount?: (codeEditor: editor.IStandaloneCodeEditor) => void;
-  value: string | null;
-}>;
+type Props = Readonly<
+  {
+    filePath: string;
+    onFocus?: () => void;
+    onMount?: (codeEditor: editor.IStandaloneCodeEditor) => void;
+
+    value: string | null;
+  } & (
+    | {
+        onChange: (value: string) => void;
+        readOnly?: boolean;
+      }
+    | {
+        onChange?: (value: string) => void;
+        readOnly: true;
+      }
+  )
+>;
 
 export default function MonacoCodeEditor({
   filePath,
@@ -34,6 +45,7 @@ export default function MonacoCodeEditor({
   onMount,
   onChange,
   onFocus,
+  readOnly = false,
 }: Props) {
   const monaco = useMonaco();
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
@@ -63,11 +75,12 @@ export default function MonacoCodeEditor({
           minimap: {
             enabled: false,
           },
+          readOnly,
         }}
         path={filePath}
         theme={themeKey}
         value={value ?? ''}
-        onChange={(val) => onChange(val ?? '')}
+        onChange={(val) => onChange?.(val ?? '')}
         onMount={(editorInstance) => {
           editorRef.current = editorInstance;
           onMount?.(editorInstance);

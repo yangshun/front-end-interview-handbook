@@ -7,7 +7,6 @@ export type FileExplorerFile = {
   fullPath: string;
   isDirectory: false;
   name: string;
-  sandpackFile: SandpackBundlerFile;
 };
 
 export type FileExplorerDirectory = {

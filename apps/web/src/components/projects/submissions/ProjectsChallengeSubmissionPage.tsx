@@ -1,7 +1,8 @@
 'use client';
 
+import clsx from 'clsx';
 import { useInView } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { RiShareCircleLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -20,8 +21,17 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import RichText from '~/components/ui/RichTextEditor/RichText';
 import Text from '~/components/ui/Text';
+import { themeBorderColor } from '~/components/ui/theme';
 
+import GithubRepositoryCodeViewer from './code-viewer/GithubRepositoryCodeViewer';
 import ProjectsChallengeSubmissionDiscussionsSection from './discussions/ProjectsChallengeSubmissionDiscussionsSection';
+
+function parseGithubRepositoryUrl(url: string) {
+  const urlObject = new URL(url);
+  const [repoOwner, repoName] = urlObject.pathname.split('/').slice(-2);
+
+  return { branchName: 'main', repoName, repoOwner };
+}
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -84,6 +94,11 @@ export default function ProjectsChallengeSubmissionPage({
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [submissionId]);
+
+  const { branchName, repoName, repoOwner } = useMemo(
+    () => parseGithubRepositoryUrl(repositoryUrl),
+    [repositoryUrl],
+  );
 
   return (
     <div ref={parentRef} className="flex flex-col -mt-4 lg:-mt-16">
@@ -169,6 +184,26 @@ export default function ProjectsChallengeSubmissionPage({
                 />
               ))}
             </div>
+          </div>
+        </div>
+        <div className="flex flex-col md:flex-row gap-x-10 gap-8 mt-10 lg:mt-16">
+          <div className="flex flex-col gap-3 flex-1">
+            <Heading level="heading6">
+              <FormattedMessage
+                defaultMessage="Code"
+                description="Section title for code viewer"
+                id="T6xgeP"
+              />
+            </Heading>
+            <GithubRepositoryCodeViewer
+              branchName={branchName}
+              className={clsx('rounded-lg h-[500px]', [
+                'border',
+                themeBorderColor,
+              ])}
+              repoName={repoName}
+              repoOwner={repoOwner}
+            />
           </div>
         </div>
         <div className="mt-16">

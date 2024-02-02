@@ -1,44 +1,17 @@
-import { createContext, useContext, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
+import { DirectoryExplorerContext } from '~/components/common/directory-explorer/DirectoryExplorerContext';
+import { ExplorerDirectory } from '~/components/common/directory-explorer/DirectoryExplorerItem';
 import Alert from '~/components/ui/Alert';
 import Text from '~/components/ui/Text';
 
-import { ExplorerDirectory } from './CodingWorkspaceExplorerItem';
 import type { FileExplorerItem } from './types';
-import { getAllFilesInDirectory, parseFiles } from './utils';
+import {
+  createDirectoriesFromFilePaths,
+  getAllFilesInDirectory,
+} from './utils';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
-
-type CodingWorkspaceExplorerContextType = Readonly<{
-  activeFile: string;
-  cancelItemRename: () => void;
-  deleteItem: (fullPath: string) => void;
-  openDirectories: Set<string>;
-  readOnly: boolean;
-  renameItem: (item: FileExplorerItem, newPath: string) => boolean;
-  renamingItem: string | null;
-  setActiveFile: (fullPath: string) => void;
-  setDirectoryOpen: (fullPath: string, open: boolean) => void;
-  startItemRename: (fullPath: string) => void;
-}>;
-
-const CodingFileExplorerContext =
-  createContext<CodingWorkspaceExplorerContextType>({
-    activeFile: '',
-    cancelItemRename: () => {},
-    deleteItem: () => {},
-    openDirectories: new Set(),
-    readOnly: true,
-    renameItem: () => true,
-    renamingItem: null,
-    setActiveFile: () => {},
-    setDirectoryOpen: () => {},
-    startItemRename: () => {},
-  });
-
-export function useCodingWorkspaceExplorerContext() {
-  return useContext(CodingFileExplorerContext);
-}
 
 type Props = Readonly<{
   onOpenFile?: (fileName: string, fromFilePath?: string) => void;
@@ -63,7 +36,7 @@ export default function CodingWorkspaceExplorer({
   } = useSandpack();
 
   const { rootDirectory, directoryPaths } = useMemo(() => {
-    return parseFiles(files);
+    return createDirectoriesFromFilePaths(Object.keys(files));
   }, [files]);
 
   const [openDirectories, setOpenDirectories] = useState(directoryPaths);
@@ -140,7 +113,7 @@ export default function CodingWorkspaceExplorer({
   };
 
   return (
-    <CodingFileExplorerContext.Provider
+    <DirectoryExplorerContext.Provider
       value={{
         activeFile,
         cancelItemRename: () => {
@@ -181,6 +154,6 @@ export default function CodingWorkspaceExplorer({
           </Text>
         </Alert>
       </div>
-    </CodingFileExplorerContext.Provider>
+    </DirectoryExplorerContext.Provider>
   );
 }

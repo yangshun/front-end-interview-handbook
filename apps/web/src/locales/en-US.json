@@ -3207,6 +3207,10 @@
     "defaultMessage": "You have started your first project!",
     "description": "Toast subtitle for project session started"
   },
+  "T6xgeP": {
+    "defaultMessage": "Code",
+    "description": "Section title for code viewer"
+  },
   "T7+/5t": {
     "defaultMessage": "Use our Skills Tree to train a holistic front end skill set",
     "description": "Heading of the 'Skill tree' marketing section on Projects home page"
