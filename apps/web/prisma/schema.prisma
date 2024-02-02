@@ -180,11 +180,13 @@ model LearningSessionProgress {
 }
 
 model ProjectsProfile {
-  id                  String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  userId              String  @unique @db.Uuid
+  id                  String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  userId              String   @unique @db.Uuid
+  points              Int      @default(0)
   primaryMotivation   String?
   secondaryMotivation String?
-  points              Int     @default(0)
+  skillsProficient    String[]
+  skillsToGrow        String[]
 
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @default(now()) @updatedAt
@@ -207,6 +209,7 @@ model ProjectsChallengeSession {
   profileId String                         @db.Uuid
   slug      String
   status    ProjectsChallengeSessionStatus @default(IN_PROGRESS)
+  skills    String[]
 
   createdAt DateTime  @default(now()) @db.Timestamptz(6)
   updatedAt DateTime  @default(now()) @updatedAt
@@ -216,19 +219,20 @@ model ProjectsChallengeSession {
 }
 
 model ProjectsChallengeSubmission {
-  id             String @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  profileId      String @db.Uuid
+  id             String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  profileId      String   @db.Uuid
   slug           String
   title          String
   summary        String
   repositoryUrl  String
   deploymentUrls Json
   implementation String
-  views          Int    @default(0)
+  views          Int      @default(0)
+  skills         String[]
 
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @default(now()) @updatedAt
-  editedAt  DateTime @default(now()) @db.Timestamptz(6) // Manual edited by the user.
+  editedAt  DateTime @default(now()) @db.Timestamptz(6) // Manually edited by the user.
 
   projectsProfile ProjectsProfile?                  @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   votes           ProjectsChallengeSubmissionVote[]
