@@ -1,30 +1,18 @@
 export type ProjectsSkillKey = string;
 
-export type ProjectsSkill = Readonly<{
-  difficulty?: ProjectSkillDifficulty;
-  key: string;
-  label: string;
-}>;
-
-export type ProjectSkillGroup = Readonly<{
+export type ProjectsSkillGroup = Readonly<{
   completedProjectCount: number;
-  items: ReadonlyArray<ProjectSkillItem>;
+  items: ReadonlyArray<ProjectsSkillItem>;
   key: string;
   label: string;
   totalProjectCount: number;
-  type: 'group';
 }>;
 
-export type ProjectSkillItem = Readonly<{
+export type ProjectsSkillItem = Readonly<{
   completedProjectCount: number;
   key: string;
   label: string;
   totalProjectCount: number;
-  type: 'item';
 }>;
 
-export type ProjectSkillDifficulty = 'easy' | 'hard' | 'medium' | 'unknown';
-
-export type ProjectSkillTree = ReadonlyArray<ProjectSkillGroup>;
-
-export type ProjectSkillDetailed = ProjectSkillGroup | ProjectSkillItem;
+export type ProjectsSkillRoadmap = ReadonlyArray<ProjectsSkillGroup>;

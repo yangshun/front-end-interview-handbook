@@ -3,43 +3,21 @@ import clsx from 'clsx';
 import Text from '~/components/ui/Text';
 import { themeBackgroundEmphasized } from '~/components/ui/theme';
 
-import type { ProjectSkillDifficulty, ProjectsSkill } from './types';
-
-const difficultyClasses: Record<
-  ProjectSkillDifficulty,
-  {
-    card: string;
-    progressBar: string;
-  }
-> = {
-  easy: {
-    card: 'border-success',
-    progressBar: 'bg-success',
-  },
-  hard: {
-    card: 'border-danger',
-    progressBar: 'bg-danger',
-  },
-  medium: {
-    card: 'border-warning',
-    progressBar: 'bg-warning',
-  },
-  unknown: {
-    card: 'border-neutral-600 dark:border-neutral-400',
-    progressBar: 'bg-neutral-600 dark:bg-neutral-400',
-  },
-};
+import { ProjectsSkillLabels } from './data/ProjectsSkillListData';
+import type { ProjectsSkillKey } from './types';
 
 type Props = Readonly<{
   className?: string;
-  skill: ProjectsSkill & {
+  skill: {
+    key: ProjectsSkillKey;
     repIncrease: number;
     repTotal: number;
   };
   subSkills: Array<
-    ProjectsSkill & {
+    Readonly<{
+      key: ProjectsSkillKey;
       repIncrease: number;
-    }
+    }>
   >;
 }>;
 
@@ -48,29 +26,30 @@ export default function ProjectsSkillProgressBreakdownCard({
   skill,
   subSkills,
 }: Props) {
-  const { card, progressBar } =
-    difficultyClasses[skill.difficulty ?? 'unknown'];
-
   return (
     <div
       className={clsx(
         'p-4 border-2 rounded-lg flex flex-col',
-        card,
+        'border-neutral-600 dark:border-neutral-400',
         className,
       )}>
       <Text size="body3" weight="bold">
-        {skill.label}
+        {ProjectsSkillLabels[skill.key] ?? skill.key}
       </Text>
-
       <Text className="text-2xs mt-2" color="subtle" size="inherit">
         +100 rep
       </Text>
-      <div className={clsx('h-2 mt-1.5 rounded-full', progressBar)} />
+      <div
+        className={clsx(
+          'h-2 mt-1.5 rounded-full',
+          'bg-neutral-600 dark:bg-neutral-400',
+        )}
+      />
       <div className="flex flex-col mt-4 gap-1">
         {subSkills.map((subSkill) => (
           <div key={subSkill.key} className="flex items-center justify-between">
             <Text size="body3" weight="medium">
-              {subSkill.label}
+              {ProjectsSkillLabels[subSkill.key] ?? skill.key}
             </Text>
             <Text
               className={clsx(

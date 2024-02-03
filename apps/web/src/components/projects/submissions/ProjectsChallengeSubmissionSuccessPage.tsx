@@ -267,46 +267,34 @@ export default function ProjectsChallengeSubmissionSuccessPage({
             <div className="grid grid-cols-2 xl:grid-cols-3 mt-6 gap-2.5">
               <ProjectsSkillProgressBreakdownCard
                 skill={{
-                  difficulty: 'easy',
-                  key: 'java-script',
-                  label: 'JavaScript',
+                  key: 'javascript',
                   repIncrease: 100,
                   repTotal: 1000,
                 }}
                 subSkills={[
                   {
-                    difficulty: 'easy',
                     key: 'react',
-                    label: 'React',
                     repIncrease: 1000,
                   },
                   {
-                    difficulty: 'easy',
                     key: 'html',
-                    label: 'HTML',
                     repIncrease: 1000,
                   },
                 ]}
               />
               <ProjectsSkillProgressBreakdownCard
                 skill={{
-                  difficulty: 'medium',
-                  key: 'java-script',
-                  label: 'JavaScript',
+                  key: 'javascript',
                   repIncrease: 100,
                   repTotal: 1000,
                 }}
                 subSkills={[
                   {
-                    difficulty: 'medium',
                     key: 'react',
-                    label: 'React',
                     repIncrease: 1000,
                   },
                   {
-                    difficulty: 'medium',
                     key: 'html',
-                    label: 'HTML',
                     repIncrease: 1000,
                   },
                 ]}
@@ -314,23 +302,17 @@ export default function ProjectsChallengeSubmissionSuccessPage({
               <ProjectsSkillProgressBreakdownCard
                 className="hidden xl:flex"
                 skill={{
-                  difficulty: 'hard',
-                  key: 'java-script',
-                  label: 'JavaScript',
+                  key: 'javascript',
                   repIncrease: 100,
                   repTotal: 1000,
                 }}
                 subSkills={[
                   {
-                    difficulty: 'hard',
                     key: 'react',
-                    label: 'React',
                     repIncrease: 1000,
                   },
                   {
-                    difficulty: 'easy',
                     key: 'html',
-                    label: 'HTML',
                     repIncrease: 1000,
                   },
                 ]}
