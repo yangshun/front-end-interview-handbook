@@ -33,6 +33,7 @@ import TextAreaExamples from '~/components/ui/TextArea/TextAreaExamples';
 import TextInputExamples from '~/components/ui/TextInput/TextInputExamples';
 import ToastExamples from '~/components/ui/Toast/ToastExamples';
 import TooltipExamples from '~/components/ui/Tooltip/TooltipExamples';
+import TypeaheadExamples from '~/components/ui/Typeahead/TypeaheadExamples';
 
 export default function UILibraryPage() {
   const { appThemePreference, setAppThemePreference } =
@@ -63,6 +64,7 @@ export default function UILibraryPage() {
         <SelectExamples />
         <CheckboxInputExamples />
         <RadioGroupExamples />
+        <TypeaheadExamples />
         {/* Others */}
         <TabsExamples />
         <PaginationExamples />

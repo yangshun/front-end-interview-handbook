@@ -174,8 +174,8 @@ function TextArea(
           'block w-full',
           themeBackgroundElementColor,
           [
-            'disabled:bg-neutral-200 disabled:text-neutral-300',
-            'dark:disabled:bg-neutral-800 dark:disabled:text-neutral-700',
+            'disabled:bg-neutral-200 dark:disabled:bg-neutral-800',
+            'disabled:text-neutral-300 dark:disabled:text-neutral-700',
             'disabled:cursor-not-allowed',
           ],
           'rounded',
