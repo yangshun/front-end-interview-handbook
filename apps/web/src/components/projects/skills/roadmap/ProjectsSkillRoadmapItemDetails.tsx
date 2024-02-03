@@ -3,7 +3,6 @@ import { RiArrowRightLine, RiRocketLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
-import type { ProjectsSkillItem } from '~/components/projects/types';
 import Anchor from '~/components/ui/Anchor';
 import ProgressBar from '~/components/ui/ProgressBar';
 import Text from '~/components/ui/Text';
@@ -13,11 +12,14 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
+import ProjectsSkillLabel from '../metadata/ProjectsSkillLabel';
+import type { ProjectsSkillRoadmapItem } from '../types';
+
 type Props = Readonly<{
-  skillItem: ProjectsSkillItem;
+  skillItem: ProjectsSkillRoadmapItem;
 }>;
 
-export default function ProjectsSkillRoadmapItem({ skillItem }: Props) {
+export default function ProjectsSkillRoadmapItemDetails({ skillItem }: Props) {
   const intl = useIntl();
 
   return (
@@ -31,7 +33,7 @@ export default function ProjectsSkillRoadmapItem({ skillItem }: Props) {
         <div className="flex md:gap-4 gap-2 w-full md:flex-row flex-col">
           <div className="flex-1">
             <Text size="body2" weight="medium">
-              {skillItem.title}
+              <ProjectsSkillLabel value={skillItem.key} />
             </Text>
           </div>
           <div className="flex gap-4">
@@ -54,8 +56,8 @@ export default function ProjectsSkillRoadmapItem({ skillItem }: Props) {
                         {chunks}
                       </Text>
                     ),
-                    completedCount: skillItem.completedChallenges,
-                    totalCount: skillItem.totalChallenges,
+                    completedCount: skillItem.completed,
+                    totalCount: skillItem.total,
                   }}
                 />
               </Text>
@@ -73,12 +75,12 @@ export default function ProjectsSkillRoadmapItem({ skillItem }: Props) {
                   id: 'GSfE/S',
                 },
                 {
-                  completedCount: skillItem.completedChallenges,
-                  totalCount: skillItem.totalChallenges,
+                  completedCount: skillItem.completed,
+                  totalCount: skillItem.total,
                 },
               )}
-              total={skillItem.totalChallenges}
-              value={skillItem.completedChallenges}
+              total={skillItem.total}
+              value={skillItem.completed}
             />
           </div>
         </div>

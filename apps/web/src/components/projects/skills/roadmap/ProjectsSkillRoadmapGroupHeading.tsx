@@ -4,22 +4,24 @@ import { FormattedMessage } from 'react-intl';
 
 import ProjectsChallengeStatusBadgeCompleted from '~/components/projects/challenges/status/ProjectsChallengeStatusBadgeCompleted';
 import ProjectsTrackProgressTag from '~/components/projects/tracks/ProjectsTrackProgressTag';
-import type { ProjectsSkillFamily } from '~/components/projects/types';
 import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 
+import type { ProjectsSkillRoadmapGroup } from '../types';
+
 type Props = Readonly<{
-  skill: ProjectsSkillFamily;
+  group: ProjectsSkillRoadmapGroup;
 }>;
 
-export default function ProjectsSkillRoadmapGroupHeading({ skill }: Props) {
-  const completed = skill.completedChallenges === skill.totalChallenges;
+export default function ProjectsSkillRoadmapGroupHeading({ group }: Props) {
+  const { completed, description, total, points } = group;
+  const completedAll = group.completed === group.total;
 
   return (
     <div className="w-full flex flex-col gap-2">
       <div className="flex justify-between md:flex-row flex-col gap-2">
-        <Text weight="medium">{skill.title}</Text>
-        {completed ? (
+        <Text weight="medium">{group.key}</Text>
+        {completedAll ? (
           <ProjectsChallengeStatusBadgeCompleted />
         ) : (
           <div
@@ -35,22 +37,22 @@ export default function ProjectsSkillRoadmapGroupHeading({ skill }: Props) {
                   description="Total rep count increase label in Projects"
                   id="Lvmetb"
                   values={{
-                    points: skill.points,
+                    points,
                   }}
                 />
               </Text>
             </div>
             <ProjectsTrackProgressTag
-              completed={skill.completedChallenges}
+              completed={completed}
               iconClassName="!h-4 !w-4"
               showProgress={false}
-              total={skill.totalChallenges}
+              total={total}
             />
           </div>
         )}
       </div>
       <Text color="secondary" size="body3">
-        {skill.description}
+        {description}
       </Text>
     </div>
   );

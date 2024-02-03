@@ -4,8 +4,7 @@ import { RiAddCircleLine, RiIndeterminateCircleLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import ProjectsSkillRoadmapGroupHeading from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapGroupHeading';
-import ProjectsSkillRoadmapItem from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItem';
-import type { ProjectsSkillFamily } from '~/components/projects/types';
+import ProjectsSkillRoadmapItemDetails from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItemDetails';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
@@ -14,8 +13,10 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
+import type { ProjectsSkillRoadmapGroup } from '../types';
+
 type Props = Readonly<{
-  skill: ProjectsSkillFamily;
+  group: ProjectsSkillRoadmapGroup;
 }>;
 
 function SkillItemDiamond() {
@@ -38,7 +39,7 @@ function SkillItemDiamond() {
   );
 }
 
-export default function ProjectsSkillRoadmapGroupCard({ skill }: Props) {
+export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -49,10 +50,9 @@ export default function ProjectsSkillRoadmapGroupCard({ skill }: Props) {
         themeBackgroundColor,
       )}>
       <div className="relative flex flex-col gap-6">
-        {/* Parent Skill Heading*/}
         <div className="flex gap-3 w-full">
           <div className={clsx('relative flex flex-col self-stretch')}>
-            {/* TODO(projects): Replace with skills logo */}
+            {/* TODO(projects|skills): Replace with skills logo */}
             <div className="rounded-md h-6 w-6 bg-white" />
             <div
               className={clsx(
@@ -61,13 +61,12 @@ export default function ProjectsSkillRoadmapGroupCard({ skill }: Props) {
               )}
             />
           </div>
-          <ProjectsSkillRoadmapGroupHeading skill={skill} />
+          <ProjectsSkillRoadmapGroupHeading group={group} />
         </div>
-        {/* Child Skills list */}
         {isExpanded && (
           <div className="flex flex-col gap-2 ml-[6px]">
-            {skill.childSkills.map((item) => (
-              <div key={item.title} className="flex gap-4 w-full">
+            {group.items.map((item) => (
+              <div key={item.key} className="flex gap-4 w-full">
                 <div
                   className={clsx(
                     'relative flex flex-col justify-center self-stretch',
@@ -86,13 +85,12 @@ export default function ProjectsSkillRoadmapGroupCard({ skill }: Props) {
                     )}
                   />
                 </div>
-                <ProjectsSkillRoadmapItem skillItem={item} />
+                <ProjectsSkillRoadmapItemDetails skillItem={item} />
               </div>
             ))}
           </div>
         )}
-
-        {/* Expand collapse child skills CTA*/}
+        {/* Expand collapse child skills CTA */}
         <div className={clsx('flex gap-4 w-full ml-1', themeTextSubtleColor)}>
           <div
             className={clsx(
@@ -114,15 +112,15 @@ export default function ProjectsSkillRoadmapGroupCard({ skill }: Props) {
             <Text color="secondary" size="body2" weight="medium">
               {isExpanded ? (
                 <FormattedMessage
-                  defaultMessage="See lesser child skills"
-                  description="Label for see lesser child skills"
-                  id="f+oxmk"
+                  defaultMessage="Hide child skills"
+                  description="Label to collapse skills card"
+                  id="KhmeKO"
                 />
               ) : (
                 <FormattedMessage
-                  defaultMessage="See more child skills"
-                  description="Label for see more child skills"
-                  id="Ff2kvb"
+                  defaultMessage="See child skills"
+                  description="Label to expand skills card"
+                  id="W9OR+u"
                 />
               )}
             </Text>

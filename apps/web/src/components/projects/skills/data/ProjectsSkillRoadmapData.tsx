@@ -1,170 +1,178 @@
 import type { ProjectsSkillRoadmap } from '../types';
 
-export const foundationalSkills = [
+export const skillsRoadmap: ProjectsSkillRoadmap = [
   {
-    childSkills: [
+    items: [
       {
-        completedChallenges: 4,
-        points: 20,
-        title: 'Basics',
-        totalChallenges: 4,
+        completed: 2,
+        description:
+          'HTML stands for HyperText Markup Language. It is used on the frontend and gives the structure to the webpage which you can style using CSS and make interactive using JavaScript.',
+        items: [
+          {
+            completed: 4,
+            key: 'html-basics',
+            points: 20,
+            total: 4,
+          },
+          {
+            completed: 2,
+            key: 'html-semantics',
+            points: 20,
+            total: 4,
+          },
+          {
+            completed: 0,
+            key: 'html-forms',
+            points: 20,
+            total: 4,
+          },
+          {
+            completed: 0,
+            key: 'html-a11y',
+            points: 20,
+            total: 4,
+          },
+        ],
+        key: 'html',
+        points: 100,
+        total: 4,
       },
       {
-        completedChallenges: 2,
+        completed: 4,
+        description:
+          'Programming language and core technology of the World Wide Web, alongside HTML and CSS. In 2023, 98.7% of web use JavaScript on the client side for webpage behavior, also as third-party libraries.',
+        items: [
+          {
+            completed: 4,
+            key: 'js-foundations',
+            points: 20,
+            total: 4,
+          },
+          {
+            completed: 2,
+            key: 'js-browser-dom',
+            points: 20,
+            total: 4,
+          },
+          {
+            completed: 0,
+            key: 'js-fetch',
+            points: 20,
+            total: 4,
+          },
+          {
+            completed: 0,
+            key: 'js-web-storage',
+            points: 20,
+            total: 4,
+          },
+        ],
+        key: 'javascript',
         points: 20,
-        title: 'Semantics',
-        totalChallenges: 4,
+        total: 4,
       },
       {
-        completedChallenges: 0,
-        points: 20,
-        title: 'Forms',
-        totalChallenges: 4,
-      },
-      {
-        completedChallenges: 0,
-        points: 20,
-        title: 'A11y',
-        totalChallenges: 4,
+        completed: 2,
+        description:
+          'Cascading Style Sheets is a style sheet language used for specifying the presentation and styling of a document written in a markup language such as HTML or XML.',
+        items: [
+          {
+            completed: 4,
+            key: 'css-basics',
+            points: 20,
+            total: 4,
+          },
+          {
+            completed: 2,
+            key: 'css-layout',
+            points: 20,
+            total: 4,
+          },
+          {
+            completed: 0,
+            key: 'css-flex',
+            points: 20,
+            total: 4,
+          },
+          {
+            completed: 0,
+            key: 'css-grid',
+            points: 20,
+            total: 4,
+          },
+        ],
+        key: 'css',
+        points: 100,
+        total: 4,
       },
     ],
-    completedChallenges: 2,
-    description:
-      'HTML stands for HyperText Markup Language. It is used on the frontend and gives the structure to the webpage which you can style using CSS and make interactive using JavaScript.',
-    points: 100,
-    title: 'HTML',
-    totalChallenges: 4,
+    title: 'Foundational skills',
   },
   {
-    childSkills: [
+    items: [
       {
-        completedChallenges: 4,
-        points: 20,
-        title: 'Foundation of JS',
-        totalChallenges: 4,
+        completed: 2,
+        description:
+          "Is a collection of software tools that automates the process of installing, upgrading, configuring, and removing software packages for a computer's operating system in a consistent manner.",
+        items: [
+          {
+            completed: 4,
+            key: 'npm',
+            points: 20,
+            total: 4,
+          },
+          {
+            completed: 2,
+            key: 'yarn',
+            points: 20,
+            total: 4,
+          },
+          {
+            completed: 0,
+            key: 'pnpm',
+            points: 20,
+            total: 4,
+          },
+        ],
+        key: 'package-managers',
+        points: 100,
+        total: 4,
       },
       {
-        completedChallenges: 2,
+        completed: 4,
+        description:
+          'Cascading Style Sheets is a style sheet language used for specifying the presentation and styling of a document written in a markup language such as HTML or XML.',
+        items: [
+          {
+            completed: 4,
+            key: 'css-preprocessors',
+            points: 20,
+            total: 4,
+          },
+          {
+            completed: 2,
+            key: 'css-architecture',
+            points: 20,
+            total: 4,
+          },
+          {
+            completed: 0,
+            key: 'css-modern',
+            points: 20,
+            total: 4,
+          },
+          {
+            completed: 0,
+            key: 'css-frameworks',
+            points: 20,
+            total: 4,
+          },
+        ],
+        key: 'css-advanced',
         points: 20,
-        title: 'Dom in Javascript',
-        totalChallenges: 4,
-      },
-      {
-        completedChallenges: 0,
-        points: 20,
-        title: 'Fetch',
-        totalChallenges: 4,
-      },
-      {
-        completedChallenges: 0,
-        points: 20,
-        title: 'Storage',
-        totalChallenges: 4,
-      },
-    ],
-    completedChallenges: 4,
-    description:
-      'Programming language and core technology of the World Wide Web, alongside HTML and CSS. In 2023, 98.7% of web use JavaScript on the client side for webpage behavior, also as third-party libraries.',
-    points: 20,
-    title: 'Javascript',
-    totalChallenges: 4,
-  },
-  {
-    childSkills: [
-      {
-        completedChallenges: 4,
-        points: 20,
-        title: 'Basic',
-        totalChallenges: 4,
-      },
-      {
-        completedChallenges: 2,
-        points: 20,
-        title: 'Layout',
-        totalChallenges: 4,
-      },
-      {
-        completedChallenges: 0,
-        points: 20,
-        title: 'Flex',
-        totalChallenges: 4,
-      },
-      {
-        completedChallenges: 0,
-        points: 20,
-        title: 'Grid',
-        totalChallenges: 4,
-      },
-    ],
-    completedChallenges: 2,
-    description:
-      'Cascading Style Sheets is a style sheet language used for specifying the presentation and styling of a document written in a markup language such as HTML or XML.',
-    points: 100,
-    title: 'CSS',
-    totalChallenges: 4,
-  },
-];
-export const intermediateSkills = [
-  {
-    childSkills: [
-      {
-        completedChallenges: 4,
-        points: 20,
-        title: 'Npm',
-        totalChallenges: 4,
-      },
-      {
-        completedChallenges: 2,
-        points: 20,
-        title: 'Yarn',
-        totalChallenges: 4,
-      },
-      {
-        completedChallenges: 0,
-        points: 20,
-        title: 'Pnpm',
-        totalChallenges: 4,
+        total: 4,
       },
     ],
-    completedChallenges: 2,
-    description:
-      "Is a collection of software tools that automates the process of installing, upgrading, configuring, and removing software packages for a computer's operating system in a consistent manner.",
-    points: 100,
-    title: 'Package managers',
-    totalChallenges: 4,
-  },
-  {
-    childSkills: [
-      {
-        completedChallenges: 4,
-        points: 20,
-        title: 'Preprocessors',
-        totalChallenges: 4,
-      },
-      {
-        completedChallenges: 2,
-        points: 20,
-        title: 'Architectures',
-        totalChallenges: 4,
-      },
-      {
-        completedChallenges: 0,
-        points: 20,
-        title: 'Modern CSS',
-        totalChallenges: 4,
-      },
-      {
-        completedChallenges: 0,
-        points: 20,
-        title: 'CSS Frameworks',
-        totalChallenges: 4,
-      },
-    ],
-    completedChallenges: 4,
-    description:
-      'Cascading Style Sheets is a style sheet language used for specifying the presentation and styling of a document written in a markup language such as HTML or XML.',
-    points: 20,
-    title: 'CSS',
-    totalChallenges: 4,
+    title: 'Intermediate skills',
   },
 ];

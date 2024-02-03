@@ -1,18 +1,24 @@
 export type ProjectsSkillKey = string;
 
-export type ProjectsSkillGroup = Readonly<{
-  completedProjectCount: number;
-  items: ReadonlyArray<ProjectsSkillItem>;
+export type ProjectsSkillRoadmapItem = Readonly<{
+  completed: number;
   key: string;
-  label: string;
-  totalProjectCount: number;
+  points: number;
+  total: number;
 }>;
 
-export type ProjectsSkillItem = Readonly<{
-  completedProjectCount: number;
+export type ProjectsSkillRoadmapGroup = Readonly<{
+  completed: number;
+  description: string;
+  items: ReadonlyArray<ProjectsSkillRoadmapItem>;
   key: string;
-  label: string;
-  totalProjectCount: number;
+  points: number;
+  total: number;
 }>;
 
-export type ProjectsSkillRoadmap = ReadonlyArray<ProjectsSkillGroup>;
+export type ProjectsSkillRoadmapLevel = Readonly<{
+  items: ReadonlyArray<ProjectsSkillRoadmapGroup>;
+  title: string;
+}>;
+
+export type ProjectsSkillRoadmap = ReadonlyArray<ProjectsSkillRoadmapLevel>;

@@ -4,6 +4,7 @@ import Text from '~/components/ui/Text';
 import { themeBackgroundEmphasized } from '~/components/ui/theme';
 
 import { ProjectsSkillLabels } from './data/ProjectsSkillListData';
+import ProjectsSkillLabel from './metadata/ProjectsSkillLabel';
 import type { ProjectsSkillKey } from './types';
 
 type Props = Readonly<{
@@ -34,7 +35,7 @@ export default function ProjectsSkillProgressBreakdownCard({
         className,
       )}>
       <Text size="body3" weight="bold">
-        {ProjectsSkillLabels[skill.key] ?? skill.key}
+        <ProjectsSkillLabel value={skill.key} />
       </Text>
       <Text className="text-2xs mt-2" color="subtle" size="inherit">
         +100 rep
@@ -49,7 +50,7 @@ export default function ProjectsSkillProgressBreakdownCard({
         {subSkills.map((subSkill) => (
           <div key={subSkill.key} className="flex items-center justify-between">
             <Text size="body3" weight="medium">
-              {ProjectsSkillLabels[subSkill.key] ?? skill.key}
+              <ProjectsSkillLabel value={subSkill.key} />
             </Text>
             <Text
               className={clsx(

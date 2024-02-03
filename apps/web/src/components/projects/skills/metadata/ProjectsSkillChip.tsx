@@ -1,10 +1,9 @@
 import clsx from 'clsx';
-import { startCase } from 'lodash-es';
 
 import Text from '~/components/ui/Text';
 import { themeBackgroundChipColor } from '~/components/ui/theme';
 
-import { ProjectsSkillLabels } from '../data/ProjectsSkillListData';
+import ProjectsSkillLabel from './ProjectsSkillLabel';
 import type { ProjectsSkillKey } from '../types';
 
 type Props = Readonly<{
@@ -21,7 +20,7 @@ export default function ProjectsSkillChip({ value }: Props) {
         themeBackgroundChipColor,
       )}>
       <Text className="whitespace-nowrap" size="body3" weight="medium">
-        {ProjectsSkillLabels[value] ?? startCase(value)}
+        <ProjectsSkillLabel value={value} />
       </Text>
     </div>
   );
