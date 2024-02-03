@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import {
   themeBackgroundElementColor,
-  themeBorderElementColor,
+  themeGlassyBorder,
 } from '~/components/ui/theme';
 
 type Props = Readonly<{
@@ -10,7 +10,7 @@ type Props = Readonly<{
   className?: string;
 }>;
 
-export default function ProjectsChallengeBriefSupportCard({
+export default function ProjectsChallengeHowItWorksCard({
   children,
   className,
 }: Props) {
@@ -18,12 +18,12 @@ export default function ProjectsChallengeBriefSupportCard({
     <div
       aria-hidden="true"
       className={clsx(
-        'h-[200px] w-full overflow-hidden rounded-lg p-5 pb-0 border pointer-events-none select-none',
+        'h-[160px] overflow-hidden rounded-lg p-4 pb-0 pr-0 border w-full pointer-events-none select-none',
         themeBackgroundElementColor,
-        themeBorderElementColor,
+        themeGlassyBorder,
         className,
       )}>
-      <div className="w-[330px]">{children}</div>
+      <div className="w-[305px]">{children}</div>
     </div>
   );
 }
