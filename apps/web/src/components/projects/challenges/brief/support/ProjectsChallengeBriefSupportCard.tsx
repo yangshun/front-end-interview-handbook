@@ -18,12 +18,15 @@ export default function ProjectsChallengeBriefSupportCard({
     <div
       aria-hidden="true"
       className={clsx(
-        'h-[200px] w-full overflow-hidden rounded-lg p-5 pb-0 border pointer-events-none select-none',
+        'h-[200px] w-full overflow-hidden rounded-lg pt-5 pr-5 pl-5 border pointer-events-none select-none',
         themeBackgroundElementColor,
         themeBorderElementColor,
         className,
       )}>
-      <div className="w-[330px]">{children}</div>
+      {/* @ts-expect-error React doesn't support inert yet */}
+      <div className="w-[330px]" inert="">
+        {children}
+      </div>
     </div>
   );
 }

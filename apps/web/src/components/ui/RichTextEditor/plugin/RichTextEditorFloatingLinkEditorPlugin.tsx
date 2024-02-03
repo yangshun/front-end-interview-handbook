@@ -21,6 +21,7 @@ import {
   RiDeleteBin6Line,
   RiPencilLine,
 } from 'react-icons/ri';
+import { useOnClickOutside } from 'usehooks-ts';
 
 import Button from '~/components/ui/Button';
 import TextInput from '~/components/ui/TextInput';
@@ -56,11 +57,14 @@ function FloatingLinkEditor({
 }): JSX.Element {
   const editorRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
   const [linkUrl, setLinkUrl] = useState('');
   const [editedLinkUrl, setEditedLinkUrl] = useState('https://');
   const [lastSelection, setLastSelection] = useState<BaseSelection | null>(
     null,
   );
+
+  useOnClickOutside(editorRef, () => setIsLink(false));
 
   const updateLinkEditor = useCallback(() => {
     const selection = $getSelection();
@@ -106,7 +110,7 @@ function FloatingLinkEditor({
         setFloatingElemPositionForLinkEditor(domRect, editorElem, anchorElem);
       }
       setLastSelection(selection);
-    } else if (!activeElement || activeElement.className !== 'link-input') {
+    } else if (!activeElement || activeElement !== inputRef.current) {
       if (rootElement !== null) {
         setFloatingElemPositionForLinkEditor(null, editorElem, anchorElem);
       }
