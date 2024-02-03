@@ -1,5 +1,4 @@
-import { type LexicalEditor } from 'lexical';
-import { useRef } from 'react';
+import { useState } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { Controller, useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
@@ -16,7 +15,6 @@ import type { DiscussionsCommentUserProfile } from '~/components/discussions/typ
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import Button from '~/components/ui/Button';
 import RichTextEditor from '~/components/ui/RichTextEditor';
-import clearEditor from '~/components/ui/RichTextEditor/clearEditor';
 import Text from '~/components/ui/Text';
 
 import type { ProjectsChallengeSubmissionAugmented } from '../types';
@@ -40,7 +38,7 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
   viewer,
 }: Props) {
   const intl = useIntl();
-  const editorRef = useRef<LexicalEditor | null>(null);
+  const [editorRerenderKey, setEditorRerenderKey] = useState(0);
   const createCommentMutation = trpc.comments.create.useMutation();
   const attrs = getDiscussionsCommentBodyAttributes(intl);
   const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
@@ -75,7 +73,7 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
       },
       {
         onSuccess: () => {
-          clearEditor(editorRef.current);
+          setEditorRerenderKey((prevKey) => prevKey + 1);
           reset();
         },
       },
@@ -130,7 +128,7 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
       </div>
       <div className="my-3">
         <RichTextEditor
-          ref={editorRef}
+          key={editorRerenderKey}
           disabled={createCommentMutation.isLoading}
           errorMessage={errors.body?.message}
           isLabelHidden={true}

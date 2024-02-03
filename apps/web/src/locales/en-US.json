@@ -3,10 +3,6 @@
     "defaultMessage": "Access to continuously updating questions and content.",
     "description": "Feature of monthly pricing plan"
   },
-  "+/f5eR": {
-    "defaultMessage": "Skill tree",
-    "description": "Title of Projects skill tree page"
-  },
   "+59/34": {
     "defaultMessage": "Questions to Ask (End of Interview)",
     "description": "Best questions to ask at the end of a behavioral interviews"
@@ -42,10 +38,6 @@
   "+OVTKu": {
     "defaultMessage": "Billing | Profile",
     "description": "Title of Profile Billing page"
-  },
-  "+P3MU0": {
-    "defaultMessage": "{skillName}: {completedProjectCount} out of {totalProjectCount}",
-    "description": "Label for Projects skill emblem"
   },
   "+R1wGb": {
     "defaultMessage": "Component track",
@@ -350,10 +342,6 @@
   "1SKRR/": {
     "defaultMessage": "Month and year you started work as a Front End Engineer",
     "description": "Label for \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
-  },
-  "1e4fFu": {
-    "defaultMessage": "Edit skills",
-    "description": "Label for edit skills button in skills select"
   },
   "1gkgr4": {
     "defaultMessage": "Sign In",
@@ -847,10 +835,6 @@
     "defaultMessage": "Next",
     "description": "Label for \"Next\" button on Sign Up Reason section of Projects onboarding page"
   },
-  "6vsplp": {
-    "defaultMessage": "You're here to learn skills",
-    "description": "Title of the 'Skill tree' marketing section on Projects home page"
-  },
   "6w1Z0V": {
     "defaultMessage": "Practice Questions",
     "description": "Section title for links to question lists by category and format"
@@ -1194,10 +1178,6 @@
   "9gs1LO": {
     "defaultMessage": "Buy now",
     "description": "Purchase button label"
-  },
-  "9kF5T7": {
-    "defaultMessage": "{completedProjectCount}/{totalProjectCount}",
-    "description": "Progress indicator in Projects skills emblem"
   },
   "9nq03w": {
     "defaultMessage": "Others",
@@ -1734,10 +1714,6 @@
   "FcKhvG": {
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch and practice the questions where algorithmic efficiency is key.",
     "description": "Description for interview preparation focus area"
-  },
-  "Ff2kvb": {
-    "defaultMessage": "See more child skills",
-    "description": "Label for see more child skills"
   },
   "Fg3V0y": {
     "defaultMessage": "Manage subscription on Stripe",
@@ -2282,6 +2258,10 @@
   "KhP4uM": {
     "defaultMessage": "Medium",
     "description": "Medium difficulty label for question difficulty summary in question listing"
+  },
+  "KhmeKO": {
+    "defaultMessage": "Hide child skills",
+    "description": "Label to collapse skills card"
   },
   "KjD2cI": {
     "defaultMessage": "Duration: High to Low",
@@ -3191,10 +3171,6 @@
     "defaultMessage": "Practice developing inclusive and accessible web experiences.",
     "description": "Description for interview preparation focus area"
   },
-  "Sl00sj": {
-    "defaultMessage": "Explore {skillCount}+ more skills",
-    "description": "Label of 'Skill tree' view all button in Projects home page"
-  },
   "Sp5xdN": {
     "defaultMessage": "{numberOfBlogs} articles",
     "description": "Number of articles in a list"
@@ -3226,10 +3202,6 @@
   "T6xgeP": {
     "defaultMessage": "Code",
     "description": "Section title for code viewer"
-  },
-  "T7+/5t": {
-    "defaultMessage": "Use our Skills Tree to train a holistic front end skill set",
-    "description": "Heading of the 'Skill tree' marketing section on Projects home page"
   },
   "T8HWQC": {
     "defaultMessage": "Practice developing inclusive and accessible web experiences, a skill which differentiates senior from junior front end engineers.",
@@ -3535,10 +3507,6 @@
     "defaultMessage": "Learn from others",
     "description": "Title for portfolio motivation"
   },
-  "Vk81t3": {
-    "defaultMessage": "Skills",
-    "description": "Label for skills select"
-  },
   "VlLGKt": {
     "defaultMessage": "Payment Success",
     "description": "Title of Payment Success page"
@@ -3570,6 +3538,10 @@
   "W+ConA": {
     "defaultMessage": "Guided by well-known senior engineers",
     "description": "Title of 'Guided by well-known senior engineers' feature in marketing page"
+  },
+  "W9OR+u": {
+    "defaultMessage": "See child skills",
+    "description": "Label to expand skills card"
   },
   "WB/L0V": {
     "defaultMessage": "{numberOfHours} hours weekly",
@@ -4515,6 +4487,10 @@
     "defaultMessage": "What kind of guidance will this platform provide me?",
     "description": "FAQ question for projects platform"
   },
+  "exLMBi": {
+    "defaultMessage": "Skills roadmap",
+    "description": "Title of Projects skill roadmap page"
+  },
   "eyLjDz": {
     "defaultMessage": "Have questions, feedback or anything to say?",
     "description": "Title for contact us section"
@@ -4526,10 +4502,6 @@
   "ez5OLq": {
     "defaultMessage": "Practice Angular Interview Questions with Solutions",
     "description": "Title of Angular Interview Questions page"
-  },
-  "f+oxmk": {
-    "defaultMessage": "See lesser child skills",
-    "description": "Label for see lesser child skills"
   },
   "f/t2zt": {
     "defaultMessage": "Project session ended!",
@@ -5563,10 +5535,6 @@
     "defaultMessage": "We recommend these {numberOfAreas} areas of learning to prepare you holistically for your front end interview rounds. Explore guides and {count}+ practice questions here.",
     "description": "Message in onboarding card on prepare page"
   },
-  "nw9bBh": {
-    "defaultMessage": "Image",
-    "description": "Label for image"
-  },
   "nwtLb2": {
     "defaultMessage": "Senior Software Engineer — Front End",
     "description": "Larry Almeida's job title"
@@ -6035,10 +6003,6 @@
     "defaultMessage": "Nothing at all! Just click \"Start project\", and we will take care of everything else and guide you along the way.",
     "description": "FAQ answer for projects platform"
   },
-  "s5GdUb": {
-    "defaultMessage": "Find projects and curated resources to advance your skills all the way from beginner to senior engineer. Train a well-rounded skillset including full stack and AI skills.",
-    "description": "Subtitle of the 'Skill tree' marketing section on Projects home page"
-  },
   "s7CwKz": {
     "defaultMessage": "Behavioral Interview Study Guides",
     "description": "Behavioral interview study guides"
@@ -6142,10 +6106,6 @@
   "t2Ll2e": {
     "defaultMessage": "Run your code with <button>custom test cases</button> before submitting.",
     "description": "Text that appears in the DevTool under the Tests tab before the user has submitted their code"
-  },
-  "t2WvF1": {
-    "defaultMessage": "Skills tooltip",
-    "description": "Tooltip for skills select"
   },
   "t5L0yE": {
     "defaultMessage": "Pricing",

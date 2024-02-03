@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import type { EditorState, LexicalEditor } from 'lexical';
 import type { FormEventHandler, ForwardedRef } from 'react';
 import type { MutableRefObject } from 'react';
-import { forwardRef, useId, useState } from 'react';
+import { forwardRef, useId, useRef, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import type { LabelDescriptionStyle } from '~/components/ui/Label';
@@ -28,6 +28,7 @@ import { LexicalComposer } from '@lexical/react/LexicalComposer';
 import { ContentEditable } from '@lexical/react/LexicalContentEditable';
 import LexicalErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
+import { HorizontalRulePlugin } from '@lexical/react/LexicalHorizontalRulePlugin';
 import { ListPlugin } from '@lexical/react/LexicalListPlugin';
 import { MarkdownShortcutPlugin } from '@lexical/react/LexicalMarkdownShortcutPlugin';
 import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
@@ -82,6 +83,7 @@ function RichTextEditor(
   ref: ForwardedRef<LexicalEditor | null>,
 ) {
   const generatedId = useId();
+  const editorRef = useRef<LexicalEditor>(null);
   const id = idParam ?? generatedId;
   const messageId = useId();
   const hasError = !!errorMessage;
@@ -138,7 +140,7 @@ function RichTextEditor(
             className,
           )}>
           <RichTextEditorToolbar floatingAnchorElem={floatingAnchorElem} />
-          <div className="relative h-full" style={{ minHeight }}>
+          <div className="relative h-full">
             <RichTextPlugin
               ErrorBoundary={LexicalErrorBoundary}
               contentEditable={
@@ -149,19 +151,24 @@ function RichTextEditor(
                       proseStyle('sm'),
                     )}
                     id={id}
+                    style={{ minHeight }}
                     onBlur={(e) => onBlur?.(e)}
                   />
                 </div>
               }
               placeholder={
-                <div className="absolute left-3 top-3 inline-block overflow-hidden">
-                  {placeholder || (
-                    <FormattedMessage
-                      defaultMessage="Enter"
-                      description="Richtext placeholder"
-                      id="doYVKC"
-                    />
-                  )}
+                <div
+                  className="absolute left-3 top-3 inline-block overflow-hidden"
+                  onClick={() => editorRef.current?.focus()}>
+                  <Text color="secondary" size="body2">
+                    {placeholder || (
+                      <FormattedMessage
+                        defaultMessage="Enter"
+                        description="Richtext placeholder"
+                        id="doYVKC"
+                      />
+                    )}
+                  </Text>
                 </div>
               }
             />
@@ -190,12 +197,12 @@ function RichTextEditor(
       <RichTextEditorLinkPlugin />
       <RichTextEditorAutoLinkPlugin />
       <RichTextEditorDisablePlugin disableEditor={disabled} />
-      {ref && (
-        <RichTextEditorRefPlugin
-          editorRef={ref as MutableRefObject<LexicalEditor>}
-        />
-      )}
+      <RichTextEditorRefPlugin
+        editorRef={editorRef as MutableRefObject<LexicalEditor>}
+        forwardedRef={ref as MutableRefObject<LexicalEditor>}
+      />
       <ClearEditorPlugin />
+      <HorizontalRulePlugin />
     </LexicalComposer>
   );
 }

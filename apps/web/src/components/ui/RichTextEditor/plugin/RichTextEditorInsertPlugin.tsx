@@ -7,7 +7,7 @@ import {
   SELECTION_CHANGE_COMMAND,
 } from 'lexical';
 import { useCallback, useEffect, useState } from 'react';
-import { RiImageLine, RiLink, RiRulerLine } from 'react-icons/ri';
+import { RiLink, RiRulerLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import DropdownMenu from '~/components/ui/DropdownMenu';
@@ -18,6 +18,7 @@ import { sanitizeUrl } from '../utils/url';
 
 import { $isLinkNode, TOGGLE_LINK_COMMAND } from '@lexical/link';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
+import { INSERT_HORIZONTAL_RULE_COMMAND } from '@lexical/react/LexicalHorizontalRuleNode';
 import { mergeRegister } from '@lexical/utils';
 
 type RichTextEditorInsertType = 'horizontal' | 'image' | 'link';
@@ -57,15 +58,15 @@ export default function RichTextEditorInsertPlugin({
       }),
       value: 'horizontal',
     },
-    {
-      icon: RiImageLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Image',
-        description: 'Label for image',
-        id: 'nw9bBh',
-      }),
-      value: 'image',
-    },
+    // {
+    //   icon: RiImageLine,
+    //   label: intl.formatMessage({
+    //     defaultMessage: 'Image',
+    //     description: 'Label for image',
+    //     id: 'nw9bBh',
+    //   }),
+    //   value: 'image',
+    // },
   ];
 
   const $updateState = useCallback(() => {
@@ -134,15 +135,20 @@ export default function RichTextEditorInsertPlugin({
     );
   }, [editor, isLink, setIsLinkEditMode]);
 
-  const insertLink = useCallback(() => {
-    if (!isLink) {
-      setIsLinkEditMode(true);
-      editor.dispatchCommand(TOGGLE_LINK_COMMAND, sanitizeUrl('https://'));
-    } else {
-      setIsLinkEditMode(false);
-      editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
+  const onInsertAction = (value: RichTextEditorInsertType) => {
+    if (value === 'link') {
+      if (!isLink) {
+        setIsLinkEditMode(true);
+        editor.dispatchCommand(TOGGLE_LINK_COMMAND, sanitizeUrl('https://'));
+      } else {
+        setIsLinkEditMode(false);
+        editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
+      }
     }
-  }, [editor, isLink, setIsLinkEditMode]);
+    if (value === 'horizontal') {
+      editor.dispatchCommand(INSERT_HORIZONTAL_RULE_COMMAND, undefined);
+    }
+  };
 
   return (
     <>
@@ -159,7 +165,7 @@ export default function RichTextEditorInsertPlugin({
             icon={icon}
             isSelected={false}
             label={label}
-            onClick={() => insertLink()}
+            onClick={() => onInsertAction(value)}
           />
         ))}
       </DropdownMenu>

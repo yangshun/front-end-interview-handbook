@@ -5,11 +5,16 @@ import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext
 
 export default function RichTextEditorRefPlugin({
   editorRef,
+  forwardedRef,
 }: {
-  editorRef: MutableRefObject<LexicalEditor | null>;
+  editorRef: MutableRefObject<LexicalEditor>;
+  forwardedRef: MutableRefObject<LexicalEditor>;
 }) {
   const [editor] = useLexicalComposerContext();
 
+  if (forwardedRef) {
+    forwardedRef.current = editor;
+  }
   editorRef.current = editor;
 
   return null;
