@@ -1,7 +1,10 @@
 import clsx from 'clsx';
+import { startCase } from 'lodash-es';
 
 import Text from '~/components/ui/Text';
 import { themeBackgroundChipColor } from '~/components/ui/theme';
+
+import { ProjectsSkillLabel } from './ProjectsSkillListData';
 
 export default function ProjectsSkillChip({ value }: { value: string }) {
   return (
@@ -12,8 +15,8 @@ export default function ProjectsSkillChip({ value }: { value: string }) {
         'rounded',
         themeBackgroundChipColor,
       )}>
-      <Text className={clsx('whitespace-nowrap')} size="body3" weight="medium">
-        {value}
+      <Text className="whitespace-nowrap" size="body3" weight="medium">
+        {ProjectsSkillLabel[value] ?? startCase(value)}
       </Text>
     </div>
   );
