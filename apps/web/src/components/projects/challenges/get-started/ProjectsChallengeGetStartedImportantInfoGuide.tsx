@@ -1,5 +1,6 @@
 import { FormattedMessage } from 'react-intl';
 
+import ProjectsChallengeGetStartedImportantInfoGuideBanner from '~/components/projects/challenges/get-started/ProjectsChallengeGetStartedImportantInfoGuideBanner';
 import Text from '~/components/ui/Text';
 
 export default function ProjectsChallengeGetStartedImportantInfoGuide() {
@@ -12,8 +13,7 @@ export default function ProjectsChallengeGetStartedImportantInfoGuide() {
           id="iHLvVo"
         />
       </Text>
-      {/* TODO(projects): Replace with image/jsx */}
-      <div className="h-[124px] rounded-lg self-stretch bg-red" />
+      <ProjectsChallengeGetStartedImportantInfoGuideBanner />
     </div>
   );
 }
