@@ -18,6 +18,7 @@ import {
   themeBackgroundChipColor,
   themeBackgroundColor,
   themeBackgroundElementActiveColor,
+  themeBackgroundElementColor,
   themeBorderElementColor,
   themeTextFaintColor,
   themeTextPlaceholderColor,
@@ -197,7 +198,7 @@ export default function Typeahead<T>({
                   'ring-neutral-300 dark:ring-neutral-700',
                   'cursor-not-allowed',
                 ]
-              : stateClasses[state],
+              : clsx(themeBackgroundElementColor, stateClasses[state]),
             className,
           )}
           closeMenuOnSelect={false}

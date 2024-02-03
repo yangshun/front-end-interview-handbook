@@ -8,16 +8,20 @@ import {
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import ProjectsSkillInput from '~/components/projects/skills/form/ProjectsSkillInput';
 import Button from '~/components/ui/Button';
-import Card from '~/components/ui/Card';
 import Dialog from '~/components/ui/Dialog';
+import Divider from '~/components/ui/Divider';
 import Text from '~/components/ui/Text';
-import { themeTextSecondaryColor } from '~/components/ui/theme';
+import {
+  themeBackgroundCardColor,
+  themeGlassyBorder,
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import { useProjectsChallengeSessionContext } from '../ProjectsChallengeSessionContext';
 import type { ProjectsChallengeItem } from '../types';
-import ProjectsSkillSelect from '../../skills/form/ProjectsSkillSelect';
 import ProjectsSkillTechStackInput from '../../skills/form/ProjectsSkillTechStackInput';
 import type { ProjectsSkillKey } from '../../skills/types';
 
@@ -126,12 +130,13 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
           />
         </Text>
       </Dialog>
-      <Card
-        className="py-6 pl-6 pr-4"
-        classNameOuter="w-full md:w-auto"
-        disableSpotlight={true}
-        padding={false}
-        pattern={false}>
+      <div
+        className={clsx(
+          'flex flex-col gap-y-6',
+          'w-full py-6 pl-6 pr-4 rounded-lg',
+          themeGlassyBorder,
+          themeBackgroundCardColor,
+        )}>
         <div className="flex justify-between md:flex-row flex-col gap-3 w-full">
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center justify-between">
@@ -205,17 +210,32 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
           </div>
         </div>
         {isExpanded && (
-          <>
-            <ProjectsSkillSelect className="mt-6" skills={skills} />
+          <div className="flex flex-col gap-y-6">
+            <ProjectsSkillInput
+              description={intl.formatMessage({
+                defaultMessage:
+                  'The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development',
+                description:
+                  'Description for skills input on project submit page',
+                id: 'pRi/7+',
+              })}
+              descriptionStyle="tooltip"
+              label={intl.formatMessage({
+                defaultMessage: 'Skills',
+                description: 'Label for skills input on project submit page',
+                id: 'KC1Rzx',
+              })}
+            />
+            <Divider />
             {/* TODO(projects|skills): Save into session */}
             <ProjectsSkillTechStackInput
               label="Skills"
               value={otherTechStacks ?? []}
               onChange={setOtherTechStacks}
             />
-          </>
+          </div>
         )}
-      </Card>
+      </div>
     </>
   );
 }
