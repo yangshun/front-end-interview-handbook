@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React, { useEffect, useRef, useState } from 'react';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
@@ -12,14 +13,57 @@ type Props = Readonly<{
 export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
   const intl = useIntl();
   const ref = useRef<HTMLDivElement>(null);
+  const imageListRef = useRef<HTMLDivElement>(null);
   const [current, setCurrent] = useState(0);
   const [imageWidth, setImageWidth] = useState(0);
   const GAP_BETWEEN_IMAGE = 8;
 
-  const previousImage = () =>
-    setCurrent((current + images.length - 1) % images.length);
+  const scrollImage = (direction: 'left' | 'right') => {
+    const maxScrollLeft =
+      (imageListRef?.current?.scrollWidth ?? 0) -
+      (imageListRef?.current?.clientWidth ?? 0);
 
-  const nextImage = () => setCurrent((current + 1) % images.length);
+    const directionValue = direction === 'left' ? -1 : 1;
+    const scrollAmount =
+      (imageListRef.current?.clientWidth ?? 0) * directionValue;
+
+    imageListRef.current?.scrollBy({
+      // Had to disable smooth scroll because it causing issue to find the current image with scroll listener
+      // Behavior: 'smooth',
+      left:
+        direction === 'right'
+          ? imageListRef?.current.scrollLeft + 4 >= maxScrollLeft
+            ? -imageListRef?.current.scrollLeft
+            : scrollAmount ?? 0
+          : imageListRef?.current.scrollLeft - 4 <= 0
+            ? maxScrollLeft
+            : scrollAmount ?? 0,
+    });
+  };
+
+  useEffect(() => {
+    const element = imageListRef.current;
+    const handleScroll = () => {
+      if (imageListRef.current) {
+        const { scrollLeft } = imageListRef.current;
+        const currentIndex = Math.round(
+          scrollLeft / (imageWidth + GAP_BETWEEN_IMAGE),
+        );
+
+        setCurrent(currentIndex);
+      }
+    };
+
+    if (element) {
+      element.addEventListener('scroll', handleScroll);
+    }
+
+    return () => {
+      if (element) {
+        element.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, [imageWidth]);
 
   useEffect(() => {
     setImageWidth(ref.current?.offsetWidth ?? 0);
@@ -36,22 +80,20 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
   });
 
   return (
-    <div ref={ref} className="relative overflow-hidden rounded-lg w-full">
+    <div ref={ref} className="relative rounded-lg w-full">
       <div
-        className="flex transition ease-out duration-1000 md:h-[372px] h-[266px]"
+        ref={imageListRef}
+        className="grid overflow-x-auto snap-x snap-mandatory thin-scrollbar"
         style={{
           gap: `${GAP_BETWEEN_IMAGE}px`,
-          transform: `translateX(calc(-${
-            current * imageWidth + current * GAP_BETWEEN_IMAGE
-          }px ))`,
-          width: `${images.length * imageWidth}px`,
+          gridTemplateColumns: `repeat(${images.length}, 1fr)`,
         }}>
         {images.map((image, index) => {
           return (
             <img
               key={Math.random()}
               alt={`Project challenge image ${index + 1}`}
-              className="snap-center object-cover rounded-lg h-full w-full"
+              className="object-cover rounded-lg w-full snap-center md:h-[372px] h-[266px]"
               src={image}
               style={{
                 maxWidth: `${imageWidth}px`,
@@ -64,7 +106,7 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
 
       {images.length > 1 && (
         <>
-          <div className="absolute top-0 h-full w-full justify-between items-center flex px-2">
+          <div className="absolute left-2 top-1/2 transform -translate-y-1/2">
             <Button
               icon={RiArrowLeftSLine}
               isLabelHidden={true}
@@ -74,8 +116,10 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
                 id: '+vnNEk',
               })}
               variant="secondary"
-              onClick={previousImage}
+              onClick={() => scrollImage('left')}
             />
+          </div>
+          <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
             <Button
               icon={RiArrowRightSLine}
               isLabelHidden={true}
@@ -85,13 +129,24 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
                 id: 'sV/OUK',
               })}
               variant="secondary"
-              onClick={nextImage}
+              onClick={() => scrollImage('right')}
             />
           </div>
-          <div className="absolute bottom-2 right-2 bg-neutral-300 dark:bg-neutral-300 rounded-full px-2 py-0.5">
+          <div className="absolute bottom-3 right-2 bg-neutral-300 dark:bg-neutral-300 rounded-full px-2 py-0.5">
             <Text color="dark" size="body3" weight="medium">
               {current + 1}/{images.length}
             </Text>
+          </div>
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1">
+            {images.map((image, index) => (
+              <div
+                key={image}
+                className={clsx(
+                  'flex-1 h-[5px] w-[20px] rounded-lg dark:bg-neutral-800/40 bg-neutral-800/40',
+                  { ['!bg-brand dark:!bg-brand-dark']: index === current },
+                )}
+              />
+            ))}
           </div>
         </>
       )}
