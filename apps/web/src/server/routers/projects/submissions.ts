@@ -2,8 +2,10 @@ import { z } from 'zod';
 
 import { yoeReplacementSchema } from '~/components/projects/misc';
 import { projectsChallengeSubmissionDeploymentUrlsSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionDeploymentUrlsSchema';
+import { projectsChallengeSubmissionImplementationSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionImplementationSchema';
 import { projectsChallengeSubmissionRepositoryUrlSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
 import { projectsChallengeSubmissionSummarySchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionSummarySchema';
+import { projectsChallengeSubmissionTechStackSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionTechStackSchema';
 import { projectsChallengeSubmissionTitleSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionTitleSchema';
 import { projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus } from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListUtil';
 import type { ProjectsYoeReplacement } from '~/components/projects/types';
@@ -29,8 +31,9 @@ const projectsChallengeProcedure = projectsUserProcedure.input(
 
 const projectsChallengeSubmissionFormSchema = z.object({
   deploymentUrls: projectsChallengeSubmissionDeploymentUrlsSchemaServer,
-  implementation: z.string(),
+  implementation: projectsChallengeSubmissionImplementationSchemaServer,
   repositoryUrl: projectsChallengeSubmissionRepositoryUrlSchemaServer,
+  skills: projectsChallengeSubmissionTechStackSchemaServer,
   summary: projectsChallengeSubmissionSummarySchemaServer,
   title: projectsChallengeSubmissionTitleSchemaServer,
 });
@@ -149,6 +152,7 @@ export const projectsChallengeSubmissionRouter = router({
           slug,
           title,
           summary,
+          skills,
           deploymentUrls,
           repositoryUrl,
           implementation,
@@ -194,6 +198,7 @@ export const projectsChallengeSubmissionRouter = router({
               implementation,
               profileId: projectsProfileId,
               repositoryUrl,
+              skills,
               slug,
               summary,
               title,
@@ -809,6 +814,7 @@ export const projectsChallengeSubmissionRouter = router({
         input: {
           submissionId,
           title,
+          skills,
           summary,
           deploymentUrls,
           repositoryUrl,
@@ -832,6 +838,7 @@ export const projectsChallengeSubmissionRouter = router({
             editedAt: new Date(),
             implementation,
             repositoryUrl,
+            skills,
             summary,
             title,
           },

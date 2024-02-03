@@ -12,6 +12,23 @@ export const ProjectsSkillLabels: Record<ProjectsSkillKey, string> = {
   vue: 'Vue',
 };
 
+export function ProjectsSkillArrayToTypeaheadValues(
+  values: ReadonlyArray<ProjectsSkillKey>,
+) {
+  return values.map((value) => ({
+    label: ProjectsSkillLabels[value] ?? value,
+    value,
+  }));
+}
+
+export function ProjectsSkillTypeaheadValuesToArray(
+  values: ReadonlyArray<
+    Readonly<{ label: string; value: ProjectsSkillKey }>
+  > | null,
+) {
+  return values?.map(({ value }) => value) ?? null;
+}
+
 export function ProjectsSkillOptions() {
   return Object.entries(ProjectsSkillLabels).map(([value, label]) => ({
     label,

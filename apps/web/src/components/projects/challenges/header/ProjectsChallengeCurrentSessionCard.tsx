@@ -19,6 +19,7 @@ import { useProjectsChallengeSessionContext } from '../ProjectsChallengeSessionC
 import type { ProjectsChallengeItem } from '../types';
 import ProjectsSkillSelect from '../../skills/ProjectsSkillSelect';
 import ProjectsSkillTechStackInput from '../../skills/ProjectsSkillTechStackInput';
+import type { ProjectsSkillKey } from '../../skills/types';
 
 import type { ProjectsChallengeSession } from '@prisma/client';
 
@@ -34,7 +35,8 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
   const intl = useIntl();
   const [showEndSessionDialog, setShowEndSessionDialog] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [otherTechStacks, setOtherTechStacks] = useState<Array<string>>([]);
+  const [otherTechStacks, setOtherTechStacks] =
+    useState<ReadonlyArray<ProjectsSkillKey> | null>([]);
 
   const { endSession, isEndSessionLoading } =
     useProjectsChallengeSessionContext();
@@ -205,8 +207,10 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
         {isExpanded && (
           <>
             <ProjectsSkillSelect className="mt-6" skills={skills} />
+            {/* TODO(projects|skills): Save into session */}
             <ProjectsSkillTechStackInput
-              value={otherTechStacks}
+              label="Skills"
+              value={otherTechStacks ?? []}
               onChange={setOtherTechStacks}
             />
           </>

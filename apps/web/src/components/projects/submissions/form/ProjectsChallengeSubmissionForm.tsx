@@ -14,11 +14,13 @@ import ProjectsChallengeSubmissionRepositoryUrlField from './fields/ProjectsChal
 import { useProjectsChallengeSubmissionRepositoryUrlSchema } from './fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
 import ProjectsChallengeSubmissionSummaryField from './fields/ProjectsChallengeSubmissionSummaryField';
 import { useProjectsChallengeSubmissionSummarySchema } from './fields/ProjectsChallengeSubmissionSummarySchema';
+import ProjectsChallengeSubmissionTechStackField from './fields/ProjectsChallengeSubmissionTechStackField';
+import { useProjectsChallengeSubmissionTechStackSchema } from './fields/ProjectsChallengeSubmissionTechStackSchema';
 import ProjectsChallengeSubmissionTitleField from './fields/ProjectsChallengeSubmissionTitleField';
 import { useProjectsChallengeSubmissionTitleSchema } from './fields/ProjectsChallengeSubmissionTitleSchema';
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '../types';
 import ProjectsSkillInput from '../../skills/ProjectsSkillInput';
-import ProjectsSkillTechStackInput from '../../skills/ProjectsSkillTechStackInput';
+import type { ProjectsSkillKey } from '../../skills/types';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -26,6 +28,7 @@ export type ProjectsChallengeSubmissionFormValues = Readonly<{
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
   implementation: string;
   repositoryUrl: string;
+  skills: Array<ProjectsSkillKey>;
   summary: string;
   title: string;
 }>;
@@ -35,6 +38,8 @@ function useProjectsChallengeSubmissionFormSchema() {
     useProjectsChallengeSubmissionTitleSchema();
   const projectsChallengeSubmissionSummarySchema =
     useProjectsChallengeSubmissionSummarySchema();
+  const projectsChallengeSubmissionTechStackSchema =
+    useProjectsChallengeSubmissionTechStackSchema();
   const projectsChallengeSubmissionRepositoryUrlSchema =
     useProjectsChallengeSubmissionRepositoryUrlSchema();
   const projectsChallengeSubmissionDeploymentUrlsSchema =
@@ -46,6 +51,7 @@ function useProjectsChallengeSubmissionFormSchema() {
     deploymentUrls: projectsChallengeSubmissionDeploymentUrlsSchema,
     implementation: projectsChallengeSubmissionImplementationSchema,
     repositoryUrl: projectsChallengeSubmissionRepositoryUrlSchema,
+    skills: projectsChallengeSubmissionTechStackSchema,
     summary: projectsChallengeSubmissionSummarySchema,
     title: projectsChallengeSubmissionTitleSchema,
   });
@@ -72,6 +78,7 @@ export default function ProjectsChallengeSubmissionForm({
     deploymentUrls: [{ href: '', label: 'Main' }],
     implementation: '',
     repositoryUrl: '',
+    skills: [],
     summary: '',
     title: '',
   },
@@ -112,7 +119,7 @@ export default function ProjectsChallengeSubmissionForm({
                   id: 'KC1Rzx',
                 })}
               />
-              <ProjectsSkillTechStackInput value={[]} onChange={() => {}} />
+              <ProjectsChallengeSubmissionTechStackField control={control} />
               <ProjectsChallengeSubmissionRepositoryUrlField
                 control={control}
               />
