@@ -9,9 +9,8 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import ProjectsSkillChip from '~/components/projects/skills/ProjectsSkillChip';
-import ProjectsSkillRoadmapChips from '~/components/projects/skills/ProjectsSkillRoadmapChips';
-import type { ProjectsSkill } from '~/components/projects/skills/types';
+import ProjectsSkillChip from '~/components/projects/skills/metadata/ProjectsSkillChip';
+import ProjectsSkillRoadmapChips from '~/components/projects/skills/metadata/ProjectsSkillRoadmapChips';
 import ProjectsChallengeSubmissionHero from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHero';
 import ProjectsChallengeSubmissionAuthorProfile from '~/components/projects/submissions/ProjectsChallengeSubmissionAuthorProfile';
 import ProjectsChallengeSubmissionComparison from '~/components/projects/submissions/ProjectsChallengeSubmissionComparison';

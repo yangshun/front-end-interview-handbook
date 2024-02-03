@@ -11,7 +11,7 @@ import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/met
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsChallengeTrackTag from '~/components/projects/challenges/metadata/ProjectsChallengeTrackTag';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import ProjectsSkillRoadmapChips from '~/components/projects/skills/ProjectsSkillRoadmapChips';
+import ProjectsSkillRoadmapChips from '~/components/projects/skills/metadata/ProjectsSkillRoadmapChips';
 import ProjectsCompletedUsersTag from '~/components/projects/stats/ProjectsCompletedUsersTag';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';

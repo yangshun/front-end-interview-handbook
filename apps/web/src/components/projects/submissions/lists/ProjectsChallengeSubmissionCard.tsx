@@ -21,7 +21,7 @@ import ProjectsChallengeHoverCard from './ProjectsChallengeHoverCard';
 import ProjectsChallengeSubmissionCardPinButton from './ProjectsChallengeSubmissionCardPinButton';
 import type { ProjectsChallengeSubmissionAugmented } from '../types';
 import ProjectsChallengeStatusBadge from '../../challenges/status/ProjectsChallengeStatusBadge';
-import ProjectsSkillRow from '../../skills/ProjectsSkillRow';
+import ProjectsSkillList from '../../skills/metadata/ProjectsSkillList';
 import ProjectsCommentCountTag from '../../stats/ProjectsCommentCountTag';
 import ProjectsViewCountTag from '../../stats/ProjectsViewCountTag';
 import ProjectsVoteCountTag from '../../stats/ProjectsVoteCountTag';
@@ -112,7 +112,7 @@ export default function ProjectsChallengeSubmissionCard({
         <Anchor href={hrefs.detail}>
           <Text weight="bold">{title}</Text>
         </Anchor>
-        <ProjectsSkillRow
+        <ProjectsSkillList
           label={intl.formatMessage({
             defaultMessage: 'Stack used',
             description: 'Label for tech stack used in project',

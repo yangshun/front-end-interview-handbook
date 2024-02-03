@@ -1,10 +1,10 @@
-import ProjectsSkillFamilyCard from '~/components/projects/skills/ProjectsSkillFamilyCard';
+import ProjectsSkillRoadmapGroupCard from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapGroupCard';
 import Text from '~/components/ui/Text';
 
 import {
   foundationalSkills,
   intermediateSkills,
-} from './ProjectsSkillRoadmapData';
+} from '../data/ProjectsSkillRoadmapData';
 
 export default function ProjectsSkillRoadmapSection() {
   return (
@@ -15,7 +15,7 @@ export default function ProjectsSkillRoadmapSection() {
         </Text>
         <div className="flex flex-col gap-4">
           {foundationalSkills.map((skill) => (
-            <ProjectsSkillFamilyCard key={Math.random()} skill={skill} />
+            <ProjectsSkillRoadmapGroupCard key={Math.random()} skill={skill} />
           ))}
         </div>
       </div>
@@ -25,7 +25,7 @@ export default function ProjectsSkillRoadmapSection() {
         </Text>
         <div className="flex flex-col gap-4">
           {intermediateSkills.map((skill) => (
-            <ProjectsSkillFamilyCard key={Math.random()} skill={skill} />
+            <ProjectsSkillRoadmapGroupCard key={Math.random()} skill={skill} />
           ))}
         </div>
       </div>

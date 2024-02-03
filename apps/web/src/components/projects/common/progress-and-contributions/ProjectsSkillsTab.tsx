@@ -1,4 +1,4 @@
-import ProjectsSkillTreeSection from '~/components/projects/skills/ProjectsSkillRoadmapSection';
+import ProjectsSkillTreeSection from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapSection';
 
 export default function ProjectsSkillsTab() {
   return <ProjectsSkillTreeSection />;

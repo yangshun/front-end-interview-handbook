@@ -1,5 +1,5 @@
 import ProjectsProfileInfoSectionLayout from '~/components/projects/profile/info/ProjectsProfileInfoSectionLayout';
-import ProjectsSkillChip from '~/components/projects/skills/ProjectsSkillChip';
+import ProjectsSkillChip from '~/components/projects/skills/metadata/ProjectsSkillChip';
 
 type Props = Readonly<{
   heading: string;

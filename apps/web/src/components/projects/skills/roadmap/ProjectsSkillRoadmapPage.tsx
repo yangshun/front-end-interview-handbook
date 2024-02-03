@@ -2,7 +2,7 @@
 
 import { FormattedMessage } from 'react-intl';
 
-import ProjectsSkillTreeSection from '~/components/projects/skills/ProjectsSkillRoadmapSection';
+import ProjectsSkillRoadmapSection from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapSection';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -13,9 +13,9 @@ export default function ProjectsSkillRoadmapPage() {
       <div className="flex flex-col max-w-prose gap-1">
         <Heading level="heading6">
           <FormattedMessage
-            defaultMessage="Skill tree"
-            description="Title of Projects skill tree page"
-            id="+/f5eR"
+            defaultMessage="Skills roadmap"
+            description="Title of Projects skill roadmap page"
+            id="exLMBi"
           />
         </Heading>
         <Section>
@@ -29,7 +29,7 @@ export default function ProjectsSkillRoadmapPage() {
         </Section>
       </div>
       <Section>
-        <ProjectsSkillTreeSection />
+        <ProjectsSkillRoadmapSection />
       </Section>
     </div>
   );

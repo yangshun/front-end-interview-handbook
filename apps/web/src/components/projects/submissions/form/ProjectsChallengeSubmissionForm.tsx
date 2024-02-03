@@ -19,7 +19,7 @@ import { useProjectsChallengeSubmissionTechStackSchema } from './fields/Projects
 import ProjectsChallengeSubmissionTitleField from './fields/ProjectsChallengeSubmissionTitleField';
 import { useProjectsChallengeSubmissionTitleSchema } from './fields/ProjectsChallengeSubmissionTitleSchema';
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '../types';
-import ProjectsSkillInput from '../../skills/ProjectsSkillInput';
+import ProjectsSkillInput from '../../skills/form/ProjectsSkillInput';
 import type { ProjectsSkillKey } from '../../skills/types';
 
 import { zodResolver } from '@hookform/resolvers/zod';

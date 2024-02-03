@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import ProjectsSkillInput from '~/components/projects/skills/ProjectsSkillInput';
+import ProjectsSkillInput from '~/components/projects/skills/form/ProjectsSkillInput';
 import type { ProjectsChallengeSubmissionFilter } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import {
   useProjectsChallengeSubmissionFilterContext,

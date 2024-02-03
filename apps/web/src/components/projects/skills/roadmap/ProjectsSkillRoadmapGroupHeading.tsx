@@ -12,7 +12,7 @@ type Props = Readonly<{
   skill: ProjectsSkillFamily;
 }>;
 
-export default function ProjectsSkillFamilyHeading({ skill }: Props) {
+export default function ProjectsSkillRoadmapGroupHeading({ skill }: Props) {
   const completed = skill.completedChallenges === skill.totalChallenges;
 
   return (

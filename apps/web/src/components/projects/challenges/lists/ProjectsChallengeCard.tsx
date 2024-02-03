@@ -15,7 +15,7 @@ import {
 
 import ProjectsChallengeStatusBadge from '../status/ProjectsChallengeStatusBadge';
 import type { ProjectsChallengeItem } from '../types';
-import ProjectsSkillRow from '../../skills/ProjectsSkillRow';
+import ProjectsSkillList from '../../skills/metadata/ProjectsSkillList';
 import ProjectsCompletedUsersTag from '../../stats/ProjectsCompletedUsersTag';
 
 type ChallengeCardType = 'hover' | 'normal';
@@ -96,7 +96,7 @@ export default function ProjectsChallengeCard({
             {description}
           </Text>
         </div>
-        <ProjectsSkillRow
+        <ProjectsSkillList
           label={intl.formatMessage({
             defaultMessage: 'Skills',
             description: 'Label for skills list in Project card',

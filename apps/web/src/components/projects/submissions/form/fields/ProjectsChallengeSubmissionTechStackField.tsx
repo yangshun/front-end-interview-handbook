@@ -2,7 +2,7 @@ import type { Control } from 'react-hook-form';
 import { useController } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
-import ProjectsSkillTechStackInput from '~/components/projects/skills/ProjectsSkillTechStackInput';
+import ProjectsSkillTechStackInput from '~/components/projects/skills/form/ProjectsSkillTechStackInput';
 
 import { getProjectsChallengeSubmissionTechStackAttributes } from './ProjectsChallengeSubmissionTechStackSchema';
 import type { ProjectsChallengeSubmissionFormValues } from '../ProjectsChallengeSubmissionForm';

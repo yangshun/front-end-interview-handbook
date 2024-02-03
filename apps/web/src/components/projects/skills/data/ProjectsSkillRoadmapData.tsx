@@ -1,4 +1,4 @@
-import type { ProjectSkillTree } from './types';
+import type { ProjectSkillTree } from '../types';
 
 export const foundationalSkillTree: ProjectSkillTree = [
   {

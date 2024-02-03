@@ -2,10 +2,10 @@ import Typeahead from '~/components/ui/Typeahead';
 
 import {
   ProjectsSkillArrayToTypeaheadValues,
-  ProjectsSkillOptions,
+  ProjectsSkillTypeaheadOptions,
   ProjectsSkillTypeaheadValuesToArray,
-} from './ProjectsSkillListData';
-import type { ProjectsSkillKey } from './types';
+} from '../data/ProjectsSkillListData';
+import type { ProjectsSkillKey } from '../types';
 
 type Props = Readonly<{
   description?: React.ReactNode;
@@ -17,7 +17,7 @@ type Props = Readonly<{
   value: ReadonlyArray<ProjectsSkillKey>;
 }>;
 
-const options = ProjectsSkillOptions();
+const options = ProjectsSkillTypeaheadOptions();
 
 export default function ProjectsSkillTechStackInput({
   description,

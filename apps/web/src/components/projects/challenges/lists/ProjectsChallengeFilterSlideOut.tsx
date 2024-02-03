@@ -14,7 +14,7 @@ import {
   useProjectsChallengeFilterContext,
   useProjectsChallengeFilterState,
 } from './ProjectsChallengeFilterContext';
-import ProjectsSkillInput from '../../skills/ProjectsSkillInput';
+import ProjectsSkillInput from '../../skills/form/ProjectsSkillInput';
 
 import * as Accordion from '@radix-ui/react-accordion';
 

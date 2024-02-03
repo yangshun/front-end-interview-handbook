@@ -3,8 +3,8 @@ import { RiCloseLine } from 'react-icons/ri';
 
 import Text from '~/components/ui/Text';
 
-import { ProjectsSkillLabels } from './ProjectsSkillListData';
-import type { ProjectsSkillKey } from './types';
+import { ProjectsSkillLabels } from '../data/ProjectsSkillListData';
+import type { ProjectsSkillKey } from '../types';
 
 type Props = Readonly<{
   isEditable?: boolean;

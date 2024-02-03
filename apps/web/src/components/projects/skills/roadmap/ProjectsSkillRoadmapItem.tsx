@@ -17,7 +17,7 @@ type Props = Readonly<{
   skillItem: ProjectsSkillItem;
 }>;
 
-export default function ProjectsSkillItemCard({ skillItem }: Props) {
+export default function ProjectsSkillRoadmapItem({ skillItem }: Props) {
   const intl = useIntl();
 
   return (

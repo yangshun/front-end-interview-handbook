@@ -11,17 +11,11 @@ import ReactLogo from '~/components/icons/ReactLogo';
 import ProjectsChallengeGridList from '~/components/projects/challenges/lists/ProjectsChallengeGridList';
 import ProjectsChallengeGridListWithFilters from '~/components/projects/challenges/lists/ProjectsChallengeGridListWithFilters';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import ProjectsSkillTree from '~/components/projects/skills/ProjectsSkillRoadmap';
-import {
-  foundationalSkillTree,
-  intermediateSkillTree,
-} from '~/components/projects/skills/ProjectsSkillRoadmapData';
 import ProjectsTrackAccordion from '~/components/projects/tracks/ProjectsTrackAccordion';
 import ProjectsTrackAccordionItem from '~/components/projects/tracks/ProjectsTrackAccordionItem';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
 import { themeRadialGlowBackground } from '~/components/ui/theme';
 
 import type { ProjectsTrackItem } from '../tracks/ProjectsTracksData';
@@ -83,85 +77,6 @@ export default function ProjectsMarketingSkillsTracksProjects({
             }
           />
         </div>
-        <Section>
-          <div className="space-y-12">
-            <MarketingSectionItemHeader
-              description={
-                <FormattedMessage
-                  defaultMessage="Find projects and curated resources to advance your skills all the way from beginner to senior engineer. Train a well-rounded skillset including full stack and AI skills."
-                  description="Subtitle of the 'Skill tree' marketing section on Projects home page"
-                  id="s5GdUb"
-                  values={{
-                    projectCount: 50,
-                  }}
-                />
-              }
-              heading={
-                <FormattedMessage
-                  defaultMessage="Use our Skills Tree to train a holistic front end skill set"
-                  description="Heading of the 'Skill tree' marketing section on Projects home page"
-                  id="T7+/5t"
-                />
-              }
-              title={
-                <FormattedMessage
-                  defaultMessage="You're here to learn skills"
-                  description="Title of the 'Skill tree' marketing section on Projects home page"
-                  id="6vsplp"
-                />
-              }
-            />
-            <div className="flex justify-center">
-              <div className="flex flex-col gap-16">
-                <div className="flex flex-col gap-4">
-                  <Text weight="bold">Foundational skills</Text>
-                  <div className="px-4">
-                    <ProjectsSkillTree tree={foundationalSkillTree} />
-                  </div>
-                </div>
-                <div className="flex flex-col gap-4">
-                  <Text weight="bold">Intermediate skills</Text>
-                  <BlurOverlay
-                    align="bottom"
-                    overlay={
-                      <div className="flex flex-col items-center gap-4">
-                        <Button
-                          href="/projects/skill-tree"
-                          icon={RiArrowRightLine}
-                          label={intl.formatMessage(
-                            {
-                              defaultMessage:
-                                'Explore {skillCount}+ more skills',
-                              description:
-                                "Label of 'Skill tree' view all button in Projects home page",
-                              id: 'Sl00sj',
-                            },
-                            {
-                              skillCount: 20,
-                            },
-                          )}
-                          size="md"
-                          variant="tertiary"
-                        />
-                        <div className="flex gap-4">
-                          {skills.map(({ icon: Icon, key }) => (
-                            <Icon key={key} className="h-8 w-8" />
-                          ))}
-                        </div>
-                      </div>
-                    }>
-                    <div className="px-4">
-                      <ProjectsSkillTree
-                        disabled={true}
-                        tree={intermediateSkillTree}
-                      />
-                    </div>
-                  </BlurOverlay>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Section>
         <Section>
           <div className="flex flex-col gap-y-8">
             <MarketingSectionItemHeader

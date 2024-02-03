@@ -4,8 +4,8 @@ import { startCase } from 'lodash-es';
 import Text from '~/components/ui/Text';
 import { themeBackgroundChipColor } from '~/components/ui/theme';
 
-import { ProjectsSkillLabels } from './ProjectsSkillListData';
-import type { ProjectsSkillKey } from './types';
+import { ProjectsSkillLabels } from '../data/ProjectsSkillListData';
+import type { ProjectsSkillKey } from '../types';
 
 type Props = Readonly<{
   value: ProjectsSkillKey;

@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { RiAddCircleLine, RiIndeterminateCircleLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
-import ProjectsSkillFamilyHeading from '~/components/projects/skills/ProjectsSkillFamilyHeading';
-import ProjectsSkillItemCard from '~/components/projects/skills/ProjectsSkillItemCard';
+import ProjectsSkillRoadmapGroupHeading from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapGroupHeading';
+import ProjectsSkillRoadmapItem from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItem';
 import type { ProjectsSkillFamily } from '~/components/projects/types';
 import Text from '~/components/ui/Text';
 import {
@@ -38,7 +38,7 @@ function SkillItemDiamond() {
   );
 }
 
-export default function ProjectsSkillFamilyCard({ skill }: Props) {
+export default function ProjectsSkillRoadmapGroupCard({ skill }: Props) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -61,9 +61,8 @@ export default function ProjectsSkillFamilyCard({ skill }: Props) {
               )}
             />
           </div>
-          <ProjectsSkillFamilyHeading skill={skill} />
+          <ProjectsSkillRoadmapGroupHeading skill={skill} />
         </div>
-
         {/* Child Skills list */}
         {isExpanded && (
           <div className="flex flex-col gap-2 ml-[6px]">
@@ -87,7 +86,7 @@ export default function ProjectsSkillFamilyCard({ skill }: Props) {
                     )}
                   />
                 </div>
-                <ProjectsSkillItemCard skillItem={item} />
+                <ProjectsSkillRoadmapItem skillItem={item} />
               </div>
             ))}
           </div>

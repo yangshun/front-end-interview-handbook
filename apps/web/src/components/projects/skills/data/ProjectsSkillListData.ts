@@ -1,4 +1,4 @@
-import type { ProjectsSkillKey } from './types';
+import type { ProjectsSkillKey } from '../types';
 
 export const ProjectsSkillLabels: Record<ProjectsSkillKey, string> = {
   angular: 'Angular',
@@ -29,7 +29,7 @@ export function ProjectsSkillTypeaheadValuesToArray(
   return values?.map(({ value }) => value) ?? null;
 }
 
-export function ProjectsSkillOptions() {
+export function ProjectsSkillTypeaheadOptions() {
   return Object.entries(ProjectsSkillLabels).map(([value, label]) => ({
     label,
     value,

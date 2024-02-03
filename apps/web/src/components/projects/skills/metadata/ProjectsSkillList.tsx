@@ -13,7 +13,7 @@ type Props = Readonly<{
   skills: ReadonlyArray<string>;
 }>;
 
-export default function ProjectsSkillRow({
+export default function ProjectsSkillList({
   label,
   limit = 3,
   skills,

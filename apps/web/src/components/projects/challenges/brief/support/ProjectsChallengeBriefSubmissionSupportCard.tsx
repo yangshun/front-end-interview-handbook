@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useIntl } from 'react-intl';
 
 import ProjectsChallengeBriefSupportCard from '~/components/projects/challenges/brief/support/ProjectsChallengeBriefSupportCard';
-import ProjectsSkillRow from '~/components/projects/skills/ProjectsSkillRow';
+import ProjectsSkillList from '~/components/projects/skills/metadata/ProjectsSkillList';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
@@ -21,7 +21,7 @@ export default function ProjectsChallengeBriefSubmissionSupportCard() {
       )}>
       <div className="flex flex-col gap-3 min-w-[330px]">
         <Text weight="bold">Responsive solution build with React</Text>
-        <ProjectsSkillRow
+        <ProjectsSkillList
           label={intl.formatMessage({
             defaultMessage: 'Stack used',
             description: 'Label for tech stack used in project',

@@ -17,8 +17,8 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import { useProjectsChallengeSessionContext } from '../ProjectsChallengeSessionContext';
 import type { ProjectsChallengeItem } from '../types';
-import ProjectsSkillSelect from '../../skills/ProjectsSkillSelect';
-import ProjectsSkillTechStackInput from '../../skills/ProjectsSkillTechStackInput';
+import ProjectsSkillSelect from '../../skills/form/ProjectsSkillSelect';
+import ProjectsSkillTechStackInput from '../../skills/form/ProjectsSkillTechStackInput';
 import type { ProjectsSkillKey } from '../../skills/types';
 
 import type { ProjectsChallengeSession } from '@prisma/client';

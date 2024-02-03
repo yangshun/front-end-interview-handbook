@@ -7,8 +7,8 @@ import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import ProjectsSkillRoadmapChips from './ProjectsSkillRoadmapChips';
-import type { ProjectsSkillKey } from './types';
+import ProjectsSkillRoadmapChips from '../metadata/ProjectsSkillRoadmapChips';
+import type { ProjectsSkillKey } from '../types';
 
 type Props = Readonly<{
   className?: string;
