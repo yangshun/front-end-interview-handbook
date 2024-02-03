@@ -125,11 +125,12 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
         </Text>
       </Dialog>
       <Card
-        className="p-6"
+        className="py-6 pl-6 pr-4"
+        classNameOuter="w-full md:w-auto"
         disableSpotlight={true}
         padding={false}
         pattern={false}>
-        <div className="flex justify-between md:flex-row flex-col gap-3">
+        <div className="flex justify-between md:flex-row flex-col gap-3 w-full">
           <div className="flex flex-col gap-1.5">
             <div className="flex items-center justify-between">
               <Text weight="bold">

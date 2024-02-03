@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -16,9 +16,8 @@ export default function ProjectsChallengeCompletedCountButton({
   challengeSlug,
 }: Props) {
   const [showSubmissionsDialog, setShowSubmissionsDialog] = useState(false);
-  const intl = useIntl();
   const { data: userCompletedTimes } =
-    trpc.projects.sessions.userCompletedTimes.useQuery({
+    trpc.projects.submissions.userCompletedTimes.useQuery({
       slug: challengeSlug,
     });
 
@@ -29,23 +28,23 @@ export default function ProjectsChallengeCompletedCountButton({
   return (
     <div className="flex justify-end">
       <Text className="text-right" color="secondary" size="body3">
-        <Anchor
-          href="#"
-          onClick={() => {
-            setShowSubmissionsDialog(true);
-          }}>
-          {intl.formatMessage(
-            {
-              defaultMessage:
-                'You completed {completedTimes, plural, one {once} other {# times}}',
-              description: 'Number of times the project was completed',
-              id: 'oPK+Ef',
-            },
-            {
-              completedTimes: userCompletedTimes,
-            },
-          )}
-        </Anchor>
+        <FormattedMessage
+          defaultMessage="You completed <button>{completedTimes, plural, one {once} other {# times}}</button>"
+          description="Number of times the project was completed"
+          id="zG7GM9"
+          values={{
+            button: (chunks) => (
+              <Anchor
+                href="#"
+                onClick={() => {
+                  setShowSubmissionsDialog(true);
+                }}>
+                {chunks}
+              </Anchor>
+            ),
+            completedTimes: userCompletedTimes,
+          }}
+        />
       </Text>
       {showSubmissionsDialog && (
         <ProjectsChallengeSubmissionsDialog

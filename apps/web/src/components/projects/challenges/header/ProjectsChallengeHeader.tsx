@@ -54,26 +54,35 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
           })}
           variant="tertiary"
         />
-        {isGetLatestSessionFetched && !hasSession && (
-          <Text size="body3">
-            <FormattedMessage
-              defaultMessage="New here? <link>How it works</link>"
-              description="Link to 'How it works' page on Projects project page"
-              id="OYgvni"
-              values={{
-                link: (chunks) => (
-                  <Anchor
-                    href="#"
-                    onClick={() => {
-                      setIsHowItWorksDialogShown(true);
-                    }}>
-                    {chunks}
-                  </Anchor>
-                ),
-              }}
-            />
-          </Text>
-        )}
+        {isGetLatestSessionFetched &&
+          (() => {
+            if (!hasSession) {
+              <Text size="body3">
+                <FormattedMessage
+                  defaultMessage="New here? <link>How it works</link>"
+                  description="Link to 'How it works' page on Projects project page"
+                  id="OYgvni"
+                  values={{
+                    link: (chunks) => (
+                      <Anchor
+                        href="#"
+                        onClick={() => {
+                          setIsHowItWorksDialogShown(true);
+                        }}>
+                        {chunks}
+                      </Anchor>
+                    ),
+                  }}
+                />
+              </Text>;
+            }
+
+            return (
+              <ProjectsChallengeCompletedCountButton
+                challengeSlug={metadata.slug}
+              />
+            );
+          })()}
       </div>
       <div
         className={clsx(
@@ -181,9 +190,6 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
               />
             </div>
           )}
-          <ProjectsChallengeCompletedCountButton
-            challengeSlug={metadata.slug}
-          />
         </div>
       </div>
       <ProjectsChallengeHowItWorksDialog

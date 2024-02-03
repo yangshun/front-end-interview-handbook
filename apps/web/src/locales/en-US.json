@@ -5603,10 +5603,6 @@
     "defaultMessage": "Answering \"Tell Me About Yourself\"",
     "description": "How to answer the self introduction question in behavioral interviews"
   },
-  "oPK+Ef": {
-    "defaultMessage": "You completed {completedTimes, plural, one {once} other {# times}}",
-    "description": "Number of times the project was completed"
-  },
   "oPyUXk": {
     "defaultMessage": "Practice building all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
@@ -6802,6 +6798,10 @@
   "zEnL8r": {
     "defaultMessage": "Difficulty: Easy to Hard",
     "description": "Sorting option for submissions list - sort by difficulty from easy to hard"
+  },
+  "zG7GM9": {
+    "defaultMessage": "You completed <button>{completedTimes, plural, one {once} other {# times}}</button>",
+    "description": "Number of times the project was completed"
   },
   "zGTH+Q": {
     "defaultMessage": "What do I do once I'm done coding?",

@@ -872,6 +872,16 @@ export const projectsChallengeSubmissionRouter = router({
         return res;
       },
     ),
+  userCompletedTimes: projectsChallengeProcedure.query(
+    async ({ input: { slug }, ctx: { projectsProfileId } }) => {
+      return await prisma.projectsChallengeSubmission.count({
+        where: {
+          profileId: projectsProfileId,
+          slug,
+        },
+      });
+    },
+  ),
   view: publicProcedure
     .input(
       z.object({
