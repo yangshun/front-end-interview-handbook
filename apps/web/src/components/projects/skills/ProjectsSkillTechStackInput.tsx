@@ -61,10 +61,7 @@ export default function ProjectsSkillTechStackInput({
             <ProjectsSkillRoadmapChips
               key={techStack}
               isEditable={true}
-              skill={{
-                key: techStack,
-                label: techStack,
-              }}
+              skill={techStack}
               onDelete={() => {
                 onChange(value.filter((skill) => skill !== techStack));
               }}

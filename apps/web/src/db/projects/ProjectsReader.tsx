@@ -22,27 +22,6 @@ import prisma from '~/server/prisma';
 
 import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
-// TODO(projects): remove when using real data.
-const extraProjectData = {
-  skills: [
-    {
-      difficulty: 'hard',
-      key: 'react',
-      label: 'React',
-    },
-    {
-      difficulty: 'easy',
-      key: 'html',
-      label: 'HTML',
-    },
-    {
-      difficulty: 'medium',
-      key: 'js',
-      label: 'JS',
-    },
-  ] as const,
-} as const;
-
 export async function fetchSessionsForUserGroupedBySlug(
   userId?: string | null,
 ): Promise<Record<string, ProjectsChallengeSessionStatus> | null> {
@@ -197,7 +176,7 @@ export async function readProjectsChallengeList(
           completedProfileIdsGroupedBySlug?.[challengeMetadata.slug] ?? [],
         metadata: {
           ...challengeMetadata,
-          ...extraProjectData,
+          skills: ['html', 'css'],
         },
         status: sessionsForUserGroupedBySlug?.[challengeMetadata.slug] ?? null,
       }),
@@ -288,7 +267,7 @@ export async function readProjectsChallengeItem(
       completedProfiles: completedUsers,
       metadata: {
         ...challengeMetadata,
-        ...extraProjectData,
+        skills: ['html', 'css'],
       },
       // If any page needs it in future, fetch from db.
       status: null,

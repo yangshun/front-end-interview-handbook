@@ -9,6 +9,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
+import ProjectsSkillChip from '~/components/projects/skills/ProjectsSkillChip';
 import ProjectsSkillRoadmapChips from '~/components/projects/skills/ProjectsSkillRoadmapChips';
 import type { ProjectsSkill } from '~/components/projects/skills/types';
 import ProjectsChallengeSubmissionHero from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHero';
@@ -39,6 +40,21 @@ type Props = Readonly<{
   submission: ProjectsChallengeSubmissionAugmented;
 }>;
 
+const roadmapSkills = [
+  {
+    key: 'js',
+    subskills: ['js', 'react'],
+  },
+  {
+    key: 'html',
+    subskills: ['html', 'react'],
+  },
+  {
+    key: 'css',
+    subskills: ['css', 'react'],
+  },
+] as const;
+
 export default function ProjectsChallengeSubmissionPage({
   challenge,
   submission,
@@ -52,42 +68,7 @@ export default function ProjectsChallengeSubmissionPage({
     currentUserId === submission.projectsProfile?.userProfile?.id;
   const viewSubmissionMutation = trpc.projects.submissions.view.useMutation();
   const submissionId = submission.id;
-  const { deploymentUrls, repositoryUrl } = submission;
-
-  const skills = [
-    {
-      difficulty: 'unknown',
-      key: 'js',
-      label: 'JS',
-      subskills: [
-        { difficulty: 'unknown', key: 'dom', label: 'DOM Manipulation' },
-        { difficulty: 'unknown', key: 'flex', label: 'Flex' },
-      ],
-    },
-    {
-      difficulty: 'unknown',
-      key: 'css',
-      label: 'CSS',
-      subskills: [
-        { difficulty: 'unknown', key: 'architecture', label: 'Architecture' },
-      ],
-    },
-    {
-      difficulty: 'unknown',
-      key: 'airtable',
-      label: 'Airtable',
-    },
-    {
-      difficulty: 'unknown',
-      key: 'angular',
-      label: 'Angular',
-    },
-    {
-      difficulty: 'unknown',
-      key: 'cube-css',
-      label: 'Cube-css',
-    },
-  ] as ReadonlyArray<ProjectsSkill & { subskills?: Array<ProjectsSkill> }>;
+  const { deploymentUrls, repositoryUrl, skills } = submission;
 
   useEffect(() => {
     viewSubmissionMutation.mutate({
@@ -100,6 +81,9 @@ export default function ProjectsChallengeSubmissionPage({
     () => parseGithubRepositoryUrl(repositoryUrl),
     [repositoryUrl],
   );
+
+  // TODO(projects|skills): Remove roadmap skills from this list.
+  const techStackSkills = skills;
 
   return (
     <div ref={parentRef} className="flex flex-col -mt-4 lg:-mt-16">
@@ -179,13 +163,18 @@ export default function ProjectsChallengeSubmissionPage({
               />
             </Heading>
             <div className="flex flex-wrap gap-2">
-              {skills.map((skill) => (
+              {roadmapSkills.map((skill) => (
                 <ProjectsSkillRoadmapChips
                   key={skill.key}
-                  skill={skill}
-                  // TODO(projects): Replace below with actual subSkills
+                  skill={skill.key}
+                  // TODO(projects|skills): Replace below with actual subSkills
                   subSkills={skill.subskills}
                 />
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {techStackSkills.map((skill) => (
+                <ProjectsSkillChip key={skill} value={skill} />
               ))}
             </div>
           </div>

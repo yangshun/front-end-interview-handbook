@@ -11,28 +11,6 @@ import {
 
 export default function ProjectsChallengeBriefSubmissionSupportCard() {
   const intl = useIntl();
-  const stack = [
-    {
-      difficulty: 'easy',
-      key: 'react',
-      label: 'React',
-    },
-    {
-      difficulty: 'hard',
-      key: 'html',
-      label: 'HTML',
-    },
-    {
-      difficulty: 'medium',
-      key: 'js',
-      label: 'JS',
-    },
-    {
-      difficulty: 'easy',
-      key: 'css',
-      label: 'CSS',
-    },
-  ] as const;
 
   return (
     <ProjectsChallengeBriefSupportCard
@@ -49,7 +27,7 @@ export default function ProjectsChallengeBriefSubmissionSupportCard() {
             description: 'Label for tech stack used in project',
             id: 'aiI8c6',
           })}
-          skills={stack}
+          skills={['html', 'css', 'js']}
         />
         {/* TODO(projects): Use appropriate image */}
         <img

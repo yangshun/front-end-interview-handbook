@@ -29,9 +29,6 @@ const prismaClientSingleton = () => {
             // TODO(projects): Replace with placeholder.
             'https://source.unsplash.com/random/48x48',
         },
-        stack: {
-          compute: () => [],
-        },
       },
     },
   });

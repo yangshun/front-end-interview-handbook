@@ -8,15 +8,11 @@ import { themeTextSecondaryColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import ProjectsSkillRoadmapChips from './ProjectsSkillRoadmapChips';
-import type { ProjectsSkill } from './types';
+import type { ProjectsSkillKey } from './types';
 
 type Props = Readonly<{
   className?: string;
-  skills: ReadonlyArray<
-    ProjectsSkill & {
-      isEditable?: boolean;
-    }
-  >;
+  skills: ReadonlyArray<ProjectsSkillKey>;
 }>;
 
 export default function ProjectsSkillSelect({ className, skills }: Props) {
@@ -59,27 +55,11 @@ export default function ProjectsSkillSelect({ className, skills }: Props) {
       <div className="flex flex-wrap gap-2">
         {skills.map((skill) => (
           <ProjectsSkillRoadmapChips
-            key={skill.key}
-            isEditable={skill.isEditable}
+            key={skill}
+            isEditable={true}
             skill={skill}
-            // TODO(projects): Replace below with actual subSkills
-            subSkills={[
-              {
-                difficulty: 'easy',
-                key: 'dom-manipulation',
-                label: 'DOM Manipulation',
-              },
-              {
-                difficulty: 'medium',
-                key: 'flex',
-                label: 'Flex',
-              },
-              {
-                difficulty: 'hard',
-                key: 'typescript',
-                label: 'TypeScript',
-              },
-            ]}
+            // TODO(projects|skills): Replace below with actual subSkills
+            subSkills={['html', 'css', 'js']}
           />
         ))}
       </div>

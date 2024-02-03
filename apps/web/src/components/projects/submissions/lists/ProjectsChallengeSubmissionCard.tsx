@@ -47,7 +47,7 @@ export default function ProjectsChallengeSubmissionCard({
   const {
     hrefs,
     title,
-    stack,
+    skills,
     summary,
     comments,
     views,
@@ -118,7 +118,7 @@ export default function ProjectsChallengeSubmissionCard({
             description: 'Label for tech stack used in project',
             id: 'aiI8c6',
           })}
-          skills={stack}
+          skills={skills}
         />
       </div>
       <img alt={title} className="h-[190px] w-full rounded-md" src={imgSrc} />

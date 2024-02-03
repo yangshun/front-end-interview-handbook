@@ -4,17 +4,26 @@ import { FormattedMessage } from 'react-intl';
 import Text from '~/components/ui/Text';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
-import ProjectsSkillRoadmapChips from './ProjectsSkillRoadmapChips';
-import type { ProjectsSkill } from './types';
+import ProjectsSkillChip from './ProjectsSkillChip';
 
 type Props = Readonly<{
   className?: string;
   label: string;
-  skills: ReadonlyArray<ProjectsSkill>;
+  limit?: number;
+  skills: ReadonlyArray<string>;
 }>;
 
-export default function ProjectsSkillRow({ label, skills, className }: Props) {
-  const firstThreeSkills = skills.slice(0, 3);
+export default function ProjectsSkillRow({
+  label,
+  limit = 3,
+  skills,
+  className,
+}: Props) {
+  if (skills.length === 0) {
+    return null;
+  }
+
+  const firstThreeSkills = skills.slice(0, limit);
   const remainingCount = skills.length - firstThreeSkills.length;
 
   return (
@@ -24,8 +33,8 @@ export default function ProjectsSkillRow({ label, skills, className }: Props) {
       </Text>
       <ul className="flex items-center gap-2">
         {firstThreeSkills.map((skill) => (
-          <li key={skill.key}>
-            <ProjectsSkillRoadmapChips skill={skill} />
+          <li key={skill}>
+            <ProjectsSkillChip value={skill} />
           </li>
         ))}
         {remainingCount > 0 && (

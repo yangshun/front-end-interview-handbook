@@ -1,3 +1,5 @@
+export type ProjectsSkillKey = string;
+
 export type ProjectsSkill = Readonly<{
   difficulty?: ProjectSkillDifficulty;
   key: string;

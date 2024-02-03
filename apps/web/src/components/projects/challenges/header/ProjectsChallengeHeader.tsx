@@ -118,27 +118,11 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill) => (
                   <ProjectsSkillRoadmapChips
-                    key={skill.key}
+                    key={skill}
                     isEditable={true}
                     skill={skill}
-                    // TODO(projects): Replace below with actual subSkills
-                    subSkills={[
-                      {
-                        difficulty: 'easy',
-                        key: 'dom-manipulation',
-                        label: 'DOM Manipulation',
-                      },
-                      {
-                        difficulty: 'medium',
-                        key: 'flex',
-                        label: 'Flex',
-                      },
-                      {
-                        difficulty: 'hard',
-                        key: 'typescript',
-                        label: 'TypeScript',
-                      },
-                    ]}
+                    // TODO(projects|skills): Replace below with actual subSkills
+                    subSkills={['html', 'css', 'js']}
                   />
                 ))}
               </div>

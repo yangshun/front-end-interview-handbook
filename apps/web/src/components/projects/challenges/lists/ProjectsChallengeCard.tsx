@@ -98,9 +98,9 @@ export default function ProjectsChallengeCard({
         </div>
         <ProjectsSkillRow
           label={intl.formatMessage({
-            defaultMessage: 'Skills:',
+            defaultMessage: 'Skills',
             description: 'Label for skills list in Project card',
-            id: 'beN1QM',
+            id: 'Lr/Ez4',
           })}
           skills={skills}
         />

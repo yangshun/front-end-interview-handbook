@@ -35,7 +35,7 @@ export default function useProjectsChallengesFilters() {
 
   const filterBySkills = (project: ProjectsChallengeItem) =>
     selectedSkills.length === 0 ||
-    project.metadata.skills.some((skill) => selectedSkills.includes(skill.key));
+    project.metadata.skills.some((skill) => selectedSkills.includes(skill));
 
   const filterByStatus = (project: ProjectsChallengeItem) =>
     selectedStatus.length === 0 ||

@@ -4,9 +4,14 @@ import { startCase } from 'lodash-es';
 import Text from '~/components/ui/Text';
 import { themeBackgroundChipColor } from '~/components/ui/theme';
 
-import { ProjectsSkillLabel } from './ProjectsSkillListData';
+import { ProjectsSkillLabels } from './ProjectsSkillListData';
+import type { ProjectsSkillKey } from './types';
 
-export default function ProjectsSkillChip({ value }: { value: string }) {
+type Props = Readonly<{
+  value: ProjectsSkillKey;
+}>;
+
+export default function ProjectsSkillChip({ value }: Props) {
   return (
     <div
       className={clsx(
@@ -16,7 +21,7 @@ export default function ProjectsSkillChip({ value }: { value: string }) {
         themeBackgroundChipColor,
       )}>
       <Text className="whitespace-nowrap" size="body3" weight="medium">
-        {ProjectsSkillLabel[value] ?? startCase(value)}
+        {ProjectsSkillLabels[value] ?? startCase(value)}
       </Text>
     </div>
   );
