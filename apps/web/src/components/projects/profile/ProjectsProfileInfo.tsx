@@ -9,7 +9,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import ProjectsProfileBio from '~/components/projects/profile/info/ProjectsProfileBio';
 import ProjectsProfileMotivation from '~/components/projects/profile/info/ProjectsProfileMotivation';
-import ProjectsProfileTechList from '~/components/projects/profile/info/ProjectsProfileTechList';
+import ProjectsProfileSkillsList from '~/components/projects/profile/info/ProjectsProfileSkillsList';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import ProjectsUserReputation from '~/components/projects/users/ProjectsUserReputation';
 import Badge from '~/components/ui/Badge';
@@ -38,9 +38,6 @@ export default function ProjectsProfileInfo({
 }: Props) {
   const intl = useIntl();
   const { projectsProfile } = userProfile;
-
-  const proficientSkills = ['React', 'HTML', 'CSS', 'JavaScript'];
-  const growSkills = ['Next.js', 'Vercel'];
 
   const avatarProfile = {
     // TODO(projects): Use projects profile.
@@ -180,36 +177,41 @@ export default function ProjectsProfileInfo({
           )}
         </div>
         <div className="md:w-2/5 w-full gap-8 flex flex-col">
-          <ProjectsProfileTechList
-            heading={intl.formatMessage({
-              defaultMessage: 'Proficient skills',
-              description:
-                'Projects profile tech stack proficient section title',
-              id: 'WyHdb2',
-            })}
-            skills={proficientSkills}
-            tooltipMessage={intl.formatMessage({
-              defaultMessage: 'Familiar with these skills / tools / frameworks',
-              description:
-                'Projects profile tech stack proficient section title',
-              id: '2yhoAr',
-            })}
-          />
-          <ProjectsProfileTechList
-            heading={intl.formatMessage({
-              defaultMessage: 'Hoping to grow in',
-              description:
-                'Projects profile tech stack I am hoping to grow section title',
-              id: 'M1iUIY',
-            })}
-            skills={growSkills}
-            tooltipMessage={intl.formatMessage({
-              defaultMessage: 'Hoping to grow in skills / tools / frameworks',
-              description:
-                'Projects profile tech stack I am hoping to grow section title',
-              id: 'P3mHDw',
-            })}
-          />
+          {projectsProfile.skillsProficient.length > 0 && (
+            <ProjectsProfileSkillsList
+              heading={intl.formatMessage({
+                defaultMessage: 'Proficient skills',
+                description:
+                  'Projects profile tech stack proficient section title',
+                id: 'WyHdb2',
+              })}
+              skills={projectsProfile.skillsProficient}
+              tooltipMessage={intl.formatMessage({
+                defaultMessage:
+                  'Familiar with these skills / tools / frameworks',
+                description:
+                  'Projects profile tech stack proficient section title',
+                id: '2yhoAr',
+              })}
+            />
+          )}
+          {projectsProfile.skillsToGrow.length > 0 && (
+            <ProjectsProfileSkillsList
+              heading={intl.formatMessage({
+                defaultMessage: 'Hoping to grow in',
+                description:
+                  'Projects profile tech stack I am hoping to grow section title',
+                id: 'M1iUIY',
+              })}
+              skills={projectsProfile.skillsToGrow}
+              tooltipMessage={intl.formatMessage({
+                defaultMessage: 'Hoping to grow in skills / tools / frameworks',
+                description:
+                  'Projects profile tech stack I am hoping to grow section title',
+                id: 'P3mHDw',
+              })}
+            />
+          )}
         </div>
       </div>
       {isViewingOwnProfile && (

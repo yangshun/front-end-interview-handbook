@@ -7,7 +7,7 @@ type Props = Readonly<{
   tooltipMessage: string;
 }>;
 
-export default function ProjectsProfileTechList({
+export default function ProjectsProfileSkillsList({
   heading,
   tooltipMessage,
   skills,
