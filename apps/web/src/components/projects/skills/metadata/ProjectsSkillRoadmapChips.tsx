@@ -42,10 +42,11 @@ function ProjectsSkillParentChip({
   return (
     <span
       className={clsx(
-        'flex items-center gap-x-1.5 rounded px-1.5 py-1',
+        'flex items-center gap-1 rounded flex-wrap',
+        'px-1.5 py-1',
         'bg-neutral-100 dark:bg-neutral-950',
       )}>
-      <Text className="whitespace-nowrap" size="body3" weight="medium">
+      <Text className="whitespace-nowrap pe-1" size="body3" weight="medium">
         <ProjectsSkillLabel value={parentSkill} />
       </Text>
       {(childSkills ?? []).map((childSkill) => (
