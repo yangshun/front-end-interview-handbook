@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import Text from '~/components/ui/Text';
 import { themeBackgroundEmphasized } from '~/components/ui/theme';
 
-import { ProjectsSkillLabels } from './data/ProjectsSkillListData';
 import ProjectsSkillLabel from './metadata/ProjectsSkillLabel';
 import type { ProjectsSkillKey } from './types';
 

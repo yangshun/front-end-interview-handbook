@@ -14,7 +14,7 @@ import {
   useProjectsChallengeFilterContext,
   useProjectsChallengeFilterState,
 } from './ProjectsChallengeFilterContext';
-import ProjectsSkillInput from '../../skills/form/ProjectsSkillInput';
+import ProjectsSkillRoadmapSelectionInput from '../../skills/form/ProjectsSkillRoadmapSelectionInput';
 
 import * as Accordion from '@radix-ui/react-accordion';
 
@@ -65,7 +65,7 @@ function FilterSection({
           </div>
         )}
         {type === 'skill-selection' && (
-          <ProjectsSkillInput
+          <ProjectsSkillRoadmapSelectionInput
             className="mt-2"
             isLabelHidden={true}
             label={label}

@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { useIntl } from 'react-intl';
 
 import ProjectsChallengeBriefSupportCard from '~/components/projects/challenges/brief/support/ProjectsChallengeBriefSupportCard';

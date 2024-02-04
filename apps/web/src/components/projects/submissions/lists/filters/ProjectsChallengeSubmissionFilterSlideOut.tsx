@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import ProjectsSkillInput from '~/components/projects/skills/form/ProjectsSkillInput';
+import ProjectsSkillRoadmapSelectionInput from '~/components/projects/skills/form/ProjectsSkillRoadmapSelectionInput';
 import type { ProjectsChallengeSubmissionFilter } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import {
   useProjectsChallengeSubmissionFilterContext,
@@ -64,7 +64,7 @@ function FilterSection({
           </div>
         )}
         {type === 'skill-selection' && (
-          <ProjectsSkillInput
+          <ProjectsSkillRoadmapSelectionInput
             className="mt-2"
             isLabelHidden={true}
             label={label}

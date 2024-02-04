@@ -8,7 +8,7 @@ import {
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import ProjectsSkillInput from '~/components/projects/skills/form/ProjectsSkillInput';
+import ProjectsSkillRoadmapSelectionInput from '~/components/projects/skills/form/ProjectsSkillRoadmapSelectionInput';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import Divider from '~/components/ui/Divider';
@@ -133,7 +133,7 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
       <div
         className={clsx(
           'flex flex-col gap-y-6',
-          'w-full py-6 pl-6 pr-4 rounded-lg',
+          'w-full p-6 rounded-lg',
           themeGlassyBorder,
           themeBackgroundCardColor,
         )}>
@@ -211,7 +211,7 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
         </div>
         {isExpanded && (
           <div className="flex flex-col gap-y-6">
-            <ProjectsSkillInput
+            <ProjectsSkillRoadmapSelectionInput
               description={intl.formatMessage({
                 defaultMessage:
                   'The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development',

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 

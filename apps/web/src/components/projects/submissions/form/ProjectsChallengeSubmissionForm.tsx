@@ -19,7 +19,7 @@ import { useProjectsChallengeSubmissionTechStackSchema } from './fields/Projects
 import ProjectsChallengeSubmissionTitleField from './fields/ProjectsChallengeSubmissionTitleField';
 import { useProjectsChallengeSubmissionTitleSchema } from './fields/ProjectsChallengeSubmissionTitleSchema';
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '../types';
-import ProjectsSkillInput from '../../skills/form/ProjectsSkillInput';
+import ProjectsSkillRoadmapSelectionInput from '../../skills/form/ProjectsSkillRoadmapSelectionInput';
 import type { ProjectsSkillKey } from '../../skills/types';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -104,7 +104,7 @@ export default function ProjectsChallengeSubmissionForm({
           <div className="grid lg:grid-cols-2 gap-6">
             <div className="flex flex-col gap-6">
               <ProjectsChallengeSubmissionTitleField control={control} />
-              <ProjectsSkillInput
+              <ProjectsSkillRoadmapSelectionInput
                 description={intl.formatMessage({
                   defaultMessage:
                     'The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development',

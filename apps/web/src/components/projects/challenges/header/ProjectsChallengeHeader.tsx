@@ -86,10 +86,8 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
       </div>
       <div
         className={clsx(
-          hasSession
-            ? 'grid md:grid-cols-2 items-start grid-cols-1'
-            : 'flex flex-col lg:flex-row lg:justify-between',
-          'gap-6 mt-8',
+          'grid grid-cols-1 md:grid-cols-2 gap-6',
+          'items-start mt-8',
         )}>
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2">
