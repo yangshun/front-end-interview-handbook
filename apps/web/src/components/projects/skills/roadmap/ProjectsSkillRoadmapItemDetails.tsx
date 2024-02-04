@@ -12,7 +12,7 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
-import ProjectsSkillLabel from '../metadata/ProjectsSkillLabel';
+import { projectsSkillLabel } from '../data/ProjectsSkillListData';
 import type { ProjectsSkillRoadmapItem } from '../types';
 
 type Props = Readonly<{
@@ -23,7 +23,7 @@ export default function ProjectsSkillRoadmapItemDetails({ skillItem }: Props) {
   const intl = useIntl();
 
   return (
-    // TODO(projects): Add skills redirection
+    // TODO(projects|skills): Add skills redirection
     <Anchor className="w-full" href="#" variant="unstyled">
       <div
         className={clsx(
@@ -33,7 +33,7 @@ export default function ProjectsSkillRoadmapItemDetails({ skillItem }: Props) {
         <div className="flex md:gap-4 gap-2 w-full md:flex-row flex-col">
           <div className="flex-1">
             <Text size="body2" weight="medium">
-              <ProjectsSkillLabel value={skillItem.key} />
+              {projectsSkillLabel(skillItem.key)}
             </Text>
           </div>
           <div className="flex gap-4">

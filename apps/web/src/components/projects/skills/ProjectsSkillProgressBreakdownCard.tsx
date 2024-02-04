@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Text from '~/components/ui/Text';
 import { themeBackgroundEmphasized } from '~/components/ui/theme';
 
-import ProjectsSkillLabel from './metadata/ProjectsSkillLabel';
+import { projectsSkillLabel } from './data/ProjectsSkillListData';
 import type { ProjectsSkillKey } from './types';
 
 type Props = Readonly<{
@@ -34,7 +34,7 @@ export default function ProjectsSkillProgressBreakdownCard({
         className,
       )}>
       <Text size="body3" weight="bold">
-        <ProjectsSkillLabel value={skill.key} />
+        {projectsSkillLabel(skill.key)}
       </Text>
       <Text className="text-2xs mt-2" color="subtle" size="inherit">
         +100 rep
@@ -49,7 +49,7 @@ export default function ProjectsSkillProgressBreakdownCard({
         {subSkills.map((subSkill) => (
           <div key={subSkill.key} className="flex items-center justify-between">
             <Text size="body3" weight="medium">
-              <ProjectsSkillLabel value={subSkill.key} />
+              {projectsSkillLabel(subSkill.key)}
             </Text>
             <Text
               className={clsx(

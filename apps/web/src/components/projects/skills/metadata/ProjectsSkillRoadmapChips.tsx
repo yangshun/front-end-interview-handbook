@@ -5,7 +5,7 @@ import Text from '~/components/ui/Text';
 
 import ProjectsSkillChip from './ProjectsSkillChip';
 import ProjectsSkillChipDeleteButton from './ProjectsSkillChipDeleteButton';
-import ProjectsSkillLabel from './ProjectsSkillLabel';
+import { projectsSkillLabel } from '../data/ProjectsSkillListData';
 import { skillsRoadmap } from '../data/ProjectsSkillRoadmapData';
 import type { ProjectsSkillKey } from '../types';
 
@@ -47,7 +47,7 @@ function ProjectsSkillParentChip({
         'bg-neutral-100 dark:bg-neutral-950',
       )}>
       <Text className="whitespace-nowrap pe-1" size="body3" weight="medium">
-        <ProjectsSkillLabel value={parentSkill} />
+        {projectsSkillLabel(parentSkill)}
       </Text>
       {(childSkills ?? []).map((childSkill) => (
         <ProjectsSkillChip key={childSkill} value={childSkill} {...props} />

@@ -5,7 +5,7 @@ import Text from '~/components/ui/Text';
 import { themeBackgroundChipColor } from '~/components/ui/theme';
 
 import ProjectsSkillChipDeleteButton from './ProjectsSkillChipDeleteButton';
-import ProjectsSkillLabel from './ProjectsSkillLabel';
+import { projectsSkillLabel } from '../data/ProjectsSkillListData';
 import type { ProjectsSkillKey } from '../types';
 
 type Props =
@@ -32,7 +32,7 @@ export default function ProjectsSkillChip({ value, ...props }: Props) {
         themeBackgroundChipColor,
       )}>
       <Text className="whitespace-nowrap" size="body3" weight="medium">
-        <ProjectsSkillLabel value={value} />
+        {projectsSkillLabel(value)}
       </Text>
       {!props.readonly && (
         <ProjectsSkillChipDeleteButton

@@ -1,3 +1,5 @@
+import { startCase } from 'lodash-es';
+
 import type { ProjectsSkillKey } from '../types';
 
 export const ProjectsSkillLabels: Record<ProjectsSkillKey, string> = {
@@ -12,11 +14,15 @@ export const ProjectsSkillLabels: Record<ProjectsSkillKey, string> = {
   vue: 'Vue',
 };
 
+export function projectsSkillLabel(skillKey: ProjectsSkillKey): string {
+  return ProjectsSkillLabels[skillKey] ?? startCase(skillKey);
+}
+
 export function ProjectsSkillArrayToTypeaheadValues(
   values: ReadonlyArray<ProjectsSkillKey>,
 ) {
   return values.map((value) => ({
-    label: ProjectsSkillLabels[value] ?? value,
+    label: projectsSkillLabel(value),
     value,
   }));
 }

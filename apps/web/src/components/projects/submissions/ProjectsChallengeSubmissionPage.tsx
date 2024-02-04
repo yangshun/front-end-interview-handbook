@@ -39,21 +39,6 @@ type Props = Readonly<{
   submission: ProjectsChallengeSubmissionAugmented;
 }>;
 
-const roadmapSkills = [
-  {
-    key: 'js',
-    subskills: ['js', 'react'],
-  },
-  {
-    key: 'html',
-    subskills: ['html', 'react'],
-  },
-  {
-    key: 'css',
-    subskills: ['css', 'react'],
-  },
-] as const;
-
 export default function ProjectsChallengeSubmissionPage({
   challenge,
   submission,
