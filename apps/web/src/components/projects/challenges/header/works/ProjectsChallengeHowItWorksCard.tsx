@@ -23,7 +23,6 @@ export default function ProjectsChallengeHowItWorksCard({
         themeGlassyBorder,
         className,
       )}>
-      {/* @ts-expect-error React doesn't support inert yet */}
       <div className="w-[305px]" inert="">
         {children}
       </div>

@@ -23,7 +23,6 @@ export default function ProjectsChallengeBriefSupportCard({
         themeBorderElementColor,
         className,
       )}>
-      {/* @ts-expect-error React doesn't support inert yet */}
       <div className="w-[330px]" inert="">
         {children}
       </div>
