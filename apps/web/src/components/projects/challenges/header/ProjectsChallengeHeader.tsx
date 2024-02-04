@@ -11,7 +11,7 @@ import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/met
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsChallengeTrackTag from '~/components/projects/challenges/metadata/ProjectsChallengeTrackTag';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import ProjectsSkillParentChip from '~/components/projects/skills/metadata/ProjectsSkillParentChip';
+import ProjectsSkillRoadmapChips from '~/components/projects/skills/metadata/ProjectsSkillRoadmapChips';
 import ProjectsCompletedUsersTag from '~/components/projects/stats/ProjectsCompletedUsersTag';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -112,21 +112,11 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
             <ProjectsChallengeReputationTag points={points} variant="flat" />
           </div>
           {isGetLatestSessionFetched && !hasSession && (
-            <div className="flex flex-col">
-              <div className="flex flex-wrap gap-2">
-                {skills.map((skill) => (
-                  <ProjectsSkillParentChip
-                    key={skill}
-                    isEditable={true}
-                    skill={skill}
-                    // TODO(projects|skills): Replace below with actual subSkills
-                    subSkills={['html', 'css', 'js']}
-                  />
-                ))}
-              </div>
+            <div className="flex flex-col gap-2">
+              <ProjectsSkillRoadmapChips readonly={true} skills={skills} />
               <div
                 className={clsx(
-                  'mt-2 flex items-center gap-1',
+                  'flex items-center gap-1',
                   themeTextSubtleColor,
                 )}>
                 <RiInformationLine className="h-4 w-4" />

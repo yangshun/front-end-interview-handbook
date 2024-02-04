@@ -34,7 +34,7 @@ export default function ProjectsSkillList({
       <ul className="flex items-center gap-2">
         {firstThreeSkills.map((skill) => (
           <li key={skill}>
-            <ProjectsSkillChip value={skill} />
+            <ProjectsSkillChip readonly={true} value={skill} />
           </li>
         ))}
         {remainingCount > 0 && (

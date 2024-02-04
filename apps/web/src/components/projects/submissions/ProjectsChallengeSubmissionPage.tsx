@@ -10,7 +10,7 @@ import { trpc } from '~/hooks/trpc';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsSkillChip from '~/components/projects/skills/metadata/ProjectsSkillChip';
-import ProjectsSkillParentChip from '~/components/projects/skills/metadata/ProjectsSkillParentChip';
+import ProjectsSkillRoadmapChips from '~/components/projects/skills/metadata/ProjectsSkillRoadmapChips';
 import ProjectsChallengeSubmissionHero from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHero';
 import ProjectsChallengeSubmissionAuthorProfile from '~/components/projects/submissions/ProjectsChallengeSubmissionAuthorProfile';
 import ProjectsChallengeSubmissionComparison from '~/components/projects/submissions/ProjectsChallengeSubmissionComparison';
@@ -161,19 +161,14 @@ export default function ProjectsChallengeSubmissionPage({
                 id="1/mHuG"
               />
             </Heading>
-            <div className="flex flex-wrap gap-2">
-              {roadmapSkills.map((skill) => (
-                <ProjectsSkillParentChip
-                  key={skill.key}
-                  skill={skill.key}
-                  // TODO(projects|skills): Replace below with actual subSkills
-                  subSkills={skill.subskills}
-                />
-              ))}
-            </div>
+            {/* TODO(projects|skills): Replace below with actual subSkills */}
+            <ProjectsSkillRoadmapChips
+              readonly={true}
+              skills={['html-semantics', 'html-forms', 'css-basics']}
+            />
             <div className="flex flex-wrap gap-3">
               {techStackSkills.map((skill) => (
-                <ProjectsSkillChip key={skill} value={skill} />
+                <ProjectsSkillChip key={skill} readonly={true} value={skill} />
               ))}
             </div>
           </div>

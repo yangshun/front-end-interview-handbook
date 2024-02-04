@@ -19,7 +19,7 @@ export default function ProjectsProfileSkillsList({
       tooltipMessage={tooltipMessage}>
       <div className="flex flex-wrap gap-3">
         {skills.map((value) => (
-          <ProjectsSkillChip key={value} value={value} />
+          <ProjectsSkillChip key={value} readonly={true} value={value} />
         ))}
       </div>
     </ProjectsProfileInfoSectionLayout>

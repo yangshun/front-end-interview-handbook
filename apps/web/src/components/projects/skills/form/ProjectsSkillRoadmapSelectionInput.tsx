@@ -14,6 +14,7 @@ import {
 } from '~/components/ui/theme';
 
 import ProjectsSkillRoadmapSelection from './ProjectsSkillRoadmapSelection';
+import ProjectsSkillRoadmapChips from '../metadata/ProjectsSkillRoadmapChips';
 import type { ProjectsSkillKey } from '../types';
 
 type Props = Readonly<{
@@ -23,6 +24,7 @@ type Props = Readonly<{
   isLabelHidden?: boolean;
   label: string;
   required?: boolean;
+  skills?: ReadonlyArray<ProjectsSkillKey>;
 }>;
 
 export default function ProjectsSkillRoadmapSelectionInput({
@@ -32,8 +34,10 @@ export default function ProjectsSkillRoadmapSelectionInput({
   className,
   description,
   descriptionStyle,
+  skills: initialSkills = [],
 }: Props) {
-  const [skills, setSkills] = useState<ReadonlyArray<ProjectsSkillKey>>([]);
+  const [skills, setSkills] =
+    useState<ReadonlyArray<ProjectsSkillKey>>(initialSkills);
   const [showSkillsRoadmapDialog, setShowSkillsRoadmapDialog] = useState(false);
   const intl = useIntl();
   // TODO(projects): do something with this id for a11y
@@ -57,14 +61,25 @@ export default function ProjectsSkillRoadmapSelectionInput({
             ['border', themeBorderElementColor],
             themeBackgroundElementColor,
           )}>
-          {/* TODO(projects): Add skill selection input */}
-          <Text color="subtle" size="body2">
-            <FormattedMessage
-              defaultMessage="No skills added"
-              description="Placeholder for skills input when no skills are selected"
-              id="8tdTMy"
+          {skills.length === 0 ? (
+            <Text color="subtle" size="body2">
+              <FormattedMessage
+                defaultMessage="No skills added"
+                description="Placeholder for skills input when no skills are selected"
+                id="8tdTMy"
+              />
+            </Text>
+          ) : (
+            <ProjectsSkillRoadmapChips
+              readonly={false}
+              skills={skills}
+              onDelete={(deletedSkills) => {
+                setSkills(
+                  skills.filter((skill) => !deletedSkills.includes(skill)),
+                );
+              }}
             />
-          </Text>
+          )}
           <Button
             addonPosition="start"
             icon={RiAddLine}
