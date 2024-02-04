@@ -26,10 +26,7 @@ export default function ProjectsChallengeSubmissionTechStackField({
 
   return (
     <ProjectsSkillTechStackInput
-      description={attrs.description}
       errorMessage={formState.errors[fieldName]?.message}
-      label={attrs.label}
-      placeholder={attrs.placeholder}
       required={attrs.validation.required}
       {...field}
     />

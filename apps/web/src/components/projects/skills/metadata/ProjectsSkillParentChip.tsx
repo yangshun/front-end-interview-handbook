@@ -48,7 +48,7 @@ function SubSkillChip({
   );
 }
 
-export default function ProjectsSkillRoadmapChips({
+export default function ProjectsSkillParentChip({
   skill,
   subSkills,
   isEditable,

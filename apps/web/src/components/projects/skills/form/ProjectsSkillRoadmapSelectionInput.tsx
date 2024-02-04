@@ -14,6 +14,7 @@ import {
 } from '~/components/ui/theme';
 
 import ProjectsSkillRoadmapSelection from './ProjectsSkillRoadmapSelection';
+import type { ProjectsSkillKey } from '../types';
 
 type Props = Readonly<{
   className?: string;
@@ -32,6 +33,7 @@ export default function ProjectsSkillRoadmapSelectionInput({
   description,
   descriptionStyle,
 }: Props) {
+  const [skills, setSkills] = useState<ReadonlyArray<ProjectsSkillKey>>([]);
   const [showSkillsRoadmapDialog, setShowSkillsRoadmapDialog] = useState(false);
   const intl = useIntl();
   // TODO(projects): do something with this id for a11y
@@ -66,12 +68,18 @@ export default function ProjectsSkillRoadmapSelectionInput({
           <Button
             addonPosition="start"
             icon={RiAddLine}
+            isLabelHidden={true}
             label={intl.formatMessage({
               defaultMessage: 'Add skills',
-              description: 'Label for "Add skills" button for skills input',
-              id: 'RhfyEQ',
+              description: 'Add skills used for challenge',
+              id: 'Qw+A0/',
             })}
             size="xs"
+            tooltip={intl.formatMessage({
+              defaultMessage: 'Add skills',
+              description: 'Add skills used for challenge',
+              id: 'Qw+A0/',
+            })}
             variant="secondary"
             onClick={() => {
               setShowSkillsRoadmapDialog(true);
@@ -100,7 +108,7 @@ export default function ProjectsSkillRoadmapSelectionInput({
         title="Choose additional skills you will use in this project"
         width="screen-xl"
         onClose={() => setShowSkillsRoadmapDialog(false)}>
-        <ProjectsSkillRoadmapSelection value={[]} onChange={() => {}} />
+        <ProjectsSkillRoadmapSelection value={skills} onChange={setSkills} />
       </Dialog>
     </div>
   );

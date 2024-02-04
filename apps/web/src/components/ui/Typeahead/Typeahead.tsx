@@ -22,6 +22,7 @@ import {
   themeBorderElementColor,
   themeTextFaintColor,
   themeTextPlaceholderColor,
+  themeTextSubtitleColor,
 } from '~/components/ui/theme';
 
 import type { LabelDescriptionStyle } from '../Label';
@@ -77,7 +78,10 @@ const stateClasses: Record<State, string> = {
 
 function Control<T>({ className, ...props }: ControlProps<T>) {
   return (
-    <components.Control {...props} className={clsx(className, 'py-2 px-3')} />
+    <components.Control
+      {...props}
+      className={clsx('py-2 px-3', themeTextSubtitleColor, className)}
+    />
   );
 }
 
@@ -103,7 +107,12 @@ function MultiValueContainer<T>({ ...props }: MultiValueGenericProps<T>) {
   return (
     <components.MultiValueContainer {...props}>
       <span
-        className={clsx('flex px-1.5 rounded gap-1', themeBackgroundChipColor)}>
+        className={clsx(
+          'flex rounded gap-0.5',
+          'py-0.5 px-2',
+          'text-xs font-semibold',
+          themeBackgroundChipColor,
+        )}>
         {props.children}
       </span>
     </components.MultiValueContainer>

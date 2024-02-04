@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { RiAddLine, RiCircleFill } from 'react-icons/ri';
+import { RiAddLine, RiCheckFill, RiCircleFill } from 'react-icons/ri';
 
 import FilterButton from '~/components/common/FilterButton';
 import Text from '~/components/ui/Text';
@@ -58,14 +58,28 @@ export default function ProjectsSkillRoadmapSelection({
                 </div>
                 <div className="inline-flex relative ml-5 self-start">
                   <div className="flex gap-4">
-                    {groupItem.items.map((item) => (
-                      <FilterButton
-                        key={item.key}
-                        icon={RiAddLine}
-                        label={item.key}
-                        purpose="button"
-                      />
-                    ))}
+                    {groupItem.items.map((item) => {
+                      const selected = value.includes(item.key);
+
+                      return (
+                        <FilterButton
+                          key={item.key}
+                          icon={selected ? RiCheckFill : RiAddLine}
+                          label={item.key}
+                          purpose="button"
+                          selected={selected}
+                          onClick={() => {
+                            if (selected) {
+                              onChange(
+                                value.filter((skill) => skill !== item.key),
+                              );
+                            } else {
+                              onChange([...value, item.key]);
+                            }
+                          }}
+                        />
+                      );
+                    })}
                   </div>
                   <div
                     aria-hidden={true}

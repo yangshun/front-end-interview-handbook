@@ -19,22 +19,6 @@ export const projectsChallengeSubmissionTechStackSchemaServer =
 export function getProjectsChallengeSubmissionTechStackAttributes(
   intl: IntlShape,
 ) {
-  const label = intl.formatMessage({
-    defaultMessage: 'Other tech stack used (not covered in skills roadmap)',
-    description: 'Label for "Other tech stack used" text input',
-    id: 'DPUrhz',
-  });
-  const description = intl.formatMessage({
-    defaultMessage:
-      "Other skills you are using which are not within the skills tree. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
-    description: 'Description for "Other tech stack used" text input',
-    id: 'vPrrHQ',
-  });
-  const placeholder = intl.formatMessage({
-    defaultMessage: 'Tech stack',
-    description: 'Placeholder for "Other tech stack used" text input',
-    id: 'jvi6yy',
-  });
   const minMessage = intl.formatMessage({
     defaultMessage: 'Tech stack cannot be empty.',
     description: 'Error message',
@@ -42,9 +26,6 @@ export function getProjectsChallengeSubmissionTechStackAttributes(
   });
 
   return {
-    description,
-    label,
-    placeholder,
     validation: {
       minMessage,
       required: true,

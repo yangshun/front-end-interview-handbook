@@ -10,7 +10,7 @@ import { trpc } from '~/hooks/trpc';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsSkillChip from '~/components/projects/skills/metadata/ProjectsSkillChip';
-import ProjectsSkillRoadmapChips from '~/components/projects/skills/metadata/ProjectsSkillRoadmapChips';
+import ProjectsSkillParentChip from '~/components/projects/skills/metadata/ProjectsSkillParentChip';
 import ProjectsChallengeSubmissionHero from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHero';
 import ProjectsChallengeSubmissionAuthorProfile from '~/components/projects/submissions/ProjectsChallengeSubmissionAuthorProfile';
 import ProjectsChallengeSubmissionComparison from '~/components/projects/submissions/ProjectsChallengeSubmissionComparison';
@@ -163,7 +163,7 @@ export default function ProjectsChallengeSubmissionPage({
             </Heading>
             <div className="flex flex-wrap gap-2">
               {roadmapSkills.map((skill) => (
-                <ProjectsSkillRoadmapChips
+                <ProjectsSkillParentChip
                   key={skill.key}
                   skill={skill.key}
                   // TODO(projects|skills): Replace below with actual subSkills

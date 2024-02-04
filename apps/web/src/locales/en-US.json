@@ -43,6 +43,10 @@
     "defaultMessage": "Component track",
     "description": "Label for Component Track filter for projects list"
   },
+  "+Rwr3w": {
+    "defaultMessage": "Skills used",
+    "description": "Label for skills used for challenge"
+  },
   "+SiVOr": {
     "defaultMessage": "Includes a hi-fidelity design and interaction specifications for this project.",
     "description": "Description for Download Figma Design content section on Before You Get Started dialog"
@@ -1103,6 +1107,10 @@
     "defaultMessage": "Most Common Questions",
     "description": "Most common behavioral interview questions"
   },
+  "8zyjaw": {
+    "defaultMessage": "Save",
+    "description": "Save button for a form"
+  },
   "9//mtm": {
     "defaultMessage": "You may be interested",
     "description": "Title for you may be interested section on Projects challenge submission page"
@@ -1398,6 +1406,10 @@
   "CXs8z4": {
     "defaultMessage": "Practice Front End Quiz Interview Questions With Solutions",
     "description": "Title of Interview Preparation Quiz page"
+  },
+  "CfSKv4": {
+    "defaultMessage": "Other skills you are using which are not within the skills roadmap. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
+    "description": "Description for \"Other tech stack used\" text input"
   },
   "Cjz59k": {
     "defaultMessage": "Click here to try out the actual workspace instead of this embed.",
@@ -1982,6 +1994,10 @@
   "IGlDjB": {
     "defaultMessage": "To challenge",
     "description": "Link label to go back to the challenge details page"
+  },
+  "IIyxmO": {
+    "defaultMessage": "End project session?",
+    "description": "Title for end project session dialog"
   },
   "IK9Jmh": {
     "defaultMessage": "View other's code and learn from their approach",
@@ -2671,6 +2687,10 @@
     "defaultMessage": "Search JavaScript questions",
     "description": "Placeholder for search input of JavaScript question list"
   },
+  "OHDzfH": {
+    "defaultMessage": "The skills you are using in this project, which are in the skills roadmap. Helps us track your progress on skills development",
+    "description": "Description for skills input on project submit page"
+  },
   "OHistx": {
     "defaultMessage": "Practice by framework",
     "description": "Questions list page title"
@@ -2935,6 +2955,10 @@
     "defaultMessage": "Project started! Leverage the provided guides and resources and submit a link to your site once ready!",
     "description": "Toast subtitle for project session started"
   },
+  "Qw+A0/": {
+    "defaultMessage": "Add skills",
+    "description": "Add skills used for challenge"
+  },
   "QxlS4d": {
     "defaultMessage": "Difficulty: Hard to Easy",
     "description": "Sorting option for submissions list - sort by difficulty from hard to easy"
@@ -3046,10 +3070,6 @@
   "RhV5e8": {
     "defaultMessage": "Completed",
     "description": "The question has been completed"
-  },
-  "RhfyEQ": {
-    "defaultMessage": "Add skills",
-    "description": "Label for \"Add skills\" button for skills input"
   },
   "RjpadL": {
     "defaultMessage": "Reference practical guides, learn from other's submissions and ask any questions in the",
@@ -3778,10 +3798,6 @@
   "XygrPg": {
     "defaultMessage": "<code>console.log()</code> statements will appear here.",
     "description": "Text in coding workspace's console to let users know that they can expect console logs to be found there"
-  },
-  "Y0v9Wp": {
-    "defaultMessage": "Confirm End Project Session?",
-    "description": "Title for end project session dialog"
   },
   "Y4hby8": {
     "defaultMessage": "Easy: {numberOfEasy}, Medium: {numberOfMedium}, Hard: {numberOfHard}",
@@ -6386,10 +6402,6 @@
   "vHNURr": {
     "defaultMessage": "View all filters",
     "description": "Tooltip for All Filters button for projects list"
-  },
-  "vPrrHQ": {
-    "defaultMessage": "Other skills you are using which are not within the skills tree. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
-    "description": "Description for \"Other tech stack used\" text input"
   },
   "vSWYET": {
     "defaultMessage": "Save changes",

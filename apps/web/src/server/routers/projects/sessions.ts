@@ -170,7 +170,6 @@ export const projectsSessionsRouter = router({
     .query(async ({ input: { statuses, userId }, ctx: { user } }) => {
       const sessions = await prisma.projectsChallengeSession.findMany({
         where: {
-          // ProfileId: profileId ?? projectsProfileId,
           projectsProfile: {
             userId: userId ?? user.id,
           },

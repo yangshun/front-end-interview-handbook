@@ -1,3 +1,5 @@
+import { useIntl } from 'react-intl';
+
 import Typeahead from '~/components/ui/Typeahead';
 
 import {
@@ -10,7 +12,7 @@ import type { ProjectsSkillKey } from '../types';
 type Props = Readonly<{
   description?: React.ReactNode;
   errorMessage?: React.ReactNode;
-  label: string;
+  label?: string;
   onChange: (value: ReadonlyArray<ProjectsSkillKey> | null) => void;
   placeholder?: string;
   required?: boolean;
@@ -28,14 +30,39 @@ export default function ProjectsSkillTechStackInput({
   value,
   onChange,
 }: Props) {
+  const intl = useIntl();
+
   return (
     <Typeahead
-      description={description}
+      description={
+        description ??
+        intl.formatMessage({
+          defaultMessage:
+            "Other skills you are using which are not within the skills roadmap. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
+          description: 'Description for "Other tech stack used" text input',
+          id: 'CfSKv4',
+        })
+      }
       descriptionStyle="tooltip"
       errorMessage={errorMessage}
-      label={label}
+      label={
+        label ??
+        intl.formatMessage({
+          defaultMessage:
+            'Other tech stack used (not covered in skills roadmap)',
+          description: 'Label for "Other tech stack used" text input',
+          id: 'DPUrhz',
+        })
+      }
       options={options}
-      placeholder={placeholder}
+      placeholder={
+        placeholder ??
+        intl.formatMessage({
+          defaultMessage: 'Tech stack',
+          description: 'Placeholder for "Other tech stack used" text input',
+          id: 'jvi6yy',
+        })
+      }
       required={required}
       value={ProjectsSkillArrayToTypeaheadValues(value)}
       onChange={(newValue) =>

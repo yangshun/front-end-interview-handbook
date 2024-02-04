@@ -39,14 +39,15 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
   const intl = useIntl();
   const [showEndSessionDialog, setShowEndSessionDialog] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [otherTechStacks, setOtherTechStacks] =
-    useState<ReadonlyArray<ProjectsSkillKey> | null>([]);
 
   const { endSession, isEndSessionLoading } =
     useProjectsChallengeSessionContext();
 
-  const { submitHref, skills, slug } = challenge.metadata;
-  const { createdAt } = session;
+  const { submitHref, skills: challengeSkills, slug } = challenge.metadata;
+  const { createdAt, skills: sessionSkills } = session;
+
+  const [otherTechStacks, setOtherTechStacks] =
+    useState<ReadonlyArray<ProjectsSkillKey> | null>(sessionSkills);
 
   const handleEndSession = async () => {
     await endSession(slug);
@@ -115,9 +116,9 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
           />
         }
         title={intl.formatMessage({
-          defaultMessage: 'Confirm End Project Session?',
+          defaultMessage: 'End project session?',
           description: 'Title for end project session dialog',
-          id: 'Y0v9Wp',
+          id: 'IIyxmO',
         })}
         onClose={() => {
           setShowEndSessionDialog(false);
@@ -138,7 +139,7 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
           themeBackgroundCardColor,
         )}>
         <div className="flex justify-between md:flex-row flex-col gap-3 w-full">
-          <div className="flex flex-col gap-1.5">
+          <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
               <Text weight="bold">
                 <FormattedMessage
@@ -214,25 +215,35 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
             <ProjectsSkillRoadmapSelectionInput
               description={intl.formatMessage({
                 defaultMessage:
-                  'The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development',
+                  'The skills you are using in this project, which are in the skills roadmap. Helps us track your progress on skills development',
                 description:
                   'Description for skills input on project submit page',
-                id: 'pRi/7+',
+                id: 'OHDzfH',
               })}
               descriptionStyle="tooltip"
               label={intl.formatMessage({
-                defaultMessage: 'Skills',
-                description: 'Label for skills input on project submit page',
-                id: 'KC1Rzx',
+                defaultMessage: 'Skills used',
+                description: 'Label for skills used for challenge',
+                id: '+Rwr3w',
               })}
             />
             <Divider />
             {/* TODO(projects|skills): Save into session */}
             <ProjectsSkillTechStackInput
-              label="Skills"
               value={otherTechStacks ?? []}
               onChange={setOtherTechStacks}
             />
+            <div className="flex justify-end">
+              <Button
+                label={intl.formatMessage({
+                  defaultMessage: 'Save',
+                  description: 'Save button for a form',
+                  id: '8zyjaw',
+                })}
+                size="sm"
+                variant="secondary"
+              />
+            </div>
           </div>
         )}
       </div>
