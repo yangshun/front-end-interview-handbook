@@ -2459,6 +2459,10 @@
     "defaultMessage": "Hoping to grow in",
     "description": "Projects profile tech stack I am hoping to grow section title"
   },
+  "M33LzY": {
+    "defaultMessage": "Confirm",
+    "description": "Confirm action button label"
+  },
   "M3V59d": {
     "defaultMessage": "GitHub repo",
     "description": "Title for GitHub repo step in project submission checklist"
@@ -4715,6 +4719,10 @@
     "defaultMessage": "Assets provided",
     "description": "Label for Assets Provided card on start project overlay on Projects project assets page"
   },
+  "gSoK2P": {
+    "defaultMessage": "Revert to default",
+    "description": "Revert skills section to default"
+  },
   "gTFqs7": {
     "defaultMessage": "Top Angular front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Angular Interview Questions page"
@@ -6035,6 +6043,10 @@
     "defaultMessage": "{numberOfHours} hours total",
     "description": "Total duration needed to complete the list of questions"
   },
+  "sGgZ9N": {
+    "defaultMessage": "Choose additional skills you will use in this project",
+    "description": "Dialog title for skills section"
+  },
   "sLFGSE": {
     "defaultMessage": "Explore {projectCount}+ projects",
     "description": "Label of 'Projects' view all button in Projects home page"
@@ -6678,6 +6690,10 @@
   "y5OP5O": {
     "defaultMessage": "Here you'll find curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing deep dive subject.",
     "description": "Description of GreatFrontEnd blog what's new page"
+  },
+  "y7pPpV": {
+    "defaultMessage": "Delete {skill}",
+    "description": "Delete a tracked skill"
   },
   "y8zzVx": {
     "defaultMessage": "Email",

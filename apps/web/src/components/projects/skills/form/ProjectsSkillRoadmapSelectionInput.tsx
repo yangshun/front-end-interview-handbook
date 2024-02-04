@@ -4,7 +4,6 @@ import { RiAddLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
-import Dialog from '~/components/ui/Dialog';
 import type { LabelDescriptionStyle } from '~/components/ui/Label';
 import Label from '~/components/ui/Label';
 import Text from '~/components/ui/Text';
@@ -13,7 +12,7 @@ import {
   themeBorderElementColor,
 } from '~/components/ui/theme';
 
-import ProjectsSkillRoadmapSelection from './ProjectsSkillRoadmapSelection';
+import ProjectsSkillRoadmapSelectionDialog from './ProjectsSkillRoadmapSelectionDialog';
 import ProjectsSkillRoadmapChips from '../metadata/ProjectsSkillRoadmapChips';
 import type { ProjectsSkillKey } from '../types';
 
@@ -102,29 +101,17 @@ export default function ProjectsSkillRoadmapSelectionInput({
           />
         </div>
       </div>
-      <Dialog
-        isShown={showSkillsRoadmapDialog}
-        primaryButton={
-          <Button
-            label="Confirm"
-            size="md"
-            variant="primary"
-            onClick={() => setShowSkillsRoadmapDialog(false)}
-          />
-        }
-        secondaryButton={
-          <Button
-            label="Revert to default"
-            size="md"
-            variant="secondary"
-            onClick={() => setShowSkillsRoadmapDialog(false)}
-          />
-        }
-        title="Choose additional skills you will use in this project"
-        width="screen-xl"
-        onClose={() => setShowSkillsRoadmapDialog(false)}>
-        <ProjectsSkillRoadmapSelection value={skills} onChange={setSkills} />
-      </Dialog>
+      {showSkillsRoadmapDialog && (
+        <ProjectsSkillRoadmapSelectionDialog
+          defaultSkills={skills}
+          isShown={showSkillsRoadmapDialog}
+          onClose={() => setShowSkillsRoadmapDialog(false)}
+          onComplete={(newSkills) => {
+            setSkills(newSkills);
+            setShowSkillsRoadmapDialog(false);
+          }}
+        />
+      )}
     </div>
   );
 }
