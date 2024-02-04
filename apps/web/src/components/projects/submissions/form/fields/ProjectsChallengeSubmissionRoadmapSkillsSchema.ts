@@ -3,17 +3,22 @@ import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
 function projectsChallengeSubmissionRoadmapSkillsSchema(options?: {
-  minMessage: string;
+  minMessage?: string;
+  optional?: boolean;
 }) {
-  const { minMessage } = options ?? {};
+  const { minMessage, optional = false } = options ?? {};
 
-  return z.array(z.string()).min(1, { message: minMessage });
+  return z.array(z.string()).min(optional ? 0 : 1, { message: minMessage });
 }
 
 // TODO: Figure out how to reuse intl strings for the server.
 export const projectsChallengeSubmissionRoadmapSkillsSchemaServer =
   projectsChallengeSubmissionRoadmapSkillsSchema({
-    minMessage: 'Tech stack cannot be empty.',
+    minMessage: 'Skills cannot be empty.',
+  });
+export const projectsChallengeSubmissionRoadmapSkillsOptionalSchemaServer =
+  projectsChallengeSubmissionRoadmapSkillsSchema({
+    optional: true,
   });
 
 export function getProjectsChallengeSubmissionRoadmapSkillsAttributes(
@@ -33,12 +38,17 @@ export function getProjectsChallengeSubmissionRoadmapSkillsAttributes(
   };
 }
 
-export function useProjectsChallengeSubmissionRoadmapSkillsSchema() {
+export function useProjectsChallengeSubmissionRoadmapSkillsSchema({
+  optional,
+}: {
+  optional?: boolean;
+} = {}) {
   const intl = useIntl();
   const intlStrings =
     getProjectsChallengeSubmissionRoadmapSkillsAttributes(intl);
 
   return projectsChallengeSubmissionRoadmapSkillsSchema({
     minMessage: intlStrings.validation.minMessage,
+    optional,
   });
 }

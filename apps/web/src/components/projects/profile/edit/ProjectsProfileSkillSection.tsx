@@ -10,6 +10,7 @@ import Heading from '~/components/ui/Heading';
 import ProjectsProfileTechStackProficientInput from '../ProjectsProfileTechStackProficientInput';
 import ProjectsProfileTechStackToImproveInput from '../ProjectsProfileTechStackToImproveInput';
 
+// TODO(projects): remove onboarding type from this union.
 type Values = ProjectsEditProfileValues | ProjectsOnboardingProfileStep1Values;
 
 export default function ProjectsProfileSkillSection() {

@@ -1,4 +1,3 @@
-import { ForwardedRef } from 'react';
 import { useIntl } from 'react-intl';
 
 import Typeahead from '~/components/ui/Typeahead';
@@ -14,7 +13,9 @@ type Props = Readonly<{
   description?: React.ReactNode;
   errorMessage?: React.ReactNode;
   excludeRoadmapSkills?: boolean;
+  isDisabled?: boolean;
   label?: string;
+  onBlur: () => void;
   onChange: (value: ReadonlyArray<ProjectsSkillKey> | null) => void;
   placeholder?: string;
   required?: boolean;
@@ -25,11 +26,13 @@ export default function ProjectsSkillTechStackInput({
   description,
   errorMessage,
   excludeRoadmapSkills,
+  isDisabled,
   label,
   placeholder,
   required,
   value,
   onChange,
+  onBlur,
 }: Props) {
   const options = projectsSkillTypeaheadOptions(excludeRoadmapSkills);
   const intl = useIntl();
@@ -47,6 +50,7 @@ export default function ProjectsSkillTechStackInput({
       }
       descriptionStyle="tooltip"
       errorMessage={errorMessage}
+      isDisabled={isDisabled}
       label={
         label ??
         intl.formatMessage({
@@ -67,6 +71,7 @@ export default function ProjectsSkillTechStackInput({
       }
       required={required}
       value={ProjectsSkillArrayToTypeaheadValues(value)}
+      onBlur={onBlur}
       onChange={(newValue) =>
         onChange(ProjectsSkillTypeaheadValuesToArray(newValue))
       }

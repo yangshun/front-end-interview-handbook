@@ -3,17 +3,22 @@ import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
 function projectsChallengeSubmissionTechStackSchema(options?: {
-  minMessage: string;
+  minMessage?: string;
+  optional?: boolean;
 }) {
-  const { minMessage } = options ?? {};
+  const { minMessage, optional = false } = options ?? {};
 
-  return z.array(z.string()).min(1, { message: minMessage });
+  return z.array(z.string()).min(optional ? 0 : 1, { message: minMessage });
 }
 
 // TODO: Figure out how to reuse intl strings for the server.
 export const projectsChallengeSubmissionTechStackSchemaServer =
   projectsChallengeSubmissionTechStackSchema({
     minMessage: 'Tech stack cannot be empty.',
+  });
+export const projectsChallengeSubmissionTechStackOptionalSchemaServer =
+  projectsChallengeSubmissionTechStackSchema({
+    optional: true,
   });
 
 export function getProjectsChallengeSubmissionTechStackAttributes(
@@ -33,11 +38,16 @@ export function getProjectsChallengeSubmissionTechStackAttributes(
   };
 }
 
-export function useProjectsChallengeSubmissionTechStackSchema() {
+export function useProjectsChallengeSubmissionTechStackSchema({
+  optional,
+}: {
+  optional?: boolean;
+} = {}) {
   const intl = useIntl();
   const intlStrings = getProjectsChallengeSubmissionTechStackAttributes(intl);
 
   return projectsChallengeSubmissionTechStackSchema({
     minMessage: intlStrings.validation.minMessage,
+    optional,
   });
 }

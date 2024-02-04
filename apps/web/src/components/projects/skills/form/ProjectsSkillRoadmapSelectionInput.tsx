@@ -21,6 +21,7 @@ type Props = Readonly<{
   errorMessage?: React.ReactNode;
   isLabelHidden?: boolean;
   label?: string;
+  onBlur?: () => void;
   onChange: (value: ReadonlyArray<ProjectsSkillKey>) => void;
   required?: boolean;
   value: ReadonlyArray<ProjectsSkillKey>;
@@ -42,10 +43,11 @@ function ProjectsSkillRoadmapSelectionInput(
     descriptionStyle = 'tooltip',
     description,
     errorMessage,
-    label,
     isLabelHidden,
+    label,
     required,
     value,
+    onBlur,
     onChange,
   }: Props,
   ref: ForwardedRef<HTMLDivElement>,
@@ -100,6 +102,7 @@ function ProjectsSkillRoadmapSelectionInput(
           )}
           role={value.length === 0 ? 'button' : undefined}
           tabIndex={0}
+          onBlur={onBlur}
           onClick={() => {
             if (value.length > 0) {
               return;

@@ -8,10 +8,10 @@ import {
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import ProjectsSkillRoadmapSelectionInput from '~/components/projects/skills/form/ProjectsSkillRoadmapSelectionInput';
+import { trpc } from '~/hooks/trpc';
+
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
-import Divider from '~/components/ui/Divider';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
@@ -20,10 +20,9 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
+import ProjectsChallengeCurrentSessionSkillsForm from './ProjectsChallengeCurrentSessionSkillsForm';
 import { useProjectsChallengeSessionContext } from '../ProjectsChallengeSessionContext';
 import type { ProjectsChallengeItem } from '../types';
-import ProjectsSkillTechStackInput from '../../skills/form/ProjectsSkillTechStackInput';
-import type { ProjectsSkillKey } from '../../skills/types';
 
 import type { ProjectsChallengeSession } from '@prisma/client';
 
@@ -44,16 +43,9 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
     useProjectsChallengeSessionContext();
 
   const { submitHref, skills: challengeSkills, slug } = challenge.metadata;
-  const {
-    createdAt,
-    roadmapSkills: roadmapSkillsFromServer,
-    techStackSkills: techStackSkillsFromServer,
-  } = session;
-  const [roadmapSkills, setRoadmapSkills] = useState<
-    ReadonlyArray<ProjectsSkillKey>
-  >(roadmapSkillsFromServer);
-  const [techStackSkills, setTechStackSkills] =
-    useState<ReadonlyArray<ProjectsSkillKey> | null>(techStackSkillsFromServer);
+  const { createdAt, roadmapSkills, techStackSkills } = session;
+  const updateSessionSkillsMutation =
+    trpc.projects.sessions.updateSkills.useMutation();
 
   const handleEndSession = async () => {
     await endSession(slug);
@@ -217,42 +209,19 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
           </div>
         </div>
         {isExpanded && (
-          <div className="flex flex-col gap-y-6">
-            <ProjectsSkillRoadmapSelectionInput
-              description={intl.formatMessage({
-                defaultMessage:
-                  'The skills you are using in this project, which are in the skills roadmap. Helps us track your progress on skills development',
-                description:
-                  'Description for skills input on project submit page',
-                id: 'OHDzfH',
-              })}
-              descriptionStyle="tooltip"
-              label={intl.formatMessage({
-                defaultMessage: 'Skills used',
-                description: 'Label for skills used for challenge',
-                id: '+Rwr3w',
-              })}
-              value={roadmapSkills}
-              onChange={setRoadmapSkills}
-            />
-            <Divider />
-            {/* TODO(projects|skills): Save into session */}
-            <ProjectsSkillTechStackInput
-              value={techStackSkills ?? []}
-              onChange={setTechStackSkills}
-            />
-            <div className="flex justify-end">
-              <Button
-                label={intl.formatMessage({
-                  defaultMessage: 'Save',
-                  description: 'Save button for a form',
-                  id: '8zyjaw',
-                })}
-                size="sm"
-                variant="secondary"
-              />
-            </div>
-          </div>
+          <ProjectsChallengeCurrentSessionSkillsForm
+            defaultValues={{
+              roadmapSkills,
+              techStackSkills: techStackSkills ?? [],
+            }}
+            onSubmit={(data) => {
+              updateSessionSkillsMutation.mutate({
+                ...data,
+                sessionId: session.id,
+                slug,
+              });
+            }}
+          />
         )}
       </div>
     </>
