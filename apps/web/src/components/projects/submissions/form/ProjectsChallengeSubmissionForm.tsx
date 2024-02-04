@@ -12,6 +12,7 @@ import ProjectsChallengeSubmissionImplementationField from './fields/ProjectsCha
 import { useProjectsChallengeSubmissionImplementationSchema } from './fields/ProjectsChallengeSubmissionImplementationSchema';
 import ProjectsChallengeSubmissionRepositoryUrlField from './fields/ProjectsChallengeSubmissionRepositoryUrlField';
 import { useProjectsChallengeSubmissionRepositoryUrlSchema } from './fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
+import ProjectsChallengeSubmissionRoadmapSkillsField from './fields/ProjectsChallengeSubmissionRoadmapSkillsField';
 import ProjectsChallengeSubmissionSummaryField from './fields/ProjectsChallengeSubmissionSummaryField';
 import { useProjectsChallengeSubmissionSummarySchema } from './fields/ProjectsChallengeSubmissionSummarySchema';
 import ProjectsChallengeSubmissionTechStackField from './fields/ProjectsChallengeSubmissionTechStackField';
@@ -19,7 +20,6 @@ import { useProjectsChallengeSubmissionTechStackSchema } from './fields/Projects
 import ProjectsChallengeSubmissionTitleField from './fields/ProjectsChallengeSubmissionTitleField';
 import { useProjectsChallengeSubmissionTitleSchema } from './fields/ProjectsChallengeSubmissionTitleSchema';
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '../types';
-import ProjectsSkillRoadmapSelectionInput from '../../skills/form/ProjectsSkillRoadmapSelectionInput';
 import type { ProjectsSkillKey } from '../../skills/types';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -104,20 +104,8 @@ export default function ProjectsChallengeSubmissionForm({
           <div className="grid lg:grid-cols-2 gap-6">
             <div className="flex flex-col gap-6">
               <ProjectsChallengeSubmissionTitleField control={control} />
-              <ProjectsSkillRoadmapSelectionInput
-                description={intl.formatMessage({
-                  defaultMessage:
-                    'The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development',
-                  description:
-                    'Description for skills input on project submit page',
-                  id: 'pRi/7+',
-                })}
-                descriptionStyle="tooltip"
-                label={intl.formatMessage({
-                  defaultMessage: 'Skills',
-                  description: 'Label for skills input on project submit page',
-                  id: 'KC1Rzx',
-                })}
+              <ProjectsChallengeSubmissionRoadmapSkillsField
+                control={control}
               />
               <ProjectsChallengeSubmissionTechStackField control={control} />
               <ProjectsChallengeSubmissionRepositoryUrlField

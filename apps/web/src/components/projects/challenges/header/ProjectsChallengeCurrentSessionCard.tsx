@@ -45,9 +45,8 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
 
   const { submitHref, skills: challengeSkills, slug } = challenge.metadata;
   const { createdAt, skills: sessionSkills } = session;
-  // TOOD(projects|skills): use real data.
-  const roadmapSkills = ['html', 'css'];
-
+  const [roadmapSkills, setRoadmapSkills] =
+    useState<ReadonlyArray<ProjectsSkillKey>>(sessionSkills);
   const [otherTechStacks, setOtherTechStacks] =
     useState<ReadonlyArray<ProjectsSkillKey> | null>(sessionSkills);
 
@@ -228,7 +227,8 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
                 description: 'Label for skills used for challenge',
                 id: '+Rwr3w',
               })}
-              skills={roadmapSkills}
+              value={roadmapSkills}
+              onChange={setRoadmapSkills}
             />
             <Divider />
             {/* TODO(projects|skills): Save into session */}

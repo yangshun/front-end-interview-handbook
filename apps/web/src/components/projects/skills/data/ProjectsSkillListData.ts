@@ -1,5 +1,6 @@
 import { startCase } from 'lodash-es';
 
+import { allRoadmapSkillsSet } from './ProjectsSkillProcessor';
 import type { ProjectsSkillKey } from '../types';
 
 export const ProjectsSkillLabels: Record<ProjectsSkillKey, string> = {
@@ -35,9 +36,13 @@ export function ProjectsSkillTypeaheadValuesToArray(
   return values?.map(({ value }) => value) ?? null;
 }
 
-export function ProjectsSkillTypeaheadOptions() {
-  return Object.entries(ProjectsSkillLabels).map(([value, label]) => ({
-    label,
-    value,
-  }));
+export function projectsSkillTypeaheadOptions(excludeRoadmapSkills = true) {
+  return Object.entries(ProjectsSkillLabels)
+    .filter((pair) =>
+      excludeRoadmapSkills ? !allRoadmapSkillsSet.has(pair[0]) : true,
+    )
+    .map(([value, label]) => ({
+      label,
+      value,
+    }));
 }

@@ -7,10 +7,7 @@ import Button from '~/components/ui/Button';
 import type { LabelDescriptionStyle } from '~/components/ui/Label';
 import Label from '~/components/ui/Label';
 import Text from '~/components/ui/Text';
-import {
-  themeBackgroundElementColor,
-  themeBorderElementColor,
-} from '~/components/ui/theme';
+import { themeBackgroundElementColor } from '~/components/ui/theme';
 
 import ProjectsSkillRoadmapSelectionDialog from './ProjectsSkillRoadmapSelectionDialog';
 import ProjectsSkillRoadmapChips from '../metadata/ProjectsSkillRoadmapChips';
@@ -20,47 +17,82 @@ type Props = Readonly<{
   className?: string;
   description?: React.ReactNode;
   descriptionStyle?: LabelDescriptionStyle;
+  errorMessage?: React.ReactNode;
   isLabelHidden?: boolean;
-  label: string;
+  label?: string;
+  onChange: (value: ReadonlyArray<ProjectsSkillKey>) => void;
   required?: boolean;
-  skills?: ReadonlyArray<ProjectsSkillKey>;
+  value: ReadonlyArray<ProjectsSkillKey>;
 }>;
 
+type State = 'error' | 'normal';
+
+const stateClasses: Record<State, string> = {
+  error: clsx('ring-danger', 'focus-within:ring-danger'),
+  normal: clsx(
+    'ring-neutral-300 dark:ring-neutral-700',
+    'focus-within:ring-brand-dark dark:focus-within:ring-brand',
+  ),
+};
+
 export default function ProjectsSkillRoadmapSelectionInput({
+  className,
+  descriptionStyle = 'tooltip',
+  description,
+  errorMessage,
   label,
   isLabelHidden,
   required,
-  className,
-  description,
-  descriptionStyle,
-  skills: initialSkills = [],
+  value,
+  onChange,
 }: Props) {
-  const [skills, setSkills] =
-    useState<ReadonlyArray<ProjectsSkillKey>>(initialSkills);
   const [showSkillsRoadmapDialog, setShowSkillsRoadmapDialog] = useState(false);
   const intl = useIntl();
-  // TODO(projects): do something with this id for a11y
+
+  const hasError = !!errorMessage;
   const id = useId();
+  const messageId = useId();
+  const state = hasError ? 'error' : 'normal';
 
   return (
     <div>
       <div className={clsx('flex flex-col gap-2', className)}>
         <Label
-          description={description}
+          description={
+            description ??
+            intl.formatMessage({
+              defaultMessage:
+                'The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development',
+              description:
+                'Description for skills input on project submit page',
+              id: 'pRi/7+',
+            })
+          }
+          descriptionId={messageId}
           descriptionStyle={descriptionStyle}
           htmlFor={id}
           isLabelHidden={isLabelHidden}
-          label={label}
+          label={
+            label ??
+            intl.formatMessage({
+              defaultMessage: 'Skills',
+              description: 'Label for projects skills input',
+              id: 'TcszLi',
+            })
+          }
           required={required}
         />
         <div
+          aria-labelledby={id}
           className={clsx(
-            'flex justify-between items-center rounded',
-            'py-1.5 px-3',
-            ['border', themeBorderElementColor],
-            themeBackgroundElementColor,
+            'flex justify-between items-center',
+            'rounded',
+            'px-3 py-1.5',
+            'ring-1 ring-inset',
+            'focus-within:ring-2 focus-within:ring-inset',
+            clsx(themeBackgroundElementColor, stateClasses[state]),
           )}>
-          {skills.length === 0 ? (
+          {value.length === 0 ? (
             <Text color="subtle" size="body2">
               <FormattedMessage
                 defaultMessage="No skills added"
@@ -71,10 +103,10 @@ export default function ProjectsSkillRoadmapSelectionInput({
           ) : (
             <ProjectsSkillRoadmapChips
               readonly={false}
-              skills={skills}
+              skills={value}
               onDelete={(deletedSkills) => {
-                setSkills(
-                  skills.filter((skill) => !deletedSkills.includes(skill)),
+                onChange(
+                  value.filter((skill) => !deletedSkills.includes(skill)),
                 );
               }}
             />
@@ -101,13 +133,26 @@ export default function ProjectsSkillRoadmapSelectionInput({
           />
         </div>
       </div>
+      {hasError && (
+        <div
+          className={clsx(
+            'flex w-full mt-2',
+            errorMessage ? 'justify-between' : 'justify-end',
+          )}>
+          {errorMessage && (
+            <Text color="error" display="block" id={messageId} size="body3">
+              {errorMessage}
+            </Text>
+          )}
+        </div>
+      )}
       {showSkillsRoadmapDialog && (
         <ProjectsSkillRoadmapSelectionDialog
-          defaultSkills={skills}
+          defaultSkills={value}
           isShown={showSkillsRoadmapDialog}
           onClose={() => setShowSkillsRoadmapDialog(false)}
           onComplete={(newSkills) => {
-            setSkills(newSkills);
+            onChange(newSkills);
             setShowSkillsRoadmapDialog(false);
           }}
         />

@@ -102,6 +102,7 @@ export default function ProjectsChallengeCard({
             description: 'Label for skills list in Project card',
             id: 'Lr/Ez4',
           })}
+          limit={3}
           skills={skills}
         />
         <div className="flex items-center gap-4">

@@ -118,6 +118,7 @@ export default function ProjectsChallengeSubmissionCard({
             description: 'Label for tech stack used in project',
             id: 'aiI8c6',
           })}
+          limit={3}
           skills={skills}
         />
       </div>

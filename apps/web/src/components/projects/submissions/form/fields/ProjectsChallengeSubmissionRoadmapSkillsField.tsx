@@ -3,9 +3,8 @@ import { useController } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
 import { projectsSkillsCategorized } from '~/components/projects/skills/data/ProjectsSkillProcessor';
-import ProjectsSkillTechStackInput from '~/components/projects/skills/form/ProjectsSkillTechStackInput';
+import ProjectsSkillRoadmapSelectionInput from '~/components/projects/skills/form/ProjectsSkillRoadmapSelectionInput';
 
-import { getProjectsChallengeSubmissionTechStackAttributes } from './ProjectsChallengeSubmissionTechStackSchema';
 import type { ProjectsChallengeSubmissionFormValues } from '../ProjectsChallengeSubmissionForm';
 
 type Props = Readonly<{
@@ -14,11 +13,10 @@ type Props = Readonly<{
 
 const fieldName = 'skills';
 
-export default function ProjectsChallengeSubmissionTechStackField({
+export default function ProjectsChallengeSubmissionRoadmapSkillsField({
   control,
 }: Props) {
   const intl = useIntl();
-  const attrs = getProjectsChallengeSubmissionTechStackAttributes(intl);
   const { field, formState } = useController({
     control,
     name: fieldName,
@@ -29,17 +27,22 @@ export default function ProjectsChallengeSubmissionTechStackField({
   );
 
   return (
-    <ProjectsSkillTechStackInput
+    <ProjectsSkillRoadmapSelectionInput
       errorMessage={
-        techStackSkills.length === 0
+        roadmapSkills.length === 0
           ? formState.errors[fieldName]?.message
           : undefined
       }
-      required={attrs.validation.required}
+      label={intl.formatMessage({
+        defaultMessage: 'Skills used',
+        description: 'Label for skills input on project submit page',
+        id: 'fMEwXn',
+      })}
+      required={true}
       {...field}
-      value={techStackSkills}
-      onChange={(newTechStackSkills) => {
-        field.onChange([...(newTechStackSkills ?? []), ...roadmapSkills]);
+      value={roadmapSkills}
+      onChange={(newRoadmapSkills) => {
+        field.onChange([...techStackSkills, ...(newRoadmapSkills ?? [])]);
       }}
     />
   );

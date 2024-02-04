@@ -9,7 +9,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import ProjectsSkillChip from '~/components/projects/skills/metadata/ProjectsSkillChip';
+import ProjectsSkillList from '~/components/projects/skills/metadata/ProjectsSkillList';
 import ProjectsSkillRoadmapChips from '~/components/projects/skills/metadata/ProjectsSkillRoadmapChips';
 import ProjectsChallengeSubmissionHero from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHero';
 import ProjectsChallengeSubmissionAuthorProfile from '~/components/projects/submissions/ProjectsChallengeSubmissionAuthorProfile';
@@ -25,6 +25,7 @@ import { themeBorderColor } from '~/components/ui/theme';
 
 import GithubRepositoryCodeViewer from './code-viewer/GithubRepositoryCodeViewer';
 import ProjectsChallengeSubmissionDiscussionsSection from './discussions/ProjectsChallengeSubmissionDiscussionsSection';
+import { projectsSkillsCategorized } from '../skills/data/ProjectsSkillProcessor';
 
 function parseGithubRepositoryUrl(url: string) {
   const urlObject = new URL(url);
@@ -66,8 +67,7 @@ export default function ProjectsChallengeSubmissionPage({
     [repositoryUrl],
   );
 
-  // TODO(projects|skills): Remove roadmap skills from this list.
-  const techStackSkills = skills;
+  const { roadmapSkills, techStackSkills } = projectsSkillsCategorized(skills);
 
   return (
     <div ref={parentRef} className="flex flex-col -mt-4 lg:-mt-16">
@@ -146,16 +146,23 @@ export default function ProjectsChallengeSubmissionPage({
                 id="1/mHuG"
               />
             </Heading>
-            {/* TODO(projects|skills): Replace below with actual subSkills */}
-            <ProjectsSkillRoadmapChips
-              readonly={true}
-              skills={['html-semantics', 'html-forms', 'css-basics']}
-            />
-            <div className="flex flex-wrap gap-3">
-              {techStackSkills.map((skill) => (
-                <ProjectsSkillChip key={skill} readonly={true} value={skill} />
-              ))}
-            </div>
+            {roadmapSkills.length > 0 && (
+              <ProjectsSkillRoadmapChips
+                readonly={true}
+                skills={roadmapSkills}
+              />
+            )}
+            {techStackSkills.length > 0 && (
+              <ProjectsSkillList
+                isLabelHidden={true}
+                label={intl.formatMessage({
+                  defaultMessage: 'Tech stack used',
+                  description: 'Label for tech stack skills section',
+                  id: 'xMmBc1',
+                })}
+                skills={techStackSkills}
+              />
+            )}
           </div>
         </div>
         <div className="flex flex-col md:flex-row gap-x-10 gap-8 mt-10 lg:mt-16">

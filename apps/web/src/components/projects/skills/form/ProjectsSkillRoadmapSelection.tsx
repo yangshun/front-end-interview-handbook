@@ -5,6 +5,7 @@ import FilterButton from '~/components/common/FilterButton';
 import Text from '~/components/ui/Text';
 import { themeIconColor } from '~/components/ui/theme';
 
+import { projectsSkillLabel } from '../data/ProjectsSkillListData';
 import { skillsRoadmap } from '../data/ProjectsSkillRoadmapData';
 import type { ProjectsSkillKey } from '../types';
 
@@ -65,7 +66,7 @@ export default function ProjectsSkillRoadmapSelection({
                         <FilterButton
                           key={item.key}
                           icon={selected ? RiCheckFill : RiAddLine}
-                          label={item.key}
+                          label={projectsSkillLabel(item.key)}
                           purpose="button"
                           selected={selected}
                           onClick={() => {

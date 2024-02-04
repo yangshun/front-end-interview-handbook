@@ -17,6 +17,7 @@ export default function ProjectsChallengeBriefSubmissionSupportCard() {
             description: 'Label for tech stack used in project',
             id: 'aiI8c6',
           })}
+          limit={3}
           skills={['html', 'css', 'js']}
         />
         {/* TODO(projects): Use appropriate image */}

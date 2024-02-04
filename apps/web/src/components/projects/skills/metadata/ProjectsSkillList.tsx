@@ -8,16 +8,18 @@ import ProjectsSkillChip from './ProjectsSkillChip';
 
 type Props = Readonly<{
   className?: string;
+  isLabelHidden?: boolean;
   label: string;
   limit?: number;
   skills: ReadonlyArray<string>;
 }>;
 
 export default function ProjectsSkillList({
-  label,
-  limit = 3,
-  skills,
   className,
+  isLabelHidden,
+  label,
+  limit = Infinity,
+  skills,
 }: Props) {
   if (skills.length === 0) {
     return null;
@@ -27,10 +29,14 @@ export default function ProjectsSkillList({
   const remainingCount = skills.length - firstThreeSkills.length;
 
   return (
-    <div className={clsx('flex items-center gap-2', className)}>
-      <Text color="secondary" size="body2">
-        {label}
-      </Text>
+    <div
+      aria-label={isLabelHidden ? label : undefined}
+      className={clsx('flex items-center gap-2', className)}>
+      {!isLabelHidden && (
+        <Text color="secondary" size="body2">
+          {label}
+        </Text>
+      )}
       <ul className="flex items-center gap-2">
         {firstThreeSkills.map((skill) => (
           <li key={skill}>

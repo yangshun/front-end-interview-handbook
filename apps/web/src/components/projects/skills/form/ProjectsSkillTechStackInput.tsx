@@ -4,7 +4,7 @@ import Typeahead from '~/components/ui/Typeahead';
 
 import {
   ProjectsSkillArrayToTypeaheadValues,
-  ProjectsSkillTypeaheadOptions,
+  projectsSkillTypeaheadOptions,
   ProjectsSkillTypeaheadValuesToArray,
 } from '../data/ProjectsSkillListData';
 import type { ProjectsSkillKey } from '../types';
@@ -12,6 +12,7 @@ import type { ProjectsSkillKey } from '../types';
 type Props = Readonly<{
   description?: React.ReactNode;
   errorMessage?: React.ReactNode;
+  excludeRoadmapSkills?: boolean;
   label?: string;
   onChange: (value: ReadonlyArray<ProjectsSkillKey> | null) => void;
   placeholder?: string;
@@ -19,17 +20,17 @@ type Props = Readonly<{
   value: ReadonlyArray<ProjectsSkillKey>;
 }>;
 
-const options = ProjectsSkillTypeaheadOptions();
-
 export default function ProjectsSkillTechStackInput({
   description,
   errorMessage,
+  excludeRoadmapSkills,
   label,
   placeholder,
   required,
   value,
   onChange,
 }: Props) {
+  const options = projectsSkillTypeaheadOptions(excludeRoadmapSkills);
   const intl = useIntl();
 
   return (
