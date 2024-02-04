@@ -205,11 +205,12 @@ enum ProjectsChallengeSessionStatus {
 }
 
 model ProjectsChallengeSession {
-  id        String                         @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  profileId String                         @db.Uuid
-  slug      String
-  status    ProjectsChallengeSessionStatus @default(IN_PROGRESS)
-  skills    String[]
+  id              String                         @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  profileId       String                         @db.Uuid
+  slug            String
+  status          ProjectsChallengeSessionStatus @default(IN_PROGRESS)
+  roadmapSkills   String[]
+  techStackSkills String[]
 
   createdAt DateTime  @default(now()) @db.Timestamptz(6)
   updatedAt DateTime  @default(now()) @updatedAt
@@ -219,16 +220,17 @@ model ProjectsChallengeSession {
 }
 
 model ProjectsChallengeSubmission {
-  id             String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  profileId      String   @db.Uuid
-  slug           String
-  title          String
-  summary        String
-  repositoryUrl  String
-  deploymentUrls Json
-  implementation String
-  views          Int      @default(0)
-  skills         String[]
+  id              String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  profileId       String   @db.Uuid
+  slug            String
+  title           String
+  summary         String
+  repositoryUrl   String
+  deploymentUrls  Json
+  implementation  String
+  views           Int      @default(0)
+  roadmapSkills   String[]
+  techStackSkills String[]
 
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @default(now()) @updatedAt

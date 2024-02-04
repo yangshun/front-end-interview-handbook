@@ -201,11 +201,10 @@ export const projectsChallengeSubmissionRouter = router({
               implementation,
               profileId: projectsProfileId,
               repositoryUrl,
-              skills: Array.from(
-                new Set([...roadmapSkills, ...techStackSkills]),
-              ),
+              roadmapSkills,
               slug,
               summary,
+              techStackSkills,
               title,
             },
           });
@@ -844,8 +843,9 @@ export const projectsChallengeSubmissionRouter = router({
             editedAt: new Date(),
             implementation,
             repositoryUrl,
-            skills: [...(roadmapSkills ?? []), ...(techStackSkills ?? [])],
+            roadmapSkills,
             summary,
+            techStackSkills,
             title,
           },
           where: {

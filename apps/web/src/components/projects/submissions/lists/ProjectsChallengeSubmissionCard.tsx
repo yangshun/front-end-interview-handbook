@@ -47,7 +47,8 @@ export default function ProjectsChallengeSubmissionCard({
   const {
     hrefs,
     title,
-    skills,
+    roadmapSkills,
+    techStackSkills,
     summary,
     comments,
     views,
@@ -119,7 +120,8 @@ export default function ProjectsChallengeSubmissionCard({
             id: 'aiI8c6',
           })}
           limit={3}
-          skills={skills}
+          // TODO(projects|skills): display parent skill for roadmap skills.
+          skills={[...roadmapSkills, ...techStackSkills]}
         />
       </div>
       <img alt={title} className="h-[190px] w-full rounded-md" src={imgSrc} />

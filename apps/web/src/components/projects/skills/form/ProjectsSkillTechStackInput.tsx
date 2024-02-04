@@ -1,3 +1,4 @@
+import { ForwardedRef } from 'react';
 import { useIntl } from 'react-intl';
 
 import Typeahead from '~/components/ui/Typeahead';

@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import { useId, useState } from 'react';
+import type { ForwardedRef } from 'react';
+import { forwardRef, useId, useState } from 'react';
 import { RiAddLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -35,17 +36,20 @@ const stateClasses: Record<State, string> = {
   ),
 };
 
-export default function ProjectsSkillRoadmapSelectionInput({
-  className,
-  descriptionStyle = 'tooltip',
-  description,
-  errorMessage,
-  label,
-  isLabelHidden,
-  required,
-  value,
-  onChange,
-}: Props) {
+function ProjectsSkillRoadmapSelectionInput(
+  {
+    className,
+    descriptionStyle = 'tooltip',
+    description,
+    errorMessage,
+    label,
+    isLabelHidden,
+    required,
+    value,
+    onChange,
+  }: Props,
+  ref: ForwardedRef<HTMLDivElement>,
+) {
   const [showSkillsRoadmapDialog, setShowSkillsRoadmapDialog] = useState(false);
   const intl = useIntl();
 
@@ -83,15 +87,25 @@ export default function ProjectsSkillRoadmapSelectionInput({
           required={required}
         />
         <div
+          ref={ref}
           aria-labelledby={id}
           className={clsx(
             'flex justify-between items-center',
             'rounded',
             'px-3 py-1.5',
+            'focus:outline-0',
             'ring-1 ring-inset',
             'focus-within:ring-2 focus-within:ring-inset',
             clsx(themeBackgroundElementColor, stateClasses[state]),
-          )}>
+          )}
+          role={value.length === 0 ? 'button' : undefined}
+          tabIndex={0}
+          onClick={() => {
+            if (value.length > 0) {
+              return;
+            }
+            setShowSkillsRoadmapDialog(true);
+          }}>
           {value.length === 0 ? (
             <Text color="subtle" size="body2">
               <FormattedMessage
@@ -160,3 +174,5 @@ export default function ProjectsSkillRoadmapSelectionInput({
     </div>
   );
 }
+
+export default forwardRef(ProjectsSkillRoadmapSelectionInput);

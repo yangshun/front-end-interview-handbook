@@ -44,11 +44,16 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
     useProjectsChallengeSessionContext();
 
   const { submitHref, skills: challengeSkills, slug } = challenge.metadata;
-  const { createdAt, skills: sessionSkills } = session;
-  const [roadmapSkills, setRoadmapSkills] =
-    useState<ReadonlyArray<ProjectsSkillKey>>(sessionSkills);
-  const [otherTechStacks, setOtherTechStacks] =
-    useState<ReadonlyArray<ProjectsSkillKey> | null>(sessionSkills);
+  const {
+    createdAt,
+    roadmapSkills: roadmapSkillsFromServer,
+    techStackSkills: techStackSkillsFromServer,
+  } = session;
+  const [roadmapSkills, setRoadmapSkills] = useState<
+    ReadonlyArray<ProjectsSkillKey>
+  >(roadmapSkillsFromServer);
+  const [techStackSkills, setTechStackSkills] =
+    useState<ReadonlyArray<ProjectsSkillKey> | null>(techStackSkillsFromServer);
 
   const handleEndSession = async () => {
     await endSession(slug);
@@ -233,8 +238,8 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
             <Divider />
             {/* TODO(projects|skills): Save into session */}
             <ProjectsSkillTechStackInput
-              value={otherTechStacks ?? []}
-              onChange={setOtherTechStacks}
+              value={techStackSkills ?? []}
+              onChange={setTechStackSkills}
             />
             <div className="flex justify-end">
               <Button
