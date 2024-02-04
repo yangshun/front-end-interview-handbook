@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import { useEffect, useMemo } from 'react';
 
-import { useProjectsChallengeSessionContext } from '~/components/projects/challenges/ProjectsChallengeSessionContext';
+import { useProjectsChallengeSessionContext } from '~/components/projects/challenges/session/ProjectsChallengeSessionContext';
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {

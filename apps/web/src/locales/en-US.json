@@ -43,10 +43,6 @@
     "defaultMessage": "Component track",
     "description": "Label for Component Track filter for projects list"
   },
-  "+Rwr3w": {
-    "defaultMessage": "Skills used",
-    "description": "Label for skills used for challenge"
-  },
   "+SiVOr": {
     "defaultMessage": "Includes a hi-fidelity design and interaction specifications for this project.",
     "description": "Description for Download Figma Design content section on Before You Get Started dialog"
@@ -310,6 +306,10 @@
   "16RIbp": {
     "defaultMessage": "Try these popular CSS questions",
     "description": "Title for featured questions section"
+  },
+  "17Rr6T": {
+    "defaultMessage": "Skills cannot be empty.",
+    "description": "Error message"
   },
   "19GB65": {
     "defaultMessage": "My profile",
@@ -1106,10 +1106,6 @@
   "8yQk1V": {
     "defaultMessage": "Most Common Questions",
     "description": "Most common behavioral interview questions"
-  },
-  "8zyjaw": {
-    "defaultMessage": "Save",
-    "description": "Save button for a form"
   },
   "9//mtm": {
     "defaultMessage": "You may be interested",
@@ -2211,10 +2207,6 @@
     "defaultMessage": "Filter by skills",
     "description": "Tooltip for Skills filter for projects list"
   },
-  "KC1Rzx": {
-    "defaultMessage": "Skills",
-    "description": "Label for skills input on project submit page"
-  },
   "KDDzWX": {
     "defaultMessage": "{questionExcerpt} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions practice page"
@@ -2691,10 +2683,6 @@
     "defaultMessage": "Search JavaScript questions",
     "description": "Placeholder for search input of JavaScript question list"
   },
-  "OHDzfH": {
-    "defaultMessage": "The skills you are using in this project, which are in the skills roadmap. Helps us track your progress on skills development",
-    "description": "Description for skills input on project submit page"
-  },
   "OHistx": {
     "defaultMessage": "Practice by framework",
     "description": "Questions list page title"
@@ -2866,6 +2854,10 @@
   "PjWWze": {
     "defaultMessage": "Ready to begin?",
     "description": "Description for start tasks prompt"
+  },
+  "Pm4UMA": {
+    "defaultMessage": "Skills used",
+    "description": "Label for projects skills input"
   },
   "Ptmnjq": {
     "defaultMessage": "Free continuous updates",
@@ -6590,6 +6582,10 @@
   "xLVqYR": {
     "defaultMessage": "Pick from <bold>skills roadmap</bold>",
     "description": "Caption for Start a Project button in Projects marketing hero section for beginners"
+  },
+  "xMmBc1": {
+    "defaultMessage": "Tech stack used",
+    "description": "Label for tech stack skills section"
   },
   "xU32y0": {
     "defaultMessage": "3 subcategories of questions: JavaScript, User Interfaces & Data Structures and Algorithms",

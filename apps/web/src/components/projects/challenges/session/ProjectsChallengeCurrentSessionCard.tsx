@@ -21,7 +21,7 @@ import {
 import Tooltip from '~/components/ui/Tooltip';
 
 import ProjectsChallengeCurrentSessionSkillsForm from './ProjectsChallengeCurrentSessionSkillsForm';
-import { useProjectsChallengeSessionContext } from '../ProjectsChallengeSessionContext';
+import { useProjectsChallengeSessionContext } from './ProjectsChallengeSessionContext';
 import type { ProjectsChallengeItem } from '../types';
 
 import type { ProjectsChallengeSession } from '@prisma/client';

@@ -48,3 +48,8 @@ export type ProjectsChallengeStatuses = Record<
   ProjectsChallengeMetadata['slug'],
   { completedBefore: boolean; currentStatus: ProjectsChallengeSessionStatus }
 >;
+
+export type ProjectsChallengeSessionSkillsFormValues = Readonly<{
+  roadmapSkills: Array<ProjectsSkillKey>;
+  techStackSkills: Array<ProjectsSkillKey>;
+}>;

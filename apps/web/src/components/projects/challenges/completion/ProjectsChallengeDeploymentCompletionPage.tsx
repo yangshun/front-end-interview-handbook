@@ -28,7 +28,7 @@ import {
   themeBorderElementColor,
 } from '~/components/ui/theme';
 
-import { useProjectsChallengeSessionContext } from '../ProjectsChallengeSessionContext';
+import { useProjectsChallengeSessionContext } from '../session/ProjectsChallengeSessionContext';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

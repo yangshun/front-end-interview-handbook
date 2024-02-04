@@ -4,7 +4,7 @@ import ProjectsChallengeHeader from './ProjectsChallengeHeader';
 import ProjectsChallengeGetStartedDialog from '../get-started/ProjectsChallengeGetStartedDialog';
 import ProjectsChallengeSessionContextProvider, {
   useProjectsChallengeSessionContext,
-} from '../ProjectsChallengeSessionContext';
+} from '../session/ProjectsChallengeSessionContext';
 import ProjectsChallengeStepsTabsImpl from '../steps/ProjectsChallengeStepsTabsImpl';
 import type { ProjectsChallengeItem } from '../types';
 
@@ -17,8 +17,6 @@ export function ProjectsChallengeHeaderLayoutImpl({
   challenge,
   children,
 }: Props) {
-  const { slug } = challenge.metadata;
-
   const {
     isGetStartedDialogShown,
     setIsGetStartedDialogShown,
@@ -38,8 +36,8 @@ export function ProjectsChallengeHeaderLayoutImpl({
         onClose={() => {
           setIsGetStartedDialogShown(false);
         }}
-        onStart={async () => {
-          await startSession(slug);
+        onStart={async (skills) => {
+          await startSession(skills);
         }}
       />
     </div>

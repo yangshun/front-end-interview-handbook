@@ -21,9 +21,9 @@ import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 
 import ProjectsChallengeCompletedCountButton from './ProjectsChallengeCompletedCountButton';
-import ProjectsChallengeCurrentProjectSessionCard from './ProjectsChallengeCurrentSessionCard';
 import ProjectsChallengeHowItWorksDialog from './ProjectsChallengeHowItWorksDialog';
-import { useProjectsChallengeSessionContext } from '../ProjectsChallengeSessionContext';
+import ProjectsChallengeCurrentProjectSessionCard from '../session/ProjectsChallengeCurrentSessionCard';
+import { useProjectsChallengeSessionContext } from '../session/ProjectsChallengeSessionContext';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

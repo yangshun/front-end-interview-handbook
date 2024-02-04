@@ -27,11 +27,6 @@ export default function ProjectsChallengeSubmissionRoadmapSkillsField({
   return (
     <ProjectsSkillRoadmapSelectionInput
       errorMessage={formState.errors[fieldName]?.message}
-      label={intl.formatMessage({
-        defaultMessage: 'Skills used',
-        description: 'Label for skills input on project submit page',
-        id: 'fMEwXn',
-      })}
       required={attrs.validation.required}
       {...field}
     />

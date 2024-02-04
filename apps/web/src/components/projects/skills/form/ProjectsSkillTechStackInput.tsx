@@ -15,7 +15,7 @@ type Props = Readonly<{
   excludeRoadmapSkills?: boolean;
   isDisabled?: boolean;
   label?: string;
-  onBlur: () => void;
+  onBlur?: () => void;
   onChange: (value: ReadonlyArray<ProjectsSkillKey> | null) => void;
   placeholder?: string;
   required?: boolean;

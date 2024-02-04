@@ -18,7 +18,10 @@ import ProjectsChallengeGetStartedDownloadStarterFiles from './ProjectsChallenge
 import ProjectsChallengeGetStartedImportantInfoGuide from './ProjectsChallengeGetStartedImportantInfoGuide';
 import ProjectsChallengeGetStartedSkillSelection from './ProjectsChallengeGetStartedSkillSelection';
 import ProjectsChallengeGetStartedStartCoding from './ProjectsChallengeGetStartedStartCoding';
-import type { ProjectsChallengeItem } from '../types';
+import type {
+  ProjectsChallengeItem,
+  ProjectsChallengeSessionSkillsFormValues,
+} from '../types';
 
 type DialogStep = Readonly<{
   content: React.ReactNode;
@@ -31,10 +34,14 @@ function useDialogSteps({
   onStartClick,
   userCanAccess,
   isLoading,
+  skills,
+  setSkills,
 }: {
   challenge: ProjectsChallengeItem;
   isLoading: boolean;
   onStartClick: () => void;
+  setSkills: (newSkills: ProjectsChallengeSessionSkillsFormValues) => void;
+  skills: ProjectsChallengeSessionSkillsFormValues;
   userCanAccess: boolean;
 }) {
   const intl = useIntl();
@@ -69,7 +76,12 @@ function useDialogSteps({
       }),
     },
     {
-      content: <ProjectsChallengeGetStartedSkillSelection />,
+      content: (
+        <ProjectsChallengeGetStartedSkillSelection
+          skills={skills}
+          onChangeSkills={setSkills}
+        />
+      ),
       id: 'select-skills',
       label: intl.formatMessage({
         defaultMessage: 'Tell us about the skills you will be using',
@@ -113,7 +125,7 @@ type Props = Readonly<{
   isLoading?: boolean;
   isShown: boolean;
   onClose: () => void;
-  onStart: () => void;
+  onStart: (skills: ProjectsChallengeSessionSkillsFormValues) => void;
 }>;
 
 export default function ProjectsChallengeGetStartedDialog({
@@ -125,14 +137,22 @@ export default function ProjectsChallengeGetStartedDialog({
 }: Props) {
   const intl = useIntl();
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
+  const [skills, setSkills] =
+    useState<ProjectsChallengeSessionSkillsFormValues>({
+      roadmapSkills: [],
+      techStackSkills: [],
+    });
+
   const dialogSteps = useDialogSteps({
     challenge,
     isLoading,
     onStartClick: async () => {
-      await onStart();
+      await onStart(skills);
       onClose();
       setCurrentStepIndex(0);
     },
+    setSkills,
+    skills,
     userCanAccess: true,
   });
 

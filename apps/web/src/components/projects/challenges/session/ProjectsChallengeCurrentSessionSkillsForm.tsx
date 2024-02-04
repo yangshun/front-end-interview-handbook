@@ -1,25 +1,19 @@
 import { Controller, useForm } from 'react-hook-form';
-import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
 import ProjectsSkillRoadmapSelectionInput from '~/components/projects/skills/form/ProjectsSkillRoadmapSelectionInput';
 import Divider from '~/components/ui/Divider';
 
+import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
 import ProjectsSkillTechStackInput from '../../skills/form/ProjectsSkillTechStackInput';
-import type { ProjectsSkillKey } from '../../skills/types';
 import { useProjectsChallengeSubmissionRoadmapSkillsSchema } from '../../submissions/form/fields/ProjectsChallengeSubmissionRoadmapSkillsSchema';
 import { useProjectsChallengeSubmissionTechStackSchema } from '../../submissions/form/fields/ProjectsChallengeSubmissionTechStackSchema';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
-export type ProjectsChallengeSessionFormValues = Readonly<{
-  roadmapSkills: Array<ProjectsSkillKey>;
-  techStackSkills: Array<ProjectsSkillKey>;
-}>;
-
 type Props = Readonly<{
-  defaultValues?: ProjectsChallengeSessionFormValues;
-  onSubmit: (data: ProjectsChallengeSessionFormValues) => void;
+  defaultValues?: ProjectsChallengeSessionSkillsFormValues;
+  onSubmit: (data: ProjectsChallengeSessionSkillsFormValues) => void;
 }>;
 
 function useProjectsChallengeSessionFormSchema() {
@@ -41,7 +35,6 @@ export default function ProjectsChallengeCurrentSessionSkillsForm({
   },
   onSubmit,
 }: Props) {
-  const intl = useIntl();
   const projectsChallengeSessionFormSchema =
     useProjectsChallengeSessionFormSchema();
 
@@ -50,7 +43,7 @@ export default function ProjectsChallengeCurrentSessionSkillsForm({
     handleSubmit,
     getValues,
     formState: { errors },
-  } = useForm<ProjectsChallengeSessionFormValues>({
+  } = useForm<ProjectsChallengeSessionSkillsFormValues>({
     defaultValues,
     mode: 'all',
     resolver: zodResolver(projectsChallengeSessionFormSchema),
@@ -64,11 +57,6 @@ export default function ProjectsChallengeCurrentSessionSkillsForm({
         render={({ field }) => (
           <ProjectsSkillRoadmapSelectionInput
             errorMessage={errors.roadmapSkills?.message}
-            label={intl.formatMessage({
-              defaultMessage: 'Skills used',
-              description: 'Label for skills input on project submit page',
-              id: 'fMEwXn',
-            })}
             {...field}
             onChange={(newValue) => {
               // Save on every change.

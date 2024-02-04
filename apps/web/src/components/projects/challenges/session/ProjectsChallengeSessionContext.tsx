@@ -12,6 +12,8 @@ import { trpc } from '~/hooks/trpc';
 import { useToast } from '~/components/global/toasts/ToastsProvider';
 import Anchor from '~/components/ui/Anchor';
 
+import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
+
 import type { ProjectsChallengeSession } from '@prisma/client';
 import { useQueryClient } from '@tanstack/react-query';
 import { getQueryKey } from '@trpc/react-query';
@@ -30,7 +32,9 @@ type ProjectsChallengeSessionContextType = {
   session: ProjectsChallengeSession | null;
   setIsGetStartedDialogShown: (value: boolean) => void;
   startProject: () => void;
-  startSession: (slug: string) => Promise<void>;
+  startSession: (
+    skills: ProjectsChallengeSessionSkillsFormValues,
+  ) => Promise<void>;
 };
 
 const ProjectsChallengeSessionContext =
@@ -152,9 +156,11 @@ export default function ProjectsChallengeSessionContextProvider({
       startProject: () => {
         setIsGetStartedDialogShown(true);
       },
-      startSession: async () => {
+      startSession: async (
+        skills: ProjectsChallengeSessionSkillsFormValues,
+      ) => {
         await startProjectMutation.mutateAsync(
-          { slug },
+          { slug, ...skills },
           {
             onError: () => {
               showErrorToast();

@@ -18,7 +18,7 @@ import {
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
-import { useProjectsChallengeSessionContext } from '~/components/projects/challenges/ProjectsChallengeSessionContext';
+import { useProjectsChallengeSessionContext } from '~/components/projects/challenges/session/ProjectsChallengeSessionContext';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';

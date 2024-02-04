@@ -81,9 +81,9 @@ function ProjectsSkillRoadmapSelectionInput(
           label={
             label ??
             intl.formatMessage({
-              defaultMessage: 'Skills',
+              defaultMessage: 'Skills used',
               description: 'Label for projects skills input',
-              id: 'TcszLi',
+              id: 'Pm4UMA',
             })
           }
           required={required}

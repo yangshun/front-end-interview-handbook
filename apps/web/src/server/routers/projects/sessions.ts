@@ -20,12 +20,6 @@ const projectsSessionProcedure = projectsUserProcedure.input(
   }),
 );
 
-const projectsChallengeSessionSkillsFormSchema = z.object({
-  roadmapSkills: projectsChallengeSubmissionRoadmapSkillsOptionalSchemaServer,
-  sessionId: z.string().uuid(),
-  techStackSkills: projectsChallengeSubmissionTechStackOptionalSchemaServer,
-});
-
 export const projectsSessionsRouter = router({
   accessAllSteps: projectsSessionProcedure.query(
     async ({ input: { slug }, ctx: { projectsProfileId } }) => {
@@ -42,29 +36,54 @@ export const projectsSessionsRouter = router({
       return sessions > 0;
     },
   ),
-  create: projectsSessionProcedure.mutation(
-    async ({ input: { slug }, ctx: { projectsProfileId } }) => {
-      // Don't allow creating multiple sessions.
-      const existingSession = await prisma.projectsChallengeSession.findFirst({
-        where: {
-          profileId: projectsProfileId,
-          slug,
-          status: 'IN_PROGRESS',
-        },
-      });
+  create: projectsSessionProcedure
+    .input(
+      z.object({
+        roadmapSkills:
+          projectsChallengeSubmissionRoadmapSkillsOptionalSchemaServer,
+        techStackSkills:
+          projectsChallengeSubmissionTechStackOptionalSchemaServer,
+      }),
+    )
+    .mutation(
+      async ({
+        input: { slug, roadmapSkills, techStackSkills },
+        ctx: { projectsProfileId },
+      }) => {
+        // Don't allow creating multiple sessions.
+        const existingSession = await prisma.projectsChallengeSession.findFirst(
+          {
+            where: {
+              profileId: projectsProfileId,
+              slug,
+              status: 'IN_PROGRESS',
+            },
+          },
+        );
 
-      if (existingSession != null) {
-        return existingSession;
-      }
+        // If session exists, just update the skills.
+        if (existingSession != null) {
+          return await prisma.projectsChallengeSession.update({
+            data: {
+              roadmapSkills,
+              techStackSkills,
+            },
+            where: {
+              id: existingSession.id,
+            },
+          });
+        }
 
-      return await prisma.projectsChallengeSession.create({
-        data: {
-          profileId: projectsProfileId,
-          slug,
-        },
-      });
-    },
-  ),
+        return await prisma.projectsChallengeSession.create({
+          data: {
+            profileId: projectsProfileId,
+            roadmapSkills,
+            slug,
+            techStackSkills,
+          },
+        });
+      },
+    ),
   end: projectsSessionProcedure.mutation(
     async ({ input: { slug }, ctx: { projectsProfileId } }) => {
       return await prisma.projectsChallengeSession.updateMany({
@@ -225,7 +244,15 @@ export const projectsSessionsRouter = router({
     },
   ),
   updateSkills: projectsSessionProcedure
-    .input(projectsChallengeSessionSkillsFormSchema)
+    .input(
+      z.object({
+        roadmapSkills:
+          projectsChallengeSubmissionRoadmapSkillsOptionalSchemaServer,
+        sessionId: z.string().uuid(),
+        techStackSkills:
+          projectsChallengeSubmissionTechStackOptionalSchemaServer,
+      }),
+    )
     .mutation(
       async ({
         input: { sessionId, roadmapSkills, techStackSkills, slug },
