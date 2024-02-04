@@ -13,6 +13,7 @@ import { useProjectsChallengeSubmissionImplementationSchema } from './fields/Pro
 import ProjectsChallengeSubmissionRepositoryUrlField from './fields/ProjectsChallengeSubmissionRepositoryUrlField';
 import { useProjectsChallengeSubmissionRepositoryUrlSchema } from './fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
 import ProjectsChallengeSubmissionRoadmapSkillsField from './fields/ProjectsChallengeSubmissionRoadmapSkillsField';
+import { useProjectsChallengeSubmissionRoadmapSkillsSchema } from './fields/ProjectsChallengeSubmissionRoadmapSkillsSchema';
 import ProjectsChallengeSubmissionSummaryField from './fields/ProjectsChallengeSubmissionSummaryField';
 import { useProjectsChallengeSubmissionSummarySchema } from './fields/ProjectsChallengeSubmissionSummarySchema';
 import ProjectsChallengeSubmissionTechStackField from './fields/ProjectsChallengeSubmissionTechStackField';
@@ -28,8 +29,9 @@ export type ProjectsChallengeSubmissionFormValues = Readonly<{
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
   implementation: string;
   repositoryUrl: string;
-  skills: Array<ProjectsSkillKey>;
+  roadmapSkills: Array<ProjectsSkillKey>;
   summary: string;
+  techStackSkills: Array<ProjectsSkillKey>;
   title: string;
 }>;
 
@@ -40,6 +42,8 @@ function useProjectsChallengeSubmissionFormSchema() {
     useProjectsChallengeSubmissionSummarySchema();
   const projectsChallengeSubmissionTechStackSchema =
     useProjectsChallengeSubmissionTechStackSchema();
+  const projectsChallengeSubmissionRoadmapSkillsSchema =
+    useProjectsChallengeSubmissionRoadmapSkillsSchema();
   const projectsChallengeSubmissionRepositoryUrlSchema =
     useProjectsChallengeSubmissionRepositoryUrlSchema();
   const projectsChallengeSubmissionDeploymentUrlsSchema =
@@ -51,8 +55,9 @@ function useProjectsChallengeSubmissionFormSchema() {
     deploymentUrls: projectsChallengeSubmissionDeploymentUrlsSchema,
     implementation: projectsChallengeSubmissionImplementationSchema,
     repositoryUrl: projectsChallengeSubmissionRepositoryUrlSchema,
-    skills: projectsChallengeSubmissionTechStackSchema,
+    roadmapSkills: projectsChallengeSubmissionRoadmapSkillsSchema,
     summary: projectsChallengeSubmissionSummarySchema,
+    techStackSkills: projectsChallengeSubmissionTechStackSchema,
     title: projectsChallengeSubmissionTitleSchema,
   });
 }
@@ -78,8 +83,9 @@ export default function ProjectsChallengeSubmissionForm({
     deploymentUrls: [{ href: '', label: 'Main' }],
     implementation: '',
     repositoryUrl: '',
-    skills: [],
+    roadmapSkills: [],
     summary: '',
+    techStackSkills: [],
     title: '',
   },
   onSubmit,

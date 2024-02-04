@@ -19,8 +19,8 @@ export const allRoadmapSkillsSet = new Set(allRoadmapSkills);
 export function projectsSkillsCategorized(
   skills: ReadonlyArray<ProjectsSkillKey>,
 ): Readonly<{
-  roadmapSkills: ReadonlyArray<ProjectsSkillKey>;
-  techStackSkills: ReadonlyArray<ProjectsSkillKey>;
+  roadmapSkills: Array<ProjectsSkillKey>;
+  techStackSkills: Array<ProjectsSkillKey>;
 }> {
   const roadmapSkills: Array<ProjectsSkillKey> = [];
   const techStackSkills: Array<ProjectsSkillKey> = [];

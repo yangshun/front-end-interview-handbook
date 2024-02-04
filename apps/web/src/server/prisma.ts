@@ -2,6 +2,7 @@
  * @link https://prisma.io/docs/support/help-articles/nextjs-prisma-client-dev-practices
  */
 
+import { projectsSkillsCategorized } from '~/components/projects/skills/data/ProjectsSkillProcessor';
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/projects/submissions/types';
 
 import { PrismaClient } from '@prisma/client';
@@ -28,6 +29,14 @@ const prismaClientSingleton = () => {
             )[0].screenshots?.desktop ??
             // TODO(projects): Replace with placeholder.
             'https://source.unsplash.com/random/48x48',
+        },
+        roadmapSkills: {
+          compute: (submission) =>
+            projectsSkillsCategorized(submission.skills).roadmapSkills,
+        },
+        techStackSkills: {
+          compute: (submission) =>
+            projectsSkillsCategorized(submission.skills).techStackSkills,
         },
       },
     },

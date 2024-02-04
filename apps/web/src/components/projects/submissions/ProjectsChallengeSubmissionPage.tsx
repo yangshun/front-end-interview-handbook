@@ -25,7 +25,6 @@ import { themeBorderColor } from '~/components/ui/theme';
 
 import GithubRepositoryCodeViewer from './code-viewer/GithubRepositoryCodeViewer';
 import ProjectsChallengeSubmissionDiscussionsSection from './discussions/ProjectsChallengeSubmissionDiscussionsSection';
-import { projectsSkillsCategorized } from '../skills/data/ProjectsSkillProcessor';
 
 function parseGithubRepositoryUrl(url: string) {
   const urlObject = new URL(url);
@@ -53,7 +52,8 @@ export default function ProjectsChallengeSubmissionPage({
     currentUserId === submission.projectsProfile?.userProfile?.id;
   const viewSubmissionMutation = trpc.projects.submissions.view.useMutation();
   const submissionId = submission.id;
-  const { deploymentUrls, repositoryUrl, skills } = submission;
+  const { deploymentUrls, repositoryUrl, roadmapSkills, techStackSkills } =
+    submission;
 
   useEffect(() => {
     viewSubmissionMutation.mutate({
@@ -66,8 +66,6 @@ export default function ProjectsChallengeSubmissionPage({
     () => parseGithubRepositoryUrl(repositoryUrl),
     [repositoryUrl],
   );
-
-  const { roadmapSkills, techStackSkills } = projectsSkillsCategorized(skills);
 
   return (
     <div ref={parentRef} className="flex flex-col -mt-4 lg:-mt-16">

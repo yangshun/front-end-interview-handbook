@@ -2,7 +2,6 @@ import type { Control } from 'react-hook-form';
 import { useController } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
-import { projectsSkillsCategorized } from '~/components/projects/skills/data/ProjectsSkillProcessor';
 import ProjectsSkillTechStackInput from '~/components/projects/skills/form/ProjectsSkillTechStackInput';
 
 import { getProjectsChallengeSubmissionTechStackAttributes } from './ProjectsChallengeSubmissionTechStackSchema';
@@ -12,7 +11,7 @@ type Props = Readonly<{
   control: Control<ProjectsChallengeSubmissionFormValues>;
 }>;
 
-const fieldName = 'skills';
+const fieldName = 'techStackSkills';
 
 export default function ProjectsChallengeSubmissionTechStackField({
   control,
@@ -22,25 +21,14 @@ export default function ProjectsChallengeSubmissionTechStackField({
   const { field, formState } = useController({
     control,
     name: fieldName,
-    rules: { required: true },
+    rules: { required: attrs.validation.required },
   });
-  const { roadmapSkills, techStackSkills } = projectsSkillsCategorized(
-    field.value,
-  );
 
   return (
     <ProjectsSkillTechStackInput
-      errorMessage={
-        techStackSkills.length === 0
-          ? formState.errors[fieldName]?.message
-          : undefined
-      }
+      errorMessage={formState.errors[fieldName]?.message}
       required={attrs.validation.required}
       {...field}
-      value={techStackSkills}
-      onChange={(newTechStackSkills) => {
-        field.onChange([...(newTechStackSkills ?? []), ...roadmapSkills]);
-      }}
     />
   );
 }
