@@ -1,12 +1,16 @@
 import clsx from 'clsx';
-import { RiAddCircleLine, RiPencilFill, RiReplyFill } from 'react-icons/ri';
+import {
+  RiAddCircleLine,
+  RiPencilFill,
+  RiReplyFill,
+  RiThumbUpFill,
+} from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import DiscussionsCommentRepliesThreadLines from '~/components/discussions/DiscussionsCommentRepliesThreadLines';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import ProjectsChallengeBriefSupportCard from '~/components/projects/challenges/brief/support/ProjectsChallengeBriefSupportCard';
 import RelativeTimestamp from '~/components/projects/common/RelativeTimestamp';
-import ProjectsVoteCountTag from '~/components/projects/stats/ProjectsVoteCountTag';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -16,7 +20,8 @@ function Placeholder({ className }: { className?: string }) {
   return (
     <div
       className={clsx(
-        ' dark:bg-neutral-700 bg-neutral-200 rounded w-full',
+        'rounded w-full',
+        'bg-neutral-200 dark:bg-neutral-700',
         className,
       )}
       style={{ height: '10px' }}
@@ -28,11 +33,12 @@ export default function ProjectsChallengeBriefQuestionSupportCard() {
   const intl = useIntl();
 
   return (
-    <ProjectsChallengeBriefSupportCard className="!pr-0">
+    <ProjectsChallengeBriefSupportCard>
       <div className={clsx('flex flex-col grow min-w-[330px]')}>
         <div className="flex items-start gap-4">
           <div className="relative flex flex-col items-center self-stretch">
             <ProjectsProfileAvatar
+              hovercard={false}
               profile={{
                 // TODO(projects): Use appropriate avatar image
                 avatarUrl:
@@ -66,14 +72,14 @@ export default function ProjectsChallengeBriefQuestionSupportCard() {
                   </Text>
                   {' · '}
                   <RelativeTimestamp
-                    timestamp={new Date('2019-12-31T18:30:00.000Z')}
+                    timestamp={new Date('2022-12-31T18:30:00.000Z')}
                   />
                 </Text>
               </div>
               <UserProfileInformationRow
                 profile={{
                   currentStatus: null,
-                  startWorkDate: new Date('2020-12-31T18:30:00.000Z'),
+                  startWorkDate: new Date('2021-12-31T18:30:00.000Z'),
                   title: 'Software Engineer at Stripe',
                 }}
                 size="xs"
@@ -91,8 +97,13 @@ export default function ProjectsChallengeBriefQuestionSupportCard() {
                 <Placeholder />
               </div>
             </div>
-            <div className={clsx('flex -mt-1')}>
-              <ProjectsVoteCountTag count={32} />
+            <div className={clsx('flex -mt-1 -ms-3')}>
+              <Button
+                addonPosition="start"
+                icon={RiThumbUpFill}
+                label="32"
+                variant="tertiary"
+              />
               <Button
                 addonPosition="start"
                 icon={RiReplyFill}

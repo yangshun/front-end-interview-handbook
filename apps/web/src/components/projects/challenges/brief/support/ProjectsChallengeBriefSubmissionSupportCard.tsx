@@ -4,22 +4,13 @@ import { useIntl } from 'react-intl';
 import ProjectsChallengeBriefSupportCard from '~/components/projects/challenges/brief/support/ProjectsChallengeBriefSupportCard';
 import ProjectsSkillList from '~/components/projects/skills/metadata/ProjectsSkillList';
 import Text from '~/components/ui/Text';
-import {
-  themeBackgroundCardColor,
-  themeGlassyBorder,
-} from '~/components/ui/theme';
 
 export default function ProjectsChallengeBriefSubmissionSupportCard() {
   const intl = useIntl();
 
   return (
-    <ProjectsChallengeBriefSupportCard
-      className={clsx(
-        '!p-4 !pt-6',
-        themeBackgroundCardColor,
-        themeGlassyBorder,
-      )}>
-      <div className="flex flex-col gap-3 min-w-[330px]">
+    <ProjectsChallengeBriefSupportCard>
+      <div className="flex flex-col gap-3">
         <Text weight="bold">Responsive solution build with React</Text>
         <ProjectsSkillList
           label={intl.formatMessage({

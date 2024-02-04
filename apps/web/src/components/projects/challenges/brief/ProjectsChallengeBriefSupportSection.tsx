@@ -88,12 +88,14 @@ export default function ProjectsChallengeBriefSupportSection() {
         />
       </Heading>
       <Section>
-        <div className="grid grid-cols-1 gap-x-6 gap-y-8 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
           {supportItems.map(
             ({ key, title: itemTitle, description: itemDescription, card }) => (
-              <div key={key} className="flex flex-col">
-                <Text weight="bold">{itemTitle}</Text>
-                <div className="mt-4 flex flex-col-reverse gap-y-4 lg:mt-3 lg:flex-col lg:gap-y-6">
+              <div key={key} className="flex flex-col gap-3">
+                <Text className="truncate whitespace-nowrap" weight="bold">
+                  {itemTitle}
+                </Text>
+                <div className="flex flex-col-reverse gap-y-4 lg:flex-col lg:gap-y-6">
                   <Text color="secondary" size="body2">
                     {itemDescription}
                   </Text>

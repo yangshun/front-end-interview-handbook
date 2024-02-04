@@ -26,7 +26,7 @@ export default function ProjectsChallengeBriefGuidesResourcesSupportCard() {
     <ProjectsChallengeBriefSupportCard>
       <SidebarLinksList
         activeItem="figma"
-        className="!w-[260px]"
+        className="md:w-[260px]"
         navigation={links}
       />
     </ProjectsChallengeBriefSupportCard>
