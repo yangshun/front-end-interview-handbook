@@ -5,30 +5,53 @@ import { z } from 'zod';
 const MIN_LENGTH = 2;
 const MAX_LENGTH = 50;
 
-function projectsChallengeSubmissionDeploymentUrlsSchema(options?: {
+function projectsChallengeSubmissionDeploymentUrlItemSchema(options?: {
   maxMessage: string;
   minMessage: string;
   urlMessage: string;
 }) {
   const { urlMessage, maxMessage, minMessage } = options ?? {};
 
-  return z.array(
-    z.object({
-      href: z.string().url({ message: urlMessage }),
-      label: z
-        .string()
-        .min(MIN_LENGTH, { message: minMessage })
-        .max(MAX_LENGTH, { message: maxMessage })
-        .trim(),
-      screenshots: z.record(z.string().min(1), z.string().min(1)).optional(),
-    }),
-  );
+  return z.object({
+    href: z.string().url({ message: urlMessage }),
+    label: z
+      .string()
+      .min(MIN_LENGTH, { message: minMessage })
+      .max(MAX_LENGTH, { message: maxMessage })
+      .trim(),
+  });
+}
+
+function projectsChallengeSubmissionDeploymentUrlsSchema(options?: {
+  maxMessage: string;
+  minItemMessage: string;
+  minMessage: string;
+  urlMessage: string;
+}) {
+  const { urlMessage, maxMessage, minMessage, minItemMessage } = options ?? {};
+
+  return z
+    .array(
+      projectsChallengeSubmissionDeploymentUrlItemSchema(options).extend({
+        href: z.string().url({ message: urlMessage }),
+        label: z
+          .string()
+          .min(MIN_LENGTH, { message: minMessage })
+          .max(MAX_LENGTH, { message: maxMessage })
+          .trim(),
+        screenshots: z.record(z.string().min(1), z.string().min(1)).optional(),
+      }),
+    )
+    .min(1, {
+      message: minItemMessage,
+    });
 }
 
 // TODO: Figure out how to reuse intl strings for the server.
 export const projectsChallengeSubmissionDeploymentUrlsSchemaServer =
   projectsChallengeSubmissionDeploymentUrlsSchema({
     maxMessage: `Page can contain at most ${MAX_LENGTH} characters.`,
+    minItemMessage: `Add at least one URL.`,
     minMessage: `Page can contain at least ${MIN_LENGTH} characters.`,
     urlMessage: 'Must be a deployment URL.',
   });
@@ -55,10 +78,9 @@ export function getProjectsChallengeSubmissionDeploymentUrlsAttributes(
   });
   const maxMessage = intl.formatMessage(
     {
-      defaultMessage:
-        'Implementation can contain at most {maxLength} characters.',
+      defaultMessage: 'Page name can contain at most {maxLength} characters.',
       description: 'Error message',
-      id: 'Cxrh5Z',
+      id: '/sjUMM',
     },
     {
       maxLength: MAX_LENGTH,
@@ -66,15 +88,19 @@ export function getProjectsChallengeSubmissionDeploymentUrlsAttributes(
   );
   const minMessage = intl.formatMessage(
     {
-      defaultMessage:
-        'Implementation must contain at least {minLength} characters.',
+      defaultMessage: 'Page name must contain at least {minLength} characters.',
       description: 'Error message',
-      id: 'UOB+rs',
+      id: 'A7o+ui',
     },
     {
       minLength: MIN_LENGTH,
     },
   );
+  const minItemMessage = intl.formatMessage({
+    defaultMessage: 'Add at least one URL.',
+    description: 'Error message',
+    id: 'zoxc1N',
+  });
 
   return {
     description,
@@ -84,12 +110,25 @@ export function getProjectsChallengeSubmissionDeploymentUrlsAttributes(
     validation: {
       maxLength: MAX_LENGTH,
       maxMessage,
+      minItemMessage,
       minLength: MIN_LENGTH,
       minMessage,
       required: true,
       urlMessage,
     },
   } as const;
+}
+
+export function useProjectsChallengeSubmissionDeploymentUrlItemSchema() {
+  const intl = useIntl();
+  const intlStrings =
+    getProjectsChallengeSubmissionDeploymentUrlsAttributes(intl);
+
+  return projectsChallengeSubmissionDeploymentUrlItemSchema({
+    maxMessage: intlStrings.validation.maxMessage,
+    minMessage: intlStrings.validation.minMessage,
+    urlMessage: intlStrings.validation.urlMessage,
+  });
 }
 
 export function useProjectsChallengeSubmissionDeploymentUrlsSchema() {
@@ -99,6 +138,7 @@ export function useProjectsChallengeSubmissionDeploymentUrlsSchema() {
 
   return projectsChallengeSubmissionDeploymentUrlsSchema({
     maxMessage: intlStrings.validation.maxMessage,
+    minItemMessage: intlStrings.validation.minItemMessage,
     minMessage: intlStrings.validation.minMessage,
     urlMessage: intlStrings.validation.urlMessage,
   });

@@ -767,6 +767,10 @@
     "defaultMessage": "Sign Out",
     "description": "Link label to the sign out page"
   },
+  "64hnWF": {
+    "defaultMessage": "Add another URL",
+    "description": "Button label to add another URL to a project submission"
+  },
   "680b8U": {
     "defaultMessage": "Vanilla JS Questions",
     "description": "Vanilla JS questions category long title"
@@ -3134,6 +3138,10 @@
   "SAjGy/": {
     "defaultMessage": "Review must not be generated or written with the assistance of artificial intelligence.",
     "description": "Condition for promotion"
+  },
+  "SGaDHr": {
+    "defaultMessage": "Add a URL",
+    "description": "Button label to add a URL to a project submission"
   },
   "SId1Gq": {
     "defaultMessage": "All rounded coverage to bring you to the next level.",
