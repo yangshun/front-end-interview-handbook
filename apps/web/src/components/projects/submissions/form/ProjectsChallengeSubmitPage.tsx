@@ -16,11 +16,17 @@ import { useI18nRouter } from '~/next-i18nostic/src';
 
 import ProjectsChallengeSubmissionForm from './ProjectsChallengeSubmissionForm';
 
+import type { ProjectsChallengeSession } from '@prisma/client';
+
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
+  session: ProjectsChallengeSession;
 }>;
 
-export default function ProjectsChallengeSubmitPage({ challenge }: Props) {
+export default function ProjectsChallengeSubmitPage({
+  challenge,
+  session,
+}: Props) {
   const intl = useIntl();
   const { showToast } = useToast();
   const router = useI18nRouter();
@@ -86,6 +92,10 @@ export default function ProjectsChallengeSubmitPage({ challenge }: Props) {
         <Section>
           <ProjectsChallengeSubmissionForm
             cancelButtonHref={challenge.metadata.completionHref}
+            defaultValues={{
+              roadmapSkills: session.roadmapSkills,
+              techStackSkills: session.techStackSkills,
+            }}
             mode="create"
             onSubmit={(data) => {
               createSubmissionMutation.mutate({

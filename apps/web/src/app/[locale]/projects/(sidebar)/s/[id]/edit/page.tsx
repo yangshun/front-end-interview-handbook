@@ -15,26 +15,12 @@ export default async function Page({ params }: Props) {
   const { id: submissionId } = params;
 
   const user = await readUserFromToken();
-
-  if (user == null) {
-    return redirect(`/projects/s/${submissionId}`);
-  }
-
-  const projectsProfile = await prisma.projectsProfile.findUnique({
-    where: {
-      userId: user.id,
-    },
-  });
-
-  // No projects profile.
-  if (projectsProfile == null) {
-    return redirect(`/projects/s/${submissionId}`);
-  }
-
   const submission = await prisma.projectsChallengeSubmission.findFirst({
     where: {
       id: submissionId,
-      profileId: projectsProfile.id,
+      projectsProfile: {
+        userId: user?.id,
+      },
     },
   });
 

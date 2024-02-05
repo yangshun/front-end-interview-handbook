@@ -6,7 +6,7 @@ import { z } from 'zod';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 
-import ProjectsChallengeSubmissionDeploymentUrlField from './fields/ProjectsChallengeSubmissionDeploymentUrlsField';
+import ProjectsChallengeSubmissionDeploymentUrlsField from './fields/ProjectsChallengeSubmissionDeploymentUrlsField';
 import { useProjectsChallengeSubmissionDeploymentUrlsSchema } from './fields/ProjectsChallengeSubmissionDeploymentUrlsSchema';
 import ProjectsChallengeSubmissionImplementationField from './fields/ProjectsChallengeSubmissionImplementationField';
 import { useProjectsChallengeSubmissionImplementationSchema } from './fields/ProjectsChallengeSubmissionImplementationSchema';
@@ -65,7 +65,7 @@ function useProjectsChallengeSubmissionFormSchema() {
 type Props =
   | Readonly<{
       cancelButtonHref: string;
-      defaultValues?: ProjectsChallengeSubmissionFormValues;
+      defaultValues?: Partial<ProjectsChallengeSubmissionFormValues>;
       mode: 'create';
       onSubmit: (data: ProjectsChallengeSubmissionFormValues) => void;
     }>
@@ -77,20 +77,24 @@ type Props =
       onSubmit: (data: ProjectsChallengeSubmissionFormValues) => void;
     }>;
 
+const defaultValuesEmpty = Object.freeze({
+  deploymentUrls: [],
+  implementation: '',
+  repositoryUrl: '',
+  roadmapSkills: [],
+  summary: '',
+  techStackSkills: [],
+  title: '',
+});
+
 export default function ProjectsChallengeSubmissionForm({
   cancelButtonHref,
-  defaultValues = {
-    deploymentUrls: [{ href: '', label: 'Main' }],
-    implementation: '',
-    repositoryUrl: '',
-    roadmapSkills: [],
-    summary: '',
-    techStackSkills: [],
-    title: '',
-  },
+  defaultValues: defaultValuesParam,
   onSubmit,
   ...props
 }: Props) {
+  const defaultValues = { ...defaultValuesEmpty, ...defaultValuesParam };
+
   const intl = useIntl();
   const projectsChallengeSubmissionFormSchema =
     useProjectsChallengeSubmissionFormSchema();
@@ -118,7 +122,7 @@ export default function ProjectsChallengeSubmissionForm({
                 control={control}
               />
             </div>
-            <ProjectsChallengeSubmissionDeploymentUrlField control={control} />
+            <ProjectsChallengeSubmissionDeploymentUrlsField control={control} />
           </div>
           <Divider />
           <div className="flex flex-col gap-6">

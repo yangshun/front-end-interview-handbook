@@ -1,6 +1,10 @@
+import { redirect } from 'next/navigation';
+
 import ProjectsChallengeSubmitPage from '~/components/projects/submissions/form/ProjectsChallengeSubmitPage';
 
 import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
+import prisma from '~/server/prisma';
+import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
@@ -8,7 +12,26 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { slug, locale } = params;
-  const { challenge } = await readProjectsChallengeItem(slug, locale);
+  const [user, { challenge }] = await Promise.all([
+    readUserFromToken(),
+    readProjectsChallengeItem(slug, locale),
+  ]);
 
-  return <ProjectsChallengeSubmitPage challenge={challenge} />;
+  const session = await prisma.projectsChallengeSession.findFirst({
+    where: {
+      projectsProfile: {
+        userId: user?.id,
+      },
+      slug: challenge.metadata.slug,
+      status: 'IN_PROGRESS',
+    },
+  });
+
+  if (session == null) {
+    return redirect(challenge.metadata.href);
+  }
+
+  return (
+    <ProjectsChallengeSubmitPage challenge={challenge} session={session} />
+  );
 }
