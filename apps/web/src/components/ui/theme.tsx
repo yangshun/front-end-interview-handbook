@@ -37,7 +37,7 @@ export const themeTextSuccessColor = clsx(
   'text-success dark:text-success-light',
 );
 export const themeTextDangerColor = clsx('text-danger');
-export const themeTextPlaceholderColor = themeTextSecondaryColor;
+export const themeTextPlaceholderColor = themeTextFaintColor;
 export const themeTextDisabledColor = themeTextFainterColor;
 export const themeTextLabelColor = clsx(
   'text-neutral-700 dark:text-neutral-300',

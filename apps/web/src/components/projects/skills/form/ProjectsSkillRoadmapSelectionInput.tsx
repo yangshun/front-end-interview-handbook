@@ -110,7 +110,7 @@ function ProjectsSkillRoadmapSelectionInput(
             setShowSkillsRoadmapDialog(true);
           }}>
           {value.length === 0 ? (
-            <Text color="subtle" size="body2">
+            <Text color="placeholder" size="body2">
               <FormattedMessage
                 defaultMessage="No skills added"
                 description="Placeholder for skills input when no skills are selected"
