@@ -35,8 +35,8 @@ export default function GithubRepositoryCodeViewer({
   });
 
   return (
-    <div className={clsx("flex overflow-y-hidden", className)}>
-      <div className="w-[300px] overflow-y-auto">
+    <div className={clsx('flex overflow-y-hidden', className)}>
+      <div className="flex flex-col w-[300px] overflow-y-auto p-2">
         <ReadonlyDirectoryExplorer
           activeFile={activeFile}
           filePaths={filePaths}

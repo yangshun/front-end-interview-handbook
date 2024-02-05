@@ -48,7 +48,7 @@ export default function ReadonlyDirectoryExplorer({
           setOpenDirectories(newOpenDirectories);
         },
       }}>
-      <ExplorerDirectory {...rootDirectory} indent={-1} />
+      <ExplorerDirectory {...rootDirectory} />
     </DirectoryExplorerContext.Provider>
   );
 }

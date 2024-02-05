@@ -26,7 +26,7 @@ import type {
 export type ExplorerItemProps = PropsWithChildren<{
   className?: string;
   icon?: ReactNode;
-  indent: number;
+  indent?: number;
   isActive?: boolean;
   isRenaming: boolean;
   name: string;
@@ -42,7 +42,7 @@ function ExplorerItem({
   className,
   name,
   icon,
-  indent,
+  indent = -1,
   isActive = false,
   isRenaming,
   onClick,
@@ -57,7 +57,9 @@ function ExplorerItem({
   return (
     <button
       className={clsx(
-        'group flex items-center justify-start gap-2 truncate rounded py-1 pr-4 text-sm',
+        'group flex items-center justify-start gap-2 truncate rounded text-sm',
+        'py-1 pr-4',
+        'shrink-0',
         isActive
           ? [themeTextBrandColor, 'bg-brand-lightest dark:bg-neutral-900']
           : [themeTextSubtleColor, themeTextBrandHoverColor],
@@ -132,7 +134,7 @@ function ExplorerItem({
 }
 
 export type ExplorerPassdownProps = Readonly<{
-  indent: number;
+  indent?: number;
 }>;
 
 export function ExplorerFile({
@@ -193,7 +195,7 @@ export function ExplorerDirectory({
   fullPath,
   isDirectory,
   contents,
-  indent,
+  indent = -1,
 }: ExplorerPassdownProps & FileExplorerDirectory) {
   const folder: FileExplorerDirectory = {
     contents,

@@ -145,7 +145,7 @@ export default function CodingWorkspaceExplorer({
       }}>
       <div className="flex w-full grow flex-col justify-between gap-y-3">
         <div className="flex w-full flex-col">
-          <ExplorerDirectory {...rootDirectory} indent={-1} />
+          <ExplorerDirectory {...rootDirectory} />
         </div>
         <Alert variant="warning">
           <Text size="body2">
