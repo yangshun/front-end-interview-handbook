@@ -83,7 +83,7 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
     <div ref={ref} className="relative rounded-lg w-full">
       <div
         ref={imageListRef}
-        className="grid overflow-x-auto snap-x snap-mandatory thin-scrollbar"
+        className="grid overflow-x-auto snap-x snap-mandatory"
         style={{
           gap: `${GAP_BETWEEN_IMAGE}px`,
           gridTemplateColumns: `repeat(${images.length}, 1fr)`,
@@ -91,7 +91,7 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
         {images.map((image, index) => {
           return (
             <img
-              key={Math.random()}
+              key={image}
               alt={`Project challenge image ${index + 1}`}
               className="object-cover rounded-lg w-full snap-center md:h-[372px] h-[266px]"
               src={image}
@@ -103,7 +103,6 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
           );
         })}
       </div>
-
       {images.length > 1 && (
         <>
           <div className="absolute left-2 top-1/2 transform -translate-y-1/2">
@@ -132,12 +131,12 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
               onClick={() => scrollImage('right')}
             />
           </div>
-          <div className="absolute bottom-3 right-2 bg-neutral-300 dark:bg-neutral-300 rounded-full px-2 py-0.5">
+          <div className="flex absolute right-0 bottom-0 me-6 mb-6 bg-neutral-300 rounded-full px-2 py-0.5">
             <Text color="dark" size="body3" weight="medium">
               {current + 1}/{images.length}
             </Text>
           </div>
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1">
+          <div className="absolute mb-8 bottom-0 left-1/2 -translate-x-1/2 flex gap-1">
             {images.map((image, index) => (
               <div
                 key={image}
