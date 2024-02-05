@@ -94,6 +94,7 @@ const spacingClasses: Record<ButtonSize, string> = {
   xs: 'gap-x-1',
 };
 
+// Important is used to override spinner classes.
 const sizeIconClasses: Record<ButtonSize, string> = {
   lg: '!h-4 !w-4',
   md: '!h-4 !w-4',
