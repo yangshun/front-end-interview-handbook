@@ -13,14 +13,13 @@ import { useProjectsChallengeSubmissionImplementationSchema } from './fields/Pro
 import ProjectsChallengeSubmissionRepositoryUrlField from './fields/ProjectsChallengeSubmissionRepositoryUrlField';
 import { useProjectsChallengeSubmissionRepositoryUrlSchema } from './fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
 import ProjectsChallengeSubmissionRoadmapSkillsField from './fields/ProjectsChallengeSubmissionRoadmapSkillsField';
-import { useProjectsChallengeSubmissionRoadmapSkillsSchema } from './fields/ProjectsChallengeSubmissionRoadmapSkillsSchema';
 import ProjectsChallengeSubmissionSummaryField from './fields/ProjectsChallengeSubmissionSummaryField';
 import { useProjectsChallengeSubmissionSummarySchema } from './fields/ProjectsChallengeSubmissionSummarySchema';
 import ProjectsChallengeSubmissionTechStackField from './fields/ProjectsChallengeSubmissionTechStackField';
-import { useProjectsChallengeSubmissionTechStackSchema } from './fields/ProjectsChallengeSubmissionTechStackSchema';
 import ProjectsChallengeSubmissionTitleField from './fields/ProjectsChallengeSubmissionTitleField';
 import { useProjectsChallengeSubmissionTitleSchema } from './fields/ProjectsChallengeSubmissionTitleSchema';
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '../types';
+import { useProjectsSkillListInputSchema } from '../../skills/form/ProjectsSkillListInputSchema';
 import type { ProjectsSkillKey } from '../../skills/types';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -41,9 +40,9 @@ function useProjectsChallengeSubmissionFormSchema() {
   const projectsChallengeSubmissionSummarySchema =
     useProjectsChallengeSubmissionSummarySchema();
   const projectsChallengeSubmissionTechStackSchema =
-    useProjectsChallengeSubmissionTechStackSchema();
+    useProjectsSkillListInputSchema();
   const projectsChallengeSubmissionRoadmapSkillsSchema =
-    useProjectsChallengeSubmissionRoadmapSkillsSchema();
+    useProjectsSkillListInputSchema();
   const projectsChallengeSubmissionRepositoryUrlSchema =
     useProjectsChallengeSubmissionRepositoryUrlSchema();
   const projectsChallengeSubmissionDeploymentUrlsSchema =

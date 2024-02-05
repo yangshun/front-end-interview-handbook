@@ -1,8 +1,7 @@
 import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { z } from 'zod';
 
-import { projectsChallengeSubmissionRoadmapSkillsOptionalSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionRoadmapSkillsSchema';
-import { projectsChallengeSubmissionTechStackOptionalSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionTechStackSchema';
+import { projectsSkillListInputOptionalSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 
 import {
   readProjectsChallengeList,
@@ -39,10 +38,8 @@ export const projectsSessionsRouter = router({
   create: projectsSessionProcedure
     .input(
       z.object({
-        roadmapSkills:
-          projectsChallengeSubmissionRoadmapSkillsOptionalSchemaServer,
-        techStackSkills:
-          projectsChallengeSubmissionTechStackOptionalSchemaServer,
+        roadmapSkills: projectsSkillListInputOptionalSchemaServer,
+        techStackSkills: projectsSkillListInputOptionalSchemaServer,
       }),
     )
     .mutation(
@@ -246,11 +243,9 @@ export const projectsSessionsRouter = router({
   updateSkills: projectsSessionProcedure
     .input(
       z.object({
-        roadmapSkills:
-          projectsChallengeSubmissionRoadmapSkillsOptionalSchemaServer,
+        roadmapSkills: projectsSkillListInputOptionalSchemaServer,
         sessionId: z.string().uuid(),
-        techStackSkills:
-          projectsChallengeSubmissionTechStackOptionalSchemaServer,
+        techStackSkills: projectsSkillListInputOptionalSchemaServer,
       }),
     )
     .mutation(

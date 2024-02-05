@@ -1,12 +1,11 @@
 import { z } from 'zod';
 
 import { yoeReplacementSchema } from '~/components/projects/misc';
+import { projectsSkillListInputSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 import { projectsChallengeSubmissionDeploymentUrlsSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionDeploymentUrlsSchema';
 import { projectsChallengeSubmissionImplementationSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionImplementationSchema';
 import { projectsChallengeSubmissionRepositoryUrlSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
-import { projectsChallengeSubmissionRoadmapSkillsSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionRoadmapSkillsSchema';
 import { projectsChallengeSubmissionSummarySchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionSummarySchema';
-import { projectsChallengeSubmissionTechStackSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionTechStackSchema';
 import { projectsChallengeSubmissionTitleSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionTitleSchema';
 import { projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus } from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListUtil';
 import type { ProjectsYoeReplacement } from '~/components/projects/types';
@@ -34,9 +33,9 @@ const projectsChallengeSubmissionFormSchema = z.object({
   deploymentUrls: projectsChallengeSubmissionDeploymentUrlsSchemaServer,
   implementation: projectsChallengeSubmissionImplementationSchemaServer,
   repositoryUrl: projectsChallengeSubmissionRepositoryUrlSchemaServer,
-  roadmapSkills: projectsChallengeSubmissionRoadmapSkillsSchemaServer,
+  roadmapSkills: projectsSkillListInputSchemaServer,
   summary: projectsChallengeSubmissionSummarySchemaServer,
-  techStackSkills: projectsChallengeSubmissionTechStackSchemaServer,
+  techStackSkills: projectsSkillListInputSchemaServer,
   title: projectsChallengeSubmissionTitleSchemaServer,
 });
 

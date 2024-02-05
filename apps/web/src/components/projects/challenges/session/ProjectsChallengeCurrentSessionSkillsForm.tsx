@@ -5,9 +5,8 @@ import ProjectsSkillRoadmapSelectionInput from '~/components/projects/skills/for
 import Divider from '~/components/ui/Divider';
 
 import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
+import { useProjectsSkillListInputSchema } from '../../skills/form/ProjectsSkillListInputSchema';
 import ProjectsSkillTechStackInput from '../../skills/form/ProjectsSkillTechStackInput';
-import { useProjectsChallengeSubmissionRoadmapSkillsSchema } from '../../submissions/form/fields/ProjectsChallengeSubmissionRoadmapSkillsSchema';
-import { useProjectsChallengeSubmissionTechStackSchema } from '../../submissions/form/fields/ProjectsChallengeSubmissionTechStackSchema';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -18,9 +17,9 @@ type Props = Readonly<{
 
 function useProjectsChallengeSessionFormSchema() {
   const projectsChallengeSubmissionTechStackSchema =
-    useProjectsChallengeSubmissionTechStackSchema({ optional: true });
+    useProjectsSkillListInputSchema({ required: false });
   const projectsChallengeSubmissionRoadmapSkillsSchema =
-    useProjectsChallengeSubmissionRoadmapSkillsSchema({ optional: true });
+    useProjectsSkillListInputSchema({ required: false });
 
   return z.object({
     roadmapSkills: projectsChallengeSubmissionRoadmapSkillsSchema,

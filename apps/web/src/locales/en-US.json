@@ -179,6 +179,10 @@
     "defaultMessage": "3 simple steps to start earning",
     "description": "Title for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
   },
+  "/sjUMM": {
+    "defaultMessage": "Page name can contain at most {maxLength} characters.",
+    "description": "Error message"
+  },
   "01jNoZ": {
     "defaultMessage": "Get started",
     "description": "Hint for \"Project Brief\" and \"Assets\" tab on Projects project page"
@@ -1211,6 +1215,10 @@
     "defaultMessage": "Read more",
     "description": "Read more"
   },
+  "A7o+ui": {
+    "defaultMessage": "Page name must contain at least {minLength} characters.",
+    "description": "Error message"
+  },
   "AJSVim": {
     "defaultMessage": "Seattle, WA, USA",
     "description": "Seattle in USA"
@@ -2126,10 +2134,6 @@
   "JaQOv1": {
     "defaultMessage": "Back to home",
     "description": "Link text to navigate to blog home page"
-  },
-  "JbkT4P": {
-    "defaultMessage": "Tech stack cannot be empty.",
-    "description": "Error message"
   },
   "JeIp7K": {
     "defaultMessage": "If you're stuck, clarify any doubts within the project discussion forums in Step 3's tab. If you need answers urgently for a critical issue, email as at <link>support@greatfrontend.com</link>.",
@@ -3787,6 +3791,10 @@
     "defaultMessage": "Build a whole component library or design system for your portfolio",
     "description": "Description for portfolio motivation"
   },
+  "Xlj7W5": {
+    "defaultMessage": "Update",
+    "description": "Update existing URL in a form"
+  },
   "Xlmv0q": {
     "defaultMessage": "Follow this step-by-step deployment and submission checklist",
     "description": "Description for the project submission checklist section"
@@ -5419,6 +5427,10 @@
     "defaultMessage": "Prepare end-to-end for front end interviews",
     "description": "Title for question format category links in navbar"
   },
+  "mRxkm4": {
+    "defaultMessage": "Live site URL",
+    "description": "Project submission URL"
+  },
   "mU6vix": {
     "defaultMessage": "[For complete beginners] Basic general development guides, such as how to download and use an IDE, how to use tools like Github and Figma",
     "description": "FAQ answer for projects platform"
@@ -5446,6 +5458,10 @@
   "mt2ON4": {
     "defaultMessage": "Find out more about the team who built GreatFrontEnd and why we did it",
     "description": "Description of About Us page"
+  },
+  "mukCc2": {
+    "defaultMessage": "Add",
+    "description": "Add a URL to a form"
   },
   "mvio4u": {
     "defaultMessage": "Your account email contains \".edu\" or \".ac\".",
@@ -6854,6 +6870,10 @@
   "zo65Ck": {
     "defaultMessage": "All Practice Questions",
     "description": "Header for all practice questions section in study plans"
+  },
+  "zoxc1N": {
+    "defaultMessage": "Add at least one URL.",
+    "description": "Error message"
   },
   "zpsjf3": {
     "defaultMessage": "Back to all tracks",
