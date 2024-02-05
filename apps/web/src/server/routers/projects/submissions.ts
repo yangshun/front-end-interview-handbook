@@ -244,52 +244,6 @@ export const projectsChallengeSubmissionRouter = router({
         return null;
       },
     ),
-  getLatestSubmitted: projectsUserProcedure
-    .input(
-      z.object({
-        limit: z.number().int().positive(),
-      }),
-    )
-    .query(async ({ input: { limit }, ctx: { projectsProfileId } }) => {
-      const submissions = await prisma.projectsChallengeSubmission.findMany({
-        include: {
-          _count: {
-            select: {
-              votes: true,
-            },
-          },
-          projectsProfile: {
-            include: {
-              userProfile: {
-                select: {
-                  avatarUrl: true,
-                  currentStatus: true,
-                  id: true,
-                  name: true,
-                  startWorkDate: true,
-                  title: true,
-                  username: true,
-                },
-              },
-            },
-          },
-        },
-        orderBy: {
-          createdAt: 'desc',
-        },
-        take: Math.min(limit, 10),
-        where: {
-          NOT: {
-            profileId: projectsProfileId,
-          },
-        },
-      });
-
-      return await projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
-        null,
-        submissions,
-      );
-    }),
   hasVoted: projectsUserProcedure
     .input(
       z.object({
@@ -308,41 +262,25 @@ export const projectsChallengeSubmissionRouter = router({
 
       return existingVote;
     }),
-  interested: publicProcedure
+  incrementView: publicProcedure
     .input(
       z.object({
-        challenge: z.string(),
+        submissionId: z.string().uuid(),
       }),
     )
-    .query(async ({ input: { challenge }, ctx: { user } }) => {
-      const submissions = await prisma.projectsChallengeSubmission.findMany({
-        include: {
-          _count: {
-            select: {
-              votes: true,
-            },
+    .mutation(async ({ input: { submissionId } }) => {
+      await prisma.projectsChallengeSubmission.update({
+        data: {
+          views: {
+            increment: 1,
           },
         },
-        take: 15,
-        where:
-          user?.id == null
-            ? { slug: challenge }
-            : {
-                projectsProfile: {
-                  isNot: {
-                    userProfile: {
-                      id: user?.id,
-                    },
-                  },
-                },
-                slug: challenge,
-              },
+        where: {
+          id: submissionId,
+        },
       });
 
-      return await projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
-        user?.id ?? null,
-        submissions,
-      );
+      return null;
     }),
   list: publicProjectsProcedure
     .input(
@@ -636,6 +574,123 @@ export const projectsChallengeSubmissionRouter = router({
         };
       },
     ),
+  listInterested: publicProcedure
+    .input(
+      z.object({
+        challenge: z.string(),
+      }),
+    )
+    .query(async ({ input: { challenge }, ctx: { user } }) => {
+      const submissions = await prisma.projectsChallengeSubmission.findMany({
+        include: {
+          _count: {
+            select: {
+              votes: true,
+            },
+          },
+        },
+        take: 15,
+        where:
+          user?.id == null
+            ? { slug: challenge }
+            : {
+                projectsProfile: {
+                  isNot: {
+                    userProfile: {
+                      id: user?.id,
+                    },
+                  },
+                },
+                slug: challenge,
+              },
+      });
+
+      return await projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
+        user?.id ?? null,
+        submissions,
+      );
+    }),
+  listLatest: projectsUserProcedure
+    .input(
+      z.object({
+        limit: z.number().int().positive(),
+      }),
+    )
+    .query(async ({ input: { limit }, ctx: { projectsProfileId } }) => {
+      const submissions = await prisma.projectsChallengeSubmission.findMany({
+        include: {
+          _count: {
+            select: {
+              votes: true,
+            },
+          },
+          projectsProfile: {
+            include: {
+              userProfile: {
+                select: {
+                  avatarUrl: true,
+                  currentStatus: true,
+                  id: true,
+                  name: true,
+                  startWorkDate: true,
+                  title: true,
+                  username: true,
+                },
+              },
+            },
+          },
+        },
+        orderBy: {
+          createdAt: 'desc',
+        },
+        take: Math.min(limit, 10),
+        where: {
+          NOT: {
+            profileId: projectsProfileId,
+          },
+        },
+      });
+
+      return await projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
+        null,
+        submissions,
+      );
+    }),
+  listReference: projectsChallengeProcedure.query(
+    async ({ input: { slug } }) => {
+      return await prisma.projectsChallengeSubmission.findMany({
+        include: {
+          _count: {
+            select: {
+              votes: true,
+            },
+          },
+          projectsProfile: {
+            include: {
+              userProfile: {
+                select: {
+                  avatarUrl: true,
+                  currentStatus: true,
+                  id: true,
+                  name: true,
+                  startWorkDate: true,
+                  title: true,
+                  username: true,
+                },
+              },
+            },
+          },
+        },
+        orderBy: {
+          createdAt: 'desc',
+        },
+        take: 6,
+        where: {
+          slug,
+        },
+      });
+    },
+  ),
   pin: projectsUserProcedure
     .input(
       z.object({
@@ -703,39 +758,6 @@ export const projectsChallengeSubmissionRouter = router({
         submissions,
       );
     }),
-  reference: projectsChallengeProcedure.query(async ({ input: { slug } }) => {
-    return await prisma.projectsChallengeSubmission.findMany({
-      include: {
-        _count: {
-          select: {
-            votes: true,
-          },
-        },
-        projectsProfile: {
-          include: {
-            userProfile: {
-              select: {
-                avatarUrl: true,
-                currentStatus: true,
-                id: true,
-                name: true,
-                startWorkDate: true,
-                title: true,
-                username: true,
-              },
-            },
-          },
-        },
-      },
-      orderBy: {
-        createdAt: 'desc',
-      },
-      take: 6,
-      where: {
-        slug,
-      },
-    });
-  }),
   takeScreenshot: publicProcedure
     .input(
       z.object({
@@ -894,26 +916,6 @@ export const projectsChallengeSubmissionRouter = router({
       });
     },
   ),
-  view: publicProcedure
-    .input(
-      z.object({
-        submissionId: z.string().uuid(),
-      }),
-    )
-    .mutation(async ({ input: { submissionId } }) => {
-      await prisma.projectsChallengeSubmission.update({
-        data: {
-          views: {
-            increment: 1,
-          },
-        },
-        where: {
-          id: submissionId,
-        },
-      });
-
-      return null;
-    }),
   vote: projectsUserProcedure
     .input(
       z.object({

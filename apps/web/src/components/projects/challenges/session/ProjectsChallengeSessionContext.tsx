@@ -19,7 +19,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { getQueryKey } from '@trpc/react-query';
 
 const latestSessionQueryKey = getQueryKey(
-  trpc.projects.sessions.getLatestInProgress,
+  trpc.projects.sessions.latestInProgress,
 );
 
 type ProjectsChallengeSessionContextType = {
@@ -69,10 +69,10 @@ export default function ProjectsChallengeSessionContextProvider({
   const { data: startedBefore } =
     trpc.projects.sessions.startedBefore.useQuery();
   const { data: accessAllSteps } =
-    trpc.projects.sessions.accessAllSteps.useQuery({ slug });
+    trpc.projects.sessions.canAccessAllSteps.useQuery({ slug });
 
   const { data: session, isFetched: isGetLatestSessionFetched } =
-    trpc.projects.sessions.getLatestInProgress.useQuery(
+    trpc.projects.sessions.latestInProgress.useQuery(
       {
         slug,
       },
@@ -82,7 +82,7 @@ export default function ProjectsChallengeSessionContextProvider({
       },
     );
 
-  const startProjectMutation = trpc.projects.sessions.create.useMutation({
+  const startProjectMutation = trpc.projects.sessions.start.useMutation({
     onSuccess: () => {
       queryClient.invalidateQueries(latestSessionQueryKey);
     },

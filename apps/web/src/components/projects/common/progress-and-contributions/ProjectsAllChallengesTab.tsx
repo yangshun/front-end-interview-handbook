@@ -27,14 +27,13 @@ export default function ProjectsAllChallengesTab({ userId }: Props) {
       namespace: 'all-challenges',
     });
 
-  const { data: allSessions } =
-    trpc.projects.sessions.getSessionsBasedOnStatus.useQuery({
-      statuses: [
-        ProjectsChallengeSessionStatus.IN_PROGRESS,
-        ProjectsChallengeSessionStatus.COMPLETED,
-      ],
-      userId,
-    });
+  const { data: allSessions } = trpc.projects.sessions.list.useQuery({
+    statuses: [
+      ProjectsChallengeSessionStatus.IN_PROGRESS,
+      ProjectsChallengeSessionStatus.COMPLETED,
+    ],
+    userId,
+  });
 
   const shownSessions = allSessions
     ?.filter((session) => {

@@ -50,7 +50,8 @@ export default function ProjectsChallengeSubmissionPage({
   const isParentInView = useInView(parentRef);
   const isViewingOwnSubmission =
     currentUserId === submission.projectsProfile?.userProfile?.id;
-  const viewSubmissionMutation = trpc.projects.submissions.view.useMutation();
+  const viewSubmissionMutation =
+    trpc.projects.submissions.incrementView.useMutation();
   const submissionId = submission.id;
   const { deploymentUrls, repositoryUrl, roadmapSkills, techStackSkills } =
     submission;

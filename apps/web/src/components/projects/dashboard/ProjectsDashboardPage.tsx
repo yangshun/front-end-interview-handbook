@@ -26,11 +26,9 @@ export default function ProjectsDashboardPage({ children }: Props) {
   const intl = useIntl();
 
   const { data: profileStatistics } =
-    trpc.projects.profile.getDashboardStatistics.useQuery();
-  const { data: isNewToProjects } =
-    trpc.projects.sessions.isNewToProjects.useQuery();
-  const { data: userProfile } =
-    trpc.projects.profile.projectsProfileGet.useQuery();
+    trpc.projects.profile.dashboardStatisticsSelf.useQuery();
+  const { data: isNewToProjects } = trpc.projects.sessions.firstTime.useQuery();
+  const { data: userProfile } = trpc.projects.profile.get.useQuery();
 
   return (
     <BlurOverlay

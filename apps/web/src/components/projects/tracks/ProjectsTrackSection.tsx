@@ -16,7 +16,7 @@ export default function ProjectsTrackSection({
   userId,
 }: Props) {
   const { data: challengeStatuses } =
-    trpc.projects.challenges.progressStatus.useQuery(
+    trpc.projects.challenges.progress.useQuery(
       { userId: userId! },
       {
         enabled: userId != null,

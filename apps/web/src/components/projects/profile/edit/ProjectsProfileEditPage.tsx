@@ -106,13 +106,15 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
   const intl = useIntl();
   const { showToast } = useToast();
   const projectsProfileUpdateMutation =
-    trpc.projects.profile.projectsProfileUpdate.useMutation();
-  const { data: initialValues } =
-    trpc.projects.profile.projectsProfileGet.useQuery(undefined, {
+    trpc.projects.profile.update.useMutation();
+  const { data: initialValues } = trpc.projects.profile.get.useQuery(
+    undefined,
+    {
       initialData: userProfile,
       refetchOnMount: false,
       refetchOnReconnect: false,
-    });
+    },
+  );
 
   const { reasonOptions } = useProjectsMotivationReasonOptions();
   const projectsProfileEditSchema = useProjectsProfileEditSchema();

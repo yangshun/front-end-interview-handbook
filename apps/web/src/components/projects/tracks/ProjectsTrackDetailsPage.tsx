@@ -38,7 +38,7 @@ type Props = Readonly<{
 export default function ProjectsTrackDetailsPage({ track, userId }: Props) {
   const { challenges, points, metadata } = track;
   const { data: challengeStatuses } =
-    trpc.projects.challenges.progressStatus.useQuery(
+    trpc.projects.challenges.progress.useQuery(
       { trackSlug: track.metadata.slug, userId: userId! },
       {
         enabled: userId != null,

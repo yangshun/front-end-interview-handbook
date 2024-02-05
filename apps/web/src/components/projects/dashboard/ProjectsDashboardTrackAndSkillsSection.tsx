@@ -33,7 +33,7 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
   const intl = useIntl();
 
   const { isLoading, data: tracks } =
-    trpc.projects.sessions.getMostProgressTracks.useQuery({ limit });
+    trpc.projects.sessions.tracksWithMostProgress.useQuery({ limit });
 
   if (isLoading) {
     return null;

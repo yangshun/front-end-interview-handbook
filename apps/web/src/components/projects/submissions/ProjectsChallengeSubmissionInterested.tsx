@@ -12,7 +12,7 @@ export default function ProjectsChallengeSubmissionInterested({
   challengeSlug: string;
 }) {
   const { data: interestedSubmissions } =
-    trpc.projects.submissions.interested.useQuery({
+    trpc.projects.submissions.listInterested.useQuery({
       challenge: challengeSlug,
     });
 

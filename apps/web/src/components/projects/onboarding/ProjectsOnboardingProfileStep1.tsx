@@ -90,7 +90,7 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
   const intl = useIntl();
   const onboardingProfileStep1Schema = useOnboardingProfileStep1Schema();
   const { data: initialValues } =
-    trpc.projects.profile.onboardingStep1Get.useQuery();
+    trpc.projects.profile.onboardingStep1.useQuery();
   const onboardingStep1UpdateMutation =
     trpc.projects.profile.onboardingStep1Update.useMutation();
 

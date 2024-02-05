@@ -26,10 +26,9 @@ type Props = Readonly<{
 export default function ProjectsProfileHoverCard({ profileId }: Props) {
   const intl = useIntl();
   const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
-  const { data, isLoading } =
-    trpc.projects.profile.getProfileHoverData.useQuery({
-      profileId,
-    });
+  const { data, isLoading } = trpc.projects.profile.hovercard.useQuery({
+    profileId,
+  });
 
   const statsItems = useProjectsProfileStats({
     codeReviews: data?.stats.codeReviews,

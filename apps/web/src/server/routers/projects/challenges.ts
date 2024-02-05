@@ -18,7 +18,7 @@ const projectsChallengeProcedure = projectsUserProcedure.input(
 );
 
 export const projectsChallengesRouter = router({
-  getChallenge: projectsChallengeProcedure
+  hovercard: projectsChallengeProcedure
     .input(
       z.object({
         locale: z.string(),
@@ -46,7 +46,7 @@ export const projectsChallengesRouter = router({
         status: challengeSession?.status || null,
       };
     }),
-  progressStatus: publicProcedure
+  progress: publicProcedure
     .input(
       z.object({
         trackSlug: z.string().optional(), // Track slug

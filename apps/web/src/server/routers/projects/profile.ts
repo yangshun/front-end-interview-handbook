@@ -70,12 +70,7 @@ async function fetchProjectsProfileStatistics(projectsProfileId: string) {
 }
 
 export const projectsProfileRouter = router({
-  getDashboardStatistics: projectsUserProcedure.query(
-    async ({ ctx: { projectsProfileId } }) => {
-      return await fetchProjectsProfileStatistics(projectsProfileId);
-    },
-  ),
-  getDashboardStatisticsForProfile: publicProcedure
+  dashboardStatistics: publicProcedure
     .input(
       z.object({
         projectsProfileId: z.string().uuid(),
@@ -84,7 +79,22 @@ export const projectsProfileRouter = router({
     .query(async ({ input: { projectsProfileId } }) => {
       return await fetchProjectsProfileStatistics(projectsProfileId);
     }),
-  getProfileHoverData: publicProcedure
+  dashboardStatisticsSelf: projectsUserProcedure.query(
+    async ({ ctx: { projectsProfileId } }) => {
+      return await fetchProjectsProfileStatistics(projectsProfileId);
+    },
+  ),
+  get: projectsUserProcedure.query(async ({ ctx: { user } }) => {
+    return await prisma.profile.findUnique({
+      include: {
+        projectsProfile: true,
+      },
+      where: {
+        id: user.id,
+      },
+    });
+  }),
+  hovercard: publicProcedure
     .input(
       z.object({
         profileId: z.string().uuid(),
@@ -178,7 +188,7 @@ export const projectsProfileRouter = router({
         });
       },
     ),
-  onboardingStep1Get: userProcedure.query(async ({ ctx: { user } }) => {
+  onboardingStep1: userProcedure.query(async ({ ctx: { user } }) => {
     return await prisma.profile.findUnique({
       select: {
         currentStatus: true,
@@ -218,7 +228,7 @@ export const projectsProfileRouter = router({
         });
       },
     ),
-  onboardingStep2Get: userProcedure.query(async ({ ctx: { user } }) => {
+  onboardingStep2: userProcedure.query(async ({ ctx: { user } }) => {
     return await prisma.profile.findUnique({
       select: {
         bio: true,
@@ -279,17 +289,7 @@ export const projectsProfileRouter = router({
         });
       },
     ),
-  projectsProfileGet: projectsUserProcedure.query(async ({ ctx: { user } }) => {
-    return await prisma.profile.findUnique({
-      include: {
-        projectsProfile: true,
-      },
-      where: {
-        id: user.id,
-      },
-    });
-  }),
-  projectsProfileUpdate: projectsUserProcedure
+  update: projectsUserProcedure
     .input(
       z
         .object({

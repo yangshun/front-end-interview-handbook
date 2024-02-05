@@ -20,7 +20,7 @@ const projectsSessionProcedure = projectsUserProcedure.input(
 );
 
 export const projectsSessionsRouter = router({
-  accessAllSteps: projectsSessionProcedure.query(
+  canAccessAllSteps: projectsSessionProcedure.query(
     async ({ input: { slug }, ctx: { projectsProfileId } }) => {
       const sessions = await prisma.projectsChallengeSession.count({
         where: {
@@ -35,7 +35,108 @@ export const projectsSessionsRouter = router({
       return sessions > 0;
     },
   ),
-  create: projectsSessionProcedure
+  end: projectsSessionProcedure.mutation(
+    async ({ input: { slug }, ctx: { projectsProfileId } }) => {
+      return await prisma.projectsChallengeSession.updateMany({
+        data: {
+          status: 'STOPPED',
+          stoppedAt: new Date(),
+        },
+        where: {
+          profileId: projectsProfileId,
+          slug,
+          status: 'IN_PROGRESS',
+        },
+      });
+    },
+  ),
+  firstTime: projectsUserProcedure.query(
+    async ({ ctx: { projectsProfileId } }) => {
+      const sessions = await prisma.projectsChallengeSession.count({
+        where: {
+          profileId: projectsProfileId,
+        },
+      });
+
+      return sessions === 0;
+    },
+  ),
+  latestInProgress: projectsSessionProcedure.query(
+    async ({ input: { slug }, ctx: { projectsProfileId } }) => {
+      return await prisma.projectsChallengeSession.findFirst({
+        where: {
+          profileId: projectsProfileId,
+          slug,
+          status: 'IN_PROGRESS',
+        },
+      });
+    },
+  ),
+  list: userProcedure
+    .input(
+      z.object({
+        statuses: z
+          .array(z.enum(['COMPLETED', 'IN_PROGRESS', 'STOPPED']))
+          .nonempty(),
+        userId: z.string().uuid().optional(),
+      }),
+    )
+    .query(async ({ input: { statuses, userId }, ctx: { user } }) => {
+      const sessions = await prisma.projectsChallengeSession.findMany({
+        where: {
+          projectsProfile: {
+            userId: userId ?? user.id,
+          },
+          status: {
+            in: statuses,
+          },
+        },
+      });
+
+      const { challenges: projectsChallengeList } =
+        await readProjectsChallengeList();
+
+      return sessions.map((session) => {
+        const challenge = projectsChallengeList.find(
+          (project) => project.metadata.slug === session.slug,
+        );
+
+        return {
+          ...session,
+          challenge,
+        };
+      });
+    }),
+  listRecent: projectsUserProcedure
+    .input(
+      z.object({
+        limit: z.number().int().positive(),
+      }),
+    )
+    .query(async ({ input: { limit }, ctx: { projectsProfileId } }) => {
+      const sessions = await prisma.projectsChallengeSession.findMany({
+        orderBy: {
+          updatedAt: 'desc',
+        },
+        take: limit,
+        where: {
+          profileId: projectsProfileId,
+          status: 'IN_PROGRESS',
+        },
+      });
+
+      return sessions.map((session) => {
+        const challenge = allProjectsChallengeMetadata.find(
+          (project) => project.slug === session.slug,
+        );
+
+        return {
+          ...session,
+          challenge,
+        };
+      });
+    }),
+  start: projectsSessionProcedure
     .input(
       z.object({
         roadmapSkills: projectsSkillListInputOptionalSchemaServer,
@@ -81,33 +182,18 @@ export const projectsSessionsRouter = router({
         });
       },
     ),
-  end: projectsSessionProcedure.mutation(
-    async ({ input: { slug }, ctx: { projectsProfileId } }) => {
-      return await prisma.projectsChallengeSession.updateMany({
-        data: {
-          status: 'STOPPED',
-          stoppedAt: new Date(),
-        },
+  startedBefore: projectsUserProcedure.query(
+    async ({ ctx: { projectsProfileId } }) => {
+      const sessions = await prisma.projectsChallengeSession.count({
         where: {
           profileId: projectsProfileId,
-          slug,
-          status: 'IN_PROGRESS',
         },
       });
+
+      return sessions > 0;
     },
   ),
-  getLatestInProgress: projectsSessionProcedure.query(
-    async ({ input: { slug }, ctx: { projectsProfileId } }) => {
-      return await prisma.projectsChallengeSession.findFirst({
-        where: {
-          profileId: projectsProfileId,
-          slug,
-          status: 'IN_PROGRESS',
-        },
-      });
-    },
-  ),
-  getMostProgressTracks: projectsUserProcedure
+  tracksWithMostProgress: projectsUserProcedure
     .input(
       z.object({
         limit: z.number().int().positive(),
@@ -154,92 +240,6 @@ export const projectsSessionsRouter = router({
         .sort((a, b) => b.percentageCompleted - a.percentageCompleted)
         .slice(0, limit);
     }),
-  getMostRecentlyStarted: projectsUserProcedure
-    .input(
-      z.object({
-        limit: z.number().int().positive(),
-      }),
-    )
-    .query(async ({ input: { limit }, ctx: { projectsProfileId } }) => {
-      const sessions = await prisma.projectsChallengeSession.findMany({
-        orderBy: {
-          createdAt: 'desc',
-        },
-        take: limit,
-        where: {
-          profileId: projectsProfileId,
-          status: 'IN_PROGRESS',
-        },
-      });
-
-      return sessions.map((session) => {
-        const challenge = allProjectsChallengeMetadata.find(
-          (project) => project.slug === session.slug,
-        );
-
-        return {
-          ...session,
-          challenge,
-        };
-      });
-    }),
-  getSessionsBasedOnStatus: userProcedure
-    .input(
-      z.object({
-        statuses: z
-          .array(z.enum(['COMPLETED', 'IN_PROGRESS', 'STOPPED']))
-          .nonempty(),
-        userId: z.string().uuid().optional(),
-      }),
-    )
-    .query(async ({ input: { statuses, userId }, ctx: { user } }) => {
-      const sessions = await prisma.projectsChallengeSession.findMany({
-        where: {
-          projectsProfile: {
-            userId: userId ?? user.id,
-          },
-          status: {
-            in: statuses,
-          },
-        },
-      });
-
-      const { challenges: projectsChallengeList } =
-        await readProjectsChallengeList();
-
-      return sessions.map((session) => {
-        const challenge = projectsChallengeList.find(
-          (project) => project.metadata.slug === session.slug,
-        );
-
-        return {
-          ...session,
-          challenge,
-        };
-      });
-    }),
-  isNewToProjects: projectsUserProcedure.query(
-    async ({ ctx: { projectsProfileId } }) => {
-      const sessions = await prisma.projectsChallengeSession.count({
-        where: {
-          profileId: projectsProfileId,
-        },
-      });
-
-      return sessions === 0;
-    },
-  ),
-  startedBefore: projectsUserProcedure.query(
-    async ({ ctx: { projectsProfileId } }) => {
-      const sessions = await prisma.projectsChallengeSession.count({
-        where: {
-          profileId: projectsProfileId,
-        },
-      });
-
-      return sessions > 0;
-    },
-  ),
   updateSkills: projectsSessionProcedure
     .input(
       z.object({

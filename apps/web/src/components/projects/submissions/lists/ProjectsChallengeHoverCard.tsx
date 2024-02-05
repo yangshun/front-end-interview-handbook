@@ -17,7 +17,7 @@ export default function ProjectsChallengeHoverCard({
   profileId,
 }: Props) {
   const { locale } = useI18nPathname();
-  const { data, isLoading } = trpc.projects.challenges.getChallenge.useQuery({
+  const { data, isLoading } = trpc.projects.challenges.hovercard.useQuery({
     locale: locale ?? 'en-US',
     profileId,
     slug: challengeSlug,

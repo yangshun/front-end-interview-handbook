@@ -32,17 +32,16 @@ export default function ProjectsProfilePage({
   const intl = useIntl();
 
   // For getting the updated profile data, when there is edit in profile edit page.
-  const { data: userProfile } =
-    trpc.projects.profile.projectsProfileGet.useQuery(undefined, {
-      enabled: isViewingOwnProfile,
-      initialData: initialUserProfile,
-      refetchOnMount: false,
-      refetchOnReconnect: false,
-    });
+  const { data: userProfile } = trpc.projects.profile.get.useQuery(undefined, {
+    enabled: isViewingOwnProfile,
+    initialData: initialUserProfile,
+    refetchOnMount: false,
+    refetchOnReconnect: false,
+  });
 
   const projectsProfileId = initialUserProfile.projectsProfile.id;
   const { data: profileStatistics } =
-    trpc.projects.profile.getDashboardStatisticsForProfile.useQuery({
+    trpc.projects.profile.dashboardStatistics.useQuery({
       projectsProfileId,
     });
 
