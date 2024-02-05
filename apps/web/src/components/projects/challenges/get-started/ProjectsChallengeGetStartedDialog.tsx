@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiArrowRightLine, RiCheckLine } from 'react-icons/ri';
+import { RiArrowLeftLine, RiArrowRightLine, RiCheckLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
@@ -9,7 +9,7 @@ import Dialog from '~/components/ui/Dialog';
 import Divider from '~/components/ui/Divider';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundLayerColor,
+  themeBackgroundLayerEmphasized,
   themeBorderElementColor,
 } from '~/components/ui/theme';
 
@@ -159,6 +159,24 @@ export default function ProjectsChallengeGetStartedDialog({
   return (
     <Dialog
       isShown={isShown}
+      previousButton={
+        currentStepIndex > 0 ? (
+          <Button
+            addonPosition="start"
+            icon={RiArrowLeftLine}
+            label={intl.formatMessage({
+              defaultMessage: 'Previous',
+              description: 'Previous step button label',
+              id: 'KU/uns',
+            })}
+            size="md"
+            variant="secondary"
+            onClick={() => {
+              setCurrentStepIndex(currentStepIndex - 1);
+            }}
+          />
+        ) : undefined
+      }
       primaryButton={
         currentStepIndex < dialogSteps.length - 1 ? (
           <Button
@@ -168,6 +186,7 @@ export default function ProjectsChallengeGetStartedDialog({
               description: 'Next step button label',
               id: 'SWdU2x',
             })}
+            size="md"
             variant="secondary"
             onClick={() => {
               setCurrentStepIndex(currentStepIndex + 1);
@@ -210,7 +229,7 @@ export default function ProjectsChallengeGetStartedDialog({
                     variant="success"
                   />
                 ) : (
-                  <div className={clsx('z-10', themeBackgroundLayerColor)}>
+                  <div className={clsx('z-10')}>
                     <Chip
                       aria-hidden={true}
                       className="flex-shrink-0"
@@ -224,7 +243,7 @@ export default function ProjectsChallengeGetStartedDialog({
                   <div
                     className={clsx(
                       'z-10 self-stretch flex-1',
-                      themeBackgroundLayerColor,
+                      themeBackgroundLayerEmphasized,
                     )}
                   />
                 )}

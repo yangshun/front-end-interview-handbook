@@ -2239,6 +2239,10 @@
     "defaultMessage": "Once a submission has been deleted, it cannot be recovered. All upvotes, reputation, skill and component track progression due to the submission will be reverted.",
     "description": "Delete challenge submission confirmation subtitle"
   },
+  "KU/uns": {
+    "defaultMessage": "Previous",
+    "description": "Previous step button label"
+  },
   "KY8GB9": {
     "defaultMessage": "Failed to mark question as complete. Please try again",
     "description": "Error message shown when a question has failed to mark as complete"

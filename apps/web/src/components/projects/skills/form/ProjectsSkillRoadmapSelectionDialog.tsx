@@ -38,6 +38,7 @@ export default function ProjectsSkillRoadmapSelectionDialog({
           onClick={() => onComplete(skills)}
         />
       }
+      scrollable={true}
       secondaryButton={
         // TODO(projects|skills): Check if reverting to challenge recommendation or initial selection.
         <Button
