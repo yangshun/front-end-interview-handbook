@@ -24,6 +24,8 @@ import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 
+import { useProjectsSkillListInputSchema } from '../../skills/form/ProjectsSkillListInputSchema';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Profile, ProjectsProfile } from '@prisma/client';
 
@@ -35,18 +37,20 @@ function useProjectsProfileEditSchema() {
   const motivationReasonSchema = useProjectsMotivationReasonSchema({
     isRequired: false,
   });
+  const skillsProficientSchema = useProjectsSkillListInputSchema({
+    required: false,
+  });
+  const skillsToGrowSchema = useProjectsSkillListInputSchema({
+    required: false,
+  });
 
   const baseSchema = z.object({
     bio: z.string(),
     jobTitle: z.string(),
     motivationReasons: motivationReasonSchema,
-
     name: z.string(),
-
-    // TODO (projects): add error message for empty input
-    techStackProficient: z.string(),
-    // TODO (projects): add error message for empty input
-    techStackToImprove: z.string(),
+    skillsProficient: skillsProficientSchema,
+    skillsToGrow: skillsToGrowSchema,
   });
 
   return z.discriminatedUnion('hasNotStartedWork', [
@@ -164,8 +168,8 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
         },
       },
       name: initialValues?.name ?? '',
-      techStackProficient: '',
-      techStackToImprove: '',
+      skillsProficient: initialValues?.projectsProfile?.skillsProficient ?? [],
+      skillsToGrow: initialValues?.projectsProfile?.skillsToGrow ?? [],
       website: initialValues?.website ?? '',
       yoeReplacement: {
         option: yoeReplacementSchema
@@ -194,6 +198,8 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
           secondaryMotivation: data.motivationReasons.secondary,
         },
         name: data.name,
+        skillsProficient: data.skillsProficient,
+        skillsToGrow: data.skillsToGrow,
         startWorkDate: data.monthYearExperience,
         title: data.jobTitle,
       },
@@ -262,7 +268,6 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
                 </div>
               </div>
             </div>
-
             <div className="flex justify-end gap-4">
               {isDirty && (
                 <Button

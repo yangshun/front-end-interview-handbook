@@ -24,7 +24,7 @@ export default function ProjectsProfileSocialInput({
   const intl = useIntl();
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-6">
       <div className="relative">
         {showReputationCountIncreaseTag && (
           <ProjectsChallengeReputationTag

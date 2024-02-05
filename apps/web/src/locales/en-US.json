@@ -59,6 +59,10 @@
     "defaultMessage": "Self-Learning",
     "description": "Label for \"Self-Learning\" option in YOE replacement"
   },
+  "+c9fjo": {
+    "defaultMessage": "Experience",
+    "description": "Section title for user onboarding form"
+  },
   "+dUPPi": {
     "defaultMessage": "Post",
     "description": "Label for post reply button on project discussions page"
@@ -1355,10 +1359,6 @@
     "defaultMessage": "Want to bridge some skill gaps in modern front end or full stack",
     "description": "Motivation level for experienced reason"
   },
-  "C34IkO": {
-    "defaultMessage": "The skills / tools / frameworks you are hoping to grow. Cannot find the tag you need? Email us at {supportEmail}",
-    "description": "Description for \"Tech stack to improve\" input on Projects profile onboarding page"
-  },
   "C34sRh": {
     "defaultMessage": "Account Settings",
     "description": "Screenreader text for account settings."
@@ -1475,6 +1475,10 @@
     "defaultMessage": "Practice everything here",
     "description": "Title of the 'Practice Everything Here' marketing section on Homepage"
   },
+  "D1kkKk": {
+    "defaultMessage": "The skills / tools / frameworks you are already familiar in. Cannot find the tag you need? Email us at {supportEmail}",
+    "description": "Description for tech stack field"
+  },
   "D2YUXz": {
     "defaultMessage": "Topics",
     "description": "Screenreader text indicating component for question topics"
@@ -1558,10 +1562,6 @@
   "DdRaW3": {
     "defaultMessage": "Filters",
     "description": "Title of Projects project filter slide-out"
-  },
-  "DdbtcA": {
-    "defaultMessage": "Skills",
-    "description": "Label for Skills section of Projects profile onboarding page"
   },
   "DfuYnf": {
     "defaultMessage": "Select submission list category",
@@ -1666,6 +1666,10 @@
   "Eu20+q": {
     "defaultMessage": "Dashboard | Projects",
     "description": "Title of Projects Dashboard page"
+  },
+  "EyErSi": {
+    "defaultMessage": "Skills",
+    "description": "Section title for user onboarding form"
   },
   "F+dxo7": {
     "defaultMessage": "Recommended focus areas",
@@ -1811,6 +1815,10 @@
     "defaultMessage": "Figma design file",
     "description": "Label for Figma Design File button on Projects project assets page"
   },
+  "GV0CBc": {
+    "defaultMessage": "Tech stack you are proficient in",
+    "description": "Label for tech stack field"
+  },
   "GVHds/": {
     "defaultMessage": "Premium Feature",
     "description": "Title on question paywall appearing on the question pages of premium questions"
@@ -1854,10 +1862,6 @@
   "Gv0+LY": {
     "defaultMessage": "Woohoo! You completed the question!",
     "description": "Toast congratulating user once they mark a question as complete"
-  },
-  "GxJeqH": {
-    "defaultMessage": "Set up your profile",
-    "description": "Title for Projects profile onboarding page"
   },
   "GyDKzV": {
     "defaultMessage": "Filters",
@@ -2435,6 +2439,10 @@
     "defaultMessage": "Skills",
     "description": "Label for skills list in Project card"
   },
+  "Lv6+nn": {
+    "defaultMessage": "React, HTML, JavaScript",
+    "description": "Placeholder for tech stack field"
+  },
   "Lvmetb": {
     "defaultMessage": "+{points} rep (in total)",
     "description": "Total rep count increase label in Projects"
@@ -2474,6 +2482,10 @@
   "M9z02W": {
     "defaultMessage": "Airbnb",
     "description": "Company name for Airbnb"
+  },
+  "MA/YA9": {
+    "defaultMessage": "Next.js, Nuxt, SvelteKit",
+    "description": "Placeholder for tech stack field"
   },
   "MCqeck": {
     "defaultMessage": "Testimonials",
@@ -3411,10 +3423,6 @@
     "defaultMessage": "India",
     "description": "India country"
   },
-  "UZDhKH": {
-    "defaultMessage": "Tech stack you are hoping to grow in",
-    "description": "Label for \"Tech stack you are hoping to grow in\" input on Projects profile onboarding page"
-  },
   "UelR8r": {
     "defaultMessage": "Build towards your goals",
     "description": "Heading of the 'Build towards your goals' marketing section on Projects home page"
@@ -3570,6 +3578,10 @@
   "W+ConA": {
     "defaultMessage": "Guided by well-known senior engineers",
     "description": "Title of 'Guided by well-known senior engineers' feature in marketing page"
+  },
+  "W1Vfmc": {
+    "defaultMessage": "The skills / tools / frameworks you are hoping to grow in. Cannot find the tag you need? Email us at {supportEmail}",
+    "description": "Description for tech stack field"
   },
   "W9OR+u": {
     "defaultMessage": "See child skills",
@@ -3891,9 +3903,9 @@
     "defaultMessage": "Level up in your skills or complete component track",
     "description": "Description for \"Level up in your skills or complete component track\" feature on Projects home page"
   },
-  "YiE5Xj": {
-    "defaultMessage": "The skills / tools / frameworks you are already familiar in. Cannot find the tag you need? Email us at {supportEmail}",
-    "description": "Description for \"Tech stack proficient\" input on Projects profile onboarding page"
+  "YgydxS": {
+    "defaultMessage": "Bio & social links",
+    "description": "Label for Social Links section of Projects profile onboarding page"
   },
   "YmW2e9": {
     "defaultMessage": "Build to learn",
@@ -4767,10 +4779,6 @@
     "defaultMessage": "Articles",
     "description": "Label for articles blog"
   },
-  "gm+QgP": {
-    "defaultMessage": "React, HTML, JS",
-    "description": "Placeholder for \"Tech stack you are proficient in\" input on Projects profile onboarding page"
-  },
   "gopXdP": {
     "defaultMessage": "Reset this file",
     "description": "Tooltip for button that allows users to reset their coding workspace to the initial code"
@@ -4778,10 +4786,6 @@
   "grLe+N": {
     "defaultMessage": "Number of series",
     "description": "Total number of series in a list"
-  },
-  "grrYsM": {
-    "defaultMessage": "Years of Experience",
-    "description": "Label for Years of Experience section of Projects profile onboarding page"
   },
   "gtouN7": {
     "defaultMessage": "Medium",
@@ -4854,10 +4858,6 @@
   "hm0ODb": {
     "defaultMessage": "Delete comment?",
     "description": "Delete comment confirmation dialog title"
-  },
-  "hnDCXW": {
-    "defaultMessage": "NextJS, Vercel",
-    "description": "Placeholder for \"Tech stack you are hoping to grow in\" input on Projects profile onboarding page"
   },
   "hoQUfU": {
     "defaultMessage": "Importance: High to Low",
@@ -5002,10 +5002,6 @@
   "j63zLB": {
     "defaultMessage": "You can add more skills e.g. UI frameworks used after starting the project",
     "description": "Additional information for skills section on Projects project page"
-  },
-  "jCp/VW": {
-    "defaultMessage": "Social links",
-    "description": "Label for Social Links section of Projects profile onboarding page"
   },
   "jEYebN": {
     "defaultMessage": "View subscription plans",
@@ -5518,6 +5514,10 @@
   "nJYzIr": {
     "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
     "description": "Larry Almeida's testimonial"
+  },
+  "nNCpzS": {
+    "defaultMessage": "Basic details",
+    "description": "Section title for user onboarding form"
   },
   "nRFkBV": {
     "defaultMessage": "Create a free account to track your progress",
@@ -6103,10 +6103,6 @@
     "defaultMessage": "Manage subscription",
     "description": "Manage user membership subscription button label"
   },
-  "sjcvmA": {
-    "defaultMessage": "Tech stack you are proficient in",
-    "description": "Label for \"Tech stack you are proficient in\" input on Projects profile onboarding page"
-  },
   "sm2d2y": {
     "defaultMessage": "Pin submission",
     "description": "Label for pin submission button"
@@ -6206,6 +6202,10 @@
   "tR0TIm": {
     "defaultMessage": "Meet our top authors:",
     "description": "Authors section title"
+  },
+  "tUh3US": {
+    "defaultMessage": "Tech stack you are hoping to grow in",
+    "description": "Label for tech stack field"
   },
   "tZPTnS": {
     "defaultMessage": "Difficulty: Hard to Easy",

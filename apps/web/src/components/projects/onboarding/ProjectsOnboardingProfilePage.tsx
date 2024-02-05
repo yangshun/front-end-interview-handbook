@@ -29,7 +29,7 @@ export default function ProjectsOnboardingProfilePage() {
   return (
     <main>
       <Container
-        className="pt-8 flex flex-col items-stretch pb-24 gap-12"
+        className="flex flex-col items-stretch gap-12 pt-16 pb-24"
         variant="2xl">
         <div className="flex flex-col items-center gap-4">
           <Heading level="heading5">
@@ -48,26 +48,28 @@ export default function ProjectsOnboardingProfilePage() {
           </Text>
         </div>
         <Section>
-          <TabsUnderline
-            alignment="stretch"
-            label={intl.formatMessage({
-              defaultMessage: 'Select step',
-              description:
-                'Label for tabs to select step in Projects profile onboarding page',
-              id: 'n76no0',
-            })}
-            tabs={tabs}
-            value={tab}
-            onSelect={setTab}
-          />
-          {tab === 'step-1' && (
-            <ProjectsOnboardingProfileStep1
-              onFinish={() => {
-                setTab('step-2');
-              }}
+          <div className="flex flex-col gap-8">
+            <TabsUnderline
+              alignment="stretch"
+              label={intl.formatMessage({
+                defaultMessage: 'Select step',
+                description:
+                  'Label for tabs to select step in Projects profile onboarding page',
+                id: 'n76no0',
+              })}
+              tabs={tabs}
+              value={tab}
+              onSelect={setTab}
             />
-          )}
-          {tab === 'step-2' && <ProjectsOnboardingProfileStep2 />}
+            {tab === 'step-1' && (
+              <ProjectsOnboardingProfileStep1
+                onFinish={() => {
+                  setTab('step-2');
+                }}
+              />
+            )}
+            {tab === 'step-2' && <ProjectsOnboardingProfileStep2 />}
+          </div>
         </Section>
       </Container>
     </main>

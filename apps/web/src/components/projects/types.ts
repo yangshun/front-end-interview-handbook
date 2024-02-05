@@ -5,6 +5,8 @@ import type {
   yoeReplacementSchema,
 } from '~/components/projects/misc';
 
+import type { ProjectsSkillKey } from './skills/types';
+
 export type ProjectsMotivationReasonType = 'primary' | 'secondary';
 
 export type ProjectsMotivationReasonValue = z.infer<
@@ -39,8 +41,8 @@ export type ProjectsEditProfileValues = {
   monthYearExperience: string | undefined;
   motivationReasons: ProjectsMotivationReasonFormValues;
   name: string;
-  techStackProficient: string;
-  techStackToImprove: string;
+  skillsProficient: Array<ProjectsSkillKey>;
+  skillsToGrow: Array<ProjectsSkillKey>;
   website: string;
   yoeReplacement: {
     option: string | undefined;
@@ -53,8 +55,6 @@ export type ProjectsOnboardingProfileStep1Values = {
   jobTitle: string;
   monthYearExperience: string | undefined;
   name: string;
-  techStackProficient: string;
-  techStackToImprove: string;
   yoeReplacement: {
     option: string | undefined;
     otherText: string | undefined;

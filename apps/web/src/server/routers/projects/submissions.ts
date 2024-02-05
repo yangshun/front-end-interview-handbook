@@ -172,7 +172,7 @@ export const projectsChallengeSubmissionRouter = router({
         );
 
         // Write to database first
-        const res = await prisma.$transaction(async (tx) => {
+        const txRes = await prisma.$transaction(async (tx) => {
           if (existingSession == null) {
             await tx.projectsChallengeSession.create({
               data: {
@@ -210,20 +210,20 @@ export const projectsChallengeSubmissionRouter = router({
         });
 
         // Non-blocking request to take screenshots and update database
-        generateScreenshots(res.id, res.deploymentUrls).then(
+        generateScreenshots(txRes.id, txRes.deploymentUrls).then(
           async (screenshots) => {
             await prisma.projectsChallengeSubmission.update({
               data: {
                 deploymentUrls: screenshots,
               },
               where: {
-                id: res.id,
+                id: txRes.id,
               },
             });
           },
         );
 
-        return res;
+        return txRes;
       },
     ),
   delete: projectsUserProcedure

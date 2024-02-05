@@ -1,6 +1,7 @@
 import { Controller, useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
+import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
@@ -8,21 +9,48 @@ import ProjectsChallengeReputationTag from '~/components/projects/challenges/met
 import ProjectsProfileSocialInput from '~/components/projects/profile/ProjectsProfileSocialInput';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
-import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
+
+import ProjectsProfileTechStackProficientInput from '../profile/ProjectsProfileTechStackProficientInput';
+import ProjectsProfileTechStackToImproveInput from '../profile/ProjectsProfileTechStackToImproveInput';
+import { useProjectsSkillListInputSchema } from '../skills/form/ProjectsSkillListInputSchema';
+import type { ProjectsSkillKey } from '../skills/types';
+
+import { zodResolver } from '@hookform/resolvers/zod';
 
 export type ProjectsOnboardingProfileStep2FormValues = Readonly<{
   bio: string;
   githubUsername: string;
   linkedInUsername: string;
+  skillsProficient: Array<ProjectsSkillKey>;
+  skillsToGrow: Array<ProjectsSkillKey>;
   website: string;
 }>;
+
+function useOnboardingProfileStep2Schema() {
+  const skillsProficientSchema = useProjectsSkillListInputSchema({
+    required: false,
+  });
+  const skillsToGrowSchema = useProjectsSkillListInputSchema({
+    required: false,
+  });
+
+  return z.object({
+    bio: z.string(),
+    githubUsername: z.string(),
+    linkedInUsername: z.string(),
+    skillsProficient: skillsProficientSchema,
+    skillsToGrow: skillsToGrowSchema,
+    website: z.string(),
+  });
+}
 
 export default function ProjectsOnboardingProfileStep2() {
   const router = useI18nRouter();
   const intl = useIntl();
+  const onboardingProfileStep2Schema = useOnboardingProfileStep2Schema();
   const { data: initialValues } =
     trpc.projects.profile.onboardingStep2Get.useQuery();
   const onboardingStep2UpdateMutation =
@@ -37,42 +65,42 @@ export default function ProjectsOnboardingProfileStep2() {
     handleSubmit,
     formState: { isDirty, isSubmitting },
   } = useForm<ProjectsOnboardingProfileStep2FormValues>({
+    resolver: zodResolver(onboardingProfileStep2Schema),
     values: {
       bio: initialValues?.bio ?? '',
       githubUsername: initialValues?.githubUsername ?? '',
       linkedInUsername: initialValues?.linkedInUsername ?? '',
+      skillsProficient: initialValues?.projectsProfile?.skillsProficient ?? [],
+      skillsToGrow: initialValues?.projectsProfile?.skillsToGrow ?? [],
       website: initialValues?.website ?? '',
     },
   });
 
   return (
-    <>
-      <div className="mt-8 flex justify-between gap-2">
+    <form
+      className="flex flex-col gap-y-8"
+      onSubmit={handleSubmit(async (data) => {
+        await onboardingStep2UpdateMutation.mutateAsync(data);
+      })}>
+      <section className="flex flex-col gap-y-6">
         <Heading level="heading6">
           <FormattedMessage
-            defaultMessage="Set up your profile"
-            description="Title for Projects profile onboarding page"
-            id="GxJeqH"
+            defaultMessage="Skills"
+            description="Section title for user onboarding form"
+            id="EyErSi"
           />
         </Heading>
-        <Button
-          className="-me-5"
-          href="/projects/challenges"
-          icon={RiArrowRightLine}
-          label={intl.formatMessage({
-            defaultMessage: 'Skip for now',
-            description:
-              'Label for "Skip for now" button on Projects profile onboarding page',
-            id: 'fs9YFE',
-          })}
-          variant="tertiary"
-        />
-      </div>
-      <form
-        className="mt-6 flex flex-col gap-y-16"
-        onSubmit={handleSubmit(async (data) => {
-          await onboardingStep2UpdateMutation.mutateAsync(data);
-        })}>
+        <ProjectsProfileTechStackProficientInput control={control} />
+        <ProjectsProfileTechStackToImproveInput control={control} />
+      </section>
+      <section className="flex flex-col gap-y-6">
+        <Heading level="heading6">
+          <FormattedMessage
+            defaultMessage="Bio & social links"
+            description="Label for Social Links section of Projects profile onboarding page"
+            id="YgydxS"
+          />
+        </Heading>
         <div className="relative">
           <ProjectsChallengeReputationTag
             className="absolute end-0 top-0"
@@ -105,24 +133,18 @@ export default function ProjectsOnboardingProfileStep2() {
                     'Placeholder for Biography input on Projects profile onboarding page',
                   id: 'jeX0Hi',
                 })}
+                rows={5}
                 {...field}
               />
             )}
           />
         </div>
-        <div className="flex flex-col gap-y-6">
-          <Text weight="bold">
-            <FormattedMessage
-              defaultMessage="Social links"
-              description="Label for Social Links section of Projects profile onboarding page"
-              id="jCp/VW"
-            />
-          </Text>
-          <ProjectsProfileSocialInput
-            control={control}
-            showReputationCountIncreaseTag={true}
-          />
-        </div>
+        <ProjectsProfileSocialInput
+          control={control}
+          showReputationCountIncreaseTag={true}
+        />
+      </section>
+      <div className="flex gap-4 flex-row-reverse">
         <Button
           className="self-end"
           icon={RiArrowRightLine}
@@ -138,7 +160,18 @@ export default function ProjectsOnboardingProfileStep2() {
           type="submit"
           variant="primary"
         />
-      </form>
-    </>
+        <Button
+          href="/projects/challenges"
+          label={intl.formatMessage({
+            defaultMessage: 'Skip for now',
+            description:
+              'Label for "Skip for now" button on Projects profile onboarding page',
+            id: 'fs9YFE',
+          })}
+          size="lg"
+          variant="tertiary"
+        />
+      </div>
+    </form>
   );
 }

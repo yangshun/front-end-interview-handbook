@@ -1,4 +1,3 @@
-import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -9,14 +8,11 @@ import { trpc } from '~/hooks/trpc';
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import useProjectsMonthYearExperienceSchema from '~/components/projects/hooks/useProjectsMonthYearExperienceSchema';
 import { yoeReplacementSchema } from '~/components/projects/misc';
-import ProjectsProfileTechStackProficientInput from '~/components/projects/profile/ProjectsProfileTechStackProficientInput';
-import ProjectsProfileTechStackToImproveInput from '~/components/projects/profile/ProjectsProfileTechStackToImproveInput';
 import ProjectsProfileYOEInput from '~/components/projects/profile/ProjectsProfileYOEInput';
 import type { ProjectsOnboardingProfileStep1Values } from '~/components/projects/types';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
-import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -42,10 +38,6 @@ function useOnboardingProfileStep1Schema() {
         id: 'yqjkfw',
       }),
     }),
-    // TODO (projects): add error message for empty input
-    techStackProficient: z.string(),
-    // TODO (projects): add error message for empty input
-    techStackToImprove: z.string(),
   });
 
   return z.discriminatedUnion('hasNotStartedWork', [
@@ -106,7 +98,7 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
     control,
     watch,
     handleSubmit,
-    formState: { isSubmitting, isDirty, errors },
+    formState: { isSubmitting, errors },
   } = useForm<
     ProjectsOnboardingProfileStep1Values,
     unknown,
@@ -122,8 +114,6 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
           }/${initialValues.startWorkDate.getFullYear()}`
         : undefined,
       name: initialValues?.name ?? '',
-      techStackProficient: '',
-      techStackToImprove: '',
       yoeReplacement: {
         option: yoeReplacementSchema
           .catch(() => 'others' as const)
@@ -139,33 +129,33 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
   const watchHasNotStartedWork = watch('hasNotStartedWork');
 
   return (
-    <>
-      <div className="mt-8 flex justify-between gap-2">
-        <Heading level="heading6">
-          <FormattedMessage
-            defaultMessage="Set up your profile"
-            description="Title for Projects profile onboarding page"
-            id="GxJeqH"
-          />
-        </Heading>
-        <ProjectsChallengeReputationTag points={100} variant="filled" />
-      </div>
-      <form
-        className="mt-6 flex flex-col gap-y-16"
-        onSubmit={handleSubmit(
-          async (data: OnboardingProfileStep1TransformedValues) => {
-            await onboardingStep1UpdateMutation.mutateAsync({
-              currentStatus: data.hasNotStartedWork
-                ? data.yoeReplacement
-                : undefined,
-              name: data.name,
-              startWorkDate: data.monthYearExperience,
-              title: data.jobTitle,
-            });
-            onFinish();
-          },
-        )}>
-        <div className="flex flex-col items-start gap-x-16 gap-y-6 sm:flex-row sm:items-end">
+    <form
+      className="flex flex-col gap-y-8"
+      onSubmit={handleSubmit(
+        async (data: OnboardingProfileStep1TransformedValues) => {
+          await onboardingStep1UpdateMutation.mutateAsync({
+            currentStatus: data.hasNotStartedWork
+              ? data.yoeReplacement
+              : undefined,
+            name: data.name,
+            startWorkDate: data.monthYearExperience,
+            title: data.jobTitle,
+          });
+          onFinish();
+        },
+      )}>
+      <section className="flex flex-col gap-y-6">
+        <div className="flex justify-between gap-2">
+          <Heading level="heading6">
+            <FormattedMessage
+              defaultMessage="Basic details"
+              description="Section title for user onboarding form"
+              id="nNCpzS"
+            />
+          </Heading>
+          <ProjectsChallengeReputationTag points={100} variant="filled" />
+        </div>
+        <div className="flex flex-col items-start gap-x-16 gap-y-6 sm:flex-row">
           <div className="flex flex-col items-center gap-4">
             <Avatar
               alt=""
@@ -184,7 +174,7 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
               variant="secondary"
             />
           </div>
-          <div className="flex flex-1 flex-col gap-4 self-stretch sm:self-auto">
+          <div className="flex flex-1 flex-col gap-6 self-stretch sm:self-auto">
             <Controller
               control={control}
               name="name"
@@ -239,54 +229,37 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
             />
           </div>
         </div>
-        <div className="space-y-6">
-          <Text weight="bold">
-            <FormattedMessage
-              defaultMessage="Skills"
-              description="Label for Skills section of Projects profile onboarding page"
-              id="DdbtcA"
-            />
-          </Text>
-          <ProjectsProfileTechStackProficientInput
-            control={control}
-            errors={errors}
+      </section>
+      <section className="flex flex-col gap-y-6">
+        <Heading level="heading6">
+          <FormattedMessage
+            defaultMessage="Experience"
+            description="Section title for user onboarding form"
+            id="+c9fjo"
           />
-          <ProjectsProfileTechStackToImproveInput
-            control={control}
-            errors={errors}
-          />
-        </div>
-        <div className="flex flex-col gap-y-6">
-          <Text weight="bold">
-            <FormattedMessage
-              defaultMessage="Years of Experience"
-              description="Label for Years of Experience section of Projects profile onboarding page"
-              id="grrYsM"
-            />
-          </Text>
-          <ProjectsProfileYOEInput
-            control={control}
-            errors={errors}
-            watchHasNotStartedWork={watchHasNotStartedWork}
-            watchYoeReplacementOption={watchYoeReplacementOption}
-          />
-        </div>
-        <Button
-          className="self-end"
-          icon={RiArrowRightLine}
-          isDisabled={!isDirty || isSubmitting}
-          isLoading={isSubmitting}
-          label={intl.formatMessage({
-            defaultMessage: 'Next',
-            description:
-              'Label for Next button on Projects profile onboarding page',
-            id: 'ghssuE',
-          })}
-          size="lg"
-          type="submit"
-          variant="secondary"
+        </Heading>
+        <ProjectsProfileYOEInput
+          control={control}
+          errors={errors}
+          watchHasNotStartedWork={watchHasNotStartedWork}
+          watchYoeReplacementOption={watchYoeReplacementOption}
         />
-      </form>
-    </>
+      </section>
+      <Button
+        className="self-end"
+        icon={RiArrowRightLine}
+        isDisabled={isSubmitting}
+        isLoading={isSubmitting}
+        label={intl.formatMessage({
+          defaultMessage: 'Next',
+          description:
+            'Label for Next button on Projects profile onboarding page',
+          id: 'ghssuE',
+        })}
+        size="lg"
+        type="submit"
+        variant="secondary"
+      />
+    </form>
   );
 }

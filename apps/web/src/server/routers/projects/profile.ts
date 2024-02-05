@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { projectsSkillListInputOptionalSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
+
 import prisma from '~/server/prisma';
 
 import { projectsUserProcedure } from './procedures';
@@ -222,6 +224,12 @@ export const projectsProfileRouter = router({
         bio: true,
         githubUsername: true,
         linkedInUsername: true,
+        projectsProfile: {
+          select: {
+            skillsProficient: true,
+            skillsToGrow: true,
+          },
+        },
         website: true,
       },
       where: {
@@ -235,12 +243,21 @@ export const projectsProfileRouter = router({
         bio: z.string(),
         githubUsername: z.string().optional(),
         linkedInUsername: z.string().optional(),
+        skillsProficient: projectsSkillListInputOptionalSchemaServer,
+        skillsToGrow: projectsSkillListInputOptionalSchemaServer,
         website: z.string().optional(),
       }),
     )
     .mutation(
       async ({
-        input: { bio, githubUsername, linkedInUsername, website },
+        input: {
+          bio,
+          githubUsername,
+          linkedInUsername,
+          website,
+          skillsProficient,
+          skillsToGrow,
+        },
         ctx: { user },
       }) => {
         return await prisma.profile.update({
@@ -248,6 +265,12 @@ export const projectsProfileRouter = router({
             bio,
             githubUsername,
             linkedInUsername,
+            projectsProfile: {
+              update: {
+                skillsProficient,
+                skillsToGrow,
+              },
+            },
             website,
           },
           where: {
@@ -268,20 +291,24 @@ export const projectsProfileRouter = router({
   }),
   projectsProfileUpdate: projectsUserProcedure
     .input(
-      z.object({
-        bio: z.string(),
-        currentStatus: z.string().optional(),
-        githubUsername: z.string().optional(),
-        linkedInUsername: z.string().optional(),
-        motivationReasons: z.object({
-          primaryMotivation: z.string().nullable(),
-          secondaryMotivation: z.string().nullable(),
-        }),
-        name: z.string(),
-        startWorkDate: z.date().optional(),
-        title: z.string(),
-        website: z.string().optional(),
-      }),
+      z
+        .object({
+          bio: z.string(),
+          currentStatus: z.string().optional(),
+          githubUsername: z.string().optional(),
+          linkedInUsername: z.string().optional(),
+          motivationReasons: z.object({
+            primaryMotivation: z.string().nullable(),
+            secondaryMotivation: z.string().nullable(),
+          }),
+          name: z.string(),
+          skillsProficient: projectsSkillListInputOptionalSchemaServer,
+          skillsToGrow: projectsSkillListInputOptionalSchemaServer,
+          startWorkDate: z.date().optional(),
+          title: z.string(),
+          website: z.string().optional(),
+        })
+        .partial(),
     )
     .mutation(
       async ({
@@ -295,13 +322,16 @@ export const projectsProfileRouter = router({
           githubUsername,
           linkedInUsername,
           website,
+          skillsProficient,
+          skillsToGrow,
         },
         ctx: { user },
       }) => {
-        const { primaryMotivation, secondaryMotivation } = motivationReasons;
+        const { primaryMotivation, secondaryMotivation } =
+          motivationReasons ?? {};
 
-        const transactionResult = await prisma.$transaction(async (prisma_) => {
-          const projectsProfile = await prisma_.projectsProfile.upsert({
+        const txRes = await prisma.$transaction(async (tx) => {
+          const projectsProfile = await tx.projectsProfile.upsert({
             create: {
               primaryMotivation,
               secondaryMotivation,
@@ -316,13 +346,19 @@ export const projectsProfileRouter = router({
             },
           });
 
-          const updatedUserProfile = await prisma_.profile.update({
+          const updatedUserProfile = await tx.profile.update({
             data: {
               bio,
               currentStatus,
               githubUsername,
               linkedInUsername,
               name,
+              projectsProfile: {
+                update: {
+                  skillsProficient,
+                  skillsToGrow,
+                },
+              },
               startWorkDate,
               title,
               website,
@@ -338,7 +374,7 @@ export const projectsProfileRouter = router({
           };
         });
 
-        return transactionResult;
+        return txRes;
       },
     ),
 });
