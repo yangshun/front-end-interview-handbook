@@ -103,7 +103,15 @@ function Anchor(
         href={finalHref}
         rel={rel}
         target={target}
-        onClick={onClick}
+        onClick={(event) => {
+          // Prevent anchor navigation from adding to browser history.
+          if (finalHref === '#') {
+            event.preventDefault();
+          }
+          // TODO: add "link" variant to Button and migrate non-href
+          // <Anchor>s to <Button variant="link"> instead.
+          onClick?.(event);
+        }}
         {...props}>
         {children}
       </a>
