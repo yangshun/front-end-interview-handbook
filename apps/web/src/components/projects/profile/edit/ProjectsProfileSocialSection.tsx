@@ -2,14 +2,14 @@ import { useFormContext } from 'react-hook-form';
 import { FormattedMessage } from 'react-intl';
 
 import ProjectsProfileSocialInput from '~/components/projects/profile/ProjectsProfileSocialInput';
-import type { ProjectsEditProfileValues } from '~/components/projects/types';
+import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Heading from '~/components/ui/Heading';
 
 import type { ProjectsOnboardingProfileStep2FormValues } from '../../onboarding/ProjectsOnboardingProfileStep2';
 
 type Values =
-  | ProjectsEditProfileValues
-  | ProjectsOnboardingProfileStep2FormValues;
+  | ProjectsOnboardingProfileStep2FormValues
+  | ProjectsProfileEditFormValues;
 
 export default function ProjectsProfileSocialSection() {
   const { control } = useFormContext<Values>();

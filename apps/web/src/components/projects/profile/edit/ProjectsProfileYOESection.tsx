@@ -1,15 +1,15 @@
 import { useFormContext } from 'react-hook-form';
 import { FormattedMessage } from 'react-intl';
 
-import type {
-  ProjectsEditProfileValues,
-  ProjectsOnboardingProfileStep1Values,
-} from '~/components/projects/types';
+import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Heading from '~/components/ui/Heading';
 
 import ProjectsProfileYOEInput from '../ProjectsProfileYOEInput';
+import type { ProjectsProfileOnboardingStep1FormValues } from '../../onboarding/ProjectsOnboardingProfileStep1';
 
-type Values = ProjectsEditProfileValues | ProjectsOnboardingProfileStep1Values;
+type Values =
+  | ProjectsProfileEditFormValues
+  | ProjectsProfileOnboardingStep1FormValues;
 
 export default function ProjectsProfileYOESection() {
   const {

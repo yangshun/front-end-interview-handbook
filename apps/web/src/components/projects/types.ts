@@ -31,7 +31,7 @@ export type ProjectsMotivationReasonFormValues = Record<
 // TODO(projects): generalize this field.
 export type ProjectsYoeReplacement = z.infer<typeof yoeReplacementSchema>;
 
-export type ProjectsEditProfileValues = {
+export type ProjectsProfileEditFormValues = {
   avatarUrl?: string;
   bio: string;
   githubUsername: string;
@@ -44,17 +44,6 @@ export type ProjectsEditProfileValues = {
   skillsProficient: Array<ProjectsSkillKey>;
   skillsToGrow: Array<ProjectsSkillKey>;
   website: string;
-  yoeReplacement: {
-    option: string | undefined;
-    otherText: string | undefined;
-  };
-};
-
-export type ProjectsOnboardingProfileStep1Values = {
-  hasNotStartedWork: boolean;
-  jobTitle: string;
-  monthYearExperience: string | undefined;
-  name: string;
   yoeReplacement: {
     option: string | undefined;
     otherText: string | undefined;

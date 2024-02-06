@@ -17,8 +17,8 @@ import ProjectsProfileSkillSection from '~/components/projects/profile/edit/Proj
 import ProjectsProfileSocialSection from '~/components/projects/profile/edit/ProjectsProfileSocialSection';
 import ProjectsProfileYOESection from '~/components/projects/profile/edit/ProjectsProfileYOESection';
 import type {
-  ProjectsEditProfileValues,
   ProjectsMotivationReasonValue,
+  ProjectsProfileEditFormValues,
 } from '~/components/projects/types';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
@@ -46,11 +46,23 @@ function useProjectsProfileEditSchema() {
 
   const baseSchema = z.object({
     bio: z.string(),
+    githubUsername: z
+      .union([z.string().length(0), z.string().url()])
+      .transform((val) => (val ? val : null))
+      .nullable(),
     jobTitle: z.string(),
+    linkedInUsername: z
+      .union([z.string().length(0), z.string().url()])
+      .transform((val) => (val ? val : null))
+      .nullable(),
     motivationReasons: motivationReasonSchema,
     name: z.string(),
     skillsProficient: skillsProficientSchema,
     skillsToGrow: skillsToGrowSchema,
+    website: z
+      .union([z.string().length(0), z.string().url()])
+      .transform((val) => (val ? val : null))
+      .nullable(),
   });
 
   return z.discriminatedUnion('hasNotStartedWork', [
@@ -130,7 +142,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
   );
 
   const methods = useForm<
-    ProjectsEditProfileValues,
+    ProjectsProfileEditFormValues,
     undefined,
     ProjectsEditProfileTransformedValues
   >({
@@ -195,6 +207,8 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
       {
         bio: data.bio,
         currentStatus: data.hasNotStartedWork ? data.yoeReplacement : undefined,
+        githubUsername: data.githubUsername,
+        linkedInUsername: data.linkedInUsername,
         motivationReasons: {
           primaryMotivation: data.motivationReasons.primary,
           secondaryMotivation: data.motivationReasons.secondary,
@@ -204,6 +218,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
         skillsToGrow: data.skillsToGrow,
         startWorkDate: data.monthYearExperience,
         title: data.jobTitle,
+        website: data.website,
       },
       {
         onError: () => {

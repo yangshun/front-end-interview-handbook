@@ -3,17 +3,18 @@ import { Controller } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
 import useProjectsYOEReplacementOptions from '~/components/projects/hooks/useProjectsYOEReplacementOptions';
-import type {
-  ProjectsEditProfileValues,
-  ProjectsOnboardingProfileStep1Values,
-} from '~/components/projects/types';
+import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import RadioGroup from '~/components/ui/RadioGroup';
 import RadioGroupItem from '~/components/ui/RadioGroup/RadioGroupItem';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
-type Values = ProjectsEditProfileValues | ProjectsOnboardingProfileStep1Values;
+import type { ProjectsProfileOnboardingStep1FormValues } from '../onboarding/ProjectsOnboardingProfileStep1';
+
+type Values =
+  | ProjectsProfileEditFormValues
+  | ProjectsProfileOnboardingStep1FormValues;
 
 type Props = Readonly<{
   control: Control<Values>;

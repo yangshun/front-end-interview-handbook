@@ -1,7 +1,7 @@
 import { useFormContext } from 'react-hook-form';
 import { FormattedMessage } from 'react-intl';
 
-import type { ProjectsEditProfileValues } from '~/components/projects/types';
+import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Heading from '~/components/ui/Heading';
 
 import ProjectsProfileTechStackProficientInput from '../ProjectsProfileTechStackProficientInput';
@@ -10,8 +10,8 @@ import type { ProjectsOnboardingProfileStep2FormValues } from '../../onboarding/
 
 // TODO(projects): remove onboarding type from this union.
 type Values =
-  | ProjectsEditProfileValues
-  | ProjectsOnboardingProfileStep2FormValues;
+  | ProjectsOnboardingProfileStep2FormValues
+  | ProjectsProfileEditFormValues;
 
 export default function ProjectsProfileSkillSection() {
   const { control } = useFormContext<Values>();

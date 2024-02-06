@@ -3,14 +3,14 @@ import { Controller } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
 import ProjectsSkillTechStackInput from '~/components/projects/skills/form/ProjectsSkillTechStackInput';
-import type { ProjectsEditProfileValues } from '~/components/projects/types';
+import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Anchor from '~/components/ui/Anchor';
 
 import type { ProjectsOnboardingProfileStep2FormValues } from '../onboarding/ProjectsOnboardingProfileStep2';
 
 type Values =
-  | ProjectsEditProfileValues
-  | ProjectsOnboardingProfileStep2FormValues;
+  | ProjectsOnboardingProfileStep2FormValues
+  | ProjectsProfileEditFormValues;
 
 type Props = Readonly<{
   control: Control<Values>;

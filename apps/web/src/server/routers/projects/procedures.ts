@@ -37,8 +37,8 @@ const isProjectsUserForPublic = middleware(async (opts) => {
 });
 
 /**
- * Unprotected procedure
- **/
+ * Possibly non-logged in.
+ */
 export const publicProjectsProcedure = publicProcedure.use(
   isProjectsUserForPublic,
 );

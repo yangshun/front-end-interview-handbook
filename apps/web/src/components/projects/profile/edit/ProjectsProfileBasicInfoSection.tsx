@@ -1,7 +1,7 @@
 import { Controller, useFormContext } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
-import type { ProjectsEditProfileValues } from '~/components/projects/types';
+import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
 import TextArea from '~/components/ui/TextArea';
@@ -13,7 +13,7 @@ export default function ProjectsProfileBasicInfoSection() {
   const {
     control,
     formState: { errors },
-  } = useFormContext<ProjectsEditProfileValues>();
+  } = useFormContext<ProjectsProfileEditFormValues>();
 
   return (
     <div className="flex md:gap-16 gap-6 md:flex-nowrap flex-wrap">

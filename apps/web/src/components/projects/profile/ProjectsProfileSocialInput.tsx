@@ -1,16 +1,17 @@
 import type { Control } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
+import { RiGithubFill, RiGlobalLine, RiLinkedinFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import TextInput from '~/components/ui/TextInput';
 
 import type { ProjectsOnboardingProfileStep2FormValues } from '../onboarding/ProjectsOnboardingProfileStep2';
-import type { ProjectsEditProfileValues } from '../types';
+import type { ProjectsProfileEditFormValues } from '../types';
 
 type Values =
-  | ProjectsEditProfileValues
-  | ProjectsOnboardingProfileStep2FormValues;
+  | ProjectsOnboardingProfileStep2FormValues
+  | ProjectsProfileEditFormValues;
 
 type Props = Readonly<{
   control: Control<Values>;
@@ -36,7 +37,7 @@ export default function ProjectsProfileSocialInput({
         <Controller
           control={control}
           name="githubUsername"
-          render={({ field }) => (
+          render={({ field, formState }) => (
             <TextInput
               description={intl.formatMessage({
                 defaultMessage: 'Add your socials so that others can find you!',
@@ -45,12 +46,14 @@ export default function ProjectsProfileSocialInput({
                 id: 'SbE8XR',
               })}
               descriptionStyle="tooltip"
+              errorMessage={formState.errors.githubUsername?.message}
               label={intl.formatMessage({
-                defaultMessage: 'GitHub (optional)',
-                description:
-                  'Label for GitHub link input on Projects profile onboarding page',
-                id: 'f6GjzW',
+                defaultMessage: 'GitHub',
+                description: 'GitHub profile link field',
+                id: 'JOxGrE',
               })}
+              placeholder="https://github.com/johndoe"
+              startIcon={RiGithubFill}
               {...field}
             />
           )}
@@ -67,7 +70,7 @@ export default function ProjectsProfileSocialInput({
         <Controller
           control={control}
           name="linkedInUsername"
-          render={({ field }) => (
+          render={({ field, formState }) => (
             <TextInput
               description={intl.formatMessage({
                 defaultMessage: 'Add your socials so that others can find you!',
@@ -76,12 +79,14 @@ export default function ProjectsProfileSocialInput({
                 id: 'SbE8XR',
               })}
               descriptionStyle="tooltip"
+              errorMessage={formState.errors.linkedInUsername?.message}
               label={intl.formatMessage({
-                defaultMessage: 'LinkedIn (optional)',
-                description:
-                  'Label for LinkedIn link input on Projects profile onboarding page',
-                id: 'l1pTwU',
+                defaultMessage: 'LinkedIn',
+                description: 'LinkedIn profile link field',
+                id: 'syMsM0',
               })}
+              placeholder="https://linkedin.com/in/john-doe"
+              startIcon={RiLinkedinFill}
               {...field}
             />
           )}
@@ -98,7 +103,7 @@ export default function ProjectsProfileSocialInput({
         <Controller
           control={control}
           name="website"
-          render={({ field }) => (
+          render={({ field, formState }) => (
             <TextInput
               description={intl.formatMessage({
                 defaultMessage: 'Add your socials so that others can find you!',
@@ -107,12 +112,14 @@ export default function ProjectsProfileSocialInput({
                 id: 'SbE8XR',
               })}
               descriptionStyle="tooltip"
+              errorMessage={formState.errors.website?.message}
               label={intl.formatMessage({
-                defaultMessage: 'Personal Website (optional)',
-                description:
-                  'Label for Personal Website link input on Projects profile onboarding page',
-                id: 'rAAfhQ',
+                defaultMessage: 'Personal website',
+                description: 'Personal website link field',
+                id: '3JSDTC',
               })}
+              placeholder="https://johndoe.com"
+              startIcon={RiGlobalLine}
               {...field}
             />
           )}

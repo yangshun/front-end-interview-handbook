@@ -3,10 +3,10 @@ import { Controller, useFormContext } from 'react-hook-form';
 import { RiCheckboxCircleFill } from 'react-icons/ri';
 
 import type {
-  ProjectsEditProfileValues,
   ProjectsMotivationReasonOption,
   ProjectsMotivationReasonType,
   ProjectsMotivationReasonValue,
+  ProjectsProfileEditFormValues,
 } from '~/components/projects/types';
 import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
@@ -35,7 +35,7 @@ export default function ProjectsProfileMotivationReasonList({
     watch,
     setValue,
     formState: { errors },
-  } = useFormContext<ProjectsEditProfileValues>();
+  } = useFormContext<ProjectsProfileEditFormValues>();
   const valueKey = `motivationReasons.${name}.type` as const;
   const value = watch(valueKey);
 

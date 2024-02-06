@@ -9,13 +9,23 @@ import ProjectsChallengeReputationTag from '~/components/projects/challenges/met
 import useProjectsMonthYearExperienceSchema from '~/components/projects/hooks/useProjectsMonthYearExperienceSchema';
 import { yoeReplacementSchema } from '~/components/projects/misc';
 import ProjectsProfileYOEInput from '~/components/projects/profile/ProjectsProfileYOEInput';
-import type { ProjectsOnboardingProfileStep1Values } from '~/components/projects/types';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import TextInput from '~/components/ui/TextInput';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+
+export type ProjectsProfileOnboardingStep1FormValues = {
+  hasNotStartedWork: boolean;
+  jobTitle: string;
+  monthYearExperience: string | undefined;
+  name: string;
+  yoeReplacement: {
+    option: string | undefined;
+    otherText: string | undefined;
+  };
+};
 
 function useOnboardingProfileStep1Schema() {
   const intl = useIntl();
@@ -100,7 +110,7 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
     handleSubmit,
     formState: { isSubmitting, errors },
   } = useForm<
-    ProjectsOnboardingProfileStep1Values,
+    ProjectsProfileOnboardingStep1FormValues,
     unknown,
     OnboardingProfileStep1TransformedValues
   >({

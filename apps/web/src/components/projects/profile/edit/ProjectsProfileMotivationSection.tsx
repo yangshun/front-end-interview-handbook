@@ -6,7 +6,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import useProjectsMotivationReasonOptions from '~/components/projects/hooks/useProjectsMotivationReasonOptions';
 import ProjectsProfileMotivationReasonList from '~/components/projects/profile/edit/ProjectsProfileMotivationReasonList';
 import type { ProjectsMotivationReasonType } from '~/components/projects/types';
-import type { ProjectsEditProfileValues } from '~/components/projects/types';
+import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
@@ -17,7 +17,7 @@ export default function ProjectsProfileMotivationSection() {
     watch,
     setValue,
     formState: { errors },
-  } = useFormContext<ProjectsEditProfileValues>();
+  } = useFormContext<ProjectsProfileEditFormValues>();
   const { reasonOptions } = useProjectsMotivationReasonOptions((chunks) => (
     <Text display="inline" size="inherit" weight="bold">
       {chunks}

@@ -260,11 +260,20 @@ export const projectsProfileRouter = router({
     .input(
       z.object({
         bio: z.string(),
-        githubUsername: z.string().optional(),
-        linkedInUsername: z.string().optional(),
+        githubUsername: z
+          .union([z.string().length(0), z.string().url()])
+          .transform((val) => (val ? val : null))
+          .nullable(),
+        linkedInUsername: z
+          .union([z.string().length(0), z.string().url()])
+          .transform((val) => (val ? val : null))
+          .nullable(),
         skillsProficient: projectsSkillListInputOptionalSchemaServer,
         skillsToGrow: projectsSkillListInputOptionalSchemaServer,
-        website: z.string().optional(),
+        website: z
+          .union([z.string().length(0), z.string().url()])
+          .transform((val) => (val ? val : null))
+          .nullable(),
       }),
     )
     .mutation(
@@ -309,8 +318,14 @@ export const projectsProfileRouter = router({
         .object({
           bio: z.string(),
           currentStatus: z.string().optional(),
-          githubUsername: z.string().optional(),
-          linkedInUsername: z.string().optional(),
+          githubUsername: z
+            .union([z.string().length(0), z.string().url()])
+            .transform((val) => (val ? val : null))
+            .nullable(),
+          linkedInUsername: z
+            .union([z.string().length(0), z.string().url()])
+            .transform((val) => (val ? val : null))
+            .nullable(),
           motivationReasons: z.object({
             primaryMotivation: z.string().nullable(),
             secondaryMotivation: z.string().nullable(),
@@ -320,24 +335,27 @@ export const projectsProfileRouter = router({
           skillsToGrow: projectsSkillListInputOptionalSchemaServer,
           startWorkDate: z.date().optional(),
           title: z.string(),
-          website: z.string().optional(),
+          website: z
+            .union([z.string().length(0), z.string().url()])
+            .transform((val) => (val ? val : null))
+            .nullable(),
         })
         .partial(),
     )
     .mutation(
       async ({
         input: {
-          currentStatus,
-          name,
-          startWorkDate,
-          title,
-          motivationReasons,
           bio,
+          currentStatus,
           githubUsername,
           linkedInUsername,
-          website,
+          motivationReasons,
+          name,
           skillsProficient,
           skillsToGrow,
+          startWorkDate,
+          title,
+          website,
         },
         ctx: { user },
       }) => {

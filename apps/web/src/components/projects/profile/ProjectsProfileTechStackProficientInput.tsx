@@ -2,15 +2,15 @@ import type { Control } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
-import type { ProjectsEditProfileValues } from '~/components/projects/types';
+import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Anchor from '~/components/ui/Anchor';
 
 import type { ProjectsOnboardingProfileStep2FormValues } from '../onboarding/ProjectsOnboardingProfileStep2';
 import ProjectsSkillTechStackInput from '../skills/form/ProjectsSkillTechStackInput';
 
 type Values =
-  | ProjectsEditProfileValues
-  | ProjectsOnboardingProfileStep2FormValues;
+  | ProjectsOnboardingProfileStep2FormValues
+  | ProjectsProfileEditFormValues;
 
 type Props = Readonly<{
   control: Control<Values>;
