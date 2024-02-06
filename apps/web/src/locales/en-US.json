@@ -1735,6 +1735,10 @@
     "defaultMessage": "Build entire design systems or component libraries with our Component Tracks",
     "description": "Heading of the 'Component tracks' marketing section on Projects home page"
   },
+  "Fb1C2W": {
+    "defaultMessage": "Pin",
+    "description": "Pin button label"
+  },
   "FcKhvG": {
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch and practice the questions where algorithmic efficiency is key.",
     "description": "Description for interview preparation focus area"
@@ -2883,6 +2887,10 @@
     "defaultMessage": "Skills used",
     "description": "Label for projects skills input"
   },
+  "Pn/2xP": {
+    "defaultMessage": "You have more than 3 pinned submissions",
+    "description": "Dialog title for pinned submission"
+  },
   "Ptmnjq": {
     "defaultMessage": "Free continuous updates",
     "description": "Title for free continuous updates feature"
@@ -3826,6 +3834,10 @@
   "XygrPg": {
     "defaultMessage": "<code>console.log()</code> statements will appear here.",
     "description": "Text in coding workspace's console to let users know that they can expect console logs to be found there"
+  },
+  "Y2R80N": {
+    "defaultMessage": "Unpin",
+    "description": "Unpin button label"
   },
   "Y4hby8": {
     "defaultMessage": "Easy: {numberOfEasy}, Medium: {numberOfMedium}, Hard: {numberOfHard}",
@@ -4951,10 +4963,6 @@
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
   },
-  "ih3LXL": {
-    "defaultMessage": "Unpin some submissions to pin, <link>Manage</link>",
-    "description": "Manage pin submission message"
-  },
   "imHjx3": {
     "defaultMessage": "Tip",
     "description": "Tip badge label for Deployment step in project submission checklist"
@@ -5998,6 +6006,10 @@
   "rWhQtZ": {
     "defaultMessage": "Full list of shortcuts can be found on the <link>Visual Studio Code website</link>.",
     "description": "Text in coding workspace shortcuts that provides user with the link to the full list of shortcuts"
+  },
+  "rZaG+f": {
+    "defaultMessage": "Unpin one or more existing submissions to pin a new one.",
+    "description": "Dialog subtitle for pinned submission"
   },
   "rax4QM": {
     "defaultMessage": "Edit profile photo",

@@ -797,15 +797,17 @@ export const projectsChallengeSubmissionRouter = router({
   unpin: projectsUserProcedure
     .input(
       z.object({
-        submissionId: z.string().uuid(),
+        submissionIds: z.array(z.string().uuid()),
       }),
     )
     .mutation(
-      async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
+      async ({ input: { submissionIds }, ctx: { projectsProfileId } }) => {
         await prisma.projectsChallengeSubmissionPin.deleteMany({
           where: {
             profileId: projectsProfileId,
-            submissionId,
+            submissionId: {
+              in: submissionIds,
+            },
           },
         });
       },

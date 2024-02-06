@@ -1,43 +1,41 @@
 import clsx from 'clsx';
-import { RiPushpinLine } from 'react-icons/ri';
+import { RiPushpinLine, RiUnpinLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import { trpc } from '~/hooks/trpc';
-
-import { useToast } from '~/components/global/toasts/ToastsProvider';
-import { themeTextBrandColor } from '~/components/ui/theme';
+import Button from '~/components/ui/Button';
 
 export default function ProjectsChallengeSubmissionCardPinButton({
-  submissionId,
+  onUnpin,
+  isPinned,
 }: {
-  submissionId: string;
+  isPinned: boolean;
+  onUnpin?: () => void;
 }) {
-  const { showToast } = useToast();
   const intl = useIntl();
-  const unpin = trpc.projects.submissions.unpin.useMutation({
-    onSuccess: () => {
-      showToast({
-        title: intl.formatMessage({
-          defaultMessage: 'Submission successfully unpin!',
-          description: 'Submission unpin toaster',
-          id: '5wzYep',
-        }),
-        variant: 'success',
-      });
-    },
-  });
 
   return (
-    <button
-      disabled={unpin.isLoading}
-      type="button"
-      onClick={() => unpin.mutate({ submissionId })}>
-      <RiPushpinLine
-        className={clsx(
-          themeTextBrandColor,
-          'h-6 w-6 shrink-0 cursor-pointer hover:dark:text-danger hover:text-danger',
-        )}
-      />
-    </button>
+    <Button
+      className={clsx({
+        ['dark:!text-danger !text-danger dark:!border-danger !border-danger']:
+          isPinned,
+      })}
+      icon={isPinned ? RiUnpinLine : RiPushpinLine}
+      label={
+        isPinned
+          ? intl.formatMessage({
+              defaultMessage: 'Unpin',
+              description: 'Unpin button label',
+              id: 'Y2R80N',
+            })
+          : intl.formatMessage({
+              defaultMessage: 'Pin',
+              description: 'Pin button label',
+              id: 'Fb1C2W',
+            })
+      }
+      size="xs"
+      variant="secondary"
+      onClick={onUnpin}
+    />
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { RiArrowRightLine, RiPushpinLine } from 'react-icons/ri';
+import { RiPushpinLine, RiUnpinLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -8,7 +8,8 @@ import { useToast } from '~/components/global/toasts/ToastsProvider';
 import type { ProjectsChallengeSubmissionAuthor } from '~/components/projects/submissions/types';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
-import Text from '~/components/ui/Text';
+
+import ProjectsChallengeSubmissionPinned from './ProjectsChallengeSubmissionPinned';
 
 import type { ProjectsProfile } from '@prisma/client';
 
@@ -27,23 +28,21 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
   const intl = useIntl();
   const { showToast } = useToast();
   const [hasPinned, setHasPinned] = useState(false);
-  const [has3Pinned, setHas3Pinned] = useState(false);
+  const [pinnedSubmissionsCount, setPinnedSubmissionsCount] = useState(0);
+  const [showPinnedSubmission, setShowPinnedSubmission] = useState(false);
 
-  const { isLoading } = trpc.projects.submissions.listPinned.useQuery(
-    { projectsProfileId: projectsProfile?.id ?? '' },
-    {
-      onSuccess: (data) => {
-        data.forEach((pinItem) => {
-          if (pinItem.id === submissionId) {
-            setHasPinned(true);
-          }
-        });
-        if (data.length === 3) {
-          setHas3Pinned(true);
-        }
+  const has3Pinned = pinnedSubmissionsCount >= 3;
+
+  const { isLoading, data: pinnedSubmissions } =
+    trpc.projects.submissions.listPinned.useQuery(
+      { projectsProfileId: projectsProfile?.id ?? '' },
+      {
+        onSuccess: (data) => {
+          setHasPinned(data.find(pinItem => pinItem.id === submissionId));
+          setPinnedSubmissionsCount(data.length);
+        },
       },
-    },
-  );
+    );
 
   const showErrorToast = () => {
     showToast({
@@ -69,6 +68,7 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
     },
     onSuccess: () => {
       setHasPinned(true);
+      setPinnedSubmissionsCount((prevCount) => prevCount + 1);
       showToast({
         title: intl.formatMessage({
           defaultMessage: 'Submission pinned!',
@@ -85,6 +85,7 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
     },
     onSuccess: () => {
       setHasPinned(false);
+      setPinnedSubmissionsCount((prevCount) => prevCount - 1);
       showToast({
         title: intl.formatMessage({
           defaultMessage: 'Submission successfully unpin!',
@@ -96,53 +97,45 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
     },
   });
 
-  return has3Pinned ? (
-    <div>
-      <Text size="body3" weight="medium">
-        <FormattedMessage
-          defaultMessage="Unpin some submissions to pin, <link>Manage</link>"
-          description="Manage pin submission message"
-          id="ih3LXL"
-          values={{
-            link: (chunks) => (
-              <Anchor
-                className="inline-flex gap-0.5 items-center"
-                href={`/projects/u/${projectsProfile?.userProfile?.username}`}>
-                {chunks}
-                <RiArrowRightLine />
-              </Anchor>
-            ),
-          }}
+  return (
+    <>
+      <Button
+        addonPosition="end"
+        className=""
+        icon={hasPinned ? RiUnpinLine : RiPushpinLine}
+        isDisabled={isLoading || unpin.isLoading || pin.isLoading}
+        isLoading={unpin.isLoading || pin.isLoading}
+        label={
+          hasPinned
+            ? intl.formatMessage({
+                defaultMessage: 'Unpin submission',
+                description: 'Label for unpin submission button',
+                id: 'lWREsY',
+              })
+            : intl.formatMessage({
+                defaultMessage: 'Pin submission',
+                description: 'Label for pin submission button',
+                id: 'sm2d2y',
+              })
+        }
+        size="sm"
+        variant={hasPinned ? 'danger' : 'secondary'}
+        onClick={() =>
+          hasPinned
+            ? unpin.mutate({ submissionIds: [submissionId] })
+            : has3Pinned
+              ? setShowPinnedSubmission(true)
+              : pin.mutate({ submissionId })
+        }
+      />
+      {showPinnedSubmission && (
+        <ProjectsChallengeSubmissionPinned
+          isShown={showPinnedSubmission}
+          pinnedSubmissions={pinnedSubmissions ?? []}
+          setPinnedSubmissionsCount={setPinnedSubmissionsCount}
+          onClose={() => setShowPinnedSubmission(false)}
         />
-      </Text>
-    </div>
-  ) : (
-    <Button
-      addonPosition="end"
-      className=""
-      icon={hasPinned ? undefined : RiPushpinLine}
-      isDisabled={isLoading || unpin.isLoading || pin.isLoading}
-      isLoading={unpin.isLoading || pin.isLoading}
-      label={
-        hasPinned
-          ? intl.formatMessage({
-              defaultMessage: 'Unpin submission',
-              description: 'Label for unpin submission button',
-              id: 'lWREsY',
-            })
-          : intl.formatMessage({
-              defaultMessage: 'Pin submission',
-              description: 'Label for pin submission button',
-              id: 'sm2d2y',
-            })
-      }
-      size="md"
-      variant="secondary"
-      onClick={() =>
-        hasPinned
-          ? unpin.mutate({ submissionId })
-          : pin.mutate({ submissionId })
-      }
-    />
+      )}
+    </>
   );
 }

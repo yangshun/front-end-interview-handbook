@@ -35,6 +35,8 @@ type Props = Readonly<{
     status: ProjectsChallengeSessionStatus | null;
   }>;
   isPinned?: boolean;
+  onUnpin?: () => void;
+  showPinButton?: boolean;
   submission: ProjectsChallengeSubmissionAugmented;
 }>;
 
@@ -42,6 +44,8 @@ export default function ProjectsChallengeSubmissionCard({
   isPinned = false,
   challenge,
   submission,
+  showPinButton = false,
+  onUnpin,
 }: Props) {
   const intl = useIntl();
   const {
@@ -98,13 +102,14 @@ export default function ProjectsChallengeSubmissionCard({
                 }}
               />
             </Text>
-            {!isPinned && (
+            {!isPinned && !showPinButton && (
               <ProjectsChallengeStatusBadge status={challenge.status} />
             )}
           </div>
-          {isPinned && (
+          {showPinButton && (
             <ProjectsChallengeSubmissionCardPinButton
-              submissionId={submission.id}
+              isPinned={isPinned}
+              onUnpin={onUnpin}
             />
           )}
         </div>
