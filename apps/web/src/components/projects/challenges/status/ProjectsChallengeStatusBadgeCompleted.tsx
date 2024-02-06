@@ -1,4 +1,4 @@
-import { RiCheckLine } from 'react-icons/ri';
+import { RiCheckboxCircleFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Badge from '~/components/ui/Badge';
@@ -8,7 +8,7 @@ export default function ProjectsChallengeStatusBadgeCompleted() {
 
   return (
     <Badge
-      icon={RiCheckLine}
+      icon={RiCheckboxCircleFill}
       label={intl.formatMessage({
         defaultMessage: 'Completed',
         description: 'Project completed label',

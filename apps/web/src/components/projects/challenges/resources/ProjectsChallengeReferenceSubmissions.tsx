@@ -26,9 +26,9 @@ export default function ProjectsChallengeReferenceSubmissions({
     <div className="flex flex-col">
       <Heading level="heading5">
         <FormattedMessage
-          defaultMessage="Submissions you can reference"
-          description="Title for Reference Submissions section on Projects project tips & resources page"
-          id="6PA1sS"
+          defaultMessage="User submissions you can reference"
+          description="Title for user project submissions section"
+          id="YUzNZk"
         />
       </Heading>
       <Section>

@@ -8,10 +8,7 @@ import Chip from '~/components/ui/Chip';
 import Dialog from '~/components/ui/Dialog';
 import Divider from '~/components/ui/Divider';
 import Text from '~/components/ui/Text';
-import {
-  themeBackgroundLayerEmphasized,
-  themeBorderElementColor,
-} from '~/components/ui/theme';
+import { themeBorderElementColor } from '~/components/ui/theme';
 
 import ProjectsChallengeGetStartedDownloadFigmaDesign from './ProjectsChallengeGetStartedDownloadFigmaDesign';
 import ProjectsChallengeGetStartedDownloadStarterFiles from './ProjectsChallengeGetStartedDownloadStarterFiles';
@@ -201,13 +198,7 @@ export default function ProjectsChallengeGetStartedDialog({
       })}
       width="screen-sm"
       onClose={onClose}>
-      <ol className="relative flex flex-col gap-y-6 mt-5">
-        <div
-          className={clsx(
-            'border-l border-dashed absolute h-full start-3',
-            themeBorderElementColor,
-          )}
-        />
+      <ol className="relative flex flex-col pt-3">
         {dialogSteps.map((step, index) => {
           const isStepSelected = index === currentStepIndex;
           const isStepCompleted = index < currentStepIndex;
@@ -216,8 +207,8 @@ export default function ProjectsChallengeGetStartedDialog({
             <li
               key={step.id}
               aria-label={step.label}
-              className="flex gap-2.5 items-start">
-              <div className="flex flex-col self-stretch">
+              className={clsx('flex gap-2.5 items-start')}>
+              <div className="flex flex-col self-stretch relative">
                 {isStepCompleted ? (
                   <Chip
                     aria-hidden={true}
@@ -239,16 +230,22 @@ export default function ProjectsChallengeGetStartedDialog({
                     />
                   </div>
                 )}
-                {index === dialogSteps.length - 1 && (
+                {index < dialogSteps.length - 1 && (
                   <div
                     className={clsx(
-                      'z-10 self-stretch flex-1',
-                      themeBackgroundLayerEmphasized,
+                      'border-l absolute bottom-0 top-6 start-3',
+                      isStepCompleted
+                        ? 'border-success dark:border-success-light'
+                        : ['border-dashed', themeBorderElementColor],
                     )}
                   />
                 )}
               </div>
-              <div className="flex flex-1 flex-col gap-6">
+              <div
+                className={clsx(
+                  'flex flex-1 flex-col gap-6',
+                  index < dialogSteps.length - 1 && 'pb-6',
+                )}>
                 <Text
                   className="md:text-base text-sm"
                   color={isStepSelected ? 'active' : 'default'}
@@ -257,7 +254,7 @@ export default function ProjectsChallengeGetStartedDialog({
                 </Text>
                 {isStepSelected && step.content}
                 {isStepSelected && index < dialogSteps.length - 1 && (
-                  <Divider />
+                  <Divider color="emphasized" />
                 )}
               </div>
             </li>

@@ -1,7 +1,7 @@
 'use client';
 
 import { notFound } from 'next/navigation';
-import { RiPencilFill } from 'react-icons/ri';
+import { RiPencilLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -76,11 +76,11 @@ export default function ProjectsProfilePage({
         {isViewingOwnProfile && (
           <Button
             href="/projects/profile/edit"
-            icon={RiPencilFill}
+            icon={RiPencilLine}
             label={intl.formatMessage({
-              defaultMessage: 'Edit',
+              defaultMessage: 'Edit profile',
               description: 'Label for edit projects profile button',
-              id: 'nsdh11',
+              id: '4s0s2J',
             })}
             variant="secondary"
           />

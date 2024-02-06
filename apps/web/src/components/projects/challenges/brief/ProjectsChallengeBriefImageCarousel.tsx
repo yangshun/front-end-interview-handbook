@@ -131,18 +131,19 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
               onClick={() => scrollImage('right')}
             />
           </div>
-          <div className="flex absolute right-0 bottom-0 me-6 mb-6 bg-neutral-300 rounded-full px-2 py-0.5">
+          <div className="flex absolute right-0 bottom-0 me-3 mb-6 bg-neutral-300 rounded-full px-2 py-0.5">
             <Text color="dark" size="body3" weight="medium">
               {current + 1}/{images.length}
             </Text>
           </div>
-          <div className="absolute mb-8 bottom-0 left-1/2 -translate-x-1/2 flex gap-1">
+          <div className="absolute mb-8 bottom-0 left-1/2 -translate-x-1/2 flex gap-2">
             {images.map((image, index) => (
               <div
                 key={image}
                 className={clsx(
-                  'flex-1 h-[5px] w-[20px] rounded-lg dark:bg-neutral-800/40 bg-neutral-800/40',
-                  { ['!bg-brand dark:!bg-brand-dark']: index === current },
+                  'flex-1 h-[5px] w-[20px] rounded-lg',
+                  'bg-neutral-800/40',
+                  index === current && '!bg-brand dark:!bg-brand-dark',
                 )}
               />
             ))}

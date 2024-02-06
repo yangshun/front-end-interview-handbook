@@ -20,7 +20,10 @@ import type {
 import Pagination from '~/components/ui/Pagination';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
-import { themeTextSecondaryColor } from '~/components/ui/theme';
+import {
+  themeBackgroundGlimmerColor,
+  themeIconColor,
+} from '~/components/ui/theme';
 
 const ITEMS_PER_PAGE = 12;
 
@@ -103,19 +106,30 @@ export default function ProjectsChallengeSubmissionListWithFilters({
         sortField={sortField}
       />
       <div className="flex flex-col gap-y-4">
-        <div
-          className={clsx('flex items-center gap-2', themeTextSecondaryColor)}>
-          <RiCodeSSlashLine className="h-4 w-4" />
-          <Text color="secondary" size="body3">
-            <FormattedMessage
-              defaultMessage="{submissionsCount} submissions"
-              description="Label for total number of submissions in all submissions page"
-              id="JSTYYJ"
-              values={{
-                submissionsCount: isLoading ? '-' : submissions?.length,
-              }}
+        <div className={clsx('flex items-center gap-2')}>
+          <RiCodeSSlashLine
+            className={clsx('h-4 w-4 shrink-0', themeIconColor)}
+          />
+          {isLoading ? (
+            // TODO(ui): create glimmer component.
+            <div
+              className={clsx(
+                'h-2 min-w-[80px] animate-pulse rounded',
+                themeBackgroundGlimmerColor,
+              )}
             />
-          </Text>
+          ) : (
+            <Text color="secondary" size="body3">
+              <FormattedMessage
+                defaultMessage="{totalCount} submissions"
+                description="Total number of projects submissions"
+                id="+B60u6"
+                values={{
+                  totalCount,
+                }}
+              />
+            </Text>
+          )}
         </div>
         {isLoading && !submissions ? (
           <Spinner display="block" size="lg" />

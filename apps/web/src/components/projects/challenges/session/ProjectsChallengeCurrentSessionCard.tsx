@@ -2,10 +2,10 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import {
   RiArrowDownSLine,
+  RiInformationLine,
   RiStopCircleLine,
   RiTimerLine,
 } from 'react-icons/ri';
-import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -16,6 +16,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
   themeGlassyBorder,
+  themeIconColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
@@ -42,7 +43,7 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
   const { endSession, isEndSessionLoading } =
     useProjectsChallengeSessionContext();
 
-  const { submitHref, skills: challengeSkills, slug } = challenge.metadata;
+  const { submitHref, slug } = challenge.metadata;
   const { createdAt, roadmapSkills, techStackSkills } = session;
   const updateSessionSkillsMutation =
     trpc.projects.sessions.skillsUpdate.useMutation();
@@ -136,16 +137,29 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
           themeGlassyBorder,
           themeBackgroundCardColor,
         )}>
-        <div className="flex justify-between md:flex-row flex-col gap-3 w-full">
+        <div className="flex justify-between flex-col md:flex-row gap-3 w-full">
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
-              <Text weight="bold">
-                <FormattedMessage
-                  defaultMessage="Current project session"
-                  description="Title for current project session card"
-                  id="AfXYpF"
-                />
-              </Text>
+              <div className="flex gap-x-2 items-center">
+                <Text className="flex gap-x-2" weight="bold">
+                  <FormattedMessage
+                    defaultMessage="Current project session"
+                    description="Title for current project session card"
+                    id="AfXYpF"
+                  />
+                </Text>
+                <Tooltip
+                  label={intl.formatMessage({
+                    defaultMessage:
+                      'A user can complete a project multiple times – each instance is tracked as separate sessions.',
+                    description: 'Tooltip for current project session',
+                    id: '0U+s+4',
+                  })}>
+                  <RiInformationLine
+                    className={clsx('h-4 w-4 shrink-0', themeIconColor)}
+                  />
+                </Tooltip>
+              </div>
               <div className="block md:hidden">{expandButton}</div>
             </div>
             <div className={clsx('flex gap-1', themeTextSecondaryColor)}>
@@ -167,9 +181,8 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
           </div>
           <div className="flex md:gap-2 gap-4">
             <Button
-              className="md:inline-flex flex flex-1"
+              className="flex flex-1 md:inline-flex min-w-[100px]"
               href={submitHref}
-              icon={RiArrowRightLine}
               label={intl.formatMessage({
                 defaultMessage: 'Submit',
                 description:
@@ -179,32 +192,31 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
               size="xs"
               variant="primary"
             />
-            <Tooltip
-              className="md:inline-flex flex flex-1"
+            {/* Unable to make the button equal width on mobile because of the tooltip wrapper.
+              We'll prioritize code cleanliness over matching the design. */}
+            <Button
+              addonPosition="start"
+              icon={RiStopCircleLine}
               label={intl.formatMessage({
+                defaultMessage: 'End session',
+                description:
+                  'Label for "End session" button on current project session card',
+                id: 'WNERnb',
+              })}
+              size="xs"
+              tooltip={intl.formatMessage({
                 defaultMessage:
                   'You can choose to end a project session if you choose not to work on it anymore. We will stop prompting you to continue the project in the dashboard',
                 description:
                   'Tooltip for "End session" button on current project session card',
                 id: 'L4W5rT',
               })}
-              position="below">
-              <Button
-                className="md:inline-flex flex flex-1"
-                icon={RiStopCircleLine}
-                label={intl.formatMessage({
-                  defaultMessage: 'End session',
-                  description:
-                    'Label for "End session" button on current project session card',
-                  id: 'WNERnb',
-                })}
-                size="xs"
-                variant="danger"
-                onClick={() => {
-                  setShowEndSessionDialog(true);
-                }}
-              />
-            </Tooltip>
+              tooltipPosition="below"
+              variant="danger"
+              onClick={() => {
+                setShowEndSessionDialog(true);
+              }}
+            />
             <div className="md:block hidden">{expandButton}</div>
           </div>
         </div>

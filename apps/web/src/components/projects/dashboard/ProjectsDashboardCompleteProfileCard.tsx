@@ -129,7 +129,7 @@ export default function ProjectsDashboardCompleteProfileCard() {
               />
               <Anchor
                 className="flex gap-3 justify-between grow"
-                href={`/projects/u/${profile?.username}`}
+                href="/projects/profile/edit"
                 variant="muted">
                 <Text
                   className={clsx(task.isComplete && 'line-through')}

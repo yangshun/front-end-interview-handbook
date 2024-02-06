@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useInView } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
-import { RiArrowLeftLine } from 'react-icons/ri';
+import { RiArrowLeftLine, RiPencilLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'usehooks-ts';
 
@@ -94,6 +94,7 @@ export default function ProjectsChallengeSubmissionHero({
   const editButton = (
     <Button
       href={submission.hrefs.edit}
+      icon={RiPencilLine}
       label={intl.formatMessage({
         defaultMessage: 'Edit submission',
         description: 'Button to edit project submission',

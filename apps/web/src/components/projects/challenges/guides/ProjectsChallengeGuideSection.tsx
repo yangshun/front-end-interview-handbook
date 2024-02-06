@@ -106,8 +106,7 @@ export default function ProjectsChallengeGuideSection({
           />
         </SlideOut>
       </div>
-
-      <div className="flex flex-col md:gap-12 gap-6">
+      <div className="flex flex-col gap-6 md:gap-12">
         <Heading level="heading4">{projectGuide.title}</Heading>
         {projectGuide != null && (
           <div className="pt-2">

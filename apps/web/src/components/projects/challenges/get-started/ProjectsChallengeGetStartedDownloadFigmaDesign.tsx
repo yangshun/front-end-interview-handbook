@@ -1,4 +1,4 @@
-import { RiLock2Line, RiSparklingLine } from 'react-icons/ri';
+import { RiLock2Line, RiLockUnlockLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
@@ -28,15 +28,14 @@ export default function ProjectsChallengeGetStartedDownloadFigmaDesign({
       <Button
         addonPosition="start"
         href={userCanAccess ? downloadDesignFileHref : undefined}
-        icon={userCanAccess ? RiSparklingLine : RiLock2Line}
+        icon={userCanAccess ? RiLockUnlockLine : RiLock2Line}
         label={intl.formatMessage({
-          defaultMessage: 'Download Figma design',
-          description:
-            'Label for "Download Figma design" button on Projects project page',
-          id: '7jhWHe',
+          defaultMessage: 'Download Figma design file',
+          description: 'Download Figma file button label',
+          id: 'xTvZAB',
         })}
         size="md"
-        variant={userCanAccess ? 'primary' : 'special'}
+        variant="special"
       />
       {!userCanAccess && (
         <div className="flex flex-col">

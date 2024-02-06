@@ -74,6 +74,9 @@ export const themeBackgroundCardWhiteOnLightColor = clsx(
 export const themeBackgroundChipColor = clsx(
   'bg-neutral-200 dark:bg-neutral-800',
 );
+export const themeBackgroundGlimmerColor = clsx(
+  'bg-neutral-600 dark:bg-neutral-400',
+);
 export const themeBackgroundElementColor = clsx('bg-white dark:bg-neutral-900');
 export const themeBackgroundElementHoverStateColor = clsx(
   'hover:bg-neutral-100 dark:hover:bg-neutral-800/70',

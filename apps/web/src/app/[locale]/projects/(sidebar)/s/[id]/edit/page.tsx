@@ -1,4 +1,4 @@
-import { notFound, redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 
 import { convertToPlainObject } from '~/lib/convertToPlainObject';
 

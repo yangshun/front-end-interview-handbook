@@ -18,17 +18,17 @@ export default function ProjectsChallengeListPage({ challenges }: Props) {
       <div className="flex flex-col max-w-prose gap-1">
         <Heading level="heading6">
           <FormattedMessage
-            defaultMessage="Browse all projects"
-            description="Title of Projects Browse Projects page"
-            id="etGGVG"
+            defaultMessage="Browse all challenges"
+            description="Title of Projects challenges page"
+            id="uqu1l4"
           />
         </Heading>
         <Section>
           <Text color="secondary" size="body2">
             <FormattedMessage
               defaultMessage="Start building any project you can dream of to train your front end / full stack skills or to build a useful toolkit."
-              description="Description of Projects Browse Projects page"
-              id="5/4Bz+"
+              description="Description of Projects challenges page"
+              id="dxQHSA"
             />
           </Text>
         </Section>

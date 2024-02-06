@@ -86,7 +86,7 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
       </div>
       <div
         className={clsx(
-          'grid grid-cols-1 md:grid-cols-2 gap-6',
+          'grid grid-cols-1 lg:grid-cols-2 gap-6',
           'items-start mt-8',
         )}>
         <div className="flex flex-col gap-4">
@@ -111,6 +111,7 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
             <ProjectsChallengeTrackTag track={track} />
             <ProjectsChallengeReputationTag points={points} variant="flat" />
           </div>
+          {/* TODO(projects|skills): shift this into hovercard for rep tag */}
           {isGetLatestSessionFetched && !hasSession && (
             <div className="flex flex-col gap-2">
               <ProjectsSkillRoadmapChips readonly={true} skills={skills} />

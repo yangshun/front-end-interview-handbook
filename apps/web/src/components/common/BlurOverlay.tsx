@@ -22,7 +22,7 @@ export default function BlurOverlay({
 
   return (
     <div className="relative w-full">
-      <div aria-hidden={true} className="h-[300px] blur overflow-hidden">
+      <div aria-hidden={true} className="h-[500px] blur overflow-hidden">
         <div
           style={{
             WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)',

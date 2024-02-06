@@ -27,7 +27,7 @@ function useTipsResourcesDiscussionsTabs() {
   const tabs: Array<TabItem<TipsResourcesDiscussionsTabType>> = [
     {
       icon: RiQuestionAnswerFill,
-      label: 'Project discussions',
+      label: 'Discussions',
       value: 'discussions',
     },
     {
@@ -99,14 +99,14 @@ export default function ProjectsChallengeResourcesPage({
             value={tipsResourcesDiscussionsTab}
             onSelect={setTipsResourcesDiscussionsTab}
           />
-          {tipsResourcesDiscussionsTab === 'references' && (
-            <ProjectsChallengeReferenceSubmissions challenge={challenge} />
-          )}
           {tipsResourcesDiscussionsTab === 'discussions' && (
             <ProjectsChallengeDiscussionsSection challenge={challenge} />
           )}
           {tipsResourcesDiscussionsTab === 'guides' && (
             <ProjectsChallengeGuideSection projectGuides={projectGuides} />
+          )}
+          {tipsResourcesDiscussionsTab === 'references' && (
+            <ProjectsChallengeReferenceSubmissions challenge={challenge} />
           )}
         </div>
       </div>

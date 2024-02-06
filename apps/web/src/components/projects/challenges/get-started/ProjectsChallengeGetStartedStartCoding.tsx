@@ -16,7 +16,7 @@ export default function ProjectsChallengeGetStartedStartCoding({
   const intl = useIntl();
 
   return (
-    <div className="flex flex-col items-center gap-4 mb-20 mt-20 -ml-10">
+    <div className="flex flex-col items-center gap-4 my-10 -ml-10">
       <Text size="body0" weight="bold">
         <FormattedMessage
           defaultMessage="Let's begin!"

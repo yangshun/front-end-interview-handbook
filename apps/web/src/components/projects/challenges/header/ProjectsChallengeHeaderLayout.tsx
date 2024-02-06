@@ -25,7 +25,7 @@ export function ProjectsChallengeHeaderLayoutImpl({
   } = useProjectsChallengeSessionContext();
 
   return (
-    <div className="flex flex-col items-stretch gap-16">
+    <div className="flex flex-col items-stretch gap-10">
       <ProjectsChallengeHeader challenge={challenge} />
       <ProjectsChallengeStepsTabsImpl challenge={challenge} />
       {children}

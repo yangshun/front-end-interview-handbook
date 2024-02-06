@@ -84,29 +84,6 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
     ([size]) => size > 0,
   ).length;
 
-  const emptyState = (
-    <div className="p-10">
-      <EmptyState
-        icon={RiFolderOpenLine}
-        iconClassName={themeTextColor}
-        subtitle={intl.formatMessage({
-          defaultMessage:
-            "Adjust your filters a bit, and let's see what we can find!",
-          description:
-            'Subtitle for empty state when no projects are returned from application of filters on projects list',
-          id: '0ttv+M',
-        })}
-        title={intl.formatMessage({
-          defaultMessage: 'Nothing found just yet',
-          description:
-            'Title for empty state when application of filters return no results',
-          id: 'SdYw31',
-        })}
-        variant="empty"
-      />
-    </div>
-  );
-
   function makeDropdownItemProps(
     label: string,
     itemField: ProjectsSortField,
@@ -252,30 +229,47 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
             </DropdownMenu>
           </div>
         </div>
-        <div className="flex flex-col gap-y-4">
-          <div
-            className={clsx(
-              'flex items-center gap-2',
-              themeTextSecondaryColor,
-            )}>
-            <RiCodeSSlashLine className="h-4 w-4" />
-            <Text color="secondary" size="body3">
-              <FormattedMessage
-                defaultMessage="{projectCount} projects"
-                description="Label for total number of projects in Projects marketing page"
-                id="b+bj2C"
-                values={{
-                  projectCount: processedChallenges.length,
-                }}
-              />
-            </Text>
+        {currentPageChallenges.length === 0 ? (
+          <div className="p-24">
+            <EmptyState
+              icon={RiFolderOpenLine}
+              iconClassName={themeTextColor}
+              subtitle={intl.formatMessage({
+                defaultMessage:
+                  "Adjust your filters a bit, and let's see what we can find!",
+                description:
+                  'Subtitle for empty state when no projects are returned from application of filters on projects list',
+                id: '0ttv+M',
+              })}
+              title={intl.formatMessage({
+                defaultMessage: 'Nothing found just yet',
+                description:
+                  'Title for empty state when application of filters return no results',
+                id: 'SdYw31',
+              })}
+              variant="empty"
+            />
           </div>
-          {currentPageChallenges.length === 0 ? (
-            emptyState
-          ) : (
+        ) : (
+          <div className="flex flex-col gap-y-4">
+            <div className={clsx('flex items-center gap-2')}>
+              <RiCodeSSlashLine
+                className={clsx('h-4 w-4', themeTextSecondaryColor)}
+              />
+              <Text color="secondary" size="body3">
+                <FormattedMessage
+                  defaultMessage="{totalCount, plural, =0 {No projects} one {1 project} other {# projects}}"
+                  description="Total number of projects"
+                  id="jFG/qC"
+                  values={{
+                    totalCount: processedChallenges.length,
+                  }}
+                />
+              </Text>
+            </div>
             <ProjectsChallengeGridList challenges={currentPageChallenges} />
-          )}
-        </div>
+          </div>
+        )}
         {totalPages > 1 && (
           <div className="flex justify-between items-center">
             <Text color="secondary" size="body3">

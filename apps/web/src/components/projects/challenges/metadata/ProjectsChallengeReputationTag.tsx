@@ -40,9 +40,9 @@ export default function ProjectsChallengeReputationTag({
         size="body3"
         weight={variant === 'filled' ? 'medium' : 'normal'}>
         <FormattedMessage
-          defaultMessage="+{points} rep"
-          description="Rep count increase label in Projects"
-          id="HoFQuO"
+          defaultMessage="{points} rep"
+          description="Reputation points to be gained"
+          id="md057S"
           values={{
             points,
           }}

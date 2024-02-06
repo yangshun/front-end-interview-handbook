@@ -112,8 +112,8 @@ export default function ProjectsChallengeAssetsPage({
       align="center"
       disableOverlay={accessAllSteps}
       overlay={
-        <div className="flex flex-col gap-y-6 items-center max-w-lg mx-auto text-center">
-          <Heading level="heading5">
+        <div className="flex flex-col gap-y-6 items-center max-w-2xl mx-auto">
+          <Heading className="text-center drop-shadow" level="heading5">
             <FormattedMessage
               defaultMessage="You can download assets after starting the project"
               description="Title for project overlay on projects details page"

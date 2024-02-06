@@ -19,6 +19,10 @@
     "defaultMessage": "{questionCount}+ interview questions across <clink>coding</clink> and <qlink>quiz</qlink> formats and new questions constantly being added.",
     "description": "Subtitle for huge question bank feature"
   },
+  "+B60u6": {
+    "defaultMessage": "{totalCount} submissions",
+    "description": "Total number of projects submissions"
+  },
   "+ESKYF": {
     "defaultMessage": "Svelte Questions",
     "description": "Svelte questions category long title"
@@ -254,6 +258,10 @@
   "0QZnRv": {
     "defaultMessage": "Recommended schedule",
     "description": "Recommended schedule tooltip displayed on question cards found on question lists"
+  },
+  "0U+s+4": {
+    "defaultMessage": "A user can complete a project multiple times – each instance is tracked as separate sessions.",
+    "description": "Tooltip for current project session"
   },
   "0WJfoT": {
     "defaultMessage": "Intermediate",
@@ -659,10 +667,6 @@
     "defaultMessage": "Submission success",
     "description": "Title for the project submission success page"
   },
-  "5/4Bz+": {
-    "defaultMessage": "Start building any project you can dream of to train your front end / full stack skills or to build a useful toolkit.",
-    "description": "Description of Projects Browse Projects page"
-  },
   "50kzzq": {
     "defaultMessage": "Select question format",
     "description": "Label for tabs to select sample interview question format"
@@ -798,10 +802,6 @@
   "6A9LIb": {
     "defaultMessage": "Study plans for Front End Interviews",
     "description": "Title of study plans page"
-  },
-  "6PA1sS": {
-    "defaultMessage": "Submissions you can reference",
-    "description": "Title for Reference Submissions section on Projects project tips & resources page"
   },
   "6RhqF3": {
     "defaultMessage": "Number of articles",
@@ -946,10 +946,6 @@
   "7hlP1A": {
     "defaultMessage": "Task has not been completed! Please try again.",
     "description": "Error task label"
-  },
-  "7jhWHe": {
-    "defaultMessage": "Download Figma design",
-    "description": "Label for \"Download Figma design\" button on Projects project page"
   },
   "7kN2mI": {
     "defaultMessage": "Progress",
@@ -1975,10 +1971,6 @@
     "defaultMessage": "Start coding!",
     "description": "Label for \"Start coding!\" button on Projects project page"
   },
-  "HoFQuO": {
-    "defaultMessage": "+{points} rep",
-    "description": "Rep count increase label in Projects"
-  },
   "HtFDkf": {
     "defaultMessage": "Official guides",
     "description": "Title for \"Official guides\" feature on Projects home page"
@@ -2134,10 +2126,6 @@
   "JQT5KD": {
     "defaultMessage": "Profile",
     "description": "Title of Projects Profile page"
-  },
-  "JSTYYJ": {
-    "defaultMessage": "{submissionsCount} submissions",
-    "description": "Label for total number of submissions in all submissions page"
   },
   "JUhFP/": {
     "defaultMessage": "Minimum {minNumber} characters. Letters and digits required.",
@@ -3823,10 +3811,6 @@
     "defaultMessage": "Update",
     "description": "Update existing URL in a form"
   },
-  "Xlmv0q": {
-    "defaultMessage": "Follow this step-by-step deployment and submission checklist",
-    "description": "Description for the project submission checklist section"
-  },
   "Xq6/V6": {
     "defaultMessage": "View LinkedIn profile",
     "description": "Tooltip for LinkedIn profile icon"
@@ -3894,6 +3878,10 @@
   "YS1B1R": {
     "defaultMessage": "Find submissions suggested for your review, based on your completed challenges, tech skills, and experience.",
     "description": "Page subtitle"
+  },
+  "YUzNZk": {
+    "defaultMessage": "User submissions you can reference",
+    "description": "Title for user project submissions section"
   },
   "YWz2ko": {
     "defaultMessage": "Proven preparation plans",
@@ -4170,10 +4158,6 @@
   "ay9BLg": {
     "defaultMessage": "All GreatFrontEnd plans",
     "description": "All pricing plans"
-  },
-  "b+bj2C": {
-    "defaultMessage": "{projectCount} projects",
-    "description": "Label for total number of projects in Projects marketing page"
   },
   "b/4l5Z": {
     "defaultMessage": "Subscriptions are automatically renewed and you will be charged again then. You may cancel your subscription anytime via the Stripe billing portal.",
@@ -4479,6 +4463,10 @@
     "defaultMessage": "Efficient strategies to prepare and ace behavioral interviews.",
     "description": "Behavioral interview guidebook description"
   },
+  "dxQHSA": {
+    "defaultMessage": "Start building any project you can dream of to train your front end / full stack skills or to build a useful toolkit.",
+    "description": "Description of Projects challenges page"
+  },
   "dz24ro": {
     "defaultMessage": "Send reset password instructions",
     "description": "Label of password reset button on Password Reset page"
@@ -4542,10 +4530,6 @@
   "er6Ns7": {
     "defaultMessage": "{yoe} YOE",
     "description": "Years of experience"
-  },
-  "etGGVG": {
-    "defaultMessage": "Browse all projects",
-    "description": "Title of Projects Browse Projects page"
   },
   "eucnNd": {
     "defaultMessage": "What kind of guidance will this platform provide me?",
@@ -5019,6 +5003,10 @@
     "defaultMessage": "View subscription plans",
     "description": "Label for button to view subscription plans"
   },
+  "jFG/qC": {
+    "defaultMessage": "{totalCount, plural, =0 {No projects} one {1 project} other {# projects}}",
+    "description": "Total number of projects"
+  },
   "jGQnYd": {
     "defaultMessage": "Search coding questions",
     "description": "Placeholder for search input of coding question list"
@@ -5447,6 +5435,10 @@
     "defaultMessage": "Host the project for free on our recommended hosts and submit your project URL for reviews",
     "description": "Instruction for projects"
   },
+  "md057S": {
+    "defaultMessage": "{points} rep",
+    "description": "Reputation points to be gained"
+  },
   "mjEvFf": {
     "defaultMessage": "Step 2",
     "description": "Title for \"Step 2\" tab on Projects project page"
@@ -5562,10 +5554,6 @@
   "npvgQq": {
     "defaultMessage": "Prepare for your front end interviews in one week. Efficiently focus on the most important concepts through a good mix of coding and quiz questions.",
     "description": "Description for one week study plan"
-  },
-  "nsdh11": {
-    "defaultMessage": "Edit",
-    "description": "Label for edit projects profile button"
   },
   "nsk8M8": {
     "defaultMessage": "In progress",
@@ -6395,6 +6383,10 @@
     "defaultMessage": "Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
   },
+  "uqu1l4": {
+    "defaultMessage": "Browse all challenges",
+    "description": "Title of Projects challenges page"
+  },
   "urvIL3": {
     "defaultMessage": "Sign in to your account",
     "description": "Subtitle of Sign In page"
@@ -6531,6 +6523,10 @@
     "defaultMessage": "Pick your framework",
     "description": "Label for an example list of User Interface Questions on marketing pages"
   },
+  "w3tshW": {
+    "defaultMessage": "Once you're done coding, follow this step-by-step guide to host your solution and submit the project.",
+    "description": "Description for the project submission checklist section"
+  },
   "w5+zQe": {
     "defaultMessage": "{difficulty}",
     "description": "Difficulty for track in Continue tracks and skills section on Projects dashboard page"
@@ -6626,6 +6622,10 @@
   "xMmBc1": {
     "defaultMessage": "Tech stack used",
     "description": "Label for tech stack skills section"
+  },
+  "xTvZAB": {
+    "defaultMessage": "Download Figma design file",
+    "description": "Download Figma file button label"
   },
   "xU32y0": {
     "defaultMessage": "3 subcategories of questions: JavaScript, User Interfaces & Data Structures and Algorithms",

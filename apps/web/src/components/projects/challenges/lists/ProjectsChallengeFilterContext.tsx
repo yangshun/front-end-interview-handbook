@@ -53,6 +53,34 @@ function useFilters() {
         type: 'checkbox',
       },
       {
+        id: 'skills',
+        label: intl.formatMessage({
+          defaultMessage: 'Skills',
+          description: 'Label for Skills filter for projects list',
+          id: 'wzV6ho',
+        }),
+        options: [
+          {
+            label: 'HTML',
+            value: 'html',
+          },
+          {
+            label: 'React',
+            value: 'react',
+          },
+          {
+            label: 'JS',
+            value: 'js',
+          },
+        ],
+        tooltip: intl.formatMessage({
+          defaultMessage: 'Filter by skills',
+          description: 'Tooltip for Skills filter for projects list',
+          id: 'KBkMan',
+        }),
+        type: 'skill-selection',
+      },
+      {
         id: 'difficulty',
         label: intl.formatMessage({
           defaultMessage: 'Difficulty',
@@ -90,34 +118,6 @@ function useFilters() {
         type: 'checkbox',
       },
       {
-        id: 'skills',
-        label: intl.formatMessage({
-          defaultMessage: 'Skills',
-          description: 'Label for Skills filter for projects list',
-          id: 'wzV6ho',
-        }),
-        options: [
-          {
-            label: 'HTML',
-            value: 'html',
-          },
-          {
-            label: 'React',
-            value: 'react',
-          },
-          {
-            label: 'JS',
-            value: 'js',
-          },
-        ],
-        tooltip: intl.formatMessage({
-          defaultMessage: 'Filter by skills',
-          description: 'Tooltip for Skills filter for projects list',
-          id: 'KBkMan',
-        }),
-        type: 'skill-selection',
-      },
-      {
         id: 'status',
         label: intl.formatMessage({
           defaultMessage: 'Status',
@@ -135,11 +135,11 @@ function useFilters() {
             value: 'COMPLETED',
           },
           {
-            label: 'In Progress',
+            label: 'In progress',
             value: 'IN_PROGRESS',
           },
           {
-            label: 'Not Started',
+            label: 'Not started',
             value: 'NOT_STARTED',
           },
         ],

@@ -4,7 +4,10 @@ import { RiCheckboxCircleLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Text from '~/components/ui/Text';
-import { themeIconColor } from '~/components/ui/theme';
+import {
+  themeBackgroundGlimmerColor,
+  themeIconColor,
+} from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
@@ -43,7 +46,13 @@ export default function QuestionUsersCompletedLabel({
           color="inherit"
           size="body3">
           {isLoading ? (
-            <div className="h-2 min-w-[80px] animate-pulse rounded bg-neutral-200" />
+            // TODO(ui): create glimmer component.
+            <div
+              className={clsx(
+                'h-2 min-w-[80px] animate-pulse rounded',
+                themeBackgroundGlimmerColor,
+              )}
+            />
           ) : (
             <FormattedMessage
               defaultMessage="{numUsers} completed"
