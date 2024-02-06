@@ -50,17 +50,6 @@ export const projectsSessionsRouter = router({
       });
     },
   ),
-  firstTime: projectsUserProcedure.query(
-    async ({ ctx: { projectsProfileId } }) => {
-      const sessions = await prisma.projectsChallengeSession.count({
-        where: {
-          profileId: projectsProfileId,
-        },
-      });
-
-      return sessions === 0;
-    },
-  ),
   latestInProgress: projectsSessionProcedure.query(
     async ({ input: { slug }, ctx: { projectsProfileId } }) => {
       return await prisma.projectsChallengeSession.findFirst({

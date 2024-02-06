@@ -27,7 +27,8 @@ export default function ProjectsDashboardPage({ children }: Props) {
 
   const { data: profileStatistics } =
     trpc.projects.profile.dashboardStatisticsSelf.useQuery();
-  const { data: isNewToProjects } = trpc.projects.sessions.firstTime.useQuery();
+  const { data: startedBefore } =
+    trpc.projects.sessions.startedBefore.useQuery();
   const { data: userProfile } = trpc.projects.profile.get.useQuery();
 
   return (
@@ -78,7 +79,7 @@ export default function ProjectsDashboardPage({ children }: Props) {
             upvotes={profileStatistics?.upvotes ?? 842}
           />
         </div>
-        {!userProfile || isNewToProjects ? (
+        {!userProfile || !startedBefore ? (
           <ProjectsDashboardRecommendedActionsSection
             primaryMotivation={userProfile?.projectsProfile?.primaryMotivation}
             secondaryMotivation={
@@ -87,8 +88,8 @@ export default function ProjectsDashboardPage({ children }: Props) {
           />
         ) : (
           <Section>
-            <div className="lg:grid-cols-2 lg:grid-rows-1 grid-cols-1 grid grid-rows-2 gap-y-6 gap-x-3 md:gap-x-4 lg:gap-x-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-y-6 gap-x-3 md:gap-x-4 lg:gap-x-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 grid-rows-2 lg:grid-rows-1 gap-x-3 md:gap-x-4 lg:gap-x-6 gap-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-x-3 md:gap-x-4 lg:gap-x-6 gap-y-6">
                 <ProjectsDashboardContinueProjectsSection />
                 <ProjectsDashboardTrackAndSkillsSection />
               </div>
