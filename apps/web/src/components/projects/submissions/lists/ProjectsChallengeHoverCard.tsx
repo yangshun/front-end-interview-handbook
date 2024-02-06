@@ -8,19 +8,14 @@ import Spinner from '~/components/ui/Spinner';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 type Props = Readonly<{
-  challengeSlug: string;
-  profileId: string;
+  slug: string;
 }>;
 
-export default function ProjectsChallengeHoverCard({
-  challengeSlug,
-  profileId,
-}: Props) {
+export default function ProjectsChallengeHoverCard({ slug }: Props) {
   const { locale } = useI18nPathname();
   const { data, isLoading } = trpc.projects.challenges.hovercard.useQuery({
     locale: locale ?? 'en-US',
-    profileId,
-    slug: challengeSlug,
+    slug,
   });
 
   return (

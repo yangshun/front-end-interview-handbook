@@ -88,8 +88,7 @@ export default function ProjectsChallengeSubmissionCard({
                           'border-none bg-neutral-50 dark:bg-neutral-900',
                         )}>
                         <ProjectsChallengeHoverCard
-                          challengeSlug={challenge.metadata.slug}
-                          profileId={submission.profileId}
+                          slug={challenge.metadata.slug}
                         />
                       </HovercardContent>
                     </Hovercard>

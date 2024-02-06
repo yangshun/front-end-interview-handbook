@@ -9,37 +9,34 @@ import {
 import prisma from '~/server/prisma';
 import { publicProcedure, router } from '~/server/trpc';
 
-import { projectsUserProcedure } from './procedures';
-
-const projectsChallengeProcedure = projectsUserProcedure.input(
-  z.object({
-    slug: z.string(),
-  }),
-);
-
 export const projectsChallengesRouter = router({
-  hovercard: projectsChallengeProcedure
+  hovercard: publicProcedure
     .input(
       z.object({
         locale: z.string(),
-        profileId: z.string(),
+        slug: z.string(),
       }),
     )
-    .query(async ({ input: { profileId, slug, locale } }) => {
-      const challengeSession = await prisma.projectsChallengeSession.findFirst({
-        orderBy: {
-          createdAt: 'asc',
-        },
-        where: {
-          profileId,
-          slug,
-          status: {
-            not: 'STOPPED',
-          },
-        },
-      });
-
-      const { challenge } = await readProjectsChallengeItem(slug, locale);
+    .query(async ({ input: { locale, slug }, ctx: { user } }) => {
+      const [{ challenge }, challengeSession] = await Promise.all([
+        readProjectsChallengeItem(slug, locale),
+        user?.id == null
+          ? null
+          : prisma.projectsChallengeSession.findFirst({
+              orderBy: {
+                createdAt: 'asc',
+              },
+              where: {
+                projectsProfile: {
+                  userId: user?.id,
+                },
+                slug,
+                status: {
+                  not: 'STOPPED',
+                },
+              },
+            }),
+      ]);
 
       return {
         ...challenge,
@@ -49,7 +46,7 @@ export const projectsChallengesRouter = router({
   progress: publicProcedure
     .input(
       z.object({
-        trackSlug: z.string().optional(), // Track slug
+        trackSlug: z.string().optional(),
         userId: z.string(),
       }),
     )
