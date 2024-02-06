@@ -1,11 +1,22 @@
 import clsx from 'clsx';
 
-import { themeBorderColor } from '~/components/ui/theme';
+import {
+  themeBorderColor,
+  themeBorderElementColor,
+} from '~/components/ui/theme';
+
+type DividerColor = 'default' | 'emphasized';
 
 type Props = Readonly<{
   className?: string;
+  color?: DividerColor;
 }>;
 
-export default function Divider({ className }: Props) {
-  return <hr className={clsx(themeBorderColor, className)} />;
+const dividerClass: Record<DividerColor, string> = {
+  default: themeBorderColor,
+  emphasized: themeBorderElementColor,
+};
+
+export default function Divider({ color = 'default', className }: Props) {
+  return <hr className={clsx(dividerClass[color], className)} />;
 }
