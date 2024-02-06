@@ -101,6 +101,7 @@ export const projectsProfileRouter = router({
       }),
     )
     .query(async ({ input: { profileId } }) => {
+      const submissionCount = 2;
       const [profile, pinnedSubmissions, latestSubmissions] = await Promise.all(
         [
           prisma.profile.findUnique({
@@ -119,7 +120,7 @@ export const projectsProfileRouter = router({
             orderBy: {
               createdAt: 'desc',
             },
-            take: 2,
+            take: submissionCount,
             where: {
               pins: {
                 some: {
@@ -134,7 +135,7 @@ export const projectsProfileRouter = router({
             orderBy: {
               createdAt: 'desc',
             },
-            take: 2,
+            take: submissionCount,
             where: {
               projectsProfile: {
                 userId: profileId,
@@ -143,6 +144,8 @@ export const projectsProfileRouter = router({
           }),
         ],
       );
+
+      // TODO(projects): see how we can integrate into the Promise.all().
       const { completedChallenges, upvotes, submissionViews, codeReviews } =
         await fetchProjectsProfileStatistics(
           profile?.projectsProfile?.id ?? '',
@@ -157,7 +160,9 @@ export const projectsProfileRouter = router({
           upvotes,
         },
         submissions:
-          pinnedSubmissions.length >= 2 ? pinnedSubmissions : latestSubmissions,
+          pinnedSubmissions.length >= submissionCount
+            ? pinnedSubmissions
+            : latestSubmissions,
       };
     }),
   motivationsUpdate: userProcedure
@@ -172,18 +177,22 @@ export const projectsProfileRouter = router({
         input: { primaryMotivation, secondaryMotivation },
         ctx: { user },
       }) => {
-        return await prisma.projectsProfile.upsert({
-          create: {
-            primaryMotivation,
-            secondaryMotivation,
-            userId: user.id,
-          },
-          update: {
-            primaryMotivation,
-            secondaryMotivation,
+        const projectsProfileFields = {
+          primaryMotivation,
+          secondaryMotivation,
+        };
+
+        return await prisma.profile.update({
+          data: {
+            projectsProfile: {
+              upsert: {
+                create: projectsProfileFields,
+                update: projectsProfileFields,
+              },
+            },
           },
           where: {
-            userId: user.id,
+            id: user.id,
           },
         });
       },
@@ -270,15 +279,20 @@ export const projectsProfileRouter = router({
         },
         ctx: { user },
       }) => {
+        const projectsProfileFields = {
+          skillsProficient,
+          skillsToGrow,
+        };
+
         return await prisma.profile.update({
           data: {
             bio,
             githubUsername,
             linkedInUsername,
             projectsProfile: {
-              update: {
-                skillsProficient,
-                skillsToGrow,
+              upsert: {
+                create: projectsProfileFields,
+                update: projectsProfileFields,
               },
             },
             website,
@@ -330,51 +344,34 @@ export const projectsProfileRouter = router({
         const { primaryMotivation, secondaryMotivation } =
           motivationReasons ?? {};
 
-        const txRes = await prisma.$transaction(async (tx) => {
-          const projectsProfile = await tx.projectsProfile.upsert({
-            create: {
-              primaryMotivation,
-              secondaryMotivation,
-              userId: user.id,
-            },
-            update: {
-              primaryMotivation,
-              secondaryMotivation,
-            },
-            where: {
-              userId: user.id,
-            },
-          });
+        const projectsProfileFields = {
+          primaryMotivation,
+          secondaryMotivation,
+          skillsProficient,
+          skillsToGrow,
+        };
 
-          const updatedUserProfile = await tx.profile.update({
-            data: {
-              bio,
-              currentStatus,
-              githubUsername,
-              linkedInUsername,
-              name,
-              projectsProfile: {
-                update: {
-                  skillsProficient,
-                  skillsToGrow,
-                },
+        return await prisma.profile.update({
+          data: {
+            bio,
+            currentStatus,
+            githubUsername,
+            linkedInUsername,
+            name,
+            projectsProfile: {
+              upsert: {
+                create: projectsProfileFields,
+                update: projectsProfileFields,
               },
-              startWorkDate,
-              title,
-              website,
             },
-            where: {
-              id: user.id,
-            },
-          });
-
-          return {
-            projectsProfile,
-            userProfile: updatedUserProfile,
-          };
+            startWorkDate,
+            title,
+            website,
+          },
+          where: {
+            id: user.id,
+          },
         });
-
-        return txRes;
       },
     ),
 });
