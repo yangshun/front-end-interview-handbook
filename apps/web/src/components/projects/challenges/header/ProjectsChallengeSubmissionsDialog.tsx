@@ -17,7 +17,7 @@ export default function ProjectsChallengeSubmissionsDialog({
 }: Props) {
   const intl = useIntl();
   const { data: submissions, isLoading } =
-    trpc.projects.submissions.completed.useQuery({
+    trpc.projects.submissions.listCompleted.useQuery({
       challengeSlug,
     });
 

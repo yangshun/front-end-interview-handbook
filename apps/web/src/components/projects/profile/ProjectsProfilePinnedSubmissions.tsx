@@ -14,11 +14,10 @@ type Props = Readonly<{
 export default function ProjectsProfilePinnedSubmissions({
   projectsProfileId,
 }: Props) {
-  const { data: pinnedSubmissions } = trpc.projects.submissions.pinned.useQuery(
-    {
+  const { data: pinnedSubmissions } =
+    trpc.projects.submissions.listPinned.useQuery({
       projectsProfileId,
-    },
-  );
+    });
 
   if (pinnedSubmissions == null || pinnedSubmissions.length === 0) {
     return null;

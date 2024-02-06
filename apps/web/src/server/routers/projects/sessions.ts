@@ -110,6 +110,32 @@ export const projectsSessionsRouter = router({
         };
       });
     }),
+  skillsUpdate: projectsSessionProcedure
+    .input(
+      z.object({
+        roadmapSkills: projectsSkillListInputOptionalSchemaServer,
+        sessionId: z.string().uuid(),
+        techStackSkills: projectsSkillListInputOptionalSchemaServer,
+      }),
+    )
+    .mutation(
+      async ({
+        input: { sessionId, roadmapSkills, techStackSkills, slug },
+        ctx: { projectsProfileId },
+      }) => {
+        return await prisma.projectsChallengeSession.update({
+          data: {
+            roadmapSkills,
+            techStackSkills,
+          },
+          where: {
+            id: sessionId,
+            profileId: projectsProfileId,
+            slug,
+          },
+        });
+      },
+    ),
   start: projectsSessionProcedure
     .input(
       z.object({
@@ -214,30 +240,4 @@ export const projectsSessionsRouter = router({
         .sort((a, b) => b.percentageCompleted - a.percentageCompleted)
         .slice(0, limit);
     }),
-  updateSkills: projectsSessionProcedure
-    .input(
-      z.object({
-        roadmapSkills: projectsSkillListInputOptionalSchemaServer,
-        sessionId: z.string().uuid(),
-        techStackSkills: projectsSkillListInputOptionalSchemaServer,
-      }),
-    )
-    .mutation(
-      async ({
-        input: { sessionId, roadmapSkills, techStackSkills, slug },
-        ctx: { projectsProfileId },
-      }) => {
-        return await prisma.projectsChallengeSession.update({
-          data: {
-            roadmapSkills,
-            techStackSkills,
-          },
-          where: {
-            id: sessionId,
-            profileId: projectsProfileId,
-            slug,
-          },
-        });
-      },
-    ),
 });

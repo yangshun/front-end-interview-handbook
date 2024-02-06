@@ -29,7 +29,7 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
   const [hasPinned, setHasPinned] = useState(false);
   const [has3Pinned, setHas3Pinned] = useState(false);
 
-  const { isLoading } = trpc.projects.submissions.pinned.useQuery(
+  const { isLoading } = trpc.projects.submissions.listPinned.useQuery(
     { projectsProfileId: projectsProfile?.id ?? '' },
     {
       onSuccess: (data) => {

@@ -45,7 +45,7 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
   const { submitHref, skills: challengeSkills, slug } = challenge.metadata;
   const { createdAt, roadmapSkills, techStackSkills } = session;
   const updateSessionSkillsMutation =
-    trpc.projects.sessions.updateSkills.useMutation();
+    trpc.projects.sessions.skillsUpdate.useMutation();
 
   const handleEndSession = async () => {
     await endSession(slug);
