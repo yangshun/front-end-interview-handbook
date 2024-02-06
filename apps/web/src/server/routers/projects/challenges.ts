@@ -9,7 +9,28 @@ import {
 import prisma from '~/server/prisma';
 import { publicProcedure, router } from '~/server/trpc';
 
+import { projectsUserProcedure } from './procedures';
+
 export const projectsChallengesRouter = router({
+  canAccessAllSteps: projectsUserProcedure
+    .input(
+      z.object({
+        slug: z.string(),
+      }),
+    )
+    .query(async ({ input: { slug }, ctx: { projectsProfileId } }) => {
+      const sessions = await prisma.projectsChallengeSession.count({
+        where: {
+          profileId: projectsProfileId,
+          slug,
+          status: {
+            in: ['IN_PROGRESS', 'COMPLETED'],
+          },
+        },
+      });
+
+      return sessions > 0;
+    }),
   hovercard: publicProcedure
     .input(
       z.object({

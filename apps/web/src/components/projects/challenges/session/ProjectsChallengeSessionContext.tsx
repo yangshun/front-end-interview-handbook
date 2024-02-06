@@ -66,11 +66,10 @@ export default function ProjectsChallengeSessionContextProvider({
 }: Props) {
   const queryClient = useQueryClient();
   const { showToast } = useToast();
+  const { data: canAccessAllSteps } =
+    trpc.projects.challenges.canAccessAllSteps.useQuery({ slug });
   const { data: startedBefore } =
     trpc.projects.sessions.startedBefore.useQuery();
-  const { data: accessAllSteps } =
-    trpc.projects.sessions.canAccessAllSteps.useQuery({ slug });
-
   const { data: session, isFetched: isGetLatestSessionFetched } =
     trpc.projects.sessions.latestInProgress.useQuery(
       {
@@ -115,7 +114,7 @@ export default function ProjectsChallengeSessionContextProvider({
 
   const value = useMemo(() => {
     return {
-      accessAllSteps: accessAllSteps ?? false,
+      accessAllSteps: canAccessAllSteps ?? false,
       endSession: async () => {
         await endSessionMutation.mutateAsync(
           {
@@ -201,7 +200,7 @@ export default function ProjectsChallengeSessionContextProvider({
       },
     };
   }, [
-    accessAllSteps,
+    canAccessAllSteps,
     endSessionMutation,
     isGetStartedDialogShown,
     isGetLatestSessionFetched,
