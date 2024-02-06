@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { debounce } from 'lodash-es';
+import { useRef, useState } from 'react';
 import { RiFilterLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
-import { useDebounce } from 'usehooks-ts';
 
 import FilterButton from '~/components/common/FilterButton';
 import type { ProjectsChallengeSubmissionFilter } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
@@ -52,11 +52,7 @@ export default function ProjectsChallengeSubmissionFilters({
     };
   }
 
-  const debouncedQuery = useDebounce(searchQuery, 500);
-
-  useEffect(() => {
-    setQuery(debouncedQuery);
-  }, [debouncedQuery, setQuery]);
+  const debouncedSearch = useRef(debounce((q) => setQuery(q), 500)).current;
 
   const sortAndFilterButton = (
     <>
@@ -171,7 +167,10 @@ export default function ProjectsChallengeSubmissionFilters({
             startIcon={RiSearchLine}
             type="text"
             value={searchQuery}
-            onChange={setSearchQuery}
+            onChange={(value) => {
+              setSearchQuery(value);
+              debouncedSearch(value);
+            }}
           />
         </div>
         <div className="gap-3 flex-wrap hidden md:flex">
