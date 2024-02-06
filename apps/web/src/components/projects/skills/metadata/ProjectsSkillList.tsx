@@ -33,7 +33,7 @@ export default function ProjectsSkillList({
       aria-label={isLabelHidden ? label : undefined}
       className={clsx('flex items-center gap-2 flex-wrap', className)}>
       {!isLabelHidden && (
-        <Text color="secondary" size="body2">
+        <Text color="secondary" size="body3">
           {label}
         </Text>
       )}

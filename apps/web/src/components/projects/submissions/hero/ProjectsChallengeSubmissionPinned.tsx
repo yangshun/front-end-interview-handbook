@@ -15,7 +15,9 @@ import Text from '~/components/ui/Text';
 import { useQueryClient } from '@tanstack/react-query';
 import { getQueryKey } from '@trpc/react-query';
 
-const pinnedSubmissionQueryKey = getQueryKey(trpc.projects.submissions.pinned);
+const pinnedSubmissionQueryKey = getQueryKey(
+  trpc.projects.submissions.listPinned,
+);
 
 type Props = Readonly<{
   isShown: boolean;
@@ -117,7 +119,7 @@ export default function ProjectsChallengeSubmissionPinned({
         description: 'Dialog title for pinned submission',
         id: 'Pn/2xP',
       })}
-      width="screen-lg"
+      width="screen-xl"
       onClose={onClose}>
       <div className="flex flex-col gap-8">
         <Text size="body2">
@@ -127,9 +129,8 @@ export default function ProjectsChallengeSubmissionPinned({
             id="rZaG+f"
           />
         </Text>
-
         <Section>
-          <div className="md:grid-cols-2 lg:grid-cols-3 grid-cols-1 grid gap-3 md:gap-4 lg:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 lg:gap-6">
             {pinnedSubmissions.map((submission) => (
               <ProjectsChallengeSubmissionCard
                 key={submission.id}

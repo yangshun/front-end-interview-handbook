@@ -38,7 +38,7 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
       { projectsProfileId: projectsProfile?.id ?? '' },
       {
         onSuccess: (data) => {
-          setHasPinned(data.find(pinItem => pinItem.id === submissionId));
+          setHasPinned(data.some((pinItem) => pinItem.id === submissionId));
           setPinnedSubmissionsCount(data.length);
         },
       },

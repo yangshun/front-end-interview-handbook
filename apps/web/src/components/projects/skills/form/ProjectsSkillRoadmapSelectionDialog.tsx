@@ -57,7 +57,7 @@ export default function ProjectsSkillRoadmapSelectionDialog({
         description: 'Dialog title for skills section',
         id: 'sGgZ9N',
       })}
-      width="screen-xl"
+      width="screen-lg"
       onClose={onClose}>
       <ProjectsSkillRoadmapSelection value={skills} onChange={setSkills} />
     </Dialog>

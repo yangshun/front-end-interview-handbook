@@ -471,6 +471,10 @@
     "defaultMessage": "You are doing great things for the Front End community. Especially for those who are Junior engineers like me, advanced solutions covering various aspects of front end development help a lot. Thank you to the team.",
     "description": "Anonymous Software Engineer's testimonial"
   },
+  "3JSDTC": {
+    "defaultMessage": "Personal website",
+    "description": "Personal website link field"
+  },
   "3KGbuG": {
     "defaultMessage": "Never waste your time building one-off projects",
     "description": "Title for \"Never waste your time building one-off projects\" feature marketing section on Projects home page"
@@ -2110,6 +2114,10 @@
   "JKBRGr": {
     "defaultMessage": "Enter your email",
     "description": "Placeholder text for email input field"
+  },
+  "JOxGrE": {
+    "defaultMessage": "GitHub",
+    "description": "GitHub profile link field"
   },
   "JPbOCy": {
     "defaultMessage": "Vue",
@@ -4567,10 +4575,6 @@
     "defaultMessage": "Review Cashback",
     "description": "Promotion title"
   },
-  "f6GjzW": {
-    "defaultMessage": "GitHub (optional)",
-    "description": "Label for GitHub link input on Projects profile onboarding page"
-  },
   "f89otf": {
     "defaultMessage": "Algorithm Questions",
     "description": "Algorithm Coding Interview Questions"
@@ -5283,10 +5287,6 @@
     "defaultMessage": "Join Discord",
     "description": "Join Discord channel"
   },
-  "l1pTwU": {
-    "defaultMessage": "LinkedIn (optional)",
-    "description": "Label for LinkedIn link input on Projects profile onboarding page"
-  },
   "l27vTV": {
     "defaultMessage": "Back to all challenges",
     "description": "Back button label"
@@ -5987,10 +5987,6 @@
     "defaultMessage": "Great start!",
     "description": "Toast title for project session started"
   },
-  "rAAfhQ": {
-    "defaultMessage": "Personal Website (optional)",
-    "description": "Label for Personal Website link input on Projects profile onboarding page"
-  },
   "rByL/3": {
     "defaultMessage": "Explore skill tree",
     "description": "CTA for beginner motivation"
@@ -6138,6 +6134,10 @@
   "sxu/UG": {
     "defaultMessage": "Start a project",
     "description": "Label for Start a Project button in Hero section of HomePage."
+  },
+  "syMsM0": {
+    "defaultMessage": "LinkedIn",
+    "description": "LinkedIn profile link field"
   },
   "syVPb5": {
     "defaultMessage": "Add GitHub",
