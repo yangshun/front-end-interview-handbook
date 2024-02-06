@@ -39,7 +39,7 @@ const widthClasses: Record<DialogWidth, string> = {
   'screen-md': 'sm:max-w-sm md:max-w-screen-sm lg:max-w-screen-md',
   'screen-sm': 'sm:max-w-sm md:max-w-screen-sm',
   'screen-xl':
-    'sm:max-w-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg 2xl:max-w-screen-xl',
+    'sm:max-w-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-xl',
   sm: 'sm:max-w-sm',
 };
 
