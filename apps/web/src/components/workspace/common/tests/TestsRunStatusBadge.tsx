@@ -25,14 +25,14 @@ export default function TestsRunStatusBadge({ status }: Props) {
           case 'complete':
             return (
               <>
-                <RiCheckLine aria-hidden="true" className="h-4 w-4 shrink-0" />
+                <RiCheckLine aria-hidden="true" className="size-4 shrink-0" />
                 Run completed
               </>
             );
           case 'error':
             return (
               <>
-                <RiCloseLine aria-hidden="true" className="h-4 w-4 shrink-0" />
+                <RiCloseLine aria-hidden="true" className="size-4 shrink-0" />
                 Error
               </>
             );
@@ -41,7 +41,7 @@ export default function TestsRunStatusBadge({ status }: Props) {
               <>
                 <RiHourglassLine
                   aria-hidden="true"
-                  className="h-4 w-4 shrink-0"
+                  className="size-4 shrink-0"
                 />
                 Idle
               </>

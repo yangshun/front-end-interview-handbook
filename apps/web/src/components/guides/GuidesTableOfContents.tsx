@@ -63,7 +63,7 @@ function ListItems({
             <div className="flex items-center">
               {level > 1 && (
                 <RiArrowRightSLine
-                  className={clsx('mr-1 h-3 w-3 shrink-0', themeTextFaintColor)}
+                  className={clsx('mr-1 size-3 shrink-0', themeTextFaintColor)}
                 />
               )}
               <Anchor

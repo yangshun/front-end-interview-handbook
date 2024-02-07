@@ -36,7 +36,7 @@ export default function BlogAuthor({ metadata }: Props) {
         <Tooltip label={label} position="above">
           <img
             alt={author.name}
-            className="!m-0 h-8 w-8 rounded-full"
+            className="!m-0 size-8 rounded-full"
             src={author.avatarUrl}
           />
         </Tooltip>
@@ -67,7 +67,7 @@ export default function BlogAuthor({ metadata }: Props) {
                 }}
               />
             </Text>
-            <div className="h-1 w-1 rounded-full bg-neutral-700 dark:bg-neutral-400" />
+            <div className="size-1 rounded-full bg-neutral-700 dark:bg-neutral-400" />
             <Text
               className="whitespace-nowrap text-neutral-700 dark:text-neutral-400"
               color="inherit"

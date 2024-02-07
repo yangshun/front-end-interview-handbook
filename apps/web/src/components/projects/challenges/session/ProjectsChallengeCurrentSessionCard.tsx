@@ -156,14 +156,14 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
                     id: '0U+s+4',
                   })}>
                   <RiInformationLine
-                    className={clsx('h-4 w-4 shrink-0', themeIconColor)}
+                    className={clsx('size-4 shrink-0', themeIconColor)}
                   />
                 </Tooltip>
               </div>
               <div className="block md:hidden">{expandButton}</div>
             </div>
             <div className={clsx('flex gap-1', themeTextSecondaryColor)}>
-              <RiTimerLine className="h-4 w-4" color="inherit" />
+              <RiTimerLine className="size-4" color="inherit" />
               <Text color="inherit" size="body3">
                 <FormattedMessage
                   defaultMessage="Since {date}"

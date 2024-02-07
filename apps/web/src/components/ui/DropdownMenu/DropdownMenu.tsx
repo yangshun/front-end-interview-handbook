@@ -75,9 +75,9 @@ const spacingClasses: Record<DropdownMenuSize, string> = {
 };
 
 const sizeIconClasses: Record<DropdownMenuSize, string> = {
-  md: 'h-4 w-4',
-  sm: 'h-4 w-4',
-  xs: 'h-4 w-4',
+  md: 'size-4',
+  sm: 'size-4',
+  xs: 'size-4',
 };
 
 const variantClasses: Record<DropdownMenuVariant, string> = {

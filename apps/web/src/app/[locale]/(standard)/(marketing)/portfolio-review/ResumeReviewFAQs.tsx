@@ -89,10 +89,10 @@ export default function ResumeReviewFAQs() {
                           {open ? (
                             <RiSubtractLine
                               aria-hidden="true"
-                              className="h-6 w-6"
+                              className="size-6"
                             />
                           ) : (
-                            <RiAddLine aria-hidden="true" className="h-6 w-6" />
+                            <RiAddLine aria-hidden="true" className="size-6" />
                           )}
                         </span>
                       </Disclosure.Button>

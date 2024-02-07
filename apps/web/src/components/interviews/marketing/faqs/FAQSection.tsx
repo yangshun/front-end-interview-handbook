@@ -58,7 +58,7 @@ export default function FAQSection({ faqs, title, hideTitle = false }: Props) {
                           aria-hidden="true"
                           className={clsx(
                             open ? '-rotate-180' : 'rotate-0',
-                            'h-6 w-6 transform',
+                            'size-6 transform',
                           )}
                         />
                       </span>

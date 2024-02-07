@@ -120,7 +120,7 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
                   'flex items-center gap-1',
                   themeTextSubtleColor,
                 )}>
-                <RiInformationLine className="h-4 w-4" />
+                <RiInformationLine className="size-4" />
                 <Text color="inherit" size="body3">
                   <FormattedMessage
                     defaultMessage="You can add more skills e.g. UI frameworks used after starting the project"

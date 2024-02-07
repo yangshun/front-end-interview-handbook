@@ -29,7 +29,7 @@ export default function ProjectsChallengeSubmissionHeroCommentButton({
       )}
       type="button"
       onClick={onClick}>
-      <RiMessage2Fill className={clsx('h-4 w-4', themeTextColor)} />
+      <RiMessage2Fill className={clsx('size-4', themeTextColor)} />
       <Text size="body3">{comments}</Text>
     </button>
   );

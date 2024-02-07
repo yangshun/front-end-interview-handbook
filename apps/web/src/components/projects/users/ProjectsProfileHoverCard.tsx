@@ -97,7 +97,7 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
                     position="above">
                     <a href={profile.githubUsername}>
                       <span className="sr-only">Github</span>
-                      <RiGithubFill aria-hidden="true" className="h-5 w-5" />
+                      <RiGithubFill aria-hidden="true" className="size-5" />
                     </a>
                   </Tooltip>
                 )}
@@ -113,7 +113,7 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
                       <span className="sr-only">LinkedIn</span>
                       <RiLinkedinBoxFill
                         aria-hidden="true"
-                        className="h-5 w-5"
+                        className="size-5"
                       />
                     </a>
                   </Tooltip>

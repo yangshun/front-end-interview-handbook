@@ -15,7 +15,7 @@ import {
 
 export default function MarketingEmbedQuizQuestion() {
   return (
-    <div className="relative h-full w-full">
+    <div className="relative size-full">
       <div className="h-full sm:overflow-y-scroll">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-y-4 pb-32 pt-4 lg:pt-10">

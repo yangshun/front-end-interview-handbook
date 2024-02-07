@@ -91,11 +91,11 @@ export default function DashboardPageHeader() {
             <div
               aria-hidden="true"
               className={clsx(
-                'flex h-10 w-10 shrink-0 items-center justify-center rounded-md',
+                'flex size-10 shrink-0 items-center justify-center rounded-md',
                 themeBackgroundChipColor,
               )}>
               <RiBookOpenLine
-                className={clsx('h-5 w-5', themeTextSecondaryColor)}
+                className={clsx('size-5', themeTextSecondaryColor)}
               />
             </div>
             <Anchor href="/front-end-interview-guidebook" variant="unstyled">
@@ -129,7 +129,7 @@ export default function DashboardPageHeader() {
           </div>
           <RiArrowRightSLine
             className={clsx(
-              'h-6 w-6 shrink-0 text-neutral-500 dark:text-neutral-400',
+              'size-6 shrink-0 text-neutral-500 dark:text-neutral-400',
               themeTextBrandColor_GroupHover,
             )}
           />
@@ -155,7 +155,7 @@ export default function DashboardPageHeader() {
               {...{ inert: '' }}>
               <ContinueLearningCard />
             </div>
-            <div className="absolute h-full w-full bg-gradient-to-t from-neutral-200/70 dark:from-neutral-900" />
+            <div className="absolute size-full bg-gradient-to-t from-neutral-200/70 dark:from-neutral-900" />
           </div>
           <div className="flex items-center p-4">
             <Anchor href="/sign-up" variant="unstyled">
@@ -170,7 +170,7 @@ export default function DashboardPageHeader() {
             </Anchor>
             <RiArrowRightSLine
               className={clsx(
-                'h-5 w-5 shrink-0 text-neutral-500 dark:text-neutral-400',
+                'size-5 shrink-0 text-neutral-500 dark:text-neutral-400',
                 themeTextBrandColor_GroupHover,
               )}
             />

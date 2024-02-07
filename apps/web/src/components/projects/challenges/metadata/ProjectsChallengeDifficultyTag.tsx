@@ -30,7 +30,7 @@ export default function ProjectsChallengeDifficultyTag({
 
   return (
     <div className="flex items-center gap-1">
-      <Icon className={clsx('h-4 w-4', themeTextSubtleColor)} />
+      <Icon className={clsx('size-4', themeTextSubtleColor)} />
       <Text color="subtle" size="body3">
         {label}
       </Text>

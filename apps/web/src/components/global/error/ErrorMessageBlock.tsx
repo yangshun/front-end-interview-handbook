@@ -63,12 +63,12 @@ export default function ErrorMessageBlock() {
               <li key={link.name} className="relative flex gap-x-6 py-6">
                 <div
                   className={clsx(
-                    'flex h-10 w-10 flex-none items-center justify-center rounded-lg shadow-sm',
+                    'flex size-10 flex-none items-center justify-center rounded-lg shadow-sm',
                     ['border', themeBorderColor],
                   )}>
                   <link.icon
                     aria-hidden="true"
-                    className={clsx('h-6 w-6', themeTextBrandColor)}
+                    className={clsx('size-6', themeTextBrandColor)}
                   />
                 </div>
                 <div className="flex flex-auto flex-col gap-1.5">

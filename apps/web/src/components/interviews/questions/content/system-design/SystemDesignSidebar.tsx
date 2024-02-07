@@ -72,7 +72,7 @@ export default function SystemDesignSidebar() {
                             if (!isPremiumUser) {
                               if (link.premium) {
                                 return (
-                                  <RiLockLine className="h-4 w-4 shrink-0" />
+                                  <RiLockLine className="size-4 shrink-0" />
                                 );
                               }
                             }
@@ -81,7 +81,7 @@ export default function SystemDesignSidebar() {
                               !ReadyQuestions.includes(link.slug)
                             ) {
                               return (
-                                <RiErrorWarningLine className="h-4 w-4 shrink-0" />
+                                <RiErrorWarningLine className="size-4 shrink-0" />
                               );
                             }
 

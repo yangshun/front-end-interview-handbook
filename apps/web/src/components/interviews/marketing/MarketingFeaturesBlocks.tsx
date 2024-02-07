@@ -51,7 +51,7 @@ function FeatureBlock({
                 <RiCheckLine
                   aria-hidden={true}
                   className={clsx(
-                    'mt-0.5 h-5 w-5 shrink-0',
+                    'mt-0.5 size-5 shrink-0',
                     themeTextBrandColor,
                   )}
                 />

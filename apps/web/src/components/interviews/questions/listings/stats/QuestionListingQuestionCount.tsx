@@ -59,7 +59,7 @@ export default function QuestionListingQuestionCount({
     <QuestionListingSideCard stripClassName={stripBackgroundClasses[variant]}>
       <div className="flex flex-col gap-2">
         <div className={clsx('flex items-center gap-1', labelClasses[variant])}>
-          <Icon className="h-3 w-3" />
+          <Icon className="size-3" />
           <Text color="inherit" size="body3" weight="medium">
             {labels[variant]}
           </Text>

@@ -626,7 +626,7 @@ function useUserNavigationLinks() {
 //       type="button"
 //       className="bg-neutral-50 flex-shrink-0 rounded-full p-1 text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-50 focus:ring-brand">
 //       <span className="sr-only">Search website</span>
-//       <SearchIcon className="h-6 w-6" aria-hidden="true" />
+//       <SearchIcon className="size-6" aria-hidden="true" />
 //     </button>
 //   );
 // }
@@ -759,12 +759,12 @@ export default function NavbarImpl() {
         {profile?.avatarUrl ? (
           <img
             alt={profile?.name ?? user?.email}
-            className="inline-block h-8 w-8 rounded-full"
+            className="inline-block size-8 rounded-full"
             src={profile?.avatarUrl}
           />
         ) : (
           <RiAccountCircleLine
-            className={clsx('h-8 w-8', themeTextSecondaryColor)}
+            className={clsx('size-8', themeTextSecondaryColor)}
           />
         )}
       </div>

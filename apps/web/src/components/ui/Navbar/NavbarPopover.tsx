@@ -33,7 +33,7 @@ function NavbarPopoverLink({
           )}>
           <Icon
             aria-hidden="true"
-            className="group-hover:text-brand-dark dark:group-hover:text-brand h-6 w-6"
+            className="group-hover:text-brand-dark dark:group-hover:text-brand size-6"
           />
         </div>
         <div className="flex flex-col gap-y-1">
@@ -57,7 +57,7 @@ function NavbarPopoverLink({
           )}>
           <Icon
             aria-hidden="true"
-            className="group-hover:text-brand-dark dark:group-hover:text-brand h-6 w-6"
+            className="group-hover:text-brand-dark dark:group-hover:text-brand size-6"
           />
         </div>
         <div className="ml-4">

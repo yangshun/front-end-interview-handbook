@@ -87,7 +87,7 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
       }>
       <RiThumbUpFill
         className={clsx(
-          'h-4 w-4',
+          'size-4',
           'shrink-0',
           hasVoted ? themeTextBrandColor : themeTextColor,
         )}

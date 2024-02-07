@@ -15,7 +15,7 @@ export default function ProjectsCommentCountTag({ count }: Props) {
 
   return (
     <div className="flex items-center gap-1">
-      <RiMessage2Fill className={clsx('h-4 w-4', themeTextSubtleColor)} />
+      <RiMessage2Fill className={clsx('size-4', themeTextSubtleColor)} />
       <Text size="body3">{count}</Text>
     </div>
   );

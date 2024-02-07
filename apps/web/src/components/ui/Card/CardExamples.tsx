@@ -29,17 +29,17 @@ export default function CardExamples() {
             <div className="flex justify-between">
               <span
                 className={clsx(
-                  'inline-flex h-10 w-10 items-center justify-center rounded-md',
+                  'inline-flex size-10 items-center justify-center rounded-md',
                   themeBackgroundChipColor,
                   'text-neutral-400',
                   'dark:border-brand dark:text-brand dark:border',
                 )}>
-                <RiFlowChart aria-hidden={true} className="h-6 w-6" />
+                <RiFlowChart aria-hidden={true} className="size-6" />
               </span>
               <RiQuestionFill
                 aria-hidden={true}
                 className={clsx(
-                  'h-6 w-6 text-neutral-300 dark:text-neutral-700',
+                  'size-6 text-neutral-300 dark:text-neutral-700',
                 )}
               />
             </div>
@@ -51,18 +51,18 @@ export default function CardExamples() {
             <div className="flex justify-between">
               <span
                 className={clsx(
-                  'inline-flex h-10 w-10 items-center justify-center rounded-md',
+                  'inline-flex size-10 items-center justify-center rounded-md',
                   themeBackgroundChipColor,
                   'text-neutral-400',
                   'border border-transparent transition',
                   'dark:group-hover:border-brand dark:group-hover:text-brand',
                 )}>
-                <RiFlowChart aria-hidden={true} className="h-6 w-6" />
+                <RiFlowChart aria-hidden={true} className="size-6" />
               </span>
               <RiQuestionFill
                 aria-hidden={true}
                 className={clsx(
-                  'h-6 w-6 text-neutral-300 dark:text-neutral-700',
+                  'size-6 text-neutral-300 dark:text-neutral-700',
                 )}
               />
             </div>
@@ -81,7 +81,7 @@ export default function CardExamples() {
             <div className="flex items-center gap-x-4">
               <RiUserSmileFill
                 aria-hidden={true}
-                className={clsx('h-8 w-8 shrink-0', themeTextSubtleColor)}
+                className={clsx('size-8 shrink-0', themeTextSubtleColor)}
               />
               <div>
                 <Text display="block" size="body2">
@@ -117,7 +117,7 @@ export default function CardExamples() {
             <RiArrowRightLine
               aria-hidden={true}
               className={clsx(
-                'h-6 w-6 shrink-0',
+                'size-6 shrink-0',
                 themeTextFaintColor,
                 'group-hover:text-brand dark:group-hover:text-brand',
               )}

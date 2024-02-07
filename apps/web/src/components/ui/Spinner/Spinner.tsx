@@ -18,10 +18,10 @@ const colorClasses: Record<SpinnerColor, string> = {
 };
 
 const sizeClasses: Record<SpinnerSize, string> = {
-  lg: 'w-12 h-12 border-[6px]',
-  md: 'w-8 h-8 border-4',
-  sm: 'w-6 h-6 border-[3px]',
-  xs: 'w-4 h-4 border-2',
+  lg: 'size-12 border-[6px]',
+  md: 'size-8 border-4',
+  sm: 'size-6 border-[3px]',
+  xs: 'size-4 border-2',
 };
 
 export default function Spinner({

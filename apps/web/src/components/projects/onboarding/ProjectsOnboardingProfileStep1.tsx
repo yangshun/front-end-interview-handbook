@@ -167,6 +167,7 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
         </div>
         <div className="flex flex-col items-start gap-x-16 gap-y-6 sm:flex-row">
           <div className="flex flex-col items-center gap-4">
+            {/* TODO(projects): Use proper placeholder */}
             <Avatar
               alt=""
               className="h-[120px] w-[120px]"

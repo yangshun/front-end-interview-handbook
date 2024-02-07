@@ -13,8 +13,8 @@ type Props = Readonly<{
 }>;
 
 const iconClasses: Record<Size, string> = {
-  body2: 'h-5 w-5',
-  body3: 'h-4 w-4',
+  body2: 'size-5',
+  body3: 'size-4',
 };
 const gap: Record<Size, string> = {
   body2: 'gap-1',

@@ -14,6 +14,7 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
   themeGlassyBorder,
+  themeTextBrandColor,
   themeTextSubtitleColor,
 } from '~/components/ui/theme';
 
@@ -113,7 +114,7 @@ export default function ResumeReviewProcess() {
                       )}>
                       <feature.icon
                         aria-hidden="true"
-                        className="h-6 w-6 text-white"
+                        className="size-6 text-white"
                       />
                     </span>
                   </div>
@@ -133,7 +134,7 @@ export default function ResumeReviewProcess() {
                       <li key={subfeature} className="flex gap-x-3">
                         <RiCheckLine
                           aria-hidden="true"
-                          className="text-brand h-6 w-5 flex-none"
+                          className={clsx('h-5 flex-none', themeTextBrandColor)}
                         />
                         <Text color="secondary" display="block">
                           {subfeature}

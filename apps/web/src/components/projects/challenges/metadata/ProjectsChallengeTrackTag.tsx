@@ -14,7 +14,7 @@ export default function ProjectsChallengeTrackTag({ track }: Props) {
   return (
     <div className={clsx('flex items-center gap-1')}>
       <RiCheckboxMultipleLine
-        className={clsx('h-4 w-4', themeTextSubtleColor)}
+        className={clsx('size-4', themeTextSubtleColor)}
       />
       <Text color="subtle" size="body3">
         {track.title}

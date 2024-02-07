@@ -40,7 +40,7 @@ export function TilesPanelRoot<TabType extends string>({
   }, [draggedItemId]);
 
   return (
-    <div ref={setParent} className="relative isolate h-full w-full">
+    <div ref={setParent} className="relative isolate size-full">
       <TilesPanel
         level={0}
         parentDirection="horizontal"

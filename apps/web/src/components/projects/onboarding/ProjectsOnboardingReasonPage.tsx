@@ -100,7 +100,7 @@ function ReasonList({
                 )}>
                 <Icon
                   className={clsx(
-                    'h-4 w-4',
+                    'size-4',
                     disabled ? themeTextDisabledColor : themeTextSecondaryColor,
                   )}
                 />
@@ -114,7 +114,7 @@ function ReasonList({
                 <RiCheckboxCircleFill
                   aria-hidden={true}
                   className={clsx(
-                    'absolute end-1 top-1 h-4 w-4',
+                    'absolute end-1 top-1 size-4',
                     themeTextBrandColor,
                   )}
                 />
@@ -123,7 +123,7 @@ function ReasonList({
                 <RiCheckboxCircleFill
                   aria-hidden={true}
                   className={clsx(
-                    'absolute end-1 top-1 h-4 w-4',
+                    'absolute end-1 top-1 size-4',
                     themeTextDisabledColor,
                   )}
                 />

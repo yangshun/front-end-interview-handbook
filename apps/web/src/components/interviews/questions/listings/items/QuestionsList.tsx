@@ -69,11 +69,11 @@ function QuestionNewLabel({
 
   return (
     <span
-      className="absolute -right-0.5 -top-0.5 h-12 w-12"
+      className="absolute -right-0.5 -top-0.5 size-12"
       style={{
         clipPath: 'polygon(50% 0, 100% 50%, 100% 100%, 0 100%, 0 0)',
       }}>
-      <span className="border-info absolute block h-12 w-12 border-[24px] !border-b-transparent !border-l-transparent" />
+      <span className="border-info absolute block size-12 border-[24px] !border-b-transparent !border-l-transparent" />
       <span className="absolute right-[3px] top-[10px] rotate-45 text-xs font-medium uppercase text-neutral-50 dark:text-black">
         <FormattedMessage
           defaultMessage="New"
@@ -137,7 +137,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
           : false;
         const progressIndicatorDefaultClass = clsx(
           'inline-flex items-center justify-center',
-          'h-8 w-8 rounded-full',
+          'size-8 rounded-full',
           [themeTextBrandColor, 'font-semibold'],
           'bg-brand-lightest dark:bg-neutral-800',
         );
@@ -172,13 +172,13 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     position="above">
                     <span
                       className={clsx(
-                        'flex h-8 w-8 items-center justify-center rounded-full',
+                        'flex size-8 items-center justify-center rounded-full',
                         'shiny',
                         'bg-brand-dark dark:bg-brand/20',
                       )}>
                       <RiLockLine
                         aria-hidden={true}
-                        className="h-4 w-4 shrink-0 text-white"
+                        className="size-4 shrink-0 text-white"
                       />
                     </span>
                   </Tooltip>
@@ -195,7 +195,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                       <RiCheckboxCircleFill
                         aria-hidden="true"
                         className={clsx(
-                          'h-8 w-8 scale-110',
+                          'size-8 scale-110',
                           'text-success dark:text-success-light',
                         )}
                       />
@@ -222,7 +222,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                         <RiCheckboxCircleFill
                           aria-hidden="true"
                           className={clsx(
-                            'h-8 w-8 scale-110',
+                            'size-8 scale-110',
                             'transition-colors',
                             'text-success hover:text-success-dark',
                             'dark:text-success-light dark:hover:text-success-lighter',
@@ -268,7 +268,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     {mode === 'default' && (
                       <span
                         className={clsx(
-                          'flex h-8 w-8 items-center justify-center rounded-full',
+                          'flex size-8 items-center justify-center rounded-full',
                           ['border', themeBorderElementColor],
                           'bg-neutral-100 dark:bg-neutral-900',
                         )}
@@ -383,7 +383,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
               <RiArrowRightLine
                 aria-hidden="true"
                 className={clsx(
-                  'h-6 w-6 shrink-0',
+                  'size-6 shrink-0',
                   themeTextFaintColor,
                   themeTextBrandColor_GroupHover,
                 )}

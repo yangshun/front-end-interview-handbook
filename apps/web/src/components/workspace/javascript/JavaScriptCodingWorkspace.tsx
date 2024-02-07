@@ -327,7 +327,7 @@ function JavaScriptCodingWorkspaceImpl({
         <div
           ref={copyRef}
           className={clsx(
-            'h-full w-full flex-col text-sm',
+            'size-full flex-col text-sm',
             !embed ? 'hidden lg:flex' : 'flex',
           )}>
           <div className={clsx('flex grow overflow-x-auto')}>
@@ -360,7 +360,7 @@ function JavaScriptCodingWorkspaceImpl({
                 })}
                 renderTab={(tabId) =>
                   tabContents[tabId] != null ? (
-                    <div className="flex h-full w-full">
+                    <div className="flex size-full">
                       {tabContents[tabId]!.contents}
                     </div>
                   ) : (

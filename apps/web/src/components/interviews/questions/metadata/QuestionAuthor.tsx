@@ -37,7 +37,7 @@ export default function QuestionAuthor({ author, size = 'body3' }: Props) {
           <Tooltip label={label} position="above">
             <img
               alt={authorData.name}
-              className="inline-block h-8 w-8 rounded-full"
+              className="inline-block size-8 rounded-full"
               src={authorData.imageUrl}
             />
           </Tooltip>

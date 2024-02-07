@@ -19,7 +19,6 @@ import { useIntl } from 'react-intl';
 
 import useProfile from '~/hooks/user/useProfile';
 
-import LogoLink from '~/components/global/Logo';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
@@ -161,7 +160,7 @@ function SidebarLinkButton({
       href={href}
       variant="unstyled"
       onClick={onClick}>
-      <Icon className="h-5 w-5" />
+      <Icon className="size-5" />
       <Text color="inherit" size="body2" weight="medium">
         {label}
       </Text>

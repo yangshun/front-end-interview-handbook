@@ -34,7 +34,7 @@ function NavbarPopoverLink({
           )}>
           <Icon
             aria-hidden="true"
-            className="group-hover:text-brand-dark dark:group-hover:text-brand h-6 w-6 transition-colors"
+            className="group-hover:text-brand-dark dark:group-hover:text-brand size-6 transition-colors"
           />
         </div>
         <div className="flex flex-col gap-y-1">
@@ -58,7 +58,7 @@ function NavbarPopoverLink({
           )}>
           <Icon
             aria-hidden="true"
-            className="group-hover:text-brand-dark dark:group-hover:text-brand h-6 w-6 transition-colors"
+            className="group-hover:text-brand-dark dark:group-hover:text-brand size-6 transition-colors"
           />
         </div>
         <Text
@@ -131,7 +131,7 @@ export default function NavbarPopoverTabs({
         </Tab.List>
         <Tab.Panels className="flex w-full grow items-center">
           {items.map((item) => (
-            <Tab.Panel key={item.itemKey} className="grid h-full w-full">
+            <Tab.Panel key={item.itemKey} className="grid size-full">
               <div
                 className={clsx(
                   'relative grid grow gap-4 px-8 py-10',
@@ -176,7 +176,7 @@ export default function NavbarPopoverTabs({
                     {item.supplementaryItem.icon && (
                       <item.supplementaryItem.icon
                         aria-hidden="true"
-                        className={clsx('inline-block h-4 w-4')}
+                        className={clsx('inline-block size-4')}
                       />
                     )}
                     {item.supplementaryItem.label}

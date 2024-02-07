@@ -60,7 +60,7 @@ export default function NavProfileIcon({
           className={clsx(
             'group inline-flex items-center justify-center',
             'rounded-full',
-            'h-8 w-8',
+            'size-8',
             'transition-colors',
             ['border', themeBorderElementColor],
             themeBackgroundElementColor,
@@ -81,11 +81,11 @@ export default function NavProfileIcon({
           {avatarUrl ? (
             <img
               alt={userIdentifierString}
-              className="h-7 w-7 rounded-full"
+              className="size-7 rounded-full"
               src={avatarUrl}
             />
           ) : (
-            <RiAccountCircleLine className={clsx('h-5 w-5', themeTextColor)} />
+            <RiAccountCircleLine className={clsx('size-5', themeTextColor)} />
           )}
         </Menu.Button>
       </div>

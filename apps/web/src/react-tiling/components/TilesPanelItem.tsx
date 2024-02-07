@@ -191,7 +191,7 @@ export default function TilesPanelItem<TabType extends string>({
         fullScreen && 'absolute inset-0 z-20',
       )}
       collapsedSize={5}>
-      <div ref={panelRef} className="flex h-full w-full flex-col">
+      <div ref={panelRef} className="flex size-full flex-col">
         <div
           className={clsx(
             'flex shrink-0 items-center justify-between',
@@ -201,7 +201,7 @@ export default function TilesPanelItem<TabType extends string>({
           {showCollapsedTitle ? (
             <button
               className={clsx(
-                'flex h-full w-full items-center gap-2 px-3 text-left text-xs font-medium transition-colors',
+                'flex size-full items-center gap-2 px-3 text-left text-xs font-medium transition-colors',
                 themeBackgroundEmphasized_Hover,
               )}
               type="button"
@@ -215,7 +215,7 @@ export default function TilesPanelItem<TabType extends string>({
                 });
               }}>
               {collapsedTitle}
-              <RiArrowUpSLine aria-hidden={true} className="h-4 w-4 shrink-0" />
+              <RiArrowUpSLine aria-hidden={true} className="size-4 shrink-0" />
             </button>
           ) : (
             <>

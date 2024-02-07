@@ -70,7 +70,7 @@ export default function ProjectsTrackDetailsPage({ track, userId }: Props) {
       />
       <div className="mb-12 mt-4 flex flex-col gap-4">
         <div className="flex items-center gap-6">
-          <div className="bg-red h-16 w-16 rounded-lg" />
+          <div className="bg-red size-16 rounded-lg" />
           <div className="flex flex-col gap-2">
             <div className="flex flex-wrap gap-y-2 gap-x-4 items-center">
               <Heading level="heading5">{title}</Heading>
@@ -165,7 +165,7 @@ export default function ProjectsTrackDetailsPage({ track, userId }: Props) {
                 <RiArrowRightLine
                   aria-hidden="true"
                   className={clsx(
-                    'h-6 w-6 shrink-0',
+                    'size-6 shrink-0',
                     themeTextFaintColor,
                     themeTextBrandColor_GroupHover,
                   )}

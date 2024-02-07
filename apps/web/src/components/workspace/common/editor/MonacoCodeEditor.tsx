@@ -58,7 +58,7 @@ export default function MonacoCodeEditor({
   const language = getLanguageFromFilePath(filePath);
 
   return (
-    <div ref={editorContainerRef} className="h-full w-full" onFocus={onFocus}>
+    <div ref={editorContainerRef} className="size-full" onFocus={onFocus}>
       <MonacoEditor
         keepCurrentModel={true}
         language={language}

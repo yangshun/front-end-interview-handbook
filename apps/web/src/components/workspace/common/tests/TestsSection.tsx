@@ -407,7 +407,7 @@ export default function TestsSection({
   const testResults = getAllTestResults(specs);
 
   return (
-    <div className="relative flex h-full w-full">
+    <div className="relative flex size-full">
       <iframe ref={iframe} style={{ display: 'none' }} title="Sandpack Tests" />
       <div className="flex w-full flex-col">
         <div className="flex grow overflow-y-auto">

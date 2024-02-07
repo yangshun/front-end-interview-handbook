@@ -37,11 +37,11 @@ export default function DashboardStudyPlansCTA() {
           <div
             aria-hidden="true"
             className={clsx(
-              'flex h-12 w-12 shrink-0 items-center justify-center rounded-md',
+              'flex size-12 shrink-0 items-center justify-center rounded-md',
               themeBackgroundChipColor,
             )}>
             <RiCalendar2Line
-              className={clsx('h-5 w-5', themeTextSecondaryColor)}
+              className={clsx('size-5', themeTextSecondaryColor)}
             />
           </div>
           <Anchor href="/study-plans" variant="unstyled">
@@ -57,7 +57,7 @@ export default function DashboardStudyPlansCTA() {
         </div>
         <RiArrowRightSLine
           className={clsx(
-            'h-6 w-6 shrink-0 text-neutral-500 dark:text-neutral-400',
+            'size-6 shrink-0 text-neutral-500 dark:text-neutral-400',
             themeTextBrandColor_GroupHover,
           )}
         />

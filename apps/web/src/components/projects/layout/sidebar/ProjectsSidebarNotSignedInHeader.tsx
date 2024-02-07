@@ -35,7 +35,7 @@ export function ProjectsSidebarNotSignedInHeader({ className }: Props) {
                     'Label for Sign in/up button in profile header of Projects sidebar',
                   id: 'vYkB/0',
                 })}
-                <RiArrowRightLine className="h-4 w-4 ms-1 shrink-0 inline-flex" />
+                <RiArrowRightLine className="size-4 ms-1 shrink-0 inline-flex" />
               </Anchor>
             </Text>
           </div>

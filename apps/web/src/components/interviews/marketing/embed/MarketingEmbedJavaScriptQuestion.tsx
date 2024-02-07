@@ -38,7 +38,7 @@ export default function MarketingEmbedJavaScriptQuestion({
   const laptopAndAbove = useMediaQuery('(min-width: 1024px)');
 
   return (
-    <div className="relative flex h-full w-full flex-col">
+    <div className="relative flex size-full flex-col">
       {laptopAndAbove ? (
         <JavaScriptCodingWorkspaceSection
           canViewPremiumContent={false}

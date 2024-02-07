@@ -254,7 +254,7 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
           <div className="flex flex-col gap-y-4">
             <div className={clsx('flex items-center gap-2')}>
               <RiCodeSSlashLine
-                className={clsx('h-4 w-4', themeTextSecondaryColor)}
+                className={clsx('size-4', themeTextSecondaryColor)}
               />
               <Text color="secondary" size="body3">
                 <FormattedMessage

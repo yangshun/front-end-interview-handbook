@@ -71,7 +71,7 @@ export default function PricingBlockCard({
                 <div className="flex-shrink-0">
                   <RiCheckLine
                     aria-hidden="true"
-                    className="text-brand h-5 w-5"
+                    className="text-brand size-5"
                   />
                 </div>
                 <Text

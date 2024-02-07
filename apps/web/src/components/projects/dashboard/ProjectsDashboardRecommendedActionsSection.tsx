@@ -159,7 +159,7 @@ export default function ProjectsDashboardRecommendedActionsSection({
                       themeTextColor,
                       'border border-transparent transition',
                     )}>
-                    <action.icon aria-hidden={true} className="h-5 w-5" />
+                    <action.icon aria-hidden={true} className="size-5" />
                   </span>
                 </div>
                 <div className="flex flex-col gap-1 w-full">
@@ -180,7 +180,7 @@ export default function ProjectsDashboardRecommendedActionsSection({
                   <RiArrowRightLine
                     aria-hidden="true"
                     className={clsx(
-                      'h-4 w-4 shrink-0',
+                      'size-4 shrink-0',
                       themeTextSecondaryColor,
                       themeTextBrandColor_GroupHover,
                     )}

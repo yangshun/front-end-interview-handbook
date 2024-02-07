@@ -20,7 +20,7 @@ export default function ProjectsSkillChipDeleteButton({
       className={className}
       type="button"
       onClick={onClick}>
-      <RiCloseLine className={clsx('h-4 w-4 shrink-0', themeIconColor)} />
+      <RiCloseLine className={clsx('size-4 shrink-0', themeIconColor)} />
     </button>
   );
 }

@@ -35,12 +35,12 @@ export default function GuidesDropdownMenuItem({
             <div className="flex items-center gap-2">
               <div
                 className={clsx(
-                  'flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full',
+                  'flex size-6 flex-shrink-0 items-center justify-center rounded-full',
                   themeGlassyBorder,
                   themeBackgroundLayerEmphasized,
                   isSelected ? themeTextBrandColor : themeTextSecondaryColor,
                 )}>
-                <Icon className="h-3 w-3" />
+                <Icon className="size-3" />
               </div>
               <Text
                 color={isSelected ? 'active' : 'default'}

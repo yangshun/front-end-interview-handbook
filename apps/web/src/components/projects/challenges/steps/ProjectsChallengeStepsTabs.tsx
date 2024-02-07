@@ -84,7 +84,7 @@ function ProjectsChallengeStepsTabItem({
           weight="bold">
           {tabItemTitle}
           {accessAllSteps && !hasRead && (
-            <span className="inline-block h-2 w-2 ms-1 mb-2 bg-red rounded-full" />
+            <span className="inline-block size-2 ms-1 mb-2 bg-red rounded-full" />
           )}
         </Text>
         <Text color="secondary" display="block">

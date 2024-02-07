@@ -167,7 +167,7 @@ export default function Toast({
           className="w-full items-start gap-x-2 px-3 py-2"
           color={textColor}
           display="flex">
-          {Icon && <Icon className={clsx('h-5 w-5 shrink-0', iconClass)} />}
+          {Icon && <Icon className={clsx('size-5 shrink-0', iconClass)} />}
           <div className="flex w-full grow flex-col gap-y-1">
             <div className="flex justify-between gap-2">
               <Text
@@ -192,7 +192,7 @@ export default function Toast({
                     id="PyDwDF"
                   />
                 </span>
-                <RiCloseLine aria-hidden="true" className="h-5 w-5" />
+                <RiCloseLine aria-hidden="true" className="size-5" />
               </button>
             </div>
             {subtitle && (

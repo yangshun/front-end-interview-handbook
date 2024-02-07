@@ -154,7 +154,7 @@ export default function ProjectsComparison({
             <button
               key={page.label}
               className={clsx(
-                'w-12 h-12 rounded border overflow-clip',
+                'size-12 rounded border overflow-clip',
                 index === selectedScreenIndex
                   ? 'border-brand-dark dark:border-brand'
                   : themeBorderElementColor,

@@ -96,7 +96,7 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
             display="flex"
             size="body3">
             <span className="flex items-center gap-x-1">
-              <CodingWorkspaceTabIcons.versions.icon className="h-4 w-4" />{' '}
+              <CodingWorkspaceTabIcons.versions.icon className="size-4" />{' '}
               Version:{' '}
             </span>
             <Text color="active" size="body3" weight="medium">

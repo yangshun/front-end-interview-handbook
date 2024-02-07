@@ -56,7 +56,7 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                 'Tooltip label for Trending submissions section on Projects dashboard page',
               id: 'XMHcvt',
             })}>
-            <RiQuestionFill className="h-4 w-4 dark:text-neutral-500 text-neutral-400" />
+            <RiQuestionFill className="size-4 dark:text-neutral-500 text-neutral-400" />
           </Tooltip>
         </div>
         <Button
@@ -166,7 +166,7 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                 <RiArrowRightLine
                   aria-hidden="true"
                   className={clsx(
-                    'h-6 w-6 shrink-0',
+                    'size-6 shrink-0',
                     themeTextFaintColor,
                     themeTextBrandColor_GroupHover,
                   )}

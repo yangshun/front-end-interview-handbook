@@ -68,14 +68,14 @@ function LinksListItem({
           {(() => {
             if (!isPremiumUser) {
               if (link.premium) {
-                return <RiLockLine className="h-4 w-4 shrink-0" />;
+                return <RiLockLine className="size-4 shrink-0" />;
               }
             }
             if (
               link.type === 'question' &&
               !ReadyQuestions.includes(link.slug)
             ) {
-              return <RiErrorWarningLine className="h-4 w-4 shrink-0" />;
+              return <RiErrorWarningLine className="size-4 shrink-0" />;
             }
 
             return null;

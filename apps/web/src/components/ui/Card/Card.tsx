@@ -98,7 +98,7 @@ export default function Card({
       )}>
       <div
         className={clsx(
-          'z-100 !absolute top-0 h-full w-full rounded-[inherit] before:m-[-1px]',
+          'z-100 !absolute top-0 size-full rounded-[inherit] before:m-[-1px]',
           border && themeGlassyBorder,
         )}
       />

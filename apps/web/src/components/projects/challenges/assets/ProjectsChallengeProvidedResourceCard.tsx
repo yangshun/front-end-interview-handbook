@@ -20,7 +20,7 @@ export default function ProjectsChallengeProvidedResourceCard({
           'flex items-center gap-2 p-4',
           themeTextSecondaryColor,
         )}>
-        <Icon className="h-4 w-4 shrink-0" />
+        <Icon className="size-4 shrink-0" />
         <Text color="inherit" size="body2">
           {label}
         </Text>

@@ -79,8 +79,9 @@ export default function ProjectsSidebarProductMenu() {
           <ProjectsLogo height={32} />
           <RiArrowDownSLine
             className={clsx(
-              'h-4 w-4 shrink-0 data-[state=open]:rotate-180',
+              'size-4 shrink-0',
               'text-neutral-600 dark:text-neutral-200',
+              'data-[state=open]:rotate-180',
             )}
           />
         </button>

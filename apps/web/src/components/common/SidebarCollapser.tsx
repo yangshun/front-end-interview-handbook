@@ -46,9 +46,9 @@ export default function SidebarCollapser() {
       type="button"
       onClick={() => setShowSidebar(!showSidebar)}>
       {showSidebar ? (
-        <RiArrowLeftSLine className="h-4 w-4" />
+        <RiArrowLeftSLine className="size-4" />
       ) : (
-        <RiArrowRightSLine className="h-4 w-4" />
+        <RiArrowRightSLine className="size-4" />
       )}
     </button>
   );

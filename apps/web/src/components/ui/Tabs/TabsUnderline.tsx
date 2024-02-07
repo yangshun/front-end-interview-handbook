@@ -44,21 +44,21 @@ const sizeClasses: Record<
   }>
 > = {
   md: {
-    iconSize: 'h-5 w-5',
+    iconSize: 'size-5',
     tabGapSize: 'gap-x-8',
     tabInternalGapSize: 'gap-x-2',
     tabItemSize: 'py-2',
     textSize: 'body1',
   },
   sm: {
-    iconSize: 'h-4 w-4',
+    iconSize: 'size-4',
     tabGapSize: 'gap-x-6',
     tabInternalGapSize: 'gap-x-1.5',
     tabItemSize: 'py-1.5',
     textSize: 'body2',
   },
   xs: {
-    iconSize: 'h-4 w-4',
+    iconSize: 'size-4',
     tabGapSize: 'gap-x-4',
     tabInternalGapSize: 'gap-x-1',
     tabItemSize: 'py-1',

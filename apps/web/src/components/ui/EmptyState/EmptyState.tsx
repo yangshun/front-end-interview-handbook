@@ -99,7 +99,7 @@ export default function EmptyState({
       <Text color={colors[variant]} display="block">
         <Icon
           aria-hidden="true"
-          className={clsx('mx-auto h-10 w-10 shrink-0', iconClassName)}
+          className={clsx('mx-auto size-10 shrink-0', iconClassName)}
         />
       </Text>
       <Heading className="mt-4" level="custom">

@@ -63,7 +63,7 @@ export default async function Page({ params }: Props) {
         id: 'Gttxsq',
       })}
       framework={framework}
-      logo={<SvelteLogo className="h-16 w-16" style={{ color: '#ff3e00' }} />}
+      logo={<SvelteLogo className="size-16" style={{ color: '#ff3e00' }} />}
       questionCompletionCount={questionCompletionCount}
       questionList={questionList}
       title={intl.formatMessage({

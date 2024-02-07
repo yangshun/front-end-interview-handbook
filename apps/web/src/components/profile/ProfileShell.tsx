@@ -210,7 +210,7 @@ export default function ProfileShell({ user, children }: Props) {
                           <div className="flex items-center gap-x-2">
                             <RiMailLine
                               aria-hidden="true"
-                              className="h-5 w-5 shrink-0 text-neutral-500"
+                              className="size-5 shrink-0 text-neutral-500"
                             />
                             <Text className="truncate" size="body2">
                               {user.email}
@@ -220,7 +220,7 @@ export default function ProfileShell({ user, children }: Props) {
                             <div className="flex items-center gap-x-2">
                               <RiUserLine
                                 aria-hidden="true"
-                                className="h-5 w-5 shrink-0 text-neutral-500"
+                                className="size-5 shrink-0 text-neutral-500"
                               />
                               <Text className="truncate" size="body2">
                                 {profileDataQuery.data?.username}
@@ -231,7 +231,7 @@ export default function ProfileShell({ user, children }: Props) {
                             <div className="flex items-center gap-x-2">
                               <RiShieldUserLine
                                 aria-hidden="true"
-                                className="h-5 w-5 shrink-0 text-neutral-500"
+                                className="size-5 shrink-0 text-neutral-500"
                               />
                               <Text size="body2">{user.id}</Text>
                             </div>
@@ -240,7 +240,7 @@ export default function ProfileShell({ user, children }: Props) {
                             <div className="flex items-center gap-x-2">
                               <RiCalendarLine
                                 aria-hidden="true"
-                                className="h-5 w-5 shrink-0 text-neutral-500"
+                                className="size-5 shrink-0 text-neutral-500"
                               />
                               <Text size="body2">
                                 {intl.formatMessage(
@@ -265,7 +265,7 @@ export default function ProfileShell({ user, children }: Props) {
                               <div className="flex items-center gap-x-2">
                                 <RiGithubFill
                                   aria-hidden="true"
-                                  className="h-5 w-5 shrink-0 text-neutral-500"
+                                  className="size-5 shrink-0 text-neutral-500"
                                 />
                                 <Text size="body2">
                                   <Anchor
@@ -292,7 +292,7 @@ export default function ProfileShell({ user, children }: Props) {
                             <div className="flex items-center gap-x-2">
                               <RiDiscordLine
                                 aria-hidden="true"
-                                className="h-5 w-5 shrink-0 text-neutral-500"
+                                className="size-5 shrink-0 text-neutral-500"
                               />
                               <Text size="body2">
                                 <Anchor href="https://discord.gg/NDFx8f6P6B">

@@ -113,7 +113,7 @@ function ExplorerItem({
       {!isRenaming && !readOnly && (
         <div className="-mr-2 hidden gap-1 text-neutral-600 group-hover:flex">
           <RiPencilFill
-            className="h-4 w-4 hover:text-neutral-500"
+            className="size-4 hover:text-neutral-500"
             onClick={(e) => {
               e.stopPropagation();
               onRenameStart?.();
@@ -121,7 +121,7 @@ function ExplorerItem({
             }}
           />
           <RiCloseLine
-            className="h-4 w-4 hover:text-neutral-500"
+            className="size-4 hover:text-neutral-500"
             onClick={(e) => {
               e.stopPropagation();
               onDelete?.();
@@ -165,7 +165,7 @@ export function ExplorerFile({
 
   return (
     <ExplorerItem
-      icon={<Icon className="h-4 w-4 flex-none" />}
+      icon={<Icon className="size-4 flex-none" />}
       indent={indent}
       isActive={isActive}
       isRenaming={isRenaming}

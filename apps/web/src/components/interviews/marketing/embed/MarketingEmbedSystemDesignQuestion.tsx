@@ -534,7 +534,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
   const [selectedTab, setSelectedTab] = useState('architecture');
 
   return (
-    <div aria-hidden={true} className="relative flex h-full w-full flex-col">
+    <div aria-hidden={true} className="relative flex size-full flex-col">
       <PanelGroup className="h-0 w-full grow lg:flex" direction="horizontal">
         <Panel defaultSize={40} maxSize={60}>
           <div className="mx-auto h-full max-w-3xl overflow-y-auto lg:max-w-none">

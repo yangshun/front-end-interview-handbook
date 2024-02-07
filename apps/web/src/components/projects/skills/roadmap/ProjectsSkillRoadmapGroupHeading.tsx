@@ -30,7 +30,7 @@ export default function ProjectsSkillRoadmapGroupHeading({ group }: Props) {
               themeTextSubtleColor,
             )}>
             <div className="flex gap-1 items-center">
-              <RiFireLine className={clsx('h-4 w-4')} />
+              <RiFireLine className={clsx('size-4')} />
               <Text color="inherit" size="body3">
                 <FormattedMessage
                   defaultMessage="+{points} rep (in total)"
@@ -44,7 +44,7 @@ export default function ProjectsSkillRoadmapGroupHeading({ group }: Props) {
             </div>
             <ProjectsTrackProgressTag
               completed={completed}
-              iconClassName="!h-4 !w-4"
+              iconClassName="!size-4"
               showProgress={false}
               total={total}
             />

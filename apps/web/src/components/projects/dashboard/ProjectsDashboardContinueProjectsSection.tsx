@@ -121,7 +121,7 @@ export default function ProjectsDashboardContinueProjectsSection() {
                 <RiArrowRightLine
                   aria-hidden="true"
                   className={clsx(
-                    'h-6 w-6 shrink-0',
+                    'size-6 shrink-0',
                     themeTextFaintColor,
                     themeTextBrandColor_GroupHover,
                   )}

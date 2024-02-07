@@ -50,7 +50,7 @@ export default function ProjectsCommentList({ comments, title }: Props) {
             <div className="flex justify-between gap-6 w-full">
               <div className="flex flex-row gap-3">
                 <UserAvatar
-                  className="h-6 w-6 shrink-0"
+                  className="size-6 shrink-0"
                   profile={comment.author}
                   size="xs"
                 />

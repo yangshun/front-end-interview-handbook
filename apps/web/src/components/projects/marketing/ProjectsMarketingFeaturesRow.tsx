@@ -34,7 +34,7 @@ export default function MarketingFeaturesRow({ title, features }: Props) {
               <span
                 aria-hidden="true"
                 className={clsx(
-                  'flex h-12 w-12 shrink-0 items-center justify-center rounded-full p-3 dark:bg-neutral-800/70',
+                  'flex size-12 shrink-0 items-center justify-center rounded-full p-3 dark:bg-neutral-800/70',
                   themeGlassyBorder,
                 )}>
                 <Text className={clsx('text-primary', themeTextSubtitleColor)}>

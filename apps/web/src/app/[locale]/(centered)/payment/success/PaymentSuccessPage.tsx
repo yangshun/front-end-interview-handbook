@@ -140,13 +140,13 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
         <div className="flex flex-col items-center justify-center gap-4">
           <span
             className={clsx(
-              'relative flex h-14 w-14 items-center justify-center rounded-full',
+              'relative flex size-14 items-center justify-center rounded-full',
               'shiny',
               'bg-brand-dark dark:bg-brand/20',
             )}>
             <RiStarSmileFill
               aria-hidden={true}
-              className="dark:text-brand h-10 w-10 shrink-0 text-white"
+              className="dark:text-brand size-10 shrink-0 text-white"
             />
           </span>
           <Heading className="text-center" level="heading4">
@@ -196,14 +196,14 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
                     <div className="shrink-0">
                       <span
                         className={clsx(
-                          'inline-flex h-10 w-10 items-center justify-center rounded-md',
+                          'inline-flex size-10 items-center justify-center rounded-md',
                           themeBackgroundChipColor,
                           themeTextSecondaryColor,
                           'border border-transparent transition',
                           'group-hover:border-brand-dark group-hover:text-brand-dark',
                           'dark:group-hover:border-brand dark:group-hover:text-brand',
                         )}>
-                        <link.icon aria-hidden={true} className="h-6 w-6" />
+                        <link.icon aria-hidden={true} className="size-6" />
                       </span>
                     </div>
                     <div className="min-w-0 flex-1">
@@ -243,7 +243,7 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
                     <div className="flex-shrink-0 self-center">
                       <RiArrowRightSLine
                         aria-hidden="true"
-                        className={clsx('h-5 w-5', themeTextSecondaryColor)}
+                        className={clsx('size-5', themeTextSecondaryColor)}
                       />
                     </div>
                   </li>

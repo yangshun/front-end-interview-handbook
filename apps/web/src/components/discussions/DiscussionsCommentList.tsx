@@ -69,7 +69,7 @@ export default function DiscussionsCommentList({
       <div className="flex items-center justify-between">
         <div
           className={clsx('flex items-center gap-1.5', themeTextSubtleColor)}>
-          <RiQuestionnaireLine className="h-5 w-5" />
+          <RiQuestionnaireLine className="size-5" />
           <Text color="inherit" size="body3">
             <FormattedMessage
               defaultMessage="{commentCount, plural, =0 {No comments} one {# comment} other {# comments}}"

@@ -89,7 +89,7 @@ export default function MarketingContactUs() {
                       label: platform.name,
                     });
                   }}>
-                  <platform.icon className="h-6 w-6" />
+                  <platform.icon className="size-6" />
                   <span className="sr-only">{platform.name}</span>
                 </Anchor>
               ))}

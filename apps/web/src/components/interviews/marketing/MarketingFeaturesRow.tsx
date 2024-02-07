@@ -40,7 +40,7 @@ export default function MarketingFeaturesRow({ title, features }: Props) {
                 )}>
                 <Icon
                   className={clsx(
-                    'text-primary h-6 w-6',
+                    'text-primary size-6',
                     themeTextSubtitleColor,
                   )}
                 />

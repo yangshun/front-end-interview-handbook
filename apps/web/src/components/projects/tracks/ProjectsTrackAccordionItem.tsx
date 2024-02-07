@@ -59,7 +59,7 @@ export default function ProjectsTrackAccordionItem({
               />
               <RiArrowDownSLine
                 className={clsx(
-                  'h-5 w-5 transition-transform group-data-[state=open]:rotate-180',
+                  'size-5 transition-transform group-data-[state=open]:rotate-180',
                   themeTextSecondaryColor,
                 )}
               />
@@ -129,7 +129,7 @@ export default function ProjectsTrackAccordionItem({
               })}
               <RiArrowRightLine
                 aria-hidden={true}
-                className="w-4 h-4 shrink-0"
+                className="size-4 shrink-0"
               />
             </Text>
           </Anchor>

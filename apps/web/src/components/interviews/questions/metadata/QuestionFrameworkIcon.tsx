@@ -29,5 +29,5 @@ type Props = Readonly<{
 export default function QuestionFrameworkIcon({ framework }: Props) {
   const { icon: Icon, style: iconStyle } = frameworkIcons[framework];
 
-  return <Icon className="h-5 w-5" style={iconStyle} />;
+  return <Icon className="size-5" style={iconStyle} />;
 }

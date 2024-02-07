@@ -14,7 +14,7 @@ export function BlackFridayLiveBadge() {
       className={clsx(
         'bg-danger inline-flex items-center gap-x-1 rounded-full px-2 py-0.5',
       )}>
-      <span className="h-1.5 w-1.5 rounded-full bg-white" />
+      <span className="size-1.5 rounded-full bg-white" />
       <Text color="light" display="block" size="body3" weight="medium">
         Live
       </Text>

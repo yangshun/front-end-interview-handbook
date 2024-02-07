@@ -13,7 +13,7 @@ function Box({
   return (
     <div
       className={clsx(
-        'flex h-16 w-16 rounded bg-neutral-200 p-2 dark:bg-neutral-800',
+        'flex size-16 rounded bg-neutral-200 p-2 dark:bg-neutral-800',
         className,
       )}>
       {children}
@@ -62,64 +62,64 @@ export default function TooltipExamples() {
         <div className="flex gap-8">
           <Tooltip alignment="start" label="Top + Start" position="above">
             <Box className="items-top justify-start">
-              <RiAlignLeft className="h-4 w-4" />
+              <RiAlignLeft className="size-4" />
             </Box>
           </Tooltip>
           <Tooltip label="Top + Center" position="above">
             <Box className="items-top justify-center">
-              <RiAlignCenter className="h-4 w-4" />
+              <RiAlignCenter className="size-4" />
             </Box>
           </Tooltip>
           <Tooltip alignment="end" label="Top + End" position="above">
             <Box className="items-top justify-end">
-              <RiAlignRight className="h-4 w-4" />
+              <RiAlignRight className="size-4" />
             </Box>
           </Tooltip>
           <Tooltip alignment="start" label="Bottom + Start" position="below">
             <Box className="items-end justify-start">
-              <RiAlignLeft className="h-4 w-4" />
+              <RiAlignLeft className="size-4" />
             </Box>
           </Tooltip>
           <Tooltip label="Bottom + Center" position="below">
             <Box className="items-end justify-center">
-              <RiAlignCenter className="h-4 w-4" />
+              <RiAlignCenter className="size-4" />
             </Box>
           </Tooltip>
           <Tooltip alignment="end" label="Bottom + End" position="below">
             <Box className="items-end justify-end">
-              <RiAlignRight className="h-4 w-4" />
+              <RiAlignRight className="size-4" />
             </Box>
           </Tooltip>
         </div>
         <div className="flex gap-8">
           <Tooltip alignment="top" label={shortLabel} position="start">
             <Box className="items-start justify-start">
-              <RiAlignRight className="h-4 w-4 -rotate-90" />
+              <RiAlignRight className="size-4 -rotate-90" />
             </Box>
           </Tooltip>
           <Tooltip label={shortLabel} position="start">
             <Box className="items-center justify-start">
-              <RiAlignCenter className="h-4 w-4 -rotate-90" />
+              <RiAlignCenter className="size-4 -rotate-90" />
             </Box>
           </Tooltip>
           <Tooltip alignment="bottom" label={shortLabel} position="start">
             <Box className="items-end justify-start">
-              <RiAlignLeft className="h-4 w-4 -rotate-90" />
+              <RiAlignLeft className="size-4 -rotate-90" />
             </Box>
           </Tooltip>
           <Tooltip alignment="top" label={shortLabel} position="end">
             <Box className="items-start justify-end">
-              <RiAlignLeft className="h-4 w-4 rotate-90" />
+              <RiAlignLeft className="size-4 rotate-90" />
             </Box>
           </Tooltip>
           <Tooltip label={shortLabel} position="end">
             <Box className="items-center justify-end">
-              <RiAlignCenter className="h-4 w-4 rotate-90" />
+              <RiAlignCenter className="size-4 rotate-90" />
             </Box>
           </Tooltip>
           <Tooltip alignment="bottom" label={shortLabel} position="end">
             <Box className="items-end justify-end">
-              <RiAlignRight className="h-4 w-4 rotate-90" />
+              <RiAlignRight className="size-4 rotate-90" />
             </Box>
           </Tooltip>
         </div>

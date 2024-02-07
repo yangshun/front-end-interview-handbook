@@ -63,7 +63,7 @@ export default async function Page({ params }: Props) {
         id: 'JxbpKs',
       })}
       framework={framework}
-      logo={<AngularLogo className="h-16 w-16" />}
+      logo={<AngularLogo className="size-16" />}
       questionCompletionCount={questionCompletionCount}
       questionList={questionList}
       title={intl.formatMessage({

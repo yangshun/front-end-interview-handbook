@@ -74,7 +74,7 @@ export default function DashboardContinueLearning({
                 )}>
                 <div className="flex items-center gap-4">
                   <GradientProgressBar
-                    className="h-14 w-14"
+                    className="size-14"
                     gradient={gradient}
                     progressPercentage={progressPercentage}
                     reverseGradient={reverseGradient}

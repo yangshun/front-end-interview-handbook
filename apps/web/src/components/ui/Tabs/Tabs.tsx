@@ -40,7 +40,7 @@ const sizeClasses: Record<
 > = {
   md: {
     borderRadius: 'rounded-t-md',
-    iconSize: 'h-5 w-5',
+    iconSize: 'size-5',
     tabGapSize: 'gap-x-3',
     tabInternalGapSize: 'gap-x-2',
     tabItemSize: 'py-2.5 px-5',
@@ -48,7 +48,7 @@ const sizeClasses: Record<
   },
   sm: {
     borderRadius: 'rounded-t',
-    iconSize: 'h-4 w-4',
+    iconSize: 'size-4',
     tabGapSize: 'gap-x-2',
     tabInternalGapSize: 'gap-x-1.5',
     tabItemSize: 'py-1.5 px-3',
@@ -56,7 +56,7 @@ const sizeClasses: Record<
   },
   xs: {
     borderRadius: 'rounded-t',
-    iconSize: 'h-4 w-4',
+    iconSize: 'size-4',
     tabGapSize: 'gap-x-1',
     tabInternalGapSize: 'gap-x-1',
     tabItemSize: 'py-1.5 px-2',

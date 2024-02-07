@@ -23,7 +23,7 @@ export default function ProjectsTrackProgressTag({
 
   return (
     <div className={clsx('flex items-center gap-1', themeTextSubtleColor)}>
-      <RiRocketLine className={clsx('h-5 w-5', iconClassName)} />
+      <RiRocketLine className={clsx('size-5', iconClassName)} />
       <Text color="inherit" size="body2">
         <FormattedMessage
           defaultMessage="<bold>{completedCount}</bold>/{totalCount} challenges"

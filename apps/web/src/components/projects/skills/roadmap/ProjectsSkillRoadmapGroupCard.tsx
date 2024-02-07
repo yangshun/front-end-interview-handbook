@@ -53,7 +53,7 @@ export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
         <div className="flex gap-3 w-full">
           <div className={clsx('relative flex flex-col self-stretch')}>
             {/* TODO(projects|skills): Replace with skills logo */}
-            <div className="rounded-md h-6 w-6 bg-white" />
+            <div className="rounded-md size-6 bg-white" />
             <div
               className={clsx(
                 'w-px border-l h-full border-dashed absolute self-center translate-y-6',
@@ -97,9 +97,9 @@ export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
               'relative flex flex-col justify-center self-stretch',
             )}>
             {isExpanded ? (
-              <RiIndeterminateCircleLine className="h-4 w-4" />
+              <RiIndeterminateCircleLine className="size-4" />
             ) : (
-              <RiAddCircleLine className="h-4 w-4" />
+              <RiAddCircleLine className="size-4" />
             )}
             <div
               className={clsx(

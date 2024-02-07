@@ -11,7 +11,7 @@ export default function ProjectsChallengeSubmissionHeroViews({
 }) {
   return (
     <div className="flex items-center gap-1">
-      <RiEyeFill className={clsx('h-4 w-4', themeTextColor)} />
+      <RiEyeFill className={clsx('size-4', themeTextColor)} />
       <Text size="body3">{views}</Text>
     </div>
   );

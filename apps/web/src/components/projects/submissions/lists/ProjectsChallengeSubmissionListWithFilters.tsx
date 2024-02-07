@@ -108,7 +108,7 @@ export default function ProjectsChallengeSubmissionListWithFilters({
       <div className="flex flex-col gap-y-4">
         <div className={clsx('flex items-center gap-2')}>
           <RiCodeSSlashLine
-            className={clsx('h-4 w-4 shrink-0', themeIconColor)}
+            className={clsx('size-4 shrink-0', themeIconColor)}
           />
           {isLoading ? (
             // TODO(ui): create glimmer component.

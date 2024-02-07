@@ -32,7 +32,7 @@ export default function BlogSubseriesItemCard({
           <div className="flex items-center gap-x-3">
             <img
               alt={data.title}
-              className="!m-0 h-[32px] w-[32px] shrink-0 rounded-lg bg-neutral-800 object-cover lg:hidden"
+              className="!m-0 size-8 shrink-0 rounded-lg bg-neutral-800 object-cover lg:hidden"
               src={data.imageUrl}
             />
             <Anchor href={data.href} variant="unstyled">
@@ -60,7 +60,7 @@ export default function BlogSubseriesItemCard({
         <RiArrowRightLine
           aria-hidden={true}
           className={clsx(
-            'h-5 w-5 shrink-0',
+            'size-5 shrink-0',
             themeTextFaintColor,
             'group-hover:text-brand dark:group-hover:text-brand',
           )}

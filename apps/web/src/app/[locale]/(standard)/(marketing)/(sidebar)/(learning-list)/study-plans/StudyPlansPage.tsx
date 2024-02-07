@@ -56,10 +56,10 @@ function PreparationPlanCard({
       )}>
       <div
         className={clsx(
-          'flex h-20 w-20 items-center justify-center rounded',
+          'flex size-20 items-center justify-center rounded',
           theme.gradient.className,
         )}>
-        <theme.iconOutline className="h-10 w-10 text-white" />
+        <theme.iconOutline className="size-10 text-white" />
       </div>
       <div className="flex flex-1 flex-col gap-4">
         <div className="flex flex-col gap-1">
@@ -107,7 +107,7 @@ function PreparationPlanCard({
           )}
         </div>
       </div>
-      <RiArrowRightLine className="group-hover:text-brand-dark dark:group-hover:text-brand h-6 w-6 text-neutral-400 transition-colors" />
+      <RiArrowRightLine className="group-hover:text-brand-dark dark:group-hover:text-brand size-6 text-neutral-400 transition-colors" />
     </div>
   );
 }

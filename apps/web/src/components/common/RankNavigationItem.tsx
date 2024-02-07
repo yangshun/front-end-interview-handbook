@@ -35,7 +35,7 @@ export default function RankNavigationItem({
         <div
           aria-hidden="true"
           className={clsx(
-            'flex h-5 w-5 shrink-0 items-center justify-center rounded-full',
+            'flex size-5 shrink-0 items-center justify-center rounded-full',
             'font-bold text-neutral-500 dark:text-neutral-400',
             themeBackgroundChipColor,
           )}
@@ -51,7 +51,7 @@ export default function RankNavigationItem({
       </div>
       <RiArrowRightSLine
         className={clsx(
-          'h-5 w-5 shrink-0 text-neutral-500 dark:text-neutral-400',
+          'size-5 shrink-0 text-neutral-500 dark:text-neutral-400',
           themeTextBrandColor_GroupHover,
         )}
       />

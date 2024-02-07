@@ -24,7 +24,7 @@ export default function TestimonialCard({
         {authorThumbnailUrl && (
           <img
             alt={name}
-            className="h-10 w-10 rounded-full bg-neutral-50"
+            className="size-10 rounded-full bg-neutral-50"
             decoding="async"
             loading="lazy"
             src={authorThumbnailUrl}

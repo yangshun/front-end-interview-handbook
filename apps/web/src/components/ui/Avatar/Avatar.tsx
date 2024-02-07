@@ -11,9 +11,9 @@ type AvatarSize = 'custom' | 'lg' | 'sm' | 'xs';
 
 const sizeClasses: Record<AvatarSize, string> = {
   custom: '',
-  lg: 'h-10 w-10',
-  sm: 'h-8 w-8',
-  xs: 'h-5 w-5',
+  lg: 'size-10',
+  sm: 'size-8',
+  xs: 'size-5',
 };
 
 type Props = Readonly<{
@@ -29,13 +29,13 @@ export default function Avatar({ src, alt, className, size = 'sm' }: Props) {
       className={clsx('block rounded-full', sizeClasses[size], className)}>
       <RadixAvatar.Image
         alt={alt}
-        className="h-full w-full rounded-[inherit] object-cover"
+        className="size-full rounded-[inherit] object-cover"
         src={src}
       />
       <RadixAvatar.Fallback
         asChild={true}
         className={clsx(
-          'flex h-full w-full items-center justify-center rounded-full border',
+          'flex size-full items-center justify-center rounded-full border',
           themeBorderElementColor,
           themeTextSecondaryColor,
         )}

@@ -179,7 +179,7 @@ function SidebarIcon({
 }: Readonly<{
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
 }>) {
-  return <Icon aria-hidden="true" className={clsx('h-5 w-5 shrink-0')} />;
+  return <Icon aria-hidden="true" className={clsx('size-5 shrink-0')} />;
 }
 
 type Props = Readonly<{
@@ -209,7 +209,7 @@ export default function Sidebar({
       });
 
   return (
-    <div className="flex h-full w-full flex-1 grow flex-col justify-between p-4">
+    <div className="flex size-full flex-1 grow flex-col justify-between p-4">
       <div className={clsx('grid gap-2')}>
         {navigation.map((item) => {
           const itemClassname = clsx(

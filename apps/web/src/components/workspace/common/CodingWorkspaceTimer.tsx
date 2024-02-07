@@ -70,7 +70,7 @@ export default function CodingWorkspaceTimer() {
         {timer == null ? (
           <RxPlay aria-hidden={true} className="h-3 w-4" />
         ) : (
-          <RxPause aria-hidden={true} className="h-4 w-4" />
+          <RxPause aria-hidden={true} className="size-4" />
         )}
         {new Date(timePassedInSeconds * 1000).toISOString().slice(14, 19)}
       </button>
@@ -87,7 +87,7 @@ export default function CodingWorkspaceTimer() {
           setTimePassedInSeconds(0);
           clearTimer();
         }}>
-        <RiArrowGoBackLine className="h-3 w-3" />
+        <RiArrowGoBackLine className="size-3" />
       </button>
     </div>
   );

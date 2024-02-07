@@ -38,7 +38,7 @@ export default function QuestionUsersCompletedLabel({
         {showIcon && (
           <RiCheckboxCircleLine
             aria-hidden="true"
-            className={clsx('h-5 w-5 shrink-0', themeIconColor)}
+            className={clsx('size-5 shrink-0', themeIconColor)}
           />
         )}
         <Text

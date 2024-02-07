@@ -63,7 +63,7 @@ export default function useQuestionCompanyFilter({
       return {
         label: (
           <div className="flex items-center gap-2">
-            <Icon className={clsx('h-4 w-4 shrink-0', themeIconColor)} />
+            <Icon className={clsx('size-4 shrink-0', themeIconColor)} />
             {companyNames[company].label}
           </div>
         ),

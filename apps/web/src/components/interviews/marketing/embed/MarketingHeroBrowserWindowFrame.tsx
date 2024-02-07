@@ -21,9 +21,9 @@ export default function MarketingHeroBrowserWindowFrame({ children }: Props) {
           'items-center gap-6 border-b border-neutral-200 px-4 py-3 dark:border-transparent md:px-6',
         )}>
         <div className="flex items-center gap-x-2">
-          <div className="h-3 w-3 rounded-full bg-[#EC6A5F]" />
-          <div className="h-3 w-3 rounded-full bg-[#F4BF50]" />
-          <div className="h-3 w-3 rounded-full bg-[#61C454]" />
+          <div className="size-3 rounded-full bg-[#EC6A5F]" />
+          <div className="size-3 rounded-full bg-[#F4BF50]" />
+          <div className="size-3 rounded-full bg-[#61C454]" />
         </div>
         <div>
           <div

@@ -65,7 +65,7 @@ export default function NavbarItem({
               aria-hidden="true"
               className={clsx(
                 open ? themeTextSecondaryColor : themeTextSecondaryInvertColor,
-                'h-5 w-5 group-hover:text-neutral-500',
+                'size-5 group-hover:text-neutral-500',
               )}
             />
           </Popover.Button>

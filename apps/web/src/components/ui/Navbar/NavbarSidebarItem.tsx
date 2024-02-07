@@ -50,7 +50,7 @@ function NavbarAccordionSubsection({
         )}>
         <Icon
           aria-hidden="true"
-          className="group-hover:text-brand-dark dark:group-hover:text-brand h-4 w-4"
+          className="group-hover:text-brand-dark dark:group-hover:text-brand size-4"
         />
       </div>
     );
@@ -147,7 +147,7 @@ function NavbarSidebarAccordion({
           setIsOpen(!isOpen);
         }}>
         <Text size="body1">{props.label}</Text>
-        <DropdownIcon className={clsx(themeTextSecondaryColor, 'h-5 w-5')} />
+        <DropdownIcon className={clsx(themeTextSecondaryColor, 'size-5')} />
       </Anchor>
       <ul
         className={clsx('flex flex-col gap-y-2 px-4 pt-1', !isOpen && 'hidden')}

@@ -229,7 +229,7 @@ export default function TilesPanelTab<TabType extends string>({
         <I18nLink
           className={clsx('flex gap-x-1.5 whitespace-nowrap text-xs')}
           href={href}>
-          {Icon && <Icon className="h-4 w-4 shrink-0" />}
+          {Icon && <Icon className="size-4 shrink-0" />}
           {label}
         </I18nLink>
       ) : (
@@ -241,7 +241,7 @@ export default function TilesPanelTab<TabType extends string>({
           onClick={onClick}
           onMouseDown={onClick}>
           <span aria-hidden={true} className="absolute inset-0" />
-          {Icon && <Icon className="h-4 w-4 shrink-0" />}
+          {Icon && <Icon className="size-4 shrink-0" />}
           {label}
         </TabButton>
       )}
@@ -264,7 +264,7 @@ export default function TilesPanelTab<TabType extends string>({
               type: 'tab-close',
             });
           }}>
-          <RiCloseLine className="h-3 w-3 shrink-0" />
+          <RiCloseLine className="size-3 shrink-0" />
         </button>
       )}
     </div>

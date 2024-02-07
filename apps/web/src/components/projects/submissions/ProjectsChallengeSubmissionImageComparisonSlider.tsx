@@ -20,8 +20,8 @@ export default function ProjectsChallengeSubmissionImageComparisonSlider({
         handle={
           <div className="bg-brand-dark dark:bg-brand justify-center items-center w-[42px] h-[42px] rounded-full flex">
             <div className="flex">
-              <RiArrowDropLeftFill className="h-7 w-7 -mr-2" />
-              <RiArrowDropRightFill className="h-7 w-7 -ml-2" />
+              <RiArrowDropLeftFill className="size-7 -mr-2" />
+              <RiArrowDropRightFill className="size-7 -ml-2" />
             </div>
           </div>
         }

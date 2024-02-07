@@ -57,9 +57,9 @@ export default function FeedbackWidget({ position }: Props) {
             id="8+Ezk6"
           />
           {isOpen ? (
-            <RiCloseLine aria-hidden={true} className="h-5 w-5 shrink-0" />
+            <RiCloseLine aria-hidden={true} className="size-5 shrink-0" />
           ) : (
-            <RiArrowDownSLine aria-hidden={true} className="h-5 w-5 shrink-0" />
+            <RiArrowDownSLine aria-hidden={true} className="size-5 shrink-0" />
           )}
         </div>
       </button>

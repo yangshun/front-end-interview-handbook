@@ -29,9 +29,7 @@ export default function ExternalLinkPage() {
     <div className="flex flex-col min-h-screen">
       <Navbar isLoading={false} links={[]} logo={<LogoLink />} />
       <div className="flex items-center justify-center h-full flex-1 flex-col gap-4">
-        <RiLink
-          className={clsx('h-10 w-10 shrink-0', themeTextSecondaryColor)}
-        />
+        <RiLink className={clsx('size-10 shrink-0', themeTextSecondaryColor)} />
         <div className="max-w-[360px] md:px-0 px-4 flex flex-col justify-center items-center gap-1">
           <Heading level="heading5">
             <FormattedMessage

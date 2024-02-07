@@ -75,10 +75,10 @@ export default function QuestionsLearningListTitleSection({
         <div className="flex gap-x-6">
           <div
             className={clsx(
-              'inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-lg text-white',
+              'inline-flex size-16 shrink-0 items-center justify-center rounded-lg text-white',
               themeBackgroundClass,
             )}>
-            <Icon aria-hidden={true} className="h-10 w-10" />
+            <Icon aria-hidden={true} className="size-10" />
           </div>
           <div className="flex flex-col gap-y-2">
             <Heading level="heading5">{title}</Heading>

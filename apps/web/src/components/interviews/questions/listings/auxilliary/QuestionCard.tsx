@@ -67,7 +67,7 @@ export default function QuestionCard({
         <RiArrowRightLine
           aria-hidden={true}
           className={clsx(
-            'h-5 w-5 shrink-0',
+            'size-5 shrink-0',
             themeTextFaintColor,
             'group-hover:text-brand dark:group-hover:text-brand',
           )}

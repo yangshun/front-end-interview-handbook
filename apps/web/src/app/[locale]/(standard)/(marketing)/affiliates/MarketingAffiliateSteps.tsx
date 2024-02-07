@@ -39,7 +39,7 @@ export default function MarketingAffiliateSteps() {
         {steps.map((step, stepIdx) => (
           <li key={step.title} className="flex flex-col md:col-span-1">
             <div className="flex items-center">
-              <div className="bg-brand-dark flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-base font-medium text-white">
+              <div className="bg-brand-dark flex size-8 shrink-0 items-center justify-center rounded-full text-base font-medium text-white">
                 <p>{stepIdx + 1}</p>
               </div>
               <Text

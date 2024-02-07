@@ -69,13 +69,13 @@ export default function ProjectsProfileInfo({
               {userProfile.githubUsername && (
                 <a href={userProfile.githubUsername} target="_blank">
                   <span className="sr-only">Github</span>
-                  <RiGithubFill aria-hidden="true" className="h-5 w-5" />
+                  <RiGithubFill aria-hidden="true" className="size-5" />
                 </a>
               )}
               {userProfile.linkedInUsername && (
                 <a href={userProfile.linkedInUsername} target="_blank">
                   <span className="sr-only">LinkedIn</span>
-                  <RiLinkedinBoxFill aria-hidden="true" className="h-5 w-5" />
+                  <RiLinkedinBoxFill aria-hidden="true" className="size-5" />
                 </a>
               )}
               <Text color="secondary" size="body2">
@@ -119,7 +119,7 @@ export default function ProjectsProfileInfo({
                   {userProfile.githubUsername && (
                     <a href={userProfile.githubUsername} target="_blank">
                       <span className="sr-only">Github</span>
-                      <RiGithubFill aria-hidden="true" className="h-5 w-5" />
+                      <RiGithubFill aria-hidden="true" className="size-5" />
                     </a>
                   )}
                   {userProfile.linkedInUsername && (
@@ -127,7 +127,7 @@ export default function ProjectsProfileInfo({
                       <span className="sr-only">LinkedIn</span>
                       <RiLinkedinBoxFill
                         aria-hidden="true"
-                        className="h-5 w-5"
+                        className="size-5"
                       />
                     </a>
                   )}

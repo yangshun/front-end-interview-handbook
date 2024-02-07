@@ -54,7 +54,7 @@ export default function QuestionListingFilterItem<
                   aria-hidden="true"
                   className={clsx(
                     open ? '-rotate-180' : 'rotate-0',
-                    'h-5 w-5 transform',
+                    'size-5 transform',
                   )}
                 />
               </span>

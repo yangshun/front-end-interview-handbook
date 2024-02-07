@@ -39,7 +39,7 @@ export default function QuestionPaywallSmall({
         'flex items-center space-x-2 rounded border p-3',
         themeBorderColor,
       )}>
-      <RiLockLine className="h-8 w-8 text-neutral-500" />
+      <RiLockLine className="size-8 text-neutral-500" />
       <div className="grow space-y-1">
         <Text display="block" size="body3" weight="bold">
           {title}

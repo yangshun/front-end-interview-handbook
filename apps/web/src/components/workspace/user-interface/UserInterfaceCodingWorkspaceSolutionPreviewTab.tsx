@@ -20,7 +20,7 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
   const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
 
   return (
-    <div className="flex h-full w-full flex-col">
+    <div className="flex size-full flex-col">
       <Banner size="xs" variant="primary">
         You're viewing a preview of the solution.{' '}
         <Anchor

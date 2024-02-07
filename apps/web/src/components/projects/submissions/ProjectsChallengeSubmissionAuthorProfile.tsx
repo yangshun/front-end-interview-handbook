@@ -51,13 +51,13 @@ export default function ProjectsChallengeSubmissionAuthorProfile({
           {author.githubUsername && (
             <a href={author.githubUsername} target="_blank">
               <span className="sr-only">Github</span>
-              <RiGithubFill aria-hidden="true" className="h-5 w-5" />
+              <RiGithubFill aria-hidden="true" className="size-5" />
             </a>
           )}
           {author.linkedInUsername && (
             <a href={author.linkedInUsername} target="_blank">
               <span className="sr-only">LinkedIn</span>
-              <RiLinkedinBoxFill aria-hidden="true" className="h-5 w-5" />
+              <RiLinkedinBoxFill aria-hidden="true" className="size-5" />
             </a>
           )}
         </div>

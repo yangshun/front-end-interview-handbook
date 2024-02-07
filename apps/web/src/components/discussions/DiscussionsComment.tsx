@@ -98,7 +98,7 @@ export default function DiscussionsComment({
             <>
               <div
                 className={clsx(
-                  'absolute bottom-8 h-4 w-4',
+                  'absolute bottom-8 size-4',
                   themeBackgroundColor,
                 )}
               />

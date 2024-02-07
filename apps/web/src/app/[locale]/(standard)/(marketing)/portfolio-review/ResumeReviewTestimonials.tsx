@@ -7,7 +7,7 @@ const testimonials = [
     logo: (
       <img
         alt="BharatX logo mark"
-        className="h-8 w-8 flex-none rounded-full object-cover"
+        className="size-8 flex-none rounded-full object-cover"
         src="/img/company-logos/bharatx-logomark.png"
       />
     ),
@@ -37,7 +37,7 @@ const testimonials = [
     logo: (
       <img
         alt="Koda Web logo mark"
-        className="h-8 w-8 flex-none rounded-full object-cover"
+        className="size-8 flex-none rounded-full object-cover"
         src="/img/company-logos/kodaweb-logomark.jpeg"
       />
     ),
@@ -65,7 +65,7 @@ const testimonials = [
     logo: (
       <img
         alt="Microsoft logo mark"
-        className="h-8 w-8 flex-none rounded-full object-cover"
+        className="size-8 flex-none rounded-full object-cover"
         src="/img/company-logos/microsoft-logomark.png"
       />
     ),
@@ -89,7 +89,7 @@ const testimonials = [
     logo: (
       <img
         alt="Amazon logo mark"
-        className="h-8 w-8 flex-none rounded-full object-cover"
+        className="size-8 flex-none rounded-full object-cover"
         src="/img/company-logos/amazon-logomark.png"
       />
     ),
@@ -112,7 +112,7 @@ const testimonials = [
     logo: (
       <img
         alt="Meta logo mark"
-        className="h-8 w-8 flex-none rounded-full object-cover"
+        className="size-8 flex-none rounded-full object-cover"
         src="/img/company-logos/meta-logomark.png"
       />
     ),
@@ -133,7 +133,7 @@ const testimonials = [
     logo: (
       <img
         alt="Credit Karma logo mark"
-        className="h-8 w-8 flex-none rounded-full object-cover"
+        className="size-8 flex-none rounded-full object-cover"
         src="/img/company-logos/creditkarma-logomark.png"
       />
     ),
@@ -155,7 +155,7 @@ const testimonials = [
     logo: (
       <img
         alt="JPMorgan logo mark"
-        className="h-8 w-8 flex-none rounded-full object-cover"
+        className="size-8 flex-none rounded-full object-cover"
         src="/img/company-logos/jpmorgan-logomark.jpg"
       />
     ),

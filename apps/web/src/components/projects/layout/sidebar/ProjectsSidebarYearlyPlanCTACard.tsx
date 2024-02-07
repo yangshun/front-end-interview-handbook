@@ -42,7 +42,7 @@ export function ProjectsSidebarYearlyPlanCTACard() {
                 />
               }>
               <RiInformationLine
-                className={clsx('h-4 w-4', themeTextSecondaryColor)}
+                className={clsx('size-4', themeTextSecondaryColor)}
               />
             </Tooltip>
           </div>

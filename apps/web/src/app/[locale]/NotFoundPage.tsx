@@ -101,10 +101,10 @@ export default function NotFoundPage() {
                         key={link.title}
                         className="relative flex items-start space-x-4 py-6">
                         <div className="flex-shrink-0">
-                          <span className="bg-brand-lightest flex h-12 w-12 items-center justify-center rounded-lg">
+                          <span className="bg-brand-lightest flex size-12 items-center justify-center rounded-lg">
                             <link.icon
                               aria-hidden="true"
-                              className="text-brand-darker h-6 w-6"
+                              className="text-brand-darker size-6"
                             />
                           </span>
                         </div>
@@ -134,7 +134,7 @@ export default function NotFoundPage() {
                         <div className="flex-shrink-0 self-center">
                           <RiArrowRightSLine
                             aria-hidden="true"
-                            className="h-5 w-5 text-neutral-400"
+                            className="size-5 text-neutral-400"
                           />
                         </div>
                       </li>

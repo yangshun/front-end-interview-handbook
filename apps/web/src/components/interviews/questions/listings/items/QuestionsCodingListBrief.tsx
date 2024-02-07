@@ -71,13 +71,13 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
                 {checkIfCompletedQuestion != null && (
                   <span
                     className={clsx(
-                      'z-20 flex h-6 w-6 items-center justify-center rounded-full border-2',
+                      'z-20 flex size-6 items-center justify-center rounded-full border-2',
                       hasCompletedQuestion
                         ? 'border-success bg-success text-white'
                         : themeBorderColor,
                     )}>
                     {hasCompletedQuestion && (
-                      <RiCheckLine aria-hidden="true" className="h-4 w-4" />
+                      <RiCheckLine aria-hidden="true" className="size-4" />
                     )}
                   </span>
                 )}

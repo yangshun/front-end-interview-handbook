@@ -95,7 +95,7 @@ export default function Banner({
               type="button"
               onClick={onHide}>
               <span className="sr-only">Dismiss</span>
-              <RiCloseLine aria-hidden="true" className={clsx('h-5 w-5')} />
+              <RiCloseLine aria-hidden="true" className={clsx('size-5')} />
             </button>
           </div>
         )}

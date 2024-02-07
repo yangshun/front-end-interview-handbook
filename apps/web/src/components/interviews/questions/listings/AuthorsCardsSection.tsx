@@ -64,7 +64,7 @@ export default function AuthorsCardSection() {
               }}>
               <img
                 alt={authorItem.name}
-                className="h-6 w-6 rounded-full"
+                className="size-6 rounded-full"
                 src={authorItem.imageUrl}
               />
               <Text size="body3" weight="medium">
@@ -89,8 +89,8 @@ export default function AuthorsCardSection() {
               src={author.imageUrl}
             />
             {author.companyIconUrl && (
-              <div className="absolute bottom-0 right-0 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow">
-                <img alt="" className="h-6 w-6" src={author.companyIconUrl} />
+              <div className="absolute bottom-0 right-0 flex size-8 items-center justify-center rounded-full bg-white shadow">
+                <img alt="" className="size-6" src={author.companyIconUrl} />
               </div>
             )}
           </div>
@@ -108,7 +108,7 @@ export default function AuthorsCardSection() {
                   })}
                   href={author.links.github}
                   variant="blend">
-                  <RiGithubFill className="h-5 w-5" />
+                  <RiGithubFill className="size-5" />
                 </Anchor>
               )}
               {author.links.linkedin && (
@@ -120,7 +120,7 @@ export default function AuthorsCardSection() {
                   })}
                   href={author.links.linkedin}
                   variant="blend">
-                  <RiLinkedinBoxFill className="h-5 w-5" />
+                  <RiLinkedinBoxFill className="size-5" />
                 </Anchor>
               )}
               {author.links.twitter && (
@@ -132,7 +132,7 @@ export default function AuthorsCardSection() {
                   })}
                   href={author.links.twitter}
                   variant="blend">
-                  <RiTwitterFill className="h-5 w-5" />
+                  <RiTwitterFill className="size-5" />
                 </Anchor>
               )}
               {author.links.youtube && (
@@ -144,7 +144,7 @@ export default function AuthorsCardSection() {
                   })}
                   href={author.links.youtube}
                   variant="blend">
-                  <RiYoutubeFill className="h-5 w-5" />
+                  <RiYoutubeFill className="size-5" />
                 </Anchor>
               )}
             </div>

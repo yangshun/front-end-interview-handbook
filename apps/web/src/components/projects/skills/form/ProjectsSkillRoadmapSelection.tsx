@@ -47,7 +47,7 @@ export default function ProjectsSkillRoadmapSelection({
                 )}
                 <div className="flex items-center gap-x-3">
                   <RiCircleFill
-                    className={clsx('h-2 w-2 shrink-0', themeIconColor)}
+                    className={clsx('size-2 shrink-0', themeIconColor)}
                   />
                   <Text
                     color="secondary"

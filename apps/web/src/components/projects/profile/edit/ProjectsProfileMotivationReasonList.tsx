@@ -78,7 +78,7 @@ export default function ProjectsProfileMotivationReasonList({
                 )}>
                 <Icon
                   className={clsx(
-                    'h-4 w-4',
+                    'size-4',
                     disabled ? themeTextDisabledColor : themeTextSecondaryColor,
                   )}
                 />
@@ -93,7 +93,7 @@ export default function ProjectsProfileMotivationReasonList({
                 <RiCheckboxCircleFill
                   aria-hidden={true}
                   className={clsx(
-                    'absolute end-1 top-1 h-4 w-4',
+                    'absolute end-1 top-1 size-4',
                     themeTextBrandColor,
                   )}
                 />
@@ -102,7 +102,7 @@ export default function ProjectsProfileMotivationReasonList({
                 <RiCheckboxCircleFill
                   aria-hidden={true}
                   className={clsx(
-                    'absolute end-1 top-1 h-4 w-4',
+                    'absolute end-1 top-1 size-4',
                     themeTextDisabledColor,
                   )}
                 />

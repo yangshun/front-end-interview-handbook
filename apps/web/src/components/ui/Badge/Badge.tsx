@@ -80,8 +80,8 @@ const sizeClasses: Record<BadgeSize, string> = {
 };
 
 const iconSizeClasses: Record<BadgeSize, string> = {
-  md: '-ms-0.5 w-4 h-4',
-  sm: '-ms-0.5 w-3 h-3',
+  md: '-ms-0.5 size-4',
+  sm: '-ms-0.5 size-3',
 };
 
 export default function Badge({

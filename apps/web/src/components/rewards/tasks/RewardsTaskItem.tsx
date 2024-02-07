@@ -90,7 +90,7 @@ export default function RewardsTaskItem({
         <div className="flex items-center gap-x-4">
           <Icon
             className={clsx(
-              'h-6 w-6 shrink-0',
+              'size-6 shrink-0',
               'text-neutral-400 dark:text-neutral-500',
             )}
           />
@@ -106,7 +106,7 @@ export default function RewardsTaskItem({
               display="flex"
               size="body3"
               weight="medium">
-              <RiCheckFill className="h-4 w-4 shrink-0" />
+              <RiCheckFill className="size-4 shrink-0" />
               <FormattedMessage
                 defaultMessage="Completed"
                 description="Completed task label"

@@ -67,7 +67,7 @@ function LinksListItem({
               variant="unstyled">
               <span className="pl-4">{link.title}</span>
               {isExternalURL && (
-                <RiExternalLinkFill className="text-inherit h-4 w-4" />
+                <RiExternalLinkFill className="text-inherit size-4" />
               )}
             </Anchor>
           </div>

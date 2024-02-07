@@ -45,7 +45,7 @@ export default function QuestionFocusAreasSection({
         <div className="flex items-center gap-4">
           <Heading level="heading6">{sectionTitle}</Heading>
           <Tooltip label={sectionDescription}>
-            <RiQuestionFill className="h-6 w-6 text-neutral-300" />
+            <RiQuestionFill className="size-6 text-neutral-300" />
           </Tooltip>
         </div>
         {allFocusAreas.length > MAX_SHOWN && (
@@ -76,14 +76,14 @@ export default function QuestionFocusAreasSection({
                   <div className="flex justify-between self-stretch">
                     <span
                       className={clsx(
-                        'inline-flex h-10 w-10 items-center justify-center rounded-md',
+                        'inline-flex size-10 items-center justify-center rounded-md',
                         themeBackgroundChipColor,
                         themeTextSecondaryColor,
                         'border border-transparent transition',
                         'group-hover/card:border-brand-dark group-hover/card:text-brand-dark',
                         'dark:group-hover/card:border-brand dark:group-hover/card:text-brand',
                       )}>
-                      <Icon aria-hidden={true} className="h-6 w-6" />
+                      <Icon aria-hidden={true} className="size-6" />
                     </span>
                     <Tooltip
                       alignment={
@@ -101,7 +101,7 @@ export default function QuestionFocusAreasSection({
                         </div>
                       }>
                       <RiQuestionFill
-                        className={clsx('z-10 h-6 w-6', themeTextFainterColor)}
+                        className={clsx('z-10 size-6', themeTextFainterColor)}
                       />
                     </Tooltip>
                   </div>

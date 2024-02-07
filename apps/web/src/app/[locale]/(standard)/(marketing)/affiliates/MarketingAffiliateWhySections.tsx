@@ -48,7 +48,7 @@ function ProductSection() {
           )}>
           <RiCheckLine
             aria-hidden={true}
-            className="text-success -ml-1 h-4 w-4"
+            className="text-success -ml-1 size-4"
           />
           <Text color="secondary" size="body2" weight="medium">
             {feature}
@@ -93,7 +93,7 @@ function SliderSection() {
           )}>
           <Slider.Range className="bg-brand-dark absolute h-full rounded" />
         </Slider.Track>
-        <Slider.Thumb className="bg-brand-dark hover:bg-brand-darker focus:ring-brand-darker block h-8 w-8 rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-offset-2" />
+        <Slider.Thumb className="bg-brand-dark hover:bg-brand-darker focus:ring-brand-darker block size-8 rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-offset-2" />
       </Slider.Root>
       <Text
         className="mt-8 text-center text-2xl"
@@ -162,7 +162,7 @@ export default function MarketingAffiliateWhySections() {
                 )}>
                 <reason.icon
                   className={clsx(
-                    'text-primary h-6 w-6',
+                    'text-primary size-6',
                     themeTextSubtitleColor,
                   )}
                 />

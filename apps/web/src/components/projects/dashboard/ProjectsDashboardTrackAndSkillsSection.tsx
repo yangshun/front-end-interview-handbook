@@ -69,7 +69,7 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
             <div className="flex flex-row gap-2 items-center w-full">
               <div className="flex lg:px-8 px-4 items-center">
                 <GradientProgressBar
-                  className="h-20 w-20"
+                  className="size-20"
                   gradient={trackGradient}
                   progressPercentage={track.percentageCompleted}
                 />
@@ -145,7 +145,7 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
                 <RiArrowRightLine
                   aria-hidden="true"
                   className={clsx(
-                    'h-6 w-6 shrink-0',
+                    'size-6 shrink-0',
                     themeTextFaintColor,
                     themeTextBrandColor_GroupHover,
                   )}

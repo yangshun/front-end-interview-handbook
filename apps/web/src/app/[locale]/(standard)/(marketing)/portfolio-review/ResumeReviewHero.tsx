@@ -44,7 +44,7 @@ const featuredReviews = [
     pic: (
       <img
         alt="Meta logo mark"
-        className="h-6 w-6 flex-none rounded-full"
+        className="size-6 flex-none rounded-full"
         src="/img/company-logos/meta-logomark.png"
       />
     ),
@@ -57,7 +57,7 @@ const featuredReviews = [
     pic: (
       <img
         alt="Credit karma logo mark"
-        className="h-6 w-6 flex-none rounded-full"
+        className="size-6 flex-none rounded-full"
         src="/img/company-logos/creditkarma-logomark.png"
       />
     ),
@@ -73,7 +73,7 @@ export default function ResumeReviewHero() {
       <Container>
         <svg
           aria-hidden="true"
-          className="absolute inset-0 -z-10 h-full w-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]">
+          className="absolute inset-0 -z-10 size-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]">
           <defs>
             <pattern
               height={200}

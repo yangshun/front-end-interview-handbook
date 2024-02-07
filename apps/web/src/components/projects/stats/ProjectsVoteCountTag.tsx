@@ -15,7 +15,7 @@ export default function ProjectsVoteCountTag({ count }: Props) {
 
   return (
     <div className="flex items-center gap-1">
-      <RiThumbUpFill className={clsx('h-4 w-4', themeTextSubtleColor)} />
+      <RiThumbUpFill className={clsx('size-4', themeTextSubtleColor)} />
       <Text size="body3">{count}</Text>
     </div>
   );

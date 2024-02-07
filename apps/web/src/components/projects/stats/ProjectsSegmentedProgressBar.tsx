@@ -69,7 +69,7 @@ export function ProjectsSegmentedProgressBar({
       </div>
       <div className="flex gap-1 items-center">
         <RiCheckboxCircleLine
-          className={clsx('w-5 h-5', themeTextSubtleColor)}
+          className={clsx('size-5', themeTextSubtleColor)}
         />
         <Text color="secondary" size="body3">
           <FormattedMessage

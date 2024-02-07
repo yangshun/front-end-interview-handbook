@@ -38,7 +38,7 @@ export default function RewardsCompletePage() {
   return (
     <div className="flex flex-col gap-y-12 items-center max-w-xl w-full mx-auto">
       <div className="flex flex-col gap-y-4 items-center">
-        <RiCheckboxCircleLine className="text-success h-16 w-16" />
+        <RiCheckboxCircleLine className="text-success size-16" />
         <div className="flex flex-col items-center">
           <Heading level="heading4">
             <FormattedMessage

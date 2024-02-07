@@ -56,11 +56,11 @@ export default function TeamPage({
                         {user.companyLogos.map((logo) => (
                           <div
                             key={logo}
-                            className="-mr-4 flex h-12 w-12 items-center justify-center overflow-clip rounded-full bg-white shadow">
+                            className="-mr-4 flex size-12 items-center justify-center overflow-clip rounded-full bg-white shadow">
                             <img
                               alt=""
                               className={clsx(
-                                'h-8 w-8',
+                                'size-8',
                                 user.roundedCompanyLogo && 'rounded-full',
                               )}
                               src={logo}
@@ -81,7 +81,7 @@ export default function TeamPage({
                             {user.name}
                           </Text>
                           <span className="absolute inset-0" />
-                          <RiArrowRightUpLine className="h-5 w-5 shrink-0" />
+                          <RiArrowRightUpLine className="size-5 shrink-0" />
                         </a>
                         <div>
                           <Badge

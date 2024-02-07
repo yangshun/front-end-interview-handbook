@@ -1026,7 +1026,7 @@ export default function MarketingPricingSection({
                           </div>
                           <Section>
                             <Text
-                              className="mt-1 md:min-h-[40px]"
+                              className="mt-1 md:min-h-10"
                               color="secondary"
                               display="block"
                               size="body2">
@@ -1112,7 +1112,7 @@ export default function MarketingPricingSection({
                             </div>
                             <Text
                               className={clsx(
-                                'pt-1 md:min-h-[32px]',
+                                'pt-1 md:min-h-8',
                                 plan.conversionFactor <
                                   MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE &&
                                   plan.planType === 'lifetime' &&
@@ -1168,7 +1168,7 @@ export default function MarketingPricingSection({
                                   <RiCheckLine
                                     aria-hidden="true"
                                     className={clsx(
-                                      'h-5 w-5 flex-shrink-0',
+                                      'size-5 flex-shrink-0',
                                       themeTextBrandColor,
                                     )}
                                   />

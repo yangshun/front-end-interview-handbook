@@ -54,10 +54,10 @@ function FocusAreaCard({
         <div className="flex items-center gap-3">
           <div
             className={clsx(
-              'flex h-10 w-10 items-center justify-center rounded',
+              'flex size-10 items-center justify-center rounded',
               theme.gradient.className,
             )}>
-            <theme.iconOutline className="h-6 w-6 text-white" />
+            <theme.iconOutline className="size-6 text-white" />
           </div>
           <Anchor href={href} variant="unstyled">
             <span aria-hidden={true} className="absolute inset-0" />
@@ -96,7 +96,7 @@ function FocusAreaCard({
           )}
         </div>
       </div>
-      <RiArrowRightLine className="group-hover:text-brand-dark dark:group-hover:text-brand h-6 w-6 text-neutral-400 transition-colors" />
+      <RiArrowRightLine className="group-hover:text-brand-dark dark:group-hover:text-brand size-6 text-neutral-400 transition-colors" />
     </div>
   );
 }

@@ -35,7 +35,7 @@ function FilterSection({
         </Text>
         <RiArrowDownSLine
           className={clsx(
-            'h-5 w-5 transition-transform group-data-[state=open]:rotate-180',
+            'size-5 transition-transform group-data-[state=open]:rotate-180',
             themeTextSecondaryColor,
           )}
         />

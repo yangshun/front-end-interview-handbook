@@ -33,7 +33,7 @@ export default function ProjectsChallengeReputationTag({
         className,
       )}>
       <RiFireLine
-        className={clsx('h-4 w-4', variant === 'filled' && 'text-brand')}
+        className={clsx('size-4', variant === 'filled' && 'text-brand')}
       />
       <Text
         color={variant === 'filled' ? 'default' : 'inherit'}

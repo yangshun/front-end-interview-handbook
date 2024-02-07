@@ -109,7 +109,7 @@ export default function ProjectsChallengeDeploymentCompletionPage({
                         'rounded-lg p-3',
                         themeBackgroundLayerEmphasized,
                       )}>
-                      <RiGithubFill className="h-6 w-6" />
+                      <RiGithubFill className="size-6" />
                     </div>
                     <div className="flex flex-col gap-0.5">
                       <Text weight="bold">
@@ -213,7 +213,7 @@ export default function ProjectsChallengeDeploymentCompletionPage({
                         'rounded-lg p-3',
                         themeBackgroundLayerEmphasized,
                       )}>
-                      <RiCodeLine className="h-6 w-6" />
+                      <RiCodeLine className="size-6" />
                     </div>
                     <div className="flex flex-col gap-0.5">
                       <Text weight="bold">
@@ -325,7 +325,7 @@ export default function ProjectsChallengeDeploymentCompletionPage({
                       'rounded-lg p-3',
                       themeBackgroundLayerEmphasized,
                     )}>
-                    <RiShareCircleLine className="h-6 w-6" />
+                    <RiShareCircleLine className="size-6" />
                   </div>
                   <div className="flex flex-col gap-0.5">
                     <Text weight="bold">

@@ -95,7 +95,7 @@ export default function DashboardOnboarding() {
                 themeBackgroundCardColor,
               )}>
               <div className="flex items-center gap-x-3">
-                <Icon className="h-6 w-6 text-neutral-400 dark:text-neutral-500" />
+                <Icon className="size-6 text-neutral-400 dark:text-neutral-500" />
                 <Text display="block" weight="bold">
                   {label}
                 </Text>
@@ -119,7 +119,7 @@ export default function DashboardOnboarding() {
                 themeBackgroundCardColor,
               )}>
               <div className="flex items-center gap-x-3">
-                <Icon className="h-6 w-6 text-neutral-400 dark:text-neutral-500" />
+                <Icon className="size-6 text-neutral-400 dark:text-neutral-500" />
                 <Text display="block" size="body2" weight="bold">
                   {label}
                 </Text>

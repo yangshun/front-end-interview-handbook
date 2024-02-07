@@ -76,14 +76,14 @@ function JobPostingItem({
             color="subtitle"
             display="inline-flex"
             size="body2">
-            <RiMapPinLine className={clsx('h-5 w-5', themeIconColor)} />{' '}
+            <RiMapPinLine className={clsx('size-5', themeIconColor)} />{' '}
             {location}
           </Text>
         </div>
       </div>
       <RiArrowRightLine
         className={clsx(
-          'h-8 w-8 shrink-0',
+          'size-8 shrink-0',
           themeIconColor,
           'group-hover:text-brand-dark dark:group-hover:text-brand',
         )}

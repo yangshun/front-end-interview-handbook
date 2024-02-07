@@ -230,11 +230,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
               />
             </Text>
             <div className="flex gap-6 self-stretch items-end">
-              <UserAvatar
-                className="w-20 h-20"
-                profile={profile}
-                size="custom"
-              />
+              <UserAvatar className="size-20" profile={profile} size="custom" />
               <ProjectsLevelingProgressBar
                 className="flex-1"
                 currentLevel={2}
@@ -333,7 +329,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
               />
             </Text>
             <div className="flex gap-6 self-stretch items-end">
-              <div className="w-20 h-20 rounded-lg bg-red" />
+              <div className="size-20 rounded-lg bg-red" />
               <ProjectsSegmentedProgressBar
                 className="flex-1"
                 currentSegmentCount={4}
@@ -378,7 +374,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
               />
             </Text>
             <div className="flex gap-6 self-stretch items-end">
-              <div className="w-20 h-20 rounded-lg bg-red" />
+              <div className="size-20 rounded-lg bg-red" />
               <ProjectsSegmentedProgressBar
                 className="flex-1"
                 currentSegmentCount={4}

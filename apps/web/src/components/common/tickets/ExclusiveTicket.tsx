@@ -70,7 +70,7 @@ export default function ExclusiveTicket({
           {tooltip && (
             <Tooltip label={tooltip}>
               <RiQuestionLine
-                className={clsx('h-5 w-5 shrink-0', themeTextSecondaryColor)}
+                className={clsx('size-5 shrink-0', themeTextSecondaryColor)}
               />
             </Tooltip>
           )}

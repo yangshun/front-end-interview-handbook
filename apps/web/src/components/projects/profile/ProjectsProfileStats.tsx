@@ -77,14 +77,14 @@ export default function ProjectsProfileStats({
               <div className="flex items-center gap-2">
                 <span
                   className={clsx(
-                    'md:inline-flex h-9 w-9 items-center justify-center rounded-md hidden',
+                    'md:inline-flex size-9 items-center justify-center rounded-md hidden',
                     themeBackgroundChipColor,
                     themeTextSecondaryColor,
                     'border border-transparent transition',
                     'group-hover/card:border-brand-dark group-hover/card:text-brand-dark',
                     'dark:group-hover/card:border-brand dark:group-hover/card:text-brand',
                   )}>
-                  <Icon aria-hidden={true} className="h-5 w-5" />
+                  <Icon aria-hidden={true} className="size-5" />
                 </span>
                 <Text color="secondary" size="body2" weight="medium">
                   {title}

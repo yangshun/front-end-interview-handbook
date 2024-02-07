@@ -44,7 +44,7 @@ export default function ProjectsSkillRoadmapItemDetails({ skillItem }: Props) {
             />
             <div
               className={clsx('flex items-center gap-2', themeTextSubtleColor)}>
-              <RiRocketLine className="h-4 w-4" />
+              <RiRocketLine className="size-4" />
               <Text color="inherit" size="body2">
                 <FormattedMessage
                   defaultMessage="<bold>{completedCount}</bold>/{totalCount} challenges"
@@ -87,7 +87,7 @@ export default function ProjectsSkillRoadmapItemDetails({ skillItem }: Props) {
         <RiArrowRightLine
           aria-hidden={true}
           className={clsx(
-            'h-5 w-5 shrink-0',
+            'size-5 shrink-0',
             themeTextFaintColor,
             'group-hover:text-brand dark:group-hover:text-brand',
           )}

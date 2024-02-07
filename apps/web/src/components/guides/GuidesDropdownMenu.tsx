@@ -72,11 +72,11 @@ export default function GuidesDropdownMenu({
           <div className="flex items-center gap-2">
             <div
               className={clsx(
-                'flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full',
+                'flex size-6 flex-shrink-0 items-center justify-center rounded-full',
                 themeGlassyBorder,
                 themeBackgroundLayerEmphasized,
               )}>
-              <Icon className="h-3 w-3" />
+              <Icon className="size-3" />
             </div>
             <Text
               className="line-clamp-1 text-ellipsis text-left"
@@ -88,7 +88,7 @@ export default function GuidesDropdownMenu({
           {showChevron && (
             <RiArrowDownSLine
               aria-hidden="true"
-              className={clsx('h-4 w-4 flex-shrink-0', themeTextSecondaryColor)}
+              className={clsx('size-4 flex-shrink-0', themeTextSecondaryColor)}
             />
           )}
         </Menu.Button>

@@ -47,7 +47,7 @@ function RewardsStepLabel({
     <div className="flex gap-x-2.5">
       <span
         className={clsx(
-          'w-6 h-6 inline-flex items-center justify-center rounded-full',
+          'size-6 inline-flex items-center justify-center rounded-full',
           status === 'active' &&
             clsx('border border-brand', themeBackgroundCardWhiteOnLightColor),
           status === 'completed' && 'bg-success',
@@ -59,7 +59,7 @@ function RewardsStepLabel({
             ),
         )}>
         {status === 'completed' ? (
-          <RiCheckLine className={clsx('h-4 w-4', themeTextInvertColor)} />
+          <RiCheckLine className={clsx('size-4', themeTextInvertColor)} />
         ) : (
           <Text
             color={status === 'active' ? 'active' : 'default'}
@@ -274,7 +274,7 @@ export default function RewardsTasksPage() {
                 <div key={type} className="flex gap-2 items-center">
                   <Icon
                     className={clsx(
-                      'h-5 w-5 shrink-0',
+                      'size-5 shrink-0',
                       'text-neutral-400 dark:text-neutral-500',
                     )}
                   />

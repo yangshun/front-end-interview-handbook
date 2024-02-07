@@ -53,7 +53,7 @@ export default function MarketingEmbedUIQuestion({ question }: Props) {
   const laptopAndAbove = useMediaQuery('(min-width: 1024px)');
 
   return (
-    <div className="relative flex h-full w-full flex-col gap-3">
+    <div className="relative flex size-full flex-col gap-3">
       {laptopAndAbove ? (
         <UserInterfaceCodingWorkspaceSection
           key={framework}

@@ -279,7 +279,7 @@ function Chart({
           }}>
           <div
             className={clsx(
-              'flex h-14 w-14 items-center justify-center rounded-full',
+              'flex size-14 items-center justify-center rounded-full',
               themeGlassyBorder,
               themeBackgroundLayerEmphasized,
             )}>

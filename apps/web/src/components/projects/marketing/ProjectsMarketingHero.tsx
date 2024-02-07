@@ -44,9 +44,9 @@ function ProjectMarketingSkillsDetails() {
         />
       </Text>
       <div className="flex gap-2">
-        <HTML5LogoMonochrome className="h-10 w-10" />
-        <ReactLogo className="h-10 w-10" />
-        <JavaScriptLogo className="h-10 w-10" />
+        <HTML5LogoMonochrome className="size-10" />
+        <ReactLogo className="size-10" />
+        <JavaScriptLogo className="size-10" />
       </div>
     </div>
   );

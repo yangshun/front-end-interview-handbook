@@ -65,10 +65,7 @@ export default async function Page({ params }: Props) {
       })}
       framework={framework}
       logo={
-        <ReactLogo
-          className="h-16 w-16"
-          style={{ fill: 'rgb(20, 158, 202)' }}
-        />
+        <ReactLogo className="size-16" style={{ fill: 'rgb(20, 158, 202)' }} />
       }
       questionCompletionCount={questionCompletionCount}
       questionList={questionList}

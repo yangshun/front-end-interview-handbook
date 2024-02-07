@@ -34,7 +34,7 @@ export default function DropdownMenuItem({
               color={isSelected ? 'active' : color}
               display="flex"
               size="body2">
-              {Icon && <Icon className="h-4 w-4 shrink-0" />}
+              {Icon && <Icon className="size-4 shrink-0" />}
               {label}
             </Text>
           ),

@@ -113,7 +113,7 @@ export default function MarketingHero() {
                   We're hiring!
                   <RiBriefcaseLine
                     className={clsx(
-                      'text-brand h-4 w-4 shrink-0',
+                      'text-brand size-4 shrink-0',
                       'transition-transform duration-150 ease-in-out group-hover:scale-105',
                     )}
                   />

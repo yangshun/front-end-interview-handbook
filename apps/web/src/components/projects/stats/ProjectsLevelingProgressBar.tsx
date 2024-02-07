@@ -36,7 +36,7 @@ export function ProjectsLevelingProgressBar({
             invert={true}
             label={
               <div className="flex gap-1">
-                <RiFireLine className={clsx('w-5 h-5', themeTextColor)} />
+                <RiFireLine className={clsx('size-5', themeTextColor)} />
                 <Text size="body2">
                   <FormattedMessage
                     defaultMessage="<bold>+{points}</bold> rep"
@@ -57,7 +57,7 @@ export function ProjectsLevelingProgressBar({
             style={{
               width: `${(repIncrease / repTotal) * 100}%`,
             }}>
-            <div className="h-full w-full bg-success-dark dark:bg-success rounded-se-full rounded-ee-full" />
+            <div className="size-full bg-success-dark dark:bg-success rounded-se-full rounded-ee-full" />
           </Tooltip>
         </div>
       </div>

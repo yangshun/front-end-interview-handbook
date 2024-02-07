@@ -77,9 +77,9 @@ const variantClasses: Record<
 };
 
 const sizeClasses: Record<ChipSize, string> = {
-  md: 'h-8 w-8',
-  sm: 'h-6 w-6',
-  xs: 'h-5 w-5',
+  md: 'size-8',
+  sm: 'size-6',
+  xs: 'size-5',
 };
 
 const textSizeClasses: Record<ChipSize, string> = {
@@ -114,7 +114,7 @@ export default function Chip({
         borderClass,
         className,
       )}>
-      {Icon && <Icon className={clsx(iconClass, 'h-3 w-3', iconClassName)} />}
+      {Icon && <Icon className={clsx(iconClass, 'size-3', iconClassName)} />}
       {!isLabelHidden && (
         <span className={clsx(textClass, textSizeClasses[size])}>{label}</span>
       )}

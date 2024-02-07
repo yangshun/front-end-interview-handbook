@@ -43,7 +43,7 @@ export default function BlogCard({
       {type === 'wide' && metadata.imageUrl && (
         <img
           alt={metadata.title}
-          className="!m-0 hidden h-[80px] aspect-[15/8] shrink-0 rounded object-cover lg:block"
+          className="!m-0 hidden h-20 aspect-[15/8] shrink-0 rounded object-cover lg:block"
           src={metadata.imageUrl}
         />
       )}
@@ -58,7 +58,7 @@ export default function BlogCard({
             {type === 'wide' && metadata.imageUrl && (
               <img
                 alt={metadata.title}
-                className="!m-0 h-[32px] w-[32px] shrink-0 rounded object-cover lg:hidden"
+                className="!m-0 size-8 shrink-0 rounded object-cover lg:hidden"
                 src={metadata.imageUrl}
               />
             )}
@@ -116,7 +116,7 @@ export default function BlogCard({
         <RiArrowRightLine
           aria-hidden={true}
           className={clsx(
-            'h-5 w-5 shrink-0',
+            'size-5 shrink-0',
             themeTextFaintColor,
             'group-hover:text-brand dark:group-hover:text-brand',
           )}

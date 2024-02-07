@@ -53,14 +53,14 @@ export default function CodingWorkspaceLayoutDialog({
               onClick={onClick}>
               <span
                 className={clsx(
-                  'inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-md',
+                  'inline-flex size-8 shrink-0 items-center justify-center rounded-md',
                   themeBackgroundChipColor,
                   themeTextSecondaryColor,
                   'border border-transparent transition',
                   'group-hover/card:border-brand-dark group-hover/card:text-brand-dark',
                   'dark:group-hover/card:border-brand dark:group-hover/card:text-brand',
                 )}>
-                <Icon aria-hidden={true} className="h-5 w-5 shrink-0" />
+                <Icon aria-hidden={true} className="size-5 shrink-0" />
               </span>
               <div className="flex flex-col gap-1 text-start">
                 <Text display="block" size="body2" weight="medium">

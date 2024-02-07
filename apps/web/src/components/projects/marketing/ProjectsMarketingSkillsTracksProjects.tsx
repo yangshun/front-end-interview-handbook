@@ -137,7 +137,7 @@ export default function ProjectsMarketingSkillsTracksProjects({
                   />
                   <div className="flex gap-4">
                     {skills.map(({ icon: Icon, key }) => (
-                      <Icon key={key} className="h-8 w-8" />
+                      <Icon key={key} className="size-8" />
                     ))}
                   </div>
                 </div>

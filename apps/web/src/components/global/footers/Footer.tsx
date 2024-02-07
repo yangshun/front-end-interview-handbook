@@ -162,7 +162,7 @@ export default function Footer({ navigation }: Props) {
                   {commonLinks.social.map(({ key, href, name, icon: Icon }) => (
                     <Anchor key={key} href={href} variant="muted">
                       <span className="sr-only">{name}</span>
-                      {Icon && <Icon aria-hidden="true" className="h-6 w-6" />}
+                      {Icon && <Icon aria-hidden="true" className="size-6" />}
                     </Anchor>
                   ))}
                 </div>

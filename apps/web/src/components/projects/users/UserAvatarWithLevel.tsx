@@ -33,8 +33,8 @@ const sizeClasses: Record<
   }
 > = {
   '2xl': {
-    innerSize: 'h-12 w-12',
-    outerSize: 'h-14 w-14',
+    innerSize: 'size-12',
+    outerSize: 'size-14',
     sizePixels: 56,
   },
   '3xl': {
@@ -43,13 +43,13 @@ const sizeClasses: Record<
     sizePixels: 56,
   },
   lg: {
-    innerSize: 'h-8 w-8',
-    outerSize: 'h-10 w-10',
+    innerSize: 'size-8',
+    outerSize: 'size-10',
     sizePixels: 40,
   },
   xl: {
-    innerSize: 'h-10 w-10',
-    outerSize: 'h-12 w-12',
+    innerSize: 'size-10',
+    outerSize: 'size-12',
     sizePixels: 48,
   },
 };
@@ -91,7 +91,7 @@ export default function UserAvatarWithLevel({
       </CircularProgressbarWithChildren>
       <div
         className={clsx(
-          'bg-success text-2xs absolute bottom-0 end-0 flex h-4 w-4 items-center justify-center rounded-full font-bold text-white',
+          'bg-success text-2xs absolute bottom-0 end-0 flex size-4 items-center justify-center rounded-full font-bold text-white',
           {
             'w-[30px] h-[30px] text-base': size === '3xl',
           },

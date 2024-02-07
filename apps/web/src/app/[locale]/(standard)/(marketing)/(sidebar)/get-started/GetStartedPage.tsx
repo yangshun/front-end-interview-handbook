@@ -77,7 +77,7 @@ function PreparationPlansSection() {
                   style={{ borderColor: planTheme.gradient.startColor }}>
                   <planTheme.iconSolid
                     aria-hidden="true"
-                    className={clsx('h-8 w-8')}
+                    className={clsx('size-8')}
                     style={{
                       color: planTheme.gradient.startColor,
                     }}

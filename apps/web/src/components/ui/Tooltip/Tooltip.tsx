@@ -147,7 +147,7 @@ function TooltipLabel({
       <div
         aria-hidden="true"
         className={clsx(
-          'absolute z-30 h-2 w-2 rounded-[1px]',
+          'absolute z-30 size-2 rounded-[1px]',
           tooltipBackgroundColor,
           position === 'above' && '-bottom-[3px]',
           position === 'below' && '-top-[3px]',

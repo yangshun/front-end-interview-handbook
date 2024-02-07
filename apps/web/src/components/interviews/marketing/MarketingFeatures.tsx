@@ -188,7 +188,7 @@ export default function MarketingFeatures() {
                   )}>
                   <feature.icon
                     aria-hidden="true"
-                    className="group-hover:text-brand-dark dark:group-hover:text-brand h-6 w-6"
+                    className="group-hover:text-brand-dark dark:group-hover:text-brand size-6"
                   />
                 </div>
                 <Heading

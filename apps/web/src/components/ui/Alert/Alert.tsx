@@ -84,10 +84,7 @@ export default function Alert({
       className={clsx('flex gap-x-2 rounded-lg p-4', backgroundClass)}
       role="alert">
       <div className="flex-shrink-0">
-        <Icon
-          aria-hidden="true"
-          className={clsx('mt-0.5 h-5 w-5', iconClass)}
-        />
+        <Icon aria-hidden="true" className={clsx('mt-0.5 size-5', iconClass)} />
       </div>
       <div className="grid gap-y-1">
         {title && (
