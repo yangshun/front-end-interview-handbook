@@ -8,7 +8,7 @@ import type { ProjectsYoeReplacement } from '~/components/projects/types';
 import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 
-type Size = 'sm' | 'xs';
+type Size = 'body2' | 'body3';
 
 type Props = Readonly<{
   profile: Readonly<{
@@ -18,22 +18,20 @@ type Props = Readonly<{
   size?: Size;
 }>;
 
-const textClasses: Record<Size, string> = {
-  sm: 'text-sm',
-  xs: 'text-xs',
-};
-
 const iconClasses: Record<Size, string> = {
-  sm: 'h-5 w-5',
-  xs: 'h-4 w-4',
+  body2: 'h-5 w-5',
+  body3: 'h-4 w-4',
 };
 
 const gap: Record<Size, string> = {
-  sm: 'gap-2',
-  xs: 'gap-1',
+  body2: 'gap-2',
+  body3: 'gap-1',
 };
 
-export default function UserProfileExperience({ profile, size = 'sm' }: Props) {
+export default function UserProfileExperience({
+  profile,
+  size = 'body2',
+}: Props) {
   const { yoeOptionMap } = useProjectsYOEReplacementOptions();
 
   const calculateYearsOfExperience = useCallback((timestamp: Date) => {
@@ -60,7 +58,7 @@ export default function UserProfileExperience({ profile, size = 'sm' }: Props) {
       <RiGraduationCapLine
         className={clsx(iconClasses[size], themeTextSecondaryColor)}
       />
-      <Text className={textClasses[size]} color="secondary" size="inherit">
+      <Text color="secondary" size={size}>
         {profile.startWorkDate ? (
           <FormattedMessage
             defaultMessage="{yoe} YOE"

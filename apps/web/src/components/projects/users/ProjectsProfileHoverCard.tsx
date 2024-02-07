@@ -119,7 +119,7 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
                   </Tooltip>
                 )}
               </div>
-              <UserProfileInformationRow profile={profile!} size="xs" />
+              <UserProfileInformationRow profile={profile!} size="body3" />
             </div>
           </div>
           <div className="grid md:grid-cols-4 grid-cols-2 gap-4">

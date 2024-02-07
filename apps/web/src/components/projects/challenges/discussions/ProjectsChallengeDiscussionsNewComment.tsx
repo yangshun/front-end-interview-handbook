@@ -90,7 +90,7 @@ export default function ProjectsChallengeDiscussionsNewComment({
           <Text size="body2" weight="medium">
             <ProjectsProfileDisplayNameLink profile={viewer} />
           </Text>
-          <UserProfileInformationRow profile={viewer} size="xs" />
+          <UserProfileInformationRow profile={viewer} size="body3" />
         </div>
       </div>
       <div className="my-3">

@@ -5,32 +5,30 @@ import { FormattedMessage } from 'react-intl';
 import Text from '~/components/ui/Text';
 import { themeTextBrandColor } from '~/components/ui/theme';
 
-type Size = '2xs' | 'sm';
+type Size = 'body2' | 'body3';
 
 type Props = Readonly<{
   points: number;
   size?: Size;
 }>;
 
-const textClasses: Record<Size, string> = {
-  '2xs': 'text-2xs',
-  sm: 'text-sm',
-};
-
 const iconClasses: Record<Size, string> = {
-  '2xs': 'h-3 w-3',
-  sm: 'h-5 w-5',
+  body2: 'h-5 w-5',
+  body3: 'h-4 w-4',
 };
 const gap: Record<Size, string> = {
-  '2xs': 'gap-1',
-  sm: 'gap-2',
+  body2: 'gap-1',
+  body3: 'gap-1',
 };
 
-export default function ProjectsUserReputation({ points, size = 'sm' }: Props) {
+export default function ProjectsUserReputation({
+  points,
+  size = 'body3',
+}: Props) {
   return (
     <div className={clsx('flex', themeTextBrandColor, gap[size])}>
       <RiFireLine className={iconClasses[size]} />
-      <Text className={textClasses[size]} color="inherit" size="inherit">
+      <Text color="inherit" size={size}>
         <FormattedMessage
           defaultMessage="{points} Reputation"
           description="Label showing reputation count in profile header of Projects sidebar"

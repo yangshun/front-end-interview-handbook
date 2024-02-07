@@ -82,7 +82,7 @@ export default function ProjectsChallengeBriefQuestionSupportCard() {
                   startWorkDate: new Date('2021-12-31T18:30:00.000Z'),
                   title: 'Software Engineer at Stripe',
                 }}
-                size="xs"
+                size="body3"
               />
             </div>
             <div className="flex flex-col w-[240px] gap-3">

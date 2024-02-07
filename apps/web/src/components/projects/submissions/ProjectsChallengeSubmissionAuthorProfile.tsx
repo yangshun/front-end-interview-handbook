@@ -61,7 +61,7 @@ export default function ProjectsChallengeSubmissionAuthorProfile({
             </a>
           )}
         </div>
-        <UserProfileInformationRow profile={author} size="xs" />
+        <UserProfileInformationRow profile={author} size="body3" />
       </div>
     </div>
   );

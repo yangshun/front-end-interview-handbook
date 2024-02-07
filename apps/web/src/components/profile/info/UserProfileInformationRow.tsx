@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import UserProfileExperience from '~/components/profile/info/UserProfileExperience';
 import UserProfileTitle from '~/components/profile/info/UserProfileTitle';
 
-type Size = 'sm' | 'xs';
+type Size = 'body2' | 'body3';
 
 type Props = Readonly<{
   profile: Readonly<{
@@ -15,13 +15,13 @@ type Props = Readonly<{
 }>;
 
 const gapClasses: Record<Size, string> = {
-  sm: 'gap-y-2',
-  xs: 'gap-y-0.5',
+  body2: 'gap-y-2',
+  body3: 'gap-y-0.5',
 };
 
 export default function UserProfileInformationRow({
   profile,
-  size = 'sm',
+  size = 'body2',
 }: Props) {
   if (
     profile.currentStatus == null &&

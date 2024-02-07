@@ -143,7 +143,7 @@ export default function ProjectsChallengeSubmissionCard({
             <Text size="body2" weight="medium">
               <ProjectsProfileDisplayNameLink profile={author} />
             </Text>
-            <UserProfileInformationRow profile={author} size="xs" />
+            <UserProfileInformationRow profile={author} size="body3" />
           </div>
         </div>
       )}

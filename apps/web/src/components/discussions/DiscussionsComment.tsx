@@ -132,7 +132,7 @@ export default function DiscussionsComment({
                 <RelativeTimestamp timestamp={comment.createdAt} />
               </Text>
             </div>
-            <UserProfileInformationRow profile={author} size="xs" />
+            <UserProfileInformationRow profile={author} size="body3" />
           </div>
           {category && (
             <Badge
