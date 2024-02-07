@@ -1,15 +1,5 @@
-import clsx from 'clsx';
-import { useState } from 'react';
-
-import Text from '~/components/ui/Text';
-import { themeBorderElementColor } from '~/components/ui/theme';
-
-import type { ProjectsChallengeItem } from '../types';
-import ProjectsImageBreakpointButtonGroup from '../../common/ProjectsImageBreakpointButtonGroup';
-import {
-  type ProjectsImageBreakpointCategory,
-  ProjectsImageBreakpointDimensions,
-} from '../../common/ProjectsImageBreakpoints';
+import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
+import ProjectsComparison from '~/components/projects/common/ProjectsComparison';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -18,33 +8,34 @@ type Props = Readonly<{
 export default function ProjectsChallengeAssetsResponsiveBreakpointsTab({
   challenge,
 }: Props) {
-  const [selectedBreakpoint, setSelectedBreakpoint] =
-    useState<ProjectsImageBreakpointCategory>('desktop');
-  const { width, height } =
-    ProjectsImageBreakpointDimensions[selectedBreakpoint];
+  // TODO(projects): Pick from challenge assets
+  const baseScreenshots = [
+    {
+      label: 'Homepage',
+      screenshots: {
+        desktop: challenge.metadata.imageUrl,
+        mobile: challenge.metadata.imageUrl,
+        tablet: challenge.metadata.imageUrl,
+      },
+    },
+    {
+      label: 'Dashboard',
+      screenshots: {
+        desktop:
+          'https://source.unsplash.com/random/1080x700?random=${page.label}',
+        mobile:
+          'https://source.unsplash.com/random/480x700?random=${page.label}',
+        tablet:
+          'https://source.unsplash.com/random/700x700?random=${page.label}',
+      },
+    },
+  ];
 
   return (
-    <div className="flex flex-col items-stretch gap-6">
-      <div className="flex gap-6 justify-between">
-        <ProjectsImageBreakpointButtonGroup
-          breakpoint={selectedBreakpoint}
-          setBreakpoint={setSelectedBreakpoint}
-        />
-        <div
-          className={clsx(
-            'flex items-center justify-center rounded-md border p-2',
-            themeBorderElementColor,
-          )}>
-          <Text color="secondary" size="body3" weight="medium">
-            {width}px &times; {height}px
-          </Text>
-        </div>
-      </div>
-      <img
-        alt={challenge.metadata.title}
-        className={clsx('aspect-[4/3] w-full rounded-lg')}
-        src={challenge.metadata.imageUrl}
-      />
-    </div>
+    <ProjectsComparison
+      baseScreenshots={baseScreenshots}
+      mode="display"
+      showDimensions={true}
+    />
   );
 }

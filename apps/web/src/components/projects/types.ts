@@ -5,6 +5,7 @@ import type {
   yoeReplacementSchema,
 } from '~/components/projects/misc';
 
+import type { ProjectsImageBreakpointCategory } from './common/ProjectsImageBreakpoints';
 import type { ProjectsSkillKey } from './skills/types';
 
 export type ProjectsMotivationReasonType = 'primary' | 'secondary';
@@ -79,4 +80,9 @@ export type ProjectsProfileAvatarDataSlim = Readonly<{
   id: string;
   name: string | null;
   username: string;
+}>;
+
+export type ProjectsBaseScreenshot = Readonly<{
+  label: string;
+  screenshots: Record<ProjectsImageBreakpointCategory, string>;
 }>;
