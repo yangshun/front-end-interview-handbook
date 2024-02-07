@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 
 import {
-  themeBackgroundLayerEmphasizedHover,
+  themeBackgroundLayerEmphasized_Hover,
   themeGlassyBorder,
   themeTextColor,
   themeTextSecondaryColor,
@@ -179,7 +179,7 @@ export default function NavbarSidebarItem({
   ...props
 }: NavbarPrimaryItem) {
   const isCurrent = false; // TODO: Read from router.
-  const linkClass = clsx(themeBackgroundLayerEmphasizedHover);
+  const linkClass = clsx(themeBackgroundLayerEmphasized_Hover);
 
   if (props.type === 'link') {
     return (

@@ -26,10 +26,10 @@ import Divider from '~/components/ui/Divider';
 import Popover from '~/components/ui/Popover';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundElementActiveColor,
+  themeBackgroundElementEmphasizedStateColor,
   themeBorderElementColor,
   themeTextBrandColor,
-  themeTextBrandHoverColor,
+  themeTextBrandColor_Hover,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -141,11 +141,11 @@ function SidebarLinkButton({
   const isSelected = pathname === href;
   const activeClassName = clsx(
     themeTextBrandColor,
-    themeBackgroundElementActiveColor,
+    themeBackgroundElementEmphasizedStateColor,
   );
   const defaultClassName = clsx(
     themeTextSecondaryColor,
-    themeTextBrandHoverColor,
+    themeTextBrandColor_Hover,
   );
 
   return (
@@ -155,7 +155,7 @@ function SidebarLinkButton({
         'flex w-full items-center gap-3',
         'px-3 py-2.5',
         'rounded',
-        themeTextBrandHoverColor,
+        themeTextBrandColor_Hover,
         isSelected ? activeClassName : defaultClassName,
       )}
       href={href}

@@ -7,8 +7,8 @@ import type {
 
 import {
   themeBackgroundElementColor,
-  themeBackgroundElementHoverStateColor,
-  themeBackgroundElementPressedStateColor,
+  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeBackgroundElementPressedStateColor_Active,
   themeBorderElementColor,
 } from '~/components/ui/theme';
 
@@ -123,8 +123,8 @@ const variantClasses: Record<ButtonVariant, string> = {
     themeBorderElementColor,
     'text-neutral-600 dark:text-neutral-200',
     themeBackgroundElementColor,
-    themeBackgroundElementHoverStateColor,
-    themeBackgroundElementPressedStateColor,
+    themeBackgroundElementEmphasizedStateColor_Hover,
+    themeBackgroundElementPressedStateColor_Active,
     'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
   ),
   special: clsx(
@@ -149,11 +149,11 @@ const variantClasses: Record<ButtonVariant, string> = {
     'text-neutral-600 dark:text-neutral-200',
     'bg-transparent',
     [
-      themeBackgroundElementHoverStateColor,
+      themeBackgroundElementEmphasizedStateColor_Hover,
       'hover:text-brand-darker dark:hover:text-brand',
     ],
     [
-      themeBackgroundElementPressedStateColor,
+      themeBackgroundElementPressedStateColor_Active,
       'active:text-brand-dark dark:active:text-brand-light',
     ],
     'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',

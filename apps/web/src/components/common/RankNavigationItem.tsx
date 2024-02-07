@@ -6,8 +6,8 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
   themeBackgroundChipColor,
-  themeBackgroundElementHoverStateColor,
-  themeTextBrandGroupHoverColor,
+  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeTextBrandColor_GroupHover,
 } from '~/components/ui/theme';
 
 type RankNavigationItemProps = Readonly<{
@@ -29,7 +29,7 @@ export default function RankNavigationItem({
         'rounded-lg',
         'transition-colors',
         themeBackgroundCardColor,
-        themeBackgroundElementHoverStateColor,
+        themeBackgroundElementEmphasizedStateColor_Hover,
       )}>
       <div className="flex items-center gap-3">
         <div
@@ -52,7 +52,7 @@ export default function RankNavigationItem({
       <RiArrowRightSLine
         className={clsx(
           'h-5 w-5 shrink-0 text-neutral-500 dark:text-neutral-400',
-          themeTextBrandGroupHoverColor,
+          themeTextBrandColor_GroupHover,
         )}
       />
     </div>

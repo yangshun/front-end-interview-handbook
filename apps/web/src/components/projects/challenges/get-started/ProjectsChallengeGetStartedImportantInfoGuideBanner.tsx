@@ -6,7 +6,7 @@ import {
   themeBackgroundElementColor,
   themeBorderElementColor,
   themeGlassyBorder,
-  themeTextBrandHoverColor,
+  themeTextBrandColor_Hover,
   themeTextColor,
 } from '~/components/ui/theme';
 
@@ -123,7 +123,7 @@ export default function ProjectsChallengeGetStartedImportantInfoGuideBanner() {
                     value === 'resources'
                       ? 'border-brand'
                       : [
-                          themeTextBrandHoverColor,
+                          themeTextBrandColor_Hover,
                           themeTextColor,
                           'border-transparent',
                         ],

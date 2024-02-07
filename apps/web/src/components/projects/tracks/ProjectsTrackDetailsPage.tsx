@@ -18,7 +18,7 @@ import {
   themeBackgroundCardColor,
   themeBorderColor,
   themeBorderElementColor,
-  themeTextBrandGroupHoverColor,
+  themeTextBrandColor_GroupHover,
   themeTextFaintColor,
 } from '~/components/ui/theme';
 
@@ -167,7 +167,7 @@ export default function ProjectsTrackDetailsPage({ track, userId }: Props) {
                   className={clsx(
                     'h-6 w-6 shrink-0',
                     themeTextFaintColor,
-                    themeTextBrandGroupHoverColor,
+                    themeTextBrandColor_GroupHover,
                   )}
                 />
               </div>

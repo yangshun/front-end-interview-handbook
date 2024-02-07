@@ -4,8 +4,8 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 
 import {
   themeBackgroundElementColor,
-  themeBackgroundElementHoverStateColor,
-  themeBackgroundElementPressedStateColor,
+  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeBackgroundElementPressedStateColor_Active,
   themeBorderElementColor,
 } from '~/components/ui/theme';
 
@@ -115,8 +115,8 @@ export default function DropdownMenu({
             'transition-colors',
             variantClasses[variant],
             themeBackgroundElementColor,
-            themeBackgroundElementHoverStateColor,
-            themeBackgroundElementPressedStateColor,
+            themeBackgroundElementEmphasizedStateColor_Hover,
+            themeBackgroundElementPressedStateColor_Active,
             [
               'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
               'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',

@@ -6,7 +6,7 @@ import Anchor from '~/components/ui/Anchor';
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundEmphasizedHover,
+  themeBackgroundEmphasized_Hover,
   themeBorderColor,
   themeDivideColor,
 } from '~/components/ui/theme';
@@ -64,7 +64,7 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
             key={hashQuestion(question.format, question.slug)}
             className={clsx(
               'focus-within:ring-brand group relative flex gap-x-6 p-3 focus-within:ring-2 focus-within:ring-inset',
-              themeBackgroundEmphasizedHover,
+              themeBackgroundEmphasized_Hover,
             )}>
             <div className="flex grow items-center justify-between">
               <div className="flex items-center space-x-4">

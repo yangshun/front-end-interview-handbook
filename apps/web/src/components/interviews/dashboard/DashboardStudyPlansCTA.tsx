@@ -7,8 +7,8 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
-  themeBackgroundElementHoverStateColor,
-  themeTextBrandGroupHoverColor,
+  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeTextBrandColor_GroupHover,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -31,7 +31,7 @@ export default function DashboardStudyPlansCTA() {
           'rounded-lg',
           'transition-colors',
           themeBackgroundCardColor,
-          themeBackgroundElementHoverStateColor,
+          themeBackgroundElementEmphasizedStateColor_Hover,
         )}>
         <div className="flex items-center gap-3">
           <div
@@ -58,7 +58,7 @@ export default function DashboardStudyPlansCTA() {
         <RiArrowRightSLine
           className={clsx(
             'h-6 w-6 shrink-0 text-neutral-500 dark:text-neutral-400',
-            themeTextBrandGroupHoverColor,
+            themeTextBrandColor_GroupHover,
           )}
         />
       </div>

@@ -5,7 +5,7 @@ import Dialog from '~/components/ui/Dialog';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundChipColor,
-  themeBackgroundLayerEmphasizedHover,
+  themeBackgroundLayerEmphasized_Hover,
   themeBorderColor,
   themeDivideColor,
   themeTextSecondaryColor,
@@ -47,7 +47,7 @@ export default function CodingWorkspaceLayoutDialog({
               key={name}
               className={clsx(
                 'group/card flex gap-3 p-3 transition',
-                themeBackgroundLayerEmphasizedHover,
+                themeBackgroundLayerEmphasized_Hover,
               )}
               type="button"
               onClick={onClick}>

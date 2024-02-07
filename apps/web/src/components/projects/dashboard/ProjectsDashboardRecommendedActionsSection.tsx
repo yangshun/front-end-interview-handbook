@@ -18,10 +18,10 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardWhiteOnLightColor,
   themeBackgroundChipColor,
-  themeBackgroundEmphasizedHover,
+  themeBackgroundEmphasized_Hover,
   themeBorderColor,
   themeBorderElementColor,
-  themeTextBrandGroupHoverColor,
+  themeTextBrandColor_GroupHover,
   themeTextColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
@@ -149,7 +149,7 @@ export default function ProjectsDashboardRecommendedActionsSection({
                   'group relative flex flex-row gap-5',
                   'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
                   'transition-colors',
-                  themeBackgroundEmphasizedHover,
+                  themeBackgroundEmphasized_Hover,
                 )}>
                 <div>
                   <span
@@ -182,7 +182,7 @@ export default function ProjectsDashboardRecommendedActionsSection({
                     className={clsx(
                       'h-4 w-4 shrink-0',
                       themeTextSecondaryColor,
-                      themeTextBrandGroupHoverColor,
+                      themeTextBrandColor_GroupHover,
                     )}
                   />
                 </div>

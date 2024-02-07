@@ -3,8 +3,8 @@ import clsx from 'clsx';
 import Tooltip from '~/components/ui/Tooltip';
 
 import {
-  themeBackgroundElementHoverStateColor,
-  themeBackgroundElementPressedStateColor,
+  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeBackgroundElementPressedStateColor_Active,
 } from '../../theme';
 
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
@@ -35,8 +35,8 @@ export default function RichTextEditorToolbarActionNode({
         isActive && 'bg-neutral-100 dark:bg-neutral-800/70',
         'disabled:text-neutral-300 dark:disabled:text-neutral-700',
         'disabled:cursor-not-allowed',
-        themeBackgroundElementHoverStateColor,
-        themeBackgroundElementPressedStateColor,
+        themeBackgroundElementEmphasizedStateColor_Hover,
+        themeBackgroundElementPressedStateColor_Active,
       )}
       disabled={isDisabled || !editor.isEditable()}
       type="button"

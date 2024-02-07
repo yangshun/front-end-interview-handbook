@@ -4,7 +4,7 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 
 import {
   themeTextBrandColor,
-  themeTextBrandHoverColor,
+  themeTextBrandColor_Hover,
   themeTextColor,
   themeTextSecondaryColor,
   themeTextSecondaryInvertColor,
@@ -35,7 +35,11 @@ export default function NavbarItem({
   if (props.type === 'link') {
     return (
       <Anchor
-        className={clsx(commonStyles, themeTextColor, themeTextBrandHoverColor)}
+        className={clsx(
+          commonStyles,
+          themeTextColor,
+          themeTextBrandColor_Hover,
+        )}
         href={props.href}
         suppressHydrationWarning={true}
         variant="unstyled"
@@ -54,7 +58,7 @@ export default function NavbarItem({
               commonStyles,
               open
                 ? themeTextBrandColor
-                : clsx(themeTextColor, themeTextBrandHoverColor),
+                : clsx(themeTextColor, themeTextBrandColor_Hover),
             )}>
             <span>{label}</span>
             <RiArrowDownSLine

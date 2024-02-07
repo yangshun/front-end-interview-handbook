@@ -7,7 +7,7 @@ import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
   themeBorderElementColor,
-  themeTextBrandHoverColor,
+  themeTextBrandColor_Hover,
   themeTextColor,
 } from '~/components/ui/theme';
 
@@ -69,7 +69,7 @@ function ProjectsChallengeStepsTabItem({
         'group w-[160px] md:min-w-[256px] md:flex-grow shrink-0 border-t-2 pt-4',
         isSelected
           ? 'border-brand'
-          : [themeTextBrandHoverColor, themeTextColor, 'border-transparent'],
+          : [themeTextBrandColor_Hover, themeTextColor, 'border-transparent'],
       )}
       href={href}
       scrollToTop={false}

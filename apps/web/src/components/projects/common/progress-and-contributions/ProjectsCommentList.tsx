@@ -8,7 +8,7 @@ import plainText from '~/components/ui/RichTextEditor/plainText';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardWhiteOnLightColor,
-  themeBackgroundEmphasizedHover,
+  themeBackgroundEmphasized_Hover,
   themeBorderColor,
   themeDivideColor,
 } from '~/components/ui/theme';
@@ -43,7 +43,7 @@ export default function ProjectsCommentList({ comments, title }: Props) {
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
               themeBackgroundCardWhiteOnLightColor,
               'transition-colors',
-              themeBackgroundEmphasizedHover,
+              themeBackgroundEmphasized_Hover,
               index === 0 && 'rounded-t-lg',
               index === comments.length - 1 && 'rounded-b-lg',
             )}>

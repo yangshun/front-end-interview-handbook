@@ -6,7 +6,7 @@ import { RxPause, RxPlay, RxStopwatch } from 'react-icons/rx';
 import Button from '~/components/ui/Button';
 import {
   themeBackgroundColor,
-  themeBackgroundEmphasizedHover,
+  themeBackgroundEmphasized_Hover,
   themeBorderElementColor,
   themeTextColor,
 } from '~/components/ui/theme';
@@ -77,7 +77,7 @@ export default function CodingWorkspaceTimer() {
       <button
         className={clsx(
           'rounded-full p-1',
-          themeBackgroundEmphasizedHover,
+          themeBackgroundEmphasized_Hover,
           timePassedInSeconds === 0 && 'opacity-25',
         )}
         disabled={timePassedInSeconds === 0}

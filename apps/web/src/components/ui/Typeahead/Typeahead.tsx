@@ -17,8 +17,8 @@ import Select, { components } from 'react-select';
 import {
   themeBackgroundChipColor,
   themeBackgroundColor,
-  themeBackgroundElementActiveColor,
   themeBackgroundElementColor,
+  themeBackgroundElementEmphasizedStateColor,
   themeBorderElementColor,
   themeTextFaintColor,
   themeTextPlaceholderColor,
@@ -141,8 +141,8 @@ function Option<T>({ className, ...props }: OptionProps<T, true>) {
         className,
         'py-1 px-2',
         'rounded',
-        props.isSelected && themeBackgroundElementActiveColor,
-        props.isFocused && themeBackgroundElementActiveColor,
+        props.isSelected && themeBackgroundElementEmphasizedStateColor,
+        props.isFocused && themeBackgroundElementEmphasizedStateColor,
       )}
     />
   );

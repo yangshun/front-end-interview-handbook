@@ -14,7 +14,7 @@ import { I18nLink } from '~/next-i18nostic/src';
 
 import {
   themeTextBrandColor,
-  themeTextBrandHoverColor,
+  themeTextBrandColor_Hover,
   themeTextColor,
 } from '../theme';
 
@@ -74,14 +74,14 @@ function Anchor(
         variant === 'default' &&
           clsx(
             themeTextBrandColor,
-            themeTextBrandHoverColor,
+            themeTextBrandColor_Hover,
             'hover:underline',
           ),
         variant === 'flat' && 'hover:underline',
         variant === 'light' && 'text-brand-light hover:text-brand',
-        variant === 'blend' && clsx(themeTextColor, themeTextBrandHoverColor),
+        variant === 'blend' && clsx(themeTextColor, themeTextBrandColor_Hover),
         variant === 'muted' &&
-          clsx(themeTextSecondaryColor, themeTextBrandHoverColor),
+          clsx(themeTextSecondaryColor, themeTextBrandColor_Hover),
         underline && 'underline',
       ),
     classNameProp,

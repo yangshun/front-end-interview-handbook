@@ -3,10 +3,10 @@ import clsx from 'clsx';
 
 // Text colors.
 export const themeTextBrandColor = clsx('text-brand-dark dark:text-brand');
-export const themeTextBrandHoverColor = clsx(
+export const themeTextBrandColor_Hover = clsx(
   'hover:text-brand-dark dark:hover:text-brand',
 );
-export const themeTextBrandGroupHoverColor = clsx(
+export const themeTextBrandColor_GroupHover = clsx(
   'group-hover:text-brand-dark dark:group-hover:text-brand',
 );
 export const themeTextColor = clsx('text-neutral-900 dark:text-neutral-100');
@@ -54,13 +54,13 @@ export const themeBackgroundLayerColor = clsx('bg-white dark:bg-neutral-900');
 export const themeBackgroundEmphasized = clsx(
   'bg-neutral-50 dark:bg-neutral-900',
 );
-export const themeBackgroundEmphasizedHover = clsx(
+export const themeBackgroundEmphasized_Hover = clsx(
   'hover:bg-neutral-50 dark:hover:bg-neutral-900',
 );
 export const themeBackgroundLayerEmphasized = clsx(
   'bg-neutral-50 dark:bg-neutral-800',
 );
-export const themeBackgroundLayerEmphasizedHover = clsx(
+export const themeBackgroundLayerEmphasized_Hover = clsx(
   'hover:bg-neutral-50 dark:hover:bg-neutral-800',
 );
 export const themeBackgroundCardColor = clsx(
@@ -79,17 +79,17 @@ export const themeBackgroundGlimmerColor = clsx(
   'bg-neutral-600 dark:bg-neutral-400',
 );
 export const themeBackgroundElementColor = clsx('bg-white dark:bg-neutral-900');
-export const themeBackgroundElementHoverStateColor = clsx(
+export const themeBackgroundElementEmphasizedStateColor = clsx(
+  'bg-neutral-100 dark:bg-neutral-800/70',
+);
+export const themeBackgroundElementEmphasizedStateColor_Hover = clsx(
   'hover:bg-neutral-100 dark:hover:bg-neutral-800/70',
 );
-export const themeBackgroundElementEmphasizedState_Focus = clsx(
-  'focus:bg-neutral-100 focus:bg-neutral-800/70',
+export const themeBackgroundElementEmphasizedStateColor_Focus = clsx(
+  'focus:bg-neutral-100 dark:focus:bg-neutral-800/70',
 );
-export const themeBackgroundElementPressedStateColor = clsx(
+export const themeBackgroundElementPressedStateColor_Active = clsx(
   'active:bg-neutral-200 dark:active:bg-neutral-700',
-);
-export const themeBackgroundElementActiveColor = clsx(
-  'bg-neutral-100 dark:bg-neutral-800/70',
 );
 
 // Line colors.

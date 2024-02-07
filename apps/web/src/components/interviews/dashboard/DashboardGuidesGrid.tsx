@@ -6,7 +6,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundEmphasized,
-  themeBackgroundLayerEmphasizedHover,
+  themeBackgroundLayerEmphasized_Hover,
   themeBorderColor,
 } from '~/components/ui/theme';
 
@@ -57,7 +57,7 @@ export default function QuestionsGuidesGrid({
               className={clsx(
                 'group relative flex items-center gap-4 border-b border-r p-3 md:flex-col md:items-start md:gap-2 md:p-6',
                 themeBorderColor,
-                themeBackgroundLayerEmphasizedHover,
+                themeBackgroundLayerEmphasized_Hover,
                 items.length < columns && index < columns - 1 && 'md:border-t',
               )}
               href={guide.href}

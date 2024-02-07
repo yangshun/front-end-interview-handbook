@@ -16,7 +16,7 @@ import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import {
   themeBackgroundColor,
-  themeBackgroundEmphasizedHover,
+  themeBackgroundEmphasized_Hover,
   themeBorderColor,
   themeDivideColor,
   themeTextSubtleColor,
@@ -202,7 +202,7 @@ export default function TilesPanelItem<TabType extends string>({
             <button
               className={clsx(
                 'flex h-full w-full items-center gap-2 px-3 text-left text-xs font-medium transition-colors',
-                themeBackgroundEmphasizedHover,
+                themeBackgroundEmphasized_Hover,
               )}
               type="button"
               onClick={() => {

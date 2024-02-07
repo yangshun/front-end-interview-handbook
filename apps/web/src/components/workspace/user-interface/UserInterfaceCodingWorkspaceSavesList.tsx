@@ -11,7 +11,7 @@ import Badge from '~/components/ui/Badge';
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundEmphasizedHover,
+  themeBackgroundEmphasized_Hover,
   themeBorderColor,
   themeDivideColor,
 } from '~/components/ui/theme';
@@ -81,7 +81,7 @@ function UserInterfaceCodingWorkspaceSavesListImpl({ metadata }: Props) {
                       // Use a CSS transform hack to work around it.
                       // https://github.com/greatfrontend/greatfrontend/issues/92
                       'relative scale-100',
-                      themeBackgroundEmphasizedHover,
+                      themeBackgroundEmphasized_Hover,
                     )}>
                     <td className="w-5 py-2 pl-3">
                       <QuestionFrameworkIcon

@@ -22,11 +22,11 @@ import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundElementActiveColor,
-  themeBackgroundElementHoverStateColor,
+  themeBackgroundElementEmphasizedStateColor,
+  themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundLayerColor,
   themeTextBrandColor,
-  themeTextBrandHoverColor,
+  themeTextBrandColor_Hover,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
@@ -230,11 +230,11 @@ export default function Sidebar({
 
           const activeClassName = clsx(
             themeTextBrandColor,
-            themeBackgroundElementActiveColor,
+            themeBackgroundElementEmphasizedStateColor,
           );
           const defaultClassName = clsx(
             themeTextSecondaryColor,
-            themeTextBrandHoverColor,
+            themeTextBrandColor_Hover,
           );
 
           if (item.type === 'link') {
@@ -320,7 +320,7 @@ export default function Sidebar({
                               key={popoverItem.key}
                               className={clsx(
                                 'group gap-x-2 rounded px-2 py-3',
-                                themeBackgroundElementHoverStateColor,
+                                themeBackgroundElementEmphasizedStateColor_Hover,
                               )}
                               href={popoverItem.href}
                               variant="unstyled"

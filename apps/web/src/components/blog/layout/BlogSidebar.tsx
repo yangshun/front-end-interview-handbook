@@ -12,10 +12,10 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundElementActiveColor,
+  themeBackgroundElementEmphasizedStateColor,
   themeBorderColor,
   themeTextBrandColor,
-  themeTextBrandHoverColor,
+  themeTextBrandColor_Hover,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -225,11 +225,11 @@ export default function BlogSidebar() {
 
           const activeClassName = clsx(
             themeTextBrandColor,
-            themeBackgroundElementActiveColor,
+            themeBackgroundElementEmphasizedStateColor,
           );
           const defaultClassName = clsx(
             themeTextSecondaryColor,
-            themeTextBrandHoverColor,
+            themeTextBrandColor_Hover,
           );
 
           const current =

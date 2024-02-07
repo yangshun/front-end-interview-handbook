@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import {
   themeBackgroundColor,
-  themeBackgroundEmphasizedHover,
+  themeBackgroundEmphasized_Hover,
   themeBorderColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
@@ -40,7 +40,7 @@ export default function SidebarCollapser() {
         themeTextSecondaryColor,
         themeBorderColor,
         themeBackgroundColor,
-        themeBackgroundEmphasizedHover,
+        themeBackgroundEmphasized_Hover,
       )}
       title={title}
       type="button"

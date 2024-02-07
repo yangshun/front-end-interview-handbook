@@ -12,7 +12,7 @@ import {
 
 import {
   themeTextBrandColor,
-  themeTextBrandHoverColor,
+  themeTextBrandColor_Hover,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
@@ -62,7 +62,7 @@ function ExplorerItem({
         'shrink-0',
         isActive
           ? [themeTextBrandColor, 'bg-brand-lightest dark:bg-neutral-900']
-          : [themeTextSubtleColor, themeTextBrandHoverColor],
+          : [themeTextSubtleColor, themeTextBrandColor_Hover],
         className,
       )}
       style={{ paddingLeft: 8 + indent * 12 }}

@@ -16,7 +16,7 @@ import {
   themeBorderColor,
   themeDivideColor,
   themeTextBrandColor,
-  themeTextBrandHoverColor,
+  themeTextBrandColor_Hover,
 } from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
@@ -68,7 +68,7 @@ export default function QuestionsQuizContentLayout({
                           className={clsx(
                             'relative flex items-center py-5',
                             pathname === href && themeTextBrandColor,
-                            themeTextBrandHoverColor,
+                            themeTextBrandColor_Hover,
                           )}>
                           <div className="flex justify-between space-x-3">
                             <div className="min-w-0 flex-1">

@@ -16,12 +16,12 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardWhiteOnLightColor,
-  themeBackgroundEmphasizedHover,
+  themeBackgroundEmphasized_Hover,
   themeBorderColor,
   themeDivideColor,
   themeGradientPinkPurple,
   themeIconColor,
-  themeTextBrandGroupHoverColor,
+  themeTextBrandColor_GroupHover,
   themeTextFaintColor,
 } from '~/components/ui/theme';
 
@@ -62,7 +62,7 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
               themeBackgroundCardWhiteOnLightColor,
               'transition-colors',
-              themeBackgroundEmphasizedHover,
+              themeBackgroundEmphasized_Hover,
               index === 0 && 'rounded-t-lg',
               index === tracks.length - 1 && 'rounded-b-lg',
             )}>
@@ -147,7 +147,7 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
                   className={clsx(
                     'h-6 w-6 shrink-0',
                     themeTextFaintColor,
-                    themeTextBrandGroupHoverColor,
+                    themeTextBrandColor_GroupHover,
                   )}
                 />
               </div>

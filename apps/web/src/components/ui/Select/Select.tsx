@@ -4,8 +4,8 @@ import { forwardRef, useId } from 'react';
 
 import {
   themeBackgroundElementColor,
-  themeBackgroundElementHoverStateColor,
-  themeBackgroundElementPressedStateColor,
+  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeBackgroundElementPressedStateColor_Active,
   themeBorderElementColor,
 } from '~/components/ui/theme';
 
@@ -97,8 +97,8 @@ function Select<T>(
           ],
           'text-neutral-700 dark:text-neutral-300',
           themeBackgroundElementColor,
-          themeBackgroundElementHoverStateColor,
-          themeBackgroundElementPressedStateColor,
+          themeBackgroundElementEmphasizedStateColor_Hover,
+          themeBackgroundElementPressedStateColor_Active,
           [
             'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
             'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:ring-0',

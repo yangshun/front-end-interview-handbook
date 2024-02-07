@@ -11,7 +11,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundLayerColor,
-  themeBackgroundLayerEmphasizedHover,
+  themeBackgroundLayerEmphasized_Hover,
   themeBorderColor,
   themeIconColor,
 } from '~/components/ui/theme';
@@ -51,7 +51,7 @@ function JobPostingItem({
       className={clsx(
         'group relative flex items-center rounded-lg p-6 transition-colors md:p-8',
         ['border', themeBorderColor],
-        [themeBackgroundLayerColor, themeBackgroundLayerEmphasizedHover],
+        [themeBackgroundLayerColor, themeBackgroundLayerEmphasized_Hover],
       )}>
       <div className="flex grow flex-col gap-y-4">
         <Text

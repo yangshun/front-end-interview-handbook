@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Anchor from '~/components/ui/Anchor';
 import {
   themeBackgroundColor,
-  themeBackgroundElementActiveColor,
+  themeBackgroundElementEmphasizedStateColor,
   themeBackgroundLayerColor,
   themeGlassyBorder,
   themeTextColor,
@@ -115,7 +115,7 @@ export default function NavbarPopoverTabs({
               className={({ selected }) =>
                 clsx(
                   'block w-full rounded-md p-3 text-left text-sm font-medium',
-                  selected && themeBackgroundElementActiveColor,
+                  selected && themeBackgroundElementEmphasizedStateColor,
                 )
               }>
               {({ selected }) => (

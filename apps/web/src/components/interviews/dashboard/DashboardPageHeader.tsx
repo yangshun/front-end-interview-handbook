@@ -9,11 +9,11 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
   themeBackgroundChipColor,
-  themeBackgroundElementHoverStateColor,
+  themeBackgroundElementEmphasizedStateColor_Hover,
   themeGradientBlueGreen,
   themeGradientGreenYellow,
   themeTextBrandColor,
-  themeTextBrandGroupHoverColor,
+  themeTextBrandColor_GroupHover,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -85,7 +85,7 @@ export default function DashboardPageHeader() {
             'rounded-lg',
             'transition-colors',
             themeBackgroundCardColor,
-            themeBackgroundElementHoverStateColor,
+            themeBackgroundElementEmphasizedStateColor_Hover,
           )}>
           <div className="flex items-center gap-3">
             <div
@@ -130,7 +130,7 @@ export default function DashboardPageHeader() {
           <RiArrowRightSLine
             className={clsx(
               'h-6 w-6 shrink-0 text-neutral-500 dark:text-neutral-400',
-              themeTextBrandGroupHoverColor,
+              themeTextBrandColor_GroupHover,
             )}
           />
         </div>
@@ -141,7 +141,7 @@ export default function DashboardPageHeader() {
             'border border-neutral-200 dark:border-transparent',
             'overflow-hidden rounded-lg',
             themeBackgroundCardColor,
-            themeBackgroundElementHoverStateColor,
+            themeBackgroundElementEmphasizedStateColor_Hover,
           )}>
           <div
             className={clsx(
@@ -171,7 +171,7 @@ export default function DashboardPageHeader() {
             <RiArrowRightSLine
               className={clsx(
                 'h-5 w-5 shrink-0 text-neutral-500 dark:text-neutral-400',
-                themeTextBrandGroupHoverColor,
+                themeTextBrandColor_GroupHover,
               )}
             />
           </div>

@@ -13,12 +13,12 @@ import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardWhiteOnLightColor,
-  themeBackgroundEmphasizedHover,
+  themeBackgroundEmphasized_Hover,
   themeBorderColor,
   themeBorderElementColor,
   themeDivideColor,
   themeTextBrandColor,
-  themeTextBrandGroupHoverColor,
+  themeTextBrandColor_GroupHover,
   themeTextFaintColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
@@ -150,7 +150,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
               'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
               themeBackgroundCardWhiteOnLightColor,
               'transition-colors',
-              themeBackgroundEmphasizedHover,
+              themeBackgroundEmphasized_Hover,
               index === 0 && 'rounded-t-lg',
               index === questions.length - 1 && 'rounded-b-lg',
             )}>
@@ -385,7 +385,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                 className={clsx(
                   'h-6 w-6 shrink-0',
                   themeTextFaintColor,
-                  themeTextBrandGroupHoverColor,
+                  themeTextBrandColor_GroupHover,
                 )}
               />
             </div>

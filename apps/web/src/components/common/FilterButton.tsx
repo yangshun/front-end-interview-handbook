@@ -4,8 +4,8 @@ import type { Props as ButtonProps } from '~/components/ui/Button';
 import Button from '~/components/ui/Button';
 import {
   themeBackgroundElementColor,
-  themeBackgroundElementHoverStateColor,
-  themeBackgroundElementPressedStateColor,
+  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeBackgroundElementPressedStateColor_Active,
   themeBorderElementColor,
   themeTextBrandColor,
   themeTextSubtleColor,
@@ -24,8 +24,8 @@ const purposeClasses: Record<FilterButtonPurpose, string> = {
     themeBorderElementColor,
     'text-neutral-600 dark:text-neutral-200',
     themeBackgroundElementColor,
-    themeBackgroundElementHoverStateColor,
-    themeBackgroundElementPressedStateColor,
+    themeBackgroundElementEmphasizedStateColor_Hover,
+    themeBackgroundElementPressedStateColor_Active,
     'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
   ),
   tab: clsx(

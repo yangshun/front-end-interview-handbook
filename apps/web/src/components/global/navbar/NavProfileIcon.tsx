@@ -9,8 +9,8 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
   themeBackgroundElementColor,
-  themeBackgroundElementHoverStateColor,
-  themeBackgroundElementPressedStateColor,
+  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeBackgroundElementPressedStateColor_Active,
   themeBorderElementColor,
   themeDivideColor,
   themeTextColor,
@@ -64,8 +64,8 @@ export default function NavProfileIcon({
             'transition-colors',
             ['border', themeBorderElementColor],
             themeBackgroundElementColor,
-            themeBackgroundElementHoverStateColor,
-            themeBackgroundElementPressedStateColor,
+            themeBackgroundElementEmphasizedStateColor_Hover,
+            themeBackgroundElementPressedStateColor_Active,
             [
               'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
               'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',

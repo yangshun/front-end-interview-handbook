@@ -13,7 +13,7 @@ import {
   themeBackgroundColor,
   themeBackgroundEmphasized,
   themeBackgroundLayerEmphasized,
-  themeBackgroundLayerEmphasizedHover,
+  themeBackgroundLayerEmphasized_Hover,
   themeGlassyBorder,
   themeTextSecondaryColor,
 } from '../ui/theme';
@@ -67,7 +67,7 @@ export default function GuidesDropdownMenu({
             'px-3 py-1.5',
             themeGlassyBorder,
             themeBackgroundEmphasized,
-            themeBackgroundLayerEmphasizedHover,
+            themeBackgroundLayerEmphasized_Hover,
           )}>
           <div className="flex items-center gap-2">
             <div

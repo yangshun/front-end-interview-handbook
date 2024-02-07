@@ -8,11 +8,10 @@ import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundElementColor,
-  themeBackgroundElementEmphasizedState_Focus,
-  themeBackgroundElementHoverStateColor,
-  themeBackgroundElementPressedStateColor,
+  themeBackgroundElementEmphasizedStateColor_Focus,
+  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeBackgroundElementPressedStateColor_Active,
   themeBorderElementColor,
-  themeIconColor,
 } from '~/components/ui/theme';
 
 import InterviewsLogo from '../../../global/logos/InterviewsLogo';
@@ -37,8 +36,8 @@ function ProjectsSidebarProductMenuItem({
       asChild={true}
       className={clsx(
         'relative flex flex-col p-4 gap-3 rounded select-none outline-none',
-        themeBackgroundElementHoverStateColor,
-        themeBackgroundElementEmphasizedState_Focus,
+        themeBackgroundElementEmphasizedStateColor_Hover,
+        themeBackgroundElementEmphasizedStateColor_Focus,
       )}>
       <Anchor aria-label={label} href={href} variant="unstyled">
         <div className="flex justify-between">
@@ -73,8 +72,8 @@ export default function ProjectsSidebarProductMenu() {
               'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
               'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
             ],
-            themeBackgroundElementHoverStateColor,
-            themeBackgroundElementPressedStateColor,
+            themeBackgroundElementEmphasizedStateColor_Hover,
+            themeBackgroundElementPressedStateColor_Active,
           )}
           type="button">
           <ProjectsLogo height={32} />

@@ -16,7 +16,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundEmphasizedHover,
+  themeBackgroundEmphasized_Hover,
   themeBorderColor,
   themeDivideColor,
 } from '~/components/ui/theme';
@@ -139,7 +139,7 @@ export default function ProfileActivity() {
               key={createdAt.toDateString()}
               className={clsx(
                 'relative px-4 py-3',
-                themeBackgroundEmphasizedHover,
+                themeBackgroundEmphasized_Hover,
               )}>
               <div className="flex items-center justify-between gap-x-4">
                 <div className="flex w-3/4 flex-col gap-y-1 sm:flex-row sm:items-center sm:gap-x-3">

@@ -5,7 +5,7 @@ import useProjectsMotivationReasonOptions from '~/components/projects/hooks/useP
 import ProjectsProfileInfoSectionLayout from '~/components/projects/profile/info/ProjectsProfileInfoSectionLayout';
 import type { ProjectsMotivationReasonValue } from '~/components/projects/types';
 import Text from '~/components/ui/Text';
-import { themeBackgroundElementActiveColor } from '~/components/ui/theme';
+import { themeBackgroundElementEmphasizedStateColor } from '~/components/ui/theme';
 
 export default function ProjectsProfileMotivation({
   primaryMotivation,
@@ -33,7 +33,7 @@ export default function ProjectsProfileMotivation({
           <div
             key={motivation}
             className={clsx(
-              themeBackgroundElementActiveColor,
+              themeBackgroundElementEmphasizedStateColor,
               'rounded-full px-3 py-0.5 inline-flex justify-center gap-1',
             )}>
             <Text color="active" size="body3">

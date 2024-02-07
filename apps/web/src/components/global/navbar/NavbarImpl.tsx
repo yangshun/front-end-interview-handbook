@@ -33,7 +33,7 @@ import type {
 } from '~/components/ui/Navbar/NavTypes';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundLayerEmphasizedHover,
+  themeBackgroundLayerEmphasized_Hover,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -714,7 +714,7 @@ export default function NavbarImpl() {
                 className={clsx(
                   'group flex items-center rounded px-2 py-2 text-xs font-medium',
                   themeTextSecondaryColor,
-                  themeBackgroundLayerEmphasizedHover,
+                  themeBackgroundLayerEmphasized_Hover,
                 )}
                 href={props.href}
                 variant="unstyled"
