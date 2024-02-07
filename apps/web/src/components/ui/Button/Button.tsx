@@ -134,6 +134,7 @@ const variantClasses: Record<ButtonVariant, string> = {
     'bg-brand-lightest dark:bg-brand/20',
     'dark:hover:bg-brand/30 hover:bg-brand-lighter/70',
     'drop-shadow-none',
+    'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
   ),
   success: clsx(
     'border-transparent',
