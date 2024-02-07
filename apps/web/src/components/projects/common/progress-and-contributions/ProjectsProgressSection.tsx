@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
 import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
 import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
@@ -36,6 +38,8 @@ export default function ProjectsProgressSection({
   const [currentProgressTab, setCurrentProgressTab] =
     useState<ProjectsMainLayoutTabCategory>('challenges');
 
+  const { data: profile } = trpc.profile.getProfile.useQuery();
+
   return (
     <div className="flex flex-col gap-8">
       <Tabs
@@ -52,13 +56,13 @@ export default function ProjectsProgressSection({
         onSelect={setCurrentProgressTab}
       />
       {currentProgressTab === 'challenges' && (
-        <ProjectsAllChallengesTab userId={userId} />
+        <ProjectsAllChallengesTab userId={userId ?? profile?.id} />
       )}
       {currentProgressTab === 'tracks' && (
         <ProjectsTrackSection
           defaultOpen={true}
           projectTracks={projectTracks}
-          userId={userId ?? null}
+          userId={userId ?? profile?.id ?? null}
         />
       )}
       {

@@ -10,7 +10,7 @@ import {
 import prisma from '~/server/prisma';
 
 import { projectsUserProcedure } from './procedures';
-import { userProcedure } from '../../trpc';
+import { publicProcedure } from '../../trpc';
 import { router } from '../../trpc';
 
 const projectsSessionProcedure = projectsUserProcedure.input(
@@ -46,7 +46,7 @@ export const projectsSessionsRouter = router({
       });
     },
   ),
-  list: userProcedure
+  list: publicProcedure
     .input(
       z.object({
         statuses: z
@@ -59,7 +59,7 @@ export const projectsSessionsRouter = router({
       const sessions = await prisma.projectsChallengeSession.findMany({
         where: {
           projectsProfile: {
-            userId: userId ?? user.id,
+            userId: userId ?? user?.id,
           },
           status: {
             in: statuses,

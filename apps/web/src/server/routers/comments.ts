@@ -156,7 +156,7 @@ export const commentsRouter = router({
         count,
       };
     }),
-  listUserComments: userProcedure
+  listUserComments: publicProcedure
     .input(
       z.object({
         domainList: z.array(z.enum(domains)),
@@ -192,7 +192,7 @@ export const commentsRouter = router({
           domain: {
             in: domainList,
           },
-          userId: userId ?? user.id,
+          userId: userId ?? user?.id,
         },
       });
 
