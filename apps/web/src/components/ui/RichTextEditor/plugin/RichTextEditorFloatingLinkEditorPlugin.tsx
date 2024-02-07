@@ -29,45 +29,48 @@ import { themeBackgroundLayerEmphasized } from '~/components/ui/theme';
 
 import { getSelectedNode } from '../utils/getSelectedNode';
 import { setFloatingElemPositionForLinkEditor } from '../utils/setFloatingElemPositionForLinkEditor';
-import { sanitizeUrl } from '../utils/url';
+import { sanitizeUrl, validateUrl } from '../utils/url';
 
 import {
-  $createLinkNode,
   $isAutoLinkNode,
   $isLinkNode,
   TOGGLE_LINK_COMMAND,
+  toggleLink,
 } from '@lexical/link';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import { $findMatchingParent, mergeRegister } from '@lexical/utils';
 
 function FloatingLinkEditor({
   editor,
-  isLink,
-  setIsLink,
+  isOpenLinkEditor,
+  setIsOpenLinkEditor,
   anchorElem,
   isLinkEditMode,
   setIsLinkEditMode,
 }: {
   anchorElem: HTMLElement;
   editor: LexicalEditor;
-  isLink: boolean;
   isLinkEditMode: boolean;
-  setIsLink: Dispatch<boolean>;
+  isOpenLinkEditor: boolean;
   setIsLinkEditMode: Dispatch<boolean>;
+  setIsOpenLinkEditor: Dispatch<boolean>;
 }): JSX.Element {
   const editorRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [linkUrl, setLinkUrl] = useState('');
-  const [editedLinkUrl, setEditedLinkUrl] = useState('https://');
+  const [editedLinkUrl, setEditedLinkUrl] = useState('');
   const [lastSelection, setLastSelection] = useState<BaseSelection | null>(
     null,
   );
 
-  useOnClickOutside(editorRef, () => {
+  const handleCloseLinkEditor = useCallback(() => {
+    setEditedLinkUrl('');
     setIsLinkEditMode(false);
-    setIsLink(false);
-  });
+    setIsOpenLinkEditor(false);
+  }, [setIsLinkEditMode, setIsOpenLinkEditor]);
+
+  useOnClickOutside(editorRef, handleCloseLinkEditor);
 
   const updateLinkEditor = useCallback(() => {
     const selection = $getSelection();
@@ -169,8 +172,8 @@ function FloatingLinkEditor({
       editor.registerCommand(
         KEY_ESCAPE_COMMAND,
         () => {
-          if (isLink) {
-            setIsLink(false);
+          if (isOpenLinkEditor) {
+            handleCloseLinkEditor();
 
             return true;
           }
@@ -180,7 +183,7 @@ function FloatingLinkEditor({
         COMMAND_PRIORITY_HIGH,
       ),
     );
-  }, [editor, updateLinkEditor, setIsLink, isLink]);
+  }, [editor, updateLinkEditor, isOpenLinkEditor, handleCloseLinkEditor]);
 
   useEffect(() => {
     editor.getEditorState().read(() => {
@@ -192,7 +195,7 @@ function FloatingLinkEditor({
     if (isLinkEditMode && inputRef.current) {
       inputRef.current.focus();
     }
-  }, [isLinkEditMode, isLink]);
+  }, [isLinkEditMode, isOpenLinkEditor]);
 
   const monitorInputInteraction = (
     event: React.KeyboardEvent<HTMLInputElement>,
@@ -208,34 +211,30 @@ function FloatingLinkEditor({
 
   const handleLinkSubmission = () => {
     if (lastSelection !== null) {
-      if (linkUrl !== '') {
-        editor.dispatchCommand(TOGGLE_LINK_COMMAND, sanitizeUrl(editedLinkUrl));
-        editor.update(() => {
-          const selection = $getSelection();
+      editor.update(() => {
+        const selection = $getSelection();
 
-          if ($isRangeSelection(selection)) {
-            const parent = getSelectedNode(selection).getParent();
+        if ($isRangeSelection(selection)) {
+          const node = getSelectedNode(selection);
+          const parent = node.getParent();
 
-            if ($isAutoLinkNode(parent)) {
-              const linkNode = $createLinkNode(parent.getURL(), {
-                rel: parent.__rel,
-                target: parent.__target,
-                title: parent.__title,
-              });
-
-              parent.replace(linkNode, true);
-            }
+          if (($isLinkNode(parent) || $isLinkNode(node)) && !editedLinkUrl) {
+            editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
+          } else if (validateUrl(editedLinkUrl)) {
+            toggleLink(sanitizeUrl(editedLinkUrl));
+          } else if (editedLinkUrl) {
+            toggleLink(`https://${editedLinkUrl}`);
           }
-        });
-      }
-      setEditedLinkUrl('https://');
+        }
+      });
+      setEditedLinkUrl('');
       setIsLinkEditMode(false);
     }
   };
 
   return (
     <div ref={editorRef} className="absolute top-0 left-0">
-      {!isLink ? null : (
+      {!isOpenLinkEditor ? null : (
         <div
           className={clsx(
             'z-10 p-2 rounded flex max-w-[400px] min-w-[250px] w-full h-[52px] gap-4 items-center justify-between',
@@ -314,9 +313,10 @@ function useFloatingLinkEditorToolbar(
   anchorElem: HTMLElement,
   isLinkEditMode: boolean,
   setIsLinkEditMode: Dispatch<boolean>,
+  isOpenLinkEditor: boolean,
+  setIsOpenLinkEditor: Dispatch<boolean>,
 ): JSX.Element | null {
   const [activeEditor, setActiveEditor] = useState(editor);
-  const [isLink, setIsLink] = useState(false);
 
   useEffect(() => {
     function updateToolbar() {
@@ -331,7 +331,7 @@ function useFloatingLinkEditorToolbar(
         );
 
         if (!(focusLinkNode || focusAutoLinkNode)) {
-          setIsLink(false);
+          setIsOpenLinkEditor(false);
 
           return;
         }
@@ -352,9 +352,9 @@ function useFloatingLinkEditorToolbar(
         });
 
         if (!badNode) {
-          setIsLink(true);
+          setIsOpenLinkEditor(true);
         } else {
-          setIsLink(false);
+          setIsOpenLinkEditor(false);
         }
       }
     }
@@ -396,16 +396,16 @@ function useFloatingLinkEditorToolbar(
         COMMAND_PRIORITY_LOW,
       ),
     );
-  }, [editor]);
+  }, [editor, setIsOpenLinkEditor]);
 
   return createPortal(
     <FloatingLinkEditor
       anchorElem={anchorElem}
       editor={activeEditor}
-      isLink={isLink}
       isLinkEditMode={isLinkEditMode}
-      setIsLink={setIsLink}
+      isOpenLinkEditor={isOpenLinkEditor}
       setIsLinkEditMode={setIsLinkEditMode}
+      setIsOpenLinkEditor={setIsOpenLinkEditor}
     />,
     anchorElem,
   );
@@ -415,10 +415,14 @@ export default function RichTextEditorFloatingLinkEditorPlugin({
   anchorElem = document.body,
   isLinkEditMode,
   setIsLinkEditMode,
+  isOpenLinkEditor,
+  setIsOpenLinkEditor,
 }: {
   anchorElem?: HTMLElement;
   isLinkEditMode: boolean;
+  isOpenLinkEditor: boolean;
   setIsLinkEditMode: Dispatch<boolean>;
+  setIsOpenLinkEditor: Dispatch<boolean>;
 }): JSX.Element | null {
   const [editor] = useLexicalComposerContext();
 
@@ -427,5 +431,7 @@ export default function RichTextEditorFloatingLinkEditorPlugin({
     anchorElem,
     isLinkEditMode,
     setIsLinkEditMode,
+    isOpenLinkEditor,
+    setIsOpenLinkEditor,
   );
 }

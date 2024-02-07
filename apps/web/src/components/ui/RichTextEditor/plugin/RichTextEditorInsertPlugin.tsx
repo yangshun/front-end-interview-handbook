@@ -14,7 +14,6 @@ import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import RichTextEditorFloatingLinkEditorPlugin from './RichTextEditorFloatingLinkEditorPlugin';
 import { getSelectedNode } from '../utils/getSelectedNode';
-import { sanitizeUrl } from '../utils/url';
 
 import { $isLinkNode, TOGGLE_LINK_COMMAND } from '@lexical/link';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
@@ -34,6 +33,7 @@ export default function RichTextEditorInsertPlugin({
   const [editor] = useLexicalComposerContext();
 
   const [isLink, setIsLink] = useState(false);
+  const [isOpenLinkEditor, setIsOpenLinkEditor] = useState(false);
   const [isLinkEditMode, setIsLinkEditMode] = useState(false);
   const insertOptions: Array<{
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
@@ -116,17 +116,10 @@ export default function RichTextEditorInsertPlugin({
         if (code === 'KeyK' && (ctrlKey || metaKey)) {
           event.preventDefault();
 
-          let url: string | null = null;
+          setIsLinkEditMode(true);
+          setIsOpenLinkEditor(true);
 
-          if (!isLink) {
-            setIsLinkEditMode(true);
-            url = sanitizeUrl('https://');
-          } else {
-            setIsLinkEditMode(false);
-            url = null;
-          }
-
-          return editor.dispatchCommand(TOGGLE_LINK_COMMAND, url);
+          return true;
         }
 
         return false;
@@ -138,8 +131,8 @@ export default function RichTextEditorInsertPlugin({
   const onInsertAction = (value: RichTextEditorInsertType) => {
     if (value === 'link') {
       if (!isLink) {
+        setIsOpenLinkEditor(!isOpenLinkEditor);
         setIsLinkEditMode(true);
-        editor.dispatchCommand(TOGGLE_LINK_COMMAND, sanitizeUrl('https://'));
       } else {
         setIsLinkEditMode(false);
         editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
@@ -181,7 +174,9 @@ export default function RichTextEditorInsertPlugin({
         <RichTextEditorFloatingLinkEditorPlugin
           anchorElem={floatingAnchorElem}
           isLinkEditMode={isLinkEditMode}
+          isOpenLinkEditor={isOpenLinkEditor}
           setIsLinkEditMode={setIsLinkEditMode}
+          setIsOpenLinkEditor={setIsOpenLinkEditor}
         />
       )}
     </>
