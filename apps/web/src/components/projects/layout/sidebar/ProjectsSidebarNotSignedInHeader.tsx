@@ -7,8 +7,6 @@ import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
-import ProjectsSidebarHeaderLogoBar from './ProjectsSidebarHeaderLogoBar';
-
 type Props = Readonly<{
   className?: string;
 }>;
@@ -17,8 +15,7 @@ export function ProjectsSidebarNotSignedInHeader({ className }: Props) {
   const intl = useIntl();
 
   return (
-    <header className={clsx('flex flex-col gap-6 p-4', className)}>
-      <ProjectsSidebarHeaderLogoBar />
+    <header className={clsx('flex flex-col gap-6', className)}>
       <div className="flex flex-col items-stretch gap-4">
         <div className="flex gap-4">
           <Avatar alt="N/A" size="lg" src="" />

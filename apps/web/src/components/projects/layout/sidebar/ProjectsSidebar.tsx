@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 import {
+  RiCodeSSlashLine,
   RiContractLeftLine,
   RiDiscordLine,
   RiHome3Line,
@@ -9,15 +10,19 @@ import {
   RiMoreLine,
   RiNotification3Line,
   RiPriceTag3Line,
+  RiRocketLine,
   RiSettings4Line,
   RiShiningLine,
+  RiUserLine,
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import useProfile from '~/hooks/user/useProfile';
 
+import LogoLink from '~/components/global/Logo';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import Popover from '~/components/ui/Popover';
 import Text from '~/components/ui/Text';
 import {
@@ -32,12 +37,11 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { ProjectsSidebarFreePlanCTACard } from './ProjectsSidebarFreePlanCTACard';
 import { ProjectsSidebarNotSignedInHeader } from './ProjectsSidebarNotSignedInHeader';
+import ProjectsSidebarProductMenu from './ProjectsSidebarProductMenu';
 import { ProjectsSidebarProfileHeader } from './ProjectsSidebarProfileHeader';
 import { ProjectsSidebarStartProjectCTACard } from './ProjectsSidebarStartProjectCTACard';
-import useProjectsMainLayoutTabs from '../../common/useProjectsMainLayoutTabs';
-import useProjectsChallengeSubmissionListTabs from '../../submissions/useProjectsChallengeSubmissionListTabs';
 
-type SidebarItem = SidebarDivider | SidebarGroup | SidebarLink;
+type SidebarItem = SidebarLink;
 
 export type SidebarLink = Readonly<{
   href: string;
@@ -45,97 +49,81 @@ export type SidebarLink = Readonly<{
   key: string;
   label: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
-  type: 'link';
 }>;
 
-export type SidebarGroup = Readonly<{
-  items: ReadonlyArray<SidebarItem>;
-  key: string;
-  label?: string;
-  type: 'group';
-}>;
-
-export type SidebarDivider = Readonly<{
-  key: string;
-  type: 'divider';
-}>;
-
-function useSidebarItems() {
+function useSidebarItems(): Readonly<{
+  bottom: ReadonlyArray<SidebarItem>;
+  top: ReadonlyArray<SidebarItem>;
+}> {
   const intl = useIntl();
-  const mainLayoutTabs = useProjectsMainLayoutTabs();
-  const submissionTabs = useProjectsChallengeSubmissionListTabs();
 
-  return [
-    {
-      items: [
-        {
-          href: '/projects/dashboard',
-          icon: RiHome3Line,
-          key: 'dashboard',
-          label: intl.formatMessage({
-            defaultMessage: 'Dashboard',
-            description: 'Label for Dashboard sidebar item in Projects sidebar',
-            id: '50s+NV',
-          }),
-          type: 'link',
-        },
-      ],
-      key: 'main',
-      type: 'group',
-    },
-    {
-      items: mainLayoutTabs,
-      key: 'projects',
-      label: intl.formatMessage({
-        defaultMessage: 'Projects',
-        description: 'Label for Projects sidebar group in Projects sidebar',
-        id: '3efYzQ',
-      }),
-      type: 'group',
-    },
-    {
-      items: submissionTabs,
-      key: 'submissions',
-      label: intl.formatMessage({
-        defaultMessage: 'Submissions',
-        description: 'Label for Submissions sidebar group in Projects sidebar',
-        id: 'cj9Pen',
-      }),
-      type: 'group',
-    },
-    {
-      key: 'divider-1',
-      type: 'divider',
-    },
-    {
-      items: [
-        {
-          href: '/projects/features',
-          icon: RiShiningLine,
-          key: 'features',
-          label: intl.formatMessage({
-            defaultMessage: 'Features',
-            description: 'Label for Features sidebar item in Projects sidebar',
-            id: 'J6IHpl',
-          }),
-          type: 'link',
-        },
-        {
-          href: '/projects/pricing',
-          icon: RiPriceTag3Line,
-          key: 'pricing',
-          label: intl.formatMessage({
-            defaultMessage: 'Pricing',
-            description: 'Label for Pricing sidebar item in Projects sidebar',
-            id: 'VbvRHt',
-          }),
-          type: 'link',
-        },
-      ],
-      key: 'features-pricing',
-      type: 'group',
-    },
-  ] as const satisfies ReadonlyArray<SidebarDivider | SidebarGroup>;
+  return {
+    bottom: [
+      {
+        href: '/projects/features',
+        icon: RiShiningLine,
+        key: 'features',
+        label: intl.formatMessage({
+          defaultMessage: 'Features',
+          description: 'Label for Features sidebar item in Projects sidebar',
+          id: 'J6IHpl',
+        }),
+      },
+      {
+        href: '/projects/pricing',
+        icon: RiPriceTag3Line,
+        key: 'pricing',
+        label: intl.formatMessage({
+          defaultMessage: 'Pricing',
+          description: 'Label for Pricing sidebar item in Projects sidebar',
+          id: 'VbvRHt',
+        }),
+      },
+      {
+        href: '/projects/profile',
+        icon: RiUserLine,
+        key: 'profile',
+        label: intl.formatMessage({
+          defaultMessage: 'Profile',
+          description: 'Label within projects sidebar',
+          id: '+woKoe',
+        }),
+      },
+    ],
+    top: [
+      {
+        href: '/projects/dashboard',
+        icon: RiHome3Line,
+        key: 'dashboard',
+        label: intl.formatMessage({
+          defaultMessage: 'Dashboard',
+          description: 'Label for Dashboard sidebar item in Projects sidebar',
+          id: '50s+NV',
+        }),
+      },
+      {
+        href: '/projects/challenges',
+        icon: RiRocketLine,
+        key: 'challenges',
+        label: intl.formatMessage({
+          defaultMessage: 'Project challenges',
+          description: 'Projects sidebar label',
+          id: 'lGeTSB',
+        }),
+      },
+      {
+        href: '/projects/submissions',
+        icon: RiCodeSSlashLine,
+        key: 'all-submissions',
+        label: intl.formatMessage({
+          defaultMessage: 'User submissions',
+          description:
+            'Label for All submissions sidebar item in Projects sidebar',
+          id: 'HqUmNE',
+        }),
+      },
+    ],
+  };
 }
 
 function SidebarLinkButton({
@@ -147,7 +135,7 @@ function SidebarLinkButton({
   href: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   label: string;
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }) {
   const { pathname } = useI18nPathname();
   const isSelected = pathname === href;
@@ -164,29 +152,20 @@ function SidebarLinkButton({
     <Anchor
       aria-current={isSelected ? 'page' : undefined}
       className={clsx(
-        'flex w-full items-center gap-3 rounded px-3 py-2',
+        'flex w-full items-center gap-3',
+        'px-3 py-2.5',
+        'rounded',
         themeTextBrandHoverColor,
         isSelected ? activeClassName : defaultClassName,
       )}
       href={href}
       variant="unstyled"
       onClick={onClick}>
-      <Icon className="h-4 w-4" />
-      <Text color="inherit" size="body2" weight="bold">
+      <Icon className="h-5 w-5" />
+      <Text color="inherit" size="body2" weight="medium">
         {label}
       </Text>
     </Anchor>
-  );
-}
-
-function SidebarDivider() {
-  return (
-    <li
-      className={clsx(
-        'h-px w-full',
-        'bg-[radial-gradient(100%_45405.26%_at_100%_0%,_rgba(33,_19,_52,_2e-05)_0%,_rgba(33,_19,_52,_2e-05)_0%,_rgba(255,_255,_255,_0.2)_48.96%,_rgba(33,_19,_52,_2e-05)_100%)]',
-      )}
-    />
   );
 }
 
@@ -194,8 +173,34 @@ export default function ProjectsSidebar() {
   const { profile } = useProfile();
   const intl = useIntl();
   const sideBarItems = useSidebarItems();
-  const endAddOnItems = (
-    <ul className="flex flex-col gap-6">
+
+  return (
+    <nav
+      className={clsx(
+        'relative flex h-full flex-col border-e p-4 gap-y-6',
+        themeBorderElementColor,
+      )}>
+      <ProjectsSidebarProductMenu />
+      {profile != null ? (
+        <ProjectsSidebarProfileHeader points={1800} />
+      ) : (
+        <ProjectsSidebarNotSignedInHeader />
+      )}
+      <ul className="flex flex-col gap-2 flex-grow">
+        {sideBarItems.top.map(({ key: childKey, ...link }) => (
+          <li key={childKey}>
+            <SidebarLinkButton {...link} />
+          </li>
+        ))}
+      </ul>
+      <Divider />
+      <ul className="flex flex-col gap-2">
+        {sideBarItems.bottom.map(({ key: childKey, ...link }) => (
+          <li key={childKey}>
+            <SidebarLinkButton {...link} />
+          </li>
+        ))}
+      </ul>
       {profile == null ? (
         <ProjectsSidebarStartProjectCTACard />
       ) : (
@@ -206,8 +211,8 @@ export default function ProjectsSidebar() {
           {/* <ProjectsSidebarYearlyPlanCTACard /> */}
         </>
       )}
-      <SidebarDivider />
-      <li className="flex justify-between gap-4">
+      <Divider />
+      <div className="flex justify-between gap-4">
         <div className="flex gap-4">
           <Button
             icon={RiNotification3Line}
@@ -260,53 +265,7 @@ export default function ProjectsSidebar() {
           size="sm"
           variant="secondary"
         />
-      </li>
-    </ul>
-  );
-
-  return (
-    <div
-      className={clsx(
-        'relative flex h-full flex-col border-e',
-        themeBorderElementColor,
-      )}>
-      {profile !== null ? (
-        <ProjectsSidebarProfileHeader points={1800} />
-      ) : (
-        <ProjectsSidebarNotSignedInHeader />
-      )}
-      <nav className="-mt-2 flex flex-1 flex-col justify-between">
-        <ul className="flex flex-col gap-5 p-4">
-          {sideBarItems.map((item) => {
-            switch (item.type) {
-              case 'divider':
-                return <SidebarDivider key={item.key} />;
-              case 'group':
-                return (
-                  <li key={item.key} className="flex flex-col gap-2">
-                    {'label' in item && (
-                      <Text
-                        className="px-2"
-                        color="secondary"
-                        size="body3"
-                        weight="bold">
-                        {item.label}
-                      </Text>
-                    )}
-                    <ul className="flex flex-col">
-                      {item.items.map(({ key: childKey, ...link }) => (
-                        <li key={childKey}>
-                          <SidebarLinkButton {...link} />
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                );
-            }
-          })}
-        </ul>
-      </nav>
-      <div className="sticky bottom-0 p-4">{endAddOnItems}</div>
-    </div>
+      </div>
+    </nav>
   );
 }

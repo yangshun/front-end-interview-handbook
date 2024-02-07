@@ -107,6 +107,10 @@
     "defaultMessage": "Legal",
     "description": "Section heading in footer for links to legal pages like privacy policy and terms of service"
   },
+  "+woKoe": {
+    "defaultMessage": "Profile",
+    "description": "Label within projects sidebar"
+  },
   "+xshpk": {
     "defaultMessage": "Search React questions",
     "description": "Placeholder for search input of React question list"
@@ -327,10 +331,6 @@
     "defaultMessage": "Skills cannot be empty.",
     "description": "Error message"
   },
-  "19GB65": {
-    "defaultMessage": "My profile",
-    "description": "Label for My profile button in profile header of Projects sidebar"
-  },
   "19uyd3": {
     "defaultMessage": "<bold>+{points}</bold> rep",
     "description": "Tooltip for rep count increase in Projects level progress bar"
@@ -526,10 +526,6 @@
   "3du5bC": {
     "defaultMessage": "Toptal",
     "description": "Company name for Toptal"
-  },
-  "3efYzQ": {
-    "defaultMessage": "Projects",
-    "description": "Label for Projects sidebar group in Projects sidebar"
   },
   "3ffp8N": {
     "defaultMessage": "Solution vs Design comparison",
@@ -4331,10 +4327,6 @@
     "defaultMessage": "Delhi, India",
     "description": "Anonymous Front End Engineer's location"
   },
-  "cj9Pen": {
-    "defaultMessage": "Submissions",
-    "description": "Label for Submissions sidebar group in Projects sidebar"
-  },
   "cjgzTz": {
     "defaultMessage": "Read how to solve {questionTitle} using {questionFramework}",
     "description": "Description of Front End Interview UI Coding Questions solution page"
@@ -5302,6 +5294,10 @@
   "lGUj4P": {
     "defaultMessage": "View study plans",
     "description": "Link label to view all study plans"
+  },
+  "lGeTSB": {
+    "defaultMessage": "Project challenges",
+    "description": "Projects sidebar label"
   },
   "lJupPX": {
     "defaultMessage": "View All Questions",

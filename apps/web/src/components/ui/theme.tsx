@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import clsx from 'clsx';
 
 // Text colors.
@@ -80,6 +81,9 @@ export const themeBackgroundGlimmerColor = clsx(
 export const themeBackgroundElementColor = clsx('bg-white dark:bg-neutral-900');
 export const themeBackgroundElementHoverStateColor = clsx(
   'hover:bg-neutral-100 dark:hover:bg-neutral-800/70',
+);
+export const themeBackgroundElementEmphasizedState_Focus = clsx(
+  'focus:bg-neutral-100 focus:bg-neutral-800/70',
 );
 export const themeBackgroundElementPressedStateColor = clsx(
   'active:bg-neutral-200 dark:active:bg-neutral-700',
