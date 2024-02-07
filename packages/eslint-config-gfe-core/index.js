@@ -22,7 +22,6 @@ module.exports = {
     'prettier',
   ],
   rules: {
-    camelcase: [WARN, { properties: 'never', ignoreDestructuring: true }],
     'capitalized-comments': [
       WARN,
       'always',

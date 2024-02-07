@@ -11,7 +11,6 @@ const GITHUB_REPO_ID = 593048179;
 const GITHUB_ORG_NAME = 'greatfrontend';
 const SOCIAL_TASKS_DISCOUNT_CAMPAIGN = 'SOCIAL_TASKS_DISCOUNT';
 
-/* eslint-disable camelcase */
 const socialTasksDiscountCouponId_TEST = 'HvFQPL5W';
 const socialTasksDiscountCouponId_PROD = 'IAx9mkqM';
 

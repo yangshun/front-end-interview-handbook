@@ -8,7 +8,6 @@ import { publicProcedure, router, userProcedure } from '../trpc';
 import { Prisma } from '@prisma/client';
 
 const STUDENT_DISCOUNT_CAMPAIGN = 'STUDENT_DISCOUNT';
-/* eslint-disable camelcase */
 const studentDiscountCouponId_TEST = 'r1nhvjSn';
 const studentDiscountCouponId_PROD = 'tgklHrfQ';
 

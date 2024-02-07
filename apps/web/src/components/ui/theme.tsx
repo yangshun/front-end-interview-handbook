@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import clsx from 'clsx';
 
 // Text colors.
