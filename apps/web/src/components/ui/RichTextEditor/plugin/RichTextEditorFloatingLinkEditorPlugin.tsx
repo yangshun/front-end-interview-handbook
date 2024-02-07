@@ -64,7 +64,10 @@ function FloatingLinkEditor({
     null,
   );
 
-  useOnClickOutside(editorRef, () => setIsLink(false));
+  useOnClickOutside(editorRef, () => {
+    setIsLinkEditMode(false);
+    setIsLink(false);
+  });
 
   const updateLinkEditor = useCallback(() => {
     const selection = $getSelection();
@@ -271,13 +274,13 @@ function FloatingLinkEditor({
           ) : (
             <>
               <a
-                className="text-sm transition-colors text-brand-dark dark:text-brand hover:text-brand-dark dark:hover:text-brand hover:underline"
+                className="text-sm transition-colors truncate text-brand-dark dark:text-brand hover:text-brand-dark dark:hover:text-brand hover:underline"
                 href={sanitizeUrl(linkUrl)}
                 rel="noopener noreferrer"
                 target="_blank">
                 {linkUrl}
               </a>
-              <div>
+              <div className="flex gap-1">
                 <Button
                   icon={RiPencilLine}
                   isLabelHidden={true}

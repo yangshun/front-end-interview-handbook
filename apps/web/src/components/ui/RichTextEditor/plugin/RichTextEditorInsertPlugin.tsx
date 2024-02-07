@@ -150,6 +150,14 @@ export default function RichTextEditorInsertPlugin({
     }
   };
 
+  const isSelected = (value: RichTextEditorInsertType) => {
+    if (value === 'link') {
+      return isLink;
+    }
+
+    return false;
+  };
+
   return (
     <>
       <DropdownMenu
@@ -163,7 +171,7 @@ export default function RichTextEditorInsertPlugin({
           <DropdownMenu.Item
             key={value}
             icon={icon}
-            isSelected={false}
+            isSelected={isSelected(value)}
             label={label}
             onClick={() => onInsertAction(value)}
           />
