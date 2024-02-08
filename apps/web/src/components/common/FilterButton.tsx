@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import type { Props as ButtonProps } from '~/components/ui/Button';
 import Button from '~/components/ui/Button';
 import {
-  themeBackgroundElementColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
   themeBorderBrandColor,
@@ -31,7 +30,6 @@ const purposeClasses: Record<FilterButtonPurpose, string> = {
     themeTextSubtleColor,
     themeTextBrandColor_Hover,
     'border-transparent',
-    'bg-neutral-200 dark:bg-neutral-800',
   ),
 };
 
@@ -46,9 +44,10 @@ export default function FilterButton({
       {...props}
       addonPosition="start"
       className={clsx(
-        themeBackgroundElementColor,
-        themeBackgroundElementEmphasizedStateColor_Hover,
-        themeBackgroundElementPressedStateColor_Active,
+        // This is needed so that the button is visible
+        // in contrast to the page background because
+        // the default state doesn't have a border.
+        'bg-neutral-200 dark:bg-neutral-800',
         selected
           ? clsx(
               themeTextBrandColor,
@@ -56,6 +55,8 @@ export default function FilterButton({
               'bg-brand-lightest dark:bg-neutral-800',
             )
           : purposeClasses[purpose],
+        themeBackgroundElementEmphasizedStateColor_Hover,
+        themeBackgroundElementPressedStateColor_Active,
         themeOutlineElementBrandColor_FocusVisible,
         className,
       )}
