@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import ReactCompareImage from 'react-compare-image';
 import { RiArrowDropLeftFill, RiArrowDropRightFill } from 'react-icons/ri';
 
@@ -30,7 +31,8 @@ export default function ProjectsChallengeSubmissionImageComparisonSlider({
         rightImage={image.original}
         rightImageCss={{ objectFit: 'contain', objectPosition: 'top' }}
         skeleton={
-          <div className="w-full h-full flex items-center justify-center">
+          <div
+            className={clsx('flex items-center justify-center', 'size-full')}>
             <Spinner size="md" />
           </div>
         }

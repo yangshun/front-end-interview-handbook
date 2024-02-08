@@ -85,7 +85,7 @@ export default function ProjectsChallengeBriefQuestionSupportCard() {
                 size="body3"
               />
             </div>
-            <div className="flex flex-col w-[240px] gap-3">
+            <div className="flex flex-col w-60 gap-3">
               <Placeholder />
               <div className="flex max-w-[90%] gap-3">
                 <Placeholder className="w-[20%]" />

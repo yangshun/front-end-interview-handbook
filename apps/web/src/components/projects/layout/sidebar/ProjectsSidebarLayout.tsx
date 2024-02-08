@@ -24,7 +24,7 @@ export default function ProjectsSidebarLayout({ children }: Props) {
             setIsDrawerOpen(true);
           }}
         />
-        <div className="hidden w-[240px] h-dvh flex-shrink-0 overflow-y-hidden lg:block sticky top-0">
+        <div className="hidden w-60 h-dvh flex-shrink-0 overflow-y-hidden lg:block sticky top-0">
           <ProjectsSidebar />
         </div>
         <SlideOut
