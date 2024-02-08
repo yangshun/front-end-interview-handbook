@@ -1,11 +1,18 @@
 import { useState } from 'react';
 import {
   Ri24HoursLine,
+  RiComputerLine,
+  RiLogoutBoxLine,
+  RiMenuLine,
+  RiMoonLine,
   RiPriceTag2Line,
   RiPriceTagLine,
+  RiSettings3Line,
   RiSortDesc,
   RiStarLine,
+  RiSunLine,
   RiThumbUpLine,
+  RiTranslate2,
 } from 'react-icons/ri';
 
 import DropdownMenu from './DropdownMenu';
@@ -202,6 +209,22 @@ export default function DropdownMenuExamples() {
               }}
             />
           ))}
+        </DropdownMenu>
+      </div>
+      <div className="flex gap-x-12">
+        <DropdownMenu icon={RiMenuLine} label="Submenu">
+          <DropdownMenu.Sub icon={RiMoonLine} label="Theme">
+            <DropdownMenu.Item icon={RiSunLine} label="Light" />
+            <DropdownMenu.Item icon={RiMoonLine} label="Dark" />
+            <DropdownMenu.Item icon={RiComputerLine} label="System" />
+          </DropdownMenu.Sub>
+          <DropdownMenu.Sub icon={RiTranslate2} label="Language">
+            <DropdownMenu.Item label="English" />
+            <DropdownMenu.Item label="Chinese" />
+            <DropdownMenu.Item label="Japanese" />
+          </DropdownMenu.Sub>
+          <DropdownMenu.Item icon={RiSettings3Line} label="Settings" />
+          <DropdownMenu.Item icon={RiLogoutBoxLine} label="Log out" />
         </DropdownMenu>
       </div>
     </UIExamplesGroup>

@@ -1,12 +1,10 @@
-import clsx from 'clsx';
 import React from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
-import { themeBorderElementColor } from '~/components/ui/theme';
-
 import DropdownMenuItem from './DropdownMenuItem';
+import DropdownMenuSub from './DropdownMenuSub';
+import { dropdownContentClassName } from './dropdownStyles';
 import Button from '../Button';
-import { themeBackgroundColor } from '../theme';
 
 import { Content, Portal, Root, Trigger } from '@radix-ui/react-dropdown-menu';
 
@@ -33,6 +31,7 @@ type Props = Readonly<{
 }>;
 
 DropdownMenu.Item = DropdownMenuItem;
+DropdownMenu.Sub = DropdownMenuSub;
 
 export default function DropdownMenu({
   align = 'start',
@@ -65,10 +64,7 @@ export default function DropdownMenu({
       <Portal>
         <Content
           align={align}
-          className={clsx('p-2 rounded-lg', themeBackgroundColor, [
-            'border',
-            themeBorderElementColor,
-          ])}
+          className={dropdownContentClassName}
           data-mode={forceDark ? 'dark' : undefined}
           side={side}
           sideOffset={8}>
