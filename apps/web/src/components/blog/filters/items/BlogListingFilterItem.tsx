@@ -5,6 +5,11 @@ import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import type { BlogFilter } from '~/components/blog/filters/BlogFilterType';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Text from '~/components/ui/Text';
+import {
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
 
 import { Disclosure } from '@headlessui/react';
 
@@ -39,12 +44,10 @@ export default function BlogListingFilterItem<
         <fieldset>
           <legend className="w-full">
             <Disclosure.Button
-              className={clsx(
-                'flex w-full items-center justify-between',
-                'text-neutral-400 hover:text-neutral-500 dark:text-neutral-600',
-                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset',
-                'focus-visible:ring-brand-dark dark:focus-visible:ring-brand',
-              )}>
+              className={clsx('flex w-full items-center justify-between', [
+                themeOutlineElement_FocusVisible,
+                themeOutlineElementBrandColor_FocusVisible,
+              ])}>
               <Text size="body2" weight="medium">
                 {section.name}
               </Text>
@@ -52,8 +55,9 @@ export default function BlogListingFilterItem<
                 <RiArrowDownSLine
                   aria-hidden="true"
                   className={clsx(
-                    open ? '-rotate-180' : 'rotate-0',
-                    'size-5 transform',
+                    'size-5 transform transition-transform',
+                    open && '-rotate-180',
+                    themeTextSecondaryColor,
                   )}
                 />
               </span>

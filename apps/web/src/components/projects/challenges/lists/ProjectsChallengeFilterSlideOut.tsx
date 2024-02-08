@@ -7,7 +7,11 @@ import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
-import { themeTextSecondaryColor } from '~/components/ui/theme';
+import {
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
 
 import type { ProjectsChallengeFilter } from './ProjectsChallengeFilterContext';
 import {
@@ -30,16 +34,24 @@ function FilterSection({
 
   return (
     <Accordion.Item value={id}>
-      <Accordion.Trigger className="flex w-full group justify-between">
+      <Accordion.Trigger
+        className={clsx('flex w-full items-center justify-between', [
+          themeOutlineElement_FocusVisible,
+          themeOutlineElementBrandColor_FocusVisible,
+        ])}>
         <Text size="body2" weight="medium">
           {longLabel || label}
         </Text>
-        <RiArrowDownSLine
-          className={clsx(
-            'size-5 transition-transform group-data-[state=open]:rotate-180',
-            themeTextSecondaryColor,
-          )}
-        />
+        <span className="ml-6 flex h-7 items-center pr-2">
+          <RiArrowDownSLine
+            aria-hidden="true"
+            className={clsx(
+              'size-5 transform transition-transform',
+              'group-data-[state=open]-rotate-180',
+              themeTextSecondaryColor,
+            )}
+          />
+        </span>
       </Accordion.Trigger>
       <Accordion.Content>
         {type === 'checkbox' && (

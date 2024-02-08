@@ -1,9 +1,15 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiAddLine, RiSubtractLine } from 'react-icons/ri';
+import { RiArrowDownSLine } from 'react-icons/ri';
 
 import Container from '~/components/ui/Container';
+import Text from '~/components/ui/Text';
+import {
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
 
 import { Disclosure } from '@headlessui/react';
 
@@ -78,29 +84,31 @@ export default function ResumeReviewFAQs() {
                     <dt>
                       <Disclosure.Button
                         className={clsx(
-                          'flex w-full items-start justify-between text-left text-white',
-                          'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset',
-                          'focus-visible:ring-brand-dark dark:focus-visible:ring-brand',
+                          'flex w-full items-start justify-between',
+                          [
+                            themeOutlineElement_FocusVisible,
+                            themeOutlineElementBrandColor_FocusVisible,
+                          ],
                         )}>
-                        <span className="text-lg font-medium leading-7">
+                        <Text size="body1" weight="medium">
                           {faq.question}
-                        </span>
-                        <span className="ml-6 flex h-7 items-center">
-                          {open ? (
-                            <RiSubtractLine
-                              aria-hidden="true"
-                              className="size-6"
-                            />
-                          ) : (
-                            <RiAddLine aria-hidden="true" className="size-6" />
-                          )}
+                        </Text>
+                        <span className="ml-6 flex h-6 items-center">
+                          <RiArrowDownSLine
+                            aria-hidden="true"
+                            className={clsx(
+                              'size-5 transform transition-transform',
+                              open && '-rotate-180',
+                              themeTextSecondaryColor,
+                            )}
+                          />
                         </span>
                       </Disclosure.Button>
                     </dt>
                     <Disclosure.Panel as="dd" className="mt-4 pr-12">
-                      <p className="text-base leading-7 text-neutral-300">
+                      <Text color="secondary" display="block" size="body1">
                         {faq.answer}
-                      </p>
+                      </Text>
                     </Disclosure.Panel>
                   </>
                 )}

@@ -11,7 +11,9 @@ import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 import {
   themeDivideColor,
-  themeTextSubtitleColor,
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
+  themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
 import { Disclosure } from '@headlessui/react';
@@ -37,9 +39,11 @@ export default function FAQSection({ faqs, title, hideTitle = false }: Props) {
                   <dt className="text-base sm:text-lg md:text-xl">
                     <Disclosure.Button
                       className={clsx(
-                        'flex w-full items-start justify-between text-left',
-                        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset',
-                        'focus-visible:ring-brand-dark dark:focus-visible:ring-brand',
+                        'flex w-full items-start justify-between',
+                        [
+                          themeOutlineElement_FocusVisible,
+                          themeOutlineElementBrandColor_FocusVisible,
+                        ],
                       )}>
                       <Text
                         className="text-sm sm:text-lg"
@@ -49,16 +53,13 @@ export default function FAQSection({ faqs, title, hideTitle = false }: Props) {
                         weight="medium">
                         {faq.question}
                       </Text>
-                      <span
-                        className={clsx(
-                          'ml-6 flex h-6 items-center',
-                          themeTextSubtitleColor,
-                        )}>
+                      <span className={clsx('ml-6 flex h-6 items-center')}>
                         <RiArrowDownSLine
                           aria-hidden="true"
                           className={clsx(
-                            open ? '-rotate-180' : 'rotate-0',
-                            'size-6 transform',
+                            'size-6 transform transition-transform',
+                            open && '-rotate-180',
+                            themeTextSecondaryColor,
                           )}
                         />
                       </span>
