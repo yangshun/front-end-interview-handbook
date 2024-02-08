@@ -159,7 +159,7 @@ export default function RichTextEditorInsertPlugin({
         label="Insert"
         labelColor="inherit"
         size="xs"
-        variant="flat">
+        variant="tertiary">
         {insertOptions.map(({ label, value, icon }) => (
           <DropdownMenu.Item
             key={value}

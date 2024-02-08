@@ -88,7 +88,7 @@ export default function TilesPanelActions({
       label="Actions"
       showChevron={false}
       size="xs"
-      variant="flat">
+      variant="tertiary">
       {[
         {
           icon: RiFullscreenLine,

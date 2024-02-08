@@ -106,7 +106,7 @@ export default function RichTextEditorSpecialCasePlugin() {
       })}
       labelColor="inherit"
       size="xs"
-      variant="flat">
+      variant="tertiary">
       {caseOptions.map(({ label, value, icon }) => (
         <DropdownMenu.Item
           key={value}

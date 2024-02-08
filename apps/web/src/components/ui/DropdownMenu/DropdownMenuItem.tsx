@@ -1,11 +1,15 @@
 import clsx from 'clsx';
 import React from 'react';
 
+import Anchor from '../Anchor';
 import type { TextColor } from '../Text';
 import Text from '../Text';
-import { themeBackgroundElementEmphasizedStateColor_Hover } from '../theme';
+import {
+  themeBackgroundElementEmphasizedStateColor_Focus,
+  themeBackgroundElementEmphasizedStateColor_Hover,
+} from '../theme';
 
-import { Menu } from '@headlessui/react';
+import { Item } from '@radix-ui/react-dropdown-menu';
 
 type Props = Readonly<{
   color?: TextColor;
@@ -24,36 +28,35 @@ export default function DropdownMenuItem({
   label,
   onClick,
 }: Props) {
+  const props = {
+    children: (
+      <Text
+        className="items-center gap-x-2"
+        color={isSelected ? 'active' : color}
+        display="flex"
+        size="body2">
+        {Icon && <Icon className="size-4 shrink-0" />}
+        {label}
+      </Text>
+    ),
+    className: clsx(
+      'block px-2 py-1.5',
+      'w-full text-left',
+      'rounded',
+      'select-none outline-none',
+      themeBackgroundElementEmphasizedStateColor_Hover,
+      themeBackgroundElementEmphasizedStateColor_Focus,
+    ),
+    onClick,
+  };
+
   return (
-    <Menu.Item>
-      {({ active }) => {
-        const props = {
-          children: (
-            <Text
-              className="items-center gap-x-2"
-              color={isSelected ? 'active' : color}
-              display="flex"
-              size="body2">
-              {Icon && <Icon className="size-4 shrink-0" />}
-              {label}
-            </Text>
-          ),
-          className: clsx(
-            'block px-2 py-1.5',
-            'w-full text-left',
-            'rounded',
-            active && themeBackgroundElementEmphasizedStateColor_Hover,
-          ),
-          onClick,
-        };
-
-        if (href == null) {
-          return <button type="button" {...props} />;
-        }
-
-        // TODO: Change to <Anchor> when there's a need for client-side navigation.
-        return <a href={href} {...props} />;
-      }}
-    </Menu.Item>
+    <Item asChild={true}>
+      {href == null ? (
+        <button type="button" {...props} />
+      ) : (
+        <Anchor href={href} variant="unstyled" {...props} />
+      )}
+    </Item>
   );
 }

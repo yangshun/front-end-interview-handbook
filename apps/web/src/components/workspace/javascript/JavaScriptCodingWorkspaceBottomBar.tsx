@@ -89,8 +89,8 @@ export default function JavaScriptCodingWorkspaceBottomBar({
               icon={RiSettings2Line}
               isLabelHidden={true}
               label="Settings"
-              position="above"
               showChevron={false}
+              side="top"
               size="xs">
               {[
                 {

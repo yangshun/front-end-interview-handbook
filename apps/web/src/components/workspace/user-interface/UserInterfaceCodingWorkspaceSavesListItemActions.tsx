@@ -61,7 +61,7 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
         label="More actions"
         showChevron={false}
         size="xs"
-        variant="flat">
+        variant="tertiary">
         <DropdownMenu.Item
           icon={RiEditLine}
           label="Rename"

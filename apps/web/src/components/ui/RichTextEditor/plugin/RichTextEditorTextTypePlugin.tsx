@@ -139,7 +139,7 @@ export default function RichTextEditorTextTypePlugin() {
       }
       labelColor="inherit"
       size="xs"
-      variant="flat">
+      variant="tertiary">
       {typeOptions.map(({ label, value, icon }) => (
         <DropdownMenu.Item
           key={value}

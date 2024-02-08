@@ -45,7 +45,7 @@ export default function DropdownMenuExamples() {
   return (
     <UIExamplesGroup darkMode="horizontal" gapSize="lg" title="Dropdown Menu">
       <div className="flex gap-x-12">
-        <DropdownMenu icon={RiSortDesc} label="Sort By">
+        <DropdownMenu icon={RiSortDesc} label="Sort by">
           {menuItems.map(({ icon, label, value }) => (
             <DropdownMenu.Item
               key={value}
@@ -58,7 +58,7 @@ export default function DropdownMenuExamples() {
             />
           ))}
         </DropdownMenu>
-        <DropdownMenu icon={RiSortDesc} label="Sort By" size="sm">
+        <DropdownMenu icon={RiSortDesc} label="Sort by" size="sm">
           {menuItems.map(({ icon, label, value }) => (
             <DropdownMenu.Item
               key={value}
@@ -71,7 +71,7 @@ export default function DropdownMenuExamples() {
             />
           ))}
         </DropdownMenu>
-        <DropdownMenu icon={RiSortDesc} label="Sort By" size="xs">
+        <DropdownMenu icon={RiSortDesc} label="Sort by" size="xs">
           {menuItems.map(({ icon, label, value }) => (
             <DropdownMenu.Item
               key={value}
@@ -99,6 +99,19 @@ export default function DropdownMenuExamples() {
             />
           ))}
         </DropdownMenu>
+        <DropdownMenu align="center" label="Align center">
+          {menuItems.map(({ icon, label, value }) => (
+            <DropdownMenu.Item
+              key={value}
+              icon={icon}
+              isSelected={value === selectedValue}
+              label={label}
+              onClick={() => {
+                setSelectedValue(value);
+              }}
+            />
+          ))}
+        </DropdownMenu>
         <DropdownMenu align="end" label="Align end">
           {menuItems.map(({ icon, label, value }) => (
             <DropdownMenu.Item
@@ -114,7 +127,7 @@ export default function DropdownMenuExamples() {
         </DropdownMenu>
       </div>
       <div className="flex gap-x-12">
-        <DropdownMenu label="Menu below" position="below">
+        <DropdownMenu label="Top" side="top">
           {menuItems.map(({ icon, label, value }) => (
             <DropdownMenu.Item
               key={value}
@@ -127,20 +140,7 @@ export default function DropdownMenuExamples() {
             />
           ))}
         </DropdownMenu>
-        <DropdownMenu label="Menu above" position="above">
-          {menuItems.map(({ icon, label, value }) => (
-            <DropdownMenu.Item
-              key={value}
-              icon={icon}
-              isSelected={value === selectedValue}
-              label={label}
-              onClick={() => {
-                setSelectedValue(value);
-              }}
-            />
-          ))}
-        </DropdownMenu>
-        <DropdownMenu align="end" label="Above + end" position="above">
+        <DropdownMenu align="end" label="Top + end" side="top">
           {menuItems.map(({ icon, label, value }) => (
             <DropdownMenu.Item
               key={value}
@@ -155,7 +155,7 @@ export default function DropdownMenuExamples() {
         </DropdownMenu>
       </div>
       <div className="flex gap-x-12">
-        <DropdownMenu icon={RiSortDesc} isLabelHidden={true} label="Sort By">
+        <DropdownMenu icon={RiSortDesc} isLabelHidden={true} label="Sort by">
           {menuItems.map(({ icon, label, value }) => (
             <DropdownMenu.Item
               key={value}
@@ -171,7 +171,7 @@ export default function DropdownMenuExamples() {
         <DropdownMenu
           icon={RiSortDesc}
           isLabelHidden={true}
-          label="Sort By"
+          label="Sort by"
           showChevron={false}>
           {menuItems.map(({ icon, label, value }) => (
             <DropdownMenu.Item
@@ -188,9 +188,9 @@ export default function DropdownMenuExamples() {
         <DropdownMenu
           icon={RiSortDesc}
           isLabelHidden={true}
-          label="Sort By"
+          label="Sort by"
           showChevron={false}
-          variant="flat">
+          variant="tertiary">
           {menuItems.map(({ icon, label, value }) => (
             <DropdownMenu.Item
               key={value}
