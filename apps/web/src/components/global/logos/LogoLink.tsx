@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import Anchor from '~/components/ui/Anchor';
 
-import { themeTextColor } from '../ui/theme';
+import { themeTextColor } from '../../ui/theme';
 
 type Props = Readonly<{
   height?: number;

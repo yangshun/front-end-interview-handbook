@@ -3,7 +3,7 @@ import { RiMenuFill } from 'react-icons/ri';
 
 import useProfile from '~/hooks/user/useProfile';
 
-import LogoLink from '~/components/global/Logo';
+import LogoLink from '~/components/global/logos/LogoLink';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Button from '~/components/ui/Button';
 

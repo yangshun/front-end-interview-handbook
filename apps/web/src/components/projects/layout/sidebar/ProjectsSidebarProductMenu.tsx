@@ -38,7 +38,8 @@ function ProjectsSidebarProductMenuItem({
     <DropdownMenu.Item
       asChild={true}
       className={clsx(
-        'relative flex flex-col p-4 gap-3 rounded select-none outline-none',
+        'relative flex flex-col p-4 gap-3 rounded',
+        'select-none outline-none',
         themeBackgroundElementEmphasizedStateColor_Hover,
         themeBackgroundElementEmphasizedStateColor_Focus,
       )}>

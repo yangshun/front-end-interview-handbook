@@ -29,10 +29,10 @@ function SkillItemDiamond() {
         width="12"
         xmlns="http://www.w3.org/2000/svg">
         <path
-          clip-rule="evenodd"
+          clipRule="evenodd"
           d="M6 0.47876L11.5212 6.00001L6 11.5213L0.478751 6.00001L6 0.47876ZM6 1.92126L1.92125 6.00001L6 10.0788L10.0788 6.00001L6 1.92126Z"
           fill="currentColor"
-          fill-rule="evenodd"
+          fillRule="evenodd"
         />
       </svg>
     </div>

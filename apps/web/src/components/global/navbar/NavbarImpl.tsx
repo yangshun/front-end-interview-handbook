@@ -43,7 +43,7 @@ import NavAppThemeDropdown from './NavAppThemeDropdown';
 import NavLocaleDropdown from './NavLocaleDropdown';
 import NavProfileIcon from './NavProfileIcon';
 import { useAppThemePreferences } from '../dark/AppThemePreferencesProvider';
-import LogoLink from '../Logo';
+import LogoLink from '../logos/LogoLink';
 
 import { useUser } from '@supabase/auth-helpers-react';
 

@@ -5,7 +5,7 @@ import { notFound, useSearchParams } from 'next/navigation';
 import { RiLink } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import LogoLink from '~/components/global/Logo';
+import LogoLink from '~/components/global/logos/LogoLink';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
