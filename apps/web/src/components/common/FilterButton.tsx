@@ -30,6 +30,10 @@ const purposeClasses: Record<FilterButtonPurpose, string> = {
     themeTextSubtleColor,
     themeTextBrandColor_Hover,
     'border-transparent',
+    // This is needed so that the button is visible
+    // in contrast to the page background because
+    // this variant doesn't have a border.
+    'bg-neutral-200 dark:bg-neutral-800',
   ),
 };
 
@@ -44,10 +48,6 @@ export default function FilterButton({
       {...props}
       addonPosition="start"
       className={clsx(
-        // This is needed so that the button is visible
-        // in contrast to the page background because
-        // the default state doesn't have a border.
-        'bg-neutral-200 dark:bg-neutral-800',
         selected
           ? clsx(
               themeTextBrandColor,

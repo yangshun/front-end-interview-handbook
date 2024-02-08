@@ -7,22 +7,24 @@ import {
   RiDiscordLine,
   RiHome3Line,
   RiLogoutBoxLine,
+  RiMoonLine,
   RiMoreLine,
   RiNotification3Line,
   RiPriceTag3Line,
   RiRocketLine,
-  RiSettings4Line,
+  RiSettings3Line,
   RiShiningLine,
-  RiUserLine,
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import useProfile from '~/hooks/user/useProfile';
 
+import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
+import useAppThemeOptions from '~/components/global/dark/useAppThemeOptions';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
-import Popover from '~/components/ui/Popover';
+import DropdownMenu from '~/components/ui/DropdownMenu';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundElementEmphasizedStateColor,
@@ -34,11 +36,11 @@ import {
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-import { ProjectsSidebarFreePlanCTACard } from './ProjectsSidebarFreePlanCTACard';
+import { ProjectsSidebarFreePlanCTACard } from './ctas/ProjectsSidebarFreePlanCTACard';
+import { ProjectsSidebarStartProjectCTACard } from './ctas/ProjectsSidebarStartProjectCTACard';
 import { ProjectsSidebarNotSignedInHeader } from './ProjectsSidebarNotSignedInHeader';
 import ProjectsSidebarProductMenu from './ProjectsSidebarProductMenu';
 import { ProjectsSidebarProfileHeader } from './ProjectsSidebarProfileHeader';
-import { ProjectsSidebarStartProjectCTACard } from './ProjectsSidebarStartProjectCTACard';
 
 type SidebarItem = SidebarLink;
 
@@ -78,16 +80,6 @@ function useSidebarItems(): Readonly<{
           id: 'VbvRHt',
         }),
       },
-      {
-        href: '/projects/profile',
-        icon: RiUserLine,
-        key: 'profile',
-        label: intl.formatMessage({
-          defaultMessage: 'Profile',
-          description: 'Label within projects sidebar',
-          id: '+woKoe',
-        }),
-      },
     ],
     top: [
       {
@@ -123,6 +115,32 @@ function useSidebarItems(): Readonly<{
       },
     ],
   };
+}
+
+function AppThemeSubMenu() {
+  const { appThemePreference, appTheme, setAppThemePreference } =
+    useAppThemePreferences();
+
+  const appThemeOptions = useAppThemeOptions();
+  const Icon =
+    appThemeOptions.filter((option) => option.value === appTheme)?.[0].icon ??
+    RiMoonLine;
+
+  return (
+    <DropdownMenu.Sub icon={Icon} label="Theme">
+      {appThemeOptions.map(({ icon, label, value }) => (
+        <DropdownMenu.Item
+          key={value}
+          icon={icon}
+          isSelected={appThemePreference === value}
+          label={label}
+          onClick={() => {
+            setAppThemePreference(value);
+          }}
+        />
+      ))}
+    </DropdownMenu.Sub>
+  );
 }
 
 function SidebarLinkButton({
@@ -161,7 +179,10 @@ function SidebarLinkButton({
       variant="unstyled"
       onClick={onClick}>
       <Icon className="size-5" />
-      <Text color="inherit" size="body2" weight="medium">
+      <Text
+        color="inherit"
+        size="body2"
+        weight={isSelected ? 'bold' : 'medium'}>
         {label}
       </Text>
     </Anchor>
@@ -176,7 +197,7 @@ export default function ProjectsSidebar() {
   return (
     <nav
       className={clsx(
-        'relative flex h-full flex-col border-e p-4 gap-y-6',
+        'relative flex h-full flex-col border-e p-4 gap-y-4',
         themeBorderElementColor,
       )}>
       <ProjectsSidebarProductMenu />
@@ -227,35 +248,30 @@ export default function ProjectsSidebar() {
             size="sm"
             variant="special"
           />
-          <Popover
+          <DropdownMenu
             icon={RiMoreLine}
             isLabelHidden={true}
             label="More"
             showChevron={false}
             size="sm">
-            <div>
-              <SidebarLinkButton
-                href="#"
-                icon={RiSettings4Line}
-                label={intl.formatMessage({
-                  defaultMessage: 'Settings',
-                  description:
-                    'Label for Settings sidebar item in Projects sidebar',
-                  id: 'c9QTag',
-                })}
-              />
-              <SidebarLinkButton
-                href="#"
-                icon={RiLogoutBoxLine}
-                label={intl.formatMessage({
-                  defaultMessage: 'Log out',
-                  description:
-                    'Label for Log out sidebar item in Projects sidebar',
-                  id: 'd+eqOa',
-                })}
-              />
-            </div>
-          </Popover>
+            <AppThemeSubMenu />
+            <DropdownMenu.Item
+              icon={RiSettings3Line}
+              label={intl.formatMessage({
+                defaultMessage: 'Settings',
+                description: 'App settings label',
+                id: 'XysLlX',
+              })}
+            />
+            <DropdownMenu.Item
+              icon={RiLogoutBoxLine}
+              label={intl.formatMessage({
+                defaultMessage: 'Log out',
+                description: 'Sign out label',
+                id: '+7QBdp',
+              })}
+            />
+          </DropdownMenu>
         </div>
         <Button
           icon={RiContractLeftLine}

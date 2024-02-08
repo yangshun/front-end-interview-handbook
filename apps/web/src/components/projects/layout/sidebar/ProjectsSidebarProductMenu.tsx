@@ -114,8 +114,9 @@ export default function ProjectsSidebarProductMenu() {
           align="start"
           className={clsx(
             'flex flex-col gap-2',
-            'rounded-lg p-4 glassbox w-[360px]',
+            'rounded-lg p-4 w-[360px]',
             themeBackgroundElementColor,
+            ['border', themeBorderElementColor],
           )}
           sideOffset={8}>
           <ProjectsSidebarProductMenuItem
