@@ -1,8 +1,10 @@
 import clsx from 'clsx';
-import type {
-  AriaAttributes,
-  HTMLAttributeAnchorTarget,
-  ReactNode,
+import {
+  type AriaAttributes,
+  type ForwardedRef,
+  forwardRef,
+  type HTMLAttributeAnchorTarget,
+  type ReactNode,
 } from 'react';
 
 import {
@@ -40,6 +42,9 @@ export type Props = Readonly<{
   display?: ButtonDisplay;
   href?: string;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  iconSecondary_USE_SPARINGLY?: (
+    props: React.ComponentProps<'svg'>,
+  ) => JSX.Element;
   isDisabled?: boolean;
   isLabelHidden?: boolean;
   isLoading?: boolean;
@@ -192,28 +197,33 @@ const variantDisabledClasses: Record<ButtonVariant, string> = {
   unstyled: '',
 };
 
-export default function Button({
-  addonPosition = 'end',
-  'aria-controls': ariaControls,
-  'aria-current': ariaCurrent,
-  'aria-label': ariaLabel,
-  className,
-  display = 'inline',
-  href,
-  icon: Icon,
-  isDisabled = false,
-  isLabelHidden = false,
-  isLoading = false,
-  label,
-  size = 'sm',
-  target,
-  tooltip,
-  tooltipAlignment,
-  tooltipPosition,
-  type = 'button',
-  variant,
-  onClick,
-}: Props) {
+function Button(
+  {
+    addonPosition = 'end',
+    'aria-controls': ariaControls,
+    'aria-current': ariaCurrent,
+    'aria-label': ariaLabel,
+    className,
+    display = 'inline',
+    href,
+    icon: Icon,
+    iconSecondary_USE_SPARINGLY: IconSecondary,
+    isDisabled = false,
+    isLabelHidden = false,
+    isLoading = false,
+    label,
+    size = 'sm',
+    target,
+    tooltip,
+    tooltipAlignment,
+    tooltipPosition,
+    type = 'button',
+    variant,
+    onClick,
+    ...props
+  }: Props,
+  ref: ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
+) {
   const addOnClass = sizeIconClasses[size];
 
   const addOn = isLoading ? (
@@ -222,13 +232,22 @@ export default function Button({
     <Icon aria-hidden="true" className={addOnClass} />
   ) : null;
 
-  const children = (
-    <>
-      {addonPosition === 'start' && addOn}
-      {!isLabelHidden && <div>{label}</div>}
-      {addonPosition === 'end' && addOn}
-    </>
-  );
+  const children =
+    // If there's a secondary icon provided, the primary icon
+    // will always on the left.
+    IconSecondary != null ? (
+      <>
+        {addOn}
+        {!isLabelHidden && <div>{label}</div>}
+        <IconSecondary aria-hidden="true" className={addOnClass} />
+      </>
+    ) : (
+      <>
+        {addonPosition === 'start' && addOn}
+        {!isLabelHidden && <div>{label}</div>}
+        {addonPosition === 'end' && addOn}
+      </>
+    );
 
   const commonProps = {
     'aria-controls': ariaControls,
@@ -239,7 +258,9 @@ export default function Button({
       display === 'block' ? 'flex w-full' : 'inline-flex',
       'items-center justify-center',
       heightClasses[size],
-      isLabelHidden ? widthClasses[size] : horizontalPaddingClasses[size],
+      isLabelHidden && IconSecondary == null
+        ? widthClasses[size]
+        : horizontalPaddingClasses[size],
       spacingClasses[size],
       [fontSizeClasses[size], 'whitespace-nowrap font-medium'],
       ['border', borderRadiusClasses[size]],
@@ -256,9 +277,20 @@ export default function Button({
 
   const el =
     href == null ? (
-      <button type={type === 'button' ? 'button' : 'submit'} {...commonProps} />
+      <button
+        ref={ref as React.Ref<HTMLButtonElement>}
+        type={type === 'button' ? 'button' : 'submit'}
+        {...commonProps}
+        {...props}
+      />
     ) : (
-      <Anchor href={href} {...commonProps} target={target} variant="unstyled" />
+      <Anchor
+        ref={ref as React.Ref<HTMLAnchorElement>}
+        href={href}
+        {...commonProps}
+        target={target}
+        variant="unstyled"
+      />
     );
 
   return tooltip == null || isDisabled ? (
@@ -272,3 +304,5 @@ export default function Button({
     </Tooltip>
   );
 }
+
+export default forwardRef(Button);
