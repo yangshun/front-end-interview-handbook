@@ -15,6 +15,10 @@
     "defaultMessage": "Your username has been updated.",
     "description": "Success message when for username changes"
   },
+  "+7QBdp": {
+    "defaultMessage": "Log out",
+    "description": "Sign out label"
+  },
   "+99sZT": {
     "defaultMessage": "{questionCount}+ interview questions across <clink>coding</clink> and <qlink>quiz</qlink> formats and new questions constantly being added.",
     "description": "Subtitle for huge question bank feature"
@@ -106,10 +110,6 @@
   "+wR7CJ": {
     "defaultMessage": "Legal",
     "description": "Section heading in footer for links to legal pages like privacy policy and terms of service"
-  },
-  "+woKoe": {
-    "defaultMessage": "Profile",
-    "description": "Label within projects sidebar"
   },
   "+xshpk": {
     "defaultMessage": "Search React questions",
@@ -878,6 +878,10 @@
   "73vnK2": {
     "defaultMessage": "Mid",
     "description": "Label for medium question importance"
+  },
+  "74BSpM": {
+    "defaultMessage": "Link URL",
+    "description": "Label for link URL"
   },
   "78MOQL": {
     "defaultMessage": "No articles",
@@ -3827,6 +3831,10 @@
     "defaultMessage": "<code>console.log()</code> statements will appear here.",
     "description": "Text in coding workspace's console to let users know that they can expect console logs to be found there"
   },
+  "XysLlX": {
+    "defaultMessage": "Settings",
+    "description": "App settings label"
+  },
   "Y2R80N": {
     "defaultMessage": "Unpin",
     "description": "Unpin button label"
@@ -4287,10 +4295,6 @@
     "defaultMessage": "Only build useful projects",
     "description": "Short title for \"Never waste your time building one-off projects\" feature marketing section on Projects home page"
   },
-  "c9QTag": {
-    "defaultMessage": "Settings",
-    "description": "Label for Settings sidebar item in Projects sidebar"
-  },
   "c9nv1K": {
     "defaultMessage": "I want to help mentor others",
     "description": "Label for \"Mentor others\" onboarding option in Projects"
@@ -4370,10 +4374,6 @@
   "d+9jeS": {
     "defaultMessage": "Everything you need, in great quality",
     "description": "Title of the 'Features' marketing section on Homepage"
-  },
-  "d+eqOa": {
-    "defaultMessage": "Log out",
-    "description": "Label for Log out sidebar item in Projects sidebar"
   },
   "d+wYSW": {
     "defaultMessage": "Sign up for a free GreatFrontEnd account to track your progress and access premium",
@@ -6150,6 +6150,10 @@
   "t2Ll2e": {
     "defaultMessage": "Run your code with <button>custom test cases</button> before submitting.",
     "description": "Text that appears in the DevTool under the Tests tab before the user has submitted their code"
+  },
+  "t4Ma6G": {
+    "defaultMessage": "Link Title",
+    "description": "Label for link title"
   },
   "t5L0yE": {
     "defaultMessage": "Pricing",

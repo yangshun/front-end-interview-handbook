@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import type { BaseSelection, LexicalEditor } from 'lexical';
 import {
+  $createTextNode,
   $getSelection,
   $isLineBreakNode,
   $isRangeSelection,
@@ -21,6 +22,7 @@ import {
   RiDeleteBin6Line,
   RiPencilLine,
 } from 'react-icons/ri';
+import { useIntl } from 'react-intl';
 import { useOnClickOutside } from 'usehooks-ts';
 
 import Button from '~/components/ui/Button';
@@ -32,6 +34,7 @@ import { setFloatingElemPositionForLinkEditor } from '../utils/setFloatingElemPo
 import { sanitizeUrl, validateUrl } from '../utils/url';
 
 import {
+  $createLinkNode,
   $isAutoLinkNode,
   $isLinkNode,
   TOGGLE_LINK_COMMAND,
@@ -55,11 +58,13 @@ function FloatingLinkEditor({
   setIsLinkEditMode: Dispatch<boolean>;
   setIsOpenLinkEditor: Dispatch<boolean>;
 }): JSX.Element {
+  const intl = useIntl();
   const editorRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [linkUrl, setLinkUrl] = useState('');
   const [editedLinkUrl, setEditedLinkUrl] = useState('');
+  const [linkText, setLinkText] = useState('');
   const [lastSelection, setLastSelection] = useState<BaseSelection | null>(
     null,
   );
@@ -68,6 +73,7 @@ function FloatingLinkEditor({
     setEditedLinkUrl('');
     setIsLinkEditMode(false);
     setIsOpenLinkEditor(false);
+    setLinkText('');
   }, [setIsLinkEditMode, setIsOpenLinkEditor]);
 
   useOnClickOutside(editorRef, handleCloseLinkEditor);
@@ -88,6 +94,22 @@ function FloatingLinkEditor({
       }
       if (isLinkEditMode) {
         setEditedLinkUrl(linkUrl);
+        if (linkParent || $isLinkNode(node)) {
+          setLinkText(
+            linkParent ? linkParent?.getTextContent() : node.getTextContent(),
+          );
+        } else {
+          // Get link text via anchor and focus since no specific node is present
+          const { anchor, focus } = selection;
+          const isBackward = selection.isBackward();
+          const text = node.getTextContent();
+
+          setLinkText(
+            isBackward
+              ? text.slice(focus.offset, anchor.offset)
+              : text.slice(anchor.offset, focus.offset),
+          );
+        }
       }
     }
 
@@ -220,14 +242,37 @@ function FloatingLinkEditor({
 
           if (($isLinkNode(parent) || $isLinkNode(node)) && !editedLinkUrl) {
             editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
-          } else if (validateUrl(editedLinkUrl)) {
-            toggleLink(sanitizeUrl(editedLinkUrl));
-          } else if (editedLinkUrl) {
-            toggleLink(`https://${editedLinkUrl}`);
+          } else if ($isLinkNode(parent) || $isLinkNode(node)) {
+            // If link node already present
+            const format = node.getFormat();
+            const linkNode = $createLinkNode(
+              validateUrl(editedLinkUrl)
+                ? sanitizeUrl(editedLinkUrl)
+                : `https://${editedLinkUrl}`,
+            ).append(
+              $createTextNode(linkText || editedLinkUrl).setFormat(format),
+            );
+
+            node.replace(linkNode);
+            linkNode.select();
+          } else {
+            // If link node is not present
+            const { anchor, focus } = selection;
+
+            selection.insertText(linkText || editedLinkUrl);
+
+            anchor.offset -= linkText.length;
+            focus.offset = anchor.offset + linkText.length;
+            toggleLink(
+              validateUrl(editedLinkUrl)
+                ? sanitizeUrl(editedLinkUrl)
+                : `https://${editedLinkUrl}`,
+            );
           }
         }
       });
       setEditedLinkUrl('');
+      setLinkText('');
       setIsLinkEditMode(false);
     }
   };
@@ -237,16 +282,32 @@ function FloatingLinkEditor({
       {!isOpenLinkEditor ? null : (
         <div
           className={clsx(
-            'z-10 p-2 rounded flex max-w-[400px] min-w-[250px] w-full h-[52px] gap-4 items-center justify-between',
+            'z-10 p-2 rounded flex max-w-[400px] min-w-[250px] w-full gap-4 items-center justify-between',
             themeBackgroundLayerEmphasized,
           )}>
           {isLinkEditMode ? (
             <>
-              <div onKeyDown={monitorInputInteraction}>
+              <div
+                className="flex flex-col gap-2"
+                onKeyDown={monitorInputInteraction}>
+                <TextInput
+                  isLabelHidden={true}
+                  label={intl.formatMessage({
+                    defaultMessage: 'Link Title',
+                    description: 'Label for link title',
+                    id: 't4Ma6G',
+                  })}
+                  value={linkText}
+                  onChange={(value) => setLinkText(value)}
+                />
                 <TextInput
                   ref={inputRef}
                   isLabelHidden={true}
-                  label="Link Input"
+                  label={intl.formatMessage({
+                    defaultMessage: 'Link URL',
+                    description: 'Label for link URL',
+                    id: '74BSpM',
+                  })}
                   value={editedLinkUrl}
                   onChange={(value) => setEditedLinkUrl(value)}
                 />
