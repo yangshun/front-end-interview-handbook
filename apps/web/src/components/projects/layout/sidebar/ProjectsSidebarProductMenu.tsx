@@ -12,6 +12,8 @@ import {
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
   themeBorderElementColor,
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
 
 import InterviewsLogo from '../../../global/logos/InterviewsLogo';
@@ -65,12 +67,13 @@ export default function ProjectsSidebarProductMenu() {
           className={clsx(
             'flex justify-between items-center',
             'rounded-lg py-4 px-3',
+            'group',
             'select-none outline-none',
             ['border', themeBorderElementColor],
             'transition-colors',
             [
-              'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
-              'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
+              themeOutlineElement_FocusVisible,
+              themeOutlineElementBrandColor_FocusVisible,
             ],
             themeBackgroundElementEmphasizedStateColor_Hover,
             themeBackgroundElementPressedStateColor_Active,
@@ -81,7 +84,7 @@ export default function ProjectsSidebarProductMenu() {
             className={clsx(
               'size-4 shrink-0',
               'text-neutral-600 dark:text-neutral-200',
-              'data-[state=open]:rotate-180',
+              'transition-transform group-data-[state=open]:rotate-180',
             )}
           />
         </button>

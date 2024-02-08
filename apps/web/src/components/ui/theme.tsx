@@ -91,7 +91,7 @@ export const themeBackgroundElementPressedStateColor_Active = clsx(
   'active:bg-neutral-200 dark:active:bg-neutral-700',
 );
 
-// Line colors.
+// Lines.
 export const themeBorderColor = clsx(
   'border-neutral-200 dark:border-neutral-800',
 );
@@ -103,6 +103,16 @@ export const themeBorderElementColor = clsx(
 );
 export const themeGlassyBorder = clsx(
   'glassbox border border-neutral-200 dark:border-transparent',
+);
+export const themeBorderBrandColor = clsx(
+  'border-brand-dark dark:border-brand',
+);
+
+export const themeOutlineElement_FocusVisible = clsx(
+  'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+);
+export const themeOutlineElementBrandColor_FocusVisible = clsx(
+  'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
 );
 
 export type ThemeGradient<

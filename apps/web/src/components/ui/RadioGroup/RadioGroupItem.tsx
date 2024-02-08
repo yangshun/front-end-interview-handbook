@@ -1,7 +1,10 @@
 import clsx from 'clsx';
 import { useId } from 'react';
 
-import { themeBorderElementColor } from '../theme';
+import {
+  themeBorderElementColor,
+  themeOutlineElementBrandColor_FocusVisible,
+} from '../theme';
 
 import * as RadixRadioGroup from '@radix-ui/react-radio-group';
 
@@ -22,11 +25,18 @@ export default function RadioGroupItem<T extends string>({
         className={clsx(
           'size-5 rounded-full border',
           themeBorderElementColor,
-          'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
+          themeOutlineElementBrandColor_FocusVisible,
         )}
         id={id}
         value={value}>
-        <RadixRadioGroup.Indicator className="after:bg-brand-dark dark:after:bg-brand flex size-full items-center justify-center after:h-3 after:w-3 after:rounded-full" />
+        <RadixRadioGroup.Indicator
+          className={clsx(
+            'flex items-center justify-center',
+            'size-full',
+            'after:bg-brand-dark dark:after:bg-brand',
+            'after:size-3 after:rounded-full',
+          )}
+        />
       </RadixRadioGroup.Item>
       <label className="cursor-pointer text-sm" htmlFor={id}>
         {label}

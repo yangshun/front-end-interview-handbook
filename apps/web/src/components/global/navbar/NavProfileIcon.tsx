@@ -13,6 +13,8 @@ import {
   themeBackgroundElementPressedStateColor_Active,
   themeBorderElementColor,
   themeDivideColor,
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
   themeTextColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
@@ -67,8 +69,8 @@ export default function NavProfileIcon({
             themeBackgroundElementEmphasizedStateColor_Hover,
             themeBackgroundElementPressedStateColor_Active,
             [
-              'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
-              'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
+              themeOutlineElement_FocusVisible,
+              themeOutlineElementBrandColor_FocusVisible,
             ],
           )}>
           <span className="sr-only">

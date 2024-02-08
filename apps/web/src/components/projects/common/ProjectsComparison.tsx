@@ -15,7 +15,12 @@ import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
-import { themeBorderElementColor } from '~/components/ui/theme';
+import {
+  themeBorderBrandColor,
+  themeBorderElementColor,
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
+} from '~/components/ui/theme';
 
 type CommonProps = Readonly<{
   baseScreenshots: Array<ProjectsBaseScreenshot>;
@@ -156,14 +161,16 @@ export default function ProjectsComparison({
               className={clsx(
                 'size-12 rounded border overflow-clip',
                 index === selectedScreenIndex
-                  ? 'border-brand-dark dark:border-brand'
+                  ? themeBorderBrandColor
                   : themeBorderElementColor,
+                themeOutlineElement_FocusVisible,
+                themeOutlineElementBrandColor_FocusVisible,
               )}
               type="button"
               onClick={() => setSelectedScreenIndex(index)}>
               <img
                 alt={page.label}
-                className="object-cover w-full h-full"
+                className="object-cover size-full"
                 src={page.screenshot || page.original}
               />
             </button>

@@ -3,6 +3,8 @@ import { Fragment } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
 import {
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
   themeTextBrandColor,
   themeTextBrandColor_Hover,
   themeTextColor,
@@ -27,8 +29,8 @@ export default function NavbarItem({
     'text-[0.8125rem] font-medium whitespace-nowrap',
     'group rounded-full',
     [
-      'focus-visible:ring-brand-dark dark:focus-visible:ring-brand',
-      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-transparent',
+      themeOutlineElement_FocusVisible,
+      themeOutlineElementBrandColor_FocusVisible,
     ],
   );
 

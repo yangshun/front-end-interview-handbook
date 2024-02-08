@@ -10,6 +10,8 @@ import {
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
   themeBorderElementColor,
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
 
 import Anchor from '../Anchor';
@@ -117,7 +119,7 @@ const variantClasses: Record<ButtonVariant, string> = {
     'bg-brand-dark dark:bg-brand',
     'hover:bg-brand-darker dark:hover:bg-brand-light',
     'active:bg-brand-darkest dark:active:bg-brand-lighter',
-    'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
+    themeOutlineElementBrandColor_FocusVisible,
   ),
   secondary: clsx(
     themeBorderElementColor,
@@ -125,7 +127,7 @@ const variantClasses: Record<ButtonVariant, string> = {
     themeBackgroundElementColor,
     themeBackgroundElementEmphasizedStateColor_Hover,
     themeBackgroundElementPressedStateColor_Active,
-    'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
+    themeOutlineElementBrandColor_FocusVisible,
   ),
   special: clsx(
     'shiny',
@@ -134,7 +136,7 @@ const variantClasses: Record<ButtonVariant, string> = {
     'bg-brand-lightest dark:bg-brand/20',
     'dark:hover:bg-brand/30 hover:bg-brand-lighter/70',
     'drop-shadow-none',
-    'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
+    themeOutlineElementBrandColor_FocusVisible,
   ),
   success: clsx(
     'border-transparent',
@@ -156,7 +158,7 @@ const variantClasses: Record<ButtonVariant, string> = {
       themeBackgroundElementPressedStateColor_Active,
       'active:text-brand-dark dark:active:text-brand-light',
     ],
-    'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
+    themeOutlineElementBrandColor_FocusVisible,
   ),
   unstyled: '',
 };
@@ -242,7 +244,7 @@ export default function Button({
       [fontSizeClasses[size], 'whitespace-nowrap font-medium'],
       ['border', borderRadiusClasses[size]],
       'transition-colors',
-      'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+      themeOutlineElement_FocusVisible,
       variantClasses[variant],
       [variantDisabledClasses[variant], 'disabled:cursor-not-allowed'],
       isDisabled && 'pointer-events-none',

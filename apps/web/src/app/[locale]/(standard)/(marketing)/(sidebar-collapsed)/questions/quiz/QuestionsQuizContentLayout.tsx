@@ -15,6 +15,8 @@ import Text from '~/components/ui/Text';
 import {
   themeBorderColor,
   themeDivideColor,
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
   themeTextBrandColor,
   themeTextBrandColor_Hover,
 } from '~/components/ui/theme';
@@ -73,10 +75,10 @@ export default function QuestionsQuizContentLayout({
                           <div className="flex justify-between space-x-3">
                             <div className="min-w-0 flex-1">
                               <Anchor
-                                className={clsx(
-                                  'block',
-                                  'focus-visible:ring-brand-dark dark:focus-visible:ring-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-inset',
-                                )}
+                                className={clsx('block', [
+                                  themeOutlineElement_FocusVisible,
+                                  themeOutlineElementBrandColor_FocusVisible,
+                                ])}
                                 href={href}
                                 variant="unstyled">
                                 <span

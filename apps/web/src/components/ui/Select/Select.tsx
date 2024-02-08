@@ -7,6 +7,9 @@ import {
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
   themeBorderElementColor,
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
+  themeTextSubtitleColor,
 } from '~/components/ui/theme';
 
 import type { TextSize } from '../Text';
@@ -95,13 +98,13 @@ function Select<T>(
             themeBorderElementColor,
             'focus-visible:border-neutral-300 dark:focus-visible:border-neutral-700',
           ],
-          'text-neutral-700 dark:text-neutral-300',
+          themeTextSubtitleColor,
           themeBackgroundElementColor,
           themeBackgroundElementEmphasizedStateColor_Hover,
           themeBackgroundElementPressedStateColor_Active,
           [
-            'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
-            'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:ring-0',
+            themeOutlineElement_FocusVisible,
+            themeOutlineElementBrandColor_FocusVisible,
           ],
           heightClasses[size],
           textSizeClasses[size].option,

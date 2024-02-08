@@ -7,6 +7,8 @@ import {
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
   themeBorderElementColor,
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
 
 import DropdownMenuItem from './DropdownMenuItem';
@@ -118,8 +120,8 @@ export default function DropdownMenu({
             themeBackgroundElementEmphasizedStateColor_Hover,
             themeBackgroundElementPressedStateColor_Active,
             [
-              'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
-              'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
+              themeOutlineElement_FocusVisible,
+              themeOutlineElementBrandColor_FocusVisible,
               'disabled:border-transparent disabled:text-white dark:disabled:text-neutral-700',
             ],
             isLabelHidden && !showChevron

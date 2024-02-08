@@ -7,6 +7,8 @@ import {
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
   themeBorderElementColor,
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
 
 import type { TextSize } from '../Text';
@@ -102,8 +104,8 @@ export default function Popover({
             themeBackgroundElementEmphasizedStateColor_Hover,
             themeBackgroundElementPressedStateColor_Active,
             [
-              'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
-              'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
+              themeOutlineElement_FocusVisible,
+              themeOutlineElementBrandColor_FocusVisible,
             ],
             isLabelHidden && !showChevron
               ? widthClasses[size]

@@ -6,8 +6,11 @@ import {
   themeBackgroundElementColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
+  themeBorderBrandColor,
   themeBorderElementColor,
+  themeOutlineElementBrandColor_FocusVisible,
   themeTextBrandColor,
+  themeTextBrandColor_Hover,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
@@ -23,16 +26,12 @@ const purposeClasses: Record<FilterButtonPurpose, string> = {
   button: clsx(
     themeBorderElementColor,
     'text-neutral-600 dark:text-neutral-200',
-    themeBackgroundElementColor,
-    themeBackgroundElementEmphasizedStateColor_Hover,
-    themeBackgroundElementPressedStateColor_Active,
-    'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
   ),
   tab: clsx(
     themeTextSubtleColor,
+    themeTextBrandColor_Hover,
     'border-transparent',
     'bg-neutral-200 dark:bg-neutral-800',
-    'hover:text-brand-dark dark:hover:text-brand',
   ),
 };
 
@@ -47,15 +46,17 @@ export default function FilterButton({
       {...props}
       addonPosition="start"
       className={clsx(
+        themeBackgroundElementColor,
+        themeBackgroundElementEmphasizedStateColor_Hover,
+        themeBackgroundElementPressedStateColor_Active,
         selected
           ? clsx(
               themeTextBrandColor,
-              'border',
-              'border-brand-dark dark:border-brand',
+              ['border', themeBorderBrandColor],
               'bg-brand-lightest dark:bg-neutral-800',
             )
           : purposeClasses[purpose],
-        'focus-visible:outline-brand',
+        themeOutlineElementBrandColor_FocusVisible,
         className,
       )}
       variant="unstyled"

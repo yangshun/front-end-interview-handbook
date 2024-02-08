@@ -5,7 +5,11 @@ import { RiArrowDownSLine } from 'react-icons/ri';
 
 import { useGuidesData } from '~/data/Guides';
 
-import { themeBorderElementColor } from '~/components/ui/theme';
+import {
+  themeBorderElementColor,
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
+} from '~/components/ui/theme';
 
 import GuidesDropdownMenuItem from './GuidesDropdownMenuItem';
 import Text from '../ui/Text';
@@ -61,8 +65,8 @@ export default function GuidesDropdownMenu({
             'transition-colors',
             ['border', themeBorderElementColor],
             [
-              'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
-              'focus-visible:outline-brand-dark dark:focus-visible:outline-brand',
+              themeOutlineElement_FocusVisible,
+              themeOutlineElementBrandColor_FocusVisible,
             ],
             'px-3 py-1.5',
             themeGlassyBorder,
