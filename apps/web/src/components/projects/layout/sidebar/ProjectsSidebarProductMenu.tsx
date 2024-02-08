@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
+import { useLocalStorage } from 'usehooks-ts';
 
 import ProjectsLogo from '~/components/global/logos/ProjectsLogo';
 import Anchor from '~/components/ui/Anchor';
@@ -58,9 +59,20 @@ function ProjectsSidebarProductMenuItem({
   );
 }
 
+// Increment number whenever the indicator is to be shown again.
+const indicatorKey = 'gfe:product-menu-unseen-indicator:0';
+
 export default function ProjectsSidebarProductMenu() {
+  const [showUnseenIndicator, setShowUnseenIndicator] = useLocalStorage(
+    indicatorKey,
+    true,
+  );
+
   return (
-    <DropdownMenu.Root>
+    <DropdownMenu.Root
+      onOpenChange={() => {
+        setShowUnseenIndicator(false);
+      }}>
       <DropdownMenu.Trigger asChild={true}>
         <button
           aria-label="Select product"
@@ -79,7 +91,14 @@ export default function ProjectsSidebarProductMenu() {
             themeBackgroundElementPressedStateColor_Active,
           )}
           type="button">
-          <ProjectsLogo height={32} />
+          <div className="flex gap-1">
+            <ProjectsLogo height={32} />
+            {showUnseenIndicator && (
+              <span
+                className={clsx('size-2 bg-red rounded-full -translate-y-1/2')}
+              />
+            )}
+          </div>
           <RiArrowDownSLine
             className={clsx(
               'size-4 shrink-0',
