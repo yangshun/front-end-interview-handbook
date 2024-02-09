@@ -131,7 +131,7 @@ export default function SlideOut({
               </div>
               <div className={clsx('grow overflow-y-auto', padding && 'px-6')}>
                 <Section>
-                  <Text display="block" size="body2">
+                  <Text className="h-full" display="block" size="body2">
                     {children}
                   </Text>
                 </Section>
