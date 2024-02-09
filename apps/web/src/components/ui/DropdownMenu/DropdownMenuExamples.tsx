@@ -226,7 +226,11 @@ export default function DropdownMenuExamples() {
             <DropdownMenu.Item label="Japanese" />
           </DropdownMenu.Sub>
           <DropdownMenu.Item icon={RiSettings3Line} label="Settings" />
-          <DropdownMenu.Item icon={RiLogoutBoxLine} label="Log out" />
+          <DropdownMenu.Item
+            color="error"
+            icon={RiLogoutBoxLine}
+            label="Log out"
+          />
         </DropdownMenu>
       </div>
       <div>

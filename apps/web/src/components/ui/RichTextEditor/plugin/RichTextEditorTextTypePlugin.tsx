@@ -137,7 +137,6 @@ export default function RichTextEditorTextTypePlugin() {
           id: 'hYp7sF',
         })
       }
-      labelColor="inherit"
       size="xs"
       variant="tertiary">
       {typeOptions.map(({ label, value, icon }) => (

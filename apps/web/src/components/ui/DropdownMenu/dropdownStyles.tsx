@@ -19,7 +19,7 @@ export const dropdownContentClassName = clsx(
 );
 
 export const dropdownContentItemClassName = clsx(
-  'flex px-3 py-2',
+  'flex grow px-3 py-2',
   'w-full text-left',
   'rounded',
   'select-none outline-none',

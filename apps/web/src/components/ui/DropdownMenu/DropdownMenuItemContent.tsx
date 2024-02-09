@@ -1,0 +1,43 @@
+import clsx from 'clsx';
+import { RiArrowRightSLine } from 'react-icons/ri';
+
+import type { TextColor } from '../Text';
+import Text from '../Text';
+import { themeTextSubtleColor } from '../theme';
+
+type Props = Readonly<{
+  color?: TextColor;
+  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  isSelected?: boolean;
+  label: React.ReactNode;
+  usage?: 'item' | 'trigger';
+}>;
+
+export default function DropdownMenuItemContent({
+  color,
+  icon: Icon,
+  isSelected = false,
+  label,
+  usage = 'item',
+}: Props) {
+  return (
+    <Text
+      className="items-center gap-x-2 grow"
+      color={isSelected ? 'active' : color ?? 'secondary'}
+      display="flex"
+      size="body2">
+      {Icon && (
+        <Icon
+          className={clsx(
+            'size-4 shrink-0',
+            isSelected || color != null ? '' : themeTextSubtleColor,
+          )}
+        />
+      )}
+      {label}
+      {usage === 'trigger' && (
+        <RiArrowRightSLine className="size-4 shrink-0 ml-auto" />
+      )}
+    </Text>
+  );
+}

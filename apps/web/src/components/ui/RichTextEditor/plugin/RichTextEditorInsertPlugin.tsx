@@ -157,7 +157,6 @@ export default function RichTextEditorInsertPlugin({
         align="start"
         isDisabled={!editor.isEditable()}
         label="Insert"
-        labelColor="inherit"
         size="xs"
         variant="tertiary">
         {insertOptions.map(({ label, value, icon }) => (

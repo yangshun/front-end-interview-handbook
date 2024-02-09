@@ -1,14 +1,13 @@
 import clsx from 'clsx';
 import React from 'react';
-import { RiArrowRightSLine } from 'react-icons/ri';
 
+import type { Props as DropdownMenuItemProps } from './DropdownMenuItem';
+import DropdownMenuItemContent from './DropdownMenuItemContent';
 import {
   dropdownContentClassName,
   dropdownContentItemClassName,
 } from './dropdownStyles';
 import type { TextColor } from '../Text';
-import Text from '../Text';
-import { themeTextSubtleColor } from '../theme';
 
 import {
   Portal,
@@ -17,15 +16,10 @@ import {
   SubTrigger,
 } from '@radix-ui/react-dropdown-menu';
 
-export type DropdownMenuAlignment = 'center' | 'end' | 'start';
-export type DropdownMenuSize = 'md' | 'sm' | 'xs';
-export type DropdownMenuSide = 'bottom' | 'left' | 'right' | 'top';
-export type DropdownMenuVariant = 'secondary' | 'tertiary';
-export type DropdownLabelColor = 'default' | 'inherit';
+type ChildItem = React.ReactElement<DropdownMenuItemProps>;
 
-type Props = Readonly<{
-  // TODO: Change to strict children.
-  children: React.ReactNode;
+export type Props = Readonly<{
+  children: ChildItem | ReadonlyArray<ChildItem>;
   color?: TextColor;
   forceDark?: boolean;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
@@ -49,22 +43,13 @@ export default function DropdownMenuSub({
       <SubTrigger
         className={clsx(dropdownContentItemClassName)}
         onClick={onClick}>
-        <Text
-          className="items-center gap-x-2"
-          color={isSelected ? 'active' : color}
-          display="flex"
-          size="body2">
-          {Icon && (
-            <Icon
-              className={clsx(
-                'size-4 shrink-0',
-                !isSelected && themeTextSubtleColor,
-              )}
-            />
-          )}
-          {label}
-          <RiArrowRightSLine className="size-4 shrink-0 ml-auto" />
-        </Text>
+        <DropdownMenuItemContent
+          color={color}
+          icon={Icon}
+          isSelected={isSelected}
+          label={label}
+          usage="trigger"
+        />
       </SubTrigger>
       <Portal>
         <SubContent

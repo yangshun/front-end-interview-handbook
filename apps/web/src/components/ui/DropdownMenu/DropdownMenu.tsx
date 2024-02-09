@@ -1,33 +1,38 @@
 import React from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
+import type { Props as DropdownMenuItemProps } from './DropdownMenuItem';
 import DropdownMenuItem from './DropdownMenuItem';
+import type { Props as DropdownMenuSubProps } from './DropdownMenuSub';
 import DropdownMenuSub from './DropdownMenuSub';
 import { dropdownContentClassName } from './dropdownStyles';
 import Button from '../Button';
 
 import { Content, Portal, Root, Trigger } from '@radix-ui/react-dropdown-menu';
 
-export type DropdownMenuAlignment = 'center' | 'end' | 'start';
-export type DropdownMenuSize = 'md' | 'sm' | 'xs';
-export type DropdownMenuSide = 'bottom' | 'left' | 'right' | 'top';
-export type DropdownMenuVariant = 'secondary' | 'tertiary';
-export type DropdownLabelColor = 'default' | 'inherit';
+export type DropdownMenuTriggerLabelColor = 'default' | 'inherit';
+export type DropdownMenuTriggerSize = 'md' | 'sm' | 'xs';
+export type DropdownMenuTriggerVariant = 'secondary' | 'tertiary';
+
+export type DropdownMenuContentAlignment = 'center' | 'end' | 'start';
+export type DropdownMenuContentSide = 'bottom' | 'left' | 'right' | 'top';
+
+type ChildItem = React.ReactElement<
+  DropdownMenuItemProps | DropdownMenuSubProps
+>;
 
 type Props = Readonly<{
-  align?: DropdownMenuAlignment;
-  // TODO: Change to strict children.
-  children: React.ReactNode;
+  align?: DropdownMenuContentAlignment;
+  children: ChildItem | ReadonlyArray<ChildItem>;
   forceDark?: boolean;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isDisabled?: boolean;
   isLabelHidden?: boolean;
   label: string;
-  labelColor?: DropdownLabelColor;
   showChevron?: boolean;
-  side?: DropdownMenuSide;
-  size?: DropdownMenuSize;
-  variant?: DropdownMenuVariant;
+  side?: DropdownMenuContentSide;
+  size?: DropdownMenuTriggerSize;
+  variant?: DropdownMenuTriggerVariant;
 }>;
 
 DropdownMenu.Item = DropdownMenuItem;

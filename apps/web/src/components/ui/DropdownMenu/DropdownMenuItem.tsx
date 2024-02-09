@@ -1,15 +1,13 @@
-import clsx from 'clsx';
 import React from 'react';
 
+import DropdownMenuItemContent from './DropdownMenuItemContent';
 import { dropdownContentItemClassName } from './dropdownStyles';
 import Anchor from '../Anchor';
 import type { TextColor } from '../Text';
-import Text from '../Text';
-import { themeTextSubtleColor } from '../theme';
 
 import { Item } from '@radix-ui/react-dropdown-menu';
 
-type Props = Readonly<{
+export type Props = Readonly<{
   color?: TextColor;
   href?: string;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
@@ -19,7 +17,7 @@ type Props = Readonly<{
 }>;
 
 export default function DropdownMenuItem({
-  color = 'secondary',
+  color,
   href,
   icon: Icon,
   isSelected = false,
@@ -28,21 +26,12 @@ export default function DropdownMenuItem({
 }: Props) {
   const props = {
     children: (
-      <Text
-        className="items-center gap-x-2"
-        color={isSelected ? 'active' : color}
-        display="flex"
-        size="body2">
-        {Icon && (
-          <Icon
-            className={clsx(
-              'size-4 shrink-0',
-              !isSelected && themeTextSubtleColor,
-            )}
-          />
-        )}
-        {label}
-      </Text>
+      <DropdownMenuItemContent
+        color={color}
+        icon={Icon}
+        isSelected={isSelected}
+        label={label}
+      />
     ),
     className: dropdownContentItemClassName,
     onClick,

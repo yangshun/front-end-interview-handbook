@@ -104,7 +104,6 @@ export default function RichTextEditorSpecialCasePlugin() {
         description: 'Special case action for richtext editor toolbar',
         id: '/CfHhU',
       })}
-      labelColor="inherit"
       size="xs"
       variant="tertiary">
       {caseOptions.map(({ label, value, icon }) => (
