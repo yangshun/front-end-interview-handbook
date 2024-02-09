@@ -91,6 +91,9 @@ export const themeBackgroundElementPressedStateColor_Active = clsx(
   'active:bg-neutral-200 dark:active:bg-neutral-700',
 );
 
+// Fills
+export const themeFillBrandColor = clsx('fill-brand-dark dark:fill-brand');
+
 // Lines.
 export const themeBorderColor = clsx(
   'border-neutral-200 dark:border-neutral-800',
