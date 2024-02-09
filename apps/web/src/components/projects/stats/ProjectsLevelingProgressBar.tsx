@@ -32,7 +32,7 @@ export function ProjectsLevelingProgressBar({
             width: `${(currentRepCount / repTotal) * 100}%`,
           }}>
           <Tooltip
-            className="w-full !flex justify-end"
+            asChild={true}
             invert={true}
             label={
               <div className="flex gap-1">
@@ -53,11 +53,18 @@ export function ProjectsLevelingProgressBar({
                   />
                 </Text>
               </div>
-            }
-            style={{
-              width: `${(repIncrease / repTotal) * 100}%`,
-            }}>
-            <div className="size-full bg-success-dark dark:bg-success rounded-se-full rounded-ee-full" />
+            }>
+            <button
+              className={clsx(
+                'h-full rounded-e-full select-none touch-none',
+                'bg-success-dark dark:bg-success-light',
+              )}
+              disabled={true}
+              style={{
+                width: `${(repIncrease / repTotal) * 100}%`,
+              }}
+              type="button"
+            />
           </Tooltip>
         </div>
       </div>

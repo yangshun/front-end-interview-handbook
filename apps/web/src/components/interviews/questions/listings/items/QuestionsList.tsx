@@ -163,35 +163,36 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                 )}>
                 {question.premium && !userProfile?.isPremium ? (
                   <Tooltip
-                    alignment="start"
+                    asChild={true}
                     label={intl.formatMessage({
                       defaultMessage: 'Premium',
                       description: 'Tooltip for Premium questions label',
                       id: '55uCRp',
-                    })}
-                    position="above">
-                    <span
+                    })}>
+                    <button
                       className={clsx(
-                        'flex size-8 items-center justify-center rounded-full',
+                        'flex items-center justify-center rounded-full',
+                        'size-8',
+                        'relative',
                         'shiny',
                         'bg-brand-dark dark:bg-brand/20',
-                      )}>
+                      )}
+                      disabled={true}
+                      type="button">
                       <RiLockLine
                         aria-hidden={true}
                         className="size-4 shrink-0 text-white"
                       />
-                    </span>
+                    </button>
                   </Tooltip>
                 ) : hasCompletedQuestion ? (
                   mode === 'default' ? (
                     <Tooltip
-                      alignment="start"
                       label={intl.formatMessage({
                         defaultMessage: 'Completed',
                         description: 'Tooltip for Completed questions label',
                         id: 'aZqFm4',
-                      })}
-                      position="above">
+                      })}>
                       <RiCheckboxCircleFill
                         aria-hidden="true"
                         className={clsx(
@@ -202,13 +203,11 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     </Tooltip>
                   ) : (
                     <Tooltip
-                      alignment="start"
                       label={intl.formatMessage({
                         defaultMessage: 'Mark as not completed',
                         description: 'Tooltip to mark a button as incomplete',
                         id: 'pmgCza',
-                      })}
-                      position="above">
+                      })}>
                       <button
                         aria-label={intl.formatMessage({
                           defaultMessage: 'Mark as not completed',
@@ -233,13 +232,11 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                   )
                 ) : hasCompletedQuestionBefore ? (
                   <Tooltip
-                    alignment="start"
                     label={intl.formatMessage({
                       defaultMessage: 'Solved previously, mark as completed',
                       description: 'Label for questions solved in the past',
                       id: 'ghmPBf',
-                    })}
-                    position="above">
+                    })}>
                     <button
                       aria-label={intl.formatMessage({
                         defaultMessage: 'Solved previously, mark as completed',
@@ -258,13 +255,11 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                   </Tooltip>
                 ) : (
                   <Tooltip
-                    alignment="start"
                     label={intl.formatMessage({
                       defaultMessage: 'Not completed',
                       description: 'Tooltip for questions Not Completed label',
                       id: 'xAtvsP',
-                    })}
-                    position="above">
+                    })}>
                     {mode === 'default' && (
                       <span
                         className={clsx(
@@ -339,7 +334,11 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                   {question.excerpt}
                 </Text>
               )}
-              <div className="mt-2 flex flex-wrap items-center gap-x-8 gap-y-2">
+              <div
+                className={clsx(
+                  'mt-2 flex flex-wrap items-center gap-x-8 gap-y-2',
+                  'relative z-10',
+                )}>
                 <span className="inline-flex">
                   {primaryLabel === 'difficulty' && (
                     <QuestionDifficultyLabel

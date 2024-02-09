@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import React from 'react';
+import type { ForwardedRef } from 'react';
+import React, { forwardRef } from 'react';
 
 import {
   themeTextBrandColor,
@@ -87,17 +88,21 @@ const colorClasses: Record<TextColor, string> = {
   success: themeTextSuccessColor,
 };
 
-export default function Text({
-  children,
-  color = 'default',
-  className,
-  display = 'inline',
-  size = 'body1',
-  weight = 'normal',
-  ...props
-}: Props) {
+function Text(
+  {
+    children,
+    color = 'default',
+    className,
+    display = 'inline',
+    size = 'body1',
+    weight = 'normal',
+    ...props
+  }: Props,
+  ref: ForwardedRef<HTMLSpanElement>,
+) {
   return (
     <span
+      ref={ref}
       className={clsx(
         display === 'inline' || display === 'custom' ? null : display,
         weightClasses[weight],
@@ -110,3 +115,5 @@ export default function Text({
     </span>
   );
 }
+
+export default forwardRef(Text);

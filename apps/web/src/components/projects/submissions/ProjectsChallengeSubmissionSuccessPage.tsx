@@ -333,7 +333,6 @@ export default function ProjectsChallengeSubmissionSuccessPage({
               <ProjectsSegmentedProgressBar
                 className="flex-1"
                 currentSegmentCount={4}
-                segmentIncrease={1}
                 totalSegmentCount={11}
               />
             </div>
@@ -378,7 +377,6 @@ export default function ProjectsChallengeSubmissionSuccessPage({
               <ProjectsSegmentedProgressBar
                 className="flex-1"
                 currentSegmentCount={4}
-                segmentIncrease={1}
                 totalSegmentCount={11}
               />
             </div>

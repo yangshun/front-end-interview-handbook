@@ -131,7 +131,7 @@ export default function JavaScriptConsole({
               'Button tooltip to clear the console in the coding workspace',
             id: '5RlLAP',
           })}
-          tooltipPosition="end"
+          tooltipSide="right"
           variant="tertiary"
           onClick={() => {
             onClear();
@@ -222,7 +222,7 @@ export default function JavaScriptConsole({
               'Button label to show more settings for the console in the coding workspace',
             id: 'nSDLrS',
           })}
-          tooltipPosition="start"
+          tooltipSide="left"
           variant="tertiary"
           onClick={() => {
             setShowAdvancedOptions(!showAdvancedOptions);

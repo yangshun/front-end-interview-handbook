@@ -14,6 +14,7 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundChipColor,
+  themeIconColor,
   themeTextFainterColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
@@ -45,7 +46,7 @@ export default function QuestionFocusAreasSection({
         <div className="flex items-center gap-4">
           <Heading level="heading6">{sectionTitle}</Heading>
           <Tooltip label={sectionDescription}>
-            <RiQuestionFill className="size-6 text-neutral-300" />
+            <RiQuestionFill className={clsx('size-6', themeIconColor)} />
           </Tooltip>
         </div>
         {allFocusAreas.length > MAX_SHOWN && (
@@ -64,59 +65,54 @@ export default function QuestionFocusAreasSection({
         )}
       </div>
       <CardContainer className="@4xl:grid-cols-4 @md:grid-cols-2 grid grid-cols-1 grid-rows-1 gap-3 md:gap-4 lg:gap-6">
-        {focusAreas.map(
-          ({ href, name, type, shortDescription, questions }, index) => {
-            const Icon = getFocusAreaTheme(type).iconSolid;
+        {focusAreas.map(({ href, name, type, shortDescription, questions }) => {
+          const Icon = getFocusAreaTheme(type).iconSolid;
 
-            return (
-              <Anchor key={type} href={href} variant="unstyled">
-                <Card
-                  className="group/card relative isolate flex flex-col items-start gap-3 p-4"
-                  padding={false}>
-                  <div className="flex justify-between self-stretch">
-                    <span
-                      className={clsx(
-                        'inline-flex size-10 items-center justify-center rounded-md',
-                        themeBackgroundChipColor,
-                        themeTextSecondaryColor,
-                        'border border-transparent transition',
-                        'group-hover/card:border-brand-dark group-hover/card:text-brand-dark',
-                        'dark:group-hover/card:border-brand dark:group-hover/card:text-brand',
-                      )}>
-                      <Icon aria-hidden={true} className="size-6" />
-                    </span>
-                    <Tooltip
-                      alignment={
-                        index % MAX_SHOWN === MAX_SHOWN - 1 ? 'end' : undefined
-                      }
-                      invert={true}
-                      label={
-                        <div className="flex flex-col gap-y-1.5 font-medium">
-                          {shortDescription}
-                          <Divider />
-                          <QuestionCountLabel
-                            count={countNumberOfQuestionsInList(questions)}
-                            showIcon={true}
-                          />
-                        </div>
-                      }>
-                      <RiQuestionFill
-                        className={clsx('z-10 size-6', themeTextFainterColor)}
-                      />
-                    </Tooltip>
-                  </div>
-                  <Text
-                    className="w-full truncate"
-                    color="label"
-                    display="block"
-                    weight="medium">
-                    {name}
-                  </Text>
-                </Card>
-              </Anchor>
-            );
-          },
-        )}
+          return (
+            <Anchor key={type} href={href} variant="unstyled">
+              <Card
+                className="group/card relative isolate flex flex-col items-start gap-3 p-4"
+                padding={false}>
+                <div className="flex justify-between self-stretch">
+                  <span
+                    className={clsx(
+                      'inline-flex size-10 items-center justify-center rounded-md',
+                      themeBackgroundChipColor,
+                      themeTextSecondaryColor,
+                      'border border-transparent transition',
+                      'group-hover/card:border-brand-dark group-hover/card:text-brand-dark',
+                      'dark:group-hover/card:border-brand dark:group-hover/card:text-brand',
+                    )}>
+                    <Icon aria-hidden={true} className="size-6" />
+                  </span>
+                  <Tooltip
+                    invert={true}
+                    label={
+                      <div className="flex flex-col gap-y-1.5 font-medium">
+                        {shortDescription}
+                        <Divider />
+                        <QuestionCountLabel
+                          count={countNumberOfQuestionsInList(questions)}
+                          showIcon={true}
+                        />
+                      </div>
+                    }>
+                    <RiQuestionFill
+                      className={clsx('z-10 size-6', themeIconColor)}
+                    />
+                  </Tooltip>
+                </div>
+                <Text
+                  className="w-full truncate"
+                  color="label"
+                  display="block"
+                  weight="medium">
+                  {name}
+                </Text>
+              </Card>
+            </Anchor>
+          );
+        })}
       </CardContainer>
     </div>
   );

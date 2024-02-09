@@ -3,8 +3,10 @@ import clsx from 'clsx';
 import Tooltip from '~/components/ui/Tooltip';
 
 import {
+  themeBackgroundElementEmphasizedStateColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
+  themeTextBrandColor,
 } from '../../theme';
 
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
@@ -14,7 +16,7 @@ type ActionNodeProps = Readonly<{
   isActive?: boolean;
   isDisabled?: boolean;
   onClick?: () => void;
-  tooltipLabel?: string;
+  tooltipLabel: string;
 }>;
 
 export default function RichTextEditorToolbarActionNode({
@@ -28,11 +30,12 @@ export default function RichTextEditorToolbarActionNode({
 
   const node = (
     <button
+      aria-label={tooltipLabel}
       className={clsx(
         'p-1.5',
         'rounded-full',
-        isActive && 'text-brand-dark dark:text-brand',
-        isActive && 'bg-neutral-100 dark:bg-neutral-800/70',
+        isActive && themeTextBrandColor,
+        isActive && themeBackgroundElementEmphasizedStateColor,
         'disabled:text-neutral-300 dark:disabled:text-neutral-700',
         'disabled:cursor-not-allowed',
         themeBackgroundElementEmphasizedStateColor_Hover,
@@ -45,11 +48,9 @@ export default function RichTextEditorToolbarActionNode({
     </button>
   );
 
-  return tooltipLabel && !isDisabled ? (
-    <Tooltip label={tooltipLabel} position="above">
+  return (
+    <Tooltip asChild={true} label={tooltipLabel} side="top">
       {node}
     </Tooltip>
-  ) : (
-    node
   );
 }

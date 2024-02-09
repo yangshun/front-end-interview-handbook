@@ -34,7 +34,7 @@ export default function QuestionAuthor({ author, size = 'body3' }: Props) {
       </span>
       <div aria-labelledby={id} className="flex items-center gap-x-3">
         <div>
-          <Tooltip label={label} position="above">
+          <Tooltip label={label}>
             <img
               alt={authorData.name}
               className="inline-block size-8 rounded-full"

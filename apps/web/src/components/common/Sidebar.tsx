@@ -258,7 +258,7 @@ export default function Sidebar({
             );
 
             return isCollapsed ? (
-              <Tooltip key={item.name} label={item.name} position="end">
+              <Tooltip key={item.name} label={item.name} side="right">
                 {link}
               </Tooltip>
             ) : (
@@ -290,7 +290,7 @@ export default function Sidebar({
                       <Tooltip
                         className="w-full"
                         label={item.name}
-                        position="end">
+                        side="right">
                         {button}
                       </Tooltip>
                     )}
@@ -387,7 +387,7 @@ export default function Sidebar({
               isLabelHidden={true}
               label={collapseButtonLabel}
               tooltip={isCollapsed ? collapseButtonLabel : undefined}
-              tooltipPosition="end"
+              tooltipSide="right"
               variant="secondary"
               onClick={() => onCollapseChange()}
             />

@@ -22,10 +22,7 @@ export default function BlogMoreTagLabel({
   moreTags = [],
 }: Props) {
   return (
-    <Tooltip
-      className="inline-flex"
-      label={moreTags.join(', ')}
-      position="above">
+    <Tooltip className="inline-flex" label={moreTags.join(', ')}>
       <span
         className={clsx(
           'relative inline-flex items-center whitespace-nowrap rounded-full border border-neutral-700 bg-neutral-200 py-px font-medium dark:border-neutral-300 dark:bg-neutral-600',

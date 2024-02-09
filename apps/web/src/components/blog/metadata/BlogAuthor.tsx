@@ -33,7 +33,7 @@ export default function BlogAuthor({ metadata }: Props) {
         {label}
       </span>
       <div aria-labelledby={id} className="flex items-center gap-x-3">
-        <Tooltip label={label} position="above">
+        <Tooltip label={label}>
           <img
             alt={author.name}
             className="!m-0 size-8 rounded-full"

@@ -209,7 +209,7 @@ function SidebarLinkButton({
   );
 
   return isLabelHidden ? (
-    <Tooltip label={label} position="end">
+    <Tooltip label={label} side="right">
       {link}
     </Tooltip>
   ) : (
@@ -383,7 +383,7 @@ function ProjectsSidebarCollapsed({
             label="Notifications"
             size="sm"
             tooltip="Notifications"
-            tooltipPosition="end"
+            tooltipSide="right"
             variant="secondary"
           />
           <DropdownMenu
@@ -424,7 +424,7 @@ function ProjectsSidebarCollapsed({
           label="Expand sidebar"
           size="sm"
           tooltip="Expand sidebar"
-          tooltipPosition="end"
+          tooltipSide="right"
           variant="secondary"
           onClick={onCollapseClick}
         />

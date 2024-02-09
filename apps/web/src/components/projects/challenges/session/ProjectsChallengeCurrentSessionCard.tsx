@@ -211,7 +211,7 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
                   'Tooltip for "End session" button on current project session card',
                 id: 'L4W5rT',
               })}
-              tooltipPosition="below"
+              tooltipSide="bottom"
               variant="danger"
               onClick={() => {
                 setShowEndSessionDialog(true);

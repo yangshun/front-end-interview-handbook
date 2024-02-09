@@ -4,7 +4,7 @@ import { RiArrowRightLine, RiDownload2Line } from 'react-icons/ri';
 import type { ButtonSize, ButtonVariant } from './Button';
 import Button from './Button';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
-import type { TooltipPosition } from '../Tooltip/Tooltip';
+import type { TooltipContentSide } from '../Tooltip/Tooltip';
 
 const sizes: ReadonlyArray<ButtonSize> = ['xs', 'sm', 'md', 'lg'];
 const variants: ReadonlyArray<ButtonVariant> = [
@@ -15,11 +15,11 @@ const variants: ReadonlyArray<ButtonVariant> = [
   'danger',
   'special',
 ];
-const tooltipPositions: ReadonlyArray<TooltipPosition> = [
-  'above',
-  'below',
-  'start',
-  'end',
+const tooltipSides: ReadonlyArray<TooltipContentSide> = [
+  'top',
+  'bottom',
+  'left',
+  'right',
 ];
 
 export default function ButtonExamples() {
@@ -132,13 +132,13 @@ export default function ButtonExamples() {
         ))}
       </div>
       <div className="space-x-4">
-        {tooltipPositions.map((position) => (
+        {tooltipSides.map((side) => (
           <Button
-            key={position}
-            label={`Tooltip ${position}`}
+            key={side}
+            label={`Tooltip ${side}`}
             size="md"
             tooltip="Hello World"
-            tooltipPosition={position}
+            tooltipSide={side}
             variant="primary"
           />
         ))}

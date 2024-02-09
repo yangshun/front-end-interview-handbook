@@ -57,7 +57,7 @@ export default function QuestionImportanceLabel({
   });
 
   return (
-    <Tooltip label={label} position="above">
+    <Tooltip label={label}>
       <span className="sr-only">{label}</span>
       <div aria-labelledby={id} className="flex items-center gap-x-1.5">
         {showIcon && (

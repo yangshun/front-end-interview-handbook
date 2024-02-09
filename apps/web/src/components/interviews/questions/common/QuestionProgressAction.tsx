@@ -120,7 +120,7 @@ export default function QuestionProgressAction({
           description: 'Mark the question as incomplete',
           id: 'i7u7fD',
         })}
-        tooltipPosition="above"
+        tooltipSide="top"
         variant="success"
         onClick={() => {
           deleteProgressMutation.mutate(

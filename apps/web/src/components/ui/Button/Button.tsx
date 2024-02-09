@@ -18,9 +18,8 @@ import {
 
 import Anchor from '../Anchor';
 import Spinner from '../Spinner';
-import type { TooltipPosition } from '../Tooltip';
+import type { TooltipContentAlignment, TooltipContentSide } from '../Tooltip';
 import Tooltip from '../Tooltip';
-import type { TooltipAlignment } from '../Tooltip/Tooltip';
 
 export type ButtonDisplay = 'block' | 'inline';
 export type ButtonSize = 'lg' | 'md' | 'sm' | 'xs';
@@ -53,8 +52,8 @@ export type Props = Readonly<{
   size?: ButtonSize;
   target?: HTMLAttributeAnchorTarget;
   tooltip?: ReactNode;
-  tooltipAlignment?: TooltipAlignment;
-  tooltipPosition?: TooltipPosition;
+  tooltipAlign?: TooltipContentAlignment;
+  tooltipSide?: TooltipContentSide;
   type?: 'button' | 'submit';
   variant: ButtonVariant;
 }>;
@@ -215,8 +214,8 @@ function Button(
     size = 'sm',
     target,
     tooltip,
-    tooltipAlignment,
-    tooltipPosition,
+    tooltipAlign,
+    tooltipSide,
     type = 'button',
     variant,
     onClick,
@@ -297,9 +296,10 @@ function Button(
     el
   ) : (
     <Tooltip
-      alignment={tooltipAlignment}
+      align={tooltipAlign}
+      asChild={true}
       label={tooltip}
-      position={tooltipPosition}>
+      side={tooltipSide}>
       {el}
     </Tooltip>
   );

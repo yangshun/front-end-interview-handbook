@@ -1,21 +1,23 @@
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { RiAlignCenter, RiAlignLeft, RiAlignRight } from 'react-icons/ri';
 
 import Tooltip from './Tooltip';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
-import Text from '../Text';
 
 function Box({
   children,
   className,
+  ...props
 }: Readonly<{ children: ReactNode; className?: string }>) {
   return (
     <div
       className={clsx(
-        'flex size-16 rounded bg-neutral-200 p-2 dark:bg-neutral-800',
+        'flex size-16 rounded p-2',
+        'bg-neutral-200 dark:bg-neutral-800',
         className,
-      )}>
+      )}
+      {...props}>
       {children}
     </div>
   );
@@ -29,95 +31,95 @@ export default function TooltipExamples() {
   return (
     <UIExamplesGroup darkMode="horizontal" gapSize="lg" title="Tooltip">
       <div className="flex gap-8">
-        <Tooltip label={shortLabel} position="above">
-          <Text>Tooltip above</Text>
+        <Tooltip label={shortLabel} side="top">
+          Tooltip top
         </Tooltip>
-        <Tooltip label={shortLabel} position="below">
-          <Text>Tooltip below</Text>
+        <Tooltip label={shortLabel} side="bottom">
+          Tooltip bottom
         </Tooltip>
-        <Tooltip label={shortLabel} position="start">
-          <Text>Tooltip left</Text>
+        <Tooltip label={shortLabel} side="left">
+          Tooltip left
         </Tooltip>
-        <Tooltip label={shortLabel} position="end">
-          <Text>Tooltip right</Text>
-        </Tooltip>
-      </div>
-      <div className="flex gap-8">
-        <Tooltip label={shortLabel} position="above">
-          <Text>Short label</Text>
-        </Tooltip>
-        <Tooltip label={longLabel} position="above">
-          <Text>Long label</Text>
+        <Tooltip label={shortLabel} side="right">
+          Tooltip right
         </Tooltip>
       </div>
       <div className="flex gap-8">
-        <Tooltip label={longLabel} position="above" size="md">
-          <Text>Medium label</Text>
+        <Tooltip label={shortLabel} side="top">
+          Short label
         </Tooltip>
-        <Tooltip label={longLabel} position="above" size="sm">
-          <Text>Small label</Text>
+        <Tooltip label={longLabel} side="top">
+          Long label
+        </Tooltip>
+      </div>
+      <div className="flex gap-8">
+        <Tooltip label={longLabel} side="top" size="md">
+          Medium label
+        </Tooltip>
+        <Tooltip label={longLabel} side="top" size="sm">
+          Small label
         </Tooltip>
       </div>
       <div className="flex flex-col gap-8">
         <div className="flex gap-8">
-          <Tooltip alignment="start" label="Top + Start" position="above">
+          <Tooltip align="start" label="Top + Start" side="top">
             <Box className="items-top justify-start">
               <RiAlignLeft className="size-4" />
             </Box>
           </Tooltip>
-          <Tooltip label="Top + Center" position="above">
+          <Tooltip label="Top + Center" side="top">
             <Box className="items-top justify-center">
               <RiAlignCenter className="size-4" />
             </Box>
           </Tooltip>
-          <Tooltip alignment="end" label="Top + End" position="above">
+          <Tooltip align="end" label="Top + End" side="top">
             <Box className="items-top justify-end">
               <RiAlignRight className="size-4" />
             </Box>
           </Tooltip>
-          <Tooltip alignment="start" label="Bottom + Start" position="below">
+          <Tooltip align="start" label="Bottom + Start" side="bottom">
             <Box className="items-end justify-start">
               <RiAlignLeft className="size-4" />
             </Box>
           </Tooltip>
-          <Tooltip label="Bottom + Center" position="below">
+          <Tooltip label="Bottom + Center" side="bottom">
             <Box className="items-end justify-center">
               <RiAlignCenter className="size-4" />
             </Box>
           </Tooltip>
-          <Tooltip alignment="end" label="Bottom + End" position="below">
+          <Tooltip align="end" label="Bottom + End" side="bottom">
             <Box className="items-end justify-end">
               <RiAlignRight className="size-4" />
             </Box>
           </Tooltip>
         </div>
         <div className="flex gap-8">
-          <Tooltip alignment="top" label={shortLabel} position="start">
+          <Tooltip align="start" label="Left + Start" side="left">
             <Box className="items-start justify-start">
               <RiAlignRight className="size-4 -rotate-90" />
             </Box>
           </Tooltip>
-          <Tooltip label={shortLabel} position="start">
+          <Tooltip label="Left + Center" side="left">
             <Box className="items-center justify-start">
               <RiAlignCenter className="size-4 -rotate-90" />
             </Box>
           </Tooltip>
-          <Tooltip alignment="bottom" label={shortLabel} position="start">
+          <Tooltip align="end" label="Left + End" side="left">
             <Box className="items-end justify-start">
               <RiAlignLeft className="size-4 -rotate-90" />
             </Box>
           </Tooltip>
-          <Tooltip alignment="top" label={shortLabel} position="end">
+          <Tooltip align="start" label="Right + Start" side="right">
             <Box className="items-start justify-end">
               <RiAlignLeft className="size-4 rotate-90" />
             </Box>
           </Tooltip>
-          <Tooltip label={shortLabel} position="end">
+          <Tooltip label="Right + Center" side="right">
             <Box className="items-center justify-end">
               <RiAlignCenter className="size-4 rotate-90" />
             </Box>
           </Tooltip>
-          <Tooltip alignment="bottom" label={shortLabel} position="end">
+          <Tooltip align="end" label="Right + End" side="right">
             <Box className="items-end justify-end">
               <RiAlignRight className="size-4 rotate-90" />
             </Box>

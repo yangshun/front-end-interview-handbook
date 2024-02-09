@@ -26,7 +26,6 @@ export default function CodingWorkspaceResetButton({ onClick }: Props) {
           'Tooltip for button that allows users to reset their coding workspace to the initial code',
         id: 'gopXdP',
       })}
-      tooltipPosition="above"
       variant="tertiary"
       onClick={onClick}
     />

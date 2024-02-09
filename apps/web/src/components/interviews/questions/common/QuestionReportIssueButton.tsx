@@ -6,7 +6,7 @@ import FeedbackDialog from '~/components/global/feedback/FeedbackDialog';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
-import type { TooltipPosition } from '~/components/ui/Tooltip';
+import type { TooltipContentSide } from '~/components/ui/Tooltip';
 
 import type { QuestionFormat } from './QuestionsTypes';
 
@@ -15,7 +15,7 @@ type Props = Readonly<{
   isLabelHidden?: boolean;
   showTooltip?: boolean;
   title: string;
-  tooltipPosition?: TooltipPosition;
+  tooltipSide?: TooltipContentSide;
 }>;
 
 // https://github.com/greatfrontend/greatfrontend/labels
@@ -31,7 +31,7 @@ export default function QuestionReportIssueButton({
   format,
   showTooltip = true,
   title,
-  tooltipPosition = 'above',
+  tooltipSide = 'top',
 }: Props) {
   const intl = useIntl();
   const [isOpen, setIsOpen] = useState(false);
@@ -58,7 +58,7 @@ export default function QuestionReportIssueButton({
               })
             : undefined
         }
-        tooltipPosition={showTooltip ? tooltipPosition : undefined}
+        tooltipSide={showTooltip ? tooltipSide : undefined}
         variant="secondary"
         onClick={() => setIsOpen(true)}
       />

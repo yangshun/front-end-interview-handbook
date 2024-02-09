@@ -9,7 +9,6 @@ import Tooltip from '~/components/ui/Tooltip';
 type Props = Readonly<{
   className?: string;
   currentSegmentCount: number;
-  segmentIncrease: number;
   totalSegmentCount: number;
 }>;
 
@@ -17,9 +16,8 @@ export function ProjectsSegmentedProgressBar({
   className,
   currentSegmentCount,
   totalSegmentCount,
-  segmentIncrease,
 }: Props) {
-  const existingSegmentCount = currentSegmentCount - segmentIncrease;
+  const existingSegmentCount = currentSegmentCount - 1;
   const remainingSegmentCount = totalSegmentCount - currentSegmentCount;
 
   return (
@@ -28,10 +26,14 @@ export function ProjectsSegmentedProgressBar({
         {Array.from({ length: existingSegmentCount }, (_, i) => (
           <div
             key={i}
-            className="bg-success-light dark:bg-success-dark flex-1 h-2"
+            className={clsx(
+              'flex-1 h-full',
+              'bg-success-light dark:bg-success-dark',
+            )}
           />
         ))}
         <Tooltip
+          asChild={true}
           invert={true}
           label={
             <Text size="body2">
@@ -45,25 +47,27 @@ export function ProjectsSegmentedProgressBar({
                       {chunks}
                     </Text>
                   ),
-                  count: segmentIncrease,
+                  count: 1,
                 }}
               />
             </Text>
-          }
-          style={{
-            flex: `${segmentIncrease} 0 0`,
-          }}>
-          {Array.from({ length: segmentIncrease }, (_, i) => (
-            <div
-              key={i}
-              className="bg-success-dark dark:bg-success-light flex-1 h-2"
-            />
-          ))}
+          }>
+          <button
+            className={clsx(
+              'flex-1 h-full select-none touch-none',
+              'bg-success-dark dark:bg-success-light',
+            )}
+            disabled={true}
+            type="button"
+          />
         </Tooltip>
         {Array.from({ length: remainingSegmentCount }, (_, i) => (
           <div
             key={i}
-            className="bg-neutral-200 dark:bg-neutral-700 flex-1 h-2"
+            className={clsx(
+              'flex-1 h-full',
+              'bg-neutral-200 dark:bg-neutral-700',
+            )}
           />
         ))}
       </div>

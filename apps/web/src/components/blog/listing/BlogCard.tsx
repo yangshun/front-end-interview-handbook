@@ -89,7 +89,11 @@ export default function BlogCard({
             </Text>
           )}
         </div>
-        <div className="flex items-center gap-x-6 gap-y-2 flex-wrap w-full">
+        <div
+          className={clsx(
+            'flex items-center gap-x-6 gap-y-2 flex-wrap w-full',
+            'relative z-10',
+          )}>
           {type === 'wide' && (
             <BlogLevelLabel showIcon={true} value={metadata.level} />
           )}

@@ -73,8 +73,7 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
                     defaultMessage: 'Premium User',
                     description: 'Tooltip for premium icon',
                     id: 'QYVlxD',
-                  })}
-                  position="above">
+                  })}>
                   <Chip
                     icon={RiStarSmileFill}
                     isLabelHidden={true}
@@ -93,8 +92,7 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
                       defaultMessage: 'View Github profile',
                       description: 'Tooltip for github profile icon',
                       id: '9WoF/6',
-                    })}
-                    position="above">
+                    })}>
                     <a href={profile.githubUsername}>
                       <span className="sr-only">Github</span>
                       <RiGithubFill aria-hidden="true" className="size-5" />
@@ -107,8 +105,7 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
                       defaultMessage: 'View LinkedIn profile',
                       description: 'Tooltip for LinkedIn profile icon',
                       id: 'Xq6/V6',
-                    })}
-                    position="above">
+                    })}>
                     <a href={profile.linkedInUsername}>
                       <span className="sr-only">LinkedIn</span>
                       <RiLinkedinBoxFill

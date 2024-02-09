@@ -40,7 +40,6 @@ export default function JavaScriptCodingWorkspaceBottomBar({
           label="Run"
           size="xs"
           tooltip="Run test cases (customizable)"
-          tooltipPosition="above"
           variant="secondary"
           onClick={() => {
             logEvent('question.run', {
@@ -58,7 +57,6 @@ export default function JavaScriptCodingWorkspaceBottomBar({
           label="Submit"
           size="xs"
           tooltip="Runs submission test cases and marks complete"
-          tooltipPosition="above"
           variant="primary"
           onClick={() => {
             logEvent('question.submit', {

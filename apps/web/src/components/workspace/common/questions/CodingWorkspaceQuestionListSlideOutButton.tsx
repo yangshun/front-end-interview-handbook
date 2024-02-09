@@ -93,7 +93,6 @@ export default function CodingWorkspaceQuestionListSlideOutButton({
           label="Previous question"
           size="xs"
           tooltip="Previous question"
-          tooltipPosition="above"
           variant="secondary"
         />
         <Button
@@ -114,7 +113,6 @@ export default function CodingWorkspaceQuestionListSlideOutButton({
           label="Next question"
           size="xs"
           tooltip="Next question"
-          tooltipPosition="above"
           variant="secondary"
         />
       </div>

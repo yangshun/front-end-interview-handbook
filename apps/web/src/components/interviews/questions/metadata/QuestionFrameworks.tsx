@@ -46,8 +46,7 @@ export default function QuestionFrameworks({ frameworks }: Props) {
               {
                 frameworkLabel: questionTechnologyLists[framework].name,
               },
-            )}
-            position="above">
+            )}>
             <Anchor
               aria-label={questionTechnologyLists[framework].name}
               href={href}

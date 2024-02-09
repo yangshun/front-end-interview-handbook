@@ -40,7 +40,7 @@ export default function BlogCountLabel({
         });
 
   return (
-    <Tooltip label={label} position="above">
+    <Tooltip label={label}>
       <span className="sr-only" id={id}>
         {label}
       </span>
