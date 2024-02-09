@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["views"]
 }
 
 datasource db {
@@ -236,9 +237,10 @@ model ProjectsChallengeSubmission {
   updatedAt DateTime @default(now()) @updatedAt
   editedAt  DateTime @default(now()) @db.Timestamptz(6) // Manually edited by the user.
 
-  projectsProfile ProjectsProfile?                  @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  projectsProfile ProjectsProfile?                           @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   votes           ProjectsChallengeSubmissionVote[]
   pins            ProjectsChallengeSubmissionPin[]
+  recommendation  ProjectsChallengeSubmissionRecommendation?
 }
 
 model ProjectsChallengeSubmissionPin {
@@ -312,4 +314,11 @@ model RewardsTaskCompletion {
   createdAt DateTime @default(now()) @db.Timestamptz(6)
 
   @@unique([userId, campaign, action])
+}
+
+view ProjectsChallengeSubmissionRecommendation {
+  id    String @id @db.Uuid
+  score Int?
+
+  submission ProjectsChallengeSubmission @relation(fields: [id], references: [id])
 }
