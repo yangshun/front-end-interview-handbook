@@ -45,7 +45,7 @@ function ProjectsSidebarProductMenuItem({
       )}>
       <Anchor aria-label={label} href={href} variant="unstyled">
         <div className="flex justify-between">
-          <Logo height={28} />
+          <Logo height={32} />
           {beta && (
             <span>
               <Badge label="Beta" size="sm" variant="primary" />
