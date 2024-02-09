@@ -1,20 +1,23 @@
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
-import React, { Fragment } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
 import { useGuidesData } from '~/data/Guides';
 
+import Anchor from '~/components/ui/Anchor';
+import {
+  dropdownContentClassName,
+  dropdownContentItemClassName,
+} from '~/components/ui/DropdownMenu/dropdownStyles';
 import {
   themeBorderElementColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
+  themeTextBrandColor,
 } from '~/components/ui/theme';
 
-import GuidesDropdownMenuItem from './GuidesDropdownMenuItem';
 import Text from '../ui/Text';
 import {
-  themeBackgroundColor,
   themeBackgroundEmphasized,
   themeBackgroundLayerEmphasized,
   themeBackgroundLayerEmphasized_Hover,
@@ -22,22 +25,15 @@ import {
   themeTextSecondaryColor,
 } from '../ui/theme';
 
-import { Menu, Transition } from '@headlessui/react';
+import {
+  Content,
+  Item,
+  Portal,
+  Root,
+  Trigger,
+} from '@radix-ui/react-dropdown-menu';
 
-export type DropdownMenuAlignment = 'end' | 'start';
-export type DropdownMenuSize = 'md' | 'sm' | 'xs';
-
-type Props = Readonly<{
-  align?: DropdownMenuAlignment;
-  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  isLabelHidden?: boolean;
-  showChevron?: boolean;
-}>;
-
-export default function GuidesDropdownMenu({
-  isLabelHidden = false,
-  showChevron = true,
-}: Props) {
+export default function GuidesDropdownMenu() {
   const guidesData = useGuidesData();
   const guides = [
     guidesData['front-end-interview-guidebook'],
@@ -55,79 +51,85 @@ export default function GuidesDropdownMenu({
   const label = selectedGuide.shortName;
 
   return (
-    <Menu as="div" className="relative inline-block w-full shrink-0">
-      <div className="flex w-full">
-        <Menu.Button
-          aria-label={isLabelHidden ? label : undefined}
-          className={clsx(
-            'group inline-flex flex-1 items-center justify-between gap-2',
-            'rounded',
-            'transition-colors',
-            ['border', themeBorderElementColor],
-            [
-              themeOutlineElement_FocusVisible,
-              themeOutlineElementBrandColor_FocusVisible,
-            ],
-            'px-3 py-1.5',
-            themeGlassyBorder,
-            themeBackgroundEmphasized,
-            themeBackgroundLayerEmphasized_Hover,
-          )}>
-          <div className="flex items-center gap-2">
-            <div
-              className={clsx(
-                'flex size-6 flex-shrink-0 items-center justify-center rounded-full',
-                themeGlassyBorder,
-                themeBackgroundLayerEmphasized,
-              )}>
-              <Icon className="size-3" />
-            </div>
-            <Text
-              className="line-clamp-1 text-ellipsis text-left"
-              size="body2"
-              weight="bold">
-              {label}
-            </Text>
+    <Root>
+      <Trigger
+        className={clsx(
+          'group inline-flex flex-1 items-center justify-between gap-2',
+          'rounded',
+          'transition-colors',
+          ['border', themeBorderElementColor],
+          [
+            themeOutlineElement_FocusVisible,
+            themeOutlineElementBrandColor_FocusVisible,
+          ],
+          'px-3 py-1.5',
+          themeGlassyBorder,
+          themeBackgroundEmphasized,
+          themeBackgroundLayerEmphasized_Hover,
+        )}>
+        <div className="flex items-center gap-2">
+          <div
+            className={clsx(
+              'flex size-6 flex-shrink-0 items-center justify-center rounded-full',
+              themeGlassyBorder,
+              themeBackgroundLayerEmphasized,
+            )}>
+            <Icon className="size-3" />
           </div>
-          {showChevron && (
-            <RiArrowDownSLine
-              aria-hidden="true"
-              className={clsx('size-4 flex-shrink-0', themeTextSecondaryColor)}
-            />
-          )}
-        </Menu.Button>
-      </div>
-      <Transition
-        as={Fragment}
-        enter="transition ease-out duration-100"
-        enterFrom="transform opacity-0 scale-95"
-        enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95">
-        <Menu.Items
-          className={clsx(
-            'absolute z-10 mt-2 w-64',
-            'rounded-md',
-            themeBackgroundColor,
-            ['border', 'border-transparent dark:border-neutral-700'],
-            'shadow-lg',
-            'ring-brand ring-1 ring-opacity-5 focus:outline-none',
-          )}>
-          <Text className="p-2" display="block">
-            {Object.values(guides).map(({ key, href, shortName, icon }) => (
-              <GuidesDropdownMenuItem
-                key={key}
-                href={href}
-                icon={icon}
-                isSelected={pathname ? href.startsWith(pathname) : false}
-                label={shortName}
-                onClick={() => {}}
-              />
-            ))}
+          <Text
+            className="line-clamp-1 text-ellipsis text-left"
+            size="body2"
+            weight="bold">
+            {label}
           </Text>
-        </Menu.Items>
-      </Transition>
-    </Menu>
+        </div>
+        <RiArrowDownSLine
+          aria-hidden="true"
+          className={clsx('size-4 flex-shrink-0', themeTextSecondaryColor)}
+        />
+      </Trigger>
+      <Portal>
+        <Content
+          align="start"
+          className={dropdownContentClassName}
+          sideOffset={8}>
+          {Object.values(guides).map(
+            ({ key, href, shortName, icon: ItemIcon }) => {
+              const isSelected = pathname ? href.startsWith(pathname) : false;
+
+              return (
+                <Item key={key} asChild={true}>
+                  <Anchor
+                    className={clsx(dropdownContentItemClassName, 'gap-2')}
+                    href={href}
+                    variant="unstyled">
+                    <div
+                      className={clsx(
+                        'flex shrink-0 items-center justify-center',
+                        'rounded-full',
+                        'size-6',
+                        themeGlassyBorder,
+                        themeBackgroundLayerEmphasized,
+                        isSelected
+                          ? themeTextBrandColor
+                          : themeTextSecondaryColor,
+                      )}>
+                      <ItemIcon className="size-4" />
+                    </div>
+                    <Text
+                      color={isSelected ? 'active' : 'default'}
+                      display="block"
+                      size="body2"
+                      weight="bold">
+                      {shortName}
+                    </Text>
+                  </Anchor>
+                </Item>
+              );
+            },
+          )}
+        </Content>
+      </Portal>
+    </Root>
   );
 }

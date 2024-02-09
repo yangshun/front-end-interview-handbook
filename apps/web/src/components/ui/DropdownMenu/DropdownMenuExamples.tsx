@@ -15,6 +15,8 @@ import {
   RiTranslate2,
 } from 'react-icons/ri';
 
+import GuidesDropdownMenu from '~/components/guides/GuidesDropdownMenu';
+
 import DropdownMenu from './DropdownMenu';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 
@@ -226,6 +228,9 @@ export default function DropdownMenuExamples() {
           <DropdownMenu.Item icon={RiSettings3Line} label="Settings" />
           <DropdownMenu.Item icon={RiLogoutBoxLine} label="Log out" />
         </DropdownMenu>
+      </div>
+      <div>
+        <GuidesDropdownMenu />
       </div>
     </UIExamplesGroup>
   );
