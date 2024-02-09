@@ -22,9 +22,9 @@ type ChildItem = React.ReactElement<
 >;
 
 type Props = Readonly<{
+  __forceDark?: boolean;
   align?: DropdownMenuContentAlignment;
   children: ChildItem | ReadonlyArray<ChildItem>;
-  forceDark?: boolean;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isDisabled?: boolean;
   isLabelHidden?: boolean;
@@ -39,9 +39,9 @@ DropdownMenu.Item = DropdownMenuItem;
 DropdownMenu.Sub = DropdownMenuSub;
 
 export default function DropdownMenu({
+  __forceDark = false,
   align = 'start',
   children,
-  forceDark = false,
   icon: Icon,
   isDisabled = false,
   isLabelHidden = false,
@@ -70,7 +70,7 @@ export default function DropdownMenu({
         <Content
           align={align}
           className={dropdownContentClassName}
-          data-mode={forceDark ? 'dark' : undefined}
+          data-mode={__forceDark ? 'dark' : undefined}
           side={side}
           sideOffset={8}>
           {children}

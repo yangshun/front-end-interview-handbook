@@ -14,9 +14,9 @@ export type PopoverContentWidth = 'lg' | 'md' | 'sm';
 export type PopoverContentSide = 'bottom' | 'left' | 'right' | 'top';
 
 type Props = Readonly<{
+  __forceDark?: boolean;
   align?: PopoverContentAlignment;
   children: React.ReactNode;
-  forceDark?: boolean;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isDisabled?: boolean;
   isLabelHidden?: boolean;
@@ -34,9 +34,9 @@ const panelWidthClasses: Record<PopoverContentWidth, string> = {
 };
 
 export default function Popover({
+  __forceDark = false,
   align = 'start',
   children,
-  forceDark = false,
   icon: Icon,
   isDisabled = false,
   isLabelHidden = false,
@@ -62,7 +62,7 @@ export default function Popover({
         <Content
           align={align}
           className={clsx(popoverContentClassName, panelWidthClasses[width])}
-          data-mode={forceDark ? 'dark' : undefined}
+          data-mode={__forceDark ? 'dark' : undefined}
           side={side}
           sideOffset={8}>
           {children}

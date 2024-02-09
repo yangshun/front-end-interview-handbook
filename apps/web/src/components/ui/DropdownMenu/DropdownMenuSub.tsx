@@ -19,9 +19,9 @@ import {
 type ChildItem = React.ReactElement<DropdownMenuItemProps>;
 
 export type Props = Readonly<{
+  __forceDark?: boolean;
   children: ChildItem | ReadonlyArray<ChildItem>;
   color?: TextColor;
-  forceDark?: boolean;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isDisabled?: boolean;
   isSelected?: boolean;
@@ -30,9 +30,9 @@ export type Props = Readonly<{
 }>;
 
 export default function DropdownMenuSub({
-  color = 'secondary',
+  __forceDark = false,
+  color,
   children,
-  forceDark = false,
   icon: Icon,
   isSelected = false,
   label,
@@ -54,7 +54,7 @@ export default function DropdownMenuSub({
       <Portal>
         <SubContent
           className={dropdownContentClassName}
-          data-mode={forceDark ? 'dark' : undefined}>
+          data-mode={__forceDark ? 'dark' : undefined}>
           {children}
         </SubContent>
       </Portal>
