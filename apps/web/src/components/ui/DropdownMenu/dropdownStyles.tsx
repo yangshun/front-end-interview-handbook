@@ -14,6 +14,7 @@ export const dropdownContentClassName = clsx(
   'rounded-lg',
   themeBackgroundColor,
   ['border', themeBorderElementColor],
+  'z-30',
 );
 
 export const dropdownContentItemClassName = clsx(
