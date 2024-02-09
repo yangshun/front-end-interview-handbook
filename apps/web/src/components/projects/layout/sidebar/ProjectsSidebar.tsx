@@ -1,9 +1,11 @@
 'use client';
 
 import clsx from 'clsx';
+import { useState } from 'react';
 import {
   RiCodeSSlashLine,
   RiContractLeftLine,
+  RiContractRightLine,
   RiDiscordLine,
   RiHome3Line,
   RiLogoutBoxLine,
@@ -16,11 +18,13 @@ import {
   RiShiningLine,
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
+import { useToggle } from 'usehooks-ts';
 
 import useProfile from '~/hooks/user/useProfile';
 
 import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
 import useAppThemeOptions from '~/components/global/dark/useAppThemeOptions';
+import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
@@ -28,11 +32,16 @@ import DropdownMenu from '~/components/ui/DropdownMenu';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundElementEmphasizedStateColor,
+  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeBackgroundElementPressedStateColor_Active,
   themeBorderElementColor,
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
   themeTextBrandColor,
   themeTextBrandColor_Hover,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
@@ -144,16 +153,18 @@ function AppThemeSubMenu() {
 }
 
 function SidebarLinkButton({
+  isLabelHidden = false,
   label,
   icon: Icon,
   href,
   onClick,
-}: {
+}: Readonly<{
   href: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  isLabelHidden?: boolean;
   label: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
-}) {
+}>) {
   const { pathname } = useI18nPathname();
   const isSelected = pathname === href;
   const activeClassName = clsx(
@@ -165,31 +176,57 @@ function SidebarLinkButton({
     themeTextBrandColor_Hover,
   );
 
-  return (
+  const link = (
     <Anchor
       aria-current={isSelected ? 'page' : undefined}
+      aria-label={isLabelHidden ? label : undefined}
       className={clsx(
-        'flex w-full items-center gap-3',
-        'px-3 py-2.5',
+        'flex w-full items-center gap-3 shrink-0',
+        'p-3',
         'rounded',
         themeTextBrandColor_Hover,
+        'transition-colors',
+        [
+          themeOutlineElement_FocusVisible,
+          themeOutlineElementBrandColor_FocusVisible,
+        ],
+        themeBackgroundElementPressedStateColor_Active,
         isSelected ? activeClassName : defaultClassName,
       )}
       href={href}
       variant="unstyled"
       onClick={onClick}>
-      <Icon className="size-5" />
-      <Text
-        color="inherit"
-        size="body2"
-        weight={isSelected ? 'bold' : 'medium'}>
-        {label}
-      </Text>
+      <Icon className="size-5 shrink-0" />
+      {!isLabelHidden && (
+        <Text
+          color="inherit"
+          size="body2"
+          weight={isSelected ? 'bold' : 'medium'}>
+          {label}
+        </Text>
+      )}
     </Anchor>
+  );
+
+  return isLabelHidden ? (
+    <Tooltip label={label} position="end">
+      {link}
+    </Tooltip>
+  ) : (
+    link
   );
 }
 
-export default function ProjectsSidebar() {
+type Props = Readonly<{
+  isCollapsed: boolean;
+  onCollapseClick: () => void;
+}>;
+
+function ProjectsSidebarExpanded({
+  onCollapseClick,
+}: Readonly<{
+  onCollapseClick: () => void;
+}>) {
   const { profile } = useProfile();
   const intl = useIntl();
   const sideBarItems = useSidebarItems();
@@ -200,7 +237,7 @@ export default function ProjectsSidebar() {
         'relative flex h-full flex-col border-e p-4 gap-y-4',
         themeBorderElementColor,
       )}>
-      <ProjectsSidebarProductMenu />
+      <ProjectsSidebarProductMenu variant="full" />
       {profile != null ? (
         <ProjectsSidebarProfileHeader points={1800} />
       ) : (
@@ -232,7 +269,7 @@ export default function ProjectsSidebar() {
         </>
       )}
       <Divider />
-      <div className="flex justify-between gap-4">
+      <div className="flex justify-between gap-4 pt-2">
         <div className="flex gap-4">
           <Button
             icon={RiNotification3Line}
@@ -242,10 +279,16 @@ export default function ProjectsSidebar() {
             variant="secondary"
           />
           <Button
+            href="#TODO(projects)"
             icon={RiDiscordLine}
             isLabelHidden={true}
             label="Discord"
             size="sm"
+            tooltip={intl.formatMessage({
+              defaultMessage: 'Join Discord',
+              description: 'Link to the Discord channel',
+              id: 'Dpl0uN',
+            })}
             variant="special"
           />
           <DropdownMenu
@@ -279,8 +322,122 @@ export default function ProjectsSidebar() {
           label="Collapse"
           size="sm"
           variant="secondary"
+          onClick={onCollapseClick}
         />
       </div>
     </nav>
+  );
+}
+
+function ProjectsSidebarCollapsed({
+  onCollapseClick,
+}: Readonly<{
+  onCollapseClick: () => void;
+}>) {
+  const { profile } = useProfile();
+  const intl = useIntl();
+  const sideBarItems = useSidebarItems();
+
+  return (
+    <nav
+      className={clsx(
+        'relative flex items-center flex-col border-e',
+        'h-full py-4 px-3 gap-y-4',
+        themeBorderElementColor,
+      )}>
+      <ProjectsSidebarProductMenu variant="compact" />
+      {profile && (
+        <ProjectsProfileAvatar
+          hovercard={false}
+          // TODO(projects): use actual points
+          profile={{
+            ...profile,
+            points: 1800,
+          }}
+          size="lg"
+        />
+      )}
+      <ul className="flex flex-col gap-1 flex-grow">
+        {sideBarItems.top.map(({ key: childKey, ...link }) => (
+          <li key={childKey}>
+            <SidebarLinkButton isLabelHidden={true} {...link} />
+          </li>
+        ))}
+      </ul>
+      <Divider className="w-full" />
+      <ul className="flex flex-col gap-1">
+        {sideBarItems.bottom.map(({ key: childKey, ...link }) => (
+          <li key={childKey}>
+            <SidebarLinkButton isLabelHidden={true} {...link} />
+          </li>
+        ))}
+      </ul>
+      <Divider className="w-full" />
+      <div className="flex flex-col items-center gap-6">
+        <div className="flex flex-col items-center gap-4">
+          <Button
+            icon={RiNotification3Line}
+            isLabelHidden={true}
+            label="Notifications"
+            size="sm"
+            tooltip="Notifications"
+            tooltipPosition="end"
+            variant="secondary"
+          />
+          <DropdownMenu
+            align="end"
+            icon={RiMoreLine}
+            isLabelHidden={true}
+            label="More"
+            showChevron={false}
+            side="right"
+            size="sm">
+            <DropdownMenu.Item
+              href="#TODO(projects)"
+              icon={RiDiscordLine}
+              label="Discord"
+            />
+            <AppThemeSubMenu />
+            <DropdownMenu.Item
+              icon={RiSettings3Line}
+              label={intl.formatMessage({
+                defaultMessage: 'Settings',
+                description: 'App settings label',
+                id: 'XysLlX',
+              })}
+            />
+            <DropdownMenu.Item
+              icon={RiLogoutBoxLine}
+              label={intl.formatMessage({
+                defaultMessage: 'Log out',
+                description: 'Sign out label',
+                id: '+7QBdp',
+              })}
+            />
+          </DropdownMenu>
+        </div>
+        <Button
+          icon={RiContractRightLine}
+          isLabelHidden={true}
+          label="Expand sidebar"
+          size="sm"
+          tooltip="Expand sidebar"
+          tooltipPosition="end"
+          variant="secondary"
+          onClick={onCollapseClick}
+        />
+      </div>
+    </nav>
+  );
+}
+
+export default function ProjectsSidebar({
+  isCollapsed,
+  onCollapseClick,
+}: Props) {
+  return isCollapsed ? (
+    <ProjectsSidebarCollapsed onCollapseClick={onCollapseClick} />
+  ) : (
+    <ProjectsSidebarExpanded onCollapseClick={onCollapseClick} />
   );
 }

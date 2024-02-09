@@ -1,6 +1,8 @@
 'use client';
 
+import clsx from 'clsx';
 import { useState } from 'react';
+import { useToggle } from 'usehooks-ts';
 
 import FooterProjects from '~/components/global/footers/FooterProjects';
 import ProjectsNavbar from '~/components/projects/layout/ProjectsNavbar';
@@ -14,6 +16,7 @@ type Props = Readonly<{
 
 export default function ProjectsSidebarLayout({ children }: Props) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isCollapsed, toggleIsCollapsed] = useToggle(false);
 
   return (
     <div className="flex flex-col">
@@ -24,8 +27,15 @@ export default function ProjectsSidebarLayout({ children }: Props) {
             setIsDrawerOpen(true);
           }}
         />
-        <div className="hidden w-60 h-dvh flex-shrink-0 overflow-y-hidden lg:block sticky top-0">
-          <ProjectsSidebar />
+        <div
+          className={clsx(
+            'hidden h-dvh shrink-0 overflow-y-hidden lg:block sticky top-0',
+            isCollapsed ? 'w-[68px]' : 'w-60',
+          )}>
+          <ProjectsSidebar
+            isCollapsed={isCollapsed}
+            onCollapseClick={toggleIsCollapsed}
+          />
         </div>
         <SlideOut
           className="lg:hidden"

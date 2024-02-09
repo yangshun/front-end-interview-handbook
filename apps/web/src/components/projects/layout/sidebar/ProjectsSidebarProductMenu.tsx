@@ -3,6 +3,8 @@ import React from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { useLocalStorage } from 'usehooks-ts';
 
+import InterviewsLogo from '~/components/global/logos/InterviewsLogo';
+import LogoMark from '~/components/global/logos/LogoMark';
 import ProjectsLogo from '~/components/global/logos/ProjectsLogo';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -16,8 +18,6 @@ import {
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
-
-import InterviewsLogo from '../../../global/logos/InterviewsLogo';
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
@@ -63,7 +63,24 @@ function ProjectsSidebarProductMenuItem({
 // Increment number whenever the indicator is to be shown again.
 const indicatorKey = 'gfe:product-menu-unseen-indicator:0';
 
-export default function ProjectsSidebarProductMenu() {
+type Props = Readonly<{
+  variant: 'compact' | 'full';
+}>;
+
+const buttonBaseClassname = clsx(
+  'rounded-lg',
+  'select-none outline-none',
+  ['border', themeBorderElementColor],
+  'transition-colors',
+  [
+    themeOutlineElement_FocusVisible,
+    themeOutlineElementBrandColor_FocusVisible,
+  ],
+  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeBackgroundElementPressedStateColor_Active,
+);
+
+export default function ProjectsSidebarProductMenu({ variant }: Props) {
   const [showUnseenIndicator, setShowUnseenIndicator] = useLocalStorage(
     indicatorKey,
     true,
@@ -75,39 +92,59 @@ export default function ProjectsSidebarProductMenu() {
         setShowUnseenIndicator(false);
       }}>
       <DropdownMenu.Trigger asChild={true}>
-        <button
-          aria-label="Select product"
-          className={clsx(
-            'flex justify-between items-center',
-            'rounded-lg py-4 px-3',
-            'group',
-            'select-none outline-none',
-            ['border', themeBorderElementColor],
-            'transition-colors',
-            [
-              themeOutlineElement_FocusVisible,
-              themeOutlineElementBrandColor_FocusVisible,
-            ],
-            themeBackgroundElementEmphasizedStateColor_Hover,
-            themeBackgroundElementPressedStateColor_Active,
-          )}
-          type="button">
-          <div className="flex gap-1">
-            <ProjectsLogo height={32} />
+        {variant === 'full' ? (
+          <button
+            aria-label="Select product"
+            className={clsx(
+              'flex justify-between items-center',
+              'py-4 px-3',
+              'shrink-0',
+              'group',
+              buttonBaseClassname,
+            )}
+            type="button">
+            <div className="flex gap-1">
+              <ProjectsLogo height={32} />
+              {showUnseenIndicator && (
+                <span
+                  className={clsx(
+                    'size-2 bg-red rounded-full -translate-y-1/2',
+                  )}
+                />
+              )}
+            </div>
+            <RiArrowDownSLine
+              className={clsx(
+                'size-4 shrink-0',
+                'text-neutral-600 dark:text-neutral-200',
+                'transition-transform group-data-[state=open]:rotate-180',
+              )}
+            />
+          </button>
+        ) : (
+          <button
+            aria-label="Select product"
+            className={clsx(
+              'grid place-content-center',
+              'relative',
+              'size-11',
+              'shrink-0',
+              'group',
+              buttonBaseClassname,
+            )}
+            type="button">
+            <LogoMark height={19} width={26} />
             {showUnseenIndicator && (
               <span
-                className={clsx('size-2 bg-red rounded-full -translate-y-1/2')}
+                className={clsx(
+                  'absolute size-2',
+                  'bg-red rounded-full',
+                  'top-1 right-1',
+                )}
               />
             )}
-          </div>
-          <RiArrowDownSLine
-            className={clsx(
-              'size-4 shrink-0',
-              'text-neutral-600 dark:text-neutral-200',
-              'transition-transform group-data-[state=open]:rotate-180',
-            )}
-          />
-        </button>
+          </button>
+        )}
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
         <DropdownMenu.Content
@@ -115,8 +152,8 @@ export default function ProjectsSidebarProductMenu() {
           className={clsx(
             'flex flex-col gap-2',
             'rounded-lg p-4 w-[360px]',
-            themeBackgroundElementColor,
             ['border', themeBorderElementColor],
+            themeBackgroundElementColor,
           )}
           sideOffset={8}>
           <ProjectsSidebarProductMenuItem

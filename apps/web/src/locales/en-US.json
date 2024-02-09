@@ -1575,6 +1575,10 @@
     "defaultMessage": "Career Switcher",
     "description": "Label for \"Career Switcher\" option in YOE replacement"
   },
+  "Dpl0uN": {
+    "defaultMessage": "Join Discord",
+    "description": "Link to the Discord channel"
+  },
   "Dq9yul": {
     "defaultMessage": "Back",
     "description": "Button label for back button"

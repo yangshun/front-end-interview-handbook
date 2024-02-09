@@ -29,7 +29,7 @@ export function ProjectsSidebarProfileHeader({ points }: Props) {
         }}
         size="lg"
       />
-      <div className="flex flex-col gap-1z">
+      <div className="flex flex-col gap-1">
         <Text className="line-clamp-2" size="body2" weight="medium">
           <UserProfileDisplayName profile={profile} />
         </Text>
