@@ -12,6 +12,7 @@ export const dropdownContentClassName = clsx(
   'p-3',
   'min-w-52',
   'rounded-lg',
+  'shadow-lg',
   themeBackgroundColor,
   ['border', themeBorderElementColor],
   'z-30',

@@ -1,7 +1,12 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
-import { RiFilterLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
+import {
+  RiArrowDownSLine,
+  RiFilterLine,
+  RiSearchLine,
+  RiSortDesc,
+} from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import FilterButton from '~/components/common/FilterButton';
@@ -333,7 +338,10 @@ export default function QuestionsCodingListWithFilters({
       </div>
       {layout === 'embedded' && (
         <div className="hidden lg:inline-flex">
-          <Popover label={companyFilterOptions.name} size="sm">
+          <Popover
+            icon={RiArrowDownSLine}
+            label={companyFilterOptions.name}
+            size="sm">
             <div className="grid grid-cols-2 gap-x-4 gap-y-3">
               {companyFilterOptions.options.map((option) => (
                 <div key={option.value} className="flex items-center">
@@ -351,7 +359,11 @@ export default function QuestionsCodingListWithFilters({
       )}
       {layout === 'embedded' && (
         <div className="hidden lg:inline-flex">
-          <Popover label={difficultyFilterOptions.name} size="sm" width="sm">
+          <Popover
+            icon={RiArrowDownSLine}
+            label={difficultyFilterOptions.name}
+            size="sm"
+            width="sm">
             <div className="flex flex-wrap gap-x-6 gap-y-3">
               {difficultyFilterOptions.options.map((option) => (
                 <div key={option.value} className="flex items-center">
@@ -371,7 +383,10 @@ export default function QuestionsCodingListWithFilters({
       )}
       {layout === 'embedded' && (
         <div className="hidden lg:inline-flex">
-          <Popover label={frameworkFilterOptions.name} size="sm">
+          <Popover
+            icon={RiArrowDownSLine}
+            label={frameworkFilterOptions.name}
+            size="sm">
             <div className={clsx('flex flex-col')}>
               <div className="flex flex-col gap-2">
                 <Text display="block" size="body3" weight="medium">
@@ -419,6 +434,7 @@ export default function QuestionsCodingListWithFilters({
       {layout === 'embedded' && (
         <div className="hidden lg:inline-flex">
           <Popover
+            icon={RiArrowDownSLine}
             label={completionStatusFilterOptions.name}
             size="sm"
             width="sm">

@@ -1,3 +1,5 @@
+import { RiArrowDownSLine } from 'react-icons/ri';
+
 import {
   type ProjectsChallengeFilter,
   useProjectsChallengeFilterState,
@@ -30,6 +32,7 @@ export default function ProjectsListFilterDropdown({ filter }: Props) {
   return (
     <Tooltip label={filter.tooltip}>
       <Popover
+        icon={RiArrowDownSLine}
         label={filter.label}
         size="md"
         width={filter.id === 'component-track' ? 'md' : 'sm'}>

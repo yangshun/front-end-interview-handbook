@@ -20,7 +20,7 @@ export default function PopoverExamples() {
         ))}
       </div>
       <div className="flex flex-wrap gap-x-12 gap-y-6">
-        {(['start', 'end'] as const).map((align) => (
+        {(['start', 'center', 'end'] as const).map((align) => (
           <Popover key={align} align={align} label={`Open ${align}`}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna
@@ -41,11 +41,7 @@ export default function PopoverExamples() {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna
             etiam tempor orci eu lobortis elementum. In massa tempor nec feugiat
             nisl pretium. Habitant morbi tristique senectus et. Dictum at tempor
-            commodo ullamcorper. Egestas tellus rutrum tellus pellentesque eu
-            tincidunt tortor aliquam nulla. Cras sed felis eget velit aliquet
-            sagittis id consectetur purus. Sem nulla pharetra diam sit amet nisl
-            suscipit adipiscing bibendum. Tortor pretium viverra suspendisse
-            potenti nullam ac tortor vitae. Magna eget est lorem ipsum.
+            commodo ullamcorper.
           </Popover>
         ))}
       </div>

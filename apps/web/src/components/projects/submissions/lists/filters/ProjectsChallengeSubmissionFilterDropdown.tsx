@@ -1,3 +1,5 @@
+import { RiArrowDownSLine } from 'react-icons/ri';
+
 import type { ProjectsChallengeSubmissionFilter } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import { useProjectsChallengeSubmissionFilterState } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import CheckboxInput from '~/components/ui/CheckboxInput';
@@ -29,6 +31,7 @@ export default function ProjectsChallengeSubmissionFilterDropdown({
   return (
     <Tooltip label={filter.tooltip}>
       <Popover
+        icon={RiArrowDownSLine}
         label={filter.label}
         size="md"
         width={filter.id === 'component-track' ? 'md' : 'sm'}>

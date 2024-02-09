@@ -1,6 +1,11 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiFilterLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
+import {
+  RiArrowDownSLine,
+  RiFilterLine,
+  RiSearchLine,
+  RiSortDesc,
+} from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import type {
@@ -186,7 +191,11 @@ export default function BlogListingWithFilters({
       </div>
       {(layout === 'embedded' || layout === 'explore') && (
         <div className="hidden lg:inline-flex">
-          <Popover label={levelFilterOptions.name} size="sm" width="sm">
+          <Popover
+            icon={RiArrowDownSLine}
+            label={levelFilterOptions.name}
+            size="sm"
+            width="sm">
             <div className="flex flex-wrap gap-x-6 gap-y-3">
               {levelFilterOptions.options.map((option) => (
                 <div key={option.value} className="flex items-center">
@@ -204,7 +213,11 @@ export default function BlogListingWithFilters({
       )}
       {layout === 'embedded' && (
         <div className="hidden lg:inline-flex">
-          <Popover label={tagFilterOptions.name} size="sm" width="sm">
+          <Popover
+            icon={RiArrowDownSLine}
+            label={tagFilterOptions.name}
+            size="sm"
+            width="sm">
             <div className="flex flex-wrap gap-x-6 gap-y-3">
               {tagFilterOptions.options.map((option) => (
                 <div key={option.value} className="flex items-center">
