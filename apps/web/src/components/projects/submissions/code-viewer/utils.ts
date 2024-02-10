@@ -32,16 +32,22 @@ export function useGithubRepositoryFilePaths({
   return useQuery(
     ['githubRepositoryFiles', repoOwner, repoName, branchName, '/'],
     async () => {
-      const response = await fetch(
-        `${githubApiUrl}/repos/${repoOwner}/${repoName}/git/trees/${branchName}?recursive=1`,
-      );
+      try {
+        const response = await fetch(
+          `${githubApiUrl}/repos/${repoOwner}/${repoName}/git/trees/${branchName}?recursive=1`,
+        );
 
-      const json = await response.json();
-      const data = githubRepositoryFilesSchema.parse(json);
+        const json = await response.json();
+        const data = githubRepositoryFilesSchema.parse(json);
 
-      return data.tree
-        .filter(({ type }) => type === 'blob') // Only include files; filter out folders with type === 'tree'
-        .map((file) => file.path);
+        return data.tree
+          .filter(({ type }) => type === 'blob') // Only include files; filter out folders with type === 'tree'
+          .map((file) => file.path);
+      } catch (error) {
+        console.error(error);
+
+        return null;
+      }
     },
     {
       initialData: [],
@@ -67,16 +73,22 @@ export function useGithubFileContents({
   return useQuery(
     ['githubRepositoryFiles', repoOwner, repoName, branchName, filePath],
     async () => {
-      const response = await fetch(
-        `${githubApiUrl}/repos/${repoOwner}/${repoName}/contents/${filePath}`,
-      );
-      const json = await response.json();
-      const { content: base64Content } = githubFileResponseSchema.parse(json);
+      try {
+        const response = await fetch(
+          `${githubApiUrl}/repos/${repoOwner}/${repoName}/contents/${filePath}`,
+        );
+        const json = await response.json();
+        const { content: base64Content } = githubFileResponseSchema.parse(json);
 
-      return Buffer.from(base64Content, 'base64').toString('utf-8');
+        return Buffer.from(base64Content, 'base64').toString('utf-8');
+      } catch (error) {
+        console.error(error);
+
+        return null;
+      }
     },
     {
-      initialData: null,
+      initialData: '',
     },
   );
 }

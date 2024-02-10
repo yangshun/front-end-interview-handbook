@@ -1311,6 +1311,10 @@
     "defaultMessage": "View plans",
     "description": "Label for View Plans button on Projects project assets page"
   },
+  "BIOtRD": {
+    "defaultMessage": "Could not load files from repository",
+    "description": "Error message when files from a repository could not be loaded"
+  },
   "BMBc9O": {
     "defaultMessage": "paid once",
     "description": "Pay the price once"

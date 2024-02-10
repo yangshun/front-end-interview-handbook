@@ -164,30 +164,32 @@ export default function ProjectsChallengeSubmissionPage({
             )}
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-x-10 gap-8 mt-10 lg:mt-16">
-          <div className="flex flex-col gap-3 flex-1">
-            <Heading level="heading6">
-              <FormattedMessage
-                defaultMessage="Code"
-                description="Section title for code viewer"
-                id="T6xgeP"
+        <div className="flex flex-col mt-10 lg:mt-16">
+          <div className="flex flex-col md:flex-row">
+            <div className="flex flex-col gap-3 flex-1">
+              <Heading level="heading6">
+                <FormattedMessage
+                  defaultMessage="Code"
+                  description="Section title for code viewer"
+                  id="T6xgeP"
+                />
+              </Heading>
+              <GithubRepositoryCodeViewer
+                branchName={branchName}
+                className={clsx('rounded-t-lg h-[500px]', [
+                  'border-t border-x',
+                  themeBorderColor,
+                ])}
+                repoName={repoName}
+                repoOwner={repoOwner}
               />
-            </Heading>
-            <GithubRepositoryCodeViewer
-              branchName={branchName}
-              className={clsx('rounded-lg h-[500px]', [
-                'border',
-                themeBorderColor,
-              ])}
-              repoName={repoName}
-              repoOwner={repoOwner}
+            </div>
+          </div>
+          <div ref={discussionSectionRef}>
+            <ProjectsChallengeSubmissionDiscussionsSection
+              submission={submission}
             />
           </div>
-        </div>
-        <div ref={discussionSectionRef} className="mt-16">
-          <ProjectsChallengeSubmissionDiscussionsSection
-            submission={submission}
-          />
         </div>
         <div className="mt-10">
           <ProjectsChallengeSubmissionInterested
