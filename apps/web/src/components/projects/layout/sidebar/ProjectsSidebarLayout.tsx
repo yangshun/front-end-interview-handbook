@@ -10,6 +10,8 @@ import ProjectsSidebar from '~/components/projects/layout/sidebar';
 import Container from '~/components/ui/Container';
 import SlideOut from '~/components/ui/SlideOut';
 
+import { ProjectsSidebarExpanded } from './ProjectsSidebar';
+
 type Props = Readonly<{
   children: React.ReactNode;
 }>;
@@ -47,7 +49,7 @@ export default function ProjectsSidebarLayout({ children }: Props) {
           onClose={() => {
             setIsDrawerOpen(false);
           }}>
-          <ProjectsSidebar />
+          <ProjectsSidebarExpanded />
         </SlideOut>
         <div className="relative w-full">
           <Container className="py-4 lg:py-16">{children}</Container>

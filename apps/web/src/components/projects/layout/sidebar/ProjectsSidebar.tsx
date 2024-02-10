@@ -222,10 +222,10 @@ type Props = Readonly<{
   onCollapseClick: () => void;
 }>;
 
-function ProjectsSidebarExpanded({
+export function ProjectsSidebarExpanded({
   onCollapseClick,
 }: Readonly<{
-  onCollapseClick: () => void;
+  onCollapseClick?: () => void;
 }>) {
   const { profile } = useProfile();
   const intl = useIntl();
@@ -316,14 +316,16 @@ function ProjectsSidebarExpanded({
             />
           </DropdownMenu>
         </div>
-        <Button
-          icon={RiContractLeftLine}
-          isLabelHidden={true}
-          label="Collapse"
-          size="sm"
-          variant="secondary"
-          onClick={onCollapseClick}
-        />
+        {onCollapseClick && (
+          <Button
+            icon={RiContractLeftLine}
+            isLabelHidden={true}
+            label="Collapse"
+            size="sm"
+            variant="secondary"
+            onClick={onCollapseClick}
+          />
+        )}
       </div>
     </nav>
   );
