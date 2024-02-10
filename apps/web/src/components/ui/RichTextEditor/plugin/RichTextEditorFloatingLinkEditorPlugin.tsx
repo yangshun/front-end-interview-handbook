@@ -240,9 +240,15 @@ function FloatingLinkEditor({
           const node = getSelectedNode(selection);
           const parent = node.getParent();
 
-          if (($isLinkNode(parent) || $isLinkNode(node)) && !editedLinkUrl) {
-            editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
-          } else if ($isLinkNode(parent) || $isLinkNode(node)) {
+          if (!editedLinkUrl) {
+            if ($isLinkNode(parent) || $isLinkNode(node)) {
+              editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
+            }
+
+            return;
+          }
+
+          if ($isLinkNode(parent) || $isLinkNode(node)) {
             // If link node already present
             const format = node.getFormat();
             const linkNode = $createLinkNode(
