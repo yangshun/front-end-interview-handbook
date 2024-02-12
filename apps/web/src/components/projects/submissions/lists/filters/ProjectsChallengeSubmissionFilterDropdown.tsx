@@ -4,7 +4,6 @@ import type { ProjectsChallengeSubmissionFilter } from '~/components/projects/su
 import { useProjectsChallengeSubmissionFilterState } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Popover from '~/components/ui/Popover';
-import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
   filter: ProjectsChallengeSubmissionFilter;
@@ -29,25 +28,24 @@ export default function ProjectsChallengeSubmissionFilterDropdown({
   };
 
   return (
-    <Tooltip label={filter.tooltip}>
-      <Popover
-        icon={RiArrowDownSLine}
-        label={filter.label}
-        size="md"
-        width={filter.id === 'component-track' ? 'md' : 'sm'}>
-        <div className="flex flex-col gap-y-3">
-          {filter.options.map((option) => (
-            <div key={option.value} className="flex items-center">
-              <CheckboxInput
-                label={option.label}
-                size="sm"
-                value={selectedOptions.includes(option.value)}
-                onChange={() => onChange(option.value)}
-              />
-            </div>
-          ))}
-        </div>
-      </Popover>
-    </Tooltip>
+    <Popover
+      icon={RiArrowDownSLine}
+      label={filter.label}
+      size="md"
+      tooltip={filter.tooltip}
+      width={filter.id === 'component-track' ? 'md' : 'sm'}>
+      <div className="flex flex-col gap-y-3">
+        {filter.options.map((option) => (
+          <div key={option.value} className="flex items-center">
+            <CheckboxInput
+              label={option.label}
+              size="sm"
+              value={selectedOptions.includes(option.value)}
+              onChange={() => onChange(option.value)}
+            />
+          </div>
+        ))}
+      </div>
+    </Popover>
   );
 }

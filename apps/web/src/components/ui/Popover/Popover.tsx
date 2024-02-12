@@ -1,8 +1,10 @@
 import clsx from 'clsx';
+import type { ReactNode } from 'react';
 import React from 'react';
 
 import { popoverContentClassName } from './popoverStyles';
 import Button from '../Button';
+import type { TooltipContentAlignment, TooltipContentSide } from '../Tooltip';
 
 import { Content, Portal, Root, Trigger } from '@radix-ui/react-popover';
 
@@ -23,6 +25,9 @@ type Props = Readonly<{
   label: string;
   side?: PopoverContentSide;
   size?: PopoverTriggerSize;
+  tooltip?: ReactNode;
+  tooltipAlign?: TooltipContentAlignment;
+  tooltipSide?: TooltipContentSide;
   variant?: PopoverTriggerVariant;
   width?: PopoverContentWidth;
 }>;
@@ -43,8 +48,11 @@ export default function Popover({
   label,
   side = 'bottom',
   size = 'md',
-  width = 'md',
+  tooltip,
+  tooltipAlign,
+  tooltipSide,
   variant = 'secondary',
+  width = 'md',
 }: Props) {
   return (
     <Root>
@@ -55,6 +63,9 @@ export default function Popover({
           isLabelHidden={isLabelHidden}
           label={label}
           size={size}
+          tooltip={tooltip}
+          tooltipAlign={tooltipAlign}
+          tooltipSide={tooltipSide}
           variant={variant}
         />
       </Trigger>

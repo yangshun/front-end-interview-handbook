@@ -214,6 +214,25 @@ export default function DropdownMenuExamples() {
         </DropdownMenu>
       </div>
       <div className="flex gap-x-12">
+        <DropdownMenu
+          icon={RiSortDesc}
+          label="With tooltip"
+          size="sm"
+          tooltip="Sort by some fields">
+          {menuItems.map(({ icon, label, value }) => (
+            <DropdownMenu.Item
+              key={value}
+              icon={icon}
+              isSelected={value === selectedValue}
+              label={label}
+              onClick={() => {
+                setSelectedValue(value);
+              }}
+            />
+          ))}
+        </DropdownMenu>
+      </div>
+      <div className="flex gap-x-12">
         <DropdownMenu icon={RiMenuLine} label="Submenu">
           <DropdownMenu.Sub icon={RiMoonLine} label="Theme">
             <DropdownMenu.Item icon={RiSunLine} label="Light" />

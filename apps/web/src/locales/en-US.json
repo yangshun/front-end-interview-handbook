@@ -1179,10 +1179,6 @@
     "defaultMessage": "JavaScript Polyfills",
     "description": "Name of focus area questions"
   },
-  "9WoF/6": {
-    "defaultMessage": "View Github profile",
-    "description": "Tooltip for github profile icon"
-  },
   "9Z/GHL": {
     "defaultMessage": "Something went wrong, please check your input.",
     "description": "Form error text"
@@ -1298,6 +1294,10 @@
   "B9vupD": {
     "defaultMessage": "Submissions",
     "description": "Link to submissions page"
+  },
+  "BAyveo": {
+    "defaultMessage": "View GitHub profile",
+    "description": "Tooltip for github profile icon"
   },
   "BDGx19": {
     "defaultMessage": "Verifying",

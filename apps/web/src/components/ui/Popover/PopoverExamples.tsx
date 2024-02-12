@@ -45,6 +45,15 @@ export default function PopoverExamples() {
           </Popover>
         ))}
       </div>
+      <div className="flex flex-wrap gap-12 gap-y-6">
+        <Popover label="With tooltip" tooltip="Hello I'm a tooltip!">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna
+          etiam tempor orci eu lobortis elementum. In massa tempor nec feugiat
+          nisl pretium. Habitant morbi tristique senectus et. Dictum at tempor
+          commodo ullamcorper.
+        </Popover>
+      </div>
     </UIExamplesGroup>
   );
 }

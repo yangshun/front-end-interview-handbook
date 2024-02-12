@@ -88,19 +88,21 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
                 </Tooltip>
                 {profile?.githubUsername && (
                   <Tooltip
+                    asChild={true}
                     label={intl.formatMessage({
-                      defaultMessage: 'View Github profile',
+                      defaultMessage: 'View GitHub profile',
                       description: 'Tooltip for github profile icon',
-                      id: '9WoF/6',
+                      id: 'BAyveo',
                     })}>
                     <a href={profile.githubUsername}>
-                      <span className="sr-only">Github</span>
+                      <span className="sr-only">GitHub</span>
                       <RiGithubFill aria-hidden="true" className="size-5" />
                     </a>
                   </Tooltip>
                 )}
                 {profile?.linkedInUsername && (
                   <Tooltip
+                    asChild={true}
                     label={intl.formatMessage({
                       defaultMessage: 'View LinkedIn profile',
                       description: 'Tooltip for LinkedIn profile icon',

@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import React from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
@@ -7,6 +8,7 @@ import type { Props as DropdownMenuSubProps } from './DropdownMenuSub';
 import DropdownMenuSub from './DropdownMenuSub';
 import { dropdownContentClassName } from './dropdownStyles';
 import Button from '../Button';
+import type { TooltipContentAlignment, TooltipContentSide } from '../Tooltip';
 
 import { Content, Portal, Root, Trigger } from '@radix-ui/react-dropdown-menu';
 
@@ -32,6 +34,9 @@ type Props = Readonly<{
   showChevron?: boolean;
   side?: DropdownMenuContentSide;
   size?: DropdownMenuTriggerSize;
+  tooltip?: ReactNode;
+  tooltipAlign?: TooltipContentAlignment;
+  tooltipSide?: TooltipContentSide;
   variant?: DropdownMenuTriggerVariant;
 }>;
 
@@ -49,6 +54,9 @@ export default function DropdownMenu({
   side = 'bottom',
   showChevron = true,
   size = 'md',
+  tooltip,
+  tooltipAlign,
+  tooltipSide,
   variant = 'secondary',
 }: Props) {
   return (
@@ -63,6 +71,9 @@ export default function DropdownMenu({
           isLabelHidden={isLabelHidden}
           label={label}
           size={size}
+          tooltip={tooltip}
+          tooltipAlign={tooltipAlign}
+          tooltipSide={tooltipSide}
           variant={variant}
         />
       </Trigger>
