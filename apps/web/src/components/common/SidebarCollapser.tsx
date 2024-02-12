@@ -4,9 +4,11 @@ import { useIntl } from 'react-intl';
 
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import {
-  themeBackgroundColor,
-  themeBackgroundEmphasized_Hover,
+  themeBackgroundElementColor,
+  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeBackgroundElementPressedStateColor_Active,
   themeBorderColor,
+  themeOutlineElementBrandColor_FocusVisible,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -32,15 +34,15 @@ export default function SidebarCollapser() {
       aria-label={title}
       className={clsx(
         'hidden items-center justify-center p-1 lg:flex',
-        'absolute top-[80px] z-10 -ml-px h-10 translate-x-full',
+        'absolute top-[80px] z-sticky -ml-px h-10 translate-x-full',
         showSidebar ? 'right-px' : 'right-0',
-        'rounded-r-lg border-y border-r',
-        'focus:outline-none focus:ring-2 focus:ring-offset-2',
-        'focus:ring-brand-dark dark:focus:ring-brand',
         themeTextSecondaryColor,
         themeBorderColor,
-        themeBackgroundColor,
-        themeBackgroundEmphasized_Hover,
+        'rounded-r-lg border-y border-r',
+        themeBackgroundElementColor,
+        themeBackgroundElementEmphasizedStateColor_Hover,
+        themeBackgroundElementPressedStateColor_Active,
+        themeOutlineElementBrandColor_FocusVisible,
       )}
       title={title}
       type="button"

@@ -10,7 +10,7 @@ type Props = Readonly<{
 
 export default function BlogTagLabel({ value }: Props) {
   return (
-    <Anchor className="flex z-10" href={`/blog/tags/${value}`}>
+    <Anchor className="inline-flex" href={`/blog/tags/${value}`}>
       <Text color="inherit" size="body3">
         #{value}
       </Text>

@@ -10,5 +10,5 @@ export const popoverContentClassName = clsx(
   themeBackgroundColor,
   ['border', themeBorderElementColor],
   'text-sm',
-  'z-30',
+  'z-popover',
 );

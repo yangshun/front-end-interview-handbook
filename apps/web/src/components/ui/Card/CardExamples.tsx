@@ -109,7 +109,7 @@ export default function CardExamples() {
                   methods
                 </Text>
               </div>
-              <div className="flex gap-x-8">
+              <div className="flex gap-x-8 z-10">
                 <QuestionLanguages languages={['js', 'ts']} />
                 <QuestionUsersCompletedLabel count={910} showIcon={true} />
               </div>

@@ -17,7 +17,7 @@ export default function SidebarContainer({ initialCollapsed = false }: Props) {
   return (
     <aside
       className={clsx(
-        'sticky z-20 hidden shrink-0 overflow-visible border-r md:block',
+        'sticky z-sticky hidden shrink-0 overflow-visible border-r md:block',
         themeBorderColor,
         isCollapsed ? 'w-[68px]' : 'w-60',
       )}

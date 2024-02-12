@@ -304,7 +304,7 @@ export default function Sidebar({
                       leaveTo="opacity-0 translate-x-1">
                       <Popover.Panel
                         className={clsx(
-                          'absolute left-full z-20 ml-3 min-w-[200px] max-w-md p-1 lg:ml-0',
+                          'absolute left-full z-popover ml-3 min-w-[200px] max-w-md p-1 lg:ml-0',
                           item.popoverAlignment === 'top' && 'top-0',
                           item.popoverAlignment === 'middle' &&
                             'top-1/2 -translate-y-1/2',

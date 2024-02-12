@@ -15,7 +15,6 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundChipColor,
   themeIconColor,
-  themeTextFainterColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
@@ -98,7 +97,7 @@ export default function QuestionFocusAreasSection({
                       </div>
                     }>
                     <RiQuestionFill
-                      className={clsx('z-10 size-6', themeIconColor)}
+                      className={clsx('size-6', themeIconColor)}
                     />
                   </Tooltip>
                 </div>

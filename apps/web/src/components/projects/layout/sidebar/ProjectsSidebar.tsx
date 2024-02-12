@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import { useState } from 'react';
 import {
   RiCodeSSlashLine,
   RiContractLeftLine,
@@ -18,7 +17,6 @@ import {
   RiShiningLine,
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
-import { useToggle } from 'usehooks-ts';
 
 import useProfile from '~/hooks/user/useProfile';
 
@@ -32,7 +30,6 @@ import DropdownMenu from '~/components/ui/DropdownMenu';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundElementEmphasizedStateColor,
-  themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
   themeBorderElementColor,
   themeOutlineElement_FocusVisible,

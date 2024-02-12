@@ -58,7 +58,7 @@ function Navbar(
     <div
       ref={ref}
       className={clsx(
-        'sticky top-0 z-30 backdrop-blur',
+        'sticky top-0 z-sticky backdrop-blur',
         ['border-b', themeBorderColor],
         transparent && 'bg-white dark:bg-neutral-900/60',
         'transition-[background-color]',
@@ -103,7 +103,7 @@ function Navbar(
       <Transition.Root as={Fragment} show={isMobileNavOpen}>
         <Dialog
           as="div"
-          className="relative z-40 lg:hidden"
+          className="relative z-slideout-backdrop lg:hidden"
           onClose={setIsMobileNavOpen}>
           <Transition.Child
             as={Fragment}
@@ -115,7 +115,7 @@ function Navbar(
             leaveTo="opacity-0">
             <div className="fixed inset-0 bg-neutral-600 bg-opacity-75" />
           </Transition.Child>
-          <div className="fixed inset-0 z-40 flex">
+          <div className="fixed inset-0 z-slideout flex">
             <Transition.Child
               as={Fragment}
               enter="transition ease-in-out duration-300 transform"

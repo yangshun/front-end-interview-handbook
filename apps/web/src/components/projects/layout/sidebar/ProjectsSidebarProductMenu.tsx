@@ -154,6 +154,7 @@ export default function ProjectsSidebarProductMenu({ variant }: Props) {
             'rounded-lg p-4 w-[360px]',
             ['border', themeBorderElementColor],
             themeBackgroundElementColor,
+            'z-dropdown',
           )}
           sideOffset={8}>
           <ProjectsSidebarProductMenuItem

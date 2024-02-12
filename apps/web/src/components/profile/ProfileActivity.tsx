@@ -16,6 +16,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundCardWhiteOnLightColor,
   themeBackgroundEmphasized_Hover,
   themeBorderColor,
   themeDivideColor,
@@ -129,7 +130,7 @@ export default function ProfileActivity() {
       <Section>
         <ul
           className={clsx(
-            'relative z-0 rounded-md',
+            'relative rounded-md',
             ['border', themeBorderColor],
             ['divide-y', themeDivideColor],
           )}
@@ -139,7 +140,10 @@ export default function ProfileActivity() {
               key={createdAt.toDateString()}
               className={clsx(
                 'relative px-4 py-3',
+                themeBackgroundCardWhiteOnLightColor,
                 themeBackgroundEmphasized_Hover,
+                'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
+                'overflow-hidden',
               )}>
               <div className="flex items-center justify-between gap-x-4">
                 <div className="flex w-3/4 flex-col gap-y-1 sm:flex-row sm:items-center sm:gap-x-3">

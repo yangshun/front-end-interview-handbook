@@ -39,6 +39,7 @@ export default function BlogCard({
         type === 'default' && 'pl-6 pr-4 py-6 gap-x-4',
         themeBackgroundCardWhiteOnLightColor,
         themeGlassyBorder,
+        'isolate',
       )}>
       {type === 'wide' && metadata.imageUrl && (
         <img

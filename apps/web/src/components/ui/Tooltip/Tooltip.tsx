@@ -62,7 +62,7 @@ export default function Tooltip({
             className={clsx(
               'select-none',
               'rounded',
-              'z-[100]',
+              'z-tooltip',
               'max-w-64',
               tooltipBackgroundColor,
               sizeClasses[size],

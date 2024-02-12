@@ -6,6 +6,7 @@ import Anchor from '~/components/ui/Anchor';
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundCardWhiteOnLightColor,
   themeBackgroundEmphasized_Hover,
   themeBorderColor,
   themeDivideColor,
@@ -63,15 +64,19 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
           <li
             key={hashQuestion(question.format, question.slug)}
             className={clsx(
-              'focus-within:ring-brand group relative flex gap-x-6 p-3 focus-within:ring-2 focus-within:ring-inset',
+              'group relative flex gap-x-6 p-3',
+              themeBackgroundCardWhiteOnLightColor,
               themeBackgroundEmphasized_Hover,
+              'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
             )}>
             <div className="flex grow items-center justify-between">
               <div className="flex items-center space-x-4">
                 {checkIfCompletedQuestion != null && (
                   <span
                     className={clsx(
-                      'z-20 flex size-6 items-center justify-center rounded-full border-2',
+                      'flex items-center justify-center',
+                      'size-6 rounded-full',
+                      'border-2',
                       hasCompletedQuestion
                         ? 'border-success bg-success text-white'
                         : themeBorderColor,

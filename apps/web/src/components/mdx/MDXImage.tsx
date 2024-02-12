@@ -61,7 +61,7 @@ function ExpandedImageDialog({ children, isShown, onClose }: Props) {
     <Transition.Root as={Fragment} show={isShown}>
       <Dialog
         as="div"
-        className="relative z-40"
+        className="relative z-dialog-backdrop"
         initialFocus={cancelButtonRef}
         onClose={onClose}>
         <Transition.Child
@@ -74,7 +74,7 @@ function ExpandedImageDialog({ children, isShown, onClose }: Props) {
           leaveTo="opacity-0">
           <div className="fixed inset-0 bg-neutral-500 bg-opacity-75 backdrop-blur-sm transition-opacity dark:bg-neutral-950/60" />
         </Transition.Child>
-        <div className="fixed inset-0 z-40 overflow-y-auto">
+        <div className="fixed inset-0 z-dialog overflow-y-auto">
           <div className="flex min-h-full items-center justify-center">
             <Transition.Child
               as={Fragment}

@@ -15,7 +15,7 @@ export const dropdownContentClassName = clsx(
   'shadow-lg',
   themeBackgroundColor,
   ['border', themeBorderElementColor],
-  'z-30',
+  'z-dropdown',
 );
 
 export const dropdownContentItemClassName = clsx(

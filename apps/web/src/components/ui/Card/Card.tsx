@@ -25,7 +25,7 @@ type Props = Readonly<{
 const cardOuterContainerSpotlightClassNames = clsx(
   'before:absolute before:rounded-full before:pointer-events-none before:transition-opacity',
   'before:w-40 before:h-40 before:-left-20 before:-top-20 before:blur-[40px]',
-  'before:bg-neutral-400 dark:before:bg-white',
+  'before:bg-brand-light dark:before:bg-brand',
   'before:opacity-0 before:group-hover/card-container:opacity-100',
   'before:translate-x-[var(--mouse-x)] before:translate-y-[var(--mouse-y)]',
   'before:z-10',
@@ -98,7 +98,8 @@ export default function Card({
       )}>
       <div
         className={clsx(
-          'z-100 !absolute top-0 size-full rounded-[inherit] before:m-[-1px]',
+          // TODO(z-index)
+          'z-10 !absolute top-0 size-full rounded-[inherit] before:m-[-1px]',
           border && themeGlassyBorder,
         )}
       />

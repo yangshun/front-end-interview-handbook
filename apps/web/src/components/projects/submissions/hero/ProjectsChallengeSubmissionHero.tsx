@@ -135,12 +135,12 @@ export default function ProjectsChallengeSubmissionHero({
       {/* To calculate the width of the parent element */}
       <div
         ref={parentWidthRef}
-        className="absolute top-0 left-0 right-0 -z-1"
+        className="absolute top-0 left-0 right-0 -z-10"
       />
       {/* Sticky action bar */}
       <div
         className={clsx(
-          'sticky top-0 z-30 py-4 border-b hidden',
+          'sticky z-sticky top-0  py-4 border-b hidden',
           themeBorderColor,
           themeBackgroundColor,
           showStickyActionBar && '!block',

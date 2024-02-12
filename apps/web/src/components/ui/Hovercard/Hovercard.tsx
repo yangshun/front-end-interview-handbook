@@ -17,7 +17,7 @@ const HovercardContent = React.forwardRef<
     ref={ref}
     align={align}
     className={clsx(
-      'animate-in zoom-in-90 z-50 rounded-md border border-neutral-100 bg-white shadow-md outline-none',
+      'animate-in zoom-in-90 z-popover rounded-md border border-neutral-100 bg-white shadow-md outline-none',
       className,
     )}
     sideOffset={sideOffset}

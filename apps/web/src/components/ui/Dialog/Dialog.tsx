@@ -108,7 +108,7 @@ export default function DialogImpl({
     <Transition.Root as={Fragment} show={isShown}>
       <Dialog
         as="div"
-        className={clsx('relative z-40')}
+        className={clsx('relative z-dialog-backdrop')}
         data-mode={dark ? 'dark' : undefined}
         initialFocus={cancelButtonRef}
         onClose={() => onClose()}>
@@ -129,7 +129,7 @@ export default function DialogImpl({
             )}
           />
         </Transition.Child>
-        <div className="fixed inset-0 z-40 overflow-y-auto">
+        <div className="fixed inset-0 z-dialog overflow-y-auto">
           <div className="flex min-h-full items-end justify-center px-6 sm:items-center sm:px-0">
             <Transition.Child
               as={Fragment}

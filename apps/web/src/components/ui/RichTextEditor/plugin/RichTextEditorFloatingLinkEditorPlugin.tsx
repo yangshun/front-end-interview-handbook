@@ -288,7 +288,10 @@ function FloatingLinkEditor({
       {!isOpenLinkEditor ? null : (
         <div
           className={clsx(
-            'z-10 p-2 rounded flex max-w-[400px] min-w-[250px] w-full gap-4 items-center justify-between',
+            'flex items-center justify-between gap-4',
+            'w-full max-w-[400px] min-w-[250px]',
+            'p-2 rounded',
+            'z-popover',
             themeBackgroundLayerEmphasized,
           )}>
           {isLinkEditMode ? (

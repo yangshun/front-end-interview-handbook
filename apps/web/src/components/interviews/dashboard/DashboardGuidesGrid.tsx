@@ -55,9 +55,12 @@ export default function QuestionsGuidesGrid({
             <Anchor
               key={guide.slug}
               className={clsx(
-                'group relative flex items-center gap-4 border-b border-r p-3 md:flex-col md:items-start md:gap-2 md:p-6',
+                'group relative flex items-center gap-4 md:flex-col md:items-start md:gap-2',
+                'p-3 md:p-6',
+                'isolate',
                 themeBorderColor,
                 themeBackgroundLayerEmphasized_Hover,
+                'border-b border-r',
                 items.length < columns && index < columns - 1 && 'md:border-t',
               )}
               href={guide.href}
