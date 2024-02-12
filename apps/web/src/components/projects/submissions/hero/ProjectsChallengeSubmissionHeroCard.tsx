@@ -32,44 +32,46 @@ export default function ProjectsChallengeSubmissionHeroCard({
   return (
     <div
       className={clsx(
-        'md:w-[436px] w-full px-4 py-6 rounded-lg group relative',
+        'flex flex-col gap-4',
+        'group relative isolate',
+        'px-4 py-6 rounded-lg',
+        'w-full md:w-[436px]',
         themeGlassyBorder,
         isMobileAndBelow ? themeBackgroundLayerColor : themeBackgroundColor,
       )}>
-      <Anchor href={href} variant="unstyled">
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Text color="secondary" size="body2">
-                {intl.formatMessage({
-                  defaultMessage: 'Challenge brief',
-                  description: 'Projects challenge submission hero card title',
-                  id: '/BGC+5',
-                })}
-              </Text>
-              <ProjectsChallengeStatusBadge status={status} />
-            </div>
-            <RiArrowRightLine
-              aria-hidden={true}
-              className={clsx(
-                'size-5 shrink-0',
-                themeTextFaintColor,
-                'group-hover:text-brand dark:group-hover:text-brand',
-              )}
-            />
-          </div>
-          <Text size="body0" weight="bold">
-            {title}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Text color="secondary" size="body2">
+            {intl.formatMessage({
+              defaultMessage: 'Challenge brief',
+              description: 'Projects challenge submission hero card title',
+              id: '/BGC+5',
+            })}
           </Text>
-          <Text className="line-clamp-3" color="subtitle" size="body3">
-            {description}
-          </Text>
-          <div className="flex items-center gap-4">
-            <ProjectsChallengeDifficultyTag difficulty={difficulty} />
-            <ProjectsComponentTrackTag track={track} />
-          </div>
+          <ProjectsChallengeStatusBadge status={status} />
         </div>
+        <RiArrowRightLine
+          aria-hidden={true}
+          className={clsx(
+            'size-5 shrink-0',
+            themeTextFaintColor,
+            'group-hover:text-brand dark:group-hover:text-brand',
+          )}
+        />
+      </div>
+      <Anchor href={href} variant="unstyled">
+        <Text size="body0" weight="bold">
+          {title}
+        </Text>
+        <span aria-hidden="true" className="absolute inset-0" />
       </Anchor>
+      <Text className="line-clamp-3" color="subtitle" size="body3">
+        {description}
+      </Text>
+      <div className="flex items-center gap-4 z-10">
+        <ProjectsChallengeDifficultyTag difficulty={difficulty} />
+        <ProjectsComponentTrackTag track={track} />
+      </div>
     </div>
   );
 }
