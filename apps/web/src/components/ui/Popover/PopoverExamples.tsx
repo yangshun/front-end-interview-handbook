@@ -1,4 +1,5 @@
 import Popover from './index';
+import Button from '../Button';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 
 export default function PopoverExamples() {
@@ -6,7 +7,9 @@ export default function PopoverExamples() {
     <UIExamplesGroup darkMode="horizontal" gapSize="lg" title="Popover">
       <div className="flex flex-wrap gap-x-12 gap-y-6">
         {(['md', 'sm', 'xs'] as const).map((size) => (
-          <Popover key={size} label="Open" size={size}>
+          <Popover
+            key={size}
+            trigger={<Button label="Open" size={size} variant="secondary" />}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna
             etiam tempor orci eu lobortis elementum. In massa tempor nec feugiat
@@ -21,7 +24,10 @@ export default function PopoverExamples() {
       </div>
       <div className="flex flex-wrap gap-x-12 gap-y-6">
         {(['start', 'center', 'end'] as const).map((align) => (
-          <Popover key={align} align={align} label={`Open ${align}`}>
+          <Popover
+            key={align}
+            align={align}
+            trigger={<Button label={`Open ${align}`} variant="secondary" />}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna
             etiam tempor orci eu lobortis elementum. In massa tempor nec feugiat
@@ -36,7 +42,10 @@ export default function PopoverExamples() {
       </div>
       <div className="flex flex-wrap gap-12 gap-y-6">
         {(['sm', 'md', 'lg'] as const).map((width) => (
-          <Popover key={width} label={`Open ${width}`} width={width}>
+          <Popover
+            key={width}
+            trigger={<Button label={`Open ${width}`} variant="secondary" />}
+            width={width}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna
             etiam tempor orci eu lobortis elementum. In massa tempor nec feugiat
@@ -44,15 +53,6 @@ export default function PopoverExamples() {
             commodo ullamcorper.
           </Popover>
         ))}
-      </div>
-      <div className="flex flex-wrap gap-12 gap-y-6">
-        <Popover label="With tooltip" tooltip="Hello I'm a tooltip!">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna
-          etiam tempor orci eu lobortis elementum. In massa tempor nec feugiat
-          nisl pretium. Habitant morbi tristique senectus et. Dictum at tempor
-          commodo ullamcorper.
-        </Popover>
       </div>
     </UIExamplesGroup>
   );

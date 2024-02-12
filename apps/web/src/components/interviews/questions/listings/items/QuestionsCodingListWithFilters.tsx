@@ -28,6 +28,7 @@ import {
   sortQuestionsMultiple,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
+import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
@@ -339,9 +340,14 @@ export default function QuestionsCodingListWithFilters({
       {layout === 'embedded' && (
         <div className="hidden lg:inline-flex">
           <Popover
-            icon={RiArrowDownSLine}
-            label={companyFilterOptions.name}
-            size="sm">
+            trigger={
+              <Button
+                icon={RiArrowDownSLine}
+                label={companyFilterOptions.name}
+                size="sm"
+                variant="secondary"
+              />
+            }>
             <div className="grid grid-cols-2 gap-x-4 gap-y-3">
               {companyFilterOptions.options.map((option) => (
                 <div key={option.value} className="flex items-center">
@@ -360,9 +366,14 @@ export default function QuestionsCodingListWithFilters({
       {layout === 'embedded' && (
         <div className="hidden lg:inline-flex">
           <Popover
-            icon={RiArrowDownSLine}
-            label={difficultyFilterOptions.name}
-            size="sm"
+            trigger={
+              <Button
+                icon={RiArrowDownSLine}
+                label={difficultyFilterOptions.name}
+                size="sm"
+                variant="secondary"
+              />
+            }
             width="sm">
             <div className="flex flex-wrap gap-x-6 gap-y-3">
               {difficultyFilterOptions.options.map((option) => (
@@ -384,9 +395,14 @@ export default function QuestionsCodingListWithFilters({
       {layout === 'embedded' && (
         <div className="hidden lg:inline-flex">
           <Popover
-            icon={RiArrowDownSLine}
-            label={frameworkFilterOptions.name}
-            size="sm">
+            trigger={
+              <Button
+                icon={RiArrowDownSLine}
+                label={frameworkFilterOptions.name}
+                size="sm"
+                variant="secondary"
+              />
+            }>
             <div className={clsx('flex flex-col')}>
               <div className="flex flex-col gap-2">
                 <Text display="block" size="body3" weight="medium">
@@ -434,9 +450,14 @@ export default function QuestionsCodingListWithFilters({
       {layout === 'embedded' && (
         <div className="hidden lg:inline-flex">
           <Popover
-            icon={RiArrowDownSLine}
-            label={completionStatusFilterOptions.name}
-            size="sm"
+            trigger={
+              <Button
+                icon={RiArrowDownSLine}
+                label={completionStatusFilterOptions.name}
+                size="sm"
+                variant="secondary"
+              />
+            }
             width="sm">
             <div className="flex flex-wrap gap-x-6 gap-y-3">
               {completionStatusFilterOptions.options.map((option) => (

@@ -4,6 +4,7 @@ import {
   type ProjectsChallengeFilter,
   useProjectsChallengeFilterState,
 } from '~/components/projects/challenges/lists/ProjectsChallengeFilterContext';
+import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Popover from '~/components/ui/Popover';
 
@@ -30,9 +31,14 @@ export default function ProjectsListFilterDropdown({ filter }: Props) {
 
   return (
     <Popover
-      icon={RiArrowDownSLine}
-      label={filter.label}
-      size="md"
+      trigger={
+        <Button
+          icon={RiArrowDownSLine}
+          label={filter.label}
+          size="md"
+          variant="secondary"
+        />
+      }
       width={filter.id === 'component-track' ? 'md' : 'sm'}>
       <div className="flex flex-col gap-y-3">
         {filter.options.map((option) => (

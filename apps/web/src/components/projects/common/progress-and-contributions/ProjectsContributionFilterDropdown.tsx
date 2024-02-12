@@ -1,5 +1,6 @@
 import { RiArrowDownSLine } from 'react-icons/ri';
 
+import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Popover from '~/components/ui/Popover';
 
@@ -30,10 +31,15 @@ export default function ProjectsListFilterDropdown({ filter }: Props) {
 
   return (
     <Popover
-      icon={RiArrowDownSLine}
-      label={filter.label}
-      size="md"
-      tooltip={filter.tooltip}
+      trigger={
+        <Button
+          icon={RiArrowDownSLine}
+          label={filter.label}
+          size="md"
+          tooltip={filter.tooltip}
+          variant="secondary"
+        />
+      }
       width="md">
       <div className="flex flex-col gap-y-3">
         {filter.options.map((option) => (

@@ -24,6 +24,7 @@ import useBlogFilters from '~/components/blog/filters/hooks/useBlogFilters';
 import BlogList from '~/components/blog/filters/items/BlogList';
 import BlogCountLabel from '~/components/blog/metadata/BlogCountLabel';
 import FilterButton from '~/components/common/FilterButton';
+import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
@@ -192,9 +193,14 @@ export default function BlogListingWithFilters({
       {(layout === 'embedded' || layout === 'explore') && (
         <div className="hidden lg:inline-flex">
           <Popover
-            icon={RiArrowDownSLine}
-            label={levelFilterOptions.name}
-            size="sm"
+            trigger={
+              <Button
+                icon={RiArrowDownSLine}
+                label={levelFilterOptions.name}
+                size="sm"
+                variant="secondary"
+              />
+            }
             width="sm">
             <div className="flex flex-wrap gap-x-6 gap-y-3">
               {levelFilterOptions.options.map((option) => (
@@ -214,9 +220,14 @@ export default function BlogListingWithFilters({
       {layout === 'embedded' && (
         <div className="hidden lg:inline-flex">
           <Popover
-            icon={RiArrowDownSLine}
-            label={tagFilterOptions.name}
-            size="sm"
+            trigger={
+              <Button
+                icon={RiArrowDownSLine}
+                label={tagFilterOptions.name}
+                size="sm"
+                variant="secondary"
+              />
+            }
             width="sm">
             <div className="flex flex-wrap gap-x-6 gap-y-3">
               {tagFilterOptions.options.map((option) => (
