@@ -1,27 +1,22 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import {
-  RiArrowLeftLine,
-  RiInformationLine,
-  RiLock2Line,
-} from 'react-icons/ri';
+import { RiArrowLeftLine, RiLock2Line } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/metadata/ProjectsChallengeDifficultyTag';
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsChallengeTrackTag from '~/components/projects/challenges/metadata/ProjectsChallengeTrackTag';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import ProjectsSkillRoadmapChips from '~/components/projects/skills/metadata/ProjectsSkillRoadmapChips';
 import ProjectsCompletedUsersTag from '~/components/projects/stats/ProjectsCompletedUsersTag';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
-import { themeTextSubtleColor } from '~/components/ui/theme';
 
 import ProjectsChallengeCompletedCountButton from './ProjectsChallengeCompletedCountButton';
 import ProjectsChallengeHowItWorksDialog from './ProjectsChallengeHowItWorksDialog';
+import ProjectsChallengeSkillsTag from '../metadata/ProjectsChallengeSkillsTag';
 import ProjectsChallengeCurrentProjectSessionCard from '../session/ProjectsChallengeCurrentSessionCard';
 import { useProjectsChallengeSessionContext } from '../session/ProjectsChallengeSessionContext';
 
@@ -110,27 +105,10 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
             <ProjectsChallengeDifficultyTag difficulty={difficulty} />
             <ProjectsChallengeTrackTag track={track} />
             <ProjectsChallengeReputationTag points={points} variant="flat" />
+            {skills.length > 0 && (
+              <ProjectsChallengeSkillsTag skills={skills} />
+            )}
           </div>
-          {/* TODO(projects|skills): shift this into hovercard for rep tag */}
-          {isGetLatestSessionFetched && !hasSession && (
-            <div className="flex flex-col gap-2">
-              <ProjectsSkillRoadmapChips readonly={true} skills={skills} />
-              <div
-                className={clsx(
-                  'flex items-center gap-1',
-                  themeTextSubtleColor,
-                )}>
-                <RiInformationLine className="size-4" />
-                <Text color="inherit" size="body3">
-                  <FormattedMessage
-                    defaultMessage="You can add more skills e.g. UI frameworks used after starting the project"
-                    description="Additional information for skills section on Projects project page"
-                    id="j63zLB"
-                  />
-                </Text>
-              </div>
-            </div>
-          )}
         </div>
         <div className="flex flex-col gap-4 items-end">
           {!isGetLatestSessionFetched ? null : hasSession ? (

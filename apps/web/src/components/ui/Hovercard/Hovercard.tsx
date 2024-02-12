@@ -3,6 +3,8 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
+import { hovercardContentClassName } from './hovercardStyles';
+
 import * as HoverCardPrimitive from '@radix-ui/react-hover-card';
 
 const Hovercard = HoverCardPrimitive.Root;
@@ -12,14 +14,10 @@ const HovercardTrigger = HoverCardPrimitive.Trigger;
 const HovercardContent = React.forwardRef<
   React.ElementRef<typeof HoverCardPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof HoverCardPrimitive.Content>
->(({ className, align = 'center', sideOffset = 4, ...props }, ref) => (
+>(({ className, sideOffset = 8, ...props }, ref) => (
   <HoverCardPrimitive.Content
     ref={ref}
-    align={align}
-    className={clsx(
-      'animate-in zoom-in-90 z-popover rounded-md border border-neutral-100 bg-white shadow-md outline-none',
-      className,
-    )}
+    className={clsx(hovercardContentClassName, className)}
     sideOffset={sideOffset}
     {...props}
   />

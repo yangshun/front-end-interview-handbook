@@ -176,7 +176,7 @@ export async function readProjectsChallengeList(
           completedProfileIdsGroupedBySlug?.[challengeMetadata.slug] ?? [],
         metadata: {
           ...challengeMetadata,
-          skills: ['html', 'css'],
+          skills: ['html-basics', 'css-flex'],
         },
         status: sessionsForUserGroupedBySlug?.[challengeMetadata.slug] ?? null,
       }),
@@ -267,7 +267,7 @@ export async function readProjectsChallengeItem(
       completedProfiles: completedUsers,
       metadata: {
         ...challengeMetadata,
-        skills: ['html', 'css'],
+        skills: ['html-basics', 'css-flex'],
       },
       // If any page needs it in future, fetch from db.
       status: null,
