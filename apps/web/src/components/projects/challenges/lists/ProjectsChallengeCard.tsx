@@ -63,7 +63,7 @@ export default function ProjectsChallengeCard({
             <ProjectsChallengeStatusBadge status={status} />
           </div>
         )}
-        <div className="absolute start-2 top-2 flex items-center gap-1">
+        <div className="absolute start-3 top-3 flex items-center gap-1">
           <ProjectsChallengeDifficultyTag
             difficulty={difficulty}
             variant="badge"
