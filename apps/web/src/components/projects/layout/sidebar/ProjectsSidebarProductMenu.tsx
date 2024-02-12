@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
-import { useLocalStorage } from 'usehooks-ts';
+import { useIsClient, useLocalStorage } from 'usehooks-ts';
 
 import InterviewsLogo from '~/components/global/logos/InterviewsLogo';
 import LogoMark from '~/components/global/logos/LogoMark';
@@ -81,6 +81,7 @@ const buttonBaseClassname = clsx(
 );
 
 export default function ProjectsSidebarProductMenu({ variant }: Props) {
+  const isClient = useIsClient();
   const [showUnseenIndicator, setShowUnseenIndicator] = useLocalStorage(
     indicatorKey,
     true,
@@ -105,7 +106,7 @@ export default function ProjectsSidebarProductMenu({ variant }: Props) {
             type="button">
             <div className="flex gap-1">
               <ProjectsLogo height={32} />
-              {showUnseenIndicator && (
+              {isClient && showUnseenIndicator && (
                 <span
                   className={clsx(
                     'size-2 bg-red rounded-full -translate-y-1/2',
