@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
-import { Fragment } from 'react';
 import {
-  RiArrowRightSLine,
   RiBookOpenLine,
   RiCalendar2Line,
   RiContractLeftLine,
@@ -20,11 +18,14 @@ import { SocialDiscountSidebarMention } from '~/components/promotions/social/Soc
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
+import Popover from '~/components/ui/Popover';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundElementEmphasizedStateColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
-  themeBackgroundLayerColor,
+  themeBackgroundElementPressedStateColor_Active,
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
   themeTextBrandColor,
   themeTextBrandColor_Hover,
   themeTextSecondaryColor,
@@ -32,8 +33,6 @@ import {
 import Tooltip from '~/components/ui/Tooltip';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
-
-import { Popover, Transition } from '@headlessui/react';
 
 type SidebarItem = Readonly<{
   currentMatchRegex?: RegExp;
@@ -51,7 +50,6 @@ type SidebarLink = Readonly<{
 
 type SidebarPopover = Readonly<{
   items: ReadonlyArray<SidebarLink>;
-  popoverAlignment: 'bottom' | 'middle' | 'top';
   type: 'popover';
 }> &
   SidebarItem;
@@ -141,7 +139,6 @@ function useSidebarNavigation() {
         description: 'Sidebar label for Interview Guides category',
         id: 'CIPW07',
       }),
-      popoverAlignment: 'middle',
       type: 'popover',
     },
     {
@@ -212,9 +209,18 @@ export default function Sidebar({
     <div className="flex size-full flex-1 grow flex-col justify-between p-4">
       <div className={clsx('grid gap-2')}>
         {navigation.map((item) => {
+          const itemInterationClasses = clsx(
+            [
+              themeOutlineElement_FocusVisible,
+              themeOutlineElementBrandColor_FocusVisible,
+            ],
+            themeBackgroundElementPressedStateColor_Active,
+          );
           const itemClassname = clsx(
-            'group flex w-full items-center gap-x-2 rounded text-xs font-medium',
-            'p-2',
+            'group flex w-full items-center gap-x-2',
+            'rounded p-2',
+            'text-xs font-medium',
+            itemInterationClasses,
           );
           const label = (
             <Text
@@ -267,93 +273,53 @@ export default function Sidebar({
           }
 
           return (
-            <Popover key={item.key} className="relative">
-              {({ close, open }) => {
-                const button = (
-                  <Popover.Button
-                    aria-label={isCollapsed ? item.name : undefined}
-                    className={clsx(
-                      itemClassname,
-                      pathname != null && item.currentMatchRegex?.test(pathname)
-                        ? activeClassName
-                        : defaultClassName,
-                    )}>
-                    {label}
-                  </Popover.Button>
-                );
-
-                return (
-                  <>
-                    {open || !isCollapsed ? (
-                      button
-                    ) : (
-                      <Tooltip
-                        className="w-full"
-                        label={item.name}
-                        side="right">
-                        {button}
-                      </Tooltip>
-                    )}
-                    <Transition
-                      as={Fragment}
-                      enter="transition ease-out duration-200"
-                      enterFrom="opacity-0 translate-x-1"
-                      enterTo="opacity-100 translate-x-0"
-                      leave="transition ease-in duration-150"
-                      leaveFrom="opacity-100 translate-x-0"
-                      leaveTo="opacity-0 translate-x-1">
-                      <Popover.Panel
-                        className={clsx(
-                          'absolute left-full z-popover ml-3 min-w-[200px] max-w-md p-1 lg:ml-0',
-                          item.popoverAlignment === 'top' && 'top-0',
-                          item.popoverAlignment === 'middle' &&
-                            'top-1/2 -translate-y-1/2',
-                          item.popoverAlignment === 'bottom' && 'bottom-0',
-                        )}>
-                        <div
-                          className={clsx(
-                            'flex flex-col overflow-hidden rounded-lg p-2 shadow-lg ring-1 ring-black ring-opacity-5',
-                            themeBackgroundLayerColor,
-                          )}>
-                          {item.items.map((popoverItem) => (
-                            <Anchor
-                              key={popoverItem.key}
-                              className={clsx(
-                                'group gap-x-2 rounded px-2 py-3',
-                                themeBackgroundElementEmphasizedStateColor_Hover,
-                              )}
-                              href={popoverItem.href}
-                              variant="unstyled"
-                              onClick={() => {
-                                close();
-                              }}>
-                              <Text
-                                className="items-center justify-between gap-x-2"
-                                color="secondary"
-                                display="flex"
-                                size="body3"
-                                weight="medium">
-                                <div className="flex items-center gap-x-2">
-                                  {popoverItem.icon != null && (
-                                    <SidebarIcon icon={popoverItem.icon} />
-                                  )}
-                                  <span className="whitespace-nowrap">
-                                    {popoverItem.name}
-                                  </span>
-                                  {popoverItem.labelAddon}
-                                </div>
-                                <span className="invisible group-hover:visible">
-                                  <SidebarIcon icon={RiArrowRightSLine} />
-                                </span>
-                              </Text>
-                            </Anchor>
-                          ))}
-                        </div>
-                      </Popover.Panel>
-                    </Transition>
-                  </>
-                );
-              }}
+            <Popover
+              key={item.key}
+              side="right"
+              trigger={
+                <button
+                  aria-label={isCollapsed ? item.name : undefined}
+                  className={clsx(
+                    itemClassname,
+                    pathname != null && item.currentMatchRegex?.test(pathname)
+                      ? activeClassName
+                      : defaultClassName,
+                  )}
+                  type="button">
+                  {label}
+                </button>
+              }>
+              {item.items.map((popoverItem) => (
+                <Anchor
+                  key={popoverItem.key}
+                  className={clsx(
+                    'group gap-x-2 rounded px-2 py-3',
+                    itemInterationClasses,
+                    themeBackgroundElementEmphasizedStateColor_Hover,
+                  )}
+                  href={popoverItem.href}
+                  variant="unstyled"
+                  onClick={() => {
+                    close();
+                  }}>
+                  <Text
+                    className="items-center justify-between gap-x-2"
+                    color="secondary"
+                    display="flex"
+                    size="body3"
+                    weight="medium">
+                    <div className="flex items-center gap-x-2">
+                      {popoverItem.icon != null && (
+                        <SidebarIcon icon={popoverItem.icon} />
+                      )}
+                      <span className="whitespace-nowrap">
+                        {popoverItem.name}
+                      </span>
+                      {popoverItem.labelAddon}
+                    </div>
+                  </Text>
+                </Anchor>
+              ))}
             </Popover>
           );
         })}
