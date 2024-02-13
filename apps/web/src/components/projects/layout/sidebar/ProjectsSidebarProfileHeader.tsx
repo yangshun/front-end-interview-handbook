@@ -2,10 +2,11 @@ import clsx from 'clsx';
 
 import useProfile from '~/hooks/user/useProfile';
 
-import UserProfileDisplayName from '~/components/profile/info/UserProfileDisplayName';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import ProjectsUserReputation from '~/components/projects/users/ProjectsUserReputation';
 import Text from '~/components/ui/Text';
+
+import ProjectsProfileDisplayNameLink from '../../users/ProjectsProfileDisplayNameLink';
 
 type Props = Readonly<{
   points: number;
@@ -31,7 +32,7 @@ export function ProjectsSidebarProfileHeader({ points }: Props) {
       />
       <div className="flex flex-col gap-1">
         <Text className="line-clamp-2" size="body2" weight="medium">
-          <UserProfileDisplayName profile={profile} />
+          <ProjectsProfileDisplayNameLink profile={profile} />
         </Text>
         <ProjectsUserReputation points={points} />
       </div>
