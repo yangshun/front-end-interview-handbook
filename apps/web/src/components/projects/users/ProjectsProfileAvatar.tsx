@@ -52,8 +52,7 @@ export default function ProjectsProfileAvatar({
           {avatar}
         </Anchor>
       </HovercardTrigger>
-      <HovercardContent
-        className={clsx('border-none', themeBackgroundLayerEmphasized)}>
+      <HovercardContent>
         <ProjectsProfileHoverCard profileId={profile.id} />
       </HovercardContent>
     </Hovercard>

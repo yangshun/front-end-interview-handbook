@@ -21,7 +21,9 @@ export default function ProjectsChallengeHoverCard({ slug }: Props) {
   return (
     <div
       className={clsx(
-        'relative overflow-clip rounded-lg md:w-[420px] sm:w-[400px] w-[350px] min-h-[380px] p-4 grow flex flex-col gap-4',
+        'flex flex-col grow gap-4',
+        'w-[350px] sm:w-[400px] md:w-[420px] min-h-[380px]',
+        'relative overflow-clip rounded-lg',
       )}>
       {isLoading || !data ? (
         <div className="flex items-center justify-center w-full min-h-[400px]">

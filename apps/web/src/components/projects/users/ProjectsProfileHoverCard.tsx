@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import {
   RiGithubFill,
   RiLinkedinBoxFill,
@@ -44,7 +45,12 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
   const { profile, submissions } = data || {};
 
   return (
-    <div className="overflow-clip rounded-lg md:w-[420px] sm:w-[400px] w-[350px] p-6 flex flex-col gap-4">
+    <div
+      className={clsx(
+        'flex flex-col gap-4',
+        'overflow-clip rounded-lg',
+        'w-[350px] sm:w-[400px] md:w-[420px]',
+      )}>
       {isLoading || !data ? (
         <div className="flex items-center justify-center w-full min-h-[120px]">
           <Spinner size="md" />

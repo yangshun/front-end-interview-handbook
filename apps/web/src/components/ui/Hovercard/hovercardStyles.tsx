@@ -1,13 +1,12 @@
 import clsx from 'clsx';
 
-import { themeBackgroundColor, themeBorderElementColor } from '../theme';
+import { themeBackgroundLayerEmphasized } from '../theme';
 
 export const hovercardContentClassName = clsx(
   'p-4',
   'rounded-lg',
   'shadow-lg',
-  themeBackgroundColor,
-  ['border', themeBorderElementColor],
+  themeBackgroundLayerEmphasized,
   'text-sm',
   'z-popover',
 );

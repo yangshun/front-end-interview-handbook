@@ -88,10 +88,7 @@ export default function ProjectsChallengeSubmissionCard({
                         href={challenge?.metadata.href}>
                         <Anchor>{chunks}</Anchor>
                       </HovercardTrigger>
-                      <HovercardContent
-                        className={clsx(
-                          'border-none bg-neutral-50 dark:bg-neutral-900',
-                        )}>
+                      <HovercardContent>
                         <ProjectsChallengeHoverCard
                           slug={challenge.metadata.slug}
                         />
