@@ -9,7 +9,7 @@ import prisma from '~/server/prisma';
 import { projectsUserProcedure, publicProjectsProcedure } from './procedures';
 import { publicProcedure, router } from '../../trpc';
 
-import type { ProjectsChallengeSessionStatus } from '@prisma/client';
+import type { Prisma, ProjectsChallengeSessionStatus } from '@prisma/client';
 
 const projectsChallengeProcedure = projectsUserProcedure.input(
   z.object({
@@ -17,9 +17,7 @@ const projectsChallengeProcedure = projectsUserProcedure.input(
   }),
 );
 
-type QueryMode = 'insensitive';
-
-const whereClauseForSubmissions = (
+function whereClauseForSubmissions(
   query: string,
   isStatusNotEmpty: boolean,
   projectsProfileId: string | null,
@@ -31,13 +29,13 @@ const whereClauseForSubmissions = (
   }>,
   profileStatus: Array<ProjectsYoeReplacement>,
   hasClientFilterApplied: boolean,
-) => {
+) {
   return [
     {
       // Filter by session title or summary
       OR: [
-        { title: { contains: query, mode: 'insensitive' as QueryMode } },
-        { summary: { contains: query, mode: 'insensitive' as QueryMode } },
+        { title: { contains: query, mode: 'insensitive' as const } },
+        { summary: { contains: query, mode: 'insensitive' as const } },
       ],
       projectsProfile: {
         // Filter by submissions of projects you have completed or in progress or not started
@@ -81,7 +79,6 @@ const whereClauseForSubmissions = (
           }),
         },
       },
-
       // Filter by challenges slug
       ...(hasClientFilterApplied && {
         slug: {
@@ -90,7 +87,7 @@ const whereClauseForSubmissions = (
       }),
     },
   ];
-};
+}
 
 export const projectsChallengeSubmissionListRouter = router({
   list: publicProjectsProcedure
@@ -192,73 +189,28 @@ export const projectsChallengeSubmissionListRouter = router({
 
         const isStatusNotEmpty = challengeSessionStatus.length > 0;
 
-        const sortFilter = (() => {
+        const orderBy:
+          | Array<Prisma.ProjectsChallengeSubmissionOrderByWithRelationInput>
+          | Prisma.ProjectsChallengeSubmissionOrderByWithRelationInput
+          | undefined = (() => {
           if (sort.field === 'votes') {
             return {
-              orderBy: {
-                votes: {
-                  _count: sort.isAscendingOrder
-                    ? ('asc' as const)
-                    : ('desc' as const),
-                },
-              },
+              votes: {
+                _count: sort.isAscendingOrder ? 'asc' : 'desc',
+              } as const,
             };
           }
 
           if (sort.field === 'createdAt') {
             return {
-              orderBy: {
-                createdAt: sort.isAscendingOrder
-                  ? ('asc' as const)
-                  : ('desc' as const),
-              },
-            };
+              createdAt: sort.isAscendingOrder ? 'asc' : 'desc',
+            } as const;
           }
 
-          if (submissionType === 'all') {
-            return {
-              orderBy: [
-                {
-                  recommendationAll: {
-                    score: 'desc' as const,
-                  },
-                },
-              ],
-            };
-          }
-
-          if (submissionType === 'learn') {
-            return {
-              orderBy: [
-                {
-                  recommendationLearn: {
-                    score: 'desc' as const,
-                  },
-                },
-              ],
-            };
-          }
-
-          if (submissionType === 'mentor') {
-            return {
-              orderBy: [
-                {
-                  recommendationMentor: {
-                    score: 'desc' as const,
-                  },
-                },
-              ],
-            };
-          }
-        })();
-
-        const includes = (() => {
           if (submissionType === 'all') {
             return {
               recommendationAll: {
-                select: {
-                  score: true,
-                },
+                score: 'desc' as const,
               },
             };
           }
@@ -266,9 +218,7 @@ export const projectsChallengeSubmissionListRouter = router({
           if (submissionType === 'learn') {
             return {
               recommendationLearn: {
-                select: {
-                  score: true,
-                },
+                score: 'desc' as const,
               },
             };
           }
@@ -276,9 +226,7 @@ export const projectsChallengeSubmissionListRouter = router({
           if (submissionType === 'mentor') {
             return {
               recommendationMentor: {
-                select: {
-                  score: true,
-                },
+                score: 'desc' as const,
               },
             };
           }
@@ -405,12 +353,11 @@ export const projectsChallengeSubmissionListRouter = router({
                   },
                 },
               },
-              ...(includes ? includes : {}),
             },
+            orderBy: orderBy ?? undefined,
             skip: (currentPage - 1) * itemPerPage,
             take: itemPerPage,
             where,
-            ...(sortFilter ? sortFilter : {}),
           }),
         ]);
 
