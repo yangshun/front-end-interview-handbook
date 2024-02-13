@@ -376,17 +376,57 @@ export const projectsChallengeSubmissionRouter = router({
 
           if (submissionType === 'all') {
             return {
-              orderBy: {
-                createdAt: 'desc' as const,
+              orderBy: [
+                {
+                  recommendationAll: {
+                    score: 'desc' as const,
+                  },
+                },
+              ],
+            };
+          }
+
+          if (submissionType === 'learn') {
+            return {
+              orderBy: [
+                {
+                  recommendationLearn: {
+                    score: 'desc' as const,
+                  },
+                },
+              ],
+            };
+          }
+
+          if (submissionType === 'mentor') {
+            return {
+              orderBy: [
+                {
+                  recommendationMentor: {
+                    score: 'desc' as const,
+                  },
+                },
+              ],
+            };
+          }
+        })();
+
+        const includes = (() => {
+          if (submissionType === 'all') {
+            return {
+              recommendationAll: {
+                select: {
+                  score: true,
+                },
               },
             };
           }
 
           if (submissionType === 'learn') {
             return {
-              orderBy: {
-                votes: {
-                  _count: 'desc' as const,
+              recommendationLearn: {
+                select: {
+                  score: true,
                 },
               },
             };
@@ -394,9 +434,9 @@ export const projectsChallengeSubmissionRouter = router({
 
           if (submissionType === 'mentor') {
             return {
-              orderBy: {
-                votes: {
-                  _count: 'asc' as const,
+              recommendationMentor: {
+                select: {
+                  score: true,
                 },
               },
             };
@@ -524,6 +564,7 @@ export const projectsChallengeSubmissionRouter = router({
                   },
                 },
               },
+              ...(includes ? includes : {}),
             },
             skip: (currentPage - 1) * itemPerPage,
             take: itemPerPage,
