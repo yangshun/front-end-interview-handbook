@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import type { ReactNode } from 'react';
 
 import Anchor from '~/components/ui/Anchor';
 import { themeBorderElementColor } from '~/components/ui/theme';
@@ -18,6 +19,7 @@ export type TabItem<T> = Readonly<{
 type TabSize = 'md' | 'sm' | 'xs';
 
 type Props<T> = Readonly<{
+  endAddOn?: ReactNode;
   hasBorder?: boolean;
   label: string;
   onSelect?: (value: T) => void;
@@ -65,6 +67,7 @@ const sizeClasses: Record<
 };
 
 export default function Tabs<T>({
+  endAddOn,
   hasBorder = true,
   label,
   tabs,
@@ -84,8 +87,12 @@ export default function Tabs<T>({
 
   return (
     <div className="isolate w-full overflow-x-auto overflow-y-hidden">
-      <div className={clsx('border-b', themeBorderElementColor)}>
-        <nav aria-label={label} className={clsx('flex', tabGapSize)}>
+      <div
+        className={clsx('flex items-center', [
+          'border-b',
+          themeBorderElementColor,
+        ])}>
+        <nav aria-label={label} className={clsx('flex grow', tabGapSize)}>
           {tabs.map((tabItem) => {
             const {
               icon: Icon,
@@ -165,6 +172,7 @@ export default function Tabs<T>({
             );
           })}
         </nav>
+        {endAddOn}
       </div>
     </div>
   );

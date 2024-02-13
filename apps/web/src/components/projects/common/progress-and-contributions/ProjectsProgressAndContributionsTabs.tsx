@@ -1,8 +1,10 @@
 'use client';
 
 import { useMemo } from 'react';
+import { RiArrowRightLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import Button from '~/components/ui/Button';
 import Tabs from '~/components/ui/Tabs';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
@@ -39,6 +41,19 @@ export default function ProjectsProgressAndContributionsTabs({
 
   return (
     <Tabs
+      endAddOn={
+        <Button
+          href="/projects/challenges"
+          icon={RiArrowRightLine}
+          label={intl.formatMessage({
+            defaultMessage: 'Start new project',
+            description: 'Link to start new project',
+            id: 'buBLGx',
+          })}
+          size="md"
+          variant="tertiary"
+        />
+      }
       label={intl.formatMessage({
         defaultMessage: 'Select dashboard category',
         description: 'Tab label to select another dashboard category',

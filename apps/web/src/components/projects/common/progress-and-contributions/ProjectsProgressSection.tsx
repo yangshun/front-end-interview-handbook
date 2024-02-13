@@ -28,7 +28,7 @@ export default function ProjectsProgressSection({
   const mainLayoutTabs = useProjectsMainLayoutTabs();
   const progressTabs: ReadonlyArray<TabItem<ProjectsMainLayoutTabCategory>> =
     mainLayoutTabs.map((tab) => {
-      const { href: _href, ...tabWithoutHref } = tab;
+      const { href: _href, icon: _Icon, ...tabWithoutHref } = tab;
 
       return {
         ...tabWithoutHref,

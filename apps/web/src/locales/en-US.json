@@ -4271,6 +4271,10 @@
     "defaultMessage": "Email Us",
     "description": "Button label to send to a support email"
   },
+  "buBLGx": {
+    "defaultMessage": "Start new project",
+    "description": "Link to start new project"
+  },
   "buggxJ": {
     "defaultMessage": "Reply",
     "description": "Label for reply button on project discussions page"
