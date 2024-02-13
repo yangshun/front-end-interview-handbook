@@ -15,10 +15,6 @@
     "defaultMessage": "Your username has been updated.",
     "description": "Success message when for username changes"
   },
-  "+7QBdp": {
-    "defaultMessage": "Log out",
-    "description": "Sign out label"
-  },
   "+99sZT": {
     "defaultMessage": "{questionCount}+ interview questions across <clink>coding</clink> and <qlink>quiz</qlink> formats and new questions constantly being added.",
     "description": "Subtitle for huge question bank feature"
@@ -3651,10 +3647,6 @@
     "defaultMessage": "Other",
     "description": "Label for \"Other\" input for \"Years of experience replacement status\" on Projects profile onboarding page"
   },
-  "WX+cIg": {
-    "defaultMessage": "Free Plan CTA card tooltip",
-    "description": "Tooltip label for Free Plan CTA card in Projects sidebar"
-  },
   "WZy7m4": {
     "defaultMessage": "Table of Contents",
     "description": "Guides table of contents menu button label"
@@ -6446,10 +6438,6 @@
   "vSWYET": {
     "defaultMessage": "Save changes",
     "description": "Button label for a form"
-  },
-  "vYkB/0": {
-    "defaultMessage": "Sign in/up",
-    "description": "Label for Sign in/up button in profile header of Projects sidebar"
   },
   "vbwUYs": {
     "defaultMessage": "Clarify any doubts on a project in project-specific forums",

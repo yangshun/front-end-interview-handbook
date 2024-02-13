@@ -19,9 +19,11 @@ export type DropdownMenuTriggerVariant = 'secondary' | 'tertiary';
 export type DropdownMenuContentAlignment = 'center' | 'end' | 'start';
 export type DropdownMenuContentSide = 'bottom' | 'left' | 'right' | 'top';
 
-type ChildItem = React.ReactElement<
-  DropdownMenuItemProps | DropdownMenuSubProps
->;
+type ChildItem =
+  | React.ReactElement<DropdownMenuItemProps | DropdownMenuSubProps>
+  | false
+  | null
+  | undefined;
 
 type Props = Readonly<{
   __forceDark?: boolean;

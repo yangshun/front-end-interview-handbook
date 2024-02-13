@@ -2,6 +2,8 @@ import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { useAuthFns } from '~/hooks/user/useAuthFns';
+
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
@@ -9,6 +11,7 @@ import Text from '~/components/ui/Text';
 
 export function ProjectsSidebarNotSignedInHeader() {
   const intl = useIntl();
+  const { signInUpLabel, signInUpHref } = useAuthFns();
 
   return (
     <div className={clsx('flex flex-col gap-6')}>
@@ -24,13 +27,8 @@ export function ProjectsSidebarNotSignedInHeader() {
               />
             </Text>
             <Text size="body3" weight="medium">
-              <Anchor href="/sign-up?next=/projects/onboarding">
-                {intl.formatMessage({
-                  defaultMessage: 'Sign in/up',
-                  description:
-                    'Label for Sign in/up button in profile header of Projects sidebar',
-                  id: 'vYkB/0',
-                })}
+              <Anchor href={signInUpHref('/projects/onboarding')}>
+                {signInUpLabel}
                 <RiArrowRightLine className="size-4 ms-1 shrink-0 inline-flex" />
               </Anchor>
             </Text>

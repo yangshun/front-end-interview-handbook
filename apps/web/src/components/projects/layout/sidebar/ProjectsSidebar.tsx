@@ -7,6 +7,7 @@ import {
   RiContractRightLine,
   RiDiscordLine,
   RiHome3Line,
+  RiLoginBoxLine,
   RiLogoutBoxLine,
   RiMoonLine,
   RiMoreLine,
@@ -18,6 +19,7 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import { useAuthFns } from '~/hooks/user/useAuthFns';
 import useProfile from '~/hooks/user/useProfile';
 
 import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
@@ -218,6 +220,34 @@ type Props = Readonly<{
   onCollapseClick: () => void;
 }>;
 
+function AuthDropdownItem() {
+  const { profile } = useProfile();
+  const {
+    signInUpLabel,
+    navigateToSignInUpPage,
+    logoutLabel,
+    navigateToLogoutPage,
+  } = useAuthFns();
+
+  return profile == null ? (
+    <DropdownMenu.Item
+      icon={RiLoginBoxLine}
+      label={signInUpLabel}
+      onClick={() => {
+        navigateToSignInUpPage();
+      }}
+    />
+  ) : (
+    <DropdownMenu.Item
+      icon={RiLogoutBoxLine}
+      label={logoutLabel}
+      onClick={() => {
+        navigateToLogoutPage();
+      }}
+    />
+  );
+}
+
 export function ProjectsSidebarExpanded({
   onCollapseClick,
 }: Readonly<{
@@ -295,14 +325,7 @@ export function ProjectsSidebarExpanded({
                 id: 'XysLlX',
               })}
             />
-            <DropdownMenu.Item
-              icon={RiLogoutBoxLine}
-              label={intl.formatMessage({
-                defaultMessage: 'Log out',
-                description: 'Sign out label',
-                id: '+7QBdp',
-              })}
-            />
+            <AuthDropdownItem />
           </DropdownMenu>
         </div>
         {onCollapseClick && (
@@ -397,14 +420,7 @@ function ProjectsSidebarCollapsed({
                 id: 'XysLlX',
               })}
             />
-            <DropdownMenu.Item
-              icon={RiLogoutBoxLine}
-              label={intl.formatMessage({
-                defaultMessage: 'Log out',
-                description: 'Sign out label',
-                id: '+7QBdp',
-              })}
-            />
+            <AuthDropdownItem />
           </DropdownMenu>
         </div>
         <Button
