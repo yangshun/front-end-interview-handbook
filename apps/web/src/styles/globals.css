@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './font.css';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 @layer utilities {
   .theme-bg-radial-glow {
     position: relative;
@@ -28,71 +45,6 @@
   }
 }
 
-@font-face {
-  font-family: 'Inter var';
-  font-weight: 100 900;
-  font-display: swap;
-  font-style: normal;
-  font-named-instance: 'Regular';
-  src: url('./fonts/Inter-roman-latin.var.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Inter var';
-  font-weight: 100 900;
-  font-display: swap;
-  font-style: italic;
-  font-named-instance: 'Italic';
-  src: url('./fonts/Inter-italic-latin.var.woff2') format('woff2');
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (pointer: fine) {
-  .thin-scrollbar {
-    scrollbar-width: thin;
-  }
-
-  .thin-scrollbar::-webkit-scrollbar {
-    height: 4px;
-    width: 4px;
-  }
-
-  .thin-scrollbar::-webkit-scrollbar-track {
-    border-radius: 4px;
-  }
-
-  .thin-scrollbar::-webkit-scrollbar-thumb {
-    background: #00000022;
-    border-radius: 4px;
-  }
-
-  [data-mode='dark'] .thin-scrollbar::-webkit-scrollbar-thumb {
-    background: #ffffff22;
-  }
-
-  .thin-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #00000044;
-  }
-
-  [data-mode='dark'] .thin-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #ffffff44;
-  }
-}
-
 [data-mode='dark'] {
   color-scheme: dark; /* Makes some default elements (e.g. scrollbar) dark */
 }
@@ -106,92 +58,6 @@ a {
   text-align: center;
 }
 
-:root {
-  --navbar-height: 52px;
-  --navbar-border: 1px;
-  --banner-height: 56px;
-  --nav-top-offset: calc(
-    var(--navbar-height) + var(--navbar-border) + var(--banner-height)
-  );
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --banner-height: 32px;
-  }
-}
-
-/* Sync data attribute with GlobalBannerDisplayScript.tsx */
-html[data-global-banner-hidden='true'] {
-  --banner-height: 0px;
-}
-
-/* Sync data attribute with GlobalBannerDisplayScript.tsx */
-/* Sync classname with GlobalBanner.tsx */
-html[data-global-banner-hidden='true'] .global-banner {
-  display: none;
-}
-
-[data-mode='dark'] .glassbox {
-  background: hsla(0, 0%, 9%, 0.3);
-  position: relative;
-}
-
-[data-mode='dark'] .glassbox::before {
-  background: conic-gradient(
-      from 90deg at 50% 50%,
-      #3f3f4640 0deg,
-      #3f3f4640 169.87deg,
-      #d8d8e140 236.25deg,
-      #3f3f4640 360deg
-    ),
-    linear-gradient(0deg, #252429, #252429);
-  border-radius: inherit;
-  content: '';
-  inset: 0px;
-  padding: 1px;
-  pointer-events: none;
-  position: absolute;
-  user-select: none;
-  /* Firefox */
-  mask-mode: match-source, match-source;
-  mask-repeat: repeat, repeat;
-  mask-clip: content-box, border-box;
-  mask-origin: content-box, border-box;
-  mask-position:
-    0% 0%,
-    0% 0%;
-  mask-size: auto, auto;
-  mask-image: linear-gradient(black, black), linear-gradient(black, black);
-  mask-composite: exclude;
-
-  /* Webkit */
-  /* -webkit-mask: linear-gradient(black, black) content-box content-box, linear-gradient(black, black); */
-  /* -webkit-mask-composite: xor; */
-}
-
-.shiny::before {
-  background: linear-gradient(#8383fd 0%, #e9d5ff 75%, transparent 100%);
-  border-radius: inherit;
-  content: '';
-  inset: 0px;
-  padding: 1px;
-  pointer-events: none;
-  position: absolute;
-  user-select: none;
-  /* Firefox */
-  mask-mode: match-source, match-source;
-  mask-repeat: repeat, repeat;
-  mask-clip: content-box, border-box;
-  mask-origin: content-box, border-box;
-  mask-position:
-    0% 0%,
-    0% 0%;
-  mask-size: auto, auto;
-  mask-image: linear-gradient(black, black), linear-gradient(black, black);
-  mask-composite: exclude;
-
-  /* Webkit */
-  /* -webkit-mask: linear-gradient(black, black) content-box content-box, linear-gradient(black, black); */
-  /* -webkit-mask-composite: xor; */
-}
+@import './banner.css';
+@import './fancy.css';
+@import './scrollbar.css';

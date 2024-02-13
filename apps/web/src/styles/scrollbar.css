@@ -1,0 +1,31 @@
+@media (pointer: fine) {
+  .thin-scrollbar {
+    scrollbar-width: thin;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar {
+    height: 4px;
+    width: 4px;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-track {
+    border-radius: 4px;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-thumb {
+    background: #00000022;
+    border-radius: 4px;
+  }
+
+  [data-mode='dark'] .thin-scrollbar::-webkit-scrollbar-thumb {
+    background: #ffffff22;
+  }
+
+  .thin-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #00000044;
+  }
+
+  [data-mode='dark'] .thin-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #ffffff44;
+  }
+}
