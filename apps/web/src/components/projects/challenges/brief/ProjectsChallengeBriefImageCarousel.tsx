@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
+import { themeBackgroundBrandColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
   images: Array<string>;
@@ -28,8 +29,7 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
       (imageListRef.current?.clientWidth ?? 0) * directionValue;
 
     imageListRef.current?.scrollBy({
-      // Had to disable smooth scroll because it causing issue to find the current image with scroll listener
-      // Behavior: 'smooth',
+      behavior: 'smooth',
       left:
         direction === 'right'
           ? imageListRef?.current.scrollLeft + 4 >= maxScrollLeft
@@ -83,7 +83,7 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
     <div ref={ref} className="relative rounded-lg w-full">
       <div
         ref={imageListRef}
-        className="grid overflow-x-auto snap-x snap-mandatory"
+        className="grid overflow-x-auto snap-x snap-mandatory no-scrollbar"
         style={{
           gap: `${GAP_BETWEEN_IMAGE}px`,
           gridTemplateColumns: `repeat(${images.length}, 1fr)`,
@@ -131,19 +131,20 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
               onClick={() => scrollImage('right')}
             />
           </div>
-          <div className="flex absolute right-0 bottom-0 me-3 mb-6 bg-neutral-300 rounded-full px-2 py-0.5">
+          <div className="flex absolute right-0 bottom-0 me-3 mb-3 bg-neutral-300 rounded-full px-2 py-0.5">
             <Text color="dark" size="body3" weight="medium">
               {current + 1}/{images.length}
             </Text>
           </div>
-          <div className="absolute mb-8 bottom-0 left-1/2 -translate-x-1/2 flex gap-2">
+          <div className="absolute mb-3 bottom-0 left-1/2 -translate-x-1/2 flex gap-2">
             {images.map((image, index) => (
               <div
                 key={image}
                 className={clsx(
-                  'flex-1 h-[5px] w-[20px] rounded-lg',
-                  'bg-neutral-800/40',
-                  index === current && '!bg-brand dark:!bg-brand-dark',
+                  'flex-1 h-1.5 w-5 rounded-lg',
+                  index === current
+                    ? themeBackgroundBrandColor
+                    : 'bg-neutral-800/40',
                 )}
               />
             ))}

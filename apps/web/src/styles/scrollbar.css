@@ -1,3 +1,14 @@
+.no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  /* WebKit */
+  height: 0;
+  width: 0;
+}
+
 @media (pointer: fine) {
   .thin-scrollbar {
     scrollbar-width: thin;
