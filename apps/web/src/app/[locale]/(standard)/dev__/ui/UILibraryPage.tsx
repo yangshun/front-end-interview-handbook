@@ -2,6 +2,7 @@
 
 import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
 import AppThemeSelect from '~/components/global/dark/AppThemeSelect';
+import AccordionExamples from '~/components/ui/Accordion/AccordionExamples';
 import AlertExamples from '~/components/ui/Alert/AlertExamples';
 import BadgeExamples from '~/components/ui/Badge/BadgeExamples';
 import BannerExamples from '~/components/ui/Banner/BannerExamples';
@@ -76,6 +77,7 @@ export default function UILibraryPage() {
         <EmptyStateExamples />
         <CardExamples />
         <BannerExamples />
+        <AccordionExamples />
         {/* Layer */}
         <DropdownMenuExamples />
         <PopoverExamples />
