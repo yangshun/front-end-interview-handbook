@@ -17,7 +17,7 @@ export default function ProjectsChallengeCompletedCountButton({
 }: Props) {
   const [showSubmissionsDialog, setShowSubmissionsDialog] = useState(false);
   const { data: userCompletedTimes } =
-    trpc.projects.submissions.userCompletedTimes.useQuery({
+    trpc.projects.submission.userCompletedTimes.useQuery({
       slug: challengeSlug,
     });
 

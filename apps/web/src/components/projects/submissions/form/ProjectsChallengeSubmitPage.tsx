@@ -31,37 +31,35 @@ export default function ProjectsChallengeSubmitPage({
   const { showToast } = useToast();
   const router = useI18nRouter();
 
-  const createSubmissionMutation = trpc.projects.submissions.create.useMutation(
-    {
-      onError: () => {
-        showToast({
-          title: intl.formatMessage({
-            defaultMessage: 'Oops something went wrong',
-            description: 'Error message',
-            id: 'Nz7W/0',
-          }),
-          variant: 'danger',
-        });
-      },
-      onSuccess: (submission) => {
-        showToast({
-          subtitle: intl.formatMessage({
-            // TODO(projects): Actual rep gained.
-            defaultMessage: 'You have gained XXX rep!',
-            description: 'Success message after submitting a project',
-            id: 'JiDkSH',
-          }),
-          title: intl.formatMessage({
-            defaultMessage: 'Congratulations!',
-            description: 'Success message',
-            id: '5qLBww',
-          }),
-          variant: 'info',
-        });
-        router.push(submission.hrefs.detail);
-      },
+  const createSubmissionMutation = trpc.projects.submission.create.useMutation({
+    onError: () => {
+      showToast({
+        title: intl.formatMessage({
+          defaultMessage: 'Oops something went wrong',
+          description: 'Error message',
+          id: 'Nz7W/0',
+        }),
+        variant: 'danger',
+      });
     },
-  );
+    onSuccess: (submission) => {
+      showToast({
+        subtitle: intl.formatMessage({
+          // TODO(projects): Actual rep gained.
+          defaultMessage: 'You have gained XXX rep!',
+          description: 'Success message after submitting a project',
+          id: 'JiDkSH',
+        }),
+        title: intl.formatMessage({
+          defaultMessage: 'Congratulations!',
+          description: 'Success message',
+          id: '5qLBww',
+        }),
+        variant: 'info',
+      });
+      router.push(submission.hrefs.detail);
+    },
+  });
 
   const { href } = challenge.metadata;
 

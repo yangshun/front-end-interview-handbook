@@ -24,7 +24,7 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
   const { showToast } = useToast();
   const intl = useIntl();
 
-  const { isLoading } = trpc.projects.submissions.hasVoted.useQuery(
+  const { isLoading } = trpc.projects.submission.hasVoted.useQuery(
     {
       submissionId,
     },
@@ -39,7 +39,7 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
   const [hasVoted, setHasVoted] = useState(false);
 
   // TODO(projects): refetch submission instead of maintaining local state.
-  const vote = trpc.projects.submissions.vote.useMutation({
+  const vote = trpc.projects.submission.vote.useMutation({
     onError: () => {
       setCurrentVotes((prevVotes) => prevVotes - 1);
       setHasVoted(false);
@@ -57,7 +57,7 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
       });
     },
   });
-  const unvote = trpc.projects.submissions.unvote.useMutation({
+  const unvote = trpc.projects.submission.unvote.useMutation({
     onError: () => {
       setCurrentVotes((prevVotes) => prevVotes + 1);
       setHasVoted(true);

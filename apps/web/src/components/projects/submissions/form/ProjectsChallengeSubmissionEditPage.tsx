@@ -31,69 +31,65 @@ export default function ProjectsChallengeSubmissionEditPage({
 
   const submissionId = submission.id;
 
-  const updateSubmissionMutation = trpc.projects.submissions.update.useMutation(
-    {
-      onError: () => {
-        showToast({
-          title: intl.formatMessage({
-            defaultMessage: 'Oops something went wrong',
-            description: 'Error message',
-            id: 'Nz7W/0',
-          }),
-          variant: 'danger',
-        });
-      },
-      onSuccess: (submission_) => {
-        showToast({
-          subtitle: intl.formatMessage({
-            defaultMessage:
-              'Your edits have been successfully saved. Thank you for contributing to our community!',
-            description: 'Update challenge success message',
-            id: 'fifBZf',
-          }),
-          title: intl.formatMessage({
-            defaultMessage: 'Changes saved successfully!',
-            description: 'Update challenge success message',
-            id: 'G7d68r',
-          }),
-          variant: 'success',
-        });
-        router.push(submission_.hrefs.detail);
-      },
+  const updateSubmissionMutation = trpc.projects.submission.update.useMutation({
+    onError: () => {
+      showToast({
+        title: intl.formatMessage({
+          defaultMessage: 'Oops something went wrong',
+          description: 'Error message',
+          id: 'Nz7W/0',
+        }),
+        variant: 'danger',
+      });
     },
-  );
-  const deleteSubmissionMutation = trpc.projects.submissions.delete.useMutation(
-    {
-      onError: () => {
-        showToast({
-          title: intl.formatMessage({
-            defaultMessage: 'Oops something went wrong',
-            description: 'Error message',
-            id: 'Nz7W/0',
-          }),
-          variant: 'danger',
-        });
-      },
-      onSuccess: () => {
-        setIsDeleting(false);
-        showToast({
-          subtitle: intl.formatMessage({
-            defaultMessage:
-              'You have deleted this submission. Returning you back to the challenges page.',
-            description: 'Delete challenge success message',
-            id: 'RbQJUu',
-          }),
-          title: intl.formatMessage({
-            defaultMessage: 'Submission deleted!',
-            description: 'Delete challenge success message',
-            id: '3UtpZS',
-          }),
-          variant: 'info',
-        });
-        router.push('/projects/dashboard');
-      },
+    onSuccess: (submission_) => {
+      showToast({
+        subtitle: intl.formatMessage({
+          defaultMessage:
+            'Your edits have been successfully saved. Thank you for contributing to our community!',
+          description: 'Update challenge success message',
+          id: 'fifBZf',
+        }),
+        title: intl.formatMessage({
+          defaultMessage: 'Changes saved successfully!',
+          description: 'Update challenge success message',
+          id: 'G7d68r',
+        }),
+        variant: 'success',
+      });
+      router.push(submission_.hrefs.detail);
     },
-  );
+  });
+  const deleteSubmissionMutation = trpc.projects.submission.delete.useMutation({
+    onError: () => {
+      showToast({
+        title: intl.formatMessage({
+          defaultMessage: 'Oops something went wrong',
+          description: 'Error message',
+          id: 'Nz7W/0',
+        }),
+        variant: 'danger',
+      });
+    },
+    onSuccess: () => {
+      setIsDeleting(false);
+      showToast({
+        subtitle: intl.formatMessage({
+          defaultMessage:
+            'You have deleted this submission. Returning you back to the challenges page.',
+          description: 'Delete challenge success message',
+          id: 'RbQJUu',
+        }),
+        title: intl.formatMessage({
+          defaultMessage: 'Submission deleted!',
+          description: 'Delete challenge success message',
+          id: '3UtpZS',
+        }),
+        variant: 'info',
+      });
+      router.push('/projects/dashboard');
+    },
+  });
 
   return (
     <div>

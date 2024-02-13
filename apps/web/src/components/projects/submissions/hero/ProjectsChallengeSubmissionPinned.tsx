@@ -40,7 +40,7 @@ export default function ProjectsChallengeSubmissionPinned({
     Array<string>
   >([]);
 
-  const unpin = trpc.projects.submissions.unpin.useMutation({
+  const unpin = trpc.projects.submission.unpin.useMutation({
     onError: () => {
       showToast({
         title: (

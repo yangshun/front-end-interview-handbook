@@ -62,7 +62,7 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
     });
   };
 
-  const pin = trpc.projects.submissions.pin.useMutation({
+  const pinSubmission = trpc.projects.submission.pin.useMutation({
     onError: () => {
       showErrorToast();
     },
@@ -79,7 +79,7 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
       });
     },
   });
-  const unpin = trpc.projects.submissions.unpin.useMutation({
+  const unpinSubmission = trpc.projects.submission.unpin.useMutation({
     onError: () => {
       showErrorToast();
     },
@@ -103,8 +103,10 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
         addonPosition="end"
         className=""
         icon={hasPinned ? RiUnpinLine : RiPushpinLine}
-        isDisabled={isLoading || unpin.isLoading || pin.isLoading}
-        isLoading={unpin.isLoading || pin.isLoading}
+        isDisabled={
+          isLoading || unpinSubmission.isLoading || pinSubmission.isLoading
+        }
+        isLoading={unpinSubmission.isLoading || pinSubmission.isLoading}
         label={
           hasPinned
             ? intl.formatMessage({
@@ -122,10 +124,10 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
         variant={hasPinned ? 'danger' : 'secondary'}
         onClick={() =>
           hasPinned
-            ? unpin.mutate({ submissionIds: [submissionId] })
+            ? unpinSubmission.mutate({ submissionIds: [submissionId] })
             : has3Pinned
               ? setShowPinnedSubmission(true)
-              : pin.mutate({ submissionId })
+              : pinSubmission.mutate({ submissionId })
         }
       />
       {showPinnedSubmission && (
