@@ -9,6 +9,7 @@ import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 import useIsSticky from '~/hooks/useIsSticky';
+import { useAuthFns } from '~/hooks/user/useAuthFns';
 import useProfile from '~/hooks/user/useProfile';
 
 import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
@@ -52,13 +53,13 @@ function useNavLinks(
   isPremium: boolean,
 ): ReadonlyArray<NavbarPrimaryItem> {
   const intl = useIntl();
+  const { signInUpLabel, signInUpHref } = useAuthFns();
+
   const questionTechnologyLists = useQuestionTechnologyLists();
   const questionFormatLists = useQuestionFormatLists();
   const preparationPlans = usePreparationPlans();
   const focusAreas = useFocusAreas();
   const guides = useGuidesData();
-  // To redirect post-login, so we can use the full pathname.
-  const pathname = usePathname();
 
   const links: ReadonlyArray<NavbarPrimaryItem | null> = [
     {
@@ -543,15 +544,9 @@ function useNavLinks(
       : null,
     !isLoggedIn
       ? {
-          href: `/login?next=${encodeURIComponent(
-            pathname ?? window.location.pathname,
-          )}`,
+          href: signInUpHref(),
           itemKey: 'login',
-          label: intl.formatMessage({
-            defaultMessage: 'Sign In / Up',
-            description: 'Link label to the sign in / up page',
-            id: 'q3MA2w',
-          }),
+          label: signInUpLabel,
           onClick: () => {
             gtag.event({
               action: `nav.sign_in.click`,
@@ -572,12 +567,12 @@ function useNavLinks(
 
 function useUserNavigationLinks() {
   const intl = useIntl();
-  const router = useI18nRouter();
+  const { logoutLabel, logoutHref } = useAuthFns();
 
   const userNavigation: ReadonlyArray<NavLinkItem> = [
     {
       href: '/profile',
-      itemKey: 'login',
+      itemKey: 'profile',
       label: intl.formatMessage({
         defaultMessage: 'Profile',
         description: 'Link label to the profile page',
@@ -593,19 +588,10 @@ function useUserNavigationLinks() {
       type: 'link',
     },
     {
-      href: '#',
+      href: logoutHref(),
       itemKey: 'logout',
-      label: intl.formatMessage({
-        defaultMessage: 'Sign Out',
-        description: 'Link label to the sign out page',
-        id: '641P5n',
-      }),
+      label: logoutLabel,
       onClick: () => {
-        router.push(
-          `/logout?next=${encodeURIComponent(
-            typeof window !== 'undefined' ? window.location.pathname : '',
-          )}`,
-        );
         gtag.event({
           action: `nav.sign_out.click`,
           category: 'engagement',
