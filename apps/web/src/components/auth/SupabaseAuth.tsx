@@ -30,7 +30,7 @@ export type Props = Readonly<{
   view?: AuthViewType;
 }>;
 
-export default function Auth({
+export default function SupabaseAuth({
   supabaseClient,
   className,
   socialLayout = 'vertical',
@@ -158,5 +158,5 @@ export default function Auth({
   }
 }
 
-Auth.ForgottenPassword = SupabaseAuthForgottenPassword;
-Auth.MagicLink = SupabaseAuthMagicLink;
+SupabaseAuth.ForgottenPassword = SupabaseAuthForgottenPassword;
+SupabaseAuth.MagicLink = SupabaseAuthMagicLink;
