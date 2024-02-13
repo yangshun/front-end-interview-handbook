@@ -159,10 +159,6 @@
     "defaultMessage": "Translations for {locale} are in beta and may not be accurate. Do give feedback or <link>contact us</link> if you are interested in helping to translate!",
     "description": "Banner about beta locale version"
   },
-  "/MJhXi": {
-    "defaultMessage": "Get unlimited access",
-    "description": "Label for Get unlimited access button in Monthly Plan CTA card in Projects sidebar"
-  },
   "/Xai24": {
     "defaultMessage": "MM/YYYY",
     "description": "Placeholder for \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
@@ -739,10 +735,6 @@
     "defaultMessage": "Profile",
     "description": "Title of Profile page"
   },
-  "5o0/kt": {
-    "defaultMessage": "Start a project",
-    "description": "Label for Start a project button in Start Project CTA card in Projects sidebar"
-  },
   "5ozhak": {
     "defaultMessage": "Start the project to access guides, discussions and reference code",
     "description": "Title for project overlay on projects details page"
@@ -915,6 +907,10 @@
     "defaultMessage": "Level",
     "description": "Blog Level"
   },
+  "7OnamK": {
+    "defaultMessage": "Access to premium tracks and skills",
+    "description": "Subtitle projects CTA card"
+  },
   "7Ozzmy": {
     "defaultMessage": "Start coding!",
     "description": "Label for \"Start coding!\" step in dialog on Projects project page"
@@ -994,6 +990,10 @@
   "8+Ezk6": {
     "defaultMessage": "Chat with us directly!",
     "description": "Text on Feedback Widget when it is closed to notify users of its presence"
+  },
+  "81/cnt": {
+    "defaultMessage": "Free plan",
+    "description": "Title of projects CTA card"
   },
   "81i+95": {
     "defaultMessage": "Profile",
@@ -1130,10 +1130,6 @@
   "97HVxk": {
     "defaultMessage": "Key features",
     "description": "Key features of the product"
-  },
-  "98YCSU": {
-    "defaultMessage": "Learning by building has never been easier",
-    "description": "Subtitle of Start Project CTA card in Projects sidebar"
   },
   "99F7Mt": {
     "defaultMessage": "Tags",
@@ -1815,6 +1811,10 @@
     "defaultMessage": "Perfect for short term job hunts.",
     "description": "Supporting statement for a monthly pricing plan"
   },
+  "GPFB6p": {
+    "defaultMessage": "Get full access",
+    "description": "Button CTA to encourage upgrading"
+  },
   "GPp0wf": {
     "defaultMessage": "Welcome to GreatFrontEnd Projects!",
     "description": "Title for Projects onboarding page"
@@ -1846,10 +1846,6 @@
   "GcmSpX": {
     "defaultMessage": "Select project category",
     "description": "Tab label to select another project category"
-  },
-  "Gcx+tu": {
-    "defaultMessage": "Yearly plan",
-    "description": "Title of Yearly Plan CTA card in Projects sidebar"
   },
   "Geiogi": {
     "defaultMessage": "View your submission",
@@ -2127,10 +2123,6 @@
     "defaultMessage": "Vue",
     "description": "Vue questions category short title"
   },
-  "JPoqoi": {
-    "defaultMessage": "Yearly Plan CTA card tooltip",
-    "description": "Tooltip label for Yearly Plan CTA card in Projects sidebar"
-  },
   "JQ6swd": {
     "defaultMessage": "Progress",
     "description": "Question progress"
@@ -2174,10 +2166,6 @@
   "Jkhbjw": {
     "defaultMessage": "Completed",
     "description": "Completed task label"
-  },
-  "JmdC8M": {
-    "defaultMessage": "Access to all {totalChallengeCount}+ challenges. Unlimited Figma & guides access",
-    "description": "Subtitle of Yearly Plan CTA card in Projects sidebar"
   },
   "Jn7AHE": {
     "defaultMessage": "This is an irreversible action. You will lose all progress. Are you sure?",
@@ -2334,10 +2322,6 @@
   "L/qzr6": {
     "defaultMessage": "{numberOfQuestions} questions",
     "description": "Number of questions in a list"
-  },
-  "L18d7M": {
-    "defaultMessage": "Let's start!",
-    "description": "Title of Start Project CTA card in Projects sidebar"
   },
   "L33SIl": {
     "defaultMessage": "Popularity: Least to most upvotes",
@@ -3391,10 +3375,6 @@
     "defaultMessage": "UI / Components",
     "description": "User interface component questions"
   },
-  "UCsXAd": {
-    "defaultMessage": "Get full access",
-    "description": "Label for Get full access button in Free Plan CTA card in Projects sidebar"
-  },
   "UCt/lF": {
     "defaultMessage": "Coding Questions",
     "description": "Coding questions long title"
@@ -3747,6 +3727,10 @@
     "defaultMessage": "Complete | Rewards",
     "description": "Title of Rewards Complete page"
   },
+  "XJJ/hU": {
+    "defaultMessage": "Start a project",
+    "description": "Start a new practice project"
+  },
   "XLT5qF": {
     "defaultMessage": "Complete simple social tasks like following our social accounts to get {discountPercentage}% off all plans.",
     "description": "Rewards discount message"
@@ -3983,6 +3967,10 @@
     "defaultMessage": "Nightmare",
     "description": "Nightmare level blog"
   },
+  "ZMFqeK": {
+    "defaultMessage": "Upgrade access",
+    "description": "CTA label"
+  },
   "ZN/wJM": {
     "defaultMessage": "Completed",
     "description": "Completed status for a question"
@@ -4038,10 +4026,6 @@
   "ZqJYfb": {
     "defaultMessage": "Subscript",
     "description": "Label for subscript"
-  },
-  "ZrtVIf": {
-    "defaultMessage": "Access to all {totalChallengeCount}+ challenges. {remainingGuideCount} Figma & guides access left",
-    "description": "Subtitle of Monthly Plan CTA card in Projects sidebar"
   },
   "ZsOMcv": {
     "defaultMessage": "Select online asset type",
@@ -4206,10 +4190,6 @@
   "bE90WW": {
     "defaultMessage": "Redo",
     "description": "Text describing redo command in the coding workspace shortcuts menu"
-  },
-  "bESAtB": {
-    "defaultMessage": "Monthly plan",
-    "description": "Title of Monthly Plan CTA card in Projects sidebar"
   },
   "bGwCko": {
     "defaultMessage": "GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front-end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.",
@@ -4710,6 +4690,10 @@
   "g2Nt5j": {
     "defaultMessage": "Edit",
     "description": "Label for edit button on project discussions page"
+  },
+  "g2dFxo": {
+    "defaultMessage": "Let's start",
+    "description": "Projects sidebar card CTA title"
   },
   "g3PJQr": {
     "defaultMessage": "LinkedIn",
@@ -5331,6 +5315,10 @@
     "defaultMessage": "Start a project",
     "description": "Title of 'Start a project' feature in Projects marketing page"
   },
+  "lUWoS/": {
+    "defaultMessage": "Learning by building has never been easier",
+    "description": "Card title for projects"
+  },
   "lWQA1A": {
     "defaultMessage": "Challenges completed",
     "description": "Number of project challenges completed"
@@ -5478,10 +5466,6 @@
   "myWGmV": {
     "defaultMessage": "Coupons | Profile",
     "description": "Title of Profile coupons page"
-  },
-  "n+XFbs": {
-    "defaultMessage": "Free plan",
-    "description": "Title of Free Plan CTA card in Projects sidebar"
   },
   "n/3FHx": {
     "defaultMessage": "For Portfolios",
@@ -6030,6 +6014,10 @@
   "riPEvL": {
     "defaultMessage": "Lifetime plan",
     "description": "Title of LifeTime Access Pricing Plan found on Homepage or Pricing page"
+  },
+  "rliXIi": {
+    "defaultMessage": "{planType} plan",
+    "description": "Title of projects CTA card"
   },
   "rmYPMV": {
     "defaultMessage": "Start learning",
@@ -6598,10 +6586,6 @@
   "wrdmxS": {
     "defaultMessage": "You will have to use your own IDE, just as any developer should for a real project. If you're a complete beginner and are not sure what an IDE is, we will have a basic guide within Step 3's tab teaching you how to download and set-up an IDE for the first time.",
     "description": "FAQ answer for projects platform"
-  },
-  "wzLox4": {
-    "defaultMessage": "Monthly Plan CTA card tooltip",
-    "description": "Tooltip label for Monthly Plan CTA card in Projects sidebar"
   },
   "wzQGxj": {
     "defaultMessage": "Start in minutes",

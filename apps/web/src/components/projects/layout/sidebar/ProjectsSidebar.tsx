@@ -42,8 +42,7 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-import { ProjectsSidebarFreePlanCTACard } from './ctas/ProjectsSidebarFreePlanCTACard';
-import { ProjectsSidebarStartProjectCTACard } from './ctas/ProjectsSidebarStartProjectCTACard';
+import { ProjectsSidebarCTACard } from './ProjectsSidebarCTACard';
 import { ProjectsSidebarNotSignedInHeader } from './ProjectsSidebarNotSignedInHeader';
 import ProjectsSidebarProductMenu from './ProjectsSidebarProductMenu';
 import { ProjectsSidebarProfileHeader } from './ProjectsSidebarProfileHeader';
@@ -255,16 +254,9 @@ export function ProjectsSidebarExpanded({
           </li>
         ))}
       </ul>
-      {profile == null ? (
-        <ProjectsSidebarStartProjectCTACard />
-      ) : (
-        <>
-          {/* TODO(projects): Show only one of these depending on subscription status */}
-          <ProjectsSidebarFreePlanCTACard />
-          {/* <ProjectsSidebarMonthlyPlanCTACard /> */}
-          {/* <ProjectsSidebarYearlyPlanCTACard /> */}
-        </>
-      )}
+      <ProjectsSidebarCTACard
+        variant={profile == null ? 'anonymous' : 'free'}
+      />
       <Divider />
       <div className="flex justify-between gap-4 pt-2">
         <div className="flex gap-4">
