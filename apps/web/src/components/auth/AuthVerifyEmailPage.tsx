@@ -2,13 +2,12 @@
 
 import clsx from 'clsx';
 
-import { trpc } from '~/hooks/trpc';
+import { useAuthResendSignInConfirmation } from '~/hooks/user/useAuthFns';
 
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
-import { useToast } from '../global/toasts/ToastsProvider';
 import Anchor from '../ui/Anchor';
 
 type Props = Readonly<{
@@ -17,9 +16,7 @@ type Props = Readonly<{
 }>;
 
 export default function AuthVerifyEmailPage({ email, redirectTo }: Props) {
-  const resendSignupConfirmationMutation =
-    trpc.auth.resendSignupConfirmation.useMutation();
-  const { showToast } = useToast();
+  const resendSignupConfirmationMutation = useAuthResendSignInConfirmation();
 
   return (
     <Container className={clsx('flex flex-col', 'py-16')} variant="xl">
@@ -36,26 +33,10 @@ export default function AuthVerifyEmailPage({ email, redirectTo }: Props) {
           className="whitespace-nowrap"
           href="#"
           onClick={() => {
-            resendSignupConfirmationMutation.mutate(
-              {
-                email,
-                redirectTo,
-              },
-              {
-                onError: (data) => {
-                  showToast({
-                    title: data.message,
-                    variant: 'danger',
-                  });
-                },
-                onSuccess: () => {
-                  showToast({
-                    title: 'Check your email for the verification link',
-                    variant: 'success',
-                  });
-                },
-              },
-            );
+            resendSignupConfirmationMutation.mutate({
+              email,
+              redirectTo,
+            });
           }}>
           another verification email
         </Anchor>

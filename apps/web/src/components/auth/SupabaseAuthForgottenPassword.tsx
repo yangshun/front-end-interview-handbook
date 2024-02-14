@@ -77,7 +77,7 @@ export default function SupabaseAuthForgottenPassword({
 
   return (
     <form id="auth-forgot-password" onSubmit={handlePasswordReset}>
-      <div className="space-y-8">
+      <div className="flex flex-col gap-y-6">
         {showTitle && (
           <Heading level="heading4">
             <FormattedMessage
@@ -88,9 +88,10 @@ export default function SupabaseAuthForgottenPassword({
           </Heading>
         )}
         <Section>
-          <div className="space-y-6">
+          <div className="flex flex-col gap-y-6">
             <TextInput
               autoComplete="email"
+              autoFocus={true}
               defaultValue={email}
               label={intl.formatMessage({
                 defaultMessage: 'Email',

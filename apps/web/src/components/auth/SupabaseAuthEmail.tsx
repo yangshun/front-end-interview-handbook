@@ -32,7 +32,7 @@ export default function SupabaseAuthEmail({
   magicLink,
   showTitle,
 }: {
-  authView: AuthViewType;
+  authView: 'sign_in' | 'sign_up';
   defaultEmail: string;
   defaultPassword: string;
   id: 'auth-sign-in' | 'auth-sign-up';
@@ -167,7 +167,7 @@ export default function SupabaseAuthEmail({
 
   return (
     <form id={id} onSubmit={handleSubmit}>
-      <div className="flex flex-col gap-y-12">
+      <div className="flex flex-col gap-y-6">
         {showTitle && (
           <Heading level="heading4">
             {authView === 'sign_in' ? (
@@ -188,6 +188,7 @@ export default function SupabaseAuthEmail({
         <div className="flex flex-col gap-y-6">
           <TextInput
             autoComplete="email"
+            autoFocus={true}
             defaultValue={email}
             label={intl.formatMessage({
               defaultMessage: 'Email',
@@ -329,7 +330,7 @@ export default function SupabaseAuthEmail({
                 </Anchor>
               </div>
             )}
-            {authView === 'sign_in' ? (
+            {authView === 'sign_in' && (
               <Text
                 className="text-center"
                 color="secondary"
@@ -357,36 +358,35 @@ export default function SupabaseAuthEmail({
                   }}
                 />
               </Text>
-            ) : (
-              <div className="flex flex-col gap-y-6">
-                <Text
-                  className="text-center"
-                  color="secondary"
-                  display="block"
-                  size="body2">
-                  <FormattedMessage
-                    defaultMessage="Already have an account? <link>Sign in</link>"
-                    description="Prompt for sign in on Email Sign Up page"
-                    id="7Hng1e"
-                    values={{
-                      link: (chunks) => (
-                        <Anchor
-                          href="#auth-sign-in"
-                          onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                            e.preventDefault();
-                            handleViewChange('sign_in');
-                            logEvent('click', {
-                              element: 'Auth page sign in button',
-                              label: 'Already have an account? Sign in',
-                            });
-                          }}>
-                          {chunks}
-                        </Anchor>
-                      ),
-                    }}
-                  />
-                </Text>
-              </div>
+            )}
+            {authView === 'sign_up' && (
+              <Text
+                className="text-center"
+                color="secondary"
+                display="block"
+                size="body2">
+                <FormattedMessage
+                  defaultMessage="Already have an account? <link>Sign in</link>"
+                  description="Prompt for sign in on Email Sign Up page"
+                  id="7Hng1e"
+                  values={{
+                    link: (chunks) => (
+                      <Anchor
+                        href="#auth-sign-in"
+                        onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                          e.preventDefault();
+                          handleViewChange('sign_in');
+                          logEvent('click', {
+                            element: 'Auth page sign in button',
+                            label: 'Already have an account? Sign in',
+                          });
+                        }}>
+                        {chunks}
+                      </Anchor>
+                    ),
+                  }}
+                />
+              </Text>
             )}
             <Divider />
             <Text
