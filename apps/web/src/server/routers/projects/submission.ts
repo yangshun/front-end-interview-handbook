@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 import { projectsSkillListInputSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
+import { isImageFile } from '~/components/projects/submissions/code-viewer/GithubRepositoryCodeViewer';
 import { projectsChallengeSubmissionDeploymentUrlsSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionDeploymentUrlsSchema';
 import { projectsChallengeSubmissionImplementationSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionImplementationSchema';
 import { projectsChallengeSubmissionRepositoryUrlSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
@@ -34,6 +35,42 @@ const projectsChallengeSubmissionFormSchema = z.object({
   techStackSkills: projectsSkillListInputSchemaServer,
   title: projectsChallengeSubmissionTitleSchemaServer,
 });
+
+const githubApiUrl = 'https://api.github.com';
+
+const githubRepositoryFilesSchema = z.object({
+  sha: z.string(),
+  tree: z.array(
+    z.object({
+      mode: z.string(),
+      path: z.string(),
+      sha: z.string(),
+      size: z.number().optional(),
+      type: z.string(),
+      url: z.string(),
+    }),
+  ),
+  truncated: z.boolean(),
+  url: z.string(),
+});
+
+const githubFileResponseSchema = z.object({
+  content: z.string(),
+});
+
+function getImageDataSpecification(filePath: string) {
+  const extension = filePath.split('.').pop();
+
+  if (extension === 'svg') {
+    return 'image/svg+xml';
+  }
+
+  if (extension === 'pdf') {
+    return 'application/pdf';
+  }
+
+  return `image/${extension}`;
+}
 
 export const projectsChallengeSubmissionItemRouter = router({
   create: projectsChallengeProcedure
@@ -135,6 +172,76 @@ export const projectsChallengeSubmissionItemRouter = router({
         return null;
       },
     ),
+  getGitHubFileContents: publicProcedure
+    .input(
+      z.object({
+        filePath: z.string(),
+        repoName: z.string(),
+        repoOwner: z.string(),
+      }),
+    )
+    .query(async ({ input: { filePath, repoName, repoOwner } }) => {
+      try {
+        const response = await fetch(
+          `${githubApiUrl}/repos/${repoOwner}/${repoName}/contents/${filePath}`,
+          {
+            headers: {
+              Accept: 'application/vnd.github+json',
+              Authorization: `token ${process.env.GITHUB_TOKEN}`,
+            },
+            method: 'GET',
+          },
+        );
+
+        const json = await response.json();
+        const { content: base64Content } = githubFileResponseSchema.parse(json);
+
+        if (isImageFile(filePath)) {
+          return `data:${getImageDataSpecification(
+            filePath,
+          )};base64,${base64Content}`;
+        }
+
+        return Buffer.from(base64Content, 'base64').toString('utf-8');
+      } catch (error) {
+        console.error(error);
+
+        return null;
+      }
+    }),
+  getGitHubRepositoryFilePaths: publicProcedure
+    .input(
+      z.object({
+        branchName: z.string(),
+        repoName: z.string(),
+        repoOwner: z.string(),
+      }),
+    )
+    .query(async ({ input: { branchName, repoName, repoOwner } }) => {
+      try {
+        const response = await fetch(
+          `${githubApiUrl}/repos/${repoOwner}/${repoName}/git/trees/${branchName}?recursive=1`,
+          {
+            headers: {
+              Accept: 'application/vnd.github+json',
+              Authorization: `token ${process.env.GITHUB_TOKEN}`,
+            },
+            method: 'GET',
+          },
+        );
+
+        const json = await response.json();
+        const data = githubRepositoryFilesSchema.parse(json);
+
+        return data.tree
+          .filter(({ type }) => type === 'blob') // Only include files; filter out folders with type === 'tree'
+          .map((file) => file.path);
+      } catch (error) {
+        console.error(error);
+
+        return null;
+      }
+    }),
   hasVoted: projectsUserProcedure
     .input(
       z.object({

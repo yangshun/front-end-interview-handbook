@@ -2,11 +2,11 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
 import ReadonlyDirectoryExplorer from '~/components/common/directory-explorer/ReadonlyDirectoryExplorer';
 import EmptyState from '~/components/ui/EmptyState';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
-
-import { useGithubFileContents, useGithubRepositoryFilePaths } from './utils';
 
 type Props = Readonly<{
   branchName: string;
@@ -14,6 +14,10 @@ type Props = Readonly<{
   repoName: string;
   repoOwner: string;
 }>;
+
+export function isImageFile(filePath: string) {
+  return /\.(gif|jpe?g|tiff?|png|webp|bmp|heif|svg|pdf|psd)$/i.test(filePath);
+}
 
 export default function GithubRepositoryCodeViewer({
   className,
@@ -23,20 +27,21 @@ export default function GithubRepositoryCodeViewer({
 }: Props) {
   const intl = useIntl();
 
-  const { data: filePaths } = useGithubRepositoryFilePaths({
-    branchName,
-    repoName,
-    repoOwner,
-  });
+  const { data: filePaths } =
+    trpc.projects.submission.getGitHubRepositoryFilePaths.useQuery({
+      branchName,
+      repoName,
+      repoOwner,
+    });
 
   const [activeFile, setActiveFile] = useState('README.md');
 
-  const { data: fileContents } = useGithubFileContents({
-    branchName,
-    filePath: activeFile,
-    repoName,
-    repoOwner,
-  });
+  const { data: fileContents } =
+    trpc.projects.submission.getGitHubFileContents.useQuery({
+      filePath: activeFile,
+      repoName,
+      repoOwner,
+    });
 
   if (!filePaths || !fileContents) {
     return (
@@ -62,11 +67,15 @@ export default function GithubRepositoryCodeViewer({
         />
       </div>
       <div className="flex-1">
-        <MonacoCodeEditor
-          filePath={activeFile}
-          readOnly={true}
-          value={fileContents}
-        />
+        {isImageFile(activeFile) ? (
+          <img alt={activeFile} className="w-full" src={fileContents} />
+        ) : (
+          <MonacoCodeEditor
+            filePath={activeFile}
+            readOnly={true}
+            value={fileContents}
+          />
+        )}
       </div>
     </div>
   );
