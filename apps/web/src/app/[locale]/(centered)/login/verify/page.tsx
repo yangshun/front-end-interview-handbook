@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types';
 
-import AuthVerifyEmailPage from '~/components/auth/AuthVerifyEmailPage';
+import AuthUnverifiedEmailPage from '~/components/auth/AuthUnverifiedEmailPage';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -19,18 +19,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     locale,
-    pathname: '/sign-up/verify',
+    pathname: '/login/verify',
     title: intl.formatMessage({
-      defaultMessage: 'Verification email sent',
+      defaultMessage: 'Unverified email',
       description: 'Title of verify email page',
-      id: 'pdqnN/',
+      id: 'FXfZQF',
     }),
   });
 }
 
-export default function VerifyEmailPage({ searchParams }: Props) {
+export default function Page({ searchParams }: Props) {
   return (
-    <AuthVerifyEmailPage
+    <AuthUnverifiedEmailPage
       email={searchParams.email}
       redirectTo={searchParams.redirect_to}
     />

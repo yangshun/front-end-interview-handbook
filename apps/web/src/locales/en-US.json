@@ -1735,6 +1735,10 @@
     "defaultMessage": "Build entire design systems or component libraries with our Component Tracks",
     "description": "Heading of the 'Component tracks' marketing section on Projects home page"
   },
+  "FXfZQF": {
+    "defaultMessage": "Unverified email",
+    "description": "Title of verify email page"
+  },
   "Fb1C2W": {
     "defaultMessage": "Pin",
     "description": "Pin button label"
@@ -5219,10 +5223,6 @@
     "defaultMessage": "Last month",
     "description": "Title for last month list of comments"
   },
-  "kqh3Qg": {
-    "defaultMessage": "Verify email",
-    "description": "Title of verify email page"
-  },
   "kvLlxS": {
     "defaultMessage": "Security",
     "description": "Security topic for quiz questions"
@@ -5770,6 +5770,10 @@
   "pcXH8p": {
     "defaultMessage": "JavaScript Utilities",
     "description": "Front end JavaScript utility functions"
+  },
+  "pdqnN/": {
+    "defaultMessage": "Verification email sent",
+    "description": "Title of verify email page"
   },
   "pgK6Eb": {
     "defaultMessage": "Guidebook",

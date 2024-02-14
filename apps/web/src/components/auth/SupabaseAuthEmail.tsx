@@ -63,6 +63,9 @@ export default function SupabaseAuthEmail({
     setMessage(null);
     setError(null);
     setLoading(true);
+
+    const emailRedirectTo = window.location.origin + redirectTo;
+
     switch (authView) {
       case 'sign_in': {
         const { error: signInError } =
@@ -72,13 +75,28 @@ export default function SupabaseAuthEmail({
           });
 
         setLoading(false);
-        if (signInError) {
-          setError(signInError.message);
+
+        if (signInError != null) {
           logEvent('auth.sign_in.fail', {
             email,
             message: signInError.message,
             type: 'email',
           });
+
+          // Hacky way to determine if the error is an
+          // unconfirmed email address error since no error codes are returned.
+          if (signInError.message.includes('confirmed')) {
+            // Redirect to email verify page.
+            router.push(
+              `/login/verify?email=${encodeURIComponent(
+                email,
+              )}&redirect_to=${encodeURIComponent(emailRedirectTo)}`,
+            );
+
+            return;
+          }
+
+          setError(signInError.message);
 
           return;
         }
@@ -92,8 +110,6 @@ export default function SupabaseAuthEmail({
       }
       case 'sign_up': {
         fbq.track('CompleteRegistration');
-
-        const emailRedirectTo = window.location.origin + redirectTo;
 
         const { data, error: signUpError } = await supabaseClient.auth.signUp({
           email,
@@ -288,23 +304,7 @@ export default function SupabaseAuthEmail({
                   id: 'YM1bnf',
                 })}
                 variant="danger">
-                {/* Hacky way to determine if the error is an unconfirmed email address error since no error codes are returned. */}
-                {error.includes('confirmed') ? (
-                  <>
-                    {error}.{' '}
-                    <Anchor
-                      onClick={() => {
-                        resendSignInConfirmationMutation.mutate({
-                          email,
-                          redirectTo: window.location.origin + redirectTo,
-                        });
-                      }}>
-                      Send another verification email
-                    </Anchor>
-                  </>
-                ) : (
-                  error
-                )}
+                {error}
               </Alert>
             )}
           </div>
