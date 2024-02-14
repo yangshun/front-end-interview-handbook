@@ -6,6 +6,7 @@ type LoggingAction =
   | 'auth.sign_in.fail'
   | 'auth.sign_in.success'
   | 'auth.sign_in'
+  | 'auth.sign_up.existing_user'
   | 'auth.sign_up.fail'
   | 'auth.sign_up.success'
   | 'auth.sign_up'

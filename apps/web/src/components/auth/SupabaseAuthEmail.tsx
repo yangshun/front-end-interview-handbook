@@ -118,12 +118,54 @@ export default function SupabaseAuthEmail({
           return;
         }
 
+        if (signUpForMarketingEmails) {
+          signUpWithEmail({
+            email,
+          });
+        }
+
         if (signUpUser && !signUpSession) {
+          // Existing users will also sign up successfully but a dummy user is returned.
+          // There's mostly no differentiation in with new user sign ups so that hackers cannot tell whether it's a new or existing user.
+
+          // The difference is that the identities array for new users is non-empty.
+          // We can use that as a hacky way to determine if it's an existing user and send them a magic link email.
+          // https://github.com/orgs/supabase/discussions/1282
+          if (signUpUser.identities?.length === 0) {
+            setLoading(true);
+
+            const { error: magicLinkError } =
+              await supabaseClient.auth.signInWithOtp({
+                email,
+                options: { emailRedirectTo },
+              });
+
+            setLoading(false);
+
+            if (magicLinkError != null) {
+              setError(magicLinkError?.message);
+
+              return;
+            }
+
+            logEvent('auth.sign_up.existing_user', {
+              email,
+              type: 'email',
+            });
+            // Redirect to email verify page.
+            router.push(
+              `/sign-up/verify?email=${encodeURIComponent(
+                email,
+              )}&redirect_to=${encodeURIComponent(emailRedirectTo)}`,
+            );
+
+            return;
+          }
+
           logEvent('auth.sign_up.success', {
             email,
             type: 'email',
           });
-          // Check if session is null -> email confirmation setting is turned on
           // Redirect to email verify page.
           router.push(
             `/sign-up/verify?email=${encodeURIComponent(
@@ -132,11 +174,6 @@ export default function SupabaseAuthEmail({
           );
         }
 
-        if (signUpForMarketingEmails) {
-          signUpWithEmail({
-            email,
-          });
-        }
         break;
       }
     }
