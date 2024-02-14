@@ -4039,10 +4039,6 @@
     "defaultMessage": "Social links",
     "description": "Title of social links section of projects profile edit page"
   },
-  "a6L95B": {
-    "defaultMessage": "Check your email for the confirmation link.",
-    "description": "Content of alert indicating a successful email sign up"
-  },
   "a8ETQr": {
     "defaultMessage": "Meta logo",
     "description": "Meta company logo"

@@ -9,7 +9,6 @@ import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
-import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
@@ -22,32 +21,24 @@ import type { AuthViewType } from './SupabaseAuthTypes';
 
 export default function SupabaseAuthEmail({
   authView,
-  defaultEmail,
-  defaultPassword,
   id,
   setAuthView,
-  setDefaultEmail,
-  setDefaultPassword,
   supabaseClient,
   redirectTo,
   magicLink,
   showTitle,
 }: {
   authView: 'sign_in' | 'sign_up';
-  defaultEmail: string;
-  defaultPassword: string;
   id: 'auth-sign-in' | 'auth-sign-up';
   magicLink?: boolean;
   redirectTo: string;
   setAuthView: (view: AuthViewType) => void;
-  setDefaultEmail: (email: string) => void;
-  setDefaultPassword: (password: string) => void;
   showTitle?: boolean;
   supabaseClient: SupabaseClientGFE;
 }) {
   const isMounted = useRef<boolean>(true);
-  const [email, setEmail] = useState(defaultEmail);
-  const [password, setPassword] = useState(defaultPassword);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
@@ -61,13 +52,11 @@ export default function SupabaseAuthEmail({
 
   useEffect(() => {
     isMounted.current = true;
-    setEmail(defaultEmail);
-    setPassword(defaultPassword);
 
     return () => {
       isMounted.current = false;
     };
-  }, [authView, defaultEmail, defaultPassword]);
+  }, [authView]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -161,12 +150,6 @@ export default function SupabaseAuthEmail({
     }
   }
 
-  function handleViewChange(newView: AuthViewType) {
-    setDefaultEmail(email);
-    setDefaultPassword(password);
-    setAuthView(newView);
-  }
-
   return (
     <form id={id} onSubmit={handleSubmit}>
       <div className="flex flex-col gap-y-6">
@@ -187,247 +170,178 @@ export default function SupabaseAuthEmail({
             )}
           </Heading>
         )}
-        <div className="flex flex-col gap-y-6">
-          <TextInput
-            autoComplete="email"
-            autoFocus={true}
-            defaultValue={email}
-            label={intl.formatMessage({
-              defaultMessage: 'Email',
-              description: 'Label of email field on Sign In/Up page',
-              id: '9LT8eh',
-            })}
-            type="email"
-            onChange={setEmail}
-          />
-          <TextInput
-            defaultValue={password}
-            label={intl.formatMessage({
-              defaultMessage: 'Password',
-              description: 'Label of password field on Sign In/Up page',
-              id: 'jgIdRC',
-            })}
-            type="password"
-            onChange={setPassword}
-          />
-          {authView === 'sign_in' && (
-            <div>
-              <Anchor
-                className="text-sm"
-                href="#auth-forgot-password"
-                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                  e.preventDefault();
-                  logEvent('click', {
-                    element: 'Auth page forgot your password button',
-                    label: 'Forgot your password?',
-                  });
-                  setAuthView('forgotten_password');
-                }}>
-                <FormattedMessage
-                  defaultMessage="Forgot your password?"
-                  description="Label of forget password button on Email Sign In page"
-                  id="XVPYZg"
-                />
-              </Anchor>
-            </div>
-          )}
-          {authView === 'sign_up' && (
-            <CheckboxInput
-              label={intl.formatMessage({
-                defaultMessage:
-                  "I would like to sign up for GreatFrontEnd's newsletter to receive interview tips and question updates",
-                description:
-                  'Label of checkbox to sign up for newsletter on Email Sign Up page',
-                id: 'KmiBbk',
-              })}
-              value={signUpForMarketingEmails}
-              onChange={(value) => {
-                setSignUpForMarketingEmails(value);
-              }}
-            />
-          )}
-        </div>
-        <div className="flex flex-col gap-y-6">
-          {(message || error) && (
-            <div className="flex flex-col gap-y-2">
-              {message && (
-                <Alert
-                  title={intl.formatMessage({
-                    defaultMessage: 'Signed up successfully',
-                    description:
-                      'Title of alert indicating a successful email sign up',
-                    id: 'I5MeD9',
-                  })}
-                  variant="info">
-                  {message}
-                </Alert>
-              )}
-              {error && (
-                <Alert
-                  title={intl.formatMessage({
-                    defaultMessage: 'An error has occurred',
-                    description:
-                      'Title of alert indicating an error on Email Sign In/Up Page',
-                    id: 'YM1bnf',
-                  })}
-                  variant="danger">
-                  {/* Hacky way to determine if the error is an unconfirmed email address error since no error codes are returned. */}
-                  {error.includes('confirmed') ? (
-                    <>
-                      {error}.{' '}
-                      <Anchor
-                        onClick={() => {
-                          resendSignInConfirmationMutation.mutate({
-                            email,
-                            redirectTo: window.location.origin + redirectTo,
-                          });
-                        }}>
-                        Send another verification email
-                      </Anchor>
-                    </>
-                  ) : (
-                    error
-                  )}
-                </Alert>
-              )}
-            </div>
-          )}
-          <div className="flex flex-col gap-y-4">
-            <Button
-              display="block"
-              isDisabled={loading}
-              isLoading={loading}
-              label={
-                authView === 'sign_in'
-                  ? intl.formatMessage({
-                      defaultMessage: 'Sign In',
-                      description:
-                        'Label of Sign In button on Email Sign In page',
-                      id: '1gkgr4',
-                    })
-                  : intl.formatMessage({
-                      defaultMessage: 'Sign Up',
-                      description:
-                        'Label of Sign Up button on Email Sign Up page',
-                      id: 'tP5+Am',
-                    })
-              }
-              size="md"
-              type="submit"
-              variant="primary"
-              onClick={() => {
-                if (authView === 'sign_in') {
-                  logEvent('auth.sign_in', {
-                    element: 'Auth page email sign in button',
-                    label: 'Sign in',
-                  });
-                }
-
-                if (authView === 'sign_up') {
-                  logEvent('auth.sign_up', {
-                    element: 'Auth page email sign up button',
-                    label: 'Sign up',
-                  });
-                }
-              }}
-            />
-            {authView === 'sign_in' && magicLink && (
-              <div>
-                <Anchor
-                  className="text-sm"
-                  href="#auth-magic-link"
-                  onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                    e.preventDefault();
-                    setAuthView('magic_link');
-                  }}>
-                  <FormattedMessage
-                    defaultMessage="Sign in with magic link"
-                    description="Label of magic link sign in button on Email Sign In page"
-                    id="qAxlQN"
-                  />
-                </Anchor>
-              </div>
-            )}
-            {authView === 'sign_in' && (
-              <Text
-                className="text-center"
-                color="secondary"
-                display="block"
-                size="body2">
-                <FormattedMessage
-                  defaultMessage="Don't have an account? <link>Sign up for free</link>"
-                  description="Prompt for account creation on Email Sign In page"
-                  id="4Bt00L"
-                  values={{
-                    link: (chunks) => (
-                      <Anchor
-                        href="#auth-sign-up"
-                        onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                          e.preventDefault();
-                          logEvent('click', {
-                            element: 'Auth page sign up button',
-                            label: 'Don\t have an account? Sign up for free',
-                          });
-                          handleViewChange('sign_up');
-                        }}>
-                        {chunks}
-                      </Anchor>
-                    ),
-                  }}
-                />
-              </Text>
-            )}
-            {authView === 'sign_up' && (
-              <Text
-                className="text-center"
-                color="secondary"
-                display="block"
-                size="body2">
-                <FormattedMessage
-                  defaultMessage="Already have an account? <link>Sign in</link>"
-                  description="Prompt for sign in on Email Sign Up page"
-                  id="7Hng1e"
-                  values={{
-                    link: (chunks) => (
-                      <Anchor
-                        href="#auth-sign-in"
-                        onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                          e.preventDefault();
-                          handleViewChange('sign_in');
-                          logEvent('click', {
-                            element: 'Auth page sign in button',
-                            label: 'Already have an account? Sign in',
-                          });
-                        }}>
-                        {chunks}
-                      </Anchor>
-                    ),
-                  }}
-                />
-              </Text>
-            )}
-            <Divider />
-            <Text
-              className="mx-auto max-w-[284px] text-center"
-              color="secondary"
-              display="block"
-              size="body3">
+        <TextInput
+          autoComplete="email"
+          autoFocus={true}
+          defaultValue={email}
+          label={intl.formatMessage({
+            defaultMessage: 'Email',
+            description: 'Label of email field on Sign In/Up page',
+            id: '9LT8eh',
+          })}
+          type="email"
+          onChange={setEmail}
+        />
+        <TextInput
+          defaultValue={password}
+          label={intl.formatMessage({
+            defaultMessage: 'Password',
+            description: 'Label of password field on Sign In/Up page',
+            id: 'jgIdRC',
+          })}
+          type="password"
+          onChange={setPassword}
+        />
+        {authView === 'sign_in' && (
+          <div>
+            <Anchor
+              className="text-sm"
+              href="#auth-forgot-password"
+              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                e.preventDefault();
+                logEvent('click', {
+                  element: 'Auth page forgot your password button',
+                  label: 'Forgot your password?',
+                });
+                setAuthView('forgotten_password');
+              }}>
               <FormattedMessage
-                defaultMessage="By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>."
-                description="Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
-                id="Y6CFPM"
-                values={{
-                  pp: (chunks) => (
-                    <Anchor href="/legal/privacy-policy">{chunks}</Anchor>
-                  ),
-                  tos: (chunks) => (
-                    <Anchor href="/legal/terms">{chunks}</Anchor>
-                  ),
-                }}
+                defaultMessage="Forgot your password?"
+                description="Label of forget password button on Email Sign In page"
+                id="XVPYZg"
               />
-            </Text>
+            </Anchor>
           </div>
-        </div>
+        )}
+        {authView === 'sign_up' && (
+          <CheckboxInput
+            label={intl.formatMessage({
+              defaultMessage:
+                "I would like to sign up for GreatFrontEnd's newsletter to receive interview tips and question updates",
+              description:
+                'Label of checkbox to sign up for newsletter on Email Sign Up page',
+              id: 'KmiBbk',
+            })}
+            value={signUpForMarketingEmails}
+            onChange={(value) => {
+              setSignUpForMarketingEmails(value);
+            }}
+          />
+        )}
+        {(message || error) && (
+          <div className="flex flex-col gap-y-2">
+            {message && (
+              <Alert
+                title={intl.formatMessage({
+                  defaultMessage: 'Signed up successfully',
+                  description:
+                    'Title of alert indicating a successful email sign up',
+                  id: 'I5MeD9',
+                })}
+                variant="info">
+                {message}
+              </Alert>
+            )}
+            {error && (
+              <Alert
+                title={intl.formatMessage({
+                  defaultMessage: 'An error has occurred',
+                  description:
+                    'Title of alert indicating an error on Email Sign In/Up Page',
+                  id: 'YM1bnf',
+                })}
+                variant="danger">
+                {/* Hacky way to determine if the error is an unconfirmed email address error since no error codes are returned. */}
+                {error.includes('confirmed') ? (
+                  <>
+                    {error}.{' '}
+                    <Anchor
+                      onClick={() => {
+                        resendSignInConfirmationMutation.mutate({
+                          email,
+                          redirectTo: window.location.origin + redirectTo,
+                        });
+                      }}>
+                      Send another verification email
+                    </Anchor>
+                  </>
+                ) : (
+                  error
+                )}
+              </Alert>
+            )}
+          </div>
+        )}
+        <Button
+          display="block"
+          isDisabled={loading}
+          isLoading={loading}
+          label={
+            authView === 'sign_in'
+              ? intl.formatMessage({
+                  defaultMessage: 'Sign In',
+                  description: 'Label of Sign In button on Email Sign In page',
+                  id: '1gkgr4',
+                })
+              : intl.formatMessage({
+                  defaultMessage: 'Sign Up',
+                  description: 'Label of Sign Up button on Email Sign Up page',
+                  id: 'tP5+Am',
+                })
+          }
+          size="md"
+          type="submit"
+          variant="primary"
+          onClick={() => {
+            if (authView === 'sign_in') {
+              logEvent('auth.sign_in', {
+                element: 'Auth page email sign in button',
+                label: 'Sign in',
+              });
+            }
+
+            if (authView === 'sign_up') {
+              logEvent('auth.sign_up', {
+                element: 'Auth page email sign up button',
+                label: 'Sign up',
+              });
+            }
+          }}
+        />
+        {authView === 'sign_in' && magicLink && (
+          <div>
+            <Anchor
+              className="text-sm"
+              href="#auth-magic-link"
+              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                e.preventDefault();
+                setAuthView('magic_link');
+              }}>
+              <FormattedMessage
+                defaultMessage="Sign in with magic link"
+                description="Label of magic link sign in button on Email Sign In page"
+                id="qAxlQN"
+              />
+            </Anchor>
+          </div>
+        )}
+        <Text
+          className="mx-auto max-w-[284px] text-center"
+          color="secondary"
+          display="block"
+          size="body3">
+          <FormattedMessage
+            defaultMessage="By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>."
+            description="Disclaimer of agreement to terms of service and privacy policy on Email Sign Up page"
+            id="Y6CFPM"
+            values={{
+              pp: (chunks) => (
+                <Anchor href="/legal/privacy-policy">{chunks}</Anchor>
+              ),
+              tos: (chunks) => <Anchor href="/legal/terms">{chunks}</Anchor>,
+            }}
+          />
+        </Text>
       </div>
     </form>
   );
