@@ -3,6 +3,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import fbq from '~/lib/fbq';
 import { trpc } from '~/hooks/trpc';
+import { useAuthResendSignInConfirmation } from '~/hooks/user/useAuthFns';
 
 import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
@@ -54,6 +55,7 @@ export default function SupabaseAuthEmail({
     useState(true);
   const { mutate: signUpWithEmail } =
     trpc.marketing.signUpWithEmail.useMutation();
+  const resendSignInConfirmationMutation = useAuthResendSignInConfirmation();
   const intl = useIntl();
   const router = useI18nRouter();
 
@@ -269,7 +271,23 @@ export default function SupabaseAuthEmail({
                     id: 'YM1bnf',
                   })}
                   variant="danger">
-                  {error}
+                  {/* Hacky way to determine if the error is an unconfirmed email address error since no error codes are returned. */}
+                  {error.includes('confirmed') ? (
+                    <>
+                      {error}.{' '}
+                      <Anchor
+                        onClick={() => {
+                          resendSignInConfirmationMutation.mutate({
+                            email,
+                            redirectTo: window.location.origin + redirectTo,
+                          });
+                        }}>
+                        Send another verification email
+                      </Anchor>
+                    </>
+                  ) : (
+                    error
+                  )}
                 </Alert>
               )}
             </div>
