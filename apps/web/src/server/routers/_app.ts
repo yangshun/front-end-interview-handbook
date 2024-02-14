@@ -1,3 +1,4 @@
+import { authRouter } from './auth';
 import { commentsRouter } from './comments';
 import { devRouter } from './dev';
 import { feedbackRouter } from './feedback';
@@ -15,6 +16,7 @@ import { rewardsRouter } from './rewards';
 import { router } from '../trpc';
 
 export const appRouter = router({
+  auth: authRouter,
   comments: commentsRouter,
   dev: devRouter,
   feedback: feedbackRouter,

@@ -102,10 +102,12 @@ export default function SupabaseAuthEmail({
       case 'sign_up': {
         fbq.track('CompleteRegistration');
 
+        const emailRedirectTo = window.location.origin + redirectTo;
+
         const { data, error: signUpError } = await supabaseClient.auth.signUp({
           email,
           options: {
-            emailRedirectTo: window.location.origin + redirectTo,
+            emailRedirectTo,
           },
           password,
         });
@@ -131,13 +133,11 @@ export default function SupabaseAuthEmail({
             type: 'email',
           });
           // Check if session is null -> email confirmation setting is turned on
-          setMessage(
-            intl.formatMessage({
-              defaultMessage: 'Check your email for the confirmation link.',
-              description:
-                'Content of alert indicating a successful email sign up',
-              id: 'a6L95B',
-            }),
+          // Redirect to email verify page.
+          router.push(
+            `/sign-up/verify?email=${encodeURIComponent(
+              email,
+            )}&redirect_to=${encodeURIComponent(emailRedirectTo)}`,
           );
         }
 

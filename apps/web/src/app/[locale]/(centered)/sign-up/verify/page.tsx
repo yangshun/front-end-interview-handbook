@@ -9,6 +9,7 @@ type Props = Readonly<{
   params: Readonly<{
     locale: string;
   }>;
+  searchParams: { email: string; redirect_to: string };
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -27,6 +28,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default function VerifyEmailPage() {
-  return <AuthVerifyEmailPage />;
+export default function VerifyEmailPage({ searchParams }: Props) {
+  return (
+    <AuthVerifyEmailPage
+      email={searchParams.email}
+      redirectTo={searchParams.redirect_to}
+    />
+  );
 }
