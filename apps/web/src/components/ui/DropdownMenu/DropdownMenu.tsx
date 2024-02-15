@@ -25,22 +25,34 @@ type ChildItem =
   | null
   | undefined;
 
-type Props = Readonly<{
+type CommonProps = Readonly<{
   __forceDark?: boolean;
   align?: DropdownMenuContentAlignment;
+  asChild?: boolean;
   children: ChildItem | ReadonlyArray<ChildItem>;
-  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  isDisabled?: boolean;
-  isLabelHidden?: boolean;
-  label: string;
-  showChevron?: boolean;
   side?: DropdownMenuContentSide;
-  size?: DropdownMenuTriggerSize;
-  tooltip?: ReactNode;
-  tooltipAlign?: TooltipContentAlignment;
-  tooltipSide?: TooltipContentSide;
-  variant?: DropdownMenuTriggerVariant;
 }>;
+
+type ButtonModeProps = CommonProps &
+  Readonly<{
+    icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
+    isDisabled?: boolean;
+    isLabelHidden?: boolean;
+    label: string;
+    showChevron?: boolean;
+    size?: DropdownMenuTriggerSize;
+    tooltip?: ReactNode;
+    tooltipAlign?: TooltipContentAlignment;
+    tooltipSide?: TooltipContentSide;
+    variant?: DropdownMenuTriggerVariant;
+  }>;
+
+type CustomTriggerModeProps = CommonProps &
+  Readonly<{
+    trigger: ReactNode;
+  }>;
+
+type Props = ButtonModeProps | CustomTriggerModeProps;
 
 DropdownMenu.Item = DropdownMenuItem;
 DropdownMenu.Sub = DropdownMenuSub;
@@ -48,36 +60,32 @@ DropdownMenu.Sub = DropdownMenuSub;
 export default function DropdownMenu({
   __forceDark = false,
   align = 'start',
+  asChild = true,
   children,
-  icon: Icon,
-  isDisabled = false,
-  isLabelHidden = false,
-  label,
   side = 'bottom',
-  showChevron = true,
-  size = 'md',
-  tooltip,
-  tooltipAlign,
-  tooltipSide,
-  variant = 'secondary',
+  ...props
 }: Props) {
   return (
     <Root>
-      <Trigger asChild={true}>
-        <Button
-          icon={Icon}
-          iconSecondary_USE_SPARINGLY={
-            showChevron ? RiArrowDownSLine : undefined
-          }
-          isDisabled={isDisabled}
-          isLabelHidden={isLabelHidden}
-          label={label}
-          size={size}
-          tooltip={tooltip}
-          tooltipAlign={tooltipAlign}
-          tooltipSide={tooltipSide}
-          variant={variant}
-        />
+      <Trigger asChild={asChild}>
+        {'trigger' in props ? (
+          props.trigger
+        ) : (
+          <Button
+            icon={props.icon}
+            iconSecondary_USE_SPARINGLY={
+              props.showChevron ? RiArrowDownSLine : undefined
+            }
+            isDisabled={props.isDisabled}
+            isLabelHidden={props.isLabelHidden}
+            label={props.label}
+            size={props.size}
+            tooltip={props.tooltip}
+            tooltipAlign={props.tooltipAlign}
+            tooltipSide={props.tooltipSide}
+            variant={props.variant ?? 'secondary'}
+          />
+        )}
       </Trigger>
       <Portal>
         <Content
