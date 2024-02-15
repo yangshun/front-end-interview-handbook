@@ -1,17 +1,16 @@
-import clsx from 'clsx';
 import { Fragment } from 'react';
-import { RiArrowDownSLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '~/components/ui/Accordion';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
-import {
-  themeOutlineElement_FocusVisible,
-  themeOutlineElementBrandColor_FocusVisible,
-  themeTextSecondaryColor,
-} from '~/components/ui/theme';
 
 import type { ProjectsChallengeFilter } from './ProjectsChallengeFilterContext';
 import {
@@ -19,8 +18,6 @@ import {
   useProjectsChallengeFilterState,
 } from './ProjectsChallengeFilterContext';
 import ProjectsSkillRoadmapSelectionInput from '../../skills/form/ProjectsSkillRoadmapSelectionInput';
-
-import * as Accordion from '@radix-ui/react-accordion';
 
 function FilterSection({
   longLabel,
@@ -33,27 +30,13 @@ function FilterSection({
     useProjectsChallengeFilterState(id);
 
   return (
-    <Accordion.Item value={id}>
-      <Accordion.Trigger
-        className={clsx('flex w-full items-center justify-between', [
-          themeOutlineElement_FocusVisible,
-          themeOutlineElementBrandColor_FocusVisible,
-        ])}>
+    <AccordionItem value={id}>
+      <AccordionTrigger>
         <Text size="body2" weight="medium">
           {longLabel || label}
         </Text>
-        <span className="ml-6 flex h-7 items-center pr-2">
-          <RiArrowDownSLine
-            aria-hidden="true"
-            className={clsx(
-              'size-5 transform transition-transform',
-              'group-data-[state=open]-rotate-180',
-              themeTextSecondaryColor,
-            )}
-          />
-        </span>
-      </Accordion.Trigger>
-      <Accordion.Content>
+      </AccordionTrigger>
+      <AccordionContent>
         {type === 'checkbox' && (
           <div className="flex flex-wrap gap-x-6 gap-y-4 mt-4">
             {options.map((option) => (
@@ -86,8 +69,8 @@ function FilterSection({
             onChange={() => {}}
           />
         )}
-      </Accordion.Content>
-    </Accordion.Item>
+      </AccordionContent>
+    </AccordionItem>
   );
 }
 
@@ -115,18 +98,18 @@ export default function ProjectsChallengeFilterSlideOut({
       })}
       onClose={onClose}>
       <div className="flex flex-col">
-        <Accordion.Root
+        <Divider />
+        <Accordion
           className="flex flex-col"
           defaultValue={initialFilters.map(({ id }) => id)}
           type="multiple">
-          {initialFilters.map((filter, index) => (
+          {initialFilters.map((filter) => (
             <Fragment key={filter.id}>
-              <Divider className={clsx('mb-5', index > 0 && 'mt-5')} />
               <FilterSection key={filter.id} {...filter} />
             </Fragment>
           ))}
-        </Accordion.Root>
-        <Divider className="my-5" />
+        </Accordion>
+        <Divider />
       </div>
     </SlideOut>
   );

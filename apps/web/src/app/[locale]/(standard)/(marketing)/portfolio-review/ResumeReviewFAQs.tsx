@@ -1,17 +1,13 @@
 'use client';
 
-import clsx from 'clsx';
-import { RiArrowDownSLine } from 'react-icons/ri';
-
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '~/components/ui/Accordion';
 import Container from '~/components/ui/Container';
 import Text from '~/components/ui/Text';
-import {
-  themeOutlineElement_FocusVisible,
-  themeOutlineElementBrandColor_FocusVisible,
-  themeTextSecondaryColor,
-} from '~/components/ui/theme';
-
-import { Disclosure } from '@headlessui/react';
 
 const faqs = [
   {
@@ -59,7 +55,7 @@ const faqs = [
         other fields into the front end domain.
       </>
     ),
-    id: 'why-should-i-buy',
+    id: 'is-this-relevant',
     question: (
       <>
         I'm an aspiring front end engineer. Will this still be relevant to me?
@@ -72,50 +68,21 @@ export default function ResumeReviewFAQs() {
   return (
     <div className="bg-neutral-950 py-16 lg:py-24 xl:py-32">
       <Container variant="3xl">
-        <div className="divide-y divide-white/10">
-          <h2 className="text-3xl font-bold text-white sm:text-4xl sm:leading-none sm:tracking-tight">
-            Frequently Asked Questions
-          </h2>
-          <dl className="mt-10 space-y-6 divide-y divide-white/10">
-            {faqs.map((faq) => (
-              <Disclosure key={faq.id} as="div" className="pt-6">
-                {({ open }) => (
-                  <>
-                    <dt>
-                      <Disclosure.Button
-                        className={clsx(
-                          'flex w-full items-start justify-between',
-                          [
-                            themeOutlineElement_FocusVisible,
-                            themeOutlineElementBrandColor_FocusVisible,
-                          ],
-                        )}>
-                        <Text size="body1" weight="medium">
-                          {faq.question}
-                        </Text>
-                        <span className="ml-6 flex h-6 items-center">
-                          <RiArrowDownSLine
-                            aria-hidden="true"
-                            className={clsx(
-                              'size-5 transform transition-transform',
-                              open && '-rotate-180',
-                              themeTextSecondaryColor,
-                            )}
-                          />
-                        </span>
-                      </Disclosure.Button>
-                    </dt>
-                    <Disclosure.Panel as="dd" className="mt-4 pr-12">
-                      <Text color="secondary" display="block" size="body1">
-                        {faq.answer}
-                      </Text>
-                    </Disclosure.Panel>
-                  </>
-                )}
-              </Disclosure>
-            ))}
-          </dl>
-        </div>
+        <h2 className="text-3xl font-bold text-white sm:text-4xl sm:leading-none sm:tracking-tight">
+          Frequently Asked Questions
+        </h2>
+        <Accordion className="mt-10" type="multiple">
+          {faqs.map((faq) => (
+            <AccordionItem key={faq.id} value={faq.id}>
+              <AccordionTrigger>{faq.question}</AccordionTrigger>
+              <AccordionContent>
+                <Text color="secondary" display="block" size="body1">
+                  {faq.answer}
+                </Text>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </Container>
     </div>
   );
