@@ -11,9 +11,9 @@ import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
 import logEvent from '~/logging/logEvent';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
 
-import SupabaseAuthEmail from './SupabaseAuthEmail';
+import SupabaseAuthEmailSignIn from './SupabaseAuthEmailSignIn';
+import SupabaseAuthEmailSignUp from './SupabaseAuthEmailSignUp';
 import SupabaseAuthForgottenPassword from './SupabaseAuthForgottenPassword';
-import SupabaseAuthMagicLink from './SupabaseAuthMagicLink';
 import type { SupabaseProviderGFE } from './SupabaseAuthSocial';
 import SupabaseAuthSocial from './SupabaseAuthSocial';
 import type { AuthViewType } from './SupabaseAuthTypes';
@@ -22,10 +22,10 @@ export type Props = Readonly<{
   children?: React.ReactNode;
   className?: string;
   magicLink?: boolean;
+  next: string;
   onlyThirdPartyProviders?: boolean;
   preBodyContents?: React.ReactNode;
   providers?: Array<SupabaseProviderGFE>;
-  redirectTo: string;
   socialLayout?: 'horizontal' | 'vertical';
   style?: React.CSSProperties;
   supabaseClient: SupabaseClientGFE;
@@ -39,9 +39,8 @@ export default function SupabaseAuth({
   preBodyContents,
   providers,
   view = 'sign_in',
-  redirectTo,
+  next,
   onlyThirdPartyProviders = false,
-  magicLink = false,
 }: Props): JSX.Element | null {
   const [authView, setAuthView] = useState<AuthViewType>(view);
   const hasThirdPartyProviders = providers != null && providers.length > 0;
@@ -132,8 +131,8 @@ export default function SupabaseAuth({
                 {preBodyContents}
                 <SupabaseAuthSocial
                   layout={socialLayout}
+                  next={next}
                   providers={providers}
-                  redirectTo={redirectTo}
                   supabaseClient={supabaseClient}
                 />
               </div>
@@ -172,16 +171,20 @@ export default function SupabaseAuth({
 
   switch (authView) {
     case 'sign_in':
+      return (
+        <Container>
+          <SupabaseAuthEmailSignIn
+            next={next}
+            setAuthView={setAuthView}
+            supabaseClient={supabaseClient}
+          />
+        </Container>
+      );
     case 'sign_up':
       return (
         <Container>
-          <SupabaseAuthEmail
-            authView={authView}
-            id={authView === 'sign_up' ? 'auth-sign-up' : 'auth-sign-in'}
-            magicLink={magicLink}
-            redirectTo={redirectTo}
-            setAuthView={setAuthView}
-            showTitle={!hasThirdPartyProviders}
+          <SupabaseAuthEmailSignUp
+            next={next}
             supabaseClient={supabaseClient}
           />
         </Container>
@@ -189,31 +192,14 @@ export default function SupabaseAuth({
 
     case 'forgotten_password':
       return (
-        <Container>
-          <SupabaseAuthForgottenPassword
-            setAuthView={setAuthView}
-            showTitle={!hasThirdPartyProviders}
-            supabaseClient={supabaseClient}
-          />
-        </Container>
-      );
-
-    case 'magic_link':
-      return (
-        <Container>
-          <SupabaseAuthMagicLink
-            redirectTo={redirectTo}
-            setAuthView={setAuthView}
-            showTitle={!hasThirdPartyProviders}
-            supabaseClient={supabaseClient}
-          />
-        </Container>
+        <SupabaseAuthForgottenPassword
+          next={next}
+          setAuthView={setAuthView}
+          supabaseClient={supabaseClient}
+        />
       );
 
     default:
       return null;
   }
 }
-
-SupabaseAuth.ForgottenPassword = SupabaseAuthForgottenPassword;
-SupabaseAuth.MagicLink = SupabaseAuthMagicLink;

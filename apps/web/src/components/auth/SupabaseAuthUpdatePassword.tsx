@@ -13,6 +13,8 @@ import TextInput from '~/components/ui/TextInput';
 import logEvent from '~/logging/logEvent';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
+import Alert from '../ui/Alert';
+
 import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
 
 export default function SupabaseAuthUpdatePassword() {
@@ -48,6 +50,8 @@ export default function SupabaseAuthUpdatePassword() {
           id: '8Ti6rm',
         }),
       );
+
+      // TODO(auth): Redirect based on next query param.
     }
     setIsLoading(false);
   }
@@ -55,15 +59,23 @@ export default function SupabaseAuthUpdatePassword() {
   return (
     <div className="flex flex-col gap-y-6">
       <div className="flex flex-col gap-y-2">
-        <Heading className="flex-1" level="heading6">
-          <FormattedMessage
-            defaultMessage="Change password for {userEmail}"
-            description="Title of Change Password page"
-            id="gZL62Q"
-            values={{
-              userEmail: user?.email,
-            }}
-          />
+        <Heading className="flex-1" level="heading5">
+          {user?.email == null ? (
+            <FormattedMessage
+              defaultMessage="Change password"
+              description="Title of Change Password page"
+              id="SLpcOX"
+            />
+          ) : (
+            <FormattedMessage
+              defaultMessage="Change password for {userEmail}"
+              description="Title of Change Password page"
+              id="gZL62Q"
+              values={{
+                userEmail: user?.email,
+              }}
+            />
+          )}
         </Heading>
         {user?.app_metadata.provider !== 'email' && (
           <Text color="secondary" display="block" size="body2">
@@ -79,9 +91,12 @@ export default function SupabaseAuthUpdatePassword() {
         {isUserLoading ? (
           <Spinner display="block" label="Loading" size="lg" />
         ) : (
-          <form className="space-y-6" onSubmit={handlePasswordChange}>
+          <form
+            className="flex flex-col gap-y-6"
+            onSubmit={handlePasswordChange}>
             <TextInput
               autoComplete="password"
+              autoFocus={true}
               defaultValue={password}
               description={intl.formatMessage(
                 {
@@ -136,16 +151,8 @@ export default function SupabaseAuthUpdatePassword() {
                 });
               }}
             />
-            {message && (
-              <Text color="success" display="block" size="body2">
-                {message}
-              </Text>
-            )}
-            {error && (
-              <Text color="error" display="block" size="body2">
-                {error}
-              </Text>
-            )}
+            {message && <Alert variant="success">{message}</Alert>}
+            {error && <Alert variant="danger">{error}</Alert>}
           </form>
         )}
       </Section>

@@ -1391,10 +1391,6 @@
     "defaultMessage": "We recommend well-rated submissions using the same stack for your reference",
     "description": "Description for \"Learn from good code\" item in Expected Support section on Projects project page"
   },
-  "CDrriz": {
-    "defaultMessage": "Sign in with password",
-    "description": "Label of link to go to Password Sign In Page on Magic Link Sign In page"
-  },
   "CIPW07": {
     "defaultMessage": "Interview guides",
     "description": "Sidebar label for Interview Guides category"
@@ -2391,6 +2387,10 @@
     "defaultMessage": "Series",
     "description": "Label for Blog Series"
   },
+  "LTreFY": {
+    "defaultMessage": "Reset password",
+    "description": "Title of reset password page"
+  },
   "LU7oiZ": {
     "defaultMessage": "Preparation areas",
     "description": "Preparation tabs title"
@@ -2679,10 +2679,6 @@
     "defaultMessage": "Article view",
     "description": "View option for blog list"
   },
-  "O4XAXC": {
-    "defaultMessage": "An email will be sent to the address above if an associated account exists",
-    "description": "Message indicating a successful password reset request"
-  },
   "O57nUH": {
     "defaultMessage": "Exclusive private Discord channel access for life.",
     "description": "Feature of annual pricing plan"
@@ -2898,6 +2894,10 @@
   "PzZtIi": {
     "defaultMessage": "No sign in required",
     "description": "Additional text below Get Start button on Hero section of HomePage. To let users know that they can try the product without signing in."
+  },
+  "Q0sZmk": {
+    "defaultMessage": "An email containing the password reset instructions will be sent if an associated account exists",
+    "description": "Message indicating a successful password reset request"
   },
   "Q7EpE5": {
     "defaultMessage": "HTML Questions",
@@ -3167,6 +3167,10 @@
     "defaultMessage": "Premium Content",
     "description": "Premium system design questions content"
   },
+  "SLpcOX": {
+    "defaultMessage": "Change password",
+    "description": "Title of Change Password page"
+  },
   "SSiHbz": {
     "defaultMessage": "Add LinkedIn",
     "description": "Title for Add LinkedIn task on Projects dashboard page"
@@ -3303,10 +3307,6 @@
     "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
   },
-  "TcVgOJ": {
-    "defaultMessage": "Sign in",
-    "description": "Title of Magic Link Sign In page"
-  },
   "TebaLD": {
     "defaultMessage": "Continue learning",
     "description": "Title of Continue Learning section in preparation dashboard"
@@ -3378,10 +3378,6 @@
   "UCt/lF": {
     "defaultMessage": "Coding Questions",
     "description": "Coding questions long title"
-  },
-  "UHZyhq": {
-    "defaultMessage": "Email",
-    "description": "Label of email field on Magic Link Sign In page"
   },
   "UIOmIs": {
     "defaultMessage": "Job Title",
@@ -3566,10 +3562,6 @@
   "VuIvcH": {
     "defaultMessage": "Read the project details",
     "description": "Instruction for projects"
-  },
-  "Vvc37/": {
-    "defaultMessage": "Sign up for an account",
-    "description": "Title of Email Sign Up page"
   },
   "W+ConA": {
     "defaultMessage": "Guided by well-known senior engineers",
@@ -3934,10 +3926,6 @@
   "ZB+f95": {
     "defaultMessage": "Preparation by Question Type",
     "description": "Preparing by front end interview question format"
-  },
-  "ZCTrb8": {
-    "defaultMessage": "Sign in to your account",
-    "description": "Title of Email Sign In page"
   },
   "ZCmkG3": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
@@ -5847,10 +5835,6 @@
     "defaultMessage": "Bio",
     "description": "Project profile bio section title"
   },
-  "qAxlQN": {
-    "defaultMessage": "Sign in with magic link",
-    "description": "Label of magic link sign in button on Email Sign In page"
-  },
   "qBIBPw": {
     "defaultMessage": "GitHub Pages",
     "description": "Label for \"GitHub Pages\" option in Deployment Info"
@@ -6211,10 +6195,6 @@
     "defaultMessage": "Difficulty: Hard to Easy",
     "description": "Sorting option for projects list - sort by difficulty from hard to easy"
   },
-  "taVYcT": {
-    "defaultMessage": "Check your email for the magic link",
-    "description": "Message indicating a successful magic link request"
-  },
   "tcKl41": {
     "defaultMessage": "Design, architecture and optimization decisions for common front end apps",
     "description": "Description of system design interview preparation"
@@ -6550,10 +6530,6 @@
   "wO0zga": {
     "defaultMessage": "Skills roadmap",
     "description": "Title for \"Skills roadmap\" feature on Projects home page"
-  },
-  "wbjMPn": {
-    "defaultMessage": "Send magic link",
-    "description": "Label of send magic link button on Magic Link Sign In page"
   },
   "wdjeYA": {
     "defaultMessage": "View",

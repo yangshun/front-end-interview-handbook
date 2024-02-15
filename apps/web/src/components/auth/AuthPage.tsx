@@ -59,6 +59,7 @@ export default function AuthPage({ view }: Props) {
             </Text>
           )}
           <SupabaseAuth
+            next={nextSearchParam ?? '/prepare'}
             preBodyContents={
               nextSearchParam === '/pricing' &&
               sourceSearchParam === 'buy_now' ? (
@@ -80,7 +81,6 @@ export default function AuthPage({ view }: Props) {
               ) : undefined
             }
             providers={['github']}
-            redirectTo={nextSearchParam ?? '/prepare'}
             socialLayout="horizontal"
             supabaseClient={supabaseClient}
             view={view}

@@ -4,10 +4,11 @@ import { RiGithubFill, RiGoogleFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
-import Text from '~/components/ui/Text';
 
 import logEvent from '~/logging/logEvent';
 import type { SupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
+
+import Alert from '../ui/Alert';
 
 import type { Provider } from '@supabase/supabase-js';
 
@@ -40,8 +41,8 @@ export function providerDetails(
 
 export type SocialAuthProps = {
   layout?: 'horizontal' | 'vertical';
+  next: string;
   providers?: Array<SupabaseProviderGFE>;
-  redirectTo: string;
   supabaseClient: SupabaseClientGFE;
 };
 
@@ -49,7 +50,7 @@ export default function SupabaseAuthSocial({
   supabaseClient,
   providers,
   layout,
-  redirectTo,
+  next,
 }: SocialAuthProps) {
   const intl = useIntl();
   const [loading, setLoading] = useState(false);
@@ -59,7 +60,7 @@ export default function SupabaseAuthSocial({
     setLoading(true);
 
     const { error } = await supabaseClient.auth.signInWithOAuth({
-      options: { redirectTo: window.location.origin + redirectTo },
+      options: { redirectTo: window.location.origin + next },
       provider,
     });
 
@@ -124,11 +125,7 @@ export default function SupabaseAuthSocial({
           );
         })}
       </div>
-      {errorMessage && (
-        <Text color="error" display="block" size="body2">
-          {errorMessage}
-        </Text>
-      )}
+      {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
     </div>
   );
 }
