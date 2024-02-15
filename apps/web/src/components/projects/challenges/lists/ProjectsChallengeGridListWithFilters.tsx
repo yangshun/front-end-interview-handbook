@@ -42,8 +42,12 @@ const ITEMS_PER_PAGE = 12;
 
 function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
   const intl = useIntl();
-  const { filters, value: selectedFilters } =
-    useProjectsChallengeFilterContext();
+  const {
+    filters,
+    value: selectedFilters,
+    updateSearchParams,
+    getStringTypeSearchParams,
+  } = useProjectsChallengeFilterContext();
   // Filtering.
   const {
     query,
@@ -75,10 +79,13 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
     totalPages,
     setCurrentPage,
     currentPage,
-  } = usePagination(processedChallenges, ITEMS_PER_PAGE, [
-    selectedFilters,
-    query,
-  ]);
+  } = usePagination(
+    processedChallenges,
+    ITEMS_PER_PAGE,
+    [selectedFilters, query, sortField, isAscendingOrder],
+    Number(getStringTypeSearchParams('page')) || 1,
+    true,
+  );
 
   const numberOfFilters = filtersChallengesOpts.filter(
     ([size]) => size > 0,
@@ -286,7 +293,10 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
             <Pagination
               count={totalPages}
               page={currentPage}
-              onPageChange={setCurrentPage}
+              onPageChange={(value) => {
+                setCurrentPage(value);
+                updateSearchParams('page', value.toString());
+              }}
             />
           </div>
         )}

@@ -65,8 +65,9 @@ export default function ProjectsChallengeSubmissionListWithFilters({
   const { setCurrentPage, currentPage } = usePagination(
     [],
     ITEMS_PER_PAGE,
-    [selectedFilters, query],
+    [selectedFilters, query, sortField, isAscendingOrder],
     Number(getStringTypeSearchParams('page')) || 1,
+    true,
   );
 
   const { data: { submissions, totalCount } = {}, isLoading } =

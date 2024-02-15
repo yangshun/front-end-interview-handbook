@@ -69,8 +69,6 @@ export default function useProjectsChallengeSubmissionFilters() {
   const onChangeQuery = (value: string) => {
     setQuery(value);
     updateSearchParams('search', value);
-    // Reset page number on URL when query changes
-    updateSearchParams('page', '1');
   };
 
   return {

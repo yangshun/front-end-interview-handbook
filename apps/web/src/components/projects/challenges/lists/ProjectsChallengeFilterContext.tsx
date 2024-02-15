@@ -240,8 +240,6 @@ export default function ProjectsChallengeFilterContextProvider({
     (key: ProjectsChallengeFilterKey, value: Array<string>) => {
       // Update search params in the current url
       updateSearchParams(key, value);
-      // Reset page number on URL when query changes
-      updateSearchParams('page', '1');
       setSelectedFilters((prev) => ({
         ...prev,
         [key]: value,

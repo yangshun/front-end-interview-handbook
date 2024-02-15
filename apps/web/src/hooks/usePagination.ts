@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
+import useFilterSearchParams from './useFilterSearchParams';
+
 type PaginatedList<T> = Readonly<{
   currentPage: number;
   currentPageItems: ReadonlyArray<T>;
@@ -12,8 +14,10 @@ const usePagination = <T>(
   itemsPerPage: number,
   deps: React.DependencyList,
   page?: number,
+  updateParams?: boolean,
 ): PaginatedList<T> => {
   const isMounted = useRef(false);
+  const { updateSearchParams } = useFilterSearchParams();
   const [currentPage, setCurrentPage] = useState<number>(page || 1);
   const totalPages = Math.ceil(totalList.length / itemsPerPage);
 
@@ -24,6 +28,9 @@ const usePagination = <T>(
   useEffect(() => {
     if (isMounted.current) {
       setCurrentPage(1); // Reset current page when dependencies change
+      if (updateParams) {
+        updateSearchParams('page', '1');
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
