@@ -18,11 +18,10 @@ import { SocialDiscountSidebarMention } from '~/components/promotions/social/Soc
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
-import Popover from '~/components/ui/Popover';
+import DropdownMenu from '~/components/ui/DropdownMenu';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundElementEmphasizedStateColor,
-  themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
@@ -48,9 +47,9 @@ type SidebarLink = Readonly<{
 }> &
   SidebarItem;
 
-type SidebarPopover = Readonly<{
+type SidebarMenu = Readonly<{
   items: ReadonlyArray<SidebarLink>;
-  type: 'popover';
+  type: 'menu';
 }> &
   SidebarItem;
 
@@ -58,7 +57,7 @@ function useSidebarNavigation() {
   const intl = useIntl();
   const guidesData = useGuidesData();
 
-  const navigation: ReadonlyArray<SidebarLink | SidebarPopover> = [
+  const navigation: ReadonlyArray<SidebarLink | SidebarMenu> = [
     {
       currentMatchRegex: /^\/prepare\/(coding|quiz|system|behavioral)/,
       href: '/prepare',
@@ -139,7 +138,7 @@ function useSidebarNavigation() {
         description: 'Sidebar label for Interview Guides category',
         id: 'CIPW07',
       }),
-      type: 'popover',
+      type: 'menu',
     },
     {
       currentMatchRegex:
@@ -273,7 +272,7 @@ export default function Sidebar({
           }
 
           return (
-            <Popover
+            <DropdownMenu
               key={item.key}
               side="right"
               trigger={
@@ -290,37 +289,15 @@ export default function Sidebar({
                 </button>
               }>
               {item.items.map((popoverItem) => (
-                <Anchor
+                <DropdownMenu.Item
                   key={popoverItem.key}
-                  className={clsx(
-                    'group gap-x-2 rounded px-2 py-3',
-                    itemInterationClasses,
-                    themeBackgroundElementEmphasizedStateColor_Hover,
-                  )}
+                  endAddOn={popoverItem.labelAddon}
                   href={popoverItem.href}
-                  variant="unstyled"
-                  onClick={() => {
-                    close();
-                  }}>
-                  <Text
-                    className="items-center justify-between gap-x-2"
-                    color="secondary"
-                    display="flex"
-                    size="body3"
-                    weight="medium">
-                    <div className="flex items-center gap-x-2">
-                      {popoverItem.icon != null && (
-                        <SidebarIcon icon={popoverItem.icon} />
-                      )}
-                      <span className="whitespace-nowrap">
-                        {popoverItem.name}
-                      </span>
-                      {popoverItem.labelAddon}
-                    </div>
-                  </Text>
-                </Anchor>
+                  icon={popoverItem.icon}
+                  label={popoverItem.name}
+                />
               ))}
-            </Popover>
+            </DropdownMenu>
           );
         })}
       </div>
