@@ -61,6 +61,12 @@ describe('isValidStudentEmail', () => {
     });
   });
 
+  test('allowlisted domains', () => {
+    expect(isValidStudentEmail('greg@humbermail.ca')).toEqual({
+      valid: true,
+    });
+  });
+
   describe('invalid emails', () => {
     test('invalid emails', () => {
       expect(isValidStudentEmail('john.doe@')).toEqual({
@@ -128,6 +134,12 @@ describe('isValidStudentEmail', () => {
       });
 
       expect(isValidStudentEmail('info@university.com')).toEqual({
+        reason:
+          'Email address does not seem to belong to an accredited educational institution. Send us an email if you believe your school should qualify.',
+        valid: false,
+      });
+
+      expect(isValidStudentEmail('greg@humbermailz.ca')).toEqual({
         reason:
           'Email address does not seem to belong to an accredited educational institution. Send us an email if you believe your school should qualify.',
         valid: false,

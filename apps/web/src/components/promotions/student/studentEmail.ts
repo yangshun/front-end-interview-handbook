@@ -1,4 +1,5 @@
 const validDomains = Object.freeze({
+  allowlisted: ['humbermail.ca'],
   prefixes: ['edu.'],
   substring: ['.edu.', '.ac.'],
   suffixes: ['.edu', '.ac'],
@@ -33,8 +34,16 @@ export function isValidStudentEmail(
   const containsSuffix = validDomains.suffixes.some((suffix) =>
     domain.toLowerCase().endsWith(suffix),
   );
+  const allowedDomain = validDomains.allowlisted.some(
+    (validDomain) => domain.toLowerCase() === validDomain,
+  );
 
-  if (!containsPrefix && !containsSubstring && !containsSuffix) {
+  if (
+    !containsPrefix &&
+    !containsSubstring &&
+    !containsSuffix &&
+    !allowedDomain
+  ) {
     return {
       reason:
         'Email address does not seem to belong to an accredited educational institution. Send us an email if you believe your school should qualify.',
