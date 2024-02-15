@@ -9,6 +9,7 @@ import { Item } from '@radix-ui/react-dropdown-menu';
 
 export type Props = Readonly<{
   color?: TextColor;
+  endAddOn?: React.ReactNode;
   href?: string;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isSelected?: boolean;
@@ -18,6 +19,7 @@ export type Props = Readonly<{
 
 export default function DropdownMenuItem({
   color,
+  endAddOn,
   href,
   icon: Icon,
   isSelected = false,
@@ -28,6 +30,7 @@ export default function DropdownMenuItem({
     children: (
       <DropdownMenuItemContent
         color={color}
+        endAddOn={endAddOn}
         icon={Icon}
         isSelected={isSelected}
         label={label}

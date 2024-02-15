@@ -7,6 +7,7 @@ import { themeTextSubtleColor } from '../theme';
 
 type Props = Readonly<{
   color?: TextColor;
+  endAddOn?: React.ReactNode;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isSelected?: boolean;
   label: React.ReactNode;
@@ -15,6 +16,7 @@ type Props = Readonly<{
 
 export default function DropdownMenuItemContent({
   color,
+  endAddOn,
   icon: Icon,
   isSelected = false,
   label,
@@ -35,6 +37,7 @@ export default function DropdownMenuItemContent({
         />
       )}
       {label}
+      {endAddOn}
       {usage === 'trigger' && (
         <RiArrowRightSLine className="size-4 shrink-0 ml-auto" />
       )}
