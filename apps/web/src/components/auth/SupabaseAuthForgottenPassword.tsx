@@ -27,15 +27,15 @@ export default function SupabaseAuthForgottenPassword({
   supabaseClient,
 }: Props) {
   const intl = useIntl();
+  const router = useI18nRouter();
+
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
-  const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
 
   async function handlePasswordReset(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError('');
-    setMessage('');
     setLoading(true);
 
     const { error: resetError } =
@@ -67,14 +67,7 @@ export default function SupabaseAuthForgottenPassword({
       email,
       type: 'email',
     });
-    setMessage(
-      intl.formatMessage({
-        defaultMessage:
-          'An email will be sent to the address above if an associated account exists',
-        description: 'Message indicating a successful password reset request',
-        id: 'O4XAXC',
-      }),
-    );
+    router.push(`/login/reset?next=${encodeURIComponent(next)}`);
   }
 
   return (
@@ -137,11 +130,6 @@ export default function SupabaseAuthForgottenPassword({
               />
             </Anchor>
           </div>
-          {message && (
-            <Text color="success" display="block" size="body2">
-              {message}
-            </Text>
-          )}
         </div>
       </Section>
     </form>
