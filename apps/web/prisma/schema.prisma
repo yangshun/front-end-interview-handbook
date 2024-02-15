@@ -186,6 +186,7 @@ model ProjectsProfile {
   points              Int      @default(0)
   primaryMotivation   String?
   secondaryMotivation String?
+  motivations         String[]
   skillsProficient    String[]
   skillsToGrow        String[]
 
