@@ -87,10 +87,6 @@
     "defaultMessage": "Practice Top JavaScript and TypeScript Front End Interview Questions with Solutions",
     "description": "SEO title for JavaScript questions list page"
   },
-  "+pCFHL": {
-    "defaultMessage": "Explore community submissions",
-    "description": "CTA for side projects motivation"
-  },
   "+pieds": {
     "defaultMessage": "Sign up for our newsletter and join our community of passionate <span>Front End Engineers</span>.",
     "description": "Subtitle text for newsletter sign up section"
@@ -162,14 +158,6 @@
   "/Xai24": {
     "defaultMessage": "MM/YYYY",
     "description": "Placeholder for \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
-  },
-  "/YoEBO": {
-    "defaultMessage": "Component libraries for your projects",
-    "description": "Title for side projects motivation"
-  },
-  "/ZlhXN": {
-    "defaultMessage": "View other's code and learn from their approach",
-    "description": "Description for experienced motivation"
   },
   "/dWN/a": {
     "defaultMessage": "Project Deployment & Completion",
@@ -807,10 +795,6 @@
     "defaultMessage": "Something went wrong",
     "description": "Text that appears when the solution fails to load"
   },
-  "6Xb3Kz": {
-    "defaultMessage": "Review other's project code and help them improve",
-    "description": "Description for mentor others motivation"
-  },
   "6ZmcXv": {
     "defaultMessage": "Practice",
     "description": "Section heading in Projects footer for links practice-related pages"
@@ -1159,6 +1143,10 @@
     "defaultMessage": "JavaScript Polyfills",
     "description": "Name of focus area questions"
   },
+  "9RYs96": {
+    "defaultMessage": "Review community submissions",
+    "description": "Recommended action for new projects platform user"
+  },
   "9Z/GHL": {
     "defaultMessage": "Something went wrong, please check your input.",
     "description": "Form error text"
@@ -1258,10 +1246,6 @@
   "B82jFj": {
     "defaultMessage": "Guidebooks",
     "description": "Guidebooks category"
-  },
-  "B8VBwl": {
-    "defaultMessage": "Explore component tracks",
-    "description": "CTA for portfolio motivation"
   },
   "B8uTwW": {
     "defaultMessage": "No contributions in the community matching those filters",
@@ -1411,10 +1395,6 @@
     "defaultMessage": "Blog",
     "description": "Title of GreatFrontEnd blog homepage"
   },
-  "CuAsoP": {
-    "defaultMessage": "Review community submissions",
-    "description": "CTA for mentor others motivation"
-  },
   "CvwT9O": {
     "defaultMessage": "You need to start the learning session first",
     "description": "Message telling users that need to start on a study plan session first"
@@ -1430,10 +1410,6 @@
   "Cxrh5Z": {
     "defaultMessage": "Implementation can contain at most {maxLength} characters.",
     "description": "Error message"
-  },
-  "Cyg2+o": {
-    "defaultMessage": "Explore community submissions",
-    "description": "CTA for experienced motivation"
   },
   "CyhMLj": {
     "defaultMessage": "Prepare for your front end interviews in one month. All rounded coverage that is sure to bring your front end interview skills to the next level.",
@@ -1566,6 +1542,10 @@
   "Dynazi": {
     "defaultMessage": "(Save {discountPercentage}% vs monthly)",
     "description": "Save more compared to monthly plan."
+  },
+  "Dzv5LY": {
+    "defaultMessage": "Explore skills roadmap",
+    "description": "Recommended action for new projects platform user"
   },
   "E5x8uP": {
     "defaultMessage": "Undergrad CS",
@@ -1863,6 +1843,10 @@
     "defaultMessage": "Guides",
     "description": "Guides navbar item"
   },
+  "H/xTN5": {
+    "defaultMessage": "Explore community submissions",
+    "description": "Recommended action for new projects platform user"
+  },
   "H39M2g": {
     "defaultMessage": "What to expect for Front End System Design interviews",
     "description": "Sidebar link title for front end system design interviews"
@@ -1998,10 +1982,6 @@
   "IIyxmO": {
     "defaultMessage": "End project session?",
     "description": "Title for end project session dialog"
-  },
-  "IK9Jmh": {
-    "defaultMessage": "View other's code and learn from their approach",
-    "description": "Description for side projects motivation"
   },
   "IO/eOZ": {
     "defaultMessage": "Joined on {date}",
@@ -2571,10 +2551,6 @@
     "defaultMessage": "Preview solution",
     "description": "Label for preview solution button"
   },
-  "NLxYcq": {
-    "defaultMessage": "Explore community submissions",
-    "description": "CTA for beginner motivation"
-  },
   "NMtINV": {
     "defaultMessage": "The <underline>great</underline> way to prepare for <span>front end</span> interviews",
     "description": "Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
@@ -2891,10 +2867,6 @@
     "defaultMessage": "Our focus is currently on expanding our question base. New coding and system design questions are added to the platform on a weekly basis.",
     "description": "Question base section subtitle - first paragraph"
   },
-  "QPEzBY": {
-    "defaultMessage": "Build projects to train every front end skill from beginner to advanced",
-    "description": "Description for beginner motivation"
-  },
   "QTT/Vt": {
     "defaultMessage": "Popularity: Most to least completed",
     "description": "Sorting option for projects list - popularity"
@@ -2919,6 +2891,10 @@
     "defaultMessage": "Discover focus areas tailored to your needs to help you prepare for your upcoming technical interviews.",
     "description": "Description for focus areas page"
   },
+  "QeQWqZ": {
+    "defaultMessage": "Explore component tracks",
+    "description": "Recommended action for new projects platform user"
+  },
   "Qf/RU+": {
     "defaultMessage": "React Coding Questions",
     "description": "Description for React questions title"
@@ -2926,6 +2902,10 @@
   "QggKKV": {
     "defaultMessage": "How does it work?",
     "description": "Section label for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
+  },
+  "QjQj5L": {
+    "defaultMessage": "Build projects to train every front end skill from beginner to advanced",
+    "description": "Description for recommended action for new projects platform user"
   },
   "QjhN+w": {
     "defaultMessage": "Front end system design",
@@ -3079,10 +3059,6 @@
     "defaultMessage": "View less",
     "description": "Label of expanded dropdown button"
   },
-  "RoPJ/d": {
-    "defaultMessage": "Choose any modern stack and find recommended projects to practice",
-    "description": "Description for experienced motivation"
-  },
   "RsPxKM": {
     "defaultMessage": "Superscript",
     "description": "Label for superscript"
@@ -3162,10 +3138,6 @@
   "SWdU2x": {
     "defaultMessage": "Next",
     "description": "Next step button label"
-  },
-  "SYA6jA": {
-    "defaultMessage": "Learn from others",
-    "description": "Title for side projects motivation"
   },
   "SZ26iB": {
     "defaultMessage": "Search",
@@ -3251,10 +3223,6 @@
     "defaultMessage": "Project steps",
     "description": "Label for Project steps tabs"
   },
-  "TKf16+": {
-    "defaultMessage": "View other's code and learn from their approach",
-    "description": "Description for beginner motivation"
-  },
   "TL822E": {
     "defaultMessage": "JavaScript Console",
     "description": "Title of JavaScript console panel"
@@ -3334,10 +3302,6 @@
   "U9XHwD": {
     "defaultMessage": "Learn to ask insightful questions at the end of the interview",
     "description": "How to ask insightful questions during behavioral interviews"
-  },
-  "UAo3R9": {
-    "defaultMessage": "Explore skills tree",
-    "description": "CTA for experienced motivation"
   },
   "UBPrBM": {
     "defaultMessage": "Yelp",
@@ -3506,10 +3470,6 @@
   "VfNkH+": {
     "defaultMessage": "CASHBACK",
     "description": "Amount cashback/discount"
-  },
-  "Vg4BgA": {
-    "defaultMessage": "Learn from others",
-    "description": "Title for portfolio motivation"
   },
   "VlLGKt": {
     "defaultMessage": "Payment Success",
@@ -3759,10 +3719,6 @@
     "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget.",
     "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
   },
-  "XlQVtN": {
-    "defaultMessage": "Build a whole component library or design system for your portfolio",
-    "description": "Description for portfolio motivation"
-  },
   "Xlj7W5": {
     "defaultMessage": "Update",
     "description": "Update existing URL in a form"
@@ -3875,10 +3831,6 @@
     "defaultMessage": "Bio & social links",
     "description": "Label for Social Links section of Projects profile onboarding page"
   },
-  "YmW2e9": {
-    "defaultMessage": "Build to learn",
-    "description": "Title for beginner motivation"
-  },
   "YpJ3q8": {
     "defaultMessage": "Reply to comment",
     "description": "Label for discussion post reply input"
@@ -3886,6 +3838,10 @@
   "YzW/Zb": {
     "defaultMessage": "Expires on {expiryDate}",
     "description": "Subtext for rewards complete page"
+  },
+  "Z3Z5Fp": {
+    "defaultMessage": "Review other's project code and help them improve",
+    "description": "Description for recommended action for new projects platform user"
   },
   "Z4VfkU": {
     "defaultMessage": "Every question is accompanied by an official, well-explained solution from ex-interviewers.",
@@ -3986,10 +3942,6 @@
   "Zui1cu": {
     "defaultMessage": "Focus areas",
     "description": "Title of focus areas page"
-  },
-  "ZzACxp": {
-    "defaultMessage": "Learn modern stacks",
-    "description": "Title for experienced motivation"
   },
   "a3a9Yq": {
     "defaultMessage": "Build to cover skill gaps in up-and-coming skills",
@@ -4243,10 +4195,6 @@
     "defaultMessage": "Open in new tab",
     "description": "Indication that text has been copied"
   },
-  "cKaROL": {
-    "defaultMessage": "Component libraries for your portfolio",
-    "description": "Title for portfolio motivation"
-  },
   "cKn3cK": {
     "defaultMessage": "Started",
     "description": "Started on study plan label"
@@ -4342,6 +4290,10 @@
   "dGtm/R": {
     "defaultMessage": "Browse component libraries and even design systems you can build to support your next project",
     "description": "Subtitle for Projects marketing hero section for side projects"
+  },
+  "dHaRPA": {
+    "defaultMessage": "Build to learn",
+    "description": "Title for recommended action for new projects platform user"
   },
   "dJf+5S": {
     "defaultMessage": "JavaScript Questions",
@@ -4739,10 +4691,6 @@
     "defaultMessage": "Discounted rate for a typical job hunt duration.",
     "description": "Supporting statement for a quarterly pricing plan"
   },
-  "h8R3U6": {
-    "defaultMessage": "View other's code and learn from their approach",
-    "description": "Description for portfolio motivation"
-  },
   "hESyRg": {
     "defaultMessage": "What to expect and how to prepare most efficiently",
     "description": "What to expect in behavioral interviews"
@@ -4987,6 +4935,10 @@
     "defaultMessage": "Basic style guide",
     "description": "Project assets category label"
   },
+  "jYsoqB": {
+    "defaultMessage": "Component libraries for your portfolio",
+    "description": "Title for recommended action for new projects platform user"
+  },
   "jb3oKk": {
     "defaultMessage": "Community contributions",
     "description": "Community contributions item label"
@@ -5138,6 +5090,10 @@
   "khoims": {
     "defaultMessage": "We have a large bank of {projectCount}+ projects organized in 3 structured ways to help you achieve your objectives.",
     "description": "Subtitle of the 'Build towards your goals' marketing section on Projects home page"
+  },
+  "kj9QHG": {
+    "defaultMessage": "Build a whole component library or design system for your portfolio",
+    "description": "Description for recommended action for new projects platform user"
   },
   "kn+R8V": {
     "defaultMessage": "Have questions, feedback, or anything to say? Let us know and we will get back as soon as possible.",
@@ -5334,10 +5290,6 @@
   "mLRZ25": {
     "defaultMessage": "See all",
     "description": "See all button label in study guides list section in preparation dashboard"
-  },
-  "mMJ7Dy": {
-    "defaultMessage": "Speed up your side projects by building design systems or component libraries",
-    "description": "Description for side projects motivation"
   },
   "mNb3b2": {
     "defaultMessage": "Hard",
@@ -5787,10 +5739,6 @@
     "defaultMessage": "Showing {currentPageCount} out of {totalCount} projects",
     "description": "Projects listing label"
   },
-  "qEn6fF": {
-    "defaultMessage": "Explore component tracks",
-    "description": "CTA for side projects motivation"
-  },
   "qEo3cR": {
     "defaultMessage": "Filter by status",
     "description": "Tooltip for Status filter for projects list"
@@ -5891,10 +5839,6 @@
     "defaultMessage": "Great start!",
     "description": "Toast title for project session started"
   },
-  "rByL/3": {
-    "defaultMessage": "Explore skill tree",
-    "description": "CTA for beginner motivation"
-  },
   "rH3Vfz": {
     "defaultMessage": "Ask any questions in community",
     "description": "Label for \"Ask any questions in community\" item in Expected Support section on Projects project page"
@@ -5902,6 +5846,10 @@
   "rOzSWN": {
     "defaultMessage": "Build entire design systems, component libraries or full stack apps",
     "description": "Caption for component library showcase in Projects marketing hero section"
+  },
+  "rR79ua": {
+    "defaultMessage": "Learn from others",
+    "description": "Title for recommended action for new projects platform user"
   },
   "rWhQtZ": {
     "defaultMessage": "Full list of shortcuts can be found on the <link>Visual Studio Code website</link>.",
@@ -5966,10 +5914,6 @@
   "s7CwKz": {
     "defaultMessage": "Behavioral Interview Study Guides",
     "description": "Behavioral interview study guides"
-  },
-  "sBrxhD": {
-    "defaultMessage": "Learn from others",
-    "description": "Title for beginner motivation"
   },
   "sGF5oQ": {
     "defaultMessage": "Types of Questions",
@@ -6263,13 +6207,13 @@
     "defaultMessage": "No promo codes available",
     "description": "Title of GreatFrontEnd page"
   },
+  "ub441I": {
+    "defaultMessage": "Help others improve",
+    "description": "Title for recommended action for new projects platform user"
+  },
   "ueUG6Q": {
     "defaultMessage": "JPEG design files for mobile & desktop layouts",
     "description": "Provided resource for project"
-  },
-  "ufq3kp": {
-    "defaultMessage": "Learn from others",
-    "description": "Title for experienced motivation"
   },
   "ufyNP1": {
     "defaultMessage": "Created: Newest to oldest",
@@ -6358,6 +6302,10 @@
   "vHNURr": {
     "defaultMessage": "View all filters",
     "description": "Tooltip for All Filters button for projects list"
+  },
+  "vLdUUt": {
+    "defaultMessage": "View other's code and learn from their approach",
+    "description": "Description for recommended action for new projects platform user"
   },
   "vSWYET": {
     "defaultMessage": "Save changes",
@@ -6647,10 +6595,6 @@
     "defaultMessage": "Reading time",
     "description": "Reading time of the article"
   },
-  "yIseuh": {
-    "defaultMessage": "Help others improve",
-    "description": "Title for mentor others motivation"
-  },
   "yKuhFo": {
     "defaultMessage": "Experience",
     "description": "Title of years of experience section of projects profile edit page"
@@ -6766,10 +6710,6 @@
   "zMpEuy": {
     "defaultMessage": "Popularity: Least to most completed",
     "description": "Sorting option for projects list - popularity"
-  },
-  "zPd3X5": {
-    "defaultMessage": "Explore community submissions",
-    "description": "CTA for portfolio motivation"
   },
   "zSySsj": {
     "defaultMessage": "Question Formats",

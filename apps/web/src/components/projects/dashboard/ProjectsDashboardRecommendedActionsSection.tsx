@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import useProjectsRecommendedActions from '~/components/projects/hooks/useProjectsRecommendedActions';
+import useProjectsDashboardRecommendedActions from '~/components/projects/dashboard/useProjectsDashboardRecommendedActions';
 import { motivationReasonValue } from '~/components/projects/misc';
 import type {
   ProjectsMotivationReasonValue,
@@ -90,7 +90,7 @@ export default function ProjectsDashboardRecommendedActionsSection({
   motivations,
 }: Props) {
   const intl = useIntl();
-  const actions = useProjectsRecommendedActions();
+  const actions = useProjectsDashboardRecommendedActions();
   const recommendedActions = getRecommendedActions(actions, motivations);
 
   return (
@@ -173,7 +173,7 @@ export default function ProjectsDashboardRecommendedActionsSection({
                   <Text color="active" size="body3" weight="medium">
                     <Anchor
                       className="focus:outline-none"
-                      href="#" // TODO(projects): get the href (from the action?)
+                      href={action.href}
                       variant="unstyled">
                       <span aria-hidden="true" className="absolute inset-0" />
                       {action.title}
