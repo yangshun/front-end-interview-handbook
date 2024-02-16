@@ -78,6 +78,14 @@ export const themeBackgroundChipColor = clsx(
 export const themeBackgroundGlimmerColor = clsx(
   'bg-neutral-600 dark:bg-neutral-400',
 );
+
+export const themeBackgroundLineColor = clsx(
+  'bg-neutral-200 dark:bg-neutral-800',
+);
+export const themeBackgroundLineEmphasizedColor = clsx(
+  'bg-neutral-300 dark:bg-neutral-700',
+);
+
 export const themeBackgroundElementColor = clsx('bg-white dark:bg-neutral-900');
 export const themeBackgroundElementEmphasizedStateColor = clsx(
   'bg-neutral-100 dark:bg-neutral-800/70',
@@ -102,9 +110,13 @@ export const themeBorderColor = clsx(
 export const themeDivideColor = clsx(
   'divide-neutral-200 dark:divide-neutral-800',
 );
-export const themeBorderElementColor = clsx(
+export const themeBorderEmphasizeColor = clsx(
   'border-neutral-300 dark:border-neutral-700',
 );
+export const themeDivideEmphasizeColor = clsx(
+  'divide-neutral-300 dark:divide-neutral-700',
+);
+export const themeBorderElementColor = themeBorderEmphasizeColor;
 export const themeGlassyBorder = clsx(
   'glassbox border border-neutral-200 dark:border-transparent',
 );
