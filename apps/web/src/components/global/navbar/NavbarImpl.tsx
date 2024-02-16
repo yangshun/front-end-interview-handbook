@@ -8,7 +8,7 @@ import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 import useIsSticky from '~/hooks/useIsSticky';
-import { useAuthFns } from '~/hooks/user/useAuthFns';
+import { useAuthLogout, useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import useProfile from '~/hooks/user/useProfile';
 
 import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
@@ -52,7 +52,7 @@ function useNavLinks(
   isPremium: boolean,
 ): ReadonlyArray<NavbarPrimaryItem> {
   const intl = useIntl();
-  const { signInUpLabel, signInUpHref } = useAuthFns();
+  const { signInUpLabel, signInUpHref } = useAuthSignInUp();
 
   const questionTechnologyLists = useQuestionTechnologyLists();
   const questionFormatLists = useQuestionFormatLists();
@@ -566,7 +566,7 @@ function useNavLinks(
 
 function useUserNavigationLinks() {
   const intl = useIntl();
-  const { logoutLabel, logoutHref } = useAuthFns();
+  const { logoutLabel, logoutHref } = useAuthLogout();
 
   const userNavigation: ReadonlyArray<NavLinkItem> = [
     {

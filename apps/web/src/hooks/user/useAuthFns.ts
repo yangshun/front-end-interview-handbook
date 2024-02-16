@@ -7,7 +7,31 @@ import { useI18nRouter } from '~/next-i18nostic/src';
 
 import { trpc } from '../trpc';
 
-export function useAuthFns() {
+export function useAuthSignInUp() {
+  const intl = useIntl();
+  const router = useI18nRouter();
+  // To redirect post-login, so we can use the full pathname.
+  const pathname = usePathname();
+
+  function signInUpHref(nextHref?: string) {
+    return `/sign-up?next=${encodeURIComponent(
+      nextHref ?? pathname ?? window.location.pathname,
+    )}`;
+  }
+
+  return {
+    navigateToSignInUpPage: (nextHref?: string) =>
+      router.push(signInUpHref(nextHref)),
+    signInUpHref,
+    signInUpLabel: intl.formatMessage({
+      defaultMessage: 'Sign In / Up',
+      description: 'Link label to the sign in / up page',
+      id: 'q3MA2w',
+    }),
+  };
+}
+
+export function useAuthLogout() {
   const intl = useIntl();
   const router = useI18nRouter();
   // To redirect post-login, so we can use the full pathname.
@@ -15,12 +39,6 @@ export function useAuthFns() {
 
   function logoutHref(nextHref?: string) {
     return `/logout?next=${encodeURIComponent(
-      nextHref ?? pathname ?? window.location.pathname,
-    )}`;
-  }
-
-  function signInUpHref(nextHref?: string) {
-    return `/login?next=${encodeURIComponent(
       nextHref ?? pathname ?? window.location.pathname,
     )}`;
   }
@@ -34,14 +52,6 @@ export function useAuthFns() {
     }),
     navigateToLogoutPage: (nextHref?: string) =>
       router.push(logoutHref(nextHref)),
-    navigateToSignInUpPage: (nextHref?: string) =>
-      router.push(signInUpHref(nextHref)),
-    signInUpHref,
-    signInUpLabel: intl.formatMessage({
-      defaultMessage: 'Sign In / Up',
-      description: 'Link label to the sign in / up page',
-      id: 'q3MA2w',
-    }),
   };
 }
 

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { useAuthFns } from '~/hooks/user/useAuthFns';
+import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
@@ -11,7 +11,7 @@ import Text from '~/components/ui/Text';
 
 export function ProjectsSidebarNotSignedInHeader() {
   const intl = useIntl();
-  const { signInUpLabel, signInUpHref } = useAuthFns();
+  const { signInUpLabel, signInUpHref } = useAuthSignInUp();
 
   return (
     <div className={clsx('flex flex-col gap-6')}>

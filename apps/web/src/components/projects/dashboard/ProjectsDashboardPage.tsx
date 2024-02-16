@@ -4,7 +4,7 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
-import { useAuthFns } from '~/hooks/user/useAuthFns';
+import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
 import ProjectsProgressAndContributionsTabs from '~/components/projects/common/progress-and-contributions/ProjectsProgressAndContributionsTabs';
@@ -31,7 +31,7 @@ export default function ProjectsDashboardPage({ children }: Props) {
   const { data: startedBefore } =
     trpc.projects.sessions.startedBefore.useQuery();
   const { data: userProfile } = trpc.projects.profile.get.useQuery();
-  const { signInUpHref } = useAuthFns();
+  const { signInUpHref } = useAuthSignInUp();
 
   return (
     <BlurOverlay

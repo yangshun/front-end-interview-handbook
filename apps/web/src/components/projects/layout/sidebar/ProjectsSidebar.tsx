@@ -19,7 +19,11 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import { useAuthFns } from '~/hooks/user/useAuthFns';
+import {
+  useAuthFns,
+  useAuthLogout,
+  useAuthSignInUp,
+} from '~/hooks/user/useAuthFns';
 import useProfile from '~/hooks/user/useProfile';
 
 import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
@@ -222,12 +226,8 @@ type Props = Readonly<{
 
 function AuthDropdownItem() {
   const { profile } = useProfile();
-  const {
-    signInUpLabel,
-    navigateToSignInUpPage,
-    logoutLabel,
-    navigateToLogoutPage,
-  } = useAuthFns();
+  const { signInUpLabel, navigateToSignInUpPage } = useAuthSignInUp();
+  const { logoutLabel, navigateToLogoutPage } = useAuthLogout();
 
   return profile == null ? (
     <DropdownMenu.Item
