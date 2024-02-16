@@ -28,7 +28,9 @@ export default function AuthPasswordResetSentPage({ next }: Props) {
       </Heading>
       <div className="text-center mt-4">
         <Text size="body2">
-          <Anchor href={`/login?next=${next}`}>Go back to sign in</Anchor>
+          <Anchor href={`/login?next=${encodeURIComponent(next)}`}>
+            Go back to sign in
+          </Anchor>
         </Text>
       </div>
       <img

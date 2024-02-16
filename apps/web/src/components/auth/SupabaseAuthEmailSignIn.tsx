@@ -40,7 +40,9 @@ export default function SupabaseAuthEmailSignIn({
     setError(null);
     setLoading(true);
 
-    const emailRedirectTo = window.location.origin + next;
+    const emailRedirectTo =
+      window.location.origin +
+      `/login/success?next=${encodeURIComponent(next)}`;
 
     const { error: signInError } = await supabaseClient.auth.signInWithPassword(
       {

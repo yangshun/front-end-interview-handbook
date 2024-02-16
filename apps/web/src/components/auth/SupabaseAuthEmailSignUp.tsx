@@ -44,7 +44,9 @@ export default function SupabaseAuthEmailSignUp({
     setError(null);
     setLoading(true);
 
-    const emailRedirectTo = window.location.origin + next;
+    const emailRedirectTo =
+      window.location.origin +
+      `/login/success?next=${encodeURIComponent(next)}`;
 
     fbq.track('CompleteRegistration');
 

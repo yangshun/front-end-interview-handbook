@@ -2651,6 +2651,10 @@
     "defaultMessage": "Practice by framework",
     "description": "Questions list page title"
   },
+  "OKKVCO": {
+    "defaultMessage": "Login successful",
+    "description": "Title of login successful page"
+  },
   "OLHi7N": {
     "defaultMessage": "Component tracks | Projects",
     "description": "Title of Projects component tracks page"
