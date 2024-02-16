@@ -144,7 +144,7 @@ export default function i18nMetadata(
 ): Metadata {
   if (!nextMetadata.alternates?.canonical) {
     throw new Error(
-      'Canonical field has to provided to generate languages field',
+      'Canonical field has to provide the generate languages field',
     );
   }
 
