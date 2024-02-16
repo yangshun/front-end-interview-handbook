@@ -59,8 +59,12 @@ export default function SupabaseAuthSocial({
   async function handleProviderSignIn(provider: SupabaseProviderGFE) {
     setLoading(true);
 
+    const redirectTo =
+      window.location.origin +
+      `/login/success?next=${encodeURIComponent(next)}`;
+
     const { error } = await supabaseClient.auth.signInWithOAuth({
-      options: { redirectTo: window.location.origin + next },
+      options: { redirectTo },
       provider,
     });
 

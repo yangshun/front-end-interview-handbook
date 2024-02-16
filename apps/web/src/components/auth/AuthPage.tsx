@@ -34,18 +34,25 @@ export default function AuthPage({ view }: Props) {
   const sourceSearchParam = searchParams?.get('source');
 
   useEffect(() => {
-    // Only run query once user is logged in.
-    if (user) {
-      // Redirect user to the previous page if defined and the
-      // previous page is not the login page.
-      const redirectPath =
-        !!nextSearchParam && nextSearchParam !== window.location.pathname
-          ? nextSearchParam
-          : '/prepare';
-
-      router.push(redirectPath);
+    // TODO(auth): dedupe with AuthLoginSuccessPage.
+    // Only run effect when user is logged in.
+    if (user == null) {
+      return;
     }
-  }, [nextSearchParam, router, user]);
+
+    // Redirect user to the previous page if defined and the
+    // previous page is not the login page.
+    const redirectPath =
+      !!nextSearchParam && nextSearchParam !== window.location.pathname
+        ? nextSearchParam
+        : '/prepare';
+
+    // The cookie is set on the client side, so race conditions can happen
+    // where we redirect to a new page that checks for signed in status
+    // on the server side but the cookie is not written yet.
+    // Do a hard redirect to prevent race conditions.
+    window.location.href = redirectPath;
+  }, [nextSearchParam, user]);
 
   return (
     <Container

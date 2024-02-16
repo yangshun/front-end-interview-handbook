@@ -82,8 +82,7 @@ export default function SupabaseAuthEmailSignIn({
       email,
       type: 'email',
     });
-    // Redirect to previous page.
-    router.push(next);
+    // Redirect to the next page is done in a hook on AuthPage.tsx.
 
     /**
      * It is possible the auth component may have been unmounted at this point

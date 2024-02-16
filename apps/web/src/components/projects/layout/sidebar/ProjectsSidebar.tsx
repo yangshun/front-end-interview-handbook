@@ -19,11 +19,7 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import {
-  useAuthFns,
-  useAuthLogout,
-  useAuthSignInUp,
-} from '~/hooks/user/useAuthFns';
+import { useAuthLogout, useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import useProfile from '~/hooks/user/useProfile';
 
 import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
