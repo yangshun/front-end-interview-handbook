@@ -34,7 +34,7 @@ export default function ProjectsDashboardPage({ children }: Props) {
   return (
     <BlurOverlay
       align="center"
-      disableOverlay={!!userProfile}
+      disableOverlay={userProfile != null}
       overlay={
         <div className="flex flex-col gap-y-7 items-center max-w-lg mx-auto text-center">
           <Heading level="heading5">
@@ -72,19 +72,19 @@ export default function ProjectsDashboardPage({ children }: Props) {
               <ProjectsDashboardCompleteProfileCard />
             </div>
           </div>
-          <ProjectsProfileStats
-            codeReviews={profileStatistics?.codeReviews ?? 232}
-            completedChallenges={profileStatistics?.completedChallenges ?? 5653}
-            submissionViews={profileStatistics?.submissionViews ?? 4}
-            upvotes={profileStatistics?.upvotes ?? 842}
-          />
-        </div>
-        {!userProfile || !startedBefore ? (
-          <ProjectsDashboardRecommendedActionsSection
-            motivations={userProfile?.projectsProfile?.motivations ?? []}
-          />
-        ) : (
           <Section>
+            <ProjectsProfileStats
+              codeReviews={profileStatistics?.codeReviews ?? 232}
+              completedChallenges={
+                profileStatistics?.completedChallenges ?? 5653
+              }
+              submissionViews={profileStatistics?.submissionViews ?? 4}
+              upvotes={profileStatistics?.upvotes ?? 842}
+            />
+          </Section>
+        </div>
+        <Section>
+          {userProfile && !startedBefore ? (
             <div className="grid grid-cols-1 lg:grid-cols-2 grid-rows-2 lg:grid-rows-1 gap-x-3 md:gap-x-4 lg:gap-x-6 gap-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-x-3 md:gap-x-4 lg:gap-x-6 gap-y-6">
                 <ProjectsDashboardContinueProjectsSection />
@@ -92,12 +92,18 @@ export default function ProjectsDashboardPage({ children }: Props) {
               </div>
               <ProjectsDashboardTrendingSubmissionsSection />
             </div>
-          </Section>
-        )}
-        <div className="flex flex-col gap-8">
-          <ProjectsProgressAndContributionsTabs baseUrl="/projects/dashboard" />
-          {children}
-        </div>
+          ) : (
+            <ProjectsDashboardRecommendedActionsSection
+              motivations={userProfile?.projectsProfile?.motivations ?? []}
+            />
+          )}
+          {userProfile && (
+            <div className="flex flex-col gap-8">
+              <ProjectsProgressAndContributionsTabs baseUrl="/projects/dashboard" />
+              {children}
+            </div>
+          )}
+        </Section>
       </div>
     </BlurOverlay>
   );

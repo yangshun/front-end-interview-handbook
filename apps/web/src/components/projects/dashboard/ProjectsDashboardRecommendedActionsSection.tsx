@@ -33,6 +33,10 @@ function getRecommendedActions(
   >,
   motivations: Array<string>,
 ) {
+  if (motivations.length === 0) {
+    return actions.beginner;
+  }
+
   let primaryMotivation: ProjectsMotivationReasonValue | string | null =
     motivations[0];
   let secondaryMotivation: ProjectsMotivationReasonValue | string | null =
