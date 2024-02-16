@@ -5,7 +5,7 @@
   "css.format.newlineBetweenSelectors": true,
   "css.format.preserveNewLines": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": "explicit"
   },
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
