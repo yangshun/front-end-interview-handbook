@@ -86,7 +86,7 @@ export default function ProjectsDashboardPage({ children }: Props) {
           </Section>
         </div>
         <Section>
-          {userProfile && !startedBefore ? (
+          {userProfile && startedBefore ? (
             <div className="grid grid-cols-1 lg:grid-cols-2 grid-rows-2 lg:grid-rows-1 gap-x-3 md:gap-x-4 lg:gap-x-6 gap-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-x-3 md:gap-x-4 lg:gap-x-6 gap-y-6">
                 <ProjectsDashboardContinueProjectsSection />

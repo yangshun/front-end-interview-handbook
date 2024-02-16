@@ -18,9 +18,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardWhiteOnLightColor,
   themeBackgroundChipColor,
-  themeBackgroundEmphasized_Hover,
-  themeBorderColor,
-  themeBorderElementColor,
+  themeBackgroundLineEmphasizedColor,
   themeTextBrandColor_GroupHover,
   themeTextColor,
   themeTextSecondaryColor,
@@ -107,19 +105,17 @@ export default function ProjectsDashboardRecommendedActionsSection({
       <Section>
         <div
           className={clsx(
-            'isolate grid px-8 py-6',
+            'isolate',
+            'flex flex-col md:flex-row gap-6 md:gap-8',
             'overflow-hidden rounded-lg',
-            'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
+            'px-8 py-6',
             themeBackgroundCardWhiteOnLightColor,
             'transition-colors',
-            [themeBorderColor, 'border-l', 'md:border-t'],
-            'md:grid-cols-2',
           )}>
           <div
             className={clsx(
-              'group relative flex flex-col md:gap-10 gap-6',
-              'md:border-r md:border-b-0 border-b md:pr-6 md:pb-0 pb-8',
-              themeBorderElementColor,
+              'group relative',
+              'flex flex-1 flex-col gap-6 md:gap-10',
             )}>
             <div className="flex flex-col gap-2">
               <Text size="body1" weight="bold">
@@ -132,6 +128,7 @@ export default function ProjectsDashboardRecommendedActionsSection({
             <div>
               <Button
                 addonPosition="end"
+                href="/projects/challenges"
                 icon={RiArrowRightLine}
                 label={intl.formatMessage({
                   defaultMessage: 'Start a project',
@@ -144,7 +141,15 @@ export default function ProjectsDashboardRecommendedActionsSection({
               />
             </div>
           </div>
-          <div className={clsx('flex flex-col gap-5 md:pl-6 md:pt-0 pt-8')}>
+          <div
+            className={clsx(
+              'h-px w-full',
+              'md:h-auto md:w-px',
+              themeBackgroundLineEmphasizedColor,
+            )}
+            role="separator"
+          />
+          <div className={clsx('flex flex-1 flex-col gap-5 justify-center')}>
             {recommendedActions.slice(1).map((action) => (
               <div
                 key={action.title}
@@ -152,7 +157,6 @@ export default function ProjectsDashboardRecommendedActionsSection({
                   'group relative flex flex-row gap-5',
                   'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
                   'transition-colors',
-                  themeBackgroundEmphasized_Hover,
                 )}>
                 <div>
                   <span
@@ -169,7 +173,7 @@ export default function ProjectsDashboardRecommendedActionsSection({
                   <Text color="active" size="body3" weight="medium">
                     <Anchor
                       className="focus:outline-none"
-                      href="#" // TODO: get the href (from the action?)
+                      href="#" // TODO(projects): get the href (from the action?)
                       variant="unstyled">
                       <span aria-hidden="true" className="absolute inset-0" />
                       {action.title}
