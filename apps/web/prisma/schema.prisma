@@ -181,14 +181,12 @@ model LearningSessionProgress {
 }
 
 model ProjectsProfile {
-  id                  String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  userId              String   @unique @db.Uuid
-  points              Int      @default(0)
-  primaryMotivation   String?
-  secondaryMotivation String?
-  motivations         String[]
-  skillsProficient    String[]
-  skillsToGrow        String[]
+  id               String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  userId           String   @unique @db.Uuid
+  points           Int      @default(0)
+  motivations      String[]
+  skillsProficient String[]
+  skillsToGrow     String[]
 
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @default(now()) @updatedAt
