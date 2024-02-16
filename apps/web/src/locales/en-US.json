@@ -79,6 +79,10 @@
     "defaultMessage": "Сoncise step by step practical guides",
     "description": "Short description for \"Skills roadmap\" feature on Projects home page"
   },
+  "+kyQ/i": {
+    "defaultMessage": "To help <keywords>mentor others</keywords>",
+    "description": "Label for \"Mentor others\" onboarding option in Projects"
+  },
   "+p6rsI": {
     "defaultMessage": "Practice Top JavaScript and TypeScript Front End Interview Questions with Solutions",
     "description": "SEO title for JavaScript questions list page"
@@ -307,10 +311,6 @@
     "defaultMessage": "Tech stack",
     "description": "Section title for tech stack"
   },
-  "13CKZ1": {
-    "defaultMessage": "I want to help <bold>mentor others</bold>",
-    "description": "Label for \"Mentor others\" onboarding option in Projects"
-  },
   "15O0qb": {
     "defaultMessage": "Get Started",
     "description": "Link to get started page"
@@ -390,6 +390,10 @@
   "1wrVTx": {
     "defaultMessage": "Edit on GitHub",
     "description": "Edit on GitHub button"
+  },
+  "1xO/T7": {
+    "defaultMessage": "Please complete the selection to proceed.",
+    "description": "Form validation message"
   },
   "23bxK1": {
     "defaultMessage": "Blogs List",
@@ -602,10 +606,6 @@
   "4KwvEP": {
     "defaultMessage": "Tablet",
     "description": "Responsive breakpoint category"
-  },
-  "4Q3JMg": {
-    "defaultMessage": "Want to build my portfolio",
-    "description": "Motivation level for portfolio reason"
   },
   "4WUroS": {
     "defaultMessage": "Efficiently focus on the most important concepts",
@@ -830,14 +830,6 @@
   "6kLEK7": {
     "defaultMessage": "Common mistakes you should avoid.",
     "description": "Comon mistakes to avoid during system design interviews"
-  },
-  "6nt/n6": {
-    "defaultMessage": "I'm here to build my <bold>side projects</bold>",
-    "description": "Label for \"Side projects\" onboarding option in Projects"
-  },
-  "6ntGyS": {
-    "defaultMessage": "Next",
-    "description": "Label for \"Next\" button on Sign Up Reason section of Projects onboarding page"
   },
   "6w1Z0V": {
     "defaultMessage": "Practice Questions",
@@ -1067,10 +1059,6 @@
     "defaultMessage": "Study Plans",
     "description": "Section heading in footer for links to study plans (i.e. recommended order to study and practice based on specific timelines e.g. prepare in 1 week, 1 month or 3 months)"
   },
-  "8mCs6b": {
-    "defaultMessage": "Skip for now",
-    "description": "Label for \"Skip\" button on Sign Up Reason section of Projects onboarding page"
-  },
   "8tTY7b": {
     "defaultMessage": "Loading submissions",
     "description": "Loading historical project submissions"
@@ -1198,10 +1186,6 @@
   "A+qESm": {
     "defaultMessage": "Created: Newest to Oldest",
     "description": "Sorting option on question list page to sort by creation time, from newest to oldest"
-  },
-  "A/9dZ7": {
-    "defaultMessage": "Other",
-    "description": "Motivation level for other reason"
   },
   "A0i9qA": {
     "defaultMessage": "Read more",
@@ -1351,17 +1335,9 @@
     "defaultMessage": "Please create a free account in order to purchase the premium plans.",
     "description": "Content of alert requesting user to create an account to purchase premium plans"
   },
-  "C0dq+J": {
-    "defaultMessage": "Want to bridge some skill gaps in modern front end or full stack",
-    "description": "Motivation level for experienced reason"
-  },
   "C34sRh": {
     "defaultMessage": "Account Settings",
     "description": "Screenreader text for account settings."
-  },
-  "C70QCF": {
-    "defaultMessage": "I'm a beginner and want to learn skills for practical front end development",
-    "description": "Label for \"Beginner\" onboarding option in Projects"
   },
   "C79VF0": {
     "defaultMessage": "Last week",
@@ -1487,6 +1463,10 @@
     "defaultMessage": "GitHub profile link",
     "description": "Link to GitHub profile"
   },
+  "D7z/wQ": {
+    "defaultMessage": "Keep your reason to under {characterLimit} characters",
+    "description": "String validation message"
+  },
   "D8ZinO": {
     "defaultMessage": "Summary cannot be empty.",
     "description": "Error message"
@@ -1566,6 +1546,10 @@
   "DjHA82": {
     "defaultMessage": "Career Switcher",
     "description": "Label for \"Career Switcher\" option in YOE replacement"
+  },
+  "DlMtVL": {
+    "defaultMessage": "Motivations for joining",
+    "description": "Title of motivation for joining section of projects profile edit page"
   },
   "Dpl0uN": {
     "defaultMessage": "Join Discord",
@@ -2027,10 +2011,6 @@
     "defaultMessage": "Get promo code",
     "description": "Button label for student discount"
   },
-  "IQEeSq": {
-    "defaultMessage": "I'm here to build my portfolio",
-    "description": "Label for \"Portfolio\" onboarding option in Projects"
-  },
   "ITq0p4": {
     "defaultMessage": "Privacy Policy",
     "description": "Link to privacy policy page"
@@ -2223,10 +2203,6 @@
     "defaultMessage": "Show in progress challenges",
     "description": "Description of in progress challenges filter"
   },
-  "KIUB2O": {
-    "defaultMessage": "Back",
-    "description": "Label for \"Back\" button on Sign Up Reason section of Projects onboarding page"
-  },
   "KM0VJJ": {
     "defaultMessage": "Before you deploy, always ensure the following:",
     "description": "Warning message for GitHub repo step in project submission checklist"
@@ -2351,10 +2327,6 @@
     "defaultMessage": "Yes. Every project you start creates a 'session' of the project, which you can end. You can start a new session anytime.",
     "description": "FAQ answer for projects platform"
   },
-  "LLsMT8": {
-    "defaultMessage": "Want to build my side projects",
-    "description": "Motivation level for side projects reason"
-  },
   "LNBK2M": {
     "defaultMessage": "Our services are unavailable at your location.",
     "description": "Message explaining that the website does not transact with the user's location."
@@ -2447,10 +2419,6 @@
     "defaultMessage": "Have any doubts or need help? Ask in the community and discuss with others.",
     "description": "Description for \"Ask any questions in community\" item in Expected Support section on Projects project page"
   },
-  "LxlUHa": {
-    "defaultMessage": "Primary reason",
-    "description": "Label for \"Primary reason\" button on Sign Up Reason section of Projects onboarding page"
-  },
   "LyLGTu": {
     "defaultMessage": "Your display name has been updated.",
     "description": "Success message when for name change"
@@ -2502,6 +2470,10 @@
   "MJyQhr": {
     "defaultMessage": "See all",
     "description": "Link to all focus areas page"
+  },
+  "MNAkQc": {
+    "defaultMessage": "To build <keywords>side projects</keywords>",
+    "description": "Onboarding motivation option"
   },
   "MNgJK6": {
     "defaultMessage": "Easy",
@@ -2803,6 +2775,10 @@
     "defaultMessage": "Filter by Difficulty of the original project brief",
     "description": "Tooltip for Difficulty filter for submissions list"
   },
+  "PAq50+": {
+    "defaultMessage": "Choose up to 2 reasons why you are here so that we can improve your experience",
+    "description": "Subtitle for Projects onboarding page"
+  },
   "PB+rpp": {
     "defaultMessage": "Reset Progress",
     "description": "Label for button to reset progress"
@@ -2994,10 +2970,6 @@
   "R1ji0N": {
     "defaultMessage": "Signing out. See you again!",
     "description": "Main content of Sign Out page"
-  },
-  "R22hcT": {
-    "defaultMessage": "I'm experienced and here to bridge some skill gaps in modern front end or full stack",
-    "description": "Label for \"Experienced\" onboarding option in Projects"
   },
   "R5FPug": {
     "defaultMessage": "Contact Us",
@@ -3999,10 +3971,6 @@
     "defaultMessage": "Other",
     "description": "Label for \"Other\" onboarding option in Projects"
   },
-  "Zeae/j": {
-    "defaultMessage": "Motivation for joining",
-    "description": "Projects profile motivation for joining section title"
-  },
   "Zk7X6D": {
     "defaultMessage": "Software Engineer at Stripe | Ex-Google",
     "description": "Placeholder for \"Job Title\" input on Projects profile onboarding page"
@@ -4267,10 +4235,6 @@
     "defaultMessage": "Only build useful projects",
     "description": "Short title for \"Never waste your time building one-off projects\" feature marketing section on Projects home page"
   },
-  "c9nv1K": {
-    "defaultMessage": "I want to help mentor others",
-    "description": "Label for \"Mentor others\" onboarding option in Projects"
-  },
   "cB23kJ": {
     "defaultMessage": "Security | Profile",
     "description": "Title of Profile Security page"
@@ -4278,10 +4242,6 @@
   "cCQIST": {
     "defaultMessage": "Open in new tab",
     "description": "Indication that text has been copied"
-  },
-  "cJY5Ir": {
-    "defaultMessage": "I'm a <bold>beginner</bold> and want to learn skills for practical front end development",
-    "description": "Label for \"Beginner\" onboarding option in Projects"
   },
   "cKaROL": {
     "defaultMessage": "Component libraries for your portfolio",
@@ -4819,10 +4779,6 @@
     "defaultMessage": "Normal",
     "description": "Label for Normal"
   },
-  "hdlJES": {
-    "defaultMessage": "Secondary reason",
-    "description": "Label for \"Secondary reason\" button on Sign Up Reason section of Projects onboarding page"
-  },
   "hkKaPn": {
     "defaultMessage": "Numbered list",
     "description": "Numbered list tooltip for Richtext toolbar"
@@ -5019,6 +4975,10 @@
     "defaultMessage": "Intro to Behavioral Round",
     "description": "Introduction to behavioral interviews"
   },
+  "jUFP9K": {
+    "defaultMessage": "To learn <keywords>front end skills</keywords> (from beginner to advanced)",
+    "description": "Onboarding motivation option"
+  },
   "jVSwXw": {
     "defaultMessage": "Purchase premium to unlock full access to the question.",
     "description": "Subtitle on question paywall appearing on the question pages of premium questions"
@@ -5038,10 +4998,6 @@
   "jblvez": {
     "defaultMessage": "Title: Z to A",
     "description": "Sorting option for question list - sort titles from Z to A"
-  },
-  "jeWrES": {
-    "defaultMessage": "I'm here to build my side projects",
-    "description": "Label for \"Side projects\" onboarding option in Projects"
   },
   "jeX0Hi": {
     "defaultMessage": "Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others",
@@ -5087,17 +5043,9 @@
     "defaultMessage": "Is GreatFrontEnd targeted at engineers of specific seniority?",
     "description": "Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
   },
-  "k+36tk": {
-    "defaultMessage": "Motivation for joining",
-    "description": "Title of motivation for joining section of projects profile edit page"
-  },
   "k+T8RZ": {
     "defaultMessage": "Warning",
     "description": "Warning badge label for GitHub repo step in project submission checklist"
-  },
-  "k08Rfb": {
-    "defaultMessage": "I'm here to build my <bold>portfolio</bold>",
-    "description": "Label for \"Portfolio\" onboarding option in Projects"
   },
   "k18teo": {
     "defaultMessage": "This is a one-time use promo code exclusive to your account and <strong>can only be generated once</strong>.",
@@ -5483,10 +5431,6 @@
     "defaultMessage": "System Design",
     "description": "Label for system design questions"
   },
-  "nAm1Vk": {
-    "defaultMessage": "Years of Experience",
-    "description": "Title of years of experience section of projects profile edit page"
-  },
   "nJYzIr": {
     "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
     "description": "Larry Almeida's testimonial"
@@ -5542,10 +5486,6 @@
   "nv3dMg": {
     "defaultMessage": "What's new",
     "description": "Latest blog articles page title"
-  },
-  "nvBKGE": {
-    "defaultMessage": "Want to learn skills for practical front end development",
-    "description": "Motivation label for beginner reason"
   },
   "nvhCqI": {
     "defaultMessage": "We recommend these {numberOfAreas} areas of learning to prepare you holistically for your front end interview rounds. Explore guides and {count}+ practice questions here.",
@@ -5799,6 +5739,10 @@
     "defaultMessage": "The URL of your GitHub repository. We will also use it to pull files onto the platform for code reviews.",
     "description": "Form description"
   },
+  "pz1v44": {
+    "defaultMessage": "Next",
+    "description": "Next button label"
+  },
   "q0+3Lk": {
     "defaultMessage": "Accessibility",
     "description": "Accessibility topic for quiz questions"
@@ -5930,10 +5874,6 @@
   "r0Ddhm": {
     "defaultMessage": "Preparation dashboard",
     "description": "Preparation dashboard section title"
-  },
-  "r14As6": {
-    "defaultMessage": "Want to help mentor others",
-    "description": "Motivation level for mentor others reason"
   },
   "r1Pjn6": {
     "defaultMessage": "Go to project",
@@ -6086,6 +6026,10 @@
   "sn/P86": {
     "defaultMessage": "Guides",
     "description": "Section heading in footer for links to interview guides"
+  },
+  "snxYFd": {
+    "defaultMessage": "To build my <keywords>portfolio</keywords>",
+    "description": "Onboarding motivation option"
   },
   "sr3vXR": {
     "defaultMessage": "JavaScript questions",
@@ -6294,10 +6238,6 @@
   "uCbhIG": {
     "defaultMessage": "Go back to sign in",
     "description": "Label of link to return to Sign In Page on Password Reset page"
-  },
-  "uCyL/V": {
-    "defaultMessage": "I'm <bold>experienced</bold> and here to bridge some skill gaps in modern front end or full stack",
-    "description": "Label for \"Experienced\" onboarding option in Projects"
   },
   "uDUEmN": {
     "defaultMessage": "JS functions, algorithms, building components, etc.",
@@ -6531,6 +6471,10 @@
     "defaultMessage": "Skills roadmap",
     "description": "Title for \"Skills roadmap\" feature on Projects home page"
   },
+  "wUCEFX": {
+    "defaultMessage": "Motivations for joining",
+    "description": "Projects profile motivation for joining section title"
+  },
   "wdjeYA": {
     "defaultMessage": "View",
     "description": "Label for view button"
@@ -6631,10 +6575,6 @@
     "defaultMessage": "Step-by-step guides on how to approach the challenge",
     "description": "FAQ answer for projects platform"
   },
-  "xg1qLW": {
-    "defaultMessage": "Tell us why you're here so that we can customize your experience",
-    "description": "Subtitle for Projects onboarding page"
-  },
   "xgFUi6": {
     "defaultMessage": "See all",
     "description": "See all new blogs"
@@ -6711,6 +6651,10 @@
     "defaultMessage": "Help others improve",
     "description": "Title for mentor others motivation"
   },
+  "yKuhFo": {
+    "defaultMessage": "Experience",
+    "description": "Title of years of experience section of projects profile edit page"
+  },
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",
     "description": "Label for slideout for code editor shortcuts"
@@ -6778,6 +6722,10 @@
   "z+5YJV": {
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all User Interface coding questions"
+  },
+  "z06VRE": {
+    "defaultMessage": "To bridge <keywords>skill gaps</keywords>",
+    "description": "Onboarding motivation option"
   },
   "z1Offf": {
     "defaultMessage": "Sign up with school email",
