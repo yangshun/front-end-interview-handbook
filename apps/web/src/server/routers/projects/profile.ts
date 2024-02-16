@@ -4,7 +4,7 @@ import { projectsSkillListInputOptionalSchemaServer } from '~/components/project
 
 import prisma from '~/server/prisma';
 
-import { projectsUserProcedure } from './procedures';
+import { projectsUserProcedure, publicProjectsProcedure } from './procedures';
 import { publicProcedure, router, userProcedure } from '../../trpc';
 
 async function fetchProjectsProfileStatistics(projectsProfileId: string) {
@@ -84,13 +84,13 @@ export const projectsProfileRouter = router({
       return await fetchProjectsProfileStatistics(projectsProfileId);
     },
   ),
-  get: projectsUserProcedure.query(async ({ ctx: { user } }) => {
+  get: publicProjectsProcedure.query(async ({ ctx: { user } }) => {
     return await prisma.profile.findUnique({
       include: {
         projectsProfile: true,
       },
       where: {
-        id: user.id,
+        id: user?.id,
       },
     });
   }),

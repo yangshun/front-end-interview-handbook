@@ -1,5 +1,6 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
 import { FormProvider, useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -26,6 +27,7 @@ type OnboardingProfileFormTransformedValues = {
 };
 
 export default function ProjectsOnboardingReasonPage() {
+  const searchParams = useSearchParams();
   const router = useI18nRouter();
   const intl = useIntl();
   const onboardingReasonSchema = useProjectsMotivationReasonSchema({
@@ -87,7 +89,11 @@ export default function ProjectsOnboardingReasonPage() {
                   ),
                 });
 
-                router.push('/projects/onboarding/profile');
+                router.push(
+                  `/projects/onboarding/profile?next=${encodeURIComponent(
+                    searchParams?.get('next') ?? '',
+                  )}`,
+                );
               })}>
               <ProjectsProfileMotivationsField />
               <div className="flex flex-row-reverse justify-between items-center flex-wrap">

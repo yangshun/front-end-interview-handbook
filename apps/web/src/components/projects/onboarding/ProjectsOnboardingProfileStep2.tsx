@@ -1,3 +1,4 @@
+import { useSearchParams } from 'next/navigation';
 import { Controller, useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -48,15 +49,18 @@ function useOnboardingProfileStep2Schema() {
 }
 
 export default function ProjectsOnboardingProfileStep2() {
+  const searchParams = useSearchParams();
   const router = useI18nRouter();
   const intl = useIntl();
   const onboardingProfileStep2Schema = useOnboardingProfileStep2Schema();
   const { data: initialValues } =
     trpc.projects.profile.onboardingStep2.useQuery();
+
+  const nextPathname = searchParams?.get('next') ?? '/projects/challenges';
   const onboardingStep2UpdateMutation =
     trpc.projects.profile.onboardingStep2Update.useMutation({
       onSuccess: () => {
-        router.push('/projects/challenges');
+        router.push(nextPathname);
       },
     });
 
@@ -161,7 +165,7 @@ export default function ProjectsOnboardingProfileStep2() {
           variant="primary"
         />
         <Button
-          href="/projects/challenges"
+          href={nextPathname}
           label={intl.formatMessage({
             defaultMessage: 'Skip for now',
             description:

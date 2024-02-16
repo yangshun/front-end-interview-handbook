@@ -27,7 +27,7 @@ export function ProjectsSidebarNotSignedInHeader() {
               />
             </Text>
             <Text size="body3" weight="medium">
-              <Anchor href={signInUpHref('/projects/onboarding')}>
+              <Anchor href={signInUpHref()}>
                 {signInUpLabel}
                 <RiArrowRightLine className="size-4 ms-1 shrink-0 inline-flex" />
               </Anchor>

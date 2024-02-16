@@ -1,7 +1,9 @@
 import { redirect } from 'next/navigation';
 
+import ProjectsRootLayout from '~/components/projects/layout/ProjectsRootLayout';
+
 type Props = Readonly<{
-  children: React.ReactNode;
+  children: React.ReactElement;
 }>;
 
 export default async function Layout({ children }: Props) {
@@ -10,5 +12,5 @@ export default async function Layout({ children }: Props) {
     redirect('/');
   }
 
-  return children;
+  return <ProjectsRootLayout>{children}</ProjectsRootLayout>;
 }

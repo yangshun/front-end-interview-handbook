@@ -4,6 +4,7 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
+import { useAuthFns } from '~/hooks/user/useAuthFns';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
 import ProjectsProgressAndContributionsTabs from '~/components/projects/common/progress-and-contributions/ProjectsProgressAndContributionsTabs';
@@ -30,13 +31,14 @@ export default function ProjectsDashboardPage({ children }: Props) {
   const { data: startedBefore } =
     trpc.projects.sessions.startedBefore.useQuery();
   const { data: userProfile } = trpc.projects.profile.get.useQuery();
+  const { signInUpHref } = useAuthFns();
 
   return (
     <BlurOverlay
       align="center"
-      disableOverlay={userProfile != null}
+      disableOverlay={userProfile?.projectsProfile != null}
       overlay={
-        <div className="flex flex-col gap-y-7 items-center max-w-lg mx-auto text-center">
+        <div className="flex flex-col gap-y-6 items-center max-w-xl mx-auto text-center">
           <Heading level="heading5">
             <FormattedMessage
               defaultMessage="Create a free account to track your progress"
@@ -45,7 +47,7 @@ export default function ProjectsDashboardPage({ children }: Props) {
             />
           </Heading>
           <Button
-            href="/projects/onboarding"
+            href={signInUpHref()}
             icon={RiArrowRightLine}
             label={intl.formatMessage({
               defaultMessage: 'Get started',
