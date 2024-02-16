@@ -1,7 +1,6 @@
 'use client';
 
 import clsx from 'clsx';
-import { usePathname } from 'next/navigation';
 import { useRef } from 'react';
 import { RiPlayLine } from 'react-icons/ri';
 import { RiAccountCircleLine } from 'react-icons/ri';

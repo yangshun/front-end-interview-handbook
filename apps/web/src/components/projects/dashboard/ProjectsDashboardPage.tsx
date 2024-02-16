@@ -81,10 +81,7 @@ export default function ProjectsDashboardPage({ children }: Props) {
         </div>
         {!userProfile || !startedBefore ? (
           <ProjectsDashboardRecommendedActionsSection
-            primaryMotivation={userProfile?.projectsProfile?.primaryMotivation}
-            secondaryMotivation={
-              userProfile?.projectsProfile?.secondaryMotivation
-            }
+            motivations={userProfile?.projectsProfile?.motivations ?? []}
           />
         ) : (
           <Section>

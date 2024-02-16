@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 export const motivationReasonValue = z.enum([
   'beginner',
-  'experienced',
+  'skill',
   'mentor-others',
   'other',
   'portfolio',

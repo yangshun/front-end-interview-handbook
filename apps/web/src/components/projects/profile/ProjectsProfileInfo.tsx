@@ -168,13 +168,12 @@ export default function ProjectsProfileInfo({
       <div className="flex justify-between md:flex-row flex-col gap-8">
         <div className="md:w-2/5 w-full gap-8 flex flex-col">
           {userProfile.bio && <ProjectsProfileBio bio={userProfile.bio} />}
-          {(projectsProfile.primaryMotivation ||
-            projectsProfile.secondaryMotivation) && (
-            <ProjectsProfileMotivation
-              primaryMotivation={projectsProfile.primaryMotivation}
-              secondaryMotivation={projectsProfile.secondaryMotivation}
-            />
-          )}
+          {projectsProfile.motivations &&
+            projectsProfile.motivations.length > 0 && (
+              <ProjectsProfileMotivation
+                motivations={projectsProfile.motivations}
+              />
+            )}
         </div>
         <div className="md:w-2/5 w-full gap-8 flex flex-col">
           {projectsProfile.skillsProficient.length > 0 && (

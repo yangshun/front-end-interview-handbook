@@ -8,26 +8,28 @@ import type {
 import type { ProjectsImageBreakpointCategory } from './common/ProjectsImageBreakpoints';
 import type { ProjectsSkillKey } from './skills/types';
 
-export type ProjectsMotivationReasonType = 'primary' | 'secondary';
-
 export type ProjectsMotivationReasonValue = z.infer<
   typeof motivationReasonValue
 >;
 
 export type ProjectsMotivationReasonOption = Readonly<{
-  content: React.ReactNode;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   id: ProjectsMotivationReasonValue;
-  label: string;
+  label: React.ReactNode;
 }>;
 
-export type ProjectsMotivationReasonFormValues = Record<
-  ProjectsMotivationReasonType,
-  {
-    otherValue: string;
-    type: ProjectsMotivationReasonValue | null;
-  }
->;
+export type ProjectsMotivationReasonFormChoice =
+  | {
+      otherValue: string;
+      value: 'other';
+    }
+  | {
+      value: Exclude<ProjectsMotivationReasonValue, 'other'>;
+    };
+
+export type ProjectsMotivationReasonFormValues = Readonly<{
+  motivations: Array<ProjectsMotivationReasonFormChoice>;
+}>;
 
 // TODO(projects): generalize this field.
 export type ProjectsYoeReplacement = z.infer<typeof yoeReplacementSchema>;
@@ -40,7 +42,7 @@ export type ProjectsProfileEditFormValues = {
   jobTitle: string;
   linkedInUsername: string;
   monthYearExperience: string | undefined;
-  motivationReasons: ProjectsMotivationReasonFormValues;
+  motivations: Array<ProjectsMotivationReasonFormChoice>;
   name: string;
   skillsProficient: Array<ProjectsSkillKey>;
   skillsToGrow: Array<ProjectsSkillKey>;

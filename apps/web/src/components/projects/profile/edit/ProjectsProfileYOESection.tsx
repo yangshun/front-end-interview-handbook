@@ -24,9 +24,9 @@ export default function ProjectsProfileYOESection() {
     <div className="flex flex-col gap-6">
       <Heading level="heading6">
         <FormattedMessage
-          defaultMessage="Years of Experience"
+          defaultMessage="Experience"
           description="Title of years of experience section of projects profile edit page"
-          id="nAm1Vk"
+          id="yKuhFo"
         />
       </Heading>
       <ProjectsProfileYOEInput

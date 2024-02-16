@@ -1,12 +1,9 @@
-import clsx from 'clsx';
-
 import Anchor from '~/components/ui/Anchor';
 import {
   Hovercard,
   HovercardContent,
   HovercardTrigger,
 } from '~/components/ui/Hovercard/Hovercard';
-import { themeBackgroundLayerEmphasized } from '~/components/ui/theme';
 
 import ProjectsProfileHoverCard from './ProjectsProfileHoverCard';
 import type { UserLevelWithAvatarSize } from './UserAvatarWithLevel';

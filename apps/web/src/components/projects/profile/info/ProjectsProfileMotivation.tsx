@@ -3,45 +3,51 @@ import { useIntl } from 'react-intl';
 
 import useProjectsMotivationReasonOptions from '~/components/projects/hooks/useProjectsMotivationReasonOptions';
 import ProjectsProfileInfoSectionLayout from '~/components/projects/profile/info/ProjectsProfileInfoSectionLayout';
-import type { ProjectsMotivationReasonValue } from '~/components/projects/types';
 import Text from '~/components/ui/Text';
 import { themeBackgroundElementEmphasizedStateColor } from '~/components/ui/theme';
 
+function Motivation({ value }: Readonly<{ value: string }>) {
+  const reasons = useProjectsMotivationReasonOptions((chunks) => (
+    <span>{chunks}</span>
+  ));
+
+  const reason = reasons.find(({ id }) => id === value);
+
+  return (
+    <Text color="secondary" size="body3">
+      {/* Defaults to manual value. */}
+      {reason?.label ?? value}
+    </Text>
+  );
+}
+
 export default function ProjectsProfileMotivation({
-  primaryMotivation,
-  secondaryMotivation,
+  motivations,
 }: {
-  primaryMotivation: string | null;
-  secondaryMotivation: string | null;
+  motivations: ReadonlyArray<string>;
 }) {
   const intl = useIntl();
-  const motivations: Array<ProjectsMotivationReasonValue> = [
-    primaryMotivation,
-    secondaryMotivation,
-  ].filter(Boolean) as Array<ProjectsMotivationReasonValue>;
-  const { reasons } = useProjectsMotivationReasonOptions();
 
   return (
     <ProjectsProfileInfoSectionLayout
       heading={intl.formatMessage({
-        defaultMessage: 'Motivation for joining',
+        defaultMessage: 'Motivations for joining',
         description: 'Projects profile motivation for joining section title',
-        id: 'Zeae/j',
+        id: 'wUCEFX',
       })}>
       <div className="flex gap-2 flex-wrap">
         {motivations.map((motivation, index) => (
           <div
             key={motivation}
             className={clsx(
+              'inline-flex justify-center gap-1',
+              'rounded-full px-3 py-0.5',
               themeBackgroundElementEmphasizedStateColor,
-              'rounded-full px-3 py-0.5 inline-flex justify-center gap-1',
             )}>
             <Text color="active" size="body3">
               {index + 1}.
             </Text>
-            <Text color="secondary" size="body3">
-              {reasons[motivation]}
-            </Text>
+            <Motivation value={motivation} />
           </div>
         ))}
       </div>

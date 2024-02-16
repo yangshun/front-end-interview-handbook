@@ -52,45 +52,6 @@ export default function useProjectsRecommendedActions() {
         }),
       },
     ],
-    experienced: [
-      {
-        cta: intl.formatMessage({
-          defaultMessage: 'Explore skills tree',
-          description: 'CTA for experienced motivation',
-          id: 'UAo3R9',
-        }),
-        description: intl.formatMessage({
-          defaultMessage:
-            'Choose any modern stack and find recommended projects to practice',
-          description: 'Description for experienced motivation',
-          id: 'RoPJ/d',
-        }),
-        icon: RiNodeTree,
-        title: intl.formatMessage({
-          defaultMessage: 'Learn modern stacks',
-          description: 'Title for experienced motivation',
-          id: 'ZzACxp',
-        }),
-      },
-      {
-        cta: intl.formatMessage({
-          defaultMessage: 'Explore community submissions',
-          description: 'CTA for experienced motivation',
-          id: 'Cyg2+o',
-        }),
-        description: intl.formatMessage({
-          defaultMessage: "View other's code and learn from their approach",
-          description: 'Description for experienced motivation',
-          id: '/ZlhXN',
-        }),
-        icon: RiEyeLine,
-        title: intl.formatMessage({
-          defaultMessage: 'Learn from others',
-          description: 'Title for experienced motivation',
-          id: 'ufq3kp',
-        }),
-      },
-    ],
     'mentor-others': [
       {
         cta: intl.formatMessage({
@@ -187,6 +148,45 @@ export default function useProjectsRecommendedActions() {
           defaultMessage: 'Learn from others',
           description: 'Title for side projects motivation',
           id: 'SYA6jA',
+        }),
+      },
+    ],
+    skill: [
+      {
+        cta: intl.formatMessage({
+          defaultMessage: 'Explore skills tree',
+          description: 'CTA for experienced motivation',
+          id: 'UAo3R9',
+        }),
+        description: intl.formatMessage({
+          defaultMessage:
+            'Choose any modern stack and find recommended projects to practice',
+          description: 'Description for experienced motivation',
+          id: 'RoPJ/d',
+        }),
+        icon: RiNodeTree,
+        title: intl.formatMessage({
+          defaultMessage: 'Learn modern stacks',
+          description: 'Title for experienced motivation',
+          id: 'ZzACxp',
+        }),
+      },
+      {
+        cta: intl.formatMessage({
+          defaultMessage: 'Explore community submissions',
+          description: 'CTA for experienced motivation',
+          id: 'Cyg2+o',
+        }),
+        description: intl.formatMessage({
+          defaultMessage: "View other's code and learn from their approach",
+          description: 'Description for experienced motivation',
+          id: '/ZlhXN',
+        }),
+        icon: RiEyeLine,
+        title: intl.formatMessage({
+          defaultMessage: 'Learn from others',
+          description: 'Title for experienced motivation',
+          id: 'ufq3kp',
         }),
       },
     ],

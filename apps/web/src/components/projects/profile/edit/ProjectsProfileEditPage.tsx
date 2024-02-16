@@ -8,18 +8,16 @@ import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/ToastsProvider';
 import useProjectsMonthYearExperienceSchema from '~/components/projects/hooks/useProjectsMonthYearExperienceSchema';
-import useProjectsMotivationReasonOptions from '~/components/projects/hooks/useProjectsMotivationReasonOptions';
-import useProjectsMotivationReasonSchema from '~/components/projects/hooks/useProjectsMotivationReasonSchema';
+import useProjectsMotivationReasonSchema, {
+  convertProjectsMotivationReasonToFormValue,
+} from '~/components/projects/hooks/useProjectsMotivationReasonSchema';
 import { yoeReplacementSchema } from '~/components/projects/misc';
 import ProjectsProfileBasicInfoSection from '~/components/projects/profile/edit/ProjectsProfileBasicInfoSection';
 import ProjectsProfileMotivationSection from '~/components/projects/profile/edit/ProjectsProfileMotivationSection';
 import ProjectsProfileSkillSection from '~/components/projects/profile/edit/ProjectsProfileSkillSection';
 import ProjectsProfileSocialSection from '~/components/projects/profile/edit/ProjectsProfileSocialSection';
 import ProjectsProfileYOESection from '~/components/projects/profile/edit/ProjectsProfileYOESection';
-import type {
-  ProjectsMotivationReasonValue,
-  ProjectsProfileEditFormValues,
-} from '~/components/projects/types';
+import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -55,8 +53,8 @@ function useProjectsProfileEditSchema() {
       .union([z.string().length(0), z.string().url()])
       .transform((val) => (val ? val : null))
       .nullable(),
-    motivationReasons: motivationReasonSchema,
-    name: z.string(),
+    motivations: motivationReasonSchema,
+    name: z.string().min(2),
     skillsProficient: skillsProficientSchema,
     skillsToGrow: skillsToGrowSchema,
     website: z
@@ -128,18 +126,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
     },
   );
 
-  const { reasonOptions } = useProjectsMotivationReasonOptions();
   const projectsProfileEditSchema = useProjectsProfileEditSchema();
-  const projectsProfile = initialValues?.projectsProfile || {
-    primaryMotivation: null,
-    secondaryMotivation: null,
-  };
-  const hasPredefinedPrimaryReason = reasonOptions.find(
-    (reason) => reason.id === projectsProfile.primaryMotivation,
-  );
-  const hasPredefinedSecondaryReason = reasonOptions.find(
-    (reason) => reason.id === projectsProfile.secondaryMotivation,
-  );
 
   const methods = useForm<
     ProjectsProfileEditFormValues,
@@ -159,28 +146,9 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
             initialValues.startWorkDate.getMonth() + 1
           }/${initialValues.startWorkDate.getFullYear()}`
         : undefined,
-      motivationReasons: {
-        primary: {
-          otherValue: hasPredefinedPrimaryReason
-            ? ''
-            : projectsProfile.primaryMotivation ?? '',
-          type: projectsProfile.primaryMotivation
-            ? hasPredefinedPrimaryReason
-              ? (projectsProfile.primaryMotivation as ProjectsMotivationReasonValue)
-              : 'other'
-            : null,
-        },
-        secondary: {
-          otherValue: hasPredefinedSecondaryReason
-            ? ''
-            : projectsProfile.secondaryMotivation ?? '',
-          type: projectsProfile.secondaryMotivation
-            ? hasPredefinedSecondaryReason
-              ? (projectsProfile.secondaryMotivation as ProjectsMotivationReasonValue)
-              : 'other'
-            : null,
-        },
-      },
+      motivations: convertProjectsMotivationReasonToFormValue(
+        initialValues?.projectsProfile?.motivations ?? [],
+      ),
       name: initialValues?.name ?? '',
       skillsProficient: initialValues?.projectsProfile?.skillsProficient ?? [],
       skillsToGrow: initialValues?.projectsProfile?.skillsToGrow ?? [],
@@ -209,10 +177,9 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
         currentStatus: data.hasNotStartedWork ? data.yoeReplacement : undefined,
         githubUsername: data.githubUsername,
         linkedInUsername: data.linkedInUsername,
-        motivationReasons: {
-          primaryMotivation: data.motivationReasons.primary,
-          secondaryMotivation: data.motivationReasons.secondary,
-        },
+        motivations: data.motivations.flatMap((motivation) =>
+          motivation != null ? [motivation] : [],
+        ),
         name: data.name,
         skillsProficient: data.skillsProficient,
         skillsToGrow: data.skillsToGrow,

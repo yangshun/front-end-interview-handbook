@@ -31,11 +31,16 @@ function getRecommendedActions(
     ProjectsMotivationReasonValue,
     Array<ProjectsRecommendedAction>
   >,
-  primaryMotivation: string | null | undefined,
-  secondaryMotivation: string | null | undefined,
+  motivations: Array<string>,
 ) {
-  if (!primaryMotivation) {
-    if (!secondaryMotivation) {
+  let primaryMotivation: ProjectsMotivationReasonValue | string | null =
+    motivations[0];
+  let secondaryMotivation: ProjectsMotivationReasonValue | string | null =
+    motivations[1];
+  // TODO(projects): update for motivations array.
+
+  if (primaryMotivation != null) {
+    if (secondaryMotivation != null) {
       // Set to default of beginner + portfolio profile
       primaryMotivation = motivationReasonValue.Values.beginner;
       secondaryMotivation = motivationReasonValue.Values.portfolio;
@@ -76,21 +81,15 @@ function getRecommendedActions(
 }
 
 type Props = Readonly<{
-  primaryMotivation: string | null | undefined;
-  secondaryMotivation: string | null | undefined;
+  motivations: Array<string>;
 }>;
 
 export default function ProjectsDashboardRecommendedActionsSection({
-  primaryMotivation,
-  secondaryMotivation,
+  motivations,
 }: Props) {
   const intl = useIntl();
   const actions = useProjectsRecommendedActions();
-  const recommendedActions = getRecommendedActions(
-    actions,
-    primaryMotivation,
-    secondaryMotivation,
-  );
+  const recommendedActions = getRecommendedActions(actions, motivations);
 
   return (
     <div className="flex flex-col gap-4">

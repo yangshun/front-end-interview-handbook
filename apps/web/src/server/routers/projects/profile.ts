@@ -168,35 +168,28 @@ export const projectsProfileRouter = router({
   motivationsUpdate: userProcedure
     .input(
       z.object({
-        primaryMotivation: z.string().nullable(),
-        secondaryMotivation: z.string().nullable(),
+        motivations: z.array(z.string()),
       }),
     )
-    .mutation(
-      async ({
-        input: { primaryMotivation, secondaryMotivation },
-        ctx: { user },
-      }) => {
-        const projectsProfileFields = {
-          primaryMotivation,
-          secondaryMotivation,
-        };
+    .mutation(async ({ input: { motivations }, ctx: { user } }) => {
+      const projectsProfileFields = {
+        motivations,
+      };
 
-        return await prisma.profile.update({
-          data: {
-            projectsProfile: {
-              upsert: {
-                create: projectsProfileFields,
-                update: projectsProfileFields,
-              },
+      return await prisma.profile.update({
+        data: {
+          projectsProfile: {
+            upsert: {
+              create: projectsProfileFields,
+              update: projectsProfileFields,
             },
           },
-          where: {
-            id: user.id,
-          },
-        });
-      },
-    ),
+        },
+        where: {
+          id: user.id,
+        },
+      });
+    }),
   onboardingStep1: userProcedure.query(async ({ ctx: { user } }) => {
     return await prisma.profile.findUnique({
       select: {
@@ -326,10 +319,7 @@ export const projectsProfileRouter = router({
             .union([z.string().length(0), z.string().url()])
             .transform((val) => (val ? val : null))
             .nullable(),
-          motivationReasons: z.object({
-            primaryMotivation: z.string().nullable(),
-            secondaryMotivation: z.string().nullable(),
-          }),
+          motivations: z.array(z.string()),
           name: z.string(),
           skillsProficient: projectsSkillListInputOptionalSchemaServer,
           skillsToGrow: projectsSkillListInputOptionalSchemaServer,
@@ -349,7 +339,7 @@ export const projectsProfileRouter = router({
           currentStatus,
           githubUsername,
           linkedInUsername,
-          motivationReasons,
+          motivations,
           name,
           skillsProficient,
           skillsToGrow,
@@ -359,12 +349,8 @@ export const projectsProfileRouter = router({
         },
         ctx: { user },
       }) => {
-        const { primaryMotivation, secondaryMotivation } =
-          motivationReasons ?? {};
-
         const projectsProfileFields = {
-          primaryMotivation,
-          secondaryMotivation,
+          motivations,
           skillsProficient,
           skillsToGrow,
         };
