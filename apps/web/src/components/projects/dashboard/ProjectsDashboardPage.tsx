@@ -75,14 +75,22 @@ export default function ProjectsDashboardPage({ children }: Props) {
             </div>
           </div>
           <Section>
-            <ProjectsProfileStats
-              codeReviews={profileStatistics?.codeReviews ?? 232}
-              completedChallenges={
-                profileStatistics?.completedChallenges ?? 5653
-              }
-              submissionViews={profileStatistics?.submissionViews ?? 4}
-              upvotes={profileStatistics?.upvotes ?? 842}
-            />
+            {profileStatistics ? (
+              <ProjectsProfileStats
+                codeReviews={profileStatistics?.codeReviews}
+                completedChallenges={profileStatistics?.completedChallenges}
+                submissionViews={profileStatistics?.submissionViews ?? 0}
+                upvotes={profileStatistics?.upvotes}
+              />
+            ) : (
+              // Fake data for blurred overlay
+              <ProjectsProfileStats
+                codeReviews={232}
+                completedChallenges={5653}
+                submissionViews={4}
+                upvotes={842}
+              />
+            )}
           </Section>
         </div>
         <Section>
