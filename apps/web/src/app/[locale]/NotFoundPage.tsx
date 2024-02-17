@@ -16,7 +16,12 @@ import { useQuestionFormatLists } from '~/data/QuestionFormats';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import { themeBorderColor, themeDivideColor } from '~/components/ui/theme';
+import {
+  themeBackgroundChipColor,
+  themeBorderColor,
+  themeDivideColor,
+  themeIconColor,
+} from '~/components/ui/theme';
 
 export default function NotFoundPage() {
   // Useful to log the full pathname for a 404.
@@ -91,20 +96,25 @@ export default function NotFoundPage() {
                 <Section>
                   <ul
                     className={clsx(
-                      'mt-4 divide-y border-t border-b',
-                      themeBorderColor,
-                      themeDivideColor,
+                      'mt-4',
+                      ['border-t', 'border-b', themeBorderColor],
+                      ['divide-y', themeDivideColor],
                     )}
                     role="list">
                     {links.map((link) => (
                       <li
                         key={link.title}
-                        className="relative flex items-start space-x-4 py-6">
+                        className="relative flex items-start gap-x-4 py-6">
                         <div className="flex-shrink-0">
-                          <span className="bg-brand-lightest flex size-12 items-center justify-center rounded-lg">
+                          <span
+                            className={clsx(
+                              'flex items-center justify-center rounded-lg',
+                              'size-12',
+                              themeBackgroundChipColor,
+                            )}>
                             <link.icon
                               aria-hidden="true"
-                              className="text-brand-darker size-6"
+                              className={clsx('size-6', themeIconColor)}
                             />
                           </span>
                         </div>
@@ -141,10 +151,7 @@ export default function NotFoundPage() {
                     ))}
                   </ul>
                   <div className="mt-8">
-                    <Anchor
-                      className="text-brand-dark hover:text-brand text-base font-medium"
-                      href="/prepare"
-                      variant="unstyled">
+                    <Anchor href="/prepare">
                       Or go back home<span aria-hidden="true"> &rarr;</span>
                     </Anchor>
                   </div>
