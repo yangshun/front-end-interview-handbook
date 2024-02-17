@@ -115,7 +115,7 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
         }}
       />
       <div className="flex flex-col gap-6">
-        <div className="flex gap-3 flex-wrap lg:flex-row flex-col">
+        <div className="flex flex-wrap flex-col gap-3 lg:flex-row">
           <div className="flex-1 w-full lg:w-auto">
             <TextInput
               isLabelHidden={true}
@@ -127,7 +127,7 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
               onChange={onChangeQuery}
             />
           </div>
-          <div className="flex gap-3 flex-wrap">
+          <div className="flex flex-wrap gap-3">
             {filters.map((filter) => (
               <ProjectsListFilterDropdown key={filter.id} filter={filter} />
             ))}

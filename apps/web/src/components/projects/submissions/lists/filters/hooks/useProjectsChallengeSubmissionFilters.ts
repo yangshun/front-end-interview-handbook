@@ -4,11 +4,10 @@ import { useState } from 'react';
 import useFilterSearchParams from '~/hooks/useFilterSearchParams';
 
 import useProjectsYOEReplacementOptions from '~/components/projects/hooks/useProjectsYOEReplacementOptions';
+import type { ProjectsSkillKey } from '~/components/projects/skills/types';
 import { useProjectsChallengeSubmissionFilterState } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import type { ProjectsChallengeSubmissionYOEFilter } from '~/components/projects/submissions/types';
 import type { ProjectsYoeReplacement } from '~/components/projects/types';
-
-import type { ProjectsSkillKey } from '../../../../skills/types';
 
 export default function useProjectsChallengeSubmissionFilters() {
   const { updateSearchParams, getStringTypeSearchParams } =

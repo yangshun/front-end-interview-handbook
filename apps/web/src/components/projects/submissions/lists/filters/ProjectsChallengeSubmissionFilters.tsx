@@ -166,7 +166,7 @@ export default function ProjectsChallengeSubmissionFilters({
           setAreFiltersShown(false);
         }}
       />
-      <div className="flex gap-3 flex-wrap lg:flex-row md:flex-col flex-row">
+      <div className="flex flex-wrap flex-row md:flex-col lg:flex-row gap-3">
         <div className="flex-1 w-full lg:w-auto">
           <TextInput
             isLabelHidden={true}
@@ -181,7 +181,7 @@ export default function ProjectsChallengeSubmissionFilters({
             }}
           />
         </div>
-        <div className="gap-3 flex-wrap hidden md:flex">
+        <div className="hidden md:flex flex-wrap gap-3">
           {filters
             .filter((filterItem) => filterItem.id !== 'component-track')
             .map((filter) => (
@@ -192,7 +192,7 @@ export default function ProjectsChallengeSubmissionFilters({
             ))}
           {sortAndFilterButton}
         </div>
-        <div className="md:hidden flex gap-3">{sortAndFilterButton}</div>
+        <div className="flex gap-3 md:hidden ">{sortAndFilterButton}</div>
       </div>
     </>
   );

@@ -19,7 +19,7 @@ export default function ProjectsChallengeReferenceSubmissions({
 }: Props) {
   const { data: referenceSubmissions, isLoading } =
     trpc.projects.submissions.listReference.useQuery({
-      slug: challenge.metadata.slug,
+      challengeSlug: challenge.metadata.slug,
     });
 
   return (

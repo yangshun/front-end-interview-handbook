@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -13,7 +14,7 @@ export default function ProjectsChallengeSubmissionInterested({
 }) {
   const { data: interestedSubmissions } =
     trpc.projects.submissions.listInterested.useQuery({
-      challenge: challengeSlug,
+      challengeSlug,
     });
 
   if (interestedSubmissions == null || interestedSubmissions.length === 0) {
@@ -30,7 +31,11 @@ export default function ProjectsChallengeSubmissionInterested({
         />
       </Heading>
       <Section>
-        <div className="md:grid-cols-2 lg:grid-cols-3 grid-cols-1 grid gap-3 md:gap-4 lg:gap-6">
+        <div
+          className={clsx(
+            'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+            'gap-3 md:gap-4 lg:gap-6',
+          )}>
           {interestedSubmissions.map((submission) => (
             <ProjectsChallengeSubmissionCard
               key={submission.id}
