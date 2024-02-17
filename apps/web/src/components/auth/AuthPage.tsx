@@ -9,7 +9,6 @@ import SupabaseAuth from '~/components/auth/SupabaseAuth';
 import Alert from '~/components/ui/Alert';
 import EmptyState from '~/components/ui/EmptyState';
 
-import { useI18nRouter } from '~/next-i18nostic/src';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
 import type { AuthViewType } from './SupabaseAuthTypes';
@@ -28,7 +27,6 @@ export default function AuthPage({ view }: Props) {
   const supabaseClient = useSupabaseClientGFE();
   const user = useUser();
 
-  const router = useI18nRouter();
   const searchParams = useSearchParams();
   const nextSearchParam = searchParams?.get('next');
   const sourceSearchParam = searchParams?.get('source');

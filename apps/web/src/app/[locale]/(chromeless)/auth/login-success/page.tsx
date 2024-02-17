@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types';
 
-import AuthPasswordResetSentPage from '~/components/auth/AuthPasswordResetSentPage';
+import AuthLoginSuccessPage from '~/components/auth/AuthLoginSuccessPage';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -9,7 +9,7 @@ type Props = Readonly<{
   params: Readonly<{
     locale: string;
   }>;
-  searchParams: { email: string; next: string };
+  searchParams: { next: string | null };
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -19,15 +19,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     locale,
-    pathname: '/login/reset',
+    pathname: '/auth/login-success',
     title: intl.formatMessage({
-      defaultMessage: 'Reset password',
-      description: 'Title of reset password page',
-      id: 'LTreFY',
+      defaultMessage: 'Login successful',
+      description: 'Title of login successful page',
+      id: 'OKKVCO',
     }),
   });
 }
 
 export default function Page({ searchParams }: Props) {
-  return <AuthPasswordResetSentPage next={searchParams.next} />;
+  return <AuthLoginSuccessPage next={searchParams.next} />;
 }

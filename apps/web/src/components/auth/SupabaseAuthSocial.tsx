@@ -61,7 +61,7 @@ export default function SupabaseAuthSocial({
 
     const redirectTo =
       window.location.origin +
-      `/login/success?next=${encodeURIComponent(next)}`;
+      `/auth/login-success?next=${encodeURIComponent(next)}`;
 
     const { error } = await supabaseClient.auth.signInWithOAuth({
       options: { redirectTo },

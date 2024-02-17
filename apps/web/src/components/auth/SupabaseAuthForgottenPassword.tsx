@@ -42,7 +42,7 @@ export default function SupabaseAuthForgottenPassword({
       await supabaseClient.auth.resetPasswordForEmail(email, {
         redirectTo:
           window.location.origin +
-          `/password/reset?next=${encodeURIComponent(next)}`,
+          `/auth/password-reset?next=${encodeURIComponent(next)}`,
       });
 
     setLoading(false);
@@ -67,7 +67,7 @@ export default function SupabaseAuthForgottenPassword({
       email,
       type: 'email',
     });
-    router.push(`/login/reset?next=${encodeURIComponent(next)}`);
+    router.push(`/auth/password-reset-sent?next=${encodeURIComponent(next)}`);
   }
 
   return (

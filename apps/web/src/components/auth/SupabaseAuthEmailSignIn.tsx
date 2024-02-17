@@ -42,7 +42,7 @@ export default function SupabaseAuthEmailSignIn({
 
     const emailRedirectTo =
       window.location.origin +
-      `/login/success?next=${encodeURIComponent(next)}`;
+      `/auth/login-success?next=${encodeURIComponent(next)}`;
 
     const { error: signInError } = await supabaseClient.auth.signInWithPassword(
       {
@@ -65,7 +65,7 @@ export default function SupabaseAuthEmailSignIn({
       if (signInError.message.includes('confirmed')) {
         // Redirect to email verify page.
         router.push(
-          `/login/verify?email=${encodeURIComponent(
+          `/auth/unverified?email=${encodeURIComponent(
             email,
           )}&redirect_to=${encodeURIComponent(emailRedirectTo)}`,
         );

@@ -46,7 +46,7 @@ export default function SupabaseAuthEmailSignUp({
 
     const emailRedirectTo =
       window.location.origin +
-      `/login/success?next=${encodeURIComponent(next)}`;
+      `/auth/login-success?next=${encodeURIComponent(next)}`;
 
     fbq.track('CompleteRegistration');
 
@@ -109,7 +109,7 @@ export default function SupabaseAuthEmailSignUp({
         });
         // Redirect to email verify page.
         router.push(
-          `/sign-up/verify?email=${encodeURIComponent(
+          `/auth/verification-sent?email=${encodeURIComponent(
             email,
           )}&redirect_to=${encodeURIComponent(emailRedirectTo)}`,
         );
@@ -123,7 +123,7 @@ export default function SupabaseAuthEmailSignUp({
       });
       // Redirect to email verify page.
       router.push(
-        `/sign-up/verify?email=${encodeURIComponent(
+        `/auth/verification-sent?email=${encodeURIComponent(
           email,
         )}&redirect_to=${encodeURIComponent(emailRedirectTo)}`,
       );

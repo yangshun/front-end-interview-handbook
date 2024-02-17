@@ -15,7 +15,7 @@ type Props = Readonly<{
   redirectTo: string;
 }>;
 
-export default function AuthVerifyEmailPage({ email, redirectTo }: Props) {
+export default function AuthVerificationSentPage({ email, redirectTo }: Props) {
   const resendSignupConfirmationMutation = useAuthResendSignInConfirmation();
 
   return (

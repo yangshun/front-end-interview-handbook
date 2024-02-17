@@ -11,7 +11,7 @@ import EmptyState from '~/components/ui/EmptyState';
 import { useI18nRouter } from '~/next-i18nostic/src';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
-export default function LogoutPage() {
+export default function AuthLogoutPage() {
   const supabaseClient = useSupabaseClientGFE();
   const intl = useIntl();
   const router = useI18nRouter();

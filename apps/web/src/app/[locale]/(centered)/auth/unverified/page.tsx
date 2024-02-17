@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return defaultMetadata({
     locale,
-    pathname: '/login/verify',
+    pathname: '/auth/unverified',
     title: intl.formatMessage({
       defaultMessage: 'Unverified email',
       description: 'Title of verify email page',

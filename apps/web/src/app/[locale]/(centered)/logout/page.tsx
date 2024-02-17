@@ -1,9 +1,9 @@
 import type { Metadata } from 'next/types';
 
+import AuthLogoutPage from '~/components/auth/AuthLogoutPage';
+
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-
-import LogoutPage from './LogoutPage';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -27,4 +27,4 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default LogoutPage;
+export default AuthLogoutPage;
