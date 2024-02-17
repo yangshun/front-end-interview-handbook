@@ -9,6 +9,7 @@ type Props = Readonly<{
   params: Readonly<{
     locale: string;
   }>;
+  searchParams: { next: string | null };
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -27,4 +28,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default AuthPasswordResetPage;
+export default function Page({ searchParams }: Props) {
+  return <AuthPasswordResetPage next={searchParams.next} />;
+}

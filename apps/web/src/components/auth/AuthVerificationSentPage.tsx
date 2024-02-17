@@ -19,7 +19,9 @@ export default function AuthVerificationSentPage({ email, redirectTo }: Props) {
   const resendSignupConfirmationMutation = useAuthResendSignInConfirmation();
 
   return (
-    <Container className={clsx('flex flex-col', 'py-16')} variant="xl">
+    <Container
+      className={clsx('flex flex-col', 'py-8 md:py-12 lg:py-16')}
+      variant="xl">
       <Heading className="text-center" level="heading5">
         We have sent a verification link to {email}
       </Heading>

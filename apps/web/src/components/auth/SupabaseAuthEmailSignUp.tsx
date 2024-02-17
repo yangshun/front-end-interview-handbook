@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
+import url from 'url';
 import { useIsMounted } from 'usehooks-ts';
 
 import fbq from '~/lib/fbq';
@@ -46,7 +47,12 @@ export default function SupabaseAuthEmailSignUp({
 
     const emailRedirectTo =
       window.location.origin +
-      `/auth/login-success?next=${encodeURIComponent(next)}`;
+      url.format({
+        pathname: '/auth/login-success',
+        query: {
+          next,
+        },
+      });
 
     fbq.track('CompleteRegistration');
 
@@ -108,11 +114,13 @@ export default function SupabaseAuthEmailSignUp({
           type: 'email',
         });
         // Redirect to email verify page.
-        router.push(
-          `/auth/verification-sent?email=${encodeURIComponent(
+        router.push({
+          pathname: '/auth/verification-sent',
+          query: {
             email,
-          )}&redirect_to=${encodeURIComponent(emailRedirectTo)}`,
-        );
+            redirect_to: emailRedirectTo,
+          },
+        });
 
         return;
       }
@@ -122,11 +130,13 @@ export default function SupabaseAuthEmailSignUp({
         type: 'email',
       });
       // Redirect to email verify page.
-      router.push(
-        `/auth/verification-sent?email=${encodeURIComponent(
+      router.push({
+        pathname: '/auth/verification-sent',
+        query: {
           email,
-        )}&redirect_to=${encodeURIComponent(emailRedirectTo)}`,
-      );
+          redirect_to: emailRedirectTo,
+        },
+      });
     }
 
     /**

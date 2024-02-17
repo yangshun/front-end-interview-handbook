@@ -1,7 +1,14 @@
 import { usePathname } from 'next/navigation';
+import type { UrlObject } from 'node:url';
+import type { ParsedUrlQueryInput } from 'querystring';
 import { useIntl } from 'react-intl';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
+
+type HrefProps = Readonly<{
+  next?: string;
+  query?: ParsedUrlQueryInput;
+}>;
 
 export function useAuthSignInUp() {
   const intl = useIntl();
@@ -9,15 +16,22 @@ export function useAuthSignInUp() {
   // To redirect post-login, so we can use the full pathname.
   const pathname = usePathname();
 
-  function signInUpHref(nextHref?: string) {
-    return `/sign-up?next=${encodeURIComponent(
-      nextHref ?? pathname ?? window.location.pathname,
-    )}`;
+  function signInUpHref({
+    next,
+    query,
+  }: HrefProps | undefined = {}): UrlObject {
+    return {
+      pathname: '/sign-up',
+      query: {
+        next: next ?? pathname ?? window.location.pathname,
+        ...query,
+      },
+    };
   }
 
   return {
-    navigateToSignInUpPage: (nextHref?: string) =>
-      router.push(signInUpHref(nextHref)),
+    navigateToSignInUpPage: (hrefProps: HrefProps | undefined = {}) =>
+      router.push(signInUpHref(hrefProps)),
     signInUpHref,
     signInUpLabel: intl.formatMessage({
       defaultMessage: 'Sign In / Up',
@@ -33,10 +47,14 @@ export function useAuthLogout() {
   // To redirect post-login, so we can use the full pathname.
   const pathname = usePathname();
 
-  function logoutHref(nextHref?: string) {
-    return `/logout?next=${encodeURIComponent(
-      nextHref ?? pathname ?? window.location.pathname,
-    )}`;
+  function logoutHref({ next, query }: HrefProps | undefined = {}): UrlObject {
+    return {
+      pathname: '/logout',
+      query: {
+        next: next ?? pathname ?? window.location.pathname,
+        ...query,
+      },
+    };
   }
 
   return {
@@ -46,7 +64,7 @@ export function useAuthLogout() {
       description: 'Link label to the sign out page',
       id: '641P5n',
     }),
-    navigateToLogoutPage: (nextHref?: string) =>
-      router.push(logoutHref(nextHref)),
+    navigateToLogoutPage: (hrefProps: HrefProps | undefined = {}) =>
+      router.push(logoutHref(hrefProps)),
   };
 }

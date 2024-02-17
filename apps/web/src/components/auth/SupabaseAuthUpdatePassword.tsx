@@ -11,13 +11,18 @@ import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
 import logEvent from '~/logging/logEvent';
+import { useI18nRouter } from '~/next-i18nostic/src';
 import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
 import Alert from '../ui/Alert';
 
 import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
 
-export default function SupabaseAuthUpdatePassword() {
+type Props = Readonly<{
+  next?: string | null;
+}>;
+
+export default function SupabaseAuthUpdatePassword({ next }: Props) {
   const intl = useIntl();
   const { isLoading: isUserLoading } = useSessionContext();
   const supabaseClient = useSupabaseClientGFE();
@@ -26,6 +31,7 @@ export default function SupabaseAuthUpdatePassword() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
+  const router = useI18nRouter();
   const [isLoading, setIsLoading] = useState(false);
 
   const isValidPassword = password.length > 6 && password === confirmPassword;
@@ -40,6 +46,8 @@ export default function SupabaseAuthUpdatePassword() {
       password,
     });
 
+    setIsLoading(false);
+
     if (updateError) {
       setError(updateError.message);
     } else {
@@ -51,9 +59,13 @@ export default function SupabaseAuthUpdatePassword() {
         }),
       );
 
-      // TODO(auth): Redirect based on next query param.
+      // Ignore empty string and null-ish values.
+      if (!next) {
+        return;
+      }
+
+      router.push(next);
     }
-    setIsLoading(false);
   }
 
   return (

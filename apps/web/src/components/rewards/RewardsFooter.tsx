@@ -3,6 +3,7 @@
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import useProfile from '~/hooks/user/useProfile';
 
 import Anchor from '~/components/ui/Anchor';
@@ -13,6 +14,7 @@ import Text from '~/components/ui/Text';
 export default function RewardsHeader() {
   const intl = useIntl();
   const { profile } = useProfile();
+  const { signInUpHref } = useAuthSignInUp();
 
   return (
     <Container className="flex flex-col gap-6 items-center">
@@ -29,7 +31,9 @@ export default function RewardsHeader() {
           href={
             profile != null
               ? '/rewards/social/tasks'
-              : `/login?next=${encodeURIComponent('/rewards/social')}`
+              : signInUpHref({
+                  next: '/rewards/social/tasks',
+                })
           }
           icon={RiArrowRightLine}
           label={intl.formatMessage({

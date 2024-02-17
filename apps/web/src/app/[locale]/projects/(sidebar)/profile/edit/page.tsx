@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation';
+import url from 'node:url';
 
 import ProjectsProfileEditPage from '~/components/projects/profile/edit/ProjectsProfileEditPage';
 
@@ -10,7 +11,12 @@ export default async function Page() {
 
   if (user == null) {
     return redirect(
-      `/login?next=${encodeURIComponent(`/projects/profile/edit`)}`,
+      url.format({
+        pathname: '/login',
+        query: {
+          next: '/projects/profile/edit',
+        },
+      }),
     );
   }
 

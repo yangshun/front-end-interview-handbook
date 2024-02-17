@@ -34,7 +34,9 @@ export default function AuthLoginSuccessPage({ next }: Props) {
   }, [next, user]);
 
   return (
-    <Container className={clsx('flex flex-col', 'py-16')} variant="2xl">
+    <Container
+      className={clsx('flex flex-col', 'py-8 md:py-12 lg:py-16')}
+      variant="xl">
       <Heading className="text-center" level="heading5">
         {intl.formatMessage({
           defaultMessage: 'Login successful',

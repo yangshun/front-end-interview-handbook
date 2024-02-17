@@ -18,9 +18,12 @@ export default function useProjectsRedirectToOnboardingIfNecessary() {
       userProfile?.projectsProfile == null &&
       !EXCLUSIONS.includes(pathname ?? '')
     ) {
-      router.push(
-        `/projects/onboarding?next=${encodeURIComponent(pathname ?? '')}`,
-      );
+      router.push({
+        pathname: '/projects/onboarding',
+        query: {
+          next: pathname,
+        },
+      });
     }
   }, [router, userProfile, pathname]);
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
+import url from 'node:url';
 
 import RewardsCompletePage from '~/components/rewards/complete/RewardsCompletePage';
 
@@ -33,7 +34,14 @@ export default async function Page() {
   const user = await readUserFromToken();
 
   if (user == null) {
-    return redirect(`/login?next=${encodeURIComponent('/rewards/social')}`);
+    return redirect(
+      url.format({
+        pathname: '/login',
+        query: {
+          next: '/rewards/social',
+        },
+      }),
+    );
   }
 
   return <RewardsCompletePage />;

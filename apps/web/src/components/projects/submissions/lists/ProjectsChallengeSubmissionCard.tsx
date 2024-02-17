@@ -82,11 +82,12 @@ export default function ProjectsChallengeSubmissionCard({
                 values={{
                   hover: (chunks) => (
                     <Hovercard>
-                      <HovercardTrigger
-                        aria-label={title}
-                        asChild={true}
-                        href={challenge?.metadata.href}>
-                        <Anchor>{chunks}</Anchor>
+                      <HovercardTrigger asChild={true}>
+                        <Anchor
+                          aria-label={title}
+                          href={challenge?.metadata.href}>
+                          {chunks}
+                        </Anchor>
                       </HovercardTrigger>
                       <HovercardContent>
                         <ProjectsChallengeHoverCard

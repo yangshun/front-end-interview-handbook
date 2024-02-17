@@ -3,6 +3,8 @@
 import clsx from 'clsx';
 import { useIntl } from 'react-intl';
 
+import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
+
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 
@@ -15,9 +17,12 @@ type Props = Readonly<{
 
 export default function AuthPasswordResetSentPage({ next }: Props) {
   const intl = useIntl();
+  const { signInUpHref } = useAuthSignInUp();
 
   return (
-    <Container className={clsx('flex flex-col', 'py-16')} variant="2xl">
+    <Container
+      className={clsx('flex flex-col', 'py-8 md:py-12 lg:py-16')}
+      variant="xl">
       <Heading className="text-center" level="heading5">
         {intl.formatMessage({
           defaultMessage:
@@ -28,7 +33,10 @@ export default function AuthPasswordResetSentPage({ next }: Props) {
       </Heading>
       <div className="text-center mt-4">
         <Text size="body2">
-          <Anchor href={`/login?next=${encodeURIComponent(next)}`}>
+          <Anchor
+            href={signInUpHref({
+              next,
+            })}>
             Go back to sign in
           </Anchor>
         </Text>

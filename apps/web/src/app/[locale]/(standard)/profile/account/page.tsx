@@ -1,11 +1,10 @@
 import type { Metadata } from 'next';
-import { redirect } from 'next/navigation';
 
 import ProfileAccount from '~/components/profile/ProfileAccount';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-import { fetchUserDoNotUseIfOnlyUserIdOrEmailNeeded } from '~/supabase/SupabaseServerGFE';
+import { fetchUser_DO_NOT_USE_IF_ONLY_USER_ID_OR_EMAIL_NEEDED } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -32,11 +31,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ProfileAccountPage() {
   const user = await fetchUserDoNotUseIfOnlyUserIdOrEmailNeeded();
 
-  // Strictly speaking not needed because the profile layout
-  // should also blocked access to the page.
-  if (user == null) {
-    return redirect(`/login?next=${encodeURIComponent('/profile')}`);
-  }
-
-  return <ProfileAccount user={user} />;
+  return <ProfileAccount user={user!} />;
 }

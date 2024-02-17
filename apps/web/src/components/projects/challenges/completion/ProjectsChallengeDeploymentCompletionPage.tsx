@@ -133,17 +133,6 @@ export default function ProjectsChallengeDeploymentCompletionPage({
                       defaultMessage="We will pull code from this repo for code reviews"
                       description="Description for GitHub repo step in project submission checklist"
                       id="1L7vdf"
-                      values={{
-                        li: (chunks) => (
-                          <li className="ps-2">
-                            <span className="-ms-1">{chunks}</span>
-                          </li>
-                        ),
-                        link: (chunks) => <Anchor>{chunks}</Anchor>,
-                        ul: (chunks) => (
-                          <ul className="list-inside list-disc">{chunks}</ul>
-                        ),
-                      }}
                     />
                     <ul>
                       <li>

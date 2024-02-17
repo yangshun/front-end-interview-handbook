@@ -5,6 +5,7 @@ import type {
 } from 'next/dist/shared/lib/app-router-context';
 import type { LinkProps } from 'next/link';
 import { useRouter } from 'next/navigation';
+import url from 'url';
 
 import useI18n from './useI18n';
 import type { Locale } from '../types';
@@ -31,7 +32,7 @@ export default function useI18nRouter(): I18nAppRouterInstance {
     ...router,
     prefetch: (href: LinkProps['href'], options?: I18nPrefetchOptions) => {
       router.prefetch(
-        i18nHref(href, options?.locale ?? contextLocale).toString(),
+        url.format(i18nHref(href, options?.locale ?? contextLocale)),
         options?.kind != null ? { kind: options.kind } : undefined,
       );
     },
@@ -39,7 +40,7 @@ export default function useI18nRouter(): I18nAppRouterInstance {
       const { locale, ...navigateOptions } = options ?? {};
 
       router.push(
-        i18nHref(href, locale ?? contextLocale).toString(),
+        url.format(i18nHref(href, locale ?? contextLocale)),
         navigateOptions,
       );
     },
@@ -47,7 +48,7 @@ export default function useI18nRouter(): I18nAppRouterInstance {
       const { locale, ...navigateOptions } = options ?? {};
 
       router.replace(
-        i18nHref(href, locale ?? contextLocale).toString(),
+        url.format(i18nHref(href, locale ?? contextLocale)),
         navigateOptions,
       );
     },

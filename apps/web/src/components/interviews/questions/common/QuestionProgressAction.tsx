@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { RiCheckLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
+
 import { useToast } from '~/components/global/toasts/ToastsProvider';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
@@ -38,6 +40,7 @@ export default function QuestionProgressAction({
   const addProgressMutation = useMutationQuestionProgressAdd();
   const deleteProgressMutation = useMutationQuestionProgressDelete();
   const { showToast } = useToast();
+  const { signInUpHref, signInUpLabel } = useAuthSignInUp();
 
   if (user == null) {
     return (
@@ -59,14 +62,8 @@ export default function QuestionProgressAction({
           primaryButton={
             <Button
               display="block"
-              href={`/login?next=${encodeURIComponent(
-                typeof window !== 'undefined' ? window.location.pathname : '',
-              )}`}
-              label={intl.formatMessage({
-                defaultMessage: 'Sign In / Sign Up',
-                description: 'Sign in or up for the platform',
-                id: 'iAXU/e',
-              })}
+              href={signInUpHref()}
+              label={signInUpLabel}
               variant="primary"
               onClick={() => setIsLoginDialogShown(false)}
             />

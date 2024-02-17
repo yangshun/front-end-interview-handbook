@@ -1,5 +1,6 @@
 import { redirect } from 'next/navigation';
 import type { Metadata } from 'next/types';
+import url from 'node:url';
 import type { ReactNode } from 'react';
 
 import ProfileShell from '~/components/profile/ProfileShell';
@@ -35,7 +36,14 @@ export default async function ProfileLayout({ children }: Props) {
   const user = await fetchUserDoNotUseIfOnlyUserIdOrEmailNeeded();
 
   if (user == null) {
-    return redirect(`/login?next=${encodeURIComponent('/profile')}`);
+    return redirect(
+      url.format({
+        pathname: '/login',
+        query: {
+          next: '/profile',
+        },
+      }),
+    );
   }
 
   return <ProfileShell user={user}>{children}</ProfileShell>;

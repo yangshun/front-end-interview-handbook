@@ -1,4 +1,5 @@
 import { useToast } from '~/components/global/toasts/ToastsProvider';
+
 import { trpc } from '../trpc';
 
 export function useAuthResendSignInConfirmation() {

@@ -89,11 +89,12 @@ export default function ProjectsOnboardingReasonPage() {
                   ),
                 });
 
-                router.push(
-                  `/projects/onboarding/profile?next=${encodeURIComponent(
-                    searchParams?.get('next') ?? '',
-                  )}`,
-                );
+                router.push({
+                  pathname: '/projects/onboarding/profile',
+                  query: {
+                    next: searchParams?.get('next') ?? '',
+                  },
+                });
               })}>
               <ProjectsProfileMotivationsField />
               <div className="flex flex-row-reverse justify-between items-center flex-wrap">

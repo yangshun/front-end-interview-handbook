@@ -1,11 +1,20 @@
 'use client';
 
-import SupabaseAuthUpdatePassword from '~/components/auth/SupabaseAuthUpdatePassword';
+import clsx from 'clsx';
 
-export default function AuthPasswordResetPage() {
+import SupabaseAuthUpdatePassword from '~/components/auth/SupabaseAuthUpdatePassword';
+import Container from '~/components/ui/Container';
+
+type Props = Readonly<{
+  next: string | null;
+}>;
+
+export default function AuthPasswordResetPage({ next }: Props) {
   return (
-    <div className="mx-auto max-w-xl space-y-6 px-4 py-8 sm:px-6 md:px-8 lg:py-16">
-      <SupabaseAuthUpdatePassword />
-    </div>
+    <Container
+      className={clsx('flex flex-col', 'py-8 md:py-12 lg:py-16')}
+      variant="xl">
+      <SupabaseAuthUpdatePassword next={next} />
+    </Container>
   );
 }

@@ -6,6 +6,7 @@ import type Stripe from 'stripe';
 
 import { trpc } from '~/hooks/trpc';
 import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
+import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { STUDENT_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
 
@@ -37,6 +38,7 @@ export function PromotionsStudentDiscountCard() {
       setPromoCode(data);
     },
   });
+  const { signInUpHref } = useAuthSignInUp();
 
   return (
     <PricingBlockCard
@@ -118,9 +120,9 @@ export function PromotionsStudentDiscountCard() {
                 return (
                   <Button
                     display="block"
-                    href={`/sign-up?next=${encodeURIComponent(
-                      '/promotions',
-                    )}&source=student_discount`}
+                    href={signInUpHref({
+                      query: { source: 'student_discount' },
+                    })}
                     label={intl.formatMessage({
                       defaultMessage: 'Sign up with school email',
                       description: 'Button label',

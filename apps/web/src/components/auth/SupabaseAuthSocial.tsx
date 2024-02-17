@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { RiGithubFill, RiGoogleFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
+import url from 'url';
 
 import Button from '~/components/ui/Button';
 
@@ -61,7 +62,12 @@ export default function SupabaseAuthSocial({
 
     const redirectTo =
       window.location.origin +
-      `/auth/login-success?next=${encodeURIComponent(next)}`;
+      url.format({
+        pathname: '/auth/login-success',
+        query: {
+          next,
+        },
+      });
 
     const { error } = await supabaseClient.auth.signInWithOAuth({
       options: { redirectTo },

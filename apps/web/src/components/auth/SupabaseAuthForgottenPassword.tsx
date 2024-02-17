@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
+import url from 'url';
 
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
@@ -42,7 +43,12 @@ export default function SupabaseAuthForgottenPassword({
       await supabaseClient.auth.resetPasswordForEmail(email, {
         redirectTo:
           window.location.origin +
-          `/auth/password-reset?next=${encodeURIComponent(next)}`,
+          url.format({
+            pathname: '/auth/password-reset',
+            query: {
+              next,
+            },
+          }),
       });
 
     setLoading(false);
@@ -67,7 +73,13 @@ export default function SupabaseAuthForgottenPassword({
       email,
       type: 'email',
     });
-    router.push(`/auth/password-reset-sent?next=${encodeURIComponent(next)}`);
+
+    router.push({
+      pathname: '/auth/password-reset-sent',
+      query: {
+        next,
+      },
+    });
   }
 
   return (

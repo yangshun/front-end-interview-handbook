@@ -41,11 +41,12 @@ export default function ProjectsProfileAvatar({
 
   return profile != null && hovercard ? (
     <Hovercard>
-      <HovercardTrigger
-        aria-label={profile.name ?? profile.username}
-        asChild={true}
-        href={`/projects/u/${profile.username}`}>
-        <Anchor className="font-medium" variant="unstyled">
+      <HovercardTrigger asChild={true}>
+        <Anchor
+          aria-label={profile.name ?? profile.username}
+          className="font-medium"
+          href={`/projects/u/${profile.username}`}
+          variant="unstyled">
           {avatar}
         </Anchor>
       </HovercardTrigger>

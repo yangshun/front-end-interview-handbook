@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
+import url from 'url';
 import { useIsMounted } from 'usehooks-ts';
 
 import Alert from '~/components/ui/Alert';
@@ -42,7 +43,12 @@ export default function SupabaseAuthEmailSignIn({
 
     const emailRedirectTo =
       window.location.origin +
-      `/auth/login-success?next=${encodeURIComponent(next)}`;
+      url.format({
+        pathname: '/auth/login-success',
+        query: {
+          next,
+        },
+      });
 
     const { error: signInError } = await supabaseClient.auth.signInWithPassword(
       {
@@ -64,11 +70,13 @@ export default function SupabaseAuthEmailSignIn({
       // unconfirmed email address error since no error codes are returned.
       if (signInError.message.includes('confirmed')) {
         // Redirect to email verify page.
-        router.push(
-          `/auth/unverified?email=${encodeURIComponent(
+        router.push({
+          pathname: '/auth/unverified',
+          query: {
             email,
-          )}&redirect_to=${encodeURIComponent(emailRedirectTo)}`,
-        );
+            redirect_to: emailRedirectTo,
+          },
+        });
 
         return;
       }

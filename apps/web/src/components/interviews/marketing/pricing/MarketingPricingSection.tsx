@@ -14,6 +14,7 @@ import { FormattedMessage, FormattedNumberParts, useIntl } from 'react-intl';
 import fbq from '~/lib/fbq';
 import gtag from '~/lib/gtag';
 import { isProhibitedCountry } from '~/lib/stripeUtils';
+import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import type {
   PricingPlanDetailsLocalized,
@@ -28,6 +29,7 @@ import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/Socia
 import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
+import type { Props as ButtonProps } from '~/components/ui/Button';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -150,7 +152,7 @@ function PricingButton({
   onClick,
 }: Readonly<{
   'aria-describedby': string;
-  href?: string;
+  href?: ButtonProps['href'];
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isDisabled?: boolean;
   isLoading?: boolean;
@@ -185,11 +187,16 @@ function PricingButtonNonLoggedIn({
   plan: PricingPlanDetailsLocalized;
 }>) {
   const intl = useIntl();
+  const { signInUpHref } = useAuthSignInUp();
 
   return (
     <PricingButton
       aria-describedby={ariaDescribedBy}
-      href={`/sign-up?next=${encodeURIComponent('/pricing')}&source=buy_now`}
+      href={signInUpHref({
+        query: {
+          source: 'buy_now',
+        },
+      })}
       icon={RiArrowRightLine}
       isDisabled={isDisabled}
       label={intl.formatMessage({
