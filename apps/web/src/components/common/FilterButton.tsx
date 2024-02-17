@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import type { Props as ButtonProps } from '~/components/ui/Button';
 import Button from '~/components/ui/Button';
 import {
+  themeBackgroundElementColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
   themeBorderBrandColor,
@@ -25,6 +26,10 @@ const purposeClasses: Record<FilterButtonPurpose, string> = {
   button: clsx(
     themeBorderElementColor,
     'text-neutral-600 dark:text-neutral-200',
+    themeBackgroundElementColor,
+    themeBackgroundElementEmphasizedStateColor_Hover,
+    themeBackgroundElementPressedStateColor_Active,
+    themeOutlineElementBrandColor_FocusVisible,
   ),
   tab: clsx(
     themeTextSubtleColor,
@@ -34,6 +39,9 @@ const purposeClasses: Record<FilterButtonPurpose, string> = {
     // in contrast to the page background because
     // this variant doesn't have a border.
     'bg-neutral-200 dark:bg-neutral-800',
+    themeBackgroundElementEmphasizedStateColor_Hover,
+    themeBackgroundElementPressedStateColor_Active,
+    themeOutlineElementBrandColor_FocusVisible,
   ),
 };
 
@@ -55,9 +63,7 @@ export default function FilterButton({
               'bg-brand-lightest dark:bg-neutral-800',
             )
           : purposeClasses[purpose],
-        themeBackgroundElementEmphasizedStateColor_Hover,
-        themeBackgroundElementPressedStateColor_Active,
-        themeOutlineElementBrandColor_FocusVisible,
+
         className,
       )}
       variant="unstyled"
