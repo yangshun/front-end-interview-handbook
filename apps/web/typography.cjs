@@ -6,7 +6,7 @@ module.exports = ({ theme }) => ({
       maxWidth: 'none',
       color: theme('colors.neutral.700'),
       hr: {
-        borderColor: theme('colors.neutral.100'),
+        borderColor: theme('colors.neutral.200'),
         marginTop: '3em',
         marginBottom: '3em',
       },
@@ -57,6 +57,7 @@ module.exports = ({ theme }) => ({
         fontWeight: 'inherit',
       },
       strong: {
+        color: theme('colors.neutral.900'),
         fontWeight: theme('fontWeight.medium'),
       },
       'a strong': {
@@ -128,12 +129,12 @@ module.exports = ({ theme }) => ({
   },
   invert: {
     css: {
-      color: theme('colors.neutral.100'),
+      color: theme('colors.neutral.400'),
       'h2, h3, h4, thead th': {
-        color: theme('colors.neutral.100'),
+        color: theme('colors.neutral.200'),
       },
       'h2 small, h3 small, h4 small': {
-        color: theme('colors.neutral.100'),
+        color: theme('colors.neutral.400'),
       },
       kbd: {
         background: theme('colors.neutral.700'),
@@ -144,8 +145,10 @@ module.exports = ({ theme }) => ({
         color: theme('colors.neutral.200'),
       },
       hr: {
-        borderColor: theme('colors.neutral.200'),
-        opacity: '0.05',
+        borderColor: theme('colors.neutral.800'),
+      },
+      strong: {
+        color: theme('colors.neutral.200'),
       },
       thead: {
         color: theme('colors.neutral.300'),
