@@ -7,7 +7,7 @@ import ProfileShell from '~/components/profile/ProfileShell';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-import { fetchUserDoNotUseIfOnlyUserIdOrEmailNeeded } from '~/supabase/SupabaseServerGFE';
+import { fetchUser_DO_NOT_USE_IF_ONLY_USER_ID_OR_EMAIL_NEEDED } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   children: ReactNode;
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ProfileLayout({ children }: Props) {
-  const user = await fetchUserDoNotUseIfOnlyUserIdOrEmailNeeded();
+  const user = await fetchUser_DO_NOT_USE_IF_ONLY_USER_ID_OR_EMAIL_NEEDED();
 
   if (user == null) {
     return redirect(

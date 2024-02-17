@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ProfileAccountPage() {
-  const user = await fetchUserDoNotUseIfOnlyUserIdOrEmailNeeded();
+  const user = await fetchUser_DO_NOT_USE_IF_ONLY_USER_ID_OR_EMAIL_NEEDED();
 
   return <ProfileAccount user={user!} />;
 }
