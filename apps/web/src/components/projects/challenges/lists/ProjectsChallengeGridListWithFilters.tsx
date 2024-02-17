@@ -158,7 +158,8 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
                 defaultMessage: 'Sort by',
                 description: 'Label for sorting button',
                 id: 'vegaR1',
-              })}>
+              })}
+              size="md">
               {[
                 makeDropdownItemProps(
                   intl.formatMessage({

@@ -207,28 +207,36 @@ export const projectsChallengeSubmissionListRouter = router({
             } as const;
           }
 
+          if (sort.field === 'difficulty') {
+            return {
+              challengeDetails: {
+                difficulty: sort.isAscendingOrder ? 'asc' : 'desc',
+              },
+            } as const;
+          }
+
           if (submissionType === 'all') {
             return {
               recommendationAll: {
-                score: 'desc' as const,
+                score: 'desc',
               },
-            };
+            } as const;
           }
 
           if (submissionType === 'learn') {
             return {
               recommendationLearn: {
-                score: 'desc' as const,
+                score: 'desc',
               },
-            };
+            } as const;
           }
 
           if (submissionType === 'mentor') {
             return {
               recommendationMentor: {
-                score: 'desc' as const,
+                score: 'desc',
               },
-            };
+            } as const;
           }
         })();
 

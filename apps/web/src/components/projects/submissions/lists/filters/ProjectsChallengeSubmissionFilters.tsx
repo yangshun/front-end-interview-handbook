@@ -85,7 +85,8 @@ export default function ProjectsChallengeSubmissionFilters({
           description: 'Label for sorting button',
           id: 'vegaR1',
         })}
-        showChevron={false}>
+        showChevron={false}
+        size="md">
         {[
           makeDropdownItemProps(
             intl.formatMessage({
