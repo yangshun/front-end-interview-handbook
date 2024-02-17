@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 
-import { useAuthResendSignInConfirmation } from '~/hooks/user/useAuthFns';
+import { useAuthResendSignInConfirmation } from '~/hooks/user/useAuthResendSignInConfirmation';
 
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';

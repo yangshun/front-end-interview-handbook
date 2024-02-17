@@ -1,11 +1,7 @@
 import { usePathname } from 'next/navigation';
 import { useIntl } from 'react-intl';
 
-import { useToast } from '~/components/global/toasts/ToastsProvider';
-
 import { useI18nRouter } from '~/next-i18nostic/src';
-
-import { trpc } from '../trpc';
 
 export function useAuthSignInUp() {
   const intl = useIntl();
@@ -53,23 +49,4 @@ export function useAuthLogout() {
     navigateToLogoutPage: (nextHref?: string) =>
       router.push(logoutHref(nextHref)),
   };
-}
-
-export function useAuthResendSignInConfirmation() {
-  const { showToast } = useToast();
-
-  return trpc.auth.resendSignupConfirmation.useMutation({
-    onError: (data) => {
-      showToast({
-        title: data.message,
-        variant: 'danger',
-      });
-    },
-    onSuccess: () => {
-      showToast({
-        title: 'Check your email for the verification link',
-        variant: 'success',
-      });
-    },
-  });
 }
