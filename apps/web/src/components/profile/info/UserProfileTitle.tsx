@@ -26,7 +26,7 @@ const gap: Record<Size, string> = {
 export default function UserProfileTitle({ profile, size = 'body2' }: Props) {
   const { title } = profile;
 
-  if (title == null) {
+  if (title === '' || title == null) {
     return null;
   }
 
