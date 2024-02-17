@@ -25,17 +25,16 @@ export default async function Layout({ children, params }: Props) {
 
   // If no user profile.
   if (userProfile == null) {
-    return redirect(`/projects/challenges`);
+    return notFound();
   }
 
   const isViewingOwnProfile = user?.id === userProfile.id;
-
   const { projectsProfile } = userProfile;
 
   // If no projects profile.
   if (projectsProfile == null) {
     if (isViewingOwnProfile) {
-      return redirect(`/projects/onboarding`);
+      return redirect('/projects/onboarding');
     }
 
     // Non-existent user.

@@ -31,13 +31,19 @@ export default function ProjectsProfilePage({
 }: Props) {
   const intl = useIntl();
 
-  // For getting the updated profile data, when there is edit in profile edit page.
-  const { data: userProfile } = trpc.projects.profile.get.useQuery(undefined, {
-    enabled: isViewingOwnProfile,
-    initialData: initialUserProfile,
-    refetchOnMount: false,
-    refetchOnReconnect: false,
-  });
+  // For displaying the most updated profile data,
+  // useful after someone edits their profile.
+  const { data: userProfileFetched } = trpc.projects.profile.get.useQuery(
+    undefined,
+    {
+      enabled: isViewingOwnProfile,
+      initialData: initialUserProfile,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+    },
+  );
+
+  const userProfile = userProfileFetched ?? initialUserProfile;
 
   const projectsProfileId = initialUserProfile.projectsProfile.id;
   const { data: profileStatistics } =

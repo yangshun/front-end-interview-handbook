@@ -1,5 +1,3 @@
-import { redirect } from 'next/navigation';
-
 import ProjectsContributionsSection from '~/components/projects/common/progress-and-contributions/ProjectsContributionsSection';
 
 import prisma from '~/server/prisma';
@@ -18,10 +16,5 @@ export default async function Page({ params }: Props) {
     },
   });
 
-  // If no user profile.
-  if (userProfile == null) {
-    return redirect(`/projects/challenges`);
-  }
-
-  return <ProjectsContributionsSection userId={userProfile.id} />;
+  return <ProjectsContributionsSection userId={userProfile!.id} />;
 }

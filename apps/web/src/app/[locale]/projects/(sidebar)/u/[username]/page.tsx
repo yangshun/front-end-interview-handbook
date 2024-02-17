@@ -22,12 +22,7 @@ export default async function Page({ params }: Props) {
     },
   });
 
-  // If no user profile.
-  if (userProfile == null) {
-    return redirect(`/projects/challenges`);
-  }
-
   return (
-    <ProjectsProgressSection projectTracks={tracks} userId={userProfile.id} />
+    <ProjectsProgressSection projectTracks={tracks} userId={userProfile!.id} />
   );
 }
