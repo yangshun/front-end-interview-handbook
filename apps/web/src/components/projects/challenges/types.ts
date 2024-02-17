@@ -5,6 +5,7 @@ import type { ProjectsProfileAvatarDataSlim } from '../types';
 
 import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
+// Sorted in order of difficulty.
 export const projectDifficultyOptions = [
   'starter',
   'mid',

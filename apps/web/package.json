@@ -12,6 +12,7 @@
     "lint": "next lint",
     "test": "jest",
     "tsc": "tsc",
+    "db:projects-sync": "ts-node --esm --experimentalSpecifierResolution node ./src/scripts/projects-challenges-sync.ts",
     "gen": "cross-env NODE_ENV=production ts-node --esm --experimentalSpecifierResolution node ./src/scripts/questions-gen-cli.ts",
     "gen:watch": "npm run gen:all && ts-node --esm --experimentalSpecifierResolution node ./src/scripts/questions-watcher.ts",
     "//": "TODO: make gen:ts faster and use it somewhere",
