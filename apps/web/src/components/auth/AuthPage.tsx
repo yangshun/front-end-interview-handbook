@@ -2,8 +2,9 @@
 
 import clsx from 'clsx';
 import { useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
+
+import useAuthFullPageRedirectAfterLogin from '~/hooks/user/useAuthFullPageRedirectAfterLogIn';
 
 import SupabaseAuth from '~/components/auth/SupabaseAuth';
 import Alert from '~/components/ui/Alert';
@@ -31,26 +32,7 @@ export default function AuthPage({ view }: Props) {
   const nextSearchParam = searchParams?.get('next');
   const sourceSearchParam = searchParams?.get('source');
 
-  useEffect(() => {
-    // TODO(auth): dedupe with AuthLoginSuccessPage.
-    // Only run effect when user is logged in.
-    if (user == null) {
-      return;
-    }
-
-    // Redirect user to the previous page if defined and the
-    // previous page is not the login page.
-    const redirectPath =
-      !!nextSearchParam && nextSearchParam !== window.location.pathname
-        ? nextSearchParam
-        : '/prepare';
-
-    // The cookie is set on the client side, so race conditions can happen
-    // where we redirect to a new page that checks for signed in status
-    // on the server side but the cookie is not written yet.
-    // Do a hard redirect to prevent race conditions.
-    window.location.href = redirectPath;
-  }, [nextSearchParam, user]);
+  useAuthFullPageRedirectAfterLogin(nextSearchParam);
 
   return (
     <Container

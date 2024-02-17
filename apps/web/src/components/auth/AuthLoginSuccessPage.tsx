@@ -1,14 +1,13 @@
 'use client';
 
 import clsx from 'clsx';
-import { useEffect } from 'react';
 import { useIntl } from 'react-intl';
+
+import useAuthFullPageRedirectAfterLogin from '~/hooks/user/useAuthFullPageRedirectAfterLogIn';
 
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
-
-import { useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   next: string | null;
@@ -17,21 +16,7 @@ type Props = Readonly<{
 export default function AuthLoginSuccessPage({ next }: Props) {
   const intl = useIntl();
 
-  const user = useUser();
-
-  useEffect(() => {
-    // TODO(auth): dedupe with AuthPage.
-    // Only run effect when user is logged in.
-    if (user == null) {
-      return;
-    }
-
-    // The cookie is set on the client side, so race conditions can happen
-    // where we redirect to a new page that checks for signed in status
-    // on the server side but the cookie is not written yet.
-    // Do a hard redirect to prevent race conditions.
-    window.location.href = next ?? '/prepare';
-  }, [next, user]);
+  useAuthFullPageRedirectAfterLogin(next);
 
   return (
     <Container
