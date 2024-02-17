@@ -23,7 +23,7 @@ export function useAuthSignInUp() {
     return {
       pathname: '/sign-up',
       query: {
-        next: next ?? pathname ?? window.location.pathname,
+        next: next || pathname || window.location.pathname,
         ...query,
       },
     };
@@ -51,7 +51,7 @@ export function useAuthLogout() {
     return {
       pathname: '/logout',
       query: {
-        next: next ?? pathname ?? window.location.pathname,
+        next: next || pathname || window.location.pathname,
         ...query,
       },
     };

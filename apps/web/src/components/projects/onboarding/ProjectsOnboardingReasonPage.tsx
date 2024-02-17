@@ -91,9 +91,11 @@ export default function ProjectsOnboardingReasonPage() {
 
                 router.push({
                   pathname: '/projects/onboarding/profile',
-                  query: {
-                    next: searchParams?.get('next') ?? '',
-                  },
+                  query: searchParams?.get('next')
+                    ? {
+                        next: searchParams?.get('next'),
+                      }
+                    : undefined,
                 });
               })}>
               <ProjectsProfileMotivationsField />

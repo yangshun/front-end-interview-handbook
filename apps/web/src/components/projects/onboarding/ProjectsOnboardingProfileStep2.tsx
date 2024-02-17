@@ -56,7 +56,7 @@ export default function ProjectsOnboardingProfileStep2() {
   const { data: initialValues } =
     trpc.projects.profile.onboardingStep2.useQuery();
 
-  const nextPathname = searchParams?.get('next') ?? '/projects/challenges';
+  const nextPathname = searchParams?.get('next') || '/projects/challenges';
   const onboardingStep2UpdateMutation =
     trpc.projects.profile.onboardingStep2Update.useMutation({
       onSuccess: () => {
