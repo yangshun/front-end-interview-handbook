@@ -37,7 +37,7 @@ export default function ProjectsSkillList({
           {label}
         </Text>
       )}
-      <ul className="flex items-center gap-2">
+      <ul className="flex items-center gap-2 flex-wrap">
         {firstThreeSkills.map((skill) => (
           <li key={skill}>
             <ProjectsSkillChip readonly={true} value={skill} />

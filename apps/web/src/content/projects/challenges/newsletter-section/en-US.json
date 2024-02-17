@@ -6,5 +6,6 @@
   "track": "marketing",
   "access": "free-plus",
   "points": 500,
+  "skills": ["html-basics", "css-basics"],
   "imageUrl": "https://cdn.dribbble.com/users/1126703/screenshots/16876407/media/89b13f3110eb445fee98616f4ba8a153.png?resize=840x630&vertical=center"
 }

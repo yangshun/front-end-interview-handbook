@@ -106,6 +106,111 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
     };
   }
 
+  const sortAndFilterButton = (
+    <>
+      <FilterButton
+        icon={RiFilterLine}
+        isLabelHidden={true}
+        label={intl.formatMessage({
+          defaultMessage: 'All filters',
+          description: 'Label for All Filters button for projects list',
+          id: 'i9ojv3',
+        })}
+        purpose="button"
+        selected={numberOfFilters > 0}
+        size="md"
+        tooltip={intl.formatMessage({
+          defaultMessage: 'View all filters',
+          description: 'Tooltip for All Filters button for projects list',
+          id: 'vHNURr',
+        })}
+        onClick={() => {
+          setAreFiltersShown(true);
+        }}
+      />
+      <DropdownMenu
+        align="end"
+        icon={RiSortDesc}
+        isLabelHidden={true}
+        label={intl.formatMessage({
+          defaultMessage: 'Sort by',
+          description: 'Label for sorting button',
+          id: 'vegaR1',
+        })}
+        size="md">
+        {[
+          makeDropdownItemProps(
+            intl.formatMessage({
+              defaultMessage: 'Recommended',
+              description: 'Sorting option for projects list - recommended',
+              id: 'jp2HuK',
+            }),
+            'recommended',
+            true,
+          ),
+          makeDropdownItemProps(
+            intl.formatMessage({
+              defaultMessage: 'Popularity: Most to least completed',
+              description: 'Sorting option for projects list - popularity',
+              id: 'QTT/Vt',
+            }),
+            'completedCount',
+            false,
+          ),
+          makeDropdownItemProps(
+            intl.formatMessage({
+              defaultMessage: 'Popularity: Least to most completed',
+              description: 'Sorting option for projects list - popularity',
+              id: 'zMpEuy',
+            }),
+            'completedCount',
+            true,
+          ),
+          makeDropdownItemProps(
+            intl.formatMessage({
+              defaultMessage: 'Difficulty: Easy to Hard',
+              description:
+                'Sorting option for projects list - sort by difficulty from easy to hard',
+              id: 'DAQ8QM',
+            }),
+            'difficulty',
+            true,
+          ),
+          makeDropdownItemProps(
+            intl.formatMessage({
+              defaultMessage: 'Difficulty: Hard to Easy',
+              description:
+                'Sorting option for projects list - sort by difficulty from hard to easy',
+              id: 'tZPTnS',
+            }),
+            'difficulty',
+            false,
+          ),
+          makeDropdownItemProps(
+            intl.formatMessage({
+              defaultMessage: 'Created: Newest to oldest',
+              description: 'Sorting option for projects list - sort by created',
+              id: 'ufyNP1',
+            }),
+            'createdAt',
+            false,
+          ),
+          makeDropdownItemProps(
+            intl.formatMessage({
+              defaultMessage: 'Created: Oldest to newest',
+              description: 'Sorting option for projects list - sort by created',
+              id: '5bW/ye',
+            }),
+            'createdAt',
+            true,
+          ),
+        ].map((props) => (
+          <DropdownMenu.Item key={props.label} {...props} />
+        ))}
+      </DropdownMenu>
+    </>
+  );
+
   return (
     <>
       <ProjectsChallengeFilterSlideOut
@@ -115,7 +220,7 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
         }}
       />
       <div className="flex flex-col gap-6">
-        <div className="flex flex-wrap flex-col gap-3 lg:flex-row">
+        <div className="flex gap-3 flex-wrap lg:flex-row md:flex-col flex-row">
           <div className="flex-1 w-full lg:w-auto">
             <TextInput
               isLabelHidden={true}
@@ -127,115 +232,13 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
               onChange={onChangeQuery}
             />
           </div>
-          <div className="flex flex-wrap gap-3">
+          <div className="md:flex hidden gap-3 flex-wrap">
             {filters.map((filter) => (
               <ProjectsListFilterDropdown key={filter.id} filter={filter} />
             ))}
-            <FilterButton
-              icon={RiFilterLine}
-              isLabelHidden={true}
-              label={intl.formatMessage({
-                defaultMessage: 'All filters',
-                description: 'Label for All Filters button for projects list',
-                id: 'i9ojv3',
-              })}
-              purpose="button"
-              selected={numberOfFilters > 0}
-              size="md"
-              tooltip={intl.formatMessage({
-                defaultMessage: 'View all filters',
-                description: 'Tooltip for All Filters button for projects list',
-                id: 'vHNURr',
-              })}
-              onClick={() => {
-                setAreFiltersShown(true);
-              }}
-            />
-            <DropdownMenu
-              align="end"
-              icon={RiSortDesc}
-              label={intl.formatMessage({
-                defaultMessage: 'Sort by',
-                description: 'Label for sorting button',
-                id: 'vegaR1',
-              })}
-              size="md">
-              {[
-                makeDropdownItemProps(
-                  intl.formatMessage({
-                    defaultMessage: 'Recommended',
-                    description:
-                      'Sorting option for projects list - recommended',
-                    id: 'jp2HuK',
-                  }),
-                  'recommended',
-                  true,
-                ),
-                makeDropdownItemProps(
-                  intl.formatMessage({
-                    defaultMessage: 'Popularity: Most to least completed',
-                    description:
-                      'Sorting option for projects list - popularity',
-                    id: 'QTT/Vt',
-                  }),
-                  'completedCount',
-                  false,
-                ),
-                makeDropdownItemProps(
-                  intl.formatMessage({
-                    defaultMessage: 'Popularity: Least to most completed',
-                    description:
-                      'Sorting option for projects list - popularity',
-                    id: 'zMpEuy',
-                  }),
-                  'completedCount',
-                  true,
-                ),
-                makeDropdownItemProps(
-                  intl.formatMessage({
-                    defaultMessage: 'Difficulty: Easy to Hard',
-                    description:
-                      'Sorting option for projects list - sort by difficulty from easy to hard',
-                    id: 'DAQ8QM',
-                  }),
-                  'difficulty',
-                  true,
-                ),
-                makeDropdownItemProps(
-                  intl.formatMessage({
-                    defaultMessage: 'Difficulty: Hard to Easy',
-                    description:
-                      'Sorting option for projects list - sort by difficulty from hard to easy',
-                    id: 'tZPTnS',
-                  }),
-                  'difficulty',
-                  false,
-                ),
-                makeDropdownItemProps(
-                  intl.formatMessage({
-                    defaultMessage: 'Created: Newest to oldest',
-                    description:
-                      'Sorting option for projects list - sort by created',
-                    id: 'ufyNP1',
-                  }),
-                  'createdAt',
-                  false,
-                ),
-                makeDropdownItemProps(
-                  intl.formatMessage({
-                    defaultMessage: 'Created: Oldest to newest',
-                    description:
-                      'Sorting option for projects list - sort by created',
-                    id: '5bW/ye',
-                  }),
-                  'createdAt',
-                  true,
-                ),
-              ].map((props) => (
-                <DropdownMenu.Item key={props.label} {...props} />
-              ))}
-            </DropdownMenu>
+            {sortAndFilterButton}
           </div>
+          <div className="md:hidden flex gap-3">{sortAndFilterButton}</div>
         </div>
         {currentPageChallenges.length === 0 ? (
           <div className="p-24">

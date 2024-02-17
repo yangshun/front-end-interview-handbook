@@ -64,9 +64,10 @@ function FilterSection({
             className="mt-2"
             isLabelHidden={true}
             label={label}
-            // TODO(projects|skills): pass in values.
-            value={[]}
-            onChange={() => {}}
+            value={selectedOptions}
+            onChange={(newSkills) =>
+              setSelectedOptions(newSkills as Array<string>)
+            }
           />
         )}
       </AccordionContent>

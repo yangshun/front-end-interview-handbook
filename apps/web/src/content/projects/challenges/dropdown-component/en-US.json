@@ -6,5 +6,6 @@
   "track": "design-system",
   "access": "free",
   "points": 300,
+  "skills": ["html-basics", "html-semantics"],
   "imageUrl": "https://cdn.dribbble.com/users/1126703/screenshots/11007178/media/2d2fd2804dda16c4f5c3de9c9bfbee80.png?resize=1600x1200&vertical=center"
 }

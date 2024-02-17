@@ -6,5 +6,6 @@
   "track": "e-commerce",
   "access": "free",
   "points": 700,
+  "skills": ["html-basics", "css-basics"],
   "imageUrl": "https://cdn.dribbble.com/users/1126703/screenshots/14777296/media/a45cb597893f7d13ad1163afd8b7f96e.png?resize=1600x1200&vertical=center"
 }

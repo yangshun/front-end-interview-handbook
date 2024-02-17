@@ -101,6 +101,12 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       required: true,
       type: 'number',
     },
+    skills: {
+      description: 'Skills for the project',
+      of: { type: 'string' },
+      required: true,
+      type: 'list',
+    },
     title: {
       description: 'Title of the project',
       required: true,

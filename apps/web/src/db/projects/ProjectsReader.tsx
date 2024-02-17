@@ -174,10 +174,7 @@ export async function readProjectsChallengeList(
         completedCount: countsGroupedBySlug?.[challengeMetadata.slug] ?? null,
         completedProfiles:
           completedProfileIdsGroupedBySlug?.[challengeMetadata.slug] ?? [],
-        metadata: {
-          ...challengeMetadata,
-          skills: ['html-basics', 'css-flex'],
-        },
+        metadata: challengeMetadata,
         status: sessionsForUserGroupedBySlug?.[challengeMetadata.slug] ?? null,
       }),
     );
