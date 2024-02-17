@@ -6,6 +6,9 @@ import prisma from '~/server/prisma';
 
 import { router, userProcedure } from '../trpc';
 
+const GITHUB_USERNAME_REGEX = /^[a-zA-Z0-9-]+$/;
+const LINKEDIN_USERNAME_REGEX = /^[a-zA-Z0-9-_]+$/;
+const TWITTER_USERNAME_REGEX = /^[a-zA-Z0-9-_]+$/;
 // ID for https://github.com/greatfrontend/awesome-front-end-system-design
 const GITHUB_REPO_ID = 593048179;
 const GITHUB_ORG_NAME = 'greatfrontend';
@@ -22,7 +25,7 @@ export const rewardsRouter = router({
   checkGitHubFollowing: userProcedure
     .input(
       z.object({
-        username: z.string(),
+        username: z.string().trim().min(2).regex(GITHUB_USERNAME_REGEX),
       }),
     )
     .mutation(async ({ input: { username }, ctx: { user } }) => {
@@ -60,7 +63,7 @@ export const rewardsRouter = router({
   checkGitHubStarred: userProcedure
     .input(
       z.object({
-        username: z.string(),
+        username: z.string().trim().min(2).regex(GITHUB_USERNAME_REGEX),
       }),
     )
     .mutation(async ({ input: { username }, ctx: { user } }) => {
@@ -153,16 +156,16 @@ export const rewardsRouter = router({
   checkLinkedInFollowing: userProcedure
     .input(
       z.object({
-        linkedInUrl: z.string(),
+        username: z.string().trim().min(2).regex(LINKEDIN_USERNAME_REGEX),
       }),
     )
-    .mutation(async ({ input: { linkedInUrl }, ctx: { user } }) => {
+    .mutation(async ({ input: { username }, ctx: { user } }) => {
       await delay(1000);
 
       const campaign = SOCIAL_TASKS_DISCOUNT_CAMPAIGN;
       const action = 'LINKEDIN_FOLLOW';
       const userId = user.id;
-      const identifier = linkedInUrl;
+      const identifier = username;
 
       await prisma.rewardsTaskCompletion.create({
         data: {
@@ -178,7 +181,7 @@ export const rewardsRouter = router({
   checkTwitterFollowing: userProcedure
     .input(
       z.object({
-        username: z.string(),
+        username: z.string().trim().min(2).regex(TWITTER_USERNAME_REGEX),
       }),
     )
     .mutation(async ({ input: { username }, ctx: { user } }) => {
@@ -312,12 +315,14 @@ export const rewardsRouter = router({
     .input(
       z.object({
         gitHubUsername: z.string(),
-        linkedInUrl: z.string(),
+        linkedInUsername: z.string(),
         twitterUsername: z.string(),
       }),
     )
     .mutation(
-      async ({ input: { gitHubUsername, linkedInUrl, twitterUsername } }) => {
+      async ({
+        input: { gitHubUsername, linkedInUsername, twitterUsername },
+      }) => {
         const results = await Promise.allSettled([
           (async () => {
             if (!gitHubUsername.trim()) {
@@ -333,10 +338,7 @@ export const rewardsRouter = router({
             }
           })(),
           (async () => {
-            if (
-              !linkedInUrl.trim() ||
-              !/linkedin\.com\/in\//.test(linkedInUrl)
-            ) {
+            if (linkedInUsername.trim() === '') {
               throw 'Invalid LinkedIn profile';
             }
           })(),

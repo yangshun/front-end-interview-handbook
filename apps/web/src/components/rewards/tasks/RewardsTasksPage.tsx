@@ -22,7 +22,9 @@ import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardWhiteOnLightColor,
+  themeBorderBrandColor,
   themeBorderColor,
+  themeIconColor,
   themeTextInvertColor,
 } from '~/components/ui/theme';
 
@@ -49,7 +51,11 @@ function RewardsStepLabel({
         className={clsx(
           'size-6 inline-flex items-center justify-center rounded-full',
           status === 'active' &&
-            clsx('border border-brand', themeBackgroundCardWhiteOnLightColor),
+            clsx(
+              'border',
+              themeBorderBrandColor,
+              themeBackgroundCardWhiteOnLightColor,
+            ),
           status === 'completed' && 'bg-success',
           status === 'pending' &&
             clsx(
@@ -103,7 +109,7 @@ const handles: ReadonlyArray<{
     type: 'github',
   },
   {
-    field: 'linkedInUrl',
+    field: 'linkedInUsername',
     icon: RiLinkedinFill,
     type: 'linkedin',
   },
@@ -135,7 +141,7 @@ export default function RewardsTasksPage() {
     'gfe:rewards:social-handles',
     {
       gitHubUsername: '',
-      linkedInUrl: '',
+      linkedInUsername: '',
       twitterUsername: '',
     },
   );
@@ -220,7 +226,7 @@ export default function RewardsTasksPage() {
         setCurrentVerifyingTask('LINKEDIN_FOLLOW');
         checkLinkedInFollowMutation.mutate(
           {
-            linkedInUrl: handlesData.linkedInUrl,
+            username: handlesData.linkedInUsername,
           },
           verifyCallback('LINKEDIN_FOLLOW'),
         );
@@ -272,12 +278,7 @@ export default function RewardsTasksPage() {
             <div className="flex flex-wrap gap-4">
               {handles.map(({ type, field, icon: Icon }) => (
                 <div key={type} className="flex gap-2 items-center">
-                  <Icon
-                    className={clsx(
-                      'size-5 shrink-0',
-                      'text-neutral-400 dark:text-neutral-500',
-                    )}
-                  />
+                  <Icon className={clsx('size-5 shrink-0', themeIconColor)} />
                   <Text size="body2">{handlesData?.[field]}</Text>
                 </div>
               ))}

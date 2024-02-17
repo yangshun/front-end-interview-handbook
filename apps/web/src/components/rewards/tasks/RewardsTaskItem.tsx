@@ -4,6 +4,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
+import { themeIconColor } from '~/components/ui/theme';
 
 export type RewardsTasksItemStatus =
   | 'completed'
@@ -88,12 +89,7 @@ export default function RewardsTaskItem({
           status === 'none' ? 'h-11' : 'h-14',
         )}>
         <div className="flex items-center gap-x-4">
-          <Icon
-            className={clsx(
-              'size-6 shrink-0',
-              'text-neutral-400 dark:text-neutral-500',
-            )}
-          />
+          <Icon className={clsx('size-6 shrink-0', themeIconColor)} />
           <Text display="block" size="body2">
             {label}
           </Text>

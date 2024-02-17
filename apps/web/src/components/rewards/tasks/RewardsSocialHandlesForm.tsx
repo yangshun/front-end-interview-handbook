@@ -9,9 +9,15 @@ import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import { themeDivideColor } from '~/components/ui/theme';
 
+import {
+  cleanGitHubUserInput,
+  cleanLinkedInUserInput,
+  cleanTwitterUserInput,
+} from './RewardsSocialHandlesUtils';
+
 export type RewardsHandlesData = Readonly<{
   gitHubUsername: string;
-  linkedInUrl: string;
+  linkedInUsername: string;
   twitterUsername: string;
 }>;
 
@@ -20,17 +26,6 @@ type RewardsHandlesValidation = Readonly<{
   linkedIn: PromiseSettledResult<void>;
   twitter: PromiseSettledResult<void>;
 }>;
-
-function cleanGitHubUserInput(value: string) {
-  const gitHubUrlRegex = /github\.com\/([a-zA-Z0-9-]+)/;
-  const match = value.match(gitHubUrlRegex);
-
-  if (match) {
-    return match[1];
-  }
-
-  return value;
-}
 
 type Props = Readonly<{
   handlesData: RewardsHandlesData;
@@ -60,8 +55,12 @@ export default function RewardsSocialHandlesForm({
           gitHubUsername: cleanGitHubUserInput(
             (formData.get('github') ?? '').toString(),
           ),
-          linkedInUrl: (formData.get('linkedin') ?? '').toString(),
-          twitterUsername: (formData.get('twitter') ?? '').toString(),
+          linkedInUsername: cleanLinkedInUserInput(
+            (formData.get('linkedin') ?? '').toString(),
+          ),
+          twitterUsername: cleanTwitterUserInput(
+            (formData.get('twitter') ?? '').toString(),
+          ),
         };
 
         setHasError(false);
@@ -103,7 +102,7 @@ export default function RewardsSocialHandlesForm({
               isLabelHidden={true}
               label="GitHub"
               name="github"
-              placeholder="johndoe"
+              placeholder="https://github.com/john-doe"
               value={handlesData.gitHubUsername}
               onChange={(value) => {
                 onHandlesDataChange({
@@ -128,11 +127,11 @@ export default function RewardsSocialHandlesForm({
               label="LinkedIn"
               name="linkedin"
               placeholder="https://linkedin.com/in/john-doe"
-              value={handlesData.linkedInUrl}
+              value={handlesData.linkedInUsername}
               onChange={(value) => {
                 onHandlesDataChange({
                   ...handlesData,
-                  linkedInUrl: value,
+                  linkedInUsername: value,
                 });
               }}
             />
@@ -152,7 +151,7 @@ export default function RewardsSocialHandlesForm({
               isLabelHidden={true}
               label="Twitter"
               name="twitter"
-              placeholder="johndoe"
+              placeholder="https://twitter.com/john-doe"
               value={handlesData.twitterUsername}
               onChange={(value) => {
                 onHandlesDataChange({
