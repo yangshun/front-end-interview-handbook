@@ -4,6 +4,7 @@ import { RiFilterLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import FilterButton from '~/components/common/FilterButton';
+import type { ProjectsSkillKey } from '~/components/projects/skills/types';
 import type { ProjectsChallengeSubmissionFilter } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import ProjectsChallengeSubmissionFilterDropdown from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterDropdown';
 import ProjectsChallengeSubmissionFilterSlideOut from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterSlideOut';
@@ -16,6 +17,8 @@ type Props = Readonly<{
   filterSize: number;
   filters: ReadonlyArray<ProjectsChallengeSubmissionFilter>;
   isAscendingOrder: boolean;
+  onChangeRoadmapSkills: (value: Array<ProjectsSkillKey>) => void;
+  onChangeTechSkills: (value: Array<ProjectsSkillKey>) => void;
   query: string;
   setIsAscendingOrder: (value: boolean) => void;
   setQuery: (value: string) => void;
@@ -32,6 +35,8 @@ export default function ProjectsChallengeSubmissionFilters({
   isAscendingOrder,
   setIsAscendingOrder,
   setSortField,
+  onChangeRoadmapSkills,
+  onChangeTechSkills,
 }: Props) {
   const intl = useIntl();
   const [searchQuery, setSearchQuery] = useState(query);
@@ -155,6 +160,8 @@ export default function ProjectsChallengeSubmissionFilters({
     <>
       <ProjectsChallengeSubmissionFilterSlideOut
         isShown={areFiltersShown}
+        onChangeRoadmapSkills={onChangeRoadmapSkills}
+        onChangeTechSkills={onChangeTechSkills}
         onClose={() => {
           setAreFiltersShown(false);
         }}

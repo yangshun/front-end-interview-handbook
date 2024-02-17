@@ -8,6 +8,8 @@ import { useProjectsChallengeSubmissionFilterState } from '~/components/projects
 import type { ProjectsChallengeSubmissionYOEFilter } from '~/components/projects/submissions/types';
 import type { ProjectsYoeReplacement } from '~/components/projects/types';
 
+import type { ProjectsSkillKey } from '../../../../skills/types';
+
 export default function useProjectsChallengeSubmissionFilters() {
   const { updateSearchParams, getStringTypeSearchParams } =
     useFilterSearchParams();
@@ -20,6 +22,12 @@ export default function useProjectsChallengeSubmissionFilters() {
   const [selectedStatus] = useProjectsChallengeSubmissionFilterState('status');
   const [selectedExperience] =
     useProjectsChallengeSubmissionFilterState('experience');
+  const [selectedRoadmapSkills, setSelectedRoadmapSkills] = useState<
+    Array<ProjectsSkillKey>
+  >([]);
+  const [selectedTechSkills, setSelectedTechSkills] = useState<
+    Array<ProjectsSkillKey>
+  >([]);
 
   const projectsMatchesTextQuery = (
     project: ProjectsChallengeMetadata,
@@ -78,6 +86,10 @@ export default function useProjectsChallengeSubmissionFilters() {
     onChangeQuery,
     profileStatus,
     query,
+    selectedRoadmapSkills,
+    selectedTechSkills,
+    setSelectedRoadmapSkills,
+    setSelectedTechSkills,
     yoeExperience,
   };
 }

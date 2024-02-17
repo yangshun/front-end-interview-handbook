@@ -1,9 +1,12 @@
 import { Fragment } from 'react';
+import { useForm } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
 import ProjectsSkillRoadmapSelectionInput from '~/components/projects/skills/form/ProjectsSkillRoadmapSelectionInput';
 import type { ProjectsChallengeSubmissionFilter } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
+import type { ProjectsChallengeSubmissionFilterValues } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import {
+  useProjectsChallengeFilterSchema,
   useProjectsChallengeSubmissionFilterContext,
   useProjectsChallengeSubmissionFilterState,
 } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
@@ -17,6 +20,12 @@ import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
+
+import ProjectsChallengeSubmissionFilterRoadmapField from './ProjectsChallengeSubmissionFilterRoadmapField';
+import ProjectsChallengeSubmissionFilterTechStackField from './ProjectsChallengeSubmissionFilterTechStackField';
+import type { ProjectsSkillKey } from '../../../skills/types';
+
+import { zodResolver } from '@hookform/resolvers/zod';
 
 function FilterSection({
   longLabel,
@@ -75,16 +84,40 @@ function FilterSection({
 
 type Props = Readonly<{
   isShown: boolean;
+  onChangeRoadmapSkills: (value: Array<ProjectsSkillKey>) => void;
+  onChangeTechSkills: (value: Array<ProjectsSkillKey>) => void;
   onClose: () => void;
 }>;
 
 export default function ProjectsChallengeSubmissionFilterSlideOut({
   isShown,
   onClose,
+  onChangeRoadmapSkills,
+  onChangeTechSkills,
 }: Props) {
   const intl = useIntl();
   const { filters: initialFilters } =
     useProjectsChallengeSubmissionFilterContext();
+
+  const defaultValues = Object.freeze({
+    deploymentUrls: [],
+    implementation: '',
+    repositoryUrl: '',
+    roadmapSkills: [],
+    summary: '',
+    techStackSkills: [],
+    title: '',
+  });
+
+  const projectsChallengeFilterSchema = useProjectsChallengeFilterSchema();
+
+  const formMethods = useForm<ProjectsChallengeSubmissionFilterValues>({
+    defaultValues,
+    mode: 'all',
+    resolver: zodResolver(projectsChallengeFilterSchema),
+  });
+
+  const { control } = formMethods;
 
   return (
     <SlideOut
@@ -109,7 +142,21 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
             </Fragment>
           ))}
         </Accordion>
-        <Divider />
+        <Divider className="mb-5" />
+        <Fragment key="roadmap-skills">
+          <ProjectsChallengeSubmissionFilterTechStackField
+            control={control}
+            onChange={onChangeTechSkills}
+          />
+        </Fragment>
+        <Divider className="my-5" />
+        <Fragment key="roadmap-skills">
+          <ProjectsChallengeSubmissionFilterRoadmapField
+            control={control}
+            onChange={onChangeRoadmapSkills}
+          />
+        </Fragment>
+        <Divider className="my-5" />
       </div>
     </SlideOut>
   );

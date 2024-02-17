@@ -243,6 +243,10 @@
     "defaultMessage": "Billing",
     "description": "Screenreader text for subscription billing."
   },
+  "0QHr9k": {
+    "defaultMessage": "The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development",
+    "description": "Label for \"Skills used\" text input"
+  },
   "0QZnRv": {
     "defaultMessage": "Recommended schedule",
     "description": "Recommended schedule tooltip displayed on question cards found on question lists"
@@ -2687,6 +2691,10 @@
     "defaultMessage": "Unvote comment",
     "description": "Vote button label"
   },
+  "Od0Qjl": {
+    "defaultMessage": "Skills used",
+    "description": "Label for \"Skills used\" text input"
+  },
   "OfeY0a": {
     "defaultMessage": "View all {trackCount} component tracks",
     "description": "Label of 'Component tracks' view all button in Projects home page"
@@ -3675,10 +3683,6 @@
     "defaultMessage": "Forgot your password?",
     "description": "Label of forget password button on Email Sign In page"
   },
-  "XXLxeG": {
-    "defaultMessage": "Stack used",
-    "description": "Label for stack used filter for submissions list"
-  },
   "XYCpWf": {
     "defaultMessage": "An eye-catching name to describe your solution. Will be displayed under the original Project's name and help other users identify your submission.",
     "description": "Description for submission name input on project submit page"
@@ -4375,6 +4379,10 @@
     "defaultMessage": "Learn from others",
     "description": "Label for Learn from others sidebar item in Projects sidebar"
   },
+  "e6llht": {
+    "defaultMessage": "Tech stack which the submissions are using",
+    "description": "Label for \"Tech stack used\" text input"
+  },
   "eBp6vh": {
     "defaultMessage": "Reset Progress",
     "description": "Title for reset progress confirmation dialog"
@@ -4643,10 +4651,6 @@
     "defaultMessage": "Change password for {userEmail}",
     "description": "Title of Change Password page"
   },
-  "gZg1/f": {
-    "defaultMessage": "Filter by stack used by the creator",
-    "description": "Tooltip for stack used filter for submissions list"
-  },
   "gdGavv": {
     "defaultMessage": "Premium Question",
     "description": "Title on question paywall displayed on premium question's pages"
@@ -4774,10 +4778,6 @@
   "i9ojv3": {
     "defaultMessage": "All filters",
     "description": "Label for All Filters button for projects list"
-  },
-  "iAXU/e": {
-    "defaultMessage": "Sign In / Sign Up",
-    "description": "Sign in or up for the platform"
   },
   "iBfH9v": {
     "defaultMessage": "Get started",
@@ -5366,6 +5366,10 @@
   "n1RgqQ": {
     "defaultMessage": "Skills roadmap",
     "description": "Projects skills roadmap item label"
+  },
+  "n2GSsV": {
+    "defaultMessage": "Tech stack used",
+    "description": "Label for \"Tech stack used\" text input"
   },
   "n2GZsD": {
     "defaultMessage": "First, set up your public profile to help the community know you better (and assist you better!)",

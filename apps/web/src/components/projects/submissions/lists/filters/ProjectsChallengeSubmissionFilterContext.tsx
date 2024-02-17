@@ -7,10 +7,14 @@ import {
   useState,
 } from 'react';
 import { useIntl } from 'react-intl';
+import { z } from 'zod';
 
 import useFilterSearchParams from '~/hooks/useFilterSearchParams';
 
 import useProjectsYOEReplacementOptions from '~/components/projects/hooks/useProjectsYOEReplacementOptions';
+
+import { useProjectsSkillListInputSchema } from '../../../skills/form/ProjectsSkillListInputSchema';
+import type { ProjectsSkillKey } from '../../../skills/types';
 
 export type ProjectsChallengeSubmissionFilterType =
   | 'checkbox'
@@ -31,7 +35,6 @@ export type ProjectsChallengeSubmissionFilterKey =
   | 'component-track'
   | 'difficulty'
   | 'experience'
-  | 'stack-used'
   | 'status';
 
 function useFilters() {
@@ -101,21 +104,6 @@ function useFilters() {
           id: 'P9nVrb',
         }),
         type: 'checkbox',
-      },
-      {
-        id: 'stack-used',
-        label: intl.formatMessage({
-          defaultMessage: 'Stack used',
-          description: 'Label for stack used filter for submissions list',
-          id: 'XXLxeG',
-        }),
-        options: [],
-        tooltip: intl.formatMessage({
-          defaultMessage: 'Filter by stack used by the creator',
-          description: 'Tooltip for stack used filter for submissions list',
-          id: 'gZg1/f',
-        }),
-        type: 'skill-selection',
       },
       {
         id: 'component-track',
@@ -206,7 +194,6 @@ export const ProjectsChallengeSubmissionFilterContext =
       'component-track': [],
       difficulty: [],
       experience: [],
-      'stack-used': [],
       status: [],
     },
   });
@@ -232,6 +219,23 @@ export function useProjectsChallengeSubmissionFilterContext() {
   return useContext(ProjectsChallengeSubmissionFilterContext);
 }
 
+export type ProjectsChallengeSubmissionFilterValues = Readonly<{
+  roadmapSkills: Array<ProjectsSkillKey>;
+  techStackSkills: Array<ProjectsSkillKey>;
+}>;
+
+export function useProjectsChallengeFilterSchema() {
+  const projectsChallengeSubmissionTechStackSchema =
+    useProjectsSkillListInputSchema();
+  const projectsChallengeSubmissionRoadmapSkillsSchema =
+    useProjectsSkillListInputSchema();
+
+  return z.object({
+    roadmapSkills: projectsChallengeSubmissionRoadmapSkillsSchema,
+    techStackSkills: projectsChallengeSubmissionTechStackSchema,
+  });
+}
+
 type Props = Readonly<{
   children: React.ReactNode;
 }>;
@@ -249,7 +253,6 @@ export default function ProjectsChallengeSubmissionFilterContextProvider({
   const initialExperience = getArrayTypeSearchParams('experience');
   const initialDifficulty = getArrayTypeSearchParams('difficulty');
   const initialStatus = getArrayTypeSearchParams('status');
-  const initialStack = getArrayTypeSearchParams('stack-used');
 
   const [selectedFilters, setSelectedFilters] = useState<
     Record<ProjectsChallengeSubmissionFilterKey, Array<string>>
@@ -257,7 +260,6 @@ export default function ProjectsChallengeSubmissionFilterContextProvider({
     'component-track': initialComponentTrack ?? [],
     difficulty: initialDifficulty ?? [],
     experience: initialExperience ?? [],
-    'stack-used': initialStack ?? [],
     status: initialStatus ?? [],
   });
 
@@ -280,7 +282,6 @@ export default function ProjectsChallengeSubmissionFilterContextProvider({
       'component-track': [],
       difficulty: [],
       experience: [],
-      'stack-used': [],
       status: [],
     });
   }, []);

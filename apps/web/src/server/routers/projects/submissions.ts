@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 import { yoeReplacementSchema } from '~/components/projects/misc';
+import type { ProjectsSkillKey } from '~/components/projects/skills/types';
 import { projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus } from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListUtil';
 import type { ProjectsYoeReplacement } from '~/components/projects/types';
 
@@ -21,6 +22,8 @@ function whereClauseForSubmissions(
   query: string,
   isStatusNotEmpty: boolean,
   projectsProfileId: string | null,
+  roadmapSkills: Array<ProjectsSkillKey>,
+  techSkills: Array<ProjectsSkillKey>,
   statusWithoutNotStarted: Array<ProjectsChallengeSessionStatus>,
   hasNotStarted: boolean,
   challenges: Array<string>,
@@ -85,6 +88,18 @@ function whereClauseForSubmissions(
           in: challenges,
         },
       }),
+      // Filter by selected roadmap skills
+      ...(roadmapSkills.length > 0 && {
+        roadmapSkills: {
+          hasSome: roadmapSkills,
+        },
+      }),
+      // Filter by selected tech skills
+      ...(techSkills.length > 0 && {
+        techStackSkills: {
+          hasSome: techSkills,
+        },
+      }),
     },
   ];
 }
@@ -102,11 +117,13 @@ export const projectsChallengeSubmissionListRouter = router({
         itemPerPage: z.number(),
         profileStatus: z.array(yoeReplacementSchema),
         query: z.string(),
+        roadmapSkills: z.array(z.string()),
         sort: z.object({
           field: z.enum(['createdAt', 'difficulty', 'votes']).nullable(),
           isAscendingOrder: z.boolean(),
         }),
         submissionType: z.enum(['all', 'learn', 'mentor']),
+        techSkills: z.array(z.string()),
         yoeExperience: z.array(z.enum(['junior', 'mid', 'senior'])),
       }),
     )
@@ -118,6 +135,8 @@ export const projectsChallengeSubmissionListRouter = router({
           profileStatus,
           yoeExperience,
           query,
+          roadmapSkills,
+          techSkills,
           sort,
           submissionType,
           itemPerPage,
@@ -261,6 +280,8 @@ export const projectsChallengeSubmissionListRouter = router({
           query,
           isStatusNotEmpty,
           projectsProfileId,
+          roadmapSkills,
+          techSkills,
           statusWithoutNotStarted,
           hasNotStarted,
           challenges,
