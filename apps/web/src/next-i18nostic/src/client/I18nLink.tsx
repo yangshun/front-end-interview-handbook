@@ -7,21 +7,21 @@ import useI18n from './useI18n';
 import type { Locale } from '../types';
 import i18nHref from '../utils/i18nHref';
 
-type Props = LinkProps &
-  React.AnchorHTMLAttributes<HTMLAnchorElement> &
+export type Props = LinkProps &
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps> &
   Readonly<{
     children?: React.ReactNode;
     locale?: Locale;
   }>;
 
 function I18nLink(
-  { locale: localeParam, href, ...rest }: Props,
+  { locale: localeParam, href, ...props }: Props,
   ref: ForwardedRef<HTMLAnchorElement>,
 ) {
   const { locale: currentLocale } = useI18n();
   const locale = localeParam ?? currentLocale;
 
-  return <Link ref={ref} href={i18nHref(href, locale)} {...rest} />;
+  return <Link ref={ref} href={i18nHref(href, locale)} {...props} />;
 }
 
 export default forwardRef(I18nLink);

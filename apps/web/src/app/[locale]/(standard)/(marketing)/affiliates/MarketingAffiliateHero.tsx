@@ -31,15 +31,14 @@ export default function MarketingAffiliateHero() {
             <div className="mx-auto max-w-3xl">
               <div>
                 <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-                  <Anchor
+                  <span
                     className={clsx(
                       'group relative inline-flex items-center gap-x-1 rounded-full',
                       'px-3 py-0.5',
                       'text-sm font-medium text-neutral-300',
                       'bg-brand/20 hover:bg-brand/30 transition-colors',
                       'shiny shadow-sm',
-                    )}
-                    variant="unstyled">
+                    )}>
                     <FormattedMessage
                       defaultMessage="Already an affiliate? <link>Access dashboard</link>"
                       description="Button to access dashboard above the Title of the 'Become An Affiliate' page's Hero section"
@@ -59,7 +58,7 @@ export default function MarketingAffiliateHero() {
                         ),
                       }}
                     />
-                  </Anchor>
+                  </span>
                 </div>
                 <div>
                   <Heading className="text-center" level="heading1">

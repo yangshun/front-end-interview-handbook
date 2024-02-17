@@ -16,6 +16,7 @@ import {
   themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
 
+import type { Props as AnchorProps } from '../Anchor';
 import Anchor from '../Anchor';
 import Spinner from '../Spinner';
 import type { TooltipContentAlignment, TooltipContentSide } from '../Tooltip';
@@ -39,7 +40,7 @@ export type Props = Readonly<{
   'aria-label'?: AriaAttributes['aria-controls'];
   className?: string;
   display?: ButtonDisplay;
-  href?: string;
+  href?: AnchorProps['href'];
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   iconSecondary_USE_SPARINGLY?: (
     props: React.ComponentProps<'svg'>,

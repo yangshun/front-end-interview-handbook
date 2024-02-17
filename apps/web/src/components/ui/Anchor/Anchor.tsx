@@ -1,8 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import type { LinkProps } from 'next/link';
-import type { ForwardedRef, HTMLAttributeAnchorTarget } from 'react';
+import type { ForwardedRef } from 'react';
 import { forwardRef } from 'react';
 import React from 'react';
 
@@ -10,6 +9,7 @@ import { useAppContext } from '~/components/global/AppContextProvider';
 import { useScrollManagement } from '~/components/global/ScrollManagementProvider';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 
+import type { I18nLinkProps } from '~/next-i18nostic/src';
 import { I18nLink } from '~/next-i18nostic/src';
 
 import {
@@ -27,17 +27,12 @@ type AnchorVariant =
   | 'unstyled';
 type AnchorFontWeight = 'medium' | 'regular';
 
-type Props = Omit<LinkProps, 'href'> &
+export type Props = Omit<I18nLinkProps, 'href'> &
   Readonly<{
-    children?: React.ReactNode;
-    className?: string;
-    href?: string;
+    href?: I18nLinkProps['href'];
     locale?: string;
-    rel?: string;
     scrollToTop?: boolean;
     suppressHydrationWarning?: boolean;
-    target?: HTMLAttributeAnchorTarget;
-    title?: string;
     underline?: boolean;
     variant?: AnchorVariant;
     weight?: AnchorFontWeight;
@@ -47,7 +42,7 @@ function Anchor(
   {
     children,
     className: classNameProp,
-    href,
+    href = '#',
     rel: relProp,
     target: targetProp,
     scrollToTop = true,
@@ -100,7 +95,7 @@ function Anchor(
       <a
         ref={ref}
         className={className}
-        href={finalHref}
+        href={finalHref.toString()}
         rel={rel}
         target={target}
         onClick={(event) => {

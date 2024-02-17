@@ -1,3 +1,4 @@
+import type { Props as I18nLinkProps } from './client/I18nLink';
 import I18nLink from './client/I18nLink';
 import I18nProvider from './client/I18nProvider';
 import useI18n from './client/useI18n';
@@ -12,6 +13,7 @@ export {
   generateStaticParamsWithLocale,
   i18nHref,
   I18nLink,
+  I18nLinkProps,
   i18nMetadata,
   i18nMiddleware,
   I18nProvider,

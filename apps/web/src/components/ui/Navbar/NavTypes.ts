@@ -1,3 +1,5 @@
+import type { Props as AnchorProps } from '../Anchor';
+
 export type NavBaseItem = Readonly<{
   itemKey: string;
   label: string;
@@ -6,7 +8,7 @@ export type NavBaseItem = Readonly<{
 
 export type NavLinkItem = NavBaseItem &
   Readonly<{
-    href: string;
+    href: AnchorProps['href'];
     labelAddon?: React.ReactNode;
     type: 'link';
   }>;

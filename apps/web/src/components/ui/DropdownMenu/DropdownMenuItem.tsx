@@ -2,6 +2,7 @@ import React from 'react';
 
 import DropdownMenuItemContent from './DropdownMenuItemContent';
 import { dropdownContentItemClassName } from './dropdownStyles';
+import type { Props as AnchorProps } from '../Anchor';
 import Anchor from '../Anchor';
 import type { TextColor } from '../Text';
 
@@ -10,7 +11,7 @@ import { Item } from '@radix-ui/react-dropdown-menu';
 export type Props = Readonly<{
   color?: TextColor;
   endAddOn?: React.ReactNode;
-  href?: string;
+  href?: AnchorProps['href'];
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isSelected?: boolean;
   label: React.ReactNode;

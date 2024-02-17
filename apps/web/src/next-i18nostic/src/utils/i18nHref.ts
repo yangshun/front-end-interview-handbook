@@ -1,4 +1,4 @@
-import type { Url } from 'next/dist/shared/lib/router/router';
+import type { LinkProps } from 'next/link';
 import nextI18nosticConfig from 'next-i18nostic/config';
 
 import parseI18nPathname from './parseI18nPathname';
@@ -6,9 +6,9 @@ import stripTrailingSlashDependingOnConfig from './stripTrailingSlashDependingOn
 import type { Locale } from '../types';
 
 export default function i18nHref(
-  href: Url,
+  href: LinkProps['href'],
   locale: Locale = nextI18nosticConfig.defaultLocale,
-): Url {
+): LinkProps['href'] {
   // Don't add locale prefix to external URLs.
   if (typeof href === 'string' && /^(http|mailto)/.test(href)) {
     return href;

@@ -3,6 +3,7 @@ import type {
   NavigateOptions,
   PrefetchOptions,
 } from 'next/dist/shared/lib/app-router-context';
+import type { LinkProps } from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import useI18n from './useI18n';
@@ -17,9 +18,9 @@ type I18nPrefetchOptions = PrefetchOptions & {
 };
 
 type I18nAppRouterInstance = AppRouterInstance & {
-  prefetch: (href: string, options?: I18nPrefetchOptions) => void;
-  push: (href: string, options?: I18nNavigateOptions) => void;
-  replace: (href: string, options?: I18nNavigateOptions) => void;
+  prefetch: (href: LinkProps['href'], options?: I18nPrefetchOptions) => void;
+  push: (href: LinkProps['href'], options?: I18nNavigateOptions) => void;
+  replace: (href: LinkProps['href'], options?: I18nNavigateOptions) => void;
 };
 
 export default function useI18nRouter(): I18nAppRouterInstance {
@@ -28,13 +29,13 @@ export default function useI18nRouter(): I18nAppRouterInstance {
 
   return {
     ...router,
-    prefetch: (href: string, options?: I18nPrefetchOptions) => {
+    prefetch: (href: LinkProps['href'], options?: I18nPrefetchOptions) => {
       router.prefetch(
         i18nHref(href, options?.locale ?? contextLocale).toString(),
         options?.kind != null ? { kind: options.kind } : undefined,
       );
     },
-    push: (href: string, options?: I18nNavigateOptions) => {
+    push: (href: LinkProps['href'], options?: I18nNavigateOptions) => {
       const { locale, ...navigateOptions } = options ?? {};
 
       router.push(
@@ -42,7 +43,7 @@ export default function useI18nRouter(): I18nAppRouterInstance {
         navigateOptions,
       );
     },
-    replace: (href: string, options?: I18nNavigateOptions) => {
+    replace: (href: LinkProps['href'], options?: I18nNavigateOptions) => {
       const { locale, ...navigateOptions } = options ?? {};
 
       router.replace(
