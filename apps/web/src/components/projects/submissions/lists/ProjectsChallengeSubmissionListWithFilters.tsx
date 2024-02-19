@@ -73,19 +73,23 @@ export default function ProjectsChallengeSubmissionListWithFilters({
   const { data: { submissions, totalCount } = {}, isLoading } =
     trpc.projects.submissions.list.useQuery(
       {
-        challengeSessionStatus:
-          selectedFilters.status as Array<ProjectsChallengeSubmissionStatusFilter>,
-        challenges: processedChallenges.map((item) => item.slug),
-        currentPage,
-        hasClientFilterApplied,
-        itemPerPage: ITEMS_PER_PAGE,
-        profileStatus,
-        query,
-        roadmapSkills: selectedFilters.roadmapSkills,
+        filter: {
+          challengeSessionStatus:
+            selectedFilters.status as Array<ProjectsChallengeSubmissionStatusFilter>,
+          challenges: processedChallenges.map((item) => item.slug),
+          hasClientFilterApplied,
+          profileStatus,
+          query,
+          roadmapSkills: selectedFilters.roadmapSkills,
+          submissionType: type,
+          techSkills: selectedFilters.techStackSkills,
+          yoeExperience,
+        },
+        pagination: {
+          currentPage,
+          itemPerPage: ITEMS_PER_PAGE,
+        },
         sort: { field: sortField, isAscendingOrder },
-        submissionType: type,
-        techSkills: selectedFilters.techStackSkills,
-        yoeExperience,
       },
       {
         keepPreviousData: true,
@@ -140,7 +144,7 @@ export default function ProjectsChallengeSubmissionListWithFilters({
           <div className="flex flex-col gap-6">
             <ProjectsChallengeSubmissionList submissions={submissions ?? []} />
             {totalPages > 1 && (
-              <div className="flex justify-between items-center">
+              <div className="flex items-center justify-between">
                 <Text color="secondary" size="body3">
                   <FormattedMessage
                     defaultMessage="Showing {startCount} to {endCount} out of {totalCount} projects"

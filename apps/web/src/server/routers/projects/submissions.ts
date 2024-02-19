@@ -3,6 +3,11 @@ import { z } from 'zod';
 import { yoeReplacementSchema } from '~/components/projects/misc';
 import type { ProjectsSkillKey } from '~/components/projects/skills/types';
 import { projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus } from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListUtil';
+import type {
+  ProjectsChallengeSubmissionSortField,
+  ProjectsChallengeSubmissionTabType,
+  ProjectsChallengeSubmissionYOEFilter,
+} from '~/components/projects/submissions/types';
 import type { ProjectsYoeReplacement } from '~/components/projects/types';
 
 import prisma from '~/server/prisma';
@@ -104,32 +109,153 @@ function whereClauseForSubmissions(
   ];
 }
 
+function getSubmissionsListStartDateFilter(
+  yoeExperience: Array<ProjectsChallengeSubmissionYOEFilter>,
+) {
+  return yoeExperience.map((experience) => {
+    const currentDate = new Date();
+    const filterYears = {
+      max: 0,
+      min: 0,
+    };
+
+    switch (experience) {
+      case 'junior':
+        filterYears.min = 1;
+        filterYears.max = 2;
+        break;
+      case 'mid':
+        filterYears.min = 3;
+        filterYears.max = 5;
+        break;
+      case 'senior':
+        filterYears.min = 6;
+        filterYears.max = 0;
+        break;
+
+      default:
+        filterYears.min = 0; // No filter
+        filterYears.max = 0; // No filter
+        break;
+    }
+
+    const minFilterYears =
+      filterYears.min > 0
+        ? {
+            lt: new Date(
+              currentDate.getFullYear() - filterYears.min,
+              currentDate.getMonth(),
+              currentDate.getDate(),
+            ),
+          }
+        : {};
+    const maxFilterYears =
+      filterYears.max > 0
+        ? {
+            gte: new Date(
+              currentDate.getFullYear() - filterYears.max,
+              currentDate.getMonth(),
+              currentDate.getDate(),
+            ),
+          }
+        : {};
+
+    return {
+      startWorkDate: {
+        ...minFilterYears,
+        ...maxFilterYears,
+      },
+    };
+  });
+}
+
+function getSubmissionsListOrderbyFilter(
+  sort: {
+    field: ProjectsChallengeSubmissionSortField | null;
+    isAscendingOrder: boolean;
+  },
+  submissionType: ProjectsChallengeSubmissionTabType,
+) {
+  if (sort.field === 'votes') {
+    return {
+      votes: {
+        _count: sort.isAscendingOrder ? 'asc' : 'desc',
+      } as const,
+    };
+  }
+
+  if (sort.field === 'createdAt') {
+    return {
+      createdAt: sort.isAscendingOrder ? 'asc' : 'desc',
+    } as const;
+  }
+
+  if (sort.field === 'difficulty') {
+    return {
+      challengeDetails: {
+        difficulty: sort.isAscendingOrder ? 'asc' : 'desc',
+      },
+    } as const;
+  }
+
+  if (submissionType === 'all') {
+    return {
+      recommendationAll: {
+        score: 'desc',
+      },
+    } as const;
+  }
+
+  if (submissionType === 'learn') {
+    return {
+      recommendationLearn: {
+        score: 'desc',
+      },
+    } as const;
+  }
+
+  if (submissionType === 'mentor') {
+    return {
+      recommendationMentor: {
+        score: 'desc',
+      },
+    } as const;
+  }
+}
+
 export const projectsChallengeSubmissionListRouter = router({
   list: publicProjectsProcedure
     .input(
       z.object({
-        challengeSessionStatus: z.array(
-          z.enum(['IN_PROGRESS', 'COMPLETED', 'NOT_STARTED'] as const),
-        ),
-        challenges: z.array(z.string()),
-        currentPage: z.number(),
-        hasClientFilterApplied: z.boolean(),
-        itemPerPage: z.number(),
-        profileStatus: z.array(yoeReplacementSchema),
-        query: z.string(),
-        roadmapSkills: z.array(z.string()),
+        filter: z.object({
+          challengeSessionStatus: z.array(
+            z.enum(['IN_PROGRESS', 'COMPLETED', 'NOT_STARTED'] as const),
+          ),
+          challenges: z.array(z.string()),
+          hasClientFilterApplied: z.boolean(),
+          profileStatus: z.array(yoeReplacementSchema),
+          query: z.string(),
+          roadmapSkills: z.array(z.string()),
+          submissionType: z.enum(['all', 'learn', 'mentor']),
+          techSkills: z.array(z.string()),
+          yoeExperience: z.array(z.enum(['junior', 'mid', 'senior'])),
+        }),
+        pagination: z.object({
+          currentPage: z.number(),
+          itemPerPage: z.number(),
+        }),
         sort: z.object({
           field: z.enum(['createdAt', 'difficulty', 'votes']).nullable(),
           isAscendingOrder: z.boolean(),
         }),
-        submissionType: z.enum(['all', 'learn', 'mentor']),
-        techSkills: z.array(z.string()),
-        yoeExperience: z.array(z.enum(['junior', 'mid', 'senior'])),
       }),
     )
     .query(
       async ({
-        input: {
+        input: { filter, pagination, sort },
+        ctx: { user, projectsProfileId },
+      }) => {
+        const {
           challenges,
           challengeSessionStatus,
           profileStatus,
@@ -137,127 +263,25 @@ export const projectsChallengeSubmissionListRouter = router({
           query,
           roadmapSkills,
           techSkills,
-          sort,
           submissionType,
-          itemPerPage,
-          currentPage,
           hasClientFilterApplied,
-        },
-        ctx: { user, projectsProfileId },
-      }) => {
+        } = filter;
+        const { itemPerPage, currentPage } = pagination;
+
         const hasNotStarted = challengeSessionStatus.includes('NOT_STARTED');
         const statusWithoutNotStarted = challengeSessionStatus.filter(
           (item) => item !== 'NOT_STARTED',
         ) as Array<ProjectsChallengeSessionStatus>;
 
-        const startDateFilters = yoeExperience.map((experience) => {
-          const currentDate = new Date();
-          const filterYears = {
-            max: 0,
-            min: 0,
-          };
-
-          switch (experience) {
-            case 'junior':
-              filterYears.min = 1;
-              filterYears.max = 2;
-              break;
-            case 'mid':
-              filterYears.min = 3;
-              filterYears.max = 5;
-              break;
-            case 'senior':
-              filterYears.min = 6;
-              filterYears.max = 0;
-              break;
-
-            default:
-              filterYears.min = 0; // No filter
-              filterYears.max = 0; // No filter
-              break;
-          }
-
-          const minFilterYears =
-            filterYears.min > 0
-              ? {
-                  lt: new Date(
-                    currentDate.getFullYear() - filterYears.min,
-                    currentDate.getMonth(),
-                    currentDate.getDate(),
-                  ),
-                }
-              : {};
-          const maxFilterYears =
-            filterYears.max > 0
-              ? {
-                  gte: new Date(
-                    currentDate.getFullYear() - filterYears.max,
-                    currentDate.getMonth(),
-                    currentDate.getDate(),
-                  ),
-                }
-              : {};
-
-          return {
-            startWorkDate: {
-              ...minFilterYears,
-              ...maxFilterYears,
-            },
-          };
-        });
+        const startDateFilters =
+          getSubmissionsListStartDateFilter(yoeExperience);
 
         const isStatusNotEmpty = challengeSessionStatus.length > 0;
 
         const orderBy:
           | Array<Prisma.ProjectsChallengeSubmissionOrderByWithRelationInput>
           | Prisma.ProjectsChallengeSubmissionOrderByWithRelationInput
-          | undefined = (() => {
-          if (sort.field === 'votes') {
-            return {
-              votes: {
-                _count: sort.isAscendingOrder ? 'asc' : 'desc',
-              } as const,
-            };
-          }
-
-          if (sort.field === 'createdAt') {
-            return {
-              createdAt: sort.isAscendingOrder ? 'asc' : 'desc',
-            } as const;
-          }
-
-          if (sort.field === 'difficulty') {
-            return {
-              challengeDetails: {
-                difficulty: sort.isAscendingOrder ? 'asc' : 'desc',
-              },
-            } as const;
-          }
-
-          if (submissionType === 'all') {
-            return {
-              recommendationAll: {
-                score: 'desc',
-              },
-            } as const;
-          }
-
-          if (submissionType === 'learn') {
-            return {
-              recommendationLearn: {
-                score: 'desc',
-              },
-            } as const;
-          }
-
-          if (submissionType === 'mentor') {
-            return {
-              recommendationMentor: {
-                score: 'desc',
-              },
-            } as const;
-          }
-        })();
+          | undefined = getSubmissionsListOrderbyFilter(sort, submissionType);
 
         let userProfile = null;
 
