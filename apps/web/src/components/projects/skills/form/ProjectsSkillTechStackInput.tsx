@@ -14,6 +14,7 @@ type Props = Readonly<{
   errorMessage?: React.ReactNode;
   excludeRoadmapSkills?: boolean;
   isDisabled?: boolean;
+  isLabelHidden?: boolean;
   label?: string;
   onBlur?: () => void;
   onChange: (value: ReadonlyArray<ProjectsSkillKey> | null) => void;
@@ -31,6 +32,7 @@ export default function ProjectsSkillTechStackInput({
   placeholder,
   required,
   value,
+  isLabelHidden,
   onChange,
   onBlur,
 }: Props) {
@@ -51,6 +53,7 @@ export default function ProjectsSkillTechStackInput({
       descriptionStyle="tooltip"
       errorMessage={errorMessage}
       isDisabled={isDisabled}
+      isLabelHidden={isLabelHidden}
       label={
         label ??
         intl.formatMessage({

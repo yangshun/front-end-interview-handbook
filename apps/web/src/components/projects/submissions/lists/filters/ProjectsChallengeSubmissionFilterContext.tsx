@@ -3,22 +3,22 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from 'react';
 import { useIntl } from 'react-intl';
-import { z } from 'zod';
 
 import useFilterSearchParams from '~/hooks/useFilterSearchParams';
 
 import useProjectsYOEReplacementOptions from '~/components/projects/hooks/useProjectsYOEReplacementOptions';
 
-import { useProjectsSkillListInputSchema } from '../../../skills/form/ProjectsSkillListInputSchema';
-import type { ProjectsSkillKey } from '../../../skills/types';
-
 export type ProjectsChallengeSubmissionFilterType =
   | 'checkbox'
-  | 'skill-selection';
+  | 'skill-selection'
+  | 'tech-stack-selection';
+
+export type ProjectsChallengeSubmissionFilterViewType = 'both' | 'slideout';
 export type ProjectsChallengeSubmissionFilter = {
   id: ProjectsChallengeSubmissionFilterKey;
   label: string;
@@ -29,13 +29,16 @@ export type ProjectsChallengeSubmissionFilter = {
   }>;
   tooltip: string;
   type: ProjectsChallengeSubmissionFilterType;
+  view: ProjectsChallengeSubmissionFilterViewType;
 };
 
 export type ProjectsChallengeSubmissionFilterKey =
   | 'component-track'
   | 'difficulty'
   | 'experience'
-  | 'status';
+  | 'roadmapSkills'
+  | 'status'
+  | 'techStackSkills';
 
 function useFilters() {
   const intl = useIntl();
@@ -72,6 +75,27 @@ function useFilters() {
           id: 'TxAh6E',
         }),
         type: 'checkbox',
+        view: 'both',
+      },
+      {
+        id: 'component-track',
+        label: intl.formatMessage({
+          defaultMessage: 'Component track',
+          description: 'Label for Component Track filter for submissions list',
+          id: 'cotxax',
+        }),
+        options: allProjectsTrackMetadata.map((trackMetadata) => ({
+          label: `${trackMetadata.title} track`,
+          value: trackMetadata.slug,
+        })),
+        tooltip: intl.formatMessage({
+          defaultMessage: 'Filter by component track of original project brief',
+          description:
+            'Tooltip for Component track filter for submissions list',
+          id: '9Ftt1s',
+        }),
+        type: 'checkbox',
+        view: 'slideout',
       },
       {
         id: 'difficulty',
@@ -104,25 +128,40 @@ function useFilters() {
           id: 'P9nVrb',
         }),
         type: 'checkbox',
+        view: 'both',
       },
       {
-        id: 'component-track',
+        id: 'techStackSkills',
         label: intl.formatMessage({
-          defaultMessage: 'Component track',
-          description: 'Label for Component Track filter for submissions list',
-          id: 'cotxax',
+          defaultMessage: 'Tech stack used',
+          description: 'Label for "Tech stack used" text input',
+          id: 'n2GSsV',
         }),
-        options: allProjectsTrackMetadata.map((trackMetadata) => ({
-          label: `${trackMetadata.title} track`,
-          value: trackMetadata.slug,
-        })),
+        options: [],
         tooltip: intl.formatMessage({
-          defaultMessage: 'Filter by component track of original project brief',
-          description:
-            'Tooltip for Component track filter for submissions list',
-          id: '9Ftt1s',
+          defaultMessage: 'Tech stack which the submissions are using',
+          description: 'Label for "Tech stack used" text input',
+          id: 'e6llht',
         }),
-        type: 'checkbox',
+        type: 'tech-stack-selection',
+        view: 'slideout',
+      },
+      {
+        id: 'roadmapSkills',
+        label: intl.formatMessage({
+          defaultMessage: 'Skills used',
+          description: 'Label for "Skills used" text input',
+          id: 'Od0Qjl',
+        }),
+        options: [],
+        tooltip: intl.formatMessage({
+          defaultMessage:
+            'The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development',
+          description: 'Label for "Skills used" text input',
+          id: '0QHr9k',
+        }),
+        type: 'skill-selection',
+        view: 'slideout',
       },
       {
         id: 'experience',
@@ -158,6 +197,7 @@ function useFilters() {
           id: 'U17xuY',
         }),
         type: 'checkbox',
+        view: 'both',
       },
     ];
 
@@ -194,7 +234,9 @@ export const ProjectsChallengeSubmissionFilterContext =
       'component-track': [],
       difficulty: [],
       experience: [],
+      roadmapSkills: [],
       status: [],
+      techStackSkills: [],
     },
   });
 
@@ -219,23 +261,6 @@ export function useProjectsChallengeSubmissionFilterContext() {
   return useContext(ProjectsChallengeSubmissionFilterContext);
 }
 
-export type ProjectsChallengeSubmissionFilterValues = Readonly<{
-  roadmapSkills: Array<ProjectsSkillKey>;
-  techStackSkills: Array<ProjectsSkillKey>;
-}>;
-
-export function useProjectsChallengeFilterSchema() {
-  const projectsChallengeSubmissionTechStackSchema =
-    useProjectsSkillListInputSchema();
-  const projectsChallengeSubmissionRoadmapSkillsSchema =
-    useProjectsSkillListInputSchema();
-
-  return z.object({
-    roadmapSkills: projectsChallengeSubmissionRoadmapSkillsSchema,
-    techStackSkills: projectsChallengeSubmissionTechStackSchema,
-  });
-}
-
 type Props = Readonly<{
   children: React.ReactNode;
 }>;
@@ -247,12 +272,15 @@ export default function ProjectsChallengeSubmissionFilterContextProvider({
     updateSearchParams,
     getArrayTypeSearchParams,
     getStringTypeSearchParams,
+    updateMultipleSearchParams,
   } = useFilterSearchParams();
 
   const initialComponentTrack = getArrayTypeSearchParams('component-track');
   const initialExperience = getArrayTypeSearchParams('experience');
   const initialDifficulty = getArrayTypeSearchParams('difficulty');
   const initialStatus = getArrayTypeSearchParams('status');
+  const initialRoadmapSkills = getArrayTypeSearchParams('roadmap');
+  const initialTechStackSkills = getArrayTypeSearchParams('tech-stack');
 
   const [selectedFilters, setSelectedFilters] = useState<
     Record<ProjectsChallengeSubmissionFilterKey, Array<string>>
@@ -260,21 +288,26 @@ export default function ProjectsChallengeSubmissionFilterContextProvider({
     'component-track': initialComponentTrack ?? [],
     difficulty: initialDifficulty ?? [],
     experience: initialExperience ?? [],
+    roadmapSkills: initialRoadmapSkills ?? [],
     status: initialStatus ?? [],
+    techStackSkills: initialTechStackSkills ?? [],
   });
 
   const filters = useFilters();
 
+  useEffect(() => {
+    // Update search params in the current url
+    updateMultipleSearchParams(selectedFilters);
+  }, [selectedFilters, updateMultipleSearchParams]);
+
   const setFilterValue = useCallback(
     (key: ProjectsChallengeSubmissionFilterKey, value: Array<string>) => {
-      // Update search params in the current url
-      updateSearchParams(key, value);
       setSelectedFilters((prev) => ({
         ...prev,
         [key]: value,
       }));
     },
-    [updateSearchParams],
+    [],
   );
 
   const clearAll = useCallback(() => {
@@ -282,7 +315,9 @@ export default function ProjectsChallengeSubmissionFilterContextProvider({
       'component-track': [],
       difficulty: [],
       experience: [],
+      roadmapSkills: [],
       status: [],
+      techStackSkills: [],
     });
   }, []);
 

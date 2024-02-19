@@ -38,10 +38,6 @@ export default function ProjectsChallengeSubmissionListWithFilters({
   const {
     query,
     onChangeQuery,
-    selectedRoadmapSkills,
-    setSelectedRoadmapSkills,
-    selectedTechSkills,
-    setSelectedTechSkills,
     filters: filtersChallengesOpts,
     filterSize,
     profileStatus,
@@ -85,10 +81,10 @@ export default function ProjectsChallengeSubmissionListWithFilters({
         itemPerPage: ITEMS_PER_PAGE,
         profileStatus,
         query,
-        roadmapSkills: selectedRoadmapSkills,
+        roadmapSkills: selectedFilters.roadmapSkills,
         sort: { field: sortField, isAscendingOrder },
         submissionType: type,
-        techSkills: selectedTechSkills,
+        techSkills: selectedFilters.techStackSkills,
         yoeExperience,
       },
       {
@@ -111,12 +107,6 @@ export default function ProjectsChallengeSubmissionListWithFilters({
         setQuery={onChangeQuery}
         setSortField={setSortField}
         sortField={sortField}
-        onChangeRoadmapSkills={(value) => {
-          setSelectedRoadmapSkills(value);
-        }}
-        onChangeTechSkills={(value) => {
-          setSelectedTechSkills(value);
-        }}
       />
       <div className="flex flex-col gap-y-4">
         <div className={clsx('flex items-center gap-2')}>

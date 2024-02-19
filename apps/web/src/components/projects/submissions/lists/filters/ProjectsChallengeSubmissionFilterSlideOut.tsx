@@ -1,12 +1,14 @@
-import { Fragment } from 'react';
-import { useForm } from 'react-hook-form';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 
 import ProjectsSkillRoadmapSelectionInput from '~/components/projects/skills/form/ProjectsSkillRoadmapSelectionInput';
-import type { ProjectsChallengeSubmissionFilter } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
-import type { ProjectsChallengeSubmissionFilterValues } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
+import ProjectsSkillTechStackInput from '~/components/projects/skills/form/ProjectsSkillTechStackInput';
+import type {
+  ProjectsChallengeSubmissionFilter,
+  ProjectsChallengeSubmissionFilterKey,
+} from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import {
-  useProjectsChallengeFilterSchema,
+  ProjectsChallengeSubmissionFilterContext,
   useProjectsChallengeSubmissionFilterContext,
   useProjectsChallengeSubmissionFilterState,
 } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
@@ -21,12 +23,6 @@ import Divider from '~/components/ui/Divider';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 
-import ProjectsChallengeSubmissionFilterRoadmapField from './ProjectsChallengeSubmissionFilterRoadmapField';
-import ProjectsChallengeSubmissionFilterTechStackField from './ProjectsChallengeSubmissionFilterTechStackField';
-import type { ProjectsSkillKey } from '../../../skills/types';
-
-import { zodResolver } from '@hookform/resolvers/zod';
-
 function FilterSection({
   longLabel,
   label,
@@ -37,7 +33,24 @@ function FilterSection({
   const [selectedOptions, setSelectedOptions] =
     useProjectsChallengeSubmissionFilterState(id);
 
-  return (
+  return type === 'tech-stack-selection' ? (
+    <div className="flex flex-col gap-8 py-5">
+      <Text size="body2" weight="medium">
+        {longLabel || label}
+      </Text>
+      <ProjectsSkillTechStackInput
+        isLabelHidden={true}
+        label={label}
+        required={false}
+        value={selectedOptions}
+        onChange={(value) => {
+          const newValue = [...(value ?? [])];
+
+          setSelectedOptions(newValue);
+        }}
+      />
+    </div>
+  ) : (
     <AccordionItem value={id}>
       <AccordionTrigger>
         <Text size="body2" weight="medium">
@@ -72,9 +85,12 @@ function FilterSection({
             className="mt-2"
             isLabelHidden={true}
             label={label}
-            // TODO(projects|skills): pass in values.
-            value={[]}
-            onChange={() => {}}
+            value={selectedOptions}
+            onChange={(value) => {
+              const newValue = [...(value ?? [])];
+
+              setSelectedOptions(newValue);
+            }}
           />
         )}
       </AccordionContent>
@@ -84,80 +100,101 @@ function FilterSection({
 
 type Props = Readonly<{
   isShown: boolean;
-  onChangeRoadmapSkills: (value: Array<ProjectsSkillKey>) => void;
-  onChangeTechSkills: (value: Array<ProjectsSkillKey>) => void;
   onClose: () => void;
 }>;
 
 export default function ProjectsChallengeSubmissionFilterSlideOut({
   isShown,
   onClose,
-  onChangeRoadmapSkills,
-  onChangeTechSkills,
 }: Props) {
   const intl = useIntl();
-  const { filters: initialFilters } =
-    useProjectsChallengeSubmissionFilterContext();
+  const {
+    filters: initialFilters,
+    value: initialSelectedFilters,
+    getArrayTypeSearchParams,
+    getStringTypeSearchParams,
+    updateSearchParams,
+    setSelectedFilters: setInitialSelectedFilters,
+  } = useProjectsChallengeSubmissionFilterContext();
+  const [selectedFilters, setSelectedFilters] = useState<
+    Record<ProjectsChallengeSubmissionFilterKey, Array<string>>
+  >(initialSelectedFilters);
 
-  const defaultValues = Object.freeze({
-    deploymentUrls: [],
-    implementation: '',
-    repositoryUrl: '',
-    roadmapSkills: [],
-    summary: '',
-    techStackSkills: [],
-    title: '',
-  });
+  useEffect(() => {
+    setSelectedFilters(initialSelectedFilters);
+  }, [initialSelectedFilters]);
 
-  const projectsChallengeFilterSchema = useProjectsChallengeFilterSchema();
+  const value = useMemo(
+    () => ({
+      clearAll: () => {
+        setSelectedFilters({
+          'component-track': [],
+          difficulty: [],
+          experience: [],
+          roadmapSkills: [],
+          status: [],
+          techStackSkills: [],
+        });
+      },
+      filters: initialFilters,
+      getArrayTypeSearchParams,
+      getStringTypeSearchParams,
+      setFilterValue: (
+        key: ProjectsChallengeSubmissionFilterKey,
+        newValue: Array<string>,
+      ) => {
+        setSelectedFilters((prev) => ({
+          ...prev,
+          [key]: newValue,
+        }));
+      },
+      setSelectedFilters,
+      updateSearchParams,
+      value: selectedFilters,
+    }),
+    [
+      initialFilters,
+      selectedFilters,
+      getArrayTypeSearchParams,
+      getStringTypeSearchParams,
+      updateSearchParams,
+    ],
+  );
 
-  const formMethods = useForm<ProjectsChallengeSubmissionFilterValues>({
-    defaultValues,
-    mode: 'all',
-    resolver: zodResolver(projectsChallengeFilterSchema),
-  });
-
-  const { control } = formMethods;
+  // Set the filters to context only when the SlideOut is closed
+  useEffect(() => {
+    if (!isShown) {
+      setInitialSelectedFilters(selectedFilters);
+    }
+  }, [isShown, selectedFilters, setInitialSelectedFilters]);
 
   return (
-    <SlideOut
-      enterFrom="end"
-      isShown={isShown}
-      size="md"
-      title={intl.formatMessage({
-        defaultMessage: 'Filters',
-        description: 'Title of Projects challenge submission filter slide-out',
-        id: 'aSyD6u',
-      })}
-      onClose={onClose}>
-      <div className="flex flex-col">
-        <Divider />
-        <Accordion
-          className="flex flex-col"
-          defaultValue={initialFilters.map(({ id }) => id)}
-          type="multiple">
-          {initialFilters.map((filter) => (
-            <Fragment key={filter.id}>
-              <FilterSection {...filter} />
-            </Fragment>
-          ))}
-        </Accordion>
-        <Divider className="mb-5" />
-        <Fragment key="roadmap-skills">
-          <ProjectsChallengeSubmissionFilterTechStackField
-            control={control}
-            onChange={onChangeTechSkills}
-          />
-        </Fragment>
-        <Divider className="my-5" />
-        <Fragment key="roadmap-skills">
-          <ProjectsChallengeSubmissionFilterRoadmapField
-            control={control}
-            onChange={onChangeRoadmapSkills}
-          />
-        </Fragment>
-        <Divider className="my-5" />
-      </div>
-    </SlideOut>
+    <ProjectsChallengeSubmissionFilterContext.Provider value={value}>
+      <SlideOut
+        enterFrom="end"
+        isShown={isShown}
+        size="md"
+        title={intl.formatMessage({
+          defaultMessage: 'Filters',
+          description:
+            'Title of Projects challenge submission filter slide-out',
+          id: 'aSyD6u',
+        })}
+        onClose={onClose}>
+        <div className="flex flex-col">
+          <Divider />
+          <Accordion
+            className="flex flex-col"
+            defaultValue={initialFilters.map(({ id }) => id)}
+            type="multiple">
+            {initialFilters.map((filter) => (
+              <Fragment key={filter.id}>
+                <FilterSection {...filter} />
+              </Fragment>
+            ))}
+          </Accordion>
+        </div>
+      </SlideOut>
+    </ProjectsChallengeSubmissionFilterContext.Provider>
   );
 }

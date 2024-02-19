@@ -4,7 +4,6 @@ import { useState } from 'react';
 import useFilterSearchParams from '~/hooks/useFilterSearchParams';
 
 import useProjectsYOEReplacementOptions from '~/components/projects/hooks/useProjectsYOEReplacementOptions';
-import type { ProjectsSkillKey } from '~/components/projects/skills/types';
 import { useProjectsChallengeSubmissionFilterState } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import type { ProjectsChallengeSubmissionYOEFilter } from '~/components/projects/submissions/types';
 import type { ProjectsYoeReplacement } from '~/components/projects/types';
@@ -21,12 +20,10 @@ export default function useProjectsChallengeSubmissionFilters() {
   const [selectedStatus] = useProjectsChallengeSubmissionFilterState('status');
   const [selectedExperience] =
     useProjectsChallengeSubmissionFilterState('experience');
-  const [selectedRoadmapSkills, setSelectedRoadmapSkills] = useState<
-    Array<ProjectsSkillKey>
-  >([]);
-  const [selectedTechSkills, setSelectedTechSkills] = useState<
-    Array<ProjectsSkillKey>
-  >([]);
+  const [selectedRoadmapSkills] =
+    useProjectsChallengeSubmissionFilterState('roadmapSkills');
+  const [selectedTechStackSkills] =
+    useProjectsChallengeSubmissionFilterState('techStackSkills');
 
   const projectsMatchesTextQuery = (
     project: ProjectsChallengeMetadata,
@@ -68,7 +65,9 @@ export default function useProjectsChallengeSubmissionFilters() {
     selectedComponentTrack.length +
     selectedDifficulty.length +
     selectedStatus.length +
-    selectedExperience.length;
+    selectedExperience.length +
+    selectedRoadmapSkills.length +
+    selectedTechStackSkills.length;
 
   const hasClientFilterApplied =
     selectedComponentTrack.length + selectedDifficulty.length > 0;
@@ -85,10 +84,6 @@ export default function useProjectsChallengeSubmissionFilters() {
     onChangeQuery,
     profileStatus,
     query,
-    selectedRoadmapSkills,
-    selectedTechSkills,
-    setSelectedRoadmapSkills,
-    setSelectedTechSkills,
     yoeExperience,
   };
 }

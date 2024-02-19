@@ -44,6 +44,34 @@ export default function useFilterSearchParams() {
     window.history.replaceState({}, '', `${pathname}${query}`);
   }, [pathname]);
 
+  const updateMultipleSearchParams = (
+    params: Record<string, ReadonlyArray<string> | string>,
+  ) => {
+    const current = new URLSearchParams(window.location.search);
+    let search = '';
+
+    Object.keys(params).map((key) => {
+      const value = params[key];
+
+      if (Array.isArray(value)) {
+        if (value.length > 0) {
+          current.set(key, value.join(','));
+        } else {
+          current.delete(key);
+        }
+      } else if (value) {
+        current.set(key, value.toString());
+      } else {
+        current.delete(key);
+      }
+      search = current.toString();
+    });
+
+    const query = search ? `?${search}` : '';
+
+    window.history.replaceState({}, '', `${pathname}${query}`);
+  };
+
   const updateSearchParams = (
     key: string,
     value: ReadonlyArray<string> | string,
@@ -71,6 +99,7 @@ export default function useFilterSearchParams() {
   return {
     getArrayTypeSearchParams,
     getStringTypeSearchParams,
+    updateMultipleSearchParams,
     updateSearchParams,
   };
 }
