@@ -10,6 +10,8 @@ import { useIntl } from 'react-intl';
 
 import useFilterSearchParams from '~/hooks/useFilterSearchParams';
 
+import type { PopoverContentWidth } from '~/components/ui/Popover';
+
 export type ProjectsChallengeFilterType = 'checkbox' | 'skill-selection';
 export type ProjectsChallengeFilter = {
   id: ProjectsChallengeFilterKey;
@@ -21,6 +23,7 @@ export type ProjectsChallengeFilter = {
   }>;
   tooltip: string;
   type: ProjectsChallengeFilterType;
+  width?: PopoverContentWidth;
 };
 
 export type ProjectsChallengeFilterKey =
@@ -51,6 +54,7 @@ function useFilters() {
           id: '03TVln',
         }),
         type: 'checkbox',
+        width: 'md',
       },
       {
         id: 'skills',

@@ -31,7 +31,7 @@ import ProjectsChallengeFilterContextProvider, {
   useProjectsChallengeFilterContext,
 } from './ProjectsChallengeFilterContext';
 import ProjectsChallengeFilterSlideOut from './ProjectsChallengeFilterSlideOut';
-import ProjectsListFilterDropdown from './ProjectsListFilterDropdown';
+import ProjectsChallengeListFilter from './ProjectsChallengeListFilter';
 import type { ProjectsChallengeItem } from '../types';
 
 type Props = Readonly<{
@@ -220,8 +220,8 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
         }}
       />
       <div className="flex flex-col gap-6">
-        <div className="flex gap-3 flex-wrap lg:flex-row md:flex-col flex-row">
-          <div className="flex-1 w-full lg:w-auto">
+        <div className="flex flex-row flex-wrap gap-3 md:flex-col lg:flex-row">
+          <div className="w-full flex-1 lg:w-auto">
             <TextInput
               isLabelHidden={true}
               label="Search"
@@ -232,13 +232,13 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
               onChange={onChangeQuery}
             />
           </div>
-          <div className="md:flex hidden gap-3 flex-wrap">
+          <div className="hidden flex-wrap gap-3 md:flex">
             {filters.map((filter) => (
-              <ProjectsListFilterDropdown key={filter.id} filter={filter} />
+              <ProjectsChallengeListFilter key={filter.id} filter={filter} />
             ))}
             {sortAndFilterButton}
           </div>
-          <div className="md:hidden flex gap-3">{sortAndFilterButton}</div>
+          <div className="flex gap-3 md:hidden">{sortAndFilterButton}</div>
         </div>
         {currentPageChallenges.length === 0 ? (
           <div className="p-24">
@@ -282,7 +282,7 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
           </div>
         )}
         {totalPages > 1 && (
-          <div className="flex justify-between items-center">
+          <div className="flex items-center justify-between">
             <Text color="secondary" size="body3">
               <FormattedMessage
                 defaultMessage="Showing {currentPageCount} out of {totalCount} projects"
