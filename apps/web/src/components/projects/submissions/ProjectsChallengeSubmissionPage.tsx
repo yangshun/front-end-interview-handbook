@@ -21,7 +21,10 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import RichText from '~/components/ui/RichTextEditor/RichText';
 import Text from '~/components/ui/Text';
-import { themeBorderColor } from '~/components/ui/theme';
+import {
+  themeBackgroundCardColor,
+  themeBorderColor,
+} from '~/components/ui/theme';
 
 import GithubRepositoryCodeViewer from './code-viewer/GithubRepositoryCodeViewer';
 import ProjectsChallengeSubmissionDiscussionsSection from './discussions/ProjectsChallengeSubmissionDiscussionsSection';
@@ -69,7 +72,7 @@ export default function ProjectsChallengeSubmissionPage({
   );
 
   return (
-    <div ref={parentRef} className="flex flex-col -mt-4 lg:-mt-16">
+    <div ref={parentRef} className="-mt-4 flex flex-col lg:-mt-16">
       <ProjectsChallengeSubmissionHero
         challenge={challenge}
         isParentInView={isParentInView}
@@ -80,7 +83,7 @@ export default function ProjectsChallengeSubmissionPage({
         }}
       />
       <Section>
-        <div className="flex md:items-center items-start justify-between md:flex-row flex-col gap-6 mt-10 lg:mt-16">
+        <div className="mt-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-center lg:mt-16">
           {submission.projectsProfile?.userProfile && (
             <ProjectsChallengeSubmissionAuthorProfile
               author={submission.projectsProfile?.userProfile}
@@ -116,7 +119,7 @@ export default function ProjectsChallengeSubmissionPage({
           )}
         </div>
         {submission.summary && (
-          <Text className="max-w-prose my-8" display="block" size="body2">
+          <Text className="my-8 max-w-prose" display="block" size="body2">
             {submission.summary}
           </Text>
         )}
@@ -126,8 +129,8 @@ export default function ProjectsChallengeSubmissionPage({
             submissionId={submissionId}
           />
         </div>
-        <div className="flex flex-col md:flex-row gap-x-10 gap-8 mt-10 lg:mt-16">
-          <div className="flex flex-col gap-3 flex-1">
+        <div className="mt-10 flex flex-col gap-8 gap-x-10 md:flex-row lg:mt-16">
+          <div className="flex flex-1 flex-col gap-3">
             <Heading level="heading6">
               <FormattedMessage
                 defaultMessage="Implementation details"
@@ -137,7 +140,7 @@ export default function ProjectsChallengeSubmissionPage({
             </Heading>
             <RichText textSize="sm" value={submission.implementation} />
           </div>
-          <div className="flex flex-col gap-3 flex-1">
+          <div className="flex flex-1 flex-col gap-3">
             <Heading level="heading6">
               <FormattedMessage
                 defaultMessage="Tech stack"
@@ -164,9 +167,9 @@ export default function ProjectsChallengeSubmissionPage({
             )}
           </div>
         </div>
-        <div className="flex flex-col mt-10 lg:mt-16">
+        <div className="mt-10 flex flex-col lg:mt-16">
           <div className="flex flex-col md:flex-row">
-            <div className="flex flex-col gap-3 flex-1">
+            <div className="flex flex-1 flex-col gap-3">
               <Heading level="heading6">
                 <FormattedMessage
                   defaultMessage="Code"
@@ -176,9 +179,10 @@ export default function ProjectsChallengeSubmissionPage({
               </Heading>
               <GithubRepositoryCodeViewer
                 branchName={branchName}
-                className={clsx('rounded-t-lg h-[500px]', [
-                  'border-t border-x',
+                className={clsx('h-[500px] rounded-t-lg', [
+                  'border-x border-t',
                   themeBorderColor,
+                  themeBackgroundCardColor,
                 ])}
                 repoName={repoName}
                 repoOwner={repoOwner}
