@@ -8,6 +8,8 @@ import {
 import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
+import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
+import useProfile from '~/hooks/user/useProfile';
 
 import { useToast } from '~/components/global/toasts/ToastsProvider';
 import Anchor from '~/components/ui/Anchor';
@@ -64,6 +66,8 @@ export default function ProjectsChallengeSessionContextProvider({
   children,
   slug,
 }: Props) {
+  const { profile } = useProfile();
+  const { navigateToSignInUpPage } = useAuthSignInUp();
   const queryClient = useQueryClient();
   const { showToast } = useToast();
   const { data: canAccessAllSteps } =
@@ -153,6 +157,12 @@ export default function ProjectsChallengeSessionContextProvider({
       session,
       setIsGetStartedDialogShown,
       startProject: () => {
+        if (profile == null) {
+          navigateToSignInUpPage();
+
+          return;
+        }
+
         setIsGetStartedDialogShown(true);
       },
       startSession: async (
