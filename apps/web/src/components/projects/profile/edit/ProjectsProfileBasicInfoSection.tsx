@@ -1,14 +1,18 @@
+import { useState } from 'react';
 import { Controller, useFormContext } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Avatar from '~/components/ui/Avatar';
-import Button from '~/components/ui/Button';
+import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 
+import ProjectsProfileEditPhoto from './ProjectsProfileEditPhoto';
+
 export default function ProjectsProfileBasicInfoSection() {
   const intl = useIntl();
+  const [imageSizeExceeded, setImageSizeExceeded] = useState(false);
 
   const {
     control,
@@ -22,21 +26,29 @@ export default function ProjectsProfileBasicInfoSection() {
         name="avatarUrl"
         render={({ field }) => (
           <div className="flex flex-col items-center gap-6">
-            <Avatar
-              alt="avatar"
-              className="h-[120px] w-[120px]"
-              size="custom"
-              src={field.value ?? ''}
-            />
-            <Button
-              label={intl.formatMessage({
-                defaultMessage: 'Edit profile photo',
-                description:
-                  'Label for "Edit profile photo" button on Projects profile onboarding page',
-                id: 'rax4QM',
-              })}
-              size="sm"
-              variant="secondary"
+            <div className="flex flex-col gap-1 items-center">
+              {imageSizeExceeded && (
+                <Text color="error" display="block" size="body3">
+                  {intl.formatMessage({
+                    defaultMessage: 'Please upload a photo smaller than 1 MB',
+                    description: 'Profile photo size exceed error message',
+                    id: 'Z4BPbp',
+                  })}
+                </Text>
+              )}
+              <Avatar
+                alt="avatar"
+                className="h-[120px] w-[120px]"
+                size="custom"
+                src={field.value ?? ''}
+              />
+            </div>
+            <ProjectsProfileEditPhoto
+              hasProfilePhoto={!!field.value}
+              setImageSizeExceeded={setImageSizeExceeded}
+              onChange={(imageUrl) => {
+                field.onChange(imageUrl);
+              }}
             />
           </div>
         )}

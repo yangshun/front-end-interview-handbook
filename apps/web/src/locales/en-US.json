@@ -15,6 +15,10 @@
     "defaultMessage": "Your username has been updated.",
     "description": "Success message when for username changes"
   },
+  "+98gxd": {
+    "defaultMessage": "Upload a photo",
+    "description": "Label for upload photo"
+  },
   "+99sZT": {
     "defaultMessage": "{questionCount}+ interview questions across <clink>coding</clink> and <qlink>quiz</qlink> formats and new questions constantly being added.",
     "description": "Subtitle for huge question bank feature"
@@ -1154,6 +1158,10 @@
   "9Z/GHL": {
     "defaultMessage": "Something went wrong, please check your input.",
     "description": "Form error text"
+  },
+  "9dQ21j": {
+    "defaultMessage": "Set new profile photo",
+    "description": "Label for new profile photo button"
   },
   "9fclPT": {
     "defaultMessage": "Practice writing JavaScript and DOM API Polyfills",
@@ -3851,6 +3859,10 @@
     "defaultMessage": "Review other's project code and help them improve",
     "description": "Description for recommended action for new projects platform user"
   },
+  "Z4BPbp": {
+    "defaultMessage": "Please upload a photo smaller than 1 MB",
+    "description": "Profile photo size exceed error message"
+  },
   "Z4VfkU": {
     "defaultMessage": "Every question is accompanied by an official, well-explained solution from ex-interviewers.",
     "description": "Description of 'Learn from official solutions and guides' feature in marketing page"
@@ -4134,6 +4146,10 @@
   "bWymcE": {
     "defaultMessage": "Guide to preparing for Front End-focused System Design questions in front end / web developer interviews",
     "description": "Front end system design guidebook description"
+  },
+  "bYY9Mh": {
+    "defaultMessage": "Crop your new profile photo",
+    "description": "Dialog title for crop profile photo"
   },
   "bZFghR": {
     "defaultMessage": "Twitter",
@@ -4942,6 +4958,10 @@
   "jYsoqB": {
     "defaultMessage": "Component libraries for your portfolio",
     "description": "Title for recommended action for new projects platform user"
+  },
+  "jZfj55": {
+    "defaultMessage": "Remove photo",
+    "description": "Label for remove photo"
   },
   "jb3oKk": {
     "defaultMessage": "Community contributions",

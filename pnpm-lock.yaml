@@ -375,6 +375,9 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      react-advanced-cropper:
+        specifier: ^0.19.4
+        version: 0.19.4(react@18.2.0)
       react-circular-progressbar:
         specifier: ^2.1.0
         version: 2.1.0(react@18.2.0)
@@ -6674,6 +6677,13 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
+  /advanced-cropper@0.18.0:
+    resolution: {integrity: sha512-Bo0fiW8F+kI4f8zEm8YXIDkGNi+aXaQPxqDijU7hY+1ETACbvFnNCxssspgAwHBy9RpFlcXMmjcq+LImUOhaqQ==}
+    engines: {node: '>=8', npm: '>=5'}
+    dependencies:
+      tslib: 2.6.2
+    dev: false
+
   /agent-base@6.0.2:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
     engines: {node: '>= 6.0.0'}
@@ -7389,6 +7399,10 @@ packages:
 
   /cjs-module-lexer@1.2.3:
     resolution: {integrity: sha512-0TNiGstbQmCFwt4akjjBg5pLRTSyj/PkWQ1ZoO2zntmg9yLqSRxwEa4iCfQLGjqhiqBfOJa7W/E8wfGrTDmlZQ==}
+
+  /classnames@2.5.1:
+    resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
+    dev: false
 
   /clean-set@1.1.2:
     resolution: {integrity: sha512-cA8uCj0qSoG9e0kevyOWXwPaELRPVg5Pxp6WskLMwerx257Zfnh8Nl0JBH59d7wQzij2CK7qEfJQK3RjuKKIug==}
@@ -12407,6 +12421,18 @@ packages:
       http-errors: 1.7.3
       iconv-lite: 0.4.24
       unpipe: 1.0.0
+    dev: false
+
+  /react-advanced-cropper@0.19.4(react@18.2.0):
+    resolution: {integrity: sha512-CJAeOyg5gMvrhZoaMKcP6XJf10xanUCHqRCFXUtIiKxcHgSGAVGedd/zjvCIG4E1hMoFwaaFazS/Hw0Odhtjmw==}
+    engines: {node: '>=8', npm: '>=5'}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      advanced-cropper: 0.18.0
+      classnames: 2.5.1
+      react: 18.2.0
+      tslib: 2.6.2
     dev: false
 
   /react-circular-progressbar@2.1.0(react@18.2.0):

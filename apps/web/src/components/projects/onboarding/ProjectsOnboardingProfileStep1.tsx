@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -12,11 +13,15 @@ import ProjectsProfileYOEInput from '~/components/projects/profile/ProjectsProfi
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
+import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
+
+import ProjectsProfileEditPhoto from '../profile/edit/ProjectsProfileEditPhoto';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
 export type ProjectsProfileOnboardingStep1FormValues = {
+  avatarUrl?: string | undefined;
   hasNotStartedWork: boolean;
   jobTitle: string;
   monthYearExperience: string | undefined;
@@ -32,6 +37,7 @@ function useOnboardingProfileStep1Schema() {
   const monthYearExperienceSchema = useProjectsMonthYearExperienceSchema();
 
   const baseSchema = z.object({
+    avatarUrl: z.string().optional(),
     jobTitle: z.string().min(1, {
       message: intl.formatMessage({
         defaultMessage: 'Please enter your job title',
@@ -103,6 +109,7 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
     trpc.projects.profile.onboardingStep1.useQuery();
   const onboardingStep1UpdateMutation =
     trpc.projects.profile.onboardingStep1Update.useMutation();
+  const [imageSizeExceeded, setImageSizeExceeded] = useState(false);
 
   const {
     control,
@@ -116,6 +123,7 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
   >({
     resolver: zodResolver(onboardingProfileStep1Schema),
     values: {
+      avatarUrl: initialValues?.avatarUrl ?? '',
       hasNotStartedWork: initialValues?.currentStatus !== null,
       jobTitle: initialValues?.title ?? '',
       monthYearExperience: initialValues?.startWorkDate
@@ -144,6 +152,7 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
       onSubmit={handleSubmit(
         async (data: OnboardingProfileStep1TransformedValues) => {
           await onboardingStep1UpdateMutation.mutateAsync({
+            avatarUrl: data.avatarUrl,
             currentStatus: data.hasNotStartedWork
               ? data.yoeReplacement
               : undefined,
@@ -166,25 +175,39 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
           <ProjectsChallengeReputationTag points={100} variant="filled" />
         </div>
         <div className="flex flex-col items-start gap-x-16 gap-y-6 sm:flex-row">
-          <div className="flex flex-col items-center gap-4">
-            {/* TODO(projects): Use proper placeholder */}
-            <Avatar
-              alt=""
-              className="h-[120px] w-[120px]"
-              size="custom"
-              src="https://source.unsplash.com/random/128x128"
-            />
-            <Button
-              label={intl.formatMessage({
-                defaultMessage: 'Edit profile photo',
-                description:
-                  'Label for "Edit profile photo" button on Projects profile onboarding page',
-                id: 'rax4QM',
-              })}
-              size="sm"
-              variant="secondary"
-            />
-          </div>
+          <Controller
+            control={control}
+            name="avatarUrl"
+            render={({ field }) => (
+              <div className="flex flex-col items-center gap-4">
+                <div className="flex flex-col gap-1 items-center">
+                  {imageSizeExceeded && (
+                    <Text color="error" display="block" size="body3">
+                      {intl.formatMessage({
+                        defaultMessage:
+                          'Please upload a photo smaller than 1 MB',
+                        description: 'Profile photo size exceed error message',
+                        id: 'Z4BPbp',
+                      })}
+                    </Text>
+                  )}
+                  <Avatar
+                    alt=""
+                    className="h-[120px] w-[120px]"
+                    size="custom"
+                    src={field.value ?? ''}
+                  />
+                </div>
+                <ProjectsProfileEditPhoto
+                  hasProfilePhoto={!!field.value}
+                  setImageSizeExceeded={setImageSizeExceeded}
+                  onChange={(imageUrl) => {
+                    field.onChange(imageUrl);
+                  }}
+                />
+              </div>
+            )}
+          />
           <div className="flex flex-1 flex-col gap-6 self-stretch sm:self-auto">
             <Controller
               control={control}

@@ -43,6 +43,7 @@ function useProjectsProfileEditSchema() {
   });
 
   const baseSchema = z.object({
+    avatarUrl: z.string().optional(),
     bio: z.string(),
     githubUsername: z
       .union([z.string().length(0), z.string().url()])
@@ -173,6 +174,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
   const onSave = async (data: ProjectsEditProfileTransformedValues) => {
     await projectsProfileUpdateMutation.mutateAsync(
       {
+        avatarUrl: data.avatarUrl,
         bio: data.bio,
         currentStatus: data.hasNotStartedWork ? data.yoeReplacement : undefined,
         githubUsername: data.githubUsername,

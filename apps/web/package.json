@@ -102,6 +102,7 @@
     "puppeteer": "^21.9.0",
     "radix-ui": "^1.0.1",
     "react": "^18.2.0",
+    "react-advanced-cropper": "^0.19.4",
     "react-circular-progressbar": "^2.1.0",
     "react-compare-image": "^3.4.0",
     "react-dnd": "^16.0.1",

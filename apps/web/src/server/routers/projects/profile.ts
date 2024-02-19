@@ -3,6 +3,8 @@ import { z } from 'zod';
 import { projectsSkillListInputOptionalSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 
 import prisma from '~/server/prisma';
+import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
+import { base64toBlob } from '~/utils/projects/profilePhotoUtils';
 
 import { projectsUserProcedure, publicProjectsProcedure } from './procedures';
 import { publicProcedure, router, userProcedure } from '../../trpc';
@@ -193,6 +195,7 @@ export const projectsProfileRouter = router({
   onboardingStep1: userProcedure.query(async ({ ctx: { user } }) => {
     return await prisma.profile.findUnique({
       select: {
+        avatarUrl: true,
         currentStatus: true,
         name: true,
         startWorkDate: true,
@@ -206,6 +209,7 @@ export const projectsProfileRouter = router({
   onboardingStep1Update: userProcedure
     .input(
       z.object({
+        avatarUrl: z.string().optional(),
         currentStatus: z.string().optional(),
         name: z.string(),
         startWorkDate: z.date().optional(),
@@ -214,11 +218,12 @@ export const projectsProfileRouter = router({
     )
     .mutation(
       async ({
-        input: { currentStatus, name, title, startWorkDate },
+        input: { currentStatus, name, title, startWorkDate, avatarUrl },
         ctx: { user },
       }) => {
         return await prisma.profile.update({
           data: {
+            avatarUrl,
             currentStatus,
             name,
             startWorkDate,
@@ -309,6 +314,7 @@ export const projectsProfileRouter = router({
     .input(
       z
         .object({
+          avatarUrl: z.string().optional(),
           bio: z.string(),
           currentStatus: z.string().optional(),
           githubUsername: z
@@ -346,6 +352,7 @@ export const projectsProfileRouter = router({
           startWorkDate,
           title,
           website,
+          avatarUrl,
         },
         ctx: { user },
       }) => {
@@ -357,6 +364,7 @@ export const projectsProfileRouter = router({
 
         return await prisma.profile.update({
           data: {
+            avatarUrl,
             bio,
             currentStatus,
             githubUsername,
@@ -378,4 +386,32 @@ export const projectsProfileRouter = router({
         });
       },
     ),
+  uploadProfilePhoto: userProcedure
+    .input(
+      z.object({
+        imageFile: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { imageFile }, ctx: { user } }) => {
+      const supabaseAdmin = createSupabaseAdminClientGFE();
+
+      const blob = base64toBlob(imageFile);
+
+      const storagePath = `${user.id}.jpg`;
+      const { error } = await supabaseAdmin.storage
+        .from('user-avatars')
+        .upload(storagePath, blob, {
+          upsert: true,
+        });
+
+      if (error) {
+        throw error;
+      }
+
+      const { data: imageUrl } = supabaseAdmin.storage
+        .from('user-avatars')
+        .getPublicUrl(storagePath);
+
+      return imageUrl.publicUrl;
+    }),
 });
