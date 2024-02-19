@@ -397,7 +397,7 @@ export const projectsProfileRouter = router({
 
       const blob = base64toBlob(imageFile);
 
-      const storagePath = `${user.id}.jpg`;
+      const storagePath = `${user.id + String(new Date().getTime())}.jpg`;
       const { error } = await supabaseAdmin.storage
         .from('user-avatars')
         .upload(storagePath, blob, {

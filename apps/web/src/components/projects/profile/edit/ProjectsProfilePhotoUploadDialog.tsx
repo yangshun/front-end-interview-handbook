@@ -46,8 +46,8 @@ export default function ProjectsProfilePhotoUploadDialog({
 
   const onUpload = () => {
     const canvas = cropperRef.current?.getCanvas({
-      height: 100,
-      width: 100,
+      height: 250,
+      width: 250,
     });
 
     if (canvas) {
@@ -87,11 +87,11 @@ export default function ProjectsProfilePhotoUploadDialog({
         description: 'Dialog title for crop profile photo',
         id: 'bYY9Mh',
       })}
-      width="sm"
+      width="screen-sm"
       onClose={onClose}>
       <div
         className={clsx(
-          'h-[296px] flex justify-center items-center',
+          'flex h-[400px] items-center justify-center',
           themeBackgroundLayerColor,
         )}>
         {isImageLoading ? (

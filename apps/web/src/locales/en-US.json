@@ -583,6 +583,10 @@
     "defaultMessage": "Enjoy {discountPercentage}% off all plans by <follow>following us on social media</follow>. Check out other <promotion>promotions</promotion>!",
     "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
   },
+  "4AetUb": {
+    "defaultMessage": "Edit profile photo",
+    "description": "Label for edit profile photo button on projects profile"
+  },
   "4BBxZ1": {
     "defaultMessage": "Start project",
     "description": "Label for Start Project button on Projects project assets page"
@@ -1198,6 +1202,10 @@
   "AJSVim": {
     "defaultMessage": "Seattle, WA, USA",
     "description": "Seattle in USA"
+  },
+  "AJuXmH": {
+    "defaultMessage": "Add profile photo",
+    "description": "Label for add profile photo button on projects profile"
   },
   "AK/+j2": {
     "defaultMessage": "Your code has been successfully submitted and is now available for community review.",
@@ -5886,10 +5894,6 @@
   "rZaG+f": {
     "defaultMessage": "Unpin one or more existing submissions to pin a new one.",
     "description": "Dialog subtitle for pinned submission"
-  },
-  "rax4QM": {
-    "defaultMessage": "Edit profile photo",
-    "description": "Label for \"Edit profile photo\" button on Projects profile onboarding page"
   },
   "rbjUFF": {
     "defaultMessage": "For Beginners",

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -10,13 +9,11 @@ import ProjectsChallengeReputationTag from '~/components/projects/challenges/met
 import useProjectsMonthYearExperienceSchema from '~/components/projects/hooks/useProjectsMonthYearExperienceSchema';
 import { yoeReplacementSchema } from '~/components/projects/misc';
 import ProjectsProfileYOEInput from '~/components/projects/profile/ProjectsProfileYOEInput';
-import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
-import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
-import ProjectsProfileEditPhoto from '../profile/edit/ProjectsProfileEditPhoto';
+import ProjectsProfileEditAvatar from '../profile/edit/ProjectsProfileEditAvatar';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -109,7 +106,6 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
     trpc.projects.profile.onboardingStep1.useQuery();
   const onboardingStep1UpdateMutation =
     trpc.projects.profile.onboardingStep1Update.useMutation();
-  const [imageSizeExceeded, setImageSizeExceeded] = useState(false);
 
   const {
     control,
@@ -179,33 +175,12 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
             control={control}
             name="avatarUrl"
             render={({ field }) => (
-              <div className="flex flex-col items-center gap-4">
-                <div className="flex flex-col gap-1 items-center">
-                  {imageSizeExceeded && (
-                    <Text color="error" display="block" size="body3">
-                      {intl.formatMessage({
-                        defaultMessage:
-                          'Please upload a photo smaller than 1 MB',
-                        description: 'Profile photo size exceed error message',
-                        id: 'Z4BPbp',
-                      })}
-                    </Text>
-                  )}
-                  <Avatar
-                    alt=""
-                    className="h-[120px] w-[120px]"
-                    size="custom"
-                    src={field.value ?? ''}
-                  />
-                </div>
-                <ProjectsProfileEditPhoto
-                  hasProfilePhoto={!!field.value}
-                  setImageSizeExceeded={setImageSizeExceeded}
-                  onChange={(imageUrl) => {
-                    field.onChange(imageUrl);
-                  }}
-                />
-              </div>
+              <ProjectsProfileEditAvatar
+                src={field.value ?? ''}
+                onChange={(imageUrl) => {
+                  field.onChange(imageUrl);
+                }}
+              />
             )}
           />
           <div className="flex flex-1 flex-col gap-6 self-stretch sm:self-auto">

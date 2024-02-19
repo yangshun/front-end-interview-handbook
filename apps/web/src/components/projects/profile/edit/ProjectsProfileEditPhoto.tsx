@@ -2,6 +2,7 @@ import type { ChangeEvent } from 'react';
 import { useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
 
+import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import ProjectsProfilePhotoUploadDialog from './ProjectsProfilePhotoUploadDialog';
@@ -70,19 +71,38 @@ export default function ProjectsProfileEditPhoto({
         type="file"
         onChange={(e) => onSelectPhoto(e)}
       />
-      <DropdownMenu
-        label={intl.formatMessage({
-          defaultMessage: 'Edit profile photo',
-          description:
-            'Label for "Edit profile photo" button on Projects profile onboarding page',
-          id: 'rax4QM',
-        })}>
-        {menuItems
-          .filter((item) => item.show)
-          .map(({ label, value, onClick }) => (
-            <DropdownMenu.Item key={value} label={label} onClick={onClick} />
-          ))}
-      </DropdownMenu>
+      <div>
+        {hasProfilePhoto ? (
+          <DropdownMenu
+            label={intl.formatMessage({
+              defaultMessage: 'Edit profile photo',
+              description:
+                'Label for edit profile photo button on projects profile',
+              id: '4AetUb',
+            })}>
+            {menuItems
+              .filter((item) => item.show)
+              .map(({ label, value, onClick }) => (
+                <DropdownMenu.Item
+                  key={value}
+                  label={label}
+                  onClick={onClick}
+                />
+              ))}
+          </DropdownMenu>
+        ) : (
+          <Button
+            label={intl.formatMessage({
+              defaultMessage: 'Add profile photo',
+              description:
+                'Label for add profile photo button on projects profile',
+              id: 'AJuXmH',
+            })}
+            variant="secondary"
+            onClick={() => photoInputRef?.current?.click()}
+          />
+        )}
+      </div>
       {showPhotoUploadDialog && (
         <ProjectsProfilePhotoUploadDialog
           image={imageFile}
