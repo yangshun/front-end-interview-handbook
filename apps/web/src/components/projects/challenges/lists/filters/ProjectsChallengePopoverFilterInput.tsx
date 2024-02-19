@@ -4,13 +4,11 @@ import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Popover from '~/components/ui/Popover';
 
-import {
-  type ProjectsChallengeFilter,
-  useProjectsChallengeFilterState,
-} from '../ProjectsChallengeFilterContext';
+import type { ProjectsChallengeFilterDropdown } from '../ProjectsChallengeFilterContext';
+import { useProjectsChallengeFilterState } from '../ProjectsChallengeFilterContext';
 
 type Props = Readonly<{
-  filter: ProjectsChallengeFilter;
+  filter: ProjectsChallengeFilterDropdown;
 }>;
 
 export default function ProjectsChallengePopoverFilterInput({ filter }: Props) {
@@ -39,7 +37,7 @@ export default function ProjectsChallengePopoverFilterInput({ filter }: Props) {
           variant="secondary"
         />
       }
-      width={filter.width ? filter.width : 'sm'}>
+      width={filter.width ?? 'sm'}>
       <div className="flex flex-col gap-y-3">
         {filter.options.map((option) => (
           <div key={option.value} className="flex items-center">

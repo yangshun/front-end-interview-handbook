@@ -13,7 +13,9 @@ import useFilterSearchParams from '~/hooks/useFilterSearchParams';
 import type { PopoverContentWidth } from '~/components/ui/Popover';
 
 export type ProjectsChallengeFilterType = 'checkbox' | 'skill-selection';
-export type ProjectsChallengeFilter = {
+export type ProjectsChallengeFilterViewType = 'both' | 'slideout';
+
+export type ProjectsChallengeFilterCommon = {
   id: ProjectsChallengeFilterKey;
   label: string;
   longLabel?: string;
@@ -23,8 +25,19 @@ export type ProjectsChallengeFilter = {
   }>;
   tooltip: string;
   type: ProjectsChallengeFilterType;
+  view: ProjectsChallengeFilterViewType;
+};
+
+export type ProjectsChallengeFilterDropdown = ProjectsChallengeFilterCommon & {
+  view: 'both';
   width?: PopoverContentWidth;
 };
+
+export type ProjectsChallengeFilter =
+  | ProjectsChallengeFilterDropdown
+  | (ProjectsChallengeFilterCommon & {
+      view: 'slideout';
+    });
 
 export type ProjectsChallengeFilterKey =
   | 'component-track'
@@ -54,6 +67,7 @@ function useFilters() {
           id: '03TVln',
         }),
         type: 'checkbox',
+        view: 'both',
         width: 'md',
       },
       {
@@ -83,6 +97,7 @@ function useFilters() {
           id: 'KBkMan',
         }),
         type: 'skill-selection',
+        view: 'both',
       },
       {
         id: 'difficulty',
@@ -120,6 +135,7 @@ function useFilters() {
           id: 'yptiXw',
         }),
         type: 'checkbox',
+        view: 'both',
       },
       {
         id: 'status',
@@ -153,6 +169,7 @@ function useFilters() {
           id: 'qEo3cR',
         }),
         type: 'checkbox',
+        view: 'both',
       },
     ];
 
