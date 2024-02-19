@@ -33,6 +33,7 @@ model Profile {
   name             String?
   avatarUrl        String?
   title            String?
+  company          String?
   bio              String?
   githubUsername   String?
   linkedInUsername String?
