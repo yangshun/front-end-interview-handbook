@@ -196,6 +196,7 @@ model ProjectsProfile {
   submissions                    ProjectsChallengeSubmission[]
   votesGiven                     ProjectsChallengeSubmissionVote[]
   ProjectsChallengeSubmissionPin ProjectsChallengeSubmissionPin[]
+  reputation                     ProjectsReputationPoint[]
 }
 
 enum ProjectsChallengeSessionStatus {
@@ -278,6 +279,39 @@ model ProjectsChallengeSubmissionVote {
   @@unique([submissionId, profileId])
 }
 
+model ProjectsReputationPoint {
+  id        Int      @id @default(autoincrement())
+  profileId String   @db.Uuid
+  key       String
+  points    Int
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  projectsProfile ProjectsProfile @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([profileId, key])
+}
+
+view ProjectsChallengeSubmissionRecommendationAll {
+  id    String @id @db.Uuid
+  score Int
+
+  submission ProjectsChallengeSubmission @relation(fields: [id], references: [id])
+}
+
+view ProjectsChallengeSubmissionRecommendationLearn {
+  id    String @id @db.Uuid
+  score Int
+
+  submission ProjectsChallengeSubmission @relation(fields: [id], references: [id])
+}
+
+view ProjectsChallengeSubmissionRecommendationMentor {
+  id    String @id @db.Uuid
+  score Int
+
+  submission ProjectsChallengeSubmission @relation(fields: [id], references: [id])
+}
+
 enum DiscussionCommentDomain {
   PROJECTS_CHALLENGE
   PROJECTS_SUBMISSION
@@ -325,25 +359,4 @@ model RewardsTaskCompletion {
   createdAt DateTime @default(now()) @db.Timestamptz(6)
 
   @@unique([userId, campaign, action])
-}
-
-view ProjectsChallengeSubmissionRecommendationAll {
-  id    String @id @db.Uuid
-  score Int
-
-  submission ProjectsChallengeSubmission @relation(fields: [id], references: [id])
-}
-
-view ProjectsChallengeSubmissionRecommendationLearn {
-  id    String @id @db.Uuid
-  score Int
-
-  submission ProjectsChallengeSubmission @relation(fields: [id], references: [id])
-}
-
-view ProjectsChallengeSubmissionRecommendationMentor {
-  id    String @id @db.Uuid
-  score Int
-
-  submission ProjectsChallengeSubmission @relation(fields: [id], references: [id])
 }
