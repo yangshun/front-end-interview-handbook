@@ -24,6 +24,15 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
+function isOtherMotivation(motivation: string | null) {
+  // It is an other motivation is there is some text that is not a motivationReasonValue
+  // Or if the text is "other"
+  return (
+    (motivation && !(motivation in motivationReasonValue.Values)) ||
+    motivation === motivationReasonValue.Values.other
+  );
+}
+
 function getRecommendedActions(
   actions: Record<
     ProjectsMotivationReasonValue,
@@ -32,17 +41,17 @@ function getRecommendedActions(
   motivations: Array<string>,
 ) {
   if (motivations.length === 0) {
-    return actions.beginner;
+    // Return default of beginner + portfolio profile
+    return [...actions.beginner, ...actions.portfolio].slice(0, 3);
   }
 
   let primaryMotivation: ProjectsMotivationReasonValue | string | null =
     motivations[0];
   let secondaryMotivation: ProjectsMotivationReasonValue | string | null =
     motivations[1];
-  // TODO(projects): update for motivations array.
 
-  if (primaryMotivation != null) {
-    if (secondaryMotivation != null) {
+  if (primaryMotivation == null) {
+    if (secondaryMotivation == null) {
       // Set to default of beginner + portfolio profile
       primaryMotivation = motivationReasonValue.Values.beginner;
       secondaryMotivation = motivationReasonValue.Values.portfolio;
@@ -53,19 +62,25 @@ function getRecommendedActions(
   }
 
   // At this point, the user has at least a primary motivation
-  if (primaryMotivation === motivationReasonValue.Values.other) {
-    // Set to default of beginner + portfolio profile
-    primaryMotivation = motivationReasonValue.Values.beginner;
-    secondaryMotivation = motivationReasonValue.Values.portfolio;
+  if (isOtherMotivation(primaryMotivation)) {
+    if (secondaryMotivation == null || isOtherMotivation(secondaryMotivation)) {
+      // Set to default of beginner + portfolio profile
+      primaryMotivation = motivationReasonValue.Values.beginner;
+      secondaryMotivation = motivationReasonValue.Values.portfolio;
+    } else {
+      // Set secondary motivation (which is not null and non-others) as primary motivation
+      primaryMotivation = secondaryMotivation;
+      secondaryMotivation = 'others';
+    }
   }
-
-  if (secondaryMotivation === motivationReasonValue.Values.other) {
+  if (isOtherMotivation(secondaryMotivation)) {
     secondaryMotivation =
       primaryMotivation === motivationReasonValue.Values.portfolio
         ? motivationReasonValue.Values.beginner
         : motivationReasonValue.Values.portfolio;
   }
 
+  // At this point, the user has a non-other primary motivation and a non-other secondary motivation if it exists
   const primaryMotivationValue = motivationReasonValue.parse(primaryMotivation);
   const primaryActions = actions[primaryMotivationValue];
 
@@ -73,7 +88,7 @@ function getRecommendedActions(
     return primaryActions;
   }
 
-  // At this point, the user has both a primary and secondary motivation
+  // At this point, the user has both a non-other primary and a non-other secondary motivation
   const secondaryMotivationValue =
     motivationReasonValue.parse(secondaryMotivation);
   const secondaryActions = actions[secondaryMotivationValue];
