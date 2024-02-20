@@ -99,7 +99,7 @@ export const projectsChallengeSubmissionItemRouter = router({
           },
         );
 
-        // Write to database first
+        // Write to database first.
         const txRes = await prisma.$transaction(async (tx) => {
           if (existingSession == null) {
             await tx.projectsChallengeSession.create({
@@ -107,12 +107,14 @@ export const projectsChallengeSubmissionItemRouter = router({
                 profileId: projectsProfileId,
                 slug,
                 status: 'COMPLETED',
+                stoppedAt: new Date(),
               },
             });
           } else {
             await tx.projectsChallengeSession.updateMany({
               data: {
                 status: 'COMPLETED',
+                stoppedAt: new Date(),
               },
               where: {
                 profileId: projectsProfileId,

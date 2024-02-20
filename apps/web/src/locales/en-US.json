@@ -3511,10 +3511,6 @@
     "defaultMessage": "Password",
     "description": "Label of password field on Change Password page"
   },
-  "VVnqTJ": {
-    "defaultMessage": "Activity | Settings | Projects",
-    "description": "Title of activity page"
-  },
   "VWGWik": {
     "defaultMessage": "Learn to work with specifications mimicking projects you will encounter as a full-time engineer",
     "description": "Description for \"Real world specs\" feature on Projects home page"
@@ -5682,6 +5678,10 @@
   "pDo/V5": {
     "defaultMessage": "{price} billed per month.",
     "description": "Description of billing frequency for monthly plan"
+  },
+  "pEnyIr": {
+    "defaultMessage": "Activity | Settings | Projects",
+    "description": "Title of activities page for projects"
   },
   "pJA5oJ": {
     "defaultMessage": "Code review",

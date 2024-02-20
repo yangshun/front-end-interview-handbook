@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import ProjectsSettingsActivityPage from '~/components/projects/settings/ProjectsSettingsActivityPage';
+
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -19,12 +21,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     pathname: '/projects/settings/activity',
     title: intl.formatMessage({
       defaultMessage: 'Activity | Settings | Projects',
-      description: 'Title of activity page',
-      id: 'VVnqTJ',
+      description: 'Title of activities page for projects',
+      id: 'pEnyIr',
     }),
   });
 }
 
 export default async function Page() {
-  return <div>Activity</div>;
+  return <ProjectsSettingsActivityPage />;
 }

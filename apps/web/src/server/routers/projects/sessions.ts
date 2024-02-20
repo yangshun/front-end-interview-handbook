@@ -49,21 +49,28 @@ export const projectsSessionsRouter = router({
   list: publicProcedure
     .input(
       z.object({
+        orderBy: z.enum(['asc', 'desc']).optional(),
         statuses: z
           .array(z.enum(['COMPLETED', 'IN_PROGRESS', 'STOPPED']))
-          .nonempty(),
+          .nonempty()
+          .optional(),
         userId: z.string().uuid().optional(),
       }),
     )
-    .query(async ({ input: { statuses, userId }, ctx: { user } }) => {
+    .query(async ({ input: { orderBy, statuses, userId }, ctx: { user } }) => {
       const sessions = await prisma.projectsChallengeSession.findMany({
+        orderBy: {
+          createdAt: orderBy,
+        },
         where: {
           projectsProfile: {
             userId: userId ?? user?.id,
           },
-          status: {
-            in: statuses,
-          },
+          status: statuses
+            ? {
+                in: statuses,
+              }
+            : undefined,
         },
       });
 
