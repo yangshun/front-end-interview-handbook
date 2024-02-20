@@ -1,5 +1,6 @@
 import { Octokit } from 'octokit';
 import Stripe from 'stripe';
+import type { ZodError } from 'zod';
 import { z } from 'zod';
 
 import prisma from '~/server/prisma';
@@ -14,6 +15,31 @@ const GITHUB_REPO_ID = 593048179;
 const GITHUB_ORG_NAME = 'greatfrontend';
 const SOCIAL_TASKS_DISCOUNT_CAMPAIGN = 'SOCIAL_TASKS_DISCOUNT';
 
+const gitHubUsernameSchema = z
+  .string()
+  .trim()
+  .min(2, { message: 'Must be two characters or more' })
+  .regex(GITHUB_USERNAME_REGEX, {
+    message:
+      'Contains invalid characters. Only alphanumeric characters and hyphens allowed',
+  });
+const linkedInUsernameSchema = z
+  .string()
+  .trim()
+  .min(2, { message: 'Must be two characters or more' })
+  .regex(LINKEDIN_USERNAME_REGEX, {
+    message:
+      'Contains invalid characters. Only alphanumeric characters, hyphens, and underscore allowed.',
+  });
+const twitterUsernameSchema = z
+  .string()
+  .trim()
+  .min(2, { message: 'Must be two characters or more' })
+  .regex(TWITTER_USERNAME_REGEX, {
+    message:
+      'Contains invalid characters. Only alphanumeric characters, hyphens, and underscore allowed.',
+  });
+
 const socialTasksDiscountCouponId_TEST = 'HvFQPL5W';
 const socialTasksDiscountCouponId_PROD = 'IAx9mkqM';
 
@@ -25,7 +51,7 @@ export const rewardsRouter = router({
   checkGitHubFollowing: userProcedure
     .input(
       z.object({
-        username: z.string().trim().min(2).regex(GITHUB_USERNAME_REGEX),
+        username: gitHubUsernameSchema,
       }),
     )
     .mutation(async ({ input: { username }, ctx: { user } }) => {
@@ -63,7 +89,7 @@ export const rewardsRouter = router({
   checkGitHubStarred: userProcedure
     .input(
       z.object({
-        username: z.string().trim().min(2).regex(GITHUB_USERNAME_REGEX),
+        username: gitHubUsernameSchema,
       }),
     )
     .mutation(async ({ input: { username }, ctx: { user } }) => {
@@ -156,7 +182,7 @@ export const rewardsRouter = router({
   checkLinkedInFollowing: userProcedure
     .input(
       z.object({
-        username: z.string().trim().min(2).regex(LINKEDIN_USERNAME_REGEX),
+        username: linkedInUsernameSchema,
       }),
     )
     .mutation(async ({ input: { username }, ctx: { user } }) => {
@@ -181,7 +207,7 @@ export const rewardsRouter = router({
   checkTwitterFollowing: userProcedure
     .input(
       z.object({
-        username: z.string().trim().min(2).regex(TWITTER_USERNAME_REGEX),
+        username: twitterUsernameSchema,
       }),
     )
     .mutation(async ({ input: { username }, ctx: { user } }) => {
@@ -338,13 +364,21 @@ export const rewardsRouter = router({
             }
           })(),
           (async () => {
-            if (linkedInUsername.trim() === '') {
-              throw 'Invalid LinkedIn profile';
+            try {
+              // Validate inside here rather than at the query input so that
+              // we can provide granular errors.
+              linkedInUsernameSchema.parse(linkedInUsername);
+            } catch (err) {
+              throw (err as ZodError).issues[0].message;
             }
           })(),
           (async () => {
-            if (twitterUsername.trim() === '') {
-              throw 'Invalid Twitter username';
+            try {
+              // Validate inside here rather than at the query input so that
+              // we can provide granular errors.
+              twitterUsernameSchema.parse(twitterUsername);
+            } catch (err) {
+              throw (err as ZodError).issues[0].message;
             }
           })(),
         ]);

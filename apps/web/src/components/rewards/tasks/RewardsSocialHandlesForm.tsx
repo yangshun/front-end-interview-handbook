@@ -166,9 +166,9 @@ export default function RewardsSocialHandlesForm({
       {hasError && (
         <Text color="error" display="block" size="body2">
           <FormattedMessage
-            defaultMessage="Something went wrong, please check your input."
+            defaultMessage="Invalid inputs. Please check that you have filled in the username or profile URL correctly."
             description="Form error text"
-            id="9Z/GHL"
+            id="kK7Cf2"
           />
         </Text>
       )}

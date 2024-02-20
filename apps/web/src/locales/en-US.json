@@ -1163,10 +1163,6 @@
     "defaultMessage": "Review community submissions",
     "description": "Recommended action for new projects platform user"
   },
-  "9Z/GHL": {
-    "defaultMessage": "Something went wrong, please check your input.",
-    "description": "Form error text"
-  },
   "9dQ21j": {
     "defaultMessage": "Set new profile photo",
     "description": "Label for new profile photo button"
@@ -5122,6 +5118,10 @@
   "kHB06P": {
     "defaultMessage": "I got the job and a great ROI!",
     "description": "Larry Almeida's testimonial"
+  },
+  "kK7Cf2": {
+    "defaultMessage": "Invalid inputs. Please check that you have filled in the username or profile URL correctly.",
+    "description": "Form error text"
   },
   "kL0yEH": {
     "defaultMessage": "You can't find it elsewhere",
