@@ -194,4 +194,14 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
     name: 'Zhang Ziqing',
     title: 'Front End Engineering Intern @ TikTok',
   },
+  {
+    category: 'team',
+    companyLogos: [],
+    description:
+      'Feilin is a software engineering intern who is into competitive programming and promoting tech education & literacy amongst youths. She is also a Google Cloud Certified Professional ML Engineer.',
+    href: 'https://www.linkedin.com/in/feilin-liangga-putri/',
+    image: '/img/team/feilin.jpg',
+    name: 'Feilin Liangga Putri',
+    title: 'Software Engineering Intern',
+  },
 ];
