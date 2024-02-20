@@ -55,7 +55,7 @@ export default function DiscussionsCommentList({
   if (comments?.length === 0) {
     return (
       <div
-        className={clsx('rounded-lg py-10 w-full', 'border', themeBorderColor)}>
+        className={clsx('w-full rounded-lg py-10', 'border', themeBorderColor)}>
         <EmptyState
           subtitle="Be the first to leave a comment"
           title="No comments yet"
@@ -65,7 +65,7 @@ export default function DiscussionsCommentList({
   }
 
   return (
-    <div className="flex flex-col gap-6 w-full">
+    <div className="flex w-full flex-col gap-6">
       <div className="flex items-center justify-between">
         <div
           className={clsx('flex items-center gap-1.5', themeTextSubtleColor)}>

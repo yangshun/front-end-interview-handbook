@@ -21,7 +21,7 @@ export default function MDXHeading({ as: Tag, id, children, ...props }: Props) {
             <Anchor
               aria-hidden={true}
               aria-label={anchorTitle}
-              className="before:content-['#'] hover:!underline ml-2 select-none !no-underline opacity-0 focus:opacity-100 group-hover:opacity-100"
+              className="ml-2 select-none !no-underline opacity-0 before:content-['#'] hover:!underline focus:opacity-100 group-hover:opacity-100"
               href={`#${id}`}
               title={anchorTitle}
               underline={false}>

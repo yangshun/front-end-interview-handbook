@@ -26,7 +26,7 @@ export default function ProjectsChallengeSubmissionImplementationField({
   });
 
   return (
-    <div className="grid lg:grid-cols-2 gap-x-6 gap-y-8">
+    <div className="grid gap-x-6 gap-y-8 lg:grid-cols-2">
       <RichTextEditor
         description={attrs.description}
         descriptionStyle="tooltip"

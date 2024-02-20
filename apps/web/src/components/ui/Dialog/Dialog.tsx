@@ -62,7 +62,7 @@ export default function DialogImpl({
   const contents = (
     <div
       className={clsx(
-        'flex flex-col p-6 max-h-full',
+        'flex max-h-full flex-col p-6',
         scrollable && 'overflow-hidden',
       )}>
       <div className="flex justify-between">
@@ -70,7 +70,7 @@ export default function DialogImpl({
           <Heading level="heading6">{title}</Heading>
         </Dialog.Title>
         <Button
-          className="-mt-2 -me-2"
+          className="-me-2 -mt-2"
           icon={RiCloseLine}
           isLabelHidden={true}
           label={intl.formatMessage({
@@ -85,7 +85,7 @@ export default function DialogImpl({
         />
       </div>
       <Section>
-        <div className={clsx('mt-2.5', scrollable && 'overflow-y-auto grow')}>
+        <div className={clsx('mt-2.5', scrollable && 'grow overflow-y-auto')}>
           <Text display="block" size="body2">
             {children}
           </Text>
@@ -93,7 +93,7 @@ export default function DialogImpl({
       </Section>
       {primaryButton && (
         <div
-          className={clsx('flex flex-row-reverse justify-between gap-4 mt-6')}>
+          className={clsx('mt-6 flex flex-row-reverse justify-between gap-4')}>
           <div className="flex gap-2">
             {secondaryButton}
             {primaryButton}
@@ -108,7 +108,7 @@ export default function DialogImpl({
     <Transition.Root as={Fragment} show={isShown}>
       <Dialog
         as="div"
-        className={clsx('relative z-dialog-backdrop')}
+        className={clsx('z-dialog-backdrop relative')}
         data-mode={dark ? 'dark' : undefined}
         initialFocus={cancelButtonRef}
         onClose={() => onClose()}>
@@ -129,7 +129,7 @@ export default function DialogImpl({
             )}
           />
         </Transition.Child>
-        <div className="fixed inset-0 z-dialog overflow-y-auto">
+        <div className="z-dialog fixed inset-0 overflow-y-auto">
           <div className="flex min-h-full items-end justify-center px-6 sm:items-center sm:px-0">
             <Transition.Child
               as={Fragment}

@@ -34,7 +34,7 @@ export default function UserProfileInformationRow({
   return (
     <div
       className={clsx(
-        'flex items-center flex-wrap',
+        'flex flex-wrap items-center',
         'gap-x-4',
         gapClasses[size],
       )}>

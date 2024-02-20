@@ -125,7 +125,7 @@ export default function ProjectsAllChallengesTab({ userId }: Props) {
         </fieldset>
       </div>
       {shownSessions && shownSessions.length !== 0 ? (
-        <div className="md:grid-cols-2 lg:grid-cols-3 grid-cols-1 grid gap-3 md:gap-4 lg:gap-6">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-6">
           {shownSessions.map((session) =>
             session.challenge ? (
               <ProjectsChallengeCard

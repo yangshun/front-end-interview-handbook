@@ -70,7 +70,7 @@ function RadioGroup<T extends string>(
         }
         aria-invalid={hasError ? true : undefined}
         className={clsx(
-          'flex gap-x-6 gap-y-1 flex-wrap',
+          'flex flex-wrap gap-x-6 gap-y-1',
           direction === 'vertical' && 'flex-col',
           className,
         )}

@@ -91,7 +91,7 @@ export default function ProjectsProfileYOEInput({
             name="yoeReplacement.option"
             render={({ field }) => (
               <RadioGroup
-                className="grid md:grid-cols-3 grid-cols-2 gap-x-12 gap-y-2"
+                className="grid grid-cols-2 gap-x-12 gap-y-2 md:grid-cols-3"
                 errorMessage={errors.yoeReplacement?.option?.message}
                 label={intl.formatMessage({
                   defaultMessage:

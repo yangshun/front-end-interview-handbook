@@ -22,7 +22,7 @@ export default function BlurOverlay({
 
   return (
     <div className="relative w-full">
-      <div aria-hidden={true} className="h-[500px] blur overflow-hidden">
+      <div aria-hidden={true} className="h-[500px] overflow-hidden blur">
         <div
           style={{
             WebkitMaskImage: 'linear-gradient(to bottom, black, transparent)',
@@ -34,7 +34,7 @@ export default function BlurOverlay({
       </div>
       <div
         className={clsx(
-          'absolute size-full flex flex-col top-0',
+          'absolute top-0 flex size-full flex-col',
           align === 'top' && 'justify-start',
           align === 'bottom' && 'justify-end',
           align === 'center' && 'justify-center',

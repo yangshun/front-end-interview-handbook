@@ -25,7 +25,7 @@ export default function QuestionListingSideCard({
         aria-hidden="true"
         className={clsx('absolute h-full w-1.5', stripClassName)}
       />
-      <div className="flex-1 py-3 px-4">{children}</div>
+      <div className="flex-1 px-4 py-3">{children}</div>
     </div>
   );
 }

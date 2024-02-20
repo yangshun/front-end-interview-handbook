@@ -29,7 +29,7 @@ export default function ProjectsSkillProgressBreakdownCard({
   return (
     <div
       className={clsx(
-        'p-4 border-2 rounded-lg flex flex-col',
+        'flex flex-col rounded-lg border-2 p-4',
         'border-neutral-600 dark:border-neutral-400',
         className,
       )}>
@@ -41,11 +41,11 @@ export default function ProjectsSkillProgressBreakdownCard({
       </Text>
       <div
         className={clsx(
-          'h-2 mt-1.5 rounded-full',
+          'mt-1.5 h-2 rounded-full',
           'bg-neutral-600 dark:bg-neutral-400',
         )}
       />
-      <div className="flex flex-col mt-4 gap-1">
+      <div className="mt-4 flex flex-col gap-1">
         {subSkills.map((subSkill) => (
           <div key={subSkill.key} className="flex items-center justify-between">
             <Text size="body3" weight="medium">
@@ -53,7 +53,7 @@ export default function ProjectsSkillProgressBreakdownCard({
             </Text>
             <Text
               className={clsx(
-                'px-2.5 py-0.5 rounded-full',
+                'rounded-full px-2.5 py-0.5',
                 themeBackgroundEmphasized,
               )}
               size="body3">

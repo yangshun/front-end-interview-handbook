@@ -45,18 +45,18 @@ export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
   return (
     <div
       className={clsx(
-        'border rounded-lg md:px-10 md:py-8 pl-8 pr-2 py-8',
+        'rounded-lg border py-8 pl-8 pr-2 md:px-10 md:py-8',
         themeGlassyBorder,
         themeBackgroundColor,
       )}>
       <div className="relative flex flex-col gap-6">
-        <div className="flex gap-3 w-full">
+        <div className="flex w-full gap-3">
           <div className={clsx('relative flex flex-col self-stretch')}>
             {/* TODO(projects|skills): Replace with skills logo */}
-            <div className="rounded-md size-6 bg-white" />
+            <div className="size-6 rounded-md bg-white" />
             <div
               className={clsx(
-                'w-px border-l h-full border-dashed absolute self-center translate-y-6',
+                'absolute h-full w-px translate-y-6 self-center border-l border-dashed',
                 themeBorderElementColor,
               )}
             />
@@ -64,9 +64,9 @@ export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
           <ProjectsSkillRoadmapGroupHeading group={group} />
         </div>
         {isExpanded && (
-          <div className="flex flex-col gap-2 ml-[6px]">
+          <div className="ml-[6px] flex flex-col gap-2">
             {group.items.map((item) => (
-              <div key={item.key} className="flex gap-4 w-full">
+              <div key={item.key} className="flex w-full gap-4">
                 <div
                   className={clsx(
                     'relative flex flex-col justify-center self-stretch',
@@ -74,13 +74,13 @@ export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
                   <SkillItemDiamond />
                   <div
                     className={clsx(
-                      'w-px border-l h-1/2 border-dashed absolute self-center top-0',
+                      'absolute top-0 h-1/2 w-px self-center border-l border-dashed',
                       themeBorderElementColor,
                     )}
                   />
                   <div
                     className={clsx(
-                      'w-px border-l h-1/2 border-dashed absolute self-center top-1/2 translate-y-2',
+                      'absolute top-1/2 h-1/2 w-px translate-y-2 self-center border-l border-dashed',
                       themeBorderElementColor,
                     )}
                   />
@@ -91,7 +91,7 @@ export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
           </div>
         )}
         {/* Expand collapse child skills CTA */}
-        <div className={clsx('flex gap-4 w-full ml-1', themeTextSubtleColor)}>
+        <div className={clsx('ml-1 flex w-full gap-4', themeTextSubtleColor)}>
           <div
             className={clsx(
               'relative flex flex-col justify-center self-stretch',
@@ -103,7 +103,7 @@ export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
             )}
             <div
               className={clsx(
-                'w-px border-l h-2/3 border-dashed absolute self-center -translate-y-5',
+                'absolute h-2/3 w-px -translate-y-5 self-center border-l border-dashed',
                 themeBorderElementColor,
               )}
             />

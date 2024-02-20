@@ -38,7 +38,7 @@ function ProjectsSidebarProductMenuItem({
     <DropdownMenu.Item
       asChild={true}
       className={clsx(
-        'relative flex flex-col p-4 gap-3 rounded',
+        'relative flex flex-col gap-3 rounded p-4',
         'select-none outline-none',
         themeBackgroundElementEmphasizedStateColor_Hover,
         themeBackgroundElementEmphasizedStateColor_Focus,
@@ -97,8 +97,8 @@ export default function ProjectsSidebarProductMenu({ variant }: Props) {
           <button
             aria-label="Select product"
             className={clsx(
-              'flex justify-between items-center',
-              'py-4 px-3',
+              'flex items-center justify-between',
+              'px-3 py-4',
               'shrink-0',
               'group',
               buttonBaseClassname,
@@ -109,7 +109,7 @@ export default function ProjectsSidebarProductMenu({ variant }: Props) {
               {isClient && showUnseenIndicator && (
                 <span
                   className={clsx(
-                    'size-2 bg-red rounded-full -translate-y-1/2',
+                    'bg-red size-2 -translate-y-1/2 rounded-full',
                   )}
                 />
               )}
@@ -140,7 +140,7 @@ export default function ProjectsSidebarProductMenu({ variant }: Props) {
                 className={clsx(
                   'absolute size-2',
                   'bg-red rounded-full',
-                  'top-1 right-1',
+                  'right-1 top-1',
                 )}
               />
             )}
@@ -152,7 +152,7 @@ export default function ProjectsSidebarProductMenu({ variant }: Props) {
           align="start"
           className={clsx(
             'flex flex-col gap-2',
-            'rounded-lg p-4 w-[360px]',
+            'w-[360px] rounded-lg p-4',
             ['border', themeBorderElementColor],
             themeBackgroundElementColor,
             'z-dropdown',

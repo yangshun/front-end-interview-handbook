@@ -9,7 +9,7 @@ export default function ProjectsChallengeHowItWorksDeployCard() {
     <ProjectsChallengeHowItWorksCard>
       <div
         className={clsx(
-          'flex flex-col gap-4 p-4 rounded-lg',
+          'flex flex-col gap-4 rounded-lg p-4',
           themeBackgroundCardColor,
         )}>
         <Text size="body2">Deploying your project</Text>

@@ -20,7 +20,7 @@ export function ProjectsSidebarProfileHeader({ points }: Props) {
   }
 
   return (
-    <div className={clsx('flex gap-3 items-center w-full px-3 py-2')}>
+    <div className={clsx('flex w-full items-center gap-3 px-3 py-2')}>
       <ProjectsProfileAvatar
         hovercard={false}
         // TODO(projects): use actual points

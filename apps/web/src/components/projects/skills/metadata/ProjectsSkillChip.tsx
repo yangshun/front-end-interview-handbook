@@ -27,7 +27,7 @@ export default function ProjectsSkillChip({ value, ...props }: Props) {
     <div
       className={clsx(
         'flex items-center justify-center',
-        'py-0.5 px-2 w-fit gap-1',
+        'w-fit gap-1 px-2 py-0.5',
         'rounded',
         themeBackgroundChipColor,
       )}>

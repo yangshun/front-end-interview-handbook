@@ -78,16 +78,16 @@ export default function ProjectsChallengeHowItWorksDialog({
       })}
       width="screen-xl"
       onClose={() => onClose()}>
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-y-8 gap-x-6 pt-4 pb-8 h-full">
+      <div className="grid h-full grid-cols-1 gap-x-6 gap-y-8 pb-8 pt-4 lg:grid-cols-2 xl:grid-cols-4">
         {steps.map(({ id, description, card }, index) => (
           <div key={id} className="flex flex-col gap-4 lg:gap-6">
-            <div className="flex gap-x-3 items-center">
+            <div className="flex items-center gap-x-3">
               <Chip label={String(index + 1)} variant="neutral" />
               <Text className="lg:hidden" color="secondary" size="body2">
                 {description}
               </Text>
             </div>
-            <div className="flex flex-col gap-6 justify-between h-full">
+            <div className="flex h-full flex-col justify-between gap-6">
               <Text className="hidden lg:block" color="secondary" size="body2">
                 {description}
               </Text>

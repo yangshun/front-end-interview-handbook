@@ -72,7 +72,7 @@ export default function ProjectsTrackDetailsPage({ track, userId }: Props) {
         <div className="flex items-center gap-6">
           <div className="bg-red size-16 rounded-lg" />
           <div className="flex flex-col gap-2">
-            <div className="flex flex-wrap gap-y-2 gap-x-4 items-center">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <Heading level="heading5">{title}</Heading>
               {metadata.premium && (
                 <Badge
@@ -104,7 +104,7 @@ export default function ProjectsTrackDetailsPage({ track, userId }: Props) {
       </div>
       <div className={clsx('relative flex flex-col gap-4')}>
         {challenges.map((challenge, index) => (
-          <div key={challenge.slug} className="flex gap-4 w-full">
+          <div key={challenge.slug} className="flex w-full gap-4">
             <div
               className={clsx(
                 'relative flex flex-col justify-center self-stretch',
@@ -119,7 +119,7 @@ export default function ProjectsTrackDetailsPage({ track, userId }: Props) {
               {index < challenges.length - 1 && (
                 <div
                   className={clsx(
-                    'w-px h-[90%] border-l border-dashed absolute self-center top-1/2 -z-10 translate-y-3',
+                    'absolute top-1/2 -z-10 h-[90%] w-px translate-y-3 self-center border-l border-dashed',
                     themeBorderElementColor,
                   )}
                 />
@@ -127,7 +127,7 @@ export default function ProjectsTrackDetailsPage({ track, userId }: Props) {
             </div>
             <div
               className={clsx(
-                'group flex items-center gap-6 grow overflow-hidden',
+                'group flex grow items-center gap-6 overflow-hidden',
                 'rounded-lg',
                 'relative',
                 themeBackgroundCardColor,
@@ -142,7 +142,7 @@ export default function ProjectsTrackDetailsPage({ track, userId }: Props) {
                 )}
                 src={challenge.imageUrl}
               />
-              <div className="flex flex-col items-start gap-4 py-4 grow">
+              <div className="flex grow flex-col items-start gap-4 py-4">
                 <div className="flex flex-col items-start gap-2">
                   <Anchor href={challenge.href} variant="unstyled">
                     <span aria-hidden="true" className="absolute inset-0" />

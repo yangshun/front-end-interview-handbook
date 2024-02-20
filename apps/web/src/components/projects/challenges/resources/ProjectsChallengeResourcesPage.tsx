@@ -66,7 +66,7 @@ export default function ProjectsChallengeResourcesPage({
       align="center"
       disableOverlay={accessAllSteps}
       overlay={
-        <div className="flex flex-col gap-y-6 items-center max-w-lg mx-auto text-center">
+        <div className="mx-auto flex max-w-lg flex-col items-center gap-y-6 text-center">
           <Heading level="heading5">
             <FormattedMessage
               defaultMessage="Start the project to access guides, discussions and reference code"

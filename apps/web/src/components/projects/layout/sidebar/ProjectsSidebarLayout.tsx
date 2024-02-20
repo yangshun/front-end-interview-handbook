@@ -31,7 +31,7 @@ export default function ProjectsSidebarLayout({ children }: Props) {
         />
         <div
           className={clsx(
-            'hidden h-dvh shrink-0 overflow-y-hidden lg:block sticky top-0',
+            'sticky top-0 hidden h-dvh shrink-0 overflow-y-hidden lg:block',
             isCollapsed ? 'w-[68px]' : 'w-60',
           )}>
           <ProjectsSidebar

@@ -22,12 +22,12 @@ export function ProjectsSegmentedProgressBar({
 
   return (
     <div className={clsx('flex flex-col gap-3', className)}>
-      <div className="h-2 rounded-full flex overflow-hidden gap-1">
+      <div className="flex h-2 gap-1 overflow-hidden rounded-full">
         {Array.from({ length: existingSegmentCount }, (_, i) => (
           <div
             key={i}
             className={clsx(
-              'flex-1 h-full',
+              'h-full flex-1',
               'bg-success-light dark:bg-success-dark',
             )}
           />
@@ -54,7 +54,7 @@ export function ProjectsSegmentedProgressBar({
           }>
           <button
             className={clsx(
-              'flex-1 h-full select-none touch-none',
+              'h-full flex-1 touch-none select-none',
               'bg-success-dark dark:bg-success-light',
             )}
             disabled={true}
@@ -65,13 +65,13 @@ export function ProjectsSegmentedProgressBar({
           <div
             key={i}
             className={clsx(
-              'flex-1 h-full',
+              'h-full flex-1',
               'bg-neutral-200 dark:bg-neutral-700',
             )}
           />
         ))}
       </div>
-      <div className="flex gap-1 items-center">
+      <div className="flex items-center gap-1">
         <RiCheckboxCircleLine
           className={clsx('size-5', themeTextSubtleColor)}
         />

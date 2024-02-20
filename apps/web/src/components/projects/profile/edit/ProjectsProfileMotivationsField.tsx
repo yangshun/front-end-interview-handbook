@@ -50,7 +50,7 @@ export default function ProjectsProfileMotivationsField() {
         );
 
         const reasons = (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 items-stretch gap-4">
+          <div className="grid items-stretch gap-4 md:grid-cols-2 lg:grid-cols-3">
             {reasonOptions.map(({ id, icon: Icon, label }) => {
               const selected = field.value
                 .map(({ value }) => value)
@@ -74,7 +74,7 @@ export default function ProjectsProfileMotivationsField() {
                     ],
                     themeOutlineElement_FocusVisible,
                     themeOutlineElementBrandColor_FocusVisible,
-                    'disabled:select-none disabled:touch-none',
+                    'disabled:touch-none disabled:select-none',
                   )}
                   disabled={disabled}
                   role="checkbox"
@@ -100,7 +100,7 @@ export default function ProjectsProfileMotivationsField() {
                   <div className="flex items-center gap-4 rounded-md">
                     <div
                       className={clsx(
-                        'flex items-center justify-center shrink-0',
+                        'flex shrink-0 items-center justify-center',
                         'size-6 rounded-md',
                         themeBackgroundChipColor,
                       )}>

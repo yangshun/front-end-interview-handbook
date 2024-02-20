@@ -68,11 +68,11 @@ export default function ProjectsTrackAccordionItem({
         </Accordion.Header>
         <Accordion.Content className="-mt-4 p-6">
           <div className="-mr-6 overflow-hidden">
-            <div className="flex overflow-x-auto pr-6 pb-3">
+            <div className="flex overflow-x-auto pb-3 pr-6">
               {challenges.map((challenge, i) => (
                 <div
                   key={challenge.slug}
-                  className="relative flex flex-col gap-4 shrink-0">
+                  className="relative flex shrink-0 flex-col gap-4">
                   <div className="flex items-center">
                     <ProjectsTrackChallengeStatusChip
                       label={i + 1}
@@ -115,9 +115,9 @@ export default function ProjectsTrackAccordionItem({
               ))}
             </div>
           </div>
-          <Anchor className="inline-flex mt-3" href={href}>
+          <Anchor className="mt-3 inline-flex" href={href}>
             <Text
-              className="inline-flex gap-2 items-center"
+              className="inline-flex items-center gap-2"
               color="inherit"
               size="body2"
               weight="medium">

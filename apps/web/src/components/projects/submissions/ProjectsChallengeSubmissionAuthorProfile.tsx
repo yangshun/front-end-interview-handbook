@@ -23,7 +23,7 @@ export default function ProjectsChallengeSubmissionAuthorProfile({
   const intl = useIntl();
 
   return (
-    <div className="flex gap-4 items-center">
+    <div className="flex items-center gap-4">
       <ProjectsProfileAvatar
         profile={{
           ...author,
@@ -32,8 +32,8 @@ export default function ProjectsChallengeSubmissionAuthorProfile({
         }}
         size="2xl"
       />
-      <div className="flex gap-3 flex-col">
-        <div className="flex gap-2 items-center">
+      <div className="flex flex-col gap-3">
+        <div className="flex items-center gap-2">
           <Text size="body2" weight="medium">
             <ProjectsProfileDisplayNameLink profile={author} />
           </Text>

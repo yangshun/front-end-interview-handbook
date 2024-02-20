@@ -27,10 +27,10 @@ export default function ProjectsSkillRoadmapItemDetails({ skillItem }: Props) {
     <Anchor className="w-full" href="#" variant="unstyled">
       <div
         className={clsx(
-          'group flex px-4 py-3 md:gap-4 gap-2 rounded-lg w-full items-center',
+          'group flex w-full items-center gap-2 rounded-lg px-4 py-3 md:gap-4',
           themeBackgroundLayerEmphasized,
         )}>
-        <div className="flex md:gap-4 gap-2 w-full md:flex-row flex-col">
+        <div className="flex w-full flex-col gap-2 md:flex-row md:gap-4">
           <div className="flex-1">
             <Text size="body2" weight="medium">
               {projectsSkillLabel(skillItem.key)}
@@ -63,7 +63,7 @@ export default function ProjectsSkillRoadmapItemDetails({ skillItem }: Props) {
               </Text>
             </div>
           </div>
-          <div className="items-center flex">
+          <div className="flex items-center">
             <ProgressBar
               heightClass="h-2 dark:!bg-neutral-700"
               label={intl.formatMessage(

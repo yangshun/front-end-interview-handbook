@@ -24,7 +24,7 @@ export default function RankNavigationItem({
   return (
     <div
       className={clsx(
-        'group relative flex items-center justify-between px-4 py-3 gap-3',
+        'group relative flex items-center justify-between gap-3 px-4 py-3',
         'border border-neutral-200 dark:border-transparent',
         'rounded-lg',
         'transition-colors',

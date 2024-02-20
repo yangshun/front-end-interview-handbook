@@ -989,7 +989,7 @@ export default function MarketingPricingSection({
             <Section>
               <div
                 className={clsx(
-                  'mx-auto grid max-w-lg grid-cols-1 rounded-3xl dark:bg-neutral-800/20 md:max-w-none md:grid-cols-3',
+                  'mx-auto grid max-w-lg grid-cols-1 rounded-3xl md:max-w-none md:grid-cols-3 dark:bg-neutral-800/20',
                   ['divide-y md:divide-x md:divide-y-0', themeDivideColor],
                   ['border', themeBorderColor],
                 )}>

@@ -67,7 +67,7 @@ export default function ProjectsDashboardCompleteProfileCard() {
 
   return (
     <Card
-      className={clsx('flex flex-col py-4 px-5 gap-3')}
+      className={clsx('flex flex-col gap-3 px-5 py-4')}
       disableSpotlight={true}
       padding={false}
       pattern={false}>
@@ -78,7 +78,7 @@ export default function ProjectsDashboardCompleteProfileCard() {
           onClick={() => {
             setIsCardOpen((isOpen) => !isOpen);
           }}>
-          <div className="flex gap-2 items-center">
+          <div className="flex items-center gap-2">
             <Text size="body2">
               <FormattedMessage
                 defaultMessage="Complete your profile"
@@ -128,7 +128,7 @@ export default function ProjectsDashboardCompleteProfileCard() {
                 variant={task.isComplete ? 'success' : 'neutral'}
               />
               <Anchor
-                className="flex gap-3 justify-between grow"
+                className="flex grow justify-between gap-3"
                 href="/projects/profile/edit"
                 variant="muted">
                 <Text

@@ -92,7 +92,7 @@ function ProjectsSkillRoadmapSelectionInput(
           ref={ref}
           aria-labelledby={id}
           className={clsx(
-            'flex justify-between items-center',
+            'flex items-center justify-between',
             'rounded',
             'px-3 py-1.5',
             'focus:outline-0',
@@ -153,7 +153,7 @@ function ProjectsSkillRoadmapSelectionInput(
       {hasError && (
         <div
           className={clsx(
-            'flex w-full mt-2',
+            'mt-2 flex w-full',
             errorMessage ? 'justify-between' : 'justify-end',
           )}>
           {errorMessage && (

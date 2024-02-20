@@ -27,7 +27,7 @@ export default function ProjectsCompletedUsersTag({
         {profiles.map((profile) => (
           <UserAvatar
             key={profile.id}
-            className="border dark:border-neutral-900 border-white"
+            className="border border-white dark:border-neutral-900"
             profile={profile}
             size="xs"
           />

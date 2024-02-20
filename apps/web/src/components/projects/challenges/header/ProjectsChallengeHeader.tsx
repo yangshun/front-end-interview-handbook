@@ -81,8 +81,8 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
       </div>
       <div
         className={clsx(
-          'grid grid-cols-1 lg:grid-cols-2 gap-6',
-          'items-start mt-8',
+          'grid grid-cols-1 gap-6 lg:grid-cols-2',
+          'mt-8 items-start',
         )}>
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2">
@@ -110,7 +110,7 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
             )}
           </div>
         </div>
-        <div className="flex flex-col gap-4 items-end">
+        <div className="flex flex-col items-end gap-4">
           {!isGetLatestSessionFetched ? null : hasSession ? (
             <ProjectsChallengeCurrentProjectSessionCard
               challenge={challenge}

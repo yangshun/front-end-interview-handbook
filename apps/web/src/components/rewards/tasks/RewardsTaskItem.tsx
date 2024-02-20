@@ -85,7 +85,7 @@ export default function RewardsTaskItem({
     <div>
       <div
         className={clsx(
-          'flex justify-between items-center',
+          'flex items-center justify-between',
           status === 'none' ? 'h-11' : 'h-14',
         )}>
         <div className="flex items-center gap-x-4">

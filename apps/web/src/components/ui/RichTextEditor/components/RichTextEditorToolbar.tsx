@@ -48,7 +48,7 @@ export default function RichTextEditorToolbar({ floatingAnchorElem }: Props) {
   return (
     <div
       className={clsx(
-        'flex items-center flex-wrap',
+        'flex flex-wrap items-center',
         'p-1',
         'gap-1',
         'text-neutral-600 dark:text-neutral-200',

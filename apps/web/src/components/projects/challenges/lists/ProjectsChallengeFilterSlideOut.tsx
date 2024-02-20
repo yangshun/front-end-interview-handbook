@@ -38,7 +38,7 @@ function FilterSection({
       </AccordionTrigger>
       <AccordionContent>
         {type === 'checkbox' && (
-          <div className="flex flex-wrap gap-x-6 gap-y-4 mt-4">
+          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-4">
             {options.map((option) => (
               <CheckboxInput
                 key={option.value}

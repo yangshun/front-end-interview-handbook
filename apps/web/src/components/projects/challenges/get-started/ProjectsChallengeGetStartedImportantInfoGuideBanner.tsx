@@ -81,13 +81,13 @@ export default function ProjectsChallengeGetStartedImportantInfoGuideBanner() {
     <div
       aria-hidden={true}
       className={clsx(
-        'h-[124px] rounded-lg self-stretch overflow-hidden pointer-events-none select-none',
+        'pointer-events-none h-[124px] select-none self-stretch overflow-hidden rounded-lg',
         themeGlassyBorder,
         themeBackgroundElementColor,
       )}>
-      <div className="md:-translate-x-1/4 -translate-x-2/4">
+      <div className="-translate-x-2/4 md:-translate-x-1/4">
         <div className="w-[310px]">
-          <div className="flex flex-col items-stretch min-w-fit">
+          <div className="flex min-w-fit flex-col items-stretch">
             <div
               className="grid gap-x-6"
               style={{
@@ -96,7 +96,7 @@ export default function ProjectsChallengeGetStartedImportantInfoGuideBanner() {
               {tabs.map(({ value }) => (
                 <div
                   key={value}
-                  className="flex flex-col gap-3 mt-3"
+                  className="mt-3 flex flex-col gap-3"
                   style={{
                     gridColumn: `span 1 / span 1`,
                   }}>
@@ -119,7 +119,7 @@ export default function ProjectsChallengeGetStartedImportantInfoGuideBanner() {
                 <div
                   key={value}
                   className={clsx(
-                    'group w-[160px] md:min-w-[200px] md:flex-grow shrink-0 border-t-2 pt-4',
+                    'group w-[160px] shrink-0 border-t-2 pt-4 md:min-w-[200px] md:flex-grow',
                     value === 'resources'
                       ? 'border-brand'
                       : [

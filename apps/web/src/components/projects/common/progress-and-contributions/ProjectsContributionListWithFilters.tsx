@@ -94,7 +94,7 @@ function ProjectsContributionListWithFiltersImpl({ comments }: Props) {
         }}
       />
       <div className="flex flex-col gap-6">
-        <div className="flex gap-3 flex-wrap lg:flex-row flex-col">
+        <div className="flex flex-col flex-wrap gap-3 lg:flex-row">
           {filters.map((filter) => (
             <ProjectsContributionFilterDropdown
               key={filter.id}

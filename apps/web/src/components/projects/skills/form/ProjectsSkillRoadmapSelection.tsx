@@ -37,7 +37,7 @@ export default function ProjectsSkillRoadmapSelection({
                   <div
                     aria-hidden={true}
                     className={clsx(
-                      'absolute h-full top-1.5 left-1 -z-10 -translate-x-[0.5px]',
+                      'absolute left-1 top-1.5 -z-10 h-full -translate-x-[0.5px]',
                       [
                         'border-l border-dashed',
                         'border-neutral-300 dark:border-neutral-700',
@@ -57,7 +57,7 @@ export default function ProjectsSkillRoadmapSelection({
                     {groupItem.key}
                   </Text>
                 </div>
-                <div className="inline-flex relative ml-5 self-start">
+                <div className="relative ml-5 inline-flex self-start">
                   <div className="flex gap-4">
                     {groupItem.items.map((item) => {
                       const selected = value.includes(item.key);
@@ -85,7 +85,7 @@ export default function ProjectsSkillRoadmapSelection({
                   <div
                     aria-hidden={true}
                     className={clsx(
-                      'absolute w-full top-1/2 -z-10 -translate-x-[0.5px]',
+                      'absolute top-1/2 -z-10 w-full -translate-x-[0.5px]',
                       [
                         'border-t border-dashed',
                         'border-neutral-300 dark:border-neutral-700',

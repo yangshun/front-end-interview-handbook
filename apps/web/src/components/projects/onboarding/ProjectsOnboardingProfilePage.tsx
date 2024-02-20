@@ -29,7 +29,7 @@ export default function ProjectsOnboardingProfilePage() {
   return (
     <main>
       <Container
-        className="flex flex-col items-stretch gap-12 pt-16 pb-24"
+        className="flex flex-col items-stretch gap-12 pb-24 pt-16"
         variant="2xl">
         <div className="flex flex-col items-center gap-4">
           <Heading level="heading5">

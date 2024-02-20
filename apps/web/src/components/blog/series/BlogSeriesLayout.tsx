@@ -80,7 +80,7 @@ export default function BlogSeriesLayout({
                   <Text color="secondary" display="block" size="body1">
                     {metadata.description}
                   </Text>
-                  <div className="flex justify-between flex-wrap gap-4">
+                  <div className="flex flex-wrap justify-between gap-4">
                     <section className="flex flex-wrap items-center gap-x-6 gap-y-4">
                       {metadata.level && (
                         <BlogLevelLabel

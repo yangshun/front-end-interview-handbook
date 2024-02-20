@@ -25,7 +25,7 @@ export default function I18nBetaBanner() {
   }
 
   return (
-    <div className="fixed bottom-0 z-sticky w-full">
+    <div className="z-sticky fixed bottom-0 w-full">
       <Banner
         size="xs"
         onHide={() => {

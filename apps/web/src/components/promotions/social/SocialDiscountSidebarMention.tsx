@@ -30,12 +30,12 @@ function SocialDiscountSpecialTicket({
 }: Props) {
   return (
     <Ticket height={height} padding="md" width={width}>
-      <div className="flex flex-col justify-center items-center h-full">
+      <div className="flex h-full flex-col items-center justify-center">
         <Text className="text-2xl" size="inherit" weight="bold">
           {title}
         </Text>
         {subtitle && (
-          <Text className="text-center px-2" color="secondary" size="body3">
+          <Text className="px-2 text-center" color="secondary" size="body3">
             {subtitle}
           </Text>
         )}

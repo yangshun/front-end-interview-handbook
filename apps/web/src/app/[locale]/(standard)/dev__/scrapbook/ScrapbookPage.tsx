@@ -144,7 +144,7 @@ export default function ScrapbookPage() {
               width={200}
             />
             <Ticket padding="md" width={200}>
-              <div className="flex flex-col justify-center items-center h-full">
+              <div className="flex h-full flex-col items-center justify-center">
                 <Text className="text-2xl" size="inherit" weight="bold">
                   20% off
                 </Text>

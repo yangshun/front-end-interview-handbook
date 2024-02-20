@@ -61,7 +61,7 @@ export default function ProjectsOnboardingReasonPage() {
     <FormProvider {...methods}>
       <main>
         <Container
-          className="pt-8 flex flex-col items-center pb-24 gap-12"
+          className="flex flex-col items-center gap-12 pb-24 pt-8"
           variant="narrow">
           <div className="flex flex-col items-center gap-4">
             <Heading level="heading5">
@@ -99,7 +99,7 @@ export default function ProjectsOnboardingReasonPage() {
                 });
               })}>
               <ProjectsProfileMotivationsField />
-              <div className="flex flex-row-reverse justify-between items-center flex-wrap">
+              <div className="flex flex-row-reverse flex-wrap items-center justify-between">
                 <Button
                   icon={RiArrowRightLine}
                   isDisabled={isSubmitting}

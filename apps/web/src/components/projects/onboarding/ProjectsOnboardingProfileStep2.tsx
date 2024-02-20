@@ -148,7 +148,7 @@ export default function ProjectsOnboardingProfileStep2() {
           showReputationCountIncreaseTag={true}
         />
       </section>
-      <div className="flex gap-4 flex-row-reverse">
+      <div className="flex flex-row-reverse gap-4">
         <Button
           className="self-end"
           icon={RiArrowRightLine}

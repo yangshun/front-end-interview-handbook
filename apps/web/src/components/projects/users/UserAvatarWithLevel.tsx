@@ -93,7 +93,7 @@ export default function UserAvatarWithLevel({
         className={clsx(
           'bg-success text-2xs absolute bottom-0 end-0 flex size-4 items-center justify-center rounded-full font-bold text-white',
           {
-            'w-[30px] h-[30px] text-base': size === '3xl',
+            'h-[30px] w-[30px] text-base': size === '3xl',
           },
         )}>
         {level}

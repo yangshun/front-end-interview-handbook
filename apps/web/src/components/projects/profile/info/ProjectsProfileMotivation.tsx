@@ -35,7 +35,7 @@ export default function ProjectsProfileMotivation({
         description: 'Projects profile motivation for joining section title',
         id: 'wUCEFX',
       })}>
-      <div className="flex gap-2 flex-wrap">
+      <div className="flex flex-wrap gap-2">
         {motivations.map((motivation, index) => (
           <div
             key={motivation}

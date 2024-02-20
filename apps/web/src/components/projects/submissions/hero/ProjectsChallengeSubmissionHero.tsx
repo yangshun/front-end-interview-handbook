@@ -135,12 +135,12 @@ export default function ProjectsChallengeSubmissionHero({
       {/* To calculate the width of the parent element */}
       <div
         ref={parentWidthRef}
-        className="absolute top-0 left-0 right-0 -z-10"
+        className="absolute left-0 right-0 top-0 -z-10"
       />
       {/* Sticky action bar */}
       <div
         className={clsx(
-          'sticky z-sticky top-0  py-4 border-b hidden',
+          'z-sticky sticky top-0  hidden border-b py-4',
           themeBorderColor,
           themeBackgroundColor,
           showStickyActionBar && '!block',
@@ -149,44 +149,44 @@ export default function ProjectsChallengeSubmissionHero({
           marginLeft: `-${sideMargin}px`,
           marginRight: `-${sideMargin}px`,
         }}>
-        <Container className="flex md:flex-row flex-col items-center">
+        <Container className="flex flex-col items-center md:flex-row">
           <Text className="flex-1" weight="medium">
             {submission.title}
           </Text>
           <div className="flex gap-4">
             {views}
-            <div className="flex gap-3 w-full">
+            <div className="flex w-full gap-3">
               {voteButton}
               {commentButton}
             </div>
           </div>
         </Container>
       </div>
-      <div ref={heroRef} className="relative md:block hidden">
+      <div ref={heroRef} className="relative hidden md:block">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -z-10 -mb-28 -mt-28 flex h-[calc(100%_+_112px)] w-full justify-center overflow-hidden rounded-b-[16px]">
           <MarketingHeroBackground className="h-full min-w-[1200px]" />
         </div>
-        <div className="relative pb-8 pt-5 sm:pb-16 md:pt-12 md:pb-8 md:px-8 h-full">
-          <div className="flex flex-col justify-between items-start h-full gap-2">
-            <div className="flex gap-2 justify-between w-full">
+        <div className="relative h-full pb-8 pt-5 sm:pb-16 md:px-8 md:pb-8 md:pt-12">
+          <div className="flex h-full flex-col items-start justify-between gap-2">
+            <div className="flex w-full justify-between gap-2">
               {backButton}
               {isViewingOwnSubmission && (
-                <div className="flex gap-2 items-center">
+                <div className="flex items-center gap-2">
                   {pinButton}
                   {editButton}
                 </div>
               )}
             </div>
-            <div className="flex lg:flex-row flex-col gap-2 h-full justify-between w-full lg:items-center">
+            <div className="flex h-full w-full flex-col justify-between gap-2 lg:flex-row lg:items-center">
               <div className="flex flex-col gap-1">
                 <ProjectsChallengeSubmissionHeroTimestamp
                   submission={submission}
                 />
                 <div className="flex flex-col gap-5">
                   <Heading level="heading4">{submission.title}</Heading>
-                  <div className="flex gap-6 items-center">
+                  <div className="flex items-center gap-6">
                     {views}
                     <div className="flex items-center gap-2">
                       {voteButton}
@@ -204,7 +204,7 @@ export default function ProjectsChallengeSubmissionHero({
       </div>
       <div className="mt-6 flex flex-col gap-6 md:hidden">
         <div ref={mobileHeroRef} className="flex flex-col gap-4">
-          <div className="flex flex-wrap gap-4 justify-between">
+          <div className="flex flex-wrap justify-between gap-4">
             {backButton}
             {isViewingOwnSubmission && pinButton}
           </div>

@@ -64,7 +64,7 @@ export default function ProjectsChallengeGuideSection({
   };
 
   return (
-    <div ref={guideRef} className="flex xl:gap-6 gap-4 xl:flex-row flex-col">
+    <div ref={guideRef} className="flex flex-col gap-4 xl:flex-row xl:gap-6">
       <div
         className="sticky hidden xl:contents"
         style={{ top: 'var(--nav-top-offset)' }}>
@@ -74,7 +74,7 @@ export default function ProjectsChallengeGuideSection({
           onSelect={onGuideChange}
         />
       </div>
-      <div className="xl:hidden block">
+      <div className="block xl:hidden">
         <Button
           addonPosition="start"
           icon={RiMenu2Line}

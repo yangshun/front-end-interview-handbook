@@ -42,7 +42,7 @@ export default function UILibraryPage() {
 
   return (
     <div className="grid gap-y-24 py-12 lg:py-24">
-      <div className="fixed bottom-4 right-4 z-fixed">
+      <div className="z-fixed fixed bottom-4 right-4">
         <AppThemeSelect
           colorScheme={appThemePreference}
           display="block"

@@ -284,13 +284,13 @@ function FloatingLinkEditor({
   };
 
   return (
-    <div ref={editorRef} className="absolute top-0 left-0">
+    <div ref={editorRef} className="absolute left-0 top-0">
       {!isOpenLinkEditor ? null : (
         <div
           className={clsx(
             'flex items-center justify-between gap-4',
-            'w-full max-w-[400px] min-w-[250px]',
-            'p-2 rounded',
+            'w-full min-w-[250px] max-w-[400px]',
+            'rounded p-2',
             'z-popover',
             themeBackgroundLayerEmphasized,
           )}>
@@ -343,7 +343,7 @@ function FloatingLinkEditor({
           ) : (
             <>
               <a
-                className="text-sm transition-colors truncate text-brand-dark dark:text-brand hover:text-brand-dark dark:hover:text-brand hover:underline"
+                className="text-brand-dark dark:text-brand hover:text-brand-dark dark:hover:text-brand truncate text-sm transition-colors hover:underline"
                 href={sanitizeUrl(linkUrl)}
                 rel="noopener noreferrer"
                 target="_blank">

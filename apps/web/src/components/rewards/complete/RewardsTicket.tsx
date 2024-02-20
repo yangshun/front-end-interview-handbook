@@ -103,7 +103,7 @@ export default function RewardsTicket({
           padding === 'md' && 'px-6 py-5',
           padding === 'sm' && 'px-5 py-4',
         )}>
-        <div className="flex flex-col w-full items-center gap-y-2 m-auto">
+        <div className="m-auto flex w-full flex-col items-center gap-y-2">
           {title && <Heading level="heading3">{title}</Heading>}
           {subtitle && (
             <Text

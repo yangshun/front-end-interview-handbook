@@ -17,9 +17,9 @@ export default function RewardsIntroPage() {
   }));
 
   return (
-    <div className="flex flex-col gap-y-10 items-center max-w-lg w-full mx-auto">
+    <div className="mx-auto flex w-full max-w-lg flex-col items-center gap-y-10">
       <RewardsHeader />
-      <div className="flex flex-col gap-y-3 w-full">
+      <div className="flex w-full flex-col gap-y-3">
         <Text color="secondary" display="block" size="body2">
           <FormattedMessage
             defaultMessage="Here are the tasks for this campaign:"

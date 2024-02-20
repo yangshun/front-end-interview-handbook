@@ -110,7 +110,7 @@ export default function ProjectsChallengeSubmissionForm({
     <FormProvider {...formMethods}>
       <form className="flex flex-col gap-12" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-10">
-          <div className="grid lg:grid-cols-2 gap-6">
+          <div className="grid gap-6 lg:grid-cols-2">
             <div className="flex flex-col gap-6">
               <ProjectsChallengeSubmissionTitleField control={control} />
               <ProjectsChallengeSubmissionRoadmapSkillsField
@@ -125,13 +125,13 @@ export default function ProjectsChallengeSubmissionForm({
           </div>
           <Divider />
           <div className="flex flex-col gap-6">
-            <div className="grid lg:grid-cols-2 gap-x-6">
+            <div className="grid gap-x-6 lg:grid-cols-2">
               <ProjectsChallengeSubmissionSummaryField control={control} />
             </div>
             <ProjectsChallengeSubmissionImplementationField control={control} />
           </div>
         </div>
-        <div className="flex flex-wrap sm:justify-between gap-2">
+        <div className="flex flex-wrap gap-2 sm:justify-between">
           <div className="flex gap-2">
             {/* Add disabled/loading states to the buttons. */}
             <Button

@@ -80,10 +80,10 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
   });
 
   return (
-    <div ref={ref} className="relative rounded-lg w-full">
+    <div ref={ref} className="relative w-full rounded-lg">
       <div
         ref={imageListRef}
-        className="grid overflow-x-auto snap-x snap-mandatory no-scrollbar"
+        className="no-scrollbar grid snap-x snap-mandatory overflow-x-auto"
         style={{
           gap: `${GAP_BETWEEN_IMAGE}px`,
           gridTemplateColumns: `repeat(${images.length}, 1fr)`,
@@ -93,7 +93,7 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
             <img
               key={image}
               alt={`Project challenge image ${index + 1}`}
-              className="object-cover rounded-lg w-full snap-center md:h-[372px] h-[266px]"
+              className="h-[266px] w-full snap-center rounded-lg object-cover md:h-[372px]"
               src={image}
               style={{
                 maxWidth: `${imageWidth}px`,
@@ -105,7 +105,7 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
       </div>
       {images.length > 1 && (
         <>
-          <div className="absolute left-2 top-1/2 transform -translate-y-1/2">
+          <div className="absolute left-2 top-1/2 -translate-y-1/2 transform">
             <Button
               icon={RiArrowLeftSLine}
               isLabelHidden={true}
@@ -118,7 +118,7 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
               onClick={() => scrollImage('left')}
             />
           </div>
-          <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
+          <div className="absolute right-2 top-1/2 -translate-y-1/2 transform">
             <Button
               icon={RiArrowRightSLine}
               isLabelHidden={true}
@@ -131,17 +131,17 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
               onClick={() => scrollImage('right')}
             />
           </div>
-          <div className="flex absolute right-0 bottom-0 me-3 mb-3 bg-neutral-300 rounded-full px-2 py-0.5">
+          <div className="absolute bottom-0 right-0 mb-3 me-3 flex rounded-full bg-neutral-300 px-2 py-0.5">
             <Text color="dark" size="body3" weight="medium">
               {current + 1}/{images.length}
             </Text>
           </div>
-          <div className="absolute mb-3 bottom-0 left-1/2 -translate-x-1/2 flex gap-2">
+          <div className="absolute bottom-0 left-1/2 mb-3 flex -translate-x-1/2 gap-2">
             {images.map((image, index) => (
               <div
                 key={image}
                 className={clsx(
-                  'flex-1 h-1.5 w-5 rounded-lg',
+                  'h-1.5 w-5 flex-1 rounded-lg',
                   index === current
                     ? themeBackgroundBrandColor
                     : 'bg-neutral-800/40',

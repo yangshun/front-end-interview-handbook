@@ -48,10 +48,10 @@ export default function ProjectsProfileInfo({
   return (
     <>
       <Section>
-        <div className="gap-6 items-center md:flex hidden">
+        <div className="hidden items-center gap-6 md:flex">
           <ProjectsProfileAvatar profile={avatarProfile} size="3xl" />
-          <div className="flex gap-3 flex-col">
-            <div className="flex gap-2 items-center">
+          <div className="flex flex-col gap-3">
+            <div className="flex items-center gap-2">
               <Text size="body1" weight="medium">
                 <ProjectsProfileDisplayNameLink profile={userProfile} />
               </Text>
@@ -99,11 +99,11 @@ export default function ProjectsProfileInfo({
             <ProjectsUserReputation points={projectsProfile.points} />
           </div>
         </div>
-        <div className="md:hidden flex flex-col">
-          <div className="flex gap-8 items-center">
+        <div className="flex flex-col md:hidden">
+          <div className="flex items-center gap-8">
             <ProjectsProfileAvatar profile={avatarProfile} size="3xl" />
-            <div className="flex gap-2 flex-col">
-              <div className="flex gap-2 items-center flex-wrap">
+            <div className="flex flex-col gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <Text size="body1" weight="medium">
                   <ProjectsProfileDisplayNameLink profile={userProfile} />
                 </Text>
@@ -152,7 +152,7 @@ export default function ProjectsProfileInfo({
               <ProjectsUserReputation points={1650} />
             </div>
           </div>
-          <Divider className="mt-8 mb-6" />
+          <Divider className="mb-6 mt-8" />
           <div className="flex flex-col gap-8">
             <Heading level="heading6">
               <FormattedMessage
@@ -165,8 +165,8 @@ export default function ProjectsProfileInfo({
           </div>
         </div>
       </Section>
-      <div className="flex justify-between md:flex-row flex-col gap-8">
-        <div className="md:w-2/5 w-full gap-8 flex flex-col">
+      <div className="flex flex-col justify-between gap-8 md:flex-row">
+        <div className="flex w-full flex-col gap-8 md:w-2/5">
           {userProfile.bio && <ProjectsProfileBio bio={userProfile.bio} />}
           {projectsProfile.motivations &&
             projectsProfile.motivations.length > 0 && (
@@ -175,7 +175,7 @@ export default function ProjectsProfileInfo({
               />
             )}
         </div>
-        <div className="md:w-2/5 w-full gap-8 flex flex-col">
+        <div className="flex w-full flex-col gap-8 md:w-2/5">
           {projectsProfile.skillsProficient.length > 0 && (
             <ProjectsProfileSkillsList
               heading={intl.formatMessage({
@@ -214,7 +214,7 @@ export default function ProjectsProfileInfo({
         </div>
       </div>
       {isViewingOwnProfile && (
-        <div className="md:hidden block">
+        <div className="block md:hidden">
           <Button
             href="/projects/profile/edit"
             icon={RiPencilFill}

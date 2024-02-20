@@ -18,7 +18,7 @@ export default function ProjectsChallengeHowItWorksCard({
     <div
       aria-hidden="true"
       className={clsx(
-        'h-[160px] overflow-hidden rounded-lg pt-4 pl-4 border w-full pointer-events-none select-none',
+        'pointer-events-none h-[160px] w-full select-none overflow-hidden rounded-lg border pl-4 pt-4',
         themeBackgroundElementColor,
         themeGlassyBorder,
         className,

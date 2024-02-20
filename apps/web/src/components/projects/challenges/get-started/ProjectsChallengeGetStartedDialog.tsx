@@ -207,8 +207,8 @@ export default function ProjectsChallengeGetStartedDialog({
             <li
               key={step.id}
               aria-label={step.label}
-              className={clsx('flex gap-2.5 items-start')}>
-              <div className="flex flex-col self-stretch relative">
+              className={clsx('flex items-start gap-2.5')}>
+              <div className="relative flex flex-col self-stretch">
                 {isStepCompleted ? (
                   <Chip
                     aria-hidden={true}
@@ -233,7 +233,7 @@ export default function ProjectsChallengeGetStartedDialog({
                 {index < dialogSteps.length - 1 && (
                   <div
                     className={clsx(
-                      'border-l absolute bottom-0 top-6 start-3',
+                      'absolute bottom-0 start-3 top-6 border-l',
                       isStepCompleted
                         ? 'border-success dark:border-success-light'
                         : ['border-dashed', themeBorderElementColor],
@@ -247,7 +247,7 @@ export default function ProjectsChallengeGetStartedDialog({
                   index < dialogSteps.length - 1 && 'pb-6',
                 )}>
                 <Text
-                  className="md:text-base text-sm"
+                  className="text-sm md:text-base"
                   color={isStepSelected ? 'active' : 'default'}
                   weight="medium">
                   {step.label}

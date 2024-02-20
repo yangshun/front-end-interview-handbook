@@ -25,7 +25,7 @@ export default function ProjectsProfileSkillSection() {
           id="jMHsyQ"
         />
       </Heading>
-      <div className="flex gap-6 w-full md:flex-row flex-col">
+      <div className="flex w-full flex-col gap-6 md:flex-row">
         <div className="flex-1">
           <ProjectsProfileTechStackProficientInput control={control} />
         </div>

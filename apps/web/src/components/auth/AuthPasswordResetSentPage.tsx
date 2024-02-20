@@ -31,7 +31,7 @@ export default function AuthPasswordResetSentPage({ next }: Props) {
           id: 'Q0sZmk',
         })}
       </Heading>
-      <div className="text-center mt-4">
+      <div className="mt-4 text-center">
         <Text size="body2">
           <Anchor
             href={signInUpHref({
@@ -43,7 +43,7 @@ export default function AuthPasswordResetSentPage({ next }: Props) {
       </div>
       <img
         alt="Email envelope illustration"
-        className="block max-w-80 mx-auto mt-16"
+        className="mx-auto mt-16 block max-w-80"
         src="/img/marketing/envelope.svg"
       />
     </Container>

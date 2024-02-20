@@ -26,11 +26,11 @@ export default function ExternalLinkPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex min-h-screen flex-col">
       <Navbar isLoading={false} links={[]} logo={<LogoLink />} />
-      <div className="flex items-center justify-center h-full flex-1 flex-col gap-4">
+      <div className="flex h-full flex-1 flex-col items-center justify-center gap-4">
         <RiLink className={clsx('size-10 shrink-0', themeTextSecondaryColor)} />
-        <div className="max-w-[360px] md:px-0 px-4 flex flex-col justify-center items-center gap-1">
+        <div className="flex max-w-[360px] flex-col items-center justify-center gap-1 px-4 md:px-0">
           <Heading level="heading5">
             <FormattedMessage
               defaultMessage="You're about to open a link:"
@@ -40,12 +40,12 @@ export default function ExternalLinkPage() {
           </Heading>
           <Section>
             <Heading
-              className="truncate md:max-w-lg max-w-full"
+              className="max-w-full truncate md:max-w-lg"
               level="heading5">
               {externalUrl}
             </Heading>
             <Text
-              className="dark:text-neutral-200 text-neutral-500 text-center"
+              className="text-center text-neutral-500 dark:text-neutral-200"
               size="body2">
               <FormattedMessage
                 defaultMessage="You're about to open an external website. Be cautious and keep your personal information safe"

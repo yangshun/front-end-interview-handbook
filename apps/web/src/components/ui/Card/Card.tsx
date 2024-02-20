@@ -99,7 +99,7 @@ export default function Card({
       <div
         className={clsx(
           // TODO(z-index)
-          'z-10 !absolute top-0 size-full rounded-[inherit] before:m-[-1px]',
+          '!absolute top-0 z-10 size-full rounded-[inherit] before:m-[-1px]',
           border && themeGlassyBorder,
         )}
       />

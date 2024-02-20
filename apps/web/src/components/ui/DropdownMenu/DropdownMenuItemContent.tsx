@@ -24,7 +24,7 @@ export default function DropdownMenuItemContent({
 }: Props) {
   return (
     <Text
-      className="items-center gap-x-2 grow"
+      className="grow items-center gap-x-2"
       color={isSelected ? 'active' : color ?? 'secondary'}
       display="flex"
       size="body2">
@@ -39,7 +39,7 @@ export default function DropdownMenuItemContent({
       {label}
       {endAddOn}
       {usage === 'trigger' && (
-        <RiArrowRightSLine className="size-4 shrink-0 ml-auto" />
+        <RiArrowRightSLine className="ml-auto size-4 shrink-0" />
       )}
     </Text>
   );

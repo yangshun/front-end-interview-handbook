@@ -16,7 +16,7 @@ export default function ProjectsChallengeGetStartedDownloadStarterFiles({
   const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
 
   return (
-    <div className="flex flex-col gap-4 items-start">
+    <div className="flex flex-col items-start gap-4">
       <Text color="secondary" size="body2">
         <FormattedMessage
           defaultMessage="Includes assets, JPG images of the design files, and a basic style guide. There's also a README to help you get started."

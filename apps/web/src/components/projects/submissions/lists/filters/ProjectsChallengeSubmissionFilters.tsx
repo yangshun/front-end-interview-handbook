@@ -159,8 +159,8 @@ export default function ProjectsChallengeSubmissionFilters({
           setAreFiltersShown(false);
         }}
       />
-      <div className="flex flex-wrap flex-row md:flex-col lg:flex-row gap-3">
-        <div className="flex-1 w-full lg:w-auto">
+      <div className="flex flex-row flex-wrap gap-3 md:flex-col lg:flex-row">
+        <div className="w-full flex-1 lg:w-auto">
           <TextInput
             isLabelHidden={true}
             label="Search"
@@ -174,7 +174,7 @@ export default function ProjectsChallengeSubmissionFilters({
             }}
           />
         </div>
-        <div className="hidden md:flex flex-wrap gap-3">
+        <div className="hidden flex-wrap gap-3 md:flex">
           {filters
             .filter((filterItem) => filterItem.view === 'both')
             .map((filter) => (

@@ -31,13 +31,13 @@ export default function ProjectsSkillList({
   return (
     <div
       aria-label={isLabelHidden ? label : undefined}
-      className={clsx('flex items-center gap-2 flex-wrap', className)}>
+      className={clsx('flex flex-wrap items-center gap-2', className)}>
       {!isLabelHidden && (
         <Text color="secondary" size="body3">
           {label}
         </Text>
       )}
-      <ul className="flex items-center gap-2 flex-wrap">
+      <ul className="flex flex-wrap items-center gap-2">
         {firstThreeSkills.map((skill) => (
           <li key={skill}>
             <ProjectsSkillChip readonly={true} value={skill} />

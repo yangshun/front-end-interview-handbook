@@ -53,13 +53,13 @@ export default function ProjectsChallengeCard({
         <img
           alt={title}
           className={clsx(
-            'aspect-[16/9] object-cover w-full',
+            'aspect-[16/9] w-full object-cover',
             type === 'hover' && 'rounded-md',
           )}
           src={imageUrl}
         />
         {status != null && (
-          <div className="absolute start-3 bottom-3">
+          <div className="absolute bottom-3 start-3">
             <ProjectsChallengeStatusBadge status={status} />
           </div>
         )}
@@ -83,14 +83,14 @@ export default function ProjectsChallengeCard({
       </div>
       <div
         className={clsx(
-          'grow flex flex-col gap-4 pt-4',
+          'flex grow flex-col gap-4 pt-4',
           type === 'normal' && 'p-4',
         )}>
         <div className="flex flex-wrap gap-x-4 gap-y-2">
           <ProjectsChallengeTrackTag track={track} />
           <ProjectsChallengeReputationTag points={points} variant="flat" />
         </div>
-        <div className="grow flex flex-col gap-2">
+        <div className="flex grow flex-col gap-2">
           <Text weight="bold">{title}</Text>
           <Text className="grow" color="subtitle" size="body2">
             {description}

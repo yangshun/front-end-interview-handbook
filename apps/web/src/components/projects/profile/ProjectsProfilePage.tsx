@@ -63,7 +63,7 @@ export default function ProjectsProfilePage({
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="md:flex hidden items-center gap-6">
+      <div className="hidden items-center gap-6 md:flex">
         <Heading level="heading5">
           {isViewingOwnProfile ? (
             <FormattedMessage

@@ -102,7 +102,7 @@ const projectsGuidance: FAQItem = {
           id="0K1Xot"
         />
       </p>
-      <ul className="list-decimal list-outside">
+      <ul className="list-outside list-decimal">
         <li>
           <FormattedMessage
             defaultMessage="[For complete beginners] Basic general development guides, such as how to download and use an IDE, how to use tools like Github and Figma"

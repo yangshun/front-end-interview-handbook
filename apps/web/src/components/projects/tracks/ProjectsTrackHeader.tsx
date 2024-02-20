@@ -22,8 +22,8 @@ export default function ProjectsTrackHeader({
   const completed = completedCount === challenges.length;
 
   return (
-    <div className="flex flex-col items-start text-start gap-1.5">
-      <div className="flex gap-2 items-center">
+    <div className="flex flex-col items-start gap-1.5 text-start">
+      <div className="flex items-center gap-2">
         <Text weight="medium">{title}</Text>
         {metadata.premium && (
           <Badge

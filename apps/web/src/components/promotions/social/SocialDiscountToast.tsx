@@ -32,14 +32,14 @@ function SocialDiscountToastImpl() {
         duration: 1200000,
         maxWidth: 'sm',
         subtitle: (
-          <div className="flex gap-2 pt-4 justify-between items-center">
+          <div className="flex items-center justify-between gap-2 pt-4">
             <Ticket height={85} padding="none" ratio="wide">
-              <div className="flex flex-col justify-center items-center h-full">
+              <div className="flex h-full flex-col items-center justify-center">
                 <Text className="text-2xl" size="inherit" weight="bold">
                   {promoCode.code}
                 </Text>
                 <Text
-                  className="text-center px-6"
+                  className="px-6 text-center"
                   color="secondary"
                   display="block"
                   size="body3">
@@ -91,7 +91,7 @@ function SocialDiscountToastImpl() {
             </div>
           </div>
           <Ticket height={98} padding="none" width={156}>
-            <div className="flex flex-col justify-center items-center h-full">
+            <div className="flex h-full flex-col items-center justify-center">
               <Text className="text-2xl" size="inherit" weight="bold">
                 {socialDiscountLabels.ticketTitle}
               </Text>

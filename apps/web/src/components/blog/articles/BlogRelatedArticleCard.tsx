@@ -25,7 +25,7 @@ export default function BlogRelatedArticleCard({ metadata }: Props) {
       )}>
       <img
         alt={metadata.title}
-        className="!m-0 h-[175px] w-full object-cover rounded"
+        className="!m-0 h-[175px] w-full rounded object-cover"
         src={metadata.imageUrl}
       />
       <div className="flex flex-col gap-y-2">
@@ -39,7 +39,7 @@ export default function BlogRelatedArticleCard({ metadata }: Props) {
             {metadata.title}
           </Text>
         </Anchor>
-        <div className="flex items-center gap-x-4 gap-y-2 flex-wrap">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <Text
             className="whitespace-nowrap"
             color="secondary"

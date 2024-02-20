@@ -38,7 +38,7 @@ export default function ProjectsDashboardPage({ children }: Props) {
       align="center"
       disableOverlay={userProfile?.projectsProfile != null}
       overlay={
-        <div className="flex flex-col gap-y-6 items-center max-w-xl mx-auto text-center">
+        <div className="mx-auto flex max-w-xl flex-col items-center gap-y-6 text-center">
           <Heading level="heading5">
             <FormattedMessage
               defaultMessage="Create a free account to track your progress"
@@ -62,7 +62,7 @@ export default function ProjectsDashboardPage({ children }: Props) {
       }>
       <div className="flex flex-col gap-16">
         <div className="flex flex-col gap-8">
-          <div className="flex flex-col lg:flex-row lg:justify-between relative gap-6">
+          <div className="relative flex flex-col gap-6 lg:flex-row lg:justify-between">
             <Heading level="heading5">
               <FormattedMessage
                 defaultMessage="Dashboard"
@@ -70,7 +70,7 @@ export default function ProjectsDashboardPage({ children }: Props) {
                 id="UTPE3y"
               />
             </Heading>
-            <div className="lg:absolute right-0 -top-8 z-10">
+            <div className="-top-8 right-0 z-10 lg:absolute">
               <ProjectsDashboardCompleteProfileCard />
             </div>
           </div>
@@ -95,8 +95,8 @@ export default function ProjectsDashboardPage({ children }: Props) {
         </div>
         <Section>
           {userProfile && startedBefore ? (
-            <div className="grid grid-cols-1 lg:grid-cols-2 grid-rows-2 lg:grid-rows-1 gap-x-3 md:gap-x-4 lg:gap-x-6 gap-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-x-3 md:gap-x-4 lg:gap-x-6 gap-y-6">
+            <div className="grid grid-cols-1 grid-rows-2 gap-x-3 gap-y-6 md:gap-x-4 lg:grid-cols-2 lg:grid-rows-1 lg:gap-x-6">
+              <div className="grid grid-cols-1 gap-x-3 gap-y-6 md:grid-cols-2 md:gap-x-4 lg:grid-cols-1 lg:gap-x-6">
                 <ProjectsDashboardContinueProjectsSection />
                 <ProjectsDashboardTrackAndSkillsSection />
               </div>

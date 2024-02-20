@@ -26,8 +26,8 @@ export default function ProjectsChallengeSubmissionDiscussionsSection({
   return (
     <div
       className={clsx(
-        'flex flex-col gap-8 py-8 px-4 md:px-8 rounded-b-lg',
-        ['border-b border-x', themeBorderColor],
+        'flex flex-col gap-8 rounded-b-lg px-4 py-8 md:px-8',
+        ['border-x border-b', themeBorderColor],
         themeBackgroundCardColor,
       )}>
       <Text size="body1" weight="bold">

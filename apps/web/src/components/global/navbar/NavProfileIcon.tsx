@@ -34,7 +34,7 @@ export default function NavProfileIcon({
     <Root>
       <Trigger
         className={clsx(
-          'group inline-flex items-center justify-center shrink-0',
+          'group inline-flex shrink-0 items-center justify-center',
           'rounded-full',
           'size-8',
           'transition-colors',
@@ -70,7 +70,7 @@ export default function NavProfileIcon({
           className={dropdownContentClassName}
           sideOffset={8}>
           <Text
-            className="truncate pb-2 px-3"
+            className="truncate px-3 pb-2"
             display="block"
             size="body2"
             weight="bold">

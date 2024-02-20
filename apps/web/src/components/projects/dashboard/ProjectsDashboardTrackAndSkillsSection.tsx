@@ -66,15 +66,15 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
               index === 0 && 'rounded-t-lg',
               index === tracks.length - 1 && 'rounded-b-lg',
             )}>
-            <div className="flex flex-row gap-2 items-center w-full">
-              <div className="flex lg:px-8 px-4 items-center">
+            <div className="flex w-full flex-row items-center gap-2">
+              <div className="flex items-center px-4 lg:px-8">
                 <GradientProgressBar
                   className="size-20"
                   gradient={trackGradient}
                   progressPercentage={track.percentageCompleted}
                 />
               </div>
-              <div className="flex flex-col gap-1 w-full">
+              <div className="flex w-full flex-col gap-1">
                 <Text size="body1" weight="medium">
                   <Anchor href={track.metadata.href} variant="unstyled">
                     <span aria-hidden="true" className="absolute inset-0" />
@@ -92,7 +92,7 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
                   </Anchor>
                 </Text>
                 <div className="flex flex-row gap-6">
-                  <div className="flex flex-row gap-1.5 items-center">
+                  <div className="flex flex-row items-center gap-1.5">
                     <RiFlashlightLine className={clsx(themeIconColor)} />
                     <Text color="success" size="body3">
                       {intl.formatMessage(
@@ -108,7 +108,7 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
                       )}
                     </Text>
                   </div>
-                  <div className="flex flex-row gap-1.5 items-center">
+                  <div className="flex flex-row items-center gap-1.5">
                     <RiRocketLine className={clsx(themeIconColor)} />
                     <div className="flex flex-row items-center">
                       <Text size="body1">

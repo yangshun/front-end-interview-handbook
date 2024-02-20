@@ -55,7 +55,7 @@ export default function GuidesNavbar({
     <div
       ref={navbarRef}
       className={clsx(
-        'sticky z-sticky border-b lg:hidden',
+        'z-sticky sticky border-b lg:hidden',
         [!isSticky && 'bg-white dark:bg-neutral-950/60', 'backdrop-blur'],
         themeBorderColor,
       )}

@@ -62,7 +62,7 @@ export default function ProfileCoupons() {
             })}
           />
         ) : (
-          <div className="flex flex-col gap-y-4 min-w-full">
+          <div className="flex min-w-full flex-col gap-y-4">
             <table
               className={clsx(
                 'rounded-sm',

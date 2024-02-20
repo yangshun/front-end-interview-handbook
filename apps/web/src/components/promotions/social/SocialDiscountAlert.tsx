@@ -19,7 +19,7 @@ function SocialDiscountTicketSmall({
 }>) {
   return (
     <Ticket height={60} padding="none">
-      <div className="flex flex-col justify-center items-center h-full">
+      <div className="flex h-full flex-col items-center justify-center">
         <Text size="body2" weight="bold">
           {title}
         </Text>
@@ -35,7 +35,7 @@ function SocialDiscountAlertImpl() {
   return (
     <div
       className={clsx(
-        'flex flex-col gap-4 items-center md:flex-row',
+        'flex flex-col items-center gap-4 md:flex-row',
         'rounded-md p-3',
         ['border', themeBorderColor],
         'bg-neutral-50 dark:bg-neutral-900',
@@ -77,7 +77,7 @@ function SocialDiscountAlertImpl() {
                 {socialDiscountLabels.subtitle}
               </Text>
             </div>
-            <div className="md:items-center w-full md:w-auto">
+            <div className="w-full md:w-auto md:items-center">
               <Button
                 addonPosition="end"
                 display="block"

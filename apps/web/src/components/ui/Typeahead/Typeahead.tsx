@@ -80,7 +80,7 @@ function Control<T>({ className, ...props }: ControlProps<T>) {
   return (
     <components.Control
       {...props}
-      className={clsx('py-2 px-3', themeTextSubtitleColor, className)}
+      className={clsx('px-3 py-2', themeTextSubtitleColor, className)}
     />
   );
 }
@@ -108,8 +108,8 @@ function MultiValueContainer<T>({ ...props }: MultiValueGenericProps<T>) {
     <components.MultiValueContainer {...props}>
       <span
         className={clsx(
-          'flex rounded gap-0.5',
-          'py-0.5 px-2',
+          'flex gap-0.5 rounded',
+          'px-2 py-0.5',
           'text-xs font-semibold',
           themeBackgroundChipColor,
         )}>
@@ -139,7 +139,7 @@ function Option<T>({ className, ...props }: OptionProps<T, true>) {
       {...props}
       className={clsx(
         className,
-        'py-1 px-2',
+        'px-2 py-1',
         'rounded',
         props.isSelected && themeBackgroundElementEmphasizedStateColor,
         props.isFocused && themeBackgroundElementEmphasizedStateColor,
@@ -244,7 +244,7 @@ export default function Typeahead<T>({
       {hasError && (
         <div
           className={clsx(
-            'flex w-full mt-2',
+            'mt-2 flex w-full',
             errorMessage ? 'justify-between' : 'justify-end',
           )}>
           {errorMessage && (

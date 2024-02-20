@@ -18,18 +18,18 @@ export default function ProjectsSkillRoadmapGroupHeading({ group }: Props) {
   const completedAll = group.completed === group.total;
 
   return (
-    <div className="w-full flex flex-col gap-2">
-      <div className="flex justify-between md:flex-row flex-col gap-2">
+    <div className="flex w-full flex-col gap-2">
+      <div className="flex flex-col justify-between gap-2 md:flex-row">
         <Text weight="medium">{group.key}</Text>
         {completedAll ? (
           <ProjectsChallengeStatusBadgeCompleted />
         ) : (
           <div
             className={clsx(
-              'flex md:gap-4 md:flex-row flex-col gap-2',
+              'flex flex-col gap-2 md:flex-row md:gap-4',
               themeTextSubtleColor,
             )}>
-            <div className="flex gap-1 items-center">
+            <div className="flex items-center gap-1">
               <RiFireLine className={clsx('size-4')} />
               <Text color="inherit" size="body3">
                 <FormattedMessage

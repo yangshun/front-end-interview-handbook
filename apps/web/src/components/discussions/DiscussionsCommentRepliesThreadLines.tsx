@@ -18,7 +18,7 @@ export default function DiscussionsCommentRepliesThreadLines({
       {drawVerticalLine && (
         <div
           className={clsx(
-            'absolute h-full w-px border-l -translate-x-2',
+            'absolute h-full w-px -translate-x-2 border-l',
             themeBorderElementColor,
           )}
         />

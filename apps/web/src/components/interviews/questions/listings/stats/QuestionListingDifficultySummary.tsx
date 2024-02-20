@@ -112,7 +112,7 @@ export default function QuestionListingDifficultySummary({
   return (
     <QuestionListingSideCard stripClassName="bg-neutral-200 dark:bg-neutral-600">
       <div className="grid">
-        <div className="grid grid-cols-2 items-end gap-y-1 gap-x-4 xl:grid-cols-3">
+        <div className="grid grid-cols-2 items-end gap-x-4 gap-y-1 xl:grid-cols-3">
           <QuestionListingDifficultySummaryItem
             difficulty="easy"
             questionCount={easy}

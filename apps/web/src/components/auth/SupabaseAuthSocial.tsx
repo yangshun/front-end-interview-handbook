@@ -105,7 +105,7 @@ export default function SupabaseAuthSocial({
               className={clsx(layout === 'horizontal' && 'grow')}>
               <Button
                 addonPosition="start"
-                className="dark:!bg-neutral-800/40 dark:hover:!bg-neutral-700/40 dark:active:!bg-neutral-600/40 rounded-lg"
+                className="rounded-lg dark:!bg-neutral-800/40 dark:hover:!bg-neutral-700/40 dark:active:!bg-neutral-600/40"
                 display="block"
                 icon={icon}
                 isDisabled={loading}

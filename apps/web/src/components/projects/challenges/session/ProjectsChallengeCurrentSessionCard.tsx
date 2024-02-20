@@ -133,14 +133,14 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
       <div
         className={clsx(
           'flex flex-col gap-y-6',
-          'w-full p-6 rounded-lg',
+          'w-full rounded-lg p-6',
           themeGlassyBorder,
           themeBackgroundCardColor,
         )}>
-        <div className="flex justify-between flex-col md:flex-row gap-3 w-full">
+        <div className="flex w-full flex-col justify-between gap-3 md:flex-row">
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
-              <div className="flex gap-x-2 items-center">
+              <div className="flex items-center gap-x-2">
                 <Text className="flex gap-x-2" weight="bold">
                   <FormattedMessage
                     defaultMessage="Current project session"
@@ -179,9 +179,9 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
               </Text>
             </div>
           </div>
-          <div className="flex md:gap-2 gap-4">
+          <div className="flex gap-4 md:gap-2">
             <Button
-              className="flex flex-1 md:inline-flex min-w-[100px]"
+              className="flex min-w-[100px] flex-1 md:inline-flex"
               href={submitHref}
               label={intl.formatMessage({
                 defaultMessage: 'Submit',
@@ -217,7 +217,7 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
                 setShowEndSessionDialog(true);
               }}
             />
-            <div className="md:block hidden">{expandButton}</div>
+            <div className="hidden md:block">{expandButton}</div>
           </div>
         </div>
         {isExpanded && (

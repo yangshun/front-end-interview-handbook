@@ -52,12 +52,12 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
         'w-[350px] sm:w-[400px] md:w-[420px]',
       )}>
       {isLoading || !data ? (
-        <div className="flex items-center justify-center w-full min-h-[120px]">
+        <div className="flex min-h-[120px] w-full items-center justify-center">
           <Spinner size="md" />
         </div>
       ) : (
         <>
-          <div className="gap-4 items-center flex">
+          <div className="flex items-center gap-4">
             <Anchor href={`/projects/u/${profile?.username}`}>
               <ProjectsProfileAvatar
                 hovercard={false}
@@ -69,8 +69,8 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
                 size="2xl"
               />
             </Anchor>
-            <div className="flex gap-1 flex-col">
-              <div className="flex gap-2 items-center">
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-2">
                 <ProjectsProfileDisplayNameLink profile={profile!} />
                 {/* TODO(projects): Add actual premium logic */}
                 <Tooltip
@@ -127,13 +127,13 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
               <UserProfileInformationRow profile={profile!} size="body3" />
             </div>
           </div>
-          <div className="grid md:grid-cols-4 grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {statsItems.map((item) => (
-              <div key={item.title} className="flex flex-col flex-1 h-full">
+              <div key={item.title} className="flex h-full flex-1 flex-col">
                 <Text size="body0" weight="bold">
                   {item.count}
                 </Text>
-                <div className="flex items-center h-full">
+                <div className="flex h-full items-center">
                   <Text className="!text-2xs" color="secondary">
                     {item.title}
                   </Text>
@@ -142,7 +142,7 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
             ))}
           </div>
           {(submissions ?? []).length >= 2 && !isMobileAndBelow && (
-            <div className="flex gap-4 flex-wrap">
+            <div className="flex flex-wrap gap-4">
               {submissions?.map((submission) => (
                 <Anchor
                   key={submission.id}

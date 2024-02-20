@@ -46,7 +46,7 @@ export default function RewardsSocialHandlesForm({
 
   return (
     <form
-      className="flex flex-col gap-2 w-full"
+      className="flex w-full flex-col gap-2"
       onSubmit={(event) => {
         event.preventDefault();
 
@@ -88,9 +88,9 @@ export default function RewardsSocialHandlesForm({
         />
       </Text>
       <div className={clsx('w-full divide-y', themeDivideColor)}>
-        <div className="flex justify-between items-center gap-4 py-4">
+        <div className="flex items-center justify-between gap-4 py-4">
           <Text size="body2">GitHub</Text>{' '}
-          <div className="max-w-sm w-full">
+          <div className="w-full max-w-sm">
             <TextInput
               autoFocus={true}
               errorMessage={
@@ -113,9 +113,9 @@ export default function RewardsSocialHandlesForm({
             />
           </div>
         </div>
-        <div className="flex justify-between items-center gap-4 py-4">
+        <div className="flex items-center justify-between gap-4 py-4">
           <Text size="body2">LinkedIn</Text>
-          <div className="max-w-sm w-full">
+          <div className="w-full max-w-sm">
             <TextInput
               errorMessage={
                 validationErrors?.linkedIn.status === 'rejected'
@@ -137,9 +137,9 @@ export default function RewardsSocialHandlesForm({
             />
           </div>
         </div>
-        <div className="flex justify-between items-center gap-4 py-4">
+        <div className="flex items-center justify-between gap-4 py-4">
           <Text size="body2">Twitter</Text>
-          <div className="max-w-sm w-full">
+          <div className="w-full max-w-sm">
             <TextInput
               className="w-full"
               errorMessage={

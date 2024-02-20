@@ -34,7 +34,7 @@ export default function ProjectsChallengeSubmissionHeroCard({
       className={clsx(
         'flex flex-col gap-4',
         'group relative isolate',
-        'px-4 py-6 rounded-lg',
+        'rounded-lg px-4 py-6',
         'w-full md:w-[436px]',
         themeGlassyBorder,
         isMobileAndBelow ? themeBackgroundLayerColor : themeBackgroundColor,
@@ -68,7 +68,7 @@ export default function ProjectsChallengeSubmissionHeroCard({
       <Text className="line-clamp-3" color="subtitle" size="body3">
         {description}
       </Text>
-      <div className="flex items-center gap-4 z-10">
+      <div className="z-10 flex items-center gap-4">
         <ProjectsChallengeDifficultyTag difficulty={difficulty} />
         <ProjectsComponentTrackTag track={track} />
       </div>

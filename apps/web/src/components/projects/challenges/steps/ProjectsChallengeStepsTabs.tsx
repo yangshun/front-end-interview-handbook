@@ -66,7 +66,7 @@ function ProjectsChallengeStepsTabItem({
   return (
     <Anchor
       className={clsx(
-        'group w-[160px] md:min-w-[256px] md:flex-grow shrink-0 border-t-2 pt-4',
+        'group w-[160px] shrink-0 border-t-2 pt-4 md:min-w-[256px] md:flex-grow',
         isSelected
           ? 'border-brand'
           : [themeTextBrandColor_Hover, themeTextColor, 'border-transparent'],
@@ -84,7 +84,7 @@ function ProjectsChallengeStepsTabItem({
           weight="bold">
           {tabItemTitle}
           {accessAllSteps && !hasRead && (
-            <span className="inline-block size-2 ms-1 mb-2 bg-red rounded-full" />
+            <span className="bg-red mb-2 ms-1 inline-block size-2 rounded-full" />
           )}
         </Text>
         <Text color="secondary" display="block">
@@ -139,7 +139,7 @@ export default function ProjectsChallengeStepsTabs({
 
   return (
     <div className={clsx('overflow-x-auto overflow-y-hidden', className)}>
-      <div className="flex flex-col items-stretch min-w-fit">
+      <div className="flex min-w-fit flex-col items-stretch">
         <div
           className="grid gap-x-6"
           style={{

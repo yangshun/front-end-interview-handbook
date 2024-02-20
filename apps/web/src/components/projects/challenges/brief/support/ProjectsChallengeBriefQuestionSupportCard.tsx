@@ -20,7 +20,7 @@ function Placeholder({ className }: { className?: string }) {
   return (
     <div
       className={clsx(
-        'rounded w-full',
+        'w-full rounded',
         'bg-neutral-200 dark:bg-neutral-700',
         className,
       )}
@@ -34,7 +34,7 @@ export default function ProjectsChallengeBriefQuestionSupportCard() {
 
   return (
     <ProjectsChallengeBriefSupportCard>
-      <div className={clsx('flex flex-col grow min-w-[330px]')}>
+      <div className={clsx('flex min-w-[330px] grow flex-col')}>
         <div className="flex items-start gap-4">
           <div className="relative flex flex-col items-center self-stretch">
             <ProjectsProfileAvatar
@@ -85,7 +85,7 @@ export default function ProjectsChallengeBriefQuestionSupportCard() {
                 size="body3"
               />
             </div>
-            <div className="flex flex-col w-60 gap-3">
+            <div className="flex w-60 flex-col gap-3">
               <Placeholder />
               <div className="flex max-w-[90%] gap-3">
                 <Placeholder className="w-[20%]" />
@@ -97,7 +97,7 @@ export default function ProjectsChallengeBriefQuestionSupportCard() {
                 <Placeholder />
               </div>
             </div>
-            <div className={clsx('flex -mt-1 -ms-3')}>
+            <div className={clsx('-ms-3 -mt-1 flex')}>
               <Button
                 addonPosition="start"
                 icon={RiThumbUpFill}

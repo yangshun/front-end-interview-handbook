@@ -39,8 +39,8 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex justify-between flex-wrap">
-        <div className="flex gap-2.5 items-center">
+      <div className="flex flex-wrap justify-between">
+        <div className="flex items-center gap-2.5">
           <Heading level="heading6">
             <FormattedMessage
               defaultMessage="Trending user submissions"
@@ -56,11 +56,11 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                 'Tooltip label for Trending submissions section on Projects dashboard page',
               id: 'XMHcvt',
             })}>
-            <RiQuestionFill className="size-4 dark:text-neutral-500 text-neutral-400" />
+            <RiQuestionFill className="size-4 text-neutral-400 dark:text-neutral-500" />
           </Tooltip>
         </div>
         <Button
-          className="-mr-4 -my-1"
+          className="-my-1 -mr-4"
           href="/projects/submissions"
           icon={RiArrowRightLine}
           label={intl.formatMessage({
@@ -89,10 +89,10 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
               index === 0 && 'rounded-t-lg',
               index === submissions.length - 1 && 'rounded-b-lg',
             )}>
-            <div className="flex gap-4 lg:items-center w-full">
-              <div className="rounded w-[90px] h-[90px] bg-red shrink-0" />
-              <div className="flex flex-col gap-3 w-full grow">
-                <div className="flex flex-col lg:gap-1 gap-2">
+            <div className="flex w-full gap-4 lg:items-center">
+              <div className="bg-red h-[90px] w-[90px] shrink-0 rounded" />
+              <div className="flex w-full grow flex-col gap-3">
+                <div className="flex flex-col gap-2 lg:gap-1">
                   <Text size="body1" weight="medium">
                     <Anchor href={submission.hrefs.detail} variant="unstyled">
                       <span aria-hidden="true" className="absolute inset-0" />
@@ -119,9 +119,9 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                     </Text>
                   )}
                 </div>
-                <div className="flex lg:flex-row lg:gap-4 flex-col gap-3">
+                <div className="flex flex-col gap-3 lg:flex-row lg:gap-4">
                   {submission.projectsProfile?.userProfile && (
-                    <div className="flex lg:gap-2 gap-1.5 items-center">
+                    <div className="flex items-center gap-1.5 lg:gap-2">
                       <UserAvatar
                         className="border border-green-400"
                         profile={submission.projectsProfile.userProfile}
@@ -134,7 +134,7 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                       </Text>
                     </div>
                   )}
-                  <div className="flex gap-4 items-center">
+                  <div className="flex items-center gap-4">
                     {submission._count.votes > 0 && (
                       <Text color="subtitle" size="body3">
                         <FormattedMessage

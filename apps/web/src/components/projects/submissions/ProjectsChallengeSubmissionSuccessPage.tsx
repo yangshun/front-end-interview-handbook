@@ -177,7 +177,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
     <CardContainer>
       <div className="relative self-center">
         <ReputationIncreaseBackground />
-        <div className="flex flex-col gap-2 absolute bottom-[90px] mx-auto start-0 end-0 items-center">
+        <div className="absolute bottom-[90px] end-0 start-0 mx-auto flex flex-col items-center gap-2">
           <FormattedMessage
             defaultMessage="<emph>+ {points}</emph><small>reputation points</small>"
             description="Reputation point increase on project submission success page"
@@ -229,7 +229,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
                 id="KgN46v"
               />
             </Text>
-            <div className="flex gap-6 self-stretch items-end">
+            <div className="flex items-end gap-6 self-stretch">
               <UserAvatar className="size-20" profile={profile} size="custom" />
               <ProjectsLevelingProgressBar
                 className="flex-1"
@@ -241,7 +241,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="flex justify-between items-center">
+            <div className="flex items-center justify-between">
               <Text color="secondary" size="body2">
                 <FormattedMessage
                   defaultMessage="You've gained rep in these skills:"
@@ -250,7 +250,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
                 />
               </Text>
               <Button
-                className="-me-3 !text-brand"
+                className="!text-brand -me-3"
                 label={intl.formatMessage({
                   defaultMessage: 'See all',
                   description:
@@ -260,7 +260,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
                 variant="tertiary"
               />
             </div>
-            <div className="grid grid-cols-2 xl:grid-cols-3 mt-6 gap-2.5">
+            <div className="mt-6 grid grid-cols-2 gap-2.5 xl:grid-cols-3">
               <ProjectsSkillProgressBreakdownCard
                 skill={{
                   key: 'javascript',
@@ -328,8 +328,8 @@ export default function ProjectsChallengeSubmissionSuccessPage({
                 }}
               />
             </Text>
-            <div className="flex gap-6 self-stretch items-end">
-              <div className="size-20 rounded-lg bg-red" />
+            <div className="flex items-end gap-6 self-stretch">
+              <div className="bg-red size-20 rounded-lg" />
               <ProjectsSegmentedProgressBar
                 className="flex-1"
                 currentSegmentCount={4}
@@ -338,7 +338,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="flex justify-between items-center">
+            <div className="flex items-center justify-between">
               <Text color="secondary" size="body2">
                 <FormattedMessage
                   defaultMessage="Next project:"
@@ -347,7 +347,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
                 />
               </Text>
               <Button
-                className="-me-3 !text-brand"
+                className="!text-brand -me-3"
                 label={intl.formatMessage({
                   defaultMessage: 'See all',
                   description:
@@ -357,7 +357,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
                 variant="tertiary"
               />
             </div>
-            <div className="bg-red rounded-lg mt-6 h-[188px]" />
+            <div className="bg-red mt-6 h-[188px] rounded-lg" />
           </div>
         </div>
         <div className="grid gap-x-12 gap-y-8 xl:grid-cols-2">
@@ -372,8 +372,8 @@ export default function ProjectsChallengeSubmissionSuccessPage({
                 }}
               />
             </Text>
-            <div className="flex gap-6 self-stretch items-end">
-              <div className="size-20 rounded-lg bg-red" />
+            <div className="flex items-end gap-6 self-stretch">
+              <div className="bg-red size-20 rounded-lg" />
               <ProjectsSegmentedProgressBar
                 className="flex-1"
                 currentSegmentCount={4}
@@ -382,7 +382,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
             </div>
           </div>
           <div className="flex flex-col">
-            <div className="flex justify-between items-center">
+            <div className="flex items-center justify-between">
               <Text color="secondary" size="body2">
                 <FormattedMessage
                   defaultMessage="Next project:"
@@ -391,7 +391,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
                 />
               </Text>
               <Button
-                className="-me-3 !text-brand"
+                className="!text-brand -me-3"
                 label={intl.formatMessage({
                   defaultMessage: 'See all',
                   description:
@@ -401,11 +401,11 @@ export default function ProjectsChallengeSubmissionSuccessPage({
                 variant="tertiary"
               />
             </div>
-            <div className="bg-red rounded-lg mt-6 h-[188px]" />
+            <div className="bg-red mt-6 h-[188px] rounded-lg" />
           </div>
         </div>
       </Card>
-      <div className="flex flex-col mt-24">
+      <div className="mt-24 flex flex-col">
         <Heading level="heading5">
           <FormattedMessage
             defaultMessage="Projects you may be interested in"

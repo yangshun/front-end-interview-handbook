@@ -105,7 +105,7 @@ export default function GlobalBanner() {
     <div
       className={clsx(
         'global-banner', // Non-Tailwind class. Sync with globals.css.
-        'sticky top-0 z-sticky w-full',
+        'z-sticky sticky top-0 w-full',
       )}>
       <Banner
         className={clsx('h-14 lg:h-auto')}

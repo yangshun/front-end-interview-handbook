@@ -218,7 +218,7 @@ function TextInput(
       {hasBottomSection && (
         <div
           className={clsx(
-            'flex w-full mt-2',
+            'mt-2 flex w-full',
             errorMessage ? 'justify-between' : 'justify-end',
           )}>
           {errorMessage && (

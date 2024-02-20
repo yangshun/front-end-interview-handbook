@@ -48,7 +48,7 @@ export default function ProjectsChallengeDeploymentCompletionPage({
       align="center"
       disableOverlay={accessAllSteps}
       overlay={
-        <div className="flex flex-col gap-y-6 items-center max-w-lg mx-auto text-center">
+        <div className="mx-auto flex max-w-lg flex-col items-center gap-y-6 text-center">
           <Heading level="heading5">
             <FormattedMessage
               defaultMessage="Start the project to access submission and deployment steps"
@@ -77,7 +77,7 @@ export default function ProjectsChallengeDeploymentCompletionPage({
           />
         </Heading>
         <Section>
-          <div className="flex flex-col max-w-2xl">
+          <div className="flex max-w-2xl flex-col">
             <Text className="mt-4" color="secondary" size="body2">
               <FormattedMessage
                 defaultMessage="Once you're done coding, follow this step-by-step guide to host your solution and submit the project."
@@ -85,7 +85,7 @@ export default function ProjectsChallengeDeploymentCompletionPage({
                 id="w3tshW"
               />
             </Text>
-            <ul className="relative flex flex-col gap-6 mt-8">
+            <ul className="relative mt-8 flex flex-col gap-6">
               <div
                 className={clsx(
                   'absolute bottom-0 left-4 top-16 w-px border-l border-dashed',

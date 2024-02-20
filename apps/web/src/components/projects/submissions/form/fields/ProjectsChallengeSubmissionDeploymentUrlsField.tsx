@@ -68,17 +68,17 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
               <div
                 key={item.href}
                 className={clsx(
-                  'flex gap-4 items-center justify-between',
-                  'py-0.5 px-3 rounded',
+                  'flex items-center justify-between gap-4',
+                  'rounded px-3 py-0.5',
                   ['border', themeBorderElementColor],
                 )}>
                 <Text
-                  className="whitespace-nowrap truncate w-full"
+                  className="w-full truncate whitespace-nowrap"
                   display="block"
                   size="body3">
                   {item.label}: <Anchor href={item.href}>{item.href}</Anchor>
                 </Text>
-                <div className="flex -me-2 shrink-0">
+                <div className="-me-2 flex shrink-0">
                   <Button
                     addonPosition="start"
                     icon={RiPencilLine}

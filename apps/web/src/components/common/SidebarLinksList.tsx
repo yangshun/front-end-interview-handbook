@@ -55,7 +55,7 @@ function LinksListItem({
           <div key={link.href}>
             <Anchor
               className={clsx(
-                '-ml-px flex w-full py-[7px] justify-between gap-x-1 border-l text-sm',
+                '-ml-px flex w-full justify-between gap-x-1 border-l py-[7px] text-sm',
                 pathname === link.href
                   ? clsx(themeTextBrandColor, 'border-current font-semibold')
                   : clsx(
@@ -67,7 +67,7 @@ function LinksListItem({
               variant="unstyled">
               <span className="pl-4">{link.title}</span>
               {isExternalURL && (
-                <RiExternalLinkFill className="text-inherit size-4" />
+                <RiExternalLinkFill className="size-4 text-inherit" />
               )}
             </Anchor>
           </div>
@@ -75,7 +75,7 @@ function LinksListItem({
           <button
             key={String(link.slug)}
             className={clsx(
-              '-ml-px flex w-full py-[7px] items-center gap-x-2 border-l text-sm',
+              '-ml-px flex w-full items-center gap-x-2 border-l py-[7px] text-sm',
               activeItem === link.slug
                 ? clsx(themeTextBrandColor, 'border-current font-semibold')
                 : clsx(

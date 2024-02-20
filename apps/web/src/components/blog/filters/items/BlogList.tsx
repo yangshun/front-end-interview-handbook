@@ -57,7 +57,7 @@ export default function BlogList({
   }
 
   return (
-    <ul className={clsx('flex !list-none flex-col gap-y-4 w-full')}>
+    <ul className={clsx('flex w-full !list-none flex-col gap-y-4')}>
       {posts.map((post) => {
         return (
           <li key={post.href}>

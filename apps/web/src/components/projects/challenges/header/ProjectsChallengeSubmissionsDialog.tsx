@@ -32,7 +32,7 @@ export default function ProjectsChallengeSubmissionsDialog({
       width="screen-xl"
       onClose={onClose}>
       {isLoading ? (
-        <div className="h-96 flex items-center justify-center">
+        <div className="flex h-96 items-center justify-center">
           <Spinner
             display="block"
             label={intl.formatMessage({

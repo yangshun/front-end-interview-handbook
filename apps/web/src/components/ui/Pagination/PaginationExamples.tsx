@@ -9,7 +9,7 @@ export default function PaginationExamples() {
 
   return (
     <UIExamplesGroup darkMode="horizontal" gapSize="lg" title="Pagination">
-      <div className="flex flex-wrap flex-col gap-y-6">
+      <div className="flex flex-col flex-wrap gap-y-6">
         <Pagination
           count={10}
           page={currentPage}

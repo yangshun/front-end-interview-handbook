@@ -35,8 +35,8 @@ export default function BlogCard({
     <div
       className={clsx(
         'group relative flex h-full items-center justify-between overflow-hidden rounded-lg',
-        type === 'wide' && 'px-8 py-5 gap-x-6',
-        type === 'default' && 'pl-6 pr-4 py-6 gap-x-4',
+        type === 'wide' && 'gap-x-6 px-8 py-5',
+        type === 'default' && 'gap-x-4 py-6 pl-6 pr-4',
         themeBackgroundCardWhiteOnLightColor,
         themeGlassyBorder,
         'isolate',
@@ -44,14 +44,14 @@ export default function BlogCard({
       {type === 'wide' && metadata.imageUrl && (
         <img
           alt={metadata.title}
-          className="!m-0 hidden h-20 aspect-[15/8] shrink-0 rounded object-cover lg:block"
+          className="!m-0 hidden aspect-[15/8] h-20 shrink-0 rounded object-cover lg:block"
           src={metadata.imageUrl}
         />
       )}
-      <div className="flex flex-1 flex-col gap-y-4 h-full">
+      <div className="flex h-full flex-1 flex-col gap-y-4">
         <div
           className={clsx(
-            'flex w-full flex-col grow',
+            'flex w-full grow flex-col',
             type === 'default' && 'gap-y-2',
             type === 'wide' && 'gap-y-1',
           )}>
@@ -92,7 +92,7 @@ export default function BlogCard({
         </div>
         <div
           className={clsx(
-            'flex items-center gap-x-6 gap-y-2 flex-wrap w-full',
+            'flex w-full flex-wrap items-center gap-x-6 gap-y-2',
             'relative z-10',
           )}>
           {type === 'wide' && (

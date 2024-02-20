@@ -92,7 +92,7 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
           <UserProfileInformationRow profile={viewer} size="body3" />
         </div>
       </div>
-      <div className="flex flex-wrap gap-2 items-center mt-2">
+      <div className="mt-2 flex flex-wrap items-center gap-2">
         <Text size="body3" weight="medium">
           Mark post as (optional):
         </Text>

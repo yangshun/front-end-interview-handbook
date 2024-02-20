@@ -16,13 +16,13 @@ export default function ProjectsChallengeSubmissionImageComparisonSlider({
   image,
 }: Props) {
   return (
-    <div className="max-h-[272px] min-h-[272px] md:max-h-[610px] md:min-h-[610px] overflow-y-auto">
+    <div className="max-h-[272px] min-h-[272px] overflow-y-auto md:max-h-[610px] md:min-h-[610px]">
       <ReactCompareImage
         handle={
-          <div className="bg-brand-dark dark:bg-brand justify-center items-center w-[42px] h-[42px] rounded-full flex">
+          <div className="bg-brand-dark dark:bg-brand flex h-[42px] w-[42px] items-center justify-center rounded-full">
             <div className="flex">
-              <RiArrowDropLeftFill className="size-7 -mr-2" />
-              <RiArrowDropRightFill className="size-7 -ml-2" />
+              <RiArrowDropLeftFill className="-mr-2 size-7" />
+              <RiArrowDropRightFill className="-ml-2 size-7" />
             </div>
           </div>
         }

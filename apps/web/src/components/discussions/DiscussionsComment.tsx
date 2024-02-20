@@ -78,7 +78,7 @@ export default function DiscussionsComment({
   );
 
   return (
-    <div className={clsx('flex flex-col grow', className)}>
+    <div className={clsx('flex grow flex-col', className)}>
       <div className="flex items-start gap-4">
         <div className="relative flex flex-col items-center self-stretch">
           {/* TODO(projects): fetch real points */}
@@ -153,7 +153,7 @@ export default function DiscussionsComment({
           )}
           <div
             className={clsx(
-              'flex -mt-1',
+              '-mt-1 flex',
               viewer != null && '-ml-3', // Because the upvote button has some horizontal padding.
             )}>
             {viewer == null ? (

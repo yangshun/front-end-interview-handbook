@@ -30,7 +30,7 @@ export default function AuthLoginSuccessPage({ next }: Props) {
         })}
       </Heading>
       <Text
-        className="mt-4 md:mt-6 text-center"
+        className="mt-4 text-center md:mt-6"
         color="secondary"
         display="block"
         size="body2">
@@ -38,7 +38,7 @@ export default function AuthLoginSuccessPage({ next }: Props) {
       </Text>
       <img
         alt="Email envelope illustration"
-        className="block max-w-80 mx-auto mt-16"
+        className="mx-auto mt-16 block max-w-80"
         src="/img/marketing/envelope.svg"
       />
     </Container>

@@ -49,7 +49,7 @@ function RewardsStepLabel({
     <div className="flex gap-x-2.5">
       <span
         className={clsx(
-          'size-6 inline-flex items-center justify-center rounded-full',
+          'inline-flex size-6 items-center justify-center rounded-full',
           status === 'active' &&
             clsx(
               'border',
@@ -250,9 +250,9 @@ export default function RewardsTasksPage() {
   );
 
   return (
-    <div className="flex flex-col gap-y-10 items-center max-w-lg w-full mx-auto">
+    <div className="mx-auto flex w-full max-w-lg flex-col items-center gap-y-10">
       <RewardsHeader />
-      <div className="flex flex-col gap-4 w-full">
+      <div className="flex w-full flex-col gap-4">
         <RewardsStepLabel
           label={
             <FormattedMessage
@@ -277,7 +277,7 @@ export default function RewardsTasksPage() {
           ) : (
             <div className="flex flex-wrap gap-4">
               {handles.map(({ type, field, icon: Icon }) => (
-                <div key={type} className="flex gap-2 items-center">
+                <div key={type} className="flex items-center gap-2">
                   <Icon className={clsx('size-5 shrink-0', themeIconColor)} />
                   <Text size="body2">{handlesData?.[field]}</Text>
                 </div>
@@ -286,7 +286,7 @@ export default function RewardsTasksPage() {
           )}
         </div>
       </div>
-      <div className="flex flex-col gap-4 w-full">
+      <div className="flex w-full flex-col gap-4">
         <RewardsStepLabel
           label={
             <FormattedMessage
@@ -299,7 +299,7 @@ export default function RewardsTasksPage() {
           step={2}
         />
         {currentStep === 2 && (
-          <div className="flex flex-col gap-4 w-full pl-8">
+          <div className="flex w-full flex-col gap-4 pl-8">
             <RewardsTaskList tasks={tasksWithStatus} />
             <div className="flex justify-between">
               <Button

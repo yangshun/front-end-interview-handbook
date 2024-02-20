@@ -25,9 +25,9 @@ export function ProjectsLevelingProgressBar({
 
   return (
     <div className={clsx('flex flex-col gap-3', className)}>
-      <div className="h-2 bg-neutral-200 dark:bg-neutral-800 rounded-full">
+      <div className="h-2 rounded-full bg-neutral-200 dark:bg-neutral-800">
         <div
-          className="h-full bg-success dark:bg-success-dark rounded-full flex justify-end"
+          className="bg-success dark:bg-success-dark flex h-full justify-end rounded-full"
           style={{
             width: `${(currentRepCount / repTotal) * 100}%`,
           }}>
@@ -56,7 +56,7 @@ export function ProjectsLevelingProgressBar({
             }>
             <button
               className={clsx(
-                'h-full rounded-e-full select-none touch-none',
+                'h-full touch-none select-none rounded-e-full',
                 'bg-success-dark dark:bg-success-light',
               )}
               disabled={true}

@@ -536,7 +536,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
   return (
     <div
       aria-hidden={true}
-      className="relative flex size-full flex-col isolate">
+      className="relative isolate flex size-full flex-col">
       <PanelGroup className="h-0 w-full grow lg:flex" direction="horizontal">
         <Panel defaultSize={40} maxSize={60}>
           <div className="mx-auto h-full max-w-3xl overflow-y-auto lg:max-w-none">

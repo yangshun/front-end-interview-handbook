@@ -14,7 +14,7 @@ export default function ProjectsChallengeBriefSupportCard({ children }: Props) {
     <div
       aria-hidden="true"
       className={clsx(
-        'h-[200px] w-full overflow-hidden pt-5 px-5',
+        'h-[200px] w-full overflow-hidden px-5 pt-5',
         'rounded-lg',
         'pointer-events-none select-none',
         themeGlassyBorder,

@@ -67,7 +67,7 @@ export default function ProjectsProfileStats({
 
   return (
     <Section>
-      <CardContainer className="xl:grid-cols-4 grid-cols-2 grid gap-4 lg:gap-6">
+      <CardContainer className="grid grid-cols-2 gap-4 lg:gap-6 xl:grid-cols-4">
         {stats.map(({ title, count, icon: Icon }) => {
           return (
             <Card
@@ -77,7 +77,7 @@ export default function ProjectsProfileStats({
               <div className="flex items-center gap-2">
                 <span
                   className={clsx(
-                    'md:inline-flex size-9 items-center justify-center rounded-md hidden',
+                    'hidden size-9 items-center justify-center rounded-md md:inline-flex',
                     themeBackgroundChipColor,
                     themeTextSecondaryColor,
                     'border border-transparent transition',
@@ -91,7 +91,7 @@ export default function ProjectsProfileStats({
                 </Text>
               </div>
               <Text
-                className="md:text-5xl text-4xl font-bold"
+                className="text-4xl font-bold md:text-5xl"
                 size="inherit"
                 weight="inherit">
                 {count ? getFormattedNumber(count) : '-'}

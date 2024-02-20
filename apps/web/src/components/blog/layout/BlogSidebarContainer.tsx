@@ -10,7 +10,7 @@ export default function SidebarContainer() {
   return (
     <aside
       className={clsx(
-        'sticky z-sticky hidden h-full w-60 shrink-0 overflow-visible border-r lg:block',
+        'z-sticky sticky hidden h-full w-60 shrink-0 overflow-visible border-r lg:block',
         themeBorderColor,
       )}
       style={{

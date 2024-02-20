@@ -19,7 +19,7 @@ export default function MarketingAffiliateHero() {
   });
 
   return (
-    <div className="isolate theme-bg-radial-glow before:opacity-30">
+    <div className="theme-bg-radial-glow isolate before:opacity-30">
       <main>
         <div ref={sectionMarkerRef} />
         <Container>

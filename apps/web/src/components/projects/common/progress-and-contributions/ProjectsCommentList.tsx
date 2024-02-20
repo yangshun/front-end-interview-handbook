@@ -47,14 +47,14 @@ export default function ProjectsCommentList({ comments, title }: Props) {
               index === 0 && 'rounded-t-lg',
               index === comments.length - 1 && 'rounded-b-lg',
             )}>
-            <div className="flex justify-between gap-6 w-full">
+            <div className="flex w-full justify-between gap-6">
               <div className="flex flex-row gap-3">
                 <UserAvatar
                   className="size-6 shrink-0"
                   profile={comment.author}
                   size="xs"
                 />
-                <div className="flex lg:flex-row flex-col gap-3">
+                <div className="flex flex-col gap-3 lg:flex-row">
                   {comment.category === 'QUESTION' && (
                     <Badge
                       className="h-6 w-min"
@@ -127,7 +127,7 @@ export default function ProjectsCommentList({ comments, title }: Props) {
                   </div>
                 </div>
               </div>
-              <div className="lg:flex whitespace-nowrap lg:visible hidden">
+              <div className="hidden whitespace-nowrap lg:visible lg:flex">
                 <Text color="secondary" size="body3">
                   <RelativeTimestamp timestamp={new Date(comment.createdAt)} />
                 </Text>

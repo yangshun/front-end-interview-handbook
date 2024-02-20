@@ -15,7 +15,7 @@ type Props = Readonly<{
 export default function ProjectsChallengeListPage({ challenges }: Props) {
   return (
     <div className="flex flex-col gap-9">
-      <div className="flex flex-col max-w-prose gap-1">
+      <div className="flex max-w-prose flex-col gap-1">
         <Heading level="heading6">
           <FormattedMessage
             defaultMessage="Browse all challenges"

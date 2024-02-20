@@ -42,7 +42,7 @@ function ProjectsSkillParentChip({
   return (
     <span
       className={clsx(
-        'flex items-center gap-1 rounded flex-wrap',
+        'flex flex-wrap items-center gap-1 rounded',
         'px-1.5 py-1',
         'bg-neutral-100 dark:bg-neutral-950',
       )}>

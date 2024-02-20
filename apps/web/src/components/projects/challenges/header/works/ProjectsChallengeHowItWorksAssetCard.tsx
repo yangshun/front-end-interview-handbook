@@ -48,7 +48,7 @@ export default function ProjectsChallengeHowItWorksAssetCard() {
         <ol className="relative flex flex-col gap-y-6">
           <div
             className={clsx(
-              'border-l border-dashed absolute h-full start-3',
+              'absolute start-3 h-full border-l border-dashed',
               themeBorderElementColor,
             )}
           />
@@ -57,7 +57,7 @@ export default function ProjectsChallengeHowItWorksAssetCard() {
               <li
                 key={step.id}
                 aria-label={step.label}
-                className="flex gap-2.5 items-start">
+                className="flex items-start gap-2.5">
                 <div className="flex flex-col self-stretch">
                   <div className={clsx('z-10', themeBackgroundLayerColor)}>
                     <Chip
@@ -71,7 +71,7 @@ export default function ProjectsChallengeHowItWorksAssetCard() {
                   {index === steps.length - 1 && (
                     <div
                       className={clsx(
-                        'z-10 self-stretch flex-1',
+                        'z-10 flex-1 self-stretch',
                         themeBackgroundLayerColor,
                       )}
                     />
@@ -81,7 +81,7 @@ export default function ProjectsChallengeHowItWorksAssetCard() {
                   <Text className="text-sm" color="active" weight="medium">
                     {step.label}
                   </Text>
-                  <div className="flex flex-col gap-4 items-start">
+                  <div className="flex flex-col items-start gap-4">
                     <Text className="text-xs" color="secondary">
                       <FormattedMessage
                         defaultMessage="Includes assets, JPG images of the design files, and a basic style guide. There's also a README to help you get started."

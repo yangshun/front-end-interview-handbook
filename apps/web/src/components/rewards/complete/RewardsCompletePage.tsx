@@ -36,8 +36,8 @@ export default function RewardsCompletePage() {
   }
 
   return (
-    <div className="flex flex-col gap-y-12 items-center max-w-xl w-full mx-auto">
-      <div className="flex flex-col gap-y-4 items-center">
+    <div className="mx-auto flex w-full max-w-xl flex-col items-center gap-y-12">
+      <div className="flex flex-col items-center gap-y-4">
         <RiCheckboxCircleLine className="text-success size-16" />
         <div className="flex flex-col items-center">
           <Heading level="heading4">
@@ -66,7 +66,7 @@ export default function RewardsCompletePage() {
             id="k18teo"
             values={{
               strong: (chunks) => (
-                <strong className="font-medium whitespace-nowrap">
+                <strong className="whitespace-nowrap font-medium">
                   {chunks}
                 </strong>
               ),
@@ -75,7 +75,7 @@ export default function RewardsCompletePage() {
         </Text>
       </div>
       {promoCode != null && (
-        <div className="flex flex-col gap-8 w-[400px]">
+        <div className="flex w-[400px] flex-col gap-8">
           <RewardsTicket
             ratio="wide"
             subtitle={
@@ -130,7 +130,7 @@ export default function RewardsCompletePage() {
               }}
             />
           </Text>
-          <div className="flex flex-col w-full gap-x-6 gap-y-4 sm:flex-row">
+          <div className="flex w-full flex-col gap-x-6 gap-y-4 sm:flex-row">
             <Button
               className="self-stretch sm:self-auto"
               display="block"

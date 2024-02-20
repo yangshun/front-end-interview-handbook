@@ -20,7 +20,7 @@ export default function ProjectsProfileInfoSectionLayout({
 }: Props) {
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex gap-1 items-center">
+      <div className="flex items-center gap-1">
         <Text size="body2" weight="bold">
           {heading}
         </Text>

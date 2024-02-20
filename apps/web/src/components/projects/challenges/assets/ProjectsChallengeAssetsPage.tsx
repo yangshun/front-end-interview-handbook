@@ -112,7 +112,7 @@ export default function ProjectsChallengeAssetsPage({
       align="center"
       disableOverlay={accessAllSteps}
       overlay={
-        <div className="flex flex-col gap-y-6 items-center max-w-2xl mx-auto">
+        <div className="mx-auto flex max-w-2xl flex-col items-center gap-y-6">
           <Heading className="text-center drop-shadow" level="heading5">
             <FormattedMessage
               defaultMessage="You can download assets after starting the project"
@@ -122,7 +122,7 @@ export default function ProjectsChallengeAssetsPage({
           </Heading>
           <div
             className={clsx(
-              'flex flex-col p-4 rounded-lg',
+              'flex flex-col rounded-lg p-4',
               themeBackgroundEmphasized,
             )}>
             <Text size="body0" weight="bold">
@@ -138,7 +138,7 @@ export default function ProjectsChallengeAssetsPage({
                   <RiCheckboxCircleFill
                     aria-hidden={true}
                     className={clsx(
-                      'w-3 h-3 flex-shrink-0 mt-1',
+                      'mt-1 h-3 w-3 flex-shrink-0',
                       themeTextColor,
                     )}
                   />

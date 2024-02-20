@@ -18,7 +18,7 @@ export default function MarketingHeroBrowserWindowFrame({ children }: Props) {
       <div
         className={clsx(
           'grid grid-cols-[3rem_1fr_3rem] md:grid-cols-[4rem_1fr_4rem]',
-          'items-center gap-6 border-b border-neutral-200 px-4 py-3 dark:border-transparent md:px-6',
+          'items-center gap-6 border-b border-neutral-200 px-4 py-3 md:px-6 dark:border-transparent',
         )}>
         <div className="flex items-center gap-x-2">
           <div className="size-3 rounded-full bg-[#EC6A5F]" />

@@ -106,7 +106,7 @@ export default function ProjectsDashboardRecommendedActionsSection({
         <div
           className={clsx(
             'isolate',
-            'flex flex-col md:flex-row gap-6 md:gap-8',
+            'flex flex-col gap-6 md:flex-row md:gap-8',
             'overflow-hidden rounded-lg',
             'px-8 py-6',
             themeBackgroundCardWhiteOnLightColor,
@@ -149,7 +149,7 @@ export default function ProjectsDashboardRecommendedActionsSection({
             )}
             role="separator"
           />
-          <div className={clsx('flex flex-1 flex-col gap-5 justify-center')}>
+          <div className={clsx('flex flex-1 flex-col justify-center gap-5')}>
             {recommendedActions.slice(1).map((action) => (
               <div
                 key={action.title}
@@ -161,7 +161,7 @@ export default function ProjectsDashboardRecommendedActionsSection({
                 <div>
                   <span
                     className={clsx(
-                      'inline-flex items-center justify-center p-2.5 rounded-lg',
+                      'inline-flex items-center justify-center rounded-lg p-2.5',
                       themeBackgroundChipColor,
                       themeTextColor,
                       'border border-transparent transition',
@@ -169,7 +169,7 @@ export default function ProjectsDashboardRecommendedActionsSection({
                     <action.icon aria-hidden={true} className="size-5" />
                   </span>
                 </div>
-                <div className="flex flex-col gap-1 w-full">
+                <div className="flex w-full flex-col gap-1">
                   <Text color="active" size="body3" weight="medium">
                     <Anchor
                       className="focus:outline-none"

@@ -86,7 +86,7 @@ export default function ProjectsComparison({
       {title && (
         <div
           className={clsx(
-            'flex flex-col justify-between md:flex-row gap-4',
+            'flex flex-col justify-between gap-4 md:flex-row',
             'px-4 py-4 md:px-6',
           )}>
           <Heading level="heading6">{title}</Heading>
@@ -120,10 +120,10 @@ export default function ProjectsComparison({
         )}
       </div>
       {/* Footer */}
-      <div className="grid grid-col-2 md:grid-cols-8 md:px-6 px-4 py-4 w-full gap-2">
+      <div className="grid-col-2 grid w-full gap-2 px-4 py-4 md:grid-cols-8 md:px-6">
         <div
           className={clsx(
-            'col-span-1 md:col-span-2 flex flex-col justify-center',
+            'col-span-1 flex flex-col justify-center md:col-span-2',
           )}>
           {showDimensions && (
             <Text color="secondary" size="body3" weight="medium">
@@ -135,7 +135,7 @@ export default function ProjectsComparison({
           </Text>
           {deploymentUrls && (
             <Text
-              className="whitespace-nowrap truncate"
+              className="truncate whitespace-nowrap"
               display="block"
               size="body2">
               <Anchor href={deploymentUrls[selectedScreenIndex].href}>
@@ -144,7 +144,7 @@ export default function ProjectsComparison({
             </Text>
           )}
         </div>
-        <div className="flex col-span-1 md:col-span-2 md:order-last justify-end items-center">
+        <div className="col-span-1 flex items-center justify-end md:order-last md:col-span-2">
           <ProjectsImageBreakpointButtonGroup
             breakpoint={selectedBreakpoint}
             setBreakpoint={setSelectedBreakpoint}
@@ -159,7 +159,7 @@ export default function ProjectsComparison({
             <button
               key={page.label}
               className={clsx(
-                'size-12 rounded border overflow-clip',
+                'size-12 overflow-clip rounded border',
                 index === selectedScreenIndex
                   ? themeBorderBrandColor
                   : themeBorderElementColor,
@@ -170,7 +170,7 @@ export default function ProjectsComparison({
               onClick={() => setSelectedScreenIndex(index)}>
               <img
                 alt={page.label}
-                className="object-cover size-full"
+                className="size-full object-cover"
                 src={page.screenshot || page.original}
               />
             </button>

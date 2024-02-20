@@ -61,15 +61,15 @@ export default function ProjectsDashboardContinueProjectsSection() {
               index === 0 && 'rounded-t-lg',
               index === recentSessions.length - 1 && 'rounded-b-lg',
             )}>
-            <div className="flex gap-4 items-center w-full">
+            <div className="flex w-full items-center gap-4">
               {session.challenge && (
                 <img
                   alt={session.challenge.title}
-                  className="object-cover rounded w-[90px] h-[70px]"
+                  className="h-[70px] w-[90px] rounded object-cover"
                   src={session.challenge.imageUrl}
                 />
               )}
-              <div className="flex flex-col gap-1 grow">
+              <div className="flex grow flex-col gap-1">
                 {session.challenge && (
                   <Text size="body1" weight="medium">
                     <Anchor href={session.challenge.href} variant="unstyled">
@@ -78,8 +78,8 @@ export default function ProjectsDashboardContinueProjectsSection() {
                     </Anchor>
                   </Text>
                 )}
-                <div className="flex flex-wrap gap-y-2 gap-x-6">
-                  <div className="flex gap-1.5 items-center">
+                <div className="flex flex-wrap gap-x-6 gap-y-2">
+                  <div className="flex items-center gap-1.5">
                     <RiTimeLine className={clsx(themeIconColor)} />
                     <Text color="secondary" size="body3">
                       {intl.formatMessage(
@@ -98,7 +98,7 @@ export default function ProjectsDashboardContinueProjectsSection() {
                     </Text>
                   </div>
                   {session.challenge && (
-                    <div className="flex gap-1.5 items-center">
+                    <div className="flex items-center gap-1.5">
                       <RiFireLine className={clsx(themeIconColor)} />
                       <Text color="secondary" size="body3">
                         {intl.formatMessage(
