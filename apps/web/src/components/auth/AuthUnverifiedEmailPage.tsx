@@ -23,23 +23,21 @@ export default function AuthUnverifiedEmailPage({ email, redirectTo }: Props) {
       className={clsx('flex flex-col', 'py-8 md:py-12 lg:py-16')}
       variant="xl">
       <Heading className="text-center" level="heading5">
-        Looks like you haven't verified your email
+        Looks like you haven't verified your email address
       </Heading>
       <Text
-        className="mt-4 text-center md:mt-6"
+        className="text-balance mt-4 text-center md:mt-6"
         color="secondary"
         display="block"
         size="body2">
-        {/* TODO(auth): Update the message because doesn't make sense when no email is automatically sent. */}
-        Please check your inbox for the verification email we've sent you.
-        Simply click on the "Verify" button within the email to confirm your
-        email address.
+        Click the button below to receive an email containing a verification
+        link.
       </Text>
       <div className="mt-4 text-center">
         <Button
           isDisabled={resendSignupConfirmationMutation.isLoading}
           isLoading={resendSignupConfirmationMutation.isLoading}
-          label="Resend verification email"
+          label="Send verification email"
           variant="primary"
           onClick={() => {
             resendSignupConfirmationMutation.mutate({
@@ -51,7 +49,7 @@ export default function AuthUnverifiedEmailPage({ email, redirectTo }: Props) {
       </div>
       <img
         alt="Email envelope illustration"
-        className="mx-auto mt-16 block max-w-80"
+        className="max-w-80 mx-auto mt-16 block"
         src="/img/marketing/envelope.svg"
       />
     </Container>
