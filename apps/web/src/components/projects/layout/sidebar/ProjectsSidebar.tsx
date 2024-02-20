@@ -179,7 +179,7 @@ function SidebarLinkButton({
       aria-current={isSelected ? 'page' : undefined}
       aria-label={isLabelHidden ? label : undefined}
       className={clsx(
-        'flex w-full items-center gap-3 shrink-0',
+        'flex w-full shrink-0 items-center gap-3',
         'p-3',
         'rounded',
         themeTextBrandColor_Hover,
@@ -256,7 +256,7 @@ export function ProjectsSidebarExpanded({
   return (
     <nav
       className={clsx(
-        'relative flex h-full flex-col border-e p-4 gap-y-4',
+        'relative flex h-full flex-col gap-y-4 border-e p-4',
         themeBorderElementColor,
       )}>
       <ProjectsSidebarProductMenu variant="full" />
@@ -265,7 +265,7 @@ export function ProjectsSidebarExpanded({
       ) : (
         <ProjectsSidebarNotSignedInHeader />
       )}
-      <ul className="flex flex-col gap-2 flex-grow">
+      <ul className="flex flex-grow flex-col gap-2">
         {sideBarItems.top.map(({ key: childKey, ...link }) => (
           <li key={childKey}>
             <SidebarLinkButton {...link} />
@@ -313,14 +313,17 @@ export function ProjectsSidebarExpanded({
             showChevron={false}
             size="sm">
             <AppThemeSubMenu />
-            <DropdownMenu.Item
-              icon={RiSettings3Line}
-              label={intl.formatMessage({
-                defaultMessage: 'Settings',
-                description: 'App settings label',
-                id: 'XysLlX',
-              })}
-            />
+            {profile && (
+              <DropdownMenu.Item
+                href="/projects/settings"
+                icon={RiSettings3Line}
+                label={intl.formatMessage({
+                  defaultMessage: 'Settings',
+                  description: 'App settings label',
+                  id: 'XysLlX',
+                })}
+              />
+            )}
             <AuthDropdownItem />
           </DropdownMenu>
         </div>
@@ -351,8 +354,8 @@ function ProjectsSidebarCollapsed({
   return (
     <nav
       className={clsx(
-        'relative flex items-center flex-col border-e',
-        'h-full py-4 px-3 gap-y-4',
+        'relative flex flex-col items-center border-e',
+        'h-full gap-y-4 px-3 py-4',
         themeBorderElementColor,
       )}>
       <ProjectsSidebarProductMenu variant="compact" />
@@ -367,7 +370,7 @@ function ProjectsSidebarCollapsed({
           size="lg"
         />
       )}
-      <ul className="flex flex-col gap-1 flex-grow">
+      <ul className="flex flex-grow flex-col gap-1">
         {sideBarItems.top.map(({ key: childKey, ...link }) => (
           <li key={childKey}>
             <SidebarLinkButton isLabelHidden={true} {...link} />
@@ -408,14 +411,17 @@ function ProjectsSidebarCollapsed({
               label="Discord"
             />
             <AppThemeSubMenu />
-            <DropdownMenu.Item
-              icon={RiSettings3Line}
-              label={intl.formatMessage({
-                defaultMessage: 'Settings',
-                description: 'App settings label',
-                id: 'XysLlX',
-              })}
-            />
+            {profile && (
+              <DropdownMenu.Item
+                href="/projects/settings"
+                icon={RiSettings3Line}
+                label={intl.formatMessage({
+                  defaultMessage: 'Settings',
+                  description: 'App settings label',
+                  id: 'XysLlX',
+                })}
+              />
+            )}
             <AuthDropdownItem />
           </DropdownMenu>
         </div>
