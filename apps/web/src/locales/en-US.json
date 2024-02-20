@@ -2899,6 +2899,10 @@
     "defaultMessage": "HTML Questions",
     "description": "HTML questions category long title"
   },
+  "QAFkOT": {
+    "defaultMessage": "No coupons available",
+    "description": "Title of empty state on coupons page"
+  },
   "QHtJPS": {
     "defaultMessage": "Practice end-to-end",
     "description": "Practice questions for all stages"
@@ -4254,10 +4258,6 @@
   "cCQIST": {
     "defaultMessage": "Open in new tab",
     "description": "Indication that text has been copied"
-  },
-  "cKaROL": {
-    "defaultMessage": "Component libraries for your portfolio",
-    "description": "Title for portfolio motivation"
   },
   "cKn3cK": {
     "defaultMessage": "Started",
@@ -6283,10 +6283,6 @@
     "defaultMessage": "GreatFrontEnd Blog",
     "description": "Blog home page title"
   },
-  "uRMJks": {
-    "defaultMessage": "No promo codes available",
-    "description": "Title of GreatFrontEnd page"
-  },
   "ub441I": {
     "defaultMessage": "Help others improve",
     "description": "Title for recommended action for new projects platform user"
@@ -6678,10 +6674,6 @@
   "y9hdD1": {
     "defaultMessage": "Reading time",
     "description": "Reading time of the article"
-  },
-  "yKuhFo": {
-    "defaultMessage": "Experience",
-    "description": "Title of years of experience section of projects profile edit page"
   },
   "yKuhFo": {
     "defaultMessage": "Experience",

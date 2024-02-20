@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { RiPercentLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -43,6 +44,7 @@ export default function ProfileCoupons() {
       <Section>
         {profilePromoCodes.data?.data.length === 0 ? (
           <EmptyState
+            icon={RiPercentLine}
             subtitle={
               <FormattedMessage
                 defaultMessage="Check out the available <link>promotions</link>."
@@ -56,9 +58,9 @@ export default function ProfileCoupons() {
               />
             }
             title={intl.formatMessage({
-              defaultMessage: 'No promo codes available',
-              description: 'Title of GreatFrontEnd page',
-              id: 'uRMJks',
+              defaultMessage: 'No coupons available',
+              description: 'Title of empty state on coupons page',
+              id: 'QAFkOT',
             })}
           />
         ) : (

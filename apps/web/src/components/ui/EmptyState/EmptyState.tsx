@@ -71,15 +71,15 @@ const icons: Record<
   under_construction: RiToolsLine,
 };
 const colors: Record<EmptyStateVariant, TextColor> = {
-  editor_loading: 'disabled',
-  empty: 'disabled',
+  editor_loading: 'secondary',
+  empty: 'secondary',
   error: 'error',
-  exit: 'disabled',
-  login: 'disabled',
-  not_subscribed: 'disabled',
+  exit: 'secondary',
+  login: 'secondary',
+  not_subscribed: 'secondary',
   success: 'success',
-  tests_loading: 'disabled',
-  under_construction: 'disabled',
+  tests_loading: 'secondary',
+  under_construction: 'secondary',
 };
 
 export default function EmptyState({
@@ -99,7 +99,7 @@ export default function EmptyState({
       <Text color={colors[variant]} display="block">
         <Icon
           aria-hidden="true"
-          className={clsx('mx-auto size-10 shrink-0', iconClassName)}
+          className={clsx('size-10 mx-auto shrink-0', iconClassName)}
         />
       </Text>
       <Heading className="mt-4" level="custom">
