@@ -4255,6 +4255,10 @@
     "defaultMessage": "Open in new tab",
     "description": "Indication that text has been copied"
   },
+  "cKaROL": {
+    "defaultMessage": "Component libraries for your portfolio",
+    "description": "Title for portfolio motivation"
+  },
   "cKn3cK": {
     "defaultMessage": "Started",
     "description": "Started on study plan label"
@@ -6674,6 +6678,10 @@
   "y9hdD1": {
     "defaultMessage": "Reading time",
     "description": "Reading time of the article"
+  },
+  "yKuhFo": {
+    "defaultMessage": "Experience",
+    "description": "Title of years of experience section of projects profile edit page"
   },
   "yKuhFo": {
     "defaultMessage": "Experience",

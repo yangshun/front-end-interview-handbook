@@ -1,0 +1,85 @@
+---
+title: Core Web Vitals Metrics in 5 Minutes
+description: Understand how to quantify good user experience in web pages.
+imageUrl: /img/blog/core-web-vitals-metrics.png
+tags:
+  - resources
+level: starter
+createdAt: 2024-02-16
+author: blog/author/feilin.json
+category: blog/category/real-world-front-end.json
+---
+
+As developers, we often wonder what kind of web page gives good user experience. The problem arises when we try to quantify it. Enter 'Core Web Vitals' – a set of key metrics provided by Google that constitute unified guidance for quality signals. It measures real-world user experience for loading performance, interactivity, and visual stability of the page.
+
+In this short article, we will summarize the most important things you should know about these metrics and provide you with links to learn more should you desire.
+
+## Largest Contentful Paint
+
+![LCP Standard](/img/blog/core-web-vitals/LCP.png)
+
+The first metric to consider is the Largest Contentful Paint (LCP). LCP is a metric that measures the loading performance of a page. Specifically, it marks the point in the page load timeline from a user's perspective when the main/largest content (such as images or videos) has likely loaded.
+
+LCP is represented in seconds, where anything under 2.5 seconds is great. It is extremely crucial as it represents how quickly users can access the main content of a web page. The faster it is, the better user engagement, satisfaction, and retention. To monitor, platforms such as Google's PageSpeed Insights or Lighthouse can be used.
+
+LCP is affected by several factors: Server response times, network latency, render-blocking resources, and the complexity of the web page's layout. Optimizing these factors can help improve LCP and overall loading performance.
+
+Examples of such optimization techniques include:
+
+* **Optimizing images and videos**: Compressing images, using modern image formats, and lazy loading techniques
+* **Minimizing render-blocking resources**: minimize synchronous stylesheets/scripts or long tasks
+* **Prioritizing critical content**: Preloading critical resources, optimizing server response times (reduce time to first byte), and prioritizing above-the-fold content
+* **Implementing efficient caching**: Leveraging browser caching, Content Delivery Networks (CDNs), and optimizing cache policies
+
+### Useful links
+
+* [Largest Contentful Paint (LCP) | web.dev](https://web.dev/articles/lcp)
+* [Optimize Largest Contentful Paint (LCP) | web.dev](https://web.dev/articles/optimize-lcp)
+* [Largest Contentful Paint (LCP): What It Is & How to Improve It](https://www.semrush.com/blog/lcp/)
+
+## First Input Delay
+
+![FID Standard](/img/blog/core-web-vitals/FID.png)
+
+First Input Delay (FID) is also an important metric that assesses the responsiveness of a web page. Different from LCP, FID evaluates the interactivity of a page by quantifying the time taken between users' first action (such as clicking a button or tapping on a link) and how long the browser takes to respond to that.
+
+A low FID (under 100 milliseconds) indicates that the page is highly interactive and responsive to user input, contributing to a positive user experience. Similar to LCP, FID is measured using performance monitoring tools like Google's PageSpeed Insights, Lighthouse, or web analytics platforms.
+
+As FID is affected by code execution time, main thread activity and the presence of long tasks that block the browser's responsiveness, the following methods will help in improving it:
+
+* **Optimizing asset loading**: Utilizing asynchronous loading for scripts, leveraging browser caching, and optimizing resource delivery
+* **Prioritizing critical rendering path**: Prioritizing above-the-fold content, optimizing server response times, and minimizing layout shifts
+* **Avoid long tasks**: Identify and optimize long tasks that monopolize the main thread by breaking up long tasks into smaller, more manageable chunks using techniques like code splitting, web workers, or offloading computation to background threads
+* **Reduce third-party impact**: Minimize the use of third-party scripts/services or implement lazy loading or asynchronous loading for non-essential third-party resources
+
+### Useful links
+
+* [First Input Delay (FID) | web.dev](https://web.dev/articles/fid)
+* [Optimize First Input Delay (FID) | web.dev](https://web.dev/articles/optimize-fid)
+* [First Input Delay (FID): A complete guide to optimizing FID](https://www.onely.com/blog/what-is-first-input-delay/)
+
+## Cumulative Layout Shift
+
+Lastly, Cumulative Layout Shift (CLS) measures visual stability by quantifying how much visible content moves around on the screen while loading and the total of all individual layout movement scores (ranging from 0 to 1) that happens while the page remains active. Layout shifts happen when visible elements on a page unexpectedly move to a different position, causing content to reorganize and disrupt user experience. A low CLS (under 0.1) means that the page's layout remains stable and consistent with minimum disruption for users.
+
+CLS is affected by the following factors:
+
+* **Images without dimensions**: Images that load without specified dimensions can cause layout shifts when they render and occupy space on the page
+* **Ads and embedded content**: Third-party ads, iframes, or dynamically loaded content can trigger layout shifts as they load and display on the page
+* **Font loading**: Changes in font size or style during page rendering can lead to text reflow and layout shifts
+* **Dynamic content**: Content that loads asynchronously or dynamically, such as user-generated content or live updates, can cause layout shifts as it appears on the page
+
+Hence, to reduce CLS, developers can try the following techniques:
+
+* **Specifying image dimensions**
+* **Preloading and lazy loading**
+* **Reserving space for ads and embeds**
+* **Avoiding dynamically injected content**
+
+### Useful links
+
+* [Cumulative Layout Shift | web.dev](https://web.dev/articles/cls)
+* [Optimizing Cumulative Layout Shift (CLS) | web.dev](https://web.dev/articles/optimize-cls)
+* [Cumulative Layout Shift (CLS): How (and Why) to measure it?](https://www.semrush.com/blog/what-is-cls/)
+
+Understanding and optimizing Core Web Vitals metrics are essential for developers looking to improve user experience and website performance. Multiple research shows that only about 40% of web pages pass these metrics. By focusing on them, developers can easily quantify the scores and performance of their web pages, giving users a great experience while visiting the website.
