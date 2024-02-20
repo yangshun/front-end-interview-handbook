@@ -119,6 +119,10 @@
     "defaultMessage": "Support you can expect",
     "description": "Title for Expected Support section on Projects project page"
   },
+  "/+z694": {
+    "defaultMessage": "Coupons | Settings | Projects",
+    "description": "Title of coupons page"
+  },
   "//v4RL": {
     "defaultMessage": "Deploying your project",
     "description": "Title for Deployment Info in Projects"
@@ -1579,6 +1583,10 @@
     "defaultMessage": "We have helped thousands of Software Engineers",
     "description": "Testimonial section heading"
   },
+  "E9Yr6B": {
+    "defaultMessage": "Billing",
+    "description": "Profile settings tab title"
+  },
   "E9mfba": {
     "defaultMessage": "Build your way up to a well-rounded front end / full stack skillset. Hone a specific skill, or follow our skills progression starting from zero.",
     "description": "Description of Projects skill tree page"
@@ -2070,6 +2078,10 @@
   "J90fcx": {
     "defaultMessage": "Preparation Plans",
     "description": "Preparation plans section title"
+  },
+  "J9MCjZ": {
+    "defaultMessage": "Experience | Settings | Projects",
+    "description": "Title of experience page"
   },
   "JCFm+V": {
     "defaultMessage": "Authors",
@@ -2731,6 +2743,10 @@
     "defaultMessage": "Username",
     "description": "Username"
   },
+  "OpdWAI": {
+    "defaultMessage": "Coupons",
+    "description": "Profile settings tab title"
+  },
   "OrN/z/": {
     "defaultMessage": "Share your questions or thoughts",
     "description": "Placeholder for discussion post input text area"
@@ -2894,6 +2910,10 @@
   "QJaxVF": {
     "defaultMessage": "Our focus is currently on expanding our question base. New coding and system design questions are added to the platform on a weekly basis.",
     "description": "Question base section subtitle - first paragraph"
+  },
+  "QNqh1P": {
+    "defaultMessage": "Experience",
+    "description": "Profile settings tab title"
   },
   "QTT/Vt": {
     "defaultMessage": "Popularity: Most to least completed",
@@ -3379,6 +3399,10 @@
     "defaultMessage": "India",
     "description": "India country"
   },
+  "UeYQmR": {
+    "defaultMessage": "Activity",
+    "description": "Profile settings tab title"
+  },
   "UelR8r": {
     "defaultMessage": "Build towards your goals",
     "description": "Heading of the 'Build towards your goals' marketing section on Projects home page"
@@ -3482,6 +3506,10 @@
   "VVf84T": {
     "defaultMessage": "Password",
     "description": "Label of password field on Change Password page"
+  },
+  "VVnqTJ": {
+    "defaultMessage": "Activity | Settings | Projects",
+    "description": "Title of activity page"
   },
   "VWGWik": {
     "defaultMessage": "Learn to work with specifications mimicking projects you will encounter as a full-time engineer",
@@ -4863,6 +4891,10 @@
     "defaultMessage": "Build great projects faster with libraries and design systems",
     "description": "Title for Projects marketing hero section for side projects"
   },
+  "iq1rXh": {
+    "defaultMessage": "Settings",
+    "description": "Title of settings page"
+  },
   "iqz/fo": {
     "defaultMessage": "Types of JS questions, concepts to cover and rubrics",
     "description": "JavaScript questions, concepts and rubrics during front end interviews"
@@ -4914,6 +4946,10 @@
   "jGQnYd": {
     "defaultMessage": "Search coding questions",
     "description": "Placeholder for search input of coding question list"
+  },
+  "jI3O/d": {
+    "defaultMessage": "Billing | Settings | Projects",
+    "description": "Title of billing page"
   },
   "jIpXy+": {
     "defaultMessage": "Coming Soon",
@@ -5455,6 +5491,10 @@
     "defaultMessage": "This is the name that will be shown on your profile. Use a maximum of {maxLength} characters.",
     "description": "Name field description"
   },
+  "nivf5h": {
+    "defaultMessage": "General",
+    "description": "Profile settings tab title"
+  },
   "njNtN8": {
     "defaultMessage": "YouTube profile link",
     "description": "Link to YouTube profile"
@@ -5650,6 +5690,10 @@
   "pM/ZPq": {
     "defaultMessage": "Network",
     "description": "Network topic for quiz questions"
+  },
+  "pN0mtf": {
+    "defaultMessage": "Settings | Projects",
+    "description": "Title of projects settings page"
   },
   "pP8Sa9": {
     "defaultMessage": "The fastest way to learn and build something useful",
@@ -6450,6 +6494,10 @@
   "wO0zga": {
     "defaultMessage": "Skills roadmap",
     "description": "Title for \"Skills roadmap\" feature on Projects home page"
+  },
+  "wRV8PN": {
+    "defaultMessage": "Settings",
+    "description": "Settings page title"
   },
   "wUCEFX": {
     "defaultMessage": "Motivations for joining",

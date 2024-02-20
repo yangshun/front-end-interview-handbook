@@ -42,6 +42,7 @@ type ProfileTabItem =
   | 'billing'
   | 'coupons'
   | 'security';
+
 type ProfileTabItemData = Readonly<{
   href: string;
   label: string;
@@ -132,7 +133,7 @@ export default function ProfileShell({ user, children }: Props) {
             <div className="xl:w-72 xl:flex-shrink-0 xl:px-6">
               <div className="px-4 py-6 sm:px-6 lg:px-8 xl:px-0">
                 <div className="flex items-center justify-between">
-                  <div className="w-full flex flex-col flex-1 gap-y-4">
+                  <div className="flex w-full flex-1 flex-col gap-y-4">
                     <div className="gap-y-8 sm:flex sm:items-center sm:justify-between sm:gap-y-0 xl:block xl:gap-y-8">
                       {/* Profile */}
                       <div className="flex items-center gap-x-3">
