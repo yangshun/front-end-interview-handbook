@@ -196,10 +196,12 @@ export const projectsProfileRouter = router({
     return await prisma.profile.findUnique({
       select: {
         avatarUrl: true,
+        company: true,
         currentStatus: true,
         name: true,
         startWorkDate: true,
         title: true,
+        username: true,
       },
       where: {
         id: user.id,
@@ -210,24 +212,36 @@ export const projectsProfileRouter = router({
     .input(
       z.object({
         avatarUrl: z.string().optional(),
+        company: z.string().optional(),
         currentStatus: z.string().optional(),
         name: z.string(),
         startWorkDate: z.date().optional(),
         title: z.string(),
+        username: z.string(),
       }),
     )
     .mutation(
       async ({
-        input: { currentStatus, name, title, startWorkDate, avatarUrl },
+        input: {
+          currentStatus,
+          name,
+          title,
+          startWorkDate,
+          avatarUrl,
+          username,
+          company,
+        },
         ctx: { user },
       }) => {
         return await prisma.profile.update({
           data: {
             avatarUrl,
+            company,
             currentStatus,
             name,
             startWorkDate,
             title,
+            username,
           },
           where: {
             id: user.id,
@@ -316,6 +330,7 @@ export const projectsProfileRouter = router({
         .object({
           avatarUrl: z.string().optional(),
           bio: z.string(),
+          company: z.string().optional(),
           currentStatus: z.string().optional(),
           githubUsername: z
             .union([z.string().length(0), z.string().url()])
@@ -331,6 +346,7 @@ export const projectsProfileRouter = router({
           skillsToGrow: projectsSkillListInputOptionalSchemaServer,
           startWorkDate: z.date().optional(),
           title: z.string(),
+          username: z.string(),
           website: z
             .union([z.string().length(0), z.string().url()])
             .transform((val) => (val ? val : null))
@@ -353,6 +369,8 @@ export const projectsProfileRouter = router({
           title,
           website,
           avatarUrl,
+          username,
+          company,
         },
         ctx: { user },
       }) => {
@@ -366,6 +384,7 @@ export const projectsProfileRouter = router({
           data: {
             avatarUrl,
             bio,
+            company,
             currentStatus,
             githubUsername,
             linkedInUsername,
@@ -378,6 +397,7 @@ export const projectsProfileRouter = router({
             },
             startWorkDate,
             title,
+            username,
             website,
           },
           where: {
@@ -413,5 +433,20 @@ export const projectsProfileRouter = router({
         .getPublicUrl(storagePath);
 
       return imageUrl.publicUrl;
+    }),
+  usernameExists: userProcedure
+    .input(
+      z.object({
+        username: z.string(),
+      }),
+    )
+    .query(async ({ input: { username }, ctx: { user } }) => {
+      const profile = await prisma.profile.findUnique({
+        where: {
+          username,
+        },
+      });
+
+      return profile != null && profile.id !== user.id;
     }),
 });

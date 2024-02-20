@@ -43,9 +43,17 @@
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
   },
+  "+NBACf": {
+    "defaultMessage": "at",
+    "description": "At"
+  },
   "+OVTKu": {
     "defaultMessage": "Billing | Profile",
     "description": "Title of Profile Billing page"
+  },
+  "+Q7wrS": {
+    "defaultMessage": "Username",
+    "description": "Label for \"Username\" input on Projects profile onboarding page"
   },
   "+R1wGb": {
     "defaultMessage": "Component track",
@@ -402,6 +410,10 @@
   "26Xmcd": {
     "defaultMessage": "<bold>{completedCount}</bold>/{totalCount} challenges",
     "description": "Rep count label in Projects"
+  },
+  "2CZvP8": {
+    "defaultMessage": "Title",
+    "description": "Label for \"Job Title\" input on Projects profile onboarding page"
   },
   "2LouBj": {
     "defaultMessage": "Holistic study plans",
@@ -2235,6 +2247,10 @@
     "defaultMessage": "Previous",
     "description": "Previous step button label"
   },
+  "KXNpDt": {
+    "defaultMessage": "Software Engineer",
+    "description": "Placeholder for \"Job Title\" input on Projects profile onboarding page"
+  },
   "KY8GB9": {
     "defaultMessage": "Failed to mark question as complete. Please try again",
     "description": "Error message shown when a question has failed to mark as complete"
@@ -3187,6 +3203,10 @@
     "defaultMessage": "Next",
     "description": "Next step button label"
   },
+  "SWycPl": {
+    "defaultMessage": "Username should not contain spaces",
+    "description": "Error message for containing spaces in \"Username\" input on Projects profile onboarding page"
+  },
   "SZ26iB": {
     "defaultMessage": "Search",
     "description": "Placeholder for search input of blog list"
@@ -3266,6 +3286,10 @@
   "TDzLXK": {
     "defaultMessage": "Lyft",
     "description": "Company name for Lyft"
+  },
+  "TEAVc0": {
+    "defaultMessage": "Please enter your your username",
+    "description": "Error message for empty \"Username\" input on Projects profile onboarding page"
   },
   "TJD+8A": {
     "defaultMessage": "Project steps",
@@ -3979,10 +4003,6 @@
     "defaultMessage": "Other",
     "description": "Label for \"Other\" onboarding option in Projects"
   },
-  "Zk7X6D": {
-    "defaultMessage": "Software Engineer at Stripe | Ex-Google",
-    "description": "Placeholder for \"Job Title\" input on Projects profile onboarding page"
-  },
   "ZqJYfb": {
     "defaultMessage": "Subscript",
     "description": "Label for subscript"
@@ -4126,6 +4146,10 @@
   "b2csyI": {
     "defaultMessage": "Next",
     "description": "Label for button leading to the next page"
+  },
+  "b7eX+v": {
+    "defaultMessage": "Stripe",
+    "description": "Placeholder for \"Company\" input on Projects profile onboarding page"
   },
   "b7z86A": {
     "defaultMessage": "I haven't started work yet",
@@ -5015,6 +5039,10 @@
     "defaultMessage": "Title: Z to A",
     "description": "Sorting option for question list - sort titles from Z to A"
   },
+  "jeUKH/": {
+    "defaultMessage": "Job",
+    "description": "Title of job section of projects profile edit page"
+  },
   "jeX0Hi": {
     "defaultMessage": "Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others",
     "description": "Placeholder for Biography input on Projects profile onboarding page"
@@ -5026,6 +5054,10 @@
   "jlTtgt": {
     "defaultMessage": "Please <link>leave us an email</link> if you have any other needs or wants. We would love to discuss them!",
     "description": "Question base section subtitle - third paragraph"
+  },
+  "jm5U2i": {
+    "defaultMessage": "Company(optional)",
+    "description": "Label for \"Company\" input on Projects profile onboarding page"
   },
   "jnV/ZP": {
     "defaultMessage": "System Design Questions",
@@ -5995,6 +6027,10 @@
     "defaultMessage": "Behavioral Interview Study Guides",
     "description": "Behavioral interview study guides"
   },
+  "sCPBAY": {
+    "defaultMessage": "janesmith",
+    "description": "Placeholder for \"Username\" input on Projects profile onboarding page"
+  },
   "sGF5oQ": {
     "defaultMessage": "Types of Questions",
     "description": "Types of front end system design interview questions"
@@ -6030,6 +6066,10 @@
   "sWyGax": {
     "defaultMessage": "Features",
     "description": "Title of the 'The fastest way to learn and build something useful' marketing section on Projects home page"
+  },
+  "sYQ9YX": {
+    "defaultMessage": "Username already exists",
+    "description": "Error for user already exists"
   },
   "sa8B3r": {
     "defaultMessage": "System Design Questions",
@@ -6242,6 +6282,10 @@
   "u3bYHM": {
     "defaultMessage": "FAQ",
     "description": "Link to FAQ page"
+  },
+  "u4C2En": {
+    "defaultMessage": "Similar to your LinkedIn title. Include your role and company, or your interests.",
+    "description": "Description for \"Company\" input on Projects profile onboarding page"
   },
   "uBXv8c": {
     "defaultMessage": "Title can contain at most {maxLength} characters.",

@@ -37,6 +37,7 @@ export type ProjectsYoeReplacement = z.infer<typeof yoeReplacementSchema>;
 export type ProjectsProfileEditFormValues = {
   avatarUrl?: string;
   bio: string;
+  company: string;
   githubUsername: string;
   hasNotStartedWork: boolean;
   jobTitle: string;
@@ -46,6 +47,7 @@ export type ProjectsProfileEditFormValues = {
   name: string;
   skillsProficient: Array<ProjectsSkillKey>;
   skillsToGrow: Array<ProjectsSkillKey>;
+  username: string;
   website: string;
   yoeReplacement: {
     option: string | undefined;

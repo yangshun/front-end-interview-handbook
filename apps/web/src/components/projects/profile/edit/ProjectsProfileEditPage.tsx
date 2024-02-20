@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { z } from 'zod';
@@ -22,6 +23,7 @@ import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 
+import ProjectsProfileJobSection from './ProjectsProfileJobSection';
 import { useProjectsSkillListInputSchema } from '../../skills/form/ProjectsSkillListInputSchema';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -45,6 +47,7 @@ function useProjectsProfileEditSchema() {
   const baseSchema = z.object({
     avatarUrl: z.string().optional(),
     bio: z.string(),
+    company: z.string().optional(),
     githubUsername: z
       .union([z.string().length(0), z.string().url()])
       .transform((val) => (val ? val : null))
@@ -58,6 +61,24 @@ function useProjectsProfileEditSchema() {
     name: z.string().min(2),
     skillsProficient: skillsProficientSchema,
     skillsToGrow: skillsToGrowSchema,
+    username: z
+      .string()
+      .min(1, {
+        message: intl.formatMessage({
+          defaultMessage: 'Please enter your your username',
+          description:
+            'Error message for empty "Username" input on Projects profile onboarding page',
+          id: 'TEAVc0',
+        }),
+      })
+      .refine((value) => !/\s/.test(value), {
+        message: intl.formatMessage({
+          defaultMessage: 'Username should not contain spaces',
+          description:
+            'Error message for containing spaces in "Username" input on Projects profile onboarding page',
+          id: 'SWycPl',
+        }),
+      }),
     website: z
       .union([z.string().length(0), z.string().url()])
       .transform((val) => (val ? val : null))
@@ -138,6 +159,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
     values: {
       avatarUrl: initialValues?.avatarUrl ?? '',
       bio: initialValues?.bio ?? '',
+      company: initialValues?.company ?? '',
       githubUsername: initialValues?.githubUsername ?? '',
       hasNotStartedWork: initialValues?.currentStatus !== null,
       jobTitle: initialValues?.title ?? '',
@@ -153,6 +175,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
       name: initialValues?.name ?? '',
       skillsProficient: initialValues?.projectsProfile?.skillsProficient ?? [],
       skillsToGrow: initialValues?.projectsProfile?.skillsToGrow ?? [],
+      username: initialValues?.username ?? '',
       website: initialValues?.website ?? '',
       yoeReplacement: {
         option: yoeReplacementSchema
@@ -170,12 +193,14 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
     reset,
     formState: { isSubmitting, isDirty },
   } = methods;
+  const [usernameExistsError, setUsernameExistsError] = useState(false);
 
   const onSave = async (data: ProjectsEditProfileTransformedValues) => {
     await projectsProfileUpdateMutation.mutateAsync(
       {
         avatarUrl: data.avatarUrl,
         bio: data.bio,
+        company: data.company,
         currentStatus: data.hasNotStartedWork ? data.yoeReplacement : undefined,
         githubUsername: data.githubUsername,
         linkedInUsername: data.linkedInUsername,
@@ -187,6 +212,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
         skillsToGrow: data.skillsToGrow,
         startWorkDate: data.monthYearExperience,
         title: data.jobTitle,
+        username: data.username,
         website: data.website,
       },
       {
@@ -242,7 +268,10 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
           )}>
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-14 md:gap-20">
-              <ProjectsProfileBasicInfoSection />
+              <ProjectsProfileBasicInfoSection
+                setUsernameExistsError={setUsernameExistsError}
+              />
+              <ProjectsProfileJobSection />
               <ProjectsProfileMotivationSection />
               <ProjectsProfileSkillSection />
               <div className="flex flex-col gap-6 md:flex-row">
@@ -269,7 +298,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
                 />
               )}
               <Button
-                isDisabled={!isDirty || isSubmitting}
+                isDisabled={!isDirty || isSubmitting || usernameExistsError}
                 isLoading={isSubmitting}
                 label={intl.formatMessage({
                   defaultMessage: 'Save changes',

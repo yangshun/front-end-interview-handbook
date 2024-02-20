@@ -5,9 +5,14 @@ import type { ProjectsProfileEditFormValues } from '~/components/projects/types'
 import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 
+import ProjectsProfileUsernameInput from './ProjectProfileUsernameInput';
 import ProjectsProfileEditAvatar from './ProjectsProfileEditAvatar';
 
-export default function ProjectsProfileBasicInfoSection() {
+export default function ProjectsProfileBasicInfoSection({
+  setUsernameExistsError,
+}: {
+  setUsernameExistsError: (value: boolean) => void;
+}) {
   const intl = useIntl();
 
   const {
@@ -55,23 +60,12 @@ export default function ProjectsProfileBasicInfoSection() {
           />
           <Controller
             control={control}
-            name="jobTitle"
+            name="username"
             render={({ field }) => (
-              <TextInput
-                errorMessage={errors.jobTitle?.message}
-                label={intl.formatMessage({
-                  defaultMessage: 'Job Title',
-                  description:
-                    'Label for "Job Title" input on Projects profile onboarding page',
-                  id: 'UIOmIs',
-                })}
-                placeholder={intl.formatMessage({
-                  defaultMessage: 'Software Engineer at Stripe | Ex-Google',
-                  description:
-                    'Placeholder for "Job Title" input on Projects profile onboarding page',
-                  id: 'Zk7X6D',
-                })}
-                {...field}
+              <ProjectsProfileUsernameInput
+                error={errors.username?.message}
+                field={field}
+                setUsernameExistsError={setUsernameExistsError}
               />
             )}
           />
