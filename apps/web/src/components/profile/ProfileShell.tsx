@@ -128,9 +128,9 @@ export default function ProfileShell({ user, children }: Props) {
             themeBorderColor,
           )}>
           {/* Left sidebar & main wrapper */}
-          <div className="min-w-0 flex-1 xl:flex">
+          <div className="min-w-0 flex-1 lg:flex">
             {/* Account profile */}
-            <div className="xl:w-72 xl:flex-shrink-0 xl:px-6">
+            <div className="lg:w-72 lg:shrink-0 lg:px-6">
               <div className="px-4 py-6 sm:px-6 lg:px-8 xl:px-0">
                 <div className="flex items-center justify-between">
                   <div className="flex w-full flex-1 flex-col gap-y-4">
@@ -185,29 +185,31 @@ export default function ProfileShell({ user, children }: Props) {
                               />
                             )}
                           </div>
-                          {profileDataQuery.data?.premium &&
-                            hasProjectsBetaAccess(
-                              new Date(
-                                profileDataQuery.data?.createdAt,
-                              ).getTime(),
-                            ) && (
-                              <ExclusiveTicket
-                                addOnElement={
-                                  <Tooltip label="Arriving Jan – Feb 2024">
-                                    <Badge
-                                      label="Coming soon"
-                                      size="sm"
-                                      variant="warning"
-                                    />
-                                  </Tooltip>
-                                }
-                                padding="sm"
-                                ratio="wide"
-                                subtitle="2 months free"
-                                tooltip="Ticket for exclusive beta access to our new mystery product dropping in Jan – Feb 2024"
-                                width={240}
-                              />
-                            )}
+                          <div className="hidden lg:block">
+                            {profileDataQuery.data?.premium &&
+                              hasProjectsBetaAccess(
+                                new Date(
+                                  profileDataQuery.data?.createdAt,
+                                ).getTime(),
+                              ) && (
+                                <ExclusiveTicket
+                                  addOnElement={
+                                    <Tooltip label="Arriving Jan – Feb 2024">
+                                      <Badge
+                                        label="Coming soon"
+                                        size="sm"
+                                        variant="warning"
+                                      />
+                                    </Tooltip>
+                                  }
+                                  padding="sm"
+                                  ratio="wide"
+                                  subtitle="2 months free"
+                                  tooltip="Ticket for exclusive beta access to our new mystery product dropping in Jan – Feb 2024"
+                                  width={240}
+                                />
+                              )}
+                          </div>
                           <div className="flex items-center gap-x-2">
                             <RiMailLine
                               aria-hidden="true"

@@ -177,7 +177,7 @@ function NoBillingPlan() {
 
   return (
     <div className="py-12 text-center">
-      <RiBankCardLine className="mx-auto size-12 text-neutral-400" />
+      <RiBankCardLine className="size-12 mx-auto text-neutral-400" />
       <Heading className="mt-2 text-sm font-medium" level="custom">
         <FormattedMessage
           defaultMessage="Not Subscribed"
@@ -220,7 +220,7 @@ export default function ProfileBilling() {
   const { userProfile } = useUserProfile();
 
   return (
-    <div className="flex flex-col gap-y-6">
+    <div className="flex flex-col gap-y-6 lg:max-w-md">
       <Heading className="sr-only" level="custom">
         <FormattedMessage
           defaultMessage="Billing"
@@ -234,13 +234,10 @@ export default function ProfileBilling() {
         ) : (
           <>
             <div
-              className={clsx(
-                'p-4',
-                'rounded-lg',
-                'flex flex-col gap-4',
+              className={clsx('flex flex-col gap-4', 'p-4', 'rounded-lg', [
                 'border',
                 themeBorderColor,
-              )}>
+              ])}>
               <div className="flex flex-col gap-1">
                 <Heading level="heading6">
                   <FormattedMessage

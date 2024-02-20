@@ -17,7 +17,7 @@ type Props = Readonly<{
 
 export default function ProfileAccount({ user }: Props) {
   return (
-    <div className="flex flex-col gap-y-6">
+    <div className="flex flex-col gap-y-6 lg:max-w-md">
       <Heading className="sr-only" level="custom">
         <FormattedMessage
           defaultMessage="Account Settings"
