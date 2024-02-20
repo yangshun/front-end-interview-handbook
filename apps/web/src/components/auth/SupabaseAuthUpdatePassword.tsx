@@ -20,9 +20,13 @@ import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
 
 type Props = Readonly<{
   next?: string | null;
+  showTitle?: boolean;
 }>;
 
-export default function SupabaseAuthUpdatePassword({ next }: Props) {
+export default function SupabaseAuthUpdatePassword({
+  next,
+  showTitle = true,
+}: Props) {
   const intl = useIntl();
   const { isLoading: isUserLoading } = useSessionContext();
   const supabaseClient = useSupabaseClientGFE();
@@ -70,35 +74,39 @@ export default function SupabaseAuthUpdatePassword({ next }: Props) {
 
   return (
     <div className="flex flex-col gap-y-6">
-      <div className="flex flex-col gap-y-2">
-        <Heading className="flex-1" level="heading5">
-          {user?.email == null ? (
-            <FormattedMessage
-              defaultMessage="Change password"
-              description="Title of Change Password page"
-              id="SLpcOX"
-            />
-          ) : (
-            <FormattedMessage
-              defaultMessage="Change password for {userEmail}"
-              description="Title of Change Password page"
-              id="gZL62Q"
-              values={{
-                userEmail: user?.email,
-              }}
-            />
+      {(showTitle || user?.app_metadata.provider !== 'email') && (
+        <div className="flex flex-col gap-y-2">
+          {showTitle && (
+            <Heading className="flex-1" level="heading6">
+              {user?.email == null ? (
+                <FormattedMessage
+                  defaultMessage="Change password"
+                  description="Title of Change Password page"
+                  id="SLpcOX"
+                />
+              ) : (
+                <FormattedMessage
+                  defaultMessage="Change password for {userEmail}"
+                  description="Title of Change Password page"
+                  id="gZL62Q"
+                  values={{
+                    userEmail: user?.email,
+                  }}
+                />
+              )}
+            </Heading>
           )}
-        </Heading>
-        {user?.app_metadata.provider !== 'email' && (
-          <Text color="secondary" display="block" size="body2">
-            <FormattedMessage
-              defaultMessage="If you are logged in with OAuth (e.g. GitHub), you can set a password here to use email and password to log in instead."
-              description="Tip to set password if third-party sign in methods were used, on Change Password page"
-              id="apypGU"
-            />
-          </Text>
-        )}
-      </div>
+          {user?.app_metadata.provider !== 'email' && (
+            <Text color="secondary" display="block" size="body2">
+              <FormattedMessage
+                defaultMessage="If you are logged in with OAuth (e.g. GitHub), you can set a password here to use email and password to log in instead."
+                description="Tip to set password if third-party sign in methods were used, on Change Password page"
+                id="apypGU"
+              />
+            </Text>
+          )}
+        </div>
+      )}
       <Section>
         {isUserLoading ? (
           <Spinner display="block" label="Loading" size="lg" />
@@ -143,26 +151,26 @@ export default function SupabaseAuthUpdatePassword({ next }: Props) {
               type="password"
               onChange={setConfirmPassword}
             />
-            <Button
-              display="block"
-              isDisabled={!isValidPassword || isLoading}
-              isLoading={isLoading}
-              label={intl.formatMessage({
-                defaultMessage: 'Change password',
-                description:
-                  'Label of Change Password button on Change Password page',
-                id: 'd8XKhi',
-              })}
-              size="lg"
-              type="submit"
-              variant="primary"
-              onClick={() => {
-                logEvent('auth.password.change', {
-                  element: 'Auth page change password button',
-                  label: 'Change password',
-                });
-              }}
-            />
+            <div className="flex justify-end">
+              <Button
+                isDisabled={!isValidPassword || isLoading}
+                isLoading={isLoading}
+                label={intl.formatMessage({
+                  defaultMessage: 'Change password',
+                  description:
+                    'Label of Change Password button on Change Password page',
+                  id: 'd8XKhi',
+                })}
+                type="submit"
+                variant="secondary"
+                onClick={() => {
+                  logEvent('auth.password.change', {
+                    element: 'Auth page change password button',
+                    label: 'Change password',
+                  });
+                }}
+              />
+            </div>
             {message && <Alert variant="success">{message}</Alert>}
             {error && <Alert variant="danger">{error}</Alert>}
           </form>

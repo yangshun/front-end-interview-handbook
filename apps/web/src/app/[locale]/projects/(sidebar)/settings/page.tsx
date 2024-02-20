@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import ProfileActivity from '~/components/profile/ProfileActivity';
+import ProjectsSettingsGeneralPage from '~/components/projects/settings/general/ProjectsSettingsGeneralPage';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -28,5 +28,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  return <div>Boo</div>;
+  return <ProjectsSettingsGeneralPage />;
 }
