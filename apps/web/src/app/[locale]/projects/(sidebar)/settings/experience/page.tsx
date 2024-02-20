@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import ProjectsSettingsExperiencePage from '~/components/projects/settings/ProjectsSettingsExperiencePage';
+
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -19,12 +21,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     pathname: '/projects/settings/experience',
     title: intl.formatMessage({
       defaultMessage: 'Experience | Settings | Projects',
-      description: 'Title of experience page',
-      id: 'J9MCjZ',
+      description: 'Title of experience (theme) settngs page',
+      id: 'EZwKD2',
     }),
   });
 }
 
 export default async function Page() {
-  return <div>Experience</div>;
+  return <ProjectsSettingsExperiencePage />;
 }
