@@ -21,10 +21,7 @@ export const BlogPostDocument = defineDocumentType(() => ({
   computedFields: {
     href: {
       resolve: (doc) => {
-        return `${path.sep}${doc._raw.flattenedPath.replace(
-          `${path.sep}posts`,
-          '',
-        )}`;
+        return `/${doc._raw.flattenedPath.replace('/posts', '')}`;
       },
       type: 'string',
     },
