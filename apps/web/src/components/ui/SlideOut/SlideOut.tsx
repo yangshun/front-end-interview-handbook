@@ -13,15 +13,6 @@ import * as SlideOutPrimitive from '@radix-ui/react-dialog';
 type SlideOutSize = 'lg' | 'md' | 'sm' | 'xl' | 'xs';
 type SlideOutEnterFrom = 'end' | 'start';
 
-type Props = Readonly<{
-  children: React.ReactNode;
-  className?: string;
-  enterFrom?: SlideOutEnterFrom;
-  isShown?: boolean;
-  padding?: boolean;
-  size: SlideOutSize;
-}>;
-
 const sizeClasses: Record<SlideOutSize, string> = {
   lg: 'max-w-lg',
   md: 'max-w-md',
@@ -36,17 +27,17 @@ const enterFromClasses: Record<SlideOutEnterFrom, string> = {
     'inset-y-0 left-0 h-full border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left',
 };
 
-const SlideOut = SlideOutPrimitive.Root;
+export const SlideOutRoot = SlideOutPrimitive.Root;
 
-SlideOut.displayName = 'SlideOut';
+SlideOutRoot.displayName = 'SlideOutRoot';
 
-const SlideOutTrigger = SlideOutPrimitive.Trigger;
+export const SlideOutTrigger = SlideOutPrimitive.Trigger;
 
-const SlideOutClose = SlideOutPrimitive.Close;
+export const SlideOutClose = SlideOutPrimitive.Close;
 
-const SlideOutPortal = SlideOutPrimitive.Portal;
+export const SlideOutPortal = SlideOutPrimitive.Portal;
 
-const SlideOutOverlay = React.forwardRef<
+export const SlideOutOverlay = React.forwardRef<
   React.ElementRef<typeof SlideOutPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof SlideOutPrimitive.Overlay>
 >(({ className, ...props }, ref) => (
@@ -69,10 +60,19 @@ const SlideOutOverlay = React.forwardRef<
 
 SlideOutOverlay.displayName = 'SlideOutOverlay';
 
-type SlideOutContentProps = Props &
-  React.ComponentPropsWithoutRef<typeof SlideOutPrimitive.Content>;
+type SlideOutContentProps = React.ComponentPropsWithoutRef<
+  typeof SlideOutPrimitive.Content
+> &
+  Readonly<{
+    children: React.ReactNode;
+    className?: string;
+    enterFrom?: SlideOutEnterFrom;
+    isShown?: boolean;
+    padding?: boolean;
+    size: SlideOutSize;
+  }>;
 
-const SlideOutContent = React.forwardRef<
+export const SlideOutContent = React.forwardRef<
   React.ElementRef<typeof SlideOutPrimitive.Content>,
   SlideOutContentProps
 >(({ enterFrom = 'end', size, className, children, ...props }, ref) => (
@@ -102,7 +102,7 @@ const SlideOutContent = React.forwardRef<
 
 SlideOutContent.displayName = SlideOutPrimitive.Content.displayName;
 
-function SlideOutHeader({
+export function SlideOutHeader({
   className,
   children,
   ...props
@@ -138,7 +138,7 @@ function SlideOutHeader({
 }
 SlideOutHeader.displayName = 'SlideOutHeader';
 
-function SlideOutFooter({
+export function SlideOutFooter({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
@@ -154,7 +154,7 @@ function SlideOutFooter({
 }
 SlideOutFooter.displayName = 'SlideOutFooter';
 
-const SlideOutTitle = React.forwardRef<
+export const SlideOutTitle = React.forwardRef<
   React.ElementRef<typeof SlideOutPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof SlideOutPrimitive.Title>
 >(({ className, children, ...props }, ref) => (
@@ -168,7 +168,7 @@ const SlideOutTitle = React.forwardRef<
 
 SlideOutTitle.displayName = 'SlideOutTitle';
 
-const SlideOutDescription = React.forwardRef<
+export const SlideOutDescription = React.forwardRef<
   React.ElementRef<typeof SlideOutPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof SlideOutPrimitive.Description> & {
     padding?: boolean;
@@ -187,15 +187,57 @@ const SlideOutDescription = React.forwardRef<
 
 SlideOutDescription.displayName = 'SlideOutDescription';
 
-export {
-  SlideOut,
-  SlideOutClose,
-  SlideOutContent,
-  SlideOutDescription,
-  SlideOutFooter,
-  SlideOutHeader,
-  SlideOutOverlay,
-  SlideOutPortal,
-  SlideOutTitle,
-  SlideOutTrigger,
-};
+type Props = Readonly<{
+  asChild?: boolean;
+  children: React.ReactNode;
+  className?: string;
+  enterFrom?: SlideOutEnterFrom;
+  isShown?: boolean;
+  isTitleHidden?: boolean;
+  onClose?: () => void;
+  padding?: boolean;
+  primaryButton?: React.ReactNode;
+  secondaryButton?: React.ReactNode;
+  size: SlideOutSize;
+  title?: string;
+  trigger: React.ReactNode;
+}>;
+
+export default function SlideOut({
+  asChild = true,
+  className,
+  children,
+  enterFrom = 'end',
+  isShown,
+  size,
+  primaryButton,
+  title,
+  trigger,
+  secondaryButton,
+  onClose,
+  padding = true,
+}: Props) {
+  return (
+    <SlideOutRoot
+      open={isShown}
+      onOpenChange={(open) => {
+        if (!open) {
+          onClose?.();
+        }
+      }}>
+      <SlideOutTrigger asChild={asChild}>{trigger}</SlideOutTrigger>
+      <SlideOutContent className={className} enterFrom={enterFrom} size={size}>
+        <SlideOutHeader>
+          {title && <SlideOutTitle>{title}</SlideOutTitle>}
+        </SlideOutHeader>
+        <SlideOutDescription padding={padding}>{children}</SlideOutDescription>
+        {primaryButton && (
+          <SlideOutFooter>
+            {primaryButton}
+            {secondaryButton}
+          </SlideOutFooter>
+        )}
+      </SlideOutContent>
+    </SlideOutRoot>
+  );
+}

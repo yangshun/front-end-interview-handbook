@@ -22,7 +22,7 @@ import QuestionCountLabel from '~/components/interviews/questions/metadata/Quest
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import SlideOutOld from '~/components/ui/SlideOutOld';
+import SlideOut from '~/components/ui/SlideOut';
 import TextInput from '~/components/ui/TextInput';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
@@ -107,7 +107,7 @@ export default function QuestionsQuizListWithFilters({
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div className={clsx(layout === 'full' && 'lg:hidden')}>
-        <SlideOutOld
+        <SlideOut
           size="sm"
           title={intl.formatMessage({
             defaultMessage: 'Filters',
@@ -137,7 +137,7 @@ export default function QuestionsQuizListWithFilters({
             quizTopicFilterOptions={quizTopicFilterOptions}
             quizTopicFilters={quizTopicFilters}
           />
-        </SlideOutOld>
+        </SlideOut>
       </div>
       <DropdownMenu
         align="end"

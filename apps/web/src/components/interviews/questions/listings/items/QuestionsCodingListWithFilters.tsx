@@ -34,7 +34,7 @@ import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Popover from '~/components/ui/Popover';
-import SlideOutOld from '~/components/ui/SlideOutOld';
+import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
@@ -166,7 +166,7 @@ export default function QuestionsCodingListWithFilters({
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div className={clsx(layout === 'full' && 'lg:hidden')}>
-        <SlideOutOld
+        <SlideOut
           size="sm"
           title={intl.formatMessage({
             defaultMessage: 'Filters',
@@ -205,7 +205,7 @@ export default function QuestionsCodingListWithFilters({
             languageFilters={languageFilters}
             mode={mode}
           />
-        </SlideOutOld>
+        </SlideOut>
       </div>
       <DropdownMenu
         align="end"

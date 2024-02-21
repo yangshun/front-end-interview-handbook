@@ -9,7 +9,7 @@ import useIsSticky from '~/hooks/useIsSticky';
 
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
-import SlideOutOld from '~/components/ui/SlideOutOld';
+import SlideOut from '~/components/ui/SlideOut';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
@@ -61,7 +61,7 @@ export default function GuidesNavbar({
       )}
       style={{ top: 'var(--nav-top-offset)' }}>
       <Container className="flex h-10 items-center justify-between">
-        <SlideOutOld
+        <SlideOut
           enterFrom="start"
           isShown={isLeftSidebarOpen}
           size="sm"
@@ -84,9 +84,9 @@ export default function GuidesNavbar({
           }
           onClose={() => setIsLeftSidebarOpen(false)}>
           <GuidesSidebar navigation={navigation} />
-        </SlideOutOld>
+        </SlideOut>
         {tableOfContents && (
-          <SlideOutOld
+          <SlideOut
             enterFrom="end"
             isShown={isRightSidebarOpen}
             size="sm"
@@ -108,7 +108,7 @@ export default function GuidesNavbar({
             }
             onClose={() => setIsRightSidebarOpen(false)}>
             <GuidesTableOfContents tableOfContents={tableOfContents} />
-          </SlideOutOld>
+          </SlideOut>
         )}
       </Container>
     </div>

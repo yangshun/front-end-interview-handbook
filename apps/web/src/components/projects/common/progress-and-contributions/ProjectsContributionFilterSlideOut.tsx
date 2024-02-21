@@ -11,7 +11,7 @@ import {
 } from '~/components/ui/Accordion';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
-import SlideOutOld from '~/components/ui/SlideOutOld';
+import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 
 import type { ProjectsContributionFilter } from './ProjectsContributionFilterContext';
@@ -73,7 +73,7 @@ export default function ProjectsContributionFilterSlideOut({
   const { filters: initialFilters } = useProjectsContributionFilterContext();
 
   return (
-    <SlideOutOld
+    <SlideOut
       enterFrom="end"
       size="md"
       title={intl.formatMessage({
@@ -114,6 +114,6 @@ export default function ProjectsContributionFilterSlideOut({
         </Accordion>
         <Divider />
       </div>
-    </SlideOutOld>
+    </SlideOut>
   );
 }

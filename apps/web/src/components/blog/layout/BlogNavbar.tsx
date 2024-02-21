@@ -12,7 +12,7 @@ import BlogSidebar from '~/components/blog/layout/BlogSidebar';
 import { SidebarLinksList } from '~/components/common/SidebarLinksList';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
-import SlideOutOld from '~/components/ui/SlideOutOld';
+import SlideOut from '~/components/ui/SlideOut';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
@@ -44,7 +44,7 @@ export default function BlogNavbar({ seriesContents }: Props) {
       )}
       style={{ top: 'var(--nav-top-offset)' }}>
       <Container className="flex h-10 items-center justify-between">
-        <SlideOutOld
+        <SlideOut
           enterFrom="start"
           isShown={isLeftSidebarOpen}
           size="sm"
@@ -72,9 +72,9 @@ export default function BlogNavbar({ seriesContents }: Props) {
           }
           onClose={() => setIsLeftSidebarOpen(false)}>
           <BlogSidebar />
-        </SlideOutOld>
+        </SlideOut>
         {seriesContents && (
-          <SlideOutOld
+          <SlideOut
             enterFrom="end"
             isShown={isRightSidebarOpen}
             size="sm"
@@ -104,7 +104,7 @@ export default function BlogNavbar({ seriesContents }: Props) {
                 },
               ]}
             />
-          </SlideOutOld>
+          </SlideOut>
         )}
       </Container>
     </div>

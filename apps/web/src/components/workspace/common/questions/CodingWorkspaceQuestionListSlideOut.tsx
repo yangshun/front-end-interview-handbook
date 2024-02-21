@@ -20,7 +20,7 @@ import {
 import QuestionsCodingListBrief from '~/components/interviews/questions/listings/items/QuestionsCodingListBrief';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
-import SlideOutOld from '~/components/ui/SlideOutOld';
+import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
@@ -178,7 +178,7 @@ export default function CodingWorkspaceQuestionListSlideOut({
   const questionFormatLists = useQuestionFormatLists();
 
   return (
-    <SlideOutOld
+    <SlideOut
       enterFrom="start"
       isShown={isShown}
       size="xl"
@@ -196,6 +196,6 @@ export default function CodingWorkspaceQuestionListSlideOut({
       }
       onClose={() => setIsShown(false)}>
       {isShown && <Contents questions={questions} />}
-    </SlideOutOld>
+    </SlideOut>
   );
 }

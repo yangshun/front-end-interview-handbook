@@ -2,9 +2,9 @@ import { useState } from 'react';
 
 import Prose from '~/components/ui/Prose';
 
+import SlideOut from './SlideOut';
 import Button from '../Button';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
-import SlideOutOld from '../SlideOutOld';
 
 function Contents() {
   return (
@@ -43,20 +43,20 @@ export default function SlideOutExamples() {
   return (
     <UIExamplesGroup darkMode="none" title="Slide Out">
       <div className="flex gap-x-24">
-        <SlideOutOld
+        <SlideOut
           enterFrom="start"
           size="md"
           title="Lorem Ipsum"
           trigger={<Button label="Enter from left" variant="primary" />}>
           <Contents />
-        </SlideOutOld>
-        <SlideOutOld
+        </SlideOut>
+        <SlideOut
           size="md"
           title="Lorem Ipsum"
           trigger={<Button label="Enter from right" variant="primary" />}>
           <Contents />
-        </SlideOutOld>
-        <SlideOutOld
+        </SlideOut>
+        <SlideOut
           enterFrom="start"
           isShown={isShownStart}
           primaryButton={
@@ -86,7 +86,7 @@ export default function SlideOutExamples() {
           }
           onClose={() => setIsShownStart(false)}>
           <Contents />
-        </SlideOutOld>
+        </SlideOut>
       </div>
     </UIExamplesGroup>
   );

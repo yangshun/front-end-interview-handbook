@@ -6,7 +6,7 @@ import useProfile from '~/hooks/user/useProfile';
 import LogoLink from '~/components/global/logos/LogoLink';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Button from '~/components/ui/Button';
-import SlideOutOld from '~/components/ui/SlideOutOld';
+import SlideOut from '~/components/ui/SlideOut';
 
 import { ProjectsSidebarExpanded } from './sidebar/ProjectsSidebar';
 
@@ -28,7 +28,7 @@ export default function ProjectsNavbar({ className }: Props) {
       </div>
       <div className="-my-2 flex gap-4 sm:-mr-2 lg:hidden">
         {profile != null && <UserAvatar profile={profile} />}
-        <SlideOutOld
+        <SlideOut
           className="lg:hidden"
           enterFrom="start"
           isTitleHidden={true}
@@ -43,7 +43,7 @@ export default function ProjectsNavbar({ className }: Props) {
             />
           }>
           <ProjectsSidebarExpanded />
-        </SlideOutOld>
+        </SlideOut>
       </div>
     </div>
   );

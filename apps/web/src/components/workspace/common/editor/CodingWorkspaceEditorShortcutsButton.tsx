@@ -6,7 +6,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
-import SlideOutOld from '~/components/ui/SlideOutOld';
+import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 type PlatformSpecificKeys = 'alt' | 'ctrl' | 'shift';
 
@@ -209,7 +209,7 @@ export default function CodingWorkspaceEditorShortcutsButton() {
 
   return (
     <div>
-      <SlideOutOld
+      <SlideOut
         enterFrom="end"
         size="md"
         title={intl.formatMessage({
@@ -280,7 +280,7 @@ export default function CodingWorkspaceEditorShortcutsButton() {
             />
           </Text>
         </div>
-      </SlideOutOld>
+      </SlideOut>
     </div>
   );
 }

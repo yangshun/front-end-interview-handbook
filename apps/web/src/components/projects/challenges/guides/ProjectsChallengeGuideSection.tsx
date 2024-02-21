@@ -8,7 +8,7 @@ import { SidebarLinksList } from '~/components/common/SidebarLinksList';
 import ProjectsChallengeMdxContent from '~/components/projects/common/ProjectsChallengeMdxContent';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
-import SlideOutOld from '~/components/ui/SlideOutOld';
+import SlideOut from '~/components/ui/SlideOut';
 
 type Props = Readonly<{
   projectGuides: Array<ProjectsChallengeGuide>;
@@ -75,7 +75,7 @@ export default function ProjectsChallengeGuideSection({
         />
       </div>
       <div className="block xl:hidden">
-        <SlideOutOld
+        <SlideOut
           enterFrom="start"
           isShown={isLeftSidebarOpen}
           size="sm"
@@ -106,7 +106,7 @@ export default function ProjectsChallengeGuideSection({
             navigation={sidebarNavigation}
             onSelect={onGuideChange}
           />
-        </SlideOutOld>
+        </SlideOut>
       </div>
       <div className="flex flex-col gap-6 md:gap-12">
         <Heading level="heading4">{projectGuide.title}</Heading>

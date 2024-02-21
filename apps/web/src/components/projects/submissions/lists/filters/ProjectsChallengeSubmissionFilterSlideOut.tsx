@@ -22,7 +22,7 @@ import {
 } from '~/components/ui/Accordion';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
-import SlideOutOld from '~/components/ui/SlideOutOld';
+import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 
 function FilterSection({
@@ -172,7 +172,7 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
 
   return (
     <ProjectsChallengeSubmissionFilterContext.Provider value={value}>
-      <SlideOutOld
+      <SlideOut
         enterFrom="end"
         isShown={isFiltersShown}
         size="md"
@@ -220,7 +220,7 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
             ))}
           </Accordion>
         </div>
-      </SlideOutOld>
+      </SlideOut>
     </ProjectsChallengeSubmissionFilterContext.Provider>
   );
 }
