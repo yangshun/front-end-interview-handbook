@@ -145,9 +145,9 @@ module.exports = {
         // Modified from: https://github.com/twbs/bootstrap/blob/main/scss/_variables.scss#L1133
         sticky: 20,
         fixed: 30,
-        'slideout-backdrop': 40,
+        'slideout-overlay': 40,
         slideout: 45,
-        'dialog-backdrop': 50,
+        'dialog-overlay': 50,
         dialog: 55,
         dropdown: 60, // Above dialog so that dropdowns can be used within dialogs.
         popover: 70,

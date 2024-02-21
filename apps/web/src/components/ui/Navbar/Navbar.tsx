@@ -103,7 +103,7 @@ function Navbar(
       <Transition.Root as={Fragment} show={isMobileNavOpen}>
         <Dialog
           as="div"
-          className="z-slideout-backdrop relative lg:hidden"
+          className="relative lg:hidden"
           onClose={setIsMobileNavOpen}>
           <Transition.Child
             as={Fragment}
@@ -113,7 +113,7 @@ function Navbar(
             leave="transition-opacity ease-linear duration-300"
             leaveFrom="opacity-100"
             leaveTo="opacity-0">
-            <div className="fixed inset-0 bg-neutral-600 bg-opacity-75" />
+            <div className="z-slideout-overlay fixed inset-0 bg-neutral-600 bg-opacity-75" />
           </Transition.Child>
           <div className="z-slideout fixed inset-0 flex">
             <Transition.Child
@@ -139,7 +139,7 @@ function Navbar(
                   leaveTo="opacity-0">
                   <div className="absolute right-0 top-0 -mr-12 pt-2">
                     <button
-                      className="ml-1 flex size-10 items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                      className="size-10 ml-1 flex items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                       type="button"
                       onClick={() => closeMobileNav()}>
                       <span className="sr-only">Close sidebar</span>

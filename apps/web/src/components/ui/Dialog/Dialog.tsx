@@ -108,7 +108,7 @@ export default function DialogImpl({
     <Transition.Root as={Fragment} show={isShown}>
       <Dialog
         as="div"
-        className={clsx('z-dialog-backdrop relative')}
+        className={clsx('relative')}
         data-mode={dark ? 'dark' : undefined}
         initialFocus={cancelButtonRef}
         onClose={() => onClose()}>
@@ -126,6 +126,7 @@ export default function DialogImpl({
               'bg-neutral-500 dark:bg-neutral-950/60',
               'bg-opacity-75',
               'backdrop-blur-sm transition-opacity',
+              'z-dialog-overlay',
             )}
           />
         </Transition.Child>

@@ -3,6 +3,7 @@ import * as React from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
+import DialogOverlay from '../DialogOverlay/DialogOverlay';
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 import Text from '../Text';
@@ -40,22 +41,8 @@ export const SlideOutPortal = SlideOutPrimitive.Portal;
 export const SlideOutOverlay = React.forwardRef<
   React.ElementRef<typeof SlideOutPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof SlideOutPrimitive.Overlay>
->(({ className, ...props }, ref) => (
-  <SlideOutPrimitive.Overlay
-    className={clsx(
-      'fixed inset-0',
-      ['bg-neutral-950/60 bg-opacity-75', 'backdrop-blur-sm'],
-      'z-slideout-backdrop',
-      [
-        'transition-opacity',
-        'data-[state=open]:animate-in data-[state=open]:fade-in-0',
-        'data-[state=closed]:animate-out data-[state=closed]:fade-out-0',
-      ],
-      className,
-    )}
-    {...props}
-    ref={ref}
-  />
+>(({ ...props }, ref) => (
+  <DialogOverlay {...props} ref={ref} purpose="slideout" />
 ));
 
 SlideOutOverlay.displayName = 'SlideOutOverlay';
