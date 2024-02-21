@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import * as React from 'react';
 
 import Anchor from '~/components/ui/Anchor';
 import {
@@ -13,7 +14,7 @@ import {
 import type { NavPopoverGroupItem, NavPopoverLinkItem } from './NavTypes';
 import Text from '../Text';
 
-import { Tab } from '@headlessui/react';
+import * as Tabs from '@radix-ui/react-tabs';
 
 function NavbarPopoverLink({
   label,
@@ -103,35 +104,34 @@ export default function NavbarPopoverTabs({
         themeGlassyBorder,
         themeBackgroundLayerColor,
       )}>
-      <Tab.Group vertical={true}>
-        <Tab.List
+      <Tabs.Root className="flex w-full" orientation="vertical">
+        <Tabs.List
           className={clsx(
             'flex w-1/4 shrink-0 flex-col gap-y-2 p-4',
             themeBackgroundColor,
           )}>
           {items.map(({ itemKey, label }) => (
-            <Tab
+            <Tabs.Trigger
               key={itemKey}
-              className={({ selected }) =>
-                clsx(
-                  'block w-full rounded-md p-3 text-left text-sm font-medium',
-                  selected && themeBackgroundElementEmphasizedStateColor,
-                )
-              }>
-              {({ selected }) => (
-                <Text
-                  color={selected ? 'active' : 'default'}
-                  size="body2"
-                  weight="medium">
-                  {label}
-                </Text>
+              className={clsx(
+                'block w-full rounded-md p-3 text-left text-sm font-medium',
+                // `data-[state=active]: ${themeBackgroundElementEmphasizedStateColor}`,
+                'data-[state=active]:bg-neutral-100 data-[state=active]:dark:bg-neutral-800/70',
               )}
-            </Tab>
+              value={itemKey}>
+              <Text
+                // Color={selected ? 'active' : 'default'}
+                color="default"
+                size="body2"
+                weight="medium">
+                {label}
+              </Text>
+            </Tabs.Trigger>
           ))}
-        </Tab.List>
-        <Tab.Panels className="flex w-full grow items-center">
+        </Tabs.List>
+        <div className="flex w-full grow items-center">
           {items.map((item) => (
-            <Tab.Panel key={item.itemKey} className="grid size-full">
+            <Tabs.Content key={item.itemKey} value={item.itemKey}>
               <div
                 className={clsx(
                   'relative grid grow gap-4 px-8 py-10',
@@ -176,7 +176,91 @@ export default function NavbarPopoverTabs({
                     {item.supplementaryItem.icon && (
                       <item.supplementaryItem.icon
                         aria-hidden="true"
-                        className={clsx('inline-block size-4')}
+                        className={clsx('size-4 inline-block')}
+                      />
+                    )}
+                    {item.supplementaryItem.label}
+                  </Anchor>
+                </div>
+              )}
+            </Tabs.Content>
+          ))}
+        </div>
+      </Tabs.Root>
+      {/* <Tab.Group vertical={true}>
+        <Tab.List
+          className={clsx(
+            'flex w-1/4 shrink-0 flex-col gap-y-2 p-4',
+            themeBackgroundColor,
+          )}>
+          {items.map(({ itemKey, label }) => (
+            <Tab
+              key={itemKey}
+              className={({ selected }) =>
+                clsx(
+                  'block w-full rounded-md p-3 text-left text-sm font-medium',
+                  selected && themeBackgroundElementEmphasizedStateColor,
+                )
+              }>
+              {({ selected }) => (
+                <Text
+                  color={selected ? 'active' : 'default'}
+                  size="body2"
+                  weight="medium">
+                  {label}
+                </Text>
+              )}
+            </Tab>
+          ))}
+        </Tab.List>
+        <Tab.Panels className="flex w-full grow items-center">
+          {items.map((item) => (
+            <Tab.Panel key={item.itemKey} className="size-full grid">
+              <div
+                className={clsx(
+                  'relative grid grow gap-4 px-8 py-10',
+                  (item.items.length === 2 || item.items.length === 4) &&
+                    'grid-cols-2',
+                  (item.items.length === 3 || item.items.length > 4) &&
+                    'grid-cols-3',
+                )}>
+                {item.items.map((childItem) => (
+                  <div
+                    key={childItem.itemKey}
+                    className={clsx(
+                      'flex h-full grow',
+                      item.alignment === 'center' && 'items-center',
+                    )}>
+                    <NavbarPopoverLink
+                      {...childItem}
+                      onClick={(event) => {
+                        // To close the popover.
+                        onClose(event);
+                        item.onClick?.(event);
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+              {item.supplementaryItem != null && (
+                <div className={clsx('flex w-full justify-end px-8 pb-6')}>
+                  <Anchor
+                    className={clsx(
+                      '-m-3 flex items-center gap-x-2 rounded-full p-3 text-sm font-medium',
+                      'hover:text-brand-dark dark:hover:text-brand transition-colors',
+                      themeTextColor,
+                    )}
+                    href={item.supplementaryItem.href}
+                    variant="unstyled"
+                    onClick={(event) => {
+                      item.supplementaryItem?.onClick?.(event);
+                      // To close the popover.
+                      onClose(event);
+                    }}>
+                    {item.supplementaryItem.icon && (
+                      <item.supplementaryItem.icon
+                        aria-hidden="true"
+                        className={clsx('size-4 inline-block')}
                       />
                     )}
                     {item.supplementaryItem.label}
@@ -186,7 +270,7 @@ export default function NavbarPopoverTabs({
             </Tab.Panel>
           ))}
         </Tab.Panels>
-      </Tab.Group>
+      </Tab.Group> */}
     </div>
   );
 }
