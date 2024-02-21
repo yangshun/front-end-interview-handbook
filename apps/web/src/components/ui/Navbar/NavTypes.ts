@@ -3,7 +3,7 @@ import type { Props as AnchorProps } from '../Anchor';
 export type NavBaseItem = Readonly<{
   itemKey: string;
   label: string;
-  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+  onClick?: React.MouseEventHandler<HTMLElement>;
 }>;
 
 export type NavLinkItem = NavBaseItem &
