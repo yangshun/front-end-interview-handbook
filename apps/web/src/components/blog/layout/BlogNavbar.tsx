@@ -12,7 +12,7 @@ import BlogSidebar from '~/components/blog/layout/BlogSidebar';
 import { SidebarLinksList } from '~/components/common/SidebarLinksList';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
-import SlideOut from '~/components/ui/SlideOut';
+import SlideOutOld from '~/components/ui/SlideOutOld';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
@@ -76,7 +76,7 @@ export default function BlogNavbar({ seriesContents }: Props) {
           />
         )}
       </Container>
-      <SlideOut
+      <SlideOutOld
         enterFrom="start"
         isShown={isLeftSidebarOpen}
         size="sm"
@@ -87,9 +87,9 @@ export default function BlogNavbar({ seriesContents }: Props) {
         })}
         onClose={() => setIsLeftSidebarOpen(false)}>
         <BlogSidebar />
-      </SlideOut>
+      </SlideOutOld>
       {seriesContents && (
-        <SlideOut
+        <SlideOutOld
           enterFrom="end"
           isShown={isRightSidebarOpen}
           size="sm"
@@ -103,7 +103,7 @@ export default function BlogNavbar({ seriesContents }: Props) {
               },
             ]}
           />
-        </SlideOut>
+        </SlideOutOld>
       )}
     </div>
   );

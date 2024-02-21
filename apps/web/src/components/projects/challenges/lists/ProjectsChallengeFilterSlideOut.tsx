@@ -9,7 +9,7 @@ import {
 } from '~/components/ui/Accordion';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
-import SlideOut from '~/components/ui/SlideOut';
+import SlideOutOld from '~/components/ui/SlideOutOld';
 import Text from '~/components/ui/Text';
 
 import type { ProjectsChallengeFilter } from './ProjectsChallengeFilterContext';
@@ -88,7 +88,7 @@ export default function ProjectsChallengeFilterSlideOut({
   const { filters: initialFilters } = useProjectsChallengeFilterContext();
 
   return (
-    <SlideOut
+    <SlideOutOld
       enterFrom="end"
       isShown={isShown}
       size="md"
@@ -112,6 +112,6 @@ export default function ProjectsChallengeFilterSlideOut({
         </Accordion>
         <Divider />
       </div>
-    </SlideOut>
+    </SlideOutOld>
   );
 }

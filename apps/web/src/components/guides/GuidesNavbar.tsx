@@ -9,7 +9,7 @@ import useIsSticky from '~/hooks/useIsSticky';
 
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
-import SlideOut from '~/components/ui/SlideOut';
+import SlideOutOld from '~/components/ui/SlideOutOld';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
@@ -92,22 +92,22 @@ export default function GuidesNavbar({
           />
         )}
       </Container>
-      <SlideOut
+      <SlideOutOld
         enterFrom="start"
         isShown={isLeftSidebarOpen}
         size="sm"
         title={navigation.title}
         onClose={() => setIsLeftSidebarOpen(false)}>
         <GuidesSidebar navigation={navigation} />
-      </SlideOut>
+      </SlideOutOld>
       {tableOfContents && (
-        <SlideOut
+        <SlideOutOld
           enterFrom="end"
           isShown={isRightSidebarOpen}
           size="sm"
           onClose={() => setIsRightSidebarOpen(false)}>
           <GuidesTableOfContents tableOfContents={tableOfContents} />
-        </SlideOut>
+        </SlideOutOld>
       )}
     </div>
   );

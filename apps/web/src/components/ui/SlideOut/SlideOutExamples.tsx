@@ -1,8 +1,14 @@
-import { useState } from 'react';
-
 import Prose from '~/components/ui/Prose';
+import {
+  SlideOut,
+  SlideOutContent,
+  SlideOutDescription,
+  SlideOutFooter,
+  SlideOutHeader,
+  SlideOutTitle,
+  SlideOutTrigger,
+} from '~/components/ui/SlideOut';
 
-import SlideOut from './SlideOut';
 import Button from '../Button';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 
@@ -38,99 +44,59 @@ function Contents() {
 }
 
 export default function SlideOutExamples() {
-  const [isShownStart, setIsShownStart] = useState(false);
-  const [isShownEnd, setIsShownEnd] = useState(false);
-  const [isShownDark, setIsShownDark] = useState(false);
-
   return (
     <UIExamplesGroup darkMode="none" title="Slide Out">
       <div className="flex gap-x-24">
-        <Button
-          label="Enter From Left"
-          variant="primary"
-          onClick={() => setIsShownStart(true)}
-        />
-        <SlideOut
-          enterFrom="start"
-          isShown={isShownStart}
-          primaryButton={
-            <Button
-              label="Primary Action"
-              size="md"
-              variant="primary"
-              onClick={() => setIsShownStart(false)}
-            />
-          }
-          secondaryButton={
-            <Button
-              label="Secondary Action"
-              size="md"
-              variant="secondary"
-              onClick={() => setIsShownStart(false)}
-            />
-          }
-          size="md"
-          title="Lorem Ipsum"
-          onClose={() => setIsShownStart(false)}>
-          <Contents />
+        <SlideOut>
+          <SlideOutTrigger>
+            <Button label="Enter From Left" variant="primary" />
+          </SlideOutTrigger>
+          <SlideOutContent enterFrom="start" size="md">
+            <SlideOutHeader>
+              <SlideOutTitle>Lorem Ipsum</SlideOutTitle>
+            </SlideOutHeader>
+            <SlideOutDescription padding={true}>
+              <Contents />
+            </SlideOutDescription>
+            <SlideOutFooter>
+              <Button label="Primary Action" size="md" variant="primary" />
+              <Button label="Secondary Action" size="md" variant="secondary" />
+            </SlideOutFooter>
+          </SlideOutContent>
         </SlideOut>
-        <Button
-          label="Enter From Right"
-          variant="primary"
-          onClick={() => setIsShownEnd(true)}
-        />
-        <SlideOut
-          isShown={isShownEnd}
-          primaryButton={
-            <Button
-              label="Primary Action"
-              size="md"
-              variant="primary"
-              onClick={() => setIsShownEnd(false)}
-            />
-          }
-          secondaryButton={
-            <Button
-              label="Secondary Action"
-              size="md"
-              variant="secondary"
-              onClick={() => setIsShownEnd(false)}
-            />
-          }
-          size="md"
-          title="Lorem Ipsum"
-          onClose={() => setIsShownEnd(false)}>
-          <Contents />
+        <SlideOut>
+          <SlideOutTrigger>
+            <Button label="Enter From Right" variant="primary" />
+          </SlideOutTrigger>
+          <SlideOutContent enterFrom="end" size="md">
+            <SlideOutHeader>
+              <SlideOutTitle>Lorem Ipsum</SlideOutTitle>
+            </SlideOutHeader>
+            <SlideOutDescription padding={true}>
+              <Contents />
+            </SlideOutDescription>
+            <SlideOutFooter>
+              <Button label="Primary Action" size="md" variant="primary" />
+              <Button label="Secondary Action" size="md" variant="secondary" />
+            </SlideOutFooter>
+          </SlideOutContent>
         </SlideOut>
-        <Button
-          label="Dark Mode"
-          variant="primary"
-          onClick={() => setIsShownDark(true)}
-        />
-        <SlideOut
-          dark={true}
-          enterFrom="start"
-          isShown={isShownDark}
-          primaryButton={
-            <Button
-              label="Primary Action"
-              size="md"
-              variant="primary"
-              onClick={() => setIsShownDark(false)}
-            />
-          }
-          secondaryButton={
-            <Button
-              label="Secondary Action"
-              size="md"
-              variant="secondary"
-              onClick={() => setIsShownDark(false)}
-            />
-          }
-          size="md"
-          title="Lorem Ipsum"
-          onClose={() => setIsShownDark(false)}>
-          <Contents />
+        <SlideOut>
+          <SlideOutTrigger>
+            <Button label="Dark Mode" variant="primary" />
+          </SlideOutTrigger>
+          <SlideOutContent dark={true} enterFrom="start" size="md">
+            <SlideOutHeader>
+              <SlideOutTitle>Lorem Ipsum</SlideOutTitle>
+            </SlideOutHeader>
+            <SlideOutDescription padding={true}>
+              <Contents />
+            </SlideOutDescription>
+            <SlideOutFooter>
+              <Button label="Primary Action" size="md" variant="primary" />
+              <Button label="Secondary Action" size="md" variant="secondary" />
+            </SlideOutFooter>
+          </SlideOutContent>
         </SlideOut>
       </div>
     </UIExamplesGroup>

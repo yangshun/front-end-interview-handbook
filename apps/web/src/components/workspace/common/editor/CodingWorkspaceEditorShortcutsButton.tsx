@@ -7,7 +7,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
-import SlideOut from '~/components/ui/SlideOut';
+import SlideOutOld from '~/components/ui/SlideOutOld';
 import Text from '~/components/ui/Text';
 type PlatformSpecificKeys = 'alt' | 'ctrl' | 'shift';
 
@@ -230,7 +230,7 @@ export default function CodingWorkspaceEditorShortcutsButton() {
           setShowInformation(true);
         }}
       />
-      <SlideOut
+      <SlideOutOld
         enterFrom="end"
         isShown={showInformation}
         size="md"
@@ -285,7 +285,7 @@ export default function CodingWorkspaceEditorShortcutsButton() {
             />
           </Text>
         </div>
-      </SlideOut>
+      </SlideOutOld>
     </div>
   );
 }

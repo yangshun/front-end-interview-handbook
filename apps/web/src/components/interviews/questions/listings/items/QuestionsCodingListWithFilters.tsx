@@ -35,7 +35,7 @@ import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Popover from '~/components/ui/Popover';
-import SlideOut from '~/components/ui/SlideOut';
+import SlideOutOld from '~/components/ui/SlideOutOld';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
@@ -184,7 +184,7 @@ export default function QuestionsCodingListWithFilters({
           onClick={() => setMobileFiltersOpen(true)}
         />
       </div>
-      <SlideOut
+      <SlideOutOld
         isShown={mobileFiltersOpen}
         size="sm"
         title={intl.formatMessage({
@@ -211,7 +211,7 @@ export default function QuestionsCodingListWithFilters({
           languageFilters={languageFilters}
           mode={mode}
         />
-      </SlideOut>
+      </SlideOutOld>
       <DropdownMenu
         align="end"
         icon={RiSortDesc}

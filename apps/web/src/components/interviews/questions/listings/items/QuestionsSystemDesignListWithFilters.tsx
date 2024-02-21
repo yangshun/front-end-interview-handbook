@@ -22,7 +22,7 @@ import QuestionsList from '~/components/interviews/questions/listings/items/Ques
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import SlideOut from '~/components/ui/SlideOut';
+import SlideOutOld from '~/components/ui/SlideOutOld';
 import TextInput from '~/components/ui/TextInput';
 
 import useQuestionsWithCompletionStatus from '../filters/hooks/useQuestionsWithCompletionStatus';
@@ -135,7 +135,7 @@ export default function QuestionsSystemDesignListWithFilters({
           onClick={() => setMobileFiltersOpen(true)}
         />
       </div>
-      <SlideOut
+      <SlideOutOld
         isShown={mobileFiltersOpen}
         size="sm"
         title={intl.formatMessage({
@@ -155,7 +155,7 @@ export default function QuestionsSystemDesignListWithFilters({
           difficultyFilters={difficultyFilters}
           itemGap="spacious"
         />
-      </SlideOut>
+      </SlideOutOld>
       <DropdownMenu
         align="end"
         icon={RiSortDesc}

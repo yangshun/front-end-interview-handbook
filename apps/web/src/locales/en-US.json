@@ -5351,6 +5351,10 @@
     "defaultMessage": "No community contributions",
     "description": "Title for empty state when there are no contributions matching filters"
   },
+  "lu1/V5": {
+    "defaultMessage": "Close menu",
+    "description": "Close menu"
+  },
   "lyjVwD": {
     "defaultMessage": "1 Month Plan",
     "description": "Long label for one month study plan"

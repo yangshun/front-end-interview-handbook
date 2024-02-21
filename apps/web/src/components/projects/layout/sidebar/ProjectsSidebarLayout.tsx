@@ -8,7 +8,7 @@ import FooterProjects from '~/components/global/footers/FooterProjects';
 import ProjectsNavbar from '~/components/projects/layout/ProjectsNavbar';
 import ProjectsSidebar from '~/components/projects/layout/sidebar';
 import Container from '~/components/ui/Container';
-import SlideOut from '~/components/ui/SlideOut';
+import SlideOutOld from '~/components/ui/SlideOutOld';
 
 import { ProjectsSidebarExpanded } from './ProjectsSidebar';
 
@@ -31,7 +31,7 @@ export default function ProjectsSidebarLayout({ children }: Props) {
         />
         <div
           className={clsx(
-            'sticky top-0 hidden h-dvh shrink-0 overflow-y-hidden lg:block',
+            'h-dvh sticky top-0 hidden shrink-0 overflow-y-hidden lg:block',
             isCollapsed ? 'w-[68px]' : 'w-60',
           )}>
           <ProjectsSidebar
@@ -39,7 +39,7 @@ export default function ProjectsSidebarLayout({ children }: Props) {
             onCollapseClick={toggleIsCollapsed}
           />
         </div>
-        <SlideOut
+        <SlideOutOld
           className="lg:hidden"
           enterFrom="start"
           isShown={isDrawerOpen}
@@ -50,7 +50,7 @@ export default function ProjectsSidebarLayout({ children }: Props) {
             setIsDrawerOpen(false);
           }}>
           <ProjectsSidebarExpanded />
-        </SlideOut>
+        </SlideOutOld>
         <div className="relative w-full">
           <Container className="py-4 lg:py-16">{children}</Container>
         </div>

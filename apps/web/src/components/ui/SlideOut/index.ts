@@ -1,4 +1,4 @@
-import SlideOut from './SlideOut';
+import * as SlideOut from './SlideOut';
 
 export * from './SlideOut';
 export default SlideOut;

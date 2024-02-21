@@ -1,13 +1,14 @@
 import clsx from 'clsx';
-import { Fragment } from 'react';
+import * as React from 'react';
 import { RiCloseLine } from 'react-icons/ri';
+import { FormattedMessage } from 'react-intl';
 
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 import Text from '../Text';
 import { themeBackgroundLayerColor } from '../theme';
 
-import { Dialog, Transition } from '@headlessui/react';
+import * as SlideOutPrimitive from '@radix-ui/react-dialog';
 
 type SlideOutSize = 'lg' | 'md' | 'sm' | 'xl' | 'xs';
 type SlideOutEnterFrom = 'end' | 'start';
@@ -51,106 +52,167 @@ const enterFromClasses: Record<
   },
 };
 
-export default function SlideOut({
+const SlideOut = React.forwardRef<
+  React.ElementRef<typeof SlideOutPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof SlideOutPrimitive.Root> & {
+    className?: string;
+  }
+>(({ className, ...props }, ref) => (
+  <div ref={ref} className={clsx('z-slideout-backdrop relative', className)}>
+    <SlideOutPrimitive.Root {...props} />
+  </div>
+));
+
+SlideOut.displayName = SlideOutPrimitive.Root.displayName;
+
+const SlideOutTrigger = SlideOutPrimitive.Trigger;
+
+const SlideOutClose = SlideOutPrimitive.Close;
+
+const SlideOutPortal = SlideOutPrimitive.Portal;
+
+const SlideOutOverlay = React.forwardRef<
+  React.ElementRef<typeof SlideOutPrimitive.Overlay>,
+  React.ComponentPropsWithoutRef<typeof SlideOutPrimitive.Overlay>
+>(({ className, ...props }, ref) => (
+  <SlideOutPrimitive.Overlay
+    className={clsx(
+      'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
+      'z-slideout-backdrop fixed inset-0 bg-neutral-500 bg-opacity-75 backdrop-blur-sm transition-opacity dark:bg-neutral-950/60',
+      className,
+    )}
+    {...props}
+    ref={ref}
+  />
+));
+
+SlideOutOverlay.displayName = SlideOutPrimitive.Overlay.displayName;
+
+type SlideOutContentProps = Props &
+  React.ComponentPropsWithoutRef<typeof SlideOutPrimitive.Content>;
+
+const SlideOutContent = React.forwardRef<
+  React.ElementRef<typeof SlideOutPrimitive.Content>,
+  SlideOutContentProps
+>(({ enterFrom = 'end', dark, size, className, children, ...props }, ref) => (
+  <SlideOutPortal>
+    <SlideOutOverlay />
+    <div
+      className={clsx('z-slideout fixed inset-0 flex')}
+      data-mode={dark ? 'dark' : undefined}>
+      <SlideOutPrimitive.Content
+        ref={ref}
+        className={clsx(
+          enterFromClasses[enterFrom].position,
+          'size-full relative flex flex-col',
+          themeBackgroundLayerColor,
+          'shadow-xl',
+          // TODO: fix the transition - below doesn't work, classes following slide-in/out-from-left/right don't work either
+          'transition-all duration-1000',
+          'data-[state=open]:left-0',
+          'data-[state=closed]:-left-full',
+          'ease-in-out',
+          sizeClasses[size],
+          className,
+        )}
+        {...props}>
+        {children}
+      </SlideOutPrimitive.Content>
+    </div>
+  </SlideOutPortal>
+));
+
+SlideOutContent.displayName = SlideOutPrimitive.Content.displayName;
+
+function SlideOutHeader({
   className,
-  children,
-  dark = false,
-  enterFrom = 'end',
-  isShown = false,
-  size,
-  primaryButton,
-  title,
-  secondaryButton,
-  onClose,
-  padding = true,
-  isTitleHidden = false,
-}: Props) {
-  const enterFromClass = enterFromClasses[enterFrom];
-
-  const closeButton = (
-    <button
-      className="focus:ring-brand -mr-2 flex size-10 items-center justify-center rounded-full p-2 text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset"
-      type="button"
-      onClick={() => onClose?.()}>
-      {/* TODO: i18n */}
-      <span className="sr-only">Close menu</span>
-      <RiCloseLine aria-hidden="true" className="size-6" />
-    </button>
-  );
-
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <Transition.Root as={Fragment} show={isShown}>
-      <Dialog
-        as="div"
-        className={clsx('z-slideout-backdrop relative', className)}
-        data-mode={dark ? 'dark' : undefined}
-        onClose={() => onClose?.()}>
-        <Transition.Child
-          as={Fragment}
-          enter="transition-opacity ease-linear duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="transition-opacity ease-linear duration-300"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0">
-          <div className="fixed inset-0 bg-neutral-500 bg-opacity-75 backdrop-blur-sm transition-opacity dark:bg-neutral-950/60" />
-        </Transition.Child>
-        <div className="z-slideout fixed inset-0 flex">
-          <Transition.Child
-            as={Fragment}
-            enter="transition ease-in-out duration-300 transform"
-            enterFrom={enterFromClass.hidden}
-            enterTo={enterFromClass.shown}
-            leave="transition ease-in-out duration-300 transform"
-            leaveFrom={enterFromClass.shown}
-            leaveTo={enterFromClass.hidden}>
-            <Dialog.Panel
-              className={clsx(
-                'relative flex size-full flex-col',
-                themeBackgroundLayerColor,
-                'shadow-xl',
-                enterFromClass.position,
-                sizeClasses[size],
-              )}>
-              <div
-                className={clsx(
-                  isTitleHidden && [
-                    'absolute top-0 pt-2',
-                    enterFrom === 'start' && 'right-0 -mr-12',
-                    enterFrom === 'end' && 'left-0 -ml-12',
-                  ],
-                  !isTitleHidden &&
-                    'flex items-center justify-between gap-x-4 px-6 py-6',
-                )}>
-                {!isTitleHidden && (
-                  <Dialog.Title as="div">
-                    <Heading level="heading5">{title}</Heading>
-                  </Dialog.Title>
-                )}
-                {closeButton}
-              </div>
-              <div className={clsx('grow overflow-y-auto', padding && 'px-6')}>
-                <Section>
-                  <Text className="h-full" display="block" size="body2">
-                    {children}
-                  </Text>
-                </Section>
-              </div>
-              {primaryButton && (
-                <div className={clsx('flex justify-end gap-2 px-6 py-4')}>
-                  {secondaryButton}
-                  {primaryButton}
-                </div>
-              )}
-            </Dialog.Panel>
-          </Transition.Child>
-          {isTitleHidden && (
-            <div aria-hidden="true" className="w-14 flex-shrink-0">
-              {/* Force sidebar to shrink to fit close icon */}
-            </div>
-          )}
-        </div>
-      </Dialog>
-    </Transition.Root>
+    <div
+      className={clsx(
+        'flex flex-col justify-between gap-x-4 gap-y-2 px-6 py-6',
+        className,
+      )}>
+      <div {...props} />
+      <SlideOutPrimitive.Close
+        className={clsx(
+          'absolute right-4 top-4',
+          'data-[state=open]:bg-secondary disabled:pointer-events-none',
+          'focus:ring-brand size-10 -mr-2 flex items-center justify-center rounded-full p-2 text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset',
+        )}>
+        <span className="sr-only">
+          <FormattedMessage
+            defaultMessage="Close menu"
+            description="Close menu"
+            id="lu1/V5"
+          />
+        </span>
+        <RiCloseLine aria-hidden="true" className="size-6" />
+      </SlideOutPrimitive.Close>
+    </div>
   );
 }
+SlideOutHeader.displayName = 'SlideOutHeader';
+
+function SlideOutFooter({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div
+      className={clsx(
+        'flex flex-row-reverse justify-start gap-2 px-6 py-4',
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+SlideOutFooter.displayName = 'SlideOutFooter';
+
+const SlideOutTitle = React.forwardRef<
+  React.ElementRef<typeof SlideOutPrimitive.Title>,
+  React.ComponentPropsWithoutRef<typeof SlideOutPrimitive.Title>
+>(({ className, children, ...props }, ref) => (
+  <SlideOutPrimitive.Title
+    ref={ref}
+    className={clsx('flex items-center justify-between gap-x-4', className)}
+    {...props}>
+    <Heading level="heading5">{children}</Heading>
+  </SlideOutPrimitive.Title>
+));
+
+SlideOutTitle.displayName = SlideOutPrimitive.Title.displayName;
+
+const SlideOutDescription = React.forwardRef<
+  React.ElementRef<typeof SlideOutPrimitive.Description>,
+  React.ComponentPropsWithoutRef<typeof SlideOutPrimitive.Description> & {
+    padding?: boolean;
+  }
+>(({ className, padding, children }, ref) => (
+  <SlideOutPrimitive.Description
+    ref={ref}
+    className={clsx('grow overflow-y-auto', padding && 'px-6', className)}>
+    <Section>
+      <Text className="h-full" display="block" size="body2">
+        {children}
+      </Text>
+    </Section>
+  </SlideOutPrimitive.Description>
+));
+
+SlideOutDescription.displayName = SlideOutPrimitive.Description.displayName;
+
+export {
+  SlideOut,
+  SlideOutClose,
+  SlideOutContent,
+  SlideOutDescription,
+  SlideOutFooter,
+  SlideOutHeader,
+  SlideOutOverlay,
+  SlideOutPortal,
+  SlideOutTitle,
+  SlideOutTrigger,
+};

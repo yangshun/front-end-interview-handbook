@@ -22,7 +22,7 @@ import QuestionCountLabel from '~/components/interviews/questions/metadata/Quest
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import SlideOut from '~/components/ui/SlideOut';
+import SlideOutOld from '~/components/ui/SlideOutOld';
 import TextInput from '~/components/ui/TextInput';
 
 import type { QuestionCompletionCount } from '~/db/QuestionsCount';
@@ -124,7 +124,7 @@ export default function QuestionsQuizListWithFilters({
           onClick={() => setMobileFiltersOpen(true)}
         />
       </div>
-      <SlideOut
+      <SlideOutOld
         isShown={mobileFiltersOpen}
         size="sm"
         title={intl.formatMessage({
@@ -142,7 +142,7 @@ export default function QuestionsQuizListWithFilters({
           quizTopicFilterOptions={quizTopicFilterOptions}
           quizTopicFilters={quizTopicFilters}
         />
-      </SlideOut>
+      </SlideOutOld>
       <DropdownMenu
         align="end"
         icon={RiSortDesc}
