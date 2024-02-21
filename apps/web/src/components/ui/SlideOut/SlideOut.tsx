@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl';
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 import Text from '../Text';
-import { themeBackgroundLayerColor } from '../theme';
+import { themeBackgroundLayerColor, themeBorderColor } from '../theme';
 
 import * as SlideOutPrimitive from '@radix-ui/react-dialog';
 
@@ -16,16 +16,10 @@ type SlideOutEnterFrom = 'end' | 'start';
 type Props = Readonly<{
   children: React.ReactNode;
   className?: string;
-  dark?: boolean;
   enterFrom?: SlideOutEnterFrom;
   isShown?: boolean;
-  isTitleHidden?: boolean;
-  onClose?: () => void;
   padding?: boolean;
-  primaryButton?: React.ReactNode;
-  secondaryButton?: React.ReactNode;
   size: SlideOutSize;
-  title?: string;
 }>;
 
 const sizeClasses: Record<SlideOutSize, string> = {
@@ -36,34 +30,15 @@ const sizeClasses: Record<SlideOutSize, string> = {
   xs: 'max-w-xs',
 };
 
-const enterFromClasses: Record<
-  SlideOutEnterFrom,
-  Readonly<{ hidden: string; position: string; shown: string }>
-> = {
-  end: {
-    hidden: 'translate-x-full',
-    position: 'ml-auto',
-    shown: 'translate-x-0',
-  },
-  start: {
-    hidden: '-translate-x-full',
-    position: 'mr-auto',
-    shown: 'translate-x-0',
-  },
+const enterFromClasses: Record<SlideOutEnterFrom, string> = {
+  end: 'inset-y-0 right-0 h-full border-l data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right',
+  start:
+    'inset-y-0 left-0 h-full border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left',
 };
 
-const SlideOut = React.forwardRef<
-  React.ElementRef<typeof SlideOutPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof SlideOutPrimitive.Root> & {
-    className?: string;
-  }
->(({ className, ...props }, ref) => (
-  <div ref={ref} className={clsx('z-slideout-backdrop relative', className)}>
-    <SlideOutPrimitive.Root {...props} />
-  </div>
-));
+const SlideOut = SlideOutPrimitive.Root;
 
-SlideOut.displayName = SlideOutPrimitive.Root.displayName;
+SlideOut.displayName = 'SlideOut';
 
 const SlideOutTrigger = SlideOutPrimitive.Trigger;
 
@@ -77,8 +52,14 @@ const SlideOutOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SlideOutPrimitive.Overlay
     className={clsx(
-      'data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0',
-      'z-slideout-backdrop fixed inset-0 bg-neutral-500 bg-opacity-75 backdrop-blur-sm transition-opacity dark:bg-neutral-950/60',
+      'fixed inset-0',
+      ['bg-neutral-950/60 bg-opacity-75', 'backdrop-blur-sm'],
+      'z-slideout-backdrop',
+      [
+        'transition-opacity',
+        'data-[state=open]:animate-in data-[state=open]:fade-in-0',
+        'data-[state=closed]:animate-out data-[state=closed]:fade-out-0',
+      ],
       className,
     )}
     {...props}
@@ -86,7 +67,7 @@ const SlideOutOverlay = React.forwardRef<
   />
 ));
 
-SlideOutOverlay.displayName = SlideOutPrimitive.Overlay.displayName;
+SlideOutOverlay.displayName = 'SlideOutOverlay';
 
 type SlideOutContentProps = Props &
   React.ComponentPropsWithoutRef<typeof SlideOutPrimitive.Content>;
@@ -94,31 +75,28 @@ type SlideOutContentProps = Props &
 const SlideOutContent = React.forwardRef<
   React.ElementRef<typeof SlideOutPrimitive.Content>,
   SlideOutContentProps
->(({ enterFrom = 'end', dark, size, className, children, ...props }, ref) => (
+>(({ enterFrom = 'end', size, className, children, ...props }, ref) => (
   <SlideOutPortal>
     <SlideOutOverlay />
-    <div
-      className={clsx('z-slideout fixed inset-0 flex')}
-      data-mode={dark ? 'dark' : undefined}>
-      <SlideOutPrimitive.Content
-        ref={ref}
-        className={clsx(
-          enterFromClasses[enterFrom].position,
-          'size-full relative flex flex-col',
-          themeBackgroundLayerColor,
-          'shadow-xl',
-          // TODO: fix the transition - below doesn't work, classes following slide-in/out-from-left/right don't work either
-          'transition-all duration-1000',
-          'data-[state=open]:left-0',
-          'data-[state=closed]:-left-full',
-          'ease-in-out',
-          sizeClasses[size],
-          className,
-        )}
-        {...props}>
-        {children}
-      </SlideOutPrimitive.Content>
-    </div>
+    <SlideOutPrimitive.Content
+      ref={ref}
+      className={clsx(
+        ['h-full w-full', sizeClasses[size]],
+        ['fixed', 'top-0'],
+        'z-slideout',
+        [themeBackgroundLayerColor, 'shadow-xl'],
+        themeBorderColor,
+        [
+          'transition ease-in-out',
+          'data-[state=open]:animate-in data-[state=open]:duration-500',
+          'data-[state=closed]:animate-out data-[state=closed]:duration-300',
+          enterFromClasses[enterFrom],
+        ],
+        className,
+      )}
+      {...props}>
+      {children}
+    </SlideOutPrimitive.Content>
   </SlideOutPortal>
 ));
 
@@ -126,6 +104,7 @@ SlideOutContent.displayName = SlideOutPrimitive.Content.displayName;
 
 function SlideOutHeader({
   className,
+  children,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
@@ -133,13 +112,17 @@ function SlideOutHeader({
       className={clsx(
         'flex flex-col justify-between gap-x-4 gap-y-2 px-6 py-6',
         className,
-      )}>
-      <div {...props} />
+      )}
+      {...props}>
+      {children}
       <SlideOutPrimitive.Close
         className={clsx(
-          'absolute right-4 top-4',
-          'data-[state=open]:bg-secondary disabled:pointer-events-none',
-          'focus:ring-brand size-10 -mr-2 flex items-center justify-center rounded-full p-2 text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-inset',
+          'flex items-center justify-center',
+          'absolute right-4 top-4 -mr-2',
+          'size-10 rounded-full p-2',
+          'text-neutral-400 hover:text-neutral-500',
+          'disabled:pointer-events-none',
+          'focus:ring-brand focus:outline-none focus:ring-2 focus:ring-inset',
         )}>
         <span className="sr-only">
           <FormattedMessage
@@ -183,7 +166,7 @@ const SlideOutTitle = React.forwardRef<
   </SlideOutPrimitive.Title>
 ));
 
-SlideOutTitle.displayName = SlideOutPrimitive.Title.displayName;
+SlideOutTitle.displayName = 'SlideOutTitle';
 
 const SlideOutDescription = React.forwardRef<
   React.ElementRef<typeof SlideOutPrimitive.Description>,
@@ -202,7 +185,7 @@ const SlideOutDescription = React.forwardRef<
   </SlideOutPrimitive.Description>
 ));
 
-SlideOutDescription.displayName = SlideOutPrimitive.Description.displayName;
+SlideOutDescription.displayName = 'SlideOutDescription';
 
 export {
   SlideOut,
