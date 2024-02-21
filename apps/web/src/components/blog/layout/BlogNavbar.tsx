@@ -44,67 +44,69 @@ export default function BlogNavbar({ seriesContents }: Props) {
       )}
       style={{ top: 'var(--nav-top-offset)' }}>
       <Container className="flex h-10 items-center justify-between">
-        <Button
-          addonPosition="start"
-          className="lg:invisible"
-          icon={RiMenu2Line}
-          label={intl.formatMessage({
+        <SlideOutOld
+          enterFrom="start"
+          isShown={isLeftSidebarOpen}
+          size="sm"
+          title={intl.formatMessage({
             defaultMessage: 'Blog Menu',
             description: 'Blog navbar menu button label',
             id: 'thlYdk',
           })}
-          size="xs"
-          variant="secondary"
-          onClick={() => {
-            setIsLeftSidebarOpen(true);
-          }}
-        />
+          trigger={
+            <Button
+              addonPosition="start"
+              className="lg:invisible"
+              icon={RiMenu2Line}
+              label={intl.formatMessage({
+                defaultMessage: 'Blog Menu',
+                description: 'Blog navbar menu button label',
+                id: 'thlYdk',
+              })}
+              size="xs"
+              variant="secondary"
+              onClick={() => {
+                setIsLeftSidebarOpen(true);
+              }}
+            />
+          }
+          onClose={() => setIsLeftSidebarOpen(false)}>
+          <BlogSidebar />
+        </SlideOutOld>
         {seriesContents && (
-          <Button
-            addonPosition="start"
-            icon={RiListUnordered}
-            label={intl.formatMessage({
-              defaultMessage: 'Series Contents',
-              description: 'Series contents navigation menu button label',
-              id: 'KPn83+',
-            })}
-            size="xs"
-            variant="secondary"
-            onClick={() => {
-              setIsRightSidebarOpen(true);
-            }}
-          />
+          <SlideOutOld
+            enterFrom="end"
+            isShown={isRightSidebarOpen}
+            size="sm"
+            trigger={
+              <Button
+                addonPosition="start"
+                icon={RiListUnordered}
+                label={intl.formatMessage({
+                  defaultMessage: 'Series Contents',
+                  description: 'Series contents navigation menu button label',
+                  id: 'KPn83+',
+                })}
+                size="xs"
+                variant="secondary"
+                onClick={() => {
+                  setIsRightSidebarOpen(true);
+                }}
+              />
+            }
+            onClose={() => setIsRightSidebarOpen(false)}>
+            <SidebarLinksList
+              navigation={[
+                {
+                  items: seriesContents.items,
+                  subtitle: seriesContents.subseriesTitle,
+                  title: seriesContents.seriesTitle,
+                },
+              ]}
+            />
+          </SlideOutOld>
         )}
       </Container>
-      <SlideOutOld
-        enterFrom="start"
-        isShown={isLeftSidebarOpen}
-        size="sm"
-        title={intl.formatMessage({
-          defaultMessage: 'Blog Menu',
-          description: 'Blog navbar menu button label',
-          id: 'thlYdk',
-        })}
-        onClose={() => setIsLeftSidebarOpen(false)}>
-        <BlogSidebar />
-      </SlideOutOld>
-      {seriesContents && (
-        <SlideOutOld
-          enterFrom="end"
-          isShown={isRightSidebarOpen}
-          size="sm"
-          onClose={() => setIsRightSidebarOpen(false)}>
-          <SidebarLinksList
-            navigation={[
-              {
-                items: seriesContents.items,
-                subtitle: seriesContents.subseriesTitle,
-                title: seriesContents.seriesTitle,
-              },
-            ]}
-          />
-        </SlideOutOld>
-      )}
     </div>
   );
 }

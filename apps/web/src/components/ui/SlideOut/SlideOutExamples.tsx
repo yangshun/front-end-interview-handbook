@@ -1,16 +1,10 @@
+import { useState } from 'react';
+
 import Prose from '~/components/ui/Prose';
-import {
-  SlideOut,
-  SlideOutContent,
-  SlideOutDescription,
-  SlideOutFooter,
-  SlideOutHeader,
-  SlideOutTitle,
-  SlideOutTrigger,
-} from '~/components/ui/SlideOut';
 
 import Button from '../Button';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import SlideOutOld from '../SlideOutOld';
 
 function Contents() {
   return (
@@ -44,60 +38,55 @@ function Contents() {
 }
 
 export default function SlideOutExamples() {
+  const [isShownStart, setIsShownStart] = useState(false);
+
   return (
     <UIExamplesGroup darkMode="none" title="Slide Out">
       <div className="flex gap-x-24">
-        <SlideOut>
-          <SlideOutTrigger>
-            <Button label="Enter From Left" variant="primary" />
-          </SlideOutTrigger>
-          <SlideOutContent enterFrom="start" size="md">
-            <SlideOutHeader>
-              <SlideOutTitle>Lorem Ipsum</SlideOutTitle>
-            </SlideOutHeader>
-            <SlideOutDescription padding={true}>
-              <Contents />
-            </SlideOutDescription>
-            <SlideOutFooter>
-              <Button label="Primary Action" size="md" variant="primary" />
-              <Button label="Secondary Action" size="md" variant="secondary" />
-            </SlideOutFooter>
-          </SlideOutContent>
-        </SlideOut>
-        <SlideOut>
-          <SlideOutTrigger>
-            <Button label="Enter From Right" variant="primary" />
-          </SlideOutTrigger>
-          <SlideOutContent enterFrom="end" size="md">
-            <SlideOutHeader>
-              <SlideOutTitle>Lorem Ipsum</SlideOutTitle>
-            </SlideOutHeader>
-            <SlideOutDescription padding={true}>
-              <Contents />
-            </SlideOutDescription>
-            <SlideOutFooter>
-              <Button label="Primary Action" size="md" variant="primary" />
-              <Button label="Secondary Action" size="md" variant="secondary" />
-            </SlideOutFooter>
-          </SlideOutContent>
-        </SlideOut>
-        <SlideOut>
-          <SlideOutTrigger>
-            <Button label="Dark Mode" variant="primary" />
-          </SlideOutTrigger>
-          <SlideOutContent dark={true} enterFrom="start" size="md">
-            <SlideOutHeader>
-              <SlideOutTitle>Lorem Ipsum</SlideOutTitle>
-            </SlideOutHeader>
-            <SlideOutDescription padding={true}>
-              <Contents />
-            </SlideOutDescription>
-            <SlideOutFooter>
-              <Button label="Primary Action" size="md" variant="primary" />
-              <Button label="Secondary Action" size="md" variant="secondary" />
-            </SlideOutFooter>
-          </SlideOutContent>
-        </SlideOut>
+        <SlideOutOld
+          enterFrom="start"
+          size="md"
+          title="Lorem Ipsum"
+          trigger={<Button label="Enter from left" variant="primary" />}>
+          <Contents />
+        </SlideOutOld>
+        <SlideOutOld
+          size="md"
+          title="Lorem Ipsum"
+          trigger={<Button label="Enter from right" variant="primary" />}>
+          <Contents />
+        </SlideOutOld>
+        <SlideOutOld
+          enterFrom="start"
+          isShown={isShownStart}
+          primaryButton={
+            <Button
+              label="Primary action"
+              size="md"
+              variant="primary"
+              onClick={() => setIsShownStart(false)}
+            />
+          }
+          secondaryButton={
+            <Button
+              label="Secondary action"
+              size="md"
+              variant="secondary"
+              onClick={() => setIsShownStart(false)}
+            />
+          }
+          size="md"
+          title="Lorem Ipsum"
+          trigger={
+            <Button
+              label="Controlled"
+              variant="primary"
+              onClick={() => setIsShownStart(true)}
+            />
+          }
+          onClose={() => setIsShownStart(false)}>
+          <Contents />
+        </SlideOutOld>
       </div>
     </UIExamplesGroup>
   );

@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
-import { useState } from 'react';
 import {
   RiArrowDownSLine,
   RiFilterLine,
@@ -95,7 +94,6 @@ export default function QuestionsCodingListWithFilters({
 
   const intl = useIntl();
   const { userProfile } = useUserProfile();
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   // Filtering.
   const {
@@ -168,50 +166,47 @@ export default function QuestionsCodingListWithFilters({
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div className={clsx(layout === 'full' && 'lg:hidden')}>
-        <FilterButton
-          icon={RiFilterLine}
-          isLabelHidden={true}
-          label={
-            intl.formatMessage({
-              defaultMessage: 'Filters',
-              description: 'Label for filters button',
-              id: 'k2Oi+j',
-            }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
-          }
-          purpose="button"
-          selected={numberOfFilters > 0}
+        <SlideOutOld
           size="sm"
-          onClick={() => setMobileFiltersOpen(true)}
-        />
+          title={intl.formatMessage({
+            defaultMessage: 'Filters',
+            description: 'Label for filters button',
+            id: 'k2Oi+j',
+          })}
+          trigger={
+            <FilterButton
+              icon={RiFilterLine}
+              isLabelHidden={true}
+              label={
+                intl.formatMessage({
+                  defaultMessage: 'Filters',
+                  description: 'Label for filters button',
+                  id: 'k2Oi+j',
+                }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
+              }
+              purpose="button"
+              selected={numberOfFilters > 0}
+              size="sm"
+            />
+          }>
+          <QuestionListingCodingFilters
+            codingFormatFilterOptions={codingFormatFilterOptions}
+            codingFormatFilters={codingFormatFilters}
+            companyFilterOptions={companyFilterOptions}
+            companyFilters={companyFilters}
+            completionStatusFilterOptions={completionStatusFilterOptions}
+            completionStatusFilters={completionStatusFilters}
+            difficultyFilterOptions={difficultyFilterOptions}
+            difficultyFilters={difficultyFilters}
+            frameworkFilterOptions={frameworkFilterOptions}
+            frameworkFilters={frameworkFilters}
+            itemGap="spacious"
+            languageFilterOptions={languageFilterOptions}
+            languageFilters={languageFilters}
+            mode={mode}
+          />
+        </SlideOutOld>
       </div>
-      <SlideOutOld
-        isShown={mobileFiltersOpen}
-        size="sm"
-        title={intl.formatMessage({
-          defaultMessage: 'Filters',
-          description: 'Label for filters button',
-          id: 'k2Oi+j',
-        })}
-        onClose={() => {
-          setMobileFiltersOpen(false);
-        }}>
-        <QuestionListingCodingFilters
-          codingFormatFilterOptions={codingFormatFilterOptions}
-          codingFormatFilters={codingFormatFilters}
-          companyFilterOptions={companyFilterOptions}
-          companyFilters={companyFilters}
-          completionStatusFilterOptions={completionStatusFilterOptions}
-          completionStatusFilters={completionStatusFilters}
-          difficultyFilterOptions={difficultyFilterOptions}
-          difficultyFilters={difficultyFilters}
-          frameworkFilterOptions={frameworkFilterOptions}
-          frameworkFilters={frameworkFilters}
-          itemGap="spacious"
-          languageFilterOptions={languageFilterOptions}
-          languageFilters={languageFilters}
-          mode={mode}
-        />
-      </SlideOutOld>
       <DropdownMenu
         align="end"
         icon={RiSortDesc}

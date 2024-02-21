@@ -1,6 +1,8 @@
 import { Fragment, useEffect, useMemo, useState } from 'react';
+import { RiFilterLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import FilterButton from '~/components/common/FilterButton';
 import ProjectsSkillRoadmapSelectionInput from '~/components/projects/skills/form/ProjectsSkillRoadmapSelectionInput';
 import ProjectsSkillTechStackInput from '~/components/projects/skills/form/ProjectsSkillTechStackInput';
 import type {
@@ -99,15 +101,15 @@ function FilterSection({
 }
 
 type Props = Readonly<{
-  isShown: boolean;
-  onClose: () => void;
+  selected: boolean;
 }>;
 
 export default function ProjectsChallengeSubmissionFilterSlideOut({
-  isShown,
-  onClose,
+  selected,
 }: Props) {
   const intl = useIntl();
+  const [isFiltersShown, setIsFiltersShown] = useState(false);
+
   const {
     filters: initialFilters,
     value: initialSelectedFilters,
@@ -163,16 +165,16 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
 
   // Set the filters to context only when the SlideOut is closed
   useEffect(() => {
-    if (!isShown) {
+    if (!isFiltersShown) {
       setInitialSelectedFilters(selectedFilters);
     }
-  }, [isShown, selectedFilters, setInitialSelectedFilters]);
+  }, [isFiltersShown, selectedFilters, setInitialSelectedFilters]);
 
   return (
     <ProjectsChallengeSubmissionFilterContext.Provider value={value}>
       <SlideOutOld
         enterFrom="end"
-        isShown={isShown}
+        isShown={isFiltersShown}
         size="md"
         title={intl.formatMessage({
           defaultMessage: 'Filters',
@@ -180,7 +182,31 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
             'Title of Projects challenge submission filter slide-out',
           id: 'aSyD6u',
         })}
-        onClose={onClose}>
+        trigger={
+          <FilterButton
+            icon={RiFilterLine}
+            isLabelHidden={true}
+            label={intl.formatMessage({
+              defaultMessage: 'All filters',
+              description: 'Label for All Filters button for projects list',
+              id: 'i9ojv3',
+            })}
+            purpose="button"
+            selected={selected}
+            size="md"
+            tooltip={intl.formatMessage({
+              defaultMessage: 'View all filters',
+              description: 'Tooltip for All Filters button for projects list',
+              id: 'vHNURr',
+            })}
+            onClick={() => {
+              setIsFiltersShown(true);
+            }}
+          />
+        }
+        onClose={() => {
+          setIsFiltersShown(false);
+        }}>
         <div className="flex flex-col">
           <Divider />
           <Accordion

@@ -55,7 +55,6 @@ export default function QuestionsQuizListWithFilters({
   questionCompletionCount,
 }: Props) {
   const intl = useIntl();
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [isAscendingOrder, setIsAscendingOrder] = useState(false);
   const [query, setQuery] = useState('');
   const [sortField, setSortField] = useState<QuestionSortField>('importance');
@@ -108,41 +107,38 @@ export default function QuestionsQuizListWithFilters({
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div className={clsx(layout === 'full' && 'lg:hidden')}>
-        <FilterButton
-          icon={RiFilterLine}
-          isLabelHidden={true}
-          label={
-            intl.formatMessage({
-              defaultMessage: 'Filters',
-              description: 'Label for filters button',
-              id: 'k2Oi+j',
-            }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
-          }
-          purpose="button"
-          selected={numberOfFilters > 0}
+        <SlideOutOld
           size="sm"
-          onClick={() => setMobileFiltersOpen(true)}
-        />
+          title={intl.formatMessage({
+            defaultMessage: 'Filters',
+            description: 'Label for filters button',
+            id: 'k2Oi+j',
+          })}
+          trigger={
+            <FilterButton
+              icon={RiFilterLine}
+              isLabelHidden={true}
+              label={
+                intl.formatMessage({
+                  defaultMessage: 'Filters',
+                  description: 'Label for filters button',
+                  id: 'k2Oi+j',
+                }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
+              }
+              purpose="button"
+              selected={numberOfFilters > 0}
+              size="sm"
+            />
+          }>
+          <QuestionListingQuizFilters
+            completionStatusFilterOptions={completionStatusFilterOptions}
+            completionStatusFilters={completionStatusFilters}
+            itemGap="spacious"
+            quizTopicFilterOptions={quizTopicFilterOptions}
+            quizTopicFilters={quizTopicFilters}
+          />
+        </SlideOutOld>
       </div>
-      <SlideOutOld
-        isShown={mobileFiltersOpen}
-        size="sm"
-        title={intl.formatMessage({
-          defaultMessage: 'Filters',
-          description: 'Label for filters button',
-          id: 'k2Oi+j',
-        })}
-        onClose={() => {
-          setMobileFiltersOpen(false);
-        }}>
-        <QuestionListingQuizFilters
-          completionStatusFilterOptions={completionStatusFilterOptions}
-          completionStatusFilters={completionStatusFilters}
-          itemGap="spacious"
-          quizTopicFilterOptions={quizTopicFilterOptions}
-          quizTopicFilters={quizTopicFilters}
-        />
-      </SlideOutOld>
       <DropdownMenu
         align="end"
         icon={RiSortDesc}

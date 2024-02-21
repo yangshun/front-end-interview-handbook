@@ -43,7 +43,6 @@ export default function QuestionsSystemDesignListWithFilters({
 }: Props) {
   const intl = useIntl();
   const { userProfile } = useUserProfile();
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [isAscendingOrder, setIsAscendingOrder] = useState(true);
   const [query, setQuery] = useState('');
   const [sortField, setSortField] = useState<QuestionSortField>('difficulty');
@@ -119,43 +118,40 @@ export default function QuestionsSystemDesignListWithFilters({
   const sortAndFilters = (
     <div className="flex shrink-0 justify-end gap-2 sm:pt-0">
       <div className={clsx(layout === 'full' && 'lg:hidden')}>
-        <FilterButton
-          icon={RiFilterLine}
-          isLabelHidden={true}
-          label={
-            intl.formatMessage({
-              defaultMessage: 'Filters',
-              description: 'Label for filters button',
-              id: 'k2Oi+j',
-            }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
-          }
-          purpose="button"
-          selected={numberOfFilters > 0}
+        <SlideOutOld
           size="sm"
-          onClick={() => setMobileFiltersOpen(true)}
-        />
+          title={intl.formatMessage({
+            defaultMessage: 'Filters',
+            description: 'Label for filters button',
+            id: 'k2Oi+j',
+          })}
+          trigger={
+            <FilterButton
+              icon={RiFilterLine}
+              isLabelHidden={true}
+              label={
+                intl.formatMessage({
+                  defaultMessage: 'Filters',
+                  description: 'Label for filters button',
+                  id: 'k2Oi+j',
+                }) + (numberOfFilters > 0 ? ` (${numberOfFilters})` : '')
+              }
+              purpose="button"
+              selected={numberOfFilters > 0}
+              size="sm"
+            />
+          }>
+          <QuestionListingSystemDesignFilters
+            companyFilterOptions={companyFilterOptions}
+            companyFilters={companyFilters}
+            completionStatusFilterOptions={completionStatusFilterOptions}
+            completionStatusFilters={completionStatusFilters}
+            difficultyFilterOptions={difficultyFilterOptions}
+            difficultyFilters={difficultyFilters}
+            itemGap="spacious"
+          />
+        </SlideOutOld>
       </div>
-      <SlideOutOld
-        isShown={mobileFiltersOpen}
-        size="sm"
-        title={intl.formatMessage({
-          defaultMessage: 'Filters',
-          description: 'Label for filters button',
-          id: 'k2Oi+j',
-        })}
-        onClose={() => {
-          setMobileFiltersOpen(false);
-        }}>
-        <QuestionListingSystemDesignFilters
-          companyFilterOptions={companyFilterOptions}
-          companyFilters={companyFilters}
-          completionStatusFilterOptions={completionStatusFilterOptions}
-          completionStatusFilters={completionStatusFilters}
-          difficultyFilterOptions={difficultyFilterOptions}
-          difficultyFilters={difficultyFilters}
-          itemGap="spacious"
-        />
-      </SlideOutOld>
       <DropdownMenu
         align="end"
         icon={RiSortDesc}

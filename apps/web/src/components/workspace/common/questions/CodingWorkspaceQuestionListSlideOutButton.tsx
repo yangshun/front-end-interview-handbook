@@ -1,9 +1,4 @@
-import { useState } from 'react';
-import {
-  RiArrowLeftSLine,
-  RiArrowRightSLine,
-  RiListUnordered,
-} from 'react-icons/ri';
+import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 import { useSessionStorage } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
@@ -19,7 +14,7 @@ import {
   sortQuestionsMultiple,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import Button from '~/components/ui/Button';
-import QuestionCodingListSlideOut from '~/components/workspace/common/questions/CodingWorkspaceQuestionListSlideOut';
+import CodingWorkspaceQuestionListSlideOut from '~/components/workspace/common/questions/CodingWorkspaceQuestionListSlideOut';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
 
@@ -33,7 +28,6 @@ export default function CodingWorkspaceQuestionListSlideOutButton({
   const questionsWithCompletionStatus = useQuestionsWithCompletionStatus(
     codingQuestions ?? [],
   );
-  const [showQuestionsSlideOut, setShowQuestionsSlideOut] = useState(false);
 
   const [namespace] = useSessionStorage(
     QuestionsCodingFiltersNamespaceKey,
@@ -95,14 +89,9 @@ export default function CodingWorkspaceQuestionListSlideOutButton({
           tooltip="Previous question"
           variant="secondary"
         />
-        <Button
-          addonPosition="start"
-          icon={RiListUnordered}
+        <CodingWorkspaceQuestionListSlideOut
           isDisabled={isLoading}
-          label="Question list"
-          size="xs"
-          variant="secondary"
-          onClick={() => setShowQuestionsSlideOut(true)}
+          questions={questionsWithCompletionStatus}
         />
         <Button
           addonPosition="start"
@@ -116,11 +105,6 @@ export default function CodingWorkspaceQuestionListSlideOutButton({
           variant="secondary"
         />
       </div>
-      <QuestionCodingListSlideOut
-        isShown={showQuestionsSlideOut}
-        questions={questionsWithCompletionStatus}
-        onClose={() => setShowQuestionsSlideOut(false)}
-      />
     </div>
   );
 }

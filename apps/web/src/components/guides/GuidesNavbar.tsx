@@ -61,54 +61,56 @@ export default function GuidesNavbar({
       )}
       style={{ top: 'var(--nav-top-offset)' }}>
       <Container className="flex h-10 items-center justify-between">
-        <Button
-          addonPosition="start"
-          icon={RiMenu2Line}
-          label={intl.formatMessage({
-            defaultMessage: 'Menu',
-            description: 'Guides navbar menu button label',
-            id: 'oo7GzR',
-          })}
-          size="xs"
-          variant="secondary"
-          onClick={() => {
-            setIsLeftSidebarOpen(true);
-          }}
-        />
+        <SlideOutOld
+          enterFrom="start"
+          isShown={isLeftSidebarOpen}
+          size="sm"
+          title={navigation.title}
+          trigger={
+            <Button
+              addonPosition="start"
+              icon={RiMenu2Line}
+              label={intl.formatMessage({
+                defaultMessage: 'Menu',
+                description: 'Guides navbar menu button label',
+                id: 'oo7GzR',
+              })}
+              size="xs"
+              variant="secondary"
+              onClick={() => {
+                setIsLeftSidebarOpen(true);
+              }}
+            />
+          }
+          onClose={() => setIsLeftSidebarOpen(false)}>
+          <GuidesSidebar navigation={navigation} />
+        </SlideOutOld>
         {tableOfContents && (
-          <Button
-            addonPosition="start"
-            icon={RiListUnordered}
-            label={intl.formatMessage({
-              defaultMessage: 'Table of Contents',
-              description: 'Guides table of contents menu button label',
-              id: 'WZy7m4',
-            })}
-            size="xs"
-            variant="secondary"
-            onClick={() => {
-              setIsRightSidebarOpen(true);
-            }}
-          />
+          <SlideOutOld
+            enterFrom="end"
+            isShown={isRightSidebarOpen}
+            size="sm"
+            trigger={
+              <Button
+                addonPosition="start"
+                icon={RiListUnordered}
+                label={intl.formatMessage({
+                  defaultMessage: 'Table of Contents',
+                  description: 'Guides table of contents menu button label',
+                  id: 'WZy7m4',
+                })}
+                size="xs"
+                variant="secondary"
+                onClick={() => {
+                  setIsRightSidebarOpen(true);
+                }}
+              />
+            }
+            onClose={() => setIsRightSidebarOpen(false)}>
+            <GuidesTableOfContents tableOfContents={tableOfContents} />
+          </SlideOutOld>
         )}
       </Container>
-      <SlideOutOld
-        enterFrom="start"
-        isShown={isLeftSidebarOpen}
-        size="sm"
-        title={navigation.title}
-        onClose={() => setIsLeftSidebarOpen(false)}>
-        <GuidesSidebar navigation={navigation} />
-      </SlideOutOld>
-      {tableOfContents && (
-        <SlideOutOld
-          enterFrom="end"
-          isShown={isRightSidebarOpen}
-          size="sm"
-          onClose={() => setIsRightSidebarOpen(false)}>
-          <GuidesTableOfContents tableOfContents={tableOfContents} />
-        </SlideOutOld>
-      )}
     </div>
   );
 }

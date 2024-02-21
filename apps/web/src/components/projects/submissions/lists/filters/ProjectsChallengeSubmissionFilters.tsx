@@ -1,9 +1,8 @@
 import { debounce } from 'lodash-es';
 import { useRef, useState } from 'react';
-import { RiFilterLine, RiSearchLine, RiSortDesc } from 'react-icons/ri';
+import { RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import FilterButton from '~/components/common/FilterButton';
 import type { ProjectsChallengeSubmissionFilter } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import ProjectsChallengeSubmissionFilterDropdown from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterDropdown';
 import ProjectsChallengeSubmissionFilterSlideOut from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterSlideOut';
@@ -35,7 +34,6 @@ export default function ProjectsChallengeSubmissionFilters({
 }: Props) {
   const intl = useIntl();
   const [searchQuery, setSearchQuery] = useState(query);
-  const [areFiltersShown, setAreFiltersShown] = useState(false);
 
   function makeDropdownItemProps(
     label: string,
@@ -56,26 +54,7 @@ export default function ProjectsChallengeSubmissionFilters({
 
   const sortAndFilterButton = (
     <>
-      <FilterButton
-        icon={RiFilterLine}
-        isLabelHidden={true}
-        label={intl.formatMessage({
-          defaultMessage: 'All filters',
-          description: 'Label for All Filters button for projects list',
-          id: 'i9ojv3',
-        })}
-        purpose="button"
-        selected={filterSize > 0}
-        size="md"
-        tooltip={intl.formatMessage({
-          defaultMessage: 'View all filters',
-          description: 'Tooltip for All Filters button for projects list',
-          id: 'vHNURr',
-        })}
-        onClick={() => {
-          setAreFiltersShown(true);
-        }}
-      />
+      <ProjectsChallengeSubmissionFilterSlideOut selected={filterSize > 0} />
       <DropdownMenu
         align="end"
         icon={RiSortDesc}
@@ -152,41 +131,33 @@ export default function ProjectsChallengeSubmissionFilters({
   );
 
   return (
-    <>
-      <ProjectsChallengeSubmissionFilterSlideOut
-        isShown={areFiltersShown}
-        onClose={() => {
-          setAreFiltersShown(false);
-        }}
-      />
-      <div className="flex flex-row flex-wrap gap-3 md:flex-col lg:flex-row">
-        <div className="w-full flex-1 lg:w-auto">
-          <TextInput
-            isLabelHidden={true}
-            label="Search"
-            placeholder="Search by name/project brief"
-            startIcon={RiSearchLine}
-            type="text"
-            value={searchQuery}
-            onChange={(value) => {
-              setSearchQuery(value);
-              debouncedSearch(value);
-            }}
-          />
-        </div>
-        <div className="hidden flex-wrap gap-3 md:flex">
-          {filters
-            .filter((filterItem) => filterItem.view === 'both')
-            .map((filter) => (
-              <ProjectsChallengeSubmissionFilterDropdown
-                key={filter.id}
-                filter={filter}
-              />
-            ))}
-          {sortAndFilterButton}
-        </div>
-        <div className="flex gap-3 md:hidden ">{sortAndFilterButton}</div>
+    <div className="flex flex-row flex-wrap gap-3 md:flex-col lg:flex-row">
+      <div className="w-full flex-1 lg:w-auto">
+        <TextInput
+          isLabelHidden={true}
+          label="Search"
+          placeholder="Search by name/project brief"
+          startIcon={RiSearchLine}
+          type="text"
+          value={searchQuery}
+          onChange={(value) => {
+            setSearchQuery(value);
+            debouncedSearch(value);
+          }}
+        />
       </div>
-    </>
+      <div className="hidden flex-wrap gap-3 md:flex">
+        {filters
+          .filter((filterItem) => filterItem.view === 'both')
+          .map((filter) => (
+            <ProjectsChallengeSubmissionFilterDropdown
+              key={filter.id}
+              filter={filter}
+            />
+          ))}
+        {sortAndFilterButton}
+      </div>
+      <div className="flex gap-3 md:hidden">{sortAndFilterButton}</div>
+    </div>
   );
 }

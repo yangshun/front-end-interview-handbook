@@ -6,13 +6,15 @@ import useProfile from '~/hooks/user/useProfile';
 import LogoLink from '~/components/global/logos/LogoLink';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Button from '~/components/ui/Button';
+import SlideOutOld from '~/components/ui/SlideOutOld';
+
+import { ProjectsSidebarExpanded } from './sidebar/ProjectsSidebar';
 
 type Props = Readonly<{
   className?: string;
-  onMenuClick?: () => void;
 }>;
 
-export default function ProjectsNavbar({ className, onMenuClick }: Props) {
+export default function ProjectsNavbar({ className }: Props) {
   const { profile } = useProfile();
 
   return (
@@ -26,13 +28,22 @@ export default function ProjectsNavbar({ className, onMenuClick }: Props) {
       </div>
       <div className="-my-2 flex gap-4 sm:-mr-2 lg:hidden">
         {profile != null && <UserAvatar profile={profile} />}
-        <Button
-          icon={RiMenuFill}
-          isLabelHidden={true}
-          label="Open menu"
-          variant="secondary"
-          onClick={onMenuClick}
-        />
+        <SlideOutOld
+          className="lg:hidden"
+          enterFrom="start"
+          isTitleHidden={true}
+          padding={false}
+          size="xs"
+          trigger={
+            <Button
+              icon={RiMenuFill}
+              isLabelHidden={true}
+              label="Open menu"
+              variant="secondary"
+            />
+          }>
+          <ProjectsSidebarExpanded />
+        </SlideOutOld>
       </div>
     </div>
   );

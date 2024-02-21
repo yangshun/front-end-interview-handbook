@@ -75,20 +75,6 @@ export default function ProjectsChallengeGuideSection({
         />
       </div>
       <div className="block xl:hidden">
-        <Button
-          addonPosition="start"
-          icon={RiMenu2Line}
-          label={intl.formatMessage({
-            defaultMessage: 'Menu',
-            description: 'Project guide navigation menu button label',
-            id: 'AzJz7v',
-          })}
-          size="xs"
-          variant="secondary"
-          onClick={() => {
-            setIsLeftSidebarOpen(true);
-          }}
-        />
         <SlideOutOld
           enterFrom="start"
           isShown={isLeftSidebarOpen}
@@ -98,6 +84,22 @@ export default function ProjectsChallengeGuideSection({
             description: 'Project guide menu header title',
             id: 'jSue8y',
           })}
+          trigger={
+            <Button
+              addonPosition="start"
+              icon={RiMenu2Line}
+              label={intl.formatMessage({
+                defaultMessage: 'Menu',
+                description: 'Project guide navigation menu button label',
+                id: 'AzJz7v',
+              })}
+              size="xs"
+              variant="secondary"
+              onClick={() => {
+                setIsLeftSidebarOpen(true);
+              }}
+            />
+          }
           onClose={() => setIsLeftSidebarOpen(false)}>
           <SidebarLinksList
             activeItem={activeGuideSlug}

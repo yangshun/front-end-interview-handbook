@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { RiKeyboardBoxLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -205,41 +204,37 @@ function useShortcuts(): ReadonlyArray<{
 }
 
 export default function CodingWorkspaceEditorShortcutsButton() {
-  const [showInformation, setShowInformation] = useState(false);
   const shortcuts = useShortcuts();
   const intl = useIntl();
 
   return (
     <div>
-      <Button
-        icon={RiKeyboardBoxLine}
-        isLabelHidden={true}
-        label={intl.formatMessage({
-          defaultMessage: 'Editor shortcuts',
-          description: 'Label for button to open code editor shortcuts',
-          id: 'yrC3kR',
-        })}
-        size="xs"
-        tooltip={intl.formatMessage({
-          defaultMessage: 'Editor shortcuts',
-          description: 'Tooltip for button to open code editor shortcuts',
-          id: 'w3T2Ld',
-        })}
-        variant="tertiary"
-        onClick={() => {
-          setShowInformation(true);
-        }}
-      />
       <SlideOutOld
         enterFrom="end"
-        isShown={showInformation}
         size="md"
         title={intl.formatMessage({
           defaultMessage: 'Editor Shortcuts',
           description: 'Label for slideout for code editor shortcuts',
           id: 'yM3vbW',
         })}
-        onClose={() => setShowInformation(false)}>
+        trigger={
+          <Button
+            icon={RiKeyboardBoxLine}
+            isLabelHidden={true}
+            label={intl.formatMessage({
+              defaultMessage: 'Editor shortcuts',
+              description: 'Label for button to open code editor shortcuts',
+              id: 'yrC3kR',
+            })}
+            size="xs"
+            tooltip={intl.formatMessage({
+              defaultMessage: 'Editor shortcuts',
+              description: 'Tooltip for button to open code editor shortcuts',
+              id: 'w3T2Ld',
+            })}
+            variant="tertiary"
+          />
+        }>
         <div className="flex flex-col gap-4">
           <Text display="block" size="body2">
             <FormattedMessage

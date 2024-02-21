@@ -1,8 +1,6 @@
 import clsx from 'clsx';
-import { useState } from 'react';
 import {
   RiCodeSSlashLine,
-  RiFilterLine,
   RiFolderOpenLine,
   RiSearchLine,
   RiSortDesc,
@@ -11,7 +9,6 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import usePagination from '~/hooks/usePagination';
 
-import FilterButton from '~/components/common/FilterButton';
 import useProjectsChallengesFilters from '~/components/projects/challenges/lists/filters/hooks/useProjectsChallengesFilters';
 import useProjectsChallengesSorting from '~/components/projects/challenges/lists/filters/hooks/useProjectsChallengesSorting';
 import {
@@ -58,8 +55,6 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
   // Sorting.
   const { isAscendingOrder, setIsAscendingOrder, sortField, setSortField } =
     useProjectsChallengesSorting();
-
-  const [areFiltersShown, setAreFiltersShown] = useState(false);
 
   // Processing.
   const sortedChallenges = sortProjectsChallenges(
@@ -108,26 +103,7 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
 
   const sortAndFilterButton = (
     <>
-      <FilterButton
-        icon={RiFilterLine}
-        isLabelHidden={true}
-        label={intl.formatMessage({
-          defaultMessage: 'All filters',
-          description: 'Label for All Filters button for projects list',
-          id: 'i9ojv3',
-        })}
-        purpose="button"
-        selected={numberOfFilters > 0}
-        size="md"
-        tooltip={intl.formatMessage({
-          defaultMessage: 'View all filters',
-          description: 'Tooltip for All Filters button for projects list',
-          id: 'vHNURr',
-        })}
-        onClick={() => {
-          setAreFiltersShown(true);
-        }}
-      />
+      <ProjectsChallengeFilterSlideOut selected={numberOfFilters > 0} />
       <DropdownMenu
         align="end"
         icon={RiSortDesc}
@@ -212,100 +188,92 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
   );
 
   return (
-    <>
-      <ProjectsChallengeFilterSlideOut
-        isShown={areFiltersShown}
-        onClose={() => {
-          setAreFiltersShown(false);
-        }}
-      />
-      <div className="flex flex-col gap-6">
-        <div className="flex flex-row flex-wrap gap-3 md:flex-col lg:flex-row">
-          <div className="w-full flex-1 lg:w-auto">
-            <TextInput
-              isLabelHidden={true}
-              label="Search"
-              placeholder="Search by name/project brief"
-              startIcon={RiSearchLine}
-              type="text"
-              value={query}
-              onChange={onChangeQuery}
-            />
-          </div>
-          <div className="hidden flex-wrap gap-3 md:flex">
-            {filters.map((filter) => (
-              <ProjectsChallengeListFilter key={filter.id} filter={filter} />
-            ))}
-            {sortAndFilterButton}
-          </div>
-          <div className="flex gap-3 md:hidden">{sortAndFilterButton}</div>
+    <div className="flex flex-col gap-6">
+      <div className="flex flex-row flex-wrap gap-3 md:flex-col lg:flex-row">
+        <div className="w-full flex-1 lg:w-auto">
+          <TextInput
+            isLabelHidden={true}
+            label="Search"
+            placeholder="Search by name/project brief"
+            startIcon={RiSearchLine}
+            type="text"
+            value={query}
+            onChange={onChangeQuery}
+          />
         </div>
-        {currentPageChallenges.length === 0 ? (
-          <div className="p-24">
-            <EmptyState
-              icon={RiFolderOpenLine}
-              iconClassName={themeTextColor}
-              subtitle={intl.formatMessage({
-                defaultMessage:
-                  "Adjust your filters a bit, and let's see what we can find!",
-                description:
-                  'Subtitle for empty state when no projects are returned from application of filters on projects list',
-                id: '0ttv+M',
-              })}
-              title={intl.formatMessage({
-                defaultMessage: 'Nothing found just yet',
-                description:
-                  'Title for empty state when application of filters return no results',
-                id: 'SdYw31',
-              })}
-              variant="empty"
+        <div className="hidden flex-wrap gap-3 md:flex">
+          {filters.map((filter) => (
+            <ProjectsChallengeListFilter key={filter.id} filter={filter} />
+          ))}
+          {sortAndFilterButton}
+        </div>
+        <div className="flex gap-3 md:hidden">{sortAndFilterButton}</div>
+      </div>
+      {currentPageChallenges.length === 0 ? (
+        <div className="p-24">
+          <EmptyState
+            icon={RiFolderOpenLine}
+            iconClassName={themeTextColor}
+            subtitle={intl.formatMessage({
+              defaultMessage:
+                "Adjust your filters a bit, and let's see what we can find!",
+              description:
+                'Subtitle for empty state when no projects are returned from application of filters on projects list',
+              id: '0ttv+M',
+            })}
+            title={intl.formatMessage({
+              defaultMessage: 'Nothing found just yet',
+              description:
+                'Title for empty state when application of filters return no results',
+              id: 'SdYw31',
+            })}
+            variant="empty"
+          />
+        </div>
+      ) : (
+        <div className="flex flex-col gap-y-4">
+          <div className={clsx('flex items-center gap-2')}>
+            <RiCodeSSlashLine
+              className={clsx('size-4', themeTextSecondaryColor)}
             />
-          </div>
-        ) : (
-          <div className="flex flex-col gap-y-4">
-            <div className={clsx('flex items-center gap-2')}>
-              <RiCodeSSlashLine
-                className={clsx('size-4', themeTextSecondaryColor)}
-              />
-              <Text color="secondary" size="body3">
-                <FormattedMessage
-                  defaultMessage="{totalCount, plural, =0 {No projects} one {1 project} other {# projects}}"
-                  description="Total number of projects"
-                  id="jFG/qC"
-                  values={{
-                    totalCount: processedChallenges.length,
-                  }}
-                />
-              </Text>
-            </div>
-            <ProjectsChallengeGridList challenges={currentPageChallenges} />
-          </div>
-        )}
-        {totalPages > 1 && (
-          <div className="flex items-center justify-between">
             <Text color="secondary" size="body3">
               <FormattedMessage
-                defaultMessage="Showing {currentPageCount} out of {totalCount} projects"
-                description="Projects listing label"
-                id="qBygAh"
+                defaultMessage="{totalCount, plural, =0 {No projects} one {1 project} other {# projects}}"
+                description="Total number of projects"
+                id="jFG/qC"
                 values={{
-                  currentPageCount: currentPageChallenges.length,
                   totalCount: processedChallenges.length,
                 }}
               />
             </Text>
-            <Pagination
-              count={totalPages}
-              page={currentPage}
-              onPageChange={(value) => {
-                setCurrentPage(value);
-                updateSearchParams('page', value.toString());
+          </div>
+          <ProjectsChallengeGridList challenges={currentPageChallenges} />
+        </div>
+      )}
+      {totalPages > 1 && (
+        <div className="flex items-center justify-between">
+          <Text color="secondary" size="body3">
+            <FormattedMessage
+              defaultMessage="Showing {currentPageCount} out of {totalCount} projects"
+              description="Projects listing label"
+              id="qBygAh"
+              values={{
+                currentPageCount: currentPageChallenges.length,
+                totalCount: processedChallenges.length,
               }}
             />
-          </div>
-        )}
-      </div>
-    </>
+          </Text>
+          <Pagination
+            count={totalPages}
+            page={currentPage}
+            onPageChange={(value) => {
+              setCurrentPage(value);
+              updateSearchParams('page', value.toString());
+            }}
+          />
+        </div>
+      )}
+    </div>
   );
 }
 

@@ -1,6 +1,8 @@
 import { Fragment } from 'react';
+import { RiFilterLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import FilterButton from '~/components/common/FilterButton';
 import {
   Accordion,
   AccordionContent,
@@ -61,13 +63,11 @@ function FilterSection({
 }
 
 type Props = Readonly<{
-  isShown: boolean;
-  onClose: () => void;
+  selected: boolean;
 }>;
 
 export default function ProjectsContributionFilterSlideOut({
-  isShown,
-  onClose,
+  selected,
 }: Props) {
   const intl = useIntl();
   const { filters: initialFilters } = useProjectsContributionFilterContext();
@@ -75,14 +75,31 @@ export default function ProjectsContributionFilterSlideOut({
   return (
     <SlideOutOld
       enterFrom="end"
-      isShown={isShown}
       size="md"
       title={intl.formatMessage({
         defaultMessage: 'Filters',
         description: 'Title of Projects contribution filter slide-out',
         id: '3OlyG+',
       })}
-      onClose={onClose}>
+      trigger={
+        <FilterButton
+          icon={RiFilterLine}
+          isLabelHidden={true}
+          label={intl.formatMessage({
+            defaultMessage: 'All filters',
+            description: 'Label for All Filters button for projects list',
+            id: 'i9ojv3',
+          })}
+          purpose="button"
+          selected={selected}
+          size="md"
+          tooltip={intl.formatMessage({
+            defaultMessage: 'View all filters',
+            description: 'Tooltip for All Filters button for projects list',
+            id: 'vHNURr',
+          })}
+        />
+      }>
       <div className="flex flex-col">
         <Divider />
         <Accordion

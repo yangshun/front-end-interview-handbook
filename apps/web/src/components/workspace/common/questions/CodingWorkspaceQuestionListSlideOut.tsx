@@ -1,5 +1,5 @@
-import { useId } from 'react';
-import { RiSearchLine } from 'react-icons/ri';
+import { useId, useState } from 'react';
+import { RiListUnordered, RiSearchLine } from 'react-icons/ri';
 import { useSessionStorage } from 'usehooks-ts';
 
 import { useQuestionFormatLists } from '~/data/QuestionFormats';
@@ -18,6 +18,7 @@ import {
   sortQuestionsMultiple,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsCodingListBrief from '~/components/interviews/questions/listings/items/QuestionsCodingListBrief';
+import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import SlideOutOld from '~/components/ui/SlideOutOld';
 import Text from '~/components/ui/Text';
@@ -163,16 +164,17 @@ function Contents({
 }
 
 type Props = Readonly<{
-  isShown: boolean;
-  onClose: () => void;
+  isDisabled: boolean;
   questions: ReadonlyArray<QuestionMetadataWithCompletedStatus>;
 }>;
 
 export default function CodingWorkspaceQuestionListSlideOut({
-  isShown,
-  onClose,
+  isDisabled,
   questions,
 }: Props) {
+  // Have to be controlled because we don't want to
+  // render the contents for nothing because it does a fetch.
+  const [isShown, setIsShown] = useState(false);
   const questionFormatLists = useQuestionFormatLists();
 
   return (
@@ -181,7 +183,18 @@ export default function CodingWorkspaceQuestionListSlideOut({
       isShown={isShown}
       size="xl"
       title={questionFormatLists.coding.longName}
-      onClose={onClose}>
+      trigger={
+        <Button
+          addonPosition="start"
+          icon={RiListUnordered}
+          isDisabled={isDisabled}
+          label="Question list"
+          size="xs"
+          variant="secondary"
+          onClick={() => setIsShown(true)}
+        />
+      }
+      onClose={() => setIsShown(false)}>
       {isShown && <Contents questions={questions} />}
     </SlideOutOld>
   );
