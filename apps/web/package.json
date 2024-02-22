@@ -35,7 +35,6 @@
     "@codesandbox/sandpack-react": "2.7.1",
     "@formatjs/intl": "^2.9.9",
     "@formatjs/intl-localematcher": "^0.2.32",
-    "@headlessui/react": "^1.7.11",
     "@hookform/resolvers": "^3.3.2",
     "@lexical/code": "^0.13.1",
     "@lexical/headless": "^0.13.1",
