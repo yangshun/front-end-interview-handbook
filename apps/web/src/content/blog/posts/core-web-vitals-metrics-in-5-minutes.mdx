@@ -4,6 +4,7 @@ description: Understand how to quantify good user experience in web pages.
 imageUrl: /img/blog/core-web-vitals-metrics.png
 tags:
   - resources
+  - performance
 level: starter
 createdAt: 2024-02-16
 author: blog/author/feilin.json
@@ -27,7 +28,7 @@ LCP is affected by several factors: Server response times, network latency, rend
 Examples of such optimization techniques include:
 
 - **Optimizing images and videos**: Compressing images, using modern image formats, and lazy loading techniques
-- **Minimizing render-blocking resources**: minimize synchronous stylesheets/scripts or long tasks
+- **Minimizing render-blocking resources**: Minimize synchronous stylesheets/scripts or long tasks
 - **Prioritizing critical content**: Preloading critical resources, optimizing server response times (reduce time to first byte), and prioritizing above-the-fold content
 - **Implementing efficient caching**: Leveraging browser caching, Content Delivery Networks (CDNs), and optimizing cache policies
 
@@ -59,6 +60,8 @@ As FID is affected by code execution time, main thread activity and the presence
 - [First Input Delay (FID): A complete guide to optimizing FID](https://www.onely.com/blog/what-is-first-input-delay/)
 
 ## Cumulative Layout Shift
+
+![CLS Standard](/img/blog/core-web-vitals/CLS.png)
 
 Lastly, Cumulative Layout Shift (CLS) measures visual stability by quantifying how much visible content moves around on the screen while loading and the total of all individual layout movement scores (ranging from 0 to 1) that happens while the page remains active. Layout shifts happen when visible elements on a page unexpectedly move to a different position, causing content to reorganize and disrupt user experience. A low CLS (under 0.1) means that the page's layout remains stable and consistent with minimum disruption for users.
 
