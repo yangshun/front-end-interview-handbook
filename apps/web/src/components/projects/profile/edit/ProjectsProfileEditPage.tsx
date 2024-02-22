@@ -7,7 +7,7 @@ import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
-import { useToast } from '~/components/global/toasts/ToastsProvider';
+import { useToast } from '~/components/global/toasts/useToast';
 import useProjectsMonthYearExperienceSchema from '~/components/projects/hooks/useProjectsMonthYearExperienceSchema';
 import useProjectsMotivationReasonSchema, {
   convertProjectsMotivationReasonToFormValue,

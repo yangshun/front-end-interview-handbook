@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import { trpc } from '~/hooks/trpc';
 
-import { useToast } from '~/components/global/toasts/ToastsProvider';
+import { useToast } from '~/components/global/toasts/useToast';
 import type { QuestionUserInterface } from '~/components/interviews/questions/common/QuestionsTypes';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';

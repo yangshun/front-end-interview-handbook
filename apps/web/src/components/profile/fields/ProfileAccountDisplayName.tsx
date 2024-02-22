@@ -6,7 +6,7 @@ import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
-import { useToast } from '~/components/global/toasts/ToastsProvider';
+import { useToast } from '~/components/global/toasts/useToast';
 import {
   getProfileNameAttrs,
   useProfileNameSchema,

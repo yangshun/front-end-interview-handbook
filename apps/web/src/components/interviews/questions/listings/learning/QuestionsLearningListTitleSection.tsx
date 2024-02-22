@@ -13,7 +13,7 @@ import { trpc } from '~/hooks/trpc';
 import type { PreparationPlanSchedule } from '~/data/plans/PreparationPlans';
 
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
-import { useToast } from '~/components/global/toasts/ToastsProvider';
+import { useToast } from '~/components/global/toasts/useToast';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionsProgressPanel from '~/components/interviews/questions/listings/stats/QuestionsProgressPanel';
 import QuestionDifficultySummary from '~/components/interviews/questions/metadata/QuestionDifficultySummary';
@@ -75,7 +75,7 @@ export default function QuestionsLearningListTitleSection({
         <div className="flex gap-x-6">
           <div
             className={clsx(
-              'inline-flex size-16 shrink-0 items-center justify-center rounded-lg text-white',
+              'size-16 inline-flex shrink-0 items-center justify-center rounded-lg text-white',
               themeBackgroundClass,
             )}>
             <Icon aria-hidden={true} className="size-10" />

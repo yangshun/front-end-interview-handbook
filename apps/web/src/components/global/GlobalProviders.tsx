@@ -13,7 +13,6 @@ import type { Database } from '~/supabase/database.types';
 import AppContextProvider from './AppContextProvider';
 import AppThemePreferencesProvider from './dark/AppThemePreferencesProvider';
 import ScrollManagementProvider from './ScrollManagementProvider';
-import ToastsProvider from './toasts/ToastsProvider';
 import TrpcClientProvider from './TrpcClientProvider';
 import UserPreferencesProvider from './UserPreferencesProvider';
 import UserProfileProvider from './UserProfileProvider';
@@ -51,11 +50,9 @@ export default function GlobalProviders({
                 <ScrollManagementProvider>
                   <UserProfileProvider>
                     <UserPreferencesProvider>
-                      <ToastsProvider>
-                        <MDXProvider components={MDXComponents}>
-                          {children}
-                        </MDXProvider>
-                      </ToastsProvider>
+                      <MDXProvider components={MDXComponents}>
+                        {children}
+                      </MDXProvider>
                     </UserPreferencesProvider>
                   </UserProfileProvider>
                 </ScrollManagementProvider>

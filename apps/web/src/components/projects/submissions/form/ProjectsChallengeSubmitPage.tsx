@@ -6,7 +6,7 @@ import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import { useToast } from '~/components/global/toasts/ToastsProvider';
+import { useToast } from '~/components/global/toasts/useToast';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -44,7 +44,7 @@ export default function ProjectsChallengeSubmitPage({
     },
     onSuccess: (submission) => {
       showToast({
-        subtitle: intl.formatMessage({
+        description: intl.formatMessage({
           // TODO(projects): Actual rep gained.
           defaultMessage: 'You have gained XXX rep!',
           description: 'Success message after submitting a project',

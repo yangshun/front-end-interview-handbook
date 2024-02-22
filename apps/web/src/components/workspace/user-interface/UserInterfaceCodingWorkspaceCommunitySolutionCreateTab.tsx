@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 
 import { trpc } from '~/hooks/trpc';
 
-import { useToast } from '~/components/global/toasts/ToastsProvider';
+import { useToast } from '~/components/global/toasts/useToast';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type {
   QuestionFramework,
@@ -58,7 +58,7 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
         }
 
         showToast({
-          subtitle: 'Your solution has been posted',
+          description: 'Your solution has been posted',
           title: `Solution posted: ${data.title}`,
           variant: 'success',
         });

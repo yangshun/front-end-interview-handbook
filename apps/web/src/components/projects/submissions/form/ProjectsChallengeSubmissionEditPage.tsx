@@ -7,7 +7,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
-import { useToast } from '~/components/global/toasts/ToastsProvider';
+import { useToast } from '~/components/global/toasts/useToast';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -44,7 +44,7 @@ export default function ProjectsChallengeSubmissionEditPage({
     },
     onSuccess: (submission_) => {
       showToast({
-        subtitle: intl.formatMessage({
+        description: intl.formatMessage({
           defaultMessage:
             'Your edits have been successfully saved. Thank you for contributing to our community!',
           description: 'Update challenge success message',
@@ -74,7 +74,7 @@ export default function ProjectsChallengeSubmissionEditPage({
     onSuccess: () => {
       setIsDeleting(false);
       showToast({
-        subtitle: intl.formatMessage({
+        description: intl.formatMessage({
           defaultMessage:
             'You have deleted this submission. Returning you back to the challenges page.',
           description: 'Delete challenge success message',

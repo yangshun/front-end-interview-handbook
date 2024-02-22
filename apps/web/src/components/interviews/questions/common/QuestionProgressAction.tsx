@@ -5,7 +5,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
-import { useToast } from '~/components/global/toasts/ToastsProvider';
+import { useToast } from '~/components/global/toasts/useToast';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import Text from '~/components/ui/Text';

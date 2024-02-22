@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import ConfirmationDialog from '~/components/common/ConfirmationDialog';
-import { useToast } from '~/components/global/toasts/ToastsProvider';
+import { useToast } from '~/components/global/toasts/useToast';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import DropdownMenu from '~/components/ui/DropdownMenu';

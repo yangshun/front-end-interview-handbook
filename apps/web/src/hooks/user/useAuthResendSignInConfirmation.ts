@@ -1,4 +1,4 @@
-import { useToast } from '~/components/global/toasts/ToastsProvider';
+import { useToast } from '~/components/global/toasts/useToast';
 
 import { trpc } from '../trpc';
 

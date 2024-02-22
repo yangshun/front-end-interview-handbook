@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-import { useToast } from '~/components/global/toasts/ToastsProvider';
+import { useToast } from '~/components/global/toasts/useToast';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import {
   BlackFridayExclusiveTicket,
@@ -22,9 +22,7 @@ export default function BlackFridayToast() {
 
     const { closeToast } = showToast({
       className: 'p-3',
-      duration: 1200000,
-      maxWidth: 'sm',
-      subtitle: (
+      description: (
         <div className="flex flex-col gap-2 pt-4">
           <div className="flex items-center justify-between gap-2">
             <div className="flex w-full self-stretch sm:w-[175px]">
@@ -51,6 +49,8 @@ export default function BlackFridayToast() {
           </Text>
         </div>
       ),
+      duration: 1200000,
+      maxWidth: 'sm',
       title: (
         <div className="flex w-full items-center justify-between gap-x-3">
           <span>Cyber Monday Special</span>

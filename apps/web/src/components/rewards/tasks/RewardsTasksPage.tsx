@@ -15,7 +15,7 @@ import { useSessionStorage } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
 
-import { useToast } from '~/components/global/toasts/ToastsProvider';
+import { useToast } from '~/components/global/toasts/useToast';
 import RewardsHeader from '~/components/rewards/RewardsHeader';
 import RewardsTaskList from '~/components/rewards/tasks/RewardsTaskList';
 import Button from '~/components/ui/Button';
@@ -49,7 +49,7 @@ function RewardsStepLabel({
     <div className="flex gap-x-2.5">
       <span
         className={clsx(
-          'inline-flex size-6 items-center justify-center rounded-full',
+          'size-6 inline-flex items-center justify-center rounded-full',
           status === 'active' &&
             clsx(
               'border',
@@ -325,7 +325,7 @@ export default function RewardsTasksPage() {
                     generateSocialTasksPromoCodeMutation.mutate(undefined, {
                       onError: (error) => {
                         showToast({
-                          subtitle: error.message,
+                          description: error.message,
                           title: intl.formatMessage({
                             defaultMessage: 'Error generating promo code',
                             description: 'Error message',

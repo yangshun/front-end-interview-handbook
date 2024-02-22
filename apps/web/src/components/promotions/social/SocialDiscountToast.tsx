@@ -7,7 +7,7 @@ import { trpc } from '~/hooks/trpc';
 import useProfile from '~/hooks/user/useProfile';
 
 import Ticket from '~/components/common/tickets/Ticket';
-import { useToast } from '~/components/global/toasts/ToastsProvider';
+import { useToast } from '~/components/global/toasts/useToast';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
@@ -29,9 +29,7 @@ function SocialDiscountToastImpl() {
 
       const { closeToast } = showToast({
         className: 'p-3',
-        duration: 1200000,
-        maxWidth: 'sm',
-        subtitle: (
+        description: (
           <div className="flex items-center justify-between gap-2 pt-4">
             <Ticket height={85} padding="none" ratio="wide">
               <div className="flex h-full flex-col items-center justify-center">
@@ -61,6 +59,8 @@ function SocialDiscountToastImpl() {
             </div>
           </div>
         ),
+        duration: 1200000,
+        maxWidth: 'sm',
         title: socialDiscountLabels.existingPromoTitle,
         variant: 'invert',
       });
@@ -72,9 +72,7 @@ function SocialDiscountToastImpl() {
 
     const { closeToast } = showToast({
       className: 'p-3',
-      duration: 1200000,
-      maxWidth: 'sm',
-      subtitle: (
+      description: (
         <div className="flex gap-2 pt-4">
           <div className="flex flex-col gap-5">
             <Text color="secondary" size="body3">
@@ -99,6 +97,8 @@ function SocialDiscountToastImpl() {
           </Ticket>
         </div>
       ),
+      duration: 1200000,
+      maxWidth: 'sm',
       title: socialDiscountLabels.title,
       variant: 'invert',
     });

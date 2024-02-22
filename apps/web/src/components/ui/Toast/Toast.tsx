@@ -1,6 +1,6 @@
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
-import { Fragment, useEffect, useRef } from 'react';
+import * as React from 'react';
+import { forwardRef } from 'react';
 import {
   RiCheckboxCircleFill,
   RiCloseCircleFill,
@@ -11,10 +11,10 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
-import type { TextColor } from '~/components/ui/Text';
-import Text from '~/components/ui/Text';
+import type { TextColor } from '../Text';
+import Text from '../Text';
 
-import { Transition } from '@headlessui/react';
+import * as ToastPrimitives from '@radix-ui/react-toast';
 
 export type ToastVariant =
   | 'danger'
@@ -25,22 +25,6 @@ export type ToastVariant =
   | 'special'
   | 'success'
   | 'warning';
-
-export type ToastMessage = Readonly<{
-  className?: string;
-  duration?: number;
-  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  maxWidth?: 'md' | 'sm';
-  onClose?: () => void;
-  subtitle?: ReactNode;
-  title: ReactNode;
-  variant: ToastVariant;
-}>;
-
-type Props = Readonly<{
-  onExpire?: () => void;
-}> &
-  ToastMessage;
 
 const classes: Record<
   ToastVariant,
@@ -69,8 +53,10 @@ const classes: Record<
     textColor: 'light',
   },
   invert: {
-    backgroundClass:
-      'bg-neutral-100 border border-neutral-20 dark:border-neutral-700 dark:bg-neutral-900',
+    backgroundClass: clsx(
+      'bg-neutral-100 dark:bg-neutral-900',
+      'border border-neutral-200 dark:border-neutral-700',
+    ),
     iconClass: 'focus:ring-white-500',
     textColor: 'default',
   },
@@ -99,43 +85,132 @@ const classes: Record<
   },
 };
 
-export default function Toast({
+const ToastProvider = ToastPrimitives.Provider;
+
+const ToastViewport = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Viewport>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Viewport
+    ref={ref}
+    className={clsx(
+      'fixed top-0 sm:bottom-0 sm:left-0 sm:top-auto',
+      'z-toast',
+      'flex max-h-screen w-full flex-col-reverse gap-4 sm:flex-col',
+      'md:max-w-[420px]',
+      'px-4 py-6 sm:p-6',
+      className,
+    )}
+    {...props}
+  />
+));
+
+ToastViewport.displayName = ToastPrimitives.Viewport.displayName;
+
+export const ToastRootImpl = forwardRef<
+  React.ElementRef<'div'>,
+  React.ComponentPropsWithoutRef<'div'> &
+    Readonly<{
+      maxWidth?: 'md' | 'sm';
+    }>
+>(({ className, maxWidth, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={clsx(
+      'group pointer-events-auto relative',
+      'flex items-center justify-between gap-x-4',
+      'overflow-hidden rounded shadow-lg',
+      'w-full',
+      'transition-all',
+      'data-[swipe=cancel]:translate-x-0',
+      'data-[swipe=end]:translate-x-[var(--radix-toast-swipe-end-x)]',
+      'data-[swipe=end]:animate-out',
+      'data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)]',
+      'data-[swipe=move]:transition-none',
+      'data-[state=open]:animate-in',
+      'data-[state=open]:slide-in-from-top-full',
+      'data-[state=open]:sm:slide-in-from-bottom-full',
+      'data-[state=closed]:animate-out',
+      'data-[state=closed]:fade-out-80',
+      'data-[state=closed]:slide-out-to-right-full',
+      maxWidth === 'sm' && 'max-w-sm',
+      maxWidth === 'md' && 'max-w-md',
+      className,
+    )}
+    {...props}
+  />
+));
+
+const ToastClose = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Close>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Close>
+>(({ className, ...props }, ref) => (
+  <ToastPrimitives.Close
+    ref={ref}
+    className={clsx(
+      'inline-flex items-center justify-center',
+      'rounded-full hover:opacity-75',
+      'focus:outline-none focus:ring-2 focus:ring-offset-2',
+      className,
+    )}
+    toast-close=""
+    {...props}>
+    <span className="sr-only">
+      <FormattedMessage
+        defaultMessage="Close"
+        description="Close button label"
+        id="PyDwDF"
+      />
+    </span>
+    <RiCloseLine aria-hidden="true" className="size-5 shrink-0" />
+  </ToastPrimitives.Close>
+));
+
+ToastClose.displayName = ToastPrimitives.Close.displayName;
+
+const ToastTitle = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Title>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Title>
+>(({ className, children, ...props }, ref) => {
+  return (
+    <ToastPrimitives.Title ref={ref} asChild={true} {...props}>
+      <Text
+        className={clsx('grow', className)}
+        color="inherit"
+        display="block"
+        size="body2"
+        weight="medium">
+        {children}
+      </Text>
+    </ToastPrimitives.Title>
+  );
+});
+
+ToastTitle.displayName = ToastPrimitives.Title.displayName;
+
+const ToastDescription = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Description>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description> &
+    Readonly<{ textColor: TextColor }>
+>(({ className, children, textColor, ...props }, ref) => (
+  <ToastPrimitives.Description ref={ref} asChild={true} {...props}>
+    <Text className={className} color={textColor} display="block" size="body3">
+      {children}
+    </Text>
+  </ToastPrimitives.Description>
+));
+
+ToastDescription.displayName = ToastPrimitives.Description.displayName;
+
+export function ToastImpl({
   className,
-  duration = 4000,
-  icon: IconProp,
-  maxWidth = 'sm',
   title,
-  subtitle,
   variant,
+  description,
+  icon: IconProp,
   onClose,
-  onExpire,
+  ...props
 }: Props) {
-  const timer = useRef<number | null>(null);
-
-  function clearTimer() {
-    if (timer.current == null) {
-      return;
-    }
-    window.clearTimeout(timer.current);
-    timer.current = null;
-  }
-
-  function close() {
-    onClose?.();
-    clearTimer();
-  }
-
-  useEffect(() => {
-    timer.current = window.setTimeout(() => {
-      onExpire?.();
-    }, duration);
-
-    return () => {
-      clearTimer();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const {
     icon: VariantIcon,
     backgroundClass,
@@ -146,63 +221,66 @@ export default function Toast({
   const Icon = IconProp ?? VariantIcon;
 
   return (
-    <Transition
-      as={Fragment}
-      enter="transform ease-out duration-300 transition"
-      enterFrom="translate-y-2 opacity-0 sm:translate-y-2 sm:translate-x-2"
-      enterTo="translate-y-0 opacity-100 sm:translate-x-0"
-      leave="transition ease-in duration-100"
-      leaveFrom="opacity-100"
-      leaveTo="opacity-0"
-      show={true}>
-      <div
-        className={clsx(
-          'pointer-events-auto w-full overflow-hidden rounded shadow-lg',
-          maxWidth === 'sm' && 'max-w-sm',
-          maxWidth === 'md' && 'max-w-md',
-          backgroundClass,
-          className,
-        )}>
-        <Text
-          className="w-full items-start gap-x-2 px-3 py-2"
-          color={textColor}
-          display="flex">
-          {Icon && <Icon className={clsx('size-5 shrink-0', iconClass)} />}
-          <div className="flex w-full grow flex-col gap-y-1">
-            <div className="flex justify-between gap-2">
-              <Text
-                className="grow"
-                color={textColor}
-                display="block"
-                size="body2"
-                weight="medium">
-                {title}
-              </Text>
-              <button
-                className={clsx(
-                  'inline-flex items-center justify-center rounded-full hover:opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2',
-                  iconClass,
-                )}
-                type="button"
-                onClick={close}>
-                <span className="sr-only">
-                  <FormattedMessage
-                    defaultMessage="Close"
-                    description="Close button label"
-                    id="PyDwDF"
-                  />
-                </span>
-                <RiCloseLine aria-hidden="true" className="size-5" />
-              </button>
-            </div>
-            {subtitle && (
-              <Text color={textColor} display="block" size="body3">
-                {subtitle}
-              </Text>
-            )}
+    <ToastRootImpl className={clsx(className, backgroundClass)} {...props}>
+      <Text
+        className="w-full items-start gap-x-2 px-3 py-2"
+        color={textColor}
+        display="flex">
+        {Icon && <Icon className={clsx('size-5 shrink-0', iconClass)} />}
+        <div className="flex w-full grow flex-col gap-y-1">
+          <div className="flex justify-between gap-2">
+            {title && <ToastTitle>{title}</ToastTitle>}
+            <ToastClose className={iconClass} onClick={onClose} />
           </div>
-        </Text>
-      </div>
-    </Transition>
+          {description && (
+            <ToastDescription textColor={textColor}>
+              {description}
+            </ToastDescription>
+          )}
+        </div>
+      </Text>
+    </ToastRootImpl>
   );
 }
+
+type Props = Readonly<{
+  className?: string;
+  description?: React.ReactNode;
+  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  maxWidth?: 'md' | 'sm';
+  onClose?: () => void;
+  title: React.ReactNode;
+  variant: ToastVariant;
+}>;
+
+export type ToastProps = Omit<
+  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root>,
+  'children' | 'title'
+> &
+  Props;
+
+const Toast = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitives.Root>,
+  ToastProps
+>(({ maxWidth, description, icon, title, variant, onClose, ...props }, ref) => (
+  <ToastPrimitives.Root ref={ref} asChild={true} {...props}>
+    <ToastImpl
+      description={description}
+      icon={icon}
+      maxWidth={maxWidth}
+      title={title}
+      variant={variant}
+      onClose={onClose}
+    />
+  </ToastPrimitives.Root>
+));
+
+export default Toast;
+
+export {
+  ToastClose,
+  ToastDescription,
+  ToastProvider,
+  ToastTitle,
+  ToastViewport,
+};

@@ -4,7 +4,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import { useToast } from '~/components/global/toasts/ToastsProvider';
+import { useToast } from '~/components/global/toasts/useToast';
 import type { ProjectsChallengeSubmissionAuthor } from '~/components/projects/submissions/types';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';

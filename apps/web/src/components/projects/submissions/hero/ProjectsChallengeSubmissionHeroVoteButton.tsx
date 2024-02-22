@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import { useToast } from '~/components/global/toasts/ToastsProvider';
+import { useToast } from '~/components/global/toasts/useToast';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundLayerEmphasized,

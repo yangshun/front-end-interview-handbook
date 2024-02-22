@@ -3,7 +3,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import { useToast } from '~/components/global/toasts/ToastsProvider';
+import { useToast } from '~/components/global/toasts/useToast';
 import type {
   QuestionMetadata,
   QuestionUserFacingFormat,
@@ -69,7 +69,7 @@ export default function QuestionsLearningList({
 
     if (questionListSession == null) {
       showToast({
-        subtitle: intl.formatMessage({
+        description: intl.formatMessage({
           defaultMessage: 'You need to start the learning session first',
           description:
             'Message telling users that need to start on a study plan session first',

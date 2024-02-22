@@ -11,7 +11,7 @@ import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import useProfile from '~/hooks/user/useProfile';
 
-import { useToast } from '~/components/global/toasts/ToastsProvider';
+import { useToast } from '~/components/global/toasts/useToast';
 import Anchor from '~/components/ui/Anchor';
 
 import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
@@ -130,7 +130,7 @@ export default function ProjectsChallengeSessionContextProvider({
             },
             onSuccess: () => {
               showToast({
-                subtitle: (
+                description: (
                   <FormattedMessage
                     defaultMessage="You have ended this project session. Returning you to the project detail page."
                     description="Toast subtitle for project session ended"
@@ -176,7 +176,7 @@ export default function ProjectsChallengeSessionContextProvider({
             },
             onSuccess: () => {
               showToast({
-                subtitle: startedBefore ? (
+                description: startedBefore ? (
                   <FormattedMessage
                     defaultMessage="Project started! Leverage the provided guides and resources and submit a link to your site once ready!"
                     description="Toast subtitle for project session started"

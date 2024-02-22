@@ -7,9 +7,9 @@ import { useLocalStorage } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useToast } from '~/components/global/toasts/useToast';
 import Anchor from '~/components/ui/Anchor';
 
-import { useToast } from '../../global/toasts/ToastsProvider';
 import { useUserProfile } from '../../global/UserProfileProvider';
 
 const ONE_DAY_IN_SECONDS = 24 * 60 * 60 * 1_000;
