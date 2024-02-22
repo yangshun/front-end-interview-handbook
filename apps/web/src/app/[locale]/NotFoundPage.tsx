@@ -105,7 +105,7 @@ export default function NotFoundPage() {
                       <li
                         key={link.title}
                         className="relative flex items-start gap-x-4 py-6">
-                        <div className="flex-shrink-0">
+                        <div className="shrink-0">
                           <span
                             className={clsx(
                               'flex items-center justify-center rounded-lg',
@@ -141,7 +141,7 @@ export default function NotFoundPage() {
                             </p>
                           </Section>
                         </div>
-                        <div className="flex-shrink-0 self-center">
+                        <div className="shrink-0 self-center">
                           <RiArrowRightSLine
                             aria-hidden="true"
                             className="size-5 text-neutral-400"

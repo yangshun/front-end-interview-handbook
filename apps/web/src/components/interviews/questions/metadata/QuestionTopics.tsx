@@ -28,7 +28,7 @@ export default function QuestionTopics({ topics, showIcon = false }: Props) {
       {showIcon && (
         <RiBookOpenLine
           aria-hidden="true"
-          className={clsx('size-5 flex-shrink-0', themeIconColor)}
+          className={clsx('size-5 shrink-0', themeIconColor)}
         />
       )}
       <div

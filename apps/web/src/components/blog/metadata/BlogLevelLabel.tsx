@@ -66,7 +66,7 @@ export default function BlogLevelLabel({
         {showIcon && (
           <RiFireLine
             aria-hidden="true"
-            className={clsx('size-5 flex-shrink-0', themeIconColor)}
+            className={clsx('size-5 shrink-0', themeIconColor)}
           />
         )}
         <Text

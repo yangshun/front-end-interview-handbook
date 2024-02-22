@@ -989,7 +989,7 @@ export default function MarketingPricingSection({
             <Section>
               <div
                 className={clsx(
-                  'mx-auto grid max-w-lg grid-cols-1 rounded-3xl md:max-w-none md:grid-cols-3 dark:bg-neutral-800/20',
+                  'mx-auto grid max-w-lg grid-cols-1 rounded-3xl dark:bg-neutral-800/20 md:max-w-none md:grid-cols-3',
                   ['divide-y md:divide-x md:divide-y-0', themeDivideColor],
                   ['border', themeBorderColor],
                 )}>
@@ -1033,7 +1033,7 @@ export default function MarketingPricingSection({
                           </div>
                           <Section>
                             <Text
-                              className="mt-1 md:min-h-10"
+                              className="md:min-h-10 mt-1"
                               color="secondary"
                               display="block"
                               size="body2">
@@ -1119,7 +1119,7 @@ export default function MarketingPricingSection({
                             </div>
                             <Text
                               className={clsx(
-                                'pt-1 md:min-h-8',
+                                'md:min-h-8 pt-1',
                                 plan.conversionFactor <
                                   MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE &&
                                   plan.planType === 'lifetime' &&
@@ -1175,7 +1175,7 @@ export default function MarketingPricingSection({
                                   <RiCheckLine
                                     aria-hidden="true"
                                     className={clsx(
-                                      'size-5 flex-shrink-0',
+                                      'size-5 shrink-0',
                                       themeTextBrandColor,
                                     )}
                                   />

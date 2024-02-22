@@ -73,7 +73,7 @@ export default function ResumeReviewHero() {
       <Container>
         <svg
           aria-hidden="true"
-          className="absolute inset-0 -z-10 size-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]">
+          className="size-full absolute inset-0 -z-10 stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]">
           <defs>
             <pattern
               height={200}
@@ -112,7 +112,7 @@ export default function ResumeReviewHero() {
         <div className="flex flex-col gap-y-24 pb-10 xl:pb-20">
           <div className="mx-auto lg:flex">
             <div>
-              <div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl">
+              <div className="mx-auto max-w-2xl shrink-0 lg:mx-0 lg:max-w-xl">
                 <div className="mt-24 sm:mt-32 lg:mt-16">
                   <span
                     className={clsx(
@@ -165,7 +165,7 @@ export default function ResumeReviewHero() {
                 </div>
               </div>
             </div>
-            <div className="hidden w-full pt-6 lg:ml-auto lg:block lg:w-2/6 lg:flex-shrink-0">
+            <div className="hidden w-full pt-6 lg:ml-auto lg:block lg:w-2/6 lg:shrink-0">
               {featuredReviews.map((review) => (
                 <figure
                   key={review.reviewerName}

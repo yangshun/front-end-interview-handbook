@@ -48,7 +48,7 @@ function ProductSection() {
           )}>
           <RiCheckLine
             aria-hidden={true}
-            className="text-success -ml-1 size-4"
+            className="text-success size-4 -ml-1"
           />
           <Text color="secondary" size="body2" weight="medium">
             {feature}
@@ -88,12 +88,12 @@ function SliderSection() {
         onValueChange={([val]) => setSales(val)}>
         <Slider.Track
           className={clsx(
-            'flex-grow-1 relative !h-3 w-full rounded-full',
+            'grow-1 relative !h-3 w-full rounded-full',
             themeBackgroundChipColor,
           )}>
           <Slider.Range className="bg-brand-dark absolute h-full rounded" />
         </Slider.Track>
-        <Slider.Thumb className="bg-brand-dark hover:bg-brand-darker focus:ring-brand-darker block size-8 rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-offset-2" />
+        <Slider.Thumb className="bg-brand-dark hover:bg-brand-darker focus:ring-brand-darker size-8 block rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-offset-2" />
       </Slider.Root>
       <Text
         className="mt-8 text-center text-2xl"

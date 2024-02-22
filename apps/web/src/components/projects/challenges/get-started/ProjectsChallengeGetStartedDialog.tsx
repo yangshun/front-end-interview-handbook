@@ -212,7 +212,7 @@ export default function ProjectsChallengeGetStartedDialog({
                 {isStepCompleted ? (
                   <Chip
                     aria-hidden={true}
-                    className="flex-shrink-0"
+                    className="shrink-0"
                     icon={RiCheckLine}
                     isLabelHidden={true}
                     label={(index + 1).toString()}
@@ -223,7 +223,7 @@ export default function ProjectsChallengeGetStartedDialog({
                   <div className={clsx('z-10')}>
                     <Chip
                       aria-hidden={true}
-                      className="flex-shrink-0"
+                      className="shrink-0"
                       label={(index + 1).toString()}
                       size="sm"
                       variant={isStepSelected ? 'active' : 'neutral'}

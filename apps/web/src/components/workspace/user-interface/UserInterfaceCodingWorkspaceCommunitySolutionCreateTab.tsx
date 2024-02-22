@@ -80,7 +80,7 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
       })}>
       <div className="flex flex-row-reverse gap-2">
         <Button
-          className="mt-0.5 flex-shrink-0"
+          className="mt-0.5 shrink-0"
           isDisabled={!isDirty || isLoading}
           label="Post"
           type="submit"

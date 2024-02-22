@@ -119,7 +119,7 @@ export default function ProjectsChallengeGetStartedImportantInfoGuideBanner() {
                 <div
                   key={value}
                   className={clsx(
-                    'group w-[160px] shrink-0 border-t-2 pt-4 md:min-w-[200px] md:flex-grow',
+                    'group w-[160px] shrink-0 border-t-2 pt-4 md:min-w-[200px] md:grow',
                     value === 'resources'
                       ? 'border-brand'
                       : [

@@ -124,7 +124,7 @@ export default function ProfileShell({ user, children }: Props) {
         {/* 3 column wrapper */}
         <div
           className={clsx(
-            'mx-auto w-full max-w-6xl flex-grow lg:flex lg:border-x',
+            'mx-auto w-full max-w-6xl grow lg:flex lg:border-x',
             themeBorderColor,
           )}>
           {/* Left sidebar & main wrapper */}
@@ -138,7 +138,7 @@ export default function ProfileShell({ user, children }: Props) {
                       {/* Profile */}
                       <div className="flex items-center gap-x-3">
                         {profileDataQuery.data?.avatarUrl && (
-                          <div className="h-32 w-32 flex-shrink-0">
+                          <div className="h-32 w-32 shrink-0">
                             <img
                               alt={profileDataQuery.data?.name ?? ''}
                               className="h-32 w-32 rounded-full"

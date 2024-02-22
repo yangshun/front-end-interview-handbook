@@ -28,7 +28,7 @@ export default function QuestionAuthor({ author, size = 'body3' }: Props) {
   });
 
   return (
-    <div className="group block flex-shrink-0">
+    <div className="group block shrink-0">
       <span className="sr-only" id={id}>
         {label}
       </span>
@@ -37,7 +37,7 @@ export default function QuestionAuthor({ author, size = 'body3' }: Props) {
           <Tooltip label={label}>
             <img
               alt={authorData.name}
-              className="inline-block size-8 rounded-full"
+              className="size-8 inline-block rounded-full"
               src={authorData.imageUrl}
             />
           </Tooltip>

@@ -65,7 +65,7 @@ export default function DiscussionsCommentEditInput({
 
   return (
     <form
-      className="flex w-full flex-grow flex-col"
+      className="flex w-full grow flex-col"
       onSubmit={handleSubmit(onSubmit)}>
       <div className="mt-2">
         <RichTextEditor

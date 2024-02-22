@@ -146,10 +146,7 @@ export function GuidesSidebar({
 }: GuidesSidebarProps) {
   return (
     <nav
-      className={clsx(
-        'flex w-[280px] flex-shrink-0 flex-col',
-        sticky && 'sticky',
-      )}
+      className={clsx('flex w-[280px] shrink-0 flex-col', sticky && 'sticky')}
       style={{
         height: sticky
           ? 'calc(100vh - 24px - var(--nav-top-offset))'

@@ -137,10 +137,7 @@ export default function ProjectsChallengeAssetsPage({
                 <li key={id} className="flex gap-2.5">
                   <RiCheckboxCircleFill
                     aria-hidden={true}
-                    className={clsx(
-                      'mt-1 h-3 w-3 flex-shrink-0',
-                      themeTextColor,
-                    )}
+                    className={clsx('mt-1 h-3 w-3 shrink-0', themeTextColor)}
                   />
                   <Text size="body2">{label}</Text>
                 </li>

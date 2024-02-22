@@ -199,7 +199,7 @@ export default function ResumeReviewTestimonials() {
             <blockquote key={testimonial.id} className="sm:flex lg:block">
               <svg
                 aria-hidden="true"
-                className="flex-shrink-0 text-neutral-300"
+                className="shrink-0 text-neutral-300"
                 height={18}
                 viewBox="0 0 24 18"
                 width={24}

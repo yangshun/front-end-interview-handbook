@@ -612,7 +612,7 @@ function useUserNavigationLinks() {
 //   return (
 //     <button
 //       type="button"
-//       className="bg-neutral-50 flex-shrink-0 rounded-full p-1 text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-50 focus:ring-brand">
+//       className="bg-neutral-50 shrink-0 rounded-full p-1 text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-50 focus:ring-brand">
 //       <span className="sr-only">Search website</span>
 //       <SearchIcon className="size-6" aria-hidden="true" />
 //     </button>

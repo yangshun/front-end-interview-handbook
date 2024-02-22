@@ -62,7 +62,7 @@ export default function ProjectsChallengeHowItWorksAssetCard() {
                   <div className={clsx('z-10', themeBackgroundLayerColor)}>
                     <Chip
                       aria-hidden={true}
-                      className="flex-shrink-0"
+                      className="shrink-0"
                       label={(index + 1).toString()}
                       size="xs"
                       variant="active"

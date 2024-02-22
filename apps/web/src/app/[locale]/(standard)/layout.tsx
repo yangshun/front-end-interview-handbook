@@ -15,7 +15,7 @@ export default function StandardLayout({ children }: Props) {
       <GlobalBanner />
       <div className="flex min-h-screen flex-col">
         <Navbar />
-        <div className="flex-grow">{children}</div>
+        <div className="grow">{children}</div>
         <Section>
           <FooterInterviews />
         </Section>

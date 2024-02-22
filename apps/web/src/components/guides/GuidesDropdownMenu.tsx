@@ -70,7 +70,7 @@ export default function GuidesDropdownMenu() {
         <div className="flex items-center gap-2">
           <div
             className={clsx(
-              'flex size-6 flex-shrink-0 items-center justify-center rounded-full',
+              'size-6 flex shrink-0 items-center justify-center rounded-full',
               themeGlassyBorder,
               themeBackgroundLayerEmphasized,
             )}>
@@ -85,7 +85,7 @@ export default function GuidesDropdownMenu() {
         </div>
         <RiArrowDownSLine
           aria-hidden="true"
-          className={clsx('size-4 flex-shrink-0', themeTextSecondaryColor)}
+          className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
         />
       </Trigger>
       <Portal>

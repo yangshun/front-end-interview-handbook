@@ -89,9 +89,7 @@ export default function DiscussionsReplyInput({
           progress={50}
           size="xl"
         />
-        <form
-          className="flex flex-grow flex-col"
-          onSubmit={handleSubmit(onSubmit)}>
+        <form className="flex grow flex-col" onSubmit={handleSubmit(onSubmit)}>
           <Text size="body2" weight="medium">
             <FormattedMessage
               defaultMessage="You are replying"

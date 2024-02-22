@@ -66,7 +66,7 @@ function ProjectsChallengeStepsTabItem({
   return (
     <Anchor
       className={clsx(
-        'group w-[160px] shrink-0 border-t-2 pt-4 md:min-w-[256px] md:flex-grow',
+        'group w-[160px] shrink-0 border-t-2 pt-4 md:min-w-[256px] md:grow',
         isSelected
           ? 'border-brand'
           : [themeTextBrandColor_Hover, themeTextColor, 'border-transparent'],
@@ -84,7 +84,7 @@ function ProjectsChallengeStepsTabItem({
           weight="bold">
           {tabItemTitle}
           {accessAllSteps && !hasRead && (
-            <span className="bg-red mb-2 ms-1 inline-block size-2 rounded-full" />
+            <span className="bg-red size-2 mb-2 ms-1 inline-block rounded-full" />
           )}
         </Text>
         <Text color="secondary" display="block">

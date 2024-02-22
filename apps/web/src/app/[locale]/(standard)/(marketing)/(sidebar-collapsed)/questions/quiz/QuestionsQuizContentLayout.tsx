@@ -49,7 +49,7 @@ export default function QuestionsQuizContentLayout({
           <Section>
             <nav className="hidden w-[270px] overflow-y-auto text-base lg:block lg:text-sm 2xl:w-96">
               {/* Questions list */}
-              <aside className="relative h-full lg:flex-shrink-0 xl:order-first">
+              <aside className="relative h-full lg:shrink-0 xl:order-first">
                 <div
                   className={clsx(
                     'relative flex h-full flex-col border-r',

@@ -111,7 +111,7 @@ export function SidebarLinksList({
   return (
     <nav
       className={clsx(
-        'flex w-[280px] flex-shrink-0 flex-col gap-4',
+        'flex w-[280px] shrink-0 flex-col gap-4',
         sticky && 'sticky',
         className,
       )}

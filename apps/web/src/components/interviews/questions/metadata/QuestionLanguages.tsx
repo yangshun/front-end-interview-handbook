@@ -34,7 +34,7 @@ export default function QuestionLanguages({
       {showIcon && (
         <RiCodeSSlashLine
           aria-hidden="true"
-          className={clsx('size-5 flex-shrink-0', themeIconColor)}
+          className={clsx('size-5 shrink-0', themeIconColor)}
         />
       )}
       <div aria-labelledby={id} className="flex items-center gap-x-2">

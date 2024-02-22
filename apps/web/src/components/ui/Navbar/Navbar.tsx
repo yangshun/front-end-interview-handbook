@@ -148,7 +148,7 @@ function Navbar(
                 {mobileSidebarBottomItems && (
                   <div
                     className={clsx(
-                      'flex flex-shrink-0 border-t p-4',
+                      'flex shrink-0 border-t p-4',
                       themeBorderColor,
                     )}>
                     {mobileSidebarBottomItems}

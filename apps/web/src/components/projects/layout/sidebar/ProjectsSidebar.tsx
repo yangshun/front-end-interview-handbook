@@ -265,7 +265,7 @@ export function ProjectsSidebarExpanded({
       ) : (
         <ProjectsSidebarNotSignedInHeader />
       )}
-      <ul className="flex flex-grow flex-col gap-2">
+      <ul className="flex grow flex-col gap-2">
         {sideBarItems.top.map(({ key: childKey, ...link }) => (
           <li key={childKey}>
             <SidebarLinkButton {...link} />
@@ -370,7 +370,7 @@ function ProjectsSidebarCollapsed({
           size="lg"
         />
       )}
-      <ul className="flex flex-grow flex-col gap-1">
+      <ul className="flex grow flex-col gap-1">
         {sideBarItems.top.map(({ key: childKey, ...link }) => (
           <li key={childKey}>
             <SidebarLinkButton isLabelHidden={true} {...link} />

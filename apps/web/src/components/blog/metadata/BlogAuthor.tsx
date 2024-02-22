@@ -28,7 +28,7 @@ export default function BlogAuthor({ metadata }: Props) {
   });
 
   return (
-    <div className="group block flex-shrink-0">
+    <div className="group block shrink-0">
       <span className="sr-only" id={id}>
         {label}
       </span>
@@ -36,7 +36,7 @@ export default function BlogAuthor({ metadata }: Props) {
         <Tooltip label={label}>
           <img
             alt={author.name}
-            className="!m-0 size-8 rounded-full"
+            className="size-8 !m-0 rounded-full"
             src={author.avatarUrl}
           />
         </Tooltip>

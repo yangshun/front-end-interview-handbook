@@ -55,7 +55,7 @@ export function BlogExploreSeriesSidebar({
   onChange,
 }: BlogExploreSeriesSidebar) {
   return (
-    <nav className={clsx('flex w-[250px] flex-shrink-0 flex-col')}>
+    <nav className={clsx('flex w-[250px] shrink-0 flex-col')}>
       <Section>
         <LinksList
           activeItem={activeItem}

@@ -140,7 +140,7 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
         <div className="flex flex-col items-center justify-center gap-4">
           <span
             className={clsx(
-              'relative flex size-14 items-center justify-center rounded-full',
+              'size-14 relative flex items-center justify-center rounded-full',
               'shiny',
               'bg-brand-dark dark:bg-brand/20',
             )}>
@@ -196,7 +196,7 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
                     <div className="shrink-0">
                       <span
                         className={clsx(
-                          'inline-flex size-10 items-center justify-center rounded-md',
+                          'size-10 inline-flex items-center justify-center rounded-md',
                           themeBackgroundChipColor,
                           themeTextSecondaryColor,
                           'border border-transparent transition',
@@ -240,7 +240,7 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
                         </Text>
                       </Section>
                     </div>
-                    <div className="flex-shrink-0 self-center">
+                    <div className="shrink-0 self-center">
                       <RiArrowRightSLine
                         aria-hidden="true"
                         className={clsx('size-5', themeTextSecondaryColor)}

@@ -14,7 +14,7 @@ export default function DiscussionsCommentRepliesThreadLines({
   return (
     <div
       aria-hidden={true}
-      className="relative flex w-[72px] flex-shrink-0 flex-col items-center">
+      className="relative flex w-[72px] shrink-0 flex-col items-center">
       {drawVerticalLine && (
         <div
           className={clsx(

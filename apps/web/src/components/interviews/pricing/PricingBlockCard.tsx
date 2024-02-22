@@ -68,7 +68,7 @@ export default function PricingBlockCard({
                 // eslint-disable-next-line react/no-array-index-key
                 key={idx}
                 className="flex items-start lg:col-span-1">
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <RiCheckLine
                     aria-hidden="true"
                     className="text-brand size-5"
@@ -90,7 +90,7 @@ export default function PricingBlockCard({
       <Section>
         <div
           className={clsx(
-            'min-w-[300px] p-6 lg:flex lg:flex-shrink-0 lg:flex-col lg:justify-center lg:p-8',
+            'min-w-[300px] p-6 lg:flex lg:shrink-0 lg:flex-col lg:justify-center lg:p-8',
             'bg-neutral-100 dark:bg-[#21223d]',
           )}>
           {rightSectionContents}
