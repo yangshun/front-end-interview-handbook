@@ -44,7 +44,7 @@ function ListItems({
   level: number;
 }>) {
   return (
-    <ol className="my-3 space-y-3 text-sm sm:text-xs" role="list">
+    <ol className="flex flex-col gap-y-3 pt-3 text-sm sm:text-xs" role="list">
       {items.map((section) => {
         const isActive = activeId === section.id;
         const firstLevelHeadingClass = clsx(
@@ -63,7 +63,7 @@ function ListItems({
             <div className="flex items-center">
               {level > 1 && (
                 <RiArrowRightSLine
-                  className={clsx('mr-1 size-3 shrink-0', themeTextFaintColor)}
+                  className={clsx('size-3 mr-1 shrink-0', themeTextFaintColor)}
                 />
               )}
               <Anchor
@@ -78,7 +78,7 @@ function ListItems({
               </Anchor>
             </div>
             {section.children && section.children.length > 0 && (
-              <div className="pl-2">
+              <div className="pl-3">
                 <ListItems
                   activeId={activeId}
                   activeLinkRef={activeLinkRef}
@@ -125,7 +125,7 @@ export default function GuidesTableOfContents({ tableOfContents }: Props) {
             />
           </Heading>
           <Section>
-            <div className="mt-4">
+            <div className="pb-4">
               <ListItems
                 activeId={activeId}
                 activeLinkRef={activeLinkRef}
