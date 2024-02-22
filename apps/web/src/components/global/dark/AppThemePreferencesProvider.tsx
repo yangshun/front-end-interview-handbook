@@ -11,6 +11,7 @@ export type AppThemePreference = AppTheme | 'system';
 type AppThemePreferencesContextType = {
   appTheme: AppTheme;
   appThemePreference: AppThemePreference;
+  resolvedSystemAppTheme: AppTheme;
   setAppThemePreference: (appThemePreference: AppThemePreference) => void;
 };
 
@@ -21,6 +22,7 @@ const AppThemePreferencesContext =
   createContext<AppThemePreferencesContextType>({
     appTheme: DEFAULT_APP_THEME,
     appThemePreference: DEFAULT_APP_THEME_PREFERENCE,
+    resolvedSystemAppTheme: DEFAULT_APP_THEME,
     setAppThemePreference: () => {},
   });
 
@@ -88,6 +90,7 @@ export default function AppThemePreferencesProvider({ children }: Props) {
       value={{
         appTheme,
         appThemePreference,
+        resolvedSystemAppTheme,
         setAppThemePreference,
       }}>
       {children}

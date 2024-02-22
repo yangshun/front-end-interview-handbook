@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import ProjectsSettingsExperiencePage from '~/components/projects/settings/ProjectsSettingsExperiencePage';
+import ProjectsSettingsExperiencePage from '~/components/projects/settings/experience/ProjectsSettingsExperiencePage';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';

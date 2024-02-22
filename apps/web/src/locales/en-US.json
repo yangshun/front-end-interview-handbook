@@ -4771,6 +4771,10 @@
     "defaultMessage": "Discounted rate for a typical job hunt duration.",
     "description": "Supporting statement for a quarterly pricing plan"
   },
+  "hBwVFF": {
+    "defaultMessage": "Theme preferences",
+    "description": "Title for Theme preferences in projects settings page"
+  },
   "hESyRg": {
     "defaultMessage": "What to expect and how to prepare most efficiently",
     "description": "What to expect in behavioral interviews"
