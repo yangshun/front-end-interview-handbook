@@ -70,7 +70,7 @@ export default function GuidesDropdownMenu() {
         <div className="flex items-center gap-2">
           <div
             className={clsx(
-              'size-6 flex shrink-0 items-center justify-center rounded-full',
+              'flex size-6 shrink-0 items-center justify-center rounded-full',
               themeGlassyBorder,
               themeBackgroundLayerEmphasized,
             )}>

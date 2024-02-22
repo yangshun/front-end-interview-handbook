@@ -26,16 +26,16 @@ LCP is affected by several factors: Server response times, network latency, rend
 
 Examples of such optimization techniques include:
 
-* **Optimizing images and videos**: Compressing images, using modern image formats, and lazy loading techniques
-* **Minimizing render-blocking resources**: minimize synchronous stylesheets/scripts or long tasks
-* **Prioritizing critical content**: Preloading critical resources, optimizing server response times (reduce time to first byte), and prioritizing above-the-fold content
-* **Implementing efficient caching**: Leveraging browser caching, Content Delivery Networks (CDNs), and optimizing cache policies
+- **Optimizing images and videos**: Compressing images, using modern image formats, and lazy loading techniques
+- **Minimizing render-blocking resources**: minimize synchronous stylesheets/scripts or long tasks
+- **Prioritizing critical content**: Preloading critical resources, optimizing server response times (reduce time to first byte), and prioritizing above-the-fold content
+- **Implementing efficient caching**: Leveraging browser caching, Content Delivery Networks (CDNs), and optimizing cache policies
 
 ### Useful links
 
-* [Largest Contentful Paint (LCP) | web.dev](https://web.dev/articles/lcp)
-* [Optimize Largest Contentful Paint (LCP) | web.dev](https://web.dev/articles/optimize-lcp)
-* [Largest Contentful Paint (LCP): What It Is & How to Improve It](https://www.semrush.com/blog/lcp/)
+- [Largest Contentful Paint (LCP) | web.dev](https://web.dev/articles/lcp)
+- [Optimize Largest Contentful Paint (LCP) | web.dev](https://web.dev/articles/optimize-lcp)
+- [Largest Contentful Paint (LCP): What It Is & How to Improve It](https://www.semrush.com/blog/lcp/)
 
 ## First Input Delay
 
@@ -47,16 +47,16 @@ A low FID (under 100 milliseconds) indicates that the page is highly interactive
 
 As FID is affected by code execution time, main thread activity and the presence of long tasks that block the browser's responsiveness, the following methods will help in improving it:
 
-* **Optimizing asset loading**: Utilizing asynchronous loading for scripts, leveraging browser caching, and optimizing resource delivery
-* **Prioritizing critical rendering path**: Prioritizing above-the-fold content, optimizing server response times, and minimizing layout shifts
-* **Avoid long tasks**: Identify and optimize long tasks that monopolize the main thread by breaking up long tasks into smaller, more manageable chunks using techniques like code splitting, web workers, or offloading computation to background threads
-* **Reduce third-party impact**: Minimize the use of third-party scripts/services or implement lazy loading or asynchronous loading for non-essential third-party resources
+- **Optimizing asset loading**: Utilizing asynchronous loading for scripts, leveraging browser caching, and optimizing resource delivery
+- **Prioritizing critical rendering path**: Prioritizing above-the-fold content, optimizing server response times, and minimizing layout shifts
+- **Avoid long tasks**: Identify and optimize long tasks that monopolize the main thread by breaking up long tasks into smaller, more manageable chunks using techniques like code splitting, web workers, or offloading computation to background threads
+- **Reduce third-party impact**: Minimize the use of third-party scripts/services or implement lazy loading or asynchronous loading for non-essential third-party resources
 
 ### Useful links
 
-* [First Input Delay (FID) | web.dev](https://web.dev/articles/fid)
-* [Optimize First Input Delay (FID) | web.dev](https://web.dev/articles/optimize-fid)
-* [First Input Delay (FID): A complete guide to optimizing FID](https://www.onely.com/blog/what-is-first-input-delay/)
+- [First Input Delay (FID) | web.dev](https://web.dev/articles/fid)
+- [Optimize First Input Delay (FID) | web.dev](https://web.dev/articles/optimize-fid)
+- [First Input Delay (FID): A complete guide to optimizing FID](https://www.onely.com/blog/what-is-first-input-delay/)
 
 ## Cumulative Layout Shift
 
@@ -64,22 +64,22 @@ Lastly, Cumulative Layout Shift (CLS) measures visual stability by quantifying h
 
 CLS is affected by the following factors:
 
-* **Images without dimensions**: Images that load without specified dimensions can cause layout shifts when they render and occupy space on the page
-* **Ads and embedded content**: Third-party ads, iframes, or dynamically loaded content can trigger layout shifts as they load and display on the page
-* **Font loading**: Changes in font size or style during page rendering can lead to text reflow and layout shifts
-* **Dynamic content**: Content that loads asynchronously or dynamically, such as user-generated content or live updates, can cause layout shifts as it appears on the page
+- **Images without dimensions**: Images that load without specified dimensions can cause layout shifts when they render and occupy space on the page
+- **Ads and embedded content**: Third-party ads, iframes, or dynamically loaded content can trigger layout shifts as they load and display on the page
+- **Font loading**: Changes in font size or style during page rendering can lead to text reflow and layout shifts
+- **Dynamic content**: Content that loads asynchronously or dynamically, such as user-generated content or live updates, can cause layout shifts as it appears on the page
 
 Hence, to reduce CLS, developers can try the following techniques:
 
-* **Specifying image dimensions**
-* **Preloading and lazy loading**
-* **Reserving space for ads and embeds**
-* **Avoiding dynamically injected content**
+- **Specifying image dimensions**
+- **Preloading and lazy loading**
+- **Reserving space for ads and embeds**
+- **Avoiding dynamically injected content**
 
 ### Useful links
 
-* [Cumulative Layout Shift | web.dev](https://web.dev/articles/cls)
-* [Optimizing Cumulative Layout Shift (CLS) | web.dev](https://web.dev/articles/optimize-cls)
-* [Cumulative Layout Shift (CLS): How (and Why) to measure it?](https://www.semrush.com/blog/what-is-cls/)
+- [Cumulative Layout Shift | web.dev](https://web.dev/articles/cls)
+- [Optimizing Cumulative Layout Shift (CLS) | web.dev](https://web.dev/articles/optimize-cls)
+- [Cumulative Layout Shift (CLS): How (and Why) to measure it?](https://www.semrush.com/blog/what-is-cls/)
 
 Understanding and optimizing Core Web Vitals metrics are essential for developers looking to improve user experience and website performance. Multiple research shows that only about 40% of web pages pass these metrics. By focusing on them, developers can easily quantify the scores and performance of their web pages, giving users a great experience while visiting the website.

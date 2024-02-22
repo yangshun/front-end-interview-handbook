@@ -747,7 +747,7 @@ export default function NavbarImpl() {
         {profile?.avatarUrl ? (
           <img
             alt={profile?.name ?? user?.email}
-            className="size-8 inline-block rounded-full"
+            className="inline-block size-8 rounded-full"
             src={profile?.avatarUrl}
           />
         ) : (

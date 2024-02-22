@@ -158,7 +158,7 @@ export default function NavbarPopoverTabs({
               className={clsx(
                 'outline-none',
                 value === item.itemKey &&
-                  'size-full flex flex-col justify-between',
+                  'flex size-full flex-col justify-between',
               )}
               value={item.itemKey}>
               <div

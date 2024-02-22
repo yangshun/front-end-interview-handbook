@@ -36,7 +36,7 @@ export default function BlogAuthor({ metadata }: Props) {
         <Tooltip label={label}>
           <img
             alt={author.name}
-            className="size-8 !m-0 rounded-full"
+            className="!m-0 size-8 rounded-full"
             src={author.avatarUrl}
           />
         </Tooltip>
