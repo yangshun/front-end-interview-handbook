@@ -3,7 +3,7 @@ import * as React from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
-import DialogOverlay from '../DialogOverlay/DialogOverlay';
+import DialogBaseOverlay from '../Dialog/DialogBaseOverlay';
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 import Text from '../Text';
@@ -42,7 +42,7 @@ export const SlideOutOverlay = React.forwardRef<
   React.ElementRef<typeof SlideOutPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof SlideOutPrimitive.Overlay>
 >(({ ...props }, ref) => (
-  <DialogOverlay {...props} ref={ref} purpose="slideout" />
+  <DialogBaseOverlay {...props} ref={ref} purpose="slideout" />
 ));
 
 SlideOutOverlay.displayName = 'SlideOutOverlay';
@@ -70,6 +70,7 @@ export const SlideOutContent = React.forwardRef<
       className={clsx(
         ['h-full w-full', sizeClasses[size]],
         ['fixed', 'top-0'],
+        'flex flex-col',
         'z-slideout',
         [themeBackgroundLayerColor, 'shadow-xl'],
         themeBorderColor,
@@ -125,6 +126,40 @@ export function SlideOutHeader({
 }
 SlideOutHeader.displayName = 'SlideOutHeader';
 
+export const SlideOutTitle = React.forwardRef<
+  React.ElementRef<typeof SlideOutPrimitive.Title>,
+  React.ComponentPropsWithoutRef<typeof SlideOutPrimitive.Title>
+>(({ className, children, ...props }, ref) => (
+  <SlideOutPrimitive.Title
+    ref={ref}
+    className={clsx('flex items-center justify-between gap-x-4', className)}
+    {...props}>
+    <Heading level="heading5">{children}</Heading>
+  </SlideOutPrimitive.Title>
+));
+
+SlideOutTitle.displayName = 'SlideOutTitle';
+
+export function SlideOutBody({
+  children,
+  className,
+  padding,
+}: Readonly<{
+  children: React.ReactNode;
+  className?: string;
+  padding?: boolean;
+}>) {
+  return (
+    <div className={clsx('grow overflow-y-auto', padding && 'px-6', className)}>
+      <Section>
+        <Text className="h-full" display="block" size="body2">
+          {children}
+        </Text>
+      </Section>
+    </div>
+  );
+}
+
 export function SlideOutFooter({
   className,
   ...props
@@ -140,39 +175,6 @@ export function SlideOutFooter({
   );
 }
 SlideOutFooter.displayName = 'SlideOutFooter';
-
-export const SlideOutTitle = React.forwardRef<
-  React.ElementRef<typeof SlideOutPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof SlideOutPrimitive.Title>
->(({ className, children, ...props }, ref) => (
-  <SlideOutPrimitive.Title
-    ref={ref}
-    className={clsx('flex items-center justify-between gap-x-4', className)}
-    {...props}>
-    <Heading level="heading5">{children}</Heading>
-  </SlideOutPrimitive.Title>
-));
-
-SlideOutTitle.displayName = 'SlideOutTitle';
-
-export const SlideOutDescription = React.forwardRef<
-  React.ElementRef<typeof SlideOutPrimitive.Description>,
-  React.ComponentPropsWithoutRef<typeof SlideOutPrimitive.Description> & {
-    padding?: boolean;
-  }
->(({ className, padding, children }, ref) => (
-  <SlideOutPrimitive.Description
-    ref={ref}
-    className={clsx('grow overflow-y-auto', padding && 'px-6', className)}>
-    <Section>
-      <Text className="h-full" display="block" size="body2">
-        {children}
-      </Text>
-    </Section>
-  </SlideOutPrimitive.Description>
-));
-
-SlideOutDescription.displayName = 'SlideOutDescription';
 
 type Props = Readonly<{
   asChild?: boolean;
@@ -217,7 +219,7 @@ export default function SlideOut({
         <SlideOutHeader>
           {title && <SlideOutTitle>{title}</SlideOutTitle>}
         </SlideOutHeader>
-        <SlideOutDescription padding={padding}>{children}</SlideOutDescription>
+        <SlideOutBody padding={padding}>{children}</SlideOutBody>
         {primaryButton && (
           <SlideOutFooter>
             {primaryButton}

@@ -4,9 +4,9 @@ import clsx from 'clsx';
 import type { ComponentProps } from 'react';
 import { useEffect, useRef, useState } from 'react';
 
-import DialogOverlay from '../ui/DialogOverlay/DialogOverlay';
+import DialogBaseOverlay from '../ui/Dialog/DialogBaseOverlay';
 
-import * as Dialog from '@radix-ui/react-dialog';
+import { Close, Content, Portal, Root, Trigger } from '@radix-ui/react-dialog';
 
 export default function MDXImage({ alt, ...props }: ComponentProps<'img'>) {
   const [canExpand, setCanExpand] = useState(false);
@@ -37,11 +37,11 @@ export default function MDXImage({ alt, ...props }: ComponentProps<'img'>) {
   return !canExpand ? (
     image
   ) : (
-    <Dialog.Root>
-      <Dialog.Trigger asChild={true}>{image}</Dialog.Trigger>
-      <Dialog.Portal>
-        <DialogOverlay purpose="dialog" />
-        <Dialog.Content
+    <Root>
+      <Trigger asChild={true}>{image}</Trigger>
+      <Portal>
+        <DialogBaseOverlay purpose="dialog" />
+        <Content
           className={clsx(
             'fixed left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4',
             'max-h-[80%] max-w-screen-lg',
@@ -55,15 +55,15 @@ export default function MDXImage({ alt, ...props }: ComponentProps<'img'>) {
             'data-[state=open]:slide-in-from-left-1/2 data-[state=closed]:slide-out-to-left-1/2',
             'data-[state=open]:slide-in-from-top-[48%] data-[state=closed]:slide-out-to-top-[48%]',
           )}>
-          <Dialog.Close asChild={true}>
+          <Close asChild={true}>
             <img
               alt={alt}
               className="inline-block h-full cursor-zoom-out object-contain"
               {...props}
             />
-          </Dialog.Close>
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog.Root>
+          </Close>
+        </Content>
+      </Portal>
+    </Root>
   );
 }
