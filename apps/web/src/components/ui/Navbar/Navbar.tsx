@@ -2,21 +2,16 @@
 
 import clsx from 'clsx';
 import type { CSSProperties } from 'react';
-import { forwardRef, Fragment, useState } from 'react';
-import { RiCloseLine, RiMenuFill } from 'react-icons/ri';
+import { forwardRef, useState } from 'react';
+import { RiMenuFill } from 'react-icons/ri';
 
 import SlideOut from '~/components/ui/SlideOut';
-import {
-  themeBackgroundLayerColor,
-  themeBorderColor,
-} from '~/components/ui/theme';
+import { themeBorderColor } from '~/components/ui/theme';
 
 import NavbarItem from './NavbarItem';
 import NavbarSidebarItem from './NavbarSidebarItem';
 import type { NavbarPrimaryItem } from './NavTypes';
 import Button from '../Button';
-
-import { Dialog, Transition } from '@headlessui/react';
 
 type Props = Readonly<{
   className?: string;

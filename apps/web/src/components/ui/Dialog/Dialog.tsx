@@ -75,28 +75,25 @@ export const DialogContent = React.forwardRef<
   );
 
   return (
-    <DialogOverlay className="grid place-items-center overflow-y-auto">
-      <DialogPrimitive.Content
-        ref={ref}
-        className={clsx(
-          'flex flex-col',
-          'my-6',
-          'rounded-lg',
-          scrollable && 'max-h-[calc(100vh_-_48px)]',
-          ['w-full', widthClasses[width]],
-          themeBackgroundLayerEmphasized,
-          'shadow-xl',
-          'outline-none',
-          'transform transition-all duration-200',
-          'data-[state=open]:animate-in data-[state=closed]:animate-out',
-          'data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0',
-          'data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95',
-          className,
-        )}
-        {...props}>
-        {wrapChildren ? wrapChildren(contents) : contents}
-      </DialogPrimitive.Content>
-    </DialogOverlay>
+    <DialogPrimitive.Content
+      ref={ref}
+      className={clsx(
+        'flex flex-col',
+        'rounded-lg',
+        scrollable && 'max-h-[calc(100vh_-_32px)]',
+        ['w-full', widthClasses[width]],
+        themeBackgroundLayerEmphasized,
+        'shadow-xl',
+        'outline-none',
+        'transform transition-all duration-200',
+        'data-[state=open]:animate-in data-[state=closed]:animate-out',
+        'data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0',
+        'data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95',
+        className,
+      )}
+      {...props}>
+      {wrapChildren ? wrapChildren(contents) : contents}
+    </DialogPrimitive.Content>
   );
 });
 
@@ -231,25 +228,27 @@ export default function Dialog({
       }}>
       {trigger && <DialogTrigger asChild={asChild}>{trigger}</DialogTrigger>}
       <DialogPortal>
-        <DialogContent
-          className={className}
-          scrollable={scrollable}
-          width={width}
-          wrapChildren={wrapChildren}>
-          <DialogHeader onClose={onClose}>
-            {title && <DialogTitle>{title}</DialogTitle>}
-          </DialogHeader>
-          <DialogBody scrollable={scrollable}>{children}</DialogBody>
-          {primaryButton && (
-            <DialogFooter>
-              <div className="flex gap-2">
-                {secondaryButton}
-                {primaryButton}
-              </div>
-              {previousButton}
-            </DialogFooter>
-          )}
-        </DialogContent>
+        <DialogOverlay className="grid items-end justify-center overflow-y-auto p-4 sm:items-center">
+          <DialogContent
+            className={className}
+            scrollable={scrollable}
+            width={width}
+            wrapChildren={wrapChildren}>
+            <DialogHeader onClose={onClose}>
+              {title && <DialogTitle>{title}</DialogTitle>}
+            </DialogHeader>
+            <DialogBody scrollable={scrollable}>{children}</DialogBody>
+            {primaryButton && (
+              <DialogFooter>
+                <div className="flex gap-2">
+                  {secondaryButton}
+                  {primaryButton}
+                </div>
+                {previousButton}
+              </DialogFooter>
+            )}
+          </DialogContent>
+        </DialogOverlay>
       </DialogPortal>
     </DialogRoot>
   );
