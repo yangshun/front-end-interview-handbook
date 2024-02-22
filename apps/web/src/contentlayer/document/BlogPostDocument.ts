@@ -2,7 +2,6 @@ import {
   defineDocumentType,
   defineNestedType,
 } from 'contentlayer/source-files';
-import path from 'node:path';
 import readingTime from 'reading-time';
 
 import { BlogAuthorDocument } from './BlogAuthorDocument';
@@ -20,9 +19,7 @@ const RelatedPost = defineNestedType(() => ({
 export const BlogPostDocument = defineDocumentType(() => ({
   computedFields: {
     href: {
-      resolve: (doc) => {
-        return `/${doc._raw.flattenedPath.replace('/posts', '')}`;
-      },
+      resolve: (doc) => `/${doc._raw.flattenedPath.replace(`/posts`, '')}`,
       type: 'string',
     },
     readingTime: {
@@ -30,7 +27,7 @@ export const BlogPostDocument = defineDocumentType(() => ({
       type: 'number',
     },
     slug: {
-      resolve: (doc) => doc._raw.flattenedPath.split(path.sep)[2],
+      resolve: (doc) => doc._raw.flattenedPath.split('/')[2],
       type: 'string',
     },
   },

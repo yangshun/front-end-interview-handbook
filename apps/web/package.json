@@ -13,7 +13,7 @@
     "test": "jest",
     "tsc": "tsc",
     "db:projects-sync": "ts-node --esm --experimentalSpecifierResolution node ./src/scripts/projects-challenges-sync.ts",
-    "gen": "cross-env NODE_ENV=production ts-node --esm --experimentalSpecifierResolution node ./src/scripts/questions-gen-cli.ts",
+    "gen": "cross-env NODE_ENV=production tsx ./src/scripts/questions-gen-cli.ts",
     "gen:watch": "npm run gen:all && ts-node --esm --experimentalSpecifierResolution node ./src/scripts/questions-watcher.ts",
     "//": "TODO: make gen:ts faster and use it somewhere",
     "gen:ts": "ts-node --esm --experimentalSpecifierResolution node ./src/scripts/questions-javascript-preprocess.ts",
@@ -180,6 +180,7 @@
     "tailwindcss": "^3.4.1",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.2",
+    "tsx": "^4.7.1",
     "typescript": "^5.3.3"
   }
 }
