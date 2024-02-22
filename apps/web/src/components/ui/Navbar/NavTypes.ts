@@ -1,4 +1,5 @@
 import type { Props as AnchorProps } from '../Anchor';
+import type { PopoverContentAlignment } from '../Popover';
 
 export type NavBaseItem = Readonly<{
   itemKey: string;
@@ -29,6 +30,7 @@ export type NavPopoverItem = Readonly<
   NavBaseItem &
     NavPrimaryItem &
     Readonly<{
+      align: PopoverContentAlignment;
       items: ReadonlyArray<NavPopoverChildItem>;
       type: 'popover';
     }>
@@ -38,6 +40,7 @@ export type NavPopoverTabsItem = Readonly<
   NavBaseItem &
     NavPrimaryItem &
     Readonly<{
+      align: PopoverContentAlignment;
       items: ReadonlyArray<NavPopoverGroupItem>;
       type: 'popover-tabs';
     }>

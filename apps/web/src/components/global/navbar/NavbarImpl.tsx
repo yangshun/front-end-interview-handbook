@@ -80,6 +80,7 @@ function useNavLinks(
       type: 'link',
     },
     {
+      align: 'start',
       itemKey: 'practice-questions',
       items: [
         {
@@ -407,6 +408,7 @@ function useNavLinks(
       type: 'popover-tabs',
     },
     {
+      align: 'center',
       itemKey: 'guides',
       items: [
         {
@@ -744,7 +746,7 @@ export default function NavbarImpl() {
         {profile?.avatarUrl ? (
           <img
             alt={profile?.name ?? user?.email}
-            className="inline-block size-8 rounded-full"
+            className="size-8 inline-block rounded-full"
             src={profile?.avatarUrl}
           />
         ) : (
