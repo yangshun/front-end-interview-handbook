@@ -34,6 +34,7 @@ import type {
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundLayerEmphasized_Hover,
+  themeBorderColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -674,7 +675,7 @@ export default function NavbarImpl() {
     closeMobileNav: () => void;
   }>) {
     return (
-      <div className="grid gap-y-2">
+      <div className={clsx('grid gap-y-2')}>
         <div className="grid grid-cols-2 gap-2 px-4 pt-4">
           <I18nSelect
             display="block"

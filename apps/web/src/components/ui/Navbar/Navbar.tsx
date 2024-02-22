@@ -5,6 +5,7 @@ import type { CSSProperties } from 'react';
 import { forwardRef, Fragment, useState } from 'react';
 import { RiCloseLine, RiMenuFill } from 'react-icons/ri';
 
+import SlideOut from '~/components/ui/SlideOut';
 import {
   themeBackgroundLayerColor,
   themeBorderColor,
@@ -88,76 +89,32 @@ function Navbar(
             {endAddOnItems}
           </div>
           <div className="-my-2 sm:-mr-2 lg:hidden">
-            <Button
-              icon={RiMenuFill}
-              isLabelHidden={true}
-              label="Open menu"
-              variant="secondary"
-              onClick={() => {
-                setIsMobileNavOpen(true);
-              }}
-            />
-          </div>
-        </div>
-      </div>
-      <Transition.Root as={Fragment} show={isMobileNavOpen}>
-        <Dialog
-          as="div"
-          className="relative lg:hidden"
-          onClose={setIsMobileNavOpen}>
-          <Transition.Child
-            as={Fragment}
-            enter="transition-opacity ease-linear duration-300"
-            enterFrom="opacity-0"
-            enterTo="opacity-100"
-            leave="transition-opacity ease-linear duration-300"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0">
-            <div className="z-slideout-overlay fixed inset-0 bg-neutral-600 bg-opacity-75" />
-          </Transition.Child>
-          <div className="z-slideout fixed inset-0 flex">
-            <Transition.Child
-              as={Fragment}
-              enter="transition ease-in-out duration-300 transform"
-              enterFrom="-translate-x-full"
-              enterTo="translate-x-0"
-              leave="transition ease-in-out duration-300 transform"
-              leaveFrom="translate-x-0"
-              leaveTo="-translate-x-full">
-              <Dialog.Panel
-                className={clsx(
-                  'relative flex w-full max-w-xs flex-1 flex-col focus:outline-none',
-                  themeBackgroundLayerColor,
-                )}>
-                <Transition.Child
-                  as={Fragment}
-                  enter="ease-in-out duration-300"
-                  enterFrom="opacity-0"
-                  enterTo="opacity-100"
-                  leave="ease-in-out duration-300"
-                  leaveFrom="opacity-100"
-                  leaveTo="opacity-0">
-                  <div className="absolute right-0 top-0 -mr-12 pt-2">
-                    <button
-                      className="size-10 ml-1 flex items-center justify-center rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                      type="button"
-                      onClick={() => closeMobileNav()}>
-                      <span className="sr-only">Close sidebar</span>
-                      <RiCloseLine
-                        aria-hidden="true"
-                        className="size-6 text-white"
-                      />
-                    </button>
-                  </div>
-                </Transition.Child>
-                <div className="flex h-0 flex-1 flex-col pb-4 pt-5">
-                  <div className="flex flex-shrink-0 items-center px-4">
-                    {logo}
-                  </div>
+            <SlideOut
+              enterFrom="start"
+              isShown={isMobileNavOpen}
+              padding={false}
+              size="sm"
+              title={<div className="flex shrink-0 items-center">{logo}</div>}
+              trigger={
+                <Button
+                  icon={RiMenuFill}
+                  isLabelHidden={true}
+                  label="Open menu"
+                  variant="secondary"
+                  onClick={() => {
+                    setIsMobileNavOpen(true);
+                  }}
+                />
+              }
+              onClose={() => {
+                setIsMobileNavOpen(false);
+              }}>
+              <div className="flex h-full flex-col">
+                <div className="flex h-0 flex-1 flex-col pb-4">
                   <nav
                     aria-label="Sidebar"
-                    className="mt-5 flex flex-1 flex-col justify-between overflow-hidden">
-                    <div className="flex flex-col overflow-y-auto">
+                    className="flex flex-1 flex-col justify-between overflow-hidden">
+                    <div className={clsx('flex flex-col overflow-y-auto')}>
                       {leftLinks.length > 0 &&
                         leftLinks.map((navItem) => (
                           <NavbarSidebarItem
@@ -181,7 +138,11 @@ function Navbar(
                           />
                         ))}
                     </div>
-                    {renderMobileSidebarAddOnItems?.({ closeMobileNav })}
+                    {renderMobileSidebarAddOnItems && (
+                      <div className={clsx('border-t', themeBorderColor)}>
+                        {renderMobileSidebarAddOnItems?.({ closeMobileNav })}
+                      </div>
+                    )}
                   </nav>
                 </div>
                 {mobileSidebarBottomItems && (
@@ -193,14 +154,11 @@ function Navbar(
                     {mobileSidebarBottomItems}
                   </div>
                 )}
-              </Dialog.Panel>
-            </Transition.Child>
-            <div aria-hidden="true" className="w-14 flex-shrink-0">
-              {/* Force sidebar to shrink to fit close icon */}
-            </div>
+              </div>
+            </SlideOut>
           </div>
-        </Dialog>
-      </Transition.Root>
+        </div>
+      </div>
     </div>
   );
 }

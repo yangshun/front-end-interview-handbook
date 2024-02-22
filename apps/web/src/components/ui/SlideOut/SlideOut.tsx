@@ -188,7 +188,7 @@ type Props = Readonly<{
   primaryButton?: React.ReactNode;
   secondaryButton?: React.ReactNode;
   size: SlideOutSize;
-  title?: string;
+  title?: React.ReactNode;
   trigger: React.ReactNode;
 }>;
 
