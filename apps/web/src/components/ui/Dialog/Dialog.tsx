@@ -1,16 +1,16 @@
 import clsx from 'clsx';
-import { Fragment, useRef } from 'react';
+import * as React from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import Heading from '~/components/ui/Heading/Heading';
-
+import DialogBaseOverlay from './DialogBaseOverlay';
 import Button from '../Button';
+import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 import Text from '../Text';
 import { themeBackgroundLayerEmphasized } from '../theme';
 
-import { Dialog, Transition } from '@headlessui/react';
+import * as DialogPrimitive from '@radix-ui/react-dialog';
 
 export type DialogWidth =
   | 'screen-lg'
@@ -18,20 +18,6 @@ export type DialogWidth =
   | 'screen-sm'
   | 'screen-xl'
   | 'sm';
-
-type Props = Readonly<{
-  children: React.ReactNode;
-  dark?: boolean;
-  isShown?: boolean;
-  onClose: () => void;
-  previousButton?: React.ReactNode;
-  primaryButton?: React.ReactNode;
-  scrollable?: boolean;
-  secondaryButton?: React.ReactNode;
-  title: string;
-  width?: DialogWidth;
-  wrapContents?: (contents: React.ReactNode) => React.ReactNode;
-}>;
 
 const widthClasses: Record<DialogWidth, string> = {
   'screen-lg':
@@ -43,32 +29,91 @@ const widthClasses: Record<DialogWidth, string> = {
   sm: 'sm:max-w-sm',
 };
 
-export default function DialogImpl({
-  children,
-  dark = false,
-  isShown = false,
-  previousButton,
-  primaryButton,
-  scrollable = false,
-  secondaryButton,
-  title,
-  width = 'sm',
-  wrapContents,
-  onClose,
-}: Props) {
-  const intl = useIntl();
-  const cancelButtonRef = useRef(null);
+export const DialogRoot = DialogPrimitive.Root;
 
+DialogRoot.displayName = 'DialogRoot';
+
+export const DialogTrigger = DialogPrimitive.Trigger;
+
+export const DialogClose = DialogPrimitive.Close;
+
+export const DialogPortal = DialogPrimitive.Portal;
+
+export const DialogOverlay = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Overlay>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
+>(({ ...props }, ref) => (
+  <DialogBaseOverlay {...props} ref={ref} purpose="dialog" />
+));
+
+DialogOverlay.displayName = 'DialogOverlay';
+
+type DialogContentProps = React.ComponentPropsWithoutRef<
+  typeof DialogPrimitive.Content
+> &
+  Readonly<{
+    children: React.ReactNode;
+    className?: string;
+    isShown?: boolean;
+    scrollable?: boolean;
+    width: DialogWidth;
+    wrapChildren?: (children: React.ReactNode) => React.ReactNode;
+  }>;
+
+export const DialogContent = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Content>,
+  DialogContentProps
+>(({ width, className, children, scrollable, wrapChildren, ...props }, ref) => {
   const contents = (
     <div
       className={clsx(
         'flex max-h-full flex-col p-6',
         scrollable && 'overflow-hidden',
       )}>
-      <div className="flex justify-between">
-        <Dialog.Title as="div">
-          <Heading level="heading6">{title}</Heading>
-        </Dialog.Title>
+      {children}
+    </div>
+  );
+
+  return (
+    <DialogOverlay className="grid place-items-center overflow-y-auto">
+      <DialogPrimitive.Content
+        ref={ref}
+        className={clsx(
+          'flex flex-col',
+          'my-6',
+          'rounded-lg',
+          scrollable && 'max-h-[calc(100vh_-_48px)]',
+          ['w-full', widthClasses[width]],
+          themeBackgroundLayerEmphasized,
+          'shadow-xl',
+          'outline-none',
+          'transform transition-all duration-200',
+          'data-[state=open]:animate-in data-[state=closed]:animate-out',
+          'data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0',
+          'data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95',
+          className,
+        )}
+        {...props}>
+        {wrapChildren ? wrapChildren(contents) : contents}
+      </DialogPrimitive.Content>
+    </DialogOverlay>
+  );
+});
+
+DialogContent.displayName = DialogPrimitive.Content.displayName;
+
+export function DialogHeader({
+  className,
+  children,
+  onClose,
+  ...props
+}: Pick<Props, 'onClose'> & React.HTMLAttributes<HTMLDivElement>) {
+  const intl = useIntl();
+
+  return (
+    <div className={clsx('flex justify-between gap-x-4', className)} {...props}>
+      {children}
+      <DialogPrimitive.Close asChild={true}>
         <Button
           className="-me-2 -mt-2"
           icon={RiCloseLine}
@@ -83,80 +128,129 @@ export default function DialogImpl({
           variant="tertiary"
           onClick={() => onClose?.()}
         />
-      </div>
-      <Section>
-        <div className={clsx('mt-2.5', scrollable && 'grow overflow-y-auto')}>
-          <Text display="block" size="body2">
-            {children}
-          </Text>
-        </div>
-      </Section>
-      {primaryButton && (
-        <div
-          className={clsx('mt-6 flex flex-row-reverse justify-between gap-4')}>
-          <div className="flex gap-2">
-            {secondaryButton}
-            {primaryButton}
-          </div>
-          {previousButton}
-        </div>
-      )}
+      </DialogPrimitive.Close>
     </div>
   );
+}
+DialogHeader.displayName = 'DialogHeader';
 
+export const DialogTitle = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Title>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
+>(({ className, children, ...props }, ref) => (
+  <DialogPrimitive.Title
+    ref={ref}
+    className={clsx('flex items-center justify-between gap-x-4', className)}
+    {...props}>
+    <Heading level="heading6">{children}</Heading>
+  </DialogPrimitive.Title>
+));
+
+DialogTitle.displayName = 'DialogTitle';
+
+export function DialogBody({
+  children,
+  className,
+  scrollable,
+}: Readonly<{
+  children: React.ReactNode;
+  className?: string;
+  scrollable?: boolean;
+}>) {
   return (
-    <Transition.Root as={Fragment} show={isShown}>
-      <Dialog
-        as="div"
-        className={clsx('relative')}
-        data-mode={dark ? 'dark' : undefined}
-        initialFocus={cancelButtonRef}
-        onClose={() => onClose()}>
-        <Transition.Child
-          as={Fragment}
-          enter="ease-out duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="ease-in duration-200"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0">
-          <div
-            className={clsx(
-              'fixed inset-0',
-              'bg-neutral-500 dark:bg-neutral-950/60',
-              'bg-opacity-75',
-              'backdrop-blur-sm transition-opacity',
-              'z-dialog-overlay',
-            )}
-          />
-        </Transition.Child>
-        <div className="z-dialog fixed inset-0 overflow-y-auto">
-          <div className="flex min-h-full items-end justify-center px-6 sm:items-center sm:px-0">
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-              enterTo="opacity-100 translate-y-0 sm:scale-100"
-              leave="ease-in duration-200"
-              leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-              leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
-              <Dialog.Panel
-                className={clsx(
-                  'relative transform',
-                  'flex flex-col',
-                  'rounded-lg',
-                  'my-6',
-                  scrollable && 'max-h-[calc(100vh_-_48px)]',
-                  themeBackgroundLayerEmphasized,
-                  ['w-full', widthClasses[width]],
-                  'text-left shadow-xl transition-all',
-                )}>
-                {wrapContents ? wrapContents(contents) : contents}
-              </Dialog.Panel>
-            </Transition.Child>
-          </div>
-        </div>
-      </Dialog>
-    </Transition.Root>
+    <Section>
+      <div
+        className={clsx(
+          'mt-2.5',
+          scrollable && 'grow overflow-y-auto',
+          className,
+        )}>
+        <Text display="block" size="body2">
+          {children}
+        </Text>
+      </div>
+    </Section>
+  );
+}
+
+export function DialogFooter({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div
+      className={clsx(
+        'mt-6 flex flex-row-reverse justify-between gap-4',
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+DialogFooter.displayName = 'DialogFooter';
+
+type Props = Readonly<{
+  asChild?: boolean;
+  children: React.ReactNode;
+  className?: string;
+  isShown?: boolean;
+  isTitleHidden?: boolean;
+  onClose?: () => void;
+  previousButton?: React.ReactNode;
+  primaryButton?: React.ReactNode;
+  scrollable?: boolean;
+  secondaryButton?: React.ReactNode;
+  title?: string;
+  trigger?: React.ReactNode;
+  width?: DialogWidth;
+  wrapChildren?: (children: React.ReactNode) => React.ReactNode;
+}>;
+
+export default function Dialog({
+  asChild = true,
+  className,
+  children,
+  isShown,
+  primaryButton,
+  previousButton,
+  scrollable = false,
+  secondaryButton,
+  title,
+  trigger,
+  width = 'sm',
+  wrapChildren,
+  onClose,
+}: Props) {
+  return (
+    <DialogRoot
+      open={isShown}
+      onOpenChange={(open) => {
+        if (!open) {
+          onClose?.();
+        }
+      }}>
+      {trigger && <DialogTrigger asChild={asChild}>{trigger}</DialogTrigger>}
+      <DialogPortal>
+        <DialogContent
+          className={className}
+          scrollable={scrollable}
+          width={width}
+          wrapChildren={wrapChildren}>
+          <DialogHeader onClose={onClose}>
+            {title && <DialogTitle>{title}</DialogTitle>}
+          </DialogHeader>
+          <DialogBody scrollable={scrollable}>{children}</DialogBody>
+          {primaryButton && (
+            <DialogFooter>
+              <div className="flex gap-2">
+                {secondaryButton}
+                {primaryButton}
+              </div>
+              {previousButton}
+            </DialogFooter>
+          )}
+        </DialogContent>
+      </DialogPortal>
+    </DialogRoot>
   );
 }

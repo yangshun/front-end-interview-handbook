@@ -86,13 +86,13 @@ export default function ProjectsChallengeSubmissionDeploymentUrlItemFormDialog({
         description: 'Project submission URL',
         id: 'mRxkm4',
       })}
-      wrapContents={(contents) => (
+      wrapChildren={(children) => (
         <form
           onSubmit={(event) => {
             event.stopPropagation();
             handleSubmit(onSubmit)(event);
           }}>
-          {contents}
+          {children}
         </form>
       )}
       onClose={onClose}>
