@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import ProjectsSettingsBillingPage from '~/components/projects/settings/billing/ProjectsSettingsBillingPage';
+
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -26,5 +28,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  return <div>Billing</div>;
+  return <ProjectsSettingsBillingPage />;
 }

@@ -187,6 +187,10 @@
     "defaultMessage": "3 simple steps to start earning",
     "description": "Title for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
   },
+  "/pkHfz": {
+    "defaultMessage": "Able to unlock premium challenges, or premium features on free challenges",
+    "description": "Label for unlocks feature"
+  },
   "/sjUMM": {
     "defaultMessage": "Page name can contain at most {maxLength} characters.",
     "description": "Error message"
@@ -367,6 +371,10 @@
     "defaultMessage": "Project progress",
     "description": "Project progress item label"
   },
+  "1iCorD": {
+    "defaultMessage": "Projects Pricing Plans",
+    "description": "Screen reader text referring to the Pricing Plan cards"
+  },
   "1kiNiW": {
     "defaultMessage": "Accessibility",
     "description": "Name of focus area questions"
@@ -499,6 +507,10 @@
     "defaultMessage": "Please enter a valid date",
     "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
   },
+  "3QliNF": {
+    "defaultMessage": "Access to Component Tracks",
+    "description": "Label for component tracks feature"
+  },
   "3T7UDC": {
     "defaultMessage": "Back to all submissions",
     "description": "Label to go back to submissions page"
@@ -546,6 +558,10 @@
   "3lEE1N": {
     "defaultMessage": "New",
     "description": "Label for new questions ribbon"
+  },
+  "3pRgf/": {
+    "defaultMessage": "{count} unlocks per month",
+    "description": "Label for unlocks feature for annual plan"
   },
   "3t00jq": {
     "defaultMessage": "Confirm",
@@ -1539,6 +1555,10 @@
     "defaultMessage": "Master the art of building interactive and user-friendly forms.",
     "description": "Description for interview preparation focus area"
   },
+  "DcTrsK": {
+    "defaultMessage": "Only Marketing track",
+    "description": "Label for component tracks feature for month plan"
+  },
   "DdRaW3": {
     "defaultMessage": "Filters",
     "description": "Title of Projects project filter slide-out"
@@ -1935,6 +1955,10 @@
     "defaultMessage": "Implement popular JavaScript library and utility functions",
     "description": "Description of JavaScript utility function questions"
   },
+  "HOtpix": {
+    "defaultMessage": "<keywords>We provide a roadmap of all the core skills needed to be a great front end engineer, from beginner to advanced. For each skill, we suggest good resources for you to study and projects you can build on our platform to learn the skill. This roadmap is curated by senior engineers with extensive experience in the industry, ensuring the quality and trustworthiness of the content.</keywords><keywords>Additionally, we offer a gamified progress tracking system to monitor your proficiency in applying these skills across our projects</keywords>",
+    "description": "Description for skill roadmap feature"
+  },
   "HP34xZ": {
     "defaultMessage": "Completed profiles get 3x more responses",
     "description": "Subtitle for Complete profile card on Projects dashboard page"
@@ -2078,6 +2102,10 @@
   "IuWsYS": {
     "defaultMessage": "Moreover, out of the resources in the market for front end interview preparation, our platform boasts the largest number of questions with solutions written by experienced Senior Front End Engineers previously from FAANG, who were also ex-interviewers.",
     "description": "Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
+  },
+  "J1pqvo": {
+    "defaultMessage": "From beginner to advanced",
+    "description": "Label for skill roadmap feature for annual plan"
   },
   "J6IHpl": {
     "defaultMessage": "Features",
@@ -2463,6 +2491,10 @@
     "defaultMessage": "GitHub repo",
     "description": "Title for GitHub repo step in project submission checklist"
   },
+  "M9bmeU": {
+    "defaultMessage": "Annual Plan",
+    "description": "Label for annual plan"
+  },
   "M9z02W": {
     "defaultMessage": "Airbnb",
     "description": "Company name for Airbnb"
@@ -2514,6 +2546,10 @@
   "MYi0uz": {
     "defaultMessage": "Previous",
     "description": "Button to go back to the previous page"
+  },
+  "MZyEk9": {
+    "defaultMessage": "Only foundational skills",
+    "description": "Label for skill roadmap feature for month plan"
   },
   "MdGGzJ": {
     "defaultMessage": "User Interface Questions",
@@ -2650,6 +2686,10 @@
   "Nt+P5A": {
     "defaultMessage": "Simulate real interview conditions, no need for any setup!",
     "description": "Subtitle for in-browser coding workspace feature"
+  },
+  "NwvgLo": {
+    "defaultMessage": "{count} unlocks instantly",
+    "description": "Label for unlocks feature for quarter plan"
   },
   "Nz7W/0": {
     "defaultMessage": "Oops something went wrong",
@@ -2815,6 +2855,10 @@
     "defaultMessage": "Reset Progress",
     "description": "Label for button to reset progress"
   },
+  "PDz3Oi": {
+    "defaultMessage": "Free project challenges",
+    "description": "Label for free challenges feature"
+  },
   "PFRVpF": {
     "defaultMessage": "Get Full Access",
     "description": "Get full access button on the top right corner of the navigation bar to allow users to start evaluating plans and make a purchase"
@@ -2830,6 +2874,10 @@
   "PHhUwD": {
     "defaultMessage": "Back to focus areas",
     "description": "Link text to navigate to focus areas list page"
+  },
+  "PLPXbS": {
+    "defaultMessage": "Multi-page & fully-functional apps",
+    "description": "Label for apps feature"
   },
   "PMvcx6": {
     "defaultMessage": "Advanced",
@@ -2894,6 +2942,10 @@
   "PoILgY": {
     "defaultMessage": "No",
     "description": "No option label"
+  },
+  "PowG3S": {
+    "defaultMessage": "Manage your subscription",
+    "description": "Title for manage your subscription section"
   },
   "Ptmnjq": {
     "defaultMessage": "Free continuous updates",
@@ -4167,6 +4219,10 @@
     "defaultMessage": "Redo",
     "description": "Text describing redo command in the coding workspace shortcuts menu"
   },
+  "bFDEGM": {
+    "defaultMessage": "Professional designs in 3 breakpoints",
+    "description": "Label for breakpoints feature"
+  },
   "bGwCko": {
     "defaultMessage": "GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front-end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.",
     "description": "Ryan Van Valkenburg's testimonial"
@@ -4427,6 +4483,10 @@
     "defaultMessage": "Efficient strategies to prepare and ace behavioral interviews.",
     "description": "Behavioral interview guidebook description"
   },
+  "dwficr": {
+    "defaultMessage": "Quarterly Plan",
+    "description": "Label for quarterly plan"
+  },
   "dxQHSA": {
     "defaultMessage": "Start building any project you can dream of to train your front end / full stack skills or to build a useful toolkit.",
     "description": "Description of Projects challenges page"
@@ -4542,6 +4602,10 @@
   "fG/W54": {
     "defaultMessage": "Our projects are composable with different themes - choose the theme you want to personalize your project",
     "description": "Description for \"Design systems\" feature on Projects home page"
+  },
+  "fGAB76": {
+    "defaultMessage": "Access to Skill Roadmap",
+    "description": "Label for skill roadmap feature"
   },
   "fH+NAA": {
     "defaultMessage": "Account | Profile",
@@ -5387,6 +5451,10 @@
     "defaultMessage": "<count>{questionCount}</count> <questions>questions</questions>",
     "description": "Number of questions"
   },
+  "mGUPkU": {
+    "defaultMessage": "14-day money back guarantee",
+    "description": "Label for money back guarantee"
+  },
   "mGYl8O": {
     "defaultMessage": "Upvoted successfully!",
     "description": "Successful upvote toaster"
@@ -5490,6 +5558,10 @@
   "n9Ii7+": {
     "defaultMessage": "System Design",
     "description": "Label for system design questions"
+  },
+  "nI/YEK": {
+    "defaultMessage": "From beginner to advanced",
+    "description": "Label for skill roadmap feature for quarter plan"
   },
   "nJYzIr": {
     "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
@@ -5802,6 +5874,10 @@
   "pp1TOt": {
     "defaultMessage": "Copy line (empty selection)",
     "description": "Text describing command to copy line(s) in the coding workspace shortcuts menu"
+  },
+  "ptZwYq": {
+    "defaultMessage": "<keywords>Upon purchasing premium, you will be given a number of project unlocks. A project unlock gives you access to all premium features in a free project (figma files, official solutions & guides from senior engineers), OR can unlock a premium challenge.</keywords><keywords>Even when you are not actively subscribed, unspent unlocks will roll over to the next month and remain accessible when you repurchase premium.</keywords>",
+    "description": "Description for unlocks feature"
   },
   "puP8B5": {
     "defaultMessage": "Collapse {replyCount, plural, =0 {none} one {# reply} other {# replies}}",
@@ -6246,6 +6322,10 @@
   "tk2fQh": {
     "defaultMessage": "Social rewards",
     "description": "Title of Rewards page"
+  },
+  "tn3Q/s": {
+    "defaultMessage": "Monthly Plan",
+    "description": "Label for month plan"
   },
   "tnHfa2": {
     "defaultMessage": "Move line down",
@@ -6834,6 +6914,10 @@
   "zIZsqX": {
     "defaultMessage": "See all",
     "description": "See all articles"
+  },
+  "zKAE+G": {
+    "defaultMessage": "<keywords>Component tracks are collections of components which make up component libraries for specific practical use cases e.g. Marketing, E-Commerce, or even design systems. Building component tracks can leave a strong impression on potential employers and recruiters, showcasing your expertise and versatility in building a variety of components for common use cases, which is much more impressive than building individual projects.</keywords>",
+    "description": "Description for component tracks feature"
   },
   "zL/JCy": {
     "defaultMessage": "Not signed in",
