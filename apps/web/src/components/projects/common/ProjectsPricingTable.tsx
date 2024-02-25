@@ -418,28 +418,14 @@ export default function ProjectsPricingTable({ plans }: Props) {
     id: 'M9bmeU',
   });
 
-  const plansHeader = [
-    {
-      plan: monthPlan,
-      title: monthPlanTitle,
-    },
-    {
-      plan: quarterPlan,
-      title: quarterPlanTitle,
-    },
-    {
-      plan: annualPlan,
-      title: annualPlanTitle,
-    },
-  ];
-
   const plansList: ReadonlyArray<{
     key: ProjectsPricingFrequency;
     plan: ProjectsPricingPlan;
+    title: string;
   }> = [
-    { key: 'month', plan: monthPlan },
-    { key: 'quarter', plan: quarterPlan },
-    { key: 'annual', plan: annualPlan },
+    { key: 'month', plan: monthPlan, title: monthPlanTitle },
+    { key: 'quarter', plan: quarterPlan, title: quarterPlanTitle },
+    { key: 'annual', plan: annualPlan, title: annualPlanTitle },
   ];
   const featureDetails: ReadonlyArray<{
     feature: Feature;
@@ -469,7 +455,7 @@ export default function ProjectsPricingTable({ plans }: Props) {
           themeBackgroundLayerColor,
         )}>
         <Row>
-          {plansHeader.map((header, index) => (
+          {plansList.map((header, index) => (
             <HeaderCell
               key={header.plan.frequency}
               className={clsx('h-full', index === 0 && 'col-start-3')}>
@@ -568,6 +554,113 @@ export default function ProjectsPricingTable({ plans }: Props) {
             </Row>
           ))}
         </div>
+      </div>
+      <div className="mx-auto flex max-w-lg flex-col gap-6 md:hidden">
+        {plansList.map(({ key, plan, title }) => {
+          const availableFeatures = Object.keys(plan.features).filter(
+            (feature) => !!plan.features[feature as ProjectsFeatures],
+          );
+          const availableFeaturesDetails = featureDetails.filter((feature) =>
+            availableFeatures.includes(feature.key),
+          );
+
+          return (
+            <div
+              key={key}
+              className={clsx(
+                'flex min-h-[427px] flex-col justify-between gap-4 rounded-3xl p-4',
+                themeGlassyBorder,
+                themeBackgroundLayerColor,
+              )}>
+              <div className="flex flex-col gap-4">
+                <Text color="subtitle" weight="medium">
+                  {title}
+                </Text>
+                <div className="flex items-center justify-between gap-2">
+                  <Text
+                    className="flex items-baseline gap-x-2"
+                    color="subtitle"
+                    display="flex"
+                    weight="medium">
+                    <span>
+                      <PriceLabel
+                        amount={plan.monthlyPrice}
+                        currency="USD"
+                        symbol="$">
+                        {(parts) => (
+                          <>
+                            {parts[0].value}
+                            <Text
+                              className="text-3xl font-bold tracking-tight"
+                              color="default"
+                              size="inherit"
+                              weight="inherit">
+                              <>
+                                {parts
+                                  .slice(1)
+                                  .map((part) => part.value)
+                                  .join('')}
+                              </>
+                            </Text>
+                          </>
+                        )}
+                      </PriceLabel>
+                    </span>
+                    <FormattedMessage
+                      defaultMessage="/month"
+                      description="Per month"
+                      id="aE1FCD"
+                    />
+                  </Text>
+                  {plan.discount > 0 && (
+                    <Text
+                      className={clsx(
+                        'md:min-h-8 flex-col items-center justify-center pt-1',
+                      )}
+                      display="inline-flex"
+                      size="body3">
+                      <PricingPlanComparisonDiscount plan={plan} />
+                    </Text>
+                  )}
+                </div>
+                {key !== 'month' && (
+                  <div className="flex w-full flex-col items-center gap-2">
+                    <Button
+                      className="w-full"
+                      label="Unlock Premium"
+                      variant="primary"
+                    />
+                    <Text color="secondary" size="body3">
+                      <FormattedMessage
+                        defaultMessage="14-day money back guarantee"
+                        description="Label for money back guarantee"
+                        id="mGUPkU"
+                      />
+                    </Text>
+                  </div>
+                )}
+              </div>
+              <div className="flex flex-col">
+                {availableFeaturesDetails.map(
+                  ({ feature, key: featureKey }, index) => (
+                    <FeatureCell
+                      key={featureKey}
+                      available={true}
+                      className={clsx(
+                        '!items-start',
+                        index === availableFeaturesDetails.length - 1 &&
+                          'border-none',
+                      )}
+                      description={feature.description}
+                      label={feature.title}
+                      showAvailable={true}
+                    />
+                  ),
+                )}
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
