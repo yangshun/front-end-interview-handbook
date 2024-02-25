@@ -30,7 +30,7 @@ export const commentsRouter = router({
         input: { entityId, domain, category, body },
         ctx: { user },
       }) => {
-        return await prisma.discussionComment.create({
+        const comment = await prisma.discussionComment.create({
           data: {
             body,
             category,
@@ -39,6 +39,31 @@ export const commentsRouter = router({
             userId: user.id,
           },
         });
+
+        if (
+          domain === DiscussionCommentDomain.PROJECTS_SUBMISSION ||
+          domain === DiscussionCommentDomain.PROJECTS_CHALLENGE
+        ) {
+          await prisma.profile.update({
+            data: {
+              projectsProfile: {
+                update: {
+                  reputation: {
+                    create: {
+                      key: `profile.discussions.comment.${comment.id}`,
+                      points: 20,
+                    },
+                  },
+                },
+              },
+            },
+            where: {
+              id: user.id,
+            },
+          });
+        }
+
+        return comment;
       },
     ),
   delete: userProcedure
@@ -48,12 +73,25 @@ export const commentsRouter = router({
       }),
     )
     .mutation(async ({ input: { commentId }, ctx: { user } }) => {
-      return await prisma.discussionComment.delete({
+      const deletedComment = await prisma.discussionComment.delete({
         where: {
           id: commentId,
           userId: user.id,
         },
       });
+
+      if (
+        deletedComment.domain === DiscussionCommentDomain.PROJECTS_SUBMISSION ||
+        deletedComment.domain === DiscussionCommentDomain.PROJECTS_CHALLENGE
+      ) {
+        await prisma.projectsReputationPoint.deleteMany({
+          where: {
+            key: `profile.discussions.comment.${deletedComment.id}`,
+          },
+        });
+      }
+
+      return deletedComment;
     }),
   liked: userProcedure
     .input(
