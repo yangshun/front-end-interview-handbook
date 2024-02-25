@@ -959,10 +959,6 @@
     "defaultMessage": "{price} billed yearly",
     "description": "Description of billing frequency for annual plan"
   },
-  "7uiIH5": {
-    "defaultMessage": "Similar to your LinkedIn title. Include your role and company, or your interests.",
-    "description": "Description for \"Job Title\" input on Projects profile onboarding page"
-  },
   "7vvXZb": {
     "defaultMessage": "Premium Projects",
     "description": "Title for Premium Projects section on Projects project page"
@@ -1202,6 +1198,10 @@
   "A7o+ui": {
     "defaultMessage": "Page name must contain at least {minLength} characters.",
     "description": "Error message"
+  },
+  "AEDpDO": {
+    "defaultMessage": "The company you currently work at. This information can be made private on more sensitive products like interviews.",
+    "description": "Description for \"Company\" input on Projects profile onboarding page"
   },
   "AJSVim": {
     "defaultMessage": "Seattle, WA, USA",
@@ -2855,6 +2855,10 @@
     "defaultMessage": "Focus areas",
     "description": "Sidebar label for interview focus area category"
   },
+  "PbcB1O": {
+    "defaultMessage": "If you haven’t started a job in SWE or front end yet, select another status to display in place of your YOE",
+    "description": "Label for \"Status\" choices on Projects profile page"
+  },
   "PeCsAb": {
     "defaultMessage": "Can I stop a challenge once I start it?",
     "description": "FAQ question for projects platform"
@@ -3922,6 +3926,10 @@
   "Z5P0Gp": {
     "defaultMessage": "What to expect in the coding round and tips to succeed",
     "description": "What to expect in front end coding interviews"
+  },
+  "Z9VUx8": {
+    "defaultMessage": "Tell the community about your motivations for joining GreatFrontEnd Projects",
+    "description": "Description for \"Motivation for joining\" for projects profile page"
   },
   "ZB+f95": {
     "defaultMessage": "Preparation by Question Type",
@@ -5783,6 +5791,10 @@
     "defaultMessage": "Mark as not completed",
     "description": "Tooltip to mark a button as incomplete"
   },
+  "pn9hGi": {
+    "defaultMessage": "Uniquely identifies you. You may be given an option to set a different handle for certain products for anonymity.",
+    "description": "Description for \"Username\" input on Projects profile onboarding page"
+  },
   "pomXxL": {
     "defaultMessage": "Username must contain at least {minLength} characters.",
     "description": "Error message when username is too short"
@@ -6282,10 +6294,6 @@
   "u3bYHM": {
     "defaultMessage": "FAQ",
     "description": "Link to FAQ page"
-  },
-  "u4C2En": {
-    "defaultMessage": "Similar to your LinkedIn title. Include your role and company, or your interests.",
-    "description": "Description for \"Company\" input on Projects profile onboarding page"
   },
   "uBXv8c": {
     "defaultMessage": "Title can contain at most {maxLength} characters.",

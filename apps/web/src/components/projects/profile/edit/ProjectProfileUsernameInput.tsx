@@ -49,13 +49,12 @@ export default function ProjectsProfileUsernameInput({
 
   return (
     <TextInput
-      // TODO(projects): Replace with correct description for username
       description={intl.formatMessage({
         defaultMessage:
-          'Similar to your LinkedIn title. Include your role and company, or your interests.',
+          'Uniquely identifies you. You may be given an option to set a different handle for certain products for anonymity.',
         description:
-          'Description for "Job Title" input on Projects profile onboarding page',
-        id: '7uiIH5',
+          'Description for "Username" input on Projects profile onboarding page',
+        id: 'pn9hGi',
       })}
       descriptionStyle="tooltip"
       errorMessage={

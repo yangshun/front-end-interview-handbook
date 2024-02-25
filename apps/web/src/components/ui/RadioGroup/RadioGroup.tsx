@@ -3,6 +3,8 @@ import type { ReactElement, Ref } from 'react';
 import { forwardRef, useId } from 'react';
 
 import type { RadioGroupItemProps } from './RadioGroupItem';
+import type { LabelDescriptionStyle } from '../Label';
+import Label from '../Label';
 import Text from '../Text';
 
 import * as RadixRadioGroup from '@radix-ui/react-radio-group';
@@ -13,6 +15,7 @@ type Props<T extends string> = Readonly<{
   children: ReadonlyArray<ReactElement<RadioGroupItemProps<T>>>;
   className?: string;
   description?: React.ReactNode;
+  descriptionStyle?: LabelDescriptionStyle;
   direction?: RadioGroupDirection;
   errorMessage?: React.ReactNode;
   id?: string;
@@ -36,6 +39,7 @@ function RadioGroup<T extends string>(
     onChange,
     value,
     label,
+    descriptionStyle,
   }: Props<T>,
   ref: Ref<HTMLDivElement>,
 ) {
@@ -46,23 +50,16 @@ function RadioGroup<T extends string>(
 
   return (
     <div>
-      <label
-        className={clsx(isLabelHidden ? 'sr-only' : 'mb-2 block')}
-        htmlFor={id}>
-        <Text size="body2" weight="medium">
-          {label}
-        </Text>
-      </label>
-      {!hasError && description && (
-        <Text
-          className="my-2"
-          color="secondary"
-          display="block"
-          id={messageId}
-          size="body3">
-          {description}
-        </Text>
-      )}
+      <div className={clsx(!isLabelHidden && 'mb-2')}>
+        <Label
+          description={description}
+          descriptionId={messageId}
+          descriptionStyle={descriptionStyle}
+          htmlFor={id}
+          isLabelHidden={isLabelHidden}
+          label={label}
+        />
+      </div>
       <RadixRadioGroup.Root
         ref={ref}
         aria-describedby={

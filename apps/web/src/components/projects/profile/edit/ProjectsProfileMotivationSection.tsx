@@ -1,18 +1,36 @@
-import { FormattedMessage } from 'react-intl';
+import clsx from 'clsx';
+import { RiInformationLine } from 'react-icons/ri';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import Heading from '~/components/ui/Heading';
+import { themeTextFaintColor } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
 import ProjectsProfileMotivationsField from './ProjectsProfileMotivationsField';
 
 export default function ProjectsProfileMotivationSection() {
+  const intl = useIntl();
+
   return (
     <div className="flex flex-col gap-6">
       <Heading level="heading6">
-        <FormattedMessage
-          defaultMessage="Motivations for joining"
-          description="Title of motivation for joining section of projects profile edit page"
-          id="DlMtVL"
-        />
+        <div className="flex items-center gap-1">
+          <FormattedMessage
+            defaultMessage="Motivations for joining"
+            description="Title of motivation for joining section of projects profile edit page"
+            id="DlMtVL"
+          />
+          <Tooltip
+            label={intl.formatMessage({
+              defaultMessage:
+                'Tell the community about your motivations for joining GreatFrontEnd Projects',
+              description:
+                'Description for "Motivation for joining" for projects profile page',
+              id: 'Z9VUx8',
+            })}>
+            <RiInformationLine className={clsx('h-4', themeTextFaintColor)} />
+          </Tooltip>
+        </div>
       </Heading>
       <ProjectsProfileMotivationsField />
     </div>

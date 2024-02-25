@@ -1,12 +1,18 @@
+import type { Control } from 'react-hook-form';
 import { Controller, useFormContext } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
+import type { ProjectsOnboardingProfileStep2FormValues } from '~/components/projects/onboarding/ProjectsOnboardingProfileStep2';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
-import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 
 import ProjectsProfileUsernameInput from './ProjectProfileUsernameInput';
+import ProjectsProfileBioInput from './ProjectsProfileBioInput';
 import ProjectsProfileEditAvatar from './ProjectsProfileEditAvatar';
+
+type Values =
+  | ProjectsOnboardingProfileStep2FormValues
+  | ProjectsProfileEditFormValues;
 
 export default function ProjectsProfileBasicInfoSection({
   setUsernameExistsError,
@@ -71,30 +77,7 @@ export default function ProjectsProfileBasicInfoSection({
           />
         </div>
         <div className="flex-1">
-          <Controller
-            control={control}
-            name="bio"
-            render={({ field }) => (
-              <TextArea
-                errorMessage={errors.bio?.message}
-                label={intl.formatMessage({
-                  defaultMessage: 'Bio',
-                  description:
-                    'Label for Biography input on Projects profile onboarding page',
-                  id: 'ZNPYCk',
-                })}
-                placeholder={intl.formatMessage({
-                  defaultMessage:
-                    'Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others',
-                  description:
-                    'Placeholder for Biography input on Projects profile onboarding page',
-                  id: 'jeX0Hi',
-                })}
-                rows={5}
-                {...field}
-              />
-            )}
-          />
+          <ProjectsProfileBioInput control={control as Control<Values>} />
         </div>
       </div>
     </div>

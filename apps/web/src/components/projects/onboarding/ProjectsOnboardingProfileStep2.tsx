@@ -1,5 +1,5 @@
 import { useSearchParams } from 'next/navigation';
-import { Controller, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { z } from 'zod';
@@ -10,10 +10,10 @@ import ProjectsChallengeReputationTag from '~/components/projects/challenges/met
 import ProjectsProfileSocialInput from '~/components/projects/profile/ProjectsProfileSocialInput';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
-import TextArea from '~/components/ui/TextArea';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
+import ProjectsProfileBioInput from '../profile/edit/ProjectsProfileBioInput';
 import ProjectsProfileTechStackProficientInput from '../profile/ProjectsProfileTechStackProficientInput';
 import ProjectsProfileTechStackToImproveInput from '../profile/ProjectsProfileTechStackToImproveInput';
 import { useProjectsSkillListInputSchema } from '../skills/form/ProjectsSkillListInputSchema';
@@ -111,37 +111,7 @@ export default function ProjectsOnboardingProfileStep2() {
             points={25}
             variant="filled"
           />
-          <Controller
-            control={control}
-            name="bio"
-            render={({ field }) => (
-              <TextArea
-                description={intl.formatMessage({
-                  defaultMessage:
-                    'Tell the community about yourself - your background, skills, aspirations and skills and tools you hope to pick up!',
-                  description:
-                    'Description for Biography input on Projects profile onboarding page',
-                  id: 'I60bQN',
-                })}
-                descriptionStyle="tooltip"
-                label={intl.formatMessage({
-                  defaultMessage: 'Bio',
-                  description:
-                    'Label for Biography input on Projects profile onboarding page',
-                  id: 'ZNPYCk',
-                })}
-                placeholder={intl.formatMessage({
-                  defaultMessage:
-                    'Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others',
-                  description:
-                    'Placeholder for Biography input on Projects profile onboarding page',
-                  id: 'jeX0Hi',
-                })}
-                rows={5}
-                {...field}
-              />
-            )}
-          />
+          <ProjectsProfileBioInput control={control} />
         </div>
         <ProjectsProfileSocialInput
           control={control}

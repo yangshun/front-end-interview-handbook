@@ -87,15 +87,6 @@ export default function ProjectsProfileJobSection() {
               render={({ field }) => (
                 <div className="flex-1">
                   <TextInput
-                    // TODO(projects): Recheck with the description for Job Title
-                    description={intl.formatMessage({
-                      defaultMessage:
-                        'Similar to your LinkedIn title. Include your role and company, or your interests.',
-                      description:
-                        'Description for "Job Title" input on Projects profile onboarding page',
-                      id: '7uiIH5',
-                    })}
-                    descriptionStyle="tooltip"
                     errorMessage={errors.jobTitle?.message}
                     label={intl.formatMessage({
                       defaultMessage: 'Job Title',
@@ -127,13 +118,12 @@ export default function ProjectsProfileJobSection() {
               render={({ field }) => (
                 <div className="flex-1">
                   <TextInput
-                    // TODO(projects): Replace with correct description for company
                     description={intl.formatMessage({
                       defaultMessage:
-                        'Similar to your LinkedIn title. Include your role and company, or your interests.',
+                        'The company you currently work at. This information can be made private on more sensitive products like interviews.',
                       description:
                         'Description for "Company" input on Projects profile onboarding page',
-                      id: 'u4C2En',
+                      id: 'AEDpDO',
                     })}
                     descriptionStyle="tooltip"
                     errorMessage={errors.company?.message}
@@ -222,6 +212,14 @@ export default function ProjectsProfileJobSection() {
             render={({ field }) => (
               <RadioGroup
                 className="grid grid-cols-2 gap-x-12 gap-y-2 md:grid-cols-3"
+                description={intl.formatMessage({
+                  defaultMessage:
+                    'If you haven’t started a job in SWE or front end yet, select another status to display in place of your YOE',
+                  description:
+                    'Label for "Status" choices on Projects profile page',
+                  id: 'PbcB1O',
+                })}
+                descriptionStyle="tooltip"
                 errorMessage={errors.yoeReplacement?.option?.message}
                 label={intl.formatMessage({
                   defaultMessage: 'Status',
