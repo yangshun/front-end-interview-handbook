@@ -179,14 +179,36 @@ export const projectsSessionsRouter = router({
           });
         }
 
-        return await prisma.projectsChallengeSession.create({
-          data: {
-            profileId: projectsProfileId,
-            roadmapSkills,
-            slug,
-            techStackSkills,
-          },
-        });
+        const reputationFields = {
+          key: 'projects.session.first',
+          profileId: projectsProfileId,
+        };
+
+        const [
+          session,
+          // _rep,
+        ] = await prisma.$transaction([
+          prisma.projectsChallengeSession.create({
+            data: {
+              profileId: projectsProfileId,
+              roadmapSkills,
+              slug,
+              techStackSkills,
+            },
+          }),
+          prisma.projectsReputationPoint.upsert({
+            create: {
+              ...reputationFields,
+              points: 20,
+            },
+            update: {},
+            where: {
+              profileId_key: reputationFields,
+            },
+          }),
+        ]);
+
+        return session;
       },
     ),
   startedBefore: projectsUserProcedure.query(
