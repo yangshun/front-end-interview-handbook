@@ -7,34 +7,31 @@ import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
-import { useProfileUsernameSchema } from '~/components/profile/fields/ProfileUsernameSchema';
 import { useToast } from '~/components/global/toasts/useToast';
-import useProjectsMonthYearExperienceSchema from '~/components/projects/hooks/useProjectsMonthYearExperienceSchema';
+import { useProfileUsernameSchema } from '~/components/profile/fields/ProfileUsernameSchema';
 import useProjectsMotivationReasonSchema, {
   convertProjectsMotivationReasonToFormValue,
 } from '~/components/projects/hooks/useProjectsMotivationReasonSchema';
 import { yoeReplacementSchema } from '~/components/projects/misc';
 import ProjectsProfileBasicInfoSection from '~/components/projects/profile/edit/ProjectsProfileBasicInfoSection';
+import ProjectsProfileJobSection from '~/components/projects/profile/edit/ProjectsProfileJobSection';
 import ProjectsProfileMotivationSection from '~/components/projects/profile/edit/ProjectsProfileMotivationSection';
+import {
+  useProjectsJobNotStartedSchema,
+  useProjectsJobStartedSchema,
+} from '~/components/projects/profile/edit/ProjectsProfileSchema';
 import ProjectsProfileSkillSection from '~/components/projects/profile/edit/ProjectsProfileSkillSection';
 import ProjectsProfileSocialSection from '~/components/projects/profile/edit/ProjectsProfileSocialSection';
-import ProjectsProfileYOESection from '~/components/projects/profile/edit/ProjectsProfileYOESection';
+import { useProjectsSkillListInputSchema } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 
-import ProjectsProfileJobSection from './ProjectsProfileJobSection';
-import { useProjectsSkillListInputSchema } from '../../skills/form/ProjectsSkillListInputSchema';
-
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Profile, ProjectsProfile } from '@prisma/client';
 
 function useProjectsProfileEditSchema() {
-  const intl = useIntl();
-  const monthYearExperienceSchema = useProjectsMonthYearExperienceSchema({
-    isRequired: false,
-  });
   const motivationReasonSchema = useProjectsMotivationReasonSchema({
     isRequired: false,
   });
@@ -45,16 +42,16 @@ function useProjectsProfileEditSchema() {
     required: false,
   });
   const usernameSchema = useProfileUsernameSchema();
+  const jobNotStartedSchema = useProjectsJobNotStartedSchema();
+  const jobStartedSchema = useProjectsJobStartedSchema();
 
   const baseSchema = z.object({
     avatarUrl: z.string().optional(),
     bio: z.string(),
-    company: z.string().optional(),
     githubUsername: z
       .union([z.string().length(0), z.string().url()])
       .transform((val) => (val ? val : null))
       .nullable(),
-    jobTitle: z.string(),
     linkedInUsername: z
       .union([z.string().length(0), z.string().url()])
       .transform((val) => (val ? val : null))
@@ -70,41 +67,9 @@ function useProjectsProfileEditSchema() {
       .nullable(),
   });
 
-  return z.discriminatedUnion('hasNotStartedWork', [
-    baseSchema.extend({
-      hasNotStartedWork: z.literal(false),
-      monthYearExperience: monthYearExperienceSchema,
-    }),
-    baseSchema.extend({
-      hasNotStartedWork: z.literal(true),
-      monthYearExperience: monthYearExperienceSchema
-        .optional()
-        .transform(() => undefined),
-      yoeReplacement: z
-        .discriminatedUnion('option', [
-          z.object({
-            option: yoeReplacementSchema.extract(['others']),
-            otherText: z.string().min(1, {
-              message: intl.formatMessage({
-                defaultMessage: 'Please enter your status',
-                description:
-                  'Error message for empty "Other" input for "Years of experience replacement status" on Projects profile page',
-                id: '4rcZT1',
-              }),
-            }),
-          }),
-          z.object({
-            option: yoeReplacementSchema.exclude(['others']),
-          }),
-        ])
-        .transform((value) => {
-          if (value.option === 'others') {
-            return value.otherText;
-          }
-
-          return value.option;
-        }),
-    }),
+  return z.discriminatedUnion('hasStartedWork', [
+    baseSchema.extend(jobStartedSchema),
+    baseSchema.extend(jobNotStartedSchema),
   ]);
 }
 
@@ -134,6 +99,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
   );
 
   const projectsProfileEditSchema = useProjectsProfileEditSchema();
+  const hasStartedWork = initialValues?.currentStatus === null;
 
   const methods = useForm<
     ProjectsProfileEditFormValues,
@@ -146,8 +112,8 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
       bio: initialValues?.bio ?? '',
       company: initialValues?.company ?? '',
       githubUsername: initialValues?.githubUsername ?? '',
-      hasNotStartedWork: initialValues?.currentStatus !== null,
-      jobTitle: initialValues?.title ?? '',
+      hasStartedWork,
+      jobTitle: hasStartedWork ? initialValues?.title ?? '' : '',
       linkedInUsername: initialValues?.linkedInUsername ?? '',
       monthYearExperience: initialValues?.startWorkDate
         ? `${
@@ -160,6 +126,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
       name: initialValues?.name ?? '',
       skillsProficient: initialValues?.projectsProfile?.skillsProficient ?? [],
       skillsToGrow: initialValues?.projectsProfile?.skillsToGrow ?? [],
+      title: hasStartedWork ? '' : initialValues?.title ?? '',
       username: initialValues?.username ?? '',
       website: initialValues?.website ?? '',
       yoeReplacement: {
@@ -186,7 +153,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
         avatarUrl: data.avatarUrl,
         bio: data.bio,
         company: data.company,
-        currentStatus: data.hasNotStartedWork ? data.yoeReplacement : undefined,
+        currentStatus: data.hasStartedWork ? null : data.yoeReplacement,
         githubUsername: data.githubUsername,
         linkedInUsername: data.linkedInUsername,
         motivations: data.motivations.flatMap((motivation) =>
@@ -256,12 +223,11 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
               <ProjectsProfileBasicInfoSection
                 setUsernameExistsError={setUsernameExistsError}
               />
-              <ProjectsProfileJobSection view="profile" />
               <ProjectsProfileMotivationSection />
               <ProjectsProfileSkillSection />
               <div className="flex flex-col gap-6 md:flex-row">
                 <div className="flex-1">
-                  <ProjectsProfileYOESection />
+                  <ProjectsProfileJobSection />
                 </div>
                 <div className="flex-1">
                   <ProjectsProfileSocialSection />

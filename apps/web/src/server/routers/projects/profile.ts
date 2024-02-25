@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 import { profileUserNameSchemaServer } from '~/components/profile/fields/ProfileUsernameSchema';
+import { projectsJobTitleInputSchemaServer } from '~/components/projects/profile/edit/ProjectsProfileSchema';
 import { projectsSkillListInputOptionalSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 
 import prisma from '~/server/prisma';
@@ -213,11 +214,11 @@ export const projectsProfileRouter = router({
     .input(
       z.object({
         avatarUrl: z.string().optional(),
-        company: z.string().optional(),
-        currentStatus: z.string().optional(),
+        company: z.string().optional().nullable(),
+        currentStatus: z.string().optional().nullable(),
         name: z.string(),
-        startWorkDate: z.date().optional(),
-        title: z.string(),
+        startWorkDate: z.date().optional().nullable(),
+        title: projectsJobTitleInputSchemaServer,
         username: profileUserNameSchemaServer,
       }),
     )
@@ -331,8 +332,8 @@ export const projectsProfileRouter = router({
         .object({
           avatarUrl: z.string().optional(),
           bio: z.string(),
-          company: z.string().optional(),
-          currentStatus: z.string().optional(),
+          company: z.string().optional().nullable(),
+          currentStatus: z.string().optional().nullable(),
           githubUsername: z
             .union([z.string().length(0), z.string().url()])
             .transform((val) => (val ? val : null))
@@ -345,8 +346,8 @@ export const projectsProfileRouter = router({
           name: z.string(),
           skillsProficient: projectsSkillListInputOptionalSchemaServer,
           skillsToGrow: projectsSkillListInputOptionalSchemaServer,
-          startWorkDate: z.date().optional(),
-          title: z.string(),
+          startWorkDate: z.date().optional().nullable(),
+          title: projectsJobTitleInputSchemaServer,
           username: profileUserNameSchemaServer,
           website: z
             .union([z.string().length(0), z.string().url()])

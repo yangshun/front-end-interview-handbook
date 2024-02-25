@@ -39,7 +39,7 @@ export type ProjectsProfileEditFormValues = {
   bio: string;
   company: string;
   githubUsername: string;
-  hasNotStartedWork: boolean;
+  hasStartedWork: boolean;
   jobTitle: string;
   linkedInUsername: string;
   monthYearExperience: string | undefined;
@@ -47,6 +47,7 @@ export type ProjectsProfileEditFormValues = {
   name: string;
   skillsProficient: Array<ProjectsSkillKey>;
   skillsToGrow: Array<ProjectsSkillKey>;
+  title: string;
   username: string;
   website: string;
   yoeReplacement: {

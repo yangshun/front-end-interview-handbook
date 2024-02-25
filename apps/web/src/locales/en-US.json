@@ -75,10 +75,6 @@
     "defaultMessage": "Self-Learning",
     "description": "Label for \"Self-Learning\" option in YOE replacement"
   },
-  "+c9fjo": {
-    "defaultMessage": "Experience",
-    "description": "Section title for user onboarding form"
-  },
   "+dUPPi": {
     "defaultMessage": "Post",
     "description": "Label for post reply button on project discussions page"
@@ -171,9 +167,9 @@
     "defaultMessage": "Translations for {locale} are in beta and may not be accurate. Do give feedback or <link>contact us</link> if you are interested in helping to translate!",
     "description": "Banner about beta locale version"
   },
-  "/Xai24": {
-    "defaultMessage": "MM/YYYY",
-    "description": "Placeholder for \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
+  "/c/hHN": {
+    "defaultMessage": "We use this to calculate your YOE and keep it updated",
+    "description": "Description for \"When did you start work\" input on Projects profile onboarding page"
   },
   "/dWN/a": {
     "defaultMessage": "Project Deployment & Completion",
@@ -359,10 +355,6 @@
     "defaultMessage": "Most complete all-in-one front end interview preparation.",
     "description": "Short description for 3 months study plan"
   },
-  "1SKRR/": {
-    "defaultMessage": "Month and year you started work as a Front End Engineer",
-    "description": "Label for \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
-  },
   "1gkgr4": {
     "defaultMessage": "Sign In",
     "description": "Label of Sign In button on Email Sign In page"
@@ -410,6 +402,10 @@
   "26Xmcd": {
     "defaultMessage": "<bold>{completedCount}</bold>/{totalCount} challenges",
     "description": "Rep count label in Projects"
+  },
+  "2CZvP8": {
+    "defaultMessage": "Title",
+    "description": "Label for \"Job Title\" input on Projects profile onboarding page"
   },
   "2LouBj": {
     "defaultMessage": "Holistic study plans",
@@ -578,10 +574,6 @@
   "4/SGqe": {
     "defaultMessage": "Earlier",
     "description": "Title for earlier list of comments"
-  },
-  "40fcnl": {
-    "defaultMessage": "Select another status to display in place of your YOE:",
-    "description": "Label for \"Years of experience replacement status\" choices on Projects profile onboarding page"
   },
   "434fyX": {
     "defaultMessage": "RADIO Framework",
@@ -818,6 +810,10 @@
   "6UytmZ": {
     "defaultMessage": "Something went wrong",
     "description": "Text that appears when the solution fails to load"
+  },
+  "6WpcdM": {
+    "defaultMessage": "CS student at MIT",
+    "description": "Placeholder for \"Title\" input on Projects profile onboarding page"
   },
   "6ZmcXv": {
     "defaultMessage": "Practice",
@@ -1303,6 +1299,10 @@
     "defaultMessage": "Could not load files from repository",
     "description": "Error message when files from a repository could not be loaded"
   },
+  "BJEmxH": {
+    "defaultMessage": "Job Status",
+    "description": "Title of job status section of projects profile edit page"
+  },
   "BMBc9O": {
     "defaultMessage": "paid once",
     "description": "Pay the price once"
@@ -1491,6 +1491,10 @@
     "defaultMessage": "Challenges | Projects",
     "description": "Title of Projects challenges listing page"
   },
+  "DBkNOt": {
+    "defaultMessage": "When did you start work?",
+    "description": "Label for \"When did you start work\" input on Projects profile onboarding page"
+  },
   "DCBQiM": {
     "defaultMessage": "If you are looking for front end interviews, GreatFrontEnd is for you. It has a wide variety of coding questions ranging from HTML, CSS, JavaScript, to React. It also covers formats like functions, algorithms, user interface, quiz etc. If you want to get into top tech companies for front end roles, GreatFrontEnd is best for you.",
     "description": "Gouse Basha's testimonial"
@@ -1642,10 +1646,6 @@
   "EflBca": {
     "defaultMessage": "Started: {daysSinceStarted} days",
     "description": "Days since started for Continue projects section on Projects dashboard page"
-  },
-  "EjGug0": {
-    "defaultMessage": "We use this to calculate your YOE and keep it updated",
-    "description": "Description for \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
   },
   "EjbpUe": {
     "defaultMessage": "Open navigation profile menu",
@@ -2047,6 +2047,10 @@
     "defaultMessage": "Related articles",
     "description": "Blog related articles section"
   },
+  "IesD4T": {
+    "defaultMessage": "Yes",
+    "description": "Yes option label"
+  },
   "IhJAk8": {
     "defaultMessage": "What's Included",
     "description": "Section label for features included in a pricing plan"
@@ -2226,10 +2230,6 @@
   "KPn83+": {
     "defaultMessage": "Series Contents",
     "description": "Series contents navigation menu button label"
-  },
-  "KQXNDC": {
-    "defaultMessage": "Please enter your status",
-    "description": "Error message for empty \"Other\" input for \"Years of experience replacement status\" on Projects profile onboarding page"
   },
   "KQfZUe": {
     "defaultMessage": "Undo",
@@ -2887,6 +2887,10 @@
     "defaultMessage": "You have more than 3 pinned submissions",
     "description": "Dialog title for pinned submission"
   },
+  "PoILgY": {
+    "defaultMessage": "No",
+    "description": "No option label"
+  },
   "Ptmnjq": {
     "defaultMessage": "Free continuous updates",
     "description": "Title for free continuous updates feature"
@@ -3174,6 +3178,10 @@
   "SId1Gq": {
     "defaultMessage": "All rounded coverage to bring you to the next level.",
     "description": "Short description for one month study plan"
+  },
+  "SKfw++": {
+    "defaultMessage": "Are you currently working as a Software Engineer?",
+    "description": "Label for \"has work started\" in projects profile page"
   },
   "SKsPOw": {
     "defaultMessage": "Premium Content",
@@ -3490,10 +3498,6 @@
   "VElW3O": {
     "defaultMessage": "Download starter code + image assets",
     "description": "Label for \"Download starter code + image assets\" button on Projects project page"
-  },
-  "VGOH7F": {
-    "defaultMessage": "Please enter your job title",
-    "description": "Error message for empty \"Job title\" input on Projects profile onboarding page"
   },
   "VJ8xZy": {
     "defaultMessage": "Prices will be increased as more content is being added to the website.",
@@ -4143,10 +4147,6 @@
     "defaultMessage": "Stripe",
     "description": "Placeholder for \"Company\" input on Projects profile onboarding page"
   },
-  "b7z86A": {
-    "defaultMessage": "I haven't started work yet",
-    "description": "Label for \"I haven't started work yet\" checkbox on Projects profile onboarding page"
-  },
   "bAEOVz": {
     "defaultMessage": "Lifetime plan is a limited time offering and will be removed in future.",
     "description": "Tip at the bottom of the Pricing section"
@@ -4282,6 +4282,10 @@
   "cgTXiW": {
     "defaultMessage": "Design a News Feed (e.g. Facebook)",
     "description": "System design question title"
+  },
+  "chadI5": {
+    "defaultMessage": "Status",
+    "description": "Label for \"Years of experience replacement status\" choices on Projects profile onboarding page"
   },
   "cicVHX": {
     "defaultMessage": "Delhi, India",
@@ -5035,10 +5039,6 @@
     "defaultMessage": "Title: Z to A",
     "description": "Sorting option for question list - sort titles from Z to A"
   },
-  "jeUKH/": {
-    "defaultMessage": "Job",
-    "description": "Title of job section of projects profile edit page"
-  },
   "jeX0Hi": {
     "defaultMessage": "Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others",
     "description": "Placeholder for Biography input on Projects profile onboarding page"
@@ -5322,10 +5322,6 @@
   "lfY3AI": {
     "defaultMessage": "Spread the word and get rewarded",
     "description": "Title of the Hero section of the 'Become An Affiliate' page"
-  },
-  "llpanB": {
-    "defaultMessage": "Title",
-    "description": "Label for \"Job Title\" input on Projects profile page"
   },
   "lmBDjV": {
     "defaultMessage": "Quiz Questions",
@@ -6123,6 +6119,10 @@
     "defaultMessage": "Premium",
     "description": "Label for premium project tag"
   },
+  "szsYwJ": {
+    "defaultMessage": "MM/YYYY",
+    "description": "Placeholder for \"When did you start work\" input on Projects profile onboarding page"
+  },
   "t+g7fF": {
     "defaultMessage": "More on <link>Students Discount Terms and Conditions</link>",
     "description": "Link for discount terms and conditions"
@@ -6719,10 +6719,6 @@
     "defaultMessage": "Reading time",
     "description": "Reading time of the article"
   },
-  "yKuhFo": {
-    "defaultMessage": "Experience",
-    "description": "Title of years of experience section of projects profile edit page"
-  },
   "yM3vbW": {
     "defaultMessage": "Editor Shortcuts",
     "description": "Label for slideout for code editor shortcuts"
@@ -6798,6 +6794,10 @@
   "z1Offf": {
     "defaultMessage": "Sign up with school email",
     "description": "Button label"
+  },
+  "z37jan": {
+    "defaultMessage": "Job title cannot be empty.",
+    "description": "Error message"
   },
   "zACRRV": {
     "defaultMessage": "Please enter your motivations",
