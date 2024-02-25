@@ -1,27 +1,38 @@
 import { Controller, useFormContext } from 'react-hook-form';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import type { ProjectsProfileOnboardingStep1FormValues } from '~/components/projects/onboarding/ProjectsOnboardingProfileStep1';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 
-export default function ProjectsProfileJobSection() {
+type Props = {
+  view: 'onboarding' | 'profile';
+};
+
+type Values =
+  | ProjectsProfileEditFormValues
+  | ProjectsProfileOnboardingStep1FormValues;
+
+export default function ProjectsProfileJobSection({ view }: Props) {
   const intl = useIntl();
   const {
     control,
     formState: { errors },
-  } = useFormContext<ProjectsProfileEditFormValues>();
+  } = useFormContext<Values>();
 
   return (
     <div className="flex flex-col gap-6">
-      <Heading level="heading6">
-        <FormattedMessage
-          defaultMessage="Job"
-          description="Title of job section of projects profile edit page"
-          id="jeUKH/"
-        />
-      </Heading>
+      {view === 'profile' && (
+        <Heading level="heading6">
+          <FormattedMessage
+            defaultMessage="Job"
+            description="Title of job section of projects profile edit page"
+            id="jeUKH/"
+          />
+        </Heading>
+      )}
       <div className="flex w-full flex-col gap-x-6 gap-y-2 md:flex-row md:items-end">
         <Controller
           control={control}
@@ -39,12 +50,21 @@ export default function ProjectsProfileJobSection() {
                 })}
                 descriptionStyle="tooltip"
                 errorMessage={errors.jobTitle?.message}
-                label={intl.formatMessage({
-                  defaultMessage: 'Title',
-                  description:
-                    'Label for "Job Title" input on Projects profile onboarding page',
-                  id: '2CZvP8',
-                })}
+                label={
+                  view === 'profile'
+                    ? intl.formatMessage({
+                        defaultMessage: 'Title',
+                        description:
+                          'Label for "Job Title" input on Projects profile page',
+                        id: 'llpanB',
+                      })
+                    : intl.formatMessage({
+                        defaultMessage: 'Job Title',
+                        description:
+                          'Label for "Job Title" input on Projects profile onboarding page',
+                        id: 'UIOmIs',
+                      })
+                }
                 placeholder={intl.formatMessage({
                   defaultMessage: 'Software Engineer',
                   description:
@@ -80,10 +100,10 @@ export default function ProjectsProfileJobSection() {
                 descriptionStyle="tooltip"
                 errorMessage={errors.company?.message}
                 label={intl.formatMessage({
-                  defaultMessage: 'Company(optional)',
+                  defaultMessage: 'Company (optional)',
                   description:
                     'Label for "Company" input on Projects profile onboarding page',
-                  id: 'jm5U2i',
+                  id: 'Oxj7x1',
                 })}
                 placeholder={intl.formatMessage({
                   defaultMessage: 'Stripe',

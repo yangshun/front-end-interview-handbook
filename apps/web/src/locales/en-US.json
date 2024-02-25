@@ -411,10 +411,6 @@
     "defaultMessage": "<bold>{completedCount}</bold>/{totalCount} challenges",
     "description": "Rep count label in Projects"
   },
-  "2CZvP8": {
-    "defaultMessage": "Title",
-    "description": "Label for \"Job Title\" input on Projects profile onboarding page"
-  },
   "2LouBj": {
     "defaultMessage": "Holistic study plans",
     "description": "Title of list of study plans"
@@ -2779,6 +2775,10 @@
     "defaultMessage": "Upvote comment",
     "description": "Vote button label"
   },
+  "Oxj7x1": {
+    "defaultMessage": "Company (optional)",
+    "description": "Label for \"Company\" input on Projects profile onboarding page"
+  },
   "Oy+yWc": {
     "defaultMessage": "Filter by contribution type",
     "description": "Tooltip for contribution type filter for contribution list"
@@ -3203,10 +3203,6 @@
     "defaultMessage": "Next",
     "description": "Next step button label"
   },
-  "SWycPl": {
-    "defaultMessage": "Username should not contain spaces",
-    "description": "Error message for containing spaces in \"Username\" input on Projects profile onboarding page"
-  },
   "SZ26iB": {
     "defaultMessage": "Search",
     "description": "Placeholder for search input of blog list"
@@ -3286,10 +3282,6 @@
   "TDzLXK": {
     "defaultMessage": "Lyft",
     "description": "Company name for Lyft"
-  },
-  "TEAVc0": {
-    "defaultMessage": "Please enter your your username",
-    "description": "Error message for empty \"Username\" input on Projects profile onboarding page"
   },
   "TJD+8A": {
     "defaultMessage": "Project steps",
@@ -5059,10 +5051,6 @@
     "defaultMessage": "Please <link>leave us an email</link> if you have any other needs or wants. We would love to discuss them!",
     "description": "Question base section subtitle - third paragraph"
   },
-  "jm5U2i": {
-    "defaultMessage": "Company(optional)",
-    "description": "Label for \"Company\" input on Projects profile onboarding page"
-  },
   "jnV/ZP": {
     "defaultMessage": "System Design Questions",
     "description": "Title for an example list of System Design Questions on marketing pages"
@@ -5334,6 +5322,10 @@
   "lfY3AI": {
     "defaultMessage": "Spread the word and get rewarded",
     "description": "Title of the Hero section of the 'Become An Affiliate' page"
+  },
+  "llpanB": {
+    "defaultMessage": "Title",
+    "description": "Label for \"Job Title\" input on Projects profile page"
   },
   "lmBDjV": {
     "defaultMessage": "Quiz Questions",

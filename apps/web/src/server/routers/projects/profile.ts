@@ -1,5 +1,6 @@
 import { z } from 'zod';
 
+import { profileUserNameSchemaServer } from '~/components/profile/fields/ProfileUsernameSchema';
 import { projectsSkillListInputOptionalSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 
 import prisma from '~/server/prisma';
@@ -217,7 +218,7 @@ export const projectsProfileRouter = router({
         name: z.string(),
         startWorkDate: z.date().optional(),
         title: z.string(),
-        username: z.string(),
+        username: profileUserNameSchemaServer,
       }),
     )
     .mutation(
@@ -346,7 +347,7 @@ export const projectsProfileRouter = router({
           skillsToGrow: projectsSkillListInputOptionalSchemaServer,
           startWorkDate: z.date().optional(),
           title: z.string(),
-          username: z.string(),
+          username: profileUserNameSchemaServer,
           website: z
             .union([z.string().length(0), z.string().url()])
             .transform((val) => (val ? val : null))

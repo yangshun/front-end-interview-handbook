@@ -7,6 +7,7 @@ import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useProfileUsernameSchema } from '~/components/profile/fields/ProfileUsernameSchema';
 import { useToast } from '~/components/global/toasts/useToast';
 import useProjectsMonthYearExperienceSchema from '~/components/projects/hooks/useProjectsMonthYearExperienceSchema';
 import useProjectsMotivationReasonSchema, {
@@ -43,6 +44,7 @@ function useProjectsProfileEditSchema() {
   const skillsToGrowSchema = useProjectsSkillListInputSchema({
     required: false,
   });
+  const usernameSchema = useProfileUsernameSchema();
 
   const baseSchema = z.object({
     avatarUrl: z.string().optional(),
@@ -61,24 +63,7 @@ function useProjectsProfileEditSchema() {
     name: z.string().min(2),
     skillsProficient: skillsProficientSchema,
     skillsToGrow: skillsToGrowSchema,
-    username: z
-      .string()
-      .min(1, {
-        message: intl.formatMessage({
-          defaultMessage: 'Please enter your your username',
-          description:
-            'Error message for empty "Username" input on Projects profile onboarding page',
-          id: 'TEAVc0',
-        }),
-      })
-      .refine((value) => !/\s/.test(value), {
-        message: intl.formatMessage({
-          defaultMessage: 'Username should not contain spaces',
-          description:
-            'Error message for containing spaces in "Username" input on Projects profile onboarding page',
-          id: 'SWycPl',
-        }),
-      }),
+    username: usernameSchema,
     website: z
       .union([z.string().length(0), z.string().url()])
       .transform((val) => (val ? val : null))
@@ -271,7 +256,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
               <ProjectsProfileBasicInfoSection
                 setUsernameExistsError={setUsernameExistsError}
               />
-              <ProjectsProfileJobSection />
+              <ProjectsProfileJobSection view="profile" />
               <ProjectsProfileMotivationSection />
               <ProjectsProfileSkillSection />
               <div className="flex flex-col gap-6 md:flex-row">

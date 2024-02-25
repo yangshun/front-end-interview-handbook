@@ -44,11 +44,7 @@ export default function ProjectsProfileUsernameInput({
   };
 
   useEffect(() => {
-    if (usernameExists) {
-      setUsernameExistsError(true);
-    } else {
-      setUsernameExistsError(false);
-    }
+    setUsernameExistsError(!!usernameExists);
   }, [usernameExists, setUsernameExistsError]);
 
   return (
