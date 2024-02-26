@@ -119,6 +119,12 @@ function getSubmissionsListStartDateFilter(
       min: 0,
     };
 
+    const numberOfDaysInCurrentMonth = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth() + 1,
+      0,
+    ).getDate();
+
     switch (experience) {
       case 'junior':
         filterYears.min = 1;
@@ -142,10 +148,10 @@ function getSubmissionsListStartDateFilter(
     const minFilterYears =
       filterYears.min > 0
         ? {
-            lt: new Date(
+            lte: new Date(
               currentDate.getFullYear() - filterYears.min,
               currentDate.getMonth(),
-              currentDate.getDate(),
+              numberOfDaysInCurrentMonth,
             ),
           }
         : {};
@@ -153,9 +159,11 @@ function getSubmissionsListStartDateFilter(
       filterYears.max > 0
         ? {
             gte: new Date(
-              currentDate.getFullYear() - filterYears.max,
-              currentDate.getMonth(),
-              currentDate.getDate(),
+              // Check for experience years + additional year removing the current month
+              // because 2 years 11 months is also considered 2 YOE
+              currentDate.getFullYear() - filterYears.max - 1,
+              currentDate.getMonth() + 1,
+              1,
             ),
           }
         : {};
