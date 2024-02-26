@@ -771,10 +771,6 @@
     "defaultMessage": "React Questions",
     "description": "React questions category long title"
   },
-  "5wzYep": {
-    "defaultMessage": "Submission successfully unpin!",
-    "description": "Submission unpin toaster"
-  },
   "6+IMdW": {
     "defaultMessage": "Question",
     "description": "Label for question badge"
@@ -2374,6 +2370,10 @@
   "LHxvVR": {
     "defaultMessage": "Yes. Every project you start creates a 'session' of the project, which you can end. You can start a new session anytime.",
     "description": "FAQ answer for projects platform"
+  },
+  "LKILl5": {
+    "defaultMessage": "Submission successfully unpinned!",
+    "description": "Submission unpin toaster"
   },
   "LNBK2M": {
     "defaultMessage": "Our services are unavailable at your location.",

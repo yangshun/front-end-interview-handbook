@@ -88,9 +88,9 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
       setPinnedSubmissionsCount((prevCount) => prevCount - 1);
       showToast({
         title: intl.formatMessage({
-          defaultMessage: 'Submission successfully unpin!',
+          defaultMessage: 'Submission successfully unpinned!',
           description: 'Submission unpin toaster',
-          id: '5wzYep',
+          id: 'LKILl5',
         }),
         variant: 'success',
       });
