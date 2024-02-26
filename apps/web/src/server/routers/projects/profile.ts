@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 import { profileUserNameSchemaServer } from '~/components/profile/fields/ProfileUsernameSchema';
 import { projectsJobTitleInputSchemaServer } from '~/components/projects/profile/edit/ProjectsProfileSchema';
+import { fetchProjectsProfileRecalculatePoints } from '~/components/projects/reputation/ProjectsProfileRecalculatePoints';
 import { projectsSkillListInputOptionalSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 
 import prisma from '~/server/prisma';
@@ -175,12 +176,12 @@ export const projectsProfileRouter = router({
         motivations: z.array(z.string()),
       }),
     )
-    .mutation(async ({ input: { motivations }, ctx: { user } }) => {
+    .mutation(async ({ input: { motivations }, ctx: { user, req } }) => {
       const projectsProfileFields = {
         motivations,
       };
 
-      return await prisma.profile.update({
+      const result = await prisma.profile.update({
         data: {
           projectsProfile: {
             upsert: {
@@ -200,6 +201,12 @@ export const projectsProfileRouter = router({
           id: user.id,
         },
       });
+
+      if (result) {
+        fetchProjectsProfileRecalculatePoints(req, result.projectsProfile?.id);
+      }
+
+      return result;
     }),
   onboardingStep1: userProcedure.query(async ({ ctx: { user } }) => {
     return await prisma.profile.findUnique({
@@ -240,9 +247,9 @@ export const projectsProfileRouter = router({
           username,
           company,
         },
-        ctx: { user },
+        ctx: { user, req },
       }) => {
-        return await prisma.profile.update({
+        const result = await prisma.profile.update({
           data: {
             avatarUrl,
             company,
@@ -252,10 +259,26 @@ export const projectsProfileRouter = router({
             title,
             username,
           },
+          select: {
+            projectsProfile: {
+              select: {
+                id: true,
+              },
+            },
+          },
           where: {
             id: user.id,
           },
         });
+
+        if (result) {
+          fetchProjectsProfileRecalculatePoints(
+            req,
+            result.projectsProfile?.id,
+          );
+        }
+
+        return result;
       },
     ),
   onboardingStep2: userProcedure.query(async ({ ctx: { user } }) => {
@@ -307,14 +330,14 @@ export const projectsProfileRouter = router({
           skillsProficient,
           skillsToGrow,
         },
-        ctx: { user },
+        ctx: { user, req },
       }) => {
         const projectsProfileFields = {
           skillsProficient,
           skillsToGrow,
         };
 
-        return await prisma.profile.update({
+        const result = await prisma.profile.update({
           data: {
             bio,
             githubUsername,
@@ -327,10 +350,26 @@ export const projectsProfileRouter = router({
             },
             website,
           },
+          select: {
+            projectsProfile: {
+              select: {
+                id: true,
+              },
+            },
+          },
           where: {
             id: user.id,
           },
         });
+
+        if (result) {
+          fetchProjectsProfileRecalculatePoints(
+            req,
+            result.projectsProfile?.id,
+          );
+        }
+
+        return result;
       },
     ),
   update: projectsUserProcedure
@@ -381,7 +420,7 @@ export const projectsProfileRouter = router({
           username,
           company,
         },
-        ctx: { user },
+        ctx: { user, req },
       }) => {
         const projectsProfileFields = {
           motivations,
@@ -389,7 +428,7 @@ export const projectsProfileRouter = router({
           skillsToGrow,
         };
 
-        return await prisma.profile.update({
+        const result = await prisma.profile.update({
           data: {
             avatarUrl,
             bio,
@@ -409,10 +448,26 @@ export const projectsProfileRouter = router({
             username,
             website,
           },
+          select: {
+            projectsProfile: {
+              select: {
+                id: true,
+              },
+            },
+          },
           where: {
             id: user.id,
           },
         });
+
+        if (result) {
+          fetchProjectsProfileRecalculatePoints(
+            req,
+            result.projectsProfile?.id,
+          );
+        }
+
+        return result;
       },
     ),
   uploadProfilePhoto: userProcedure
