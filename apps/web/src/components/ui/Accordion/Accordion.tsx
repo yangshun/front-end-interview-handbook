@@ -9,6 +9,7 @@ import {
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
   themeTextSecondaryColor,
+  themeTextSubtitleColor,
 } from '../theme';
 
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
@@ -38,20 +39,20 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={clsx(
-        'flex flex-1 items-center justify-between',
-        'pb-4 pt-4 md:pt-6',
+        'flex flex-1 items-center justify-between gap-1 text-left',
+        'py-6',
         'group',
         'font-medium transition-all',
         themeOutlineElement_FocusVisible,
         themeOutlineElementBrandColor_FocusVisible,
+        themeTextSubtitleColor,
         className,
       )}
       {...props}>
       {children}
       <RiArrowDownSLine
         className={clsx(
-          'size-5 shrink-0 transition-transform group-data-[state=open]:-rotate-180',
-          themeTextSecondaryColor,
+          'size-6 shrink-0 transition-transform group-data-[state=open]:-rotate-180',
         )}
       />
     </AccordionPrimitive.Trigger>
