@@ -96,10 +96,10 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
                       description: 'Tooltip for github profile icon',
                       id: 'BAyveo',
                     })}>
-                    <a href={profile.githubUsername}>
+                    <Anchor href={profile.githubUsername} variant="unstyled">
                       <span className="sr-only">GitHub</span>
                       <RiGithubFill aria-hidden="true" className="size-5" />
-                    </a>
+                    </Anchor>
                   </Tooltip>
                 )}
                 {profile?.linkedInUsername && (
@@ -110,13 +110,13 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
                       description: 'Tooltip for LinkedIn profile icon',
                       id: 'Xq6/V6',
                     })}>
-                    <a href={profile.linkedInUsername}>
+                    <Anchor href={profile.linkedInUsername} variant="unstyled">
                       <span className="sr-only">LinkedIn</span>
                       <RiLinkedinBoxFill
                         aria-hidden="true"
                         className="size-5"
                       />
-                    </a>
+                    </Anchor>
                   </Tooltip>
                 )}
               </div>
