@@ -194,7 +194,11 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
           <TextInput
             isLabelHidden={true}
             label="Search"
-            placeholder="Search by name/project brief"
+            placeholder={intl.formatMessage({
+              defaultMessage: 'Search by challenge name / brief',
+              description: 'Search placeholder for challenge listing',
+              id: '+gMPfE',
+            })}
             startIcon={RiSearchLine}
             type="text"
             value={query}

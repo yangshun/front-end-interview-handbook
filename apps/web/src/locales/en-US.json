@@ -83,6 +83,10 @@
     "defaultMessage": "Getting the Interview",
     "description": "Getting the front end interview"
   },
+  "+gMPfE": {
+    "defaultMessage": "Search by challenge name / brief",
+    "description": "Search placeholder for challenge listing"
+  },
   "+hNsjW": {
     "defaultMessage": "Сoncise step by step practical guides",
     "description": "Short description for \"Skills roadmap\" feature on Projects home page"
