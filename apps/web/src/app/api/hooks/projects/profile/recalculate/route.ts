@@ -2,6 +2,10 @@ import { type NextRequest, NextResponse } from 'next/server';
 
 import prisma from '~/server/prisma';
 
+const POINTS_FOR_SIGNING_UP = 20;
+const POINTS_PER_FIELD = 100;
+const POINTS_FOR_COMPLETING_PROFILE = 50;
+
 function createConnectOrCreate(key: string, profileId: string, points: number) {
   return {
     create: {
@@ -53,7 +57,11 @@ export async function POST(req: NextRequest) {
   }
 
   const connectOrCreateItems = [
-    createConnectOrCreate('projects.profile.sign_up', projectsProfileId, 20),
+    createConnectOrCreate(
+      'projects.profile.sign_up',
+      projectsProfileId,
+      POINTS_FOR_SIGNING_UP,
+    ),
   ];
 
   let allComplete = true;
@@ -66,7 +74,7 @@ export async function POST(req: NextRequest) {
       createConnectOrCreate(
         'projects.profile.field.motivation',
         projectsProfileId,
-        100,
+        POINTS_PER_FIELD,
       ),
     );
   } else {
@@ -81,7 +89,7 @@ export async function POST(req: NextRequest) {
       createConnectOrCreate(
         'projects.profile.field.skills_proficient',
         projectsProfileId,
-        25,
+        POINTS_PER_FIELD,
       ),
     );
   } else {
@@ -96,7 +104,7 @@ export async function POST(req: NextRequest) {
       createConnectOrCreate(
         'projects.profile.field.skills_to_grow',
         projectsProfileId,
-        25,
+        POINTS_PER_FIELD,
       ),
     );
   } else {
@@ -108,7 +116,7 @@ export async function POST(req: NextRequest) {
       createConnectOrCreate(
         'projects.profile.field.bio',
         projectsProfileId,
-        25,
+        POINTS_PER_FIELD,
       ),
     );
   } else {
@@ -120,7 +128,7 @@ export async function POST(req: NextRequest) {
       createConnectOrCreate(
         'projects.profile.field.avatar',
         projectsProfileId,
-        25,
+        POINTS_PER_FIELD,
       ),
     );
   } else {
@@ -132,7 +140,7 @@ export async function POST(req: NextRequest) {
       createConnectOrCreate(
         'projects.profile.field.linkedin',
         projectsProfileId,
-        25,
+        POINTS_PER_FIELD,
       ),
     );
   } else {
@@ -144,7 +152,7 @@ export async function POST(req: NextRequest) {
       createConnectOrCreate(
         'projects.profile.field.github',
         projectsProfileId,
-        25,
+        POINTS_PER_FIELD,
       ),
     );
   } else {
@@ -156,7 +164,7 @@ export async function POST(req: NextRequest) {
       createConnectOrCreate(
         'projects.profile.field.website',
         projectsProfileId,
-        25,
+        POINTS_PER_FIELD,
       ),
     );
   } else {
@@ -165,7 +173,11 @@ export async function POST(req: NextRequest) {
 
   if (allComplete) {
     connectOrCreateItems.push(
-      createConnectOrCreate('projects.profile.complete', projectsProfileId, 50),
+      createConnectOrCreate(
+        'projects.profile.complete',
+        projectsProfileId,
+        POINTS_FOR_COMPLETING_PROFILE,
+      ),
     );
   }
 

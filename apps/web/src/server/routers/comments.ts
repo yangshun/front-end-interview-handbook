@@ -2,6 +2,11 @@ import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { z } from 'zod';
 
 import { discussionsCommentBodySchemaServer } from '~/components/discussions/DiscussionsCommentBodySchema';
+import {
+  projectsReputationCommentAwardPoints,
+  projectsReputationCommentRevokePoints,
+  projectsReputationCommentVoteAwardPoints,
+} from '~/components/projects/reputation/ProjectsReputationUtils';
 
 import prisma from '~/server/prisma';
 
@@ -40,28 +45,7 @@ export const commentsRouter = router({
           },
         });
 
-        if (
-          domain === DiscussionCommentDomain.PROJECTS_SUBMISSION ||
-          domain === DiscussionCommentDomain.PROJECTS_CHALLENGE
-        ) {
-          await prisma.profile.update({
-            data: {
-              projectsProfile: {
-                update: {
-                  reputation: {
-                    create: {
-                      key: `profile.discussions.comment.${comment.id}`,
-                      points: 20,
-                    },
-                  },
-                },
-              },
-            },
-            where: {
-              id: user.id,
-            },
-          });
-        }
+        await projectsReputationCommentAwardPoints(comment, user.id);
 
         return comment;
       },
@@ -80,16 +64,7 @@ export const commentsRouter = router({
         },
       });
 
-      if (
-        deletedComment.domain === DiscussionCommentDomain.PROJECTS_SUBMISSION ||
-        deletedComment.domain === DiscussionCommentDomain.PROJECTS_CHALLENGE
-      ) {
-        await prisma.projectsReputationPoint.deleteMany({
-          where: {
-            key: `profile.discussions.comment.${deletedComment.id}`,
-          },
-        });
-      }
+      await projectsReputationCommentRevokePoints(deletedComment);
 
       return deletedComment;
     }),
@@ -296,7 +271,7 @@ export const commentsRouter = router({
         input: { entityId, domain, body, parentCommentId },
         ctx: { user },
       }) => {
-        return await prisma.discussionComment.create({
+        const comment = await prisma.discussionComment.create({
           data: {
             body,
             domain,
@@ -305,6 +280,10 @@ export const commentsRouter = router({
             userId: user.id,
           },
         });
+
+        await projectsReputationCommentAwardPoints(comment, user.id);
+
+        return comment;
       },
     ),
   unvote: userProcedure
@@ -347,12 +326,14 @@ export const commentsRouter = router({
     )
     .mutation(async ({ input: { commentId }, ctx: { user } }) => {
       try {
-        await prisma.discussionCommentVote.create({
+        const vote = await prisma.discussionCommentVote.create({
           data: {
             commentId,
             userId: user.id,
           },
         });
+
+        await projectsReputationCommentVoteAwardPoints(vote);
       } catch (err) {
         if (
           err instanceof Prisma.PrismaClientKnownRequestError &&
