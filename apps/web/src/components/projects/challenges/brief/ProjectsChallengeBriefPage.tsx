@@ -80,7 +80,7 @@ export default function ProjectsChallengeBriefPage({ challenge }: Props) {
           />
         </div>
       }>
-      <div className="flex flex-col items-stretch gap-16">
+      <div className="flex flex-col items-stretch gap-16 pb-40">
         <div className="grid grid-cols-1 gap-6 gap-y-12 lg:grid-cols-2">
           <div className="flex flex-col gap-6">
             <Heading level="heading6">
