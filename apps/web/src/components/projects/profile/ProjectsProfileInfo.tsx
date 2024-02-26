@@ -149,7 +149,7 @@ export default function ProjectsProfileInfo({
                   }}
                 />
               </Text>
-              <ProjectsUserReputation points={1650} />
+              <ProjectsUserReputation points={projectsProfile.points} />
             </div>
           </div>
           <Divider className="mb-6 mt-8" />

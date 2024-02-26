@@ -83,7 +83,7 @@ export default function DiscussionsComment({
         <div className="relative flex flex-col items-center self-stretch">
           {/* TODO(projects): fetch real points */}
           <ProjectsProfileAvatar
-            profile={{ ...author, points: 42 }}
+            profile={{ ...author, projectsProfile: { points: 4200 } }}
             size="2xl"
           />
           {(hasReplies || mode === 'reply') && (
@@ -98,7 +98,7 @@ export default function DiscussionsComment({
             <>
               <div
                 className={clsx(
-                  'absolute bottom-8 size-4',
+                  'size-4 absolute bottom-8',
                   themeBackgroundColor,
                 )}
               />

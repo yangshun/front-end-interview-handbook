@@ -15,21 +15,19 @@ import ProjectsProfileDisplayNameLink from '../users/ProjectsProfileDisplayNameL
 
 type Props = Readonly<{
   author: ProjectsChallengeSubmissionAuthor;
+  points: number;
 }>;
 
 export default function ProjectsChallengeSubmissionAuthorProfile({
   author,
+  points,
 }: Props) {
   const intl = useIntl();
 
   return (
     <div className="flex items-center gap-4">
       <ProjectsProfileAvatar
-        profile={{
-          ...author,
-          // TODO(projects): use actual points.
-          points: 42,
-        }}
+        profile={{ ...author, projectsProfile: { points } }}
         size="2xl"
       />
       <div className="flex flex-col gap-3">

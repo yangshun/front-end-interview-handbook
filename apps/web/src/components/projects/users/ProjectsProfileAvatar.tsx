@@ -8,6 +8,7 @@ import {
 import ProjectsProfileHoverCard from './ProjectsProfileHoverCard';
 import type { UserLevelWithAvatarSize } from './UserAvatarWithLevel';
 import UserAvatarWithLevel from './UserAvatarWithLevel';
+import { projectsReputationLevel } from '../reputation/projectsReputationLevelUtils';
 
 type Props = Readonly<{
   className?: string;
@@ -16,7 +17,9 @@ type Props = Readonly<{
     avatarUrl: string | null;
     id: string;
     name: string | null;
-    points: number;
+    projectsProfile: {
+      points: number;
+    } | null;
     username: string;
   }>;
   size?: UserLevelWithAvatarSize;
@@ -28,13 +31,16 @@ export default function ProjectsProfileAvatar({
   className,
   size = 'lg',
 }: Props) {
+  const { level, progress } = projectsReputationLevel(
+    profile?.projectsProfile?.points || 0,
+  );
   const avatar = (
     <UserAvatarWithLevel
       className={className}
       // TODO(projects): Fetch level and progress.
-      level={10}
+      level={level}
       profile={profile}
-      progress={80}
+      progress={progress}
       size={size}
     />
   );

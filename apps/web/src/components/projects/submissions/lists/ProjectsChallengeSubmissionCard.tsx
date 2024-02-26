@@ -133,7 +133,7 @@ export default function ProjectsChallengeSubmissionCard({
           <ProjectsProfileAvatar
             profile={{
               ...author,
-              points: projectsProfile?.points ?? 0,
+              projectsProfile: projectsProfile!,
             }}
             size="xl"
           />

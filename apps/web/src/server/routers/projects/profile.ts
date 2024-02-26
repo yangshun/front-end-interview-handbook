@@ -89,7 +89,7 @@ export const projectsProfileRouter = router({
       return await fetchProjectsProfileStatistics(projectsProfileId);
     },
   ),
-  get: publicProjectsProcedure.query(async ({ ctx: { user } }) => {
+  getUserProfile: publicProjectsProcedure.query(async ({ ctx: { user } }) => {
     return await prisma.profile.findUnique({
       include: {
         projectsProfile: true,
@@ -114,6 +114,7 @@ export const projectsProfileRouter = router({
               projectsProfile: {
                 select: {
                   id: true,
+                  points: true,
                 },
               },
             },

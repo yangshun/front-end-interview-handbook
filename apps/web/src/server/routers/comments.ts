@@ -111,6 +111,7 @@ export const commentsRouter = router({
           },
         },
         author: {
+          // TODO(projects): fetch real points
           select: {
             avatarUrl: true,
             currentStatus: true,
@@ -162,11 +163,7 @@ export const commentsRouter = router({
       ]);
 
       return {
-        comments: comments.map((comment) => ({
-          ...comment,
-          // TODO(projects): fetch real points.
-          author: { ...comment.author, points: 42 },
-        })),
+        comments,
         count,
       };
     }),

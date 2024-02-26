@@ -48,6 +48,7 @@ import { ProjectsSidebarCTACard } from './ProjectsSidebarCTACard';
 import { ProjectsSidebarNotSignedInHeader } from './ProjectsSidebarNotSignedInHeader';
 import ProjectsSidebarProductMenu from './ProjectsSidebarProductMenu';
 import { ProjectsSidebarProfileHeader } from './ProjectsSidebarProfileHeader';
+import useProfileWithProjectsProfile from '../../common/useProfileWithProjectsProfile';
 
 type SidebarItem = SidebarLink;
 
@@ -249,7 +250,7 @@ export function ProjectsSidebarExpanded({
 }: Readonly<{
   onCollapseClick?: () => void;
 }>) {
-  const { profile } = useProfile();
+  const { profile } = useProfileWithProjectsProfile();
   const intl = useIntl();
   const sideBarItems = useSidebarItems();
 
@@ -261,7 +262,7 @@ export function ProjectsSidebarExpanded({
       )}>
       <ProjectsSidebarProductMenu variant="full" />
       {profile != null ? (
-        <ProjectsSidebarProfileHeader points={1800} />
+        <ProjectsSidebarProfileHeader />
       ) : (
         <ProjectsSidebarNotSignedInHeader />
       )}
@@ -347,7 +348,7 @@ function ProjectsSidebarCollapsed({
 }: Readonly<{
   onCollapseClick: () => void;
 }>) {
-  const { profile } = useProfile();
+  const { profile } = useProfileWithProjectsProfile();
   const intl = useIntl();
   const sideBarItems = useSidebarItems();
 
@@ -360,15 +361,7 @@ function ProjectsSidebarCollapsed({
       )}>
       <ProjectsSidebarProductMenu variant="compact" />
       {profile && (
-        <ProjectsProfileAvatar
-          hovercard={false}
-          // TODO(projects): use actual points
-          profile={{
-            ...profile,
-            points: 1800,
-          }}
-          size="lg"
-        />
+        <ProjectsProfileAvatar hovercard={false} profile={profile} size="lg" />
       )}
       <ul className="flex grow flex-col gap-1">
         {sideBarItems.top.map(({ key: childKey, ...link }) => (

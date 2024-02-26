@@ -86,7 +86,8 @@ export default function ProjectsChallengeSubmissionPage({
         <div className="mt-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-center lg:mt-16">
           {submission.projectsProfile?.userProfile && (
             <ProjectsChallengeSubmissionAuthorProfile
-              author={submission.projectsProfile?.userProfile}
+              author={submission.projectsProfile.userProfile}
+              points={submission.projectsProfile.points}
             />
           )}
           {(deploymentUrls.length > 0 || repositoryUrl) && (

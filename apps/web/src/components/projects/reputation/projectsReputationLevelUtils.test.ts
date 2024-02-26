@@ -2,7 +2,7 @@ import {
   projectsReputationLevel,
   projectsReputationPointsToNextLevel,
   projectsReputationTierForLevel,
-} from './projectsReputationUtils';
+} from './projectsReputationLevelUtils';
 
 describe('projectsReputationTierForLevel', () => {
   describe('initiate', () => {

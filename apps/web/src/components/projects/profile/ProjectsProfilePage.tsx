@@ -33,15 +33,13 @@ export default function ProjectsProfilePage({
 
   // For displaying the most updated profile data,
   // useful after someone edits their profile.
-  const { data: userProfileFetched } = trpc.projects.profile.get.useQuery(
-    undefined,
-    {
+  const { data: userProfileFetched } =
+    trpc.projects.profile.getUserProfile.useQuery(undefined, {
       enabled: isViewingOwnProfile,
       initialData: initialUserProfile,
       refetchOnMount: false,
       refetchOnReconnect: false,
-    },
-  );
+    });
 
   const userProfile = userProfileFetched ?? initialUserProfile;
 
