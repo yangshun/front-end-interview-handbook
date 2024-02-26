@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import absoluteUrl from 'next-absolute-url';
 import Stripe from 'stripe';
 
+import absoluteUrl from '~/lib/absoluteUrl';
 import { normalizeCurrencyValue } from '~/lib/stripeUtils';
 
 import type { PricingPlanDetails, PricingPlanType } from '~/data/PricingPlans';

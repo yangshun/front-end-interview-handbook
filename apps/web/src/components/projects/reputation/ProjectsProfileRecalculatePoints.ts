@@ -1,5 +1,6 @@
 import type { NextApiRequest } from 'next';
-import absoluteUrl from 'next-absolute-url';
+
+import absoluteUrl from '~/lib/absoluteUrl';
 
 export async function fetchProjectsProfileRecalculatePoints(
   req: NextApiRequest,

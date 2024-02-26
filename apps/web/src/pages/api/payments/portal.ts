@@ -1,7 +1,8 @@
 import cookie from 'cookie';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import absoluteUrl from 'next-absolute-url';
 import Stripe from 'stripe';
+
+import absoluteUrl from '~/lib/absoluteUrl';
 
 import {
   createSupabaseAdminClientGFE,
