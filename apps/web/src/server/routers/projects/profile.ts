@@ -180,7 +180,7 @@ export const projectsProfileRouter = router({
         motivations,
       };
 
-      const result = await prisma.profile.update({
+      return await prisma.profile.update({
         data: {
           projectsProfile: {
             upsert: {
@@ -200,49 +200,6 @@ export const projectsProfileRouter = router({
           id: user.id,
         },
       });
-
-      const profileId = result.projectsProfile!.id;
-
-      const repSignUpFields = {
-        key: 'projects.profile.sign_up',
-        profileId,
-      };
-      const repMotivationFields = {
-        key: 'projects.profile.field.motivation',
-        profileId,
-      };
-
-      await prisma.projectsProfile.update({
-        data: {
-          reputation: {
-            connectOrCreate: [
-              {
-                create: {
-                  ...repSignUpFields,
-                  points: 20,
-                },
-                where: {
-                  profileId_key: repSignUpFields,
-                },
-              },
-              {
-                create: {
-                  ...repMotivationFields,
-                  points: 100,
-                },
-                where: {
-                  profileId_key: repMotivationFields,
-                },
-              },
-            ],
-          },
-        },
-        where: {
-          id: profileId,
-        },
-      });
-
-      return result;
     }),
   onboardingStep1: userProcedure.query(async ({ ctx: { user } }) => {
     return await prisma.profile.findUnique({
