@@ -16,6 +16,7 @@ import { useI18nRouter } from '~/next-i18nostic/src';
 import ProjectsProfileBioInput from '../profile/edit/ProjectsProfileBioInput';
 import ProjectsProfileTechStackProficientInput from '../profile/ProjectsProfileTechStackProficientInput';
 import ProjectsProfileTechStackToImproveInput from '../profile/ProjectsProfileTechStackToImproveInput';
+import { projectsReputationProfileFieldConfig } from '../reputation/ProjectsReputationPointsConfig';
 import { useProjectsSkillListInputSchema } from '../skills/form/ProjectsSkillListInputSchema';
 import type { ProjectsSkillKey } from '../skills/types';
 
@@ -108,7 +109,7 @@ export default function ProjectsOnboardingProfileStep2() {
         <div className="relative">
           <ProjectsChallengeReputationTag
             className="absolute end-0 top-0"
-            points={25}
+            points={projectsReputationProfileFieldConfig('bio').points}
             variant="filled"
           />
           <ProjectsProfileBioInput control={control} />

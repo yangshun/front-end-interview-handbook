@@ -7,6 +7,7 @@ import ProjectsChallengeReputationTag from '~/components/projects/challenges/met
 import TextInput from '~/components/ui/TextInput';
 
 import type { ProjectsOnboardingProfileStep2FormValues } from '../onboarding/ProjectsOnboardingProfileStep2';
+import { projectsReputationProfileFieldConfig } from '../reputation/ProjectsReputationPointsConfig';
 import type { ProjectsProfileEditFormValues } from '../types';
 
 type Values =
@@ -30,7 +31,7 @@ export default function ProjectsProfileSocialInput({
         {showReputationCountIncreaseTag && (
           <ProjectsChallengeReputationTag
             className="absolute end-0 top-0"
-            points={25}
+            points={projectsReputationProfileFieldConfig('github').points}
             variant="filled"
           />
         )}
@@ -63,7 +64,7 @@ export default function ProjectsProfileSocialInput({
         {showReputationCountIncreaseTag && (
           <ProjectsChallengeReputationTag
             className="absolute end-0 top-0"
-            points={25}
+            points={projectsReputationProfileFieldConfig('linkedin').points}
             variant="filled"
           />
         )}
@@ -96,7 +97,7 @@ export default function ProjectsProfileSocialInput({
         {showReputationCountIncreaseTag && (
           <ProjectsChallengeReputationTag
             className="absolute end-0 top-0"
-            points={25}
+            points={projectsReputationProfileFieldConfig('website').points}
             variant="filled"
           />
         )}

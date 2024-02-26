@@ -7,7 +7,6 @@ import { z } from 'zod';
 import { trpc } from '~/hooks/trpc';
 
 import { useProfileUsernameSchema } from '~/components/profile/fields/ProfileUsernameSchema';
-import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import { yoeReplacementSchema } from '~/components/projects/misc';
 import ProjectsProfileUsernameInput from '~/components/projects/profile/edit/ProjectProfileUsernameInput';
 import ProjectsProfileEditAvatar from '~/components/projects/profile/edit/ProjectsProfileEditAvatar';
@@ -144,7 +143,6 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
                 id="nNCpzS"
               />
             </Heading>
-            <ProjectsChallengeReputationTag points={100} variant="filled" />
           </div>
           <div className="flex flex-col items-start gap-x-16 gap-y-6 sm:flex-row">
             <Controller
