@@ -1,8 +1,8 @@
 import { RiArrowDownSLine } from 'react-icons/ri';
 
+import FilterButton from '~/components/common/FilterButton';
 import type { ProjectsChallengeSubmissionFilter } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import { useProjectsChallengeSubmissionFilterState } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
-import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Popover from '~/components/ui/Popover';
 
@@ -31,13 +31,16 @@ export default function ProjectsChallengeSubmissionFilterDropdown({
   return (
     <Popover
       trigger={
-        <Button
-          icon={RiArrowDownSLine}
-          label={filter.label}
-          size="md"
-          tooltip={filter.tooltip}
-          variant="secondary"
-        />
+        <div>
+          <FilterButton
+            addonPosition="end"
+            icon={RiArrowDownSLine}
+            label={filter.label}
+            purpose="button"
+            selected={selectedOptions.length > 0}
+            size="md"
+          />
+        </div>
       }
       width={filter.id === 'component-track' ? 'md' : 'sm'}>
       <div className="flex flex-col gap-y-3">

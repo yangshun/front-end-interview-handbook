@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
+import FilterButton from '~/components/common/FilterButton';
 import ProjectsSkillRoadmapSelectionDialog from '~/components/projects/skills/form/ProjectsSkillRoadmapSelectionDialog';
-import Button from '~/components/ui/Button';
 
 import {
   type ProjectsChallengeFilter,
@@ -21,11 +21,13 @@ export default function ProjectsChallengeSkillsFilterInput({ filter }: Props) {
 
   return (
     <>
-      <Button
+      <FilterButton
+        addonPosition="end"
         icon={RiArrowDownSLine}
         label={filter.label}
+        purpose="button"
+        selected={selectedOptions.length > 0}
         size="md"
-        variant="secondary"
         onClick={() => setShowSkillsRoadmapDialog(true)}
       />
       {showSkillsRoadmapDialog && (

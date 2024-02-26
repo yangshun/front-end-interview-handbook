@@ -53,8 +53,8 @@ export default function FilterButton({
 }: Props) {
   return (
     <Button
-      {...props}
       addonPosition="start"
+      {...props}
       className={clsx(
         selected
           ? clsx(

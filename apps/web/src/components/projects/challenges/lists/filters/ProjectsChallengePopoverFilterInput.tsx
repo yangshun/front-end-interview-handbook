@@ -1,6 +1,6 @@
 import { RiArrowDownSLine } from 'react-icons/ri';
 
-import Button from '~/components/ui/Button';
+import FilterButton from '~/components/common/FilterButton';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Popover from '~/components/ui/Popover';
 
@@ -30,12 +30,16 @@ export default function ProjectsChallengePopoverFilterInput({ filter }: Props) {
   return (
     <Popover
       trigger={
-        <Button
-          icon={RiArrowDownSLine}
-          label={filter.label}
-          size="md"
-          variant="secondary"
-        />
+        <div>
+          <FilterButton
+            addonPosition="end"
+            icon={RiArrowDownSLine}
+            label={filter.label}
+            purpose="button"
+            selected={selectedOptions.length > 0}
+            size="md"
+          />
+        </div>
       }
       width={filter.width ?? 'sm'}>
       <div className="flex flex-col gap-y-3">
