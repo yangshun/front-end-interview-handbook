@@ -135,10 +135,12 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
                 variant="primary"
                 onClick={startProject}
               />
-              <ProjectsCompletedUsersTag
-                count={completedCount}
-                profiles={completedProfiles}
-              />
+              {(completedCount ?? 0) >= 5 && (
+                <ProjectsCompletedUsersTag
+                  count={completedCount}
+                  profiles={completedProfiles}
+                />
+              )}
             </div>
           )}
         </div>
