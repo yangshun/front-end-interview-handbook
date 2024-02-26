@@ -1,6 +1,9 @@
 import clsx from 'clsx';
 
-import { themeTextBrandColor } from '~/components/ui/theme';
+import {
+  themeTextBrandColor,
+  themeTextLabelColor,
+} from '~/components/ui/theme';
 
 export type BadgeVariant =
   | 'danger'
@@ -58,7 +61,7 @@ const variantClasses: Record<
     backgroundClass: 'shiny bg-brand-lightest dark:bg-neutral-800',
     borderClass: '',
     iconClass: themeTextBrandColor,
-    textClass: 'text-brand-dark dark:text-white',
+    textClass: themeTextLabelColor,
   },
   success: {
     backgroundClass: 'bg-success-lightest dark:bg-success-darker',
