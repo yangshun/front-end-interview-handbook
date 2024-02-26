@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import { RiAccountCircleLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
+import EmptyAvatarIcon from '~/components/common/EmptyAvatarIcon';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import { dropdownContentClassName } from '~/components/ui/DropdownMenu/dropdownStyles';
@@ -11,10 +11,11 @@ import {
   themeBackgroundElementColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
+  themeBackgroundLayerEmphasized,
   themeBorderElementColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
-  themeTextColor,
+  themeTextFaintColor,
 } from '~/components/ui/theme';
 
 import { Content, Portal, Root, Trigger } from '@radix-ui/react-dropdown-menu';
@@ -61,7 +62,13 @@ export default function NavProfileIcon({
             src={avatarUrl}
           />
         ) : (
-          <RiAccountCircleLine className={clsx('size-5', themeTextColor)} />
+          <EmptyAvatarIcon
+            className={clsx(
+              'size-8',
+              themeTextFaintColor,
+              themeBackgroundLayerEmphasized,
+            )}
+          />
         )}
       </Trigger>
       <Portal>

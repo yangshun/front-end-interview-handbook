@@ -3,7 +3,6 @@
 import clsx from 'clsx';
 import { useRef } from 'react';
 import { RiPlayLine } from 'react-icons/ri';
-import { RiAccountCircleLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
@@ -21,6 +20,7 @@ import {
   useQuestionTechnologyLists,
 } from '~/data/QuestionFormats';
 
+import EmptyAvatarIcon from '~/components/common/EmptyAvatarIcon';
 import AppThemeSelect from '~/components/global/dark/AppThemeSelect';
 import I18nSelect from '~/components/i18n/I18nSelect';
 import Anchor from '~/components/ui/Anchor';
@@ -33,8 +33,9 @@ import type {
 } from '~/components/ui/Navbar/NavTypes';
 import Text from '~/components/ui/Text';
 import {
+  themeBackgroundLayerEmphasized,
   themeBackgroundLayerEmphasized_Hover,
-  themeBorderColor,
+  themeTextFaintColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -747,12 +748,16 @@ export default function NavbarImpl() {
         {profile?.avatarUrl ? (
           <img
             alt={profile?.name ?? user?.email}
-            className="inline-block size-8 rounded-full"
+            className="size-8 inline-block rounded-full"
             src={profile?.avatarUrl}
           />
         ) : (
-          <RiAccountCircleLine
-            className={clsx('size-8', themeTextSecondaryColor)}
+          <EmptyAvatarIcon
+            className={clsx(
+              '!size-8',
+              themeTextFaintColor,
+              themeBackgroundLayerEmphasized,
+            )}
           />
         )}
       </div>

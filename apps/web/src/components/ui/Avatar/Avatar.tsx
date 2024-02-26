@@ -1,9 +1,14 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiAccountCircleLine } from 'react-icons/ri';
 
-import { themeBorderElementColor, themeTextSecondaryColor } from '../theme';
+import EmptyAvatarIcon from '~/components/common/EmptyAvatarIcon';
+
+import {
+  themeBackgroundLayerEmphasized,
+  themeBorderElementColor,
+  themeTextFaintColor,
+} from '../theme';
 
 import * as RadixAvatar from '@radix-ui/react-avatar';
 
@@ -35,12 +40,13 @@ export default function Avatar({ src, alt, className, size = 'sm' }: Props) {
       <RadixAvatar.Fallback
         asChild={true}
         className={clsx(
-          'flex size-full items-center justify-center rounded-full border',
+          'size-full flex items-center justify-center rounded-full border',
           themeBorderElementColor,
-          themeTextSecondaryColor,
+          themeTextFaintColor,
+          themeBackgroundLayerEmphasized,
         )}
         delayMs={600}>
-        <RiAccountCircleLine />
+        <EmptyAvatarIcon />
       </RadixAvatar.Fallback>
     </RadixAvatar.Root>
   );
