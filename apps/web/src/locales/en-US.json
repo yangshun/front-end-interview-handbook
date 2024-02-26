@@ -2267,10 +2267,6 @@
     "defaultMessage": "Undo",
     "description": "Undo tooltip for richtext toolbar"
   },
-  "KSCxTH": {
-    "defaultMessage": "Once a submission has been deleted, it cannot be recovered. All upvotes, reputation, skill and component track progression due to the submission will be reverted.",
-    "description": "Delete challenge submission confirmation subtitle"
-  },
   "KU/uns": {
     "defaultMessage": "Previous",
     "description": "Previous step button label"
@@ -3635,6 +3631,10 @@
     "defaultMessage": "The skills / tools / frameworks you are hoping to grow in. Cannot find the tag you need? Email us at {supportEmail}",
     "description": "Description for tech stack field"
   },
+  "W1liAZ": {
+    "defaultMessage": "Once a submission has been deleted, it cannot be recovered. All upvotes, reputation, skills and component track progression due to the submission will be reversed",
+    "description": "Delete challenge submission confirmation subtitle"
+  },
   "W9OR+u": {
     "defaultMessage": "See child skills",
     "description": "Label to expand skills card"
@@ -4055,10 +4055,6 @@
     "defaultMessage": "Since {date}",
     "description": "Since date for current project session card"
   },
-  "ZbtmL3": {
-    "defaultMessage": "Confirm delete submission",
-    "description": "Delete challenge submission confirmation"
-  },
   "Zdojj9": {
     "defaultMessage": "Other",
     "description": "Label for \"Other\" onboarding option in Projects"
@@ -4278,6 +4274,10 @@
   "belvJ0": {
     "defaultMessage": "Svelte Coding Questions",
     "description": "Description for Svelte questions title"
+  },
+  "bfmJR5": {
+    "defaultMessage": "Confirm delete submission?",
+    "description": "Delete challenge submission confirmation"
   },
   "bnqijt": {
     "defaultMessage": "Post",

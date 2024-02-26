@@ -136,9 +136,9 @@ export default function ProjectsChallengeSubmissionEditPage({
           isConfirming={deleteSubmissionMutation.isLoading}
           isShown={isDeleting}
           title={intl.formatMessage({
-            defaultMessage: 'Confirm delete submission',
+            defaultMessage: 'Confirm delete submission?',
             description: 'Delete challenge submission confirmation',
-            id: 'ZbtmL3',
+            id: 'bfmJR5',
           })}
           onCancel={() => {
             setIsDeleting(false);
@@ -150,9 +150,9 @@ export default function ProjectsChallengeSubmissionEditPage({
           }}>
           {intl.formatMessage({
             defaultMessage:
-              'Once a submission has been deleted, it cannot be recovered. All upvotes, reputation, skill and component track progression due to the submission will be reverted.',
+              'Once a submission has been deleted, it cannot be recovered. All upvotes, reputation, skills and component track progression due to the submission will be reversed',
             description: 'Delete challenge submission confirmation subtitle',
-            id: 'KSCxTH',
+            id: 'W1liAZ',
           })}
         </ConfirmationDialog>
       </div>
