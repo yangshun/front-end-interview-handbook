@@ -90,6 +90,7 @@ export default function GithubRepositoryCodeViewer({
                 filePath={activeFile}
                 readOnly={true}
                 value={fileContents}
+                wordWrap={true}
               />
             )}
           </div>

@@ -25,8 +25,8 @@ type Props = Readonly<
     filePath: string;
     onFocus?: () => void;
     onMount?: (codeEditor: editor.IStandaloneCodeEditor) => void;
-
     value: string | null;
+    wordWrap?: boolean;
   } & (
     | {
         onChange: (value: string) => void;
@@ -45,6 +45,7 @@ export default function MonacoCodeEditor({
   onMount,
   onChange,
   onFocus,
+  wordWrap = false,
   readOnly = false,
 }: Props) {
   const monaco = useMonaco();
@@ -76,6 +77,7 @@ export default function MonacoCodeEditor({
             enabled: false,
           },
           readOnly,
+          wordWrap: wordWrap ? 'on' : 'off',
         }}
         path={filePath}
         theme={themeKey}
