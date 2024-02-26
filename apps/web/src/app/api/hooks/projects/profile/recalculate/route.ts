@@ -1,12 +1,18 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
+import {
+  projectsReputationProfileCompleteConfig,
+  projectsReputationProfileFieldConfig,
+  projectsReputationProfileSignUpConfig,
+} from '~/components/projects/reputation/ProjectsReputationPointsConfig';
+
 import prisma from '~/server/prisma';
 
-const POINTS_FOR_SIGNING_UP = 20;
-const POINTS_PER_FIELD = 100;
-const POINTS_FOR_COMPLETING_PROFILE = 50;
-
-function createConnectOrCreate(key: string, profileId: string, points: number) {
+function createConnectOrCreate({
+  key: key,
+  profileId: profileId,
+  points: points,
+}: Readonly<{ key: string; points: number; profileId: string }>) {
   return {
     create: {
       key,
@@ -57,11 +63,10 @@ export async function POST(req: NextRequest) {
   }
 
   const connectOrCreateItems = [
-    createConnectOrCreate(
-      'projects.profile.sign_up',
-      projectsProfileId,
-      POINTS_FOR_SIGNING_UP,
-    ),
+    createConnectOrCreate({
+      ...projectsReputationProfileSignUpConfig(),
+      profileId: projectsProfileId,
+    }),
   ];
 
   let allComplete = true;
@@ -71,11 +76,10 @@ export async function POST(req: NextRequest) {
     projectsProfile.motivations.length > 0
   ) {
     connectOrCreateItems.push(
-      createConnectOrCreate(
-        'projects.profile.field.motivation',
-        projectsProfileId,
-        POINTS_PER_FIELD,
-      ),
+      createConnectOrCreate({
+        ...projectsReputationProfileFieldConfig('motivation'),
+        profileId: projectsProfileId,
+      }),
     );
   } else {
     allComplete = false;
@@ -86,11 +90,10 @@ export async function POST(req: NextRequest) {
     projectsProfile.skillsProficient.length > 0
   ) {
     connectOrCreateItems.push(
-      createConnectOrCreate(
-        'projects.profile.field.skills_proficient',
-        projectsProfileId,
-        POINTS_PER_FIELD,
-      ),
+      createConnectOrCreate({
+        ...projectsReputationProfileFieldConfig('skills_proficient'),
+        profileId: projectsProfileId,
+      }),
     );
   } else {
     allComplete = false;
@@ -101,11 +104,10 @@ export async function POST(req: NextRequest) {
     projectsProfile.skillsToGrow.length > 0
   ) {
     connectOrCreateItems.push(
-      createConnectOrCreate(
-        'projects.profile.field.skills_to_grow',
-        projectsProfileId,
-        POINTS_PER_FIELD,
-      ),
+      createConnectOrCreate({
+        ...projectsReputationProfileFieldConfig('skills_to_grow'),
+        profileId: projectsProfileId,
+      }),
     );
   } else {
     allComplete = false;
@@ -113,11 +115,10 @@ export async function POST(req: NextRequest) {
 
   if (projectsProfile?.userProfile.bio) {
     connectOrCreateItems.push(
-      createConnectOrCreate(
-        'projects.profile.field.bio',
-        projectsProfileId,
-        POINTS_PER_FIELD,
-      ),
+      createConnectOrCreate({
+        ...projectsReputationProfileFieldConfig('bio'),
+        profileId: projectsProfileId,
+      }),
     );
   } else {
     allComplete = false;
@@ -125,11 +126,10 @@ export async function POST(req: NextRequest) {
 
   if (projectsProfile?.userProfile.avatarUrl) {
     connectOrCreateItems.push(
-      createConnectOrCreate(
-        'projects.profile.field.avatar',
-        projectsProfileId,
-        POINTS_PER_FIELD,
-      ),
+      createConnectOrCreate({
+        ...projectsReputationProfileFieldConfig('avatar'),
+        profileId: projectsProfileId,
+      }),
     );
   } else {
     allComplete = false;
@@ -137,11 +137,10 @@ export async function POST(req: NextRequest) {
 
   if (projectsProfile?.userProfile.linkedInUsername) {
     connectOrCreateItems.push(
-      createConnectOrCreate(
-        'projects.profile.field.linkedin',
-        projectsProfileId,
-        POINTS_PER_FIELD,
-      ),
+      createConnectOrCreate({
+        ...projectsReputationProfileFieldConfig('linkedin'),
+        profileId: projectsProfileId,
+      }),
     );
   } else {
     allComplete = false;
@@ -149,11 +148,10 @@ export async function POST(req: NextRequest) {
 
   if (projectsProfile?.userProfile.githubUsername) {
     connectOrCreateItems.push(
-      createConnectOrCreate(
-        'projects.profile.field.github',
-        projectsProfileId,
-        POINTS_PER_FIELD,
-      ),
+      createConnectOrCreate({
+        ...projectsReputationProfileFieldConfig('github'),
+        profileId: projectsProfileId,
+      }),
     );
   } else {
     allComplete = false;
@@ -161,11 +159,10 @@ export async function POST(req: NextRequest) {
 
   if (projectsProfile?.userProfile.website) {
     connectOrCreateItems.push(
-      createConnectOrCreate(
-        'projects.profile.field.website',
-        projectsProfileId,
-        POINTS_PER_FIELD,
-      ),
+      createConnectOrCreate({
+        ...projectsReputationProfileFieldConfig('website'),
+        profileId: projectsProfileId,
+      }),
     );
   } else {
     allComplete = false;
@@ -173,11 +170,10 @@ export async function POST(req: NextRequest) {
 
   if (allComplete) {
     connectOrCreateItems.push(
-      createConnectOrCreate(
-        'projects.profile.complete',
-        projectsProfileId,
-        POINTS_FOR_COMPLETING_PROFILE,
-      ),
+      createConnectOrCreate({
+        ...projectsReputationProfileCompleteConfig(),
+        profileId: projectsProfileId,
+      }),
     );
   }
 

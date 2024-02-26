@@ -1,5 +1,11 @@
 import prisma from '~/server/prisma';
 
+import {
+  projectsReputationDiscussionsCommentConfig,
+  projectsReputationDiscussionsCommentVoteConfig,
+  projectsReputationSubmissionVoteConfig,
+} from './ProjectsReputationPointsConfig';
+
 import type {
   DiscussionCommentVote,
   ProjectsChallengeSubmissionVote,
@@ -31,10 +37,7 @@ export async function projectsReputationCommentAwardPoints(
       projectsProfile: {
         update: {
           reputation: {
-            create: {
-              key: `profile.discussions.comment.${comment.id}`,
-              points: 20,
-            },
+            create: projectsReputationDiscussionsCommentConfig(comment.id),
           },
         },
       },
@@ -54,7 +57,7 @@ export async function projectsReputationCommentRevokePoints(
 
   await prisma.projectsReputationPoint.deleteMany({
     where: {
-      key: `profile.discussions.comment.${deletedComment.id}`,
+      key: projectsReputationDiscussionsCommentConfig(deletedComment.id).key,
     },
   });
 }
@@ -82,10 +85,7 @@ export async function projectsReputationCommentVoteAwardPoints(
       projectsProfile: {
         update: {
           reputation: {
-            create: {
-              key: `profile.discussions.comment.vote.${vote.id}`,
-              points: 10,
-            },
+            create: projectsReputationDiscussionsCommentVoteConfig(vote.id),
           },
         },
       },
@@ -101,7 +101,7 @@ export async function projectsReputationCommentVoteRevokePoints(
 ) {
   await prisma.projectsReputationPoint.deleteMany({
     where: {
-      key: `profile.discussions.comment.vote.${deletedVote.id}`,
+      key: projectsReputationDiscussionsCommentVoteConfig(deletedVote.id).key,
     },
   });
 }
@@ -126,10 +126,7 @@ export async function projectsReputationSubmissionVoteAwardPoints(
   await prisma.projectsProfile.update({
     data: {
       reputation: {
-        create: {
-          key: `profile.submission.vote.${vote.id}`,
-          points: 10,
-        },
+        create: projectsReputationSubmissionVoteConfig(vote.id),
       },
     },
     where: {
@@ -143,7 +140,7 @@ export async function projectsReputationSubmissionVoteRevokePoints(
 ) {
   await prisma.projectsReputationPoint.deleteMany({
     where: {
-      key: `profile.submission.vote.${deletedVote.id}`,
+      key: projectsReputationSubmissionVoteConfig(deletedVote.id).key,
     },
   });
 }

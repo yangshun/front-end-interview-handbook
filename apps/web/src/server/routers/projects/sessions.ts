@@ -1,6 +1,7 @@
 import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { z } from 'zod';
 
+import { projectsReputationFirstSessionConfig } from '~/components/projects/reputation/ProjectsReputationPointsConfig';
 import { projectsSkillListInputOptionalSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 
 import {
@@ -179,8 +180,9 @@ export const projectsSessionsRouter = router({
           });
         }
 
+        const repConfig = projectsReputationFirstSessionConfig();
         const reputationFields = {
-          key: 'projects.session.first',
+          key: repConfig.key,
           profileId: projectsProfileId,
         };
 
@@ -199,7 +201,7 @@ export const projectsSessionsRouter = router({
           prisma.projectsReputationPoint.upsert({
             create: {
               ...reputationFields,
-              points: 20,
+              points: repConfig.points,
             },
             update: {},
             where: {
