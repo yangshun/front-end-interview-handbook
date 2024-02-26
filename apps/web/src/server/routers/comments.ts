@@ -6,6 +6,7 @@ import {
   projectsReputationCommentAwardPoints,
   projectsReputationCommentRevokePoints,
   projectsReputationCommentVoteAwardPoints,
+  projectsReputationCommentVoteRevokePoints,
 } from '~/components/projects/reputation/ProjectsReputationUtils';
 
 import prisma from '~/server/prisma';
@@ -293,12 +294,16 @@ export const commentsRouter = router({
       }),
     )
     .mutation(async ({ input: { commentId }, ctx: { user } }) => {
-      await prisma.discussionCommentVote.deleteMany({
+      const deletedVote = await prisma.discussionCommentVote.delete({
         where: {
-          commentId,
-          userId: user.id,
+          commentId_userId: {
+            commentId,
+            userId: user.id,
+          },
         },
       });
+
+      await projectsReputationCommentVoteRevokePoints(deletedVote);
     }),
   update: userProcedure
     .input(

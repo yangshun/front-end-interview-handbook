@@ -1,5 +1,9 @@
 import { z } from 'zod';
 
+import {
+  projectsReputationSubmissionVoteAwardPoints,
+  projectsReputationSubmissionVoteRevokePoints,
+} from '~/components/projects/reputation/ProjectsReputationUtils';
 import { projectsSkillListInputSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 import { isImageFile } from '~/components/projects/submissions/code-viewer/GithubRepositoryCodeViewer';
 import { projectsChallengeSubmissionDeploymentUrlsSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionDeploymentUrlsSchema';
@@ -378,12 +382,18 @@ export const projectsChallengeSubmissionItemRouter = router({
     )
     .mutation(
       async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
-        await prisma.projectsChallengeSubmissionVote.deleteMany({
-          where: {
-            profileId: projectsProfileId,
-            submissionId,
+        const deletedVote = await prisma.projectsChallengeSubmissionVote.delete(
+          {
+            where: {
+              submissionId_profileId: {
+                profileId: projectsProfileId,
+                submissionId,
+              },
+            },
           },
-        });
+        );
+
+        await projectsReputationSubmissionVoteRevokePoints(deletedVote);
 
         return null;
       },
@@ -493,6 +503,7 @@ export const projectsChallengeSubmissionItemRouter = router({
             },
           });
 
+        // TODO(projects): Make it no-op, like for Discussions.
         if (existingVote) {
           // User has already voted, handle accordingly (throw an error, update vote, etc.)
           throw new TRPCError({
@@ -502,12 +513,14 @@ export const projectsChallengeSubmissionItemRouter = router({
         }
 
         // Create a new vote for the submission
-        await prisma.projectsChallengeSubmissionVote.create({
+        const vote = await prisma.projectsChallengeSubmissionVote.create({
           data: {
             profileId: projectsProfileId,
             submissionId,
           },
         });
+
+        await projectsReputationSubmissionVoteAwardPoints(vote);
       },
     ),
 });

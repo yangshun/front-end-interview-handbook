@@ -1,6 +1,9 @@
 import prisma from '~/server/prisma';
 
-import type { DiscussionCommentVote } from '@prisma/client';
+import type {
+  DiscussionCommentVote,
+  ProjectsChallengeSubmissionVote,
+} from '@prisma/client';
 import {
   type DiscussionComment,
   DiscussionCommentDomain,
@@ -80,7 +83,7 @@ export async function projectsReputationCommentVoteAwardPoints(
         update: {
           reputation: {
             create: {
-              key: `profile.discussions.comment.${commentId}.vote.${vote.id}.${voterId}`,
+              key: `profile.discussions.comment.vote.${vote.id}`,
               points: 10,
             },
           },
@@ -89,6 +92,58 @@ export async function projectsReputationCommentVoteAwardPoints(
     },
     where: {
       id: comment.userId,
+    },
+  });
+}
+
+export async function projectsReputationCommentVoteRevokePoints(
+  deletedVote: DiscussionCommentVote,
+) {
+  await prisma.projectsReputationPoint.deleteMany({
+    where: {
+      key: `profile.discussions.comment.vote.${deletedVote.id}`,
+    },
+  });
+}
+
+export async function projectsReputationSubmissionVoteAwardPoints(
+  vote: ProjectsChallengeSubmissionVote,
+) {
+  const { submissionId, profileId: voterId } = vote;
+  const submission = await prisma.projectsChallengeSubmission.findFirst({
+    where: {
+      id: submissionId,
+    },
+  });
+
+  if (
+    submission == null ||
+    voterId === submission.profileId // Don't give points for self-votes.
+  ) {
+    return;
+  }
+
+  await prisma.projectsProfile.update({
+    data: {
+      reputation: {
+        create: {
+          key: `profile.submission.vote.${vote.id}`,
+          points: 10,
+        },
+      },
+    },
+    where: {
+      id: submission.profileId,
+    },
+  });
+}
+
+export async function projectsReputationSubmissionVoteRevokePoints(
+  deletedVote: ProjectsChallengeSubmissionVote,
+) {
+  await prisma.projectsReputationPoint.deleteMany({
+    where: {
+      key: `profile.submission.vote.${deletedVote.id}`,
     },
   });
 }
