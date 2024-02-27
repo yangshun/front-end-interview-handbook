@@ -57,8 +57,6 @@ model Profile {
   questionUserInterfaceCommunitySolutions QuestionUserInterfaceCommunitySolution[]
   projectsProfile                         ProjectsProfile?
   rewardsTaskCompletions                  RewardsTaskCompletion[]
-  comments                                DiscussionComment[]
-  commentVotes                            DiscussionCommentVote[]
 }
 
 model QuestionProgress {
@@ -313,42 +311,6 @@ view ProjectsChallengeSubmissionRecommendationMentor {
   score Int
 
   submission ProjectsChallengeSubmission @relation(fields: [id], references: [id])
-}
-
-enum DiscussionCommentDomain {
-  PROJECTS_CHALLENGE
-  PROJECTS_SUBMISSION
-}
-
-model DiscussionComment {
-  id              String                  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  entityId        String
-  domain          DiscussionCommentDomain
-  parentCommentId String?                 @db.Uuid
-
-  body     String
-  category String?
-  userId   String  @db.Uuid
-
-  createdAt DateTime @default(now()) @db.Timestamptz(6)
-  updatedAt DateTime @default(now()) @updatedAt
-
-  author        Profile                 @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  parentComment DiscussionComment?      @relation("DiscussionThread", fields: [parentCommentId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  replies       DiscussionComment[]     @relation("DiscussionThread")
-  votes         DiscussionCommentVote[]
-}
-
-model DiscussionCommentVote {
-  id        String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  commentId String   @db.Uuid
-  userId    String   @db.Uuid
-  createdAt DateTime @default(now()) @db.Timestamptz(6)
-
-  comment DiscussionComment @relation(fields: [commentId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-  author  Profile           @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-
-  @@unique([commentId, userId])
 }
 
 enum ProjectsDiscussionCommentDomain {
