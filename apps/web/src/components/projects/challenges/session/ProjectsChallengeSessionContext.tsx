@@ -178,9 +178,9 @@ export default function ProjectsChallengeSessionContextProvider({
               showToast({
                 description: startedBefore ? (
                   <FormattedMessage
-                    defaultMessage="Project started! Leverage the provided guides and resources and submit a link to your site once ready!"
+                    defaultMessage="Project started! Leverage the provided resources and submit a link to your site once ready!"
                     description="Toast subtitle for project session started"
-                    id="QvLJda"
+                    id="Et7nC7"
                   />
                 ) : (
                   <FormattedMessage
