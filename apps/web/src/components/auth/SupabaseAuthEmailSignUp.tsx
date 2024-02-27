@@ -90,37 +90,15 @@ export default function SupabaseAuthEmailSignUp({
       // There's mostly no differentiation in with new user sign ups so that hackers cannot tell whether it's a new or existing user.
 
       // The difference is that the identities array for new users is non-empty.
-      // We can use that as a hacky way to determine if it's an existing user and send them a magic link email.
+      // We can use that as a hacky way to determine if it's an existing user and tell them to sign in instead.
       // https://github.com/orgs/supabase/discussions/1282
       if (signUpUser.identities?.length === 0) {
-        setLoading(true);
-
-        const { error: magicLinkError } =
-          await supabaseClient.auth.signInWithOtp({
-            email,
-            options: { emailRedirectTo },
-          });
-
-        setLoading(false);
-
-        if (magicLinkError != null) {
-          setError(magicLinkError?.message);
-
-          return;
-        }
-
         logEvent('auth.sign_up.existing_user', {
           email,
           type: 'email',
         });
-        // Redirect to email verify page.
-        router.push({
-          pathname: '/auth/verification-sent',
-          query: {
-            email,
-            redirect_to: emailRedirectTo,
-          },
-        });
+
+        setError('Account already exists, sign in instead');
 
         return;
       }
