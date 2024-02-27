@@ -27,7 +27,6 @@ import {
   sortQuestionsMultiple,
 } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import QuestionsList from '~/components/interviews/questions/listings/items/QuestionsList';
-import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
@@ -336,11 +335,13 @@ export default function QuestionsCodingListWithFilters({
         <div className="hidden lg:inline-flex">
           <Popover
             trigger={
-              <Button
+              <FilterButton
+                addonPosition="end"
                 icon={RiArrowDownSLine}
                 label={companyFilterOptions.name}
+                purpose="button"
+                selected={companyFilters.size > 0}
                 size="sm"
-                variant="secondary"
               />
             }>
             <div className="grid grid-cols-2 gap-x-4 gap-y-3">
@@ -362,11 +363,13 @@ export default function QuestionsCodingListWithFilters({
         <div className="hidden lg:inline-flex">
           <Popover
             trigger={
-              <Button
+              <FilterButton
+                addonPosition="end"
                 icon={RiArrowDownSLine}
                 label={difficultyFilterOptions.name}
+                purpose="button"
+                selected={difficultyFilters.size > 0}
                 size="sm"
-                variant="secondary"
               />
             }
             width="sm">
@@ -391,11 +394,13 @@ export default function QuestionsCodingListWithFilters({
         <div className="hidden lg:inline-flex">
           <Popover
             trigger={
-              <Button
+              <FilterButton
+                addonPosition="end"
                 icon={RiArrowDownSLine}
                 label={frameworkFilterOptions.name}
+                purpose="button"
+                selected={frameworkFilters.size > 0}
                 size="sm"
-                variant="secondary"
               />
             }>
             <div className={clsx('flex flex-col')}>
@@ -446,11 +451,13 @@ export default function QuestionsCodingListWithFilters({
         <div className="hidden lg:inline-flex">
           <Popover
             trigger={
-              <Button
+              <FilterButton
+                addonPosition="end"
                 icon={RiArrowDownSLine}
                 label={completionStatusFilterOptions.name}
+                purpose="button"
+                selected={completionStatusFilters.size > 0}
                 size="sm"
-                variant="secondary"
               />
             }
             width="sm">
