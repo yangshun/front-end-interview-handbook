@@ -3,6 +3,8 @@ import type { UrlObject } from 'node:url';
 import type { ParsedUrlQueryInput } from 'querystring';
 import { useIntl } from 'react-intl';
 
+import { useAuthSignedInBefore } from '~/components/auth/useAuthSignedInBefore';
+
 import { useI18nRouter } from '~/next-i18nostic/src';
 
 type HrefProps = Readonly<{
@@ -11,6 +13,7 @@ type HrefProps = Readonly<{
 }>;
 
 export function useAuthSignInUp() {
+  const [signedInBefore] = useAuthSignedInBefore();
   const intl = useIntl();
   const router = useI18nRouter();
   // To redirect post-login, so we can use the full pathname.
@@ -21,7 +24,7 @@ export function useAuthSignInUp() {
     query,
   }: HrefProps | undefined = {}): UrlObject {
     return {
-      pathname: '/sign-up',
+      pathname: signedInBefore ? '/login' : '/sign-up',
       query: {
         next: next || pathname || window.location.pathname,
         ...query,

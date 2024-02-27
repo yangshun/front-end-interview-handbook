@@ -1,17 +1,22 @@
 import { useEffect } from 'react';
 
+import { useAuthSignedInBefore } from '~/components/auth/useAuthSignedInBefore';
+
 import { useUser } from '@supabase/auth-helpers-react';
 
 export default function useAuthFullPageRedirectAfterLogin(
   next: string | null | undefined,
 ) {
   const user = useUser();
+  const [, setSignedInBefore] = useAuthSignedInBefore();
 
   useEffect(() => {
     // Only run effect when user is logged in.
     if (user == null) {
       return;
     }
+
+    setSignedInBefore(true);
 
     // Redirect user to the page they were intending to
     // go to (if defined) and if that page is not the current page.
@@ -23,5 +28,5 @@ export default function useAuthFullPageRedirectAfterLogin(
     // on the server side but the auth cookie is not yet written.
     // Do a full page redirect to prevent race conditions.
     window.location.href = redirectPath;
-  }, [next, user]);
+  }, [next, setSignedInBefore, user]);
 }

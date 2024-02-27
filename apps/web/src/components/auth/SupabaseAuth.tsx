@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import Anchor from '~/components/ui/Anchor';
@@ -17,10 +17,12 @@ import SupabaseAuthForgottenPassword from './SupabaseAuthForgottenPassword';
 import type { SupabaseProviderGFE } from './SupabaseAuthSocial';
 import SupabaseAuthSocial from './SupabaseAuthSocial';
 import type { AuthViewType } from './SupabaseAuthTypes';
+import { useAuthSignedInBefore } from './useAuthSignedInBefore';
 
 export type Props = Readonly<{
   children?: React.ReactNode;
   className?: string;
+  initialView?: AuthViewType;
   magicLink?: boolean;
   next: string;
   onlyThirdPartyProviders?: boolean;
@@ -29,7 +31,6 @@ export type Props = Readonly<{
   socialLayout?: 'horizontal' | 'vertical';
   style?: React.CSSProperties;
   supabaseClient: SupabaseClientGFE;
-  view?: AuthViewType;
 }>;
 
 export default function SupabaseAuth({
@@ -38,11 +39,14 @@ export default function SupabaseAuth({
   socialLayout = 'vertical',
   preBodyContents,
   providers,
-  view = 'sign_in',
+  initialView = 'sign_in',
   next,
   onlyThirdPartyProviders = false,
 }: Props): JSX.Element | null {
-  const [authView, setAuthView] = useState<AuthViewType>(view);
+  const [signedInBefore] = useAuthSignedInBefore();
+  const [authView, setAuthView] = useState<AuthViewType>(
+    initialView === 'sign_up' && signedInBefore ? 'sign_in' : initialView,
+  );
   const hasThirdPartyProviders = providers != null && providers.length > 0;
 
   function Container({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -164,11 +168,6 @@ export default function SupabaseAuth({
     );
   }
 
-  useEffect(() => {
-    // Handle view override
-    setAuthView(view);
-  }, [view]);
-
   switch (authView) {
     case 'sign_in':
       return (
@@ -189,7 +188,6 @@ export default function SupabaseAuth({
           />
         </Container>
       );
-
     case 'forgotten_password':
       return (
         <SupabaseAuthForgottenPassword
@@ -198,7 +196,6 @@ export default function SupabaseAuth({
           supabaseClient={supabaseClient}
         />
       );
-
     default:
       return null;
   }
