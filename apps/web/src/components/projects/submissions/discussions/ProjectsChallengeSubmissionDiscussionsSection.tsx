@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 
 import useProfile from '~/hooks/user/useProfile';
 
-import DiscussionsCommentList from '~/components/discussions/DiscussionsCommentList';
+import DiscussionsCommentList from '~/components/projects/discussions/ProjectsDiscussionsCommentList';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {

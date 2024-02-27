@@ -7,23 +7,23 @@ import { trpc } from '~/hooks/trpc';
 import Button from '~/components/ui/Button';
 import { themeTextBrandColor } from '~/components/ui/theme';
 
-import type { DiscussionsCommentItem } from './types';
+import type { ProjectsDiscussionsCommentItem } from './types';
 
 type Props = Readonly<{
-  comment: DiscussionsCommentItem;
+  comment: ProjectsDiscussionsCommentItem;
   count: number;
 }>;
 
-export default function DiscussionsCommentVoteButton({
+export default function ProjectsDiscussionsCommentVoteButton({
   comment,
   count,
 }: Props) {
   const { id: commentId } = comment;
   const intl = useIntl();
-  const voteCommentMutation = trpc.comments.vote.useMutation();
-  const unvoteCommentMutation = trpc.comments.unvote.useMutation();
+  const voteCommentMutation = trpc.projects.comments.vote.useMutation();
+  const unvoteCommentMutation = trpc.projects.comments.unvote.useMutation();
 
-  const { data: likedComments } = trpc.comments.liked.useQuery({
+  const { data: likedComments } = trpc.projects.comments.liked.useQuery({
     domain: comment.domain,
     entityId: comment.entityId,
   });

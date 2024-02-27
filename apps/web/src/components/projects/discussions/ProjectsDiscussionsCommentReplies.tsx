@@ -1,19 +1,19 @@
 import clsx from 'clsx';
 
-import DiscussionsComment from './DiscussionsComment';
-import DiscussionsCommentRepliesThreadLines from './DiscussionsCommentRepliesThreadLines';
+import ProjectsDiscussionsComment from './ProjectsDiscussionsComment';
+import ProjectsDiscussionsCommentRepliesThreadLines from './ProjectsDiscussionsCommentRepliesThreadLines';
 import type {
-  DiscussionsCommentItem,
-  DiscussionsCommentUserProfile,
+  ProjectsDiscussionsCommentItem,
+  ProjectsDiscussionsCommentUserProfile,
 } from './types';
 
 type Props = Readonly<{
   level: number;
-  replies: ReadonlyArray<DiscussionsCommentItem>;
-  viewer?: DiscussionsCommentUserProfile | null;
+  replies: ReadonlyArray<ProjectsDiscussionsCommentItem>;
+  viewer?: ProjectsDiscussionsCommentUserProfile | null;
 }>;
 
-export default function DiscussionsCommentReplies({
+export default function ProjectsDiscussionsCommentReplies({
   level,
   replies,
   viewer,
@@ -22,11 +22,11 @@ export default function DiscussionsCommentReplies({
     <>
       {replies.map((comment, index) => (
         <div key={comment.id} className="relative flex w-full">
-          <DiscussionsCommentRepliesThreadLines
+          <ProjectsDiscussionsCommentRepliesThreadLines
             branchHeightClass="h-7"
             drawVerticalLine={index < replies.length - 1}
           />
-          <DiscussionsComment
+          <ProjectsDiscussionsComment
             className={clsx(index < replies.length - 1 && 'pb-6')}
             comment={comment}
             level={level}

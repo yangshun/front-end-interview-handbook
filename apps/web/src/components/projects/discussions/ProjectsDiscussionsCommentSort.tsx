@@ -1,17 +1,17 @@
 import { RiSortDesc } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import type { DiscussionsCommentSortField } from '~/components/discussions/types';
+import type { ProjectsDiscussionsCommentSortField } from '~/components/projects/discussions/types';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
 type Props = Readonly<{
   isAscendingOrder: boolean;
   setIsAscendingOrder: (value: boolean) => void;
-  setSortField: (value: DiscussionsCommentSortField) => void;
-  sortField: DiscussionsCommentSortField | null;
+  setSortField: (value: ProjectsDiscussionsCommentSortField) => void;
+  sortField: ProjectsDiscussionsCommentSortField | null;
 }>;
 
-export default function DiscussionsCommentSort({
+export default function ProjectsDiscussionsCommentSort({
   sortField,
   isAscendingOrder,
   setSortField,
@@ -21,7 +21,7 @@ export default function DiscussionsCommentSort({
 
   function makeDropdownItemProps(
     label: string,
-    itemField: DiscussionsCommentSortField,
+    itemField: ProjectsDiscussionsCommentSortField,
     isItemAscendingOrder: boolean,
   ) {
     return {

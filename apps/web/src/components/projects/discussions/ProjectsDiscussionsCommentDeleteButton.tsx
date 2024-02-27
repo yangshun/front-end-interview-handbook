@@ -5,7 +5,7 @@ import { trpc } from '~/hooks/trpc';
 
 import Button from '~/components/ui/Button';
 
-import ConfirmationDialog from '../common/ConfirmationDialog';
+import ConfirmationDialog from '../../common/ConfirmationDialog';
 
 type Props = Readonly<{
   commentId: string;
@@ -14,14 +14,14 @@ type Props = Readonly<{
   onDismiss: () => void;
 }>;
 
-export default function DiscussionsCommentDeleteButton({
+export default function ProjectsDiscussionsCommentDeleteButton({
   commentId,
   dialogShown,
   onClick,
   onDismiss,
 }: Props) {
   const intl = useIntl();
-  const deleteCommentMutation = trpc.comments.delete.useMutation();
+  const deleteCommentMutation = trpc.projects.comments.delete.useMutation();
 
   return (
     <div>

@@ -1,7 +1,7 @@
 import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { z } from 'zod';
 
-import { discussionsCommentBodySchemaServer } from '~/components/discussions/DiscussionsCommentBodySchema';
+import { discussionsCommentBodySchemaServer } from '~/components/projects/discussions/ProjectsDiscussionsCommentBodySchema';
 import {
   projectsReputationCommentAwardPoints,
   projectsReputationCommentRevokePoints,
@@ -11,18 +11,18 @@ import {
 
 import prisma from '~/server/prisma';
 
-import { projectsUserProcedure } from './projects/procedures';
-import { publicProcedure, router, userProcedure } from '../trpc';
+import { projectsUserProcedure } from './procedures';
+import { publicProcedure, router, userProcedure } from '../../trpc';
 
-import { DiscussionCommentDomain, Prisma } from '@prisma/client';
+import { Prisma, ProjectsDiscussionCommentDomain } from '@prisma/client';
 
 // TODO(prisma): Read from Prisma directly.
 const domains = [
-  DiscussionCommentDomain.PROJECTS_SUBMISSION,
-  DiscussionCommentDomain.PROJECTS_CHALLENGE,
+  ProjectsDiscussionCommentDomain.PROJECTS_SUBMISSION,
+  ProjectsDiscussionCommentDomain.PROJECTS_CHALLENGE,
 ] as const;
 
-export const commentsRouter = router({
+export const projectsCommentsRouter = router({
   create: projectsUserProcedure
     .input(
       z.object({
@@ -217,7 +217,10 @@ export const commentsRouter = router({
 
       const commentsWithInfo = Promise.all(
         comments.map(async (comment) => {
-          if (comment.domain === DiscussionCommentDomain.PROJECTS_CHALLENGE) {
+          if (
+            comment.domain ===
+            ProjectsDiscussionCommentDomain.PROJECTS_CHALLENGE
+          ) {
             const challengeMetadata = allProjectsChallengeMetadata.find(
               (challenge) => challenge.slug === comment.entityId,
             );
@@ -234,7 +237,10 @@ export const commentsRouter = router({
               },
             };
           }
-          if (comment.domain === DiscussionCommentDomain.PROJECTS_SUBMISSION) {
+          if (
+            comment.domain ===
+            ProjectsDiscussionCommentDomain.PROJECTS_SUBMISSION
+          ) {
             const title = await prisma.projectsChallengeSubmission.findUnique({
               select: {
                 title: true,

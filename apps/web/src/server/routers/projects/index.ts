@@ -1,4 +1,5 @@
 import { projectsChallengesRouter } from './challenges';
+import { projectsCommentsRouter } from './comments';
 import { projectsProfileRouter } from './profile';
 import { projectsSessionsRouter } from './sessions';
 import { projectsChallengeSubmissionItemRouter } from './submission';
@@ -7,6 +8,7 @@ import { router } from '../../trpc';
 
 export const projectsRouter = router({
   challenges: projectsChallengesRouter,
+  comments: projectsCommentsRouter,
   profile: projectsProfileRouter,
   sessions: projectsSessionsRouter,
   submission: projectsChallengeSubmissionItemRouter,

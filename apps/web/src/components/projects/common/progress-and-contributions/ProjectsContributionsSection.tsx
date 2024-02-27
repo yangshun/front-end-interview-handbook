@@ -43,7 +43,7 @@ export default function ProjectsContributionsSection({ userId }: Props) {
     'PROJECTS_CHALLENGE',
   ];
   const { data: profile } = trpc.profile.getProfile.useQuery();
-  const { data: comments } = trpc.comments.listUserComments.useQuery({
+  const { data: comments } = trpc.projects.comments.listUserComments.useQuery({
     domainList,
     userId: userId || profile?.id,
   });

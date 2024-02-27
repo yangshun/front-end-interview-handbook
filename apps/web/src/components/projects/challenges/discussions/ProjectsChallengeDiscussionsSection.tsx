@@ -1,6 +1,6 @@
 import useProfile from '~/hooks/user/useProfile';
 
-import DiscussionsCommentList from '~/components/discussions/DiscussionsCommentList';
+import DiscussionsCommentList from '~/components/projects/discussions/ProjectsDiscussionsCommentList';
 
 import ProjectsChallengeDiscussionsNewComment from './ProjectsChallengeDiscussionsNewComment';
 import type { ProjectsChallengeItem } from '../types';

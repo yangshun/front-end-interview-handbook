@@ -19,31 +19,31 @@ import {
   themeBorderElementColor,
 } from '~/components/ui/theme';
 
-import DiscussionsCommentDeleteButton from './DiscussionsCommentDeleteButton';
-import DiscussionsCommentEditInput from './DiscussionsCommentEditInput';
-import DiscussionsCommentReplies from './DiscussionsCommentReplies';
-import DiscussionsCommentRepliesThreadLines from './DiscussionsCommentRepliesThreadLines';
-import DiscussionsCommentVoteButton from './DiscussionsCommentVoteButton';
-import DiscussionsReplyInput from './DiscussionsReplyInput';
+import ProjectsDiscussionsCommentDeleteButton from './ProjectsDiscussionsCommentDeleteButton';
+import ProjectsDiscussionsCommentEditInput from './ProjectsDiscussionsCommentEditInput';
+import ProjectsDiscussionsCommentReplies from './ProjectsDiscussionsCommentReplies';
+import ProjectsDiscussionsCommentRepliesThreadLines from './ProjectsDiscussionsCommentRepliesThreadLines';
+import ProjectsDiscussionsCommentVoteButton from './ProjectsDiscussionsCommentVoteButton';
+import ProjectsDiscussionsReplyInput from './ProjectsDiscussionsReplyInput';
 import type {
-  DiscussionsCommentItem,
-  DiscussionsCommentUserProfile,
+  ProjectsDiscussionsCommentItem,
+  ProjectsDiscussionsCommentUserProfile,
 } from './types';
-import UserProfileInformationRow from '../profile/info/UserProfileInformationRow';
-import ProjectsVoteCountTag from '../projects/stats/ProjectsVoteCountTag';
-import ProjectsProfileAvatar from '../projects/users/ProjectsProfileAvatar';
-import ProjectsProfileDisplayNameLink from '../projects/users/ProjectsProfileDisplayNameLink';
+import ProjectsVoteCountTag from '../stats/ProjectsVoteCountTag';
+import ProjectsProfileAvatar from '../users/ProjectsProfileAvatar';
+import ProjectsProfileDisplayNameLink from '../users/ProjectsProfileDisplayNameLink';
+import UserProfileInformationRow from '../../profile/info/UserProfileInformationRow';
 
 type Props = Readonly<{
   className?: string;
-  comment: DiscussionsCommentItem;
+  comment: ProjectsDiscussionsCommentItem;
   level: number;
-  viewer?: DiscussionsCommentUserProfile | null;
+  viewer?: ProjectsDiscussionsCommentUserProfile | null;
 }>;
 
 const MAX_LEVEL_TO_ALLOW_REPLIES = 2;
 
-export default function DiscussionsComment({
+export default function ProjectsDiscussionsComment({
   comment,
   level,
   className,
@@ -150,7 +150,7 @@ export default function DiscussionsComment({
             />
           )}
           {mode === 'edit' ? (
-            <DiscussionsCommentEditInput
+            <ProjectsDiscussionsCommentEditInput
               comment={comment}
               onCancel={() => {
                 setMode(null);
@@ -167,7 +167,7 @@ export default function DiscussionsComment({
             {viewer == null ? (
               <ProjectsVoteCountTag count={votesCount} />
             ) : (
-              <DiscussionsCommentVoteButton
+              <ProjectsDiscussionsCommentVoteButton
                 comment={comment}
                 count={votesCount}
               />
@@ -201,7 +201,7 @@ export default function DiscussionsComment({
               />
             )}
             {viewer?.userProfile.id === author.userProfile.id && (
-              <DiscussionsCommentDeleteButton
+              <ProjectsDiscussionsCommentDeleteButton
                 commentId={commentId}
                 dialogShown={mode === 'delete'}
                 onClick={() => setMode('delete')}
@@ -212,7 +212,7 @@ export default function DiscussionsComment({
         </div>
       </div>
       {mode === 'reply' && viewer != null && (
-        <DiscussionsReplyInput
+        <ProjectsDiscussionsReplyInput
           hasNext={hasReplies}
           parentComment={comment}
           viewer={viewer}
@@ -223,14 +223,14 @@ export default function DiscussionsComment({
       )}
       {hasReplies &&
         (showReplies ? (
-          <DiscussionsCommentReplies
+          <ProjectsDiscussionsCommentReplies
             level={level + 1}
             replies={comment.replies ?? []}
             viewer={viewer}
           />
         ) : (
           <div className="flex">
-            <DiscussionsCommentRepliesThreadLines branchHeightClass="h-5 -translate-y-1" />
+            <ProjectsDiscussionsCommentRepliesThreadLines branchHeightClass="h-5 -translate-y-1" />
             <Button
               addonPosition="start"
               className="-ms-3.5"

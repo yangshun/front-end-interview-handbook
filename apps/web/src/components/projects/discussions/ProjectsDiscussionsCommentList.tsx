@@ -10,30 +10,30 @@ import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import { themeBorderColor, themeTextSubtleColor } from '~/components/ui/theme';
 
-import DiscussionsComment from './DiscussionsComment';
-import DiscussionsCommentSort from './DiscussionsCommentSort';
+import ProjectsDiscussionsComment from './ProjectsDiscussionsComment';
+import ProjectsDiscussionsCommentSort from './ProjectsDiscussionsCommentSort';
 import type {
-  DiscussionsCommentSortField,
-  DiscussionsCommentUserProfile,
+  ProjectsDiscussionsCommentSortField,
+  ProjectsDiscussionsCommentUserProfile,
 } from './types';
 
-import type { DiscussionCommentDomain } from '@prisma/client';
+import type { ProjectsDiscussionCommentDomain } from '@prisma/client';
 
 type Props = Readonly<{
-  domain: DiscussionCommentDomain;
+  domain: ProjectsDiscussionCommentDomain;
   entityId: string;
-  viewer?: DiscussionsCommentUserProfile | null;
+  viewer?: ProjectsDiscussionsCommentUserProfile | null;
 }>;
 
-export default function DiscussionsCommentList({
+export default function ProjectsDiscussionsCommentList({
   entityId,
   domain,
   viewer,
 }: Props) {
   const [isAscendingOrder, setIsAscendingOrder] = useState(false);
   const [sortField, setSortField] =
-    useState<DiscussionsCommentSortField>('createdAt');
-  const { data, isLoading } = trpc.comments.list.useQuery({
+    useState<ProjectsDiscussionsCommentSortField>('createdAt');
+  const { data, isLoading } = trpc.projects.comments.list.useQuery({
     domain,
     entityId,
     sort: {
@@ -81,7 +81,7 @@ export default function DiscussionsCommentList({
             />
           </Text>
         </div>
-        <DiscussionsCommentSort
+        <ProjectsDiscussionsCommentSort
           isAscendingOrder={isAscendingOrder}
           setIsAscendingOrder={setIsAscendingOrder}
           setSortField={setSortField}
@@ -89,7 +89,7 @@ export default function DiscussionsCommentList({
         />
       </div>
       {comments?.map((comment) => (
-        <DiscussionsComment
+        <ProjectsDiscussionsComment
           key={comment.id}
           comment={comment}
           level={1}

@@ -12,36 +12,36 @@ import Text from '~/components/ui/Text';
 import {
   getDiscussionsCommentBodyAttributes,
   useDiscussionsCommentBodySchema,
-} from './DiscussionsCommentBodySchema';
-import DiscussionsCommentRepliesThreadLines from './DiscussionsCommentRepliesThreadLines';
+} from './ProjectsDiscussionsCommentBodySchema';
+import ProjectsDiscussionsCommentRepliesThreadLines from './ProjectsDiscussionsCommentRepliesThreadLines';
 import type {
-  DiscussionsCommentItem,
-  DiscussionsCommentUserProfile,
+  ProjectsDiscussionsCommentItem,
+  ProjectsDiscussionsCommentUserProfile,
 } from './types';
-import UserAvatarWithLevel from '../projects/users/UserAvatarWithLevel';
-import RichTextEditor from '../ui/RichTextEditor';
+import UserAvatarWithLevel from '../users/UserAvatarWithLevel';
+import RichTextEditor from '../../ui/RichTextEditor';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
 type Props = Readonly<{
   hasNext: boolean;
   onCancel: () => void;
-  parentComment: DiscussionsCommentItem;
-  viewer: DiscussionsCommentUserProfile;
+  parentComment: ProjectsDiscussionsCommentItem;
+  viewer: ProjectsDiscussionsCommentUserProfile;
 }>;
 
 type CommentFormInput = Readonly<{
   body: string;
 }>;
 
-export default function DiscussionsReplyInput({
+export default function ProjectsDiscussionsReplyInput({
   hasNext,
   onCancel,
   viewer,
   parentComment,
 }: Props) {
   const intl = useIntl();
-  const createReplyMutation = trpc.comments.reply.useMutation();
+  const createReplyMutation = trpc.projects.comments.reply.useMutation();
   const attrs = getDiscussionsCommentBodyAttributes(intl);
   const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
 
@@ -78,7 +78,7 @@ export default function DiscussionsReplyInput({
 
   return (
     <div className="relative flex">
-      <DiscussionsCommentRepliesThreadLines
+      <ProjectsDiscussionsCommentRepliesThreadLines
         branchHeightClass="h-7"
         drawVerticalLine={hasNext}
       />

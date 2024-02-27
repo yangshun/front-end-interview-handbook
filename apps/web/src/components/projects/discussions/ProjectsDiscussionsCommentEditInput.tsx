@@ -10,14 +10,14 @@ import Button from '~/components/ui/Button';
 import {
   getDiscussionsCommentBodyAttributes,
   useDiscussionsCommentBodySchema,
-} from './DiscussionsCommentBodySchema';
-import type { DiscussionsCommentItem } from './types';
-import RichTextEditor from '../ui/RichTextEditor';
+} from './ProjectsDiscussionsCommentBodySchema';
+import type { ProjectsDiscussionsCommentItem } from './types';
+import RichTextEditor from '../../ui/RichTextEditor';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
 type Props = Readonly<{
-  comment: DiscussionsCommentItem;
+  comment: ProjectsDiscussionsCommentItem;
   onCancel: () => void;
 }>;
 
@@ -25,12 +25,12 @@ type CommentFormInput = Readonly<{
   body: string;
 }>;
 
-export default function DiscussionsCommentEditInput({
+export default function ProjectsDiscussionsCommentEditInput({
   comment,
   onCancel,
 }: Props) {
   const intl = useIntl();
-  const updateCommentMutation = trpc.comments.update.useMutation();
+  const updateCommentMutation = trpc.projects.comments.update.useMutation();
   const attrs = getDiscussionsCommentBodyAttributes(intl);
   const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
 

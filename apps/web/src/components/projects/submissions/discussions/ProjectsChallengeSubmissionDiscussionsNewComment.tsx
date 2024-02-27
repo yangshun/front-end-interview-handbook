@@ -7,12 +7,12 @@ import { z } from 'zod';
 import { trpc } from '~/hooks/trpc';
 
 import FilterButton from '~/components/common/FilterButton';
+import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import {
   getDiscussionsCommentBodyAttributes,
   useDiscussionsCommentBodySchema,
-} from '~/components/discussions/DiscussionsCommentBodySchema';
-import type { DiscussionsCommentUserProfile } from '~/components/discussions/types';
-import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
+} from '~/components/projects/discussions/ProjectsDiscussionsCommentBodySchema';
+import type { ProjectsDiscussionsCommentUserProfile } from '~/components/projects/discussions/types';
 import Button from '~/components/ui/Button';
 import RichTextEditor from '~/components/ui/RichTextEditor';
 import Text from '~/components/ui/Text';
@@ -25,7 +25,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 type Props = Readonly<{
   submission: ProjectsChallengeSubmissionAugmented;
-  viewer: DiscussionsCommentUserProfile;
+  viewer: ProjectsDiscussionsCommentUserProfile;
 }>;
 
 type CommentFormInput = Readonly<{
@@ -39,7 +39,7 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
 }: Props) {
   const intl = useIntl();
   const [editorRerenderKey, setEditorRerenderKey] = useState(0);
-  const createCommentMutation = trpc.comments.create.useMutation();
+  const createCommentMutation = trpc.projects.comments.create.useMutation();
   const attrs = getDiscussionsCommentBodyAttributes(intl);
   const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
 

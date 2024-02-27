@@ -1,13 +1,13 @@
 import clsx from 'clsx';
 
-import { themeBorderElementColor } from '../ui/theme';
+import { themeBorderElementColor } from '../../ui/theme';
 
 type Props = Readonly<{
   branchHeightClass: string;
   drawVerticalLine?: boolean;
 }>;
 
-export default function DiscussionsCommentRepliesThreadLines({
+export default function ProjectsDiscussionsCommentRepliesThreadLines({
   branchHeightClass,
   drawVerticalLine = false,
 }: Props) {

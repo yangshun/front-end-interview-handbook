@@ -1,6 +1,6 @@
 import type { ProjectsDiscussionCommentDomain } from '@prisma/client';
 
-export type DiscussionsCommentUserProfile = Readonly<{
+export type ProjectsDiscussionsCommentUserProfile = Readonly<{
   userProfile: {
     avatarUrl: string | null;
     currentStatus: string | null;
@@ -14,19 +14,19 @@ export type DiscussionsCommentUserProfile = Readonly<{
   };
 }>;
 
-export type DiscussionsCommentItem = Readonly<{
+export type ProjectsDiscussionsCommentItem = Readonly<{
   _count: {
     votes: number;
   };
-  author: DiscussionsCommentUserProfile;
+  author: ProjectsDiscussionsCommentUserProfile;
   body: string;
   category: string | null;
   createdAt: Date;
   domain: ProjectsDiscussionCommentDomain;
   entityId: string;
   id: string;
-  replies?: ReadonlyArray<DiscussionsCommentItem>;
+  replies?: ReadonlyArray<ProjectsDiscussionsCommentItem>;
   updatedAt: Date;
 }>;
 
-export type DiscussionsCommentSortField = 'createdAt' | 'votes';
+export type ProjectsDiscussionsCommentSortField = 'createdAt' | 'votes';
