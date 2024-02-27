@@ -190,11 +190,13 @@ export default function BlogListingWithFilters({
         <div className="hidden lg:inline-flex">
           <Popover
             trigger={
-              <Button
+              <FilterButton
+                addonPosition="end"
                 icon={RiArrowDownSLine}
                 label={levelFilterOptions.name}
+                purpose="button"
+                selected={levelFilters.size > 0}
                 size="sm"
-                variant="secondary"
               />
             }
             width="sm">
@@ -217,11 +219,13 @@ export default function BlogListingWithFilters({
         <div className="hidden lg:inline-flex">
           <Popover
             trigger={
-              <Button
+              <FilterButton
+                addonPosition="end"
                 icon={RiArrowDownSLine}
                 label={tagFilterOptions.name}
+                purpose="button"
+                selected={tagFilters.size > 0}
                 size="sm"
-                variant="secondary"
               />
             }
             width="sm">
