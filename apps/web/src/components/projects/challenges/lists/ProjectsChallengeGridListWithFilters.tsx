@@ -122,7 +122,7 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
               id: 'jp2HuK',
             }),
             'recommended',
-            true,
+            false,
           ),
           makeDropdownItemProps(
             intl.formatMessage({

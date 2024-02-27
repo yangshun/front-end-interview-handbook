@@ -2,10 +2,10 @@ import { usePathname } from 'next/navigation';
 import { useSearchParams } from 'next/navigation';
 import { useCallback, useRef } from 'react';
 
-type UpdateQueueItem = {
+type UpdateQueueItem = Readonly<{
   key: string;
   value: ReadonlyArray<string> | string;
-};
+}>;
 
 export default function useFilterSearchParams() {
   const searchParams = useSearchParams();
@@ -44,9 +44,9 @@ export default function useFilterSearchParams() {
     window.history.replaceState({}, '', `${pathname}${query}`);
   }, [pathname]);
 
-  const updateMultipleSearchParams = (
+  function updateMultipleSearchParams(
     params: Record<string, ReadonlyArray<string> | string>,
-  ) => {
+  ) {
     const current = new URLSearchParams(window.location.search);
     let search = '';
 
@@ -70,12 +70,12 @@ export default function useFilterSearchParams() {
     const query = search ? `?${search}` : '';
 
     window.history.replaceState({}, '', `${pathname}${query}`);
-  };
+  }
 
-  const updateSearchParams = (
+  function updateSearchParams(
     key: string,
     value: ReadonlyArray<string> | string,
-  ) => {
+  ) {
     // To handle asynchronous update of search params
     updateQueue.current = [...(updateQueue.current || []), { key, value }];
     if (shouldWaitUpdate.current) {
@@ -86,15 +86,15 @@ export default function useFilterSearchParams() {
     setTimeout(() => {
       processUpdateQueue();
     }, 10);
-  };
+  }
 
-  const getArrayTypeSearchParams = (key: string) => {
+  function getArrayTypeSearchParams(key: string) {
     return searchParams?.get(key) ? searchParams?.get(key)?.split(',') : [];
-  };
+  }
 
-  const getStringTypeSearchParams = (key: string) => {
-    return searchParams?.get(key) ?? null;
-  };
+  function getStringTypeSearchParams(key: string) {
+    return searchParams?.get(key) || null;
+  }
 
   return {
     getArrayTypeSearchParams,

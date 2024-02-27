@@ -242,7 +242,7 @@ export const projectsChallengeSubmissionListRouter = router({
           challenges: z.array(z.string()),
           hasClientFilterApplied: z.boolean(),
           profileStatus: z.array(yoeReplacementSchema),
-          query: z.string(),
+          query: z.string().nullable(),
           roadmapSkills: z.array(z.string()),
           submissionType: z.enum(['all', 'learn', 'mentor']),
           techSkills: z.array(z.string()),
@@ -309,7 +309,7 @@ export const projectsChallengeSubmissionListRouter = router({
         }
 
         const commonWhere = whereClauseForSubmissions(
-          query,
+          query ?? '',
           isStatusNotEmpty,
           projectsProfileId,
           roadmapSkills,

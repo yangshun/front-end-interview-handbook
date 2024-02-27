@@ -205,11 +205,11 @@ function useFilters() {
   }, [intl, experienceOptions]);
 }
 
-type ProjectsChallengeSubmissionFilterContextType = {
+type ProjectsChallengeSubmissionFilterContextType = Readonly<{
   clearAll: () => void;
   filters: Array<ProjectsChallengeSubmissionFilter>;
   getArrayTypeSearchParams: (key: string) => Array<string> | undefined;
-  getStringTypeSearchParams: (key: string) => string;
+  getStringTypeSearchParams: (key: string) => string | null;
   setFilterValue: (
     key: ProjectsChallengeSubmissionFilterKey,
     value: Array<string>,
@@ -219,7 +219,7 @@ type ProjectsChallengeSubmissionFilterContextType = {
   ) => void;
   updateSearchParams: (key: string, value: Array<string> | string) => void;
   value: Record<ProjectsChallengeSubmissionFilterKey, Array<string>>;
-};
+}>;
 
 export const ProjectsChallengeSubmissionFilterContext =
   createContext<ProjectsChallengeSubmissionFilterContextType>({

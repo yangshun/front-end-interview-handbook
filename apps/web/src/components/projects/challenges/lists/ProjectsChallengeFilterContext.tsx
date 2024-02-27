@@ -181,7 +181,7 @@ type ProjectsChallengeFilterContextType = {
   clearAll: () => void;
   filters: Array<ProjectsChallengeFilter>;
   getArrayTypeSearchParams: (key: string) => Array<string> | undefined;
-  getStringTypeSearchParams: (key: string) => string;
+  getStringTypeSearchParams: (key: string) => string | null;
   setFilterValue: (
     key: ProjectsChallengeFilterKey,
     value: Array<string>,

@@ -27,10 +27,12 @@ export default function useProjectsChallengeSubmissionFilters() {
 
   const projectsMatchesTextQuery = (
     project: ProjectsChallengeMetadata,
-    searchQuery: string,
+    searchQuery: string | null,
   ) =>
-    project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    project.description?.toLowerCase().includes(searchQuery.toLowerCase());
+    project.title.toLowerCase().includes((searchQuery ?? '').toLowerCase()) ||
+    project.description
+      ?.toLowerCase()
+      .includes((searchQuery ?? '').toLowerCase());
 
   const filterByComponentTrack = (project: ProjectsChallengeMetadata) =>
     selectedComponentTrack.length === 0 ||

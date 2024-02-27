@@ -106,7 +106,7 @@ export default function ProjectsChallengeSubmissionListWithFilters({
         filterSize={filterSize}
         filters={filters}
         isAscendingOrder={isAscendingOrder}
-        query={query}
+        query={query ?? ''}
         setIsAscendingOrder={setIsAscendingOrder}
         setQuery={onChangeQuery}
         setSortField={setSortField}

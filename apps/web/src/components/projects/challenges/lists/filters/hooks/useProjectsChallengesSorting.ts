@@ -8,21 +8,22 @@ export default function useProjectsChallengesSorting() {
   const { updateSearchParams, getStringTypeSearchParams } =
     useFilterSearchParams();
   const [isAscendingOrder, setIsAscendingOrder] = useState(
-    getStringTypeSearchParams('sortOrder') === 'DESC' ? false : true,
+    getStringTypeSearchParams('sortOrder') === 'ASC',
   );
   const [sortField, setSortField] = useState<ProjectsSortField>(
-    (getStringTypeSearchParams('sortField') as ProjectsSortField) ??
+    (getStringTypeSearchParams('sortField') as ProjectsSortField | null) ??
       'recommended',
   );
 
-  const onChangeIsAscendingOrder = (value: boolean) => {
+  function onChangeIsAscendingOrder(value: boolean) {
     updateSearchParams('sortOrder', value ? 'ASC' : 'DESC');
     setIsAscendingOrder(value);
-  };
-  const onChangeSortField = (value: ProjectsSortField) => {
+  }
+
+  function onChangeSortField(value: ProjectsSortField) {
     updateSearchParams('sortField', value);
     setSortField(value);
-  };
+  }
 
   return {
     isAscendingOrder,
