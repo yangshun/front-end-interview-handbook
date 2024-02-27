@@ -44,7 +44,7 @@ function LinksListItem({
   const { pathname } = useI18nPathname();
 
   return (
-    <ul className={clsx('border-l', themeBorderColor)} role="list">
+    <ul className={clsx('ml-2 border-l', themeBorderColor)} role="list">
       {items.map((link) => {
         const isExternalURL =
           typeof link?.href === 'string'

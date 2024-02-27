@@ -71,6 +71,10 @@
     "defaultMessage": "Step 3",
     "description": "Title for \"Step 3\" tab on Projects project page"
   },
+  "+aMCjd": {
+    "defaultMessage": "An account is required to start a challenge",
+    "description": "Title for user to create an account before starting a project challenge"
+  },
   "+ahYqd": {
     "defaultMessage": "Self-Learning",
     "description": "Label for \"Self-Learning\" option in YOE replacement"
@@ -2874,6 +2878,10 @@
   "PHhUwD": {
     "defaultMessage": "Back to focus areas",
     "description": "Link text to navigate to focus areas list page"
+  },
+  "PHuc2+": {
+    "defaultMessage": "Please create a free account in order to start on project challenges.",
+    "description": "Prompting the user to create an account before starting a project challenge"
   },
   "PLPXbS": {
     "defaultMessage": "Multi-page & fully-functional apps",

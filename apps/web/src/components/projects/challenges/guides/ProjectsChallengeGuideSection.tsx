@@ -70,6 +70,7 @@ export default function ProjectsChallengeGuideSection({
         style={{ top: 'var(--nav-top-offset)' }}>
         <SidebarLinksList
           activeItem={activeGuideSlug}
+          className="w-[252px]"
           navigation={sidebarNavigation}
           onSelect={onGuideChange}
         />
