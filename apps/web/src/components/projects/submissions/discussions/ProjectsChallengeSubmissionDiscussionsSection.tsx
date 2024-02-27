@@ -42,7 +42,7 @@ export default function ProjectsChallengeSubmissionDiscussionsSection({
           <ProjectsChallengeSubmissionDiscussionsNewComment
             submission={submission}
             // TODO(projects): fetch real points
-            viewer={{ ...profile, points: 4200 }}
+            viewer={{ userProfile: { ...profile, points: 4200 } }}
           />
         )}
         <div className="w-full">
@@ -50,7 +50,11 @@ export default function ProjectsChallengeSubmissionDiscussionsSection({
             domain="PROJECTS_SUBMISSION"
             entityId={submission.id}
             // TODO(projects): fetch real points
-            viewer={profile == null ? null : { ...profile, points: 4200 }}
+            viewer={
+              profile == null
+                ? null
+                : { userProfile: { ...profile, points: 4200 } }
+            }
           />
         </div>
       </Section>

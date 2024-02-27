@@ -85,7 +85,7 @@ export default function DiscussionsReplyInput({
       <div className={clsx('flex flex-1 items-start gap-4', hasNext && 'pb-6')}>
         <UserAvatarWithLevel
           level={30}
-          profile={viewer}
+          profile={viewer.userProfile}
           progress={50}
           size="xl"
         />

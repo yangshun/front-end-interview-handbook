@@ -11,6 +11,7 @@ import {
 
 import prisma from '~/server/prisma';
 
+import { projectsUserProcedure } from './projects/procedures';
 import { publicProcedure, router, userProcedure } from '../trpc';
 
 import { DiscussionCommentDomain, Prisma } from '@prisma/client';
@@ -22,7 +23,7 @@ const domains = [
 ] as const;
 
 export const commentsRouter = router({
-  create: userProcedure
+  create: projectsUserProcedure
     .input(
       z.object({
         body: discussionsCommentBodySchemaServer,
@@ -34,34 +35,34 @@ export const commentsRouter = router({
     .mutation(
       async ({
         input: { entityId, domain, category, body },
-        ctx: { user },
+        ctx: { projectsProfileId },
       }) => {
-        const comment = await prisma.discussionComment.create({
+        const comment = await prisma.projectsDiscussionComment.create({
           data: {
             body,
             category,
             domain,
             entityId,
-            userId: user.id,
+            profileId: projectsProfileId,
           },
         });
 
-        await projectsReputationCommentAwardPoints(comment, user.id);
+        await projectsReputationCommentAwardPoints(comment, projectsProfileId);
 
         return comment;
       },
     ),
-  delete: userProcedure
+  delete: projectsUserProcedure
     .input(
       z.object({
         commentId: z.string().uuid(),
       }),
     )
-    .mutation(async ({ input: { commentId }, ctx: { user } }) => {
-      const deletedComment = await prisma.discussionComment.delete({
+    .mutation(async ({ input: { commentId }, ctx: { projectsProfileId } }) => {
+      const deletedComment = await prisma.projectsDiscussionComment.delete({
         where: {
           id: commentId,
-          userId: user.id,
+          profileId: projectsProfileId,
         },
       });
 
@@ -77,18 +78,22 @@ export const commentsRouter = router({
       }),
     )
     .query(async ({ input: { domain, entityId }, ctx: { user } }) => {
-      const likedComments = await prisma.discussionCommentVote.findMany({
-        select: {
-          commentId: true,
-        },
-        where: {
-          comment: {
-            domain,
-            entityId,
+      const likedComments = await prisma.projectsDiscussionCommentVote.findMany(
+        {
+          select: {
+            commentId: true,
           },
-          userId: user.id,
+          where: {
+            author: {
+              userId: user.id,
+            },
+            comment: {
+              domain,
+              entityId,
+            },
+          },
         },
-      });
+      );
 
       return likedComments.map(({ commentId }) => commentId);
     }),
@@ -111,15 +116,8 @@ export const commentsRouter = router({
           },
         },
         author: {
-          // TODO(projects): fetch real points
-          select: {
-            avatarUrl: true,
-            currentStatus: true,
-            id: true,
-            name: true,
-            startWorkDate: true,
-            title: true,
-            username: true,
+          include: {
+            userProfile: true,
           },
         },
       };
@@ -136,12 +134,12 @@ export const commentsRouter = router({
             } as const);
 
       const [count, comments] = await Promise.all([
-        prisma.discussionComment.count({
+        prisma.projectsDiscussionComment.count({
           where: {
             entityId,
           },
         }),
-        prisma.discussionComment.findMany({
+        prisma.projectsDiscussionComment.findMany({
           include: {
             replies: {
               include: {
@@ -175,22 +173,30 @@ export const commentsRouter = router({
       }),
     )
     .query(async ({ input: { domainList, userId }, ctx: { user } }) => {
-      const comments = await prisma.discussionComment.findMany({
+      const comments = await prisma.projectsDiscussionComment.findMany({
         include: {
           author: {
             select: {
-              avatarUrl: true,
-              name: true,
-              username: true,
+              userProfile: {
+                select: {
+                  avatarUrl: true,
+                  name: true,
+                  username: true,
+                },
+              },
             },
           },
           parentComment: {
             include: {
               author: {
                 select: {
-                  avatarUrl: true,
-                  name: true,
-                  username: true,
+                  userProfile: {
+                    select: {
+                      avatarUrl: true,
+                      name: true,
+                      username: true,
+                    },
+                  },
                 },
               },
             },
@@ -200,10 +206,12 @@ export const commentsRouter = router({
           createdAt: 'desc',
         },
         where: {
+          author: {
+            userId: userId ?? user?.id,
+          },
           domain: {
             in: domainList,
           },
-          userId: userId ?? user?.id,
         },
       });
 
@@ -255,7 +263,7 @@ export const commentsRouter = router({
 
       return commentsWithInfo;
     }),
-  reply: userProcedure
+  reply: projectsUserProcedure
     .input(
       z.object({
         body: discussionsCommentBodySchemaServer,
@@ -267,71 +275,73 @@ export const commentsRouter = router({
     .mutation(
       async ({
         input: { entityId, domain, body, parentCommentId },
-        ctx: { user },
+        ctx: { projectsProfileId },
       }) => {
-        const comment = await prisma.discussionComment.create({
+        const comment = await prisma.projectsDiscussionComment.create({
           data: {
             body,
             domain,
             entityId,
             parentCommentId,
-            userId: user.id,
+            profileId: projectsProfileId,
           },
         });
 
-        await projectsReputationCommentAwardPoints(comment, user.id);
+        await projectsReputationCommentAwardPoints(comment, projectsProfileId);
 
         return comment;
       },
     ),
-  unvote: userProcedure
+  unvote: projectsUserProcedure
     .input(
       z.object({
         commentId: z.string().uuid(),
       }),
     )
-    .mutation(async ({ input: { commentId }, ctx: { user } }) => {
-      const deletedVote = await prisma.discussionCommentVote.delete({
+    .mutation(async ({ input: { commentId }, ctx: { projectsProfileId } }) => {
+      const deletedVote = await prisma.projectsDiscussionCommentVote.delete({
         where: {
-          commentId_userId: {
+          commentId_profileId: {
             commentId,
-            userId: user.id,
+            profileId: projectsProfileId,
           },
         },
       });
 
       await projectsReputationCommentVoteRevokePoints(deletedVote);
     }),
-  update: userProcedure
+  update: projectsUserProcedure
     .input(
       z.object({
         body: discussionsCommentBodySchemaServer,
         commentId: z.string().uuid(),
       }),
     )
-    .mutation(async ({ input: { commentId, body }, ctx: { user } }) => {
-      return await prisma.discussionComment.update({
-        data: {
-          body,
-        },
-        where: {
-          id: commentId,
-          userId: user.id,
-        },
-      });
-    }),
-  vote: userProcedure
+    .mutation(
+      async ({ input: { commentId, body }, ctx: { projectsProfileId } }) => {
+        return await prisma.projectsDiscussionComment.update({
+          data: {
+            body,
+          },
+          where: {
+            id: commentId,
+            profileId: projectsProfileId,
+          },
+        });
+      },
+    ),
+  vote: projectsUserProcedure
     .input(
       z.object({
         commentId: z.string().uuid(),
       }),
     )
-    .mutation(async ({ input: { commentId }, ctx: { user } }) => {
+    .mutation(async ({ input: { commentId }, ctx: { projectsProfileId } }) => {
       try {
-        const vote = await prisma.discussionCommentVote.create({
+        const vote = await prisma.projectsDiscussionCommentVote.create({
           data: {
             commentId,
-            userId: user.id,
+            profileId: projectsProfileId,
           },
         });
 

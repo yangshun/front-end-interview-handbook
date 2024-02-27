@@ -20,12 +20,10 @@ async function fetchProjectsProfileStatistics(projectsProfileId: string) {
     discussionUpvotes,
     submissionViews,
   ] = await Promise.all([
-    prisma.discussionComment.count({
+    prisma.projectsDiscussionComment.count({
       where: {
         author: {
-          projectsProfile: {
-            id: projectsProfileId,
-          },
+          id: projectsProfileId,
         },
         category: 'CODE_REVIEW',
         domain: {
@@ -45,13 +43,11 @@ async function fetchProjectsProfileStatistics(projectsProfileId: string) {
         },
       },
     }),
-    prisma.discussionCommentVote.count({
+    prisma.projectsDiscussionCommentVote.count({
       where: {
         comment: {
           author: {
-            projectsProfile: {
-              id: projectsProfileId,
-            },
+            id: projectsProfileId,
           },
         },
       },

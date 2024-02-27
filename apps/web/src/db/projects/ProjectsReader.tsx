@@ -60,7 +60,7 @@ export async function fetchSubmissionCommentCountsGroupedById(
 ): Promise<Record<string, number>> {
   const commentsCount: Record<string, number> = {};
 
-  const countsList = await prisma.discussionComment.groupBy({
+  const countsList = await prisma.projectsDiscussionComment.groupBy({
     _count: {
       id: true,
     },

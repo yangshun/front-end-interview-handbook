@@ -85,16 +85,19 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
       <div className="flex items-center gap-4">
         <ProjectsProfileAvatar
           profile={{
-            ...viewer,
+            ...viewer.userProfile,
             projectsProfile: { points: submission.projectsProfile!.points },
           }}
           size="xl"
         />
         <div className="flex flex-col gap-y-1">
           <Text size="body2" weight="medium">
-            <ProjectsProfileDisplayNameLink profile={viewer} />
+            <ProjectsProfileDisplayNameLink profile={viewer.userProfile} />
           </Text>
-          <UserProfileInformationRow profile={viewer} size="body3" />
+          <UserProfileInformationRow
+            profile={viewer.userProfile}
+            size="body3"
+          />
         </div>
       </div>
       <div className="mt-2 flex flex-wrap items-center gap-2">

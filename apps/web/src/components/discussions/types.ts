@@ -1,15 +1,17 @@
-import type { DiscussionCommentDomain } from '@prisma/client';
+import type { ProjectsDiscussionCommentDomain } from '@prisma/client';
 
 export type DiscussionsCommentUserProfile = Readonly<{
-  avatarUrl: string | null;
-  currentStatus: string | null;
-  id: string;
-  name: string | null;
-  // TODO(projects): make compulsory.
-  points?: number;
-  startWorkDate: Date | null;
-  title: string | null;
-  username: string;
+  userProfile: {
+    avatarUrl: string | null;
+    currentStatus: string | null;
+    id: string;
+    name: string | null;
+    // TODO(projects): make compulsory.
+    points?: number;
+    startWorkDate: Date | null;
+    title: string | null;
+    username: string;
+  };
 }>;
 
 export type DiscussionsCommentItem = Readonly<{
@@ -20,7 +22,7 @@ export type DiscussionsCommentItem = Readonly<{
   body: string;
   category: string | null;
   createdAt: Date;
-  domain: DiscussionCommentDomain;
+  domain: ProjectsDiscussionCommentDomain;
   entityId: string;
   id: string;
   replies?: ReadonlyArray<DiscussionsCommentItem>;

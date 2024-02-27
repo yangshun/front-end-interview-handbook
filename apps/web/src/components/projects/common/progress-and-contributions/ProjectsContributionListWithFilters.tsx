@@ -13,13 +13,13 @@ import ProjectsContributionFilterSlideOut from './ProjectsContributionFilterSlid
 import type { ContributionComment } from './ProjectsContributionsSection';
 import useProjectsContributionFilters from './useProjectsContributionFilters';
 
-import type { DiscussionComment } from '@prisma/client';
+import type { ProjectsDiscussionComment } from '@prisma/client';
 
 type Props = Readonly<{
   comments: ReadonlyArray<ContributionComment>;
 }>;
 
-function filterProjectsContributions<T extends DiscussionComment>(
+function filterProjectsContributions<T extends ProjectsDiscussionComment>(
   contributions: ReadonlyArray<T>,
   filters: ReadonlyArray<(project: T) => boolean>,
 ): ReadonlyArray<T> {

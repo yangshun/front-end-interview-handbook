@@ -86,14 +86,17 @@ export default function ProjectsChallengeDiscussionsNewComment({
       <div className="flex items-center gap-4">
         {/* TODO(projects): fetch real points */}
         <ProjectsProfileAvatar
-          profile={{ ...viewer, projectsProfile: { points: 4200 } }}
+          profile={{ ...viewer.userProfile, projectsProfile: { points: 4200 } }}
           size="xl"
         />
         <div className="flex flex-col gap-y-1">
           <Text size="body2" weight="medium">
-            <ProjectsProfileDisplayNameLink profile={viewer} />
+            <ProjectsProfileDisplayNameLink profile={viewer.userProfile} />
           </Text>
-          <UserProfileInformationRow profile={viewer} size="body3" />
+          <UserProfileInformationRow
+            profile={viewer.userProfile}
+            size="body3"
+          />
         </div>
       </div>
       <div className="my-3">

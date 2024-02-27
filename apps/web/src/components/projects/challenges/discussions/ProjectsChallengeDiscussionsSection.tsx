@@ -20,7 +20,7 @@ export default function ProjectsChallengeDiscussionsSection({
         <ProjectsChallengeDiscussionsNewComment
           challenge={challenge}
           // TODO(projects): fetch real points.
-          viewer={{ ...profile, points: 4200 }}
+          viewer={{ userProfile: { ...profile, points: 4200 } }}
         />
       )}
       <div className="flex w-full">
@@ -28,7 +28,11 @@ export default function ProjectsChallengeDiscussionsSection({
           domain="PROJECTS_CHALLENGE"
           entityId={challenge.metadata.slug}
           // TODO(projects): fetch real points.
-          viewer={profile == null ? profile : { ...profile, points: 4200 }}
+          viewer={
+            profile == null
+              ? profile
+              : { userProfile: { ...profile, points: 4200 } }
+          }
         />
       </div>
     </div>

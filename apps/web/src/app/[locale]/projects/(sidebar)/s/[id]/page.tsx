@@ -45,7 +45,7 @@ export default async function Page({ params }: Props) {
         id: submissionId,
       },
     }),
-    prisma.discussionComment.count({
+    prisma.projectsDiscussionComment.count({
       where: {
         domain: 'PROJECTS_SUBMISSION',
         entityId: submissionId,

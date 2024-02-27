@@ -51,7 +51,7 @@ export default function ProjectsCommentList({ comments, title }: Props) {
               <div className="flex flex-row gap-3">
                 <UserAvatar
                   className="size-6 shrink-0"
-                  profile={comment.author}
+                  profile={comment.author.userProfile}
                   size="xs"
                 />
                 <div className="flex flex-col gap-3 lg:flex-row">
@@ -118,7 +118,7 @@ export default function ProjectsCommentList({ comments, title }: Props) {
                             </Text>
                           ),
                           recipient: comment.parentComment
-                            ? comment.parentComment.author.name
+                            ? comment.parentComment.author.userProfile.name
                             : '',
                           submissionTitle: comment.entity?.title ?? '',
                         }}

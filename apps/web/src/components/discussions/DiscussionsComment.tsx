@@ -83,7 +83,10 @@ export default function DiscussionsComment({
         <div className="relative flex flex-col items-center self-stretch">
           {/* TODO(projects): fetch real points */}
           <ProjectsProfileAvatar
-            profile={{ ...author, projectsProfile: { points: 4200 } }}
+            profile={{
+              ...author.userProfile,
+              projectsProfile: { points: 4200 },
+            }}
             size="2xl"
           />
           {(hasReplies || mode === 'reply') && (
@@ -126,13 +129,18 @@ export default function DiscussionsComment({
             <div className="flex gap-3">
               <Text color="secondary" size="body2">
                 <Text color="default" size="inherit">
-                  <ProjectsProfileDisplayNameLink profile={author} />
+                  <ProjectsProfileDisplayNameLink
+                    profile={author.userProfile}
+                  />
                 </Text>
                 {' · '}
                 <RelativeTimestamp timestamp={comment.createdAt} />
               </Text>
             </div>
-            <UserProfileInformationRow profile={author} size="body3" />
+            <UserProfileInformationRow
+              profile={author.userProfile}
+              size="body3"
+            />
           </div>
           {category && (
             <Badge
@@ -178,7 +186,7 @@ export default function DiscussionsComment({
                 onClick={() => setMode(mode === 'reply' ? null : 'reply')}
               />
             )}
-            {viewer?.id === author.id && (
+            {viewer?.userProfile.id === author.userProfile.id && (
               <Button
                 addonPosition="start"
                 icon={RiPencilFill}
@@ -192,7 +200,7 @@ export default function DiscussionsComment({
                 onClick={() => setMode(mode === 'edit' ? null : 'edit')}
               />
             )}
-            {viewer?.id === author.id && (
+            {viewer?.userProfile.id === author.userProfile.id && (
               <DiscussionsCommentDeleteButton
                 commentId={commentId}
                 dialogShown={mode === 'delete'}

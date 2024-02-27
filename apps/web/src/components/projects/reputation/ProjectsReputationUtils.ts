@@ -7,49 +7,45 @@ import {
 } from './ProjectsReputationPointsConfig';
 
 import type {
-  DiscussionCommentVote,
   ProjectsChallengeSubmissionVote,
+  ProjectsDiscussionCommentVote,
 } from '@prisma/client';
 import {
-  type DiscussionComment,
-  DiscussionCommentDomain,
+  type ProjectsDiscussionComment,
+  ProjectsDiscussionCommentDomain,
 } from '@prisma/client';
 
 export function projectsReputationCommentIsProjectsDomain({
   domain,
-}: DiscussionComment) {
+}: ProjectsDiscussionComment) {
   return (
-    domain === DiscussionCommentDomain.PROJECTS_SUBMISSION ||
-    domain === DiscussionCommentDomain.PROJECTS_CHALLENGE
+    domain === ProjectsDiscussionCommentDomain.PROJECTS_SUBMISSION ||
+    domain === ProjectsDiscussionCommentDomain.PROJECTS_CHALLENGE
   );
 }
 
 export async function projectsReputationCommentAwardPoints(
-  comment: DiscussionComment,
-  userId: string,
+  comment: ProjectsDiscussionComment,
+  projectsProfileId: string,
 ) {
   if (!projectsReputationCommentIsProjectsDomain(comment)) {
     return;
   }
 
-  await prisma.profile.update({
+  await prisma.projectsProfile.update({
     data: {
-      projectsProfile: {
-        update: {
-          reputation: {
-            create: projectsReputationDiscussionsCommentConfig(comment.id),
-          },
-        },
+      reputation: {
+        create: projectsReputationDiscussionsCommentConfig(comment.id),
       },
     },
     where: {
-      id: userId,
+      id: projectsProfileId,
     },
   });
 }
 
 export async function projectsReputationCommentRevokePoints(
-  deletedComment: DiscussionComment,
+  deletedComment: ProjectsDiscussionComment,
 ) {
   if (!projectsReputationCommentIsProjectsDomain(deletedComment)) {
     return;
@@ -63,10 +59,10 @@ export async function projectsReputationCommentRevokePoints(
 }
 
 export async function projectsReputationCommentVoteAwardPoints(
-  vote: DiscussionCommentVote,
+  vote: ProjectsDiscussionCommentVote,
 ) {
-  const { commentId, userId: voterId } = vote;
-  const comment = await prisma.discussionComment.findFirst({
+  const { commentId, profileId: voterId } = vote;
+  const comment = await prisma.projectsDiscussionComment.findFirst({
     where: {
       id: commentId,
     },
@@ -75,29 +71,25 @@ export async function projectsReputationCommentVoteAwardPoints(
   if (
     comment == null ||
     !projectsReputationCommentIsProjectsDomain(comment) ||
-    voterId === comment.userId // Don't give points for self-votes.
+    voterId === comment.profileId // Don't give points for self-votes.
   ) {
     return;
   }
 
-  await prisma.profile.update({
+  await prisma.projectsProfile.update({
     data: {
-      projectsProfile: {
-        update: {
-          reputation: {
-            create: projectsReputationDiscussionsCommentVoteConfig(vote.id),
-          },
-        },
+      reputation: {
+        create: projectsReputationDiscussionsCommentVoteConfig(vote.id),
       },
     },
     where: {
-      id: comment.userId,
+      id: comment.profileId,
     },
   });
 }
 
 export async function projectsReputationCommentVoteRevokePoints(
-  deletedVote: DiscussionCommentVote,
+  deletedVote: ProjectsDiscussionCommentVote,
 ) {
   await prisma.projectsReputationPoint.deleteMany({
     where: {
