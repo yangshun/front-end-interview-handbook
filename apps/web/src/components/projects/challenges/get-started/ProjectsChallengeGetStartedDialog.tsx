@@ -140,14 +140,16 @@ export default function ProjectsChallengeGetStartedDialog({
       techStackSkills: [],
     });
 
+  const onStartClick = async () => {
+    await onStart(skills);
+    onClose();
+    setCurrentStepIndex(0);
+  };
+
   const dialogSteps = useDialogSteps({
     challenge,
     isLoading,
-    onStartClick: async () => {
-      await onStart(skills);
-      onClose();
-      setCurrentStepIndex(0);
-    },
+    onStartClick,
     setSkills,
     skills,
     userCanAccess: true,
@@ -178,6 +180,8 @@ export default function ProjectsChallengeGetStartedDialog({
         currentStepIndex < dialogSteps.length - 1 ? (
           <Button
             icon={RiArrowRightLine}
+            isDisabled={isLoading}
+            isLoading={isLoading}
             label={intl.formatMessage({
               defaultMessage: 'Next',
               description: 'Next step button label',
@@ -197,7 +201,7 @@ export default function ProjectsChallengeGetStartedDialog({
         id: 'KBewzV',
       })}
       width="screen-sm"
-      onClose={onClose}>
+      onClose={onStartClick}>
       <ol className="relative flex flex-col pt-3">
         {dialogSteps.map((step, index) => {
           const isStepSelected = index === currentStepIndex;
