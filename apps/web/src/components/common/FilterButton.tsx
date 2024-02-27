@@ -1,4 +1,6 @@
 import clsx from 'clsx';
+import type { ForwardedRef } from 'react';
+import { forwardRef } from 'react';
 
 import type { Props as ButtonProps } from '~/components/ui/Button';
 import Button from '~/components/ui/Button';
@@ -45,14 +47,13 @@ const purposeClasses: Record<FilterButtonPurpose, string> = {
   ),
 };
 
-export default function FilterButton({
-  selected,
-  className,
-  purpose = 'button',
-  ...props
-}: Props) {
+function FilterButton(
+  { selected, className, purpose = 'button', ...props }: Props,
+  ref: ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
+) {
   return (
     <Button
+      ref={ref}
       addonPosition="start"
       {...props}
       className={clsx(
@@ -70,3 +71,5 @@ export default function FilterButton({
     />
   );
 }
+
+export default forwardRef(FilterButton);

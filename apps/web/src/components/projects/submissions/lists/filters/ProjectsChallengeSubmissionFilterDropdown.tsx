@@ -31,16 +31,14 @@ export default function ProjectsChallengeSubmissionFilterDropdown({
   return (
     <Popover
       trigger={
-        <div>
-          <FilterButton
-            addonPosition="end"
-            icon={RiArrowDownSLine}
-            label={filter.label}
-            purpose="button"
-            selected={selectedOptions.length > 0}
-            size="md"
-          />
-        </div>
+        <FilterButton
+          addonPosition="end"
+          icon={RiArrowDownSLine}
+          label={filter.label}
+          purpose="button"
+          selected={selectedOptions.length > 0}
+          size="md"
+        />
       }
       width={filter.id === 'component-track' ? 'md' : 'sm'}>
       <div className="flex flex-col gap-y-3">
