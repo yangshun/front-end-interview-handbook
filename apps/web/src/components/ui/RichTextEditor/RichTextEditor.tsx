@@ -132,7 +132,7 @@ function RichTextEditor(
           className={clsx(
             'relative',
             themeBackgroundElementColor,
-            'rounded',
+            'rounded-lg',
             'border-0',
             'ring-1 ring-inset',
             'focus-within:ring-2 focus-within:ring-inset',
