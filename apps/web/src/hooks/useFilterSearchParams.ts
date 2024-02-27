@@ -93,7 +93,7 @@ export default function useFilterSearchParams() {
   };
 
   const getStringTypeSearchParams = (key: string) => {
-    return searchParams?.get(key) ?? '';
+    return searchParams?.get(key) ?? null;
   };
 
   return {
