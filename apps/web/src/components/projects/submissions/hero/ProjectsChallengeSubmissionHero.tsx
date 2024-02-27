@@ -15,7 +15,6 @@ import ProjectsChallengeSubmissionHeroViews from '~/components/projects/submissi
 import ProjectsChallengeSubmissionHeroVoteButton from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroVoteButton';
 import type { ProjectsChallengeSubmissionAugmented } from '~/components/projects/submissions/types';
 import Button from '~/components/ui/Button';
-import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
@@ -140,17 +139,14 @@ export default function ProjectsChallengeSubmissionHero({
       {/* Sticky action bar */}
       <div
         className={clsx(
-          'z-sticky sticky top-0  hidden border-b py-4',
-          themeBorderColor,
+          'z-sticky sticky top-0 hidden',
+          'py-4',
+          ['border-b', themeBorderColor],
           themeBackgroundColor,
           showStickyActionBar && '!block',
-        )}
-        style={{
-          marginLeft: `-${sideMargin}px`,
-          marginRight: `-${sideMargin}px`,
-        }}>
-        <Container className="flex flex-col items-center md:flex-row">
-          <Text className="flex-1" weight="medium">
+        )}>
+        <div className="flex items-center gap-4">
+          <Text className="flex-1 truncate" weight="medium">
             {submission.title}
           </Text>
           <div className="flex gap-4">
@@ -160,7 +156,7 @@ export default function ProjectsChallengeSubmissionHero({
               {commentButton}
             </div>
           </div>
-        </Container>
+        </div>
       </div>
       <div ref={heroRef} className="relative hidden md:block">
         <div

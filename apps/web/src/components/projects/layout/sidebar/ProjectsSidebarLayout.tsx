@@ -21,7 +21,7 @@ export default function ProjectsSidebarLayout({ children }: Props) {
         <ProjectsNavbar className="lg:hidden" />
         <div
           className={clsx(
-            'sticky top-0 hidden h-dvh shrink-0 overflow-y-hidden lg:block',
+            'h-dvh sticky top-0 hidden shrink-0 overflow-y-hidden lg:block',
             isCollapsed ? 'w-[68px]' : 'w-60',
           )}>
           <ProjectsSidebar
@@ -29,7 +29,7 @@ export default function ProjectsSidebarLayout({ children }: Props) {
             onCollapseClick={toggleIsCollapsed}
           />
         </div>
-        <div className="relative w-full">
+        <div className="w-full lg:w-0 lg:grow">
           <Container className="py-4 lg:py-16">{children}</Container>
         </div>
       </div>
