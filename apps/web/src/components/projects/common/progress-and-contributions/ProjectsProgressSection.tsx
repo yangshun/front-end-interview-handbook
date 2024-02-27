@@ -27,14 +27,12 @@ export default function ProjectsProgressSection({
   const intl = useIntl();
   const mainLayoutTabs = useProjectsMainLayoutTabs();
   const progressTabs: ReadonlyArray<TabItem<ProjectsMainLayoutTabCategory>> =
-    mainLayoutTabs.map((tab) => {
-      const { href: _href, icon: _Icon, ...tabWithoutHref } = tab;
-
-      return {
-        ...tabWithoutHref,
-        value: tab.key,
-      };
-    });
+    mainLayoutTabs.map((tab) => ({
+      key: tab.key,
+      label: tab.label,
+      type: tab.type,
+      value: tab.key,
+    }));
   const [currentProgressTab, setCurrentProgressTab] =
     useState<ProjectsMainLayoutTabCategory>('challenges');
 

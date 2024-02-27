@@ -1,27 +1,27 @@
 import Prisma from '../server/prisma';
 
 async function test() {
-  async function addPointsToUser({
-    key,
-    profileId,
-    points,
-  }: Readonly<{
-    key: string;
-    points: number;
-    profileId: string;
-  }>) {
-    const fields = {
-      key,
-      profileId,
-    };
+  // Async function addPointsToUser({
+  //   key,
+  //   profileId,
+  //   points,
+  // }: Readonly<{
+  //   key: string;
+  //   points: number;
+  //   profileId: string;
+  // }>) {
+  //   const fields = {
+  //     key,
+  //     profileId,
+  //   };
 
-    return await Prisma.projectsReputationPoint.createMany({
-      data: {
-        ...fields,
-        points,
-      },
-    });
-  }
+  //   return await Prisma.projectsReputationPoint.createMany({
+  //     data: {
+  //       ...fields,
+  //       points,
+  //     },
+  //   });
+  // }
 
   return await Prisma.projectsProfile.update({
     data: {

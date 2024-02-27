@@ -43,10 +43,10 @@ export const questionSaveRouter = router({
       }),
     )
     .mutation(async ({ input: { saveId }, ctx: { user } }) => {
-      // TODO(acl): prevent unauthorized deletions.
       return await prisma.questionUserInterfaceSave.delete({
         where: {
           id: saveId,
+          userId: user.id,
         },
       });
     }),
@@ -57,7 +57,6 @@ export const questionSaveRouter = router({
       }),
     )
     .query(async ({ input: { saveId }, ctx: { user } }) => {
-      // TODO(acl): prevent unauthorized reads.
       return await prisma.questionUserInterfaceSave.findFirst({
         orderBy: {
           createdAt: 'desc',
@@ -100,7 +99,6 @@ export const questionSaveRouter = router({
       }),
     )
     .mutation(async ({ input: { files, name, saveId }, ctx: { user } }) => {
-      // TODO(acl): prevent unauthorized updates.
       return await prisma.questionUserInterfaceSave.update({
         data: {
           files,
@@ -108,6 +106,7 @@ export const questionSaveRouter = router({
         },
         where: {
           id: saveId,
+          userId: user.id,
         },
       });
     }),

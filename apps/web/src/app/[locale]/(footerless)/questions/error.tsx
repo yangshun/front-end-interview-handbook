@@ -7,13 +7,9 @@ import ErrorMessageBlock from '~/components/global/error/ErrorMessageBlock';
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error;
-  reset: () => void;
-}) {
+type Props = Readonly<{ error: Error; reset: () => void }>;
+
+export default function Error({ error }: Props) {
   useEffect(() => {
     console.error(error);
     logMessage({

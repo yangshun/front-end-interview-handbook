@@ -1,5 +1,3 @@
-import { redirect } from 'next/navigation';
-
 import ProjectsProgressSection from '~/components/projects/common/progress-and-contributions/ProjectsProgressSection';
 
 import { readProjectsTrackList } from '~/db/projects/ProjectsReader';

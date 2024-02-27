@@ -24,7 +24,6 @@ import useBlogFilters from '~/components/blog/filters/hooks/useBlogFilters';
 import BlogList from '~/components/blog/filters/items/BlogList';
 import BlogCountLabel from '~/components/blog/metadata/BlogCountLabel';
 import FilterButton from '~/components/common/FilterButton';
-import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import Heading from '~/components/ui/Heading';
