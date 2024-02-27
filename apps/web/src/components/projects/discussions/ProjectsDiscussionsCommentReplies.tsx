@@ -3,14 +3,14 @@ import clsx from 'clsx';
 import ProjectsDiscussionsComment from './ProjectsDiscussionsComment';
 import ProjectsDiscussionsCommentRepliesThreadLines from './ProjectsDiscussionsCommentRepliesThreadLines';
 import type {
+  ProjectsDiscussionsCommentAuthor,
   ProjectsDiscussionsCommentItem,
-  ProjectsDiscussionsCommentUserProfile,
 } from './types';
 
 type Props = Readonly<{
   level: number;
   replies: ReadonlyArray<ProjectsDiscussionsCommentItem>;
-  viewer?: ProjectsDiscussionsCommentUserProfile | null;
+  viewer?: ProjectsDiscussionsCommentAuthor | null;
 }>;
 
 export default function ProjectsDiscussionsCommentReplies({

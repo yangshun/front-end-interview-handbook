@@ -6,6 +6,7 @@ import { z } from 'zod';
 
 import { trpc } from '~/hooks/trpc';
 
+import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
@@ -15,8 +16,8 @@ import {
 } from './ProjectsDiscussionsCommentBodySchema';
 import ProjectsDiscussionsCommentRepliesThreadLines from './ProjectsDiscussionsCommentRepliesThreadLines';
 import type {
+  ProjectsDiscussionsCommentAuthor,
   ProjectsDiscussionsCommentItem,
-  ProjectsDiscussionsCommentUserProfile,
 } from './types';
 import UserAvatarWithLevel from '../users/UserAvatarWithLevel';
 import RichTextEditor from '../../ui/RichTextEditor';
@@ -27,7 +28,7 @@ type Props = Readonly<{
   hasNext: boolean;
   onCancel: () => void;
   parentComment: ProjectsDiscussionsCommentItem;
-  viewer: ProjectsDiscussionsCommentUserProfile;
+  viewer: ProjectsDiscussionsCommentAuthor;
 }>;
 
 type CommentFormInput = Readonly<{
@@ -83,10 +84,11 @@ export default function ProjectsDiscussionsReplyInput({
         drawVerticalLine={hasNext}
       />
       <div className={clsx('flex flex-1 items-start gap-4', hasNext && 'pb-6')}>
-        <UserAvatarWithLevel
-          level={30}
-          profile={viewer.userProfile}
-          progress={50}
+        <ProjectsProfileAvatar
+          profile={{
+            ...viewer.userProfile,
+            projectsProfile: { points: viewer.points },
+          }}
           size="xl"
         />
         <form className="flex grow flex-col" onSubmit={handleSubmit(onSubmit)}>

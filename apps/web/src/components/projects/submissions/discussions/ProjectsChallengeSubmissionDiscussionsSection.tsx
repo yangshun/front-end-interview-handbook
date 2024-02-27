@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
-import useProfile from '~/hooks/user/useProfile';
-
 import DiscussionsCommentList from '~/components/projects/discussions/ProjectsDiscussionsCommentList';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -13,6 +11,7 @@ import {
 
 import ProjectsChallengeSubmissionDiscussionsNewComment from './ProjectsChallengeSubmissionDiscussionsNewComment';
 import type { ProjectsChallengeSubmissionAugmented } from '../types';
+import useProfileWithProjectsProfile from '../../common/useProfileWithProjectsProfile';
 
 type Props = Readonly<{
   submission: ProjectsChallengeSubmissionAugmented;
@@ -21,7 +20,15 @@ type Props = Readonly<{
 export default function ProjectsChallengeSubmissionDiscussionsSection({
   submission,
 }: Props) {
-  const { profile } = useProfile();
+  const { profile } = useProfileWithProjectsProfile();
+  const viewer = profile?.projectsProfile
+    ? {
+        points: profile.projectsProfile.points,
+        userProfile: {
+          ...profile,
+        },
+      }
+    : null;
 
   return (
     <div
@@ -38,23 +45,17 @@ export default function ProjectsChallengeSubmissionDiscussionsSection({
         />
       </Text>
       <Section>
-        {profile && (
+        {viewer && (
           <ProjectsChallengeSubmissionDiscussionsNewComment
             submission={submission}
-            // TODO(projects): fetch real points
-            viewer={{ userProfile: { ...profile, points: 4200 } }}
+            viewer={viewer}
           />
         )}
         <div className="w-full">
           <DiscussionsCommentList
             domain="PROJECTS_SUBMISSION"
             entityId={submission.id}
-            // TODO(projects): fetch real points
-            viewer={
-              profile == null
-                ? null
-                : { userProfile: { ...profile, points: 4200 } }
-            }
+            viewer={viewer}
           />
         </div>
       </Section>

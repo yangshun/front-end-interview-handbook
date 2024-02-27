@@ -26,8 +26,8 @@ import ProjectsDiscussionsCommentRepliesThreadLines from './ProjectsDiscussionsC
 import ProjectsDiscussionsCommentVoteButton from './ProjectsDiscussionsCommentVoteButton';
 import ProjectsDiscussionsReplyInput from './ProjectsDiscussionsReplyInput';
 import type {
+  ProjectsDiscussionsCommentAuthor,
   ProjectsDiscussionsCommentItem,
-  ProjectsDiscussionsCommentUserProfile,
 } from './types';
 import ProjectsVoteCountTag from '../stats/ProjectsVoteCountTag';
 import ProjectsProfileAvatar from '../users/ProjectsProfileAvatar';
@@ -38,7 +38,7 @@ type Props = Readonly<{
   className?: string;
   comment: ProjectsDiscussionsCommentItem;
   level: number;
-  viewer?: ProjectsDiscussionsCommentUserProfile | null;
+  viewer?: ProjectsDiscussionsCommentAuthor | null;
 }>;
 
 const MAX_LEVEL_TO_ALLOW_REPLIES = 2;
@@ -81,11 +81,10 @@ export default function ProjectsDiscussionsComment({
     <div className={clsx('flex grow flex-col', className)}>
       <div className="flex items-start gap-4">
         <div className="relative flex flex-col items-center self-stretch">
-          {/* TODO(projects): fetch real points */}
           <ProjectsProfileAvatar
             profile={{
               ...author.userProfile,
-              projectsProfile: { points: 4200 },
+              projectsProfile: { points: author.points },
             }}
             size="2xl"
           />

@@ -11,7 +11,7 @@ import {
   getDiscussionsCommentBodyAttributes,
   useDiscussionsCommentBodySchema,
 } from '~/components/projects/discussions/ProjectsDiscussionsCommentBodySchema';
-import type { ProjectsDiscussionsCommentUserProfile } from '~/components/projects/discussions/types';
+import type { ProjectsDiscussionsCommentAuthor } from '~/components/projects/discussions/types';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
@@ -25,7 +25,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
-  viewer: ProjectsDiscussionsCommentUserProfile;
+  viewer: ProjectsDiscussionsCommentAuthor;
 }>;
 
 type CommentFormInput = Readonly<{
@@ -84,9 +84,11 @@ export default function ProjectsChallengeDiscussionsNewComment({
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex items-center gap-4">
-        {/* TODO(projects): fetch real points */}
         <ProjectsProfileAvatar
-          profile={{ ...viewer.userProfile, projectsProfile: { points: 4200 } }}
+          profile={{
+            ...viewer.userProfile,
+            projectsProfile: { points: viewer.points },
+          }}
           size="xl"
         />
         <div className="flex flex-col gap-y-1">

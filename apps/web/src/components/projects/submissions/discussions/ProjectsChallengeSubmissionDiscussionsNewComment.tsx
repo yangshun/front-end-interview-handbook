@@ -12,7 +12,7 @@ import {
   getDiscussionsCommentBodyAttributes,
   useDiscussionsCommentBodySchema,
 } from '~/components/projects/discussions/ProjectsDiscussionsCommentBodySchema';
-import type { ProjectsDiscussionsCommentUserProfile } from '~/components/projects/discussions/types';
+import type { ProjectsDiscussionsCommentAuthor } from '~/components/projects/discussions/types';
 import Button from '~/components/ui/Button';
 import RichTextEditor from '~/components/ui/RichTextEditor';
 import Text from '~/components/ui/Text';
@@ -25,7 +25,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 type Props = Readonly<{
   submission: ProjectsChallengeSubmissionAugmented;
-  viewer: ProjectsDiscussionsCommentUserProfile;
+  viewer: ProjectsDiscussionsCommentAuthor;
 }>;
 
 type CommentFormInput = Readonly<{
@@ -86,7 +86,7 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
         <ProjectsProfileAvatar
           profile={{
             ...viewer.userProfile,
-            projectsProfile: { points: submission.projectsProfile!.points },
+            projectsProfile: { points: viewer.points },
           }}
           size="xl"
         />

@@ -13,8 +13,8 @@ import { themeBorderColor, themeTextSubtleColor } from '~/components/ui/theme';
 import ProjectsDiscussionsComment from './ProjectsDiscussionsComment';
 import ProjectsDiscussionsCommentSort from './ProjectsDiscussionsCommentSort';
 import type {
+  ProjectsDiscussionsCommentAuthor,
   ProjectsDiscussionsCommentSortField,
-  ProjectsDiscussionsCommentUserProfile,
 } from './types';
 
 import type { ProjectsDiscussionCommentDomain } from '@prisma/client';
@@ -22,7 +22,7 @@ import type { ProjectsDiscussionCommentDomain } from '@prisma/client';
 type Props = Readonly<{
   domain: ProjectsDiscussionCommentDomain;
   entityId: string;
-  viewer?: ProjectsDiscussionsCommentUserProfile | null;
+  viewer?: ProjectsDiscussionsCommentAuthor | null;
 }>;
 
 export default function ProjectsDiscussionsCommentList({

@@ -116,7 +116,8 @@ export const projectsCommentsRouter = router({
           },
         },
         author: {
-          include: {
+          select: {
+            points: true,
             userProfile: true,
           },
         },

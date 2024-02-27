@@ -4,6 +4,7 @@ import DiscussionsCommentList from '~/components/projects/discussions/ProjectsDi
 
 import ProjectsChallengeDiscussionsNewComment from './ProjectsChallengeDiscussionsNewComment';
 import type { ProjectsChallengeItem } from '../types';
+import useProfileWithProjectsProfile from '../../common/useProfileWithProjectsProfile';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -12,27 +13,29 @@ type Props = Readonly<{
 export default function ProjectsChallengeDiscussionsSection({
   challenge,
 }: Props) {
-  const { profile } = useProfile();
+  const { profile } = useProfileWithProjectsProfile();
+  const viewer = profile?.projectsProfile
+    ? {
+        points: profile.projectsProfile.points,
+        userProfile: {
+          ...profile,
+        },
+      }
+    : null;
 
   return (
     <div className="flex flex-col gap-y-9">
-      {profile && (
+      {viewer && (
         <ProjectsChallengeDiscussionsNewComment
           challenge={challenge}
-          // TODO(projects): fetch real points.
-          viewer={{ userProfile: { ...profile, points: 4200 } }}
+          viewer={viewer}
         />
       )}
       <div className="flex w-full">
         <DiscussionsCommentList
           domain="PROJECTS_CHALLENGE"
           entityId={challenge.metadata.slug}
-          // TODO(projects): fetch real points.
-          viewer={
-            profile == null
-              ? profile
-              : { userProfile: { ...profile, points: 4200 } }
-          }
+          viewer={viewer}
         />
       </div>
     </div>
