@@ -66,6 +66,22 @@ export default function AuthPage({ view }: Props) {
                     id="C+WlY+"
                   />
                 </Alert>
+              ) : sourceSearchParam === 'start_project' ? (
+                <Alert
+                  title={intl.formatMessage({
+                    defaultMessage:
+                      'An account is required to start a challenge',
+                    description:
+                      'Title for user to create an account before starting a project challenge',
+                    id: '+aMCjd',
+                  })}
+                  variant="info">
+                  <FormattedMessage
+                    defaultMessage="Please create a free account in order to start on project challenges."
+                    description="Prompting the user to create an account before starting a project challenge"
+                    id="PHuc2+"
+                  />
+                </Alert>
               ) : undefined
             }
             providers={['github']}

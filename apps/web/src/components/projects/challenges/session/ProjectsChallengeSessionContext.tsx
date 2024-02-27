@@ -158,7 +158,7 @@ export default function ProjectsChallengeSessionContextProvider({
       setIsGetStartedDialogShown,
       startProject: () => {
         if (profile == null) {
-          navigateToSignInUpPage();
+          navigateToSignInUpPage({ query: { source: 'start_project' } });
 
           return;
         }
