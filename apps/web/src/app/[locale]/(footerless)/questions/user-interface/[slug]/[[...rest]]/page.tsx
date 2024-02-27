@@ -14,7 +14,7 @@ import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import {
-  createSupabaseAdminClientGFE,
+  createSupabaseAdminClientGFE_SERVER_ONLY,
   readUserFromToken,
 } from '~/supabase/SupabaseServerGFE';
 
@@ -137,7 +137,7 @@ export default async function Page({ params }: Props) {
   ]);
 
   let canViewPremiumContent = false;
-  const supabaseAdmin = createSupabaseAdminClientGFE();
+  const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
   if (user != null) {
     canViewPremiumContent = await Promise.resolve(

@@ -6,7 +6,7 @@ import { readQuestionSystemDesignContents } from '~/db/QuestionsContentsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import {
-  createSupabaseAdminClientGFE,
+  createSupabaseAdminClientGFE_SERVER_ONLY,
   readUserFromToken,
 } from '~/supabase/SupabaseServerGFE';
 
@@ -55,7 +55,7 @@ export default async function Page({ params }: Props) {
       return false;
     }
 
-    const supabaseClient = createSupabaseAdminClientGFE();
+    const supabaseClient = createSupabaseAdminClientGFE_SERVER_ONLY();
 
     const { data: profile } = await supabaseClient
       .from('Profile')

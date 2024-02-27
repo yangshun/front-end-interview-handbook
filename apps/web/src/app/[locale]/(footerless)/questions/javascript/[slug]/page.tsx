@@ -11,7 +11,7 @@ import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteUrl } from '~/seo/siteUrl';
 import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
-import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
+import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
@@ -45,7 +45,7 @@ export default async function Page({ params }: Props) {
   const { slug: rawSlug, locale } = params;
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
-  const supabaseAdmin = createSupabaseAdminClientGFE();
+  const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
   const user = await readUserFromToken();
   const { question } = readQuestionJavaScriptContents(slug, locale);

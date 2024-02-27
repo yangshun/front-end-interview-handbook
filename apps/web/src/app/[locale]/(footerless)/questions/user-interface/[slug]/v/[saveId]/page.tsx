@@ -9,7 +9,7 @@ import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import defaultMetadata from '~/seo/defaultMetadata';
 import prisma from '~/server/prisma';
 import {
-  createSupabaseAdminClientGFE,
+  createSupabaseAdminClientGFE_SERVER_ONLY,
   readUserFromToken,
 } from '~/supabase/SupabaseServerGFE';
 import { staticLowerCase } from '~/utils/typescript/stringTransform';
@@ -67,7 +67,7 @@ export default async function Page({ params }: Props) {
   );
 
   let canViewPremiumContent = false;
-  const supabaseAdmin = createSupabaseAdminClientGFE();
+  const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
   if (user != null) {
     canViewPremiumContent = await Promise.resolve(

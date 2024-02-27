@@ -3,7 +3,7 @@ import Cors from 'cors';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 import type { MessageLevel } from '~/logging/logMessage';
-import { createServerSupabaseClientGFE } from '~/supabase/SupabaseServerGFE';
+import { createSupabaseClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 const cors = Cors({
   methods: ['POST'],
@@ -43,7 +43,7 @@ export default async function handler(
     return res.status(405).json({ message: 'Only POST requests allowed' });
   }
 
-  const supabase = createServerSupabaseClientGFE({ req, res });
+  const supabase = createSupabaseClientGFE_SERVER_ONLY({ req, res });
   const {
     data: { user },
   } = await supabase.auth.getUser();

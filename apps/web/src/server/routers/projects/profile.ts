@@ -6,7 +6,7 @@ import { fetchProjectsProfileRecalculatePoints } from '~/components/projects/rep
 import { projectsSkillListInputOptionalSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 
 import prisma from '~/server/prisma';
-import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
+import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 import { base64toBlob } from '~/utils/projects/profilePhotoUtils';
 
 import { projectsUserProcedure, publicProjectsProcedure } from './procedures';
@@ -478,7 +478,7 @@ export const projectsProfileRouter = router({
       }),
     )
     .mutation(async ({ input: { imageFile }, ctx: { user } }) => {
-      const supabaseAdmin = createSupabaseAdminClientGFE();
+      const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
       const blob = base64toBlob(imageFile);
 

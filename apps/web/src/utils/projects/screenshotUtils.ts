@@ -6,7 +6,7 @@ import {
 } from '~/components/projects/common/ProjectsImageBreakpoints';
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/projects/submissions/types.ts';
 
-import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
+import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 /**
  * In order to have the function working in both windows and macOS
@@ -32,7 +32,7 @@ type Browser = Awaited<ReturnType<typeof puppeteer.launch>>;
 type Page = Awaited<ReturnType<Browser['newPage']>>;
 
 async function saveScreenshot(screenshotBuffer: Buffer, path: string) {
-  const supabaseAdmin = createSupabaseAdminClientGFE();
+  const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
   const { error } = await supabaseAdmin.storage
     .from('projects-screenshots')
@@ -160,7 +160,7 @@ export async function generateScreenshots(
 }
 
 export async function deleteScreenshot(submissionId: string, url: string) {
-  const supabaseAdmin = createSupabaseAdminClientGFE();
+  const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
   await supabaseAdmin.storage
     .from('projects-screenshots')

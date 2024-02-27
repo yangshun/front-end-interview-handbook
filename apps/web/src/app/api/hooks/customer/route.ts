@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
+import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 // This API is called by Supabase database hooks whenever a new
 // row in the `profile` table is created. It receives a `body` resembling:
@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const supabaseAdmin = createSupabaseAdminClientGFE();
+  const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
   const result = await req.json();
   const userId = result.record?.id as string; // Supabase auth user ID.

@@ -1,10 +1,10 @@
 import { z } from 'zod';
 
-import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
+import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 import { publicProcedure, router } from '../trpc';
 
-const supabase = createSupabaseAdminClientGFE();
+const supabase = createSupabaseAdminClientGFE_SERVER_ONLY();
 
 export const authRouter = router({
   resendSignupConfirmation: publicProcedure

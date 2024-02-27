@@ -5,7 +5,7 @@ import Stripe from 'stripe';
 import type { UserProfilePlan } from '~/components/global/UserProfileProvider';
 
 import { sendEmailPaymentFailed } from '~/emails/EmailSender';
-import { createSupabaseAdminClientGFE } from '~/supabase/SupabaseServerGFE';
+import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 export const config = { api: { bodyParser: false } };
 
@@ -37,7 +37,7 @@ export default async function handler(
     });
   }
 
-  const supabaseAdmin = createSupabaseAdminClientGFE();
+  const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
   async function fulfillLifetimeOrder(
     checkoutSession: Stripe.Checkout.Session,

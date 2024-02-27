@@ -7,7 +7,7 @@ import { isProhibitedCountry } from '~/lib/stripeUtils';
 import type { PricingPlanType } from '~/data/PricingPlans';
 
 import {
-  createSupabaseAdminClientGFE,
+  createSupabaseAdminClientGFE_SERVER_ONLY,
   readUserFromToken,
 } from '~/supabase/SupabaseServerGFE';
 
@@ -36,7 +36,7 @@ const prohibitedCities = new Set([
 export default async function handler(req: NextRequest) {
   const url = new URL(req.url);
   const { origin, searchParams } = url;
-  const supabaseAdmin = createSupabaseAdminClientGFE();
+  const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
   const user = await readUserFromToken(
     req.cookies.get('supabase-auth-token')?.value,

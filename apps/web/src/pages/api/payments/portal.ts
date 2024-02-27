@@ -5,7 +5,7 @@ import Stripe from 'stripe';
 import absoluteUrl from '~/lib/absoluteUrl';
 
 import {
-  createSupabaseAdminClientGFE,
+  createSupabaseAdminClientGFE_SERVER_ONLY,
   readUserFromToken,
 } from '~/supabase/SupabaseServerGFE';
 
@@ -28,7 +28,7 @@ export default async function handler(
     });
   }
 
-  const supabaseAdmin = createSupabaseAdminClientGFE();
+  const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
   const { data, error } = await supabaseAdmin
     .from('Profile')
     .select('stripeCustomer')

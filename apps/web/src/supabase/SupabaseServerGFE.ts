@@ -14,9 +14,9 @@ import { createClient } from '@supabase/supabase-js';
 export type SupabaseClientGFE = SupabaseClient<Database>;
 
 /**
- * Next.js specific Supabase client to be used within server-side code.
+ * Next.js-specific Supabase client to be used within server-side code.
  */
-export function createServerSupabaseClientGFE(
+export function createSupabaseClientGFE_SERVER_ONLY(
   ...args: Parameters<typeof createServerSupabaseClient>
 ) {
   return createServerSupabaseClient<Database>(...args);
@@ -29,7 +29,7 @@ export function createServerSupabaseClientGFE(
  * Doesn't allow additional options because there's no
  * use case for it yet.
  */
-export function createSupabaseAdminClientGFE() {
+export function createSupabaseAdminClientGFE_SERVER_ONLY() {
   return createClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL as string,
     process.env.SUPABASE_SERVICE_ROLE_KEY as string,
@@ -66,7 +66,7 @@ export async function fetchUser_DO_NOT_USE_IF_ONLY_USER_ID_OR_EMAIL_NEEDED(
       return null;
     }
 
-    const supabaseAdmin = createSupabaseAdminClientGFE();
+    const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
     const {
       data: { user },
     } = await supabaseAdmin.auth.getUser(tokens.accessToken);
