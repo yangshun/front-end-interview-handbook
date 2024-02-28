@@ -1,9 +1,5 @@
 import clsx from 'clsx';
-import {
-  RiGithubFill,
-  RiLinkedinBoxFill,
-  RiStarSmileFill,
-} from 'react-icons/ri';
+import { RiStarSmileFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'usehooks-ts';
 
@@ -19,6 +15,7 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import ProjectsProfileDisplayNameLink from './ProjectsProfileDisplayNameLink';
 import useProjectsProfileStats from '../hooks/useProjectsProfileStats';
+import ProjectsProfileSocialLinks from '../profile/info/ProjectsProfileSocialLinks';
 
 type Props = Readonly<{
   profileId: string;
@@ -88,37 +85,7 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
                     variant="special"
                   />
                 </Tooltip>
-                {profile?.githubUsername && (
-                  <Tooltip
-                    asChild={true}
-                    label={intl.formatMessage({
-                      defaultMessage: 'View GitHub profile',
-                      description: 'Tooltip for github profile icon',
-                      id: 'BAyveo',
-                    })}>
-                    <Anchor href={profile.githubUsername} variant="unstyled">
-                      <span className="sr-only">GitHub</span>
-                      <RiGithubFill aria-hidden="true" className="size-5" />
-                    </Anchor>
-                  </Tooltip>
-                )}
-                {profile?.linkedInUsername && (
-                  <Tooltip
-                    asChild={true}
-                    label={intl.formatMessage({
-                      defaultMessage: 'View LinkedIn profile',
-                      description: 'Tooltip for LinkedIn profile icon',
-                      id: 'Xq6/V6',
-                    })}>
-                    <Anchor href={profile.linkedInUsername} variant="unstyled">
-                      <span className="sr-only">LinkedIn</span>
-                      <RiLinkedinBoxFill
-                        aria-hidden="true"
-                        className="size-5"
-                      />
-                    </Anchor>
-                  </Tooltip>
-                )}
+                <ProjectsProfileSocialLinks userProfile={profile!} />
               </div>
               <UserProfileInformationRow profile={profile!} size="body3" />
             </div>
@@ -129,7 +96,7 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
                 <Text size="body0" weight="bold">
                   {item.count}
                 </Text>
-                <div className="flex h-full items-center">
+                <div className="flex h-full">
                   <Text className="!text-2xs" color="secondary">
                     {item.title}
                   </Text>

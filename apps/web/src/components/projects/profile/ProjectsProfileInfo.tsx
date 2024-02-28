@@ -1,9 +1,4 @@
-import {
-  RiGithubFill,
-  RiLinkedinBoxFill,
-  RiPencilFill,
-  RiStarSmileFill,
-} from 'react-icons/ri';
+import { RiPencilFill, RiStarSmileFill } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
@@ -20,6 +15,7 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
+import ProjectsProfileSocialLinks from './info/ProjectsProfileSocialLinks';
 import ProjectsProfileDisplayNameLink from '../users/ProjectsProfileDisplayNameLink';
 
 import type { Profile, ProjectsProfile } from '@prisma/client';
@@ -40,7 +36,6 @@ export default function ProjectsProfileInfo({
   const { projectsProfile } = userProfile;
 
   const avatarProfile = {
-    // TODO(projects): Use projects profile.
     ...userProfile,
     points: projectsProfile.points,
   };
@@ -51,52 +46,26 @@ export default function ProjectsProfileInfo({
         <div className="hidden items-center gap-6 md:flex">
           <ProjectsProfileAvatar profile={avatarProfile} size="3xl" />
           <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-4">
               <Text size="body1" weight="medium">
                 <ProjectsProfileDisplayNameLink profile={userProfile} />
               </Text>
               {/* TODO(projects): Add actual premium logic */}
               <Badge
                 icon={RiStarSmileFill}
-                label={intl.formatMessage({
-                  defaultMessage: 'Premium',
-                  description: 'Premium content',
-                  id: 'gIeLON',
-                })}
+                label={`@${userProfile.username}`}
                 size="md"
                 variant="special"
               />
-              {userProfile.githubUsername && (
-                <a href={userProfile.githubUsername} target="_blank">
-                  <span className="sr-only">Github</span>
-                  <RiGithubFill aria-hidden="true" className="size-5" />
-                </a>
-              )}
-              {userProfile.linkedInUsername && (
-                <a href={userProfile.linkedInUsername} target="_blank">
-                  <span className="sr-only">LinkedIn</span>
-                  <RiLinkedinBoxFill aria-hidden="true" className="size-5" />
-                </a>
-              )}
-              <Text color="secondary" size="body2">
-                <FormattedMessage
-                  defaultMessage="Joined on {date}"
-                  description="Projects profile created date"
-                  id="IO/eOZ"
-                  values={{
-                    date: new Date(
-                      projectsProfile.createdAt,
-                    ).toLocaleDateString('en-US', {
-                      day: 'numeric',
-                      month: 'short',
-                      year: 'numeric',
-                    }),
-                  }}
-                />
-              </Text>
             </div>
             <UserProfileInformationRow profile={userProfile} />
-            <ProjectsUserReputation points={projectsProfile.points} />
+            <div className="flex items-center gap-3">
+              <ProjectsUserReputation
+                points={projectsProfile.points}
+                size="body2"
+              />
+              <ProjectsProfileSocialLinks userProfile={userProfile} />
+            </div>
           </div>
         </div>
         <div className="flex flex-col md:hidden">
@@ -116,21 +85,7 @@ export default function ProjectsProfileInfo({
                     size="sm"
                     variant="special"
                   />
-                  {userProfile.githubUsername && (
-                    <a href={userProfile.githubUsername} target="_blank">
-                      <span className="sr-only">Github</span>
-                      <RiGithubFill aria-hidden="true" className="size-5" />
-                    </a>
-                  )}
-                  {userProfile.linkedInUsername && (
-                    <a href={userProfile.linkedInUsername} target="_blank">
-                      <span className="sr-only">LinkedIn</span>
-                      <RiLinkedinBoxFill
-                        aria-hidden="true"
-                        className="size-5"
-                      />
-                    </a>
-                  )}
+                  <ProjectsProfileSocialLinks userProfile={userProfile} />
                 </div>
               </div>
               <Text color="secondary" size="body2">
