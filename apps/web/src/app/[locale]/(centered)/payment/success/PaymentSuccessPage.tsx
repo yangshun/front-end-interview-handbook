@@ -18,11 +18,10 @@ import type {
   PricingPlansLocalized,
   PricingPlanType,
 } from '~/data/PricingPlans';
-import { hasProjectsBetaAccess } from '~/data/PromotionConfig';
 
-import ExclusiveTicket from '~/components/common/tickets/ExclusiveTicket';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
+import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
@@ -30,6 +29,7 @@ import {
   themeBackgroundChipColor,
   themeBorderColor,
   themeDivideColor,
+  themeTextBrandColor_GroupHover,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -40,7 +40,7 @@ import logMessage from '~/logging/logMessage';
 const links = [
   {
     description:
-      'Join over 1000 users in our private Discord community for Premium users',
+      'Join over 2000 users in our private Discord community for Premium users',
     featured: true,
     href: 'https://discord.gg/8suTg77xXz',
     icon: RiDiscordFill,
@@ -112,14 +112,14 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
       });
 
       fbq.track('Purchase', {
-        content_name: plan.planType,
+        content_name: `[interviews] ${plan.planType}`,
         currency: plan.currency.toLocaleUpperCase(),
         value: plan.unitCostCurrency.withPPP.after,
       });
 
       logMessage({
         level: 'success',
-        message: `Purchased ${
+        message: `[interviews] Purchased ${
           plan.planType
         } plan for ${plan.currency.toLocaleUpperCase()} ${
           plan.unitCostCurrency.withPPP.after
@@ -128,131 +128,109 @@ export default function PaymentSuccess({ plans }: Props): JSX.Element {
       });
       logEvent('checkout.success', {
         currency: plan.currency.toLocaleUpperCase(),
-        plan: plan.planType,
+        plan: `interviews.${plan.planType}`,
         value: plan.unitCostCurrency.withPPP.after,
       });
     }
   }, [planSearchParam, plans]);
 
   return (
-    <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-xl py-12 sm:py-16">
-        <div className="flex flex-col items-center justify-center gap-4">
-          <span
-            className={clsx(
-              'relative flex size-14 items-center justify-center rounded-full',
-              'shiny',
-              'bg-brand-dark dark:bg-brand/20',
-            )}>
-            <RiStarSmileFill
-              aria-hidden={true}
-              className="dark:text-brand size-10 shrink-0 text-white"
-            />
-          </span>
-          <Heading className="text-center" level="heading4">
-            {/* TODO: i18n */}
-            Welcome to the Premium Club for GreatFrontEnd Interviews!
-          </Heading>
-        </div>
-        <Section>
-          {hasProjectsBetaAccess(Date.now()) && (
-            <div className="mt-12 flex flex-col items-center gap-y-5">
-              <Text color="secondary" display="block">
-                You've also earned:
-              </Text>
-              <ExclusiveTicket
-                addOnElement={<Badge label="Coming soon" variant="warning" />}
-                ratio="wide"
-                subtitle="2 months free"
-                title="Exclusive beta access"
-                tooltip="Ticket for exclusive beta access to our new mystery product dropping in Jan – Feb 2024"
-                width={400}
-              />
-              <Text color="secondary" display="block">
-                We'll send you email updates nearer to launch
-              </Text>
-            </div>
-          )}
-          <div className="mt-12">
-            <Heading
-              className={clsx('text-base', themeTextSecondaryColor)}
-              color="custom"
-              level="custom">
-              {/* TODO: i18n */}
-              Next steps
-            </Heading>
-            <Section>
-              <ul
-                className={clsx(
-                  'mt-4 divide-y border-b border-t',
-                  themeBorderColor,
-                  themeDivideColor,
-                )}
-                role="list">
-                {links.map((link) => (
-                  <li
-                    key={link.title}
-                    className="group relative flex items-start space-x-4 py-6">
-                    <div className="shrink-0">
-                      <span
-                        className={clsx(
-                          'inline-flex size-10 items-center justify-center rounded-md',
-                          themeBackgroundChipColor,
-                          themeTextSecondaryColor,
-                          'border border-transparent transition',
-                          'group-hover:border-brand-dark group-hover:text-brand-dark',
-                          'dark:group-hover:border-brand dark:group-hover:text-brand',
-                        )}>
-                        <link.icon aria-hidden={true} className="size-6" />
-                      </span>
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <Heading
-                        className="inline-flex gap-4 text-base font-medium"
-                        level="custom">
-                        <span className="focus-within:ring-brand rounded-sm focus-within:ring-2 focus-within:ring-offset-2">
-                          <Anchor
-                            className="focus:outline-none"
-                            href={link.href}
-                            variant="unstyled">
-                            <span
-                              aria-hidden="true"
-                              className="absolute inset-0"
-                            />
-                            {link.title}
-                          </Anchor>
-                        </span>
-                        {link.featured && (
-                          <Badge
-                            label="Recommended!"
-                            size="sm"
-                            variant="success"
-                          />
-                        )}
-                      </Heading>
-                      <Section>
-                        <Text
-                          className="mt-1"
-                          color="secondary"
-                          display="block"
-                          size="body2">
-                          {link.description}
-                        </Text>
-                      </Section>
-                    </div>
-                    <div className="shrink-0 self-center">
-                      <RiArrowRightSLine
-                        aria-hidden="true"
-                        className={clsx('size-5', themeTextSecondaryColor)}
-                      />
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </Section>
-          </div>
-        </Section>
+    <Container className="py-16" variant="3xl">
+      <div className="flex flex-col items-center justify-center gap-4">
+        <span
+          className={clsx(
+            'relative flex items-center justify-center',
+            'size-14 rounded-full',
+            'shiny',
+            'bg-brand-dark dark:bg-brand/20',
+          )}>
+          <RiStarSmileFill
+            aria-hidden={true}
+            className={clsx('size-10 shrink-0', 'dark:text-brand text-white')}
+          />
+        </span>
+        <Heading className="text-center" level="heading4">
+          {/* TODO: i18n */}
+          Welcome to the Premium Club for GreatFrontEnd Interviews!
+        </Heading>
       </div>
-    </main>
+      <Section>
+        <div className="mt-12">
+          <Heading
+            className={clsx('text-base', themeTextSecondaryColor)}
+            color="custom"
+            level="custom">
+            {/* TODO: i18n */}
+            Next steps
+          </Heading>
+          <Section>
+            <ul
+              className={clsx(
+                'mt-4 divide-y border-b border-t',
+                themeBorderColor,
+                themeDivideColor,
+              )}
+              role="list">
+              {links.map((link) => (
+                <li
+                  key={link.title}
+                  className="group relative flex items-start space-x-4 py-6">
+                  <div className="shrink-0">
+                    <span
+                      className={clsx(
+                        'size-10 inline-flex items-center justify-center rounded-md',
+                        themeBackgroundChipColor,
+                        [
+                          themeTextSecondaryColor,
+                          themeTextBrandColor_GroupHover,
+                        ],
+                        [
+                          'border border-transparent',
+                          'group-hover:border-brand-dark dark:group-hover:border-brand',
+                        ],
+                        'transition',
+                      )}>
+                      <link.icon aria-hidden={true} className="size-6" />
+                    </span>
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <Heading
+                      className="inline-flex gap-4 text-base font-medium"
+                      level="custom">
+                      <Anchor href={link.href} variant="blend">
+                        <span aria-hidden="true" className="absolute inset-0" />
+                        {link.title}
+                      </Anchor>
+                      {link.featured && (
+                        <Badge
+                          label="Recommended!"
+                          size="sm"
+                          variant="success"
+                        />
+                      )}
+                    </Heading>
+                    <Section>
+                      <Text color="secondary" display="block" size="body2">
+                        {link.description}
+                      </Text>
+                    </Section>
+                  </div>
+                  <div className="shrink-0 self-center">
+                    <RiArrowRightSLine
+                      aria-hidden="true"
+                      className={clsx(
+                        'size-5 shrink-0',
+                        themeTextSecondaryColor,
+                        themeTextBrandColor_GroupHover,
+                      )}
+                    />
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </Section>
+        </div>
+      </Section>
+    </Container>
   );
 }
