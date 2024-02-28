@@ -7,15 +7,15 @@ import { z } from 'zod';
 import { trpc } from '~/hooks/trpc';
 
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
-import ProjectsProfileSocialInput from '~/components/projects/profile/ProjectsProfileSocialInput';
+import ProjectsProfileSocialInput from '~/components/projects/profile/edit/ProjectsProfileSocialInput';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
 import ProjectsProfileBioInput from '../profile/edit/ProjectsProfileBioInput';
-import ProjectsProfileTechStackProficientInput from '../profile/ProjectsProfileTechStackProficientInput';
-import ProjectsProfileTechStackToImproveInput from '../profile/ProjectsProfileTechStackToImproveInput';
+import ProjectsProfileTechStackProficientInput from '../profile/edit/ProjectsProfileTechStackProficientInput';
+import ProjectsProfileTechStackToImproveInput from '../profile/edit/ProjectsProfileTechStackToImproveInput';
 import { projectsReputationProfileFieldConfig } from '../reputation/ProjectsReputationPointsConfig';
 import { useProjectsSkillListInputSchema } from '../skills/form/ProjectsSkillListInputSchema';
 import type { ProjectsSkillKey } from '../skills/types';

@@ -8,13 +8,13 @@ import { trpc } from '~/hooks/trpc';
 
 import { useProfileUsernameSchema } from '~/components/profile/fields/ProfileUsernameSchema';
 import { yoeReplacementSchema } from '~/components/projects/misc';
-import ProjectsProfileUsernameInput from '~/components/projects/profile/edit/ProjectProfileUsernameInput';
 import ProjectsProfileEditAvatar from '~/components/projects/profile/edit/ProjectsProfileEditAvatar';
 import ProjectsProfileJobSection from '~/components/projects/profile/edit/ProjectsProfileJobSection';
 import {
   useProjectsJobNotStartedSchema,
   useProjectsJobStartedSchema,
 } from '~/components/projects/profile/edit/ProjectsProfileSchema';
+import ProjectsProfileUsernameInput from '~/components/projects/profile/edit/ProjectsProfileUsernameInput';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import TextInput from '~/components/ui/TextInput';

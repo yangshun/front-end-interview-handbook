@@ -1,22 +1,23 @@
 import { RiArrowDownSLine } from 'react-icons/ri';
 
 import FilterButton from '~/components/common/FilterButton';
-import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Popover from '~/components/ui/Popover';
 
 import {
-  type ProjectsContributionFilter,
-  useProjectsContributionFilterState,
-} from './ProjectsContributionFilterContext';
+  type ProjectsProfileCommunityFilter,
+  useProjectsProfileCommunityFilterState,
+} from './ProjectsProfileCommunityFilterContext';
 
 type Props = Readonly<{
-  filter: ProjectsContributionFilter;
+  filter: ProjectsProfileCommunityFilter;
 }>;
 
-export default function ProjectsListFilterDropdown({ filter }: Props) {
+export default function ProjectsProfileCommunityFilterDropdown({
+  filter,
+}: Props) {
   const [selectedOptions, setSelectedOptions] =
-    useProjectsContributionFilterState(filter.id);
+    useProjectsProfileCommunityFilterState(filter.id);
 
   const onChange = (value: string) => {
     const newFilters = new Set(selectedOptions);

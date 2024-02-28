@@ -16,9 +16,7 @@ type Props = Readonly<{
   baseUrl: string;
 }>;
 
-export default function ProjectsProgressAndContributionsTabs({
-  baseUrl,
-}: Props) {
+export default function ProjectsProfileTabs({ baseUrl }: Props) {
   const { pathname } = useI18nPathname();
   const intl = useIntl();
 

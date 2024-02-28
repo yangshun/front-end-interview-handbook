@@ -1,4 +1,4 @@
-import ProjectsProgressSection from '~/components/projects/common/progress-and-contributions/ProjectsProgressSection';
+import ProjectsProfileProgressSection from '~/components/projects/profile/progress/ProjectsProfileProgressSection';
 
 import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
@@ -21,6 +21,9 @@ export default async function Page({ params }: Props) {
   });
 
   return (
-    <ProjectsProgressSection projectTracks={tracks} userId={userProfile!.id} />
+    <ProjectsProfileProgressSection
+      projectTracks={tracks}
+      userId={userProfile!.id}
+    />
   );
 }

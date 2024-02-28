@@ -9,10 +9,12 @@ import { useIntl } from 'react-intl';
 
 import useFilterSearchParams from '~/hooks/useFilterSearchParams';
 
-export type ProjectsContributionFilterKey = 'contribution-type' | 'forum-type';
+export type ProjectsProfileCommunityFilterKey =
+  | 'contribution-type'
+  | 'forum-type';
 
-export type ProjectsContributionFilter = {
-  id: ProjectsContributionFilterKey;
+export type ProjectsProfileCommunityFilter = {
+  id: ProjectsProfileCommunityFilterKey;
   label: string;
   longLabel?: string;
   options: Array<{
@@ -26,7 +28,7 @@ function useFilters() {
   const intl = useIntl();
 
   return useMemo(() => {
-    const filters: Array<ProjectsContributionFilter> = [
+    const filters: Array<ProjectsProfileCommunityFilter> = [
       {
         id: 'contribution-type',
         label: intl.formatMessage({
@@ -85,22 +87,22 @@ function useFilters() {
   }, [intl]);
 }
 
-type ProjectsContributionFilterContextType = {
+type ProjectsProfileCommunityFilterContextType = {
   clearAll: () => void;
-  filters: Array<ProjectsContributionFilter>;
+  filters: Array<ProjectsProfileCommunityFilter>;
   getArrayTypeSearchParams: (key: string) => Array<string> | undefined;
   setFilterValue: (
-    key: ProjectsContributionFilterKey,
+    key: ProjectsProfileCommunityFilterKey,
     value: Array<string>,
   ) => void;
   setSelectedFilters: (
-    value: Record<ProjectsContributionFilterKey, Array<string>>,
+    value: Record<ProjectsProfileCommunityFilterKey, Array<string>>,
   ) => void;
-  value: Record<ProjectsContributionFilterKey, Array<string>>;
+  value: Record<ProjectsProfileCommunityFilterKey, Array<string>>;
 };
 
-export const ProjectsContributionFilterContext =
-  createContext<ProjectsContributionFilterContextType>({
+export const ProjectsProfileCommunityFilterContext =
+  createContext<ProjectsProfileCommunityFilterContextType>({
     clearAll: () => {},
     filters: [],
     getArrayTypeSearchParams: () => [],
@@ -112,11 +114,11 @@ export const ProjectsContributionFilterContext =
     },
   });
 
-export function useProjectsContributionFilterState(
-  key: ProjectsContributionFilterKey,
+export function useProjectsProfileCommunityFilterState(
+  key: ProjectsProfileCommunityFilterKey,
 ) {
   const { value, setFilterValue } = useContext(
-    ProjectsContributionFilterContext,
+    ProjectsProfileCommunityFilterContext,
   );
 
   return useMemo(
@@ -129,15 +131,15 @@ export function useProjectsContributionFilterState(
   );
 }
 
-export function useProjectsContributionFilterContext() {
-  return useContext(ProjectsContributionFilterContext);
+export function useProjectsProfileCommunityFilterContext() {
+  return useContext(ProjectsProfileCommunityFilterContext);
 }
 
 type Props = Readonly<{
   children: React.ReactNode;
 }>;
 
-export default function ProjectsContributionFilterContextProvider({
+export default function ProjectsProfileCommunityFilterContextProvider({
   children,
 }: Props) {
   const { getArrayTypeSearchParams } = useFilterSearchParams();
@@ -146,7 +148,7 @@ export default function ProjectsContributionFilterContextProvider({
   const initialForumType = getArrayTypeSearchParams('forum-type');
 
   const [selectedFilters, setSelectedFilters] = useState<
-    Record<ProjectsContributionFilterKey, Array<string>>
+    Record<ProjectsProfileCommunityFilterKey, Array<string>>
   >({
     'contribution-type': initialContributionType ?? [],
     'forum-type': initialForumType ?? [],
@@ -155,7 +157,7 @@ export default function ProjectsContributionFilterContextProvider({
   const filters = useFilters();
 
   const setFilterValue = useCallback(
-    (key: ProjectsContributionFilterKey, value: Array<string>) => {
+    (key: ProjectsProfileCommunityFilterKey, value: Array<string>) => {
       setSelectedFilters((prev) => ({
         ...prev,
         [key]: value,
@@ -189,8 +191,8 @@ export default function ProjectsContributionFilterContextProvider({
   ]);
 
   return (
-    <ProjectsContributionFilterContext.Provider value={value}>
+    <ProjectsProfileCommunityFilterContext.Provider value={value}>
       {children}
-    </ProjectsContributionFilterContext.Provider>
+    </ProjectsProfileCommunityFilterContext.Provider>
   );
 }

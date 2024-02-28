@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import ProjectsProgressSection from '~/components/projects/common/progress-and-contributions/ProjectsProgressSection';
+import ProjectsProfileProgressSection from '~/components/projects/profile/progress/ProjectsProfileProgressSection';
 
 import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -32,5 +32,5 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
   const { tracks } = await readProjectsTrackList(locale);
 
-  return <ProjectsProgressSection projectTracks={tracks} />;
+  return <ProjectsProfileProgressSection projectTracks={tracks} />;
 }

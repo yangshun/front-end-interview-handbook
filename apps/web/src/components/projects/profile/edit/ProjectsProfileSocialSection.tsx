@@ -1,7 +1,7 @@
 import { useFormContext } from 'react-hook-form';
 import { FormattedMessage } from 'react-intl';
 
-import ProjectsProfileSocialInput from '~/components/projects/profile/ProjectsProfileSocialInput';
+import ProjectsProfileSocialInput from '~/components/projects/profile/edit/ProjectsProfileSocialInput';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Heading from '~/components/ui/Heading';
 

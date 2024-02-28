@@ -8,7 +8,7 @@ import { trpc } from '~/hooks/trpc';
 
 import FilterButton from '~/components/common/FilterButton';
 import ProjectsChallengeCard from '~/components/projects/challenges/lists/ProjectsChallengeCard';
-import useProjectsSessionStatusFilter from '~/components/projects/common/progress-and-contributions/useProjectsSessionStatusFilter';
+import useProjectsSessionStatusFilter from '~/components/projects/profile/progress/useProjectsSessionStatusFilter';
 import EmptyState from '~/components/ui/EmptyState';
 import { themeTextColor } from '~/components/ui/theme';
 
@@ -18,7 +18,9 @@ type Props = Readonly<{
   userId?: string;
 }>;
 
-export default function ProjectsAllChallengesTab({ userId }: Props) {
+export default function ProjectsProfileProgressAllChallengesTab({
+  userId,
+}: Props) {
   const intl = useIntl();
 
   const [challengeFilters, challengeFilterOptions] =

@@ -1,10 +1,10 @@
 import { useIntl } from 'react-intl';
 
-import ProjectsCommentList from './ProjectsCommentList';
-import type { ContributionComment } from './ProjectsContributionsSection';
+import ProjectsProfileCommunityCommentList from './ProjectsProfileCommunityCommentList';
+import type { ProjectsProfileCommunityComment } from './ProjectsProfileCommunitySection';
 
 type Props = Readonly<{
-  comments: ReadonlyArray<ContributionComment>;
+  comments: ReadonlyArray<ProjectsProfileCommunityComment>;
 }>;
 
 function getStartOfCurrWeek(date: Date) {
@@ -41,7 +41,9 @@ function getStartOfPrevMonth(date: Date) {
   return startOfPrevMonth;
 }
 
-export default function ProjectsAllCommentsSection({ comments }: Props) {
+export default function ProjectsProfileCommunityCommentsSection({
+  comments,
+}: Props) {
   const intl = useIntl();
   const allComments = comments.slice(0);
   const sortedComments = allComments.sort(
@@ -159,16 +161,18 @@ export default function ProjectsAllCommentsSection({ comments }: Props) {
 
   return (
     <div className="flex flex-col gap-8">
-      {codeReviews.map(
-        (codeReview) =>
-          codeReview.comments.length !== 0 && (
-            <ProjectsCommentList
-              key={codeReview.title}
-              comments={codeReview.comments}
-              title={codeReview.title}
-            />
-          ),
-      )}
+      {codeReviews
+        .filter((codeReview) => codeReview.comments.length > 0)
+        .map(
+          (codeReview) =>
+            codeReview.comments.length !== 0 && (
+              <ProjectsProfileCommunityCommentList
+                key={codeReview.title}
+                comments={codeReview.comments}
+                title={codeReview.title}
+              />
+            ),
+        )}
     </div>
   );
 }

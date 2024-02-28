@@ -7,8 +7,8 @@ import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
-import ProjectsProgressAndContributionsTabs from '~/components/projects/common/progress-and-contributions/ProjectsProgressAndContributionsTabs';
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
+import ProjectsProfileProgressAndContributionsTabs from '~/components/projects/profile/ProjectsProfileTabs';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -109,7 +109,7 @@ export default function ProjectsDashboardPage({ children }: Props) {
           )}
           {userProfile && (
             <div className="flex flex-col gap-8">
-              <ProjectsProgressAndContributionsTabs baseUrl="/projects/dashboard" />
+              <ProjectsProfileProgressAndContributionsTabs baseUrl="/projects/dashboard" />
               {children}
             </div>
           )}

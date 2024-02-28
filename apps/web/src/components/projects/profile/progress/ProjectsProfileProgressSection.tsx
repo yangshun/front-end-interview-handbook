@@ -9,10 +9,10 @@ import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTra
 import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
 
-import ProjectsAllChallengesTab from './ProjectsAllChallengesTab';
-import ProjectsSkillsTab from './ProjectsSkillsTab';
-import type { ProjectsMainLayoutTabCategory } from '../useProjectsMainLayoutTabs';
-import useProjectsMainLayoutTabs from '../useProjectsMainLayoutTabs';
+import ProjectsProfileProgressAllChallengesTab from './ProjectsProfileProgressAllChallengesTab';
+import ProjectsProfileProgressSkillsTab from './ProjectsProfileProgressSkillsTab';
+import type { ProjectsMainLayoutTabCategory } from '../../common/useProjectsMainLayoutTabs';
+import useProjectsMainLayoutTabs from '../../common/useProjectsMainLayoutTabs';
 import ProjectsTrackSection from '../../tracks/ProjectsTrackSection';
 
 type Props = Readonly<{
@@ -20,7 +20,7 @@ type Props = Readonly<{
   userId?: string;
 }>;
 
-export default function ProjectsProgressSection({
+export default function ProjectsProfileProgressSection({
   projectTracks,
   userId,
 }: Props) {
@@ -54,7 +54,9 @@ export default function ProjectsProgressSection({
         onSelect={setCurrentProgressTab}
       />
       {currentProgressTab === 'challenges' && (
-        <ProjectsAllChallengesTab userId={userId ?? profile?.id} />
+        <ProjectsProfileProgressAllChallengesTab
+          userId={userId ?? profile?.id}
+        />
       )}
       {currentProgressTab === 'tracks' && (
         <ProjectsTrackSection
@@ -64,7 +66,7 @@ export default function ProjectsProgressSection({
         />
       )}
       {
-        currentProgressTab === 'skills' && <ProjectsSkillsTab /> // TODO: pass in id when skills tab data is being called
+        currentProgressTab === 'skills' && <ProjectsProfileProgressSkillsTab /> // TODO(projects): pass in id when skills tab data is being called
       }
     </div>
   );

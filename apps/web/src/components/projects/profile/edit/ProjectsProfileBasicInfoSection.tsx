@@ -6,9 +6,9 @@ import type { ProjectsOnboardingProfileStep2FormValues } from '~/components/proj
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import TextInput from '~/components/ui/TextInput';
 
-import ProjectsProfileUsernameInput from './ProjectProfileUsernameInput';
 import ProjectsProfileBioInput from './ProjectsProfileBioInput';
 import ProjectsProfileEditAvatar from './ProjectsProfileEditAvatar';
+import ProjectsProfileUsernameInput from './ProjectsProfileUsernameInput';
 
 type Values =
   | ProjectsOnboardingProfileStep2FormValues

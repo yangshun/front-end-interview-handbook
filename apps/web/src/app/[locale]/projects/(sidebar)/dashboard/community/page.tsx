@@ -1,5 +1,5 @@
-import ProjectsContributionsSection from '~/components/projects/common/progress-and-contributions/ProjectsContributionsSection';
+import ProjectsProfileCommunitySection from '~/components/projects/profile/community/ProjectsProfileCommunitySection';
 
 export default async function Page() {
-  return <ProjectsContributionsSection />;
+  return <ProjectsProfileCommunitySection />;
 }

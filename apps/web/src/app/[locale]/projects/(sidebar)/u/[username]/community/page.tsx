@@ -1,4 +1,4 @@
-import ProjectsContributionsSection from '~/components/projects/common/progress-and-contributions/ProjectsContributionsSection';
+import ProjectsProfileCommunitySection from '~/components/projects/profile/community/ProjectsProfileCommunitySection';
 
 import prisma from '~/server/prisma';
 
@@ -16,5 +16,5 @@ export default async function Page({ params }: Props) {
     },
   });
 
-  return <ProjectsContributionsSection userId={userProfile!.id} />;
+  return <ProjectsProfileCommunitySection userId={userProfile!.id} />;
 }

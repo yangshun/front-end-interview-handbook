@@ -4,22 +4,22 @@ import { useIntl } from 'react-intl';
 import EmptyState from '~/components/ui/EmptyState';
 import { themeTextColor } from '~/components/ui/theme';
 
-import ProjectsAllCommentsSection from './ProjectsAllCommentsSection';
-import ProjectsContributionFilterContextProvider, {
-  useProjectsContributionFilterContext,
-} from './ProjectsContributionFilterContext';
-import ProjectsContributionFilterDropdown from './ProjectsContributionFilterDropdown';
-import ProjectsContributionFilterSlideOut from './ProjectsContributionFilterSlideOut';
-import type { ContributionComment } from './ProjectsContributionsSection';
-import useProjectsContributionFilters from './useProjectsContributionFilters';
+import ProjectsProfileCommunityCommentsSection from './ProjectsProfileCommunityCommentsSection';
+import ProjectsProfileCommunityFilterContext, {
+  useProjectsProfileCommunityFilterContext,
+} from './ProjectsProfileCommunityFilterContext';
+import ProjectsProfileCommunityFilterDropdown from './ProjectsProfileCommunityFilterDropdown';
+import ProjectProfileCommunityFilterSlideOut from './ProjectsProfileCommunityFilterSlideOut';
+import type { ProjectsProfileCommunityComment } from './ProjectsProfileCommunitySection';
+import useProjectsProfileCommunityFilters from './useProjectsProfileCommunityFilters';
 
 import type { ProjectsDiscussionComment } from '@prisma/client';
 
 type Props = Readonly<{
-  comments: ReadonlyArray<ContributionComment>;
+  comments: ReadonlyArray<ProjectsProfileCommunityComment>;
 }>;
 
-function filterProjectsContributions<T extends ProjectsDiscussionComment>(
+function filterProjectsProfileCommunitys<T extends ProjectsDiscussionComment>(
   contributions: ReadonlyArray<T>,
   filters: ReadonlyArray<(project: T) => boolean>,
 ): ReadonlyArray<T> {
@@ -28,12 +28,12 @@ function filterProjectsContributions<T extends ProjectsDiscussionComment>(
   );
 }
 
-function ProjectsContributionListWithFiltersImpl({ comments }: Props) {
+function ProjectsProfileCommunityListWithFiltersImpl({ comments }: Props) {
   const intl = useIntl();
-  const { filters } = useProjectsContributionFilterContext();
-  const filtersContributionsOpts = useProjectsContributionFilters();
+  const { filters } = useProjectsProfileCommunityFilterContext();
+  const filtersContributionsOpts = useProjectsProfileCommunityFilters();
 
-  const processedComments = filterProjectsContributions(
+  const processedComments = filterProjectsProfileCommunitys(
     comments,
     filtersContributionsOpts.map(([_, filterFn]) => filterFn),
   );
@@ -85,25 +85,28 @@ function ProjectsContributionListWithFiltersImpl({ comments }: Props) {
     <div className="flex flex-col gap-6">
       <div className="flex flex-col flex-wrap gap-3 lg:flex-row">
         {filters.map((filter) => (
-          <ProjectsContributionFilterDropdown key={filter.id} filter={filter} />
+          <ProjectsProfileCommunityFilterDropdown
+            key={filter.id}
+            filter={filter}
+          />
         ))}
-        <ProjectsContributionFilterSlideOut selected={numberOfFilters > 0} />
+        <ProjectProfileCommunityFilterSlideOut selected={numberOfFilters > 0} />
       </div>
       {processedComments.length === 0 ? (
         emptyState
       ) : (
-        <ProjectsAllCommentsSection comments={processedComments} />
+        <ProjectsProfileCommunityCommentsSection comments={processedComments} />
       )}
     </div>
   );
 }
 
-export default function ProjectsContributionListWithFilters({
+export default function ProjectsProfileCommunityListWithFilters({
   comments,
 }: Props) {
   return (
-    <ProjectsContributionFilterContextProvider>
-      <ProjectsContributionListWithFiltersImpl comments={comments} />
-    </ProjectsContributionFilterContextProvider>
+    <ProjectsProfileCommunityFilterContext>
+      <ProjectsProfileCommunityListWithFiltersImpl comments={comments} />
+    </ProjectsProfileCommunityFilterContext>
   );
 }

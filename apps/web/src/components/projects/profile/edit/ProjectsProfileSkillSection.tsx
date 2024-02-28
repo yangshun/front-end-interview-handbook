@@ -4,8 +4,8 @@ import { FormattedMessage } from 'react-intl';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Heading from '~/components/ui/Heading';
 
-import ProjectsProfileTechStackProficientInput from '../ProjectsProfileTechStackProficientInput';
-import ProjectsProfileTechStackToImproveInput from '../ProjectsProfileTechStackToImproveInput';
+import ProjectsProfileTechStackProficientInput from './ProjectsProfileTechStackProficientInput';
+import ProjectsProfileTechStackToImproveInput from './ProjectsProfileTechStackToImproveInput';
 import type { ProjectsOnboardingProfileStep2FormValues } from '../../onboarding/ProjectsOnboardingProfileStep2';
 
 // TODO(projects): remove onboarding type from this union.

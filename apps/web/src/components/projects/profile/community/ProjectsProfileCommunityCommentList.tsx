@@ -13,15 +13,18 @@ import {
   themeDivideColor,
 } from '~/components/ui/theme';
 
-import type { ContributionComment } from './ProjectsContributionsSection';
-import RelativeTimestamp from '../RelativeTimestamp';
+import type { ProjectsProfileCommunityComment } from './ProjectsProfileCommunitySection';
+import RelativeTimestamp from '../../common/RelativeTimestamp';
 
 type Props = Readonly<{
-  comments: ReadonlyArray<ContributionComment>;
+  comments: ReadonlyArray<ProjectsProfileCommunityComment>;
   title: string;
 }>;
 
-export default function ProjectsCommentList({ comments, title }: Props) {
+export default function ProjectsProfileCommunityCommentList({
+  comments,
+  title,
+}: Props) {
   const intl = useIntl();
 
   return (

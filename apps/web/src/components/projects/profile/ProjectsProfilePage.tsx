@@ -6,10 +6,10 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import ProjectsProgressAndContributionsTabs from '~/components/projects/common/progress-and-contributions/ProjectsProgressAndContributionsTabs';
 import ProjectsProfileInfo from '~/components/projects/profile/ProjectsProfileInfo';
 import ProjectsProfilePinnedSubmissions from '~/components/projects/profile/ProjectsProfilePinnedSubmissions';
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
+import ProjectsProfileTabs from '~/components/projects/profile/ProjectsProfileTabs';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 
@@ -94,9 +94,7 @@ export default function ProjectsProfilePage({
         />
       </div>
       <div className="flex flex-col gap-8">
-        <ProjectsProgressAndContributionsTabs
-          baseUrl={`/projects/u/${userProfile.username}`}
-        />
+        <ProjectsProfileTabs baseUrl={`/projects/u/${userProfile.username}`} />
         {children}
       </div>
     </div>

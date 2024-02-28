@@ -2,14 +2,14 @@
 
 import { trpc } from '~/hooks/trpc';
 
-import ProjectsContributionListWithFilters from './ProjectsContributionListWithFilters';
+import ProjectsProfileCommunityListWithFilters from './ProjectsProfileCommunityListWithFilters';
 
 import type {
   ProjectsDiscussionComment,
   ProjectsDiscussionCommentDomain,
 } from '@prisma/client';
 
-type CommentAuthor = Readonly<{
+type ProjectsProfileCommunityCommentAuthor = Readonly<{
   userProfile: {
     avatarUrl: string | null;
     name: string | null;
@@ -17,9 +17,9 @@ type CommentAuthor = Readonly<{
   };
 }>;
 
-export type ContributionComment = ProjectsDiscussionComment &
+export type ProjectsProfileCommunityComment = ProjectsDiscussionComment &
   Readonly<{
-    author: CommentAuthor;
+    author: ProjectsProfileCommunityCommentAuthor;
   }> &
   Readonly<{
     entity?: Readonly<{
@@ -29,7 +29,7 @@ export type ContributionComment = ProjectsDiscussionComment &
   }> &
   Readonly<{
     parentComment: {
-      author: CommentAuthor;
+      author: ProjectsProfileCommunityCommentAuthor;
     } | null;
   }>;
 
@@ -37,7 +37,7 @@ type Props = Readonly<{
   userId?: string;
 }>;
 
-export default function ProjectsContributionsSection({ userId }: Props) {
+export default function ProjectsProfileCommunitySection({ userId }: Props) {
   const domainList: Array<ProjectsDiscussionCommentDomain> = [
     'PROJECTS_SUBMISSION',
     'PROJECTS_CHALLENGE',
@@ -48,5 +48,5 @@ export default function ProjectsContributionsSection({ userId }: Props) {
     userId: userId || profile?.id,
   });
 
-  return <ProjectsContributionListWithFilters comments={comments ?? []} />;
+  return <ProjectsProfileCommunityListWithFilters comments={comments ?? []} />;
 }

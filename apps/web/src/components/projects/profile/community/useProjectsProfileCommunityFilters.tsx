@@ -1,11 +1,12 @@
-import { useProjectsContributionFilterState } from './ProjectsContributionFilterContext';
+import { useProjectsProfileCommunityFilterState } from './ProjectsProfileCommunityFilterContext';
 
 import type { ProjectsDiscussionComment } from '@prisma/client';
 
-export default function useProjectsContributionFilters() {
+export default function useProjectsProfileCommunityFilters() {
   const [selectedContributionType] =
-    useProjectsContributionFilterState('contribution-type');
-  const [selectedForumType] = useProjectsContributionFilterState('forum-type');
+    useProjectsProfileCommunityFilterState('contribution-type');
+  const [selectedForumType] =
+    useProjectsProfileCommunityFilterState('forum-type');
 
   const filterByContributionType = (comment: ProjectsDiscussionComment) =>
     selectedContributionType.length === 0 ||

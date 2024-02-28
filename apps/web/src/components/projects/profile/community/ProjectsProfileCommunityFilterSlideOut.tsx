@@ -14,20 +14,20 @@ import Divider from '~/components/ui/Divider';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsContributionFilter } from './ProjectsContributionFilterContext';
+import type { ProjectsProfileCommunityFilter } from './ProjectsProfileCommunityFilterContext';
 import {
-  useProjectsContributionFilterContext,
-  useProjectsContributionFilterState,
-} from './ProjectsContributionFilterContext';
+  useProjectsProfileCommunityFilterContext,
+  useProjectsProfileCommunityFilterState,
+} from './ProjectsProfileCommunityFilterContext';
 
 function FilterSection({
   longLabel,
   label,
   id,
   options,
-}: ProjectsContributionFilter) {
+}: ProjectsProfileCommunityFilter) {
   const [selectedOptions, setSelectedOptions] =
-    useProjectsContributionFilterState(id);
+    useProjectsProfileCommunityFilterState(id);
 
   return (
     <AccordionItem value={id}>
@@ -66,11 +66,12 @@ type Props = Readonly<{
   selected: boolean;
 }>;
 
-export default function ProjectsContributionFilterSlideOut({
+export default function ProjectProfileCommunityFilterSlideOut({
   selected,
 }: Props) {
   const intl = useIntl();
-  const { filters: initialFilters } = useProjectsContributionFilterContext();
+  const { filters: initialFilters } =
+    useProjectsProfileCommunityFilterContext();
 
   return (
     <SlideOut

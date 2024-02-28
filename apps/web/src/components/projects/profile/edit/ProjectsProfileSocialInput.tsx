@@ -6,9 +6,9 @@ import { useIntl } from 'react-intl';
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import TextInput from '~/components/ui/TextInput';
 
-import type { ProjectsOnboardingProfileStep2FormValues } from '../onboarding/ProjectsOnboardingProfileStep2';
-import { projectsReputationProfileFieldConfig } from '../reputation/ProjectsReputationPointsConfig';
-import type { ProjectsProfileEditFormValues } from '../types';
+import type { ProjectsOnboardingProfileStep2FormValues } from '../../onboarding/ProjectsOnboardingProfileStep2';
+import { projectsReputationProfileFieldConfig } from '../../reputation/ProjectsReputationPointsConfig';
+import type { ProjectsProfileEditFormValues } from '../../types';
 
 type Values =
   | ProjectsOnboardingProfileStep2FormValues
