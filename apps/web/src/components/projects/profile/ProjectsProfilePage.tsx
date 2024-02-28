@@ -17,33 +17,21 @@ import type { Profile, ProjectsProfile } from '@prisma/client';
 
 type Props = Readonly<{
   children: React.ReactNode;
-  initialUserProfile: Profile &
+  isViewingOwnProfile: boolean;
+  userProfile: Profile &
     Readonly<{
       projectsProfile: ProjectsProfile;
     }>;
-  isViewingOwnProfile: boolean;
 }>;
 
 export default function ProjectsProfilePage({
   children,
-  initialUserProfile,
+  userProfile,
   isViewingOwnProfile,
 }: Props) {
   const intl = useIntl();
 
-  // For displaying the most updated profile data,
-  // useful after someone edits their profile.
-  const { data: userProfileFetched } =
-    trpc.projects.profile.getUserProfile.useQuery(undefined, {
-      enabled: isViewingOwnProfile,
-      initialData: initialUserProfile,
-      refetchOnMount: false,
-      refetchOnReconnect: false,
-    });
-
-  const userProfile = userProfileFetched ?? initialUserProfile;
-
-  const projectsProfileId = initialUserProfile.projectsProfile.id;
+  const projectsProfileId = userProfile.projectsProfile.id;
   const { data: profileStatistics } =
     trpc.projects.profile.dashboardStatistics.useQuery({
       projectsProfileId,
@@ -107,7 +95,7 @@ export default function ProjectsProfilePage({
       </div>
       <div className="flex flex-col gap-8">
         <ProjectsProgressAndContributionsTabs
-          baseUrl={`/projects/u/${initialUserProfile.username}`}
+          baseUrl={`/projects/u/${userProfile.username}`}
         />
         {children}
       </div>

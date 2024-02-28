@@ -43,11 +43,11 @@ export default async function Layout({ children, params }: Props) {
 
   return (
     <ProjectsProfilePage
-      initialUserProfile={{
+      isViewingOwnProfile={isViewingOwnProfile}
+      userProfile={{
         ...userProfile,
         projectsProfile,
-      }}
-      isViewingOwnProfile={isViewingOwnProfile}>
+      }}>
       {children}
     </ProjectsProfilePage>
   );
