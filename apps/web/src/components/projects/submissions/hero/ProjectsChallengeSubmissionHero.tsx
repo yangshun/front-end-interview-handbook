@@ -64,9 +64,9 @@ export default function ProjectsChallengeSubmissionHero({
       href={submission.hrefs.edit}
       icon={RiPencilLine}
       label={intl.formatMessage({
-        defaultMessage: 'Edit submission',
-        description: 'Button to edit project submission',
-        id: '1m0p3c',
+        defaultMessage: 'Edit',
+        description: 'Edit button label',
+        id: '2rcoOT',
       })}
       size="sm"
       variant="secondary"

@@ -76,9 +76,9 @@ export default function ProjectsChallengeSubmissionEditPage({
       showToast({
         description: intl.formatMessage({
           defaultMessage:
-            'You have deleted this submission. Returning you back to the challenges page.',
+            'You have deleted this submission. Returning you back to the dashboard page.',
           description: 'Delete challenge success message',
-          id: 'RbQJUu',
+          id: 'T64+TQ',
         }),
         title: intl.formatMessage({
           defaultMessage: 'Submission deleted!',

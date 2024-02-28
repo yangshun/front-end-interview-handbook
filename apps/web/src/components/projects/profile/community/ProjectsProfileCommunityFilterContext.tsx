@@ -67,11 +67,11 @@ function useFilters() {
         }),
         options: [
           {
-            label: 'Challenge discussions',
+            label: 'Challenge discussion',
             value: 'PROJECTS_CHALLENGE',
           },
           {
-            label: 'User submission discussions',
+            label: 'User submission discussion',
             value: 'PROJECTS_SUBMISSION',
           },
         ],

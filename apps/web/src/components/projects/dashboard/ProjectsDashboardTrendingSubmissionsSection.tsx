@@ -102,11 +102,11 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                   {submission.challenge && (
                     <Text color="secondary" size="body3">
                       <FormattedMessage
-                        defaultMessage="Brief: <link>{briefDescription}</link>"
-                        description="Link to brief for project submission"
-                        id="BgJH+X"
+                        defaultMessage="Challenge: <link>{challengeTitle}</link>"
+                        description="Link to brief for project challenge"
+                        id="XyQeEv"
                         values={{
-                          briefDescription: submission.challenge.metadata.title,
+                          challengeTitle: submission.challenge.metadata.title,
                           link: (chunks) => (
                             <Anchor
                               className="relative"

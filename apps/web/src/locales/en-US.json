@@ -359,6 +359,10 @@
     "defaultMessage": "We will pull code from this repo for code reviews",
     "description": "Description for GitHub repo step in project submission checklist"
   },
+  "1NRSGb": {
+    "defaultMessage": "Pin",
+    "description": "Label for pin submission button"
+  },
   "1O3xR8": {
     "defaultMessage": "Select dashboard category",
     "description": "Tab label to select another dashboard category"
@@ -390,10 +394,6 @@
   "1lAgj0": {
     "defaultMessage": "YOE / Job status",
     "description": "Label for experience filter for submissions list"
-  },
-  "1m0p3c": {
-    "defaultMessage": "Edit submission",
-    "description": "Button to edit project submission"
   },
   "1q1I7J": {
     "defaultMessage": "Vercel",
@@ -458,6 +458,10 @@
   "2gImEH": {
     "defaultMessage": "Online assets",
     "description": "Title for Online Assets section on Projects project assets page"
+  },
+  "2rcoOT": {
+    "defaultMessage": "Edit",
+    "description": "Edit button label"
   },
   "2sBv9j": {
     "defaultMessage": "Popularity: Most to least upvotes",
@@ -835,6 +839,10 @@
     "defaultMessage": "CS student at MIT",
     "description": "Placeholder for \"Title\" input on Projects profile onboarding page"
   },
+  "6ZWO4y": {
+    "defaultMessage": "View website",
+    "description": "Link to website"
+  },
   "6ZmcXv": {
     "defaultMessage": "Practice",
     "description": "Section heading in Projects footer for links practice-related pages"
@@ -1127,6 +1135,10 @@
     "defaultMessage": "You may be interested",
     "description": "Title for you may be interested section on Projects challenge submission page"
   },
+  "918wg5": {
+    "defaultMessage": "View LinkedIn profile",
+    "description": "Link to LinkedIn profile"
+  },
   "94CGBX": {
     "defaultMessage": "Coding",
     "description": "Label for coding questions"
@@ -1299,10 +1311,6 @@
     "defaultMessage": "Submissions",
     "description": "Link to submissions page"
   },
-  "BAyveo": {
-    "defaultMessage": "View GitHub profile",
-    "description": "Tooltip for github profile icon"
-  },
   "BDGx19": {
     "defaultMessage": "Verifying",
     "description": "Label for button"
@@ -1342,10 +1350,6 @@
   "BfJL2V": {
     "defaultMessage": "Challenge difficulty",
     "description": "Label for Difficulty filter for submissions list"
-  },
-  "BgJH+X": {
-    "defaultMessage": "Brief: <link>{briefDescription}</link>",
-    "description": "Link to brief for project submission"
   },
   "BgJTSk": {
     "defaultMessage": "Search system design questions",
@@ -2791,6 +2795,10 @@
     "defaultMessage": "Gamified learning and building",
     "description": "Title for \"Gamified learning and building\" feature marketing section on Projects home page"
   },
+  "Ol2L0M": {
+    "defaultMessage": "View GitHub profile",
+    "description": "Link to GitHub profile"
+  },
   "OoBbFR": {
     "defaultMessage": "HTML file with pre-written content",
     "description": "Provided resource for project"
@@ -3103,6 +3111,10 @@
     "defaultMessage": "Premium",
     "description": "Premium badge on profile page"
   },
+  "RCdUk4": {
+    "defaultMessage": "Unpin",
+    "description": "Label for unpin submission button"
+  },
   "RDN4Md": {
     "defaultMessage": "Series",
     "description": "Label for series blog"
@@ -3150,10 +3162,6 @@
   "RZedau": {
     "defaultMessage": "See all",
     "description": "Label for See all button on project submission success page"
-  },
-  "RbQJUu": {
-    "defaultMessage": "You have deleted this submission. Returning you back to the challenges page.",
-    "description": "Delete challenge success message"
   },
   "Rbapby": {
     "defaultMessage": "What's new | Blog",
@@ -3330,6 +3338,10 @@
   "T6+Y/z": {
     "defaultMessage": "You have started your first project!",
     "description": "Toast subtitle for project session started"
+  },
+  "T64+TQ": {
+    "defaultMessage": "You have deleted this submission. Returning you back to the dashboard page.",
+    "description": "Delete challenge success message"
   },
   "T6xgeP": {
     "defaultMessage": "Code",
@@ -3863,10 +3875,6 @@
     "defaultMessage": "Update",
     "description": "Update existing URL in a form"
   },
-  "Xq6/V6": {
-    "defaultMessage": "View LinkedIn profile",
-    "description": "Tooltip for LinkedIn profile icon"
-  },
   "XuVGsX": {
     "defaultMessage": "Account",
     "description": "Profile account tab title"
@@ -3874,6 +3882,10 @@
   "XwbyU0": {
     "defaultMessage": "Types of UI questions, concepts to cover and rubrics",
     "description": "Front End User Interface interview questions, concepts and rubrics"
+  },
+  "XyQeEv": {
+    "defaultMessage": "Challenge: <link>{challengeTitle}</link>",
+    "description": "Link to brief for project challenge"
   },
   "XygrPg": {
     "defaultMessage": "<code>console.log()</code> statements will appear here.",
@@ -4558,6 +4570,10 @@
   "eVJIGT": {
     "defaultMessage": "System Design Questions",
     "description": "Front End system design interview questions"
+  },
+  "ec998P": {
+    "defaultMessage": "<bold>{author}</bold> left a comment {for} <bold>{recipient}</bold> on <link>{submissionTitle}</link><comment>: \"{description}\"</comment>",
+    "description": "Comment"
   },
   "ee862n": {
     "defaultMessage": "The definitive guide to front end / web developer interviews.",
@@ -5387,10 +5403,6 @@
     "defaultMessage": "Challenges completed",
     "description": "Number of project challenges completed"
   },
-  "lWREsY": {
-    "defaultMessage": "Unpin submission",
-    "description": "Label for unpin submission button"
-  },
   "lWZZ9l": {
     "defaultMessage": "Search a keyword or sort by popularity, difficulty or skills",
     "description": "Subtitle of the 'Projects' marketing section on Projects home page"
@@ -6103,10 +6115,6 @@
     "defaultMessage": "Build to learn from beginner to advanced",
     "description": "Title for Projects hero section for beginners"
   },
-  "rvsHso": {
-    "defaultMessage": "<medium>{author}</medium> left a comment {for} <medium>{recipient}</medium> on <link>{submissionTitle}</link><comment>: \"{description}\"</comment><date></date>",
-    "description": "Comment"
-  },
   "rxpmQt": {
     "defaultMessage": "Next project:",
     "description": "Title for next project section on project submission success page"
@@ -6178,10 +6186,6 @@
   "sjLtW1": {
     "defaultMessage": "Manage subscription",
     "description": "Manage user membership subscription button label"
-  },
-  "sm2d2y": {
-    "defaultMessage": "Pin submission",
-    "description": "Label for pin submission button"
   },
   "sn/P86": {
     "defaultMessage": "Guides",

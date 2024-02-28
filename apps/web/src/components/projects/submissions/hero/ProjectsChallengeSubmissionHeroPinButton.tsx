@@ -111,14 +111,14 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
         label={
           hasPinned
             ? intl.formatMessage({
-                defaultMessage: 'Unpin submission',
+                defaultMessage: 'Unpin',
                 description: 'Label for unpin submission button',
-                id: 'lWREsY',
+                id: 'RCdUk4',
               })
             : intl.formatMessage({
-                defaultMessage: 'Pin submission',
+                defaultMessage: 'Pin',
                 description: 'Label for pin submission button',
-                id: 'sm2d2y',
+                id: '1NRSGb',
               })
         }
         size="sm"
