@@ -14,9 +14,13 @@ import useProjectsProfileCategoryTabs from './useProjectsProfileCategoryTabs';
 
 type Props = Readonly<{
   baseUrl: string;
+  showStartNewProject?: boolean;
 }>;
 
-export default function ProjectsProfileTabs({ baseUrl }: Props) {
+export default function ProjectsProfileTabs({
+  baseUrl,
+  showStartNewProject = false,
+}: Props) {
   const { pathname } = useI18nPathname();
   const intl = useIntl();
 
@@ -40,17 +44,19 @@ export default function ProjectsProfileTabs({ baseUrl }: Props) {
   return (
     <Tabs
       endAddOn={
-        <Button
-          href="/projects/challenges"
-          icon={RiArrowRightLine}
-          label={intl.formatMessage({
-            defaultMessage: 'Start new project',
-            description: 'Link to start new project',
-            id: 'buBLGx',
-          })}
-          size="md"
-          variant="tertiary"
-        />
+        showStartNewProject ? (
+          <Button
+            href="/projects/challenges"
+            icon={RiArrowRightLine}
+            label={intl.formatMessage({
+              defaultMessage: 'Start new project',
+              description: 'Link to start new project',
+              id: 'buBLGx',
+            })}
+            size="md"
+            variant="tertiary"
+          />
+        ) : undefined
       }
       label={intl.formatMessage({
         defaultMessage: 'Select dashboard category',

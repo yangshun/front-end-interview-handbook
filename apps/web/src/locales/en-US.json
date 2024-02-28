@@ -1367,6 +1367,10 @@
     "defaultMessage": "Please create a free account in order to purchase the premium plans.",
     "description": "Content of alert requesting user to create an account to purchase premium plans"
   },
+  "C/3YNR": {
+    "defaultMessage": "Pinned submissions",
+    "description": "Pinned project submissions"
+  },
   "C34sRh": {
     "defaultMessage": "Account Settings",
     "description": "Screenreader text for account settings."
@@ -5754,10 +5758,6 @@
   "ozQHOy": {
     "defaultMessage": "Hide widget for this session",
     "description": "Feedback widget button label to hide the feedback widget for their current session"
-  },
-  "p++huH": {
-    "defaultMessage": "Submissions",
-    "description": "Project submissions"
   },
   "p/R4cx": {
     "defaultMessage": "Learn from official solutions and guides",

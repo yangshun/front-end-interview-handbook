@@ -1,9 +1,3 @@
-import { RiDiscussLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
-
-import EmptyState from '~/components/ui/EmptyState';
-import { themeTextColor } from '~/components/ui/theme';
-
 import ProjectsProfileCommunityCommentsSection from './ProjectsProfileCommunityCommentsSection';
 import ProjectsProfileCommunityFilterContext, {
   useProjectsProfileCommunityFilterContext,
@@ -19,7 +13,9 @@ type Props = Readonly<{
   comments: ReadonlyArray<ProjectsProfileCommunityComment>;
 }>;
 
-function filterProjectsProfileCommunitys<T extends ProjectsDiscussionComment>(
+function filterProjectsProfileCommunityComments<
+  T extends ProjectsDiscussionComment,
+>(
   contributions: ReadonlyArray<T>,
   filters: ReadonlyArray<(project: T) => boolean>,
 ): ReadonlyArray<T> {
@@ -29,11 +25,11 @@ function filterProjectsProfileCommunitys<T extends ProjectsDiscussionComment>(
 }
 
 function ProjectsProfileCommunityListWithFiltersImpl({ comments }: Props) {
-  const intl = useIntl();
   const { filters } = useProjectsProfileCommunityFilterContext();
   const filtersContributionsOpts = useProjectsProfileCommunityFilters();
 
-  const processedComments = filterProjectsProfileCommunitys(
+  // TODO(projects): move to server-side filtering.
+  const processedComments = filterProjectsProfileCommunityComments(
     comments,
     filtersContributionsOpts.map(([_, filterFn]) => filterFn),
   );
@@ -42,44 +38,7 @@ function ProjectsProfileCommunityListWithFiltersImpl({ comments }: Props) {
     ([size]) => size > 0,
   ).length;
 
-  const emptyState =
-    numberOfFilters === 0 ? (
-      <EmptyState
-        icon={RiDiscussLine}
-        iconClassName={themeTextColor}
-        subtitle={intl.formatMessage({
-          defaultMessage: 'No contributions in the community so far',
-          description:
-            'Subtitle for empty state when there are no contributions',
-          id: 'DHQOPk',
-        })}
-        title={intl.formatMessage({
-          defaultMessage: 'No community contributions',
-          description: 'Title for empty state when there are no contributions',
-          id: 'iw1XYQ',
-        })}
-        variant="empty"
-      />
-    ) : (
-      <EmptyState
-        icon={RiDiscussLine}
-        iconClassName={themeTextColor}
-        subtitle={intl.formatMessage({
-          defaultMessage:
-            'No contributions in the community matching those filters',
-          description:
-            'Subtitle for empty state when there are no contributions matching filters',
-          id: 'B8uTwW',
-        })}
-        title={intl.formatMessage({
-          defaultMessage: 'No community contributions',
-          description:
-            'Title for empty state when there are no contributions matching filters',
-          id: 'lu/XVn',
-        })}
-        variant="empty"
-      />
-    );
+  const hasFilters = numberOfFilters > 0;
 
   return (
     <div className="flex flex-col gap-6">
@@ -90,13 +49,12 @@ function ProjectsProfileCommunityListWithFiltersImpl({ comments }: Props) {
             filter={filter}
           />
         ))}
-        <ProjectProfileCommunityFilterSlideOut selected={numberOfFilters > 0} />
+        <ProjectProfileCommunityFilterSlideOut selected={hasFilters} />
       </div>
-      {processedComments.length === 0 ? (
-        emptyState
-      ) : (
-        <ProjectsProfileCommunityCommentsSection comments={processedComments} />
-      )}
+      <ProjectsProfileCommunityCommentsSection
+        comments={processedComments}
+        hasFilters={hasFilters}
+      />
     </div>
   );
 }

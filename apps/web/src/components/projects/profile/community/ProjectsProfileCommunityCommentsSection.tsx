@@ -1,10 +1,14 @@
+import { RiDiscussLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
+
+import EmptyState from '~/components/ui/EmptyState';
 
 import ProjectsProfileCommunityCommentList from './ProjectsProfileCommunityCommentList';
 import type { ProjectsProfileCommunityComment } from './ProjectsProfileCommunitySection';
 
 type Props = Readonly<{
   comments: ReadonlyArray<ProjectsProfileCommunityComment>;
+  hasFilters: boolean;
 }>;
 
 function getStartOfCurrWeek(date: Date) {
@@ -43,8 +47,48 @@ function getStartOfPrevMonth(date: Date) {
 
 export default function ProjectsProfileCommunityCommentsSection({
   comments,
+  hasFilters,
 }: Props) {
   const intl = useIntl();
+
+  if (comments.length === 0) {
+    return hasFilters ? (
+      <EmptyState
+        icon={RiDiscussLine}
+        subtitle={intl.formatMessage({
+          defaultMessage:
+            'No contributions in the community matching those filters',
+          description:
+            'Subtitle for empty state when there are no contributions matching filters',
+          id: 'B8uTwW',
+        })}
+        title={intl.formatMessage({
+          defaultMessage: 'No community contributions',
+          description:
+            'Title for empty state when there are no contributions matching filters',
+          id: 'lu/XVn',
+        })}
+        variant="empty"
+      />
+    ) : (
+      <EmptyState
+        icon={RiDiscussLine}
+        subtitle={intl.formatMessage({
+          defaultMessage: 'No contributions in the community so far',
+          description:
+            'Subtitle for empty state when there are no contributions',
+          id: 'DHQOPk',
+        })}
+        title={intl.formatMessage({
+          defaultMessage: 'No community contributions',
+          description: 'Title for empty state when there are no contributions',
+          id: 'iw1XYQ',
+        })}
+        variant="empty"
+      />
+    );
+  }
+
   const allComments = comments.slice(0);
   const sortedComments = allComments.sort(
     (a, b) => b.createdAt.getTime() - a.createdAt.getTime(),
@@ -116,7 +160,7 @@ export default function ProjectsProfileCommunityCommentsSection({
       ? []
       : sortedComments.slice(indexOfFirstCommentOlderThanPrevMonth);
 
-  const codeReviews = [
+  const groupedComments = [
     {
       comments: commentsInCurrWeek,
       title: intl.formatMessage({
@@ -161,15 +205,15 @@ export default function ProjectsProfileCommunityCommentsSection({
 
   return (
     <div className="flex flex-col gap-8">
-      {codeReviews
-        .filter((codeReview) => codeReview.comments.length > 0)
+      {groupedComments
+        .filter((group) => group.comments.length > 0)
         .map(
-          (codeReview) =>
-            codeReview.comments.length !== 0 && (
+          (group) =>
+            group.comments.length !== 0 && (
               <ProjectsProfileCommunityCommentList
-                key={codeReview.title}
-                comments={codeReview.comments}
-                title={codeReview.title}
+                key={group.title}
+                comments={group.comments}
+                title={group.title}
               />
             ),
         )}

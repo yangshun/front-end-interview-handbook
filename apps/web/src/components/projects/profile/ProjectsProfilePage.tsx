@@ -48,52 +48,56 @@ export default function ProjectsProfilePage({
   }
 
   return (
-    <div className="flex flex-col gap-8">
-      <div className="hidden items-center gap-6 md:flex">
-        <Heading level="heading5">
-          {isViewingOwnProfile ? (
-            <FormattedMessage
-              defaultMessage="My Profile"
-              description="Title of Projects Profile page"
-              id="JotoOX"
-            />
-          ) : (
-            <FormattedMessage
-              defaultMessage="Profile"
-              description="Title of Projects Profile page"
-              id="JQT5KD"
+    <div>
+      <div className="flex flex-col gap-6">
+        <div className="hidden items-center gap-6 md:flex">
+          <Heading level="heading5">
+            {isViewingOwnProfile ? (
+              <FormattedMessage
+                defaultMessage="My Profile"
+                description="Title of Projects Profile page"
+                id="JotoOX"
+              />
+            ) : (
+              <FormattedMessage
+                defaultMessage="Profile"
+                description="Title of Projects Profile page"
+                id="JQT5KD"
+              />
+            )}
+          </Heading>
+          {isViewingOwnProfile && (
+            <Button
+              href="/projects/profile/edit"
+              icon={RiPencilLine}
+              label={intl.formatMessage({
+                defaultMessage: 'Edit profile',
+                description: 'Label for edit projects profile button',
+                id: '4s0s2J',
+              })}
+              variant="secondary"
             />
           )}
-        </Heading>
-        {isViewingOwnProfile && (
-          <Button
-            href="/projects/profile/edit"
-            icon={RiPencilLine}
-            label={intl.formatMessage({
-              defaultMessage: 'Edit profile',
-              description: 'Label for edit projects profile button',
-              id: '4s0s2J',
-            })}
-            variant="secondary"
-          />
-        )}
+        </div>
+        <ProjectsProfileInfo
+          isViewingOwnProfile={isViewingOwnProfile}
+          userProfile={{ ...userProfile, projectsProfile }}
+        />
       </div>
-      <ProjectsProfileInfo
-        isViewingOwnProfile={isViewingOwnProfile}
-        userProfile={{ ...userProfile, projectsProfile }}
-      />
-      <div className="flex flex-col gap-12">
+      <div className="mt-12">
         <ProjectsProfileStats
           codeReviews={profileStatistics?.codeReviews ?? 0}
           completedChallenges={profileStatistics?.completedChallenges ?? 0}
           submissionViews={profileStatistics?.submissionViews ?? 0}
           upvotes={profileStatistics?.upvotes ?? 0}
         />
+      </div>
+      <div className="mt-[60px]">
         <ProjectsProfilePinnedSubmissions
           projectsProfileId={projectsProfileId}
         />
       </div>
-      <div className="flex flex-col gap-8">
+      <div className="mt-[72px] flex flex-col gap-8">
         <ProjectsProfileTabs baseUrl={`/projects/u/${userProfile.username}`} />
         {children}
       </div>
