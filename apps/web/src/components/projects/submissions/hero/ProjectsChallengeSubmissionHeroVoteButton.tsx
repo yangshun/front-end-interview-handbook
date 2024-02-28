@@ -68,6 +68,7 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
     },
   });
 
+  // TODO(projects): change to FilterButton.
   return (
     <button
       className={clsx(

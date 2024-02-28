@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useInView } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import { RiArrowLeftLine, RiPencilLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'usehooks-ts';
@@ -37,42 +37,11 @@ export default function ProjectsChallengeSubmissionHero({
   const intl = useIntl();
   const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
   const heroRef = useRef<HTMLDivElement>(null);
-  const parentWidthRef = useRef<HTMLDivElement>(null);
   const mobileHeroRef = useRef<HTMLDivElement>(null);
   const isHeroInView = useInView(heroRef);
   const isHeroMobileInView = useInView(mobileHeroRef);
-  const [width, setWidth] = useState({ main: 0, parent: 0 });
-
   const showStickyActionBar =
     isParentInView && !(isMobileAndBelow ? isHeroMobileInView : isHeroInView);
-
-  const sideMargin = (width.parent - width.main) / 2;
-
-  // To calculate the sticky action bar full width
-  useEffect(() => {
-    const moveOnWindowResize = () => {
-      setWidth({
-        main:
-          (isMobileAndBelow
-            ? mobileHeroRef.current?.offsetWidth
-            : heroRef.current?.offsetWidth) ?? 0,
-        parent: parentWidthRef.current?.offsetWidth ?? 0,
-      });
-    };
-
-    window.addEventListener('resize', moveOnWindowResize);
-
-    return () => window.removeEventListener('resize', moveOnWindowResize);
-  });
-  useEffect(() => {
-    setWidth({
-      main:
-        (isMobileAndBelow
-          ? mobileHeroRef.current?.offsetWidth
-          : heroRef.current?.offsetWidth) ?? 0,
-      parent: parentWidthRef.current?.offsetWidth ?? 0,
-    });
-  }, [heroRef, parentWidthRef, mobileHeroRef, isMobileAndBelow]);
 
   const backButton = (
     <Button
@@ -131,11 +100,6 @@ export default function ProjectsChallengeSubmissionHero({
 
   return (
     <>
-      {/* To calculate the width of the parent element */}
-      <div
-        ref={parentWidthRef}
-        className="absolute left-0 right-0 top-0 -z-10"
-      />
       {/* Sticky action bar */}
       <div
         className={clsx(
@@ -146,7 +110,7 @@ export default function ProjectsChallengeSubmissionHero({
           showStickyActionBar && '!block',
         )}>
         <div className="flex items-center gap-4">
-          <Text className="flex-1 truncate" weight="medium">
+          <Text className="flex-1 truncate" weight="bold">
             {submission.title}
           </Text>
           <div className="flex gap-4">
@@ -161,7 +125,12 @@ export default function ProjectsChallengeSubmissionHero({
       <div ref={heroRef} className="relative hidden md:block">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -z-10 -mb-28 -mt-28 flex h-[calc(100%_+_112px)] w-full justify-center overflow-hidden rounded-b-[16px]">
+          className={clsx(
+            'flex justify-center',
+            '-my-28 h-[calc(100%_+_112px)] w-full',
+            'absolute -z-10',
+            'pointer-events-none overflow-hidden rounded-b-2xl',
+          )}>
           <MarketingHeroBackground className="h-full min-w-[1200px]" />
         </div>
         <div className="relative h-full pb-8 pt-5 sm:pb-16 md:px-8 md:pb-8 md:pt-12">
@@ -175,7 +144,7 @@ export default function ProjectsChallengeSubmissionHero({
                 </div>
               )}
             </div>
-            <div className="flex h-full w-full flex-col justify-between gap-2 lg:flex-row lg:items-center">
+            <div className="size-full flex flex-col justify-between gap-2 lg:flex-row lg:items-center">
               <div className="flex flex-col gap-1">
                 <ProjectsChallengeSubmissionHeroTimestamp
                   submission={submission}
@@ -191,7 +160,7 @@ export default function ProjectsChallengeSubmissionHero({
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col gap-[29px]">
+              <div className="flex flex-col gap-7">
                 <ProjectsChallengeSubmissionHeroCard challenge={challenge} />
               </div>
             </div>
