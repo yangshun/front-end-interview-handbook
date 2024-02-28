@@ -13,13 +13,11 @@ import { projectsReputationLevel } from '../reputation/projectsReputationLevelUt
 type Props = Readonly<{
   className?: string;
   hovercard?: boolean;
+  points?: number | null;
   profile?: Readonly<{
     avatarUrl: string | null;
     id: string;
     name: string | null;
-    projectsProfile: {
-      points: number;
-    } | null;
     username: string;
   }>;
   size?: UserLevelWithAvatarSize;
@@ -27,13 +25,12 @@ type Props = Readonly<{
 
 export default function ProjectsProfileAvatar({
   hovercard = true,
+  points = 0,
   profile,
   className,
   size = 'lg',
 }: Props) {
-  const { level, progress } = projectsReputationLevel(
-    profile?.projectsProfile?.points || 0,
-  );
+  const { level, progress } = projectsReputationLevel(points ?? 0);
   const avatar = (
     <UserAvatarWithLevel
       className={className}

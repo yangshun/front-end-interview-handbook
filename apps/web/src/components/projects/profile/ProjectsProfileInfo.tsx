@@ -35,16 +35,15 @@ export default function ProjectsProfileInfo({
   const intl = useIntl();
   const { projectsProfile } = userProfile;
 
-  const avatarProfile = {
-    ...userProfile,
-    points: projectsProfile.points,
-  };
-
   return (
     <>
       <Section>
         <div className="hidden items-center gap-6 md:flex">
-          <ProjectsProfileAvatar profile={avatarProfile} size="3xl" />
+          <ProjectsProfileAvatar
+            points={projectsProfile.points}
+            profile={userProfile}
+            size="3xl"
+          />
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-4">
               <Text size="body1" weight="medium">
@@ -70,7 +69,11 @@ export default function ProjectsProfileInfo({
         </div>
         <div className="flex flex-col md:hidden">
           <div className="flex items-center gap-8">
-            <ProjectsProfileAvatar profile={avatarProfile} size="3xl" />
+            <ProjectsProfileAvatar
+              points={projectsProfile.points}
+              profile={userProfile}
+              size="3xl"
+            />
             <div className="flex flex-col gap-2">
               <div className="flex flex-wrap items-center gap-2">
                 <Text size="body1" weight="medium">

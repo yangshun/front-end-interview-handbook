@@ -16,7 +16,12 @@ export function ProjectsSidebarProfileHeader() {
 
   return (
     <div className={clsx('flex w-full items-center gap-3 px-3 py-2')}>
-      <ProjectsProfileAvatar hovercard={false} profile={profile} size="lg" />
+      <ProjectsProfileAvatar
+        hovercard={false}
+        points={profile.projectsProfile?.points}
+        profile={profile}
+        size="lg"
+      />
       <div className="flex flex-col gap-1">
         <Text className="line-clamp-2" size="body2" weight="medium">
           <ProjectsProfileDisplayNameLink profile={profile} />

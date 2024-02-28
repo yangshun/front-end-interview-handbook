@@ -82,10 +82,8 @@ export default function ProjectsDiscussionsComment({
       <div className="flex items-start gap-4">
         <div className="relative flex flex-col items-center self-stretch">
           <ProjectsProfileAvatar
-            profile={{
-              ...author.userProfile,
-              projectsProfile: { points: author.points },
-            }}
+            points={author.points}
+            profile={author.userProfile}
             size="2xl"
           />
           {(hasReplies || mode === 'reply') && (

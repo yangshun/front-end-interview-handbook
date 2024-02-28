@@ -361,7 +361,12 @@ function ProjectsSidebarCollapsed({
       )}>
       <ProjectsSidebarProductMenu variant="compact" />
       {profile && (
-        <ProjectsProfileAvatar hovercard={false} profile={profile} size="lg" />
+        <ProjectsProfileAvatar
+          hovercard={false}
+          points={profile.projectsProfile?.points}
+          profile={profile}
+          size="lg"
+        />
       )}
       <ul className="flex grow flex-col gap-1">
         {sideBarItems.top.map(({ key: childKey, ...link }) => (

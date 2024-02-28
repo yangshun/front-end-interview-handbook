@@ -131,10 +131,8 @@ export default function ProjectsChallengeSubmissionCard({
       {!isPinned && author != null && (
         <div className="flex items-center gap-4">
           <ProjectsProfileAvatar
-            profile={{
-              ...author,
-              projectsProfile: projectsProfile!,
-            }}
+            points={projectsProfile?.points}
+            profile={author}
             size="xl"
           />
           <div className="flex flex-col gap-1">

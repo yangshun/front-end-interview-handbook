@@ -39,15 +39,12 @@ export default function ProjectsChallengeBriefQuestionSupportCard() {
           <div className="relative flex flex-col items-center self-stretch">
             <ProjectsProfileAvatar
               hovercard={false}
+              points={4200}
               profile={{
-                // TODO(projects): Use appropriate avatar image
                 avatarUrl:
                   'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                 id: '123',
                 name: 'Anna',
-                projectsProfile: {
-                  points: 4200,
-                },
                 username: 'anna',
               }}
               size="2xl"

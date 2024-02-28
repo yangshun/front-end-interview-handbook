@@ -58,6 +58,7 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
             <Anchor href={`/projects/u/${profile?.username}`}>
               <ProjectsProfileAvatar
                 hovercard={false}
+                points={profile!.projectsProfile?.points}
                 profile={profile!}
                 size="2xl"
               />

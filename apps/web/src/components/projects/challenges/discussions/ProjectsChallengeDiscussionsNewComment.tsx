@@ -85,10 +85,8 @@ export default function ProjectsChallengeDiscussionsNewComment({
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex items-center gap-4">
         <ProjectsProfileAvatar
-          profile={{
-            ...viewer.userProfile,
-            projectsProfile: { points: viewer.points },
-          }}
+          points={viewer.points}
+          profile={viewer.userProfile}
           size="xl"
         />
         <div className="flex flex-col gap-y-1">
