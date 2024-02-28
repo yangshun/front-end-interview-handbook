@@ -6,7 +6,7 @@ import fetchLocalizedPlanPricing from '~/components/interviews/pricing/fetchLoca
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-import InterviewsPaymentSuccessPage from './InterviewsPaymentSuccessPage';
+import ProjectsPaymentSuccessPage from './ProjectsPaymentSuccessPage';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -35,5 +35,5 @@ export default async function Page() {
   const countryCode: string = cookieStore.get('country')?.value ?? 'US';
   const plans = await fetchLocalizedPlanPricing(countryCode);
 
-  return <InterviewsPaymentSuccessPage plans={plans} />;
+  return <ProjectsPaymentSuccessPage plans={plans} />;
 }
