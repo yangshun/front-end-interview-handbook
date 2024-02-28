@@ -9,10 +9,6 @@ import useProjectsProfileCommunityFilters from './useProjectsProfileCommunityFil
 
 import type { ProjectsDiscussionComment } from '@prisma/client';
 
-type Props = Readonly<{
-  comments: ReadonlyArray<ProjectsProfileCommunityComment>;
-}>;
-
 function filterProjectsProfileCommunityComments<
   T extends ProjectsDiscussionComment,
 >(
@@ -24,7 +20,10 @@ function filterProjectsProfileCommunityComments<
   );
 }
 
-function ProjectsProfileCommunityListWithFiltersImpl({ comments }: Props) {
+function ProjectsProfileCommunityListWithFiltersImpl({
+  comments,
+  isViewingOwnProfile,
+}: Props) {
   const { filters } = useProjectsProfileCommunityFilterContext();
   const filtersContributionsOpts = useProjectsProfileCommunityFilters();
 
@@ -54,17 +53,27 @@ function ProjectsProfileCommunityListWithFiltersImpl({ comments }: Props) {
       <ProjectsProfileCommunityCommentsSection
         comments={processedComments}
         hasFilters={hasFilters}
+        isViewingOwnProfile={isViewingOwnProfile}
       />
     </div>
   );
 }
 
+type Props = Readonly<{
+  comments: ReadonlyArray<ProjectsProfileCommunityComment>;
+  isViewingOwnProfile: boolean;
+}>;
+
 export default function ProjectsProfileCommunityListWithFilters({
   comments,
+  isViewingOwnProfile,
 }: Props) {
   return (
     <ProjectsProfileCommunityFilterContext>
-      <ProjectsProfileCommunityListWithFiltersImpl comments={comments} />
+      <ProjectsProfileCommunityListWithFiltersImpl
+        comments={comments}
+        isViewingOwnProfile={isViewingOwnProfile}
+      />
     </ProjectsProfileCommunityFilterContext>
   );
 }

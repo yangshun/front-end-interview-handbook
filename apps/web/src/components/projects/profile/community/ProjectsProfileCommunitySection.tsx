@@ -34,10 +34,14 @@ export type ProjectsProfileCommunityComment = ProjectsDiscussionComment &
   }>;
 
 type Props = Readonly<{
+  isViewingOwnProfile: boolean;
   userId?: string;
 }>;
 
-export default function ProjectsProfileCommunitySection({ userId }: Props) {
+export default function ProjectsProfileCommunitySection({
+  isViewingOwnProfile = false,
+  userId,
+}: Props) {
   const domainList: Array<ProjectsDiscussionCommentDomain> = [
     'PROJECTS_SUBMISSION',
     'PROJECTS_CHALLENGE',
@@ -48,5 +52,10 @@ export default function ProjectsProfileCommunitySection({ userId }: Props) {
     userId: userId || profile?.id,
   });
 
-  return <ProjectsProfileCommunityListWithFilters comments={comments ?? []} />;
+  return (
+    <ProjectsProfileCommunityListWithFilters
+      comments={comments ?? []}
+      isViewingOwnProfile={isViewingOwnProfile}
+    />
+  );
 }

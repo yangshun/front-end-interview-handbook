@@ -18,11 +18,13 @@ import RelativeTimestamp from '../../common/RelativeTimestamp';
 
 type Props = Readonly<{
   comments: ReadonlyArray<ProjectsProfileCommunityComment>;
+  isViewingOwnProfile: boolean;
   title: string;
 }>;
 
 export default function ProjectsProfileCommunityCommentList({
   comments,
+  isViewingOwnProfile,
   title,
 }: Props) {
   const intl = useIntl();
@@ -50,14 +52,14 @@ export default function ProjectsProfileCommunityCommentList({
               index === 0 && 'rounded-t-lg',
               index === comments.length - 1 && 'rounded-b-lg',
             )}>
-            <div className="flex w-full justify-between gap-6">
-              <div className="flex flex-row gap-3">
-                <UserAvatar
-                  className="size-6 shrink-0"
-                  profile={comment.author.userProfile}
-                  size="xs"
-                />
-                <div className="flex flex-col gap-3 lg:flex-row">
+            <div className="flex w-full gap-3">
+              <UserAvatar
+                className="size-6 shrink-0"
+                profile={comment.author.userProfile}
+                size="xs"
+              />
+              <div className="flex w-full grow flex-col gap-x-6 gap-y-1 lg:flex-row lg:justify-between">
+                <div className="flex grow flex-col gap-3 lg:flex-row">
                   {comment.category === 'QUESTION' && (
                     <Badge
                       className="h-6 w-min"
@@ -84,25 +86,22 @@ export default function ProjectsProfileCommunityCommentList({
                   )}
                   <div className="flex items-start">
                     <Text color="secondary" size="body2">
+                      {/* TODO(projects): This intl format is not translatable. */}
                       <FormattedMessage
-                        defaultMessage='<medium>{author}</medium> left a comment {for} <medium>{recipient}</medium> on <link>{submissionTitle}</link><comment>: "{description}"</comment><date></date>'
+                        defaultMessage='<bold>{author}</bold> left a comment {for} <bold>{recipient}</bold> on <link>{submissionTitle}</link><comment>: "{description}"</comment>'
                         description="Comment"
-                        id="rvsHso"
+                        id="ec998P"
                         values={{
-                          author: 'You',
-                          comment: (chunks) => (
-                            <Text color="default" size="body2">
+                          author: isViewingOwnProfile
+                            ? 'You'
+                            : comment.author.userProfile.name,
+                          bold: (chunks) => (
+                            <Text color="default" size="body2" weight="medium">
                               {chunks}
                             </Text>
                           ),
-                          date: (chunks) => (
-                            <Text
-                              className="pl-2 lg:hidden"
-                              color="secondary"
-                              size="body3">
-                              <RelativeTimestamp
-                                timestamp={new Date(comment.createdAt)}
-                              />
+                          comment: (chunks) => (
+                            <Text color="default" size="body2">
                               {chunks}
                             </Text>
                           ),
@@ -115,11 +114,6 @@ export default function ProjectsProfileCommunityCommentList({
                               {chunks}
                             </Anchor>
                           ),
-                          medium: (chunks) => (
-                            <Text color="default" size="body2" weight="medium">
-                              {chunks}
-                            </Text>
-                          ),
                           recipient: comment.parentComment
                             ? comment.parentComment.author.userProfile.name
                             : '',
@@ -129,9 +123,10 @@ export default function ProjectsProfileCommunityCommentList({
                     </Text>
                   </div>
                 </div>
-              </div>
-              <div className="hidden whitespace-nowrap lg:visible lg:flex">
-                <Text color="secondary" size="body3">
+                <Text
+                  className="whitespace-nowrap"
+                  color="secondary"
+                  size="body3">
                   <RelativeTimestamp timestamp={new Date(comment.createdAt)} />
                 </Text>
               </div>

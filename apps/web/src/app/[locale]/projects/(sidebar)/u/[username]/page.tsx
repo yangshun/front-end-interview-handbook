@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation';
+
 import ProjectsProfileProgressSection from '~/components/projects/profile/progress/ProjectsProfileProgressSection';
 
 import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
@@ -20,10 +22,14 @@ export default async function Page({ params }: Props) {
     },
   });
 
+  if (!userProfile) {
+    return notFound();
+  }
+
   return (
     <ProjectsProfileProgressSection
       projectTracks={tracks}
-      userId={userProfile!.id}
+      userId={userProfile.id}
     />
   );
 }

@@ -6,11 +6,6 @@ import EmptyState from '~/components/ui/EmptyState';
 import ProjectsProfileCommunityCommentList from './ProjectsProfileCommunityCommentList';
 import type { ProjectsProfileCommunityComment } from './ProjectsProfileCommunitySection';
 
-type Props = Readonly<{
-  comments: ReadonlyArray<ProjectsProfileCommunityComment>;
-  hasFilters: boolean;
-}>;
-
 function getStartOfCurrWeek(date: Date) {
   const diff = date.getDate() - date.getDay() + (date.getDay() === 0 ? -6 : 1);
 
@@ -45,9 +40,16 @@ function getStartOfPrevMonth(date: Date) {
   return startOfPrevMonth;
 }
 
+type Props = Readonly<{
+  comments: ReadonlyArray<ProjectsProfileCommunityComment>;
+  hasFilters: boolean;
+  isViewingOwnProfile: boolean;
+}>;
+
 export default function ProjectsProfileCommunityCommentsSection({
   comments,
   hasFilters,
+  isViewingOwnProfile,
 }: Props) {
   const intl = useIntl();
 
@@ -213,6 +215,7 @@ export default function ProjectsProfileCommunityCommentsSection({
               <ProjectsProfileCommunityCommentList
                 key={group.title}
                 comments={group.comments}
+                isViewingOwnProfile={isViewingOwnProfile}
                 title={group.title}
               />
             ),
