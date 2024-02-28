@@ -10,28 +10,12 @@ import type {
   ProjectsChallengeSubmissionVote,
   ProjectsDiscussionCommentVote,
 } from '@prisma/client';
-import {
-  type ProjectsDiscussionComment,
-  ProjectsDiscussionCommentDomain,
-} from '@prisma/client';
-
-export function projectsReputationCommentIsProjectsDomain({
-  domain,
-}: ProjectsDiscussionComment) {
-  return (
-    domain === ProjectsDiscussionCommentDomain.PROJECTS_SUBMISSION ||
-    domain === ProjectsDiscussionCommentDomain.PROJECTS_CHALLENGE
-  );
-}
+import { type ProjectsDiscussionComment } from '@prisma/client';
 
 export async function projectsReputationCommentAwardPoints(
   comment: ProjectsDiscussionComment,
   projectsProfileId: string,
 ) {
-  if (!projectsReputationCommentIsProjectsDomain(comment)) {
-    return;
-  }
-
   await prisma.projectsProfile.update({
     data: {
       reputation: {
@@ -47,10 +31,6 @@ export async function projectsReputationCommentAwardPoints(
 export async function projectsReputationCommentRevokePoints(
   deletedComment: ProjectsDiscussionComment,
 ) {
-  if (!projectsReputationCommentIsProjectsDomain(deletedComment)) {
-    return;
-  }
-
   await prisma.projectsReputationPoint.deleteMany({
     where: {
       key: projectsReputationDiscussionsCommentConfig(deletedComment.id).key,
@@ -70,7 +50,6 @@ export async function projectsReputationCommentVoteAwardPoints(
 
   if (
     comment == null ||
-    !projectsReputationCommentIsProjectsDomain(comment) ||
     voterId === comment.profileId // Don't give points for self-votes.
   ) {
     return;

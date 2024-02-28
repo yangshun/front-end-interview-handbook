@@ -19,7 +19,6 @@ import type {
   ProjectsDiscussionsCommentAuthor,
   ProjectsDiscussionsCommentItem,
 } from './types';
-import UserAvatarWithLevel from '../users/UserAvatarWithLevel';
 import RichTextEditor from '../../ui/RichTextEditor';
 
 import { zodResolver } from '@hookform/resolvers/zod';
