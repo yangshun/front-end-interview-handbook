@@ -30,7 +30,7 @@ export default function ProjectsDashboardPage({ children }: Props) {
     trpc.projects.profile.dashboardStatisticsSelf.useQuery();
   const { data: startedBefore } =
     trpc.projects.sessions.startedBefore.useQuery();
-  const { data: userProfile } = trpc.projects.profile.getUserProfile.useQuery();
+  const { data: userProfile } = trpc.projects.profile.viewer.useQuery();
   const { signInUpHref } = useAuthSignInUp();
 
   return (

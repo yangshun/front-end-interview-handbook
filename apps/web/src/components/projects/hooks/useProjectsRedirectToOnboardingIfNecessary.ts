@@ -10,7 +10,7 @@ export default function useProjectsRedirectToOnboardingIfNecessary() {
   const router = useI18nRouter();
   const { pathname } = useI18nPathname();
 
-  const { data: userProfile } = trpc.projects.profile.getUserProfile.useQuery();
+  const { data: userProfile } = trpc.projects.profile.viewer.useQuery();
 
   useEffect(() => {
     if (

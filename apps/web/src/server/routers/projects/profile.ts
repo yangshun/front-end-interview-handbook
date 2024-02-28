@@ -85,16 +85,6 @@ export const projectsProfileRouter = router({
       return await fetchProjectsProfileStatistics(projectsProfileId);
     },
   ),
-  getUserProfile: publicProjectsProcedure.query(async ({ ctx: { user } }) => {
-    return await prisma.profile.findUnique({
-      include: {
-        projectsProfile: true,
-      },
-      where: {
-        id: user?.id,
-      },
-    });
-  }),
   hovercard: publicProcedure
     .input(
       z.object({
@@ -510,4 +500,14 @@ export const projectsProfileRouter = router({
 
       return profile != null && profile.id !== user.id;
     }),
+  viewer: publicProjectsProcedure.query(async ({ ctx: { user } }) => {
+    return await prisma.profile.findUnique({
+      include: {
+        projectsProfile: true,
+      },
+      where: {
+        id: user?.id,
+      },
+    });
+  }),
 });

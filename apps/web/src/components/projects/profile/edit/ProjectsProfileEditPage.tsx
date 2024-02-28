@@ -89,7 +89,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
   const { showToast } = useToast();
   const projectsProfileUpdateMutation =
     trpc.projects.profile.update.useMutation();
-  const { data: initialValues } = trpc.projects.profile.getUserProfile.useQuery(
+  const { data: initialValues } = trpc.projects.profile.viewer.useQuery(
     undefined,
     {
       initialData: userProfile,
