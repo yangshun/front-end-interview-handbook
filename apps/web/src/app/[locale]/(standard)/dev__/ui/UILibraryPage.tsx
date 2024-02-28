@@ -4,6 +4,7 @@ import { useAppThemePreferences } from '~/components/global/dark/AppThemePrefere
 import AppThemeSelect from '~/components/global/dark/AppThemeSelect';
 import AccordionExamples from '~/components/ui/Accordion/AccordionExamples';
 import AlertExamples from '~/components/ui/Alert/AlertExamples';
+import AnchorExamples from '~/components/ui/Anchor/AnchorExamples';
 import BadgeExamples from '~/components/ui/Badge/BadgeExamples';
 import BannerExamples from '~/components/ui/Banner/BannerExamples';
 import ButtonExamples from '~/components/ui/Button/ButtonExamples';
@@ -58,6 +59,7 @@ export default function UILibraryPage() {
         <TypographyExamples />
         <HeadingExamples />
         <TextExamples />
+        <AnchorExamples />
         {/* Form */}
         <ButtonExamples />
         <TextInputExamples />

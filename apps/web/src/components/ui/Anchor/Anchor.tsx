@@ -7,25 +7,38 @@ import React from 'react';
 
 import { useAppContext } from '~/components/global/AppContextProvider';
 import { useScrollManagement } from '~/components/global/ScrollManagementProvider';
-import { themeTextSecondaryColor } from '~/components/ui/theme';
+import {
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
 
 import type { I18nLinkProps } from '~/next-i18nostic/src';
 import { I18nLink } from '~/next-i18nostic/src';
 
-import {
-  themeTextBrandColor,
-  themeTextBrandColor_Hover,
-  themeTextColor,
-} from '../theme';
+import { themeTextBrandColor, themeTextBrandColor_Hover } from '../theme';
 
 type AnchorVariant =
-  | 'blend'
-  | 'default'
-  | 'flat'
-  | 'light'
-  | 'muted'
+  | 'blend' // Same color as text, brand color on hover.
+  | 'default' // Brand color, emphasized and underline on hover.
+  | 'flat' // Same color as text, underline on hover.
+  | 'light' // Lighter brand color, emphasized on hover.
+  | 'muted' // Secondary color, brand color on hover.
   | 'unstyled';
 type AnchorFontWeight = 'medium' | 'regular';
+
+const anchorStyles: Record<AnchorVariant, string> = {
+  blend: themeTextBrandColor_Hover,
+  default: clsx(
+    themeTextBrandColor,
+    themeTextBrandColor_Hover,
+    'hover:underline',
+  ),
+  flat: 'hover:underline',
+  light: 'text-brand-light hover:text-brand',
+  muted: clsx(themeTextSecondaryColor, themeTextBrandColor_Hover),
+  unstyled: '',
+};
 
 export type Props = Omit<I18nLinkProps, 'href'> &
   Readonly<{
@@ -65,18 +78,10 @@ function Anchor(
     'transition-colors',
     variant !== 'unstyled' &&
       clsx(
+        anchorStyles[variant],
+        themeOutlineElement_FocusVisible,
+        themeOutlineElementBrandColor_FocusVisible,
         weight === 'medium' && 'font-medium',
-        variant === 'default' &&
-          clsx(
-            themeTextBrandColor,
-            themeTextBrandColor_Hover,
-            'hover:underline',
-          ),
-        variant === 'flat' && 'hover:underline',
-        variant === 'light' && 'text-brand-light hover:text-brand',
-        variant === 'blend' && clsx(themeTextColor, themeTextBrandColor_Hover),
-        variant === 'muted' &&
-          clsx(themeTextSecondaryColor, themeTextBrandColor_Hover),
         underline && 'underline',
       ),
     classNameProp,
