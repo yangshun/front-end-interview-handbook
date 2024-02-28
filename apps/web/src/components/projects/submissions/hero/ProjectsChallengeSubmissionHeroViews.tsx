@@ -4,11 +4,11 @@ import { RiEyeFill } from 'react-icons/ri';
 import Text from '~/components/ui/Text';
 import { themeTextColor } from '~/components/ui/theme';
 
-export default function ProjectsChallengeSubmissionHeroViews({
-  views,
-}: {
+type Props = Readonly<{
   views: number;
-}) {
+}>;
+
+export default function ProjectsChallengeSubmissionHeroViews({ views }: Props) {
   return (
     <div className="flex items-center gap-1">
       <RiEyeFill className={clsx('size-4', themeTextColor)} />

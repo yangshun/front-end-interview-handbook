@@ -1,26 +1,21 @@
-import clsx from 'clsx';
 import { useState } from 'react';
 import { RiThumbUpFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import FilterButton from '~/components/common/FilterButton';
 import { useToast } from '~/components/global/toasts/useToast';
-import Text from '~/components/ui/Text';
-import {
-  themeBackgroundLayerEmphasized,
-  themeBorderElementColor,
-  themeTextBrandColor,
-  themeTextColor,
-} from '~/components/ui/theme';
+
+type Props = Readonly<{
+  submissionId: string;
+  votes: number;
+}>;
 
 export default function ProjectsChallengeSubmissionHeroVoteButton({
   votes,
   submissionId,
-}: {
-  submissionId: string;
-  votes: number;
-}) {
+}: Props) {
   const { showToast } = useToast();
   const intl = useIntl();
 
@@ -68,32 +63,18 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
     },
   });
 
-  // TODO(projects): change to FilterButton.
   return (
-    <button
-      className={clsx(
-        'flex w-full items-center justify-center gap-1 rounded-2xl px-3 py-2 md:w-auto',
-        themeBackgroundLayerEmphasized,
-        'border',
-        hasVoted
-          ? 'border-brand-dark dark:border-brand'
-          : themeBorderElementColor,
-      )}
-      disabled={isLoading || vote.isLoading || unvote.isLoading}
-      type="button"
+    <FilterButton
+      icon={RiThumbUpFill}
+      isDisabled={isLoading || vote.isLoading || unvote.isLoading}
+      label={String(currentVotes)}
+      purpose="button"
+      selected={hasVoted}
       onClick={() =>
         hasVoted
           ? unvote.mutate({ submissionId })
           : vote.mutate({ submissionId })
-      }>
-      <RiThumbUpFill
-        className={clsx(
-          'size-4',
-          'shrink-0',
-          hasVoted ? themeTextBrandColor : themeTextColor,
-        )}
-      />
-      <Text size="body3">{currentVotes}</Text>
-    </button>
+      }
+    />
   );
 }

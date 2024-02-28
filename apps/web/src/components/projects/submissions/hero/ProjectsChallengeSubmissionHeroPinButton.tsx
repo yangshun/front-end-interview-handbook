@@ -13,10 +13,7 @@ import ProjectsChallengeSubmissionPinned from './ProjectsChallengeSubmissionPinn
 
 import type { ProjectsProfile } from '@prisma/client';
 
-export default function ProjectsChallengeSubmissionHeroPinButton({
-  submissionId,
-  projectsProfile,
-}: {
+type Props = Readonly<{
   projectsProfile:
     | (ProjectsProfile & {
         userProfile?: ProjectsChallengeSubmissionAuthor | null | undefined;
@@ -24,7 +21,12 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
     | null
     | undefined;
   submissionId: string;
-}) {
+}>;
+
+export default function ProjectsChallengeSubmissionHeroPinButton({
+  submissionId,
+  projectsProfile,
+}: Props) {
   const intl = useIntl();
   const { showToast } = useToast();
   const [hasPinned, setHasPinned] = useState(false);
@@ -101,7 +103,6 @@ export default function ProjectsChallengeSubmissionHeroPinButton({
     <>
       <Button
         addonPosition="end"
-        className=""
         icon={hasPinned ? RiUnpinLine : RiPushpinLine}
         isDisabled={
           isLoading || unpinSubmission.isLoading || pinSubmission.isLoading

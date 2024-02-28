@@ -1,13 +1,13 @@
 import clsx from 'clsx';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { RiArrowLeftLine, RiPencilLine } from 'react-icons/ri';
+import { RiArrowLeftLine, RiMessage2Fill, RiPencilLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'usehooks-ts';
 
+import FilterButton from '~/components/common/FilterButton';
 import MarketingHeroBackground from '~/components/common/marketing/MarketingHeroBackground';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import ProjectsChallengeSubmissionHeroCommentButton from '~/components/projects/submissions//hero/ProjectsChallengeSubmissionHeroCommentButton';
 import ProjectsChallengeSubmissionHeroCard from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroCard';
 import ProjectsChallengeSubmissionHeroPinButton from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroPinButton';
 import ProjectsChallengeSubmissionHeroTimestamp from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroTimestamp';
@@ -88,8 +88,10 @@ export default function ProjectsChallengeSubmissionHero({
   );
 
   const commentButton = (
-    <ProjectsChallengeSubmissionHeroCommentButton
-      comments={submission.comments ?? 0}
+    <FilterButton
+      icon={RiMessage2Fill}
+      label={String(submission.comments ?? 0)}
+      purpose="button"
       onClick={onScrollToDiscussionsButtonClick}
     />
   );
