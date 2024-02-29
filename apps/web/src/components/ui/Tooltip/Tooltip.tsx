@@ -31,6 +31,7 @@ type Props = Readonly<{
   label?: ReactNode;
   side?: TooltipContentSide;
   size?: TooltipSize;
+  triggerType?: 'button' | 'submit';
 }>;
 
 export default function Tooltip({
@@ -42,6 +43,7 @@ export default function Tooltip({
   label,
   side = 'top',
   size = 'sm',
+  triggerType = 'button', // To prevent clicking on tooltip from submitting if it is within a form.
 }: Props) {
   const tooltipBackgroundColor = invert
     ? 'bg-neutral-200 dark:bg-neutral-900'
@@ -53,7 +55,7 @@ export default function Tooltip({
   return (
     <TooltipPrimitive.Provider>
       <TooltipPrimitive.Root>
-        <TooltipPrimitive.Trigger asChild={asChild}>
+        <TooltipPrimitive.Trigger asChild={asChild} type={triggerType}>
           {children}
         </TooltipPrimitive.Trigger>
         <TooltipPrimitive.Portal>

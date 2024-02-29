@@ -313,7 +313,8 @@ function Button(
       align={tooltipAlign}
       asChild={true}
       label={tooltip}
-      side={tooltipSide}>
+      side={tooltipSide}
+      triggerType={'type' in props ? props.type : undefined}>
       {el}
     </Tooltip>
   );
