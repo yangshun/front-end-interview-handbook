@@ -38,8 +38,8 @@ const sizeClasses: Record<
     sizePixels: 56,
   },
   '3xl': {
-    innerSize: 'h-[86px] w-[86px]',
-    outerSize: 'h-24 w-24',
+    innerSize: 'size-20',
+    outerSize: 'size-24',
     sizePixels: 56,
   },
   lg: {
