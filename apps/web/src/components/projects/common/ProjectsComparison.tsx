@@ -144,7 +144,9 @@ export default function ProjectsComparison({
               className="truncate whitespace-nowrap"
               display="block"
               size="body2">
-              <Anchor href={deploymentUrls[selectedScreenIndex].href}>
+              <Anchor
+                href={deploymentUrls[selectedScreenIndex].href}
+                warnAboutExternalLink={true}>
                 {deploymentUrls[selectedScreenIndex].href}
               </Anchor>
             </Text>

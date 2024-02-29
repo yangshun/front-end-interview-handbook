@@ -103,6 +103,7 @@ export default function ProjectsChallengeSubmissionPage({
                     id: 'NL7HsI',
                   })}
                   variant="primary"
+                  warnAboutExternalLink={true}
                 />
               )}
               {repositoryUrl && (
@@ -115,6 +116,7 @@ export default function ProjectsChallengeSubmissionPage({
                     id: 'd8RJic',
                   })}
                   variant="secondary"
+                  warnAboutExternalLink={true}
                 />
               )}
             </div>

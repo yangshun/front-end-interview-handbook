@@ -25,7 +25,10 @@ export default function ProjectsProfileSocialLinks({ userProfile }: Props) {
             description: 'Link to GitHub profile',
             id: 'Ol2L0M',
           })}>
-          <Anchor href={userProfile.githubUsername} variant="muted">
+          <Anchor
+            href={userProfile.githubUsername}
+            variant="muted"
+            warnAboutExternalLink={true}>
             <span className="sr-only">GitHub</span>
             <RiGithubFill aria-hidden="true" className="size-5" />
           </Anchor>
@@ -39,7 +42,10 @@ export default function ProjectsProfileSocialLinks({ userProfile }: Props) {
             description: 'Link to LinkedIn profile',
             id: '918wg5',
           })}>
-          <Anchor href={userProfile.linkedInUsername} variant="muted">
+          <Anchor
+            href={userProfile.linkedInUsername}
+            variant="muted"
+            warnAboutExternalLink={true}>
             <span className="sr-only">LinkedIn</span>
             <RiLinkedinBoxFill aria-hidden="true" className="size-5" />
           </Anchor>
@@ -53,7 +59,10 @@ export default function ProjectsProfileSocialLinks({ userProfile }: Props) {
             description: 'Link to website',
             id: '6ZWO4y',
           })}>
-          <Anchor href={userProfile.website} variant="muted">
+          <Anchor
+            href={userProfile.website}
+            variant="muted"
+            warnAboutExternalLink={true}>
             <span className="sr-only">Website</span>
             <RiGlobalLine aria-hidden="true" className="size-5" />
           </Anchor>
