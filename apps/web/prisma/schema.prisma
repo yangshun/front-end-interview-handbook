@@ -48,8 +48,8 @@ model Profile {
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @default(now()) @updatedAt
 
-  QuestionProgress                        QuestionProgress[]
-  LearningSession                         LearningSession[]
+  learningSessions                        LearningSession[]
+  questionProgress                        QuestionProgress[]
   questionDiscussionPosts                 QuestionDiscussionPost[]
   questionJavaScriptSubmissions           QuestionJavaScriptSubmission[]
   questionJavaScriptCommunitySolutions    QuestionJavaScriptCommunitySolution[]
@@ -77,7 +77,8 @@ model QuestionDiscussionPost {
   userId    String   @db.Uuid
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @default(now()) @updatedAt
-  profile   Profile  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  profile Profile @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 enum QuestionSubmissionResult {
@@ -98,7 +99,8 @@ model QuestionJavaScriptSubmission {
   result    QuestionSubmissionResult
   userId    String                   @db.Uuid
   createdAt DateTime                 @default(now()) @db.Timestamptz(6)
-  profile   Profile                  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  profile Profile @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 enum QuestionUserInterfaceFramework {
@@ -131,7 +133,8 @@ model QuestionJavaScriptCommunitySolution {
   userId    String                  @db.Uuid
   createdAt DateTime                @default(now()) @db.Timestamptz(6)
   updatedAt DateTime                @default(now()) @updatedAt
-  profile   Profile                 @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  profile Profile @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model QuestionUserInterfaceCommunitySolution {
@@ -144,7 +147,8 @@ model QuestionUserInterfaceCommunitySolution {
   userId    String                         @db.Uuid
   createdAt DateTime                       @default(now()) @db.Timestamptz(6)
   updatedAt DateTime                       @default(now()) @updatedAt
-  profile   Profile                        @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  profile Profile @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 }
 
 enum LearningSessionStatus {
@@ -153,15 +157,16 @@ enum LearningSessionStatus {
 }
 
 model LearningSession {
-  id        String                    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  userId    String                    @db.Uuid
+  id        String                @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  userId    String                @db.Uuid
   key       String
-  status    LearningSessionStatus     @default(IN_PROGRESS)
-  createdAt DateTime                  @default(now()) @db.Timestamptz(6)
-  updatedAt DateTime                  @default(now()) @updatedAt
-  stoppedAt DateTime?                 @db.Timestamptz(6)
-  profile   Profile?                  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  progress  LearningSessionProgress[]
+  status    LearningSessionStatus @default(IN_PROGRESS)
+  createdAt DateTime              @default(now()) @db.Timestamptz(6)
+  updatedAt DateTime              @default(now()) @updatedAt
+  stoppedAt DateTime?             @db.Timestamptz(6)
+
+  profile  Profile?                  @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  progress LearningSessionProgress[]
 }
 
 enum LearningSessionProgressStatus {
@@ -350,14 +355,14 @@ model ProjectsDiscussionCommentVote {
 }
 
 model RewardsTaskCompletion {
-  id         String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  userId     String  @db.Uuid
+  id         String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  userId     String   @db.Uuid
   campaign   String
   action     String
   identifier String
-  profile    Profile @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  createdAt  DateTime @default(now()) @db.Timestamptz(6)
 
-  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  profile Profile @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@unique([userId, campaign, action])
 }
