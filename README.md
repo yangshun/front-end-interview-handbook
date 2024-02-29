@@ -22,7 +22,7 @@
   <img src="assets/start-reading-button.jpg" alt="Start Reading Front End Interview Handbook" />
 </a>
 
-&nbsp
+<p dir="auto"></p>
 
 <a href="https://www.greatfrontend.com/prepare/" target="_blank">
   <img src="assets/start-practicing-button.jpg" alt="Start Practicing Front End Questions on GreatFrontEnd" />
