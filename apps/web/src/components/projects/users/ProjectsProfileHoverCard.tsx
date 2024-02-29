@@ -55,14 +55,12 @@ export default function ProjectsProfileHoverCard({ userId }: Props) {
       ) : (
         <>
           <div className="flex items-center gap-4">
-            <Anchor href={`/projects/u/${profile?.username}`}>
-              <ProjectsProfileAvatar
-                hovercard={false}
-                points={profile!.projectsProfile?.points}
-                size="2xl"
-                userProfile={profile!}
-              />
-            </Anchor>
+            <ProjectsProfileAvatar
+              mode="link"
+              points={profile!.projectsProfile?.points}
+              size="2xl"
+              userProfile={profile!}
+            />
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
                 <ProjectsProfileDisplayNameLink userProfile={profile!} />

@@ -10,9 +10,11 @@ import type { UserLevelWithAvatarSize } from './UserAvatarWithLevel';
 import UserAvatarWithLevel from './UserAvatarWithLevel';
 import { projectsReputationLevel } from '../reputation/projectsReputationLevelUtils';
 
+type Mode = 'hovercard' | 'inert' | 'link';
+
 type Props = Readonly<{
   className?: string;
-  hovercard?: boolean;
+  mode?: Mode;
   points?: number | null;
   size?: UserLevelWithAvatarSize;
   userProfile?: Readonly<{
@@ -24,11 +26,11 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsProfileAvatar({
-  hovercard = true,
   points = 0,
   userProfile,
   className,
   size = 'lg',
+  mode = 'hovercard',
 }: Props) {
   const { level, progress } = projectsReputationLevel(points ?? 0);
   const avatar = (
@@ -41,21 +43,28 @@ export default function ProjectsProfileAvatar({
     />
   );
 
-  return userProfile != null && hovercard ? (
+  const anchorAvatar =
+    userProfile != null ? (
+      <Anchor
+        aria-label={userProfile.name ?? userProfile.username}
+        className="font-medium"
+        href={`/projects/u/${userProfile.username}`}
+        variant="unstyled">
+        {avatar}
+      </Anchor>
+    ) : (
+      avatar
+    );
+
+  return userProfile != null && mode === 'hovercard' ? (
     <Hovercard>
-      <HovercardTrigger asChild={true}>
-        <Anchor
-          aria-label={userProfile.name ?? userProfile.username}
-          className="font-medium"
-          href={`/projects/u/${userProfile.username}`}
-          variant="unstyled">
-          {avatar}
-        </Anchor>
-      </HovercardTrigger>
+      <HovercardTrigger asChild={true}>{anchorAvatar}</HovercardTrigger>
       <HovercardContent>
         <ProjectsProfileHoverCard userId={userProfile.id} />
       </HovercardContent>
     </Hovercard>
+  ) : userProfile != null && mode === 'link' ? (
+    anchorAvatar
   ) : (
     avatar
   );

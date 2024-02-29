@@ -362,7 +362,7 @@ function ProjectsSidebarCollapsed({
       <ProjectsSidebarProductMenu variant="compact" />
       {profile && (
         <ProjectsProfileAvatar
-          hovercard={false}
+          mode="link"
           points={profile.projectsProfile?.points}
           size="lg"
           userProfile={profile}

@@ -38,7 +38,7 @@ export default function ProjectsChallengeBriefQuestionSupportCard() {
         <div className="flex items-start gap-4">
           <div className="relative flex flex-col items-center self-stretch">
             <ProjectsProfileAvatar
-              hovercard={false}
+              mode="inert"
               points={4200}
               size="2xl"
               userProfile={{

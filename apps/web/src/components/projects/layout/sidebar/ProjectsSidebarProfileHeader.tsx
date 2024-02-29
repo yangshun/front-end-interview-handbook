@@ -17,7 +17,7 @@ export function ProjectsSidebarProfileHeader() {
   return (
     <div className={clsx('flex w-full items-center gap-3 px-3 py-2')}>
       <ProjectsProfileAvatar
-        hovercard={false}
+        mode="inert"
         points={profile.projectsProfile?.points}
         size="lg"
         userProfile={profile}
