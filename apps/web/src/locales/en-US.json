@@ -635,10 +635,6 @@
     "defaultMessage": "Reset progress",
     "description": "Label to reset study plan progress"
   },
-  "4KwvEP": {
-    "defaultMessage": "Tablet",
-    "description": "Responsive breakpoint category"
-  },
   "4WUroS": {
     "defaultMessage": "Efficiently focus on the most important concepts",
     "description": "Short description for one week study plan"
@@ -954,6 +950,10 @@
   "7fCoNs": {
     "defaultMessage": "Will I have to code within the platform, or use my own IDE?",
     "description": "FAQ question for projects platform"
+  },
+  "7fWXqy": {
+    "defaultMessage": "Mobile(<={width}px)",
+    "description": "Responsive breakpoint category"
   },
   "7gb9hK": {
     "defaultMessage": "Everything you need",
@@ -4027,10 +4027,6 @@
     "defaultMessage": "Joined on {date}",
     "description": "Date the user joined the service"
   },
-  "ZIM+0x": {
-    "defaultMessage": "Desktop",
-    "description": "Responsive breakpoint category"
-  },
   "ZJQ+uw": {
     "defaultMessage": "Submit your code to check against <button>all test cases</button>.",
     "description": "Text that appears in the DevTool under the Tests tab before the user has submitted their code"
@@ -5723,10 +5719,6 @@
     "defaultMessage": "Challenge status",
     "description": "Label for Status filter for submissions list"
   },
-  "ohDwTa": {
-    "defaultMessage": "Mobile",
-    "description": "Responsive breakpoint category"
-  },
   "oiMKy3": {
     "defaultMessage": "Here are the tasks for this campaign:",
     "description": "Description for campaign tasks"
@@ -5878,6 +5870,10 @@
   "piqimi": {
     "defaultMessage": "OFF",
     "description": "Amount cashback/discount"
+  },
+  "pk8N5F": {
+    "defaultMessage": "Tablet({minWidth}px-{maxWidth}px)",
+    "description": "Responsive breakpoint category"
   },
   "pkWsMA": {
     "defaultMessage": "Masters CS",
@@ -6954,6 +6950,10 @@
   "zaJkwz": {
     "defaultMessage": "Pick from <bold>component tracks</bold>",
     "description": "Caption for Start a Project button in Projects marketing hero section for side projects"
+  },
+  "zcFhCU": {
+    "defaultMessage": "Desktop(>={width}px)",
+    "description": "Responsive breakpoint category"
   },
   "zeK111": {
     "defaultMessage": "E.g. \"Responsive solution with React and Tailwind CSS\"",

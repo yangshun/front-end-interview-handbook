@@ -2,8 +2,10 @@ import { RiComputerLine, RiSmartphoneLine, RiTabletLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import FilterButton from '~/components/common/FilterButton';
-
-import type { ProjectsImageBreakpointCategory } from './ProjectsImageBreakpoints';
+import {
+  type ProjectsImageBreakpointCategory,
+  ProjectsImageBreakpointDimensions,
+} from '~/components/projects/common/ProjectsImageBreakpoints';
 
 type Props = Readonly<{
   breakpoint: ProjectsImageBreakpointCategory;
@@ -16,32 +18,44 @@ export default function ProjectsImageBreakpointButtonGroup({
 }: Props) {
   const intl = useIntl();
 
+  const tabletDimension = ProjectsImageBreakpointDimensions.tablet;
+  const mobileDimension = ProjectsImageBreakpointDimensions.mobile;
+
   const breakpoints = [
     {
       icon: RiComputerLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Desktop',
-        description: 'Responsive breakpoint category',
-        id: 'ZIM+0x',
-      }),
+      label: intl.formatMessage(
+        {
+          defaultMessage: 'Desktop(>={width}px)',
+          description: 'Responsive breakpoint category',
+          id: 'zcFhCU',
+        },
+        { width: tabletDimension.width },
+      ),
       value: 'desktop',
     },
     {
       icon: RiTabletLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Tablet',
-        description: 'Responsive breakpoint category',
-        id: '4KwvEP',
-      }),
+      label: intl.formatMessage(
+        {
+          defaultMessage: 'Tablet({minWidth}px-{maxWidth}px)',
+          description: 'Responsive breakpoint category',
+          id: 'pk8N5F',
+        },
+        { maxWidth: tabletDimension.width, minWidth: mobileDimension.width },
+      ),
       value: 'tablet',
     },
     {
       icon: RiSmartphoneLine,
-      label: intl.formatMessage({
-        defaultMessage: 'Mobile',
-        description: 'Responsive breakpoint category',
-        id: 'ohDwTa',
-      }),
+      label: intl.formatMessage(
+        {
+          defaultMessage: 'Mobile(<={width}px)',
+          description: 'Responsive breakpoint category',
+          id: '7fWXqy',
+        },
+        { width: mobileDimension.width },
+      ),
       value: 'mobile',
     },
   ] as const;
