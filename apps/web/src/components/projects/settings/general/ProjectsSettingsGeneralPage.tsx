@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 
-import useProfile from '~/hooks/user/useProfile';
+import useUserProfile from '~/hooks/user/useUserProfile';
 
 import SupabaseAuthUpdatePassword from '~/components/auth/SupabaseAuthUpdatePassword';
 import Timestamp from '~/components/common/Timestamp';
@@ -15,10 +15,10 @@ import { themeBorderColor } from '~/components/ui/theme';
 import { useUser } from '@supabase/auth-helpers-react';
 
 export default function ProjectsSettingsGeneralPage() {
-  const { profile } = useProfile();
+  const { userProfile } = useUserProfile();
   const user = useUser();
 
-  if (profile == null) {
+  if (userProfile == null) {
     return <Spinner size="lg" />;
   }
 
@@ -27,7 +27,7 @@ export default function ProjectsSettingsGeneralPage() {
       <div className="flex items-center justify-between gap-4">
         <Heading level="heading5">Account settings</Heading>
         <Text color="secondary" size="body2">
-          Joined on <Timestamp date={profile.createdAt} />
+          Joined on <Timestamp date={userProfile.createdAt} />
         </Text>
       </div>
       <div className="flex flex-col gap-6 md:max-w-md">

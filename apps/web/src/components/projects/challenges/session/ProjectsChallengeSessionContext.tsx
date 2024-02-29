@@ -9,7 +9,7 @@ import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
-import useProfile from '~/hooks/user/useProfile';
+import useUserProfile from '~/hooks/user/useUserProfile';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import Anchor from '~/components/ui/Anchor';
@@ -66,7 +66,7 @@ export default function ProjectsChallengeSessionContextProvider({
   children,
   slug,
 }: Props) {
-  const { profile } = useProfile();
+  const { userProfile } = useUserProfile();
   const { navigateToSignInUpPage } = useAuthSignInUp();
   const queryClient = useQueryClient();
   const { showToast } = useToast();
@@ -157,7 +157,7 @@ export default function ProjectsChallengeSessionContextProvider({
       session,
       setIsGetStartedDialogShown,
       startProject: () => {
-        if (profile == null) {
+        if (userProfile == null) {
           navigateToSignInUpPage({ query: { source: 'start_project' } });
 
           return;

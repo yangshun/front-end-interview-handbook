@@ -4,7 +4,7 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
-import useProfile from '~/hooks/user/useProfile';
+import useUserProfile from '~/hooks/user/useUserProfile';
 
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
@@ -13,7 +13,7 @@ import Text from '~/components/ui/Text';
 
 export default function RewardsHeader() {
   const intl = useIntl();
-  const { profile } = useProfile();
+  const { userProfile } = useUserProfile();
   const { signInUpHref } = useAuthSignInUp();
 
   return (
@@ -29,7 +29,7 @@ export default function RewardsHeader() {
         <Button
           className="self-stretch sm:self-auto"
           href={
-            profile != null
+            userProfile != null
               ? '/rewards/social/tasks'
               : signInUpHref({
                   next: '/rewards/social/tasks',

@@ -8,7 +8,7 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import useProfile from '~/hooks/user/useProfile';
+import useUserProfile from '~/hooks/user/useUserProfile';
 
 import Anchor from '~/components/ui/Anchor';
 import Card from '~/components/ui/Card';
@@ -23,10 +23,10 @@ export default function ProjectsDashboardCompleteProfileCard() {
   const intl = useIntl();
   const [isCardOpen, setIsCardOpen] = useState(false);
 
-  const { profile } = useProfile();
+  const { userProfile } = useUserProfile();
   const profileTasks = [
     {
-      isComplete: Boolean(profile?.bio),
+      isComplete: Boolean(userProfile?.bio),
       title: intl.formatMessage({
         defaultMessage: 'Add Bio',
         description: 'Title for Add Bio task on Projects dashboard page',
@@ -34,7 +34,7 @@ export default function ProjectsDashboardCompleteProfileCard() {
       }),
     },
     {
-      isComplete: Boolean(profile?.githubUsername),
+      isComplete: Boolean(userProfile?.githubUsername),
       title: intl.formatMessage({
         defaultMessage: 'Add GitHub',
         description: 'Title for Add GitHub task on Projects dashboard page',
@@ -42,7 +42,7 @@ export default function ProjectsDashboardCompleteProfileCard() {
       }),
     },
     {
-      isComplete: Boolean(profile?.linkedInUsername),
+      isComplete: Boolean(userProfile?.linkedInUsername),
       title: intl.formatMessage({
         defaultMessage: 'Add LinkedIn',
         description: 'Title for Add LinkedIn task on Projects dashboard page',
@@ -50,7 +50,7 @@ export default function ProjectsDashboardCompleteProfileCard() {
       }),
     },
     {
-      isComplete: Boolean(profile?.website),
+      isComplete: Boolean(userProfile?.website),
       title: intl.formatMessage({
         defaultMessage: 'Add website',
         description: 'Title for Add Website task on Projects dashboard page',

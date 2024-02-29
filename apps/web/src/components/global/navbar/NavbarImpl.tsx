@@ -8,7 +8,7 @@ import { useIntl } from 'react-intl';
 import gtag from '~/lib/gtag';
 import useIsSticky from '~/hooks/useIsSticky';
 import { useAuthLogout, useAuthSignInUp } from '~/hooks/user/useAuthFns';
-import useProfile from '~/hooks/user/useProfile';
+import useUserProfile from '~/hooks/user/useUserProfile';
 
 import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
 import { useFocusAreas } from '~/data/focus-areas/FocusAreasHooks';
@@ -624,10 +624,10 @@ export default function NavbarImpl() {
   const { appThemePreference, setAppThemePreference } =
     useAppThemePreferences();
   const user = useUser();
-  const { isLoading: isUserProfileLoading, profile } = useProfile();
+  const { isLoading: isUserProfileLoading, userProfile } = useUserProfile();
   const intl = useIntl();
   const isLoggedIn = user != null;
-  const isPremium = profile?.premium ?? false;
+  const isPremium = userProfile?.premium ?? false;
   const links = useNavLinks(isLoggedIn, isPremium);
   const userNavigationLinks = useUserNavigationLinks();
   const { locale, pathname } = useI18nPathname();
@@ -662,9 +662,9 @@ export default function NavbarImpl() {
       )}
       {isLoggedIn && (
         <NavProfileIcon
-          avatarUrl={profile?.avatarUrl ?? user?.user_metadata?.avatar_url}
+          avatarUrl={userProfile?.avatarUrl ?? user?.user_metadata?.avatar_url}
           navItems={userNavigationLinks}
-          userIdentifierString={profile?.name ?? user?.email}
+          userIdentifierString={userProfile?.name ?? user?.email}
         />
       )}
     </>
@@ -745,11 +745,11 @@ export default function NavbarImpl() {
   const mobileSidebarBottomItems = isLoggedIn && (
     <div className="flex shrink-0 items-center gap-x-3">
       <div>
-        {profile?.avatarUrl ? (
+        {userProfile?.avatarUrl ? (
           <img
-            alt={profile?.name ?? user?.email}
+            alt={userProfile?.name ?? user?.email}
             className="size-8 inline-block rounded-full"
-            src={profile?.avatarUrl}
+            src={userProfile?.avatarUrl}
           />
         ) : (
           <EmptyAvatarIcon
@@ -762,7 +762,7 @@ export default function NavbarImpl() {
         )}
       </div>
       <Text color="subtitle" display="block" size="body2" weight="medium">
-        {profile?.name ?? user?.email}
+        {userProfile?.name ?? user?.email}
       </Text>
     </div>
   );

@@ -3,7 +3,7 @@
 import { FormattedMessage } from 'react-intl';
 import { useIntl } from 'react-intl';
 
-import useProfile from '~/hooks/user/useProfile';
+import useUserProfile from '~/hooks/user/useUserProfile';
 
 import ProjectsChallengeGridList from '~/components/projects/challenges/lists/ProjectsChallengeGridList';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
@@ -171,7 +171,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
   suggestedChallenges,
 }: Props) {
   const intl = useIntl();
-  const { profile } = useProfile();
+  const { userProfile } = useUserProfile();
 
   return (
     <CardContainer>
@@ -233,7 +233,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
               <UserAvatar
                 className="size-20"
                 size="custom"
-                userProfile={profile}
+                userProfile={userProfile}
               />
               <ProjectsLevelingProgressBar
                 className="flex-1"

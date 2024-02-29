@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { RiMenuFill } from 'react-icons/ri';
 
-import useProfile from '~/hooks/user/useProfile';
+import useUserProfile from '~/hooks/user/useUserProfile';
 
 import LogoLink from '~/components/global/logos/LogoLink';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
@@ -15,7 +15,7 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsNavbar({ className }: Props) {
-  const { profile } = useProfile();
+  const { userProfile } = useUserProfile();
 
   return (
     <div
@@ -27,7 +27,7 @@ export default function ProjectsNavbar({ className }: Props) {
         <LogoLink href="/projects" />
       </div>
       <div className="-my-2 flex gap-4 sm:-mr-2 lg:hidden">
-        {profile != null && <UserAvatar userProfile={profile} />}
+        {userProfile != null && <UserAvatar userProfile={userProfile} />}
         <SlideOut
           className="lg:hidden"
           enterFrom="start"

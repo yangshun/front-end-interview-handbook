@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 
 import { trpc } from '~/hooks/trpc';
-import useProfile from '~/hooks/user/useProfile';
+import useUserProfile from '~/hooks/user/useUserProfile';
 
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -121,9 +121,9 @@ function SocialDiscountSidebarMentionImpl() {
 }
 
 export function SocialDiscountSidebarMention() {
-  const { isLoading, profile } = useProfile();
+  const { isLoading, userProfile } = useUserProfile();
 
-  if (isLoading || profile?.premium) {
+  if (isLoading || userProfile?.premium) {
     return null;
   }
 
