@@ -22,6 +22,12 @@
   <img src="assets/start-reading-button.jpg" alt="Start Reading Front End Interview Handbook" />
 </a>
 
+&nbsp
+
+<a href="https://www.greatfrontend.com/prepare/" target="_blank">
+  <img src="assets/start-practicing-button.jpg" alt="Start Practicing Front End Questions on GreatFrontEnd" />
+</a>
+
 ## What is this?
 
 Unlike typical software engineer job interviews, front end job interviews have less emphasis on algorithms and have more questions on intricate knowledge and expertise about the domain — HTML, CSS, JavaScript, just to name a few areas. This repository covers all you need to know for front end interviews:
