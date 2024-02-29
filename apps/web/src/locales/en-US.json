@@ -159,6 +159,10 @@
     "defaultMessage": "You can host your site using one of these solutions or any of our other trusted providers. Read more about our recommended and trusted hosts",
     "description": "Text for Deployment Info in Projects"
   },
+  "/AeOrt": {
+    "defaultMessage": "Sort by",
+    "description": "Tooltip for sort by button"
+  },
   "/BGC+5": {
     "defaultMessage": "Challenge brief",
     "description": "Projects challenge submission hero card title"

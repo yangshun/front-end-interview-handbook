@@ -113,7 +113,12 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
           description: 'Label for sorting button',
           id: 'vegaR1',
         })}
-        size="md">
+        size="md"
+        tooltip={intl.formatMessage({
+          defaultMessage: 'Sort by',
+          description: 'Tooltip for sort by button',
+          id: '/AeOrt',
+        })}>
         {[
           makeDropdownItemProps(
             intl.formatMessage({
