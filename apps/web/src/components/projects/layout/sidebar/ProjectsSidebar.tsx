@@ -45,7 +45,6 @@ import Tooltip from '~/components/ui/Tooltip';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 import { ProjectsSidebarCTACard } from './ProjectsSidebarCTACard';
-import { ProjectsSidebarNotSignedInHeader } from './ProjectsSidebarNotSignedInHeader';
 import ProjectsSidebarProductMenu from './ProjectsSidebarProductMenu';
 import { ProjectsSidebarProfileHeader } from './ProjectsSidebarProfileHeader';
 import useProfileWithProjectsProfile from '../../common/useProfileWithProjectsProfile';
