@@ -27,7 +27,7 @@ export type ProjectsChallengeSubmissionFilter = {
     label: string;
     value: string;
   }>;
-  tooltip: string;
+  tooltip?: string;
   type: ProjectsChallengeSubmissionFilterType;
   view: ProjectsChallengeSubmissionFilterViewType;
 };
@@ -139,9 +139,9 @@ function useFilters() {
         }),
         options: [],
         tooltip: intl.formatMessage({
-          defaultMessage: 'Tech stack which the submissions are using',
+          defaultMessage: 'Filter by stack used by the creator',
           description: 'Label for "Tech stack used" text input',
-          id: 'e6llht',
+          id: 'RLvazx',
         }),
         type: 'tech-stack-selection',
         view: 'slideout',
@@ -154,12 +154,6 @@ function useFilters() {
           id: 'Od0Qjl',
         }),
         options: [],
-        tooltip: intl.formatMessage({
-          defaultMessage:
-            'The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development',
-          description: 'Label for "Skills used" text input',
-          id: '0QHr9k',
-        }),
         type: 'skill-selection',
         view: 'slideout',
       },

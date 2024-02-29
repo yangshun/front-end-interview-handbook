@@ -1,5 +1,6 @@
+import clsx from 'clsx';
 import { Fragment, useEffect, useMemo, useState } from 'react';
-import { RiFilterLine } from 'react-icons/ri';
+import { RiFilterLine, RiInformationLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import FilterButton from '~/components/common/FilterButton';
@@ -24,6 +25,8 @@ import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
+import { themeTextFaintColor } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
 function FilterSection({
   longLabel,
@@ -31,15 +34,27 @@ function FilterSection({
   id,
   options,
   type,
+  tooltip,
 }: ProjectsChallengeSubmissionFilter) {
   const [selectedOptions, setSelectedOptions] =
     useProjectsChallengeSubmissionFilterState(id);
 
-  return type === 'tech-stack-selection' ? (
-    <div className="flex flex-col gap-8 py-5">
+  const filterLabel = (
+    <div className="flex items-center gap-2">
       <Text size="body2" weight="medium">
         {longLabel || label}
       </Text>
+      {tooltip && (
+        <Tooltip label={tooltip}>
+          <RiInformationLine className={clsx('size-4', themeTextFaintColor)} />
+        </Tooltip>
+      )}
+    </div>
+  );
+
+  return type === 'tech-stack-selection' ? (
+    <div className="flex flex-col gap-8 py-5">
+      {filterLabel}
       <ProjectsSkillTechStackInput
         isLabelHidden={true}
         label={label}
@@ -54,11 +69,7 @@ function FilterSection({
     </div>
   ) : (
     <AccordionItem value={id}>
-      <AccordionTrigger>
-        <Text size="body2" weight="medium">
-          {longLabel || label}
-        </Text>
-      </AccordionTrigger>
+      <AccordionTrigger>{filterLabel}</AccordionTrigger>
       <AccordionContent>
         {type === 'checkbox' && (
           <div className="mt-4 flex flex-wrap gap-x-6 gap-y-4">

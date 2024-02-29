@@ -271,10 +271,6 @@
     "defaultMessage": "Billing",
     "description": "Screenreader text for subscription billing."
   },
-  "0QHr9k": {
-    "defaultMessage": "The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development",
-    "description": "Label for \"Skills used\" text input"
-  },
   "0QZnRv": {
     "defaultMessage": "Recommended schedule",
     "description": "Recommended schedule tooltip displayed on question cards found on question lists"
@@ -3143,6 +3139,10 @@
     "defaultMessage": "Worry about a shaky foundation? Harness curated tools from senior engineers at big tech and learn the best practices for practical development",
     "description": "Description for \"Get the right foundation for practical development\" feature marketing section on Projects home page"
   },
+  "RLvazx": {
+    "defaultMessage": "Filter by stack used by the creator",
+    "description": "Label for \"Tech stack used\" text input"
+  },
   "RMBCok": {
     "defaultMessage": "Snap",
     "description": "Company name for Snap"
@@ -4546,10 +4546,6 @@
   "e1ohyq": {
     "defaultMessage": "Learn from others",
     "description": "Label for Learn from others sidebar item in Projects sidebar"
-  },
-  "e6llht": {
-    "defaultMessage": "Tech stack which the submissions are using",
-    "description": "Label for \"Tech stack used\" text input"
   },
   "eBp6vh": {
     "defaultMessage": "Reset Progress",
