@@ -16,6 +16,16 @@ export default function AnchorExamples() {
           </Anchor>
         ))}
       </div>
+      <div className="flex flex-wrap gap-8">
+        <Anchor href="https://www.frontendinterviewhandbook.com/">
+          External links open in new tab by default
+        </Anchor>
+        <Anchor
+          href="https://www.frontendinterviewhandbook.com/"
+          warnAboutExternalLink={true}>
+          Show warning page for external link
+        </Anchor>
+      </div>
     </UIExamplesGroup>
   );
 }

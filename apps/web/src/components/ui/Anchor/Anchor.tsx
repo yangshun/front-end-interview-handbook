@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import type { ForwardedRef } from 'react';
 import { forwardRef } from 'react';
 import React from 'react';
+import url from 'url';
 
 import { useAppContext } from '~/components/global/AppContextProvider';
 import { useScrollManagement } from '~/components/global/ScrollManagementProvider';
@@ -14,7 +15,7 @@ import {
 } from '~/components/ui/theme';
 
 import type { I18nLinkProps } from '~/next-i18nostic/src';
-import { I18nLink } from '~/next-i18nostic/src';
+import { i18nHref, I18nLink, useI18n } from '~/next-i18nostic/src';
 
 import { themeTextBrandColor, themeTextBrandColor_Hover } from '../theme';
 
@@ -48,6 +49,7 @@ export type Props = Omit<I18nLinkProps, 'href'> &
     suppressHydrationWarning?: boolean;
     underline?: boolean;
     variant?: AnchorVariant;
+    warnAboutExternalLink?: boolean;
     weight?: AnchorFontWeight;
   }>;
 
@@ -61,12 +63,14 @@ function Anchor(
     scrollToTop = true,
     underline = false,
     variant = 'default',
+    warnAboutExternalLink = false,
     weight = 'medium',
     onClick,
     ...props
   }: Props,
   ref: ForwardedRef<HTMLAnchorElement>,
 ) {
+  const { locale } = useI18n();
   const { serverMismatch } = useAppContext();
   const { setShouldScrollToTop } = useScrollManagement();
   const isExternalURL =
@@ -96,11 +100,27 @@ function Anchor(
     // a redirect to the homepage. Let's use a vanilla <a> for now.
     (typeof finalHref === 'string' && finalHref.startsWith('#'))
   ) {
+    const finalHrefString = finalHref.toString();
+
     return (
       <a
         ref={ref}
         className={className}
-        href={finalHref.toString()}
+        href={
+          warnAboutExternalLink
+            ? url.format(
+                i18nHref(
+                  {
+                    pathname: '/link',
+                    query: {
+                      u: encodeURI(finalHrefString),
+                    },
+                  },
+                  locale,
+                ),
+              )
+            : finalHrefString
+        }
         rel={rel}
         target={target}
         onClick={(event) => {
