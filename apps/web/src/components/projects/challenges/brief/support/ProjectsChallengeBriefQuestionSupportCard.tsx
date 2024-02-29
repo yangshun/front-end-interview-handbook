@@ -78,9 +78,10 @@ export default function ProjectsChallengeBriefQuestionSupportCard() {
               <UserProfileInformationRow
                 size="body3"
                 userProfile={{
+                  company: 'Stripe',
                   currentStatus: null,
                   startWorkDate: new Date('2021-12-31T18:30:00.000Z'),
-                  title: 'Software Engineer at Stripe',
+                  title: 'Software Engineer',
                 }}
               />
             </div>

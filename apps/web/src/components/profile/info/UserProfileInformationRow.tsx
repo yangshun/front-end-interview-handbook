@@ -8,6 +8,7 @@ type Size = 'body2' | 'body3';
 type Props = Readonly<{
   size?: Size;
   userProfile: Readonly<{
+    company: string | null;
     currentStatus: string | null;
     startWorkDate: Date | null;
     title: string | null;

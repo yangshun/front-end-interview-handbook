@@ -29,6 +29,7 @@ export type ProjectsChallengeSubmissionDeploymentUrls =
 // Subset of relevant fields from Prisma.Profile.
 export type ProjectsChallengeSubmissionAuthor = Readonly<{
   avatarUrl: string | null;
+  company: string | null;
   currentStatus: string | null;
   githubUsername?: string | null;
   id: string;

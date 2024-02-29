@@ -4,6 +4,7 @@ export type ProjectsDiscussionsCommentAuthor = Readonly<{
   points: number;
   userProfile: {
     avatarUrl: string | null;
+    company: string | null;
     currentStatus: string | null;
     id: string;
     name: string | null;

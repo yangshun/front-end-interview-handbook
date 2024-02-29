@@ -9,6 +9,7 @@ type Size = 'body2' | 'body3';
 type Props = Readonly<{
   size?: 'body2' | 'body3';
   userProfile: Readonly<{
+    company: string | null;
     title: string | null;
   }>;
 }>;
@@ -27,9 +28,9 @@ export default function UserProfileTitle({
   userProfile,
   size = 'body2',
 }: Props) {
-  const { title } = userProfile;
+  const { company, title } = userProfile;
 
-  if (title === '' || title == null) {
+  if (!title) {
     return null;
   }
 
@@ -39,7 +40,7 @@ export default function UserProfileTitle({
         className={clsx(iconClasses[size], themeTextSecondaryColor)}
       />
       <Text color="secondary" size={size}>
-        {title}
+        {company ? `${title} @ ${company}` : title}
       </Text>
     </div>
   );

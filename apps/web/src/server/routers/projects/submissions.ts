@@ -404,6 +404,7 @@ export const projectsChallengeSubmissionListRouter = router({
                   userProfile: {
                     select: {
                       avatarUrl: true,
+                      company: true,
                       currentStatus: true,
                       id: true,
                       name: true,
@@ -515,6 +516,7 @@ export const projectsChallengeSubmissionListRouter = router({
               userProfile: {
                 select: {
                   avatarUrl: true,
+                  company: true,
                   currentStatus: true,
                   id: true,
                   name: true,
@@ -589,6 +591,7 @@ export const projectsChallengeSubmissionListRouter = router({
               userProfile: {
                 select: {
                   avatarUrl: true,
+                  company: true,
                   currentStatus: true,
                   id: true,
                   name: true,

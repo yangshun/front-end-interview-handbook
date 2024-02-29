@@ -28,6 +28,7 @@ export default async function Page({ params }: Props) {
             userProfile: {
               select: {
                 avatarUrl: true,
+                company: true,
                 currentStatus: true,
                 githubUsername: true,
                 id: true,
