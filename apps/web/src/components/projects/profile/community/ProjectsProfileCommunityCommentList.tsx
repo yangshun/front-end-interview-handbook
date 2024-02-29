@@ -1,10 +1,8 @@
 import clsx from 'clsx';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 
-import Anchor from '~/components/ui/Anchor';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Badge from '~/components/ui/Badge';
-import plainText from '~/components/ui/RichTextEditor/plainText';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundCardWhiteOnLightColor,
@@ -13,19 +11,23 @@ import {
   themeDivideColor,
 } from '~/components/ui/theme';
 
+import ProjectsProfileCommunityChallengeCommentLog from './ProjectsProfileCommunityChallengeCommentLog';
 import type { ProjectsProfileCommunityComment } from './ProjectsProfileCommunitySection';
+import ProjectsProfileCommunitySubmissionCommentLog from './ProjectsProfileCommunitySubmissionCommentLog';
 import RelativeTimestamp from '../../common/RelativeTimestamp';
 
 type Props = Readonly<{
   comments: ReadonlyArray<ProjectsProfileCommunityComment>;
   isViewingOwnProfile: boolean;
   title: string;
+  userId?: string;
 }>;
 
 export default function ProjectsProfileCommunityCommentList({
   comments,
   isViewingOwnProfile,
   title,
+  userId,
 }: Props) {
   const intl = useIntl();
 
@@ -86,40 +88,27 @@ export default function ProjectsProfileCommunityCommentList({
                   )}
                   <div className="flex items-start">
                     <Text color="secondary" size="body2">
-                      {/* TODO(projects): This intl format is not translatable. */}
-                      <FormattedMessage
-                        defaultMessage='<bold>{author}</bold> left a comment {for} <bold>{recipient}</bold> on <link>{submissionTitle}</link><comment>: "{description}"</comment>'
-                        description="Comment"
-                        id="ec998P"
-                        values={{
-                          author: isViewingOwnProfile
-                            ? 'You'
-                            : comment.author.userProfile.name,
-                          bold: (chunks) => (
-                            <Text color="default" size="body2" weight="medium">
-                              {chunks}
-                            </Text>
-                          ),
-                          comment: (chunks) => (
-                            <Text color="default" size="body2">
-                              {chunks}
-                            </Text>
-                          ),
-                          description: plainText(comment.body),
-                          for: comment.parentComment ? 'for' : '',
-                          link: (chunks) => (
-                            <Anchor
-                              className="relative"
-                              href={comment.entity?.href}>
-                              {chunks}
-                            </Anchor>
-                          ),
-                          recipient: comment.parentComment
-                            ? comment.parentComment.author.userProfile.name
-                            : '',
-                          submissionTitle: comment.entity?.title ?? '',
-                        }}
-                      />
+                      {(() => {
+                        // Submissions logs
+                        if (comment.domain === 'PROJECTS_SUBMISSION') {
+                          return (
+                            <ProjectsProfileCommunitySubmissionCommentLog
+                              comment={comment}
+                              isViewingOwnProfile={isViewingOwnProfile}
+                              userId={userId}
+                            />
+                          );
+                        }
+
+                        // Challenge logs
+                        return (
+                          <ProjectsProfileCommunityChallengeCommentLog
+                            comment={comment}
+                            isViewingOwnProfile={isViewingOwnProfile}
+                            userId={userId}
+                          />
+                        );
+                      })()}
                     </Text>
                   </div>
                 </div>

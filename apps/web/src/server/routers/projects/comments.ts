@@ -191,6 +191,7 @@ export const projectsCommentsRouter = router({
             include: {
               author: {
                 select: {
+                  userId: true,
                   userProfile: {
                     select: {
                       avatarUrl: true,
@@ -242,16 +243,27 @@ export const projectsCommentsRouter = router({
             comment.domain ===
             ProjectsDiscussionCommentDomain.PROJECTS_SUBMISSION
           ) {
-            const title = await prisma.projectsChallengeSubmission.findUnique({
+            const submission =
+              await prisma.projectsChallengeSubmission.findUnique({
+                select: {
+                  projectsProfile: true,
+                  title: true,
+                },
+                where: {
+                  id: comment.entityId,
+                },
+              });
+
+            const submissionAuthor = await prisma.profile.findUnique({
               select: {
-                title: true,
+                name: true,
               },
               where: {
-                id: comment.entityId,
+                id: submission?.projectsProfile?.userId,
               },
             });
 
-            if (!title?.title) {
+            if (!submission?.title || !submissionAuthor?.name) {
               return comment;
             }
 
@@ -259,7 +271,8 @@ export const projectsCommentsRouter = router({
               ...comment,
               entity: {
                 href: `/projects/s/${comment.entityId}`,
-                title: title.title,
+                recipient: submissionAuthor.name,
+                title: submission.title,
               },
             };
           }

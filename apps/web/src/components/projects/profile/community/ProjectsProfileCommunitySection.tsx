@@ -10,6 +10,7 @@ import type {
 } from '@prisma/client';
 
 type ProjectsProfileCommunityCommentAuthor = Readonly<{
+  userId?: string;
   userProfile: {
     avatarUrl: string | null;
     name: string | null;
@@ -24,6 +25,7 @@ export type ProjectsProfileCommunityComment = ProjectsDiscussionComment &
   Readonly<{
     entity?: Readonly<{
       href: string;
+      recipient?: string;
       title: string;
     }> | null;
   }> &
@@ -56,6 +58,7 @@ export default function ProjectsProfileCommunitySection({
     <ProjectsProfileCommunityListWithFilters
       comments={comments ?? []}
       isViewingOwnProfile={isViewingOwnProfile}
+      userId={userId || profile?.id}
     />
   );
 }

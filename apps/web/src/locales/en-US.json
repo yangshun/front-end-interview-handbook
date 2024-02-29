@@ -1207,6 +1207,10 @@
     "defaultMessage": "Others",
     "description": "Label for \"Others\" option in YOE replacement"
   },
+  "9rPKTB": {
+    "defaultMessage": "<bold>You</bold> posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you making a post on the challenge forum"
+  },
   "9wRhlQ": {
     "defaultMessage": "Front End Interview",
     "description": "Short title for Front End Interview Guidebook"
@@ -1350,6 +1354,10 @@
   "BPQrNY": {
     "defaultMessage": "Best value for money with real-time support from the team and community.",
     "description": "Supporting statement for an annual pricing plan"
+  },
+  "BPWMw7": {
+    "defaultMessage": "<bold>{author}</bold> replied to <bold>{recipient}</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone replying to someone on the challenge forum"
   },
   "BfJL2V": {
     "defaultMessage": "Challenge difficulty",
@@ -1495,6 +1503,10 @@
     "defaultMessage": "Problem Solving Questions",
     "description": "Title for sidebar on problem solving situation questions in behavioral interviews"
   },
+  "D5Sip4": {
+    "defaultMessage": "<bold>You</bold> replied to <bold>{recipient}</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you replying to someone on the challenge forum"
+  },
   "D6iXh1": {
     "defaultMessage": "GitHub profile link",
     "description": "Link to GitHub profile"
@@ -1546,6 +1558,10 @@
   "DIs2lU": {
     "defaultMessage": "FAQs",
     "description": "Frequently Asked Questions"
+  },
+  "DJFRri": {
+    "defaultMessage": "<bold>You</bold> made a post on <bold>{recipient}</bold>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you making a post on a submission"
   },
   "DLky7V": {
     "defaultMessage": "Practice UI and JavaScript/TypeScript Interview Questions with Solutions",
@@ -1927,6 +1943,10 @@
     "defaultMessage": "Explore community submissions",
     "description": "Recommended action for new projects platform user"
   },
+  "H1H/bd": {
+    "defaultMessage": "<bold>You</bold> asked <bold>{recipient}</bold> a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you asking question on a submission"
+  },
   "H39M2g": {
     "defaultMessage": "What to expect for Front End System Design interviews",
     "description": "Sidebar link title for front end system design interviews"
@@ -2022,6 +2042,10 @@
   "HloN+i": {
     "defaultMessage": "Start coding!",
     "description": "Label for \"Start coding!\" button on Projects project page"
+  },
+  "HmrIqx": {
+    "defaultMessage": "<bold>You</bold> contributed a code review for <bold>{recipient}</bold> on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you reviewing a submission"
   },
   "HqUmNE": {
     "defaultMessage": "User submissions",
@@ -2659,6 +2683,10 @@
     "defaultMessage": "The <underline>great</underline> way to prepare for <span>front end</span> interviews",
     "description": "Title of Hero section on Homepage. To describe the product in 1 line so that users understand it immediately."
   },
+  "NN0VZi": {
+    "defaultMessage": "<bold>You</bold> replied to <bold>{recipient}</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you replying to someone on a submission"
+  },
   "NO9tAQ": {
     "defaultMessage": "This is an irreversible action. You will not be able to resume the study list and all progress will be erased. Are you sure?",
     "description": "Confirmation text for stopping a study plan"
@@ -3011,6 +3039,10 @@
     "defaultMessage": "An email containing the password reset instructions will be sent if an associated account exists",
     "description": "Message indicating a successful password reset request"
   },
+  "Q4VMV2": {
+    "defaultMessage": "<bold>You</bold> replied to <bold>yourself</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you replying to yourself on the challenge forum"
+  },
   "Q7EpE5": {
     "defaultMessage": "HTML Questions",
     "description": "HTML questions category long title"
@@ -3210,6 +3242,10 @@
   "RhV5e8": {
     "defaultMessage": "Completed",
     "description": "The question has been completed"
+  },
+  "RihnWB": {
+    "defaultMessage": "<bold>{author}</bold> replied to <bold>{recipient}</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone replying to someone on a submission"
   },
   "RjpadL": {
     "defaultMessage": "Reference practical guides, learn from other's submissions and ask any questions in the",
@@ -4035,6 +4071,10 @@
     "defaultMessage": "Preparation by Question Type",
     "description": "Preparing by front end interview question format"
   },
+  "ZBv485": {
+    "defaultMessage": "<bold>You</bold> asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you asking a question on the challenge forum"
+  },
   "ZCmkG3": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
@@ -4583,10 +4623,6 @@
     "defaultMessage": "System Design Questions",
     "description": "Front End system design interview questions"
   },
-  "ec998P": {
-    "defaultMessage": "<bold>{author}</bold> left a comment {for} <bold>{recipient}</bold> on <link>{submissionTitle}</link><comment>: \"{description}\"</comment>",
-    "description": "Comment"
-  },
   "ee862n": {
     "defaultMessage": "The definitive guide to front end / web developer interviews.",
     "description": "Front end interview guidebook description"
@@ -5026,6 +5062,10 @@
   "iSRvKo": {
     "defaultMessage": "Complete simple social tasks like following our social accounts to get a <bold>{discountPercentage}% discount</bold> off all plans.",
     "description": "Rewards discount message"
+  },
+  "ibMNT0": {
+    "defaultMessage": "<bold>{author}</bold> contributed a code review for <bold>{recipient}</bold> on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone reviewing a submission"
   },
   "imHjx3": {
     "defaultMessage": "Tip",
@@ -5699,6 +5739,10 @@
     "defaultMessage": "Light",
     "description": "Light theme option label"
   },
+  "o9kmTM": {
+    "defaultMessage": "<bold>{author}</bold> posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone making a post on the challenge forum"
+  },
   "oC86Nx": {
     "defaultMessage": "Views on submissions",
     "description": "Number of views on the project submissions"
@@ -5854,6 +5898,10 @@
   "pP8Sa9": {
     "defaultMessage": "The fastest way to learn and build something useful",
     "description": "Heading of the 'The fastest way to learn and build something useful' marketing section on Projects home page"
+  },
+  "pQZgsm": {
+    "defaultMessage": "<bold>{author}</bold> asked <bold>{recipient}</bold> a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone asking question on a submission"
   },
   "pRCMpc": {
     "defaultMessage": "View plans",
@@ -6086,6 +6134,10 @@
   "rH3Vfz": {
     "defaultMessage": "Ask any questions in community",
     "description": "Label for \"Ask any questions in community\" item in Expected Support section on Projects project page"
+  },
+  "rNKP7U": {
+    "defaultMessage": "<bold>You</bold> replied to <bold>yourself</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for you replying to yourself on a submission"
   },
   "rOzSWN": {
     "defaultMessage": "Build entire design systems, component libraries or full stack apps",
@@ -6406,6 +6458,10 @@
   "u1BtZ5": {
     "defaultMessage": "Learn while building",
     "description": "Title of 'Learn while building' feature in Projects marketing page"
+  },
+  "u2sucM": {
+    "defaultMessage": "<bold>{author}</bold> made a post on <bold>{recipient}</bold>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone making a post on a submission"
   },
   "u2wpqq": {
     "defaultMessage": "Redo",
@@ -6798,6 +6854,10 @@
   "xyPOJe": {
     "defaultMessage": "{points} Reputation",
     "description": "Label showing reputation count in profile header of Projects sidebar"
+  },
+  "xyS+2S": {
+    "defaultMessage": "<bold>{author}</bold> asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
+    "description": "Log message for someone asking a question on the challenge forum"
   },
   "y0zT5M": {
     "defaultMessage": "Wide variety of projects",

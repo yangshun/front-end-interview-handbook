@@ -23,6 +23,7 @@ function filterProjectsProfileCommunityComments<
 function ProjectsProfileCommunityListWithFiltersImpl({
   comments,
   isViewingOwnProfile,
+  userId,
 }: Props) {
   const { filters } = useProjectsProfileCommunityFilterContext();
   const filtersContributionsOpts = useProjectsProfileCommunityFilters();
@@ -54,6 +55,7 @@ function ProjectsProfileCommunityListWithFiltersImpl({
         comments={processedComments}
         hasFilters={hasFilters}
         isViewingOwnProfile={isViewingOwnProfile}
+        userId={userId}
       />
     </div>
   );
@@ -62,17 +64,20 @@ function ProjectsProfileCommunityListWithFiltersImpl({
 type Props = Readonly<{
   comments: ReadonlyArray<ProjectsProfileCommunityComment>;
   isViewingOwnProfile: boolean;
+  userId?: string;
 }>;
 
 export default function ProjectsProfileCommunityListWithFilters({
   comments,
   isViewingOwnProfile,
+  userId,
 }: Props) {
   return (
     <ProjectsProfileCommunityFilterContext>
       <ProjectsProfileCommunityListWithFiltersImpl
         comments={comments}
         isViewingOwnProfile={isViewingOwnProfile}
+        userId={userId}
       />
     </ProjectsProfileCommunityFilterContext>
   );

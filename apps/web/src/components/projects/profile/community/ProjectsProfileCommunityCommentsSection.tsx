@@ -44,12 +44,14 @@ type Props = Readonly<{
   comments: ReadonlyArray<ProjectsProfileCommunityComment>;
   hasFilters: boolean;
   isViewingOwnProfile: boolean;
+  userId?: string;
 }>;
 
 export default function ProjectsProfileCommunityCommentsSection({
   comments,
   hasFilters,
   isViewingOwnProfile,
+  userId,
 }: Props) {
   const intl = useIntl();
 
@@ -217,6 +219,7 @@ export default function ProjectsProfileCommunityCommentsSection({
                 comments={group.comments}
                 isViewingOwnProfile={isViewingOwnProfile}
                 title={group.title}
+                userId={userId}
               />
             ),
         )}
