@@ -26,9 +26,9 @@ export default function ProjectsImageBreakpointButtonGroup({
       icon: RiComputerLine,
       label: intl.formatMessage(
         {
-          defaultMessage: 'Desktop(>={width}px)',
+          defaultMessage: 'Desktop (>={width}px)',
           description: 'Responsive breakpoint category',
-          id: 'zcFhCU',
+          id: 'MkmUuv',
         },
         { width: tabletDimension.width },
       ),
@@ -38,9 +38,9 @@ export default function ProjectsImageBreakpointButtonGroup({
       icon: RiTabletLine,
       label: intl.formatMessage(
         {
-          defaultMessage: 'Tablet({minWidth}px-{maxWidth}px)',
+          defaultMessage: 'Tablet ({minWidth}px-{maxWidth}px)',
           description: 'Responsive breakpoint category',
-          id: 'pk8N5F',
+          id: 'aXu9RL',
         },
         { maxWidth: tabletDimension.width, minWidth: mobileDimension.width },
       ),
@@ -50,9 +50,9 @@ export default function ProjectsImageBreakpointButtonGroup({
       icon: RiSmartphoneLine,
       label: intl.formatMessage(
         {
-          defaultMessage: 'Mobile(<={width}px)',
+          defaultMessage: 'Mobile (<={width}px)',
           description: 'Responsive breakpoint category',
-          id: '7fWXqy',
+          id: 'jfkK0C',
         },
         { width: mobileDimension.width },
       ),

@@ -951,10 +951,6 @@
     "defaultMessage": "Will I have to code within the platform, or use my own IDE?",
     "description": "FAQ question for projects platform"
   },
-  "7fWXqy": {
-    "defaultMessage": "Mobile(<={width}px)",
-    "description": "Responsive breakpoint category"
-  },
   "7gb9hK": {
     "defaultMessage": "Everything you need",
     "description": "Label for an example list of JavaScript Questions on marketing pages"
@@ -2595,6 +2591,10 @@
     "defaultMessage": "Top React front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of React Interview Questions page"
   },
+  "MkmUuv": {
+    "defaultMessage": "Desktop (>={width}px)",
+    "description": "Responsive breakpoint category"
+  },
   "Mm+ZFo": {
     "defaultMessage": "Learn practical front end skills by building projects guided by a skills progression roadmap",
     "description": "Subtitle for Projects marketing hero section for beginners"
@@ -4139,6 +4139,10 @@
     "defaultMessage": "Premium",
     "description": "Label on Premium badge to indicate premium-only access"
   },
+  "aXu9RL": {
+    "defaultMessage": "Tablet ({minWidth}px-{maxWidth}px)",
+    "description": "Responsive breakpoint category"
+  },
   "aYJLMU": {
     "defaultMessage": "Save",
     "description": "Save update button label"
@@ -5147,6 +5151,10 @@
     "defaultMessage": "Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others",
     "description": "Placeholder for Biography input on Projects profile onboarding page"
   },
+  "jfkK0C": {
+    "defaultMessage": "Mobile (<={width}px)",
+    "description": "Responsive breakpoint category"
+  },
   "jgIdRC": {
     "defaultMessage": "Password",
     "description": "Label of password field on Sign In/Up page"
@@ -5874,10 +5882,6 @@
   "piqimi": {
     "defaultMessage": "OFF",
     "description": "Amount cashback/discount"
-  },
-  "pk8N5F": {
-    "defaultMessage": "Tablet({minWidth}px-{maxWidth}px)",
-    "description": "Responsive breakpoint category"
   },
   "pkWsMA": {
     "defaultMessage": "Masters CS",
@@ -6954,10 +6958,6 @@
   "zaJkwz": {
     "defaultMessage": "Pick from <bold>component tracks</bold>",
     "description": "Caption for Start a Project button in Projects marketing hero section for side projects"
-  },
-  "zcFhCU": {
-    "defaultMessage": "Desktop(>={width}px)",
-    "description": "Responsive breakpoint category"
   },
   "zeK111": {
     "defaultMessage": "E.g. \"Responsive solution with React and Tailwind CSS\"",
