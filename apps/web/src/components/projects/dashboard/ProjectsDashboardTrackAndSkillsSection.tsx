@@ -110,34 +110,16 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
                   </div>
                   <div className="flex flex-row items-center gap-1.5">
                     <RiRocketLine className={clsx(themeIconColor)} />
-                    <div className="flex flex-row items-center">
-                      <Text size="body1">
-                        {intl.formatMessage(
-                          {
-                            defaultMessage: '{challengesCompleted}',
-                            description:
-                              'Challenges completed for track in Continue tracks and skills section on Projects dashboard page',
-                            id: 'G2qoEJ',
-                          },
-                          {
-                            challengesCompleted: track.numChallengesCompleted,
-                          },
-                        )}
-                      </Text>
-                      <Text color="secondary" size="body3">
-                        {intl.formatMessage(
-                          {
-                            defaultMessage: '/{totalChallenges} recommended',
-                            description:
-                              'Total challenges recommended for track in Continue tracks and skills section on Projects dashboard page',
-                            id: 'yyJnKs',
-                          },
-                          {
-                            totalChallenges: track.numChallenges,
-                          },
-                        )}
-                      </Text>
-                    </div>
+                    <FormattedMessage
+                      defaultMessage="<bold>{completed}</bold>/{totalCount} recommended"
+                      description="Line describing the number of questions completed by user over the total number of questions"
+                      id="t9TP64"
+                      values={{
+                        bold: (chunks) => <Text size="body2">{chunks}</Text>,
+                        completed: track.numChallengesCompleted,
+                        totalCount: track.numChallenges,
+                      }}
+                    />
                   </div>
                 </div>
               </div>

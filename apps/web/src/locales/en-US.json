@@ -1807,10 +1807,6 @@
     "defaultMessage": "Manage your subscription status and payment methods on the Stripe billing portal.",
     "description": "Call to action text to uppgrade plan."
   },
-  "G2qoEJ": {
-    "defaultMessage": "{challengesCompleted}",
-    "description": "Challenges completed for track in Continue tracks and skills section on Projects dashboard page"
-  },
   "G3byny": {
     "defaultMessage": "Created: Oldest to newest",
     "description": "Sorting option for discussions comment - sort by created"
@@ -6279,6 +6275,10 @@
     "defaultMessage": "Discover study plans tailored to your needs to help you prepare for your upcoming technical interviews.",
     "description": "Description for study plans page"
   },
+  "t9TP64": {
+    "defaultMessage": "<bold>{completed}</bold>/{totalCount} recommended",
+    "description": "Line describing the number of questions completed by user over the total number of questions"
+  },
   "tCiU5O": {
     "defaultMessage": "No series",
     "description": "Title for empty state when application of filters return no results"
@@ -6902,10 +6902,6 @@
   "yrC3kR": {
     "defaultMessage": "Editor shortcuts",
     "description": "Label for button to open code editor shortcuts"
-  },
-  "yyJnKs": {
-    "defaultMessage": "/{totalChallenges} recommended",
-    "description": "Total challenges recommended for track in Continue tracks and skills section on Projects dashboard page"
   },
   "z+5YJV": {
     "defaultMessage": "View All Questions",
