@@ -66,26 +66,27 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
                 <ProjectsProfileDisplayNameLink profile={profile!} />
-                {/* TODO(projects): Add actual premium logic */}
-                <Tooltip
-                  className="flex items-center"
-                  label={intl.formatMessage({
-                    defaultMessage: 'Premium User',
-                    description: 'Tooltip for premium icon',
-                    id: 'QYVlxD',
-                  })}>
-                  <Chip
-                    icon={RiStarSmileFill}
-                    isLabelHidden={true}
+                {profile?.projectsProfile?.premium && (
+                  <Tooltip
+                    className="flex items-center"
                     label={intl.formatMessage({
-                      defaultMessage: 'Premium',
-                      description: 'Label for premium',
-                      id: 'ymmDf7',
-                    })}
-                    size="xs"
-                    variant="special"
-                  />
-                </Tooltip>
+                      defaultMessage: 'Premium User',
+                      description: 'Tooltip for premium icon',
+                      id: 'QYVlxD',
+                    })}>
+                    <Chip
+                      icon={RiStarSmileFill}
+                      isLabelHidden={true}
+                      label={intl.formatMessage({
+                        defaultMessage: 'Premium',
+                        description: 'Label for premium',
+                        id: 'ymmDf7',
+                      })}
+                      size="xs"
+                      variant="special"
+                    />
+                  </Tooltip>
+                )}
                 <ProjectsProfileSocialLinks userProfile={profile!} />
               </div>
               <UserProfileInformationRow profile={profile!} size="body3" />

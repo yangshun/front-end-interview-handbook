@@ -1,62 +1,42 @@
-import {
-  RiGithubFill,
-  RiLinkedinBoxFill,
-  RiStarSmileFill,
-} from 'react-icons/ri';
-import { useIntl } from 'react-intl';
-
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import type { ProjectsChallengeSubmissionAuthor } from '~/components/projects/submissions/types';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
-import Badge from '~/components/ui/Badge';
+import ProjectsUserReputation from '~/components/projects/users/ProjectsUserReputation';
 import Text from '~/components/ui/Text';
 
+import ProjectsProfileSocialLinks from '../profile/info/ProjectsProfileSocialLinks';
+import ProjectsProfileUsernameBadge from '../profile/info/ProjectsProfileUsernameBadge';
 import ProjectsProfileDisplayNameLink from '../users/ProjectsProfileDisplayNameLink';
 
 type Props = Readonly<{
-  author: ProjectsChallengeSubmissionAuthor;
   points: number;
+  premium: boolean;
+  userProfile: ProjectsChallengeSubmissionAuthor;
 }>;
 
 export default function ProjectsChallengeSubmissionAuthorProfile({
-  author,
+  userProfile,
   points,
+  premium,
 }: Props) {
-  const intl = useIntl();
-
   return (
     <div className="flex items-center gap-4">
-      <ProjectsProfileAvatar points={points} profile={author} size="2xl" />
+      <ProjectsProfileAvatar points={points} profile={userProfile} size="2xl" />
       <div className="flex flex-col gap-3">
         <div className="flex items-center gap-2">
           <Text size="body2" weight="medium">
-            <ProjectsProfileDisplayNameLink profile={author} />
+            <ProjectsProfileDisplayNameLink profile={userProfile} />
           </Text>
-          {/* TODO(projects): Add actual premium logic */}
-          <Badge
-            icon={RiStarSmileFill}
-            label={intl.formatMessage({
-              defaultMessage: 'Premium',
-              description: 'Premium content',
-              id: 'gIeLON',
-            })}
-            size="sm"
-            variant="special"
+          <ProjectsProfileUsernameBadge
+            premium={premium}
+            username={userProfile.username}
           />
-          {author.githubUsername && (
-            <a href={author.githubUsername} target="_blank">
-              <span className="sr-only">Github</span>
-              <RiGithubFill aria-hidden="true" className="size-5" />
-            </a>
-          )}
-          {author.linkedInUsername && (
-            <a href={author.linkedInUsername} target="_blank">
-              <span className="sr-only">LinkedIn</span>
-              <RiLinkedinBoxFill aria-hidden="true" className="size-5" />
-            </a>
-          )}
+          <ProjectsProfileSocialLinks userProfile={userProfile} />
         </div>
-        <UserProfileInformationRow profile={author} size="body3" />
+        <div className="flex items-center gap-x-4">
+          <UserProfileInformationRow profile={userProfile} size="body3" />
+          <ProjectsUserReputation points={points} />
+        </div>
       </div>
     </div>
   );

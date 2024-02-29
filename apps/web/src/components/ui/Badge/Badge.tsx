@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import {
   themeTextBrandColor,
   themeTextLabelColor,
+  themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
 export type BadgeVariant =
@@ -46,10 +47,10 @@ const variantClasses: Record<
     textClass: 'text-info dark:text-info-light',
   },
   neutral: {
-    backgroundClass: 'bg-neutral-100 dark:bg-neutral-900',
-    borderClass: 'border border-neutral-300 dark:border-neutral-600',
+    backgroundClass: 'bg-neutral-50 dark:bg-neutral-800',
+    borderClass: '',
     iconClass: 'text-neutral-500',
-    textClass: 'text-neutral-500',
+    textClass: themeTextSecondaryColor,
   },
   primary: {
     backgroundClass: 'bg-brand-lightest dark:bg-neutral-800',

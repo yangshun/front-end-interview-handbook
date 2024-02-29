@@ -101,6 +101,7 @@ export const projectsProfileRouter = router({
                 select: {
                   id: true,
                   points: true,
+                  premium: true,
                 },
               },
             },

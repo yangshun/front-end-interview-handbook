@@ -16,6 +16,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
 import ProjectsProfileSocialLinks from './info/ProjectsProfileSocialLinks';
+import ProjectsProfileUsernameBadge from './info/ProjectsProfileUsernameBadge';
 import ProjectsProfileDisplayNameLink from '../users/ProjectsProfileDisplayNameLink';
 
 import type { Profile, ProjectsProfile } from '@prisma/client';
@@ -49,12 +50,9 @@ export default function ProjectsProfileInfo({
               <Text size="body1" weight="medium">
                 <ProjectsProfileDisplayNameLink profile={userProfile} />
               </Text>
-              {/* TODO(projects): Add actual premium logic */}
-              <Badge
-                icon={RiStarSmileFill}
-                label={`@${userProfile.username}`}
-                size="md"
-                variant="special"
+              <ProjectsProfileUsernameBadge
+                premium={projectsProfile.premium}
+                username={userProfile.username}
               />
             </div>
             <UserProfileInformationRow profile={userProfile} />
@@ -80,14 +78,15 @@ export default function ProjectsProfileInfo({
                   <ProjectsProfileDisplayNameLink profile={userProfile} />
                 </Text>
                 <div className="flex items-center gap-2">
-                  {/* TODO(projects): Add actual premium logic */}
-                  <Chip
-                    icon={RiStarSmileFill}
-                    isLabelHidden={true}
-                    label="Premium"
-                    size="sm"
-                    variant="special"
-                  />
+                  {projectsProfile.premium && (
+                    <Chip
+                      icon={RiStarSmileFill}
+                      isLabelHidden={true}
+                      label="Premium"
+                      size="sm"
+                      variant="special"
+                    />
+                  )}
                   <ProjectsProfileSocialLinks userProfile={userProfile} />
                 </div>
               </div>

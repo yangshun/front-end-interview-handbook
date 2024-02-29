@@ -37,6 +37,7 @@ export type ProjectsChallengeSubmissionAuthor = Readonly<{
   startWorkDate: Date | null;
   title: string | null;
   username: string;
+  website?: string | null;
 }>;
 
 export type ProjectsChallengeSubmissionAugmented =

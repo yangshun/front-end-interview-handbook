@@ -4,10 +4,12 @@ import { useIntl } from 'react-intl';
 import Anchor from '~/components/ui/Anchor';
 import Tooltip from '~/components/ui/Tooltip';
 
-import type { Profile } from '@prisma/client';
-
 type Props = Readonly<{
-  userProfile: Profile;
+  userProfile: Readonly<{
+    githubUsername?: string | null;
+    linkedInUsername?: string | null;
+    website?: string | null;
+  }>;
 }>;
 
 export default function ProjectsProfileSocialLinks({ userProfile }: Props) {
