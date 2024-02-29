@@ -31,7 +31,7 @@ export default function ProjectsChallengeBriefPage({ challenge }: Props) {
     return null;
   }
 
-  // TODO(projects): Compute these values
+  // TODO(projects|purchase): Compute these values
   const isProjectPremium = true;
   const isUserPremium = true;
 

@@ -56,7 +56,7 @@ function PriceLabel({
   );
 }
 
-// TODO(projects): Recheck into this function for discount logic
+// TODO(projects|purchase): Recheck into this function for discount logic
 function PricingPlanComparisonDiscount({
   plan,
 }: Readonly<{

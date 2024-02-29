@@ -102,7 +102,7 @@ export default function ProjectsChallengeAssetsPage({
     'responsive-breakpoints',
   );
 
-  // TODO(projects): Replace below with actual logic
+  // TODO(projects|purchase): Replace below with actual logic
   const isUserPremium = false;
 
   const { startProject, accessAllSteps } = useProjectsChallengeSessionContext();

@@ -20,7 +20,6 @@ export default function ProjectsChallengeBriefSubmissionSupportCard() {
           limit={3}
           skills={['html', 'css', 'js']}
         />
-        {/* TODO(projects): Use appropriate image */}
         <img
           alt="Submission support card image"
           className="h-[190px] w-full rounded-md"
