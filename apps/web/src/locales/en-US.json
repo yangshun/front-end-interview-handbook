@@ -3835,10 +3835,6 @@
     "defaultMessage": "Start a project",
     "description": "Start a new practice project"
   },
-  "XLT5qF": {
-    "defaultMessage": "Complete simple social tasks like following our social accounts to get {discountPercentage}% off all plans.",
-    "description": "Rewards discount message"
-  },
   "XMHcvt": {
     "defaultMessage": "We recommend quality submissions from more senior engineers using a similar tech stack to you, or tech stack you expressed interest in learning",
     "description": "Tooltip label for Trending submissions section on Projects dashboard page"
@@ -5026,6 +5022,10 @@
   "iSFCj/": {
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
+  },
+  "iSRvKo": {
+    "defaultMessage": "Complete simple social tasks like following our social accounts to get a <bold>{discountPercentage}% discount</bold> off all plans.",
+    "description": "Rewards discount message"
   },
   "imHjx3": {
     "defaultMessage": "Tip",

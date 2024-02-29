@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import {
   themeTextBrandColor,
-  themeTextLabelColor,
+  themeTextColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -62,7 +62,7 @@ const variantClasses: Record<
     backgroundClass: 'shiny bg-brand-lightest dark:bg-neutral-800',
     borderClass: '',
     iconClass: themeTextBrandColor,
-    textClass: themeTextLabelColor,
+    textClass: themeTextColor,
   },
   success: {
     backgroundClass: 'bg-success-lightest dark:bg-success-darker',

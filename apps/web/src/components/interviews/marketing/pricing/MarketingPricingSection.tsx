@@ -4,11 +4,7 @@ import { useRef } from 'react';
 import { useEffect } from 'react';
 import { useId } from 'react';
 import { useState } from 'react';
-import {
-  RiArrowRightLine,
-  RiCheckLine,
-  RiExchangeDollarLine,
-} from 'react-icons/ri';
+import { RiArrowRightLine, RiCheckLine } from 'react-icons/ri';
 import { FormattedMessage, FormattedNumberParts, useIntl } from 'react-intl';
 
 import fbq from '~/lib/fbq';
@@ -24,13 +20,13 @@ import type {
 
 import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import PurchasePPPDiscountAlert from '~/components/payments/PurchasePPPDiscountAlert';
+import PurchaseProhibitedCountryAlert from '~/components/payments/PurchaseProhibitedCountryAlert';
 import { SocialDiscountAlert } from '~/components/promotions/social/SocialDiscountAlert';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
-import Alert from '~/components/ui/Alert';
 import type { Props as AnchorProps } from '~/components/ui/Anchor';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
-import type { Props as ButtonProps } from '~/components/ui/Button';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -54,7 +50,7 @@ import { priceRoundToNearestNiceNumber } from '../../pricing/pricingUtils';
 import { loadStripe } from '@stripe/stripe-js';
 import { useSessionContext } from '@supabase/auth-helpers-react';
 
-function PurpleGradientBackground() {
+function PurpleGlowBackground() {
   return (
     <svg
       fill="none"
@@ -762,80 +758,62 @@ export default function MarketingPricingSection({
   return (
     <div
       className={clsx(
-        'isolate rounded-t-3xl pb-24 lg:mx-8 lg:rounded-t-[48px]',
+        'isolate',
+        'py-24 lg:mx-8',
+        'rounded-t-3xl lg:rounded-t-[48px]',
         themeRadialGlowBackground,
       )}>
-      <div className="pt-24">
-        <div className="mx-auto px-4 sm:max-w-3xl sm:px-12 md:max-w-4xl lg:max-w-5xl">
-          <Container className="text-center">
-            <div className="flex max-w-4xl flex-col pb-8 lg:max-w-none">
-              <MarketingSectionHeader
-                description={
-                  <FormattedMessage
-                    defaultMessage="For a limited time, we are offering our lifetime plans at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation."
-                    description="Subtitle of Pricing section on Homepage or Pricing page"
-                    id="2wms0e"
-                    values={{
-                      strong: (chunks) => (
-                        <strong className="font-semibold">{chunks}</strong>
-                      ),
-                      symbol: lifetimePlan.symbol,
-                      unitCostLocalizedInCurrency:
-                        lifetimePlan.unitCostCurrency.withPPP.after,
-                    }}
-                  />
-                }
-                heading={
-                  <FormattedMessage
-                    defaultMessage="Invest in fuss-free, quality preparation"
-                    description="Title of Pricing section of Homepage or Pricing page"
-                    id="fjKhks"
-                  />
-                }
-                title={
-                  <FormattedMessage
-                    defaultMessage="Pricing plans"
-                    description="Section label on Pricing section of Homepage or Pricing page"
-                    id="ZWMfa0"
-                  />
-                }
+      <Container className="flex flex-col gap-y-8 md:gap-y-16">
+        <div className="mx-auto max-w-5xl text-center">
+          <MarketingSectionHeader
+            description={
+              <FormattedMessage
+                defaultMessage="For a limited time, we are offering our lifetime plans at {symbol}{unitCostLocalizedInCurrency}. Meanwhile, the reward for acing your interviews could be <strong>hundreds of thousands</strong> in total compensation."
+                description="Subtitle of Pricing section on Homepage or Pricing page"
+                id="2wms0e"
+                values={{
+                  strong: (chunks) => (
+                    <strong className="font-semibold">{chunks}</strong>
+                  ),
+                  symbol: lifetimePlan.symbol,
+                  unitCostLocalizedInCurrency:
+                    lifetimePlan.unitCostCurrency.withPPP.after,
+                }}
               />
-              {isProhibitedCountry(countryCode) && (
-                <div className="mt-8">
-                  <Alert variant="danger">
-                    <FormattedMessage
-                      defaultMessage="Our services are unavailable at your location."
-                      description="Message explaining that the website does not transact with the user's location."
-                      id="LNBK2M"
-                    />
-                  </Alert>
-                </div>
-              )}
-            </div>
-          </Container>
+            }
+            heading={
+              <FormattedMessage
+                defaultMessage="Invest in fuss-free, quality preparation"
+                description="Title of Pricing section of Homepage or Pricing page"
+                id="fjKhks"
+              />
+            }
+            title={
+              <FormattedMessage
+                defaultMessage="Pricing plans"
+                description="Section label on Pricing section of Homepage or Pricing page"
+                id="ZWMfa0"
+              />
+            }
+          />
         </div>
         <Section>
-          <div className="mt-4 pb-10 sm:mt-12 sm:pb-20 lg:mt-8">
-            <Container className="relative flex flex-col gap-y-12">
-              <div className="flex flex-col gap-y-5">
-                <SocialDiscountAlert />
-                {showPPPMessage && (
-                  <Alert
-                    icon={RiExchangeDollarLine}
-                    title={`Purchasing power parity for ${countryName}`}
-                    variant="success">
-                    We noticed you're in {countryName}. We support Purchasing
-                    Power Parity, so a{' '}
-                    <strong>
-                      {Math.ceil(
-                        100 - featuredPlan.plan.conversionFactor * 100,
-                      )}
-                      % discount
-                    </strong>{' '}
-                    has been automatically applied! 🎉
-                  </Alert>
-                )}
-              </div>
+          <div>
+            {/* Banners */}
+            <div className="flex flex-col gap-y-5">
+              <PurchaseProhibitedCountryAlert countryCode={countryCode} />
+              <SocialDiscountAlert />
+              {showPPPMessage && (
+                <PurchasePPPDiscountAlert
+                  countryName={countryName}
+                  discount={Math.ceil(
+                    100 - featuredPlan.plan.conversionFactor * 100,
+                  )}
+                />
+              )}
+            </div>
+            {/* Lifetime plan callout */}
+            <div className="mt-12">
               <PricingBlockCard
                 features={featuredPlan.includedFeatures}
                 glow={true}
@@ -877,11 +855,11 @@ export default function MarketingPricingSection({
                         </Text>
                       )}
                       <Text
-                        className={clsx(
-                          'inline-flex items-end gap-x-2 text-xl',
+                        className={clsx('inline-flex items-end gap-x-2', [
+                          'text-xl',
                           featuredPlan.plan.unitCostCurrency.withPPP.after <
                             1000 && 'sm:text-xl',
-                        )}
+                        ])}
                         color="subtitle"
                         display="inline-flex"
                         size="inherit"
@@ -949,7 +927,7 @@ export default function MarketingPricingSection({
                     </div>
                     {featuredPlan.plan.allowPromoCode && (
                       <Text
-                        className={clsx('mt-3')}
+                        className="mt-3"
                         color="subtitle"
                         display="block"
                         size="body3">
@@ -974,88 +952,138 @@ export default function MarketingPricingSection({
                   </div>
                 }
               />
-            </Container>
-          </div>
-          <Container className="relative">
-            <div aria-hidden="true" className="absolute right-0 top-0 -z-10">
-              <PurpleGradientBackground />
             </div>
-            <Heading className="sr-only" level="custom">
-              <FormattedMessage
-                defaultMessage="Pricing Plans"
-                description="Screen reader text referring to the Pricing Plan cards"
-                id="iElBQT"
-              />
-            </Heading>
-            <Section>
-              <div
-                className={clsx(
-                  'mx-auto grid max-w-lg grid-cols-1 rounded-3xl dark:bg-neutral-800/20 md:max-w-none md:grid-cols-3',
-                  ['divide-y md:divide-x md:divide-y-0', themeDivideColor],
-                  ['border', themeBorderColor],
-                )}>
-                {planList.map(
-                  ({
-                    description,
-                    numberOfMonths,
-                    plan,
-                    includedFeatures,
-                    name,
-                  }) => {
-                    const id = `tier-${plan.planType}`;
+            {/* Pricing table */}
+            <div className="relative mt-10 sm:mt-20">
+              <div aria-hidden="true" className="absolute right-0 top-0 -z-10">
+                <PurpleGlowBackground />
+              </div>
+              <Heading className="sr-only" level="custom">
+                <FormattedMessage
+                  defaultMessage="Pricing Plans"
+                  description="Screen reader text referring to the Pricing Plan cards"
+                  id="iElBQT"
+                />
+              </Heading>
+              <Section>
+                <div
+                  className={clsx(
+                    'grid grid-cols-1 md:grid-cols-3',
+                    'mx-auto max-w-lg md:max-w-none',
+                    'dark:bg-neutral-800/20',
+                    'rounded-3xl',
+                    ['divide-y md:divide-x md:divide-y-0', themeDivideColor],
+                    ['border', themeBorderColor],
+                  )}>
+                  {planList.map(
+                    ({
+                      description,
+                      numberOfMonths,
+                      plan,
+                      includedFeatures,
+                      name,
+                    }) => {
+                      const id = `tier-${plan.planType}`;
 
-                    return (
-                      <div
-                        key={plan.planType}
-                        className="flex flex-col gap-y-8 px-8 py-6 shadow-sm md:gap-y-16">
-                        <div className="grow md:grow-0">
-                          <div className="flex flex-wrap gap-x-3">
-                            <Heading
-                              className={clsx(
-                                'font-medium',
-                                themeTextSubtitleColor,
+                      return (
+                        <div
+                          key={plan.planType}
+                          className="flex flex-col gap-y-8 px-8 py-6 shadow-sm md:gap-y-16">
+                          <div className="grow md:grow-0">
+                            <div className="flex flex-wrap gap-x-3">
+                              <Heading
+                                className={clsx(
+                                  'font-medium',
+                                  themeTextSubtitleColor,
+                                )}
+                                id={id}
+                                level="custom">
+                                {name}
+                              </Heading>
+                              {plan.planType === 'lifetime' && (
+                                <Badge
+                                  label={intl.formatMessage({
+                                    defaultMessage: 'While offer lasts',
+                                    description:
+                                      'Label to indicate offer is a limited time deal',
+                                    id: 'N5Cp1r',
+                                  })}
+                                  size="sm"
+                                  variant="special"
+                                />
                               )}
-                              id={id}
-                              level="custom">
-                              {name}
-                            </Heading>
-                            {plan.planType === 'lifetime' && (
-                              <Badge
-                                label={intl.formatMessage({
-                                  defaultMessage: 'While offer lasts',
-                                  description:
-                                    'Label to indicate offer is a limited time deal',
-                                  id: 'N5Cp1r',
-                                })}
-                                size="sm"
-                                variant="special"
-                              />
-                            )}
-                          </div>
-                          <Section>
-                            <Text
-                              className="md:min-h-10 mt-1"
-                              color="secondary"
-                              display="block"
-                              size="body2">
-                              {description}
-                            </Text>
-                            <div className="mt-8">
-                              {showPPPMessage && (
-                                <Text
-                                  className={clsx(
-                                    'items-baseline line-through',
-                                  )}
-                                  color="subtle"
-                                  display="flex">
-                                  <PriceLabel
-                                    amount={priceRoundToNearestNiceNumber(
-                                      plan.unitCostCurrency.base.after /
-                                        (numberOfMonths ?? 1),
+                            </div>
+                            <Section>
+                              <Text
+                                className="md:min-h-10 mt-1"
+                                color="secondary"
+                                display="block"
+                                size="body2">
+                                {description}
+                              </Text>
+                              <div className="mt-8">
+                                {showPPPMessage && (
+                                  <Text
+                                    className={clsx(
+                                      'items-baseline line-through',
                                     )}
-                                    currency={plan.currency.toUpperCase()}
-                                    symbol={plan.symbol}
-                                  />{' '}
+                                    color="subtle"
+                                    display="flex">
+                                    <PriceLabel
+                                      amount={priceRoundToNearestNiceNumber(
+                                        plan.unitCostCurrency.base.after /
+                                          (numberOfMonths ?? 1),
+                                      )}
+                                      currency={plan.currency.toUpperCase()}
+                                      symbol={plan.symbol}
+                                    />{' '}
+                                    {numberOfMonths != null ? (
+                                      <FormattedMessage
+                                        defaultMessage="/month"
+                                        description="Per month"
+                                        id="aE1FCD"
+                                      />
+                                    ) : (
+                                      <FormattedMessage
+                                        defaultMessage="paid once"
+                                        description="Pay the price once"
+                                        id="BMBc9O"
+                                      />
+                                    )}
+                                  </Text>
+                                )}
+                                <Text
+                                  className="flex items-baseline gap-x-2"
+                                  color="subtitle"
+                                  display="flex"
+                                  weight="medium">
+                                  <span>
+                                    <PriceLabel
+                                      amount={priceRoundToNearestNiceNumber(
+                                        plan.unitCostCurrency.withPPP.after /
+                                          (numberOfMonths ?? 1),
+                                      )}
+                                      currency={plan.currency.toUpperCase()}
+                                      symbol={plan.symbol}>
+                                      {(parts) => (
+                                        <>
+                                          {parts[0].value}
+                                          <Text
+                                            className="text-3xl font-bold tracking-tight"
+                                            color="default"
+                                            size="inherit"
+                                            weight="inherit">
+                                            <>
+                                              {parts
+                                                .slice(1)
+                                                .map((part) => part.value)
+                                                .join('')}
+                                            </>
+                                          </Text>
+                                        </>
+                                      )}
+                                    </PriceLabel>
+                                  </span>
                                   {numberOfMonths != null ? (
                                     <FormattedMessage
                                       defaultMessage="/month"
@@ -1070,129 +1098,83 @@ export default function MarketingPricingSection({
                                     />
                                   )}
                                 </Text>
-                              )}
+                              </div>
                               <Text
-                                className="flex items-baseline gap-x-2"
-                                color="subtitle"
-                                display="flex"
-                                weight="medium">
-                                <span>
-                                  <PriceLabel
-                                    amount={priceRoundToNearestNiceNumber(
-                                      plan.unitCostCurrency.withPPP.after /
-                                        (numberOfMonths ?? 1),
-                                    )}
-                                    currency={plan.currency.toUpperCase()}
-                                    symbol={plan.symbol}>
-                                    {(parts) => (
-                                      <>
-                                        {parts[0].value}
-                                        <Text
-                                          className="text-3xl font-bold tracking-tight"
-                                          color="default"
-                                          size="inherit"
-                                          weight="inherit">
-                                          <>
-                                            {parts
-                                              .slice(1)
-                                              .map((part) => part.value)
-                                              .join('')}
-                                          </>
-                                        </Text>
-                                      </>
-                                    )}
-                                  </PriceLabel>
-                                </span>
-                                {numberOfMonths != null ? (
-                                  <FormattedMessage
-                                    defaultMessage="/month"
-                                    description="Per month"
-                                    id="aE1FCD"
-                                  />
-                                ) : (
-                                  <FormattedMessage
-                                    defaultMessage="paid once"
-                                    description="Pay the price once"
-                                    id="BMBc9O"
-                                  />
+                                className={clsx(
+                                  'md:min-h-8 pt-1',
+                                  plan.conversionFactor <
+                                    MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE &&
+                                    plan.planType === 'lifetime' &&
+                                    'invisible',
                                 )}
+                                display="block"
+                                size="body3">
+                                <PricingPlanComparisonDiscount
+                                  plan={plan}
+                                  showPPPMessage={showPPPMessage}
+                                />
                               </Text>
-                            </div>
-                            <Text
-                              className={clsx(
-                                'md:min-h-8 pt-1',
-                                plan.conversionFactor <
-                                  MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE &&
-                                  plan.planType === 'lifetime' &&
-                                  'invisible',
-                              )}
-                              display="block"
-                              size="body3">
-                              <PricingPlanComparisonDiscount
-                                plan={plan}
-                                showPPPMessage={showPPPMessage}
+                              <div className="mt-8">
+                                <PricingButtonSection
+                                  aria-describedby={id}
+                                  countryCode={countryCode}
+                                  plan={plan}
+                                />
+                              </div>
+                              <Text
+                                className={clsx(
+                                  'mt-3',
+                                  !plan.allowPromoCode && 'invisible',
+                                )}
+                                color="subtitle"
+                                display="block"
+                                size="body3">
+                                {promoMessage}
+                              </Text>
+                            </Section>
+                          </div>
+                          <Section>
+                            <Heading className="sr-only" level="custom">
+                              <FormattedMessage
+                                defaultMessage="What's Included"
+                                description="Section label for features included in a pricing plan"
+                                id="IhJAk8"
                               />
-                            </Text>
-                            <div className="mt-8">
-                              <PricingButtonSection
-                                aria-describedby={id}
-                                countryCode={countryCode}
-                                plan={plan}
-                              />
-                            </div>
-                            <Text
-                              className={clsx(
-                                'mt-3',
-                                !plan.allowPromoCode && 'invisible',
-                              )}
-                              color="subtitle"
-                              display="block"
-                              size="body3">
-                              {promoMessage}
-                            </Text>
+                            </Heading>
+                            <Section>
+                              <ul
+                                className={clsx(
+                                  ['border-y', themeBorderColor],
+                                  ['divide-y', themeDivideColor],
+                                )}
+                                role="list">
+                                {includedFeatures.map((feature, idx) => (
+                                  <li
+                                    // eslint-disable-next-line react/no-array-index-key
+                                    key={idx}
+                                    className="flex gap-x-3 py-3">
+                                    <RiCheckLine
+                                      aria-hidden="true"
+                                      className={clsx(
+                                        'size-5 shrink-0',
+                                        themeTextBrandColor,
+                                      )}
+                                    />
+                                    <Text color="secondary" size="body3">
+                                      {feature}
+                                    </Text>
+                                  </li>
+                                ))}
+                              </ul>
+                            </Section>
                           </Section>
                         </div>
-                        <Section>
-                          <Heading className="sr-only" level="custom">
-                            <FormattedMessage
-                              defaultMessage="What's Included"
-                              description="Section label for features included in a pricing plan"
-                              id="IhJAk8"
-                            />
-                          </Heading>
-                          <Section>
-                            <ul
-                              className={clsx(
-                                'divide-y border-y',
-                                themeBorderColor,
-                                themeDivideColor,
-                              )}
-                              role="list">
-                              {includedFeatures.map((feature, idx) => (
-                                <li
-                                  // eslint-disable-next-line react/no-array-index-key
-                                  key={idx}
-                                  className="flex gap-x-3 py-3">
-                                  <RiCheckLine
-                                    aria-hidden="true"
-                                    className={clsx(
-                                      'size-5 shrink-0',
-                                      themeTextBrandColor,
-                                    )}
-                                  />
-                                  <Text color="secondary" size="body3">
-                                    {feature}
-                                  </Text>
-                                </li>
-                              ))}
-                            </ul>
-                          </Section>
-                        </Section>
-                      </div>
-                    );
-                  },
-                )}
-              </div>
+                      );
+                    },
+                  )}
+                </div>
+              </Section>
+              {/* Footnotes */}
               <div className="mt-5 px-8">
                 <Text color="secondary" display="block" size="body3">
                   *{' '}
@@ -1237,10 +1219,10 @@ export default function MarketingPricingSection({
                   </Text>
                 )}
               </div>
-            </Section>
-          </Container>
+            </div>
+          </div>
         </Section>
-      </div>
+      </Container>
     </div>
   );
 }

@@ -37,7 +37,8 @@ export default function MarketingSectionHeader({
       {description && (
         <Text
           className={clsx(
-            'mx-auto text-center text-base lg:text-xl',
+            'mx-auto',
+            'text-balance text-base lg:text-xl',
             themeTextSecondaryColor,
           )}
           display="block"

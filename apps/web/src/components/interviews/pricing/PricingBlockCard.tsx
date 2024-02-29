@@ -8,6 +8,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
+  themeBorderBrandColor,
   themeBorderColor,
   themeBrandShadow,
   themeGlassyBorder,
@@ -36,14 +37,21 @@ export default function PricingBlockCard({
   return (
     <div
       className={clsx(
-        'mx-auto max-w-lg overflow-hidden rounded-2xl border sm:rounded-3xl lg:grid lg:max-w-none lg:grid-cols-3',
-        glow
-          ? ['border-brand', themeBrandShadow]
-          : [themeGlassyBorder, themeBorderColor],
+        'lg:grid lg:grid-cols-3',
+        'max-w-lg lg:max-w-none',
+        'mx-auto overflow-hidden',
+        'rounded-2xl sm:rounded-3xl',
+        [
+          'border',
+          glow
+            ? [themeBorderBrandColor, themeBrandShadow]
+            : [themeGlassyBorder, themeBorderColor],
+        ],
       )}>
       <div
         className={clsx(
-          'col-span-2 flex flex-col gap-y-6 p-6 lg:p-8',
+          'col-span-2 flex flex-col gap-y-6',
+          'p-8',
           themeBackgroundColor,
         )}>
         <div className="flex flex-col gap-y-2">
@@ -90,7 +98,8 @@ export default function PricingBlockCard({
       <Section>
         <div
           className={clsx(
-            'min-w-[300px] p-6 lg:flex lg:shrink-0 lg:flex-col lg:justify-center lg:p-8',
+            'min-w-[300px] lg:flex lg:shrink-0 lg:flex-col lg:justify-center',
+            'p-8',
             'bg-neutral-100 dark:bg-[#21223d]',
           )}>
           {rightSectionContents}

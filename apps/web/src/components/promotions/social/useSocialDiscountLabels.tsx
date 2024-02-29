@@ -1,4 +1,6 @@
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
+
+import Text from '~/components/ui/Text';
 
 import { SOCIAL_DISCOUNT_PERCENTAGE } from './SocialDiscountConfig';
 
@@ -40,16 +42,20 @@ export function useSocialDiscountLabels() {
       description: 'Rewards discount message',
       id: 'VRv5cU',
     }),
-    subtitle: intl.formatMessage(
-      {
-        defaultMessage:
-          'Complete simple social tasks like following our social accounts to get {discountPercentage}% off all plans.',
-        description: 'Rewards discount message',
-        id: 'XLT5qF',
-      },
-      {
-        discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
-      },
+    subtitle: (
+      <FormattedMessage
+        defaultMessage="Complete simple social tasks like following our social accounts to get a <bold>{discountPercentage}% discount</bold> off all plans."
+        description="Rewards discount message"
+        id="iSRvKo"
+        values={{
+          bold: (chunks) => (
+            <Text size="inherit" weight="medium">
+              {chunks}
+            </Text>
+          ),
+          discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
+        }}
+      />
     ),
     ticketSubtitle: intl.formatMessage({
       defaultMessage: 'All plans, including lifetime',
