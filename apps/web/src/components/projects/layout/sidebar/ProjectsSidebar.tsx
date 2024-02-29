@@ -180,16 +180,16 @@ function SidebarLinkButton({
       aria-current={isSelected ? 'page' : undefined}
       aria-label={isLabelHidden ? label : undefined}
       className={clsx(
-        'flex w-full shrink-0 items-center gap-3',
-        'p-3',
+        'flex shrink-0 items-center gap-3',
+        'w-full p-3',
         'rounded',
         themeTextBrandColor_Hover,
-        'transition-colors',
         [
           themeOutlineElement_FocusVisible,
           themeOutlineElementBrandColor_FocusVisible,
         ],
         themeBackgroundElementPressedStateColor_Active,
+        'transition-colors',
         isSelected ? activeClassName : defaultClassName,
       )}
       href={href}
@@ -208,7 +208,7 @@ function SidebarLinkButton({
   );
 
   return isLabelHidden ? (
-    <Tooltip label={label} side="right">
+    <Tooltip asChild={true} label={label} side="right">
       {link}
     </Tooltip>
   ) : (
@@ -256,16 +256,12 @@ export function ProjectsSidebarExpanded({
 
   return (
     <nav
-      className={clsx(
-        'relative flex h-full flex-col gap-y-4 border-e p-4',
+      className={clsx('flex flex-col gap-y-4', 'relative h-full p-4', [
+        'border-e',
         themeBorderElementColor,
-      )}>
+      ])}>
       <ProjectsSidebarProductMenu variant="full" />
-      {profile != null ? (
-        <ProjectsSidebarProfileHeader />
-      ) : (
-        <ProjectsSidebarNotSignedInHeader />
-      )}
+      <ProjectsSidebarProfileHeader />
       <ul className="flex grow flex-col gap-2">
         {sideBarItems.top.map(({ key: childKey, ...link }) => (
           <li key={childKey}>
@@ -355,9 +351,9 @@ function ProjectsSidebarCollapsed({
   return (
     <nav
       className={clsx(
-        'relative flex flex-col items-center border-e',
-        'h-full gap-y-4 px-3 py-4',
-        themeBorderElementColor,
+        'flex flex-col items-center gap-y-4',
+        'relative h-full px-3 py-4',
+        ['border-e', themeBorderElementColor],
       )}>
       <ProjectsSidebarProductMenu variant="compact" />
       {profile && (

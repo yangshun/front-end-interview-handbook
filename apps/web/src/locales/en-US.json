@@ -6779,10 +6779,6 @@
     "defaultMessage": "{points} Reputation",
     "description": "Label showing reputation count in profile header of Projects sidebar"
   },
-  "xz0GES": {
-    "defaultMessage": "Get full access",
-    "description": "Label for Get full access button in profile header of Projects sidebar"
-  },
   "y0zT5M": {
     "defaultMessage": "Wide variety of projects",
     "description": "Title of the 'Build towards your goals' marketing section on Projects home page"
