@@ -364,8 +364,8 @@ function ProjectsSidebarCollapsed({
         <ProjectsProfileAvatar
           hovercard={false}
           points={profile.projectsProfile?.points}
-          profile={profile}
           size="lg"
+          userProfile={profile}
         />
       )}
       <ul className="flex grow flex-col gap-1">

@@ -11,11 +11,11 @@ import { themeTextSecondaryColor } from '~/components/ui/theme';
 type Size = 'body2' | 'body3';
 
 type Props = Readonly<{
-  profile: Readonly<{
+  size?: Size;
+  userProfile: Readonly<{
     currentStatus: string | null;
     startWorkDate: Date | null;
   }>;
-  size?: Size;
 }>;
 
 const iconClasses: Record<Size, string> = {
@@ -29,7 +29,7 @@ const gap: Record<Size, string> = {
 };
 
 export default function UserProfileExperience({
-  profile,
+  userProfile,
   size = 'body2',
 }: Props) {
   const { yoeOptionMap } = useProjectsYOEReplacementOptions();
@@ -45,12 +45,12 @@ export default function UserProfileExperience({
     );
   }, []);
 
-  if (profile.currentStatus == null && profile.startWorkDate == null) {
+  if (userProfile.currentStatus == null && userProfile.startWorkDate == null) {
     return null;
   }
 
-  const yearsOfExperience = profile.startWorkDate
-    ? calculateYearsOfExperience(profile.startWorkDate)
+  const yearsOfExperience = userProfile.startWorkDate
+    ? calculateYearsOfExperience(userProfile.startWorkDate)
     : 0;
 
   return (
@@ -59,7 +59,7 @@ export default function UserProfileExperience({
         className={clsx(iconClasses[size], themeTextSecondaryColor)}
       />
       <Text color="secondary" size={size}>
-        {profile.startWorkDate ? (
+        {userProfile.startWorkDate ? (
           <FormattedMessage
             defaultMessage="{yoe} YOE"
             description="Years of experience"
@@ -69,8 +69,9 @@ export default function UserProfileExperience({
             }}
           />
         ) : (
-          profile.currentStatus &&
-          yoeOptionMap[profile.currentStatus as ProjectsYoeReplacement].label
+          userProfile.currentStatus &&
+          yoeOptionMap[userProfile.currentStatus as ProjectsYoeReplacement]
+            .label
         )}
       </Text>
     </div>

@@ -230,7 +230,11 @@ export default function ProjectsChallengeSubmissionSuccessPage({
               />
             </Text>
             <div className="flex items-end gap-6 self-stretch">
-              <UserAvatar className="size-20" profile={profile} size="custom" />
+              <UserAvatar
+                className="size-20"
+                size="custom"
+                userProfile={profile}
+              />
               <ProjectsLevelingProgressBar
                 className="flex-1"
                 currentLevel={2}

@@ -85,16 +85,16 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
       <div className="flex items-center gap-4">
         <ProjectsProfileAvatar
           points={viewer.points}
-          profile={viewer.userProfile}
           size="xl"
+          userProfile={viewer.userProfile}
         />
         <div className="flex flex-col gap-y-1">
           <Text size="body2" weight="medium">
-            <ProjectsProfileDisplayNameLink profile={viewer.userProfile} />
+            <ProjectsProfileDisplayNameLink userProfile={viewer.userProfile} />
           </Text>
           <UserProfileInformationRow
-            profile={viewer.userProfile}
             size="body3"
+            userProfile={viewer.userProfile}
           />
         </div>
       </div>

@@ -2,22 +2,22 @@ import UserProfileDisplayName from '~/components/profile/info/UserProfileDisplay
 import Anchor from '~/components/ui/Anchor';
 
 type Props = Readonly<{
-  profile: Readonly<{
+  userProfile: Readonly<{
     id: string;
     name: string | null;
     username: string;
   }>;
 }>;
 
-export default function ProjectsProfileDisplayNameLink({ profile }: Props) {
-  const { username } = profile;
+export default function ProjectsProfileDisplayNameLink({ userProfile }: Props) {
+  const { username } = userProfile;
 
   return (
     <Anchor
       className="font-medium"
       href={`/projects/u/${username}`}
       variant="flat">
-      <UserProfileDisplayName profile={profile} />
+      <UserProfileDisplayName userProfile={userProfile} />
     </Anchor>
   );
 }

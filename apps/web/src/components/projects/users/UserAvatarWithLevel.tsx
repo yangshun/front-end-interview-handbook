@@ -11,17 +11,17 @@ type Props = Readonly<{
    * Current level as a number.
    */
   level: number;
-  profile?: Readonly<{
-    avatarUrl: string | null;
-    id: string;
-    name: string | null;
-    username: string;
-  }> | null;
   /**
    * Progress to next level in percent.
    */
   progress: number;
   size?: UserLevelWithAvatarSize;
+  userProfile?: Readonly<{
+    avatarUrl: string | null;
+    id: string;
+    name: string | null;
+    username: string;
+  }> | null;
 }>;
 
 const sizeClasses: Record<
@@ -59,7 +59,7 @@ export type UserLevelWithAvatarSize = '2xl' | '3xl' | 'lg' | 'xl';
 export default function UserAvatarWithLevel({
   className,
   level,
-  profile,
+  userProfile,
   progress,
   size = 'lg',
 }: Props) {
@@ -87,11 +87,15 @@ export default function UserAvatarWithLevel({
           },
         }}
         value={progress}>
-        <UserAvatar className={innerSize} profile={profile} size="custom" />
+        <UserAvatar
+          className={innerSize}
+          size="custom"
+          userProfile={userProfile}
+        />
       </CircularProgressbarWithChildren>
       <div
         className={clsx(
-          'bg-success text-2xs absolute bottom-0 end-0 flex size-4 items-center justify-center rounded-full font-bold text-white',
+          'bg-success text-2xs size-4 absolute bottom-0 end-0 flex items-center justify-center rounded-full font-bold text-white',
           {
             'h-[30px] w-[30px] text-base': size === '3xl',
           },

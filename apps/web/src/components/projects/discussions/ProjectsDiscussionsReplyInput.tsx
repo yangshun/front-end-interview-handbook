@@ -85,8 +85,8 @@ export default function ProjectsDiscussionsReplyInput({
       <div className={clsx('flex flex-1 items-start gap-4', hasNext && 'pb-6')}>
         <ProjectsProfileAvatar
           points={viewer.points}
-          profile={viewer.userProfile}
           size="xl"
+          userProfile={viewer.userProfile}
         />
         <form className="flex grow flex-col" onSubmit={handleSubmit(onSubmit)}>
           <Text size="body2" weight="medium">

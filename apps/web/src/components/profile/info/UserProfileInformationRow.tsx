@@ -6,12 +6,12 @@ import UserProfileTitle from '~/components/profile/info/UserProfileTitle';
 type Size = 'body2' | 'body3';
 
 type Props = Readonly<{
-  profile: Readonly<{
+  size?: Size;
+  userProfile: Readonly<{
     currentStatus: string | null;
     startWorkDate: Date | null;
     title: string | null;
   }>;
-  size?: Size;
 }>;
 
 const gapClasses: Record<Size, string> = {
@@ -20,13 +20,13 @@ const gapClasses: Record<Size, string> = {
 };
 
 export default function UserProfileInformationRow({
-  profile,
+  userProfile,
   size = 'body2',
 }: Props) {
   if (
-    profile.currentStatus == null &&
-    profile.startWorkDate == null &&
-    profile.title == null
+    userProfile.currentStatus == null &&
+    userProfile.startWorkDate == null &&
+    userProfile.title == null
   ) {
     return null;
   }
@@ -38,8 +38,8 @@ export default function UserProfileInformationRow({
         'gap-x-4',
         gapClasses[size],
       )}>
-      <UserProfileTitle profile={profile} size={size} />
-      <UserProfileExperience profile={profile} size={size} />
+      <UserProfileTitle size={size} userProfile={userProfile} />
+      <UserProfileExperience size={size} userProfile={userProfile} />
     </div>
   );
 }

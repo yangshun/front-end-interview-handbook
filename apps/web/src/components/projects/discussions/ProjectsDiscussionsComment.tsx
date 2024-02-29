@@ -83,8 +83,8 @@ export default function ProjectsDiscussionsComment({
         <div className="relative flex flex-col items-center self-stretch">
           <ProjectsProfileAvatar
             points={author.points}
-            profile={author.userProfile}
             size="2xl"
+            userProfile={author.userProfile}
           />
           {(hasReplies || mode === 'reply') && (
             <div
@@ -127,7 +127,7 @@ export default function ProjectsDiscussionsComment({
               <Text color="secondary" size="body2">
                 <Text color="default" size="inherit">
                   <ProjectsProfileDisplayNameLink
-                    profile={author.userProfile}
+                    userProfile={author.userProfile}
                   />
                 </Text>
                 {' · '}
@@ -135,8 +135,8 @@ export default function ProjectsDiscussionsComment({
               </Text>
             </div>
             <UserProfileInformationRow
-              profile={author.userProfile}
               size="body3"
+              userProfile={author.userProfile}
             />
           </div>
           {category && (

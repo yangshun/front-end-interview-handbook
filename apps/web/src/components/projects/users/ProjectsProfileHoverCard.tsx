@@ -18,14 +18,14 @@ import useProjectsProfileStats from '../hooks/useProjectsProfileStats';
 import ProjectsProfileSocialLinks from '../profile/info/ProjectsProfileSocialLinks';
 
 type Props = Readonly<{
-  profileId: string;
+  userId: string;
 }>;
 
-export default function ProjectsProfileHoverCard({ profileId }: Props) {
+export default function ProjectsProfileHoverCard({ userId }: Props) {
   const intl = useIntl();
   const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
   const { data, isLoading } = trpc.projects.profile.hovercard.useQuery({
-    profileId,
+    userId,
   });
 
   const statsItems = useProjectsProfileStats({
@@ -59,13 +59,13 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
               <ProjectsProfileAvatar
                 hovercard={false}
                 points={profile!.projectsProfile?.points}
-                profile={profile!}
                 size="2xl"
+                userProfile={profile!}
               />
             </Anchor>
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
-                <ProjectsProfileDisplayNameLink profile={profile!} />
+                <ProjectsProfileDisplayNameLink userProfile={profile!} />
                 {profile?.projectsProfile?.premium && (
                   <Tooltip
                     className="flex items-center"
@@ -89,7 +89,7 @@ export default function ProjectsProfileHoverCard({ profileId }: Props) {
                 )}
                 <ProjectsProfileSocialLinks userProfile={profile!} />
               </div>
-              <UserProfileInformationRow profile={profile!} size="body3" />
+              <UserProfileInformationRow size="body3" userProfile={profile!} />
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">

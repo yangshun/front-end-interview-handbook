@@ -3,7 +3,7 @@ import Avatar from './Avatar';
 type AvatarProps = React.ComponentProps<typeof Avatar>;
 type UserAvatarProps = Readonly<
   Omit<AvatarProps, 'alt' | 'src'> & {
-    profile?: Readonly<{
+    userProfile?: Readonly<{
       avatarUrl: string | null;
       name: string | null;
       username: string;
@@ -11,12 +11,12 @@ type UserAvatarProps = Readonly<
   }
 >;
 
-export default function UserAvatar({ profile, ...props }: UserAvatarProps) {
+export default function UserAvatar({ userProfile, ...props }: UserAvatarProps) {
   return (
     <Avatar
       {...props}
-      alt={profile?.name ?? profile?.username ?? ''}
-      src={profile?.avatarUrl ?? ''}
+      alt={userProfile?.name ?? userProfile?.username ?? ''}
+      src={userProfile?.avatarUrl ?? ''}
     />
   );
 }

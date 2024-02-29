@@ -21,11 +21,15 @@ export default function ProjectsChallengeSubmissionAuthorProfile({
 }: Props) {
   return (
     <div className="flex items-center gap-4">
-      <ProjectsProfileAvatar points={points} profile={userProfile} size="2xl" />
+      <ProjectsProfileAvatar
+        points={points}
+        size="2xl"
+        userProfile={userProfile}
+      />
       <div className="flex flex-col gap-3">
         <div className="flex items-center gap-2">
           <Text size="body2" weight="medium">
-            <ProjectsProfileDisplayNameLink profile={userProfile} />
+            <ProjectsProfileDisplayNameLink userProfile={userProfile} />
           </Text>
           <ProjectsProfileUsernameBadge
             premium={premium}
@@ -34,7 +38,7 @@ export default function ProjectsChallengeSubmissionAuthorProfile({
           <ProjectsProfileSocialLinks userProfile={userProfile} />
         </div>
         <div className="flex items-center gap-x-4">
-          <UserProfileInformationRow profile={userProfile} size="body3" />
+          <UserProfileInformationRow size="body3" userProfile={userProfile} />
           <ProjectsUserReputation points={points} />
         </div>
       </div>

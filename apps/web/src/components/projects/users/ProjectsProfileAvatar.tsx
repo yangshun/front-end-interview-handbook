@@ -14,19 +14,19 @@ type Props = Readonly<{
   className?: string;
   hovercard?: boolean;
   points?: number | null;
-  profile?: Readonly<{
+  size?: UserLevelWithAvatarSize;
+  userProfile?: Readonly<{
     avatarUrl: string | null;
     id: string;
     name: string | null;
     username: string;
   }>;
-  size?: UserLevelWithAvatarSize;
 }>;
 
 export default function ProjectsProfileAvatar({
   hovercard = true,
   points = 0,
-  profile,
+  userProfile,
   className,
   size = 'lg',
 }: Props) {
@@ -34,27 +34,26 @@ export default function ProjectsProfileAvatar({
   const avatar = (
     <UserAvatarWithLevel
       className={className}
-      // TODO(projects): Fetch level and progress.
       level={level}
-      profile={profile}
       progress={progress}
       size={size}
+      userProfile={userProfile}
     />
   );
 
-  return profile != null && hovercard ? (
+  return userProfile != null && hovercard ? (
     <Hovercard>
       <HovercardTrigger asChild={true}>
         <Anchor
-          aria-label={profile.name ?? profile.username}
+          aria-label={userProfile.name ?? userProfile.username}
           className="font-medium"
-          href={`/projects/u/${profile.username}`}
+          href={`/projects/u/${userProfile.username}`}
           variant="unstyled">
           {avatar}
         </Anchor>
       </HovercardTrigger>
       <HovercardContent>
-        <ProjectsProfileHoverCard profileId={profile.id} />
+        <ProjectsProfileHoverCard userId={userProfile.id} />
       </HovercardContent>
     </Hovercard>
   ) : (

@@ -132,14 +132,14 @@ export default function ProjectsChallengeSubmissionCard({
         <div className="flex items-center gap-4">
           <ProjectsProfileAvatar
             points={projectsProfile?.points}
-            profile={author}
             size="xl"
+            userProfile={author}
           />
           <div className="flex flex-col gap-1">
             <Text size="body2" weight="medium">
-              <ProjectsProfileDisplayNameLink profile={author} />
+              <ProjectsProfileDisplayNameLink userProfile={author} />
             </Text>
-            <UserProfileInformationRow profile={author} size="body3" />
+            <UserProfileInformationRow size="body3" userProfile={author} />
           </div>
         </div>
       )}

@@ -7,10 +7,10 @@ import { themeTextSecondaryColor } from '~/components/ui/theme';
 type Size = 'body2' | 'body3';
 
 type Props = Readonly<{
-  profile: Readonly<{
+  size?: 'body2' | 'body3';
+  userProfile: Readonly<{
     title: string | null;
   }>;
-  size?: 'body2' | 'body3';
 }>;
 
 const iconClasses: Record<Size, string> = {
@@ -23,8 +23,11 @@ const gap: Record<Size, string> = {
   body3: 'gap-1',
 };
 
-export default function UserProfileTitle({ profile, size = 'body2' }: Props) {
-  const { title } = profile;
+export default function UserProfileTitle({
+  userProfile,
+  size = 'body2',
+}: Props) {
+  const { title } = userProfile;
 
   if (title === '' || title == null) {
     return null;

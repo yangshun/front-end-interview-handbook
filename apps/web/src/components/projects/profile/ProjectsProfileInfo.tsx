@@ -7,7 +7,6 @@ import ProjectsProfileMotivation from '~/components/projects/profile/info/Projec
 import ProjectsProfileSkillsList from '~/components/projects/profile/info/ProjectsProfileSkillsList';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import ProjectsUserReputation from '~/components/projects/users/ProjectsUserReputation';
-import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Chip from '~/components/ui/Chip';
 import Divider from '~/components/ui/Divider';
@@ -42,20 +41,20 @@ export default function ProjectsProfileInfo({
         <div className="hidden items-center gap-6 md:flex">
           <ProjectsProfileAvatar
             points={projectsProfile.points}
-            profile={userProfile}
             size="3xl"
+            userProfile={userProfile}
           />
           <div className="flex flex-col gap-3">
             <div className="flex items-center gap-4">
               <Text size="body1" weight="medium">
-                <ProjectsProfileDisplayNameLink profile={userProfile} />
+                <ProjectsProfileDisplayNameLink userProfile={userProfile} />
               </Text>
               <ProjectsProfileUsernameBadge
                 premium={projectsProfile.premium}
                 username={userProfile.username}
               />
             </div>
-            <UserProfileInformationRow profile={userProfile} />
+            <UserProfileInformationRow userProfile={userProfile} />
             <div className="flex items-center gap-3">
               <ProjectsUserReputation
                 points={projectsProfile.points}
@@ -69,13 +68,13 @@ export default function ProjectsProfileInfo({
           <div className="flex items-center gap-8">
             <ProjectsProfileAvatar
               points={projectsProfile.points}
-              profile={userProfile}
               size="3xl"
+              userProfile={userProfile}
             />
             <div className="flex flex-col gap-2">
               <div className="flex flex-wrap items-center gap-2">
                 <Text size="body1" weight="medium">
-                  <ProjectsProfileDisplayNameLink profile={userProfile} />
+                  <ProjectsProfileDisplayNameLink userProfile={userProfile} />
                 </Text>
                 <div className="flex items-center gap-2">
                   {projectsProfile.premium && (
@@ -118,7 +117,7 @@ export default function ProjectsProfileInfo({
                 id="JQT5KD"
               />
             </Heading>
-            <UserProfileInformationRow profile={userProfile} />
+            <UserProfileInformationRow userProfile={userProfile} />
           </div>
         </div>
       </Section>

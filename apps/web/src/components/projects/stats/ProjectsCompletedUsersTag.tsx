@@ -28,8 +28,8 @@ export default function ProjectsCompletedUsersTag({
           <UserAvatar
             key={profile.id}
             className="border border-white dark:border-neutral-900"
-            profile={profile}
             size="xs"
+            userProfile={profile}
           />
         ))}
       </div>

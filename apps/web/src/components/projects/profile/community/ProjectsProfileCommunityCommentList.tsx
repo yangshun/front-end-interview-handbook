@@ -55,8 +55,8 @@ export default function ProjectsProfileCommunityCommentList({
             <div className="flex w-full gap-3">
               <UserAvatar
                 className="size-6 shrink-0"
-                profile={comment.author.userProfile}
                 size="xs"
+                userProfile={comment.author.userProfile}
               />
               <div className="flex w-full grow flex-col gap-x-6 gap-y-1 lg:flex-row lg:justify-between">
                 <div className="flex grow flex-col gap-3 lg:flex-row">

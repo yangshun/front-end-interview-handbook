@@ -27,7 +27,7 @@ export default function ProjectsNavbar({ className }: Props) {
         <LogoLink href="/projects" />
       </div>
       <div className="-my-2 flex gap-4 sm:-mr-2 lg:hidden">
-        {profile != null && <UserAvatar profile={profile} />}
+        {profile != null && <UserAvatar userProfile={profile} />}
         <SlideOut
           className="lg:hidden"
           enterFrom="start"

@@ -88,10 +88,10 @@ export const projectsProfileRouter = router({
   hovercard: publicProcedure
     .input(
       z.object({
-        profileId: z.string().uuid(),
+        userId: z.string().uuid(),
       }),
     )
-    .query(async ({ input: { profileId } }) => {
+    .query(async ({ input: { userId } }) => {
       const submissionCount = 2;
       const [profile, pinnedSubmissions, latestSubmissions] = await Promise.all(
         [
@@ -106,7 +106,7 @@ export const projectsProfileRouter = router({
               },
             },
             where: {
-              id: profileId,
+              id: userId,
             },
           }),
           prisma.projectsChallengeSubmission.findMany({
@@ -118,7 +118,7 @@ export const projectsProfileRouter = router({
               pins: {
                 some: {
                   projectsProfile: {
-                    userId: profileId,
+                    userId,
                   },
                 },
               },
@@ -131,7 +131,7 @@ export const projectsProfileRouter = router({
             take: submissionCount,
             where: {
               projectsProfile: {
-                userId: profileId,
+                userId,
               },
             },
           }),

@@ -124,12 +124,12 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                     <div className="flex items-center gap-1.5 lg:gap-2">
                       <UserAvatar
                         className="border border-green-400"
-                        profile={submission.projectsProfile.userProfile}
                         size="xs"
+                        userProfile={submission.projectsProfile.userProfile}
                       />
                       <Text className="z-10" size="body3" weight="medium">
                         <ProjectsProfileDisplayNameLink
-                          profile={submission.projectsProfile.userProfile}
+                          userProfile={submission.projectsProfile.userProfile}
                         />
                       </Text>
                     </div>
