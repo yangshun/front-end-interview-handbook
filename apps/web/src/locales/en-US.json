@@ -1647,6 +1647,10 @@
     "defaultMessage": "Solving Common Questions",
     "description": "Title for solving common behavioral questions section"
   },
+  "EHTprG": {
+    "defaultMessage": "When your site URL was submitted, we automatically take screenshots of your pages. You can manually trigger retake with this button if your site has been updated",
+    "description": "Tooltip for retake screenshot button"
+  },
   "EHngws": {
     "defaultMessage": "Copied!",
     "description": "Indication that text has been copied"

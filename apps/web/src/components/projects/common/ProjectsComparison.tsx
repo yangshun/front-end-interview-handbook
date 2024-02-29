@@ -100,6 +100,12 @@ export default function ProjectsComparison({
               description: 'Retake screenshot button label',
               id: 'e0C2cj',
             })}
+            tooltip={intl.formatMessage({
+              defaultMessage:
+                'When your site URL was submitted, we automatically take screenshots of your pages.  You can manually trigger retake with this button if your site has been updated',
+              description: 'Tooltip for retake screenshot button',
+              id: 'EHTprG',
+            })}
             variant="secondary"
             onClick={onTakeScreenshot}
           />
