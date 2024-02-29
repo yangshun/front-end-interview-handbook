@@ -33,14 +33,13 @@ export type ButtonVariant =
   | 'tertiary'
   | 'unstyled';
 
-export type Props = Readonly<{
+type BaseProps = Readonly<{
   addonPosition?: 'end' | 'start';
   'aria-controls'?: AriaAttributes['aria-controls'];
   'aria-current'?: AriaAttributes['aria-current'];
   'aria-label'?: AriaAttributes['aria-controls'];
   className?: string;
   display?: ButtonDisplay;
-  href?: AnchorProps['href'];
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   iconSecondary_USE_SPARINGLY?: (
     props: React.ComponentProps<'svg'>,
@@ -51,13 +50,23 @@ export type Props = Readonly<{
   label: string;
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
   size?: ButtonSize;
-  target?: HTMLAttributeAnchorTarget;
   tooltip?: ReactNode;
   tooltipAlign?: TooltipContentAlignment;
   tooltipSide?: TooltipContentSide;
-  type?: 'button' | 'submit';
   variant: ButtonVariant;
 }>;
+
+export type Props =
+  | (BaseProps &
+      Readonly<{
+        href: AnchorProps['href'];
+        target?: HTMLAttributeAnchorTarget;
+        warnAboutExternalLink?: boolean;
+      }>)
+  | (BaseProps &
+      Readonly<{
+        type?: 'button' | 'submit';
+      }>);
 
 const horizontalPaddingClasses: Record<ButtonSize, string> = {
   lg: 'px-5',
@@ -205,7 +214,6 @@ function Button(
     'aria-label': ariaLabel,
     className,
     display = 'inline',
-    href,
     icon: Icon,
     iconSecondary_USE_SPARINGLY: IconSecondary,
     isDisabled = false,
@@ -213,11 +221,9 @@ function Button(
     isLoading = false,
     label,
     size = 'sm',
-    target,
     tooltip,
     tooltipAlign,
     tooltipSide,
-    type = 'button',
     variant,
     onClick,
     ...props
@@ -276,20 +282,27 @@ function Button(
   };
 
   const el =
-    href == null ? (
-      <button
-        ref={ref as React.Ref<HTMLButtonElement>}
-        type={type === 'button' ? 'button' : 'submit'}
-        {...commonProps}
-        {...props}
-      />
-    ) : (
+    'href' in props ? (
       <Anchor
         ref={ref as React.Ref<HTMLAnchorElement>}
-        href={href}
+        href={props.href}
         {...commonProps}
-        target={target}
+        target={props.target}
         variant="unstyled"
+        warnAboutExternalLink={props.warnAboutExternalLink}
+      />
+    ) : (
+      <button
+        ref={ref as React.Ref<HTMLButtonElement>}
+        type={
+          'type' in props
+            ? props.type === 'button'
+              ? 'button'
+              : 'submit'
+            : 'button'
+        }
+        {...commonProps}
+        {...props}
       />
     );
 
