@@ -38,10 +38,25 @@ Unlike typical software engineer job interviews, front end job interviews have l
 - [Front end questions](https://www.frontendinterviewhandbook.com/coding/javascript-utility-function/) - JavaScript, DOM, algorithms, and more
 - [Front end interview questions by companies](https://www.frontendinterviewhandbook.com/company-interview-questions/)
 
+## Where to get hands on practice?
+
+<div align="center">
+  <a href="https://www.greatfrontend.com">
+    <img src="assets/scroll.svg" alt="GreatFrontEnd" width="400"/>
+  </a>
+</div>
+
+After getting a good understanding about front end interview preparation, try out [GreatFrontEnd](https://www.greatfrontend.com), a platform built by me! You can even adjust your practice schedule based on the following categories:
+
+- [Study plans](https://www.greatfrontend.com/study-plans)
+- [Focus areas](https://www.greatfrontend.com/focus-areas)
+- [Preparation by stage](https://www.greatfrontend.com/prepare)
+- [Individual framework questions](https://www.greatfrontend.com/questions)
+
 ---
 
 <div align="center">
-  <h3>💡 Preparing for front end interviews? <a href="https://www.greatfrontend.com">GreatFrontEnd</a> is offering 25% off its lifetime plan of high quality practice questions and solutions written by ex-FAANG Engineers 💡</h3>
+  <h3>Need to practice front end interview questions? <a href="https://www.greatfrontend.com">GreatFrontEnd</a> is holding a limited time promotion for 20% off their lifetime plan of high quality practice questions and reference solutions written by ex-FAANG interviewers 🚀</h3>
 </div>
 
 ---
