@@ -403,6 +403,10 @@
     "defaultMessage": "For Portfolios",
     "description": "Button label for Projects marketing hero section for portfolio projects"
   },
+  "1sJ8d7": {
+    "defaultMessage": "Free plan",
+    "description": "Projects sidebar card CTA title"
+  },
   "1wrVTx": {
     "defaultMessage": "Edit on GitHub",
     "description": "Edit on GitHub button"
@@ -923,10 +927,6 @@
     "defaultMessage": "Level",
     "description": "Blog Level"
   },
-  "7OnamK": {
-    "defaultMessage": "Access to premium tracks and skills",
-    "description": "Subtitle projects CTA card"
-  },
   "7Ozzmy": {
     "defaultMessage": "Start coding!",
     "description": "Label for \"Start coding!\" step in dialog on Projects project page"
@@ -1002,10 +1002,6 @@
   "8+Ezk6": {
     "defaultMessage": "Chat with us directly!",
     "description": "Text on Feedback Widget when it is closed to notify users of its presence"
-  },
-  "81/cnt": {
-    "defaultMessage": "Free plan",
-    "description": "Title of projects CTA card"
   },
   "81i+95": {
     "defaultMessage": "Profile",
@@ -1203,6 +1199,10 @@
     "defaultMessage": "Buy now",
     "description": "Purchase button label"
   },
+  "9nK/kc": {
+    "defaultMessage": "Annual plan",
+    "description": "Subscription plan type"
+  },
   "9nq03w": {
     "defaultMessage": "Others",
     "description": "Label for \"Others\" option in YOE replacement"
@@ -1226,6 +1226,10 @@
   "A7o+ui": {
     "defaultMessage": "Page name must contain at least {minLength} characters.",
     "description": "Error message"
+  },
+  "ABJ7ip": {
+    "defaultMessage": "<bold>{completedQuestions}</bold>/{totalQuestions} completed",
+    "description": "Line describing the number of questions completed by user over the total number of questions"
   },
   "AEDpDO": {
     "defaultMessage": "The company you currently work at. This information can be made private on more sensitive products like interviews.",
@@ -1290,6 +1294,10 @@
   "AzJz7v": {
     "defaultMessage": "Menu",
     "description": "Project guide navigation menu button label"
+  },
+  "B/+rVc": {
+    "defaultMessage": "<bold>{credits}</bold>/{totalCredits} project unlocks left",
+    "description": "Number of unlock credits left"
   },
   "B2171J": {
     "defaultMessage": "Download design assets",
@@ -1706,6 +1714,10 @@
   "F+dxo7": {
     "defaultMessage": "Recommended focus areas",
     "description": "Title of recommended focus areas section on preparation page"
+  },
+  "F09XFi": {
+    "defaultMessage": "Full access to tracks & skills",
+    "description": "Subtitle of premium plan CTA card"
   },
   "F4esBf": {
     "defaultMessage": "Our projects are never one-off - they always fit into some component library or design system which can be composed into your very own toolset to build future projects",
@@ -2915,6 +2927,10 @@
     "defaultMessage": "You are on the <bold>Lifetime</bold> plan.",
     "description": "Text describing user's subscription plan."
   },
+  "PSuOJh": {
+    "defaultMessage": "Credits remaining",
+    "description": "Number of unlock credits remaining"
+  },
   "PV4w5n": {
     "defaultMessage": "Build to impress with unique portfolio projects",
     "description": "Title for Projects marketing hero section for portfolio projects"
@@ -2990,6 +3006,10 @@
   "PzZtIi": {
     "defaultMessage": "No sign in required",
     "description": "Additional text below Get Start button on Hero section of HomePage. To let users know that they can try the product without signing in."
+  },
+  "Q0gWLB": {
+    "defaultMessage": "Resubscribe",
+    "description": "Button CTA to encourage upgrading"
   },
   "Q0sZmk": {
     "defaultMessage": "An email containing the password reset instructions will be sent if an associated account exists",
@@ -3071,6 +3091,10 @@
     "defaultMessage": "Copy to clipboard",
     "description": "Button label for copy button"
   },
+  "QruCxn": {
+    "defaultMessage": "Monthly plan",
+    "description": "Subscription plan type"
+  },
   "QsA5iS": {
     "defaultMessage": "Keep up with modern skills and frameworks by building hands-on projects",
     "description": "Subtitle for Projects marketing hero section for experienced users"
@@ -3086,10 +3110,6 @@
   "QxlS4d": {
     "defaultMessage": "Difficulty: Hard to Easy",
     "description": "Sorting option for submissions list - sort by difficulty from hard to easy"
-  },
-  "QzHPOD": {
-    "defaultMessage": "Access to {freeChallengeCount}+ free challenges. No access to Figma & guides",
-    "description": "Subtitle of Free Plan CTA card in Projects sidebar"
   },
   "R+pt9h": {
     "defaultMessage": "Resources provided",
@@ -3739,6 +3759,10 @@
     "defaultMessage": "Other",
     "description": "Label for \"Other\" input for \"Years of experience replacement status\" on Projects profile onboarding page"
   },
+  "WX+cIg": {
+    "defaultMessage": "Free Plan CTA card tooltip",
+    "description": "Tooltip label for Free Plan CTA card in Projects sidebar"
+  },
   "WZy7m4": {
     "defaultMessage": "Table of Contents",
     "description": "Guides table of contents menu button label"
@@ -3850,10 +3874,6 @@
   "XfFYoy": {
     "defaultMessage": "Pick from <bold>component tracks</bold>",
     "description": "Caption for Start a Project button in Projects marketing hero section for portfolio projects"
-  },
-  "Xh+8s6": {
-    "defaultMessage": "<completed>{completedQuestions}</completed>/{totalQuestions} completed",
-    "description": "Line describing the number of questions completed by user over the total number of questions"
   },
   "XhK6jS": {
     "defaultMessage": "Trivia-style front end questions asked across all interview rounds",
@@ -4042,10 +4062,6 @@
   "ZMFRjh": {
     "defaultMessage": "Nightmare",
     "description": "Nightmare level blog"
-  },
-  "ZMFqeK": {
-    "defaultMessage": "Upgrade access",
-    "description": "CTA label"
   },
   "ZN/wJM": {
     "defaultMessage": "Completed",
@@ -4910,6 +4926,10 @@
   "hQa+4K": {
     "defaultMessage": "Why be a GreatFrontEnd Affiliate?",
     "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
+  },
+  "hTwS/w": {
+    "defaultMessage": "Upgrade access",
+    "description": "Button label to upgrade plan"
   },
   "hYp7sF": {
     "defaultMessage": "Normal",
@@ -6107,10 +6127,6 @@
     "defaultMessage": "Lifetime plan",
     "description": "Title of LifeTime Access Pricing Plan found on Homepage or Pricing page"
   },
-  "rliXIi": {
-    "defaultMessage": "{planType} plan",
-    "description": "Title of projects CTA card"
-  },
   "rmYPMV": {
     "defaultMessage": "Start learning",
     "description": "Button label to start study plan / focus area"
@@ -6154,6 +6170,10 @@
   "sLFGSE": {
     "defaultMessage": "Explore {projectCount}+ projects",
     "description": "Label of 'Projects' view all button in Projects home page"
+  },
+  "sM0hUe": {
+    "defaultMessage": "Access to {freeChallengeCount}+ free challenges. {unlocks, plural, =0 {No access to project unlocks} one {1 project unlock unused} other {# project unlocks unused}}",
+    "description": "Subtitle of Free Plan CTA card in Projects sidebar"
   },
   "sM1Ppu": {
     "defaultMessage": "{discountPercentage}% off all plans",

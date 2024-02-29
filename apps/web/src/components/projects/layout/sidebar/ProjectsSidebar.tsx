@@ -249,7 +249,7 @@ export function ProjectsSidebarExpanded({
 }: Readonly<{
   onCollapseClick?: () => void;
 }>) {
-  const { profile } = useProfileWithProjectsProfile();
+  const { isLoading, profile } = useProfileWithProjectsProfile();
   const intl = useIntl();
   const sideBarItems = useSidebarItems();
 
@@ -268,17 +268,21 @@ export function ProjectsSidebarExpanded({
           </li>
         ))}
       </ul>
-      <Divider />
-      <ul className="flex flex-col gap-2">
-        {sideBarItems.bottom.map(({ key: childKey, ...link }) => (
-          <li key={childKey}>
-            <SidebarLinkButton {...link} />
-          </li>
-        ))}
-      </ul>
-      <ProjectsSidebarCTACard
-        variant={profile == null ? 'anonymous' : 'free'}
-      />
+      <div
+        className={clsx(
+          'flex flex-col gap-y-4 transition-opacity duration-500',
+          isLoading && 'select-none opacity-0',
+        )}>
+        <Divider />
+        <ul className="flex flex-col gap-2">
+          {sideBarItems.bottom.map(({ key: childKey, ...link }) => (
+            <li key={childKey}>
+              <SidebarLinkButton {...link} />
+            </li>
+          ))}
+        </ul>
+        <ProjectsSidebarCTACard />
+      </div>
       <Divider />
       <div className="flex justify-between gap-4 pt-2">
         <div className="flex gap-4">
