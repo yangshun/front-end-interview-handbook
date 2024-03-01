@@ -18,7 +18,7 @@ export default async function handler(
   res: NextApiResponse,
 ) {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
-    apiVersion: '2022-11-15',
+    apiVersion: '2023-10-16',
   });
   const signature = req.headers['stripe-signature'] as string;
   const signingSecret = process.env.STRIPE_SIGNING_SECRET as string;
@@ -157,7 +157,7 @@ export default async function handler(
         }
 
         case 'past_due': {
-          await stripe.subscriptions.del(subscription.id);
+          await stripe.subscriptions.cancel(subscription.id);
 
           return res.send(`Subscription cancelled`);
         }
