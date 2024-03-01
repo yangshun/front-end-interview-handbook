@@ -635,10 +635,6 @@
     "defaultMessage": "Don't have an account? <link>Sign up for free</link>",
     "description": "Prompt for account creation on Email Sign In page"
   },
-  "4C8Ad0": {
-    "defaultMessage": "We offer a discounted rate for upgrading to the lifetime plan, simply <link>contact us</link>.",
-    "description": "Call to action text to upgrade plan."
-  },
   "4FirvF": {
     "defaultMessage": "Reset progress",
     "description": "Label to reset study plan progress"
@@ -1262,6 +1258,10 @@
   "AK/+j2": {
     "defaultMessage": "Your code has been successfully submitted and is now available for community review.",
     "description": "Description for the project submission success page"
+  },
+  "APztnK": {
+    "defaultMessage": "Existing subscribers can upgrade to the lifetime plan at a discount, send an email to <link>contact@greatfrontend</link>.",
+    "description": "Call to action text to upgrade plan."
   },
   "AVk8pE": {
     "defaultMessage": "Name",

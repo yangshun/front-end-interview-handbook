@@ -1,8 +1,11 @@
 'use client';
 
 import clsx from 'clsx';
+import type { ReactNode } from 'react';
 import { RiBankCardLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
+
+import { trpc } from '~/hooks/trpc';
 
 import type { UserProfilePlan } from '~/components/global/UserProfileProvider';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -13,8 +16,6 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
-
-import { useI18nRouter } from '~/next-i18nostic/src';
 
 function PlanLabel({
   plan,
@@ -38,6 +39,12 @@ function PlanLabel({
     />
   );
 
+  const renderBold = (chunks: Array<ReactNode>) => (
+    <Text size="inherit" weight="bold">
+      {chunks}
+    </Text>
+  );
+
   switch (plan) {
     case 'year': {
       return (
@@ -46,7 +53,7 @@ function PlanLabel({
           description="Text describing user's subscription plan."
           id="kvhZfI"
           values={{
-            bold: (chunks) => <Text weight="bold">{chunks}</Text>,
+            bold: renderBold,
           }}
         />
       );
@@ -59,7 +66,7 @@ function PlanLabel({
             description="Text describing user's subscription plan."
             id="i7VsUe"
             values={{
-              bold: (chunks) => <Text weight="bold">{chunks}</Text>,
+              bold: renderBold,
             }}
           />{' '}
           {autoRenewal}
@@ -74,7 +81,7 @@ function PlanLabel({
             description="Text describing user's subscription plan."
             id="ykwubP"
             values={{
-              bold: (chunks) => <Text weight="bold">{chunks}</Text>,
+              bold: renderBold,
             }}
           />{' '}
           {autoRenewal}
@@ -101,18 +108,17 @@ function ManageSubscriptionSection({
 }: Readonly<{
   plan?: UserProfilePlan | null;
 }>): JSX.Element | null {
-  const router = useI18nRouter();
   const intl = useIntl();
+  const billingPortalGenerate = trpc.purchases.billingPortal.useMutation();
 
   if (plan == null) {
     return null;
   }
 
   async function navigateToStripePortal() {
-    const res = await fetch('/api/payments/portal');
-    const data = await res.json();
+    const billingPortalUrl = await billingPortalGenerate.mutateAsync();
 
-    router.push(data.payload.url);
+    window.location.href = billingPortalUrl;
   }
 
   switch (plan) {
@@ -124,9 +130,8 @@ function ManageSubscriptionSection({
           className={clsx(
             'flex flex-col gap-4',
             'p-4',
-            'border',
+            ['border', themeBorderColor],
             'rounded-lg',
-            themeBorderColor,
           )}>
           <div className={clsx('flex flex-col gap-1')}>
             <Heading level="heading6">
@@ -153,6 +158,8 @@ function ManageSubscriptionSection({
           </div>
           <div>
             <Button
+              isDisabled={billingPortalGenerate.isLoading}
+              isLoading={billingPortalGenerate.isLoading}
               label={intl.formatMessage({
                 defaultMessage: 'Manage subscription on Stripe',
                 description: 'Label for button to manage subscription',
@@ -177,7 +184,7 @@ function NoBillingPlan() {
 
   return (
     <div className="py-12 text-center">
-      <RiBankCardLine className="mx-auto size-12 text-neutral-400" />
+      <RiBankCardLine className="size-12 mx-auto text-neutral-400" />
       <Heading className="mt-2 text-sm font-medium" level="custom">
         <FormattedMessage
           defaultMessage="Not Subscribed"
@@ -252,14 +259,12 @@ export default function ProfileBilling() {
               </div>
               {(userProfile?.plan === 'month' ||
                 userProfile?.plan === 'quarter') && (
-                <Alert
-                  title="Upgrade to lifetime plan at a discount"
-                  variant="success">
+                <Alert title="Upgrade to lifetime plan" variant="success">
                   <Text color="inherit" display="block" size="body2">
                     <FormattedMessage
-                      defaultMessage="We offer a discounted rate for upgrading to the lifetime plan, simply <link>contact us</link>."
+                      defaultMessage="Existing subscribers can upgrade to the lifetime plan at a discount, send an email to <link>contact@greatfrontend</link>."
                       description="Call to action text to upgrade plan."
-                      id="4C8Ad0"
+                      id="APztnK"
                       values={{
                         link: (chunks) => (
                           <Anchor href="mailto:contact@greatfrontend.com">
