@@ -1,3 +1,5 @@
+const { themes } = require('prism-react-renderer');
+
 module.exports = {
   title: 'Front End Interview Handbook',
   tagline:
@@ -16,8 +18,8 @@ module.exports = {
       isCloseable: false,
     },
     prism: {
-      theme: require('prism-react-renderer/themes/github'),
-      darkTheme: require('prism-react-renderer/themes/dracula'),
+      theme: themes.github,
+      darkTheme: themes.dracula,
     },
     navbar: {
       title: 'Front End Interview Handbook',
