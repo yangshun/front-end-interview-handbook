@@ -62,7 +62,6 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "@react-email/components": "^0.0.12",
     "@stefanprobst/remark-extract-toc": "^2.2.0",
-    "@stripe/stripe-js": "1.46.0",
     "@supabase/auth-helpers-nextjs": "^0.6.1",
     "@supabase/auth-helpers-react": "^0.3.1",
     "@supabase/supabase-js": "^2.39.0",

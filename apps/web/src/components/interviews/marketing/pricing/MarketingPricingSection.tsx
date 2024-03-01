@@ -47,7 +47,6 @@ import PricingBlockCard from '../../pricing/PricingBlockCard';
 import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../../pricing/pricingConfig';
 import { priceRoundToNearestNiceNumber } from '../../pricing/pricingUtils';
 
-import { loadStripe } from '@stripe/stripe-js';
 import { useSessionContext } from '@supabase/auth-helpers-react';
 
 function PurpleGlowBackground() {
@@ -264,12 +263,9 @@ function PricingButtonNonPremium({
         }),
       );
       const { payload } = await res.json();
-      const stripe = await loadStripe(
-        process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY as string,
-      );
 
       if (hasClickedRef.current) {
-        await stripe?.redirectToCheckout({ sessionId: payload.id });
+        window.location.href = payload.url;
 
         return;
       }

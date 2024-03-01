@@ -255,9 +255,6 @@ importers:
       '@stefanprobst/remark-extract-toc':
         specifier: ^2.2.0
         version: 2.2.0
-      '@stripe/stripe-js':
-        specifier: 1.46.0
-        version: 1.46.0
       '@supabase/auth-helpers-nextjs':
         specifier: ^0.6.1
         version: 0.6.1(@supabase/supabase-js@2.39.0)
@@ -5962,10 +5959,6 @@ packages:
 
   /@stitches/core@1.2.8:
     resolution: {integrity: sha512-Gfkvwk9o9kE9r9XNBmJRfV8zONvXThnm1tcuojL04Uy5uRyqg93DC83lDebl0rocZCfKSjUv+fWYtMQmEDJldg==}
-    dev: false
-
-  /@stripe/stripe-js@1.46.0:
-    resolution: {integrity: sha512-dkm0zCEoRLu5rTnsIgwDf/QG2DKcalOT2dk1IVgMySOHWTChLyOvQwMYhEduGgLvyYWTwNhAUV4WOLPQvjwLwA==}
     dev: false
 
   /@supabase/auth-helpers-nextjs@0.6.1(@supabase/supabase-js@2.39.0):
