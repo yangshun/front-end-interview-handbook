@@ -42,7 +42,7 @@ Unlike typical software engineer job interviews, front end job interviews have l
 
 <div align="center">
   <a href="https://www.greatfrontend.com">
-    <img src="assets/scroll.svg" alt="GreatFrontEnd" width="400"/>
+    <img src="assets/mark-brand-light.png" alt="GreatFrontEnd" width="400"/>
   </a>
 </div>
 
