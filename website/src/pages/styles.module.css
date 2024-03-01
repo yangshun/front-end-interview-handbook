@@ -21,6 +21,22 @@
   justify-content: center;
 }
 
+.flexContainer {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  color: rgb(255, 255, 255);
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.whiteText {
+  color: rgb(255, 255, 255);
+  margin: 0;
+}
+
 .sectionTitle {
   font-size: 2rem;
 }

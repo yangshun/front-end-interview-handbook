@@ -6,6 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
+import {RiStackLine} from 'react-icons/ri'
 
 import successStories from '@site/src/data/successStories';
 
@@ -78,32 +79,24 @@ function GreatFrontEndSection() {
   return (
     <div
       className={clsx('padding-vert--lg')}
-      style={{ backgroundColor: 'rgb(79, 70, 229)' }}>
+      style={{ backgroundColor: 'rgb(214, 43, 121)' }}>
       <div className="container">
         <div className="row">
           <div className="col col--10 col--offset-1">
             <div className="margin-vert--lg text--center">
               <div>
-                <h2
+                <h1
                   className={styles.sectionSponsorTitle}
-                  style={{ fontSize: 'var(--ifm-h2-font-size)' }}>
+                  style={{ fontSize: 'var(--ifm-h1-font-size)' }}>
                   <strong>
-                    Want to practice front end questions and reference answers
-                    from experienced ex-FAANG senior engineers? Top front end
-                    interview practice platform{' '}
-                    <a
-                      href="https://www.greatfrontend.com/?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=homepage&fpr=frontendinterviewhandbook"
-                      style={{ color: '#fff', textDecoration: 'underline' }}>
-                      GreatFrontEnd
-                    </a>{' '}
-                    is now offering 25% off their lifetime plan! Try out their
-                    free questions today:
+                    Looking for front end interview practice? <br/>
+                    GreatFrontEnd has 200+ practice questions and reference solutions from big tech ex-interviewers
                   </strong>
-                </h2>
-                <div className="margin-vert--lg">
+                </h1>
+                <div className="margin-vert--md">
                   <a
                     className="button button--secondary button--lg"
-                    href="https://www.greatfrontend.com/questions/system-design/news-feed-facebook"
+                    href="https://www.greatfrontend.com/prepare/"
                     rel="noopener"
                     target="_blank"
                     onClick={() => {
@@ -112,25 +105,37 @@ function GreatFrontEndSection() {
                         'greatfrontend.homepage.system_design.click',
                       );
                     }}>
-                    System Design Questions &nbsp;&nbsp;→
+                    Get started &nbsp;&nbsp;→
                   </a>
-                  &nbsp;&nbsp;&nbsp;
-                  <a
-                    className="button button--secondary button--lg"
-                    href="https://www.greatfrontend.com/questions/coding?utm_source=frontendinterviewhandbook&utm_medium=referral&utm_content=homepage&fpr=frontendinterviewhandbook"
-                    rel="noopener"
-                    target="_blank"
-                    onClick={() => {
-                      window.gtag(
-                        'event',
-                        'greatfrontend.homepage.coding.click',
-                      );
-                    }}>
-                    Coding Questions &nbsp;&nbsp;→
-                  </a>
+                </div>
+                <div className="margin-vert--md">
+                  <h5 style={{color:'rgb(255,255,255)', fontWeight:'normal'}}>Psst...I helped build this!<br/></h5> 
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col col--1"></div>
+          <div className={`col col--3 ${styles.flexContainer}`}>
+            <RiStackLine className={styles.icon} />
+            <h5 className={styles.whiteText}>
+              <strong>Well-explained solutions for every question</strong>
+            </h5>
+          </div>
+          <div className="col col--1"></div>
+          <div className={`col col--3 ${styles.flexContainer}`}>
+            <RiStackLine className={styles.icon} />
+            <h5 className={styles.whiteText}>
+              <strong>Step-by-step study plans</strong>
+            </h5>
+          </div>
+          <div className="col col--1"></div>
+          <div className={`col col--3 ${styles.flexContainer}`}>
+            <RiStackLine className={styles.icon} />
+            <h5 className={styles.whiteText}>
+              <strong>Structured 4-stage process</strong>
+            </h5>
           </div>
         </div>
       </div>
