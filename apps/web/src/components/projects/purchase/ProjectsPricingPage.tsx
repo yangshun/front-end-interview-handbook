@@ -11,14 +11,10 @@ import type {
   InterviewsPricingPlanType,
 } from '~/data/interviews/InterviewsPricingPlans';
 
-import MarketingFeatures from '~/components/interviews/marketing/MarketingFeatures';
-import MarketingPricingFAQSection from '~/components/interviews/marketing/pricing/MarketingPricingFAQSection';
-import MarketingPricingSection from '~/components/interviews/marketing/pricing/MarketingPricingSection';
-import MarketingTestimonialsSection from '~/components/interviews/marketing/testimonials/MarketingTestimonialsSection';
-import Section from '~/components/ui/Heading/HeadingContext';
-
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
+
+import ProjectsPricingSection from './ProjectsPricingSection';
 
 type Props = Readonly<{
   countryCode: string;
@@ -71,21 +67,14 @@ export default function PricingPage({
       className={clsx(
         'flex flex-col gap-y-16 sm:gap-y-20',
         'lg:pt-8',
-        'bg-[#070708]',
-      )}
-      data-mode="dark">
-      <MarketingPricingSection
+        'dark:bg-[#070708]',
+      )}>
+      <ProjectsPricingSection
         countryCode={countryCode}
         countryName={countryName}
         plans={plans}
       />
-      <Section>
-        <MarketingFeatures />
-        <div>
-          <MarketingPricingFAQSection />
-          <MarketingTestimonialsSection />
-        </div>
-      </Section>
+      {/* TODO(projects): Add FAQ section: <Section></Section> */}
     </div>
   );
 }

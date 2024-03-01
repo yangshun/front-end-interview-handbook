@@ -12,10 +12,9 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundLayerColor,
+  themeBorderColor,
   themeBorderElementColor,
   themeDivideColor,
-  themeGlassyBorder,
   themeTextBrandColor,
   themeTextDangerColor,
   themeTextSubtleColor,
@@ -435,13 +434,14 @@ export default function ProjectsPricingTable({ plans }: Props) {
           id="1iCorD"
         />
       </Heading>
+      {/* Desktop */}
       <div
         className={clsx(
           'hidden flex-col gap-5 md:flex',
           'px-8 py-6',
           'rounded-3xl',
-          themeGlassyBorder,
-          themeBackgroundLayerColor,
+          ['border', themeBorderColor],
+          'bg-white/20 dark:bg-neutral-800/20',
         )}>
         <Row>
           {plansList.map((header, index) => (
@@ -544,12 +544,14 @@ export default function ProjectsPricingTable({ plans }: Props) {
           ))}
         </div>
       </div>
+      {/* Mobile and Tablet */}
       <div
         className={clsx(
           'mx-auto flex max-w-lg flex-col md:hidden',
           'rounded-3xl',
-          themeGlassyBorder,
+          ['border', themeBorderColor],
           ['divide-y', themeDivideColor],
+          'bg-white/20 dark:bg-neutral-800/20',
         )}>
         {plansList.map(({ key, plan, title }) => {
           const availableFeatures = Object.keys(plan.features).filter(
@@ -565,7 +567,6 @@ export default function ProjectsPricingTable({ plans }: Props) {
               className={clsx(
                 'flex flex-col justify-between gap-4',
                 'px-8 py-6',
-                themeBackgroundLayerColor,
               )}>
               <div className="flex flex-col gap-4">
                 <Text color="subtitle" weight="medium">

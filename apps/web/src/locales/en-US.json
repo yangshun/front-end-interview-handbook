@@ -4295,6 +4295,10 @@
     "defaultMessage": "Stripe",
     "description": "Placeholder for \"Company\" input on Projects profile onboarding page"
   },
+  "b9gr/u": {
+    "defaultMessage": "Pricing plans tailored to your needs.",
+    "description": "Description of Pricing page"
+  },
   "bAEOVz": {
     "defaultMessage": "Lifetime plan is a limited time offering and will be removed in future.",
     "description": "Tip at the bottom of the Pricing section"
@@ -4982,6 +4986,10 @@
   "hoQUfU": {
     "defaultMessage": "Importance: High to Low",
     "description": "Sorting option on quiz questions page - from High to Low"
+  },
+  "hqzG5o": {
+    "defaultMessage": "Choose your pricing plan",
+    "description": "Title of Pricing section"
   },
   "huMizZ": {
     "defaultMessage": "Practice selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.",

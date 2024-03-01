@@ -203,14 +203,15 @@ model ProjectsProfile {
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @default(now()) @updatedAt
 
-  userProfile  Profile                           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  sessions     ProjectsChallengeSession[]
-  submissions  ProjectsChallengeSubmission[]
-  votesGiven   ProjectsChallengeSubmissionVote[]
-  pins         ProjectsChallengeSubmissionPin[]
-  reputation   ProjectsReputationPoint[]
-  comments     ProjectsDiscussionComment[]
-  commentVotes ProjectsDiscussionCommentVote[]
+  userProfile        Profile                           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  sessions           ProjectsChallengeSession[]
+  submissions        ProjectsChallengeSubmission[]
+  votesGiven         ProjectsChallengeSubmissionVote[]
+  pins               ProjectsChallengeSubmissionPin[]
+  reputation         ProjectsReputationPoint[]
+  comments           ProjectsDiscussionComment[]
+  commentVotes       ProjectsDiscussionCommentVote[]
+  challengesUnlocked ProjectsChallengeAccess[]
 }
 
 enum ProjectsChallengeSessionStatus {
@@ -231,7 +232,7 @@ model ProjectsChallengeSession {
   updatedAt DateTime  @default(now()) @updatedAt
   stoppedAt DateTime? @db.Timestamptz(6)
 
-  projectsProfile ProjectsProfile @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  projectsProfile ProjectsProfile @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 }
 
 // This model only exists to allow models that are connected to a challenge
@@ -241,6 +242,15 @@ model ProjectsChallengeDetails {
   difficulty Int
 
   submissions ProjectsChallengeSubmission[]
+}
+
+model ProjectsChallengeAccess {
+  id        String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  profileId String   @db.Uuid
+  slug      String
+  createdAt DateTime @default(now()) @db.Timestamptz(6)
+
+  projectsProfile ProjectsProfile @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
 }
 
 model ProjectsChallengeSubmission {
@@ -261,7 +271,7 @@ model ProjectsChallengeSubmission {
   editedAt  DateTime @default(now()) @db.Timestamptz(6) // Manually edited by the user.
 
   challengeDetails     ProjectsChallengeDetails?                        @relation(fields: [slug], references: [slug])
-  projectsProfile      ProjectsProfile?                                 @relation(fields: [profileId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  projectsProfile      ProjectsProfile?                                 @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
   votes                ProjectsChallengeSubmissionVote[]
   pins                 ProjectsChallengeSubmissionPin[]
   recommendationAll    ProjectsChallengeSubmissionRecommendationAll?
