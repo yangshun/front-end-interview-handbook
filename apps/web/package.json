@@ -72,7 +72,6 @@
     "@trpc/react-query": "^10.18.0",
     "@trpc/server": "^10.18.0",
     "@vercel/analytics": "^1.1.1",
-    "axios": "^0.27.2",
     "clean-set": "^1.1.2",
     "clsx": "^2.0.0",
     "console-feed": "3.3.0",

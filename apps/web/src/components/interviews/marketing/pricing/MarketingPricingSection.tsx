@@ -1,4 +1,3 @@
-import axios from 'axios';
 import clsx from 'clsx';
 import { useRef } from 'react';
 import { useEffect } from 'react';
@@ -6,6 +5,7 @@ import { useId } from 'react';
 import { useState } from 'react';
 import { RiArrowRightLine, RiCheckLine } from 'react-icons/ri';
 import { FormattedMessage, FormattedNumberParts, useIntl } from 'react-intl';
+import url from 'url';
 
 import fbq from '~/lib/fbq';
 import gtag from '~/lib/gtag';
@@ -255,22 +255,26 @@ function PricingButtonNonPremium({
     setIsCheckoutSessionLoading(true);
     setError(null);
     try {
-      const { data } = await axios.get(`/api/payments/purchase/checkout`, {
-        params: {
-          plan_type: planType,
-        },
-      });
+      const res = await fetch(
+        url.format({
+          pathname: '/api/payments/purchase/checkout',
+          query: {
+            plan_type: planType,
+          },
+        }),
+      );
+      const { payload } = await res.json();
       const stripe = await loadStripe(
         process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY as string,
       );
 
       if (hasClickedRef.current) {
-        await stripe?.redirectToCheckout({ sessionId: data.payload.id });
+        await stripe?.redirectToCheckout({ sessionId: payload.id });
 
         return;
       }
 
-      setCheckoutSessionHref(data.payload.url);
+      setCheckoutSessionHref(payload.url);
     } catch (err: any) {
       if (hasClickedRef.current) {
         setError(
