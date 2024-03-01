@@ -38,10 +38,25 @@ Unlike typical software engineer job interviews, front end job interviews have l
 - [Front end questions](https://www.frontendinterviewhandbook.com/coding/javascript-utility-function/) - JavaScript, DOM, algorithms, and more
 - [Front end interview questions by companies](https://www.frontendinterviewhandbook.com/company-interview-questions/)
 
+## Where to get hands on practice?
+
+<div align="center">
+  <a href="https://www.greatfrontend.com">
+    <img src="assets/mark-brand-light.png" alt="GreatFrontEnd" width="400"/>
+  </a>
+</div>
+
+After getting a good understanding about front end interview preparation, try out [GreatFrontEnd](https://www.greatfrontend.com), a platform built by me! Not only that there are 200+ practice questions, each with multiple solutions from senior front end engineers, there are also automated test case suites to help you identify what's wrong with your code. Thus, check out the following resources:
+
+- [Study plans](https://www.greatfrontend.com/study-plans) help you prepare for your upcoming technical interviews, whether it is in a week or 3 months later.
+- [Focus areas](https://www.greatfrontend.com/focus-areas) allow you to focus on your weak areas and also further improve your strengths depending on your preferences.
+- [Preparation by stage](https://www.greatfrontend.com/prepare) prepares you for each phase of your interview process, from quiz to coding interviews. 
+- [Individual framework questions](https://www.greatfrontend.com/questions) offer training based on specific frameworks that may be tested during your technical interviews.
+
 ---
 
 <div align="center">
-  <h3>💡 Preparing for front end interviews? <a href="https://www.greatfrontend.com">GreatFrontEnd</a> is offering 25% off its lifetime plan of high quality practice questions and solutions written by ex-FAANG Engineers 💡</h3>
+  <h3>Need to practice front end interview questions? <a href="https://www.greatfrontend.com">GreatFrontEnd</a> is holding a limited time promotion for 20% off their lifetime plan of high quality practice questions and reference solutions written by ex-FAANG interviewers 🚀</h3>
 </div>
 
 ---
