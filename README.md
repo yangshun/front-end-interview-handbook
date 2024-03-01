@@ -46,12 +46,12 @@ Unlike typical software engineer job interviews, front end job interviews have l
   </a>
 </div>
 
-After getting a good understanding about front end interview preparation, try out [GreatFrontEnd](https://www.greatfrontend.com), a platform built by me! You can even adjust your practice schedule based on the following categories:
+After getting a good understanding about front end interview preparation, try out [GreatFrontEnd](https://www.greatfrontend.com), a platform built by me! Not only that there are 200+ practice questions, each with multiple solutions from senior front end engineers, there are also automated test case suites to help you identify what's wrong with your code. Thus, check out the following resources:
 
-- [Study plans](https://www.greatfrontend.com/study-plans)
-- [Focus areas](https://www.greatfrontend.com/focus-areas)
-- [Preparation by stage](https://www.greatfrontend.com/prepare)
-- [Individual framework questions](https://www.greatfrontend.com/questions)
+- [Study plans](https://www.greatfrontend.com/study-plans) help you prepare for your upcoming technical interviews, whether it is in a week or 3 months later.
+- [Focus areas](https://www.greatfrontend.com/focus-areas) allow you to focus on your weak areas and also further improve your strengths depending on your preferences.
+- [Preparation by stage](https://www.greatfrontend.com/prepare) prepares you for each phase of your interview process, from quiz to coding interviews. 
+- [Individual framework questions](https://www.greatfrontend.com/questions) offer training based on specific frameworks that may be tested during your technical interviews.
 
 ---
 
