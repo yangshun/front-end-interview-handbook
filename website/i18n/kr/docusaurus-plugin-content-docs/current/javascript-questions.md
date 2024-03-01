@@ -1229,4 +1229,4 @@ ES2015에서는 AMD 및 commonJS를 모두 대체하기 위한 모듈 문법을 
 
 ### 다른 답변들
 
-- <http://flowerszhong.github.io/2013/11/20/javascript-questions.html>
+- http://flowerszhong.github.io/2013/11/20/javascript-questions.html
