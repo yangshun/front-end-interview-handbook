@@ -110,16 +110,18 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
                   </div>
                   <div className="flex flex-row items-center gap-1.5">
                     <RiRocketLine className={clsx(themeIconColor)} />
-                    <FormattedMessage
-                      defaultMessage="<bold>{completed}</bold>/{totalCount} recommended"
-                      description="Line describing the number of questions completed by user over the total number of questions"
-                      id="t9TP64"
-                      values={{
-                        bold: (chunks) => <Text size="body2">{chunks}</Text>,
-                        completed: track.numChallengesCompleted,
-                        totalCount: track.numChallenges,
-                      }}
-                    />
+                    <Text color="secondary" size="body3">
+                      <FormattedMessage
+                        defaultMessage="<bold>{completed}</bold>/{totalCount} recommended"
+                        description="Line describing the number of questions completed by user over the total number of questions"
+                        id="t9TP64"
+                        values={{
+                          bold: (chunks) => <Text size="body2">{chunks}</Text>,
+                          completed: track.numChallengesCompleted,
+                          totalCount: track.numChallenges,
+                        }}
+                      />
+                    </Text>
                   </div>
                 </div>
               </div>
