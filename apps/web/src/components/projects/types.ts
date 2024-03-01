@@ -93,7 +93,7 @@ export type ProjectsBaseScreenshot = Readonly<{
   screenshots: Record<ProjectsImageBreakpointCategory, string>;
 }>;
 
-export type ProjectsPricingFrequency = 'annual' | 'month' | 'quarter';
+export type ProjectsPricingFrequency = 'annual' | 'free' | 'month';
 
 export type ProjectsFeatures =
   | 'apps'
@@ -103,14 +103,14 @@ export type ProjectsFeatures =
   | 'skillRoadmap'
   | 'unlocks';
 
-type ProjectsPricingFeatures = {
+type ProjectsPricingFeatures = Readonly<{
   apps: boolean;
   breakpoints: boolean;
   componentTracks: boolean;
   freeChallenges: boolean;
   skillRoadmap: boolean;
   unlocks: number | false;
-};
+}>;
 
 export type ProjectsPricingPlan = Readonly<{
   discount: number;

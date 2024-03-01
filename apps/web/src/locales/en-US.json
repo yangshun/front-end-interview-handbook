@@ -79,6 +79,10 @@
     "defaultMessage": "Self-Learning",
     "description": "Label for \"Self-Learning\" option in YOE replacement"
   },
+  "+cF6Ba": {
+    "defaultMessage": "Monthly plan",
+    "description": "Label for monthly plan"
+  },
   "+dUPPi": {
     "defaultMessage": "Post",
     "description": "Label for post reply button on project discussions page"
@@ -314,6 +318,10 @@
   "0p6dRS": {
     "defaultMessage": "Practice makes perfect. With our collection of over {count} front end questions, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
     "description": "Title of question examples section on getting started page"
+  },
+  "0tgQZt": {
+    "defaultMessage": "Annual plan",
+    "description": "Label for annual plan"
   },
   "0ttv+M": {
     "defaultMessage": "Adjust your filters a bit, and let's see what we can find!",
@@ -574,10 +582,6 @@
   "3lEE1N": {
     "defaultMessage": "New",
     "description": "Label for new questions ribbon"
-  },
-  "3pRgf/": {
-    "defaultMessage": "{count} unlocks per month",
-    "description": "Label for unlocks feature for annual plan"
   },
   "3t00jq": {
     "defaultMessage": "Confirm",
@@ -855,6 +859,10 @@
     "defaultMessage": "Check on eligibility or submit proof",
     "description": "Instruction to check for review cashback"
   },
+  "6dx/5B": {
+    "defaultMessage": "{price} billed every month",
+    "description": "Description of billing frequency for monthly plan"
+  },
   "6fAxyB": {
     "defaultMessage": "Behavioral Interview Guidebook",
     "description": "Title for behavioral interview guidebook"
@@ -946,6 +954,10 @@
   "7Wsapt": {
     "defaultMessage": "Quiz",
     "description": "Quiz questions short title"
+  },
+  "7ZqJXd": {
+    "defaultMessage": "{count} unlocks every year",
+    "description": "Label for unlocks feature for annual plan"
   },
   "7fCoNs": {
     "defaultMessage": "Will I have to code within the platform, or use my own IDE?",
@@ -1586,10 +1598,6 @@
   "DbEF7d": {
     "defaultMessage": "Master the art of building interactive and user-friendly forms.",
     "description": "Description for interview preparation focus area"
-  },
-  "DcTrsK": {
-    "defaultMessage": "Only Marketing track",
-    "description": "Label for component tracks feature for month plan"
   },
   "DdRaW3": {
     "defaultMessage": "Filters",
@@ -2539,10 +2547,6 @@
     "defaultMessage": "GitHub repo",
     "description": "Title for GitHub repo step in project submission checklist"
   },
-  "M9bmeU": {
-    "defaultMessage": "Annual Plan",
-    "description": "Label for annual plan"
-  },
   "M9z02W": {
     "defaultMessage": "Airbnb",
     "description": "Company name for Airbnb"
@@ -2742,10 +2746,6 @@
   "Nt+P5A": {
     "defaultMessage": "Simulate real interview conditions, no need for any setup!",
     "description": "Subtitle for in-browser coding workspace feature"
-  },
-  "NwvgLo": {
-    "defaultMessage": "{count} unlocks instantly",
-    "description": "Label for unlocks feature for quarter plan"
   },
   "Nz7W/0": {
     "defaultMessage": "Oops something went wrong",
@@ -3759,6 +3759,10 @@
     "defaultMessage": "The complete preparation platform for front end interviews. {questionCount}+ practice questions (with answers) across system design, UI and more. By ex-FAANG interviewers.",
     "description": "Description of GreatFrontEnd standard page"
   },
+  "WK23Hh": {
+    "defaultMessage": "Only Marketing track",
+    "description": "Label for component tracks feature for free plan"
+  },
   "WNERnb": {
     "defaultMessage": "End session",
     "description": "Label for \"End session\" button on current project session card"
@@ -3974,6 +3978,10 @@
   "YGqz7y": {
     "defaultMessage": "Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.",
     "description": "Description for interview preparation focus area"
+  },
+  "YGyElJ": {
+    "defaultMessage": "{count} unlocks every month",
+    "description": "Label for unlocks feature for month plan"
   },
   "YJmwAv": {
     "defaultMessage": "Or reach us via these channels",
@@ -4567,10 +4575,6 @@
     "defaultMessage": "Efficient strategies to prepare and ace behavioral interviews.",
     "description": "Behavioral interview guidebook description"
   },
-  "dwficr": {
-    "defaultMessage": "Quarterly Plan",
-    "description": "Label for quarterly plan"
-  },
   "dxQHSA": {
     "defaultMessage": "Start building any project you can dream of to train your front end / full stack skills or to build a useful toolkit.",
     "description": "Description of Projects challenges page"
@@ -4874,6 +4878,10 @@
   "gdGavv": {
     "defaultMessage": "Premium Question",
     "description": "Title on question paywall displayed on premium question's pages"
+  },
+  "ge4FCc": {
+    "defaultMessage": "Free plan",
+    "description": "Label for free plan"
   },
   "ghmPBf": {
     "defaultMessage": "Solved previously, mark as completed",
@@ -5395,6 +5403,10 @@
     "defaultMessage": "View questions",
     "description": "Label for button to view questions"
   },
+  "kzklH3": {
+    "defaultMessage": "From beginner to advanced",
+    "description": "Label for skill roadmap feature for month plan"
+  },
   "kzxwOd": {
     "defaultMessage": "We appreciate any feedback or bug reports on the product. Feedback that the team finds useful will be rewarded with freebies and discounts or even cashbacks on your order!",
     "description": "Feedback widget description."
@@ -5650,10 +5662,6 @@
   "n9Ii7+": {
     "defaultMessage": "System Design",
     "description": "Label for system design questions"
-  },
-  "nI/YEK": {
-    "defaultMessage": "From beginner to advanced",
-    "description": "Label for skill roadmap feature for quarter plan"
   },
   "nJYzIr": {
     "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
@@ -6414,10 +6422,6 @@
   "tk2fQh": {
     "defaultMessage": "Social rewards",
     "description": "Title of Rewards page"
-  },
-  "tn3Q/s": {
-    "defaultMessage": "Monthly Plan",
-    "description": "Label for month plan"
   },
   "tnHfa2": {
     "defaultMessage": "Move line down",

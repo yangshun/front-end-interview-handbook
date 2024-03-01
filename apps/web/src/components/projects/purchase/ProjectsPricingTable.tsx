@@ -13,6 +13,8 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundLayerColor,
+  themeBorderElementColor,
+  themeDivideColor,
   themeGlassyBorder,
   themeTextBrandColor,
   themeTextDangerColor,
@@ -63,7 +65,7 @@ function PricingPlanComparisonDiscount({
   plan: ProjectsPricingPlan;
 }>) {
   switch (plan.frequency) {
-    case 'month':
+    case 'free':
       return (
         <span>
           <FormattedMessage
@@ -87,14 +89,14 @@ function PricingPlanComparisonDiscount({
           />
         </span>
       );
-    case 'quarter':
+    case 'month':
       return (
         <>
           <span>
             <FormattedMessage
-              defaultMessage="{price} billed every 3 months"
-              description="Description of billing frequency for quarterly plan"
-              id="2XR9B5"
+              defaultMessage="{price} billed every month"
+              description="Description of billing frequency for monthly plan"
+              id="6dx/5B"
               values={{
                 price: (
                   <PriceLabel
@@ -129,7 +131,7 @@ function PricingPlanComparisonDiscount({
               values={{
                 price: (
                   <PriceLabel
-                    amount={plan.monthlyPrice}
+                    amount={plan.monthlyPrice * 12}
                     currency="USD"
                     symbol="$"
                   />
@@ -170,7 +172,12 @@ function ItemCell({
   className?: string;
 }) {
   return (
-    <div className={clsx('border-b border-neutral-800 px-1 py-3', className)}>
+    <div
+      className={clsx(
+        'py-3',
+        ['border-b', themeBorderElementColor],
+        className,
+      )}>
       {children}
     </div>
   );
@@ -179,32 +186,20 @@ function ItemCell({
 function FeatureCell({
   className,
   label,
-  available,
   description,
-  showAvailable,
 }: {
-  available?: boolean;
   className?: string;
   description?: React.ReactNode;
   label: string;
-  showAvailable?: boolean;
 }) {
   return (
     <ItemCell className={clsx('col-span-2 flex items-center gap-2', className)}>
-      {showAvailable &&
-        (available ? (
-          <RiCheckboxCircleFill
-            className={clsx('size-5 shrink-0', themeTextSuccessColor)}
-          />
-        ) : (
-          <RiCloseCircleFill
-            className={clsx('size-5 shrink-0', themeTextDangerColor)}
-          />
-        ))}
       <Text color="secondary">{label}</Text>
       {description && (
         <Tooltip label={description}>
-          <RiQuestionFill className={clsx('size-4', themeTextSubtleColor)} />
+          <RiQuestionFill
+            className={clsx('size-5 shrink-0', themeTextSubtleColor)}
+          />
         </Tooltip>
       )}
     </ItemCell>
@@ -221,14 +216,14 @@ function PlanCell({
   label?: string;
 }) {
   return (
-    <ItemCell className={clsx('flex items-center gap-2', className)}>
+    <ItemCell className={clsx('flex items-center gap-2 px-2', className)}>
       {available ? (
         <RiCheckboxCircleFill
-          className={clsx('size-5 shrink-0', themeTextSuccessColor)}
+          className={clsx('size-6 shrink-0', themeTextSuccessColor)}
         />
       ) : (
         <RiCloseCircleFill
-          className={clsx('size-5 shrink-0', themeTextDangerColor)}
+          className={clsx('size-6 shrink-0', themeTextDangerColor)}
         />
       )}
       {label && (
@@ -248,36 +243,28 @@ function Row({
   className?: string;
 }) {
   return (
-    <div className={clsx('grid grid-cols-5 gap-x-1', className)}>
+    <div className={clsx('grid grid-cols-5 gap-x-4', className)}>
       {children}
     </div>
   );
 }
 
-type Props = {
-  plans: {
-    annual: ProjectsPricingPlan;
-    month: ProjectsPricingPlan;
-    quarter: ProjectsPricingPlan;
-  };
-};
+type Props = Readonly<{
+  plans: Record<ProjectsPricingFrequency, ProjectsPricingPlan>;
+}>;
 
-type Feature = {
+type Feature = Readonly<{
   description?: React.ReactNode;
-  plan?: {
-    annual?: string;
-    month?: string;
-    quarter?: string;
-  };
+  plan?: Partial<Record<ProjectsPricingFrequency, string>>;
   title: string;
-};
+}>;
 
 type ProjectsFeaturesObject = Record<ProjectsFeatures, Feature>;
 
 export default function ProjectsPricingTable({ plans }: Props) {
   const intl = useIntl();
 
-  const { month: monthPlan, quarter: quarterPlan, annual: annualPlan } = plans;
+  const { free: freePlan, month: monthPlan, annual: annualPlan } = plans;
   const features: ProjectsFeaturesObject = {
     apps: {
       title: intl.formatMessage({
@@ -305,10 +292,10 @@ export default function ProjectsPricingTable({ plans }: Props) {
         </div>
       ),
       plan: {
-        month: intl.formatMessage({
+        free: intl.formatMessage({
           defaultMessage: 'Only Marketing track',
-          description: 'Label for component tracks feature for month plan',
-          id: 'DcTrsK',
+          description: 'Label for component tracks feature for free plan',
+          id: 'WK23Hh',
         }),
       },
       title: intl.formatMessage({
@@ -341,15 +328,15 @@ export default function ProjectsPricingTable({ plans }: Props) {
           description: 'Label for skill roadmap feature for annual plan',
           id: 'J1pqvo',
         }),
-        month: intl.formatMessage({
+        free: intl.formatMessage({
           defaultMessage: 'Only foundational skills',
           description: 'Label for skill roadmap feature for month plan',
           id: 'MZyEk9',
         }),
-        quarter: intl.formatMessage({
+        month: intl.formatMessage({
           defaultMessage: 'From beginner to advanced',
-          description: 'Label for skill roadmap feature for quarter plan',
-          id: 'nI/YEK',
+          description: 'Label for skill roadmap feature for month plan',
+          id: 'kzklH3',
         }),
       },
       title: intl.formatMessage({
@@ -372,22 +359,22 @@ export default function ProjectsPricingTable({ plans }: Props) {
       plan: {
         annual: intl.formatMessage(
           {
-            defaultMessage: '{count} unlocks per month',
+            defaultMessage: '{count} unlocks every year',
             description: 'Label for unlocks feature for annual plan',
-            id: '3pRgf/',
+            id: '7ZqJXd',
           },
           {
             count: annualPlan.features.unlocks,
           },
         ),
-        quarter: intl.formatMessage(
+        month: intl.formatMessage(
           {
-            defaultMessage: '{count} unlocks instantly',
-            description: 'Label for unlocks feature for quarter plan',
-            id: 'NwvgLo',
+            defaultMessage: '{count} unlocks every month',
+            description: 'Label for unlocks feature for month plan',
+            id: 'YGyElJ',
           },
           {
-            count: quarterPlan.features.unlocks,
+            count: monthPlan.features.unlocks,
           },
         ),
       },
@@ -400,22 +387,22 @@ export default function ProjectsPricingTable({ plans }: Props) {
     },
   };
 
-  const monthPlanTitle = intl.formatMessage({
-    defaultMessage: 'Monthly Plan',
-    description: 'Label for month plan',
-    id: 'tn3Q/s',
+  const freePlanTitle = intl.formatMessage({
+    defaultMessage: 'Free plan',
+    description: 'Label for free plan',
+    id: 'ge4FCc',
   });
 
-  const quarterPlanTitle = intl.formatMessage({
-    defaultMessage: 'Quarterly Plan',
-    description: 'Label for quarterly plan',
-    id: 'dwficr',
+  const monthPlanTitle = intl.formatMessage({
+    defaultMessage: 'Monthly plan',
+    description: 'Label for monthly plan',
+    id: '+cF6Ba',
   });
 
   const annualPlanTitle = intl.formatMessage({
-    defaultMessage: 'Annual Plan',
+    defaultMessage: 'Annual plan',
     description: 'Label for annual plan',
-    id: 'M9bmeU',
+    id: '0tgQZt',
   });
 
   const plansList: ReadonlyArray<{
@@ -423,8 +410,8 @@ export default function ProjectsPricingTable({ plans }: Props) {
     plan: ProjectsPricingPlan;
     title: string;
   }> = [
+    { key: 'free', plan: freePlan, title: freePlanTitle },
     { key: 'month', plan: monthPlan, title: monthPlanTitle },
-    { key: 'quarter', plan: quarterPlan, title: quarterPlanTitle },
     { key: 'annual', plan: annualPlan, title: annualPlanTitle },
   ];
   const featureDetails: ReadonlyArray<{
@@ -450,7 +437,9 @@ export default function ProjectsPricingTable({ plans }: Props) {
       </Heading>
       <div
         className={clsx(
-          'hidden flex-col gap-2 rounded-3xl p-4 md:flex',
+          'hidden flex-col gap-5 md:flex',
+          'px-8 py-6',
+          'rounded-3xl',
           themeGlassyBorder,
           themeBackgroundLayerColor,
         )}>
@@ -510,7 +499,7 @@ export default function ProjectsPricingTable({ plans }: Props) {
                     </Text>
                   )}
                 </div>
-                {header.plan.frequency !== 'month' && (
+                {header.plan.frequency !== 'free' && (
                   <div className="flex w-full flex-col items-center gap-2">
                     <Button
                       className="w-full"
@@ -555,7 +544,13 @@ export default function ProjectsPricingTable({ plans }: Props) {
           ))}
         </div>
       </div>
-      <div className="mx-auto flex max-w-lg flex-col gap-6 md:hidden">
+      <div
+        className={clsx(
+          'mx-auto flex max-w-lg flex-col md:hidden',
+          'rounded-3xl',
+          themeGlassyBorder,
+          ['divide-y', themeDivideColor],
+        )}>
         {plansList.map(({ key, plan, title }) => {
           const availableFeatures = Object.keys(plan.features).filter(
             (feature) => !!plan.features[feature as ProjectsFeatures],
@@ -568,8 +563,8 @@ export default function ProjectsPricingTable({ plans }: Props) {
             <div
               key={key}
               className={clsx(
-                'flex min-h-[427px] flex-col justify-between gap-4 rounded-3xl p-4',
-                themeGlassyBorder,
+                'flex flex-col justify-between gap-4',
+                'px-8 py-6',
                 themeBackgroundLayerColor,
               )}>
               <div className="flex flex-col gap-4">
@@ -623,11 +618,12 @@ export default function ProjectsPricingTable({ plans }: Props) {
                     </Text>
                   )}
                 </div>
-                {key !== 'month' && (
+                {key !== 'free' && (
                   <div className="flex w-full flex-col items-center gap-2">
                     <Button
                       className="w-full"
                       label="Unlock Premium"
+                      size="md"
                       variant="primary"
                     />
                     <Text color="secondary" size="body3">
@@ -645,7 +641,6 @@ export default function ProjectsPricingTable({ plans }: Props) {
                   ({ feature, key: featureKey }, index) => (
                     <FeatureCell
                       key={featureKey}
-                      available={true}
                       className={clsx(
                         '!items-start',
                         index === availableFeaturesDetails.length - 1 &&
@@ -653,7 +648,6 @@ export default function ProjectsPricingTable({ plans }: Props) {
                       )}
                       description={feature.description}
                       label={feature.title}
-                      showAvailable={true}
                     />
                   ),
                 )}
