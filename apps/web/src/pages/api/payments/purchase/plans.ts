@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 import countryNames from '~/data/countryCodesToNames.json';
 
-import fetchLocalizedPlanPricing from '~/components/interviews/pricing/fetchLocalizedPlanPricing';
+import fetchInterviewsLocalizedPlanPricing from '~/components/interviews/pricing/fetchInterviewsLocalizedPlanPricing';
 
 import logMessage from '~/logging/logMessage';
 
@@ -19,7 +19,7 @@ export default async function handler(
   const countryCode: string = country ?? req.cookies.country ?? 'US';
 
   try {
-    const plans = await fetchLocalizedPlanPricing(countryCode);
+    const plans = await fetchInterviewsLocalizedPlanPricing(countryCode);
 
     return res.json({
       country: {

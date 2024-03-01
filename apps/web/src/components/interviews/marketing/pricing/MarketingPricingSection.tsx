@@ -13,10 +13,10 @@ import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import type {
-  PricingPlanDetailsLocalized,
-  PricingPlansLocalized,
-  PricingPlanType,
-} from '~/data/PricingPlans';
+  InterviewsPricingPlanDetailsLocalized,
+  InterviewsPricingPlansLocalized,
+  InterviewsPricingPlanType,
+} from '~/data/interviews/InterviewsPricingPlans';
 
 import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
@@ -107,7 +107,7 @@ function PurpleGlowBackground() {
 type Props = Readonly<{
   countryCode: string;
   countryName: string;
-  plans: PricingPlansLocalized;
+  plans: InterviewsPricingPlansLocalized;
 }>;
 
 function PriceLabel({
@@ -181,7 +181,7 @@ function PricingButtonNonLoggedIn({
 }: Readonly<{
   'aria-describedby': string;
   isDisabled: boolean;
-  plan: PricingPlanDetailsLocalized;
+  plan: InterviewsPricingPlanDetailsLocalized;
 }>) {
   const intl = useIntl();
   const { signInUpHref } = useAuthSignInUp();
@@ -231,7 +231,7 @@ function PricingButtonNonPremium({
   plan,
 }: Readonly<{
   'aria-describedby': string;
-  plan: PricingPlanDetailsLocalized;
+  plan: InterviewsPricingPlanDetailsLocalized;
 }>) {
   const intl = useIntl();
   const { userProfile, isUserProfileLoading } = useUserProfile();
@@ -247,7 +247,7 @@ function PricingButtonNonPremium({
     useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function processSubscription(planType: PricingPlanType) {
+  async function processSubscription(planType: InterviewsPricingPlanType) {
     if (isCheckoutSessionLoading) {
       return;
     }
@@ -392,7 +392,7 @@ function PricingButtonSection({
 }: Readonly<{
   'aria-describedby': string;
   countryCode: string;
-  plan: PricingPlanDetailsLocalized;
+  plan: InterviewsPricingPlanDetailsLocalized;
 }>) {
   const intl = useIntl();
   const { isLoading: isUserLoading } = useSessionContext();
@@ -445,7 +445,7 @@ function PricingPlanComparisonDiscount({
   plan,
   showPPPMessage,
 }: Readonly<{
-  plan: PricingPlanDetailsLocalized;
+  plan: InterviewsPricingPlanDetailsLocalized;
   showPPPMessage: boolean;
 }>) {
   switch (plan.planType) {
@@ -566,7 +566,7 @@ type PricingPlanDetails = Readonly<{
   includedFeatures: ReadonlyArray<React.ReactNode>;
   name: string;
   numberOfMonths?: number;
-  plan: PricingPlanDetailsLocalized;
+  plan: InterviewsPricingPlanDetailsLocalized;
 }>;
 
 export default function MarketingPricingSection({

@@ -3,11 +3,11 @@ import { clamp } from 'lodash-es';
 import { shouldUseCountryCurrency } from '~/lib/stripeUtils';
 
 import type {
-  PricingPlanDetails,
-  PricingPlanDetailsLocalized,
-  PricingPlansLocalized,
-} from '~/data/PricingPlans';
-import { PricingPlansData } from '~/data/PricingPlans';
+  InterviewsPricingPlanDetails,
+  InterviewsPricingPlanDetailsLocalized,
+  InterviewsPricingPlansLocalized,
+} from '~/data/interviews/InterviewsPricingPlans';
+import { InterviewsPricingPlansConfig } from '~/data/interviews/InterviewsPricingPlans';
 
 import logMessage from '~/logging/logMessage';
 
@@ -76,9 +76,9 @@ function localizeUnitCostInUSD(valueInUSD: number, conversionFactor: number) {
 
 function localizePlanDetails(
   countryCode: string,
-  plan: PricingPlanDetails,
+  plan: InterviewsPricingPlanDetails,
   ppp: PurchasingPowerParity,
-): PricingPlanDetailsLocalized {
+): InterviewsPricingPlanDetailsLocalized {
   const { currency, conversionFactor: pppConversionFactor } = ppp;
 
   const shouldUseCountryCurrencyValue = shouldUseCountryCurrency(currency.code);
@@ -153,9 +153,9 @@ function localizePlanDetails(
 }
 type CountryCode = keyof typeof pppValues;
 
-export default async function fetchLocalizedPlanPricing(
+export default async function fetchInterviewsLocalizedPlanPricing(
   countryCode: string,
-): Promise<PricingPlansLocalized> {
+): Promise<InterviewsPricingPlansLocalized> {
   // Default PPP.
   let purchasingPowerParity: PurchasingPowerParity = defaultPpp;
 
@@ -182,22 +182,22 @@ export default async function fetchLocalizedPlanPricing(
   return {
     annual: localizePlanDetails(
       countryCode,
-      PricingPlansData.annual,
+      InterviewsPricingPlansConfig.annual,
       purchasingPowerParity,
     ),
     lifetime: localizePlanDetails(
       countryCode,
-      PricingPlansData.lifetime,
+      InterviewsPricingPlansConfig.lifetime,
       purchasingPowerParity,
     ),
     monthly: localizePlanDetails(
       countryCode,
-      PricingPlansData.monthly,
+      InterviewsPricingPlansConfig.monthly,
       purchasingPowerParity,
     ),
     quarterly: localizePlanDetails(
       countryCode,
-      PricingPlansData.quarterly,
+      InterviewsPricingPlansConfig.quarterly,
       purchasingPowerParity,
     ),
   };

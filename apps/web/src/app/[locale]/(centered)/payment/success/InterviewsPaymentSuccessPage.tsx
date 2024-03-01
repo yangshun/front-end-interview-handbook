@@ -12,9 +12,9 @@ import fbq from '~/lib/fbq';
 import gtag from '~/lib/gtag';
 
 import type {
-  PricingPlansLocalized,
-  PricingPlanType,
-} from '~/data/PricingPlans';
+  InterviewsPricingPlansLocalized,
+  InterviewsPricingPlanType,
+} from '~/data/interviews/InterviewsPricingPlans';
 
 import PaymentSuccessSection from '~/components/payments/PaymentSuccessSection';
 import Container from '~/components/ui/Container';
@@ -47,12 +47,14 @@ const actions = [
 ];
 
 type Props = Readonly<{
-  plans: PricingPlansLocalized;
+  plans: InterviewsPricingPlansLocalized;
 }>;
 
 export default function PaymentSuccessPage({ plans }: Props): JSX.Element {
   const searchParams = useSearchParams();
-  const planSearchParam = searchParams?.get('plan') as PricingPlanType | null;
+  const planSearchParam = searchParams?.get(
+    'plan',
+  ) as InterviewsPricingPlanType | null;
 
   useEffect(() => {
     if (planSearchParam != null) {

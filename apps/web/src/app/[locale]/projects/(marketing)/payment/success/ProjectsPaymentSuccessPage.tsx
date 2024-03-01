@@ -6,7 +6,7 @@ import {
   RiDiscordFill,
 } from 'react-icons/ri';
 
-import type { PricingPlansLocalized } from '~/data/PricingPlans';
+import type { InterviewsPricingPlansLocalized } from '~/data/interviews/InterviewsPricingPlans';
 
 import PaymentSuccessSection from '~/components/payments/PaymentSuccessSection';
 import Container from '~/components/ui/Container';
@@ -37,7 +37,7 @@ const actions = [
 ];
 
 type Props = Readonly<{
-  plans: PricingPlansLocalized;
+  plans: InterviewsPricingPlansLocalized;
 }>;
 
 export default function ProjectsPaymentSuccessPage({

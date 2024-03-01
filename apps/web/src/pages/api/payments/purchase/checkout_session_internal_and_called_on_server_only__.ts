@@ -4,9 +4,12 @@ import Stripe from 'stripe';
 import absoluteUrl from '~/lib/absoluteUrl';
 import { normalizeCurrencyValue } from '~/lib/stripeUtils';
 
-import type { PricingPlanDetails, PricingPlanType } from '~/data/PricingPlans';
+import type {
+  InterviewsPricingPlanDetails,
+  InterviewsPricingPlanType,
+} from '~/data/interviews/InterviewsPricingPlans';
 
-import fetchLocalizedPlanPricing from '~/components/interviews/pricing/fetchLocalizedPlanPricing';
+import fetchInterviewsLocalizedPlanPricing from '~/components/interviews/pricing/fetchInterviewsLocalizedPlanPricing';
 
 const productId = process.env.STRIPE_MAIN_PRODUCT_ID;
 
@@ -14,7 +17,7 @@ export type QueryParams = {
   // Two-letter ISO country code.
   country_code: string;
   first_promoter_tid?: string;
-  plan_type: PricingPlanType;
+  plan_type: InterviewsPricingPlanType;
   receipt_email?: string;
   stripe_customer_id: string;
 };
@@ -45,7 +48,7 @@ export default async function handler(
     apiVersion: '2022-11-15',
   });
 
-  const data = await fetchLocalizedPlanPricing(countryCode);
+  const data = await fetchInterviewsLocalizedPlanPricing(countryCode);
 
   const planDetails = data[planType];
 
@@ -92,7 +95,10 @@ export default async function handler(
   }
 }
 
-function checkoutSessionUrls(req: NextApiRequest, plan: PricingPlanDetails) {
+function checkoutSessionUrls(
+  req: NextApiRequest,
+  plan: InterviewsPricingPlanDetails,
+) {
   const { origin } = absoluteUrl(req);
   const { planType } = plan;
 
@@ -107,7 +113,7 @@ async function processSubscriptionPlan(
   res: NextApiResponse,
   stripeCustomerId: string,
   stripe: Stripe,
-  plan: PricingPlanDetails,
+  plan: InterviewsPricingPlanDetails,
   currency: string,
   unitAmountInCurrency: number,
   firstPromoterTrackingId?: string,
@@ -154,7 +160,7 @@ async function processOneTimePlan(
   res: NextApiResponse,
   stripeCustomerId: string,
   stripe: Stripe,
-  plan: PricingPlanDetails,
+  plan: InterviewsPricingPlanDetails,
   currency: string,
   unitAmountInCurrency: number,
   receiptEmail?: string,

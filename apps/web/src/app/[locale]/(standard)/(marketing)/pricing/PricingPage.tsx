@@ -6,9 +6,9 @@ import { useEffect } from 'react';
 import gtag from '~/lib/gtag';
 
 import type {
-  PricingPlansLocalized,
-  PricingPlanType,
-} from '~/data/PricingPlans';
+  InterviewsPricingPlansLocalized,
+  InterviewsPricingPlanType,
+} from '~/data/interviews/InterviewsPricingPlans';
 
 import MarketingFeatures from '~/components/interviews/marketing/MarketingFeatures';
 import MarketingPricingFAQSection from '~/components/interviews/marketing/pricing/MarketingPricingFAQSection';
@@ -22,7 +22,7 @@ import logMessage from '~/logging/logMessage';
 type Props = Readonly<{
   countryCode: string;
   countryName: string;
-  plans: PricingPlansLocalized;
+  plans: InterviewsPricingPlansLocalized;
 }>;
 
 export default function PricingPage({
@@ -31,7 +31,9 @@ export default function PricingPage({
   plans,
 }: Props) {
   const searchParams = useSearchParams();
-  const planSearchParam = searchParams?.get('plan') as PricingPlanType | null;
+  const planSearchParam = searchParams?.get(
+    'plan',
+  ) as InterviewsPricingPlanType | null;
 
   const cancelSearchParam = searchParams?.get('cancel');
 

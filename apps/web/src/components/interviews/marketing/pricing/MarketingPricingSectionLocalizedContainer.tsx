@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import type { PricingPlansLocalized } from '~/data/PricingPlans';
+import type { InterviewsPricingPlansLocalized } from '~/data/interviews/InterviewsPricingPlans';
 
 import MarketingPricingSection from './MarketingPricingSection';
 
@@ -9,7 +9,9 @@ export default function MarketingPricingSectionLocalizedContainer() {
     code: string;
     name: string;
   }> | null>();
-  const [plans, setPlans] = useState<PricingPlansLocalized | null>(null);
+  const [plans, setPlans] = useState<InterviewsPricingPlansLocalized | null>(
+    null,
+  );
 
   async function fetchPlans() {
     const response = await fetch('/api/payments/purchase/plans');
@@ -18,7 +20,7 @@ export default function MarketingPricingSectionLocalizedContainer() {
         code: string;
         name: string;
       };
-      plans: PricingPlansLocalized;
+      plans: InterviewsPricingPlansLocalized;
     }>;
 
     setPlans(results.plans);

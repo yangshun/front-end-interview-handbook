@@ -4,7 +4,7 @@ import Stripe from 'stripe';
 
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 
-import type { PricingPlanType } from '~/data/PricingPlans';
+import type { InterviewsPricingPlanType } from '~/data/interviews/InterviewsPricingPlans';
 
 import {
   createSupabaseAdminClientGFE_SERVER_ONLY,
@@ -124,7 +124,7 @@ export default async function handler(req: NextRequest) {
 
     const queryParams: QueryParams = {
       country_code: countryCode,
-      plan_type: searchParams.get('plan_type') as PricingPlanType,
+      plan_type: searchParams.get('plan_type') as InterviewsPricingPlanType,
       stripe_customer_id: stripeCustomerId,
     };
 
