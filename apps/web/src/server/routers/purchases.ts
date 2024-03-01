@@ -1,12 +1,17 @@
 import Stripe from 'stripe';
+import { z } from 'zod';
 
 import absoluteUrl from '~/lib/absoluteUrl';
 
 import countryNames from '~/data/countryCodesToNames.json';
 
+import fetchInterviewsLocalizedPlanPricing from '~/components/interviews/pricing/fetchInterviewsLocalizedPlanPricing';
+
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
+
+type CountryCode = keyof typeof countryNames;
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   apiVersion: '2023-10-16',
@@ -44,6 +49,23 @@ export const purchasesRouter = router({
 
     return session.url;
   }),
+  interviewsPlans: publicProcedure
+    .input(z.string().optional())
+    .query(async ({ input: country, ctx: { req } }) => {
+      const countryCode = (country ??
+        req.cookies.country ??
+        'US') as CountryCode;
+
+      const plans = await fetchInterviewsLocalizedPlanPricing(countryCode);
+
+      return {
+        country: {
+          code: countryCode,
+          name: countryNames[countryCode as CountryCode],
+        },
+        plans,
+      };
+    }),
   recent: publicProcedure.query(async () => {
     const charges = await stripe.charges.search({
       limit: 10,
