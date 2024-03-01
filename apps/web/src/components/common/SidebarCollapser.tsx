@@ -37,11 +37,11 @@ export default function SidebarCollapser() {
         'z-sticky absolute top-[80px] -ml-px h-10 translate-x-full',
         showSidebar ? 'right-px' : 'right-0',
         themeTextSecondaryColor,
-        themeBorderColor,
-        'rounded-r-lg border-y border-r',
         themeBackgroundElementColor,
         themeBackgroundElementEmphasizedStateColor_Hover,
         themeBackgroundElementPressedStateColor_Active,
+        'rounded-r-lg',
+        ['border-y border-r', themeBorderColor],
         themeOutlineElementBrandColor_FocusVisible,
       )}
       title={title}
