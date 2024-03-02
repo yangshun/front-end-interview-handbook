@@ -21,6 +21,9 @@ export default function AlertExamples() {
       <Alert title="Errors submitting" variant="danger">
         Please try again later, or close it and forget about it.
       </Alert>
+      <Alert title="Super special" variant="special">
+        This is super special and should be used sparingly.
+      </Alert>
     </UIExamplesGroup>
   );
 }

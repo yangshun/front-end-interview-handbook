@@ -8,13 +8,25 @@ import {
   RiStarFill,
 } from 'react-icons/ri';
 
-import { themeTextBrandColor } from '~/components/ui/theme';
+import {
+  themeBorderBrandColor,
+  themeBrandShadow,
+  themeTextBrandColor,
+  themeTextColor,
+  themeTextSecondaryColor,
+} from '~/components/ui/theme';
 
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 import Text from '../Text';
 
-type AlertVariant = 'danger' | 'info' | 'primary' | 'success' | 'warning';
+type AlertVariant =
+  | 'danger'
+  | 'info'
+  | 'primary'
+  | 'special'
+  | 'success'
+  | 'warning';
 
 type Props = Readonly<{
   children: ReactNode;
@@ -27,6 +39,7 @@ const classes: Record<
   AlertVariant,
   Readonly<{
     backgroundClass: string;
+    borderClass?: string;
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     iconClass: string;
     titleClass: string;
@@ -50,6 +63,13 @@ const classes: Record<
     iconClass: themeTextBrandColor,
     titleClass: themeTextBrandColor,
   },
+  special: {
+    backgroundClass: 'bg-white dark:bg-neutral-800/70',
+    borderClass: clsx('border', themeBorderBrandColor, themeBrandShadow),
+    icon: RiStarFill,
+    iconClass: themeTextColor,
+    titleClass: themeTextColor,
+  },
   success: {
     backgroundClass: 'bg-success-lightest dark:bg-neutral-800/70',
     icon: RiCheckboxCircleFill,
@@ -72,6 +92,7 @@ export default function Alert({
 }: Props) {
   const {
     backgroundClass,
+    borderClass,
     iconClass,
     titleClass,
     icon: VariantIcon,
@@ -81,10 +102,15 @@ export default function Alert({
 
   return (
     <div
-      className={clsx('flex gap-x-2 rounded-lg p-4', backgroundClass)}
+      className={clsx(
+        'flex gap-x-2',
+        'rounded-lg p-4',
+        backgroundClass,
+        borderClass,
+      )}
       role="alert">
       <div className="shrink-0">
-        <Icon aria-hidden="true" className={clsx('mt-0.5 size-5', iconClass)} />
+        <Icon aria-hidden="true" className={clsx('size-5 mt-0.5', iconClass)} />
       </div>
       <div className="grid gap-y-1">
         {title && (
@@ -97,7 +123,7 @@ export default function Alert({
         )}
         <Section>
           <Text
-            className="text-neutral-500 dark:text-neutral-400"
+            className={themeTextSecondaryColor}
             color="inherit"
             display="block"
             size="body1">
