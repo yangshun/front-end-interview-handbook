@@ -1,12 +1,16 @@
 import React from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
-import BrowserOnly from '@docusaurus/BrowserOnly';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
-import {RiStackLine} from 'react-icons/ri'
+import {
+  RiBookLine,
+  RiBookOpenLine,
+  RiPresentationLine,
+  RiStackLine,
+} from 'react-icons/ri';
 
 import successStories from '@site/src/data/successStories';
 
@@ -78,21 +82,22 @@ function HeroSection() {
 function GreatFrontEndSection() {
   return (
     <div
-      className={clsx('padding-vert--lg')}
+      className="padding-vert--lg"
       style={{ backgroundColor: 'rgb(214, 43, 121)' }}>
-      <div className="container">
+      <div className="container padding-vert--lg">
         <div className="row">
-          <div className="col col--10 col--offset-1">
-            <div className="margin-vert--lg text--center">
+          <div className="col col--8 col--offset-2">
+            <div className="margin-bottom--lg text--center">
               <div>
-                <h1
+                <h2
                   className={styles.sectionSponsorTitle}
                   style={{ fontSize: 'var(--ifm-h1-font-size)' }}>
                   <strong>
-                    Looking for front end interview practice? <br/>
-                    GreatFrontEnd has 200+ practice questions and reference solutions from big tech ex-interviewers
+                    Looking for front end interview practice? <br />
+                    GreatFrontEnd has 200+ practice questions and reference
+                    solutions from big tech ex-interviewers
                   </strong>
-                </h1>
+                </h2>
                 <div className="margin-vert--md">
                   <a
                     className="button button--secondary button--lg"
@@ -109,33 +114,38 @@ function GreatFrontEndSection() {
                   </a>
                 </div>
                 <div className="margin-vert--md">
-                  <h5 style={{color:'rgb(255,255,255)', fontWeight:'normal'}}>Psst...I helped build this!<br/></h5> 
+                  <h5
+                    style={{ color: 'rgb(255,255,255)', fontWeight: 'normal' }}>
+                    Psst... I built this!
+                    <br />
+                  </h5>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div className="row">
-          <div className="col col--1"></div>
-          <div className={`col col--3 ${styles.flexContainer}`}>
-            <RiStackLine className={styles.icon} />
-            <h5 className={styles.whiteText}>
-              <strong>Well-explained solutions for every question</strong>
-            </h5>
-          </div>
-          <div className="col col--1"></div>
-          <div className={`col col--3 ${styles.flexContainer}`}>
-            <RiStackLine className={styles.icon} />
-            <h5 className={styles.whiteText}>
-              <strong>Step-by-step study plans</strong>
-            </h5>
-          </div>
-          <div className="col col--1"></div>
-          <div className={`col col--3 ${styles.flexContainer}`}>
-            <RiStackLine className={styles.icon} />
-            <h5 className={styles.whiteText}>
-              <strong>Structured 4-stage process</strong>
-            </h5>
+          <div className={clsx('col col--8 col--offset-2')}>
+            <div className="row">
+              <div className={clsx('col col--4', styles.flexContainer)}>
+                <RiPresentationLine className={styles.promoIcon} />
+                <p className={styles.whiteText}>
+                  <strong>Well-explained solutions for every question</strong>
+                </p>
+              </div>
+              <div className={clsx('col col--4', styles.flexContainer)}>
+                <RiBookOpenLine className={styles.promoIcon} />
+                <p className={styles.whiteText}>
+                  <strong>Step-by-step study plans</strong>
+                </p>
+              </div>
+              <div className={clsx('col col--4', styles.flexContainer)}>
+                <RiStackLine className={styles.promoIcon} />
+                <p className={styles.whiteText}>
+                  <strong>Structured 4-stage process</strong>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

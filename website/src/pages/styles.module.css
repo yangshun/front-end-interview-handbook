@@ -23,17 +23,18 @@
 
 .flexContainer {
   display: flex;
-  align-items: center;
 }
 
-.icon {
-  color: rgb(255, 255, 255);
-  font-size: 1.5rem;
+.promoIcon {
+  color: #fff;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
   margin-right: 0.5rem;
 }
 
 .whiteText {
-  color: rgb(255, 255, 255);
+  color: #fff;
   margin: 0;
 }
 
