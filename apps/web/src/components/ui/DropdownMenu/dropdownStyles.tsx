@@ -9,7 +9,7 @@ import {
 
 export const dropdownContentClassName = clsx(
   'flex flex-col gap-1',
-  'p-3',
+  'p-2',
   'min-w-52',
   'rounded-lg',
   'shadow-lg',
@@ -19,7 +19,8 @@ export const dropdownContentClassName = clsx(
 );
 
 export const dropdownContentItemClassName = clsx(
-  'flex grow px-3 py-2',
+  'flex grow items-center',
+  'px-2 py-1.5',
   'w-full text-left',
   'rounded',
   'select-none outline-none',
