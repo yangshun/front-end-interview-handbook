@@ -13,6 +13,7 @@ import { FormattedMessage } from 'react-intl';
 
 import type { TextColor } from '../Text';
 import Text from '../Text';
+import { themeTextInvertColor } from '../theme';
 
 import * as ToastPrimitives from '@radix-ui/react-toast';
 
@@ -30,6 +31,7 @@ const classes: Record<
   ToastVariant,
   Readonly<{
     backgroundClass: string;
+    borderClass?: string;
     icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
     iconClass: string;
     textColor: TextColor;
@@ -42,7 +44,8 @@ const classes: Record<
     textColor: 'light',
   },
   dark: {
-    backgroundClass: 'bg-neutral-900 border border-neutral-700',
+    backgroundClass: 'bg-neutral-900',
+    borderClass: 'border-neutral-700',
     iconClass: 'text-white focus:ring-white-500',
     textColor: 'light',
   },
@@ -53,16 +56,14 @@ const classes: Record<
     textColor: 'light',
   },
   invert: {
-    backgroundClass: clsx(
-      'bg-neutral-100 dark:bg-neutral-900',
-      'border border-neutral-200 dark:border-neutral-700',
-    ),
+    backgroundClass: 'bg-neutral-100 dark:bg-neutral-900',
+    borderClass: 'border-neutral-200 dark:border-neutral-700',
     iconClass: 'focus:ring-white-500',
     textColor: 'default',
   },
   plain: {
     backgroundClass: 'bg-neutral-900 dark:bg-neutral-100',
-    iconClass: 'text-neutral-900 focus:ring-neutral-500',
+    iconClass: clsx(themeTextInvertColor, 'focus:ring-neutral-500'),
     textColor: 'invert',
   },
   special: {
@@ -213,6 +214,7 @@ export function ToastImpl({
 }: Props) {
   const {
     icon: VariantIcon,
+    borderClass,
     backgroundClass,
     iconClass,
     textColor,
@@ -221,7 +223,13 @@ export function ToastImpl({
   const Icon = IconProp ?? VariantIcon;
 
   return (
-    <ToastRootImpl className={clsx(className, backgroundClass)} {...props}>
+    <ToastRootImpl
+      className={clsx(
+        className,
+        backgroundClass,
+        borderClass && ['border', borderClass],
+      )}
+      {...props}>
       <Text
         className="w-full items-start gap-x-2 px-3 py-2"
         color={textColor}

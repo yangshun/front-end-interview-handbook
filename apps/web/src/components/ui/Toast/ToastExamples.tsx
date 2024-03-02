@@ -23,6 +23,22 @@ export default function ToastExamples() {
 
   return (
     <UIExamplesGroup darkMode="horizontal" gapSize="lg" title="Toast">
+      <div className="flex flex-wrap gap-4">
+        {variants.map((variant) => (
+          <Button
+            key={variant}
+            label={`Show ${variant}`}
+            variant="secondary"
+            onClick={() => {
+              showToast({
+                description: new Date().toUTCString(),
+                title: 'Scheduled: Catch up',
+                variant,
+              });
+            }}
+          />
+        ))}
+      </div>
       {variants.map((variant) => (
         <div key={variant} className="flex flex-col items-center gap-4">
           <ToastImpl title={capitalize(variant) + ' Title'} variant={variant} />
@@ -33,17 +49,6 @@ export default function ToastExamples() {
           />
         </div>
       ))}
-      <Button
-        label="Show toast"
-        variant="secondary"
-        onClick={() => {
-          showToast({
-            description: 'Friday, February 10, 2023 at 5:57 PM',
-            title: 'Scheduled: Catch up',
-            variant: 'plain',
-          });
-        }}
-      />
     </UIExamplesGroup>
   );
 }
