@@ -3,7 +3,7 @@ import type { Metadata } from 'next/types';
 
 import countryNames from '~/data/countryCodesToNames.json';
 
-import fetchInterviewsLocalizedPlanPricing from '~/components/interviews/pricing/fetchInterviewsLocalizedPlanPricing';
+import fetchProjectsLocalizedPlanPricing from '~/components/projects/purchase/fetchProjectsLocalizedPlanPricing';
 import ProjectsPricingPage from '~/components/projects/purchase/ProjectsPricingPage';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 
@@ -50,7 +50,7 @@ export default async function Page({ searchParams }: Props) {
   // 3. Defaults to US in case something blows up.
   const countryCode: string =
     searchParams?.cty ?? cookieStore.get('country')?.value ?? 'US';
-  const plans = await fetchInterviewsLocalizedPlanPricing(countryCode);
+  const plans = await fetchProjectsLocalizedPlanPricing(countryCode);
   const countryName: string =
     countryNames[countryCode as keyof typeof countryNames];
 

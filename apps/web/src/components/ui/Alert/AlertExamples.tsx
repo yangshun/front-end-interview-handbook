@@ -3,11 +3,7 @@ import { RiGraduationCapLine } from 'react-icons/ri';
 
 import Alert from './Alert';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
-import {
-  themeBorderBrandColor,
-  themeTextColor,
-  themeTextInvertColor,
-} from '../theme';
+import { themeBorderBrandColor, themeTextInvertColor } from '../theme';
 
 export default function AlertExamples() {
   return (

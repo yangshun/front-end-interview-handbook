@@ -1,6 +1,6 @@
 import type {
-  PurchasePrice,
   PurchasePricingPlanDetailsBase,
+  PurchasePricingPlanDetailsLocalized,
 } from '../purchase/PurchaseTypes';
 
 export type InterviewsPricingPlanType =
@@ -15,7 +15,10 @@ export type InterviewsPricingPlanDetails = PurchasePricingPlanDetailsBase &
   }>;
 
 export type InterviewsPricingPlanDetailsLocalized =
-  InterviewsPricingPlanDetails & PurchasePrice;
+  PurchasePricingPlanDetailsLocalized &
+    Readonly<{
+      planType: InterviewsPricingPlanType;
+    }>;
 
 export type InterviewsPricingPlansLocalized = Record<
   InterviewsPricingPlanType,

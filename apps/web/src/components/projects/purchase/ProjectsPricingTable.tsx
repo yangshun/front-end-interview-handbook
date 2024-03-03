@@ -1,19 +1,26 @@
-'use client';
-
 import clsx from 'clsx';
+import { useRef } from 'react';
+import { useState } from 'react';
 import {
+  RiArrowRightLine,
   RiCheckboxCircleFill,
   RiCloseCircleFill,
   RiQuestionFill,
 } from 'react-icons/ri';
 import { FormattedMessage, FormattedNumberParts, useIntl } from 'react-intl';
+import url from 'url';
 
+import fbq from '~/lib/fbq';
+import gtag from '~/lib/gtag';
+import { isProhibitedCountry } from '~/lib/stripeUtils';
+import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
+
+import { priceRoundToNearestNiceNumber } from '~/components/payments/pricingUtils';
+import type { Props as AnchorProps } from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
-import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import {
   themeBorderColor,
-  themeBorderElementColor,
   themeDivideColor,
   themeTextBrandColor,
   themeTextDangerColor,
@@ -22,11 +29,25 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
+import logEvent from '~/logging/logEvent';
+import logMessage from '~/logging/logMessage';
+
+import {
+  annualPlanFeatures,
+  freePlanFeatures,
+  monthlyPlanFeatures,
+  type ProjectsSubscriptionPlanFeatures,
+} from './ProjectsPricingFeaturesConfig';
 import type {
-  ProjectsFeatures,
-  ProjectsPricingFrequency,
-  ProjectsPricingPlan,
-} from '../types';
+  ProjectsPricingPlanDetailsLocalized,
+  ProjectsSubscriptionPlanIncludingFree,
+} from './ProjectsPricingPlans';
+import type { ProjectsSubscriptionPlanFeature } from './useProjectsPricingPlanFeatures';
+import useProjectsPricingPlanFeatures from './useProjectsPricingPlanFeatures';
+import useProfileWithProjectsProfile from '../common/useProfileWithProjectsProfile';
+
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
+import { useSessionContext } from '@supabase/auth-helpers-react';
 
 function PriceLabel({
   amount,
@@ -57,14 +78,280 @@ function PriceLabel({
   );
 }
 
-// TODO(projects|purchase): Recheck into this function for discount logic
+function PricingButton({
+  href,
+  icon,
+  isDisabled,
+  isLoading,
+  label,
+  onClick,
+}: Readonly<{
+  href?: AnchorProps['href'];
+  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  isDisabled?: boolean;
+  isLoading?: boolean;
+  label: string;
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+}>) {
+  return (
+    <Button
+      display="block"
+      href={href}
+      icon={icon}
+      isDisabled={isLoading || isDisabled}
+      isLoading={isLoading}
+      label={label}
+      size="lg"
+      target="_self"
+      type="button"
+      variant="primary"
+      onClick={onClick}
+    />
+  );
+}
+
+function PricingButtonNonLoggedIn({
+  isDisabled,
+  plan,
+}: Readonly<{
+  isDisabled: boolean;
+  plan: ProjectsPricingPlanDetailsLocalized;
+}>) {
+  const intl = useIntl();
+  const { signInUpHref } = useAuthSignInUp();
+
+  return (
+    <PricingButton
+      href={signInUpHref({
+        query: {
+          source: 'buy_now',
+        },
+      })}
+      icon={RiArrowRightLine}
+      isDisabled={isDisabled}
+      label={intl.formatMessage({
+        defaultMessage: 'Buy now',
+        description: 'Purchase button label',
+        id: '9gs1LO',
+      })}
+      onClick={() => {
+        gtag.event({
+          action: `checkout.sign_up`,
+          category: 'ecommerce',
+          label: 'Buy Now (not logged in)',
+        });
+        logMessage({
+          level: 'info',
+          message: `${
+            plan.planType
+          } plan for ${plan.currency.toLocaleUpperCase()} ${
+            plan.unitCostCurrency.withPPP.after
+          } but not signed in`,
+          title: 'Checkout initiate (non-signed in)',
+        });
+        logEvent('checkout.attempt.not_logged_in', {
+          currency: plan.currency.toLocaleUpperCase(),
+          plan: plan.planType,
+          value: plan.unitCostCurrency.withPPP.after,
+        });
+      }}
+    />
+  );
+}
+
+function PricingButtonNonPremium({
+  plan,
+}: Readonly<{
+  plan: ProjectsPricingPlanDetailsLocalized;
+}>) {
+  const intl = useIntl();
+  const { isLoading } = useProfileWithProjectsProfile();
+  const [checkoutSessionHref, setCheckoutSessionHref] = useState<string | null>(
+    null,
+  );
+  const [hasClicked, setHasClicked] = useState(false);
+  // HACK: Also add a ref so that the processSubscription callback can
+  // access the latest value.
+  const hasClickedRef = useRef(false);
+
+  const [isCheckoutSessionLoading, setIsCheckoutSessionLoading] =
+    useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function processSubscription(planType: ProjectsSubscriptionPlan) {
+    if (isCheckoutSessionLoading) {
+      return;
+    }
+
+    setIsCheckoutSessionLoading(true);
+    setError(null);
+    try {
+      const res = await fetch(
+        url.format({
+          pathname: '/api/payments/purchase/checkout',
+          query: {
+            plan_type: planType,
+          },
+        }),
+      );
+      const { payload } = await res.json();
+
+      if (hasClickedRef.current) {
+        window.location.href = payload.url;
+
+        return;
+      }
+
+      setCheckoutSessionHref(payload.url);
+    } catch (err: any) {
+      if (hasClickedRef.current) {
+        setError(
+          intl.formatMessage({
+            defaultMessage:
+              'An error has occurred. Please try again later and contact support if the error persists.',
+            description:
+              'Error message shown to user when they are trying to checkout but it fails',
+            id: 'Hj6BTz',
+          }),
+        );
+      }
+
+      gtag.event({
+        action: 'checkout.failure',
+        category: 'ecommerce',
+        label: planType,
+      });
+      logMessage({
+        level: 'error',
+        message: err?.message,
+        title: 'Checkout attempt error',
+      });
+      logEvent('checkout.fail', {
+        currency: plan.currency.toLocaleUpperCase(),
+        plan: planType,
+        value: plan.unitCostCurrency.withPPP.after,
+      });
+    } finally {
+      setIsCheckoutSessionLoading(false);
+    }
+  }
+
+  const showUserThereIsAsyncRequest = hasClicked && isCheckoutSessionLoading;
+
+  return (
+    <div className="flex flex-col gap-4">
+      <PricingButton
+        href={checkoutSessionHref ?? undefined}
+        icon={RiArrowRightLine}
+        isDisabled={showUserThereIsAsyncRequest || isLoading}
+        isLoading={showUserThereIsAsyncRequest}
+        label={intl.formatMessage({
+          defaultMessage: 'Buy now',
+          description: 'Purchase button label',
+          id: '9gs1LO',
+        })}
+        onClick={() => {
+          setHasClicked(true);
+          hasClickedRef.current = true;
+          gtag.event({
+            action: 'checkout.attempt',
+            category: 'ecommerce',
+            label: 'Buy Now',
+          });
+          gtag.event({
+            action: 'begin_checkout',
+            category: 'ecommerce',
+            extra: {
+              currency: plan.currency.toLocaleUpperCase(),
+            },
+            value: plan.unitCostCurrency.withPPP.after,
+          });
+          fbq.track('InitiateCheckout', {
+            content_category: plan.planType,
+            currency: plan.currency.toLocaleUpperCase(),
+            value: plan.unitCostCurrency.withPPP.after,
+          });
+          logMessage({
+            level: 'info',
+            message: `${
+              plan.planType
+            } plan for ${plan.currency.toLocaleUpperCase()} ${
+              plan.unitCostCurrency.withPPP.after
+            }`,
+            title: 'Checkout Initiate',
+          });
+          logEvent('checkout.attempt', {
+            currency: plan.currency.toLocaleUpperCase(),
+            plan: plan.planType,
+            value: plan.unitCostCurrency.withPPP.after,
+          });
+
+          if (checkoutSessionHref != null) {
+            return;
+          }
+
+          return processSubscription(plan.planType);
+        }}
+      />
+      {error && (
+        <Text className="text-center" color="error" size="body3">
+          {error}
+        </Text>
+      )}
+    </div>
+  );
+}
+
+function PricingButtonSection({
+  countryCode,
+  plan,
+}: Readonly<{
+  countryCode: string;
+  plan: ProjectsPricingPlanDetailsLocalized;
+}>) {
+  const intl = useIntl();
+  const { isLoading: isUserLoading } = useSessionContext();
+  const { profile, isLoading: isUserProfileLoading } =
+    useProfileWithProjectsProfile();
+
+  const isPending = isUserLoading || isUserProfileLoading;
+
+  if (isProhibitedCountry(countryCode)) {
+    return null;
+  }
+
+  if (profile?.projectsProfile) {
+    if (!profile?.projectsProfile.premium) {
+      // User is logged in but not a premium user.
+      return <PricingButtonNonPremium plan={plan} />;
+    }
+
+    // User is already subscribed, link to billing page.
+    return (
+      <PricingButton
+        href="/projects/settings/billing"
+        icon={RiArrowRightLine}
+        isDisabled={isPending}
+        label={intl.formatMessage({
+          defaultMessage: 'Manage subscription',
+          description: 'Manage user membership subscription button label',
+          id: 'sjLtW1',
+        })}
+      />
+    );
+  }
+
+  // User is not logged in, they have to create an account first.
+  return <PricingButtonNonLoggedIn isDisabled={isPending} plan={plan} />;
+}
+
 function PricingPlanComparisonDiscount({
   plan,
 }: Readonly<{
-  plan: ProjectsPricingPlan;
+  plan: ProjectsPricingPlanDetailsLocalized;
 }>) {
-  switch (plan.frequency) {
-    case 'free':
+  switch (plan.planType) {
+    case 'MONTH':
       return (
         <span>
           <FormattedMessage
@@ -74,9 +361,9 @@ function PricingPlanComparisonDiscount({
             values={{
               price: (
                 <PriceLabel
-                  amount={plan.monthlyPrice}
-                  currency="USD"
-                  symbol="$"
+                  amount={plan.unitCostCurrency.withPPP.after}
+                  currency={plan.currency.toUpperCase()}
+                  symbol={plan.symbol}
                 />
               ),
             }}
@@ -88,26 +375,24 @@ function PricingPlanComparisonDiscount({
           />
         </span>
       );
-    case 'month':
+    case 'ANNUAL':
       return (
-        <>
-          <span>
-            <FormattedMessage
-              defaultMessage="{price} billed every month"
-              description="Description of billing frequency for monthly plan"
-              id="6dx/5B"
-              values={{
-                price: (
-                  <PriceLabel
-                    amount={plan.monthlyPrice}
-                    currency="USD"
-                    symbol="$"
-                  />
-                ),
-              }}
-            />{' '}
-          </span>
-          <span className={themeTextBrandColor}>
+        <span>
+          <FormattedMessage
+            defaultMessage="{price} billed yearly"
+            description="Description of billing frequency for annual plan"
+            id="7uB2Jj"
+            values={{
+              price: (
+                <PriceLabel
+                  amount={plan.unitCostCurrency.withPPP.after}
+                  currency={plan.currency.toUpperCase()}
+                  symbol={plan.symbol}
+                />
+              ),
+            }}
+          />{' '}
+          <span className={clsx(themeTextBrandColor, 'whitespace-nowrap')}>
             <FormattedMessage
               defaultMessage="(Save {discountPercentage}% vs monthly)"
               description="Save more compared to monthly plan."
@@ -117,83 +402,25 @@ function PricingPlanComparisonDiscount({
               }}
             />
           </span>
-        </>
-      );
-    case 'annual':
-      return (
-        <>
-          <span>
-            <FormattedMessage
-              defaultMessage="{price} billed yearly"
-              description="Description of billing frequency for annual plan"
-              id="7uB2Jj"
-              values={{
-                price: (
-                  <PriceLabel
-                    amount={plan.monthlyPrice * 12}
-                    currency="USD"
-                    symbol="$"
-                  />
-                ),
-              }}
-            />{' '}
-          </span>
-          <span className={themeTextBrandColor}>
-            <FormattedMessage
-              defaultMessage="(Save {discountPercentage}% vs monthly)"
-              description="Save more compared to monthly plan."
-              id="Dynazi"
-              values={{
-                discountPercentage: plan.discount,
-              }}
-            />
-          </span>
-        </>
+        </span>
       );
   }
 }
 
-function HeaderCell({
-  className,
-  children,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return <div className={clsx('p-1', className)}>{children}</div>;
-}
+function FeatureItem({
+  feature,
+}: Readonly<{ feature: ProjectsSubscriptionPlanFeature }>) {
+  const { title, description } = feature;
 
-function ItemCell({
-  className,
-  children,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
   return (
-    <div
-      className={clsx(
-        'py-3',
-        ['border-b', themeBorderElementColor],
-        className,
-      )}>
-      {children}
-    </div>
-  );
-}
-
-function FeatureCell({
-  className,
-  label,
-  description,
-}: {
-  className?: string;
-  description?: React.ReactNode;
-  label: string;
-}) {
-  return (
-    <ItemCell className={clsx('col-span-2 flex items-center gap-2', className)}>
-      <Text color="secondary">{label}</Text>
+    <div className="flex gap-3 py-3">
+      <RiCheckboxCircleFill
+        aria-hidden={true}
+        className={clsx('size-6 shrink-0', themeTextSuccessColor)}
+      />
+      <Text color="secondary" display="block">
+        {title}
+      </Text>
       {description && (
         <Tooltip label={description}>
           <RiQuestionFill
@@ -201,461 +428,319 @@ function FeatureCell({
           />
         </Tooltip>
       )}
-    </ItemCell>
-  );
-}
-
-function PlanCell({
-  available,
-  label,
-  className,
-}: {
-  available: boolean;
-  className?: string;
-  label?: string;
-}) {
-  return (
-    <ItemCell className={clsx('flex items-center gap-2 px-2', className)}>
-      {available ? (
-        <RiCheckboxCircleFill
-          className={clsx('size-6 shrink-0', themeTextSuccessColor)}
-        />
-      ) : (
-        <RiCloseCircleFill
-          className={clsx('size-6 shrink-0', themeTextDangerColor)}
-        />
-      )}
-      {label && (
-        <Text color="secondary" size="body3">
-          {label}
-        </Text>
-      )}
-    </ItemCell>
-  );
-}
-
-function Row({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div className={clsx('grid grid-cols-5 gap-x-4', className)}>
-      {children}
     </div>
   );
 }
 
+export type ProjectsPricingPlanTier = Readonly<{
+  features: ProjectsSubscriptionPlanFeatures;
+  name: string;
+  numberOfMonths?: number;
+  plan: ProjectsPricingPlanDetailsLocalized | null;
+  type: ProjectsSubscriptionPlanIncludingFree;
+}>;
+
 type Props = Readonly<{
-  plans: Record<ProjectsPricingFrequency, ProjectsPricingPlan>;
+  countryCode: string;
+  planList: ReadonlyArray<ProjectsPricingPlanTier>;
+  showPPPMessage: boolean;
 }>;
 
-type Feature = Readonly<{
-  description?: React.ReactNode;
-  plan?: Partial<Record<ProjectsPricingFrequency, string>>;
-  title: string;
-}>;
+function ProjectsPricingPriceCell({
+  className,
+  countryCode,
+  showPPPMessage,
+  plan,
+  numberOfMonths,
+}: Readonly<{
+  className: string;
+  countryCode: string;
+  numberOfMonths?: number;
+  plan: ProjectsPricingPlanDetailsLocalized;
+  showPPPMessage: boolean;
+}>) {
+  return (
+    <div className={className}>
+      <div>
+        {showPPPMessage && (
+          <Text
+            className={clsx('items-baseline line-through')}
+            color="subtle"
+            display="inline-flex">
+            <PriceLabel
+              amount={priceRoundToNearestNiceNumber(
+                plan.unitCostCurrency.base.after / (numberOfMonths ?? 1),
+              )}
+              currency={plan.currency.toUpperCase()}
+              symbol={plan.symbol}
+            />{' '}
+            {numberOfMonths != null ? (
+              <FormattedMessage
+                defaultMessage="/month"
+                description="Per month"
+                id="aE1FCD"
+              />
+            ) : (
+              <FormattedMessage
+                defaultMessage="paid once"
+                description="Pay the price once"
+                id="BMBc9O"
+              />
+            )}
+          </Text>
+        )}{' '}
+        <Text
+          className="items-baseline gap-x-2"
+          color="subtitle"
+          display="inline-flex"
+          weight="medium">
+          <span>
+            <PriceLabel
+              amount={priceRoundToNearestNiceNumber(
+                plan.unitCostCurrency.withPPP.after / (numberOfMonths ?? 1),
+              )}
+              currency={plan.currency.toUpperCase()}
+              symbol={plan.symbol}>
+              {(parts) => (
+                <>
+                  {parts[0].value}
+                  <Text
+                    className="text-3xl font-bold tracking-tight"
+                    color="default"
+                    size="inherit"
+                    weight="inherit">
+                    <>
+                      {parts
+                        .slice(1)
+                        .map((part) => part.value)
+                        .join('')}
+                    </>
+                  </Text>
+                </>
+              )}
+            </PriceLabel>
+          </span>
+          {numberOfMonths != null ? (
+            <FormattedMessage
+              defaultMessage="/month"
+              description="Per month"
+              id="aE1FCD"
+            />
+          ) : (
+            <FormattedMessage
+              defaultMessage="paid once"
+              description="Pay the price once"
+              id="BMBc9O"
+            />
+          )}
+        </Text>
+      </div>
+      <Text className="mt-2" display="block" size="body3">
+        <PricingPlanComparisonDiscount plan={plan} />
+      </Text>
+      <div className="mt-5">
+        <PricingButtonSection countryCode={countryCode} plan={plan} />
+      </div>
+      <Text
+        className="mt-2 whitespace-nowrap text-center"
+        color="secondary"
+        display="block"
+        size="body3">
+        <FormattedMessage
+          defaultMessage="14-day money back guarantee"
+          description="Pricing plan policy"
+          id="bq/h99"
+        />
+      </Text>
+    </div>
+  );
+}
 
-type ProjectsFeaturesObject = Record<ProjectsFeatures, Feature>;
-
-export default function ProjectsPricingTable({ plans }: Props) {
-  const intl = useIntl();
-
-  const { free: freePlan, month: monthPlan, annual: annualPlan } = plans;
-  const features: ProjectsFeaturesObject = {
-    apps: {
-      title: intl.formatMessage({
-        defaultMessage: 'Multi-page & fully-functional apps',
-        description: 'Label for apps feature',
-        id: 'PLPXbS',
-      }),
-    },
-    breakpoints: {
-      title: intl.formatMessage({
-        defaultMessage: 'Professional designs in 3 breakpoints',
-        description: 'Label for breakpoints feature',
-        id: 'bFDEGM',
-      }),
-    },
-    componentTracks: {
-      description: (
-        <div className="flex flex-col gap-y-1.5 font-medium">
-          <FormattedMessage
-            defaultMessage="<keywords>Component tracks are collections of components which make up component libraries for specific practical use cases e.g. Marketing, E-Commerce, or even design systems. Building component tracks can leave a strong impression on potential employers and recruiters, showcasing your expertise and versatility in building a variety of components for common use cases, which is much more impressive than building individual projects.</keywords>"
-            description="Description for component tracks feature"
-            id="zKAE+G"
-            values={{ keywords: (chunks) => <span>{chunks}</span> }}
-          />
-        </div>
-      ),
-      plan: {
-        free: intl.formatMessage({
-          defaultMessage: 'Only Marketing track',
-          description: 'Label for component tracks feature for free plan',
-          id: 'WK23Hh',
-        }),
-      },
-      title: intl.formatMessage({
-        defaultMessage: 'Access to Component Tracks',
-        description: 'Label for component tracks feature',
-        id: '3QliNF',
-      }),
-    },
-    freeChallenges: {
-      title: intl.formatMessage({
-        defaultMessage: 'Free project challenges',
-        description: 'Label for free challenges feature',
-        id: 'PDz3Oi',
-      }),
-    },
-    skillRoadmap: {
-      description: (
-        <div className="flex flex-col gap-y-1.5 font-medium">
-          <FormattedMessage
-            defaultMessage="<keywords>We provide a roadmap of all the core skills needed to be a great front end engineer, from beginner to advanced. For each skill, we suggest good resources for you to study and projects you can build on our platform to learn the skill. This roadmap is curated by senior engineers with extensive experience in the industry, ensuring the quality and trustworthiness of the content.</keywords><keywords>Additionally, we offer a gamified progress tracking system to monitor your proficiency in applying these skills across our projects</keywords>"
-            description="Description for skill roadmap feature"
-            id="HOtpix"
-            values={{ keywords: (chunks) => <span>{chunks}</span> }}
-          />
-        </div>
-      ),
-      plan: {
-        annual: intl.formatMessage({
-          defaultMessage: 'From beginner to advanced',
-          description: 'Label for skill roadmap feature for annual plan',
-          id: 'J1pqvo',
-        }),
-        free: intl.formatMessage({
-          defaultMessage: 'Only foundational skills',
-          description: 'Label for skill roadmap feature for month plan',
-          id: 'MZyEk9',
-        }),
-        month: intl.formatMessage({
-          defaultMessage: 'From beginner to advanced',
-          description: 'Label for skill roadmap feature for month plan',
-          id: 'kzklH3',
-        }),
-      },
-      title: intl.formatMessage({
-        defaultMessage: 'Access to Skill Roadmap',
-        description: 'Label for skill roadmap feature',
-        id: 'fGAB76',
-      }),
-    },
-    unlocks: {
-      description: (
-        <div className="flex flex-col gap-y-1.5 font-medium">
-          <FormattedMessage
-            defaultMessage="<keywords>Upon purchasing premium, you will be given a number of project unlocks. A project unlock gives you access to all premium features in a free project (figma files, official solutions & guides from senior engineers), OR can unlock a premium challenge.</keywords><keywords>Even when you are not actively subscribed, unspent unlocks will roll over to the next month and remain accessible when you repurchase premium.</keywords>"
-            description="Description for unlocks feature"
-            id="ptZwYq"
-            values={{ keywords: (chunks) => <span>{chunks}</span> }}
-          />
-        </div>
-      ),
-      plan: {
-        annual: intl.formatMessage(
-          {
-            defaultMessage: '{count} unlocks every year',
-            description: 'Label for unlocks feature for annual plan',
-            id: '7ZqJXd',
-          },
-          {
-            count: annualPlan.features.unlocks,
-          },
-        ),
-        month: intl.formatMessage(
-          {
-            defaultMessage: '{count} unlocks every month',
-            description: 'Label for unlocks feature for month plan',
-            id: 'YGyElJ',
-          },
-          {
-            count: monthPlan.features.unlocks,
-          },
-        ),
-      },
-      title: intl.formatMessage({
-        defaultMessage:
-          'Able to unlock premium challenges, or premium features on free challenges',
-        description: 'Label for unlocks feature',
-        id: '/pkHfz',
-      }),
-    },
-  };
-
-  const freePlanTitle = intl.formatMessage({
-    defaultMessage: 'Free plan',
-    description: 'Label for free plan',
-    id: 'ge4FCc',
+export default function ProjectsPricingTable({
+  countryCode,
+  planList,
+  showPPPMessage,
+}: Props) {
+  const features = useProjectsPricingPlanFeatures({
+    ANNUAL: annualPlanFeatures,
+    FREE: freePlanFeatures,
+    MONTH: monthlyPlanFeatures,
   });
 
-  const monthPlanTitle = intl.formatMessage({
-    defaultMessage: 'Monthly plan',
-    description: 'Label for monthly plan',
-    id: '+cF6Ba',
-  });
-
-  const annualPlanTitle = intl.formatMessage({
-    defaultMessage: 'Annual plan',
-    description: 'Label for annual plan',
-    id: '0tgQZt',
-  });
-
-  const plansList: ReadonlyArray<{
-    key: ProjectsPricingFrequency;
-    plan: ProjectsPricingPlan;
-    title: string;
-  }> = [
-    { key: 'free', plan: freePlan, title: freePlanTitle },
-    { key: 'month', plan: monthPlan, title: monthPlanTitle },
-    { key: 'annual', plan: annualPlan, title: annualPlanTitle },
-  ];
-  const featureDetails: ReadonlyArray<{
-    feature: Feature;
-    key: ProjectsFeatures;
-  }> = [
-    { feature: features.freeChallenges, key: 'freeChallenges' },
-    { feature: features.breakpoints, key: 'breakpoints' },
-    { feature: features.apps, key: 'apps' },
-    { feature: features.skillRoadmap, key: 'skillRoadmap' },
-    { feature: features.componentTracks, key: 'componentTracks' },
-    { feature: features.unlocks, key: 'unlocks' },
-  ];
+  const tableClassName = clsx(
+    'rounded-3xl',
+    ['border', themeBorderColor],
+    'bg-white/20 dark:bg-neutral-800/20',
+  );
 
   return (
     <div>
-      <Heading className="sr-only" level="custom">
-        <FormattedMessage
-          defaultMessage="Projects Pricing Plans"
-          description="Screen reader text referring to the Pricing Plan cards"
-          id="1iCorD"
-        />
-      </Heading>
-      {/* Desktop */}
+      {/* Lg and above */}
       <div
         className={clsx(
-          'hidden flex-col gap-5 md:flex',
-          'px-8 py-6',
-          'rounded-3xl',
-          ['border', themeBorderColor],
-          'bg-white/20 dark:bg-neutral-800/20',
+          'hidden flex-col lg:flex',
+          'px-4 py-6',
+          tableClassName,
         )}>
-        <Row>
-          {plansList.map((header, index) => (
-            <HeaderCell
-              key={header.plan.frequency}
-              className={clsx('h-full', index === 0 && 'col-start-3')}>
-              <div className="flex h-full flex-col items-center gap-4">
-                <Text color="subtitle" weight="medium">
-                  {header.title}
-                </Text>
-                <div className="flex flex-1 flex-col items-center">
-                  <Text
-                    className="flex items-baseline gap-x-2"
-                    color="subtitle"
-                    display="flex"
-                    weight="medium">
-                    <span>
-                      <PriceLabel
-                        amount={header.plan.monthlyPrice}
-                        currency="USD"
-                        symbol="$">
-                        {(parts) => (
-                          <>
-                            {parts[0].value}
-                            <Text
-                              className="text-3xl font-bold tracking-tight"
-                              color="default"
-                              size="inherit"
-                              weight="inherit">
-                              <>
-                                {parts
-                                  .slice(1)
-                                  .map((part) => part.value)
-                                  .join('')}
-                              </>
-                            </Text>
-                          </>
-                        )}
-                      </PriceLabel>
-                    </span>
-                    <FormattedMessage
-                      defaultMessage="/month"
-                      description="Per month"
-                      id="aE1FCD"
-                    />
+        <table className="w-full border-separate border-spacing-x-4">
+          <caption className="sr-only">Pricing plan comparison</caption>
+          <colgroup>
+            <col className="w-1/4" />
+            <col className="w-1/4" />
+            <col className="w-1/4" />
+            <col className="w-1/4" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th colSpan={2} />
+              {planList.map((plan) => (
+                <th key={plan.name} className="px-6 xl:px-8" scope="col">
+                  <Text color="subtitle" weight="medium">
+                    {plan.name}
                   </Text>
-                  {header.plan.discount > 0 && (
-                    <Text
-                      className={clsx(
-                        'md:min-h-8 flex-col items-center justify-center pt-1',
-                      )}
-                      display="inline-flex"
-                      size="body3">
-                      <PricingPlanComparisonDiscount plan={header.plan} />
-                    </Text>
-                  )}
-                </div>
-                {header.plan.frequency !== 'free' && (
-                  <div className="flex w-full flex-col items-center gap-2">
-                    <Button
-                      className="w-full"
-                      label="Unlock Premium"
-                      variant="primary"
-                    />
-                    <Text color="secondary" size="body3">
-                      <FormattedMessage
-                        defaultMessage="14-day money back guarantee"
-                        description="Label for money back guarantee"
-                        id="mGUPkU"
-                      />
-                    </Text>
-                  </div>
-                )}
-              </div>
-            </HeaderCell>
-          ))}
-        </Row>
-        <div>
-          {featureDetails.map(({ key, feature }, index) => (
-            <Row key={key}>
-              <FeatureCell
-                className={clsx(
-                  'pr-4',
-                  index === featureDetails.length - 1 && 'border-none',
-                )}
-                description={feature.description}
-                label={feature.title}
-              />
-              {plansList.map(({ key: planKey, plan }) => (
-                <PlanCell
-                  key={planKey}
-                  available={plan.features[key] as boolean}
-                  className={clsx(
-                    index === featureDetails.length - 1 && 'border-none',
-                  )}
-                  label={features[key].plan?.[planKey]}
-                />
+                </th>
               ))}
-            </Row>
-          ))}
-        </div>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th colSpan={2} scope="row">
+                <span className="sr-only">Price</span>
+              </th>
+              {planList.map(({ name, plan, numberOfMonths }) => (
+                <td key={name} className="px-6 py-5 align-top xl:px-8">
+                  {plan != null && (
+                    <ProjectsPricingPriceCell
+                      className="text-center"
+                      countryCode={countryCode}
+                      numberOfMonths={numberOfMonths}
+                      plan={plan}
+                      showPPPMessage={showPPPMessage}
+                    />
+                  )}
+                </td>
+              ))}
+            </tr>
+            {(
+              [
+                'freeChallenges',
+                'breakpoints',
+                'apps',
+                'skillRoadmap',
+                'componentTracks',
+                'unlocks',
+              ] as const
+            ).map((featureKey, index) => (
+              <tr key={featureKey}>
+                <th
+                  className={clsx(
+                    'py-3 text-left',
+                    index > 0 && ['border-t', themeBorderColor],
+                  )}
+                  colSpan={2}
+                  scope="row">
+                  <span className="flex items-center gap-3">
+                    <Text
+                      className="max-w-72"
+                      color="secondary"
+                      display="block"
+                      size="body2">
+                      {features[featureKey].title}
+                    </Text>
+                    {features[featureKey].description && (
+                      <Tooltip label={features[featureKey].description}>
+                        <RiQuestionFill
+                          className={clsx(
+                            'size-5 shrink-0',
+                            themeTextSubtleColor,
+                          )}
+                        />
+                      </Tooltip>
+                    )}
+                  </span>
+                </th>
+                {planList.map(({ type, name, features: planFeatures }) => (
+                  <td
+                    key={name}
+                    className={clsx(
+                      'px-3 py-2',
+                      index > 0 && ['border-t', themeBorderColor],
+                    )}>
+                    <span className="flex items-center gap-2">
+                      {planFeatures[featureKey] ? (
+                        <RiCheckboxCircleFill
+                          aria-hidden={true}
+                          className={clsx(
+                            'size-6 shrink-0',
+                            themeTextSuccessColor,
+                          )}
+                        />
+                      ) : (
+                        <RiCloseCircleFill
+                          aria-hidden={true}
+                          className={clsx(
+                            'size-6 shrink-0',
+                            themeTextDangerColor,
+                          )}
+                        />
+                      )}
+                      <Text className="whitespace-nowrap" size="body3">
+                        {features[featureKey].plan?.[type]}
+                      </Text>
+                    </span>
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-      {/* Mobile and Tablet */}
+      {/* Below lg */}
       <div
         className={clsx(
-          'mx-auto flex max-w-lg flex-col md:hidden',
-          'rounded-3xl',
-          ['border', themeBorderColor],
+          'mx-auto flex flex-col lg:hidden',
+          'max-w-lg',
+          tableClassName,
           ['divide-y', themeDivideColor],
-          'bg-white/20 dark:bg-neutral-800/20',
         )}>
-        {plansList.map(({ key, plan, title }) => {
-          const availableFeatures = Object.keys(plan.features).filter(
-            (feature) => !!plan.features[feature as ProjectsFeatures],
-          );
-          const availableFeaturesDetails = featureDetails.filter((feature) =>
-            availableFeatures.includes(feature.key),
-          );
-
-          return (
-            <div
-              key={key}
-              className={clsx(
-                'flex flex-col justify-between gap-4',
-                'px-8 py-6',
-              )}>
-              <div className="flex flex-col gap-4">
+        {planList.map(
+          ({ features: planFeatures, name, plan, numberOfMonths }) => {
+            return (
+              <div key={name} className={clsx('px-8 py-6')}>
                 <Text color="subtitle" weight="medium">
-                  {title}
+                  {name}
                 </Text>
-                <div className="flex items-center justify-between gap-2">
-                  <Text
-                    className="flex items-baseline gap-x-2"
-                    color="subtitle"
-                    display="flex"
-                    weight="medium">
-                    <span>
-                      <PriceLabel
-                        amount={plan.monthlyPrice}
-                        currency="USD"
-                        symbol="$">
-                        {(parts) => (
-                          <>
-                            {parts[0].value}
-                            <Text
-                              className="text-3xl font-bold tracking-tight"
-                              color="default"
-                              size="inherit"
-                              weight="inherit">
-                              <>
-                                {parts
-                                  .slice(1)
-                                  .map((part) => part.value)
-                                  .join('')}
-                              </>
-                            </Text>
-                          </>
-                        )}
-                      </PriceLabel>
-                    </span>
-                    <FormattedMessage
-                      defaultMessage="/month"
-                      description="Per month"
-                      id="aE1FCD"
-                    />
-                  </Text>
-                  {plan.discount > 0 && (
-                    <Text
-                      className={clsx(
-                        'md:min-h-8 flex-col items-center justify-center pt-1',
-                      )}
-                      display="inline-flex"
-                      size="body3">
-                      <PricingPlanComparisonDiscount plan={plan} />
-                    </Text>
+                {plan != null && (
+                  <ProjectsPricingPriceCell
+                    className="mt-8"
+                    countryCode={countryCode}
+                    numberOfMonths={numberOfMonths}
+                    plan={plan}
+                    showPPPMessage={showPPPMessage}
+                  />
+                )}
+                <div className={clsx('mt-6', [themeDivideColor, 'divide-y'])}>
+                  {planFeatures.freeChallenges && (
+                    <FeatureItem feature={features.freeChallenges} />
+                  )}
+                  {planFeatures.breakpoints && (
+                    <FeatureItem feature={features.breakpoints} />
+                  )}
+                  {planFeatures.apps && <FeatureItem feature={features.apps} />}
+                  {planFeatures.skillRoadmap && (
+                    <FeatureItem feature={features.skillRoadmap} />
+                  )}
+                  {planFeatures.componentTracks && (
+                    <FeatureItem feature={features.componentTracks} />
+                  )}
+                  {planFeatures.unlocks && (
+                    <FeatureItem feature={features.unlocks} />
                   )}
                 </div>
-                {key !== 'free' && (
-                  <div className="flex w-full flex-col items-center gap-2">
-                    <Button
-                      className="w-full"
-                      label="Unlock Premium"
-                      size="md"
-                      variant="primary"
-                    />
-                    <Text color="secondary" size="body3">
-                      <FormattedMessage
-                        defaultMessage="14-day money back guarantee"
-                        description="Label for money back guarantee"
-                        id="mGUPkU"
-                      />
-                    </Text>
-                  </div>
-                )}
               </div>
-              <div className="flex flex-col">
-                {availableFeaturesDetails.map(
-                  ({ feature, key: featureKey }, index) => (
-                    <FeatureCell
-                      key={featureKey}
-                      className={clsx(
-                        '!items-start',
-                        index === availableFeaturesDetails.length - 1 &&
-                          'border-none',
-                      )}
-                      description={feature.description}
-                      label={feature.title}
-                    />
-                  ),
-                )}
-              </div>
-            </div>
-          );
-        })}
+            );
+          },
+        )}
       </div>
     </div>
   );

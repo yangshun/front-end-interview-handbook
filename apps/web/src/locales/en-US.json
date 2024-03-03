@@ -79,10 +79,6 @@
     "defaultMessage": "Self-Learning",
     "description": "Label for \"Self-Learning\" option in YOE replacement"
   },
-  "+cF6Ba": {
-    "defaultMessage": "Monthly plan",
-    "description": "Label for monthly plan"
-  },
   "+dUPPi": {
     "defaultMessage": "Post",
     "description": "Label for post reply button on project discussions page"
@@ -319,10 +315,6 @@
     "defaultMessage": "Practice makes perfect. With our collection of over {count} front end questions, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
     "description": "Title of question examples section on getting started page"
   },
-  "0tgQZt": {
-    "defaultMessage": "Annual plan",
-    "description": "Label for annual plan"
-  },
   "0ttv+M": {
     "defaultMessage": "Adjust your filters a bit, and let's see what we can find!",
     "description": "Subtitle for empty state when no projects are returned from application of filters on projects list"
@@ -390,10 +382,6 @@
   "1i1F/f": {
     "defaultMessage": "Project progress",
     "description": "Project progress item label"
-  },
-  "1iCorD": {
-    "defaultMessage": "Projects Pricing Plans",
-    "description": "Screen reader text referring to the Pricing Plan cards"
   },
   "1kiNiW": {
     "defaultMessage": "Accessibility",
@@ -482,6 +470,10 @@
   "2vDjTb": {
     "defaultMessage": "Discover study plans tailored to your needs to help your prepare for your upcoming technical interviews.",
     "description": "Description for study plans page"
+  },
+  "2vqeIa": {
+    "defaultMessage": "{count} unlock credits every month",
+    "description": "Label for unlocks feature for month plan"
   },
   "2w8GaX": {
     "defaultMessage": "Claim {discountPercentage}% off all plans by completing simple social tasks!",
@@ -855,10 +847,6 @@
     "defaultMessage": "Check on eligibility or submit proof",
     "description": "Instruction to check for review cashback"
   },
-  "6dx/5B": {
-    "defaultMessage": "{price} billed every month",
-    "description": "Description of billing frequency for monthly plan"
-  },
   "6fAxyB": {
     "defaultMessage": "Behavioral Interview Guidebook",
     "description": "Title for behavioral interview guidebook"
@@ -950,10 +938,6 @@
   "7Wsapt": {
     "defaultMessage": "Quiz",
     "description": "Quiz questions short title"
-  },
-  "7ZqJXd": {
-    "defaultMessage": "{count} unlocks every year",
-    "description": "Label for unlocks feature for annual plan"
   },
   "7fCoNs": {
     "defaultMessage": "Will I have to code within the platform, or use my own IDE?",
@@ -2747,6 +2731,10 @@
     "defaultMessage": "Strengthen your proficiency in JavaScript through writing Lodash functions from scratch.",
     "description": "Description for interview preparation focus area"
   },
+  "NrCAxf": {
+    "defaultMessage": "{count} unlock credits every year",
+    "description": "Label for unlocks feature for annual plan"
+  },
   "Nt+P5A": {
     "defaultMessage": "Simulate real interview conditions, no need for any setup!",
     "description": "Subtitle for in-browser coding workspace feature"
@@ -3298,6 +3286,10 @@
   "S4nrpS": {
     "defaultMessage": "{trackName} Track",
     "description": "Title for track in Continue tracks and skills section on Projects dashboard page"
+  },
+  "S5984+": {
+    "defaultMessage": "Free plan",
+    "description": "Title of free pricing plan"
   },
   "S98EuF": {
     "defaultMessage": "Project brief",
@@ -3983,10 +3975,6 @@
     "defaultMessage": "Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.",
     "description": "Description for interview preparation focus area"
   },
-  "YGyElJ": {
-    "defaultMessage": "{count} unlocks every month",
-    "description": "Label for unlocks feature for month plan"
-  },
   "YJmwAv": {
     "defaultMessage": "Or reach us via these channels",
     "description": "Text to introduce users to alternative feedback channels"
@@ -4382,6 +4370,10 @@
   "bofA5f": {
     "defaultMessage": "Browse all user submissions",
     "description": "Learn from other user submissions"
+  },
+  "bq/h99": {
+    "defaultMessage": "14-day money back guarantee",
+    "description": "Pricing plan policy"
   },
   "bsCmcK": {
     "defaultMessage": "Email Us",
@@ -4886,10 +4878,6 @@
   "gdGavv": {
     "defaultMessage": "Premium Question",
     "description": "Title on question paywall displayed on premium question's pages"
-  },
-  "ge4FCc": {
-    "defaultMessage": "Free plan",
-    "description": "Label for free plan"
   },
   "ghmPBf": {
     "defaultMessage": "Solved previously, mark as completed",
@@ -5566,10 +5554,6 @@
   "mDcqlX": {
     "defaultMessage": "<count>{questionCount}</count> <questions>questions</questions>",
     "description": "Number of questions"
-  },
-  "mGUPkU": {
-    "defaultMessage": "14-day money back guarantee",
-    "description": "Label for money back guarantee"
   },
   "mGYl8O": {
     "defaultMessage": "Upvoted successfully!",

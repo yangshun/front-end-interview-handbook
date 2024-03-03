@@ -32,3 +32,6 @@ export type PurchasePricingPlanDetailsBase = Readonly<{
     interval: Stripe.Price.Recurring.Interval;
   }> | null;
 }>;
+
+export type PurchasePricingPlanDetailsLocalized = PurchasePrice &
+  PurchasePricingPlanDetailsBase;

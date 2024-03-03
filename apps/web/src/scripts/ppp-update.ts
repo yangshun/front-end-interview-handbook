@@ -2,7 +2,7 @@ import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
 
-import pricing from '../components/interviews/pricing/purchasingPowerParity.json' assert { type: 'json' };
+import pricing from '../data/purchase/purchasingPowerParity.json' assert { type: 'json' };
 
 export type PurchasingPowerParity = Readonly<{
   countryCodeIsoAlpha2: string;

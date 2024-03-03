@@ -6,24 +6,22 @@ import { useEffect } from 'react';
 
 import gtag from '~/lib/gtag';
 
-import type {
-  InterviewsPricingPlansLocalized,
-  InterviewsPricingPlanType,
-} from '~/data/interviews/InterviewsPricingPlans';
-
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
+import type { ProjectsPricingPlansLocalized } from './ProjectsPricingPlans';
 import ProjectsPricingPromotions from './ProjectsPricingPromotions';
 import ProjectsPricingSection from './ProjectsPricingSection';
+
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
 type Props = Readonly<{
   countryCode: string;
   countryName: string;
-  plans: InterviewsPricingPlansLocalized;
+  plans: ProjectsPricingPlansLocalized;
 }>;
 
-export default function PricingPage({
+export default function ProjectsPricingPage({
   countryCode,
   countryName,
   plans,
@@ -31,7 +29,7 @@ export default function PricingPage({
   const searchParams = useSearchParams();
   const planSearchParam = searchParams?.get(
     'plan',
-  ) as InterviewsPricingPlanType | null;
+  ) as ProjectsSubscriptionPlan | null;
 
   const cancelSearchParam = searchParams?.get('cancel');
 
@@ -40,16 +38,16 @@ export default function PricingPage({
       gtag.event({
         action: `checkout.cancel`,
         category: 'ecommerce',
-        label: String(planSearchParam),
+        label: `[projects] ${planSearchParam}`,
       });
       gtag.event({
         action: `checkout.cancel.${planSearchParam}`,
         category: 'ecommerce',
-        label: String(planSearchParam),
+        label: `[projects] ${planSearchParam}`,
       });
       logMessage({
         level: 'warning',
-        message: `Cancelled checkout for ${planSearchParam}`,
+        message: `[projects] Cancelled checkout for ${planSearchParam}`,
         title: 'Checkout cancel',
       });
 

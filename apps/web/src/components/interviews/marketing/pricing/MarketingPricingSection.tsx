@@ -45,8 +45,8 @@ import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
 import PricingBlockCard from '../../pricing/PricingBlockCard';
-import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../../pricing/pricingConfig';
-import { priceRoundToNearestNiceNumber } from '../../pricing/pricingUtils';
+import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../../../payments/pricingConfig';
+import { priceRoundToNearestNiceNumber } from '../../../payments/pricingUtils';
 
 import { useSessionContext } from '@supabase/auth-helpers-react';
 
