@@ -17,12 +17,14 @@ import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
 import { isValidStudentEmail } from './studentEmail';
+import usePromotionsStudentDiscountLabels from './usePromotionsStudentDiscountLabels';
 import { PromotionsEmailUsLink } from '../PromotionsEmailUsLink';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
 export function PromotionsStudentDiscountCard() {
   const intl = useIntl();
+  const labels = usePromotionsStudentDiscountLabels();
   const discountPercentage = STUDENT_DISCOUNT_PERCENTAGE;
   const user = useUser();
   const { userProfile } = useUserProfile();
@@ -239,23 +241,8 @@ export function PromotionsStudentDiscountCard() {
           </div>
         </>
       }
-      subtitle={
-        <FormattedMessage
-          defaultMessage="{discountPercentage}% off GreatFrontEnd Annual plan."
-          description="Subtitle of discount promotion card"
-          id="k64L83"
-          values={{
-            discountPercentage,
-          }}
-        />
-      }
-      title={
-        <FormattedMessage
-          defaultMessage="Student Discount"
-          description="Promotion title"
-          id="xsaQ0d"
-        />
-      }
+      subtitle={labels.subtitle}
+      title={labels.title}
     />
   );
 }

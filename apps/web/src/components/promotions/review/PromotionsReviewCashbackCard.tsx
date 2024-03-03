@@ -1,16 +1,19 @@
 import clsx from 'clsx';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { REVIEW_CASHBACK_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
+
 import PricingBlockCard from '~/components/interviews/pricing/PricingBlockCard';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
+import usePromotionsReviewCashbackLabels from './usePromotionsReviewCashbackLabels';
 import { PromotionsEmailUsLink } from '../PromotionsEmailUsLink';
 
 export function PromotionsReviewCashbackCard() {
   const intl = useIntl();
-  const discountPercentage = 100;
+  const labels = usePromotionsReviewCashbackLabels();
 
   return (
     <PricingBlockCard
@@ -90,7 +93,7 @@ export function PromotionsReviewCashbackCard() {
               display="inline-flex"
               size="inherit"
               weight="inherit">
-              {discountPercentage}%
+              {REVIEW_CASHBACK_DISCOUNT_PERCENTAGE}%
             </Text>
           </div>
           <Text
@@ -140,23 +143,8 @@ export function PromotionsReviewCashbackCard() {
           </Text>
         </>
       }
-      subtitle={
-        <FormattedMessage
-          defaultMessage="Write or film a review of your experience with GreatFrontEnd for a {discountPercentage}% cashback on your first order amount. Success stories are welcome too!"
-          description="Subtitle of discount promotion card"
-          id="l/9/qK"
-          values={{
-            discountPercentage,
-          }}
-        />
-      }
-      title={
-        <FormattedMessage
-          defaultMessage="Review Cashback"
-          description="Promotion title"
-          id="f5UO3s"
-        />
-      }
+      subtitle={labels.subtitle}
+      title={labels.title}
     />
   );
 }

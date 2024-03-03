@@ -23,7 +23,6 @@ import { useUserProfile } from '~/components/global/UserProfileProvider';
 import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '~/components/interviews/pricing/pricingConfig';
 import PurchasePPPDiscountAlert from '~/components/payments/PurchasePPPDiscountAlert';
 import PurchaseProhibitedCountryAlert from '~/components/payments/PurchaseProhibitedCountryAlert';
-import { SocialDiscountAlert } from '~/components/promotions/social/SocialDiscountAlert';
 import type { Props as AnchorProps } from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
@@ -675,7 +674,6 @@ export default function ProjectsPricingSection({
             {/* Banners */}
             <div className="flex flex-col gap-y-5">
               <PurchaseProhibitedCountryAlert countryCode={countryCode} />
-              <SocialDiscountAlert />
               {showPPPMessage && (
                 <PurchasePPPDiscountAlert
                   countryName={countryName}

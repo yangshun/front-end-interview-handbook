@@ -14,6 +14,7 @@ import type {
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
+import ProjectsPricingPromotions from './ProjectsPricingPromotions';
 import ProjectsPricingSection from './ProjectsPricingSection';
 
 type Props = Readonly<{
@@ -66,14 +67,17 @@ export default function PricingPage({
     <div
       className={clsx(
         'flex flex-col gap-y-16 sm:gap-y-20',
-        'lg:pt-8',
+        'pb-12 lg:pt-8',
         'dark:bg-[#070708]',
       )}>
-      <ProjectsPricingSection
-        countryCode={countryCode}
-        countryName={countryName}
-        plans={plans}
-      />
+      <div className="flex flex-col">
+        <ProjectsPricingSection
+          countryCode={countryCode}
+          countryName={countryName}
+          plans={plans}
+        />
+        <ProjectsPricingPromotions />
+      </div>
       {/* TODO(projects): Add FAQ section: <Section></Section> */}
     </div>
   );

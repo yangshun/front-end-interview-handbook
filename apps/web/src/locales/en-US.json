@@ -2463,6 +2463,10 @@
     "defaultMessage": "Series",
     "description": "Label for Blog Series"
   },
+  "LTB2j0": {
+    "defaultMessage": "Existing students with a valid school email get a {discountPercentage}% off the Annual premium plans.",
+    "description": "Subtitle of discount promotion card"
+  },
   "LTreFY": {
     "defaultMessage": "Reset password",
     "description": "Title of reset password page"
