@@ -20,6 +20,7 @@ import {
   themeTextBrandColor,
   themeTextBrandColor_GroupHover,
   themeTextFaintColor,
+  themeTextInvertColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
@@ -69,12 +70,22 @@ function QuestionNewLabel({
 
   return (
     <span
-      className="absolute -right-0.5 -top-0.5 size-12"
+      className="size-12 absolute -right-0.5 -top-0.5"
       style={{
         clipPath: 'polygon(50% 0, 100% 50%, 100% 100%, 0 100%, 0 0)',
       }}>
-      <span className="border-info absolute block size-12 border-[24px] !border-b-transparent !border-l-transparent" />
-      <span className="absolute right-[3px] top-[10px] rotate-45 text-xs font-medium uppercase text-neutral-50 dark:text-black">
+      <span
+        className={clsx('absolute block', [
+          'border-info',
+          'border-[9999px] !border-b-transparent !border-l-transparent',
+        ])}
+      />
+      <span
+        className={clsx(
+          'absolute right-[3px] top-[10px] rotate-45',
+          'text-xs font-medium uppercase',
+          themeTextInvertColor,
+        )}>
         <FormattedMessage
           defaultMessage="New"
           description="Label for new questions ribbon"
@@ -263,7 +274,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                     {mode === 'default' && (
                       <span
                         className={clsx(
-                          'flex size-8 items-center justify-center rounded-full',
+                          'size-8 flex items-center justify-center rounded-full',
                           ['border', themeBorderElementColor],
                           'bg-neutral-100 dark:bg-neutral-900',
                         )}

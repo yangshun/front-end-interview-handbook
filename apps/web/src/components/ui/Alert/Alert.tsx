@@ -103,6 +103,7 @@ export default function Alert({
   return (
     <div
       className={clsx(
+        'relative',
         'flex gap-x-2',
         'rounded-lg p-4',
         backgroundClass,

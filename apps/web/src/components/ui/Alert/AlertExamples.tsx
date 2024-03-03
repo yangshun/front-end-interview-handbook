@@ -1,5 +1,13 @@
+import clsx from 'clsx';
+import { RiGraduationCapLine } from 'react-icons/ri';
+
 import Alert from './Alert';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
+import {
+  themeBorderBrandColor,
+  themeTextColor,
+  themeTextInvertColor,
+} from '../theme';
 
 export default function AlertExamples() {
   return (
@@ -23,6 +31,33 @@ export default function AlertExamples() {
       </Alert>
       <Alert title="Super special" variant="special">
         This is super special and should be used sparingly.
+      </Alert>
+      <Alert
+        icon={RiGraduationCapLine}
+        title="Student discounts"
+        variant="special">
+        Students can sign up with Projects Platform with their .edu emails to
+        receive special rates 40% off on the pricing plans.
+        <span
+          className="size-14 absolute -right-0.5 -top-0.5 overflow-hidden"
+          style={{
+            clipPath: 'polygon(50% 0, 100% 50%, 100% 100%, 0 100%, 0 0)',
+          }}>
+          <span
+            className={clsx('absolute block', [
+              themeBorderBrandColor,
+              'border-[9999px] !border-b-transparent !border-l-transparent',
+            ])}
+          />
+          <span
+            className={clsx(
+              'absolute left-1/2 top-1/2 -translate-x-[calc(50%-6px)] -translate-y-full rotate-45',
+              'text-2xs font-medium uppercase',
+              themeTextInvertColor,
+            )}>
+            Limited
+          </span>
+        </span>
       </Alert>
     </UIExamplesGroup>
   );
