@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   RiArrowRightLine,
   RiGraduationCapLine,
@@ -49,10 +49,11 @@ function LimitedRibbon() {
 }
 
 export default function ProjectsPricingPromotions() {
-  const [value, setValue] = useState('social');
+  const [index, setIndex] = useState(0);
   const socialDiscountLabels = useSocialDiscountLabels();
   const studentDiscountLabels = useStudentDiscountLabels();
   const reviewCashbackDiscountLabels = usePromotionsReviewCashbackLabels();
+  const timer = useRef<NodeJS.Timeout>();
 
   const alerts = [
     {
@@ -75,12 +76,28 @@ export default function ProjectsPricingPromotions() {
     },
   ];
 
+  useEffect(() => {
+    timer.current = setTimeout(() => {
+      setIndex((index + 1) % alerts.length);
+    }, 5000);
+
+    return () => {
+      window.clearTimeout(timer.current);
+    };
+  }, [alerts.length, index]);
+
+  const alertValue = alerts[index].value;
+
   return (
     <Container variant="4xl">
       <Tabs.Root
         className="flex flex-col gap-8"
-        value={value}
-        onValueChange={setValue}>
+        value={alertValue}
+        onValueChange={(newValue) => {
+          // Stop auto-advancing if user interacts with steppers.
+          window.clearTimeout(timer.current);
+          setIndex(alerts.findIndex(({ value }) => value === newValue));
+        }}>
         <div className="min-h-28">
           {alerts.map((alert) => (
             <Tabs.Content key={alert.value} value={alert.value}>
@@ -111,7 +128,7 @@ export default function ProjectsPricingPromotions() {
                 className={clsx(
                   'h-2 w-10 rounded',
                   alert,
-                  alert.value === value
+                  alert.value === alertValue
                     ? themeBackgroundBrandColor
                     : 'bg-neutral-200/70 dark:bg-neutral-700',
                   themeOutlineElement_FocusVisible,
