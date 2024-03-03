@@ -1,6 +1,6 @@
 import type {
   PurchasePrice,
-  PurchasePricingPlanDetailsBase,
+  PurchasePricingPlanPaymentConfigBase,
 } from '~/data/purchase/PurchaseTypes';
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
@@ -9,22 +9,17 @@ export type ProjectsSubscriptionPlanIncludingFree =
   | ProjectsSubscriptionPlan
   | 'FREE';
 
-type ProjectsPricingPlanDetails = PurchasePricingPlanDetailsBase &
-  Readonly<{
-    planType: ProjectsSubscriptionPlan;
-  }>;
+export type ProjectsPricingPlanPaymentConfigLocalized = PurchasePrice &
+  PurchasePricingPlanPaymentConfigBase;
 
-export type ProjectsPricingPlanDetailsLocalized = ProjectsPricingPlanDetails &
-  PurchasePrice;
-
-export type ProjectsPricingPlansLocalized = Record<
+export type ProjectsPricingPlanPaymentConfigLocalizedRecord = Record<
   ProjectsSubscriptionPlan,
-  ProjectsPricingPlanDetailsLocalized
+  ProjectsPricingPlanPaymentConfigLocalized
 >;
 
-export const ProjectsPricingPlansConfig: Record<
+export const ProjectsPricingPlansPaymentConfig: Record<
   ProjectsSubscriptionPlan,
-  ProjectsPricingPlanDetails
+  PurchasePricingPlanPaymentConfigBase
 > = {
   ANNUAL: {
     allowPromoCode: true,
@@ -34,7 +29,6 @@ export const ProjectsPricingPlansConfig: Record<
     },
     checkoutMode: 'subscription',
     discount: 20,
-    planType: 'ANNUAL',
     priceType: 'recurring',
     recurring: { count: 1, interval: 'year' },
   },
@@ -46,7 +40,6 @@ export const ProjectsPricingPlansConfig: Record<
     },
     checkoutMode: 'subscription',
     discount: 0,
-    planType: 'MONTH',
     priceType: 'recurring',
     recurring: { count: 1, interval: 'month' },
   },

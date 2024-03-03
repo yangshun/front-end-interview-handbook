@@ -36,14 +36,11 @@ import {
   annualPlanFeatures,
   freePlanFeatures,
   monthlyPlanFeatures,
-  type ProjectsSubscriptionPlanFeatures,
 } from './ProjectsPricingFeaturesConfig';
-import type {
-  ProjectsPricingPlanDetailsLocalized,
-  ProjectsSubscriptionPlanIncludingFree,
-} from './ProjectsPricingPlans';
+import type { ProjectsPricingPlanPaymentConfigLocalized } from './ProjectsPricingPlans';
 import type { ProjectsSubscriptionPlanFeature } from './useProjectsPricingPlanFeatures';
 import useProjectsPricingPlanFeatures from './useProjectsPricingPlanFeatures';
+import type { ProjectsPricingPlanItem } from './useProjectsPricingPlansList';
 import useProfileWithProjectsProfile from '../common/useProfileWithProjectsProfile';
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
@@ -112,10 +109,12 @@ function PricingButton({
 
 function PricingButtonNonLoggedIn({
   isDisabled,
-  plan,
+  paymentConfig,
+  planType,
 }: Readonly<{
   isDisabled: boolean;
-  plan: ProjectsPricingPlanDetailsLocalized;
+  paymentConfig: ProjectsPricingPlanPaymentConfigLocalized;
+  planType: ProjectsSubscriptionPlan;
 }>) {
   const intl = useIntl();
   const { signInUpHref } = useAuthSignInUp();
@@ -142,17 +141,15 @@ function PricingButtonNonLoggedIn({
         });
         logMessage({
           level: 'info',
-          message: `${
-            plan.planType
-          } plan for ${plan.currency.toLocaleUpperCase()} ${
-            plan.unitCostCurrency.withPPP.after
+          message: `${planType} plan for ${paymentConfig.currency.toLocaleUpperCase()} ${
+            paymentConfig.unitCostCurrency.withPPP.after
           } but not signed in`,
           title: 'Checkout initiate (non-signed in)',
         });
         logEvent('checkout.attempt.not_logged_in', {
-          currency: plan.currency.toLocaleUpperCase(),
-          plan: plan.planType,
-          value: plan.unitCostCurrency.withPPP.after,
+          currency: paymentConfig.currency.toLocaleUpperCase(),
+          plan: planType,
+          value: paymentConfig.unitCostCurrency.withPPP.after,
         });
       }}
     />
@@ -160,9 +157,11 @@ function PricingButtonNonLoggedIn({
 }
 
 function PricingButtonNonPremium({
-  plan,
+  planType,
+  paymentConfig,
 }: Readonly<{
-  plan: ProjectsPricingPlanDetailsLocalized;
+  paymentConfig: ProjectsPricingPlanPaymentConfigLocalized;
+  planType: ProjectsSubscriptionPlan;
 }>) {
   const intl = useIntl();
   const { isLoading } = useProfileWithProjectsProfile();
@@ -178,7 +177,7 @@ function PricingButtonNonPremium({
     useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function processSubscription(planType: ProjectsSubscriptionPlan) {
+  async function processSubscription(planTypeParam: ProjectsSubscriptionPlan) {
     if (isCheckoutSessionLoading) {
       return;
     }
@@ -190,7 +189,7 @@ function PricingButtonNonPremium({
         url.format({
           pathname: '/api/payments/purchase/checkout',
           query: {
-            plan_type: planType,
+            plan_type: planTypeParam,
           },
         }),
       );
@@ -219,7 +218,7 @@ function PricingButtonNonPremium({
       gtag.event({
         action: 'checkout.failure',
         category: 'ecommerce',
-        label: planType,
+        label: planTypeParam,
       });
       logMessage({
         level: 'error',
@@ -227,9 +226,9 @@ function PricingButtonNonPremium({
         title: 'Checkout attempt error',
       });
       logEvent('checkout.fail', {
-        currency: plan.currency.toLocaleUpperCase(),
-        plan: planType,
-        value: plan.unitCostCurrency.withPPP.after,
+        currency: paymentConfig.currency.toLocaleUpperCase(),
+        plan: planTypeParam,
+        value: paymentConfig.unitCostCurrency.withPPP.after,
       });
     } finally {
       setIsCheckoutSessionLoading(false);
@@ -262,35 +261,33 @@ function PricingButtonNonPremium({
             action: 'begin_checkout',
             category: 'ecommerce',
             extra: {
-              currency: plan.currency.toLocaleUpperCase(),
+              currency: paymentConfig.currency.toLocaleUpperCase(),
             },
-            value: plan.unitCostCurrency.withPPP.after,
+            value: paymentConfig.unitCostCurrency.withPPP.after,
           });
           fbq.track('InitiateCheckout', {
-            content_category: plan.planType,
-            currency: plan.currency.toLocaleUpperCase(),
-            value: plan.unitCostCurrency.withPPP.after,
+            content_category: planType,
+            currency: paymentConfig.currency.toLocaleUpperCase(),
+            value: paymentConfig.unitCostCurrency.withPPP.after,
           });
           logMessage({
             level: 'info',
-            message: `${
-              plan.planType
-            } plan for ${plan.currency.toLocaleUpperCase()} ${
-              plan.unitCostCurrency.withPPP.after
+            message: `${planType} plan for ${paymentConfig.currency.toLocaleUpperCase()} ${
+              paymentConfig.unitCostCurrency.withPPP.after
             }`,
             title: 'Checkout Initiate',
           });
           logEvent('checkout.attempt', {
-            currency: plan.currency.toLocaleUpperCase(),
-            plan: plan.planType,
-            value: plan.unitCostCurrency.withPPP.after,
+            currency: paymentConfig.currency.toLocaleUpperCase(),
+            plan: planType,
+            value: paymentConfig.unitCostCurrency.withPPP.after,
           });
 
           if (checkoutSessionHref != null) {
             return;
           }
 
-          return processSubscription(plan.planType);
+          return processSubscription(planType);
         }}
       />
       {error && (
@@ -304,10 +301,12 @@ function PricingButtonNonPremium({
 
 function PricingButtonSection({
   countryCode,
-  plan,
+  paymentConfig,
+  planType,
 }: Readonly<{
   countryCode: string;
-  plan: ProjectsPricingPlanDetailsLocalized;
+  paymentConfig: ProjectsPricingPlanPaymentConfigLocalized;
+  planType: ProjectsSubscriptionPlan;
 }>) {
   const intl = useIntl();
   const { isLoading: isUserLoading } = useSessionContext();
@@ -323,7 +322,12 @@ function PricingButtonSection({
   if (profile?.projectsProfile) {
     if (!profile?.projectsProfile.premium) {
       // User is logged in but not a premium user.
-      return <PricingButtonNonPremium plan={plan} />;
+      return (
+        <PricingButtonNonPremium
+          paymentConfig={paymentConfig}
+          planType={planType}
+        />
+      );
     }
 
     // User is already subscribed, link to billing page.
@@ -342,15 +346,23 @@ function PricingButtonSection({
   }
 
   // User is not logged in, they have to create an account first.
-  return <PricingButtonNonLoggedIn isDisabled={isPending} plan={plan} />;
+  return (
+    <PricingButtonNonLoggedIn
+      isDisabled={isPending}
+      paymentConfig={paymentConfig}
+      planType={planType}
+    />
+  );
 }
 
 function PricingPlanComparisonDiscount({
-  plan,
+  planType,
+  paymentConfig,
 }: Readonly<{
-  plan: ProjectsPricingPlanDetailsLocalized;
+  paymentConfig: ProjectsPricingPlanPaymentConfigLocalized;
+  planType: ProjectsSubscriptionPlan;
 }>) {
-  switch (plan.planType) {
+  switch (planType) {
     case 'MONTH':
       return (
         <span>
@@ -361,9 +373,9 @@ function PricingPlanComparisonDiscount({
             values={{
               price: (
                 <PriceLabel
-                  amount={plan.unitCostCurrency.withPPP.after}
-                  currency={plan.currency.toUpperCase()}
-                  symbol={plan.symbol}
+                  amount={paymentConfig.unitCostCurrency.withPPP.after}
+                  currency={paymentConfig.currency.toUpperCase()}
+                  symbol={paymentConfig.symbol}
                 />
               ),
             }}
@@ -385,9 +397,9 @@ function PricingPlanComparisonDiscount({
             values={{
               price: (
                 <PriceLabel
-                  amount={plan.unitCostCurrency.withPPP.after}
-                  currency={plan.currency.toUpperCase()}
-                  symbol={plan.symbol}
+                  amount={paymentConfig.unitCostCurrency.withPPP.after}
+                  currency={paymentConfig.currency.toUpperCase()}
+                  symbol={paymentConfig.symbol}
                 />
               ),
             }}
@@ -395,10 +407,10 @@ function PricingPlanComparisonDiscount({
           <span className={clsx(themeTextBrandColor, 'whitespace-nowrap')}>
             <FormattedMessage
               defaultMessage="(Save {discountPercentage}% vs monthly)"
-              description="Save more compared to monthly plan."
-              id="Dynazi"
+              description="Save more compared to monthly paymentConfig."
+              id="VGE0X/"
               values={{
-                discountPercentage: plan.discount,
+                discountPercentage: paymentConfig.discount,
               }}
             />
           </span>
@@ -432,17 +444,9 @@ function FeatureItem({
   );
 }
 
-export type ProjectsPricingPlanTier = Readonly<{
-  features: ProjectsSubscriptionPlanFeatures;
-  name: string;
-  numberOfMonths?: number;
-  plan: ProjectsPricingPlanDetailsLocalized | null;
-  type: ProjectsSubscriptionPlanIncludingFree;
-}>;
-
 type Props = Readonly<{
   countryCode: string;
-  planList: ReadonlyArray<ProjectsPricingPlanTier>;
+  planList: ReadonlyArray<ProjectsPricingPlanItem>;
   showPPPMessage: boolean;
 }>;
 
@@ -450,13 +454,15 @@ function ProjectsPricingPriceCell({
   className,
   countryCode,
   showPPPMessage,
-  plan,
+  paymentConfig,
+  planType,
   numberOfMonths,
 }: Readonly<{
   className: string;
   countryCode: string;
   numberOfMonths?: number;
-  plan: ProjectsPricingPlanDetailsLocalized;
+  paymentConfig: ProjectsPricingPlanPaymentConfigLocalized;
+  planType: ProjectsSubscriptionPlan;
   showPPPMessage: boolean;
 }>) {
   return (
@@ -469,10 +475,11 @@ function ProjectsPricingPriceCell({
             display="inline-flex">
             <PriceLabel
               amount={priceRoundToNearestNiceNumber(
-                plan.unitCostCurrency.base.after / (numberOfMonths ?? 1),
+                paymentConfig.unitCostCurrency.base.after /
+                  (numberOfMonths ?? 1),
               )}
-              currency={plan.currency.toUpperCase()}
-              symbol={plan.symbol}
+              currency={paymentConfig.currency.toUpperCase()}
+              symbol={paymentConfig.symbol}
             />{' '}
             {numberOfMonths != null ? (
               <FormattedMessage
@@ -497,10 +504,11 @@ function ProjectsPricingPriceCell({
           <span>
             <PriceLabel
               amount={priceRoundToNearestNiceNumber(
-                plan.unitCostCurrency.withPPP.after / (numberOfMonths ?? 1),
+                paymentConfig.unitCostCurrency.withPPP.after /
+                  (numberOfMonths ?? 1),
               )}
-              currency={plan.currency.toUpperCase()}
-              symbol={plan.symbol}>
+              currency={paymentConfig.currency.toUpperCase()}
+              symbol={paymentConfig.symbol}>
               {(parts) => (
                 <>
                   {parts[0].value}
@@ -536,10 +544,17 @@ function ProjectsPricingPriceCell({
         </Text>
       </div>
       <Text className="mt-2" display="block" size="body3">
-        <PricingPlanComparisonDiscount plan={plan} />
+        <PricingPlanComparisonDiscount
+          paymentConfig={paymentConfig}
+          planType={planType}
+        />
       </Text>
       <div className="mt-5">
-        <PricingButtonSection countryCode={countryCode} plan={plan} />
+        <PricingButtonSection
+          countryCode={countryCode}
+          paymentConfig={paymentConfig}
+          planType={planType}
+        />
       </div>
       <Text
         className="mt-2 whitespace-nowrap text-center"
@@ -607,14 +622,15 @@ export default function ProjectsPricingTable({
               <th colSpan={2} scope="row">
                 <span className="sr-only">Price</span>
               </th>
-              {planList.map(({ name, plan, numberOfMonths }) => (
+              {planList.map(({ name, paymentConfig, numberOfMonths, type }) => (
                 <td key={name} className="px-6 py-5 align-top xl:px-8">
-                  {plan != null && (
+                  {paymentConfig != null && type !== 'FREE' && (
                     <ProjectsPricingPriceCell
                       className="text-center"
                       countryCode={countryCode}
                       numberOfMonths={numberOfMonths}
-                      plan={plan}
+                      paymentConfig={paymentConfig}
+                      planType={type}
                       showPPPMessage={showPPPMessage}
                     />
                   )}
@@ -704,18 +720,25 @@ export default function ProjectsPricingTable({
           ['divide-y', themeDivideColor],
         )}>
         {planList.map(
-          ({ features: planFeatures, name, plan, numberOfMonths }) => {
+          ({
+            features: planFeatures,
+            name,
+            paymentConfig,
+            numberOfMonths,
+            type,
+          }) => {
             return (
               <div key={name} className={clsx('px-8 py-6')}>
                 <Text color="subtitle" weight="medium">
                   {name}
                 </Text>
-                {plan != null && (
+                {paymentConfig != null && type !== 'FREE' && (
                   <ProjectsPricingPriceCell
                     className="mt-8"
                     countryCode={countryCode}
                     numberOfMonths={numberOfMonths}
-                    plan={plan}
+                    paymentConfig={paymentConfig}
+                    planType={type}
                     showPPPMessage={showPPPMessage}
                   />
                 )}

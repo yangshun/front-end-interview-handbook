@@ -5,8 +5,8 @@ import absoluteUrl from '~/lib/absoluteUrl';
 
 import countryNames from '~/data/countryCodesToNames.json';
 
-import fetchInterviewsLocalizedPlanPricing from '~/components/interviews/pricing/fetchInterviewsLocalizedPlanPricing';
-import fetchProjectsLocalizedPlanPricing from '~/components/projects/purchase/fetchProjectsLocalizedPlanPricing';
+import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/pricing/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
+import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/projects/purchase/fetchProjectsPricingPlanPaymentConfigLocalizedRecord';
 
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
@@ -57,7 +57,10 @@ export const purchasesRouter = router({
         req.cookies.country ??
         'US') as CountryCode;
 
-      const plans = await fetchInterviewsLocalizedPlanPricing(countryCode);
+      const plans =
+        await fetchInterviewsPricingPlanPaymentConfigLocalizedRecord(
+          countryCode,
+        );
 
       return {
         country: {
@@ -74,7 +77,8 @@ export const purchasesRouter = router({
         req.cookies.country ??
         'US') as CountryCode;
 
-      const plans = await fetchProjectsLocalizedPlanPricing(countryCode);
+      const plans =
+        await fetchProjectsPricingPlanPaymentConfigLocalizedRecord(countryCode);
 
       return {
         country: {

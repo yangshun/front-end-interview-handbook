@@ -6,9 +6,8 @@ import {
   RiDiscordFill,
 } from 'react-icons/ri';
 
-import type { InterviewsPricingPlansLocalized } from '~/data/interviews/InterviewsPricingPlans';
-
 import PaymentSuccessSection from '~/components/payments/PaymentSuccessSection';
+import type { ProjectsPricingPlanPaymentConfigLocalizedRecord } from '~/components/projects/purchase/ProjectsPricingPlans';
 import Container from '~/components/ui/Container';
 
 /* TODO: i18n */
@@ -37,11 +36,11 @@ const actions = [
 ];
 
 type Props = Readonly<{
-  plans: InterviewsPricingPlansLocalized;
+  plansPaymentConfig: ProjectsPricingPlanPaymentConfigLocalizedRecord;
 }>;
 
 export default function ProjectsPaymentSuccessPage({
-  plans,
+  plansPaymentConfig,
 }: Props): JSX.Element {
   // TODO(projects): add logging for conversion events.
   return (

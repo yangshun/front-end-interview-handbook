@@ -1,6 +1,6 @@
 import type {
-  PurchasePricingPlanDetailsBase,
-  PurchasePricingPlanDetailsLocalized,
+  PurchasePricingPlanPaymentConfigBase,
+  PurchasePricingPlanPaymentConfigLocalized,
 } from '../purchase/PurchaseTypes';
 
 export type InterviewsPricingPlanType =
@@ -9,25 +9,26 @@ export type InterviewsPricingPlanType =
   | 'monthly'
   | 'quarterly';
 
-export type InterviewsPricingPlanDetails = PurchasePricingPlanDetailsBase &
-  Readonly<{
-    planType: InterviewsPricingPlanType;
-  }>;
-
-export type InterviewsPricingPlanDetailsLocalized =
-  PurchasePricingPlanDetailsLocalized &
+export type InterviewsPricingPlanPaymentConfig =
+  PurchasePricingPlanPaymentConfigBase &
     Readonly<{
       planType: InterviewsPricingPlanType;
     }>;
 
-export type InterviewsPricingPlansLocalized = Record<
+export type InterviewsPricingPlanPaymentConfigLocalized =
+  PurchasePricingPlanPaymentConfigLocalized &
+    Readonly<{
+      planType: InterviewsPricingPlanType;
+    }>;
+
+export type InterviewsPricingPlanPaymentConfigLocalizedRecord = Record<
   InterviewsPricingPlanType,
-  InterviewsPricingPlanDetailsLocalized
+  InterviewsPricingPlanPaymentConfigLocalized
 >;
 
-export const InterviewsPricingPlansConfig: Record<
+export const InterviewsPricingPlansPaymentConfig: Record<
   InterviewsPricingPlanType,
-  InterviewsPricingPlanDetails
+  InterviewsPricingPlanPaymentConfig
 > = {
   annual: {
     allowPromoCode: true,

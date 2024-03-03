@@ -5,11 +5,11 @@ import absoluteUrl from '~/lib/absoluteUrl';
 import { normalizeCurrencyValue } from '~/lib/stripeUtils';
 
 import type {
-  InterviewsPricingPlanDetails,
+  InterviewsPricingPlanPaymentConfig,
   InterviewsPricingPlanType,
 } from '~/data/interviews/InterviewsPricingPlans';
 
-import fetchInterviewsLocalizedPlanPricing from '~/components/interviews/pricing/fetchInterviewsLocalizedPlanPricing';
+import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/pricing/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 
 const productId = process.env.STRIPE_MAIN_PRODUCT_ID;
 
@@ -48,7 +48,8 @@ export default async function handler(
     apiVersion: '2023-10-16',
   });
 
-  const data = await fetchInterviewsLocalizedPlanPricing(countryCode);
+  const data =
+    await fetchInterviewsPricingPlanPaymentConfigLocalizedRecord(countryCode);
 
   const planDetails = data[planType];
 
@@ -97,7 +98,7 @@ export default async function handler(
 
 function checkoutSessionUrls(
   req: NextApiRequest,
-  plan: InterviewsPricingPlanDetails,
+  plan: InterviewsPricingPlanPaymentConfig,
 ) {
   const { origin } = absoluteUrl(req);
   const { planType } = plan;
@@ -113,7 +114,7 @@ async function processSubscriptionPlan(
   res: NextApiResponse,
   stripeCustomerId: string,
   stripe: Stripe,
-  plan: InterviewsPricingPlanDetails,
+  plan: InterviewsPricingPlanPaymentConfig,
   currency: string,
   unitAmountInCurrency: number,
   firstPromoterTrackingId?: string,
@@ -160,7 +161,7 @@ async function processOneTimePlan(
   res: NextApiResponse,
   stripeCustomerId: string,
   stripe: Stripe,
-  plan: InterviewsPricingPlanDetails,
+  plan: InterviewsPricingPlanPaymentConfig,
   currency: string,
   unitAmountInCurrency: number,
   receiptEmail?: string,

@@ -1,31 +1,43 @@
 import { useIntl } from 'react-intl';
 
+import type { ProjectsSubscriptionPlanFeatures } from './ProjectsPricingFeaturesConfig';
 import {
   annualPlanFeatures,
   freePlanFeatures,
   monthlyPlanFeatures,
 } from './ProjectsPricingFeaturesConfig';
-import type { ProjectsPricingPlansLocalized } from './ProjectsPricingPlans';
-import type { ProjectsPricingPlanTier } from './ProjectsPricingTable';
+import type {
+  ProjectsPricingPlanPaymentConfigLocalized,
+  ProjectsPricingPlanPaymentConfigLocalizedRecord,
+  ProjectsSubscriptionPlanIncludingFree,
+} from './ProjectsPricingPlans';
+
+export type ProjectsPricingPlanItem = Readonly<{
+  features: ProjectsSubscriptionPlanFeatures;
+  name: string;
+  numberOfMonths?: number;
+  paymentConfig: ProjectsPricingPlanPaymentConfigLocalized | null;
+  type: ProjectsSubscriptionPlanIncludingFree;
+}>;
 
 export default function useProjectsPricingPlansList(
-  plans: ProjectsPricingPlansLocalized,
-) {
+  plansPaymentConfig: ProjectsPricingPlanPaymentConfigLocalizedRecord,
+): ReadonlyArray<ProjectsPricingPlanItem> {
   const intl = useIntl();
-  const { MONTH: monthlyPlan, ANNUAL: annualPlan } = plans;
+  const { MONTH: monthlyPlan, ANNUAL: annualPlan } = plansPaymentConfig;
 
-  const freePlanDetails: ProjectsPricingPlanTier = {
+  const freePlanDetails: ProjectsPricingPlanItem = {
     features: freePlanFeatures,
     name: intl.formatMessage({
       defaultMessage: 'Free plan',
       description: 'Title of free pricing plan',
       id: 'S5984+',
     }),
-    plan: null,
+    paymentConfig: null,
     type: 'FREE',
   };
 
-  const monthlyPlanDetails: ProjectsPricingPlanTier = {
+  const monthlyPlanDetails: ProjectsPricingPlanItem = {
     features: monthlyPlanFeatures,
     name: intl.formatMessage({
       defaultMessage: 'Monthly plan',
@@ -33,11 +45,11 @@ export default function useProjectsPricingPlansList(
       id: 'SuWvZa',
     }),
     numberOfMonths: 1,
-    plan: monthlyPlan,
+    paymentConfig: monthlyPlan,
     type: 'MONTH',
   };
 
-  const annualPlanDetails: ProjectsPricingPlanTier = {
+  const annualPlanDetails: ProjectsPricingPlanItem = {
     features: annualPlanFeatures,
     name: intl.formatMessage({
       defaultMessage: 'Annual plan',
@@ -45,7 +57,7 @@ export default function useProjectsPricingPlansList(
       id: '6SEbWz',
     }),
     numberOfMonths: 12,
-    plan: annualPlan,
+    paymentConfig: annualPlan,
     type: 'ANNUAL',
   };
 

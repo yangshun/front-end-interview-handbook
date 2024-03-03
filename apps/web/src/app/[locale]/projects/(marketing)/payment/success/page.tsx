@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import type { Metadata } from 'next/types';
 
-import fetchInterviewsLocalizedPlanPricing from '~/components/interviews/pricing/fetchInterviewsLocalizedPlanPricing';
+import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/projects/purchase/fetchProjectsPricingPlanPaymentConfigLocalizedRecord';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -33,7 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page() {
   const cookieStore = cookies();
   const countryCode: string = cookieStore.get('country')?.value ?? 'US';
-  const plans = await fetchInterviewsLocalizedPlanPricing(countryCode);
+  const plansPaymentConfig =
+    await fetchProjectsPricingPlanPaymentConfigLocalizedRecord(countryCode);
 
-  return <ProjectsPaymentSuccessPage plans={plans} />;
+  return <ProjectsPaymentSuccessPage plansPaymentConfig={plansPaymentConfig} />;
 }

@@ -12,7 +12,7 @@ import fbq from '~/lib/fbq';
 import gtag from '~/lib/gtag';
 
 import type {
-  InterviewsPricingPlansLocalized,
+  InterviewsPricingPlanPaymentConfigLocalizedRecord,
   InterviewsPricingPlanType,
 } from '~/data/interviews/InterviewsPricingPlans';
 
@@ -47,7 +47,7 @@ const actions = [
 ];
 
 type Props = Readonly<{
-  plans: InterviewsPricingPlansLocalized;
+  plans: InterviewsPricingPlanPaymentConfigLocalizedRecord;
 }>;
 
 export default function PaymentSuccessPage({ plans }: Props): JSX.Element {

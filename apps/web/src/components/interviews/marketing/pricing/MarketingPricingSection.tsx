@@ -13,8 +13,8 @@ import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import type {
-  InterviewsPricingPlanDetailsLocalized,
-  InterviewsPricingPlansLocalized,
+  InterviewsPricingPlanPaymentConfigLocalized,
+  InterviewsPricingPlanPaymentConfigLocalizedRecord,
   InterviewsPricingPlanType,
 } from '~/data/interviews/InterviewsPricingPlans';
 
@@ -53,7 +53,7 @@ import { useSessionContext } from '@supabase/auth-helpers-react';
 type Props = Readonly<{
   countryCode: string;
   countryName: string;
-  plans: InterviewsPricingPlansLocalized;
+  plans: InterviewsPricingPlanPaymentConfigLocalizedRecord;
 }>;
 
 function PriceLabel({
@@ -123,11 +123,11 @@ function PricingButton({
 function PricingButtonNonLoggedIn({
   'aria-describedby': ariaDescribedBy,
   isDisabled,
-  plan,
+  paymentConfig,
 }: Readonly<{
   'aria-describedby': string;
   isDisabled: boolean;
-  plan: InterviewsPricingPlanDetailsLocalized;
+  paymentConfig: InterviewsPricingPlanPaymentConfigLocalized;
 }>) {
   const intl = useIntl();
   const { signInUpHref } = useAuthSignInUp();
@@ -156,16 +156,16 @@ function PricingButtonNonLoggedIn({
         logMessage({
           level: 'info',
           message: `${
-            plan.planType
-          } plan for ${plan.currency.toLocaleUpperCase()} ${
-            plan.unitCostCurrency.withPPP.after
+            paymentConfig.planType
+          } plan for ${paymentConfig.currency.toLocaleUpperCase()} ${
+            paymentConfig.unitCostCurrency.withPPP.after
           } but not signed in`,
           title: 'Checkout initiate (non-signed in)',
         });
         logEvent('checkout.attempt.not_logged_in', {
-          currency: plan.currency.toLocaleUpperCase(),
-          plan: plan.planType,
-          value: plan.unitCostCurrency.withPPP.after,
+          currency: paymentConfig.currency.toLocaleUpperCase(),
+          plan: paymentConfig.planType,
+          value: paymentConfig.unitCostCurrency.withPPP.after,
         });
       }}
     />
@@ -174,10 +174,10 @@ function PricingButtonNonLoggedIn({
 
 function PricingButtonNonPremium({
   'aria-describedby': ariaDescribedBy,
-  plan,
+  paymentConfig,
 }: Readonly<{
   'aria-describedby': string;
-  plan: InterviewsPricingPlanDetailsLocalized;
+  paymentConfig: InterviewsPricingPlanPaymentConfigLocalized;
 }>) {
   const intl = useIntl();
   const { userProfile, isUserProfileLoading } = useUserProfile();
@@ -242,9 +242,9 @@ function PricingButtonNonPremium({
         title: 'Checkout attempt error',
       });
       logEvent('checkout.fail', {
-        currency: plan.currency.toLocaleUpperCase(),
+        currency: paymentConfig.currency.toLocaleUpperCase(),
         plan: planType,
-        value: plan.unitCostCurrency.withPPP.after,
+        value: paymentConfig.unitCostCurrency.withPPP.after,
       });
     } finally {
       setIsCheckoutSessionLoading(false);
@@ -255,15 +255,15 @@ function PricingButtonNonPremium({
     if (
       userProfile != null &&
       !userProfile.isPremium &&
-      plan.planType === 'lifetime' &&
+      paymentConfig.planType === 'lifetime' &&
       checkoutSessionHref == null
     ) {
       // Eagerly generate the checkout page URL for lifetime plan
       // in the background because it takes a while.
-      processSubscription(plan.planType);
+      processSubscription(paymentConfig.planType);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userProfile, checkoutSessionHref, plan.planType]);
+  }, [userProfile, checkoutSessionHref, paymentConfig.planType]);
 
   const showUserThereIsAsyncRequest = hasClicked && isCheckoutSessionLoading;
 
@@ -292,35 +292,35 @@ function PricingButtonNonPremium({
             action: 'begin_checkout',
             category: 'ecommerce',
             extra: {
-              currency: plan.currency.toLocaleUpperCase(),
+              currency: paymentConfig.currency.toLocaleUpperCase(),
             },
-            value: plan.unitCostCurrency.withPPP.after,
+            value: paymentConfig.unitCostCurrency.withPPP.after,
           });
           fbq.track('InitiateCheckout', {
-            content_category: plan.planType,
-            currency: plan.currency.toLocaleUpperCase(),
-            value: plan.unitCostCurrency.withPPP.after,
+            content_category: paymentConfig.planType,
+            currency: paymentConfig.currency.toLocaleUpperCase(),
+            value: paymentConfig.unitCostCurrency.withPPP.after,
           });
           logMessage({
             level: 'info',
             message: `${
-              plan.planType
-            } plan for ${plan.currency.toLocaleUpperCase()} ${
-              plan.unitCostCurrency.withPPP.after
+              paymentConfig.planType
+            } plan for ${paymentConfig.currency.toLocaleUpperCase()} ${
+              paymentConfig.unitCostCurrency.withPPP.after
             }`,
             title: 'Checkout Initiate',
           });
           logEvent('checkout.attempt', {
-            currency: plan.currency.toLocaleUpperCase(),
-            plan: plan.planType,
-            value: plan.unitCostCurrency.withPPP.after,
+            currency: paymentConfig.currency.toLocaleUpperCase(),
+            plan: paymentConfig.planType,
+            value: paymentConfig.unitCostCurrency.withPPP.after,
           });
 
           if (checkoutSessionHref != null) {
             return;
           }
 
-          return processSubscription(plan.planType);
+          return processSubscription(paymentConfig.planType);
         }}
       />
       {error && (
@@ -335,11 +335,11 @@ function PricingButtonNonPremium({
 function PricingButtonSection({
   'aria-describedby': ariaDescribedBy,
   countryCode,
-  plan,
+  paymentConfig,
 }: Readonly<{
   'aria-describedby': string;
   countryCode: string;
-  plan: InterviewsPricingPlanDetailsLocalized;
+  paymentConfig: InterviewsPricingPlanPaymentConfigLocalized;
 }>) {
   const intl = useIntl();
   const { isLoading: isUserLoading } = useSessionContext();
@@ -357,7 +357,7 @@ function PricingButtonSection({
       return (
         <PricingButtonNonPremium
           aria-describedby={ariaDescribedBy}
-          plan={plan}
+          paymentConfig={paymentConfig}
         />
       );
     }
@@ -383,19 +383,19 @@ function PricingButtonSection({
     <PricingButtonNonLoggedIn
       aria-describedby={ariaDescribedBy}
       isDisabled={isPending}
-      plan={plan}
+      paymentConfig={paymentConfig}
     />
   );
 }
 
 function PricingPlanComparisonDiscount({
-  plan,
+  paymentConfig,
   showPPPMessage,
 }: Readonly<{
-  plan: InterviewsPricingPlanDetailsLocalized;
+  paymentConfig: InterviewsPricingPlanPaymentConfigLocalized;
   showPPPMessage: boolean;
 }>) {
-  switch (plan.planType) {
+  switch (paymentConfig.planType) {
     case 'monthly':
       return (
         <span>
@@ -406,9 +406,9 @@ function PricingPlanComparisonDiscount({
             values={{
               price: (
                 <PriceLabel
-                  amount={plan.unitCostCurrency.withPPP.after}
-                  currency={plan.currency.toUpperCase()}
-                  symbol={plan.symbol}
+                  amount={paymentConfig.unitCostCurrency.withPPP.after}
+                  currency={paymentConfig.currency.toUpperCase()}
+                  symbol={paymentConfig.symbol}
                 />
               ),
             }}
@@ -430,9 +430,9 @@ function PricingPlanComparisonDiscount({
             values={{
               price: (
                 <PriceLabel
-                  amount={plan.unitCostCurrency.withPPP.after}
-                  currency={plan.currency.toUpperCase()}
-                  symbol={plan.symbol}
+                  amount={paymentConfig.unitCostCurrency.withPPP.after}
+                  currency={paymentConfig.currency.toUpperCase()}
+                  symbol={paymentConfig.symbol}
                 />
               ),
             }}
@@ -443,7 +443,7 @@ function PricingPlanComparisonDiscount({
               description="Save more compared to monthly plan."
               id="Dynazi"
               values={{
-                discountPercentage: plan.discount,
+                discountPercentage: paymentConfig.discount,
               }}
             />
           </span>
@@ -459,9 +459,9 @@ function PricingPlanComparisonDiscount({
             values={{
               price: (
                 <PriceLabel
-                  amount={plan.unitCostCurrency.withPPP.after}
-                  currency={plan.currency.toUpperCase()}
-                  symbol={plan.symbol}
+                  amount={paymentConfig.unitCostCurrency.withPPP.after}
+                  currency={paymentConfig.currency.toUpperCase()}
+                  symbol={paymentConfig.symbol}
                 />
               ),
             }}
@@ -472,7 +472,7 @@ function PricingPlanComparisonDiscount({
               description="Save more compared to monthly plan."
               id="Dynazi"
               values={{
-                discountPercentage: plan.discount,
+                discountPercentage: paymentConfig.discount,
               }}
             />
           </span>
@@ -490,12 +490,12 @@ function PricingPlanComparisonDiscount({
           description="Usual price of the item and the discount off"
           id="FQQRsa"
           values={{
-            discountPercentage: plan.discount,
+            discountPercentage: paymentConfig.discount,
             price: (
               <PriceLabel
-                amount={plan.unitCostCurrency.withPPP.before}
-                currency={plan.currency.toUpperCase()}
-                symbol={plan.symbol}
+                amount={paymentConfig.unitCostCurrency.withPPP.before}
+                currency={paymentConfig.currency.toUpperCase()}
+                symbol={paymentConfig.symbol}
               />
             ),
             span: (chunks) => (
@@ -508,12 +508,12 @@ function PricingPlanComparisonDiscount({
   }
 }
 
-type PricingPlanDetails = Readonly<{
+type InterviewsPricingPlanItem = Readonly<{
   description: string;
   includedFeatures: ReadonlyArray<React.ReactNode>;
   name: string;
   numberOfMonths?: number;
-  plan: InterviewsPricingPlanDetailsLocalized;
+  paymentConfig: InterviewsPricingPlanPaymentConfigLocalized;
 }>;
 
 export default function MarketingPricingSection({
@@ -554,7 +554,7 @@ export default function MarketingPricingSection({
     id: 'F74ozi',
   });
 
-  const monthlyPlanDetails: PricingPlanDetails = {
+  const monthlyPlanDetails: InterviewsPricingPlanItem = {
     description: intl.formatMessage({
       defaultMessage: 'Perfect for short term job hunts.',
       description: 'Supporting statement for a monthly pricing plan',
@@ -567,10 +567,10 @@ export default function MarketingPricingSection({
       id: 'SuWvZa',
     }),
     numberOfMonths: 1,
-    plan: monthlyPlan,
+    paymentConfig: monthlyPlan,
   };
 
-  const quarterlyPlanDetails: PricingPlanDetails = {
+  const quarterlyPlanDetails: InterviewsPricingPlanItem = {
     description: intl.formatMessage({
       defaultMessage: 'Discounted rate for a typical job hunt duration.',
       description: 'Supporting statement for a quarterly pricing plan',
@@ -587,10 +587,10 @@ export default function MarketingPricingSection({
       id: 'WIHUwS',
     }),
     numberOfMonths: 3,
-    plan: quarterlyPlan,
+    paymentConfig: quarterlyPlan,
   };
 
-  const annualPlanDetails: PricingPlanDetails = {
+  const annualPlanDetails: InterviewsPricingPlanItem = {
     description: intl.formatMessage({
       defaultMessage:
         'Best value for money with real-time support from the team and community.',
@@ -609,10 +609,10 @@ export default function MarketingPricingSection({
       id: '6SEbWz',
     }),
     numberOfMonths: 12,
-    plan: annualPlan,
+    paymentConfig: annualPlan,
   };
 
-  const lifetimePlanDetails: PricingPlanDetails = {
+  const lifetimePlanDetails: InterviewsPricingPlanItem = {
     description: intl.formatMessage({
       defaultMessage:
         'Pay once, get full access to the interview platform forever, including updates.',
@@ -637,7 +637,7 @@ export default function MarketingPricingSection({
         'Title of LifeTime Access Pricing Plan found on Homepage or Pricing page',
       id: 'riPEvL',
     }),
-    plan: lifetimePlan,
+    paymentConfig: lifetimePlan,
   };
 
   const planList = [
@@ -648,7 +648,7 @@ export default function MarketingPricingSection({
 
   const featuredPlan = lifetimePlanDetails;
   const showPPPMessage =
-    featuredPlan.plan.conversionFactor <
+    featuredPlan.paymentConfig.conversionFactor <
     MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE;
 
   const promoMessage = (
@@ -754,7 +754,7 @@ export default function MarketingPricingSection({
                 <PurchasePPPDiscountAlert
                   countryName={countryName}
                   discount={Math.ceil(
-                    100 - featuredPlan.plan.conversionFactor * 100,
+                    100 - featuredPlan.paymentConfig.conversionFactor * 100,
                   )}
                 />
               )}
@@ -771,8 +771,8 @@ export default function MarketingPricingSection({
                         <Text
                           className={clsx(
                             'inline-flex flex-wrap items-end text-lg line-through',
-                            featuredPlan.plan.unitCostCurrency.withPPP.after <
-                              1000 && 'sm:text-lg',
+                            featuredPlan.paymentConfig.unitCostCurrency.withPPP
+                              .after < 1000 && 'sm:text-lg',
                           )}
                           color="subtle"
                           display="inline-flex"
@@ -780,11 +780,11 @@ export default function MarketingPricingSection({
                           weight="medium">
                           <PriceLabel
                             amount={priceRoundToNearestNiceNumber(
-                              featuredPlan.plan.unitCostCurrency.base.after /
-                                (featuredPlan.numberOfMonths ?? 1),
+                              featuredPlan.paymentConfig.unitCostCurrency.base
+                                .after / (featuredPlan.numberOfMonths ?? 1),
                             )}
-                            currency={featuredPlan.plan.currency.toUpperCase()}
-                            symbol={featuredPlan.plan.symbol}
+                            currency={featuredPlan.paymentConfig.currency.toUpperCase()}
+                            symbol={featuredPlan.paymentConfig.symbol}
                           />{' '}
                           {featuredPlan.numberOfMonths != null ? (
                             <FormattedMessage
@@ -804,8 +804,8 @@ export default function MarketingPricingSection({
                       <Text
                         className={clsx('inline-flex items-end gap-x-2', [
                           'text-xl',
-                          featuredPlan.plan.unitCostCurrency.withPPP.after <
-                            1000 && 'sm:text-xl',
+                          featuredPlan.paymentConfig.unitCostCurrency.withPPP
+                            .after < 1000 && 'sm:text-xl',
                         ])}
                         color="subtitle"
                         display="inline-flex"
@@ -814,11 +814,12 @@ export default function MarketingPricingSection({
                         <span>
                           <PriceLabel
                             amount={priceRoundToNearestNiceNumber(
-                              featuredPlan.plan.unitCostCurrency.withPPP.after /
+                              featuredPlan.paymentConfig.unitCostCurrency
+                                .withPPP.after /
                                 (featuredPlan.numberOfMonths ?? 1),
                             )}
-                            currency={featuredPlan.plan.currency.toUpperCase()}
-                            symbol={featuredPlan.plan.symbol}>
+                            currency={featuredPlan.paymentConfig.currency.toUpperCase()}
+                            symbol={featuredPlan.paymentConfig.symbol}>
                             {(parts) => (
                               <>
                                 {parts[0].value}
@@ -861,7 +862,7 @@ export default function MarketingPricingSection({
                       size="body2"
                       weight="medium">
                       <PricingPlanComparisonDiscount
-                        plan={featuredPlan.plan}
+                        paymentConfig={featuredPlan.paymentConfig}
                         showPPPMessage={showPPPMessage}
                       />
                     </Text>
@@ -869,10 +870,10 @@ export default function MarketingPricingSection({
                       <PricingButtonSection
                         aria-describedby={featuredPlanId}
                         countryCode={countryCode}
-                        plan={featuredPlan.plan}
+                        paymentConfig={featuredPlan.paymentConfig}
                       />
                     </div>
-                    {featuredPlan.plan.allowPromoCode && (
+                    {featuredPlan.paymentConfig.allowPromoCode && (
                       <Text
                         className="mt-3"
                         color="subtitle"
@@ -926,15 +927,15 @@ export default function MarketingPricingSection({
                     ({
                       description,
                       numberOfMonths,
-                      plan,
+                      paymentConfig,
                       includedFeatures,
                       name,
                     }) => {
-                      const id = `tier-${plan.planType}`;
+                      const id = `tier-${paymentConfig.planType}`;
 
                       return (
                         <div
-                          key={plan.planType}
+                          key={paymentConfig.planType}
                           className="flex flex-col gap-y-8 px-8 py-6 shadow-sm md:gap-y-16">
                           <div className="grow md:grow-0">
                             <div className="flex flex-wrap gap-x-3">
@@ -947,7 +948,7 @@ export default function MarketingPricingSection({
                                 level="custom">
                                 {name}
                               </Heading>
-                              {plan.planType === 'lifetime' && (
+                              {paymentConfig.planType === 'lifetime' && (
                                 <Badge
                                   label={intl.formatMessage({
                                     defaultMessage: 'While offer lasts',
@@ -978,11 +979,11 @@ export default function MarketingPricingSection({
                                     display="flex">
                                     <PriceLabel
                                       amount={priceRoundToNearestNiceNumber(
-                                        plan.unitCostCurrency.base.after /
-                                          (numberOfMonths ?? 1),
+                                        paymentConfig.unitCostCurrency.base
+                                          .after / (numberOfMonths ?? 1),
                                       )}
-                                      currency={plan.currency.toUpperCase()}
-                                      symbol={plan.symbol}
+                                      currency={paymentConfig.currency.toUpperCase()}
+                                      symbol={paymentConfig.symbol}
                                     />{' '}
                                     {numberOfMonths != null ? (
                                       <FormattedMessage
@@ -1007,11 +1008,11 @@ export default function MarketingPricingSection({
                                   <span>
                                     <PriceLabel
                                       amount={priceRoundToNearestNiceNumber(
-                                        plan.unitCostCurrency.withPPP.after /
-                                          (numberOfMonths ?? 1),
+                                        paymentConfig.unitCostCurrency.withPPP
+                                          .after / (numberOfMonths ?? 1),
                                       )}
-                                      currency={plan.currency.toUpperCase()}
-                                      symbol={plan.symbol}>
+                                      currency={paymentConfig.currency.toUpperCase()}
+                                      symbol={paymentConfig.symbol}>
                                       {(parts) => (
                                         <>
                                           {parts[0].value}
@@ -1049,15 +1050,15 @@ export default function MarketingPricingSection({
                               <Text
                                 className={clsx(
                                   'md:min-h-8 pt-1',
-                                  plan.conversionFactor <
+                                  paymentConfig.conversionFactor <
                                     MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE &&
-                                    plan.planType === 'lifetime' &&
+                                    paymentConfig.planType === 'lifetime' &&
                                     'invisible',
                                 )}
                                 display="block"
                                 size="body3">
                                 <PricingPlanComparisonDiscount
-                                  plan={plan}
+                                  paymentConfig={paymentConfig}
                                   showPPPMessage={showPPPMessage}
                                 />
                               </Text>
@@ -1065,13 +1066,13 @@ export default function MarketingPricingSection({
                                 <PricingButtonSection
                                   aria-describedby={id}
                                   countryCode={countryCode}
-                                  plan={plan}
+                                  paymentConfig={paymentConfig}
                                 />
                               </div>
                               <Text
                                 className={clsx(
                                   'mt-3',
-                                  !plan.allowPromoCode && 'invisible',
+                                  !paymentConfig.allowPromoCode && 'invisible',
                                 )}
                                 color="subtitle"
                                 display="block"

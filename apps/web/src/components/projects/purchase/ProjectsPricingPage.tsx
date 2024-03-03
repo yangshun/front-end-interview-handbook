@@ -9,7 +9,7 @@ import gtag from '~/lib/gtag';
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
-import type { ProjectsPricingPlansLocalized } from './ProjectsPricingPlans';
+import type { ProjectsPricingPlanPaymentConfigLocalizedRecord } from './ProjectsPricingPlans';
 import ProjectsPricingPromotions from './ProjectsPricingPromotions';
 import ProjectsPricingSection from './ProjectsPricingSection';
 
@@ -18,13 +18,13 @@ import type { ProjectsSubscriptionPlan } from '@prisma/client';
 type Props = Readonly<{
   countryCode: string;
   countryName: string;
-  plans: ProjectsPricingPlansLocalized;
+  plansPaymentConfig: ProjectsPricingPlanPaymentConfigLocalizedRecord;
 }>;
 
 export default function ProjectsPricingPage({
   countryCode,
   countryName,
-  plans,
+  plansPaymentConfig,
 }: Props) {
   const searchParams = useSearchParams();
   const planSearchParam = searchParams?.get(
@@ -51,15 +51,15 @@ export default function ProjectsPricingPage({
         title: 'Checkout cancel',
       });
 
-      const plan = plans[planSearchParam];
+      const paymentConfig = plansPaymentConfig[planSearchParam];
 
       logEvent('checkout.cancel', {
-        currency: plan.currency.toLocaleUpperCase(),
+        currency: paymentConfig.currency.toLocaleUpperCase(),
         plan: planSearchParam,
-        value: plan.unitCostCurrency.withPPP.after,
+        value: paymentConfig.unitCostCurrency.withPPP.after,
       });
     }
-  }, [cancelSearchParam, planSearchParam, plans]);
+  }, [cancelSearchParam, planSearchParam, plansPaymentConfig]);
 
   return (
     <div
@@ -72,7 +72,7 @@ export default function ProjectsPricingPage({
         <ProjectsPricingSection
           countryCode={countryCode}
           countryName={countryName}
-          plans={plans}
+          plansPaymentConfig={plansPaymentConfig}
         />
         <ProjectsPricingPromotions />
       </div>

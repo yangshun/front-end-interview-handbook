@@ -3,21 +3,21 @@ import pppValues from '~/data/purchase/purchasingPowerParity.json';
 import type { PurchasingPowerParity } from '~/components/payments/PurchasePPPUtils';
 import {
   defaultPpp,
-  localizePlanDetails,
+  localizePlanPaymentConfig,
 } from '~/components/payments/PurchasePPPUtils';
 
 import logMessage from '~/logging/logMessage';
 
 import {
-  ProjectsPricingPlansConfig,
-  type ProjectsPricingPlansLocalized,
+  type ProjectsPricingPlanPaymentConfigLocalizedRecord,
+  ProjectsPricingPlansPaymentConfig,
 } from './ProjectsPricingPlans';
 
 type CountryCode = keyof typeof pppValues;
 
-export default async function fetchProjectsLocalizedPlanPricing(
+export default async function fetchProjectsPricingPlanPaymentConfigLocalizedRecord(
   countryCode: string,
-): Promise<ProjectsPricingPlansLocalized> {
+): Promise<ProjectsPricingPlanPaymentConfigLocalizedRecord> {
   // Default PPP.
   let purchasingPowerParity: PurchasingPowerParity = defaultPpp;
 
@@ -42,21 +42,15 @@ export default async function fetchProjectsLocalizedPlanPricing(
 
   // Repeating for typesafety.
   return {
-    ANNUAL: {
-      ...localizePlanDetails(
-        countryCode,
-        ProjectsPricingPlansConfig.ANNUAL,
-        purchasingPowerParity,
-      ),
-      planType: 'ANNUAL',
-    },
-    MONTH: {
-      ...localizePlanDetails(
-        countryCode,
-        ProjectsPricingPlansConfig.MONTH,
-        purchasingPowerParity,
-      ),
-      planType: 'MONTH',
-    },
+    ANNUAL: localizePlanPaymentConfig(
+      countryCode,
+      ProjectsPricingPlansPaymentConfig.ANNUAL,
+      purchasingPowerParity,
+    ),
+    MONTH: localizePlanPaymentConfig(
+      countryCode,
+      ProjectsPricingPlansPaymentConfig.MONTH,
+      purchasingPowerParity,
+    ),
   };
 }

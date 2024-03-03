@@ -12,23 +12,23 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 import { themeRadialGlowBackground } from '~/components/ui/theme';
 
-import type { ProjectsPricingPlansLocalized } from './ProjectsPricingPlans';
+import type { ProjectsPricingPlanPaymentConfigLocalizedRecord } from './ProjectsPricingPlans';
 import ProjectsPricingTable from './ProjectsPricingTable';
 import useProjectsPricingPlansList from './useProjectsPricingPlansList';
 
 type Props = Readonly<{
   countryCode: string;
   countryName: string;
-  plans: ProjectsPricingPlansLocalized;
+  plansPaymentConfig: ProjectsPricingPlanPaymentConfigLocalizedRecord;
 }>;
 
 export default function ProjectsPricingSection({
   countryCode,
   countryName,
-  plans,
+  plansPaymentConfig,
 }: Props) {
-  const planList = useProjectsPricingPlansList(plans);
-  const annualPlan = plans.ANNUAL;
+  const planList = useProjectsPricingPlansList(plansPaymentConfig);
+  const annualPlan = plansPaymentConfig.ANNUAL;
 
   const showPPPMessage =
     annualPlan.conversionFactor <

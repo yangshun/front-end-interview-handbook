@@ -19,7 +19,7 @@ export type PurchasePrice = Readonly<{
   unitCostUSD: UnitCostPrice;
 }>;
 
-export type PurchasePricingPlanDetailsBase = Readonly<{
+export type PurchasePricingPlanPaymentConfigBase = Readonly<{
   allowPromoCode: boolean;
   basePriceInUSD: PriceValues;
   checkoutMode: Stripe.Checkout.Session.Mode;
@@ -33,5 +33,5 @@ export type PurchasePricingPlanDetailsBase = Readonly<{
   }> | null;
 }>;
 
-export type PurchasePricingPlanDetailsLocalized = PurchasePrice &
-  PurchasePricingPlanDetailsBase;
+export type PurchasePricingPlanPaymentConfigLocalized = PurchasePrice &
+  PurchasePricingPlanPaymentConfigBase;

@@ -1,20 +1,20 @@
-import type { InterviewsPricingPlansLocalized } from '~/data/interviews/InterviewsPricingPlans';
-import { InterviewsPricingPlansConfig } from '~/data/interviews/InterviewsPricingPlans';
+import type { InterviewsPricingPlanPaymentConfigLocalizedRecord } from '~/data/interviews/InterviewsPricingPlans';
+import { InterviewsPricingPlansPaymentConfig } from '~/data/interviews/InterviewsPricingPlans';
 import pppValues from '~/data/purchase/purchasingPowerParity.json';
 
 import type { PurchasingPowerParity } from '~/components/payments/PurchasePPPUtils';
 import {
   defaultPpp,
-  localizePlanDetails,
+  localizePlanPaymentConfig,
 } from '~/components/payments/PurchasePPPUtils';
 
 import logMessage from '~/logging/logMessage';
 
 type CountryCode = keyof typeof pppValues;
 
-export default async function fetchInterviewsLocalizedPlanPricing(
+export default async function fetchInterviewsPricingPlanPaymentConfigLocalizedRecord(
   countryCode: string,
-): Promise<InterviewsPricingPlansLocalized> {
+): Promise<InterviewsPricingPlanPaymentConfigLocalizedRecord> {
   // Default PPP.
   let purchasingPowerParity: PurchasingPowerParity = defaultPpp;
 
@@ -40,33 +40,33 @@ export default async function fetchInterviewsLocalizedPlanPricing(
   // Repeating for typesafety.
   return {
     annual: {
-      ...localizePlanDetails(
+      ...localizePlanPaymentConfig(
         countryCode,
-        InterviewsPricingPlansConfig.annual,
+        InterviewsPricingPlansPaymentConfig.annual,
         purchasingPowerParity,
       ),
       planType: 'annual',
     },
     lifetime: {
-      ...localizePlanDetails(
+      ...localizePlanPaymentConfig(
         countryCode,
-        InterviewsPricingPlansConfig.lifetime,
+        InterviewsPricingPlansPaymentConfig.lifetime,
         purchasingPowerParity,
       ),
       planType: 'lifetime',
     },
     monthly: {
-      ...localizePlanDetails(
+      ...localizePlanPaymentConfig(
         countryCode,
-        InterviewsPricingPlansConfig.monthly,
+        InterviewsPricingPlansPaymentConfig.monthly,
         purchasingPowerParity,
       ),
       planType: 'monthly',
     },
     quarterly: {
-      ...localizePlanDetails(
+      ...localizePlanPaymentConfig(
         countryCode,
-        InterviewsPricingPlansConfig.quarterly,
+        InterviewsPricingPlansPaymentConfig.quarterly,
         purchasingPowerParity,
       ),
       planType: 'quarterly',

@@ -3,8 +3,8 @@ import { clamp } from 'lodash-es';
 import { shouldUseCountryCurrency } from '~/lib/stripeUtils';
 
 import type {
-  PurchasePricingPlanDetailsBase,
-  PurchasePricingPlanDetailsLocalized,
+  PurchasePricingPlanPaymentConfigBase,
+  PurchasePricingPlanPaymentConfigLocalized,
 } from '~/data/purchase/PurchaseTypes';
 
 import {
@@ -69,11 +69,11 @@ function localizeUnitCostInUSD(valueInUSD: number, conversionFactor: number) {
   return Math.ceil(valueInUSD * conversionFactor);
 }
 
-export function localizePlanDetails(
+export function localizePlanPaymentConfig(
   countryCode: string,
-  plan: PurchasePricingPlanDetailsBase,
+  plan: PurchasePricingPlanPaymentConfigBase,
   ppp: PurchasingPowerParity,
-): PurchasePricingPlanDetailsLocalized {
+): PurchasePricingPlanPaymentConfigLocalized {
   const { currency, conversionFactor: pppConversionFactor } = ppp;
 
   const shouldUseCountryCurrencyValue = shouldUseCountryCurrency(currency.code);

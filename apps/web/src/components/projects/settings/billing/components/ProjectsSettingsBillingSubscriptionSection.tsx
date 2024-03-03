@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '~/components/payments/pricingConfig';
-import type { ProjectsPricingPlansLocalized } from '~/components/projects/purchase/ProjectsPricingPlans';
+import type { ProjectsPricingPlanPaymentConfigLocalizedRecord } from '~/components/projects/purchase/ProjectsPricingPlans';
 import ProjectsPricingTable from '~/components/projects/purchase/ProjectsPricingTable';
 import useProjectsPricingPlansList from '~/components/projects/purchase/useProjectsPricingPlansList';
 import Heading from '~/components/ui/Heading';
@@ -15,7 +15,10 @@ import Spinner from '~/components/ui/Spinner';
 function PricingTable({
   countryCode,
   plans,
-}: Readonly<{ countryCode: string; plans: ProjectsPricingPlansLocalized }>) {
+}: Readonly<{
+  countryCode: string;
+  plans: ProjectsPricingPlanPaymentConfigLocalizedRecord;
+}>) {
   const planList = useProjectsPricingPlansList(plans);
   const annualPlan = plans.ANNUAL;
 

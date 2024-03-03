@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import gtag from '~/lib/gtag';
 
 import type {
-  InterviewsPricingPlansLocalized,
+  InterviewsPricingPlanPaymentConfigLocalizedRecord,
   InterviewsPricingPlanType,
 } from '~/data/interviews/InterviewsPricingPlans';
 
@@ -23,7 +23,7 @@ import logMessage from '~/logging/logMessage';
 type Props = Readonly<{
   countryCode: string;
   countryName: string;
-  plans: InterviewsPricingPlansLocalized;
+  plans: InterviewsPricingPlanPaymentConfigLocalizedRecord;
 }>;
 
 export default function PricingPage({
