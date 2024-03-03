@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useId } from 'react';
 import { useState } from 'react';
 import { RiArrowRightLine, RiCheckLine } from 'react-icons/ri';
-import { FormattedMessage, FormattedNumberParts, useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import url from 'url';
 
 import fbq from '~/lib/fbq';
@@ -22,6 +22,7 @@ import MarketingSectionHeader from '~/components/common/marketing/MarketingSecti
 import PurpleGlowBackground from '~/components/common/marketing/PurpleGlowBackground';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import PurchasePPPDiscountAlert from '~/components/payments/PurchasePPPDiscountAlert';
+import PurchasePriceLabel from '~/components/payments/PurchasePriceLabel';
 import PurchaseProhibitedCountryAlert from '~/components/payments/PurchaseProhibitedCountryAlert';
 import { SocialDiscountAlert } from '~/components/promotions/social/SocialDiscountAlert';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
@@ -55,35 +56,6 @@ type Props = Readonly<{
   countryName: string;
   plans: InterviewsPricingPlanPaymentConfigLocalizedRecord;
 }>;
-
-function PriceLabel({
-  amount,
-  symbol,
-  currency,
-  children,
-}: Readonly<{
-  amount: number;
-  children?: (val: Array<Intl.NumberFormatPart>) => React.ReactElement | null;
-  currency: string;
-  symbol: string;
-}>) {
-  return (
-    <FormattedNumberParts
-      currency={currency.toUpperCase()}
-      currencyDisplay={symbol !== '$' ? 'narrowSymbol' : undefined}
-      maximumFractionDigits={0}
-      style="currency"
-      value={amount}>
-      {(parts) =>
-        children == null ? (
-          <>{parts.map((part) => part.value).join('')}</>
-        ) : (
-          children(parts)
-        )
-      }
-    </FormattedNumberParts>
-  );
-}
 
 function PricingButton({
   'aria-describedby': ariaDescribedBy,
@@ -405,7 +377,7 @@ function PricingPlanComparisonDiscount({
             id="pDo/V5"
             values={{
               price: (
-                <PriceLabel
+                <PurchasePriceLabel
                   amount={paymentConfig.unitCostCurrency.withPPP.after}
                   currency={paymentConfig.currency.toUpperCase()}
                   symbol={paymentConfig.symbol}
@@ -429,7 +401,7 @@ function PricingPlanComparisonDiscount({
             id="2XR9B5"
             values={{
               price: (
-                <PriceLabel
+                <PurchasePriceLabel
                   amount={paymentConfig.unitCostCurrency.withPPP.after}
                   currency={paymentConfig.currency.toUpperCase()}
                   symbol={paymentConfig.symbol}
@@ -458,7 +430,7 @@ function PricingPlanComparisonDiscount({
             id="7uB2Jj"
             values={{
               price: (
-                <PriceLabel
+                <PurchasePriceLabel
                   amount={paymentConfig.unitCostCurrency.withPPP.after}
                   currency={paymentConfig.currency.toUpperCase()}
                   symbol={paymentConfig.symbol}
@@ -492,7 +464,7 @@ function PricingPlanComparisonDiscount({
           values={{
             discountPercentage: paymentConfig.discount,
             price: (
-              <PriceLabel
+              <PurchasePriceLabel
                 amount={paymentConfig.unitCostCurrency.withPPP.before}
                 currency={paymentConfig.currency.toUpperCase()}
                 symbol={paymentConfig.symbol}
@@ -778,7 +750,7 @@ export default function MarketingPricingSection({
                           display="inline-flex"
                           size="inherit"
                           weight="medium">
-                          <PriceLabel
+                          <PurchasePriceLabel
                             amount={priceRoundToNearestNiceNumber(
                               featuredPlan.paymentConfig.unitCostCurrency.base
                                 .after / (featuredPlan.numberOfMonths ?? 1),
@@ -812,7 +784,7 @@ export default function MarketingPricingSection({
                         size="inherit"
                         weight="medium">
                         <span>
-                          <PriceLabel
+                          <PurchasePriceLabel
                             amount={priceRoundToNearestNiceNumber(
                               featuredPlan.paymentConfig.unitCostCurrency
                                 .withPPP.after /
@@ -837,7 +809,7 @@ export default function MarketingPricingSection({
                                 </Text>
                               </>
                             )}
-                          </PriceLabel>
+                          </PurchasePriceLabel>
                         </span>
                         <span>
                           {featuredPlan.numberOfMonths != null ? (
@@ -977,7 +949,7 @@ export default function MarketingPricingSection({
                                     )}
                                     color="subtle"
                                     display="flex">
-                                    <PriceLabel
+                                    <PurchasePriceLabel
                                       amount={priceRoundToNearestNiceNumber(
                                         paymentConfig.unitCostCurrency.base
                                           .after / (numberOfMonths ?? 1),
@@ -1006,7 +978,7 @@ export default function MarketingPricingSection({
                                   display="flex"
                                   weight="medium">
                                   <span>
-                                    <PriceLabel
+                                    <PurchasePriceLabel
                                       amount={priceRoundToNearestNiceNumber(
                                         paymentConfig.unitCostCurrency.withPPP
                                           .after / (numberOfMonths ?? 1),
@@ -1030,7 +1002,7 @@ export default function MarketingPricingSection({
                                           </Text>
                                         </>
                                       )}
-                                    </PriceLabel>
+                                    </PurchasePriceLabel>
                                   </span>
                                   {numberOfMonths != null ? (
                                     <FormattedMessage

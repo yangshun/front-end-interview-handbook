@@ -7,7 +7,7 @@ import {
   RiCloseCircleFill,
   RiQuestionFill,
 } from 'react-icons/ri';
-import { FormattedMessage, FormattedNumberParts, useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import url from 'url';
 
 import fbq from '~/lib/fbq';
@@ -16,6 +16,7 @@ import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { priceRoundToNearestNiceNumber } from '~/components/payments/pricingUtils';
+import PurchasePriceLabel from '~/components/payments/PurchasePriceLabel';
 import type { Props as AnchorProps } from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -45,35 +46,6 @@ import useProfileWithProjectsProfile from '../common/useProfileWithProjectsProfi
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
 import { useSessionContext } from '@supabase/auth-helpers-react';
-
-function PriceLabel({
-  amount,
-  symbol,
-  currency,
-  children,
-}: Readonly<{
-  amount: number;
-  children?: (val: Array<Intl.NumberFormatPart>) => React.ReactElement | null;
-  currency: string;
-  symbol: string;
-}>) {
-  return (
-    <FormattedNumberParts
-      currency={currency.toUpperCase()}
-      currencyDisplay={symbol !== '$' ? 'narrowSymbol' : undefined}
-      maximumFractionDigits={0}
-      style="currency"
-      value={amount}>
-      {(parts) =>
-        children == null ? (
-          <>{parts.map((part) => part.value).join('')}</>
-        ) : (
-          children(parts)
-        )
-      }
-    </FormattedNumberParts>
-  );
-}
 
 function PricingButton({
   href,
@@ -372,7 +344,7 @@ function PricingPlanComparisonDiscount({
             id="pDo/V5"
             values={{
               price: (
-                <PriceLabel
+                <PurchasePriceLabel
                   amount={paymentConfig.unitCostCurrency.withPPP.after}
                   currency={paymentConfig.currency.toUpperCase()}
                   symbol={paymentConfig.symbol}
@@ -396,7 +368,7 @@ function PricingPlanComparisonDiscount({
             id="7uB2Jj"
             values={{
               price: (
-                <PriceLabel
+                <PurchasePriceLabel
                   amount={paymentConfig.unitCostCurrency.withPPP.after}
                   currency={paymentConfig.currency.toUpperCase()}
                   symbol={paymentConfig.symbol}
@@ -473,7 +445,7 @@ function ProjectsPricingPriceCell({
             className={clsx('items-baseline line-through')}
             color="subtle"
             display="inline-flex">
-            <PriceLabel
+            <PurchasePriceLabel
               amount={priceRoundToNearestNiceNumber(
                 paymentConfig.unitCostCurrency.base.after /
                   (numberOfMonths ?? 1),
@@ -502,7 +474,7 @@ function ProjectsPricingPriceCell({
           display="inline-flex"
           weight="medium">
           <span>
-            <PriceLabel
+            <PurchasePriceLabel
               amount={priceRoundToNearestNiceNumber(
                 paymentConfig.unitCostCurrency.withPPP.after /
                   (numberOfMonths ?? 1),
@@ -526,7 +498,7 @@ function ProjectsPricingPriceCell({
                   </Text>
                 </>
               )}
-            </PriceLabel>
+            </PurchasePriceLabel>
           </span>
           {numberOfMonths != null ? (
             <FormattedMessage

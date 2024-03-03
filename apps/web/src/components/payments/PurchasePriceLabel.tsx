@@ -1,0 +1,30 @@
+import { FormattedNumberParts } from 'react-intl';
+
+export default function PurchasePriceLabel({
+  amount,
+  symbol,
+  currency,
+  children,
+}: Readonly<{
+  amount: number;
+  children?: (val: Array<Intl.NumberFormatPart>) => React.ReactElement | null;
+  currency: string;
+  symbol: string;
+}>) {
+  return (
+    <FormattedNumberParts
+      currency={currency.toUpperCase()}
+      currencyDisplay={symbol !== '$' ? 'narrowSymbol' : undefined}
+      maximumFractionDigits={0}
+      style="currency"
+      value={amount}>
+      {(parts) =>
+        children == null ? (
+          <>{parts.map((part) => part.value).join('')}</>
+        ) : (
+          children(parts)
+        )
+      }
+    </FormattedNumberParts>
+  );
+}
