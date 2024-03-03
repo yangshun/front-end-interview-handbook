@@ -18,7 +18,7 @@ import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import FAQSection from '../faqs/FAQSection';
+import FAQSection from '../marketing/faqs/FAQSection';
 
 const purchaseFaqs: FAQItems = [
   purchaseOptions,
@@ -32,7 +32,7 @@ const purchaseFaqs: FAQItems = [
   purchaseIssues,
 ];
 
-export default function MarketingPricingFAQSection() {
+export default function InterviewsPricingFAQSection() {
   const intl = useIntl();
 
   return (

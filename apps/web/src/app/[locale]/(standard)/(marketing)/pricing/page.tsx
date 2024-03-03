@@ -3,13 +3,13 @@ import type { Metadata } from 'next/types';
 
 import countryNames from '~/data/countryCodesToNames.json';
 
-import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/pricing/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
+import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-import PricingPage from './PricingPage';
+import InterviewsPricingPage from './InterviewsPricingPage';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
@@ -58,7 +58,7 @@ export default async function Page({ searchParams }: Props) {
     countryNames[countryCode as keyof typeof countryNames];
 
   return (
-    <PricingPage
+    <InterviewsPricingPage
       countryCode={countryCode}
       countryName={countryName}
       plans={plans}

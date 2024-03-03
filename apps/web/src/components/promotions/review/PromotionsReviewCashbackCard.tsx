@@ -3,7 +3,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { REVIEW_CASHBACK_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
 
-import PricingBlockCard from '~/components/interviews/pricing/PricingBlockCard';
+import PurchaseBlockCard from '~/components/purchase/PurchaseBlockCard';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -16,7 +16,7 @@ export function PromotionsReviewCashbackCard() {
   const labels = usePromotionsReviewCashbackLabels();
 
   return (
-    <PricingBlockCard
+    <PurchaseBlockCard
       features={[
         intl.formatMessage(
           {

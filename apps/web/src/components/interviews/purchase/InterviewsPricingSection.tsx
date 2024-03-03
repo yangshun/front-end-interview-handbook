@@ -12,15 +12,14 @@ import gtag from '~/lib/gtag';
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
+import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
+import PurpleGlowBackground from '~/components/common/marketing/PurpleGlowBackground';
+import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type {
   InterviewsPricingPlanPaymentConfigLocalized,
   InterviewsPricingPlanPaymentConfigLocalizedRecord,
   InterviewsPricingPlanType,
-} from '~/data/interviews/InterviewsPricingPlans';
-
-import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
-import PurpleGlowBackground from '~/components/common/marketing/PurpleGlowBackground';
-import { useUserProfile } from '~/components/global/UserProfileProvider';
+} from '~/components/interviews/purchase/InterviewsPricingPlans';
 import { SocialDiscountAlert } from '~/components/promotions/social/SocialDiscountAlert';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 import PurchasePPPDiscountAlert from '~/components/purchase/PurchasePPPDiscountAlert';
@@ -45,9 +44,9 @@ import {
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
-import PricingBlockCard from '../../pricing/PricingBlockCard';
-import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../../../purchase/PurchasePricingConfig';
-import { priceRoundToNearestNiceNumber } from '../../../purchase/PurchasePricingUtils';
+import PurchaseBlockCard from '../../purchase/PurchaseBlockCard';
+import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../../purchase/PurchasePricingConfig';
+import { priceRoundToNearestNiceNumber } from '../../purchase/PurchasePricingUtils';
 
 import { useSessionContext } from '@supabase/auth-helpers-react';
 
@@ -488,7 +487,7 @@ type InterviewsPricingPlanItem = Readonly<{
   paymentConfig: InterviewsPricingPlanPaymentConfigLocalized;
 }>;
 
-export default function MarketingPricingSection({
+export default function InterviewsPricingSection({
   countryCode,
   countryName,
   plans,
@@ -733,7 +732,7 @@ export default function MarketingPricingSection({
             </div>
             {/* Lifetime plan callout */}
             <div className="mt-12">
-              <PricingBlockCard
+              <PurchaseBlockCard
                 features={featuredPlan.includedFeatures}
                 glow={true}
                 rightSectionContents={

@@ -1,7 +1,7 @@
 import type {
   PurchasePricingPlanPaymentConfigBase,
   PurchasePricingPlanPaymentConfigLocalized,
-} from '../purchase/PurchaseTypes';
+} from '../../../data/purchase/PurchaseTypes';
 
 export type InterviewsPricingPlanType =
   | 'annual'

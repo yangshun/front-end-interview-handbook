@@ -14,8 +14,7 @@ import gtag from '~/lib/gtag';
 import type {
   InterviewsPricingPlanPaymentConfigLocalizedRecord,
   InterviewsPricingPlanType,
-} from '~/data/interviews/InterviewsPricingPlans';
-
+} from '~/components/interviews/purchase/InterviewsPricingPlans';
 import PurchasePaymentSuccessSection from '~/components/purchase/PurchasePaymentSuccessSection';
 import Container from '~/components/ui/Container';
 

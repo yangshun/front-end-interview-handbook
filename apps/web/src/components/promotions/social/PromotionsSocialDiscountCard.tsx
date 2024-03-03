@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import PricingBlockCard from '~/components/interviews/pricing/PricingBlockCard';
+import PurchaseBlockCard from '~/components/purchase/PurchaseBlockCard';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
@@ -17,7 +17,7 @@ export function PromotionsSocialDiscountCard() {
   const socialDiscountLabels = useSocialDiscountLabels();
 
   return (
-    <PricingBlockCard
+    <PurchaseBlockCard
       features={[
         intl.formatMessage({
           defaultMessage: 'One-time use; can only be completed once.',

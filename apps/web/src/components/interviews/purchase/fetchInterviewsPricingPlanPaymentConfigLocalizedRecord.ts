@@ -1,7 +1,7 @@
-import type { InterviewsPricingPlanPaymentConfigLocalizedRecord } from '~/data/interviews/InterviewsPricingPlans';
-import { InterviewsPricingPlansPaymentConfig } from '~/data/interviews/InterviewsPricingPlans';
 import pppValues from '~/data/purchase/purchasingPowerParity.json';
 
+import type { InterviewsPricingPlanPaymentConfigLocalizedRecord } from '~/components/interviews/purchase/InterviewsPricingPlans';
+import { InterviewsPricingPlansPaymentConfig } from '~/components/interviews/purchase/InterviewsPricingPlans';
 import type { PurchasingPowerParity } from '~/components/purchase/PurchasePPPUtils';
 import {
   defaultPpp,

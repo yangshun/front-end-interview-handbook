@@ -1,8 +1,8 @@
 import { trpc } from '~/hooks/trpc';
 
-import MarketingPricingSection from './MarketingPricingSection';
+import InterviewsPricingSection from './InterviewsPricingSection';
 
-export default function MarketingPricingSectionLocalizedContainer() {
+export default function InterviewsPricingSectionLocalizedContainer() {
   const pricingPlans = trpc.purchases.interviewsPlans.useQuery();
 
   const { data } = pricingPlans;
@@ -14,7 +14,7 @@ export default function MarketingPricingSectionLocalizedContainer() {
   const { country, plans } = data;
 
   return (
-    <MarketingPricingSection
+    <InterviewsPricingSection
       countryCode={country.code}
       countryName={country.name}
       plans={plans}

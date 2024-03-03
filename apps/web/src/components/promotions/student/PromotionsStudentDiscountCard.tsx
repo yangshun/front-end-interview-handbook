@@ -11,7 +11,7 @@ import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import { STUDENT_DISCOUNT_PERCENTAGE } from '~/data/PromotionConfig';
 
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import PricingBlockCard from '~/components/interviews/pricing/PricingBlockCard';
+import PurchaseBlockCard from '~/components/purchase/PurchaseBlockCard';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -43,7 +43,7 @@ export function PromotionsStudentDiscountCard() {
   const { signInUpHref } = useAuthSignInUp();
 
   return (
-    <PricingBlockCard
+    <PurchaseBlockCard
       features={[
         intl.formatMessage({
           defaultMessage:

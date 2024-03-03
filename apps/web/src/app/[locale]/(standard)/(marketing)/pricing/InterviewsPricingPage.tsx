@@ -6,15 +6,14 @@ import { useEffect } from 'react';
 
 import gtag from '~/lib/gtag';
 
+import MarketingFeatures from '~/components/interviews/marketing/MarketingFeatures';
+import MarketingTestimonialsSection from '~/components/interviews/marketing/testimonials/MarketingTestimonialsSection';
+import InterviewsPricingFAQSection from '~/components/interviews/purchase/InterviewsPricingFAQSection';
 import type {
   InterviewsPricingPlanPaymentConfigLocalizedRecord,
   InterviewsPricingPlanType,
-} from '~/data/interviews/InterviewsPricingPlans';
-
-import MarketingFeatures from '~/components/interviews/marketing/MarketingFeatures';
-import MarketingPricingFAQSection from '~/components/interviews/marketing/pricing/MarketingPricingFAQSection';
-import MarketingPricingSection from '~/components/interviews/marketing/pricing/MarketingPricingSection';
-import MarketingTestimonialsSection from '~/components/interviews/marketing/testimonials/MarketingTestimonialsSection';
+} from '~/components/interviews/purchase/InterviewsPricingPlans';
+import InterviewsPricingSection from '~/components/interviews/purchase/InterviewsPricingSection';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import logEvent from '~/logging/logEvent';
@@ -26,7 +25,7 @@ type Props = Readonly<{
   plans: InterviewsPricingPlanPaymentConfigLocalizedRecord;
 }>;
 
-export default function PricingPage({
+export default function InterviewsPricingPage({
   countryCode,
   countryName,
   plans,
@@ -74,7 +73,7 @@ export default function PricingPage({
         'bg-[#070708]',
       )}
       data-mode="dark">
-      <MarketingPricingSection
+      <InterviewsPricingSection
         countryCode={countryCode}
         countryName={countryName}
         plans={plans}
@@ -82,7 +81,7 @@ export default function PricingPage({
       <Section>
         <MarketingFeatures />
         <div>
-          <MarketingPricingFAQSection />
+          <InterviewsPricingFAQSection />
           <MarketingTestimonialsSection />
         </div>
       </Section>

@@ -9,7 +9,7 @@ import {
   PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE,
 } from '~/data/PromotionConfig';
 
-import PricingBlockCard from '~/components/interviews/pricing/PricingBlockCard';
+import PurchaseBlockCard from '~/components/purchase/PurchaseBlockCard';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -21,7 +21,7 @@ export function PromotionsSeasonalDiscountCard() {
   const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
 
   return (
-    <PricingBlockCard
+    <PurchaseBlockCard
       features={[
         intl.formatMessage({
           defaultMessage:

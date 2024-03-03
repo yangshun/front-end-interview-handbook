@@ -24,7 +24,7 @@ type Props = Readonly<{
   title: React.ReactNode;
 }>;
 
-export default function PricingBlockCard({
+export default function PurchaseBlockCard({
   footer,
   title,
   subtitle,
@@ -50,7 +50,8 @@ export default function PricingBlockCard({
       )}>
       <div
         className={clsx(
-          'col-span-2 flex flex-col gap-y-6',
+          'col-span-2',
+          'flex flex-col gap-y-6',
           'p-8',
           themeBackgroundColor,
         )}>

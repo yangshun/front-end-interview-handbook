@@ -4,7 +4,7 @@ import Stripe from 'stripe';
 
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 
-import type { InterviewsPricingPlanType } from '~/data/interviews/InterviewsPricingPlans';
+import type { InterviewsPricingPlanType } from '~/components/interviews/purchase/InterviewsPricingPlans';
 
 import {
   createSupabaseAdminClientGFE_SERVER_ONLY,

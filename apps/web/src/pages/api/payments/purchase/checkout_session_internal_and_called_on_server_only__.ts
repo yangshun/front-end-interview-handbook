@@ -4,12 +4,11 @@ import Stripe from 'stripe';
 import absoluteUrl from '~/lib/absoluteUrl';
 import { normalizeCurrencyValue } from '~/lib/stripeUtils';
 
+import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 import type {
   InterviewsPricingPlanPaymentConfig,
   InterviewsPricingPlanType,
-} from '~/data/interviews/InterviewsPricingPlans';
-
-import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/pricing/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
+} from '~/components/interviews/purchase/InterviewsPricingPlans';
 
 const productId = process.env.STRIPE_MAIN_PRODUCT_ID;
 
