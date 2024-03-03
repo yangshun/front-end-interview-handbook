@@ -6,8 +6,8 @@ import {
   RiDiscordFill,
 } from 'react-icons/ri';
 
-import PaymentSuccessSection from '~/components/payments/PaymentSuccessSection';
 import type { ProjectsPricingPlanPaymentConfigLocalizedRecord } from '~/components/projects/purchase/ProjectsPricingPlans';
+import PurchasePaymentSuccessSection from '~/components/purchase/PurchasePaymentSuccessSection';
 import Container from '~/components/ui/Container';
 
 /* TODO: i18n */
@@ -45,7 +45,7 @@ export default function ProjectsPaymentSuccessPage({
   // TODO(projects): add logging for conversion events.
   return (
     <Container className="py-16" variant="3xl">
-      <PaymentSuccessSection
+      <PurchasePaymentSuccessSection
         actions={actions}
         title="Welcome to the Premium Club for GreatFrontEnd Projects!"
       />

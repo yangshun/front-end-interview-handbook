@@ -10,8 +10,8 @@ import type {
 import {
   MAXIMUM_PPP_CONVERSION_FACTOR,
   MINIMUM_PPP_CONVERSION_FACTOR,
-} from './pricingConfig';
-import { priceRoundToNearestNiceNumber } from './pricingUtils';
+} from './PurchasePricingConfig';
+import { priceRoundToNearestNiceNumber } from './PurchasePricingUtils';
 
 export type PurchasingPowerParity = Readonly<{
   conversionFactor: number;

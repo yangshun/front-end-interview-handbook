@@ -27,7 +27,7 @@ type Props = Readonly<{
   title: string;
 }>;
 
-export default function PaymentSuccessSection({
+export default function PurchasePaymentSuccessSection({
   title,
   actions,
 }: Props): JSX.Element {

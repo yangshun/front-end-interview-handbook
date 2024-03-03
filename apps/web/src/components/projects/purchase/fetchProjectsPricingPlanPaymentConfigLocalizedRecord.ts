@@ -1,10 +1,10 @@
 import pppValues from '~/data/purchase/purchasingPowerParity.json';
 
-import type { PurchasingPowerParity } from '~/components/payments/PurchasePPPUtils';
+import type { PurchasingPowerParity } from '~/components/purchase/PurchasePPPUtils';
 import {
   defaultPpp,
   localizePlanPaymentConfig,
-} from '~/components/payments/PurchasePPPUtils';
+} from '~/components/purchase/PurchasePPPUtils';
 
 import logMessage from '~/logging/logMessage';
 

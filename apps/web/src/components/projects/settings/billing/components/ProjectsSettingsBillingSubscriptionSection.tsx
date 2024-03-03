@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '~/components/payments/pricingConfig';
+import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '~/components/purchase/PurchasePricingConfig';
 import type { ProjectsPricingPlanPaymentConfigLocalizedRecord } from '~/components/projects/purchase/ProjectsPricingPlans';
 import ProjectsPricingTable from '~/components/projects/purchase/ProjectsPricingTable';
 import useProjectsPricingPlansList from '~/components/projects/purchase/useProjectsPricingPlansList';

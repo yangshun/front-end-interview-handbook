@@ -21,11 +21,11 @@ import type {
 import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
 import PurpleGlowBackground from '~/components/common/marketing/PurpleGlowBackground';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import PurchasePPPDiscountAlert from '~/components/payments/PurchasePPPDiscountAlert';
-import PurchasePriceLabel from '~/components/payments/PurchasePriceLabel';
-import PurchaseProhibitedCountryAlert from '~/components/payments/PurchaseProhibitedCountryAlert';
 import { SocialDiscountAlert } from '~/components/promotions/social/SocialDiscountAlert';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
+import PurchasePPPDiscountAlert from '~/components/purchase/PurchasePPPDiscountAlert';
+import PurchasePriceLabel from '~/components/purchase/PurchasePriceLabel';
+import PurchaseProhibitedCountryAlert from '~/components/purchase/PurchaseProhibitedCountryAlert';
 import type { Props as AnchorProps } from '~/components/ui/Anchor';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
@@ -46,8 +46,8 @@ import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
 import PricingBlockCard from '../../pricing/PricingBlockCard';
-import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../../../payments/pricingConfig';
-import { priceRoundToNearestNiceNumber } from '../../../payments/pricingUtils';
+import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../../../purchase/PurchasePricingConfig';
+import { priceRoundToNearestNiceNumber } from '../../../purchase/PurchasePricingUtils';
 
 import { useSessionContext } from '@supabase/auth-helpers-react';
 

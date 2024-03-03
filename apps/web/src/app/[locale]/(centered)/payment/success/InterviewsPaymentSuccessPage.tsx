@@ -16,7 +16,7 @@ import type {
   InterviewsPricingPlanType,
 } from '~/data/interviews/InterviewsPricingPlans';
 
-import PaymentSuccessSection from '~/components/payments/PaymentSuccessSection';
+import PurchasePaymentSuccessSection from '~/components/purchase/PurchasePaymentSuccessSection';
 import Container from '~/components/ui/Container';
 
 import logEvent from '~/logging/logEvent';
@@ -124,7 +124,7 @@ export default function PaymentSuccessPage({ plans }: Props): JSX.Element {
 
   return (
     <Container className="py-16" variant="3xl">
-      <PaymentSuccessSection
+      <PurchasePaymentSuccessSection
         actions={actions}
         title="Welcome to the Premium Club for GreatFrontEnd Interviews!"
       />

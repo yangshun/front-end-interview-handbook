@@ -15,8 +15,8 @@ import gtag from '~/lib/gtag';
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
-import { priceRoundToNearestNiceNumber } from '~/components/payments/pricingUtils';
-import PurchasePriceLabel from '~/components/payments/PurchasePriceLabel';
+import PurchasePriceLabel from '~/components/purchase/PurchasePriceLabel';
+import { priceRoundToNearestNiceNumber } from '~/components/purchase/PurchasePricingUtils';
 import type { Props as AnchorProps } from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
