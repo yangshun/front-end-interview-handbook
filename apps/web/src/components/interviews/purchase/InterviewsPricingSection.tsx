@@ -23,7 +23,10 @@ import type {
 import { SocialDiscountAlert } from '~/components/promotions/social/SocialDiscountAlert';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 import PurchasePPPDiscountAlert from '~/components/purchase/PurchasePPPDiscountAlert';
+import PurchasePriceAnnualComparison from '~/components/purchase/PurchasePriceAnnualComparison';
 import PurchasePriceLabel from '~/components/purchase/PurchasePriceLabel';
+import PurchasePriceMonthlyComparison from '~/components/purchase/PurchasePriceMonthlyComparison';
+import PurchasePriceQuarterlyComparison from '~/components/purchase/PurchasePriceQuarterlyComparison';
 import PurchaseProhibitedCountryAlert from '~/components/purchase/PurchaseProhibitedCountryAlert';
 import type { Props as AnchorProps } from '~/components/ui/Anchor';
 import Anchor from '~/components/ui/Anchor';
@@ -368,86 +371,20 @@ function PricingPlanComparisonDiscount({
 }>) {
   switch (paymentConfig.planType) {
     case 'monthly':
-      return (
-        <span>
-          <FormattedMessage
-            defaultMessage="{price} billed per month."
-            description="Description of billing frequency for monthly plan"
-            id="pDo/V5"
-            values={{
-              price: (
-                <PurchasePriceLabel
-                  amount={paymentConfig.unitCostCurrency.withPPP.after}
-                  currency={paymentConfig.currency.toUpperCase()}
-                  symbol={paymentConfig.symbol}
-                />
-              ),
-            }}
-          />{' '}
-          <FormattedMessage
-            defaultMessage="Cancel anytime."
-            description="Cancel the subscription anytime."
-            id="GHQ8sO"
-          />
-        </span>
-      );
+      return <PurchasePriceMonthlyComparison price={paymentConfig} />;
     case 'quarterly':
       return (
-        <span>
-          <FormattedMessage
-            defaultMessage="{price} billed every 3 months"
-            description="Description of billing frequency for quarterly plan"
-            id="2XR9B5"
-            values={{
-              price: (
-                <PurchasePriceLabel
-                  amount={paymentConfig.unitCostCurrency.withPPP.after}
-                  currency={paymentConfig.currency.toUpperCase()}
-                  symbol={paymentConfig.symbol}
-                />
-              ),
-            }}
-          />{' '}
-          <span className={themeTextBrandColor}>
-            <FormattedMessage
-              defaultMessage="(Save {discountPercentage}% vs monthly)"
-              description="Save more compared to monthly plan."
-              id="Dynazi"
-              values={{
-                discountPercentage: paymentConfig.discount,
-              }}
-            />
-          </span>
-        </span>
+        <PurchasePriceQuarterlyComparison
+          discount={paymentConfig.discount}
+          price={paymentConfig}
+        />
       );
     case 'annual':
       return (
-        <span>
-          <FormattedMessage
-            defaultMessage="{price} billed yearly"
-            description="Description of billing frequency for annual plan"
-            id="7uB2Jj"
-            values={{
-              price: (
-                <PurchasePriceLabel
-                  amount={paymentConfig.unitCostCurrency.withPPP.after}
-                  currency={paymentConfig.currency.toUpperCase()}
-                  symbol={paymentConfig.symbol}
-                />
-              ),
-            }}
-          />{' '}
-          <span className={themeTextBrandColor}>
-            <FormattedMessage
-              defaultMessage="(Save {discountPercentage}% vs monthly)"
-              description="Save more compared to monthly plan."
-              id="Dynazi"
-              values={{
-                discountPercentage: paymentConfig.discount,
-              }}
-            />
-          </span>
-        </span>
+        <PurchasePriceAnnualComparison
+          discount={paymentConfig.discount}
+          price={paymentConfig}
+        />
       );
     case 'lifetime': {
       if (showPPPMessage) {

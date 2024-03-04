@@ -3,8 +3,8 @@ import { FormattedMessage } from 'react-intl';
 
 import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
 import PurpleGlowBackground from '~/components/common/marketing/PurpleGlowBackground';
-import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '~/components/purchase/PurchasePricingConfig';
 import PurchasePPPDiscountAlert from '~/components/purchase/PurchasePPPDiscountAlert';
+import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '~/components/purchase/PurchasePricingConfig';
 import PurchaseProhibitedCountryAlert from '~/components/purchase/PurchaseProhibitedCountryAlert';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';

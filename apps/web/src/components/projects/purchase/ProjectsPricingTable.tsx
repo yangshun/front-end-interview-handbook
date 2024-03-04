@@ -15,7 +15,9 @@ import gtag from '~/lib/gtag';
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
+import PurchasePriceAnnualComparison from '~/components/purchase/PurchasePriceAnnualComparison';
 import PurchasePriceLabel from '~/components/purchase/PurchasePriceLabel';
+import PurchasePriceMonthlyComparison from '~/components/purchase/PurchasePriceMonthlyComparison';
 import { priceRoundToNearestNiceNumber } from '~/components/purchase/PurchasePricingUtils';
 import type { Props as AnchorProps } from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
@@ -23,7 +25,6 @@ import Text from '~/components/ui/Text';
 import {
   themeBorderColor,
   themeDivideColor,
-  themeTextBrandColor,
   themeTextDangerColor,
   themeTextSubtleColor,
   themeTextSuccessColor,
@@ -336,57 +337,13 @@ function PricingPlanComparisonDiscount({
 }>) {
   switch (planType) {
     case 'MONTH':
-      return (
-        <span>
-          <FormattedMessage
-            defaultMessage="{price} billed per month."
-            description="Description of billing frequency for monthly plan"
-            id="pDo/V5"
-            values={{
-              price: (
-                <PurchasePriceLabel
-                  amount={paymentConfig.unitCostCurrency.withPPP.after}
-                  currency={paymentConfig.currency.toUpperCase()}
-                  symbol={paymentConfig.symbol}
-                />
-              ),
-            }}
-          />{' '}
-          <FormattedMessage
-            defaultMessage="Cancel anytime."
-            description="Cancel the subscription anytime."
-            id="GHQ8sO"
-          />
-        </span>
-      );
+      return <PurchasePriceMonthlyComparison price={paymentConfig} />;
     case 'ANNUAL':
       return (
-        <span>
-          <FormattedMessage
-            defaultMessage="{price} billed yearly"
-            description="Description of billing frequency for annual plan"
-            id="7uB2Jj"
-            values={{
-              price: (
-                <PurchasePriceLabel
-                  amount={paymentConfig.unitCostCurrency.withPPP.after}
-                  currency={paymentConfig.currency.toUpperCase()}
-                  symbol={paymentConfig.symbol}
-                />
-              ),
-            }}
-          />{' '}
-          <span className={clsx(themeTextBrandColor, 'whitespace-nowrap')}>
-            <FormattedMessage
-              defaultMessage="(Save {discountPercentage}% vs monthly)"
-              description="Save more compared to monthly paymentConfig."
-              id="VGE0X/"
-              values={{
-                discountPercentage: paymentConfig.discount,
-              }}
-            />
-          </span>
-        </span>
+        <PurchasePriceAnnualComparison
+          discount={paymentConfig.discount}
+          price={paymentConfig}
+        />
       );
   }
 }
