@@ -3475,10 +3475,6 @@
     "defaultMessage": "Senior Software Engineer",
     "description": "Ryan Van Valkenburg's job title"
   },
-  "TxAh6E": {
-    "defaultMessage": "Filter by submissions of projects you have completed or in progress or not started",
-    "description": "Tooltip for Status filter for projects list"
-  },
   "Ty7LFA": {
     "defaultMessage": "Step 1",
     "description": "Title for \"Step 1\" tab on Projects project page"
@@ -4606,6 +4602,10 @@
   "eBp6vh": {
     "defaultMessage": "Reset Progress",
     "description": "Title for reset progress confirmation dialog"
+  },
+  "eC4GRM": {
+    "defaultMessage": "Filter user submissions by whether you have completed their corresponding challenges",
+    "description": "Tooltip for Status filter for projects list"
   },
   "ePyk/V": {
     "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",

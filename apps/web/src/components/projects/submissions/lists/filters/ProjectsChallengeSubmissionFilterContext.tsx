@@ -70,9 +70,9 @@ function useFilters() {
         ],
         tooltip: intl.formatMessage({
           defaultMessage:
-            'Filter by submissions of projects you have completed or in progress or not started',
+            'Filter user submissions by whether you have completed their corresponding challenges',
           description: 'Tooltip for Status filter for projects list',
-          id: 'TxAh6E',
+          id: 'eC4GRM',
         }),
         type: 'checkbox',
         view: 'both',
