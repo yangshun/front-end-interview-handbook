@@ -26,9 +26,9 @@ export default function BlurOverlay({
         <div
           style={{
             WebkitMaskImage:
-              'linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent',
+              'linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent',
             maskImage:
-              'linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent',
+              'linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent',
             maxHeight,
           }}>
           {children}

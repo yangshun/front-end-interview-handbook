@@ -111,6 +111,7 @@ export default function ProjectsChallengeAssetsPage({
     <BlurOverlay
       align="center"
       disableOverlay={accessAllSteps}
+      maxHeight={500}
       overlay={
         <div className="mx-auto flex max-w-2xl flex-col items-center gap-y-6">
           <Heading className="text-center drop-shadow" level="heading5">
