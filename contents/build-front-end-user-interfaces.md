@@ -37,11 +37,7 @@ Companies that ask such questions usually ask candidates to code in one of these
   - Tetris (advanced)
   - Snake (advanced)
 
-:::info Practice UI coding questions on GreatFrontEnd
-
-Not sure how to start? [GreatFrontEnd](https://www.greatfrontend.com) has front end interview [study plans](https://www.greatfrontend.com/get-started) and a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/user-interface). Start practicing today!
-
-:::
+Each of these questions and over 200+ more on [GreatFrontEnd](https://www.greatfrontend.com) has solutions written by ex-FAANG senior engineers. It even contains [study plans](https://www.greatfrontend.com/get-started) to tailor to your needs and automated test case suites to help you identify what's wrong with your code. Start practicing today!
 
 ## Considerations
 
@@ -95,9 +91,3 @@ Does your component scale (latency, performance, UI, UX, etc)?
 ### Future
 
 Lastly, mention how you would do things differently if you had more time and were writing production code that you need to maintain. Perhaps use Sass instead of CSS, use React instead of jQuery for better maintainability, use Babel to compile your code for older browsers, make the component mobile-friendly and test on different screen widths, add keyboard shortcuts, etc.
-
-:::info Practice UI coding questions on GreatFrontEnd
-
-Not sure how to start? [GreatFrontEnd](https://www.greatfrontend.com) has front end interview [study plans](https://www.greatfrontend.com/get-started) and a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/user-interface). Start practicing today!
-
-:::

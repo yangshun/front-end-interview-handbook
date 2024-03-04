@@ -35,11 +35,7 @@ The two main kinds of front end system design interviews are UI components and a
   - Travel booking website (e.g. Airbnb): [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/travel-booking-airbnb) (Paid)
   - Video watching website
 
-:::info Read front end system design case studies
-
-[GreatFrontEnd](https://www.greatfrontend.com/system-design) shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design) and case studies. Start reading today!
-
-:::
+If you are interested to find out more, [GreatFrontEnd](https://www.greatfrontend.com/) shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design) and case studies. 
 
 ## RADIO Framework
 
@@ -65,9 +61,3 @@ Because front end system design interviews focus on front end, you probably do n
 - Talk about availability, fault tolerance, latency, etc
 
 Read more about the differences between [Front End vs Back End System Design interviews](/blog/front-end-vs-back-end-system-design-interviews/#differences).
-
-:::info Read front end system design case studies
-
-[GreatFrontEnd](https://www.greatfrontend.com/system-design) shows you how to approach front end system design interviews with their front end system design guide and case studies. Start reading today!
-
-:::

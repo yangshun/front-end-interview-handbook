@@ -88,11 +88,7 @@ Describe and discuss how you would build a UI component/app/game and its archite
 
 [**Read more about front end system design →**](./front-end-system-design.md)
 
-:::info Be interview-ready with GreatFrontEnd
-
-[GreatFrontEnd](https://www.greatfrontend.com) has questions and answers for all kind of front end interview questions, [study plans](https://www.greatfrontend.com/get-started), and a [huge question bank](https://www.greatfrontend.com/prepare/coding)!
-
-:::
+You can also try out the above mentioned question types at [GreatFrontEnd](https://www.greatfrontend.com). It has [over 200+ practice questions](https://www.greatfrontend.com/get-started) and all of them are provided with comprehensive answers written by ex-FAANG senior engineers.
 
 ## Company interview formats
 
