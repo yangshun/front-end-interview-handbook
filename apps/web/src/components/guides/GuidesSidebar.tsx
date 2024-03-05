@@ -153,7 +153,9 @@ export function GuidesSidebar({
           : undefined,
         top: 'calc(24px + var(--nav-top-offset))',
       }}>
-      <GuidesDropdownMenu />
+      <div className="flex w-full grow-0">
+        <GuidesDropdownMenu />
+      </div>
       <ul
         className="mt-6 flex grow flex-col gap-y-6 overflow-y-auto pb-6"
         role="list">
