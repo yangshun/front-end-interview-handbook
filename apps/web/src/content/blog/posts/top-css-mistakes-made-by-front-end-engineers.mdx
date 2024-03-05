@@ -1,7 +1,7 @@
 ---
-title: 5 Biggest CSS Mistakes
-description: 5 common CSS mistakes and how to avoid them
-imageUrl: /img/blog/5-biggest-css-mistakes.jpg
+title: Top 5 CSS Mistakes made by Front End Engineers
+description: 5 most common CSS mistakes Front End Engineers make and how to avoid them
+imageUrl: /img/blog/css-mistakes.jpg
 tags:
   - css
 level: starter
@@ -59,33 +59,33 @@ It says: **"You must be this size no matter what."**
 
 It would overflow off the screen.
 
-![CSS element overflow](/img/blog/5-biggest-css-mistakes/css-element-overflow.png)
+![CSS element overflow](/img/blog/css-mistakes/css-element-overflow.png)
 
 If you do need to use a fixed width value, make it flexible. My preferred way for doing that is adding `max-width: 100%` .
 
-![CSS element max width](/img/blog/5-biggest-css-mistakes/css-element-max-width.png)
+![CSS element max width](/img/blog/css-mistakes/css-element-max-width.png)
 
 A common example I see in the real world is defining a fixed `width` value on `<input>` elements.
 
 Here's what it looks like when an `<input>` is `400px` inside a container that was shrunk to `250px`.
 
-![CSS input width exceed container](/img/blog/5-biggest-css-mistakes/input-width-exceed-container.png)
+![CSS input width exceed container](/img/blog/css-mistakes/input-width-exceed-container.png)
 
 Once we apply `max-width: 100%` the issue goes away.
 
-![CSS input max width](/img/blog/5-biggest-css-mistakes/input-max-width.png)
+![CSS input max width](/img/blog/css-mistakes/input-max-width.png)
 
 Similarly, we run into the same issue with `height`.
 
 If we define a fixed `height: 250px` and our content size is greater than 250px, we see this happen:
 
-![CSS height exceed container](/img/blog/5-biggest-css-mistakes/height-exceed-container.png)
+![CSS height exceed container](/img/blog/css-mistakes/height-exceed-container.png)
 
 However, the fix is easy. We can use `min-height: 250px` instead.
 
 Now, our container will always be at least `250px`, but can become larger if it needs to fit the content inside.
 
-![CSS height min height](/img/blog/5-biggest-css-mistakes/height-min-height.png)
+![CSS height min height](/img/blog/css-mistakes/height-min-height.png)
 
 ## Mistake 2: Misunderstanding "layout elements" and "content elements"
 
@@ -117,13 +117,13 @@ Here's an example:
 
 Let's look at the Tailwind landing page and see how it is structured by adding a `border: 1px solid red` to everything.
 
-![Tailwind border red](/img/blog/5-biggest-css-mistakes/tailwind-border-red.png)
+![Tailwind border red](/img/blog/css-mistakes/tailwind-border-red.png)
 
 You can already start to see where the "content" elements are vs the "layout elements." The content elements are the buttons, text inputs, paragraph text, icon buttons in the navbar, etc.
 
 Let's focus on the bottom row with the "Get started" button:
 
-![Tailwind get started](/img/blog/5-biggest-css-mistakes/tailwind-get-started.png)
+![Tailwind get started](/img/blog/css-mistakes/tailwind-get-started.png)
 
 The "Get started" button and "Quick search" input are wrapped in a `<div>` which is the layout element.
 
@@ -139,7 +139,7 @@ A common mistake would be applying `margin-top` on one or both of these buttons,
 
 **Question:** In the below image, would you use `padding`, `margin`, or `gap` to add space between these tags?
 
-![Tags layout](/img/blog/5-biggest-css-mistakes/tags-layout.png)
+![Tags layout](/img/blog/css-mistakes/tags-layout.png)
 
 Hopefully, your answer is `gap`.
 
@@ -253,26 +253,28 @@ Headings and paragraphs are good uses of margin, since there will usually be var
 
 Let's say we have 2 `<div>` elements and some CSS like this:
 
-```jsx
+```html
+<style>
+  div {
+  	width: 100px;
+  	height: 100px;
+  }
+
+  .blue {
+  	z-index: 5000;
+  	background-color: blue;
+  }
+
+  .red {
+  	z-index: 4000;
+  	background-color: red;
+  	// Just to get both divs on top of each other
+  	margin-top: -100px;
+  }
+</style>
+
 <div class="blue"></div>
 <div class="red"></div>
-
-div {
-	width: 100px;
-	height: 100px;
-}
-
-.blue {
-	z-index: 5000;
-	background-color: blue;
-}
-
-.red {
-	z-index: 4000;
-	background-color: red;
-	// Just to get both divs on top of each other
-	margin-top: -100px;
-}
 ```
 
 Do you know which one will be displayed on top?
@@ -299,38 +301,40 @@ The default layout mode for most elements is called "flow".
 
 The [MDN docs call this out](https://developer.mozilla.org/en-US/docs/Web/CSS/position#static) in the `position: static` area which is the default for elements.
 
-![MDN CSS position static](/img/blog/5-biggest-css-mistakes/mdn-css-position-static.png)
+![MDN CSS position static](/img/blog/css-mistakes/mdn-css-position-static.png)
 
 But it is implemented in ["positioned"](https://developer.mozilla.org/en-US/docs/Web/CSS/position#types_of_positioning) layout mode.
 
-![MDN CSS positioning](/img/blog/5-biggest-css-mistakes/mdn-css-positioning.png)
+![MDN CSS positioning](/img/blog/css-mistakes/mdn-css-positioning.png)
 
 To enter positioned layout for an element, we can apply `position: relative`, `position: absolute`, `position: fixed`, or `position: sticky`
 
 In this case, the easiest way to get `z-index` to work is to use `position: relative`.
 
-```jsx
+```html
+<style>
+  div {
+  	width: 100px;
+  	height: 100px;
+  }
+
+  .blue {
+  	position: relative;
+  	z-index: 5000;
+  	background-color: blue;
+  }
+
+  .red {
+  	position: relative;
+  	z-index: 4000;
+  	background-color: red;
+  	// Just to get both divs on top of each other
+  	margin-top: -100px;
+  }
+</style>
+
 <div class="blue"></div>
 <div class="red"></div>
-
-div {
-	width: 100px;
-	height: 100px;
-}
-
-.blue {
-	position: relative;
-	z-index: 5000;
-	background-color: blue;
-}
-
-.red {
-	position: relative;
-	z-index: 4000;
-	background-color: red;
-	// Just to get both divs on top of each other
-	margin-top: -100px;
-}
 ```
 
 Since both elements are in the "positioned" layout mode, `z-index` will work and the `.blue` div will be displayed on top.
@@ -361,9 +365,9 @@ CSS Grid is great for 2-dimensional layouts. I often see good CSS grid use cases
 
 For example, [Una Kravetz shares how to build the classic holy grail layout using CSS Grid](https://web.dev/patterns/layout/holy-grail).
 
-![CSS holy grail layout using grid](/img/blog/5-biggest-css-mistakes/css-holy-grail-layout-grid.png)
+![CSS holy grail layout using grid](/img/blog/css-mistakes/css-holy-grail-layout-grid.png)
 
-```jsx
+```css
 .parent {
   display: grid;
   grid-template: auto 1fr auto / auto 1fr auto;
@@ -396,11 +400,11 @@ A great example of this is something like nav items that should be equally space
 
 Here is an example on [Tailwind's home page](https://tailwindcss.com/).
 
-![Tailwind nav gap CSS](/img/blog/5-biggest-css-mistakes/tailwind-nav-gap-css.png)
+![Tailwind nav gap CSS](/img/blog/css-mistakes/tailwind-nav-gap-css.png)
 
 Here's one more example on [Airbnb](https://www.airbnb.com/).
 
-![Airbnb nav gap CSS](/img/blog/5-biggest-css-mistakes/airbnb-nav-gap-css.png)
+![Airbnb nav gap CSS](/img/blog/css-mistakes/airbnb-nav-gap-css.png)
 
 In general, I use Flexbox more than CSS Grid, but they both have their use cases and its important to use the correct one for your use case.
 
