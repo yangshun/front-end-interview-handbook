@@ -22,7 +22,7 @@ The [Tech Interview Handbook](https://www.techinterviewhandbook.org/algorithms/s
 
 ### GreatFrontEnd
 
-[GreatFrontEnd](https://www.greatfrontend.com) provides [**free** questions for you to practice implementing Data Structures and Algorithms in JavaScript](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms). You can practice implementing common data structures (e.g. [Stacks](https://www.greatfrontend.com/questions/javascript/stack), [Queues](https://www.greatfrontend.com/questions/javascript/queue)) and algorithms (e.g. [Binary Search](https://www.greatfrontend.com/questions/javascript/binary-search), [Merge Sort](https://www.greatfrontend.com/questions/javascript/merge-sort)).
+[GreatFrontEnd](https://www.greatfrontend.com) provides **free** questions for you to practice implementing [Data Structures and Algorithms](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms) in JavaScript. You can practice implementing common data structures (e.g. [Stacks](https://www.greatfrontend.com/questions/javascript/stack), [Queues](https://www.greatfrontend.com/questions/javascript/queue)) and algorithms (e.g. [Binary Search](https://www.greatfrontend.com/questions/javascript/binary-search), [Merge Sort](https://www.greatfrontend.com/questions/javascript/merge-sort)). [**Check it out →**](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms)
 
 ## Algorithm courses
 

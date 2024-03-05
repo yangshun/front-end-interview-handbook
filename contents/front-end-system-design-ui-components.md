@@ -12,11 +12,11 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
 
 ## Examples
 
-- Autocomplete: [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/autocomplete)
-- Image carousel: [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/image-carousel) (Paid)
-- Dropdown menu: [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/dropdown-menu) (Paid)
-- Modal dialog: [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/modal-dialog) (Paid)
-- Poll widget: [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/poll-widget) (Paid)
+- Autocomplete: [Read example solution](https://www.greatfrontend.com/questions/system-design/autocomplete) (Free)
+- Image carousel: [Read example solution](https://www.greatfrontend.com/questions/system-design/image-carousel) (Paid)
+- Dropdown menu: [Read example solution](https://www.greatfrontend.com/questions/system-design/dropdown-menu) (Paid)
+- Modal dialog: [Read example solution](https://www.greatfrontend.com/questions/system-design/modal-dialog) (Paid)
+- Poll widget: [Read example solution](https://www.greatfrontend.com/questions/system-design/poll-widget) (Paid)
 - Selector which loads options over the network
 
 To find out more, check out [GreatFrontEnd](https://www.greatfrontend.com/), which shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design) and case studies. There are also [blogs](https://www.greatfrontend.com/blog) that will cover some of the following topics in more detail. 

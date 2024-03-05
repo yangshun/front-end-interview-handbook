@@ -12,7 +12,7 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
 ## JavaScript
 
 - Write a `getElementsByClassName` function.
-  - [Practice question on GreatFrontEnd](https://www.greatfrontend.com/questions/javascript/get-elements-by-class-name)
+  - [Practice question](https://www.greatfrontend.com/questions/javascript/get-elements-by-class-name) (Free)
 
 ## User interface coding
 
@@ -22,14 +22,14 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
 ## Trivia
 
 - Difference between CSS `padding` and `margin`.
-  - [Read answer on GreatFrontEnd](https://www.greatfrontend.com/questions/quiz/explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models)
+  - [Read answer](https://www.greatfrontend.com/questions/quiz/explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models) (Free)
 - Difference between promise and callback?
 - Difference between event bubbling and capturing?
 - Difference between callback and closure in JavaScript?
 - What are the advantages of using preprocessors? e.g. Sass, Stylus, Less.
-  - [Read answer on GreatFrontEnd](https://www.greatfrontend.com/questions/quiz/what-are-the-advantages-disadvantages-of-using-css-preprocessors)
+  - [Read answer](https://www.greatfrontend.com/questions/quiz/what-are-the-advantages-disadvantages-of-using-css-preprocessors) (Free)
 - What is event delegation?
-  - [Read answer on GreatFrontEnd](https://www.greatfrontend.com/questions/quiz/explain-event-delegation)
+  - [Read answer](https://www.greatfrontend.com/questions/quiz/explain-event-delegation) (Free)
 
 ## Algorithm
 

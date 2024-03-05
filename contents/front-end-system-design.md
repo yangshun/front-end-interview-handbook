@@ -22,17 +22,17 @@ The two main kinds of front end system design interviews are UI components and a
 ## Front end system design examples
 
 - User interface components
-  - Autocomplete: [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/autocomplete)
-  - Image carousel: [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/image-carousel) (Paid)
-  - Dropdown menu: [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/dropdown-menu) (Paid)
-  - Modal dialog: [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/modal-dialog) (Paid)
+  - Autocomplete: [Read example solution](https://www.greatfrontend.com/questions/system-design/autocomplete) (Free)
+  - Image carousel: [Read example solution](https://www.greatfrontend.com/questions/system-design/image-carousel) (Paid)
+  - Dropdown menu: [Read example solution](https://www.greatfrontend.com/questions/system-design/dropdown-menu) (Paid)
+  - Modal dialog: [Read example solution](https://www.greatfrontend.com/questions/system-design/modal-dialog) (Paid)
 - Applications
-  - News feed (e.g. Facebook): [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/news-feed-facebook)
-  - E-commerce marketplace (e.g. Amazon): [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/e-commerce-amazon) (Paid)
-  - Chat application (e.g. Messenger): [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/chat-application-messenger) (Paid)
-  - Photo sharing application (e.g. Instagram): [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/photo-sharing-instagram) (Paid)
-  - Pinterest: [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/pinterest) (Paid)
-  - Travel booking website (e.g. Airbnb): [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/travel-booking-airbnb) (Paid)
+  - News feed (e.g. Facebook): [Read example solution](https://www.greatfrontend.com/questions/system-design/news-feed-facebook) (Free)
+  - E-commerce marketplace (e.g. Amazon): [Read example solution](https://www.greatfrontend.com/questions/system-design/e-commerce-amazon) (Paid)
+  - Chat application (e.g. Messenger): [Read example solution](https://www.greatfrontend.com/questions/system-design/chat-application-messenger) (Paid)
+  - Photo sharing application (e.g. Instagram): [Read example solution](https://www.greatfrontend.com/questions/system-design/photo-sharing-instagram) (Paid)
+  - Pinterest: [Read example solution](https://www.greatfrontend.com/questions/system-design/pinterest) (Paid)
+  - Travel booking website (e.g. Airbnb): [Read example solution](https://www.greatfrontend.com/questions/system-design/travel-booking-airbnb) (Paid)
   - Video watching website
 
 If you are interested to find out more, [GreatFrontEnd](https://www.greatfrontend.com/) shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design) and case studies. 

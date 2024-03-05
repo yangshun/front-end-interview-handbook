@@ -18,26 +18,26 @@ Refer to the [full official Google Interview Preparation Guide for Front End Sof
 ## JavaScript
 
 - How do you make a function that takes f and returns a function that calls f on a timeout?
-  - [Practice question on GreatFrontEnd](https://www.greatfrontend.com/questions/javascript/debounce)
+  - [Practice question](https://www.greatfrontend.com/questions/javascript/debounce) (Free)
 - Implement the outline view for a Google doc.
-  - [Practice question on GreatFrontEnd](https://www.greatfrontend.com/questions/javascript/table-of-contents) (Paid)
+  - [Practice question](https://www.greatfrontend.com/questions/javascript/table-of-contents) (Paid)
 - DFS on HTML nodes.
-  - [Practice question on GreatFrontEnd](https://www.greatfrontend.com/questions/javascript/get-elements-by-tag-name) (Paid)
+  - [Practice question](https://www.greatfrontend.com/questions/javascript/get-elements-by-tag-name) (Paid)
 - Implement `throttle`.
-  - [Practice question on GreatFrontEnd](https://www.greatfrontend.com/questions/javascript/throttle) (Paid)
+  - [Practice question](https://www.greatfrontend.com/questions/javascript/throttle) (Paid)
 - How do you make a function that only calls input function f every 50 milliseconds?
-  - [Practice question on GreatFrontEnd](https://www.greatfrontend.com/questions/javascript/throttle) (Paid)
+  - [Practice question](https://www.greatfrontend.com/questions/javascript/throttle) (Paid)
 - Given a timeline write the JavaScript to select all nodes within selection of timeline.
 
 ## User interface coding
 
 - Design a slider component.
 - Design a Tic-Tac-Toe game/design an algorithm for Tic-Tac-Toe game.
-  - [Practice question on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe) (Paid)
+  - [Practice question](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe) (Paid)
 - Implement nested checkboxes (when the parent is checked, children are checked and vice versa. Use `<input type="checkbox">`). Similar to [Indeterminate checkboxes](https://css-tricks.com/indeterminate-checkboxes/).
 - Design a webpage which can auto load new posts when you reach the bottom of the page by using JavaScript. You may use AJAX and JavaScript event listeners.
 - Write a UI using HTML, CSS, JavaScript that allows uses to enter the number of rows and columns in text input fields within a form and renders a table.
-  - [Practice question on GreatFrontEnd](https://www.greatfrontend.com/questions/javascript/throttle) (Paid)
+  - [Practice question](https://www.greatfrontend.com/questions/javascript/throttle) (Paid)
   - Example: Number of rows: 4, Number of columns: 5, "Submit" button. Clicking on the "Submit" button will show the following table (ignore the styling):
 
 | 1   | 8   | 9   | 16  | 17  |
@@ -49,16 +49,16 @@ Refer to the [full official Google Interview Preparation Guide for Front End Sof
 ## Trivia
 
 - Explain the CSS Box Model.
-  - [Read answer on GreatFrontEnd](https://www.greatfrontend.com/questions/quiz/explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models)
+  - [Read answer](https://www.greatfrontend.com/questions/quiz/explain-your-understanding-of-the-box-model-and-how-you-would-tell-the-browser-in-css-to-render-your-layout-in-different-box-models) (Free)
 - What happens when you type a URL into the browser and hits enter?
 - Given some text on a web page, how many ways can you make the text disappear?
 - How do you send data from a web page to a server without a page refresh?
-  - [Read answer on GreatFrontEnd](https://www.greatfrontend.com/questions/quiz/what-are-the-advantages-and-disadvantages-of-using-ajax)
+  - [Read answer](https://www.greatfrontend.com/questions/quiz/what-are-the-advantages-and-disadvantages-of-using-ajax) (Free)
 
 ## System design
 
 - Design emoji autocomplete.
-  - [Read answer on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/autocomplete)
+  - [Read answer](https://www.greatfrontend.com/questions/system-design/autocomplete) (Free)
 - Design JS Bin.
 - How would you create a Google Analytics SDK used by webpages?
 

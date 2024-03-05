@@ -22,18 +22,18 @@ Companies that ask such questions usually ask candidates to code in one of these
 ## Examples
 
 - Components
-  - Tabs — [Practice on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/tabs) (Paid)
-  - Accordion — [Practice on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/accordion) (Paid)
+  - Tabs — [Practice](https://www.greatfrontend.com/questions/user-interface/tabs) (Paid)
+  - Accordion — [Practice](https://www.greatfrontend.com/questions/user-interface/accordion) (Paid)
   - Photo Gallery
   - Other possible components - [Refer to Bootstrap's list](https://getbootstrap.com/docs/5.3/components/)
 - Apps
-  - TODO list — [Practice on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/todo-list)
+  - TODO list — [Practice](https://www.greatfrontend.com/questions/user-interface/todo-list) (Free)
   - Sortable Data Table (with extensions for filtering)
   - Kanban Board
 - Games
-  - Tic-tac-toe — [Practice on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe) (Paid)
-  - Whack-a-mole — [Practice on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/whack-a-mole) (Paid)
-  - Wordle — [Practice on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/wordle) (Paid)
+  - Tic-tac-toe — [Practice](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe) (Paid)
+  - Whack-a-mole — [Practice](https://www.greatfrontend.com/questions/user-interface/whack-a-mole) (Paid)
+  - Wordle — [Practice](https://www.greatfrontend.com/questions/user-interface/wordle) (Paid)
   - Tetris (advanced)
   - Snake (advanced)
 
