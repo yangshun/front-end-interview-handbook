@@ -136,10 +136,6 @@ async function processSubscriptionPlan(
     cancel_url: cancelUrl,
     client_reference_id: firstPromoterTrackingId || 'fp_' + String(Date.now()),
     customer: stripeCustomerId,
-    invoice_creation: {
-      // TODO: find out cost for invoice creation and disable if too expensive.
-      enabled: true,
-    },
     line_items: [
       {
         price: priceObject.id,
