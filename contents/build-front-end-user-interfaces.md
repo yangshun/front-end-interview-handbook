@@ -37,7 +37,7 @@ Companies that ask such questions usually ask candidates to code in one of these
   - Tetris (advanced)
   - Snake (advanced)
 
-Each of these questions and over 200+ more on [GreatFrontEnd](https://www.greatfrontend.com) has solutions written by ex-FAANG senior engineers. It even contains [study plans](https://www.greatfrontend.com/get-started) to tailor to your needs and automated test case suites to help you identify what's wrong with your code. Start practicing today!
+Each of these questions and over 200+ more on [GreatFrontEnd](https://www.greatfrontend.com) has solutions written by ex-FAANG senior engineers. It even contains [study plans](https://www.greatfrontend.com/study-plans) to tailor to your needs and automated test case suites to help you identify what's wrong with your code. Start practicing today!
 
 ## Considerations
 
