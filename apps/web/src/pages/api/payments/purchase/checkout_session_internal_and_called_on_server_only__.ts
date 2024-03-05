@@ -50,9 +50,9 @@ export default async function handler(
   const data =
     await fetchInterviewsPricingPlanPaymentConfigLocalizedRecord(countryCode);
 
-  const planDetails = data[planType];
+  const planPaymentConfig = data[planType];
 
-  if (planDetails == null) {
+  if (planPaymentConfig == null) {
     return res.status(401).send({
       error: {
         message: `Invalid or non-existent plan type: ${planType}`,
@@ -61,32 +61,32 @@ export default async function handler(
     });
   }
 
-  const { currency, unitCostCurrency } = planDetails;
+  const { currency, unitCostCurrency } = planPaymentConfig;
   const unitAmountInStripeFormat = normalizeCurrencyValue(
     unitCostCurrency.withPPP.after,
     currency,
   );
 
-  if (planDetails.checkoutMode === 'subscription') {
+  if (planPaymentConfig.checkoutMode === 'subscription') {
     return await processSubscriptionPlan(
       req,
       res,
       stripeCustomerId,
       stripe,
-      planDetails,
+      planPaymentConfig,
       currency,
       unitAmountInStripeFormat,
       firstPromoterTrackingId,
     );
   }
 
-  if (planDetails.checkoutMode === 'payment') {
+  if (planPaymentConfig.checkoutMode === 'payment') {
     return await processOneTimePlan(
       req,
       res,
       stripeCustomerId,
       stripe,
-      planDetails,
+      planPaymentConfig,
       currency,
       unitAmountInStripeFormat,
       receiptEmail,
@@ -97,10 +97,10 @@ export default async function handler(
 
 function checkoutSessionUrls(
   req: NextApiRequest,
-  plan: InterviewsPricingPlanPaymentConfig,
+  planPaymentConfig: InterviewsPricingPlanPaymentConfig,
 ) {
   const { origin } = absoluteUrl(req);
-  const { planType } = plan;
+  const { planType } = planPaymentConfig;
 
   return {
     cancelUrl: `${origin}/pricing?cancel=1&plan=${planType}`,
@@ -113,12 +113,12 @@ async function processSubscriptionPlan(
   res: NextApiResponse,
   stripeCustomerId: string,
   stripe: Stripe,
-  plan: InterviewsPricingPlanPaymentConfig,
+  planPaymentConfig: InterviewsPricingPlanPaymentConfig,
   currency: string,
   unitAmountInCurrency: number,
   firstPromoterTrackingId?: string,
 ) {
-  const { recurring } = plan;
+  const { recurring } = planPaymentConfig;
 
   const priceObject = await stripe.prices.create({
     currency,
@@ -130,12 +130,16 @@ async function processSubscriptionPlan(
     unit_amount: unitAmountInCurrency,
   });
 
-  const { cancelUrl, successUrl } = checkoutSessionUrls(req, plan);
+  const { cancelUrl, successUrl } = checkoutSessionUrls(req, planPaymentConfig);
   const session = await stripe.checkout.sessions.create({
-    allow_promotion_codes: plan.allowPromoCode,
+    allow_promotion_codes: planPaymentConfig.allowPromoCode,
     cancel_url: cancelUrl,
     client_reference_id: firstPromoterTrackingId || 'fp_' + String(Date.now()),
     customer: stripeCustomerId,
+    invoice_creation: {
+      // TODO: find out cost for invoice creation and disable if too expensive.
+      enabled: true,
+    },
     line_items: [
       {
         price: priceObject.id,
@@ -160,18 +164,22 @@ async function processOneTimePlan(
   res: NextApiResponse,
   stripeCustomerId: string,
   stripe: Stripe,
-  plan: InterviewsPricingPlanPaymentConfig,
+  planPaymentConfig: InterviewsPricingPlanPaymentConfig,
   currency: string,
   unitAmountInCurrency: number,
   receiptEmail?: string,
   firstPromoterTrackingId?: string,
 ) {
-  const { cancelUrl, successUrl } = checkoutSessionUrls(req, plan);
+  const { cancelUrl, successUrl } = checkoutSessionUrls(req, planPaymentConfig);
   const session = await stripe.checkout.sessions.create({
-    allow_promotion_codes: plan.allowPromoCode,
+    allow_promotion_codes: planPaymentConfig.allowPromoCode,
     cancel_url: cancelUrl,
     client_reference_id: firstPromoterTrackingId || 'fp_' + String(Date.now()),
     customer: stripeCustomerId,
+    invoice_creation: {
+      // TODO: find out cost for invoice creation and disable if too expensive.
+      enabled: true,
+    },
     line_items: [
       {
         price_data: {
