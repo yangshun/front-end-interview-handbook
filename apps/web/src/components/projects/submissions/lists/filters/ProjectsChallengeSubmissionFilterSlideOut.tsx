@@ -53,7 +53,7 @@ function FilterSection({
   );
 
   return type === 'tech-stack-selection' ? (
-    <div className="flex flex-col gap-8 py-5">
+    <div className="flex flex-col gap-5 py-5">
       {filterLabel}
       <ProjectsSkillTechStackInput
         isLabelHidden={true}
@@ -72,7 +72,7 @@ function FilterSection({
       <AccordionTrigger>{filterLabel}</AccordionTrigger>
       <AccordionContent>
         {type === 'checkbox' && (
-          <div className="mt-4 flex flex-wrap gap-x-6 gap-y-4">
+          <div className="flex flex-wrap gap-x-6 gap-y-4">
             {options.map((option) => (
               <CheckboxInput
                 key={option.value}
@@ -95,7 +95,6 @@ function FilterSection({
         )}
         {type === 'skill-selection' && (
           <ProjectsSkillRoadmapSelectionInput
-            className="mt-2"
             isLabelHidden={true}
             label={label}
             value={selectedOptions}
@@ -219,7 +218,7 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
           setIsFiltersShown(false);
         }}>
         <div className="flex flex-col">
-          <Divider />
+          <Divider color="emphasized" />
           <Accordion
             className="flex flex-col"
             defaultValue={initialFilters.map(({ id }) => id)}

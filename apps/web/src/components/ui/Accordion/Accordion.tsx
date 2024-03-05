@@ -5,10 +5,11 @@ import * as React from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
 import {
-  themeDivideColor,
+  themeDivideEmphasizeColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
   themeTextSecondaryColor,
+  themeTextSecondaryInvertColor,
   themeTextSubtitleColor,
 } from '../theme';
 
@@ -20,7 +21,11 @@ const Accordion = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AccordionPrimitive.Root
     ref={ref}
-    className={clsx('w-full', ['divide-y', themeDivideColor], className)}
+    className={clsx(
+      'w-full',
+      ['divide-y', themeDivideEmphasizeColor],
+      className,
+    )}
     {...props}
   />
 ));
@@ -40,7 +45,7 @@ const AccordionTrigger = React.forwardRef<
       ref={ref}
       className={clsx(
         'flex flex-1 items-center justify-between gap-1 text-left',
-        'py-6',
+        'py-5',
         'group',
         'font-medium transition-all',
         themeOutlineElement_FocusVisible,
@@ -52,7 +57,8 @@ const AccordionTrigger = React.forwardRef<
       {children}
       <RiArrowDownSLine
         className={clsx(
-          'size-6 shrink-0 transition-transform group-data-[state=open]:-rotate-180',
+          'size-4 shrink-0 transition-transform group-data-[state=open]:-rotate-180',
+          themeTextSecondaryInvertColor,
         )}
       />
     </AccordionPrimitive.Trigger>
@@ -69,7 +75,7 @@ const AccordionContent = React.forwardRef<
     ref={ref}
     className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm transition-all"
     {...props}>
-    <div className={clsx('pb-4 md:pb-6', themeTextSecondaryColor, className)}>
+    <div className={clsx('pb-5', themeTextSecondaryColor, className)}>
       {children}
     </div>
   </AccordionPrimitive.Content>

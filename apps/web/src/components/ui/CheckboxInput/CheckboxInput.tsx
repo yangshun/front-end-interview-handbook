@@ -115,6 +115,9 @@ function CheckboxInput(
           )}>
           <label className={clsx('block')} htmlFor={id}>
             <Text
+              className={clsx(
+                !disabled && 'text-neutral-600 dark:text-neutral-200',
+              )}
               color={disabled ? 'disabled' : 'default'}
               display="block"
               size={textSizeVariants[size]}>
