@@ -145,10 +145,3 @@ div[class^='announcementBar_'] {
   background: var(--ifm-color-emphasis-200);
   color: inherit;
 }
-
-.alert a:after {
-  content: url(/img/icons8-twitter.svg);
-  width: 10px;
-  display: inline-block;
-  height: 10px;
-}
