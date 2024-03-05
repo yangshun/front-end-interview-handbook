@@ -21,83 +21,76 @@ function useProjectDetailsStepsTabs(challenge: ProjectsChallengeItem) {
     {
       hint: intl.formatMessage({
         defaultMessage: 'Get started',
-        description:
-          'Hint for "Project Brief" and "Assets" tab on Projects project page',
-        id: '01jNoZ',
+        description: 'Tab title for projects challenges',
+        id: 'k8LRFw',
       }),
       href: metadata.href,
       subtitle: intl.formatMessage({
-        defaultMessage: 'Project Brief',
-        description:
-          'Subtitle for "Project Brief" tab on Projects project page',
-        id: 'vdhmX1',
+        defaultMessage: 'Project brief',
+        description: 'Tab title for projects challenges',
+        id: 'O2h4/M',
       }),
       title: intl.formatMessage({
         defaultMessage: 'Step 1',
-        description: 'Title for "Step 1" tab on Projects project page',
-        id: 'Ty7LFA',
+        description: 'Step N of multiple steps when completing a project',
+        id: 'UCJ7hl',
       }),
       value: 'brief',
     },
     {
       hint: intl.formatMessage({
         defaultMessage: 'Get started',
-        description:
-          'Hint for "Project Brief" and "Assets" tab on Projects project page',
-        id: '01jNoZ',
+        description: 'Tab title for projects challenges',
+        id: 'k8LRFw',
       }),
       href: metadata.assetsHref,
       subtitle: intl.formatMessage({
         defaultMessage: 'Assets',
-        description: 'Subtitle for "Assets" tab on Projects project page',
-        id: 'qR0ILp',
+        description: 'Tab title for projects challenges',
+        id: 'STZOEm',
       }),
       title: intl.formatMessage({
         defaultMessage: 'Step 2',
-        description: 'Title for "Step 2" tab on Projects project page',
-        id: 'mjEvFf',
+        description: 'Step N of multiple steps when completing a project',
+        id: 'AWr9Qe',
       }),
       value: 'assets',
     },
     {
       hint: intl.formatMessage({
         defaultMessage: 'While working on project',
-        description:
-          'Hint for "Tips, Resources and Discussions" tab on Projects project page',
-        id: 'KBBRmA',
+        description: 'Tab label for projects challenges',
+        id: 'TAuaop',
       }),
       href: metadata.resourcesHref,
       subtitle: intl.formatMessage({
-        defaultMessage: 'Tips, Resources and Discussions',
-        description:
-          'Subtitle for "Tips, Resources and Discussions" tab on Projects project page',
-        id: 'U10C4D',
+        defaultMessage: 'Resources & discussions',
+        description: 'Tab title for projects challenges',
+        id: 'xtiHTC',
       }),
       title: intl.formatMessage({
         defaultMessage: 'Step 3',
-        description: 'Title for "Step 3" tab on Projects project page',
-        id: '+Yk101',
+        description: 'Step N of multiple steps when completing a project',
+        id: 'kTyRGU',
       }),
       value: 'resources',
     },
     {
       hint: intl.formatMessage({
         defaultMessage: 'After completion',
-        description:
-          'Hint for "Project Deployment & Completion" tab on Projects project page',
-        id: 'QkImfr',
+        description: 'Tab label for projects challenges',
+        id: 'mU5c9N',
       }),
       href: metadata.completionHref,
       subtitle: intl.formatMessage({
-        defaultMessage: 'Project Deployment & Completion',
-        description:
-          'Subtitle for "Project Deployment & Completion" tab on Projects project page',
-        id: '/dWN/a',
+        defaultMessage: 'Project completion',
+        description: 'Tab title for projects challenges',
+        id: 'QrnJKy',
       }),
       title: intl.formatMessage({
         defaultMessage: 'Step 4',
-        description: 'Title for "Step 4" tab on Projects project page',
-        id: 'G5tU8P',
+        description: 'Step N of multiple steps when completing a project',
+        id: 'TzB7wE',
       }),
       value: 'completion',
     },

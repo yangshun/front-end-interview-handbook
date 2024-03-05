@@ -1251,6 +1251,10 @@
     "defaultMessage": "Name",
     "description": "Label for \"Name\" input on Projects profile onboarding page"
   },
+  "AWr9Qe": {
+    "defaultMessage": "Step 2",
+    "description": "Step N of multiple steps when completing a project"
+  },
   "AYkO94": {
     "defaultMessage": "Questions List",
     "description": "Screenreader text for quiz questions list"
@@ -2755,6 +2759,10 @@
     "defaultMessage": "Article view",
     "description": "View option for blog list"
   },
+  "O2h4/M": {
+    "defaultMessage": "Project brief",
+    "description": "Tab title for projects challenges"
+  },
   "O57nUH": {
     "defaultMessage": "Exclusive private Discord channel access for life.",
     "description": "Feature of annual pricing plan"
@@ -3111,6 +3119,10 @@
     "defaultMessage": "Copy to clipboard",
     "description": "Button label for copy button"
   },
+  "QrnJKy": {
+    "defaultMessage": "Project completion",
+    "description": "Tab title for projects challenges"
+  },
   "QruCxn": {
     "defaultMessage": "Monthly plan",
     "description": "Subscription plan type"
@@ -3331,6 +3343,10 @@
     "defaultMessage": "Submission pinned!",
     "description": "Submission pin toaster"
   },
+  "STZOEm": {
+    "defaultMessage": "Assets",
+    "description": "Tab title for projects challenges"
+  },
   "SUjf8L": {
     "defaultMessage": "Not Subscribed",
     "description": "Text describing user's subscription status."
@@ -3415,6 +3431,10 @@
     "defaultMessage": "Dive into the world of element selection and modification in the DOM. Practice selecting elements using CSS selectors, traverse the DOM hierarchy, and manipulate their properties, content, and styles.",
     "description": "Description for interview preparation focus area"
   },
+  "TAuaop": {
+    "defaultMessage": "While working on project",
+    "description": "Tab label for projects challenges"
+  },
   "TB8vuT": {
     "defaultMessage": "Collapse side menu",
     "description": "Screenreader text for the button that collapses the side menu"
@@ -3475,13 +3495,13 @@
     "defaultMessage": "Senior Software Engineer",
     "description": "Ryan Van Valkenburg's job title"
   },
-  "Ty7LFA": {
-    "defaultMessage": "Step 1",
-    "description": "Title for \"Step 1\" tab on Projects project page"
-  },
   "TyQdcx": {
     "defaultMessage": "Sort by",
     "description": "Label for sort button"
+  },
+  "TzB7wE": {
+    "defaultMessage": "Step 4",
+    "description": "Step N of multiple steps when completing a project"
   },
   "U022No": {
     "defaultMessage": "Palantir",
@@ -3514,6 +3534,10 @@
   "UCAeM0": {
     "defaultMessage": "UI / Components",
     "description": "User interface component questions"
+  },
+  "UCJ7hl": {
+    "defaultMessage": "Step 1",
+    "description": "Step N of multiple steps when completing a project"
   },
   "UCt/lF": {
     "defaultMessage": "Coding Questions",
@@ -5287,6 +5311,10 @@
     "defaultMessage": "Get the right foundation for practical development",
     "description": "Title for \"Get the right foundation for practical development\" feature marketing section on Projects home page"
   },
+  "k8LRFw": {
+    "defaultMessage": "Get started",
+    "description": "Tab title for projects challenges"
+  },
   "k964KU": {
     "defaultMessage": "HTML",
     "description": "CSS questions category short title"
@@ -5338,6 +5366,10 @@
   "kQgKV1": {
     "defaultMessage": "Learning progress cleared",
     "description": "Success message for clearing study plan progress"
+  },
+  "kTyRGU": {
+    "defaultMessage": "Step 3",
+    "description": "Step N of multiple steps when completing a project"
   },
   "kaQWYn": {
     "defaultMessage": "Add Bio",
@@ -5574,6 +5606,10 @@
   "mRxkm4": {
     "defaultMessage": "Live site URL",
     "description": "Project submission URL"
+  },
+  "mU5c9N": {
+    "defaultMessage": "After completion",
+    "description": "Tab label for projects challenges"
   },
   "mU6vix": {
     "defaultMessage": "[For complete beginners] Basic general development guides, such as how to download and use an IDE, how to use tools like Github and Figma",
@@ -6619,10 +6655,6 @@
     "defaultMessage": "Clarify any doubts on a project in project-specific forums",
     "description": "Description for \"Learn from others\" feature on Projects home page"
   },
-  "vdhmX1": {
-    "defaultMessage": "Project Brief",
-    "description": "Subtitle for \"Project Brief\" tab on Projects project page"
-  },
   "vegaR1": {
     "defaultMessage": "Sort by",
     "description": "Label for sorting button"
@@ -6850,6 +6882,10 @@
   "xsaQ0d": {
     "defaultMessage": "Student Discount",
     "description": "Promotion title"
+  },
+  "xtiHTC": {
+    "defaultMessage": "Resources & discussions",
+    "description": "Tab title for projects challenges"
   },
   "xyPOJe": {
     "defaultMessage": "{points} Reputation",

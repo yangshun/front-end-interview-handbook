@@ -66,7 +66,10 @@ function ProjectsChallengeStepsTabItem({
   return (
     <Anchor
       className={clsx(
-        'group w-[160px] shrink-0 border-t-2 pt-4 md:min-w-[256px] md:grow',
+        'group shrink-0 md:grow',
+        'w-[160px] md:min-w-[256px]',
+        'pt-4',
+        'border-t-2',
         isSelected
           ? 'border-brand'
           : [themeTextBrandColor_Hover, themeTextColor, 'border-transparent'],
@@ -77,20 +80,18 @@ function ProjectsChallengeStepsTabItem({
       onClick={() => {
         onSelect?.(tabItemValue);
       }}>
-      <div className="w-[160px]">
-        <Text
-          color={isSelected ? 'active' : 'inherit'}
-          display="block"
-          weight="bold">
-          {tabItemTitle}
-          {accessAllSteps && !hasRead && (
-            <span className="bg-red mb-2 ms-1 inline-block size-2 rounded-full" />
-          )}
-        </Text>
-        <Text color="secondary" display="block">
-          {tabItemSubtitle}
-        </Text>
-      </div>
+      <Text
+        color={isSelected ? 'active' : 'inherit'}
+        display="block"
+        weight="bold">
+        {tabItemTitle}
+        {accessAllSteps && !hasRead && (
+          <span className="bg-red size-2 mb-2 ms-1 inline-block rounded-full" />
+        )}
+      </Text>
+      <Text color="secondary" display="block">
+        {tabItemSubtitle}
+      </Text>
     </Anchor>
   );
 }
