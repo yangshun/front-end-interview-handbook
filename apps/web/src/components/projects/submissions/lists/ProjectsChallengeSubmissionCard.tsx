@@ -120,7 +120,9 @@ export default function ProjectsChallengeSubmissionCard({
       <div className="flex flex-col gap-3">
         <Anchor href={hrefs.detail} variant="unstyled">
           <span aria-hidden={true} className="absolute inset-0" />
-          <Text weight="bold">{title}</Text>
+          <Text className="line-clamp-2" weight="bold">
+            {title}
+          </Text>
         </Anchor>
         <ProjectsSkillList
           label={intl.formatMessage({
@@ -150,7 +152,7 @@ export default function ProjectsChallengeSubmissionCard({
           </div>
         </div>
       )}
-      <Text color="subtitle" display="block" size="body3">
+      <Text className="line-clamp-3" color="subtitle" size="body3">
         {summary}
       </Text>
       <div className="flex justify-between gap-4">
