@@ -2,8 +2,8 @@ import clsx from 'clsx';
 
 import {
   themeTextBrandColor,
-  themeTextColor,
   themeTextSecondaryColor,
+  themeTextSubtitleColor,
 } from '~/components/ui/theme';
 
 export type BadgeVariant =
@@ -62,7 +62,7 @@ const variantClasses: Record<
     backgroundClass: 'shiny bg-brand-lightest dark:bg-neutral-800',
     borderClass: '',
     iconClass: themeTextBrandColor,
-    textClass: themeTextColor,
+    textClass: themeTextSubtitleColor,
   },
   success: {
     backgroundClass: 'bg-success-lightest dark:bg-success-darker',
@@ -102,7 +102,8 @@ export default function Badge({
   return (
     <span
       className={clsx(
-        'relative inline-flex items-center whitespace-nowrap rounded-full py-px font-medium',
+        'inline-flex items-center',
+        'relative rounded-full py-px',
         sizeClasses[size],
         backgroundClass,
         borderClass,
@@ -119,7 +120,9 @@ export default function Badge({
           )}
         />
       )}
-      <span className={textClass}>{label}</span>
+      <span className={clsx('whitespace-nowrap font-medium', textClass)}>
+        {label}
+      </span>
     </span>
   );
 }
