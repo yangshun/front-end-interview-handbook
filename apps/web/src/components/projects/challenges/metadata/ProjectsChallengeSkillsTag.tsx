@@ -6,6 +6,7 @@ import ProjectsSkillRoadmapChips from '~/components/projects/skills/metadata/Pro
 import {
   Hovercard,
   HovercardContent,
+  HovercardPortal,
   HovercardTrigger,
 } from '~/components/ui/Hovercard/Hovercard';
 import Text from '~/components/ui/Text';
@@ -28,22 +29,24 @@ export default function ProjectsChallengeSkillsTag({ skills }: Props) {
           </Text>
         </div>
       </HovercardTrigger>
-      <HovercardContent>
-        <div className="flex flex-col gap-2">
-          <ProjectsSkillRoadmapChips readonly={true} skills={skills} />
-          <div
-            className={clsx('flex items-center gap-1', themeTextSubtleColor)}>
-            <RiInformationLine className="size-4 shrink-0" />
-            <Text color="secondary" size="body3">
-              <FormattedMessage
-                defaultMessage="You can add more skills e.g. UI frameworks used after starting the project"
-                description="Additional information for skills section on Projects project page"
-                id="j63zLB"
-              />
-            </Text>
+      <HovercardPortal>
+        <HovercardContent>
+          <div className="flex flex-col gap-2">
+            <ProjectsSkillRoadmapChips readonly={true} skills={skills} />
+            <div
+              className={clsx('flex items-center gap-1', themeTextSubtleColor)}>
+              <RiInformationLine className="size-4 shrink-0" />
+              <Text color="secondary" size="body3">
+                <FormattedMessage
+                  defaultMessage="You can add more skills e.g. UI frameworks used after starting the project"
+                  description="Additional information for skills section on Projects project page"
+                  id="j63zLB"
+                />
+              </Text>
+            </div>
           </div>
-        </div>
-      </HovercardContent>
+        </HovercardContent>
+      </HovercardPortal>
     </Hovercard>
   );
 }

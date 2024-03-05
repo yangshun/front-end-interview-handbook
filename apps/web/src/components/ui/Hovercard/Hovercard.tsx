@@ -10,6 +10,7 @@ import * as HoverCardPrimitive from '@radix-ui/react-hover-card';
 const Hovercard = HoverCardPrimitive.Root;
 
 const HovercardTrigger = HoverCardPrimitive.Trigger;
+const HovercardPortal = HoverCardPrimitive.Portal;
 
 const HovercardContent = React.forwardRef<
   React.ElementRef<typeof HoverCardPrimitive.Content>,
@@ -26,4 +27,4 @@ const HovercardContent = React.forwardRef<
 
 HovercardContent.displayName = HoverCardPrimitive.Content.displayName;
 
-export { Hovercard, HovercardContent, HovercardTrigger };
+export { Hovercard, HovercardContent, HovercardPortal, HovercardTrigger };

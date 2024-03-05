@@ -9,6 +9,7 @@ import Anchor from '~/components/ui/Anchor';
 import {
   Hovercard,
   HovercardContent,
+  HovercardPortal,
   HovercardTrigger,
 } from '~/components/ui/Hovercard/Hovercard';
 import Text from '~/components/ui/Text';
@@ -91,11 +92,13 @@ export default function ProjectsChallengeSubmissionCard({
                           {chunks}
                         </Anchor>
                       </HovercardTrigger>
-                      <HovercardContent>
-                        <ProjectsChallengeHoverCard
-                          slug={challenge.metadata.slug}
-                        />
-                      </HovercardContent>
+                      <HovercardPortal>
+                        <HovercardContent>
+                          <ProjectsChallengeHoverCard
+                            slug={challenge.metadata.slug}
+                          />
+                        </HovercardContent>
+                      </HovercardPortal>
                     </Hovercard>
                   ),
                   title: challenge?.metadata.title,

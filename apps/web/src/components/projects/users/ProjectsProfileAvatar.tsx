@@ -2,6 +2,7 @@ import Anchor from '~/components/ui/Anchor';
 import {
   Hovercard,
   HovercardContent,
+  HovercardPortal,
   HovercardTrigger,
 } from '~/components/ui/Hovercard/Hovercard';
 
@@ -59,9 +60,11 @@ export default function ProjectsProfileAvatar({
   return userProfile != null && mode === 'hovercard' ? (
     <Hovercard>
       <HovercardTrigger asChild={true}>{anchorAvatar}</HovercardTrigger>
-      <HovercardContent>
-        <ProjectsProfileHoverCard userId={userProfile.id} />
-      </HovercardContent>
+      <HovercardPortal>
+        <HovercardContent>
+          <ProjectsProfileHoverCard userId={userProfile.id} />
+        </HovercardContent>
+      </HovercardPortal>
     </Hovercard>
   ) : userProfile != null && mode === 'link' ? (
     anchorAvatar
