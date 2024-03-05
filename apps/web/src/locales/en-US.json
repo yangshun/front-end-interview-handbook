@@ -2403,6 +2403,10 @@
     "defaultMessage": "GitHub repository URL",
     "description": "Form label"
   },
+  "LEh5WZ": {
+    "defaultMessage": "Clear all",
+    "description": "Label for clear all button"
+  },
   "LGHLf5": {
     "defaultMessage": "Gamified learning",
     "description": "Title for \"Gamified learning\" feature on Projects home page"
@@ -4190,6 +4194,10 @@
   "aHGdFm": {
     "defaultMessage": "{current}/{total} completed",
     "description": "Label for Projects segmented progress bar"
+  },
+  "aJWJvF": {
+    "defaultMessage": "Apply",
+    "description": "Label for apply button"
   },
   "aP9GUx": {
     "defaultMessage": "[DEV-ONLY] Stripe Customer ID",

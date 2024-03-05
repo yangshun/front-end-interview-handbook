@@ -21,6 +21,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '~/components/ui/Accordion';
+import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import SlideOut from '~/components/ui/SlideOut';
@@ -127,6 +128,7 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
     getStringTypeSearchParams,
     updateSearchParams,
     setSelectedFilters: setInitialSelectedFilters,
+    clearAll,
   } = useProjectsChallengeSubmissionFilterContext();
   const [selectedFilters, setSelectedFilters] = useState<
     Record<ProjectsChallengeSubmissionFilterKey, Array<string>>
@@ -173,12 +175,15 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
     ],
   );
 
-  // Set the filters to context only when the SlideOut is closed
-  useEffect(() => {
-    if (!isFiltersShown) {
-      setInitialSelectedFilters(selectedFilters);
-    }
-  }, [isFiltersShown, selectedFilters, setInitialSelectedFilters]);
+  const onApplyFilter = () => {
+    setInitialSelectedFilters(selectedFilters);
+    setIsFiltersShown(false);
+  };
+
+  const onClearAllFilter = () => {
+    clearAll();
+    setIsFiltersShown(false);
+  };
 
   return (
     <ProjectsChallengeSubmissionFilterContext.Provider value={value}>
@@ -229,6 +234,27 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
               </Fragment>
             ))}
           </Accordion>
+          <Divider />
+          <div className="my-5 flex justify-end gap-3 p-4">
+            <Button
+              label={intl.formatMessage({
+                defaultMessage: 'Clear all',
+                description: 'Label for clear all button',
+                id: 'LEh5WZ',
+              })}
+              variant="secondary"
+              onClick={onClearAllFilter}
+            />
+            <Button
+              label={intl.formatMessage({
+                defaultMessage: 'Apply',
+                description: 'Label for apply button',
+                id: 'aJWJvF',
+              })}
+              variant="primary"
+              onClick={onApplyFilter}
+            />
+          </div>
         </div>
       </SlideOut>
     </ProjectsChallengeSubmissionFilterContext.Provider>
