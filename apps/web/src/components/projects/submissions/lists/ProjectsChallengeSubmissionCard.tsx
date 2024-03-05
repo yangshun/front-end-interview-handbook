@@ -65,6 +65,7 @@ export default function ProjectsChallengeSubmissionCard({
   return (
     <div
       className={clsx(
+        'relative isolate',
         'flex flex-col gap-4',
         'rounded-lg',
         'px-4 py-6',
@@ -72,7 +73,8 @@ export default function ProjectsChallengeSubmissionCard({
         themeBackgroundCardAltColor,
       )}>
       {challenge != null && (
-        <div className="flex items-center justify-between gap-2">
+        // Have to raise the z-index so that it is layered above the `position: absolute` title.
+        <div className="z-[1] flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <Text color="secondary" size="body3">
               <FormattedMessage
@@ -113,7 +115,8 @@ export default function ProjectsChallengeSubmissionCard({
         </div>
       )}
       <div className="flex flex-col gap-3">
-        <Anchor href={hrefs.detail}>
+        <Anchor href={hrefs.detail} variant="unstyled">
+          <span aria-hidden={true} className="absolute inset-0" />
           <Text weight="bold">{title}</Text>
         </Anchor>
         <ProjectsSkillList
@@ -136,7 +139,8 @@ export default function ProjectsChallengeSubmissionCard({
             userProfile={author}
           />
           <div className="flex flex-col gap-1">
-            <Text size="body2" weight="medium">
+            {/* `relative` added to create a new stacking context and be layered above the `position: absolute` title. */}
+            <Text className="relative" size="body2" weight="medium">
               <ProjectsProfileDisplayNameLink userProfile={author} />
             </Text>
             <UserProfileInformationRow size="body3" userProfile={author} />
@@ -152,7 +156,8 @@ export default function ProjectsChallengeSubmissionCard({
           <ProjectsViewCountTag count={views} />
           <ProjectsCommentCountTag count={comments ?? 0} />
         </div>
-        <Text color="secondary" size="body3">
+        {/* `relative` added to create a new stacking context and be layered above the `position: absolute` title. */}
+        <Text className="relative" color="secondary" size="body3">
           <RelativeTimestamp timestamp={submission.createdAt} />
         </Text>
       </div>

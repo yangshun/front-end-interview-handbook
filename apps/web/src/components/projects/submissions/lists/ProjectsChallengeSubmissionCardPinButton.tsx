@@ -15,10 +15,10 @@ export default function ProjectsChallengeSubmissionCardPinButton({
 
   return (
     <Button
-      className={clsx({
-        ['dark:!text-danger !text-danger dark:!border-danger !border-danger']:
-          isPinned,
-      })}
+      className={clsx(
+        isPinned &&
+          'dark:!text-danger !text-danger dark:!border-danger !border-danger',
+      )}
       icon={isPinned ? RiUnpinLine : RiPushpinLine}
       label={
         isPinned
