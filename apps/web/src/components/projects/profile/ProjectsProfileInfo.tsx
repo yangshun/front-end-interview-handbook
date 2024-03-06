@@ -1,5 +1,5 @@
 import { RiPencilFill } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import ProjectsProfileBio from '~/components/projects/profile/info/ProjectsProfileBio';
@@ -8,8 +8,6 @@ import ProjectsProfileSkillsList from '~/components/projects/profile/info/Projec
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import ProjectsUserReputation from '~/components/projects/users/ProjectsUserReputation';
 import Button from '~/components/ui/Button';
-import Divider from '~/components/ui/Divider';
-import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 

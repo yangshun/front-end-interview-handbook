@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { RiArrowRightLine, RiInformationLine } from 'react-icons/ri';
+import { RiInformationLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';

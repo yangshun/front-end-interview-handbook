@@ -77,13 +77,13 @@ export default function NavProfileIcon({
           className={dropdownContentClassName}
           sideOffset={8}>
           <Text
-            className="truncate px-3 pb-2"
+            className="truncate px-2 py-1"
             display="block"
             size="body2"
             weight="bold">
             {userIdentifierString}
           </Text>
-          <Divider />
+          <Divider className="-mx-2 my-1" />
           <div>
             {navItems.map((navItem) => (
               <DropdownMenu.Item key={navItem.itemKey} {...navItem} />

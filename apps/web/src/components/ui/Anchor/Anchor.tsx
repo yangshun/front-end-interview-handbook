@@ -17,6 +17,10 @@ import {
   type AnchorVariant,
   type AnchorWeight,
 } from './AnchorStyles';
+import {
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
+} from '../theme';
 
 export type Props = Omit<I18nLinkProps, 'href'> &
   Readonly<{
@@ -55,10 +59,19 @@ function Anchor(
 
   const finalHref = href ?? '#';
   const rel = relProp ?? (isExternalURL ? 'noreferrer noopener' : undefined);
-  const className = clsx(
-    anchorCVA({ className: classNameProp, variant, weight }),
-    underline && 'underline',
-  );
+  const className = anchorCVA({
+    className: clsx(
+      underline && 'underline',
+      variant !== 'unstyled' && [
+        themeOutlineElement_FocusVisible,
+        themeOutlineElementBrandColor_FocusVisible,
+      ],
+      classNameProp,
+    ),
+    variant,
+    weight,
+  });
+
   const target = targetProp ?? (isExternalURL ? '_blank' : undefined);
 
   if (

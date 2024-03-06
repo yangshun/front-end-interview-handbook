@@ -17,10 +17,6 @@ export type AnchorVariant =
   | 'unstyled';
 export type AnchorWeight = 'bold' | 'medium' | 'normal';
 
-type DefaultVariants<Variants> = Readonly<{
-  [Variant in keyof Variants]: keyof Variants[Variant];
-}>;
-
 const anchorVariantClasses: Record<AnchorVariant, string> = {
   blend: themeTextBrandColor_Hover,
   default: clsx(themeTextBrandColor, 'hover:underline'),
@@ -35,24 +31,13 @@ const anchorWeightClasses: Record<AnchorWeight, string> = {
   normal: '',
 };
 
-const variants = {
-  variant: anchorVariantClasses,
-  weight: anchorWeightClasses,
-};
-
-const defaultVariants: DefaultVariants<typeof variants> = {
-  variant: 'default',
-  weight: 'normal',
-};
-
-export const anchorCVA = cva(
-  [
-    'transition-colors',
-    themeOutlineElement_FocusVisible,
-    themeOutlineElementBrandColor_FocusVisible,
-  ],
-  {
-    defaultVariants,
-    variants,
+export const anchorCVA = cva('transition-colors', {
+  defaultVariants: {
+    variant: 'default',
+    weight: 'normal',
   },
-);
+  variants: {
+    variant: anchorVariantClasses,
+    weight: anchorWeightClasses,
+  },
+});
