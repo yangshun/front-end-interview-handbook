@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useEffect, useState } from 'react';
 import { RiMenuFill } from 'react-icons/ri';
 
 import useUserProfile from '~/hooks/user/useUserProfile';
@@ -8,6 +9,8 @@ import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Button from '~/components/ui/Button';
 import SlideOut from '~/components/ui/SlideOut';
 
+import { useI18nPathname } from '~/next-i18nostic/src';
+
 import { ProjectsSidebarExpanded } from './sidebar/ProjectsSidebar';
 
 type Props = Readonly<{
@@ -16,6 +19,13 @@ type Props = Readonly<{
 
 export default function ProjectsNavbar({ className }: Props) {
   const { userProfile } = useUserProfile();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { pathname } = useI18nPathname();
+
+  useEffect(() => {
+    // Hide sidebar when page changes.
+    setIsSidebarOpen(false);
+  }, [pathname]);
 
   return (
     <div
@@ -31,6 +41,7 @@ export default function ProjectsNavbar({ className }: Props) {
         <SlideOut
           className="lg:hidden"
           enterFrom="start"
+          isShown={isSidebarOpen}
           isTitleHidden={true}
           padding={false}
           size="xs"
@@ -40,8 +51,12 @@ export default function ProjectsNavbar({ className }: Props) {
               isLabelHidden={true}
               label="Open menu"
               variant="secondary"
+              onClick={() => {
+                setIsSidebarOpen(true);
+              }}
             />
-          }>
+          }
+          onClose={() => setIsSidebarOpen(false)}>
           <ProjectsSidebarExpanded />
         </SlideOut>
       </div>
