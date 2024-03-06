@@ -8,38 +8,15 @@ import url from 'url';
 
 import { useAppContext } from '~/components/global/AppContextProvider';
 import { useScrollManagement } from '~/components/global/ScrollManagementProvider';
-import {
-  themeOutlineElement_FocusVisible,
-  themeOutlineElementBrandColor_FocusVisible,
-  themeTextSecondaryColor,
-} from '~/components/ui/theme';
 
 import type { I18nLinkProps } from '~/next-i18nostic/src';
 import { i18nHref, I18nLink, useI18n } from '~/next-i18nostic/src';
 
-import { themeTextBrandColor, themeTextBrandColor_Hover } from '../theme';
-
-type AnchorVariant =
-  | 'blend' // Same color as text, brand color on hover.
-  | 'default' // Brand color, emphasized and underline on hover.
-  | 'flat' // Same color as text, underline on hover.
-  | 'light' // Lighter brand color, emphasized on hover.
-  | 'muted' // Secondary color, brand color on hover.
-  | 'unstyled';
-type AnchorFontWeight = 'medium' | 'regular';
-
-const anchorStyles: Record<AnchorVariant, string> = {
-  blend: themeTextBrandColor_Hover,
-  default: clsx(
-    themeTextBrandColor,
-    themeTextBrandColor_Hover,
-    'hover:underline',
-  ),
-  flat: 'hover:underline',
-  light: 'text-brand-light hover:text-brand',
-  muted: clsx(themeTextSecondaryColor, themeTextBrandColor_Hover),
-  unstyled: '',
-};
+import {
+  anchorCVA,
+  type AnchorVariant,
+  type AnchorWeight,
+} from './AnchorStyles';
 
 export type Props = Omit<I18nLinkProps, 'href'> &
   Readonly<{
@@ -50,7 +27,7 @@ export type Props = Omit<I18nLinkProps, 'href'> &
     underline?: boolean;
     variant?: AnchorVariant;
     warnAboutExternalLink?: boolean;
-    weight?: AnchorFontWeight;
+    weight?: AnchorWeight;
   }>;
 
 function Anchor(
@@ -79,16 +56,8 @@ function Anchor(
   const finalHref = href ?? '#';
   const rel = relProp ?? (isExternalURL ? 'noreferrer noopener' : undefined);
   const className = clsx(
-    'transition-colors',
-    variant !== 'unstyled' &&
-      clsx(
-        anchorStyles[variant],
-        themeOutlineElement_FocusVisible,
-        themeOutlineElementBrandColor_FocusVisible,
-        weight === 'medium' && 'font-medium',
-        underline && 'underline',
-      ),
-    classNameProp,
+    anchorCVA({ className: classNameProp, variant, weight }),
+    underline && 'underline',
   );
   const target = targetProp ?? (isExternalURL ? '_blank' : undefined);
 

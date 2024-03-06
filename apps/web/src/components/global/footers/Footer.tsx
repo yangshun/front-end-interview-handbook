@@ -91,8 +91,7 @@ function FooterSection({
                   <Text display="block" size="body2">
                     <Anchor
                       href={item.href}
-                      variant="muted"
-                      weight="regular"
+                      variant="secondary"
                       onClick={() => {
                         gtag.event({
                           action: `footer.${item.key}.click`,
@@ -160,7 +159,7 @@ export default function Footer({ navigation }: Props) {
                 </div>
                 <div className="flex gap-x-5">
                   {commonLinks.social.map(({ key, href, name, icon: Icon }) => (
-                    <Anchor key={key} href={href} variant="muted">
+                    <Anchor key={key} href={href} variant="secondary">
                       <span className="sr-only">{name}</span>
                       {Icon && <Icon aria-hidden="true" className="size-6" />}
                     </Anchor>

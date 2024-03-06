@@ -1,20 +1,61 @@
 import { capitalize } from 'lodash-es';
 
+import Divider from '~/components/ui/Divider';
 import UIExamplesGroup from '~/components/ui/misc/UIExamplesGroup';
 
 import Anchor from './Anchor';
+import Text from '../Text';
 
 export default function AnchorExamples() {
   return (
     <UIExamplesGroup title="Anchor">
+      <div className="flex flex-col gap-2">
+        <div className="grid grid-cols-3 gap-4">
+          {(
+            [
+              {
+                description: 'Brand color, underline on hover.',
+                variant: 'default',
+              },
+              {
+                description: 'Secondary color, brand color on hover.',
+                variant: 'secondary',
+              },
+              {
+                description: 'Same color as text, brand color on hover.',
+                variant: 'blend',
+              },
+              {
+                description: 'Same color as text, underline on hover.',
+                variant: 'flat',
+              },
+              {
+                description: 'No color nor hover styles.',
+                variant: 'unstyled',
+              },
+            ] as const
+          ).map(({ variant, description }) => (
+            <div key={variant}>
+              <div>
+                <Anchor variant={variant}>{capitalize(variant)}</Anchor>
+              </div>
+              <Text color="secondary" size="body2">
+                {description}
+              </Text>
+            </div>
+          ))}
+        </div>
+      </div>
+      <Divider />
       <div className="flex flex-wrap gap-8">
-        {(
-          ['default', 'blend', 'flat', 'light', 'muted', 'unstyled'] as const
-        ).map((variant) => (
-          <Anchor key={variant} variant={variant}>
-            {capitalize(variant)}
+        {(['normal', 'medium', 'bold'] as const).map((weight) => (
+          <Anchor key={weight} weight={weight}>
+            {capitalize(weight)}
           </Anchor>
         ))}
+      </div>
+      <div className="flex flex-wrap gap-8">
+        <Anchor underline={true}>Underline</Anchor>
       </div>
       <div className="flex flex-wrap gap-8">
         <Anchor href="https://www.frontendinterviewhandbook.com/">

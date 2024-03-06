@@ -27,7 +27,7 @@ export default function ProjectsProfileSocialLinks({ userProfile }: Props) {
           })}>
           <Anchor
             href={userProfile.githubUsername}
-            variant="muted"
+            variant="secondary"
             warnAboutExternalLink={true}>
             <span className="sr-only">GitHub</span>
             <RiGithubFill aria-hidden="true" className="size-5" />
@@ -44,7 +44,7 @@ export default function ProjectsProfileSocialLinks({ userProfile }: Props) {
           })}>
           <Anchor
             href={userProfile.linkedInUsername}
-            variant="muted"
+            variant="secondary"
             warnAboutExternalLink={true}>
             <span className="sr-only">LinkedIn</span>
             <RiLinkedinBoxFill aria-hidden="true" className="size-5" />
@@ -61,7 +61,7 @@ export default function ProjectsProfileSocialLinks({ userProfile }: Props) {
           })}>
           <Anchor
             href={userProfile.website}
-            variant="muted"
+            variant="secondary"
             warnAboutExternalLink={true}>
             <span className="sr-only">Website</span>
             <RiGlobalLine aria-hidden="true" className="size-5" />
