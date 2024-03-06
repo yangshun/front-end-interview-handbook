@@ -5,7 +5,6 @@ import { useIntl } from 'react-intl';
 
 import DialogBaseOverlay from './DialogBaseOverlay';
 import Button from '../Button';
-import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 import { headingCVA } from '../Heading/HeadingStyles';
 import Text from '../Text';

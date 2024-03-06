@@ -2,8 +2,6 @@ import { cva } from 'class-variance-authority';
 import clsx from 'clsx';
 
 import {
-  themeOutlineElement_FocusVisible,
-  themeOutlineElementBrandColor_FocusVisible,
   themeTextBrandColor,
   themeTextBrandColor_Hover,
   themeTextSecondaryColor,
