@@ -13,11 +13,15 @@ Since it's Google, candidates can expect to be tested on fundamental Computer Sc
 
 > Web Front End: ​You should be ready to cover topics like front end latency and implementation of standard CS algorithms using idiomatic JavaScript. You should be able to articulate Javascript strengths and shortcomings and ready to cover any of the following: Web security issues (XSS, XSRF), Prototypal inheritance, DOM API & manipulation, CSS manipulation, Browser / DOM events & event handling, XHR requests & HTTP headers, JavaScript closures
 
-Refer to the [full official Google Interview Preparation Guide for Front End Software Engineer](/companies/google.pdf).
+Refer to Google's official interview preparation guides for:
+
+- [Front End or Mobile Software Engineers](/companies/google-front-end.pdf)
+- [Front End/Mobile Software Engineers (Old)](/companies/google-front-end-old.pdf)
+- [Non-technical interviews](/companies/google-non-technical.pdf).
 
 ## JavaScript
 
-- How do you make a function that takes f and returns a function that calls f on a timeout?
+- How do you make a function that takes a callback function `fn` and returns a function that calls `fn` on a timeout?
   - [Practice question on GreatFrontEnd](https://www.greatfrontend.com/questions/javascript/debounce)
 - Implement the outline view for a Google doc.
   - [Practice question on GreatFrontEnd](https://www.greatfrontend.com/questions/javascript/table-of-contents) (Paid)
