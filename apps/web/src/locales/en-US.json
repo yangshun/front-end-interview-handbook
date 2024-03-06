@@ -2091,10 +2091,6 @@
     "defaultMessage": "End project session?",
     "description": "Title for end project session dialog"
   },
-  "IO/eOZ": {
-    "defaultMessage": "Joined on {date}",
-    "description": "Projects profile created date"
-  },
   "IQ9qW7": {
     "defaultMessage": "Get promo code",
     "description": "Button label for student discount"
@@ -2199,10 +2195,6 @@
     "defaultMessage": "Progress",
     "description": "Question progress"
   },
-  "JQT5KD": {
-    "defaultMessage": "Profile",
-    "description": "Title of Projects Profile page"
-  },
   "JUhFP/": {
     "defaultMessage": "Minimum {minNumber} characters. Letters and digits required.",
     "description": "Password creation criteria"
@@ -2242,10 +2234,6 @@
   "Jn7AHE": {
     "defaultMessage": "This is an irreversible action. You will lose all progress. Are you sure?",
     "description": "Confirmation text for reseting study plan progress"
-  },
-  "JotoOX": {
-    "defaultMessage": "My Profile",
-    "description": "Title of Projects Profile page"
   },
   "JrmA6j": {
     "defaultMessage": "With over {numberOfQuestions} questions, this is the most complete all-in-one front end interview preparation you can ever dream of.",

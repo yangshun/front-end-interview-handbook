@@ -1,4 +1,4 @@
-import { RiPencilFill, RiStarSmileFill } from 'react-icons/ri';
+import { RiPencilFill } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
@@ -8,7 +8,6 @@ import ProjectsProfileSkillsList from '~/components/projects/profile/info/Projec
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import ProjectsUserReputation from '~/components/projects/users/ProjectsUserReputation';
 import Button from '~/components/ui/Button';
-import Chip from '~/components/ui/Chip';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -35,36 +34,52 @@ export default function ProjectsProfileInfo({
   const intl = useIntl();
   const { projectsProfile } = userProfile;
 
+  const editProfileButton = (
+    <Button
+      href="/projects/profile/edit"
+      icon={RiPencilFill}
+      label={intl.formatMessage({
+        defaultMessage: 'Edit profile',
+        description: 'Label for edit projects profile button',
+        id: '4s0s2J',
+      })}
+      variant="secondary"
+    />
+  );
+
   return (
     <>
       <Section>
-        <div className="hidden items-center gap-6 md:flex">
-          <ProjectsProfileAvatar
-            points={projectsProfile.points}
-            size="3xl"
-            userProfile={userProfile}
-          />
-          <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-4">
-              <Text size="body1" weight="medium">
-                <ProjectsProfileDisplayNameLink userProfile={userProfile} />
-              </Text>
-              <ProjectsProfileUsernameBadge
-                premium={projectsProfile.premium}
-                username={userProfile.username}
-              />
-            </div>
-            <UserProfileInformationRow userProfile={userProfile} />
-            <div className="flex items-center gap-3">
-              <ProjectsUserReputation
-                points={projectsProfile.points}
-                size="body2"
-              />
-              <ProjectsProfileSocialLinks userProfile={userProfile} />
+        <div className="hidden justify-between md:flex">
+          <div className="flex items-center gap-6">
+            <ProjectsProfileAvatar
+              points={projectsProfile.points}
+              size="3xl"
+              userProfile={userProfile}
+            />
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-4">
+                <Text size="body1" weight="medium">
+                  <ProjectsProfileDisplayNameLink userProfile={userProfile} />
+                </Text>
+                <ProjectsProfileUsernameBadge
+                  premium={projectsProfile.premium}
+                  username={userProfile.username}
+                />
+              </div>
+              <UserProfileInformationRow userProfile={userProfile} />
+              <div className="flex items-center gap-3">
+                <ProjectsUserReputation
+                  points={projectsProfile.points}
+                  size="body2"
+                />
+                <ProjectsProfileSocialLinks userProfile={userProfile} />
+              </div>
             </div>
           </div>
+          {isViewingOwnProfile && editProfileButton}
         </div>
-        <div className="flex flex-col md:hidden">
+        <div className="flex flex-col gap-6 md:hidden">
           <div className="flex items-center gap-8">
             <ProjectsProfileAvatar
               points={projectsProfile.points}
@@ -73,52 +88,29 @@ export default function ProjectsProfileInfo({
             />
             <div className="flex flex-col gap-2">
               <div className="flex flex-wrap items-center gap-2">
-                <Text size="body1" weight="medium">
-                  <ProjectsProfileDisplayNameLink userProfile={userProfile} />
-                </Text>
-                <div className="flex items-center gap-2">
-                  {projectsProfile.premium && (
-                    <Chip
-                      icon={RiStarSmileFill}
-                      isLabelHidden={true}
-                      label="Premium"
-                      size="sm"
-                      variant="special"
-                    />
-                  )}
+                <div className="flex items-center gap-4">
+                  <Text size="body1" weight="medium">
+                    <ProjectsProfileDisplayNameLink userProfile={userProfile} />
+                  </Text>
+                  <ProjectsProfileUsernameBadge
+                    premium={projectsProfile.premium}
+                    username={userProfile.username}
+                  />
+                </div>
+                <UserProfileInformationRow userProfile={userProfile} />
+                <div className="flex items-center gap-3">
+                  <ProjectsUserReputation
+                    points={projectsProfile.points}
+                    size="body2"
+                  />
                   <ProjectsProfileSocialLinks userProfile={userProfile} />
                 </div>
               </div>
-              <Text color="secondary" size="body2">
-                <FormattedMessage
-                  defaultMessage="Joined on {date}"
-                  description="Projects profile created date"
-                  id="IO/eOZ"
-                  values={{
-                    date: new Date(
-                      projectsProfile.createdAt,
-                    ).toLocaleDateString('en-US', {
-                      day: 'numeric',
-                      month: 'short',
-                      year: 'numeric',
-                    }),
-                  }}
-                />
-              </Text>
-              <ProjectsUserReputation points={projectsProfile.points} />
             </div>
           </div>
-          <Divider className="mb-6 mt-8" />
-          <div className="flex flex-col gap-8">
-            <Heading level="heading6">
-              <FormattedMessage
-                defaultMessage="Profile"
-                description="Title of Projects Profile page"
-                id="JQT5KD"
-              />
-            </Heading>
-            <UserProfileInformationRow userProfile={userProfile} />
-          </div>
+          {isViewingOwnProfile && (
+            <div className="grid justify-items-end">{editProfileButton}</div>
+          )}
         </div>
       </Section>
       <div className="flex flex-col justify-between gap-8 md:flex-row">
@@ -169,20 +161,6 @@ export default function ProjectsProfileInfo({
           )}
         </div>
       </div>
-      {isViewingOwnProfile && (
-        <div className="block md:hidden">
-          <Button
-            href="/projects/profile/edit"
-            icon={RiPencilFill}
-            label={intl.formatMessage({
-              defaultMessage: 'Edit profile',
-              description: 'Label for edit projects profile button',
-              id: '4s0s2J',
-            })}
-            variant="secondary"
-          />
-        </div>
-      )}
     </>
   );
 }
