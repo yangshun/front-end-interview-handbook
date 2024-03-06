@@ -16,6 +16,8 @@ import { useIntl } from 'react-intl';
 
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
+import RichTextEditorDropdownMenu from '../components/RichTextEditorDropdownMenu';
+
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import { mergeRegister } from '@lexical/utils';
 
@@ -95,17 +97,14 @@ export default function RichTextEditorSpecialCasePlugin() {
   }, [editor, $updateState]);
 
   return (
-    <DropdownMenu
+    <RichTextEditorDropdownMenu
       icon={RiFontSize}
-      isDisabled={!editor.isEditable()}
       isLabelHidden={true}
       label={intl.formatMessage({
         defaultMessage: 'Special case for richtext editor',
         description: 'Special case action for richtext editor toolbar',
         id: '/CfHhU',
-      })}
-      size="xs"
-      variant="tertiary">
+      })}>
       {caseOptions.map(({ label, value, icon }) => (
         <DropdownMenu.Item
           key={value}
@@ -121,6 +120,6 @@ export default function RichTextEditorSpecialCasePlugin() {
           onClick={() => editor.dispatchCommand(FORMAT_TEXT_COMMAND, value)}
         />
       ))}
-    </DropdownMenu>
+    </RichTextEditorDropdownMenu>
   );
 }

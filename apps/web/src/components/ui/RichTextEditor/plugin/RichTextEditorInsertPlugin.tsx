@@ -132,8 +132,11 @@ export default function RichTextEditorInsertPlugin({
   const onInsertAction = (value: RichTextEditorInsertType) => {
     if (value === 'link') {
       if (!isLink) {
-        setIsOpenLinkEditor(!isOpenLinkEditor);
-        setIsLinkEditMode(true);
+        // Add timeout so that link editor popup can opens up only after editor.focus() is triggered from dropdown menu
+        setTimeout(() => {
+          setIsOpenLinkEditor(!isOpenLinkEditor);
+          setIsLinkEditMode(true);
+        }, 10);
       } else {
         setIsLinkEditMode(false);
         editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
@@ -145,10 +148,6 @@ export default function RichTextEditorInsertPlugin({
     if (value === 'horizontal') {
       editor.dispatchCommand(INSERT_HORIZONTAL_RULE_COMMAND, undefined);
     }
-
-    setTimeout(() => {
-      editor.focus();
-    }, 0);
   };
 
   const isSelected = (value: RichTextEditorInsertType) => {
