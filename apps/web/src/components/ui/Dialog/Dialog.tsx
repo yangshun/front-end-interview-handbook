@@ -7,6 +7,7 @@ import DialogBaseOverlay from './DialogBaseOverlay';
 import Button from '../Button';
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
+import { headingCVA } from '../Heading/HeadingStyles';
 import Text from '../Text';
 import { themeBackgroundLayerEmphasized } from '../theme';
 
@@ -136,9 +137,13 @@ export const DialogTitle = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <DialogPrimitive.Title
     ref={ref}
-    className={clsx('flex items-center justify-between gap-x-4', className)}
+    className={clsx(
+      'flex items-center justify-between gap-x-4',
+      headingCVA({ level: 'heading6' }),
+      className,
+    )}
     {...props}>
-    <Heading level="heading6">{children}</Heading>
+    {children}
   </DialogPrimitive.Title>
 ));
 
