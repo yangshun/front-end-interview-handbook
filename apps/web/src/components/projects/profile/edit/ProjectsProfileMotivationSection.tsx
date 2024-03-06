@@ -23,10 +23,10 @@ export default function ProjectsProfileMotivationSection() {
           <Tooltip
             label={intl.formatMessage({
               defaultMessage:
-                'Tell the community about your motivations for joining GreatFrontEnd Projects',
+                'Tell the community about your motivations for joining this platform',
               description:
                 'Description for "Motivation for joining" for projects profile page',
-              id: 'Z9VUx8',
+              id: 'bvzjIm',
             })}>
             <RiInformationLine className={clsx('h-4', themeTextFaintColor)} />
           </Tooltip>

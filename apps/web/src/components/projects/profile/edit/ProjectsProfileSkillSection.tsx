@@ -4,8 +4,8 @@ import { FormattedMessage } from 'react-intl';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Heading from '~/components/ui/Heading';
 
-import ProjectsProfileTechStackProficientInput from './ProjectsProfileTechStackProficientInput';
-import ProjectsProfileTechStackToImproveInput from './ProjectsProfileTechStackToImproveInput';
+import ProjectsProfileSkillsProficientInput from './ProjectsProfileSkillsProficientInput';
+import ProjectsProfileSkillsToImproveInput from './ProjectsProfileSkillsToImproveInput';
 import type { ProjectsOnboardingProfileStep2FormValues } from '../../onboarding/ProjectsOnboardingProfileStep2';
 
 // TODO(projects): remove onboarding type from this union.
@@ -27,10 +27,10 @@ export default function ProjectsProfileSkillSection() {
       </Heading>
       <div className="flex w-full flex-col gap-6 md:flex-row">
         <div className="flex-1">
-          <ProjectsProfileTechStackProficientInput control={control} />
+          <ProjectsProfileSkillsProficientInput control={control} />
         </div>
         <div className="flex-1">
-          <ProjectsProfileTechStackToImproveInput control={control} />
+          <ProjectsProfileSkillsToImproveInput control={control} />
         </div>
       </div>
     </div>

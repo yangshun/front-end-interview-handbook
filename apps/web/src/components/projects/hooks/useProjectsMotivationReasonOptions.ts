@@ -22,10 +22,9 @@ export default function useProjectsMotivationReasonOptions(
       id: 'beginner',
       label: intl.formatMessage(
         {
-          defaultMessage:
-            'To learn <keywords>front end skills</keywords> (from beginner to advanced)',
+          defaultMessage: 'To learn <keywords>front end</keywords>',
           description: 'Onboarding motivation option',
-          id: 'jUFP9K',
+          id: 'WZ5zPh',
         },
         { keywords },
       ),

@@ -14,8 +14,8 @@ import Heading from '~/components/ui/Heading';
 import { useI18nRouter } from '~/next-i18nostic/src';
 
 import ProjectsProfileBioInput from '../profile/edit/ProjectsProfileBioInput';
-import ProjectsProfileTechStackProficientInput from '../profile/edit/ProjectsProfileTechStackProficientInput';
-import ProjectsProfileTechStackToImproveInput from '../profile/edit/ProjectsProfileTechStackToImproveInput';
+import ProjectsProfileSkillsProficientInput from '../profile/edit/ProjectsProfileSkillsProficientInput';
+import ProjectsProfileSkillsToImproveInput from '../profile/edit/ProjectsProfileSkillsToImproveInput';
 import { projectsReputationProfileFieldConfig } from '../reputation/ProjectsReputationPointsConfig';
 import { useProjectsSkillListInputSchema } from '../skills/form/ProjectsSkillListInputSchema';
 import type { ProjectsSkillKey } from '../skills/types';
@@ -95,8 +95,8 @@ export default function ProjectsOnboardingProfileStep2() {
             id="EyErSi"
           />
         </Heading>
-        <ProjectsProfileTechStackProficientInput control={control} />
-        <ProjectsProfileTechStackToImproveInput control={control} />
+        <ProjectsProfileSkillsProficientInput control={control} />
+        <ProjectsProfileSkillsToImproveInput control={control} />
       </section>
       <section className="flex flex-col gap-y-6">
         <Heading level="heading6">

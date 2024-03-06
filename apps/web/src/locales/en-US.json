@@ -1883,10 +1883,6 @@
     "defaultMessage": "Figma design file",
     "description": "Label for Figma Design File button on Projects project assets page"
   },
-  "GV0CBc": {
-    "defaultMessage": "Tech stack you are proficient in",
-    "description": "Label for tech stack field"
-  },
   "GVHds/": {
     "defaultMessage": "Premium Feature",
     "description": "Title on question paywall appearing on the question pages of premium questions"
@@ -1918,6 +1914,10 @@
   "Gjy+Iy": {
     "defaultMessage": "Preparation Guide",
     "description": "Front End interview preparation guide"
+  },
+  "GohLa0": {
+    "defaultMessage": "Skills you are proficient in",
+    "description": "Label for tech stack field"
   },
   "Gttxsq": {
     "defaultMessage": "Try these popular Svelte questions",
@@ -4075,10 +4075,6 @@
     "defaultMessage": "What to expect in the coding round and tips to succeed",
     "description": "What to expect in front end coding interviews"
   },
-  "Z9VUx8": {
-    "defaultMessage": "Tell the community about your motivations for joining GreatFrontEnd Projects",
-    "description": "Description for \"Motivation for joining\" for projects profile page"
-  },
   "ZB+f95": {
     "defaultMessage": "Preparation by Question Type",
     "description": "Preparing by front end interview question format"
@@ -4403,6 +4399,10 @@
     "defaultMessage": "Reply",
     "description": "Label for reply button on project discussions page"
   },
+  "bvzjIm": {
+    "defaultMessage": "Tell the community about your motivations for joining this platform",
+    "description": "Description for \"Motivation for joining\" for projects profile page"
+  },
   "bxZm1S": {
     "defaultMessage": "User Interface Questions",
     "description": "Title for an example list of User Interface Questions on marketing pages"
@@ -4438,6 +4438,10 @@
   "cCQIST": {
     "defaultMessage": "Open in new tab",
     "description": "Indication that text has been copied"
+  },
+  "cJWhQr": {
+    "defaultMessage": "Skills you are hoping to grow in",
+    "description": "Label for tech stack field"
   },
   "cKn3cK": {
     "defaultMessage": "Started",
@@ -6402,10 +6406,6 @@
   "tR0TIm": {
     "defaultMessage": "Meet our top authors:",
     "description": "Authors section title"
-  },
-  "tUh3US": {
-    "defaultMessage": "Tech stack you are hoping to grow in",
-    "description": "Label for tech stack field"
   },
   "tZPTnS": {
     "defaultMessage": "Difficulty: Hard to Easy",
