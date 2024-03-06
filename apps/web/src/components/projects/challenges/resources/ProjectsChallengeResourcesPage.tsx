@@ -1,5 +1,6 @@
 'use client';
 
+import clsx from 'clsx';
 import type { ProjectsChallengeGuide } from 'contentlayer/generated';
 import { useState } from 'react';
 import {
@@ -15,9 +16,11 @@ import ProjectsChallengeReferenceSubmissions from '~/components/projects/challen
 import { useProjectsChallengeSessionContext } from '~/components/projects/challenges/session/ProjectsChallengeSessionContext';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import Button from '~/components/ui/Button';
+import EmptyState from '~/components/ui/EmptyState';
 import Heading from '~/components/ui/Heading';
 import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
+import { themeBorderColor } from '~/components/ui/theme';
 
 import ProjectsChallengeGuideSection from '../guides/ProjectsChallengeGuideSection';
 
@@ -99,14 +102,28 @@ export default function ProjectsChallengeResourcesPage({
             value={tipsResourcesDiscussionsTab}
             onSelect={setTipsResourcesDiscussionsTab}
           />
-          {tipsResourcesDiscussionsTab === 'discussions' && (
-            <ProjectsChallengeDiscussionsSection challenge={challenge} />
-          )}
-          {tipsResourcesDiscussionsTab === 'guides' && (
-            <ProjectsChallengeGuideSection projectGuides={projectGuides} />
-          )}
-          {tipsResourcesDiscussionsTab === 'references' && (
-            <ProjectsChallengeReferenceSubmissions challenge={challenge} />
+          {accessAllSteps ? (
+            tipsResourcesDiscussionsTab === 'discussions' ? (
+              <ProjectsChallengeDiscussionsSection challenge={challenge} />
+            ) : tipsResourcesDiscussionsTab === 'guides' ? (
+              <ProjectsChallengeGuideSection projectGuides={projectGuides} />
+            ) : (
+              tipsResourcesDiscussionsTab === 'references' && (
+                <ProjectsChallengeReferenceSubmissions challenge={challenge} />
+              )
+            )
+          ) : (
+            <div
+              className={clsx(
+                'w-full rounded-lg py-10',
+                'border',
+                themeBorderColor,
+              )}>
+              <EmptyState
+                subtitle="Be the first to leave a comment"
+                title="No comments yet"
+              />
+            </div>
           )}
         </div>
       </div>
