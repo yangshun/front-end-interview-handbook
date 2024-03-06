@@ -28,6 +28,8 @@ import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 
+import { useI18nRouter } from '~/next-i18nostic/src';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Profile, ProjectsProfile } from '@prisma/client';
 
@@ -86,6 +88,7 @@ type Props = Readonly<{
 
 export default function ProjectsProfileEditPage({ userProfile }: Props) {
   const intl = useIntl();
+  const router = useI18nRouter();
   const { showToast } = useToast();
   const projectsProfileUpdateMutation =
     trpc.projects.profile.update.useMutation();
@@ -198,6 +201,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
             ),
             variant: 'success',
           });
+          router.push(`/projects/u/${data.username}`);
         },
       },
     );
