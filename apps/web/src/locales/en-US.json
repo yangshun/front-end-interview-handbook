@@ -3811,6 +3811,10 @@
     "defaultMessage": "Free Plan CTA card tooltip",
     "description": "Tooltip label for Free Plan CTA card in Projects sidebar"
   },
+  "WZ5zPh": {
+    "defaultMessage": "To learn <keywords>front end</keywords>",
+    "description": "Onboarding motivation option"
+  },
   "WZy7m4": {
     "defaultMessage": "Table of Contents",
     "description": "Guides table of contents menu button label"
@@ -5198,10 +5202,6 @@
   "jTXr+7": {
     "defaultMessage": "Intro to Behavioral Round",
     "description": "Introduction to behavioral interviews"
-  },
-  "jUFP9K": {
-    "defaultMessage": "To learn <keywords>front end skills</keywords> (from beginner to advanced)",
-    "description": "Onboarding motivation option"
   },
   "jVSwXw": {
     "defaultMessage": "Purchase premium to unlock full access to the question.",

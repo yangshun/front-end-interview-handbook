@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 import type { CropperRef } from 'react-advanced-cropper';
-import { Cropper } from 'react-advanced-cropper';
+import { CircleStencil, Cropper } from 'react-advanced-cropper';
 import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -101,6 +101,7 @@ export default function ProjectsProfilePhotoUploadDialog({
             ref={cropperRef}
             className="cropper"
             src={image}
+            stencilComponent={CircleStencil}
             stencilProps={{
               aspectRatio: 1,
               handlers: {
