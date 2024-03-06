@@ -130,7 +130,7 @@ function GreatFrontEndSection() {
               <div className={clsx('col col--4', styles.flexContainer)}>
                 <RiPresentationLine className={styles.promoIcon} />
                 <p className={styles.whiteText}>
-                  Well-explained solutions for every question
+                  Well-explained solutions
                 </p>
               </div>
               <div className={clsx('col col--4', styles.flexContainer)}>

@@ -37,7 +37,11 @@ Companies that ask such questions usually ask candidates to code in one of these
   - Tetris (advanced)
   - Snake (advanced)
 
-Each of these questions and over 200+ more on [GreatFrontEnd](https://www.greatfrontend.com) has solutions written by ex-FAANG senior engineers. It even contains [study plans](https://www.greatfrontend.com/study-plans) to tailor to your needs and automated test case suites to help you identify what's wrong with your code. Start practicing today!
+## Where to practice
+- Each of these questions and over 200+ more can be found on [GreatFrontEnd](https://www.greatfrontend.com). 
+  - Each question comes with official solutions in popular frameworks such as React, Angular, Svelte and Vue. 
+  - With live previews, you can practice online directly, simulating a real interview environment with no set-up required. 
+- [Start practicing immediately](https://www.greatfrontend.com/questions)
 
 ## Considerations
 

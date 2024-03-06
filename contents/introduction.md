@@ -50,6 +50,8 @@ Short questions which test your knowledge and have clear non-subjective answers.
 
 [**Read more about front end trivia questions →**](./trivia.md)
 
+[**Practice front end trivia questions**](https://www.greatfrontend.com/prepare/quiz)
+
 ### JavaScript coding
 
 This is the front end version of LeetCode-style algorithm questions. Implement a function in JavaScript, which can be a utility function found in Lodash/Underscore (e.g. `throttle`), or a polyfill for the JavaScript language/DOM APIs (e.g. `Array.prototype.filter()`, `Promise.all()`, `document.getElementsByClassName()`).
@@ -58,6 +60,10 @@ This is the front end version of LeetCode-style algorithm questions. Implement a
 - Implement DOM APIs: `document.getElementsByClassName`, `document.getElementsByTagName`.
 - `debounce`/`throttle`.
 - Implement Promise/Promise-related APIs: `Promise`, `Promise.all`, `Promise.any`.
+
+[**Read more about JavaScript coding questions →**](./javascript-questions.md)
+
+[**Practice JavaScript coding questions**](https://www.greatfrontend.com/questions/js)
 
 ### User interface coding
 
@@ -73,11 +79,17 @@ Build user interfaces (can be a UI component, an app, or a game) using HTML, CSS
   - Build tic-tac-toe
   - Build a chess board with movable pieces
 
-[**Read more about front end coding questions →**](./algorithms.md)
+[**Read more about user interface coding questions →**](./build-front-end-user-interfaces.md)
+
+[**Practice user interface coding questions**](https://www.greatfrontend.com/prepare/coding)
 
 ### Algorithmic coding
 
 LeetCode-style algorithmic coding questions which evaluate your core data structures and algorithms skills. You can be asked any question on LeetCode and might be asked to complete them using JavaScript.
+
+[**Read more about algorithm coding questions →**](./algorithms.md)
+
+[**Practice algorithm questions**](https://www.greatfrontend.com/focus-areas/data-structures-algorithms)
 
 ### System design
 
@@ -87,6 +99,8 @@ Describe and discuss how you would build a UI component/app/game and its archite
 - Design an email client application.
 
 [**Read more about front end system design →**](./front-end-system-design.md)
+
+[**Practice front end system design questions**](https://www.greatfrontend.com/prepare/system-design)
 
 You can also try out the above mentioned question types at [GreatFrontEnd](https://www.greatfrontend.com). It has [over 200+ practice questions](https://www.greatfrontend.com/prepare) and all of them are provided with comprehensive answers written by ex-FAANG senior engineers.
 

@@ -24,8 +24,6 @@ Trivia questions are meant to test how well candidates understand the theory beh
   - Explain the CSS box model.
   - Explain the various CSS `position` properties and its differences.
 
-If you are looking for trivia questions to practice, check out [GreatFrontEnd](https://www.greatfrontend.com). Not only it contains front end interview [study plans](https://www.greatfrontend.com/study-plans), it also has a [huge question bank of trivia questions and answers](https://www.greatfrontend.com/prepare/quiz). 
-
 ## Advanced examples
 
 For more senior candidates, expect to explain more advanced stuff with no absolute answers.
@@ -34,6 +32,10 @@ For more senior candidates, expect to explain more advanced stuff with no absolu
 - Why did you use library X over library Y?
 
 The best and correct way to prepare for such questions is to really understand the concepts and get some hands-on experience in applying them in a project. Memorizing the answers is not recommended but is acceptable if you are running out of time.
+
+## Where to practice
+
+If you're looking for free questions to practice, try [GreatFrontEnd](https://www.greatfrontend.com), which has a [huge bank of free questions](https://www.greatfrontend.com/prepare/quiz). Each question also comes with a solution authored by me. 
 
 ## Common questions
 
