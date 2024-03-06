@@ -6,7 +6,7 @@ import { Overlay } from '@radix-ui/react-dialog';
 
 type DialogBaseOverlayPurpose = 'dialog' | 'slideout';
 
-const overlayClass: Record<DialogBaseOverlayPurpose, string> = {
+const zIndexClass: Record<DialogBaseOverlayPurpose, string> = {
   dialog: 'z-dialog-overlay',
   slideout: 'z-slideout-overlay',
 };
@@ -22,8 +22,10 @@ const DialogBaseOverlay = forwardRef<
   <Overlay
     className={clsx(
       'fixed inset-0',
-      ['bg-neutral-950/60 bg-opacity-75', 'backdrop-blur-sm'],
-      overlayClass[purpose],
+      'bg-neutral-950/60 bg-opacity-75',
+      'backdrop-blur-sm',
+      zIndexClass[purpose],
+      'overflow-y-auto overflow-x-hidden',
       [
         'transition-opacity',
         'data-[state=open]:animate-in data-[state=closed]:animate-out',

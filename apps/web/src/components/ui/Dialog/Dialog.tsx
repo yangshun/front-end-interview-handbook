@@ -56,18 +56,17 @@ type DialogContentProps = React.ComponentPropsWithoutRef<
     className?: string;
     isShown?: boolean;
     scrollable?: boolean;
-    width: DialogWidth;
     wrapChildren?: (children: React.ReactNode) => React.ReactNode;
   }>;
 
 export const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   DialogContentProps
->(({ width, className, children, scrollable, wrapChildren, ...props }, ref) => {
+>(({ className, children, scrollable, wrapChildren, ...props }, ref) => {
   const contents = (
     <div
       className={clsx(
-        'flex max-h-full flex-col p-6',
+        'flex max-h-full w-full flex-col p-6',
         scrollable && 'overflow-hidden',
       )}>
       {children}
@@ -80,8 +79,8 @@ export const DialogContent = React.forwardRef<
       className={clsx(
         'flex flex-col',
         'rounded-lg',
+        'w-full',
         scrollable && 'max-h-[calc(100vh_-_32px)]',
-        ['w-full', widthClasses[width]],
         themeBackgroundLayerEmphasized,
         'shadow-xl',
         'outline-none',
@@ -188,6 +187,7 @@ DialogFooter.displayName = 'DialogFooter';
 
 type Props = Readonly<{
   asChild?: boolean;
+  centered?: boolean;
   children: React.ReactNode;
   className?: string;
   isShown?: boolean;
@@ -205,6 +205,7 @@ type Props = Readonly<{
 
 export default function Dialog({
   asChild = true,
+  centered = true,
   className,
   children,
   isShown,
@@ -228,26 +229,34 @@ export default function Dialog({
       }}>
       {trigger && <DialogTrigger asChild={asChild}>{trigger}</DialogTrigger>}
       <DialogPortal>
-        <DialogOverlay className="grid items-end justify-center overflow-y-auto p-4 sm:items-center">
-          <DialogContent
-            className={className}
-            scrollable={scrollable}
-            width={width}
-            wrapChildren={wrapChildren}>
-            <DialogHeader onClose={onClose}>
-              {title && <DialogTitle>{title}</DialogTitle>}
-            </DialogHeader>
-            <DialogBody scrollable={scrollable}>{children}</DialogBody>
-            {primaryButton && (
-              <DialogFooter>
-                <div className="flex gap-2">
-                  {secondaryButton}
-                  {primaryButton}
-                </div>
-                {previousButton}
-              </DialogFooter>
-            )}
-          </DialogContent>
+        <DialogOverlay>
+          <div
+            className={clsx(
+              'relative',
+              'm-4 sm:mx-auto',
+              ['w-auto', widthClasses[width]],
+              'pointer-events-none',
+              centered && 'flex min-h-[calc(100%_-_32px)] items-center',
+            )}>
+            <DialogContent
+              className={className}
+              scrollable={scrollable}
+              wrapChildren={wrapChildren}>
+              <DialogHeader onClose={onClose}>
+                {title && <DialogTitle>{title}</DialogTitle>}
+              </DialogHeader>
+              <DialogBody scrollable={scrollable}>{children}</DialogBody>
+              {primaryButton && (
+                <DialogFooter>
+                  <div className="flex gap-2">
+                    {secondaryButton}
+                    {primaryButton}
+                  </div>
+                  {previousButton}
+                </DialogFooter>
+              )}
+            </DialogContent>
+          </div>
         </DialogOverlay>
       </DialogPortal>
     </DialogRoot>

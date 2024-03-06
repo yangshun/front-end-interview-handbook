@@ -138,6 +138,41 @@ function DialogPreviousExample() {
   );
 }
 
+function DialogNonCenteredExample() {
+  const [isShown, setIsShown] = useState(false);
+
+  return (
+    <Dialog
+      centered={false}
+      isShown={isShown}
+      primaryButton={
+        <Button
+          label="Primary action"
+          size="md"
+          variant="primary"
+          onClick={() => setIsShown(false)}
+        />
+      }
+      title="Modal title"
+      trigger={
+        <Button
+          label="Non-centered"
+          variant="primary"
+          onClick={() => setIsShown(true)}
+        />
+      }
+      width="screen-md"
+      onClose={() => setIsShown(false)}>
+      <div className="flex flex-col gap-4">
+        One morning, when Gregor Samsa woke from troubled dreams, he found
+        himself transformed in his bed into a horrible vermin. He lay on his
+        armour-like back, and if he lifted his head a little he could see his
+        brown belly, slightly domed and divided by arches into stiff sections.
+      </div>
+    </Dialog>
+  );
+}
+
 export default function DialogExamples() {
   const [isShown, setIsShown] = useState(false);
   const [isShown2, setIsShown2] = useState(false);
@@ -237,6 +272,7 @@ export default function DialogExamples() {
         <DialogTallExample scrollable={true} />
       </div>
       <div className="flex gap-x-24">
+        <DialogNonCenteredExample />
         <DialogPreviousExample />
       </div>
     </UIExamplesGroup>
