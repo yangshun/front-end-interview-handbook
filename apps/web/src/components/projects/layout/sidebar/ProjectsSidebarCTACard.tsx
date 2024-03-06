@@ -16,46 +16,6 @@ import useProfileWithProjectsProfile from '../../common/useProfileWithProjectsPr
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
-function AnonymousVersion() {
-  const intl = useIntl();
-
-  return (
-    <div className="flex flex-col items-stretch gap-3 p-3">
-      <div className="flex flex-col gap-2">
-        <Text className="text-center" size="body3" weight="bold">
-          {intl.formatMessage({
-            defaultMessage: "Let's start",
-            description: 'Projects sidebar card CTA title',
-            id: 'g2dFxo',
-          })}
-        </Text>
-        <Text
-          className="text-center"
-          color="secondary"
-          display="block"
-          size="body3">
-          {intl.formatMessage({
-            defaultMessage: 'Learning by building has never been easier',
-            description: 'Card title for projects',
-            id: 'lUWoS/',
-          })}
-        </Text>
-      </div>
-      <Button
-        href="/projects/challenges"
-        icon={RiArrowRightLine}
-        label={intl.formatMessage({
-          defaultMessage: 'Start a project',
-          description: 'Start a new practice project',
-          id: 'XJJ/hU',
-        })}
-        size="xs"
-        variant="secondary"
-      />
-    </div>
-  );
-}
-
 function FreePlanVersion({ unlocks }: Readonly<{ unlocks: number }>) {
   const intl = useIntl();
 
@@ -229,12 +189,14 @@ function PremiumVersion({
 export function ProjectsSidebarCTACard() {
   const { profile } = useProfileWithProjectsProfile();
 
+  if (profile == null) {
+    return null;
+  }
+
   return (
     <Card disableSpotlight={true} padding={false} pattern={true}>
-      {profile == null ? (
-        <AnonymousVersion />
-      ) : profile.projectsProfile?.premium &&
-        profile.projectsProfile.plan != null ? (
+      {profile.projectsProfile?.premium &&
+      profile.projectsProfile.plan != null ? (
         <PremiumVersion
           credits={profile.projectsProfile.credits}
           plan={profile.projectsProfile.plan}

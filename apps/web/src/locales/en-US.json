@@ -3883,10 +3883,6 @@
     "defaultMessage": "Complete | Rewards",
     "description": "Title of Rewards Complete page"
   },
-  "XJJ/hU": {
-    "defaultMessage": "Start a project",
-    "description": "Start a new practice project"
-  },
   "XMHcvt": {
     "defaultMessage": "We recommend quality submissions from more senior engineers using a similar tech stack to you, or tech stack you expressed interest in learning",
     "description": "Tooltip label for Trending submissions section on Projects dashboard page"
@@ -4843,10 +4839,6 @@
     "defaultMessage": "Edit",
     "description": "Label for edit button on project discussions page"
   },
-  "g2dFxo": {
-    "defaultMessage": "Let's start",
-    "description": "Projects sidebar card CTA title"
-  },
   "g3PJQr": {
     "defaultMessage": "LinkedIn",
     "description": "Company name for LinkedIn"
@@ -5502,10 +5494,6 @@
   "lUACcQ": {
     "defaultMessage": "Start a project",
     "description": "Title of 'Start a project' feature in Projects marketing page"
-  },
-  "lUWoS/": {
-    "defaultMessage": "Learning by building has never been easier",
-    "description": "Card title for projects"
   },
   "lWQA1A": {
     "defaultMessage": "Challenges completed",
