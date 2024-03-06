@@ -34,8 +34,6 @@ const RichTextEditorTheme = {
     url: 'EditorTheme__tokenOperator',
     variable: 'EditorTheme__tokenVariable',
   },
-  // TODO(projects): Use Anchor instead or at the very least reuse styling from Anchor.
-  link: 'transition-colors font-medium text-brand-dark dark:text-brand hover:text-brand-dark dark:hover:text-brand hover:underline cursor-pointer',
   text: {
     bold: 'font-medium',
     italic: 'italic',

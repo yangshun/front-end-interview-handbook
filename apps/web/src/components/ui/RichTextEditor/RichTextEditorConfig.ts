@@ -1,3 +1,4 @@
+import { CustomLinkNode } from './nodes/CustomLinkNode';
 import RichTextEditorTheme from './theme/RichTextEditorTheme';
 
 import { CodeHighlightNode, CodeNode } from '@lexical/code';
@@ -15,7 +16,13 @@ export const RichTextEditorConfig = {
     CodeHighlightNode,
     QuoteNode,
     HeadingNode,
-    LinkNode,
+    CustomLinkNode,
+    {
+      replace: LinkNode,
+      with: (node: LinkNode) => {
+        return new CustomLinkNode(node.getURL());
+      },
+    },
     AutoLinkNode,
     HorizontalRuleNode,
   ],

@@ -166,6 +166,7 @@ export default function ProjectsChallengeSubmissionCard({
         aria-label={title}
         className="absolute inset-0"
         href={hrefs.detail}
+        variant="flat"
       />
     </div>
   );
