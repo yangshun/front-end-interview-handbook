@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl';
 import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/metadata/ProjectsChallengeDifficultyTag';
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsChallengeTrackTag from '~/components/projects/challenges/metadata/ProjectsChallengeTrackTag';
+import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
@@ -46,7 +47,9 @@ export default function ProjectsChallengeCard({
   return (
     <div
       className={clsx(
-        'flex flex-col overflow-clip rounded-lg',
+        'flex flex-col',
+        'rounded-lg',
+        'relative isolate',
         type === 'normal' && [themeGlassyBorder, themeBackgroundCardAltColor],
       )}>
       <div className="relative">
@@ -54,7 +57,7 @@ export default function ProjectsChallengeCard({
           alt={title}
           className={clsx(
             'aspect-[16/9] w-full object-cover',
-            type === 'hover' && 'rounded-md',
+            type === 'hover' ? 'rounded-md' : 'rounded-t-lg',
           )}
           src={imageUrl}
         />
@@ -108,6 +111,7 @@ export default function ProjectsChallengeCard({
         <div className="flex items-center gap-4">
           {type === 'normal' && (
             <Button
+              className="z-[1]"
               href={href}
               icon={RiArrowRightLine}
               label={intl.formatMessage({
@@ -124,6 +128,7 @@ export default function ProjectsChallengeCard({
           />
         </div>
       </div>
+      <Anchor aria-label={title} className="absolute inset-0" href={href} />
     </div>
   );
 }
