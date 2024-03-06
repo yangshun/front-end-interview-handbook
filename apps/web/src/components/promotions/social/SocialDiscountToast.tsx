@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
+import { useMediaQuery } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
 import useUserProfile from '~/hooks/user/useUserProfile';
@@ -18,9 +19,10 @@ function SocialDiscountToastImpl() {
   const { showToast } = useToast();
   const { isLoading, data: promoCodes } =
     trpc.marketing.userPromoCodes.useQuery();
+  const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
 
   useEffect(() => {
-    if (isLoading) {
+    if (isLoading || isMobileAndBelow) {
       return;
     }
 
