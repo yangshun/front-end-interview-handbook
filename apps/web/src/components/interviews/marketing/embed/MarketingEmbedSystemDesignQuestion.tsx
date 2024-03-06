@@ -207,13 +207,9 @@ function DataModel() {
       <p>
         Both Facebook and Twitter use a normalized client side store. If the
         term "normalized" is new to you, have a read of{' '}
-        <a
-          className="text-brand hover:text-brand-dark font-medium hover:underline"
-          href="https://redux.js.org/usage/structuring-reducers/normalizing-state-shape"
-          rel="noreferrer noopener"
-          target="_blank">
+        <Anchor href="https://redux.js.org/usage/structuring-reducers/normalizing-state-shape">
           Redux's documentation on normalizing state shape
-        </a>
+        </Anchor>
         . In a nutshell, normalized data stores:
       </p>
       <ul>
@@ -227,31 +223,13 @@ function DataModel() {
         </li>
       </ul>
       <p>
-        Facebook uses{' '}
-        <a
-          className="text-brand hover:text-brand-dark font-medium hover:underline"
-          href="https://relay.dev"
-          rel="noreferrer noopener"
-          target="_blank">
-          Relay
-        </a>{' '}
-        (which can normalize the data by virtue of knowing the GraphQL schema)
-        while Twitter uses{' '}
-        <a
-          className="text-brand hover:text-brand-dark font-medium hover:underline"
-          href="https://redux.js.org/"
-          rel="noreferrer noopener"
-          target="_blank">
-          Redux
-        </a>{' '}
-        as seen from the{' '}
-        <a
-          className="text-brand hover:text-brand-dark font-medium hover:underline"
-          href="https://medium.com/statuscode/dissecting-twitters-redux-store-d7280b62c6b1"
-          rel="noreferrer noopener"
-          target="_blank">
+        Facebook uses <Anchor href="https://relay.dev">Relay</Anchor> (which can
+        normalize the data by virtue of knowing the GraphQL schema) while
+        Twitter uses <Anchor href="https://redux.js.org/">Redux</Anchor> as seen
+        from the{' '}
+        <Anchor href="https://medium.com/statuscode/dissecting-twitters-redux-store-d7280b62c6b1">
           "Dissecting Twitter's Redux Store" blog post
-        </a>
+        </Anchor>
         .
       </p>
       <p>The benefits of having a normalized store are:</p>
@@ -536,7 +514,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
   return (
     <div
       aria-hidden={true}
-      className="relative isolate flex size-full flex-col">
+      className="size-full relative isolate flex flex-col">
       <PanelGroup className="h-0 w-full grow lg:flex" direction="horizontal">
         <Panel defaultSize={40} maxSize={60}>
           <div className="mx-auto h-full max-w-3xl overflow-y-auto lg:max-w-none">

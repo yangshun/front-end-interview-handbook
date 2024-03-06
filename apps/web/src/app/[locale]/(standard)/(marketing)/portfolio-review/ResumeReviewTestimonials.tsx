@@ -1,3 +1,4 @@
+import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 
 const testimonials = [
@@ -12,13 +13,9 @@ const testimonials = [
       />
     ),
     name: (
-      <a
-        className="text-brand-light hover:underline"
-        href="https://www.linkedin.com/in/chaitannah/"
-        rel="noreferrer noopener"
-        target="_blank">
+      <Anchor href="https://www.linkedin.com/in/chaitannah/">
         Chaitanya Mittal
-      </a>
+      </Anchor>
     ),
     quote: (
       <>
@@ -42,13 +39,9 @@ const testimonials = [
       />
     ),
     name: (
-      <a
-        className="text-brand-light hover:underline"
-        href="https://www.linkedin.com/in/bryantandk/"
-        rel="noreferrer noopener"
-        target="_blank">
+      <Anchor href="https://www.linkedin.com/in/bryantandk/">
         Bryant Chan
-      </a>
+      </Anchor>
     ),
     quote: (
       <>

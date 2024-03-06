@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { startCase } from 'lodash-es';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 
+import Anchor from '~/components/ui/Anchor';
 import type { BadgeVariant } from '~/components/ui/Badge';
 import Badge from '~/components/ui/Badge';
 import Card from '~/components/ui/Card';
@@ -56,7 +57,7 @@ export default function TeamPage({
                         {user.companyLogos.map((logo) => (
                           <div
                             key={logo}
-                            className="-mr-4 flex size-12 items-center justify-center overflow-clip rounded-full bg-white shadow">
+                            className="size-12 -mr-4 flex items-center justify-center overflow-clip rounded-full bg-white shadow">
                             <img
                               alt=""
                               className={clsx(
@@ -73,16 +74,17 @@ export default function TeamPage({
                   <div className="flex flex-col gap-y-3">
                     <div className="flex flex-col gap-y-1">
                       <div className="flex flex-wrap items-start justify-between gap-2">
-                        <a
+                        <Anchor
                           className="inline-flex items-center gap-x-1"
                           href={user.href}
-                          target="_blank">
+                          target="_blank"
+                          variant="blend">
                           <Text display="block" size="body1" weight="bold">
                             {user.name}
                           </Text>
                           <span className="absolute inset-0" />
                           <RiArrowRightUpLine className="size-5 shrink-0" />
-                        </a>
+                        </Anchor>
                         <div>
                           <Badge
                             label={startCase(user.category)}
