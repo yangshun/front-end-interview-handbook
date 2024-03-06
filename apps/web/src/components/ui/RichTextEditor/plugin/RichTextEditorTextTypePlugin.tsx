@@ -11,6 +11,8 @@ import { useIntl } from 'react-intl';
 
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
+import RichTextEditorDropdownMenu from '../components/RichTextEditorDropdownMenu';
+
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
 import { $createHeadingNode, $isHeadingNode } from '@lexical/rich-text';
 import { $setBlocksType } from '@lexical/selection';
@@ -123,12 +125,14 @@ export default function RichTextEditorTextTypePlugin() {
         }
       }
     });
+    setTimeout(() => {
+      editor.focus();
+    }, 0);
   }
 
   return (
-    <DropdownMenu
+    <RichTextEditorDropdownMenu
       icon={selectedValue?.icon ?? RiFontSize2}
-      isDisabled={!editor.isEditable()}
       label={
         selectedValue?.label ??
         intl.formatMessage({
@@ -136,9 +140,7 @@ export default function RichTextEditorTextTypePlugin() {
           description: 'Label for Normal',
           id: 'hYp7sF',
         })
-      }
-      size="xs"
-      variant="tertiary">
+      }>
       {typeOptions.map(({ label, value, icon }) => (
         <DropdownMenu.Item
           key={value}
@@ -148,6 +150,6 @@ export default function RichTextEditorTextTypePlugin() {
           onClick={() => onFormatHeading(value)}
         />
       ))}
-    </DropdownMenu>
+    </RichTextEditorDropdownMenu>
   );
 }

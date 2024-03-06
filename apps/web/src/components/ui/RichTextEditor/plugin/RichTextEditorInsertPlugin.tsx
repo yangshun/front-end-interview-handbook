@@ -7,12 +7,13 @@ import {
   SELECTION_CHANGE_COMMAND,
 } from 'lexical';
 import { useCallback, useEffect, useState } from 'react';
-import { RiLink, RiRulerLine } from 'react-icons/ri';
+import { RiAddLine, RiLink, RiRulerLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import RichTextEditorFloatingLinkEditorPlugin from './RichTextEditorFloatingLinkEditorPlugin';
+import RichTextEditorDropdownMenu from '../components/RichTextEditorDropdownMenu';
 import { getSelectedNode } from '../utils/getSelectedNode';
 
 import { $isLinkNode, TOGGLE_LINK_COMMAND } from '@lexical/link';
@@ -137,10 +138,17 @@ export default function RichTextEditorInsertPlugin({
         setIsLinkEditMode(false);
         editor.dispatchCommand(TOGGLE_LINK_COMMAND, null);
       }
+
+      return;
     }
+
     if (value === 'horizontal') {
       editor.dispatchCommand(INSERT_HORIZONTAL_RULE_COMMAND, undefined);
     }
+
+    setTimeout(() => {
+      editor.focus();
+    }, 0);
   };
 
   const isSelected = (value: RichTextEditorInsertType) => {
@@ -153,12 +161,14 @@ export default function RichTextEditorInsertPlugin({
 
   return (
     <>
-      <DropdownMenu
-        align="start"
-        isDisabled={!editor.isEditable()}
-        label="Insert"
-        size="xs"
-        variant="tertiary">
+      <RichTextEditorDropdownMenu
+        icon={RiAddLine}
+        isLabelHidden={true}
+        label={intl.formatMessage({
+          defaultMessage: 'Insert an object',
+          description: 'Rich text editor button label',
+          id: 'DlfZrJ',
+        })}>
         {insertOptions.map(({ label, value, icon }) => (
           <DropdownMenu.Item
             key={value}
@@ -168,7 +178,7 @@ export default function RichTextEditorInsertPlugin({
             onClick={() => onInsertAction(value)}
           />
         ))}
-      </DropdownMenu>
+      </RichTextEditorDropdownMenu>
       {floatingAnchorElem && (
         <RichTextEditorFloatingLinkEditorPlugin
           anchorElem={floatingAnchorElem}

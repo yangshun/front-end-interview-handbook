@@ -1607,6 +1607,10 @@
     "defaultMessage": "Motivations for joining",
     "description": "Title of motivation for joining section of projects profile edit page"
   },
+  "DlfZrJ": {
+    "defaultMessage": "Insert an object",
+    "description": "Rich text editor button label"
+  },
   "Dpl0uN": {
     "defaultMessage": "Join Discord",
     "description": "Link to the Discord channel"
