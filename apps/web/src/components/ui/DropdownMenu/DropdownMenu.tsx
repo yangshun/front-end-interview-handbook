@@ -30,6 +30,8 @@ type CommonProps = Readonly<{
   align?: DropdownMenuContentAlignment;
   asChild?: boolean;
   children: ChildItem | ReadonlyArray<ChildItem>;
+  onClose?: () => void;
+  onCloseAutoFocus?: (event: Event) => void;
   side?: DropdownMenuContentSide;
 }>;
 
@@ -63,10 +65,17 @@ export default function DropdownMenu({
   asChild = true,
   children,
   side = 'bottom',
+  onClose,
+  onCloseAutoFocus,
   ...props
 }: Props) {
   return (
-    <Root>
+    <Root
+      onOpenChange={(open) => {
+        if (!open) {
+          onClose?.();
+        }
+      }}>
       <Trigger asChild={asChild}>
         {'trigger' in props ? (
           props.trigger
@@ -93,7 +102,8 @@ export default function DropdownMenu({
           className={dropdownContentClassName}
           data-mode={__forceDark ? 'dark' : undefined}
           side={side}
-          sideOffset={8}>
+          sideOffset={8}
+          onCloseAutoFocus={onCloseAutoFocus}>
           {children}
         </Content>
       </Portal>
