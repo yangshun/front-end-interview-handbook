@@ -1,41 +1,44 @@
+import { trpc } from '~/hooks/trpc';
+
 import ProjectsProfileCommunityCommentsSection from './ProjectsProfileCommunityCommentsSection';
 import ProjectsProfileCommunityFilterContext, {
   useProjectsProfileCommunityFilterContext,
 } from './ProjectsProfileCommunityFilterContext';
+import { useProjectsProfileCommunityFilterState } from './ProjectsProfileCommunityFilterContext';
 import ProjectsProfileCommunityFilterDropdown from './ProjectsProfileCommunityFilterDropdown';
 import ProjectProfileCommunityFilterSlideOut from './ProjectsProfileCommunityFilterSlideOut';
-import type { ProjectsProfileCommunityComment } from './ProjectsProfileCommunitySection';
-import useProjectsProfileCommunityFilters from './useProjectsProfileCommunityFilters';
 
-import type { ProjectsDiscussionComment } from '@prisma/client';
-
-function filterProjectsProfileCommunityComments<
-  T extends ProjectsDiscussionComment,
->(
-  contributions: ReadonlyArray<T>,
-  filters: ReadonlyArray<(project: T) => boolean>,
-): ReadonlyArray<T> {
-  return contributions.filter((contribution) =>
-    filters.every((filter) => filter(contribution)),
-  );
-}
+import type { ProjectsDiscussionCommentDomain } from '@prisma/client';
 
 function ProjectsProfileCommunityListWithFiltersImpl({
-  comments,
   isViewingOwnProfile,
   userId,
 }: Props) {
-  const { filters } = useProjectsProfileCommunityFilterContext();
-  const filtersContributionsOpts = useProjectsProfileCommunityFilters();
+  const domainList: Array<ProjectsDiscussionCommentDomain> = [
+    'PROJECTS_SUBMISSION',
+    'PROJECTS_CHALLENGE',
+  ];
 
-  // TODO(projects): move to server-side filtering.
-  const processedComments = filterProjectsProfileCommunityComments(
-    comments,
-    filtersContributionsOpts.map(([_, filterFn]) => filterFn),
-  );
+  const [selectedContributionType] =
+    useProjectsProfileCommunityFilterState('contribution-type');
+  const [selectedForumType] =
+    useProjectsProfileCommunityFilterState('forum-type');
+  const filtersContributionsOpts = [
+    selectedContributionType,
+    selectedForumType,
+  ];
+
+  const { data: comments } = trpc.projects.comments.listUserComments.useQuery({
+    contributionType: selectedContributionType,
+    domainList,
+    forumType: selectedForumType,
+    userId,
+  });
+
+  const { filters } = useProjectsProfileCommunityFilterContext();
 
   const numberOfFilters = filtersContributionsOpts.filter(
-    ([size]) => size > 0,
+    (filter) => filter.length > 0,
   ).length;
 
   const hasFilters = numberOfFilters > 0;
@@ -52,7 +55,7 @@ function ProjectsProfileCommunityListWithFiltersImpl({
         <ProjectProfileCommunityFilterSlideOut selected={hasFilters} />
       </div>
       <ProjectsProfileCommunityCommentsSection
-        comments={processedComments}
+        comments={comments ?? []}
         hasFilters={hasFilters}
         isViewingOwnProfile={isViewingOwnProfile}
         userId={userId}
@@ -62,20 +65,17 @@ function ProjectsProfileCommunityListWithFiltersImpl({
 }
 
 type Props = Readonly<{
-  comments: ReadonlyArray<ProjectsProfileCommunityComment>;
   isViewingOwnProfile: boolean;
   userId?: string;
 }>;
 
 export default function ProjectsProfileCommunityListWithFilters({
-  comments,
   isViewingOwnProfile,
   userId,
 }: Props) {
   return (
     <ProjectsProfileCommunityFilterContext>
       <ProjectsProfileCommunityListWithFiltersImpl
-        comments={comments}
         isViewingOwnProfile={isViewingOwnProfile}
         userId={userId}
       />

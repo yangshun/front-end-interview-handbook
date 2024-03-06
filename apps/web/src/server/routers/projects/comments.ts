@@ -169,120 +169,159 @@ export const projectsCommentsRouter = router({
   listUserComments: publicProcedure
     .input(
       z.object({
+        contributionType: z.array(z.string()),
         domainList: z.array(z.enum(domains)),
+        forumType: z.array(z.string()),
         userId: z.string().uuid().optional(),
       }),
     )
-    .query(async ({ input: { domainList, userId }, ctx: { user } }) => {
-      const comments = await prisma.projectsDiscussionComment.findMany({
-        include: {
-          author: {
-            select: {
-              userProfile: {
-                select: {
-                  avatarUrl: true,
-                  name: true,
-                  username: true,
+    .query(
+      async ({
+        input: { contributionType, domainList, forumType, userId },
+        ctx: { user },
+      }) => {
+        const categoryWhere = contributionType.includes('OTHER')
+          ? [
+              {
+                category: {
+                  in: contributionType,
+                },
+              },
+              {
+                category: null,
+              },
+            ]
+          : [
+              {
+                category: {
+                  in: contributionType,
+                },
+              },
+            ];
+        const authorWhere = {
+          userId: userId ?? user?.id,
+        };
+        const domainWhere = {
+          in:
+            forumType.length === 0
+              ? domainList
+              : domainList.filter((domain) => forumType.includes(domain)),
+        };
+        const where =
+          contributionType.length === 0
+            ? {
+                author: authorWhere,
+                domain: domainWhere,
+              }
+            : {
+                OR: categoryWhere,
+                author: authorWhere,
+                domain: domainWhere,
+              };
+
+        const comments = await prisma.projectsDiscussionComment.findMany({
+          include: {
+            author: {
+              select: {
+                userProfile: {
+                  select: {
+                    avatarUrl: true,
+                    name: true,
+                    username: true,
+                  },
                 },
               },
             },
-          },
-          parentComment: {
-            include: {
-              author: {
-                select: {
-                  userId: true,
-                  userProfile: {
-                    select: {
-                      avatarUrl: true,
-                      name: true,
-                      username: true,
+            parentComment: {
+              include: {
+                author: {
+                  select: {
+                    userId: true,
+                    userProfile: {
+                      select: {
+                        avatarUrl: true,
+                        name: true,
+                        username: true,
+                      },
                     },
                   },
                 },
               },
             },
           },
-        },
-        orderBy: {
-          createdAt: 'desc',
-        },
-        where: {
-          author: {
-            userId: userId ?? user?.id,
+          orderBy: {
+            createdAt: 'desc',
           },
-          domain: {
-            in: domainList,
-          },
-        },
-      });
+          where,
+        });
 
-      const commentsWithInfo = Promise.all(
-        comments.map(async (comment) => {
-          if (
-            comment.domain ===
-            ProjectsDiscussionCommentDomain.PROJECTS_CHALLENGE
-          ) {
-            const challengeMetadata = allProjectsChallengeMetadata.find(
-              (challenge) => challenge.slug === comment.entityId,
-            );
+        const commentsWithInfo = Promise.all(
+          comments.map(async (comment) => {
+            if (
+              comment.domain ===
+              ProjectsDiscussionCommentDomain.PROJECTS_CHALLENGE
+            ) {
+              const challengeMetadata = allProjectsChallengeMetadata.find(
+                (challenge) => challenge.slug === comment.entityId,
+              );
 
-            if (!challengeMetadata?.href || !challengeMetadata?.title) {
-              return comment;
+              if (!challengeMetadata?.href || !challengeMetadata?.title) {
+                return comment;
+              }
+
+              return {
+                ...comment,
+                entity: {
+                  href: challengeMetadata.href,
+                  title: challengeMetadata.title,
+                },
+              };
             }
+            if (
+              comment.domain ===
+              ProjectsDiscussionCommentDomain.PROJECTS_SUBMISSION
+            ) {
+              const submission =
+                await prisma.projectsChallengeSubmission.findUnique({
+                  select: {
+                    projectsProfile: true,
+                    title: true,
+                  },
+                  where: {
+                    id: comment.entityId,
+                  },
+                });
 
-            return {
-              ...comment,
-              entity: {
-                href: challengeMetadata.href,
-                title: challengeMetadata.title,
-              },
-            };
-          }
-          if (
-            comment.domain ===
-            ProjectsDiscussionCommentDomain.PROJECTS_SUBMISSION
-          ) {
-            const submission =
-              await prisma.projectsChallengeSubmission.findUnique({
+              const submissionAuthor = await prisma.profile.findUnique({
                 select: {
-                  projectsProfile: true,
-                  title: true,
+                  name: true,
                 },
                 where: {
-                  id: comment.entityId,
+                  id: submission?.projectsProfile?.userId,
                 },
               });
 
-            const submissionAuthor = await prisma.profile.findUnique({
-              select: {
-                name: true,
-              },
-              where: {
-                id: submission?.projectsProfile?.userId,
-              },
-            });
+              if (!submission?.title || !submissionAuthor?.name) {
+                return comment;
+              }
 
-            if (!submission?.title || !submissionAuthor?.name) {
-              return comment;
+              return {
+                ...comment,
+                entity: {
+                  href: `/projects/s/${comment.entityId}`,
+                  recipient: submissionAuthor.name,
+                  title: submission.title,
+                },
+              };
             }
 
-            return {
-              ...comment,
-              entity: {
-                href: `/projects/s/${comment.entityId}`,
-                recipient: submissionAuthor.name,
-                title: submission.title,
-              },
-            };
-          }
+            return comment;
+          }),
+        );
 
-          return comment;
-        }),
-      );
-
-      return commentsWithInfo;
-    }),
+        return commentsWithInfo;
+      },
+    ),
   reply: projectsUserProcedure
     .input(
       z.object({

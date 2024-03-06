@@ -4,10 +4,7 @@ import { trpc } from '~/hooks/trpc';
 
 import ProjectsProfileCommunityListWithFilters from './ProjectsProfileCommunityListWithFilters';
 
-import type {
-  ProjectsDiscussionComment,
-  ProjectsDiscussionCommentDomain,
-} from '@prisma/client';
+import type { ProjectsDiscussionComment } from '@prisma/client';
 
 type ProjectsProfileCommunityCommentAuthor = Readonly<{
   userId?: string;
@@ -44,19 +41,10 @@ export default function ProjectsProfileCommunitySection({
   isViewingOwnProfile = false,
   userId,
 }: Props) {
-  const domainList: Array<ProjectsDiscussionCommentDomain> = [
-    'PROJECTS_SUBMISSION',
-    'PROJECTS_CHALLENGE',
-  ];
   const { data: profile } = trpc.profile.getProfile.useQuery();
-  const { data: comments } = trpc.projects.comments.listUserComments.useQuery({
-    domainList,
-    userId: userId || profile?.id,
-  });
 
   return (
     <ProjectsProfileCommunityListWithFilters
-      comments={comments ?? []}
       isViewingOwnProfile={isViewingOwnProfile}
       userId={userId || profile?.id}
     />
