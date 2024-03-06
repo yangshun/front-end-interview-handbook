@@ -74,7 +74,6 @@ export default function ProjectsChallengeSubmissionCard({
         themeBackgroundCardAltColor,
       )}>
       {challenge != null && (
-        // Have to raise the z-index so that it is layered above the `position: absolute` title.
         <div className="z-[1] flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             <Text color="secondary" size="body3">
@@ -118,8 +117,7 @@ export default function ProjectsChallengeSubmissionCard({
         </div>
       )}
       <div className="flex flex-col gap-3">
-        <Anchor href={hrefs.detail} variant="unstyled">
-          <span aria-hidden={true} className="absolute inset-0" />
+        <Anchor className="z-[1]" href={hrefs.detail} variant="flat">
           <Text className="line-clamp-2" weight="bold">
             {title}
           </Text>
@@ -137,14 +135,13 @@ export default function ProjectsChallengeSubmissionCard({
       </div>
       <img alt={title} className="h-[190px] w-full rounded-md" src={imgSrc} />
       {!isPinned && author != null && (
-        <div className="flex items-center gap-4">
+        <div className="z-[1] flex items-center gap-4">
           <ProjectsProfileAvatar
             points={projectsProfile?.points}
             size="xl"
             userProfile={author}
           />
           <div className="flex flex-col gap-1">
-            {/* `relative` added to create a new stacking context and be layered above the `position: absolute` title. */}
             <Text className="relative" size="body2" weight="medium">
               <ProjectsProfileDisplayNameLink userProfile={author} />
             </Text>
@@ -161,11 +158,15 @@ export default function ProjectsChallengeSubmissionCard({
           <ProjectsViewCountTag count={views} />
           <ProjectsCommentCountTag count={comments ?? 0} />
         </div>
-        {/* `relative` added to create a new stacking context and be layered above the `position: absolute` title. */}
-        <Text className="relative" color="secondary" size="body3">
+        <Text className="z-[1]" color="secondary" size="body3">
           <RelativeTimestamp timestamp={submission.createdAt} />
         </Text>
       </div>
+      <Anchor
+        aria-label={title}
+        className="absolute inset-0"
+        href={hrefs.detail}
+      />
     </div>
   );
 }
