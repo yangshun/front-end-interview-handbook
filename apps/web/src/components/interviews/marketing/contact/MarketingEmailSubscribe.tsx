@@ -146,7 +146,6 @@ export default function MarketingEmailSubscribe() {
           <div className="min-w-0 grow">
             <TextInput
               autoComplete="email"
-              className="grow !ring-transparent max-lg:!border max-lg:!border-neutral-700 lg:bg-white lg:!text-neutral-800 lg:placeholder:text-neutral-400"
               errorMessage={failureReason?.message}
               id={emailId}
               isLabelHidden={true}

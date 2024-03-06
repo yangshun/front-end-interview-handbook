@@ -77,7 +77,7 @@ export default function MarketingContactUs() {
                 <Anchor
                   key={platform.key}
                   href={platform.href}
-                  variant="blend"
+                  variant="secondary"
                   onClick={() => {
                     gtag.event({
                       action: `contact_us.${platform.key}.click`,
