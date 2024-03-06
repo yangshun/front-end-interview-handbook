@@ -27,20 +27,20 @@ export function sortProjectsChallenges<T extends ProjectsChallengeItem>(
   return projects.slice().sort((a, b) => {
     switch (field) {
       case 'recommended': {
+        // Move all the completed project by user at the bottom
+        const aIsCompleted = a.status === 'COMPLETED';
+        const bIsCompleted = b.status === 'COMPLETED';
+
+        if (aIsCompleted !== bIsCompleted) {
+          return aIsCompleted ? 1 : -1;
+        }
+
         const comp = (b.completedCount ?? 0) - (a.completedCount ?? 0);
         const value =
           comp !== 0
             ? comp
             : DIFFICULTY_MAPPING[a.metadata.difficulty] -
               DIFFICULTY_MAPPING[b.metadata.difficulty];
-
-        const aIsCompleted = a.status === 'COMPLETED';
-        const bIsCompleted = b.status === 'COMPLETED';
-
-        // Move all the completed project by user at the bottom
-        if (aIsCompleted !== bIsCompleted) {
-          return aIsCompleted ? -value : value;
-        }
 
         return value;
       }
