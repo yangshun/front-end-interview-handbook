@@ -7007,6 +7007,10 @@
     "defaultMessage": "Please enter your motivations",
     "description": "Error message for empty \"Other\" onboarding option in Projects"
   },
+  "zAl/H8": {
+    "defaultMessage": "General account settings. Shared across all GreatFrontEnd products.",
+    "description": "Description for general account settings"
+  },
   "zDt/bH": {
     "defaultMessage": "Next",
     "description": "Button to go to the next page"

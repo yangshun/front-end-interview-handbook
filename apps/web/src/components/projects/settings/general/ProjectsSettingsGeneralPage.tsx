@@ -1,6 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
+import { FormattedMessage } from 'react-intl';
 
 import useUserProfile from '~/hooks/user/useUserProfile';
 
@@ -24,10 +25,19 @@ export default function ProjectsSettingsGeneralPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex items-center justify-between gap-4">
-        <Heading level="heading5">Account settings</Heading>
+      <div className="flex flex-col gap-3">
+        <div className="flex items-center justify-between gap-4">
+          <Heading level="heading5">Account settings</Heading>
+          <Text color="secondary" size="body2">
+            Joined on <Timestamp date={userProfile.createdAt} />
+          </Text>
+        </div>
         <Text color="secondary" size="body2">
-          Joined on <Timestamp date={userProfile.createdAt} />
+          <FormattedMessage
+            defaultMessage="General account settings. Shared across all GreatFrontEnd products."
+            description="Description for general account settings"
+            id="zAl/H8"
+          />
         </Text>
       </div>
       <div className="flex flex-col gap-6 md:max-w-md">
