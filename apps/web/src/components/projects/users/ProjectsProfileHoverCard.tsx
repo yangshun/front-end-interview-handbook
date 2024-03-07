@@ -14,7 +14,9 @@ import Text from '~/components/ui/Text';
 import Tooltip from '~/components/ui/Tooltip';
 
 import ProjectsProfileDisplayNameLink from './ProjectsProfileDisplayNameLink';
+import ProjectsUserReputation from './ProjectsUserReputation';
 import useProjectsProfileStats from '../hooks/useProjectsProfileStats';
+import { getFormattedNumber } from '../misc';
 import ProjectsProfileSocialLinks from '../profile/info/ProjectsProfileSocialLinks';
 
 type Props = Readonly<{
@@ -46,7 +48,7 @@ export default function ProjectsProfileHoverCard({ userId }: Props) {
       className={clsx(
         'flex flex-col gap-4',
         'overflow-clip rounded-lg',
-        'w-[350px] sm:w-[400px] md:w-[420px]',
+        'w-[350px] sm:w-[380px]',
       )}>
       {isLoading || !data ? (
         <div className="flex min-h-[120px] w-full items-center justify-center">
@@ -88,13 +90,16 @@ export default function ProjectsProfileHoverCard({ userId }: Props) {
                 <ProjectsProfileSocialLinks userProfile={profile!} />
               </div>
               <UserProfileInformationRow size="body3" userProfile={profile!} />
+              <ProjectsUserReputation
+                points={profile!.projectsProfile?.points ?? 0}
+              />
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {statsItems.map((item) => (
               <div key={item.title} className="flex h-full flex-1 flex-col">
                 <Text size="body0" weight="bold">
-                  {item.count}
+                  {item.count ? getFormattedNumber(item.count) : '-'}
                 </Text>
                 <div className="flex h-full">
                   <Text className="text-2xs" color="secondary" size="inherit">
