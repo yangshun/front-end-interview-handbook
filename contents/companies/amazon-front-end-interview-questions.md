@@ -9,7 +9,12 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
 
 :::
 
-Amazon is known to focus a lot on behavioral questions and their Leadership Principles. Hence be well-prepared in the non-technical aspects too. Refer to the [official Amazon Interview Preparation Guide for Software Development Engineer](https://amazonsdeinterviewprep.splashthat.com/).
+Amazon is known to focus a lot on behavioral questions and their Leadership Principles. Hence be well-prepared in the non-technical aspects too.
+
+Refer to Amazon's official interview preparation guides for:
+
+- [Front End Engineers](/companies/amazon.pdf)
+- [Software Development Engineer](https://amazonsdeinterviewprep.splashthat.com/)
 
 ## Trivia
 
