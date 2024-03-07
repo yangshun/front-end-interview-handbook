@@ -11,7 +11,6 @@ import {
   RiLogoutBoxLine,
   RiMoonLine,
   RiMoreLine,
-  RiNotification3Line,
   RiPriceTag3Line,
   RiRocketLine,
   RiSettings3Line,
@@ -288,13 +287,6 @@ export function ProjectsSidebarExpanded({
       <Divider />
       <div className="flex justify-between gap-4 pt-2">
         <div className="flex gap-4">
-          <Button
-            icon={RiNotification3Line}
-            isLabelHidden={true}
-            label="Notifications"
-            size="sm"
-            variant="secondary"
-          />
           {profile?.projectsProfile?.premium ? (
             <Button
               href={SocialLinks.discordPremium.href}
@@ -403,15 +395,6 @@ function ProjectsSidebarCollapsed({
       <Divider className="w-full" />
       <div className="flex flex-col items-center gap-6">
         <div className="flex flex-col items-center gap-4">
-          <Button
-            icon={RiNotification3Line}
-            isLabelHidden={true}
-            label="Notifications"
-            size="sm"
-            tooltip="Notifications"
-            tooltipSide="right"
-            variant="secondary"
-          />
           <DropdownMenu
             align="end"
             icon={RiMoreLine}
