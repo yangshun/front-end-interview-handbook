@@ -95,7 +95,7 @@ function Text(
     className,
     display = 'inline',
     size = 'inherit',
-    weight = 'normal',
+    weight = 'inherit',
     ...props
   }: Props,
   ref: ForwardedRef<HTMLSpanElement>,
