@@ -17,16 +17,10 @@ export default function EmptyStateExamples() {
           variant="error"
         />
         <EmptyState
-          action={
-            <Button
-              href="#"
-              label="View Subscription Plans"
-              variant="primary"
-            />
-          }
-          subtitle="Get premium to unlock full access to all questions and solutions"
-          title="Not Subscribed"
-          variant="not_subscribed"
+          action={<Button href="#" label="See perks" variant="primary" />}
+          subtitle="You have leveled up"
+          title="Congratulations"
+          variant="success"
         />
       </div>
     </UIExamplesGroup>

@@ -14,7 +14,12 @@ import {
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
 import type { TextColor, TextSize } from '../Text';
-import Text from '../Text';
+import Text, { textVariants } from '../Text';
+import {
+  themeTextDangerColor,
+  themeTextSecondaryColor,
+  themeTextSuccessColor,
+} from '../theme';
 
 type EmptyStateVariant =
   | 'editor_loading'
@@ -70,16 +75,16 @@ const icons: Record<
   tests_loading: RiFlaskLine,
   under_construction: RiToolsLine,
 };
-const colors: Record<EmptyStateVariant, TextColor> = {
-  editor_loading: 'secondary',
-  empty: 'secondary',
-  error: 'error',
-  exit: 'secondary',
-  login: 'secondary',
-  not_subscribed: 'secondary',
-  success: 'success',
-  tests_loading: 'secondary',
-  under_construction: 'secondary',
+const colors: Record<EmptyStateVariant, string> = {
+  editor_loading: themeTextSecondaryColor,
+  empty: themeTextSecondaryColor,
+  error: themeTextDangerColor,
+  exit: themeTextSecondaryColor,
+  login: themeTextSecondaryColor,
+  not_subscribed: themeTextSecondaryColor,
+  success: themeTextSuccessColor,
+  tests_loading: themeTextSecondaryColor,
+  under_construction: themeTextSecondaryColor,
 };
 
 export default function EmptyState({
@@ -96,16 +101,23 @@ export default function EmptyState({
 
   return (
     <div className="mx-auto max-w-md py-6 text-center sm:py-12">
-      <Text color={colors[variant]} display="block" size="body1">
-        <Icon
-          aria-hidden="true"
-          className={clsx('size-10 mx-auto shrink-0', iconClassName)}
-        />
-      </Text>
-      <Heading className="mt-4" level="custom">
-        <Text display="block" size={titleSize} weight="medium">
-          {title}
-        </Text>
+      <Icon
+        aria-hidden="true"
+        className={clsx(
+          'size-10 mx-auto shrink-0',
+          iconClassName,
+          colors[variant],
+        )}
+      />
+      <Heading
+        className={textVariants({
+          className: 'mt-4',
+          display: 'block',
+          size: titleSize,
+          weight: 'medium',
+        })}
+        level="custom">
+        {title}
       </Heading>
       <Section>
         {subtitle && (

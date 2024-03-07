@@ -13,7 +13,7 @@ import {
 } from '~/components/ui/theme';
 
 import type { TextSize } from '../Text';
-import Text from '../Text';
+import Text, { textVariants } from '../Text';
 
 export type SelectItem<T> = Readonly<{
   label: string;
@@ -76,14 +76,14 @@ function Select<T>(
   return (
     <div>
       <label
-        className={clsx('mb-2 block', isLabelHidden && 'sr-only')}
+        className={textVariants({
+          className: clsx('mb-2', isLabelHidden && 'sr-only'),
+          display: 'block',
+          size: textSizeClasses[size].label,
+          weight: 'medium',
+        })}
         htmlFor={id}>
-        <Text
-          display="block"
-          size={textSizeClasses[size].label}
-          weight="medium">
-          {label}
-        </Text>
+        {label}
       </label>
       <select
         ref={ref}

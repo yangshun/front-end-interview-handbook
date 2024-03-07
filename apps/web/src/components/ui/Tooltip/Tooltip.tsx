@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
 import type { TextSize } from '../Text';
-import Text from '../Text';
+import { textVariants } from '../Text';
 
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
 
@@ -68,17 +68,16 @@ export default function Tooltip({
               'max-w-64',
               tooltipBackgroundColor,
               sizeClasses[size],
-              className,
+              textVariants({
+                className,
+                color: invert ? undefined : 'invert',
+                size: fontSizeClasses[size],
+                weight: 'medium',
+              }),
             )}
             side={side}
             sideOffset={4}>
-            <Text
-              color={invert ? undefined : 'invert'}
-              display="block"
-              size={fontSizeClasses[size]}
-              weight="medium">
-              {label}
-            </Text>
+            {label}
             <TooltipPrimitive.Arrow className={tooltipArrowColor} />
           </TooltipPrimitive.Content>
         </TooltipPrimitive.Portal>

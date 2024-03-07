@@ -8,6 +8,7 @@ import Button from '../Button';
 import Section from '../Heading/HeadingContext';
 import { headingCVA } from '../Heading/HeadingStyles';
 import Text from '../Text';
+import { textVariants } from '../Text/TextStyles';
 import { themeBackgroundLayerEmphasized } from '../theme';
 
 import * as DialogPrimitive from '@radix-ui/react-dialog';
@@ -163,11 +164,13 @@ export function DialogBody({
         className={clsx(
           'mt-2.5',
           scrollable && 'grow overflow-y-auto',
-          className,
+          textVariants({
+            className,
+            display: 'block',
+            size: 'body2',
+          }),
         )}>
-        <Text display="block" size="body2">
-          {children}
-        </Text>
+        {children}
       </div>
     </Section>
   );

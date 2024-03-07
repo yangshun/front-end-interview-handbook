@@ -13,7 +13,7 @@ import {
 } from '~/components/ui/theme';
 
 import type { TextSize } from '../Text';
-import Text from '../Text';
+import Text, { textVariants } from '../Text';
 
 type CheckboxSize = 'md' | 'sm';
 
@@ -113,16 +113,15 @@ function CheckboxInput(
             checkboxSizeClasses[size],
             topMarginVariants[size],
           )}>
-          <label className={clsx('block')} htmlFor={id}>
-            <Text
-              className={clsx(
-                !disabled && 'text-neutral-600 dark:text-neutral-200',
-              )}
-              color={disabled ? 'disabled' : 'default'}
-              display="block"
-              size={textSizeVariants[size]}>
-              {label}
-            </Text>
+          <label
+            className={textVariants({
+              className: !disabled && 'text-neutral-600 dark:text-neutral-200',
+              color: disabled ? 'disabled' : 'inherit',
+              display: 'block',
+              size: textSizeVariants[size],
+            })}
+            htmlFor={id}>
+            {label}
           </label>
           {description && (
             <Text
