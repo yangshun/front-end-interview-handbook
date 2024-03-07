@@ -1,10 +1,5 @@
 import clsx from 'clsx';
-import type {
-  DOMConversionMap,
-  DOMConversionOutput,
-  SerializedElementNode,
-  Spread,
-} from 'lexical';
+import type { SerializedElementNode, Spread } from 'lexical';
 import URL from 'url';
 
 import { anchorVariants } from '~/components/ui/Anchor';
@@ -17,7 +12,7 @@ import { i18nHref } from '~/next-i18nostic/src';
 
 import type { LinkAttributes } from '@lexical/link';
 import { $createLinkNode, LinkNode } from '@lexical/link';
-import { addClassNamesToElement, isHTMLAnchorElement } from '@lexical/utils';
+import { addClassNamesToElement } from '@lexical/utils';
 
 export type SerializedCustomLinkNode = Spread<
   {
@@ -66,15 +61,6 @@ export class CustomLinkNode extends LinkNode {
     return element;
   }
 
-  static importDOM(): DOMConversionMap | null {
-    return {
-      a: (_node: Node) => ({
-        conversion: convertAnchorElement,
-        priority: 1,
-      }),
-    };
-  }
-
   static importJSON(serializedNode: SerializedCustomLinkNode): LinkNode {
     const node = $createLinkNode(serializedNode.url, {
       rel: serializedNode.rel,
@@ -100,22 +86,4 @@ export class CustomLinkNode extends LinkNode {
       version: 1,
     };
   }
-}
-
-function convertAnchorElement(domNode: Node): DOMConversionOutput {
-  let node = null;
-
-  if (isHTMLAnchorElement(domNode)) {
-    const content = domNode.textContent;
-
-    if ((content !== null && content !== '') || domNode.children.length > 0) {
-      node = $createLinkNode(domNode.getAttribute('href') || '', {
-        rel: domNode.getAttribute('rel'),
-        target: domNode.getAttribute('target'),
-        title: domNode.getAttribute('title'),
-      });
-    }
-  }
-
-  return { node };
 }
