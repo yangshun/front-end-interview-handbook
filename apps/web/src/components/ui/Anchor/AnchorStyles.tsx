@@ -29,7 +29,7 @@ const anchorWeightClasses: Record<AnchorWeight, string> = {
   normal: '',
 };
 
-export const anchorCVA = cva('transition-colors', {
+export const anchorVariants = cva('transition-colors', {
   defaultVariants: {
     variant: 'default',
     weight: 'normal',

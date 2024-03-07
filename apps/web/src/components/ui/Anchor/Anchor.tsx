@@ -13,8 +13,8 @@ import type { I18nLinkProps } from '~/next-i18nostic/src';
 import { i18nHref, I18nLink, useI18n } from '~/next-i18nostic/src';
 
 import {
-  anchorCVA,
   type AnchorVariant,
+  anchorVariants,
   type AnchorWeight,
 } from './AnchorStyles';
 import {
@@ -43,9 +43,9 @@ function Anchor(
     target: targetProp,
     scrollToTop = true,
     underline = false,
-    variant = 'default',
+    variant,
     warnAboutExternalLink = false,
-    weight = 'medium',
+    weight,
     onClick,
     ...props
   }: Props,
@@ -59,7 +59,7 @@ function Anchor(
 
   const finalHref = href ?? '#';
   const rel = relProp ?? (isExternalURL ? 'noreferrer noopener' : undefined);
-  const className = anchorCVA({
+  const className = anchorVariants({
     className: clsx(
       underline && 'underline',
       variant !== 'unstyled' && [

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import type { SerializedElementNode, Spread } from 'lexical';
 import URL from 'url';
 
-import { anchorCVA } from '~/components/ui/Anchor/AnchorStyles';
+import { anchorVariants } from '~/components/ui/Anchor';
 import {
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
@@ -38,13 +38,11 @@ export class CustomLinkNode extends LinkNode {
     const element = document.createElement('a');
     const finalHrefString = this.__url.toString();
 
-    const className = anchorCVA({
+    const className = anchorVariants({
       className: clsx(
         themeOutlineElement_FocusVisible,
         themeOutlineElementBrandColor_FocusVisible,
       ),
-      variant: 'default',
-      weight: 'medium',
     });
 
     const warnLink = URL.format(
