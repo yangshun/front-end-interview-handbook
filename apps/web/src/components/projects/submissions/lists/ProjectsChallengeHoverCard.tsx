@@ -21,14 +21,13 @@ export default function ProjectsChallengeHoverCard({ slug }: Props) {
   return (
     <div
       className={clsx(
-        'flex grow flex-col gap-4',
-        'min-h-[380px] w-[350px] sm:w-[400px] md:w-[420px]',
+        'flex grow flex-col items-center justify-center gap-4',
+        'h-full min-h-[340px] w-[316px]',
         'relative overflow-clip rounded-lg',
+        'p-2',
       )}>
       {isLoading || !data ? (
-        <div className="flex min-h-[400px] w-full items-center justify-center">
-          <Spinner size="md" />
-        </div>
+        <Spinner size="md" />
       ) : (
         <ProjectsChallengeCard challenge={data} type="hover" />
       )}
