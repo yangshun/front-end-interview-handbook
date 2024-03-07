@@ -10,9 +10,9 @@ import Badge from '~/components/ui/Badge';
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundEmphasized_Hover,
-  themeBorderColor,
-  themeDivideColor,
+  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeBorderEmphasizeColor,
+  themeDivideEmphasizeColor,
 } from '~/components/ui/theme';
 
 import { staticLowerCase } from '~/utils/typescript/stringTransform';
@@ -65,55 +65,46 @@ function JavaScriptCodingWorkspaceSubmissionListImpl({ metadata }: Props) {
         <div className="p-4">
           <div
             className={clsx(
-              'overflow-auto',
-              'rounded-md',
-              ['border', themeBorderColor],
-              ['divide-y', themeDivideColor],
+              'flex flex-col rounded-md',
+              ['border', themeBorderEmphasizeColor],
+              ['divide-y', themeDivideEmphasizeColor],
+              'overflow-hidden',
             )}>
-            <table className="w-full">
-              <tbody className={clsx(['divide-y', themeDivideColor])}>
-                {submissions?.map(({ id, createdAt, language, result }) => (
-                  <tr
-                    key={id}
-                    className={clsx(
-                      // Safari has a problem with position: relative on <tr>
-                      // Use a CSS transform hack to work around it.
-                      // https://github.com/greatfrontend/greatfrontend/issues/92
-                      'relative scale-100',
-                      themeBackgroundEmphasized_Hover,
-                    )}>
-                    <td className="px-3 py-2">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          openSubmission?.(id);
-                        }}>
-                        <Text
-                          className="whitespace-nowrap"
-                          size="body3"
-                          weight="medium">
-                          <Timestamp date={createdAt} />
-                        </Text>
-                        <span className="absolute inset-0" />
-                      </button>
-                    </td>
-                    <td className="px-3 py-2">
-                      <QuestionLanguages
-                        languages={[staticLowerCase(language)]}
-                      />
-                    </td>
-                    <td className="px-3 py-2 text-right">
-                      {result === 'CORRECT' && (
-                        <Badge label="Correct" size="sm" variant="success" />
-                      )}
-                      {result === 'WRONG' && (
-                        <Badge label="Wrong" size="sm" variant="danger" />
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            {submissions?.map(({ id, createdAt, language, result }) => (
+              <div
+                key={id}
+                className={clsx(
+                  'relative isolate',
+                  'flex items-center justify-between gap-x-2',
+                  themeBackgroundElementEmphasizedStateColor_Hover,
+                  'p-3',
+                )}>
+                <div className="flex gap-x-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      openSubmission?.(id);
+                    }}>
+                    <Text
+                      className="whitespace-nowrap"
+                      size="body3"
+                      weight="medium">
+                      <Timestamp date={createdAt} />
+                    </Text>
+                    <span className="absolute inset-0" />
+                  </button>
+                  <QuestionLanguages languages={[staticLowerCase(language)]} />
+                </div>
+                <div>
+                  {result === 'CORRECT' && (
+                    <Badge label="Correct" size="sm" variant="success" />
+                  )}
+                  {result === 'WRONG' && (
+                    <Badge label="Wrong" size="sm" variant="danger" />
+                  )}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       )}

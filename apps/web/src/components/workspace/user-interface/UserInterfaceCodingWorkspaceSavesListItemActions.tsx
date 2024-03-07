@@ -44,7 +44,7 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
         onSuccess: (data) => {
           setIsEditing(false);
           showToast({
-            title: `"${saveName}" renamed to "${data?.name}"`,
+            title: `Renamed "${saveName}" to "${data?.name}"`,
             variant: 'info',
           });
         },

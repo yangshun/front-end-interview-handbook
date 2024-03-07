@@ -11,9 +11,9 @@ import Badge from '~/components/ui/Badge';
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundEmphasized_Hover,
-  themeBorderColor,
-  themeDivideColor,
+  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeBorderEmphasizeColor,
+  themeDivideEmphasizeColor,
 } from '~/components/ui/theme';
 
 import { staticLowerCase } from '~/utils/typescript/stringTransform';
@@ -67,62 +67,58 @@ function UserInterfaceCodingWorkspaceSavesListImpl({ metadata }: Props) {
         <div className="p-4">
           <div
             className={clsx(
-              'rounded-md',
-              ['border', themeBorderColor],
-              ['divide-y', themeDivideColor],
+              'flex flex-col rounded-md',
+              ['border', themeBorderEmphasizeColor],
+              ['divide-y', themeDivideEmphasizeColor],
+              'overflow-hidden',
             )}>
-            <table className="w-full">
-              <tbody className={clsx(['divide-y', themeDivideColor])}>
-                {saves?.map((savedItem) => (
-                  <tr
-                    key={savedItem.id}
-                    className={clsx(
-                      // Safari has a problem with position: relative on <tr>
-                      // Use a CSS transform hack to work around it.
-                      // https://github.com/greatfrontend/greatfrontend/issues/92
-                      'relative scale-100',
-                      themeBackgroundEmphasized_Hover,
-                    )}>
-                    <td className="w-5 py-2 pl-3">
-                      <QuestionFrameworkIcon
-                        framework={staticLowerCase(savedItem.framework)}
-                      />
-                    </td>
-                    <td className="px-3 py-2">
-                      <div className="flex gap-x-2 gap-y-1">
-                        <Anchor
-                          // TODO(submission): Add study list parameter if exists.
-                          href={`/questions/user-interface/${metadata.slug}/v/${savedItem.id}`}
-                          variant="unstyled">
-                          <Text
-                            className="whitespace-nowrap"
-                            size="body2"
-                            weight="medium">
-                            {savedItem.name}{' '}
-                          </Text>
-                          <span className="absolute inset-0" />
-                        </Anchor>
-                        {save?.id === savedItem.id && (
-                          <Badge label="Current" size="sm" variant="info" />
-                        )}
-                      </div>
+            {saves?.map((savedItem) => (
+              <div
+                key={savedItem.id}
+                className={clsx(
+                  'relative isolate',
+                  'flex items-center gap-x-2',
+                  themeBackgroundElementEmphasizedStateColor_Hover,
+                  'p-2',
+                )}>
+                <div className="p-2">
+                  <QuestionFrameworkIcon
+                    framework={staticLowerCase(savedItem.framework)}
+                  />
+                </div>
+                <div className="grow">
+                  <div className="flex gap-x-2 gap-y-1">
+                    <Anchor
+                      // TODO(submission): Add study list parameter if exists.
+                      href={`/questions/user-interface/${metadata.slug}/v/${savedItem.id}`}
+                      variant="unstyled">
                       <Text
                         className="whitespace-nowrap"
-                        color="secondary"
-                        size="body3">
-                        <Timestamp date={savedItem.updatedAt} />
+                        size="body2"
+                        weight="medium">
+                        {savedItem.name}{' '}
                       </Text>
-                    </td>
-                    <td className="px-3 py-2">
-                      <UserInterfaceCodingWorkspaceSavesListItemActions
-                        saveId={savedItem.id}
-                        saveName={savedItem.name}
-                      />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                      <span className="absolute inset-0" />
+                    </Anchor>
+                    {save?.id === savedItem.id && (
+                      <Badge label="Current" size="sm" variant="info" />
+                    )}
+                  </div>
+                  <Text
+                    className="whitespace-nowrap"
+                    color="secondary"
+                    size="body3">
+                    <Timestamp date={savedItem.updatedAt} />
+                  </Text>
+                </div>
+                <div className="relative">
+                  <UserInterfaceCodingWorkspaceSavesListItemActions
+                    saveId={savedItem.id}
+                    saveName={savedItem.name}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       )}

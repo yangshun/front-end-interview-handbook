@@ -6,9 +6,9 @@ import QuestionLanguages from '~/components/interviews/questions/metadata/Questi
 import EmptyState from '~/components/ui/EmptyState';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundEmphasized_Hover,
-  themeBorderColor,
-  themeDivideColor,
+  themeBackgroundElementEmphasizedStateColor_Hover,
+  themeBorderEmphasizeColor,
+  themeDivideEmphasizeColor,
 } from '~/components/ui/theme';
 
 import { staticLowerCase } from '~/utils/typescript/stringTransform';
@@ -56,62 +56,56 @@ export default function CodingWorkspaceCommunitySolutionList({
         <div className="p-4">
           <div
             className={clsx(
-              'overflow-auto',
-              'rounded-md',
-              ['border', themeBorderColor],
-              ['divide-y', themeDivideColor],
+              'flex flex-col rounded-md',
+              ['border', themeBorderEmphasizeColor],
+              ['divide-y', themeDivideEmphasizeColor],
+              'overflow-hidden',
             )}>
-            <table className="w-full">
-              <tbody className={clsx(['divide-y', themeDivideColor])}>
-                {solutions?.map((solution) => {
-                  const { id, createdAt, title } = solution;
+            {solutions?.map((solution) => {
+              const { id, createdAt, title } = solution;
 
-                  return (
-                    <tr
-                      key={id}
-                      className={clsx(
-                        // Safari has a problem with position: relative on <tr>
-                        // Use a CSS transform hack to work around it.
-                        // https://github.com/greatfrontend/greatfrontend/issues/92
-                        'relative scale-100',
-                        themeBackgroundEmphasized_Hover,
-                      )}>
-                      <td className="px-3 py-2">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            openCommunitySolution?.(id);
-                          }}>
-                          <Text
-                            className="whitespace-nowrap"
-                            size="body3"
-                            weight="medium">
-                            {title}
-                          </Text>
-                          <span className="absolute inset-0" />
-                        </button>
-                      </td>
-                      <td className="w-px whitespace-nowrap px-3 py-2">
-                        {isJavascript(solution) ? (
-                          <QuestionLanguages
-                            languages={[staticLowerCase(solution.language)]}
-                          />
-                        ) : (
-                          <QuestionFrameworkIcon
-                            framework={staticLowerCase(solution.framework)}
-                          />
-                        )}
-                      </td>
-                      <td className="w-px whitespace-nowrap px-3 py-2">
-                        <Text color="secondary" size="body3">
-                          <Timestamp date={createdAt} />
-                        </Text>
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
+              return (
+                <div
+                  key={id}
+                  className={clsx(
+                    'relative isolate',
+                    'flex items-center justify-between gap-x-2',
+                    themeBackgroundElementEmphasizedStateColor_Hover,
+                    'p-3',
+                  )}>
+                  <div className="flex gap-x-2">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        openCommunitySolution?.(id);
+                      }}>
+                      <Text
+                        className="whitespace-nowrap"
+                        size="body3"
+                        weight="medium">
+                        {title}
+                      </Text>
+                      <span className="absolute inset-0" />
+                    </button>
+
+                    {isJavascript(solution) ? (
+                      <QuestionLanguages
+                        languages={[staticLowerCase(solution.language)]}
+                      />
+                    ) : (
+                      <QuestionFrameworkIcon
+                        framework={staticLowerCase(solution.framework)}
+                      />
+                    )}
+                  </div>
+                  <div>
+                    <Text color="secondary" size="body3">
+                      <Timestamp date={createdAt} />
+                    </Text>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       )}
