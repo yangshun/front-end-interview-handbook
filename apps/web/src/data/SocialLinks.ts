@@ -8,6 +8,7 @@ import {
 
 type SocialLinkPlatform =
   | 'discord'
+  | 'discordPremium'
   | 'github'
   | 'linkedin'
   | 'reddit'
@@ -26,6 +27,12 @@ export const SocialLinks: Record<
     href: 'https://discord.gg/NDFx8f6P6B',
     icon: RiDiscordFill,
     key: 'discord',
+    name: 'Discord',
+  },
+  discordPremium: {
+    href: 'https://discord.gg/8suTg77xXz',
+    icon: RiDiscordFill,
+    key: 'discord-premium',
     name: 'Discord',
   },
   github: {

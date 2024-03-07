@@ -22,6 +22,8 @@ import { useIntl } from 'react-intl';
 import { useAuthLogout, useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
+import { SocialLinks } from '~/data/SocialLinks';
+
 import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
 import useAppThemeOptions from '~/components/global/dark/useAppThemeOptions';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
@@ -293,19 +295,35 @@ export function ProjectsSidebarExpanded({
             size="sm"
             variant="secondary"
           />
-          <Button
-            href="#TODO(projects)"
-            icon={RiDiscordLine}
-            isLabelHidden={true}
-            label="Discord"
-            size="sm"
-            tooltip={intl.formatMessage({
-              defaultMessage: 'Join Discord',
-              description: 'Link to the Discord channel',
-              id: 'Dpl0uN',
-            })}
-            variant="special"
-          />
+          {profile?.projectsProfile?.premium ? (
+            <Button
+              href={SocialLinks.discordPremium.href}
+              icon={RiDiscordLine}
+              isLabelHidden={true}
+              label="Discord"
+              size="sm"
+              tooltip={intl.formatMessage({
+                defaultMessage: 'Join Premium Discord',
+                description: 'Link to the Discord server',
+                id: 'KdVEiX',
+              })}
+              variant="special"
+            />
+          ) : (
+            <Button
+              href={SocialLinks.discord.href}
+              icon={RiDiscordLine}
+              isLabelHidden={true}
+              label="Discord"
+              size="sm"
+              tooltip={intl.formatMessage({
+                defaultMessage: 'Join Discord',
+                description: 'Link to the Discord server',
+                id: 'kdO5C4',
+              })}
+              variant="secondary"
+            />
+          )}
           <DropdownMenu
             icon={RiMoreLine}
             isLabelHidden={true}

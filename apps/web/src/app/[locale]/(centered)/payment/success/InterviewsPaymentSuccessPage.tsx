@@ -2,14 +2,12 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
-import {
-  RiArrowRightCircleLine,
-  RiCodeSSlashLine,
-  RiDiscordFill,
-} from 'react-icons/ri';
+import { RiArrowRightCircleLine, RiCodeSSlashLine } from 'react-icons/ri';
 
 import fbq from '~/lib/fbq';
 import gtag from '~/lib/gtag';
+
+import { SocialLinks } from '~/data/SocialLinks';
 
 import type {
   InterviewsPricingPlanPaymentConfigLocalizedRecord,
@@ -27,8 +25,8 @@ const actions = [
     description:
       'Join over 2000 users in our private Discord community for Premium users',
     featured: true,
-    href: 'https://discord.gg/8suTg77xXz',
-    icon: RiDiscordFill,
+    href: SocialLinks.discordPremium.href,
+    icon: SocialLinks.discordPremium.icon,
     title: 'Join Premium Discord',
   },
   {

@@ -1,10 +1,8 @@
 'use client';
 
-import {
-  RiArrowRightCircleLine,
-  RiCodeSSlashLine,
-  RiDiscordFill,
-} from 'react-icons/ri';
+import { RiArrowRightCircleLine, RiCodeSSlashLine } from 'react-icons/ri';
+
+import { SocialLinks } from '~/data/SocialLinks';
 
 import type { ProjectsPricingPlanPaymentConfigLocalizedRecord } from '~/components/projects/purchase/ProjectsPricingPlans';
 import PurchasePaymentSuccessSection from '~/components/purchase/PurchasePaymentSuccessSection';
@@ -16,8 +14,8 @@ const actions = [
     description:
       'Join over 2000 users in our private Discord community for Premium users',
     featured: true,
-    href: 'https://discord.gg/8suTg77xXz',
-    icon: RiDiscordFill,
+    href: SocialLinks.discordPremium.href,
+    icon: SocialLinks.discordPremium.icon,
     title: 'Join Premium Discord',
   },
   {

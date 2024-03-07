@@ -4,8 +4,6 @@ import clsx from 'clsx';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import {
   RiCalendarLine,
-  RiDiscordFill,
-  RiDiscordLine,
   RiGithubFill,
   RiMailLine,
   RiShieldUserLine,
@@ -16,6 +14,7 @@ import { useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import { hasProjectsBetaAccess } from '~/data/PromotionConfig';
+import { SocialLinks } from '~/data/SocialLinks';
 
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
@@ -282,23 +281,23 @@ export default function ProfileShell({ user, children }: Props) {
                             <Button
                               addonPosition="start"
                               display="block"
-                              href="https://discord.gg/8suTg77xXz"
-                              icon={RiDiscordFill}
+                              href={SocialLinks.discordPremium.href}
+                              icon={SocialLinks.discordPremium.icon}
                               label={intl.formatMessage({
                                 defaultMessage: 'Join Premium Discord',
                                 description: 'Join Discord channel',
                                 id: '8XVsRJ',
                               })}
-                              variant="primary"
+                              variant="special"
                             />
                           ) : (
                             <div className="flex items-center gap-x-2">
-                              <RiDiscordLine
+                              <SocialLinks.discordPremium.icon
                                 aria-hidden="true"
                                 className="size-5 shrink-0 text-neutral-500"
                               />
                               <Text size="body2">
-                                <Anchor href="https://discord.gg/NDFx8f6P6B">
+                                <Anchor href={SocialLinks.discord.href}>
                                   {intl.formatMessage({
                                     defaultMessage: 'Join Discord',
                                     description: 'Join Discord channel',

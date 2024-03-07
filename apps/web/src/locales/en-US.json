@@ -1611,10 +1611,6 @@
     "defaultMessage": "Insert an object",
     "description": "Rich text editor button label"
   },
-  "Dpl0uN": {
-    "defaultMessage": "Join Discord",
-    "description": "Link to the Discord channel"
-  },
   "Dq9yul": {
     "defaultMessage": "Back",
     "description": "Button label for back button"
@@ -2322,6 +2318,10 @@
   "KbgzvC": {
     "defaultMessage": "Hide",
     "description": "Hide articles"
+  },
+  "KdVEiX": {
+    "defaultMessage": "Join Premium Discord",
+    "description": "Link to the Discord server"
   },
   "KdzvRx": {
     "defaultMessage": "Summary of all the important things in a one-pager",
@@ -5370,6 +5370,10 @@
   "kaQWYn": {
     "defaultMessage": "Add Bio",
     "description": "Title for Add Bio task on Projects dashboard page"
+  },
+  "kdO5C4": {
+    "defaultMessage": "Join Discord",
+    "description": "Link to the Discord server"
   },
   "ke8J8T": {
     "defaultMessage": "Try these popular JavaScript questions",
