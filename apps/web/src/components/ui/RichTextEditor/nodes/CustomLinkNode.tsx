@@ -68,7 +68,7 @@ export class CustomLinkNode extends LinkNode {
 
   static importDOM(): DOMConversionMap | null {
     return {
-      a: (node: Node) => ({
+      a: (_node: Node) => ({
         conversion: convertAnchorElement,
         priority: 1,
       }),

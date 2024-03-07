@@ -9,7 +9,8 @@ import {
   themeBackgroundCardWhiteOnLightColor,
   themeBackgroundEmphasized_Hover,
   themeBorderColor,
-  themeDivideColor,
+  themeBorderEmphasizeColor,
+  themeDivideEmphasizeColor,
 } from '~/components/ui/theme';
 
 import { hashQuestion } from '~/db/QuestionsUtils';
@@ -53,9 +54,10 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
   return (
     <ul
       className={clsx(
-        'isolate divide-y overflow-hidden rounded-md border sm:grid',
-        themeBorderColor,
-        themeDivideColor,
+        'isolate rounded-md sm:grid',
+        ['border', themeBorderEmphasizeColor],
+        ['divide-y', themeDivideEmphasizeColor],
+        'overflow-hidden',
       )}>
       {questions.map((question) => {
         const hasCompletedQuestion = checkIfCompletedQuestion?.(question);

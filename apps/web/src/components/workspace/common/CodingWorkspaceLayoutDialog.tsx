@@ -4,10 +4,10 @@ import type { ReactNode } from 'react';
 import Dialog from '~/components/ui/Dialog';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundChipColor,
-  themeBackgroundLayerEmphasized_Hover,
-  themeBorderColor,
-  themeDivideColor,
+  themeBackgroundEmphasized,
+  themeBackgroundEmphasized_Hover,
+  themeBorderEmphasizeColor,
+  themeDivideEmphasizeColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -38,23 +38,26 @@ export default function CodingWorkspaceLayoutDialog({
         </Text>
         <div
           className={clsx(
-            'flex flex-col rounded border ',
-            ['border', themeBorderColor],
-            ['divide-y', themeDivideColor],
+            'flex flex-col rounded-md',
+            ['border', themeBorderEmphasizeColor],
+            ['divide-y', themeDivideEmphasizeColor],
+            'overflow-hidden',
           )}>
           {layouts.map(({ description, icon: Icon, name, onClick }) => (
             <button
               key={name}
               className={clsx(
                 'group/card flex gap-3 p-3 transition',
-                themeBackgroundLayerEmphasized_Hover,
+                themeBackgroundEmphasized_Hover,
               )}
               type="button"
               onClick={onClick}>
               <span
                 className={clsx(
-                  'inline-flex size-8 shrink-0 items-center justify-center rounded-md',
-                  themeBackgroundChipColor,
+                  'inline-flex shrink-0 items-center justify-center',
+                  'size-8',
+                  'rounded-md',
+                  themeBackgroundEmphasized,
                   themeTextSecondaryColor,
                   'border border-transparent transition',
                   'group-hover/card:border-brand-dark group-hover/card:text-brand-dark',

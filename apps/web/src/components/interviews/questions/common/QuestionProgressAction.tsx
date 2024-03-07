@@ -61,7 +61,6 @@ export default function QuestionProgressAction({
           isShown={isLoginDialogShown}
           primaryButton={
             <Button
-              display="block"
               href={signInUpHref()}
               label={signInUpLabel}
               variant="primary"
@@ -70,7 +69,6 @@ export default function QuestionProgressAction({
           }
           secondaryButton={
             <Button
-              display="block"
               label={intl.formatMessage({
                 defaultMessage: 'Cancel',
                 description: 'Cancel and close the sign in modal',

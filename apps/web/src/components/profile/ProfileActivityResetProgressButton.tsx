@@ -61,7 +61,6 @@ export default function ProfileActivityResetProgressButton() {
         isShown={isResetProgressDialogShown}
         primaryButton={
           <Button
-            display="block"
             isDisabled={resetProgressMutation.isLoading}
             isLoading={resetProgressMutation.isLoading}
             label={intl.formatMessage({
@@ -77,7 +76,6 @@ export default function ProfileActivityResetProgressButton() {
         }
         secondaryButton={
           <Button
-            display="block"
             label={intl.formatMessage({
               defaultMessage: 'Cancel',
               description: 'Label for button to cancel action',
