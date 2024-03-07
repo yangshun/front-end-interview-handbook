@@ -32,15 +32,6 @@ export type TextColor =
   | 'subtitle'
   | 'subtle'
   | 'success';
-export type TextDisplay =
-  | 'block'
-  | 'custom'
-  | 'flex'
-  | 'grid'
-  | 'inline-block'
-  | 'inline-flex'
-  | 'inline-grid'
-  | 'inline';
 export type TextSize = 'body0' | 'body1' | 'body2' | 'body3' | 'inherit';
 export type TextWeight = 'bold' | 'inherit' | 'medium' | 'normal';
 
@@ -57,17 +48,6 @@ const weightClasses: Record<TextWeight, string> = {
   inherit: '',
   medium: 'font-medium',
   normal: 'font-normal',
-};
-
-const displayClasses: Record<TextDisplay, string> = {
-  block: 'block',
-  custom: 'custom',
-  flex: 'flex',
-  grid: 'grid',
-  inline: 'inline',
-  'inline-block': 'inline-block',
-  'inline-flex': 'inline-flex',
-  'inline-grid': 'inline-grid',
 };
 
 const colorClasses: Record<TextColor, string> = {
@@ -90,13 +70,11 @@ const colorClasses: Record<TextColor, string> = {
 export const textVariants = cva('', {
   defaultVariants: {
     color: 'default',
-    display: 'inline',
     size: 'inherit',
     weight: 'inherit',
   },
   variants: {
     color: colorClasses,
-    display: displayClasses,
     size: sizeClasses,
     weight: weightClasses,
   },

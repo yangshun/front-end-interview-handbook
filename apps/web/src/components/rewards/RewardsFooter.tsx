@@ -19,7 +19,7 @@ export default function RewardsHeader() {
   return (
     <Container className="flex flex-col items-center gap-6">
       <div className="flex flex-col items-center gap-4">
-        <Text color="secondary" display="inline-flex" size="body2">
+        <Text color="secondary" size="body2">
           <FormattedMessage
             defaultMessage="Ready to begin?"
             description="Description for start tasks prompt"

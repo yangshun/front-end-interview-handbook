@@ -1,19 +1,15 @@
+import clsx from 'clsx';
 import type { ForwardedRef } from 'react';
 import React, { forwardRef } from 'react';
 
-import type {
-  TextColor,
-  TextDisplay,
-  TextSize,
-  TextWeight,
-} from './TextStyles';
+import type { TextColor, TextSize, TextWeight } from './TextStyles';
 import { textVariants } from './TextStyles';
 
 type Props = Readonly<{
   children?: React.ReactNode;
   className?: string;
   color?: TextColor;
-  display?: TextDisplay;
+  display?: 'block';
   id?: string;
   size?: TextSize;
   weight?: TextWeight;
@@ -26,7 +22,12 @@ function Text(
   return (
     <span
       ref={ref}
-      className={textVariants({ className, color, display, size, weight })}
+      className={textVariants({
+        className: clsx(className, display === 'block' && 'block'),
+        color,
+        size,
+        weight,
+      })}
       {...props}>
       {children}
     </span>

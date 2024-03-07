@@ -399,9 +399,8 @@ function ProjectsPricingPriceCell({
       <div>
         {showPPPMessage && (
           <Text
-            className={clsx('items-baseline line-through')}
+            className="inline-flex items-baseline line-through"
             color="subtle"
-            display="inline-flex"
             size="body1">
             <PurchasePriceLabel
               amount={priceRoundToNearestNiceNumber(
@@ -427,9 +426,8 @@ function ProjectsPricingPriceCell({
           </Text>
         )}{' '}
         <Text
-          className="items-baseline gap-x-2"
+          className="inline-flex items-baseline gap-x-2"
           color="subtitle"
-          display="inline-flex"
           size="body1"
           weight="medium">
           <span>

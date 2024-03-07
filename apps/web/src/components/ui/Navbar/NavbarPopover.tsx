@@ -38,8 +38,7 @@ function NavbarPopoverLink({
         </div>
         <div className="flex flex-col gap-y-1">
           <Text
-            className="items-center gap-2"
-            display="flex"
+            className="flex items-center gap-2"
             size="body1"
             weight="medium">
             <span className="shrink-0">{label}</span> {labelAddon}
@@ -66,8 +65,7 @@ function NavbarPopoverLink({
         </div>
         <div className="ml-4">
           <Text
-            className="items-center gap-2"
-            display="flex"
+            className="flex items-center gap-2"
             size="body1"
             weight="medium">
             <span className="shrink-0">{label}</span> {labelAddon}

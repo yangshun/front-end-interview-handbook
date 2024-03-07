@@ -13,7 +13,7 @@ import {
 
 import Heading from '../Heading';
 import Section from '../Heading/HeadingContext';
-import type { TextColor, TextSize } from '../Text';
+import type { TextSize } from '../Text';
 import Text, { textVariants } from '../Text';
 import {
   themeTextDangerColor,
@@ -111,8 +111,7 @@ export default function EmptyState({
       />
       <Heading
         className={textVariants({
-          className: 'mt-4',
-          display: 'block',
+          className: 'mt-4 block',
           size: titleSize,
           weight: 'medium',
         })}

@@ -7,7 +7,6 @@ import DialogBaseOverlay from './DialogBaseOverlay';
 import Button from '../Button';
 import Section from '../Heading/HeadingContext';
 import { headingCVA } from '../Heading/HeadingStyles';
-import Text from '../Text';
 import { textVariants } from '../Text/TextStyles';
 import { themeBackgroundLayerEmphasized } from '../theme';
 
@@ -162,11 +161,10 @@ export function DialogBody({
     <Section>
       <div
         className={clsx(
-          'mt-2.5',
+          'mt-2.5 block',
           scrollable && 'grow overflow-y-auto',
           textVariants({
             className,
-            display: 'block',
             size: 'body2',
           }),
         )}>

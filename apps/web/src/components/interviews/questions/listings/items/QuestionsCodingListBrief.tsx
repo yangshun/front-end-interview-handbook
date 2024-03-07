@@ -87,8 +87,7 @@ export default function QuestionsCodingListBrief<Q extends QuestionMetadata>({
                   </span>
                 )}
                 <Text
-                  className="items-center gap-x-2"
-                  display="flex"
+                  className="flex items-center gap-x-2"
                   size="body3"
                   weight="medium">
                   <Anchor

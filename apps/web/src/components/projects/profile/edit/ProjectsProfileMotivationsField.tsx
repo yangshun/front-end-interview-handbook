@@ -30,9 +30,7 @@ type Values =
 
 export default function ProjectsProfileMotivationsField() {
   const reasonOptions = useProjectsMotivationReasonOptions((chunks) => (
-    <Text display="inline" size="inherit" weight="bold">
-      {chunks}
-    </Text>
+    <Text weight="bold">{chunks}</Text>
   ));
 
   const {

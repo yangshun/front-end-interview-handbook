@@ -76,8 +76,8 @@ function RewardsStepLabel({
         )}
       </span>{' '}
       <Text
+        className="flex"
         color={status === 'active' ? 'active' : 'default'}
-        display="flex"
         size="body1"
         weight="medium">
         {label}

@@ -62,9 +62,8 @@ export function PromotionsReviewCashbackCard() {
       ]}
       footer={
         <Text
-          className="justify-between gap-x-4"
+          className="flex justify-between gap-x-4"
           color="secondary"
-          display="flex"
           size="body3">
           <span>
             <FormattedMessage
@@ -90,7 +89,6 @@ export function PromotionsReviewCashbackCard() {
           <div className="mt-4 flex items-end gap-1">
             <Text
               className={clsx('inline-flex items-center text-5xl font-bold')}
-              display="inline-flex"
               size="inherit"
               weight="inherit">
               {REVIEW_CASHBACK_DISCOUNT_PERCENTAGE}%

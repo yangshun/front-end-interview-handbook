@@ -231,9 +231,8 @@ export function ToastImpl({
       )}
       {...props}>
       <Text
-        className="w-full items-start gap-x-2 px-3 py-2"
+        className="flex w-full items-start gap-x-2 px-3 py-2"
         color={textColor}
-        display="flex"
         size="body1">
         {Icon && <Icon className={clsx('size-5 shrink-0', iconClass)} />}
         <div className="flex w-full grow flex-col gap-y-1">

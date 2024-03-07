@@ -68,11 +68,11 @@ export default function QuestionsGuidesGrid({
               <div className="flex justify-center md:w-full">
                 <Text
                   className={clsx(
-                    'z-10 size-6 items-center justify-center rounded-full border-2',
+                    'flex items-center justify-center',
+                    'size-6 z-10 rounded-full border-2',
                     themeBorderColor,
                     'group-hover:border-brand',
                   )}
-                  display="flex"
                   size="body2"
                   weight="bold">
                   {index + 1}

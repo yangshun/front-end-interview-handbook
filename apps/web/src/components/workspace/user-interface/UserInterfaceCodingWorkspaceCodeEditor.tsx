@@ -91,9 +91,8 @@ export default function UserInterfaceCodingWorkspaceCodeEditor({
           </div>
         ) : (
           <Text
-            className="gap-x-1 whitespace-nowrap"
+            className="flex gap-x-1 whitespace-nowrap"
             color="subtle"
-            display="flex"
             size="body3">
             <span className="flex items-center gap-x-1">
               <CodingWorkspaceTabIcons.versions.icon className="size-4" />{' '}

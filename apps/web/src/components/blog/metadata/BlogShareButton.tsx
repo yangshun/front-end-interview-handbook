@@ -71,7 +71,7 @@ export default function BlogShareButton({
           )}
           href={href}
           variant="unstyled">
-          <Text className="items-center gap-x-2" display="flex" size="body2">
+          <Text className="flex items-center gap-x-2" size="body2">
             <Icon className="size-4 shrink-0" />
             {label}
           </Text>

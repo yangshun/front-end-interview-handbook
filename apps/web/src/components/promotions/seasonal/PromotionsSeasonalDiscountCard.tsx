@@ -45,10 +45,7 @@ export function PromotionsSeasonalDiscountCard() {
         <>
           <div className="mt-4 flex items-end gap-1">
             <Text
-              className={clsx('inline-flex items-center text-5xl font-bold')}
-              display="inline-flex"
-              size="inherit"
-              weight="inherit">
+              className={clsx('inline-flex items-center text-5xl font-bold')}>
               {PERPETUAL_PROMO_CODE_DISCOUNT_PERCENTAGE}%
             </Text>
             <Text

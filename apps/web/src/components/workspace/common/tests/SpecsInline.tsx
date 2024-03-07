@@ -43,8 +43,7 @@ export default function SpecsInline({
             return (
               <Text
                 key={spec.name}
-                className="flex-col gap-3 gap-y-2 p-3"
-                display="flex"
+                className="flex flex-col gap-3 gap-y-2 p-3"
                 size="body3">
                 <div className="flex items-center">
                   <SpecLabel

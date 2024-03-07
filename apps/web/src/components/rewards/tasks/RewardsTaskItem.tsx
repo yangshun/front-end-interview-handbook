@@ -97,9 +97,8 @@ export default function RewardsTaskItem({
         <div>
           {status === 'completed' && (
             <Text
-              className="gap-x-2"
+              className="flex gap-x-2"
               color="success"
-              display="flex"
               size="body3"
               weight="medium">
               <RiCheckFill className="size-4 shrink-0" />

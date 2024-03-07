@@ -72,9 +72,8 @@ function JobPostingItem({
             />
           </Heading>
           <Text
-            className="items-center gap-x-2"
+            className="inline-flex items-center gap-x-2"
             color="subtitle"
-            display="inline-flex"
             size="body2">
             <RiMapPinLine className={clsx('size-5', themeIconColor)} />{' '}
             {location}

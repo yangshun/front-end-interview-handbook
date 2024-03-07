@@ -205,7 +205,7 @@ export default function Sidebar({
       });
 
   return (
-    <div className="flex size-full flex-1 grow flex-col justify-between p-4">
+    <div className="size-full flex flex-1 grow flex-col justify-between p-4">
       <div className={clsx('grid gap-2')}>
         {navigation.map((item) => {
           const itemInterationClasses = clsx(
@@ -223,9 +223,8 @@ export default function Sidebar({
           );
           const label = (
             <Text
-              className="gap-x-2"
+              className="flex gap-x-2"
               color="inherit"
-              display="flex"
               size="body2"
               weight="medium">
               {item.icon != null && <SidebarIcon icon={item.icon} />}

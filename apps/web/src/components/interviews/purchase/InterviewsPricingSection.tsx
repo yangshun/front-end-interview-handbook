@@ -683,7 +683,6 @@ export default function InterviewsPricingSection({
                               .after < 1000 && 'sm:text-lg',
                           )}
                           color="subtle"
-                          display="inline-flex"
                           size="inherit"
                           weight="medium">
                           <PurchasePriceLabel
@@ -716,7 +715,6 @@ export default function InterviewsPricingSection({
                             .after < 1000 && 'sm:text-xl',
                         ])}
                         color="subtitle"
-                        display="inline-flex"
                         size="inherit"
                         weight="medium">
                         <span>
@@ -881,10 +879,9 @@ export default function InterviewsPricingSection({
                                 {showPPPMessage && (
                                   <Text
                                     className={clsx(
-                                      'items-baseline line-through',
+                                      'flex items-baseline line-through',
                                     )}
                                     color="subtle"
-                                    display="flex"
                                     size="body1">
                                     <PurchasePriceLabel
                                       amount={priceRoundToNearestNiceNumber(
@@ -912,7 +909,6 @@ export default function InterviewsPricingSection({
                                 <Text
                                   className="flex items-baseline gap-x-2"
                                   color="subtitle"
-                                  display="flex"
                                   size="body1"
                                   weight="medium">
                                   <span>

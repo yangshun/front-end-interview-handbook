@@ -59,9 +59,8 @@ export function PromotionsStudentDiscountCard() {
       ]}
       footer={
         <Text
-          className="justify-between gap-x-4"
+          className="flex justify-between gap-x-4"
           color="secondary"
-          display="flex"
           size="body3">
           <span>
             <FormattedMessage
@@ -86,17 +85,10 @@ export function PromotionsStudentDiscountCard() {
         <>
           <div className="mt-4 flex items-end gap-1">
             <Text
-              className={clsx('inline-flex items-center text-5xl font-bold')}
-              display="inline-flex"
-              size="inherit"
-              weight="inherit">
+              className={clsx('inline-flex items-center text-5xl font-bold')}>
               {discountPercentage}%
             </Text>
-            <Text
-              className="text-xl font-medium"
-              color="label"
-              size="inherit"
-              weight="bold">
+            <Text className="text-xl font-medium" color="label" weight="bold">
               <FormattedMessage
                 defaultMessage="OFF"
                 description="Amount cashback/discount"
