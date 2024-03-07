@@ -3,6 +3,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from 'react';
@@ -240,6 +241,7 @@ export default function ProjectsChallengeFilterContextProvider({
     updateSearchParams,
     getArrayTypeSearchParams,
     getStringTypeSearchParams,
+    updateMultipleSearchParams,
   } = useFilterSearchParams();
 
   const initialComponentTrack = getArrayTypeSearchParams('component-track');
@@ -257,16 +259,19 @@ export default function ProjectsChallengeFilterContextProvider({
 
   const filters = useFilters();
 
+  useEffect(() => {
+    // Update search params in the current url
+    updateMultipleSearchParams(selectedFilters);
+  }, [selectedFilters, updateMultipleSearchParams]);
+
   const setFilterValue = useCallback(
     (key: ProjectsChallengeFilterKey, value: Array<string>) => {
-      // Update search params in the current url
-      updateSearchParams(key, value);
       setSelectedFilters((prev) => ({
         ...prev,
         [key]: value,
       }));
     },
-    [updateSearchParams],
+    [],
   );
 
   const clearAll = useCallback(() => {

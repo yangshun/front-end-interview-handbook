@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect, useMemo, useState } from 'react';
 import { RiFilterLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
@@ -9,13 +9,18 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '~/components/ui/Accordion';
+import Button from '~/components/ui/Button';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Divider from '~/components/ui/Divider';
 import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsChallengeFilter } from './ProjectsChallengeFilterContext';
+import type {
+  ProjectsChallengeFilter,
+  ProjectsChallengeFilterKey,
+} from './ProjectsChallengeFilterContext';
 import {
+  ProjectsChallengeFilterContext,
   useProjectsChallengeFilterContext,
   useProjectsChallengeFilterState,
 } from './ProjectsChallengeFilterContext';
@@ -83,50 +88,142 @@ type Props = Readonly<{
 export default function ProjectsChallengeFilterSlideOut({ selected }: Props) {
   const intl = useIntl();
 
-  const { filters: initialFilters } = useProjectsChallengeFilterContext();
+  const {
+    filters: initialFilters,
+    value: initialSelectedFilters,
+    getArrayTypeSearchParams,
+    getStringTypeSearchParams,
+    updateSearchParams,
+    setSelectedFilters: setInitialSelectedFilters,
+    clearAll,
+  } = useProjectsChallengeFilterContext();
+  const [selectedFilters, setSelectedFilters] = useState<
+    Record<ProjectsChallengeFilterKey, Array<string>>
+  >(initialSelectedFilters);
+  const [isFiltersShown, setIsFiltersShown] = useState(false);
+
+  const value = useMemo(
+    () => ({
+      clearAll: () => {
+        setSelectedFilters({
+          'component-track': [],
+          difficulty: [],
+          skills: [],
+          status: [],
+        });
+      },
+      filters: initialFilters,
+      getArrayTypeSearchParams,
+      getStringTypeSearchParams,
+      setFilterValue: (
+        key: ProjectsChallengeFilterKey,
+        newValue: Array<string>,
+      ) => {
+        setSelectedFilters((prev) => ({
+          ...prev,
+          [key]: newValue,
+        }));
+      },
+      setSelectedFilters,
+      updateSearchParams,
+      value: selectedFilters,
+    }),
+    [
+      initialFilters,
+      selectedFilters,
+      getArrayTypeSearchParams,
+      getStringTypeSearchParams,
+      updateSearchParams,
+    ],
+  );
+
+  const onApplyFilter = () => {
+    setInitialSelectedFilters(selectedFilters);
+    setIsFiltersShown(false);
+  };
+
+  const onClearAllFilter = () => {
+    clearAll();
+    setIsFiltersShown(false);
+  };
+
+  useEffect(() => {
+    setSelectedFilters(initialSelectedFilters);
+  }, [initialSelectedFilters]);
 
   return (
-    <SlideOut
-      enterFrom="end"
-      size="md"
-      title={intl.formatMessage({
-        defaultMessage: 'Filters',
-        description: 'Title of Projects project filter slide-out',
-        id: 'DdRaW3',
-      })}
-      trigger={
-        <FilterButton
-          icon={RiFilterLine}
-          isLabelHidden={true}
-          label={intl.formatMessage({
-            defaultMessage: 'All filters',
-            description: 'Label for All Filters button for projects list',
-            id: 'i9ojv3',
-          })}
-          purpose="button"
-          selected={selected}
-          size="md"
-          tooltip={intl.formatMessage({
-            defaultMessage: 'View all filters',
-            description: 'Tooltip for All Filters button for projects list',
-            id: 'vHNURr',
-          })}
-        />
-      }>
-      <div className="flex flex-col">
-        <Divider color="emphasized" />
-        <Accordion
-          className="flex flex-col"
-          defaultValue={initialFilters.map(({ id }) => id)}
-          type="multiple">
-          {initialFilters.map((filter) => (
-            <Fragment key={filter.id}>
-              <FilterSection key={filter.id} {...filter} />
-            </Fragment>
-          ))}
-        </Accordion>
+    <ProjectsChallengeFilterContext.Provider value={value}>
+      <SlideOut
+        enterFrom="end"
+        isShown={isFiltersShown}
+        size="md"
+        title={intl.formatMessage({
+          defaultMessage: 'Filters',
+          description: 'Title of Projects project filter slide-out',
+          id: 'DdRaW3',
+        })}
+        trigger={
+          <FilterButton
+            icon={RiFilterLine}
+            isLabelHidden={true}
+            label={intl.formatMessage({
+              defaultMessage: 'All filters',
+              description: 'Label for All Filters button for projects list',
+              id: 'i9ojv3',
+            })}
+            purpose="button"
+            selected={selected}
+            size="md"
+            tooltip={intl.formatMessage({
+              defaultMessage: 'View all filters',
+              description: 'Tooltip for All Filters button for projects list',
+              id: 'vHNURr',
+            })}
+            onClick={() => {
+              setIsFiltersShown(true);
+            }}
+          />
+        }
+        onClose={() => {
+          setIsFiltersShown(false);
+        }}>
+        <div className="flex flex-col">
+          <Divider color="emphasized" />
+          <Accordion
+            className="flex flex-col"
+            defaultValue={initialFilters.map(({ id }) => id)}
+            type="multiple">
+            {initialFilters.map((filter) => (
+              <Fragment key={filter.id}>
+                <FilterSection key={filter.id} {...filter} />
+              </Fragment>
+            ))}
+          </Accordion>
+          <Divider />
+        </div>
+
         <Divider />
-      </div>
-    </SlideOut>
+        <div className="my-5 flex justify-end gap-3 p-4">
+          <Button
+            label={intl.formatMessage({
+              defaultMessage: 'Clear all',
+              description: 'Label for clear all button',
+              id: 'LEh5WZ',
+            })}
+            variant="secondary"
+            onClick={onClearAllFilter}
+          />
+          <Button
+            label={intl.formatMessage({
+              defaultMessage: 'Apply',
+              description: 'Label for apply button',
+              id: 'aJWJvF',
+            })}
+            variant="primary"
+            onClick={onApplyFilter}
+          />
+        </div>
+      </SlideOut>
+    </ProjectsChallengeFilterContext.Provider>
   );
 }
