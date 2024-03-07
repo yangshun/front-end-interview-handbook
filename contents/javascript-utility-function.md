@@ -40,9 +40,19 @@ Advanced questions are usually given to more senior candidates and expect around
 
 ## Where to practice
 
+<div class="video-container">
+    <video class='gfe-webm' autoplay muted loop>
+        <source src="/gfe-features.webm" type="video/webm" />
+    </video>
+</div>
+
 - These questions and many others are available on [GreatFrontEnd](https://www.greatfrontend.com). Apart from a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/utilities) that you can access by frameworks, each question also comes with a solution authored by ex-FAANG engineers and automated test cases.
 - Here are some questions you can start with:
-    - 
+    - [Debounce](https://www.greatfrontend.com/questions/javascript/debounce) (Free)
+    - [Promise.all()](https://www.greatfrontend.com/questions/javascript/promise-all) (Free)
+    - [Deep Clone](https://www.greatfrontend.com/questions/javascript/deep-clone) (Free)
+    - [Event Emitter](https://www.greatfrontend.com/questions/javascript/event-emitter) (Free)
+    - [Array.prototype.filter()](https://www.greatfrontend.com/questions/javascript/array-filter) (Paid)
 
 ## Tips
 
