@@ -2,19 +2,13 @@ import clsx from 'clsx';
 import { capitalize } from 'lodash-es';
 import { Fragment } from 'react';
 
-import type { TextColor, TextSize, TextWeight } from './Text';
 import Text from './Text';
 import UIExamplesGroup from '../misc/UIExamplesGroup';
 import { themeBackgroundInvertColor } from '../theme';
 
-const colors: ReadonlyArray<TextColor> = [
-  'default',
-  'subtitle',
-  'secondary',
-  'subtle',
-];
+const colors = ['default', 'subtitle', 'secondary', 'subtle'] as const;
 
-const specialColors: ReadonlyArray<TextColor> = [
+const specialColors = [
   'label',
   'placeholder',
   'disabled',
@@ -23,10 +17,10 @@ const specialColors: ReadonlyArray<TextColor> = [
   'success',
   'invert',
   'inherit',
-];
+] as const;
 
-const sizes: ReadonlyArray<TextSize> = ['body0', 'body1', 'body2', 'body3'];
-const weights: ReadonlyArray<TextWeight> = ['normal', 'medium', 'bold'];
+const sizes = ['body0', 'body1', 'body2', 'body3'] as const;
+const weights = ['normal', 'medium', 'bold'] as const;
 
 export default function TextExamples() {
   return (
@@ -59,10 +53,7 @@ export default function TextExamples() {
                 {colors.map((color) => (
                   <Text
                     key={color}
-                    className={clsx(
-                      'whitespace-nowrap',
-                      color === 'invert' && themeBackgroundInvertColor,
-                    )}
+                    className={clsx('whitespace-nowrap')}
                     color={color}
                     size="body1">
                     {capitalize(color)}
