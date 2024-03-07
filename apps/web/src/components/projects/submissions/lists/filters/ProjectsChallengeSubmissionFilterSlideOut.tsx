@@ -235,7 +235,11 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
             ))}
           </Accordion>
           <Divider />
-          <div className="my-5 flex justify-end gap-3 p-4">
+          <div
+            className={clsx(
+              'my-5 md:p-4',
+              'flex flex-col justify-end gap-5 md:flex-row md:gap-3',
+            )}>
             <Button
               label={intl.formatMessage({
                 defaultMessage: 'Clear all',
