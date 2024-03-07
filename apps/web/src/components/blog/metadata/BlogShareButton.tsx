@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import {
   RiFacebookFill,
   RiLinkedinBoxFill,
@@ -8,9 +7,7 @@ import {
 import { useIntl } from 'react-intl';
 
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
-import Anchor from '~/components/ui/Anchor';
 import DropdownMenu from '~/components/ui/DropdownMenu';
-import Text from '~/components/ui/Text';
 
 import { getSiteUrl } from '~/seo/siteUrl';
 
@@ -62,20 +59,7 @@ export default function BlogShareButton({
       showChevron={false}
       size="sm">
       {shareOptions.map(({ label, value, icon: Icon, href }) => (
-        <Anchor
-          key={value}
-          className={clsx(
-            'block px-2 py-1.5 hover:bg-neutral-100 dark:hover:bg-neutral-900',
-            'w-full text-left',
-            'rounded',
-          )}
-          href={href}
-          variant="unstyled">
-          <Text className="flex items-center gap-x-2" size="body2">
-            <Icon className="size-4 shrink-0" />
-            {label}
-          </Text>
-        </Anchor>
+        <DropdownMenu.Item key={value} href={href} icon={Icon} label={label} />
       ))}
     </DropdownMenu>
   );
