@@ -11,6 +11,7 @@ import { mergeRefs } from 'react-merge-refs';
 import type { LabelDescriptionStyle } from '../Label';
 import Label from '../Label';
 import Text from '../Text/Text';
+import TextMaxLengthLabel from '../Text/TextMaxLengthLabel';
 import { themeBackgroundElementColor } from '../theme';
 
 type Attributes = Pick<
@@ -220,9 +221,10 @@ function TextArea(
             </Text>
           )}
           {maxLength && (
-            <Text color="subtle" size="body3">
-              {valueLength}/{maxLength}
-            </Text>
+            <TextMaxLengthLabel
+              maxLength={maxLength}
+              valueLength={valueLength}
+            />
           )}
         </div>
       )}

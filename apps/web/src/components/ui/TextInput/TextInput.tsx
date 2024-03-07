@@ -8,6 +8,7 @@ import React, { useId } from 'react';
 import type { LabelDescriptionStyle } from '../Label';
 import Label from '../Label';
 import Text from '../Text/Text';
+import TextMaxLengthLabel from '../Text/TextMaxLengthLabel';
 import { themeBackgroundElementColor } from '../theme';
 
 export type TextInputSize = 'md' | 'sm' | 'xs';
@@ -227,9 +228,10 @@ function TextInput(
             </Text>
           )}
           {maxLength && (
-            <Text color="subtle" size="body3">
-              {valueLength}/{maxLength}
-            </Text>
+            <TextMaxLengthLabel
+              maxLength={maxLength}
+              valueLength={valueLength}
+            />
           )}
         </div>
       )}
