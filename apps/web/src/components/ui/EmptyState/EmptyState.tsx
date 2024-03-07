@@ -96,10 +96,10 @@ export default function EmptyState({
 
   return (
     <div className="mx-auto max-w-md py-6 text-center sm:py-12">
-      <Text color={colors[variant]} display="block">
+      <Text color={colors[variant]} display="block" size="body1">
         <Icon
           aria-hidden="true"
-          className={clsx('mx-auto size-10 shrink-0', iconClassName)}
+          className={clsx('size-10 mx-auto shrink-0', iconClassName)}
         />
       </Text>
       <Heading className="mt-4" level="custom">

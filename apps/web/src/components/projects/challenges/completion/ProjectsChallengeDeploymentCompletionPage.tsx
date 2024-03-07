@@ -112,7 +112,7 @@ export default function ProjectsChallengeDeploymentCompletionPage({
                       <RiGithubFill className="size-6" />
                     </div>
                     <div className="flex flex-col gap-0.5">
-                      <Text weight="bold">
+                      <Text size="body1" weight="bold">
                         <FormattedMessage
                           defaultMessage="GitHub repo"
                           description="Title for GitHub repo step in project submission checklist"
@@ -205,7 +205,7 @@ export default function ProjectsChallengeDeploymentCompletionPage({
                       <RiCodeLine className="size-6" />
                     </div>
                     <div className="flex flex-col gap-0.5">
-                      <Text weight="bold">
+                      <Text size="body1" weight="bold">
                         <FormattedMessage
                           defaultMessage="Deployment"
                           description="Title for Deployment step in project submission checklist"
@@ -317,7 +317,7 @@ export default function ProjectsChallengeDeploymentCompletionPage({
                     <RiShareCircleLine className="size-6" />
                   </div>
                   <div className="flex flex-col gap-0.5">
-                    <Text weight="bold">
+                    <Text size="body1" weight="bold">
                       <FormattedMessage
                         defaultMessage="Ready to submit?"
                         description="Title for Submit step in project submission checklist"

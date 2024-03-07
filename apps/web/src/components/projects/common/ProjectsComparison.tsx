@@ -136,7 +136,7 @@ export default function ProjectsComparison({
               {width}px &times; {height}px
             </Text>
           )}
-          <Text color="secondary" weight="medium">
+          <Text color="secondary" size="body1" weight="medium">
             {pages[selectedScreenIndex].label}
           </Text>
           {deploymentUrls && (

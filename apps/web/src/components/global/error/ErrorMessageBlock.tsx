@@ -49,7 +49,11 @@ export default function ErrorMessageBlock() {
           Oops! An error has occurred
         </Heading>
         <div>
-          <Text className="text-center" color="secondary" display="block">
+          <Text
+            className="text-center"
+            color="secondary"
+            display="block"
+            size="body1">
             Some common reasons include:
           </Text>
           <ul
@@ -63,7 +67,7 @@ export default function ErrorMessageBlock() {
               <li key={link.name} className="relative flex gap-x-6 py-6">
                 <div
                   className={clsx(
-                    'flex size-10 flex-none items-center justify-center rounded-lg shadow-sm',
+                    'size-10 flex flex-none items-center justify-center rounded-lg shadow-sm',
                     ['border', themeBorderColor],
                   )}>
                   <link.icon
@@ -72,7 +76,7 @@ export default function ErrorMessageBlock() {
                   />
                 </div>
                 <div className="flex flex-auto flex-col gap-1.5">
-                  <Text display="block" weight="medium">
+                  <Text display="block" size="body1" weight="medium">
                     {link.name}
                   </Text>
                   <Text color="secondary" size="body2">

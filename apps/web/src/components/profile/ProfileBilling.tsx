@@ -23,7 +23,7 @@ function PlanLabel({
   plan?: UserProfilePlan | null;
 }>): JSX.Element {
   if (plan == null) {
-    return <Text>N/A</Text>;
+    return <Text size="body1">N/A</Text>;
   }
 
   const autoRenewal = (
@@ -95,7 +95,11 @@ function PlanLabel({
           description="Text describing user's subscription plan."
           id="PQRmTe"
           values={{
-            bold: (chunks) => <Text weight="bold">{chunks}</Text>,
+            bold: (chunks) => (
+              <Text size="inherit" weight="bold">
+                {chunks}
+              </Text>
+            ),
           }}
         />
       );

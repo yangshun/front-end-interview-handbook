@@ -96,7 +96,7 @@ export default function DashboardOnboarding() {
               )}>
               <div className="flex items-center gap-x-3">
                 <Icon className="size-6 text-neutral-400 dark:text-neutral-500" />
-                <Text display="block" weight="bold">
+                <Text display="block" size="body1" weight="bold">
                   {label}
                 </Text>
               </div>

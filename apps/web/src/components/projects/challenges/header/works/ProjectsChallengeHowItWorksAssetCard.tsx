@@ -78,11 +78,15 @@ export default function ProjectsChallengeHowItWorksAssetCard() {
                   )}
                 </div>
                 <div className="flex flex-1 flex-col gap-2">
-                  <Text className="text-sm" color="active" weight="medium">
+                  <Text
+                    className="text-sm"
+                    color="active"
+                    size="body1"
+                    weight="medium">
                     {step.label}
                   </Text>
                   <div className="flex flex-col items-start gap-4">
-                    <Text className="text-xs" color="secondary">
+                    <Text className="text-xs" color="secondary" size="body1">
                       <FormattedMessage
                         defaultMessage="Includes assets, JPG images of the design files, and a basic style guide. There's also a README to help you get started."
                         description="Description for Download Starter Files content section on Before You Get Started dialog"

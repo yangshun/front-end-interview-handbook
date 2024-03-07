@@ -112,7 +112,7 @@ export default function ProjectsChallengeSubmissionHero({
           showStickyActionBar && '!block',
         )}>
         <div className="flex items-center gap-4">
-          <Text className="flex-1 truncate" weight="bold">
+          <Text className="flex-1 truncate" size="body1" weight="bold">
             {submission.title}
           </Text>
           <div className="flex gap-4">

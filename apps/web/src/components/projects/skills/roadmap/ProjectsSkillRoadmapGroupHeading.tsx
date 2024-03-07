@@ -20,7 +20,9 @@ export default function ProjectsSkillRoadmapGroupHeading({ group }: Props) {
   return (
     <div className="flex w-full flex-col gap-2">
       <div className="flex flex-col justify-between gap-2 md:flex-row">
-        <Text weight="medium">{group.key}</Text>
+        <Text size="body1" weight="medium">
+          {group.key}
+        </Text>
         {completedAll ? (
           <ProjectsChallengeStatusBadgeCompleted />
         ) : (

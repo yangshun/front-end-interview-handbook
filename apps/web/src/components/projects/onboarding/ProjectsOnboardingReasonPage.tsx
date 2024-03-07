@@ -71,7 +71,7 @@ export default function ProjectsOnboardingReasonPage() {
                 id="GPp0wf"
               />
             </Heading>
-            <Text className="text-center" color="secondary">
+            <Text className="text-center" color="secondary" size="body1">
               <FormattedMessage
                 defaultMessage="Choose up to 2 reasons why you are here so that we can improve your experience"
                 description="Subtitle for Projects onboarding page"

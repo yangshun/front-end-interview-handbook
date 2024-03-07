@@ -97,7 +97,7 @@ export default function ProjectsProfileHoverCard({ userId }: Props) {
                   {item.count}
                 </Text>
                 <div className="flex h-full">
-                  <Text className="!text-2xs" color="secondary">
+                  <Text className="text-2xs" color="secondary" size="inherit">
                     {item.title}
                   </Text>
                 </div>

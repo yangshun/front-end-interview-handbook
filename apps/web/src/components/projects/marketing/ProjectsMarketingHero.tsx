@@ -21,7 +21,7 @@ type ProjectMarketingHeroMode =
 function ProjectMarketingComponentLibraryDetails() {
   return (
     <div className="flex flex-col items-center gap-y-2">
-      <Text color="secondary">
+      <Text color="secondary" size="body1">
         <FormattedMessage
           defaultMessage="Build entire design systems, component libraries or full stack apps"
           description="Caption for component library showcase in Projects marketing hero section"
@@ -36,7 +36,7 @@ function ProjectMarketingComponentLibraryDetails() {
 function ProjectMarketingSkillsDetails() {
   return (
     <div className="flex flex-col items-center gap-y-2">
-      <Text color="secondary">
+      <Text color="secondary" size="body1">
         <FormattedMessage
           defaultMessage="Advance more than 20 core skills"
           description="Caption for skills showcase in Projects marketing hero section"

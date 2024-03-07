@@ -24,7 +24,9 @@ export default function ProjectsTrackHeader({
   return (
     <div className="flex flex-col items-start gap-1.5 text-start">
       <div className="flex items-center gap-2">
-        <Text weight="medium">{title}</Text>
+        <Text size="body1" weight="medium">
+          {title}
+        </Text>
         {metadata.premium && (
           <Badge
             icon={RiLock2Line}

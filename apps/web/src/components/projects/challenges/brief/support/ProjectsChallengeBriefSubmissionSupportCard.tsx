@@ -10,7 +10,9 @@ export default function ProjectsChallengeBriefSubmissionSupportCard() {
   return (
     <ProjectsChallengeBriefSupportCard>
       <div className="flex flex-col gap-3">
-        <Text weight="bold">Responsive solution build with React</Text>
+        <Text size="body1" weight="bold">
+          Responsive solution build with React
+        </Text>
         <ProjectsSkillList
           label={intl.formatMessage({
             defaultMessage: 'Stack used',

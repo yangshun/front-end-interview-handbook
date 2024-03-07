@@ -884,7 +884,8 @@ export default function InterviewsPricingSection({
                                       'items-baseline line-through',
                                     )}
                                     color="subtle"
-                                    display="flex">
+                                    display="flex"
+                                    size="body1">
                                     <PurchasePriceLabel
                                       amount={priceRoundToNearestNiceNumber(
                                         paymentConfig.unitCostCurrency.base
@@ -912,6 +913,7 @@ export default function InterviewsPricingSection({
                                   className="flex items-baseline gap-x-2"
                                   color="subtitle"
                                   display="flex"
+                                  size="body1"
                                   weight="medium">
                                   <span>
                                     <PurchasePriceLabel

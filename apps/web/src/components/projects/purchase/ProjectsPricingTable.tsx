@@ -359,7 +359,7 @@ function FeatureItem({
         aria-hidden={true}
         className={clsx('size-6 shrink-0', themeTextSuccessColor)}
       />
-      <Text color="secondary" display="block">
+      <Text color="secondary" display="block" size="body1">
         {title}
       </Text>
       {description && (
@@ -401,7 +401,8 @@ function ProjectsPricingPriceCell({
           <Text
             className={clsx('items-baseline line-through')}
             color="subtle"
-            display="inline-flex">
+            display="inline-flex"
+            size="body1">
             <PurchasePriceLabel
               amount={priceRoundToNearestNiceNumber(
                 paymentConfig.unitCostCurrency.base.after /
@@ -429,6 +430,7 @@ function ProjectsPricingPriceCell({
           className="items-baseline gap-x-2"
           color="subtitle"
           display="inline-flex"
+          size="body1"
           weight="medium">
           <span>
             <PurchasePriceLabel
@@ -539,7 +541,7 @@ export default function ProjectsPricingTable({
               <th colSpan={2} />
               {planList.map((plan) => (
                 <th key={plan.name} className="px-6 xl:px-8" scope="col">
-                  <Text color="subtitle" weight="medium">
+                  <Text color="subtitle" size="body1" weight="medium">
                     {plan.name}
                   </Text>
                 </th>
@@ -658,7 +660,7 @@ export default function ProjectsPricingTable({
           }) => {
             return (
               <div key={name} className={clsx('px-8 py-6')}>
-                <Text color="subtitle" weight="medium">
+                <Text color="subtitle" size="body1" weight="medium">
                   {name}
                 </Text>
                 {paymentConfig != null && type !== 'FREE' && (

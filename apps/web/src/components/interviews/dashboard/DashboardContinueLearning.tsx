@@ -80,7 +80,9 @@ export default function DashboardContinueLearning({
                     reverseGradient={reverseGradient}
                   />
                   <div className="flex flex-col gap-1">
-                    <Text weight="medium">{title}</Text>
+                    <Text size="body1" weight="medium">
+                      {title}
+                    </Text>
                     <div className="inline-flex flex-wrap gap-x-6 gap-y-1">
                       {durationMins && (
                         <QuestionTotalTimeLabel

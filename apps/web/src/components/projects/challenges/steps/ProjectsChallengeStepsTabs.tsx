@@ -83,13 +83,14 @@ function ProjectsChallengeStepsTabItem({
       <Text
         color={isSelected ? 'active' : 'inherit'}
         display="block"
+        size="body1"
         weight="bold">
         {tabItemTitle}
         {accessAllSteps && !hasRead && (
           <span className="bg-red size-2 mb-2 ms-1 inline-block rounded-full" />
         )}
       </Text>
-      <Text color="secondary" display="block">
+      <Text color="secondary" display="block" size="body1">
         {tabItemSubtitle}
       </Text>
     </Anchor>

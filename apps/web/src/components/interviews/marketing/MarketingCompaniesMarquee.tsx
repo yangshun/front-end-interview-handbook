@@ -85,6 +85,7 @@ export default function MarketingCompaniesMarquee() {
         className="text-center"
         color="secondary"
         display="block"
+        size="body1"
         weight="bold">
         <FormattedMessage
           defaultMessage="Our users now work in these companies"

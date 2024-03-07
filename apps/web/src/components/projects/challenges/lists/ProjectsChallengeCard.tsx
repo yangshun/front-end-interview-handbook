@@ -94,7 +94,9 @@ export default function ProjectsChallengeCard({
           <ProjectsChallengeReputationTag points={points} variant="flat" />
         </div>
         <div className="flex grow flex-col gap-2">
-          <Text weight="bold">{title}</Text>
+          <Text size="body1" weight="bold">
+            {title}
+          </Text>
           <Text className="grow" color="subtitle" size="body2">
             {description}
           </Text>

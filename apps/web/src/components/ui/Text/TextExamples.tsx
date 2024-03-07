@@ -50,7 +50,9 @@ export default function TextExamples() {
         <tbody>
           <tr>
             <td className="py-1">
-              <Text weight="medium">Common Colors</Text>
+              <Text size="body1" weight="medium">
+                Common Colors
+              </Text>
             </td>
             <td>
               <div className="flex flex-wrap items-center gap-4">
@@ -61,7 +63,8 @@ export default function TextExamples() {
                       'whitespace-nowrap',
                       color === 'invert' && themeBackgroundInvertColor,
                     )}
-                    color={color}>
+                    color={color}
+                    size="body1">
                     {capitalize(color)}
                   </Text>
                 ))}
@@ -71,7 +74,9 @@ export default function TextExamples() {
           </tr>
           <tr>
             <td className="py-1">
-              <Text weight="medium">Special Colors</Text>
+              <Text size="body1" weight="medium">
+                Special Colors
+              </Text>
             </td>
             <td>
               <div className="flex flex-wrap items-center gap-4">
@@ -82,7 +87,8 @@ export default function TextExamples() {
                       'whitespace-nowrap',
                       color === 'invert' && themeBackgroundInvertColor,
                     )}
-                    color={color}>
+                    color={color}
+                    size="body1">
                     {capitalize(color)}
                   </Text>
                 ))}

@@ -82,7 +82,7 @@ export default function ExclusiveTicket({
               padding === 'lg' || padding === 'md' ? 'gap-y-1' : 'gap-y-0.5',
             )}>
             {title && (
-              <Text display="block" weight="medium">
+              <Text display="block" size="body1" weight="medium">
                 {title}
               </Text>
             )}

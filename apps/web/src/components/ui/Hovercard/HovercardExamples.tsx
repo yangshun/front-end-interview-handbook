@@ -36,7 +36,7 @@ export default function HoverCardExamples() {
       <div className="flex gap-x-32">
         <Hovercard>
           <HovercardTrigger>
-            <Text>Hover</Text>
+            <Text size="body1">Hover</Text>
           </HovercardTrigger>
           <HovercardPortal>
             <HovercardContent>
@@ -79,7 +79,7 @@ export default function HoverCardExamples() {
         </Hovercard>
         <Hovercard>
           <HovercardTrigger>
-            <Text>Hover</Text>
+            <Text size="body1">Hover</Text>
           </HovercardTrigger>
           <HovercardPortal>
             <HovercardContent className="border-none">

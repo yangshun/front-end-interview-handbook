@@ -27,7 +27,9 @@ function MarketingHeroAuthorIntroduction({
       <Text className="text-center" display="block" size="body2">
         {title}
       </Text>
-      <Text className="flex items-center justify-center gap-x-6 lg:gap-x-8">
+      <Text
+        className="flex items-center justify-center gap-x-6 lg:gap-x-8"
+        size="body1">
         {icons}
       </Text>
     </div>

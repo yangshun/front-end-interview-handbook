@@ -58,7 +58,7 @@ export default function ProjectsChallengeBriefPage({ challenge }: Props) {
               id="7vvXZb"
             />
           </Heading>
-          <Text className="mt-4">
+          <Text className="mt-4" size="body1">
             <FormattedMessage
               defaultMessage="Purchase premium to unlock access to {premiumProjectCount}+ premium projects and tracks."
               description="Description for Premium Projects section on Projects project page"

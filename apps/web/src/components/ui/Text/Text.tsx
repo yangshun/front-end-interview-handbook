@@ -94,7 +94,7 @@ function Text(
     color = 'default',
     className,
     display = 'inline',
-    size = 'body1',
+    size = 'inherit',
     weight = 'normal',
     ...props
   }: Props,

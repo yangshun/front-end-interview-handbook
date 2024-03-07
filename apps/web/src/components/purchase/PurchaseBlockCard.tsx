@@ -64,7 +64,7 @@ export default function PurchaseBlockCard({
             {title}
           </Heading>
           <Section>
-            <Text color="secondary" display="block">
+            <Text color="secondary" display="block" size="body1">
               {subtitle}
             </Text>
           </Section>

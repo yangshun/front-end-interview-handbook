@@ -29,7 +29,7 @@ export default function CardExamples() {
             <div className="flex justify-between">
               <span
                 className={clsx(
-                  'inline-flex size-10 items-center justify-center rounded-md',
+                  'size-10 inline-flex items-center justify-center rounded-md',
                   themeBackgroundChipColor,
                   'text-neutral-400',
                   'dark:border-brand dark:text-brand dark:border',
@@ -43,7 +43,7 @@ export default function CardExamples() {
                 )}
               />
             </div>
-            <Text display="block" weight="bold">
+            <Text display="block" size="body1" weight="bold">
               Data Structures & Algorithms
             </Text>
           </Card>
@@ -51,7 +51,7 @@ export default function CardExamples() {
             <div className="flex justify-between">
               <span
                 className={clsx(
-                  'inline-flex size-10 items-center justify-center rounded-md',
+                  'size-10 inline-flex items-center justify-center rounded-md',
                   themeBackgroundChipColor,
                   'text-neutral-400',
                   'border border-transparent transition',
@@ -68,7 +68,7 @@ export default function CardExamples() {
             </div>
             <Anchor href="#" variant="unstyled">
               <span aria-hidden={true} className="absolute inset-0" />
-              <Text display="block" weight="bold">
+              <Text display="block" size="body1" weight="bold">
                 Data Structures & Algorithms
               </Text>
             </Anchor>
@@ -100,7 +100,7 @@ export default function CardExamples() {
               <div>
                 <Anchor href="#" variant="unstyled">
                   <span aria-hidden={true} className="absolute inset-0" />
-                  <Text display="block" weight="medium">
+                  <Text display="block" size="body1" weight="medium">
                     Custom Padding
                   </Text>
                 </Anchor>

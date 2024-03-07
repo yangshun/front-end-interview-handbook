@@ -122,7 +122,7 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
         onClose={() => {
           setShowEndSessionDialog(false);
         }}>
-        <Text>
+        <Text size="body1">
           <FormattedMessage
             defaultMessage="Are you sure you want to terminate this session? You will be able to restart the project anytime."
             description="Content for end project session dialog"
@@ -141,7 +141,7 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
           <div className="flex flex-col gap-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-x-2">
-                <Text className="flex gap-x-2" weight="bold">
+                <Text className="flex gap-x-2" size="body1" weight="bold">
                   <FormattedMessage
                     defaultMessage="Current project session"
                     description="Title for current project session card"

@@ -118,7 +118,8 @@ export default function MarketingEmailSubscribe() {
         </Heading>
         <Text
           className="text-brand-lightest mx-auto max-w-3xl text-base lg:text-lg"
-          display="block">
+          display="block"
+          size="body1">
           <FormattedMessage
             defaultMessage="Sign up for our newsletter and join our community of passionate <span>Front End Engineers</span>."
             description="Subtitle text for newsletter sign up section"

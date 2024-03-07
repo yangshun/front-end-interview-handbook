@@ -39,7 +39,7 @@ export default function ProjectsOnboardingProfilePage() {
               id="uGIcYs"
             />
           </Heading>
-          <Text className="text-center" color="secondary">
+          <Text className="text-center" color="secondary" size="body1">
             <FormattedMessage
               defaultMessage="First, set up your public profile to help the community know you better (and assist you better!)"
               description="Subtitle for Projects profile onboarding page"

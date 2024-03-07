@@ -146,7 +146,9 @@ export default function ProjectsTrackDetailsPage({ track, userId }: Props) {
                 <div className="flex flex-col items-start gap-2">
                   <Anchor href={challenge.href} variant="unstyled">
                     <span aria-hidden="true" className="absolute inset-0" />
-                    <Text weight="medium">{challenge.title}</Text>
+                    <Text size="body1" weight="medium">
+                      {challenge.title}
+                    </Text>
                   </Anchor>
                   <Text
                     className="hidden lg:block"

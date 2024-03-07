@@ -43,7 +43,11 @@ function NavbarPopoverLink({
           />
         </div>
         <div className="flex flex-col gap-y-1">
-          <Text className="items-center gap-2" display="flex" weight="medium">
+          <Text
+            className="items-center gap-2"
+            display="flex"
+            size="body1"
+            weight="medium">
             <span className="shrink-0">{label}</span> {labelAddon}
           </Text>
           {sublabel && (
@@ -158,7 +162,7 @@ export default function NavbarPopoverTabs({
               className={clsx(
                 'outline-none',
                 value === item.itemKey &&
-                  'flex size-full flex-col justify-between',
+                  'size-full flex flex-col justify-between',
               )}
               value={item.itemKey}>
               <div

@@ -41,7 +41,7 @@ export default function AuthPage({ view }: Props) {
       {!user ? (
         <>
           {error && (
-            <Text color="error" display="block">
+            <Text color="error" display="block" size="body1">
               {error.message}
             </Text>
           )}

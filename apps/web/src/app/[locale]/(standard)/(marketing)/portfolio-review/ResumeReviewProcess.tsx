@@ -125,7 +125,11 @@ export default function ResumeReviewProcess() {
                       level="heading6">
                       {feature.name}
                     </Heading>
-                    <Text className="mt-2" color="secondary" display="block">
+                    <Text
+                      className="mt-2"
+                      color="secondary"
+                      display="block"
+                      size="body1">
                       {feature.description}
                     </Text>
                   </div>
@@ -136,7 +140,7 @@ export default function ResumeReviewProcess() {
                           aria-hidden="true"
                           className={clsx('h-5 flex-none', themeTextBrandColor)}
                         />
-                        <Text color="secondary" display="block">
+                        <Text color="secondary" display="block" size="body1">
                           {subfeature}
                         </Text>
                       </li>

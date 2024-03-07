@@ -92,7 +92,10 @@ export default function ProjectsChallengeBriefSupportSection() {
           {supportItems.map(
             ({ key, title: itemTitle, description: itemDescription, card }) => (
               <div key={key} className="flex flex-col gap-3">
-                <Text className="truncate whitespace-nowrap" weight="bold">
+                <Text
+                  className="truncate whitespace-nowrap"
+                  size="body1"
+                  weight="bold">
                   {itemTitle}
                 </Text>
                 <div className="flex flex-col-reverse gap-y-4 lg:flex-col lg:gap-y-6">

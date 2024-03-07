@@ -253,6 +253,7 @@ export default function ProjectsChallengeGetStartedDialog({
                 <Text
                   className="text-sm md:text-base"
                   color={isStepSelected ? 'active' : 'default'}
+                  size="body1"
                   weight="medium">
                   {step.label}
                 </Text>
