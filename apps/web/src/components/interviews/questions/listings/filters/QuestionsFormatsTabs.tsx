@@ -1,6 +1,6 @@
 import { useIntl } from 'react-intl';
 
-import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
+import Tabs from '~/components/ui/Tabs';
 
 import type { QuestionUserFacingFormat } from '../../common/QuestionsTypes';
 
@@ -86,7 +86,7 @@ export default function QuestionsFormatTabs({
     }));
 
   return (
-    <TabsUnderline
+    <Tabs
       label={intl.formatMessage({
         defaultMessage: 'Question Formats',
         description: 'Label for tabs for question formats',
