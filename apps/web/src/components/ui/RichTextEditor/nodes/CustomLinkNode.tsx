@@ -1,5 +1,10 @@
 import clsx from 'clsx';
-import type { SerializedElementNode, Spread } from 'lexical';
+import type {
+  DOMConversionMap,
+  DOMConversionOutput,
+  SerializedElementNode,
+  Spread,
+} from 'lexical';
 import URL from 'url';
 
 import { anchorVariants } from '~/components/ui/Anchor';
@@ -11,8 +16,8 @@ import {
 import { i18nHref } from '~/next-i18nostic/src';
 
 import type { LinkAttributes } from '@lexical/link';
-import { LinkNode } from '@lexical/link';
-import { addClassNamesToElement } from '@lexical/utils';
+import { $createLinkNode, LinkNode } from '@lexical/link';
+import { addClassNamesToElement, isHTMLAnchorElement } from '@lexical/utils';
 
 export type SerializedCustomLinkNode = Spread<
   {
@@ -61,6 +66,29 @@ export class CustomLinkNode extends LinkNode {
     return element;
   }
 
+  static importDOM(): DOMConversionMap | null {
+    return {
+      a: (node: Node) => ({
+        conversion: convertAnchorElement,
+        priority: 1,
+      }),
+    };
+  }
+
+  static importJSON(serializedNode: SerializedCustomLinkNode): LinkNode {
+    const node = $createLinkNode(serializedNode.url, {
+      rel: serializedNode.rel,
+      target: serializedNode.target,
+      title: serializedNode.title,
+    });
+
+    node.setFormat(serializedNode.format);
+    node.setIndent(serializedNode.indent);
+    node.setDirection(serializedNode.direction);
+
+    return node;
+  }
+
   exportJSON(): SerializedCustomLinkNode {
     return {
       ...super.exportJSON(),
@@ -72,4 +100,22 @@ export class CustomLinkNode extends LinkNode {
       version: 1,
     };
   }
+}
+
+function convertAnchorElement(domNode: Node): DOMConversionOutput {
+  let node = null;
+
+  if (isHTMLAnchorElement(domNode)) {
+    const content = domNode.textContent;
+
+    if ((content !== null && content !== '') || domNode.children.length > 0) {
+      node = $createLinkNode(domNode.getAttribute('href') || '', {
+        rel: domNode.getAttribute('rel'),
+        target: domNode.getAttribute('target'),
+        title: domNode.getAttribute('title'),
+      });
+    }
+  }
+
+  return { node };
 }
