@@ -11,8 +11,6 @@ import {
 } from 'react-icons/ri';
 import { TbBinaryTree } from 'react-icons/tb';
 
-import ExclusiveTicket from '~/components/common/tickets/ExclusiveTicket';
-import Ticket from '~/components/common/tickets/Ticket';
 import DashboardContinueLearning from '~/components/interviews/dashboard/DashboardContinueLearning';
 import DashboardStudyGuideList from '~/components/interviews/dashboard/DashboardStudyGuideList';
 import MarketingCompaniesMarquee from '~/components/interviews/marketing/MarketingCompaniesMarquee';
@@ -28,6 +26,8 @@ import QuestionCountLabel from '~/components/interviews/questions/metadata/Quest
 import QuestionDifficultyLabel from '~/components/interviews/questions/metadata/QuestionDifficultyLabel';
 import QuestionProgressLabel from '~/components/interviews/questions/metadata/QuestionProgressLabel';
 import QuestionStudyAllocationLabel from '~/components/interviews/questions/metadata/QuestionStudyAllocationLabel';
+import ExclusiveTicket from '~/components/promotions/tickets/ExclusiveTicket';
+import Ticket from '~/components/promotions/tickets/Ticket';
 import Badge from '~/components/ui/Badge';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Container from '~/components/ui/Container';

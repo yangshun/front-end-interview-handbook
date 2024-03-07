@@ -13,12 +13,12 @@ import {
   purchaseSubscriptionRenew,
 } from '~/data/faqs/PurchaseFAQs';
 
-import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
+import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import FAQSection from '../marketing/faqs/FAQSection';
+import MarketingFAQSection from '../../marketing/faqs/MarketingFAQSection';
 
 const purchaseFaqs: FAQItems = [
   purchaseOptions,
@@ -67,7 +67,7 @@ export default function InterviewsPricingFAQSection() {
       />
       <Section>
         <div className="flex flex-col gap-y-6">
-          <FAQSection
+          <MarketingFAQSection
             faqs={purchaseFaqs}
             hideTitle={true}
             title={intl.formatMessage({

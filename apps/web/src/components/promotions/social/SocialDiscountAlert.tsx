@@ -5,7 +5,7 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import { trpc } from '~/hooks/trpc';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
-import Ticket from '~/components/common/tickets/Ticket';
+import Ticket from '~/components/promotions/tickets/Ticket';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';

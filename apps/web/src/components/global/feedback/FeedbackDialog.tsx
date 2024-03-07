@@ -13,7 +13,7 @@ import TextInput from '~/components/ui/TextInput';
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
 
-import useMarketingContactPlatformsConfig from '../../interviews/marketing/contact/MarketingContactPlatformsConfig';
+import useMarketingContactPlatformsConfig from '../../marketing/contact/MarketingContactPlatformsConfig';
 
 import { useUser } from '@supabase/auth-helpers-react';
 type FeedbackState = 'email' | 'message' | 'success';

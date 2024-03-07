@@ -7,8 +7,8 @@ import { useMediaQuery } from 'usehooks-ts';
 import { trpc } from '~/hooks/trpc';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
-import Ticket from '~/components/common/tickets/Ticket';
 import { useToast } from '~/components/global/toasts/useToast';
+import Ticket from '~/components/promotions/tickets/Ticket';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 

@@ -3,8 +3,8 @@ import type { ReactNode } from 'react';
 
 import { themeTextSecondaryColor } from '~/components/ui/theme';
 
-import Heading from '../../ui/Heading';
-import Text from '../../ui/Text';
+import Heading from '../ui/Heading';
+import Text from '../ui/Text';
 
 type Props = Readonly<{
   description?: ReactNode;
@@ -12,7 +12,7 @@ type Props = Readonly<{
   title?: ReactNode;
 }>;
 
-export default function MarketingSectionItemHeader({
+export default function MarketingSectionHeader({
   title,
   heading,
   description,
@@ -21,15 +21,26 @@ export default function MarketingSectionItemHeader({
     <div className="flex flex-col gap-y-6">
       <div className="flex flex-col gap-y-3">
         {title && (
-          <Text color="active" display="block" size="body2" weight="medium">
+          <Text
+            className="text-center"
+            color="active"
+            display="block"
+            size="body2"
+            weight="medium">
             {title}
           </Text>
         )}
-        <Heading level="heading3">{heading}</Heading>
+        <Heading className="text-center" level="heading2">
+          {heading}
+        </Heading>
       </div>
       {description && (
         <Text
-          className={clsx('text-base lg:text-xl', themeTextSecondaryColor)}
+          className={clsx(
+            'mx-auto',
+            'text-balance text-center text-base lg:text-xl',
+            themeTextSecondaryColor,
+          )}
           display="block"
           size="inherit">
           {description}

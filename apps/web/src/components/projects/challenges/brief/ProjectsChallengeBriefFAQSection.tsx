@@ -1,6 +1,6 @@
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import FAQSection from '~/components/interviews/marketing/faqs/FAQSection';
+import MarketingFAQSection from '~/components/marketing/faqs/MarketingFAQSection';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -19,7 +19,7 @@ export default function ProjectsChallengeBriefFAQSection() {
         />
       </Heading>
       <Section>
-        <FAQSection
+        <MarketingFAQSection
           faqs={projectsFAQs}
           hideTitle={true}
           title={intl.formatMessage({

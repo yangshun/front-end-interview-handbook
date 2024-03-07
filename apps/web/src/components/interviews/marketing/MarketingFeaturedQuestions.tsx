@@ -9,7 +9,7 @@ import Text from '~/components/ui/Text';
 import { themeRadialGlowBackground } from '~/components/ui/theme';
 
 import { QuestionCount } from '../questions/listings/stats/QuestionCount';
-import MarketingSectionHeader from '../../common/marketing/MarketingSectionHeader';
+import MarketingSectionHeader from '../../marketing/MarketingSectionHeader';
 
 export default function MarketingFeaturedQuestions({
   javaScriptQuestions,

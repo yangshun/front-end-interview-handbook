@@ -3,7 +3,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import MarketingSectionTitleLabel from '~/components/interviews/marketing/MarketingSectionTitleLabel';
+import MarketingSectionTitleLabel from '~/components/marketing/MarketingSectionTitleLabel';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';

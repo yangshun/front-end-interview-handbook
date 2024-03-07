@@ -1,7 +1,7 @@
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
-import FAQSection from '~/components/interviews/marketing/faqs/FAQSection';
+import MarketingFAQSection from '~/components/marketing/faqs/MarketingFAQSection';
+import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -133,7 +133,7 @@ export default function MarketingAffialiateFAQ() {
           }
         />
         <Section>
-          <FAQSection
+          <MarketingFAQSection
             faqs={faqs}
             hideTitle={true}
             title={intl.formatMessage({

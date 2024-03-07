@@ -3,10 +3,10 @@ import { useState } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { defineMessage, FormattedMessage, useIntl } from 'react-intl';
 
-import MarketingHeroBackground from '~/components/common/marketing/MarketingHeroBackground';
 import HTML5LogoMonochrome from '~/components/icons/HTML5LogoMonochrome';
 import JavaScriptLogo from '~/components/icons/JavaScriptLogoMonochrome';
 import ReactLogo from '~/components/icons/ReactLogo';
+import MarketingHeroBackground from '~/components/marketing/MarketingHeroBackground';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 

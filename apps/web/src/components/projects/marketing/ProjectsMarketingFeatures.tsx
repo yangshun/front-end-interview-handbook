@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
+import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import Card from '~/components/ui/Card';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';

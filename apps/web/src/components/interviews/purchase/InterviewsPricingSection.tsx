@@ -12,14 +12,14 @@ import gtag from '~/lib/gtag';
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
-import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
-import PurpleGlowBackground from '~/components/common/marketing/PurpleGlowBackground';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type {
   InterviewsPricingPlanPaymentConfigLocalized,
   InterviewsPricingPlanPaymentConfigLocalizedRecord,
   InterviewsPricingPlanType,
 } from '~/components/interviews/purchase/InterviewsPricingPlans';
+import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
+import PurpleGlowBackground from '~/components/marketing/PurpleGlowBackground';
 import { SocialDiscountAlert } from '~/components/promotions/social/SocialDiscountAlert';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 import PurchasePPPDiscountAlert from '~/components/purchase/PurchasePPPDiscountAlert';

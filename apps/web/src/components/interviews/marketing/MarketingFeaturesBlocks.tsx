@@ -14,7 +14,7 @@ import {
   themeTextBrandColor,
 } from '~/components/ui/theme';
 
-import MarketingSectionHeader from '../../common/marketing/MarketingSectionHeader';
+import MarketingSectionHeader from '../../marketing/MarketingSectionHeader';
 
 function FeatureBlock({
   description,
@@ -51,7 +51,7 @@ function FeatureBlock({
                 <RiCheckLine
                   aria-hidden={true}
                   className={clsx(
-                    'mt-0.5 size-5 shrink-0',
+                    'size-5 mt-0.5 shrink-0',
                     themeTextBrandColor,
                   )}
                 />

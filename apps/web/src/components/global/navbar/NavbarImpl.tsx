@@ -21,8 +21,8 @@ import {
 } from '~/data/QuestionFormats';
 
 import EmptyAvatarIcon from '~/components/common/EmptyAvatarIcon';
+import I18nSelect from '~/components/common/i18n/I18nSelect';
 import AppThemeSelect from '~/components/global/dark/AppThemeSelect';
-import I18nSelect from '~/components/i18n/I18nSelect';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';

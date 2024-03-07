@@ -25,7 +25,7 @@ import {
 } from '~/data/faqs/PurchaseFAQs';
 import { supportHow, supportTechnical } from '~/data/faqs/SupportFAQs';
 
-import FAQSection from '~/components/interviews/marketing/faqs/FAQSection';
+import MarketingFAQSection from '~/components/marketing/faqs/MarketingFAQSection';
 import Container from '~/components/ui/Container';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
@@ -63,7 +63,7 @@ export default function FAQPage() {
       <Heading level="heading2">FAQs</Heading>
       <Divider />
       <Section>
-        <FAQSection
+        <MarketingFAQSection
           faqs={generalFaqs}
           title={intl.formatMessage({
             defaultMessage: 'General',
@@ -72,7 +72,7 @@ export default function FAQPage() {
           })}
         />
         <Divider />
-        <FAQSection
+        <MarketingFAQSection
           faqs={purchaseFaqs}
           title={intl.formatMessage({
             defaultMessage: 'Purchase',
@@ -81,7 +81,7 @@ export default function FAQPage() {
           })}
         />
         <Divider />
-        <FAQSection
+        <MarketingFAQSection
           faqs={supportFaqs}
           title={intl.formatMessage({
             defaultMessage: 'Support',

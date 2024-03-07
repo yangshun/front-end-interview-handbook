@@ -20,7 +20,11 @@ type Props = Readonly<{
   title: string;
 }>;
 
-export default function FAQSection({ faqs, title, hideTitle = false }: Props) {
+export default function MarketingFAQSection({
+  faqs,
+  title,
+  hideTitle = false,
+}: Props) {
   return (
     <div className="flex flex-col gap-y-2">
       <Heading className={clsx(hideTitle && 'sr-only')} level="heading4">

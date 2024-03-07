@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { RiArrowRightLine, RiBriefcaseLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import MarketingHeroBackground from '~/components/common/marketing/MarketingHeroBackground';
+import MarketingHeroBackground from '~/components/marketing/MarketingHeroBackground';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
@@ -130,7 +130,7 @@ export default function MarketingHero() {
                       underline: (chunks) => (
                         <span className="relative">
                           {chunks}
-                          <MarketingHeroTextUnderline className="absolute bottom-0 left-0 -z-10 mb-[-12%] ml-[-3%] w-[110%] hue-rotate-180 invert sm:mb-[-7%] dark:filter-none" />
+                          <MarketingHeroTextUnderline className="absolute bottom-0 left-0 -z-10 mb-[-12%] ml-[-3%] w-[110%] hue-rotate-180 invert dark:filter-none sm:mb-[-7%]" />
                         </span>
                       ),
                     }}

@@ -1,6 +1,6 @@
 'use client';
 
-import MarketingContactUs from '~/components/interviews/marketing/contact/MarketingContactUs';
+import MarketingContactUs from '~/components/marketing/contact/MarketingContactUs';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 

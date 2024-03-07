@@ -6,7 +6,7 @@ import { useIntl } from 'react-intl';
 import { useMediaQuery } from 'usehooks-ts';
 
 import FilterButton from '~/components/common/FilterButton';
-import MarketingHeroBackground from '~/components/common/marketing/MarketingHeroBackground';
+import MarketingHeroBackground from '~/components/marketing/MarketingHeroBackground';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsChallengeSubmissionHeroCard from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroCard';
 import ProjectsChallengeSubmissionHeroPinButton from '~/components/projects/submissions/hero/ProjectsChallengeSubmissionHeroPinButton';

@@ -15,8 +15,8 @@ import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import FAQSection from './faqs/FAQSection';
-import MarketingSectionHeader from '../../common/marketing/MarketingSectionHeader';
+import MarketingFAQSection from '../../marketing/faqs/MarketingFAQSection';
+import MarketingSectionHeader from '../../marketing/MarketingSectionHeader';
 
 const generalFaqs: FAQItems = [
   generalTarget,
@@ -28,7 +28,7 @@ const generalFaqs: FAQItems = [
   generalSeniority,
 ];
 
-export default function MarketingFAQSection() {
+export default function MarketingGeneralFAQSection() {
   const intl = useIntl();
 
   return (
@@ -63,7 +63,7 @@ export default function MarketingFAQSection() {
       />
       <Section>
         <div className="flex flex-col gap-y-6">
-          <FAQSection
+          <MarketingFAQSection
             faqs={generalFaqs}
             hideTitle={true}
             title={intl.formatMessage({

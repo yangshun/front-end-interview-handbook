@@ -3,11 +3,11 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
-import MarketingSectionHeader from '~/components/common/marketing/MarketingSectionHeader';
-import MarketingSectionItemHeader from '~/components/common/marketing/MarketingSectionItemHeader';
 import HTML5LogoMonochrome from '~/components/icons/HTML5LogoMonochrome';
 import JavaScriptLogo from '~/components/icons/JavaScriptLogoMonochrome';
 import ReactLogo from '~/components/icons/ReactLogo';
+import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
+import MarketingSectionItemHeader from '~/components/marketing/MarketingSectionItemHeader';
 import ProjectsChallengeGridList from '~/components/projects/challenges/lists/ProjectsChallengeGridList';
 import ProjectsChallengeGridListWithFilters from '~/components/projects/challenges/lists/ProjectsChallengeGridListWithFilters';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';

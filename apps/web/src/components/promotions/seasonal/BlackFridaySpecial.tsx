@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
-import ExclusiveTicket from '~/components/common/tickets/ExclusiveTicket';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import ExclusiveTicket from '~/components/promotions/tickets/ExclusiveTicket';
 import Text from '~/components/ui/Text';
 import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
 

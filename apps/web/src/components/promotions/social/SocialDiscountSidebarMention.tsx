@@ -13,7 +13,7 @@ import {
 } from '~/components/ui/theme';
 
 import { useSocialDiscountLabels } from './useSocialDiscountLabels';
-import Ticket from '../../common/tickets/Ticket';
+import Ticket from '../tickets/Ticket';
 
 type Props = Readonly<{
   height?: number;

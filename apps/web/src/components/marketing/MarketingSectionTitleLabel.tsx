@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import Text from '../../ui/Text';
+import Text from '../ui/Text';
 
 type Props = Readonly<{
   children: React.ReactNode;

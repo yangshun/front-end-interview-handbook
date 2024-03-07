@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
-import MarketingSectionTitleLabel from '~/components/interviews/marketing/MarketingSectionTitleLabel';
+import MarketingSectionTitleLabel from '~/components/marketing/MarketingSectionTitleLabel';
 import Badge from '~/components/ui/Badge';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
