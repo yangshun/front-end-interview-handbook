@@ -41,7 +41,7 @@ Advanced questions are usually given to more senior candidates and expect around
 ## Where to practice
 
 <div class="video-container">
-    <video class='gfe-webm' autoplay muted loop>
+    <video class='gfe-webm' autoPlay muted loop>
         <source src="/gfe-features.webm" type="video/webm" />
     </video>
 </div>
