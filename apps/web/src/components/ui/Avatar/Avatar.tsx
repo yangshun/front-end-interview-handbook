@@ -4,12 +4,6 @@ import clsx from 'clsx';
 
 import EmptyAvatarIcon from '~/components/common/EmptyAvatarIcon';
 
-import {
-  themeBackgroundLayerEmphasized,
-  themeBorderElementColor,
-  themeTextFaintColor,
-} from '../theme';
-
 import * as RadixAvatar from '@radix-ui/react-avatar';
 
 type AvatarSize = 'custom' | 'lg' | 'sm' | 'xs';
@@ -40,10 +34,7 @@ export default function Avatar({ src, alt, className, size = 'sm' }: Props) {
       <RadixAvatar.Fallback
         asChild={true}
         className={clsx(
-          'size-full flex items-center justify-center rounded-full border',
-          themeBorderElementColor,
-          themeTextFaintColor,
-          themeBackgroundLayerEmphasized,
+          'size-full flex items-center justify-center rounded-full',
         )}
         delayMs={600}>
         <EmptyAvatarIcon />

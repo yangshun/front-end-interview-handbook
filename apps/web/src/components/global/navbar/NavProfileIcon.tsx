@@ -11,11 +11,9 @@ import {
   themeBackgroundElementColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundElementPressedStateColor_Active,
-  themeBackgroundLayerEmphasized,
   themeBorderElementColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
-  themeTextFaintColor,
 } from '~/components/ui/theme';
 
 import { Content, Portal, Root, Trigger } from '@radix-ui/react-dropdown-menu';
@@ -62,13 +60,7 @@ export default function NavProfileIcon({
             src={avatarUrl}
           />
         ) : (
-          <EmptyAvatarIcon
-            className={clsx(
-              'size-8',
-              themeTextFaintColor,
-              themeBackgroundLayerEmphasized,
-            )}
-          />
+          <EmptyAvatarIcon className="size-8" />
         )}
       </Trigger>
       <Portal>

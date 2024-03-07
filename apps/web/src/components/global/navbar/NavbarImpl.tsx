@@ -33,9 +33,7 @@ import type {
 } from '~/components/ui/Navbar/NavTypes';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundLayerEmphasized,
   themeBackgroundLayerEmphasized_Hover,
-  themeTextFaintColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -752,13 +750,7 @@ export default function NavbarImpl() {
             src={userProfile?.avatarUrl}
           />
         ) : (
-          <EmptyAvatarIcon
-            className={clsx(
-              '!size-8',
-              themeTextFaintColor,
-              themeBackgroundLayerEmphasized,
-            )}
-          />
+          <EmptyAvatarIcon className="!size-8" />
         )}
       </div>
       <Text color="subtitle" display="block" size="body2" weight="medium">
