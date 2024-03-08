@@ -368,8 +368,8 @@ export const rewardsRouter = router({
               // Validate inside here rather than at the query input so that
               // we can provide granular errors.
               linkedInUsernameSchema.parse(linkedInUsername);
-            } catch (err) {
-              throw (err as ZodError).issues[0].message;
+            } catch (error) {
+              throw (error as ZodError).issues[0].message;
             }
           })(),
           (async () => {
@@ -377,8 +377,8 @@ export const rewardsRouter = router({
               // Validate inside here rather than at the query input so that
               // we can provide granular errors.
               twitterUsernameSchema.parse(twitterUsername);
-            } catch (err) {
-              throw (err as ZodError).issues[0].message;
+            } catch (error) {
+              throw (error as ZodError).issues[0].message;
             }
           })(),
         ]);

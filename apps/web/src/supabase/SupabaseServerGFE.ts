@@ -72,7 +72,7 @@ export async function fetchUser_DO_NOT_USE_IF_ONLY_USER_ID_OR_EMAIL_NEEDED(
     } = await supabaseAdmin.auth.getUser(tokens.accessToken);
 
     return user;
-  } catch (err) {
+  } catch (error) {
     // TODO: Log error.
     return null;
   }
@@ -100,7 +100,7 @@ export async function readUserFromToken(
     }
 
     return await parseJWTAccessToken(supabaseAuthToken);
-  } catch (err) {
+  } catch (error) {
     // TODO: Log error.
     return null;
   }
@@ -124,7 +124,7 @@ function decodeSupabaseAuthTokens(authTokens: string): Readonly<{
 
   try {
     return { accessToken, providerRefreshToken, providerToken, refreshToken };
-  } catch (err) {
+  } catch (error) {
     // TODO: report error.
     return {
       accessToken: null,

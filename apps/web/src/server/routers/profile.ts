@@ -56,10 +56,10 @@ export const profileRouter = router({
             id: user.id,
           },
         });
-      } catch (err) {
+      } catch (error) {
         if (
-          err instanceof Prisma.PrismaClientKnownRequestError &&
-          err.code === 'P2002'
+          error instanceof Prisma.PrismaClientKnownRequestError &&
+          error.code === 'P2002'
         ) {
           throw new TRPCError({
             code: 'CONFLICT',
@@ -67,7 +67,7 @@ export const profileRouter = router({
           });
         }
 
-        throw err;
+        throw error;
       }
     }),
 });

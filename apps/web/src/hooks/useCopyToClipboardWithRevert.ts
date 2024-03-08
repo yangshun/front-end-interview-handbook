@@ -24,7 +24,7 @@ export default function useCopyToClipboardWithRevert(
         setIsCopied(false);
       }, duration);
     } catch (error) {
-      console.warn('Copy failed', error);
+      console.error('Copy failed', error);
       setIsCopied(false);
     }
   };

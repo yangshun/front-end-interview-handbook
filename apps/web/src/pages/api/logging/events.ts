@@ -62,7 +62,7 @@ export default async function handler(
       userId = id || null;
       userEmail = email || null;
     }
-  } catch (err) {
+  } catch (error) {
     // TODO: Log error.
   }
 

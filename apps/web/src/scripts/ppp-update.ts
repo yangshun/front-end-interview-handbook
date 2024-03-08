@@ -93,11 +93,11 @@ async function updateCountryPPP() {
       };
 
       newPricing[countryCode] = newPrice;
-    } catch (err) {
+    } catch (error) {
       errorCountries.push(countryCode);
       console.error(
         chalk.red(`error`),
-        `Fetching PPP data for ${countryCode} failed: ${err}`,
+        `Fetching PPP data for ${countryCode} failed: ${error}`,
       );
       // Fallback to old price.
       newPricing[countryCode] = pricing[countryCode];

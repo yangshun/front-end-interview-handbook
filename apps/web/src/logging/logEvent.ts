@@ -78,7 +78,7 @@ export default async function logEvent(
       keepalive: true,
       method: 'POST',
     });
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
   }
 }

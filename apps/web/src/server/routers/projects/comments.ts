@@ -405,15 +405,15 @@ export const projectsCommentsRouter = router({
         });
 
         await projectsReputationCommentVoteAwardPoints(vote);
-      } catch (err) {
+      } catch (error) {
         if (
-          err instanceof Prisma.PrismaClientKnownRequestError &&
-          err.code === 'P2002'
+          error instanceof Prisma.PrismaClientKnownRequestError &&
+          error.code === 'P2002'
         ) {
           // No-op.
           return;
         }
-        throw err;
+        throw error;
       }
     }),
 });

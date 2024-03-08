@@ -118,18 +118,18 @@ export const marketingRouter = router({
             email,
           },
         });
-      } catch (err) {
-        if (err instanceof Prisma.PrismaClientKnownRequestError) {
+      } catch (error) {
+        if (error instanceof Prisma.PrismaClientKnownRequestError) {
           // Unique constraint error, which is fine for us as
           // it'll be a no-op.
-          if (err.code === 'P2002') {
+          if (error.code === 'P2002') {
             return 'Subscribed successfully!';
           }
 
-          return err.message;
+          return error.message;
         }
 
-        throw err;
+        throw error;
       }
 
       return 'Subscribed successfully!';
