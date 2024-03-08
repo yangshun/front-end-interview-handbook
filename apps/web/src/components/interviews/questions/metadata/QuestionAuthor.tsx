@@ -3,6 +3,7 @@ import { useIntl } from 'react-intl';
 
 import authors from '~/data/authors';
 
+import Avatar from '~/components/ui/Avatar';
 import type { TextSize } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 import Tooltip from '~/components/ui/Tooltip';
@@ -33,27 +34,23 @@ export default function QuestionAuthor({ author, size = 'body3' }: Props) {
         {label}
       </span>
       <div aria-labelledby={id} className="flex items-center gap-x-3">
-        <div>
-          <Tooltip label={label}>
-            <img
-              alt={authorData.name}
-              className="inline-block size-8 rounded-full"
-              src={authorData.imageUrl}
-            />
+        <div className="inline-flex h-8">
+          <Tooltip className="inline-flex" label={label}>
+            <Avatar alt={authorData.name} src={authorData.imageUrl} />
           </Tooltip>
         </div>
         <div className="flex flex-col gap-y-0.5">
           <Text
-            className="whitespace-nowrap text-neutral-700 dark:text-neutral-500"
-            color="inherit"
+            className="whitespace-nowrap"
+            color="subtitle"
             display="block"
             size={size}
             weight="bold">
             {authorData.name}
           </Text>
           <Text
-            className="whitespace-nowrap text-neutral-700 dark:text-neutral-500"
-            color="inherit"
+            className="whitespace-nowrap"
+            color="secondary"
             display="block"
             size="body3">
             {authorData.subtitle}

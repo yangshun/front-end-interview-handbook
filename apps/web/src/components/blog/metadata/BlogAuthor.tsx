@@ -5,8 +5,8 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import BlogTimestamp from '~/components/blog/metadata/BlogTimestamp';
+import Avatar from '~/components/ui/Avatar';
 import Text from '~/components/ui/Text';
-import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
   metadata: BlogMetadata;
@@ -33,13 +33,7 @@ export default function BlogAuthor({ metadata }: Props) {
         {label}
       </span>
       <div aria-labelledby={id} className="flex items-center gap-x-3">
-        <Tooltip label={label}>
-          <img
-            alt={author.name}
-            className="!m-0 size-8 rounded-full"
-            src={author.avatarUrl}
-          />
-        </Tooltip>
+        <Avatar alt={author.name} size="lg" src={author.avatarUrl} />
         <div className="flex flex-col gap-y-1">
           <Text
             className={clsx(

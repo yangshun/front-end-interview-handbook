@@ -17,6 +17,7 @@ import { hasProjectsBetaAccess } from '~/data/PromotionConfig';
 import { SocialLinks } from '~/data/SocialLinks';
 
 import Anchor from '~/components/ui/Anchor';
+import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -135,17 +136,11 @@ export default function ProfileShell({ user, children }: Props) {
                   <div className="flex w-full flex-1 flex-col gap-y-4">
                     <div className="gap-y-8 sm:flex sm:items-center sm:justify-between sm:gap-y-0 xl:block xl:gap-y-8">
                       {/* Profile */}
-                      <div className="flex items-center gap-x-3">
-                        {profileDataQuery.data?.avatarUrl && (
-                          <div className="h-32 w-32 shrink-0">
-                            <img
-                              alt={profileDataQuery.data?.name ?? ''}
-                              className="h-32 w-32 rounded-full"
-                              src={profileDataQuery.data?.avatarUrl}
-                            />
-                          </div>
-                        )}
-                      </div>
+                      <Avatar
+                        alt={profileDataQuery.data?.name ?? ''}
+                        size="3xl"
+                        src={profileDataQuery.data?.avatarUrl ?? ''}
+                      />
                     </div>
                     {/* Meta info */}
                     <div className="flex flex-col flex-wrap gap-4 sm:flex-row sm:gap-x-8 xl:flex-col xl:gap-x-0 xl:gap-y-4">

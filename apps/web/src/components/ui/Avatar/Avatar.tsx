@@ -5,23 +5,31 @@ import { FaCircleUser } from 'react-icons/fa6';
 
 import * as AvatarPrimitive from '@radix-ui/react-avatar';
 
-type AvatarSize = 'custom' | 'lg' | 'sm' | 'xs';
+type AvatarSize = '3xl' | 'custom' | 'lg' | 'sm' | 'xs';
 
 const sizeClasses: Record<AvatarSize, string> = {
+  '3xl': 'size-20',
   custom: '',
   lg: 'size-10',
   sm: 'size-8',
   xs: 'size-5',
 };
 
-type Props = Readonly<{
-  alt: string;
-  className?: string;
-  size?: AvatarSize;
-  src?: string | null;
-}>;
+type Props = React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image> &
+  Readonly<{
+    alt: string;
+    className?: string;
+    size?: AvatarSize;
+    src?: string | null;
+  }>;
 
-export default function Avatar({ src, alt, className, size = 'sm' }: Props) {
+export default function Avatar({
+  src,
+  alt,
+  className,
+  size = 'sm',
+  ...props
+}: Props) {
   const emptyAvatar = (
     <div
       className={clsx(
@@ -47,6 +55,7 @@ export default function Avatar({ src, alt, className, size = 'sm' }: Props) {
         alt={alt}
         className="size-full object-cover"
         src={src ?? undefined}
+        {...props}
       />
       <AvatarPrimitive.Fallback
         asChild={true}

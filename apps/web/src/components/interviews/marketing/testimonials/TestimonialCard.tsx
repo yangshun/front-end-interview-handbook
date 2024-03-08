@@ -1,6 +1,7 @@
 import type { Testimonial } from '~/data/Testimonials';
 
 import Anchor from '~/components/ui/Anchor';
+import Avatar from '~/components/ui/Avatar';
 import Card from '~/components/ui/Card';
 import Text from '~/components/ui/Text';
 
@@ -22,11 +23,11 @@ export default function TestimonialCard({
       </blockquote>
       <figcaption className="mt-4 flex items-center gap-x-4">
         {authorThumbnailUrl && (
-          <img
-            alt={name}
-            className="size-10 rounded-full bg-neutral-50"
+          <Avatar
+            alt={name ?? ''}
             decoding="async"
             loading="lazy"
+            size="lg"
             src={authorThumbnailUrl}
           />
         )}
@@ -40,7 +41,11 @@ export default function TestimonialCard({
               );
 
               if (authorUrl) {
-                return <Anchor href={authorUrl}>{nameEl}</Anchor>;
+                return (
+                  <Anchor href={authorUrl} variant="flat">
+                    {nameEl}
+                  </Anchor>
+                );
               }
 
               return nameEl;

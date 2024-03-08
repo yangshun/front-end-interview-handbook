@@ -744,7 +744,7 @@ export default function NavbarImpl() {
 
   const mobileSidebarBottomItems = isLoggedIn && (
     <div className="flex shrink-0 items-center gap-x-3">
-      <Avatar alt={displayName ?? ''} src={userProfile?.avatarUrl} />
+      <Avatar alt={displayName ?? ''} src={userProfile?.avatarUrl ?? ''} />
       <Text color="subtitle" display="block" size="body2" weight="medium">
         {displayName}
       </Text>
