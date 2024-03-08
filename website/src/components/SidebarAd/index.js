@@ -44,8 +44,7 @@ function GreatFrontEnd({ position }) {
         <strong className={styles.title}>
           LeetCode for Front End Interviews
         </strong>
-        Get 20% off <u>GreatFrontEnd</u>'s premium high quality practice
-        questions, answers and guides by <u>ex-FAANG Senior Engineers</u>
+        Looking for front end interview practice? Try <u>GreatFrontEnd</u> - a platform with curated practice questions, well-explained solutions and automated test cases.
       </p>
     </a>
   );

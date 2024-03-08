@@ -22,7 +22,7 @@ The [Tech Interview Handbook](https://www.techinterviewhandbook.org/algorithms/s
 
 ### GreatFrontEnd
 
-[GreatFrontEnd](https://www.greatfrontend.com) provides [**free** questions for you to practice implementing Data Structures and Algorithms in JavaScript](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms). You can practice implementing common data structures (e.g. [Stacks](https://www.greatfrontend.com/questions/javascript/stack), [Queues](https://www.greatfrontend.com/questions/javascript/queue)) and algorithms (e.g. [Binary Search](https://www.greatfrontend.com/questions/javascript/binary-search), [Merge Sort](https://www.greatfrontend.com/questions/javascript/merge-sort)).
+[GreatFrontEnd](https://www.greatfrontend.com) provides **free** questions for you to practice implementing [Data Structures and Algorithms](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms) in JavaScript. You can practice implementing common data structures (e.g. [Stacks](https://www.greatfrontend.com/questions/javascript/stack), [Queues](https://www.greatfrontend.com/questions/javascript/queue)) and algorithms (e.g. [Binary Search](https://www.greatfrontend.com/questions/javascript/binary-search), [Merge Sort](https://www.greatfrontend.com/questions/javascript/merge-sort)). [**Check it out →**](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms)
 
 ## Algorithm courses
 
@@ -43,9 +43,3 @@ If you want more structured algorithms practice which are targeted at JavaScript
 | [Master the Coding Interview: Data Structures + Algorithms](https://fxo.co/DQpY) | 4.6/5 | 19.5h | $$ | Basic data structures and algorithms, job application, behavioral interview, negotiation |
 | [JavaScript Data Structures and Algorithms Masterclass](https://fxo.co/DQpZ) | 4.5/5 | 45h | $ | Basic and advanced data structures and algorithms |
 | [Ace the JavaScript Coding Interview](https://www.educative.io/path/ace-javascript-coding-interview?aff=x23W) | - | 87h | $ | Basic data structures and algorithms, system design, object-oriented design |
-
-:::info Practice Data Structures and Algorithms coding questions on GreatFrontEnd
-
-Not sure how to start? [GreatFrontEnd](https://www.greatfrontend.com) has front end interview [study plans](https://www.greatfrontend.com/get-started) and a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/data-structures-algorithms). Start practicing today!
-
-:::

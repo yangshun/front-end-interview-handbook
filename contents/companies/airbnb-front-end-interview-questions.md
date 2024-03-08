@@ -17,9 +17,9 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
 ## User interface coding
 
 - Given an input and an endpoint which returns a JSON list, as a result, extend it to autocomplete on change, handle key navigation through the results.
-  - [Read answer on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/autocomplete)
+  - [Read answer](https://www.greatfrontend.com/questions/system-design/autocomplete) (Free)
 - Given a star widget embedded in a form write the code to select the stars and submit the correct value through a normal form action. Make reusable for multiple star widgets.
-  - [Practice question on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/star-rating)
+  - [Practice question](https://www.greatfrontend.com/questions/user-interface/star-rating) (Free)
 
 _Source: [Glassdoor Airbnb Front End Engineer Interview Questions](https://www.glassdoor.sg/Interview/Airbnb-Front-End-Engineer-Interview-Questions-EI_IE391850.0,6_KO7,25.htm)_
 

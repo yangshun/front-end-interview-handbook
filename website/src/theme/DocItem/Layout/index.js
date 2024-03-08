@@ -48,9 +48,9 @@ export default function DocItemLayout({ children }) {
           </article>
           <DocItemPaginator />
           {/* TIH: Add sidebar */}
-          <div className="margin-top--md">
+          {/* <div className="margin-top--md">
             <SidebarAd position="docs_bottom" />
-          </div>
+          </div> */}
         </div>
       </div>
       {docTOC.desktop && <div className="col col--3">{docTOC.desktop}</div>}

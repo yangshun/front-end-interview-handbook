@@ -145,3 +145,23 @@ div[class^='announcementBar_'] {
   background: var(--ifm-color-emphasis-200);
   color: inherit;
 }
+
+.theme-doc-markdown a[target="_blank"]:after {
+  content: '↗';
+  width: 5px;
+  position: relative;
+  bottom: 3px;
+  height: 5px;       
+}
+
+video.gfe-webm {
+  width: 80%;
+  height: auto;
+}
+
+.video-container {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

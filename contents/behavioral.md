@@ -22,11 +22,7 @@ Behavioral interview rounds focus on a candidate's soft skills - how they work w
 
 _Source: [Preparing for your Onsite Interview at Facebook](https://www.facebook.com/careers/swe-prep-onsite)_
 
-:::info Free behavioral interview guide
-
-[GreatFrontEnd](https://www.greatfrontend.com) shows you how to approach behavioral interviews as a front end engineer with its free [Behavioral Interview Guidebook](https://www.greatfrontend.com/behavioral-interview-guidebook). Find out about evaluation criteria at big tech, efficient strategies to prepare, and top behavioral interview questions.
-
-:::
+Do check out [GreatFrontEnd](https://www.greatfrontend.com) for its free [Behavioral Interview Guidebook](https://www.greatfrontend.com/behavioral-interview-guidebook) to learn how to approach behavioral interviews as a front end engineer. Find out about evaluation criteria at big tech, efficient strategies to prepare, and top behavioral interview questions.
 
 ## Courses
 

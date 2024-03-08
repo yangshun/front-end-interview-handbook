@@ -12,12 +12,12 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
 
 ## Examples
 
-- News feed (e.g. Facebook): [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/news-feed-facebook)
-- E-commerce marketplace (e.g. Amazon): [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/e-commerce-amazon) (Paid)
-- Chat application (e.g. Messenger): [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/chat-application-messenger) (Paid)
-- Photo sharing application (e.g. Instagram): [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/photo-sharing-instagram) (Paid)
-- Pinterest: [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/pinterest) (Paid)
-- Travel booking website (e.g. Airbnb): [Read example solution on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/travel-booking-airbnb) (Paid)
+- News feed (e.g. Facebook): [Read example solution](https://www.greatfrontend.com/questions/system-design/news-feed-facebook) (Free)
+- E-commerce marketplace (e.g. Amazon): [Read example solution](https://www.greatfrontend.com/questions/system-design/e-commerce-amazon) (Paid)
+- Chat application (e.g. Messenger): [Read example solution](https://www.greatfrontend.com/questions/system-design/chat-application-messenger) (Paid)
+- Photo sharing application (e.g. Instagram): [Read example solution](https://www.greatfrontend.com/questions/system-design/photo-sharing-instagram) (Paid)
+- Pinterest: [Read example solution](https://www.greatfrontend.com/questions/system-design/pinterest) (Paid)
+- Travel booking website (e.g. Airbnb): [Read example solution](https://www.greatfrontend.com/questions/system-design/travel-booking-airbnb) (Paid)
 - Video watching website
 - Email client
 
@@ -50,12 +50,6 @@ Every system design interview should start with clarifying requirements about th
 Architecture for front end interviews are typically focused on the client-side architecture, and not on large scale distributed systems where databases, load balancers and servers are involved.
 
 For applications, common architectures include Model-View-Controller, Model-View-ViewModel, Flux, N-tier (where data tier is on the client) etc.
-
-:::info Read front end system design case studies
-
-[GreatFrontEnd](https://www.greatfrontend.com/system-design) shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design) and case studies. Start reading today!
-
-:::
 
 ### Data model
 
@@ -90,8 +84,4 @@ Many companies blog about their technical challenges in the front end domain and
 - [A React And Preact Progressive Web App Performance Case Study: Treebo](https://medium.com/dev-channel/treebo-a-react-and-preact-progressive-web-app-performance-case-study-5e4f450d5299)
 - [Rebuilding our tech stack for the new Facebook.com](https://engineering.fb.com/2020/05/08/web/facebook-redesign/)
 
-:::info Read front end system design case studies
-
-[GreatFrontEnd](https://www.greatfrontend.com/system-design) shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design) and case studies. Start reading today!
-
-:::
+[GreatFrontEnd](https://www.greatfrontend.com/) shows you how to approach front end system design interviews with their [front end system design guide](https://www.greatfrontend.com/system-design) and case studies. You can also do hands-on practice through their [huge question bank](https://www.greatfrontend.com/prepare), each with solutions written by ex-FAANG senior engineers to learn more about system design. 

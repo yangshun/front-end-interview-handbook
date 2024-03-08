@@ -130,19 +130,19 @@ function GreatFrontEndSection() {
               <div className={clsx('col col--4', styles.flexContainer)}>
                 <RiPresentationLine className={styles.promoIcon} />
                 <p className={styles.whiteText}>
-                  <strong>Well-explained solutions for every question</strong>
+                  Well-explained solutions
                 </p>
               </div>
               <div className={clsx('col col--4', styles.flexContainer)}>
                 <RiBookOpenLine className={styles.promoIcon} />
                 <p className={styles.whiteText}>
-                  <strong>Step-by-step study plans</strong>
+                  Step-by-step study plans
                 </p>
               </div>
               <div className={clsx('col col--4', styles.flexContainer)}>
                 <RiStackLine className={styles.promoIcon} />
                 <p className={styles.whiteText}>
-                  <strong>Structured 4-stage process</strong>
+                  Structured 4-stage process
                 </p>
               </div>
             </div>

@@ -14,7 +14,7 @@ Not much is known about Apple's front end interview process.
 ## JavaScript
 
 - Implement `Array.prototype` methods (`flat`, `map`, `reduce`, `concat`) by yourself using JavaScript.
-  - [Practice questions on GreatFrontEnd](https://www.greatfrontend.com/questions/coding)
+  - [Practice questions](https://www.greatfrontend.com/questions/coding)
 - How can you execute an array of promise in sequence?
 
 ## User interface coding

@@ -14,15 +14,15 @@ Not much is known about Salesforce's front end interview process.
 ## Coding
 
 - Flatten a nested array.
-  - [Practice question on GreatFrontEnd](https://www.greatfrontend.com/questions/javascript/flatten)
+  - [Practice question](https://www.greatfrontend.com/questions/javascript/flatten) (Free)
 
 ## Trivia
 
 - What is the event loop?
-  - [Read answer on GreatFrontEnd](https://www.greatfrontend.com/questions/quiz/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue)
+  - [Read answer](https://www.greatfrontend.com/questions/quiz/what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue) (Free)
 - What is a closure?
-  - [Read answer on GreatFrontEnd](https://www.greatfrontend.com/questions/quiz/what-is-a-closure-and-how-why-would-you-use-one)
+  - [Read answer](https://www.greatfrontend.com/questions/quiz/what-is-a-closure-and-how-why-would-you-use-one) (Free)
 - Positioning in CSS.
-  - [Read answer on GreatFrontEnd](https://www.greatfrontend.com/questions/quiz/whats-the-difference-between-a-relative-fixed-absolute-and-statically-positioned-element)
+  - [Read answer](https://www.greatfrontend.com/questions/quiz/whats-the-difference-between-a-relative-fixed-absolute-and-statically-positioned-element) (Free)
 
 _Source: [Glassdoor Salesforce UI Developer Interview Questions](https://www.glassdoor.sg/Interview/Salesforce-UI-Developer-Interview-Questions-EI_IE11159.0,10_KO11,23.htm)_

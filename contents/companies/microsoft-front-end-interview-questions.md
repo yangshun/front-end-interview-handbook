@@ -12,7 +12,7 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
 ## JavaScript
 
 - Tic-tac-toe implementation using vanilla JavaScript, HTML and CSS.
-  - [Practice question on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe) (Paid)
+  - [Practice question](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe) (Paid)
 - Create a chat interface like Microsoft teams.
 - Use OOP to implement a Chess game.
 
@@ -24,16 +24,16 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
 ## Trivia
 
 - What is a prototype?
-  - [Read answer on GreatFrontEnd](https://www.greatfrontend.com/questions/quiz/explain-how-prototypal-inheritance-works)
+  - [Read answer](https://www.greatfrontend.com/questions/quiz/explain-how-prototypal-inheritance-works) (Free)
 - What is a closure?
-  - [Read answer on GreatFrontEnd](https://www.greatfrontend.com/questions/quiz/what-is-a-closure-and-how-why-would-you-use-one)
+  - [Read answer](https://www.greatfrontend.com/questions/quiz/what-is-a-closure-and-how-why-would-you-use-one) (Free)
 - What is the difference between `let`, `const`, and `var`?
-  - [Read answer on GreatFrontEnd](https://www.greatfrontend.com/questions/quiz/what-are-the-differences-between-variables-created-using-let-var-or-const)
+  - [Read answer](https://www.greatfrontend.com/questions/quiz/what-are-the-differences-between-variables-created-using-let-var-or-const) (Free)
 - What is DOM?
 
 ## System Design
 
 - Design an email client like Microsoft Outlook.
-  - [Read answer on GreatFrontEnd](https://www.greatfrontend.com/questions/system-design/email-client-outlook) (Paid)
+  - [Read answer](https://www.greatfrontend.com/questions/system-design/email-client-outlook) (Paid)
 
 _Source: [Glassdoor Microsoft Front End Developer Interview Questions](https://www.glassdoor.sg/Interview/Microsoft-Front-End-Developer-Interview-Questions-EI_IE1651.0,9_KO10,29.htm)_

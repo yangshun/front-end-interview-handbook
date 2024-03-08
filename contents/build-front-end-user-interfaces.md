@@ -22,26 +22,26 @@ Companies that ask such questions usually ask candidates to code in one of these
 ## Examples
 
 - Components
-  - Tabs — [Practice on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/tabs) (Paid)
-  - Accordion — [Practice on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/accordion) (Paid)
+  - Tabs — [Practice](https://www.greatfrontend.com/questions/user-interface/tabs) (Paid)
+  - Accordion — [Practice](https://www.greatfrontend.com/questions/user-interface/accordion) (Paid)
   - Photo Gallery
   - Other possible components - [Refer to Bootstrap's list](https://getbootstrap.com/docs/5.3/components/)
 - Apps
-  - TODO list — [Practice on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/todo-list)
+  - TODO list — [Practice](https://www.greatfrontend.com/questions/user-interface/todo-list) (Free)
   - Sortable Data Table (with extensions for filtering)
   - Kanban Board
 - Games
-  - Tic-tac-toe — [Practice on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe) (Paid)
-  - Whack-a-mole — [Practice on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/whack-a-mole) (Paid)
-  - Wordle — [Practice on GreatFrontEnd](https://www.greatfrontend.com/questions/user-interface/wordle) (Paid)
+  - Tic-tac-toe — [Practice](https://www.greatfrontend.com/questions/user-interface/tic-tac-toe) (Paid)
+  - Whack-a-mole — [Practice](https://www.greatfrontend.com/questions/user-interface/whack-a-mole) (Paid)
+  - Wordle — [Practice](https://www.greatfrontend.com/questions/user-interface/wordle) (Paid)
   - Tetris (advanced)
   - Snake (advanced)
 
-:::info Practice UI coding questions on GreatFrontEnd
-
-Not sure how to start? [GreatFrontEnd](https://www.greatfrontend.com) has front end interview [study plans](https://www.greatfrontend.com/get-started) and a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/user-interface). Start practicing today!
-
-:::
+## Where to practice
+- Each of these questions and over 200+ more can be found on [GreatFrontEnd](https://www.greatfrontend.com). 
+  - Each question comes with official solutions in popular frameworks such as React, Angular, Svelte and Vue. 
+  - With live previews, you can practice online directly, simulating a real interview environment with no set-up required. 
+- [Start practicing immediately](https://www.greatfrontend.com/questions)
 
 ## Considerations
 
@@ -95,9 +95,3 @@ Does your component scale (latency, performance, UI, UX, etc)?
 ### Future
 
 Lastly, mention how you would do things differently if you had more time and were writing production code that you need to maintain. Perhaps use Sass instead of CSS, use React instead of jQuery for better maintainability, use Babel to compile your code for older browsers, make the component mobile-friendly and test on different screen widths, add keyboard shortcuts, etc.
-
-:::info Practice UI coding questions on GreatFrontEnd
-
-Not sure how to start? [GreatFrontEnd](https://www.greatfrontend.com) has front end interview [study plans](https://www.greatfrontend.com/get-started) and a [huge question bank of coding questions](https://www.greatfrontend.com/questions/js/coding/user-interface). Start practicing today!
-
-:::
