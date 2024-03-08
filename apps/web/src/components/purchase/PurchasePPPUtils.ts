@@ -5,7 +5,7 @@ import { shouldUseCountryCurrency } from '~/lib/stripeUtils';
 import type {
   PurchasePricingPlanPaymentConfigBase,
   PurchasePricingPlanPaymentConfigLocalized,
-} from '~/data/purchase/PurchaseTypes';
+} from '~/components/purchase/PurchaseTypes';
 
 import {
   MAXIMUM_PPP_CONVERSION_FACTOR,

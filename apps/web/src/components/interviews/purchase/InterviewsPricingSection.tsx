@@ -22,11 +22,11 @@ import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeade
 import PurpleGlowBackground from '~/components/marketing/PurpleGlowBackground';
 import { SocialDiscountAlert } from '~/components/promotions/social/SocialDiscountAlert';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
+import PurchasePriceAnnualComparison from '~/components/purchase/comparison/PurchasePriceAnnualComparison';
+import PurchasePriceMonthlyComparison from '~/components/purchase/comparison/PurchasePriceMonthlyComparison';
+import PurchasePriceQuarterlyComparison from '~/components/purchase/comparison/PurchasePriceQuarterlyComparison';
 import PurchasePPPDiscountAlert from '~/components/purchase/PurchasePPPDiscountAlert';
-import PurchasePriceAnnualComparison from '~/components/purchase/PurchasePriceAnnualComparison';
 import PurchasePriceLabel from '~/components/purchase/PurchasePriceLabel';
-import PurchasePriceMonthlyComparison from '~/components/purchase/PurchasePriceMonthlyComparison';
-import PurchasePriceQuarterlyComparison from '~/components/purchase/PurchasePriceQuarterlyComparison';
 import PurchaseProhibitedCountryAlert from '~/components/purchase/PurchaseProhibitedCountryAlert';
 import type { Props as AnchorProps } from '~/components/ui/Anchor';
 import Anchor from '~/components/ui/Anchor';

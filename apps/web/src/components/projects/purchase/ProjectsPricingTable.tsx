@@ -15,9 +15,9 @@ import gtag from '~/lib/gtag';
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
-import PurchasePriceAnnualComparison from '~/components/purchase/PurchasePriceAnnualComparison';
+import PurchasePriceAnnualComparison from '~/components/purchase/comparison/PurchasePriceAnnualComparison';
+import PurchasePriceMonthlyComparison from '~/components/purchase/comparison/PurchasePriceMonthlyComparison';
 import PurchasePriceLabel from '~/components/purchase/PurchasePriceLabel';
-import PurchasePriceMonthlyComparison from '~/components/purchase/PurchasePriceMonthlyComparison';
 import { priceRoundToNearestNiceNumber } from '~/components/purchase/PurchasePricingUtils';
 import type { Props as AnchorProps } from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';

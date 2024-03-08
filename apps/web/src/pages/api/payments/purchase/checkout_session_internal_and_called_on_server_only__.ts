@@ -4,14 +4,13 @@ import Stripe from 'stripe';
 import absoluteUrl from '~/lib/absoluteUrl';
 import { normalizeCurrencyValue } from '~/lib/stripeUtils';
 
-import type {
-  PurchasePricingPlanPaymentConfigBase,
-  PurchasePricingPlanPaymentConfigLocalized,
-} from '~/data/purchase/PurchaseTypes';
-
 import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 import type { InterviewsPricingPlanType } from '~/components/interviews/purchase/InterviewsPricingPlans';
 import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/projects/purchase/fetchProjectsPricingPlanPaymentConfigLocalizedRecord';
+import type {
+  PurchasePricingPlanPaymentConfigBase,
+  PurchasePricingPlanPaymentConfigLocalized,
+} from '~/components/purchase/PurchaseTypes';
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
