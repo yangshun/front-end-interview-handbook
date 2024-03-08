@@ -5,6 +5,7 @@ import AppThemeSelect from '~/components/global/dark/AppThemeSelect';
 import AccordionExamples from '~/components/ui/Accordion/AccordionExamples';
 import AlertExamples from '~/components/ui/Alert/AlertExamples';
 import AnchorExamples from '~/components/ui/Anchor/AnchorExamples';
+import AvatarExamples from '~/components/ui/Avatar/AvatarExamples';
 import BadgeExamples from '~/components/ui/Badge/BadgeExamples';
 import BannerExamples from '~/components/ui/Banner/BannerExamples';
 import ButtonExamples from '~/components/ui/Button/ButtonExamples';
@@ -68,18 +69,22 @@ export default function UILibraryPage() {
         <CheckboxInputExamples />
         <RadioGroupExamples />
         <TypeaheadExamples />
-        {/* Others */}
+        <RichTextEditorExamples />
+        {/* Navigation */}
         <TabsExamples />
         <PaginationExamples />
-        <SpinnerExamples />
+        {/* Others */}
+        <AvatarExamples />
         <AlertExamples />
         <BadgeExamples />
         <ChipExamples />
-        <ProgressBarExamples />
         <EmptyStateExamples />
         <CardExamples />
         <BannerExamples />
         <AccordionExamples />
+        {/* Progress */}
+        <SpinnerExamples />
+        <ProgressBarExamples />
         {/* Layer */}
         <DropdownMenuExamples />
         <PopoverExamples />
@@ -88,7 +93,6 @@ export default function UILibraryPage() {
         <DialogExamples />
         <ToastExamples />
         <HovercardExamples />
-        <RichTextEditorExamples />
       </Section>
     </div>
   );

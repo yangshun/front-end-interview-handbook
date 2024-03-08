@@ -20,10 +20,10 @@ import {
   useQuestionTechnologyLists,
 } from '~/data/QuestionFormats';
 
-import EmptyAvatarIcon from '~/components/common/EmptyAvatarIcon';
 import I18nSelect from '~/components/common/i18n/I18nSelect';
 import AppThemeSelect from '~/components/global/dark/AppThemeSelect';
 import Anchor from '~/components/ui/Anchor';
+import Avatar from '~/components/ui/Avatar';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Navbar from '~/components/ui/Navbar/Navbar';
@@ -740,21 +740,13 @@ export default function NavbarImpl() {
     );
   }
 
+  const displayName = userProfile?.name ?? user?.email;
+
   const mobileSidebarBottomItems = isLoggedIn && (
     <div className="flex shrink-0 items-center gap-x-3">
-      <div>
-        {userProfile?.avatarUrl ? (
-          <img
-            alt={userProfile?.name ?? user?.email}
-            className="size-8 inline-block rounded-full"
-            src={userProfile?.avatarUrl}
-          />
-        ) : (
-          <EmptyAvatarIcon className="!size-8" />
-        )}
-      </div>
+      <Avatar alt={displayName ?? ''} src={userProfile?.avatarUrl} />
       <Text color="subtitle" display="block" size="body2" weight="medium">
-        {userProfile?.name ?? user?.email}
+        {displayName}
       </Text>
     </div>
   );

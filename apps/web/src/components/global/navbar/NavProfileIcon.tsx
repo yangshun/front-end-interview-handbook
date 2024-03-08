@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
-import EmptyAvatarIcon from '~/components/common/EmptyAvatarIcon';
+import Avatar from '~/components/ui/Avatar';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import { dropdownContentClassName } from '~/components/ui/DropdownMenu/dropdownStyles';
@@ -53,15 +53,7 @@ export default function NavProfileIcon({
             id="EjbpUe"
           />
         </span>
-        {avatarUrl ? (
-          <img
-            alt={userIdentifierString}
-            className="size-7 rounded-full"
-            src={avatarUrl}
-          />
-        ) : (
-          <EmptyAvatarIcon className="size-8" />
-        )}
+        <Avatar alt={userIdentifierString ?? ''} src={avatarUrl} />
       </Trigger>
       <Portal>
         <Content
