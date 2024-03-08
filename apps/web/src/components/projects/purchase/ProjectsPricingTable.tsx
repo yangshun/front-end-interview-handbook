@@ -164,6 +164,7 @@ function PricingButtonNonPremium({
           pathname: '/api/payments/purchase/checkout',
           query: {
             plan_type: planTypeParam,
+            product_vertical: 'projects',
           },
         }),
       );
@@ -590,7 +591,8 @@ export default function ProjectsPricingTable({
                       className="max-w-72"
                       color="secondary"
                       display="block"
-                      size="body2">
+                      size="body2"
+                      weight="normal">
                       {features[featureKey].title}
                     </Text>
                     {features[featureKey].description && (

@@ -26,11 +26,17 @@ export type PurchasePricingPlanPaymentConfigBase = Readonly<{
   // Vs monthly for recurring. Vs before for one-time.
   discount: number;
   priceType: Stripe.Price.Type;
+  // Stripe product ID.
+  productId: string;
   // Null when one-time payment.
   recurring: Readonly<{
     count: number;
     interval: Stripe.Price.Recurring.Interval;
   }> | null;
+  urls: {
+    cancel: string;
+    success: string;
+  };
 }>;
 
 export type PurchasePricingPlanPaymentConfigLocalized = PurchasePrice &

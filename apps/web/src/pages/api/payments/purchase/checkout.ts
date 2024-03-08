@@ -12,7 +12,12 @@ import {
 } from '~/supabase/SupabaseServerGFE';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
-import type { QueryParams } from './checkout_session_internal_and_called_on_server_only__';
+import type {
+  CheckoutProductVertical,
+  CheckoutQueryParams,
+} from './checkout_session_internal_and_called_on_server_only__';
+
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
 export const config = {
   // We have to use edge runtime because we need the geo data.
@@ -35,10 +40,7 @@ const prohibitedCities = new Set([
 //  1. Part that requires next/server (available on middlewares and Edge runtime) like geolocation to get the user location and convert it into a currency (this file).
 //  2. Part that requires Node.js APIs, the generation of the checkout session.
 export default async function handler(req: NextRequest) {
-  const url = new URL(req.url);
-  const { origin, searchParams } = url;
-  const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
-
+  // Step 1: Check if request has identity.
   const user = await readUserFromToken(
     req.cookies.get('supabase-auth-token')?.value,
   );
@@ -60,9 +62,10 @@ export default async function handler(req: NextRequest) {
     );
   }
 
-  const countryCode = req.geo?.country ?? 'US';
-
   try {
+    // Step 2: Check if request location is banned.
+    const countryCode = req.geo?.country ?? 'US';
+
     if (isProhibitedCountry(countryCode)) {
       throw new Error(`Prohibited country: ${countryCode}`);
     }
@@ -81,8 +84,10 @@ export default async function handler(req: NextRequest) {
       throw new Error(`Prohibited region: ${region}`);
     }
 
+    // Step 3: Check if request location is allowed.
+    const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
     // Can't use Prisma here because it's not supported in edge functions.
-    const { data, error } = await supabaseAdmin
+    const { data: userProfile, error } = await supabaseAdmin
       .from('Profile')
       .select('stripeCustomer')
       .eq('id', user.id)
@@ -92,11 +97,12 @@ export default async function handler(req: NextRequest) {
       throw new Error(error.message);
     }
 
-    if (data == null) {
+    if (userProfile == null) {
       throw new Error(`No user found for ${user.id}`);
     }
 
-    let stripeCustomerId = data.stripeCustomer;
+    // Step 4: Create Stripe customer if doesn't exist.
+    let stripeCustomerId = userProfile.stripeCustomer;
 
     // This happens when Supabase's webhooks don't fire during user signup
     // and there's no corresponding Stripe customer for the user.
@@ -112,8 +118,6 @@ export default async function handler(req: NextRequest) {
         email: user.email,
       });
 
-      stripeCustomerId = customer.id;
-
       // Can't use Prisma here because it's not supported in edge functions.
       await supabaseAdmin
         .from('Profile')
@@ -121,24 +125,38 @@ export default async function handler(req: NextRequest) {
           stripeCustomer: customer.id,
         })
         .eq('id', user.id);
+
+      stripeCustomerId = customer.id;
     }
 
-    const queryParams: QueryParams = {
+    // Step 5: Create checkout session.
+    const url = new URL(req.url);
+    const { origin, searchParams } = url;
+    const productVertical = searchParams.get(
+      'product_vertical',
+    ) as CheckoutProductVertical;
+    const planType = searchParams.get('plan_type');
+
+    const commonQueryParams = {
       country_code: countryCode,
-      plan_type: searchParams.get('plan_type') as InterviewsPricingPlanType,
+      // First Promoter tracking ID.
+      first_promoter_tid: req.cookies.get('_fprom_tid')?.value,
+      receipt_email: user?.email,
       stripe_customer_id: stripeCustomerId,
     };
 
-    if (user.email != null) {
-      queryParams.receipt_email = user.email;
-    }
-
-    // First Promoter tracking ID.
-    const tid = req.cookies.get('_fprom_tid')?.value;
-
-    if (tid != null) {
-      queryParams.first_promoter_tid = tid;
-    }
+    const queryParams: CheckoutQueryParams =
+      productVertical === 'interviews'
+        ? {
+            ...commonQueryParams,
+            plan_type: planType as InterviewsPricingPlanType,
+            product_vertical: productVertical,
+          }
+        : {
+            ...commonQueryParams,
+            plan_type: planType as ProjectsSubscriptionPlan,
+            product_vertical: productVertical,
+          };
 
     const response = await fetch(
       `${origin}/api/payments/purchase/checkout_session_internal_and_called_on_server_only__?${new URLSearchParams(

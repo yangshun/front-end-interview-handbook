@@ -4,28 +4,51 @@ import Stripe from 'stripe';
 import absoluteUrl from '~/lib/absoluteUrl';
 import { normalizeCurrencyValue } from '~/lib/stripeUtils';
 
-import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 import type {
-  InterviewsPricingPlanPaymentConfig,
-  InterviewsPricingPlanType,
-} from '~/components/interviews/purchase/InterviewsPricingPlans';
+  PurchasePricingPlanPaymentConfigBase,
+  PurchasePricingPlanPaymentConfigLocalized,
+} from '~/data/purchase/PurchaseTypes';
 
-const productId = process.env.STRIPE_MAIN_PRODUCT_ID;
+import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
+import type { InterviewsPricingPlanType } from '~/components/interviews/purchase/InterviewsPricingPlans';
+import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/projects/purchase/fetchProjectsPricingPlanPaymentConfigLocalizedRecord';
 
-export type QueryParams = {
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
+
+type BaseCheckoutQueryParams = Readonly<{
   // Two-letter ISO country code.
   country_code: string;
+  // First promoter tracking ID.
   first_promoter_tid?: string;
-  plan_type: InterviewsPricingPlanType;
+  // Email to send the receipt to.
   receipt_email?: string;
+  // Stripe customer ID (cus_xxxxx)
   stripe_customer_id: string;
-};
+}>;
+
+export type CheckoutProductVertical = 'interviews' | 'projects';
+
+type InterviewsCheckoutQueryParams = BaseCheckoutQueryParams &
+  Readonly<{
+    plan_type: InterviewsPricingPlanType;
+    product_vertical: 'interviews';
+  }>;
+
+type ProjectsCheckoutQueryParams = BaseCheckoutQueryParams &
+  Readonly<{
+    plan_type: ProjectsSubscriptionPlan;
+    product_vertical: 'projects';
+  }>;
+
+export type CheckoutQueryParams =
+  | InterviewsCheckoutQueryParams
+  | ProjectsCheckoutQueryParams;
 
 // This API exists as a standard API route because the Stripe npm module
 // uses some Node.js APIs which are not available in Edge runtimes.
 // So we separate out the checkout session generation functionality into
 // two parts:
-//  1. Part that requires next/server (available on middlewares and Edge runtime) like geo location to get the user location and convert it into a currency.
+//  1. Part that requires next/server (available on middlewares and Edge runtime) like geolocation to get the user location and convert it into a currency.
 //  2. Part that requires Node.js APIs, the generation of the checkout session (this file).
 
 // This API is secret and should only be called on the server. Why? Because we want
@@ -40,17 +63,35 @@ export default async function handler(
     first_promoter_tid: firstPromoterTrackingId,
     stripe_customer_id: stripeCustomerId,
     receipt_email: receiptEmail,
+    product_vertical: productVertical,
     plan_type: planType,
-  } = req.query as QueryParams;
+  } = req.query as CheckoutQueryParams;
 
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
     apiVersion: '2023-10-16',
   });
 
-  const data =
-    await fetchInterviewsPricingPlanPaymentConfigLocalizedRecord(countryCode);
+  const planPaymentConfig: PurchasePricingPlanPaymentConfigLocalized =
+    await (async () => {
+      switch (productVertical) {
+        case 'projects': {
+          const data =
+            await fetchProjectsPricingPlanPaymentConfigLocalizedRecord(
+              countryCode,
+            );
 
-  const planPaymentConfig = data[planType];
+          return data[planType];
+        }
+        case 'interviews': {
+          const data =
+            await fetchInterviewsPricingPlanPaymentConfigLocalizedRecord(
+              countryCode,
+            );
+
+          return data[planType];
+        }
+      }
+    })();
 
   if (planPaymentConfig == null) {
     return res.status(401).send({
@@ -73,6 +114,7 @@ export default async function handler(
       res,
       stripeCustomerId,
       stripe,
+      planType,
       planPaymentConfig,
       currency,
       unitAmountInStripeFormat,
@@ -86,6 +128,7 @@ export default async function handler(
       res,
       stripeCustomerId,
       stripe,
+      planType,
       planPaymentConfig,
       currency,
       unitAmountInStripeFormat,
@@ -95,30 +138,18 @@ export default async function handler(
   }
 }
 
-function checkoutSessionUrls(
-  req: NextApiRequest,
-  planPaymentConfig: InterviewsPricingPlanPaymentConfig,
-) {
-  const { origin } = absoluteUrl(req);
-  const { planType } = planPaymentConfig;
-
-  return {
-    cancelUrl: `${origin}/pricing?cancel=1&plan=${planType}`,
-    successUrl: `${origin}/payment/success?plan=${planType}`,
-  };
-}
-
 async function processSubscriptionPlan(
   req: NextApiRequest,
   res: NextApiResponse,
   stripeCustomerId: string,
   stripe: Stripe,
-  planPaymentConfig: InterviewsPricingPlanPaymentConfig,
+  planType: string,
+  planPaymentConfig: PurchasePricingPlanPaymentConfigBase,
   currency: string,
   unitAmountInCurrency: number,
   firstPromoterTrackingId?: string,
 ) {
-  const { recurring } = planPaymentConfig;
+  const { recurring, urls, productId } = planPaymentConfig;
 
   const priceObject = await stripe.prices.create({
     currency,
@@ -130,7 +161,11 @@ async function processSubscriptionPlan(
     unit_amount: unitAmountInCurrency,
   });
 
-  const { cancelUrl, successUrl } = checkoutSessionUrls(req, planPaymentConfig);
+  const { origin } = absoluteUrl(req);
+
+  const cancelUrl = `${origin}/${urls.cancel}?cancel=1&plan=${planType}`;
+  const successUrl = `${origin}/${urls.success}?plan=${planType}`;
+
   const session = await stripe.checkout.sessions.create({
     allow_promotion_codes: planPaymentConfig.allowPromoCode,
     cancel_url: cancelUrl,
@@ -160,13 +195,19 @@ async function processOneTimePlan(
   res: NextApiResponse,
   stripeCustomerId: string,
   stripe: Stripe,
-  planPaymentConfig: InterviewsPricingPlanPaymentConfig,
+  planType: string,
+  planPaymentConfig: PurchasePricingPlanPaymentConfigBase,
   currency: string,
   unitAmountInCurrency: number,
   receiptEmail?: string,
   firstPromoterTrackingId?: string,
 ) {
-  const { cancelUrl, successUrl } = checkoutSessionUrls(req, planPaymentConfig);
+  const { origin } = absoluteUrl(req);
+  const { urls, productId } = planPaymentConfig;
+
+  const cancelUrl = `${origin}/${urls.cancel}?cancel=1&plan=${planType}`;
+  const successUrl = `${origin}/${urls.success}?plan=${planType}`;
+
   const session = await stripe.checkout.sessions.create({
     allow_promotion_codes: planPaymentConfig.allowPromoCode,
     cancel_url: cancelUrl,

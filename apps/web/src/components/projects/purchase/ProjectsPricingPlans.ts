@@ -17,6 +17,13 @@ export type ProjectsPricingPlanPaymentConfigLocalizedRecord = Record<
   ProjectsPricingPlanPaymentConfigLocalized
 >;
 
+const urls = {
+  cancel: '/projects/pricing',
+  success: '/projects/payment/success',
+};
+
+const productId = process.env.STRIPE_PRODUCT_ID_PROJECTS!;
+
 export const ProjectsPricingPlansPaymentConfig: Record<
   ProjectsSubscriptionPlan,
   PurchasePricingPlanPaymentConfigBase
@@ -30,7 +37,9 @@ export const ProjectsPricingPlansPaymentConfig: Record<
     checkoutMode: 'subscription',
     discount: 20,
     priceType: 'recurring',
+    productId,
     recurring: { count: 1, interval: 'year' },
+    urls,
   },
   MONTH: {
     allowPromoCode: true,
@@ -41,6 +50,8 @@ export const ProjectsPricingPlansPaymentConfig: Record<
     checkoutMode: 'subscription',
     discount: 0,
     priceType: 'recurring',
+    productId,
     recurring: { count: 1, interval: 'month' },
+    urls,
   },
 };

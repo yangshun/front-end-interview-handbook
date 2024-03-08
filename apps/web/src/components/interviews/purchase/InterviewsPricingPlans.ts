@@ -26,6 +26,13 @@ export type InterviewsPricingPlanPaymentConfigLocalizedRecord = Record<
   InterviewsPricingPlanPaymentConfigLocalized
 >;
 
+const urls = {
+  cancel: '/pricing',
+  success: '/payment/success',
+};
+
+const productId = process.env.STRIPE_PRODUCT_ID_INTERVIEWS!;
+
 export const InterviewsPricingPlansPaymentConfig: Record<
   InterviewsPricingPlanType,
   InterviewsPricingPlanPaymentConfig
@@ -40,7 +47,9 @@ export const InterviewsPricingPlansPaymentConfig: Record<
     discount: 70,
     planType: 'annual',
     priceType: 'recurring',
+    productId,
     recurring: { count: 1, interval: 'year' },
+    urls,
   },
   lifetime: {
     allowPromoCode: true,
@@ -52,7 +61,9 @@ export const InterviewsPricingPlansPaymentConfig: Record<
     discount: 50,
     planType: 'lifetime',
     priceType: 'one_time',
+    productId,
     recurring: null,
+    urls,
   },
   monthly: {
     allowPromoCode: true,
@@ -64,7 +75,9 @@ export const InterviewsPricingPlansPaymentConfig: Record<
     discount: 0,
     planType: 'monthly',
     priceType: 'recurring',
+    productId,
     recurring: { count: 1, interval: 'month' },
+    urls,
   },
   quarterly: {
     allowPromoCode: true,
@@ -76,6 +89,8 @@ export const InterviewsPricingPlansPaymentConfig: Record<
     discount: 50,
     planType: 'quarterly',
     priceType: 'recurring',
+    productId,
     recurring: { count: 3, interval: 'month' },
+    urls,
   },
 };
