@@ -2,6 +2,7 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 import { parseJWTAccessToken } from '~/supabase/SupabaseServerGFE';
+import { getErrorMessage } from '~/utils/getErrorMessage';
 
 // Test that this API also works on Vercel's edge runtime, which
 // contains only a subset of Node.js APIs.
@@ -17,6 +18,6 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(data);
   } catch (error) {
-    return NextResponse.json({ error }, { status: 500 });
+    return NextResponse.json({ err: getErrorMessage(error) }, { status: 500 });
   }
 }

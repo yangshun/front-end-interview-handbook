@@ -33,6 +33,7 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
+import { getErrorMessage } from '~/utils/getErrorMessage';
 
 import {
   annualPlanFeatures,
@@ -148,7 +149,7 @@ function PricingButtonNonPremium({
 
   const [isCheckoutSessionLoading, setIsCheckoutSessionLoading] =
     useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   async function processSubscription(planTypeParam: ProjectsSubscriptionPlan) {
     if (isCheckoutSessionLoading) {
@@ -156,7 +157,7 @@ function PricingButtonNonPremium({
     }
 
     setIsCheckoutSessionLoading(true);
-    setError(null);
+    setErrorMessage(null);
     try {
       const res = await fetch(
         url.format({
@@ -175,9 +176,9 @@ function PricingButtonNonPremium({
       }
 
       setCheckoutSessionHref(payload.url);
-    } catch (err: any) {
+    } catch (error: unknown) {
       if (hasClickedRef.current) {
-        setError(
+        setErrorMessage(
           intl.formatMessage({
             defaultMessage:
               'An error has occurred. Please try again later and contact support if the error persists.',
@@ -195,7 +196,7 @@ function PricingButtonNonPremium({
       });
       logMessage({
         level: 'error',
-        message: err?.message,
+        message: getErrorMessage(error),
         title: 'Checkout attempt error',
       });
       logEvent('checkout.fail', {
@@ -263,9 +264,9 @@ function PricingButtonNonPremium({
           return processSubscription(planType);
         }}
       />
-      {error && (
+      {errorMessage && (
         <Text className="text-center" color="error" size="body3">
-          {error}
+          {errorMessage}
         </Text>
       )}
     </div>

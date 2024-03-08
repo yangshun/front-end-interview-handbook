@@ -1,6 +1,7 @@
 import { type NextRequest, NextResponse } from 'next/server';
 
 import { sendEmailPaymentFailed } from '~/emails/EmailSender';
+import { getErrorMessage } from '~/utils/getErrorMessage';
 
 /**
  * For testing, send to delivered@resend.dev
@@ -18,6 +19,9 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(data);
   } catch (error) {
-    return NextResponse.json({ error }, { status: 500 });
+    return NextResponse.json(
+      { error: getErrorMessage(error) },
+      { status: 500 },
+    );
   }
 }

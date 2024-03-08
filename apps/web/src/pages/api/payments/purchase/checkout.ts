@@ -10,6 +10,7 @@ import {
   createSupabaseAdminClientGFE_SERVER_ONLY,
   readUserFromToken,
 } from '~/supabase/SupabaseServerGFE';
+import { getErrorMessage } from '~/utils/getErrorMessage';
 
 import type { QueryParams } from './checkout_session_internal_and_called_on_server_only__';
 
@@ -147,11 +148,11 @@ export default async function handler(req: NextRequest) {
     const payload = await response.json();
 
     return NextResponse.json(payload);
-  } catch (err: any) {
+  } catch (error: unknown) {
     return new Response(
       JSON.stringify({
         error: {
-          message: err.message,
+          message: getErrorMessage(error),
         },
         success: false,
       }),

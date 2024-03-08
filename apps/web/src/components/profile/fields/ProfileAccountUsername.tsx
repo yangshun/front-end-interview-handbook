@@ -15,6 +15,8 @@ import Button from '~/components/ui/Button';
 import TextInput from '~/components/ui/TextInput';
 import { themeBorderColor } from '~/components/ui/theme';
 
+import { getErrorMessage } from '~/utils/getErrorMessage';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 
 type UserNameFormValues = Readonly<{
@@ -64,8 +66,8 @@ export default function ProfileAccountUsername() {
         onSubmit={handleSubmit(async (username) => {
           try {
             await userNameUpdateMutation.mutateAsync(username);
-          } catch (error: any) {
-            setError('username', { message: error.message });
+          } catch (error: unknown) {
+            setError('username', { message: getErrorMessage(error) });
 
             return;
           }

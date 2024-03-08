@@ -6,6 +6,7 @@ import type { UserProfilePlan } from '~/components/global/UserProfileProvider';
 
 import { sendEmailPaymentFailed } from '~/emails/EmailSender';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
+import { getErrorMessage } from '~/utils/getErrorMessage';
 
 export const config = { api: { bodyParser: false } };
 
@@ -31,7 +32,7 @@ export default async function handler(
   } catch (error) {
     return res.status(400).send({
       error: {
-        message: (error as Error).message as string,
+        message: getErrorMessage(error),
       },
       success: false,
     });

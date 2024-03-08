@@ -46,6 +46,7 @@ import {
 
 import logEvent from '~/logging/logEvent';
 import logMessage from '~/logging/logMessage';
+import { getErrorMessage } from '~/utils/getErrorMessage';
 
 import PurchaseBlockCard from '../../purchase/PurchaseBlockCard';
 import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '../../purchase/PurchasePricingConfig';
@@ -165,7 +166,7 @@ function PricingButtonNonPremium({
 
   const [isCheckoutSessionLoading, setIsCheckoutSessionLoading] =
     useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   async function processSubscription(planType: InterviewsPricingPlanType) {
     if (isCheckoutSessionLoading) {
@@ -173,7 +174,7 @@ function PricingButtonNonPremium({
     }
 
     setIsCheckoutSessionLoading(true);
-    setError(null);
+    setErrorMessage(null);
     try {
       const res = await fetch(
         url.format({
@@ -192,9 +193,9 @@ function PricingButtonNonPremium({
       }
 
       setCheckoutSessionHref(payload.url);
-    } catch (err: any) {
+    } catch (error: unknown) {
       if (hasClickedRef.current) {
-        setError(
+        setErrorMessage(
           intl.formatMessage({
             defaultMessage:
               'An error has occurred. Please try again later and contact support if the error persists.',
@@ -212,7 +213,7 @@ function PricingButtonNonPremium({
       });
       logMessage({
         level: 'error',
-        message: err?.message,
+        message: getErrorMessage(error),
         title: 'Checkout attempt error',
       });
       logEvent('checkout.fail', {
@@ -297,9 +298,9 @@ function PricingButtonNonPremium({
           return processSubscription(paymentConfig.planType);
         }}
       />
-      {error && (
+      {errorMessage && (
         <Text className="text-center" color="error" size="body3">
-          {error}
+          {errorMessage}
         </Text>
       )}
     </div>
