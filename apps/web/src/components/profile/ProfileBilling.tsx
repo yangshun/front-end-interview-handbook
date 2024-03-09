@@ -7,7 +7,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import type { UserProfilePlan } from '~/components/global/UserProfileProvider';
+import type { InterviewsProfileSubscriptionPlan } from '~/components/global/UserProfileProvider';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import Alert from '~/components/ui/Alert';
 import Anchor from '~/components/ui/Anchor';
@@ -20,7 +20,7 @@ import { themeBorderColor } from '~/components/ui/theme';
 function PlanLabel({
   plan,
 }: Readonly<{
-  plan?: UserProfilePlan | null;
+  plan?: InterviewsProfileSubscriptionPlan | null;
 }>): JSX.Element {
   if (plan == null) {
     return <Text size="body1">N/A</Text>;
@@ -110,7 +110,7 @@ function PlanLabel({
 function ManageSubscriptionSection({
   plan,
 }: Readonly<{
-  plan?: UserProfilePlan | null;
+  plan?: InterviewsProfileSubscriptionPlan | null;
 }>): JSX.Element | null {
   const intl = useIntl();
   const billingPortalGenerate = trpc.purchases.billingPortal.useMutation();

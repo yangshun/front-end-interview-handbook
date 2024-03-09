@@ -84,7 +84,7 @@ export default async function handler(req: NextRequest) {
       throw new Error(`Prohibited region: ${region}`);
     }
 
-    // Step 3: Check if request location is allowed.
+    // Step 3: Create Stripe customer if it doesn't exist for the user..
     const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
     // Can't use Prisma here because it's not supported in edge functions.
     const { data: userProfile, error } = await supabaseAdmin
@@ -101,7 +101,6 @@ export default async function handler(req: NextRequest) {
       throw new Error(`No user found for ${user.id}`);
     }
 
-    // Step 4: Create Stripe customer if doesn't exist.
     let stripeCustomerId = userProfile.stripeCustomer;
 
     // This happens when Supabase's webhooks don't fire during user signup
@@ -129,7 +128,7 @@ export default async function handler(req: NextRequest) {
       stripeCustomerId = customer.id;
     }
 
-    // Step 5: Create checkout session.
+    // Step 4: Create checkout session.
     const url = new URL(req.url);
     const { origin, searchParams } = url;
     const productVertical = searchParams.get(
@@ -167,6 +166,8 @@ export default async function handler(req: NextRequest) {
 
     return NextResponse.json(payload);
   } catch (error: unknown) {
+    console.error(error);
+
     return new Response(
       JSON.stringify({
         error: {

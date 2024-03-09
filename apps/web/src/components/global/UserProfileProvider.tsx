@@ -7,11 +7,15 @@ import { useSupabaseClientGFE } from '~/supabase/SupabaseClientGFE';
 
 import { useSessionContext, useUser } from '@supabase/auth-helpers-react';
 
-export type UserProfilePlan = 'lifetime' | 'month' | 'quarter' | 'year';
+export type InterviewsProfileSubscriptionPlan =
+  | 'lifetime'
+  | 'month'
+  | 'quarter'
+  | 'year';
 export type UserProfile = Readonly<{
   createdAt: string;
   isPremium: boolean;
-  plan: UserProfilePlan | null;
+  plan: InterviewsProfileSubscriptionPlan | null;
   stripeCustomerID: string | null;
 }>;
 
@@ -39,7 +43,7 @@ function convertProfile(
   return {
     createdAt: payload.createdAt,
     isPremium: payload.premium,
-    plan: payload.plan as UserProfilePlan | null,
+    plan: payload.plan as InterviewsProfileSubscriptionPlan | null,
     stripeCustomerID: payload.stripeCustomer,
   };
 }
