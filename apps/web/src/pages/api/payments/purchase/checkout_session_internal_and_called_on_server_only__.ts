@@ -25,18 +25,18 @@ type BaseCheckoutQueryParams = Readonly<{
   stripe_customer_id: string;
 }>;
 
-export type CheckoutProductVertical = 'interviews' | 'projects';
+export type CheckoutProductDomain = 'interviews' | 'projects';
 
 type InterviewsCheckoutQueryParams = BaseCheckoutQueryParams &
   Readonly<{
     plan_type: InterviewsPricingPlanType;
-    product_vertical: 'interviews';
+    product_domain: 'interviews';
   }>;
 
 type ProjectsCheckoutQueryParams = BaseCheckoutQueryParams &
   Readonly<{
     plan_type: ProjectsSubscriptionPlan;
-    product_vertical: 'projects';
+    product_domain: 'projects';
   }>;
 
 export type CheckoutQueryParams =
@@ -62,7 +62,7 @@ export default async function handler(
     first_promoter_tid: firstPromoterTrackingId,
     stripe_customer_id: stripeCustomerId,
     receipt_email: receiptEmail,
-    product_vertical: productVertical,
+    product_domain: productDomain,
     plan_type: planType,
   } = req.query as CheckoutQueryParams;
 
@@ -72,7 +72,7 @@ export default async function handler(
 
   const planPaymentConfig: PurchasePricingPlanPaymentConfigLocalized =
     await (async () => {
-      switch (productVertical) {
+      switch (productDomain) {
         case 'projects': {
           const data =
             await fetchProjectsPricingPlanPaymentConfigLocalizedRecord(

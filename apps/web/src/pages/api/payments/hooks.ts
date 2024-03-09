@@ -2,12 +2,10 @@ import { buffer } from 'micro';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
 
-import type { InterviewsProfileSubscriptionPlan } from '~/components/global/UserProfileProvider';
 import {
-  interviewsCustomerAddPlan,
-  interviewsCustomerRemovePlan,
-  interviewsDetermineSubscriptionPlan,
-} from '~/components/interviews/purchase/InterviewsStripeSyncUtils';
+  purchaseCustomerAddPlan,
+  purchaseCustomerRemovePlan,
+} from '~/components/purchase/PurchaseStripeWebhookHandlers';
 
 import { sendEmailPaymentFailed } from '~/emails/EmailSender';
 import { getErrorMessage } from '~/utils/getErrorMessage';
@@ -44,53 +42,55 @@ export default async function handler(
 
   switch (event.type) {
     case 'invoice.paid': {
-      const invoice = event.data.object as Stripe.Invoice;
-      const customerID = invoice.customer;
+      const invoice = event.data.object;
+      const customerId = invoice.customer;
 
-      if (customerID == null) {
-        return res.send('Missing customerID');
+      if (customerId == null) {
+        return res.send('Missing customerId');
       }
 
-      const planName: InterviewsProfileSubscriptionPlan =
-        interviewsDetermineSubscriptionPlan(invoice.lines.data[0].price);
+      const { productDomain, plan } = await purchaseCustomerAddPlan(
+        customerId,
+        invoice.lines.data[0].price,
+      );
 
-      await interviewsCustomerAddPlan(customerID, planName);
-
-      return res.send(`${planName} subscription added to ${customerID}`);
+      return res.send(
+        `[${productDomain}] ${plan} subscription added to ${customerId}`,
+      );
     }
 
     case 'customer.subscription.deleted': {
-      const subscription = event.data.object as Stripe.Subscription;
-      const customerID = subscription.customer;
+      const { productDomain, plan, customerId } =
+        await purchaseCustomerRemovePlan(event.data.object);
 
-      await interviewsCustomerRemovePlan(customerID);
-
-      return res.send(`Subscription removed from ${customerID}`);
+      return res.send(
+        `[${productDomain}] ${plan} subscription removed from ${customerId}`,
+      );
     }
 
     case 'payment_intent.payment_failed': {
       const paymentIntent = event.data.object as Stripe.PaymentIntent;
-      const { last_payment_error: error, customer: customerID } = paymentIntent;
+      const { last_payment_error: error, customer: customerId } = paymentIntent;
 
       if (error == null) {
-        return res.send(`No payment error found for ${customerID}`);
+        return res.send(`No payment error found for ${customerId}`);
       }
 
       const paymentMethod = error.payment_method;
 
       if (paymentMethod == null) {
-        return res.send(`No payment method found for error for ${customerID}`);
+        return res.send(`No payment method found for error for ${customerId}`);
       }
 
       const { name, email } = paymentMethod.billing_details;
 
       if (email == null) {
-        return res.send(`No email found for error for ${customerID}`);
+        return res.send(`No email found for error for ${customerId}`);
       }
 
       const result = await sendEmailPaymentFailed(email, name);
 
-      return res.send(`Error email ${result.data?.id} sent for ${customerID}`);
+      return res.send(`Error email ${result.data?.id} sent for ${customerId}`);
     }
 
     default:

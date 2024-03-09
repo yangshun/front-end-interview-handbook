@@ -164,7 +164,7 @@ function PricingButtonNonPremium({
           pathname: '/api/payments/purchase/checkout',
           query: {
             plan_type: planTypeParam,
-            product_vertical: 'projects',
+            product_domain: 'projects',
           },
         }),
       );

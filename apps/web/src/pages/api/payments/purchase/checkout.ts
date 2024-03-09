@@ -13,7 +13,7 @@ import {
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
 import type {
-  CheckoutProductVertical,
+  CheckoutProductDomain,
   CheckoutQueryParams,
 } from './checkout_session_internal_and_called_on_server_only__';
 
@@ -131,9 +131,9 @@ export default async function handler(req: NextRequest) {
     // Step 4: Create checkout session.
     const url = new URL(req.url);
     const { origin, searchParams } = url;
-    const productVertical = searchParams.get(
-      'product_vertical',
-    ) as CheckoutProductVertical;
+    const productDomain = searchParams.get(
+      'product_domain',
+    ) as CheckoutProductDomain;
     const planType = searchParams.get('plan_type');
 
     const commonQueryParams = {
@@ -145,16 +145,16 @@ export default async function handler(req: NextRequest) {
     };
 
     const queryParams: CheckoutQueryParams =
-      productVertical === 'interviews'
+      productDomain === 'interviews'
         ? {
             ...commonQueryParams,
             plan_type: planType as InterviewsPricingPlanType,
-            product_vertical: productVertical,
+            product_domain: productDomain,
           }
         : {
             ...commonQueryParams,
             plan_type: planType as ProjectsSubscriptionPlan,
-            product_vertical: productVertical,
+            product_domain: productDomain,
           };
 
     const response = await fetch(
