@@ -162,8 +162,8 @@ async function processSubscriptionPlan(
 
   const { origin } = absoluteUrl(req);
 
-  const cancelUrl = `${origin}/${urls.cancel}?cancel=1&plan=${planType}`;
-  const successUrl = `${origin}/${urls.success}?plan=${planType}`;
+  const cancelUrl = `${origin}${urls.cancel}?cancel=1&plan=${planType}`;
+  const successUrl = `${origin}${urls.success}?plan=${planType}`;
 
   const session = await stripe.checkout.sessions.create({
     allow_promotion_codes: planPaymentConfig.allowPromoCode,
@@ -204,8 +204,8 @@ async function processOneTimePlan(
   const { origin } = absoluteUrl(req);
   const { urls, productId } = planPaymentConfig;
 
-  const cancelUrl = `${origin}/${urls.cancel}?cancel=1&plan=${planType}`;
-  const successUrl = `${origin}/${urls.success}?plan=${planType}`;
+  const cancelUrl = `${origin}${urls.cancel}?cancel=1&plan=${planType}`;
+  const successUrl = `${origin}${urls.success}?plan=${planType}`;
 
   const session = await stripe.checkout.sessions.create({
     allow_promotion_codes: planPaymentConfig.allowPromoCode,
