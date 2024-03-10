@@ -7,7 +7,7 @@ import { z } from 'zod';
 import { trpc } from '~/hooks/trpc';
 
 import { useProfileUsernameSchema } from '~/components/profile/fields/ProfileUsernameSchema';
-import { yoeReplacementSchema } from '~/components/projects/misc';
+import useProjectsProfileExperienceValueInitializer from '~/components/projects/hooks/useProjectsProfileExperienceValueInitializer';
 import ProjectsProfileEditAvatar from '~/components/projects/profile/edit/ProjectsProfileEditAvatar';
 import ProjectsProfileJobSection from '~/components/projects/profile/edit/ProjectsProfileJobSection';
 import {
@@ -78,7 +78,12 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
     trpc.projects.profile.onboardingStep1Update.useMutation();
   const [usernameExistsError, setUsernameExistsError] = useState(false);
 
-  const hasStartedWork = initialValues?.currentStatus === null;
+  const experienceInitialValues = useProjectsProfileExperienceValueInitializer({
+    company: initialValues?.company,
+    currentStatus: initialValues?.currentStatus,
+    startWorkDate: initialValues?.startWorkDate,
+    title: initialValues?.title,
+  });
 
   const methods = useForm<
     ProjectsProfileOnboardingStep1FormValues,
@@ -88,26 +93,9 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
     resolver: zodResolver(onboardingProfileStep1Schema),
     values: {
       avatarUrl: initialValues?.avatarUrl ?? '',
-      company: initialValues?.company ?? '',
-      hasStartedWork,
-      jobTitle: hasStartedWork ? initialValues?.title ?? '' : '',
-      monthYearExperience: initialValues?.startWorkDate
-        ? `${
-            initialValues.startWorkDate.getMonth() + 1
-          }/${initialValues.startWorkDate.getFullYear()}`
-        : undefined,
       name: initialValues?.name ?? '',
-      title: hasStartedWork ? '' : initialValues?.title ?? '',
       username: initialValues?.username ?? '',
-      yoeReplacement: {
-        option: yoeReplacementSchema
-          .catch(() => 'others' as const)
-          .parse(initialValues?.currentStatus),
-        otherText: !yoeReplacementSchema.safeParse(initialValues?.currentStatus)
-          .success
-          ? initialValues?.currentStatus ?? undefined
-          : undefined,
-      },
+      ...experienceInitialValues,
     },
   });
   const {

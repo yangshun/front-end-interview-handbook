@@ -12,7 +12,7 @@ import { useProfileUsernameSchema } from '~/components/profile/fields/ProfileUse
 import useProjectsMotivationReasonSchema, {
   convertProjectsMotivationReasonToFormValue,
 } from '~/components/projects/hooks/useProjectsMotivationReasonSchema';
-import { yoeReplacementSchema } from '~/components/projects/misc';
+import useProjectsProfileExperienceValueInitializer from '~/components/projects/hooks/useProjectsProfileExperienceValueInitializer';
 import ProjectsProfileBasicInfoSection from '~/components/projects/profile/edit/ProjectsProfileBasicInfoSection';
 import ProjectsProfileJobSection from '~/components/projects/profile/edit/ProjectsProfileJobSection';
 import ProjectsProfileMotivationSection from '~/components/projects/profile/edit/ProjectsProfileMotivationSection';
@@ -102,7 +102,12 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
   );
 
   const projectsProfileEditSchema = useProjectsProfileEditSchema();
-  const hasStartedWork = initialValues?.currentStatus === null;
+  const experienceInitialValues = useProjectsProfileExperienceValueInitializer({
+    company: initialValues?.company,
+    currentStatus: initialValues?.currentStatus,
+    startWorkDate: initialValues?.startWorkDate,
+    title: initialValues?.title,
+  });
 
   const methods = useForm<
     ProjectsProfileEditFormValues,
@@ -113,34 +118,17 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
     values: {
       avatarUrl: initialValues?.avatarUrl ?? '',
       bio: initialValues?.bio ?? '',
-      company: initialValues?.company ?? '',
       githubUsername: initialValues?.githubUsername ?? '',
-      hasStartedWork,
-      jobTitle: hasStartedWork ? initialValues?.title ?? '' : '',
       linkedInUsername: initialValues?.linkedInUsername ?? '',
-      monthYearExperience: initialValues?.startWorkDate
-        ? `${
-            initialValues.startWorkDate.getMonth() + 1
-          }/${initialValues.startWorkDate.getFullYear()}`
-        : undefined,
       motivations: convertProjectsMotivationReasonToFormValue(
         initialValues?.projectsProfile?.motivations ?? [],
       ),
       name: initialValues?.name ?? '',
       skillsProficient: initialValues?.projectsProfile?.skillsProficient ?? [],
       skillsToGrow: initialValues?.projectsProfile?.skillsToGrow ?? [],
-      title: hasStartedWork ? '' : initialValues?.title ?? '',
       username: initialValues?.username ?? '',
       website: initialValues?.website ?? '',
-      yoeReplacement: {
-        option: yoeReplacementSchema
-          .catch(() => 'others' as const)
-          .parse(initialValues?.currentStatus),
-        otherText: !yoeReplacementSchema.safeParse(initialValues?.currentStatus)
-          .success
-          ? initialValues?.currentStatus ?? undefined
-          : undefined,
-      },
+      ...experienceInitialValues,
     },
   });
   const {
