@@ -1,8 +1,6 @@
 import type { ReactNode } from 'react';
 import { createContext, useCallback, useContext, useState } from 'react';
 
-import type { QuestionBase } from '../../interviews/questions/common/QuestionsTypes';
-
 import type { SandpackFiles } from '@codesandbox/sandpack-react/types';
 
 export type CodingWorkspaceTabContents<TabType extends string> = Readonly<
@@ -17,20 +15,19 @@ export type CodingWorkspaceTabContents<TabType extends string> = Readonly<
 
 type Status = 'idle' | 'loading' | 'running_tests' | 'submitting';
 
-type BaseContext<T extends QuestionBase> = Readonly<{
+type BaseContext = Readonly<{
   defaultFiles: SandpackFiles;
   deleteCodeFromLocalStorage: () => void;
   openCommunitySolution?: (solutionId: string) => void;
   openFile?: (filePath: string, fromFilePath?: string) => void;
   openSubmission?: (submissionId: string) => void;
-  question: T;
   resetToDefaultCode: () => void;
 }>;
 
-type Props<T extends QuestionBase> = Readonly<{
+type Props = Readonly<{
   children: ReactNode;
   loadedFilesFromLocalStorage?: boolean;
-  value: BaseContext<T>;
+  value: BaseContext;
 }>;
 
 type AdditionalContext = Readonly<{
@@ -42,16 +39,15 @@ type AdditionalContext = Readonly<{
   submit: () => void;
 }>;
 
-type ContextValue<T extends QuestionBase> = AdditionalContext & BaseContext<T>;
+type ContextValue = AdditionalContext & BaseContext;
 
-const CodingWorkspaceContext = createContext<ContextValue<any>>({
+const CodingWorkspaceContext = createContext<ContextValue>({
   defaultFiles: {},
   deleteCodeFromLocalStorage: () => {},
   executionComplete: () => {},
   openCommunitySolution: () => {},
   openFile: () => {},
   openSubmission: () => {},
-  question: {},
   resetToDefaultCode: () => {},
   runTests: () => {},
   setShowLoadedFilesFromLocalStorageMessage: () => {},
@@ -62,11 +58,11 @@ const CodingWorkspaceContext = createContext<ContextValue<any>>({
 
 CodingWorkspaceContext.displayName = 'CodingWorkspaceContext';
 
-export function CodingWorkspaceProvider<T extends QuestionBase>({
+export function CodingWorkspaceProvider({
   children,
   value,
   loadedFilesFromLocalStorage = false,
-}: Props<T>) {
+}: Props) {
   const [status, setStatus] = useState<Status>('idle');
   const [
     showLoadedFilesFromLocalStorageMessage,
@@ -113,8 +109,6 @@ export function CodingWorkspaceProvider<T extends QuestionBase>({
   );
 }
 
-export function useCodingWorkspaceContext<T extends QuestionBase>() {
-  const context = useContext(CodingWorkspaceContext);
-
-  return context as ContextValue<T>;
+export function useCodingWorkspaceContext() {
+  return useContext(CodingWorkspaceContext);
 }

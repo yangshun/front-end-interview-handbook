@@ -339,7 +339,6 @@ function UserInterfaceCodingWorkspaceImpl({
         defaultFiles,
         deleteCodeFromLocalStorage,
         openFile,
-        question,
         resetToDefaultCode,
       }}>
       {!embed && (
@@ -428,7 +427,7 @@ function UserInterfaceCodingWorkspaceImpl({
               })}
               renderTab={(tabId) =>
                 tabContents[tabId] != null ? (
-                  <div className="flex size-full">
+                  <div className="size-full flex">
                     {tabContents[tabId]!.contents}
                   </div>
                 ) : (

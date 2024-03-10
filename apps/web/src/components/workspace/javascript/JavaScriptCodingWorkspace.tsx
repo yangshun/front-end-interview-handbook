@@ -298,7 +298,6 @@ function JavaScriptCodingWorkspaceImpl({
         deleteCodeFromLocalStorage,
         openCommunitySolution,
         openSubmission,
-        question,
         resetToDefaultCode,
       }}>
       <JavaScriptCodingWorkspaceContextProvider
@@ -360,7 +359,7 @@ function JavaScriptCodingWorkspaceImpl({
                 })}
                 renderTab={(tabId) =>
                   tabContents[tabId] != null ? (
-                    <div className="flex size-full">
+                    <div className="size-full flex">
                       {tabContents[tabId]!.contents}
                     </div>
                   ) : (
