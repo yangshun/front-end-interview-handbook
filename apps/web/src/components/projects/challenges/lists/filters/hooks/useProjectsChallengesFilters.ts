@@ -1,13 +1,12 @@
 import { useState } from 'react';
 
-import useFilterSearchParams from '~/hooks/useFilterSearchParams';
-
 import { useProjectsChallengeFilterState } from '~/components/projects/challenges/lists/ProjectsChallengeFilterContext';
+import { useProjectsChallengeFilterContext } from '~/components/projects/challenges/lists/ProjectsChallengeFilterContext';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 
 export default function useProjectsChallengesFilters() {
   const { updateSearchParams, getStringTypeSearchParams } =
-    useFilterSearchParams();
+    useProjectsChallengeFilterContext();
   // Filtering.
   const [query, setQuery] = useState(getStringTypeSearchParams('search') ?? '');
   const [selectedComponentTrack] =

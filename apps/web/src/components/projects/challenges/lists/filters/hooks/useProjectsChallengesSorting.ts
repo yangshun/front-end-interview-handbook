@@ -1,12 +1,11 @@
 import { useState } from 'react';
 
-import useFilterSearchParams from '~/hooks/useFilterSearchParams';
-
+import { useProjectsChallengeFilterContext } from '~/components/projects/challenges/lists/ProjectsChallengeFilterContext';
 import type { ProjectsSortField } from '~/components/projects/types';
 
 export default function useProjectsChallengesSorting() {
   const { updateSearchParams, getStringTypeSearchParams } =
-    useFilterSearchParams();
+    useProjectsChallengeFilterContext();
   const [isAscendingOrder, setIsAscendingOrder] = useState(
     getStringTypeSearchParams('sortOrder') === 'ASC',
   );

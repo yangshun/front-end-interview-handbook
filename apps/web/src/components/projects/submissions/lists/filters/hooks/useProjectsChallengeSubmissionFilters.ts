@@ -1,16 +1,17 @@
 import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 import { useState } from 'react';
 
-import useFilterSearchParams from '~/hooks/useFilterSearchParams';
-
 import useProjectsYOEReplacementOptions from '~/components/projects/hooks/useProjectsYOEReplacementOptions';
-import { useProjectsChallengeSubmissionFilterState } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
+import {
+  useProjectsChallengeSubmissionFilterContext,
+  useProjectsChallengeSubmissionFilterState,
+} from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import type { ProjectsChallengeSubmissionYOEFilter } from '~/components/projects/submissions/types';
 import type { ProjectsYoeReplacement } from '~/components/projects/types';
 
 export default function useProjectsChallengeSubmissionFilters() {
   const { updateSearchParams, getStringTypeSearchParams } =
-    useFilterSearchParams();
+    useProjectsChallengeSubmissionFilterContext();
   // Filtering.
   const [query, setQuery] = useState(getStringTypeSearchParams('search'));
   const [selectedComponentTrack] =

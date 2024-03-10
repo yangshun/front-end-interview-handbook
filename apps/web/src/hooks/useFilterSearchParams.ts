@@ -1,15 +1,14 @@
 import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useSearchParams } from 'next/navigation';
 import { useCallback, useRef } from 'react';
 
-type UpdateQueueItem = Readonly<{
-  key: string;
-  value: ReadonlyArray<string> | string;
-}>;
+type UpdateQueueItem = Record<string, ReadonlyArray<string> | string>;
 
 export default function useFilterSearchParams() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
+  const { replace } = useRouter();
   const updateQueue = useRef<Array<UpdateQueueItem>>([]);
   const shouldWaitUpdate = useRef<boolean>(false);
 
@@ -18,19 +17,22 @@ export default function useFilterSearchParams() {
     let search = '';
 
     for (const update of updateQueue.current) {
-      const { key, value } = update;
+      Object.keys(update).map((key) => {
+        const value = update[key];
 
-      if (Array.isArray(value)) {
-        if (value.length > 0) {
-          current.set(key, value.join(','));
+        if (Array.isArray(value)) {
+          if (value.length > 0) {
+            current.set(key, value.join(','));
+          } else {
+            current.delete(key);
+          }
+        } else if (value) {
+          current.set(key, value.toString());
         } else {
           current.delete(key);
         }
-      } else if (value) {
-        current.set(key, value.toString());
-      } else {
-        current.delete(key);
-      }
+        search = current.toString();
+      });
 
       // Cast to string
       search = current.toString();
@@ -41,35 +43,24 @@ export default function useFilterSearchParams() {
     shouldWaitUpdate.current = false;
     updateQueue.current = [];
 
-    window.history.replaceState({}, '', `${pathname}${query}`);
-  }, [pathname]);
+    const newUrl = `${pathname}${query}`;
+
+    replace(newUrl);
+  }, [pathname, replace]);
 
   function updateMultipleSearchParams(
     params: Record<string, ReadonlyArray<string> | string>,
   ) {
-    const current = new URLSearchParams(window.location.search);
-    let search = '';
+    // To handle asynchronous update of search params
+    updateQueue.current = [...(updateQueue.current || []), params];
+    if (shouldWaitUpdate.current) {
+      return;
+    }
 
-    Object.keys(params).map((key) => {
-      const value = params[key];
-
-      if (Array.isArray(value)) {
-        if (value.length > 0) {
-          current.set(key, value.join(','));
-        } else {
-          current.delete(key);
-        }
-      } else if (value) {
-        current.set(key, value.toString());
-      } else {
-        current.delete(key);
-      }
-      search = current.toString();
-    });
-
-    const query = search ? `?${search}` : '';
-
-    window.history.replaceState({}, '', `${pathname}${query}`);
+    shouldWaitUpdate.current = true;
+    setTimeout(() => {
+      processUpdateQueue();
+    }, 10);
   }
 
   function updateSearchParams(
@@ -77,7 +68,7 @@ export default function useFilterSearchParams() {
     value: ReadonlyArray<string> | string,
   ) {
     // To handle asynchronous update of search params
-    updateQueue.current = [...(updateQueue.current || []), { key, value }];
+    updateQueue.current = [...(updateQueue.current || []), { [key]: value }];
     if (shouldWaitUpdate.current) {
       return;
     }

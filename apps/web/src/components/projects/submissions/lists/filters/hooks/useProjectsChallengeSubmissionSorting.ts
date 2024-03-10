@@ -1,12 +1,11 @@
 import { useState } from 'react';
 
-import useFilterSearchParams from '~/hooks/useFilterSearchParams';
-
+import { useProjectsChallengeSubmissionFilterContext } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import type { ProjectsChallengeSubmissionSortField } from '~/components/projects/submissions/types';
 
 export default function useProjectsChallengeSubmissionSorting() {
   const { updateSearchParams, getStringTypeSearchParams } =
-    useFilterSearchParams();
+    useProjectsChallengeSubmissionFilterContext();
   const initialSortFiled = getStringTypeSearchParams('sortField');
   const [isAscendingOrder, setIsAscendingOrder] = useState(
     getStringTypeSearchParams('sortOrder') === 'DESC' ? false : true,

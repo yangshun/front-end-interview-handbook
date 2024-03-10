@@ -1,7 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 
-import useFilterSearchParams from './useFilterSearchParams';
-
 type PaginatedList<T> = Readonly<{
   currentPage: number;
   currentPageItems: ReadonlyArray<T>;
@@ -9,15 +7,41 @@ type PaginatedList<T> = Readonly<{
   totalPages: number;
 }>;
 
-const usePagination = <T>(
-  totalList: ReadonlyArray<T>,
-  itemsPerPage: number,
-  deps: React.DependencyList,
-  page?: number,
-  updateParams?: boolean,
-): PaginatedList<T> => {
+type Options<T> = Readonly<
+  {
+    deps: React.DependencyList;
+    itemsPerPage: number;
+    page?: number;
+    totalList?: ReadonlyArray<T>;
+    updateSearchParamsRequired?: boolean;
+  } & (
+    | {
+        updateSearchParams: (
+          key: string,
+          value: Array<string> | string,
+        ) => void;
+        updateSearchParamsRequired?: true;
+      }
+    | {
+        updateSearchParams?: (
+          key: string,
+          value: Array<string> | string,
+        ) => void;
+        updateSearchParamsRequired?: false;
+      }
+  )
+>;
+
+const usePagination = <T>(opts: Options<T>): PaginatedList<T> => {
+  const {
+    deps,
+    itemsPerPage,
+    page,
+    totalList = [],
+    updateSearchParamsRequired,
+    updateSearchParams,
+  } = opts;
   const isMounted = useRef(false);
-  const { updateSearchParams } = useFilterSearchParams();
   const [currentPage, setCurrentPage] = useState<number>(page || 1);
   const totalPages = Math.ceil(totalList.length / itemsPerPage);
 
@@ -26,9 +50,9 @@ const usePagination = <T>(
   const currentPageItems = totalList.slice(startIndex, endIndex);
 
   useEffect(() => {
-    if (isMounted.current) {
+    if (isMounted.current && (deps || []).length > 1) {
       setCurrentPage(1); // Reset current page when dependencies change
-      if (updateParams) {
+      if (updateSearchParamsRequired) {
         updateSearchParams('page', '1');
       }
     }

@@ -1,4 +1,6 @@
 import clsx from 'clsx';
+import { debounce } from 'lodash-es';
+import { useRef, useState } from 'react';
 import {
   RiCodeSSlashLine,
   RiFolderOpenLine,
@@ -39,6 +41,7 @@ const ITEMS_PER_PAGE = 12;
 
 function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
   const intl = useIntl();
+  const [searchQuery, setSearchQuery] = useState('');
   const {
     filters,
     value: selectedFilters,
@@ -74,13 +77,14 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
     totalPages,
     setCurrentPage,
     currentPage,
-  } = usePagination(
-    processedChallenges,
-    ITEMS_PER_PAGE,
-    [selectedFilters, query, sortField, isAscendingOrder],
-    Number(getStringTypeSearchParams('page')) || 1,
-    true,
-  );
+  } = usePagination({
+    deps: [selectedFilters, query, sortField, isAscendingOrder],
+    itemsPerPage: ITEMS_PER_PAGE,
+    page: Number(getStringTypeSearchParams('page')) || 1,
+    totalList: processedChallenges,
+    updateSearchParams,
+    updateSearchParamsRequired: true,
+  });
 
   const numberOfFilters = filtersChallengesOpts.filter(
     ([size]) => size > 0,
@@ -192,6 +196,10 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
     </>
   );
 
+  const debouncedSearch = useRef(
+    debounce((q) => onChangeQuery(q), 500),
+  ).current;
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-row flex-wrap gap-3 md:flex-col lg:flex-row">
@@ -206,8 +214,11 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
             })}
             startIcon={RiSearchLine}
             type="text"
-            value={query}
-            onChange={onChangeQuery}
+            value={searchQuery}
+            onChange={(value) => {
+              setSearchQuery(value);
+              debouncedSearch(value);
+            }}
           />
         </div>
         <div className="hidden flex-wrap gap-3 md:flex">

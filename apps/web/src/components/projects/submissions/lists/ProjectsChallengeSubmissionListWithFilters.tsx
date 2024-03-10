@@ -62,13 +62,13 @@ export default function ProjectsChallengeSubmissionListWithFilters({
   } = useProjectsChallengeSubmissionFilterContext();
 
   // Pagination
-  const { setCurrentPage, currentPage } = usePagination(
-    [],
-    ITEMS_PER_PAGE,
-    [selectedFilters, query, sortField, isAscendingOrder],
-    Number(getStringTypeSearchParams('page')) || 1,
-    true,
-  );
+  const { setCurrentPage, currentPage } = usePagination({
+    deps: [selectedFilters, query, sortField, isAscendingOrder],
+    itemsPerPage: ITEMS_PER_PAGE,
+    page: Number(getStringTypeSearchParams('page')) || 1,
+    updateSearchParams,
+    updateSearchParamsRequired: true,
+  });
 
   const { data: { submissions, totalCount } = {}, isLoading } =
     trpc.projects.submissions.list.useQuery(
