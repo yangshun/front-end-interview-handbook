@@ -23,10 +23,14 @@ function projectsChallengeSubmissionImplementationSchema(options?: {
     .trim()
     .refine(
       (value) => {
-        const editorState = editor.parseEditorState(value);
-        const text = editorState.read(() => $getRoot().getTextContent());
+        try {
+          const editorState = editor.parseEditorState(value);
+          const text = editorState.read(() => $getRoot().getTextContent());
 
-        return text.length >= MIN_LENGTH;
+          return text.length >= MIN_LENGTH;
+        } catch {
+          return false;
+        }
       },
       {
         message: minMessage,
@@ -34,10 +38,14 @@ function projectsChallengeSubmissionImplementationSchema(options?: {
     )
     .refine(
       (value) => {
-        const editorState = editor.parseEditorState(value);
-        const text = editorState.read(() => $getRoot().getTextContent());
+        try {
+          const editorState = editor.parseEditorState(value);
+          const text = editorState.read(() => $getRoot().getTextContent());
 
-        return text.length <= MAX_LENGTH;
+          return text.length <= MAX_LENGTH;
+        } catch {
+          return false;
+        }
       },
       {
         message: maxMessage,
