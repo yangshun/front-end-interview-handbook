@@ -115,7 +115,7 @@ function NavbarAccordionSubsection({
           label={props.supplementaryItem.label}
           variant="secondary"
           onClick={(event) => {
-            props?.supplementaryItem?.onClick?.(event as any);
+            props?.supplementaryItem?.onClick?.(event);
           }}
         />
       )}

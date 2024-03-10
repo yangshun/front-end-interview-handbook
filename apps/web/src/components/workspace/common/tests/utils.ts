@@ -79,5 +79,5 @@ export const flatMap = <A, B>(as: Array<A>, f: (a: A) => Array<B>): Array<B> =>
 
 export const set =
   (path: Array<string>, value: unknown) =>
-  <A extends Record<string, any>>(object: A): A =>
+  <A extends Record<string, unknown>>(object: A): A =>
     cleanSet(object, path, value);

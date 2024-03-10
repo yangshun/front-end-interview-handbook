@@ -102,6 +102,7 @@ export const rewardsRouter = router({
       const userId = user.id;
       const identifier = username;
 
+      // TODO: Migrate to octokit SDK methods.
       const initialResponse = await octokit.request(`GET ${normalUrl}`, {
         headers: {
           Accept: 'application/vnd.github+json',
@@ -116,7 +117,12 @@ export const rewardsRouter = router({
       if (!hasLastPage) {
         const { data } = initialResponse;
 
-        if (!data.some((repo: any) => repo.id === GITHUB_REPO_ID)) {
+        if (
+          !data.some(
+            // TODO: Remove manual typing after migrating to octokit SDK methods.
+            (repo: Readonly<{ id: number }>) => repo.id === GITHUB_REPO_ID,
+          )
+        ) {
           throw 'Not starred';
         }
 
@@ -148,6 +154,7 @@ export const rewardsRouter = router({
 
       const responses = await Promise.all(
         urls.map((url) =>
+          // TODO: Remove manual typing after migrating to octokit SDK methods.
           octokit.request(`GET ${url}`, {
             headers: {
               Accept: 'application/vnd.github+json',
@@ -159,7 +166,8 @@ export const rewardsRouter = router({
       );
 
       const ids = responses.flatMap((response) =>
-        response.data.map((repo: any) => repo.id),
+        // TODO: Remove after using typesafe Octokit APIs.
+        response.data.map((repo: Readonly<{ id: number }>) => repo.id),
       );
 
       const isStarred = ids.includes(GITHUB_REPO_ID);

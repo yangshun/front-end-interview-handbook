@@ -1,5 +1,7 @@
+import { getErrorMessage } from '~/utils/getErrorMessage';
+
 import { gatherDts } from './gatherDts';
-import type { PackageName, PackageVersion } from './types';
+import type { PackageJSON, PackageName, PackageVersion } from './types';
 import { stripLeadingPeriodAndSlash } from './utils';
 
 const CDN_URL = 'https://cdn.jsdelivr.net/';
@@ -17,7 +19,7 @@ function makePackageUrl(
 async function fetchPackageJson(
   packageName: PackageName,
   packageVersion: PackageVersion,
-): Promise<any> {
+): Promise<PackageJSON | null> {
   const packageJsonUrl =
     makePackageUrl(packageName, packageVersion) + 'package.json';
   const response = await fetch(packageJsonUrl);
@@ -35,7 +37,7 @@ export async function fetchDtsList(
 ) {
   try {
     const packageJson = await fetchPackageJson(packageName, packageVersion);
-    const dtsMap = gatherDts(packageJson);
+    const dtsMap = gatherDts(packageJson!);
     const packageCdnUrl = makePackageUrl(packageName, packageVersion);
     const urls = Object.values(dtsMap).map((dtsPath) => {
       const dtsRelativePath = stripLeadingPeriodAndSlash(dtsPath);
@@ -45,7 +47,7 @@ export async function fetchDtsList(
     });
 
     return urls;
-  } catch {
-    //
+  } catch (err) {
+    console.error(getErrorMessage(err));
   }
 }
