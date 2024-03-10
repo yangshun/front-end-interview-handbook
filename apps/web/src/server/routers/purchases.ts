@@ -8,7 +8,7 @@ import countryNames from '~/data/countryCodesToNames.json';
 import fetchInterviewsPricingPlanPaymentConfigLocalizedRecord from '~/components/interviews/purchase/fetchInterviewsPricingPlanPaymentConfigLocalizedRecord';
 import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/projects/purchase/fetchProjectsPricingPlanPaymentConfigLocalizedRecord';
 
-import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
+import prisma from '~/server/prisma';
 
 import { publicProcedure, router, userProcedure } from '../trpc';
 
@@ -22,29 +22,18 @@ export const purchasesRouter = router({
   billingPortal: userProcedure.mutation(async ({ ctx: { user, req } }) => {
     const { origin } = absoluteUrl(req);
 
-    const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
-    const { data, error } = await supabaseAdmin
-      .from('Profile')
-      .select('stripeCustomer')
-      .eq('id', user.id)
-      .single();
-
-    if (error != null) {
-      throw new Error(error.message);
-    }
-
-    if (data == null) {
-      throw new Error(`No profile found for ${user.id}`);
-    }
-
-    if (data.stripeCustomer == null) {
-      throw new Error(`No Stripe customer found for ${user.id}`);
-    }
-
-    const stripeCustomerId = data.stripeCustomer;
+    const { stripeCustomer: stripeCustomerId } =
+      await prisma.profile.findFirstOrThrow({
+        select: {
+          stripeCustomer: true,
+        },
+        where: {
+          id: user.id,
+        },
+      });
 
     const session = await stripe.billingPortal.sessions.create({
-      customer: stripeCustomerId,
+      customer: stripeCustomerId!,
       return_url: `${origin}/profile/billing`,
     });
 
