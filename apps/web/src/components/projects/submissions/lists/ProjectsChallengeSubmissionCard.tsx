@@ -117,23 +117,29 @@ export default function ProjectsChallengeSubmissionCard({
         </div>
       )}
       <div className="flex flex-col gap-3">
-        <Anchor className="z-[1]" href={hrefs.detail} variant="flat">
-          <Text className="line-clamp-2" size="body1" weight="bold">
-            {title}
-          </Text>
-        </Anchor>
-        <ProjectsSkillList
-          label={intl.formatMessage({
-            defaultMessage: 'Stack used',
-            description: 'Label for tech stack used in project',
-            id: 'aiI8c6',
-          })}
-          limit={3}
-          // TODO(projects|skills): display parent skill for roadmap skills.
-          skills={[...roadmapSkills, ...techStackSkills]}
-        />
+        <div className="min-h-12">
+          <Anchor className="z-[1]" href={hrefs.detail} variant="flat">
+            <Text className="line-clamp-2" size="body1" weight="bold">
+              {title}
+            </Text>
+          </Anchor>
+        </div>
+        <div className="min-h-[44px]">
+          <ProjectsSkillList
+            label={intl.formatMessage({
+              defaultMessage: 'Stack used',
+              description: 'Label for tech stack used in project',
+              id: 'aiI8c6',
+            })}
+            limit={3}
+            // TODO(projects|skills): display parent skill for roadmap skills.
+            skills={[...roadmapSkills, ...techStackSkills]}
+          />
+        </div>
       </div>
-      <img alt={title} className="h-[190px] w-full rounded-md" src={imgSrc} />
+      <div className="h-[190px]">
+        <img alt={title} className="h-[190px] w-full rounded-md" src={imgSrc} />
+      </div>
       {!isPinned && author != null && (
         <div className="z-[1] flex items-center gap-4">
           <ProjectsProfileAvatar
@@ -149,18 +155,20 @@ export default function ProjectsChallengeSubmissionCard({
           </div>
         </div>
       )}
-      <Text className="line-clamp-3" color="subtitle" size="body3">
-        {summary}
-      </Text>
-      <div className="flex justify-between gap-4">
-        <div className="flex gap-4">
-          <ProjectsVoteCountTag count={votes} />
-          <ProjectsViewCountTag count={views} />
-          <ProjectsCommentCountTag count={comments ?? 0} />
-        </div>
-        <Text className="z-[1]" color="secondary" size="body3">
-          <RelativeTimestamp timestamp={submission.createdAt} />
+      <div className="flex h-full flex-col justify-between gap-4">
+        <Text className="line-clamp-3" color="subtitle" size="body3">
+          {summary}
         </Text>
+        <div className="flex justify-between gap-4">
+          <div className="flex gap-4">
+            <ProjectsVoteCountTag count={votes} />
+            <ProjectsViewCountTag count={views} />
+            <ProjectsCommentCountTag count={comments ?? 0} />
+          </div>
+          <Text className="z-[1]" color="secondary" size="body3">
+            <RelativeTimestamp timestamp={submission.createdAt} />
+          </Text>
+        </div>
       </div>
       <Anchor
         aria-label={title}
