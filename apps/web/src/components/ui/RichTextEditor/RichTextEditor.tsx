@@ -178,7 +178,7 @@ function RichTextEditor(
         {hasError && (
           <div
             className={clsx(
-              'flex w-full',
+              'mt-2 flex w-full',
               errorMessage ? 'justify-between' : 'justify-end',
             )}>
             {errorMessage && (

@@ -35,7 +35,6 @@ type Props = Readonly<{
   descriptionStyle?: LabelDescriptionStyle;
   endIcon?: React.ComponentType<React.ComponentProps<'svg'>>;
   errorMessage?: React.ReactNode;
-  id?: string;
   isDisabled?: boolean;
   isLabelHidden?: boolean;
   label: string;
@@ -96,8 +95,6 @@ const heightClasses: Record<TextInputSize, string> = {
 
 function TextInput(
   {
-    autoComplete,
-    autoFocus,
     className,
     classNameOuter,
     defaultValue,
@@ -110,15 +107,13 @@ function TextInput(
     isLabelHidden = false,
     label,
     maxLength,
-    minLength,
-    name,
-    placeholder,
     required,
     size = 'md',
     startIcon: StartIcon,
     type = 'text',
     value,
     onChange,
+    ...props
   }: Props,
   ref: ForwardedRef<HTMLInputElement>,
 ) {
@@ -168,8 +163,6 @@ function TextInput(
             hasError || description != null ? messageId : undefined
           }
           aria-invalid={hasError ? true : undefined}
-          autoComplete={autoComplete}
-          autoFocus={autoFocus}
           className={clsx(
             'block w-full',
             themeBackgroundElementColor,
@@ -196,9 +189,6 @@ function TextInput(
           disabled={isDisabled}
           id={id}
           maxLength={maxLength}
-          minLength={minLength}
-          name={name}
-          placeholder={placeholder}
           required={required}
           type={type}
           value={value}
@@ -206,6 +196,7 @@ function TextInput(
             onChange?.(event.target.value, event);
             setValueLength(event.target.value.length);
           }}
+          {...props}
         />
         {EndIcon && (
           <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">

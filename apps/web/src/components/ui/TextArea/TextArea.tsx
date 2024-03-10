@@ -1,10 +1,5 @@
 import clsx from 'clsx';
-import type {
-  ChangeEvent,
-  FocusEvent,
-  ForwardedRef,
-  TextareaHTMLAttributes,
-} from 'react';
+import type { ChangeEvent, ForwardedRef, TextareaHTMLAttributes } from 'react';
 import React, { forwardRef, useEffect, useId, useRef, useState } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 
@@ -44,7 +39,6 @@ type Props = Readonly<{
   errorMessage?: React.ReactNode;
   isLabelHidden?: boolean;
   label: string;
-  onBlur?: (event: FocusEvent<HTMLTextAreaElement>) => void;
   onChange?: (value: string, event: ChangeEvent<HTMLTextAreaElement>) => void;
   resize?: TextAreaResize;
   size?: TextAreaSize;
