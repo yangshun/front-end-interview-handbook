@@ -3,12 +3,6 @@ import type { DOMAttributes } from 'react';
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 export {};
 
-declare global {
-  interface Window {
-    fbq: any;
-  }
-}
-
 declare module 'react' {
   interface HTMLAttributes<T> extends DOMAttributes<T> {
     /**

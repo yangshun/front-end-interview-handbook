@@ -1,7 +1,7 @@
 import { useId } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import fbq from '~/lib/fbq';
+import { fbqGFE } from '~/lib/fbq';
 import { trpc } from '~/hooks/trpc';
 
 import Button from '~/components/ui/Button';
@@ -138,7 +138,7 @@ export default function MarketingEmailSubscribe() {
           onSubmit={(event) => {
             event.preventDefault();
             event.stopPropagation();
-            fbq.track('Lead');
+            fbqGFE('track', 'Lead');
 
             const data = new FormData(event.target as HTMLFormElement);
 

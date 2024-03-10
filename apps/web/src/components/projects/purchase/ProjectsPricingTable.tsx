@@ -10,7 +10,7 @@ import {
 import { FormattedMessage, useIntl } from 'react-intl';
 import url from 'url';
 
-import fbq from '~/lib/fbq';
+import { fbqGFE } from '~/lib/fbq';
 import gtag from '~/lib/gtag';
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { trpc } from '~/hooks/trpc';
@@ -241,7 +241,7 @@ function PricingButtonNonPremium({
             },
             value: paymentConfig.unitCostCurrency.withPPP.after,
           });
-          fbq.track('InitiateCheckout', {
+          fbqGFE('track', 'InitiateCheckout', {
             content_category: planType,
             currency: paymentConfig.currency.toLocaleUpperCase(),
             value: paymentConfig.unitCostCurrency.withPPP.after,

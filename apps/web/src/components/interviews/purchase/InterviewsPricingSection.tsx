@@ -7,7 +7,7 @@ import { RiArrowRightLine, RiCheckLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 import url from 'url';
 
-import fbq from '~/lib/fbq';
+import { fbqGFE } from '~/lib/fbq';
 import gtag from '~/lib/gtag';
 import { isProhibitedCountry } from '~/lib/stripeUtils';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
@@ -272,7 +272,7 @@ function PricingButtonNonPremium({
             },
             value: paymentConfig.unitCostCurrency.withPPP.after,
           });
-          fbq.track('InitiateCheckout', {
+          fbqGFE('track', 'InitiateCheckout', {
             content_category: paymentConfig.planType,
             currency: paymentConfig.currency.toLocaleUpperCase(),
             value: paymentConfig.unitCostCurrency.withPPP.after,

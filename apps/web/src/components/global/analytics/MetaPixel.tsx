@@ -3,7 +3,7 @@
 import Script from 'next/script';
 import { useEffect } from 'react';
 
-import fbq from '~/lib/fbq';
+import { FB_PIXEL_ID, fbqGFE } from '~/lib/fbq';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
@@ -15,7 +15,7 @@ export default function MetaPixel() {
       return;
     }
 
-    fbq.pageview();
+    fbqGFE('track', 'PageView');
   }, [pathname]);
 
   return (
@@ -31,7 +31,7 @@ export default function MetaPixel() {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '${fbq.pixelID}');
+            fbqGFE('init', '${FB_PIXEL_ID}');
           `,
         }}
         id="fb-pixel"
@@ -41,7 +41,7 @@ export default function MetaPixel() {
         <img
           alt=""
           height="1"
-          src={`https://www.facebook.com/tr?id=${fbq.pixelID}&ev=PageView&noscript=1`}
+          src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`}
           style={{ display: 'none' }}
           width="1"
         />

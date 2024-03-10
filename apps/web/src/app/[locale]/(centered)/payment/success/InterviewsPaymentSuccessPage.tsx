@@ -4,7 +4,7 @@ import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 import { RiArrowRightCircleLine, RiCodeSSlashLine } from 'react-icons/ri';
 
-import fbq from '~/lib/fbq';
+import { fbqGFE } from '~/lib/fbq';
 import gtag from '~/lib/gtag';
 
 import { SocialLinks } from '~/data/SocialLinks';
@@ -96,7 +96,7 @@ export default function PaymentSuccessPage({ plans }: Props): JSX.Element {
         },
       });
 
-      fbq.track('Purchase', {
+      fbqGFE('track', 'Purchase', {
         content_name: `[interviews] ${plan.planType}`,
         currency: plan.currency.toLocaleUpperCase(),
         value: plan.unitCostCurrency.withPPP.after,

@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import url from 'url';
 import { useIsMounted } from 'usehooks-ts';
 
-import fbq from '~/lib/fbq';
+import { fbqGFE } from '~/lib/fbq';
 import { trpc } from '~/hooks/trpc';
 
 import Alert from '~/components/ui/Alert';
@@ -54,7 +54,7 @@ export default function SupabaseAuthEmailSignUp({
         },
       });
 
-    fbq.track('CompleteRegistration');
+    fbqGFE('track', 'CompleteRegistration');
 
     const { data, error: signUpError } = await supabaseClient.auth.signUp({
       email,

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { RiArrowDownSLine, RiCloseLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
-import fbq from '~/lib/fbq';
+import { fbqGFE } from '~/lib/fbq';
 
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 
@@ -44,7 +44,7 @@ export default function FeedbackWidget({ position }: Props) {
 
           setIsOpen(newOpenState);
 
-          fbq.track('Contact');
+          fbqGFE('track', 'Contact');
         }}>
         <div
           className={clsx(
