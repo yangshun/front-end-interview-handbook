@@ -15,6 +15,7 @@ import { getFormattedNumber } from '../misc';
 type Props = Readonly<{
   codeReviews: number | undefined;
   completedChallenges: number | undefined;
+  isViewingOwnProfile: boolean;
   submissionViews: number | undefined;
   upvotes: number | undefined;
 }>;
@@ -24,10 +25,12 @@ export default function ProjectsProfileStats({
   completedChallenges,
   submissionViews,
   upvotes,
+  isViewingOwnProfile,
 }: Props) {
   const stats = useProjectsProfileStats({
     codeReviews,
     completedChallenges,
+    isViewingOwnProfile,
     submissionViews,
     upvotes,
   });

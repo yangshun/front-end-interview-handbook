@@ -9,6 +9,7 @@ import { useIntl } from 'react-intl';
 type Props = Readonly<{
   codeReviews?: number;
   completedChallenges?: number;
+  isViewingOwnProfile: boolean;
   submissionViews?: number;
   upvotes?: number;
 }>;
@@ -18,6 +19,7 @@ export default function useProjectsProfileStats({
   upvotes,
   codeReviews,
   submissionViews,
+  isViewingOwnProfile,
 }: Props) {
   const intl = useIntl();
   const stats = [
@@ -51,11 +53,17 @@ export default function useProjectsProfileStats({
     {
       count: submissionViews ?? 0,
       icon: RiEyeFill,
-      title: intl.formatMessage({
-        defaultMessage: 'Views on your submissions',
-        description: 'Number of views on the project submissions',
-        id: 'KeMz9W',
-      }),
+      title: isViewingOwnProfile
+        ? intl.formatMessage({
+            defaultMessage: 'Views on your submissions',
+            description: 'Number of views on the project submissions',
+            id: 'KeMz9W',
+          })
+        : intl.formatMessage({
+            defaultMessage: 'Views on submissions',
+            description: 'Number of views on the project submissions',
+            id: 'oC86Nx',
+          }),
     },
   ];
 

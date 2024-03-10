@@ -19,12 +19,15 @@ import useProjectsProfileStats from '../hooks/useProjectsProfileStats';
 import { getFormattedNumber } from '../misc';
 import ProjectsProfileSocialLinks from '../profile/info/ProjectsProfileSocialLinks';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 type Props = Readonly<{
   userId: string;
 }>;
 
 export default function ProjectsProfileHoverCard({ userId }: Props) {
   const intl = useIntl();
+  const user = useUser();
   const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
   const { data, isLoading } = trpc.projects.profile.hovercard.useQuery({
     userId,
@@ -33,6 +36,7 @@ export default function ProjectsProfileHoverCard({ userId }: Props) {
   const statsItems = useProjectsProfileStats({
     codeReviews: data?.stats.codeReviews,
     completedChallenges: data?.stats.completedChallenges,
+    isViewingOwnProfile: user?.id === userId,
     submissionViews: data?.stats.submissionViews ?? 0,
     upvotes: data?.stats.upvotes,
   });

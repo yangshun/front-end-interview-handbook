@@ -1511,10 +1511,6 @@
     "defaultMessage": "<bold>You</bold> replied to <bold>{recipient}</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you replying to someone on the challenge forum"
   },
-  "D6iXh1": {
-    "defaultMessage": "GitHub profile link",
-    "description": "Link to GitHub profile"
-  },
   "D7z/wQ": {
     "defaultMessage": "Keep your reason to under {characterLimit} characters",
     "description": "String validation message"
@@ -2167,10 +2163,6 @@
     "defaultMessage": "Preparation Plans",
     "description": "Preparation plans section title"
   },
-  "JCFm+V": {
-    "defaultMessage": "Authors",
-    "description": "description"
-  },
   "JIWdeN": {
     "defaultMessage": "Continue tracks and skills",
     "description": "Title for Continue tracks and skills section on Projects dashboard page"
@@ -2802,10 +2794,6 @@
   "OOYktU": {
     "defaultMessage": "Data structures and algorithms",
     "description": "Title of study plan"
-  },
-  "OPwgMT": {
-    "defaultMessage": "Twitter profile link",
-    "description": "Link to Twitter profile"
   },
   "OQHvfy": {
     "defaultMessage": "I'm always on the lookout for resources that can help me level up my skills as a frontend engineer, and I can confidently say that GreatFrontEnd delivers in that regard. It is by far the most comprehensive frontend-focused interview prep platform I have come across. They've helped strengthen my fundamentals and given me the confidence I need to succeed in my job search. Additionally, the people behind the platform have been incredibly approachable and responsive to feedback - and I can't thank them enough!",
@@ -5475,10 +5463,6 @@
     "defaultMessage": "Testing",
     "description": "Testing topic for quiz questions"
   },
-  "l9vVXY": {
-    "defaultMessage": "LinkedIn profile link",
-    "description": "Link to LinkedIn profile"
-  },
   "lD302L": {
     "defaultMessage": "Recommended duration to spend during interviews",
     "description": "Recommended duration tooltip displayed on question cards found on question lists"
@@ -5735,10 +5719,6 @@
     "defaultMessage": "General",
     "description": "Profile settings tab title"
   },
-  "njNtN8": {
-    "defaultMessage": "YouTube profile link",
-    "description": "Link to YouTube profile"
-  },
   "npvgQq": {
     "defaultMessage": "Prepare for your front end interviews in one week. Efficiently focus on the most important concepts through a good mix of coding and quiz questions.",
     "description": "Description for one week study plan"
@@ -5782,6 +5762,10 @@
   "o9kmTM": {
     "defaultMessage": "<bold>{author}</bold> posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone making a post on the challenge forum"
+  },
+  "oC86Nx": {
+    "defaultMessage": "Views on submissions",
+    "description": "Number of views on the project submissions"
   },
   "oFz9cs": {
     "defaultMessage": "{commentCount, plural, =0 {No comments} one {# comment} other {# comments}}",
@@ -6406,10 +6390,6 @@
   "tPpYwO": {
     "defaultMessage": "Starter",
     "description": "Starter blog"
-  },
-  "tR0TIm": {
-    "defaultMessage": "Meet our top authors:",
-    "description": "Authors section title"
   },
   "tZPTnS": {
     "defaultMessage": "Difficulty: Hard to Easy",

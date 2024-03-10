@@ -19,12 +19,15 @@ import ProjectsDashboardRecommendedActionsSection from './ProjectsDashboardRecom
 import ProjectsDashboardTrackAndSkillsSection from './ProjectsDashboardTrackAndSkillsSection';
 import ProjectsDashboardTrendingSubmissionsSection from './ProjectsDashboardTrendingSubmissionsSection';
 
+import { useUser } from '@supabase/auth-helpers-react';
+
 type Props = Readonly<{
   children: React.ReactNode;
 }>;
 
 export default function ProjectsDashboardPage({ children }: Props) {
   const intl = useIntl();
+  const user = useUser();
 
   const { data: profileStatistics } =
     trpc.projects.profile.dashboardStatisticsSelf.useQuery();
@@ -79,6 +82,7 @@ export default function ProjectsDashboardPage({ children }: Props) {
               <ProjectsProfileStats
                 codeReviews={profileStatistics?.codeReviews}
                 completedChallenges={profileStatistics?.completedChallenges}
+                isViewingOwnProfile={user?.id === userProfile?.id}
                 submissionViews={profileStatistics?.submissionViews ?? 0}
                 upvotes={profileStatistics?.upvotes}
               />
@@ -87,6 +91,7 @@ export default function ProjectsDashboardPage({ children }: Props) {
               <ProjectsProfileStats
                 codeReviews={232}
                 completedChallenges={5653}
+                isViewingOwnProfile={false}
                 submissionViews={4}
                 upvotes={842}
               />

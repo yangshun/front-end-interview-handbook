@@ -53,6 +53,7 @@ export default function ProjectsProfilePage({
         <ProjectsProfileStats
           codeReviews={profileStatistics?.codeReviews ?? 0}
           completedChallenges={profileStatistics?.completedChallenges ?? 0}
+          isViewingOwnProfile={isViewingOwnProfile}
           submissionViews={profileStatistics?.submissionViews ?? 0}
           upvotes={profileStatistics?.upvotes ?? 0}
         />
