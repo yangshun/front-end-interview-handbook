@@ -18,15 +18,15 @@ import { staticUpperCase } from '~/utils/typescript/stringTransform';
 
 import { useSandpack } from '@codesandbox/sandpack-react';
 
-type Props = {
+type Props = Readonly<{
   framework: QuestionFramework;
   metadata: QuestionMetadata;
-};
+}>;
 
-type CommunitySolutionDraft = {
+type CommunitySolutionDraft = Readonly<{
   title: string;
   writeup: string;
-};
+}>;
 
 function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
   metadata: { slug },
@@ -48,6 +48,7 @@ function UserInterfaceCodingWorkspaceCommunitySolutionCreateTabImpl({
       title: '',
       writeup: '',
     },
+    mode: 'onTouched',
   });
 
   const { isLoading, mutateAsync: addSolution } =

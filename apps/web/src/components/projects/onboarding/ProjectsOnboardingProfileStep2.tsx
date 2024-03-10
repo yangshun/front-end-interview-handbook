@@ -70,6 +70,7 @@ export default function ProjectsOnboardingProfileStep2() {
     handleSubmit,
     formState: { isDirty, isSubmitting },
   } = useForm<ProjectsOnboardingProfileStep2FormValues>({
+    mode: 'onTouched',
     resolver: zodResolver(onboardingProfileStep2Schema),
     values: {
       bio: initialValues?.bio ?? '',

@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { getProfileUsernameAttrs } from '~/components/profile/fields/ProfileUsernameSchema';
 import type { ProjectsProfileOnboardingStep1FormValues } from '~/components/projects/onboarding/ProjectsOnboardingProfileStep1';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import TextInput from '~/components/ui/TextInput';
@@ -26,6 +27,7 @@ export default function ProjectsProfileUsernameInput({
   setUsernameExistsError,
 }: Props) {
   const intl = useIntl();
+  const usernameAttrs = getProfileUsernameAttrs(intl);
   const { data: usernameExists, refetch } =
     trpc.projects.profile.usernameExists.useQuery(
       {
@@ -72,6 +74,8 @@ export default function ProjectsProfileUsernameInput({
           'Label for "Username" input on Projects profile onboarding page',
         id: '+Q7wrS',
       })}
+      maxLength={usernameAttrs.validation.maxLength}
+      minLength={usernameAttrs.validation.minLength}
       placeholder={intl.formatMessage({
         defaultMessage: 'janesmith',
         description:

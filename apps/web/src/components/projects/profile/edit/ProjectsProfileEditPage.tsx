@@ -8,6 +8,7 @@ import { z } from 'zod';
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
+import { useProfileNameSchema } from '~/components/profile/fields/ProfileNameSchema';
 import { useProfileUsernameSchema } from '~/components/profile/fields/ProfileUsernameSchema';
 import useProjectsMotivationReasonSchema, {
   convertProjectsMotivationReasonToFormValue,
@@ -43,6 +44,7 @@ function useProjectsProfileEditSchema() {
   const skillsToGrowSchema = useProjectsSkillListInputSchema({
     required: false,
   });
+  const nameSchema = useProfileNameSchema();
   const usernameSchema = useProfileUsernameSchema();
   const jobNotStartedSchema = useProjectsJobNotStartedSchema();
   const jobStartedSchema = useProjectsJobStartedSchema();
@@ -59,7 +61,7 @@ function useProjectsProfileEditSchema() {
       .transform((val) => (val ? val : null))
       .nullable(),
     motivations: motivationReasonSchema,
-    name: z.string().min(2),
+    name: nameSchema,
     skillsProficient: skillsProficientSchema,
     skillsToGrow: skillsToGrowSchema,
     username: usernameSchema,
@@ -114,6 +116,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
     undefined,
     ProjectsEditProfileTransformedValues
   >({
+    mode: 'onTouched',
     resolver: zodResolver(projectsProfileEditSchema),
     values: {
       avatarUrl: initialValues?.avatarUrl ?? '',

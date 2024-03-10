@@ -2,6 +2,7 @@ import type { IntlShape } from 'react-intl';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
+const MIN_LENGTH = 1;
 const MAX_LENGTH = 80;
 
 function projectsChallengeSubmissionTitleSchema(options?: {
@@ -13,7 +14,7 @@ function projectsChallengeSubmissionTitleSchema(options?: {
   return z
     .string()
     .trim()
-    .min(1, { message: minMessage })
+    .min(MIN_LENGTH, { message: minMessage })
     .max(MAX_LENGTH, { message: maxMessage });
 }
 

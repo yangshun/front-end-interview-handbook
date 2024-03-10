@@ -2,6 +2,7 @@ import type { Control } from 'react-hook-form';
 import { Controller, useFormContext } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
+import { getProfileNameAttrs } from '~/components/profile/fields/ProfileNameSchema';
 import type { ProjectsOnboardingProfileStep2FormValues } from '~/components/projects/onboarding/ProjectsOnboardingProfileStep2';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import TextInput from '~/components/ui/TextInput';
@@ -20,6 +21,7 @@ export default function ProjectsProfileBasicInfoSection({
   setUsernameExistsError: (value: boolean) => void;
 }) {
   const intl = useIntl();
+  const nameAttrs = getProfileNameAttrs(intl);
 
   const {
     control,
@@ -54,6 +56,7 @@ export default function ProjectsProfileBasicInfoSection({
                     'Label for "Name" input on Projects profile onboarding page',
                   id: 'AVk8pE',
                 })}
+                maxLength={nameAttrs.validation.maxLength}
                 placeholder={intl.formatMessage({
                   defaultMessage: 'Jane Smith',
                   description:

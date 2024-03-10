@@ -100,7 +100,7 @@ export default function ProjectsChallengeSubmissionForm({
 
   const formMethods = useForm<ProjectsChallengeSubmissionFormValues>({
     defaultValues,
-    mode: 'all',
+    mode: 'onTouched',
     resolver: zodResolver(projectsChallengeSubmissionFormSchema),
   });
 

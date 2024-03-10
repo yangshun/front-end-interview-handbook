@@ -8,7 +8,7 @@ import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
 import {
-  getProfileUserNameAttrs,
+  getProfileUsernameAttrs,
   useProfileUsernameSchema,
 } from '~/components/profile/fields/ProfileUsernameSchema';
 import Button from '~/components/ui/Button';
@@ -37,7 +37,7 @@ function useUsernameFormSchema() {
 
 export default function ProfileAccountUsername() {
   const intl = useIntl();
-  const attrs = getProfileUserNameAttrs(intl);
+  const attrs = getProfileUsernameAttrs(intl);
 
   const toast = useToast();
   const userNameFormSchema = useUsernameFormSchema();

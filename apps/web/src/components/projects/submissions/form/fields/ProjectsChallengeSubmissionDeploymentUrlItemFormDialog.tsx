@@ -33,10 +33,11 @@ export default function ProjectsChallengeSubmissionDeploymentUrlItemFormDialog({
   onSubmit,
 }: Props) {
   const intl = useIntl();
-  const formSchema = useProjectsChallengeSubmissionDeploymentUrlItemSchema();
+  const projectsChallengeSubmissionDeploymentUrlItemSchema =
+    useProjectsChallengeSubmissionDeploymentUrlItemSchema();
   const formMethods = useForm<DeploymentUrlItemData>({
-    mode: 'onSubmit',
-    resolver: zodResolver(formSchema),
+    mode: 'onTouched',
+    resolver: zodResolver(projectsChallengeSubmissionDeploymentUrlItemSchema),
     values,
   });
 
@@ -102,8 +103,10 @@ export default function ProjectsChallengeSubmissionDeploymentUrlItemFormDialog({
           name="label"
           render={({ field }) => (
             <TextInput
+              autoFocus={true}
               errorMessage={formState.errors.label?.message}
               label="Page name"
+              required={true}
               {...field}
             />
           )}

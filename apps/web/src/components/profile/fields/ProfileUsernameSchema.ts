@@ -29,7 +29,7 @@ export const profileUserNameSchemaServer = profileUsernameSchema({
     'Username should begin and end with an alphanumeric character, and only contain alphanumeric characters or dashes.',
 });
 
-export function getProfileUserNameAttrs(intl: IntlShape) {
+export function getProfileUsernameAttrs(intl: IntlShape) {
   const label = intl.formatMessage({
     defaultMessage: 'Username',
     description: 'Username',
@@ -85,6 +85,7 @@ export function getProfileUserNameAttrs(intl: IntlShape) {
     validation: {
       maxLength: MAX_LENGTH,
       maxMessage,
+      minLength: MIN_LENGTH,
       minMessage,
       regexMessage,
     },
@@ -93,7 +94,7 @@ export function getProfileUserNameAttrs(intl: IntlShape) {
 
 export function useProfileUsernameSchema() {
   const intl = useIntl();
-  const intlStrings = getProfileUserNameAttrs(intl);
+  const intlStrings = getProfileUsernameAttrs(intl);
 
   return profileUsernameSchema({
     maxMessage: intlStrings.validation.maxMessage,

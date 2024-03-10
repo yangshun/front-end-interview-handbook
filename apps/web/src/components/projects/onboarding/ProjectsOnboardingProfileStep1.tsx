@@ -90,6 +90,7 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
     unknown,
     OnboardingProfileStep1TransformedValues
   >({
+    mode: 'onTouched',
     resolver: zodResolver(onboardingProfileStep1Schema),
     values: {
       avatarUrl: initialValues?.avatarUrl ?? '',

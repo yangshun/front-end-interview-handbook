@@ -17,16 +17,16 @@ import TextInput from '~/components/ui/TextInput';
 import JavaScriptCodingWorkspaceWorkingLanguageSelect from './JavaScriptCodingWorkspaceWorkingLanguageSelect';
 import MonacoCodeEditor from '../common/editor/MonacoCodeEditor';
 
-type Props = {
+type Props = Readonly<{
   metadata: QuestionMetadata;
-};
+}>;
 
-type CommunitySolutionDraft = {
+type CommunitySolutionDraft = Readonly<{
   code: string;
   language: QuestionCodingWorkingLanguage;
   title: string;
   writeup: string;
-};
+}>;
 
 function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
   metadata: { slug },
@@ -45,6 +45,7 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
       title: '',
       writeup: '',
     },
+    mode: 'onTouched',
   });
 
   return (

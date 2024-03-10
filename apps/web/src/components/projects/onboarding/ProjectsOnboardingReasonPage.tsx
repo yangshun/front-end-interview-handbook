@@ -45,7 +45,7 @@ export default function ProjectsOnboardingReasonPage() {
     defaultValues: {
       motivations: [],
     },
-    mode: 'onSubmit',
+    mode: 'onTouched',
     resolver: zodResolver(
       z.object({
         motivations: onboardingReasonSchema,

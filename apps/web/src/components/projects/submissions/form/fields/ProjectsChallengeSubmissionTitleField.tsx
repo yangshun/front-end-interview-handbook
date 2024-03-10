@@ -25,6 +25,7 @@ export default function ProjectsChallengeSubmissionTitleField({
 
   return (
     <TextInput
+      autoFocus={true}
       description={attrs.description}
       descriptionStyle="tooltip"
       errorMessage={formState.errors[fieldName]?.message}
