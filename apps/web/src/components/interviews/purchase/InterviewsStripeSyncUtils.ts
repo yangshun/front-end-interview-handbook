@@ -2,7 +2,7 @@ import type Stripe from 'stripe';
 
 import type { InterviewsProfileSubscriptionPlan } from '~/components/global/UserProfileProvider';
 
-import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
+import prisma from '~/server/prisma';
 
 export function interviewsDetermineSubscriptionPlan(
   price: Stripe.Price | null,
@@ -40,27 +40,27 @@ export async function interviewsCustomerAddPlan(
   customerId: Stripe.Customer | Stripe.DeletedCustomer | string,
   planName: InterviewsProfileSubscriptionPlan,
 ) {
-  const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
-
-  await supabaseAdmin
-    .from('Profile')
-    .update({
+  await prisma.profile.updateMany({
+    data: {
       plan: planName,
       premium: true,
-    })
-    .eq('stripeCustomer', customerId);
+    },
+    where: {
+      stripeCustomer: customerId.toString(),
+    },
+  });
 }
 
 export async function interviewsCustomerRemovePlan(
   customerId: Stripe.Customer | Stripe.DeletedCustomer | string,
 ) {
-  const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
-
-  await supabaseAdmin
-    .from('Profile')
-    .update({
+  await prisma.profile.updateMany({
+    data: {
       plan: null,
       premium: false,
-    })
-    .eq('stripeCustomer', customerId);
+    },
+    where: {
+      stripeCustomer: customerId.toString(),
+    },
+  });
 }

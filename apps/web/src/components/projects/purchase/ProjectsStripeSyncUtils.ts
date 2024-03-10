@@ -1,6 +1,6 @@
 import type Stripe from 'stripe';
 
-import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
+import prisma from '~/server/prisma';
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
@@ -31,42 +31,33 @@ export function projectsDetermineSubscriptionPlan(
 export async function projectsCustomerAddPlan(
   customerId: Stripe.Customer | Stripe.DeletedCustomer | string,
   planName: ProjectsSubscriptionPlan,
+  invoice: Stripe.Invoice,
 ) {
-  const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
-
-  // TODO(projects): Try to merge into one query using joins.
-  const { data: userProfile } = await supabaseAdmin
-    .from('Profile')
-    .select('id')
-    .eq('stripeCustomer', customerId)
-    .single();
-
-  await supabaseAdmin
-    .from('ProjectsProfile')
-    .update({
+  await prisma.projectsProfile.updateMany({
+    data: {
       plan: planName,
       premium: true,
-    })
-    .eq('userId', userProfile?.id);
+    },
+    where: {
+      userProfile: {
+        stripeCustomer: customerId.toString(),
+      },
+    },
+  });
 }
 
 export async function projectsCustomerRemovePlan(
   customerId: Stripe.Customer | Stripe.DeletedCustomer | string,
 ) {
-  const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
-
-  // TODO(projects): Try to merge into one query using joins.
-  const { data: userProfile } = await supabaseAdmin
-    .from('Profile')
-    .select('id')
-    .eq('stripeCustomer', customerId)
-    .single();
-
-  await supabaseAdmin
-    .from('ProjectsProfile')
-    .update({
+  await prisma.projectsProfile.updateMany({
+    data: {
       plan: null,
       premium: false,
-    })
-    .eq('userId', userProfile?.id);
+    },
+    where: {
+      userProfile: {
+        stripeCustomer: customerId.toString(),
+      },
+    },
+  });
 }
