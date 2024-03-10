@@ -113,14 +113,14 @@ function ManageSubscriptionSection({
   plan?: InterviewsProfileSubscriptionPlan | null;
 }>): JSX.Element | null {
   const intl = useIntl();
-  const billingPortalGenerate = trpc.purchases.billingPortal.useMutation();
+  const billingPortalMutation = trpc.purchases.billingPortal.useMutation();
 
   if (plan == null) {
     return null;
   }
 
   async function navigateToStripePortal() {
-    const billingPortalUrl = await billingPortalGenerate.mutateAsync();
+    const billingPortalUrl = await billingPortalMutation.mutateAsync();
 
     window.location.href = billingPortalUrl;
   }
@@ -162,8 +162,8 @@ function ManageSubscriptionSection({
           </div>
           <div>
             <Button
-              isDisabled={billingPortalGenerate.isLoading}
-              isLoading={billingPortalGenerate.isLoading}
+              isDisabled={billingPortalMutation.isLoading}
+              isLoading={billingPortalMutation.isLoading}
               label={intl.formatMessage({
                 defaultMessage: 'Manage subscription on Stripe',
                 description: 'Label for button to manage subscription',

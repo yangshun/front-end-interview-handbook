@@ -13,6 +13,7 @@ import url from 'url';
 import fbq from '~/lib/fbq';
 import gtag from '~/lib/gtag';
 import { isProhibitedCountry } from '~/lib/stripeUtils';
+import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import PurchasePriceAnnualComparison from '~/components/purchase/comparison/PurchasePriceAnnualComparison';
@@ -287,6 +288,7 @@ function PricingButtonSection({
   const { isLoading: isUserLoading } = useSessionContext();
   const { profile, isLoading: isUserProfileLoading } =
     useProfileWithProjectsProfile();
+  const billingPortalMutation = trpc.purchases.billingPortal.useMutation();
 
   const isPending = isUserLoading || isUserProfileLoading;
 
@@ -308,14 +310,19 @@ function PricingButtonSection({
     // User is already subscribed, link to billing page.
     return (
       <PricingButton
-        href="/projects/settings/billing"
         icon={RiArrowRightLine}
-        isDisabled={isPending}
+        isDisabled={billingPortalMutation.isLoading}
+        isLoading={billingPortalMutation.isLoading}
         label={intl.formatMessage({
           defaultMessage: 'Manage subscription',
           description: 'Manage user membership subscription button label',
           id: 'sjLtW1',
         })}
+        onClick={async () => {
+          const billingPortalUrl = await billingPortalMutation.mutateAsync();
+
+          window.location.href = billingPortalUrl;
+        }}
       />
     );
   }
