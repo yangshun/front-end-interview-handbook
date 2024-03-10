@@ -1,3 +1,5 @@
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
+
 export type ProjectsSubscriptionPlanFeatures = Readonly<{
   apps: boolean;
   breakpoints: boolean;
@@ -33,4 +35,12 @@ export const annualPlanFeatures: ProjectsSubscriptionPlanFeatures = {
   freeChallenges: true,
   skillRoadmap: true,
   unlocks: 80,
+};
+
+export const projectsPaidPlanFeatures: Record<
+  ProjectsSubscriptionPlan,
+  ProjectsSubscriptionPlanFeatures
+> = {
+  ANNUAL: annualPlanFeatures,
+  MONTH: monthlyPlanFeatures,
 };

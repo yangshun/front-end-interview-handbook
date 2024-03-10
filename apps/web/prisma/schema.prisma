@@ -203,7 +203,7 @@ model ProjectsProfile {
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @default(now()) @updatedAt
 
-  userProfile        Profile                           @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  userProfile        Profile                              @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
   sessions           ProjectsChallengeSession[]
   submissions        ProjectsChallengeSubmission[]
   votesGiven         ProjectsChallengeSubmissionVote[]
@@ -212,6 +212,7 @@ model ProjectsProfile {
   comments           ProjectsDiscussionComment[]
   commentVotes       ProjectsDiscussionCommentVote[]
   challengesUnlocked ProjectsChallengeAccess[]
+  creditTransactions ProjectsChallengeCreditTransaction[]
 }
 
 enum ProjectsChallengeSessionStatus {
@@ -245,12 +246,34 @@ model ProjectsChallengeDetails {
 }
 
 model ProjectsChallengeAccess {
-  id        String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-  profileId String   @db.Uuid
-  slug      String
-  createdAt DateTime @default(now()) @db.Timestamptz(6)
+  id            String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  profileId     String   @db.Uuid
+  slug          String
+  transactionId String?  @unique @db.Uuid
+  createdAt     DateTime @default(now()) @db.Timestamptz(6)
 
-  projectsProfile ProjectsProfile @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  transaction     ProjectsChallengeCreditTransaction? @relation(fields: [transactionId], references: [id])
+  projectsProfile ProjectsProfile                     @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([profileId, slug])
+}
+
+enum ProjectsChallengeCreditType {
+  CREDIT
+  DEBIT
+}
+
+model ProjectsChallengeCreditTransaction {
+  id              String                      @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  profileId       String                      @db.Uuid
+  type            ProjectsChallengeCreditType
+  amount          Int
+  stripeInvoiceId String?
+  createdAt       DateTime                    @default(now()) @db.Timestamptz(6)
+  updatedAt       DateTime                    @default(now()) @updatedAt
+
+  projectsProfile ProjectsProfile          @relation(fields: [profileId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  access          ProjectsChallengeAccess?
 }
 
 model ProjectsChallengeSubmission {

@@ -16,8 +16,10 @@ import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
 export async function purchaseCustomerAddPlan(
   customerId: Stripe.Customer | Stripe.DeletedCustomer | string,
-  price: Stripe.Price | null,
+  invoice: Stripe.Invoice,
 ) {
+  const { price } = invoice.lines.data[0];
+
   if (price == null) {
     throw new Error('Price is not found');
   }
@@ -38,7 +40,7 @@ export async function purchaseCustomerAddPlan(
       const planName: ProjectsSubscriptionPlan =
         projectsDetermineSubscriptionPlan(price);
 
-      await projectsCustomerAddPlan(customerId, planName);
+      await projectsCustomerAddPlan(customerId, planName, invoice);
 
       return { customerId, plan: planName, productDomain: 'projects' };
     }

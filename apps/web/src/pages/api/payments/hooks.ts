@@ -51,7 +51,7 @@ export default async function handler(
 
       const { productDomain, plan } = await purchaseCustomerAddPlan(
         customerId,
-        invoice.lines.data[0].price,
+        invoice,
       );
 
       return res.send(

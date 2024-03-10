@@ -2,6 +2,8 @@ import type Stripe from 'stripe';
 
 import prisma from '~/server/prisma';
 
+import { projectsPaidPlanFeatures } from './ProjectsPricingFeaturesConfig';
+
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
 export function projectsDetermineSubscriptionPlan(
@@ -33,17 +35,38 @@ export async function projectsCustomerAddPlan(
   planName: ProjectsSubscriptionPlan,
   invoice: Stripe.Invoice,
 ) {
-  await prisma.projectsProfile.updateMany({
-    data: {
-      plan: planName,
-      premium: true,
-    },
-    where: {
-      userProfile: {
-        stripeCustomer: customerId.toString(),
+  const { id: projectsProfileId } =
+    await prisma.projectsProfile.findFirstOrThrow({
+      select: {
+        id: true,
       },
-    },
-  });
+      where: {
+        userProfile: {
+          stripeCustomer: customerId.toString(),
+        },
+      },
+    });
+  const features = projectsPaidPlanFeatures[planName];
+
+  await prisma.$transaction([
+    prisma.projectsProfile.updateMany({
+      data: {
+        plan: planName,
+        premium: true,
+      },
+      where: {
+        id: projectsProfileId,
+      },
+    }),
+    prisma.projectsChallengeCreditTransaction.create({
+      data: {
+        amount: features.unlocks || 0,
+        profileId: projectsProfileId,
+        stripeInvoiceId: invoice.id,
+        type: 'CREDIT',
+      },
+    }),
+  ]);
 }
 
 export async function projectsCustomerRemovePlan(
