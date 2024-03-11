@@ -1,196 +1,87 @@
 import clsx from 'clsx';
-import { useState } from 'react';
-import { RiArrowRightLine } from 'react-icons/ri';
-import { defineMessage, FormattedMessage, useIntl } from 'react-intl';
+import { useMemo } from 'react';
+import {
+  RiArrowRightLine,
+  RiArrowRightSLine,
+  RiBardLine,
+  RiCheckboxMultipleLine,
+  RiDiscussLine,
+  RiNodeTree,
+} from 'react-icons/ri';
+import { FormattedMessage, useIntl } from 'react-intl';
 
-import HTML5LogoMonochrome from '~/components/icons/HTML5LogoMonochrome';
-import JavaScriptLogo from '~/components/icons/JavaScriptLogoMonochrome';
-import ReactLogo from '~/components/icons/ReactLogo';
 import MarketingHeroBackground from '~/components/marketing/MarketingHeroBackground';
+import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
+import { themeTextBrandColor, themeTextColor } from '~/components/ui/theme';
 
+import ProjectsMarketingFeaturedIcon from './ProjectsMarketingFeaturedIcon';
 import Button from '../../ui/Button';
 
-type ProjectMarketingHeroMode =
-  | 'beginner'
-  | 'experienced'
-  | 'portfolio'
-  | 'sideProject';
-
-function ProjectMarketingComponentLibraryDetails() {
-  return (
-    <div className="flex flex-col items-center gap-y-2">
-      <Text color="secondary" size="body1">
-        <FormattedMessage
-          defaultMessage="Build entire design systems, component libraries or full stack apps"
-          description="Caption for component library showcase in Projects marketing hero section"
-          id="rOzSWN"
-        />
-      </Text>
-      {/* TODO(projects): Add component examples */}
-    </div>
-  );
-}
-
-function ProjectMarketingSkillsDetails() {
-  return (
-    <div className="flex flex-col items-center gap-y-2">
-      <Text color="secondary" size="body1">
-        <FormattedMessage
-          defaultMessage="Advance more than 20 core skills"
-          description="Caption for skills showcase in Projects marketing hero section"
-          id="t1sNnD"
-        />
-      </Text>
-      <div className="flex gap-2">
-        <HTML5LogoMonochrome className="size-10" />
-        <ReactLogo className="size-10" />
-        <JavaScriptLogo className="size-10" />
-      </div>
-    </div>
-  );
-}
+type ProjectMarketingHeroFeature = {
+  content: React.ReactNode;
+  icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  key: string;
+};
 
 export default function ProjectsMarketingHero() {
   const intl = useIntl();
 
-  const heroContent: Record<
-    ProjectMarketingHeroMode,
-    {
-      ctaButtonCaption: ReturnType<typeof defineMessage>;
-      details: React.ReactNode;
-      subtitle: string;
-      tabButtonLabel: string;
-      title: string;
-    }
-  > = {
-    beginner: {
-      ctaButtonCaption: defineMessage({
-        defaultMessage: 'Pick from <bold>skills roadmap</bold>',
-        description:
-          'Caption for Start a Project button in Projects marketing hero section for beginners',
-        id: 'xLVqYR',
-      }),
-      details: <ProjectMarketingSkillsDetails />,
-      subtitle: intl.formatMessage({
-        defaultMessage:
-          'Learn practical front end skills by building projects guided by a skills progression roadmap',
-        description:
-          'Subtitle for Projects marketing hero section for beginners',
-        id: 'Mm+ZFo',
-      }),
-      tabButtonLabel: intl.formatMessage({
-        defaultMessage: 'For Beginners',
-        description:
-          'Button label for Projects marketing hero section for beginners',
-        id: 'rbjUFF',
-      }),
-      title: intl.formatMessage({
-        defaultMessage: 'Build to learn from beginner to advanced',
-        description: 'Title for Projects hero section for beginners',
-        id: 'ruGZIH',
-      }),
-    },
-    experienced: {
-      ctaButtonCaption: defineMessage({
-        defaultMessage: 'Pick from <bold>skills roadmap</bold>',
-        description:
-          'Caption for Start a Project button in Projects marketing hero section for experienced users',
-        id: 'MOOnVA',
-      }),
-      details: <ProjectMarketingSkillsDetails />,
-      subtitle: intl.formatMessage({
-        defaultMessage:
-          'Keep up with modern skills and frameworks by building hands-on projects',
-        description:
-          'Subtitle for Projects marketing hero section for experienced users',
-        id: 'QsA5iS',
-      }),
-      tabButtonLabel: intl.formatMessage({
-        defaultMessage: 'For Experienced',
-        description:
-          'Button label for Projects marketing hero section for experienced users',
-        id: 'c2bsgM',
-      }),
-      title: intl.formatMessage({
-        defaultMessage: 'Build to cover skill gaps in up-and-coming skills',
-        description:
-          'Title for Projects marketing hero section for experienced users',
-        id: 'a3a9Yq',
-      }),
-    },
-    portfolio: {
-      ctaButtonCaption: defineMessage({
-        defaultMessage: 'Pick from <bold>component tracks</bold>',
-        description:
-          'Caption for Start a Project button in Projects marketing hero section for portfolio projects',
-        id: 'XfFYoy',
-      }),
-      details: <ProjectMarketingComponentLibraryDetails />,
-      subtitle: intl.formatMessage({
-        defaultMessage:
-          'Build projects that showcase skills that matter - like your own design system, component libraries, or full stack AI projects',
-        description:
-          'Subtitle for Projects marketing hero section for portfolio projects',
-        id: '+Vxpl1',
-      }),
-      tabButtonLabel: intl.formatMessage({
-        defaultMessage: 'For Portfolios',
-        description:
-          'Button label for Projects marketing hero section for portfolio projects',
-        id: '1qu2NT',
-      }),
-      title: intl.formatMessage({
-        defaultMessage: 'Build to impress with unique portfolio projects',
-        description:
-          'Title for Projects marketing hero section for portfolio projects',
-        id: 'PV4w5n',
-      }),
-    },
-    sideProject: {
-      ctaButtonCaption: defineMessage({
-        defaultMessage: 'Pick from <bold>component tracks</bold>',
-        description:
-          'Caption for Start a Project button in Projects marketing hero section for side projects',
-        id: 'zaJkwz',
-      }),
-      details: <ProjectMarketingComponentLibraryDetails />,
-      subtitle: intl.formatMessage({
-        defaultMessage:
-          'Browse component libraries and even design systems you can build to support your next project',
-        description:
-          'Subtitle for Projects marketing hero section for side projects',
-        id: 'dGtm/R',
-      }),
-      tabButtonLabel: intl.formatMessage({
-        defaultMessage: 'For Side Projects',
-        description:
-          'Button label for Projects marketing hero section for side projects',
-        id: '63ddzp',
-      }),
-      title: intl.formatMessage({
-        defaultMessage:
-          'Build great projects faster with libraries and design systems',
-        description:
-          'Title for Projects marketing hero section for side projects',
-        id: 'imwtWL',
-      }),
-    },
-  };
-
-  const [selectedMode, setSelectedMode] =
-    useState<ProjectMarketingHeroMode>('beginner');
-
-  const modes: Array<ProjectMarketingHeroMode> = [
-    'beginner',
-    'experienced',
-    'portfolio',
-    'sideProject',
-  ];
-
-  const { title, subtitle, ctaButtonCaption, details } =
-    heroContent[selectedMode];
+  const heroFeatures: Array<ProjectMarketingHeroFeature> = useMemo(
+    () => [
+      {
+        content: (
+          <FormattedMessage
+            defaultMessage="Build projects to learn any front end skill using our <link>Skills roadmap</link>"
+            description="Caption for Projects marketing hero section skills roadmap feature"
+            id="rUKlWg"
+            values={{
+              // TODO: Update the link href
+              link: (chunks) => <Anchor href="#">{chunks}</Anchor>,
+            }}
+          />
+        ),
+        icon: RiNodeTree,
+        key: 'skills',
+      },
+      {
+        content: (
+          <FormattedMessage
+            defaultMessage="Every project is part of <link>reusable component libraries</link> for your future projects"
+            description="Caption for Projects marketing hero section component libraries feature"
+            id="ES78kz"
+            values={{
+              link: (chunks) => (
+                // TODO: Update the link href
+                <Anchor href="#">{chunks}</Anchor>
+              ),
+            }}
+          />
+        ),
+        icon: RiCheckboxMultipleLine,
+        key: 'component-libraries',
+      },
+      {
+        content: (
+          <FormattedMessage
+            defaultMessage="Guides & solutions from Sr. Engineers and code reviews from <link>community</link>"
+            description="Caption for Projects marketing hero section community feature"
+            id="4uyrtd"
+            values={{
+              link: (chunks) => (
+                // TODO: Update the link href
+                <Anchor href="#">{chunks}</Anchor>
+              ),
+            }}
+          />
+        ),
+        icon: RiDiscussLine,
+        key: 'community',
+      },
+    ],
+    [],
+  );
 
   return (
     <div className="relative isolate lg:mx-8">
@@ -202,56 +93,79 @@ export default function ProjectsMarketingHero() {
       <div className="relative pb-8 pt-0 sm:pb-16 md:pb-20">
         <div className="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:pt-24">
           <div className="flex flex-col items-center gap-y-8">
-            <div className="flex flex-col items-center gap-y-16">
-              <div className="flex flex-col items-center gap-y-6 sm:gap-y-7">
-                <div className="flex gap-2">
-                  {modes.map((mode) => {
-                    return (
-                      <div key={mode}>
-                        <Button
-                          className={clsx(
-                            mode === selectedMode && '!text-brand',
-                          )}
-                          label={heroContent[mode].tabButtonLabel}
-                          size="lg"
-                          variant="tertiary"
-                          onClick={() => {
-                            setSelectedMode(mode);
-                          }}
-                        />
-                      </div>
-                    );
-                  })}
-                </div>
+            <div className="flex flex-col items-center">
+              <a
+                className={clsx(
+                  'bg-indigo/10 mb-4 flex items-center gap-1 rounded-full border px-3 py-1',
+                  'border-neutral-800/20 dark:border-neutral-200/20',
+                  themeTextBrandColor,
+                  'dark:hover:border-brand hover:border-brand-dark transition-colors',
+                )}
+                // TODO: Update the link href
+                href="#">
+                <RiBardLine />
+                <Text color="inherit" size="body2" weight="medium">
+                  <FormattedMessage
+                    defaultMessage="Just launched Beta"
+                    description="Project marketing hero section badge"
+                    id="x2Q8mM"
+                  />
+                </Text>
+                <RiArrowRightSLine className={themeTextColor} />
+              </a>
+              <div className="mb-10 flex flex-col items-center gap-y-6 sm:gap-y-7">
                 <Heading className="max-w-3xl text-center" level="heading1">
-                  {title}
+                  <FormattedMessage
+                    defaultMessage="Build real world projects to learn and showcase"
+                    description="Title for Projects marketing hero section"
+                    id="uyAWFS"
+                  />
                 </Heading>
+              </div>
+              <div className="mb-12 grid grid-cols-3">
+                {heroFeatures.map(({ content, icon, key }) => (
+                  <div key={key} className="flex flex-col items-center gap-y-4">
+                    <ProjectsMarketingFeaturedIcon icon={icon} />
+                    <Text
+                      className="text-balance text-center"
+                      color="subtitle"
+                      size="body2">
+                      {content}
+                    </Text>
+                  </div>
+                ))}
               </div>
               <Text
                 className="mx-auto max-w-sm text-center text-base sm:text-base md:max-w-3xl md:text-lg xl:text-xl"
                 color="subtitle"
                 display="block"
                 size="inherit">
-                {subtitle}
+                <FormattedMessage
+                  defaultMessage="A platform to build high quality project challenges with beautiful & modular designs, guided by ex-FAANG senior engineers and an active community"
+                  description="Subtitle for Projects marketing hero section"
+                  id="R2VqzE"
+                />
               </Text>
             </div>
-            <div className="flex flex-col items-center gap-y-2">
+            <div className="flex flex-col items-center gap-y-3">
               <Button
                 className="self-stretch sm:self-auto"
                 href="/projects/challenges"
                 icon={RiArrowRightLine}
                 label={intl.formatMessage({
-                  defaultMessage: 'Start a project',
+                  defaultMessage: 'Explore projects',
                   description:
-                    'Label for Start a Project button in Hero section of HomePage.',
-                  id: 'sxu/UG',
+                    'Label for Explore projects button in Projects marketing hero section',
+                  id: 'aplNQq',
                 })}
                 size="lg"
                 variant="primary"
               />
               <Text color="subtitle" size="body3">
                 <FormattedMessage
-                  {...ctaButtonCaption}
+                  defaultMessage="90% of projects are <bold>free to do</bold>"
+                  description="Caption for Explore projects button in Projects marketing hero section"
+                  id="m9Hj73"
                   values={{
                     bold: (chunks) => (
                       <span className="font-bold">{chunks}</span>
@@ -260,7 +174,6 @@ export default function ProjectsMarketingHero() {
                 />
               </Text>
             </div>
-            {details}
           </div>
         </div>
       </div>

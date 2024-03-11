@@ -33,7 +33,7 @@ export default function ProjectsMarketingHomePage({
   });
 
   return (
-    <main className="bg-[#070708] pb-24" data-mode="dark">
+    <main className="bg-white pb-24 dark:bg-[#070708]">
       <ProjectsMarketingHero />
       <Section>
         <ProjectsMarketingHomepageFeaturesRow />
