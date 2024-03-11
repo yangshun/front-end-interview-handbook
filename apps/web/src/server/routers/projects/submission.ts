@@ -14,12 +14,12 @@ import { projectsChallengeSubmissionImplementationSchemaServer } from '~/compone
 import { projectsChallengeSubmissionRepositoryUrlSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
 import { projectsChallengeSubmissionSummarySchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionSummarySchema';
 import { projectsChallengeSubmissionTitleSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionTitleSchema';
-
-import prisma from '~/server/prisma';
 import {
   deleteScreenshot,
   generateScreenshots,
-} from '~/utils/projects/screenshotUtils';
+} from '~/components/projects/utils/screenshotUtils';
+
+import prisma from '~/server/prisma';
 
 import { projectsUserProcedure } from './procedures';
 import { publicProcedure, router } from '../../trpc';

@@ -1,5 +1,6 @@
+import getProjectsProfileId from '~/components/projects/utils/getProjectsProfileId';
+
 import { isUser, middleware, publicProcedure } from '~/server/trpc';
-import getProjectsProfileId from '~/utils/projects/getProjectsProfileId';
 
 import { TRPCError } from '@trpc/server';
 

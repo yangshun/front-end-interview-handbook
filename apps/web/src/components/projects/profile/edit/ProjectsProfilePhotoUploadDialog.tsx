@@ -6,12 +6,11 @@ import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { blobToBase64 } from '~/components/projects/utils/profilePhotoUtils';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import Spinner from '~/components/ui/Spinner';
 import { themeBackgroundLayerColor } from '~/components/ui/theme';
-
-import { blobToBase64 } from '~/utils/projects/profilePhotoUtils';
 
 import 'react-advanced-cropper/dist/style.css';
 

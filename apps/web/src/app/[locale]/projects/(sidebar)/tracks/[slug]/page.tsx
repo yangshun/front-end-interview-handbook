@@ -2,10 +2,9 @@ import { notFound } from 'next/navigation';
 
 import ProjectsTrackDetailsLockedPage from '~/components/projects/tracks/ProjectsTrackDetailsLockedPage';
 import ProjectsTrackDetailsPage from '~/components/projects/tracks/ProjectsTrackDetailsPage';
+import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
 import { readProjectsTrack } from '~/db/projects/ProjectsReader';
-import prisma from '~/server/prisma';
-import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
@@ -15,8 +14,8 @@ export default async function Page({ params }: Props) {
   const { slug: rawSlug, locale } = params;
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
-  const [user, { track }] = await Promise.all([
-    readUserFromToken(),
+  const [{ isViewerPremium, userId }, { track }] = await Promise.all([
+    readViewerProjectsProfile(),
     readProjectsTrack(slug, locale),
   ]);
 
@@ -24,23 +23,6 @@ export default async function Page({ params }: Props) {
     // TODO(projects): add custom not found page for projects.
     notFound();
   }
-
-  const isViewerPremium = await (async () => {
-    if (user == null) {
-      return false;
-    }
-
-    const projectsProfile = await prisma.projectsProfile.findFirst({
-      select: {
-        premium: true,
-      },
-      where: {
-        userId: user.id,
-      },
-    });
-
-    return projectsProfile?.premium ?? false;
-  })();
 
   if (track.metadata.premium && !isViewerPremium) {
     return (
@@ -51,5 +33,5 @@ export default async function Page({ params }: Props) {
     );
   }
 
-  return <ProjectsTrackDetailsPage track={track} userId={user?.id ?? null} />;
+  return <ProjectsTrackDetailsPage track={track} userId={userId} />;
 }

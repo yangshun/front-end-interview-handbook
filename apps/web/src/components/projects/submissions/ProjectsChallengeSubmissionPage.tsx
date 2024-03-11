@@ -38,7 +38,7 @@ function parseGithubRepositoryUrl(url: string) {
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
-  currentUserId: string | undefined;
+  currentUserId: string | null;
   isViewerPremium: boolean;
   submission: ProjectsChallengeSubmissionAugmented;
 }>;

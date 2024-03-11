@@ -4,10 +4,10 @@ import { profileUserNameSchemaServer } from '~/components/profile/fields/Profile
 import { projectsJobTitleInputSchemaServer } from '~/components/projects/profile/edit/ProjectsProfileSchema';
 import { fetchProjectsProfileRecalculatePoints } from '~/components/projects/reputation/ProjectsProfileRecalculatePoints';
 import { projectsSkillListInputOptionalSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
+import { base64toBlob } from '~/components/projects/utils/profilePhotoUtils';
 
 import prisma from '~/server/prisma';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
-import { base64toBlob } from '~/utils/projects/profilePhotoUtils';
 
 import { projectsUserProcedure, publicProjectsProcedure } from './procedures';
 import { publicProcedure, router, userProcedure } from '../../trpc';
