@@ -5,7 +5,6 @@ import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import {
   themeBackgroundLayerEmphasized_Hover,
   themeGlassyBorder,
-  themeTextColor,
   themeTextSecondaryColor,
   themeTextSubtitleColor,
 } from '~/components/ui/theme';
@@ -19,7 +18,7 @@ import type {
 import Anchor from '../Anchor';
 import Button from '../Button';
 import Divider from '../Divider';
-import Text from '../Text';
+import Text, { textVariants } from '../Text';
 
 type Item = NavPopoverChildItem | NavPopoverItem | NavPopoverTabsItem;
 
@@ -150,7 +149,11 @@ function NavbarSidebarAccordion({
         <DropdownIcon className={clsx(themeTextSecondaryColor, 'size-5')} />
       </Anchor>
       <ul
-        className={clsx('flex flex-col gap-y-2 px-4 pt-1', !isOpen && 'hidden')}
+        className={clsx(
+          'flex flex-col gap-y-2',
+          'px-4 pt-1',
+          !isOpen && 'hidden',
+        )}
         role="list">
         {props.items.map(({ onClick: onItemClick, ...item }) => (
           <li key={item.itemKey}>
@@ -186,7 +189,11 @@ export default function NavbarSidebarItem({
       <Anchor
         key={props.itemKey}
         aria-current={isCurrent ? 'page' : undefined}
-        className={clsx(themeTextColor, !isCurrent && linkClass, 'p-4')}
+        className={clsx(
+          'p-4',
+          !isCurrent && linkClass,
+          textVariants({ size: 'body1' }),
+        )}
         href={props.href}
         variant="unstyled"
         onClick={onClick}>
