@@ -335,10 +335,6 @@
     "defaultMessage": "Try these popular CSS questions",
     "description": "Title for featured questions section"
   },
-  "17Rr6T": {
-    "defaultMessage": "Skills cannot be empty.",
-    "description": "Error message"
-  },
   "19uyd3": {
     "defaultMessage": "<bold>+{points}</bold> rep",
     "description": "Tooltip for rep count increase in Projects level progress bar"
@@ -1363,6 +1359,10 @@
     "defaultMessage": "<bold>{author}</bold> replied to <bold>{recipient}</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone replying to someone on the challenge forum"
   },
+  "BfCWYl": {
+    "defaultMessage": "Select at least 1 skill that was used",
+    "description": "Error message"
+  },
   "BfJL2V": {
     "defaultMessage": "Challenge difficulty",
     "description": "Label for Difficulty filter for submissions list"
@@ -1514,6 +1514,10 @@
   "D7z/wQ": {
     "defaultMessage": "Keep your reason to under {characterLimit} characters",
     "description": "String validation message"
+  },
+  "D86N9j": {
+    "defaultMessage": "Invalid URL",
+    "description": "Error message"
   },
   "D8ZinO": {
     "defaultMessage": "Summary cannot be empty.",
@@ -4327,10 +4331,6 @@
     "defaultMessage": "You will be able to modify the skills and tech stack used once you start the project.",
     "description": "FAQ answer for projects platform"
   },
-  "bMdB2V": {
-    "defaultMessage": "Must be a URL.",
-    "description": "Error message"
-  },
   "bNW00Y": {
     "defaultMessage": "Available frameworks",
     "description": "Screenreader text to indicate the presence of available frameworks, displayed on question cards in question lists"
@@ -4363,8 +4363,8 @@
     "defaultMessage": "Twitter",
     "description": "Company name for Twitter"
   },
-  "bdNUBu": {
-    "defaultMessage": "Must be a GitHub repository URL.",
+  "bZbZoz": {
+    "defaultMessage": "Provide at least 1 URL where you hosted your solution",
     "description": "Error message"
   },
   "belvJ0": {
@@ -7058,10 +7058,6 @@
   "zo65Ck": {
     "defaultMessage": "All Practice Questions",
     "description": "Header for all practice questions section in study plans"
-  },
-  "zoxc1N": {
-    "defaultMessage": "Add at least one URL.",
-    "description": "Error message"
   },
   "zpsjf3": {
     "defaultMessage": "Back to all tracks",

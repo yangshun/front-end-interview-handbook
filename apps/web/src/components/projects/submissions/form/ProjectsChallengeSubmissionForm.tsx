@@ -40,7 +40,7 @@ function useProjectsChallengeSubmissionFormSchema() {
   const projectsChallengeSubmissionSummarySchema =
     useProjectsChallengeSubmissionSummarySchema();
   const projectsChallengeSubmissionTechStackSchema =
-    useProjectsSkillListInputSchema();
+    useProjectsSkillListInputSchema({ required: false });
   const projectsChallengeSubmissionRoadmapSkillsSchema =
     useProjectsSkillListInputSchema();
   const projectsChallengeSubmissionRepositoryUrlSchema =
@@ -116,7 +116,10 @@ export default function ProjectsChallengeSubmissionForm({
               <ProjectsChallengeSubmissionRoadmapSkillsField
                 control={control}
               />
-              <ProjectsChallengeSubmissionTechStackField control={control} />
+              <ProjectsChallengeSubmissionTechStackField
+                control={control}
+                required={false}
+              />
               <ProjectsChallengeSubmissionRepositoryUrlField
                 control={control}
               />

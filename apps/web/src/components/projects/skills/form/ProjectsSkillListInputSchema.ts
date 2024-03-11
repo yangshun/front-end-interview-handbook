@@ -13,7 +13,7 @@ function projectsSkillListInputSchema(options?: {
 
 // TODO: Figure out how to reuse intl strings for the server.
 export const projectsSkillListInputSchemaServer = projectsSkillListInputSchema({
-  minMessage: 'Skills cannot be empty.',
+  minMessage: 'Select at least 1 skill that was used',
 });
 export const projectsSkillListInputOptionalSchemaServer =
   projectsSkillListInputSchema({
@@ -25,9 +25,9 @@ export function getProjectsSkillListInputAttributes(
   required = true,
 ) {
   const minMessage = intl.formatMessage({
-    defaultMessage: 'Skills cannot be empty.',
+    defaultMessage: 'Select at least 1 skill that was used',
     description: 'Error message',
-    id: '17Rr6T',
+    id: 'BfCWYl',
   });
 
   return {

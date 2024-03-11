@@ -13,7 +13,7 @@ function projectsChallengeSubmissionRepositoryUrlSchema(options?: {
 // TODO: Figure out how to reuse intl strings for the server.
 export const projectsChallengeSubmissionRepositoryUrlSchemaServer =
   projectsChallengeSubmissionRepositoryUrlSchema({
-    urlMessage: 'Must be a GitHub repository URL.',
+    urlMessage: 'Invalid URL',
   });
 
 export function getProjectsChallengeSubmissionRepositoryUrlAttributes(
@@ -32,9 +32,9 @@ export function getProjectsChallengeSubmissionRepositoryUrlAttributes(
   });
   const placeholder = 'https://github.com/johndoe/my-awesome-project';
   const urlMessage = intl.formatMessage({
-    defaultMessage: 'Must be a GitHub repository URL.',
+    defaultMessage: 'Invalid URL',
     description: 'Error message',
-    id: 'bdNUBu',
+    id: 'D86N9j',
   });
 
   return {

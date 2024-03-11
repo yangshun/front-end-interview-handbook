@@ -51,9 +51,9 @@ function projectsChallengeSubmissionDeploymentUrlsSchema(options?: {
 export const projectsChallengeSubmissionDeploymentUrlsSchemaServer =
   projectsChallengeSubmissionDeploymentUrlsSchema({
     maxMessage: `Page can contain at most ${MAX_LENGTH} characters.`,
-    minItemMessage: `Add at least one URL.`,
+    minItemMessage: `Provide at least 1 URL where you hosted your solution`,
     minMessage: `Page can contain at least ${MIN_LENGTH} characters.`,
-    urlMessage: 'Must be a deployment URL.',
+    urlMessage: 'Invalid URL',
   });
 
 export function getProjectsChallengeSubmissionDeploymentUrlsAttributes(
@@ -72,9 +72,9 @@ export function getProjectsChallengeSubmissionDeploymentUrlsAttributes(
   });
   const placeholder = 'https://my-project.vercel.app';
   const urlMessage = intl.formatMessage({
-    defaultMessage: 'Must be a URL.',
+    defaultMessage: 'Invalid URL',
     description: 'Error message',
-    id: 'bMdB2V',
+    id: 'D86N9j',
   });
   const maxMessage = intl.formatMessage(
     {
@@ -97,9 +97,9 @@ export function getProjectsChallengeSubmissionDeploymentUrlsAttributes(
     },
   );
   const minItemMessage = intl.formatMessage({
-    defaultMessage: 'Add at least one URL.',
+    defaultMessage: 'Provide at least 1 URL where you hosted your solution',
     description: 'Error message',
-    id: 'zoxc1N',
+    id: 'bZbZoz',
   });
 
   return {

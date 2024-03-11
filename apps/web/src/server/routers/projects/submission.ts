@@ -4,7 +4,10 @@ import {
   projectsReputationSubmissionVoteAwardPoints,
   projectsReputationSubmissionVoteRevokePoints,
 } from '~/components/projects/reputation/ProjectsReputationUtils';
-import { projectsSkillListInputSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
+import {
+  projectsSkillListInputOptionalSchemaServer,
+  projectsSkillListInputSchemaServer,
+} from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 import { isImageFile } from '~/components/projects/submissions/code-viewer/GithubRepositoryCodeViewer';
 import { projectsChallengeSubmissionDeploymentUrlsSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionDeploymentUrlsSchema';
 import { projectsChallengeSubmissionImplementationSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionImplementationSchema';
@@ -36,7 +39,7 @@ const projectsChallengeSubmissionFormSchema = z.object({
   repositoryUrl: projectsChallengeSubmissionRepositoryUrlSchemaServer,
   roadmapSkills: projectsSkillListInputSchemaServer,
   summary: projectsChallengeSubmissionSummarySchemaServer,
-  techStackSkills: projectsSkillListInputSchemaServer,
+  techStackSkills: projectsSkillListInputOptionalSchemaServer,
   title: projectsChallengeSubmissionTitleSchemaServer,
 });
 
