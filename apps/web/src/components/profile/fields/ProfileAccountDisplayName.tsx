@@ -76,6 +76,7 @@ export default function ProfileAccountDisplayName() {
               isDisabled={isSubmitting}
               label={attrs.label}
               maxLength={attrs.validation.maxLength}
+              placeholder={attrs.placeholder}
               {...field}
             />
           )}

@@ -88,6 +88,7 @@ export default function ProfileAccountUsername() {
               isDisabled={isSubmitting}
               label={attrs.label}
               maxLength={attrs.validation.maxLength}
+              placeholder={attrs.placeholder}
               {...field}
             />
           )}

@@ -21,21 +21,22 @@ function projectsChallengeSubmissionTitleSchema(options?: {
 // TODO: Figure out how to reuse intl strings for the server.
 export const projectsChallengeSubmissionTitleSchemaServer =
   projectsChallengeSubmissionTitleSchema({
-    maxMessage: `Title can contain at most ${MAX_LENGTH} characters.`,
-    minMessage: 'Title cannot be empty.',
+    maxMessage: `Title must contain at most ${MAX_LENGTH} character(s).`,
+    minMessage: 'Title is required.',
   });
 
 export function getProjectsChallengeSubmissionTitleAttributes(intl: IntlShape) {
   const label = intl.formatMessage({
     defaultMessage: 'Submission title',
-    description: 'Label for submission name input on project submit page',
-    id: 'feMH7c',
+    description: 'Label for submission title input on project submit page',
+    id: 'kmemRr',
   });
   const description = intl.formatMessage({
     defaultMessage:
       "An eye-catching name to describe your solution. Will be displayed under the original Project's name and help other users identify your submission.",
-    description: 'Description for submission name input on project submit page',
-    id: 'XYCpWf',
+    description:
+      'Description for submission title input on project submit page',
+    id: 'I+Qcp7',
   });
   const placeholder = intl.formatMessage({
     defaultMessage: 'E.g. "Responsive solution with React and Tailwind CSS"',
@@ -44,18 +45,18 @@ export function getProjectsChallengeSubmissionTitleAttributes(intl: IntlShape) {
   });
   const maxMessage = intl.formatMessage(
     {
-      defaultMessage: 'Title can contain at most {maxLength} characters.',
-      description: 'Error message',
-      id: 'uBXv8c',
+      defaultMessage: 'Title must contain at most {maxLength} character(s).',
+      description: 'Error message for submission title',
+      id: 'FqpwC9',
     },
     {
       maxLength: MAX_LENGTH,
     },
   );
   const minMessage = intl.formatMessage({
-    defaultMessage: 'Title cannot be empty.',
-    description: 'Error message',
-    id: 'EGeNHT',
+    defaultMessage: 'Title is required.',
+    description: 'Error message for submission title',
+    id: '1jwI15',
   });
 
   return {

@@ -51,10 +51,6 @@
     "defaultMessage": "Billing | Profile",
     "description": "Title of Profile Billing page"
   },
-  "+Q7wrS": {
-    "defaultMessage": "Username",
-    "description": "Label for \"Username\" input on Projects profile onboarding page"
-  },
   "+R1wGb": {
     "defaultMessage": "Component track",
     "description": "Label for Component Track filter for projects list"
@@ -98,6 +94,10 @@
   "+kyQ/i": {
     "defaultMessage": "To help <keywords>mentor others</keywords>",
     "description": "Label for \"Mentor others\" onboarding option in Projects"
+  },
+  "+mxyA5": {
+    "defaultMessage": "Name",
+    "description": "Lable for name field"
   },
   "+p6rsI": {
     "defaultMessage": "Practice Top JavaScript and TypeScript Front End Interview Questions with Solutions",
@@ -203,9 +203,9 @@
     "defaultMessage": "Able to unlock premium challenges, or premium features on free challenges",
     "description": "Label for unlocks feature"
   },
-  "/sjUMM": {
-    "defaultMessage": "Page name can contain at most {maxLength} characters.",
-    "description": "Error message"
+  "/pokLY": {
+    "defaultMessage": "This is the name that will be shown on your profile. Use a maximum of {maxLength} character(s).",
+    "description": "Name field description"
   },
   "01jNoZ": {
     "defaultMessage": "Get started",
@@ -383,6 +383,10 @@
     "defaultMessage": "Project progress",
     "description": "Project progress item label"
   },
+  "1jwI15": {
+    "defaultMessage": "Title is required.",
+    "description": "Error message for submission title"
+  },
   "1kiNiW": {
     "defaultMessage": "Accessibility",
     "description": "Name of focus area questions"
@@ -519,6 +523,10 @@
     "defaultMessage": "Filters",
     "description": "Title of Projects contribution filter slide-out"
   },
+  "3P9YAr": {
+    "defaultMessage": "Your name has been updated.",
+    "description": "Success message when for name change"
+  },
   "3QQssQ": {
     "defaultMessage": "Please enter a valid date",
     "description": "Error message for invalid \"Month and year you started work as a Front End Engineer\" input on Projects profile onboarding page"
@@ -554,6 +562,10 @@
   "3du5bC": {
     "defaultMessage": "Toptal",
     "description": "Company name for Toptal"
+  },
+  "3edoDu": {
+    "defaultMessage": "Page name must contain at least {minLength} character(s).",
+    "description": "Error message"
   },
   "3ffp8N": {
     "defaultMessage": "Solution vs Design comparison",
@@ -630,6 +642,10 @@
   "4FirvF": {
     "defaultMessage": "Reset progress",
     "description": "Label to reset study plan progress"
+  },
+  "4Kbqpt": {
+    "defaultMessage": "Summary must contain at most {maxLength} character(s).",
+    "description": "Error message"
   },
   "4WUroS": {
     "defaultMessage": "Efficiently focus on the most important concepts",
@@ -943,6 +959,10 @@
     "defaultMessage": "Quiz",
     "description": "Quiz questions short title"
   },
+  "7ZjmR2": {
+    "defaultMessage": "Implementation must contain at least {minLength} character(s).",
+    "description": "Error message"
+  },
   "7fCoNs": {
     "defaultMessage": "Will I have to code within the platform, or use my own IDE?",
     "description": "FAQ question for projects platform"
@@ -1223,10 +1243,6 @@
     "defaultMessage": "Read more",
     "description": "Read more"
   },
-  "A7o+ui": {
-    "defaultMessage": "Page name must contain at least {minLength} characters.",
-    "description": "Error message"
-  },
   "ABJ7ip": {
     "defaultMessage": "<bold>{completedQuestions}</bold>/{totalQuestions} completed",
     "description": "Line describing the number of questions completed by user over the total number of questions"
@@ -1246,6 +1262,10 @@
   "AK/+j2": {
     "defaultMessage": "Your code has been successfully submitted and is now available for community review.",
     "description": "Description for the project submission success page"
+  },
+  "AKnqip": {
+    "defaultMessage": "Name must contain at least {minLength} character(s).",
+    "description": "Error message when display name is too short"
   },
   "APztnK": {
     "defaultMessage": "Existing subscribers can upgrade to the lifetime plan at a discount, send an email to <link>contact@greatfrontend</link>.",
@@ -1439,6 +1459,10 @@
     "defaultMessage": "Practice with study plans and timelines",
     "description": "Section title for study plans"
   },
+  "CSUPyv": {
+    "defaultMessage": "Username must contain at most {maxLength} character(s).",
+    "description": "Error message when username is too long"
+  },
   "CXs8z4": {
     "defaultMessage": "Practice Front End Quiz Interview Questions With Solutions",
     "description": "Title of Interview Preparation Quiz page"
@@ -1483,10 +1507,6 @@
     "defaultMessage": "Build together with other like-minded individuals",
     "description": "Title for \"Build together with other like-minded individuals\" feature marketing section on Projects home page"
   },
-  "Cxrh5Z": {
-    "defaultMessage": "Implementation can contain at most {maxLength} characters.",
-    "description": "Error message"
-  },
   "CyhMLj": {
     "defaultMessage": "Prepare for your front end interviews in one month. All rounded coverage that is sure to bring your front end interview skills to the next level.",
     "description": "Description for one month study plan"
@@ -1521,10 +1541,6 @@
   },
   "D86N9j": {
     "defaultMessage": "Invalid URL",
-    "description": "Error message"
-  },
-  "D8ZinO": {
-    "defaultMessage": "Summary cannot be empty.",
     "description": "Error message"
   },
   "DAQ8QM": {
@@ -1823,6 +1839,10 @@
     "defaultMessage": "All question progress has been reset.",
     "description": "Message shown when question reset progress action succeeds."
   },
+  "FqpwC9": {
+    "defaultMessage": "Title must contain at most {maxLength} character(s).",
+    "description": "Error message for submission title"
+  },
   "Ftjz7y": {
     "defaultMessage": "Manage your subscription status and payment methods on the Stripe billing portal.",
     "description": "Call to action text to uppgrade plan."
@@ -1955,10 +1975,6 @@
     "defaultMessage": "What to expect for Front End System Design interviews",
     "description": "Sidebar link title for front end system design interviews"
   },
-  "H4UZ2+": {
-    "defaultMessage": "At least {minLength} characters.",
-    "description": "Error message"
-  },
   "H6Hg+y": {
     "defaultMessage": "Are you sure you want to terminate this session? You will be able to restart the project anytime.",
     "description": "Content for end project session dialog"
@@ -2063,6 +2079,10 @@
     "defaultMessage": "Official guides",
     "description": "Title for \"Official guides\" feature on Projects home page"
   },
+  "I+Qcp7": {
+    "defaultMessage": "An eye-catching name to describe your solution. Will be displayed under the original Project's name and help other users identify your submission.",
+    "description": "Description for submission title input on project submit page"
+  },
   "I4lo5m": {
     "defaultMessage": "Practice Svelte Interview Questions with Solutions",
     "description": "Title of Svelte Interview Questions page"
@@ -2070,6 +2090,10 @@
   "I5MeD9": {
     "defaultMessage": "Signed up successfully",
     "description": "Title of alert indicating a successful email sign up"
+  },
+  "I5bECx": {
+    "defaultMessage": "John Doe",
+    "description": "Placeholder for name field"
   },
   "I5iXtu": {
     "defaultMessage": "Solution for {questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions",
@@ -2174,10 +2198,6 @@
   "JIWdeN": {
     "defaultMessage": "Continue tracks and skills",
     "description": "Title for Continue tracks and skills section on Projects dashboard page"
-  },
-  "JIywgW": {
-    "defaultMessage": "This is the unique username used to identify you. Use a maximum of {maxLength} characters.",
-    "description": "Username field description"
   },
   "JJ0V4Y": {
     "defaultMessage": "Duration: Low to High",
@@ -2518,10 +2538,6 @@
   "Lwa7+3": {
     "defaultMessage": "Have any doubts or need help? Ask in the community and discuss with others.",
     "description": "Description for \"Ask any questions in community\" item in Expected Support section on Projects project page"
-  },
-  "LyLGTu": {
-    "defaultMessage": "Your display name has been updated.",
-    "description": "Success message when for name change"
   },
   "LzKi2d": {
     "defaultMessage": "{questionCount}+ questions",
@@ -3463,10 +3479,6 @@
     "defaultMessage": "Front End System Design",
     "description": "Short title of front end system design guidebook"
   },
-  "TSfoge": {
-    "defaultMessage": "Summary can contain at most {maxLength} characters.",
-    "description": "Error message"
-  },
   "TWZbhr": {
     "defaultMessage": "Recommended user submissions you can reference",
     "description": "FAQ answer for projects platform"
@@ -3550,10 +3562,6 @@
   "ULuy8I": {
     "defaultMessage": "Difficulty",
     "description": "Question difficulty"
-  },
-  "UOB+rs": {
-    "defaultMessage": "Implementation must contain at least {minLength} characters.",
-    "description": "Error message"
   },
   "UQh7Xv": {
     "defaultMessage": "Filter by log level",
@@ -3711,6 +3719,10 @@
     "defaultMessage": "{discountPercentage}% off all plans",
     "description": "Title for rewards page"
   },
+  "Vp6BGE": {
+    "defaultMessage": "At least {minLength} character(s).",
+    "description": "Error message"
+  },
   "Vtp5JU": {
     "defaultMessage": "A long time ago",
     "description": "Title for a long time ago list of comments"
@@ -3762,10 +3774,6 @@
   "WH8fwr": {
     "defaultMessage": "Write here",
     "description": "Placeholder for \"Other\" input for \"Years of experience replacement status\" on Projects profile onboarding page"
-  },
-  "WHx4gl": {
-    "defaultMessage": "Display name cannot be empty.",
-    "description": "Error message when display name is too short"
   },
   "WIHUwS": {
     "defaultMessage": "Quarterly plan",
@@ -3830,10 +3838,6 @@
   "Wgz18L": {
     "defaultMessage": "Try these popular HTML questions",
     "description": "Title for featured questions section"
-  },
-  "Wi3vIz": {
-    "defaultMessage": "Username must contain at most {maxLength} characters.",
-    "description": "Error message when username is too long"
   },
   "WmI0h+": {
     "defaultMessage": "{numberOfSeries} series",
@@ -3906,10 +3910,6 @@
   "XVPYZg": {
     "defaultMessage": "Forgot your password?",
     "description": "Label of forget password button on Email Sign In page"
-  },
-  "XYCpWf": {
-    "defaultMessage": "An eye-catching name to describe your solution. Will be displayed under the original Project's name and help other users identify your submission.",
-    "description": "Description for submission name input on project submit page"
   },
   "XdezZk": {
     "defaultMessage": "What to expect, which rounds to expect them, and how to prepare",
@@ -4159,6 +4159,10 @@
     "defaultMessage": "Subscript",
     "description": "Label for subscript"
   },
+  "ZrKGWV": {
+    "defaultMessage": "At most {maxLength} character(s).",
+    "description": "Error message"
+  },
   "ZsOMcv": {
     "defaultMessage": "Select online asset type",
     "description": "Label for tabs to select online asset type"
@@ -4310,6 +4314,10 @@
   "b9gr/u": {
     "defaultMessage": "Pricing plans tailored to your needs.",
     "description": "Description of Pricing page"
+  },
+  "bA4tTF": {
+    "defaultMessage": "Username must contain at least {minLength} character(s).",
+    "description": "Error message when username is too short"
   },
   "bAEOVz": {
     "defaultMessage": "Lifetime plan is a limited time offering and will be removed in future.",
@@ -4587,6 +4595,10 @@
     "defaultMessage": "More",
     "description": "Label for \"More\" button on current project session card"
   },
+  "dhfVpJ": {
+    "defaultMessage": "This is the unique username used to identify you. Use a maximum of {maxLength} character(s).",
+    "description": "Username field description"
+  },
   "djQlZs": {
     "defaultMessage": "The URL where your solution is hosted. Find our recommended free hosting providers if you haven't already.",
     "description": "Form description"
@@ -4771,10 +4783,6 @@
     "defaultMessage": "{questionCount}+ JavaScript and TypeScript interview questions, from implementing common library APIs, utility functions, algorithms, to building UI components and more.",
     "description": "Subtitle for JavaScript questions list page"
   },
-  "feMH7c": {
-    "defaultMessage": "Submission title",
-    "description": "Label for submission name input on project submit page"
-  },
   "fevC5W": {
     "defaultMessage": "Free",
     "description": "Label indicating that quiz questions are free"
@@ -4790,10 +4798,6 @@
   "fiHpIm": {
     "defaultMessage": "Here you'll find a curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing a deep dive subject.",
     "description": "Description of GreatFrontEnd blog explore series page"
-  },
-  "fibgI3": {
-    "defaultMessage": "At most {maxLength} characters.",
-    "description": "Error message"
   },
   "fifBZf": {
     "defaultMessage": "Your edits have been successfully saved. Thank you for contributing to our community!",
@@ -5074,10 +5078,6 @@
   "iIQL6V": {
     "defaultMessage": "Completed",
     "description": "Label indicating that the question has been completed"
-  },
-  "iIuSTk": {
-    "defaultMessage": "Display name",
-    "description": "Display name"
   },
   "iLr1LJ": {
     "defaultMessage": "New York, NY, USA",
@@ -5399,6 +5399,10 @@
     "defaultMessage": "Build a whole component library or design system for your portfolio",
     "description": "Description for recommended action for new projects platform user"
   },
+  "kmemRr": {
+    "defaultMessage": "Submission title",
+    "description": "Label for submission title input on project submit page"
+  },
   "kn+R8V": {
     "defaultMessage": "Have questions, feedback, or anything to say? Let us know and we will get back as soon as possible.",
     "description": "Description of Contact Us page"
@@ -5715,10 +5719,6 @@
     "defaultMessage": "Cancel",
     "description": "Label for cancel button for projects profile edit page"
   },
-  "nfWiNn": {
-    "defaultMessage": "This is the name that will be shown on your profile. Use a maximum of {maxLength} characters.",
-    "description": "Name field description"
-  },
   "nivf5h": {
     "defaultMessage": "General",
     "description": "Profile settings tab title"
@@ -5838,6 +5838,10 @@
   "ooGnHf": {
     "defaultMessage": "Popularity: Most to least upvotes",
     "description": "Sorting option for discussions comment - popularity"
+  },
+  "ouzs0n": {
+    "defaultMessage": "Page name must contain at most {maxLength} character(s).",
+    "description": "Error message"
   },
   "oxD4TD": {
     "defaultMessage": "Fresh Grad",
@@ -5982,10 +5986,6 @@
   "pn9hGi": {
     "defaultMessage": "Uniquely identifies you. You may be given an option to set a different handle for certain products for anonymity.",
     "description": "Description for \"Username\" input on Projects profile onboarding page"
-  },
-  "pomXxL": {
-    "defaultMessage": "Username must contain at least {minLength} characters.",
-    "description": "Error message when username is too short"
   },
   "pp1TOt": {
     "defaultMessage": "Copy line (empty selection)",
@@ -6222,10 +6222,6 @@
   "s7CwKz": {
     "defaultMessage": "Behavioral Interview Study Guides",
     "description": "Behavioral interview study guides"
-  },
-  "sCPBAY": {
-    "defaultMessage": "janesmith",
-    "description": "Placeholder for \"Username\" input on Projects profile onboarding page"
   },
   "sGF5oQ": {
     "defaultMessage": "Types of Questions",
@@ -6483,10 +6479,6 @@
     "defaultMessage": "FAQ",
     "description": "Link to FAQ page"
   },
-  "uBXv8c": {
-    "defaultMessage": "Title can contain at most {maxLength} characters.",
-    "description": "Error message"
-  },
   "uBaCgb": {
     "defaultMessage": "GreatFrontEnd Projects",
     "description": "Title of Projects All Projects page"
@@ -6602,10 +6594,6 @@
   "v7xpbV": {
     "defaultMessage": "Stripe",
     "description": "Company name for Stripe"
-  },
-  "v9aMaT": {
-    "defaultMessage": "Display name must contain at most {maxLength} characters.",
-    "description": "Error message when display name is too long"
   },
   "vAyAVU": {
     "defaultMessage": "Style guide for fonts, colors, etc.",
@@ -6847,6 +6835,10 @@
     "defaultMessage": "All log levels",
     "description": "Select label for all log levels in console filter"
   },
+  "xmJsgz": {
+    "defaultMessage": "Summary is required.",
+    "description": "Error message"
+  },
   "xmK6tB": {
     "defaultMessage": "Build the foundation from ground up for reuse",
     "description": "Short description for \"Design systems\" feature on Projects home page"
@@ -6975,6 +6967,10 @@
     "defaultMessage": "Editor shortcuts",
     "description": "Label for button to open code editor shortcuts"
   },
+  "yv1wII": {
+    "defaultMessage": "Implementation must contain at most {maxLength} character(s).",
+    "description": "Error message"
+  },
   "z+5YJV": {
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all User Interface coding questions"
@@ -6990,6 +6986,10 @@
   "z37jan": {
     "defaultMessage": "Job title cannot be empty.",
     "description": "Error message"
+  },
+  "z7U2cl": {
+    "defaultMessage": "Name must contain at most {maxLength} character(s).",
+    "description": "Error message when display name is too long"
   },
   "zACRRV": {
     "defaultMessage": "Please enter your motivations",

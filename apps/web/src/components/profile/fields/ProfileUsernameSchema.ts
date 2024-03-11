@@ -23,8 +23,8 @@ function profileUsernameSchema(options?: {
 
 // TODO: Figure out how to reuse intl strings for the server.
 export const profileUserNameSchemaServer = profileUsernameSchema({
-  maxMessage: `Username must contain at most ${MAX_LENGTH} characters.`,
-  minMessage: `Username must contain at least ${MIN_LENGTH} characters.`,
+  maxMessage: `Username must contain at most ${MAX_LENGTH} character(s).`,
+  minMessage: `Username must contain at least ${MIN_LENGTH} character(s).`,
   regexMessage:
     'Username should begin and end with an alphanumeric character, and only contain alphanumeric characters or dashes.',
 });
@@ -35,12 +35,13 @@ export function getProfileUsernameAttrs(intl: IntlShape) {
     description: 'Username',
     id: 'Ooddpj',
   });
+  const placeholder = 'johndoe';
   const description = intl.formatMessage(
     {
       defaultMessage:
-        'This is the unique username used to identify you. Use a maximum of {maxLength} characters.',
+        'This is the unique username used to identify you. Use a maximum of {maxLength} character(s).',
       description: 'Username field description',
-      id: 'JIywgW',
+      id: 'dhfVpJ',
     },
     {
       maxLength: MAX_LENGTH,
@@ -48,9 +49,9 @@ export function getProfileUsernameAttrs(intl: IntlShape) {
   );
   const maxMessage = intl.formatMessage(
     {
-      defaultMessage: 'Username must contain at most {maxLength} characters.',
+      defaultMessage: 'Username must contain at most {maxLength} character(s).',
       description: 'Error message when username is too long',
-      id: 'Wi3vIz',
+      id: 'CSUPyv',
     },
     {
       maxLength: MAX_LENGTH,
@@ -58,9 +59,10 @@ export function getProfileUsernameAttrs(intl: IntlShape) {
   );
   const minMessage = intl.formatMessage(
     {
-      defaultMessage: 'Username must contain at least {minLength} characters.',
+      defaultMessage:
+        'Username must contain at least {minLength} character(s).',
       description: 'Error message when username is too short',
-      id: 'pomXxL',
+      id: 'bA4tTF',
     },
     {
       minLength: MIN_LENGTH,
@@ -81,6 +83,7 @@ export function getProfileUsernameAttrs(intl: IntlShape) {
   return {
     description,
     label,
+    placeholder,
     successMessage,
     validation: {
       maxLength: MAX_LENGTH,

@@ -50,9 +50,9 @@ function projectsChallengeSubmissionDeploymentUrlsSchema(options?: {
 // TODO: Figure out how to reuse intl strings for the server.
 export const projectsChallengeSubmissionDeploymentUrlsSchemaServer =
   projectsChallengeSubmissionDeploymentUrlsSchema({
-    maxMessage: `Page can contain at most ${MAX_LENGTH} characters.`,
+    maxMessage: `Page name must contain at most ${MAX_LENGTH} character(s).`,
     minItemMessage: `Provide at least 1 URL where you hosted your solution`,
-    minMessage: `Page can contain at least ${MIN_LENGTH} characters.`,
+    minMessage: `Page name must contain at least ${MIN_LENGTH} character(s).`,
     urlMessage: 'Invalid URL',
   });
 
@@ -78,9 +78,10 @@ export function getProjectsChallengeSubmissionDeploymentUrlsAttributes(
   });
   const maxMessage = intl.formatMessage(
     {
-      defaultMessage: 'Page name can contain at most {maxLength} characters.',
+      defaultMessage:
+        'Page name must contain at most {maxLength} character(s).',
       description: 'Error message',
-      id: '/sjUMM',
+      id: 'ouzs0n',
     },
     {
       maxLength: MAX_LENGTH,
@@ -88,9 +89,10 @@ export function getProjectsChallengeSubmissionDeploymentUrlsAttributes(
   );
   const minMessage = intl.formatMessage(
     {
-      defaultMessage: 'Page name must contain at least {minLength} characters.',
+      defaultMessage:
+        'Page name must contain at least {minLength} character(s).',
       description: 'Error message',
-      id: 'A7o+ui',
+      id: '3edoDu',
     },
     {
       minLength: MIN_LENGTH,

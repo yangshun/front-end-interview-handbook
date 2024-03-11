@@ -50,19 +50,9 @@ export default function ProjectsProfileBasicInfoSection({
             render={({ field }) => (
               <TextInput
                 errorMessage={errors.name?.message}
-                label={intl.formatMessage({
-                  defaultMessage: 'Name',
-                  description:
-                    'Label for "Name" input on Projects profile onboarding page',
-                  id: 'AVk8pE',
-                })}
+                label={nameAttrs.label}
                 maxLength={nameAttrs.validation.maxLength}
-                placeholder={intl.formatMessage({
-                  defaultMessage: 'Jane Smith',
-                  description:
-                    'Placeholder for "Name" input on Projects profile onboarding page',
-                  id: 'Ihutcw',
-                })}
+                placeholder={nameAttrs.placeholder}
                 {...field}
               />
             )}

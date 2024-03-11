@@ -51,6 +51,7 @@ export default function ProjectsProfileUsernameInput({
 
   return (
     <TextInput
+      autoComplete="off"
       description={intl.formatMessage({
         defaultMessage:
           'Uniquely identifies you. You may be given an option to set a different handle for certain products for anonymity.',
@@ -68,20 +69,9 @@ export default function ProjectsProfileUsernameInput({
             })
           : error
       }
-      label={intl.formatMessage({
-        defaultMessage: 'Username',
-        description:
-          'Label for "Username" input on Projects profile onboarding page',
-        id: '+Q7wrS',
-      })}
+      label={usernameAttrs.label}
       maxLength={usernameAttrs.validation.maxLength}
-      minLength={usernameAttrs.validation.minLength}
-      placeholder={intl.formatMessage({
-        defaultMessage: 'janesmith',
-        description:
-          'Placeholder for "Username" input on Projects profile onboarding page',
-        id: 'sCPBAY',
-      })}
+      placeholder={usernameAttrs.placeholder}
       {...field}
       onChange={(value) => onChange(value)}
     />

@@ -20,8 +20,8 @@ function projectsChallengeSubmissionSummarySchema(options?: {
 // TODO: Figure out how to reuse intl strings for the server.
 export const projectsChallengeSubmissionSummarySchemaServer =
   projectsChallengeSubmissionSummarySchema({
-    maxMessage: `Summary can contain at most ${MAX_LENGTH} characters.`,
-    minMessage: 'Summary cannot be empty.',
+    maxMessage: `Summary must contain at most ${MAX_LENGTH} character(s).`,
+    minMessage: 'Summary is required.',
   });
 
 export function getProjectsChallengeSubmissionSummaryAttributes(
@@ -40,18 +40,18 @@ export function getProjectsChallengeSubmissionSummaryAttributes(
   });
   const maxMessage = intl.formatMessage(
     {
-      defaultMessage: 'Summary can contain at most {maxLength} characters.',
+      defaultMessage: 'Summary must contain at most {maxLength} character(s).',
       description: 'Error message',
-      id: 'TSfoge',
+      id: '4Kbqpt',
     },
     {
       maxLength: MAX_LENGTH,
     },
   );
   const minMessage = intl.formatMessage({
-    defaultMessage: 'Summary cannot be empty.',
+    defaultMessage: 'Summary is required.',
     description: 'Error message',
-    id: 'D8ZinO',
+    id: 'xmJsgz',
   });
 
   return {

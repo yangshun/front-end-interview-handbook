@@ -47,8 +47,8 @@ function discussionsCommentBodySchema(options?: {
 
 // TODO: Figure out how to reuse intl strings for the server.
 export const discussionsCommentBodySchemaServer = discussionsCommentBodySchema({
-  maxMessage: `At most ${MAX_LENGTH} characters.`,
-  minMessage: `At least ${MIN_LENGTH} characters.`,
+  maxMessage: `At most ${MAX_LENGTH} character(s).`,
+  minMessage: `At least ${MIN_LENGTH} character(s).`,
 });
 
 export function getDiscussionsCommentBodyAttributes(intl: IntlShape) {
@@ -59,9 +59,9 @@ export function getDiscussionsCommentBodyAttributes(intl: IntlShape) {
   });
   const maxMessage = intl.formatMessage(
     {
-      defaultMessage: 'At most {maxLength} characters.',
+      defaultMessage: 'At most {maxLength} character(s).',
       description: 'Error message',
-      id: 'fibgI3',
+      id: 'ZrKGWV',
     },
     {
       maxLength: MAX_LENGTH,
@@ -69,9 +69,9 @@ export function getDiscussionsCommentBodyAttributes(intl: IntlShape) {
   );
   const minMessage = intl.formatMessage(
     {
-      defaultMessage: 'At least {minLength} characters.',
+      defaultMessage: 'At least {minLength} character(s).',
       description: 'Error message',
-      id: 'H4UZ2+',
+      id: 'Vp6BGE',
     },
     {
       minLength: MIN_LENGTH,

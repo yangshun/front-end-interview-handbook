@@ -2,6 +2,7 @@ import type { IntlShape } from 'react-intl';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
+const MIN_LENGTH = 2;
 const MAX_LENGTH = 32;
 
 function profileNameSchema(options?: {
@@ -12,29 +13,34 @@ function profileNameSchema(options?: {
 
   return z
     .string()
-    .min(1, { message: minMessage })
+    .min(MIN_LENGTH, { message: minMessage })
     .max(MAX_LENGTH, { message: maxMessage })
     .trim();
 }
 
 // TODO: Figure out how to reuse intl strings for the server.
 export const profileNameSchemaServer = profileNameSchema({
-  maxMessage: `Display name must contain at most ${MAX_LENGTH} characters.`,
-  minMessage: 'Display name cannot be empty.',
+  maxMessage: `Name must contain at most ${MAX_LENGTH} character(s).`,
+  minMessage: `Name must contain at least ${MIN_LENGTH} character(s).`,
 });
 
 export function getProfileNameAttrs(intl: IntlShape) {
   const label = intl.formatMessage({
-    defaultMessage: 'Display name',
-    description: 'Display name',
-    id: 'iIuSTk',
+    defaultMessage: 'Name',
+    description: 'Lable for name field',
+    id: '+mxyA5',
+  });
+  const placeholder = intl.formatMessage({
+    defaultMessage: 'John Doe',
+    description: 'Placeholder for name field',
+    id: 'I5bECx',
   });
   const description = intl.formatMessage(
     {
       defaultMessage:
-        'This is the name that will be shown on your profile. Use a maximum of {maxLength} characters.',
+        'This is the name that will be shown on your profile. Use a maximum of {maxLength} character(s).',
       description: 'Name field description',
-      id: 'nfWiNn',
+      id: '/pokLY',
     },
     {
       maxLength: MAX_LENGTH,
@@ -42,33 +48,39 @@ export function getProfileNameAttrs(intl: IntlShape) {
   );
   const maxMessage = intl.formatMessage(
     {
-      defaultMessage:
-        'Display name must contain at most {maxLength} characters.',
+      defaultMessage: 'Name must contain at most {maxLength} character(s).',
       description: 'Error message when display name is too long',
-      id: 'v9aMaT',
+      id: 'z7U2cl',
     },
     {
       maxLength: MAX_LENGTH,
     },
   );
-  const minMessage = intl.formatMessage({
-    defaultMessage: 'Display name cannot be empty.',
-    description: 'Error message when display name is too short',
-    id: 'WHx4gl',
-  });
+  const minMessage = intl.formatMessage(
+    {
+      defaultMessage: 'Name must contain at least {minLength} character(s).',
+      description: 'Error message when display name is too short',
+      id: 'AKnqip',
+    },
+    {
+      minLength: MIN_LENGTH,
+    },
+  );
   const successMessage = intl.formatMessage({
-    defaultMessage: 'Your display name has been updated.',
+    defaultMessage: 'Your name has been updated.',
     description: 'Success message when for name change',
-    id: 'LyLGTu',
+    id: '3P9YAr',
   });
 
   return {
     description,
     label,
+    placeholder,
     successMessage,
     validation: {
       maxLength: MAX_LENGTH,
       maxMessage,
+      minLength: MIN_LENGTH,
       minMessage,
     },
   };

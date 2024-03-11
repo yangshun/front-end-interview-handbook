@@ -56,8 +56,8 @@ function projectsChallengeSubmissionImplementationSchema(options?: {
 // TODO: Figure out how to reuse intl strings for the server.
 export const projectsChallengeSubmissionImplementationSchemaServer =
   projectsChallengeSubmissionImplementationSchema({
-    maxMessage: `Implementation can contain at most ${MAX_LENGTH} characters.`,
-    minMessage: `Implementation can contain at least ${MIN_LENGTH} characters.`,
+    maxMessage: `Implementation must contain at most ${MAX_LENGTH} character(s).`,
+    minMessage: `Implementation must contain at least ${MIN_LENGTH} character(s).`,
   });
 
 export function getProjectsChallengeSubmissionImplementationAttributes(
@@ -77,9 +77,9 @@ export function getProjectsChallengeSubmissionImplementationAttributes(
   const maxMessage = intl.formatMessage(
     {
       defaultMessage:
-        'Implementation can contain at most {maxLength} characters.',
+        'Implementation must contain at most {maxLength} character(s).',
       description: 'Error message',
-      id: 'Cxrh5Z',
+      id: 'yv1wII',
     },
     {
       maxLength: MAX_LENGTH,
@@ -88,9 +88,9 @@ export function getProjectsChallengeSubmissionImplementationAttributes(
   const minMessage = intl.formatMessage(
     {
       defaultMessage:
-        'Implementation must contain at least {minLength} characters.',
+        'Implementation must contain at least {minLength} character(s).',
       description: 'Error message',
-      id: 'UOB+rs',
+      id: '7ZjmR2',
     },
     {
       minLength: MIN_LENGTH,
