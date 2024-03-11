@@ -8,12 +8,14 @@ type Props = Readonly<{
   defaultOpen?: boolean;
   projectTracks: ReadonlyArray<ProjectsTrackItem>;
   userId: string | null;
+  viewerIsPremium: boolean;
 }>;
 
 export default function ProjectsTrackSection({
   defaultOpen,
   projectTracks,
   userId,
+  viewerIsPremium,
 }: Props) {
   const { data: challengeStatuses } =
     trpc.projects.challenges.progress.useQuery(
@@ -35,6 +37,7 @@ export default function ProjectsTrackSection({
           key={projectTrack.metadata.slug}
           challengeStatuses={challengeStatuses ?? {}}
           track={projectTrack}
+          viewerIsPremium={viewerIsPremium}
         />
       ))}
     </ProjectsTrackAccordion>

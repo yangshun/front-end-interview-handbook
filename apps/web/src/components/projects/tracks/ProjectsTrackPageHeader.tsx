@@ -1,0 +1,100 @@
+import type { ProjectsTrackMetadata } from 'contentlayer/generated';
+import { RiArrowLeftLine, RiLock2Line } from 'react-icons/ri';
+import { useIntl } from 'react-intl';
+
+import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
+import ProjectsTrackProgressTag from '~/components/projects/tracks/ProjectsTrackProgressTag';
+import Badge from '~/components/ui/Badge';
+import Button from '~/components/ui/Button';
+import Heading from '~/components/ui/Heading';
+import Text from '~/components/ui/Text';
+
+import ProjectsChallengeStatusBadgeCompleted from '../challenges/status/ProjectsChallengeStatusBadgeCompleted';
+
+type BaseProps = Readonly<{
+  metadata: ProjectsTrackMetadata;
+  points: number;
+  showProgress: boolean;
+}>;
+
+type Props =
+  | (BaseProps &
+      Readonly<{
+        completedCount: number;
+        showProgress: true;
+        totalCount: number;
+      }>)
+  | (BaseProps &
+      Readonly<{
+        showProgress: false;
+      }>);
+
+export default function ProjectsTrackHeader({
+  metadata,
+  points,
+  showProgress,
+  ...props
+}: Props) {
+  const intl = useIntl();
+  const { description, title } = metadata;
+
+  return (
+    <div className="flex flex-col gap-4">
+      <Button
+        addonPosition="start"
+        className="-ms-4 -mt-2 self-start"
+        href="/projects/tracks"
+        icon={RiArrowLeftLine}
+        label={intl.formatMessage({
+          defaultMessage: 'Back to all tracks',
+          description: 'Button label to go back to all projects tracks',
+          id: 'zpsjf3',
+        })}
+        variant="tertiary"
+      />
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-6">
+          <div className="bg-red size-16 rounded-lg" />
+          <div className="flex flex-col gap-2">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+              <Heading level="heading5">{title}</Heading>
+              {metadata.premium && (
+                <Badge
+                  icon={RiLock2Line}
+                  label={intl.formatMessage({
+                    defaultMessage: 'Premium',
+                    description:
+                      'Label on Premium badge to indicate premium-only access',
+                    id: 'aWL34G',
+                  })}
+                  size="sm"
+                  variant="special"
+                />
+              )}
+              {showProgress &&
+                'completedCount' in props &&
+                'totalCount' in props &&
+                props.completedCount === props.totalCount && (
+                  <ProjectsChallengeStatusBadgeCompleted />
+                )}
+            </div>
+            <div className="flex flex-wrap gap-x-4 gap-y-2">
+              <ProjectsChallengeReputationTag points={points} variant="flat" />
+              {showProgress &&
+                'completedCount' in props &&
+                'totalCount' in props && (
+                  <ProjectsTrackProgressTag
+                    completed={props.completedCount}
+                    total={props.totalCount}
+                  />
+                )}
+            </div>
+          </div>
+        </div>
+        <Text color="secondary" size="body2">
+          {description}
+        </Text>
+      </div>
+    </div>
+  );
+}

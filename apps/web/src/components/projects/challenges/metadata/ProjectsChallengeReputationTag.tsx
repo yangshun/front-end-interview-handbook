@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundLayerEmphasized,
-  themeTextSubtleColor,
+  themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
 type TagVariant = 'filled' | 'flat';
@@ -29,7 +29,7 @@ export default function ProjectsChallengeReputationTag({
           'rounded-full px-3 py-1',
           themeBackgroundLayerEmphasized,
         ],
-        variant === 'flat' && themeTextSubtleColor,
+        variant === 'flat' && themeTextSecondaryColor,
         className,
       )}>
       <RiFireLine

@@ -118,70 +118,55 @@ function PremiumVersion({
   const totalCredits = Math.max(credits, planConfig.creditsPerInterval);
 
   return (
-    <div className="flex flex-col items-stretch gap-3 p-3">
-      <div className="flex flex-col gap-2">
-        <div className="flex items-center justify-between">
-          <Text size="body3" weight="bold">
-            {planConfig.label}
-          </Text>
-          {/* TODO(projects): update tooltip */}
-          <Tooltip
-            label={
-              <FormattedMessage
-                defaultMessage="Free Plan CTA card tooltip"
-                description="Tooltip label for Free Plan CTA card in Projects sidebar"
-                id="WX+cIg"
-              />
-            }>
-            <RiInformationLine
-              className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
+    <div className="flex flex-col items-stretch gap-2 p-3">
+      <div className="flex items-center justify-between">
+        <Text size="body3" weight="bold">
+          {planConfig.label}
+        </Text>
+        {/* TODO(projects): update tooltip */}
+        <Tooltip
+          label={
+            <FormattedMessage
+              defaultMessage="Free Plan CTA card tooltip"
+              description="Tooltip label for Free Plan CTA card in Projects sidebar"
+              id="WX+cIg"
             />
-          </Tooltip>
-        </div>
-        <Text color="secondary" display="block" size="body3">
-          {intl.formatMessage({
-            defaultMessage: 'Full access to tracks & skills',
-            description: 'Subtitle of premium plan CTA card',
-            id: 'F09XFi',
-          })}
-        </Text>
-        <Text color="secondary" display="block" size="body3">
-          <FormattedMessage
-            defaultMessage="<bold>{credits}</bold>/{totalCredits} project unlocks left"
-            description="Number of unlock credits left"
-            id="B/+rVc"
-            values={{
-              bold: (chunks) => <Text size="body2">{chunks}</Text>,
-              credits,
-              totalCredits,
-            }}
+          }>
+          <RiInformationLine
+            className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
           />
-        </Text>
-        <ProgressBar
-          key={themeGradientPinkPurple.startColor}
-          label={intl.formatMessage({
-            defaultMessage: 'Credits remaining',
-            description: 'Number of unlock credits remaining',
-            id: 'PSuOJh',
-          })}
-          progressClass={themeGradientPinkPurple.className}
-          total={totalCredits}
-          value={credits}
-        />
+        </Tooltip>
       </div>
-      {/* TODO(projects|purchase): change to canBeUpgraded field */}
-      {plan !== 'ANNUAL' && (
-        <Button
-          href="/projects/pricing"
-          label={intl.formatMessage({
-            defaultMessage: 'Upgrade access',
-            description: 'Button label to upgrade plan',
-            id: 'hTwS/w',
-          })}
-          size="xs"
-          variant="primary"
+      <Text color="secondary" display="block" size="body3">
+        {intl.formatMessage({
+          defaultMessage: 'Full access to tracks & skills',
+          description: 'Subtitle of premium plan CTA card',
+          id: 'F09XFi',
+        })}
+      </Text>
+      <Text color="secondary" display="block" size="body3">
+        <FormattedMessage
+          defaultMessage="<bold>{credits}</bold>/{totalCredits} project unlocks left"
+          description="Number of unlock credits left"
+          id="B/+rVc"
+          values={{
+            bold: (chunks) => <Text size="body2">{chunks}</Text>,
+            credits,
+            totalCredits,
+          }}
         />
-      )}
+      </Text>
+      <ProgressBar
+        key={themeGradientPinkPurple.startColor}
+        label={intl.formatMessage({
+          defaultMessage: 'Credits remaining',
+          description: 'Number of unlock credits remaining',
+          id: 'PSuOJh',
+        })}
+        progressClass={themeGradientPinkPurple.className}
+        total={totalCredits}
+        value={credits}
+      />
     </div>
   );
 }

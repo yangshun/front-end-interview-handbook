@@ -5,6 +5,7 @@ import ProjectsTracksListPage from '~/components/projects/tracks/ProjectsTracksL
 import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
+import prisma from '~/server/prisma';
 import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
@@ -36,7 +37,28 @@ export default async function Page({ params }: Props) {
     readProjectsTrackList(locale),
   ]);
 
+  const viewerIsPremium = await (async () => {
+    if (user == null) {
+      return false;
+    }
+
+    const projectsProfile = await prisma.projectsProfile.findFirst({
+      select: {
+        premium: true,
+      },
+      where: {
+        userId: user.id,
+      },
+    });
+
+    return projectsProfile?.premium ?? false;
+  })();
+
   return (
-    <ProjectsTracksListPage projectTracks={tracks} userId={user?.id ?? null} />
+    <ProjectsTracksListPage
+      projectTracks={tracks}
+      userId={user?.id ?? null}
+      viewerIsPremium={viewerIsPremium}
+    />
   );
 }

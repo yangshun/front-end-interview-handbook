@@ -18,6 +18,7 @@ import Container from '~/components/ui/Container';
 import Section from '~/components/ui/Heading/HeadingContext';
 import { themeRadialGlowBackground } from '~/components/ui/theme';
 
+import useProfileWithProjectsProfile from '../common/useProfileWithProjectsProfile';
 import type { ProjectsTrackItem } from '../tracks/ProjectsTracksData';
 
 const skills = [
@@ -41,6 +42,7 @@ export default function ProjectsMarketingSkillsTracksProjects({
   projectTracks,
 }: Props) {
   const intl = useIntl();
+  const { profile } = useProfileWithProjectsProfile();
 
   return (
     <div
@@ -110,6 +112,7 @@ export default function ProjectsMarketingSkillsTracksProjects({
                 <ProjectsTrackAccordionItem
                   key={projectTrack.metadata.slug}
                   track={projectTrack}
+                  viewerIsPremium={profile?.projectsProfile?.premium ?? false}
                 />
               ))}
             </ProjectsTrackAccordion>
@@ -147,6 +150,7 @@ export default function ProjectsMarketingSkillsTracksProjects({
                   <ProjectsTrackAccordionItem
                     key={track.metadata.slug}
                     track={track}
+                    viewerIsPremium={profile?.projectsProfile?.premium ?? false}
                   />
                 ))}
               </ProjectsTrackAccordion>
