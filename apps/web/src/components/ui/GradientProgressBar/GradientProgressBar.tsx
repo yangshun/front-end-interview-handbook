@@ -82,32 +82,51 @@ export default function GradientProgressBar({
           },
         }}
         value={progressPercentage}>
-        <Text
-          className={clsx('bg-clip-text text-transparent', gradient.className)}
-          color="inherit"
-          id={progressBarLabelId}
-          size="body3">
-          <FormattedMessage
-            defaultMessage="<percent>{percentage}</percent>%"
-            description="Progress percentage in Continue Learning section in preparation dashboard"
-            id="lDlJyX"
-            values={{
-              percent: (chunks) => (
-                <Text
-                  className="font-bold"
-                  color="inherit"
-                  size="body1"
-                  weight="inherit">
-                  {chunks}
-                </Text>
-              ),
-              percentage: intl.formatNumber(progressPercentage, {
-                maximumFractionDigits: 0,
-                style: 'decimal',
-              }),
-            }}
-          />
-        </Text>
+        <div className="p-1/2 flex flex-col items-center">
+          <Text
+            className={clsx(
+              'bg-clip-text text-transparent',
+              gradient.className,
+            )}
+            color="inherit"
+            id={progressBarLabelId}
+            size="body3">
+            <FormattedMessage
+              defaultMessage="<percent>{percentage}</percent>"
+              description="Progress percentage in Continue Learning section in preparation dashboard"
+              id="0niS4K"
+              values={{
+                percent: (chunks) => (
+                  <Text
+                    className="font-bold"
+                    color="inherit"
+                    size="body1"
+                    weight="inherit">
+                    {chunks}
+                  </Text>
+                ),
+                percentage: intl.formatNumber(progressPercentage, {
+                  maximumFractionDigits: 0,
+                  style: 'decimal',
+                }),
+              }}
+            />
+          </Text>
+          <Text
+            className={clsx(
+              'bg-clip-text text-transparent',
+              'text-3xs',
+              gradient.className,
+            )}
+            color="inherit"
+            id={progressBarLabelId}>
+            <FormattedMessage
+              defaultMessage="more projects"
+              description="Progress percentage label in Continue Learning section in preparation dashboard"
+              id="ZEulnN"
+            />
+          </Text>
+        </div>
       </CircularProgressbarWithChildren>
     </div>
   );

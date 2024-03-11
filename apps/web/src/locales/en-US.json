@@ -311,6 +311,10 @@
     "defaultMessage": "UI Components API Design Principles",
     "description": "User Interface components API design principles"
   },
+  "0niS4K": {
+    "defaultMessage": "<percent>{percentage}</percent>",
+    "description": "Progress percentage in Continue Learning section in preparation dashboard"
+  },
   "0p6dRS": {
     "defaultMessage": "Practice makes perfect. With our collection of over {count} front end questions, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
     "description": "Title of question examples section on getting started page"
@@ -4091,6 +4095,10 @@
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
   },
+  "ZEulnN": {
+    "defaultMessage": "more projects",
+    "description": "Progress percentage label in Continue Learning section in preparation dashboard"
+  },
   "ZFDU0d": {
     "defaultMessage": "Woohoo!",
     "description": "Toast title for project session started"
@@ -5466,10 +5474,6 @@
   "lD302L": {
     "defaultMessage": "Recommended duration to spend during interviews",
     "description": "Recommended duration tooltip displayed on question cards found on question lists"
-  },
-  "lDlJyX": {
-    "defaultMessage": "<percent>{percentage}</percent>%",
-    "description": "Progress percentage in Continue Learning section in preparation dashboard"
   },
   "lGUj4P": {
     "defaultMessage": "View study plans",
