@@ -1,22 +1,22 @@
-import { RiLock2Line } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
-
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsTrackProgressTag from '~/components/projects/tracks/ProjectsTrackProgressTag';
-import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
 
 import type { ProjectsTrackItem } from './ProjectsTracksData';
 import ProjectsChallengeStatusBadgeCompleted from '../challenges/status/ProjectsChallengeStatusBadgeCompleted';
+import ProjectsPremiumBadge from '../common/ProjectsPremiumBadge';
 
-type Props = Readonly<{ completedCount?: number; track: ProjectsTrackItem }>;
+type Props = Readonly<{
+  completedCount?: number;
+  isViewerPremium: boolean;
+  track: ProjectsTrackItem;
+}>;
 
 export default function ProjectsTrackHeader({
   completedCount = 0,
+  isViewerPremium,
   track,
 }: Props) {
-  const intl = useIntl();
-
   const { points, metadata, challenges } = track;
   const { description, title } = metadata;
   const completed = completedCount === challenges.length;
@@ -28,17 +28,7 @@ export default function ProjectsTrackHeader({
           {title}
         </Text>
         {metadata.premium && (
-          <Badge
-            icon={RiLock2Line}
-            label={intl.formatMessage({
-              defaultMessage: 'Premium',
-              description:
-                'Label on Premium badge to indicate premium-only access',
-              id: 'aWL34G',
-            })}
-            size="sm"
-            variant="special"
-          />
+          <ProjectsPremiumBadge unlocked={isViewerPremium} />
         )}
         {completed && <ProjectsChallengeStatusBadgeCompleted />}
       </div>

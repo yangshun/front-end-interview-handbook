@@ -1,17 +1,18 @@
 import type { ProjectsTrackMetadata } from 'contentlayer/generated';
-import { RiArrowLeftLine, RiLock2Line } from 'react-icons/ri';
+import { RiArrowLeftLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsTrackProgressTag from '~/components/projects/tracks/ProjectsTrackProgressTag';
-import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
 import ProjectsChallengeStatusBadgeCompleted from '../challenges/status/ProjectsChallengeStatusBadgeCompleted';
+import ProjectsPremiumBadge from '../common/ProjectsPremiumBadge';
 
 type BaseProps = Readonly<{
+  isViewerPremium: boolean;
   metadata: ProjectsTrackMetadata;
   points: number;
   showProgress: boolean;
@@ -30,6 +31,7 @@ type Props =
       }>);
 
 export default function ProjectsTrackHeader({
+  isViewerPremium,
   metadata,
   points,
   showProgress,
@@ -59,17 +61,7 @@ export default function ProjectsTrackHeader({
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <Heading level="heading5">{title}</Heading>
               {metadata.premium && (
-                <Badge
-                  icon={RiLock2Line}
-                  label={intl.formatMessage({
-                    defaultMessage: 'Premium',
-                    description:
-                      'Label on Premium badge to indicate premium-only access',
-                    id: 'aWL34G',
-                  })}
-                  size="sm"
-                  variant="special"
-                />
+                <ProjectsPremiumBadge unlocked={isViewerPremium} />
               )}
               {showProgress &&
                 'completedCount' in props &&

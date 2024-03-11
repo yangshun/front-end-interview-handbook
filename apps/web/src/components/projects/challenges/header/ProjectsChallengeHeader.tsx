@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiArrowLeftLine, RiLock2Line } from 'react-icons/ri';
+import { RiArrowLeftLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/metadata/ProjectsChallengeDifficultyTag';
@@ -9,7 +9,6 @@ import ProjectsChallengeTrackTag from '~/components/projects/challenges/metadata
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsCompletedUsersTag from '~/components/projects/stats/ProjectsCompletedUsersTag';
 import Anchor from '~/components/ui/Anchor';
-import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
@@ -19,15 +18,20 @@ import ProjectsChallengeHowItWorksDialog from './ProjectsChallengeHowItWorksDial
 import ProjectsChallengeSkillsTag from '../metadata/ProjectsChallengeSkillsTag';
 import ProjectsChallengeCurrentProjectSessionCard from '../session/ProjectsChallengeCurrentSessionCard';
 import { useProjectsChallengeSessionContext } from '../session/ProjectsChallengeSessionContext';
+import ProjectsPremiumBadge from '../../common/ProjectsPremiumBadge';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
+  isViewerPremium: boolean;
 }>;
 
-export default function ProjectsChallengeHeader({ challenge }: Props) {
+export default function ProjectsChallengeHeader({
+  challenge,
+  isViewerPremium,
+}: Props) {
   const intl = useIntl();
   const { completedCount, completedProfiles, metadata, track } = challenge;
-  const { description, difficulty, points, skills, title } = metadata;
+  const { access, description, difficulty, points, skills, title } = metadata;
 
   const { session, startProject, isGetLatestSessionFetched } =
     useProjectsChallengeSessionContext();
@@ -87,23 +91,16 @@ export default function ProjectsChallengeHeader({ challenge }: Props) {
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-2">
             <Heading level="heading5">{title}</Heading>
-            <Badge
-              icon={RiLock2Line}
-              label={intl.formatMessage({
-                defaultMessage: 'Premium',
-                description: 'Premium content',
-                id: 'gIeLON',
-              })}
-              size="sm"
-              variant="special"
-            />
+            {access === 'premium' && (
+              <ProjectsPremiumBadge unlocked={isViewerPremium} />
+            )}
           </div>
           <Text color="secondary" size="body2">
             {description}
           </Text>
           <div className="flex flex-wrap gap-x-4 gap-y-2">
             <ProjectsChallengeDifficultyTag difficulty={difficulty} />
-            <ProjectsChallengeTrackTag track={track} />
+            {isViewerPremium && <ProjectsChallengeTrackTag track={track} />}
             <ProjectsChallengeReputationTag points={points} variant="flat" />
             {skills.length > 0 && (
               <ProjectsChallengeSkillsTag skills={skills} />

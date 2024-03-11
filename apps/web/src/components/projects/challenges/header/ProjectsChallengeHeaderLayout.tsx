@@ -11,11 +11,13 @@ import type { ProjectsChallengeItem } from '../types';
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   children: React.ReactNode;
+  isViewerPremium: boolean;
 }>;
 
 export function ProjectsChallengeHeaderLayoutImpl({
   challenge,
   children,
+  isViewerPremium,
 }: Props) {
   const {
     isGetStartedDialogShown,
@@ -26,7 +28,10 @@ export function ProjectsChallengeHeaderLayoutImpl({
 
   return (
     <div className="flex flex-col items-stretch gap-10">
-      <ProjectsChallengeHeader challenge={challenge} />
+      <ProjectsChallengeHeader
+        challenge={challenge}
+        isViewerPremium={isViewerPremium}
+      />
       <ProjectsChallengeStepsTabsImpl challenge={challenge} />
       {children}
       <ProjectsChallengeGetStartedDialog
@@ -46,12 +51,15 @@ export function ProjectsChallengeHeaderLayoutImpl({
 export default function ProjectsChallengeHeaderLayout({
   challenge,
   children,
+  isViewerPremium,
 }: Props) {
   const { slug } = challenge.metadata;
 
   return (
     <ProjectsChallengeSessionContextProvider slug={slug}>
-      <ProjectsChallengeHeaderLayoutImpl challenge={challenge}>
+      <ProjectsChallengeHeaderLayoutImpl
+        challenge={challenge}
+        isViewerPremium={isViewerPremium}>
         {children}
       </ProjectsChallengeHeaderLayoutImpl>
     </ProjectsChallengeSessionContextProvider>

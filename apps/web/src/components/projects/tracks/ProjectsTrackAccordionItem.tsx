@@ -58,6 +58,7 @@ export default function ProjectsTrackAccordionItem({
                   challengeStatuses ?? {},
                   challenges,
                 )}
+                isViewerPremium={isViewerPremium}
                 track={track}
               />
               <RiArrowDownSLine

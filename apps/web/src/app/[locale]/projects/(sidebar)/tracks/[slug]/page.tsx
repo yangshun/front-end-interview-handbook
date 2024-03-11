@@ -33,5 +33,11 @@ export default async function Page({ params }: Props) {
     );
   }
 
-  return <ProjectsTrackDetailsPage track={track} userId={userId} />;
+  return (
+    <ProjectsTrackDetailsPage
+      isViewerPremium={isViewerPremium}
+      track={track}
+      userId={userId}
+    />
+  );
 }

@@ -25,11 +25,16 @@ import {
 import ProjectsChallengeDifficultyTag from '../challenges/metadata/ProjectsChallengeDifficultyTag';
 
 type Props = Readonly<{
+  isViewerPremium: boolean;
   track: ProjectsTrackItem;
   userId: string | null;
 }>;
 
-export default function ProjectsTrackDetailsPage({ track, userId }: Props) {
+export default function ProjectsTrackDetailsPage({
+  isViewerPremium,
+  track,
+  userId,
+}: Props) {
   const { challenges, points, metadata } = track;
   const { data: challengeStatuses } =
     trpc.projects.challenges.progress.useQuery(
@@ -48,6 +53,7 @@ export default function ProjectsTrackDetailsPage({ track, userId }: Props) {
     <div className="flex flex-col gap-12">
       <ProjectsTrackPageHeader
         completedCount={completionCount}
+        isViewerPremium={isViewerPremium}
         metadata={metadata}
         points={points}
         showProgress={true}

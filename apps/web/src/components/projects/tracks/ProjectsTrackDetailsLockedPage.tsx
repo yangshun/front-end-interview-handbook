@@ -20,6 +20,7 @@ export default function ProjectsTrackDetailsLockedPage({
   return (
     <div className="flex flex-col gap-12">
       <ProjectsTrackPageHeader
+        isViewerPremium={false}
         metadata={metadata}
         points={points}
         showProgress={false}
