@@ -106,7 +106,7 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
                       {arrowButton}
                     </div>
                   </div>
-                  <div className="flex flex-row justify-between gap-1 md:justify-normal md:gap-6">
+                  <div className="flex flex-row gap-2 sm:gap-4 md:gap-6">
                     <div className="flex flex-row items-center gap-1.5">
                       <RiFlashlightLine className={clsx(themeIconColor)} />
                       <Text color="success" size="body3">
