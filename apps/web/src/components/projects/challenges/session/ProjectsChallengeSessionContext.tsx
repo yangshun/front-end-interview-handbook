@@ -27,6 +27,7 @@ const latestSessionQueryKey = getQueryKey(
 type ProjectsChallengeSessionContextType = {
   accessAllSteps: boolean;
   endSession: (slug: string) => Promise<void>;
+  fetchingCanAccessAllSteps: boolean;
   isEndSessionLoading: boolean;
   isGetLatestSessionFetched: boolean;
   isGetStartedDialogShown: boolean;
@@ -43,6 +44,7 @@ const ProjectsChallengeSessionContext =
   createContext<ProjectsChallengeSessionContextType>({
     accessAllSteps: false,
     endSession: async () => {},
+    fetchingCanAccessAllSteps: false,
     isEndSessionLoading: false,
     isGetLatestSessionFetched: false,
     isGetStartedDialogShown: false,
@@ -70,7 +72,7 @@ export default function ProjectsChallengeSessionContextProvider({
   const { navigateToSignInUpPage } = useAuthSignInUp();
   const queryClient = useQueryClient();
   const { showToast } = useToast();
-  const { data: canAccessAllSteps } =
+  const { data: canAccessAllSteps, isLoading: fetchingCanAccessAllSteps } =
     trpc.projects.challenges.canAccessAllSteps.useQuery({ slug });
   const { data: startedBefore } =
     trpc.projects.sessions.startedBefore.useQuery();
@@ -150,6 +152,7 @@ export default function ProjectsChallengeSessionContextProvider({
           },
         );
       },
+      fetchingCanAccessAllSteps,
       isEndSessionLoading: endSessionMutation.isLoading,
       isGetLatestSessionFetched,
       isGetStartedDialogShown,
@@ -220,6 +223,7 @@ export default function ProjectsChallengeSessionContextProvider({
     showToast,
     startedBefore,
     showErrorToast,
+    fetchingCanAccessAllSteps,
   ]);
 
   return (

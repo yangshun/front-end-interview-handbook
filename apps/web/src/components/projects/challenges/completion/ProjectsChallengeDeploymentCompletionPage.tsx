@@ -21,6 +21,7 @@ import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
+import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
@@ -41,7 +42,8 @@ export default function ProjectsChallengeDeploymentCompletionPage({
   const { submitHref } = metadata;
   const intl = useIntl();
 
-  const { startProject, accessAllSteps } = useProjectsChallengeSessionContext();
+  const { startProject, accessAllSteps, fetchingCanAccessAllSteps } =
+    useProjectsChallengeSessionContext();
 
   return (
     <BlurOverlay
@@ -49,23 +51,29 @@ export default function ProjectsChallengeDeploymentCompletionPage({
       disableOverlay={accessAllSteps}
       overlay={
         <div className="mx-auto flex max-w-lg flex-col items-center gap-y-6 text-center">
-          <Heading level="heading5">
-            <FormattedMessage
-              defaultMessage="Start the project to access submission and deployment steps"
-              description="Title for project overlay on projects details page"
-              id="AjKgye"
-            />
-          </Heading>
-          <Button
-            label={intl.formatMessage({
-              defaultMessage: 'Start project',
-              description: 'Start Project button label',
-              id: 'Se4xmG',
-            })}
-            size="lg"
-            variant="primary"
-            onClick={startProject}
-          />
+          {fetchingCanAccessAllSteps ? (
+            <Spinner size="md" />
+          ) : (
+            <>
+              <Heading level="heading5">
+                <FormattedMessage
+                  defaultMessage="Start the project to access submission and deployment steps"
+                  description="Title for project overlay on projects details page"
+                  id="AjKgye"
+                />
+              </Heading>
+              <Button
+                label={intl.formatMessage({
+                  defaultMessage: 'Start project',
+                  description: 'Start Project button label',
+                  id: 'Se4xmG',
+                })}
+                size="lg"
+                variant="primary"
+                onClick={startProject}
+              />
+            </>
+          )}
         </div>
       }>
       <div className="flex flex-col items-stretch">

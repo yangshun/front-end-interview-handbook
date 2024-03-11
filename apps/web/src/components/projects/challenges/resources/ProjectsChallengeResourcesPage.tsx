@@ -18,6 +18,7 @@ import type { ProjectsChallengeItem } from '~/components/projects/challenges/typ
 import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
 import Heading from '~/components/ui/Heading';
+import Spinner from '~/components/ui/Spinner';
 import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
 import { themeBorderColor } from '~/components/ui/theme';
@@ -62,7 +63,8 @@ export default function ProjectsChallengeResourcesPage({
   const [tipsResourcesDiscussionsTab, setTipsResourcesDiscussionsTab] =
     useState<TipsResourcesDiscussionsTabType>('discussions');
 
-  const { startProject, accessAllSteps } = useProjectsChallengeSessionContext();
+  const { startProject, accessAllSteps, fetchingCanAccessAllSteps } =
+    useProjectsChallengeSessionContext();
 
   return (
     <BlurOverlay
@@ -70,23 +72,29 @@ export default function ProjectsChallengeResourcesPage({
       disableOverlay={accessAllSteps}
       overlay={
         <div className="mx-auto flex max-w-lg flex-col items-center gap-y-6 text-center">
-          <Heading level="heading5">
-            <FormattedMessage
-              defaultMessage="Start the project to access guides, discussions and reference code"
-              description="Title for project overlay on projects details page"
-              id="5ozhak"
-            />
-          </Heading>
-          <Button
-            label={intl.formatMessage({
-              defaultMessage: 'Start project',
-              description: 'Start Project button label',
-              id: 'Se4xmG',
-            })}
-            size="lg"
-            variant="primary"
-            onClick={startProject}
-          />
+          {fetchingCanAccessAllSteps ? (
+            <Spinner size="md" />
+          ) : (
+            <>
+              <Heading level="heading5">
+                <FormattedMessage
+                  defaultMessage="Start the project to access guides, discussions and reference code"
+                  description="Title for project overlay on projects details page"
+                  id="5ozhak"
+                />
+              </Heading>
+              <Button
+                label={intl.formatMessage({
+                  defaultMessage: 'Start project',
+                  description: 'Start Project button label',
+                  id: 'Se4xmG',
+                })}
+                size="lg"
+                variant="primary"
+                onClick={startProject}
+              />
+            </>
+          )}
         </div>
       }>
       <div className="flex flex-col items-stretch">

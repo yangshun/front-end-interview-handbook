@@ -23,6 +23,7 @@ import type { ProjectsChallengeItem } from '~/components/projects/challenges/typ
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Spinner from '~/components/ui/Spinner';
 import type { TabItem } from '~/components/ui/Tabs';
 import Tabs from '~/components/ui/Tabs';
 import Text from '~/components/ui/Text';
@@ -105,7 +106,8 @@ export default function ProjectsChallengeAssetsPage({
   // TODO(projects|purchase): Replace below with actual logic
   const isUserPremium = false;
 
-  const { startProject, accessAllSteps } = useProjectsChallengeSessionContext();
+  const { startProject, accessAllSteps, fetchingCanAccessAllSteps } =
+    useProjectsChallengeSessionContext();
 
   return (
     <BlurOverlay
@@ -114,48 +116,57 @@ export default function ProjectsChallengeAssetsPage({
       maxHeight={500}
       overlay={
         <div className="mx-auto flex max-w-2xl flex-col items-center gap-y-6">
-          <Heading className="text-center drop-shadow" level="heading5">
-            <FormattedMessage
-              defaultMessage="You can download assets after starting the project"
-              description="Title for project overlay on projects details page"
-              id="all5El"
-            />
-          </Heading>
-          <div
-            className={clsx(
-              'flex flex-col rounded-lg p-4',
-              themeBackgroundEmphasized,
-            )}>
-            <Text size="body0" weight="bold">
-              <FormattedMessage
-                defaultMessage="Assets provided"
-                description="Label for Assets Provided card on start project overlay on Projects project assets page"
-                id="gRN6GJ"
-              />
-            </Text>
-            <ul className="mt-4">
-              {resources.map(({ id, label }) => (
-                <li key={id} className="flex gap-2.5">
-                  <RiCheckboxCircleFill
-                    aria-hidden={true}
-                    className={clsx('mt-1 h-3 w-3 shrink-0', themeTextColor)}
+          {fetchingCanAccessAllSteps ? (
+            <Spinner size="md" />
+          ) : (
+            <>
+              <Heading className="text-center drop-shadow" level="heading5">
+                <FormattedMessage
+                  defaultMessage="You can download assets after starting the project"
+                  description="Title for project overlay on projects details page"
+                  id="all5El"
+                />
+              </Heading>
+              <div
+                className={clsx(
+                  'flex flex-col rounded-lg p-4',
+                  themeBackgroundEmphasized,
+                )}>
+                <Text size="body0" weight="bold">
+                  <FormattedMessage
+                    defaultMessage="Assets provided"
+                    description="Label for Assets Provided card on start project overlay on Projects project assets page"
+                    id="gRN6GJ"
                   />
-                  <Text size="body2">{label}</Text>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <Button
-            label={intl.formatMessage({
-              defaultMessage: 'Start project',
-              description:
-                'Label for Start Project button on Projects project assets page',
-              id: '4BBxZ1',
-            })}
-            size="lg"
-            variant="primary"
-            onClick={startProject}
-          />
+                </Text>
+                <ul className="mt-4">
+                  {resources.map(({ id, label }) => (
+                    <li key={id} className="flex gap-2.5">
+                      <RiCheckboxCircleFill
+                        aria-hidden={true}
+                        className={clsx(
+                          'mt-1 h-3 w-3 shrink-0',
+                          themeTextColor,
+                        )}
+                      />
+                      <Text size="body2">{label}</Text>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <Button
+                label={intl.formatMessage({
+                  defaultMessage: 'Start project',
+                  description:
+                    'Label for Start Project button on Projects project assets page',
+                  id: '4BBxZ1',
+                })}
+                size="lg"
+                variant="primary"
+                onClick={startProject}
+              />
+            </>
+          )}
         </div>
       }>
       <div className="flex flex-col items-stretch">
