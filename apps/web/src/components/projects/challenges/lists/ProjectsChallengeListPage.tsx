@@ -10,9 +10,13 @@ import Text from '~/components/ui/Text';
 
 type Props = Readonly<{
   challenges: ReadonlyArray<ProjectsChallengeItem>;
+  isViewerPremium: boolean;
 }>;
 
-export default function ProjectsChallengeListPage({ challenges }: Props) {
+export default function ProjectsChallengeListPage({
+  challenges,
+  isViewerPremium,
+}: Props) {
   return (
     <div className="flex flex-col gap-9">
       <div className="flex max-w-prose flex-col gap-1">
@@ -34,7 +38,10 @@ export default function ProjectsChallengeListPage({ challenges }: Props) {
         </Section>
       </div>
       <Section>
-        <ProjectsChallengeGridListWithFilters challenges={challenges} />
+        <ProjectsChallengeGridListWithFilters
+          challenges={challenges}
+          isViewerPremium={isViewerPremium}
+        />
       </Section>
     </div>
   );

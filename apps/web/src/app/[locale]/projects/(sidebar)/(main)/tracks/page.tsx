@@ -37,7 +37,7 @@ export default async function Page({ params }: Props) {
     readProjectsTrackList(locale),
   ]);
 
-  const viewerIsPremium = await (async () => {
+  const isViewerPremium = await (async () => {
     if (user == null) {
       return false;
     }
@@ -56,9 +56,9 @@ export default async function Page({ params }: Props) {
 
   return (
     <ProjectsTracksListPage
+      isViewerPremium={isViewerPremium}
       projectTracks={tracks}
       userId={user?.id ?? null}
-      viewerIsPremium={viewerIsPremium}
     />
   );
 }

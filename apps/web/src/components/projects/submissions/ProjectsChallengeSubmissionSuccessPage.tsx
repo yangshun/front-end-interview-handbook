@@ -164,10 +164,12 @@ function ReputationIncreaseBackground({ className }: { className?: string }) {
 }
 
 type Props = Readonly<{
+  isViewerPremium: boolean;
   suggestedChallenges: ReadonlyArray<ProjectsChallengeItem>;
 }>;
 
 export default function ProjectsChallengeSubmissionSuccessPage({
+  isViewerPremium,
   suggestedChallenges,
 }: Props) {
   const intl = useIntl();
@@ -428,6 +430,7 @@ export default function ProjectsChallengeSubmissionSuccessPage({
           <ProjectsChallengeGridList
             challenges={suggestedChallenges}
             className="mt-12"
+            isViewerPremium={isViewerPremium}
           />
         </Section>
       </div>

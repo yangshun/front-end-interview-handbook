@@ -1,12 +1,11 @@
 import clsx from 'clsx';
-import { RiArrowRightLine, RiLock2Line } from 'react-icons/ri';
+import { RiArrowRightLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/metadata/ProjectsChallengeDifficultyTag';
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsChallengeTrackTag from '~/components/projects/challenges/metadata/ProjectsChallengeTrackTag';
 import Anchor from '~/components/ui/Anchor';
-import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import {
@@ -16,6 +15,7 @@ import {
 
 import ProjectsChallengeStatusBadge from '../status/ProjectsChallengeStatusBadge';
 import type { ProjectsChallengeItem } from '../types';
+import ProjectsPremiumBadge from '../../common/ProjectsPremiumBadge';
 import ProjectsSkillList from '../../skills/metadata/ProjectsSkillList';
 import ProjectsCompletedUsersTag from '../../stats/ProjectsCompletedUsersTag';
 
@@ -23,11 +23,13 @@ type ChallengeCardType = 'hover' | 'normal';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
+  isViewerPremium: boolean;
   type?: ChallengeCardType;
 }>;
 
 export default function ProjectsChallengeCard({
   challenge,
+  isViewerPremium,
   type = 'normal',
 }: Props) {
   const intl = useIntl();
@@ -72,15 +74,7 @@ export default function ProjectsChallengeCard({
             variant="badge"
           />
           {access === 'premium' && (
-            <Badge
-              icon={RiLock2Line}
-              label={intl.formatMessage({
-                defaultMessage: 'Premium',
-                description: 'Label for premium project tag',
-                id: 'szBcoh',
-              })}
-              variant="special"
-            />
+            <ProjectsPremiumBadge unlocked={isViewerPremium} />
           )}
         </div>
       </div>
@@ -90,7 +84,7 @@ export default function ProjectsChallengeCard({
           type === 'normal' && 'p-4',
         )}>
         <div className="flex flex-wrap gap-x-4 gap-y-2">
-          <ProjectsChallengeTrackTag track={track} />
+          {isViewerPremium && <ProjectsChallengeTrackTag track={track} />}
           <ProjectsChallengeReputationTag points={points} variant="flat" />
         </div>
         <div className="flex grow flex-col gap-2">

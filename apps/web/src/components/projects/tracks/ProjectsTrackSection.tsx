@@ -6,16 +6,16 @@ import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTra
 
 type Props = Readonly<{
   defaultOpen?: boolean;
+  isViewerPremium: boolean;
   projectTracks: ReadonlyArray<ProjectsTrackItem>;
   userId: string | null;
-  viewerIsPremium: boolean;
 }>;
 
 export default function ProjectsTrackSection({
   defaultOpen,
   projectTracks,
   userId,
-  viewerIsPremium,
+  isViewerPremium,
 }: Props) {
   const { data: challengeStatuses } =
     trpc.projects.challenges.progress.useQuery(
@@ -36,8 +36,8 @@ export default function ProjectsTrackSection({
         <ProjectsTrackAccordionItem
           key={projectTrack.metadata.slug}
           challengeStatuses={challengeStatuses ?? {}}
+          isViewerPremium={isViewerPremium}
           track={projectTrack}
-          viewerIsPremium={viewerIsPremium}
         />
       ))}
     </ProjectsTrackAccordion>

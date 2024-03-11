@@ -5,6 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundLayerEmphasized,
+  themeTextBrandColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -29,14 +30,16 @@ export default function ProjectsChallengeReputationTag({
           'rounded-full px-3 py-1',
           themeBackgroundLayerEmphasized,
         ],
-        variant === 'flat' && themeTextSecondaryColor,
         className,
       )}>
       <RiFireLine
-        className={clsx('size-4', variant === 'filled' && 'text-brand')}
+        className={clsx(
+          'size-4',
+          variant === 'filled' ? themeTextBrandColor : themeTextSecondaryColor,
+        )}
       />
       <Text
-        color={variant === 'filled' ? 'default' : 'inherit'}
+        color={variant === 'filled' ? 'default' : 'secondary'}
         size="body3"
         weight={variant === 'filled' ? 'medium' : 'normal'}>
         <FormattedMessage

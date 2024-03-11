@@ -5,6 +5,8 @@ import ProjectsProfileProgressSection from '~/components/projects/profile/progre
 import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
+import prisma from '~/server/prisma';
+import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -30,7 +32,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const { tracks } = await readProjectsTrackList(locale);
+  const [user, { tracks }] = await Promise.all([
+    readUserFromToken(),
+    readProjectsTrackList(locale),
+  ]);
 
-  return <ProjectsProfileProgressSection projectTracks={tracks} />;
+  const isViewerPremium = await (async () => {
+    if (user == null) {
+      return false;
+    }
+
+    const projectsProfile = await prisma.projectsProfile.findFirst({
+      select: {
+        premium: true,
+      },
+      where: {
+        userId: user.id,
+      },
+    });
+
+    return projectsProfile?.premium ?? false;
+  })();
+
+  return (
+    <ProjectsProfileProgressSection
+      isViewerPremium={isViewerPremium}
+      projectTracks={tracks}
+    />
+  );
 }

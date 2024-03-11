@@ -39,13 +39,15 @@ function parseGithubRepositoryUrl(url: string) {
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   currentUserId: string | undefined;
+  isViewerPremium: boolean;
   submission: ProjectsChallengeSubmissionAugmented;
 }>;
 
 export default function ProjectsChallengeSubmissionPage({
-  challenge,
-  submission,
   currentUserId,
+  challenge,
+  isViewerPremium,
+  submission,
 }: Props) {
   const intl = useIntl();
   const discussionSectionRef = useRef<HTMLDivElement>(null);
@@ -76,6 +78,7 @@ export default function ProjectsChallengeSubmissionPage({
       <ProjectsChallengeSubmissionHero
         challenge={challenge}
         isParentInView={isParentInView}
+        isViewerPremium={isViewerPremium}
         isViewingOwnSubmission={isViewingOwnSubmission}
         submission={submission}
         onScrollToDiscussionsButtonClick={() => {

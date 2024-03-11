@@ -15,11 +15,13 @@ import useProjectsMainLayoutTabs from '../../common/useProjectsMainLayoutTabs';
 import ProjectsTrackSection from '../../tracks/ProjectsTrackSection';
 
 type Props = Readonly<{
+  isViewerPremium: boolean;
   projectTracks: ReadonlyArray<ProjectsTrackItem>;
   userId?: string;
 }>;
 
 export default function ProjectsProfileProgressSection({
+  isViewerPremium,
   projectTracks,
   userId,
 }: Props) {
@@ -53,15 +55,16 @@ export default function ProjectsProfileProgressSection({
       />
       {currentProgressTab === 'challenges' && (
         <ProjectsProfileProgressAllChallengesTab
+          isViewerPremium={isViewerPremium}
           userId={userId ?? profile?.id}
         />
       )}
       {currentProgressTab === 'tracks' && (
         <ProjectsTrackSection
           defaultOpen={true}
+          isViewerPremium={profile?.projectsProfile?.premium ?? false}
           projectTracks={projectTracks}
           userId={userId ?? profile?.id ?? null}
-          viewerIsPremium={profile?.projectsProfile?.premium ?? false}
         />
       )}
       {

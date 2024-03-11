@@ -25,14 +25,14 @@ import * as Accordion from '@radix-ui/react-accordion';
 
 type Props = Readonly<{
   challengeStatuses?: ProjectsChallengeStatuses;
+  isViewerPremium: boolean;
   track: ProjectsTrackItem;
-  viewerIsPremium: boolean;
 }>;
 
 export default function ProjectsTrackAccordionItem({
   challengeStatuses = {},
   track,
-  viewerIsPremium,
+  isViewerPremium,
 }: Props) {
   const intl = useIntl();
 
@@ -70,7 +70,7 @@ export default function ProjectsTrackAccordionItem({
           </Accordion.Trigger>
         </Accordion.Header>
         <Accordion.Content className="-mt-4 p-6">
-          {track.metadata.premium && !viewerIsPremium ? (
+          {track.metadata.premium && !isViewerPremium ? (
             <div>
               <ProjectsTrackPaywall />
             </div>

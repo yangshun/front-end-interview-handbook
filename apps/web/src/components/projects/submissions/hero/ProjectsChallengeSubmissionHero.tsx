@@ -22,6 +22,7 @@ import { themeBackgroundColor, themeBorderColor } from '~/components/ui/theme';
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   isParentInView: boolean;
+  isViewerPremium: boolean;
   isViewingOwnSubmission?: boolean;
   onScrollToDiscussionsButtonClick: () => void;
   submission: ProjectsChallengeSubmissionAugmented;
@@ -32,6 +33,7 @@ export default function ProjectsChallengeSubmissionHero({
   submission,
   isViewingOwnSubmission = false,
   isParentInView,
+  isViewerPremium,
   onScrollToDiscussionsButtonClick,
 }: Props) {
   const intl = useIntl();
@@ -163,7 +165,10 @@ export default function ProjectsChallengeSubmissionHero({
                 </div>
               </div>
               <div className="flex flex-col gap-7">
-                <ProjectsChallengeSubmissionHeroCard challenge={challenge} />
+                <ProjectsChallengeSubmissionHeroCard
+                  challenge={challenge}
+                  isViewerPremium={isViewerPremium}
+                />
               </div>
             </div>
           </div>
@@ -185,7 +190,10 @@ export default function ProjectsChallengeSubmissionHero({
             </div>
           </div>
         </div>
-        <ProjectsChallengeSubmissionHeroCard challenge={challenge} />
+        <ProjectsChallengeSubmissionHeroCard
+          challenge={challenge}
+          isViewerPremium={isViewerPremium}
+        />
       </div>
     </>
   );

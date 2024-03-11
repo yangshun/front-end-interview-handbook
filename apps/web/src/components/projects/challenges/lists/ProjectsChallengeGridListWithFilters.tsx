@@ -35,11 +35,15 @@ import type { ProjectsChallengeItem } from '../types';
 
 type Props = Readonly<{
   challenges: ReadonlyArray<ProjectsChallengeItem>;
+  isViewerPremium: boolean;
 }>;
 
 const ITEMS_PER_PAGE = 12;
 
-function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
+function ProjectsChallengeGridListWithFiltersImpl({
+  challenges,
+  isViewerPremium,
+}: Props) {
   const intl = useIntl();
   const [searchQuery, setSearchQuery] = useState('');
   const {
@@ -267,7 +271,10 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
               />
             </Text>
           </div>
-          <ProjectsChallengeGridList challenges={currentPageChallenges} />
+          <ProjectsChallengeGridList
+            challenges={currentPageChallenges}
+            isViewerPremium={isViewerPremium}
+          />
         </div>
       )}
       {totalPages > 1 && (
@@ -299,10 +306,14 @@ function ProjectsChallengeGridListWithFiltersImpl({ challenges }: Props) {
 
 export default function ProjectsChallengeGridListWithFilters({
   challenges,
+  isViewerPremium,
 }: Props) {
   return (
     <ProjectsChallengeFilterContextProvider>
-      <ProjectsChallengeGridListWithFiltersImpl challenges={challenges} />
+      <ProjectsChallengeGridListWithFiltersImpl
+        challenges={challenges}
+        isViewerPremium={isViewerPremium}
+      />
     </ProjectsChallengeFilterContextProvider>
   );
 }

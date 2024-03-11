@@ -7,12 +7,15 @@ import Spinner from '~/components/ui/Spinner';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
+import useProfileWithProjectsProfile from '../../common/useProfileWithProjectsProfile';
+
 type Props = Readonly<{
   slug: string;
 }>;
 
 export default function ProjectsChallengeHoverCard({ slug }: Props) {
   const { locale } = useI18nPathname();
+  const { profile } = useProfileWithProjectsProfile();
   const { data, isLoading } = trpc.projects.challenges.hovercard.useQuery({
     locale: locale ?? 'en-US',
     slug,
@@ -29,7 +32,11 @@ export default function ProjectsChallengeHoverCard({ slug }: Props) {
       {isLoading || !data ? (
         <Spinner size="md" />
       ) : (
-        <ProjectsChallengeCard challenge={data} type="hover" />
+        <ProjectsChallengeCard
+          challenge={data}
+          isViewerPremium={profile?.projectsProfile?.premium ?? false}
+          type="hover"
+        />
       )}
     </div>
   );

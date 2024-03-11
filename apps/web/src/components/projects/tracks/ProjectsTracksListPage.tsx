@@ -10,15 +10,15 @@ import Text from '~/components/ui/Text';
 import ProjectsTrackSection from './ProjectsTrackSection';
 
 type Props = Readonly<{
+  isViewerPremium: boolean;
   projectTracks: ReadonlyArray<ProjectsTrackItem>;
   userId: string | null;
-  viewerIsPremium: boolean;
 }>;
 
 export default function ProjectsTracksListPage({
   projectTracks,
   userId,
-  viewerIsPremium,
+  isViewerPremium,
 }: Props) {
   return (
     <div className="flex flex-col gap-9">
@@ -43,9 +43,9 @@ export default function ProjectsTracksListPage({
       <Section>
         <ProjectsTrackSection
           defaultOpen={true}
+          isViewerPremium={isViewerPremium}
           projectTracks={projectTracks}
           userId={userId}
-          viewerIsPremium={viewerIsPremium}
         />
       </Section>
     </div>

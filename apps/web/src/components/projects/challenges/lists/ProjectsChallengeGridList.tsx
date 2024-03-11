@@ -6,11 +6,13 @@ import type { ProjectsChallengeItem } from '../types';
 type Props = Readonly<{
   challenges: ReadonlyArray<ProjectsChallengeItem>;
   className?: string;
+  isViewerPremium: boolean;
 }>;
 
 export default function ProjectsChallengeGridList({
   className,
   challenges,
+  isViewerPremium,
 }: Props) {
   return (
     <div
@@ -22,6 +24,7 @@ export default function ProjectsChallengeGridList({
         <ProjectsChallengeCard
           key={challenge.metadata.slug}
           challenge={challenge}
+          isViewerPremium={isViewerPremium}
         />
       ))}
     </div>

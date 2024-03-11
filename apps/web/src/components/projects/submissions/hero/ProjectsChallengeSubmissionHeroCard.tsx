@@ -12,6 +12,7 @@ import {
   themeBackgroundColor,
   themeBackgroundLayerColor,
   themeGlassyBorder,
+  themeTextBrandColor_GroupHover,
   themeTextFaintColor,
 } from '~/components/ui/theme';
 
@@ -19,10 +20,12 @@ import ProjectsChallengeStatusBadge from '../../challenges/status/ProjectsChalle
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
+  isViewerPremium: boolean;
 }>;
 
 export default function ProjectsChallengeSubmissionHeroCard({
   challenge,
+  isViewerPremium,
 }: Props) {
   const intl = useIntl();
   const { metadata, status, track } = challenge;
@@ -55,7 +58,7 @@ export default function ProjectsChallengeSubmissionHeroCard({
           className={clsx(
             'size-5 shrink-0',
             themeTextFaintColor,
-            'group-hover:text-brand dark:group-hover:text-brand',
+            themeTextBrandColor_GroupHover,
           )}
         />
       </div>
@@ -70,7 +73,7 @@ export default function ProjectsChallengeSubmissionHeroCard({
       </Text>
       <div className="z-10 flex items-center gap-4">
         <ProjectsChallengeDifficultyTag difficulty={difficulty} />
-        <ProjectsComponentTrackTag track={track} />
+        {isViewerPremium && <ProjectsComponentTrackTag track={track} />}
       </div>
     </div>
   );

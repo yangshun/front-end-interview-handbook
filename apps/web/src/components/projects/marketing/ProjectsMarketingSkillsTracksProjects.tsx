@@ -111,8 +111,8 @@ export default function ProjectsMarketingSkillsTracksProjects({
               {projectTracks.map((projectTrack) => (
                 <ProjectsTrackAccordionItem
                   key={projectTrack.metadata.slug}
+                  isViewerPremium={profile?.projectsProfile?.premium ?? false}
                   track={projectTrack}
-                  viewerIsPremium={profile?.projectsProfile?.premium ?? false}
                 />
               ))}
             </ProjectsTrackAccordion>
@@ -149,8 +149,8 @@ export default function ProjectsMarketingSkillsTracksProjects({
                 {hiddenTracks.map((track) => (
                   <ProjectsTrackAccordionItem
                     key={track.metadata.slug}
+                    isViewerPremium={profile?.projectsProfile?.premium ?? false}
                     track={track}
-                    viewerIsPremium={profile?.projectsProfile?.premium ?? false}
                   />
                 ))}
               </ProjectsTrackAccordion>
@@ -184,6 +184,7 @@ export default function ProjectsMarketingSkillsTracksProjects({
             />
             <ProjectsChallengeGridListWithFilters
               challenges={featuredChallenges}
+              isViewerPremium={false}
             />
             <BlurOverlay
               align="bottom"
@@ -208,7 +209,10 @@ export default function ProjectsMarketingSkillsTracksProjects({
                   />
                 </div>
               }>
-              <ProjectsChallengeGridList challenges={featuredChallenges} />
+              <ProjectsChallengeGridList
+                challenges={featuredChallenges}
+                isViewerPremium={false}
+              />
             </BlurOverlay>
           </div>
         </Section>

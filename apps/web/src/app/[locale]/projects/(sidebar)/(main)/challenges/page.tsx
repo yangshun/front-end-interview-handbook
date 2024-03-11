@@ -5,6 +5,7 @@ import ProjectsChallengeListPage from '~/components/projects/challenges/lists/Pr
 import { readProjectsChallengeList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
+import prisma from '~/server/prisma';
 import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
@@ -32,7 +33,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
   const user = await readUserFromToken();
-  const { challenges } = await readProjectsChallengeList(locale, user?.id);
+  const [isViewerPremium, { challenges }] = await Promise.all([
+    (async () => {
+      if (user == null) {
+        return false;
+      }
 
-  return <ProjectsChallengeListPage challenges={challenges} />;
+      const projectsProfile = await prisma.projectsProfile.findFirst({
+        select: {
+          premium: true,
+        },
+        where: {
+          userId: user.id,
+        },
+      });
+
+      return projectsProfile?.premium ?? false;
+    })(),
+    readProjectsChallengeList(locale, user?.id),
+  ]);
+
+  return (
+    <ProjectsChallengeListPage
+      challenges={challenges}
+      isViewerPremium={isViewerPremium}
+    />
+  );
 }

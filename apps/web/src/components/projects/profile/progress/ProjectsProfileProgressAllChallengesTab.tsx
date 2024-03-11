@@ -18,6 +18,7 @@ import { themeTextColor } from '~/components/ui/theme';
 import { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 type Props = Readonly<{
+  isViewerPremium: boolean;
   userId?: string;
 }>;
 
@@ -25,6 +26,7 @@ const ITEMS_PER_PAGE = 6;
 
 export default function ProjectsProfileProgressAllChallengesTab({
   userId,
+  isViewerPremium,
 }: Props) {
   const intl = useIntl();
 
@@ -162,6 +164,7 @@ export default function ProjectsProfileProgressAllChallengesTab({
                     <ProjectsChallengeCard
                       key={session.id}
                       challenge={session.challenge}
+                      isViewerPremium={isViewerPremium}
                     />
                   ) : null,
                 )}

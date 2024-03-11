@@ -25,7 +25,7 @@ export default async function Page({ params }: Props) {
     notFound();
   }
 
-  const viewerIsPremium = await (async () => {
+  const isViewerPremium = await (async () => {
     if (user == null) {
       return false;
     }
@@ -42,7 +42,7 @@ export default async function Page({ params }: Props) {
     return projectsProfile?.premium ?? false;
   })();
 
-  if (track.metadata.premium && !viewerIsPremium) {
+  if (track.metadata.premium && !isViewerPremium) {
     return (
       <ProjectsTrackDetailsLockedPage
         metadata={track.metadata}

@@ -58,15 +58,31 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const { challenge } = await readProjectsChallengeItem(
-    submission.slug,
-    locale,
-  );
+  const [{ challenge }, isViewerPremium] = await Promise.all([
+    readProjectsChallengeItem(submission.slug, locale),
+    (async () => {
+      if (user == null) {
+        return false;
+      }
+
+      const projectsProfile = await prisma.projectsProfile.findFirst({
+        select: {
+          premium: true,
+        },
+        where: {
+          userId: user.id,
+        },
+      });
+
+      return projectsProfile?.premium ?? false;
+    })(),
+  ]);
 
   return (
     <ProjectsChallengeSubmissionPage
       challenge={challenge}
       currentUserId={user?.id}
+      isViewerPremium={isViewerPremium}
       submission={convertToPlainObject({
         ...submission,
         comments: commentCount,
