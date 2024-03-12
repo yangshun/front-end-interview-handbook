@@ -230,15 +230,30 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
               </div>
             </div>
             <div className="flex justify-end gap-4">
+              <Button
+                isDisabled={isSubmitting}
+                label={intl.formatMessage({
+                  defaultMessage: 'Cancel',
+                  description:
+                    'Label for cancel button for projects profile edit page',
+                  id: 'nepkqj',
+                })}
+                size="lg"
+                variant="secondary"
+                onClick={() =>
+                  router.push(`/projects/u/${initialValues?.username}`)
+                }
+              />
               {isDirty && (
                 <Button
                   isDisabled={isSubmitting}
                   label={intl.formatMessage({
-                    defaultMessage: 'Cancel',
+                    defaultMessage: 'Reset',
                     description:
-                      'Label for cancel button for projects profile edit page',
-                    id: 'nepkqj',
+                      'Label for reset button for projects profile edit page',
+                    id: 'Jbo+rf',
                   })}
+                  size="lg"
                   variant="secondary"
                   onClick={() => reset()}
                 />
@@ -252,6 +267,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
                     'Label for save changes button for projects profile edit page',
                   id: 'Kne0pQ',
                 })}
+                size="lg"
                 type="submit"
                 variant="primary"
               />

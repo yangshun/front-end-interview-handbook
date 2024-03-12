@@ -2215,6 +2215,10 @@
     "defaultMessage": "Back to home",
     "description": "Link text to navigate to blog home page"
   },
+  "Jbo+rf": {
+    "defaultMessage": "Reset",
+    "description": "Label for reset button for projects profile edit page"
+  },
   "JeIp7K": {
     "defaultMessage": "If you're stuck, clarify any doubts within the project discussion forums in Step 3's tab. If you need answers urgently for a critical issue, email as at <link>support@greatfrontend.com</link>.",
     "description": "FAQ answer for projects platform"
