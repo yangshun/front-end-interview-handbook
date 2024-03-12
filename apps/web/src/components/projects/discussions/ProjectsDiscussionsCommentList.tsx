@@ -67,10 +67,11 @@ export default function ProjectsDiscussionsCommentList({
   return (
     <div className="flex w-full flex-col gap-6">
       <div className="flex items-center justify-between">
-        <div
-          className={clsx('flex items-center gap-1.5', themeTextSubtleColor)}>
-          <RiQuestionnaireLine className="size-5" />
-          <Text color="inherit" size="body3">
+        <div className="flex items-center gap-1.5">
+          <RiQuestionnaireLine
+            className={clsx('size-5', themeTextSubtleColor)}
+          />
+          <Text color="secondary" size="body3">
             <FormattedMessage
               defaultMessage="{commentCount, plural, =0 {No comments} one {# comment} other {# comments}}"
               description="Label for comment count on project discussions page"
