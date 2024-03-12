@@ -11,7 +11,6 @@ import DocItemTOCDesktop from '@theme/DocItem/TOC/Desktop';
 import DocItemContent from '@theme/DocItem/Content';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
 import styles from './styles.module.css';
-import SidebarAd from '../../../components/SidebarAd';
 
 /**
  * Decide if the toc should be rendered, on mobile or desktop viewports
@@ -47,10 +46,6 @@ export default function DocItemLayout({ children }) {
             <DocItemFooter />
           </article>
           <DocItemPaginator />
-          {/* TIH: Add sidebar */}
-          {/* <div className="margin-top--md">
-            <SidebarAd position="docs_bottom" />
-          </div> */}
         </div>
       </div>
       {docTOC.desktop && <div className="col col--3">{docTOC.desktop}</div>}
