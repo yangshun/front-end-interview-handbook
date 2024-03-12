@@ -8,7 +8,7 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import useUserProfile from '~/hooks/user/useUserProfile';
+import { trpc } from '~/hooks/trpc';
 
 import Anchor from '~/components/ui/Anchor';
 import Chip from '~/components/ui/Chip';
@@ -27,7 +27,7 @@ export default function ProjectsDashboardCompleteProfileCard() {
   const intl = useIntl();
   const [isCardOpen, setIsCardOpen] = useState(false);
 
-  const { userProfile } = useUserProfile();
+  const { data: userProfile } = trpc.projects.profile.viewer.useQuery();
   const profileTasks = [
     {
       isComplete: Boolean(userProfile?.bio),
@@ -61,7 +61,28 @@ export default function ProjectsDashboardCompleteProfileCard() {
         id: 'pJja0T',
       }),
     },
+    {
+      isComplete: Boolean(
+        userProfile?.projectsProfile?.skillsProficient?.length,
+      ),
+      title: intl.formatMessage({
+        defaultMessage: 'Add proficient skills',
+        description:
+          'Title for Add Proficient Skills task on Projects dashboard page',
+        id: '2QyluM',
+      }),
+    },
+    {
+      isComplete: Boolean(userProfile?.projectsProfile?.skillsToGrow?.length),
+      title: intl.formatMessage({
+        defaultMessage: 'Add skills to grow in',
+        description:
+          'Title for Add Skills To Grow In task on Projects dashboard page',
+        id: 'uTqd3B',
+      }),
+    },
   ];
+
   const numLeft = profileTasks.filter((task) => !task.isComplete).length;
   const numTotal = profileTasks.length;
 

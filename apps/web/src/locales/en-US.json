@@ -439,6 +439,10 @@
     "defaultMessage": "React",
     "description": "React questions category short title"
   },
+  "2QyluM": {
+    "defaultMessage": "Add proficient skills",
+    "description": "Title for Add Proficient Skills task on Projects dashboard page"
+  },
   "2SDdF5": {
     "defaultMessage": "Support",
     "description": "Title for FAQ section"
@@ -6498,6 +6502,10 @@
   "uMAaCa": {
     "defaultMessage": "GreatFrontEnd Blog",
     "description": "Blog home page title"
+  },
+  "uTqd3B": {
+    "defaultMessage": "Add skills to grow in",
+    "description": "Title for Add Skills To Grow In task on Projects dashboard page"
   },
   "ub441I": {
     "defaultMessage": "Help others improve",
