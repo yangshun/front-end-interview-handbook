@@ -403,9 +403,9 @@
     "defaultMessage": "Edit on GitHub",
     "description": "Edit on GitHub button"
   },
-  "1xO/T7": {
-    "defaultMessage": "Please complete the selection to proceed.",
-    "description": "Form validation message"
+  "1zX8Aw": {
+    "defaultMessage": "Choose up to 2 reasons:",
+    "description": "Subtitle of motivation for joining section of projects profile edit page"
   },
   "23bxK1": {
     "defaultMessage": "Blogs List",
@@ -1610,10 +1610,6 @@
   "DjHA82": {
     "defaultMessage": "Career Switcher",
     "description": "Label for \"Career Switcher\" option in YOE replacement"
-  },
-  "DlMtVL": {
-    "defaultMessage": "Motivations for joining",
-    "description": "Title of motivation for joining section of projects profile edit page"
   },
   "DlfZrJ": {
     "defaultMessage": "Insert an object",
@@ -3663,6 +3659,10 @@
     "defaultMessage": "Top Vanilla JavaScript UI front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Vanilla JavaScript UI Interview Questions page"
   },
+  "VNrtSz": {
+    "defaultMessage": "Provide at least 1 motivation for joining",
+    "description": "Error for motivation selection"
+  },
   "VQ9c4+": {
     "defaultMessage": "Feedback received successfully.",
     "description": "Feedback widget success message."
@@ -5246,6 +5246,10 @@
   "jzVpyI": {
     "defaultMessage": "Is GreatFrontEnd targeted at engineers of specific seniority?",
     "description": "Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
+  },
+  "k+36tk": {
+    "defaultMessage": "Motivation for joining",
+    "description": "Title of motivation for joining section of projects profile edit page"
   },
   "k+T8RZ": {
     "defaultMessage": "Warning",

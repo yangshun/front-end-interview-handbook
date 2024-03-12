@@ -2,6 +2,11 @@ import clsx from 'clsx';
 import { Controller, useFormContext } from 'react-hook-form';
 import { RiCheckboxCircleFill } from 'react-icons/ri';
 
+import type {
+  FieldView,
+  ProjectsMotivationReasonFormValues,
+  ProjectsProfileEditFormValues,
+} from '~/components/projects/types';
 import Text from '~/components/ui/Text';
 import TextArea from '~/components/ui/TextArea';
 import {
@@ -19,16 +24,16 @@ import {
 
 import useProjectsMotivationReasonOptions from '../../hooks/useProjectsMotivationReasonOptions';
 import { MOTIVATION_OTHER_REASON_CHAR_LIMIT } from '../../hooks/useProjectsMotivationReasonSchema';
-import type {
-  ProjectsMotivationReasonFormValues,
-  ProjectsProfileEditFormValues,
-} from '../../types';
 
 type Values =
   | ProjectsMotivationReasonFormValues
   | ProjectsProfileEditFormValues;
 
-export default function ProjectsProfileMotivationsField() {
+export default function ProjectsProfileMotivationsField({
+  view,
+}: {
+  view: FieldView;
+}) {
   const reasonOptions = useProjectsMotivationReasonOptions((chunks) => (
     <Text weight="bold">{chunks}</Text>
   ));
@@ -48,7 +53,11 @@ export default function ProjectsProfileMotivationsField() {
         );
 
         const reasons = (
-          <div className="grid items-stretch gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div
+            className={clsx(
+              'grid items-stretch gap-4 md:grid-cols-2 ',
+              view === 'onboarding' && 'lg:grid-cols-3',
+            )}>
             {reasonOptions.map(({ id, icon: Icon, label }) => {
               const selected = field.value
                 .map(({ value }) => value)
@@ -136,7 +145,16 @@ export default function ProjectsProfileMotivationsField() {
         );
 
         if (otherFieldIndex === -1) {
-          return reasons;
+          return (
+            <div className="flex flex-col gap-2">
+              {reasons}
+              {errors.motivations?.message && (
+                <Text color="error" display="block" size="body3">
+                  {errors.motivations?.message}
+                </Text>
+              )}
+            </div>
+          );
         }
 
         const choice = field.value[otherFieldIndex];

@@ -36,7 +36,7 @@ import type { Profile, ProjectsProfile } from '@prisma/client';
 
 function useProjectsProfileEditSchema() {
   const motivationReasonSchema = useProjectsMotivationReasonSchema({
-    isRequired: false,
+    isRequired: true,
   });
   const skillsProficientSchema = useProjectsSkillListInputSchema({
     required: false,
@@ -218,7 +218,7 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
               <ProjectsProfileBasicInfoSection
                 setUsernameExistsError={setUsernameExistsError}
               />
-              <ProjectsProfileMotivationSection />
+              <ProjectsProfileMotivationSection view="profile" />
               <ProjectsProfileSkillSection />
               <div className="flex flex-col gap-6 md:flex-row">
                 <div className="flex-1">

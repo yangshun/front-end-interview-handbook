@@ -54,7 +54,7 @@ export default function ProjectsOnboardingReasonPage() {
   });
   const {
     handleSubmit,
-    formState: { isSubmitting, isValid, submitCount },
+    formState: { isSubmitting },
   } = methods;
 
   return (
@@ -81,7 +81,7 @@ export default function ProjectsOnboardingReasonPage() {
           </div>
           <Section>
             <form
-              className="flex flex-col gap-8"
+              className="flex w-full flex-col gap-8"
               onSubmit={handleSubmit(async ({ motivations }) => {
                 await motivationsUpdateMutation.mutateAsync({
                   motivations: motivations.flatMap((motivation) =>
@@ -98,7 +98,7 @@ export default function ProjectsOnboardingReasonPage() {
                     : undefined,
                 });
               })}>
-              <ProjectsProfileMotivationsField />
+              <ProjectsProfileMotivationsField view="onboarding" />
               <div className="flex flex-row-reverse flex-wrap items-center justify-between">
                 <Button
                   icon={RiArrowRightLine}
@@ -113,16 +113,6 @@ export default function ProjectsOnboardingReasonPage() {
                   type="submit"
                   variant="secondary"
                 />
-                {submitCount > 0 && !isValid && (
-                  <Text color="error" size="body2">
-                    {intl.formatMessage({
-                      defaultMessage:
-                        'Please complete the selection to proceed.',
-                      description: 'Form validation message',
-                      id: '1xO/T7',
-                    })}
-                  </Text>
-                )}
               </div>
             </form>
           </Section>

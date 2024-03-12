@@ -82,5 +82,11 @@ export default function useProjectsMotivationReasonSchema(options: Props = {}) {
       .transform(({ otherValue }) => otherValue),
   ]);
 
-  return z.array(motivationSchema).min(isRequired ? 1 : 0);
+  return z.array(motivationSchema).min(isRequired ? 1 : 0, {
+    message: intl.formatMessage({
+      defaultMessage: 'Provide at least 1 motivation for joining',
+      description: 'Error for motivation selection',
+      id: 'VNrtSz',
+    }),
+  });
 }

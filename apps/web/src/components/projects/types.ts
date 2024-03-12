@@ -92,3 +92,5 @@ export type ProjectsBaseScreenshot = Readonly<{
   label: string;
   screenshots: Record<ProjectsImageBreakpointCategory, string>;
 }>;
+
+export type FieldView = 'onboarding' | 'profile';
