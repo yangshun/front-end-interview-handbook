@@ -1,4 +1,5 @@
 import ProjectsChallengeResourcesPage from '~/components/projects/challenges/resources/ProjectsChallengeResourcesPage';
+import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
 import {
   readProjectsChallengeItem,
@@ -12,15 +13,20 @@ type Props = Readonly<{
 export default async function Page({ params }: Props) {
   const { slug, locale } = params;
 
-  const [{ challenge }, { resourceProjectsChallengeGuides }] =
-    await Promise.all([
-      readProjectsChallengeItem(slug, locale),
-      readProjectsChallengeResourceGuideList(locale),
-    ]);
+  const [
+    { isViewerPremium },
+    { challenge },
+    { resourceProjectsChallengeGuides },
+  ] = await Promise.all([
+    readViewerProjectsProfile(),
+    readProjectsChallengeItem(slug, locale),
+    readProjectsChallengeResourceGuideList(locale),
+  ]);
 
   return (
     <ProjectsChallengeResourcesPage
       challenge={challenge}
+      isViewerPremium={isViewerPremium}
       projectGuides={resourceProjectsChallengeGuides}
     />
   );

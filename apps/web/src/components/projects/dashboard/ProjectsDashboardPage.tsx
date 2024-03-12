@@ -39,7 +39,6 @@ export default function ProjectsDashboardPage({ children }: Props) {
   return (
     <BlurOverlay
       align="center"
-      disableOverlay={userProfile?.projectsProfile != null}
       overlay={
         <div className="mx-auto flex max-w-xl flex-col items-center gap-y-6 text-center">
           <Heading level="heading5">
@@ -62,7 +61,8 @@ export default function ProjectsDashboardPage({ children }: Props) {
             variant="primary"
           />
         </div>
-      }>
+      }
+      showOverlay={userProfile?.projectsProfile == null}>
       <div className="flex flex-col gap-16">
         <div className="flex flex-col gap-8">
           <div className="relative flex flex-col gap-6 lg:flex-row lg:justify-between">

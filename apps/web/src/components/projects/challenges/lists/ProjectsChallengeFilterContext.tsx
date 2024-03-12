@@ -59,7 +59,7 @@ function useFilters() {
           id: '+R1wGb',
         }),
         options: allProjectsTrackMetadata.map((trackMetadata) => ({
-          label: `${trackMetadata.title} track`,
+          label: trackMetadata.title,
           value: trackMetadata.slug,
         })),
         tooltip: intl.formatMessage({

@@ -3,7 +3,7 @@
   "description": "Provides a consistent and user-friendly interface for presenting a list of selectable options in a dropdown format",
   "createdAt": "2024-01-11",
   "difficulty": "starter",
-  "track": "design-system",
+  "track": "apps",
   "access": "free",
   "points": 300,
   "skills": ["html-basics", "html-semantics"],

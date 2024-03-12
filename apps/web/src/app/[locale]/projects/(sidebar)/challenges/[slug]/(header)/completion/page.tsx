@@ -1,4 +1,5 @@
 import ProjectsChallengeDeploymentCompletionPage from '~/components/projects/challenges/completion/ProjectsChallengeDeploymentCompletionPage';
+import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
 import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
 
@@ -8,7 +9,15 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { slug, locale } = params;
-  const { challenge } = await readProjectsChallengeItem(slug, locale);
+  const [{ isViewerPremium }, { challenge }] = await Promise.all([
+    readViewerProjectsProfile(),
+    readProjectsChallengeItem(slug, locale),
+  ]);
 
-  return <ProjectsChallengeDeploymentCompletionPage challenge={challenge} />;
+  return (
+    <ProjectsChallengeDeploymentCompletionPage
+      challenge={challenge}
+      isViewerPremium={isViewerPremium}
+    />
+  );
 }

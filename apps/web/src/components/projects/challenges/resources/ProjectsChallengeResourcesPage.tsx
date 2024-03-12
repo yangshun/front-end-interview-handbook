@@ -24,6 +24,7 @@ import Tabs from '~/components/ui/Tabs';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import ProjectsChallengeGuideSection from '../guides/ProjectsChallengeGuideSection';
+import ProjectsChallengePremiumPaywall from '../premium/ProjectsChallengePremiumPaywall';
 
 type TipsResourcesDiscussionsTabType = 'discussions' | 'guides' | 'references';
 
@@ -51,11 +52,13 @@ function useTipsResourcesDiscussionsTabs() {
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
+  isViewerPremium: boolean;
   projectGuides: Array<ProjectsChallengeGuide>;
 }>;
 
 export default function ProjectsChallengeResourcesPage({
   challenge,
+  isViewerPremium,
   projectGuides,
 }: Props) {
   const intl = useIntl();
@@ -65,38 +68,49 @@ export default function ProjectsChallengeResourcesPage({
 
   const { startProject, accessAllSteps, fetchingCanAccessAllSteps } =
     useProjectsChallengeSessionContext();
+  const showPaywall =
+    challenge.metadata.access === 'premium' && !isViewerPremium;
+
+  const overlay = showPaywall ? (
+    <ProjectsChallengePremiumPaywall />
+  ) : (
+    <div
+      className={clsx(
+        'flex flex-col items-center gap-y-6',
+        'mx-auto max-w-lg',
+        'text-center',
+      )}>
+      {fetchingCanAccessAllSteps ? (
+        <Spinner size="md" />
+      ) : (
+        <>
+          <Heading level="heading5">
+            <FormattedMessage
+              defaultMessage="Start the project to access guides, discussions and reference code"
+              description="Title for project overlay on projects details page"
+              id="5ozhak"
+            />
+          </Heading>
+          <Button
+            label={intl.formatMessage({
+              defaultMessage: 'Start project',
+              description: 'Start Project button label',
+              id: 'Se4xmG',
+            })}
+            size="md"
+            variant="primary"
+            onClick={startProject}
+          />
+        </>
+      )}
+    </div>
+  );
 
   return (
     <BlurOverlay
       align="center"
-      disableOverlay={accessAllSteps}
-      overlay={
-        <div className="mx-auto flex max-w-lg flex-col items-center gap-y-6 text-center">
-          {fetchingCanAccessAllSteps ? (
-            <Spinner size="md" />
-          ) : (
-            <>
-              <Heading level="heading5">
-                <FormattedMessage
-                  defaultMessage="Start the project to access guides, discussions and reference code"
-                  description="Title for project overlay on projects details page"
-                  id="5ozhak"
-                />
-              </Heading>
-              <Button
-                label={intl.formatMessage({
-                  defaultMessage: 'Start project',
-                  description: 'Start Project button label',
-                  id: 'Se4xmG',
-                })}
-                size="lg"
-                variant="primary"
-                onClick={startProject}
-              />
-            </>
-          )}
-        </div>
-      }>
+      overlay={overlay}
+      showOverlay={showPaywall || !accessAllSteps}>
       <div className="flex flex-col items-stretch">
         <div className="flex flex-col gap-y-8">
           <Tabs

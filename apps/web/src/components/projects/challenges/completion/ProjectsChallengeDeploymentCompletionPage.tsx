@@ -29,14 +29,17 @@ import {
   themeBorderElementColor,
 } from '~/components/ui/theme';
 
+import ProjectsChallengePremiumPaywall from '../premium/ProjectsChallengePremiumPaywall';
 import { useProjectsChallengeSessionContext } from '../session/ProjectsChallengeSessionContext';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
+  isViewerPremium: boolean;
 }>;
 
 export default function ProjectsChallengeDeploymentCompletionPage({
   challenge,
+  isViewerPremium,
 }: Props) {
   const { metadata } = challenge;
   const { submitHref } = metadata;
@@ -45,37 +48,46 @@ export default function ProjectsChallengeDeploymentCompletionPage({
   const { startProject, accessAllSteps, fetchingCanAccessAllSteps } =
     useProjectsChallengeSessionContext();
 
+  const showPaywall =
+    challenge.metadata.access === 'premium' && !isViewerPremium;
+
+  const overlay = showPaywall ? (
+    <ProjectsChallengePremiumPaywall />
+  ) : (
+    <div
+      className={clsx(
+        'flex flex-col items-center gap-y-6',
+        'mx-auto max-w-lg',
+        'text-center',
+      )}>
+      {fetchingCanAccessAllSteps ? (
+        <Spinner size="md" />
+      ) : (
+        <>
+          <Heading level="heading5">
+            <FormattedMessage
+              defaultMessage="Start the project to access submission and deployment steps"
+              description="Title for project overlay on projects details page"
+              id="AjKgye"
+            />
+          </Heading>
+          <Button
+            label={intl.formatMessage({
+              defaultMessage: 'Start project',
+              description: 'Start Project button label',
+              id: 'Se4xmG',
+            })}
+            size="md"
+            variant="primary"
+            onClick={startProject}
+          />
+        </>
+      )}
+    </div>
+  );
+
   return (
-    <BlurOverlay
-      align="center"
-      disableOverlay={accessAllSteps}
-      overlay={
-        <div className="mx-auto flex max-w-lg flex-col items-center gap-y-6 text-center">
-          {fetchingCanAccessAllSteps ? (
-            <Spinner size="md" />
-          ) : (
-            <>
-              <Heading level="heading5">
-                <FormattedMessage
-                  defaultMessage="Start the project to access submission and deployment steps"
-                  description="Title for project overlay on projects details page"
-                  id="AjKgye"
-                />
-              </Heading>
-              <Button
-                label={intl.formatMessage({
-                  defaultMessage: 'Start project',
-                  description: 'Start Project button label',
-                  id: 'Se4xmG',
-                })}
-                size="lg"
-                variant="primary"
-                onClick={startProject}
-              />
-            </>
-          )}
-        </div>
-      }>
+    <BlurOverlay align="center" overlay={overlay} showOverlay={!accessAllSteps}>
       <div className="flex flex-col items-stretch">
         <Heading level="heading6">
           <FormattedMessage

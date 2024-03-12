@@ -35,6 +35,7 @@ import {
 
 import ProjectsChallengeAssetsResponsiveBreakpointsTab from './ProjectsChallengeAssetsResponsiveBreakpointsTab';
 import useProjectsChallengeProvidedResources from './useProjectsChallengeProvidedResources';
+import ProjectsChallengePremiumPaywall from '../premium/ProjectsChallengePremiumPaywall';
 import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxContent';
 
 type OnlineAssetsTabType = 'api' | 'responsive-breakpoints' | 'style-guide';
@@ -84,16 +85,21 @@ function useOnlineAssetsTabs(hasStyleGuide: boolean, hasAPIWriteup: boolean) {
 type Props = Readonly<{
   apiWriteup?: ProjectsChallengeAPIWriteup;
   challenge: ProjectsChallengeItem;
+  isViewerPremium: boolean;
   styleGuide?: ProjectsChallengeStyleGuide;
 }>;
 
 export default function ProjectsChallengeAssetsPage({
   apiWriteup,
   challenge,
+  isViewerPremium,
   styleGuide,
 }: Props) {
   const intl = useIntl();
   const { metadata } = challenge;
+
+  const { startProject, accessAllSteps, fetchingCanAccessAllSteps } =
+    useProjectsChallengeSessionContext();
   const resources = useProjectsChallengeProvidedResources();
   const onlineAssetsTabs = useOnlineAssetsTabs(
     styleGuide != null,
@@ -103,72 +109,78 @@ export default function ProjectsChallengeAssetsPage({
     'responsive-breakpoints',
   );
 
-  // TODO(projects|purchase): Replace below with actual logic
-  const isUserPremium = false;
+  const showPaywall =
+    challenge.metadata.access === 'premium' && !isViewerPremium;
 
-  const { startProject, accessAllSteps, fetchingCanAccessAllSteps } =
-    useProjectsChallengeSessionContext();
+  const overlay = showPaywall ? (
+    <ProjectsChallengePremiumPaywall />
+  ) : (
+    <div
+      className={clsx(
+        'flex flex-col items-center gap-y-6',
+        'mx-auto max-w-lg',
+        'text-center',
+      )}>
+      {fetchingCanAccessAllSteps ? (
+        <Spinner size="md" />
+      ) : (
+        <>
+          <Heading className="text-center drop-shadow" level="heading5">
+            <FormattedMessage
+              defaultMessage="You can download assets after starting the project"
+              description="Title for project overlay on projects details page"
+              id="all5El"
+            />
+          </Heading>
+          <div
+            className={clsx(
+              'flex flex-col rounded-lg p-4',
+              themeBackgroundEmphasized,
+            )}>
+            <Text size="body0" weight="bold">
+              <FormattedMessage
+                defaultMessage="Assets provided"
+                description="Label for Assets Provided card on start project overlay on Projects project assets page"
+                id="gRN6GJ"
+              />
+            </Text>
+            <ul className="mt-4">
+              {resources.map(({ id, label }) => (
+                <li key={id} className="flex gap-2.5">
+                  <RiCheckboxCircleFill
+                    aria-hidden={true}
+                    className={clsx('mt-1 h-3 w-3 shrink-0', themeTextColor)}
+                  />
+                  <Text size="body2">{label}</Text>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <Button
+            label={intl.formatMessage({
+              defaultMessage: 'Start project',
+              description:
+                'Label for Start Project button on Projects project assets page',
+              id: '4BBxZ1',
+            })}
+            size="md"
+            variant="primary"
+            onClick={startProject}
+          />
+        </>
+      )}
+    </div>
+  );
+
+  // TODO(projects): integrate with unlock credits.
+  const unlockedProjects = true;
 
   return (
     <BlurOverlay
       align="center"
-      disableOverlay={accessAllSteps}
       maxHeight={500}
-      overlay={
-        <div className="mx-auto flex max-w-2xl flex-col items-center gap-y-6">
-          {fetchingCanAccessAllSteps ? (
-            <Spinner size="md" />
-          ) : (
-            <>
-              <Heading className="text-center drop-shadow" level="heading5">
-                <FormattedMessage
-                  defaultMessage="You can download assets after starting the project"
-                  description="Title for project overlay on projects details page"
-                  id="all5El"
-                />
-              </Heading>
-              <div
-                className={clsx(
-                  'flex flex-col rounded-lg p-4',
-                  themeBackgroundEmphasized,
-                )}>
-                <Text size="body0" weight="bold">
-                  <FormattedMessage
-                    defaultMessage="Assets provided"
-                    description="Label for Assets Provided card on start project overlay on Projects project assets page"
-                    id="gRN6GJ"
-                  />
-                </Text>
-                <ul className="mt-4">
-                  {resources.map(({ id, label }) => (
-                    <li key={id} className="flex gap-2.5">
-                      <RiCheckboxCircleFill
-                        aria-hidden={true}
-                        className={clsx(
-                          'mt-1 h-3 w-3 shrink-0',
-                          themeTextColor,
-                        )}
-                      />
-                      <Text size="body2">{label}</Text>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <Button
-                label={intl.formatMessage({
-                  defaultMessage: 'Start project',
-                  description:
-                    'Label for Start Project button on Projects project assets page',
-                  id: '4BBxZ1',
-                })}
-                size="lg"
-                variant="primary"
-                onClick={startProject}
-              />
-            </>
-          )}
-        </div>
-      }>
+      overlay={overlay}
+      showOverlay={!accessAllSteps}>
       <div className="flex flex-col items-stretch">
         <div className="grid grid-cols-1 gap-x-6 gap-y-12 lg:grid-cols-4">
           <div
@@ -201,9 +213,11 @@ export default function ProjectsChallengeAssetsPage({
                 <Button
                   addonPosition="start"
                   href={
-                    isUserPremium ? undefined : metadata.downloadDesignFileHref
+                    unlockedProjects
+                      ? metadata.downloadDesignFileHref
+                      : undefined
                   }
-                  icon={isUserPremium ? RiDownload2Line : RiLock2Line}
+                  icon={unlockedProjects ? RiDownload2Line : RiLock2Line}
                   label={intl.formatMessage({
                     defaultMessage: 'Figma design file',
                     description:
@@ -211,9 +225,9 @@ export default function ProjectsChallengeAssetsPage({
                     id: 'GUmfcW',
                   })}
                   size="lg"
-                  variant={isUserPremium ? 'secondary' : 'special'}
+                  variant={unlockedProjects ? 'special' : 'secondary'}
                 />
-                {!isUserPremium && (
+                {!isViewerPremium && (
                   <>
                     <Text color="subtle" size="body3">
                       <FormattedMessage

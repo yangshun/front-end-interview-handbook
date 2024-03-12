@@ -1,4 +1,5 @@
 import ProjectsChallengeAssetsPage from '~/components/projects/challenges/assets/ProjectsChallengeAssetsPage';
+import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
 import {
   readProjectsChallengeAPIWriteup,
@@ -12,16 +13,19 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { slug, locale } = params;
-  const [{ challenge }, { styleGuide }, { apiWriteup }] = await Promise.all([
-    readProjectsChallengeItem(slug, locale),
-    readProjectsChallengeStyleGuide(slug, locale),
-    readProjectsChallengeAPIWriteup(slug, locale),
-  ]);
+  const [{ isViewerPremium }, { challenge }, { styleGuide }, { apiWriteup }] =
+    await Promise.all([
+      readViewerProjectsProfile(),
+      readProjectsChallengeItem(slug, locale),
+      readProjectsChallengeStyleGuide(slug, locale),
+      readProjectsChallengeAPIWriteup(slug, locale),
+    ]);
 
   return (
     <ProjectsChallengeAssetsPage
       apiWriteup={apiWriteup ?? undefined}
       challenge={challenge}
+      isViewerPremium={isViewerPremium}
       styleGuide={styleGuide ?? undefined}
     />
   );

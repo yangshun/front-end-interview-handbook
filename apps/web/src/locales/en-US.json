@@ -991,10 +991,6 @@
     "defaultMessage": "{price} billed yearly",
     "description": "Description of billing frequency for annual plan"
   },
-  "7vvXZb": {
-    "defaultMessage": "Premium Projects",
-    "description": "Title for Premium Projects section on Projects project page"
-  },
   "7wqhjF": {
     "defaultMessage": "Practice Top HTML Front End Interview Questions with Solutions",
     "description": "SEO title for HTML questions list page"
@@ -3383,6 +3379,10 @@
     "defaultMessage": "Practice developing inclusive and accessible web experiences.",
     "description": "Description for interview preparation focus area"
   },
+  "Sokr+M": {
+    "defaultMessage": "Premium project",
+    "description": "Label for a premium project"
+  },
   "Sp5xdN": {
     "defaultMessage": "{numberOfBlogs} articles",
     "description": "Number of articles in a list"
@@ -3971,6 +3971,10 @@
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
     "description": "Text for Deployment Info in Projects"
   },
+  "YBteXK": {
+    "defaultMessage": "Purchase premium to get access to premium projects, official guides, production-ready Figma files, and exclusive component tracks and skill plans.",
+    "description": "Message for project paywall"
+  },
   "YGqz7y": {
     "defaultMessage": "Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.",
     "description": "Description for interview preparation focus area"
@@ -4186,10 +4190,6 @@
   "aSyD6u": {
     "defaultMessage": "Filters",
     "description": "Title of Projects challenge submission filter slide-out"
-  },
-  "aWL34G": {
-    "defaultMessage": "Premium",
-    "description": "Label on Premium badge to indicate premium-only access"
   },
   "aXu9RL": {
     "defaultMessage": "Tablet ({minWidth}px-{maxWidth}px)",
@@ -4963,10 +4963,6 @@
     "defaultMessage": "Why be a GreatFrontEnd Affiliate?",
     "description": "Title for the 'Why become an affiliate' section on the 'Become an Affiliate' page"
   },
-  "hTwS/w": {
-    "defaultMessage": "Upgrade access",
-    "description": "Button label to upgrade plan"
-  },
   "hYp7sF": {
     "defaultMessage": "Normal",
     "description": "Label for Normal"
@@ -5322,10 +5318,6 @@
   "kL0yEH": {
     "defaultMessage": "You can't find it elsewhere",
     "description": "Label for an example list of System Design Questions on marketing pages"
-  },
-  "kNUgFO": {
-    "defaultMessage": "Purchase premium to unlock access to {premiumProjectCount}+ premium projects and tracks.",
-    "description": "Description for Premium Projects section on Projects project page"
   },
   "kPJCx6": {
     "defaultMessage": "Limited",

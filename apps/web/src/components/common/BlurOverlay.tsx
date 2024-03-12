@@ -3,19 +3,19 @@ import clsx from 'clsx';
 type Props = Readonly<{
   align?: 'bottom' | 'center' | 'top';
   children: React.ReactNode;
-  disableOverlay?: boolean;
   maxHeight?: number;
   overlay: React.ReactNode;
+  showOverlay?: boolean;
 }>;
 
 export default function BlurOverlay({
   children,
   align = 'top',
-  disableOverlay = false,
+  showOverlay = false,
   overlay,
   maxHeight,
 }: Props) {
-  if (disableOverlay) {
+  if (!showOverlay) {
     // eslint-disable-next-line react/jsx-no-useless-fragment
     return <>{children}</>;
   }

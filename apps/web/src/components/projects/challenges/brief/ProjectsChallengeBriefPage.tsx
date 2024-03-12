@@ -1,28 +1,30 @@
 'use client';
 
 import { allProjectsChallengeBriefs } from 'contentlayer/generated';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
-import Text from '~/components/ui/Text';
 
 import ProjectsChallengeBriefFAQSection from './ProjectsChallengeBriefFAQSection';
 import ProjectsChallengeBriefImageCarousel from './ProjectsChallengeBriefImageCarousel';
 import ProjectsChallengeBriefProvidedResources from './ProjectsChallengeBriefProvidedResources';
 import ProjectsChallengeBriefSupportSection from './ProjectsChallengeBriefSupportSection';
+import ProjectsChallengePremiumPaywall from '../premium/ProjectsChallengePremiumPaywall';
 import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxContent';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
+  isViewerPremium: boolean;
 }>;
 
-export default function ProjectsChallengeBriefPage({ challenge }: Props) {
-  const intl = useIntl();
+export default function ProjectsChallengeBriefPage({
+  challenge,
+  isViewerPremium,
+}: Props) {
   const brief = allProjectsChallengeBriefs.find((challengeBrief) => {
     return challengeBrief.slug === challenge.metadata.slug;
   });
@@ -31,9 +33,8 @@ export default function ProjectsChallengeBriefPage({ challenge }: Props) {
     return null;
   }
 
-  // TODO(projects|purchase): Compute these values
-  const isProjectPremium = true;
-  const isUserPremium = true;
+  const showPaywall =
+    challenge.metadata.access === 'premium' && !isViewerPremium;
 
   // TODO(projects): Add real images url
   const images = [
@@ -48,38 +49,8 @@ export default function ProjectsChallengeBriefPage({ challenge }: Props) {
   return (
     <BlurOverlay
       align="center"
-      disableOverlay={isUserPremium || !isProjectPremium}
-      overlay={
-        <div className="flex flex-col items-center">
-          <Heading level="heading5">
-            <FormattedMessage
-              defaultMessage="Premium Projects"
-              description="Title for Premium Projects section on Projects project page"
-              id="7vvXZb"
-            />
-          </Heading>
-          <Text className="mt-4" size="body1">
-            <FormattedMessage
-              defaultMessage="Purchase premium to unlock access to {premiumProjectCount}+ premium projects and tracks."
-              description="Description for Premium Projects section on Projects project page"
-              id="kNUgFO"
-              values={{
-                premiumProjectCount: 100,
-              }}
-            />
-          </Text>
-          <Button
-            className="mt-7"
-            label={intl.formatMessage({
-              defaultMessage: 'View subscription plans',
-              description:
-                'Label for View subscription plans button on Projects project page',
-              id: '9POdEK',
-            })}
-            variant="primary"
-          />
-        </div>
-      }>
+      overlay={<ProjectsChallengePremiumPaywall />}
+      showOverlay={showPaywall}>
       <div className="flex flex-col items-stretch gap-20 pb-40">
         <div className="grid grid-cols-1 gap-6 gap-y-12 lg:grid-cols-2">
           <div className="flex flex-col gap-6">

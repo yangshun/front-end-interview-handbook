@@ -20,6 +20,7 @@ export const projectAccessOptions = ['free', 'free-plus', 'premium'];
 export type ProjectsChallengeAccess = (typeof projectAccessOptions)[number];
 
 export const projectTrackOptions = [
+  'apps',
   'design-system',
   'e-commerce',
   'games',
