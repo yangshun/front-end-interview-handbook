@@ -11,6 +11,7 @@ import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseSer
 
 import { projectsUserProcedure, publicProjectsProcedure } from './procedures';
 import { publicProcedure, router, userProcedure } from '../../trpc';
+import { projectsProfileBioSchemaServer } from '../../../components/projects/profile/fields/ProjectsProfileBioSchema';
 
 async function fetchProjectsProfileStatistics(projectsProfileId: string) {
   const [
@@ -291,7 +292,7 @@ export const projectsProfileRouter = router({
   onboardingStep2Update: userProcedure
     .input(
       z.object({
-        bio: z.string(),
+        bio: projectsProfileBioSchemaServer,
         githubUsername: z
           .union([z.string().length(0), z.string().url()])
           .transform((val) => (val ? val : null))
@@ -365,7 +366,7 @@ export const projectsProfileRouter = router({
       z
         .object({
           avatarUrl: z.string().optional(),
-          bio: z.string(),
+          bio: projectsProfileBioSchemaServer,
           company: z.string().optional().nullable(),
           currentStatus: z.string().optional().nullable(),
           githubUsername: z

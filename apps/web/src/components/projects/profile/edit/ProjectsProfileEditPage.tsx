@@ -19,6 +19,7 @@ import ProjectsProfileJobSection from '~/components/projects/profile/edit/Projec
 import ProjectsProfileMotivationSection from '~/components/projects/profile/edit/ProjectsProfileMotivationSection';
 import ProjectsProfileSkillSection from '~/components/projects/profile/edit/ProjectsProfileSkillSection';
 import ProjectsProfileSocialSection from '~/components/projects/profile/edit/ProjectsProfileSocialSection';
+import { useProjectsProfileBioSchema } from '~/components/projects/profile/fields/ProjectsProfileBioSchema';
 import {
   useProjectsJobNotStartedSchema,
   useProjectsJobStartedSchema,
@@ -48,10 +49,11 @@ function useProjectsProfileEditSchema() {
   const usernameSchema = useProfileUsernameSchema();
   const jobNotStartedSchema = useProjectsJobNotStartedSchema();
   const jobStartedSchema = useProjectsJobStartedSchema();
+  const bioSchema = useProjectsProfileBioSchema();
 
   const baseSchema = z.object({
     avatarUrl: z.string().optional(),
-    bio: z.string(),
+    bio: bioSchema,
     githubUsername: z
       .union([z.string().length(0), z.string().url()])
       .transform((val) => (val ? val : null))

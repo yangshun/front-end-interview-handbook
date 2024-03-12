@@ -6,6 +6,8 @@ import type { ProjectsOnboardingProfileStep2FormValues } from '~/components/proj
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import TextArea from '~/components/ui/TextArea';
 
+import { getProjectsProfileBioAttrs } from '../fields/ProjectsProfileBioSchema';
+
 type Values =
   | ProjectsOnboardingProfileStep2FormValues
   | ProjectsProfileEditFormValues;
@@ -17,33 +19,20 @@ type Props = {
 export default function ProjectsProfileBioInput({ control }: Props) {
   const intl = useIntl();
 
+  const attrs = getProjectsProfileBioAttrs(intl);
+
   return (
     <Controller
       control={control}
       name="bio"
-      render={({ field }) => (
+      render={({ field, formState }) => (
         <TextArea
-          description={intl.formatMessage({
-            defaultMessage:
-              'Tell the community about yourself - your background, skills, aspirations and skills and tools you hope to pick up!',
-            description:
-              'Description for Biography input on Projects profile onboarding page',
-            id: 'I60bQN',
-          })}
+          description={attrs.description}
           descriptionStyle="tooltip"
-          label={intl.formatMessage({
-            defaultMessage: 'Bio',
-            description:
-              'Label for Biography input on Projects profile onboarding page',
-            id: 'ZNPYCk',
-          })}
-          placeholder={intl.formatMessage({
-            defaultMessage:
-              'Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others',
-            description:
-              'Placeholder for Biography input on Projects profile onboarding page',
-            id: 'jeX0Hi',
-          })}
+          errorMessage={formState.errors.bio?.message}
+          label={attrs.label}
+          maxLength={attrs.validation.maxLength}
+          placeholder={attrs.placeholder}
           rows={5}
           {...field}
         />

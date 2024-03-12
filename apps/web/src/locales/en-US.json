@@ -167,6 +167,10 @@
     "defaultMessage": "Special case for richtext editor",
     "description": "Special case action for richtext editor toolbar"
   },
+  "/DSBg7": {
+    "defaultMessage": "Bio",
+    "description": "Label for bio field"
+  },
   "/F80kH": {
     "defaultMessage": "Read our <link>Front End Interview Guidebook</link>",
     "description": "Link to front end interview guidebook"
@@ -1387,6 +1391,10 @@
     "defaultMessage": "Submit your solution for feedback",
     "description": "Title of 'Submit your solution for feedback' feature in Projects marketing page"
   },
+  "BrhcC+": {
+    "defaultMessage": "Bio must contain at most {maxLength} character(s).",
+    "description": "Error message when bio is too long"
+  },
   "BwHkBU": {
     "defaultMessage": "Profile",
     "description": "Link label to the profile page"
@@ -2083,10 +2091,6 @@
     "defaultMessage": "Solution for {questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions",
     "description": "Title of Front End Interview UI Coding Questions solution page"
   },
-  "I60bQN": {
-    "defaultMessage": "Tell the community about yourself - your background, skills, aspirations and skills and tools you hope to pick up!",
-    "description": "Description for Biography input on Projects profile onboarding page"
-  },
   "IBP/D0": {
     "defaultMessage": "Tell us your email if you want us to follow up with you.",
     "description": "Feedback widget text to request for optional email input for following up"
@@ -2130,6 +2134,10 @@
   "Ia88Vb": {
     "defaultMessage": "Related articles",
     "description": "Blog related articles section"
+  },
+  "IeUbyv": {
+    "defaultMessage": "Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others",
+    "description": "Placeholder for bio field"
   },
   "IesD4T": {
     "defaultMessage": "Yes",
@@ -3451,6 +3459,10 @@
     "defaultMessage": "Lyft",
     "description": "Company name for Lyft"
   },
+  "THTioO": {
+    "defaultMessage": "Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others",
+    "description": "Bio field description"
+  },
   "TJD+8A": {
     "defaultMessage": "Project steps",
     "description": "Label for Project steps tabs"
@@ -4102,10 +4114,6 @@
   "ZN/wJM": {
     "defaultMessage": "Completed",
     "description": "Completed status for a question"
-  },
-  "ZNPYCk": {
-    "defaultMessage": "Bio",
-    "description": "Label for Biography input on Projects profile onboarding page"
   },
   "ZRUNG5": {
     "defaultMessage": "Promotions",
@@ -5202,10 +5210,6 @@
   "jblvez": {
     "defaultMessage": "Title: Z to A",
     "description": "Sorting option for question list - sort titles from Z to A"
-  },
-  "jeX0Hi": {
-    "defaultMessage": "Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others",
-    "description": "Placeholder for Biography input on Projects profile onboarding page"
   },
   "jfkK0C": {
     "defaultMessage": "Mobile (<={width}px)",

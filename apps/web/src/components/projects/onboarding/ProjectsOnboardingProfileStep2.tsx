@@ -16,6 +16,7 @@ import { useI18nRouter } from '~/next-i18nostic/src';
 import ProjectsProfileBioInput from '../profile/edit/ProjectsProfileBioInput';
 import ProjectsProfileSkillsProficientInput from '../profile/edit/ProjectsProfileSkillsProficientInput';
 import ProjectsProfileSkillsToImproveInput from '../profile/edit/ProjectsProfileSkillsToImproveInput';
+import { useProjectsProfileBioSchema } from '../profile/fields/ProjectsProfileBioSchema';
 import { projectsReputationProfileFieldConfig } from '../reputation/ProjectsReputationPointsConfig';
 import { useProjectsSkillListInputSchema } from '../skills/form/ProjectsSkillListInputSchema';
 import type { ProjectsSkillKey } from '../skills/types';
@@ -38,9 +39,10 @@ function useOnboardingProfileStep2Schema() {
   const skillsToGrowSchema = useProjectsSkillListInputSchema({
     required: false,
   });
+  const bioSchema = useProjectsProfileBioSchema();
 
   return z.object({
-    bio: z.string(),
+    bio: bioSchema,
     githubUsername: z.string(),
     linkedInUsername: z.string(),
     skillsProficient: skillsProficientSchema,
