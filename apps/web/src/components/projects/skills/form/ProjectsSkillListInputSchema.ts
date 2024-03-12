@@ -20,10 +20,26 @@ export const projectsSkillListInputOptionalSchemaServer =
     required: false,
   });
 
-export function getProjectsSkillListInputAttributes(
+export function getProjectsRoadmapSkillsInputAttributes(
   intl: IntlShape,
   required = true,
 ) {
+  const label = intl.formatMessage({
+    defaultMessage: 'Skills used',
+    description: 'Label for skills roadmap input on project submit page',
+    id: 'NBmwqq',
+  });
+  const description = intl.formatMessage({
+    defaultMessage:
+      'The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development',
+    description: 'Description for skills roadmap input on project submit page',
+    id: 'YwBuE7',
+  });
+  const placeholder = intl.formatMessage({
+    defaultMessage: 'Select from skill roadmap',
+    description: 'Placeholder for skills roadmap input on project submit page',
+    id: 'GDAahk',
+  });
   const minMessage = intl.formatMessage({
     defaultMessage: 'Select at least 1 skill that was used',
     description: 'Error message',
@@ -31,6 +47,45 @@ export function getProjectsSkillListInputAttributes(
   });
 
   return {
+    description,
+    label,
+    placeholder,
+    validation: {
+      minMessage,
+      required,
+    },
+  };
+}
+export function getProjectsTechStackInputAttributes(
+  intl: IntlShape,
+  required = true,
+) {
+  const label = intl.formatMessage({
+    defaultMessage: 'Other tech stack used (outside of skills roadmap)',
+    description: 'Label for tech stack input on project submit page',
+    id: 'jNLP4m',
+  });
+  const description = intl.formatMessage({
+    defaultMessage:
+      "Other skills you are using which are not within the skills roadmap. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
+    description: 'Description for tech stack input on project submit page',
+    id: 'qBPU/e',
+  });
+  const placeholder = intl.formatMessage({
+    defaultMessage: 'Search tech stack tags',
+    description: 'Placeholder for tech stack input on project submit page',
+    id: 'VGzp8u',
+  });
+  const minMessage = intl.formatMessage({
+    defaultMessage: 'Skills cannot be empty.',
+    description: 'Error message',
+    id: '17Rr6T',
+  });
+
+  return {
+    description,
+    label,
+    placeholder,
     validation: {
       minMessage,
       required,
@@ -44,7 +99,7 @@ export function useProjectsSkillListInputSchema({
   required?: boolean;
 } = {}) {
   const intl = useIntl();
-  const intlStrings = getProjectsSkillListInputAttributes(intl);
+  const intlStrings = getProjectsRoadmapSkillsInputAttributes(intl);
 
   return projectsSkillListInputSchema({
     minMessage: intlStrings.validation.minMessage,

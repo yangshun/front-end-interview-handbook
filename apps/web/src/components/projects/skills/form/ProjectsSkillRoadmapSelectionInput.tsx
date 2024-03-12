@@ -23,6 +23,7 @@ type Props = Readonly<{
   label?: string;
   onBlur?: () => void;
   onChange: (value: ReadonlyArray<ProjectsSkillKey>) => void;
+  placeholder?: string;
   required?: boolean;
   value: ReadonlyArray<ProjectsSkillKey>;
 }>;
@@ -49,6 +50,7 @@ function ProjectsSkillRoadmapSelectionInput(
     value,
     onBlur,
     onChange,
+    placeholder,
   }: Props,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
@@ -111,11 +113,13 @@ function ProjectsSkillRoadmapSelectionInput(
           }}>
           {value.length === 0 ? (
             <Text color="placeholder" size="body2">
-              <FormattedMessage
-                defaultMessage="No skills added"
-                description="Placeholder for skills input when no skills are selected"
-                id="8tdTMy"
-              />
+              {placeholder ?? (
+                <FormattedMessage
+                  defaultMessage="No skills added"
+                  description="Placeholder for skills input when no skills are selected"
+                  id="8tdTMy"
+                />
+              )}
             </Text>
           ) : (
             <ProjectsSkillRoadmapChips

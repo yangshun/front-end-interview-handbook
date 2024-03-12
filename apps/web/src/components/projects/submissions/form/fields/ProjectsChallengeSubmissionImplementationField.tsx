@@ -35,6 +35,7 @@ export default function ProjectsChallengeSubmissionImplementationField({
         required={attrs.validation.required}
         {...field}
         minHeight="300px"
+        value={field.value || attrs.initialValue}
         onChange={(newValue) => {
           field.onChange({
             target: {

@@ -2,7 +2,7 @@ import type { Control } from 'react-hook-form';
 import { useController } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
-import { getProjectsSkillListInputAttributes } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
+import { getProjectsTechStackInputAttributes } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 import ProjectsSkillTechStackInput from '~/components/projects/skills/form/ProjectsSkillTechStackInput';
 
 import type { ProjectsChallengeSubmissionFormValues } from '../ProjectsChallengeSubmissionForm';
@@ -19,7 +19,7 @@ export default function ProjectsChallengeSubmissionTechStackField({
   required,
 }: Props) {
   const intl = useIntl();
-  const attrs = getProjectsSkillListInputAttributes(intl, required);
+  const attrs = getProjectsTechStackInputAttributes(intl, required);
   const { field, formState } = useController({
     control,
     name: fieldName,
@@ -28,7 +28,10 @@ export default function ProjectsChallengeSubmissionTechStackField({
 
   return (
     <ProjectsSkillTechStackInput
+      description={attrs.description}
       errorMessage={formState.errors[fieldName]?.message}
+      label={attrs.label}
+      placeholder={attrs.placeholder}
       required={attrs.validation.required}
       {...field}
     />

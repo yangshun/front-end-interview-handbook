@@ -1,4 +1,10 @@
-import { $getRoot } from 'lexical';
+import {
+  $createLineBreakNode,
+  $createParagraphNode,
+  $createTextNode,
+  $getRoot,
+  $getSelection,
+} from 'lexical';
 import type { IntlShape } from 'react-intl';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
@@ -11,6 +17,64 @@ const MIN_LENGTH = 50;
 const MAX_LENGTH = 1000;
 
 const editor = createHeadlessEditor(RichTextEditorConfig);
+
+const getEditorInitialValue = () => {
+  const editorInstance = createHeadlessEditor(RichTextEditorConfig);
+
+  editorInstance.update(
+    () => {
+      const root = $getRoot();
+
+      $getSelection();
+
+      const paragraphNode1 = $createParagraphNode();
+
+      paragraphNode1.append(
+        $createTextNode('Tech stack and approach').setFormat('bold'),
+      );
+      paragraphNode1.append($createLineBreakNode());
+      paragraphNode1.append(
+        $createTextNode(
+          '// TODO: Write about how you approached the task, including the tools and stack you used',
+        ),
+      );
+
+      const paragraphNode2 = $createParagraphNode();
+
+      paragraphNode2.append(
+        $createTextNode('Useful resources and lessons learnt').setFormat(
+          'bold',
+        ),
+      );
+      paragraphNode2.append($createLineBreakNode());
+      paragraphNode2.append(
+        $createTextNode(
+          '// TODO: Help the community by sharing the resources and tips that helped you achieve this task',
+        ),
+      );
+
+      const paragraphNode3 = $createParagraphNode();
+
+      paragraphNode3.append(
+        $createTextNode('Notes / Questions for Community').setFormat('bold'),
+      );
+      paragraphNode3.append($createLineBreakNode());
+      paragraphNode3.append(
+        $createTextNode(
+          '// TODO: Provide a list of questions or notes for the community when they are reviewing your project, such as specific things you were not sure of',
+        ),
+      );
+
+      // Finally, append the paragraph to the root
+      root.append(paragraphNode1);
+      root.append(paragraphNode2);
+      root.append(paragraphNode3);
+    },
+    { discrete: true },
+  );
+
+  return JSON.stringify(editorInstance.getEditorState());
+};
 
 function projectsChallengeSubmissionImplementationSchema(options?: {
   maxMessage: string;
@@ -74,6 +138,8 @@ export function getProjectsChallengeSubmissionImplementationAttributes(
     description: 'Project submission tooltip',
     id: 'EO+aoa',
   });
+
+  const initialValue = getEditorInitialValue();
   const maxMessage = intl.formatMessage(
     {
       defaultMessage:
@@ -99,6 +165,7 @@ export function getProjectsChallengeSubmissionImplementationAttributes(
 
   return {
     description,
+    initialValue,
     label,
     validation: {
       maxLength: MAX_LENGTH,

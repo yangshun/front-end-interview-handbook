@@ -339,6 +339,10 @@
     "defaultMessage": "Try these popular CSS questions",
     "description": "Title for featured questions section"
   },
+  "17Rr6T": {
+    "defaultMessage": "Skills cannot be empty.",
+    "description": "Error message"
+  },
   "19uyd3": {
     "defaultMessage": "<bold>+{points}</bold> rep",
     "description": "Tooltip for rep count increase in Projects level progress bar"
@@ -1855,6 +1859,10 @@
     "defaultMessage": "Coding questions supported in Vanilla JavaScript and React, with support for more libraries coming soon!",
     "description": "Subtitle for bringing your own framework feature"
   },
+  "GDAahk": {
+    "defaultMessage": "Select from skill roadmap",
+    "description": "Placeholder for skills roadmap input on project submit page"
+  },
   "GDgFZ0": {
     "defaultMessage": "GreatFrontEnd Annual",
     "description": "GFE annual plan"
@@ -2670,6 +2678,10 @@
   "NAkpAg": {
     "defaultMessage": "Jump to matching bracket",
     "description": "Text describing jump command in the coding workspace shortcuts menu"
+  },
+  "NBmwqq": {
+    "defaultMessage": "Skills used",
+    "description": "Label for skills roadmap input on project submit page"
   },
   "NEkaZ4": {
     "defaultMessage": "Starter",
@@ -3663,6 +3675,10 @@
     "defaultMessage": "Download starter code + image assets",
     "description": "Label for \"Download starter code + image assets\" button on Projects project page"
   },
+  "VGzp8u": {
+    "defaultMessage": "Search tech stack tags",
+    "description": "Placeholder for tech stack input on project submit page"
+  },
   "VJ8xZy": {
     "defaultMessage": "Prices will be increased as more content is being added to the website.",
     "description": "Tip at the bottom of the Pricing section to let users know that we would increase prices gradually as the content becomes more complete"
@@ -4058,6 +4074,10 @@
   "YpJ3q8": {
     "defaultMessage": "Reply to comment",
     "description": "Label for discussion post reply input"
+  },
+  "YwBuE7": {
+    "defaultMessage": "The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development",
+    "description": "Description for skills roadmap input on project submit page"
   },
   "YzW/Zb": {
     "defaultMessage": "Expires on {expiryDate}",
@@ -5171,6 +5191,10 @@
     "defaultMessage": "1 Week Plan",
     "description": "Long label for one week study plan"
   },
+  "jNLP4m": {
+    "defaultMessage": "Other tech stack used (outside of skills roadmap)",
+    "description": "Label for tech stack input on project submit page"
+  },
   "jROOlG": {
     "defaultMessage": "Our users now work in these companies",
     "description": "Title of company logos section"
@@ -5691,6 +5715,10 @@
     "defaultMessage": "Cancel",
     "description": "Label for cancel button for projects profile edit page"
   },
+  "nhc9/n": {
+    "defaultMessage": "Home page",
+    "description": "Placeholder for name field of the deployment url"
+  },
   "nivf5h": {
     "defaultMessage": "General",
     "description": "Profile settings tab title"
@@ -6022,6 +6050,10 @@
   "qBIBPw": {
     "defaultMessage": "GitHub Pages",
     "description": "Label for \"GitHub Pages\" option in Deployment Info"
+  },
+  "qBPU/e": {
+    "defaultMessage": "Other skills you are using which are not within the skills roadmap. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
+    "description": "Description for tech stack input on project submit page"
   },
   "qBygAh": {
     "defaultMessage": "Showing {currentPageCount} out of {totalCount} projects",
@@ -6662,6 +6694,10 @@
   "wAZkHT": {
     "defaultMessage": "Tags",
     "description": "Screenreader text indicating component for blog tags"
+  },
+  "wAv4o0": {
+    "defaultMessage": "Enter 1-2 lines summary of your submission",
+    "description": "Placeholder label for submission summary in submission form"
   },
   "wDKscz": {
     "defaultMessage": "Completed",

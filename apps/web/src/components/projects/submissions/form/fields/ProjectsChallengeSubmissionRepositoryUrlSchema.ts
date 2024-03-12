@@ -30,7 +30,7 @@ export function getProjectsChallengeSubmissionRepositoryUrlAttributes(
     description: 'Form description',
     id: 'pvPxFe',
   });
-  const placeholder = 'https://github.com/johndoe/my-awesome-project';
+  const placeholder = 'https://github.com/[username]/[repository-name]';
   const urlMessage = intl.formatMessage({
     defaultMessage: 'Invalid URL',
     description: 'Error message',

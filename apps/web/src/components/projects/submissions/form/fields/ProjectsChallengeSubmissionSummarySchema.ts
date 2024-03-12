@@ -38,6 +38,11 @@ export function getProjectsChallengeSubmissionSummaryAttributes(
     description: 'Form label tooltip',
     id: 'VA0CqT',
   });
+  const placeholder = intl.formatMessage({
+    defaultMessage: 'Enter 1-2 lines summary of your submission',
+    description: 'Placeholder label for submission summary in submission form',
+    id: 'wAv4o0',
+  });
   const maxMessage = intl.formatMessage(
     {
       defaultMessage: 'Summary must contain at most {maxLength} character(s).',
@@ -57,6 +62,7 @@ export function getProjectsChallengeSubmissionSummaryAttributes(
   return {
     description,
     label,
+    placeholder,
     validation: {
       maxLength: MAX_LENGTH,
       maxMessage,

@@ -31,6 +31,7 @@ export default function ProjectsChallengeSubmissionSummaryField({
       errorMessage={formState.errors[fieldName]?.message}
       label={attrs.label}
       maxLength={attrs.validation.maxLength}
+      placeholder={attrs.placeholder}
       required={attrs.validation.required}
       rows={2}
       {...field}

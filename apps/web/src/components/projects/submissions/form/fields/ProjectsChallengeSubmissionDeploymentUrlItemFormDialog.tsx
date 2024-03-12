@@ -6,7 +6,10 @@ import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 import TextInput from '~/components/ui/TextInput';
 
-import { useProjectsChallengeSubmissionDeploymentUrlItemSchema } from './ProjectsChallengeSubmissionDeploymentUrlsSchema';
+import {
+  getProjectsChallengeSubmissionDeploymentUrlsAttributes,
+  useProjectsChallengeSubmissionDeploymentUrlItemSchema,
+} from './ProjectsChallengeSubmissionDeploymentUrlsSchema';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
@@ -33,6 +36,7 @@ export default function ProjectsChallengeSubmissionDeploymentUrlItemFormDialog({
   onSubmit,
 }: Props) {
   const intl = useIntl();
+  const attrs = getProjectsChallengeSubmissionDeploymentUrlsAttributes(intl);
   const projectsChallengeSubmissionDeploymentUrlItemSchema =
     useProjectsChallengeSubmissionDeploymentUrlItemSchema();
   const formMethods = useForm<DeploymentUrlItemData>({
@@ -106,6 +110,7 @@ export default function ProjectsChallengeSubmissionDeploymentUrlItemFormDialog({
               autoFocus={true}
               errorMessage={formState.errors.label?.message}
               label="Page name"
+              placeholder={attrs.namePlaceholder}
               required={true}
               {...field}
             />
@@ -118,6 +123,7 @@ export default function ProjectsChallengeSubmissionDeploymentUrlItemFormDialog({
             <TextInput
               errorMessage={formState.errors.href?.message}
               label="URL"
+              placeholder={attrs.urlPlaceholder}
               type="url"
               {...field}
             />

@@ -70,7 +70,12 @@ export function getProjectsChallengeSubmissionDeploymentUrlsAttributes(
     description: 'Form description',
     id: 'djQlZs',
   });
-  const placeholder = 'https://my-project.vercel.app';
+  const namePlaceholder = intl.formatMessage({
+    defaultMessage: 'Home page',
+    description: 'Placeholder for name field of the deployment url',
+    id: 'nhc9/n',
+  });
+  const urlPlaceholder = 'https://solution.com';
   const urlMessage = intl.formatMessage({
     defaultMessage: 'Invalid URL',
     description: 'Error message',
@@ -107,8 +112,9 @@ export function getProjectsChallengeSubmissionDeploymentUrlsAttributes(
   return {
     description,
     label,
-    placeholder,
+    namePlaceholder,
     type: 'url',
+    urlPlaceholder,
     validation: {
       maxLength: MAX_LENGTH,
       maxMessage,
