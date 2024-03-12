@@ -38,6 +38,7 @@ export default function ProjectsProfileProgressAllChallengesTab({
 
   const { data: allSessions, isLoading } = trpc.projects.sessions.list.useQuery(
     {
+      orderBy: 'desc',
       statuses: [
         ProjectsChallengeSessionStatus.IN_PROGRESS,
         ProjectsChallengeSessionStatus.COMPLETED,
