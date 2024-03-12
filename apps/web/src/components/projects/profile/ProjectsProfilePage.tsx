@@ -9,6 +9,8 @@ import ProjectsProfilePinnedSubmissions from '~/components/projects/profile/Proj
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
 import ProjectsProfileTabs from '~/components/projects/profile/ProjectsProfileTabs';
 
+import ProjectsProfileProgressTabs from './progress/ProjectsProfileProgressTabs';
+
 import type { Profile, ProjectsProfile } from '@prisma/client';
 
 type Props = Readonly<{
@@ -41,6 +43,8 @@ export default function ProjectsProfilePage({
     return notFound();
   }
 
+  const baseUrl = `/projects/u/${userProfile.username}`;
+
   return (
     <div>
       <div className="flex flex-col gap-6">
@@ -64,8 +68,11 @@ export default function ProjectsProfilePage({
         />
       </div>
       <div className="mt-[72px] flex flex-col gap-8">
-        <ProjectsProfileTabs baseUrl={`/projects/u/${userProfile.username}`} />
-        {children}
+        <ProjectsProfileTabs baseUrl={baseUrl} />
+        <div className="flex flex-col gap-8">
+          <ProjectsProfileProgressTabs baseUrl={baseUrl} />
+          {children}
+        </div>
       </div>
     </div>
   );

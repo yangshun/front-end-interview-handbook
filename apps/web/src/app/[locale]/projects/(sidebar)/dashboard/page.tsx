@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import ProjectsProfileProgressSection from '~/components/projects/profile/progress/ProjectsProfileProgressSection';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
-import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -29,17 +28,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page({ params }: Props) {
-  const { locale } = params;
-  const [{ isViewerPremium }, { tracks }] = await Promise.all([
-    readViewerProjectsProfile(),
-    readProjectsTrackList(locale),
-  ]);
+export default async function Page() {
+  const { isViewerPremium } = await readViewerProjectsProfile();
 
-  return (
-    <ProjectsProfileProgressSection
-      isViewerPremium={isViewerPremium}
-      projectTracks={tracks}
-    />
-  );
+  return <ProjectsProfileProgressSection isViewerPremium={isViewerPremium} />;
 }

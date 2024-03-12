@@ -18,6 +18,7 @@ import ProjectsDashboardContinueProjectsSection from './ProjectsDashboardContinu
 import ProjectsDashboardRecommendedActionsSection from './ProjectsDashboardRecommendedActionsSection';
 import ProjectsDashboardTrackAndSkillsSection from './ProjectsDashboardTrackAndSkillsSection';
 import ProjectsDashboardTrendingSubmissionsSection from './ProjectsDashboardTrendingSubmissionsSection';
+import ProjectsProfileProgressTabs from '../profile/progress/ProjectsProfileProgressTabs';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -35,6 +36,8 @@ export default function ProjectsDashboardPage({ children }: Props) {
     trpc.projects.sessions.startedBefore.useQuery();
   const { data: userProfile } = trpc.projects.profile.viewer.useQuery();
   const { signInUpHref } = useAuthSignInUp();
+
+  const baseUrl = '/projects/dashboard';
 
   return (
     <BlurOverlay
@@ -115,10 +118,13 @@ export default function ProjectsDashboardPage({ children }: Props) {
           {userProfile && (
             <div className="flex flex-col gap-8">
               <ProjectsProfileTabs
-                baseUrl="/projects/dashboard"
+                baseUrl={baseUrl}
                 showStartNewProject={true}
               />
-              {children}
+              <div className="flex flex-col gap-8">
+                <ProjectsProfileProgressTabs baseUrl={baseUrl} />
+                {children}
+              </div>
             </div>
           )}
         </Section>

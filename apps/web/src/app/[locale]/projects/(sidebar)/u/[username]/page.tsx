@@ -2,20 +2,15 @@ import { notFound } from 'next/navigation';
 
 import ProjectsProfileProgressSection from '~/components/projects/profile/progress/ProjectsProfileProgressSection';
 
-import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
-  params: Readonly<{ locale: string; username: string }>;
+  params: Readonly<{ username: string }>;
 }>;
 
 export default async function Page({ params }: Props) {
-  const { locale } = params;
-  const [user, { tracks }] = await Promise.all([
-    readUserFromToken(),
-    readProjectsTrackList(locale),
-  ]);
+  const user = await readUserFromToken();
 
   const [isViewerPremium, userProfile] = await Promise.all([
     (async () => {
@@ -51,7 +46,6 @@ export default async function Page({ params }: Props) {
   return (
     <ProjectsProfileProgressSection
       isViewerPremium={isViewerPremium}
-      projectTracks={tracks}
       userId={userProfile.id}
     />
   );
