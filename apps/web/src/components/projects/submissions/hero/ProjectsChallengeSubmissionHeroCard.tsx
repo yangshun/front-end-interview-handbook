@@ -9,7 +9,7 @@ import type { ProjectsChallengeItem } from '~/components/projects/challenges/typ
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundColor,
+  themeBackgroundCardAltColor,
   themeBackgroundLayerColor,
   themeGlassyBorder,
   themeTextBrandColor_GroupHover,
@@ -40,7 +40,9 @@ export default function ProjectsChallengeSubmissionHeroCard({
         'rounded-lg px-4 py-6',
         'w-full md:w-[436px]',
         themeGlassyBorder,
-        isMobileAndBelow ? themeBackgroundLayerColor : themeBackgroundColor,
+        isMobileAndBelow
+          ? themeBackgroundLayerColor
+          : themeBackgroundCardAltColor,
       )}>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
