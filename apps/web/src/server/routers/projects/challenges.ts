@@ -38,30 +38,12 @@ export const projectsChallengesRouter = router({
         slug: z.string(),
       }),
     )
-    .query(async ({ input: { locale, slug }, ctx: { user } }) => {
-      const [{ challenge }, challengeSession] = await Promise.all([
-        readProjectsChallengeItem(slug, locale),
-        user?.id == null
-          ? null
-          : prisma.projectsChallengeSession.findFirst({
-              orderBy: {
-                createdAt: 'asc',
-              },
-              where: {
-                projectsProfile: {
-                  userId: user?.id,
-                },
-                slug,
-                status: {
-                  not: 'STOPPED',
-                },
-              },
-            }),
-      ]);
+    .query(async ({ input: { locale, slug } }) => {
+      const { challenge } = await readProjectsChallengeItem(slug, locale);
 
       return {
         ...challenge,
-        status: challengeSession?.status || null,
+        status: null,
       };
     }),
   progress: publicProcedure
