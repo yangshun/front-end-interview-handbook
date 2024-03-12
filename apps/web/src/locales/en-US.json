@@ -5543,10 +5543,6 @@
     "defaultMessage": "Insert code block",
     "description": "Insert code block tooltip for Richtext toolbar"
   },
-  "m7aGNO": {
-    "defaultMessage": "You have not started any projects.",
-    "description": "Subtitle for no projects yet on projects progress tab"
-  },
   "m9Hj73": {
     "defaultMessage": "90% of projects are <bold>free to do</bold>",
     "description": "Caption for Explore projects button in Projects marketing hero section"
@@ -5826,10 +5822,6 @@
   "oxD4TD": {
     "defaultMessage": "Fresh Grad",
     "description": "Label for \"Fresh Grad\" option in YOE replacement"
-  },
-  "oxI61h": {
-    "defaultMessage": "No projects yet",
-    "description": "Title for no projects yet on projects progress tab"
   },
   "oxeO+l": {
     "defaultMessage": "Submit project",
@@ -6394,10 +6386,6 @@
   "tnHfa2": {
     "defaultMessage": "Move line down",
     "description": "Text describing command to move lines down in the coding workspace shortcuts menu"
-  },
-  "tnyBDF": {
-    "defaultMessage": "This user has not started any projects.",
-    "description": "Subtitle for no projects yet on projects progress tab"
   },
   "tonRki": {
     "defaultMessage": "Internationalization",

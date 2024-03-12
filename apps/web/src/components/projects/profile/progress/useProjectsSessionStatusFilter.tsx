@@ -1,8 +1,7 @@
 import type { ReactNode } from 'react';
 import { RiCodeSSlashFill, RiLoader4Fill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
-
-import useSessionStorageForSets from '~/hooks/useSessionStorageForSets';
+import { useSessionStorage } from 'usehooks-ts';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 
@@ -31,7 +30,7 @@ export type ChallengeFilter<
 
 type Props = Readonly<{
   filter?: (challenge: ProjectsChallengeSessionStatus) => boolean;
-  initialValue?: ReadonlyArray<ProjectsChallengeSessionStatus>;
+  initialValue?: ProjectsChallengeSessionStatus;
   namespace: string;
   order?: (
     a: ProjectsChallengeSessionStatus,
@@ -40,20 +39,21 @@ type Props = Readonly<{
 }>;
 
 export default function useProjectsSessionStatusFilter({
-  initialValue = [],
+  initialValue = 'IN_PROGRESS',
   filter,
   namespace,
   order,
 }: Props): [
-  Set<ProjectsChallengeSessionStatus>,
+  ProjectsChallengeSessionStatus,
   ChallengeFilter<ProjectsChallengeSessionStatus>,
 ] {
   const intl = useIntl();
-  const [challengeFilters, setChallengeFilters] =
-    useSessionStorageForSets<ProjectsChallengeSessionStatus>(
+  const [challengeFilter, setChallengeFilter] =
+    useSessionStorage<ProjectsChallengeSessionStatus>(
       `gfe:${namespace}:challenge-filter`,
-      new Set(initialValue),
+      initialValue,
     );
+
   let options: ReadonlyArray<{
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     label: string;
@@ -97,20 +97,11 @@ export default function useProjectsSessionStatusFilter({
     options = options.slice().sort((a, b) => order(a.value, b.value));
   }
 
-  const challengeFiltersOptions: ChallengeFilter<ProjectsChallengeSessionStatus> =
+  const challengeFilterOptions: ChallengeFilter<ProjectsChallengeSessionStatus> =
     {
       id: 'challenge-status',
       matches: (challenge) => {
-        if (challengeFilters.size === 0) {
-          return true;
-        }
-
-        return (
-          (challengeFilters.has('IN_PROGRESS') &&
-            challenge.status === 'IN_PROGRESS') ||
-          (challengeFilters.has('COMPLETED') &&
-            challenge.status === 'COMPLETED')
-        );
+        return challenge.status === challengeFilter;
       },
       name: intl.formatMessage({
         defaultMessage: 'Session status',
@@ -118,13 +109,10 @@ export default function useProjectsSessionStatusFilter({
         id: 'o3nhZ8',
       }),
       onChange: (value) => {
-        const formats = new Set(challengeFilters);
-
-        formats.has(value) ? formats.delete(value) : formats.add(value);
-        setChallengeFilters(formats);
+        setChallengeFilter(value);
       },
       options,
     };
 
-  return [challengeFilters, challengeFiltersOptions];
+  return [challengeFilter, challengeFilterOptions];
 }

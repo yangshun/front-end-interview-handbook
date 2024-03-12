@@ -30,9 +30,9 @@ export default function ProjectsProfileProgressAllChallengesTab({
 }: Props) {
   const intl = useIntl();
 
-  const [challengeFilters, challengeFilterOptions] =
+  const [challengeFilter, challengeFilterOptions] =
     useProjectsSessionStatusFilter({
-      initialValue: [],
+      initialValue: 'IN_PROGRESS',
       namespace: 'all-challenges',
     });
 
@@ -71,61 +71,34 @@ export default function ProjectsProfileProgressAllChallengesTab({
     totalList: shownSessions,
   });
 
-  const emptyState =
-    challengeFilters.size === 0 ||
-    challengeFilters.size === challengeFilterOptions.options.length ? (
-      <EmptyState
-        icon={RiRocketLine}
-        iconClassName={themeTextColor}
-        subtitle={
-          userId
-            ? intl.formatMessage({
-                defaultMessage: 'This user has not started any projects.',
-                description:
-                  'Subtitle for no projects yet on projects progress tab',
-                id: 'tnyBDF',
-              })
-            : intl.formatMessage({
-                defaultMessage: 'You have not started any projects.',
-                description:
-                  'Subtitle for no projects yet on projects progress tab',
-                id: 'm7aGNO',
-              })
-        }
-        title={intl.formatMessage({
-          defaultMessage: 'No projects yet',
-          description: 'Title for no projects yet on projects progress tab',
-          id: 'oxI61h',
-        })}
-      />
-    ) : (
-      <EmptyState
-        icon={RiRocketLine}
-        iconClassName={themeTextColor}
-        subtitle={
-          userId
-            ? intl.formatMessage({
-                defaultMessage:
-                  'This user has not started any projects matching those filters.',
-                description:
-                  'Subtitle for no projects yet on projects progress tab',
-                id: 'Dt0MpD',
-              })
-            : intl.formatMessage({
-                defaultMessage:
-                  'You have not started any projects matching those filters.',
-                description:
-                  'Subtitle for no projects yet on projects progress tab',
-                id: 'vvPx/k',
-              })
-        }
-        title={intl.formatMessage({
-          defaultMessage: 'No projects matching those filters',
-          description: 'Title for no projects yet on projects progress tab',
-          id: '+uw4/h',
-        })}
-      />
-    );
+  const emptyState = (
+    <EmptyState
+      icon={RiRocketLine}
+      iconClassName={themeTextColor}
+      subtitle={
+        userId
+          ? intl.formatMessage({
+              defaultMessage:
+                'This user has not started any projects matching those filters.',
+              description:
+                'Subtitle for no projects yet on projects progress tab',
+              id: 'Dt0MpD',
+            })
+          : intl.formatMessage({
+              defaultMessage:
+                'You have not started any projects matching those filters.',
+              description:
+                'Subtitle for no projects yet on projects progress tab',
+              id: 'vvPx/k',
+            })
+      }
+      title={intl.formatMessage({
+        defaultMessage: 'No projects matching those filters',
+        description: 'Title for no projects yet on projects progress tab',
+        id: '+uw4/h',
+      })}
+    />
+  );
 
   return (
     <div className="flex flex-col gap-8">
@@ -139,7 +112,7 @@ export default function ProjectsProfileProgressAllChallengesTab({
                 icon={Icon}
                 label={String(option.label)}
                 purpose="tab"
-                selected={challengeFilters.has(option.value)}
+                selected={challengeFilter === option.value}
                 tooltip={option.tooltip}
                 onClick={() => challengeFilterOptions.onChange(option.value)}
               />
