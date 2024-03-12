@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { RiFireLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
-import ProjectsChallengeStatusBadgeCompleted from '~/components/projects/challenges/status/ProjectsChallengeStatusBadgeCompleted';
+import ProjectsStatusBadgeCompleted from '~/components/projects/common/status/ProjectsStatusBadgeCompleted';
 import ProjectsTrackProgressTag from '~/components/projects/tracks/ProjectsTrackProgressTag';
 import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
@@ -24,7 +24,7 @@ export default function ProjectsSkillRoadmapGroupHeading({ group }: Props) {
           {group.key}
         </Text>
         {completedAll ? (
-          <ProjectsChallengeStatusBadgeCompleted />
+          <ProjectsStatusBadgeCompleted />
         ) : (
           <div
             className={clsx(

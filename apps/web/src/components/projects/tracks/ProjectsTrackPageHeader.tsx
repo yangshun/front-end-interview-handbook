@@ -3,12 +3,12 @@ import { RiArrowLeftLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
+import ProjectsStatusBadgeCompleted from '~/components/projects/common/status/ProjectsStatusBadgeCompleted';
 import ProjectsTrackProgressTag from '~/components/projects/tracks/ProjectsTrackProgressTag';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
-import ProjectsChallengeStatusBadgeCompleted from '../challenges/status/ProjectsChallengeStatusBadgeCompleted';
 import ProjectsPremiumBadge from '../common/ProjectsPremiumBadge';
 
 type BaseProps = Readonly<{
@@ -67,7 +67,7 @@ export default function ProjectsTrackHeader({
                 'completedCount' in props &&
                 'totalCount' in props &&
                 props.completedCount === props.totalCount && (
-                  <ProjectsChallengeStatusBadgeCompleted />
+                  <ProjectsStatusBadgeCompleted />
                 )}
             </div>
             <div className="flex flex-wrap gap-x-4 gap-y-2">

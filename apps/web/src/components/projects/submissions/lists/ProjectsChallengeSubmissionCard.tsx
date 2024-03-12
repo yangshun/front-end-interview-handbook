@@ -21,7 +21,7 @@ import {
 import ProjectsChallengeHoverCard from './ProjectsChallengeHoverCard';
 import ProjectsChallengeSubmissionCardPinButton from './ProjectsChallengeSubmissionCardPinButton';
 import type { ProjectsChallengeSubmissionAugmented } from '../types';
-import ProjectsChallengeStatusBadge from '../../challenges/status/ProjectsChallengeStatusBadge';
+import ProjectsStatusBadge from '../../common/status/ProjectsStatusBadge';
 import ProjectsSkillList from '../../skills/metadata/ProjectsSkillList';
 import ProjectsCommentCountTag from '../../stats/ProjectsCommentCountTag';
 import ProjectsViewCountTag from '../../stats/ProjectsViewCountTag';
@@ -105,7 +105,7 @@ export default function ProjectsChallengeSubmissionCard({
               />
             </Text>
             {!isPinned && !showPinButton && (
-              <ProjectsChallengeStatusBadge status={challenge.status} />
+              <ProjectsStatusBadge status={challenge.status} />
             )}
           </div>
           {showPinButton && (

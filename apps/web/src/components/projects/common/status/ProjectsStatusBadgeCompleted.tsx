@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 
 import Badge from '~/components/ui/Badge';
 
-export default function ProjectsChallengeStatusBadgeCompleted() {
+export default function ProjectsStatusBadgeCompleted() {
   const intl = useIntl();
 
   return (

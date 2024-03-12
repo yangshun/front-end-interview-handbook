@@ -13,9 +13,9 @@ import {
   themeGlassyBorder,
 } from '~/components/ui/theme';
 
-import ProjectsChallengeStatusBadge from '../status/ProjectsChallengeStatusBadge';
 import type { ProjectsChallengeItem } from '../types';
 import ProjectsPremiumBadge from '../../common/ProjectsPremiumBadge';
+import ProjectsStatusBadge from '../../common/status/ProjectsStatusBadge';
 import ProjectsSkillList from '../../skills/metadata/ProjectsSkillList';
 import ProjectsCompletedUsersTag from '../../stats/ProjectsCompletedUsersTag';
 
@@ -65,7 +65,7 @@ export default function ProjectsChallengeCard({
         />
         {status != null && (
           <div className="absolute bottom-3 start-3">
-            <ProjectsChallengeStatusBadge status={status} />
+            <ProjectsStatusBadge status={status} />
           </div>
         )}
         <div className="absolute start-3 top-3 flex items-center gap-1">

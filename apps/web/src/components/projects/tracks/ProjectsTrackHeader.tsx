@@ -3,8 +3,8 @@ import ProjectsTrackProgressTag from '~/components/projects/tracks/ProjectsTrack
 import Text from '~/components/ui/Text';
 
 import type { ProjectsTrackItem } from './ProjectsTracksData';
-import ProjectsChallengeStatusBadgeCompleted from '../challenges/status/ProjectsChallengeStatusBadgeCompleted';
 import ProjectsPremiumBadge from '../common/ProjectsPremiumBadge';
+import ProjectsStatusBadgeCompleted from '../common/status/ProjectsStatusBadgeCompleted';
 
 type Props = Readonly<{
   completedCount?: number;
@@ -30,7 +30,7 @@ export default function ProjectsTrackHeader({
         {metadata.premium && (
           <ProjectsPremiumBadge unlocked={isViewerPremium} />
         )}
-        {completed && <ProjectsChallengeStatusBadgeCompleted />}
+        {completed && <ProjectsStatusBadgeCompleted />}
       </div>
       <Text color="subtitle" display="block" size="body2">
         {description}

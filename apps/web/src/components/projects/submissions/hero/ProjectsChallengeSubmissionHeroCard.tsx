@@ -16,7 +16,7 @@ import {
   themeTextFaintColor,
 } from '~/components/ui/theme';
 
-import ProjectsChallengeStatusBadge from '../../challenges/status/ProjectsChallengeStatusBadge';
+import ProjectsStatusBadge from '../../common/status/ProjectsStatusBadge';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -51,7 +51,7 @@ export default function ProjectsChallengeSubmissionHeroCard({
               id: '/BGC+5',
             })}
           </Text>
-          <ProjectsChallengeStatusBadge status={status} />
+          <ProjectsStatusBadge status={status} />
         </div>
         <RiArrowRightLine
           aria-hidden={true}
