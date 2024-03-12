@@ -5,6 +5,9 @@ import { z } from 'zod';
 import useProjectsMonthYearExperienceSchema from '~/components/projects/hooks/useProjectsMonthYearExperienceSchema';
 import { yoeReplacementSchema } from '~/components/projects/misc';
 
+const MIN_LENGTH = 1;
+const MAX_LENGTH = 80;
+
 function projectsJobTitleInputSchema(options?: {
   minMessage?: string;
   required?: boolean;
@@ -80,12 +83,58 @@ export function useProjectsJobStartedSchema() {
   };
 }
 
+export function getProjectsProfileJobStatusOthersFieldAttributes(
+  intl: IntlShape,
+) {
+  const label = intl.formatMessage({
+    defaultMessage: 'Other',
+    description:
+      'Label for other input for yoe replacement status on projects profile page',
+    id: 'NXw886',
+  });
+
+  const placeholder = intl.formatMessage({
+    defaultMessage: 'Write your status here',
+    description:
+      'Placeholder for status others field on project profile edit page',
+    id: 'SK7Xn6',
+  });
+  const maxMessage = intl.formatMessage(
+    {
+      defaultMessage: 'Status must contain at most {maxLength} character(s).',
+      description:
+        'Error message for exceed char limit in other input for yoe status on projects profile page',
+      id: 'oWznNz',
+    },
+    {
+      maxLength: MAX_LENGTH,
+    },
+  );
+  const minMessage = intl.formatMessage({
+    defaultMessage: 'Please enter your status',
+    description:
+      'Error message for empty other input for yoe status on projects profile page',
+    id: 'anZw89',
+  });
+
+  return {
+    label,
+    placeholder,
+    validation: {
+      maxLength: MAX_LENGTH,
+      maxMessage,
+      minMessage,
+    },
+  };
+}
+
 export function useProjectsJobNotStartedSchema() {
   const intl = useIntl();
   const monthYearExperienceSchema = useProjectsMonthYearExperienceSchema({
     isRequired: true,
   });
   const titleSchema = useProjectsJobTitleInputSchema({ type: 'title' });
+  const intlStrings = getProjectsProfileJobStatusOthersFieldAttributes(intl);
 
   return {
     company: z
@@ -105,14 +154,11 @@ export function useProjectsJobNotStartedSchema() {
       .discriminatedUnion('option', [
         z.object({
           option: yoeReplacementSchema.extract(['others']),
-          otherText: z.string().min(1, {
-            message: intl.formatMessage({
-              defaultMessage: 'Please enter your status',
-              description:
-                'Error message for empty "Other" input for "Years of experience replacement status" on Projects profile page',
-              id: '4rcZT1',
-            }),
-          }),
+          otherText: z
+            .string()
+            .min(MIN_LENGTH, { message: intlStrings.validation.minMessage })
+            .max(MAX_LENGTH, { message: intlStrings.validation.maxMessage })
+            .trim(),
         }),
         z.object({
           option: yoeReplacementSchema.exclude(['others']),

@@ -10,11 +10,11 @@ import { useProfileUsernameSchema } from '~/components/profile/fields/ProfileUse
 import useProjectsProfileExperienceValueInitializer from '~/components/projects/hooks/useProjectsProfileExperienceValueInitializer';
 import ProjectsProfileEditAvatar from '~/components/projects/profile/edit/ProjectsProfileEditAvatar';
 import ProjectsProfileJobSection from '~/components/projects/profile/edit/ProjectsProfileJobSection';
+import ProjectsProfileUsernameInput from '~/components/projects/profile/edit/ProjectsProfileUsernameInput';
 import {
   useProjectsJobNotStartedSchema,
   useProjectsJobStartedSchema,
-} from '~/components/projects/profile/edit/ProjectsProfileSchema';
-import ProjectsProfileUsernameInput from '~/components/projects/profile/edit/ProjectsProfileUsernameInput';
+} from '~/components/projects/profile/fields/ProjectsProfileJobSchema';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import TextInput from '~/components/ui/TextInput';

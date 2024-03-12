@@ -7,8 +7,10 @@ import Heading from '~/components/ui/Heading';
 import RadioGroup from '~/components/ui/RadioGroup';
 import RadioGroupItem from '~/components/ui/RadioGroup/RadioGroupItem';
 import Text from '~/components/ui/Text';
+import TextArea from '~/components/ui/TextArea';
 import TextInput from '~/components/ui/TextInput';
 
+import { getProjectsProfileJobStatusOthersFieldAttributes } from '../fields/ProjectsProfileJobSchema';
 import useProjectsYOEReplacementOptions from '../../hooks/useProjectsYOEReplacementOptions';
 
 type Values =
@@ -22,6 +24,7 @@ export default function ProjectsProfileJobSection() {
     watch,
     formState: { errors },
   } = useFormContext<Values>();
+  const statusAttrs = getProjectsProfileJobStatusOthersFieldAttributes(intl);
 
   const jobStatusOptions = [
     {
@@ -239,22 +242,13 @@ export default function ProjectsProfileJobSection() {
               control={control}
               name="yoeReplacement.otherText"
               render={({ field }) => (
-                <TextInput
-                  className="mt-4"
+                <TextArea
                   errorMessage={errors.yoeReplacement?.otherText?.message}
                   isLabelHidden={true}
-                  label={intl.formatMessage({
-                    defaultMessage: 'Other',
-                    description:
-                      'Label for "Other" input for "Years of experience replacement status" on Projects profile onboarding page',
-                    id: 'WWdQAb',
-                  })}
-                  placeholder={intl.formatMessage({
-                    defaultMessage: 'Write here',
-                    description:
-                      'Placeholder for "Other" input for "Years of experience replacement status" on Projects profile onboarding page',
-                    id: 'WH8fwr',
-                  })}
+                  label={statusAttrs.label}
+                  maxLength={statusAttrs.validation.maxLength}
+                  placeholder={statusAttrs.placeholder}
+                  rows={1}
                   {...field}
                 />
               )}

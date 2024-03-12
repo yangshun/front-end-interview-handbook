@@ -17,12 +17,12 @@ import useProjectsProfileExperienceValueInitializer from '~/components/projects/
 import ProjectsProfileBasicInfoSection from '~/components/projects/profile/edit/ProjectsProfileBasicInfoSection';
 import ProjectsProfileJobSection from '~/components/projects/profile/edit/ProjectsProfileJobSection';
 import ProjectsProfileMotivationSection from '~/components/projects/profile/edit/ProjectsProfileMotivationSection';
+import ProjectsProfileSkillSection from '~/components/projects/profile/edit/ProjectsProfileSkillSection';
+import ProjectsProfileSocialSection from '~/components/projects/profile/edit/ProjectsProfileSocialSection';
 import {
   useProjectsJobNotStartedSchema,
   useProjectsJobStartedSchema,
-} from '~/components/projects/profile/edit/ProjectsProfileSchema';
-import ProjectsProfileSkillSection from '~/components/projects/profile/edit/ProjectsProfileSkillSection';
-import ProjectsProfileSocialSection from '~/components/projects/profile/edit/ProjectsProfileSocialSection';
+} from '~/components/projects/profile/fields/ProjectsProfileJobSchema';
 import { useProjectsSkillListInputSchema } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Anchor from '~/components/ui/Anchor';

@@ -663,10 +663,6 @@
     "defaultMessage": "Number of questions completed",
     "description": "Number of questions completed in a list of questions"
   },
-  "4rcZT1": {
-    "defaultMessage": "Please enter your status",
-    "description": "Error message for empty \"Other\" input for \"Years of experience replacement status\" on Projects profile page"
-  },
   "4s0hMm": {
     "defaultMessage": "All tasks completed!",
     "description": "Title for rewards complete page"
@@ -2707,6 +2703,10 @@
     "defaultMessage": "Close menu",
     "description": "Button to close menu"
   },
+  "NXw886": {
+    "defaultMessage": "Other",
+    "description": "Label for other input for yoe replacement status on projects profile page"
+  },
   "NdDD5W": {
     "defaultMessage": "Front End System Design Guidebook",
     "description": "Front end system design guidebook title"
@@ -3319,6 +3319,10 @@
     "defaultMessage": "All rounded coverage to bring you to the next level.",
     "description": "Short description for one month study plan"
   },
+  "SK7Xn6": {
+    "defaultMessage": "Write your status here",
+    "description": "Placeholder for status others field on project profile edit page"
+  },
   "SKfw++": {
     "defaultMessage": "Are you currently working as a Software Engineer?",
     "description": "Label for \"has work started\" in projects profile page"
@@ -3755,10 +3759,6 @@
     "defaultMessage": "Challenge difficulty",
     "description": "Label for Difficulty filter for projects list"
   },
-  "WH8fwr": {
-    "defaultMessage": "Write here",
-    "description": "Placeholder for \"Other\" input for \"Years of experience replacement status\" on Projects profile onboarding page"
-  },
   "WIHUwS": {
     "defaultMessage": "Quarterly plan",
     "description": "Title of quarterly pricing plan"
@@ -3798,10 +3798,6 @@
   "WWRfWH": {
     "defaultMessage": "If you are a developer or engineer looking to excel in the front-end world, GreatFrontEnd is an excellent resource to have. It's very common to practice LeetCode style questions in the world of engineering, but rarely does anyone talk about system designs and behavioral questions. This is one of the biggest reasons why I joined! It's challenging, fun, and there's also a community that looks out for you!",
     "description": "Jacky Liang's testimonial"
-  },
-  "WWdQAb": {
-    "defaultMessage": "Other",
-    "description": "Label for \"Other\" input for \"Years of experience replacement status\" on Projects profile onboarding page"
   },
   "WX+cIg": {
     "defaultMessage": "Free Plan CTA card tooltip",
@@ -4230,6 +4226,10 @@
   "am2rVD": {
     "defaultMessage": "Try changing the filters",
     "description": "Subtitle for empty state when no questions are returned from application of filters on quiz questions list"
+  },
+  "anZw89": {
+    "defaultMessage": "Please enter your status",
+    "description": "Error message for empty other input for yoe status on projects profile page"
   },
   "aplNQq": {
     "defaultMessage": "Explore projects",
@@ -5766,6 +5766,10 @@
   "oS10TF": {
     "defaultMessage": "Follow us on GitHub",
     "description": "Title for task"
+  },
+  "oWznNz": {
+    "defaultMessage": "Status must contain at most {maxLength} character(s).",
+    "description": "Error message for exceed char limit in other input for yoe status on projects profile page"
   },
   "obU6+a": {
     "defaultMessage": "Software Engineer",
