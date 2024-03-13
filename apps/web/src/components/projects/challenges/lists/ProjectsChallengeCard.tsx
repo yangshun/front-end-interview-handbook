@@ -7,7 +7,7 @@ import ProjectsChallengeReputationTag from '~/components/projects/challenges/met
 import ProjectsChallengeTrackTag from '~/components/projects/challenges/metadata/ProjectsChallengeTrackTag';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
-import Text from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundCardAltColor,
   themeGlassyBorder,
@@ -52,7 +52,12 @@ export default function ProjectsChallengeCard({
         'flex flex-col',
         'rounded-lg',
         'relative isolate',
-        type === 'normal' && [themeGlassyBorder, themeBackgroundCardAltColor],
+        type === 'normal' && [
+          themeGlassyBorder,
+          themeBackgroundCardAltColor,
+          'transition-all',
+          'hover:-translate-y-1',
+        ],
       )}>
       <div className="relative">
         <img
@@ -88,9 +93,16 @@ export default function ProjectsChallengeCard({
           <ProjectsChallengeReputationTag points={points} variant="flat" />
         </div>
         <div className="flex grow flex-col gap-2">
-          <Text size="body1" weight="bold">
+          <Anchor
+            className={textVariants({
+              className: 'z-[1]',
+              size: 'body1',
+              weight: 'bold',
+            })}
+            href={href}
+            variant="flat">
             {title}
-          </Text>
+          </Anchor>
           <Text className="grow" color="subtitle" size="body2">
             {description}
           </Text>
