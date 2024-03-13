@@ -70,7 +70,7 @@ function QuestionNewLabel({
 
   return (
     <span
-      className="size-12 absolute -right-0.5 -top-0.5"
+      className="size-12 absolute -right-0.5 -top-0.5 overflow-hidden"
       style={{
         clipPath: 'polygon(50% 0, 100% 50%, 100% 100%, 0 100%, 0 0)',
       }}>
