@@ -37,6 +37,7 @@ import ProjectsChallengeAssetsResponsiveBreakpointsTab from './ProjectsChallenge
 import useProjectsChallengeProvidedResources from './useProjectsChallengeProvidedResources';
 import ProjectsChallengePremiumPaywall from '../premium/ProjectsChallengePremiumPaywall';
 import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxContent';
+import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type OnlineAssetsTabType = 'api' | 'responsive-breakpoints' | 'style-guide';
 
@@ -85,15 +86,15 @@ function useOnlineAssetsTabs(hasStyleGuide: boolean, hasAPIWriteup: boolean) {
 type Props = Readonly<{
   apiWriteup?: ProjectsChallengeAPIWriteup;
   challenge: ProjectsChallengeItem;
-  isViewerPremium: boolean;
   styleGuide?: ProjectsChallengeStyleGuide;
+  viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 
 export default function ProjectsChallengeAssetsPage({
   apiWriteup,
   challenge,
-  isViewerPremium,
   styleGuide,
+  viewerProjectsProfile,
 }: Props) {
   const intl = useIntl();
   const { metadata } = challenge;
@@ -110,10 +111,10 @@ export default function ProjectsChallengeAssetsPage({
   );
 
   const showPaywall =
-    challenge.metadata.access === 'premium' && !isViewerPremium;
+    challenge.metadata.access === 'premium' && !viewerProjectsProfile?.premium;
 
   const overlay = showPaywall ? (
-    <ProjectsChallengePremiumPaywall />
+    <ProjectsChallengePremiumPaywall {...viewerProjectsProfile} />
   ) : (
     <div
       className={clsx(
@@ -227,7 +228,7 @@ export default function ProjectsChallengeAssetsPage({
                   size="lg"
                   variant={unlockedProjects ? 'special' : 'secondary'}
                 />
-                {!isViewerPremium && (
+                {!viewerProjectsProfile?.premium && (
                   <>
                     <Text color="subtle" size="body3">
                       <FormattedMessage

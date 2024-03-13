@@ -31,15 +31,16 @@ import {
 
 import ProjectsChallengePremiumPaywall from '../premium/ProjectsChallengePremiumPaywall';
 import { useProjectsChallengeSessionContext } from '../session/ProjectsChallengeSessionContext';
+import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
-  isViewerPremium: boolean;
+  viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 
 export default function ProjectsChallengeDeploymentCompletionPage({
   challenge,
-  isViewerPremium,
+  viewerProjectsProfile,
 }: Props) {
   const { metadata } = challenge;
   const { submitHref } = metadata;
@@ -49,10 +50,10 @@ export default function ProjectsChallengeDeploymentCompletionPage({
     useProjectsChallengeSessionContext();
 
   const showPaywall =
-    challenge.metadata.access === 'premium' && !isViewerPremium;
+    challenge.metadata.access === 'premium' && !viewerProjectsProfile?.premium;
 
   const overlay = showPaywall ? (
-    <ProjectsChallengePremiumPaywall />
+    <ProjectsChallengePremiumPaywall {...viewerProjectsProfile} />
   ) : (
     <div
       className={clsx(

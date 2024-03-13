@@ -25,6 +25,7 @@ import { themeBorderColor } from '~/components/ui/theme';
 
 import ProjectsChallengeGuideSection from '../guides/ProjectsChallengeGuideSection';
 import ProjectsChallengePremiumPaywall from '../premium/ProjectsChallengePremiumPaywall';
+import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type TipsResourcesDiscussionsTabType = 'discussions' | 'guides' | 'references';
 
@@ -52,14 +53,14 @@ function useTipsResourcesDiscussionsTabs() {
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
-  isViewerPremium: boolean;
   projectGuides: Array<ProjectsChallengeGuide>;
+  viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 
 export default function ProjectsChallengeResourcesPage({
   challenge,
-  isViewerPremium,
   projectGuides,
+  viewerProjectsProfile,
 }: Props) {
   const intl = useIntl();
   const tipsResourcesDiscussionsTabs = useTipsResourcesDiscussionsTabs();
@@ -69,10 +70,10 @@ export default function ProjectsChallengeResourcesPage({
   const { startProject, accessAllSteps, fetchingCanAccessAllSteps } =
     useProjectsChallengeSessionContext();
   const showPaywall =
-    challenge.metadata.access === 'premium' && !isViewerPremium;
+    challenge.metadata.access === 'premium' && !viewerProjectsProfile?.premium;
 
   const overlay = showPaywall ? (
-    <ProjectsChallengePremiumPaywall />
+    <ProjectsChallengePremiumPaywall {...viewerProjectsProfile} />
   ) : (
     <div
       className={clsx(

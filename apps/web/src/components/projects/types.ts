@@ -8,6 +8,8 @@ import type {
 import type { ProjectsImageBreakpointCategory } from './common/ProjectsImageBreakpoints';
 import type { ProjectsSkillKey } from './skills/types';
 
+import type { ProjectsSubscriptionPlan } from '@prisma/client';
+
 export type ProjectsMotivationReasonValue = z.infer<
   typeof motivationReasonValue
 >;
@@ -81,6 +83,11 @@ export type ProjectsProfileAvatarData = ProjectsProfileAvatarDataSlim &
     points: number;
   }>;
 
+export type ProjectsViewerProjectsProfile = Readonly<{
+  credits: number;
+  plan: ProjectsSubscriptionPlan | null;
+  premium: boolean;
+}>;
 export type ProjectsProfileAvatarDataSlim = Readonly<{
   avatarUrl: string | null;
   id: string;

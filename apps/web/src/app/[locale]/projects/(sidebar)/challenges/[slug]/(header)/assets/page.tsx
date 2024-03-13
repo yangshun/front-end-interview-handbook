@@ -29,8 +29,8 @@ export default async function Page({ params }: Props) {
     <ProjectsChallengeAssetsPage
       apiWriteup={apiWriteup ?? undefined}
       challenge={challenge}
-      isViewerPremium={viewerProjectsProfile?.premium ?? false}
       styleGuide={styleGuide ?? undefined}
+      viewerProjectsProfile={viewerProjectsProfile}
     />
   );
 }

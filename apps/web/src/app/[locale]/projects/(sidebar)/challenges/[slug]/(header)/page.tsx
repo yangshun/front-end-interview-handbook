@@ -17,7 +17,7 @@ export default async function Page({ params }: Props) {
   return (
     <ProjectsChallengeBriefPage
       challenge={challenge}
-      isViewerPremium={viewerProjectsProfile?.premium ?? false}
+      viewerProjectsProfile={viewerProjectsProfile}
     />
   );
 }
