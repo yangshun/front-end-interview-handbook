@@ -9,7 +9,7 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { slug, locale } = params;
-  const [{ isViewerPremium }, { challenge }] = await Promise.all([
+  const [{ viewerProjectsProfile }, { challenge }] = await Promise.all([
     readViewerProjectsProfile(),
     readProjectsChallengeItem(slug, locale),
   ]);
@@ -17,7 +17,7 @@ export default async function Page({ params }: Props) {
   return (
     <ProjectsChallengeBriefPage
       challenge={challenge}
-      isViewerPremium={isViewerPremium}
+      isViewerPremium={viewerProjectsProfile?.premium ?? false}
     />
   );
 }

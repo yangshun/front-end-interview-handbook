@@ -11,14 +11,14 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const [{ isViewerPremium }, { tracks }] = await Promise.all([
+  const [{ viewerProjectsProfile }, { tracks }] = await Promise.all([
     readViewerProjectsProfile(),
     readProjectsTrackList(locale),
   ]);
 
   return (
     <ProjectsProfileProgressTracksTab
-      isViewerPremium={isViewerPremium}
+      isViewerPremium={viewerProjectsProfile?.premium ?? false}
       projectTracks={tracks}
     />
   );

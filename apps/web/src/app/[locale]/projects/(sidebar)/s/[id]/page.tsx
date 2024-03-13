@@ -14,7 +14,7 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { locale, id: submissionId } = params;
-  const [{ userId, isViewerPremium }, submission, commentCount] =
+  const [{ userId, viewerProjectsProfile }, submission, commentCount] =
     await Promise.all([
       readViewerProjectsProfile(),
       prisma.projectsChallengeSubmission.findFirst({
@@ -68,7 +68,7 @@ export default async function Page({ params }: Props) {
     <ProjectsChallengeSubmissionPage
       challenge={challenge}
       currentUserId={userId}
-      isViewerPremium={isViewerPremium}
+      isViewerPremium={viewerProjectsProfile?.premium ?? false}
       submission={convertToPlainObject({
         ...submission,
         comments: commentCount,

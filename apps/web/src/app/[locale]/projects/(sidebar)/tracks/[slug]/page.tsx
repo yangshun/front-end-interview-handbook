@@ -14,7 +14,7 @@ export default async function Page({ params }: Props) {
   const { slug: rawSlug, locale } = params;
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
-  const [{ isViewerPremium, userId }, { track }] = await Promise.all([
+  const [{ viewerProjectsProfile, userId }, { track }] = await Promise.all([
     readViewerProjectsProfile(),
     readProjectsTrack(slug, locale),
   ]);
@@ -24,7 +24,7 @@ export default async function Page({ params }: Props) {
     notFound();
   }
 
-  if (track.metadata.premium && !isViewerPremium) {
+  if (track.metadata.premium && !viewerProjectsProfile?.premium) {
     return (
       <ProjectsTrackDetailsLockedPage
         metadata={track.metadata}
@@ -35,7 +35,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <ProjectsTrackDetailsPage
-      isViewerPremium={isViewerPremium}
+      isViewerPremium={viewerProjectsProfile?.premium ?? false}
       track={track}
       userId={userId}
     />

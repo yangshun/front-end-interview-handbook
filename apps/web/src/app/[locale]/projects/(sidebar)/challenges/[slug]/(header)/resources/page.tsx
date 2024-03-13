@@ -14,7 +14,7 @@ export default async function Page({ params }: Props) {
   const { slug, locale } = params;
 
   const [
-    { isViewerPremium },
+    { viewerProjectsProfile },
     { challenge },
     { resourceProjectsChallengeGuides },
   ] = await Promise.all([
@@ -26,7 +26,7 @@ export default async function Page({ params }: Props) {
   return (
     <ProjectsChallengeResourcesPage
       challenge={challenge}
-      isViewerPremium={isViewerPremium}
+      isViewerPremium={viewerProjectsProfile?.premium ?? false}
       projectGuides={resourceProjectsChallengeGuides}
     />
   );

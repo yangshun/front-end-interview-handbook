@@ -14,12 +14,17 @@ export default async function readViewerProjectsProfile(
   }
 
   if (user == null) {
-    return { isViewerPremium: false, projectsProfileId: null, userId: null };
+    return {
+      userId: null,
+      viewerProjectsProfile: null,
+    };
   }
 
   const projectsProfile = await prisma.projectsProfile.findFirst({
     select: {
+      credits: true,
       id: true,
+      plan: true,
       premium: true,
     },
     where: {
@@ -28,8 +33,7 @@ export default async function readViewerProjectsProfile(
   });
 
   return {
-    isViewerPremium: projectsProfile?.premium ?? false,
-    projectsProfileId: projectsProfile?.id ?? null,
     userId: user.id,
+    viewerProjectsProfile: projectsProfile,
   };
 }

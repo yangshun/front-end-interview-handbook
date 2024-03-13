@@ -10,7 +10,7 @@ type Props = Readonly<{
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [{ isViewerPremium }, { challenges }] = await Promise.all([
+  const [{ viewerProjectsProfile }, { challenges }] = await Promise.all([
     readViewerProjectsProfile(),
     readProjectsChallengeList(locale),
   ]);
@@ -18,7 +18,7 @@ export default async function Page({ params }: Props) {
   // TODO(projects): Actual suggested projects for the current project.
   return (
     <ProjectsChallengeSubmissionSuccessPage
-      isViewerPremium={isViewerPremium}
+      isViewerPremium={viewerProjectsProfile?.premium ?? false}
       suggestedChallenges={challenges.slice(0, 3)}
     />
   );

@@ -13,19 +13,23 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { slug, locale } = params;
-  const [{ isViewerPremium }, { challenge }, { styleGuide }, { apiWriteup }] =
-    await Promise.all([
-      readViewerProjectsProfile(),
-      readProjectsChallengeItem(slug, locale),
-      readProjectsChallengeStyleGuide(slug, locale),
-      readProjectsChallengeAPIWriteup(slug, locale),
-    ]);
+  const [
+    { viewerProjectsProfile },
+    { challenge },
+    { styleGuide },
+    { apiWriteup },
+  ] = await Promise.all([
+    readViewerProjectsProfile(),
+    readProjectsChallengeItem(slug, locale),
+    readProjectsChallengeStyleGuide(slug, locale),
+    readProjectsChallengeAPIWriteup(slug, locale),
+  ]);
 
   return (
     <ProjectsChallengeAssetsPage
       apiWriteup={apiWriteup ?? undefined}
       challenge={challenge}
-      isViewerPremium={isViewerPremium}
+      isViewerPremium={viewerProjectsProfile?.premium ?? false}
       styleGuide={styleGuide ?? undefined}
     />
   );
