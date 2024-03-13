@@ -86,18 +86,19 @@ async function readQuestionJavaScriptFiles(
   ]);
   const setupPath = path.join(questionPath, 'setup');
 
-  const files = (
-    await globby(path.posix.join('**', '*'), {
-      cwd: setupPath,
-      ignore: [
-        'README.md',
-        'node_modules',
-        'greatfrontend.json',
-        gfeConfig.skeleton.js.replace(/^\//, ''),
-        gfeConfig.skeleton.ts.replace(/^\//, ''),
-      ],
-    })
-  ).map((filePath) => '/' + filePath);
+  const files = // Globby only supports forward slashes.
+    (
+      await globby(path.posix.join('**', '*'), {
+        cwd: setupPath,
+        ignore: [
+          'README.md',
+          'node_modules',
+          'greatfrontend.json',
+          gfeConfig.skeleton.js.replace(/^\//, ''),
+          gfeConfig.skeleton.ts.replace(/^\//, ''),
+        ],
+      })
+    ).map((filePath) => path.posix.sep + filePath);
 
   const compulsoryFiles = [workspace.main, workspace.run, workspace.submit];
 

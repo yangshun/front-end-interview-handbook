@@ -13,11 +13,15 @@ async function generateSetupForQuestion(slug: string) {
   const questionPath = getQuestionSrcPathJavaScript(slug);
   // This assumes that if the locale file is present for the description
   // it's also present for the solution.
-  const locales = (
-    await globby(
-      path.posix.join(...questionPath.split(path.sep), 'description', '*.mdx'),
-    )
-  )
+
+  const globPattern = path.posix.join(
+    // Globby only supports forward slashes.
+    questionPath.replaceAll(path.sep, path.posix.sep),
+    'description',
+    '*.mdx',
+  );
+
+  const locales = (await globby(globPattern))
     // Files are named after their locales.
     .map((filePath) => parse(filePath).name);
 
