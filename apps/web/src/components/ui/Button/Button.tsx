@@ -262,7 +262,7 @@ function Button(
     children,
     className: clsx(
       display === 'block' ? 'flex w-full' : 'inline-flex',
-      'items-center justify-center shrink-0',
+      'items-center justify-center',
       heightClasses[size],
       isLabelHidden && IconSecondary == null
         ? widthClasses[size]
