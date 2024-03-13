@@ -63,6 +63,7 @@ export type ProjectsChallengeSubmissionAugmented =
 export type ProjectsChallengeSubmissionSortField =
   | 'createdAt'
   | 'difficulty'
+  | 'recommended'
   | 'votes';
 
 export type ProjectsChallengeSubmissionStatusFilter =

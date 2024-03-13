@@ -6435,6 +6435,10 @@
     "defaultMessage": "Title: A to Z",
     "description": "Sorting option for question list - sort titles from A to Z"
   },
+  "tuK8wZ": {
+    "defaultMessage": "Recommended",
+    "description": "Sorting option for submissions list - recommended"
+  },
   "tuaXhc": {
     "defaultMessage": "Indent line",
     "description": "Text describing indent line in the coding workspace shortcuts menu"

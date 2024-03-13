@@ -6,15 +6,15 @@ import type { ProjectsChallengeSubmissionSortField } from '~/components/projects
 export default function useProjectsChallengeSubmissionSorting() {
   const { updateSearchParams, getStringTypeSearchParams } =
     useProjectsChallengeSubmissionFilterContext();
-  const initialSortFiled = getStringTypeSearchParams('sortField');
+  const initialSortField = getStringTypeSearchParams('sortField');
   const [isAscendingOrder, setIsAscendingOrder] = useState(
     getStringTypeSearchParams('sortOrder') === 'DESC' ? false : true,
   );
   const [sortField, setSortField] =
-    useState<ProjectsChallengeSubmissionSortField | null>(
-      initialSortFiled
-        ? (initialSortFiled as ProjectsChallengeSubmissionSortField)
-        : null,
+    useState<ProjectsChallengeSubmissionSortField>(
+      initialSortField
+        ? (initialSortField as ProjectsChallengeSubmissionSortField)
+        : 'recommended',
     );
   const onChangeIsAscendingOrder = (value: boolean) => {
     updateSearchParams('sortOrder', value ? 'ASC' : 'DESC');

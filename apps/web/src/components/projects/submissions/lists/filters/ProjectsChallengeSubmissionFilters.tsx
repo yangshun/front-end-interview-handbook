@@ -74,6 +74,15 @@ export default function ProjectsChallengeSubmissionFilters({
         {[
           makeDropdownItemProps(
             intl.formatMessage({
+              defaultMessage: 'Recommended',
+              description: 'Sorting option for submissions list - recommended',
+              id: 'tuK8wZ',
+            }),
+            'recommended',
+            true,
+          ),
+          makeDropdownItemProps(
+            intl.formatMessage({
               defaultMessage: 'Popularity: Most to least upvotes',
               description: 'Sorting option for submissions list - popularity',
               id: '2sBv9j',

@@ -253,7 +253,7 @@ export const projectsChallengeSubmissionListRouter = router({
           itemPerPage: z.number(),
         }),
         sort: z.object({
-          field: z.enum(['createdAt', 'difficulty', 'votes']).nullable(),
+          field: z.enum(['createdAt', 'difficulty', 'votes', 'recommended']),
           isAscendingOrder: z.boolean(),
         }),
       }),
