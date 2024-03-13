@@ -87,7 +87,7 @@ async function readQuestionJavaScriptFiles(
   const setupPath = path.join(questionPath, 'setup');
 
   const files = (
-    await globby(path.join('**', '*'), {
+    await globby(path.posix.join('**', '*'), {
       cwd: setupPath,
       ignore: [
         'README.md',

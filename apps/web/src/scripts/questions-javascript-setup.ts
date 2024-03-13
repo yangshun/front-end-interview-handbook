@@ -14,7 +14,9 @@ async function generateSetupForQuestion(slug: string) {
   // This assumes that if the locale file is present for the description
   // it's also present for the solution.
   const locales = (
-    await globby(path.join(questionPath, 'description', '*.mdx'))
+    await globby(
+      path.posix.join(...questionPath.split(path.sep), 'description', '*.mdx'),
+    )
   )
     // Files are named after their locales.
     .map((filePath) => parse(filePath).name);
