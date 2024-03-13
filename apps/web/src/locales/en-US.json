@@ -871,6 +871,10 @@
     "defaultMessage": "Behavioral Interview Guidebook",
     "description": "Title for behavioral interview guidebook"
   },
+  "6fcExT": {
+    "defaultMessage": "You are currently working on this track",
+    "description": "Description for projects track in progress status"
+  },
   "6kLEK7": {
     "defaultMessage": "Common mistakes you should avoid.",
     "description": "Comon mistakes to avoid during system design interviews"
@@ -1054,6 +1058,10 @@
   "8RXTKM": {
     "defaultMessage": "Submit",
     "description": "Label for \"Submit project\" button on current project session card"
+  },
+  "8TZX1E": {
+    "defaultMessage": "You have completed this skill",
+    "description": "Description for projects skill completed status"
   },
   "8Ti6rm": {
     "defaultMessage": "Your password has been updated",
@@ -5583,6 +5591,10 @@
     "defaultMessage": "Upvoted successfully!",
     "description": "Successful upvote toaster"
   },
+  "mH6g90": {
+    "defaultMessage": "You are currently working on this skill",
+    "description": "Description for projects skill in progress status"
+  },
   "mLRZ25": {
     "defaultMessage": "See all",
     "description": "See all button label in study guides list section in preparation dashboard"
@@ -6223,6 +6235,10 @@
     "defaultMessage": "Behavioral Interview Study Guides",
     "description": "Behavioral interview study guides"
   },
+  "sCt8M+": {
+    "defaultMessage": "You are currently working on this project",
+    "description": "Description for projects in progress status"
+  },
   "sGF5oQ": {
     "defaultMessage": "Types of Questions",
     "description": "Types of front end system design interview questions"
@@ -6234,6 +6250,10 @@
   "sGgZ9N": {
     "defaultMessage": "Choose additional skills you will use in this project",
     "description": "Dialog title for skills section"
+  },
+  "sH/wZI": {
+    "defaultMessage": "You have completed this project",
+    "description": "Description for projects completed status"
   },
   "sLFGSE": {
     "defaultMessage": "Explore {projectCount}+ projects",
@@ -6742,6 +6762,10 @@
   "wfod1+": {
     "defaultMessage": "GreatFrontEnd is hiring! Check out our <link>jobs page</link>!",
     "description": "Text on Promo Banner"
+  },
+  "wnW+2J": {
+    "defaultMessage": "You have completed this track",
+    "description": "Description for projects track completed status"
   },
   "wnzGbx": {
     "defaultMessage": "For Experienced",

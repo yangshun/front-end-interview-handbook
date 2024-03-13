@@ -65,7 +65,7 @@ export default function ProjectsChallengeCard({
         />
         {status != null && (
           <div className="absolute bottom-3 start-3">
-            <ProjectsStatusBadge status={status} />
+            <ProjectsStatusBadge entity="challenge" status={status} />
           </div>
         )}
         <div className="absolute start-3 top-3 flex items-center gap-1">

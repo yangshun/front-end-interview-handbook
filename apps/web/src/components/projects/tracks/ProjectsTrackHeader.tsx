@@ -30,7 +30,7 @@ export default function ProjectsTrackHeader({
         {metadata.premium && (
           <ProjectsPremiumBadge unlocked={isViewerPremium} />
         )}
-        {completed && <ProjectsStatusBadgeCompleted />}
+        {completed && <ProjectsStatusBadgeCompleted entity="track" />}
       </div>
       <Text color="subtitle" display="block" size="body2">
         {description}

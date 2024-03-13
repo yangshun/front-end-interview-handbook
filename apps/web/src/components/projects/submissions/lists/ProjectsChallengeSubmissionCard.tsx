@@ -105,7 +105,10 @@ export default function ProjectsChallengeSubmissionCard({
               />
             </Text>
             {!isPinned && !showPinButton && (
-              <ProjectsStatusBadge status={challenge.status} />
+              <ProjectsStatusBadge
+                entity="challenge"
+                status={challenge.status}
+              />
             )}
           </div>
           {showPinButton && (

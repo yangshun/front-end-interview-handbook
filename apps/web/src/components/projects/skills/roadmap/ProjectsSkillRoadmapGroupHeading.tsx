@@ -24,7 +24,7 @@ export default function ProjectsSkillRoadmapGroupHeading({ group }: Props) {
           {group.key}
         </Text>
         {completedAll ? (
-          <ProjectsStatusBadgeCompleted />
+          <ProjectsStatusBadgeCompleted entity="skill" />
         ) : (
           <div
             className={clsx(

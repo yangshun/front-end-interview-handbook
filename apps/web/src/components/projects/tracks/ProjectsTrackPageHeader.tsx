@@ -67,7 +67,7 @@ export default function ProjectsTrackHeader({
                 'completedCount' in props &&
                 'totalCount' in props &&
                 props.completedCount === props.totalCount && (
-                  <ProjectsStatusBadgeCompleted />
+                  <ProjectsStatusBadgeCompleted entity="track" />
                 )}
             </div>
             <div className="flex flex-wrap gap-x-4 gap-y-2">

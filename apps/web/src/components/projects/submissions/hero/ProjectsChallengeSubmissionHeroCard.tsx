@@ -53,7 +53,7 @@ export default function ProjectsChallengeSubmissionHeroCard({
               id: '/BGC+5',
             })}
           </Text>
-          <ProjectsStatusBadge status={status} />
+          <ProjectsStatusBadge entity="challenge" status={status} />
         </div>
         <RiArrowRightLine
           aria-hidden={true}
