@@ -88,6 +88,7 @@ type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   styleGuide?: ProjectsChallengeStyleGuide;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
+  viewerUnlockedAccess: boolean;
 }>;
 
 export default function ProjectsChallengeAssetsPage({
@@ -95,6 +96,7 @@ export default function ProjectsChallengeAssetsPage({
   challenge,
   styleGuide,
   viewerProjectsProfile,
+  viewerUnlockedAccess,
 }: Props) {
   const intl = useIntl();
   const { metadata } = challenge;
@@ -110,8 +112,8 @@ export default function ProjectsChallengeAssetsPage({
     'responsive-breakpoints',
   );
 
-  const showPaywall =
-    challenge.metadata.access === 'premium' && !viewerProjectsProfile?.premium;
+  const canAccess = viewerProjectsProfile?.premium && viewerUnlockedAccess;
+  const showPaywall = challenge.metadata.access === 'premium' && !canAccess;
 
   const overlay = showPaywall ? (
     <ProjectsChallengePremiumPaywall {...viewerProjectsProfile} />

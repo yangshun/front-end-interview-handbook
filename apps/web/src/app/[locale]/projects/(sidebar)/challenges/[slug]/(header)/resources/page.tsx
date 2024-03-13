@@ -1,4 +1,5 @@
 import ProjectsChallengeResourcesPage from '~/components/projects/challenges/resources/ProjectsChallengeResourcesPage';
+import readViewerProjectsChallengeAccess from '~/components/projects/utils/readViewerProjectsChallengeAccess';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
 import {
@@ -15,10 +16,12 @@ export default async function Page({ params }: Props) {
 
   const [
     { viewerProjectsProfile },
+    viewerUnlockedAccess,
     { challenge },
     { resourceProjectsChallengeGuides },
   ] = await Promise.all([
     readViewerProjectsProfile(),
+    readViewerProjectsChallengeAccess(slug),
     readProjectsChallengeItem(slug, locale),
     readProjectsChallengeResourceGuideList(locale),
   ]);
@@ -28,6 +31,7 @@ export default async function Page({ params }: Props) {
       challenge={challenge}
       projectGuides={resourceProjectsChallengeGuides}
       viewerProjectsProfile={viewerProjectsProfile}
+      viewerUnlockedAccess={viewerUnlockedAccess}
     />
   );
 }

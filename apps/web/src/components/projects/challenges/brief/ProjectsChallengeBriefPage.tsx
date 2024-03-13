@@ -20,11 +20,13 @@ import type { ProjectsViewerProjectsProfile } from '../../types';
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
+  viewerUnlockedAccess: boolean;
 }>;
 
 export default function ProjectsChallengeBriefPage({
   challenge,
   viewerProjectsProfile,
+  viewerUnlockedAccess,
 }: Props) {
   const brief = allProjectsChallengeBriefs.find((challengeBrief) => {
     return challengeBrief.slug === challenge.metadata.slug;
@@ -34,8 +36,8 @@ export default function ProjectsChallengeBriefPage({
     return null;
   }
 
-  const showPaywall =
-    challenge.metadata.access === 'premium' && !viewerProjectsProfile?.premium;
+  const canAccess = viewerProjectsProfile?.premium && viewerUnlockedAccess;
+  const showPaywall = challenge.metadata.access === 'premium' && !canAccess;
 
   // TODO(projects): Add real images url
   const images = [

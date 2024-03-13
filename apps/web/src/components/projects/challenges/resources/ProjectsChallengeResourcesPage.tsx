@@ -55,12 +55,14 @@ type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   projectGuides: Array<ProjectsChallengeGuide>;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
+  viewerUnlockedAccess: boolean;
 }>;
 
 export default function ProjectsChallengeResourcesPage({
   challenge,
   projectGuides,
   viewerProjectsProfile,
+  viewerUnlockedAccess,
 }: Props) {
   const intl = useIntl();
   const tipsResourcesDiscussionsTabs = useTipsResourcesDiscussionsTabs();
@@ -69,8 +71,11 @@ export default function ProjectsChallengeResourcesPage({
 
   const { startProject, accessAllSteps, fetchingCanAccessAllSteps } =
     useProjectsChallengeSessionContext();
+
+  const viewerCanAccess =
+    viewerProjectsProfile?.premium && viewerUnlockedAccess;
   const showPaywall =
-    challenge.metadata.access === 'premium' && !viewerProjectsProfile?.premium;
+    challenge.metadata.access === 'premium' && !viewerCanAccess;
 
   const overlay = showPaywall ? (
     <ProjectsChallengePremiumPaywall {...viewerProjectsProfile} />

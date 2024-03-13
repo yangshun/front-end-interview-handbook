@@ -1,4 +1,5 @@
 import ProjectsChallengeHeaderLayout from '~/components/projects/challenges/header/ProjectsChallengeHeaderLayout';
+import readViewerProjectsChallengeAccess from '~/components/projects/utils/readViewerProjectsChallengeAccess';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
 import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';

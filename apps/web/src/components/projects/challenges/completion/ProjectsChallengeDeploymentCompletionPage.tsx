@@ -36,11 +36,13 @@ import type { ProjectsViewerProjectsProfile } from '../../types';
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
+  viewerUnlockedAccess: boolean;
 }>;
 
 export default function ProjectsChallengeDeploymentCompletionPage({
   challenge,
   viewerProjectsProfile,
+  viewerUnlockedAccess,
 }: Props) {
   const { metadata } = challenge;
   const { submitHref } = metadata;
@@ -49,8 +51,8 @@ export default function ProjectsChallengeDeploymentCompletionPage({
   const { startProject, accessAllSteps, fetchingCanAccessAllSteps } =
     useProjectsChallengeSessionContext();
 
-  const showPaywall =
-    challenge.metadata.access === 'premium' && !viewerProjectsProfile?.premium;
+  const canAccess = viewerProjectsProfile?.premium && viewerUnlockedAccess;
+  const showPaywall = challenge.metadata.access === 'premium' && !canAccess;
 
   const overlay = showPaywall ? (
     <ProjectsChallengePremiumPaywall {...viewerProjectsProfile} />
