@@ -1,0 +1,48 @@
+{
+  "description": "var Component=(()=>{var s=Object.create;var t=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var x=(r,e)=>()=>(e||r((e={exports:{}}).exports,e),e.exports),y=(r,e)=>{for(var a in e)t(r,a,{get:e[a],enumerable:!0})},h=(r,e,a,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let c of u(e))!f.call(r,c)&&c!==a&&t(r,c,{get:()=>e[c],enumerable:!(l=m(e,c))||l.enumerable});return r};var g=(r,e,a)=>(a=r!=null?s(p(r)):{},h(e||!r||!r.__esModule?t(a,\"default\",{value:r,enumerable:!0}):a,r)),j=r=>h(t({},\"__esModule\",{value:!0}),r);var d=x((R,i)=>{i.exports=_jsx_runtime});var M={};y(M,{default:()=>b,frontmatter:()=>_});var n=g(d()),_={title:\"Mean\",excerpt:\"Implement a function that finds the mean of the values inside an array\"};function o(r){let e=Object.assign({p:\"p\",code:\"code\",h2:\"h2\",ol:\"ol\",li:\"li\",em:\"em\",pre:\"pre\",ul:\"ul\",a:\"a\"},r.components);return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsxs)(e.p,{children:[\"Implement a function \",(0,n.jsx)(e.code,{children:\"mean(array)\"}),\" that returns the mean of the values inside \",(0,n.jsx)(e.code,{children:\"array\"}),\", which is an array of numbers.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Arguments\"}),`\n`,(0,n.jsxs)(e.ol,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.code,{children:\"array\"}),\" \",(0,n.jsx)(e.em,{children:\"(Array)\"}),\": The array to calculate the mean.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Returns\"}),`\n`,(0,n.jsxs)(e.p,{children:[(0,n.jsx)(e.em,{children:\"(Number)\"}),\": Returns the mean of the values in \",(0,n.jsx)(e.code,{children:\"array\"}),\".\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Examples\"}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`mean([4, 2, 8, 6]); // => 5\\r\nmean([1, 2, 3, 4]); // => 2.5\\r\nmean([1, 2, 2]); // => 1.6666666666666667\n`})}),`\n`,(0,n.jsxs)(e.p,{children:[\"The function should return \",(0,n.jsx)(e.code,{children:\"NaN\"}),\" if \",(0,n.jsx)(e.code,{children:\"array\"}),\" is empty.\"]}),`\n`,(0,n.jsx)(e.pre,{children:(0,n.jsx)(e.code,{className:\"language-js\",children:`mean([]); // => NaN\n`})}),`\n`,(0,n.jsx)(e.h2,{children:\"Resources\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsx)(e.li,{children:(0,n.jsxs)(e.a,{href:\"https://lodash.com/docs/#mean\",children:[\"Lodash \",(0,n.jsx)(e.code,{children:\"_.mean\"})]})}),`\n`]})]})}function N(r={}){let{wrapper:e}=r.components||{};return e?(0,n.jsx)(e,Object.assign({},r,{children:(0,n.jsx)(o,r)})):o(r)}var b=N;return j(M);})();\n;return Component;",
+  "files": {
+    "/package.json": "{\n  \"name\": \"@gfe-questions/mean\",\n  \"version\": \"0.0.1\",\n  \"main\": \"/src/mean.js\",\n  \"devDependencies\": {\n    \"@types/jest\": \"29.5.0\",\n    \"typescript\": \"5.0.2\"\n  }\n}\n",
+    "/src/mean.js": "/**\n * @param {Array} array - Array from which the elements are all numbers.\n * @return {Number} Returns mean.\n */\nexport default function mean(array) {\n  const total = 0;\n\n  // Calculate the sum of all numbers in the array.\n  for (let i = 0; i < array.length; i++) {\n    total += array[i];\n  }\n\n  // Calculate the mean from the sum\n  const mean = total / array.length;\n\n  return mean;\n}",
+    "/src/mean.run.test.ts": "import mean from './mean';\n\ndescribe('mean', () => {\n  test('empty input array', () => {\n    expect(mean([])).toEqual(NaN);\n  });\n\n  test('all values in array are positive integers', () => {\n    expect(mean([4, 2, 8, 6])).toEqual(5);\n  });\n\n  test('array contains negative and decimal values', () => {\n    expect(mean([-1.3, -2, 3])).toBeCloseTo(-0.1);\n  });\n\n  test('mean is not exact', () => {\n    expect(mean([1, 2, 2])).toBeCloseTo(1.6666666666666667);\n  });\n});\n",
+    "/src/mean.submit.test.ts": "import mean from './mean';\n\ndescribe('mean', () => {\n  test('empty input array', () => {\n    expect(mean([])).toEqual(NaN);\n  });\n\n  test('all values in array are positive integers', () => {\n    expect(mean([4, 2, 8, 6])).toEqual(5);\n    expect(mean([0, 1, 2, 3, 4])).toEqual(2);\n  });\n\n  test('array contains negative and/or decimal values', () => {\n    expect(mean([-1.3, -2, 3])).toBeCloseTo(-0.1);\n    expect(mean([-1, 2, 0.2])).toBeCloseTo(0.4);\n    expect(mean([1, -2, -2])).toBeCloseTo(-1);\n  });\n\n  test('mean is not exact', () => {\n    expect(mean([0, -1, -2, -3])).toBeCloseTo(-1.5)\n    expect(mean([1, 2, 2])).toBeCloseTo(1.6666666666666667);\n    expect(mean([1, 3, 5, 4, 2, 2, 6, 2])).toBeCloseTo(3.125);\n  });\n});\n"
+  },
+  "format": "javascript",
+  "metadata": {
+    "author": null,
+    "companies": [],
+    "created": 1709856000,
+    "difficulty": "easy",
+    "duration": 5,
+    "excerpt": "Implement a function that finds the mean of the values inside an array",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/mean",
+    "importance": "low",
+    "languages": [
+      "js"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "get"
+    ],
+    "slug": "mean",
+    "subtitle": null,
+    "title": "Mean",
+    "topics": []
+  },
+  "skeleton": {
+    "js": "/**\n * @param {Array} array - Array from which the elements are all numbers.\n * @return {Number} Returns mean.\n */\nexport default function mean(array) {\n  throw 'Not implemented!';\n}",
+    "ts": "/**\r\n * @param {Array<number>} array - Array from which the elements are all numbers.\r\n * @return {number} Returns mean.\r\n */\r\nexport default function mean(array: number[]): number {\r\n  throw 'Not implemented!';\r\n}"
+  },
+  "solution": "var Component=(()=>{var d=Object.create;var o=Object.defineProperty;var f=Object.getOwnPropertyDescriptor;var x=Object.getOwnPropertyNames;var y=Object.getPrototypeOf,g=Object.prototype.hasOwnProperty;var j=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),p=(n,e)=>{for(var t in e)o(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,l)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of x(e))!g.call(n,a)&&a!==t&&o(n,a,{get:()=>e[a],enumerable:!(l=f(e,a))||l.enumerable});return n};var _=(n,e,t)=>(t=n!=null?d(y(n)):{},s(e||!n||!n.__esModule?o(t,\"default\",{value:n,enumerable:!0}):t,n)),C=n=>s(o({},\"__esModule\",{value:!0}),n);var m=j((w,c)=>{c.exports=_jsx_runtime});var X={};p(X,{default:()=>D});var r=_(m());var i=MDXCodeBlock;var u=`/**\n * @param {Array} array - Array from which the elements are all numbers.\n * @return {Number} Returns mean.\n */\nexport default function mean(array) {\n  const total = 0;\n\n  // Calculate the sum of all numbers in the array.\n  for (let i = 0; i < array.length; i++) {\n    total += array[i];\n  }\n\n  // Calculate the mean from the sum\n  const mean = total / array.length;\n\n  return mean;\n}`;function h(n){let e=Object.assign({h2:\"h2\",ul:\"ul\",li:\"li\",a:\"a\",code:\"code\"},n.components);return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(e.h2,{children:\"Solution\"}),`\n`,(0,r.jsx)(i,{languages:{jsx:u}}),`\n`,(0,r.jsx)(e.h2,{children:\"Resources\"}),`\n`,(0,r.jsxs)(e.ul,{children:[`\n`,(0,r.jsx)(e.li,{children:(0,r.jsxs)(e.a,{href:\"https://lodash.com/docs/#mean\",children:[\"Lodash \",(0,r.jsx)(e.code,{children:\"_.mean\"})]})}),`\n`]})]})}function M(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,Object.assign({},n,{children:(0,r.jsx)(h,n)})):h(n)}var D=M;return C(X);})();\n;return Component;",
+  "workspace": {
+    "main": "/src/mean.js",
+    "run": "/src/mean.run.test.ts",
+    "submit": "/src/mean.submit.test.ts"
+  }
+}

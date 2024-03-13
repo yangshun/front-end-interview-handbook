@@ -1,0 +1,18 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import meanJs from '../setup/src/mean.js';
+import meanTS from '../setup/src/mean.ts';
+
+## Solution
+
+Here is a solution that sums all of the elements and divides it with the number of elements to get the mean using basic functions.
+
+<MDXCodeBlock languages={{ jsx: meanJs, tsx: meanTS }} />
+
+## Edge Cases
+
+To handle overflow cases, we can split the array into smaller chunks and calculate the average of the average for each chunks.
+
+## Resources
+
+- [Lodash `_.mean`](https://lodash.com/docs/#mean)
