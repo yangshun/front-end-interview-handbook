@@ -1,4 +1,4 @@
-import mean from './mean';
+import { mean } from 'lodash';
 
 describe('mean', () => {
   test('empty input array', () => {

@@ -11,7 +11,9 @@ Here is a solution that sums all of the elements and divides it with the number 
 
 ## Edge Cases
 
-To handle overflow cases, we can split the array into smaller chunks and calculate the average of the average for each chunks.
+It is possible that the sum of the numbers in the array becomes too big that it "overflows". Strictly speaking, overflowing doesn't occur in JavaScript, values larger than `Number.MAX_VALUE` are represented as `Infinity` and will lose their actual value.
+
+To handle large value cases, we can split the array into smaller equal chunks and calculate the average for each chunk. The final average can be determined by taking the average of each chunk's averages. Not all array lengths can be divided into equal chunks, so the key idea here is to divide as small as possible, then take a weighted average of the chunks that depends on the size of each chunk.
 
 ## Resources
 
