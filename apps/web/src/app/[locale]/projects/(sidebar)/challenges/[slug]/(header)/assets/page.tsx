@@ -1,4 +1,5 @@
 import ProjectsChallengeAssetsPage from '~/components/projects/challenges/assets/ProjectsChallengeAssetsPage';
+import ProjectsChallengeAccessControl from '~/components/projects/challenges/premium/ProjectsChallengeAccessControl';
 import readViewerProjectsChallengeAccess from '~/components/projects/utils/readViewerProjectsChallengeAccess';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
@@ -28,13 +29,19 @@ export default async function Page({ params }: Props) {
     readProjectsChallengeAPIWriteup(slug, locale),
   ]);
 
+  const viewerAccess = ProjectsChallengeAccessControl(
+    challenge.metadata.access,
+    viewerProjectsProfile,
+    viewerUnlockedAccess,
+  );
+
   return (
     <ProjectsChallengeAssetsPage
       apiWriteup={apiWriteup ?? undefined}
       challenge={challenge}
       styleGuide={styleGuide ?? undefined}
+      viewerAccess={viewerAccess}
       viewerProjectsProfile={viewerProjectsProfile}
-      viewerUnlockedAccess={viewerUnlockedAccess}
     />
   );
 }

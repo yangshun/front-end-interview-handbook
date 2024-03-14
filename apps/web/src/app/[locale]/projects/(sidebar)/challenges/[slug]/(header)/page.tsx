@@ -1,4 +1,5 @@
 import ProjectsChallengeBriefPage from '~/components/projects/challenges/brief/ProjectsChallengeBriefPage';
+import ProjectsChallengeAccessControl from '~/components/projects/challenges/premium/ProjectsChallengeAccessControl';
 import readViewerProjectsChallengeAccess from '~/components/projects/utils/readViewerProjectsChallengeAccess';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
@@ -17,11 +18,17 @@ export default async function Page({ params }: Props) {
       readProjectsChallengeItem(slug, locale),
     ]);
 
+  const viewerAccess = ProjectsChallengeAccessControl(
+    challenge.metadata.access,
+    viewerProjectsProfile,
+    viewerUnlockedAccess,
+  );
+
   return (
     <ProjectsChallengeBriefPage
       challenge={challenge}
+      viewerAccess={viewerAccess}
       viewerProjectsProfile={viewerProjectsProfile}
-      viewerUnlockedAccess={viewerUnlockedAccess}
     />
   );
 }

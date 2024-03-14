@@ -24,6 +24,7 @@ import Tabs from '~/components/ui/Tabs';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import ProjectsChallengeGuideSection from '../guides/ProjectsChallengeGuideSection';
+import type { ProjectsChallengeAccessControlFields } from '../premium/ProjectsChallengeAccessControl';
 import ProjectsChallengePremiumPaywall from '../premium/ProjectsChallengePremiumPaywall';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
@@ -54,15 +55,15 @@ function useTipsResourcesDiscussionsTabs() {
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   projectGuides: Array<ProjectsChallengeGuide>;
+  viewerAccess: ProjectsChallengeAccessControlFields;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
-  viewerUnlockedAccess: boolean;
 }>;
 
 export default function ProjectsChallengeResourcesPage({
   challenge,
   projectGuides,
   viewerProjectsProfile,
-  viewerUnlockedAccess,
+  viewerAccess,
 }: Props) {
   const intl = useIntl();
   const tipsResourcesDiscussionsTabs = useTipsResourcesDiscussionsTabs();
@@ -72,13 +73,13 @@ export default function ProjectsChallengeResourcesPage({
   const { startProject, accessAllSteps, fetchingCanAccessAllSteps } =
     useProjectsChallengeSessionContext();
 
-  const viewerCanAccess =
-    viewerProjectsProfile?.premium && viewerUnlockedAccess;
-  const showPaywall =
-    challenge.metadata.access === 'premium' && !viewerCanAccess;
-
+  const showPaywall = viewerAccess.viewContents !== 'YES';
   const overlay = showPaywall ? (
-    <ProjectsChallengePremiumPaywall {...viewerProjectsProfile} />
+    <ProjectsChallengePremiumPaywall
+      slug={challenge.metadata.slug}
+      viewerContentAccess={viewerAccess.viewContents}
+      {...viewerProjectsProfile}
+    />
   ) : (
     <div
       className={clsx(

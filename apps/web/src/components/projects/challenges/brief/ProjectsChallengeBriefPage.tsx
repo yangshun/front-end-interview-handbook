@@ -13,20 +13,21 @@ import ProjectsChallengeBriefFAQSection from './ProjectsChallengeBriefFAQSection
 import ProjectsChallengeBriefImageCarousel from './ProjectsChallengeBriefImageCarousel';
 import ProjectsChallengeBriefProvidedResources from './ProjectsChallengeBriefProvidedResources';
 import ProjectsChallengeBriefSupportSection from './ProjectsChallengeBriefSupportSection';
+import type { ProjectsChallengeAccessControlFields } from '../premium/ProjectsChallengeAccessControl';
 import ProjectsChallengePremiumPaywall from '../premium/ProjectsChallengePremiumPaywall';
 import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxContent';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
+  viewerAccess: ProjectsChallengeAccessControlFields;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
-  viewerUnlockedAccess: boolean;
 }>;
 
 export default function ProjectsChallengeBriefPage({
   challenge,
   viewerProjectsProfile,
-  viewerUnlockedAccess,
+  viewerAccess,
 }: Props) {
   const brief = allProjectsChallengeBriefs.find((challengeBrief) => {
     return challengeBrief.slug === challenge.metadata.slug;
@@ -36,8 +37,7 @@ export default function ProjectsChallengeBriefPage({
     return null;
   }
 
-  const canAccess = viewerProjectsProfile?.premium && viewerUnlockedAccess;
-  const showPaywall = challenge.metadata.access === 'premium' && !canAccess;
+  const showPaywall = viewerAccess.viewContents !== 'YES';
 
   // TODO(projects): Add real images url
   const images = [
@@ -52,7 +52,13 @@ export default function ProjectsChallengeBriefPage({
   return (
     <BlurOverlay
       align="center"
-      overlay={<ProjectsChallengePremiumPaywall {...viewerProjectsProfile} />}
+      overlay={
+        <ProjectsChallengePremiumPaywall
+          slug={challenge.metadata.slug}
+          viewerContentAccess={viewerAccess.viewContents}
+          {...viewerProjectsProfile}
+        />
+      }
       showOverlay={showPaywall}>
       <div className="flex flex-col items-stretch gap-20 pb-40">
         <div className="grid grid-cols-1 gap-6 gap-y-12 lg:grid-cols-2">

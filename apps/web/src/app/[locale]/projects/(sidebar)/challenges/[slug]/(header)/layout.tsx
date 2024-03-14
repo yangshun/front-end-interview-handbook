@@ -1,4 +1,5 @@
 import ProjectsChallengeHeaderLayout from '~/components/projects/challenges/header/ProjectsChallengeHeaderLayout';
+import ProjectsChallengeAccessControl from '~/components/projects/challenges/premium/ProjectsChallengeAccessControl';
 import readViewerProjectsChallengeAccess from '~/components/projects/utils/readViewerProjectsChallengeAccess';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
@@ -12,15 +13,24 @@ type Props = Readonly<{
 export default async function Layout({ children, params }: Props) {
   const { locale, slug } = params;
 
-  const [{ viewerProjectsProfile }, { challenge }] = await Promise.all([
-    readViewerProjectsProfile(),
-    readProjectsChallengeItem(slug, locale),
-  ]);
+  const [{ viewerProjectsProfile }, viewerUnlockedAccess, { challenge }] =
+    await Promise.all([
+      readViewerProjectsProfile(),
+      readViewerProjectsChallengeAccess(slug),
+      readProjectsChallengeItem(slug, locale),
+    ]);
+
+  const viewerAccess = ProjectsChallengeAccessControl(
+    challenge.metadata.access,
+    viewerProjectsProfile,
+    viewerUnlockedAccess,
+  );
 
   return (
     <ProjectsChallengeHeaderLayout
       challenge={challenge}
-      isViewerPremium={viewerProjectsProfile?.premium ?? false}>
+      viewerAccess={viewerAccess}
+      viewerProjectsProfile={viewerProjectsProfile}>
       {children}
     </ProjectsChallengeHeaderLayout>
   );

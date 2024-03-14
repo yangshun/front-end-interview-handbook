@@ -1,3 +1,4 @@
+import ProjectsChallengeAccessControl from '~/components/projects/challenges/premium/ProjectsChallengeAccessControl';
 import ProjectsChallengeResourcesPage from '~/components/projects/challenges/resources/ProjectsChallengeResourcesPage';
 import readViewerProjectsChallengeAccess from '~/components/projects/utils/readViewerProjectsChallengeAccess';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
@@ -26,12 +27,18 @@ export default async function Page({ params }: Props) {
     readProjectsChallengeResourceGuideList(locale),
   ]);
 
+  const viewerAccess = ProjectsChallengeAccessControl(
+    challenge.metadata.access,
+    viewerProjectsProfile,
+    viewerUnlockedAccess,
+  );
+
   return (
     <ProjectsChallengeResourcesPage
       challenge={challenge}
       projectGuides={resourceProjectsChallengeGuides}
+      viewerAccess={viewerAccess}
       viewerProjectsProfile={viewerProjectsProfile}
-      viewerUnlockedAccess={viewerUnlockedAccess}
     />
   );
 }

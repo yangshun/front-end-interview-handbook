@@ -29,20 +29,21 @@ import {
   themeBorderElementColor,
 } from '~/components/ui/theme';
 
+import type { ProjectsChallengeAccessControlFields } from '../premium/ProjectsChallengeAccessControl';
 import ProjectsChallengePremiumPaywall from '../premium/ProjectsChallengePremiumPaywall';
 import { useProjectsChallengeSessionContext } from '../session/ProjectsChallengeSessionContext';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
+  viewerAccess: ProjectsChallengeAccessControlFields;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
-  viewerUnlockedAccess: boolean;
 }>;
 
 export default function ProjectsChallengeDeploymentCompletionPage({
+  viewerAccess,
   challenge,
   viewerProjectsProfile,
-  viewerUnlockedAccess,
 }: Props) {
   const { metadata } = challenge;
   const { submitHref } = metadata;
@@ -51,11 +52,14 @@ export default function ProjectsChallengeDeploymentCompletionPage({
   const { startProject, accessAllSteps, fetchingCanAccessAllSteps } =
     useProjectsChallengeSessionContext();
 
-  const canAccess = viewerProjectsProfile?.premium && viewerUnlockedAccess;
-  const showPaywall = challenge.metadata.access === 'premium' && !canAccess;
+  const showPaywall = viewerAccess.viewContents !== 'YES';
 
   const overlay = showPaywall ? (
-    <ProjectsChallengePremiumPaywall {...viewerProjectsProfile} />
+    <ProjectsChallengePremiumPaywall
+      slug={metadata.slug}
+      viewerContentAccess={viewerAccess.viewContents}
+      {...viewerProjectsProfile}
+    />
   ) : (
     <div
       className={clsx(

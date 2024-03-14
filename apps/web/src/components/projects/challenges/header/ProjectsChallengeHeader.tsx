@@ -16,18 +16,22 @@ import Text from '~/components/ui/Text';
 import ProjectsChallengeCompletedCountButton from './ProjectsChallengeCompletedCountButton';
 import ProjectsChallengeHowItWorksDialog from './ProjectsChallengeHowItWorksDialog';
 import ProjectsChallengeSkillsTag from '../metadata/ProjectsChallengeSkillsTag';
+import type { ProjectsChallengeAccessControlFields } from '../premium/ProjectsChallengeAccessControl';
 import ProjectsChallengeCurrentProjectSessionCard from '../session/ProjectsChallengeCurrentSessionCard';
 import { useProjectsChallengeSessionContext } from '../session/ProjectsChallengeSessionContext';
 import ProjectsPremiumBadge from '../../common/ProjectsPremiumBadge';
+import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
-  isViewerPremium: boolean;
+  viewerAccess: ProjectsChallengeAccessControlFields;
+  viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 
 export default function ProjectsChallengeHeader({
   challenge,
-  isViewerPremium,
+  viewerAccess,
+  viewerProjectsProfile,
 }: Props) {
   const intl = useIntl();
   const { completedCount, completedProfiles, metadata, track } = challenge;
@@ -92,7 +96,9 @@ export default function ProjectsChallengeHeader({
           <div className="flex items-center gap-2">
             <Heading level="heading5">{title}</Heading>
             {access === 'premium' && (
-              <ProjectsPremiumBadge unlocked={isViewerPremium} />
+              <ProjectsPremiumBadge
+                unlocked={viewerAccess.viewContents === 'YES'}
+              />
             )}
           </div>
           <Text color="secondary" size="body2">
@@ -100,7 +106,9 @@ export default function ProjectsChallengeHeader({
           </Text>
           <div className="flex flex-wrap gap-x-4 gap-y-2">
             <ProjectsChallengeDifficultyTag difficulty={difficulty} />
-            {isViewerPremium && <ProjectsChallengeTrackTag track={track} />}
+            {viewerProjectsProfile?.premium && (
+              <ProjectsChallengeTrackTag track={track} />
+            )}
             <ProjectsChallengeReputationTag points={points} variant="flat" />
             {skills.length > 0 && (
               <ProjectsChallengeSkillsTag skills={skills} />

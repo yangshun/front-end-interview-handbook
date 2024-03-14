@@ -2,22 +2,26 @@
 
 import ProjectsChallengeHeader from './ProjectsChallengeHeader';
 import ProjectsChallengeGetStartedDialog from '../get-started/ProjectsChallengeGetStartedDialog';
+import type { ProjectsChallengeAccessControlFields } from '../premium/ProjectsChallengeAccessControl';
 import ProjectsChallengeSessionContextProvider, {
   useProjectsChallengeSessionContext,
 } from '../session/ProjectsChallengeSessionContext';
 import ProjectsChallengeStepsTabsImpl from '../steps/ProjectsChallengeStepsTabsImpl';
 import type { ProjectsChallengeItem } from '../types';
+import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   children: React.ReactNode;
-  isViewerPremium: boolean;
+  viewerAccess: ProjectsChallengeAccessControlFields;
+  viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 
 export function ProjectsChallengeHeaderLayoutImpl({
   challenge,
   children,
-  isViewerPremium,
+  viewerAccess,
+  viewerProjectsProfile,
 }: Props) {
   const {
     isGetStartedDialogShown,
@@ -30,7 +34,8 @@ export function ProjectsChallengeHeaderLayoutImpl({
     <div className="flex flex-col items-stretch gap-10">
       <ProjectsChallengeHeader
         challenge={challenge}
-        isViewerPremium={isViewerPremium}
+        viewerAccess={viewerAccess}
+        viewerProjectsProfile={viewerProjectsProfile}
       />
       <ProjectsChallengeStepsTabsImpl challenge={challenge} />
       {children}
@@ -51,7 +56,8 @@ export function ProjectsChallengeHeaderLayoutImpl({
 export default function ProjectsChallengeHeaderLayout({
   challenge,
   children,
-  isViewerPremium,
+  viewerAccess,
+  viewerProjectsProfile,
 }: Props) {
   const { slug } = challenge.metadata;
 
@@ -59,7 +65,8 @@ export default function ProjectsChallengeHeaderLayout({
     <ProjectsChallengeSessionContextProvider slug={slug}>
       <ProjectsChallengeHeaderLayoutImpl
         challenge={challenge}
-        isViewerPremium={isViewerPremium}>
+        viewerAccess={viewerAccess}
+        viewerProjectsProfile={viewerProjectsProfile}>
         {children}
       </ProjectsChallengeHeaderLayoutImpl>
     </ProjectsChallengeSessionContextProvider>

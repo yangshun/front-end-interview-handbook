@@ -43,7 +43,7 @@ export default function ProjectsChallengeCard({
     imageUrl,
     points,
     href,
-    access,
+    access: challengeAccess,
   } = metadata;
 
   return (
@@ -69,7 +69,7 @@ export default function ProjectsChallengeCard({
           src={imageUrl}
         />
         {status != null && (
-          <div className="absolute bottom-3 start-3">
+          <div className="absolute bottom-3 start-3 z-[1]">
             <ProjectsStatusBadge entity="challenge" status={status} />
           </div>
         )}
@@ -78,8 +78,9 @@ export default function ProjectsChallengeCard({
             difficulty={difficulty}
             variant="badge"
           />
-          {access === 'premium' && (
-            <ProjectsPremiumBadge unlocked={isViewerPremium} />
+          {challengeAccess === 'premium' && (
+            // TODO(projects): fetch unlocked status.
+            <ProjectsPremiumBadge unlocked={false} />
           )}
         </div>
       </div>

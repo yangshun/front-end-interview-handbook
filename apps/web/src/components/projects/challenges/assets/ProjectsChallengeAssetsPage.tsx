@@ -35,6 +35,7 @@ import {
 
 import ProjectsChallengeAssetsResponsiveBreakpointsTab from './ProjectsChallengeAssetsResponsiveBreakpointsTab';
 import useProjectsChallengeProvidedResources from './useProjectsChallengeProvidedResources';
+import type { ProjectsChallengeAccessControlFields } from '../premium/ProjectsChallengeAccessControl';
 import ProjectsChallengePremiumPaywall from '../premium/ProjectsChallengePremiumPaywall';
 import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxContent';
 import type { ProjectsViewerProjectsProfile } from '../../types';
@@ -87,16 +88,16 @@ type Props = Readonly<{
   apiWriteup?: ProjectsChallengeAPIWriteup;
   challenge: ProjectsChallengeItem;
   styleGuide?: ProjectsChallengeStyleGuide;
+  viewerAccess: ProjectsChallengeAccessControlFields;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
-  viewerUnlockedAccess: boolean;
 }>;
 
 export default function ProjectsChallengeAssetsPage({
+  viewerAccess,
   apiWriteup,
   challenge,
   styleGuide,
   viewerProjectsProfile,
-  viewerUnlockedAccess,
 }: Props) {
   const intl = useIntl();
   const { metadata } = challenge;
@@ -112,11 +113,13 @@ export default function ProjectsChallengeAssetsPage({
     'responsive-breakpoints',
   );
 
-  const canAccess = viewerProjectsProfile?.premium && viewerUnlockedAccess;
-  const showPaywall = challenge.metadata.access === 'premium' && !canAccess;
-
+  const showPaywall = viewerAccess.viewContents !== 'YES';
   const overlay = showPaywall ? (
-    <ProjectsChallengePremiumPaywall {...viewerProjectsProfile} />
+    <ProjectsChallengePremiumPaywall
+      slug={metadata.slug}
+      viewerContentAccess={viewerAccess.viewContents}
+      {...viewerProjectsProfile}
+    />
   ) : (
     <div
       className={clsx(
@@ -183,7 +186,7 @@ export default function ProjectsChallengeAssetsPage({
       align="center"
       maxHeight={500}
       overlay={overlay}
-      showOverlay={!accessAllSteps}>
+      showOverlay={showPaywall || !accessAllSteps}>
       <div className="flex flex-col items-stretch">
         <div className="grid grid-cols-1 gap-x-6 gap-y-12 lg:grid-cols-4">
           <div
