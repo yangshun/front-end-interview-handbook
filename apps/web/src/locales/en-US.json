@@ -1087,6 +1087,10 @@
     "defaultMessage": "Your existing code will be discarded, are you sure?",
     "description": "Text on browser confirmation pop-up when user attempts to use the reset button to reset their code"
   },
+  "8d9D4e": {
+    "defaultMessage": "You have <bold>{amountLeft}</bold> project unlock(s) left. Resubscribe to premium to unlock this project and all of its premium features, including official guides and Figma files.",
+    "description": "Subtitle for project paywall"
+  },
   "8gXpts": {
     "defaultMessage": "Tasks | Rewards",
     "description": "Title of Rewards tasks page"
@@ -1206,6 +1210,10 @@
   "9RYs96": {
     "defaultMessage": "Review community submissions",
     "description": "Recommended action for new projects platform user"
+  },
+  "9YJJA+": {
+    "defaultMessage": "Unlock this premium project",
+    "description": "Title for a premium project paywall"
   },
   "9dQ21j": {
     "defaultMessage": "Set new profile photo",
@@ -1750,6 +1758,10 @@
   "Eu20+q": {
     "defaultMessage": "Dashboard | Projects",
     "description": "Title of Projects Dashboard page"
+  },
+  "Euaee/": {
+    "defaultMessage": "Resubscribe to unlock",
+    "description": "Title for a premium project paywall"
   },
   "EyErSi": {
     "defaultMessage": "Skills",
@@ -3215,6 +3227,10 @@
     "defaultMessage": "Sign In",
     "description": "Title of Login page"
   },
+  "RIr4iP": {
+    "defaultMessage": "Purchase premium to get access to premium projects, official guides, production-ready Figma files, and exclusive component tracks and skill plans.",
+    "description": "Subtitle for a premium project paywall"
+  },
   "RJ4spU": {
     "defaultMessage": "Worry about a shaky foundation? Harness curated tools from senior engineers at big tech and learn the best practices for practical development",
     "description": "Description for \"Get the right foundation for practical development\" feature marketing section on Projects home page"
@@ -3414,10 +3430,6 @@
   "Sj1CaY": {
     "defaultMessage": "Practice developing inclusive and accessible web experiences.",
     "description": "Description for interview preparation focus area"
-  },
-  "Sokr+M": {
-    "defaultMessage": "Premium project",
-    "description": "Label for a premium project"
   },
   "Sp5xdN": {
     "defaultMessage": "{numberOfBlogs} articles",
@@ -4011,10 +4023,6 @@
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
     "description": "Text for Deployment Info in Projects"
   },
-  "YBteXK": {
-    "defaultMessage": "Purchase premium to get access to premium projects, official guides, production-ready Figma files, and exclusive component tracks and skill plans.",
-    "description": "Message for project paywall"
-  },
   "YGqz7y": {
     "defaultMessage": "Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.",
     "description": "Description for interview preparation focus area"
@@ -4482,6 +4490,10 @@
   "cKn3cK": {
     "defaultMessage": "Started",
     "description": "Started on study plan label"
+  },
+  "cS9XBy": {
+    "defaultMessage": "You have <bold>{amountLeft}</bold>/{totalAmount} project unlock(s) left. Unlock this project to access it and all of its premium features, including official guides and Figma files.",
+    "description": "Subtitle for project paywall"
   },
   "cZVPou": {
     "defaultMessage": "HTML",
@@ -4970,6 +4982,10 @@
   "h63G52": {
     "defaultMessage": "Discounted rate for a typical job hunt duration.",
     "description": "Supporting statement for a quarterly pricing plan"
+  },
+  "h6BTcK": {
+    "defaultMessage": "Premium project",
+    "description": "Title for a premium project paywall"
   },
   "hBwVFF": {
     "defaultMessage": "Theme preferences",
@@ -6174,6 +6190,10 @@
   "r9Az7V": {
     "defaultMessage": "Great start!",
     "description": "Toast title for project session started"
+  },
+  "rDGIfe": {
+    "defaultMessage": "Unlock project",
+    "description": "Unlock premium access for a project"
   },
   "rH3Vfz": {
     "defaultMessage": "Ask any questions in community",
