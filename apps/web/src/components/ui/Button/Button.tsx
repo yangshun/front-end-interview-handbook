@@ -68,11 +68,20 @@ export type Props =
         type?: 'button' | 'submit';
       }>);
 
-const horizontalPaddingClasses: Record<ButtonSize, string> = {
-  lg: 'px-5',
-  md: 'px-4',
-  sm: 'px-3',
-  xs: 'px-2',
+// Padding is also needed otherwise the buttons can get squeezed
+// because the display is `flex`/`inline-flex`.
+const paddingClasses: Record<ButtonSize, string> = {
+  lg: 'px-5 py-2',
+  md: 'px-4 py-2',
+  sm: 'px-3 py-2',
+  xs: 'px-2 py-1.5',
+};
+
+const iconOnlyPaddingClasses: Record<ButtonSize, string> = {
+  lg: 'p-3',
+  md: 'p-2.5',
+  sm: 'p-2',
+  xs: 'p-1.5',
 };
 
 const heightClasses: Record<ButtonSize, string> = {
@@ -235,7 +244,7 @@ function Button(
   const addOn = isLoading ? (
     <Spinner className={addOnClass} color="inherit" size="xs" />
   ) : Icon != null ? (
-    <Icon aria-hidden="true" className={addOnClass} />
+    <Icon aria-hidden="true" className={clsx('shrink-0', addOnClass)} />
   ) : null;
 
   const children =
@@ -245,7 +254,10 @@ function Button(
       <>
         {addOn}
         {!isLabelHidden && <div>{label}</div>}
-        <IconSecondary aria-hidden="true" className={addOnClass} />
+        <IconSecondary
+          aria-hidden="true"
+          className={clsx('shrink-0', addOnClass)}
+        />
       </>
     ) : (
       <>
@@ -265,8 +277,8 @@ function Button(
       'items-center justify-center',
       heightClasses[size],
       isLabelHidden && IconSecondary == null
-        ? widthClasses[size]
-        : horizontalPaddingClasses[size],
+        ? [widthClasses[size], iconOnlyPaddingClasses[size]]
+        : paddingClasses[size],
       spacingClasses[size],
       [fontSizeClasses[size], 'whitespace-nowrap font-medium'],
       ['border', borderRadiusClasses[size]],
