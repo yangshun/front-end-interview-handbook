@@ -1,6 +1,6 @@
 'use client';
 
-import { allProjectsChallengeBriefs } from 'contentlayer/generated';
+import type { ProjectsChallengeBrief } from 'contentlayer/generated';
 import { FormattedMessage } from 'react-intl';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
@@ -20,23 +20,17 @@ import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
+  challengeBrief: ProjectsChallengeBrief | undefined;
   viewerAccess: ProjectsChallengeAccessControlFields;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 
 export default function ProjectsChallengeBriefPage({
   challenge,
+  challengeBrief,
   viewerProjectsProfile,
   viewerAccess,
 }: Props) {
-  const brief = allProjectsChallengeBriefs.find((challengeBrief) => {
-    return challengeBrief.slug === challenge.metadata.slug;
-  });
-
-  if (!brief) {
-    return null;
-  }
-
   const showPaywall = viewerAccess.viewContents !== 'YES';
 
   // TODO(projects): Add real images url
@@ -62,20 +56,24 @@ export default function ProjectsChallengeBriefPage({
       showOverlay={showPaywall}>
       <div className="flex flex-col items-stretch gap-20 pb-40">
         <div className="grid grid-cols-1 gap-6 gap-y-12 lg:grid-cols-2">
-          <div className="flex flex-col gap-6">
-            <Heading level="heading6">
-              <FormattedMessage
-                defaultMessage="Project brief"
-                description="Title for Project Brief section on Projects project page"
-                id="S98EuF"
-              />
-            </Heading>
-            <Section>
-              <Prose textSize="sm">
-                <ProjectsChallengeMdxContent mdxCode={brief.body.code} />
-              </Prose>
-            </Section>
-          </div>
+          {challengeBrief && (
+            <div className="flex flex-col gap-6">
+              <Heading level="heading6">
+                <FormattedMessage
+                  defaultMessage="Project brief"
+                  description="Title for Project Brief section on Projects project page"
+                  id="S98EuF"
+                />
+              </Heading>
+              <Section>
+                <Prose textSize="sm">
+                  <ProjectsChallengeMdxContent
+                    mdxCode={challengeBrief.body.code}
+                  />
+                </Prose>
+              </Section>
+            </div>
+          )}
           <div className="flex flex-col gap-6">
             <ProjectsChallengeBriefImageCarousel images={images} />
             <Heading level="heading6">

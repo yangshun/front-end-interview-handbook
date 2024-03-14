@@ -1,3 +1,5 @@
+import { allProjectsChallengeBriefs } from 'contentlayer/generated';
+
 import ProjectsChallengeBriefPage from '~/components/projects/challenges/brief/ProjectsChallengeBriefPage';
 import ProjectsChallengeAccessControl from '~/components/projects/challenges/premium/ProjectsChallengeAccessControl';
 import readViewerProjectsChallengeAccess from '~/components/projects/utils/readViewerProjectsChallengeAccess';
@@ -24,9 +26,16 @@ export default async function Page({ params }: Props) {
     viewerUnlockedAccess,
   );
 
+  const challengeBrief = allProjectsChallengeBriefs.find(
+    (challengeBriefItem) => {
+      return challengeBriefItem.slug === challenge.metadata.slug;
+    },
+  );
+
   return (
     <ProjectsChallengeBriefPage
       challenge={challenge}
+      challengeBrief={challengeBrief}
       viewerAccess={viewerAccess}
       viewerProjectsProfile={viewerProjectsProfile}
     />
