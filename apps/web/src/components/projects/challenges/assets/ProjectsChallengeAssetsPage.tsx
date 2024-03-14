@@ -7,13 +7,10 @@ import type {
 } from 'contentlayer/generated';
 import { useState } from 'react';
 import {
-  RiArrowRightLine,
   RiBrush2Fill,
   RiCheckboxCircleFill,
   RiCodeSSlashLine,
-  RiDownload2Line,
   RiDragMove2Fill,
-  RiLock2Line,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -36,7 +33,8 @@ import {
 import ProjectsChallengeAssetsResponsiveBreakpointsTab from './ProjectsChallengeAssetsResponsiveBreakpointsTab';
 import useProjectsChallengeProvidedResources from './useProjectsChallengeProvidedResources';
 import type { ProjectsChallengeAccessControlFields } from '../premium/ProjectsChallengeAccessControl';
-import ProjectsChallengePremiumPaywall from '../premium/ProjectsChallengePremiumPaywall';
+import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
+import ProjectsChallengeFigmaDesignPaywall from '../premium/ProjectsChallengeFigmaDesignPaywall';
 import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxContent';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
@@ -115,10 +113,10 @@ export default function ProjectsChallengeAssetsPage({
 
   const showPaywall = viewerAccess.viewContents !== 'YES';
   const overlay = showPaywall ? (
-    <ProjectsChallengePremiumPaywall
+    <ProjectsChallengeContentPaywall
       slug={metadata.slug}
       viewerContentAccess={viewerAccess.viewContents}
-      {...viewerProjectsProfile}
+      viewerProjectsProfile={viewerProjectsProfile}
     />
   ) : (
     <div
@@ -178,9 +176,6 @@ export default function ProjectsChallengeAssetsPage({
     </div>
   );
 
-  // TODO(projects): integrate with unlock credits.
-  const unlockedProjects = true;
-
   return (
     <BlurOverlay
       align="center"
@@ -190,7 +185,7 @@ export default function ProjectsChallengeAssetsPage({
       <div className="flex flex-col items-stretch">
         <div className="grid grid-cols-1 gap-x-6 gap-y-12 lg:grid-cols-4">
           <div
-            className={clsx('flex flex-col gap-6 pr-6', [
+            className={clsx('flex flex-col gap-6 lg:pr-6', [
               'lg:border-r',
               themeBorderColor,
             ])}>
@@ -216,47 +211,12 @@ export default function ProjectsChallengeAssetsPage({
                   size="lg"
                   variant="secondary"
                 />
-                <Button
-                  addonPosition="start"
-                  href={
-                    unlockedProjects
-                      ? metadata.downloadDesignFileHref
-                      : undefined
-                  }
-                  icon={unlockedProjects ? RiDownload2Line : RiLock2Line}
-                  label={intl.formatMessage({
-                    defaultMessage: 'Figma design file',
-                    description:
-                      'Label for Figma Design File button on Projects project assets page',
-                    id: 'GUmfcW',
-                  })}
-                  size="lg"
-                  variant={unlockedProjects ? 'special' : 'secondary'}
+                <ProjectsChallengeFigmaDesignPaywall
+                  challengeMetadata={metadata}
+                  placement="ASSETS_PAGE"
+                  viewerFigmaAccess={viewerAccess.downloadFigma}
+                  viewerProjectsProfile={viewerProjectsProfile}
                 />
-                {!viewerProjectsProfile?.premium && (
-                  <>
-                    <Text color="subtle" size="body3">
-                      <FormattedMessage
-                        defaultMessage="Purchase Premium to unlock access to the design file. Build accurately and learn to work with production-level specifications."
-                        description="CTA for Figma Design File button on Projects project assets page"
-                        id="qmU2/H"
-                      />
-                    </Text>
-                    <Button
-                      className="-ms-3 self-start"
-                      href="/projects/pricing"
-                      icon={RiArrowRightLine}
-                      label={intl.formatMessage({
-                        defaultMessage: 'View plans',
-                        description:
-                          'Label for View Plans button on Projects project assets page',
-                        id: 'BHvjJJ',
-                      })}
-                      size="sm"
-                      variant="tertiary"
-                    />
-                  </>
-                )}
               </div>
             </Section>
           </div>

@@ -15,10 +15,12 @@ import ProjectsChallengeGetStartedDownloadStarterFiles from './ProjectsChallenge
 import ProjectsChallengeGetStartedImportantInfoGuide from './ProjectsChallengeGetStartedImportantInfoGuide';
 import ProjectsChallengeGetStartedSkillSelection from './ProjectsChallengeGetStartedSkillSelection';
 import ProjectsChallengeGetStartedStartCoding from './ProjectsChallengeGetStartedStartCoding';
+import type { ProjectsChallengeAccessControlType } from '../premium/ProjectsChallengeAccessControl';
 import type {
   ProjectsChallengeItem,
   ProjectsChallengeSessionSkillsFormValues,
 } from '../types';
+import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type DialogStep = Readonly<{
   content: React.ReactNode;
@@ -29,17 +31,19 @@ type DialogStep = Readonly<{
 function useDialogSteps({
   challenge,
   onStartClick,
-  userCanAccess,
   isLoading,
   skills,
   setSkills,
+  viewerFigmaAccess,
+  viewerProjectsProfile,
 }: {
   challenge: ProjectsChallengeItem;
   isLoading: boolean;
   onStartClick: () => void;
   setSkills: (newSkills: ProjectsChallengeSessionSkillsFormValues) => void;
   skills: ProjectsChallengeSessionSkillsFormValues;
-  userCanAccess: boolean;
+  viewerFigmaAccess: ProjectsChallengeAccessControlType;
+  viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }) {
   const intl = useIntl();
   const dialogSteps: Array<DialogStep> = [
@@ -60,8 +64,9 @@ function useDialogSteps({
     {
       content: (
         <ProjectsChallengeGetStartedDownloadFigmaDesign
-          downloadDesignFileHref={challenge.metadata.downloadDesignFileHref}
-          userCanAccess={userCanAccess}
+          challengeMetadata={challenge.metadata}
+          viewerFigmaAccess={viewerFigmaAccess}
+          viewerProjectsProfile={viewerProjectsProfile}
         />
       ),
       id: 'download-design-assets',
@@ -123,6 +128,8 @@ type Props = Readonly<{
   isShown: boolean;
   onClose: () => void;
   onStart: (skills: ProjectsChallengeSessionSkillsFormValues) => void;
+  viewerFigmaAccess: ProjectsChallengeAccessControlType;
+  viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 
 export default function ProjectsChallengeGetStartedDialog({
@@ -131,6 +138,8 @@ export default function ProjectsChallengeGetStartedDialog({
   onClose,
   onStart,
   isLoading = false,
+  viewerFigmaAccess,
+  viewerProjectsProfile,
 }: Props) {
   const intl = useIntl();
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
@@ -152,7 +161,8 @@ export default function ProjectsChallengeGetStartedDialog({
     onStartClick,
     setSkills,
     skills,
-    userCanAccess: true,
+    viewerFigmaAccess,
+    viewerProjectsProfile,
   });
 
   return (

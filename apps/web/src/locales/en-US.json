@@ -1363,10 +1363,6 @@
     "defaultMessage": "Quiz Questions",
     "description": "Title for an example list of Quiz Questions on marketing pages"
   },
-  "BHvjJJ": {
-    "defaultMessage": "View plans",
-    "description": "Label for View Plans button on Projects project assets page"
-  },
   "BIOtRD": {
     "defaultMessage": "Could not load files from repository",
     "description": "Error message when files from a repository could not be loaded"
@@ -1927,10 +1923,6 @@
     "defaultMessage": "Label for \"Completed projects\" progress bar of a Projects component track",
     "description": "{completedCount} out of {totalCount} challenges"
   },
-  "GUmfcW": {
-    "defaultMessage": "Figma design file",
-    "description": "Label for Figma Design File button on Projects project assets page"
-  },
   "GVHds/": {
     "defaultMessage": "Premium Feature",
     "description": "Title on question paywall appearing on the question pages of premium questions"
@@ -2423,6 +2415,10 @@
     "defaultMessage": "Uber",
     "description": "Company name for Uber"
   },
+  "L+jocg": {
+    "defaultMessage": "View plans",
+    "description": "View pricing plans"
+  },
   "L/BHun": {
     "defaultMessage": "Send us a Message",
     "description": "Title for send us a feedback modal"
@@ -2730,10 +2726,6 @@
   "NO9tAQ": {
     "defaultMessage": "This is an irreversible action. You will not be able to resume the study list and all progress will be erased. Are you sure?",
     "description": "Confirmation text for stopping a study plan"
-  },
-  "NONBB3": {
-    "defaultMessage": "Premium is required to unlock both figma files and how-to guides for a project. Learn how to built accurately and work with production-level specifications.",
-    "description": "Premium required label for Download Figma Design content section on Before You Get Started dialog"
   },
   "NPBHO+": {
     "defaultMessage": "{questionCount}+ HTML interview questions, including quiz-style knowledge questions and HTML coding questions.",
@@ -3218,6 +3210,10 @@
   "RDQ253": {
     "defaultMessage": "Sign in to save progress",
     "description": "Message shown when user completes a question without signing in"
+  },
+  "RGdxr7": {
+    "defaultMessage": "Figma design file",
+    "description": "Download Figma file button label"
   },
   "RHPU56": {
     "defaultMessage": "Deployment",
@@ -3750,6 +3746,10 @@
   "VfNkH+": {
     "defaultMessage": "CASHBACK",
     "description": "Amount cashback/discount"
+  },
+  "VkZQZm": {
+    "defaultMessage": "Purchase premium to unlock access to this Figma design file (and other features like official guides and solutions). Build accurately and learn to work with production-level specs.",
+    "description": "Unlock premium access for a project"
   },
   "VlLGKt": {
     "defaultMessage": "Payment Success",
@@ -4306,10 +4306,6 @@
   "au4m82": {
     "defaultMessage": "JavaScript",
     "description": "JavaScript questions category long title"
-  },
-  "avFFbN": {
-    "defaultMessage": "View plans",
-    "description": "View plans link for Download Figma Design content section on Before You Get Started dialog"
   },
   "avuK5U": {
     "defaultMessage": "Rewards Terms and Conditions",
@@ -5603,6 +5599,10 @@
     "defaultMessage": "<count>{questionCount}</count> <questions>questions</questions>",
     "description": "Number of questions"
   },
+  "mEFIV/": {
+    "defaultMessage": "You have <bold>{amountLeft}</bold>/{totalAmount} project unlock(s) left.",
+    "description": "Subtitle for project paywall"
+  },
   "mGYl8O": {
     "defaultMessage": "Upvoted successfully!",
     "description": "Successful upvote toaster"
@@ -6147,10 +6147,6 @@
     "defaultMessage": "Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two.",
     "description": "Subtitle for contact us section"
   },
-  "qmU2/H": {
-    "defaultMessage": "Purchase Premium to unlock access to the design file. Build accurately and learn to work with production-level specifications.",
-    "description": "CTA for Figma Design File button on Projects project assets page"
-  },
   "qoTBLI": {
     "defaultMessage": "Know where to find important info",
     "description": "Label for \"Know where to find important info\" step in dialog on Projects project page"
@@ -6587,6 +6583,10 @@
     "defaultMessage": "Including core maintainers at popular open source projects and creators of Blind 75 and Front End Interview Handbook.",
     "description": "Description of 'Guided by well-known senior engineers' feature in marketing page"
   },
+  "uoPJJV": {
+    "defaultMessage": "Download your unlocked Figma file",
+    "description": "Download a premium Figma file"
+  },
   "uogn1k": {
     "defaultMessage": "Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
@@ -6834,10 +6834,6 @@
   "xMmBc1": {
     "defaultMessage": "Tech stack used",
     "description": "Label for tech stack skills section"
-  },
-  "xTvZAB": {
-    "defaultMessage": "Download Figma design file",
-    "description": "Download Figma file button label"
   },
   "xU32y0": {
     "defaultMessage": "3 subcategories of questions: JavaScript, User Interfaces & Data Structures and Algorithms",

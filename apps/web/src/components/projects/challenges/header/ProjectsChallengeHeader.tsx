@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiArrowLeftLine } from 'react-icons/ri';
+import { RiArrowLeftLine, RiLock2Line } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/metadata/ProjectsChallengeDifficultyTag';
@@ -129,17 +129,32 @@ export default function ProjectsChallengeHeader({
             />
           ) : (
             <div className="flex items-center gap-x-4 gap-y-4 lg:flex-col lg:items-end">
-              <Button
-                label={intl.formatMessage({
-                  defaultMessage: 'Start project',
-                  description:
-                    'Label for "Start project" button on Projects project page',
-                  id: '6/Qdew',
-                })}
-                size="md"
-                variant="primary"
-                onClick={startProject}
-              />
+              {viewerAccess.viewContents === 'YES' ? (
+                <Button
+                  label={intl.formatMessage({
+                    defaultMessage: 'Start project',
+                    description:
+                      'Label for "Start project" button on Projects project page',
+                    id: '6/Qdew',
+                  })}
+                  size="md"
+                  variant="primary"
+                  onClick={startProject}
+                />
+              ) : (
+                <Button
+                  icon={RiLock2Line}
+                  isDisabled={true}
+                  label={intl.formatMessage({
+                    defaultMessage: 'Start project',
+                    description:
+                      'Label for "Start project" button on Projects project page',
+                    id: '6/Qdew',
+                  })}
+                  size="md"
+                  variant="secondary"
+                />
+              )}
               {(completedCount ?? 0) >= 5 && (
                 <ProjectsCompletedUsersTag
                   count={completedCount}

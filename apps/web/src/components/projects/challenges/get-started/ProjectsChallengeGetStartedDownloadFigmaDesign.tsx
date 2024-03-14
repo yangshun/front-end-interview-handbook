@@ -1,21 +1,23 @@
-import { RiLock2Line, RiLockUnlockLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
+import { FormattedMessage } from 'react-intl';
 
-import Anchor from '~/components/ui/Anchor';
-import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
+import type { ProjectsChallengeAccessControlType } from '../premium/ProjectsChallengeAccessControl';
+import ProjectsChallengeFigmaDesignPaywall from '../premium/ProjectsChallengeFigmaDesignPaywall';
+import type { ProjectsViewerProjectsProfile } from '../../types';
+
 type Props = Readonly<{
-  downloadDesignFileHref: string;
-  userCanAccess: boolean;
+  challengeMetadata: ProjectsChallengeMetadata;
+  viewerFigmaAccess: ProjectsChallengeAccessControlType;
+  viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 
 export default function ProjectsChallengeGetStartedDownloadFigmaDesign({
-  downloadDesignFileHref,
-  userCanAccess,
+  challengeMetadata,
+  viewerFigmaAccess,
+  viewerProjectsProfile,
 }: Props) {
-  const intl = useIntl();
-
   return (
     <div className="flex flex-col items-start gap-4">
       <Text color="secondary" size="body2">
@@ -25,38 +27,12 @@ export default function ProjectsChallengeGetStartedDownloadFigmaDesign({
           id="+SiVOr"
         />
       </Text>
-      <Button
-        addonPosition="start"
-        href={userCanAccess ? downloadDesignFileHref : undefined}
-        icon={userCanAccess ? RiLockUnlockLine : RiLock2Line}
-        label={intl.formatMessage({
-          defaultMessage: 'Download Figma design file',
-          description: 'Download Figma file button label',
-          id: 'xTvZAB',
-        })}
-        size="md"
-        variant="special"
+      <ProjectsChallengeFigmaDesignPaywall
+        challengeMetadata={challengeMetadata}
+        placement="GET_STARTED_DIALOG"
+        viewerFigmaAccess={viewerFigmaAccess}
+        viewerProjectsProfile={viewerProjectsProfile}
       />
-      {!userCanAccess && (
-        <div className="flex flex-col">
-          <Text color="secondary" size="body3">
-            <FormattedMessage
-              defaultMessage="Premium is required to unlock both figma files and how-to guides for a project. Learn how to built accurately and work with production-level specifications."
-              description="Premium required label for Download Figma Design content section on Before You Get Started dialog"
-              id="NONBB3"
-            />
-          </Text>
-          <Anchor href="/projects/pricing">
-            <Text color="inherit" size="body3">
-              <FormattedMessage
-                defaultMessage="View plans"
-                description="View plans link for Download Figma Design content section on Before You Get Started dialog"
-                id="avFFbN"
-              />
-            </Text>
-          </Anchor>
-        </div>
-      )}
     </div>
   );
 }

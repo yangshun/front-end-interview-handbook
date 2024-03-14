@@ -30,7 +30,7 @@ import {
 } from '~/components/ui/theme';
 
 import type { ProjectsChallengeAccessControlFields } from '../premium/ProjectsChallengeAccessControl';
-import ProjectsChallengePremiumPaywall from '../premium/ProjectsChallengePremiumPaywall';
+import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
 import { useProjectsChallengeSessionContext } from '../session/ProjectsChallengeSessionContext';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
@@ -53,12 +53,11 @@ export default function ProjectsChallengeDeploymentCompletionPage({
     useProjectsChallengeSessionContext();
 
   const showPaywall = viewerAccess.viewContents !== 'YES';
-
   const overlay = showPaywall ? (
-    <ProjectsChallengePremiumPaywall
+    <ProjectsChallengeContentPaywall
       slug={metadata.slug}
       viewerContentAccess={viewerAccess.viewContents}
-      {...viewerProjectsProfile}
+      viewerProjectsProfile={viewerProjectsProfile}
     />
   ) : (
     <div
@@ -94,7 +93,11 @@ export default function ProjectsChallengeDeploymentCompletionPage({
   );
 
   return (
-    <BlurOverlay align="center" overlay={overlay} showOverlay={!accessAllSteps}>
+    <BlurOverlay
+      align="center"
+      maxHeight={500}
+      overlay={overlay}
+      showOverlay={showPaywall || !accessAllSteps}>
       <div className="flex flex-col items-stretch">
         <Heading level="heading6">
           <FormattedMessage

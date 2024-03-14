@@ -43,6 +43,8 @@ export function ProjectsChallengeHeaderLayoutImpl({
         challenge={challenge}
         isLoading={isStartSessionLoading}
         isShown={isGetStartedDialogShown}
+        viewerFigmaAccess={viewerAccess.downloadFigma}
+        viewerProjectsProfile={viewerProjectsProfile}
         onClose={() => {
           setIsGetStartedDialogShown(false);
         }}

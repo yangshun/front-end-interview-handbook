@@ -6,6 +6,7 @@ import { useProjectsChallengeSessionContext } from '~/components/projects/challe
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
+  themeBorderBrandColor,
   themeBorderElementColor,
   themeTextBrandColor_Hover,
   themeTextColor,
@@ -71,7 +72,7 @@ function ProjectsChallengeStepsTabItem({
         'pt-4',
         'border-t-2',
         isSelected
-          ? 'border-brand'
+          ? themeBorderBrandColor
           : [themeTextBrandColor_Hover, themeTextColor, 'border-transparent'],
       )}
       href={href}

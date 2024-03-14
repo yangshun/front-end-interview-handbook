@@ -2,18 +2,19 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import Text from '~/components/ui/Text';
 
-import type { ProjectsChallengeAccessControlViewContents } from './ProjectsChallengeAccessControl';
+import type { ProjectsChallengeAccessControlType } from './ProjectsChallengeAccessControl';
 import { projectsPaidPlanFeatures } from '../../purchase/ProjectsPricingFeaturesConfig';
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
 export function useProjectsChallengePremiumPaywallTitle(
-  access: ProjectsChallengeAccessControlViewContents,
+  access: ProjectsChallengeAccessControlType,
 ) {
   const intl = useIntl();
 
   switch (access) {
     case 'SUBSCRIBE':
+    case 'INSUFFICIENT_CREDITS':
       return intl.formatMessage({
         defaultMessage: 'Premium project',
         description: 'Title for a premium project paywall',
@@ -37,7 +38,7 @@ export function useProjectsChallengePremiumPaywallTitle(
 }
 
 export function useProjectsChallengePremiumPaywallSubtitle(
-  access: ProjectsChallengeAccessControlViewContents,
+  access: ProjectsChallengeAccessControlType,
   credits: number,
   plan: ProjectsSubscriptionPlan | null,
 ) {
@@ -69,6 +70,22 @@ export function useProjectsChallengePremiumPaywallSubtitle(
           defaultMessage="You have <bold>{amountLeft}</bold>/{totalAmount} project unlock(s) left. Unlock this project to access it and all of its premium features, including official guides and Figma files."
           description="Subtitle for project paywall"
           id="cS9XBy"
+          values={{
+            amountLeft: credits,
+            bold: (chunks) => <Text weight="bold">{chunks}</Text>,
+            totalAmount: Math.max(
+              credits,
+              projectsPaidPlanFeatures[plan!]?.unlocks || 0,
+            ),
+          }}
+        />
+      );
+    case 'INSUFFICIENT_CREDITS':
+      return (
+        <FormattedMessage
+          defaultMessage="You have <bold>{amountLeft}</bold>/{totalAmount} project unlock(s) left."
+          description="Subtitle for project paywall"
+          id="mEFIV/"
           values={{
             amountLeft: credits,
             bold: (chunks) => <Text weight="bold">{chunks}</Text>,

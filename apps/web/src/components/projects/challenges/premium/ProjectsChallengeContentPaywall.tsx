@@ -7,7 +7,7 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsChallengeAccessControlViewContents } from './ProjectsChallengeAccessControl';
+import type { ProjectsChallengeAccessControlType } from './ProjectsChallengeAccessControl';
 import {
   useProjectsChallengePremiumPaywallSubtitle,
   useProjectsChallengePremiumPaywallTitle,
@@ -15,10 +15,8 @@ import {
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
 function UnlockButton({
-  credits,
   slug,
 }: Readonly<{
-  credits: number;
   slug: string;
 }>) {
   const intl = useIntl();
@@ -27,7 +25,7 @@ function UnlockButton({
 
   return (
     <Button
-      isDisabled={credits === 0 || unlockAccessMutation.isLoading}
+      isDisabled={unlockAccessMutation.isLoading}
       isLoading={unlockAccessMutation.isLoading}
       label={intl.formatMessage({
         defaultMessage: 'Unlock project',
@@ -45,29 +43,29 @@ function UnlockButton({
   );
 }
 
-type Props = Partial<ProjectsViewerProjectsProfile> &
-  Readonly<{
-    slug: string;
-    viewerContentAccess: ProjectsChallengeAccessControlViewContents;
-  }>;
+type Props = Readonly<{
+  slug: string;
+  viewerContentAccess: ProjectsChallengeAccessControlType;
+  viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
+}>;
 
-export default function ProjectsChallengePremiumPaywall({
+export default function ProjectsChallengeContentPaywall({
   viewerContentAccess,
-  credits = 0,
-  plan = null,
+  viewerProjectsProfile,
   slug,
 }: Props) {
   const intl = useIntl();
   const title = useProjectsChallengePremiumPaywallTitle(viewerContentAccess);
   const subtitle = useProjectsChallengePremiumPaywallSubtitle(
     viewerContentAccess,
-    credits,
-    plan,
+    viewerProjectsProfile?.credits ?? 0,
+    viewerProjectsProfile?.plan ?? null,
   );
 
   const action =
-    viewerContentAccess === 'UNLOCK' ? (
-      <UnlockButton credits={credits} slug={slug} />
+    viewerContentAccess ===
+    'INSUFFICIENT_CREDITS' ? null : viewerContentAccess === 'UNLOCK' ? (
+      <UnlockButton slug={slug} />
     ) : (
       <Button
         href="/projects/pricing"
@@ -88,7 +86,7 @@ export default function ProjectsChallengePremiumPaywall({
       <Text className="text-pretty mt-4 block" color="subtitle" size="body1">
         {subtitle}
       </Text>
-      <div className="mt-7">{action}</div>
+      {action && <div className="mt-7">{action}</div>}
     </div>
   );
 }

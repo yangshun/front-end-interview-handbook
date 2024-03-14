@@ -25,7 +25,7 @@ import { themeBorderColor } from '~/components/ui/theme';
 
 import ProjectsChallengeGuideSection from '../guides/ProjectsChallengeGuideSection';
 import type { ProjectsChallengeAccessControlFields } from '../premium/ProjectsChallengeAccessControl';
-import ProjectsChallengePremiumPaywall from '../premium/ProjectsChallengePremiumPaywall';
+import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type TipsResourcesDiscussionsTabType = 'discussions' | 'guides' | 'references';
@@ -75,10 +75,10 @@ export default function ProjectsChallengeResourcesPage({
 
   const showPaywall = viewerAccess.viewContents !== 'YES';
   const overlay = showPaywall ? (
-    <ProjectsChallengePremiumPaywall
+    <ProjectsChallengeContentPaywall
       slug={challenge.metadata.slug}
       viewerContentAccess={viewerAccess.viewContents}
-      {...viewerProjectsProfile}
+      viewerProjectsProfile={viewerProjectsProfile}
     />
   ) : (
     <div

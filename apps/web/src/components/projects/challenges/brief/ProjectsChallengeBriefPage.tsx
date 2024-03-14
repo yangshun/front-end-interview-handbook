@@ -14,7 +14,7 @@ import ProjectsChallengeBriefImageCarousel from './ProjectsChallengeBriefImageCa
 import ProjectsChallengeBriefProvidedResources from './ProjectsChallengeBriefProvidedResources';
 import ProjectsChallengeBriefSupportSection from './ProjectsChallengeBriefSupportSection';
 import type { ProjectsChallengeAccessControlFields } from '../premium/ProjectsChallengeAccessControl';
-import ProjectsChallengePremiumPaywall from '../premium/ProjectsChallengePremiumPaywall';
+import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
 import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxContent';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
@@ -53,10 +53,10 @@ export default function ProjectsChallengeBriefPage({
     <BlurOverlay
       align="center"
       overlay={
-        <ProjectsChallengePremiumPaywall
+        <ProjectsChallengeContentPaywall
           slug={challenge.metadata.slug}
           viewerContentAccess={viewerAccess.viewContents}
-          {...viewerProjectsProfile}
+          viewerProjectsProfile={viewerProjectsProfile}
         />
       }
       showOverlay={showPaywall}>
