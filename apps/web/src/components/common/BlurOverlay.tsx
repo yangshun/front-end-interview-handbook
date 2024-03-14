@@ -13,7 +13,7 @@ export default function BlurOverlay({
   align = 'top',
   showOverlay = false,
   overlay,
-  maxHeight,
+  maxHeight = 500,
 }: Props) {
   if (!showOverlay) {
     // eslint-disable-next-line react/jsx-no-useless-fragment
@@ -22,15 +22,11 @@ export default function BlurOverlay({
 
   return (
     <div className="relative w-full">
-      <div aria-hidden={true} className="h-[500px] overflow-hidden blur">
-        <div
-          style={{
-            WebkitMaskImage:
-              'linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent',
-            maskImage:
-              'linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent',
-            maxHeight,
-          }}>
+      <div
+        aria-hidden={true}
+        className="h-full overflow-hidden blur"
+        style={{ maxHeight }}>
+        <div className="blur-overlay h-full" style={{ maxHeight }}>
           {children}
         </div>
       </div>
