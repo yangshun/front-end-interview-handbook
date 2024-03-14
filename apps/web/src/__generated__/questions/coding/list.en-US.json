@@ -3608,6 +3608,35 @@
   {
     "author": null,
     "companies": [],
+    "created": 1710201600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a function that creates an array of numbers progressing from `start` up to (but not including) `end` with a specified `step`.",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/range",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "in-range"
+    ],
+    "slug": "range",
+    "subtitle": null,
+    "title": "Range",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
     "created": 1689552000,
     "difficulty": "medium",
     "duration": 20,
