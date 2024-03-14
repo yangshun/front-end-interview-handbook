@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 import { useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
@@ -20,10 +22,13 @@ function UnlockButton({
   slug: string;
 }>) {
   const intl = useIntl();
+  const unlockAccessMutation =
+    trpc.projects.challenges.unlockAccess.useMutation();
 
   return (
     <Button
-      isDisabled={credits === 0}
+      isDisabled={credits === 0 || unlockAccessMutation.isLoading}
+      isLoading={unlockAccessMutation.isLoading}
       label={intl.formatMessage({
         defaultMessage: 'Unlock project',
         description: 'Unlock premium access for a project',
@@ -31,6 +36,11 @@ function UnlockButton({
       })}
       size="md"
       variant="primary"
+      onClick={() => {
+        unlockAccessMutation.mutate({
+          slug,
+        });
+      }}
     />
   );
 }

@@ -11,6 +11,8 @@ import { publicProcedure, router } from '~/server/trpc';
 
 import { projectsUserProcedure } from './procedures';
 
+import { TRPCError } from '@trpc/server';
+
 export const projectsChallengesRouter = router({
   canAccessAllSteps: projectsUserProcedure
     .input(
@@ -106,5 +108,43 @@ export const projectsChallengesRouter = router({
       });
 
       return challengeStatuses;
+    }),
+  unlockAccess: projectsUserProcedure
+    .input(
+      z.object({
+        slug: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { slug }, ctx: { projectsProfileId } }) => {
+      const projectsProfile = await prisma.projectsProfile.findFirstOrThrow({
+        select: {
+          credits: true,
+          premium: true,
+        },
+        where: {
+          id: projectsProfileId,
+        },
+      });
+
+      if (!projectsProfile.premium || projectsProfile.credits <= 0) {
+        throw new TRPCError({
+          code: 'UNAUTHORIZED',
+          message: 'Non-premium or no credits remaining',
+        });
+      }
+
+      return prisma.projectsChallengeCreditTransaction.create({
+        data: {
+          access: {
+            create: {
+              profileId: projectsProfileId,
+              slug,
+            },
+          },
+          amount: 1,
+          profileId: projectsProfileId,
+          type: 'DEBIT' as const,
+        },
+      });
     }),
 });
