@@ -24,6 +24,7 @@ export type ProjectsChallengeFilterCommon = {
     label: string;
     value: string;
   }>;
+  premium: boolean;
   tooltip: string;
   type: ProjectsChallengeFilterType;
   view: ProjectsChallengeFilterViewType;
@@ -62,6 +63,7 @@ function useFilters() {
           label: trackMetadata.title,
           value: trackMetadata.slug,
         })),
+        premium: true,
         tooltip: intl.formatMessage({
           defaultMessage: 'Filter by component track',
           description: 'Tooltip for Component track filter for projects list',
@@ -92,6 +94,7 @@ function useFilters() {
             value: 'js',
           },
         ],
+        premium: false,
         tooltip: intl.formatMessage({
           defaultMessage: 'Filter by skills',
           description: 'Tooltip for Skills filter for projects list',
@@ -130,6 +133,7 @@ function useFilters() {
             value: 'nightmare',
           },
         ],
+        premium: false,
         tooltip: intl.formatMessage({
           defaultMessage: 'Filter by difficulty',
           description: 'Tooltip for Difficulty filter for projects list',
@@ -164,6 +168,7 @@ function useFilters() {
             value: 'NOT_STARTED',
           },
         ],
+        premium: false,
         tooltip: intl.formatMessage({
           defaultMessage: 'Filter by status',
           description: 'Tooltip for Status filter for projects list',

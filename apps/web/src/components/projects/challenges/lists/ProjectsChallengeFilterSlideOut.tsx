@@ -82,10 +82,14 @@ function FilterSection({
 }
 
 type Props = Readonly<{
+  isViewerPremium: boolean;
   selected: boolean;
 }>;
 
-export default function ProjectsChallengeFilterSlideOut({ selected }: Props) {
+export default function ProjectsChallengeFilterSlideOut({
+  selected,
+  isViewerPremium,
+}: Props) {
   const intl = useIntl();
 
   const {
@@ -193,15 +197,16 @@ export default function ProjectsChallengeFilterSlideOut({ selected }: Props) {
             className="flex flex-col"
             defaultValue={initialFilters.map(({ id }) => id)}
             type="multiple">
-            {initialFilters.map((filter) => (
-              <Fragment key={filter.id}>
-                <FilterSection key={filter.id} {...filter} />
-              </Fragment>
-            ))}
+            {initialFilters
+              .filter((filter) => (isViewerPremium ? true : !filter.premium))
+              .map((filter) => (
+                <Fragment key={filter.id}>
+                  <FilterSection key={filter.id} {...filter} />
+                </Fragment>
+              ))}
           </Accordion>
           <Divider />
         </div>
-
         <Divider />
         <div className="my-5 flex justify-end gap-3 p-4">
           <Button

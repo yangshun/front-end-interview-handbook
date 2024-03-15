@@ -111,7 +111,10 @@ function ProjectsChallengeGridListWithFiltersImpl({
 
   const sortAndFilterButton = (
     <>
-      <ProjectsChallengeFilterSlideOut selected={numberOfFilters > 0} />
+      <ProjectsChallengeFilterSlideOut
+        isViewerPremium={isViewerPremium}
+        selected={numberOfFilters > 0}
+      />
       <DropdownMenu
         align="end"
         icon={RiSortDesc}
@@ -226,9 +229,11 @@ function ProjectsChallengeGridListWithFiltersImpl({
           />
         </div>
         <div className="hidden flex-wrap gap-3 md:flex">
-          {filters.map((filter) => (
-            <ProjectsChallengeListFilter key={filter.id} filter={filter} />
-          ))}
+          {filters
+            .filter((filter) => (isViewerPremium ? true : !filter.premium))
+            .map((filter) => (
+              <ProjectsChallengeListFilter key={filter.id} filter={filter} />
+            ))}
           {sortAndFilterButton}
         </div>
         <div className="flex gap-3 md:hidden">{sortAndFilterButton}</div>
