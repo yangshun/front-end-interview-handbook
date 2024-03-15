@@ -2555,6 +2555,10 @@
     "defaultMessage": "Clear all",
     "description": "Label for clear all button"
   },
+  "LFxhgC": {
+    "defaultMessage": "Never waste your time building one-off projects again!",
+    "description": "Part 2 of subtitle of the 'Permanent toolkit' marketing section on Projects home page"
+  },
   "LGHLf5": {
     "defaultMessage": "Gamified learning",
     "description": "Title for \"Gamified learning\" feature on Projects home page"
@@ -5319,6 +5323,10 @@
     "defaultMessage": "Strikethrough",
     "description": "Label for strikethrough"
   },
+  "j1T8lc": {
+    "defaultMessage": "Each project you build adds to your permanent toolkit",
+    "description": "Heading of the 'Permanent toolkit' marketing section on Projects home page"
+  },
   "j5W1/P": {
     "defaultMessage": "Top React coding interview questions to build the most commonly-asked front end UI components and applications.",
     "description": "Description for React questions page"
@@ -6078,6 +6086,10 @@
   "p0uvxa": {
     "defaultMessage": "Zalando, Berlin, Germany",
     "description": "Larry Almeida's location"
+  },
+  "p17SP8": {
+    "defaultMessage": "Useful into the future",
+    "description": "Title of the 'Permanent toolkit' marketing section on Projects home page"
   },
   "p42Bxa": {
     "defaultMessage": "USA",
@@ -6882,6 +6894,10 @@
   "vx/nPL": {
     "defaultMessage": "Email",
     "description": "Label of email field on Password Reset page"
+  },
+  "w+HZnz": {
+    "defaultMessage": "Our projects are never one-off - they always fit into some component library or design system with other projects. Any projects you build can be composed to build future projects, forming an ever-growing toolkit for your future.",
+    "description": "Part 1 of subtitle of the 'Permanent toolkit' marketing section on Projects home page"
   },
   "w0Gmne": {
     "defaultMessage": "Front End Interview Guidebook",

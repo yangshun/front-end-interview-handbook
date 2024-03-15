@@ -1,5 +1,7 @@
 'use client';
 
+// TODO: Remove unused
+
 import { useIntl } from 'react-intl';
 
 import type { Feature } from './ProjectsMarketingFeaturesRow';

@@ -5,12 +5,11 @@ import dynamic from 'next/dynamic';
 import { useRef } from 'react';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
+import ProjectsMarketingFutureToolkit from '~/components/projects/marketing/ProjectsMarketingFutureToolkit';
 import ProjectsMarketingHero from '~/components/projects/marketing/ProjectsMarketingHero';
-import ProjectsMarketingHomepageFeaturesRow from '~/components/projects/marketing/ProjectsMarketingHomepageFeaturesRow';
 import ProjectsMarketingHowItWorks from '~/components/projects/marketing/ProjectsMarketingHowItWorks';
 import ProjectsMarketingLearningFeatures from '~/components/projects/marketing/ProjectsMarketingLearningFeatures';
 import ProjectsMarketingPortfolioFeatures from '~/components/projects/marketing/ProjectsMarketingPortfolioFeatures';
-import ProjectsMarketingSkillsTracksProjects from '~/components/projects/marketing/ProjectsMarketingSkillsTracksProjects';
 import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
 import Section from '~/components/ui/Heading/HeadingContext';
 
@@ -40,14 +39,9 @@ export default function ProjectsMarketingHomePage({
       <Section>
         <ProjectsMarketingHowItWorks />
         <ProjectsMarketingLearningFeatures />
-        <ProjectsMarketingHomepageFeaturesRow />
         <ProjectsMarketingPortfolioFeatures />
-        <ProjectsMarketingSkillsTracksProjects
-          featuredChallenges={featuredChallenges}
-          hiddenTracks={projectTracks}
-          projectTracks={projectTracks}
-        />
-        t <div ref={loadBottomHalfMarkerRef} />
+        <ProjectsMarketingFutureToolkit />
+        <div ref={loadBottomHalfMarkerRef} />
         {showBottomHalf && <MarketingHomePageBottom />}
       </Section>
     </main>

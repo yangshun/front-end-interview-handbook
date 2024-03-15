@@ -1,5 +1,7 @@
 'use client';
 
+// TODO: Remove unused
+
 import clsx from 'clsx';
 
 import Section from '~/components/ui/Heading/HeadingContext';

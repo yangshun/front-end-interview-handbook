@@ -1,3 +1,5 @@
+// TODO: Remove unused
+
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
