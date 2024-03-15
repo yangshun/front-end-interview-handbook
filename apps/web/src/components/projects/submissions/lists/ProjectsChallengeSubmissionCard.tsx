@@ -74,8 +74,8 @@ export default function ProjectsChallengeSubmissionCard({
         themeBackgroundCardAltColor,
       )}>
       {challenge != null && (
-        <div className="z-[1] flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2">
+        <div className="flex items-center justify-between gap-2">
+          <div className="z-[1] flex items-center gap-2">
             <Text color="secondary" size="body3">
               <FormattedMessage
                 defaultMessage="Challenge: <hover>{title}</hover>"
@@ -120,13 +120,11 @@ export default function ProjectsChallengeSubmissionCard({
         </div>
       )}
       <div className="flex flex-col gap-3">
-        <div className="min-h-12">
-          <Anchor className="z-[1]" href={hrefs.detail} variant="flat">
-            <Text className="line-clamp-2" size="body1" weight="bold">
-              {title}
-            </Text>
-          </Anchor>
-        </div>
+        <Anchor className="min-h-12 z-[1]" href={hrefs.detail} variant="flat">
+          <Text className="line-clamp-2" size="body1" weight="bold">
+            {title}
+          </Text>
+        </Anchor>
         <div className="min-h-[44px]">
           <ProjectsSkillList
             label={intl.formatMessage({
