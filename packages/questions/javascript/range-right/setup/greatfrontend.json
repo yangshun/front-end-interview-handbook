@@ -1,0 +1,8 @@
+{
+  "run": "/src/range-right.run.test.ts",
+  "submit": "/src/range-right.submit.test.ts",
+  "skeleton": {
+    "js": "/src/range-right.skeleton.js",
+    "ts": "/src/range-right.skeleton.ts"
+  }
+}

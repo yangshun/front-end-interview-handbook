@@ -1,0 +1,27 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import rangeRightJs from '../setup/src/range-right.js';
+import rangeRightTs from '../setup/src/range-right.ts';
+import rangeRightReverseJs from '../setup/src/range-right-reverse.js';
+import rangeRightReverseTs from '../setup/src/range-right-reverse.ts';
+
+## Solution
+
+Here is a solution that generates the range of sequence from `start` to (but not including) `end` with `step` as increment using `unshift()` instead of `push()`.
+
+<MDXCodeBlock languages={{ jsx: rangeRightJs, tsx: rangeRightTs }} />
+
+However, since `unshift()` has a time complexity of O(N), here is a more efficient solution that reverses the result array after pushing the values into the array normally.
+
+<MDXCodeBlock
+  languages={{ jsx: rangeRightReverseJs, tsx: rangeRightReverseTs }}
+/>
+
+## Edge Cases
+
+To handle cases where `start` and `step` are not specified but `end` is negative, we can add an if statement to change the value of `step` to -1.
+
+## Resources
+
+- [Lodash `_.range`](https://lodash.com/docs/#range)
+- [Lodash `_.rangeRight`](https://lodash.com/docs/#rangeRight)
