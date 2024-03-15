@@ -827,6 +827,10 @@
     "defaultMessage": "Study plans for Front End Interviews",
     "description": "Title of study plans page"
   },
+  "6Qxjzw": {
+    "defaultMessage": "Build the project guided by us - refer to official guides, solutions, reference other user's submissions, and discuss with the community",
+    "description": "Step 3 of the \"How it works\" section on the Projects home page"
+  },
   "6RhqF3": {
     "defaultMessage": "Number of articles",
     "description": "Total number of articles in a list"
@@ -867,6 +871,10 @@
     "defaultMessage": "Check on eligibility or submit proof",
     "description": "Instruction to check for review cashback"
   },
+  "6e8XrP": {
+    "defaultMessage": "We'll provide all the assets that you need - starter code, professional design, API specs, etc.",
+    "description": "Step 2 of the \"How it works\" section on the Projects home page"
+  },
   "6fAxyB": {
     "defaultMessage": "Behavioral Interview Guidebook",
     "description": "Title for behavioral interview guidebook"
@@ -878,6 +886,10 @@
   "6kLEK7": {
     "defaultMessage": "Common mistakes you should avoid.",
     "description": "Comon mistakes to avoid during system design interviews"
+  },
+  "6pmA7h": {
+    "defaultMessage": "How it works",
+    "description": "Heading of the 'How it works' marketing section on Projects home page"
   },
   "6w1Z0V": {
     "defaultMessage": "Practice Questions",
@@ -1362,6 +1374,10 @@
   "BGn++d": {
     "defaultMessage": "Quiz Questions",
     "description": "Title for an example list of Quiz Questions on marketing pages"
+  },
+  "BI4wLY": {
+    "defaultMessage": "Get feedback and code reviews from the community",
+    "description": "Step 5 of the \"How it works\" section on the Projects home page"
   },
   "BIOtRD": {
     "defaultMessage": "Could not load files from repository",
@@ -5339,6 +5355,10 @@
     "defaultMessage": "Get started",
     "description": "Tab title for projects challenges"
   },
+  "k8wyWA": {
+    "defaultMessage": "Submit your project - host your project on any service and submit your Github repo and site url",
+    "description": "Step 4 of the \"How it works\" section on the Projects home page"
+  },
   "k964KU": {
     "defaultMessage": "HTML",
     "description": "CSS questions category short title"
@@ -5434,6 +5454,10 @@
   "kngdhG": {
     "defaultMessage": "Start tasks",
     "description": "Start rewards tasks to get discount"
+  },
+  "knzfbW": {
+    "defaultMessage": "Choose and start a project",
+    "description": "Step 1 of the \"How it works\" section on the Projects home page"
   },
   "koTXam": {
     "defaultMessage": "In-browser coding workspace",

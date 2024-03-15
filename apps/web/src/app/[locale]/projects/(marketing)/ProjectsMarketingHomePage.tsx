@@ -8,6 +8,7 @@ import type { ProjectsChallengeItem } from '~/components/projects/challenges/typ
 import ProjectsMarketingFeatures from '~/components/projects/marketing/ProjectsMarketingFeatures';
 import ProjectsMarketingHero from '~/components/projects/marketing/ProjectsMarketingHero';
 import ProjectsMarketingHomepageFeaturesRow from '~/components/projects/marketing/ProjectsMarketingHomepageFeaturesRow';
+import ProjectsMarketingHowItWorks from '~/components/projects/marketing/ProjectsMarketingHowItWorks';
 import ProjectsMarketingSkillsTracksProjects from '~/components/projects/marketing/ProjectsMarketingSkillsTracksProjects';
 import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -37,6 +38,7 @@ export default function ProjectsMarketingHomePage({
       <ProjectsMarketingHero />
       <Section>
         <ProjectsMarketingHomepageFeaturesRow />
+        <ProjectsMarketingHowItWorks />
         <ProjectsMarketingSkillsTracksProjects
           featuredChallenges={featuredChallenges}
           hiddenTracks={projectTracks}
