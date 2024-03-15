@@ -5,6 +5,8 @@ import type { ButtonVariant } from '~/components/ui/Button';
 import Button from '~/components/ui/Button';
 import Dialog from '~/components/ui/Dialog';
 
+import { textVariants } from '../ui/Text';
+
 type Props = Readonly<{
   children?: ReactNode;
   confirmButtonLabel?: string;
@@ -38,9 +40,9 @@ export default function ConfirmationDialog({
           label={
             confirmButtonLabel ??
             intl.formatMessage({
-              defaultMessage: 'Confirm',
+              defaultMessage: 'Yes',
               description: 'Confirmation button label',
-              id: '3t00jq',
+              id: 'VtwkKb',
             })
           }
           size="md"
@@ -70,7 +72,9 @@ export default function ConfirmationDialog({
         })
       }
       onClose={() => onCancel?.()}>
-      <div>{children}</div>
+      <div className={textVariants({ color: 'subtitle', size: 'body2' })}>
+        {children}
+      </div>
     </Dialog>
   );
 }

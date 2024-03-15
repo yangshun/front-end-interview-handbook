@@ -619,10 +619,6 @@
     "defaultMessage": "Learn together with like-minded others",
     "description": "Title of 'Learn together' feature in Projects marketing page"
   },
-  "3t00jq": {
-    "defaultMessage": "Confirm",
-    "description": "Confirmation button label"
-  },
   "3v5v1K": {
     "defaultMessage": "Get started in minutes",
     "description": "Text on Button on Call to action banner found at the bottom of the 'Become an Affiliate' page"
@@ -1154,10 +1150,6 @@
   "8cguZA": {
     "defaultMessage": "Clarify doubts in forums",
     "description": "Title of 'Clarify doubts in forums' sub-feature in Projects marketing page"
-  },
-  "8d9D4e": {
-    "defaultMessage": "You have <bold>{amountLeft}</bold> project unlock(s) left. Resubscribe to premium to unlock this project and all of its premium features, including official guides and Figma files.",
-    "description": "Subtitle for project paywall"
   },
   "8gXpts": {
     "defaultMessage": "Tasks | Rewards",
@@ -2647,6 +2639,10 @@
     "defaultMessage": "Get Started",
     "description": "Title of Get Started page"
   },
+  "LlhHTu": {
+    "defaultMessage": "Unlock challenge",
+    "description": "Unlock premium access for a project"
+  },
   "Lnj3bs": {
     "defaultMessage": "One-time use; only applicable to GreatFrontEnd Annual plan.",
     "description": "Condition for promotion"
@@ -2695,6 +2691,10 @@
     "defaultMessage": "GitHub repo",
     "description": "Title for GitHub repo step in project submission checklist"
   },
+  "M6R6KT": {
+    "defaultMessage": "You have <bold>{amountLeft}</bold>/{totalAmount} unlock credit(s) left.",
+    "description": "Subtitle for project paywall"
+  },
   "M9z02W": {
     "defaultMessage": "Airbnb",
     "description": "Company name for Airbnb"
@@ -2722,6 +2722,10 @@
   "MJyQhr": {
     "defaultMessage": "See all",
     "description": "Link to all focus areas page"
+  },
+  "MKQ8Ea": {
+    "defaultMessage": "Purchase premium to get access to premium challenges, official guides, production-ready Figma files, and exclusive component tracks and skill plans.",
+    "description": "Subtitle for a premium project paywall"
   },
   "MNAkQc": {
     "defaultMessage": "To build <keywords>side projects</keywords>",
@@ -3343,10 +3347,6 @@
     "defaultMessage": "Sign In",
     "description": "Title of Login page"
   },
-  "RIr4iP": {
-    "defaultMessage": "Purchase premium to get access to premium projects, official guides, production-ready Figma files, and exclusive component tracks and skill plans.",
-    "description": "Subtitle for a premium project paywall"
-  },
   "RJ4spU": {
     "defaultMessage": "Worry about a shaky foundation? Harness curated tools from senior engineers at big tech and learn the best practices for practical development",
     "description": "Description for \"Get the right foundation for practical development\" feature marketing section on Projects home page"
@@ -3435,6 +3435,10 @@
     "defaultMessage": "Horizontal rule",
     "description": "Label for horizontal rule"
   },
+  "Rv4HTW": {
+    "defaultMessage": "You will have <bold>{count}</bold> credit(s) remaining after unlocking this challenge, proceed to unlock challenge?",
+    "description": "Confirmation text for unlocking a premium challenge"
+  },
   "RvPm3x": {
     "defaultMessage": "DOM Manipulation",
     "description": "Name of focus area questions"
@@ -3474,6 +3478,10 @@
   "SAjGy/": {
     "defaultMessage": "Review must not be generated or written with the assistance of artificial intelligence.",
     "description": "Condition for promotion"
+  },
+  "SG08/K": {
+    "defaultMessage": "Challenge unlocked successfully",
+    "description": "Label to unlock a premium project"
   },
   "SGaDHr": {
     "defaultMessage": "Add a URL",
@@ -3895,6 +3903,10 @@
     "defaultMessage": "A long time ago",
     "description": "Title for a long time ago list of comments"
   },
+  "VtwkKb": {
+    "defaultMessage": "Yes",
+    "description": "Confirmation button label"
+  },
   "VuGzvG": {
     "defaultMessage": "Project submission",
     "description": "Title for the project submission checklist section"
@@ -4106,6 +4118,10 @@
   "Xlj7W5": {
     "defaultMessage": "Update",
     "description": "Update existing URL in a form"
+  },
+  "Xt0q7u": {
+    "defaultMessage": "You have <bold>{amountLeft}</bold>/{totalAmount} unlock credit(s) left. Unlock this challenge to access it and all of its premium features, including official guides and Figma files.",
+    "description": "Subtitle for project paywall"
   },
   "XuVGsX": {
     "defaultMessage": "Account",
@@ -4555,6 +4571,10 @@
     "defaultMessage": "Provide at least 1 URL where you hosted your solution",
     "description": "Error message"
   },
+  "bbVBZ5": {
+    "defaultMessage": "You have <bold>{amountLeft}</bold> unlock credit(s) left. Resubscribe to premium to unlock this challenge and all of its premium features, including official guides and Figma files.",
+    "description": "Subtitle for project paywall"
+  },
   "belvJ0": {
     "defaultMessage": "Svelte Coding Questions",
     "description": "Description for Svelte questions title"
@@ -4635,13 +4655,13 @@
     "defaultMessage": "Started",
     "description": "Started on study plan label"
   },
-  "cS9XBy": {
-    "defaultMessage": "You have <bold>{amountLeft}</bold>/{totalAmount} project unlock(s) left. Unlock this project to access it and all of its premium features, including official guides and Figma files.",
-    "description": "Subtitle for project paywall"
-  },
   "cZVPou": {
     "defaultMessage": "HTML",
     "description": "Label for HTML language"
+  },
+  "cdmGUV": {
+    "defaultMessage": "Unlock premium challenge",
+    "description": "Label to unlock a premium project"
   },
   "cgIBe4": {
     "defaultMessage": "Review must be at least {wordCount} words long or a video of at least {videoDurationInSeconds}s.",
@@ -5774,10 +5794,6 @@
   "mDcqlX": {
     "defaultMessage": "<count>{questionCount}</count> <questions>questions</questions>",
     "description": "Number of questions"
-  },
-  "mEFIV/": {
-    "defaultMessage": "You have <bold>{amountLeft}</bold>/{totalAmount} project unlock(s) left.",
-    "description": "Subtitle for project paywall"
   },
   "mGYl8O": {
     "defaultMessage": "Upvoted successfully!",

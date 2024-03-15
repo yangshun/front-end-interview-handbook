@@ -122,13 +122,11 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
         onClose={() => {
           setShowEndSessionDialog(false);
         }}>
-        <Text size="body1">
-          <FormattedMessage
-            defaultMessage="Are you sure you want to terminate this session? You will be able to restart the project anytime."
-            description="Content for end project session dialog"
-            id="H6Hg+y"
-          />
-        </Text>
+        <FormattedMessage
+          defaultMessage="Are you sure you want to terminate this session? You will be able to restart the project anytime."
+          description="Content for end project session dialog"
+          id="H6Hg+y"
+        />
       </Dialog>
       <div
         className={clsx(

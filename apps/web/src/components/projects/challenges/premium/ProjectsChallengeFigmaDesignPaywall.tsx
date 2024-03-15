@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
+import { useState } from 'react';
 import {
   RiArrowRightLine,
   RiLock2Line,
@@ -7,13 +8,12 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import { trpc } from '~/hooks/trpc';
-
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
 import type { ProjectsChallengeAccessControlType } from './ProjectsChallengeAccessControl';
 import { useProjectsChallengePremiumPaywallSubtitle } from './ProjectsChallengePremiumPaywallStrings';
+import ProjectsChallengeUnlockAccessDialog from './ProjectsChallengeUnlockAccessDialog';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
@@ -73,8 +73,7 @@ function UnlockSection({
   slug: string;
 }>) {
   const intl = useIntl();
-  const unlockAccessMutation =
-    trpc.projects.challenges.unlockAccess.useMutation();
+  const [unlockDialogShown, setUnlockDialogShown] = useState(false);
 
   const subtitle = useProjectsChallengePremiumPaywallSubtitle(
     'UNLOCK',
@@ -91,8 +90,6 @@ function UnlockSection({
       <Button
         addonPosition="start"
         icon={RiLock2Line}
-        isDisabled={unlockAccessMutation.isLoading}
-        isLoading={unlockAccessMutation.isLoading}
         label={intl.formatMessage({
           defaultMessage: 'Figma design file',
           description: 'Download Figma file button label',
@@ -101,9 +98,7 @@ function UnlockSection({
         size="lg"
         variant="special"
         onClick={() => {
-          unlockAccessMutation.mutate({
-            slug,
-          });
+          setUnlockDialogShown(true);
         }}
       />
       <Text
@@ -116,22 +111,26 @@ function UnlockSection({
         <Button
           className="-ms-3 self-start"
           icon={RiArrowRightLine}
-          isDisabled={unlockAccessMutation.isLoading}
-          isLoading={unlockAccessMutation.isLoading}
           label={intl.formatMessage({
-            defaultMessage: 'Unlock project',
+            defaultMessage: 'Unlock challenge',
             description: 'Unlock premium access for a project',
-            id: 'rDGIfe',
+            id: 'LlhHTu',
           })}
           size="sm"
           variant="tertiary"
           onClick={() => {
-            unlockAccessMutation.mutate({
-              slug,
-            });
+            setUnlockDialogShown(true);
           }}
         />
       )}
+      <ProjectsChallengeUnlockAccessDialog
+        credits={credits}
+        isShown={unlockDialogShown}
+        slug={slug}
+        onClose={() => {
+          setUnlockDialogShown(false);
+        }}
+      />
     </div>
   );
 }

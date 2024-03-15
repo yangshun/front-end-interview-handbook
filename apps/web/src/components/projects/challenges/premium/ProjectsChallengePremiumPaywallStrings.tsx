@@ -48,16 +48,16 @@ export function useProjectsChallengePremiumPaywallSubtitle(
     case 'SUBSCRIBE':
       return intl.formatMessage({
         defaultMessage:
-          'Purchase premium to get access to premium projects, official guides, production-ready Figma files, and exclusive component tracks and skill plans.',
+          'Purchase premium to get access to premium challenges, official guides, production-ready Figma files, and exclusive component tracks and skill plans.',
         description: 'Subtitle for a premium project paywall',
-        id: 'RIr4iP',
+        id: 'MKQ8Ea',
       });
     case 'RESUBSCRIBE':
       return (
         <FormattedMessage
-          defaultMessage="You have <bold>{amountLeft}</bold> project unlock(s) left. Resubscribe to premium to unlock this project and all of its premium features, including official guides and Figma files."
+          defaultMessage="You have <bold>{amountLeft}</bold> unlock credit(s) left. Resubscribe to premium to unlock this challenge and all of its premium features, including official guides and Figma files."
           description="Subtitle for project paywall"
-          id="8d9D4e"
+          id="bbVBZ5"
           values={{
             amountLeft: credits,
             bold: (chunks) => <Text weight="bold">{chunks}</Text>,
@@ -67,9 +67,9 @@ export function useProjectsChallengePremiumPaywallSubtitle(
     case 'UNLOCK':
       return (
         <FormattedMessage
-          defaultMessage="You have <bold>{amountLeft}</bold>/{totalAmount} project unlock(s) left. Unlock this project to access it and all of its premium features, including official guides and Figma files."
+          defaultMessage="You have <bold>{amountLeft}</bold>/{totalAmount} unlock credit(s) left. Unlock this challenge to access it and all of its premium features, including official guides and Figma files."
           description="Subtitle for project paywall"
-          id="cS9XBy"
+          id="Xt0q7u"
           values={{
             amountLeft: credits,
             bold: (chunks) => <Text weight="bold">{chunks}</Text>,
@@ -83,9 +83,9 @@ export function useProjectsChallengePremiumPaywallSubtitle(
     case 'INSUFFICIENT_CREDITS':
       return (
         <FormattedMessage
-          defaultMessage="You have <bold>{amountLeft}</bold>/{totalAmount} project unlock(s) left."
+          defaultMessage="You have <bold>{amountLeft}</bold>/{totalAmount} unlock credit(s) left."
           description="Subtitle for project paywall"
-          id="mEFIV/"
+          id="M6R6KT"
           values={{
             amountLeft: credits,
             bold: (chunks) => <Text weight="bold">{chunks}</Text>,
