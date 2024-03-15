@@ -183,6 +183,7 @@ export default function ProjectsChallengeSubmissionHero({
           <div className="flex flex-col gap-4">
             <ProjectsChallengeSubmissionHeroTimestamp submission={submission} />
             <Heading level="heading5">{submission.title}</Heading>
+
             <div className="flex gap-4">
               {views}
               {voteButton}

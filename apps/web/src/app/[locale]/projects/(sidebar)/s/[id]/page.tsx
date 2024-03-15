@@ -62,6 +62,7 @@ export default async function Page({ params }: Props) {
   const { challenge } = await readProjectsChallengeItem(
     submission.slug,
     locale,
+    userId,
   );
 
   return (

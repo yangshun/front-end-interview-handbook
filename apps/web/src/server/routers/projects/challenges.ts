@@ -40,11 +40,16 @@ export const projectsChallengesRouter = router({
         slug: z.string(),
       }),
     )
-    .query(async ({ input: { locale, slug } }) => {
-      const { challenge } = await readProjectsChallengeItem(slug, locale);
+    .query(async ({ input: { locale, slug }, ctx: { user } }) => {
+      const { challenge } = await readProjectsChallengeItem(
+        slug,
+        locale,
+        user?.id,
+      );
 
       return {
         ...challenge,
+        // Don't display status in hovercard.
         status: null,
       };
     }),

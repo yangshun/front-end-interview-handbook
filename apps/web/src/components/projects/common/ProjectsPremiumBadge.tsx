@@ -1,14 +1,20 @@
 import { RiLock2Line, RiLockUnlockLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import type { BadgeSize } from '~/components/ui/Badge';
 import Badge from '~/components/ui/Badge';
 
 type Props = Readonly<{
-  unlocked: boolean;
+  size?: BadgeSize;
+  unlocked: boolean | null;
 }>;
 
-export default function ProjectsPremiumBadge({ unlocked }: Props) {
+export default function ProjectsPremiumBadge({ unlocked, size }: Props) {
   const intl = useIntl();
+
+  if (unlocked == null) {
+    return null;
+  }
 
   return (
     <Badge
@@ -18,6 +24,7 @@ export default function ProjectsPremiumBadge({ unlocked }: Props) {
         description: 'Label for premium project tag',
         id: 'szBcoh',
       })}
+      size={size}
       variant="special"
     />
   );

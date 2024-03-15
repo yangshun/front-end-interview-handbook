@@ -14,7 +14,7 @@ export type BadgeVariant =
   | 'special'
   | 'success'
   | 'warning';
-type BadgeSize = 'md' | 'sm';
+export type BadgeSize = 'md' | 'sm';
 
 type Props = Readonly<{
   className?: string;

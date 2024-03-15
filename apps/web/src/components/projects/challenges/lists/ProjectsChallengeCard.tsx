@@ -84,7 +84,7 @@ export default function ProjectsChallengeCard({
             difficulty={difficulty}
             variant="badge"
           />
-          {challengeAccess === 'premium' && userUnlocked != null && (
+          {challengeAccess === 'premium' && (
             <ProjectsPremiumBadge unlocked={userUnlocked} />
           )}
         </div>

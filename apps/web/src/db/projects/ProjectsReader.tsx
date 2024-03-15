@@ -210,6 +210,7 @@ export async function readProjectsChallengeList(
 export async function readProjectsChallengeItem(
   slugParam: string,
   requestedLocale = 'en-US',
+  viewerId?: string | null,
 ): Promise<
   Readonly<{
     challenge: ProjectsChallengeItem;
@@ -224,61 +225,104 @@ export async function readProjectsChallengeItem(
     requestedLocale,
   );
 
-  const [completedCount, completedUsers] = await Promise.all([
-    (async () => {
-      try {
-        const countsForProjectList =
-          await prisma.projectsChallengeSession.groupBy({
-            _count: true,
-            by: ['slug'],
-            where: {
-              slug,
-              status: 'COMPLETED',
-            },
-          });
+  const [completedCount, completedUsers, viewerUnlocked, viewerSessionStatus] =
+    await Promise.all([
+      (async () => {
+        try {
+          const countsForProjectList =
+            await prisma.projectsChallengeSession.groupBy({
+              _count: true,
+              by: ['slug'],
+              where: {
+                slug,
+                status: 'COMPLETED',
+              },
+            });
 
-        return countsForProjectList[0]._count;
-      } catch (_err) {
-        return null;
-      }
-    })(),
-    (async () => {
-      try {
-        const completedSessions =
-          await prisma.projectsChallengeSession.findMany({
-            distinct: ['profileId'],
-            include: {
-              projectsProfile: {
-                include: {
-                  userProfile: {
-                    select: {
-                      avatarUrl: true,
-                      id: true,
-                      name: true,
-                      username: true,
+          return countsForProjectList[0]._count;
+        } catch (_err) {
+          return null;
+        }
+      })(),
+      (async () => {
+        try {
+          const completedSessions =
+            await prisma.projectsChallengeSession.findMany({
+              distinct: ['profileId'],
+              include: {
+                projectsProfile: {
+                  include: {
+                    userProfile: {
+                      select: {
+                        avatarUrl: true,
+                        id: true,
+                        name: true,
+                        username: true,
+                      },
                     },
                   },
                 },
               },
-            },
-            orderBy: {
-              createdAt: 'desc',
-            },
-            take: 4,
-            where: {
-              slug,
-              status: 'COMPLETED',
-            },
-          });
+              orderBy: {
+                createdAt: 'desc',
+              },
+              take: 4,
+              where: {
+                slug,
+                status: 'COMPLETED',
+              },
+            });
 
-        return completedSessions.map(
-          (session) => session.projectsProfile!.userProfile!,
-        );
-      } catch (_err) {
-        return [];
-      }
-    })(),
-  ]);
+          return completedSessions.map(
+            (session) => session.projectsProfile!.userProfile!,
+          );
+        } catch (_err) {
+          return [];
+        }
+      })(),
+      (async () => {
+        if (viewerId == null) {
+          return false;
+        }
+
+        const accessForViewer = await prisma.projectsChallengeAccess.findFirst({
+          where: {
+            projectsProfile: {
+              userProfile: {
+                id: viewerId,
+              },
+            },
+            slug,
+          },
+        });
+
+        return accessForViewer != null;
+      })(),
+      (async () => {
+        if (viewerId == null) {
+          return null;
+        }
+
+        const latestSession = await prisma.projectsChallengeSession.findFirst({
+          orderBy: {
+            createdAt: 'desc',
+          },
+          where: {
+            projectsProfile: {
+              userProfile: {
+                id: viewerId,
+              },
+            },
+            slug,
+            status: {
+              not: 'STOPPED',
+            },
+          },
+        });
+
+        return latestSession?.status ?? null;
+      })(),
+    ]);
 
   return {
     challenge: challengeItemAddTrackMetadata({
@@ -288,9 +332,8 @@ export async function readProjectsChallengeItem(
         ...challengeMetadata,
         skills: ['html-basics', 'css-flex'],
       },
-      // If any page needs it in future, fetch from db.
-      status: null,
-      userUnlocked: null,
+      status: viewerSessionStatus,
+      userUnlocked: viewerUnlocked,
     }),
     loadedLocale: requestedLocale,
   };
