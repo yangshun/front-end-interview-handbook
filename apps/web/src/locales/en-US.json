@@ -827,6 +827,10 @@
     "defaultMessage": "Study plans for Front End Interviews",
     "description": "Title of study plans page"
   },
+  "6H0D7u": {
+    "defaultMessage": "Learning features",
+    "description": "Learning features of the product in Projects marketing page"
+  },
   "6Qxjzw": {
     "defaultMessage": "Build the project guided by us - refer to official guides, solutions, reference other user's submissions, and discuss with the community",
     "description": "Step 3 of the \"How it works\" section on the Projects home page"
@@ -1010,6 +1014,10 @@
   "7tztU9": {
     "defaultMessage": "Underline",
     "description": "Underline tooltip for Richtext toolbar"
+  },
+  "7u1etJ": {
+    "defaultMessage": "Our projects are designed to make for an <emph>impressive</emph> portfolio, even for seniors",
+    "description": "Heading of the 'Portfolio features' marketing section on Projects home page"
   },
   "7uB2Jj": {
     "defaultMessage": "{price} billed yearly",
@@ -1731,6 +1739,10 @@
     "defaultMessage": "By creators of",
     "description": "Text above logos on Hero section of HomePage. To let users know that the authors of this platform have also created the stated products."
   },
+  "EMiuDR": {
+    "defaultMessage": "Impress recruiters with entire component libraries or design systems built from scratch. Our component tracks cover component from various use cases and industries.",
+    "description": "Description of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
+  },
   "ENNKyg": {
     "defaultMessage": "View subscription plans",
     "description": "Button displayed on paywall on premium question pages, leading to our pricing plans"
@@ -1926,6 +1938,10 @@
   "GObvI2": {
     "defaultMessage": "Perfect for short term job hunts.",
     "description": "Supporting statement for a monthly pricing plan"
+  },
+  "GOvIqB": {
+    "defaultMessage": "For learning",
+    "description": "Title of the 'Portfolio features' marketing section on Projects home page"
   },
   "GPFB6p": {
     "defaultMessage": "Get full access",
@@ -4255,6 +4271,10 @@
     "defaultMessage": "Filters",
     "description": "Title of Projects challenge submission filter slide-out"
   },
+  "aTEHV0": {
+    "defaultMessage": "Every project challenge was designed by senior UI/UX designers with perfect spacing units and design rules, so that your portfolio projects will always look professional.",
+    "description": "Description of 'Beautiful designs made by high-end designers' feature in Projects marketing page"
+  },
   "aXu9RL": {
     "defaultMessage": "Tablet ({minWidth}px-{maxWidth}px)",
     "description": "Responsive breakpoint category"
@@ -4302,6 +4322,10 @@
   "aplNQq": {
     "defaultMessage": "Explore projects",
     "description": "Label for Explore projects button in Projects marketing hero section"
+  },
+  "apqdxI": {
+    "defaultMessage": "Build personalized projects, instead of the same thing as everyone else",
+    "description": "Title of 'Personalized projects' feature in Projects marketing page"
   },
   "apypGU": {
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can set a password here to use email and password to log in instead.",
@@ -4690,6 +4714,10 @@
   "eC4GRM": {
     "defaultMessage": "Filter user submissions by whether you have completed their corresponding challenges",
     "description": "Tooltip for Status filter for projects list"
+  },
+  "eDIEUs": {
+    "defaultMessage": "Build entire design systems or component libraries with our Component Tracks",
+    "description": "Title of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
   },
   "ePyk/V": {
     "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",
@@ -5822,6 +5850,10 @@
   "o9kmTM": {
     "defaultMessage": "<bold>{author}</bold> posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone making a post on the challenge forum"
+  },
+  "oAUXEp": {
+    "defaultMessage": "Beautiful designs made by high-end designers",
+    "description": "Title of 'Beautiful designs made by high-end designers' feature in Projects marketing page"
   },
   "oC86Nx": {
     "defaultMessage": "Views on submissions",
@@ -7038,6 +7070,10 @@
   "yv1wII": {
     "defaultMessage": "Implementation must contain at most {maxLength} character(s).",
     "description": "Error message"
+  },
+  "yw92sr": {
+    "defaultMessage": "Unlike other challenge platforms, all our projects are modular with one other as they are constructed with the same design system. Easily mix and match any component or project you build to craft a unique app.",
+    "description": "Description of 'Personalized projects' feature in Projects marketing page"
   },
   "z+5YJV": {
     "defaultMessage": "View All Questions",
