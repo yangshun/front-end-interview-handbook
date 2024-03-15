@@ -43,6 +43,10 @@
     "defaultMessage": "Congratulations on completing the question! Sign into your account or sign up for free to save your progress!",
     "description": "Message shown when user completes a question"
   },
+  "+JozON": {
+    "defaultMessage": "Reference other's approach",
+    "description": "Title of 'Reference other's approach' sub-feature in Projects marketing page"
+  },
   "+NBACf": {
     "defaultMessage": "at",
     "description": "At"
@@ -151,6 +155,10 @@
     "defaultMessage": "{trackName} progress",
     "description": "Label for track progress on project submission success page"
   },
+  "/9OFji": {
+    "defaultMessage": "Train any front end skill from beginner to advanced",
+    "description": "Title of 'Train any front end skill' feature in Projects marketing page"
+  },
   "/ALUvk": {
     "defaultMessage": "You can host your site using one of these solutions or any of our other trusted providers. Read more about our recommended and trusted hosts",
     "description": "Text for Deployment Info in Projects"
@@ -179,6 +187,10 @@
     "defaultMessage": "Translations for {locale} are in beta and may not be accurate. Do give feedback or <link>contact us</link> if you are interested in helping to translate!",
     "description": "Banner about beta locale version"
   },
+  "/TtmMj": {
+    "defaultMessage": "Official solutions",
+    "description": "Title of 'Official solutions' sub-feature in Projects marketing page"
+  },
   "/c/hHN": {
     "defaultMessage": "We use this to calculate your YOE and keep it updated",
     "description": "Description for \"When did you start work\" input on Projects profile onboarding page"
@@ -190,6 +202,10 @@
   "/ftlBv": {
     "defaultMessage": "Undo",
     "description": "Text describing undo command in the coding workspace shortcuts menu"
+  },
+  "/huwbF": {
+    "defaultMessage": "Progress tracking dashboard",
+    "description": "Title of 'Progress tracking dashboard' sub-feature in Projects marketing page"
   },
   "/iXiP2": {
     "defaultMessage": "List view",
@@ -206,6 +222,10 @@
   "/pokLY": {
     "defaultMessage": "This is the name that will be shown on your profile. Use a maximum of {maxLength} character(s).",
     "description": "Name field description"
+  },
+  "/ujFys": {
+    "defaultMessage": "Starter code and APIs",
+    "description": "Title of 'Starter code and APIs' sub-feature in Projects marketing page"
   },
   "01jNoZ": {
     "defaultMessage": "Get started",
@@ -350,6 +370,10 @@
   "1AGOZJ": {
     "defaultMessage": "Access updates to the interview platform for life.",
     "description": "Lifetime membership feature of accessing updates to interview platforms"
+  },
+  "1BwkZf": {
+    "defaultMessage": "Gamify your learning and track your progress",
+    "description": "Title of 'Gamify your learning' feature in Projects marketing page"
   },
   "1Fl422": {
     "defaultMessage": "Browse content series that are tailored to your experience level.",
@@ -591,6 +615,10 @@
     "defaultMessage": "New",
     "description": "Label for new questions ribbon"
   },
+  "3nYNbd": {
+    "defaultMessage": "Learn together with like-minded others",
+    "description": "Title of 'Learn together' feature in Projects marketing page"
+  },
   "3t00jq": {
     "defaultMessage": "Confirm",
     "description": "Confirmation button label"
@@ -666,6 +694,10 @@
   "4g6SOx": {
     "defaultMessage": "{upvoteCount, plural, =0 {No upvotes} one {# upvote} other {# upvotes}}",
     "description": "Number of upvotes for project submission"
+  },
+  "4g93ac": {
+    "defaultMessage": "Specs by product managers",
+    "description": "Title of 'Specs by product managers' sub-feature in Projects marketing page"
   },
   "4kQ6Kr": {
     "defaultMessage": "Exclusive to currently enrolled students at accredited educational institutions.",
@@ -931,6 +963,10 @@
     "defaultMessage": "No articles",
     "description": "Title for empty state when application of filters return no results"
   },
+  "79LK1Q": {
+    "defaultMessage": "HTML pre-written content",
+    "description": "Title of 'HTML pre-written content' sub-feature in Projects marketing page"
+  },
   "79YODs": {
     "defaultMessage": "Let's begin!",
     "description": "Title for Start Coding content section on Before You Get Started dialog"
@@ -975,9 +1011,17 @@
     "defaultMessage": "{minutes} min read",
     "description": "Blog read duration label"
   },
+  "7WbXyE": {
+    "defaultMessage": "All our challenges come with at least 1 official solution and step-by-step guide from senior big tech engineers. Learn best practices as early as possible.",
+    "description": "Description of 'Practical foundation' feature in Projects marketing page"
+  },
   "7Wsapt": {
     "defaultMessage": "Quiz",
     "description": "Quiz questions short title"
+  },
+  "7XFQoX": {
+    "defaultMessage": "Earn rep for productive tasks",
+    "description": "Title of 'Earn rep for productive tasks' sub-feature in Projects marketing page"
   },
   "7ZjmR2": {
     "defaultMessage": "Implementation must contain at least {minLength} character(s).",
@@ -1106,6 +1150,10 @@
   "8aQEL8": {
     "defaultMessage": "Your existing code will be discarded, are you sure?",
     "description": "Text on browser confirmation pop-up when user attempts to use the reset button to reset their code"
+  },
+  "8cguZA": {
+    "defaultMessage": "Clarify doubts in forums",
+    "description": "Title of 'Clarify doubts in forums' sub-feature in Projects marketing page"
   },
   "8d9D4e": {
     "defaultMessage": "You have <bold>{amountLeft}</bold> project unlock(s) left. Resubscribe to premium to unlock this project and all of its premium features, including official guides and Figma files.",
@@ -1403,6 +1451,10 @@
     "defaultMessage": "Not Completed",
     "description": "Incomplete status for a question"
   },
+  "BOpUAo": {
+    "defaultMessage": "We provide everything you need - just start building!",
+    "description": "Title of 'Start building' feature in Projects marketing page"
+  },
   "BPE/qv": {
     "defaultMessage": "Premium Feature",
     "description": "Title for paywall over information about companies that asked the question"
@@ -1614,6 +1666,10 @@
   "DHQOPk": {
     "defaultMessage": "No contributions in the community so far",
     "description": "Subtitle for empty state when there are no contributions"
+  },
+  "DIdMCT": {
+    "defaultMessage": "Reputation and leveling system",
+    "description": "Title of 'Reputation and leveling system' sub-feature in Projects marketing page"
   },
   "DIs2lU": {
     "defaultMessage": "FAQs",
@@ -2227,6 +2283,10 @@
     "defaultMessage": "Moreover, out of the resources in the market for front end interview preparation, our platform boasts the largest number of questions with solutions written by experienced Senior Front End Engineers previously from FAANG, who were also ex-interviewers.",
     "description": "Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
   },
+  "J/UPQZ": {
+    "defaultMessage": "For learning",
+    "description": "Title of the 'We help you learn through building - without tutorial hell' marketing section on Projects home page"
+  },
   "J1pqvo": {
     "defaultMessage": "From beginner to advanced",
     "description": "Label for skill roadmap feature for annual plan"
@@ -2335,6 +2395,10 @@
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation Quiz page"
   },
+  "K/j0Zl": {
+    "defaultMessage": "Curated learning resources",
+    "description": "Title of 'Curated learning resources' sub-feature in Projects marketing page"
+  },
   "K6BzpD": {
     "defaultMessage": "Intermediate",
     "description": "Intermediate blog"
@@ -2427,6 +2491,10 @@
     "defaultMessage": "Show side menu",
     "description": "Screenreader text for the button that expands the side menu"
   },
+  "KlTu61": {
+    "defaultMessage": "Recommended projects to build",
+    "description": "Title of 'Recommended projects to build' sub-feature in Projects marketing page"
+  },
   "KmiBbk": {
     "defaultMessage": "I would like to sign up for GreatFrontEnd's newsletter to receive interview tips and question updates",
     "description": "Label of checkbox to sign up for newsletter on Email Sign Up page"
@@ -2474,6 +2542,10 @@
   "LChIT/": {
     "defaultMessage": "Show completed challenges",
     "description": "Description of completed challenges filter"
+  },
+  "LDJsoJ": {
+    "defaultMessage": "Whether you are complete beginner or an established engineer looking to fill a modern skill gap, our skills roadmap tell you the exact projects to build to train the skill you need.",
+    "description": "Description of 'Train any front end skill' feature in Projects marketing page"
   },
   "LEA1HM": {
     "defaultMessage": "GitHub repository URL",
@@ -2582,6 +2654,10 @@
   "Lr/Ez4": {
     "defaultMessage": "Skills",
     "description": "Label for skills list in Project card"
+  },
+  "Ludb5F": {
+    "defaultMessage": "Our platform was built to support community-driven development. From project discussion to code reviews and approach sharing, you will never feel alone in your learning.",
+    "description": "Description of 'Learn together' feature in Projects marketing page"
   },
   "Lv6+nn": {
     "defaultMessage": "React, HTML, JavaScript",
@@ -2847,6 +2923,10 @@
     "defaultMessage": "We help you get ready within 1 week, 1 month or 3 months",
     "description": "Study plans description"
   },
+  "ODRVQi": {
+    "defaultMessage": "Learn by building real world projects for professionals",
+    "description": "Title of 'Learn by building real world projects for professionals' feature in Projects marketing page"
+  },
   "OGpZxl": {
     "defaultMessage": "Top front end interview system design questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation System Design page"
@@ -3014,6 +3094,10 @@
   "PMvcx6": {
     "defaultMessage": "Advanced",
     "description": "Advanced level blog"
+  },
+  "PQPdnk": {
+    "defaultMessage": "Designs by UI/UX designers",
+    "description": "Title of \"Designs by UI/UX designers\" sub-feature in Projects marketing page"
   },
   "PQRmTe": {
     "defaultMessage": "You are on the <bold>Lifetime</bold> plan.",
@@ -3767,6 +3851,10 @@
     "defaultMessage": "Learn to work with specifications mimicking projects you will encounter as a full-time engineer",
     "description": "Description for \"Real world specs\" feature on Projects home page"
   },
+  "VZ4Yky": {
+    "defaultMessage": "Get the right practical foundation from the get-go",
+    "description": "Title of 'Practical foundation' feature in Projects marketing page"
+  },
   "VbvRHt": {
     "defaultMessage": "Pricing",
     "description": "Label for Pricing sidebar item in Projects sidebar"
@@ -4035,6 +4123,10 @@
     "defaultMessage": "Settings",
     "description": "App settings label"
   },
+  "XzL/lN": {
+    "defaultMessage": "Roadmap of front end skills",
+    "description": "Title of 'Roadmap of front end skills' sub-feature in Projects marketing page"
+  },
   "Y2R80N": {
     "defaultMessage": "Unpin",
     "description": "Unpin button label"
@@ -4127,6 +4219,10 @@
     "defaultMessage": "Reply to comment",
     "description": "Label for discussion post reply input"
   },
+  "YuAorn": {
+    "defaultMessage": "Practical dev guides",
+    "description": "Title of 'Practical dev guides' sub-feature in Projects marketing page"
+  },
   "YwBuE7": {
     "defaultMessage": "The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development",
     "description": "Description for skills roadmap input on project submit page"
@@ -4162,6 +4258,10 @@
   "ZCmkG3": {
     "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
     "description": "Subtitle under the Title of the FAQ section on the 'Become An Affiliate' page"
+  },
+  "ZE/21F": {
+    "defaultMessage": "Written by ex-FAANG senior devs",
+    "description": "Title of 'Written by ex-FAANG senior devs' sub-feature in Projects marketing page"
   },
   "ZEulnN": {
     "defaultMessage": "more projects",
@@ -4506,6 +4606,10 @@
   "c7lcjj": {
     "defaultMessage": "HTML Questions",
     "description": "HTML Questions list page title"
+  },
+  "c7uUxL": {
+    "defaultMessage": "Don't worry about losing steam. Track your progress and level up as you learn and grow.",
+    "description": "Description of 'Gamify your learning' feature in Projects marketing page"
   },
   "c9D1tn": {
     "defaultMessage": "Only build useful projects",
@@ -4955,6 +5059,10 @@
     "defaultMessage": "Premium",
     "description": "Premium content"
   },
+  "gIvdNL": {
+    "defaultMessage": "We help you learn through building - without tutorial hell",
+    "description": "Heading of the 'We help you learn through building - without tutorial hell' marketing section on Projects home page"
+  },
   "gNEj/r": {
     "defaultMessage": "Implement various Lodash functions and methods to manipulate and transform data efficiently, a common task given during front end interviews and improve your front end interview readiness.",
     "description": "Description for interview preparation focus area"
@@ -5339,6 +5447,10 @@
     "defaultMessage": "Prices shown are in {currency}.",
     "description": "Tip at the bottom of the Pricing section to clarify the currency of prices on the cards"
   },
+  "jxkuEP": {
+    "defaultMessage": "Review other's code on-platform",
+    "description": "Title of 'Review other's code on-platform' sub-feature in Projects marketing page"
+  },
   "jz6W//": {
     "defaultMessage": "Learn from good code",
     "description": "Label for \"Learn from good code\" item in Expected Support section on Projects project page"
@@ -5531,6 +5643,10 @@
     "defaultMessage": "Write or film a review of your experience with GreatFrontEnd for a {discountPercentage}% cashback on your first order amount. Success stories are welcome too!",
     "description": "Subtitle of discount promotion card"
   },
+  "l/ErWd": {
+    "defaultMessage": "Our projects are designed with real world specs meant for professionals, allowing you to hit the ground running with whatever you learn while building them.",
+    "description": "Description of 'Learn by building real world projects for professionals' feature in Projects marketing page"
+  },
   "l1ZqoW": {
     "defaultMessage": "Join Discord",
     "description": "Join Discord channel"
@@ -5702,6 +5818,10 @@
   "mjEvFf": {
     "defaultMessage": "Step 2",
     "description": "Title for \"Step 2\" tab on Projects project page"
+  },
+  "mlADLk": {
+    "defaultMessage": "Everything that you need, including professional design, API specs, starter code and image files are all ready for you. Just click \"Start project\" and we will take care of everything",
+    "description": "Description of 'Start building' feature in Projects marketing page"
   },
   "mnJ9uY": {
     "defaultMessage": "Practice building Lodash utility functions",
@@ -6535,6 +6655,10 @@
     "defaultMessage": "Indent line",
     "description": "Text describing indent line in the coding workspace shortcuts menu"
   },
+  "tvsV5d": {
+    "defaultMessage": "Subfeatures",
+    "description": "Subfeatures of a feature in Projects marketing page"
+  },
   "twAHPt": {
     "defaultMessage": "What interviewers are looking for",
     "description": "What front end system design interviewer are looking for"
@@ -7042,6 +7166,10 @@
   "yhHx9e": {
     "defaultMessage": "All your question progress will be reset. This is an irreversible action, are you sure you want to proceed?",
     "description": "Warning message in reset progress confirmation dialog"
+  },
+  "yhRL5u": {
+    "defaultMessage": "Images, style guides, design files",
+    "description": "Title of 'Images, style guides, design files' sub-feature in Projects marketing page"
   },
   "ykwubP": {
     "defaultMessage": "You are on the <bold>Quarterly</bold> plan.",
