@@ -33,8 +33,14 @@ export default function ProjectsChallengeCard({
   type = 'normal',
 }: Props) {
   const intl = useIntl();
-  const { completedProfiles, completedCount, metadata, status, track } =
-    challenge;
+  const {
+    completedProfiles,
+    completedCount,
+    metadata,
+    status,
+    track,
+    userUnlocked,
+  } = challenge;
   const {
     title,
     difficulty,
@@ -78,16 +84,15 @@ export default function ProjectsChallengeCard({
             difficulty={difficulty}
             variant="badge"
           />
-          {challengeAccess === 'premium' && (
-            // TODO(projects): fetch unlocked status.
-            <ProjectsPremiumBadge unlocked={false} />
+          {challengeAccess === 'premium' && userUnlocked != null && (
+            <ProjectsPremiumBadge unlocked={userUnlocked} />
           )}
         </div>
       </div>
       <div
         className={clsx(
-          'flex grow flex-col gap-4 pt-4',
-          type === 'normal' && 'p-4',
+          'flex grow flex-col gap-4',
+          type === 'normal' ? 'p-4' : 'pt-4',
         )}>
         <div className="flex flex-wrap gap-x-4 gap-y-2">
           {isViewerPremium && <ProjectsChallengeTrackTag track={track} />}

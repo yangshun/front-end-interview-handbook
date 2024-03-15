@@ -44,6 +44,7 @@ export type ProjectsChallengeItem = Readonly<{
     }>;
   status: ProjectsChallengeSessionStatus | null;
   track: ProjectsChallengeTrackPayload;
+  userUnlocked: boolean | null;
 }>;
 
 export type ProjectsChallengeStatuses = Record<

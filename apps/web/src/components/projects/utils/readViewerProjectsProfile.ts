@@ -7,7 +7,7 @@ export default async function readViewerProjectsProfile(
   userParam?: Readonly<{
     email: string; // User Email.
     id: string; // User ID.
-  }>,
+  }> | null,
 ): Promise<
   Readonly<{
     userId: string | null;

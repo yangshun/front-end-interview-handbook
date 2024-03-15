@@ -54,6 +54,25 @@ export async function fetchSessionsForUserGroupedBySlug(
 
   return sessionsForUserGrouped;
 }
+export async function fetchChallengeAccessForUserGroupedBySlug(
+  userId?: string | null,
+): Promise<Set<string> | null> {
+  if (userId == null) {
+    return null;
+  }
+
+  const accessForUser = await prisma.projectsChallengeAccess.findMany({
+    where: {
+      projectsProfile: {
+        userProfile: {
+          id: userId,
+        },
+      },
+    },
+  });
+
+  return new Set<string>(accessForUser.map(({ slug }) => slug));
+}
 
 export async function fetchSubmissionCommentCountsGroupedById(
   submissionIds: Array<string>,
@@ -81,17 +100,19 @@ export async function fetchSubmissionCommentCountsGroupedById(
 
 export async function readProjectsChallengeList(
   requestedLocale = 'en-US',
-  userId?: string | null,
+  viewerId?: string | null,
 ): Promise<{
   challenges: ReadonlyArray<ProjectsChallengeItem>;
   loadedLocale: string;
 }> {
   const [
     sessionsForUserGroupedBySlug,
+    challengeAccessSet,
     countsGroupedBySlug,
     completedProfileIdsGroupedBySlug,
   ] = await Promise.all([
-    fetchSessionsForUserGroupedBySlug(userId),
+    fetchSessionsForUserGroupedBySlug(viewerId),
+    fetchChallengeAccessForUserGroupedBySlug(viewerId),
     (async () => {
       try {
         const countsForProjectList =
@@ -115,13 +136,13 @@ export async function readProjectsChallengeList(
       }
     })(),
     (async () => {
-      type CompletedProfileIdsWithSlug = {
+      type CompletedProfileIdsWithSlug = Readonly<{
         avatarUrl: string;
         name: string;
         profileId: string;
         slug: string;
         username: string;
-      };
+      }>;
 
       const limit = 4;
 
@@ -176,6 +197,7 @@ export async function readProjectsChallengeList(
           completedProfileIdsGroupedBySlug?.[challengeMetadata.slug] ?? [],
         metadata: challengeMetadata,
         status: sessionsForUserGroupedBySlug?.[challengeMetadata.slug] ?? null,
+        userUnlocked: challengeAccessSet?.has(challengeMetadata.slug) ?? null,
       }),
     );
 
@@ -268,6 +290,7 @@ export async function readProjectsChallengeItem(
       },
       // If any page needs it in future, fetch from db.
       status: null,
+      userUnlocked: null,
     }),
     loadedLocale: requestedLocale,
   };
