@@ -30,10 +30,8 @@ export default function range(
     step = -1;
   }
 
-  let length = end - start;
-  if (step != 0) {
-    length = length / step;
-  }
+  // Determine the number of elements in `result`
+  const length = (end - start) / (step || 1);
 
   // Generate the range
   for (let i = 0; i < length; i++) {
