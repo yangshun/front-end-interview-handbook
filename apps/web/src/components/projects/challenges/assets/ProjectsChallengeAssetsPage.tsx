@@ -91,10 +91,10 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeAssetsPage({
-  viewerAccess,
   apiWriteup,
   challenge,
   styleGuide,
+  viewerAccess,
   viewerProjectsProfile,
 }: Props) {
   const intl = useIntl();

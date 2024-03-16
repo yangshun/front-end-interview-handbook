@@ -24,7 +24,7 @@ type Props = Readonly<{
   isParentInView: boolean;
   isViewerPremium: boolean;
   isViewingOwnSubmission?: boolean;
-  onScrollToDiscussionsButtonClick: () => void;
+  onScrollToDiscussionsButtonClick?: () => void;
   submission: ProjectsChallengeSubmissionAugmented;
 }>;
 

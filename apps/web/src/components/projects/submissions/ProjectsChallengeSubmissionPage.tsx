@@ -28,6 +28,7 @@ import {
 
 import GithubRepositoryCodeViewer from './code-viewer/GithubRepositoryCodeViewer';
 import ProjectsChallengeSubmissionDiscussionsSection from './discussions/ProjectsChallengeSubmissionDiscussionsSection';
+import type { ProjectsViewerProjectsProfile } from '../types';
 
 function parseGithubRepositoryUrl(url: string) {
   const urlObject = new URL(url);
@@ -39,15 +40,15 @@ function parseGithubRepositoryUrl(url: string) {
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   currentUserId: string | null;
-  isViewerPremium: boolean;
   submission: ProjectsChallengeSubmissionAugmented;
+  viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 
 export default function ProjectsChallengeSubmissionPage({
   currentUserId,
   challenge,
-  isViewerPremium,
   submission,
+  viewerProjectsProfile,
 }: Props) {
   const intl = useIntl();
   const discussionSectionRef = useRef<HTMLDivElement>(null);
@@ -74,11 +75,11 @@ export default function ProjectsChallengeSubmissionPage({
   );
 
   return (
-    <div ref={parentRef} className="-mt-4 flex flex-col lg:-mt-16">
+    <div ref={parentRef} className={clsx('flex flex-col', '-mt-4 lg:-mt-16')}>
       <ProjectsChallengeSubmissionHero
         challenge={challenge}
         isParentInView={isParentInView}
-        isViewerPremium={isViewerPremium}
+        isViewerPremium={viewerProjectsProfile?.premium ?? false}
         isViewingOwnSubmission={isViewingOwnSubmission}
         submission={submission}
         onScrollToDiscussionsButtonClick={() => {
@@ -86,7 +87,11 @@ export default function ProjectsChallengeSubmissionPage({
         }}
       />
       <Section>
-        <div className="mt-10 flex flex-col items-start justify-between gap-6 md:flex-row md:items-center lg:mt-16">
+        <div
+          className={clsx(
+            'flex flex-col items-start justify-between gap-6 md:flex-row md:items-center',
+            'mt-10 lg:mt-16',
+          )}>
           {submission.projectsProfile?.userProfile && (
             <ProjectsChallengeSubmissionAuthorProfile
               points={submission.projectsProfile.points}
@@ -126,7 +131,7 @@ export default function ProjectsChallengeSubmissionPage({
           )}
         </div>
         {submission.summary && (
-          <Text className="my-8 max-w-prose" display="block" size="body2">
+          <Text className="my-8 block max-w-prose" size="body2">
             {submission.summary}
           </Text>
         )}
@@ -136,7 +141,11 @@ export default function ProjectsChallengeSubmissionPage({
             submissionId={submissionId}
           />
         </div>
-        <div className="mt-10 flex flex-col gap-8 gap-x-10 md:flex-row lg:mt-16">
+        <div
+          className={clsx(
+            'flex flex-col gap-8 gap-x-10 md:flex-row',
+            'mt-10 lg:mt-16',
+          )}>
           <div className="flex flex-1 flex-col gap-3">
             <Heading level="heading6">
               <FormattedMessage
@@ -174,7 +183,7 @@ export default function ProjectsChallengeSubmissionPage({
             )}
           </div>
         </div>
-        <div className="mt-10 flex flex-col lg:mt-16">
+        <div className={clsx('flex flex-col', 'mt-10 lg:mt-16')}>
           <div className="flex flex-col md:flex-row">
             <div className="flex flex-1 flex-col gap-3">
               <Heading level="heading6">

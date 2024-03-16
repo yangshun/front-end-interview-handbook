@@ -2,7 +2,10 @@ import { notFound } from 'next/navigation';
 
 import { convertToPlainObject } from '~/lib/convertToPlainObject';
 
+import ProjectsChallengeAccessControl from '~/components/projects/challenges/premium/ProjectsChallengeAccessControl';
+import ProjectsChallengeSubmissionLockedPage from '~/components/projects/submissions/ProjectsChallengeSubmissionLockedPage';
 import ProjectsChallengeSubmissionPage from '~/components/projects/submissions/ProjectsChallengeSubmissionPage';
+import readViewerProjectsChallengeAccess from '~/components/projects/utils/readViewerProjectsChallengeAccess';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
 import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
@@ -59,21 +62,41 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const { challenge } = await readProjectsChallengeItem(
-    submission.slug,
-    locale,
-    userId,
+  const [viewerUnlockedAccess, { challenge }] = await Promise.all([
+    readViewerProjectsChallengeAccess(submission.slug),
+    readProjectsChallengeItem(submission.slug, locale, userId),
+  ]);
+
+  const viewerAccess = ProjectsChallengeAccessControl(
+    challenge.metadata.access,
+    viewerProjectsProfile,
+    viewerUnlockedAccess,
   );
+
+  if (viewerAccess.viewSubmission !== 'YES') {
+    return (
+      <ProjectsChallengeSubmissionLockedPage
+        challenge={challenge}
+        currentUserId={userId}
+        submission={convertToPlainObject({
+          ...submission,
+          comments: commentCount,
+        })}
+        viewerAccess={viewerAccess}
+        viewerProjectsProfile={viewerProjectsProfile}
+      />
+    );
+  }
 
   return (
     <ProjectsChallengeSubmissionPage
       challenge={challenge}
       currentUserId={userId}
-      isViewerPremium={viewerProjectsProfile?.premium ?? false}
       submission={convertToPlainObject({
         ...submission,
         comments: commentCount,
       })}
+      viewerProjectsProfile={viewerProjectsProfile}
     />
   );
 }

@@ -6391,10 +6391,6 @@
     "defaultMessage": "Great start!",
     "description": "Toast title for project session started"
   },
-  "rDGIfe": {
-    "defaultMessage": "Unlock project",
-    "description": "Unlock premium access for a project"
-  },
   "rH3Vfz": {
     "defaultMessage": "Ask any questions in community",
     "description": "Label for \"Ask any questions in community\" item in Expected Support section on Projects project page"
