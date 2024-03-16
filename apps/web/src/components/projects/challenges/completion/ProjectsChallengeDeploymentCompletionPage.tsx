@@ -29,14 +29,14 @@ import {
   themeBorderElementColor,
 } from '~/components/ui/theme';
 
-import type { ProjectsChallengeAccessControlFields } from '../premium/ProjectsChallengeAccessControl';
 import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
+import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
 import { useProjectsChallengeSessionContext } from '../session/ProjectsChallengeSessionContext';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
-  viewerAccess: ProjectsChallengeAccessControlFields;
+  viewerAccess: ProjectsPremiumAccessControlFields;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 

@@ -13,15 +13,15 @@ import ProjectsChallengeBriefFAQSection from './ProjectsChallengeBriefFAQSection
 import ProjectsChallengeBriefImageCarousel from './ProjectsChallengeBriefImageCarousel';
 import ProjectsChallengeBriefProvidedResources from './ProjectsChallengeBriefProvidedResources';
 import ProjectsChallengeBriefSupportSection from './ProjectsChallengeBriefSupportSection';
-import type { ProjectsChallengeAccessControlFields } from '../premium/ProjectsChallengeAccessControl';
 import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
+import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
 import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxContent';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   challengeBrief: ProjectsChallengeBrief | undefined;
-  viewerAccess: ProjectsChallengeAccessControlFields;
+  viewerAccess: ProjectsPremiumAccessControlFields;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 

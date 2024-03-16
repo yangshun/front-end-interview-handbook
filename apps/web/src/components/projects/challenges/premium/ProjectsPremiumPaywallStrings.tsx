@@ -2,13 +2,13 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import Text from '~/components/ui/Text';
 
-import type { ProjectsChallengeAccessControlType } from './ProjectsChallengeAccessControl';
+import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessControl';
 import { projectsPaidPlanFeatures } from '../../purchase/ProjectsPricingFeaturesConfig';
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
 export function useProjectsChallengePaywallTitle(
-  access: ProjectsChallengeAccessControlType,
+  access: ProjectsPremiumAccessControlType,
 ) {
   const intl = useIntl();
 
@@ -42,7 +42,7 @@ export function useProjectsChallengePaywallTitle(
 }
 
 export function useProjectsChallengePaywallSubtitle(
-  access: ProjectsChallengeAccessControlType,
+  access: ProjectsPremiumAccessControlType,
   credits: number,
   plan: ProjectsSubscriptionPlan | null,
 ) {
@@ -104,7 +104,7 @@ export function useProjectsChallengePaywallSubtitle(
 }
 
 export function useProjectsChallengeSubmissionPaywallTitle(
-  access: ProjectsChallengeAccessControlType,
+  access: ProjectsPremiumAccessControlType,
 ) {
   const intl = useIntl();
 
@@ -133,7 +133,7 @@ export function useProjectsChallengeSubmissionPaywallTitle(
 }
 
 export function useProjectsChallengeSubmissionPaywallSubtitle(
-  access: ProjectsChallengeAccessControlType,
+  access: ProjectsPremiumAccessControlType,
   credits: number,
   plan: ProjectsSubscriptionPlan | null,
 ) {

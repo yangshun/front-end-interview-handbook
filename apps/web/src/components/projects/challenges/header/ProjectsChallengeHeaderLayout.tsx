@@ -2,7 +2,7 @@
 
 import ProjectsChallengeHeader from './ProjectsChallengeHeader';
 import ProjectsChallengeGetStartedDialog from '../get-started/ProjectsChallengeGetStartedDialog';
-import type { ProjectsChallengeAccessControlFields } from '../premium/ProjectsChallengeAccessControl';
+import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
 import ProjectsChallengeSessionContextProvider, {
   useProjectsChallengeSessionContext,
 } from '../session/ProjectsChallengeSessionContext';
@@ -13,7 +13,7 @@ import type { ProjectsViewerProjectsProfile } from '../../types';
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   children: React.ReactNode;
-  viewerAccess: ProjectsChallengeAccessControlFields;
+  viewerAccess: ProjectsPremiumAccessControlFields;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 

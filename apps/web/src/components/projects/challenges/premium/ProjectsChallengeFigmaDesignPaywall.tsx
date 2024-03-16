@@ -11,8 +11,8 @@ import { useIntl } from 'react-intl';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsChallengeAccessControlType } from './ProjectsChallengeAccessControl';
 import ProjectsChallengeUnlockAccessDialog from './ProjectsChallengeUnlockAccessDialog';
+import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessControl';
 import { useProjectsChallengePaywallSubtitle } from './ProjectsPremiumPaywallStrings';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
@@ -191,7 +191,7 @@ function ResubscribeSection({
   credits = 0,
   placement,
 }: Readonly<{
-  access: ProjectsChallengeAccessControlType;
+  access: ProjectsPremiumAccessControlType;
   credits?: number;
   placement: Placement;
 }>) {
@@ -285,7 +285,7 @@ function InsufficientCreditsSection({
 type Props = Readonly<{
   challengeMetadata: ProjectsChallengeMetadata;
   placement: Placement;
-  viewerFigmaAccess: ProjectsChallengeAccessControlType;
+  viewerFigmaAccess: ProjectsPremiumAccessControlType;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 

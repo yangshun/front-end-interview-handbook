@@ -11,15 +11,15 @@ import type { ProjectsChallengeSubmissionAugmented } from '~/components/projects
 import Section from '~/components/ui/Heading/HeadingContext';
 import { themeBorderColor } from '~/components/ui/theme';
 
-import type { ProjectsChallengeAccessControlFields } from '../challenges/premium/ProjectsChallengeAccessControl';
 import ProjectsChallengeSubmissionPaywall from '../challenges/premium/ProjectsChallengeSubmissionPaywall';
+import type { ProjectsPremiumAccessControlFields } from '../challenges/premium/ProjectsPremiumAccessControl';
 import type { ProjectsViewerProjectsProfile } from '../types';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   currentUserId: string | null;
   submission: ProjectsChallengeSubmissionAugmented;
-  viewerAccess: ProjectsChallengeAccessControlFields;
+  viewerAccess: ProjectsPremiumAccessControlFields;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 

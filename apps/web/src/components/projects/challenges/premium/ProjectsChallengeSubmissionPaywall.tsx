@@ -1,4 +1,4 @@
-import type { ProjectsChallengeAccessControlType } from './ProjectsChallengeAccessControl';
+import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessControl';
 import ProjectsPremiumPaywall from './ProjectsPremiumPaywall';
 import {
   useProjectsChallengeSubmissionPaywallSubtitle,
@@ -8,7 +8,7 @@ import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{
   slug: string;
-  viewerContentAccess: ProjectsChallengeAccessControlType;
+  viewerContentAccess: ProjectsPremiumAccessControlType;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 

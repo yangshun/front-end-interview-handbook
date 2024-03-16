@@ -1,5 +1,5 @@
 import ProjectsChallengeDeploymentCompletionPage from '~/components/projects/challenges/completion/ProjectsChallengeDeploymentCompletionPage';
-import ProjectsChallengeAccessControl from '~/components/projects/challenges/premium/ProjectsChallengeAccessControl';
+import ProjectsPremiumAccessControl from '~/components/projects/challenges/premium/ProjectsPremiumAccessControl';
 import readViewerProjectsChallengeAccess from '~/components/projects/utils/readViewerProjectsChallengeAccess';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
@@ -18,7 +18,7 @@ export default async function Page({ params }: Props) {
       readProjectsChallengeItem(slug, locale),
     ]);
 
-  const viewerAccess = ProjectsChallengeAccessControl(
+  const viewerAccess = ProjectsPremiumAccessControl(
     challenge.metadata.access,
     viewerProjectsProfile,
     viewerUnlockedAccess,

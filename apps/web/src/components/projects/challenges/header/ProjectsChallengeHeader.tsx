@@ -16,7 +16,7 @@ import Text from '~/components/ui/Text';
 import ProjectsChallengeCompletedCountButton from './ProjectsChallengeCompletedCountButton';
 import ProjectsChallengeHowItWorksDialog from './ProjectsChallengeHowItWorksDialog';
 import ProjectsChallengeSkillsTag from '../metadata/ProjectsChallengeSkillsTag';
-import type { ProjectsChallengeAccessControlFields } from '../premium/ProjectsChallengeAccessControl';
+import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
 import ProjectsChallengeCurrentProjectSessionCard from '../session/ProjectsChallengeCurrentSessionCard';
 import { useProjectsChallengeSessionContext } from '../session/ProjectsChallengeSessionContext';
 import ProjectsPremiumBadge from '../../common/ProjectsPremiumBadge';
@@ -24,7 +24,7 @@ import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
-  viewerAccess: ProjectsChallengeAccessControlFields;
+  viewerAccess: ProjectsPremiumAccessControlFields;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 

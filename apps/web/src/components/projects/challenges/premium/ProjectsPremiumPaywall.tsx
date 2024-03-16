@@ -7,8 +7,8 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsChallengeAccessControlType } from './ProjectsChallengeAccessControl';
 import ProjectsChallengeUnlockAccessDialog from './ProjectsChallengeUnlockAccessDialog';
+import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessControl';
 
 function UnlockButton({
   credits,
@@ -51,7 +51,7 @@ type Props = Readonly<{
   slug: string;
   subtitle: ReactNode;
   title: string;
-  viewerContentAccess: ProjectsChallengeAccessControlType;
+  viewerContentAccess: ProjectsPremiumAccessControlType;
 }>;
 
 export default function ProjectsPremiumPaywall({

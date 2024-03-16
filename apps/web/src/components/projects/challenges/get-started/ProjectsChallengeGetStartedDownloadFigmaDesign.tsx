@@ -3,13 +3,13 @@ import { FormattedMessage } from 'react-intl';
 
 import Text from '~/components/ui/Text';
 
-import type { ProjectsChallengeAccessControlType } from '../premium/ProjectsChallengeAccessControl';
 import ProjectsChallengeFigmaDesignPaywall from '../premium/ProjectsChallengeFigmaDesignPaywall';
+import type { ProjectsPremiumAccessControlType } from '../premium/ProjectsPremiumAccessControl';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{
   challengeMetadata: ProjectsChallengeMetadata;
-  viewerFigmaAccess: ProjectsChallengeAccessControlType;
+  viewerFigmaAccess: ProjectsPremiumAccessControlType;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 

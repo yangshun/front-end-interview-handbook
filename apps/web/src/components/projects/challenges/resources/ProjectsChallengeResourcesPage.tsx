@@ -24,8 +24,8 @@ import Tabs from '~/components/ui/Tabs';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import ProjectsChallengeGuideSection from '../guides/ProjectsChallengeGuideSection';
-import type { ProjectsChallengeAccessControlFields } from '../premium/ProjectsChallengeAccessControl';
 import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
+import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type TipsResourcesDiscussionsTabType = 'discussions' | 'guides' | 'references';
@@ -55,7 +55,7 @@ function useTipsResourcesDiscussionsTabs() {
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   projectGuides: Array<ProjectsChallengeGuide>;
-  viewerAccess: ProjectsChallengeAccessControlFields;
+  viewerAccess: ProjectsPremiumAccessControlFields;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 

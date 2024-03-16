@@ -2,7 +2,7 @@ import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
-export type ProjectsChallengeAccessControlType =
+export type ProjectsPremiumAccessControlType =
   | 'INSUFFICIENT_CREDITS'
   | 'RESUBSCRIBE_TO_ACCESS'
   | 'RESUBSCRIBE_TO_UNLOCK'
@@ -10,17 +10,17 @@ export type ProjectsChallengeAccessControlType =
   | 'UNLOCK'
   | 'YES';
 
-export type ProjectsChallengeAccessControlFields = Readonly<{
-  downloadFigma: ProjectsChallengeAccessControlType;
-  viewChallenge: ProjectsChallengeAccessControlType;
-  viewSubmission: ProjectsChallengeAccessControlType;
+export type ProjectsPremiumAccessControlFields = Readonly<{
+  downloadFigma: ProjectsPremiumAccessControlType;
+  viewChallenge: ProjectsPremiumAccessControlType;
+  viewSubmission: ProjectsPremiumAccessControlType;
 }>;
 
-export default function ProjectsChallengeAccessControl(
+export default function ProjectsPremiumAccessControl(
   challengeAccess: ProjectsChallengeMetadata['access'],
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null,
   viewerUnlockedAccess: boolean,
-): ProjectsChallengeAccessControlFields {
+): ProjectsPremiumAccessControlFields {
   if (challengeAccess === 'free') {
     return {
       downloadFigma: 'YES',
@@ -29,18 +29,23 @@ export default function ProjectsChallengeAccessControl(
     };
   }
 
-  const viewerAccess = (() => {
+  const viewerAccess: ProjectsPremiumAccessControlType = (() => {
     const credits = viewerProjectsProfile?.credits ?? 0;
 
-    if (viewerUnlockedAccess) {
-      return viewerProjectsProfile?.premium ? 'YES' : 'RESUBSCRIBE_TO_ACCESS';
-    }
-
     if (viewerProjectsProfile?.premium) {
+      if (viewerUnlockedAccess) {
+        return 'YES';
+      }
+
       return credits > 0 ? 'UNLOCK' : 'INSUFFICIENT_CREDITS';
     }
 
-    if (!viewerProjectsProfile?.premium && credits > 0) {
+    // Non-premium.
+    if (viewerUnlockedAccess) {
+      return 'RESUBSCRIBE_TO_ACCESS';
+    }
+
+    if (credits > 0) {
       return 'RESUBSCRIBE_TO_UNLOCK';
     }
 

@@ -32,9 +32,9 @@ import {
 
 import ProjectsChallengeAssetsResponsiveBreakpointsTab from './ProjectsChallengeAssetsResponsiveBreakpointsTab';
 import useProjectsChallengeProvidedResources from './useProjectsChallengeProvidedResources';
-import type { ProjectsChallengeAccessControlFields } from '../premium/ProjectsChallengeAccessControl';
 import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
 import ProjectsChallengeFigmaDesignPaywall from '../premium/ProjectsChallengeFigmaDesignPaywall';
+import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
 import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxContent';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
@@ -86,7 +86,7 @@ type Props = Readonly<{
   apiWriteup?: ProjectsChallengeAPIWriteup;
   challenge: ProjectsChallengeItem;
   styleGuide?: ProjectsChallengeStyleGuide;
-  viewerAccess: ProjectsChallengeAccessControlFields;
+  viewerAccess: ProjectsPremiumAccessControlFields;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 

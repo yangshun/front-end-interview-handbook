@@ -15,7 +15,7 @@ import ProjectsChallengeGetStartedDownloadStarterFiles from './ProjectsChallenge
 import ProjectsChallengeGetStartedImportantInfoGuide from './ProjectsChallengeGetStartedImportantInfoGuide';
 import ProjectsChallengeGetStartedSkillSelection from './ProjectsChallengeGetStartedSkillSelection';
 import ProjectsChallengeGetStartedStartCoding from './ProjectsChallengeGetStartedStartCoding';
-import type { ProjectsChallengeAccessControlType } from '../premium/ProjectsChallengeAccessControl';
+import type { ProjectsPremiumAccessControlType } from '../premium/ProjectsPremiumAccessControl';
 import type {
   ProjectsChallengeItem,
   ProjectsChallengeSessionSkillsFormValues,
@@ -42,7 +42,7 @@ function useDialogSteps({
   onStartClick: () => void;
   setSkills: (newSkills: ProjectsChallengeSessionSkillsFormValues) => void;
   skills: ProjectsChallengeSessionSkillsFormValues;
-  viewerFigmaAccess: ProjectsChallengeAccessControlType;
+  viewerFigmaAccess: ProjectsPremiumAccessControlType;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }) {
   const intl = useIntl();
@@ -128,7 +128,7 @@ type Props = Readonly<{
   isShown: boolean;
   onClose: () => void;
   onStart: (skills: ProjectsChallengeSessionSkillsFormValues) => void;
-  viewerFigmaAccess: ProjectsChallengeAccessControlType;
+  viewerFigmaAccess: ProjectsPremiumAccessControlType;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 

@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 
 import { convertToPlainObject } from '~/lib/convertToPlainObject';
 
-import ProjectsChallengeAccessControl from '~/components/projects/challenges/premium/ProjectsChallengeAccessControl';
+import ProjectsPremiumAccessControl from '~/components/projects/challenges/premium/ProjectsPremiumAccessControl';
 import ProjectsChallengeSubmissionLockedPage from '~/components/projects/submissions/ProjectsChallengeSubmissionLockedPage';
 import ProjectsChallengeSubmissionPage from '~/components/projects/submissions/ProjectsChallengeSubmissionPage';
 import readViewerProjectsChallengeAccess from '~/components/projects/utils/readViewerProjectsChallengeAccess';
@@ -67,7 +67,7 @@ export default async function Page({ params }: Props) {
     readProjectsChallengeItem(submission.slug, locale, userId),
   ]);
 
-  const viewerAccess = ProjectsChallengeAccessControl(
+  const viewerAccess = ProjectsPremiumAccessControl(
     challenge.metadata.access,
     viewerProjectsProfile,
     viewerUnlockedAccess,
