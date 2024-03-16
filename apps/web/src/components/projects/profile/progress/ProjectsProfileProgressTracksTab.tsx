@@ -7,20 +7,20 @@ import ProjectsTrackSection from '../../tracks/ProjectsTrackSection';
 type Props = Readonly<{
   isViewerPremium: boolean;
   projectTracks: ReadonlyArray<ProjectsTrackItem>;
-  userId: string | null;
+  targetUserId: string;
 }>;
 
 export default function ProjectsProfileProgressTracksTab({
   isViewerPremium,
   projectTracks,
-  userId,
+  targetUserId,
 }: Props) {
   return (
     <ProjectsTrackSection
       defaultOpen={true}
       isViewerPremium={isViewerPremium}
       projectTracks={projectTracks}
-      userId={userId ?? null}
+      targetUserId={targetUserId}
     />
   );
 }

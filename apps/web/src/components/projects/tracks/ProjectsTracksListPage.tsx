@@ -45,7 +45,7 @@ export default function ProjectsTracksListPage({
           defaultOpen={true}
           isViewerPremium={isViewerPremium}
           projectTracks={projectTracks}
-          userId={viewerId}
+          targetUserId={viewerId}
         />
       </Section>
     </div>

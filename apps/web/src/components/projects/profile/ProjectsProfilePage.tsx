@@ -1,7 +1,5 @@
 'use client';
 
-import { notFound } from 'next/navigation';
-
 import { trpc } from '~/hooks/trpc';
 
 import ProjectsProfileInfo from '~/components/projects/profile/ProjectsProfileInfo';
@@ -33,16 +31,7 @@ export default function ProjectsProfilePage({
       projectsProfileId,
     });
 
-  if (userProfile == null) {
-    return notFound();
-  }
-
   const { projectsProfile } = userProfile;
-
-  if (projectsProfile == null) {
-    return notFound();
-  }
-
   const baseUrl = `/projects/u/${userProfile.username}`;
 
   return (

@@ -19,14 +19,16 @@ import { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 type Props = Readonly<{
   isViewerPremium: boolean;
-  userId: string;
+  isViewingOwnProfile: boolean;
+  targetUserId: string;
 }>;
 
 const ITEMS_PER_PAGE = 6;
 
 export default function ProjectsProfileProgressAllChallengesTab({
+  isViewingOwnProfile,
   isViewerPremium,
-  userId,
+  targetUserId,
 }: Props) {
   const intl = useIntl();
 
@@ -43,7 +45,7 @@ export default function ProjectsProfileProgressAllChallengesTab({
         ProjectsChallengeSessionStatus.IN_PROGRESS,
         ProjectsChallengeSessionStatus.COMPLETED,
       ],
-      userId,
+      userId: targetUserId,
     },
   );
 
@@ -77,20 +79,20 @@ export default function ProjectsProfileProgressAllChallengesTab({
       icon={RiRocketLine}
       iconClassName={themeTextColor}
       subtitle={
-        userId
+        isViewingOwnProfile
           ? intl.formatMessage({
-              defaultMessage:
-                'This user has not started any projects matching those filters.',
-              description:
-                'Subtitle for no projects yet on projects progress tab',
-              id: 'Dt0MpD',
-            })
-          : intl.formatMessage({
               defaultMessage:
                 'You have not started any projects matching those filters.',
               description:
                 'Subtitle for no projects yet on projects progress tab',
               id: 'vvPx/k',
+            })
+          : intl.formatMessage({
+              defaultMessage:
+                'This user has not started any projects matching those filters.',
+              description:
+                'Subtitle for no projects yet on projects progress tab',
+              id: 'Dt0MpD',
             })
       }
       title={intl.formatMessage({

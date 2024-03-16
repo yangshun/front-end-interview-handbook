@@ -8,20 +8,20 @@ type Props = Readonly<{
   defaultOpen?: boolean;
   isViewerPremium: boolean;
   projectTracks: ReadonlyArray<ProjectsTrackItem>;
-  userId: string | null;
+  targetUserId: string | null;
 }>;
 
 export default function ProjectsTrackSection({
   defaultOpen,
   projectTracks,
-  userId,
+  targetUserId,
   isViewerPremium,
 }: Props) {
   const { data: challengeStatuses } =
     trpc.projects.challenges.progress.useQuery(
-      { userId: userId! },
+      { userId: targetUserId! },
       {
-        enabled: userId != null,
+        enabled: targetUserId != null,
       },
     );
 

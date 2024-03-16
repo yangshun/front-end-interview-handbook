@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation';
+
 import ProjectsProfileProgressTracksTab from '~/components/projects/profile/progress/ProjectsProfileProgressTracksTab';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
@@ -16,11 +18,15 @@ export default async function Page({ params }: Props) {
     readProjectsTrackList(locale),
   ]);
 
+  if (viewerId == null) {
+    return notFound();
+  }
+
   return (
     <ProjectsProfileProgressTracksTab
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
       projectTracks={tracks}
-      userId={viewerId ?? null}
+      targetUserId={viewerId}
     />
   );
 }

@@ -12,7 +12,7 @@ import type { ProjectsDiscussionCommentDomain } from '@prisma/client';
 
 function ProjectsProfileCommunityListWithFiltersImpl({
   isViewingOwnProfile,
-  userId,
+  targetUserId,
 }: Props) {
   const domainList: Array<ProjectsDiscussionCommentDomain> = [
     'PROJECTS_SUBMISSION',
@@ -32,7 +32,7 @@ function ProjectsProfileCommunityListWithFiltersImpl({
     contributionType: selectedContributionType,
     domainList,
     forumType: selectedForumType,
-    userId,
+    userId: targetUserId,
   });
 
   const { filters } = useProjectsProfileCommunityFilterContext();
@@ -58,7 +58,8 @@ function ProjectsProfileCommunityListWithFiltersImpl({
         comments={comments ?? []}
         hasFilters={hasFilters}
         isViewingOwnProfile={isViewingOwnProfile}
-        userId={userId}
+        // TODO(projects): make sure this userId is meant to be the target user.
+        userId={targetUserId}
       />
     </div>
   );
@@ -66,18 +67,18 @@ function ProjectsProfileCommunityListWithFiltersImpl({
 
 type Props = Readonly<{
   isViewingOwnProfile: boolean;
-  userId?: string;
+  targetUserId?: string;
 }>;
 
 export default function ProjectsProfileCommunityListWithFilters({
   isViewingOwnProfile,
-  userId,
+  targetUserId,
 }: Props) {
   return (
     <ProjectsProfileCommunityFilterContext>
       <ProjectsProfileCommunityListWithFiltersImpl
         isViewingOwnProfile={isViewingOwnProfile}
-        userId={userId}
+        targetUserId={targetUserId}
       />
     </ProjectsProfileCommunityFilterContext>
   );

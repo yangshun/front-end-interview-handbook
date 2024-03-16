@@ -35,7 +35,7 @@ export default async function Page({ params }: Props) {
     <ProjectsProfileProgressTracksTab
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
       projectTracks={tracks}
-      userId={userProfile.id}
+      targetUserId={userProfile.id}
     />
   );
 }

@@ -37,7 +37,7 @@ export default async function Layout({ children, params }: Props) {
       return redirect('/projects/onboarding');
     }
 
-    // Non-existent user.
+    // User does not have projects profile.
     return notFound();
   }
 

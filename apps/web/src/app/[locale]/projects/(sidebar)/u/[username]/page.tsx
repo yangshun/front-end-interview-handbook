@@ -10,7 +10,7 @@ type Props = Readonly<{
 }>;
 
 export default async function Page({ params }: Props) {
-  const [{ viewerProjectsProfile }, userProfile] = await Promise.all([
+  const [{ viewerId, viewerProjectsProfile }, userProfile] = await Promise.all([
     readViewerProjectsProfile(),
     prisma.profile.findUnique({
       include: {
@@ -22,14 +22,18 @@ export default async function Page({ params }: Props) {
     }),
   ]);
 
-  if (!userProfile) {
+  // If no such user.
+  if (userProfile == null) {
     return notFound();
   }
+
+  const isViewingOwnProfile = viewerId === userProfile.id;
 
   return (
     <ProjectsProfileProgressSection
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
-      userId={userProfile.id}
+      isViewingOwnProfile={isViewingOwnProfile}
+      targetUserId={userProfile.id}
     />
   );
 }

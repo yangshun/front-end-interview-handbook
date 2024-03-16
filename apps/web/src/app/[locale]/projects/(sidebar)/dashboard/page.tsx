@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 import ProjectsProfileProgressSection from '~/components/projects/profile/progress/ProjectsProfileProgressSection';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
@@ -31,10 +32,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page() {
   const { viewerId, viewerProjectsProfile } = await readViewerProjectsProfile();
 
+  if (viewerId == null) {
+    return notFound();
+  }
+
   return (
     <ProjectsProfileProgressSection
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
-      userId={viewerId!}
+      isViewingOwnProfile={true}
+      targetUserId={viewerId}
     />
   );
 }

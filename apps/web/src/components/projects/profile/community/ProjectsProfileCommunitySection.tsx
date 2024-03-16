@@ -1,7 +1,5 @@
 'use client';
 
-import { trpc } from '~/hooks/trpc';
-
 import ProjectsProfileCommunityListWithFilters from './ProjectsProfileCommunityListWithFilters';
 
 import type { ProjectsDiscussionComment } from '@prisma/client';
@@ -34,19 +32,17 @@ export type ProjectsProfileCommunityComment = ProjectsDiscussionComment &
 
 type Props = Readonly<{
   isViewingOwnProfile: boolean;
-  userId?: string;
+  targetUserId?: string;
 }>;
 
 export default function ProjectsProfileCommunitySection({
   isViewingOwnProfile = false,
-  userId,
+  targetUserId,
 }: Props) {
-  const { data: profile } = trpc.profile.getProfile.useQuery();
-
   return (
     <ProjectsProfileCommunityListWithFilters
       isViewingOwnProfile={isViewingOwnProfile}
-      userId={userId || profile?.id}
+      targetUserId={targetUserId}
     />
   );
 }

@@ -31,7 +31,7 @@ export default async function Page({ params }: Props) {
   return (
     <ProjectsProfileCommunitySection
       isViewingOwnProfile={isViewingOwnProfile}
-      userId={userProfile.id}
+      targetUserId={userProfile.id}
     />
   );
 }

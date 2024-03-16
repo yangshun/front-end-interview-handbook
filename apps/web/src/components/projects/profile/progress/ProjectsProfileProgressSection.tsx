@@ -4,17 +4,20 @@ import ProjectsProfileProgressAllChallengesTab from './ProjectsProfileProgressAl
 
 type Props = Readonly<{
   isViewerPremium: boolean;
-  userId: string;
+  isViewingOwnProfile: boolean;
+  targetUserId: string;
 }>;
 
 export default function ProjectsProfileProgressSection({
   isViewerPremium,
-  userId,
+  isViewingOwnProfile,
+  targetUserId,
 }: Props) {
   return (
     <ProjectsProfileProgressAllChallengesTab
       isViewerPremium={isViewerPremium}
-      userId={userId}
+      isViewingOwnProfile={isViewingOwnProfile}
+      targetUserId={targetUserId}
     />
   );
 }
