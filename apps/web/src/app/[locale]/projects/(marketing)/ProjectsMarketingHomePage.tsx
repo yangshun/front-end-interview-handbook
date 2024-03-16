@@ -13,8 +13,8 @@ import ProjectsMarketingPortfolioFeatures from '~/components/projects/marketing/
 import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-const MarketingHomePageBottom = dynamic(
-  () => import('../../(standard)/(marketing)/MarketingHomePageBottom'),
+const ProjectsMarketingHomePageBottom = dynamic(
+  () => import('../../projects/(marketing)/ProjectsMarketingHomePageBottom'),
   { ssr: false },
 );
 
@@ -42,7 +42,7 @@ export default function ProjectsMarketingHomePage({
         <ProjectsMarketingPortfolioFeatures />
         <ProjectsMarketingFutureToolkit />
         <div ref={loadBottomHalfMarkerRef} />
-        {showBottomHalf && <MarketingHomePageBottom />}
+        {showBottomHalf && <ProjectsMarketingHomePageBottom />}
       </Section>
     </main>
   );

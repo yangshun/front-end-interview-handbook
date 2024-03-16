@@ -583,6 +583,10 @@
     "defaultMessage": "Verify your social accounts",
     "description": "Rewards step label"
   },
+  "3bgJ4F": {
+    "defaultMessage": "Connect with like-minded individuals in the community and get useful tips about building projects - no spam!",
+    "description": "Subtitle for Projects newsletter sign up section"
+  },
   "3c9VZh": {
     "defaultMessage": "Clarify doubts in project-specific forums",
     "description": "Short description for \"Learn from others\" feature on Projects home page"
@@ -2243,6 +2247,10 @@
     "defaultMessage": "Related articles",
     "description": "Blog related articles section"
   },
+  "Id0zS8": {
+    "defaultMessage": "Sign up",
+    "description": "Button label for a newsletter subscription section"
+  },
   "IeUbyv": {
     "defaultMessage": "Tell us anything - about your journey as a front end developer, your goals and next steps, or how you want to connect with others",
     "description": "Placeholder for bio field"
@@ -3098,6 +3106,10 @@
   "PHuc2+": {
     "defaultMessage": "Please create a free account in order to start on project challenges.",
     "description": "Prompting the user to create an account before starting a project challenge"
+  },
+  "PI4FQX": {
+    "defaultMessage": "Join our vibrant community of builders",
+    "description": "Title for Projects newsletter sign up section"
   },
   "PLPXbS": {
     "defaultMessage": "Multi-page & fully-functional apps",
@@ -4794,6 +4806,10 @@
   "dfAvc7": {
     "defaultMessage": "Footer",
     "description": "Footer section heading"
+  },
+  "dg2G3r": {
+    "defaultMessage": "and",
+    "description": "Label in divider between Join Discord and Sign Up in Projects Newsletter section"
   },
   "dgTN/f": {
     "defaultMessage": "More",
