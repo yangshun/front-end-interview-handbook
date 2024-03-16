@@ -109,7 +109,7 @@ export default function ProjectsChallengeCard({
             variant="flat">
             {title}
           </Anchor>
-          <Text className="grow" color="subtitle" size="body2">
+          <Text className="grow" color="secondary" size="body2">
             {description}
           </Text>
         </div>
