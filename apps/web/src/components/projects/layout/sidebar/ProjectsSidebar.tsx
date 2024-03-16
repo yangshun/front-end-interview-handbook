@@ -292,7 +292,11 @@ export function ProjectsSidebarExpanded({
               href={SocialLinks.discordPremium.href}
               icon={RiDiscordLine}
               isLabelHidden={true}
-              label="Discord"
+              label={intl.formatMessage({
+                defaultMessage: 'Premium Discord',
+                description: 'Link to the premium Discord server',
+                id: 'gvLQbK',
+              })}
               size="sm"
               tooltip={intl.formatMessage({
                 defaultMessage: 'Join Premium Discord',
@@ -403,11 +407,24 @@ function ProjectsSidebarCollapsed({
             showChevron={false}
             side="right"
             size="sm">
-            <DropdownMenu.Item
-              href="#TODO(projects)"
-              icon={RiDiscordLine}
-              label="Discord"
-            />
+            {profile?.projectsProfile?.premium ? (
+              <DropdownMenu.Item
+                color="active"
+                href={SocialLinks.discordPremium.href}
+                icon={RiDiscordLine}
+                label={intl.formatMessage({
+                  defaultMessage: 'Premium Discord',
+                  description: 'Link to the premium Discord server',
+                  id: 'gvLQbK',
+                })}
+              />
+            ) : (
+              <DropdownMenu.Item
+                href={SocialLinks.discord.href}
+                icon={RiDiscordLine}
+                label="Discord"
+              />
+            )}
             <AppThemeSubMenu />
             {profile && (
               <DropdownMenu.Item

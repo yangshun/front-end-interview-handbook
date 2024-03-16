@@ -5155,6 +5155,10 @@
     "defaultMessage": "We'll provide starter code, production-grade Figma assets and even APIs as relevant.",
     "description": "Description of 'Download assets' feature in Projects marketing page"
   },
+  "gvLQbK": {
+    "defaultMessage": "Premium Discord",
+    "description": "Link to the premium Discord server"
+  },
   "gwrYNC": {
     "defaultMessage": "Software Engineer",
     "description": "Anonymous Software Engineer's job title"
