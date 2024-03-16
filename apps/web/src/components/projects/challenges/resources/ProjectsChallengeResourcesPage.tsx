@@ -73,11 +73,11 @@ export default function ProjectsChallengeResourcesPage({
   const { startProject, accessAllSteps, fetchingCanAccessAllSteps } =
     useProjectsChallengeSessionContext();
 
-  const showPaywall = viewerAccess.viewContents !== 'YES';
+  const showPaywall = viewerAccess.viewChallenge !== 'YES';
   const overlay = showPaywall ? (
     <ProjectsChallengeContentPaywall
       slug={challenge.metadata.slug}
-      viewerContentAccess={viewerAccess.viewContents}
+      viewerContentAccess={viewerAccess.viewChallenge}
       viewerProjectsProfile={viewerProjectsProfile}
     />
   ) : (

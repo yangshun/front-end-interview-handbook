@@ -11,7 +11,8 @@ export type ProjectsChallengeAccessControlType =
 
 export type ProjectsChallengeAccessControlFields = Readonly<{
   downloadFigma: ProjectsChallengeAccessControlType;
-  viewContents: ProjectsChallengeAccessControlType;
+  viewChallenge: ProjectsChallengeAccessControlType;
+  viewSubmission: ProjectsChallengeAccessControlType;
 }>;
 
 export default function ProjectsChallengeAccessControl(
@@ -22,7 +23,8 @@ export default function ProjectsChallengeAccessControl(
   if (challengeAccess === 'free') {
     return {
       downloadFigma: 'YES',
-      viewContents: 'YES',
+      viewChallenge: 'YES',
+      viewSubmission: 'YES',
     };
   }
 
@@ -51,12 +53,14 @@ export default function ProjectsChallengeAccessControl(
   if (challengeAccess === 'free-plus') {
     return {
       downloadFigma: viewerAccess,
-      viewContents: 'YES',
+      viewChallenge: 'YES',
+      viewSubmission: 'YES',
     };
   }
 
   return {
     downloadFigma: viewerAccess,
-    viewContents: viewerAccess,
+    viewChallenge: viewerAccess,
+    viewSubmission: viewerAccess,
   };
 }

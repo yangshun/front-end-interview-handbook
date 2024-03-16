@@ -97,7 +97,7 @@ export default function ProjectsChallengeHeader({
             <Heading level="heading5">{title}</Heading>
             {access === 'premium' && (
               <ProjectsPremiumBadge
-                unlocked={viewerAccess.viewContents === 'YES'}
+                unlocked={viewerAccess.viewChallenge === 'YES'}
               />
             )}
           </div>
@@ -129,7 +129,7 @@ export default function ProjectsChallengeHeader({
             />
           ) : (
             <div className="flex items-center gap-x-4 gap-y-4 lg:flex-col lg:items-end">
-              {viewerAccess.viewContents === 'YES' ? (
+              {viewerAccess.viewChallenge === 'YES' ? (
                 <Button
                   label={intl.formatMessage({
                     defaultMessage: 'Start project',

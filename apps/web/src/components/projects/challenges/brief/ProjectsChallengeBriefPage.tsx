@@ -31,7 +31,7 @@ export default function ProjectsChallengeBriefPage({
   viewerProjectsProfile,
   viewerAccess,
 }: Props) {
-  const showPaywall = viewerAccess.viewContents !== 'YES';
+  const showPaywall = viewerAccess.viewChallenge !== 'YES';
 
   // TODO(projects): Add real images url
   const images = [
@@ -49,7 +49,7 @@ export default function ProjectsChallengeBriefPage({
       overlay={
         <ProjectsChallengeContentPaywall
           slug={challenge.metadata.slug}
-          viewerContentAccess={viewerAccess.viewContents}
+          viewerContentAccess={viewerAccess.viewChallenge}
           viewerProjectsProfile={viewerProjectsProfile}
         />
       }

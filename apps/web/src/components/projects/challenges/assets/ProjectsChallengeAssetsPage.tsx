@@ -111,11 +111,11 @@ export default function ProjectsChallengeAssetsPage({
     'responsive-breakpoints',
   );
 
-  const showPaywall = viewerAccess.viewContents !== 'YES';
+  const showPaywall = viewerAccess.viewChallenge !== 'YES';
   const overlay = showPaywall ? (
     <ProjectsChallengeContentPaywall
       slug={metadata.slug}
-      viewerContentAccess={viewerAccess.viewContents}
+      viewerContentAccess={viewerAccess.viewChallenge}
       viewerProjectsProfile={viewerProjectsProfile}
     />
   ) : (
