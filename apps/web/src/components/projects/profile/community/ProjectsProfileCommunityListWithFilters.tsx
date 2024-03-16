@@ -45,7 +45,7 @@ function ProjectsProfileCommunityListWithFiltersImpl({
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex flex-col flex-wrap gap-3 lg:flex-row">
+      <div className="flex flex-row flex-wrap gap-3">
         {filters.map((filter) => (
           <ProjectsProfileCommunityFilterDropdown
             key={filter.id}
