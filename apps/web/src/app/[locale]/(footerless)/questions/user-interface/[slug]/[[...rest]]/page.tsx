@@ -15,7 +15,7 @@ import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import {
   createSupabaseAdminClientGFE_SERVER_ONLY,
-  readUserFromToken,
+  readViewerFromToken,
 } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
@@ -131,21 +131,21 @@ export default async function Page({ params }: Props) {
     codeId,
   } = determineFrameworkAndMode(rest);
 
-  const [user, question] = await Promise.all([
-    readUserFromToken(),
+  const [viewer, question] = await Promise.all([
+    readViewerFromToken(),
     readQuestionUserInterface(slug, parsedFramework, codeId),
   ]);
 
   let canViewPremiumContent = false;
   const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
-  if (user != null) {
+  if (viewer != null) {
     canViewPremiumContent = await Promise.resolve(
       (async () => {
         const { data: profile } = await supabaseAdmin
           .from('Profile')
           .select('*')
-          .eq('id', user.id)
+          .eq('id', viewer.id)
           .single();
 
         return profile?.premium ?? false;
@@ -153,7 +153,7 @@ export default async function Page({ params }: Props) {
     );
   }
 
-  const isQuestionLockedForUser =
+  const isQuestionLockedForViewer =
     question.metadata.premium && !canViewPremiumContent;
   const { url } = frameworkAgnosticLinks(question, mode);
 
@@ -208,7 +208,7 @@ export default async function Page({ params }: Props) {
         url={url}
         useAppDir={true}
       />
-      {isQuestionLockedForUser ? (
+      {isQuestionLockedForViewer ? (
         <CodingWorkspacePaywallPage metadata={question.metadata} />
       ) : (
         <UserInterfaceCodingWorkspacePage

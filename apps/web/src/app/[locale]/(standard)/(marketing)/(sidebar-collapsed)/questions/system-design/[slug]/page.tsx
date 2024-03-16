@@ -7,7 +7,7 @@ import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import {
   createSupabaseAdminClientGFE_SERVER_ONLY,
-  readUserFromToken,
+  readViewerFromToken,
 } from '~/supabase/SupabaseServerGFE';
 
 import QuestionsSystemDesignPage from './QuestionsSystemDesignPage';
@@ -49,9 +49,9 @@ export default async function Page({ params }: Props) {
   const { question } = readQuestionSystemDesignContents(slug, locale);
 
   const canViewPremiumContent: boolean = await (async () => {
-    const user = await readUserFromToken();
+    const viewer = await readViewerFromToken();
 
-    if (user == null) {
+    if (viewer == null) {
       return false;
     }
 
@@ -60,7 +60,7 @@ export default async function Page({ params }: Props) {
     const { data: profile } = await supabaseClient
       .from('Profile')
       .select('*')
-      .eq('id', user.id)
+      .eq('id', viewer.id)
       .single();
 
     return profile?.premium ?? false;

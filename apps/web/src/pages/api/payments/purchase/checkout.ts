@@ -8,7 +8,7 @@ import type { InterviewsPricingPlanType } from '~/components/interviews/purchase
 
 import {
   createSupabaseAdminClientGFE_SERVER_ONLY,
-  readUserFromToken,
+  readViewerFromToken,
 } from '~/supabase/SupabaseServerGFE';
 import { getErrorMessage } from '~/utils/getErrorMessage';
 
@@ -41,7 +41,7 @@ const prohibitedCities = new Set([
 //  2. Part that requires Node.js APIs, the generation of the checkout session.
 export default async function handler(req: NextRequest) {
   // Step 1: Check if request has identity.
-  const user = await readUserFromToken(
+  const user = await readViewerFromToken(
     req.cookies.get('supabase-auth-token')?.value,
   );
 

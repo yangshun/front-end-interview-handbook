@@ -1,5 +1,5 @@
 import prisma from '~/server/prisma';
-import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
+import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 import type { ProjectsViewerProjectsProfile } from '../types';
 
@@ -10,19 +10,19 @@ export default async function readViewerProjectsProfile(
   }> | null,
 ): Promise<
   Readonly<{
-    userId: string | null;
+    viewerId: string | null;
     viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
   }>
 > {
   let user = userParam ?? null;
 
   if (user == null) {
-    user = await readUserFromToken();
+    user = await readViewerFromToken();
   }
 
   if (user == null) {
     return {
-      userId: null,
+      viewerId: null,
       viewerProjectsProfile: null,
     };
   }
@@ -40,7 +40,7 @@ export default async function readViewerProjectsProfile(
   });
 
   return {
-    userId: user.id,
+    viewerId: user.id,
     viewerProjectsProfile: projectsProfile,
   };
 }

@@ -14,10 +14,11 @@ export default async function Page({ params }: Props) {
   const { slug: rawSlug, locale } = params;
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
-  const [{ viewerProjectsProfile, userId }, { track }] = await Promise.all([
-    readViewerProjectsProfile(),
-    readProjectsTrack(slug, locale),
-  ]);
+  const [{ viewerProjectsProfile, viewerId: userId }, { track }] =
+    await Promise.all([
+      readViewerProjectsProfile(),
+      readProjectsTrack(slug, locale),
+    ]);
 
   if (track == null) {
     // TODO(projects): add custom not found page for projects.

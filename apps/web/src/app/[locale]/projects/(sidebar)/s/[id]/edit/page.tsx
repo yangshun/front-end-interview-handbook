@@ -5,7 +5,7 @@ import { convertToPlainObject } from '~/lib/convertToPlainObject';
 import ProjectsChallengeSubmissionEditPage from '~/components/projects/submissions/form/ProjectsChallengeSubmissionEditPage';
 
 import prisma from '~/server/prisma';
-import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
+import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{ id: string; locale: string }>;
@@ -14,12 +14,12 @@ type Props = Readonly<{
 export default async function Page({ params }: Props) {
   const { id: submissionId } = params;
 
-  const user = await readUserFromToken();
+  const viewer = await readViewerFromToken();
   const submission = await prisma.projectsChallengeSubmission.findFirst({
     where: {
       id: submissionId,
       projectsProfile: {
-        userId: user?.id,
+        userId: viewer?.id,
       },
     },
   });

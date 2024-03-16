@@ -6,7 +6,7 @@ import RewardsTasksPage from '~/components/rewards/tasks/RewardsTasksPage';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
+import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -31,9 +31,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const user = await readUserFromToken();
+  const viewer = await readViewerFromToken();
 
-  if (user == null) {
+  if (viewer == null) {
     return redirect(
       url.format({
         pathname: '/login',

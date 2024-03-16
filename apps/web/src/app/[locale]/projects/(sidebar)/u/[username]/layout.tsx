@@ -3,7 +3,7 @@ import { notFound, redirect } from 'next/navigation';
 import ProjectsProfilePage from '~/components/projects/profile/ProjectsProfilePage';
 
 import prisma from '~/server/prisma';
-import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
+import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -11,8 +11,8 @@ type Props = Readonly<{
 }>;
 
 export default async function Layout({ children, params }: Props) {
-  const [user, userProfile] = await Promise.all([
-    readUserFromToken(),
+  const [viewer, userProfile] = await Promise.all([
+    readViewerFromToken(),
     prisma.profile.findUnique({
       include: {
         projectsProfile: true,
@@ -23,12 +23,12 @@ export default async function Layout({ children, params }: Props) {
     }),
   ]);
 
-  // If no user profile.
+  // If no such user.
   if (userProfile == null) {
     return notFound();
   }
 
-  const isViewingOwnProfile = user?.id === userProfile.id;
+  const isViewingOwnProfile = viewer?.id === userProfile.id;
   const { projectsProfile } = userProfile;
 
   // If no projects profile.

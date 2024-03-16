@@ -4,12 +4,12 @@ import url from 'node:url';
 import ProjectsProfileEditPage from '~/components/projects/profile/edit/ProjectsProfileEditPage';
 
 import prisma from '~/server/prisma';
-import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
+import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 export default async function Page() {
-  const user = await readUserFromToken();
+  const viewer = await readViewerFromToken();
 
-  if (user == null) {
+  if (viewer == null) {
     return redirect(
       url.format({
         pathname: '/login',
@@ -20,21 +20,21 @@ export default async function Page() {
     );
   }
 
-  const userProfile = await prisma.profile.findUnique({
+  const viewerProfile = await prisma.profile.findUnique({
     include: {
       projectsProfile: true,
     },
     where: {
-      id: user.id,
+      id: viewer.id,
     },
   });
 
   // If no user profile.
-  if (userProfile == null) {
+  if (viewerProfile == null) {
     return redirect(`/projects/challenges`);
   }
 
-  const { projectsProfile } = userProfile;
+  const { projectsProfile } = viewerProfile;
 
   // If no projects profile
   if (projectsProfile == null) {
@@ -44,7 +44,7 @@ export default async function Page() {
   return (
     <ProjectsProfileEditPage
       userProfile={{
-        ...userProfile,
+        ...viewerProfile,
         projectsProfile,
       }}
     />

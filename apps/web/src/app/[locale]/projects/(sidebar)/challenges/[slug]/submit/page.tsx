@@ -4,7 +4,7 @@ import ProjectsChallengeSubmitPage from '~/components/projects/submissions/form/
 
 import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
-import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
+import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
@@ -12,15 +12,15 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { slug, locale } = params;
-  const [user, { challenge }] = await Promise.all([
-    readUserFromToken(),
+  const [viewer, { challenge }] = await Promise.all([
+    readViewerFromToken(),
     readProjectsChallengeItem(slug, locale),
   ]);
 
   const session = await prisma.projectsChallengeSession.findFirst({
     where: {
       projectsProfile: {
-        userId: user?.id,
+        userId: viewer?.id,
       },
       slug: challenge.metadata.slug,
       status: 'IN_PROGRESS',

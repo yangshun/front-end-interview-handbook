@@ -1,34 +1,17 @@
 import { notFound } from 'next/navigation';
 
 import ProjectsProfileProgressSection from '~/components/projects/profile/progress/ProjectsProfileProgressSection';
+import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
 import prisma from '~/server/prisma';
-import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{ username: string }>;
 }>;
 
 export default async function Page({ params }: Props) {
-  const user = await readUserFromToken();
-
-  const [isViewerPremium, userProfile] = await Promise.all([
-    (async () => {
-      if (user == null) {
-        return false;
-      }
-
-      const projectsProfile = await prisma.projectsProfile.findFirst({
-        select: {
-          premium: true,
-        },
-        where: {
-          userId: user.id,
-        },
-      });
-
-      return projectsProfile?.premium ?? false;
-    })(),
+  const [{ viewerProjectsProfile }, userProfile] = await Promise.all([
+    readViewerProjectsProfile(),
     prisma.profile.findUnique({
       include: {
         projectsProfile: true,
@@ -45,7 +28,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <ProjectsProfileProgressSection
-      isViewerPremium={isViewerPremium}
+      isViewerPremium={viewerProjectsProfile?.premium ?? false}
       userId={userProfile.id}
     />
   );

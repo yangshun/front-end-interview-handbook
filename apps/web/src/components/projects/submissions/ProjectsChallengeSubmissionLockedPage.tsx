@@ -17,14 +17,14 @@ import type { ProjectsViewerProjectsProfile } from '../types';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
-  currentUserId: string | null;
   submission: ProjectsChallengeSubmissionAugmented;
   viewerAccess: ProjectsPremiumAccessControlFields;
+  viewerId: string | null;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 
 export default function ProjectsChallengeSubmissionLockedPage({
-  currentUserId,
+  viewerId,
   challenge,
   submission,
   viewerAccess,
@@ -33,7 +33,7 @@ export default function ProjectsChallengeSubmissionLockedPage({
   const parentRef = useRef(null);
   const isParentInView = useInView(parentRef);
   const isViewingOwnSubmission =
-    currentUserId === submission.projectsProfile?.userProfile?.id;
+    viewerId === submission.projectsProfile?.userProfile?.id;
   const isViewerPremium = viewerProjectsProfile?.premium;
 
   return (

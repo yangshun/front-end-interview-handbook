@@ -10,7 +10,7 @@ import { fetchQuestionsListCoding } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteUrl } from '~/seo/siteUrl';
-import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
+import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
@@ -47,18 +47,18 @@ export default async function Page({ params }: Props) {
   const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
   const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
-  const user = await readUserFromToken();
+  const viewer = await readViewerFromToken();
   const { question } = readQuestionJavaScriptContents(slug, locale);
 
   let canViewPremiumContent = false;
 
-  if (user != null) {
+  if (viewer != null) {
     canViewPremiumContent = await Promise.resolve(
       (async () => {
         const { data: profile } = await supabaseAdmin
           .from('Profile')
           .select('*')
-          .eq('id', user.id)
+          .eq('id', viewer.id)
           .single();
 
         return profile?.premium ?? false;

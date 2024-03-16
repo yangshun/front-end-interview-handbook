@@ -1,12 +1,12 @@
 import prisma from '~/server/prisma';
-import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
+import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 export default async function readViewerProjectsChallengeAccess(
   slug: string,
 ): Promise<boolean> {
-  const user = await readUserFromToken();
+  const viewer = await readViewerFromToken();
 
-  if (user == null) {
+  if (viewer == null) {
     return false;
   }
 
@@ -16,7 +16,7 @@ export default async function readViewerProjectsChallengeAccess(
     },
     where: {
       projectsProfile: {
-        userId: user.id,
+        userId: viewer.id,
       },
       slug,
     },

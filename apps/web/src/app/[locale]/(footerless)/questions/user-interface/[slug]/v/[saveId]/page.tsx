@@ -10,7 +10,7 @@ import defaultMetadata from '~/seo/defaultMetadata';
 import prisma from '~/server/prisma';
 import {
   createSupabaseAdminClientGFE_SERVER_ONLY,
-  readUserFromToken,
+  readViewerFromToken,
 } from '~/supabase/SupabaseServerGFE';
 import { staticLowerCase } from '~/utils/typescript/stringTransform';
 
@@ -47,8 +47,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { slug, saveId } = params;
 
-  const [user, save] = await Promise.all([
-    readUserFromToken(),
+  const [viewer, save] = await Promise.all([
+    readViewerFromToken(),
     prisma.questionUserInterfaceSave.findFirst({
       where: {
         id: saveId,
@@ -69,13 +69,13 @@ export default async function Page({ params }: Props) {
   let canViewPremiumContent = false;
   const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
-  if (user != null) {
+  if (viewer != null) {
     canViewPremiumContent = await Promise.resolve(
       (async () => {
         const { data: profile } = await supabaseAdmin
           .from('Profile')
           .select('*')
-          .eq('id', user.id)
+          .eq('id', viewer.id)
           .single();
 
         return profile?.premium ?? false;
@@ -83,10 +83,10 @@ export default async function Page({ params }: Props) {
     );
   }
 
-  const isQuestionLockedForUser =
+  const isQuestionLockedForViewer =
     question.metadata.premium && !canViewPremiumContent;
 
-  if (isQuestionLockedForUser) {
+  if (isQuestionLockedForViewer) {
     return <CodingWorkspacePaywallPage metadata={question.metadata} />;
   }
 

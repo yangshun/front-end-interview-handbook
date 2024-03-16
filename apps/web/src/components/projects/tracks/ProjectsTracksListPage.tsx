@@ -12,13 +12,13 @@ import ProjectsTrackSection from './ProjectsTrackSection';
 type Props = Readonly<{
   isViewerPremium: boolean;
   projectTracks: ReadonlyArray<ProjectsTrackItem>;
-  userId: string | null;
+  viewerId: string | null;
 }>;
 
 export default function ProjectsTracksListPage({
   projectTracks,
-  userId,
   isViewerPremium,
+  viewerId,
 }: Props) {
   return (
     <div className="flex flex-col gap-9">
@@ -45,7 +45,7 @@ export default function ProjectsTracksListPage({
           defaultOpen={true}
           isViewerPremium={isViewerPremium}
           projectTracks={projectTracks}
-          userId={userId}
+          userId={viewerId}
         />
       </Section>
     </div>

@@ -2,7 +2,7 @@ import ProjectsChallengeSubmissionSuccessPage from '~/components/projects/submis
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
 import { readProjectsChallengeList } from '~/db/projects/ProjectsReader';
-import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
+import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
@@ -10,11 +10,11 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const user = await readUserFromToken();
+  const viewer = await readViewerFromToken();
 
   const [{ viewerProjectsProfile }, { challenges }] = await Promise.all([
-    readViewerProjectsProfile(user),
-    readProjectsChallengeList(locale, user?.id),
+    readViewerProjectsProfile(viewer),
+    readProjectsChallengeList(locale, viewer?.id),
   ]);
 
   // TODO(projects): Actual suggested projects for the current project.

@@ -17,7 +17,7 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { locale, id: submissionId } = params;
-  const [{ userId, viewerProjectsProfile }, submission, commentCount] =
+  const [{ viewerId, viewerProjectsProfile }, submission, commentCount] =
     await Promise.all([
       readViewerProjectsProfile(),
       prisma.projectsChallengeSubmission.findFirst({
@@ -64,7 +64,7 @@ export default async function Page({ params }: Props) {
 
   const [viewerUnlockedAccess, { challenge }] = await Promise.all([
     readViewerProjectsChallengeAccess(submission.slug),
-    readProjectsChallengeItem(submission.slug, locale, userId),
+    readProjectsChallengeItem(submission.slug, locale, viewerId),
   ]);
 
   const viewerAccess = ProjectsPremiumAccessControl(
@@ -77,12 +77,12 @@ export default async function Page({ params }: Props) {
     return (
       <ProjectsChallengeSubmissionLockedPage
         challenge={challenge}
-        currentUserId={userId}
         submission={convertToPlainObject({
           ...submission,
           comments: commentCount,
         })}
         viewerAccess={viewerAccess}
+        viewerId={viewerId}
         viewerProjectsProfile={viewerProjectsProfile}
       />
     );
@@ -91,11 +91,11 @@ export default async function Page({ params }: Props) {
   return (
     <ProjectsChallengeSubmissionPage
       challenge={challenge}
-      currentUserId={userId}
       submission={convertToPlainObject({
         ...submission,
         comments: commentCount,
       })}
+      viewerId={viewerId}
       viewerProjectsProfile={viewerProjectsProfile}
     />
   );

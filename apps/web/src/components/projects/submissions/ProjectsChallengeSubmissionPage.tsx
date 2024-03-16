@@ -39,13 +39,13 @@ function parseGithubRepositoryUrl(url: string) {
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
-  currentUserId: string | null;
   submission: ProjectsChallengeSubmissionAugmented;
+  viewerId: string | null;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 
 export default function ProjectsChallengeSubmissionPage({
-  currentUserId,
+  viewerId,
   challenge,
   submission,
   viewerProjectsProfile,
@@ -55,7 +55,7 @@ export default function ProjectsChallengeSubmissionPage({
   const parentRef = useRef(null);
   const isParentInView = useInView(parentRef);
   const isViewingOwnSubmission =
-    currentUserId === submission.projectsProfile?.userProfile?.id;
+    viewerId === submission.projectsProfile?.userProfile?.id;
   const viewSubmissionMutation =
     trpc.projects.submission.incrementView.useMutation();
   const submissionId = submission.id;

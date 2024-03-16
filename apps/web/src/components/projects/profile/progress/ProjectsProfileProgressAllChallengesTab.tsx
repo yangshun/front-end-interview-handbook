@@ -19,14 +19,14 @@ import { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 type Props = Readonly<{
   isViewerPremium: boolean;
-  userId?: string;
+  userId: string;
 }>;
 
 const ITEMS_PER_PAGE = 6;
 
 export default function ProjectsProfileProgressAllChallengesTab({
-  userId,
   isViewerPremium,
+  userId,
 }: Props) {
   const intl = useIntl();
 

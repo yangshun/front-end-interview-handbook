@@ -4,6 +4,7 @@ import ProjectsProfileProgressTracksTab from '~/components/projects/profile/prog
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
 import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
+import prisma from '~/server/prisma';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; username: string }>;
@@ -11,12 +12,22 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const [{ userId, viewerProjectsProfile }, { tracks }] = await Promise.all([
-    readViewerProjectsProfile(),
-    readProjectsTrackList(locale),
-  ]);
+  const [{ viewerProjectsProfile }, { tracks }, userProfile] =
+    await Promise.all([
+      readViewerProjectsProfile(),
+      readProjectsTrackList(locale),
+      prisma.profile.findUnique({
+        include: {
+          projectsProfile: true,
+        },
+        where: {
+          username: params.username,
+        },
+      }),
+    ]);
 
-  if (!userId) {
+  // If no such user.
+  if (userProfile == null) {
     return notFound();
   }
 
@@ -24,7 +35,7 @@ export default async function Page({ params }: Props) {
     <ProjectsProfileProgressTracksTab
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
       projectTracks={tracks}
-      userId={userId}
+      userId={userProfile.id}
     />
   );
 }

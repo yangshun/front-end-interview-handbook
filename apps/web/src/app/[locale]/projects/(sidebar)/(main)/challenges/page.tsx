@@ -6,7 +6,7 @@ import readViewerProjectsProfile from '~/components/projects/utils/readViewerPro
 import { readProjectsChallengeList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
-import { readUserFromToken } from '~/supabase/SupabaseServerGFE';
+import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -32,10 +32,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const user = await readUserFromToken();
+  const viewer = await readViewerFromToken();
   const [{ viewerProjectsProfile }, { challenges }] = await Promise.all([
-    readViewerProjectsProfile(user),
-    readProjectsChallengeList(locale, user?.id),
+    readViewerProjectsProfile(viewer),
+    readProjectsChallengeList(locale, viewer?.id),
   ]);
 
   return (

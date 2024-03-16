@@ -29,11 +29,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const { viewerProjectsProfile } = await readViewerProjectsProfile();
+  const { viewerId, viewerProjectsProfile } = await readViewerProjectsProfile();
 
   return (
     <ProjectsProfileProgressSection
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
+      userId={viewerId!}
     />
   );
 }

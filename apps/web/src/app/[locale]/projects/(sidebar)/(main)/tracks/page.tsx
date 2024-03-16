@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const [{ userId, viewerProjectsProfile }, { tracks }] = await Promise.all([
+  const [{ viewerId, viewerProjectsProfile }, { tracks }] = await Promise.all([
     readViewerProjectsProfile(),
     readProjectsTrackList(locale),
   ]);
@@ -40,7 +40,7 @@ export default async function Page({ params }: Props) {
     <ProjectsTracksListPage
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
       projectTracks={tracks}
-      userId={userId}
+      viewerId={viewerId}
     />
   );
 }
