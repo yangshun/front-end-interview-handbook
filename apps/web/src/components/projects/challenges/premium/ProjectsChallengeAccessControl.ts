@@ -4,7 +4,8 @@ import type { ProjectsViewerProjectsProfile } from '../../types';
 
 export type ProjectsChallengeAccessControlType =
   | 'INSUFFICIENT_CREDITS'
-  | 'RESUBSCRIBE'
+  | 'RESUBSCRIBE_TO_ACCESS'
+  | 'RESUBSCRIBE_TO_UNLOCK'
   | 'SUBSCRIBE'
   | 'UNLOCK'
   | 'YES';
@@ -31,20 +32,16 @@ export default function ProjectsChallengeAccessControl(
   const viewerAccess = (() => {
     const credits = viewerProjectsProfile?.credits ?? 0;
 
-    if (viewerProjectsProfile?.premium && viewerUnlockedAccess) {
-      return 'YES';
+    if (viewerUnlockedAccess) {
+      return viewerProjectsProfile?.premium ? 'YES' : 'RESUBSCRIBE_TO_ACCESS';
     }
 
-    if (viewerProjectsProfile?.premium && credits > 0) {
-      return 'UNLOCK';
-    }
-
-    if (viewerProjectsProfile?.premium && credits <= 0) {
-      return 'INSUFFICIENT_CREDITS';
+    if (viewerProjectsProfile?.premium) {
+      return credits > 0 ? 'UNLOCK' : 'INSUFFICIENT_CREDITS';
     }
 
     if (!viewerProjectsProfile?.premium && credits > 0) {
-      return 'RESUBSCRIBE';
+      return 'RESUBSCRIBE_TO_UNLOCK';
     }
 
     return 'SUBSCRIBE';

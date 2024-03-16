@@ -12,8 +12,8 @@ import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
 import type { ProjectsChallengeAccessControlType } from './ProjectsChallengeAccessControl';
-import { useProjectsChallengePremiumPaywallSubtitle } from './ProjectsChallengePremiumPaywallStrings';
 import ProjectsChallengeUnlockAccessDialog from './ProjectsChallengeUnlockAccessDialog';
+import { useProjectsChallengePaywallSubtitle } from './ProjectsPremiumPaywallStrings';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
@@ -75,11 +75,7 @@ function UnlockSection({
   const intl = useIntl();
   const [unlockDialogShown, setUnlockDialogShown] = useState(false);
 
-  const subtitle = useProjectsChallengePremiumPaywallSubtitle(
-    'UNLOCK',
-    credits,
-    plan,
-  );
+  const subtitle = useProjectsChallengePaywallSubtitle('UNLOCK', credits, plan);
 
   return (
     <div
@@ -191,18 +187,16 @@ function SubscribeSection({
 }
 
 function ResubscribeSection({
+  access,
   credits = 0,
   placement,
 }: Readonly<{
+  access: ProjectsChallengeAccessControlType;
   credits?: number;
   placement: Placement;
 }>) {
   const intl = useIntl();
-  const subtitle = useProjectsChallengePremiumPaywallSubtitle(
-    'RESUBSCRIBE',
-    credits,
-    null,
-  );
+  const subtitle = useProjectsChallengePaywallSubtitle(access, credits, null);
 
   return (
     <div
@@ -254,7 +248,7 @@ function InsufficientCreditsSection({
   plan?: ProjectsSubscriptionPlan | null;
 }>) {
   const intl = useIntl();
-  const subtitle = useProjectsChallengePremiumPaywallSubtitle(
+  const subtitle = useProjectsChallengePaywallSubtitle(
     'INSUFFICIENT_CREDITS',
     0,
     plan,
@@ -320,9 +314,11 @@ export default function ProjectsChallengeFigmaDesignPaywall({
       );
     case 'SUBSCRIBE':
       return <SubscribeSection placement={placement} />;
-    case 'RESUBSCRIBE':
+    case 'RESUBSCRIBE_TO_ACCESS':
+    case 'RESUBSCRIBE_TO_UNLOCK':
       return (
         <ResubscribeSection
+          access={viewerFigmaAccess}
           credits={viewerProjectsProfile?.credits}
           placement={placement}
         />

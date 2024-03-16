@@ -1,8 +1,8 @@
 import type { ProjectsChallengeAccessControlType } from './ProjectsChallengeAccessControl';
 import ProjectsPremiumPaywall from './ProjectsPremiumPaywall';
 import {
-  useProjectsChallengePaywallSubtitle,
-  useProjectsChallengePaywallTitle,
+  useProjectsChallengeSubmissionPaywallSubtitle,
+  useProjectsChallengeSubmissionPaywallTitle,
 } from './ProjectsPremiumPaywallStrings';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
@@ -12,14 +12,14 @@ type Props = Readonly<{
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 
-export default function ProjectsChallengeContentPaywall({
+export default function ProjectsChallengeSubmissionPaywall({
   viewerContentAccess,
   viewerProjectsProfile,
   slug,
 }: Props) {
-  const title = useProjectsChallengePaywallTitle(viewerContentAccess);
+  const title = useProjectsChallengeSubmissionPaywallTitle(viewerContentAccess);
   const credits = viewerProjectsProfile?.credits ?? 0;
-  const subtitle = useProjectsChallengePaywallSubtitle(
+  const subtitle = useProjectsChallengeSubmissionPaywallSubtitle(
     viewerContentAccess,
     viewerProjectsProfile?.credits ?? 0,
     viewerProjectsProfile?.plan ?? null,

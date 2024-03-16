@@ -12,7 +12,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import { themeBorderColor } from '~/components/ui/theme';
 
 import type { ProjectsChallengeAccessControlFields } from '../challenges/premium/ProjectsChallengeAccessControl';
-import ProjectsChallengeContentPaywall from '../challenges/premium/ProjectsChallengeContentPaywall';
+import ProjectsChallengeSubmissionPaywall from '../challenges/premium/ProjectsChallengeSubmissionPaywall';
 import type { ProjectsViewerProjectsProfile } from '../types';
 
 type Props = Readonly<{
@@ -60,7 +60,7 @@ export default function ProjectsChallengeSubmissionLockedPage({
               'min-h-96 rounded-lg',
               ['border', themeBorderColor],
             )}>
-            <ProjectsChallengeContentPaywall
+            <ProjectsChallengeSubmissionPaywall
               slug={challenge.metadata.slug}
               viewerContentAccess={viewerAccess.viewSubmission}
               viewerProjectsProfile={viewerProjectsProfile}

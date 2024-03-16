@@ -2691,10 +2691,6 @@
     "defaultMessage": "GitHub repo",
     "description": "Title for GitHub repo step in project submission checklist"
   },
-  "M6R6KT": {
-    "defaultMessage": "You have <bold>{amountLeft}</bold>/{totalAmount} unlock credit(s) left.",
-    "description": "Subtitle for project paywall"
-  },
   "M9z02W": {
     "defaultMessage": "Airbnb",
     "description": "Company name for Airbnb"
@@ -2966,6 +2962,10 @@
   "OSrT+C": {
     "defaultMessage": "Share",
     "description": "Blog share button label"
+  },
+  "OTyn9U": {
+    "defaultMessage": "Resubscribe to access",
+    "description": "Title for a premium project paywall"
   },
   "OWKf+S": {
     "defaultMessage": "Overview",
@@ -4110,6 +4110,10 @@
   "XkPGFj": {
     "defaultMessage": "Projects you may be interested in",
     "description": "Title for projects you may be interested in section on project submission success page"
+  },
+  "XkVpPb": {
+    "defaultMessage": "You have previously unlocked this challenge. Resubscribe to premium to regain access to this challenge and all of its premium features, including official guides and Figma files.",
+    "description": "Subtitle for project paywall"
   },
   "Xka4d3": {
     "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget.",
@@ -6335,6 +6339,10 @@
     "defaultMessage": "First time preparing for front end interviews?",
     "description": "Link to front end interview guidebook"
   },
+  "qbLzCm": {
+    "defaultMessage": "User submission for a premium challenge",
+    "description": "Title for a premium project paywall"
+  },
   "qcjD4a": {
     "defaultMessage": "Coding Questions",
     "description": "Coding interview questions"
@@ -6710,6 +6718,10 @@
   "u3bYHM": {
     "defaultMessage": "FAQ",
     "description": "Link to FAQ page"
+  },
+  "u7th6x": {
+    "defaultMessage": "You have no credits left for this cycle.",
+    "description": "Subtitle for project paywall"
   },
   "uBaCgb": {
     "defaultMessage": "GreatFrontEnd Projects",
