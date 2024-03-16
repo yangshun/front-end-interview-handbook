@@ -195,6 +195,8 @@ export default function ProjectsProfileEditPage({ userProfile }: Props) {
             variant: 'success',
           });
           router.push(`/projects/u/${data.username}`);
+          // Refetch latest profile page data.
+          router.refresh();
         },
       },
     );

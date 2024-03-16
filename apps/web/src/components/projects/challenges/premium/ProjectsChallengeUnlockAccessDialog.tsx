@@ -6,6 +6,8 @@ import ConfirmationDialog from '~/components/common/ConfirmationDialog';
 import { useToast } from '~/components/global/toasts/useToast';
 import Text from '~/components/ui/Text';
 
+import { useI18nRouter } from '~/next-i18nostic/src';
+
 type Props = Readonly<{
   credits: number;
   isShown: boolean;
@@ -20,6 +22,7 @@ export default function ProjectsChallengeUnlockAccessDialog({
   onClose,
 }: Props) {
   const intl = useIntl();
+  const router = useI18nRouter();
   const { showToast } = useToast();
   const unlockAccessMutation =
     trpc.projects.challenges.unlockAccess.useMutation();
@@ -49,10 +52,9 @@ export default function ProjectsChallengeUnlockAccessDialog({
           }),
           variant: 'success',
         });
-        // Do a hard refresh to show updated state as most of
-        // the content originates from the server and does isn't
-        // present on the client.
-        window.location.reload();
+
+        // Re-run server-side premium checks.
+        router.refresh();
       }}>
       <FormattedMessage
         defaultMessage="You will have <bold>{count}</bold> credit(s) remaining after unlocking this challenge, proceed to unlock challenge?"

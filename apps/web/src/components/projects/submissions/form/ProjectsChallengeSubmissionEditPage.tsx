@@ -57,7 +57,10 @@ export default function ProjectsChallengeSubmissionEditPage({
         }),
         variant: 'success',
       });
+
       router.push(submission_.hrefs.detail);
+      // Refetch latest dashboard page data.
+      router.refresh();
     },
   });
   const deleteSubmissionMutation = trpc.projects.submission.delete.useMutation({
@@ -88,6 +91,8 @@ export default function ProjectsChallengeSubmissionEditPage({
         variant: 'info',
       });
       router.push('/projects/dashboard');
+      // Refetch latest profile page data.
+      router.refresh();
     },
   });
 
