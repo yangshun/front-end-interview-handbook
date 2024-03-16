@@ -859,6 +859,10 @@
     "defaultMessage": "Learning features",
     "description": "Learning features of the product in Projects marketing page"
   },
+  "6Hdxa+": {
+    "defaultMessage": "This is a user submission for a premium challenge. Resubscribe to premium to learn from user submissions of this challenge. You have <bold>{amountLeft}</bold> unlock credit(s) left.",
+    "description": "Subtitle for project paywall"
+  },
   "6Qxjzw": {
     "defaultMessage": "Build the project guided by us - refer to official guides, solutions, reference other user's submissions, and discuss with the community",
     "description": "Step 3 of the \"How it works\" section on the Projects home page"
@@ -3478,6 +3482,10 @@
   "SAjGy/": {
     "defaultMessage": "Review must not be generated or written with the assistance of artificial intelligence.",
     "description": "Condition for promotion"
+  },
+  "SE0f/s": {
+    "defaultMessage": "This is a user submission for a premium challenge. Unlock this challenge to learn from user submissions of this challenge. You have <bold>{amountLeft}</bold>/{totalAmount} unlock credit(s) left.",
+    "description": "Subtitle for project paywall"
   },
   "SG08/K": {
     "defaultMessage": "Challenge unlocked successfully",
@@ -6455,6 +6463,10 @@
     "defaultMessage": "Nothing at all! Just click \"Start project\", and we will take care of everything else and guide you along the way.",
     "description": "FAQ answer for projects platform"
   },
+  "rzxWUB": {
+    "defaultMessage": "This is a user submission for a premium challenge. You have no credits left for this cycle.",
+    "description": "Subtitle for project paywall"
+  },
   "s7CwKz": {
     "defaultMessage": "Behavioral Interview Study Guides",
     "description": "Behavioral interview study guides"
@@ -6566,6 +6578,10 @@
   "t+sW3R": {
     "defaultMessage": "Filter by forum type",
     "description": "Tooltip for forum type filter for contribution list"
+  },
+  "t1uAvn": {
+    "defaultMessage": "This is a user submission for a premium challenge you have previously unlocked. Resubscribe to premium to regain access to this challenge and learn from user submissions of this challenge.",
+    "description": "Subtitle for project paywall"
   },
   "t2Ll2e": {
     "defaultMessage": "Run your code with <button>custom test cases</button> before submitting.",
@@ -6706,6 +6722,10 @@
   "u1BtZ5": {
     "defaultMessage": "Learn while building",
     "description": "Title of 'Learn while building' feature in Projects marketing page"
+  },
+  "u2/Gcr": {
+    "defaultMessage": "This is a user submission for a premium challenge. Subscribe to premium to learn from user submission of premium challenges.",
+    "description": "Subtitle for a premium project paywall"
   },
   "u2sucM": {
     "defaultMessage": "<bold>{author}</bold> made a post on <bold>{recipient}</bold>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",

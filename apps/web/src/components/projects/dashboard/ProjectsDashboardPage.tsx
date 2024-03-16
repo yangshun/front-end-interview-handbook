@@ -18,7 +18,6 @@ import ProjectsDashboardContinueProjectsSection from './ProjectsDashboardContinu
 import ProjectsDashboardRecommendedActionsSection from './ProjectsDashboardRecommendedActionsSection';
 import ProjectsDashboardTrackAndSkillsSection from './ProjectsDashboardTrackAndSkillsSection';
 import ProjectsDashboardTrendingSubmissionsSection from './ProjectsDashboardTrendingSubmissionsSection';
-import ProjectsProfileProgressTabs from '../profile/progress/ProjectsProfileProgressTabs';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -121,10 +120,7 @@ export default function ProjectsDashboardPage({ children }: Props) {
                 baseUrl={baseUrl}
                 showStartNewProject={true}
               />
-              <div className="flex flex-col gap-8">
-                <ProjectsProfileProgressTabs baseUrl={baseUrl} />
-                {children}
-              </div>
+              {children}
             </div>
           )}
         </Section>

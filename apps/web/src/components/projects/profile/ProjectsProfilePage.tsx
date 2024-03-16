@@ -7,8 +7,6 @@ import ProjectsProfilePinnedSubmissions from '~/components/projects/profile/Proj
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
 import ProjectsProfileTabs from '~/components/projects/profile/ProjectsProfileTabs';
 
-import ProjectsProfileProgressTabs from './progress/ProjectsProfileProgressTabs';
-
 import type { Profile, ProjectsProfile } from '@prisma/client';
 
 type Props = Readonly<{
@@ -58,10 +56,7 @@ export default function ProjectsProfilePage({
       </div>
       <div className="mt-[72px] flex flex-col gap-8">
         <ProjectsProfileTabs baseUrl={baseUrl} />
-        <div className="flex flex-col gap-8">
-          <ProjectsProfileProgressTabs baseUrl={baseUrl} />
-          {children}
-        </div>
+        {children}
       </div>
     </div>
   );
