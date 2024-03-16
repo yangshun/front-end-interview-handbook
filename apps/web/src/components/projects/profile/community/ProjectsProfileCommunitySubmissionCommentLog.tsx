@@ -8,13 +8,13 @@ import Text from '~/components/ui/Text';
 type Props = Readonly<{
   comment: ProjectsProfileCommunityComment;
   isViewingOwnProfile: boolean;
-  userId?: string;
+  targetUserId?: string;
 }>;
 
 export default function ProjectsProfileCommunitySubmissionCommentLog({
   comment,
   isViewingOwnProfile,
-  userId,
+  targetUserId,
 }: Props) {
   const boldValue = (chunks: Array<React.ReactNode>) => (
     <Text color="default" size="body2" weight="medium">
@@ -143,24 +143,25 @@ export default function ProjectsProfileCommunitySubmissionCommentLog({
     );
   }
 
-  if (comment.parentComment.author?.userId === userId) {
-    return (
-      <FormattedMessage
-        defaultMessage='<bold>You</bold> replied to <bold>yourself</bold> on the submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>'
-        description="Log message for you replying to yourself on a submission"
-        id="rNKP7U"
-        values={{
-          bold: boldValue,
-          comment: commentValue,
-          description: plainText(comment.body),
-          link: linkValue,
-          submissionTitle: comment.entity?.title ?? '',
-        }}
-      />
-    );
-  }
-
   if (isViewingOwnProfile) {
+    // Target user is viewer.
+    if (comment.parentComment.author?.userId === targetUserId) {
+      return (
+        <FormattedMessage
+          defaultMessage='<bold>You</bold> replied to <bold>yourself</bold> on the submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>'
+          description="Log message for you replying to yourself on a submission"
+          id="rNKP7U"
+          values={{
+            bold: boldValue,
+            comment: commentValue,
+            description: plainText(comment.body),
+            link: linkValue,
+            submissionTitle: comment.entity?.title ?? '',
+          }}
+        />
+      );
+    }
+
     return (
       <FormattedMessage
         defaultMessage='<bold>You</bold> replied to <bold>{recipient}</bold> on the submission <link>{submissionTitle}</link>: <comment>"{description}"</comment>'

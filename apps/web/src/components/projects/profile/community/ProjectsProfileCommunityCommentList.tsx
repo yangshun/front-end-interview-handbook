@@ -19,15 +19,15 @@ import RelativeTimestamp from '../../common/RelativeTimestamp';
 type Props = Readonly<{
   comments: ReadonlyArray<ProjectsProfileCommunityComment>;
   isViewingOwnProfile: boolean;
+  targetUserId?: string;
   title: string;
-  userId?: string;
 }>;
 
 export default function ProjectsProfileCommunityCommentList({
   comments,
   isViewingOwnProfile,
+  targetUserId,
   title,
-  userId,
 }: Props) {
   const intl = useIntl();
 
@@ -95,7 +95,7 @@ export default function ProjectsProfileCommunityCommentList({
                             <ProjectsProfileCommunitySubmissionCommentLog
                               comment={comment}
                               isViewingOwnProfile={isViewingOwnProfile}
-                              userId={userId}
+                              targetUserId={targetUserId}
                             />
                           );
                         }
@@ -105,7 +105,7 @@ export default function ProjectsProfileCommunityCommentList({
                           <ProjectsProfileCommunityChallengeCommentLog
                             comment={comment}
                             isViewingOwnProfile={isViewingOwnProfile}
-                            userId={userId}
+                            targetUserId={targetUserId}
                           />
                         );
                       })()}

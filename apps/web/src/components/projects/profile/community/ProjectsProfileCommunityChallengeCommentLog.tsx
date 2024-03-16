@@ -8,13 +8,13 @@ import Text from '~/components/ui/Text';
 type Props = Readonly<{
   comment: ProjectsProfileCommunityComment;
   isViewingOwnProfile: boolean;
-  userId?: string;
+  targetUserId?: string;
 }>;
 
 export default function ProjectsProfileCommunityChallengeCommentLog({
   comment,
   isViewingOwnProfile,
-  userId,
+  targetUserId,
 }: Props) {
   const boldValue = (chunks: Array<React.ReactNode>) => (
     <Text color="default" size="body2" weight="medium">
@@ -103,24 +103,25 @@ export default function ProjectsProfileCommunityChallengeCommentLog({
     );
   }
 
-  if (comment.parentComment.author?.userId === userId) {
-    return (
-      <FormattedMessage
-        defaultMessage='<bold>You</bold> replied to <bold>yourself</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>"{description}"</comment>'
-        description="Log message for you replying to yourself on the challenge forum"
-        id="Q4VMV2"
-        values={{
-          bold: boldValue,
-          challengeTitle: comment.entity?.title ?? '',
-          comment: commentValue,
-          description: plainText(comment.body),
-          link: linkValue,
-        }}
-      />
-    );
-  }
-
   if (isViewingOwnProfile) {
+    // Target user is viewer.
+    if (comment.parentComment.author?.userId === targetUserId) {
+      return (
+        <FormattedMessage
+          defaultMessage='<bold>You</bold> replied to <bold>yourself</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>"{description}"</comment>'
+          description="Log message for you replying to yourself on the challenge forum"
+          id="Q4VMV2"
+          values={{
+            bold: boldValue,
+            challengeTitle: comment.entity?.title ?? '',
+            comment: commentValue,
+            description: plainText(comment.body),
+            link: linkValue,
+          }}
+        />
+      );
+    }
+
     return (
       <FormattedMessage
         defaultMessage='<bold>You</bold> replied to <bold>{recipient}</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>"{description}"</comment>'

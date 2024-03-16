@@ -1,5 +1,7 @@
 import { trpc } from '~/hooks/trpc';
 
+import Spinner from '~/components/ui/Spinner';
+
 import ProjectsProfileCommunityCommentsSection from './ProjectsProfileCommunityCommentsSection';
 import ProjectsProfileCommunityFilterContext, {
   useProjectsProfileCommunityFilterContext,
@@ -28,12 +30,13 @@ function ProjectsProfileCommunityListWithFiltersImpl({
     selectedForumType,
   ];
 
-  const { data: comments } = trpc.projects.comments.listUserComments.useQuery({
-    contributionType: selectedContributionType,
-    domainList,
-    forumType: selectedForumType,
-    userId: targetUserId,
-  });
+  const { data: comments, isLoading } =
+    trpc.projects.comments.listUserComments.useQuery({
+      contributionType: selectedContributionType,
+      domainList,
+      forumType: selectedForumType,
+      userId: targetUserId,
+    });
 
   const { filters } = useProjectsProfileCommunityFilterContext();
 
@@ -54,13 +57,18 @@ function ProjectsProfileCommunityListWithFiltersImpl({
         ))}
         <ProjectProfileCommunityFilterSlideOut selected={hasFilters} />
       </div>
-      <ProjectsProfileCommunityCommentsSection
-        comments={comments ?? []}
-        hasFilters={hasFilters}
-        isViewingOwnProfile={isViewingOwnProfile}
-        // TODO(projects): make sure this userId is meant to be the target user.
-        userId={targetUserId}
-      />
+      {isLoading ? (
+        <div className="flex h-96 items-center justify-center">
+          <Spinner display="block" size="md" />
+        </div>
+      ) : (
+        <ProjectsProfileCommunityCommentsSection
+          comments={comments ?? []}
+          hasFilters={hasFilters}
+          isViewingOwnProfile={isViewingOwnProfile}
+          targetUserId={targetUserId}
+        />
+      )}
     </div>
   );
 }
