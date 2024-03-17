@@ -177,6 +177,18 @@ export default function ProjectsProfileJobSection() {
                   id: 'szsYwJ',
                 })}
                 {...field}
+                onChange={(value) => {
+                  // Regex to check for MM/YYYY format
+                  const isValidFormat =
+                    /^(0[1-9]$|1[0-2]$|[0-1]$)|((0[1-9]|1[0-2])\/$)|(0[1-9]|1[0-2])\/\d{0,4}$/.test(
+                      value,
+                    );
+
+                  // Update the state only if the input is valid or empty
+                  if (isValidFormat || value === '') {
+                    field.onChange(value);
+                  }
+                }}
               />
             )}
           />
