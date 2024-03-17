@@ -19,7 +19,9 @@ const formatter = new Intl.DateTimeFormat('en-US', {
 export default function RelativeTimestamp({ timestamp }: Props) {
   return (
     <Tooltip label={formatter.format(timestamp)}>
-      <span>{getRelativeTimestamp(timestamp)}</span>
+      <span suppressHydrationWarning={true}>
+        {getRelativeTimestamp(timestamp)}
+      </span>
     </Tooltip>
   );
 }
