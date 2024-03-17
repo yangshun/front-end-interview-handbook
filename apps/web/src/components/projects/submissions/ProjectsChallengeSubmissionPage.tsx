@@ -154,7 +154,7 @@ export default function ProjectsChallengeSubmissionPage({
                 id="XejHfx"
               />
             </Heading>
-            <RichText textSize="sm" value={submission.implementation} />
+            <RichText size="sm" value={submission.implementation} />
           </div>
           <div className="flex flex-1 flex-col gap-3">
             <Heading level="heading6">

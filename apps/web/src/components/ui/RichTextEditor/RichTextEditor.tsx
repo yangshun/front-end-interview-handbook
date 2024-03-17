@@ -12,6 +12,7 @@ import Label from '~/components/ui/Label';
 import RichTextEditorToolbar from '~/components/ui/RichTextEditor/components/RichTextEditorToolbar';
 import RichTextEditorCodeHighlightPlugin from '~/components/ui/RichTextEditor/plugin/RichTextEditorCodeHighlightPlugin';
 import Text from '~/components/ui/Text';
+import { themeTextColor } from '~/components/ui/theme';
 
 import { PLAYGROUND_TRANSFORMERS } from './plugin/MarkdownTransformers';
 import RichTextEditorAutoLinkPlugin from './plugin/RichTextEditorAutoLinkPlugin';
@@ -148,7 +149,7 @@ function RichTextEditor(
                   <ContentEditable
                     className={clsx(
                       'h-full p-3 focus:outline-none',
-                      proseStyle('sm'),
+                      proseStyle('sm', themeTextColor),
                     )}
                     id={id}
                     style={{ minHeight }}

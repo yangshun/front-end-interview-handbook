@@ -155,7 +155,7 @@ export default function ProjectsDiscussionsComment({
               }}
             />
           ) : (
-            <RichText textSize="sm" value={body} />
+            <RichText color="body" size="sm" value={body} />
           )}
           <div
             className={clsx(
