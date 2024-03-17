@@ -48,7 +48,6 @@ export default function ProjectsProfileAvatar({
     userProfile != null ? (
       <Anchor
         aria-label={userProfile.name ?? userProfile.username}
-        className="font-medium"
         href={`/projects/u/${userProfile.username}`}
         variant="unstyled">
         {avatar}

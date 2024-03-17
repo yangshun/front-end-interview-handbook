@@ -150,7 +150,10 @@ export default function ProjectsChallengeSubmissionCard({
           />
           <div className="flex flex-col gap-1">
             <Text className="relative" size="body2" weight="medium">
-              <ProjectsProfileDisplayNameLink userProfile={author} />
+              <ProjectsProfileDisplayNameLink
+                color="subtitle"
+                userProfile={author}
+              />
             </Text>
             <UserProfileInformationRow size="body3" userProfile={author} />
           </div>

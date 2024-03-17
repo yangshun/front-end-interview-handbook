@@ -69,7 +69,10 @@ export default function ProjectsProfileHoverCard({ userId }: Props) {
             />
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
-                <ProjectsProfileDisplayNameLink userProfile={profile!} />
+                <ProjectsProfileDisplayNameLink
+                  color="subtitle"
+                  userProfile={profile!}
+                />
                 {profile?.projectsProfile?.premium && (
                   <Tooltip
                     className="flex items-center"

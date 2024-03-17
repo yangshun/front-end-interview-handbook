@@ -133,6 +133,7 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                       />
                       <Text className="z-[1]" size="body3" weight="medium">
                         <ProjectsProfileDisplayNameLink
+                          color="subtitle"
                           userProfile={submission.projectsProfile.userProfile}
                         />
                       </Text>
