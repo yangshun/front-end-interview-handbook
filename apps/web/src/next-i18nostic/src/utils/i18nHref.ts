@@ -27,10 +27,10 @@ export default function i18nHref(
   }
 
   if (process.env.NODE_ENV === 'development') {
-    // Throw if not an absolute URL.
+    // Throw if not a relative URL.
     if (!pathname.startsWith('/')) {
       throw new Error(
-        `Only absolute URLs supported. Pathnames must start with /, but received ${pathname}`,
+        `Only relative URLs supported. Pathnames must start with /, but received ${pathname}`,
       );
     }
   }
