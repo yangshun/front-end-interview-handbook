@@ -50,24 +50,24 @@ export default function JobPage({
                 ['divide-y', themeDivideColor],
               )}>
               <div className="grid gap-y-2 p-4">
-                <Text display="block" size="body2" weight="medium">
+                <Text className="block" size="body2" weight="medium">
                   Employment Type
                 </Text>
                 <Text
+                  className="block"
                   color="secondary"
-                  display="block"
                   size="body2"
                   weight="medium">
                   {startCase(employmentType.toLowerCase())}
                 </Text>
               </div>
               <div className="grid gap-y-2 p-4">
-                <Text display="block" size="body2" weight="medium">
+                <Text className="block" size="body2" weight="medium">
                   Pay Range
                 </Text>
                 <Text
+                  className="block"
                   color="secondary"
-                  display="block"
                   size="body2"
                   weight="medium">
                   {payRange}

@@ -23,10 +23,8 @@ export default function MarketingUserInterfaceQuestionsExamples({
     <div className={clsx('lg:grid lg:grid-cols-6 lg:gap-x-8')}>
       <div className="lg:col-span-2">
         <Text
-          className="text-base sm:text-lg"
+          className="block text-base sm:text-lg"
           color="active"
-          display="block"
-          size="inherit"
           weight="bold">
           <FormattedMessage
             defaultMessage="Pick your framework"
@@ -42,11 +40,7 @@ export default function MarketingUserInterfaceQuestionsExamples({
           />
         </Heading>
         <Section>
-          <Text
-            className="py-10 text-lg md:text-xl"
-            color="secondary"
-            display="block"
-            size="inherit">
+          <Text className="block py-10 text-lg md:text-xl" color="secondary">
             <FormattedMessage
               defaultMessage="Practice build all sorts of user interfaces: components, apps, games, etc, in the framework of your choice."
               description="Subtitle for an example list of User Interface Questions on marketing pages"

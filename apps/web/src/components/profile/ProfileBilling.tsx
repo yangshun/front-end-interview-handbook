@@ -147,7 +147,7 @@ function ManageSubscriptionSection({
                 id="jMTHcm"
               />
             </Heading>
-            <Text color="secondary" display="block" size="body2">
+            <Text className="block" color="secondary" size="body2">
               <FormattedMessage
                 defaultMessage="Manage your subscription status and payment methods on the Stripe billing portal."
                 description="Call to action text to uppgrade plan."
@@ -199,7 +199,7 @@ function NoBillingPlan() {
         />
       </Heading>
       <Section>
-        <Text className="mt-1" color="secondary" display="block" size="body2">
+        <Text className="mt-1 block" color="secondary" size="body2">
           <FormattedMessage
             defaultMessage="Get premium to unlock <bold>full access to all questions and solutions</bold>!"
             description="Call to action text for premium upgrade."
@@ -259,14 +259,14 @@ export default function ProfileBilling() {
                     id="n03lT2"
                   />
                 </Heading>
-                <Text color="secondary" display="block" size="body2">
+                <Text className="block" color="secondary" size="body2">
                   <PlanLabel plan={userProfile?.plan} />
                 </Text>
               </div>
               {(userProfile?.plan === 'month' ||
                 userProfile?.plan === 'quarter') && (
                 <Alert title="Upgrade to lifetime plan" variant="success">
-                  <Text color="inherit" display="block" size="body2">
+                  <Text className="block" color="inherit" size="body2">
                     <FormattedMessage
                       defaultMessage="Existing subscribers can upgrade to the lifetime plan at a discount, send an email to <link>contact@greatfrontend</link>."
                       description="Call to action text to upgrade plan."
@@ -300,7 +300,7 @@ export default function ProfileBilling() {
                     id="aP9GUx"
                   />
                 </Heading>
-                <Text color="secondary" display="block" size="body2">
+                <Text className="block" color="secondary" size="body2">
                   <code>{userProfile?.stripeCustomerID}</code>
                 </Text>
               </div>

@@ -31,11 +31,7 @@ export default function BlogRelatedArticleCard({ metadata }: Props) {
       <div className="flex flex-col gap-y-2">
         <Anchor href={metadata.href} variant="unstyled">
           <span aria-hidden={true} className="absolute inset-0" />
-          <Text
-            className={clsx('!line-clamp-2')}
-            display="block"
-            size="body1"
-            weight="bold">
+          <Text className="line-clamp-2" size="body1" weight="bold">
             {metadata.title}
           </Text>
         </Anchor>

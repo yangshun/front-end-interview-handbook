@@ -102,9 +102,8 @@ export default function QuestionFocusAreasSection({
                   </Tooltip>
                 </div>
                 <Text
-                  className="w-full truncate"
+                  className="display w-full truncate"
                   color="label"
-                  display="block"
                   size="body1"
                   weight="medium">
                   {name}

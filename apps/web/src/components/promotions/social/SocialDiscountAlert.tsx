@@ -48,10 +48,10 @@ function SocialDiscountAlertImpl() {
             <>
               <SocialDiscountTicketSmall title={promoCode?.code} />
               <div className="grow">
-                <Text display="block" size="body1" weight="bold">
+                <Text className="block" size="body1" weight="bold">
                   {socialDiscountLabels.existingPromoTitle}
                 </Text>
-                <Text color="secondary" display="block" size="body1">
+                <Text className="block" color="secondary" size="body1">
                   {socialDiscountLabels.existingPromoSubtitle(
                     promoCode.expires_at!,
                     promoCode.coupon.percent_off,
@@ -70,10 +70,10 @@ function SocialDiscountAlertImpl() {
               />
             </div>
             <div className="grow">
-              <Text display="block" size="body1" weight="bold">
+              <Text className="block" size="body1" weight="bold">
                 {socialDiscountLabels.title}
               </Text>
-              <Text color="secondary" display="block" size="body1">
+              <Text className="block" color="secondary" size="body1">
                 {socialDiscountLabels.subtitle}
               </Text>
             </div>

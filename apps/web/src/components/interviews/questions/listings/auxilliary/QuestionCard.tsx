@@ -42,10 +42,9 @@ export default function QuestionCard({
             <span aria-hidden={true} className="absolute inset-0" />
             <Text
               className={clsx(
-                titleLines === 1 && '!line-clamp-1',
-                titleLines === 2 && '!line-clamp-2',
+                titleLines === 1 && 'line-clamp-1',
+                titleLines === 2 && 'line-clamp-2',
               )}
-              display="block"
               size={titleLines === 2 ? 'body2' : 'body1'}
               weight="medium">
               {metadata.title}

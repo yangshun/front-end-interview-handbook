@@ -148,8 +148,7 @@ export default function ProfileShell({ user, children }: Props) {
                         <>
                           {profileDataQuery.data?.name && (
                             <Text
-                              className="truncate"
-                              display="block"
+                              className="block truncate"
                               size="body0"
                               weight="bold">
                               {profileDataQuery.data?.name}

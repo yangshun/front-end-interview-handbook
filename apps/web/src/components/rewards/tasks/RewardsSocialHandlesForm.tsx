@@ -80,7 +80,7 @@ export default function RewardsSocialHandlesForm({
           },
         });
       }}>
-      <Text color="secondary" display="block" size="body2">
+      <Text className="block" color="secondary" size="body2">
         <FormattedMessage
           defaultMessage="Please enter your social media handles for us to verify."
           description="Rewards campaign help text"
@@ -164,7 +164,7 @@ export default function RewardsSocialHandlesForm({
         </div>
       </div>
       {hasError && (
-        <Text color="error" display="block" size="body2">
+        <Text className="block" color="error" size="body2">
           <FormattedMessage
             defaultMessage="Invalid inputs. Please check that you have filled in the username or profile URL correctly."
             description="Form error text"

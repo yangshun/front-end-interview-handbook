@@ -56,7 +56,7 @@ function PreparationPlanCard({
       )}>
       <div
         className={clsx(
-          'flex size-20 items-center justify-center rounded',
+          'size-20 flex items-center justify-center rounded',
           theme.gradient.className,
         )}>
         <theme.iconOutline className="size-10 text-white" />
@@ -166,7 +166,7 @@ export default function StudyPlansPage({
             id: 'swjkuF',
           })}
         </Heading>
-        <Text color="secondary" display="block" size="body2">
+        <Text className="block" color="secondary" size="body2">
           {intl.formatMessage({
             defaultMessage:
               'Discover study plans tailored to your needs to help you prepare for your upcoming technical interviews.',

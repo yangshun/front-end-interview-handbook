@@ -5,7 +5,7 @@ import Text from '~/components/ui/Text';
 
 export function PromotionsEmailUsLink() {
   return (
-    <Text className="text-right" color="secondary" display="block" size="body3">
+    <Text className="blocktext-right" color="secondary" size="body3">
       <FormattedMessage
         defaultMessage="Facing trouble? <link>Email us</link>"
         description="Section label for seasonal promotion details"

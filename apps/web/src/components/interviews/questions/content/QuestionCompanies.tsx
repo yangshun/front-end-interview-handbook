@@ -73,7 +73,7 @@ export default function QuestionCompanies({
             ))}
           </div>
         ) : (
-          <Text color="secondary" display="block" size="body2">
+          <Text className="block" color="secondary" size="body2">
             <FormattedMessage
               defaultMessage="No tagged companies"
               description="Text that appears if the question does not have any tagged comppanies (where the question was known to be asked)"

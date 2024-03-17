@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
-import { themeTextSecondaryColor } from '~/components/ui/theme';
-
 import Heading from '../ui/Heading';
 import Text from '../ui/Text';
 
@@ -22,9 +20,8 @@ export default function MarketingSectionHeader({
       <div className="flex flex-col gap-y-3">
         {title && (
           <Text
-            className="text-center"
+            className="block text-center"
             color="active"
-            display="block"
             size="body2"
             weight="medium">
             {title}
@@ -37,12 +34,11 @@ export default function MarketingSectionHeader({
       {description && (
         <Text
           className={clsx(
+            'block',
             'mx-auto',
             'text-balance text-center text-base lg:text-xl',
-            themeTextSecondaryColor,
           )}
-          display="block"
-          size="inherit">
+          color="secondary">
           {description}
         </Text>
       )}

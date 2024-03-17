@@ -140,10 +140,7 @@ export default function ProjectsComparison({
             {pages[selectedScreenIndex].label}
           </Text>
           {deploymentUrls && (
-            <Text
-              className="truncate whitespace-nowrap"
-              display="block"
-              size="body2">
+            <Text className="block truncate whitespace-nowrap" size="body2">
               <Anchor
                 href={deploymentUrls[selectedScreenIndex].href}
                 warnAboutExternalLink={true}>

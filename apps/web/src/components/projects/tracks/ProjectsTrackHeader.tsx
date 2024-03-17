@@ -32,7 +32,7 @@ export default function ProjectsTrackHeader({
         )}
         {completed && <ProjectsStatusBadgeCompleted entity="track" />}
       </div>
-      <Text color="subtitle" display="block" size="body2">
+      <Text className="block" color="subtitle" size="body2">
         {description}
       </Text>
       <div className="flex flex-wrap gap-4">

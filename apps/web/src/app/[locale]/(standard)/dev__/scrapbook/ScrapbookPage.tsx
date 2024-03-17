@@ -101,7 +101,7 @@ export default function ScrapbookPage() {
               padding="md"
               subtitle="2 months free"
               title={
-                <Text className="text-sm" display="block" size="inherit">
+                <Text size="body2">
                   Exclusive beta access to our new mystery product
                 </Text>
               }
@@ -111,16 +111,12 @@ export default function ScrapbookPage() {
               height={150}
               padding="md"
               subtitle={
-                <Text
-                  className="text-2xs"
-                  color="inherit"
-                  display="block"
-                  size="inherit">
+                <Text className="text-2xs block" color="inherit" size="inherit">
                   2 months free
                 </Text>
               }
               title={
-                <Text className="text-2xs" display="block" size="inherit">
+                <Text className="text-2xs block" size="inherit">
                   Exclusive beta access to our new mystery product
                 </Text>
               }
@@ -128,16 +124,12 @@ export default function ScrapbookPage() {
             <ExclusiveTicket
               padding="md"
               subtitle={
-                <Text
-                  className="text-2xs"
-                  color="inherit"
-                  display="block"
-                  size="inherit">
+                <Text className="text-2xs block" color="inherit" size="inherit">
                   2 months free
                 </Text>
               }
               title={
-                <Text className="text-2xs" display="block" size="inherit">
+                <Text className="text-2xs block" size="inherit">
                   Exclusive beta access to our new mystery product
                 </Text>
               }

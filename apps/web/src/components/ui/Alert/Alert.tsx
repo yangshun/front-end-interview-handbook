@@ -122,7 +122,7 @@ export default function Alert({
           </Heading>
         )}
         <Section>
-          <Text color="secondary" display="block" size="body1">
+          <Text className="block" color="secondary" size="body1">
             {children}
           </Text>
         </Section>

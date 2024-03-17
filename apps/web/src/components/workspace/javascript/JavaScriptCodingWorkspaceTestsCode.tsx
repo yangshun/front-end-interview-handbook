@@ -113,7 +113,7 @@ export default function JavaScriptCodingWorkspaceTestsCode({
   return (
     <div className="flex flex-col">
       <Alert variant="info">
-        <Text color="secondary" display="block" size="body2">
+        <Text className="block" color="secondary" size="body2">
           <FormattedMessage
             defaultMessage="For your reference, these are the tests used when your code is submitted. They cannot be modified."
             description="Text indicating to users that the below section are test cases that their code will be tested against"

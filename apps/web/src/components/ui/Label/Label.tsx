@@ -47,9 +47,8 @@ export default function Label({
       </label>
       {!isLabelHidden && description && descriptionStyle === 'under' && (
         <Text
-          className="mt-1"
+          className="mt-1 block"
           color="secondary"
-          display="block"
           id={descriptionId}
           size="body3">
           {description}

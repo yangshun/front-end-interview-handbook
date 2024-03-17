@@ -63,7 +63,7 @@ function FreePlanVersion({ unlocks }: Readonly<{ unlocks: number }>) {
             })}
           </Text>
         </div>
-        <Text color="secondary" display="block" size="body3">
+        <Text className="block" color="secondary" size="body3">
           <FormattedMessage
             defaultMessage="Access to {freeChallengeCount}+ free challenges. {unlocks, plural, =0 {No access to <tooltip>project credits</tooltip>} one {1 <tooltip>project credit</tooltip> unused} other {# <tooltip>project credits</tooltip> unused}}"
             description="Subtitle of Free Plan CTA card in Projects sidebar"

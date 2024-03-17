@@ -46,7 +46,7 @@ export default function UserInterfaceCodingWorkspaceNewTab({
   return (
     <div className="flex flex-col gap-4 p-4">
       <div className="flex flex-col gap-2">
-        <Text display="block" size="body2" weight="medium">
+        <Text className="block" size="body2" weight="medium">
           Tabs
         </Text>
         <div className="flex flex-wrap gap-2">
@@ -68,7 +68,7 @@ export default function UserInterfaceCodingWorkspaceNewTab({
       </div>
       {unopenedFiles.length > 0 && (
         <div className="flex flex-col gap-2">
-          <Text display="block" size="body2" weight="medium">
+          <Text className="block" size="body2" weight="medium">
             Files
           </Text>
           <div className="flex flex-wrap gap-2">

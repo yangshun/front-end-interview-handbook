@@ -764,11 +764,7 @@ export default function InterviewsPricingSection({
                         </span>
                       </Text>
                     </div>
-                    <Text
-                      className="mt-2"
-                      display="block"
-                      size="body2"
-                      weight="medium">
+                    <Text className="mt-2 block" size="body2" weight="medium">
                       <PricingPlanComparisonDiscount
                         paymentConfig={featuredPlan.paymentConfig}
                         showPPPMessage={showPPPMessage}
@@ -783,9 +779,8 @@ export default function InterviewsPricingSection({
                     </div>
                     {featuredPlan.paymentConfig.allowPromoCode && (
                       <Text
-                        className="mt-3"
+                        className="mt-3 block"
                         color="subtitle"
-                        display="block"
                         size="body3">
                         {promoMessage}
                       </Text>
@@ -871,9 +866,8 @@ export default function InterviewsPricingSection({
                             </div>
                             <Section>
                               <Text
-                                className="md:min-h-10 mt-1"
+                                className="md:min-h-10 mt-1 block"
                                 color="secondary"
-                                display="block"
                                 size="body2">
                                 {description}
                               </Text>
@@ -957,13 +951,12 @@ export default function InterviewsPricingSection({
                               </div>
                               <Text
                                 className={clsx(
-                                  'md:min-h-8 pt-1',
+                                  'md:min-h-8 block pt-1',
                                   paymentConfig.conversionFactor <
                                     MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE &&
                                     paymentConfig.planType === 'lifetime' &&
                                     'invisible',
                                 )}
-                                display="block"
                                 size="body3">
                                 <PricingPlanComparisonDiscount
                                   paymentConfig={paymentConfig}
@@ -979,11 +972,10 @@ export default function InterviewsPricingSection({
                               </div>
                               <Text
                                 className={clsx(
-                                  'mt-3',
+                                  'mt-3 block',
                                   !paymentConfig.allowPromoCode && 'invisible',
                                 )}
                                 color="subtitle"
-                                display="block"
                                 size="body3">
                                 {promoMessage}
                               </Text>
@@ -1032,7 +1024,7 @@ export default function InterviewsPricingSection({
               </Section>
               {/* Footnotes */}
               <div className="mt-5 px-8">
-                <Text color="secondary" display="block" size="body3">
+                <Text className="block" color="secondary" size="body3">
                   *{' '}
                   <FormattedMessage
                     defaultMessage="Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget."
@@ -1040,7 +1032,7 @@ export default function InterviewsPricingSection({
                     id="Xka4d3"
                   />
                 </Text>
-                <Text color="secondary" display="block" size="body3">
+                <Text className="block" color="secondary" size="body3">
                   *{' '}
                   <FormattedMessage
                     defaultMessage="Prices will be increased as more content is being added to the website."
@@ -1053,7 +1045,7 @@ export default function InterviewsPricingSection({
                     id="PhPw02"
                   />
                 </Text>
-                <Text color="secondary" display="block" size="body3">
+                <Text className="block" color="secondary" size="body3">
                   *{' '}
                   <FormattedMessage
                     defaultMessage="Lifetime plan is a limited time offering and will be removed in future."
@@ -1062,7 +1054,7 @@ export default function InterviewsPricingSection({
                   />
                 </Text>
                 {lifetimePlan.symbol === '$' && (
-                  <Text color="secondary" display="block" size="body3">
+                  <Text className="block" color="secondary" size="body3">
                     *{' '}
                     <FormattedMessage
                       defaultMessage="Prices shown are in {currency}."

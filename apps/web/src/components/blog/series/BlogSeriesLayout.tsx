@@ -66,8 +66,8 @@ export default function BlogSeriesLayout({
               <div className="flex flex-col gap-12">
                 <div className="flex flex-col gap-3">
                   <Text
+                    className="block"
                     color="active"
-                    display="block"
                     size="body2"
                     weight="medium">
                     <FormattedMessage
@@ -77,7 +77,7 @@ export default function BlogSeriesLayout({
                     />
                   </Text>
                   <Heading level="heading4">{metadata.title}</Heading>
-                  <Text color="secondary" display="block" size="body1">
+                  <Text className="block" color="secondary" size="body1">
                     {metadata.description}
                   </Text>
                   <div className="flex flex-wrap justify-between gap-4">

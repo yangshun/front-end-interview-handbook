@@ -31,7 +31,6 @@ export default function BlackFridayToast() {
             <Text
               className="hidden text-lg leading-5 sm:block"
               color="secondary"
-              display="block"
               size="inherit"
               weight="medium">
               +
@@ -40,11 +39,7 @@ export default function BlackFridayToast() {
               <BlackFridayExclusiveTicket width={156} />
             </div>
           </div>
-          <Text
-            className="hidden sm:block"
-            color="secondary"
-            display="block"
-            size="body3">
+          <Text className="hidden sm:block" color="secondary" size="body3">
             With every purchase
           </Text>
         </div>

@@ -127,9 +127,8 @@ export default function ProjectsMarketingEmailSubscribe() {
           />
         </Heading>
         <Text
-          className="mx-auto max-w-3xl text-center"
+          className="mx-auto block max-w-3xl text-center"
           color="subtitle"
-          display="block"
           size="body1">
           <FormattedMessage
             defaultMessage="Connect with like-minded individuals in the community and get useful tips about
@@ -220,9 +219,8 @@ building projects - no spam!"
         </form>
         {submitMessage && (
           <Text
-            className="text-center"
+            className="block text-center"
             color="success"
-            display="block"
             size="body2"
             weight="medium">
             {submitMessage}

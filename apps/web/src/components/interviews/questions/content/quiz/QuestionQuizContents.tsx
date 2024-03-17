@@ -81,11 +81,7 @@ export default function QuestionQuizContents({
       <div className="mx-auto w-full max-w-xl px-4 py-12 sm:max-w-3xl sm:px-6 md:max-w-4xl lg:px-8 2xl:max-w-5xl">
         <div className="grid gap-y-6">
           <div className="overflow-auto">
-            <Text
-              className="mb-1"
-              color="secondary"
-              display="block"
-              size="body2">
+            <Text className="mb-1 block" color="secondary" size="body2">
               <FormattedMessage
                 defaultMessage="Quiz Questions"
                 description="Header for quiz questions"
@@ -110,10 +106,7 @@ export default function QuestionQuizContents({
                       {question.metadata.title}
                     </Heading>
                     {question.metadata.subtitle && (
-                      <Text
-                        className="pb-4 text-lg sm:text-xl"
-                        display="block"
-                        size="inherit">
+                      <Text className="block pb-4 text-lg sm:text-xl">
                         {question.metadata.subtitle}
                       </Text>
                     )}

@@ -59,7 +59,7 @@ export default function BlogCard({
             {type === 'wide' && metadata.imageUrl && (
               <img
                 alt={metadata.title}
-                className="!m-0 size-8 shrink-0 rounded object-cover lg:hidden"
+                className="size-8 !m-0 shrink-0 rounded object-cover lg:hidden"
                 src={metadata.imageUrl}
               />
             )}
@@ -68,11 +68,10 @@ export default function BlogCard({
               <div className="flex items-center gap-3">
                 <Text
                   className={clsx(
-                    titleLines === 1 && '!line-clamp-1',
-                    titleLines === 2 && '!line-clamp-2',
+                    titleLines === 1 && 'line-clamp-1',
+                    titleLines === 2 && 'line-clamp-2',
                     type === 'wide' && 'text-base lg:text-xl',
                   )}
-                  display="block"
                   size={type === 'default' ? 'body1' : 'inherit'}
                   weight="bold">
                   {metadata.title}
@@ -83,7 +82,7 @@ export default function BlogCard({
           </div>
           {metadata.description && (
             <Text
-              className={clsx(type === 'default' && '!line-clamp-2')}
+              className={clsx(type === 'default' && 'line-clamp-2')}
               color={type === 'default' ? 'subtitle' : 'secondary'}
               size="body2">
               {metadata.description}
@@ -100,9 +99,8 @@ export default function BlogCard({
           )}
           {(metadata as Post).createdAt && !metadata.isSeries && (
             <Text
-              className="whitespace-nowrap"
+              className="block whitespace-nowrap"
               color="secondary"
-              display="block"
               size="body3">
               <BlogTimestamp
                 date={new Date((metadata as Post).createdAt).getTime()}

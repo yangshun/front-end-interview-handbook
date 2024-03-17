@@ -41,10 +41,10 @@ export default function QuestionPaywallSmall({
       )}>
       <RiLockLine className="size-8 text-neutral-500" />
       <div className="grow space-y-1">
-        <Text display="block" size="body3" weight="bold">
+        <Text className="block" size="body3" weight="bold">
           {title}
         </Text>
-        <Text color="secondary" display="block" size="body3">
+        <Text className="block" color="secondary" size="body3">
           {subtitle}
         </Text>
       </div>

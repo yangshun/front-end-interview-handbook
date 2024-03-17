@@ -77,12 +77,7 @@ function RadioGroup<T extends string>(
         {children}
       </RadixRadioGroup.Root>
       {errorMessage && (
-        <Text
-          className="mt-2"
-          color="error"
-          display="block"
-          id={messageId}
-          size="body3">
+        <Text className="mt-2 block" color="error" id={messageId} size="body3">
           {errorMessage}
         </Text>
       )}

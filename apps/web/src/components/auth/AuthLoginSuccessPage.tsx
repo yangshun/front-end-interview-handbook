@@ -30,15 +30,14 @@ export default function AuthLoginSuccessPage({ next }: Props) {
         })}
       </Heading>
       <Text
-        className="mt-4 text-center md:mt-6"
+        className="mt-4 block text-center md:mt-6"
         color="secondary"
-        display="block"
         size="body2">
         Redirecting you...
       </Text>
       <img
         alt="Email envelope illustration"
-        className="mx-auto mt-16 block max-w-80"
+        className="max-w-80 mx-auto mt-16 block"
         src="/img/marketing/envelope.svg"
       />
     </Container>

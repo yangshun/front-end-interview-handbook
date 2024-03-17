@@ -31,11 +31,7 @@ export default function TextPairing({
         )}
       </Heading>
       {description && (
-        <Text
-          className={clsx('max-w-3xl')}
-          color="secondary"
-          display="block"
-          size="body2">
+        <Text className="block max-w-3xl" color="secondary" size="body2">
           {description}
         </Text>
       )}

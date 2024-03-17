@@ -64,7 +64,7 @@ export default function PurchaseBlockCard({
             {title}
           </Heading>
           <Section>
-            <Text color="secondary" display="block" size="body1">
+            <Text className="block" color="secondary" size="body1">
               {subtitle}
             </Text>
           </Section>
@@ -83,11 +83,7 @@ export default function PurchaseBlockCard({
                     className="text-brand size-5"
                   />
                 </div>
-                <Text
-                  className="ml-3"
-                  color="secondary"
-                  display="block"
-                  size="body2">
+                <Text className="ml-3 block" color="secondary" size="body2">
                   {feature}
                 </Text>
               </li>

@@ -29,8 +29,8 @@ export default function BlogArticle({
             {metadata.title}
           </Heading>
           <Text
+            className="block"
             color="secondary"
-            display="block"
             size={view === 'card' ? 'body2' : 'body1'}>
             {metadata.description}
           </Text>

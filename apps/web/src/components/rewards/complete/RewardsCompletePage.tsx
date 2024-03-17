@@ -55,11 +55,7 @@ export default function RewardsCompletePage() {
             />
           </Heading>
         </div>
-        <Text
-          className="text-center"
-          color="secondary"
-          display="block"
-          size="body1">
+        <Text className="block text-center" color="secondary" size="body1">
           <FormattedMessage
             defaultMessage="This is a one-time use promo code exclusive to your account and <strong>can only be generated once</strong>."
             description="Subtext for rewards complete page"
@@ -114,11 +110,7 @@ export default function RewardsCompletePage() {
             title={promoCode.code}
             width={400}
           />
-          <Text
-            className="text-center"
-            color="secondary"
-            display="block"
-            size="body1">
+          <Text className="block text-center" color="secondary" size="body1">
             <FormattedMessage
               defaultMessage="You can find your promos codes on the <link>profile page</link>."
               description="Subtext for rewards complete page"

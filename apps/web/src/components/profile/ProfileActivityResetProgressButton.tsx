@@ -91,7 +91,7 @@ export default function ProfileActivityResetProgressButton() {
           id: 'eBp6vh',
         })}
         onClose={() => setIsResetProgressDialogShown(false)}>
-        <Text color="secondary" display="block" size="body2">
+        <Text className="block" color="secondary" size="body2">
           <FormattedMessage
             defaultMessage="All your question progress will be reset. This is an irreversible action, are you sure you want to proceed?"
             description="Warning message in reset progress confirmation dialog"

@@ -176,9 +176,8 @@ const ToastTitle = React.forwardRef<
   return (
     <ToastPrimitives.Title ref={ref} asChild={true} {...props}>
       <Text
-        className={clsx('grow', className)}
+        className={clsx('block grow', className)}
         color="inherit"
-        display="block"
         size="body2"
         weight="medium">
         {children}
@@ -195,7 +194,7 @@ const ToastDescription = React.forwardRef<
     Readonly<{ textColor: TextColor }>
 >(({ className, children, textColor, ...props }, ref) => (
   <ToastPrimitives.Description ref={ref} asChild={true} {...props}>
-    <Text className={className} color={textColor} display="block" size="body3">
+    <Text className={clsx('block', className)} color={textColor} size="body3">
       {children}
     </Text>
   </ToastPrimitives.Description>

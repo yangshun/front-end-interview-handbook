@@ -54,7 +54,7 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
               label={attrs.label}
               required={true}
             />
-            <Text color="secondary" display="block" size="body3">
+            <Text className="block" color="secondary" size="body3">
               Provide at least 1 URL where you hosted your solution
             </Text>
           </div>
@@ -73,8 +73,7 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
                   ['border', themeBorderElementColor],
                 )}>
                 <Text
-                  className="w-full truncate whitespace-nowrap"
-                  display="block"
+                  className="block w-full truncate whitespace-nowrap"
                   size="body3">
                   {item.label}: <Anchor href={item.href}>{item.href}</Anchor>
                 </Text>
@@ -149,7 +148,7 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
         </div>
       )}
       {formState.errors.deploymentUrls?.message && (
-        <Text color="error" display="block" id={messageId} size="body3">
+        <Text className="block" color="error" id={messageId} size="body3">
           {formState.errors.deploymentUrls?.message}
         </Text>
       )}

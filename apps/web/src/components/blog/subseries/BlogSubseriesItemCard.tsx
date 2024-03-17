@@ -32,23 +32,19 @@ export default function BlogSubseriesItemCard({
           <div className="flex items-center gap-x-3">
             <img
               alt={data.title}
-              className="!m-0 size-8 shrink-0 rounded-lg bg-neutral-800 object-cover lg:hidden"
+              className="size-8 !m-0 shrink-0 rounded-lg bg-neutral-800 object-cover lg:hidden"
               src={data.imageUrl}
             />
             <Anchor href={data.href} variant="unstyled">
               <span aria-hidden={true} className="absolute inset-0" />
-              <Text
-                className="!line-clamp-2 "
-                display="block"
-                size="body1"
-                weight="bold">
+              <Text className="line-clamp-2" size="body1" weight="bold">
                 {data.title}
               </Text>
             </Anchor>
           </div>
           {data.description && (
             <Text
-              className="!lg:line-clamp-2 !line-clamp-5"
+              className="line-clamp-5 lg:line-clamp-2"
               color="secondary"
               size="body2">
               {data.description}

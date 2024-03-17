@@ -45,7 +45,7 @@ export default function RewardsHeader() {
           variant="primary"
         />
       </div>
-      <Text color="secondary" display="block" size="body2">
+      <Text className="block" color="secondary" size="body2">
         <FormattedMessage
           defaultMessage="By proceeding, you agree to the <link>campaign's terms</link>."
           description="Campaign terms agreement prompt"

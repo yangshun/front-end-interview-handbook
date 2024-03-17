@@ -336,11 +336,7 @@ export default function QuestionsList<Q extends QuestionMetadata>({
                   )}
               </Text>
               {question.excerpt && (
-                <Text
-                  className="mt-1"
-                  color="secondary"
-                  display="block"
-                  size="body2">
+                <Text className="mt-1 block" color="secondary" size="body2">
                   {question.excerpt}
                 </Text>
               )}

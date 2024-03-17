@@ -94,12 +94,7 @@ export function PromotionsReviewCashbackCard() {
               {REVIEW_CASHBACK_DISCOUNT_PERCENTAGE}%
             </Text>
           </div>
-          <Text
-            className="text-xl"
-            color="label"
-            display="block"
-            size="inherit"
-            weight="medium">
+          <Text className="block text-xl" color="label" weight="medium">
             <FormattedMessage
               defaultMessage="CASHBACK"
               description="Amount cashback/discount"
@@ -107,9 +102,8 @@ export function PromotionsReviewCashbackCard() {
             />
           </Text>
           <Text
-            className="mt-2"
+            className="mt-2 block"
             color="secondary"
-            display="block"
             size="body2"
             weight="medium">
             <FormattedMessage
@@ -132,7 +126,7 @@ export function PromotionsReviewCashbackCard() {
               variant="primary"
             />
           </div>
-          <Text className="mt-2" color="secondary" display="block" size="body3">
+          <Text className="mt-2 block" color="secondary" size="body3">
             <FormattedMessage
               defaultMessage="Check on eligibility or submit proof"
               description="Instruction to check for review cashback"

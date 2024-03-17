@@ -130,13 +130,13 @@ export default function ProjectsChallengeGetStartedImportantInfoGuideBanner() {
                   )}>
                   <div className="w-[160px]">
                     <Text
+                      className="block"
                       color={value === 'resources' ? 'active' : 'inherit'}
-                      display="block"
                       size="body3"
                       weight="medium">
                       {title}
                     </Text>
-                    <Text color="secondary" display="block" size="body3">
+                    <Text className="block" color="secondary" size="body3">
                       {subtitle}
                     </Text>
                   </div>

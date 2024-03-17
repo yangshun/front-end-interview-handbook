@@ -20,7 +20,7 @@ export default function RewardsIntroPage() {
     <div className="mx-auto flex w-full max-w-lg flex-col items-center gap-y-10">
       <RewardsHeader />
       <div className="flex w-full flex-col gap-y-3">
-        <Text color="secondary" display="block" size="body2">
+        <Text className="block" color="secondary" size="body2">
           <FormattedMessage
             defaultMessage="Here are the tasks for this campaign:"
             description="Description for campaign tasks"

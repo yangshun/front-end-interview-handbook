@@ -370,7 +370,7 @@ function FeatureItem({
         aria-hidden={true}
         className={clsx('size-6 shrink-0', themeTextSuccessColor)}
       />
-      <Text color="secondary" display="block" size="body1">
+      <Text className="block" color="secondary" size="body1">
         {title}
       </Text>
       {description && (
@@ -483,7 +483,7 @@ function ProjectsPricingPriceCell({
           )}
         </Text>
       </div>
-      <Text className="mt-2" display="block" size="body3">
+      <Text className="mt-2 block" size="body3">
         <PricingPlanComparisonDiscount
           paymentConfig={paymentConfig}
           planType={planType}
@@ -497,9 +497,8 @@ function ProjectsPricingPriceCell({
         />
       </div>
       <Text
-        className="mt-2 whitespace-nowrap text-center"
+        className="mt-2 block whitespace-nowrap text-center"
         color="secondary"
-        display="block"
         size="body3">
         <FormattedMessage
           defaultMessage="14-day money back guarantee"
@@ -597,9 +596,8 @@ export default function ProjectsPricingTable({
                   scope="row">
                   <span className="flex items-center gap-3">
                     <Text
-                      className="max-w-72"
+                      className="max-w-72 block"
                       color="secondary"
-                      display="block"
                       size="body2"
                       weight="normal">
                       {features[featureKey].title}

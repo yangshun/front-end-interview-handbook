@@ -38,9 +38,8 @@ export default function ProjectsMarketingContactUs() {
               />
             </Heading>
             <Text
-              className="text-center text-base md:text-xl"
+              className="block text-center text-base md:text-xl"
               color="secondary"
-              display="block"
               size="inherit">
               <FormattedMessage
                 defaultMessage="Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two."
@@ -59,10 +58,8 @@ export default function ProjectsMarketingContactUs() {
           <div className="flex items-center">
             <Divider className="grow" />
             <Text
-              className="px-4 text-center text-lg md:text-xl"
-              color="secondary"
-              display="block"
-              size="inherit">
+              className="block px-4 text-center text-lg md:text-xl"
+              color="secondary">
               <FormattedMessage
                 defaultMessage="or"
                 description="Alternative contact way"

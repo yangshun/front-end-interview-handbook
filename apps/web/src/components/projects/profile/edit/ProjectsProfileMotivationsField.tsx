@@ -149,7 +149,7 @@ export default function ProjectsProfileMotivationsField({
             <div className="flex flex-col gap-2">
               {reasons}
               {errors.motivations?.message && (
-                <Text color="error" display="block" size="body3">
+                <Text className="block" color="error" size="body3">
                   {errors.motivations?.message}
                 </Text>
               )}

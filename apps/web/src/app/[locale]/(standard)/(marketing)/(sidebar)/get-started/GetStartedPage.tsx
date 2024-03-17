@@ -44,11 +44,7 @@ function PreparationPlansSection() {
             id: 'J90fcx',
           })}
         </Heading>
-        <Text
-          className="text-lg"
-          color="secondary"
-          display="block"
-          size="inherit">
+        <Text className="block text-lg" color="secondary" size="inherit">
           {intl.formatMessage({
             defaultMessage:
               "Regardless of preparation timeline, there's a plan for you.",
@@ -87,11 +83,7 @@ function PreparationPlansSection() {
                   {plan.longName}
                 </Heading>
                 <Section>
-                  <Text
-                    className="mt-4"
-                    color="light"
-                    display="block"
-                    size="body2">
+                  <Text className="mt-4 block" color="light" size="body2">
                     {plan.description}
                   </Text>
                   <Anchor
@@ -149,11 +141,7 @@ function PracticeQuestionsSection({
             id: 'Nh3PP/',
           })}
         </Heading>
-        <Text
-          className="text-lg"
-          color="secondary"
-          display="block"
-          size="inherit">
+        <Text className="block text-lg" color="secondary" size="inherit">
           {intl.formatMessage(
             {
               defaultMessage:

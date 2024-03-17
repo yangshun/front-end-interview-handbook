@@ -57,11 +57,7 @@ export default function DashboardOnboarding() {
     <CardContainer>
       <Card className="flex flex-col gap-6 p-4 md:p-8" padding={false}>
         <div className="flex justify-between gap-x-6">
-          <Text
-            className="max-w-3xl"
-            color="secondary"
-            display="block"
-            size="body2">
+          <Text className="block max-w-3xl" color="secondary" size="body2">
             <FormattedMessage
               defaultMessage="We recommend these {numberOfAreas} areas of learning to prepare you holistically for your front end interview rounds. Explore guides and {count}+ practice questions here."
               description="Message in onboarding card on prepare page"
@@ -96,15 +92,11 @@ export default function DashboardOnboarding() {
               )}>
               <div className="flex items-center gap-x-3">
                 <Icon className="size-6 text-neutral-400 dark:text-neutral-500" />
-                <Text display="block" size="body1" weight="bold">
+                <Text className="block" size="body1" weight="bold">
                   {label}
                 </Text>
               </div>
-              <Text
-                className="!line-clamp-3"
-                color="secondary"
-                display="block"
-                size="body2">
+              <Text className="line-clamp-3" color="secondary" size="body2">
                 {description}
               </Text>
             </div>
@@ -120,7 +112,7 @@ export default function DashboardOnboarding() {
               )}>
               <div className="flex items-center gap-x-3">
                 <Icon className="size-6 text-neutral-400 dark:text-neutral-500" />
-                <Text display="block" size="body2" weight="bold">
+                <Text className="block" size="body2" weight="bold">
                   {label}
                 </Text>
               </div>

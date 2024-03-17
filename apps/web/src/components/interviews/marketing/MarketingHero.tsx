@@ -24,7 +24,7 @@ function MarketingHeroAuthorIntroduction({
 }: MarketingHeroAuthorIntroductionProps) {
   return (
     <div className="space-y-4 text-xs font-medium sm:text-sm lg:space-y-5 lg:text-sm">
-      <Text className="text-center" display="block" size="body2">
+      <Text className="block text-center" size="body2">
         {title}
       </Text>
       <Text
@@ -209,10 +209,8 @@ export default function MarketingHero() {
               </div>
             </div>
             <Text
-              className="mx-auto max-w-sm text-center text-base sm:text-base md:max-w-3xl md:text-lg xl:text-xl"
-              color="subtitle"
-              display="block"
-              size="inherit">
+              className="mx-auto block max-w-sm text-center text-base sm:text-base md:max-w-3xl md:text-lg xl:text-xl"
+              color="subtitle">
               <FormattedMessage
                 defaultMessage="The only end-to-end front end interview preparation platform.{br} Brought to you by big tech Senior / Staff Front End Engineers."
                 description="Subtitle for Hero section on Homepage. Explains in more detail what the product does in order to attract the user to read on."

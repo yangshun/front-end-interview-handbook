@@ -68,7 +68,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
         {contentType === 'description' && mode === 'solution' && (
           <Alert variant="info">
             <div className="flex flex-col items-start gap-2">
-              <Text display="block" size="body2">
+              <Text className="block" size="body2">
                 You are viewing the description from the solution page. To
                 practice this question,{' '}
                 <Anchor
@@ -98,7 +98,7 @@ export default function UserInterfaceCodingWorkspaceWriteup({
         {contentType === 'description' && save != null && (
           <Alert variant="info">
             <div className="flex flex-col items-start gap-2">
-              <Text display="block" size="body2">
+              <Text className="block" size="body2">
                 You are currently editing code from the saved version:{' '}
                 <strong>"{save.name}"</strong>.
               </Text>

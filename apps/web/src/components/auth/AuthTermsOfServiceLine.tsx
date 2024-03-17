@@ -6,9 +6,8 @@ import Text from '../ui/Text';
 export default function AuthTermsOfServiceLine() {
   return (
     <Text
-      className="mx-auto max-w-[284px] text-center"
+      className="mx-auto block max-w-[284px] text-center"
       color="secondary"
-      display="block"
       size="body3">
       <FormattedMessage
         defaultMessage="By proceeding, you agree to GreatFrontEnd's <tos>Terms of Service</tos> and <pp>Privacy Policy</pp>."

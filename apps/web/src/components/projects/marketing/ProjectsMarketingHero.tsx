@@ -136,9 +136,8 @@ export default function ProjectsMarketingHero() {
                 ))}
               </div>
               <Text
-                className="mx-auto max-w-sm text-center text-base sm:text-base md:max-w-3xl md:text-lg xl:text-xl"
+                className="mx-auto block max-w-sm text-center text-base md:max-w-3xl md:text-lg xl:text-xl"
                 color="subtitle"
-                display="block"
                 size="inherit">
                 <FormattedMessage
                   defaultMessage="A platform to build high quality project challenges with beautiful & modular designs, guided by ex-FAANG senior engineers and an active community"

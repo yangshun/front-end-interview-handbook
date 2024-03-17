@@ -27,7 +27,7 @@ export default function MarketingMarqueeQuestionListSection({
     <div className="flex flex-col items-center gap-12">
       <div className="flex max-w-prose flex-col gap-1 text-center">
         <Heading level="heading3">{title}</Heading>
-        <Text color="secondary" display="block" size="body1">
+        <Text className="block" color="secondary" size="body1">
           {description}
         </Text>
       </div>

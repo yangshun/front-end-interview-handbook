@@ -62,7 +62,7 @@ function SocialDiscountSidebarMentionImpl() {
 
             return (
               <>
-                <Text display="block" size="body3" weight="medium">
+                <Text className="block" size="body3" weight="medium">
                   {socialDiscountLabels.existingPromoTitle}
                 </Text>
                 <div className="flex flex-col items-center gap-4 pt-2">
@@ -90,7 +90,7 @@ function SocialDiscountSidebarMentionImpl() {
 
           return (
             <>
-              <Text display="block" size="body3" weight="medium">
+              <Text className="block" size="body3" weight="medium">
                 {socialDiscountLabels.title}
               </Text>
               <div className="flex flex-col items-center gap-4 pt-2">
@@ -99,7 +99,7 @@ function SocialDiscountSidebarMentionImpl() {
                   title={socialDiscountLabels.ticketTitle}
                   width={182}
                 />
-                <Text color="secondary" display="block" size="body3">
+                <Text className="block" color="secondary" size="body3">
                   {socialDiscountLabels.subtitle}
                 </Text>
                 <div className="w-full">

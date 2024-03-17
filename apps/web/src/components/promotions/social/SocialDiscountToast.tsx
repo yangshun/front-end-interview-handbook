@@ -39,9 +39,8 @@ function SocialDiscountToastImpl() {
                   {promoCode.code}
                 </Text>
                 <Text
-                  className="px-6 text-center"
+                  className="block px-6 text-center"
                   color="secondary"
-                  display="block"
                   size="body3">
                   {socialDiscountLabels.existingPromoSubtitle(
                     promoCode.expires_at!,

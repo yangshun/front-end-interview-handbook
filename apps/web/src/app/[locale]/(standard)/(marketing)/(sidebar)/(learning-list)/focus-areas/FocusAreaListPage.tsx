@@ -54,7 +54,7 @@ function FocusAreaCard({
         <div className="flex items-center gap-3">
           <div
             className={clsx(
-              'flex size-10 items-center justify-center rounded',
+              'size-10 flex items-center justify-center rounded',
               theme.gradient.className,
             )}>
             <theme.iconOutline className="size-6 text-white" />
@@ -137,7 +137,7 @@ export default function FocusAreaListPage({
             id: 'Zui1cu',
           })}
         </Heading>
-        <Text color="secondary" display="block" size="body2">
+        <Text className="block" color="secondary" size="body2">
           {intl.formatMessage({
             defaultMessage:
               'Discover focus areas tailored to your needs to help you prepare for your upcoming technical interviews.',

@@ -50,7 +50,7 @@ function NavbarPopoverLink({
             <span className="shrink-0">{label}</span> {labelAddon}
           </Text>
           {sublabel && (
-            <Text color="secondary" display="block" size="body2">
+            <Text className="block" color="secondary" size="body2">
               {sublabel}
             </Text>
           )}

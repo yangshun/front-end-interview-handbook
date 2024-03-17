@@ -50,8 +50,8 @@ export default function ProjectsSkillRoadmapSelection({
                     className={clsx('size-2 shrink-0', themeIconColor)}
                   />
                   <Text
+                    className="block"
                     color="secondary"
-                    display="block"
                     size="body3"
                     weight="bold">
                     {groupItem.key}

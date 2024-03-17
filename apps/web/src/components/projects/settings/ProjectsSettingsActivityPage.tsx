@@ -44,7 +44,7 @@ export default function ProjectsSettingsActivityPage() {
           )}>
           <div className="flex items-center justify-between gap-x-4">
             <div className="flex w-3/4 flex-col gap-y-1 sm:flex-row sm:items-center sm:gap-x-3">
-              <Text display="block" size="body2" weight="medium">
+              <Text className="block" size="body2" weight="medium">
                 <Anchor
                   href={session.challenge?.metadata.href}
                   variant="unstyled">
@@ -54,9 +54,8 @@ export default function ProjectsSettingsActivityPage() {
               </Text>
             </div>
             <Text
-              className="whitespace-nowrap"
+              className="block whitespace-nowrap"
               color="secondary"
-              display="block"
               size="body3">
               {session.status === 'IN_PROGRESS' && (
                 <span>

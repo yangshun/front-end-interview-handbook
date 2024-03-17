@@ -124,14 +124,14 @@ function CheckboxInput(
           </label>
           {description && (
             <Text
+              className="block"
               color={disabled ? 'disabled' : 'secondary'}
-              display="block"
               size="body3">
               {description}
             </Text>
           )}
           {errorMessage && (
-            <Text color="error" display="block" id={errorId} size="body3">
+            <Text className="block" color="error" id={errorId} size="body3">
               {errorMessage}
             </Text>
           )}

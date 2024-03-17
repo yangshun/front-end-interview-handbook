@@ -86,8 +86,8 @@ export default function QuestionsQuizContentLayout({
                                   className="absolute inset-0"
                                 />
                                 <Text
+                                  className="block"
                                   color="inherit"
-                                  display="block"
                                   size="body2">
                                   {titleParam}
                                 </Text>

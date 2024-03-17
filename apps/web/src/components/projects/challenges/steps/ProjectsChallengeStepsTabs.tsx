@@ -82,8 +82,8 @@ function ProjectsChallengeStepsTabItem({
         onSelect?.(tabItemValue);
       }}>
       <Text
+        className="block"
         color={isSelected ? 'active' : 'inherit'}
-        display="block"
         size="body1"
         weight="bold">
         {tabItemTitle}
@@ -91,7 +91,7 @@ function ProjectsChallengeStepsTabItem({
           <span className="bg-red size-2 mb-2 ms-1 inline-block rounded-full" />
         )}
       </Text>
-      <Text color="secondary" display="block" size="body1">
+      <Text className="block" color="secondary" size="body1">
         {tabItemSubtitle}
       </Text>
     </Anchor>

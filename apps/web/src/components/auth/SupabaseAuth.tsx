@@ -72,9 +72,8 @@ export default function SupabaseAuth({
               </Heading>
               <Section>
                 <Text
-                  className="text-center"
+                  className="block text-center"
                   color="secondary"
-                  display="block"
                   size="body2">
                   {authView === 'sign_in' && (
                     <FormattedMessage

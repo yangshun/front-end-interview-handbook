@@ -33,7 +33,7 @@ export default function CodingWorkspaceLayoutDialog({
   return (
     <Dialog isShown={isShown} title="Change workspace layout" onClose={onClose}>
       <div className="flex flex-col gap-y-4">
-        <Text color="secondary" display="block" size="body2">
+        <Text className="block" color="secondary" size="body2">
           Choose a layout that best suits your needs.
         </Text>
         <div
@@ -66,10 +66,10 @@ export default function CodingWorkspaceLayoutDialog({
                 <Icon aria-hidden={true} className="size-5 shrink-0" />
               </span>
               <div className="flex flex-col gap-1 text-start">
-                <Text display="block" size="body2" weight="medium">
+                <Text className="block" size="body2" weight="medium">
                   {name}
                 </Text>
-                <Text color="secondary" display="block" size="body3">
+                <Text className="block" color="secondary" size="body3">
                   {description}
                 </Text>
               </div>

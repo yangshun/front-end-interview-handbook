@@ -91,7 +91,7 @@ export default function DashboardPageHeader() {
             <div
               aria-hidden="true"
               className={clsx(
-                'flex size-10 shrink-0 items-center justify-center rounded-md',
+                'size-10 flex shrink-0 items-center justify-center rounded-md',
                 themeBackgroundChipColor,
               )}>
               <RiBookOpenLine
@@ -100,7 +100,7 @@ export default function DashboardPageHeader() {
             </div>
             <Anchor href="/front-end-interview-guidebook" variant="unstyled">
               <span aria-hidden={true} className="absolute inset-0" />
-              <Text color="subtitle" display="block" size="body3">
+              <Text className="block" color="subtitle" size="body3">
                 <p className="whitespace-nowrap">
                   <FormattedMessage
                     defaultMessage="First time preparing for front end interviews?"
@@ -155,12 +155,12 @@ export default function DashboardPageHeader() {
               {...{ inert: '' }}>
               <ContinueLearningCard />
             </div>
-            <div className="absolute size-full bg-gradient-to-t from-neutral-200/70 dark:from-neutral-900" />
+            <div className="size-full absolute bg-gradient-to-t from-neutral-200/70 dark:from-neutral-900" />
           </div>
           <div className="flex items-center p-4">
             <Anchor href="/sign-up" variant="unstyled">
               <span aria-hidden={true} className="absolute inset-0" />
-              <Text className="sm:max-w-[158px]" display="block" size="body3">
+              <Text className="block sm:max-w-[158px]" size="body3">
                 <FormattedMessage
                   defaultMessage="Create a free account to track your progress"
                   description="CTA to create a free account for non-logged in users"

@@ -120,11 +120,7 @@ export default function EmptyState({
       </Heading>
       <Section>
         {subtitle && (
-          <Text
-            className="mt-1"
-            color="secondary"
-            display="block"
-            size={subtitleSize}>
+          <Text className="mt-1 block" color="secondary" size={subtitleSize}>
             {subtitle}
           </Text>
         )}

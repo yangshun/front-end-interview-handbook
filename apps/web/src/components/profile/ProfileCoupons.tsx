@@ -114,7 +114,7 @@ export default function ProfileCoupons() {
                 ))}
               </tbody>
             </table>
-            <Text display="block" size="body2">
+            <Text className="block" size="body2">
               <FormattedMessage
                 defaultMessage="Check out other available <link>promotions</link>."
                 description="Promotional message"

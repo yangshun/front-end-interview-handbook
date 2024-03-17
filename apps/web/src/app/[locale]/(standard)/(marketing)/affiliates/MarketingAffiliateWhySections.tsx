@@ -48,7 +48,7 @@ function ProductSection() {
           )}>
           <RiCheckLine
             aria-hidden={true}
-            className="text-success -ml-1 size-4"
+            className="text-success size-4 -ml-1"
           />
           <Text color="secondary" size="body2" weight="medium">
             {feature}
@@ -68,13 +68,12 @@ function SliderSection() {
         <Text
           className="flex justify-center gap-2 text-4xl font-bold"
           color="active"
-          display="block"
           size="inherit"
           weight="bold">
           ${Math.round(0.15 * sales * 99 * 100) / 100}{' '}
           <span className="self-end text-lg font-medium">USD</span>
         </Text>
-        <Text className="italic" color="secondary" display="block" size="body2">
+        <Text className="block italic" color="secondary" size="body2">
           * Based on average order value
         </Text>
       </div>
@@ -93,12 +92,11 @@ function SliderSection() {
           )}>
           <Slider.Range className="bg-brand-dark absolute h-full rounded" />
         </Slider.Track>
-        <Slider.Thumb className="bg-brand-dark hover:bg-brand-darker focus:ring-brand-darker block size-8 rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-offset-2" />
+        <Slider.Thumb className="bg-brand-dark hover:bg-brand-darker focus:ring-brand-darker size-8 block rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-offset-2" />
       </Slider.Root>
       <Text
-        className="mt-8 text-center text-2xl"
+        className="mt-8 block text-center text-2xl"
         color="secondary"
-        display="block"
         size="inherit"
         weight="medium">
         {sales} sales
@@ -172,10 +170,8 @@ export default function MarketingAffiliateWhySections() {
               <Heading level="heading4">{reason.title}</Heading>
               <Section>
                 <Text
-                  className="mt-4 text-lg lg:text-xl"
-                  color="secondary"
-                  display="block"
-                  size="inherit">
+                  className="mt-4 block text-lg lg:text-xl"
+                  color="secondary">
                   {reason.subtitle}
                 </Text>
                 <div className="mt-12 space-x-4">

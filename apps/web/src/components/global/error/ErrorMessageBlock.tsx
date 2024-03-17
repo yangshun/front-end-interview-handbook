@@ -49,11 +49,7 @@ export default function ErrorMessageBlock() {
           Oops! An error has occurred
         </Heading>
         <div>
-          <Text
-            className="text-center"
-            color="secondary"
-            display="block"
-            size="body1">
+          <Text className="block text-center" color="secondary" size="body1">
             Some common reasons include:
           </Text>
           <ul
@@ -76,7 +72,7 @@ export default function ErrorMessageBlock() {
                   />
                 </div>
                 <div className="flex flex-auto flex-col gap-1.5">
-                  <Text display="block" size="body1" weight="medium">
+                  <Text className="block" size="body1" weight="medium">
                     {link.name}
                   </Text>
                   <Text color="secondary" size="body2">

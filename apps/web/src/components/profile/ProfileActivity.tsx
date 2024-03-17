@@ -33,7 +33,7 @@ function NoCompletedQuestions() {
 
   return (
     <div className="py-12 text-center">
-      <RiInboxLine className="mx-auto size-12 text-neutral-400" />
+      <RiInboxLine className="size-12 mx-auto text-neutral-400" />
       <Heading className="mt-2 text-sm font-medium" level="custom">
         <FormattedMessage
           defaultMessage="No completed questions"
@@ -42,7 +42,7 @@ function NoCompletedQuestions() {
         />
       </Heading>
       <Section>
-        <Text className="mt-1" color="secondary" display="block" size="body2">
+        <Text className="mt-1 block" color="secondary" size="body2">
           <FormattedMessage
             defaultMessage="Try out some Front End questions!"
             description="Subtext for call to action when no questions are completed."
@@ -164,7 +164,7 @@ export default function ProfileActivity() {
                   )}
                 </div>
                 <Section>
-                  <Text color="secondary" display="block" size="body3">
+                  <Text className="block" color="secondary" size="body3">
                     <Timestamp date={createdAt} />
                   </Text>
                 </Section>

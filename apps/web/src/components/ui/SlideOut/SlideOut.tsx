@@ -152,7 +152,7 @@ export function SlideOutBody({
   return (
     <div className={clsx('grow overflow-y-auto', padding && 'px-6', className)}>
       <Section>
-        <Text className="h-full" display="block" size="body2">
+        <Text className="block h-full" size="body2">
           {children}
         </Text>
       </Section>

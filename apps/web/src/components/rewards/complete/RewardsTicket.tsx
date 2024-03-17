@@ -106,11 +106,7 @@ export default function RewardsTicket({
         <div className="m-auto flex w-full flex-col items-center gap-y-2">
           {title && <Heading level="heading3">{title}</Heading>}
           {subtitle && (
-            <Text
-              className="text-center"
-              color="secondary"
-              display="block"
-              size="body1">
+            <Text className="block text-center" color="secondary" size="body1">
               {subtitle}
             </Text>
           )}

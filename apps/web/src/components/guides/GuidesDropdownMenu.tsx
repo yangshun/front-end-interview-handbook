@@ -70,7 +70,7 @@ export default function GuidesDropdownMenu() {
         <div className="flex items-center gap-2">
           <div
             className={clsx(
-              'flex size-6 shrink-0 items-center justify-center rounded-full',
+              'size-6 flex shrink-0 items-center justify-center rounded-full',
               themeGlassyBorder,
               themeBackgroundLayerEmphasized,
             )}>
@@ -117,8 +117,8 @@ export default function GuidesDropdownMenu() {
                       <ItemIcon className="size-4" />
                     </div>
                     <Text
+                      className="block"
                       color={isSelected ? 'active' : 'default'}
-                      display="block"
                       size="body2"
                       weight="bold">
                       {shortName}

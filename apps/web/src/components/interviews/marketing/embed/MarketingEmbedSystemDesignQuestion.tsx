@@ -23,7 +23,7 @@ function ReadFullQuestionAlert() {
 
   return (
     <div className="bg-info rounded-md p-4 text-xs">
-      <Text display="block" size="body3" weight="medium">
+      <Text className="block" size="body3" weight="medium">
         Like what you are reading?{' '}
         <Anchor
           href={questionMetadata.href}
@@ -534,10 +534,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
               />
               <Divider />
               <div className="flex flex-col gap-y-2">
-                <Text
-                  className="text-base font-medium"
-                  display="block"
-                  size="inherit">
+                <Text className="block" size="body1" weight="medium">
                   {intl.formatMessage({
                     defaultMessage: 'Companies',
                     description: 'Companies section label',

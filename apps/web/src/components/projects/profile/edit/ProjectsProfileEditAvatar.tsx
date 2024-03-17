@@ -34,7 +34,7 @@ export default function ProjectsProfileEditAvatar({ src, onChange }: Props) {
       </div>
       <div className="absolute -bottom-5 left-0 md:-bottom-14">
         {imageSizeExceeded && (
-          <Text color="error" display="block" size="body3">
+          <Text className="block" color="error" size="body3">
             {intl.formatMessage({
               defaultMessage: 'Please upload a photo smaller than 1 MB',
               description: 'Profile photo size exceed error message',

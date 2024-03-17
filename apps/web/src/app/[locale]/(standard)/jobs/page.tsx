@@ -55,9 +55,8 @@ function JobPostingItem({
       )}>
       <div className="flex grow flex-col gap-y-4">
         <Text
-          className="uppercase tracking-widest"
+          className="block uppercase tracking-widest"
           color="secondary"
-          display="block"
           size="body2"
           weight="medium">
           {department}

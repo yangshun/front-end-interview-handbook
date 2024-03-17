@@ -248,7 +248,7 @@ export default function Typeahead<T>({
             errorMessage ? 'justify-between' : 'justify-end',
           )}>
           {errorMessage && (
-            <Text color="error" display="block" id={messageId} size="body3">
+            <Text className="block" color="error" id={messageId} size="body3">
               {errorMessage}
             </Text>
           )}

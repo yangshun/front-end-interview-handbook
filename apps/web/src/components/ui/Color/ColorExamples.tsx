@@ -73,7 +73,7 @@ function ColorSwatch({
 }: Readonly<{ colors: ReadonlyArray<string>; title: string }>) {
   return (
     <div className="grid gap-y-1">
-      <Text display="block" size="body2" weight="medium">
+      <Text className="block" size="body2" weight="medium">
         {title}
       </Text>
       <div className="flex gap-x-2">

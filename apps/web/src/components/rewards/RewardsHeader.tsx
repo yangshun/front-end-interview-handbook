@@ -39,11 +39,7 @@ export default function RewardsHeader() {
         </Heading>
         <Section>
           <div className="max-w-md">
-            <Text
-              className="text-center"
-              color="secondary"
-              display="block"
-              size="body1">
+            <Text className="block text-center" color="secondary" size="body1">
               {intl.formatMessage(
                 {
                   defaultMessage:

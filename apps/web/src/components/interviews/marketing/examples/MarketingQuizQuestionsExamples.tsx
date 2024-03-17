@@ -24,10 +24,8 @@ export default function MarketingQuizQuestionsExamples({
     <div className={clsx('relative lg:grid lg:grid-cols-6 lg:gap-x-8')}>
       <div className="lg:col-span-2">
         <Text
-          className="text-base sm:text-lg"
+          className="block text-base sm:text-lg"
           color="active"
-          display="block"
-          size="inherit"
           weight="bold">
           <FormattedMessage
             defaultMessage="Know your fundamentals"
@@ -55,11 +53,7 @@ export default function MarketingQuizQuestionsExamples({
           </div>
         </Heading>
         <Section>
-          <Text
-            className="py-10 text-lg md:text-xl"
-            color="secondary"
-            display="block"
-            size="inherit">
+          <Text className="block py-10 text-lg md:text-xl" color="secondary">
             <FormattedMessage
               defaultMessage="Knowledge is power. Over {count} short questions with answers to build and solidify your front end fundamentals."
               description="Subtitle for an example list of Quiz Questions on marketing pages"

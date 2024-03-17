@@ -97,9 +97,8 @@ export function PromotionsStudentDiscountCard() {
             </Text>
           </div>
           <Text
-            className="mt-4"
+            className="mt-4 block"
             color="secondary"
-            display="block"
             size="body2"
             weight="medium">
             <FormattedMessage
@@ -191,11 +190,7 @@ export function PromotionsStudentDiscountCard() {
                         onCopy(promoCodeToDisplay.code);
                       }}
                     />
-                    <Text
-                      className="mt-2"
-                      color="secondary"
-                      display="block"
-                      size="body3">
+                    <Text className="mt-2 block" color="secondary" size="body3">
                       <FormattedMessage
                         defaultMessage="Use code at checkout. Code expires on {expiryDate}."
                         description="Instruction to apply discount"

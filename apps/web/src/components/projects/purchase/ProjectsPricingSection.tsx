@@ -89,7 +89,7 @@ export default function ProjectsPricingSection({
               </Section>
               {/* Footnotes */}
               <div className="mt-5 px-8">
-                <Text color="secondary" display="block" size="body3">
+                <Text className="block" color="secondary" size="body3">
                   *{' '}
                   <FormattedMessage
                     defaultMessage="Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget."
@@ -97,7 +97,7 @@ export default function ProjectsPricingSection({
                     id="Xka4d3"
                   />
                 </Text>
-                <Text color="secondary" display="block" size="body3">
+                <Text className="block" color="secondary" size="body3">
                   *{' '}
                   <FormattedMessage
                     defaultMessage="Prices will be increased as more content is being added to the website."
@@ -111,7 +111,7 @@ export default function ProjectsPricingSection({
                   />
                 </Text>
                 {annualPlan.symbol === '$' && (
-                  <Text color="secondary" display="block" size="body3">
+                  <Text className="block" color="secondary" size="body3">
                     *{' '}
                     <FormattedMessage
                       defaultMessage="Prices shown are in {currency}."

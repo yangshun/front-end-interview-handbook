@@ -18,7 +18,7 @@ export default function JavaScriptCodingWorkspaceNewTab({
 }>) {
   return (
     <div className="flex flex-col gap-2 p-4">
-      <Text display="block" size="body2" weight="medium">
+      <Text className="block" size="body2" weight="medium">
         Tabs
       </Text>
       <div className="flex flex-wrap gap-2">

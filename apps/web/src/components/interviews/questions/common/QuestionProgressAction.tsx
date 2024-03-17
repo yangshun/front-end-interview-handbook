@@ -85,7 +85,7 @@ export default function QuestionProgressAction({
             id: 'RDQ253',
           })}
           onClose={() => setIsLoginDialogShown(false)}>
-          <Text color="secondary" display="block" size="body2">
+          <Text className="block" color="secondary" size="body2">
             <FormattedMessage
               defaultMessage="Congratulations on completing the question! Sign into your account or sign up for free to save your progress!"
               description="Message shown when user completes a question"

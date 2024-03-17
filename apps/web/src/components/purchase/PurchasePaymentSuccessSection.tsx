@@ -106,7 +106,7 @@ export default function PurchasePaymentSuccessSection({
                       )}
                     </Heading>
                     <Section>
-                      <Text color="secondary" display="block" size="body2">
+                      <Text className="block" color="secondary" size="body2">
                         {action.description}
                       </Text>
                     </Section>

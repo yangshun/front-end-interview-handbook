@@ -13,9 +13,8 @@ export default function MarketingSectionTitleLabel({
 }: Props) {
   return (
     <Text
-      className={clsx('leading-7', className)}
+      className={clsx('block leading-7', className)}
       color="active"
-      display="block"
       size="body2"
       weight="bold">
       {children}

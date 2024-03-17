@@ -130,7 +130,7 @@ export default function ProfileAccountEmail({ user }: Props) {
           )}
         />
         {message && (
-          <Text color="success" display="block" size="body2">
+          <Text className="block" color="success" size="body2">
             {message}
           </Text>
         )}

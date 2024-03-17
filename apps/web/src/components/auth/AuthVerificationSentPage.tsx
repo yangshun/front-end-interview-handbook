@@ -26,9 +26,8 @@ export default function AuthVerificationSentPage({ email, redirectTo }: Props) {
         We have sent a verification link to {email}
       </Heading>
       <Text
-        className="mt-4 text-center md:mt-6"
+        className="mt-4 block text-center md:mt-6"
         color="secondary"
-        display="block"
         size="body2">
         Didn't receive it? Send{' '}
         <Anchor
@@ -46,7 +45,7 @@ export default function AuthVerificationSentPage({ email, redirectTo }: Props) {
       </Text>
       <img
         alt="Email envelope illustration"
-        className="mx-auto mt-16 block max-w-80"
+        className="max-w-80 mx-auto mt-16 block"
         src="/img/marketing/envelope.svg"
       />
     </Container>

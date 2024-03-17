@@ -37,20 +37,18 @@ export default function BlogAuthor({ metadata }: Props) {
         <div className="flex flex-col gap-y-1">
           <Text
             className={clsx(
-              'text-neutral-700 dark:text-neutral-100',
+              'block text-neutral-700 dark:text-neutral-100',
               'whitespace-nowrap',
             )}
             color="inherit"
-            display="block"
             size="body2"
             weight="medium">
             {author.name}
           </Text>
           <div className="flex items-center gap-x-2">
             <Text
-              className="whitespace-nowrap text-neutral-700 dark:text-neutral-400"
+              className="block whitespace-nowrap text-neutral-700 dark:text-neutral-400"
               color="inherit"
-              display="block"
               size="body3">
               <FormattedMessage
                 defaultMessage="{minutes} min read"
@@ -63,9 +61,8 @@ export default function BlogAuthor({ metadata }: Props) {
             </Text>
             <div className="size-1 rounded-full bg-neutral-700 dark:bg-neutral-400" />
             <Text
-              className="whitespace-nowrap text-neutral-700 dark:text-neutral-400"
+              className="block whitespace-nowrap text-neutral-700 dark:text-neutral-400"
               color="inherit"
-              display="block"
               size="body3">
               <BlogTimestamp
                 date={new Date((metadata as Post).createdAt).getTime()}

@@ -1,6 +1,5 @@
 'use client';
 
-import clsx from 'clsx';
 import { allCategories } from 'contentlayer/generated';
 import { useState } from 'react';
 import { RiArrowLeftLine } from 'react-icons/ri';
@@ -46,11 +45,7 @@ export default function BlogExplorePage() {
             id="X6kis4"
           />
         </Heading>
-        <Text
-          className={clsx('max-w-3xl')}
-          color="secondary"
-          display="block"
-          size="body2">
+        <Text className="block max-w-3xl" color="secondary" size="body2">
           <FormattedMessage
             defaultMessage="Here you'll find a curated collection of our most insightful and engaging blog content, neatly organized into series for your convenience. Each series focuses on a unique theme or topic providing a deep dive subject."
             description="Explore series page description"

@@ -116,10 +116,7 @@ export default function MarketingEmailSubscribe() {
             id="ePyk/V"
           />
         </Heading>
-        <Text
-          className="text-brand-lightest mx-auto max-w-3xl text-base lg:text-lg"
-          display="block"
-          size="body1">
+        <Text className="text-brand-lightest mx-auto block max-w-3xl text-base lg:text-lg">
           <FormattedMessage
             defaultMessage="Sign up for our newsletter and join our community of passionate <span>Front End Engineers</span>."
             description="Subtitle text for newsletter sign up section"
@@ -179,9 +176,8 @@ export default function MarketingEmailSubscribe() {
         </form>
         {submitMessage && (
           <Text
-            className="text-center"
+            className="block text-center"
             color="success"
-            display="block"
             size="body2"
             weight="medium">
             {submitMessage}

@@ -34,9 +34,8 @@ export default function ProjectsChallengeReferenceSubmissions({
       <Section>
         <div className="flex flex-col gap-8">
           <Text
-            className="mt-4 max-w-screen-md"
+            className="mt-4 block max-w-screen-md"
             color="secondary"
-            display="block"
             size="body2">
             <FormattedMessage
               defaultMessage="Here are some highly-rated submissions you can reference while doing your project. We prioritize submissions by their ratings, the similarity of their tech stack to yours, and the seniority level of the commenter."

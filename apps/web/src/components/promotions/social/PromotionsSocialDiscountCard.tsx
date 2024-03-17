@@ -72,9 +72,8 @@ export function PromotionsSocialDiscountCard() {
             </Text>
           </div>
           <Text
-            className="mt-4"
+            className="mt-4 block"
             color="secondary"
-            display="block"
             size="body2"
             weight="medium">
             <FormattedMessage

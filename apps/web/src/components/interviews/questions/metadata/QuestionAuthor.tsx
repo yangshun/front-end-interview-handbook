@@ -41,17 +41,15 @@ export default function QuestionAuthor({ author, size = 'body3' }: Props) {
         </div>
         <div className="flex flex-col gap-y-0.5">
           <Text
-            className="whitespace-nowrap"
+            className="block whitespace-nowrap"
             color="subtitle"
-            display="block"
             size={size}
             weight="bold">
             {authorData.name}
           </Text>
           <Text
-            className="whitespace-nowrap"
+            className="block whitespace-nowrap"
             color="secondary"
-            display="block"
             size="body3">
             {authorData.subtitle}
           </Text>

@@ -61,8 +61,7 @@ export default function NavProfileIcon({
           className={dropdownContentClassName}
           sideOffset={8}>
           <Text
-            className="truncate px-2 py-1"
-            display="block"
+            className="display truncate px-2 py-1"
             size="body2"
             weight="bold">
             {userIdentifierString}

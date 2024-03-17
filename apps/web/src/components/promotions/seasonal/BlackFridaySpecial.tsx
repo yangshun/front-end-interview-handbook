@@ -15,7 +15,7 @@ export function BlackFridayLiveBadge() {
         'bg-danger inline-flex items-center gap-x-1 rounded-full px-2 py-0.5',
       )}>
       <span className="size-1.5 rounded-full bg-white" />
-      <Text color="light" display="block" size="body3" weight="medium">
+      <Text className="block" color="light" size="body3" weight="medium">
         Live
       </Text>
     </span>
@@ -30,11 +30,11 @@ export function BlackFridayPromoCard() {
         ['border', themeBorderColor],
         themeBackgroundColor,
       )}>
-      <Text className="text-xl" display="block" size="inherit" weight="bold">
+      <Text className="block text-xl" size="inherit" weight="bold">
         {SEASONAL_PROMO_CODE_DISCOUNT_PERCENTAGE}% off
       </Text>
       <div className="flex justify-between">
-        <Text display="block" size="body3">
+        <Text className="block" size="body3">
           with code{' '}
           <strong className="text-medium">{SEASONAL_PROMO_CODE}</strong>
         </Text>
@@ -51,7 +51,7 @@ export function BlackFridayExclusiveTicket({
       padding="sm"
       ratio="normal"
       title={
-        <Text className="text-2xs" display="block" size="inherit">
+        <Text className="text-2xs block" size="inherit">
           Exclusive beta access to new product
         </Text>
       }
@@ -76,7 +76,7 @@ export function BlackFridaySpecial() {
         'bg-neutral-50 dark:bg-neutral-900',
       )}>
       <div className="flex w-full items-center justify-between">
-        <Text display="block" size="body3" weight="medium">
+        <Text className="block" size="body3" weight="medium">
           Cyber Monday Sale
         </Text>
         <BlackFridayLiveBadge />
@@ -84,15 +84,14 @@ export function BlackFridaySpecial() {
       <div className="flex flex-col items-center gap-2 pt-4">
         <BlackFridayPromoCard />
         <Text
-          className="text-lg leading-5"
+          className="block text-lg leading-5"
           color="secondary"
-          display="block"
           size="inherit"
           weight="medium">
           +
         </Text>
         <BlackFridayExclusiveTicket />
-        <Text color="secondary" display="block" size="body3" weight="medium">
+        <Text className="block" color="secondary" size="body3" weight="medium">
           With every purchase
         </Text>
       </div>

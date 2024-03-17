@@ -88,7 +88,7 @@ function FooterSection({
 
               return (
                 <li key={item.key}>
-                  <Text display="block" size="body2">
+                  <Text className="block" size="body2">
                     <Anchor
                       href={item.href}
                       variant="secondary"
@@ -128,7 +128,7 @@ export default function Footer({ navigation }: Props) {
   const { locale, pathname } = useI18nPathname();
   const router = useI18nRouter();
   const copyrightStatement = (
-    <Text color="secondary" display="block" size="body2">
+    <Text className="block" color="secondary" size="body2">
       &copy; {new Date().getFullYear()}{' '}
       <FormattedMessage
         defaultMessage="Codeney Pte Ltd. All rights reserved."

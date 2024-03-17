@@ -199,7 +199,7 @@ export default function MarketingFeatures() {
               </dt>
               <Section>
                 <dd className="mt-2">
-                  <Text color="secondary" display="block" size="body1">
+                  <Text className="block" color="secondary" size="body1">
                     {feature.description}
                   </Text>
                 </dd>

@@ -32,11 +32,7 @@ export default function BlogHomePage() {
               id="uMAaCa"
             />
           </Heading>
-          <Text
-            className={clsx('max-w-3xl')}
-            color="secondary"
-            display="block"
-            size="body2">
+          <Text className="block max-w-3xl" color="secondary" size="body2">
             <FormattedMessage
               defaultMessage="Learn new skills, improve your techniques and stay updated on latest front end trends and developments."
               description="Blog home page description"

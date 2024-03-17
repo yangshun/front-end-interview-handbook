@@ -82,9 +82,8 @@ export default function MarketingCompaniesMarquee() {
       className="flex flex-col gap-y-6 py-8 lg:gap-y-12 lg:py-16"
       variant="narrow">
       <Text
-        className="text-center"
+        className="block text-center"
         color="secondary"
-        display="block"
         size="body1"
         weight="bold">
         <FormattedMessage

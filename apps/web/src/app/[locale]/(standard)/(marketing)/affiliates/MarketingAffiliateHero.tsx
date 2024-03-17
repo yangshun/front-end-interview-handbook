@@ -69,9 +69,8 @@ export default function MarketingAffiliateHero() {
                     />
                   </Heading>
                   <Text
-                    className="mx-auto mt-8 max-w-md text-center text-xl md:mt-12 md:max-w-3xl xl:text-xl"
+                    className="mx-auto mt-8 block max-w-md text-center text-xl md:mt-12 md:max-w-3xl xl:text-xl"
                     color="secondary"
-                    display="block"
                     size="inherit">
                     <FormattedMessage
                       defaultMessage="Earn passive commissions when others purchase GreatFrontEnd through you."

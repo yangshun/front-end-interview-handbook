@@ -64,13 +64,13 @@ export default function Banner({
         <div className="pr-8 sm:px-8 sm:text-center">
           <Text
             className={clsx(
+              'block',
               size === 'md' && 'text-xs sm:text-sm md:text-base',
               size === 'sm' && 'text-xs md:text-sm',
               size === 'xs' && 'text-xs',
               truncate && 'truncate',
             )}
             color="inherit"
-            display="block"
             size="inherit"
             weight="medium">
             {children}

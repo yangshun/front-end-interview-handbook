@@ -23,10 +23,8 @@ export default function MarketingSystemDesignQuestionsExamples({
     <div className={clsx('lg:grid lg:grid-cols-6 lg:gap-x-8')}>
       <div className="lg:col-span-2">
         <Text
-          className="text-base sm:text-lg"
+          className="block text-base sm:text-lg"
           color="active"
-          display="block"
-          size="inherit"
           weight="bold">
           <FormattedMessage
             defaultMessage="You can't find it elsewhere"
@@ -42,11 +40,7 @@ export default function MarketingSystemDesignQuestionsExamples({
           />
         </Heading>
         <Section>
-          <Text
-            className="py-10 text-lg md:text-xl"
-            color="secondary"
-            display="block"
-            size="inherit">
+          <Text className="block py-10 text-lg md:text-xl" color="secondary">
             <FormattedMessage
               defaultMessage="Front end system design resources are virtually non-existent. This is the only place you'll find in-depth solutions for front end system design questions along with our proven answering framework."
               description="Subtitle for an example list of User Interface Questions on marketing pages"

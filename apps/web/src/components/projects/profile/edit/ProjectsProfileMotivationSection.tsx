@@ -39,7 +39,7 @@ export default function ProjectsProfileMotivationSection({
             </Tooltip>
           </div>
         </Heading>
-        <Text color="secondary" display="block" size="body2">
+        <Text className="block" color="secondary" size="body2">
           <FormattedMessage
             defaultMessage="Choose up to 2 reasons so that we can improve your experience"
             description="Subtitle of motivation for joining section of projects profile edit page"

@@ -50,7 +50,7 @@ export default function TestimonialCard({
 
               return nameEl;
             })()}
-          <Text color="secondary" display="block" size="body3">
+          <Text className="block" color="secondary" size="body3">
             {[title, location].filter(Boolean).join(', ')}
           </Text>
         </div>

@@ -76,7 +76,7 @@ export default function ResumeReviewFAQs() {
             <AccordionItem key={faq.id} value={faq.id}>
               <AccordionTrigger>{faq.question}</AccordionTrigger>
               <AccordionContent>
-                <Text color="secondary" display="block" size="body1">
+                <Text className="block" color="secondary" size="body1">
                   {faq.answer}
                 </Text>
               </AccordionContent>

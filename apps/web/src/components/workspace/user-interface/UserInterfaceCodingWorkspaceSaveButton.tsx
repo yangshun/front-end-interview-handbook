@@ -143,7 +143,7 @@ function NewSaveButton({
           setIsDialogOpen(false);
         }}>
         <div className="flex flex-col gap-y-3">
-          <Text color="secondary" display="block" size="inherit">
+          <Text className="block" color="secondary" size="inherit">
             Your code will be saved into the database and can be retrieved from
             the{' '}
             <Text size="inherit" weight="medium">

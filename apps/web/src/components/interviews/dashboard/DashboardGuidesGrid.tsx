@@ -89,7 +89,6 @@ export default function QuestionsGuidesGrid({
                     <Text
                       className="line-clamp-3 pt-1 md:text-center"
                       color="secondary"
-                      display="block"
                       size="body2">
                       {guide.description}
                     </Text>

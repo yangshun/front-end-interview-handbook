@@ -37,7 +37,7 @@ export default function DashboardStudyPlansCTA() {
           <div
             aria-hidden="true"
             className={clsx(
-              'flex size-12 shrink-0 items-center justify-center rounded-md',
+              'size-12 flex shrink-0 items-center justify-center rounded-md',
               themeBackgroundChipColor,
             )}>
             <RiCalendar2Line
@@ -46,7 +46,7 @@ export default function DashboardStudyPlansCTA() {
           </div>
           <Anchor href="/study-plans" variant="unstyled">
             <span aria-hidden={true} className="absolute inset-0" />
-            <Text color="subtitle" display="block" size="body3">
+            <Text className="block" color="subtitle" size="body3">
               <FormattedMessage
                 defaultMessage="We help you get ready within 1 week, 1 month or 3 months"
                 description="Study plans description"

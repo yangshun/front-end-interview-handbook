@@ -61,9 +61,8 @@ export function PromotionsSeasonalDiscountCard() {
             </Text>
           </div>
           <Text
-            className="mt-4"
+            className="mt-4 block"
             color="secondary"
-            display="block"
             size="body2"
             weight="medium">
             <FormattedMessage
@@ -93,7 +92,7 @@ export function PromotionsSeasonalDiscountCard() {
               }}
             />
           </div>
-          <Text className="mt-2" color="secondary" display="block" size="body3">
+          <Text className="mt-2 block" color="secondary" size="body3">
             <FormattedMessage
               defaultMessage="Use code at checkout"
               description="Instruction to apply discount"

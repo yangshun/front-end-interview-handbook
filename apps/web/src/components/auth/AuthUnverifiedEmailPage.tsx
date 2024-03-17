@@ -26,9 +26,8 @@ export default function AuthUnverifiedEmailPage({ email, redirectTo }: Props) {
         Looks like you haven't verified your email address
       </Heading>
       <Text
-        className="mt-4 text-balance text-center md:mt-6"
+        className="text-balance mt-4 block text-center md:mt-6"
         color="secondary"
-        display="block"
         size="body2">
         Click the button below to receive an email containing a verification
         link.
@@ -49,7 +48,7 @@ export default function AuthUnverifiedEmailPage({ email, redirectTo }: Props) {
       </div>
       <img
         alt="Email envelope illustration"
-        className="mx-auto mt-16 block max-w-80"
+        className="max-w-80 mx-auto mt-16 block"
         src="/img/marketing/envelope.svg"
       />
     </Container>

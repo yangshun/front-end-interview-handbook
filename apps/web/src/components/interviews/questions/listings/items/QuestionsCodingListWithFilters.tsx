@@ -405,7 +405,7 @@ export default function QuestionsCodingListWithFilters({
             }>
             <div className={clsx('flex flex-col')}>
               <div className="flex flex-col gap-2">
-                <Text display="block" size="body3" weight="medium">
+                <Text className="block" size="body3" weight="medium">
                   {frameworkFilterOptions.name}
                 </Text>
                 <div className="flex flex-wrap gap-x-6 gap-y-3">
@@ -425,7 +425,7 @@ export default function QuestionsCodingListWithFilters({
               </div>
               <Divider className="my-4" />
               <div className="flex flex-col gap-2">
-                <Text display="block" size="body3" weight="medium">
+                <Text className="block" size="body3" weight="medium">
                   {languageFilterOptions.name}
                 </Text>
                 <div className="flex flex-wrap gap-x-6 gap-y-3">

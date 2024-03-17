@@ -65,8 +65,8 @@ export default function GuidesMainLayout({
             <div className="flex flex-col gap-y-4">
               {navigation.title && (
                 <Text
+                  className="block"
                   color="secondary"
-                  display="block"
                   size="body2"
                   weight="medium">
                   {navigation.title}

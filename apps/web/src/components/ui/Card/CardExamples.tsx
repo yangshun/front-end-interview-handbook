@@ -43,7 +43,7 @@ export default function CardExamples() {
                 )}
               />
             </div>
-            <Text display="block" size="body1" weight="bold">
+            <Text className="block" size="body1" weight="bold">
               Data Structures & Algorithms
             </Text>
           </Card>
@@ -68,13 +68,13 @@ export default function CardExamples() {
             </div>
             <Anchor href="#" variant="unstyled">
               <span aria-hidden={true} className="absolute inset-0" />
-              <Text display="block" size="body1" weight="bold">
+              <Text className="block" size="body1" weight="bold">
                 Data Structures & Algorithms
               </Text>
             </Anchor>
           </Card>
           <Card className="grid gap-y-4">
-            <Text display="block" size="body2">
+            <Text className="block" size="body2">
               “One morning, when Gregor Samsa woke from troubled dreams, he
               found himself transformed in his bed into a horrible vermin.”
             </Text>
@@ -84,10 +84,10 @@ export default function CardExamples() {
                 className={clsx('size-8 shrink-0', themeTextSubtleColor)}
               />
               <div>
-                <Text display="block" size="body2">
+                <Text className="block" size="body2">
                   John Doe
                 </Text>
-                <Text color="secondary" display="block" size="body3">
+                <Text className="block" color="secondary" size="body3">
                   Software Engineer
                 </Text>
               </div>
@@ -100,11 +100,11 @@ export default function CardExamples() {
               <div>
                 <Anchor href="#" variant="unstyled">
                   <span aria-hidden={true} className="absolute inset-0" />
-                  <Text display="block" size="body1" weight="medium">
+                  <Text className="block" size="body1" weight="medium">
                     Custom Padding
                   </Text>
                 </Anchor>
-                <Text color="secondary" display="block" size="body2">
+                <Text className="block" color="secondary" size="body2">
                   Implement a stack data structure containing the common stack
                   methods
                 </Text>
