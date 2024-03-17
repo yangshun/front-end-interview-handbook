@@ -23,9 +23,9 @@ export default function ProjectsProfileMotivationSection({
         <Heading level="heading6">
           <div className="flex items-center gap-1">
             <FormattedMessage
-              defaultMessage="Motivation for joining"
+              defaultMessage="Motivations for joining"
               description="Title of motivation for joining section of projects profile edit page"
-              id="k+36tk"
+              id="DlMtVL"
             />
             <Tooltip
               label={intl.formatMessage({
@@ -41,9 +41,9 @@ export default function ProjectsProfileMotivationSection({
         </Heading>
         <Text color="secondary" display="block" size="body2">
           <FormattedMessage
-            defaultMessage="Choose up to 2 reasons:"
+            defaultMessage="Choose up to 2 reasons so that we can improve your experience"
             description="Subtitle of motivation for joining section of projects profile edit page"
-            id="1zX8Aw"
+            id="ATjflV"
           />
         </Text>
       </div>

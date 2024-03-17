@@ -83,7 +83,7 @@ export default function ProjectsProfileJobSection() {
       />
       {hasStartedWork && (
         <div className="flex flex-col space-y-6">
-          <div className="flex w-full flex-col gap-x-6 gap-y-2 md:flex-row">
+          <div className="flex w-full flex-col gap-x-4 gap-y-2 md:flex-row">
             <Controller
               control={control}
               name="jobTitle"
@@ -92,10 +92,10 @@ export default function ProjectsProfileJobSection() {
                   <TextInput
                     errorMessage={errors.jobTitle?.message}
                     label={intl.formatMessage({
-                      defaultMessage: 'Job Title',
+                      defaultMessage: 'Job title',
                       description:
                         'Label for "Job Title" input on Projects profile onboarding page',
-                      id: 'UIOmIs',
+                      id: 'xiEHQ1',
                     })}
                     placeholder={intl.formatMessage({
                       defaultMessage: 'Software Engineer',
@@ -108,11 +108,11 @@ export default function ProjectsProfileJobSection() {
                 </div>
               )}
             />
-            <Text className="md:mt-8" size="body2" weight="medium">
+            <Text className="md:mt-9" size="body2" weight="medium">
               {intl.formatMessage({
                 defaultMessage: 'at',
-                description: 'At',
-                id: '+NBACf',
+                description: 'Where the user is working at',
+                id: 'qBD+e/',
               })}
             </Text>
             <Controller

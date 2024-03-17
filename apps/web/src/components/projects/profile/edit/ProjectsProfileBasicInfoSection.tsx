@@ -42,8 +42,8 @@ export default function ProjectsProfileBasicInfoSection({
           />
         )}
       />
-      <div className="flex w-full flex-col gap-6 md:mt-8 md:flex-row">
-        <div className="flex flex-1 flex-col gap-4 self-stretch sm:self-auto">
+      <div className="flex w-full flex-col gap-6">
+        <div className="grid gap-6 md:grid-cols-2">
           <Controller
             control={control}
             name="name"

@@ -33,7 +33,7 @@ export default function ProjectsProfileBioInput({ control }: Props) {
           label={attrs.label}
           maxLength={attrs.validation.maxLength}
           placeholder={attrs.placeholder}
-          rows={5}
+          rows={3}
           {...field}
         />
       )}

@@ -47,10 +47,6 @@
     "defaultMessage": "Reference other's approach",
     "description": "Title of 'Reference other's approach' sub-feature in Projects marketing page"
   },
-  "+NBACf": {
-    "defaultMessage": "at",
-    "description": "At"
-  },
   "+OVTKu": {
     "defaultMessage": "Billing | Profile",
     "description": "Title of Profile Billing page"
@@ -442,10 +438,6 @@
   "1wrVTx": {
     "defaultMessage": "Edit on GitHub",
     "description": "Edit on GitHub button"
-  },
-  "1zX8Aw": {
-    "defaultMessage": "Choose up to 2 reasons:",
-    "description": "Subtitle of motivation for joining section of projects profile edit page"
   },
   "23bxK1": {
     "defaultMessage": "Blogs List",
@@ -1359,6 +1351,10 @@
     "defaultMessage": "Existing subscribers can upgrade to the lifetime plan at a discount, send an email to <link>contact@greatfrontend</link>.",
     "description": "Call to action text to upgrade plan."
   },
+  "ATjflV": {
+    "defaultMessage": "Choose up to 2 reasons so that we can improve your experience",
+    "description": "Subtitle of motivation for joining section of projects profile edit page"
+  },
   "AVk8pE": {
     "defaultMessage": "Name",
     "description": "Label for \"Name\" input on Projects profile onboarding page"
@@ -1722,6 +1718,10 @@
   "DjHA82": {
     "defaultMessage": "Career Switcher",
     "description": "Label for \"Career Switcher\" option in YOE replacement"
+  },
+  "DlMtVL": {
+    "defaultMessage": "Motivations for joining",
+    "description": "Title of motivation for joining section of projects profile edit page"
   },
   "DlfZrJ": {
     "defaultMessage": "Insert an object",
@@ -3755,10 +3755,6 @@
     "defaultMessage": "Coding Questions",
     "description": "Coding questions long title"
   },
-  "UIOmIs": {
-    "defaultMessage": "Job Title",
-    "description": "Label for \"Job Title\" input on Projects profile onboarding page"
-  },
   "ULuy8I": {
     "defaultMessage": "Difficulty",
     "description": "Question difficulty"
@@ -4002,6 +3998,10 @@
   "WK23Hh": {
     "defaultMessage": "Only Marketing track",
     "description": "Label for component tracks feature for free plan"
+  },
+  "WN9SL4": {
+    "defaultMessage": "All of our payments are processed using <link>Stripe</link> - we do not directly store your payment and billing information. If you would like to change them, please use Stripe's customer billing portal to do so. {goToStripeCTA}",
+    "description": "Description for payments and billing section of projects setting page"
   },
   "WNERnb": {
     "defaultMessage": "End session",
@@ -5011,10 +5011,6 @@
     "defaultMessage": "Number of questions",
     "description": "Total number of questions in a list"
   },
-  "fS2amE": {
-    "defaultMessage": "All of our payments are processed using <link>Stripe</link> - we do not directly store your payment and billing information. If you would like to change them, please use Stripe's admin portal to do so. {goToStripCTA}",
-    "description": "Description for payments and billing section of projects setting page"
-  },
   "fSn4nv": {
     "defaultMessage": "As someone who has given as well as taken a lot of interviews, I can say GreatFrontEnd is a f'king goldmine. I would highly recommend GreatFrontEnd to anyone who is preparing for front end interviews or anyone who just wants to learn some new concepts. The content is well-organized, has some great practical coding challenges, and the system design part is just amazing!!!",
     "description": "Anonymous Front End Engineer's testimonial"
@@ -5550,10 +5546,6 @@
   "jzVpyI": {
     "defaultMessage": "Is GreatFrontEnd targeted at engineers of specific seniority?",
     "description": "Question on Homepage's FAQ section - on the seniority level of engineers that GreatFrontEnd targets"
-  },
-  "k+36tk": {
-    "defaultMessage": "Motivation for joining",
-    "description": "Title of motivation for joining section of projects profile edit page"
   },
   "k+T8RZ": {
     "defaultMessage": "Warning",
@@ -6346,6 +6338,10 @@
   "q9Y+cd": {
     "defaultMessage": "Bio",
     "description": "Project profile bio section title"
+  },
+  "qBD+e/": {
+    "defaultMessage": "at",
+    "description": "Where the user is working at"
   },
   "qBIBPw": {
     "defaultMessage": "GitHub Pages",
@@ -7162,6 +7158,10 @@
   "xgFUi6": {
     "defaultMessage": "See all",
     "description": "See all new blogs"
+  },
+  "xiEHQ1": {
+    "defaultMessage": "Job title",
+    "description": "Label for \"Job Title\" input on Projects profile onboarding page"
   },
   "xjHSyF": {
     "defaultMessage": "All log levels",
