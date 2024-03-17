@@ -91,7 +91,11 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
               index === submissions.length - 1 && 'rounded-b-lg',
             )}>
             <div className="flex w-full items-center gap-4">
-              <div className="bg-red h-[90px] w-[90px] shrink-0 rounded" />
+              <img
+                alt={submission.title}
+                className="size-[90px] shrink-0 rounded object-fill"
+                src={submission.imgSrc}
+              />
               <div className="flex w-full grow flex-col gap-3">
                 <div className="flex flex-col gap-2 lg:gap-1">
                   <Anchor

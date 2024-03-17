@@ -126,8 +126,7 @@ export default function ProjectsProfileHoverCard({ userId }: Props) {
                   <img
                     alt={submission.title}
                     className="h-[110px] w-full rounded-md"
-                    // TODO(projects): Remove hardcoded preview solution image
-                    src={`https://source.unsplash.com/random/1080x900?random=${submission.slug}`}
+                    src={submission.imgSrc}
                   />
                 </Anchor>
               ))}
