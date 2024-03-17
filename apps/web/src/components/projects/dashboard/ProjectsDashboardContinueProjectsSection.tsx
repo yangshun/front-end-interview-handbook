@@ -1,14 +1,14 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiArrowRightLine, RiFireLine, RiTimeLine } from 'react-icons/ri';
+import { RiArrowRightLine, RiTimeLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
-import Text from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundCardWhiteOnLightColor,
   themeBackgroundEmphasized_Hover,
@@ -18,6 +18,8 @@ import {
   themeTextBrandColor_GroupHover,
   themeTextFaintColor,
 } from '~/components/ui/theme';
+
+import ProjectsChallengeReputationTag from '../challenges/metadata/ProjectsChallengeReputationTag';
 
 function getDaysSinceStartedProject(createdAt: Date) {
   return Math.floor((Date.now() - createdAt.getTime()) / (1000 * 60 * 60 * 24));
@@ -45,7 +47,7 @@ export default function ProjectsDashboardContinueProjectsSection() {
       </Heading>
       <ul
         className={clsx(
-          'isolate rounded-lg',
+          'rounded-lg',
           ['divide-y', themeDivideColor],
           ['border', themeBorderColor],
         )}>
@@ -53,32 +55,36 @@ export default function ProjectsDashboardContinueProjectsSection() {
           <li
             key={session.id}
             className={clsx(
-              'group relative flex py-4 pl-5 pr-8',
-              'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
+              'relative isolate',
+              'group flex',
+              'py-4 pl-5 pr-8',
               themeBackgroundCardWhiteOnLightColor,
-              'transition-colors',
               themeBackgroundEmphasized_Hover,
+              'transition-colors',
               index === 0 && 'rounded-t-lg',
               index === recentSessions.length - 1 && 'rounded-b-lg',
             )}>
             <div className="flex w-full items-center gap-4">
-              {session.challenge && (
-                <img
-                  alt={session.challenge.title}
-                  className="h-[70px] w-[90px] rounded object-cover"
-                  src={session.challenge.imageUrl}
-                />
-              )}
+              <img
+                alt={session.challenge.title}
+                className="h-[70px] w-[90px] rounded object-cover"
+                src={session.challenge.imageUrl}
+              />
               <div className="flex grow flex-col gap-1">
-                {session.challenge && (
-                  <Text size="body1" weight="medium">
-                    <Anchor href={session.challenge.href} variant="unstyled">
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {session.challenge.title}
-                    </Anchor>
-                  </Text>
-                )}
-                <div className="flex flex-wrap gap-x-6 gap-y-2">
+                <Anchor
+                  className={textVariants({
+                    className: 'z-[1] self-start',
+                    size: 'body1',
+                    weight: 'medium',
+                  })}
+                  href={session.challenge.href}
+                  variant="flat">
+                  {session.challenge.title}
+                </Anchor>
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+                  <ProjectsChallengeReputationTag
+                    points={session.challenge.points}
+                  />
                   <div className="flex items-center gap-1.5">
                     <RiTimeLine className={clsx(themeIconColor)} />
                     <Text color="secondary" size="body3">
@@ -97,37 +103,22 @@ export default function ProjectsDashboardContinueProjectsSection() {
                       )}
                     </Text>
                   </div>
-                  {session.challenge && (
-                    <div className="flex items-center gap-1.5">
-                      <RiFireLine className={clsx(themeIconColor)} />
-                      <Text color="secondary" size="body3">
-                        {intl.formatMessage(
-                          {
-                            defaultMessage: '+ {points} rep',
-                            description:
-                              'Points for Continue projects section on Projects dashboard page',
-                            id: 'q8/ZEc',
-                          },
-                          {
-                            points: session.challenge.points,
-                          },
-                        )}
-                      </Text>
-                    </div>
-                  )}
                 </div>
               </div>
-              <div className="flex items-center justify-center">
-                <RiArrowRightLine
-                  aria-hidden="true"
-                  className={clsx(
-                    'size-6 shrink-0',
-                    themeTextFaintColor,
-                    themeTextBrandColor_GroupHover,
-                  )}
-                />
-              </div>
+              <RiArrowRightLine
+                aria-hidden="true"
+                className={clsx(
+                  'size-6 shrink-0',
+                  themeTextFaintColor,
+                  themeTextBrandColor_GroupHover,
+                )}
+              />
             </div>
+            <Anchor
+              aria-label={session.challenge.title}
+              className="absolute inset-0"
+              href={session.challenge.href}
+            />
           </li>
         ))}
       </ul>

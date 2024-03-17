@@ -14,13 +14,13 @@ type TagVariant = 'filled' | 'flat';
 type Props = Readonly<{
   className?: string;
   points: number;
-  variant: TagVariant;
+  variant?: TagVariant;
 }>;
 
 export default function ProjectsChallengeReputationTag({
   points,
   className,
-  variant,
+  variant = 'flat',
 }: Props) {
   return (
     <div

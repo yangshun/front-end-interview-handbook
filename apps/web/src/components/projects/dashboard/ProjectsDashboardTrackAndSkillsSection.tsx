@@ -13,7 +13,7 @@ import { trpc } from '~/hooks/trpc';
 import Anchor from '~/components/ui/Anchor';
 import GradientProgressBar from '~/components/ui/GradientProgressBar/GradientProgressBar';
 import Heading from '~/components/ui/Heading';
-import Text from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundCardWhiteOnLightColor,
   themeBackgroundEmphasized_Hover,
@@ -39,17 +39,6 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
     return null;
   }
 
-  const arrowButton = (
-    <RiArrowRightLine
-      aria-hidden="true"
-      className={clsx(
-        'size-6 shrink-0',
-        themeTextFaintColor,
-        themeTextBrandColor_GroupHover,
-      )}
-    />
-  );
-
   return (
     <div className="flex flex-col gap-4">
       <Heading level="heading6">
@@ -61,7 +50,7 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
       </Heading>
       <ul
         className={clsx(
-          'isolate rounded-lg',
+          'rounded-lg',
           ['divide-y', themeDivideColor],
           ['border', themeBorderColor],
         )}>
@@ -69,15 +58,16 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
           <li
             key={track.metadata._id}
             className={clsx(
-              'group relative flex px-5 py-4 xl:px-6',
-              'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
+              'relative isolate',
+              'group flex',
+              'py-4 pl-5 pr-8',
               themeBackgroundCardWhiteOnLightColor,
-              'transition-colors',
               themeBackgroundEmphasized_Hover,
+              'transition-colors',
               index === 0 && 'rounded-t-lg',
               index === tracks.length - 1 && 'rounded-b-lg',
             )}>
-            <div className="flex w-full flex-row items-center gap-6 xl:gap-10">
+            <div className="flex w-full flex-row items-center gap-6">
               <GradientProgressBar
                 className="size-20"
                 gradient={trackGradient}
@@ -85,27 +75,26 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
               />
               <div className="flex w-full flex-row items-center gap-2">
                 <div className="flex w-full flex-col gap-1">
-                  <div className="flex items-center justify-between gap-1">
-                    <Text size="body1" weight="medium">
-                      <Anchor href={track.metadata.href} variant="unstyled">
-                        <span aria-hidden="true" className="absolute inset-0" />
-                        {intl.formatMessage(
-                          {
-                            defaultMessage: '{trackName} Track',
-                            description:
-                              'Title for track in Continue tracks and skills section on Projects dashboard page',
-                            id: 'S4nrpS',
-                          },
-                          {
-                            trackName: track.metadata.title,
-                          },
-                        )}
-                      </Anchor>
-                    </Text>
-                    <div className="flex items-center justify-center xl:hidden">
-                      {arrowButton}
-                    </div>
-                  </div>
+                  <Anchor
+                    className={textVariants({
+                      className: 'z-[1] self-start',
+                      size: 'body1',
+                      weight: 'medium',
+                    })}
+                    href={track.metadata.href}
+                    variant="flat">
+                    {intl.formatMessage(
+                      {
+                        defaultMessage: '{trackName} Track',
+                        description:
+                          'Title for track in Continue tracks and skills section on Projects dashboard page',
+                        id: 'S4nrpS',
+                      },
+                      {
+                        trackName: track.metadata.title,
+                      },
+                    )}
+                  </Anchor>
                   <div className="flex flex-row gap-2 sm:gap-4 md:gap-6">
                     <div className="flex flex-row items-center gap-1.5">
                       <RiFlashlightLine className={clsx(themeIconColor)} />
@@ -142,11 +131,21 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
                     </div>
                   </div>
                 </div>
-                <div className="hidden items-center justify-center xl:flex">
-                  {arrowButton}
-                </div>
+                <RiArrowRightLine
+                  aria-hidden="true"
+                  className={clsx(
+                    'size-6 shrink-0',
+                    themeTextFaintColor,
+                    themeTextBrandColor_GroupHover,
+                  )}
+                />
               </div>
             </div>
+            <Anchor
+              aria-label={track.metadata.title}
+              className="absolute inset-0"
+              href={track.metadata.href}
+            />
           </li>
         ))}
       </ul>

@@ -110,7 +110,7 @@ export const projectsSessionsRouter = router({
       return sessions.map((session) => {
         const challenge = allProjectsChallengeMetadata.find(
           (project) => project.slug === session.slug,
-        );
+        )!;
 
         return {
           ...session,
