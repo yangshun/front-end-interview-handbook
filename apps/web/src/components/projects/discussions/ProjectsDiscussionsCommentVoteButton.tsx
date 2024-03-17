@@ -5,7 +5,10 @@ import { useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import Button from '~/components/ui/Button';
-import { themeTextBrandColor } from '~/components/ui/theme';
+import {
+  themeTextBrandColor,
+  themeTextSubtleColor,
+} from '~/components/ui/theme';
 
 import type { ProjectsDiscussionsCommentItem } from './types';
 
@@ -55,6 +58,7 @@ export default function ProjectsDiscussionsCommentVoteButton({
           ),
       )}
       icon={RiThumbUpFill}
+      iconClassName={themeTextSubtleColor}
       label={String(count)}
       tooltip={actionLabel}
       variant={hasVoted ? 'unstyled' : 'tertiary'}

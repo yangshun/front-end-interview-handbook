@@ -17,6 +17,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
   themeBorderElementColor,
+  themeTextSubtleColor,
 } from '~/components/ui/theme';
 
 import ProjectsDiscussionsCommentDeleteButton from './ProjectsDiscussionsCommentDeleteButton';
@@ -173,6 +174,7 @@ export default function ProjectsDiscussionsComment({
               <Button
                 addonPosition="start"
                 icon={RiReplyFill}
+                iconClassName={themeTextSubtleColor}
                 label={intl.formatMessage({
                   defaultMessage: 'Reply',
                   description:
@@ -187,6 +189,7 @@ export default function ProjectsDiscussionsComment({
               <Button
                 addonPosition="start"
                 icon={RiPencilFill}
+                iconClassName={themeTextSubtleColor}
                 label={intl.formatMessage({
                   defaultMessage: 'Edit',
                   description:

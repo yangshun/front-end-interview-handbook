@@ -1,9 +1,10 @@
-import { RiDeleteBinLine } from 'react-icons/ri';
+import { RiDeleteBinFill } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
 import Button from '~/components/ui/Button';
+import { themeTextSubtleColor } from '~/components/ui/theme';
 
 import ConfirmationDialog from '../../common/ConfirmationDialog';
 
@@ -27,7 +28,8 @@ export default function ProjectsDiscussionsCommentDeleteButton({
     <div>
       <Button
         addonPosition="start"
-        icon={RiDeleteBinLine}
+        icon={RiDeleteBinFill}
+        iconClassName={themeTextSubtleColor}
         label={intl.formatMessage({
           defaultMessage: 'Delete',
           description: 'Delete button label',
