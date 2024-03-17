@@ -155,12 +155,10 @@ export default function ProjectsChallengeHeader({
                   variant="secondary"
                 />
               )}
-              {(completedCount ?? 0) >= 5 && (
-                <ProjectsCompletedUsersTag
-                  count={completedCount}
-                  profiles={completedProfiles}
-                />
-              )}
+              <ProjectsCompletedUsersTag
+                count={completedCount}
+                profiles={completedProfiles}
+              />
             </div>
           )}
         </div>
