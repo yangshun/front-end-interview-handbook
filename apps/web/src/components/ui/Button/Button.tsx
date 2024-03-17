@@ -41,6 +41,7 @@ type BaseProps = Readonly<{
   className?: string;
   display?: ButtonDisplay;
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
+  iconClassName?: string;
   iconSecondary_USE_SPARINGLY?: (
     props: React.ComponentProps<'svg'>,
   ) => JSX.Element;
@@ -224,6 +225,7 @@ function Button(
     className,
     display = 'inline',
     icon: Icon,
+    iconClassName,
     iconSecondary_USE_SPARINGLY: IconSecondary,
     isDisabled = false,
     isLabelHidden = false,
@@ -239,12 +241,15 @@ function Button(
   }: Props,
   ref: ForwardedRef<HTMLAnchorElement | HTMLButtonElement>,
 ) {
-  const addOnClass = sizeIconClasses[size];
+  const addOnSizeClass = sizeIconClasses[size];
 
   const addOn = isLoading ? (
-    <Spinner className={addOnClass} color="inherit" size="xs" />
+    <Spinner className={addOnSizeClass} color="inherit" size="xs" />
   ) : Icon != null ? (
-    <Icon aria-hidden="true" className={clsx('shrink-0', addOnClass)} />
+    <Icon
+      aria-hidden="true"
+      className={clsx('shrink-0', addOnSizeClass, iconClassName)}
+    />
   ) : null;
 
   const children =
@@ -256,7 +261,7 @@ function Button(
         {!isLabelHidden && <div>{label}</div>}
         <IconSecondary
           aria-hidden="true"
-          className={clsx('shrink-0', addOnClass)}
+          className={clsx('shrink-0', addOnSizeClass, iconClassName)}
         />
       </>
     ) : (
