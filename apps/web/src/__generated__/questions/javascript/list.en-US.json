@@ -2237,7 +2237,7 @@
   {
     "author": null,
     "companies": [],
-    "created": 1709856000,
+    "created": 1710633600,
     "difficulty": "easy",
     "duration": 5,
     "excerpt": "Implement a function that finds the mean of the values inside an array",
@@ -2248,15 +2248,16 @@
     "href": "/questions/javascript/mean",
     "importance": "low",
     "languages": [
-      "js"
+      "js",
+      "ts"
     ],
-    "nextQuestions": [],
-    "premium": true,
+    "nextQuestions": [
+      "array-reduce"
+    ],
+    "premium": false,
     "published": true,
     "ranking": 100,
-    "similarQuestions": [
-      "get"
-    ],
+    "similarQuestions": [],
     "slug": "mean",
     "subtitle": null,
     "title": "Mean",

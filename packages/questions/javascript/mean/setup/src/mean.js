@@ -1,6 +1,6 @@
 /**
  * @param {Array} array - Array from which the elements are all numbers.
- * @return {Number} Returns mean.
+ * @return {Number} Returns the mean.
  */
 export default function mean(array) {
   let total = 0;
@@ -11,7 +11,5 @@ export default function mean(array) {
   }
 
   // Calculate the mean from the sum.
-  const mean = total / array.length;
-
-  return mean;
+  return total / array.length;
 }

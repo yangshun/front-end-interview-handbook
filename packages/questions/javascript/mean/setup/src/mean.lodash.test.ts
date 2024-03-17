@@ -2,7 +2,7 @@ import { mean } from 'lodash';
 
 describe('mean', () => {
   test('empty input array', () => {
-    expect(mean([])).toEqual(NaN);
+    expect(mean([])).toBeNaN();
   });
 
   test('single value', () => {

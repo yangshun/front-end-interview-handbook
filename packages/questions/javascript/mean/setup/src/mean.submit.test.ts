@@ -2,7 +2,7 @@ import mean from './mean';
 
 describe('mean', () => {
   test('empty input array', () => {
-    expect(mean([])).toEqual(NaN);
+    expect(mean([])).toBeNaN();
   });
 
   test('single value', () => {
