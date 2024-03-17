@@ -48,7 +48,7 @@ export default function Marquee({
       )}>
       <div
         className={clsx(
-          'whitespace-nowrap',
+          'whitespace-nowrap [&_>_*]:whitespace-normal',
           inView && 'motion-safe:animate-marquee will-change-transform',
         )}
         style={{
@@ -61,7 +61,7 @@ export default function Marquee({
       </div>
       <div
         className={clsx(
-          'absolute top-0 hidden whitespace-nowrap motion-safe:block',
+          'absolute top-0 hidden whitespace-nowrap motion-safe:block [&_>_*]:whitespace-normal',
           inView && 'motion-safe:animate-marquee2',
         )}
         style={{

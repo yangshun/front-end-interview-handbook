@@ -40,7 +40,7 @@ export default async function Page({ params }: Props) {
     readProjectsTrackList(locale),
   ]);
   // TODO(projects): Actual featured projects.
-  const featuredChallenges = challenges.slice(0, 3);
+  const featuredChallenges = challenges.slice(0, 10);
 
   return (
     <ProjectsMarketingHomePage

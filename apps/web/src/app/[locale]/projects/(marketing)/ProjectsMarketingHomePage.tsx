@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import { useRef } from 'react';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
+import ProjectsMarketingFeaturedChallengesMarquee from '~/components/projects/marketing/ProjectsMarketingFeaturedChallengesMarquee';
 import ProjectsMarketingFutureToolkit from '~/components/projects/marketing/ProjectsMarketingFutureToolkit';
 import ProjectsMarketingHero from '~/components/projects/marketing/ProjectsMarketingHero';
 import ProjectsMarketingHowItWorks from '~/components/projects/marketing/ProjectsMarketingHowItWorks';
@@ -37,6 +38,9 @@ export default function ProjectsMarketingHomePage({
     <main className="bg-white pb-24 dark:bg-[#070708]">
       <ProjectsMarketingHero />
       <Section>
+        <ProjectsMarketingFeaturedChallengesMarquee
+          featuredChallenges={featuredChallenges}
+        />
         <ProjectsMarketingHowItWorks />
         <ProjectsMarketingLearningFeatures />
         <ProjectsMarketingPortfolioFeatures />

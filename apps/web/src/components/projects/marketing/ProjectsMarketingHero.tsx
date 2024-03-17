@@ -90,7 +90,7 @@ export default function ProjectsMarketingHero() {
         className="pointer-events-none absolute -z-10 -mb-28 -mt-28 flex h-[calc(100%_+_112px)] w-full justify-center overflow-hidden rounded-b-3xl lg:rounded-b-[48px]">
         <MarketingHeroBackground className="h-full min-w-[1200px]" />
       </div>
-      <div className="relative pb-8 pt-0 sm:pb-16 md:pb-20">
+      <div className="relative pb-32 pt-0">
         <div className="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:pt-24">
           <div className="flex flex-col items-center gap-y-8">
             <div className="flex flex-col items-center">
