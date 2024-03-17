@@ -1,3 +1,8 @@
+import CSS3Logo from '~/components/icons/CSS3Logo';
+import HTML5Logo from '~/components/icons/HTML5Logo';
+import JavaScriptLogo from '~/components/icons/JavaScriptLogo';
+import NpmLogo from '~/components/icons/NpmLogo';
+
 import type { ProjectsSkillRoadmap } from '../types';
 
 export const skillsRoadmap: ProjectsSkillRoadmap = [
@@ -7,6 +12,7 @@ export const skillsRoadmap: ProjectsSkillRoadmap = [
         completed: 2,
         description:
           'HTML stands for HyperText Markup Language. It is used on the frontend and gives the structure to the webpage which you can style using CSS and make interactive using JavaScript.',
+        icon: HTML5Logo,
         items: [
           {
             completed: 4,
@@ -41,6 +47,7 @@ export const skillsRoadmap: ProjectsSkillRoadmap = [
         completed: 4,
         description:
           'Programming language and core technology of the World Wide Web, alongside HTML and CSS. In 2023, 98.7% of web use JavaScript on the client side for webpage behavior, also as third-party libraries.',
+        icon: JavaScriptLogo,
         items: [
           {
             completed: 4,
@@ -75,6 +82,7 @@ export const skillsRoadmap: ProjectsSkillRoadmap = [
         completed: 2,
         description:
           'Cascading Style Sheets is a style sheet language used for specifying the presentation and styling of a document written in a markup language such as HTML or XML.',
+        icon: CSS3Logo,
         items: [
           {
             completed: 4,
@@ -114,6 +122,7 @@ export const skillsRoadmap: ProjectsSkillRoadmap = [
         completed: 2,
         description:
           "Is a collection of software tools that automates the process of installing, upgrading, configuring, and removing software packages for a computer's operating system in a consistent manner.",
+        icon: NpmLogo,
         items: [
           {
             completed: 4,
@@ -142,6 +151,7 @@ export const skillsRoadmap: ProjectsSkillRoadmap = [
         completed: 4,
         description:
           'Cascading Style Sheets is a style sheet language used for specifying the presentation and styling of a document written in a markup language such as HTML or XML.',
+        icon: HTML5Logo,
         items: [
           {
             completed: 4,

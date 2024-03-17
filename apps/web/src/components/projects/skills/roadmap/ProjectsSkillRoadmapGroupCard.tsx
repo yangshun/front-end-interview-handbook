@@ -8,6 +8,7 @@ import ProjectsSkillRoadmapItemDetails from '~/components/projects/skills/roadma
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundColor,
+  themeBackgroundLayerEmphasized,
   themeBorderElementColor,
   themeGlassyBorder,
   themeTextSubtleColor,
@@ -45,15 +46,20 @@ export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
   return (
     <div
       className={clsx(
-        'rounded-lg border py-8 pl-8 pr-2 md:px-10 md:py-8',
+        'rounded-lg border px-8 py-8 md:px-10',
         themeGlassyBorder,
-        themeBackgroundColor,
+        themeBackgroundLayerEmphasized,
       )}>
       <div className="relative flex flex-col gap-6">
         <div className="flex w-full gap-3">
           <div className={clsx('relative flex flex-col self-stretch')}>
-            {/* TODO(projects|skills): Replace with skills logo */}
-            <div className="size-6 rounded-md bg-white" />
+            <div
+              className={clsx(
+                'flex items-center justify-center',
+                'size-6 rounded-md bg-white',
+              )}>
+              <group.icon className="size-4" />
+            </div>
             <div
               className={clsx(
                 'absolute h-full w-px translate-y-6 self-center border-l border-dashed',

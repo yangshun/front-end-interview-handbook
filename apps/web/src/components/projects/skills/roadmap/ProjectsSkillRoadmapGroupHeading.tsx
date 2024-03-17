@@ -19,18 +19,14 @@ export default function ProjectsSkillRoadmapGroupHeading({ group }: Props) {
 
   return (
     <div className="flex w-full flex-col gap-2">
-      <div className="flex flex-col justify-between gap-2 md:flex-row">
+      <div className="flex flex-row flex-wrap justify-between gap-2">
         <Text size="body1" weight="medium">
           {group.key}
         </Text>
         {completedAll ? (
           <ProjectsStatusBadgeCompleted entity="skill" />
         ) : (
-          <div
-            className={clsx(
-              'flex flex-col gap-2 md:flex-row md:gap-4',
-              themeTextSubtleColor,
-            )}>
+          <div className={clsx('flex gap-4', themeTextSubtleColor)}>
             <div className="flex items-center gap-1">
               <RiFireLine className={clsx('size-4')} />
               <Text color="inherit" size="body3">

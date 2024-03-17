@@ -10,6 +10,7 @@ export type ProjectsSkillRoadmapItem = Readonly<{
 export type ProjectsSkillRoadmapGroup = Readonly<{
   completed: number;
   description: string;
+  icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   items: ReadonlyArray<ProjectsSkillRoadmapItem>;
   key: ProjectsSkillKey;
   points: number;
