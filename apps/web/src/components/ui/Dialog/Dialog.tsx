@@ -21,12 +21,12 @@ export type DialogWidth =
 
 const widthClasses: Record<DialogWidth, string> = {
   'screen-lg':
-    'sm:max-w-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg',
-  'screen-md': 'sm:max-w-sm md:max-w-screen-sm lg:max-w-screen-md',
-  'screen-sm': 'sm:max-w-sm md:max-w-screen-sm',
+    'md:mx-auto md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg',
+  'screen-md': 'md:mx-auto md:max-w-screen-sm lg:max-w-screen-md',
+  'screen-sm': 'md:mx-auto md:max-w-screen-sm',
   'screen-xl':
-    'sm:max-w-sm md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-xl',
-  sm: 'sm:max-w-sm',
+    'md:mx-auto md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-xl',
+  sm: 'sm:max-w-sm sm:mx-auto',
 };
 
 export const DialogRoot = DialogPrimitive.Root;
@@ -238,7 +238,7 @@ export default function Dialog({
           <div
             className={clsx(
               'relative',
-              'm-4 sm:mx-auto',
+              'm-4',
               ['w-auto', widthClasses[width]],
               'pointer-events-none',
               centered && 'flex min-h-[calc(100%_-_32px)] items-center',
