@@ -1627,10 +1627,6 @@
     "defaultMessage": "Keep your reason to under {characterLimit} characters",
     "description": "String validation message"
   },
-  "D86N9j": {
-    "defaultMessage": "Invalid URL",
-    "description": "Error message"
-  },
   "DAQ8QM": {
     "defaultMessage": "Difficulty: Easy to Hard",
     "description": "Sorting option for projects list - sort by difficulty from easy to hard"
@@ -2230,6 +2226,10 @@
   "IQ9qW7": {
     "defaultMessage": "Get promo code",
     "description": "Button label for student discount"
+  },
+  "IQbv33": {
+    "defaultMessage": "URL must start with \"https://\" and contain \"github.com\"",
+    "description": "Error message"
   },
   "ITq0p4": {
     "defaultMessage": "Privacy Policy",
@@ -3778,6 +3778,10 @@
   "UWucPu": {
     "defaultMessage": "Purchase",
     "description": "Title for FAQ section"
+  },
+  "UX45fV": {
+    "defaultMessage": "Homepage",
+    "description": "Placeholder for name field of the deployment url"
   },
   "UXNTcT": {
     "defaultMessage": "India",
@@ -5911,6 +5915,10 @@
     "defaultMessage": "Practice building Lodash utility functions",
     "description": "Title for interview preparation focus area"
   },
+  "ms/RqZ": {
+    "defaultMessage": "URL must start with \"https://\"",
+    "description": "Error message"
+  },
   "msvqkR": {
     "defaultMessage": "Every project belongs to 1 of 7 reusable components libraries",
     "description": "Short description for \"Component libraries\" feature on Projects home page"
@@ -6002,10 +6010,6 @@
   "nepkqj": {
     "defaultMessage": "Cancel",
     "description": "Label for cancel button for projects profile edit page"
-  },
-  "nhc9/n": {
-    "defaultMessage": "Home page",
-    "description": "Placeholder for name field of the deployment url"
   },
   "nivf5h": {
     "defaultMessage": "General",

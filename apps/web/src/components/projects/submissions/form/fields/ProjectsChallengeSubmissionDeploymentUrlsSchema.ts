@@ -71,15 +71,15 @@ export function getProjectsChallengeSubmissionDeploymentUrlsAttributes(
     id: 'djQlZs',
   });
   const namePlaceholder = intl.formatMessage({
-    defaultMessage: 'Home page',
+    defaultMessage: 'Homepage',
     description: 'Placeholder for name field of the deployment url',
-    id: 'nhc9/n',
+    id: 'UX45fV',
   });
-  const urlPlaceholder = 'https://solution.com';
+  const urlPlaceholder = 'https://www.solution.com';
   const urlMessage = intl.formatMessage({
-    defaultMessage: 'Invalid URL',
+    defaultMessage: 'URL must start with "https://"',
     description: 'Error message',
-    id: 'D86N9j',
+    id: 'ms/RqZ',
   });
   const maxMessage = intl.formatMessage(
     {

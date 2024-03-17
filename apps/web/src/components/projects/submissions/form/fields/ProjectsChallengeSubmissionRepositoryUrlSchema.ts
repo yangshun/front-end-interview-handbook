@@ -32,9 +32,9 @@ export function getProjectsChallengeSubmissionRepositoryUrlAttributes(
   });
   const placeholder = 'https://github.com/[username]/[repository-name]';
   const urlMessage = intl.formatMessage({
-    defaultMessage: 'Invalid URL',
+    defaultMessage: 'URL must start with "https://" and contain "github.com"',
     description: 'Error message',
-    id: 'D86N9j',
+    id: 'IQbv33',
   });
 
   return {
