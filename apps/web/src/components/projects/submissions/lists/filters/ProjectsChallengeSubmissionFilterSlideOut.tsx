@@ -182,7 +182,6 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
 
   const onClearAllFilter = () => {
     clearAll();
-    setIsFiltersShown(false);
   };
 
   return (

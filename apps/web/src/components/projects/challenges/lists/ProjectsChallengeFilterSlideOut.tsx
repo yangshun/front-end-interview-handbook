@@ -148,7 +148,6 @@ export default function ProjectsChallengeFilterSlideOut({
 
   const onClearAllFilter = () => {
     clearAll();
-    setIsFiltersShown(false);
   };
 
   useEffect(() => {
