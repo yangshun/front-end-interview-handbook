@@ -128,7 +128,6 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
     getStringTypeSearchParams,
     updateSearchParams,
     setSelectedFilters: setInitialSelectedFilters,
-    clearAll,
   } = useProjectsChallengeSubmissionFilterContext();
   const [selectedFilters, setSelectedFilters] = useState<
     Record<ProjectsChallengeSubmissionFilterKey, Array<string>>
@@ -174,6 +173,17 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
       updateSearchParams,
     ],
   );
+
+  const clearAll = () => {
+    setSelectedFilters({
+      'component-track': [],
+      difficulty: [],
+      experience: [],
+      roadmapSkills: [],
+      status: [],
+      techStackSkills: [],
+    });
+  };
 
   const onApplyFilter = () => {
     setInitialSelectedFilters(selectedFilters);
