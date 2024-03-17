@@ -22,7 +22,7 @@ export default function ProjectsSkillRoadmapSelection({
     <div className="flex flex-col gap-10">
       {skillsRoadmap.map((levelItem) => (
         <div key={levelItem.title} className="flex flex-col gap-4">
-          <Text display="block" size="body2" weight="bold">
+          <Text className="block" color="subtitle" size="body2" weight="bold">
             {levelItem.title}
           </Text>
           <div key={levelItem.title} className="flex flex-col">

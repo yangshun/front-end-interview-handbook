@@ -7,7 +7,6 @@ import ProjectsSkillRoadmapGroupHeading from '~/components/projects/skills/roadm
 import ProjectsSkillRoadmapItemDetails from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItemDetails';
 import Text from '~/components/ui/Text';
 import {
-  themeBackgroundColor,
   themeBackgroundLayerEmphasized,
   themeBorderElementColor,
   themeGlassyBorder,

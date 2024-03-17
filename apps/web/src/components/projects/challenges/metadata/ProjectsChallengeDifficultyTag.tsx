@@ -5,7 +5,7 @@ import { RiFlashlightLine } from 'react-icons/ri';
 import type { BadgeVariant } from '~/components/ui/Badge';
 import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
-import { themeIconColor, themeTextSecondaryColor } from '~/components/ui/theme';
+import { themeTextSecondaryColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import type { ProjectsChallengeDifficulty } from '../types';
