@@ -95,6 +95,10 @@
     "defaultMessage": "To help <keywords>mentor others</keywords>",
     "description": "Label for \"Mentor others\" onboarding option in Projects"
   },
+  "+lLD25": {
+    "defaultMessage": "Payments and billing",
+    "description": "Payments and billing section of projects setting page"
+  },
   "+mxyA5": {
     "defaultMessage": "Name",
     "description": "Lable for name field"
@@ -3059,6 +3063,10 @@
     "defaultMessage": "Filter by contribution type",
     "description": "Tooltip for contribution type filter for contribution list"
   },
+  "P/M97j": {
+    "defaultMessage": "Go to Stripe",
+    "description": "Label for CTA for stripe"
+  },
   "P2baTC": {
     "defaultMessage": "Coding Format",
     "description": "Front end coding interview questions"
@@ -4990,6 +4998,10 @@
   "fRGOI+": {
     "defaultMessage": "Number of questions",
     "description": "Total number of questions in a list"
+  },
+  "fS2amE": {
+    "defaultMessage": "All of our payments are processed using <link>Stripe</link> - we do not directly store your payment and billing information. If you would like to change them, please use Stripe's admin portal to do so. {goToStripCTA}",
+    "description": "Description for payments and billing section of projects setting page"
   },
   "fSn4nv": {
     "defaultMessage": "As someone who has given as well as taken a lot of interviews, I can say GreatFrontEnd is a f'king goldmine. I would highly recommend GreatFrontEnd to anyone who is preparing for front end interviews or anyone who just wants to learn some new concepts. The content is well-organized, has some great practical coding challenges, and the system design part is just amazing!!!",
