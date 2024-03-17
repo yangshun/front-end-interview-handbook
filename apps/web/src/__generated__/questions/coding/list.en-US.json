@@ -3609,10 +3609,10 @@
   {
     "author": null,
     "companies": [],
-    "created": 1710201600,
+    "created": 1710633600,
     "difficulty": "easy",
     "duration": 10,
-    "excerpt": "Implement a function that creates an array of numbers progressing from `start` up to (but not including) `end` with a specified `step`.",
+    "excerpt": "Implement a function that returns a sequence of numbers in ascending order",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -3623,12 +3623,15 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [],
+    "nextQuestions": [
+      "range-right"
+    ],
     "premium": true,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "in-range"
+      "in-range",
+      "range-right"
     ],
     "slug": "range",
     "subtitle": null,
@@ -3638,10 +3641,10 @@
   {
     "author": null,
     "companies": [],
-    "created": 1710288000,
+    "created": 1710633600,
     "difficulty": "easy",
     "duration": 10,
-    "excerpt": "Implement a function that creates an array of numbers progressing from `start` up to (but not including) `end` with a specified `step`.",
+    "excerpt": "Implement a function that returns a sequence of numbers in descending order",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -3652,7 +3655,9 @@
       "js",
       "ts"
     ],
-    "nextQuestions": [],
+    "nextQuestions": [
+      "range"
+    ],
     "premium": true,
     "published": true,
     "ranking": 100,
@@ -3662,7 +3667,7 @@
     ],
     "slug": "range-right",
     "subtitle": null,
-    "title": "rangeRight",
+    "title": "Range Right",
     "topics": []
   },
   {

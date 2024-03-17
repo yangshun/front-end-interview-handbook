@@ -1,6 +1,6 @@
 {
   "slug": "range",
-  "created": "2024-03-12T00:00:00.000Z",
+  "created": "2024-03-17T00:00:00.000Z",
   "languages": ["js", "ts"],
   "companies": [],
   "premium": true,
@@ -8,5 +8,6 @@
   "published": true,
   "importance": "low",
   "difficulty": "easy",
-  "similar_questions": ["in-range"]
+  "similar_questions": ["in-range", "range-right"],
+  "next_questions": ["range-right"]
 }
