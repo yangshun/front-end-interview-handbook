@@ -1507,10 +1507,6 @@
     "defaultMessage": "Pinned submissions",
     "description": "Pinned project submissions"
   },
-  "C101At": {
-    "defaultMessage": "{creditCount} new credits will be added on {date} when your monthly subscription renews.",
-    "description": "Information about subscription"
-  },
   "C34sRh": {
     "defaultMessage": "Account Settings",
     "description": "Screenreader text for account settings."
@@ -4467,6 +4463,10 @@
     "defaultMessage": "Font size",
     "description": "Select label to choose console font size"
   },
+  "ahkd5M": {
+    "defaultMessage": "{creditCount} new credits will be added when your subscription renews on <bold>{date}</bold>",
+    "description": "Information about subscription"
+  },
   "aiI8c6": {
     "defaultMessage": "Stack used",
     "description": "Label for tech stack used in project"
@@ -4902,10 +4902,6 @@
   "eDIEUs": {
     "defaultMessage": "Build entire design systems or component libraries with our Component Tracks",
     "description": "Title of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
-  },
-  "eJtOHp": {
-    "defaultMessage": "{creditCount} new credits will be added on {date} when your annual subscription renews.",
-    "description": "Information about subscription"
   },
   "ePyk/V": {
     "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",

@@ -3,6 +3,8 @@ import type { ReactNode } from 'react';
 import { RiInformationLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
 import ProgressBar from '~/components/ui/ProgressBar';
@@ -100,6 +102,44 @@ function FreePlanVersion({ unlocks }: Readonly<{ unlocks: number }>) {
   );
 }
 
+function RenewalTooltip({
+  credits,
+  timestamp,
+}: Readonly<{
+  credits: number;
+  timestamp: number;
+}>) {
+  const date = new Intl.DateTimeFormat('en-US', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  }).format(new Date(timestamp * 1000));
+
+  return (
+    <Tooltip
+      label={
+        <FormattedMessage
+          defaultMessage="{creditCount} new credits will be added when your subscription renews on <bold>{date}</bold>"
+          description="Information about subscription"
+          id="ahkd5M"
+          values={{
+            bold: (chunks) => (
+              <Text className="whitespace-nowrap" color="inherit" weight="bold">
+                {chunks}
+              </Text>
+            ),
+            creditCount: credits,
+            date,
+          }}
+        />
+      }>
+      <RiInformationLine
+        className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
+      />
+    </Tooltip>
+  );
+}
+
 function PremiumVersion({
   plan,
   credits,
@@ -108,9 +148,14 @@ function PremiumVersion({
   plan: ProjectsSubscriptionPlan;
 }>) {
   const intl = useIntl();
+  const { data: activeSubscription } =
+    trpc.purchases.activeSubscription.useQuery({
+      domain: 'PROJECTS',
+    });
+
   const planConfigs: Record<
     ProjectsSubscriptionPlan,
-    Readonly<{ creditsPerInterval: number; label: string; tooltip: string }>
+    Readonly<{ creditsPerInterval: number; label: string }>
   > = {
     ANNUAL: {
       creditsPerInterval: projectsPaidPlanFeatures.ANNUAL.credits!,
@@ -119,18 +164,6 @@ function PremiumVersion({
         description: 'Subscription plan type',
         id: '9nK/kc',
       }),
-      tooltip: intl.formatMessage(
-        {
-          defaultMessage:
-            '{creditCount} new credits will be added on {date} when your annual subscription renews.',
-          description: 'Information about subscription',
-          id: 'eJtOHp',
-        },
-        {
-          creditCount: projectsPaidPlanFeatures.ANNUAL.credits!,
-          date: '24/04/25',
-        },
-      ),
     },
     MONTH: {
       creditsPerInterval: projectsPaidPlanFeatures.MONTH.credits!,
@@ -139,18 +172,6 @@ function PremiumVersion({
         description: 'Subscription plan type',
         id: 'QruCxn',
       }),
-      tooltip: intl.formatMessage(
-        {
-          defaultMessage:
-            '{creditCount} new credits will be added on {date} when your monthly subscription renews.',
-          description: 'Information about subscription',
-          id: 'C101At',
-        },
-        {
-          creditCount: projectsPaidPlanFeatures.MONTH.credits!,
-          date: '24/04/25',
-        },
-      ),
     },
   };
   const planConfig = planConfigs[plan];
@@ -162,11 +183,14 @@ function PremiumVersion({
         <Text size="body3" weight="bold">
           {planConfig.label}
         </Text>
-        <Tooltip label={planConfig.tooltip}>
-          <RiInformationLine
-            className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
-          />
-        </Tooltip>
+        {activeSubscription &&
+          !activeSubscription.cancelAtPeriodEnd &&
+          activeSubscription.currentPeriodEnd && (
+            <RenewalTooltip
+              credits={planConfig.creditsPerInterval}
+              timestamp={activeSubscription.currentPeriodEnd}
+            />
+          )}
       </div>
       <Text className="block" color="secondary" size="body3">
         {intl.formatMessage({

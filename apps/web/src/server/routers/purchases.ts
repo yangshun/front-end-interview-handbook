@@ -18,7 +18,50 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   apiVersion: '2023-10-16',
 });
 
+const productDomainToProductIDs = {
+  INTERVIEWS: process.env.STRIPE_PRODUCT_ID_INTERVIEWS!,
+  PROJECTS: process.env.STRIPE_PRODUCT_ID_PROJECTS!,
+} as const;
+
 export const purchasesRouter = router({
+  activeSubscription: userProcedure
+    .input(
+      z.object({
+        domain: z.enum(['INTERVIEWS', 'PROJECTS']),
+      }),
+    )
+    .query(async ({ input: { domain }, ctx: { user } }) => {
+      const { stripeCustomer: stripeCustomerId } =
+        await prisma.profile.findFirstOrThrow({
+          select: {
+            stripeCustomer: true,
+          },
+          where: {
+            id: user.id,
+          },
+        });
+
+      const subscriptions = await stripe.subscriptions.list({
+        customer: stripeCustomerId!,
+      });
+
+      const productID = productDomainToProductIDs[domain];
+
+      const activeSubscription = subscriptions.data.find(
+        (subscription) =>
+          subscription.items.data[0]?.plan.product === productID,
+      );
+
+      return activeSubscription
+        ? {
+            cancelAt: activeSubscription.cancel_at,
+            cancelAtPeriodEnd: activeSubscription.cancel_at_period_end,
+            canceledAt: activeSubscription.canceled_at,
+            currentPeriodEnd: activeSubscription.current_period_end,
+            status: activeSubscription.status,
+          }
+        : null;
+    }),
   billingPortal: userProcedure.mutation(async ({ ctx: { user, req } }) => {
     const { origin } = absoluteUrl(req);
 
