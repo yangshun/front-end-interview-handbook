@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { RiThumbUpFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
@@ -6,6 +5,8 @@ import { trpc } from '~/hooks/trpc';
 
 import FilterButton from '~/components/common/FilterButton';
 import { useToast } from '~/components/global/toasts/useToast';
+
+import { useI18nRouter } from '~/next-i18nostic/src';
 
 type Props = Readonly<{
   submissionId: string;
@@ -18,30 +19,17 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
 }: Props) {
   const { showToast } = useToast();
   const intl = useIntl();
+  const router = useI18nRouter();
 
-  const { isLoading } = trpc.projects.submission.hasVoted.useQuery(
-    {
+  const { data: viewerVote, isLoading } =
+    trpc.projects.submission.hasVoted.useQuery({
       submissionId,
-    },
-    {
-      onSuccess: (data) => {
-        setHasVoted(!!data);
-      },
-    },
-  );
+    });
 
-  const [currentVotes, setCurrentVotes] = useState(votes);
-  const [hasVoted, setHasVoted] = useState(false);
-
-  // TODO(projects): refetch submission instead of maintaining local state.
   const vote = trpc.projects.submission.vote.useMutation({
-    onError: () => {
-      setCurrentVotes((prevVotes) => prevVotes - 1);
-      setHasVoted(false);
-    },
-    onMutate: () => {
-      setCurrentVotes((prevVotes) => prevVotes + 1);
-      setHasVoted(true);
+    onSuccess: () => {
+      // Refresh number of votes by refetching from the server.
+      router.refresh();
       showToast({
         title: intl.formatMessage({
           defaultMessage: 'Upvoted successfully!',
@@ -53,25 +41,23 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
     },
   });
   const unvote = trpc.projects.submission.unvote.useMutation({
-    onError: () => {
-      setCurrentVotes((prevVotes) => prevVotes + 1);
-      setHasVoted(true);
-    },
-    onMutate: () => {
-      setCurrentVotes((prevVotes) => prevVotes - 1);
-      setHasVoted(false);
+    onSuccess: () => {
+      // Refresh number of votes by refetching from the server.
+      router.refresh();
     },
   });
+
+  const viewerUpvoted = viewerVote != null;
 
   return (
     <FilterButton
       icon={RiThumbUpFill}
       isDisabled={isLoading || vote.isLoading || unvote.isLoading}
-      label={String(currentVotes)}
+      label={String(votes)}
       purpose="button"
-      selected={hasVoted}
+      selected={viewerUpvoted}
       onClick={() =>
-        hasVoted
+        viewerUpvoted
           ? unvote.mutate({ submissionId })
           : vote.mutate({ submissionId })
       }
