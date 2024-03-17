@@ -26,7 +26,11 @@ export default function ProjectsProfileSocialLinks({ userProfile }: Props) {
             id: 'Ol2L0M',
           })}>
           <Anchor
-            href={userProfile.githubUsername}
+            href={
+              userProfile.githubUsername.includes('github.com')
+                ? userProfile.githubUsername
+                : `https://www.github.com/${userProfile.githubUsername}`
+            }
             variant="secondary"
             warnAboutExternalLink={true}>
             <span className="sr-only">GitHub</span>
@@ -43,7 +47,11 @@ export default function ProjectsProfileSocialLinks({ userProfile }: Props) {
             id: '918wg5',
           })}>
           <Anchor
-            href={userProfile.linkedInUsername}
+            href={
+              userProfile.linkedInUsername.includes('linkedin.com')
+                ? userProfile.linkedInUsername
+                : `https://www.linkedin.com/in/${userProfile.linkedInUsername}`
+            }
             variant="secondary"
             warnAboutExternalLink={true}>
             <span className="sr-only">LinkedIn</span>

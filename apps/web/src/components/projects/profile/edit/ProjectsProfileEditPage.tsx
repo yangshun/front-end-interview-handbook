@@ -55,11 +55,11 @@ function useProjectsProfileEditSchema() {
     avatarUrl: z.string().optional(),
     bio: bioSchema,
     githubUsername: z
-      .union([z.string().length(0), z.string().url()])
+      .string()
       .transform((val) => (val ? val : null))
       .nullable(),
     linkedInUsername: z
-      .union([z.string().length(0), z.string().url()])
+      .string()
       .transform((val) => (val ? val : null))
       .nullable(),
     motivations: motivationReasonSchema,

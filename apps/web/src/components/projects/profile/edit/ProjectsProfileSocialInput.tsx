@@ -49,11 +49,11 @@ export default function ProjectsProfileSocialInput({
               descriptionStyle="tooltip"
               errorMessage={formState.errors.githubUsername?.message}
               label={intl.formatMessage({
-                defaultMessage: 'GitHub',
-                description: 'GitHub profile link field',
-                id: 'JOxGrE',
+                defaultMessage: 'GitHub username',
+                description: 'GitHub profile form label',
+                id: 'p9IQRJ',
               })}
-              placeholder="https://github.com/johndoe"
+              placeholder="johndoe"
               startIcon={RiGithubFill}
               {...field}
             />
@@ -82,11 +82,11 @@ export default function ProjectsProfileSocialInput({
               descriptionStyle="tooltip"
               errorMessage={formState.errors.linkedInUsername?.message}
               label={intl.formatMessage({
-                defaultMessage: 'LinkedIn',
-                description: 'LinkedIn profile link field',
-                id: 'syMsM0',
+                defaultMessage: 'LinkedIn username',
+                description: 'LinkedIn profile form label',
+                id: 'kPaVl6',
               })}
-              placeholder="https://linkedin.com/in/john-doe"
+              placeholder="john-doe"
               startIcon={RiLinkedinFill}
               {...field}
             />

@@ -2323,10 +2323,6 @@
     "defaultMessage": "Enter your email",
     "description": "Placeholder text for email input field"
   },
-  "JOxGrE": {
-    "defaultMessage": "GitHub",
-    "description": "GitHub profile link field"
-  },
   "JPbOCy": {
     "defaultMessage": "Vue",
     "description": "Vue questions category short title"
@@ -5631,6 +5627,10 @@
     "defaultMessage": "Limited",
     "description": "Label for rewards campaign"
   },
+  "kPaVl6": {
+    "defaultMessage": "LinkedIn username",
+    "description": "LinkedIn profile form label"
+  },
   "kQgKV1": {
     "defaultMessage": "Learning progress cleared",
     "description": "Success message for clearing study plan progress"
@@ -6183,6 +6183,10 @@
     "defaultMessage": "Coming Soon",
     "description": "Front end system design questions that are coming soon"
   },
+  "p9IQRJ": {
+    "defaultMessage": "GitHub username",
+    "description": "GitHub profile form label"
+  },
   "p9Ml7d": {
     "defaultMessage": "You're about to open an external website. Be cautious and keep your personal information safe",
     "description": "Subtitle for external link page"
@@ -6602,10 +6606,6 @@
   "swjkuF": {
     "defaultMessage": "Study plans",
     "description": "Title of study plans page"
-  },
-  "syMsM0": {
-    "defaultMessage": "LinkedIn",
-    "description": "LinkedIn profile link field"
   },
   "syVPb5": {
     "defaultMessage": "Add GitHub",

@@ -294,11 +294,11 @@ export const projectsProfileRouter = router({
       z.object({
         bio: projectsProfileBioSchemaServer,
         githubUsername: z
-          .union([z.string().length(0), z.string().url()])
+          .string()
           .transform((val) => (val ? val : null))
           .nullable(),
         linkedInUsername: z
-          .union([z.string().length(0), z.string().url()])
+          .string()
           .transform((val) => (val ? val : null))
           .nullable(),
         skillsProficient: projectsSkillListInputOptionalSchemaServer,
@@ -370,11 +370,11 @@ export const projectsProfileRouter = router({
           company: z.string().optional().nullable(),
           currentStatus: z.string().optional().nullable(),
           githubUsername: z
-            .union([z.string().length(0), z.string().url()])
+            .string()
             .transform((val) => (val ? val : null))
             .nullable(),
           linkedInUsername: z
-            .union([z.string().length(0), z.string().url()])
+            .string()
             .transform((val) => (val ? val : null))
             .nullable(),
           motivations: z.array(z.string()),
