@@ -71,8 +71,49 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
               <GradientProgressBar
                 className="size-20"
                 gradient={trackGradient}
-                progressPercentage={track.percentageCompleted}
-              />
+                progressPercentage={track.percentageCompleted}>
+                <div className="flex flex-col items-center px-3">
+                  <Text
+                    className={clsx(
+                      'bg-clip-text text-transparent',
+                      trackGradient.className,
+                    )}
+                    color="inherit"
+                    size="body3">
+                    <FormattedMessage
+                      defaultMessage="<bold>{count}</bold>"
+                      description="Number of incomplete challenges in projects dashboard"
+                      id="OjLxYa"
+                      values={{
+                        bold: (chunks) => (
+                          <Text
+                            className="font-bold"
+                            color="inherit"
+                            size="body1"
+                            weight="inherit">
+                            {chunks}
+                          </Text>
+                        ),
+                        count:
+                          track.numChallenges - track.numChallengesCompleted,
+                      }}
+                    />
+                  </Text>
+                  <Text
+                    className={clsx(
+                      'bg-clip-text text-center text-transparent',
+                      'text-3xs',
+                      trackGradient.className,
+                    )}
+                    color="inherit">
+                    <FormattedMessage
+                      defaultMessage="more challenges"
+                      description="Progress percentage label in Continue Learning section in preparation dashboard"
+                      id="DJMUGB"
+                    />
+                  </Text>
+                </div>
+              </GradientProgressBar>
               <div className="flex w-full flex-row items-center gap-2">
                 <div className="flex w-full flex-col gap-1">
                   <Anchor
@@ -116,9 +157,9 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
                       <RiRocketLine className={clsx(themeIconColor)} />
                       <Text color="secondary" size="body3">
                         <FormattedMessage
-                          defaultMessage="<bold>{completed}</bold>/{totalCount} recommended"
+                          defaultMessage="<bold>{completed}</bold>/{totalCount} challenges"
                           description="Line describing the number of questions completed by user over the total number of questions"
-                          id="t9TP64"
+                          id="q4Qfra"
                           values={{
                             bold: (chunks) => (
                               <Text size="body2">{chunks}</Text>

@@ -335,10 +335,6 @@
     "defaultMessage": "UI Components API Design Principles",
     "description": "User Interface components API design principles"
   },
-  "0niS4K": {
-    "defaultMessage": "<percent>{percentage}</percent>",
-    "description": "Progress percentage in Continue Learning section in preparation dashboard"
-  },
   "0p6dRS": {
     "defaultMessage": "Practice makes perfect. With our collection of over {count} front end questions, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
     "description": "Title of question examples section on getting started page"
@@ -1674,6 +1670,10 @@
   "DJFRri": {
     "defaultMessage": "<bold>You</bold> made a post on <bold>{recipient}</bold>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you making a post on a submission"
+  },
+  "DJMUGB": {
+    "defaultMessage": "more challenges",
+    "description": "Progress percentage label in Continue Learning section in preparation dashboard"
   },
   "DLky7V": {
     "defaultMessage": "Practice UI and JavaScript/TypeScript Interview Questions with Solutions",
@@ -3011,6 +3011,10 @@
     "defaultMessage": "View all {trackCount} component tracks",
     "description": "Label of 'Component tracks' view all button in Projects home page"
   },
+  "OjLxYa": {
+    "defaultMessage": "<bold>{count}</bold>",
+    "description": "Number of incomplete challenges in projects dashboard"
+  },
   "OklFdI": {
     "defaultMessage": "Gamified learning and building",
     "description": "Title for \"Gamified learning and building\" feature marketing section on Projects home page"
@@ -4326,10 +4330,6 @@
   "ZE/21F": {
     "defaultMessage": "Written by ex-FAANG senior devs",
     "description": "Title of 'Written by ex-FAANG senior devs' sub-feature in Projects marketing page"
-  },
-  "ZEulnN": {
-    "defaultMessage": "more projects",
-    "description": "Progress percentage label in Continue Learning section in preparation dashboard"
   },
   "ZFDU0d": {
     "defaultMessage": "Woohoo!",
@@ -5755,6 +5755,10 @@
     "defaultMessage": "Recommended duration to spend during interviews",
     "description": "Recommended duration tooltip displayed on question cards found on question lists"
   },
+  "lDlJyX": {
+    "defaultMessage": "<percent>{percentage}</percent>%",
+    "description": "Progress percentage in Continue Learning section in preparation dashboard"
+  },
   "lGUj4P": {
     "defaultMessage": "View study plans",
     "description": "Link label to view all study plans"
@@ -6335,6 +6339,10 @@
     "defaultMessage": "Sign In / Up",
     "description": "Link label to the sign in / up page"
   },
+  "q4Qfra": {
+    "defaultMessage": "<bold>{completed}</bold>/{totalCount} challenges",
+    "description": "Line describing the number of questions completed by user over the total number of questions"
+  },
   "q4xRCW": {
     "defaultMessage": "Amazing to see such a comprehensive resource for front end dev interviews. Coming from a more traditional backend role I found this website to be a treasure trove of knowledge and it really takes you from a beginner to advanced level.",
     "description": "Anonymous Front End Engineer's testimonial"
@@ -6646,10 +6654,6 @@
   "t5nQRB": {
     "defaultMessage": "Discover study plans tailored to your needs to help you prepare for your upcoming technical interviews.",
     "description": "Description for study plans page"
-  },
-  "t9TP64": {
-    "defaultMessage": "<bold>{completed}</bold>/{totalCount} recommended",
-    "description": "Line describing the number of questions completed by user over the total number of questions"
   },
   "tCiU5O": {
     "defaultMessage": "No series",

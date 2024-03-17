@@ -34,6 +34,7 @@ function GradientSVG({
 }
 
 type GradientProgressBarProps = Readonly<{
+  children?: React.ReactNode;
   className?: string;
   gradient: ThemeGradient;
   progressPercentage: number;
@@ -45,6 +46,7 @@ export default function GradientProgressBar({
   gradient,
   progressPercentage,
   reverseGradient,
+  children,
 }: GradientProgressBarProps) {
   const intl = useIntl();
   const gradientId = useId();
@@ -82,7 +84,7 @@ export default function GradientProgressBar({
           },
         }}
         value={progressPercentage}>
-        <div className="p-1/2 flex flex-col items-center">
+        {children ?? (
           <Text
             className={clsx(
               'bg-clip-text text-transparent',
@@ -92,9 +94,9 @@ export default function GradientProgressBar({
             id={progressBarLabelId}
             size="body3">
             <FormattedMessage
-              defaultMessage="<percent>{percentage}</percent>"
+              defaultMessage="<percent>{percentage}</percent>%"
               description="Progress percentage in Continue Learning section in preparation dashboard"
-              id="0niS4K"
+              id="lDlJyX"
               values={{
                 percent: (chunks) => (
                   <Text
@@ -112,21 +114,7 @@ export default function GradientProgressBar({
               }}
             />
           </Text>
-          <Text
-            className={clsx(
-              'bg-clip-text text-transparent',
-              'text-3xs',
-              gradient.className,
-            )}
-            color="inherit"
-            id={progressBarLabelId}>
-            <FormattedMessage
-              defaultMessage="more projects"
-              description="Progress percentage label in Continue Learning section in preparation dashboard"
-              id="ZEulnN"
-            />
-          </Text>
-        </div>
+        )}
       </CircularProgressbarWithChildren>
     </div>
   );
