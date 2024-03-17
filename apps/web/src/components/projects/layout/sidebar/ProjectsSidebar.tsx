@@ -34,7 +34,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBackgroundElementEmphasizedStateColor,
   themeBackgroundElementPressedStateColor_Active,
-  themeBorderElementColor,
+  themeBorderColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
   themeTextBrandColor,
@@ -180,7 +180,7 @@ function SidebarLinkButton({
       aria-current={isSelected ? 'page' : undefined}
       aria-label={isLabelHidden ? label : undefined}
       className={clsx(
-        'flex shrink-0 items-center gap-3',
+        'flex shrink-0 items-center gap-2',
         'w-full p-3',
         'rounded',
         themeTextBrandColor_Hover,
@@ -258,7 +258,7 @@ export function ProjectsSidebarExpanded({
     <nav
       className={clsx('flex flex-col gap-y-4', 'relative h-full p-4', [
         'border-e',
-        themeBorderElementColor,
+        themeBorderColor,
       ])}>
       <ProjectsSidebarProductMenu variant="full" />
       <ProjectsSidebarProfileHeader />
@@ -271,7 +271,7 @@ export function ProjectsSidebarExpanded({
       </ul>
       <div
         className={clsx(
-          'flex flex-col gap-y-4 transition-opacity duration-500',
+          'flex flex-col gap-y-5 transition-opacity duration-500',
           isLoading && 'select-none opacity-0',
         )}>
         <Divider />
@@ -283,8 +283,8 @@ export function ProjectsSidebarExpanded({
           ))}
         </ul>
         <ProjectsSidebarCTACard />
+        <Divider />
       </div>
-      <Divider />
       <div className="flex justify-between gap-4 pt-2">
         <div className="flex gap-4">
           {profile?.projectsProfile?.premium ? (
@@ -370,7 +370,7 @@ function ProjectsSidebarCollapsed({
       className={clsx(
         'flex flex-col items-center gap-y-4',
         'relative h-full px-3 py-4',
-        ['border-e', themeBorderElementColor],
+        ['border-e', themeBorderColor],
       )}>
       <ProjectsSidebarProductMenu variant="compact" />
       {profile && (

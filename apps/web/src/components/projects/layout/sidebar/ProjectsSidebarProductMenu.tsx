@@ -98,7 +98,7 @@ export default function ProjectsSidebarProductMenu({ variant }: Props) {
             aria-label="Select product"
             className={clsx(
               'flex items-center justify-between',
-              'px-3 py-4',
+              'p-3',
               'shrink-0',
               'group',
               buttonBaseClassname,
@@ -138,7 +138,7 @@ export default function ProjectsSidebarProductMenu({ variant }: Props) {
             {showUnseenIndicator && (
               <span
                 className={clsx(
-                  'absolute size-2',
+                  'size-2 absolute',
                   'bg-red rounded-full',
                   'right-1 top-1',
                 )}

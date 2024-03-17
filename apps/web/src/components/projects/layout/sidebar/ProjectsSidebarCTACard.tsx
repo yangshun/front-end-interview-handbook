@@ -52,7 +52,7 @@ function FreePlanVersion({ unlocks }: Readonly<{ unlocks: number }>) {
   const intl = useIntl();
 
   return (
-    <div className="flex flex-col items-stretch gap-3 p-3">
+    <div className="flex flex-col items-stretch gap-4 p-3">
       <div className="flex flex-col gap-2">
         <div className="flex items-center justify-between">
           <Text size="body3" weight="bold">
@@ -95,7 +95,7 @@ function FreePlanVersion({ unlocks }: Readonly<{ unlocks: number }>) {
                 id: 'GPFB6p',
               })
         }
-        size="xs"
+        size="sm"
         variant="primary"
       />
     </div>
@@ -236,7 +236,7 @@ export function ProjectsSidebarCTACard() {
   }
 
   return (
-    <Card disableSpotlight={true} padding={false} pattern={true}>
+    <Card disableSpotlight={true} padding={false} pattern={false}>
       {profile.projectsProfile?.premium &&
       profile.projectsProfile.plan != null ? (
         <PremiumVersion
