@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useMemo,
-  useState,
-} from 'react';
+import { createContext, useCallback, useContext, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -118,113 +112,97 @@ export default function ProjectsChallengeSessionContextProvider({
     });
   }, [showToast]);
 
-  const value = useMemo(() => {
-    return {
-      accessAllSteps: canAccessAllSteps ?? false,
-      endSession: async () => {
-        await endSessionMutation.mutateAsync(
-          {
-            slug,
+  const value = {
+    accessAllSteps: canAccessAllSteps ?? false,
+    endSession: async () => {
+      await endSessionMutation.mutateAsync(
+        {
+          slug,
+        },
+        {
+          onError: () => {
+            showErrorToast();
           },
-          {
-            onError: () => {
-              showErrorToast();
-            },
-            onSuccess: () => {
-              showToast({
-                description: (
-                  <FormattedMessage
-                    defaultMessage="You have ended this project session. Returning you to the project detail page."
-                    description="Toast subtitle for project session ended"
-                    id="9CjNZn"
-                  />
-                ),
-                title: (
-                  <FormattedMessage
-                    defaultMessage="Project session ended!"
-                    description="Toast title for project session ended"
-                    id="f/t2zt"
-                  />
-                ),
-                variant: 'success',
-              });
-            },
+          onSuccess: () => {
+            showToast({
+              description: (
+                <FormattedMessage
+                  defaultMessage="You have ended this project session. Returning you to the project detail page."
+                  description="Toast subtitle for project session ended"
+                  id="9CjNZn"
+                />
+              ),
+              title: (
+                <FormattedMessage
+                  defaultMessage="Project session ended!"
+                  description="Toast title for project session ended"
+                  id="f/t2zt"
+                />
+              ),
+              variant: 'success',
+            });
           },
-        );
-      },
-      fetchingCanAccessAllSteps,
-      isEndSessionLoading: endSessionMutation.isLoading,
-      isGetLatestSessionFetched,
-      isGetStartedDialogShown,
-      isStartSessionLoading: startProjectMutation.isLoading,
-      session,
-      setIsGetStartedDialogShown,
-      startProject: () => {
-        if (userProfile == null) {
-          navigateToSignInUpPage({ query: { source: 'start_project' } });
-
-          return;
-        }
-
-        setIsGetStartedDialogShown(true);
-      },
-      startSession: async (
-        skills: ProjectsChallengeSessionSkillsFormValues,
-      ) => {
-        await startProjectMutation.mutateAsync(
-          { slug, ...skills },
-          {
-            onError: () => {
-              showErrorToast();
-            },
-            onSuccess: () => {
-              showToast({
-                description: startedBefore ? (
-                  <FormattedMessage
-                    defaultMessage="Project started! Leverage the provided resources and submit a link to your site once ready!"
-                    description="Toast subtitle for project session started"
-                    id="Et7nC7"
-                  />
-                ) : (
-                  <FormattedMessage
-                    defaultMessage="You have started your first project!"
-                    description="Toast subtitle for project session started"
-                    id="T6+Y/z"
-                  />
-                ),
-                title: startedBefore ? (
-                  <FormattedMessage
-                    defaultMessage="Woohoo!"
-                    description="Toast title for project session started"
-                    id="ZFDU0d"
-                  />
-                ) : (
-                  <FormattedMessage
-                    defaultMessage="Great start!"
-                    description="Toast title for project session started"
-                    id="r9Az7V"
-                  />
-                ),
-                variant: 'success',
-              });
-            },
-          },
-        );
-      },
-    };
-  }, [
-    canAccessAllSteps,
-    endSessionMutation,
-    isGetStartedDialogShown,
-    isGetLatestSessionFetched,
-    session,
-    slug,
-    startProjectMutation,
-    showToast,
-    startedBefore,
-    showErrorToast,
+        },
+      );
+    },
     fetchingCanAccessAllSteps,
-  ]);
+    isEndSessionLoading: endSessionMutation.isLoading,
+    isGetLatestSessionFetched,
+    isGetStartedDialogShown,
+    isStartSessionLoading: startProjectMutation.isLoading,
+    session,
+    setIsGetStartedDialogShown,
+    startProject: () => {
+      if (userProfile == null) {
+        navigateToSignInUpPage({ query: { source: 'start_project' } });
+
+        return;
+      }
+
+      setIsGetStartedDialogShown(true);
+    },
+    startSession: async (skills: ProjectsChallengeSessionSkillsFormValues) => {
+      await startProjectMutation.mutateAsync(
+        { slug, ...skills },
+        {
+          onError: () => {
+            showErrorToast();
+          },
+          onSuccess: () => {
+            showToast({
+              description: startedBefore ? (
+                <FormattedMessage
+                  defaultMessage="Project started! Leverage the provided resources and submit a link to your site once ready!"
+                  description="Toast subtitle for project session started"
+                  id="Et7nC7"
+                />
+              ) : (
+                <FormattedMessage
+                  defaultMessage="You have started your first project!"
+                  description="Toast subtitle for project session started"
+                  id="T6+Y/z"
+                />
+              ),
+              title: startedBefore ? (
+                <FormattedMessage
+                  defaultMessage="Woohoo!"
+                  description="Toast title for project session started"
+                  id="ZFDU0d"
+                />
+              ) : (
+                <FormattedMessage
+                  defaultMessage="Great start!"
+                  description="Toast title for project session started"
+                  id="r9Az7V"
+                />
+              ),
+              variant: 'success',
+            });
+          },
+        },
+      );
+    },
+  };
 
   return (
     <ProjectsChallengeSessionContext.Provider value={value}>

@@ -11,6 +11,7 @@ import ProjectsCompletedUsersTag from '~/components/projects/stats/ProjectsCompl
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
+import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 
 import ProjectsChallengeCompletedCountButton from './ProjectsChallengeCompletedCountButton';
@@ -116,7 +117,9 @@ export default function ProjectsChallengeHeader({
           </div>
         </div>
         <div className="flex flex-col items-end gap-4">
-          {!isGetLatestSessionFetched ? null : hasSession ? (
+          {!isGetLatestSessionFetched ? (
+            <Spinner size="sm" />
+          ) : hasSession ? (
             <ProjectsChallengeCurrentProjectSessionCard
               challenge={challenge}
               session={{
