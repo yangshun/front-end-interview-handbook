@@ -799,10 +799,6 @@
     "defaultMessage": "Practice by framework",
     "description": "Sidebar label for Questions list page"
   },
-  "5fiXoP": {
-    "defaultMessage": "Projects completed",
-    "description": "Number of project challenges completed"
-  },
   "5gYLMr": {
     "defaultMessage": "Once you're done, host your project with <tooltip>our recommended hosts</tooltip> and submit your project URL for code reviews.",
     "description": "FAQ answer for projects platform"
@@ -2119,10 +2115,6 @@
     "defaultMessage": "Showing {startCount} to {endCount} out of {totalCount} projects",
     "description": "Projects listing label"
   },
-  "HLxG4R": {
-    "defaultMessage": "Code reviews",
-    "description": "Number of code reviews given"
-  },
   "HMJJLh": {
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch.",
     "description": "Description for interview preparation focus area"
@@ -2366,6 +2358,10 @@
   "JiDkSH": {
     "defaultMessage": "You have gained XXX rep!",
     "description": "Success message after submitting a project"
+  },
+  "JinTBm": {
+    "defaultMessage": "Upvotes received",
+    "description": "Number of upvotes received"
   },
   "Jkhbjw": {
     "defaultMessage": "Completed",
@@ -4511,6 +4507,10 @@
     "defaultMessage": "Marked \"{questionTitle}\" as complete",
     "description": "Success message for marking a question as complete"
   },
+  "axma2q": {
+    "defaultMessage": "Code reviews done",
+    "description": "Number of code reviews given"
+  },
   "ay9BLg": {
     "defaultMessage": "All GreatFrontEnd plans",
     "description": "All pricing plans"
@@ -4558,10 +4558,6 @@
   "bFDEGM": {
     "defaultMessage": "Professional designs in 3 breakpoints",
     "description": "Label for breakpoints feature"
-  },
-  "bGVcNO": {
-    "defaultMessage": "Total upvotes",
-    "description": "Number of upvotes received"
   },
   "bGwCko": {
     "defaultMessage": "GreatFrontEnd has been a great resource for preparing and continuing in the ever-shifting front-end world. Allowing me to brush up on fundamentals, hone new concepts and practices to put my best foot forward in technical ability and confidence to be able to get interviews AND offers.",
@@ -5762,6 +5758,10 @@
   "lUACcQ": {
     "defaultMessage": "Start a project",
     "description": "Title of 'Start a project' feature in Projects marketing page"
+  },
+  "lWQA1A": {
+    "defaultMessage": "Challenges completed",
+    "description": "Number of project challenges completed"
   },
   "lWZZ9l": {
     "defaultMessage": "Search a keyword or sort by popularity, difficulty or skills",

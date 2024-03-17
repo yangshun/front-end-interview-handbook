@@ -27,27 +27,27 @@ export default function useProjectsProfileStats({
       count: completedChallenges ?? 0,
       icon: RiRocketFill,
       title: intl.formatMessage({
-        defaultMessage: 'Projects completed',
+        defaultMessage: 'Challenges completed',
         description: 'Number of project challenges completed',
-        id: '5fiXoP',
+        id: 'lWQA1A',
       }),
     },
     {
       count: upvotes ?? 0,
       icon: RiThumbUpFill,
       title: intl.formatMessage({
-        defaultMessage: 'Total upvotes',
+        defaultMessage: 'Upvotes received',
         description: 'Number of upvotes received',
-        id: 'bGVcNO',
+        id: 'JinTBm',
       }),
     },
     {
       count: codeReviews ?? 0,
       icon: RiTerminalBoxFill,
       title: intl.formatMessage({
-        defaultMessage: 'Code reviews',
+        defaultMessage: 'Code reviews done',
         description: 'Number of code reviews given',
-        id: 'HLxG4R',
+        id: 'axma2q',
       }),
     },
     {
