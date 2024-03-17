@@ -102,16 +102,6 @@ export const teamUsers: ReadonlyArray<TeamUser> = [
   },
   {
     category: 'expert',
-    companyLogos: ['/img/company-logos/meta-logomark.png'],
-    description:
-      'Erin has worked at Meta for over 5 years on front-end infrastructure in Ads and is currently working on the Web Platform for www.meta.com. She has a passion for testing and is always looking for ways to improve reliability.',
-    href: 'https://www.linkedin.com/in/erin-teo-34791ba4/',
-    image: '/img/team/erin.jpg',
-    name: 'Erin Teo',
-    title: 'Senior Front End Engineer @ Meta',
-  },
-  {
-    category: 'expert',
     companyLogos: [
       '/img/company-logos/snap-logomark.svg',
       '/img/company-logos/apple-logomark.svg',
