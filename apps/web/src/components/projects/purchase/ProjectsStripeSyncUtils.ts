@@ -60,7 +60,7 @@ export async function projectsCustomerAddPlan(
     }),
     prisma.projectsChallengeCreditTransaction.create({
       data: {
-        amount: features.unlocks || 0,
+        amount: features.credits || 0,
         profileId: projectsProfileId,
         stripeInvoiceId: invoice.id,
         type: 'CREDIT',

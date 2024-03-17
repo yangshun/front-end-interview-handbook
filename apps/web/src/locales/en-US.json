@@ -271,6 +271,10 @@
     "defaultMessage": "Data Structures & Algorithms",
     "description": "Data structures and algorithm questions"
   },
+  "0F1/fV": {
+    "defaultMessage": "Access to {freeChallengeCount}+ free challenges. {unlocks, plural, =0 {No access to <tooltip>project credits</tooltip>} one {1 <tooltip>project credit</tooltip> unused} other {# <tooltip>project credits</tooltip> unused}}",
+    "description": "Subtitle of Free Plan CTA card in Projects sidebar"
+  },
   "0GT0SI": {
     "defaultMessage": "Cancel",
     "description": "Cancel button label"
@@ -1407,10 +1411,6 @@
     "defaultMessage": "Menu",
     "description": "Project guide navigation menu button label"
   },
-  "B/+rVc": {
-    "defaultMessage": "<bold>{credits}</bold>/{totalCredits} project unlocks left",
-    "description": "Number of unlock credits left"
-  },
   "B2171J": {
     "defaultMessage": "Download design assets",
     "description": "Label for \"Download design assets\" step in dialog on Projects project page"
@@ -1506,6 +1506,10 @@
   "C/3YNR": {
     "defaultMessage": "Pinned submissions",
     "description": "Pinned project submissions"
+  },
+  "C101At": {
+    "defaultMessage": "{creditCount} new credits will be added on {date} when your monthly subscription renews.",
+    "description": "Information about subscription"
   },
   "C34sRh": {
     "defaultMessage": "Account Settings",
@@ -1734,6 +1738,10 @@
   "Dt0MpD": {
     "defaultMessage": "This user has not started any projects matching those filters.",
     "description": "Subtitle for no projects yet on projects progress tab"
+  },
+  "DyRVuV": {
+    "defaultMessage": "<bold>{credits}</bold>/{totalCredits} project credits left",
+    "description": "Number of unlock credits left"
   },
   "Dynazi": {
     "defaultMessage": "(Save {discountPercentage}% vs monthly)",
@@ -4027,10 +4035,6 @@
     "defaultMessage": "If you are a developer or engineer looking to excel in the front-end world, GreatFrontEnd is an excellent resource to have. It's very common to practice LeetCode style questions in the world of engineering, but rarely does anyone talk about system designs and behavioral questions. This is one of the biggest reasons why I joined! It's challenging, fun, and there's also a community that looks out for you!",
     "description": "Jacky Liang's testimonial"
   },
-  "WX+cIg": {
-    "defaultMessage": "Free Plan CTA card tooltip",
-    "description": "Tooltip label for Free Plan CTA card in Projects sidebar"
-  },
   "WZ5zPh": {
     "defaultMessage": "To learn <keywords>front end</keywords>",
     "description": "Onboarding motivation option"
@@ -4066,6 +4070,10 @@
   "Wq6liX": {
     "defaultMessage": "Complete projects, with rep awarded by difficulty",
     "description": "Description for \"Complete projects, with rep awarded by difficulty\" feature on Projects home page"
+  },
+  "Wx4yJ/": {
+    "defaultMessage": "Even when you are not actively subscribed, unspent credits will roll over to the next month. However, they can only be used when you are an active premium member.",
+    "description": "Description of premium feature"
   },
   "WyHdb2": {
     "defaultMessage": "Proficient skills",
@@ -4715,6 +4723,10 @@
     "defaultMessage": "Status",
     "description": "Label for \"Years of experience replacement status\" choices on Projects profile onboarding page"
   },
+  "ciaCr5": {
+    "defaultMessage": "While most projects on our platform are free, we offer premium features on each project like project figma files and official guides / solutions. Upon purchasing premium, you will be given a number of unlock credits. An unlock credit gives you access to all premium features in a project.",
+    "description": "Description of premium feature"
+  },
   "cicVHX": {
     "defaultMessage": "Delhi, India",
     "description": "Anonymous Front End Engineer's location"
@@ -4890,6 +4902,10 @@
   "eDIEUs": {
     "defaultMessage": "Build entire design systems or component libraries with our Component Tracks",
     "description": "Title of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
+  },
+  "eJtOHp": {
+    "defaultMessage": "{creditCount} new credits will be added on {date} when your annual subscription renews.",
+    "description": "Information about subscription"
   },
   "ePyk/V": {
     "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",
@@ -6327,10 +6343,6 @@
     "defaultMessage": "Amazing to see such a comprehensive resource for front end dev interviews. Coming from a more traditional backend role I found this website to be a treasure trove of knowledge and it really takes you from a beginner to advanced level.",
     "description": "Anonymous Front End Engineer's testimonial"
   },
-  "q8/ZEc": {
-    "defaultMessage": "+ {points} rep",
-    "description": "Points for Continue projects section on Projects dashboard page"
-  },
   "q9FxEg": {
     "defaultMessage": "Language",
     "description": "Question programming language"
@@ -6538,10 +6550,6 @@
   "sLFGSE": {
     "defaultMessage": "Explore {projectCount}+ projects",
     "description": "Label of 'Projects' view all button in Projects home page"
-  },
-  "sM0hUe": {
-    "defaultMessage": "Access to {freeChallengeCount}+ free challenges. {unlocks, plural, =0 {No access to project unlocks} one {1 project unlock unused} other {# project unlocks unused}}",
-    "description": "Subtitle of Free Plan CTA card in Projects sidebar"
   },
   "sM1Ppu": {
     "defaultMessage": "{discountPercentage}% off all plans",

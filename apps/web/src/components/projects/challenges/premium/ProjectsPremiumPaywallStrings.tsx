@@ -87,7 +87,7 @@ export function useProjectsChallengePaywallSubtitle(
             bold: (chunks) => <Text weight="bold">{chunks}</Text>,
             totalAmount: Math.max(
               credits,
-              projectsPaidPlanFeatures[plan!]?.unlocks || 0,
+              projectsPaidPlanFeatures[plan!]?.credits || 0,
             ),
           }}
         />
@@ -178,7 +178,7 @@ export function useProjectsChallengeSubmissionPaywallSubtitle(
             bold: (chunks) => <Text weight="bold">{chunks}</Text>,
             totalAmount: Math.max(
               credits,
-              projectsPaidPlanFeatures[plan!]?.unlocks || 0,
+              projectsPaidPlanFeatures[plan!]?.credits || 0,
             ),
           }}
         />

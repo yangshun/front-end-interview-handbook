@@ -4,9 +4,9 @@ export type ProjectsSubscriptionPlanFeatures = Readonly<{
   apps: boolean;
   breakpoints: boolean;
   componentTracks: boolean;
+  credits: number | null;
   freeChallenges: boolean;
   skillRoadmap: boolean;
-  unlocks: number | false;
 }>;
 
 export type ProjectsSubscriptionPlanFeatureName =
@@ -16,25 +16,25 @@ export const freePlanFeatures: ProjectsSubscriptionPlanFeatures = {
   apps: true,
   breakpoints: true,
   componentTracks: false,
+  credits: null,
   freeChallenges: true,
   skillRoadmap: false,
-  unlocks: false,
 };
 export const monthlyPlanFeatures: ProjectsSubscriptionPlanFeatures = {
   apps: true,
   breakpoints: true,
   componentTracks: true,
+  credits: 5,
   freeChallenges: true,
   skillRoadmap: true,
-  unlocks: 5,
 };
 export const annualPlanFeatures: ProjectsSubscriptionPlanFeatures = {
   apps: true,
   breakpoints: true,
   componentTracks: true,
+  credits: 80,
   freeChallenges: true,
   skillRoadmap: true,
-  unlocks: 80,
 };
 
 export const projectsPaidPlanFeatures: Record<

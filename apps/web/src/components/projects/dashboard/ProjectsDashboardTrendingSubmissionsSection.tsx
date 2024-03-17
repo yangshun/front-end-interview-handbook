@@ -10,7 +10,7 @@ import Anchor from '~/components/ui/Anchor';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
-import Text from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundCardWhiteOnLightColor,
   themeBackgroundEmphasized_Hover,
@@ -73,7 +73,7 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
       </div>
       <ul
         className={clsx(
-          'isolate rounded-lg',
+          'rounded-lg',
           ['divide-y', themeDivideColor],
           ['border', themeBorderColor],
         )}>
@@ -81,24 +81,29 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
           <li
             key={submission.id}
             className={clsx(
-              'group relative flex py-4 pl-5 pr-8',
-              'focus-within:ring-brand focus-within:ring-2 focus-within:ring-inset',
+              'relative isolate',
+              'group flex',
+              'py-4 pl-5 pr-8',
               themeBackgroundCardWhiteOnLightColor,
-              'transition-colors',
               themeBackgroundEmphasized_Hover,
+              'transition-colors',
               index === 0 && 'rounded-t-lg',
               index === submissions.length - 1 && 'rounded-b-lg',
             )}>
-            <div className="flex w-full gap-4 lg:items-center">
+            <div className="flex w-full items-center gap-4">
               <div className="bg-red h-[90px] w-[90px] shrink-0 rounded" />
               <div className="flex w-full grow flex-col gap-3">
                 <div className="flex flex-col gap-2 lg:gap-1">
-                  <Text size="body1" weight="medium">
-                    <Anchor href={submission.hrefs.detail} variant="unstyled">
-                      <span aria-hidden="true" className="absolute inset-0" />
-                      {submission.title}
-                    </Anchor>
-                  </Text>
+                  <Anchor
+                    className={textVariants({
+                      className: 'z-[1] self-start',
+                      size: 'body1',
+                      weight: 'medium',
+                    })}
+                    href={submission.hrefs.detail}
+                    variant="flat">
+                    {submission.title}
+                  </Anchor>
                   {submission.challenge && (
                     <Text color="secondary" size="body3">
                       <FormattedMessage
@@ -109,7 +114,7 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                           challengeTitle: submission.challenge.metadata.title,
                           link: (chunks) => (
                             <Anchor
-                              className="relative"
+                              className="relative z-[1]"
                               href={submission.challenge.metadata.href}>
                               {chunks}
                             </Anchor>
@@ -119,15 +124,14 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                     </Text>
                   )}
                 </div>
-                <div className="flex flex-col gap-3 lg:flex-row lg:gap-4">
+                <div className="flex gap-3 lg:gap-4">
                   {submission.projectsProfile?.userProfile && (
                     <div className="flex items-center gap-1.5 lg:gap-2">
                       <UserAvatar
-                        className="border border-green-400"
                         size="xs"
                         userProfile={submission.projectsProfile.userProfile}
                       />
-                      <Text className="z-10" size="body3" weight="medium">
+                      <Text className="z-[1]" size="body3" weight="medium">
                         <ProjectsProfileDisplayNameLink
                           userProfile={submission.projectsProfile.userProfile}
                         />
@@ -173,6 +177,11 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                 />
               </div>
             </div>
+            <Anchor
+              aria-label={submission.title}
+              className="absolute inset-0"
+              href={submission.hrefs.detail}
+            />
           </li>
         ))}
       </ul>

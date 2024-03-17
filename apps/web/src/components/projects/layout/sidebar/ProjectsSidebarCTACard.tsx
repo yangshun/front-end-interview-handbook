@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import type { ReactNode } from 'react';
 import { RiInformationLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -13,8 +14,37 @@ import {
 import Tooltip from '~/components/ui/Tooltip';
 
 import useProfileWithProjectsProfile from '../../common/useProfileWithProjectsProfile';
+import { projectsPaidPlanFeatures } from '../../purchase/ProjectsPricingFeaturesConfig';
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
+
+function UnlockCreditsTooltip({ children }: Readonly<{ children: ReactNode }>) {
+  return (
+    <Tooltip
+      asChild={true}
+      label={
+        <div className="flex flex-col gap-2">
+          <p>
+            <FormattedMessage
+              defaultMessage="While most projects on our platform are free, we offer premium features on each project like project figma files and official guides / solutions. Upon purchasing premium, you will be given a number of unlock credits. An unlock credit gives you access to all premium features in a project."
+              description="Description of premium feature"
+              id="ciaCr5"
+            />
+          </p>
+          <p>
+            <FormattedMessage
+              defaultMessage="Even when you are not actively subscribed, unspent credits will roll over to the next month. However, they can only be used when you are an active premium member."
+              description="Description of premium feature"
+              id="Wx4yJ/"
+            />
+          </p>
+        </div>
+      }
+      side="right">
+      {children}
+    </Tooltip>
+  );
+}
 
 function FreePlanVersion({ unlocks }: Readonly<{ unlocks: number }>) {
   const intl = useIntl();
@@ -30,33 +60,22 @@ function FreePlanVersion({ unlocks }: Readonly<{ unlocks: number }>) {
               id: '1sJ8d7',
             })}
           </Text>
-          {/* TODO(projects): update tooltip */}
-          <Tooltip
-            label={
-              <FormattedMessage
-                defaultMessage="Free Plan CTA card tooltip"
-                description="Tooltip label for Free Plan CTA card in Projects sidebar"
-                id="WX+cIg"
-              />
-            }>
-            <RiInformationLine
-              className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
-            />
-          </Tooltip>
         </div>
         <Text color="secondary" display="block" size="body3">
-          {intl.formatMessage(
-            {
-              defaultMessage:
-                'Access to {freeChallengeCount}+ free challenges. {unlocks, plural, =0 {No access to project unlocks} one {1 project unlock unused} other {# project unlocks unused}}',
-              description: 'Subtitle of Free Plan CTA card in Projects sidebar',
-              id: 'sM0hUe',
-            },
-            {
+          <FormattedMessage
+            defaultMessage="Access to {freeChallengeCount}+ free challenges. {unlocks, plural, =0 {No access to <tooltip>project credits</tooltip>} one {1 <tooltip>project credit</tooltip> unused} other {# <tooltip>project credits</tooltip> unused}}"
+            description="Subtitle of Free Plan CTA card in Projects sidebar"
+            id="0F1/fV"
+            values={{
               freeChallengeCount: 50,
+              tooltip: (chunks) => (
+                <UnlockCreditsTooltip>
+                  <Text weight="medium">{chunks}</Text>
+                </UnlockCreditsTooltip>
+              ),
               unlocks,
-            },
-          )}
+            }}
+          />
         </Text>
       </div>
       <Button
@@ -91,27 +110,47 @@ function PremiumVersion({
   const intl = useIntl();
   const planConfigs: Record<
     ProjectsSubscriptionPlan,
-    Readonly<{ creditsPerInterval: number; label: string }>
+    Readonly<{ creditsPerInterval: number; label: string; tooltip: string }>
   > = {
     ANNUAL: {
-      // TODO(projects|purchase): centralize source
-      creditsPerInterval: 80,
-
+      creditsPerInterval: projectsPaidPlanFeatures.ANNUAL.credits!,
       label: intl.formatMessage({
         defaultMessage: 'Annual plan',
         description: 'Subscription plan type',
         id: '9nK/kc',
       }),
+      tooltip: intl.formatMessage(
+        {
+          defaultMessage:
+            '{creditCount} new credits will be added on {date} when your annual subscription renews.',
+          description: 'Information about subscription',
+          id: 'eJtOHp',
+        },
+        {
+          creditCount: projectsPaidPlanFeatures.ANNUAL.credits!,
+          date: '24/04/25',
+        },
+      ),
     },
     MONTH: {
-      // TODO(projects|purchase): centralize source
-      creditsPerInterval: 5,
-
+      creditsPerInterval: projectsPaidPlanFeatures.MONTH.credits!,
       label: intl.formatMessage({
         defaultMessage: 'Monthly plan',
         description: 'Subscription plan type',
         id: 'QruCxn',
       }),
+      tooltip: intl.formatMessage(
+        {
+          defaultMessage:
+            '{creditCount} new credits will be added on {date} when your monthly subscription renews.',
+          description: 'Information about subscription',
+          id: 'C101At',
+        },
+        {
+          creditCount: projectsPaidPlanFeatures.MONTH.credits!,
+          date: '24/04/25',
+        },
+      ),
     },
   };
   const planConfig = planConfigs[plan];
@@ -123,39 +162,33 @@ function PremiumVersion({
         <Text size="body3" weight="bold">
           {planConfig.label}
         </Text>
-        {/* TODO(projects): update tooltip */}
-        <Tooltip
-          label={
-            <FormattedMessage
-              defaultMessage="Free Plan CTA card tooltip"
-              description="Tooltip label for Free Plan CTA card in Projects sidebar"
-              id="WX+cIg"
-            />
-          }>
+        <Tooltip label={planConfig.tooltip}>
           <RiInformationLine
             className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
           />
         </Tooltip>
       </div>
-      <Text color="secondary" display="block" size="body3">
+      <Text className="block" color="secondary" size="body3">
         {intl.formatMessage({
           defaultMessage: 'Full access to tracks & skills',
           description: 'Subtitle of premium plan CTA card',
           id: 'F09XFi',
         })}
       </Text>
-      <Text color="secondary" display="block" size="body3">
-        <FormattedMessage
-          defaultMessage="<bold>{credits}</bold>/{totalCredits} project unlocks left"
-          description="Number of unlock credits left"
-          id="B/+rVc"
-          values={{
-            bold: (chunks) => <Text size="body2">{chunks}</Text>,
-            credits,
-            totalCredits,
-          }}
-        />
-      </Text>
+      <UnlockCreditsTooltip>
+        <Text className="block underline" color="secondary" size="body3">
+          <FormattedMessage
+            defaultMessage="<bold>{credits}</bold>/{totalCredits} project credits left"
+            description="Number of unlock credits left"
+            id="DyRVuV"
+            values={{
+              bold: (chunks) => <Text size="body2">{chunks}</Text>,
+              credits,
+              totalCredits,
+            }}
+          />
+        </Text>
+      </UnlockCreditsTooltip>
       <ProgressBar
         key={themeGradientPinkPurple.startColor}
         label={intl.formatMessage({

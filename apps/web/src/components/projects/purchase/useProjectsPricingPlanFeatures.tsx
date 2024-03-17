@@ -63,6 +63,46 @@ export default function useProjectsPricingPlanFeatures(
         id: '3QliNF',
       }),
     },
+    credits: {
+      description: (
+        <div className="flex flex-col gap-y-1.5 font-medium">
+          <FormattedMessage
+            defaultMessage="<keywords>Upon purchasing premium, you will be given a number of project unlocks. A project unlock gives you access to all premium features in a free project (figma files, official solutions & guides from senior engineers), OR can unlock a premium challenge.</keywords><keywords>Even when you are not actively subscribed, unspent unlocks will roll over to the next month and remain accessible when you repurchase premium.</keywords>"
+            description="Description for unlocks feature"
+            id="ptZwYq"
+            values={{ keywords: (chunks) => <span>{chunks}</span> }}
+          />
+        </div>
+      ),
+      plan: {
+        ANNUAL: intl.formatMessage(
+          {
+            defaultMessage: '{count} unlock credits every year',
+            description: 'Label for unlocks feature for annual plan',
+            id: 'NrCAxf',
+          },
+          {
+            count: annualPlan.credits,
+          },
+        ),
+        MONTH: intl.formatMessage(
+          {
+            defaultMessage: '{count} unlock credits every month',
+            description: 'Label for unlocks feature for month plan',
+            id: '2vqeIa',
+          },
+          {
+            count: monthPlan.credits,
+          },
+        ),
+      },
+      title: intl.formatMessage({
+        defaultMessage:
+          'Able to unlock premium challenges, or premium features on free challenges',
+        description: 'Label for unlocks feature',
+        id: '/pkHfz',
+      }),
+    },
     freeChallenges: {
       title: intl.formatMessage({
         defaultMessage: 'Free project challenges',
@@ -102,46 +142,6 @@ export default function useProjectsPricingPlanFeatures(
         defaultMessage: 'Access to Skill Roadmap',
         description: 'Label for skill roadmap feature',
         id: 'fGAB76',
-      }),
-    },
-    unlocks: {
-      description: (
-        <div className="flex flex-col gap-y-1.5 font-medium">
-          <FormattedMessage
-            defaultMessage="<keywords>Upon purchasing premium, you will be given a number of project unlocks. A project unlock gives you access to all premium features in a free project (figma files, official solutions & guides from senior engineers), OR can unlock a premium challenge.</keywords><keywords>Even when you are not actively subscribed, unspent unlocks will roll over to the next month and remain accessible when you repurchase premium.</keywords>"
-            description="Description for unlocks feature"
-            id="ptZwYq"
-            values={{ keywords: (chunks) => <span>{chunks}</span> }}
-          />
-        </div>
-      ),
-      plan: {
-        ANNUAL: intl.formatMessage(
-          {
-            defaultMessage: '{count} unlock credits every year',
-            description: 'Label for unlocks feature for annual plan',
-            id: 'NrCAxf',
-          },
-          {
-            count: annualPlan.unlocks,
-          },
-        ),
-        MONTH: intl.formatMessage(
-          {
-            defaultMessage: '{count} unlock credits every month',
-            description: 'Label for unlocks feature for month plan',
-            id: '2vqeIa',
-          },
-          {
-            count: monthPlan.unlocks,
-          },
-        ),
-      },
-      title: intl.formatMessage({
-        defaultMessage:
-          'Able to unlock premium challenges, or premium features on free challenges',
-        description: 'Label for unlocks feature',
-        id: '/pkHfz',
       }),
     },
   };
