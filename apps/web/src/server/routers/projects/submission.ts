@@ -24,7 +24,7 @@ import prisma from '~/server/prisma';
 import { projectsUserProcedure } from './procedures';
 import { publicProcedure, router } from '../../trpc';
 
-import type { Prisma } from '@prisma/client';
+import { Prisma } from '@prisma/client';
 import { TRPCError } from '@trpc/server';
 
 const projectsChallengeProcedure = projectsUserProcedure.input(
@@ -497,33 +497,27 @@ export const projectsChallengeSubmissionItemRouter = router({
     )
     .mutation(
       async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
-        // Check if the user has already voted for this submission
-        const existingVote =
-          await prisma.projectsChallengeSubmissionVote.findFirst({
-            where: {
+        try {
+          // Create a new vote for the submission.
+          const vote = await prisma.projectsChallengeSubmissionVote.create({
+            data: {
               profileId: projectsProfileId,
               submissionId,
             },
           });
 
-        // TODO(projects): Make it no-op, like for Discussions.
-        if (existingVote) {
-          // User has already voted, handle accordingly (throw an error, update vote, etc.)
-          throw new TRPCError({
-            code: 'BAD_REQUEST',
-            message: 'User has already voted for this submission.',
-          });
+          await projectsReputationSubmissionVoteAwardPoints(vote);
+        } catch (error) {
+          if (
+            error instanceof Prisma.PrismaClientKnownRequestError &&
+            // Ignore duplicate upvote.
+            error.code === 'P2002'
+          ) {
+            // No-op.
+            return;
+          }
+          throw error;
         }
-
-        // Create a new vote for the submission
-        const vote = await prisma.projectsChallengeSubmissionVote.create({
-          data: {
-            profileId: projectsProfileId,
-            submissionId,
-          },
-        });
-
-        await projectsReputationSubmissionVoteAwardPoints(vote);
       },
     ),
 });

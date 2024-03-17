@@ -408,6 +408,7 @@ export const projectsCommentsRouter = router({
       } catch (error) {
         if (
           error instanceof Prisma.PrismaClientKnownRequestError &&
+          // Ignore duplicate upvote.
           error.code === 'P2002'
         ) {
           // No-op.
