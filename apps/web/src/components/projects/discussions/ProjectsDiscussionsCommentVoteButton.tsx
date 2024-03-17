@@ -58,7 +58,7 @@ export default function ProjectsDiscussionsCommentVoteButton({
           ),
       )}
       icon={RiThumbUpFill}
-      iconClassName={themeTextSubtleColor}
+      iconClassName={hasVoted ? undefined : themeTextSubtleColor}
       label={String(count)}
       tooltip={actionLabel}
       variant={hasVoted ? 'unstyled' : 'tertiary'}
