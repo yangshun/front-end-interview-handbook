@@ -5,7 +5,7 @@ import { RiFlashlightLine } from 'react-icons/ri';
 import type { BadgeVariant } from '~/components/ui/Badge';
 import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
-import { themeIconColor } from '~/components/ui/theme';
+import { themeIconColor, themeTextSecondaryColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 import type { ProjectsChallengeDifficulty } from '../types';
@@ -40,7 +40,7 @@ export default function ProjectsChallengeDifficultyTag({
   return (
     <Tooltip label="Difficulty">
       <div className="flex items-center gap-1">
-        <Icon className={clsx('size-4', themeIconColor)} />
+        <Icon className={clsx('size-4', themeTextSecondaryColor)} />
         <Text className={textColor} color="inherit" size="body3">
           {label}
         </Text>

@@ -5,11 +5,12 @@ import { FormattedMessage } from 'react-intl';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundLayerEmphasized,
+  themeBorderSubtleColor,
   themeTextBrandColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-type TagVariant = 'filled' | 'flat';
+type TagVariant = 'filled' | 'flat' | 'underline';
 
 type Props = Readonly<{
   className?: string;
@@ -39,6 +40,14 @@ export default function ProjectsChallengeReputationTag({
         )}
       />
       <Text
+        className={clsx(
+          variant === 'underline' && [
+            'py-1',
+            '-mb-0.5',
+            'border-b border-dashed',
+            themeBorderSubtleColor,
+          ],
+        )}
         color={variant === 'filled' ? 'default' : 'secondary'}
         size="body3"
         weight={variant === 'filled' ? 'medium' : 'normal'}>

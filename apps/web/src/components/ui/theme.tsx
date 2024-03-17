@@ -113,6 +113,12 @@ export const themeDivideColor = clsx(
 export const themeBorderEmphasizeColor = clsx(
   'border-neutral-300 dark:border-neutral-700',
 );
+export const themeBorderSecondaryColor = clsx(
+  'border-neutral-400 dark:border-neutral-600',
+);
+export const themeBorderSubtleColor = clsx(
+  'border-neutral-500 dark:border-neutral-500',
+);
 export const themeDivideEmphasizeColor = clsx(
   'divide-neutral-300 dark:divide-neutral-700',
 );

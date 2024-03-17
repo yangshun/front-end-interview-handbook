@@ -3307,6 +3307,10 @@
     "defaultMessage": "After completion",
     "description": "Hint for \"Project Deployment & Completion\" tab on Projects project page"
   },
+  "QokfmI": {
+    "defaultMessage": "{skillsCount, plural, =0 {No skills used} one {1 skill used} other {# skills used}}",
+    "description": "Number of skills used for a challenge"
+  },
   "QrikGf": {
     "defaultMessage": "Copy to clipboard",
     "description": "Button label for copy button"
@@ -4946,6 +4950,10 @@
   "exLMBi": {
     "defaultMessage": "Skills roadmap",
     "description": "Title of Projects skill roadmap page"
+  },
+  "excuaF": {
+    "defaultMessage": "Skills used in this challenge",
+    "description": "Additional information for skills section on Projects project page"
   },
   "eyLjDz": {
     "defaultMessage": "Have questions, feedback or anything to say?",

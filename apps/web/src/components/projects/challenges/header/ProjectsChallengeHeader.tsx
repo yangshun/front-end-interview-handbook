@@ -105,14 +105,14 @@ export default function ProjectsChallengeHeader({
           <Text color="secondary" size="body2">
             {description}
           </Text>
-          <div className="flex flex-wrap gap-x-4 gap-y-2">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <ProjectsChallengeDifficultyTag difficulty={difficulty} />
             {viewerProjectsProfile?.premium && (
               <ProjectsChallengeTrackTag track={track} />
             )}
-            <ProjectsChallengeReputationTag points={points} variant="flat" />
+            <ProjectsChallengeReputationTag points={points} />
             {skills.length > 0 && (
-              <ProjectsChallengeSkillsTag skills={skills} />
+              <ProjectsChallengeSkillsTag skills={skills} variant="underline" />
             )}
           </div>
         </div>
