@@ -1,8 +1,8 @@
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import MarketingContinuousUpdates from '~/components/interviews/marketing/MarketingContinuousUpdates';
 import MarketingGeneralFAQSection from '~/components/interviews/marketing/MarketingGeneralFAQSection';
-import InterviewsPricingSectionLocalizedContainer from '~/components/interviews/purchase/InterviewsPricingSectionLocalizedContainer';
 import ProjectsMarketingContactUs from '~/components/projects/marketing/ProjectsMarketingContactUs';
+import ProjectsPricingSectionLocalizedContainer from '~/components/projects/purchase/ProjectsPricingSectionLocalizedContainer';
 
 export default function ProjectsMarketingHomePageBottom() {
   const { userProfile } = useUserProfile();
@@ -10,7 +10,7 @@ export default function ProjectsMarketingHomePageBottom() {
   return (
     <>
       {!(userProfile?.isPremium && userProfile?.plan === 'lifetime') && (
-        <InterviewsPricingSectionLocalizedContainer />
+        <ProjectsPricingSectionLocalizedContainer />
       )}
       <MarketingGeneralFAQSection />
       <MarketingContinuousUpdates />

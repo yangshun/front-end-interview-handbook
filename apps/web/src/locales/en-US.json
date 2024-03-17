@@ -451,6 +451,10 @@
     "defaultMessage": "Title",
     "description": "Label for \"Job Title\" input on Projects profile onboarding page"
   },
+  "2Hvmmw": {
+    "defaultMessage": "Build better and learn faster with Premium",
+    "description": "Title of Pricing section in Projects marketing page"
+  },
   "2LouBj": {
     "defaultMessage": "Holistic study plans",
     "description": "Title of list of study plans"
@@ -2479,6 +2483,10 @@
     "defaultMessage": "Leveling progress",
     "description": "Label for leveling progress on project submission success page"
   },
+  "KhMTHf": {
+    "defaultMessage": "We're largely free to use, but Premium gives you access to our best material and efforts.",
+    "description": "Description of the pricing section in the Projects marketing page"
+  },
   "KhP4uM": {
     "defaultMessage": "Medium",
     "description": "Medium difficulty label for question difficulty summary in question listing"
@@ -2506,6 +2514,10 @@
   "Kne0pQ": {
     "defaultMessage": "Save changes",
     "description": "Label for save changes button for projects profile edit page"
+  },
+  "KsNZvV": {
+    "defaultMessage": "Get premium",
+    "description": "Description of the pricing section in the Projects marketing page"
   },
   "KsoiBa": {
     "defaultMessage": "Purchase premium to unlock full access to the study plans and all questions with high quality solutions",

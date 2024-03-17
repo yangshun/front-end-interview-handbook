@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 
@@ -72,7 +73,21 @@ export default function ProjectsPricingPage({
         <ProjectsPricingSection
           countryCode={countryCode}
           countryName={countryName}
+          heading={
+            <FormattedMessage
+              defaultMessage="Choose your pricing plan"
+              description="Title of Pricing section"
+              id="hqzG5o"
+            />
+          }
           plansPaymentConfig={plansPaymentConfig}
+          title={
+            <FormattedMessage
+              defaultMessage="Pricing plans"
+              description="Section label on Pricing section of Homepage or Pricing page"
+              id="ZWMfa0"
+            />
+          }
         />
         <ProjectsPricingPromotions />
       </div>

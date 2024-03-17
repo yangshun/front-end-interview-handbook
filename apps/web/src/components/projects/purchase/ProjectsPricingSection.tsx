@@ -19,13 +19,19 @@ import useProjectsPricingPlansList from './useProjectsPricingPlansList';
 type Props = Readonly<{
   countryCode: string;
   countryName: string;
+  description?: React.ReactNode;
+  heading?: React.ReactNode;
   plansPaymentConfig: ProjectsPricingPlanPaymentConfigLocalizedRecord;
+  title?: React.ReactNode;
 }>;
 
 export default function ProjectsPricingSection({
   countryCode,
   countryName,
   plansPaymentConfig,
+  heading,
+  title,
+  description,
 }: Props) {
   const planList = useProjectsPricingPlansList(plansPaymentConfig);
   const annualPlan = plansPaymentConfig.ANNUAL;
@@ -45,20 +51,9 @@ export default function ProjectsPricingSection({
       <Container className="flex flex-col gap-y-8 md:gap-y-16">
         <div className="mx-auto max-w-5xl text-center">
           <MarketingSectionHeader
-            heading={
-              <FormattedMessage
-                defaultMessage="Choose your pricing plan"
-                description="Title of Pricing section"
-                id="hqzG5o"
-              />
-            }
-            title={
-              <FormattedMessage
-                defaultMessage="Pricing plans"
-                description="Section label on Pricing section of Homepage or Pricing page"
-                id="ZWMfa0"
-              />
-            }
+            description={description}
+            heading={heading}
+            title={title}
           />
         </div>
         <Section>
