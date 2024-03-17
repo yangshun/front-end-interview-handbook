@@ -120,7 +120,9 @@ function ManageSubscriptionSection({
   }
 
   async function navigateToStripePortal() {
-    const billingPortalUrl = await billingPortalMutation.mutateAsync();
+    const billingPortalUrl = await billingPortalMutation.mutateAsync({
+      returnUrl: window.location.href,
+    });
 
     window.location.href = billingPortalUrl;
   }

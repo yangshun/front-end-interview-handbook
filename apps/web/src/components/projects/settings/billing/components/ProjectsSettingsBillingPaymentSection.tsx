@@ -4,19 +4,20 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
-import Anchor from '~/components/ui/Anchor';
+import Anchor, { anchorVariants } from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
-import { themeTextBrandColor } from '~/components/ui/theme';
 
 export default function ProjectsSettingsBillingPaymentSection() {
   const intl = useIntl();
   const billingPortalMutation = trpc.purchases.billingPortal.useMutation();
 
   async function navigateToStripePortal() {
-    const billingPortalUrl = await billingPortalMutation.mutateAsync();
+    const billingPortalUrl = await billingPortalMutation.mutateAsync({
+      returnUrl: window.location.href,
+    });
 
     window.location.href = billingPortalUrl;
   }
@@ -31,17 +32,17 @@ export default function ProjectsSettingsBillingPaymentSection() {
             id="+lLD25"
           />
         </Heading>
-        <Text size="body1">
+        <Text className="block" color="secondary" size="body1">
           <FormattedMessage
-            defaultMessage="All of our payments are processed using <link>Stripe</link> - we do not directly store your payment and billing information. If you would like to change them, please use Stripe's admin portal to do so. {goToStripCTA}"
+            defaultMessage="All of our payments are processed using <link>Stripe</link> - we do not directly store your payment and billing information. If you would like to change them, please use Stripe's customer billing portal to do so. {goToStripeCTA}"
             description="Description for payments and billing section of projects setting page"
-            id="fS2amE"
+            id="WN9SL4"
             values={{
-              goToStripCTA: (
+              goToStripeCTA: (
                 <Button
                   className={clsx(
-                    'h-4 border-none !px-1 !py-0',
-                    themeTextBrandColor,
+                    'h-4 border-none !p-0',
+                    anchorVariants({ variant: 'default' }),
                   )}
                   icon={RiArrowRightLine}
                   isDisabled={billingPortalMutation.isLoading}

@@ -62,26 +62,32 @@ export const purchasesRouter = router({
           }
         : null;
     }),
-  billingPortal: userProcedure.mutation(async ({ ctx: { user, req } }) => {
-    const { origin } = absoluteUrl(req);
+  billingPortal: userProcedure
+    .input(
+      z.object({
+        returnUrl: z.string().url().optional(),
+      }),
+    )
+    .mutation(async ({ input: { returnUrl }, ctx: { user, req } }) => {
+      const { origin } = absoluteUrl(req);
 
-    const { stripeCustomer: stripeCustomerId } =
-      await prisma.profile.findFirstOrThrow({
-        select: {
-          stripeCustomer: true,
-        },
-        where: {
-          id: user.id,
-        },
+      const { stripeCustomer: stripeCustomerId } =
+        await prisma.profile.findFirstOrThrow({
+          select: {
+            stripeCustomer: true,
+          },
+          where: {
+            id: user.id,
+          },
+        });
+
+      const session = await stripe.billingPortal.sessions.create({
+        customer: stripeCustomerId!,
+        return_url: returnUrl || `${origin}/profile/billing`,
       });
 
-    const session = await stripe.billingPortal.sessions.create({
-      customer: stripeCustomerId!,
-      return_url: `${origin}/profile/billing`,
-    });
-
-    return session.url;
-  }),
+      return session.url;
+    }),
   interviewsPlans: publicProcedure
     .input(z.string().optional())
     .query(async ({ input: country, ctx: { req } }) => {

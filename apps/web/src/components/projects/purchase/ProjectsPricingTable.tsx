@@ -319,7 +319,9 @@ function PricingButtonSection({
           id: 'sjLtW1',
         })}
         onClick={async () => {
-          const billingPortalUrl = await billingPortalMutation.mutateAsync();
+          const billingPortalUrl = await billingPortalMutation.mutateAsync({
+            returnUrl: window.location.href,
+          });
 
           window.location.href = billingPortalUrl;
         }}
