@@ -43,26 +43,20 @@ export default function ProjectsChallengeDiscussionsNewComment({
   const attrs = getDiscussionsCommentBodyAttributes(intl);
   const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
 
-  const {
-    register,
-    setValue,
-    getValues,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<CommentFormInput>({
-    defaultValues: {
-      body: '',
-      isQuestion: false,
-    },
-    mode: 'onSubmit',
-    resolver: zodResolver(
-      z.object({
-        body: discussionsCommentBodySchema,
-        isQuestion: z.boolean(),
-      }),
-    ),
-  });
+  const { register, setValue, getValues, handleSubmit, formState, reset } =
+    useForm<CommentFormInput>({
+      defaultValues: {
+        body: '',
+        isQuestion: false,
+      },
+      mode: 'onSubmit',
+      resolver: zodResolver(
+        z.object({
+          body: discussionsCommentBodySchema,
+          isQuestion: z.boolean(),
+        }),
+      ),
+    });
 
   const onSubmit: SubmitHandler<CommentFormInput> = (data) => {
     return createCommentMutation.mutate(
@@ -103,7 +97,11 @@ export default function ProjectsChallengeDiscussionsNewComment({
         <RichTextEditor
           key={editorRerenderKey}
           disabled={createCommentMutation.isLoading}
-          errorMessage={errors.body?.message}
+          errorMessage={
+            formState.dirtyFields.body || formState.submitCount > 0
+              ? formState.errors.body?.message
+              : undefined
+          }
           isLabelHidden={true}
           label={intl.formatMessage({
             defaultMessage: 'Discussion post comment',

@@ -39,15 +39,11 @@ export default function ProfileAccountDisplayName() {
 
   const toast = useToast();
   const displayNameFormSchema = useDisplayNameFormSchema();
-  const {
-    control,
-    handleSubmit,
-    reset,
-    formState: { errors, isDirty, isValid, isSubmitting },
-  } = useForm<DisplayNameFormValues>({
-    mode: 'all',
-    resolver: zodResolver(displayNameFormSchema),
-  });
+  const { control, handleSubmit, reset, formState } =
+    useForm<DisplayNameFormValues>({
+      mode: 'all',
+      resolver: zodResolver(displayNameFormSchema),
+    });
 
   const profileDataQuery = trpc.profile.getProfile.useQuery();
   const nameUpdateMutation = trpc.profile.nameUpdate.useMutation();
@@ -72,8 +68,12 @@ export default function ProfileAccountDisplayName() {
               autoComplete="off"
               defaultValue={profileDataQuery.data?.name ?? undefined}
               description={attrs.description}
-              errorMessage={errors.name?.message}
-              isDisabled={isSubmitting}
+              errorMessage={
+                formState.dirtyFields.name || formState.submitCount > 0
+                  ? formState.errors.name?.message
+                  : undefined
+              }
+              isDisabled={formState.isSubmitting}
               label={attrs.label}
               maxLength={attrs.validation.maxLength}
               placeholder={attrs.placeholder}
@@ -83,8 +83,10 @@ export default function ProfileAccountDisplayName() {
         />
         <div className="flex justify-end">
           <Button
-            isDisabled={!isDirty || !isValid || isSubmitting}
-            isLoading={isSubmitting}
+            isDisabled={
+              !formState.isDirty || !formState.isValid || formState.isSubmitting
+            }
+            isLoading={formState.isSubmitting}
             label={intl.formatMessage({
               defaultMessage: 'Save changes',
               description: 'Button label for a form',

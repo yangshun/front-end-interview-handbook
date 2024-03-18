@@ -47,7 +47,12 @@ export default function ProjectsProfileSocialInput({
                 id: 'SbE8XR',
               })}
               descriptionStyle="tooltip"
-              errorMessage={formState.errors.githubUsername?.message}
+              errorMessage={
+                formState.dirtyFields.githubUsername ||
+                formState.submitCount > 0
+                  ? formState.errors.githubUsername?.message
+                  : undefined
+              }
               label={intl.formatMessage({
                 defaultMessage: 'GitHub username',
                 description: 'GitHub profile form label',
@@ -80,7 +85,12 @@ export default function ProjectsProfileSocialInput({
                 id: 'SbE8XR',
               })}
               descriptionStyle="tooltip"
-              errorMessage={formState.errors.linkedInUsername?.message}
+              errorMessage={
+                formState.dirtyFields.linkedInUsername ||
+                formState.submitCount > 0
+                  ? formState.errors.linkedInUsername?.message
+                  : undefined
+              }
               label={intl.formatMessage({
                 defaultMessage: 'LinkedIn username',
                 description: 'LinkedIn profile form label',
@@ -113,7 +123,11 @@ export default function ProjectsProfileSocialInput({
                 id: 'SbE8XR',
               })}
               descriptionStyle="tooltip"
-              errorMessage={formState.errors.website?.message}
+              errorMessage={
+                formState.dirtyFields.website || formState.submitCount > 0
+                  ? formState.errors.website?.message
+                  : undefined
+              }
               label={intl.formatMessage({
                 defaultMessage: 'Personal website',
                 description: 'Personal website link field',

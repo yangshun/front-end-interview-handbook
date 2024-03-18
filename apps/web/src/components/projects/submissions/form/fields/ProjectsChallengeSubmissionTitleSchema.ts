@@ -2,7 +2,7 @@ import type { IntlShape } from 'react-intl';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
-const MIN_LENGTH = 1;
+const MIN_LENGTH = 5;
 const MAX_LENGTH = 80;
 
 function projectsChallengeSubmissionTitleSchema(options?: {
@@ -22,7 +22,7 @@ function projectsChallengeSubmissionTitleSchema(options?: {
 export const projectsChallengeSubmissionTitleSchemaServer =
   projectsChallengeSubmissionTitleSchema({
     maxMessage: `Title must contain at most ${MAX_LENGTH} character(s).`,
-    minMessage: 'Title is required.',
+    minMessage: `Title must contain at least ${MIN_LENGTH} character(s).`,
   });
 
 export function getProjectsChallengeSubmissionTitleAttributes(intl: IntlShape) {
@@ -53,11 +53,16 @@ export function getProjectsChallengeSubmissionTitleAttributes(intl: IntlShape) {
       maxLength: MAX_LENGTH,
     },
   );
-  const minMessage = intl.formatMessage({
-    defaultMessage: 'Title is required.',
-    description: 'Error message for submission title',
-    id: '1jwI15',
-  });
+  const minMessage = intl.formatMessage(
+    {
+      defaultMessage: 'Title must contain at least {minLength} character(s).',
+      description: 'Error message for submission title',
+      id: 'Va3Pjt',
+    },
+    {
+      minLength: MIN_LENGTH,
+    },
+  );
 
   return {
     description,
@@ -65,6 +70,7 @@ export function getProjectsChallengeSubmissionTitleAttributes(intl: IntlShape) {
     placeholder,
     validation: {
       maxLength: MAX_LENGTH,
+      minLength: MIN_LENGTH,
       maxMessage,
       minMessage,
       required: true,

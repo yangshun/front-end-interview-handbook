@@ -12,9 +12,9 @@ type Values =
   | ProjectsOnboardingProfileStep2FormValues
   | ProjectsProfileEditFormValues;
 
-type Props = {
+type Props = Readonly<{
   control: Control<Values>;
-};
+}>;
 
 export default function ProjectsProfileBioInput({ control }: Props) {
   const intl = useIntl();
@@ -29,7 +29,11 @@ export default function ProjectsProfileBioInput({ control }: Props) {
         <TextArea
           description={attrs.description}
           descriptionStyle="tooltip"
-          errorMessage={formState.errors.bio?.message}
+          errorMessage={
+            formState.dirtyFields.bio || formState.submitCount > 0
+              ? formState.errors.bio?.message
+              : undefined
+          }
           label={attrs.label}
           maxLength={attrs.validation.maxLength}
           placeholder={attrs.placeholder}

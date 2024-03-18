@@ -29,7 +29,11 @@ export default function ProjectsChallengeSubmissionRoadmapSkillsField({
   return (
     <ProjectsSkillRoadmapSelectionInput
       description={attrs.description}
-      errorMessage={formState.errors[fieldName]?.message}
+      errorMessage={
+        formState.dirtyFields[fieldName] || formState.submitCount > 0
+          ? formState.errors[fieldName]?.message
+          : undefined
+      }
       label={attrs.label}
       placeholder={attrs.placeholder}
       required={attrs.validation.required}

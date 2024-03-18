@@ -19,11 +19,7 @@ type Values =
 
 export default function ProjectsProfileJobSection() {
   const intl = useIntl();
-  const {
-    control,
-    watch,
-    formState: { errors },
-  } = useFormContext<Values>();
+  const { control, watch, formState } = useFormContext<Values>();
   const statusAttrs = getProjectsProfileJobStatusOthersFieldAttributes(intl);
 
   const jobStatusOptions = [
@@ -90,7 +86,12 @@ export default function ProjectsProfileJobSection() {
               render={({ field }) => (
                 <div className="flex-1">
                   <TextInput
-                    errorMessage={errors.jobTitle?.message}
+                    errorMessage={
+                      formState.dirtyFields.jobTitle ||
+                      formState.submitCount > 0
+                        ? formState.errors.jobTitle?.message
+                        : undefined
+                    }
                     label={intl.formatMessage({
                       defaultMessage: 'Job title',
                       description:
@@ -129,7 +130,11 @@ export default function ProjectsProfileJobSection() {
                       id: 'AEDpDO',
                     })}
                     descriptionStyle="tooltip"
-                    errorMessage={errors.company?.message}
+                    errorMessage={
+                      formState.dirtyFields.company || formState.submitCount > 0
+                        ? formState.errors.company?.message
+                        : undefined
+                    }
                     label={intl.formatMessage({
                       defaultMessage: 'Company (optional)',
                       description:
@@ -162,7 +167,12 @@ export default function ProjectsProfileJobSection() {
                   id: '/c/hHN',
                 })}
                 descriptionStyle="tooltip"
-                errorMessage={errors.monthYearExperience?.message}
+                errorMessage={
+                  formState.dirtyFields.monthYearExperience ||
+                  formState.submitCount > 0
+                    ? formState.errors.monthYearExperience?.message
+                    : undefined
+                }
                 isDisabled={field.disabled}
                 label={intl.formatMessage({
                   defaultMessage: 'When did you start work?',
@@ -203,7 +213,11 @@ export default function ProjectsProfileJobSection() {
               <div className="flex-1">
                 <TextInput
                   descriptionStyle="tooltip"
-                  errorMessage={errors.title?.message}
+                  errorMessage={
+                    formState.dirtyFields.title || formState.submitCount > 0
+                      ? formState.errors.title?.message
+                      : undefined
+                  }
                   label={intl.formatMessage({
                     defaultMessage: 'Title',
                     description:
@@ -235,7 +249,12 @@ export default function ProjectsProfileJobSection() {
                   id: 'PbcB1O',
                 })}
                 descriptionStyle="tooltip"
-                errorMessage={errors.yoeReplacement?.option?.message}
+                errorMessage={
+                  formState.dirtyFields.yoeReplacement?.option ||
+                  formState.submitCount > 0
+                    ? formState.errors.yoeReplacement?.option?.message
+                    : undefined
+                }
                 label={intl.formatMessage({
                   defaultMessage: 'Status',
                   description:
@@ -255,7 +274,12 @@ export default function ProjectsProfileJobSection() {
               name="yoeReplacement.otherText"
               render={({ field }) => (
                 <TextArea
-                  errorMessage={errors.yoeReplacement?.otherText?.message}
+                  errorMessage={
+                    formState.dirtyFields.yoeReplacement?.otherText ||
+                    formState.submitCount > 0
+                      ? formState.errors.yoeReplacement?.otherText?.message
+                      : undefined
+                  }
                   isLabelHidden={true}
                   label={statusAttrs.label}
                   maxLength={statusAttrs.validation.maxLength}

@@ -411,10 +411,6 @@
     "defaultMessage": "Project progress",
     "description": "Project progress item label"
   },
-  "1jwI15": {
-    "defaultMessage": "Title is required.",
-    "description": "Error message for submission title"
-  },
   "1kiNiW": {
     "defaultMessage": "Accessibility",
     "description": "Name of focus area questions"
@@ -3910,6 +3906,10 @@
   "VZ4Yky": {
     "defaultMessage": "Get the right practical foundation from the get-go",
     "description": "Title of 'Practical foundation' feature in Projects marketing page"
+  },
+  "Va3Pjt": {
+    "defaultMessage": "Title must contain at least {minLength} character(s).",
+    "description": "Error message for submission title"
   },
   "VbvRHt": {
     "defaultMessage": "Pricing",

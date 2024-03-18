@@ -43,26 +43,20 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
   const attrs = getDiscussionsCommentBodyAttributes(intl);
   const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
 
-  const {
-    handleSubmit,
-    setValue,
-    getValues,
-    formState: { errors },
-    reset,
-    control,
-  } = useForm<CommentFormInput>({
-    defaultValues: {
-      body: '',
-      category: null,
-    },
-    mode: 'onSubmit',
-    resolver: zodResolver(
-      z.object({
-        body: discussionsCommentBodySchema,
-        category: z.string().nullable(), // TODO(projects): change to enum.
-      }),
-    ),
-  });
+  const { handleSubmit, setValue, getValues, formState, reset, control } =
+    useForm<CommentFormInput>({
+      defaultValues: {
+        body: '',
+        category: null,
+      },
+      mode: 'onSubmit',
+      resolver: zodResolver(
+        z.object({
+          body: discussionsCommentBodySchema,
+          category: z.string().nullable(), // TODO(projects): change to enum.
+        }),
+      ),
+    });
   const onSubmit: SubmitHandler<CommentFormInput> = (data) => {
     return createCommentMutation.mutate(
       {
@@ -136,7 +130,11 @@ export default function ProjectsChallengeSubmissionDiscussionsNewComment({
         <RichTextEditor
           key={editorRerenderKey}
           disabled={createCommentMutation.isLoading}
-          errorMessage={errors.body?.message}
+          errorMessage={
+            formState.dirtyFields.body || formState.submitCount > 0
+              ? formState.errors.body?.message
+              : undefined
+          }
           isLabelHidden={true}
           label={intl.formatMessage({
             defaultMessage: 'Submit a comment',

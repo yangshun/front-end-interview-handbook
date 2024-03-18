@@ -34,11 +34,7 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
   const { isLoading, mutateAsync: addSolution } =
     trpc.questionCommunitySolution.javaScriptAdd.useMutation();
 
-  const {
-    control,
-    formState: { errors, isDirty },
-    handleSubmit,
-  } = useForm<CommunitySolutionDraft>({
+  const { control, formState, handleSubmit } = useForm<CommunitySolutionDraft>({
     defaultValues: {
       code: '',
       language: 'ts',
@@ -63,7 +59,7 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
       <div className="flex flex-row-reverse gap-2">
         <Button
           className="mt-0.5 shrink-0"
-          isDisabled={!isDirty || isLoading}
+          isDisabled={!formState.isDirty || isLoading}
           label="Post"
           type="submit"
           variant="primary"
@@ -74,7 +70,11 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
           render={({ field }) => (
             <div className="flex-1">
               <TextInput
-                errorMessage={errors.title?.message}
+                errorMessage={
+                  formState.dirtyFields.title || formState.submitCount > 0
+                    ? formState.errors.title?.message
+                    : undefined
+                }
                 isLabelHidden={true}
                 label="Title"
                 placeholder="Title"
@@ -90,7 +90,11 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
         name="writeup"
         render={({ field }) => (
           <TextArea
-            errorMessage={errors.writeup?.message}
+            errorMessage={
+              formState.dirtyFields.writeup || formState.submitCount > 0
+                ? formState.errors.writeup?.message
+                : undefined
+            }
             isLabelHidden={true}
             label="Writeup"
             placeholder="Writeup"
@@ -112,9 +116,9 @@ function JavaScriptCodingWorkspaceCommunitySolutionCreateTabImpl({
         render={({ field: { ref: _, ...field } }) => (
           <div className="flex flex-1 flex-col">
             <MonacoCodeEditor filePath="community-solution.ts" {...field} />
-            {errors.code?.message && (
+            {formState.isDirty && formState.errors.code?.message && (
               <Text color="error" size="body2" weight="medium">
-                {errors.code?.message}
+                {formState.errors.code?.message}
               </Text>
             )}
           </div>

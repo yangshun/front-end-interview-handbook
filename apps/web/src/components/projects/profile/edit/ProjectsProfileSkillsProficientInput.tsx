@@ -44,7 +44,11 @@ export default function ProjectsProfileSkillsProficientInput({
               ),
             },
           )}
-          errorMessage={formState.errors?.[name]?.message}
+          errorMessage={
+            formState.dirtyFields?.[name] || formState.submitCount > 0
+              ? formState.errors?.[name]?.message
+              : undefined
+          }
           label={intl.formatMessage({
             defaultMessage: 'Skills you are proficient in',
             description: 'Label for tech stack field',

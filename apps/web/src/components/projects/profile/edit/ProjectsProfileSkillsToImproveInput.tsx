@@ -44,7 +44,11 @@ export default function ProjectsProfileSkillsToImproveInput({
               ),
             },
           )}
-          errorMessage={formState.errors[name]?.message}
+          errorMessage={
+            formState.dirtyFields[name] || formState.submitCount > 0
+              ? formState.errors[name]?.message
+              : undefined
+          }
           label={intl.formatMessage({
             defaultMessage: 'Skills you are hoping to grow in',
             description: 'Label for tech stack field',

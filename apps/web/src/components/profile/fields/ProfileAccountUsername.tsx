@@ -44,20 +44,15 @@ export default function ProfileAccountUsername() {
   const { data } = trpc.profile.getProfile.useQuery();
   const userNameUpdateMutation = trpc.profile.userNameUpdate.useMutation();
 
-  const {
-    control,
-    handleSubmit,
-    reset,
-    setError,
-    formState: { errors, isDirty, isValid, isSubmitting },
-  } = useForm<UserNameFormValues>({
-    defaultValues: {
-      username: '',
-    },
-    mode: 'all',
-    resolver: zodResolver(userNameFormSchema),
-    values: { username: data?.username ?? '' },
-  });
+  const { control, handleSubmit, reset, setError, formState } =
+    useForm<UserNameFormValues>({
+      defaultValues: {
+        username: '',
+      },
+      mode: 'all',
+      resolver: zodResolver(userNameFormSchema),
+      values: { username: data?.username ?? '' },
+    });
 
   return (
     <div className={clsx('p-4', 'rounded-lg border', themeBorderColor)}>
@@ -84,8 +79,12 @@ export default function ProfileAccountUsername() {
             <TextInput
               autoComplete="off"
               description={attrs.description}
-              errorMessage={errors.username?.message}
-              isDisabled={isSubmitting}
+              errorMessage={
+                formState.dirtyFields.username || formState.submitCount > 0
+                  ? formState.errors.username?.message
+                  : undefined
+              }
+              isDisabled={formState.isSubmitting}
               label={attrs.label}
               maxLength={attrs.validation.maxLength}
               placeholder={attrs.placeholder}
@@ -95,8 +94,10 @@ export default function ProfileAccountUsername() {
         />
         <div className="flex justify-end">
           <Button
-            isDisabled={!isDirty || !isValid || isSubmitting}
-            isLoading={isSubmitting}
+            isDisabled={
+              !formState.isDirty || !formState.isValid || formState.isSubmitting
+            }
+            isLoading={formState.isSubmitting}
             label={intl.formatMessage({
               defaultMessage: 'Save changes',
               description: 'Button label for a form',

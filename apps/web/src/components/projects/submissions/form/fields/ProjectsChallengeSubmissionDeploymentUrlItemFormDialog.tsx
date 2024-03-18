@@ -40,7 +40,7 @@ export default function ProjectsChallengeSubmissionDeploymentUrlItemFormDialog({
   const projectsChallengeSubmissionDeploymentUrlItemSchema =
     useProjectsChallengeSubmissionDeploymentUrlItemSchema();
   const formMethods = useForm<DeploymentUrlItemData>({
-    mode: 'onTouched',
+    mode: 'onBlur',
     resolver: zodResolver(projectsChallengeSubmissionDeploymentUrlItemSchema),
     values,
   });
@@ -108,7 +108,11 @@ export default function ProjectsChallengeSubmissionDeploymentUrlItemFormDialog({
           render={({ field }) => (
             <TextInput
               autoFocus={true}
-              errorMessage={formState.errors.label?.message}
+              errorMessage={
+                formState.dirtyFields.label || formState.submitCount > 0
+                  ? formState.errors.label?.message
+                  : undefined
+              }
               label="Page name"
               placeholder={attrs.namePlaceholder}
               required={true}
@@ -121,9 +125,14 @@ export default function ProjectsChallengeSubmissionDeploymentUrlItemFormDialog({
           name="href"
           render={({ field }) => (
             <TextInput
-              errorMessage={formState.errors.href?.message}
+              errorMessage={
+                formState.dirtyFields.href || formState.submitCount > 0
+                  ? formState.errors.href?.message
+                  : undefined
+              }
               label="URL"
               placeholder={attrs.urlPlaceholder}
+              required={true}
               type="url"
               {...field}
             />

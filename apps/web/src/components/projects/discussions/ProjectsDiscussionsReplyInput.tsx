@@ -45,22 +45,18 @@ export default function ProjectsDiscussionsReplyInput({
   const attrs = getDiscussionsCommentBodyAttributes(intl);
   const discussionsCommentBodySchema = useDiscussionsCommentBodySchema();
 
-  const {
-    handleSubmit,
-    setValue,
-    getValues,
-    formState: { errors },
-  } = useForm<CommentFormInput>({
-    defaultValues: {
-      body: '',
-    },
-    mode: 'onSubmit',
-    resolver: zodResolver(
-      z.object({
-        body: discussionsCommentBodySchema,
-      }),
-    ),
-  });
+  const { handleSubmit, setValue, getValues, formState } =
+    useForm<CommentFormInput>({
+      defaultValues: {
+        body: '',
+      },
+      mode: 'onSubmit',
+      resolver: zodResolver(
+        z.object({
+          body: discussionsCommentBodySchema,
+        }),
+      ),
+    });
   const onSubmit: SubmitHandler<CommentFormInput> = (data) =>
     createReplyMutation.mutate(
       {
@@ -100,7 +96,11 @@ export default function ProjectsDiscussionsReplyInput({
             <RichTextEditor
               autoFocus={true}
               disabled={createReplyMutation.isLoading}
-              errorMessage={errors.body?.message}
+              errorMessage={
+                formState.dirtyFields.body || formState.submitCount > 0
+                  ? formState.errors.body?.message
+                  : undefined
+              }
               isLabelHidden={true}
               label={intl.formatMessage({
                 defaultMessage: 'Reply to comment',

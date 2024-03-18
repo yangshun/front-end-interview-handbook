@@ -99,11 +99,7 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
       ...experienceInitialValues,
     },
   });
-  const {
-    control,
-    handleSubmit,
-    formState: { isSubmitting, errors },
-  } = methods;
+  const { control, handleSubmit, formState } = methods;
 
   return (
     <FormProvider {...methods}>
@@ -152,7 +148,11 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
                 name="name"
                 render={({ field }) => (
                   <TextInput
-                    errorMessage={errors.name?.message}
+                    errorMessage={
+                      formState.dirtyFields.name || formState.submitCount > 0
+                        ? formState.errors.name?.message
+                        : undefined
+                    }
                     label={intl.formatMessage({
                       defaultMessage: 'Name',
                       description:
@@ -174,7 +174,12 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
                 name="username"
                 render={({ field }) => (
                   <ProjectsProfileUsernameInput
-                    error={errors.username?.message}
+                    errorMessage={
+                      formState.dirtyFields.username ||
+                      formState.submitCount > 0
+                        ? formState.errors.username?.message
+                        : undefined
+                    }
                     field={field}
                     setUsernameExistsError={setUsernameExistsError}
                   />
@@ -187,8 +192,8 @@ export default function ProjectsOnboardingProfileStep1({ onFinish }: Props) {
         <Button
           className="self-end"
           icon={RiArrowRightLine}
-          isDisabled={isSubmitting || usernameExistsError}
-          isLoading={isSubmitting}
+          isDisabled={formState.isSubmitting || usernameExistsError}
+          isLoading={formState.isSubmitting}
           label={intl.formatMessage({
             defaultMessage: 'Next',
             description:

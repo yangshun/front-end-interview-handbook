@@ -10,8 +10,8 @@ import type { ProjectsProfileOnboardingStep1FormValues } from '~/components/proj
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import TextInput from '~/components/ui/TextInput';
 
-type Props = {
-  error: string | undefined;
+type Props = Readonly<{
+  errorMessage: string | undefined;
   field:
     | ControllerRenderProps<
         ProjectsProfileOnboardingStep1FormValues,
@@ -19,10 +19,10 @@ type Props = {
       >
     | ControllerRenderProps<ProjectsProfileEditFormValues, 'username'>;
   setUsernameExistsError: (hasError: boolean) => void;
-};
+}>;
 
 export default function ProjectsProfileUsernameInput({
-  error,
+  errorMessage,
   field,
   setUsernameExistsError,
 }: Props) {
@@ -67,7 +67,7 @@ export default function ProjectsProfileUsernameInput({
               description: 'Error for user already exists',
               id: 'sYQ9YX',
             })
-          : error
+          : errorMessage
       }
       label={usernameAttrs.label}
       maxLength={usernameAttrs.validation.maxLength}

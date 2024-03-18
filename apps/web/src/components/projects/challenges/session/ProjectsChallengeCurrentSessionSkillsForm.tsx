@@ -37,16 +37,12 @@ export default function ProjectsChallengeCurrentSessionSkillsForm({
   const projectsChallengeSessionFormSchema =
     useProjectsChallengeSessionFormSchema();
 
-  const {
-    control,
-    handleSubmit,
-    getValues,
-    formState: { errors },
-  } = useForm<ProjectsChallengeSessionSkillsFormValues>({
-    defaultValues,
-    mode: 'all',
-    resolver: zodResolver(projectsChallengeSessionFormSchema),
-  });
+  const { control, handleSubmit, getValues, formState } =
+    useForm<ProjectsChallengeSessionSkillsFormValues>({
+      defaultValues,
+      mode: 'all',
+      resolver: zodResolver(projectsChallengeSessionFormSchema),
+    });
 
   return (
     <form className="flex flex-col gap-y-6" onSubmit={handleSubmit(onSubmit)}>
@@ -55,7 +51,11 @@ export default function ProjectsChallengeCurrentSessionSkillsForm({
         name="roadmapSkills"
         render={({ field }) => (
           <ProjectsSkillRoadmapSelectionInput
-            errorMessage={errors.roadmapSkills?.message}
+            errorMessage={
+              formState.dirtyFields.roadmapSkills || formState.submitCount > 0
+                ? formState.errors.roadmapSkills?.message
+                : undefined
+            }
             {...field}
             onChange={(newValue) => {
               // Save on every change.
@@ -71,7 +71,11 @@ export default function ProjectsChallengeCurrentSessionSkillsForm({
         name="techStackSkills"
         render={({ field }) => (
           <ProjectsSkillTechStackInput
-            errorMessage={errors.techStackSkills?.message}
+            errorMessage={
+              formState.dirtyFields.techStackSkills || formState.submitCount > 0
+                ? formState.errors.techStackSkills?.message
+                : undefined
+            }
             {...field}
             onBlur={() => {
               // Save when user stops changing.

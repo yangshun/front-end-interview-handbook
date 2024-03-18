@@ -28,7 +28,11 @@ export default function ProjectsChallengeSubmissionRepositoryUrlField({
     <TextInput
       description={attrs.description}
       descriptionStyle="tooltip"
-      errorMessage={formState.errors[fieldName]?.message}
+      errorMessage={
+        formState.dirtyFields[fieldName] || formState.submitCount > 0
+          ? formState.errors[fieldName]?.message
+          : undefined
+      }
       label={attrs.label}
       placeholder={attrs.placeholder}
       required={attrs.validation.required}

@@ -30,7 +30,11 @@ export default function ProjectsChallengeSubmissionImplementationField({
       <RichTextEditor
         description={attrs.description}
         descriptionStyle="tooltip"
-        errorMessage={formState.errors[fieldName]?.message}
+        errorMessage={
+          formState.dirtyFields[fieldName] || formState.submitCount > 0
+            ? formState.errors[fieldName]?.message
+            : undefined
+        }
         label={attrs.label}
         required={attrs.validation.required}
         {...field}
