@@ -90,7 +90,8 @@ export default function ProjectsChallengeHeader({
       </div>
       <div
         className={clsx(
-          'grid grid-cols-1 gap-6 lg:grid-cols-2',
+          'grid grid-cols-1 gap-6',
+          hasSession ? 'xl:grid-cols-2' : 'md:grid-cols-2',
           'mt-8 items-start',
         )}>
         <div className="flex flex-col gap-4">
