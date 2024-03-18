@@ -3,11 +3,10 @@ import { startCase } from 'lodash-es';
 import { allRoadmapSkillsSet } from './ProjectsSkillProcessor';
 import type { ProjectsSkillKey } from '../types';
 
+// TODO(projects): add in proper list.
 export const ProjectsSkillLabels: Record<ProjectsSkillKey, string> = {
   angular: 'Angular',
-  css: 'CSS',
   html: 'HTML',
-  js: 'JS',
   nextjs: 'Next.js',
   react: 'React',
   svelte: 'Svelte',
