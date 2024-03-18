@@ -17,9 +17,7 @@ _(\*)_: Returns the maximum value.
 ## Examples
 
 ```js
-maxBy([{ n: 1 }, { n: 2 }], function (o) {
-  return o.n;
-}); // => { 'n': 2 }
+maxBy([{ n: 1 }, { n: 2 }], (o) => o.n;); // => { n: 2 }
 
 maxBy([{ n: 1 }, { n: 2 }], 'n'); // => { n: 2 }
 ```

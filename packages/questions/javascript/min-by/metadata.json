@@ -1,5 +1,5 @@
 {
-  "slug": "max-by",
+  "slug": "min-by",
   "created": "2024-03-18T00:00:00.000Z",
   "languages": ["js", "ts"],
   "companies": [],
@@ -8,5 +8,5 @@
   "published": true,
   "importance": "low",
   "difficulty": "easy",
-  "similar_questions": ["group-by", "min-by"]
+  "similar_questions": ["group-by", "max-by"]
 }

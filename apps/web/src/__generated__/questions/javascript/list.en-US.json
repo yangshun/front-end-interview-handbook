@@ -2256,7 +2256,8 @@
     "published": true,
     "ranking": 100,
     "similarQuestions": [
-      "group-by"
+      "group-by",
+      "min-by"
     ],
     "slug": "max-by",
     "subtitle": null,
@@ -2373,6 +2374,36 @@
     "slug": "merge-sort",
     "subtitle": null,
     "title": "Merge Sort",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
+    "created": 1710720000,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a function that finds the minimum element based on the specified criteria.",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/min-by",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "group-by",
+      "max-by"
+    ],
+    "slug": "min-by",
+    "subtitle": null,
+    "title": "Min By",
     "topics": []
   },
   {

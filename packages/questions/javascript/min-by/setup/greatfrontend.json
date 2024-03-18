@@ -1,0 +1,8 @@
+{
+  "run": "/src/min-by.run.test.ts",
+  "submit": "/src/min-by.submit.test.ts",
+  "skeleton": {
+    "js": "/src/min-by.skeleton.js",
+    "ts": "/src/min-by.skeleton.ts"
+  }
+}

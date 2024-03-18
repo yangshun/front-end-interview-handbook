@@ -1,0 +1,33 @@
+---
+title: Min By
+excerpt: Implement a function that finds the minimum element based on the specified criteria.
+---
+
+Implement a function `minBy(array, [iteratee=_.identity])` that finds the element inside `array` with the minimum value after going through `iteratee`. The `iteratee` is invoked with one argument: (value).
+
+## Arguments
+
+1. `array` _(Array)_: The array to iterate over.
+1. `[iteratee=_.identity]` _(Function)_: The iteratee invoked per element.
+
+## Returns
+
+_(\*)_: Returns the minimum value.
+
+## Examples
+
+```js
+minBy([{ n: 1 }, { n: 2 }], (o) => o.n;); // => { n: 1 }
+
+minBy([{ n: 1 }, { n: 2 }], 'n'); // => { n: 1 }
+```
+
+The function should return `undefined` if there is no matching value that fulfills `iteratee`.
+
+```js
+minBy([{ n: 1 }, { n: 2 }], 'm'); // => undefined
+```
+
+## Resources
+
+- [Lodash `_.minBy`](https://lodash.com/docs/#minBy)
