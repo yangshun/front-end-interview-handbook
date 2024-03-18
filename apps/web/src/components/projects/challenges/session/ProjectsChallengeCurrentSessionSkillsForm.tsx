@@ -1,11 +1,16 @@
 import { Controller, useForm } from 'react-hook-form';
+import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
 import ProjectsSkillRoadmapSelectionInput from '~/components/projects/skills/form/ProjectsSkillRoadmapSelectionInput';
 import Divider from '~/components/ui/Divider';
 
 import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
-import { useProjectsSkillListInputSchema } from '../../skills/form/ProjectsSkillListInputSchema';
+import {
+  getProjectsRoadmapSkillsInputAttributes,
+  getProjectsTechStackInputAttributes,
+  useProjectsSkillListInputSchema,
+} from '../../skills/form/ProjectsSkillListInputSchema';
 import ProjectsSkillTechStackInput from '../../skills/form/ProjectsSkillTechStackInput';
 import type { ProjectsSkillKey } from '../../skills/types';
 
@@ -39,6 +44,12 @@ export default function ProjectsChallengeCurrentSessionSkillsForm({
 }: Props) {
   const projectsChallengeSessionFormSchema =
     useProjectsChallengeSessionFormSchema();
+  const intl = useIntl();
+  const roadmapSkillsAttrs = getProjectsRoadmapSkillsInputAttributes(
+    intl,
+    false,
+  );
+  const techStackSkillsAttrs = getProjectsTechStackInputAttributes(intl, false);
 
   const { control, handleSubmit, getValues, formState } =
     useForm<ProjectsChallengeSessionSkillsFormValues>({
@@ -55,11 +66,14 @@ export default function ProjectsChallengeCurrentSessionSkillsForm({
         render={({ field }) => (
           <ProjectsSkillRoadmapSelectionInput
             challengeDefaultSkills={challengeDefaultSkills}
+            description={roadmapSkillsAttrs.description}
             errorMessage={
               formState.dirtyFields.roadmapSkills || formState.submitCount > 0
                 ? formState.errors.roadmapSkills?.message
                 : undefined
             }
+            label={roadmapSkillsAttrs.label}
+            placeholder={roadmapSkillsAttrs.placeholder}
             {...field}
             onChange={(newValue) => {
               // Save on every change.
@@ -75,11 +89,14 @@ export default function ProjectsChallengeCurrentSessionSkillsForm({
         name="techStackSkills"
         render={({ field }) => (
           <ProjectsSkillTechStackInput
+            description={techStackSkillsAttrs.description}
             errorMessage={
               formState.dirtyFields.techStackSkills || formState.submitCount > 0
                 ? formState.errors.techStackSkills?.message
                 : undefined
             }
+            label={techStackSkillsAttrs.label}
+            placeholder={techStackSkillsAttrs.placeholder}
             {...field}
             onBlur={() => {
               // Save when user stops changing.

@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import type { ForwardedRef } from 'react';
 import { forwardRef, useId, useState } from 'react';
 import { RiAddLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useIntl } from 'react-intl';
 
 import Button from '~/components/ui/Button';
 import type { LabelDescriptionStyle } from '~/components/ui/Label';
@@ -17,14 +17,14 @@ import type { ProjectsSkillKey } from '../types';
 type Props = Readonly<{
   challengeDefaultSkills?: ReadonlyArray<ProjectsSkillKey>;
   className?: string;
-  description?: React.ReactNode;
+  description: React.ReactNode;
   descriptionStyle?: LabelDescriptionStyle;
   errorMessage?: React.ReactNode;
   isLabelHidden?: boolean;
-  label?: string;
+  label: string;
   onBlur?: () => void;
   onChange: (value: ReadonlyArray<ProjectsSkillKey>) => void;
-  placeholder?: string;
+  placeholder: string;
   required?: boolean;
   value: ReadonlyArray<ProjectsSkillKey>;
 }>;
@@ -68,28 +68,12 @@ function ProjectsSkillRoadmapSelectionInput(
     <div>
       <div className={clsx('flex flex-col gap-2', className)}>
         <Label
-          description={
-            description ??
-            intl.formatMessage({
-              defaultMessage:
-                'The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development',
-              description:
-                'Description for skills input on project submit page',
-              id: 'pRi/7+',
-            })
-          }
+          description={description}
           descriptionId={messageId}
           descriptionStyle={descriptionStyle}
           htmlFor={id}
           isLabelHidden={isLabelHidden}
-          label={
-            label ??
-            intl.formatMessage({
-              defaultMessage: 'Skills used',
-              description: 'Label for projects skills input',
-              id: 'Pm4UMA',
-            })
-          }
+          label={label}
           required={required}
         />
         <div
@@ -115,13 +99,7 @@ function ProjectsSkillRoadmapSelectionInput(
           }}>
           {value.length === 0 ? (
             <Text color="placeholder" size="body2">
-              {placeholder ?? (
-                <FormattedMessage
-                  defaultMessage="No skills added"
-                  description="Placeholder for skills input when no skills are selected"
-                  id="8tdTMy"
-                />
-              )}
+              {placeholder}
             </Text>
           ) : (
             <ProjectsSkillRoadmapChips

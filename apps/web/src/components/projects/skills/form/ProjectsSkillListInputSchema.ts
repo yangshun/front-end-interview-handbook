@@ -72,9 +72,9 @@ export function getProjectsTechStackInputAttributes(
     id: 'qBPU/e',
   });
   const placeholder = intl.formatMessage({
-    defaultMessage: 'Search tech stack tags',
+    defaultMessage: 'E.g. React, Next.js, Tailwind CSS, etc.',
     description: 'Placeholder for tech stack input on project submit page',
-    id: 'VGzp8u',
+    id: 'WyXV2L',
   });
   const minMessage = intl.formatMessage({
     defaultMessage: 'Skills cannot be empty.',

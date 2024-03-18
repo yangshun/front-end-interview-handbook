@@ -1,4 +1,9 @@
+import { useIntl } from 'react-intl';
+
+import { getProjectsTechStackInputAttributes } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
+
 import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
+import { getProjectsRoadmapSkillsInputAttributes } from '../../skills/form/ProjectsSkillListInputSchema';
 import ProjectsSkillRoadmapSelectionInput from '../../skills/form/ProjectsSkillRoadmapSelectionInput';
 import ProjectsSkillTechStackInput from '../../skills/form/ProjectsSkillTechStackInput';
 import type { ProjectsSkillKey } from '../../skills/types';
@@ -14,10 +19,20 @@ export default function ProjectsChallengeGetStartedSkillSelection({
   skills,
   onChangeSkills,
 }: Props) {
+  const intl = useIntl();
+  const roadmapSkillsAttrs = getProjectsRoadmapSkillsInputAttributes(
+    intl,
+    false,
+  );
+  const techStackSkillsAttrs = getProjectsTechStackInputAttributes(intl, false);
+
   return (
     <form className="flex flex-col gap-y-6">
       <ProjectsSkillRoadmapSelectionInput
         challengeDefaultSkills={challengeDefaultSkills}
+        description={roadmapSkillsAttrs.description}
+        label={roadmapSkillsAttrs.label}
+        placeholder={roadmapSkillsAttrs.placeholder}
         value={skills.roadmapSkills}
         onChange={(roadmapSkills) => {
           onChangeSkills({
@@ -27,6 +42,9 @@ export default function ProjectsChallengeGetStartedSkillSelection({
         }}
       />
       <ProjectsSkillTechStackInput
+        description={techStackSkillsAttrs.description}
+        label={techStackSkillsAttrs.label}
+        placeholder={techStackSkillsAttrs.placeholder}
         value={skills.techStackSkills}
         onChange={(techStackSkills) => {
           onChangeSkills({

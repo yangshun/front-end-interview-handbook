@@ -24,6 +24,7 @@ import {
   useProjectsChallengeFilterContext,
   useProjectsChallengeFilterState,
 } from './ProjectsChallengeFilterContext';
+import { getProjectsRoadmapSkillsInputAttributes } from '../../skills/form/ProjectsSkillListInputSchema';
 import ProjectsSkillRoadmapSelectionInput from '../../skills/form/ProjectsSkillRoadmapSelectionInput';
 
 function FilterSection({
@@ -35,6 +36,11 @@ function FilterSection({
 }: ProjectsChallengeFilter) {
   const [selectedOptions, setSelectedOptions] =
     useProjectsChallengeFilterState(id);
+  const intl = useIntl();
+  const roadmapSkillsAttrs = getProjectsRoadmapSkillsInputAttributes(
+    intl,
+    false,
+  );
 
   return (
     <AccordionItem value={id}>
@@ -68,8 +74,10 @@ function FilterSection({
         )}
         {type === 'skill-selection' && (
           <ProjectsSkillRoadmapSelectionInput
+            description={roadmapSkillsAttrs.description}
             isLabelHidden={true}
             label={label}
+            placeholder={roadmapSkillsAttrs.placeholder}
             value={selectedOptions}
             onChange={(newSkills) =>
               setSelectedOptions(newSkills as Array<string>)

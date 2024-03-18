@@ -1167,10 +1167,6 @@
     "defaultMessage": "Loading submissions",
     "description": "Loading historical project submissions"
   },
-  "8tdTMy": {
-    "defaultMessage": "No skills added",
-    "description": "Placeholder for skills input when no skills are selected"
-  },
   "8tpjrI": {
     "defaultMessage": "{discountPercentage}% off, expires on {expiryDate}",
     "description": "Rewards discount message"
@@ -3187,10 +3183,6 @@
     "defaultMessage": "Ready to begin?",
     "description": "Description for start tasks prompt"
   },
-  "Pm4UMA": {
-    "defaultMessage": "Skills used",
-    "description": "Label for projects skills input"
-  },
   "Pn/2xP": {
     "defaultMessage": "You have more than 3 pinned submissions",
     "description": "Dialog title for pinned submission"
@@ -3863,10 +3855,6 @@
     "defaultMessage": "Download starter code + image assets",
     "description": "Label for \"Download starter code + image assets\" button on Projects project page"
   },
-  "VGzp8u": {
-    "defaultMessage": "Search tech stack tags",
-    "description": "Placeholder for tech stack input on project submit page"
-  },
   "VJ8xZy": {
     "defaultMessage": "Prices will be increased as more content is being added to the website.",
     "description": "Tip at the bottom of the Pricing section to let users know that we would increase prices gradually as the content becomes more complete"
@@ -4082,6 +4070,10 @@
   "WyHdb2": {
     "defaultMessage": "Proficient skills",
     "description": "Projects profile tech stack proficient section title"
+  },
+  "WyXV2L": {
+    "defaultMessage": "E.g. React, Next.js, Tailwind CSS, etc.",
+    "description": "Placeholder for tech stack input on project submit page"
   },
   "X/axGA": {
     "defaultMessage": "Affiliate Program",
@@ -6250,10 +6242,6 @@
   "pRCMpc": {
     "defaultMessage": "View plans",
     "description": "Button displayed on paywall on premium question pages, leading to our pricing plans"
-  },
-  "pRi/7+": {
-    "defaultMessage": "The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development",
-    "description": "Description for skills input on project submit page"
   },
   "pRxRs2": {
     "defaultMessage": "Hear from our users",

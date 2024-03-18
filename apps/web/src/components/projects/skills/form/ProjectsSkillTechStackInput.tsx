@@ -10,15 +10,15 @@ import {
 import type { ProjectsSkillKey } from '../types';
 
 type Props = Readonly<{
-  description?: React.ReactNode;
+  description: React.ReactNode;
   errorMessage?: React.ReactNode;
   excludeRoadmapSkills?: boolean;
   isDisabled?: boolean;
   isLabelHidden?: boolean;
-  label?: string;
+  label: string;
   onBlur?: () => void;
   onChange: (value: ReadonlyArray<ProjectsSkillKey> | null) => void;
-  placeholder?: string;
+  placeholder: string;
   required?: boolean;
   value: ReadonlyArray<ProjectsSkillKey>;
 }>;

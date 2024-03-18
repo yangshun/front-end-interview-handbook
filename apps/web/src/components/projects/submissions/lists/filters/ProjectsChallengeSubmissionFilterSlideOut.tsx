@@ -4,6 +4,10 @@ import { RiFilterLine, RiInformationLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import FilterButton from '~/components/common/FilterButton';
+import {
+  getProjectsRoadmapSkillsInputAttributes,
+  getProjectsTechStackInputAttributes,
+} from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 import ProjectsSkillRoadmapSelectionInput from '~/components/projects/skills/form/ProjectsSkillRoadmapSelectionInput';
 import ProjectsSkillTechStackInput from '~/components/projects/skills/form/ProjectsSkillTechStackInput';
 import type {
@@ -39,6 +43,12 @@ function FilterSection({
 }: ProjectsChallengeSubmissionFilter) {
   const [selectedOptions, setSelectedOptions] =
     useProjectsChallengeSubmissionFilterState(id);
+  const intl = useIntl();
+  const roadmapSkillsAttrs = getProjectsRoadmapSkillsInputAttributes(
+    intl,
+    false,
+  );
+  const techStackSkillsAttrs = getProjectsTechStackInputAttributes(intl, false);
 
   const filterLabel = (
     <div className="flex items-center gap-2">
@@ -57,8 +67,10 @@ function FilterSection({
     <div className="flex flex-col gap-5 py-5">
       {filterLabel}
       <ProjectsSkillTechStackInput
+        description={techStackSkillsAttrs.description}
         isLabelHidden={true}
         label={label}
+        placeholder={techStackSkillsAttrs.placeholder}
         required={false}
         value={selectedOptions}
         onChange={(value) => {
@@ -96,8 +108,10 @@ function FilterSection({
         )}
         {type === 'skill-selection' && (
           <ProjectsSkillRoadmapSelectionInput
+            description={roadmapSkillsAttrs.description}
             isLabelHidden={true}
             label={label}
+            placeholder={roadmapSkillsAttrs.placeholder}
             value={selectedOptions}
             onChange={(value) => {
               const newValue = [...(value ?? [])];
