@@ -1,0 +1,8 @@
+{
+  "run": "/src/max-by.run.test.ts",
+  "submit": "/src/max-by.submit.test.ts",
+  "skeleton": {
+    "js": "/src/max-by.skeleton.js",
+    "ts": "/src/max-by.skeleton.ts"
+  }
+}

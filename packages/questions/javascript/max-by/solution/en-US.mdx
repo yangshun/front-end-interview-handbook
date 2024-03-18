@@ -1,0 +1,18 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import maxByJs from '../setup/src/max-by.js';
+import maxByTs from '../setup/src/max-by.ts';
+
+## Solution
+
+Here's a solution that finds the maximum element in `array` based on a given `iteratee`, using `result` for the element and `computed` for its value comparison.
+
+<MDXCodeBlock languages={{ jsx: maxByJs, tsx: maxByTs }} />
+
+## Edge Cases
+
+To handle mixed data types, the `iteratee` function must be able to process them by either converting the elements to a common type or process them separately.
+
+## Resources
+
+- [Lodash `_.maxBy`](https://lodash.com/docs/#maxBy)
