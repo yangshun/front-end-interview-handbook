@@ -22,6 +22,7 @@ import ProjectsChallengeHoverCard from './ProjectsChallengeHoverCard';
 import ProjectsChallengeSubmissionCardPinButton from './ProjectsChallengeSubmissionCardPinButton';
 import type { ProjectsChallengeSubmissionAugmented } from '../types';
 import ProjectsStatusBadge from '../../common/status/ProjectsStatusBadge';
+import ProjectsSkillGroupList from '../../skills/metadata/ProjectsSkillGroupList';
 import ProjectsSkillList from '../../skills/metadata/ProjectsSkillList';
 import ProjectsCommentCountTag from '../../stats/ProjectsCommentCountTag';
 import ProjectsViewCountTag from '../../stats/ProjectsViewCountTag';
@@ -74,7 +75,7 @@ export default function ProjectsChallengeSubmissionCard({
         themeBackgroundCardAltColor,
       )}>
       {challenge != null && (
-        <div className="flex items-center justify-between gap-2">
+        <div className="flex h-6 shrink-0 items-center justify-between gap-2">
           <div className="z-[1] flex items-center gap-2">
             <Text color="secondary" size="body3">
               <FormattedMessage
@@ -125,21 +126,37 @@ export default function ProjectsChallengeSubmissionCard({
             {title}
           </Text>
         </Anchor>
-        <div className="min-h-[44px]">
-          <ProjectsSkillList
-            label={intl.formatMessage({
-              defaultMessage: 'Stack used',
-              description: 'Label for tech stack used in project',
-              id: 'aiI8c6',
-            })}
-            limit={3}
-            // TODO(projects|skills): display parent skill for roadmap skills.
-            skills={[...roadmapSkills, ...techStackSkills]}
-          />
+        <div className="flex gap-2 overflow-hidden">
+          <div className="shrink-0">
+            <ProjectsSkillGroupList
+              label={intl.formatMessage({
+                defaultMessage: 'Stack used',
+                description: 'Label for tech stack used in project',
+                id: 'aiI8c6',
+              })}
+              skills={roadmapSkills}
+            />
+          </div>
+          <div className="shrink-0">
+            <ProjectsSkillList
+              isLabelHidden={true}
+              label={intl.formatMessage({
+                defaultMessage: 'Stack used',
+                description: 'Label for tech stack used in project',
+                id: 'aiI8c6',
+              })}
+              limit={3}
+              skills={techStackSkills}
+            />
+          </div>
         </div>
       </div>
       <div className="h-[190px]">
-        <img alt={title} className="h-[190px] w-full rounded-md" src={imgSrc} />
+        <img
+          alt={title}
+          className="h-[190px] w-full rounded-md object-cover"
+          src={imgSrc}
+        />
       </div>
       {!isPinned && author != null && (
         <div className="z-[1] flex items-center gap-4">
