@@ -34,12 +34,10 @@ export default function ProjectsProfilePage({
 
   return (
     <div>
-      <div className="flex flex-col gap-6">
-        <ProjectsProfileInfo
-          isViewingOwnProfile={isViewingOwnProfile}
-          userProfile={{ ...userProfile, projectsProfile }}
-        />
-      </div>
+      <ProjectsProfileInfo
+        isViewingOwnProfile={isViewingOwnProfile}
+        userProfile={{ ...userProfile, projectsProfile }}
+      />
       <div className="mt-12">
         <ProjectsProfileStats
           codeReviews={profileStatistics?.codeReviews ?? 0}

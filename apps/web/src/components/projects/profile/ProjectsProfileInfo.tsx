@@ -46,15 +46,15 @@ export default function ProjectsProfileInfo({
   );
 
   return (
-    <>
+    <div className="flex flex-col gap-6 md:gap-8">
       <Section>
-        <div className="hidden justify-between md:flex">
-          <div className="flex items-center gap-6">
-            <ProjectsProfileAvatar
-              points={projectsProfile.points}
-              size="3xl"
-              userProfile={userProfile}
-            />
+        <div className="flex gap-6 md:items-center">
+          <ProjectsProfileAvatar
+            points={projectsProfile.points}
+            size="3xl"
+            userProfile={userProfile}
+          />
+          <div className="flex grow flex-col gap-6 md:flex-row md:justify-between">
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-4">
                 <Text size="body1" weight="medium">
@@ -74,41 +74,8 @@ export default function ProjectsProfileInfo({
                 <ProjectsProfileSocialLinks userProfile={userProfile} />
               </div>
             </div>
+            {isViewingOwnProfile && editProfileButton}
           </div>
-          {isViewingOwnProfile && editProfileButton}
-        </div>
-        <div className="flex flex-col gap-6 md:hidden">
-          <div className="flex items-center gap-8">
-            <ProjectsProfileAvatar
-              points={projectsProfile.points}
-              size="3xl"
-              userProfile={userProfile}
-            />
-            <div className="flex flex-col gap-2">
-              <div className="flex flex-wrap items-center gap-2">
-                <div className="flex items-center gap-4">
-                  <Text size="body1" weight="medium">
-                    <ProjectsProfileDisplayNameLink userProfile={userProfile} />
-                  </Text>
-                  <ProjectsProfileUsernameBadge
-                    premium={projectsProfile.premium}
-                    username={userProfile.username}
-                  />
-                </div>
-                <UserProfileInformationRow userProfile={userProfile} />
-                <div className="flex items-center gap-3">
-                  <ProjectsUserReputation
-                    points={projectsProfile.points}
-                    size="body2"
-                  />
-                  <ProjectsProfileSocialLinks userProfile={userProfile} />
-                </div>
-              </div>
-            </div>
-          </div>
-          {isViewingOwnProfile && (
-            <div className="grid justify-items-end">{editProfileButton}</div>
-          )}
         </div>
       </Section>
       <div className="flex flex-col justify-between gap-8 md:flex-row">
@@ -159,6 +126,6 @@ export default function ProjectsProfileInfo({
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
