@@ -111,21 +111,16 @@ export default function ProjectsChallengeSubmissionForm({
       <form className="flex flex-col gap-12" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-10">
           <div className="grid gap-6 lg:grid-cols-2">
-            <div className="flex flex-col gap-6">
-              <ProjectsChallengeSubmissionTitleField control={control} />
-              <ProjectsChallengeSubmissionRoadmapSkillsField
-                control={control}
-              />
-              <ProjectsChallengeSubmissionTechStackField
-                control={control}
-                required={false}
-              />
-              <ProjectsChallengeSubmissionRepositoryUrlField
-                control={control}
-              />
-            </div>
-            <ProjectsChallengeSubmissionDeploymentUrlsField control={control} />
+            <ProjectsChallengeSubmissionTitleField control={control} />
+            <ProjectsChallengeSubmissionRepositoryUrlField control={control} />
+            <ProjectsChallengeSubmissionRoadmapSkillsField control={control} />
+            <ProjectsChallengeSubmissionTechStackField
+              control={control}
+              required={false}
+            />
           </div>
+          <Divider />
+          <ProjectsChallengeSubmissionDeploymentUrlsField control={control} />
           <Divider />
           <div className="flex flex-col gap-6">
             <div className="grid gap-x-6 lg:grid-cols-2">

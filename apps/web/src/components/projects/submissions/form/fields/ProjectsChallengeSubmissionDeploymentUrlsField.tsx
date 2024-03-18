@@ -63,7 +63,7 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
           </div>
         </div>
         {field.value.length > 0 && (
-          <div className="flex flex-col gap-2">
+          <div className="grid gap-6 lg:grid-cols-2">
             {field.value.map((item, index) => (
               <div
                 key={item.href}
@@ -73,9 +73,13 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
                   ['border', themeBorderElementColor],
                 )}>
                 <Text
-                  className="block w-full truncate whitespace-nowrap"
-                  size="body3">
-                  {item.label}: <Anchor href={item.href}>{item.href}</Anchor>
+                  className={clsx(
+                    'flex items-center gap-2',
+                    'w-full truncate whitespace-nowrap',
+                  )}
+                  size="body2">
+                  <span>{item.label}</span>{' '}
+                  <Anchor href={item.href}>{item.href}</Anchor>
                 </Text>
                 <div className="-me-2 flex shrink-0">
                   <Button
@@ -122,7 +126,6 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
         <div>
           <Button
             addonPosition="start"
-            display="block"
             icon={RiAddLine}
             label={
               field.value.length > 0
@@ -139,7 +142,7 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
                     id: 'SGaDHr',
                   })
             }
-            size="sm"
+            size="md"
             variant="secondary"
             onClick={() => {
               setDialogMode({ type: 'add' });
