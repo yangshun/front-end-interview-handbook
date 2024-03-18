@@ -70,8 +70,8 @@ export function getProjectsChallengeSubmissionTitleAttributes(intl: IntlShape) {
     placeholder,
     validation: {
       maxLength: MAX_LENGTH,
-      minLength: MIN_LENGTH,
       maxMessage,
+      minLength: MIN_LENGTH,
       minMessage,
       required: true,
     },

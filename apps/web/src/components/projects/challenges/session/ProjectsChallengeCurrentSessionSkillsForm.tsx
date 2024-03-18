@@ -7,10 +7,12 @@ import Divider from '~/components/ui/Divider';
 import type { ProjectsChallengeSessionSkillsFormValues } from '../types';
 import { useProjectsSkillListInputSchema } from '../../skills/form/ProjectsSkillListInputSchema';
 import ProjectsSkillTechStackInput from '../../skills/form/ProjectsSkillTechStackInput';
+import type { ProjectsSkillKey } from '../../skills/types';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 
 type Props = Readonly<{
+  challengeDefaultSkills: ReadonlyArray<ProjectsSkillKey>;
   defaultValues?: ProjectsChallengeSessionSkillsFormValues;
   onSubmit: (data: ProjectsChallengeSessionSkillsFormValues) => void;
 }>;
@@ -28,6 +30,7 @@ function useProjectsChallengeSessionFormSchema() {
 }
 
 export default function ProjectsChallengeCurrentSessionSkillsForm({
+  challengeDefaultSkills,
   defaultValues = {
     roadmapSkills: [],
     techStackSkills: [],
@@ -51,6 +54,7 @@ export default function ProjectsChallengeCurrentSessionSkillsForm({
         name="roadmapSkills"
         render={({ field }) => (
           <ProjectsSkillRoadmapSelectionInput
+            challengeDefaultSkills={challengeDefaultSkills}
             errorMessage={
               formState.dirtyFields.roadmapSkills || formState.submitCount > 0
                 ? formState.errors.roadmapSkills?.message

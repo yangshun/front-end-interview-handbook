@@ -80,6 +80,7 @@ function useDialogSteps({
     {
       content: (
         <ProjectsChallengeGetStartedSkillSelection
+          challengeDefaultSkills={challenge.metadata.skills}
           skills={skills}
           onChangeSkills={setSkills}
         />
@@ -145,7 +146,7 @@ export default function ProjectsChallengeGetStartedDialog({
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [skills, setSkills] =
     useState<ProjectsChallengeSessionSkillsFormValues>({
-      roadmapSkills: [],
+      roadmapSkills: challenge.metadata.skills,
       techStackSkills: [],
     });
 

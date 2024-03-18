@@ -18,7 +18,7 @@ const latestSessionQueryKey = getQueryKey(
   trpc.projects.sessions.latestInProgress,
 );
 
-type ProjectsChallengeSessionContextType = {
+type ProjectsChallengeSessionContextType = Readonly<{
   accessAllSteps: boolean;
   endSession: (slug: string) => Promise<void>;
   fetchingCanAccessAllSteps: boolean;
@@ -32,7 +32,7 @@ type ProjectsChallengeSessionContextType = {
   startSession: (
     skills: ProjectsChallengeSessionSkillsFormValues,
   ) => Promise<void>;
-};
+}>;
 
 const ProjectsChallengeSessionContext =
   createContext<ProjectsChallengeSessionContextType>({

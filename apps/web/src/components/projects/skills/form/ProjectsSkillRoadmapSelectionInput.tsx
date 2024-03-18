@@ -15,6 +15,7 @@ import ProjectsSkillRoadmapChips from '../metadata/ProjectsSkillRoadmapChips';
 import type { ProjectsSkillKey } from '../types';
 
 type Props = Readonly<{
+  challengeDefaultSkills?: ReadonlyArray<ProjectsSkillKey>;
   className?: string;
   description?: React.ReactNode;
   descriptionStyle?: LabelDescriptionStyle;
@@ -40,6 +41,7 @@ const stateClasses: Record<State, string> = {
 
 function ProjectsSkillRoadmapSelectionInput(
   {
+    challengeDefaultSkills,
     className,
     descriptionStyle = 'tooltip',
     description,
@@ -169,6 +171,7 @@ function ProjectsSkillRoadmapSelectionInput(
       )}
       {showSkillsRoadmapDialog && (
         <ProjectsSkillRoadmapSelectionDialog
+          challengeDefaultSkills={challengeDefaultSkills}
           defaultSkills={value}
           isShown={showSkillsRoadmapDialog}
           onClose={() => setShowSkillsRoadmapDialog(false)}

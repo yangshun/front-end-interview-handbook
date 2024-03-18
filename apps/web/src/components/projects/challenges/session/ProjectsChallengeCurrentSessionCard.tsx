@@ -220,6 +220,7 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
         </div>
         {isExpanded && (
           <ProjectsChallengeCurrentSessionSkillsForm
+            challengeDefaultSkills={challenge.metadata.skills}
             defaultValues={{
               roadmapSkills,
               techStackSkills: techStackSkills ?? [],

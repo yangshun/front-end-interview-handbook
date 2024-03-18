@@ -8,6 +8,7 @@ import ProjectsSkillRoadmapSelection from './ProjectsSkillRoadmapSelection';
 import type { ProjectsSkillKey } from '../types';
 
 type Props = Readonly<{
+  challengeDefaultSkills?: ReadonlyArray<ProjectsSkillKey>;
   defaultSkills: ReadonlyArray<ProjectsSkillKey>;
   isShown: boolean;
   onClose: () => void;
@@ -15,6 +16,7 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsSkillRoadmapSelectionDialog({
+  challengeDefaultSkills,
   defaultSkills,
   onComplete,
   isShown,
@@ -40,17 +42,18 @@ export default function ProjectsSkillRoadmapSelectionDialog({
       }
       scrollable={true}
       secondaryButton={
-        // TODO(projects|skills): Check if reverting to challenge recommendation or initial selection.
-        <Button
-          label={intl.formatMessage({
-            defaultMessage: 'Revert to default',
-            description: 'Revert skills section to default',
-            id: 'gSoK2P',
-          })}
-          size="md"
-          variant="secondary"
-          onClick={() => setSkills(defaultSkills)}
-        />
+        challengeDefaultSkills != null ? (
+          <Button
+            label={intl.formatMessage({
+              defaultMessage: 'Revert to default',
+              description: 'Revert skills section to default',
+              id: 'gSoK2P',
+            })}
+            size="md"
+            variant="secondary"
+            onClick={() => setSkills(challengeDefaultSkills)}
+          />
+        ) : undefined
       }
       title={intl.formatMessage({
         defaultMessage: 'Choose additional skills you will use in this project',
