@@ -1,11 +1,12 @@
 import type { Control } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
-import { RiGithubFill, RiGlobalLine, RiLinkedinFill } from 'react-icons/ri';
+import { RiGithubFill, RiLinkedinFill } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import TextInput from '~/components/ui/TextInput';
 
+import ProjectsProfileWebsiteInput from './ProjectsProfileWebsiteInput';
 import type { ProjectsOnboardingProfileStep2FormValues } from '../../onboarding/ProjectsOnboardingProfileStep2';
 import { projectsReputationProfileFieldConfig } from '../../reputation/ProjectsReputationPointsConfig';
 import type { ProjectsProfileEditFormValues } from '../../types';
@@ -111,34 +112,7 @@ export default function ProjectsProfileSocialInput({
             variant="filled"
           />
         )}
-        <Controller
-          control={control}
-          name="website"
-          render={({ field, formState }) => (
-            <TextInput
-              description={intl.formatMessage({
-                defaultMessage: 'Add your socials so that others can find you!',
-                description:
-                  'Description for social link input on Projects profile onboarding page',
-                id: 'SbE8XR',
-              })}
-              descriptionStyle="tooltip"
-              errorMessage={
-                formState.dirtyFields.website || formState.submitCount > 0
-                  ? formState.errors.website?.message
-                  : undefined
-              }
-              label={intl.formatMessage({
-                defaultMessage: 'Personal website',
-                description: 'Personal website link field',
-                id: '3JSDTC',
-              })}
-              placeholder="https://johndoe.com"
-              startIcon={RiGlobalLine}
-              {...field}
-            />
-          )}
-        />
+        <ProjectsProfileWebsiteInput control={control} />
       </div>
     </div>
   );

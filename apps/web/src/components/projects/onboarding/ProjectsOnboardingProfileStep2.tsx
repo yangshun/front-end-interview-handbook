@@ -17,6 +17,7 @@ import ProjectsProfileBioInput from '../profile/edit/ProjectsProfileBioInput';
 import ProjectsProfileSkillsProficientInput from '../profile/edit/ProjectsProfileSkillsProficientInput';
 import ProjectsProfileSkillsToImproveInput from '../profile/edit/ProjectsProfileSkillsToImproveInput';
 import { useProjectsProfileBioSchema } from '../profile/fields/ProjectsProfileBioSchema';
+import { useProjectsProfileWebsiteSchema } from '../profile/fields/ProjectsProfileWebsiteSchema';
 import { projectsReputationProfileFieldConfig } from '../reputation/ProjectsReputationPointsConfig';
 import { useProjectsSkillListInputSchema } from '../skills/form/ProjectsSkillListInputSchema';
 import type { ProjectsSkillKey } from '../skills/types';
@@ -40,6 +41,7 @@ function useOnboardingProfileStep2Schema() {
     required: false,
   });
   const bioSchema = useProjectsProfileBioSchema();
+  const websiteSchema = useProjectsProfileWebsiteSchema();
 
   return z.object({
     bio: bioSchema,
@@ -47,7 +49,7 @@ function useOnboardingProfileStep2Schema() {
     linkedInUsername: z.string(),
     skillsProficient: skillsProficientSchema,
     skillsToGrow: skillsToGrowSchema,
-    website: z.string(),
+    website: websiteSchema,
   });
 }
 

@@ -2,6 +2,7 @@ import { z } from 'zod';
 
 import { profileUserNameSchemaServer } from '~/components/profile/fields/ProfileUsernameSchema';
 import { projectsJobTitleInputSchemaServer } from '~/components/projects/profile/fields/ProjectsProfileJobSchema';
+import { projectsProfileWebsiteSchemaServer } from '~/components/projects/profile/fields/ProjectsProfileWebsiteSchema';
 import { fetchProjectsProfileRecalculatePoints } from '~/components/projects/reputation/ProjectsProfileRecalculatePoints';
 import { projectsSkillListInputOptionalSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 import { base64toBlob } from '~/components/projects/utils/profilePhotoUtils';
@@ -303,10 +304,7 @@ export const projectsProfileRouter = router({
           .nullable(),
         skillsProficient: projectsSkillListInputOptionalSchemaServer,
         skillsToGrow: projectsSkillListInputOptionalSchemaServer,
-        website: z
-          .union([z.string().length(0), z.string().url()])
-          .transform((val) => (val ? val : null))
-          .nullable(),
+        website: projectsProfileWebsiteSchemaServer,
       }),
     )
     .mutation(
@@ -384,10 +382,7 @@ export const projectsProfileRouter = router({
           startWorkDate: z.date().optional().nullable(),
           title: projectsJobTitleInputSchemaServer,
           username: profileUserNameSchemaServer,
-          website: z
-            .union([z.string().length(0), z.string().url()])
-            .transform((val) => (val ? val : null))
-            .nullable(),
+          website: projectsProfileWebsiteSchemaServer,
         })
         .partial(),
     )

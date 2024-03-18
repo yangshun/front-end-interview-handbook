@@ -1211,6 +1211,10 @@
     "defaultMessage": "View LinkedIn profile",
     "description": "Link to LinkedIn profile"
   },
+  "93rlLI": {
+    "defaultMessage": "URL is required",
+    "description": "Error message"
+  },
   "94CGBX": {
     "defaultMessage": "Coding",
     "description": "Label for coding questions"

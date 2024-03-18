@@ -24,6 +24,7 @@ import {
   useProjectsJobNotStartedSchema,
   useProjectsJobStartedSchema,
 } from '~/components/projects/profile/fields/ProjectsProfileJobSchema';
+import { useProjectsProfileWebsiteSchema } from '~/components/projects/profile/fields/ProjectsProfileWebsiteSchema';
 import { useProjectsSkillListInputSchema } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Anchor from '~/components/ui/Anchor';
@@ -50,6 +51,7 @@ function useProjectsProfileEditSchema() {
   const jobNotStartedSchema = useProjectsJobNotStartedSchema();
   const jobStartedSchema = useProjectsJobStartedSchema();
   const bioSchema = useProjectsProfileBioSchema();
+  const websiteSchema = useProjectsProfileWebsiteSchema();
 
   const baseSchema = z.object({
     avatarUrl: z.string().optional(),
@@ -67,10 +69,7 @@ function useProjectsProfileEditSchema() {
     skillsProficient: skillsProficientSchema,
     skillsToGrow: skillsToGrowSchema,
     username: usernameSchema,
-    website: z
-      .union([z.string().length(0), z.string().url()])
-      .transform((val) => (val ? val : null))
-      .nullable(),
+    website: websiteSchema,
   });
 
   return z.discriminatedUnion('hasStartedWork', [
