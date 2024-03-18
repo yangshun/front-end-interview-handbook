@@ -38,6 +38,24 @@ function whereClauseForSubmissions(
   profileStatus: Array<ProjectsYoeReplacement>,
   hasClientFilterApplied: boolean,
 ) {
+  // Challenges that I have not started at all
+  const notStartedChallenges = {
+    NOT: {
+      challengeDetails: {
+        sessions: {
+          some: {
+            OR: [
+              { status: 'IN_PROGRESS' },
+              { status: 'COMPLETED' },
+              { status: 'STOPPED' },
+            ],
+            profileId: projectsProfileId,
+          },
+        },
+      },
+    },
+  };
+
   return [
     {
       // Filter by session title or summary
@@ -45,36 +63,22 @@ function whereClauseForSubmissions(
         { title: { contains: query, mode: 'insensitive' as const } },
         { summary: { contains: query, mode: 'insensitive' as const } },
       ],
-      projectsProfile: {
-        // Filter by submissions of projects you have completed or in progress or not started
-        ...(isStatusNotEmpty && {
-          // Filter with empty id to get empty result if the user is not logged in
-          id: projectsProfileId === null ? '' : projectsProfileId,
-          sessions: {
-            some: {
-              OR: [
-                {
-                  status: { in: statusWithoutNotStarted },
+      // Filter users submissions of projects I have completed or in progress or not started
+      ...(isStatusNotEmpty &&
+        projectsProfileId &&
+        (hasNotStarted
+          ? notStartedChallenges
+          : {
+              challengeDetails: {
+                sessions: {
+                  some: {
+                    profileId: projectsProfileId,
+                    status: { in: statusWithoutNotStarted },
+                  },
                 },
-                ...(hasNotStarted
-                  ? [
-                      {
-                        NOT: {
-                          status: {
-                            in: [
-                              'IN_PROGRESS',
-                              'COMPLETED',
-                              'STOPPED',
-                            ] as Array<ProjectsChallengeSessionStatus>,
-                          },
-                        },
-                      },
-                    ]
-                  : []),
-              ],
-            },
-          },
-        }),
+              },
+            })),
+      projectsProfile: {
         // Filter by the creator’s years of experience or their job status
         userProfile: {
           ...(profileStatus.length > 0 && {
@@ -308,6 +312,21 @@ export const projectsChallengeSubmissionListRouter = router({
           });
         }
 
+        // If not logged in and filtering by my challenge status
+        // If not logged in and if it is learn or mentor tab, because it has some default status filter applied for which we need profileId
+        // return empty as there will be no challenges with status for non-logged in user
+        if (
+          !projectsProfileId &&
+          (isStatusNotEmpty ||
+            submissionType === 'learn' ||
+            submissionType === 'mentor')
+        ) {
+          return {
+            submissions: [],
+            totalCount: 0,
+          };
+        }
+
         const commonWhere = whereClauseForSubmissions(
           query ?? '',
           isStatusNotEmpty,
@@ -335,15 +354,21 @@ export const projectsChallengeSubmissionListRouter = router({
                 ? [
                     ...commonWhere,
                     {
-                      projectsProfile: {
-                        // Filter challenge working on or completed
-                        sessions: {
-                          some: {
-                            status: {
-                              in: inProgressAndCompletedSessionsStatus,
+                      // Filter challenge working on or completed
+                      ...(projectsProfileId && {
+                        challengeDetails: {
+                          sessions: {
+                            some: {
+                              profileId: projectsProfileId,
+                              status: {
+                                in: inProgressAndCompletedSessionsStatus,
+                              },
                             },
                           },
-                        }, // User who has more YOE than current user
+                        },
+                      }),
+                      projectsProfile: {
+                        // User who has more YOE than current user
                         ...(userProfile && {
                           userProfile: {
                             id: { not: userProfile.id },
@@ -360,14 +385,19 @@ export const projectsChallengeSubmissionListRouter = router({
                 : [
                     ...commonWhere,
                     {
-                      projectsProfile: {
-                        // Filter challenge working on
-                        // TODO(projects): Add filter for reviewed before
-                        sessions: {
-                          some: {
-                            status: { in: inProgressSessionsStatus },
+                      // Filter challenge working on
+                      // TODO(projects): Add filter for reviewed before
+                      ...(projectsProfileId && {
+                        challengeDetails: {
+                          sessions: {
+                            some: {
+                              profileId: projectsProfileId,
+                              status: { in: inProgressSessionsStatus },
+                            },
                           },
                         },
+                      }),
+                      projectsProfile: {
                         // User who has fewer YOE than current user
                         ...(userProfile && {
                           userProfile: {
