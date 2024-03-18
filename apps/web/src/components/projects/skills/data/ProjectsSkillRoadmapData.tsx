@@ -41,6 +41,8 @@ export const skillsRoadmap: ProjectsSkillRoadmap = [
         ],
         key: 'html',
         points: 100,
+        tagClassname:
+          'bg-orange-600 text-white dark:bg-neutral-700 dark:text-orange-600',
         total: 4,
       },
       {
@@ -76,6 +78,8 @@ export const skillsRoadmap: ProjectsSkillRoadmap = [
         ],
         key: 'javascript',
         points: 20,
+        tagClassname:
+          'bg-yellow-500 text-black dark:bg-neutral-700 dark:text-yellow-500',
         total: 4,
       },
       {
@@ -111,6 +115,8 @@ export const skillsRoadmap: ProjectsSkillRoadmap = [
         ],
         key: 'css',
         points: 100,
+        tagClassname:
+          'bg-sky-500 text-white dark:bg-neutral-700 dark:text-sky-500',
         total: 4,
       },
     ],
@@ -145,6 +151,7 @@ export const skillsRoadmap: ProjectsSkillRoadmap = [
         ],
         key: 'package-managers',
         points: 100,
+        tagClassname: 'bg-red text-white dark:bg-neutral-700 dark:text-red',
         total: 4,
       },
       {
@@ -180,6 +187,8 @@ export const skillsRoadmap: ProjectsSkillRoadmap = [
         ],
         key: 'css-advanced',
         points: 20,
+        tagClassname:
+          'bg-green-dark text-white dark:bg-neutral-700 dark:text-green',
         total: 4,
       },
     ],

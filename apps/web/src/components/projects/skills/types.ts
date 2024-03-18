@@ -14,6 +14,7 @@ export type ProjectsSkillRoadmapGroup = Readonly<{
   items: ReadonlyArray<ProjectsSkillRoadmapItem>;
   key: ProjectsSkillKey;
   points: number;
+  tagClassname: string;
   total: number;
 }>;
 

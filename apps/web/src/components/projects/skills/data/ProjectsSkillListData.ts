@@ -6,7 +6,6 @@ import type { ProjectsSkillKey } from '../types';
 // TODO(projects): add in proper list.
 export const ProjectsSkillLabels: Record<ProjectsSkillKey, string> = {
   angular: 'Angular',
-  html: 'HTML',
   nextjs: 'Next.js',
   react: 'React',
   svelte: 'Svelte',

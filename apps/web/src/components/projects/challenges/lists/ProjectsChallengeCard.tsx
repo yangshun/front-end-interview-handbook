@@ -16,6 +16,7 @@ import {
 import type { ProjectsChallengeItem } from '../types';
 import ProjectsPremiumBadge from '../../common/ProjectsPremiumBadge';
 import ProjectsStatusBadge from '../../common/status/ProjectsStatusBadge';
+import ProjectsSkillGroupList from '../../skills/metadata/ProjectsSkillGroupList';
 import ProjectsSkillList from '../../skills/metadata/ProjectsSkillList';
 import ProjectsCompletedUsersTag from '../../stats/ProjectsCompletedUsersTag';
 
@@ -113,13 +114,12 @@ export default function ProjectsChallengeCard({
             {description}
           </Text>
         </div>
-        <ProjectsSkillList
+        <ProjectsSkillGroupList
           label={intl.formatMessage({
             defaultMessage: 'Skills',
             description: 'Label for skills list in Project card',
             id: 'Lr/Ez4',
           })}
-          limit={3}
           skills={skills}
         />
         <div className="flex items-center gap-4">
