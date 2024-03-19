@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { useIntl } from 'react-intl';
 
 import Text from '~/components/ui/Text';
-import { themeBackgroundChipColor } from '~/components/ui/theme';
 
 import ProjectsSkillChipDeleteButton from './ProjectsSkillChipDeleteButton';
 import { projectsSkillLabel } from '../data/ProjectsSkillListData';
@@ -29,7 +28,7 @@ export default function ProjectsSkillChip({ value, ...props }: Props) {
         'flex items-center justify-center',
         'w-fit gap-1 px-2 py-0.5',
         'rounded',
-        themeBackgroundChipColor,
+        'bg-neutral-200 dark:bg-neutral-700',
       )}>
       <Text className="whitespace-nowrap" size="body3" weight="medium">
         {projectsSkillLabel(value)}

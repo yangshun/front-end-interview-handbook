@@ -22,8 +22,7 @@ import ProjectsChallengeHoverCard from './ProjectsChallengeHoverCard';
 import ProjectsChallengeSubmissionCardPinButton from './ProjectsChallengeSubmissionCardPinButton';
 import type { ProjectsChallengeSubmissionAugmented } from '../types';
 import ProjectsStatusBadge from '../../common/status/ProjectsStatusBadge';
-import ProjectsSkillGroupList from '../../skills/metadata/ProjectsSkillGroupList';
-import ProjectsSkillList from '../../skills/metadata/ProjectsSkillList';
+import ProjectsSkillSummaryList from '../../skills/metadata/ProjectsSkillSummaryList';
 import ProjectsCommentCountTag from '../../stats/ProjectsCommentCountTag';
 import ProjectsViewCountTag from '../../stats/ProjectsViewCountTag';
 import ProjectsVoteCountTag from '../../stats/ProjectsVoteCountTag';
@@ -126,30 +125,15 @@ export default function ProjectsChallengeSubmissionCard({
             {title}
           </Text>
         </Anchor>
-        <div className="flex gap-2 overflow-hidden">
-          <div className="shrink-0">
-            <ProjectsSkillGroupList
-              label={intl.formatMessage({
-                defaultMessage: 'Stack used',
-                description: 'Label for tech stack used in project',
-                id: 'aiI8c6',
-              })}
-              skills={roadmapSkills}
-            />
-          </div>
-          <div className="shrink-0">
-            <ProjectsSkillList
-              isLabelHidden={true}
-              label={intl.formatMessage({
-                defaultMessage: 'Stack used',
-                description: 'Label for tech stack used in project',
-                id: 'aiI8c6',
-              })}
-              limit={3}
-              skills={techStackSkills}
-            />
-          </div>
-        </div>
+        <ProjectsSkillSummaryList
+          label={intl.formatMessage({
+            defaultMessage: 'Stack used',
+            description: 'Label for tech stack used in project',
+            id: 'aiI8c6',
+          })}
+          roadmapSkills={roadmapSkills}
+          techStackSkills={techStackSkills}
+        />
       </div>
       <div className="h-[190px]">
         <img

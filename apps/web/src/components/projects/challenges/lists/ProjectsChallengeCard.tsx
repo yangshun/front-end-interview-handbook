@@ -16,8 +16,8 @@ import {
 import type { ProjectsChallengeItem } from '../types';
 import ProjectsPremiumBadge from '../../common/ProjectsPremiumBadge';
 import ProjectsStatusBadge from '../../common/status/ProjectsStatusBadge';
+import projectsSkillExtractGroups from '../../skills/metadata/projectsSkillExtractGroups';
 import ProjectsSkillGroupList from '../../skills/metadata/ProjectsSkillGroupList';
-import ProjectsSkillList from '../../skills/metadata/ProjectsSkillList';
 import ProjectsCompletedUsersTag from '../../stats/ProjectsCompletedUsersTag';
 
 type ChallengeCardType = 'hover' | 'normal';
@@ -115,12 +115,7 @@ export default function ProjectsChallengeCard({
           </Text>
         </div>
         <ProjectsSkillGroupList
-          label={intl.formatMessage({
-            defaultMessage: 'Skills',
-            description: 'Label for skills list in Project card',
-            id: 'Lr/Ez4',
-          })}
-          skills={skills}
+          skillGroups={projectsSkillExtractGroups(skills)}
         />
         <div className="flex items-center gap-4">
           {type === 'normal' && (

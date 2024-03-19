@@ -171,15 +171,7 @@ export default function ProjectsChallengeSubmissionPage({
               />
             )}
             {techStackSkills.length > 0 && (
-              <ProjectsSkillList
-                isLabelHidden={true}
-                label={intl.formatMessage({
-                  defaultMessage: 'Tech stack used',
-                  description: 'Label for tech stack skills section',
-                  id: 'xMmBc1',
-                })}
-                skills={techStackSkills}
-              />
+              <ProjectsSkillList skills={techStackSkills} />
             )}
           </div>
         </div>

@@ -1,27 +1,15 @@
-import { useIntl } from 'react-intl';
-
 import ProjectsChallengeBriefSupportCard from '~/components/projects/challenges/brief/support/ProjectsChallengeBriefSupportCard';
 import ProjectsSkillList from '~/components/projects/skills/metadata/ProjectsSkillList';
 import Text from '~/components/ui/Text';
 
 export default function ProjectsChallengeBriefSubmissionSupportCard() {
-  const intl = useIntl();
-
   return (
     <ProjectsChallengeBriefSupportCard>
       <div className="flex flex-col gap-3">
         <Text size="body1" weight="bold">
-          Responsive solution build with React
+          Responsive solution built with React
         </Text>
-        <ProjectsSkillList
-          label={intl.formatMessage({
-            defaultMessage: 'Stack used',
-            description: 'Label for tech stack used in project',
-            id: 'aiI8c6',
-          })}
-          limit={3}
-          skills={['html', 'css', 'js']}
-        />
+        <ProjectsSkillList limit={3} skills={['react', 'tailwind', 'nextjs']} />
         <img
           alt="Submission support card image"
           className="h-[190px] w-full rounded-md"
