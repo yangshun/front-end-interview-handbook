@@ -1,0 +1,34 @@
+---
+title: Sum By
+excerpt: Implement a function that finds the sum based on the specified criteria.
+---
+
+Implement a function `sumBy(array, [iteratee=_.identity])` that calculates the sum of the element inside `array` after going through `iteratee`. The `iteratee` is invoked with one argument: (value).
+
+## Arguments
+
+1. `array` _(Array)_: The array to iterate over.
+1. `[iteratee=_.identity]` _(Function)_: The iteratee invoked per element.
+
+## Returns
+
+_(Number)_: Returns the sum.
+
+## Examples
+
+```js
+sumBy([{ n: 1 }, { n: 3 }], (o) => o.n;); // => 4
+
+sumBy([{ n: 1 }, { n: 3 }], 'n'); // => 4
+```
+
+The function should return `undefined` if there is no matching value that fulfills `iteratee` and only the sum of those that match `iteratee`.
+
+```js
+sumBy([{ n: 1 }, { n: 2 }], 'm'); // => undefined
+sumBy([{ n: 1 }, { m: 2 }], 'm'); // => 2
+```
+
+## Resources
+
+- [Lodash `_.sumBy`](https://lodash.com/docs/#sumBy)

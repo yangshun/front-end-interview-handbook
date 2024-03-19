@@ -1,0 +1,18 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import sumByJs from '../setup/src/sum-by.js';
+import sumByTs from '../setup/src/sum-by.ts';
+
+## Solution
+
+Here's a solution that finds the sum of elements in `array` that passed through the function `iteratee`, using `sum` for the total value and `found` to indicate if there is any valid value.
+
+<MDXCodeBlock languages={{ jsx: sumByJs, tsx: sumByTs }} />
+
+## Edge Cases
+
+To handle mixed data types, the `iteratee` function must be able to process them by either converting the elements to a common type or process them separately.
+
+## Resources
+
+- [Lodash `_.sumBy`](https://lodash.com/docs/#sumBy)
