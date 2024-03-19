@@ -126,6 +126,7 @@ export default function ProjectsChallengeSubmissionHero({
           </div>
         </div>
       </div>
+      {/* Desktop view */}
       <div ref={heroRef} className="relative hidden md:block">
         <div
           aria-hidden="true"
@@ -137,7 +138,13 @@ export default function ProjectsChallengeSubmissionHero({
           )}>
           <MarketingHeroBackground className="h-full min-w-[1200px]" />
         </div>
-        <div className="relative h-full pb-8 pt-5 sm:pb-16 md:px-8 md:pb-8 md:pt-12">
+        <div
+          className={clsx(
+            'relative h-full',
+            'pb-8 sm:pb-16 md:pb-8',
+            'md:px-8',
+            'pt-5 md:pt-12',
+          )}>
           <div className="flex h-full flex-col items-start justify-between gap-2">
             <div className="flex w-full justify-between gap-2">
               {backButton}
@@ -148,13 +155,15 @@ export default function ProjectsChallengeSubmissionHero({
                 </div>
               )}
             </div>
-            <div className="size-full flex flex-col justify-between gap-2 lg:flex-row lg:items-center">
+            <div className="size-full flex flex-col justify-between gap-x-16 gap-y-2 xl:flex-row xl:items-center">
               <div className="flex flex-col gap-1">
                 <ProjectsChallengeSubmissionHeroTimestamp
                   submission={submission}
                 />
                 <div className="flex flex-col gap-5">
-                  <Heading level="heading4">{submission.title}</Heading>
+                  <Heading className="line-clamp-2" level="heading4">
+                    {submission.title}
+                  </Heading>
                   <div className="flex items-center gap-6">
                     {views}
                     <div className="flex items-center gap-2">
@@ -164,7 +173,7 @@ export default function ProjectsChallengeSubmissionHero({
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col gap-7">
+              <div className="flex xl:max-w-[436px]">
                 <ProjectsChallengeSubmissionHeroCard
                   challenge={challenge}
                   isViewerPremium={isViewerPremium}
@@ -174,6 +183,7 @@ export default function ProjectsChallengeSubmissionHero({
           </div>
         </div>
       </div>
+      {/* Mobile view */}
       <div className="mt-6 flex flex-col gap-6 md:hidden">
         <div ref={mobileHeroRef} className="flex flex-col gap-4">
           <div className="flex flex-wrap justify-between gap-4">
@@ -181,9 +191,12 @@ export default function ProjectsChallengeSubmissionHero({
             {isViewingOwnSubmission && pinButton}
           </div>
           <div className="flex flex-col gap-4">
-            <ProjectsChallengeSubmissionHeroTimestamp submission={submission} />
-            <Heading level="heading5">{submission.title}</Heading>
-
+            <div className="flex flex-col gap-2">
+              <ProjectsChallengeSubmissionHeroTimestamp
+                submission={submission}
+              />
+              <Heading level="heading5">{submission.title}</Heading>
+            </div>
             <div className="flex gap-4">
               {views}
               {voteButton}
