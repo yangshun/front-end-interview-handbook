@@ -1,0 +1,18 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import meanByJs from '../setup/src/mean-by.js';
+import meanByTs from '../setup/src/mean-by.ts';
+
+## Solution
+
+Here's a solution that finds the mean value of elements in `array` that passed through the function or is valid under `iteratee`, using `sum` for the total value and `found` for the existence of such elements.
+
+<MDXCodeBlock languages={{ jsx: meanByJs, tsx: meanByTs }} />
+
+## Edge Cases
+
+To handle mixed data types, the `iteratee` function must be able to process them by either converting the elements to a common type or process them separately.
+
+## Resources
+
+- [Lodash `_.meanBy`](https://lodash.com/docs/#meanBy)

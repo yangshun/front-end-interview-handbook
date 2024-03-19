@@ -1,0 +1,8 @@
+{
+  "run": "/src/mean-by.run.test.ts",
+  "submit": "/src/mean-by.submit.test.ts",
+  "skeleton": {
+    "js": "/src/mean-by.skeleton.js",
+    "ts": "/src/mean-by.skeleton.ts"
+  }
+}

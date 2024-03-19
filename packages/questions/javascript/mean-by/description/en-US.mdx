@@ -1,0 +1,33 @@
+---
+title: Mean By
+excerpt: Implement a function that finds the mean value based on the specified criteria.
+---
+
+Implement a function `meanBy(array, iteratee)` that calculates the mean value of the element inside `array` after going through or is valid under `iteratee`. The `iteratee` is invoked with one argument: (value).
+
+## Arguments
+
+1. `array` _(Array)_: The array to iterate over.
+1. `iteratee` _(Function)_: The iteratee invoked per element.
+
+## Returns
+
+_(Number)_: Returns the mean value.
+
+## Examples
+
+```js
+meanBy([{ n: 1 }, { n: 3 }], (o) => o.n); // => 2
+
+meanBy([{ n: 1 }, { n: 3 }], 'n'); // => 2
+```
+
+The function should return `NaN` if there is no matching value that fulfills `iteratee`.
+
+```js
+meanBy([{ n: 1 }, { n: 2 }], 'm'); // => NaN
+```
+
+## Resources
+
+- [Lodash `_.meanBy`](https://lodash.com/docs/#meanBy)
