@@ -12,7 +12,7 @@ const sizeClasses: Record<AvatarSize, string> = {
   custom: '',
   lg: 'size-10',
   sm: 'size-8',
-  xs: 'size-5',
+  xs: 'size-6',
 };
 
 type Props = React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image> &
