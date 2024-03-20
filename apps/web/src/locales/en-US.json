@@ -2943,6 +2943,10 @@
     "defaultMessage": "We help you get ready within 1 week, 1 month or 3 months",
     "description": "Study plans description"
   },
+  "OCk0lu": {
+    "defaultMessage": "Filter by stack used by the creator",
+    "description": "Label for tech stack filter"
+  },
   "ODRVQi": {
     "defaultMessage": "Learn by building real world projects for professionals",
     "description": "Title of 'Learn by building real world projects for professionals' feature in Projects marketing page"
@@ -3378,10 +3382,6 @@
   "RJ4spU": {
     "defaultMessage": "Worry about a shaky foundation? Harness curated tools from senior engineers at big tech and learn the best practices for practical development",
     "description": "Description for \"Get the right foundation for practical development\" feature marketing section on Projects home page"
-  },
-  "RLvazx": {
-    "defaultMessage": "Filter by stack used by the creator",
-    "description": "Label for \"Tech stack used\" text input"
   },
   "RMBCok": {
     "defaultMessage": "Snap",
@@ -4626,6 +4626,10 @@
   "bfmJR5": {
     "defaultMessage": "Confirm delete submission?",
     "description": "Delete challenge submission confirmation"
+  },
+  "bj6RGb": {
+    "defaultMessage": "Filter by roadmap skills used by the creator",
+    "description": "Label for skills filter"
   },
   "bnqijt": {
     "defaultMessage": "Post",
@@ -7118,10 +7122,6 @@
   "xK578g": {
     "defaultMessage": "Please enter a valid email address.",
     "description": "Email validation error message"
-  },
-  "xMmBc1": {
-    "defaultMessage": "Tech stack used",
-    "description": "Label for tech stack skills section"
   },
   "xU32y0": {
     "defaultMessage": "3 subcategories of questions: JavaScript, User Interfaces & Data Structures and Algorithms",

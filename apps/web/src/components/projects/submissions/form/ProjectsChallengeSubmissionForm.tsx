@@ -122,10 +122,8 @@ export default function ProjectsChallengeSubmissionForm({
           <Divider />
           <ProjectsChallengeSubmissionDeploymentUrlsField control={control} />
           <Divider />
-          <div className="flex flex-col gap-6">
-            <div className="grid gap-x-6 lg:grid-cols-2">
-              <ProjectsChallengeSubmissionSummaryField control={control} />
-            </div>
+          <div className="grid gap-6 lg:grid-cols-2">
+            <ProjectsChallengeSubmissionSummaryField control={control} />
             <ProjectsChallengeSubmissionImplementationField control={control} />
           </div>
         </div>
