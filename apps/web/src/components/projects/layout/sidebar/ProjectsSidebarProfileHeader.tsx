@@ -9,10 +9,7 @@ import ProjectsUserReputation from '~/components/projects/users/ProjectsUserRepu
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Text from '~/components/ui/Text';
-import {
-  themeBackgroundBrandColor,
-  themeBackgroundGlimmerColor,
-} from '~/components/ui/theme';
+import { themeBackgroundGlimmerColor } from '~/components/ui/theme';
 
 import useProfileWithProjectsProfile from '../../common/useProfileWithProjectsProfile';
 import ProjectsProfileDisplayNameLink from '../../users/ProjectsProfileDisplayNameLink';
@@ -22,12 +19,17 @@ export function ProjectsSidebarProfileHeader() {
   const { signInUpLabel, signInUpHref } = useAuthSignInUp();
 
   return (
-    <div className={clsx('flex items-center gap-3', 'w-full px-3 py-2')}>
+    <div
+      className={clsx(
+        'flex items-center gap-3',
+        'w-full px-3 py-2',
+        isLoading && 'opacity-25',
+      )}>
       {isLoading ? (
         <>
           <div
             className={clsx(
-              'size-10 animate-pulse rounded-full',
+              'size-10 o animate-pulse rounded-full',
               themeBackgroundGlimmerColor,
             )}
           />
@@ -35,13 +37,13 @@ export function ProjectsSidebarProfileHeader() {
             <div
               className={clsx(
                 'h-3 w-[88px] animate-pulse rounded',
-                'bg-neutral-700 dark:bg-neutral-100',
+                themeBackgroundGlimmerColor,
               )}
             />
             <div
               className={clsx(
                 'h-3 w-[80px] animate-pulse rounded',
-                themeBackgroundBrandColor,
+                themeBackgroundGlimmerColor,
               )}
             />
           </div>
