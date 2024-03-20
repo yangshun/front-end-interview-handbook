@@ -16,12 +16,15 @@ import { useI18nRouter } from '~/next-i18nostic/src';
 
 import ProjectsChallengeSubmissionForm from './ProjectsChallengeSubmissionForm';
 import type { ProjectsChallengeSubmissionExtended } from '../types';
+import type { ProjectsChallengeItem } from '../../challenges/types';
 
 type Props = Readonly<{
+  challenge: ProjectsChallengeItem;
   submission: NonNullable<ProjectsChallengeSubmissionExtended>;
 }>;
 
 export default function ProjectsChallengeSubmissionEditPage({
+  challenge,
   submission,
 }: Props) {
   const intl = useIntl();
@@ -123,6 +126,7 @@ export default function ProjectsChallengeSubmissionEditPage({
         <Section>
           <ProjectsChallengeSubmissionForm
             cancelButtonHref={submission.hrefs.detail}
+            challengeDefaultSkills={challenge.metadata.skills}
             defaultValues={submission}
             mode="edit"
             onDelete={() => {

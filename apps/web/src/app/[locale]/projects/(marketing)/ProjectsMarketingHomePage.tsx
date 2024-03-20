@@ -11,7 +11,6 @@ import ProjectsMarketingHero from '~/components/projects/marketing/ProjectsMarke
 import ProjectsMarketingHowItWorks from '~/components/projects/marketing/ProjectsMarketingHowItWorks';
 import ProjectsMarketingLearningFeatures from '~/components/projects/marketing/ProjectsMarketingLearningFeatures';
 import ProjectsMarketingPortfolioFeatures from '~/components/projects/marketing/ProjectsMarketingPortfolioFeatures';
-import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 const ProjectsMarketingHomePageBottom = dynamic(

@@ -90,6 +90,7 @@ export default function ProjectsChallengeSubmitPage({
         <Section>
           <ProjectsChallengeSubmissionForm
             cancelButtonHref={challenge.metadata.completionHref}
+            challengeDefaultSkills={challenge.metadata.skills}
             defaultValues={{
               roadmapSkills: session.roadmapSkills,
               techStackSkills: session.techStackSkills,

@@ -4,10 +4,12 @@ import { useIntl } from 'react-intl';
 
 import { getProjectsRoadmapSkillsInputAttributes } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 import ProjectsSkillRoadmapSelectionInput from '~/components/projects/skills/form/ProjectsSkillRoadmapSelectionInput';
+import type { ProjectsSkillKey } from '~/components/projects/skills/types';
 
 import type { ProjectsChallengeSubmissionFormValues } from '../ProjectsChallengeSubmissionForm';
 
 type Props = Readonly<{
+  challengeDefaultSkills?: ReadonlyArray<ProjectsSkillKey>;
   control: Control<ProjectsChallengeSubmissionFormValues>;
   required?: boolean;
 }>;
@@ -15,6 +17,7 @@ type Props = Readonly<{
 const fieldName = 'roadmapSkills';
 
 export default function ProjectsChallengeSubmissionRoadmapSkillsField({
+  challengeDefaultSkills,
   control,
   required,
 }: Props) {
@@ -28,6 +31,7 @@ export default function ProjectsChallengeSubmissionRoadmapSkillsField({
 
   return (
     <ProjectsSkillRoadmapSelectionInput
+      challengeDefaultSkills={challengeDefaultSkills}
       description={attrs.description}
       errorMessage={
         formState.dirtyFields[fieldName] || formState.submitCount > 0

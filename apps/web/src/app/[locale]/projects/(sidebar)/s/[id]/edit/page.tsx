@@ -4,6 +4,7 @@ import { convertToPlainObject } from '~/lib/convertToPlainObject';
 
 import ProjectsChallengeSubmissionEditPage from '~/components/projects/submissions/form/ProjectsChallengeSubmissionEditPage';
 
+import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
@@ -12,6 +13,7 @@ type Props = Readonly<{
 }>;
 
 export default async function Page({ params }: Props) {
+  const { locale } = params;
   const { id: submissionId } = params;
 
   const viewer = await readViewerFromToken();
@@ -28,8 +30,14 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
+  const { challenge } = await readProjectsChallengeItem(
+    submission.slug,
+    locale,
+  );
+
   return (
     <ProjectsChallengeSubmissionEditPage
+      challenge={challenge}
       submission={convertToPlainObject(submission)}
     />
   );

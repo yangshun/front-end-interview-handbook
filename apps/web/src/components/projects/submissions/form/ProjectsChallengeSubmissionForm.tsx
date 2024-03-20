@@ -61,20 +61,23 @@ function useProjectsChallengeSubmissionFormSchema() {
   });
 }
 
+type BaseProps = Readonly<{
+  cancelButtonHref: string;
+  challengeDefaultSkills?: ReadonlyArray<ProjectsSkillKey>;
+  defaultValues?: Partial<ProjectsChallengeSubmissionFormValues>;
+  onSubmit: (data: ProjectsChallengeSubmissionFormValues) => void;
+}>;
+
 type Props =
-  | Readonly<{
-      cancelButtonHref: string;
-      defaultValues?: Partial<ProjectsChallengeSubmissionFormValues>;
-      mode: 'create';
-      onSubmit: (data: ProjectsChallengeSubmissionFormValues) => void;
-    }>
-  | Readonly<{
-      cancelButtonHref: string;
-      defaultValues?: ProjectsChallengeSubmissionFormValues;
-      mode: 'edit';
-      onDelete: () => void;
-      onSubmit: (data: ProjectsChallengeSubmissionFormValues) => void;
-    }>;
+  | (BaseProps &
+      Readonly<{
+        mode: 'create';
+      }>)
+  | (BaseProps &
+      Readonly<{
+        mode: 'edit';
+        onDelete: () => void;
+      }>);
 
 const defaultValuesEmpty = Object.freeze({
   deploymentUrls: [],
@@ -88,6 +91,7 @@ const defaultValuesEmpty = Object.freeze({
 
 export default function ProjectsChallengeSubmissionForm({
   cancelButtonHref,
+  challengeDefaultSkills,
   defaultValues: defaultValuesParam,
   onSubmit,
   ...props
@@ -113,7 +117,10 @@ export default function ProjectsChallengeSubmissionForm({
           <div className="grid gap-6 lg:grid-cols-2">
             <ProjectsChallengeSubmissionTitleField control={control} />
             <ProjectsChallengeSubmissionRepositoryUrlField control={control} />
-            <ProjectsChallengeSubmissionRoadmapSkillsField control={control} />
+            <ProjectsChallengeSubmissionRoadmapSkillsField
+              challengeDefaultSkills={challengeDefaultSkills}
+              control={control}
+            />
             <ProjectsChallengeSubmissionTechStackField
               control={control}
               required={false}
