@@ -1,9 +1,6 @@
 import type { Metadata } from 'next/types';
 
-import {
-  readProjectsChallengeList,
-  readProjectsTrackList,
-} from '~/db/projects/ProjectsReader';
+import { readProjectsChallengeList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -35,17 +32,11 @@ type Props = Readonly<{
 export default async function Page({ params }: Props) {
   const { locale } = params;
 
-  const [{ challenges }, { tracks }] = await Promise.all([
+  const [{ challenges }] = await Promise.all([
     readProjectsChallengeList(locale),
-    readProjectsTrackList(locale),
   ]);
   // TODO(projects): Actual featured projects.
   const featuredChallenges = challenges.slice(0, 10);
 
-  return (
-    <ProjectsMarketingHomePage
-      featuredChallenges={featuredChallenges}
-      projectTracks={tracks}
-    />
-  );
+  return <ProjectsMarketingHomePage featuredChallenges={featuredChallenges} />;
 }

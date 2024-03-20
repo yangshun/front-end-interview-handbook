@@ -9,7 +9,6 @@ import {
   themeDivideEmphasizeColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
-  themeTextSecondaryColor,
   themeTextSecondaryInvertColor,
   themeTextSubtitleColor,
 } from '../theme';
