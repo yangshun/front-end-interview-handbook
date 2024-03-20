@@ -5,7 +5,7 @@ import { skillsRoadmap } from '../data/ProjectsSkillRoadmapData';
 
 export default function ProjectsSkillRoadmapSection() {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex max-w-4xl flex-col gap-10">
       {skillsRoadmap.map((levelItem) => (
         <div key={levelItem.title} className="flex flex-col gap-4">
           <Text size="body2" weight="bold">

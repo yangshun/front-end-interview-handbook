@@ -1,14 +1,14 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { RiAddCircleLine, RiIndeterminateCircleLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
+import { useIntl } from 'react-intl';
 
 import ProjectsSkillRoadmapGroupHeading from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapGroupHeading';
 import ProjectsSkillRoadmapItemDetails from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItemDetails';
-import Text from '~/components/ui/Text';
+import Button from '~/components/ui/Button';
 import {
   themeBackgroundLayerEmphasized,
-  themeBorderElementColor,
+  themeBorderSecondaryColor,
   themeGlassyBorder,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
@@ -21,7 +21,7 @@ type Props = Readonly<{
 
 function SkillItemDiamond() {
   return (
-    <div className={clsx(themeTextSubtleColor)}>
+    <div className={clsx(themeTextSubtleColor, themeBackgroundLayerEmphasized)}>
       <svg
         fill="inherit"
         height="12"
@@ -41,16 +41,37 @@ function SkillItemDiamond() {
 
 export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const intl = useIntl();
+
+  const buttonLabel = isExpanded
+    ? intl.formatMessage({
+        defaultMessage: 'Hide child skills',
+        description: 'Label to collapse skills card',
+        id: 'KhmeKO',
+      })
+    : intl.formatMessage({
+        defaultMessage: 'See child skills',
+        description: 'Label to show skills card',
+        id: '3cMGcO',
+      });
 
   return (
     <div
       className={clsx(
-        'rounded-lg border px-8 py-8 md:px-10',
-        themeGlassyBorder,
+        'isolate',
+        'px-8 py-8 md:px-10',
+        'rounded-lg',
+        ['border', themeGlassyBorder],
         themeBackgroundLayerEmphasized,
       )}>
       <div className="relative flex flex-col gap-6">
-        <div className="flex w-full gap-3">
+        <div
+          className={clsx('absolute left-3 h-full w-px -translate-x-1/2', [
+            'border-l border-dashed',
+            themeBorderSecondaryColor,
+          ])}
+        />
+        <div className="flex w-full gap-4">
           <div className={clsx('relative flex flex-col self-stretch')}>
             <div
               className={clsx(
@@ -59,36 +80,18 @@ export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
               )}>
               <group.icon className="size-4" />
             </div>
-            <div
-              className={clsx(
-                'absolute h-full w-px translate-y-6 self-center border-l border-dashed',
-                themeBorderElementColor,
-              )}
-            />
           </div>
           <ProjectsSkillRoadmapGroupHeading group={group} />
         </div>
         {isExpanded && (
           <div className="ml-[6px] flex flex-col gap-2">
             {group.items.map((item) => (
-              <div key={item.key} className="flex w-full gap-4">
+              <div key={item.key} className={clsx('flex w-full gap-6')}>
                 <div
                   className={clsx(
                     'relative flex flex-col justify-center self-stretch',
                   )}>
                   <SkillItemDiamond />
-                  <div
-                    className={clsx(
-                      'absolute top-0 h-1/2 w-px self-center border-l border-dashed',
-                      themeBorderElementColor,
-                    )}
-                  />
-                  <div
-                    className={clsx(
-                      'absolute top-1/2 h-1/2 w-px translate-y-2 self-center border-l border-dashed',
-                      themeBorderElementColor,
-                    )}
-                  />
                 </div>
                 <ProjectsSkillRoadmapItemDetails skillItem={item} />
               </div>
@@ -96,40 +99,27 @@ export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
           </div>
         )}
         {/* Expand collapse child skills CTA */}
-        <div className={clsx('ml-1 flex w-full gap-4', themeTextSubtleColor)}>
-          <div
-            className={clsx(
-              'relative flex flex-col justify-center self-stretch',
-            )}>
-            {isExpanded ? (
-              <RiIndeterminateCircleLine className="size-4" />
-            ) : (
-              <RiAddCircleLine className="size-4" />
-            )}
-            <div
-              className={clsx(
-                'absolute h-2/3 w-px -translate-y-5 self-center border-l border-dashed',
-                themeBorderElementColor,
-              )}
-            />
-          </div>
-          <button type="button" onClick={() => setIsExpanded(!isExpanded)}>
-            <Text color="secondary" size="body2" weight="medium">
-              {isExpanded ? (
-                <FormattedMessage
-                  defaultMessage="Hide child skills"
-                  description="Label to collapse skills card"
-                  id="KhmeKO"
-                />
-              ) : (
-                <FormattedMessage
-                  defaultMessage="See child skills"
-                  description="Label to expand skills card"
-                  id="W9OR+u"
-                />
-              )}
-            </Text>
-          </button>
+        <div
+          className={clsx(
+            'flex items-center gap-1',
+            'z-[1] -ml-0.5 w-full',
+            themeTextSubtleColor,
+            themeBackgroundLayerEmphasized,
+          )}>
+          <Button
+            icon={isExpanded ? RiIndeterminateCircleLine : RiAddCircleLine}
+            iconClassName={themeTextSubtleColor}
+            isLabelHidden={true}
+            label={buttonLabel}
+            size="xs"
+            variant="tertiary"
+            onClick={() => setIsExpanded(!isExpanded)}
+          />
+          <Button
+            label={buttonLabel}
+            variant="tertiary"
+            onClick={() => setIsExpanded(!isExpanded)}
+          />
         </div>
       </div>
     </div>

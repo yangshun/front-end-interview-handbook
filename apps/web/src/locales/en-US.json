@@ -587,6 +587,10 @@
     "defaultMessage": "Clarify doubts in project-specific forums",
     "description": "Short description for \"Learn from others\" feature on Projects home page"
   },
+  "3cMGcO": {
+    "defaultMessage": "See child skills",
+    "description": "Label to show skills card"
+  },
   "3du5bC": {
     "defaultMessage": "Toptal",
     "description": "Company name for Toptal"
@@ -3962,10 +3966,6 @@
   "W4Akuo": {
     "defaultMessage": "Unlock premium",
     "description": "Purchase button label"
-  },
-  "W9OR+u": {
-    "defaultMessage": "See child skills",
-    "description": "Label to expand skills card"
   },
   "WB/L0V": {
     "defaultMessage": "{numberOfHours} hours weekly",
