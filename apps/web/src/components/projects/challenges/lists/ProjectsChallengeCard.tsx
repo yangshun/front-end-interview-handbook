@@ -132,6 +132,7 @@ export default function ProjectsChallengeCard({
             />
           )}
           <ProjectsCompletedUsersTag
+            avatarBorderClassName="border-white dark:border-neutral-800/70"
             count={completedCount}
             profiles={completedProfiles}
           />

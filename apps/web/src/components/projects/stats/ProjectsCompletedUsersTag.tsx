@@ -7,6 +7,7 @@ import Text from '~/components/ui/Text';
 import type { ProjectsProfileAvatarDataSlim } from '../types';
 
 type Props = Readonly<{
+  avatarBorderClassName: string;
   className?: string;
   count: number | null;
   profiles: ReadonlyArray<ProjectsProfileAvatarDataSlim>;
@@ -15,21 +16,22 @@ type Props = Readonly<{
 const MINIMUM_COUNT_TO_DISPLAY_LABEL = 5;
 
 export default function ProjectsCompletedUsersTag({
-  profiles,
+  avatarBorderClassName,
   count,
   className,
+  profiles,
 }: Props) {
   if (count == null || count < MINIMUM_COUNT_TO_DISPLAY_LABEL) {
     return null;
   }
 
   return (
-    <div className={clsx('flex items-center gap-1', className)}>
-      <div className="flex items-center -space-x-3">
+    <div className={clsx('flex items-center gap-1.5', className)}>
+      <div className="flex items-center -space-x-2.5">
         {profiles.map((profile) => (
           <UserAvatar
             key={profile.id}
-            className="border border-white dark:border-neutral-900"
+            className={clsx('border', avatarBorderClassName)}
             size="xs"
             userProfile={profile}
           />

@@ -160,6 +160,7 @@ export default function ProjectsChallengeHeader({
                 />
               )}
               <ProjectsCompletedUsersTag
+                avatarBorderClassName="border-white dark:border-neutral-900"
                 count={completedCount}
                 profiles={completedProfiles}
               />
