@@ -130,16 +130,23 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
       </Dialog>
       <div
         className={clsx(
+          '@container',
           'flex flex-col gap-y-6',
           'w-full rounded-lg p-6',
           themeGlassyBorder,
           themeBackgroundCardColor,
         )}>
-        <div className="flex w-full flex-col justify-between gap-3 md:flex-row">
-          <div className="flex flex-col gap-2">
+        <div
+          className={clsx(
+            '@md:flex-row flex w-full flex-col flex-wrap justify-between gap-3',
+          )}>
+          <div className="flex shrink-0 flex-col gap-2">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-x-2">
-                <Text className="flex gap-x-2" size="body1" weight="bold">
+                <Text
+                  className="flex gap-x-2 whitespace-nowrap"
+                  size="body1"
+                  weight="bold">
                   <FormattedMessage
                     defaultMessage="Current project session"
                     description="Title for current project session card"
@@ -158,7 +165,7 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
                   />
                 </Tooltip>
               </div>
-              <div className="block md:hidden">{expandButton}</div>
+              <div className="@lg:hidden block">{expandButton}</div>
             </div>
             <div className={clsx('flex gap-1', themeTextSecondaryColor)}>
               <RiTimerLine className="size-4" color="inherit" />
@@ -177,9 +184,9 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
               </Text>
             </div>
           </div>
-          <div className="flex gap-4 md:gap-2">
+          <div className="flex shrink-0 gap-4 md:gap-2">
             <Button
-              className="flex min-w-[100px] flex-1 md:inline-flex"
+              className="flex min-w-[100px] grow md:inline-flex md:grow-0"
               href={submitHref}
               label={intl.formatMessage({
                 defaultMessage: 'Submit',
@@ -215,7 +222,7 @@ export default function ProjectsChallengeCurrentProjectSessionCard({
                 setShowEndSessionDialog(true);
               }}
             />
-            <div className="hidden md:block">{expandButton}</div>
+            <div className="@lg:block hidden">{expandButton}</div>
           </div>
         </div>
         {isExpanded && (
