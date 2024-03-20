@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import * as React from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
+import { textVariants } from '../Text';
 import {
   themeDivideEmphasizeColor,
   themeOutlineElement_FocusVisible,
@@ -73,9 +74,18 @@ const AccordionContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <AccordionPrimitive.Content
     ref={ref}
-    className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm transition-all"
+    className={clsx(
+      'transition-all',
+      'data-[state=open]:animate-accordion-down',
+      'data-[state=closed]:animate-accordion-up data-[state=closed]:overflow-hidden',
+    )}
     {...props}>
-    <div className={clsx('pb-5', themeTextSecondaryColor, className)}>
+    <div
+      className={clsx(
+        'pb-5',
+        textVariants({ color: 'secondary', size: 'body2' }),
+        className,
+      )}>
       {children}
     </div>
   </AccordionPrimitive.Content>
