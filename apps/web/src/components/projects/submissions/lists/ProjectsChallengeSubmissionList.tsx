@@ -22,11 +22,7 @@ export default function ProjectsChallengeSubmissionList({
   }
 
   return (
-    <div
-      className={clsx(
-        'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
-        'gap-6',
-      )}>
+    <div className={clsx('grid gap-6 md:grid-cols-2 xl:grid-cols-3')}>
       {submissions?.map((submission) => (
         <ProjectsChallengeSubmissionCard
           key={submission.id}
