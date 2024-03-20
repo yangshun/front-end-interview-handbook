@@ -27,6 +27,7 @@ export type ProjectsChallengeSubmissionFilter = {
     label: string;
     value: string;
   }>;
+  premium: boolean;
   tooltip?: string;
   type: ProjectsChallengeSubmissionFilterType;
   view: ProjectsChallengeSubmissionFilterViewType;
@@ -68,6 +69,7 @@ function useFilters() {
             value: 'NOT_STARTED',
           },
         ],
+        premium: false,
         tooltip: intl.formatMessage({
           defaultMessage:
             'Filter user submissions by whether you have completed their corresponding challenges',
@@ -88,6 +90,7 @@ function useFilters() {
           label: trackMetadata.title,
           value: trackMetadata.slug,
         })),
+        premium: true,
         tooltip: intl.formatMessage({
           defaultMessage: 'Filter by component track of original project brief',
           description:
@@ -122,6 +125,7 @@ function useFilters() {
             value: 'nightmare',
           },
         ],
+        premium: false,
         tooltip: intl.formatMessage({
           defaultMessage: 'Filter by Difficulty of the original project brief',
           description: 'Tooltip for Difficulty filter for submissions list',
@@ -138,6 +142,7 @@ function useFilters() {
           id: 'n2GSsV',
         }),
         options: [],
+        premium: false,
         tooltip: intl.formatMessage({
           defaultMessage: 'Filter by stack used by the creator',
           description: 'Label for tech stack filter',
@@ -154,6 +159,7 @@ function useFilters() {
           id: 'Od0Qjl',
         }),
         options: [],
+        premium: false,
         tooltip: intl.formatMessage({
           defaultMessage: 'Filter by roadmap skills used by the creator',
           description: 'Label for skills filter',
@@ -189,6 +195,7 @@ function useFilters() {
           },
           ...experienceOptions,
         ],
+        premium: false,
         tooltip: intl.formatMessage({
           defaultMessage:
             'Filter by the creator’s years of experience or their job status',

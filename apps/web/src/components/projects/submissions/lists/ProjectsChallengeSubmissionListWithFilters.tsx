@@ -28,10 +28,12 @@ import {
 const ITEMS_PER_PAGE = 12;
 
 type Props = Readonly<{
+  isViewerPremium: boolean;
   type: ProjectsChallengeSubmissionTabType;
 }>;
 
 export default function ProjectsChallengeSubmissionListWithFilters({
+  isViewerPremium,
   type,
 }: Props) {
   // Filtering.
@@ -106,6 +108,7 @@ export default function ProjectsChallengeSubmissionListWithFilters({
         filterSize={filterSize}
         filters={filters}
         isAscendingOrder={isAscendingOrder}
+        isViewerPremium={isViewerPremium}
         query={query ?? ''}
         setIsAscendingOrder={setIsAscendingOrder}
         setQuery={onChangeQuery}

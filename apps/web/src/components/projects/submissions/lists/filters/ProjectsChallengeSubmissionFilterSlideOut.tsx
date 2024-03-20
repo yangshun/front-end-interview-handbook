@@ -124,10 +124,12 @@ function FilterSection({
 }
 
 type Props = Readonly<{
+  isViewerPremium: boolean;
   selected: boolean;
 }>;
 
 export default function ProjectsChallengeSubmissionFilterSlideOut({
+  isViewerPremium,
   selected,
 }: Props) {
   const intl = useIntl();
@@ -249,11 +251,13 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
             className="flex flex-col"
             defaultValue={initialFilters.map(({ id }) => id)}
             type="multiple">
-            {initialFilters.map((filter) => (
-              <Fragment key={filter.id}>
-                <FilterSection {...filter} />
-              </Fragment>
-            ))}
+            {initialFilters
+              .filter((filter) => (isViewerPremium ? true : !filter.premium))
+              .map((filter) => (
+                <Fragment key={filter.id}>
+                  <FilterSection {...filter} />
+                </Fragment>
+              ))}
           </Accordion>
           <Divider />
           <div

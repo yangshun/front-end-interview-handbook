@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import ProjectsChallengeSubmissionListMentorPage from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListMentorPage';
+import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -28,5 +29,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  return <ProjectsChallengeSubmissionListMentorPage />;
+  const { viewerProjectsProfile } = await readViewerProjectsProfile();
+
+  return (
+    <ProjectsChallengeSubmissionListMentorPage
+      isViewerPremium={viewerProjectsProfile?.premium ?? false}
+    />
+  );
 }

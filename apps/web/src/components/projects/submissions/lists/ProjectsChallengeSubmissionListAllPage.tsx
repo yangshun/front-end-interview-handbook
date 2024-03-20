@@ -8,7 +8,13 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
-export default function ProjectsChallengeSubmissionListAllPage() {
+type Props = Readonly<{
+  isViewerPremium: boolean;
+}>;
+
+export default function ProjectsChallengeSubmissionListAllPage({
+  isViewerPremium,
+}: Props) {
   return (
     <div className="flex flex-col gap-9">
       <div className="flex max-w-prose flex-col gap-1">
@@ -31,7 +37,10 @@ export default function ProjectsChallengeSubmissionListAllPage() {
       </div>
       <Section>
         <ProjectsChallengeSubmissionFilterContextProvider>
-          <ProjectsChallengeSubmissionListWithFilters type="all" />
+          <ProjectsChallengeSubmissionListWithFilters
+            isViewerPremium={isViewerPremium}
+            type="all"
+          />
         </ProjectsChallengeSubmissionFilterContextProvider>
       </Section>
     </div>

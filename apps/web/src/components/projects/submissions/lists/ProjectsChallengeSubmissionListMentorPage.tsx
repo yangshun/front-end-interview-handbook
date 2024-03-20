@@ -8,7 +8,13 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
-export default function ProjectsChallengeSubmissionListMentorPage() {
+type Props = Readonly<{
+  isViewerPremium: boolean;
+}>;
+
+export default function ProjectsChallengeSubmissionListMentorPage({
+  isViewerPremium,
+}: Props) {
   return (
     <div className="flex flex-col gap-9">
       <div className="flex max-w-prose flex-col gap-1">
@@ -31,7 +37,10 @@ export default function ProjectsChallengeSubmissionListMentorPage() {
       </div>
       <Section>
         <ProjectsChallengeSubmissionFilterContextProvider>
-          <ProjectsChallengeSubmissionListWithFilters type="mentor" />
+          <ProjectsChallengeSubmissionListWithFilters
+            isViewerPremium={isViewerPremium}
+            type="mentor"
+          />
         </ProjectsChallengeSubmissionFilterContextProvider>
       </Section>
     </div>

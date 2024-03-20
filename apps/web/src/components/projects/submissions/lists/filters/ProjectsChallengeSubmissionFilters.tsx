@@ -15,6 +15,7 @@ type Props = Readonly<{
   filterSize: number;
   filters: ReadonlyArray<ProjectsChallengeSubmissionFilter>;
   isAscendingOrder: boolean;
+  isViewerPremium: boolean;
   query: string;
   setIsAscendingOrder: (value: boolean) => void;
   setQuery: (value: string) => void;
@@ -23,6 +24,7 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeSubmissionFilters({
+  isViewerPremium,
   query,
   setQuery,
   filters,
@@ -54,7 +56,10 @@ export default function ProjectsChallengeSubmissionFilters({
 
   const sortAndFilterButton = (
     <>
-      <ProjectsChallengeSubmissionFilterSlideOut selected={filterSize > 0} />
+      <ProjectsChallengeSubmissionFilterSlideOut
+        isViewerPremium={isViewerPremium}
+        selected={filterSize > 0}
+      />
       <DropdownMenu
         align="end"
         icon={RiSortDesc}
