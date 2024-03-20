@@ -36,9 +36,9 @@ export type ProjectsChallengeSubmissionFilterKey =
   | 'component-track'
   | 'difficulty'
   | 'experience'
-  | 'roadmapSkills'
+  | 'roadmap-skills'
   | 'status'
-  | 'techStackSkills';
+  | 'tech-stack-skills';
 
 function useFilters() {
   const intl = useIntl();
@@ -85,7 +85,7 @@ function useFilters() {
           id: 'cotxax',
         }),
         options: allProjectsTrackMetadata.map((trackMetadata) => ({
-          label: `${trackMetadata.title} track`,
+          label: trackMetadata.title,
           value: trackMetadata.slug,
         })),
         tooltip: intl.formatMessage({
@@ -131,7 +131,7 @@ function useFilters() {
         view: 'both',
       },
       {
-        id: 'techStackSkills',
+        id: 'tech-stack-skills',
         label: intl.formatMessage({
           defaultMessage: 'Tech stack used',
           description: 'Label for "Tech stack used" text input',
@@ -140,20 +140,25 @@ function useFilters() {
         options: [],
         tooltip: intl.formatMessage({
           defaultMessage: 'Filter by stack used by the creator',
-          description: 'Label for "Tech stack used" text input',
-          id: 'RLvazx',
+          description: 'Label for tech stack filter',
+          id: 'OCk0lu',
         }),
         type: 'tech-stack-selection',
         view: 'slideout',
       },
       {
-        id: 'roadmapSkills',
+        id: 'roadmap-skills',
         label: intl.formatMessage({
           defaultMessage: 'Skills used',
           description: 'Label for "Skills used" text input',
           id: 'Od0Qjl',
         }),
         options: [],
+        tooltip: intl.formatMessage({
+          defaultMessage: 'Filter by roadmap skills used by the creator',
+          description: 'Label for skills filter',
+          id: 'bj6RGb',
+        }),
         type: 'skill-selection',
         view: 'slideout',
       },
@@ -228,9 +233,9 @@ export const ProjectsChallengeSubmissionFilterContext =
       'component-track': [],
       difficulty: [],
       experience: [],
-      roadmapSkills: [],
+      'roadmap-skills': [],
       status: [],
-      techStackSkills: [],
+      'tech-stack-skills': [],
     },
   });
 
@@ -282,9 +287,9 @@ export default function ProjectsChallengeSubmissionFilterContextProvider({
     'component-track': initialComponentTrack ?? [],
     difficulty: initialDifficulty ?? [],
     experience: initialExperience ?? [],
-    roadmapSkills: initialRoadmapSkills ?? [],
+    'roadmap-skills': initialRoadmapSkills ?? [],
     status: initialStatus ?? [],
-    techStackSkills: initialTechStackSkills ?? [],
+    'tech-stack-skills': initialTechStackSkills ?? [],
   });
 
   const filters = useFilters();
@@ -309,9 +314,9 @@ export default function ProjectsChallengeSubmissionFilterContextProvider({
       'component-track': [],
       difficulty: [],
       experience: [],
-      roadmapSkills: [],
+      'roadmap-skills': [],
       status: [],
-      techStackSkills: [],
+      'tech-stack-skills': [],
     });
   }, []);
 

@@ -80,9 +80,9 @@ export default function ProjectsChallengeSubmissionListWithFilters({
           hasClientFilterApplied,
           profileStatus,
           query,
-          roadmapSkills: selectedFilters.roadmapSkills,
+          roadmapSkills: selectedFilters['roadmap-skills'],
           submissionType: type,
-          techSkills: selectedFilters.techStackSkills,
+          techSkills: selectedFilters['tech-stack-skills'],
           yoeExperience,
         },
         pagination: {

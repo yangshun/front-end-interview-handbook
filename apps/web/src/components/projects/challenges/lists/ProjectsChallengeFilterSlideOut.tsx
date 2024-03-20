@@ -95,8 +95,8 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeFilterSlideOut({
-  selected,
   isViewerPremium,
+  selected,
 }: Props) {
   const intl = useIntl();
 
@@ -223,13 +223,14 @@ export default function ProjectsChallengeFilterSlideOut({
           <Divider />
         </div>
         <Divider />
-        <div className="my-5 flex justify-end gap-3 p-4">
+        <div className="my-5 flex justify-end gap-3">
           <Button
             label={intl.formatMessage({
               defaultMessage: 'Clear all',
               description: 'Label for clear all button',
               id: 'LEh5WZ',
             })}
+            size="md"
             variant="secondary"
             onClick={onClearAllFilter}
           />
@@ -239,6 +240,7 @@ export default function ProjectsChallengeFilterSlideOut({
               description: 'Label for apply button',
               id: 'aJWJvF',
             })}
+            size="md"
             variant="primary"
             onClick={onApplyFilter}
           />

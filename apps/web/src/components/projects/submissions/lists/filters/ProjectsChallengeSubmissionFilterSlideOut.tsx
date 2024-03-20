@@ -63,24 +63,7 @@ function FilterSection({
     </div>
   );
 
-  return type === 'tech-stack-selection' ? (
-    <div className="flex flex-col gap-5 py-5">
-      {filterLabel}
-      <ProjectsSkillTechStackInput
-        description={techStackSkillsAttrs.description}
-        isLabelHidden={true}
-        label={label}
-        placeholder={techStackSkillsAttrs.placeholder}
-        required={false}
-        value={selectedOptions}
-        onChange={(value) => {
-          const newValue = [...(value ?? [])];
-
-          setSelectedOptions(newValue);
-        }}
-      />
-    </div>
-  ) : (
+  return (
     <AccordionItem value={id}>
       <AccordionTrigger>{filterLabel}</AccordionTrigger>
       <AccordionContent>
@@ -112,6 +95,21 @@ function FilterSection({
             isLabelHidden={true}
             label={label}
             placeholder={roadmapSkillsAttrs.placeholder}
+            value={selectedOptions}
+            onChange={(value) => {
+              const newValue = [...(value ?? [])];
+
+              setSelectedOptions(newValue);
+            }}
+          />
+        )}
+        {type === 'tech-stack-selection' && (
+          <ProjectsSkillTechStackInput
+            description={techStackSkillsAttrs.description}
+            isLabelHidden={true}
+            label={label}
+            placeholder={techStackSkillsAttrs.placeholder}
+            required={false}
             value={selectedOptions}
             onChange={(value) => {
               const newValue = [...(value ?? [])];
@@ -158,9 +156,9 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
           'component-track': [],
           difficulty: [],
           experience: [],
-          roadmapSkills: [],
+          'roadmap-skills': [],
           status: [],
-          techStackSkills: [],
+          'tech-stack-skills': [],
         });
       },
       filters: initialFilters,
@@ -193,9 +191,9 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
       'component-track': [],
       difficulty: [],
       experience: [],
-      roadmapSkills: [],
+      'roadmap-skills': [],
       status: [],
-      techStackSkills: [],
+      'tech-stack-skills': [],
     });
   };
 
@@ -260,8 +258,8 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
           <Divider />
           <div
             className={clsx(
-              'my-5 md:p-4',
               'flex flex-col justify-end gap-5 md:flex-row md:gap-3',
+              'my-5',
             )}>
             <Button
               label={intl.formatMessage({
@@ -269,6 +267,7 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
                 description: 'Label for clear all button',
                 id: 'LEh5WZ',
               })}
+              size="md"
               variant="secondary"
               onClick={onClearAllFilter}
             />
@@ -278,6 +277,7 @@ export default function ProjectsChallengeSubmissionFilterSlideOut({
                 description: 'Label for apply button',
                 id: 'aJWJvF',
               })}
+              size="md"
               variant="primary"
               onClick={onApplyFilter}
             />

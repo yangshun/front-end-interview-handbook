@@ -22,9 +22,9 @@ export default function useProjectsChallengeSubmissionFilters() {
   const [selectedExperience] =
     useProjectsChallengeSubmissionFilterState('experience');
   const [selectedRoadmapSkills] =
-    useProjectsChallengeSubmissionFilterState('roadmapSkills');
+    useProjectsChallengeSubmissionFilterState('roadmap-skills');
   const [selectedTechStackSkills] =
-    useProjectsChallengeSubmissionFilterState('techStackSkills');
+    useProjectsChallengeSubmissionFilterState('tech-stack-skills');
 
   const projectsMatchesTextQuery = (
     project: ProjectsChallengeMetadata,

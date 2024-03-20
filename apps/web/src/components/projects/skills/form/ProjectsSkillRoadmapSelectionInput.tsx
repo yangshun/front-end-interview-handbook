@@ -16,7 +16,6 @@ import type { ProjectsSkillKey } from '../types';
 
 type Props = Readonly<{
   challengeDefaultSkills?: ReadonlyArray<ProjectsSkillKey>;
-  className?: string;
   description: React.ReactNode;
   descriptionStyle?: LabelDescriptionStyle;
   errorMessage?: React.ReactNode;
@@ -42,7 +41,6 @@ const stateClasses: Record<State, string> = {
 function ProjectsSkillRoadmapSelectionInput(
   {
     challengeDefaultSkills,
-    className,
     descriptionStyle = 'tooltip',
     description,
     errorMessage,
@@ -66,7 +64,7 @@ function ProjectsSkillRoadmapSelectionInput(
 
   return (
     <div>
-      <div className={clsx('flex flex-col gap-2', className)}>
+      <div className={clsx(!isLabelHidden && 'mb-2')}>
         <Label
           description={description}
           descriptionId={messageId}
@@ -76,63 +74,61 @@ function ProjectsSkillRoadmapSelectionInput(
           label={label}
           required={required}
         />
-        <div
-          ref={ref}
-          aria-labelledby={id}
-          className={clsx(
-            'flex items-center justify-between',
-            'rounded',
-            'px-3 py-1.5',
-            'focus:outline-0',
-            'ring-1 ring-inset',
-            'focus-within:ring-2 focus-within:ring-inset',
-            clsx(themeBackgroundElementColor, stateClasses[state]),
-          )}
-          role={value.length === 0 ? 'button' : undefined}
-          tabIndex={0}
-          onBlur={onBlur}
-          onClick={() => {
-            if (value.length > 0) {
-              return;
-            }
-            setShowSkillsRoadmapDialog(true);
-          }}>
-          {value.length === 0 ? (
-            <Text color="placeholder" size="body2">
-              {placeholder}
-            </Text>
-          ) : (
-            <ProjectsSkillRoadmapChips
-              readonly={false}
-              skills={value}
-              onDelete={(deletedSkills) => {
-                onChange(
-                  value.filter((skill) => !deletedSkills.includes(skill)),
-                );
-              }}
-            />
-          )}
-          <Button
-            addonPosition="start"
-            icon={RiAddLine}
-            isLabelHidden={true}
-            label={intl.formatMessage({
-              defaultMessage: 'Add skills',
-              description: 'Add skills used for challenge',
-              id: 'Qw+A0/',
-            })}
-            size="xs"
-            tooltip={intl.formatMessage({
-              defaultMessage: 'Add skills',
-              description: 'Add skills used for challenge',
-              id: 'Qw+A0/',
-            })}
-            variant="secondary"
-            onClick={() => {
-              setShowSkillsRoadmapDialog(true);
+      </div>
+      <div
+        ref={ref}
+        aria-labelledby={id}
+        className={clsx(
+          'flex items-center justify-between',
+          'rounded',
+          'px-3 py-1.5',
+          'focus:outline-0',
+          'ring-1 ring-inset',
+          'focus-within:ring-2 focus-within:ring-inset',
+          clsx(themeBackgroundElementColor, stateClasses[state]),
+        )}
+        role={value.length === 0 ? 'button' : undefined}
+        tabIndex={0}
+        onBlur={onBlur}
+        onClick={() => {
+          if (value.length > 0) {
+            return;
+          }
+          setShowSkillsRoadmapDialog(true);
+        }}>
+        {value.length === 0 ? (
+          <Text color="placeholder" size="body2">
+            {placeholder}
+          </Text>
+        ) : (
+          <ProjectsSkillRoadmapChips
+            readonly={false}
+            skills={value}
+            onDelete={(deletedSkills) => {
+              onChange(value.filter((skill) => !deletedSkills.includes(skill)));
             }}
           />
-        </div>
+        )}
+        <Button
+          addonPosition="start"
+          icon={RiAddLine}
+          isLabelHidden={true}
+          label={intl.formatMessage({
+            defaultMessage: 'Add skills',
+            description: 'Add skills used for challenge',
+            id: 'Qw+A0/',
+          })}
+          size="xs"
+          tooltip={intl.formatMessage({
+            defaultMessage: 'Add skills',
+            description: 'Add skills used for challenge',
+            id: 'Qw+A0/',
+          })}
+          variant="secondary"
+          onClick={() => {
+            setShowSkillsRoadmapDialog(true);
+          }}
+        />
       </div>
       {hasError && (
         <div
