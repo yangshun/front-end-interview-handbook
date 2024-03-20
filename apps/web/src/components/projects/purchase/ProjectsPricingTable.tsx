@@ -18,6 +18,7 @@ import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import PurchasePriceAnnualComparison from '~/components/purchase/comparison/PurchasePriceAnnualComparison';
 import PurchasePriceMonthlyComparison from '~/components/purchase/comparison/PurchasePriceMonthlyComparison';
+import PurchaseActivePlanLabel from '~/components/purchase/PurchaseActivePlanLabel';
 import PurchasePriceLabel from '~/components/purchase/PurchasePriceLabel';
 import { priceRoundToNearestNiceNumber } from '~/components/purchase/PurchasePricingUtils';
 import type { Props as AnchorProps } from '~/components/ui/Anchor';
@@ -104,15 +105,15 @@ function PricingButtonNonLoggedIn({
       icon={RiArrowRightLine}
       isDisabled={isDisabled}
       label={intl.formatMessage({
-        defaultMessage: 'Buy now',
+        defaultMessage: 'Unlock premium',
         description: 'Purchase button label',
-        id: '9gs1LO',
+        id: 'W4Akuo',
       })}
       onClick={() => {
         gtag.event({
           action: `checkout.sign_up`,
           category: 'ecommerce',
-          label: 'Buy Now (not logged in)',
+          label: 'Unlock premium (not logged in)',
         });
         logMessage({
           level: 'info',
@@ -221,9 +222,9 @@ function PricingButtonNonPremium({
         isDisabled={showUserThereIsAsyncRequest || isLoading}
         isLoading={showUserThereIsAsyncRequest}
         label={intl.formatMessage({
-          defaultMessage: 'Buy now',
+          defaultMessage: 'Unlock premium',
           description: 'Purchase button label',
-          id: '9gs1LO',
+          id: 'W4Akuo',
         })}
         onClick={() => {
           setHasClicked(true);
@@ -307,26 +308,30 @@ function PricingButtonSection({
       );
     }
 
-    // User is already subscribed, link to billing page.
-    return (
-      <PricingButton
-        icon={RiArrowRightLine}
-        isDisabled={billingPortalMutation.isLoading}
-        isLoading={billingPortalMutation.isLoading}
-        label={intl.formatMessage({
-          defaultMessage: 'Manage subscription',
-          description: 'Manage user membership subscription button label',
-          id: 'sjLtW1',
-        })}
-        onClick={async () => {
-          const billingPortalUrl = await billingPortalMutation.mutateAsync({
-            returnUrl: window.location.href,
-          });
+    if (profile.projectsProfile.plan === planType) {
+      // User is already subscribed, link to billing page.
+      return (
+        <PricingButton
+          icon={RiArrowRightLine}
+          isDisabled={billingPortalMutation.isLoading}
+          isLoading={billingPortalMutation.isLoading}
+          label={intl.formatMessage({
+            defaultMessage: 'Manage subscription',
+            description: 'Manage user membership subscription button label',
+            id: 'sjLtW1',
+          })}
+          onClick={async () => {
+            const billingPortalUrl = await billingPortalMutation.mutateAsync({
+              returnUrl: window.location.href,
+            });
 
-          window.location.href = billingPortalUrl;
-        }}
-      />
-    );
+            window.location.href = billingPortalUrl;
+          }}
+        />
+      );
+    }
+
+    return null;
   }
 
   // User is not logged in, they have to create an account first.
@@ -405,22 +410,72 @@ function ProjectsPricingPriceCell({
   planType: ProjectsSubscriptionPlan;
   showPPPMessage: boolean;
 }>) {
+  const { profile } = useProfileWithProjectsProfile();
+
   return (
     <div className={className}>
-      <div>
-        {showPPPMessage && (
-          <Text
-            className="inline-flex items-baseline line-through"
-            color="subtle"
-            size="body1">
-            <PurchasePriceLabel
-              amount={priceRoundToNearestNiceNumber(
-                paymentConfig.unitCostCurrency.base.after /
-                  (numberOfMonths ?? 1),
+      <div className="flex items-end justify-between gap-2 md:flex-col md:items-start lg:items-center">
+        <div>
+          {showPPPMessage && (
+            <Text
+              className="inline-flex items-baseline line-through"
+              color="subtle"
+              size="body1">
+              <PurchasePriceLabel
+                amount={priceRoundToNearestNiceNumber(
+                  paymentConfig.unitCostCurrency.base.after /
+                    (numberOfMonths ?? 1),
+                )}
+                currency={paymentConfig.currency.toUpperCase()}
+                symbol={paymentConfig.symbol}
+              />{' '}
+              {numberOfMonths != null ? (
+                <FormattedMessage
+                  defaultMessage="/month"
+                  description="Per month"
+                  id="aE1FCD"
+                />
+              ) : (
+                <FormattedMessage
+                  defaultMessage="paid once"
+                  description="Pay the price once"
+                  id="BMBc9O"
+                />
               )}
-              currency={paymentConfig.currency.toUpperCase()}
-              symbol={paymentConfig.symbol}
-            />{' '}
+            </Text>
+          )}{' '}
+          <Text
+            className="inline-flex items-baseline gap-x-2"
+            color="subtitle"
+            size="body1"
+            weight="medium">
+            <span>
+              <PurchasePriceLabel
+                amount={priceRoundToNearestNiceNumber(
+                  paymentConfig.unitCostCurrency.withPPP.after /
+                    (numberOfMonths ?? 1),
+                )}
+                currency={paymentConfig.currency.toUpperCase()}
+                symbol={paymentConfig.symbol}>
+                {(parts) => (
+                  <>
+                    {parts[0].value}
+                    <Text
+                      className="text-3xl font-bold tracking-tight"
+                      color="default"
+                      size="inherit"
+                      weight="inherit">
+                      <>
+                        {parts
+                          .slice(1)
+                          .map((part) => part.value)
+                          .join('')}
+                      </>
+                    </Text>
+                  </>
+                )}
+              </PurchasePriceLabel>
+            </span>
             {numberOfMonths != null ? (
               <FormattedMessage
                 defaultMessage="/month"
@@ -435,60 +490,25 @@ function ProjectsPricingPriceCell({
               />
             )}
           </Text>
-        )}{' '}
+        </div>
         <Text
-          className="inline-flex items-baseline gap-x-2"
-          color="subtitle"
-          size="body1"
-          weight="medium">
-          <span>
-            <PurchasePriceLabel
-              amount={priceRoundToNearestNiceNumber(
-                paymentConfig.unitCostCurrency.withPPP.after /
-                  (numberOfMonths ?? 1),
-              )}
-              currency={paymentConfig.currency.toUpperCase()}
-              symbol={paymentConfig.symbol}>
-              {(parts) => (
-                <>
-                  {parts[0].value}
-                  <Text
-                    className="text-3xl font-bold tracking-tight"
-                    color="default"
-                    size="inherit"
-                    weight="inherit">
-                    <>
-                      {parts
-                        .slice(1)
-                        .map((part) => part.value)
-                        .join('')}
-                    </>
-                  </Text>
-                </>
-              )}
-            </PurchasePriceLabel>
-          </span>
-          {numberOfMonths != null ? (
-            <FormattedMessage
-              defaultMessage="/month"
-              description="Per month"
-              id="aE1FCD"
-            />
+          className={clsx(
+            'flex items-center justify-center',
+            'md:min-h-8 pb-2 md:pb-0',
+          )}
+          size="body3">
+          {profile?.projectsProfile?.plan === planType ? (
+            <span className="hidden lg:inline">
+              <PurchaseActivePlanLabel />
+            </span>
           ) : (
-            <FormattedMessage
-              defaultMessage="paid once"
-              description="Pay the price once"
-              id="BMBc9O"
+            <PricingPlanComparisonDiscount
+              paymentConfig={paymentConfig}
+              planType={planType}
             />
           )}
         </Text>
       </div>
-      <Text className="mt-2 block" size="body3">
-        <PricingPlanComparisonDiscount
-          paymentConfig={paymentConfig}
-          planType={planType}
-        />
-      </Text>
       <div className="mt-5">
         <PricingButtonSection
           countryCode={countryCode}
@@ -496,16 +516,18 @@ function ProjectsPricingPriceCell({
           planType={planType}
         />
       </div>
-      <Text
-        className="mt-2 block whitespace-nowrap text-center"
-        color="secondary"
-        size="body3">
-        <FormattedMessage
-          defaultMessage="14-day money back guarantee"
-          description="Pricing plan policy"
-          id="bq/h99"
-        />
-      </Text>
+      {!profile?.projectsProfile?.premium && (
+        <Text
+          className="mt-2 block whitespace-nowrap text-center"
+          color="secondary"
+          size="body3">
+          <FormattedMessage
+            defaultMessage="14-day money back guarantee"
+            description="Pricing plan policy"
+            id="bq/h99"
+          />
+        </Text>
+      )}
     </div>
   );
 }
@@ -515,6 +537,7 @@ export default function ProjectsPricingTable({
   planList,
   showPPPMessage,
 }: Props) {
+  const { profile } = useProfileWithProjectsProfile();
   const features = useProjectsPricingPlanFeatures({
     ANNUAL: annualPlanFeatures,
     FREE: freePlanFeatures,
@@ -563,7 +586,50 @@ export default function ProjectsPricingTable({
               </th>
               {planList.map(({ name, paymentConfig, numberOfMonths, type }) => (
                 <td key={name} className="px-6 py-5 align-top xl:px-8">
-                  {paymentConfig != null && type !== 'FREE' && (
+                  {type === 'FREE' ? (
+                    <div className="flex w-full flex-col items-center">
+                      <Text
+                        className="inline-flex items-baseline gap-x-2"
+                        color="subtitle"
+                        size="body1"
+                        weight="medium">
+                        <span>
+                          <PurchasePriceLabel
+                            amount={0}
+                            currency={planList[1].paymentConfig!.currency.toUpperCase()}
+                            symbol={planList[1].paymentConfig!.symbol}>
+                            {(parts) => (
+                              <>
+                                {parts[0].value}
+                                <Text
+                                  className="text-3xl font-bold tracking-tight"
+                                  color="default"
+                                  size="inherit"
+                                  weight="inherit">
+                                  <>
+                                    {parts
+                                      .slice(1)
+                                      .map((part) => part.value)
+                                      .join('')}
+                                  </>
+                                </Text>
+                              </>
+                            )}
+                          </PurchasePriceLabel>
+                        </span>
+                        <FormattedMessage
+                          defaultMessage="/month"
+                          description="Per month"
+                          id="aE1FCD"
+                        />
+                      </Text>
+                      <div className="min-h-8 mt-2 flex items-center justify-center">
+                        {profile?.projectsProfile?.plan == null && (
+                          <PurchaseActivePlanLabel />
+                        )}
+                      </div>
+                    </div>
+                  ) : paymentConfig != null ? (
                     <ProjectsPricingPriceCell
                       className="text-center"
                       countryCode={countryCode}
@@ -572,7 +638,7 @@ export default function ProjectsPricingTable({
                       planType={type}
                       showPPPMessage={showPPPMessage}
                     />
-                  )}
+                  ) : null}
                 </td>
               ))}
             </tr>
@@ -668,9 +734,14 @@ export default function ProjectsPricingTable({
           }) => {
             return (
               <div key={name} className={clsx('px-8 py-6')}>
-                <Text color="subtitle" size="body1" weight="medium">
-                  {name}
-                </Text>
+                <div className="flex items-center justify-between gap-2">
+                  <Text color="subtitle" size="body1" weight="medium">
+                    {name}
+                  </Text>
+                  {(profile?.projectsProfile?.plan === type ||
+                    (profile?.projectsProfile?.plan == null &&
+                      type === 'FREE')) && <PurchaseActivePlanLabel />}
+                </div>
                 {paymentConfig != null && type !== 'FREE' && (
                   <ProjectsPricingPriceCell
                     className="mt-8"

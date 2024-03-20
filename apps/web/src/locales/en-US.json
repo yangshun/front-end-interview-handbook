@@ -3959,6 +3959,10 @@
     "defaultMessage": "Once a submission has been deleted, it cannot be recovered. All upvotes, reputation, skills and component track progression due to the submission will be reversed",
     "description": "Delete challenge submission confirmation subtitle"
   },
+  "W4Akuo": {
+    "defaultMessage": "Unlock premium",
+    "description": "Purchase button label"
+  },
   "W9OR+u": {
     "defaultMessage": "See child skills",
     "description": "Label to expand skills card"
