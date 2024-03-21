@@ -1,0 +1,18 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import uniqueWithJs from '../setup/src/uniq-With.js';
+import uniqueWithTs from '../setup/src/uniq-With.ts';
+
+## Solution
+
+We can use the array function `findIndex` to iterate through each element in the `result` array to check if there was the same value when compared by `comparator`.
+
+<MDXCodeBlock languages={{ jsx: uniqueWithJs, tsx: uniqueWithTs }} />
+
+## Edge Cases
+
+To handle mixed data types, the `comparator` function must be able to process them by either converting the elements to a common type.
+
+## Resources
+
+- [Lodash `_.uniqWith`](https://lodash.com/docs/4.17.15#uniqWith)

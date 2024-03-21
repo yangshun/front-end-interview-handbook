@@ -3468,6 +3468,37 @@
     "topics": []
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1710806400,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Implement a function to remove all duplicate values from an array based on a specific comparison criteria.",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/uniq-with",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "data-selection",
+      "unique-array",
+      "uniq-by"
+    ],
+    "slug": "uniq-with",
+    "subtitle": null,
+    "title": "Unique With",
+    "topics": []
+  },
+  {
     "author": "yangshun",
     "companies": [],
     "created": 1655164800,

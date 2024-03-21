@@ -1,0 +1,33 @@
+---
+title: Unique With
+excerpt: Implement a function to remove all duplicate values from an array based on a specific comparison criteria.
+---
+
+Implement a function `uniqWith` that takes in an array and returns a duplicate-free version of the array where only the first occurrence of each element compared to each other with `comparator` is kept. The order of result values is determined by the order they occur in the array.
+
+## Arguments
+
+1. `array` _(Array)_: The array to iterate over.
+1. `comparator` _(Function)_: The comparator invoked per element.
+
+## Returns
+
+_(Array)_: Returns the unique array.
+
+## Examples
+
+```js
+uniqWith([2.1, 1.2, 2.3], (a, b) => Math.floor(a) === Math.floor(b)); // => [2.1, 1.2]
+uniqWith([{ x: 1 }, { x: 2 }, { x: 1 }], (a, b) => a.x === b.x); // => [{ x: 1 }, { x: 2 }]
+```
+
+The function should return an empty array or the only value if there is only 0 and 1 given respectively.
+
+```js
+uniqWith([], (a, b) => a === b); // => []
+uniqWith(1); // => [1]
+```
+
+## Resources
+
+- [Lodash `_.uniqWith`](https://lodash.com/docs/#uniqWith)
