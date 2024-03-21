@@ -1,5 +1,4 @@
 import {
-  $createLineBreakNode,
   $createParagraphNode,
   $createTextNode,
   $getRoot,
@@ -12,6 +11,7 @@ import { z } from 'zod';
 import { RichTextEditorConfig } from '~/components/ui/RichTextEditor/RichTextEditorConfig';
 
 import { createHeadlessEditor } from '@lexical/headless';
+import { $createHeadingNode } from '@lexical/rich-text';
 
 const MIN_LENGTH = 50;
 const MAX_LENGTH = 1000;
@@ -28,46 +28,44 @@ const getEditorInitialValue = () => {
       $getSelection();
 
       const paragraphNode1 = $createParagraphNode();
+      const headingNode1 = $createHeadingNode('h3');
 
-      paragraphNode1.append(
-        $createTextNode('Tech stack and approach').setFormat('bold'),
-      );
-      paragraphNode1.append($createLineBreakNode());
+      headingNode1.append($createTextNode('Tech stack and approach'));
       paragraphNode1.append(
         $createTextNode(
           '// TODO: Write about how you approached the task, including the tools and stack you used',
         ),
       );
+      root.append(headingNode1);
+      root.append(paragraphNode1);
 
       const paragraphNode2 = $createParagraphNode();
+      const headingNode2 = $createHeadingNode('h3');
 
-      paragraphNode2.append(
-        $createTextNode('Useful resources and lessons learnt').setFormat(
-          'bold',
-        ),
+      headingNode2.append(
+        $createTextNode('Useful resources and lessons learnt'),
       );
-      paragraphNode2.append($createLineBreakNode());
+
       paragraphNode2.append(
         $createTextNode(
           '// TODO: Help the community by sharing the resources and tips that helped you achieve this task',
         ),
       );
+      root.append(headingNode2);
+      root.append(paragraphNode2);
 
       const paragraphNode3 = $createParagraphNode();
+      const headingNode3 = $createHeadingNode('h3');
 
-      paragraphNode3.append(
-        $createTextNode('Notes / Questions for Community').setFormat('bold'),
-      );
-      paragraphNode3.append($createLineBreakNode());
+      headingNode3.append($createTextNode('Notes / Questions for Community'));
+
       paragraphNode3.append(
         $createTextNode(
           '// TODO: Provide a list of questions or notes for the community when they are reviewing your project, such as specific things you were not sure of',
         ),
       );
 
-      // Finally, append the paragraph to the root
-      root.append(paragraphNode1);
-      root.append(paragraphNode2);
+      root.append(headingNode3);
       root.append(paragraphNode3);
     },
     { discrete: true },
