@@ -102,7 +102,7 @@ export default function ProjectsProfileHoverCard({ userId }: Props) {
               />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-5">
             {statsItems.map((item) => (
               <div key={item.title} className="flex h-full flex-1 flex-col">
                 <Text size="body0" weight="bold">
