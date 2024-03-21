@@ -2431,6 +2431,10 @@
     "defaultMessage": "Show in progress challenges",
     "description": "Description of in progress challenges filter"
   },
+  "KJ2yNC": {
+    "defaultMessage": "Must be two characters or more",
+    "description": "Error message for min length"
+  },
   "KM0VJJ": {
     "defaultMessage": "Before you deploy, always ensure the following:",
     "description": "Warning message for GitHub repo step in project submission checklist"
@@ -5475,6 +5479,10 @@
     "defaultMessage": "Guidebook",
     "description": "Project guide menu header title"
   },
+  "jTKrPE": {
+    "defaultMessage": "Invalid Github username or URL",
+    "description": "Error message when github username or url is invalid"
+  },
   "jTXr+7": {
     "defaultMessage": "Intro to Behavioral Round",
     "description": "Introduction to behavioral interviews"
@@ -6138,6 +6146,10 @@
   "ojtNa2": {
     "defaultMessage": "3 Months",
     "description": "Short label for 3 months study plan"
+  },
+  "okx37l": {
+    "defaultMessage": "johndoe",
+    "description": "GitHub profile form placeholder"
   },
   "onNjnt": {
     "defaultMessage": "Design System Components",

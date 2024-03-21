@@ -17,6 +17,7 @@ import ProjectsProfileBioInput from '../profile/edit/ProjectsProfileBioInput';
 import ProjectsProfileSkillsProficientInput from '../profile/edit/ProjectsProfileSkillsProficientInput';
 import ProjectsProfileSkillsToImproveInput from '../profile/edit/ProjectsProfileSkillsToImproveInput';
 import { useProjectsProfileBioSchema } from '../profile/fields/ProjectsProfileBioSchema';
+import { useProjectsProfileGitHubSchema } from '../profile/fields/ProjectsProfileGithubSchema';
 import { useProjectsProfileWebsiteSchema } from '../profile/fields/ProjectsProfileWebsiteSchema';
 import { projectsReputationProfileFieldConfig } from '../reputation/ProjectsReputationPointsConfig';
 import { useProjectsSkillListInputSchema } from '../skills/form/ProjectsSkillListInputSchema';
@@ -41,11 +42,12 @@ function useOnboardingProfileStep2Schema() {
     required: false,
   });
   const bioSchema = useProjectsProfileBioSchema();
+  const gitHubUsernameSchema = useProjectsProfileGitHubSchema();
   const websiteSchema = useProjectsProfileWebsiteSchema();
 
   return z.object({
     bio: bioSchema,
-    githubUsername: z.string(),
+    githubUsername: gitHubUsernameSchema,
     linkedInUsername: z.string(),
     skillsProficient: skillsProficientSchema,
     skillsToGrow: skillsToGrowSchema,

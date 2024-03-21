@@ -33,6 +33,8 @@ import Heading from '~/components/ui/Heading';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
+import { useProjectsProfileGitHubSchema } from '../fields/ProjectsProfileGithubSchema';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { Profile, ProjectsProfile } from '@prisma/client';
 
@@ -51,15 +53,13 @@ function useProjectsProfileEditSchema() {
   const jobNotStartedSchema = useProjectsJobNotStartedSchema();
   const jobStartedSchema = useProjectsJobStartedSchema();
   const bioSchema = useProjectsProfileBioSchema();
+  const gitHubUsernameSchema = useProjectsProfileGitHubSchema();
   const websiteSchema = useProjectsProfileWebsiteSchema();
 
   const baseSchema = z.object({
     avatarUrl: z.string().optional(),
     bio: bioSchema,
-    githubUsername: z
-      .string()
-      .transform((val) => (val ? val : null))
-      .nullable(),
+    githubUsername: gitHubUsernameSchema,
     linkedInUsername: z
       .string()
       .transform((val) => (val ? val : null))

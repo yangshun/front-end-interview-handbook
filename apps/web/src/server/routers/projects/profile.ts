@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 import { profileUserNameSchemaServer } from '~/components/profile/fields/ProfileUsernameSchema';
+import { useProjectsProfileGitHubSchemaServer } from '~/components/projects/profile/fields/ProjectsProfileGithubSchema';
 import { projectsJobTitleInputSchemaServer } from '~/components/projects/profile/fields/ProjectsProfileJobSchema';
 import { projectsProfileWebsiteSchemaServer } from '~/components/projects/profile/fields/ProjectsProfileWebsiteSchema';
 import { fetchProjectsProfileRecalculatePoints } from '~/components/projects/reputation/ProjectsProfileRecalculatePoints';
@@ -294,10 +295,7 @@ export const projectsProfileRouter = router({
     .input(
       z.object({
         bio: projectsProfileBioSchemaServer,
-        githubUsername: z
-          .string()
-          .transform((val) => (val ? val : null))
-          .nullable(),
+        githubUsername: useProjectsProfileGitHubSchemaServer,
         linkedInUsername: z
           .string()
           .transform((val) => (val ? val : null))
@@ -367,10 +365,7 @@ export const projectsProfileRouter = router({
           bio: projectsProfileBioSchemaServer,
           company: z.string().optional().nullable(),
           currentStatus: z.string().optional().nullable(),
-          githubUsername: z
-            .string()
-            .transform((val) => (val ? val : null))
-            .nullable(),
+          githubUsername: useProjectsProfileGitHubSchemaServer,
           linkedInUsername: z
             .string()
             .transform((val) => (val ? val : null))
