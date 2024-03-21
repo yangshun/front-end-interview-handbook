@@ -1,4 +1,7 @@
-export default function sumBy(array: any[], iteratee: Function | string): any {
+export default function sumBy(
+  array: Array<any>,
+  iteratee: Function | string,
+): any {
   let sum = 0,
     found = false;
   if (array.length == 0) {

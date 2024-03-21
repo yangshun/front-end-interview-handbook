@@ -1,0 +1,8 @@
+{
+  "run": "/src/uniq-by.run.test.ts",
+  "submit": "/src/uniq-by.submit.test.ts",
+  "skeleton": {
+    "js": "/src/uniq-by.skeleton.js",
+    "ts": "/src/uniq-by.skeleton.ts"
+  }
+}

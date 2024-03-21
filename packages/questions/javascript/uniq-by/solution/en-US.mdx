@@ -1,0 +1,24 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import uniqByJs from '../setup/src/uniq-by.js';
+import uniqByTs from '../setup/src/uniq-by.ts';
+import uniqBySetJs from '../setup/src/uniqBySet.js';
+import uniqBySetTs from '../setup/src/uniqBySet.ts';
+
+## Solution
+
+We can use a new array `compare` to store the unique value of the elements in `array` after being invoked by `iteratee` and store the corresponding values in `result`.
+
+<MDXCodeBlock languages={{ jsx: uniqByJs, tsx: uniqByTs }} />
+
+Alternatively, we can use set to replace the `compare` array to check for unique elements. A Set can help in tracking uniqueness which ensures faster lookups (constant time complexity) for large datasets, making it more efficient than the previous code which uses an array (`compare.includes`) for tracking, resulting in slower (linear time complexity) lookups as the dataset grows.
+
+<MDXCodeBlock languages={{ jsx: uniqBySetJs, tsx: uniqBySetTs }} />
+
+## Edge Cases
+
+To handle mixed data types, the `iteratee` function must be able to process them by either converting the elements to a common type or process them separately.
+
+## Resources
+
+- [Lodash `_.uniqBy`](https://lodash.com/docs/4.17.15#uniqBy)
