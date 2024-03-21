@@ -67,7 +67,7 @@ export default function ProjectsChallengeSessionContextProvider({
   const queryClient = useQueryClient();
   const { showToast } = useToast();
   const { data: canAccessAllSteps, isLoading: fetchingCanAccessAllSteps } =
-    trpc.projects.challenges.canAccessAllSteps.useQuery({ slug });
+    trpc.projects.challenge.canAccessAllSteps.useQuery({ slug });
   const { data: startedBefore } =
     trpc.projects.sessions.startedBefore.useQuery();
   const { data: session, isFetched: isGetLatestSessionFetched } =

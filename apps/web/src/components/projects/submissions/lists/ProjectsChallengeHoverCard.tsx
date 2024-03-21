@@ -16,7 +16,7 @@ type Props = Readonly<{
 export default function ProjectsChallengeHoverCard({ slug }: Props) {
   const { locale } = useI18nPathname();
   const { profile } = useProfileWithProjectsProfile();
-  const { data, isLoading } = trpc.projects.challenges.hovercard.useQuery({
+  const { data, isLoading } = trpc.projects.challenge.hovercard.useQuery({
     locale: locale ?? 'en-US',
     slug,
   });

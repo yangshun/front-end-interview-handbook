@@ -25,7 +25,7 @@ export default function ProjectsChallengeUnlockAccessDialog({
   const router = useI18nRouter();
   const { showToast } = useToast();
   const unlockAccessMutation =
-    trpc.projects.challenges.unlockAccess.useMutation();
+    trpc.projects.challenge.accessUnlock.useMutation();
 
   return (
     <ConfirmationDialog
