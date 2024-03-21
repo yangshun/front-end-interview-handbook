@@ -3787,6 +3787,10 @@
     "defaultMessage": "India",
     "description": "India country"
   },
+  "UbCsf6": {
+    "defaultMessage": "Stack",
+    "description": "Label for tech stack used in project"
+  },
   "UeYQmR": {
     "defaultMessage": "Activity",
     "description": "Profile settings tab title"
@@ -4470,10 +4474,6 @@
   "ahkd5M": {
     "defaultMessage": "{creditCount} new credits will be added when your subscription renews on <bold>{date}</bold>",
     "description": "Information about subscription"
-  },
-  "aiI8c6": {
-    "defaultMessage": "Stack used",
-    "description": "Label for tech stack used in project"
   },
   "akHBWv": {
     "defaultMessage": "Outdent line",

@@ -127,9 +127,9 @@ export default function ProjectsChallengeSubmissionCard({
         </Anchor>
         <ProjectsSkillSummaryList
           label={intl.formatMessage({
-            defaultMessage: 'Stack used',
+            defaultMessage: 'Stack',
             description: 'Label for tech stack used in project',
-            id: 'aiI8c6',
+            id: 'UbCsf6',
           })}
           roadmapSkills={roadmapSkills}
           techStackSkills={techStackSkills}
