@@ -1,12 +1,9 @@
 import type { Control } from 'react-hook-form';
-import { Controller } from 'react-hook-form';
-import { RiLinkedinFill } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
-import TextInput from '~/components/ui/TextInput';
 
 import ProjectsProfileGithubInput from './ProjectsProfileGithubInput';
+import ProjectsProfileLinkedInInput from './ProjectsProfileLinkedInInput';
 import ProjectsProfileWebsiteInput from './ProjectsProfileWebsiteInput';
 import type { ProjectsOnboardingProfileStep2FormValues } from '../../onboarding/ProjectsOnboardingProfileStep2';
 import { projectsReputationProfileFieldConfig } from '../../reputation/ProjectsReputationPointsConfig';
@@ -25,8 +22,6 @@ export default function ProjectsProfileSocialInput({
   control,
   showReputationCountIncreaseTag,
 }: Props) {
-  const intl = useIntl();
-
   return (
     <div className="flex flex-col gap-6">
       <div className="relative">
@@ -47,35 +42,7 @@ export default function ProjectsProfileSocialInput({
             variant="filled"
           />
         )}
-        <Controller
-          control={control}
-          name="linkedInUsername"
-          render={({ field, formState }) => (
-            <TextInput
-              description={intl.formatMessage({
-                defaultMessage: 'Add your socials so that others can find you!',
-                description:
-                  'Description for social link input on Projects profile onboarding page',
-                id: 'SbE8XR',
-              })}
-              descriptionStyle="tooltip"
-              errorMessage={
-                formState.dirtyFields.linkedInUsername ||
-                formState.submitCount > 0
-                  ? formState.errors.linkedInUsername?.message
-                  : undefined
-              }
-              label={intl.formatMessage({
-                defaultMessage: 'LinkedIn username',
-                description: 'LinkedIn profile form label',
-                id: 'kPaVl6',
-              })}
-              placeholder="john-doe"
-              startIcon={RiLinkedinFill}
-              {...field}
-            />
-          )}
-        />
+        <ProjectsProfileLinkedInInput control={control} />
       </div>
       <div className="relative">
         {showReputationCountIncreaseTag && (

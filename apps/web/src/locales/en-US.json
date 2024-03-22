@@ -4023,6 +4023,10 @@
     "defaultMessage": "Cancel",
     "description": "Label for cancel reply button on project discussions page"
   },
+  "WQCzd5": {
+    "defaultMessage": "john-doe",
+    "description": "LinkedIn profile form placeholder"
+  },
   "WQaRlF": {
     "defaultMessage": "Submit",
     "description": "Submit button label"
@@ -7358,6 +7362,10 @@
   "zAl/H8": {
     "defaultMessage": "General account settings. Shared across all GreatFrontEnd products.",
     "description": "Description for general account settings"
+  },
+  "zBgQ/Y": {
+    "defaultMessage": "Invalid LinkedIn username or URL",
+    "description": "Error message when linkedin username or url is invalid"
   },
   "zDt/bH": {
     "defaultMessage": "Next",

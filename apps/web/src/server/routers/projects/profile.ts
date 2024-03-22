@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { profileUserNameSchemaServer } from '~/components/profile/fields/ProfileUsernameSchema';
 import { useProjectsProfileGitHubSchemaServer } from '~/components/projects/profile/fields/ProjectsProfileGithubSchema';
 import { projectsJobTitleInputSchemaServer } from '~/components/projects/profile/fields/ProjectsProfileJobSchema';
+import { useProjectsProfileLinkedInSchemaServer } from '~/components/projects/profile/fields/ProjectsProfileLinkedInSchema';
 import { projectsProfileWebsiteSchemaServer } from '~/components/projects/profile/fields/ProjectsProfileWebsiteSchema';
 import { fetchProjectsProfileRecalculatePoints } from '~/components/projects/reputation/ProjectsProfileRecalculatePoints';
 import { projectsSkillListInputOptionalSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
@@ -296,10 +297,7 @@ export const projectsProfileRouter = router({
       z.object({
         bio: projectsProfileBioSchemaServer,
         githubUsername: useProjectsProfileGitHubSchemaServer,
-        linkedInUsername: z
-          .string()
-          .transform((val) => (val ? val : null))
-          .nullable(),
+        linkedInUsername: useProjectsProfileLinkedInSchemaServer,
         skillsProficient: projectsSkillListInputOptionalSchemaServer,
         skillsToGrow: projectsSkillListInputOptionalSchemaServer,
         website: projectsProfileWebsiteSchemaServer,
@@ -366,10 +364,7 @@ export const projectsProfileRouter = router({
           company: z.string().optional().nullable(),
           currentStatus: z.string().optional().nullable(),
           githubUsername: useProjectsProfileGitHubSchemaServer,
-          linkedInUsername: z
-            .string()
-            .transform((val) => (val ? val : null))
-            .nullable(),
+          linkedInUsername: useProjectsProfileLinkedInSchemaServer,
           motivations: z.array(z.string()),
           name: z.string(),
           skillsProficient: projectsSkillListInputOptionalSchemaServer,
