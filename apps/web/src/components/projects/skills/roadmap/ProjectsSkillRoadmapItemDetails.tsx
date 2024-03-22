@@ -25,6 +25,7 @@ type Props = Readonly<{
 export default function ProjectsSkillRoadmapItemDetails({ skillItem }: Props) {
   const intl = useIntl();
   const label = projectsSkillLabel(skillItem.key);
+  const href = `/projects/skills/${skillItem.key}`;
 
   return (
     // TODO(projects|skills): Add skills redirection
@@ -40,7 +41,12 @@ export default function ProjectsSkillRoadmapItemDetails({ skillItem }: Props) {
       )}>
       <div className="flex w-full flex-col gap-2 md:flex-row md:gap-4">
         <div className="flex-1">
-          <Anchor className="relative z-[1]" href="#" variant="flat">
+          <Anchor
+            className="relative z-[1]"
+            href={href}
+            scroll={false}
+            scrollToTop={false}
+            variant="flat">
             <Text size="body2" weight="medium">
               {label}
             </Text>
@@ -101,7 +107,13 @@ export default function ProjectsSkillRoadmapItemDetails({ skillItem }: Props) {
           themeTextBrandColor_GroupHover,
         )}
       />
-      <Anchor aria-label={label} className="absolute inset-0" href="#" />
+      <Anchor
+        aria-label={label}
+        className="absolute inset-0"
+        href={href}
+        scroll={false}
+        scrollToTop={false}
+      />
     </div>
   );
 }

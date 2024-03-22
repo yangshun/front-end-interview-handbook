@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import ProjectsSkillRoadmapPage from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapPage';
+import ProjectsSkillRoadmapPage from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapLayout';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -28,5 +28,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  return <ProjectsSkillRoadmapPage />;
+  return null;
 }
