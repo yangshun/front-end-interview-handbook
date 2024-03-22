@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer';
+import type { Puppeteer } from 'puppeteer-core';
 
 import {
   type ProjectsImageBreakpointCategory,
@@ -8,15 +8,13 @@ import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/pro
 
 import { createSupabaseAdminClientGFE_SERVER_ONLY } from '~/supabase/SupabaseServerGFE';
 
-/**
- * In order to have the function working in both windows and macOS
- * we need to specify the respective path of the Chrome executable for
- * both cases.
- */
-const exePath =
+// In order to have the function working on various operating systems.
+const localExecutablePath =
   process.platform === 'win32'
     ? 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'
-    : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+    : process.platform === 'linux'
+      ? '/usr/bin/google-chrome'
+      : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 
 const desktopViewportConfig = ProjectsImageBreakpointDimensions.desktop;
 const tabletViewportConfig = {
@@ -28,7 +26,7 @@ const mobileViewportConfig = {
   isMobile: true,
 };
 
-type Browser = Awaited<ReturnType<typeof puppeteer.launch>>;
+type Browser = Awaited<ReturnType<Puppeteer['connect']>>;
 type Page = Awaited<ReturnType<Browser['newPage']>>;
 
 async function saveScreenshot(screenshotBuffer: Buffer, path: string) {
@@ -132,9 +130,17 @@ export async function generateScreenshots(
   submissionId: string,
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls,
 ): Promise<ProjectsChallengeSubmissionDeploymentUrls> {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const chromium = require('@sparticuz/chromium');
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const puppeteer = require('puppeteer-core');
+
   const browser = await puppeteer.launch({
-    args: [],
-    executablePath: exePath,
+    args: process.env.NODE_ENV === 'development' ? [] : chromium.args,
+    executablePath:
+      process.env.NODE_ENV === 'development'
+        ? localExecutablePath
+        : await chromium.executablePath(),
     headless: 'new',
   });
 
