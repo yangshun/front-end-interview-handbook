@@ -24,25 +24,27 @@ type Props = Readonly<{
 
 export default function ProjectsSkillRoadmapItemDetails({ skillItem }: Props) {
   const intl = useIntl();
+  const label = projectsSkillLabel(skillItem.key);
 
   return (
     // TODO(projects|skills): Add skills redirection
-    <Anchor
+    <div
       className={clsx(
+        'relative isolate',
         'group flex w-full items-center gap-2 md:gap-4',
         'rounded-lg px-4 py-3',
         'transition-colors',
         ['border', themeBorderElementColor, themeBorderBrandColor_Hover],
         themeOutlineElement_FocusVisible,
         themeOutlineElementBrandColor_FocusVisible,
-      )}
-      href="#"
-      variant="unstyled">
+      )}>
       <div className="flex w-full flex-col gap-2 md:flex-row md:gap-4">
         <div className="flex-1">
-          <Text size="body2" weight="medium">
-            {projectsSkillLabel(skillItem.key)}
-          </Text>
+          <Anchor className="relative z-[1]" href="#" variant="flat">
+            <Text size="body2" weight="medium">
+              {label}
+            </Text>
+          </Anchor>
         </div>
         <div className="flex gap-4">
           <ProjectsChallengeReputationTag
@@ -99,6 +101,7 @@ export default function ProjectsSkillRoadmapItemDetails({ skillItem }: Props) {
           themeTextBrandColor_GroupHover,
         )}
       />
-    </Anchor>
+      <Anchor aria-label={label} className="absolute inset-0" href="#" />
+    </div>
   );
 }
