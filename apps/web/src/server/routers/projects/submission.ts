@@ -323,42 +323,45 @@ export const projectsChallengeSubmissionItemRouter = router({
         });
       },
     ),
-  takeScreenshot: publicProcedure
+  retakeScreenshot: projectsUserProcedure
     .input(
       z.object({
         submissionId: z.string().uuid(),
       }),
     )
-    .mutation(async ({ input: { submissionId } }) => {
-      const submission = await prisma.projectsChallengeSubmission.findUnique({
-        where: {
-          id: submissionId,
-        },
-      });
-
-      if (submission == null) {
-        throw new TRPCError({
-          code: 'BAD_REQUEST',
-          message: 'Submission not found',
+    .mutation(
+      async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
+        const submission = await prisma.projectsChallengeSubmission.findUnique({
+          where: {
+            id: submissionId,
+            profileId: projectsProfileId,
+          },
         });
-      }
 
-      const screenshots = await generateScreenshots(
-        submissionId,
-        submission.deploymentUrls,
-      );
+        if (submission == null) {
+          throw new TRPCError({
+            code: 'BAD_REQUEST',
+            message: 'Submission not found',
+          });
+        }
 
-      await prisma.projectsChallengeSubmission.update({
-        data: {
-          deploymentUrls: screenshots,
-        },
-        where: {
-          id: submissionId,
-        },
-      });
+        const screenshots = await generateScreenshots(
+          submissionId,
+          submission.deploymentUrls,
+        );
 
-      return screenshots;
-    }),
+        await prisma.projectsChallengeSubmission.update({
+          data: {
+            deploymentUrls: screenshots,
+          },
+          where: {
+            id: submissionId,
+          },
+        });
+
+        return screenshots;
+      },
+    ),
   unpin: projectsUserProcedure
     .input(
       z.object({

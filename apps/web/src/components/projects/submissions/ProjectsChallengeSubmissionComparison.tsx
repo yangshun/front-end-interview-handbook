@@ -39,7 +39,7 @@ export default function ProjectsChallengeSubmissionComparison({
   );
 
   const takeScreenshotMutation =
-    trpc.projects.submission.takeScreenshot.useMutation();
+    trpc.projects.submission.retakeScreenshot.useMutation();
 
   return (
     <Section>
