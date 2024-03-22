@@ -1,0 +1,8 @@
+{
+  "run": "/src/union.run.test.ts",
+  "submit": "/src/union.submit.test.ts",
+  "skeleton": {
+    "js": "/src/union.skeleton.js",
+    "ts": "/src/union.skeleton.ts"
+  }
+}

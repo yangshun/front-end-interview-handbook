@@ -1,0 +1,13 @@
+{
+  "slug": "union",
+  "created": "2024-03-21T00:00:00.000Z",
+  "languages": ["js", "ts"],
+  "companies": [],
+  "premium": true,
+  "duration": 10,
+  "published": true,
+  "importance": "low",
+  "difficulty": "easy",
+  "similar_questions": [],
+  "next_questions": ["unique-array"]
+}

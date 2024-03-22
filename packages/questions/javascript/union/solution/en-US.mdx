@@ -1,0 +1,26 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import unionJs from '../setup/src/union.js';
+import unionTS from '../setup/src/union.ts';
+import unionSetJs from '../setup/src/union-set.js';
+import unionSetTS from '../setup/src/union-set.ts';
+
+## Solution
+
+This solution iterates through all the array elements, checks if there is any same value in `result` and push if there isn't.
+
+<MDXCodeBlock languages={{ jsx: unionJs, tsx: unionTS }} />
+
+Another solution will be using a set instead of array for `result` as sets automatically ensures uniqueness.
+
+<MDXCodeBlock languages={{ jsx: unionSetJs, tsx: unionSetTS }} />
+
+## Edge Cases
+
+If the function is called with non-array arguments, it will throw an error because non-array types do not have the forEach method that the function relies on.
+
+To solve this, we can check if each argument is an array using `Array.isArray` before attempting to iterate over it. If an argument is not an array, you can choose to skip it or add code to process these items separately.
+
+## Resources
+
+- [Lodash `_.union`](https://lodash.com/docs/#union)
