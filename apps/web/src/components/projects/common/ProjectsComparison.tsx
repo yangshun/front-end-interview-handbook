@@ -32,6 +32,7 @@ type Props = Readonly<
   CommonProps &
     (
       | {
+          allowRetakeScreenshot?: boolean;
           deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
           isTakingScreenshot: boolean;
           mode: 'compare';
@@ -39,9 +40,7 @@ type Props = Readonly<
         }
       | {
           deploymentUrls?: ProjectsChallengeSubmissionDeploymentUrls;
-          isTakingScreenshot?: boolean;
           mode: 'display';
-          onTakeScreenshot?: () => void;
         }
     )
 >;
@@ -50,10 +49,9 @@ export default function ProjectsComparison({
   title,
   baseScreenshots,
   deploymentUrls,
-  onTakeScreenshot,
-  isTakingScreenshot,
   showDimensions,
   mode,
+  ...props
 }: Props) {
   const intl = useIntl();
   const [selectedBreakpoint, setSelectedBreakpoint] =
@@ -90,25 +88,27 @@ export default function ProjectsComparison({
             'px-4 py-4 md:px-6',
           )}>
           <Heading level="heading6">{title}</Heading>
-          <Button
-            addonPosition="start"
-            icon={RiImageLine}
-            isDisabled={isTakingScreenshot}
-            isLoading={isTakingScreenshot}
-            label={intl.formatMessage({
-              defaultMessage: 'Retake screenshot',
-              description: 'Retake screenshot button label',
-              id: 'e0C2cj',
-            })}
-            tooltip={intl.formatMessage({
-              defaultMessage:
-                'When your site URL was submitted, we automatically take screenshots of your pages.  You can manually trigger retake with this button if your site has been updated',
-              description: 'Tooltip for retake screenshot button',
-              id: 'EHTprG',
-            })}
-            variant="secondary"
-            onClick={onTakeScreenshot}
-          />
+          {'allowRetakeScreenshot' in props && props.allowRetakeScreenshot && (
+            <Button
+              addonPosition="start"
+              icon={RiImageLine}
+              isDisabled={props.isTakingScreenshot}
+              isLoading={props.isTakingScreenshot}
+              label={intl.formatMessage({
+                defaultMessage: 'Retake screenshot',
+                description: 'Retake screenshot button label',
+                id: 'e0C2cj',
+              })}
+              tooltip={intl.formatMessage({
+                defaultMessage:
+                  'When your site URL was submitted, we automatically take screenshots of your pages. You can manually trigger retake with this button if your site has been updated',
+                description: 'Tooltip for retake screenshot button',
+                id: 'eNCfLw',
+              })}
+              variant="secondary"
+              onClick={props.onTakeScreenshot}
+            />
+          )}
         </div>
       )}
       {/* Image Comparison Slider */}

@@ -1779,10 +1779,6 @@
     "defaultMessage": "Solving Common Questions",
     "description": "Title for solving common behavioral questions section"
   },
-  "EHTprG": {
-    "defaultMessage": "When your site URL was submitted, we automatically take screenshots of your pages. You can manually trigger retake with this button if your site has been updated",
-    "description": "Tooltip for retake screenshot button"
-  },
   "EHngws": {
     "defaultMessage": "Copied!",
     "description": "Indication that text has been copied"
@@ -4914,6 +4910,10 @@
   "eDIEUs": {
     "defaultMessage": "Build entire design systems or component libraries with our Component Tracks",
     "description": "Title of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
+  },
+  "eNCfLw": {
+    "defaultMessage": "When your site URL was submitted, we automatically take screenshots of your pages. You can manually trigger retake with this button if your site has been updated",
+    "description": "Tooltip for retake screenshot button"
   },
   "ePyk/V": {
     "defaultMessage": "Get notified about new front end resources, interview tips and practice questions",

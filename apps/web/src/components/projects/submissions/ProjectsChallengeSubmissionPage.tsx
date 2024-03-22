@@ -137,6 +137,7 @@ export default function ProjectsChallengeSubmissionPage({
         )}
         <div className="mt-10 lg:mt-12">
           <ProjectsChallengeSubmissionComparison
+            allowRetakeScreenshot={isViewingOwnSubmission}
             deploymentUrls={deploymentUrls}
             submissionId={submissionId}
           />

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -8,22 +7,24 @@ import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/pro
 import type { ProjectsBaseScreenshot } from '~/components/projects/types';
 import Section from '~/components/ui/Heading/HeadingContext';
 
+import { useI18nRouter } from '~/next-i18nostic/src';
+
 type Props = Readonly<{
+  allowRetakeScreenshot?: boolean;
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
   submissionId: string;
 }>;
 
 export default function ProjectsChallengeSubmissionComparison({
+  allowRetakeScreenshot,
   deploymentUrls,
   submissionId,
 }: Props) {
   const intl = useIntl();
-  // TODO(projects): refetch submission to prevent storing duplicated state
-  const [deploymentScreenshots, setDeploymentScreenshots] =
-    useState<ProjectsChallengeSubmissionDeploymentUrls>(deploymentUrls);
+  const router = useI18nRouter();
 
-  const baseScreenshots: Array<ProjectsBaseScreenshot> =
-    deploymentScreenshots.map((item) => ({
+  const baseScreenshots: Array<ProjectsBaseScreenshot> = deploymentUrls.map(
+    (item) => ({
       label: item.label,
       // TODO(projects): Pick from challenge assets
       screenshots: {
@@ -34,7 +35,8 @@ export default function ProjectsChallengeSubmissionComparison({
         tablet:
           'https://source.unsplash.com/random/1080x700?random=${page.label}',
       },
-    }));
+    }),
+  );
 
   const takeScreenshotMutation =
     trpc.projects.submission.takeScreenshot.useMutation();
@@ -42,8 +44,9 @@ export default function ProjectsChallengeSubmissionComparison({
   return (
     <Section>
       <ProjectsComparison
+        allowRetakeScreenshot={allowRetakeScreenshot}
         baseScreenshots={baseScreenshots}
-        deploymentUrls={deploymentScreenshots}
+        deploymentUrls={deploymentUrls}
         isTakingScreenshot={takeScreenshotMutation.isLoading}
         mode="compare"
         title={intl.formatMessage({
@@ -52,11 +55,9 @@ export default function ProjectsChallengeSubmissionComparison({
           id: '3ffp8N',
         })}
         onTakeScreenshot={() =>
-          takeScreenshotMutation
-            .mutateAsync({ submissionId })
-            .then((newDeploymentScreenshots) => {
-              setDeploymentScreenshots(newDeploymentScreenshots);
-            })
+          takeScreenshotMutation.mutateAsync({ submissionId }).then(() => {
+            router.refresh();
+          })
         }
       />
     </Section>
