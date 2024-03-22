@@ -79,7 +79,7 @@ async function takeScreenshotForViewport(
   await page.setViewport(viewport);
 
   const screenshotBuffer = await page.screenshot({
-    captureBeyondViewport: true,
+    fullPage: true,
     type: 'webp',
   });
 
