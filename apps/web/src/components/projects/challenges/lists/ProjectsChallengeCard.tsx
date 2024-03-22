@@ -114,9 +114,11 @@ export default function ProjectsChallengeCard({
             {description}
           </Text>
         </div>
-        <ProjectsSkillGroupList
-          skillGroups={projectsSkillExtractGroups(skills)}
-        />
+        <div className="z-[1] flex">
+          <ProjectsSkillGroupList
+            skillGroups={projectsSkillExtractGroups(skills)}
+          />
+        </div>
         <div className="flex items-center gap-4">
           {type === 'normal' && (
             <Button

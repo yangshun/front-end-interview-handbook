@@ -119,8 +119,8 @@ export default function ProjectsChallengeSubmissionCard({
           )}
         </div>
       )}
-      <div className="flex flex-col gap-3">
-        <Anchor className="min-h-12 z-[1]" href={hrefs.detail} variant="flat">
+      <div className="z-[1] flex flex-col gap-3">
+        <Anchor className="min-h-12" href={hrefs.detail} variant="flat">
           <Text className="line-clamp-2" size="body1" weight="bold">
             {title}
           </Text>
