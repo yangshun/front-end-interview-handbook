@@ -39,6 +39,7 @@ function Contents() {
 
 export default function SlideOutExamples() {
   const [isShownStart, setIsShownStart] = useState(false);
+  const [isShownStart2, setIsShownStart2] = useState(false);
 
   return (
     <UIExamplesGroup darkMode="none" title="Slide Out">
@@ -87,6 +88,35 @@ export default function SlideOutExamples() {
           onClose={() => setIsShownStart(false)}>
           <Contents />
         </SlideOut>
+        <SlideOut
+          enterFrom="start"
+          isShown={isShownStart2}
+          primaryButton={
+            <Button
+              label="Primary action"
+              size="md"
+              variant="primary"
+              onClick={() => setIsShownStart2(false)}
+            />
+          }
+          secondaryButton={
+            <Button
+              label="Secondary action"
+              size="md"
+              variant="secondary"
+              onClick={() => setIsShownStart2(false)}
+            />
+          }
+          size="md"
+          title="Lorem Ipsum"
+          onClose={() => setIsShownStart2(false)}>
+          <Contents />
+        </SlideOut>
+        <Button
+          label="Controlled from outside"
+          variant="primary"
+          onClick={() => setIsShownStart2(true)}
+        />
       </div>
     </UIExamplesGroup>
   );

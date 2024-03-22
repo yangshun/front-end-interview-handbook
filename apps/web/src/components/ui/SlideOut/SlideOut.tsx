@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import * as React from 'react';
 import { RiCloseLine } from 'react-icons/ri';
@@ -189,7 +191,7 @@ type Props = Readonly<{
   secondaryButton?: React.ReactNode;
   size: SlideOutSize;
   title?: React.ReactNode;
-  trigger: React.ReactNode;
+  trigger?: React.ReactNode;
 }>;
 
 export default function SlideOut({
@@ -214,7 +216,9 @@ export default function SlideOut({
           onClose?.();
         }
       }}>
-      <SlideOutTrigger asChild={asChild}>{trigger}</SlideOutTrigger>
+      {trigger && (
+        <SlideOutTrigger asChild={asChild}>{trigger}</SlideOutTrigger>
+      )}
       <SlideOutContent className={className} enterFrom={enterFrom} size={size}>
         <SlideOutHeader>
           {title && <SlideOutTitle>{title}</SlideOutTitle>}
