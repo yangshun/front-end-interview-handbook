@@ -85,8 +85,8 @@ export default function ProjectsChallengeGetStartedImportantInfoGuideBanner() {
         themeGlassyBorder,
         themeBackgroundElementColor,
       )}>
-      <div className="-translate-x-2/4 md:-translate-x-1/4">
-        <div className="w-[310px]">
+      <div className="sm:-translate-x-28.5 -translate-x-40 md:-translate-x-1/4">
+        <div className="w-full max-w-[250px]">
           <div className="flex min-w-fit flex-col items-stretch">
             <div
               className="grid gap-x-6"
