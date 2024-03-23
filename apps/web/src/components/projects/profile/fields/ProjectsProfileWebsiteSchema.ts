@@ -44,17 +44,12 @@ export function getProjectsProfileWebsiteAttributes(intl: IntlShape) {
     description: 'Personal website link field',
     id: '3JSDTC',
   });
-  const description = intl.formatMessage({
-    defaultMessage: 'Add your socials so that others can find you!',
-    description:
-      'Description for social link input on Projects profile onboarding page',
-    id: 'SbE8XR',
-  });
+
   const placeholder = 'https://johndoe.com';
   const urlMessage = intl.formatMessage({
-    defaultMessage: 'URL must start with "https://"',
+    defaultMessage: "This URL is invalid. Check if you've typed it correctly.",
     description: 'Error message',
-    id: 'ms/RqZ',
+    id: 'Tm6FbS',
   });
   const requiredMessage = intl.formatMessage({
     defaultMessage: 'URL is required',
@@ -63,7 +58,6 @@ export function getProjectsProfileWebsiteAttributes(intl: IntlShape) {
   });
 
   return {
-    description,
     label,
     placeholder,
     validation: {

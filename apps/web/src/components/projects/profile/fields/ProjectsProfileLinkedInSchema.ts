@@ -84,12 +84,6 @@ export function getProjectsProfileLinkedInAttrs(intl: IntlShape) {
     description: 'LinkedIn profile form placeholder',
     id: 'WQCzd5',
   });
-  const description = intl.formatMessage({
-    defaultMessage: 'Add your socials so that others can find you!',
-    description:
-      'Description for social link input on Projects profile onboarding page',
-    id: 'SbE8XR',
-  });
   const invalidMessage = intl.formatMessage({
     defaultMessage: 'Invalid LinkedIn username or URL',
     description: 'Error message when linkedin username or url is invalid',
@@ -102,7 +96,6 @@ export function getProjectsProfileLinkedInAttrs(intl: IntlShape) {
   });
 
   return {
-    description,
     label,
     placeholder,
     validation: {

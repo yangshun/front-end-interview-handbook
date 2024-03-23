@@ -26,8 +26,6 @@ export default function ProjectsProfileLinkedInInput({ control }: Props) {
       name="linkedInUsername"
       render={({ field, formState }) => (
         <TextInput
-          description={attrs.description}
-          descriptionStyle="tooltip"
           errorMessage={
             formState.dirtyFields.linkedInUsername || formState.submitCount > 0
               ? formState.errors.linkedInUsername?.message

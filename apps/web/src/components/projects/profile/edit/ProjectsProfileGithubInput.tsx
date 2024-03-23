@@ -27,8 +27,6 @@ export default function ProjectsProfileGithubInput({ control }: Props) {
       name="githubUsername"
       render={({ field, formState }) => (
         <TextInput
-          description={attrs.description}
-          descriptionStyle="tooltip"
           errorMessage={
             formState.dirtyFields.githubUsername || formState.submitCount > 0
               ? formState.errors.githubUsername?.message

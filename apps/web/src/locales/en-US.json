@@ -3699,6 +3699,10 @@
     "defaultMessage": "Giving away {discountPercentage}% off all plans!",
     "description": "Rewards discount message"
   },
+  "Tm6FbS": {
+    "defaultMessage": "This URL is invalid. Check if you've typed it correctly.",
+    "description": "Error message"
+  },
   "Tvr6Mn": {
     "defaultMessage": "Senior Software Engineer",
     "description": "Ryan Van Valkenburg's job title"

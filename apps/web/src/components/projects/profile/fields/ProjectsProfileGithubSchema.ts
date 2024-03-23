@@ -83,12 +83,6 @@ export function getProjectsProfileGitHubAttrs(intl: IntlShape) {
     description: 'GitHub profile form placeholder',
     id: 'okx37l',
   });
-  const description = intl.formatMessage({
-    defaultMessage: 'Add your socials so that others can find you!',
-    description:
-      'Description for social link input on Projects profile onboarding page',
-    id: 'SbE8XR',
-  });
   const invalidMessage = intl.formatMessage({
     defaultMessage: 'Invalid Github username or URL',
     description: 'Error message when github username or url is invalid',
@@ -101,7 +95,6 @@ export function getProjectsProfileGitHubAttrs(intl: IntlShape) {
   });
 
   return {
-    description,
     label,
     placeholder,
     validation: {

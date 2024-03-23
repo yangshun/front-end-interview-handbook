@@ -27,8 +27,6 @@ export default function ProjectsProfileWebsiteInput({ control }: Props) {
       name="website"
       render={({ field, formState }) => (
         <TextInput
-          description={attrs.description}
-          descriptionStyle="tooltip"
           errorMessage={
             formState.dirtyFields.website || formState.submitCount > 0
               ? formState.errors.website?.message
