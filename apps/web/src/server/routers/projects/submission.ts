@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import absoluteUrl from '~/lib/absoluteUrl';
+
 import {
   projectsReputationSubmissionVoteAwardPoints,
   projectsReputationSubmissionVoteRevokePoints,
@@ -14,11 +16,8 @@ import { projectsChallengeSubmissionImplementationSchemaServer } from '~/compone
 import { projectsChallengeSubmissionRepositoryUrlSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
 import { projectsChallengeSubmissionSummarySchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionSummarySchema';
 import { projectsChallengeSubmissionTitleSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionTitleSchema';
-import {
-  deleteScreenshot,
-  generateScreenshots,
-} from '~/components/projects/utils/screenshotUtils';
 
+import type { ProjectsSubmissionScreenshotRequestBody } from '~/pages/api/projects/submission-screenshot';
 import prisma from '~/server/prisma';
 
 import { projectsUserProcedure } from './procedures';
@@ -94,7 +93,7 @@ export const projectsChallengeSubmissionItemRouter = router({
           repositoryUrl,
           implementation,
         },
-        ctx: { projectsProfileId },
+        ctx: { projectsProfileId, req },
       }) => {
         const existingSession = await prisma.projectsChallengeSession.findFirst(
           {
@@ -146,19 +145,21 @@ export const projectsChallengeSubmissionItemRouter = router({
           });
         });
 
-        // Non-blocking request to take screenshots and update database
-        generateScreenshots(txRes.id, txRes.deploymentUrls).then(
-          async (screenshots) => {
-            await prisma.projectsChallengeSubmission.update({
-              data: {
-                deploymentUrls: screenshots,
-              },
-              where: {
-                id: txRes.id,
-              },
-            });
+        const { origin } = absoluteUrl(req);
+        const payload: ProjectsSubmissionScreenshotRequestBody = {
+          deploymentUrls,
+          routeSecret: process.env.API_ROUTE_SECRET!,
+          submissionId: txRes.id,
+        };
+
+        // Use without `await` so that it's non-blocking.
+        fetch(`${origin}/api/projects/submission-screenshot`, {
+          body: JSON.stringify(payload),
+          headers: {
+            'Content-Type': 'application/json',
           },
-        );
+          method: 'POST',
+        });
 
         return txRes;
       },
@@ -330,7 +331,7 @@ export const projectsChallengeSubmissionItemRouter = router({
       }),
     )
     .mutation(
-      async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
+      async ({ input: { submissionId }, ctx: { projectsProfileId, req } }) => {
         const submission = await prisma.projectsChallengeSubmission.findUnique({
           where: {
             id: submissionId,
@@ -345,21 +346,20 @@ export const projectsChallengeSubmissionItemRouter = router({
           });
         }
 
-        const screenshots = await generateScreenshots(
+        const { origin } = absoluteUrl(req);
+        const payload: ProjectsSubmissionScreenshotRequestBody = {
+          deploymentUrls: submission.deploymentUrls,
+          routeSecret: process.env.API_ROUTE_SECRET!,
           submissionId,
-          submission.deploymentUrls,
-        );
+        };
 
-        await prisma.projectsChallengeSubmission.update({
-          data: {
-            deploymentUrls: screenshots,
+        return await fetch(`${origin}/api/projects/submission-screenshot`, {
+          body: JSON.stringify(payload),
+          headers: {
+            'Content-Type': 'application/json',
           },
-          where: {
-            id: submissionId,
-          },
+          method: 'POST',
         });
-
-        return screenshots;
       },
     ),
   unpin: projectsUserProcedure
@@ -422,21 +422,10 @@ export const projectsChallengeSubmissionItemRouter = router({
           repositoryUrl,
           implementation,
         },
-        ctx: { projectsProfileId },
+        ctx: { projectsProfileId, req },
       }) => {
-        const oldDeploymentUrls =
-          await prisma.projectsChallengeSubmission.findUnique({
-            select: {
-              deploymentUrls: true,
-            },
-            where: {
-              id: submissionId,
-            },
-          });
-
         const res = await prisma.projectsChallengeSubmission.update({
           data: {
-            deploymentUrls: deploymentUrls as Prisma.JsonArray,
             editedAt: new Date(),
             implementation,
             repositoryUrl,
@@ -451,33 +440,21 @@ export const projectsChallengeSubmissionItemRouter = router({
           },
         });
 
-        // For deleted pages, remove files from the bucket
-        const newDeploymentUrls = res.deploymentUrls;
+        const { origin } = absoluteUrl(req);
+        const payload: ProjectsSubmissionScreenshotRequestBody = {
+          deploymentUrls: deploymentUrls ?? [],
+          routeSecret: process.env.API_ROUTE_SECRET!,
+          submissionId,
+        };
 
-        oldDeploymentUrls?.deploymentUrls.forEach(async (oldDeploymentUrl) => {
-          if (
-            !newDeploymentUrls.some(
-              (newDeploymentUrl) =>
-                newDeploymentUrl.label === oldDeploymentUrl.label,
-            )
-          ) {
-            await deleteScreenshot(submissionId, oldDeploymentUrl.href);
-          }
-        });
-
-        // Update deploymentUrls field with new screenshots
-        generateScreenshots(submissionId, newDeploymentUrls).then(
-          async (screenshots) => {
-            await prisma.projectsChallengeSubmission.update({
-              data: {
-                deploymentUrls: screenshots,
-              },
-              where: {
-                id: submissionId,
-              },
-            });
+        // Use without `await` so that it's non-blocking.
+        fetch(`${origin}/api/projects/submission-screenshot`, {
+          body: JSON.stringify(payload),
+          headers: {
+            'Content-Type': 'application/json',
           },
-        );
+          method: 'POST',
+        });
 
         return res;
       },
