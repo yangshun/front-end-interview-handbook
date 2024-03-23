@@ -62,6 +62,7 @@ function whereClauseForSubmissions(
       OR: [
         { title: { contains: query, mode: 'insensitive' as const } },
         { summary: { contains: query, mode: 'insensitive' as const } },
+        { implementation: { contains: query, mode: 'insensitive' as const } },
       ],
       // Filter users submissions of projects I have completed or in progress or not started
       ...(isStatusNotEmpty &&
