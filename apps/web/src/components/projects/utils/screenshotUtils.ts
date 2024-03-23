@@ -81,9 +81,7 @@ async function takeScreenshotForViewport(
     type: 'webp',
   });
 
-  const savedScreenshotUrl = await saveScreenshot(screenshotBuffer, path);
-
-  return savedScreenshotUrl;
+  return await saveScreenshot(screenshotBuffer, path);
 }
 
 // Returns an object with screenshot URLs for each device type
@@ -101,19 +99,19 @@ async function takeScreenshots(
     url,
     desktopViewportConfig,
   );
-  const mobileScreenshot = await takeScreenshotForViewport(
-    submissionId,
-    'mobile',
-    page,
-    url,
-    mobileViewportConfig,
-  );
   const tabletScreenshot = await takeScreenshotForViewport(
     submissionId,
     'tablet',
     page,
     url,
     tabletViewportConfig,
+  );
+  const mobileScreenshot = await takeScreenshotForViewport(
+    submissionId,
+    'mobile',
+    page,
+    url,
+    mobileViewportConfig,
   );
 
   const screenshots: Record<ProjectsImageBreakpointCategory, string> = {
