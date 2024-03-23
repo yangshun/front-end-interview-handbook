@@ -448,7 +448,7 @@ export const projectsChallengeSubmissionItemRouter = router({
         };
 
         // Use without `await` so that it's non-blocking.
-        fetch(`${origin}/api/projects/submission-screenshot`, {
+        await fetch(`${origin}/api/projects/submission-screenshot`, {
           body: JSON.stringify(payload),
           headers: {
             'Content-Type': 'application/json',
