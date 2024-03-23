@@ -16,8 +16,8 @@ import { projectsChallengeSubmissionImplementationSchemaServer } from '~/compone
 import { projectsChallengeSubmissionRepositoryUrlSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
 import { projectsChallengeSubmissionSummarySchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionSummarySchema';
 import { projectsChallengeSubmissionTitleSchemaServer } from '~/components/projects/submissions/form/fields/ProjectsChallengeSubmissionTitleSchema';
+import { generateScreenshots } from '~/components/projects/utils/screenshotUtils';
 
-import type { ProjectsSubmissionScreenshotRequestBody } from '~/pages/api/projects/submission-screenshot';
 import prisma from '~/server/prisma';
 
 import { projectsUserProcedure } from './procedures';
@@ -93,7 +93,7 @@ export const projectsChallengeSubmissionItemRouter = router({
           repositoryUrl,
           implementation,
         },
-        ctx: { projectsProfileId, req },
+        ctx: { projectsProfileId },
       }) => {
         const existingSession = await prisma.projectsChallengeSession.findFirst(
           {
@@ -143,22 +143,6 @@ export const projectsChallengeSubmissionItemRouter = router({
               title,
             },
           });
-        });
-
-        const { origin } = absoluteUrl(req);
-        const payload: ProjectsSubmissionScreenshotRequestBody = {
-          deploymentUrls,
-          routeSecret: process.env.API_ROUTE_SECRET!,
-          submissionId: txRes.id,
-        };
-
-        // Use without `await` so that it's non-blocking.
-        fetch(`${origin}/api/projects/submission-screenshot`, {
-          body: JSON.stringify(payload),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          method: 'POST',
         });
 
         return txRes;
@@ -346,19 +330,19 @@ export const projectsChallengeSubmissionItemRouter = router({
           });
         }
 
-        const { origin } = absoluteUrl(req);
-        const payload: ProjectsSubmissionScreenshotRequestBody = {
-          deploymentUrls: submission.deploymentUrls,
-          routeSecret: process.env.API_ROUTE_SECRET!,
+        const deploymentUrlsWithScreenshots = await generateScreenshots(
           submissionId,
-        };
+          submission.deploymentUrls,
+        );
 
-        return await fetch(`${origin}/api/projects/submission-screenshot`, {
-          body: JSON.stringify(payload),
-          headers: {
-            'Content-Type': 'application/json',
+        // TODO(projects): Delete old screenshots from bucket.
+        return await prisma.projectsChallengeSubmission.update({
+          data: {
+            deploymentUrls: deploymentUrlsWithScreenshots,
           },
-          method: 'POST',
+          where: {
+            id: submissionId,
+          },
         });
       },
     ),
@@ -422,10 +406,11 @@ export const projectsChallengeSubmissionItemRouter = router({
           repositoryUrl,
           implementation,
         },
-        ctx: { projectsProfileId, req },
+        ctx: { projectsProfileId },
       }) => {
         const res = await prisma.projectsChallengeSubmission.update({
           data: {
+            deploymentUrls,
             editedAt: new Date(),
             implementation,
             repositoryUrl,
@@ -438,22 +423,6 @@ export const projectsChallengeSubmissionItemRouter = router({
             id: submissionId,
             profileId: projectsProfileId,
           },
-        });
-
-        const { origin } = absoluteUrl(req);
-        const payload: ProjectsSubmissionScreenshotRequestBody = {
-          deploymentUrls: deploymentUrls ?? [],
-          routeSecret: process.env.API_ROUTE_SECRET!,
-          submissionId,
-        };
-
-        // Use without `await` so that it's non-blocking.
-        await fetch(`${origin}/api/projects/submission-screenshot`, {
-          body: JSON.stringify(payload),
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          method: 'POST',
         });
 
         return res;

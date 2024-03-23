@@ -1,13 +1,13 @@
 import { useIntl } from 'react-intl';
 
-import { trpc } from '~/hooks/trpc';
-
 import ProjectsComparison from '~/components/projects/common/ProjectsComparison';
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/projects/submissions/types';
 import type { ProjectsBaseScreenshot } from '~/components/projects/types';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
+
+import useProjectsChallengeSubmissionTakeScreenshotMutation from './useProjectsChallengeSubmissionTakeScreenshotMutation';
 
 type Props = Readonly<{
   allowRetakeScreenshot?: boolean;
@@ -39,7 +39,7 @@ export default function ProjectsChallengeSubmissionComparison({
   );
 
   const takeScreenshotMutation =
-    trpc.projects.submission.retakeScreenshot.useMutation();
+    useProjectsChallengeSubmissionTakeScreenshotMutation('comparison');
 
   return (
     <Section>

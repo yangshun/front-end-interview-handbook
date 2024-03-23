@@ -15,6 +15,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import { useI18nRouter } from '~/next-i18nostic/src';
 
 import ProjectsChallengeSubmissionForm from './ProjectsChallengeSubmissionForm';
+import useProjectsChallengeSubmissionTakeScreenshotMutation from '../screenshots/useProjectsChallengeSubmissionTakeScreenshotMutation';
 
 import type { ProjectsChallengeSession } from '@prisma/client';
 
@@ -31,6 +32,8 @@ export default function ProjectsChallengeSubmitPage({
   const { showToast } = useToast();
   const router = useI18nRouter();
 
+  const takeScreenshotMutation =
+    useProjectsChallengeSubmissionTakeScreenshotMutation('form');
   const createSubmissionMutation = trpc.projects.submission.create.useMutation({
     onError: () => {
       showToast({
@@ -43,6 +46,8 @@ export default function ProjectsChallengeSubmitPage({
       });
     },
     onSuccess: (submission) => {
+      takeScreenshotMutation.mutate({ submissionId: submission.id });
+
       showToast({
         description: intl.formatMessage({
           // TODO(projects): Actual rep gained.

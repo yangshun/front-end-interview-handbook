@@ -15,6 +15,7 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import { useI18nRouter } from '~/next-i18nostic/src';
 
 import ProjectsChallengeSubmissionForm from './ProjectsChallengeSubmissionForm';
+import useProjectsChallengeSubmissionTakeScreenshotMutation from '../screenshots/useProjectsChallengeSubmissionTakeScreenshotMutation';
 import type { ProjectsChallengeSubmissionExtended } from '../types';
 import type { ProjectsChallengeItem } from '../../challenges/types';
 
@@ -33,6 +34,8 @@ export default function ProjectsChallengeSubmissionEditPage({
   const [isDeleting, setIsDeleting] = useState(false);
 
   const submissionId = submission.id;
+  const takeScreenshotMutation =
+    useProjectsChallengeSubmissionTakeScreenshotMutation('form');
 
   const updateSubmissionMutation = trpc.projects.submission.update.useMutation({
     onError: () => {
@@ -61,6 +64,7 @@ export default function ProjectsChallengeSubmissionEditPage({
         variant: 'success',
       });
 
+      takeScreenshotMutation.mutate({ submissionId: submission_.id });
       router.push(submission_.hrefs.detail);
       // Refetch latest dashboard page data.
       router.refresh();
