@@ -1379,7 +1379,7 @@ ES2015 defines a module syntax which aims to replace both AMD and CommonJS. This
 - https://nodejs.org/docs/latest/api/modules.html
 - http://2ality.com/2014/09/es6-modules-final.html
 
-### Why you might want to create static class members?
+### Why might you want to create static class members?
 
 Static class members (properties/methods) are not tied to a specific instance of a class and have the same value regardless of which instance is referring to it. Static properties are typically configuration variables and static methods are usually pure utility functions which do not depend on the state of the instance.
 
