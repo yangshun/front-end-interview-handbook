@@ -31,7 +31,7 @@ export default function ProjectsChallengeSubmissionEditPage({
   const intl = useIntl();
   const { showToast } = useToast();
   const router = useI18nRouter();
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
 
   const submissionId = submission.id;
   const takeScreenshotMutation =
@@ -82,7 +82,7 @@ export default function ProjectsChallengeSubmissionEditPage({
       });
     },
     onSuccess: () => {
-      setIsDeleting(false);
+      setShowDeleteConfirmation(false);
       showToast({
         description: intl.formatMessage({
           defaultMessage:
@@ -132,9 +132,15 @@ export default function ProjectsChallengeSubmissionEditPage({
             cancelButtonHref={submission.hrefs.detail}
             challengeDefaultSkills={challenge.metadata.skills}
             defaultValues={submission}
+            isDeleting={deleteSubmissionMutation.isLoading}
+            isDisabled={
+              updateSubmissionMutation.isLoading ||
+              deleteSubmissionMutation.isLoading
+            }
+            isSaving={updateSubmissionMutation.isLoading}
             mode="edit"
             onDelete={() => {
-              setIsDeleting(true);
+              setShowDeleteConfirmation(true);
             }}
             onSubmit={(data) => {
               updateSubmissionMutation.mutate({
@@ -147,14 +153,14 @@ export default function ProjectsChallengeSubmissionEditPage({
         <ConfirmationDialog
           confirmButtonVariant="danger"
           isConfirming={deleteSubmissionMutation.isLoading}
-          isShown={isDeleting}
+          isShown={showDeleteConfirmation}
           title={intl.formatMessage({
             defaultMessage: 'Confirm delete submission?',
             description: 'Delete challenge submission confirmation',
             id: 'bfmJR5',
           })}
           onCancel={() => {
-            setIsDeleting(false);
+            setShowDeleteConfirmation(false);
           }}
           onConfirm={() => {
             deleteSubmissionMutation.mutate({

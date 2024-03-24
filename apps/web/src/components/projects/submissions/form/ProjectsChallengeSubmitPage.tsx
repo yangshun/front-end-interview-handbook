@@ -100,6 +100,8 @@ export default function ProjectsChallengeSubmitPage({
               roadmapSkills: session.roadmapSkills,
               techStackSkills: session.techStackSkills,
             }}
+            isDisabled={createSubmissionMutation.isLoading}
+            isSaving={createSubmissionMutation.isLoading}
             mode="create"
             onSubmit={(data) => {
               createSubmissionMutation.mutate({

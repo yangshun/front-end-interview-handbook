@@ -65,18 +65,21 @@ type BaseProps = Readonly<{
   cancelButtonHref: string;
   challengeDefaultSkills?: ReadonlyArray<ProjectsSkillKey>;
   defaultValues?: Partial<ProjectsChallengeSubmissionFormValues>;
+  isDisabled: boolean;
+  isSaving: boolean;
   onSubmit: (data: ProjectsChallengeSubmissionFormValues) => void;
 }>;
 
 type Props =
   | (BaseProps &
       Readonly<{
-        mode: 'create';
+        isDeleting: boolean;
+        mode: 'edit';
+        onDelete: () => void;
       }>)
   | (BaseProps &
       Readonly<{
-        mode: 'edit';
-        onDelete: () => void;
+        mode: 'create';
       }>);
 
 const defaultValuesEmpty = Object.freeze({
@@ -93,6 +96,8 @@ export default function ProjectsChallengeSubmissionForm({
   cancelButtonHref,
   challengeDefaultSkills,
   defaultValues: defaultValuesParam,
+  isDisabled,
+  isSaving,
   onSubmit,
   ...props
 }: Props) {
@@ -134,10 +139,40 @@ export default function ProjectsChallengeSubmissionForm({
             <ProjectsChallengeSubmissionImplementationField control={control} />
           </div>
         </div>
-        <div className="flex flex-wrap gap-2 sm:justify-between">
-          <div className="flex gap-2">
-            {/* Add disabled/loading states to the buttons. */}
+        <div className="flex flex-wrap justify-between gap-2">
+          {props.mode === 'edit' && (
             <Button
+              addonPosition="start"
+              icon={RiDeleteBinLine}
+              isDisabled={isDisabled}
+              isLoading={props.isDeleting}
+              label={intl.formatMessage({
+                defaultMessage: 'Delete submission',
+                description: 'Delete challenge submission',
+                id: 'kfKz/1',
+              })}
+              size="lg"
+              variant="danger"
+              onClick={() => {
+                props.onDelete();
+              }}
+            />
+          )}
+          <div className="flex gap-2">
+            <Button
+              href={cancelButtonHref}
+              isDisabled={isDisabled}
+              label={intl.formatMessage({
+                defaultMessage: 'Cancel',
+                description: 'Cancel button label',
+                id: '0GT0SI',
+              })}
+              size="lg"
+              variant="secondary"
+            />
+            <Button
+              isDisabled={isDisabled}
+              isLoading={isSaving}
               label={
                 props.mode === 'create'
                   ? intl.formatMessage({
@@ -155,33 +190,7 @@ export default function ProjectsChallengeSubmissionForm({
               type="submit"
               variant="primary"
             />
-            <Button
-              href={cancelButtonHref}
-              label={intl.formatMessage({
-                defaultMessage: 'Cancel',
-                description: 'Cancel button label',
-                id: '0GT0SI',
-              })}
-              size="lg"
-              variant="secondary"
-            />
           </div>
-          {props.mode === 'edit' && (
-            <Button
-              addonPosition="start"
-              icon={RiDeleteBinLine}
-              label={intl.formatMessage({
-                defaultMessage: 'Delete submission',
-                description: 'Delete challenge submission',
-                id: 'kfKz/1',
-              })}
-              size="lg"
-              variant="danger"
-              onClick={() => {
-                props.onDelete();
-              }}
-            />
-          )}
         </div>
       </form>
     </FormProvider>

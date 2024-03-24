@@ -1,7 +1,5 @@
 import { z } from 'zod';
 
-import absoluteUrl from '~/lib/absoluteUrl';
-
 import {
   projectsReputationSubmissionVoteAwardPoints,
   projectsReputationSubmissionVoteRevokePoints,
@@ -315,7 +313,7 @@ export const projectsChallengeSubmissionItemRouter = router({
       }),
     )
     .mutation(
-      async ({ input: { submissionId }, ctx: { projectsProfileId, req } }) => {
+      async ({ input: { submissionId }, ctx: { projectsProfileId } }) => {
         const submission = await prisma.projectsChallengeSubmission.findUnique({
           where: {
             id: submissionId,
