@@ -1,20 +1,20 @@
-export default function minBy(
-  array: Array<any>,
-  iteratee: Function | string,
+export default function minBy<T>(
+  array: Array<T>,
+  iteratee: (value: T) => any,
 ): any {
-  let result: any, computed: any;
-
-  // Convert string iteratee into function.
-  const iterateeFunc: Function =
-    typeof iteratee === 'function' ? iteratee : (value: any) => value[iteratee];
+  let result, computed;
 
   // Iterate through array to find the minimum `result`.
   for (const value of array) {
-    const current: any = iterateeFunc(value);
-    if (current != null && (current < computed || computed === undefined)) {
-      computed = current; // Store the calculated value of the current `result`.
+    const currComputed = iteratee(value);
+    if (
+      currComputed != null &&
+      (currComputed < computed || computed === undefined)
+    ) {
       result = value;
+      computed = currComputed; // Store the computed value of the current `result`.
     }
   }
+
   return result;
 }

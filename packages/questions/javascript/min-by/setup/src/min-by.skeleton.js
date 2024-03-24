@@ -1,6 +1,6 @@
 /**
  * @param {Array} array The array to iterate over.
- * @param {Function|string} iteratee The iteratee invoked per element.
+ * @param {Function} iteratee The iteratee invoked per element.
  * @returns {*} Returns the minimum value.
  */
 export default function minBy(array, iteratee) {

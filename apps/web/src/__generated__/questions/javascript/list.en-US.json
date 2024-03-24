@@ -2413,7 +2413,7 @@
     "created": 1710720000,
     "difficulty": "easy",
     "duration": 10,
-    "excerpt": "Implement a function that finds the minimum element based on the specified criteria.",
+    "excerpt": "Implement a function that finds the minimum element based on the specified criteria",
     "featured": false,
     "format": "javascript",
     "frameworkDefault": null,
@@ -2425,7 +2425,7 @@
       "ts"
     ],
     "nextQuestions": [],
-    "premium": true,
+    "premium": false,
     "published": true,
     "ranking": 100,
     "similarQuestions": [
