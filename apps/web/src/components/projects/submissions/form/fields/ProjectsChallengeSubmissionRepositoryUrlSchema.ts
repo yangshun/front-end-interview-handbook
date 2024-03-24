@@ -2,12 +2,15 @@ import type { IntlShape } from 'react-intl';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
+const GITHUB_REPO_URL_REGEX =
+  /^https?:\/\/(www\.)?github\.com\/[a-zA-Z0-9-]+\/[a-zA-Z0-9_.-]+$/;
+
 function projectsChallengeSubmissionRepositoryUrlSchema(options?: {
   urlMessage: string;
 }) {
   const { urlMessage } = options ?? {};
 
-  return z.string().url({ message: urlMessage }).trim();
+  return z.string().trim().regex(GITHUB_REPO_URL_REGEX, urlMessage);
 }
 
 // TODO: Figure out how to reuse intl strings for the server.
