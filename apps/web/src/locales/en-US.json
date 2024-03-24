@@ -1043,6 +1043,10 @@
     "defaultMessage": "Progress",
     "description": "Completion status"
   },
+  "7khf0o": {
+    "defaultMessage": "Please manually trigger retaking of the screenshots from the submission page",
+    "description": "Error message for screenshot generation"
+  },
   "7lppmr": {
     "defaultMessage": "Blog",
     "description": "Link to blog page"
@@ -1223,6 +1227,10 @@
     "defaultMessage": "Coding",
     "description": "Label for coding questions"
   },
+  "97G4Pr": {
+    "defaultMessage": "Screenshots for the submission have been generated",
+    "description": "Success message for screenshot generation"
+  },
   "97HVxk": {
     "defaultMessage": "Key features",
     "description": "Key features of the product"
@@ -1386,6 +1394,14 @@
   "AfXYpF": {
     "defaultMessage": "Current project session",
     "description": "Title for current project session card"
+  },
+  "AgOTU5": {
+    "defaultMessage": "Please try again later",
+    "description": "Error message for screenshot generation"
+  },
+  "AhoxQ8": {
+    "defaultMessage": "Retaking screenshots for the submission, it might take a while",
+    "description": "Message for project submission screenshot generation"
   },
   "AjKgye": {
     "defaultMessage": "Start the project to access submission and deployment steps",
@@ -3994,6 +4010,10 @@
   "WETxAT": {
     "defaultMessage": "Challenge difficulty",
     "description": "Label for Difficulty filter for projects list"
+  },
+  "WEj+Ko": {
+    "defaultMessage": "Generating screenshots for the submission, it might take a while",
+    "description": "Message for project submission screenshot generation"
   },
   "WIHUwS": {
     "defaultMessage": "Quarterly plan",
@@ -7018,6 +7038,10 @@
   "w+HZnz": {
     "defaultMessage": "Our projects are never one-off - they always fit into some component library or design system with other projects. Any projects you build can be composed to build future projects, forming an ever-growing toolkit for your future.",
     "description": "Part 1 of subtitle of the 'Permanent toolkit' marketing section on Projects home page"
+  },
+  "w0CYrm": {
+    "defaultMessage": "Screenshot generation failed",
+    "description": "Update challenge success message"
   },
   "w0Gmne": {
     "defaultMessage": "Front End Interview Guidebook",
