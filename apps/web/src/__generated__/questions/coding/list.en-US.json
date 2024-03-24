@@ -2776,36 +2776,6 @@
   {
     "author": null,
     "companies": [],
-    "created": 1710720000,
-    "difficulty": "easy",
-    "duration": 10,
-    "excerpt": "Implement a function that finds the maximum element based on the specified criteria.",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/max-by",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "group-by",
-      "min-by"
-    ],
-    "slug": "max-by",
-    "subtitle": null,
-    "title": "Max By",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
     "created": 1710633600,
     "difficulty": "easy",
     "duration": 5,
@@ -2830,37 +2800,6 @@
     "slug": "mean",
     "subtitle": null,
     "title": "Mean",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
-    "created": 1710806400,
-    "difficulty": "easy",
-    "duration": 15,
-    "excerpt": "Implement a function that finds the mean value based on the specified criteria.",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/mean-by",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "group-by",
-      "min-by",
-      "mean"
-    ],
-    "slug": "mean-by",
-    "subtitle": null,
-    "title": "Mean By",
     "topics": []
   },
   {
@@ -4127,37 +4066,6 @@
     "topics": []
   },
   {
-    "author": null,
-    "companies": [],
-    "created": 1710806400,
-    "difficulty": "easy",
-    "duration": 15,
-    "excerpt": "Implement a function that finds the sum based on the specified criteria.",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/sum-by",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "group-by",
-      "min-by",
-      "mean-by"
-    ],
-    "slug": "sum-by",
-    "subtitle": null,
-    "title": "Sum By",
-    "topics": []
-  },
-  {
     "author": "yangshun",
     "companies": [
       "google"
@@ -4914,66 +4822,6 @@
     "topics": []
   },
   {
-    "author": null,
-    "companies": [],
-    "created": 1710979200,
-    "difficulty": "easy",
-    "duration": 10,
-    "excerpt": "Implement a function that creates an array of unique values, in order, from all given arrays.",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/union",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [
-      "unique-array"
-    ],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "union",
-    "subtitle": null,
-    "title": "Union",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
-    "created": 1710806400,
-    "difficulty": "medium",
-    "duration": 15,
-    "excerpt": "Implement a function to remove all duplicate values from an array based on a specific criteria.",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/uniq-by",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "data-selection",
-      "unique-array",
-      "max-by"
-    ],
-    "slug": "uniq-by",
-    "subtitle": null,
-    "title": "Uniq By",
-    "topics": []
-  },
-  {
     "author": "yangshun",
     "companies": [],
     "created": 1655164800,
@@ -5000,37 +4848,6 @@
     "slug": "unique-array",
     "subtitle": null,
     "title": "Unique Array",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
-    "created": 1710806400,
-    "difficulty": "medium",
-    "duration": 15,
-    "excerpt": "Implement a function to remove all duplicate values from an array based on a specific comparison criteria.",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/uniq-with",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "data-selection",
-      "unique-array",
-      "uniq-by"
-    ],
-    "slug": "uniq-with",
-    "subtitle": null,
-    "title": "Unique With",
     "topics": []
   },
   {

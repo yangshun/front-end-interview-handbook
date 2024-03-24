@@ -5,9 +5,9 @@
   "companies": [],
   "premium": true,
   "duration": 10,
-  "published": true,
+  "published": false,
   "importance": "low",
   "difficulty": "easy",
-  "similar_questions": [],
+  "similar_questions": ["intersection"],
   "next_questions": ["unique-array"]
 }
