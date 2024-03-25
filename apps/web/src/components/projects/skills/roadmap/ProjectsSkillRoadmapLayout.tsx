@@ -19,7 +19,7 @@ type Props = Readonly<{
   children: ReactNode;
 }>;
 
-export default function ProjectsSkillRoadmapPage({ children }: Props) {
+export default function ProjectsSkillRoadmapLayout({ children }: Props) {
   const router = useI18nRouter();
   const segment = useSelectedLayoutSegment();
 

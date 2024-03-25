@@ -21,7 +21,7 @@ export default function ProjectsMainLayoutTabs() {
   );
 
   const value: ProjectsMainLayoutTabCategory = useMemo(() => {
-    const tab = tabs.find((t) => t.href === pathname);
+    const tab = tabs.find((t) => (pathname ?? '').startsWith(t.href ?? ''));
 
     return tab?.value ?? 'challenges';
     // eslint-disable-next-line react-hooks/exhaustive-deps
