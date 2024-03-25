@@ -22,6 +22,11 @@ export default function ProjectsSkillRoadmapDetails({
   challenges,
   skillMetadata,
 }: Props) {
+  const totalRoadmapPoints = challenges.reduce(
+    (acc, item) => item.metadata.points + acc,
+    0,
+  );
+
   return (
     <div className="flex flex-col gap-y-8 pb-12">
       <div className="flex flex-col gap-y-4">
@@ -47,7 +52,7 @@ export default function ProjectsSkillRoadmapDetails({
             Recommended projects to do to advance this skill progressively.
           </Text>
           <div className="flex flex-wrap gap-x-6">
-            <ProjectsChallengeReputationTag points={1200} />
+            <ProjectsChallengeReputationTag points={totalRoadmapPoints} />
           </div>
           <ProjectsChallengeList challenges={challenges} />
         </div>
