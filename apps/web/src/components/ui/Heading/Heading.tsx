@@ -12,18 +12,19 @@ type Props = HTMLAttributes<HTMLHeadingElement> &
     className?: string;
     color?: HeadingColor;
     level: HeadingLevel;
+    tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   }>;
 
 function Heading(
-  { level: visualLevel, color, className, ...props }: Props,
+  { level: visualLevel, color, className, tag, ...props }: Props,
   ref: ForwardedRef<HTMLHeadingElement>,
 ) {
   const { level } = useHeadingLevel();
-  const HeadingTag = `h${level}`;
+  const HeadingTag = tag ?? `h${level}`;
 
   return (
+    // @ts-expect-error TS doesn't know the tags are h1/h2/etc.
     <HeadingTag
-      // @ts-expect-error TS doesn't know the tags are h1/h2/etc.
       ref={ref}
       className={headingCVA({ className, color, level: visualLevel })}
       {...props}

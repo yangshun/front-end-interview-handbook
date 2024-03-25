@@ -3,6 +3,7 @@ import type {
   ProjectsChallengeGuide,
   ProjectsChallengeMetadata,
   ProjectsChallengeStyleGuide,
+  ProjectsSkillMetadata,
   ProjectsTrackMetadata,
 } from 'contentlayer/generated';
 import {
@@ -10,6 +11,7 @@ import {
   allProjectsChallengeGuides,
   allProjectsChallengeMetadata,
   allProjectsChallengeStyleGuides,
+  allProjectsSkillMetadata,
   allProjectsTrackMetadata,
 } from 'contentlayer/generated';
 import { sum } from 'lodash-es';
@@ -378,6 +380,29 @@ async function readProjectsChallengeMetadata(
   return {
     challengeMetadata,
     loadedLocale: requestedLocale,
+  };
+}
+
+export async function readProjectsSkillMetadata(
+  slugParam: string,
+  requestedLocale = 'en-US',
+): Promise<
+  Readonly<{
+    loadedLocale: string;
+    skillMetadata: ProjectsSkillMetadata;
+  }>
+> {
+  // So that we handle typos like extra characters.
+  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
+  const skillMetadata = allProjectsSkillMetadata.find(
+    (skillItem) =>
+      skillItem._raw.flattenedPath ===
+      `projects/skills/${slug}/${requestedLocale}`,
+  )!;
+
+  return {
+    loadedLocale: requestedLocale,
+    skillMetadata,
   };
 }
 

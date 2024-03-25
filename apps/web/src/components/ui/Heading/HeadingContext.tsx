@@ -17,15 +17,20 @@ export function useHeadingLevel() {
 type Props = Readonly<{
   children: React.ReactNode;
   increment?: boolean; // Whether to increment the heading level.
+  level?: number; // Override level.
 }>;
 
-export default function Section({ children, increment = true }: Props) {
+export default function Section({
+  children,
+  level: levelProp,
+  increment = true,
+}: Props) {
   const { level } = useHeadingLevel();
 
   const nextLevel = Math.min(level + (increment ? 1 : 0), 6); // Max of H6.
 
   return (
-    <HeadingContext.Provider value={{ level: nextLevel }}>
+    <HeadingContext.Provider value={{ level: levelProp ?? nextLevel }}>
       {children}
     </HeadingContext.Provider>
   );
