@@ -10,6 +10,7 @@ import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 
 import ProjectsChallengeList from '../../challenges/lists/ProjectsChallengeList';
+import ProjectsChallengeProgressTag from '../../challenges/metadata/ProjectsChallengeProgressTag';
 import ProjectsChallengeReputationTag from '../../challenges/metadata/ProjectsChallengeReputationTag';
 import type { ProjectsChallengeItem } from '../../challenges/types';
 
@@ -26,6 +27,10 @@ export default function ProjectsSkillRoadmapDetails({
     (acc, item) => item.metadata.points + acc,
     0,
   );
+  const completedChallenges = challenges.reduce(
+    (acc, item) => Number(item.status === 'COMPLETED') + acc,
+    0,
+  );
 
   return (
     <div className="flex flex-col gap-y-8 pb-12">
@@ -35,6 +40,12 @@ export default function ProjectsSkillRoadmapDetails({
         </Heading>
         <div className="flex flex-wrap gap-x-6">
           <ProjectsChallengeReputationTag points={1200} />
+          <ProjectsChallengeProgressTag
+            completed={completedChallenges}
+            showProgress={false}
+            total={challenges.length}
+            variant="skills-roadmap"
+          />
         </div>
         <Text className="block" color="secondary" size="body3">
           {skillMetadata.description}
@@ -53,6 +64,10 @@ export default function ProjectsSkillRoadmapDetails({
           </Text>
           <div className="flex flex-wrap gap-x-6">
             <ProjectsChallengeReputationTag points={totalRoadmapPoints} />
+            <ProjectsChallengeProgressTag
+              completed={completedChallenges}
+              total={challenges.length}
+            />
           </div>
           <ProjectsChallengeList challenges={challenges} />
         </div>

@@ -42,7 +42,7 @@ export default function ProjectsSkillRoadmapGroupHeading({ group }: Props) {
             </div>
             <ProjectsChallengeProgressTag
               completed={completed}
-              iconClassName="!size-4"
+              iconClassName="size-4"
               showProgress={false}
               total={total}
             />

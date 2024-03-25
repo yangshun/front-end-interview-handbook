@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
 
-import ProjectsSkillRoadmapPage from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapLayout';
-
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 

@@ -74,7 +74,7 @@ export default function ProjectsChallengeCard({ challenge }: Props) {
             variant="flat">
             {title}
           </Anchor>
-          <Text className="text-pretty grow" color="secondary" size="body2">
+          <Text className="text-pretty grow" color="secondary" size="body3">
             {description}
           </Text>
         </div>

@@ -11,38 +11,59 @@ type Props = Readonly<{
   iconClassName?: string;
   showProgress?: boolean;
   total: number;
+  variant?: 'normal' | 'skills-roadmap';
 }>;
 
 export default function ProjectsChallengeProgressTag({
   completed,
-  total,
+  iconClassName = 'size-5',
   showProgress = true,
-  iconClassName,
+  total,
+  variant = 'normal',
 }: Props) {
   const intl = useIntl();
 
   return (
     <div className={clsx('flex items-center gap-1', themeTextSubtleColor)}>
-      <RiRocketLine className={clsx('size-5', iconClassName)} />
+      <RiRocketLine className={iconClassName} />
       <Text color="inherit" size="body3">
-        <FormattedMessage
-          defaultMessage="<bold>{completedCount}</bold>/{totalCount} challenges"
-          description="Rep count label in Projects"
-          id="26Xmcd"
-          values={{
-            bold: (chunks) => (
-              <Text color="secondary" size="body2" weight="medium">
-                {chunks}
-              </Text>
-            ),
-            completedCount: completed,
-            totalCount: total,
-          }}
-        />
+        {variant === 'normal' && (
+          <FormattedMessage
+            defaultMessage="<bold>{completedCount}</bold>/{totalCount} challenges"
+            description="Rep count label in Projects"
+            id="26Xmcd"
+            values={{
+              bold: (chunks) => (
+                <Text color="secondary" size="body2" weight="medium">
+                  {chunks}
+                </Text>
+              ),
+              completedCount: completed,
+              totalCount: total,
+            }}
+          />
+        )}
+        {variant === 'skills-roadmap' && (
+          <FormattedMessage
+            defaultMessage="<bold>{completedCount}</bold>/{totalCount} skill plan challenges"
+            description="Rep count label in Projects"
+            id="r5RGzk"
+            values={{
+              bold: (chunks) => (
+                <Text color="secondary" size="body2" weight="medium">
+                  {chunks}
+                </Text>
+              ),
+              completedCount: completed,
+              totalCount: total,
+            }}
+          />
+        )}
       </Text>
       {showProgress && (
         <div>
           <ProgressBar
+            heightClass="h-1.5"
             label={intl.formatMessage(
               {
                 defaultMessage:
