@@ -2,15 +2,18 @@
 
 import { useSelectedLayoutSegment } from 'next/navigation';
 import type { ReactNode } from 'react';
+import { RiArrowRightSLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import ProjectsSkillRoadmapSection from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapSection';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import SlideOut from '~/components/ui/SlideOut';
-import Text from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
+
+import { projectsSkillLabel } from '../data/ProjectsSkillListData';
 
 type Props = Readonly<{
   children: ReactNode;
@@ -46,7 +49,24 @@ export default function ProjectsSkillRoadmapPage({ children }: Props) {
           enterFrom="end"
           isShown={segment != null}
           size="md"
-          title="Lorem Ipsum"
+          title={
+            <div
+              className={textVariants({
+                className: 'flex gap-x-2.5',
+                size: 'body1',
+                weight: 'bold',
+              })}>
+              <Text color="subtle">HTML</Text>
+              <RiArrowRightSLine
+                aria-hidden={true}
+                className={textVariants({
+                  className: 'size-6 shrink-0',
+                  color: 'secondary',
+                })}
+              />
+              <Text color="default">{projectsSkillLabel(segment!)}</Text>
+            </div>
+          }
           onClose={() => {
             router.push('/projects/skills', {
               scroll: false,
