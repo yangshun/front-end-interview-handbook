@@ -2,6 +2,8 @@ import type { IntlShape } from 'react-intl';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
+const URL_REGEX = /^(https?:\/\/)?(www\.)?[a-z0-9-]+\.[a-z]{2,}(\/.*)?$/;
+
 function projectsProfileWebsiteSchema(options?: {
   required: boolean;
   requiredMessage: string;
@@ -11,7 +13,7 @@ function projectsProfileWebsiteSchema(options?: {
 
   const urlValidation = z
     .string()
-    .url({ message: urlMessage })
+    .regex(URL_REGEX, urlMessage)
     .refine(
       (value) => {
         if (required) {
@@ -23,7 +25,17 @@ function projectsProfileWebsiteSchema(options?: {
       {
         message: requiredMessage,
       },
-    );
+    )
+    .transform((url) => {
+      const match = url.match(URL_REGEX);
+
+      // If no https present in the url, add https in the url
+      if (match && !match[1]) {
+        return `https://${url}`;
+      }
+
+      return url;
+    });
 
   return required
     ? urlValidation
