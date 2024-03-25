@@ -117,6 +117,7 @@ export default function ProjectsTrackDetailsPage({
                 <div>
                   <ProjectsChallengeDifficultyTag
                     difficulty={challenge.difficulty}
+                    variant="inline"
                   />
                 </div>
               </div>

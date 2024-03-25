@@ -92,7 +92,10 @@ export default function ProjectsChallengeSubmissionHeroCard({
         {description}
       </Text>
       <div className="z-[1] flex items-center gap-4">
-        <ProjectsChallengeDifficultyTag difficulty={difficulty} />
+        <ProjectsChallengeDifficultyTag
+          difficulty={difficulty}
+          variant="inline"
+        />
         {isViewerPremium && <ProjectsComponentTrackTag track={track} />}
       </div>
       <Anchor aria-label={title} className="absolute inset-0" href={href} />

@@ -9,13 +9,19 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
 import Text from '~/components/ui/Text';
 
+import ProjectsChallengeList from '../../challenges/lists/ProjectsChallengeList';
 import ProjectsChallengeReputationTag from '../../challenges/metadata/ProjectsChallengeReputationTag';
+import type { ProjectsChallengeItem } from '../../challenges/types';
 
 type Props = Readonly<{
+  challenges: ReadonlyArray<ProjectsChallengeItem>;
   skillMetadata: ProjectsSkillMetadata;
 }>;
 
-export default function ProjectsSkillRoadmapDetails({ skillMetadata }: Props) {
+export default function ProjectsSkillRoadmapDetails({
+  challenges,
+  skillMetadata,
+}: Props) {
   return (
     <div className="flex flex-col gap-y-8 pb-12">
       <div className="flex flex-col gap-y-4">
@@ -24,18 +30,17 @@ export default function ProjectsSkillRoadmapDetails({ skillMetadata }: Props) {
         </Heading>
         <div className="flex flex-wrap gap-x-6">
           <ProjectsChallengeReputationTag points={1200} />
-          <ProjectsChallengeReputationTag points={1200} />
         </div>
         <Text className="block" color="secondary" size="body3">
           {skillMetadata.description}
         </Text>
       </div>
       <Section level={2}>
-        <Divider />
+        <Divider color="emphasized" />
         <Prose textSize="sm">
           <ProjectsChallengeMdxContent mdxCode={skillMetadata.body.code} />
         </Prose>
-        <Divider />
+        <Divider color="emphasized" />
         <div className="flex flex-col gap-y-4">
           <Heading level="heading6">Skill plan</Heading>
           <Text className="block" color="secondary" size="body3">
@@ -43,8 +48,8 @@ export default function ProjectsSkillRoadmapDetails({ skillMetadata }: Props) {
           </Text>
           <div className="flex flex-wrap gap-x-6">
             <ProjectsChallengeReputationTag points={1200} />
-            <ProjectsChallengeReputationTag points={1200} />
           </div>
+          <ProjectsChallengeList challenges={challenges} />
         </div>
       </Section>
     </div>

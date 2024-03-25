@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { startCase } from 'lodash-es';
 import { RiFlashlightLine } from 'react-icons/ri';
 
-import type { BadgeVariant } from '~/components/ui/Badge';
+import type { BadgeSize, BadgeVariant } from '~/components/ui/Badge';
 import Badge from '~/components/ui/Badge';
 import Text from '~/components/ui/Text';
 import { themeTextSecondaryColor } from '~/components/ui/theme';
@@ -10,10 +10,20 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import type { ProjectsChallengeDifficulty } from '../types';
 
-type Props = Readonly<{
+type BaseProps = Readonly<{
   difficulty: ProjectsChallengeDifficulty;
-  variant?: 'badge' | 'inline';
 }>;
+
+type Props =
+  | (BaseProps &
+      Readonly<{
+        size?: BadgeSize;
+        variant: 'badge';
+      }>)
+  | (BaseProps &
+      Readonly<{
+        variant: 'inline';
+      }>);
 
 const difficultyColors: Record<
   ProjectsChallengeDifficulty,
@@ -27,14 +37,21 @@ const difficultyColors: Record<
 
 export default function ProjectsChallengeDifficultyTag({
   difficulty,
-  variant = 'inline',
+  ...props
 }: Props) {
   const Icon = RiFlashlightLine;
   const label = startCase(difficulty);
   const { badgeVariant, textColor } = difficultyColors[difficulty];
 
-  if (variant === 'badge') {
-    return <Badge icon={Icon} label={label} variant={badgeVariant} />;
+  if (props.variant === 'badge') {
+    return (
+      <Badge
+        icon={Icon}
+        label={label}
+        size={props.size}
+        variant={badgeVariant}
+      />
+    );
   }
 
   return (

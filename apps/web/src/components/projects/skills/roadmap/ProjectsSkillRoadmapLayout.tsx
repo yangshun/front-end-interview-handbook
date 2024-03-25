@@ -48,7 +48,7 @@ export default function ProjectsSkillRoadmapLayout({ children }: Props) {
         <SlideOut
           enterFrom="end"
           isShown={segment != null}
-          size="md"
+          size="xl"
           title={
             <div
               className={textVariants({
@@ -56,6 +56,7 @@ export default function ProjectsSkillRoadmapLayout({ children }: Props) {
                 size: 'body1',
                 weight: 'bold',
               })}>
+              {/* TODO(projects): remove hardcoding */}
               <Text color="subtle">HTML</Text>
               <RiArrowRightSLine
                 aria-hidden={true}

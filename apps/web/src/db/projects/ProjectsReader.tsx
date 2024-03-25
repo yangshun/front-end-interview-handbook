@@ -380,6 +380,45 @@ async function readProjectsChallengeMetadata(
   };
 }
 
+export async function readProjectsChallengesForSkill(
+  slugParam: string,
+  requestedLocale = 'en-US',
+  viewerId?: string | null,
+): Promise<
+  Readonly<{
+    challenges: ReadonlyArray<ProjectsChallengeItem>;
+    loadedLocale: string;
+  }>
+> {
+  // So that we handle typos like extra characters.
+  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
+
+  const [sessionsForUserGroupedBySlug, challengeAccessSet] = await Promise.all([
+    fetchSessionsForUserGroupedBySlug(viewerId),
+    fetchChallengeAccessForUserGroupedBySlug(viewerId),
+  ]);
+
+  const challenges = allProjectsChallengeMetadata
+    .filter((challengeItem) =>
+      challengeItem._raw.flattenedPath.endsWith(requestedLocale),
+    )
+    .filter((challengeItem) => challengeItem.skills.includes(slug))
+    .map((challengeMetadata) =>
+      challengeItemAddTrackMetadata({
+        completedCount: null,
+        completedProfiles: [],
+        metadata: challengeMetadata,
+        status: sessionsForUserGroupedBySlug?.[challengeMetadata.slug] ?? null,
+        userUnlocked: challengeAccessSet?.has(challengeMetadata.slug) ?? null,
+      }),
+    );
+
+  return {
+    challenges,
+    loadedLocale: requestedLocale,
+  };
+}
+
 export async function readProjectsSkillMetadata(
   slugParam: string,
   requestedLocale = 'en-US',

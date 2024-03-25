@@ -107,7 +107,10 @@ export default function ProjectsChallengeHeader({
             {description}
           </Text>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <ProjectsChallengeDifficultyTag difficulty={difficulty} />
+            <ProjectsChallengeDifficultyTag
+              difficulty={difficulty}
+              variant="inline"
+            />
             {viewerProjectsProfile?.premium && (
               <ProjectsChallengeTrackTag track={track} />
             )}
