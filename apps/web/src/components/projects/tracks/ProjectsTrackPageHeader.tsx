@@ -4,11 +4,11 @@ import { useIntl } from 'react-intl';
 
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsStatusBadgeCompleted from '~/components/projects/common/status/ProjectsStatusBadgeCompleted';
-import ProjectsTrackProgressTag from '~/components/projects/tracks/ProjectsTrackProgressTag';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
+import ProjectsChallengeProgressTag from '../challenges/metadata/ProjectsChallengeProgressTag';
 import ProjectsPremiumBadge from '../common/ProjectsPremiumBadge';
 
 type BaseProps = Readonly<{
@@ -75,7 +75,7 @@ export default function ProjectsTrackHeader({
               {showProgress &&
                 'completedCount' in props &&
                 'totalCount' in props && (
-                  <ProjectsTrackProgressTag
+                  <ProjectsChallengeProgressTag
                     completed={props.completedCount}
                     total={props.totalCount}
                   />

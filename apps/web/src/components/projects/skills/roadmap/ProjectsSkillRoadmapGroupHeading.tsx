@@ -3,11 +3,11 @@ import { RiFireLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import ProjectsStatusBadgeCompleted from '~/components/projects/common/status/ProjectsStatusBadgeCompleted';
-import ProjectsTrackProgressTag from '~/components/projects/tracks/ProjectsTrackProgressTag';
 import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 
 import type { ProjectsSkillRoadmapGroup } from '../types';
+import ProjectsChallengeProgressTag from '../../challenges/metadata/ProjectsChallengeProgressTag';
 
 type Props = Readonly<{
   group: ProjectsSkillRoadmapGroup;
@@ -40,7 +40,7 @@ export default function ProjectsSkillRoadmapGroupHeading({ group }: Props) {
                 />
               </Text>
             </div>
-            <ProjectsTrackProgressTag
+            <ProjectsChallengeProgressTag
               completed={completed}
               iconClassName="!size-4"
               showProgress={false}

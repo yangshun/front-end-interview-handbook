@@ -1,8 +1,8 @@
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
-import ProjectsTrackProgressTag from '~/components/projects/tracks/ProjectsTrackProgressTag';
 import Text from '~/components/ui/Text';
 
 import type { ProjectsTrackItem } from './ProjectsTracksData';
+import ProjectsChallengeProgressTag from '../challenges/metadata/ProjectsChallengeProgressTag';
 import ProjectsPremiumBadge from '../common/ProjectsPremiumBadge';
 import ProjectsStatusBadgeCompleted from '../common/status/ProjectsStatusBadgeCompleted';
 
@@ -37,7 +37,7 @@ export default function ProjectsTrackHeader({
       </Text>
       <div className="flex flex-wrap gap-4">
         <ProjectsChallengeReputationTag points={points} variant="flat" />
-        <ProjectsTrackProgressTag
+        <ProjectsChallengeProgressTag
           completed={completedCount}
           total={challenges.length}
         />

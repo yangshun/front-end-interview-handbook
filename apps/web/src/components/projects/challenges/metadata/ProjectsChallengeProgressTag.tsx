@@ -13,7 +13,7 @@ type Props = Readonly<{
   total: number;
 }>;
 
-export default function ProjectsTrackProgressTag({
+export default function ProjectsChallengeProgressTag({
   completed,
   total,
   showProgress = true,
@@ -24,7 +24,7 @@ export default function ProjectsTrackProgressTag({
   return (
     <div className={clsx('flex items-center gap-1', themeTextSubtleColor)}>
       <RiRocketLine className={clsx('size-5', iconClassName)} />
-      <Text color="inherit" size="body2">
+      <Text color="inherit" size="body3">
         <FormattedMessage
           defaultMessage="<bold>{completedCount}</bold>/{totalCount} challenges"
           description="Rep count label in Projects"
