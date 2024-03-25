@@ -60,7 +60,7 @@ export default function ProjectsChallengeSubmitPage({
           description: 'Success message',
           id: '5qLBww',
         }),
-        variant: 'info',
+        variant: 'success',
       });
       router.push(submission.hrefs.detail);
     },

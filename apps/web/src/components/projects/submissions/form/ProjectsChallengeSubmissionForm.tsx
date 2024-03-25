@@ -139,25 +139,7 @@ export default function ProjectsChallengeSubmissionForm({
             <ProjectsChallengeSubmissionImplementationField control={control} />
           </div>
         </div>
-        <div className="flex flex-wrap justify-between gap-2">
-          {props.mode === 'edit' && (
-            <Button
-              addonPosition="start"
-              icon={RiDeleteBinLine}
-              isDisabled={isDisabled}
-              isLoading={props.isDeleting}
-              label={intl.formatMessage({
-                defaultMessage: 'Delete submission',
-                description: 'Delete challenge submission',
-                id: 'kfKz/1',
-              })}
-              size="lg"
-              variant="danger"
-              onClick={() => {
-                props.onDelete();
-              }}
-            />
-          )}
+        <div className="flex flex-row-reverse flex-wrap justify-between gap-2">
           <div className="flex gap-2">
             <Button
               href={cancelButtonHref}
@@ -191,6 +173,24 @@ export default function ProjectsChallengeSubmissionForm({
               variant="primary"
             />
           </div>
+          {props.mode === 'edit' && (
+            <Button
+              addonPosition="start"
+              icon={RiDeleteBinLine}
+              isDisabled={isDisabled}
+              isLoading={props.isDeleting}
+              label={intl.formatMessage({
+                defaultMessage: 'Delete submission',
+                description: 'Delete challenge submission',
+                id: 'kfKz/1',
+              })}
+              size="lg"
+              variant="danger"
+              onClick={() => {
+                props.onDelete();
+              }}
+            />
+          )}
         </div>
       </form>
     </FormProvider>
