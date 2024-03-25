@@ -53,25 +53,25 @@ export const skillsRoadmap: ProjectsSkillRoadmap = [
         items: [
           {
             completed: 4,
-            key: 'js-foundations',
+            key: 'javascript-foundations',
             points: 20,
             total: 4,
           },
           {
             completed: 2,
-            key: 'js-browser-dom',
+            key: 'javascript-browser-dom',
             points: 20,
             total: 4,
           },
           {
             completed: 0,
-            key: 'js-fetch',
+            key: 'javascript-fetch',
             points: 20,
             total: 4,
           },
           {
             completed: 0,
-            key: 'js-web-storage',
+            key: 'javascript-web-storage',
             points: 20,
             total: 4,
           },
