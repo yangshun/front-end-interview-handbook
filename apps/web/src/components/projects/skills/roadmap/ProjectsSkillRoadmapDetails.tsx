@@ -2,35 +2,43 @@
 
 import type { ProjectsSkillMetadata } from 'contentlayer/generated';
 
+import { trpc } from '~/hooks/trpc';
+
 import ProjectsChallengeMdxContent from '~/components/projects/common/ProjectsChallengeMdxContent';
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Prose from '~/components/ui/Prose';
+import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
 
 import ProjectsChallengeList from '../../challenges/lists/ProjectsChallengeList';
 import ProjectsChallengeProgressTag from '../../challenges/metadata/ProjectsChallengeProgressTag';
 import ProjectsChallengeReputationTag from '../../challenges/metadata/ProjectsChallengeReputationTag';
-import type { ProjectsChallengeItem } from '../../challenges/types';
 
 type Props = Readonly<{
-  challenges: ReadonlyArray<ProjectsChallengeItem>;
   skillMetadata: ProjectsSkillMetadata;
 }>;
 
-export default function ProjectsSkillRoadmapDetails({
-  challenges,
-  skillMetadata,
-}: Props) {
-  const totalRoadmapPoints = challenges.reduce(
-    (acc, item) => item.metadata.points + acc,
-    0,
-  );
-  const completedChallenges = challenges.reduce(
-    (acc, item) => Number(item.status === 'COMPLETED') + acc,
-    0,
-  );
+export default function ProjectsSkillRoadmapDetails({ skillMetadata }: Props) {
+  const challengesQuery = trpc.projects.challenges.listForSkills.useQuery({
+    locale: 'en-US',
+    skillSlug: skillMetadata.slug,
+  });
+
+  const [totalRoadmapPoints, completedChallenges] =
+    challengesQuery.data != null
+      ? [
+          challengesQuery.data.challenges.reduce(
+            (acc, item) => item.metadata.points + acc,
+            0,
+          ),
+          challengesQuery.data.challenges.reduce(
+            (acc, item) => Number(item.status === 'COMPLETED') + acc,
+            0,
+          ),
+        ]
+      : [null, null];
 
   return (
     <div className="flex flex-col gap-y-8 pb-12">
@@ -40,12 +48,15 @@ export default function ProjectsSkillRoadmapDetails({
         </Heading>
         <div className="flex flex-wrap gap-x-6">
           <ProjectsChallengeReputationTag points={1200} />
-          <ProjectsChallengeProgressTag
-            completed={completedChallenges}
-            showProgress={false}
-            total={challenges.length}
-            variant="skills-roadmap"
-          />
+          {challengesQuery.data?.challenges != null &&
+            completedChallenges != null && (
+              <ProjectsChallengeProgressTag
+                completed={completedChallenges}
+                showProgress={false}
+                total={challengesQuery.data.challenges.length}
+                variant="skills-roadmap"
+              />
+            )}
         </div>
         <Text className="block" color="secondary" size="body3">
           {skillMetadata.description}
@@ -63,13 +74,24 @@ export default function ProjectsSkillRoadmapDetails({
             Recommended projects to do to advance this skill progressively.
           </Text>
           <div className="flex flex-wrap gap-x-6">
-            <ProjectsChallengeReputationTag points={totalRoadmapPoints} />
-            <ProjectsChallengeProgressTag
-              completed={completedChallenges}
-              total={challenges.length}
-            />
+            {totalRoadmapPoints != null && (
+              <ProjectsChallengeReputationTag points={totalRoadmapPoints} />
+            )}
+            {challengesQuery.data?.challenges != null &&
+              completedChallenges != null && (
+                <ProjectsChallengeProgressTag
+                  completed={completedChallenges}
+                  total={challengesQuery.data.challenges.length}
+                />
+              )}
           </div>
-          <ProjectsChallengeList challenges={challenges} />
+          {challengesQuery.data?.challenges == null ? (
+            <Spinner display="block" size="md" />
+          ) : (
+            <ProjectsChallengeList
+              challenges={challengesQuery.data.challenges}
+            />
+          )}
         </div>
       </Section>
     </div>

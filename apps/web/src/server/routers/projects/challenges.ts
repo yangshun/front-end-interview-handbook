@@ -2,11 +2,24 @@ import { z } from 'zod';
 
 import type { ProjectsChallengeStatuses } from '~/components/projects/challenges/types';
 
-import { readProjectsTrack } from '~/db/projects/ProjectsReader';
+import {
+  readProjectsChallengesForSkill,
+  readProjectsTrack,
+} from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 import { publicProcedure, router } from '~/server/trpc';
 
 export const projectsChallengesRouter = router({
+  listForSkills: publicProcedure
+    .input(
+      z.object({
+        locale: z.string().optional(),
+        skillSlug: z.string(),
+      }),
+    )
+    .query(async ({ input: { skillSlug, locale }, ctx: { user } }) => {
+      return readProjectsChallengesForSkill(skillSlug, locale, user?.id);
+    }),
   progress: publicProcedure
     .input(
       z.object({

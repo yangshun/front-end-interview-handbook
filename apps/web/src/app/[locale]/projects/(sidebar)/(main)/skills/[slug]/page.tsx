@@ -1,10 +1,6 @@
 import ProjectsSkillRoadmapDetails from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapDetails';
 
-import {
-  readProjectsChallengesForSkill,
-  readProjectsSkillMetadata,
-} from '~/db/projects/ProjectsReader';
-import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
+import { readProjectsSkillMetadata } from '~/db/projects/ProjectsReader';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
@@ -12,17 +8,10 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { locale, slug } = params;
-  const viewer = await readViewerFromToken();
 
-  const [{ skillMetadata }, { challenges }] = await Promise.all([
+  const [{ skillMetadata }] = await Promise.all([
     readProjectsSkillMetadata(slug, locale),
-    readProjectsChallengesForSkill(slug, locale, viewer?.id),
   ]);
 
-  return (
-    <ProjectsSkillRoadmapDetails
-      challenges={challenges}
-      skillMetadata={skillMetadata}
-    />
-  );
+  return <ProjectsSkillRoadmapDetails skillMetadata={skillMetadata} />;
 }
