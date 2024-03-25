@@ -1,6 +1,6 @@
 import union from './union';
 
-describe('mean', () => {
+describe('union', () => {
   test('empty input array', () => {
     expect(union([])).toEqual([]);
   });

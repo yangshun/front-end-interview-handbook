@@ -1,0 +1,24 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import unionByJs from '../setup/src/union-by.js';
+import unionByTS from '../setup/src/union-by.ts';
+import unionBySetJs from '../setup/src/union-by-set.js';
+import unionBySetTS from '../setup/src/union-by-set.ts';
+
+## Solution
+
+This solution iterates through all the array elements, checks if there is any same value in `compare` based on the `iteratee` and push if there isn't.
+
+<MDXCodeBlock languages={{ jsx: unionByJs, tsx: unionByTS }} />
+
+Another solution will be using a set instead of array for `compare` as sets automatically ensures uniqueness.
+
+<MDXCodeBlock languages={{ jsx: unionBySetJs, tsx: unionBySetTS }} />
+
+## Edge Cases
+
+If the input arrays are sparse, the function might include undefined in the output for the missing indices. To solve this, we can pre-process arrays to remove or fill sparse elements as appropriate.
+
+## Resources
+
+- [Lodash `_.unionBy`](https://lodash.com/docs/#unionBy)
