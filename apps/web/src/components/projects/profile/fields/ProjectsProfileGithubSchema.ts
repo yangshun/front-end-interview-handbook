@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
 const GITHUB_USERNAME_REGEX = /^[a-zA-Z0-9-]+$/;
-const GITHUB_URL_REGEX = /^(?:https?:\/\/)?github\.com\/([a-zA-Z0-9-]+)$/;
+const GITHUB_URL_REGEX = /^(?:https?:\/\/)?github\.com\/([a-zA-Z0-9-]+)\/?$/;
 const MIN_LENGTH = 2;
 
 function gitHubUsernameSchema(options?: {
@@ -55,10 +55,10 @@ function gitHubUrlSchema(options?: {
         message: invalidMessage,
       },
     )
-    .transform((url) => {
-      const match = url.match(GITHUB_URL_REGEX);
+    .transform((urlOrUsername) => {
+      const match = urlOrUsername.match(GITHUB_URL_REGEX);
 
-      return match ? match[1] : url;
+      return match ? match[1] : urlOrUsername;
     });
 
   return required
