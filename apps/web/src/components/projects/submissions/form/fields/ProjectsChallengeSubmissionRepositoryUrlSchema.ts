@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
 const GITHUB_REPO_URL_REGEX =
-  /^https?:\/\/(www\.)?github\.com\/[a-zA-Z0-9-]+\/[a-zA-Z0-9_.-]+$/;
+  /^https:\/\/(www\.)?github\.com\/[a-zA-Z0-9-]+\/[a-zA-Z0-9_.-]+\/?$/;
 
 function projectsChallengeSubmissionRepositoryUrlSchema(options?: {
   urlMessage: string;
@@ -35,9 +35,10 @@ export function getProjectsChallengeSubmissionRepositoryUrlAttributes(
   });
   const placeholder = 'https://github.com/[username]/[repository-name]';
   const urlMessage = intl.formatMessage({
-    defaultMessage: 'URL must start with "https://" and contain "github.com"',
+    defaultMessage:
+      'Invalid GitHub repository URL. Ensure it starts with "https://"',
     description: 'Error message',
-    id: 'IQbv33',
+    id: 'K/Xe8c',
   });
 
   return {

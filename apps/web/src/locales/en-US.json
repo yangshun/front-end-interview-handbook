@@ -2239,10 +2239,6 @@
     "defaultMessage": "Get promo code",
     "description": "Button label for student discount"
   },
-  "IQbv33": {
-    "defaultMessage": "URL must start with \"https://\" and contain \"github.com\"",
-    "description": "Error message"
-  },
   "ITq0p4": {
     "defaultMessage": "Privacy Policy",
     "description": "Link to privacy policy page"
@@ -2414,6 +2410,10 @@
   "K/Nz6V": {
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation Quiz page"
+  },
+  "K/Xe8c": {
+    "defaultMessage": "Invalid GitHub repository URL. Ensure it starts with \"https://\"",
+    "description": "Error message"
   },
   "K/j0Zl": {
     "defaultMessage": "Curated learning resources",
