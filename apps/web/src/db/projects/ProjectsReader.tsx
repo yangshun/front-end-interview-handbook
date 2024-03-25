@@ -330,10 +330,7 @@ export async function readProjectsChallengeItem(
     challenge: challengeItemAddTrackMetadata({
       completedCount,
       completedProfiles: completedUsers,
-      metadata: {
-        ...challengeMetadata,
-        skills: ['html-basics', 'css-flex'],
-      },
+      metadata: challengeMetadata,
       status: viewerSessionStatus,
       userUnlocked: viewerUnlocked,
     }),
