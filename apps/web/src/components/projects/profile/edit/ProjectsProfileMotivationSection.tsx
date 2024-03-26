@@ -19,7 +19,7 @@ export default function ProjectsProfileMotivationSection({
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-2">
         <Heading level="heading6">
           <div className="flex items-center gap-1">
             <FormattedMessage

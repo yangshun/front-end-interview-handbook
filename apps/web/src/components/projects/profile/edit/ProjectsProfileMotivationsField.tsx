@@ -86,6 +86,7 @@ export default function ProjectsProfileMotivationsField({
                   disabled={disabled}
                   role="checkbox"
                   type="button"
+                  onBlur={field.onBlur}
                   onClick={() => {
                     if (!selected) {
                       if (id === 'other') {
@@ -171,6 +172,7 @@ export default function ProjectsProfileMotivationsField({
               placeholder="Tell us about your motivations"
               rows={3}
               value={choice.value === 'other' ? choice.otherValue : undefined}
+              onBlur={field.onBlur}
               onChange={(newOtherValue) => {
                 const choices = [...field.value];
                 const choiceItem = choices[otherFieldIndex];
