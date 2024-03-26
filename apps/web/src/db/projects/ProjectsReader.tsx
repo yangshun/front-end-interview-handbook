@@ -56,6 +56,61 @@ export async function fetchSessionsForUserGroupedBySlug(
 
   return sessionsForUserGrouped;
 }
+
+export async function fetchChallengeStatusForUserFilteredBySkillsGroupedBySlug(
+  skillSlug: string,
+  userId?: string | null,
+): Promise<Record<string, ProjectsChallengeSessionStatus> | null> {
+  if (userId == null) {
+    return null;
+  }
+
+  const sessionsForUserGrouped: Record<string, ProjectsChallengeSessionStatus> =
+    {};
+
+  const [sessionsForUser, submissions] = await Promise.all([
+    prisma.projectsChallengeSession.findMany({
+      orderBy: {
+        createdAt: 'asc',
+      },
+      where: {
+        projectsProfile: {
+          userProfile: {
+            id: userId,
+          },
+        },
+        roadmapSkills: {
+          has: skillSlug,
+        },
+        status: {
+          not: 'STOPPED',
+        },
+      },
+    }),
+    prisma.projectsChallengeSubmission.findMany({
+      distinct: ['slug'],
+      where: {
+        projectsProfile: {
+          userId,
+        },
+        roadmapSkills: {
+          has: skillSlug,
+        },
+      },
+    }),
+  ]);
+
+  sessionsForUser?.forEach((session) => {
+    sessionsForUserGrouped[session.slug] = session.status;
+  });
+
+  submissions.forEach((submission) => {
+    sessionsForUserGrouped[submission.slug] = 'COMPLETED';
+  });
+
+  return sessionsForUserGrouped;
+}
+
 export async function fetchChallengeAccessForUserGroupedBySlug(
   userId?: string | null,
 ): Promise<Set<string> | null> {
@@ -393,8 +448,11 @@ export async function readProjectsChallengesForSkill(
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
 
-  const [sessionsForUserGroupedBySlug, challengeAccessSet] = await Promise.all([
-    fetchSessionsForUserGroupedBySlug(viewerId),
+  const [challengeStatuses, challengeAccessSet] = await Promise.all([
+    fetchChallengeStatusForUserFilteredBySkillsGroupedBySlug(
+      slugParam,
+      viewerId,
+    ),
     fetchChallengeAccessForUserGroupedBySlug(viewerId),
   ]);
 
@@ -408,7 +466,7 @@ export async function readProjectsChallengesForSkill(
         completedCount: null,
         completedProfiles: [],
         metadata: challengeMetadata,
-        status: sessionsForUserGroupedBySlug?.[challengeMetadata.slug] ?? null,
+        status: challengeStatuses?.[challengeMetadata.slug] ?? null,
         userUnlocked: challengeAccessSet?.has(challengeMetadata.slug) ?? null,
       }),
     );

@@ -42,8 +42,8 @@ export default function ProjectsSkillRoadmapItemDetails({
       },
     );
   const { data: challengeStatuses } =
-    trpc.projects.challenges.progress.useQuery(
-      { userId: viewerId! },
+    trpc.projects.challenges.skillPlanProgress.useQuery(
+      { skillSlug: skillMetadata.slug, userId: viewerId! },
       {
         enabled: viewerId != null,
       },

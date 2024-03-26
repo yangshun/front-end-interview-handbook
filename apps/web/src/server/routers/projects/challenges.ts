@@ -102,4 +102,69 @@ export const projectsChallengesRouter = router({
 
       return challengeStatuses;
     }),
+  skillPlanProgress: publicProcedure
+    .input(
+      z.object({
+        skillSlug: z.string(),
+        userId: z.string(),
+      }),
+    )
+    .query(async ({ input: { skillSlug, userId } }) => {
+      const challengeStatuses: ProjectsChallengeStatuses = {};
+
+      const [challengeSessionRows, submissions] = await Promise.all([
+        prisma.projectsChallengeSession.findMany({
+          orderBy: {
+            updatedAt: 'asc',
+          },
+          select: {
+            slug: true,
+            status: true,
+            updatedAt: true,
+          },
+          where: {
+            projectsProfile: {
+              userId,
+            },
+            roadmapSkills: {
+              has: skillSlug,
+            },
+          },
+        }),
+        prisma.projectsChallengeSubmission.findMany({
+          distinct: ['slug'],
+          where: {
+            projectsProfile: {
+              userId,
+            },
+            roadmapSkills: {
+              has: skillSlug,
+            },
+          },
+        }),
+      ]);
+
+      submissions.forEach((submission) => {
+        challengeStatuses[submission.slug] = {
+          completedBefore: true,
+          currentStatus: 'COMPLETED',
+        };
+      });
+
+      challengeSessionRows.forEach(({ slug, status }) => {
+        if (!challengeStatuses[slug]) {
+          challengeStatuses[slug] = {
+            completedBefore: false,
+            currentStatus: status,
+          };
+        }
+
+        challengeStatuses[slug].currentStatus = status;
+        if (status === 'COMPLETED') {
+          challengeStatuses[slug].completedBefore = true;
+        }
+      });
+
+      return challengeStatuses;
+    }),
 });
