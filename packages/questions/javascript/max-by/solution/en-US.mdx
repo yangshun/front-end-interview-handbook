@@ -5,13 +5,20 @@ import maxByTs from '../setup/src/max-by.ts';
 
 ## Solution
 
-Here's a solution that finds the maximum element in `array` based on a given `iteratee`, using `result` for the element and `computed` for its value comparison.
+Here's a solution that finds the maximum element in `array` based on a given `iteratee`. It iterates through the `array`, calls the `iteratee` function with the array element, and tracks the element that produces the maximum value.
+
+Two variables are used:
+
+- `result`: Tracks the maximum element to return.
+- `computed`: Tracks the computed value of the current maximum element which will be used to compare with the computed values of subsequent elements.
 
 <MDXCodeBlock languages={{ jsx: maxByJs, tsx: maxByTs }} />
 
 ## Edge Cases
 
-To handle mixed data types, the `iteratee` function must be able to process them by either converting the elements to a common type or process them separately.
+Because `iteratee` is user-provided and can return a value of any type, we have to pay special attention to ignore computed values that cannot be compared, like `null` and `undefined`. For such computed values, they should be ignored entirely.
+
+The function should also return the first occurrence of the element that produces the maximum computed value, even though many elements in the array can produce the same maximum computed value.
 
 ## Resources
 

@@ -1,15 +1,15 @@
 import maxBy from './max-by';
 
 describe('maxBy', () => {
+  test('empty array', () => {
+    expect(maxBy([], (o: any) => o.m)).toEqual(undefined);
+  });
+
   test('no matching value', () => {
-    expect(maxBy([{ n: 1 }, { n: 2 }], 'm')).toEqual(undefined);
+    expect(maxBy([{ n: 1 }, { n: 2 }], (o: any) => o.m)).toEqual(undefined);
   });
 
-  test('iteratee as a string', () => {
-    expect(maxBy([{ n: 1 }, { n: 2 }], 'n')).toEqual({ n: 2 });
-  });
-
-  test('iteratee as a function', () => {
+  test('regular test case', () => {
     expect(
       maxBy([{ n: 1 }, { n: 2 }], function (o: any) {
         return o.n;

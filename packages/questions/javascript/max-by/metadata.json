@@ -5,7 +5,7 @@
   "companies": [],
   "premium": true,
   "duration": 10,
-  "published": false,
+  "published": true,
   "importance": "low",
   "difficulty": "easy",
   "similar_questions": ["group-by", "min-by"]

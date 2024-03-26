@@ -2776,6 +2776,36 @@
   {
     "author": null,
     "companies": [],
+    "created": 1710720000,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a function that finds the maximum element based on the specified criteria",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/max-by",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "group-by",
+      "min-by"
+    ],
+    "slug": "max-by",
+    "subtitle": null,
+    "title": "Max By",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
     "created": 1710633600,
     "difficulty": "easy",
     "duration": 5,

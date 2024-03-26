@@ -3,29 +3,29 @@ title: Max By
 excerpt: Implement a function that finds the maximum element based on the specified criteria
 ---
 
-Implement a function `maxBy(array, [iteratee=_.identity])` that finds the element inside `array` with the maximum value after going through `iteratee`. The `iteratee` is invoked with one argument: (value).
+Implement a function `maxBy(array, iteratee)` that finds the element inside `array` with the maximum value after going through `iteratee`. The `iteratee` is invoked with one argument: (value).
 
 ## Arguments
 
 1. `array` _(Array)_: The array to iterate over.
-1. `[iteratee=_.identity]` _(Function)_: The iteratee invoked per element.
+1. `iteratee` _(Function)_: The iteratee invoked per element.
 
 ## Returns
 
-_(\*)_: Returns the maximum value.
+_`(*)`_: Returns the maximum value.
 
 ## Examples
 
 ```js
-maxBy([{ n: 1 }, { n: 2 }], (o) => o.n;); // => { n: 2 }
+maxBy([{ n: 1 }, { n: 2 }], (o) => o.n); // => { n: 2 }
 
-maxBy([{ n: 1 }, { n: 2 }], 'n'); // => { n: 2 }
+maxBy([1, 2], (o) => -o); // => 1
 ```
 
-The function should return `undefined` if there is no matching value that fulfills `iteratee`.
+The function should ignore elements where `iteratee` produces `null` or `undefined`.
 
 ```js
-maxBy([{ n: 1 }, { n: 2 }], 'm'); // => undefined
+maxBy([{ n: 1 }, { n: 2 }], (o) => o.m); // => undefined
 ```
 
 ## Resources
