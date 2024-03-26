@@ -18,9 +18,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return defaultMetadata({
     description: intl.formatMessage(
       {
-        defaultMessage: 'Pricing plans tailored to your needs.',
+        defaultMessage:
+          'Get access to some of our best real-world project challenges and resources with Premium.',
         description: 'Description of Pricing page',
-        id: 'b9gr/u',
+        id: 'VYwrk6',
       },
       {
         discountPercentage: SOCIAL_DISCOUNT_PERCENTAGE,
@@ -29,9 +30,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     pathname: '/projects/pricing',
     title: intl.formatMessage({
-      defaultMessage: 'Pricing',
+      defaultMessage:
+        'Pricing | GreatFrontEnd Projects - Real-world project challenges',
       description: 'Title of Pricing page',
-      id: 'PeXK7/',
+      id: 'Hfco/k',
     }),
   });
 }

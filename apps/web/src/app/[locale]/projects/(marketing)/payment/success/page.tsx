@@ -20,12 +20,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const intl = await getIntlServerOnly(locale);
 
   return defaultMetadata({
+    description: intl.formatMessage({
+      defaultMessage:
+        "Your payment was successful! You're now ready to unlock premium front-end challenges, engage with experts, and accelerate your learning journey.",
+      description: 'Description of Payment Success page',
+      id: 'MHPRIV',
+    }),
     locale,
-    pathname: '/payment/success',
+    pathname: '/projects/payment/success',
     title: intl.formatMessage({
-      defaultMessage: 'Payment Success',
+      defaultMessage:
+        'Payment Success | GreatFrontEnd Projects - Real-world project challenges',
       description: 'Title of Payment Success page',
-      id: 'VlLGKt',
+      id: 'CH1iWB',
     }),
   });
 }

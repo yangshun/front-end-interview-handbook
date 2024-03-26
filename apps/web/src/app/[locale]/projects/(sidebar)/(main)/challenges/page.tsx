@@ -20,12 +20,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const intl = await getIntlServerOnly(locale);
 
   return defaultMetadata({
+    description: intl.formatMessage({
+      defaultMessage:
+        'Start building from our large repository of real-world front end project challenges. Hone core front end skills and build an impressive project portfolio.',
+      description: 'Description of Challenges page',
+      id: 'YZa0RE',
+    }),
     locale,
     pathname: '/projects/challenges',
     title: intl.formatMessage({
-      defaultMessage: 'Challenges | Projects',
-      description: 'Title of Projects challenges listing page',
-      id: 'DBUWSi',
+      defaultMessage:
+        'Challenges | GreatFrontEnd Projects - Real-world project challenges',
+      description: 'Title of Challenges page',
+      id: 'ueKEhB',
     }),
   });
 }

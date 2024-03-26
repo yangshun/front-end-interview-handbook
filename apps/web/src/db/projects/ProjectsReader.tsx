@@ -412,7 +412,7 @@ function challengeItemAddTrackMetadata(
   };
 }
 
-async function readProjectsChallengeMetadata(
+export async function readProjectsChallengeMetadata(
   slugParam: string,
   requestedLocale = 'en-US',
 ): Promise<

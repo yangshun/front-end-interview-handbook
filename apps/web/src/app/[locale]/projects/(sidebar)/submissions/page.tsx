@@ -18,12 +18,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const intl = await getIntlServerOnly(locale);
 
   return defaultMetadata({
+    description: intl.formatMessage({
+      defaultMessage:
+        'Browse project solutions from our community. Interact with each unique submission, share your expertise, and evolve alongside our collaborative community.',
+      description: 'Description of Projects submissions page',
+      id: 'WFsVuQ',
+    }),
     locale,
     pathname: '/projects/submissions',
     title: intl.formatMessage({
-      defaultMessage: 'Submissions | Projects',
+      defaultMessage:
+        'User submissions | GreatFrontEnd Projects - Real-world project challenges',
       description: 'Title of Projects submissions page',
-      id: 'dSRF8u',
+      id: 'CVCCIm',
     }),
   });
 }

@@ -18,12 +18,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const intl = await getIntlServerOnly(locale);
 
   return defaultMetadata({
+    description: intl.formatMessage({
+      defaultMessage:
+        "Explore user submissions handpicked for your growth - based on your profile, skills you're keen to learn, and the projects you've completed.",
+      description: 'Description of projects learn from others page',
+      id: 'vTWKAG',
+    }),
     locale,
     pathname: '/projects/submissions/learn',
     title: intl.formatMessage({
-      defaultMessage: 'Learn from others | Projects',
-      description: 'Page title of projects learn from others page',
-      id: 'My2yxp',
+      defaultMessage:
+        'User submissions | Learn from others | GreatFrontEnd Projects - Real-world project challenges',
+      description: 'Title of projects learn from others page',
+      id: 'e+C+FH',
     }),
   });
 }

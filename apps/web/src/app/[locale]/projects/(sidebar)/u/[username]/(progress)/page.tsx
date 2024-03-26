@@ -1,13 +1,54 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import ProjectsProfileProgressSection from '~/components/projects/profile/progress/ProjectsProfileProgressSection';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
+import { getIntlServerOnly } from '~/i18n';
+import defaultMetadata from '~/seo/defaultMetadata';
 import prisma from '~/server/prisma';
 
 type Props = Readonly<{
-  params: Readonly<{ username: string }>;
+  params: Readonly<{ locale: string; username: string }>;
 }>;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, username } = params;
+
+  const userProfile = await prisma.profile.findUnique({
+    where: {
+      username,
+    },
+  });
+
+  const intl = await getIntlServerOnly(locale);
+
+  return defaultMetadata({
+    description: intl.formatMessage(
+      {
+        defaultMessage: '{bio}',
+        description: 'Description of Projects profile page',
+        id: 'Mrwftb',
+      },
+      {
+        bio: userProfile?.bio ?? '',
+      },
+    ),
+    locale,
+    pathname: `/projects/u/${username}`,
+    title: intl.formatMessage(
+      {
+        defaultMessage:
+          '{username} | Profile | GreatFrontEnd Projects - Real-world project challenges',
+        description: 'Title of Projects profile page',
+        id: 'tpddLF',
+      },
+      {
+        username,
+      },
+    ),
+  });
+}
 
 export default async function Page({ params }: Props) {
   const [{ viewerId, viewerProjectsProfile }, userProfile] = await Promise.all([

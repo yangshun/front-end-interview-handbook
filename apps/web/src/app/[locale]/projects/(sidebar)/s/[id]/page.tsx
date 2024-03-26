@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { convertToPlainObject } from '~/lib/convertToPlainObject';
@@ -9,11 +10,94 @@ import readViewerProjectsChallengeAccess from '~/components/projects/utils/readV
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
 import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
+import { getIntlServerOnly } from '~/i18n';
+import defaultMetadata from '~/seo/defaultMetadata';
 import prisma from '~/server/prisma';
 
 type Props = Readonly<{
   params: Readonly<{ id: string; locale: string }>;
 }>;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, id: submissionId } = params;
+
+  const intl = await getIntlServerOnly(locale);
+
+  const submissionDetails = await prisma.projectsChallengeSubmission.findUnique(
+    {
+      include: {
+        projectsProfile: {
+          include: {
+            userProfile: {
+              select: {
+                avatarUrl: true,
+                company: true,
+                currentStatus: true,
+                githubUsername: true,
+                id: true,
+                linkedInUsername: true,
+                name: true,
+                startWorkDate: true,
+                title: true,
+                username: true,
+              },
+            },
+          },
+        },
+      },
+      where: {
+        id: submissionId,
+      },
+    },
+  );
+  const { challenge } = await readProjectsChallengeItem(
+    submissionDetails?.slug ?? '',
+    locale,
+  );
+
+  const description = submissionDetails?.summary ?? '';
+  const fallbackDescription = intl.formatMessage(
+    {
+      defaultMessage:
+        "See {username}'s approach to building the {challenge} on GreatFrontEnd. Engage with their work, share feedback, and gain new perspectives for your projects",
+      description: 'Description of Projects submission page',
+      id: 'nO/x5D',
+    },
+    {
+      challenge: challenge.metadata.title,
+      username: submissionDetails?.projectsProfile?.userProfile?.username,
+    },
+  );
+
+  return defaultMetadata({
+    description: intl.formatMessage(
+      {
+        defaultMessage: '{description}',
+        description: 'Description of Projects submission page',
+        id: 'VS6pHT',
+      },
+      {
+        description:
+          description.length < 50 ? fallbackDescription : description,
+      },
+    ),
+    locale,
+    pathname: `/projects/s/${submissionId}`,
+    title: intl.formatMessage(
+      {
+        defaultMessage:
+          '{title} | {username} | {challenge} | GreatFrontEnd Projects - Real-world project challenges',
+        description: 'Title of Projects submission page',
+        id: 'gitIWx',
+      },
+      {
+        challenge: challenge.metadata.title,
+        title: submissionDetails?.title,
+        username: submissionDetails?.projectsProfile?.userProfile?.username,
+      },
+    ),
+  });
+}
 
 export default async function Page({ params }: Props) {
   const { locale, id: submissionId } = params;

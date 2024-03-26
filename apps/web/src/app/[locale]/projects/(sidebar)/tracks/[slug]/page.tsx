@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import ProjectsTrackDetailsLockedPage from '~/components/projects/tracks/ProjectsTrackDetailsLockedPage';
@@ -5,10 +6,46 @@ import ProjectsTrackDetailsPage from '~/components/projects/tracks/ProjectsTrack
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
 import { readProjectsTrack } from '~/db/projects/ProjectsReader';
+import { getIntlServerOnly } from '~/i18n';
+import defaultMetadata from '~/seo/defaultMetadata';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
 }>;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = params;
+  const { track } = await readProjectsTrack(slug, locale);
+
+  const intl = await getIntlServerOnly(locale);
+
+  return defaultMetadata({
+    description: intl.formatMessage(
+      {
+        defaultMessage:
+          'Build an entire library of {track} components from scratch. Use it for your portfolio, or as a component toolkit for future projects',
+        description: 'Description of Projects component track page',
+        id: 'bnECjo',
+      },
+      {
+        track: track.metadata.title,
+      },
+    ),
+    locale,
+    pathname: `/projects/tracks/${slug}`,
+    title: intl.formatMessage(
+      {
+        defaultMessage:
+          '{track} component track | GreatFrontEnd Projects - Real-world project challenges',
+        description: 'Title of Projects component track page',
+        id: 'asCnDc',
+      },
+      {
+        track: track.metadata.title,
+      },
+    ),
+  });
+}
 
 export default async function Page({ params }: Props) {
   const { slug: rawSlug, locale } = params;

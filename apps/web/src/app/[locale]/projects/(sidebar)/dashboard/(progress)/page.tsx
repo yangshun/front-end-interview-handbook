@@ -19,12 +19,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const intl = await getIntlServerOnly(locale);
 
   return defaultMetadata({
+    description: intl.formatMessage({
+      defaultMessage:
+        'Track your personal milestones, view achievement stats, and see all your project and community activities in one place.',
+      description: 'Description of Projects Dashboard page',
+      id: 'tEZPfW',
+    }),
     locale,
     pathname: '/projects/dashboard',
     title: intl.formatMessage({
-      defaultMessage: 'Dashboard | Projects',
+      defaultMessage:
+        'Dashboard | GreatFrontEnd Projects - Real-world project challenges',
       description: 'Title of Projects Dashboard page',
-      id: 'Eu20+q',
+      id: 'NjU3F1',
     }),
   });
 }

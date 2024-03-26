@@ -11,16 +11,22 @@ export const dynamic = 'force-static';
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const intl = await getIntlServerOnly(locale);
 
   return defaultMetadata({
+    description: intl.formatMessage({
+      defaultMessage:
+        'Tackle real-world front end projects designed by ex-FAANG engineers. Elevate your skills, build your portfolio, and connect with an active community.',
+      description: 'Description of Projects page',
+      id: 'Dt7sc8',
+    }),
     locale,
     pathname: '/projects',
     title: intl.formatMessage({
-      defaultMessage: 'GreatFrontEnd Projects',
-      description: 'Title of Projects All Projects page',
-      id: 'uBaCgb',
+      defaultMessage:
+        'Build front end real-world projects | GreatFrontEnd Projects - Real-world project challenges',
+      description: 'Title of Projects page',
+      id: 'K1+hjv',
     }),
   });
 }
