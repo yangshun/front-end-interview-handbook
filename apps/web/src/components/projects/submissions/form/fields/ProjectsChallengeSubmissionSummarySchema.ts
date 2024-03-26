@@ -2,6 +2,7 @@ import type { IntlShape } from 'react-intl';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
+const MIN_LENGTH = 80;
 const MAX_LENGTH = 160;
 
 function projectsChallengeSubmissionSummarySchema(options?: {
@@ -12,7 +13,7 @@ function projectsChallengeSubmissionSummarySchema(options?: {
 
   return z
     .string()
-    .min(1, { message: minMessage })
+    .min(MIN_LENGTH, { message: minMessage })
     .max(MAX_LENGTH, { message: maxMessage })
     .trim();
 }
@@ -21,7 +22,7 @@ function projectsChallengeSubmissionSummarySchema(options?: {
 export const projectsChallengeSubmissionSummarySchemaServer =
   projectsChallengeSubmissionSummarySchema({
     maxMessage: `Summary must contain at most ${MAX_LENGTH} character(s).`,
-    minMessage: 'Summary is required.',
+    minMessage: `Summary must contain at least ${MIN_LENGTH} character(s).`,
   });
 
 export function getProjectsChallengeSubmissionSummaryAttributes(
@@ -53,11 +54,16 @@ export function getProjectsChallengeSubmissionSummaryAttributes(
       maxLength: MAX_LENGTH,
     },
   );
-  const minMessage = intl.formatMessage({
-    defaultMessage: 'Summary is required.',
-    description: 'Error message',
-    id: 'xmJsgz',
-  });
+  const minMessage = intl.formatMessage(
+    {
+      defaultMessage: 'Summary must contain at least {minLength} character(s).',
+      description: 'Error message for submission summary',
+      id: 'Ay51wC',
+    },
+    {
+      minLength: MIN_LENGTH,
+    },
+  );
 
   return {
     description,
@@ -66,6 +72,7 @@ export function getProjectsChallengeSubmissionSummaryAttributes(
     validation: {
       maxLength: MAX_LENGTH,
       maxMessage,
+      minLength: MIN_LENGTH,
       minMessage,
       required: true,
     },

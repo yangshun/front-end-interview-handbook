@@ -1423,6 +1423,10 @@
     "defaultMessage": "No questions",
     "description": "Title for empty state when application of filters return no results"
   },
+  "Ay51wC": {
+    "defaultMessage": "Summary must contain at least {minLength} character(s).",
+    "description": "Error message for submission summary"
+  },
   "AzJz7v": {
     "defaultMessage": "Menu",
     "description": "Project guide navigation menu button label"
@@ -7242,10 +7246,6 @@
   "xjHSyF": {
     "defaultMessage": "All log levels",
     "description": "Select label for all log levels in console filter"
-  },
-  "xmJsgz": {
-    "defaultMessage": "Summary is required.",
-    "description": "Error message"
   },
   "xmK6tB": {
     "defaultMessage": "Build the foundation from ground up for reuse",
