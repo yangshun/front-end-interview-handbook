@@ -5,11 +5,13 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import ProgressBar from '~/components/ui/ProgressBar';
 import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
   completed: number;
   iconClassName?: string;
   showProgress?: boolean;
+  tooltip?: string;
   total: number;
   variant?: 'normal' | 'skills-roadmap';
 }>;
@@ -18,12 +20,13 @@ export default function ProjectsChallengeProgressTag({
   completed,
   iconClassName = 'size-5',
   showProgress = true,
+  tooltip,
   total,
   variant = 'normal',
 }: Props) {
   const intl = useIntl();
 
-  return (
+  const contents = (
     <div className={clsx('flex items-center gap-1', themeTextSubtleColor)}>
       <RiRocketLine className={iconClassName} />
       <Text color="inherit" size="body3">
@@ -60,6 +63,12 @@ export default function ProjectsChallengeProgressTag({
           />
         )}
       </Text>
+    </div>
+  );
+
+  return (
+    <div className={clsx('flex items-center gap-1')}>
+      {tooltip ? <Tooltip label={tooltip}>{contents}</Tooltip> : contents}
       {showProgress && (
         <div>
           <ProgressBar

@@ -10,6 +10,27 @@ import prisma from '~/server/prisma';
 import { publicProcedure, router } from '~/server/trpc';
 
 export const projectsChallengesRouter = router({
+  countUniqueUsingSkill: publicProcedure
+    .input(
+      z.object({
+        skill: z.string(),
+      }),
+    )
+    .query(async ({ ctx: { user }, input: { skill } }) => {
+      const distinctSlugs = await prisma.projectsChallengeSubmission.findMany({
+        distinct: ['slug'],
+        where: {
+          projectsProfile: {
+            userId: user?.id,
+          },
+          roadmapSkills: {
+            has: skill,
+          },
+        },
+      });
+
+      return distinctSlugs.length;
+    }),
   listForSkills: publicProcedure
     .input(
       z.object({

@@ -9,12 +9,14 @@ import {
   themeTextBrandColor,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
 type TagVariant = 'filled' | 'flat' | 'underline';
 
 type Props = Readonly<{
   className?: string;
   points: number;
+  tooltip?: string;
   variant?: TagVariant;
 }>;
 
@@ -22,8 +24,9 @@ export default function ProjectsChallengeReputationTag({
   points,
   className,
   variant = 'flat',
+  tooltip,
 }: Props) {
-  return (
+  const contents = (
     <div
       className={clsx(
         'flex items-center gap-1',
@@ -62,4 +65,6 @@ export default function ProjectsChallengeReputationTag({
       </Text>
     </div>
   );
+
+  return tooltip ? <Tooltip label={tooltip}>{contents}</Tooltip> : contents;
 }

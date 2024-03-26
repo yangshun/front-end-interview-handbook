@@ -679,6 +679,10 @@
     "defaultMessage": "Summary must contain at most {maxLength} character(s).",
     "description": "Error message"
   },
+  "4KjsB6": {
+    "defaultMessage": "Number of challenges completed using this skill, including challenges not in the recommended skill plan",
+    "description": "Tooltip for completed challenges label"
+  },
   "4WUroS": {
     "defaultMessage": "Efficiently focus on the most important concepts",
     "description": "Short description for one week study plan"
@@ -1146,6 +1150,10 @@
   "8XVsRJ": {
     "defaultMessage": "Join Premium Discord",
     "description": "Join Discord channel"
+  },
+  "8Y+L3K": {
+    "defaultMessage": "<bold>{count}</bold> challenges completed",
+    "description": "Completed project challenges label"
   },
   "8YgB5f": {
     "defaultMessage": "Don’t worry about losing steam. Track your progress and level up as you",
@@ -3246,6 +3254,10 @@
   "Q4VMV2": {
     "defaultMessage": "<bold>You</bold> replied to <bold>yourself</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you replying to yourself on the challenge forum"
+  },
+  "Q5Ta4B": {
+    "defaultMessage": "Number of challenges in the recommended skill plan of this skill",
+    "description": "Tooltip for skill plan challenges label"
   },
   "Q7EpE5": {
     "defaultMessage": "HTML Questions",
@@ -6507,6 +6519,10 @@
     "defaultMessage": "Prepare for tackling data structures and algorithms questions in front end interviews",
     "description": "Title for interview preparation focus area"
   },
+  "r5RGzk": {
+    "defaultMessage": "<bold>{completedCount}</bold>/{totalCount} skill plan challenges",
+    "description": "Rep count label in Projects"
+  },
   "r8JR1/": {
     "defaultMessage": "Read less",
     "description": "Read less"
@@ -6610,6 +6626,10 @@
   "sPnbze": {
     "defaultMessage": "+{count} more",
     "description": "Label for number of additional skills"
+  },
+  "sU6jXI": {
+    "defaultMessage": "Reputation you have gained from completing challenges using this skill, including challenges not in the recommended skill plan",
+    "description": "Tooltip for reputation label"
   },
   "sUQjXK": {
     "defaultMessage": "Learn new skills, improve your techniques and stay updated on latest front end trends and developments.",
@@ -6990,6 +7010,10 @@
   "vbwUYs": {
     "defaultMessage": "Clarify any doubts on a project in project-specific forums",
     "description": "Description for \"Learn from others\" feature on Projects home page"
+  },
+  "vd036v": {
+    "defaultMessage": "Reputation that can be gained from completing the entire skill plan",
+    "description": "Tooltip for reputation label"
   },
   "vegaR1": {
     "defaultMessage": "Sort by",
