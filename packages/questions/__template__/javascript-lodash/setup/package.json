@@ -1,5 +1,5 @@
 {
-  "name": "@gfe-questions/todo-replace-me2",
+  "name": "@gfe-questions/todo-replace-me",
   "version": "0.0.1",
   "main": "/src/todo-replace-me.ts",
   "devDependencies": {

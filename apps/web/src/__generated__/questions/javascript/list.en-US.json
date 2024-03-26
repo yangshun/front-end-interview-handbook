@@ -3378,35 +3378,6 @@
   {
     "author": null,
     "companies": [],
-    "created": 1710979200,
-    "difficulty": "easy",
-    "duration": 10,
-    "excerpt": "Implement a function that creates an array of unique values, in order, from all given arrays.",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/union",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [
-      "unique-array"
-    ],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [],
-    "slug": "union",
-    "subtitle": null,
-    "title": "Union",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
     "created": 1711065600,
     "difficulty": "medium",
     "duration": 15,
@@ -3432,68 +3403,6 @@
     "slug": "union-by",
     "subtitle": null,
     "title": "Union By",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
-    "created": 1710806400,
-    "difficulty": "medium",
-    "duration": 15,
-    "excerpt": "Implement a function to remove all duplicate values from an array based on a specific criteria.",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/uniq-by",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "data-selection",
-      "unique-array",
-      "max-by"
-    ],
-    "slug": "uniq-by",
-    "subtitle": null,
-    "title": "Uniq By",
-    "topics": []
-  },
-  {
-    "author": null,
-    "companies": [],
-    "created": 1710806400,
-    "difficulty": "medium",
-    "duration": 15,
-    "excerpt": "Implement a function to remove all duplicate values from an array based on a specific comparison criteria.",
-    "featured": false,
-    "format": "javascript",
-    "frameworkDefault": null,
-    "frameworks": [],
-    "href": "/questions/javascript/uniq-with",
-    "importance": "low",
-    "languages": [
-      "js",
-      "ts"
-    ],
-    "nextQuestions": [],
-    "premium": true,
-    "published": true,
-    "ranking": 100,
-    "similarQuestions": [
-      "data-selection",
-      "unique-array",
-      "uniq-by"
-    ],
-    "slug": "uniq-with",
-    "subtitle": null,
-    "title": "Unique With",
     "topics": []
   },
   {

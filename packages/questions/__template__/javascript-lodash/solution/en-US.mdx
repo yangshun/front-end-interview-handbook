@@ -1,10 +1,23 @@
 import MDXCodeBlock from 'MDXCodeBlock';
 
-import todoReplaceMe from '../src/todo-replace-me';
+import todoReplaceMeJs from '../src/todo-replace-me.js';
+import todoReplaceMeTs from '../src/todo-replace-me.ts';
+import todoReplaceMeAltJs from '../src/todo-replace-me-alt.js';
+import todoReplaceMeAltTs from '../src/todo-replace-me-alt.ts';
 
 ## Solution
 
-<MDXCodeBlock>{todoReplaceMe}</MDXCodeBlock>
+There are two common ways to double a number.
+
+### Solution 1: Multiplying by 2 (Remove heading if only one solution)
+
+<MDXCodeBlock languages={{ jsx: todoReplaceMeJs, tsx: todoReplaceMeTs }} />
+
+### Solution 2: Adding the number to itself (Remove heading if only one solution)
+
+<MDXCodeBlock
+  languages={{ jsx: todoReplaceMeAltJs, tsx: todoReplaceMeAltTs }}
+/>
 
 ## Edge Cases
 
