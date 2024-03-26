@@ -52,9 +52,10 @@ export function PromotionsStudentDiscountCard() {
           id: '4kQ6Kr',
         }),
         intl.formatMessage({
-          defaultMessage: 'Your account email contains ".edu" or ".ac".',
+          defaultMessage:
+            'Your account email contains ".edu", ".ac" or certain other valid institutions. Reach out to us if you believe your school should qualify.',
           description: 'Condition for promotion',
-          id: 'mvio4u',
+          id: 'sGwT8p',
         }),
       ]}
       footer={

@@ -1,5 +1,5 @@
 const validDomains = Object.freeze({
-  allowlisted: ['humbermail.ca'],
+  allowlisted: ['humbermail.ca', 'utoronto.ca'],
   prefixes: ['edu.'],
   substring: ['.edu.', '.ac.'],
   suffixes: ['.edu', '.ac'],

@@ -65,6 +65,9 @@ describe('isValidStudentEmail', () => {
     expect(isValidStudentEmail('greg@humbermail.ca')).toEqual({
       valid: true,
     });
+    expect(isValidStudentEmail('chen@utoronto.ca')).toEqual({
+      valid: true,
+    });
   });
 
   describe('invalid emails', () => {

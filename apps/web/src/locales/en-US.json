@@ -5995,10 +5995,6 @@
     "defaultMessage": "Add",
     "description": "Add a URL to a form"
   },
-  "mvio4u": {
-    "defaultMessage": "Your account email contains \".edu\" or \".ac\".",
-    "description": "Condition for promotion"
-  },
   "myWGmV": {
     "defaultMessage": "Coupons | Profile",
     "description": "Title of Profile coupons page"
@@ -6614,6 +6610,10 @@
   "sGgZ9N": {
     "defaultMessage": "Choose additional skills you will use in this project",
     "description": "Dialog title for skills section"
+  },
+  "sGwT8p": {
+    "defaultMessage": "Your account email contains \".edu\", \".ac\" or certain other valid institutions. Reach out to us if you believe your school should qualify.",
+    "description": "Condition for promotion"
   },
   "sH/wZI": {
     "defaultMessage": "You have completed this project",
