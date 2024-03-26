@@ -77,9 +77,9 @@ export function getProjectsTechStackInputAttributes(
     id: 'WyXV2L',
   });
   const minMessage = intl.formatMessage({
-    defaultMessage: 'Skills cannot be empty.',
+    defaultMessage: 'Skills is required.',
     description: 'Error message',
-    id: '17Rr6T',
+    id: 'X/fzHZ',
   });
 
   return {

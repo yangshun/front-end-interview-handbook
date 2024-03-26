@@ -27,14 +27,14 @@ function getProjectsJobTitleAttributes(
   const minMessage =
     type === 'jobTitle'
       ? intl.formatMessage({
-          defaultMessage: 'Job title cannot be empty.',
+          defaultMessage: 'Job title is required.',
           description: 'Error message',
-          id: 'z37jan',
+          id: 'p3mRa0',
         })
       : intl.formatMessage({
-          defaultMessage: 'Title cannot be empty.',
+          defaultMessage: 'Title is required.',
           description: 'Error message',
-          id: 'EGeNHT',
+          id: 'baT4cM',
         });
 
   return {
@@ -46,7 +46,7 @@ function getProjectsJobTitleAttributes(
 }
 
 export const projectsJobTitleInputSchemaServer = projectsJobTitleInputSchema({
-  minMessage: 'Job title cannot be empty.',
+  minMessage: 'Job title is required.',
 });
 
 export function useProjectsJobTitleInputSchema({

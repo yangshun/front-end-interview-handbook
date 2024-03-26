@@ -21,8 +21,8 @@ function projectsChallengeSubmissionTitleSchema(options?: {
 // TODO: Figure out how to reuse intl strings for the server.
 export const projectsChallengeSubmissionTitleSchemaServer =
   projectsChallengeSubmissionTitleSchema({
-    maxMessage: `Title must contain at most ${MAX_LENGTH} character(s).`,
-    minMessage: `Title must contain at least ${MIN_LENGTH} character(s).`,
+    maxMessage: `Submission title must contain at most ${MAX_LENGTH} character(s).`,
+    minMessage: `Submission title must contain at least ${MIN_LENGTH} character(s).`,
   });
 
 export function getProjectsChallengeSubmissionTitleAttributes(intl: IntlShape) {

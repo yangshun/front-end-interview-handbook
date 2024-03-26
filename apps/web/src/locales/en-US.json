@@ -359,10 +359,6 @@
     "defaultMessage": "Try these popular CSS questions",
     "description": "Title for featured questions section"
   },
-  "17Rr6T": {
-    "defaultMessage": "Skills cannot be empty.",
-    "description": "Error message"
-  },
   "19uyd3": {
     "defaultMessage": "<bold>+{points}</bold> rep",
     "description": "Tooltip for rep count increase in Projects level progress bar"
@@ -674,10 +670,6 @@
   "4FirvF": {
     "defaultMessage": "Reset progress",
     "description": "Label to reset study plan progress"
-  },
-  "4Kbqpt": {
-    "defaultMessage": "Summary must contain at most {maxLength} character(s).",
-    "description": "Error message"
   },
   "4KjsB6": {
     "defaultMessage": "Number of challenges completed using this skill, including challenges not in the recommended skill plan",
@@ -1423,10 +1415,6 @@
     "defaultMessage": "No questions",
     "description": "Title for empty state when application of filters return no results"
   },
-  "Ay51wC": {
-    "defaultMessage": "Summary must contain at least {minLength} character(s).",
-    "description": "Error message for submission summary"
-  },
   "AzJz7v": {
     "defaultMessage": "Menu",
     "description": "Project guide navigation menu button label"
@@ -1798,10 +1786,6 @@
   "ECkWMR": {
     "defaultMessage": "Stop session",
     "description": "Label to stop study plan"
-  },
-  "EGeNHT": {
-    "defaultMessage": "Title cannot be empty.",
-    "description": "Error message"
   },
   "EHPx/Z": {
     "defaultMessage": "Solving Common Questions",
@@ -2270,6 +2254,10 @@
   "Ia88Vb": {
     "defaultMessage": "Related articles",
     "description": "Blog related articles section"
+  },
+  "IbMc1j": {
+    "defaultMessage": "Submission summary must contain at most {maxLength} character(s).",
+    "description": "Error message"
   },
   "Id0zS8": {
     "defaultMessage": "Sign up",
@@ -4127,6 +4115,10 @@
     "defaultMessage": "Affiliate Program",
     "description": "Title of Affiliate Program page"
   },
+  "X/fzHZ": {
+    "defaultMessage": "Skills is required.",
+    "description": "Error message"
+  },
   "X1UVMv": {
     "defaultMessage": "We add more questions and guides from time to time, available for free to premium subscribers.",
     "description": "Subtitle for free continuous updates feature"
@@ -4262,6 +4254,10 @@
   "YGqz7y": {
     "defaultMessage": "Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.",
     "description": "Description for interview preparation focus area"
+  },
+  "YJ9REP": {
+    "defaultMessage": "Submission summary must contain at least {minLength} character(s).",
+    "description": "Error message for submission summary"
   },
   "YJmwAv": {
     "defaultMessage": "Or reach us via these channels",
@@ -4657,6 +4653,10 @@
   },
   "bZbZoz": {
     "defaultMessage": "Provide at least 1 URL where you hosted your solution",
+    "description": "Error message"
+  },
+  "baT4cM": {
+    "defaultMessage": "Title is required.",
     "description": "Error message"
   },
   "bbVBZ5": {
@@ -6227,6 +6227,10 @@
     "defaultMessage": "Useful into the future",
     "description": "Title of the 'Permanent toolkit' marketing section on Projects home page"
   },
+  "p3mRa0": {
+    "defaultMessage": "Job title is required.",
+    "description": "Error message"
+  },
   "p42Bxa": {
     "defaultMessage": "USA",
     "description": "Anand Dharne's location"
@@ -7398,10 +7402,6 @@
   "z1Offf": {
     "defaultMessage": "Sign up with school email",
     "description": "Button label"
-  },
-  "z37jan": {
-    "defaultMessage": "Job title cannot be empty.",
-    "description": "Error message"
   },
   "z7U2cl": {
     "defaultMessage": "Name must contain at most {maxLength} character(s).",

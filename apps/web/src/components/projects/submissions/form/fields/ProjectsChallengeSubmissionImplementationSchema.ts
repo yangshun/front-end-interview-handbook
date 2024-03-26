@@ -13,7 +13,7 @@ import { RichTextEditorConfig } from '~/components/ui/RichTextEditor/RichTextEdi
 import { createHeadlessEditor } from '@lexical/headless';
 import { $createHeadingNode } from '@lexical/rich-text';
 
-const MIN_LENGTH = 50;
+const MIN_LENGTH = 80;
 const MAX_LENGTH = 1000;
 
 const editor = createHeadlessEditor(RichTextEditorConfig);

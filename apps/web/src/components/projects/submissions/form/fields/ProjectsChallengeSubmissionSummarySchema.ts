@@ -46,9 +46,10 @@ export function getProjectsChallengeSubmissionSummaryAttributes(
   });
   const maxMessage = intl.formatMessage(
     {
-      defaultMessage: 'Summary must contain at most {maxLength} character(s).',
+      defaultMessage:
+        'Submission summary must contain at most {maxLength} character(s).',
       description: 'Error message',
-      id: '4Kbqpt',
+      id: 'IbMc1j',
     },
     {
       maxLength: MAX_LENGTH,
@@ -56,9 +57,10 @@ export function getProjectsChallengeSubmissionSummaryAttributes(
   );
   const minMessage = intl.formatMessage(
     {
-      defaultMessage: 'Summary must contain at least {minLength} character(s).',
+      defaultMessage:
+        'Submission summary must contain at least {minLength} character(s).',
       description: 'Error message for submission summary',
-      id: 'Ay51wC',
+      id: 'YJ9REP',
     },
     {
       minLength: MIN_LENGTH,
