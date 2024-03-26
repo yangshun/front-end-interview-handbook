@@ -4,6 +4,25 @@ import { z } from 'zod';
 
 const MIN_LENGTH = 2;
 const MAX_LENGTH = 50;
+const URL_REGEX = /^(https?:\/\/)?(www\.)?[a-z0-9-]+\.[a-z]{2,}(\/.*)?$/;
+
+function urlSchema(options?: { urlMessage: string }) {
+  const { urlMessage } = options ?? {};
+
+  return z
+    .string()
+    .regex(URL_REGEX, urlMessage)
+    .transform((url) => {
+      const match = url.match(URL_REGEX);
+
+      // If no https present in the url, add https in the url
+      if (match && !match[1]) {
+        return `https://${url}`;
+      }
+
+      return url;
+    });
+}
 
 function projectsChallengeSubmissionDeploymentUrlItemSchema(options?: {
   maxMessage: string;
@@ -13,7 +32,9 @@ function projectsChallengeSubmissionDeploymentUrlItemSchema(options?: {
   const { urlMessage, maxMessage, minMessage } = options ?? {};
 
   return z.object({
-    href: z.string().url({ message: urlMessage }),
+    href: urlSchema({
+      urlMessage: urlMessage ?? '',
+    }),
     label: z
       .string()
       .min(MIN_LENGTH, { message: minMessage })
@@ -33,7 +54,7 @@ function projectsChallengeSubmissionDeploymentUrlsSchema(options?: {
   return z
     .array(
       projectsChallengeSubmissionDeploymentUrlItemSchema(options).extend({
-        href: z.string().url({ message: urlMessage }),
+        href: urlSchema({ urlMessage: urlMessage ?? '' }),
         label: z
           .string()
           .min(MIN_LENGTH, { message: minMessage })
@@ -77,9 +98,9 @@ export function getProjectsChallengeSubmissionDeploymentUrlsAttributes(
   });
   const urlPlaceholder = 'https://www.solution.com';
   const urlMessage = intl.formatMessage({
-    defaultMessage: 'URL must start with "https://"',
+    defaultMessage: "URL is invalid. Check if you've typed it correctly.",
     description: 'Error message',
-    id: 'ms/RqZ',
+    id: 'uy8H0k',
   });
   const maxMessage = intl.formatMessage(
     {

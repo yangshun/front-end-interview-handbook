@@ -133,7 +133,6 @@ export default function ProjectsChallengeSubmissionDeploymentUrlItemFormDialog({
               label="URL"
               placeholder={attrs.urlPlaceholder}
               required={true}
-              type="url"
               {...field}
             />
           )}

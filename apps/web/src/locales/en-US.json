@@ -2423,10 +2423,6 @@
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation Quiz page"
   },
-  "K/Xe8c": {
-    "defaultMessage": "Invalid GitHub repository URL. Ensure it starts with \"https://\"",
-    "description": "Error message"
-  },
   "K/j0Zl": {
     "defaultMessage": "Curated learning resources",
     "description": "Title of 'Curated learning resources' sub-feature in Projects marketing page"
@@ -5979,10 +5975,6 @@
     "defaultMessage": "Practice building Lodash utility functions",
     "description": "Title for interview preparation focus area"
   },
-  "ms/RqZ": {
-    "defaultMessage": "URL must start with \"https://\"",
-    "description": "Error message"
-  },
   "msvqkR": {
     "defaultMessage": "Every project belongs to 1 of 7 reusable components libraries",
     "description": "Short description for \"Component libraries\" feature on Projects home page"
@@ -6294,6 +6286,10 @@
   "pP8Sa9": {
     "defaultMessage": "The fastest way to learn and build something useful",
     "description": "Heading of the 'The fastest way to learn and build something useful' marketing section on Projects home page"
+  },
+  "pQVvOB": {
+    "defaultMessage": "Invalid GitHub repository URL",
+    "description": "Error message"
   },
   "pQZgsm": {
     "defaultMessage": "<bold>{author}</bold> asked <bold>{recipient}</bold> a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
@@ -6958,6 +6954,10 @@
   "usTItb": {
     "defaultMessage": "Senior Software Engineer — Front End, UserTesting",
     "description": "Prashanth Reddy's job title"
+  },
+  "uy8H0k": {
+    "defaultMessage": "URL is invalid. Check if you've typed it correctly.",
+    "description": "Error message"
   },
   "uyAWFS": {
     "defaultMessage": "Build real world projects to learn and showcase",

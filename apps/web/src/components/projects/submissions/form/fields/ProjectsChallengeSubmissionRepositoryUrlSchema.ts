@@ -3,14 +3,27 @@ import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
 const GITHUB_REPO_URL_REGEX =
-  /^https:\/\/(www\.)?github\.com\/[a-zA-Z0-9-]+\/[a-zA-Z0-9_.-]+\/?$/;
+  /^(https?:\/\/)?(www\.)?github\.com\/[a-zA-Z0-9-]+\/[a-zA-Z0-9_.-]+\/?$/;
 
 function projectsChallengeSubmissionRepositoryUrlSchema(options?: {
   urlMessage: string;
 }) {
   const { urlMessage } = options ?? {};
 
-  return z.string().trim().regex(GITHUB_REPO_URL_REGEX, urlMessage);
+  return z
+    .string()
+    .trim()
+    .regex(GITHUB_REPO_URL_REGEX, urlMessage)
+    .transform((url) => {
+      const match = url.match(GITHUB_REPO_URL_REGEX);
+
+      // If no https present in the url, add https in the url
+      if (match && !match[1]) {
+        return `https://${url}`;
+      }
+
+      return url;
+    });
 }
 
 // TODO: Figure out how to reuse intl strings for the server.
@@ -35,10 +48,9 @@ export function getProjectsChallengeSubmissionRepositoryUrlAttributes(
   });
   const placeholder = 'https://github.com/[username]/[repository-name]';
   const urlMessage = intl.formatMessage({
-    defaultMessage:
-      'Invalid GitHub repository URL. Ensure it starts with "https://"',
+    defaultMessage: 'Invalid GitHub repository URL',
     description: 'Error message',
-    id: 'K/Xe8c',
+    id: 'pQVvOB',
   });
 
   return {
