@@ -4,7 +4,7 @@ import { RiAddCircleLine, RiIndeterminateCircleLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import ProjectsSkillRoadmapGroupHeading from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapGroupHeading';
-import ProjectsSkillRoadmapItemDetails from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItemDetails';
+import ProjectsSkillRoadmapItemSummary from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItemSummary';
 import Button from '~/components/ui/Button';
 import {
   themeBackgroundLayerEmphasized,
@@ -93,7 +93,7 @@ export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
                   )}>
                   <SkillItemDiamond />
                 </div>
-                <ProjectsSkillRoadmapItemDetails skillItem={item} />
+                <ProjectsSkillRoadmapItemSummary skillItem={item} />
               </div>
             ))}
           </div>

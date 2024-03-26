@@ -1,4 +1,4 @@
-import ProjectsSkillRoadmapDetails from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapDetails';
+import ProjectsSkillRoadmapItemDetails from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItemDetails';
 
 import { readProjectsSkillMetadata } from '~/db/projects/ProjectsReader';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
@@ -16,7 +16,7 @@ export default async function Page({ params }: Props) {
   ]);
 
   return (
-    <ProjectsSkillRoadmapDetails
+    <ProjectsSkillRoadmapItemDetails
       skillMetadata={skillMetadata}
       viewerId={viewer?.id}
     />

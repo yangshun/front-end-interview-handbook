@@ -1,119 +1,159 @@
-import clsx from 'clsx';
-import { RiArrowRightLine, RiRocketLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+'use client';
 
-import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
-import Anchor from '~/components/ui/Anchor';
-import ProgressBar from '~/components/ui/ProgressBar';
+import type { ProjectsSkillMetadata } from 'contentlayer/generated';
+import { useIntl } from 'react-intl';
+
+import { trpc } from '~/hooks/trpc';
+
+import ProjectsChallengeMdxContent from '~/components/projects/common/ProjectsChallengeMdxContent';
+import Divider from '~/components/ui/Divider';
+import Heading from '~/components/ui/Heading';
+import Section from '~/components/ui/Heading/HeadingContext';
+import Prose from '~/components/ui/Prose';
+import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';
-import {
-  themeBorderBrandColor_Hover,
-  themeBorderElementColor,
-  themeOutlineElement_FocusVisible,
-  themeOutlineElementBrandColor_FocusVisible,
-  themeTextBrandColor_GroupHover,
-  themeTextSubtleColor,
-} from '~/components/ui/theme';
 
-import { projectsSkillLabel } from '../data/ProjectsSkillListData';
-import type { ProjectsSkillRoadmapItem } from '../types';
+import ProjectsChallengeList from '../../challenges/lists/ProjectsChallengeList';
+import ProjectsChallengeProgressTag from '../../challenges/metadata/ProjectsChallengeProgressTag';
+import ProjectsChallengeReputationTag from '../../challenges/metadata/ProjectsChallengeReputationTag';
+import ProjectsChallengesCompletedTag from '../../challenges/metadata/ProjectsChallengesCompletedTag';
 
 type Props = Readonly<{
-  skillItem: ProjectsSkillRoadmapItem;
+  skillMetadata: ProjectsSkillMetadata;
+  viewerId?: string;
 }>;
 
-export default function ProjectsSkillRoadmapItemDetails({ skillItem }: Props) {
+export default function ProjectsSkillRoadmapItemDetails({
+  skillMetadata,
+  viewerId,
+}: Props) {
   const intl = useIntl();
-  const label = projectsSkillLabel(skillItem.key);
-  const href = `/projects/skills/${skillItem.key}`;
+  const challengesQuery = trpc.projects.challenges.listForSkills.useQuery({
+    locale: 'en-US',
+    skillSlug: skillMetadata.slug,
+  });
+  const countSubmissionsUsingSkills =
+    trpc.projects.challenges.countUniqueUsingSkill.useQuery(
+      {
+        skill: skillMetadata.slug,
+      },
+      {
+        enabled: viewerId != null,
+      },
+    );
+  const { data: challengeStatuses } =
+    trpc.projects.challenges.progress.useQuery(
+      { userId: viewerId! },
+      {
+        enabled: viewerId != null,
+      },
+    );
+
+  const [totalRoadmapPoints, completedChallenges] =
+    challengesQuery.data != null
+      ? [
+          challengesQuery.data.challenges.reduce(
+            (acc, item) => item.metadata.points + acc,
+            0,
+          ),
+          challengesQuery.data.challenges.reduce(
+            (acc, item) => Number(item.status === 'COMPLETED') + acc,
+            0,
+          ),
+        ]
+      : [null, null];
 
   return (
-    // TODO(projects|skills): Add skills redirection
-    <div
-      className={clsx(
-        'relative isolate',
-        'group flex w-full items-center gap-2 md:gap-4',
-        'rounded-lg px-4 py-3',
-        'transition-colors',
-        ['border', themeBorderElementColor, themeBorderBrandColor_Hover],
-        themeOutlineElement_FocusVisible,
-        themeOutlineElementBrandColor_FocusVisible,
-      )}>
-      <div className="flex w-full flex-col gap-2 md:flex-row md:gap-4">
-        <div className="flex-1">
-          <Anchor
-            className="relative z-[1]"
-            href={href}
-            scroll={false}
-            scrollToTop={false}
-            variant="flat">
-            <Text size="body2" weight="medium">
-              {label}
-            </Text>
-          </Anchor>
-        </div>
-        <div className="flex gap-4">
+    <div className="flex flex-col gap-y-8 pb-8">
+      <div className="flex flex-col gap-y-4">
+        <Heading level="heading6" tag="h1">
+          {skillMetadata.title}
+        </Heading>
+        <div className="flex flex-wrap gap-x-6">
+          {/* TODO(projects): fetch actual rep */}
           <ProjectsChallengeReputationTag
-            className="gap-2"
-            points={skillItem.points}
-            variant="flat"
+            points={1200}
+            tooltip={intl.formatMessage({
+              defaultMessage:
+                'Reputation you have gained from completing challenges using this skill, including challenges not in the recommended skill plan',
+              description: 'Tooltip for reputation label',
+              id: 'sU6jXI',
+            })}
           />
-          <div
-            className={clsx('flex items-center gap-2', themeTextSubtleColor)}>
-            <RiRocketLine className="size-4" />
-            <Text color="inherit" size="body2">
-              <FormattedMessage
-                defaultMessage="<bold>{completedCount}</bold>/{totalCount} challenges"
-                description="Rep count label in Projects"
-                id="26Xmcd"
-                values={{
-                  bold: (chunks) => (
-                    <Text color="secondary" size="body2" weight="medium">
-                      {chunks}
-                    </Text>
-                  ),
-                  completedCount: skillItem.completed,
-                  totalCount: skillItem.total,
-                }}
+          {countSubmissionsUsingSkills?.data != null &&
+            countSubmissionsUsingSkills?.data > 0 && (
+              <ProjectsChallengesCompletedTag
+                count={countSubmissionsUsingSkills.data}
+                tooltip={intl.formatMessage({
+                  defaultMessage:
+                    'Number of challenges completed using this skill, including challenges not in the recommended skill plan',
+                  description: 'Tooltip for completed challenges label',
+                  id: '4KjsB6',
+                })}
               />
-            </Text>
-          </div>
-        </div>
-        <div className="flex items-center">
-          <ProgressBar
-            heightClass="h-2 dark:!bg-neutral-700"
-            label={intl.formatMessage(
-              {
-                defaultMessage:
-                  'Label for "Completed projects" progress bar of a Projects component track',
-                description: '{completedCount} out of {totalCount} challenges',
-                id: 'GSfE/S',
-              },
-              {
-                completedCount: skillItem.completed,
-                totalCount: skillItem.total,
-              },
             )}
-            total={skillItem.total}
-            value={skillItem.completed}
-          />
+          {challengesQuery.data?.challenges != null &&
+            completedChallenges != null && (
+              <ProjectsChallengeProgressTag
+                completed={completedChallenges}
+                showProgress={false}
+                tooltip={intl.formatMessage({
+                  defaultMessage:
+                    'Number of challenges in the recommended skill plan of this skill',
+                  description: 'Tooltip for skill plan challenges label',
+                  id: 'Q5Ta4B',
+                })}
+                total={challengesQuery.data.challenges.length}
+                variant="skills-roadmap"
+              />
+            )}
         </div>
+        <Text className="block" color="secondary" size="body3">
+          {skillMetadata.description}
+        </Text>
       </div>
-      <RiArrowRightLine
-        aria-hidden={true}
-        className={clsx(
-          'size-5 shrink-0',
-          themeTextSubtleColor,
-          themeTextBrandColor_GroupHover,
-        )}
-      />
-      <Anchor
-        aria-label={label}
-        className="absolute inset-0"
-        href={href}
-        scroll={false}
-        scrollToTop={false}
-      />
+      <Section level={2}>
+        <Divider color="emphasized" />
+        <Prose textSize="sm">
+          <ProjectsChallengeMdxContent mdxCode={skillMetadata.body.code} />
+        </Prose>
+        <Divider color="emphasized" />
+        <div className="flex flex-col gap-y-4">
+          <Heading level="heading6">Skill plan</Heading>
+          <Text className="block" color="secondary" size="body3">
+            Recommended projects to do to advance this skill progressively.
+          </Text>
+          <div className="flex flex-wrap gap-x-6">
+            {/* TODO(projects): Add in skill plan completion rep */}
+            {totalRoadmapPoints != null && (
+              <ProjectsChallengeReputationTag
+                points={totalRoadmapPoints}
+                tooltip={intl.formatMessage({
+                  defaultMessage:
+                    'Reputation that can be gained from completing the entire skill plan',
+                  description: 'Tooltip for reputation label',
+                  id: 'vd036v',
+                })}
+              />
+            )}
+            {challengesQuery.data?.challenges != null &&
+              completedChallenges != null && (
+                <ProjectsChallengeProgressTag
+                  completed={completedChallenges}
+                  total={challengesQuery.data.challenges.length}
+                />
+              )}
+          </div>
+          {challengesQuery.data?.challenges == null ? (
+            <Spinner display="block" size="md" />
+          ) : (
+            <ProjectsChallengeList
+              challengeStatuses={challengeStatuses}
+              challenges={challengesQuery.data.challenges}
+            />
+          )}
+        </div>
+      </Section>
     </div>
   );
 }

@@ -18,11 +18,11 @@ import {
 
 import ProjectsTrackChallengeStatusChip from './ProjectsTrackChallengeStatusChip';
 import ProjectsTrackPageHeader from './ProjectsTrackPageHeader';
-import {
-  projectsTrackCountCompleted,
-  projectsTrackDetermineChallengeStatus,
-} from './ProjectsTrackUtils';
 import ProjectsChallengeDifficultyTag from '../challenges/metadata/ProjectsChallengeDifficultyTag';
+import {
+  projectsChallengeCountCompleted,
+  projectsChallengeDetermineStatus,
+} from '../challenges/utils/ProjectsChallengeUtils';
 
 type Props = Readonly<{
   isViewerPremium: boolean;
@@ -44,7 +44,7 @@ export default function ProjectsTrackDetailsPage({
       },
     );
 
-  const completionCount = projectsTrackCountCompleted(
+  const completionCount = projectsChallengeCountCompleted(
     challengeStatuses ?? {},
     challenges,
   );
@@ -68,7 +68,7 @@ export default function ProjectsTrackDetailsPage({
               )}>
               <ProjectsTrackChallengeStatusChip
                 label={index + 1}
-                status={projectsTrackDetermineChallengeStatus(
+                status={projectsChallengeDetermineStatus(
                   challengeStatuses ?? {},
                   challenge.slug,
                 )}

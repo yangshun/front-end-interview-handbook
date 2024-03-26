@@ -15,11 +15,11 @@ import ProjectsTrackChallengeStatusChip from './ProjectsTrackChallengeStatusChip
 import ProjectsTrackHeader from './ProjectsTrackHeader';
 import ProjectsTrackPaywall from './ProjectsTrackPaywall';
 import type { ProjectsTrackItem } from './ProjectsTracksData';
-import {
-  projectsTrackCountCompleted,
-  projectsTrackDetermineChallengeStatus,
-} from './ProjectsTrackUtils';
 import type { ProjectsChallengeStatuses } from '../challenges/types';
+import {
+  projectsChallengeCountCompleted,
+  projectsChallengeDetermineStatus,
+} from '../challenges/utils/ProjectsChallengeUtils';
 
 import * as Accordion from '@radix-ui/react-accordion';
 
@@ -54,7 +54,7 @@ export default function ProjectsTrackAccordionItem({
           <Accordion.Trigger className="outline-brand group rounded-lg">
             <div className="flex items-center justify-between gap-2 p-6">
               <ProjectsTrackHeader
-                completedCount={projectsTrackCountCompleted(
+                completedCount={projectsChallengeCountCompleted(
                   challengeStatuses ?? {},
                   challenges,
                 )}
@@ -86,7 +86,7 @@ export default function ProjectsTrackAccordionItem({
                       <div className="flex items-center">
                         <ProjectsTrackChallengeStatusChip
                           label={i + 1}
-                          status={projectsTrackDetermineChallengeStatus(
+                          status={projectsChallengeDetermineStatus(
                             challengeStatuses,
                             challenge.slug,
                           )}
