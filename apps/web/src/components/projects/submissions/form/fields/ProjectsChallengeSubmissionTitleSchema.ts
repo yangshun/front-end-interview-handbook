@@ -2,7 +2,7 @@ import type { IntlShape } from 'react-intl';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
-const MIN_LENGTH = 5;
+const MIN_LENGTH = 20;
 const MAX_LENGTH = 80;
 
 function projectsChallengeSubmissionTitleSchema(options?: {
