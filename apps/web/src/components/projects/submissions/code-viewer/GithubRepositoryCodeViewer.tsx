@@ -61,7 +61,7 @@ export default function GithubRepositoryCodeViewer({
         <div className="flex h-full w-full items-center justify-center">
           <Spinner size="lg" />
         </div>
-      ) : !filePaths || !fileContents ? (
+      ) : !filePaths ? (
         <div className="flex h-full w-full items-center justify-center">
           <EmptyState
             title={intl.formatMessage({
@@ -83,7 +83,23 @@ export default function GithubRepositoryCodeViewer({
             />
           </div>
           <div className="flex-1">
-            {isImageFile(activeFile) ? (
+            {!fileContents ? (
+              <div
+                className={clsx(
+                  'flex h-full w-full items-center justify-center',
+                )}>
+                <EmptyState
+                  title={intl.formatMessage({
+                    defaultMessage:
+                      'Could not load the file from the repository. Select a different file to view.',
+                    description:
+                      'Error message when the file from the repository could not be loaded',
+                    id: 'Et6OSf',
+                  })}
+                  variant="error"
+                />
+              </div>
+            ) : isImageFile(activeFile) ? (
               <img alt={activeFile} className="w-full" src={fileContents} />
             ) : (
               <MonacoCodeEditor
