@@ -56,7 +56,8 @@ export default function Banner({
       )}>
       <div
         className={clsx(
-          'mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8',
+          'mx-auto w-full max-w-7xl',
+          'px-4 sm:px-6 lg:px-8',
           size === 'md' && 'py-3',
           size === 'sm' && 'py-2',
           size === 'xs' && 'py-2',

@@ -1,13 +1,14 @@
 :root {
   --navbar-height: 52px;
   --navbar-border: 1px;
-  --banner-height: 56px;
+  --banner-height: 56px; /* Sync height with GlobalBanner.tsx */
   --nav-top-offset: calc(
     var(--navbar-height) + var(--navbar-border) + var(--banner-height)
   );
 }
 
-@media (min-width: 1024px) {
+/* Sync responsiveness with GlobalBanner.tsx */
+@media (min-width: 640px) {
   :root {
     --banner-height: 32px;
   }
