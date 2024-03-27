@@ -3159,6 +3159,37 @@
     "topics": []
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1710806400,
+    "difficulty": "easy",
+    "duration": 15,
+    "excerpt": "Implement a function that finds the sum based on the specified criteria",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/sum-by",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "group-by",
+      "min-by",
+      "mean-by"
+    ],
+    "slug": "sum-by",
+    "subtitle": null,
+    "title": "Sum By",
+    "topics": []
+  },
+  {
     "author": "yangshun",
     "companies": [
       "google"
