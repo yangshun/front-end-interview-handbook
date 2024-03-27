@@ -45,9 +45,10 @@ export function getProjectsChallengeSubmissionTitleAttributes(intl: IntlShape) {
   });
   const maxMessage = intl.formatMessage(
     {
-      defaultMessage: 'Title must contain at most {maxLength} character(s).',
+      defaultMessage:
+        'Submission title must contain at most {maxLength} character(s).',
       description: 'Error message for submission title',
-      id: 'FqpwC9',
+      id: '5y9YGh',
     },
     {
       maxLength: MAX_LENGTH,
@@ -55,9 +56,10 @@ export function getProjectsChallengeSubmissionTitleAttributes(intl: IntlShape) {
   );
   const minMessage = intl.formatMessage(
     {
-      defaultMessage: 'Title must contain at least {minLength} character(s).',
+      defaultMessage:
+        'Submission title must contain at least {minLength} character(s).',
       description: 'Error message for submission title',
-      id: 'Va3Pjt',
+      id: 'goncmR',
     },
     {
       minLength: MIN_LENGTH,

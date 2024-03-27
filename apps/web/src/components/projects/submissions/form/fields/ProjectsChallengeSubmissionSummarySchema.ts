@@ -21,8 +21,8 @@ function projectsChallengeSubmissionSummarySchema(options?: {
 // TODO: Figure out how to reuse intl strings for the server.
 export const projectsChallengeSubmissionSummarySchemaServer =
   projectsChallengeSubmissionSummarySchema({
-    maxMessage: `Summary must contain at most ${MAX_LENGTH} character(s).`,
-    minMessage: `Summary must contain at least ${MIN_LENGTH} character(s).`,
+    maxMessage: `Submission summary must contain at most ${MAX_LENGTH} character(s).`,
+    minMessage: `Submission summary must contain at least ${MIN_LENGTH} character(s).`,
   });
 
 export function getProjectsChallengeSubmissionSummaryAttributes(

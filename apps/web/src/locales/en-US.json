@@ -827,6 +827,10 @@
     "defaultMessage": "React Questions",
     "description": "React questions category long title"
   },
+  "5y9YGh": {
+    "defaultMessage": "Submission title must contain at most {maxLength} character(s).",
+    "description": "Error message for submission title"
+  },
   "6+IMdW": {
     "defaultMessage": "Question",
     "description": "Label for question badge"
@@ -1990,10 +1994,6 @@
   "FonVOb": {
     "defaultMessage": "All question progress has been reset.",
     "description": "Message shown when question reset progress action succeeds."
-  },
-  "FqpwC9": {
-    "defaultMessage": "Title must contain at most {maxLength} character(s).",
-    "description": "Error message for submission title"
   },
   "Ftjz7y": {
     "defaultMessage": "Manage your subscription status and payment methods on the Stripe billing portal.",
@@ -3987,10 +3987,6 @@
     "defaultMessage": "Get the right practical foundation from the get-go",
     "description": "Title of 'Practical foundation' feature in Projects marketing page"
   },
-  "Va3Pjt": {
-    "defaultMessage": "Title must contain at least {minLength} character(s).",
-    "description": "Error message for submission title"
-  },
   "VbvRHt": {
     "defaultMessage": "Pricing",
     "description": "Label for Pricing sidebar item in Projects sidebar"
@@ -5326,6 +5322,10 @@
   "glQWNv": {
     "defaultMessage": "Articles",
     "description": "Label for articles blog"
+  },
+  "goncmR": {
+    "defaultMessage": "Submission title must contain at least {minLength} character(s).",
+    "description": "Error message for submission title"
   },
   "gopXdP": {
     "defaultMessage": "Reset this file",
