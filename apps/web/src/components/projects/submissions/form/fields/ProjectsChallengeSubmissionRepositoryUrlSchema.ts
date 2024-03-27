@@ -57,7 +57,6 @@ export function getProjectsChallengeSubmissionRepositoryUrlAttributes(
     description,
     label,
     placeholder,
-    type: 'url',
     validation: {
       required: true,
       urlMessage,

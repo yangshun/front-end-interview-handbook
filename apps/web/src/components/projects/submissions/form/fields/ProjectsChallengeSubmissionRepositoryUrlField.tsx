@@ -36,7 +36,6 @@ export default function ProjectsChallengeSubmissionRepositoryUrlField({
       label={attrs.label}
       placeholder={attrs.placeholder}
       required={attrs.validation.required}
-      type={attrs.type}
       {...field}
     />
   );
