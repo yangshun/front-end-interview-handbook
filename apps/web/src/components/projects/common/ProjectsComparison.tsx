@@ -122,6 +122,7 @@ export default function ProjectsComparison({
         ) : (
           <ProjectsChallengeSubmissionImageComparisonSlider
             image={pages[selectedScreenIndex]}
+            maxWidth={width}
           />
         )}
       </div>

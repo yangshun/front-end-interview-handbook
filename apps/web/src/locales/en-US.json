@@ -591,10 +591,6 @@
     "defaultMessage": "Clarify doubts in project-specific forums",
     "description": "Short description for \"Learn from others\" feature on Projects home page"
   },
-  "3cMGcO": {
-    "defaultMessage": "See child skills",
-    "description": "Label to show skills card"
-  },
   "3du5bC": {
     "defaultMessage": "Toptal",
     "description": "Company name for Toptal"
@@ -5918,6 +5914,10 @@
   "lGeTSB": {
     "defaultMessage": "Project challenges",
     "description": "Projects sidebar label"
+  },
+  "lJF2aI": {
+    "defaultMessage": "See child skills ({count})",
+    "description": "Label to show skills card"
   },
   "lJupPX": {
     "defaultMessage": "View All Questions",
