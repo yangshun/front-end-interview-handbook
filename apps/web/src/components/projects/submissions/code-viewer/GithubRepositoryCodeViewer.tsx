@@ -20,6 +20,8 @@ export function isImageFile(filePath: string) {
   return /\.(gif|jpe?g|tiff?|png|webp|bmp|heif|svg|pdf|psd)$/i.test(filePath);
 }
 
+const DEFAULT_FILE = 'README.md';
+
 export default function GithubRepositoryCodeViewer({
   className,
   repoName,
@@ -41,9 +43,9 @@ export default function GithubRepositoryCodeViewer({
       },
     );
 
-  const [activeFile, setActiveFile] = useState('README.md');
+  const [activeFile, setActiveFile] = useState(DEFAULT_FILE);
 
-  const { data: fileContents, isInitialLoading: isFetchingFileContents } =
+  const { data: fileContents, isFetching: isFetchingFileContents } =
     trpc.projects.submission.getGitHubFileContents.useQuery(
       {
         filePath: activeFile,
@@ -55,63 +57,98 @@ export default function GithubRepositoryCodeViewer({
       },
     );
 
-  return (
-    <div className={clsx('flex w-full overflow-y-hidden', className)}>
-      {isFetchingFileContents || isFetchingFilePaths ? (
+  const renderFileContent = () => {
+    if (!fileContents && isFetchingFileContents) {
+      return (
         <div className="flex h-full w-full items-center justify-center">
           <Spinner size="lg" />
         </div>
-      ) : !filePaths ? (
+      );
+    }
+
+    if (!fileContents) {
+      return (
         <div className="flex h-full w-full items-center justify-center">
-          <EmptyState
-            title={intl.formatMessage({
-              defaultMessage: 'Could not load files from repository',
-              description:
-                'Error message when files from a repository could not be loaded',
-              id: 'BIOtRD',
-            })}
-            variant="error"
-          />
-        </div>
-      ) : (
-        <>
-          <div className="flex w-[300px] flex-col overflow-y-auto p-2">
-            <ReadonlyDirectoryExplorer
-              activeFile={activeFile}
-              filePaths={filePaths}
-              onActiveFileChange={setActiveFile}
+          {activeFile === DEFAULT_FILE ? (
+            <EmptyState
+              title={intl.formatMessage({
+                defaultMessage:
+                  'No file selected from the repository. Select a file to view.',
+                description:
+                  'Empty state message when the default file from the repository could not be loaded',
+                id: 'wW8IAK',
+              })}
             />
-          </div>
-          <div className="flex-1">
-            {!fileContents ? (
-              <div
-                className={clsx(
-                  'flex h-full w-full items-center justify-center',
-                )}>
-                <EmptyState
-                  title={intl.formatMessage({
-                    defaultMessage:
-                      'Could not load the file from the repository. Select a different file to view.',
-                    description:
-                      'Error message when the file from the repository could not be loaded',
-                    id: 'Et6OSf',
-                  })}
-                  variant="error"
-                />
-              </div>
-            ) : isImageFile(activeFile) ? (
-              <img alt={activeFile} className="w-full" src={fileContents} />
-            ) : (
-              <MonacoCodeEditor
-                filePath={activeFile}
-                readOnly={true}
-                value={fileContents}
-                wordWrap={true}
+          ) : (
+            <EmptyState
+              title={intl.formatMessage({
+                defaultMessage:
+                  'Could not load the file from the repository. Select a different file to view.',
+                description:
+                  'Error message when the file from the repository could not be loaded',
+                id: 'Et6OSf',
+              })}
+              variant="error"
+            />
+          )}
+        </div>
+      );
+    }
+
+    if (isImageFile(activeFile)) {
+      return <img alt={activeFile} className="w-full" src={fileContents} />;
+    }
+
+    return (
+      <MonacoCodeEditor
+        filePath={activeFile}
+        readOnly={true}
+        value={fileContents}
+        wordWrap={true}
+      />
+    );
+  };
+
+  return (
+    <div className={clsx('flex w-full overflow-y-hidden', className)}>
+      {(() => {
+        if (isFetchingFilePaths) {
+          return (
+            <div className="flex h-full w-full items-center justify-center">
+              <Spinner size="lg" />
+            </div>
+          );
+        }
+
+        if (!filePaths) {
+          return (
+            <div className="flex h-full w-full items-center justify-center">
+              <EmptyState
+                title={intl.formatMessage({
+                  defaultMessage: 'Could not load files from repository',
+                  description:
+                    'Error message when files from a repository could not be loaded',
+                  id: 'BIOtRD',
+                })}
+                variant="error"
               />
-            )}
-          </div>
-        </>
-      )}
+            </div>
+          );
+        }
+
+        return (
+          <>
+            <div className="flex w-[300px] flex-col overflow-y-auto p-2">
+              <ReadonlyDirectoryExplorer
+                activeFile={activeFile}
+                filePaths={filePaths}
+                onActiveFileChange={setActiveFile}
+              />
+            </div>
+            <div className="flex-1">{renderFileContent()}</div>
+          </>
+        );
+      })()}
     </div>
   );
 }

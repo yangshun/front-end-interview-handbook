@@ -7275,6 +7275,10 @@
     "defaultMessage": "Motivations for joining",
     "description": "Projects profile motivation for joining section title"
   },
+  "wW8IAK": {
+    "defaultMessage": "No file selected from the repository. Select a file to view.",
+    "description": "Empty state message when the default file from the repository could not be loaded"
+  },
   "wdjeYA": {
     "defaultMessage": "View",
     "description": "Label for view button"
