@@ -15,20 +15,21 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
-  const { track } = await readProjectsTrack(slug, locale);
-
-  const intl = await getIntlServerOnly(locale);
+  const [intl, { track }] = await Promise.all([
+    getIntlServerOnly(locale),
+    readProjectsTrack(slug, locale),
+  ]);
 
   return defaultMetadata({
     description: intl.formatMessage(
       {
         defaultMessage:
-          'Build an entire library of {track} components from scratch. Use it for your portfolio, or as a component toolkit for future projects',
+          'Build an entire library of {trackName} components from scratch. Use it for your portfolio, or as a component toolkit for future projects',
         description: 'Description of Projects component track page',
-        id: 'bnECjo',
+        id: 'eG2r74',
       },
       {
-        track: track.metadata.title,
+        trackName: track.metadata.title,
       },
     ),
     locale,
@@ -36,12 +37,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: intl.formatMessage(
       {
         defaultMessage:
-          '{track} component track | GreatFrontEnd Projects - Real-world project challenges',
+          '{trackName} track | GreatFrontEnd Projects - Real-world project challenges',
         description: 'Title of Projects component track page',
-        id: 'asCnDc',
+        id: 'LLX6d1',
       },
       {
-        track: track.metadata.title,
+        trackName: track.metadata.title,
       },
     ),
   });

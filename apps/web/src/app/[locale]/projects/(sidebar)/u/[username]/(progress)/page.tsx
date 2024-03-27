@@ -15,25 +15,22 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, username } = params;
 
-  const userProfile = await prisma.profile.findUnique({
-    where: {
-      username,
-    },
-  });
+  const [intl, userProfile] = await Promise.all([
+    getIntlServerOnly(locale),
+    prisma.profile.findUnique({
+      where: {
+        username,
+      },
+    }),
+  ]);
 
-  const intl = await getIntlServerOnly(locale);
+  // If no such user.
+  if (userProfile == null) {
+    return notFound();
+  }
 
   return defaultMetadata({
-    description: intl.formatMessage(
-      {
-        defaultMessage: '{bio}',
-        description: 'Description of Projects profile page',
-        id: 'Mrwftb',
-      },
-      {
-        bio: userProfile?.bio ?? '',
-      },
-    ),
+    description: userProfile!.bio ?? '',
     locale,
     pathname: `/projects/u/${username}`,
     title: intl.formatMessage(

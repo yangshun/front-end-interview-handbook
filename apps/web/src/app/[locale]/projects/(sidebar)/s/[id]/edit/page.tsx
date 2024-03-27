@@ -5,7 +5,10 @@ import { convertToPlainObject } from '~/lib/convertToPlainObject';
 
 import ProjectsChallengeSubmissionEditPage from '~/components/projects/submissions/form/ProjectsChallengeSubmissionEditPage';
 
-import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
+import {
+  readProjectsChallengeItem,
+  readProjectsChallengeMetadata,
+} from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import prisma from '~/server/prisma';
@@ -27,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     },
   );
-  const { challenge } = await readProjectsChallengeItem(
+  const { challengeMetadata } = await readProjectsChallengeMetadata(
     submissionDetails?.slug ?? '',
     locale,
   );
@@ -36,12 +39,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: intl.formatMessage(
       {
         defaultMessage:
-          'Edit your submission for the {challenge} challenge. Include new strategies and insights, enriching the knowledge base.',
+          'Edit your submission for the {challengeName} challenge. Include new strategies and insights, enriching the knowledge base.',
         description: 'Description of Projects edit submission page',
-        id: '1xPIcY',
+        id: 'Zm61qF',
       },
       {
-        challenge: challenge.metadata.title,
+        challengeName: challengeMetadata.title,
       },
     ),
     locale,

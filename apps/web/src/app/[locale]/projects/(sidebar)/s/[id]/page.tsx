@@ -9,7 +9,10 @@ import ProjectsChallengeSubmissionPage from '~/components/projects/submissions/P
 import readViewerProjectsChallengeAccess from '~/components/projects/utils/readViewerProjectsChallengeAccess';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
-import { readProjectsChallengeItem } from '~/db/projects/ProjectsReader';
+import {
+  readProjectsChallengeItem,
+  readProjectsChallengeMetadata,
+} from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import prisma from '~/server/prisma';
@@ -21,24 +24,14 @@ type Props = Readonly<{
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, id: submissionId } = params;
 
-  const intl = await getIntlServerOnly(locale);
-
-  const submissionDetails = await prisma.projectsChallengeSubmission.findUnique(
-    {
+  const [intl, submissionDetails] = await Promise.all([
+    getIntlServerOnly(locale),
+    prisma.projectsChallengeSubmission.findUnique({
       include: {
         projectsProfile: {
           include: {
             userProfile: {
               select: {
-                avatarUrl: true,
-                company: true,
-                currentStatus: true,
-                githubUsername: true,
-                id: true,
-                linkedInUsername: true,
-                name: true,
-                startWorkDate: true,
-                title: true,
                 username: true,
               },
             },
@@ -48,9 +41,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       where: {
         id: submissionId,
       },
-    },
-  );
-  const { challenge } = await readProjectsChallengeItem(
+    }),
+  ]);
+  const { challengeMetadata } = await readProjectsChallengeMetadata(
     submissionDetails?.slug ?? '',
     locale,
   );
@@ -59,40 +52,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const fallbackDescription = intl.formatMessage(
     {
       defaultMessage:
-        "See {username}'s approach to building the {challenge} on GreatFrontEnd. Engage with their work, share feedback, and gain new perspectives for your projects",
+        "See {username}'s approach to building the {challengeName} on GreatFrontEnd. Engage with their work, share feedback, and gain new perspectives for your projects",
       description: 'Description of Projects submission page',
-      id: 'nO/x5D',
+      id: 'BOh0kv',
     },
     {
-      challenge: challenge.metadata.title,
+      challengeName: challengeMetadata.title,
       username: submissionDetails?.projectsProfile?.userProfile?.username,
     },
   );
 
   return defaultMetadata({
-    description: intl.formatMessage(
-      {
-        defaultMessage: '{description}',
-        description: 'Description of Projects submission page',
-        id: 'VS6pHT',
-      },
-      {
-        description:
-          description.length < 50 ? fallbackDescription : description,
-      },
-    ),
+    description: description.length < 50 ? fallbackDescription : description,
     locale,
     pathname: `/projects/s/${submissionId}`,
     title: intl.formatMessage(
       {
         defaultMessage:
-          '{title} | {username} | {challenge} | GreatFrontEnd Projects - Real-world project challenges',
+          '{submissionTitle} | {username} | {challengeName} | GreatFrontEnd Projects - Real-world project challenges',
         description: 'Title of Projects submission page',
-        id: 'gitIWx',
+        id: '3VAr/X',
       },
       {
-        challenge: challenge.metadata.title,
-        title: submissionDetails?.title,
+        challengeName: challengeMetadata.title,
+        submissionTitle: submissionDetails?.title,
         username: submissionDetails?.projectsProfile?.userProfile?.username,
       },
     ),

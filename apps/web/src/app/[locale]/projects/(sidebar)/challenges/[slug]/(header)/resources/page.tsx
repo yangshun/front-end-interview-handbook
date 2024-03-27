@@ -19,23 +19,21 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
-  const { challengeMetadata } = await readProjectsChallengeMetadata(
-    slug,
-    locale,
-  );
-
-  const intl = await getIntlServerOnly(locale);
+  const [intl, { challengeMetadata }] = await Promise.all([
+    getIntlServerOnly(locale),
+    readProjectsChallengeMetadata(slug, locale),
+  ]);
 
   return defaultMetadata({
     description: intl.formatMessage(
       {
         defaultMessage:
-          'All the resources to help you build a {challenge}, including how-to-guides, official solutions, references and user discussions',
+          'All the resources to help you build a {challengeName}, including how-to-guides, official solutions, references and user discussions',
         description: 'Description of Projects challenge resources page',
-        id: 'VPY6QI',
+        id: 'JrYZqa',
       },
       {
-        challenge: challengeMetadata.title,
+        challengeName: challengeMetadata.title,
       },
     ),
     locale,
@@ -43,12 +41,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: intl.formatMessage(
       {
         defaultMessage:
-          'Challenge: {challenge} | Resources | GreatFrontEnd Projects - Real-world project challenges',
+          'Challenge: {challengeName} | Resources | GreatFrontEnd Projects - Real-world project challenges',
         description: 'Title of Projects challenge resources page',
-        id: 'nQsraQ',
+        id: 'Ebkh8j',
       },
       {
-        challenge: challengeMetadata.title,
+        challengeName: challengeMetadata.title,
       },
     ),
   });
