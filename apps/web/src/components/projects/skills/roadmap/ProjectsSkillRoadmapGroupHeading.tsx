@@ -14,11 +14,8 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsSkillRoadmapGroupHeading({ group }: Props) {
-  const { description } = group;
-  const points = 1337;
-  const total = 2674;
-  const completed = 1337;
-  const completedAll = false;
+  const { description, points, totalChallenges, completedChallenges } = group;
+  const completedAll = totalChallenges === completedChallenges;
 
   return (
     <div className="flex w-full flex-col gap-2">
@@ -44,10 +41,10 @@ export default function ProjectsSkillRoadmapGroupHeading({ group }: Props) {
               </Text>
             </div>
             <ProjectsChallengeProgressTag
-              completed={completed}
+              completed={completedChallenges}
               iconClassName="size-4"
               showProgress={false}
-              total={total}
+              total={totalChallenges}
             />
           </div>
         )}

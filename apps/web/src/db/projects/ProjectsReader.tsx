@@ -17,6 +17,7 @@ import {
 import { sum } from 'lodash-es';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
+import type { ProjectsSkillKey } from '~/components/projects/skills/types';
 import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
 import type { ProjectsProfileAvatarDataSlim } from '~/components/projects/types';
 
@@ -109,6 +110,74 @@ export async function fetchChallengeStatusForUserFilteredBySkillsGroupedBySlug(
   });
 
   return sessionsForUserGrouped;
+}
+
+/**
+ * For each skill, contains a map of challenge slug -> status.
+ * Note that challenge slugs can be outside of the skill plan's
+ * recommended challenges since any skill can be added to submissions.
+ */
+export async function fetchChallengeStatusForUserGroupedBySkills(
+  userId?: string | null,
+): Promise<
+  Record<ProjectsSkillKey, Record<string, ProjectsChallengeSessionStatus>>
+> {
+  if (userId == null) {
+    return {};
+  }
+
+  const skillsChallengeStatus: Record<
+    ProjectsSkillKey,
+    Record<string, ProjectsChallengeSessionStatus>
+  > = {};
+
+  const [sessionsForUser, submissions] = await Promise.all([
+    prisma.projectsChallengeSession.findMany({
+      orderBy: {
+        createdAt: 'asc',
+      },
+      where: {
+        projectsProfile: {
+          userProfile: {
+            id: userId,
+          },
+        },
+        status: {
+          not: 'STOPPED',
+        },
+      },
+    }),
+    prisma.projectsChallengeSubmission.findMany({
+      distinct: ['slug'],
+      where: {
+        projectsProfile: {
+          userId,
+        },
+      },
+    }),
+  ]);
+
+  sessionsForUser?.forEach((session) => {
+    session.roadmapSkills.forEach((skill) => {
+      if (!skillsChallengeStatus[skill]) {
+        skillsChallengeStatus[skill] = {};
+      }
+
+      skillsChallengeStatus[skill][session.slug] = session.status;
+    });
+  });
+
+  submissions.forEach((submission) => {
+    submission.roadmapSkills.forEach((skill) => {
+      if (!skillsChallengeStatus[skill]) {
+        skillsChallengeStatus[skill] = {};
+      }
+
+      skillsChallengeStatus[skill][submission.slug] = 'COMPLETED';
+    });
+  });
+
+  return skillsChallengeStatus;
 }
 
 export async function fetchChallengeAccessForUserGroupedBySlug(

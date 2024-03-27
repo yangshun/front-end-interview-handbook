@@ -23,7 +23,7 @@ export type ProjectsSkillRoadmapConfig =
 export type ProjectsSkillSummaryItem = Readonly<{
   completedChallenges: number;
   key: ProjectsSkillKey;
-  reputation: number;
+  points: number;
   totalChallenges: number;
 }>;
 
@@ -32,7 +32,7 @@ export type ProjectsSkillRoadmapSectionGroup = Readonly<{
   description: string;
   items: ReadonlyArray<ProjectsSkillSummaryItem>;
   key: ProjectsSkillGroupType;
-  reputation: number;
+  points: number;
   tagClassname: string;
   totalChallenges: number;
 }>;

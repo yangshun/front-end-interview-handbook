@@ -99,9 +99,9 @@ export default function ProjectsSkillRoadmapItemDetails({
                 showProgress={false}
                 tooltip={intl.formatMessage({
                   defaultMessage:
-                    'Number of challenges in the recommended skill plan of this skill',
+                    'Number of challenges completed in skill plan',
                   description: 'Tooltip for skill plan challenges label',
-                  id: 'Q5Ta4B',
+                  id: 'SlcOi4',
                 })}
                 total={challengesQuery.data.challenges.length}
                 variant="skills-roadmap"
@@ -140,6 +140,12 @@ export default function ProjectsSkillRoadmapItemDetails({
               completedChallenges != null && (
                 <ProjectsChallengeProgressTag
                   completed={completedChallenges}
+                  tooltip={intl.formatMessage({
+                    defaultMessage:
+                      'Number of challenges completed in skill plan',
+                    description: 'Tooltip for skill plan challenges label',
+                    id: 'SlcOi4',
+                  })}
                   total={challengesQuery.data.challenges.length}
                 />
               )}

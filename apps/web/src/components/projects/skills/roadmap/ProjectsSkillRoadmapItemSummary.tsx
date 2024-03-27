@@ -56,7 +56,7 @@ export default function ProjectsSkillRoadmapItemSummary({
         <div className="flex gap-4">
           <ProjectsChallengeReputationTag
             className="gap-2"
-            points={skillSummary.reputation}
+            points={skillSummary.points}
             variant="flat"
           />
           <div

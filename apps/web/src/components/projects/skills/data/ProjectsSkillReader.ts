@@ -1,35 +1,79 @@
+import { allProjectsChallengeMetadata } from 'contentlayer/generated';
+
+import { fetchChallengeStatusForUserGroupedBySkills } from '~/db/projects/ProjectsReader';
+
 import { skillsRoadmapConfig } from './ProjectsSkillRoadmapConfigData';
 import type { ProjectsSkillRoadmapSectionData } from '../types';
 
 export async function projectsSkillsRoadmapSectionData(
   targetUserId?: string,
 ): Promise<ProjectsSkillRoadmapSectionData> {
+  const challenges = allProjectsChallengeMetadata.filter((challengeItem) =>
+    challengeItem._raw.flattenedPath.endsWith('en-US'),
+  );
+
+  const skillsChallengeStatus =
+    await fetchChallengeStatusForUserGroupedBySkills(targetUserId);
+
   return skillsRoadmapConfig.map((difficulty) => ({
     ...difficulty,
     items: difficulty.items.map((groupItem) => {
-      const reputation = 1337;
-      const totalChallenges = 267;
-      const completedChallenges = 120;
+      let totalReputation = 0;
+      const challengesSlugsAllSet = new Set();
+      const challengesSlugsCompletedSet = new Set();
+
+      const items = groupItem.items.map((skillKey) => {
+        const skillRoadmapChallenges = challenges.filter((challengeItem) =>
+          challengeItem.skills.includes(skillKey),
+        );
+        const skillRoadmapChallengeSlugs = new Set(
+          skillRoadmapChallenges.map((challengeItem) => challengeItem.slug),
+        );
+
+        skillRoadmapChallenges.forEach((challengeMetadata) => {
+          challengesSlugsAllSet.add(challengeMetadata.slug);
+        });
+
+        const skillReputation = skillRoadmapChallenges.reduce(
+          (acc, item) => item.points + acc,
+          0,
+        );
+
+        totalReputation += skillReputation;
+
+        const skillTotalChallenges = skillRoadmapChallenges.length;
+        const challengeStatusesForSkill = skillsChallengeStatus[skillKey] ?? {};
+        let skillCompletedChallenges = 0;
+
+        // Filter out only the challenges on this skill's roadmap.
+        Object.entries(challengeStatusesForSkill).map(
+          ([challengeSlug, status]) => {
+            if (
+              skillRoadmapChallengeSlugs.has(challengeSlug) &&
+              status === 'COMPLETED'
+            ) {
+              challengesSlugsCompletedSet.add(challengeSlug);
+              skillCompletedChallenges++;
+            }
+          },
+        );
+
+        return {
+          completedChallenges: skillCompletedChallenges,
+          key: skillKey,
+          points: skillReputation,
+          totalChallenges: skillTotalChallenges,
+        };
+      });
 
       return {
-        completedChallenges,
+        completedChallenges: challengesSlugsCompletedSet.size,
         description: groupItem.description,
-        items: groupItem.items.map((skillKey) => {
-          const skillReputation = 1337;
-          const skillTotalChallenges = 266;
-          const skillCompletedChallenges = 133;
-
-          return {
-            completedChallenges: skillCompletedChallenges,
-            key: skillKey,
-            reputation: skillReputation,
-            totalChallenges: skillTotalChallenges,
-          };
-        }),
+        items,
         key: groupItem.key,
-        reputation,
+        points: totalReputation,
         tagClassname: groupItem.tagClassname,
-        totalChallenges,
+        totalChallenges: challengesSlugsAllSet.size,
       };
     }),
   }));
