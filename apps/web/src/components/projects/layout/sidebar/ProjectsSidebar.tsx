@@ -58,6 +58,7 @@ export type SidebarLink = Readonly<{
   key: string;
   label: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+  scrollToTop?: boolean;
 }>;
 
 function useSidebarItems(): Readonly<{
@@ -69,7 +70,7 @@ function useSidebarItems(): Readonly<{
   return {
     bottom: [
       {
-        href: '/projects/features',
+        href: '/projects#features',
         icon: RiShiningLine,
         key: 'features',
         label: intl.formatMessage({
@@ -77,6 +78,7 @@ function useSidebarItems(): Readonly<{
           description: 'Label for Features sidebar item in Projects sidebar',
           id: 'J6IHpl',
         }),
+        scrollToTop: false,
       },
       {
         href: '/projects/pricing',
@@ -156,6 +158,7 @@ function SidebarLinkButton({
   label,
   icon: Icon,
   href,
+  scrollToTop,
   onClick,
 }: Readonly<{
   href: string;
@@ -163,6 +166,7 @@ function SidebarLinkButton({
   isLabelHidden?: boolean;
   label: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+  scrollToTop?: boolean;
 }>) {
   const { pathname } = useI18nPathname();
   const isSelected = pathname === href;
@@ -193,6 +197,7 @@ function SidebarLinkButton({
         isSelected ? activeClassName : defaultClassName,
       )}
       href={href}
+      scrollToTop={scrollToTop}
       variant="unstyled"
       onClick={onClick}>
       <Icon className="size-5 shrink-0" />

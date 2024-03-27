@@ -371,7 +371,8 @@ export default function ProjectsMarketingLearningFeatures() {
       className={clsx(
         'isolate rounded-t-3xl lg:mx-8 lg:rounded-t-[48px]',
         themeRadialGlowBackground,
-      )}>
+      )}
+      id="features">
       <Container className="flex flex-col gap-y-16 py-16 lg:gap-y-32 lg:py-32">
         <div className="mx-auto md:max-w-screen-sm lg:max-w-4xl">
           <MarketingSectionHeader
