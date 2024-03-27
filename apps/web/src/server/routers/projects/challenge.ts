@@ -73,11 +73,11 @@ export const projectsChallengeRouter = router({
         slug: z.string(),
       }),
     )
-    .query(async ({ input: { locale, slug }, ctx: { user } }) => {
+    .query(async ({ input: { locale, slug }, ctx: { viewer } }) => {
       const { challenge } = await readProjectsChallengeItem(
         slug,
         locale,
-        user?.id,
+        viewer?.id,
       );
 
       return {

@@ -77,7 +77,7 @@ export const projectsCommentsRouter = router({
         entityId: z.string(),
       }),
     )
-    .query(async ({ input: { domain, entityId }, ctx: { user } }) => {
+    .query(async ({ input: { domain, entityId }, ctx: { viewer } }) => {
       const likedComments = await prisma.projectsDiscussionCommentVote.findMany(
         {
           select: {
@@ -85,7 +85,7 @@ export const projectsCommentsRouter = router({
           },
           where: {
             author: {
-              userId: user.id,
+              userId: viewer.id,
             },
             comment: {
               domain,
@@ -178,7 +178,7 @@ export const projectsCommentsRouter = router({
     .query(
       async ({
         input: { contributionType, domainList, forumType, userId },
-        ctx: { user },
+        ctx: { viewer },
       }) => {
         const categoryWhere = contributionType.includes('OTHER')
           ? [
@@ -199,7 +199,7 @@ export const projectsCommentsRouter = router({
               },
             ];
         const authorWhere = {
-          userId: userId ?? user?.id,
+          userId: userId ?? viewer?.id,
         };
         const domainWhere = {
           in:

@@ -168,7 +168,7 @@ export const projectsProfileRouter = router({
         motivations: z.array(z.string()),
       }),
     )
-    .mutation(async ({ input: { motivations }, ctx: { user, req } }) => {
+    .mutation(async ({ input: { motivations }, ctx: { viewer, req } }) => {
       const projectsProfileFields = {
         motivations,
       };
@@ -190,7 +190,7 @@ export const projectsProfileRouter = router({
           },
         },
         where: {
-          id: user.id,
+          id: viewer.id,
         },
       });
 
@@ -200,7 +200,7 @@ export const projectsProfileRouter = router({
 
       return result;
     }),
-  onboardingStep1: userProcedure.query(async ({ ctx: { user } }) => {
+  onboardingStep1: userProcedure.query(async ({ ctx: { viewer } }) => {
     return await prisma.profile.findUnique({
       select: {
         avatarUrl: true,
@@ -212,7 +212,7 @@ export const projectsProfileRouter = router({
         username: true,
       },
       where: {
-        id: user.id,
+        id: viewer.id,
       },
     });
   }),
@@ -239,7 +239,7 @@ export const projectsProfileRouter = router({
           username,
           company,
         },
-        ctx: { user, req },
+        ctx: { viewer, req },
       }) => {
         const result = await prisma.profile.update({
           data: {
@@ -259,7 +259,7 @@ export const projectsProfileRouter = router({
             },
           },
           where: {
-            id: user.id,
+            id: viewer.id,
           },
         });
 
@@ -273,7 +273,7 @@ export const projectsProfileRouter = router({
         return result;
       },
     ),
-  onboardingStep2: userProcedure.query(async ({ ctx: { user } }) => {
+  onboardingStep2: userProcedure.query(async ({ ctx: { viewer } }) => {
     return await prisma.profile.findUnique({
       select: {
         bio: true,
@@ -288,7 +288,7 @@ export const projectsProfileRouter = router({
         website: true,
       },
       where: {
-        id: user.id,
+        id: viewer.id,
       },
     });
   }),
@@ -313,7 +313,7 @@ export const projectsProfileRouter = router({
           skillsProficient,
           skillsToGrow,
         },
-        ctx: { user, req },
+        ctx: { viewer, req },
       }) => {
         const projectsProfileFields = {
           skillsProficient,
@@ -341,7 +341,7 @@ export const projectsProfileRouter = router({
             },
           },
           where: {
-            id: user.id,
+            id: viewer.id,
           },
         });
 
@@ -394,7 +394,7 @@ export const projectsProfileRouter = router({
           username,
           company,
         },
-        ctx: { user, req },
+        ctx: { viewer, req },
       }) => {
         const projectsProfileFields = {
           motivations,
@@ -430,7 +430,7 @@ export const projectsProfileRouter = router({
             },
           },
           where: {
-            id: user.id,
+            id: viewer.id,
           },
         });
 
@@ -450,12 +450,12 @@ export const projectsProfileRouter = router({
         imageFile: z.string(),
       }),
     )
-    .mutation(async ({ input: { imageFile }, ctx: { user } }) => {
+    .mutation(async ({ input: { imageFile }, ctx: { viewer } }) => {
       const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
 
       const blob = base64toBlob(imageFile);
 
-      const storagePath = `${user.id + String(new Date().getTime())}.jpg`;
+      const storagePath = `${viewer.id + String(new Date().getTime())}.jpg`;
       const { error } = await supabaseAdmin.storage
         .from('user-avatars')
         .upload(storagePath, blob, {
@@ -478,22 +478,22 @@ export const projectsProfileRouter = router({
         username: z.string(),
       }),
     )
-    .query(async ({ input: { username }, ctx: { user } }) => {
+    .query(async ({ input: { username }, ctx: { viewer } }) => {
       const profile = await prisma.profile.findUnique({
         where: {
           username,
         },
       });
 
-      return profile != null && profile.id !== user.id;
+      return profile != null && profile.id !== viewer.id;
     }),
-  viewer: publicProjectsProcedure.query(async ({ ctx: { user } }) => {
+  viewer: publicProjectsProcedure.query(async ({ ctx: { viewer } }) => {
     return await prisma.profile.findUnique({
       include: {
         projectsProfile: true,
       },
       where: {
-        id: user?.id,
+        id: viewer?.id,
       },
     });
   }),

@@ -12,7 +12,7 @@ export const questionListsRouter = router({
         listKey: z.string(),
       }),
     )
-    .query(async ({ input: { listKey }, ctx: { user } }) => {
+    .query(async ({ input: { listKey }, ctx: { viewer } }) => {
       const session = await prisma.learningSession.findFirst({
         include: {
           progress: true,
@@ -20,13 +20,13 @@ export const questionListsRouter = router({
         where: {
           key: listKey,
           status: 'IN_PROGRESS',
-          userId: user.id,
+          userId: viewer.id,
         },
       });
 
       return session;
     }),
-  getActiveSessions: userProcedure.query(async ({ ctx: { user } }) => {
+  getActiveSessions: userProcedure.query(async ({ ctx: { viewer } }) => {
     return await prisma.learningSession.findMany({
       include: {
         _count: {
@@ -37,7 +37,7 @@ export const questionListsRouter = router({
       },
       where: {
         status: 'IN_PROGRESS',
-        userId: user.id,
+        userId: viewer.id,
       },
     });
   }),
@@ -47,12 +47,12 @@ export const questionListsRouter = router({
         listKey: z.string(),
       }),
     )
-    .query(async ({ input: { listKey }, ctx: { user } }) => {
+    .query(async ({ input: { listKey }, ctx: { viewer } }) => {
       const session = await prisma.learningSession.findFirst({
         where: {
           key: listKey,
           status: 'IN_PROGRESS',
-          userId: user.id,
+          userId: viewer.id,
         },
       });
 
@@ -74,13 +74,13 @@ export const questionListsRouter = router({
         slug: z.string(),
       }),
     )
-    .mutation(async ({ input: { format, slug, listKey }, ctx: { user } }) => {
+    .mutation(async ({ input: { format, slug, listKey }, ctx: { viewer } }) => {
       try {
         const session = await prisma.learningSession.findFirst({
           where: {
             key: listKey,
             status: 'IN_PROGRESS',
-            userId: user.id,
+            userId: viewer.id,
           },
         });
 
@@ -106,13 +106,13 @@ export const questionListsRouter = router({
         slug: z.string(),
       }),
     )
-    .mutation(async ({ input: { format, slug, listKey }, ctx: { user } }) => {
+    .mutation(async ({ input: { format, slug, listKey }, ctx: { viewer } }) => {
       try {
         const session = await prisma.learningSession.findFirst({
           where: {
             key: listKey,
             status: 'IN_PROGRESS',
-            userId: user.id,
+            userId: viewer.id,
           },
         });
 
@@ -137,13 +137,13 @@ export const questionListsRouter = router({
         sessionId: z.string(),
       }),
     )
-    .mutation(async ({ input: { sessionId }, ctx: { user } }) => {
+    .mutation(async ({ input: { sessionId }, ctx: { viewer } }) => {
       // Make sure the session is active.
       const session = await prisma.learningSession.findFirst({
         where: {
           id: sessionId,
           status: 'IN_PROGRESS',
-          userId: user.id,
+          userId: viewer.id,
         },
       });
 
@@ -163,12 +163,12 @@ export const questionListsRouter = router({
         listKey: z.string(),
       }),
     )
-    .mutation(async ({ input: { listKey }, ctx: { user } }) => {
+    .mutation(async ({ input: { listKey }, ctx: { viewer } }) => {
       const existingSession = await prisma.learningSession.findFirst({
         where: {
           key: listKey,
           status: 'IN_PROGRESS',
-          userId: user.id,
+          userId: viewer.id,
         },
       });
 
@@ -180,7 +180,7 @@ export const questionListsRouter = router({
       // No existing session, create one.
       const createData = {
         key: listKey,
-        userId: user.id,
+        userId: viewer.id,
       };
 
       return await prisma.learningSession.create({
@@ -193,13 +193,13 @@ export const questionListsRouter = router({
         sessionId: z.string(),
       }),
     )
-    .mutation(async ({ input: { sessionId }, ctx: { user } }) => {
+    .mutation(async ({ input: { sessionId }, ctx: { viewer } }) => {
       // Make sure the session is active.
       const session = await prisma.learningSession.findFirst({
         where: {
           id: sessionId,
           status: 'IN_PROGRESS',
-          userId: user.id,
+          userId: viewer.id,
         },
       });
 

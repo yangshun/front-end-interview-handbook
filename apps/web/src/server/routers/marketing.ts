@@ -13,10 +13,10 @@ const studentDiscountCouponId_PROD = 'tgklHrfQ';
 
 export const marketingRouter = router({
   generateStudentDiscountPromoCode: userProcedure.mutation(
-    async ({ ctx: { user } }) => {
+    async ({ ctx: { viewer } }) => {
       const profile = await prisma.profile.findFirst({
         where: {
-          id: user.id,
+          id: viewer.id,
         },
       });
 
@@ -66,15 +66,15 @@ export const marketingRouter = router({
   // non-logged in users and showing an error is ugly.
   // We just return `null` if not logged in.
   getStudentDiscountPromoCode: publicProcedure.query(
-    async ({ ctx: { user } }) => {
-      if (user == null) {
+    async ({ ctx: { viewer } }) => {
+      if (viewer == null) {
         return null;
       }
 
-      const userId = user.id;
+      const viewerId = viewer.id;
       const profile = await prisma.profile.findFirst({
         where: {
-          id: userId,
+          id: viewerId,
         },
       });
 
@@ -137,14 +137,14 @@ export const marketingRouter = router({
   // Intentionally make it publicProcedure since this can be called by
   // non-logged in users and showing an error is ugly.
   // We just return `null` if not logged in.
-  userPromoCodes: publicProcedure.query(async ({ ctx: { user } }) => {
-    if (user == null) {
+  userPromoCodes: publicProcedure.query(async ({ ctx: { viewer } }) => {
+    if (viewer == null) {
       return null;
     }
 
     const profile = await prisma.profile.findFirst({
       where: {
-        id: user.id,
+        id: viewer.id,
       },
     });
 

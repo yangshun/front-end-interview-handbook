@@ -13,7 +13,7 @@ export const feedbackRouter = router({
           .min(10, 'Message must contain at least 10 characters.'),
       }),
     )
-    .mutation(async ({ input: { message }, ctx: { user, req } }) => {
+    .mutation(async ({ input: { message }, ctx: { viewer, req } }) => {
       const cookies = cookie.parse(req.headers.cookie ?? '');
 
       const feedbackMessage = await prisma.feedbackMessage.create({
@@ -23,7 +23,7 @@ export const feedbackRouter = router({
             country: cookies.country,
             referer: req.headers.referer ?? null,
           },
-          userEmail: user?.email,
+          userEmail: viewer?.email,
         },
       });
 

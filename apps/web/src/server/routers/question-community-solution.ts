@@ -27,9 +27,9 @@ export const questionCommunitySolutionRouter = router({
     .mutation(
       async ({
         input: { code, language, slug, title, writeup },
-        ctx: { user },
+        ctx: { viewer },
       }) => {
-        if (!user) {
+        if (!viewer) {
           return null;
         }
 
@@ -39,7 +39,7 @@ export const questionCommunitySolutionRouter = router({
             language,
             slug,
             title,
-            userId: user.id,
+            userId: viewer.id,
             writeup,
           },
         });
@@ -97,7 +97,7 @@ export const questionCommunitySolutionRouter = router({
     .mutation(
       async ({
         input: { files, framework, slug, title, writeup },
-        ctx: { user },
+        ctx: { viewer },
       }) => {
         return await prisma.questionUserInterfaceCommunitySolution.create({
           data: {
@@ -105,7 +105,7 @@ export const questionCommunitySolutionRouter = router({
             framework,
             slug,
             title,
-            userId: user.id,
+            userId: viewer.id,
             writeup,
           },
         });

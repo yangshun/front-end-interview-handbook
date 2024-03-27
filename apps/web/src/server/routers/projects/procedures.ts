@@ -7,7 +7,7 @@ import { TRPCError } from '@trpc/server';
 const isProjectsUser = isUser.unstable_pipe(async (opts) => {
   const { ctx } = opts;
 
-  const projectsProfileId = await getProjectsProfileId(ctx.user);
+  const projectsProfileId = await getProjectsProfileId(ctx.viewer);
 
   if (projectsProfileId == null) {
     throw new TRPCError({
@@ -26,8 +26,8 @@ const isProjectsUser = isUser.unstable_pipe(async (opts) => {
 const isProjectsUserForPublic = middleware(async (opts) => {
   const { ctx } = opts;
 
-  const projectsProfileId = ctx.user
-    ? await getProjectsProfileId(ctx.user)
+  const projectsProfileId = ctx.viewer
+    ? await getProjectsProfileId(ctx.viewer)
     : null;
 
   return opts.next({

@@ -266,7 +266,7 @@ export const projectsChallengeSubmissionListRouter = router({
     .query(
       async ({
         input: { filter, pagination, sort },
-        ctx: { user, projectsProfileId },
+        ctx: { viewer, projectsProfileId },
       }) => {
         const {
           challenges,
@@ -301,14 +301,14 @@ export const projectsChallengeSubmissionListRouter = router({
         // Check if user is logged in
         if (
           (submissionType === 'learn' || submissionType === 'mentor') &&
-          user
+          viewer
         ) {
           userProfile = await prisma.profile.findUnique({
             include: {
               projectsProfile: true,
             },
             where: {
-              id: user.id,
+              id: viewer.id,
             },
           });
         }
@@ -456,7 +456,7 @@ export const projectsChallengeSubmissionListRouter = router({
 
         const submissionsAugmented =
           await projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
-            user?.id ?? null,
+            viewer?.id ?? null,
             submissions,
           );
 
@@ -467,7 +467,7 @@ export const projectsChallengeSubmissionListRouter = router({
       },
     ),
   listCompleted: projectsChallengeProcedure.query(
-    async ({ input: { challengeSlug }, ctx: { user } }) => {
+    async ({ input: { challengeSlug }, ctx: { viewer } }) => {
       const submissions = await prisma.projectsChallengeSubmission.findMany({
         include: {
           _count: {
@@ -479,7 +479,7 @@ export const projectsChallengeSubmissionListRouter = router({
         where: {
           projectsProfile: {
             userProfile: {
-              id: user?.id,
+              id: viewer?.id,
             },
           },
           slug: challengeSlug,
@@ -498,7 +498,7 @@ export const projectsChallengeSubmissionListRouter = router({
         challengeSlug: z.string(),
       }),
     )
-    .query(async ({ input: { challengeSlug }, ctx: { user } }) => {
+    .query(async ({ input: { challengeSlug }, ctx: { viewer } }) => {
       const submissions = await prisma.projectsChallengeSubmission.findMany({
         include: {
           _count: {
@@ -509,13 +509,13 @@ export const projectsChallengeSubmissionListRouter = router({
         },
         take: 15,
         where:
-          user?.id == null
+          viewer?.id == null
             ? { slug: challengeSlug }
             : {
                 projectsProfile: {
                   isNot: {
                     userProfile: {
-                      id: user?.id,
+                      id: viewer?.id,
                     },
                   },
                 },
@@ -524,7 +524,7 @@ export const projectsChallengeSubmissionListRouter = router({
       });
 
       return await projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
-        user?.id ?? null,
+        viewer?.id ?? null,
         submissions,
       );
     }),
@@ -581,7 +581,7 @@ export const projectsChallengeSubmissionListRouter = router({
         projectsProfileId: z.string().uuid(),
       }),
     )
-    .query(async ({ ctx: { user }, input: { projectsProfileId } }) => {
+    .query(async ({ ctx: { viewer }, input: { projectsProfileId } }) => {
       const submissions = await prisma.projectsChallengeSubmission.findMany({
         include: {
           _count: {
@@ -604,7 +604,7 @@ export const projectsChallengeSubmissionListRouter = router({
       });
 
       return await projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
-        user?.id ?? null,
+        viewer?.id ?? null,
         submissions,
       );
     }),

@@ -22,9 +22,9 @@ export const questionProgressRouter = router({
     .mutation(
       async ({
         input: { format, slug, status, progressId, listKey },
-        ctx: { user },
+        ctx: { viewer },
       }) => {
-        if (!user) {
+        if (!viewer) {
           return null;
         }
 
@@ -32,7 +32,7 @@ export const questionProgressRouter = router({
           format,
           slug,
           status,
-          userId: user.id,
+          userId: viewer.id,
         };
         let questionProgress = null;
 
@@ -58,7 +58,7 @@ export const questionProgressRouter = router({
               where: {
                 key: listKey,
                 status: 'IN_PROGRESS',
-                userId: user.id,
+                userId: viewer.id,
               },
             });
 
@@ -90,19 +90,19 @@ export const questionProgressRouter = router({
         slug: z.string(),
       }),
     )
-    .mutation(async ({ input: { slug, format }, ctx: { user } }) => {
+    .mutation(async ({ input: { slug, format }, ctx: { viewer } }) => {
       await prisma.questionProgress.deleteMany({
         where: {
           format,
           slug,
-          userId: user.id,
+          userId: viewer.id,
         },
       });
     }),
-  deleteAll: userProcedure.mutation(async ({ ctx: { user } }) => {
+  deleteAll: userProcedure.mutation(async ({ ctx: { viewer } }) => {
     await prisma.questionProgress.deleteMany({
       where: {
-        userId: user.id,
+        userId: viewer.id,
       },
     });
   }),
@@ -115,7 +115,7 @@ export const questionProgressRouter = router({
         }),
       }),
     )
-    .query(async ({ input: { question }, ctx: { user } }) => {
+    .query(async ({ input: { question }, ctx: { viewer } }) => {
       const questionProgress = await prisma.questionProgress.findFirst({
         orderBy: {
           createdAt: 'desc',
@@ -130,7 +130,7 @@ export const questionProgressRouter = router({
         where: {
           format: question.format,
           slug: question.slug,
-          userId: user.id,
+          userId: viewer.id,
         },
       });
 
@@ -144,7 +144,7 @@ export const questionProgressRouter = router({
         status: questionProgress.status as QuestionProgressStatus,
       };
     }),
-  getAll: userProcedure.query(async ({ ctx: { user } }) => {
+  getAll: userProcedure.query(async ({ ctx: { viewer } }) => {
     const questionProgressList = await prisma.questionProgress.findMany({
       orderBy: {
         createdAt: 'desc',
@@ -157,7 +157,7 @@ export const questionProgressRouter = router({
         status: true,
       },
       where: {
-        userId: user.id,
+        userId: viewer.id,
       },
     });
 

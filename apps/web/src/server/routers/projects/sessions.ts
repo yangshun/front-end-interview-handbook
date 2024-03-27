@@ -58,37 +58,39 @@ export const projectsSessionsRouter = router({
         userId: z.string().uuid().optional(),
       }),
     )
-    .query(async ({ input: { orderBy, statuses, userId }, ctx: { user } }) => {
-      const sessions = await prisma.projectsChallengeSession.findMany({
-        orderBy: {
-          createdAt: orderBy,
-        },
-        where: {
-          projectsProfile: {
-            userId: userId ?? user?.id,
+    .query(
+      async ({ input: { orderBy, statuses, userId }, ctx: { viewer } }) => {
+        const sessions = await prisma.projectsChallengeSession.findMany({
+          orderBy: {
+            createdAt: orderBy,
           },
-          status: statuses
-            ? {
-                in: statuses,
-              }
-            : undefined,
-        },
-      });
+          where: {
+            projectsProfile: {
+              userId: userId ?? viewer?.id,
+            },
+            status: statuses
+              ? {
+                  in: statuses,
+                }
+              : undefined,
+          },
+        });
 
-      const { challenges: projectsChallengeList } =
-        await readProjectsChallengeList();
+        const { challenges: projectsChallengeList } =
+          await readProjectsChallengeList();
 
-      return sessions.map((session) => {
-        const challenge = projectsChallengeList.find(
-          (project) => project.metadata.slug === session.slug,
-        );
+        return sessions.map((session) => {
+          const challenge = projectsChallengeList.find(
+            (project) => project.metadata.slug === session.slug,
+          );
 
-        return {
-          ...session,
-          challenge,
-        };
-      });
-    }),
+          return {
+            ...session,
+            challenge,
+          };
+        });
+      },
+    ),
   listRecent: projectsUserProcedure
     .input(
       z.object({

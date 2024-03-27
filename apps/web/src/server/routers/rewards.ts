@@ -54,7 +54,7 @@ export const rewardsRouter = router({
         username: gitHubUsernameSchema,
       }),
     )
-    .mutation(async ({ input: { username }, ctx: { user } }) => {
+    .mutation(async ({ input: { username }, ctx: { viewer } }) => {
       const { status } = await fetch(
         `https://api.github.com/users/${username}/following/${GITHUB_ORG_NAME}`,
         {
@@ -72,7 +72,7 @@ export const rewardsRouter = router({
 
       const campaign = SOCIAL_TASKS_DISCOUNT_CAMPAIGN;
       const action = 'GITHUB_FOLLOW';
-      const userId = user.id;
+      const userId = viewer.id;
       const identifier = username;
 
       await prisma.rewardsTaskCompletion.create({
@@ -92,14 +92,14 @@ export const rewardsRouter = router({
         username: gitHubUsernameSchema,
       }),
     )
-    .mutation(async ({ input: { username }, ctx: { user } }) => {
+    .mutation(async ({ input: { username }, ctx: { viewer } }) => {
       const octokit = new Octokit({});
       const lastPattern = /(?<=<)([\S]*)(?=>; rel="last")/i;
       const normalUrl = `/users/${username}/starred`;
       const pagesToCheck = 5;
       const campaign = SOCIAL_TASKS_DISCOUNT_CAMPAIGN;
       const action = 'GITHUB_STAR';
-      const userId = user.id;
+      const userId = viewer.id;
       const identifier = username;
 
       // TODO: Migrate to octokit SDK methods.
@@ -193,12 +193,12 @@ export const rewardsRouter = router({
         username: linkedInUsernameSchema,
       }),
     )
-    .mutation(async ({ input: { username }, ctx: { user } }) => {
+    .mutation(async ({ input: { username }, ctx: { viewer } }) => {
       await delay(1000);
 
       const campaign = SOCIAL_TASKS_DISCOUNT_CAMPAIGN;
       const action = 'LINKEDIN_FOLLOW';
-      const userId = user.id;
+      const userId = viewer.id;
       const identifier = username;
 
       await prisma.rewardsTaskCompletion.create({
@@ -218,12 +218,12 @@ export const rewardsRouter = router({
         username: twitterUsernameSchema,
       }),
     )
-    .mutation(async ({ input: { username }, ctx: { user } }) => {
+    .mutation(async ({ input: { username }, ctx: { viewer } }) => {
       await delay(1000);
 
       const campaign = SOCIAL_TASKS_DISCOUNT_CAMPAIGN;
       const action = 'TWITTER_FOLLOW';
-      const userId = user.id;
+      const userId = viewer.id;
       const identifier = username;
 
       await prisma.rewardsTaskCompletion.create({
@@ -238,8 +238,8 @@ export const rewardsRouter = router({
       return true;
     }),
   generateSocialTasksPromoCode: userProcedure.mutation(
-    async ({ ctx: { user } }) => {
-      const userId = user.id;
+    async ({ ctx: { viewer } }) => {
+      const userId = viewer.id;
 
       const tasks = await prisma.rewardsTaskCompletion.findMany({
         where: {
@@ -300,8 +300,8 @@ export const rewardsRouter = router({
       return promotionCode;
     },
   ),
-  getSocialTasksPromoCode: userProcedure.query(async ({ ctx: { user } }) => {
-    const userId = user.id;
+  getSocialTasksPromoCode: userProcedure.query(async ({ ctx: { viewer } }) => {
+    const userId = viewer.id;
     const profile = await prisma.profile.findFirst({
       where: {
         id: userId,
@@ -334,8 +334,8 @@ export const rewardsRouter = router({
 
     return promotionCodes.data[0];
   }),
-  getTasksCompleted: userProcedure.query(async ({ ctx: { user } }) => {
-    const userId = user.id;
+  getTasksCompleted: userProcedure.query(async ({ ctx: { viewer } }) => {
+    const userId = viewer.id;
     const tasks = await prisma.rewardsTaskCompletion.findMany({
       where: {
         campaign: SOCIAL_TASKS_DISCOUNT_CAMPAIGN,

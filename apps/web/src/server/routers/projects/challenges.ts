@@ -16,12 +16,12 @@ export const projectsChallengesRouter = router({
         skill: z.string(),
       }),
     )
-    .query(async ({ ctx: { user }, input: { skill } }) => {
+    .query(async ({ ctx: { viewer }, input: { skill } }) => {
       const distinctSlugs = await prisma.projectsChallengeSubmission.findMany({
         distinct: ['slug'],
         where: {
           projectsProfile: {
-            userId: user?.id,
+            userId: viewer?.id,
           },
           roadmapSkills: {
             has: skill,
@@ -38,8 +38,8 @@ export const projectsChallengesRouter = router({
         skillSlug: z.string(),
       }),
     )
-    .query(async ({ input: { skillSlug, locale }, ctx: { user } }) => {
-      return readProjectsChallengesForSkill(skillSlug, locale, user?.id);
+    .query(async ({ input: { skillSlug, locale }, ctx: { viewer } }) => {
+      return readProjectsChallengesForSkill(skillSlug, locale, viewer?.id);
     }),
   progress: publicProcedure
     .input(

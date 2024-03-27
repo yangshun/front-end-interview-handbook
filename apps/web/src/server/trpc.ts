@@ -28,7 +28,7 @@ export const { middleware } = t;
 export const isUser = middleware(async (opts) => {
   const { ctx } = opts;
 
-  if (ctx.user == null) {
+  if (ctx.viewer == null) {
     throw new TRPCError({
       code: 'UNAUTHORIZED',
       message: 'User account required. Register or sign in first.',
@@ -38,7 +38,7 @@ export const isUser = middleware(async (opts) => {
   return opts.next({
     ctx: {
       ...ctx,
-      user: ctx.user,
+      viewer: ctx.viewer,
     },
   });
 });

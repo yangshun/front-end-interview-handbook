@@ -30,14 +30,14 @@ export const purchasesRouter = router({
         domain: z.enum(['INTERVIEWS', 'PROJECTS']),
       }),
     )
-    .query(async ({ input: { domain }, ctx: { user } }) => {
+    .query(async ({ input: { domain }, ctx: { viewer } }) => {
       const { stripeCustomer: stripeCustomerId } =
         await prisma.profile.findFirstOrThrow({
           select: {
             stripeCustomer: true,
           },
           where: {
-            id: user.id,
+            id: viewer.id,
           },
         });
 
@@ -68,7 +68,7 @@ export const purchasesRouter = router({
         returnUrl: z.string().url().optional(),
       }),
     )
-    .mutation(async ({ input: { returnUrl }, ctx: { user, req } }) => {
+    .mutation(async ({ input: { returnUrl }, ctx: { viewer, req } }) => {
       const { origin } = absoluteUrl(req);
 
       const { stripeCustomer: stripeCustomerId } =
@@ -77,7 +77,7 @@ export const purchasesRouter = router({
             stripeCustomer: true,
           },
           where: {
-            id: user.id,
+            id: viewer.id,
           },
         });
 
