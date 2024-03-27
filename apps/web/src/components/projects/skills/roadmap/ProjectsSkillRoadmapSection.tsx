@@ -1,9 +1,13 @@
 import ProjectsSkillRoadmapGroupCard from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapGroupCard';
 import Text from '~/components/ui/Text';
 
-import { skillsRoadmap } from '../data/ProjectsSkillRoadmapData';
+import type { ProjectsSkillRoadmapSectionData } from '../types';
 
-export default function ProjectsSkillRoadmapSection() {
+type Props = Readonly<{
+  skillsRoadmap: ProjectsSkillRoadmapSectionData;
+}>;
+
+export default function ProjectsSkillRoadmapSection({ skillsRoadmap }: Props) {
   return (
     <div className="flex max-w-4xl flex-col gap-10">
       {skillsRoadmap.map((levelItem) => (

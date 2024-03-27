@@ -1,4 +1,4 @@
-import { skillsRoadmap } from '../data/ProjectsSkillRoadmapData';
+import { skillsRoadmapConfig } from '../data/ProjectsSkillRoadmapConfigData';
 import type { ProjectsSkillKey } from '../types';
 
 export default function projectsSkillExtractGroups(
@@ -11,7 +11,7 @@ export default function projectsSkillExtractGroups(
     key: string;
   }> = [];
 
-  skillsRoadmap.forEach((levelItem) => {
+  skillsRoadmapConfig.forEach((levelItem) => {
     levelItem.items.forEach((groupItem) => {
       groupItem.items.forEach((skillKey) => {
         if (skillsSet.has(skillKey) && !skillGroupsSet.has(groupItem.key)) {

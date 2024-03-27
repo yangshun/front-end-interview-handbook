@@ -6,11 +6,11 @@ import ProjectsStatusBadgeCompleted from '~/components/projects/common/status/Pr
 import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 
-import type { ProjectsSkillRoadmapGroupConfig } from '../types';
+import type { ProjectsSkillRoadmapSectionGroup } from '../types';
 import ProjectsChallengeProgressTag from '../../challenges/metadata/ProjectsChallengeProgressTag';
 
 type Props = Readonly<{
-  group: ProjectsSkillRoadmapGroupConfig;
+  group: ProjectsSkillRoadmapSectionGroup;
 }>;
 
 export default function ProjectsSkillRoadmapGroupHeading({ group }: Props) {

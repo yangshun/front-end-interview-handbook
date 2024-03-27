@@ -6,7 +6,7 @@ import Text from '~/components/ui/Text';
 import ProjectsSkillChip from './ProjectsSkillChip';
 import ProjectsSkillChipDeleteButton from './ProjectsSkillChipDeleteButton';
 import { projectsSkillLabel } from '../data/ProjectsSkillListData';
-import { skillsRoadmap } from '../data/ProjectsSkillRoadmapData';
+import { skillsRoadmapConfig } from '../data/ProjectsSkillRoadmapConfigData';
 import type { ProjectsSkillKey } from '../types';
 
 type Props =
@@ -79,7 +79,7 @@ export default function ProjectsSkillRoadmapChips({ skills, ...props }: Props) {
     parentSkill: ProjectsSkillKey;
   }> = [];
 
-  skillsRoadmap.forEach((levelItem) => {
+  skillsRoadmapConfig.forEach((levelItem) => {
     levelItem.items.forEach((groupItem) => {
       const skillsWithinGroup = groupItem.items.filter((skillKey) =>
         skills.includes(skillKey),

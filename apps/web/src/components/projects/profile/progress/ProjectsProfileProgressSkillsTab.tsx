@@ -1,7 +1,15 @@
 'use client';
 
-import ProjectsSkillTreeSection from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapSection';
+import ProjectsSkillRoadmapSection from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapSection';
 
-export default function ProjectsProfileProgressSkillsTab() {
-  return <ProjectsSkillTreeSection />;
+import type { ProjectsSkillRoadmapSectionData } from '../../skills/types';
+
+type Props = Readonly<{
+  skillsRoadmap: ProjectsSkillRoadmapSectionData;
+}>;
+
+export default function ProjectsProfileProgressSkillsTab({
+  skillsRoadmap,
+}: Props) {
+  return <ProjectsSkillRoadmapSection skillsRoadmap={skillsRoadmap} />;
 }

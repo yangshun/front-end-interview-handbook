@@ -14,12 +14,17 @@ import Text, { textVariants } from '~/components/ui/Text';
 import { useI18nRouter } from '~/next-i18nostic/src';
 
 import { projectsSkillLabel } from '../data/ProjectsSkillListData';
+import type { ProjectsSkillRoadmapSectionData } from '../types';
 
 type Props = Readonly<{
   children: ReactNode;
+  skillsRoadmap: ProjectsSkillRoadmapSectionData;
 }>;
 
-export default function ProjectsSkillRoadmapLayout({ children }: Props) {
+export default function ProjectsSkillRoadmapLayout({
+  children,
+  skillsRoadmap,
+}: Props) {
   const router = useI18nRouter();
   const segment = useSelectedLayoutSegment();
 
@@ -44,7 +49,7 @@ export default function ProjectsSkillRoadmapLayout({ children }: Props) {
         </Section>
       </div>
       <Section>
-        <ProjectsSkillRoadmapSection />
+        <ProjectsSkillRoadmapSection skillsRoadmap={skillsRoadmap} />
         <SlideOut
           enterFrom="end"
           isShown={segment != null}

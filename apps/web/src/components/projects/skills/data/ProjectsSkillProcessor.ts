@@ -1,10 +1,10 @@
-import { skillsRoadmap } from './ProjectsSkillRoadmapData';
+import { skillsRoadmapConfig } from './ProjectsSkillRoadmapConfigData';
 import type { ProjectsSkillKey } from '../types';
 
 function projectsSkillsAllRoadmapSkills(): ReadonlyArray<ProjectsSkillKey> {
   const skills: Array<ProjectsSkillKey> = [];
 
-  skillsRoadmap.forEach((levelItem) => {
+  skillsRoadmapConfig.forEach((levelItem) => {
     levelItem.items.forEach((groupItem) => {
       skills.push(...groupItem.items);
     });

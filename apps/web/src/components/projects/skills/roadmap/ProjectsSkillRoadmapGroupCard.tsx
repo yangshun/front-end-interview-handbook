@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import { useState } from 'react';
 import { RiAddCircleLine, RiIndeterminateCircleLine } from 'react-icons/ri';
@@ -13,10 +15,11 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
-import type { ProjectsSkillRoadmapGroupConfig } from '../types';
+import { ProjectsSkillIcons } from '../data/ProjectsSkillIcons';
+import type { ProjectsSkillRoadmapSectionGroup } from '../types';
 
 type Props = Readonly<{
-  group: ProjectsSkillRoadmapGroupConfig;
+  group: ProjectsSkillRoadmapSectionGroup;
 }>;
 
 function SkillItemDiamond() {
@@ -60,6 +63,8 @@ export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
         },
       );
 
+  const Icon = ProjectsSkillIcons[group.key];
+
   return (
     <div
       className={clsx(
@@ -83,22 +88,22 @@ export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
                 'flex items-center justify-center',
                 'size-6 rounded-md bg-white',
               )}>
-              <group.icon className="size-4" />
+              <Icon className="size-4" />
             </div>
           </div>
           <ProjectsSkillRoadmapGroupHeading group={group} />
         </div>
         {isExpanded && (
           <div className="ml-[6px] flex flex-col gap-2">
-            {group.items.map((skillKey) => (
-              <div key={skillKey} className={clsx('flex w-full gap-6')}>
+            {group.items.map((skillSummary) => (
+              <div key={skillSummary.key} className={clsx('flex w-full gap-6')}>
                 <div
                   className={clsx(
                     'relative flex flex-col justify-center self-stretch',
                   )}>
                   <SkillItemDiamond />
                 </div>
-                <ProjectsSkillRoadmapItemSummary skillKey={skillKey} />
+                <ProjectsSkillRoadmapItemSummary skillSummary={skillSummary} />
               </div>
             ))}
           </div>

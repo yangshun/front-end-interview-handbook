@@ -16,19 +16,20 @@ import {
 } from '~/components/ui/theme';
 
 import { projectsSkillLabel } from '../data/ProjectsSkillListData';
-import type { ProjectsSkillKey } from '../types';
+import type { ProjectsSkillSummaryItem } from '../types';
 
 type Props = Readonly<{
-  skillKey: ProjectsSkillKey;
+  skillSummary: ProjectsSkillSummaryItem;
 }>;
 
-export default function ProjectsSkillRoadmapItemSummary({ skillKey }: Props) {
+export default function ProjectsSkillRoadmapItemSummary({
+  skillSummary,
+}: Props) {
   const intl = useIntl();
-  const href = `/projects/skills/${skillKey}`;
-  const label = projectsSkillLabel(skillKey);
+  const href = `/projects/skills/${skillSummary.key}`;
+  const label = projectsSkillLabel(skillSummary.key);
 
   return (
-    // TODO(projects|skills): Add skills redirection
     <div
       className={clsx(
         'relative isolate',
@@ -55,7 +56,7 @@ export default function ProjectsSkillRoadmapItemSummary({ skillKey }: Props) {
         <div className="flex gap-4">
           <ProjectsChallengeReputationTag
             className="gap-2"
-            points={1337}
+            points={skillSummary.reputation}
             variant="flat"
           />
           <div
@@ -72,8 +73,8 @@ export default function ProjectsSkillRoadmapItemSummary({ skillKey }: Props) {
                       {chunks}
                     </Text>
                   ),
-                  completedCount: 1337,
-                  totalCount: 1337,
+                  completedCount: skillSummary.completedChallenges,
+                  totalCount: skillSummary.totalChallenges,
                 }}
               />
             </Text>
@@ -90,12 +91,12 @@ export default function ProjectsSkillRoadmapItemSummary({ skillKey }: Props) {
                 id: 'GSfE/S',
               },
               {
-                completedCount: 1337,
-                totalCount: 2674,
+                completedCount: skillSummary.completedChallenges,
+                totalCount: skillSummary.totalChallenges,
               },
             )}
-            total={2674}
-            value={1337}
+            total={skillSummary.totalChallenges}
+            value={skillSummary.completedChallenges}
           />
         </div>
       </div>

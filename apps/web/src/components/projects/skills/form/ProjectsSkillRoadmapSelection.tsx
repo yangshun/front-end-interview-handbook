@@ -6,7 +6,7 @@ import Text from '~/components/ui/Text';
 import { themeIconColor } from '~/components/ui/theme';
 
 import { projectsSkillLabel } from '../data/ProjectsSkillListData';
-import { skillsRoadmap } from '../data/ProjectsSkillRoadmapData';
+import { skillsRoadmapConfig } from '../data/ProjectsSkillRoadmapConfigData';
 import type { ProjectsSkillKey } from '../types';
 
 type Props = Readonly<{
@@ -20,7 +20,7 @@ export default function ProjectsSkillRoadmapSelection({
 }: Props) {
   return (
     <div className="flex flex-col gap-10">
-      {skillsRoadmap.map((levelItem) => (
+      {skillsRoadmapConfig.map((levelItem) => (
         <div key={levelItem.title} className="flex flex-col gap-4">
           <Text className="block" color="subtitle" size="body2" weight="bold">
             {levelItem.title}
