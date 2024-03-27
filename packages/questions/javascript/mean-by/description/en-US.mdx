@@ -3,29 +3,33 @@ title: Mean By
 excerpt: Implement a function that finds the mean value based on the specified criteria
 ---
 
-Implement a function `meanBy(array, iteratee)` that calculates the mean value of the element inside `array` after going through or is valid under `iteratee`. The `iteratee` is invoked with one argument: (value).
+Implement a function `meanBy(array, iteratee)` that calculates the mean value of the element inside `array` after going through or is valid under `iteratee`.
 
 ## Arguments
 
 1. `array` _(Array)_: The array to iterate over.
-1. `iteratee` _(Function)_: The iteratee invoked per element.
+1. `iteratee` _(Function)_: The iteratee invoked per element, which is a function that accepts one argument: _(value)_.
 
 ## Returns
 
-_(Number)_: Returns the mean value.
+_`(Number)`_: Returns the mean value.
 
 ## Examples
 
 ```js
 meanBy([{ n: 1 }, { n: 3 }], (o) => o.n); // => 2
 
-meanBy([{ n: 1 }, { n: 3 }], 'n'); // => 2
+meanBy([2, 3, 1, 4], (num) => num); // => 2.5
 ```
 
-The function should return `NaN` if there is no matching value that fulfills `iteratee`.
+The function should ignore elements where `iteratee` produces `null` or `undefined` and return `NaN` when `array` is empty or has no matching value.
 
 ```js
-meanBy([{ n: 1 }, { n: 2 }], 'm'); // => NaN
+meanBy([], (o) => o); // => NaN
+
+meanBy([{ n: 1 }, { n: 2 }], (o) => o.m); // => NaN
+
+meanBy([{ n: 1 }, { m: 2 }], (o) => o.m); // => 1
 ```
 
 ## Resources

@@ -5,13 +5,18 @@ import meanByTs from '../setup/src/mean-by.ts';
 
 ## Solution
 
-Here's a solution that finds the mean value of elements in `array` that passed through the function or is valid under `iteratee`, using `sum` for the total value and `found` for the existence of such elements.
+Here's a solution that finds the mean of elements in `array` based on a given `iteratee`. It iterates through the `array`, calls the `iteratee` function with the array element, and tracks the mean of the values.
+
+Two variables are used:
+
+- `sum`: Tracks the sum of the iterated values.
+- `found`: Tracks whether a valid number is found to be added to sum, else the function will return `NaN`.
 
 <MDXCodeBlock languages={{ jsx: meanByJs, tsx: meanByTs }} />
 
 ## Edge Cases
 
-To handle mixed data types, the `iteratee` function must be able to process them by either converting the elements to a common type or process them separately.
+Because `iteratee` is user-provided and can return a value of any type, we have to pay special attention to ignore computed values that cannot be compared, like `null` and `undefined`. For such computed values, they should be ignored entirely.
 
 ## Resources
 

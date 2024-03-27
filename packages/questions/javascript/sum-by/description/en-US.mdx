@@ -22,11 +22,13 @@ sumBy([{ n: 1 }, { n: 3 }], (o) => o.n;); // => 4
 sumBy([2, 3, 1, 4], (num) => num); // => 10
 ```
 
-The function should ignore elements where `iteratee` produces `null` or `undefined` and 0 when `array` is empty.
+The function should ignore elements where `iteratee` produces `null` or `undefined` and return 0 when `array` is empty.
 
 ```js
 sumBy([], (o) => o); // => 0
+
 sumBy([{ n: 1 }, { n: 2 }], (o) => o.m); // => undefined
+
 sumBy([{ n: 1 }, { m: 2 }], (o) => o.m); // => 2
 ```
 
