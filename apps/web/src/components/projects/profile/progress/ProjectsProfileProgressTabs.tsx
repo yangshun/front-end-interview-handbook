@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useIntl } from 'react-intl';
 
 import type { TabItem } from '~/components/ui/Tabs';
@@ -35,8 +35,20 @@ export default function ProjectsProfileProgressTabs({ baseUrl }: Props) {
     return tab?.value ?? DEFAULT_TAB;
   }, [pathname, progressTabs]);
 
+  const tabsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (value !== DEFAULT_TAB) {
+      // User accessed a specific URL
+      tabsRef.current?.scrollIntoView({
+        behavior: 'auto',
+      });
+    }
+  }, [value]);
+
   return (
     <Tabs
+      ref={tabsRef}
       hasBorder={false}
       label={intl.formatMessage({
         defaultMessage: 'Select project category',
