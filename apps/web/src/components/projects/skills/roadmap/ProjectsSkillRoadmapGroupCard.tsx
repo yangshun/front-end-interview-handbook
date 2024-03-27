@@ -13,10 +13,10 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
-import type { ProjectsSkillRoadmapGroup } from '../types';
+import type { ProjectsSkillRoadmapGroupConfig } from '../types';
 
 type Props = Readonly<{
-  group: ProjectsSkillRoadmapGroup;
+  group: ProjectsSkillRoadmapGroupConfig;
 }>;
 
 function SkillItemDiamond() {
@@ -40,7 +40,7 @@ function SkillItemDiamond() {
 }
 
 export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
   const intl = useIntl();
 
   const buttonLabel = isExpanded
@@ -49,11 +49,16 @@ export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
         description: 'Label to collapse skills card',
         id: 'KhmeKO',
       })
-    : intl.formatMessage({
-        defaultMessage: 'See child skills',
-        description: 'Label to show skills card',
-        id: '3cMGcO',
-      });
+    : intl.formatMessage(
+        {
+          defaultMessage: 'See child skills ({count})',
+          description: 'Label to show skills card',
+          id: 'lJF2aI',
+        },
+        {
+          count: group.items.length,
+        },
+      );
 
   return (
     <div
@@ -85,15 +90,15 @@ export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
         </div>
         {isExpanded && (
           <div className="ml-[6px] flex flex-col gap-2">
-            {group.items.map((item) => (
-              <div key={item.key} className={clsx('flex w-full gap-6')}>
+            {group.items.map((skillKey) => (
+              <div key={skillKey} className={clsx('flex w-full gap-6')}>
                 <div
                   className={clsx(
                     'relative flex flex-col justify-center self-stretch',
                   )}>
                   <SkillItemDiamond />
                 </div>
-                <ProjectsSkillRoadmapItemSummary skillItem={item} />
+                <ProjectsSkillRoadmapItemSummary skillKey={skillKey} />
               </div>
             ))}
           </div>

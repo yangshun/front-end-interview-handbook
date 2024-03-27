@@ -59,23 +59,23 @@ export default function ProjectsSkillRoadmapSelection({
                 </div>
                 <div className="relative ml-5 inline-flex self-start">
                   <div className="flex gap-4">
-                    {groupItem.items.map((item) => {
-                      const selected = value.includes(item.key);
+                    {groupItem.items.map((skillKey) => {
+                      const selected = value.includes(skillKey);
 
                       return (
                         <FilterButton
-                          key={item.key}
+                          key={skillKey}
                           icon={selected ? RiCheckFill : RiAddLine}
-                          label={projectsSkillLabel(item.key)}
+                          label={projectsSkillLabel(skillKey)}
                           purpose="button"
                           selected={selected}
                           onClick={() => {
                             if (selected) {
                               onChange(
-                                value.filter((skill) => skill !== item.key),
+                                value.filter((skill) => skill !== skillKey),
                               );
                             } else {
-                              onChange([...value, item.key]);
+                              onChange([...value, skillKey]);
                             }
                           }}
                         />

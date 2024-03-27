@@ -6,16 +6,19 @@ import ProjectsStatusBadgeCompleted from '~/components/projects/common/status/Pr
 import Text from '~/components/ui/Text';
 import { themeTextSubtleColor } from '~/components/ui/theme';
 
-import type { ProjectsSkillRoadmapGroup } from '../types';
+import type { ProjectsSkillRoadmapGroupConfig } from '../types';
 import ProjectsChallengeProgressTag from '../../challenges/metadata/ProjectsChallengeProgressTag';
 
 type Props = Readonly<{
-  group: ProjectsSkillRoadmapGroup;
+  group: ProjectsSkillRoadmapGroupConfig;
 }>;
 
 export default function ProjectsSkillRoadmapGroupHeading({ group }: Props) {
-  const { completed, description, total, points } = group;
-  const completedAll = group.completed === group.total;
+  const { description } = group;
+  const points = 1337;
+  const total = 2674;
+  const completed = 1337;
+  const completedAll = false;
 
   return (
     <div className="flex w-full flex-col gap-2">

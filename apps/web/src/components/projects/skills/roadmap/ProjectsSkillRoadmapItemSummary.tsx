@@ -16,16 +16,16 @@ import {
 } from '~/components/ui/theme';
 
 import { projectsSkillLabel } from '../data/ProjectsSkillListData';
-import type { ProjectsSkillRoadmapItem } from '../types';
+import type { ProjectsSkillKey } from '../types';
 
 type Props = Readonly<{
-  skillItem: ProjectsSkillRoadmapItem;
+  skillKey: ProjectsSkillKey;
 }>;
 
-export default function ProjectsSkillRoadmapItemSummary({ skillItem }: Props) {
+export default function ProjectsSkillRoadmapItemSummary({ skillKey }: Props) {
   const intl = useIntl();
-  const label = projectsSkillLabel(skillItem.key);
-  const href = `/projects/skills/${skillItem.key}`;
+  const href = `/projects/skills/${skillKey}`;
+  const label = projectsSkillLabel(skillKey);
 
   return (
     // TODO(projects|skills): Add skills redirection
@@ -55,7 +55,7 @@ export default function ProjectsSkillRoadmapItemSummary({ skillItem }: Props) {
         <div className="flex gap-4">
           <ProjectsChallengeReputationTag
             className="gap-2"
-            points={skillItem.points}
+            points={1337}
             variant="flat"
           />
           <div
@@ -72,8 +72,8 @@ export default function ProjectsSkillRoadmapItemSummary({ skillItem }: Props) {
                       {chunks}
                     </Text>
                   ),
-                  completedCount: skillItem.completed,
-                  totalCount: skillItem.total,
+                  completedCount: 1337,
+                  totalCount: 1337,
                 }}
               />
             </Text>
@@ -90,12 +90,12 @@ export default function ProjectsSkillRoadmapItemSummary({ skillItem }: Props) {
                 id: 'GSfE/S',
               },
               {
-                completedCount: skillItem.completed,
-                totalCount: skillItem.total,
+                completedCount: 1337,
+                totalCount: 2674,
               },
             )}
-            total={skillItem.total}
-            value={skillItem.completed}
+            total={2674}
+            value={1337}
           />
         </div>
       </div>

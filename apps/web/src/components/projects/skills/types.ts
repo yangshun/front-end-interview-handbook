@@ -1,26 +1,17 @@
 export type ProjectsSkillKey = string;
 
-export type ProjectsSkillRoadmapItem = Readonly<{
-  completed: number;
-  key: ProjectsSkillKey;
-  points: number;
-  total: number;
-}>;
-
-export type ProjectsSkillRoadmapGroup = Readonly<{
-  completed: number;
+export type ProjectsSkillRoadmapGroupConfig = Readonly<{
   description: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  items: ReadonlyArray<ProjectsSkillRoadmapItem>;
+  items: ReadonlyArray<ProjectsSkillKey>;
   key: ProjectsSkillKey;
-  points: number;
   tagClassname: string;
-  total: number;
 }>;
 
-export type ProjectsSkillRoadmapLevel = Readonly<{
-  items: ReadonlyArray<ProjectsSkillRoadmapGroup>;
+export type ProjectsSkillRoadmapDifficultyConfig = Readonly<{
+  items: ReadonlyArray<ProjectsSkillRoadmapGroupConfig>;
   title: string;
 }>;
 
-export type ProjectsSkillRoadmap = ReadonlyArray<ProjectsSkillRoadmapLevel>;
+export type ProjectsSkillRoadmapConfig =
+  ReadonlyArray<ProjectsSkillRoadmapDifficultyConfig>;

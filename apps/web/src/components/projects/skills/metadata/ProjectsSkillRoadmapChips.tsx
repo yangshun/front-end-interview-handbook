@@ -81,9 +81,9 @@ export default function ProjectsSkillRoadmapChips({ skills, ...props }: Props) {
 
   skillsRoadmap.forEach((levelItem) => {
     levelItem.items.forEach((groupItem) => {
-      const skillsWithinGroup = groupItem.items
-        .map((skill) => skill.key)
-        .filter((skillKey) => skills.includes(skillKey));
+      const skillsWithinGroup = groupItem.items.filter((skillKey) =>
+        skills.includes(skillKey),
+      );
 
       if (skillsWithinGroup.length > 0) {
         addedRoadmapSkills.push({

@@ -13,8 +13,8 @@ export default function projectsSkillExtractGroups(
 
   skillsRoadmap.forEach((levelItem) => {
     levelItem.items.forEach((groupItem) => {
-      groupItem.items.forEach((skill) => {
-        if (skillsSet.has(skill.key) && !skillGroupsSet.has(groupItem.key)) {
+      groupItem.items.forEach((skillKey) => {
+        if (skillsSet.has(skillKey) && !skillGroupsSet.has(groupItem.key)) {
           skillGroupsSet.add(groupItem.key);
           skillGroupItems.push({
             className: groupItem.tagClassname,
