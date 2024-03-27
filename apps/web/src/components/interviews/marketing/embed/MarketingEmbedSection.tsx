@@ -119,7 +119,7 @@ export default function MarketingEmbedSection({
               })}
               tabs={tabs}
               value={selectedTab}
-              onSelect={(newTab) => {
+              onSelect={(newTab: string) => {
                 gtag.event({
                   action: `homepage.hero.embed.${newTab}.click`,
                   category: 'engagement',

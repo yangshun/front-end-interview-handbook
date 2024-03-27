@@ -1,7 +1,8 @@
 'use client';
 
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
+import type { ForwardedRef, ForwardRefWithGenerics } from 'react';
+import { forwardRef, type ReactNode } from 'react';
 
 import Anchor from '~/components/ui/Anchor';
 import { themeBorderElementColor } from '~/components/ui/theme';
@@ -66,16 +67,19 @@ const sizeClasses: Record<
   },
 };
 
-export default function Tabs<T>({
-  endAddOn,
-  hasBorder = true,
-  label,
-  tabs,
-  scrollToTop = true,
-  size = 'md',
-  value,
-  onSelect,
-}: Props<T>) {
+function Tabs<T>(
+  {
+    endAddOn,
+    hasBorder = true,
+    label,
+    tabs,
+    scrollToTop = true,
+    size = 'md',
+    value,
+    onSelect,
+  }: Props<T>,
+  ref: ForwardedRef<HTMLDivElement>,
+) {
   const {
     borderRadius,
     iconSize,
@@ -86,7 +90,7 @@ export default function Tabs<T>({
   } = sizeClasses[size];
 
   return (
-    <div className="isolate w-full overflow-x-auto overflow-y-hidden">
+    <div ref={ref} className="isolate w-full overflow-x-auto overflow-y-hidden">
       <div
         className={clsx('flex items-center', [
           'border-b',
@@ -177,3 +181,7 @@ export default function Tabs<T>({
     </div>
   );
 }
+
+const withForwardRef: ForwardRefWithGenerics = forwardRef(Tabs);
+
+export default withForwardRef;

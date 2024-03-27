@@ -1,7 +1,13 @@
 import clsx from 'clsx';
+import type { ForwardedRef, ForwardRefWithGenerics } from 'react';
+import { forwardRef } from 'react';
 
 import Anchor from '~/components/ui/Anchor';
-import { themeBorderElementColor } from '~/components/ui/theme';
+import {
+  themeBorderBrandColor,
+  themeBorderElementColor,
+  themeTextBrandColor_Hover,
+} from '~/components/ui/theme';
 
 import type { TextSize } from '../Text';
 import Text from '../Text';
@@ -66,25 +72,28 @@ const sizeClasses: Record<
   },
 };
 
-export default function TabsUnderline<T>({
-  alignment = 'start',
-  display = 'block',
-  label,
-  tabs,
-  size = 'md',
-  value,
-  onSelect,
-}: Props<T>) {
+function TabsUnderline<T>(
+  {
+    alignment = 'start',
+    display = 'block',
+    label,
+    tabs,
+    size = 'md',
+    value,
+    onSelect,
+  }: Props<T>,
+  ref: ForwardedRef<HTMLDivElement>,
+) {
   const { iconSize, tabItemSize, tabInternalGapSize, tabGapSize, textSize } =
     sizeClasses[size];
 
   return (
     <div
+      ref={ref}
       className={clsx(
         'overflow-x-auto overflow-y-hidden',
         displayClasses[display],
-        'border-b',
-        themeBorderElementColor,
+        ['border-b', themeBorderElementColor],
       )}>
       <nav aria-label={label} className={clsx('-mb-px flex', tabGapSize)}>
         {tabs.map((tabItem) => {
@@ -106,8 +115,10 @@ export default function TabsUnderline<T>({
                   <Icon
                     className={clsx(
                       'shrink-0',
-                      !isSelected &&
-                        'text-neutral-400 group-hover:text-inherit dark:text-neutral-500 dark:group-hover:text-inherit',
+                      !isSelected && [
+                        'text-neutral-400 dark:text-neutral-500',
+                        'group-hover:text-inherit dark:group-hover:text-inherit',
+                      ],
                       iconSize,
                     )}
                   />
@@ -118,10 +129,11 @@ export default function TabsUnderline<T>({
             className: clsx(
               'group whitespace-nowrap border-b-2',
               isSelected
-                ? 'border-brand'
+                ? themeBorderBrandColor
                 : clsx(
-                    'border-transparent hover:text-brand',
+                    'border-transparent',
                     themeTextSecondaryColor,
+                    themeTextBrandColor_Hover,
                   ),
               tabItemSize,
               alignment === 'stretch' && 'flex-1',
@@ -148,3 +160,7 @@ export default function TabsUnderline<T>({
     </div>
   );
 }
+
+const withForwardRef: ForwardRefWithGenerics = forwardRef(TabsUnderline);
+
+export default withForwardRef;
