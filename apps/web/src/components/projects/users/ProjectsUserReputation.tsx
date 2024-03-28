@@ -3,7 +3,7 @@ import { RiFireLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import Text from '~/components/ui/Text';
-import { themeTextBrandColor } from '~/components/ui/theme';
+import { themeTextSecondaryColor } from '~/components/ui/theme';
 
 type Size = 'body2' | 'body3';
 
@@ -26,7 +26,7 @@ export default function ProjectsUserReputation({
   size = 'body3',
 }: Props) {
   return (
-    <div className={clsx('flex', themeTextBrandColor, gap[size])}>
+    <div className={clsx('flex', themeTextSecondaryColor, gap[size])}>
       <RiFireLine className={iconClasses[size]} />
       <Text color="inherit" size={size} weight="medium">
         <FormattedMessage
