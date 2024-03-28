@@ -14,13 +14,13 @@ export default async function readViewerProjectsProfile(
     viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
   }>
 > {
-  let user = userParam ?? null;
+  let viewer = userParam ?? null;
 
-  if (user == null) {
-    user = await readViewerFromToken();
+  if (viewer == null) {
+    viewer = await readViewerFromToken();
   }
 
-  if (user == null) {
+  if (viewer == null) {
     return {
       viewerId: null,
       viewerProjectsProfile: null,
@@ -35,12 +35,12 @@ export default async function readViewerProjectsProfile(
       premium: true,
     },
     where: {
-      userId: user.id,
+      userId: viewer.id,
     },
   });
 
   return {
-    viewerId: user.id,
+    viewerId: viewer.id,
     viewerProjectsProfile: projectsProfile,
   };
 }
