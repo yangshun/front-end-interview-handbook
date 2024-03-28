@@ -1,10 +1,9 @@
 import clsx from 'clsx';
 import { RiArrowRightLine, RiRocketLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import Anchor from '~/components/ui/Anchor';
-import ProgressBar from '~/components/ui/ProgressBar';
 import Text from '~/components/ui/Text';
 import {
   themeBorderBrandColor_Hover,
@@ -17,6 +16,8 @@ import {
 
 import { projectsSkillLabel } from '../data/ProjectsSkillListData';
 import type { ProjectsSkillSummaryItem } from '../types';
+import useProfileWithProjectsProfile from '../../common/useProfileWithProjectsProfile';
+import ProjectsProfileAvatarWithStatus from '../../users/ProjectsProfileAvatarWithStatus';
 
 type Props = Readonly<{
   skillSummary: ProjectsSkillSummaryItem;
@@ -25,9 +26,10 @@ type Props = Readonly<{
 export default function ProjectsSkillRoadmapItemSummary({
   skillSummary,
 }: Props) {
-  const intl = useIntl();
   const href = `/projects/skills/${skillSummary.key}`;
   const label = projectsSkillLabel(skillSummary.key);
+  // TODO(projects): Allow external viewer.
+  const { profile } = useProfileWithProjectsProfile();
 
   return (
     <div
@@ -40,7 +42,7 @@ export default function ProjectsSkillRoadmapItemSummary({
         themeOutlineElement_FocusVisible,
         themeOutlineElementBrandColor_FocusVisible,
       )}>
-      <div className="flex w-full flex-col gap-2 md:flex-row md:gap-4">
+      <div className="flex w-full flex-col items-center gap-2 md:flex-row md:gap-4">
         <div className="flex-1">
           <Anchor
             className="relative z-[1]"
@@ -80,23 +82,18 @@ export default function ProjectsSkillRoadmapItemSummary({
             </Text>
           </div>
         </div>
-        <div className="flex items-center">
-          <ProgressBar
-            heightClass="h-2 dark:!bg-neutral-700"
-            label={intl.formatMessage(
-              {
-                defaultMessage:
-                  'Label for "Completed projects" progress bar of a Projects component track',
-                description: '{completedCount} out of {totalCount} challenges',
-                id: 'GSfE/S',
-              },
-              {
-                completedCount: skillSummary.completedChallenges,
-                totalCount: skillSummary.totalChallenges,
-              },
-            )}
-            total={skillSummary.totalChallenges}
-            value={skillSummary.completedChallenges}
+        <div
+          className={clsx('transition-colors', profile == null && 'opacity-0')}>
+          <ProjectsProfileAvatarWithStatus
+            status={
+              skillSummary.completedChallenges > 0 &&
+              skillSummary.completedChallenges === skillSummary.totalChallenges
+                ? 'COMPLETED'
+                : skillSummary.inProgressChallenges > 0
+                  ? 'IN_PROGRESS'
+                  : undefined
+            }
+            userProfile={profile}
           />
         </div>
       </div>

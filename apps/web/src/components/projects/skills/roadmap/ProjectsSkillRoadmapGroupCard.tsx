@@ -43,7 +43,9 @@ function SkillItemDiamond() {
 }
 
 export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [isExpanded, setIsExpanded] = useState(
+    group.completedChallenges < group.totalChallenges,
+  );
   const intl = useIntl();
 
   const buttonLabel = isExpanded

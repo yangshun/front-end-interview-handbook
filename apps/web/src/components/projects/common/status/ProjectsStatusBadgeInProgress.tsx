@@ -1,4 +1,4 @@
-import { RiLoader5Line } from 'react-icons/ri';
+import { RiLoader4Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import type { ProjectsStatusBadgeType } from '~/components/projects/types';
@@ -38,7 +38,7 @@ export default function ProjectsStatusBadgeInProgress({ entity }: Props) {
   return (
     <Tooltip label={tooltip}>
       <Badge
-        icon={RiLoader5Line}
+        icon={RiLoader4Line}
         label={intl.formatMessage({
           defaultMessage: 'In progress',
           description: 'Project in progress label',
