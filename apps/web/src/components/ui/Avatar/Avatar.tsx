@@ -3,33 +3,20 @@
 import clsx from 'clsx';
 import { FaCircleUser } from 'react-icons/fa6';
 
+import type { AvatarVariantProps } from './AvatarStyles';
+import { avatarVariants } from './AvatarStyles';
+
 import * as AvatarPrimitive from '@radix-ui/react-avatar';
-
-type AvatarSize = '3xl' | 'custom' | 'lg' | 'sm' | 'xs';
-
-const sizeClasses: Record<AvatarSize, string> = {
-  '3xl': 'size-20',
-  custom: '',
-  lg: 'size-10',
-  sm: 'size-8',
-  xs: 'size-6',
-};
 
 type Props = React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image> &
   Readonly<{
     alt: string;
     className?: string;
-    size?: AvatarSize;
+    size?: AvatarVariantProps['size'];
     src?: string | null;
   }>;
 
-export default function Avatar({
-  src,
-  alt,
-  className,
-  size = 'sm',
-  ...props
-}: Props) {
+export default function Avatar({ src, alt, className, size, ...props }: Props) {
   const emptyAvatar = (
     <div
       className={clsx(
@@ -48,7 +35,7 @@ export default function Avatar({
       className={clsx(
         'inline-flex shrink-0 items-center justify-center',
         'select-none overflow-hidden rounded-full',
-        sizeClasses[size],
+        avatarVariants({ size }),
         className,
       )}>
       <AvatarPrimitive.Image
