@@ -1,12 +1,13 @@
-import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
+import type {
+  ProjectsChallengeItem,
+  ProjectsChallengeStatuses,
+} from '../types';
 
-import type { ProjectsChallengeStatuses } from '../types';
-
-export function projectsChallengeCountCompleted(
+export function projectsChallengeCountCompletedIncludingHistorical(
   challengeStatuses: ProjectsChallengeStatuses,
-  challenges: ReadonlyArray<ProjectsChallengeMetadata>,
+  challenges: ReadonlyArray<ProjectsChallengeItem>,
 ): number {
-  const slugs = challenges.map(({ slug }) => slug);
+  const slugs = challenges.map(({ metadata }) => metadata.slug);
 
   return Object.entries(challengeStatuses).filter(
     ([challengeSlug, { completedBefore }]) => {
@@ -19,7 +20,8 @@ export function projectsChallengeCountCompleted(
   ).length;
 }
 
-export function projectsChallengeDetermineStatus(
+// TODO(projects): delete this.
+export function projectsChallengeDetermineStatus_DEPRECATED(
   challengeStatuses: ProjectsChallengeStatuses,
   slug: string,
 ) {

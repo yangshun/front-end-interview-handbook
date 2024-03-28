@@ -6,6 +6,7 @@ import readViewerProjectsProfile from '~/components/projects/utils/readViewerPro
 import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
+import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -38,16 +39,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const [{ viewerId, viewerProjectsProfile }, { tracks }] = await Promise.all([
-    readViewerProjectsProfile(),
-    readProjectsTrackList(locale),
+
+  const viewer = await readViewerFromToken();
+  const [{ viewerProjectsProfile }, { tracks }] = await Promise.all([
+    readViewerProjectsProfile(viewer),
+    readProjectsTrackList(locale, viewer?.id),
   ]);
 
   return (
     <ProjectsTracksListPage
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
       projectTracks={tracks}
-      viewerId={viewerId}
+      viewerId={viewer?.id ?? null}
     />
   );
 }

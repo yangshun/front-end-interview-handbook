@@ -4,6 +4,7 @@ import ProjectsProfileProgressTracksTab from '~/components/projects/profile/prog
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
 import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
+import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -13,20 +14,22 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const [{ viewerId, viewerProjectsProfile }, { tracks }] = await Promise.all([
-    readViewerProjectsProfile(),
-    readProjectsTrackList(locale),
-  ]);
+  const viewer = await readViewerFromToken();
 
-  if (viewerId == null) {
+  if (viewer?.id == null) {
     return notFound();
   }
+
+  const [{ viewerProjectsProfile }, { tracks }] = await Promise.all([
+    readViewerProjectsProfile(viewer),
+    readProjectsTrackList(locale, viewer.id),
+  ]);
 
   return (
     <ProjectsProfileProgressTracksTab
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
       projectTracks={tracks}
-      targetUserId={viewerId}
+      targetUserId={viewer.id}
     />
   );
 }

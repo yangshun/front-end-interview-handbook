@@ -8,6 +8,7 @@ import readViewerProjectsProfile from '~/components/projects/utils/readViewerPro
 import { readProjectsTrack } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
+import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
@@ -50,13 +51,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { slug: rawSlug, locale } = params;
+
+  const viewer = await readViewerFromToken();
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
-  const [{ viewerProjectsProfile, viewerId: userId }, { track }] =
-    await Promise.all([
-      readViewerProjectsProfile(),
-      readProjectsTrack(slug, locale),
-    ]);
+  const [{ viewerProjectsProfile }, { track }] = await Promise.all([
+    readViewerProjectsProfile(viewer),
+    readProjectsTrack(slug, locale, viewer?.id),
+  ]);
 
   if (track == null) {
     // TODO(projects): add custom not found page for projects.
@@ -76,7 +78,7 @@ export default async function Page({ params }: Props) {
     <ProjectsTrackDetailsPage
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
       track={track}
-      userId={userId}
+      userId={viewer?.id ?? null}
     />
   );
 }

@@ -3,12 +3,12 @@ import clsx from 'clsx';
 import ProjectsChallengeCardHorizontal from '~/components/projects/challenges/lists/ProjectsChallengeCardHorizontal';
 import { themeBorderElementColor } from '~/components/ui/theme';
 
+import ProjectsChallengeStatusChip from '../metadata/ProjectsChallengeStatusChip';
 import type {
   ProjectsChallengeItem,
   ProjectsChallengeStatuses,
 } from '../types';
-import { projectsChallengeDetermineStatus } from '../utils/ProjectsChallengeUtils';
-import ProjectsTrackChallengeStatusChip from '../../tracks/ProjectsTrackChallengeStatusChip';
+import { projectsChallengeDetermineStatus_DEPRECATED } from '../utils/ProjectsChallengeUtils';
 
 type Props = Readonly<{
   challengeStatuses?: ProjectsChallengeStatuses;
@@ -35,9 +35,9 @@ export default function ProjectsChallengeList({
       {challenges.map((challenge, index) => (
         <div key={challenge.metadata.slug} className="flex items-stretch gap-4">
           <div className="relative flex items-center">
-            <ProjectsTrackChallengeStatusChip
+            <ProjectsChallengeStatusChip
               label={index + 1}
-              status={projectsChallengeDetermineStatus(
+              status={projectsChallengeDetermineStatus_DEPRECATED(
                 challengeStatuses,
                 challenge.metadata.slug,
               )}

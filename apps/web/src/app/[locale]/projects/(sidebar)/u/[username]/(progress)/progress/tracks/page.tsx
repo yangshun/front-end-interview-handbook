@@ -12,24 +12,24 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
   const { locale, username } = params;
-  const [{ viewerProjectsProfile }, { tracks }, userProfile] =
-    await Promise.all([
-      readViewerProjectsProfile(),
-      readProjectsTrackList(locale),
-      prisma.profile.findUnique({
-        include: {
-          projectsProfile: true,
-        },
-        where: {
-          username,
-        },
-      }),
-    ]);
+  const userProfile = await prisma.profile.findUnique({
+    include: {
+      projectsProfile: true,
+    },
+    where: {
+      username,
+    },
+  });
 
   // If no such user.
   if (userProfile == null) {
     return notFound();
   }
+
+  const [{ viewerProjectsProfile }, { tracks }] = await Promise.all([
+    readViewerProjectsProfile(),
+    readProjectsTrackList(locale, userProfile.id),
+  ]);
 
   return (
     <ProjectsProfileProgressTracksTab

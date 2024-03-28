@@ -1,11 +1,10 @@
 import { RiLock2Line, RiLockUnlockLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import type { BadgeSize } from '~/components/ui/Badge';
 import Badge from '~/components/ui/Badge';
 
 type Props = Readonly<{
-  size?: BadgeSize;
+  size?: React.ComponentProps<typeof Badge>['size'];
   unlocked: boolean | null;
 }>;
 

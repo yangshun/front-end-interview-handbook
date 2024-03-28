@@ -18,7 +18,7 @@ export default function ProjectsTrackSection({
   isViewerPremium,
 }: Props) {
   const { data: challengeStatuses } =
-    trpc.projects.challenges.progress.useQuery(
+    trpc.projects.challenges.historicalProgress.useQuery(
       { userId: targetUserId! },
       {
         enabled: targetUserId != null,

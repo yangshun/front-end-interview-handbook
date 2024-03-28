@@ -245,15 +245,15 @@ export const projectsSessionsRouter = router({
         const completedChallengesForTrack = track.challenges.filter(
           (challenge) =>
             completedSessions.some(
-              (session) => session.slug === challenge.slug,
+              (session) => session.slug === challenge.metadata.slug,
             ),
         );
         const pointsCompleted = completedChallengesForTrack.reduce(
-          (total, challenge) => total + challenge.points,
+          (total, challenge) => total + challenge.metadata.points,
           0,
         );
         const totalPoints = track.challenges.reduce(
-          (total, challenge) => total + challenge.points,
+          (total, challenge) => total + challenge.metadata.points,
           0,
         );
         const percentageCompleted = (pointsCompleted / totalPoints) * 100;

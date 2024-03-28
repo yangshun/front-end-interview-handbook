@@ -31,17 +31,7 @@ export const projectsChallengesRouter = router({
 
       return distinctSlugs.length;
     }),
-  listForSkills: publicProcedure
-    .input(
-      z.object({
-        locale: z.string().optional(),
-        skillSlug: z.string(),
-      }),
-    )
-    .query(async ({ input: { skillSlug, locale }, ctx: { viewer } }) => {
-      return readProjectsChallengesForSkill(skillSlug, locale, viewer?.id);
-    }),
-  progress: publicProcedure
+  historicalProgress: publicProcedure
     .input(
       z.object({
         trackSlug: z.string().optional(),
@@ -54,7 +44,9 @@ export const projectsChallengesRouter = router({
       if (trackSlug) {
         const { track } = await readProjectsTrack(trackSlug);
 
-        challengeSlugs = track.challenges.map((challenge) => challenge.slug);
+        challengeSlugs = track.challenges.map(
+          (challenge) => challenge.metadata.slug,
+        );
       }
 
       const challengeStatuses: ProjectsChallengeStatuses = {};
@@ -101,6 +93,16 @@ export const projectsChallengesRouter = router({
       });
 
       return challengeStatuses;
+    }),
+  listForSkills: publicProcedure
+    .input(
+      z.object({
+        locale: z.string().optional(),
+        skillSlug: z.string(),
+      }),
+    )
+    .query(async ({ input: { skillSlug, locale }, ctx: { viewer } }) => {
+      return readProjectsChallengesForSkill(skillSlug, locale, viewer?.id);
     }),
   skillPlanProgress: publicProcedure
     .input(

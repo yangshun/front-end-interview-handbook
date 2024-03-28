@@ -1,11 +1,13 @@
-import { RiCheckFill, RiLoader4Line, RiLockLine } from 'react-icons/ri';
+import { RiCheckFill, RiLoader4Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Chip from '~/components/ui/Chip';
 
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
+
 type Props = Readonly<{
   label: number;
-  status: 'COMPLETED' | 'IN_PROGRESS' | 'NOT_STARTED' | 'PREMIUM';
+  status: ProjectsChallengeSessionStatus | 'NOT_STARTED';
 }>;
 
 const size = 'sm';
@@ -14,14 +16,12 @@ const commonProps = {
   size,
 } as const;
 
-export default function ProjectsTrackChallengeStatusChip({
-  label,
-  status = 'NOT_STARTED',
-}: Props) {
+export default function ProjectsChallengeStatusChip({ label, status }: Props) {
   const intl = useIntl();
 
   switch (status) {
     case 'NOT_STARTED':
+    case 'STOPPED':
       return <Chip label={String(label)} size={size} variant="neutral" />;
     case 'COMPLETED':
       return (
@@ -46,19 +46,6 @@ export default function ProjectsTrackChallengeStatusChip({
             id: 'xVBxp3',
           })}
           variant="primary"
-          {...commonProps}
-        />
-      );
-    case 'PREMIUM':
-      return (
-        <Chip
-          icon={RiLockLine}
-          label={intl.formatMessage({
-            defaultMessage: 'Locked',
-            description: 'Locked status',
-            id: 'X1lkot',
-          })}
-          variant="special"
           {...commonProps}
         />
       );

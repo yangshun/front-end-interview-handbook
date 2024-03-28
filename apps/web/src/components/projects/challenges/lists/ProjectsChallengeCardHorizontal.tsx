@@ -13,7 +13,6 @@ import {
 
 import type { ProjectsChallengeItem } from '../types';
 import ProjectsPremiumBadge from '../../common/ProjectsPremiumBadge';
-import ProjectsStatusBadge from '../../common/status/ProjectsStatusBadge';
 import projectsSkillExtractGroups from '../../skills/metadata/projectsSkillExtractGroups';
 import ProjectsSkillGroupList from '../../skills/metadata/ProjectsSkillGroupList';
 
@@ -23,7 +22,7 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeCard({ challenge }: Props) {
   const intl = useIntl();
-  const { metadata, status, userUnlocked } = challenge;
+  const { metadata, userUnlocked } = challenge;
   const {
     title,
     difficulty,
@@ -46,11 +45,6 @@ export default function ProjectsChallengeCard({ challenge }: Props) {
           className={clsx('h-full w-[188px] object-cover', 'rounded-s-lg')}
           src={imageUrl}
         />
-        {status != null && (
-          <div className="absolute bottom-2 start-2 z-[1]">
-            <ProjectsStatusBadge entity="challenge" status={status} />
-          </div>
-        )}
         <div className="absolute start-2 top-2 flex items-center gap-1">
           <ProjectsChallengeDifficultyTag
             difficulty={difficulty}

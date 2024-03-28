@@ -7,22 +7,22 @@ import { trpc } from '~/hooks/trpc';
 
 import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
 import Anchor from '~/components/ui/Anchor';
-import Text from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundCardColor,
   themeBorderColor,
   themeBorderElementColor,
+  themeOutlineElement_FocusVisible,
+  themeOutlineElementBrandColor_FocusVisible,
   themeTextBrandColor_GroupHover,
   themeTextFaintColor,
 } from '~/components/ui/theme';
 
-import ProjectsTrackChallengeStatusChip from './ProjectsTrackChallengeStatusChip';
 import ProjectsTrackPageHeader from './ProjectsTrackPageHeader';
 import ProjectsChallengeDifficultyTag from '../challenges/metadata/ProjectsChallengeDifficultyTag';
-import {
-  projectsChallengeCountCompleted,
-  projectsChallengeDetermineStatus,
-} from '../challenges/utils/ProjectsChallengeUtils';
+import ProjectsChallengeStatusChip from '../challenges/metadata/ProjectsChallengeStatusChip';
+import { projectsChallengeCountCompletedIncludingHistorical } from '../challenges/utils/ProjectsChallengeUtils';
+import ProjectsPremiumBadge from '../common/ProjectsPremiumBadge';
 
 type Props = Readonly<{
   isViewerPremium: boolean;
@@ -36,16 +36,16 @@ export default function ProjectsTrackDetailsPage({
   userId,
 }: Props) {
   const { challenges, points, metadata } = track;
-  const { data: challengeStatuses } =
-    trpc.projects.challenges.progress.useQuery(
+  const { data: challengeProgressHistorical } =
+    trpc.projects.challenges.historicalProgress.useQuery(
       { trackSlug: metadata.slug, userId: userId! },
       {
         enabled: userId != null,
       },
     );
 
-  const completionCount = projectsChallengeCountCompleted(
-    challengeStatuses ?? {},
+  const completionCount = projectsChallengeCountCompletedIncludingHistorical(
+    challengeProgressHistorical ?? {},
     challenges,
   );
 
@@ -61,17 +61,14 @@ export default function ProjectsTrackDetailsPage({
       />
       <div className={clsx('relative flex flex-col gap-4')}>
         {challenges.map((challenge, index) => (
-          <div key={challenge.slug} className="flex w-full gap-4">
+          <div key={challenge.metadata.slug} className="flex w-full gap-4">
             <div
               className={clsx(
                 'relative flex flex-col justify-center self-stretch',
               )}>
-              <ProjectsTrackChallengeStatusChip
+              <ProjectsChallengeStatusChip
                 label={index + 1}
-                status={projectsChallengeDetermineStatus(
-                  challengeStatuses ?? {},
-                  challenge.slug,
-                )}
+                status={challenge.status ?? 'NOT_STARTED'}
               />
               {index < challenges.length - 1 && (
                 <div
@@ -84,39 +81,59 @@ export default function ProjectsTrackDetailsPage({
             </div>
             <div
               className={clsx(
-                'group flex grow items-center gap-6 overflow-hidden',
+                'relative isolate',
+                'group flex grow items-center gap-6',
                 'rounded-lg',
-                'relative',
+                // 'overflow-hidden',
                 themeBackgroundCardColor,
                 ['border', themeBorderColor],
                 'pe-6',
+                themeOutlineElement_FocusVisible,
+                themeOutlineElementBrandColor_FocusVisible,
               )}>
               <img
-                alt={challenge.title}
+                alt={challenge.metadata.title}
                 className={clsx(
-                  'h-[100%] w-[104px] md:w-[130px]',
+                  'h-full w-[104px] md:w-[130px]',
                   'object-cover',
+                  'rounded-s-lg',
                 )}
-                src={challenge.imageUrl}
+                src={challenge.metadata.imageUrl}
               />
               <div className="flex grow flex-col items-start gap-4 py-4">
                 <div className="flex flex-col items-start gap-2">
-                  <Anchor href={challenge.href} variant="unstyled">
-                    <span aria-hidden="true" className="absolute inset-0" />
-                    <Text size="body1" weight="medium">
-                      {challenge.title}
-                    </Text>
-                  </Anchor>
+                  <div className="flex gap-2.5">
+                    <Anchor
+                      className={textVariants({
+                        className: 'z-[1]',
+                        size: 'body1',
+                        weight: 'medium',
+                      })}
+                      href={challenge.metadata.href}
+                      variant="flat">
+                      <Text size="body1" weight="medium">
+                        {challenge.metadata.title}
+                      </Text>
+                    </Anchor>
+                    {challenge.metadata.access === 'premium' && (
+                      <span>
+                        <ProjectsPremiumBadge
+                          size="sm"
+                          unlocked={challenge.userUnlocked}
+                        />
+                      </span>
+                    )}
+                  </div>
                   <Text
                     className="hidden lg:block"
                     color="secondary"
                     size="body3">
-                    {challenge.description}
+                    {challenge.metadata.description}
                   </Text>
                 </div>
-                <div>
+                <div className="z-[1]">
                   <ProjectsChallengeDifficultyTag
-                    difficulty={challenge.difficulty}
+                    difficulty={challenge.metadata.difficulty}
                     variant="inline"
                   />
                 </div>
@@ -131,6 +148,11 @@ export default function ProjectsTrackDetailsPage({
                   )}
                 />
               </div>
+              <Anchor
+                aria-label={challenge.metadata.title}
+                className="absolute inset-0"
+                href={challenge.metadata.href}
+              />
             </div>
           </div>
         ))}

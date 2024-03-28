@@ -226,7 +226,7 @@ export async function fetchSubmissionCommentCountsGroupedById(
 
 export async function readProjectsChallengeList(
   requestedLocale = 'en-US',
-  viewerId?: string | null,
+  userId?: string | null,
 ): Promise<{
   challenges: ReadonlyArray<ProjectsChallengeItem>;
   loadedLocale: string;
@@ -237,8 +237,8 @@ export async function readProjectsChallengeList(
     countsGroupedBySlug,
     completedProfileIdsGroupedBySlug,
   ] = await Promise.all([
-    fetchSessionsForUserGroupedBySlug(viewerId),
-    fetchChallengeAccessForUserGroupedBySlug(viewerId),
+    fetchSessionsForUserGroupedBySlug(userId),
+    fetchChallengeAccessForUserGroupedBySlug(userId),
     (async () => {
       try {
         const countsForProjectList =
@@ -336,7 +336,7 @@ export async function readProjectsChallengeList(
 export async function readProjectsChallengeItem(
   slugParam: string,
   requestedLocale = 'en-US',
-  viewerId?: string | null,
+  userId?: string | null,
 ): Promise<
   Readonly<{
     challenge: ProjectsChallengeItem;
@@ -407,7 +407,7 @@ export async function readProjectsChallengeItem(
         }
       })(),
       (async () => {
-        if (viewerId == null) {
+        if (userId == null) {
           return false;
         }
 
@@ -415,7 +415,7 @@ export async function readProjectsChallengeItem(
           where: {
             projectsProfile: {
               userProfile: {
-                id: viewerId,
+                id: userId,
               },
             },
             slug,
@@ -425,7 +425,7 @@ export async function readProjectsChallengeItem(
         return accessForViewer != null;
       })(),
       (async () => {
-        if (viewerId == null) {
+        if (userId == null) {
           return null;
         }
 
@@ -436,7 +436,7 @@ export async function readProjectsChallengeItem(
           where: {
             projectsProfile: {
               userProfile: {
-                id: viewerId,
+                id: userId,
               },
             },
             slug,
@@ -507,7 +507,7 @@ export async function readProjectsChallengeMetadata(
 export async function readProjectsChallengesForSkill(
   slugParam: string,
   requestedLocale = 'en-US',
-  viewerId?: string | null,
+  userId?: string | null,
 ): Promise<
   Readonly<{
     challenges: ReadonlyArray<ProjectsChallengeItem>;
@@ -518,11 +518,8 @@ export async function readProjectsChallengesForSkill(
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
 
   const [challengeStatuses, challengeAccessSet] = await Promise.all([
-    fetchChallengeStatusForUserFilteredBySkillsGroupedBySlug(
-      slugParam,
-      viewerId,
-    ),
-    fetchChallengeAccessForUserGroupedBySlug(viewerId),
+    fetchChallengeStatusForUserFilteredBySkillsGroupedBySlug(slugParam, userId),
+    fetchChallengeAccessForUserGroupedBySlug(userId),
   ]);
 
   const challenges = allProjectsChallengeMetadata
@@ -582,10 +579,12 @@ export async function readProjectsTrackList(
   ]);
 
   const tracks = trackMetadataList.map((trackMetadata) => {
-    const trackChallenges = challenges
-      .filter((challenge) => challenge.metadata.track === trackMetadata.slug)
-      .map((challenge) => challenge.metadata);
-    const points = sum(trackChallenges.map((metadata) => metadata.points));
+    const trackChallenges = challenges.filter(
+      (challenge) => challenge.metadata.track === trackMetadata.slug,
+    );
+    const points = sum(
+      trackChallenges.map((challengeItem) => challengeItem.metadata.points),
+    );
 
     return {
       challenges: trackChallenges,
@@ -617,13 +616,17 @@ export async function readProjectsTrackMetadataList(
 export async function readProjectsTrack(
   slugParam: string,
   requestedLocale = 'en-US',
+  userId?: string | null,
 ): Promise<
   Readonly<{
     loadedLocale: string;
     track: ProjectsTrackItem;
   }>
 > {
-  const { challenges } = await readProjectsChallengeList(requestedLocale);
+  const { challenges } = await readProjectsChallengeList(
+    requestedLocale,
+    userId,
+  );
 
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
@@ -635,10 +638,12 @@ export async function readProjectsTrack(
     (trackMetadataItem) => trackMetadataItem.slug === slug,
   )!;
 
-  const trackChallenges = challenges
-    .filter((challenge) => challenge.metadata.track === trackMetadata.slug)
-    .map((challenge) => challenge.metadata);
-  const points = sum(trackChallenges.map((metadata) => metadata.points));
+  const trackChallenges = challenges.filter(
+    (challenge) => challenge.metadata.track === trackMetadata.slug,
+  );
+  const points = sum(
+    trackChallenges.map((challenge) => challenge.metadata.points),
+  );
 
   return {
     loadedLocale: requestedLocale,
