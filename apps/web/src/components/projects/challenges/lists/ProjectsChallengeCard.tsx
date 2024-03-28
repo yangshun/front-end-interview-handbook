@@ -81,10 +81,6 @@ export default function ProjectsChallengeCard({
           </div>
         )}
         <div className="absolute start-3 top-3 flex items-center gap-1">
-          <ProjectsChallengeDifficultyTag
-            difficulty={difficulty}
-            variant="badge"
-          />
           {challengeAccess === 'premium' && (
             <ProjectsPremiumBadge unlocked={userUnlocked} />
           )}
@@ -96,6 +92,10 @@ export default function ProjectsChallengeCard({
           type === 'normal' ? 'p-4' : 'pt-4',
         )}>
         <div className="flex flex-wrap gap-x-4 gap-y-2">
+          <ProjectsChallengeDifficultyTag
+            difficulty={difficulty}
+            variant="inline"
+          />
           {isViewerPremium && <ProjectsChallengeTrackTag track={track} />}
           <ProjectsChallengeReputationTag points={points} variant="flat" />
         </div>
