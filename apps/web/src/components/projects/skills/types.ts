@@ -22,6 +22,7 @@ export type ProjectsSkillRoadmapConfig =
 // Skills roadmap page/section.
 export type ProjectsSkillSummaryItem = Readonly<{
   completedChallenges: number;
+  inProgressChallenges: number;
   key: ProjectsSkillKey;
   points: number;
   totalChallenges: number;

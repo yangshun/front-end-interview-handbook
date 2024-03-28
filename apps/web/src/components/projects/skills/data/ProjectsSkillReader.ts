@@ -43,23 +43,31 @@ export async function projectsSkillsRoadmapSectionData(
 
         const skillTotalChallenges = skillRoadmapChallenges.length;
         const challengeStatusesForSkill = skillsChallengeStatus[skillKey] ?? {};
-        let skillCompletedChallenges = 0;
+        const skillCompletedChallengesSet = new Set();
+        const skillInProgressChallengesSet = new Set();
 
         // Filter out only the challenges on this skill's roadmap.
         Object.entries(challengeStatusesForSkill).map(
           ([challengeSlug, status]) => {
-            if (
-              skillRoadmapChallengeSlugs.has(challengeSlug) &&
-              status === 'COMPLETED'
-            ) {
+            // This challenge is not relevant to the skill, can be ignored.
+            if (!skillRoadmapChallengeSlugs.has(challengeSlug)) {
+              return;
+            }
+
+            if (status === 'COMPLETED') {
               challengesSlugsCompletedSet.add(challengeSlug);
-              skillCompletedChallenges++;
+              skillCompletedChallengesSet.add(challengeSlug);
+            }
+
+            if (status === 'IN_PROGRESS') {
+              skillInProgressChallengesSet.add(challengeSlug);
             }
           },
         );
 
         return {
-          completedChallenges: skillCompletedChallenges,
+          completedChallenges: skillCompletedChallengesSet.size,
+          inProgressChallenges: skillInProgressChallengesSet.size,
           key: skillKey,
           points: skillReputation,
           totalChallenges: skillTotalChallenges,
