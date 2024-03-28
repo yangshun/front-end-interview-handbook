@@ -18,7 +18,7 @@ import { sum } from 'lodash-es';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import type { ProjectsSkillKey } from '~/components/projects/skills/types';
-import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
+import type { ProjectsTrackItem } from '~/components/projects/tracks/data/ProjectsTracksData';
 import type { ProjectsProfileAvatarDataSlim } from '~/components/projects/types';
 
 import prisma from '~/server/prisma';

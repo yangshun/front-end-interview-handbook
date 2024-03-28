@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
+import { projectsTrackChallengeHistoricalStatuses } from '~/components/projects/tracks/data/ProjectsTrackReader';
 import ProjectsTrackDetailsLockedPage from '~/components/projects/tracks/ProjectsTrackDetailsLockedPage';
 import ProjectsTrackDetailsPage from '~/components/projects/tracks/ProjectsTrackDetailsPage';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
@@ -74,11 +75,19 @@ export default async function Page({ params }: Props) {
     );
   }
 
+  let challengeHistoricalStatuses = {};
+
+  if (viewer?.id != null) {
+    challengeHistoricalStatuses =
+      await projectsTrackChallengeHistoricalStatuses(viewer.id, slug);
+  }
+
   return (
     <ProjectsTrackDetailsPage
+      challengeHistoricalStatuses={challengeHistoricalStatuses}
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
       track={track}
-      userId={viewer?.id ?? null}
+      userProfile={null}
     />
   );
 }

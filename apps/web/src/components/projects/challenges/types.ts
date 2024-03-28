@@ -47,7 +47,7 @@ export type ProjectsChallengeItem = Readonly<{
   userUnlocked: boolean | null;
 }>;
 
-export type ProjectsChallengeStatuses = Record<
+export type ProjectsChallengeHistoricalStatuses = Record<
   ProjectsChallengeMetadata['slug'],
   { completedBefore: boolean; currentStatus: ProjectsChallengeSessionStatus }
 >;

@@ -3,9 +3,7 @@
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 
-import { trpc } from '~/hooks/trpc';
-
-import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
+import type { ProjectsTrackItem } from '~/components/projects/tracks/data/ProjectsTracksData';
 import Anchor from '~/components/ui/Anchor';
 import Text, { textVariants } from '~/components/ui/Text';
 import {
@@ -18,34 +16,31 @@ import {
   themeTextFaintColor,
 } from '~/components/ui/theme';
 
+import ProjectsTrackChallengeChip from './ProjectsTrackChallengeChip';
 import ProjectsTrackPageHeader from './ProjectsTrackPageHeader';
 import ProjectsChallengeDifficultyTag from '../challenges/metadata/ProjectsChallengeDifficultyTag';
-import ProjectsChallengeStatusChip from '../challenges/metadata/ProjectsChallengeStatusChip';
+import type { ProjectsChallengeHistoricalStatuses } from '../challenges/types';
 import { projectsChallengeCountCompletedIncludingHistorical } from '../challenges/utils/ProjectsChallengeUtils';
 import ProjectsPremiumBadge from '../common/ProjectsPremiumBadge';
 
 type Props = Readonly<{
+  challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses;
   isViewerPremium: boolean;
   track: ProjectsTrackItem;
-  userId: string | null;
+  userProfile: React.ComponentProps<
+    typeof ProjectsTrackChallengeChip
+  >['userProfile'];
 }>;
 
 export default function ProjectsTrackDetailsPage({
+  challengeHistoricalStatuses,
   isViewerPremium,
   track,
-  userId,
+  userProfile,
 }: Props) {
   const { challenges, points, metadata } = track;
-  const { data: challengeProgressHistorical } =
-    trpc.projects.challenges.historicalProgress.useQuery(
-      { trackSlug: metadata.slug, userId: userId! },
-      {
-        enabled: userId != null,
-      },
-    );
-
   const completionCount = projectsChallengeCountCompletedIncludingHistorical(
-    challengeProgressHistorical ?? {},
+    challengeHistoricalStatuses ?? {},
     challenges,
   );
 
@@ -66,9 +61,10 @@ export default function ProjectsTrackDetailsPage({
               className={clsx(
                 'relative flex flex-col justify-center self-stretch',
               )}>
-              <ProjectsChallengeStatusChip
-                label={index + 1}
-                status={challenge.status ?? 'NOT_STARTED'}
+              <ProjectsTrackChallengeChip
+                index={index + 1}
+                status={challenge.status}
+                userProfile={userProfile}
               />
               {index < challenges.length - 1 && (
                 <div

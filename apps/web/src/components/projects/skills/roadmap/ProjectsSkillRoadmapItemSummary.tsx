@@ -97,7 +97,7 @@ export default function ProjectsSkillRoadmapItemSummary({
       </div>
       <div
         className={clsx(
-          'transition-colors',
+          'z-[1] flex transition-colors',
           userProfile == null && 'opacity-0',
         )}>
         <ProjectsProfileAvatarWithStatus

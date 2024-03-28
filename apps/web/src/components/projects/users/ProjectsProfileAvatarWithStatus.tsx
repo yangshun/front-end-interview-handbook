@@ -1,14 +1,16 @@
 import clsx from 'clsx';
 import { RiCheckLine, RiLoader4Line } from 'react-icons/ri';
+import { useIntl } from 'react-intl';
 
 import { avatarVariants } from '~/components/ui/Avatar/AvatarStyles';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
+import Tooltip from '~/components/ui/Tooltip';
 
 type Status = 'COMPLETED' | 'IN_PROGRESS';
 
 type Props = Readonly<{
   size?: React.ComponentProps<typeof UserAvatar>['size'];
-  status?: Status;
+  status?: Status | null;
   userProfile?: Readonly<{
     avatarUrl: string | null;
     id: string;
@@ -41,7 +43,9 @@ export default function ProjectsProfileAvatarWithStatus({
   userProfile,
   size,
 }: Props) {
-  return (
+  const intl = useIntl();
+
+  const element = (
     <div className={clsx('relative shrink-0 grow-0', avatarVariants({ size }))}>
       <UserAvatar size={size} userProfile={userProfile} />
       {status && (
@@ -62,4 +66,39 @@ export default function ProjectsProfileAvatarWithStatus({
       )}
     </div>
   );
+
+  if (status == null || userProfile == null) {
+    return element;
+  }
+
+  const label = (() => {
+    const name = userProfile?.name || userProfile?.username;
+
+    switch (status) {
+      case 'IN_PROGRESS':
+        return intl.formatMessage(
+          {
+            defaultMessage: '{name} in progress',
+            description: 'User is working on this challenge',
+            id: 'mhZ4FL',
+          },
+          {
+            name,
+          },
+        );
+      case 'COMPLETED':
+        return intl.formatMessage(
+          {
+            defaultMessage: '{name} completed',
+            description: 'User has completed on this challenge',
+            id: 'ouJSar',
+          },
+          {
+            name,
+          },
+        );
+    }
+  })();
+
+  return <Tooltip label={label}>{element}</Tooltip>;
 }

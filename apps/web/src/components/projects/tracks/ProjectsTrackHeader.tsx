@@ -1,7 +1,7 @@
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsTrackItem } from './ProjectsTracksData';
+import type { ProjectsTrackItem } from './data/ProjectsTracksData';
 import ProjectsChallengeProgressTag from '../challenges/metadata/ProjectsChallengeProgressTag';
 import ProjectsPremiumBadge from '../common/ProjectsPremiumBadge';
 import ProjectsStatusBadgeCompleted from '../common/status/ProjectsStatusBadgeCompleted';

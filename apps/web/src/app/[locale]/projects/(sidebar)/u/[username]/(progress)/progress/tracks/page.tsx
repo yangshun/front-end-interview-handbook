@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 
 import ProjectsProfileProgressTracksTab from '~/components/projects/profile/progress/ProjectsProfileProgressTracksTab';
+import { projectsTrackChallengeHistoricalStatuses } from '~/components/projects/tracks/data/ProjectsTrackReader';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
 import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
@@ -26,16 +27,19 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const [{ viewerProjectsProfile }, { tracks }] = await Promise.all([
-    readViewerProjectsProfile(),
-    readProjectsTrackList(locale, userProfile.id),
-  ]);
+  const [{ viewerProjectsProfile }, { tracks }, challengeHistoricalStatuses] =
+    await Promise.all([
+      readViewerProjectsProfile(),
+      readProjectsTrackList(locale, userProfile.id),
+      projectsTrackChallengeHistoricalStatuses(userProfile.id),
+    ]);
 
   return (
     <ProjectsProfileProgressTracksTab
+      challengeHistoricalStatuses={challengeHistoricalStatuses}
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
       projectTracks={tracks}
-      targetUserId={userProfile.id}
+      userProfile={userProfile}
     />
   );
 }

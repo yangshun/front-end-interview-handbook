@@ -2,23 +2,24 @@
 
 import { FormattedMessage } from 'react-intl';
 
-import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
+import type { ProjectsTrackItem } from '~/components/projects/tracks/data/ProjectsTracksData';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
 import ProjectsTrackSection from './ProjectsTrackSection';
+import type { ProjectsChallengeHistoricalStatuses } from '../challenges/types';
 
 type Props = Readonly<{
+  challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses;
   isViewerPremium: boolean;
   projectTracks: ReadonlyArray<ProjectsTrackItem>;
-  viewerId: string | null;
 }>;
 
 export default function ProjectsTracksListPage({
+  challengeHistoricalStatuses,
   projectTracks,
   isViewerPremium,
-  viewerId,
 }: Props) {
   return (
     <div className="flex flex-col gap-9">
@@ -42,10 +43,11 @@ export default function ProjectsTracksListPage({
       </div>
       <Section>
         <ProjectsTrackSection
+          challengeHistoricalStatuses={challengeHistoricalStatuses}
           defaultOpen={true}
           isViewerPremium={isViewerPremium}
           projectTracks={projectTracks}
-          targetUserId={viewerId}
+          userProfile={null}
         />
       </Section>
     </div>

@@ -1,26 +1,30 @@
 'use client';
 
-import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
+import type { ProjectsTrackItem } from '~/components/projects/tracks/data/ProjectsTracksData';
 
+import type { ProjectsChallengeHistoricalStatuses } from '../../challenges/types';
 import ProjectsTrackSection from '../../tracks/ProjectsTrackSection';
 
 type Props = Readonly<{
+  challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses;
   isViewerPremium: boolean;
   projectTracks: ReadonlyArray<ProjectsTrackItem>;
-  targetUserId: string;
+  userProfile: React.ComponentProps<typeof ProjectsTrackSection>['userProfile'];
 }>;
 
 export default function ProjectsProfileProgressTracksTab({
+  challengeHistoricalStatuses,
+  userProfile,
   isViewerPremium,
   projectTracks,
-  targetUserId,
 }: Props) {
   return (
     <ProjectsTrackSection
+      challengeHistoricalStatuses={challengeHistoricalStatuses}
       defaultOpen={true}
       isViewerPremium={isViewerPremium}
       projectTracks={projectTracks}
-      targetUserId={targetUserId}
+      userProfile={userProfile}
     />
   );
 }

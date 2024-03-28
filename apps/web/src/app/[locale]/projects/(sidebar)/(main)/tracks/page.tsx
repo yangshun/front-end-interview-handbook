@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { projectsTrackChallengeHistoricalStatuses } from '~/components/projects/tracks/data/ProjectsTrackReader';
 import ProjectsTracksListPage from '~/components/projects/tracks/ProjectsTracksListPage';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
@@ -41,16 +42,18 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
 
   const viewer = await readViewerFromToken();
-  const [{ viewerProjectsProfile }, { tracks }] = await Promise.all([
-    readViewerProjectsProfile(viewer),
-    readProjectsTrackList(locale, viewer?.id),
-  ]);
+  const [{ viewerProjectsProfile }, { tracks }, challengeHistoricalStatuses] =
+    await Promise.all([
+      readViewerProjectsProfile(viewer),
+      readProjectsTrackList(locale, viewer?.id),
+      projectsTrackChallengeHistoricalStatuses(viewer?.id),
+    ]);
 
   return (
     <ProjectsTracksListPage
+      challengeHistoricalStatuses={challengeHistoricalStatuses}
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
       projectTracks={tracks}
-      viewerId={viewer?.id ?? null}
     />
   );
 }

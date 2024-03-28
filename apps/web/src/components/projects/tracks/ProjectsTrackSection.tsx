@@ -1,30 +1,26 @@
-import { trpc } from '~/hooks/trpc';
-
+import type { ProjectsTrackItem } from '~/components/projects/tracks/data/ProjectsTracksData';
 import ProjectsTrackAccordion from '~/components/projects/tracks/ProjectsTrackAccordion';
 import ProjectsTrackAccordionItem from '~/components/projects/tracks/ProjectsTrackAccordionItem';
-import type { ProjectsTrackItem } from '~/components/projects/tracks/ProjectsTracksData';
+
+import type { ProjectsChallengeHistoricalStatuses } from '../challenges/types';
 
 type Props = Readonly<{
+  challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses;
   defaultOpen?: boolean;
   isViewerPremium: boolean;
   projectTracks: ReadonlyArray<ProjectsTrackItem>;
-  targetUserId: string | null;
+  userProfile: React.ComponentProps<
+    typeof ProjectsTrackAccordionItem
+  >['userProfile'];
 }>;
 
 export default function ProjectsTrackSection({
+  challengeHistoricalStatuses,
   defaultOpen,
   projectTracks,
-  targetUserId,
   isViewerPremium,
+  userProfile,
 }: Props) {
-  const { data: challengeStatuses } =
-    trpc.projects.challenges.historicalProgress.useQuery(
-      { userId: targetUserId! },
-      {
-        enabled: targetUserId != null,
-      },
-    );
-
   return (
     <ProjectsTrackAccordion
       defaultValue={
@@ -35,9 +31,10 @@ export default function ProjectsTrackSection({
       {projectTracks.map((projectTrack) => (
         <ProjectsTrackAccordionItem
           key={projectTrack.metadata.slug}
-          challengeStatuses={challengeStatuses ?? {}}
+          challengeStatuses={challengeHistoricalStatuses}
           isViewerPremium={isViewerPremium}
           track={projectTrack}
+          userProfile={userProfile}
         />
       ))}
     </ProjectsTrackAccordion>

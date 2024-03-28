@@ -13,26 +13,30 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
+import type { ProjectsTrackItem } from './data/ProjectsTracksData';
+import ProjectsTrackChallengeChip from './ProjectsTrackChallengeChip';
 import ProjectsTrackHeader from './ProjectsTrackHeader';
 import ProjectsTrackPaywall from './ProjectsTrackPaywall';
-import type { ProjectsTrackItem } from './ProjectsTracksData';
-import ProjectsChallengeStatusChip from '../challenges/metadata/ProjectsChallengeStatusChip';
-import type { ProjectsChallengeStatuses } from '../challenges/types';
+import type { ProjectsChallengeHistoricalStatuses } from '../challenges/types';
 import { projectsChallengeCountCompletedIncludingHistorical } from '../challenges/utils/ProjectsChallengeUtils';
 import ProjectsPremiumBadge from '../common/ProjectsPremiumBadge';
 
 import * as Accordion from '@radix-ui/react-accordion';
 
 type Props = Readonly<{
-  challengeStatuses?: ProjectsChallengeStatuses;
+  challengeStatuses?: ProjectsChallengeHistoricalStatuses;
   isViewerPremium: boolean;
   track: ProjectsTrackItem;
+  userProfile: React.ComponentProps<
+    typeof ProjectsTrackChallengeChip
+  >['userProfile'];
 }>;
 
 export default function ProjectsTrackAccordionItem({
   challengeStatuses = {},
   track,
   isViewerPremium,
+  userProfile,
 }: Props) {
   const intl = useIntl();
 
@@ -79,16 +83,17 @@ export default function ProjectsTrackAccordionItem({
             <>
               <div className="-mr-6 overflow-hidden">
                 <div className="flex overflow-x-auto pb-3 pr-6">
-                  {challenges.map((challenge, i) => (
+                  {challenges.map((challenge, index) => (
                     <div
                       key={challenge.metadata.slug}
                       className="relative flex shrink-0 flex-col gap-4">
                       <div className="flex items-center">
-                        <ProjectsChallengeStatusChip
-                          label={i + 1}
-                          status={challenge.status ?? 'NOT_STARTED'}
+                        <ProjectsTrackChallengeChip
+                          index={index + 1}
+                          status={challenge.status}
+                          userProfile={userProfile}
                         />
-                        {i < challenges.length - 1 && (
+                        {index < challenges.length - 1 && (
                           <div
                             className={clsx(
                               'flex-1 border-t border-dashed',
@@ -103,7 +108,7 @@ export default function ProjectsTrackAccordionItem({
                           'flex flex-col gap-1.5 rounded-lg p-2',
                           'bg-neutral-200/40 dark:bg-neutral-800/40',
                           'w-[168px]',
-                          i < challenges.length - 1 && 'me-4',
+                          index < challenges.length - 1 && 'me-4',
                           themeOutlineElement_FocusVisible,
                           themeOutlineElementBrandColor_FocusVisible,
                         )}>

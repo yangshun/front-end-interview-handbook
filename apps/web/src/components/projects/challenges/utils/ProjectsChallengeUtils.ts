@@ -1,10 +1,10 @@
 import type {
+  ProjectsChallengeHistoricalStatuses,
   ProjectsChallengeItem,
-  ProjectsChallengeStatuses,
 } from '../types';
 
 export function projectsChallengeCountCompletedIncludingHistorical(
-  challengeStatuses: ProjectsChallengeStatuses,
+  challengeStatuses: ProjectsChallengeHistoricalStatuses,
   challenges: ReadonlyArray<ProjectsChallengeItem>,
 ): number {
   const slugs = challenges.map(({ metadata }) => metadata.slug);
@@ -22,7 +22,7 @@ export function projectsChallengeCountCompletedIncludingHistorical(
 
 // TODO(projects): delete this.
 export function projectsChallengeDetermineStatus_DEPRECATED(
-  challengeStatuses: ProjectsChallengeStatuses,
+  challengeStatuses: ProjectsChallengeHistoricalStatuses,
   slug: string,
 ) {
   if (!challengeStatuses[slug]) {

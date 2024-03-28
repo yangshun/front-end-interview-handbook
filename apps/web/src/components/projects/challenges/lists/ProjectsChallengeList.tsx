@@ -5,13 +5,13 @@ import { themeBorderElementColor } from '~/components/ui/theme';
 
 import ProjectsChallengeStatusChip from '../metadata/ProjectsChallengeStatusChip';
 import type {
+  ProjectsChallengeHistoricalStatuses,
   ProjectsChallengeItem,
-  ProjectsChallengeStatuses,
 } from '../types';
 import { projectsChallengeDetermineStatus_DEPRECATED } from '../utils/ProjectsChallengeUtils';
 
 type Props = Readonly<{
-  challengeStatuses?: ProjectsChallengeStatuses;
+  challengeStatuses?: ProjectsChallengeHistoricalStatuses;
   challenges: ReadonlyArray<ProjectsChallengeItem>;
   className?: string;
 }>;
