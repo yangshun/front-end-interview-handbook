@@ -39,6 +39,19 @@ export default function RootLayout({ children, intlMessages, locale }: Props) {
         <GlobalBannerDisplayScript />
       </head>
       <body className={clsx('antialiased', themeBackgroundColor)}>
+        <style id="theme-variables">
+          {`:root{${Object.values({
+            dark: ['dark', '#7063f3'],
+            darker: ['darker', '#5133cf'],
+            darkest: ['darkest', '#3a2888'],
+            default: ['default', '#948cf9'],
+            light: ['light', '#bab5fd'],
+            lighter: ['lighter', '#d6d5fe'],
+            lightest: ['lightest', '#f3f0ff'],
+          })
+            .map(([shade, hex]) => `--brand-${shade}: ${hex};`)
+            .join('')}}`}
+        </style>
         <HydrationFailureLogging />
         <GlobalProviders intlMessages={intlMessages} locale={locale}>
           <GoogleAnalytics />

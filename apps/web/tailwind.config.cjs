@@ -16,14 +16,14 @@ const neutral = {
   950: '#070708',
 };
 
-const indigo = {
-  lightest: '#f3f0ff',
-  lighter: '#d6d5fe',
-  light: '#bab5fd',
-  DEFAULT: '#948cf9',
-  dark: '#7063f3',
-  darker: '#5133cf',
-  darkest: '#3a2888',
+const brand = {
+  lightest: 'var(--brand-lightest)',
+  lighter: 'var(--brand-lighter)',
+  light: 'var(--brand-light)',
+  DEFAULT: 'var(--brand-default)',
+  dark: 'var(--brand-dark)',
+  darker: 'var(--brand-darker)',
+  darkest: 'var(--brand-darkest)',
 };
 
 const green = {
@@ -116,8 +116,7 @@ module.exports = {
         dvh: '100dvh',
       },
       colors: {
-        indigo,
-        brand: indigo,
+        brand,
         green,
         success: green,
         blue,
