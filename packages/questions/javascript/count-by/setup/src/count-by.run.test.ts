@@ -12,8 +12,4 @@ describe('countBy', () => {
   test('two-element arrays', () => {
     expect(countBy([6.1, 4.2], Math.floor)).toEqual({ 4: 1, 6: 1 });
   });
-
-  test('property iteratees', () => {
-    expect(countBy(['one', 'two'], 'length')).toEqual({ 3: 2 });
-  });
 });

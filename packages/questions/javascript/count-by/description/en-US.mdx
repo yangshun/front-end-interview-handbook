@@ -3,10 +3,7 @@ title: Count By
 excerpt: Implement a function that counts the number of times a value appears in an array based on a function or property name
 ---
 
-Implement a function `countBy(array, iteratee)` that creates an object composed of keys generated from the results of running each element of `array` thru `iteratee`. The corresponding value of each key is the number of times the key was returned by `iteratee`. `iteratee`s can either be:
-
-- Functions: `iteratee` functions is invoked with one argument: _(value)_.
-- Strings: The property of an object. E.g. `'length'` can be used to return the number of elements of arrays.
+Implement a function `countBy(array, iteratee)` that creates an object composed of keys generated from the results of running each element of `array` through `iteratee`. The corresponding value of each key is the number of times the key was returned by `iteratee`.
 
 ```js
 countBy(array, iteratee);
@@ -19,7 +16,7 @@ countBy(array, iteratee);
 
 ## Returns
 
-_(Object)_: Returns the composed aggregate object.
+_`(Object)`_: Returns the composed aggregate object.
 
 ## Examples
 
@@ -27,8 +24,16 @@ _(Object)_: Returns the composed aggregate object.
 countBy([6.1, 4.2, 6.3], Math.floor);
 // => { '4': 1, '6': 2 }
 
-countBy(['one', 'two', 'three'], 'length');
+countBy([{ n: 3 }, { n: 5 }, { n: 3 }], (o) => o.n);
 // => { '3': 2, '5': 1 }
+```
+
+The function should return {} when `array` is empty and treat null / undefined keys after going through iteratee as it is.
+
+```js
+countBy([], (o) => o); // => {}
+
+countBy([{ n: 1 }, { n: 2 }], (o) => o.m); // => { undefined: 2 }
 ```
 
 ## Resources

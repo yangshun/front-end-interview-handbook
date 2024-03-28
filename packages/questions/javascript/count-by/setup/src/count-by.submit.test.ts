@@ -5,6 +5,12 @@ describe('countBy', () => {
     expect(countBy([], Math.floor)).toEqual({});
   });
 
+  test('undefined keys', () => {
+    expect(countBy([{ n: 1 }, { n: 2 }], (o: any) => o.m)).toEqual({
+      undefined: 2,
+    });
+  });
+
   describe('function iteratees', () => {
     test('single-element arrays', () => {
       expect(countBy([6.1], Math.floor)).toEqual({ 6: 1 });
@@ -23,23 +29,6 @@ describe('countBy', () => {
         countBy(['one', 'two', 'three'], (val: string) => 'length'),
       ).toEqual({
         length: 3,
-      });
-    });
-  });
-
-  describe('property iteratees', () => {
-    test('single-element arrays', () => {
-      expect(countBy(['one'], 'length')).toEqual({ 3: 1 });
-    });
-
-    test('two-element arrays', () => {
-      expect(countBy(['one', 'two'], 'length')).toEqual({ 3: 2 });
-    });
-
-    test('multiple element arrays', () => {
-      expect(countBy(['one', 'two', 'three'], 'length')).toEqual({
-        3: 2,
-        5: 1,
       });
     });
   });
