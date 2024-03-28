@@ -2,7 +2,6 @@ import clsx from 'clsx';
 import { useRef } from 'react';
 import { useState } from 'react';
 import {
-  RiArrowRightLine,
   RiCheckboxCircleFill,
   RiCloseCircleFill,
   RiQuestionFill,
@@ -17,7 +16,6 @@ import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import PurchasePriceAnnualComparison from '~/components/purchase/comparison/PurchasePriceAnnualComparison';
-import PurchasePriceMonthlyComparison from '~/components/purchase/comparison/PurchasePriceMonthlyComparison';
 import PurchaseActivePlanLabel from '~/components/purchase/PurchaseActivePlanLabel';
 import PurchasePriceLabel from '~/components/purchase/PurchasePriceLabel';
 import { priceRoundToNearestNiceNumber } from '~/components/purchase/PurchasePricingUtils';
@@ -42,7 +40,10 @@ import {
   freePlanFeatures,
   monthlyPlanFeatures,
 } from './ProjectsPricingFeaturesConfig';
-import type { ProjectsPricingPlanPaymentConfigLocalized } from './ProjectsPricingPlans';
+import type {
+  ProjectsPricingPlanPaymentConfigLocalized,
+  ProjectsSubscriptionPlanIncludingFree,
+} from './ProjectsPricingPlans';
 import type { ProjectsSubscriptionPlanFeature } from './useProjectsPricingPlanFeatures';
 import useProjectsPricingPlanFeatures from './useProjectsPricingPlanFeatures';
 import type { ProjectsPricingPlanItem } from './useProjectsPricingPlansList';
@@ -57,6 +58,7 @@ function PricingButton({
   isDisabled,
   isLoading,
   label,
+  variant,
   onClick,
 }: Readonly<{
   href?: AnchorProps['href'];
@@ -65,6 +67,7 @@ function PricingButton({
   isLoading?: boolean;
   label: string;
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  variant: React.ComponentProps<typeof Button>['variant'];
 }>) {
   return (
     <Button
@@ -74,10 +77,10 @@ function PricingButton({
       isDisabled={isLoading || isDisabled}
       isLoading={isLoading}
       label={label}
-      size="lg"
+      size="md"
       target="_self"
       type="button"
-      variant="primary"
+      variant={variant}
       onClick={onClick}
     />
   );
@@ -89,11 +92,11 @@ function PricingButtonNonLoggedIn({
   planType,
 }: Readonly<{
   isDisabled: boolean;
-  paymentConfig: ProjectsPricingPlanPaymentConfigLocalized;
-  planType: ProjectsSubscriptionPlan;
+  paymentConfig?: ProjectsPricingPlanPaymentConfigLocalized;
+  planType: ProjectsSubscriptionPlanIncludingFree;
 }>) {
   const intl = useIntl();
-  const { signInUpHref } = useAuthSignInUp();
+  const { signInUpHref, signInUpLabel } = useAuthSignInUp();
 
   return (
     <PricingButton
@@ -102,31 +105,37 @@ function PricingButtonNonLoggedIn({
           source: 'buy_now',
         },
       })}
-      icon={RiArrowRightLine}
       isDisabled={isDisabled}
-      label={intl.formatMessage({
-        defaultMessage: 'Unlock premium',
-        description: 'Purchase button label',
-        id: 'W4Akuo',
-      })}
+      label={
+        planType === 'FREE'
+          ? signInUpLabel
+          : intl.formatMessage({
+              defaultMessage: 'Unlock premium',
+              description: 'Purchase button label',
+              id: 'W4Akuo',
+            })
+      }
+      variant="secondary"
       onClick={() => {
         gtag.event({
           action: `checkout.sign_up`,
           category: 'ecommerce',
           label: 'Unlock premium (not logged in)',
         });
-        logMessage({
-          level: 'info',
-          message: `${planType} plan for ${paymentConfig.currency.toLocaleUpperCase()} ${
-            paymentConfig.unitCostCurrency.withPPP.after
-          } but not signed in`,
-          title: 'Checkout initiate (non-signed in)',
-        });
-        logEvent('checkout.attempt.not_logged_in', {
-          currency: paymentConfig.currency.toLocaleUpperCase(),
-          plan: planType,
-          value: paymentConfig.unitCostCurrency.withPPP.after,
-        });
+        if (paymentConfig != null) {
+          logMessage({
+            level: 'info',
+            message: `${planType} plan for ${paymentConfig.currency.toLocaleUpperCase()} ${
+              paymentConfig.unitCostCurrency.withPPP.after
+            } but not signed in`,
+            title: 'Checkout initiate (non-signed in)',
+          });
+          logEvent('checkout.attempt.not_logged_in', {
+            currency: paymentConfig.currency.toLocaleUpperCase(),
+            plan: planType,
+            value: paymentConfig.unitCostCurrency.withPPP.after,
+          });
+        }
       }}
     />
   );
@@ -218,7 +227,6 @@ function PricingButtonNonPremium({
     <div className="flex flex-col gap-4">
       <PricingButton
         href={checkoutSessionHref ?? undefined}
-        icon={RiArrowRightLine}
         isDisabled={showUserThereIsAsyncRequest || isLoading}
         isLoading={showUserThereIsAsyncRequest}
         label={intl.formatMessage({
@@ -226,6 +234,7 @@ function PricingButtonNonPremium({
           description: 'Purchase button label',
           id: 'W4Akuo',
         })}
+        variant="primary"
         onClick={() => {
           setHasClicked(true);
           hasClickedRef.current = true;
@@ -282,8 +291,8 @@ function PricingButtonSection({
   planType,
 }: Readonly<{
   countryCode: string;
-  paymentConfig: ProjectsPricingPlanPaymentConfigLocalized;
-  planType: ProjectsSubscriptionPlan;
+  paymentConfig?: ProjectsPricingPlanPaymentConfigLocalized;
+  planType: ProjectsSubscriptionPlanIncludingFree;
 }>) {
   const intl = useIntl();
   const { isLoading: isUserLoading } = useSessionContext();
@@ -299,6 +308,14 @@ function PricingButtonSection({
 
   if (profile?.projectsProfile) {
     if (!profile?.projectsProfile.premium) {
+      if (paymentConfig == null) {
+        return null;
+      }
+
+      if (planType == null || (planType != null && planType === 'FREE')) {
+        return null;
+      }
+
       // User is logged in but not a premium user.
       return (
         <PricingButtonNonPremium
@@ -312,7 +329,6 @@ function PricingButtonSection({
       // User is already subscribed, link to billing page.
       return (
         <PricingButton
-          icon={RiArrowRightLine}
           isDisabled={billingPortalMutation.isLoading}
           isLoading={billingPortalMutation.isLoading}
           label={intl.formatMessage({
@@ -320,6 +336,7 @@ function PricingButtonSection({
             description: 'Manage user membership subscription button label',
             id: 'sjLtW1',
           })}
+          variant="secondary"
           onClick={async () => {
             const billingPortalUrl = await billingPortalMutation.mutateAsync({
               returnUrl: window.location.href,
@@ -353,7 +370,7 @@ function PricingPlanComparisonDiscount({
 }>) {
   switch (planType) {
     case 'MONTH':
-      return <PurchasePriceMonthlyComparison price={paymentConfig} />;
+      return null;
     case 'ANNUAL':
       return (
         <PurchasePriceAnnualComparison
@@ -509,7 +526,7 @@ function ProjectsPricingPriceCell({
           )}
         </Text>
       </div>
-      <div className="mt-5">
+      <div className="mt-5 w-full">
         <PricingButtonSection
           countryCode={countryCode}
           paymentConfig={paymentConfig}
@@ -555,21 +572,21 @@ export default function ProjectsPricingTable({
       {/* Lg and above */}
       <div
         className={clsx(
-          'hidden flex-col lg:flex',
+          'hidden flex-col xl:flex',
           'px-4 py-6',
           tableClassName,
         )}>
-        <table className="w-full border-separate border-spacing-x-4">
+        <table className="w-full table-fixed border-separate border-spacing-x-4">
           <caption className="sr-only">Pricing plan comparison</caption>
           <colgroup>
-            <col className="w-1/4" />
-            <col className="w-1/4" />
-            <col className="w-1/4" />
-            <col className="w-1/4" />
+            <col className="w-2/5" />
+            <col className="w-1/5" />
+            <col className="w-1/5" />
+            <col className="w-1/5" />
           </colgroup>
           <thead>
             <tr>
-              <th colSpan={2} />
+              <th />
               {planList.map((plan) => (
                 <th key={plan.name} className="px-6 xl:px-8" scope="col">
                   <Text color="subtitle" size="body1" weight="medium">
@@ -581,11 +598,11 @@ export default function ProjectsPricingTable({
           </thead>
           <tbody>
             <tr>
-              <th colSpan={2} scope="row">
+              <th scope="row">
                 <span className="sr-only">Price</span>
               </th>
               {planList.map(({ name, paymentConfig, numberOfMonths, type }) => (
-                <td key={name} className="px-6 py-5 align-top xl:px-8">
+                <td key={name} className="px-4 py-5 align-top">
                   {type === 'FREE' ? (
                     <div className="flex w-full flex-col items-center">
                       <Text
@@ -624,9 +641,16 @@ export default function ProjectsPricingTable({
                         />
                       </Text>
                       <div className="min-h-8 mt-2 flex items-center justify-center">
-                        {profile?.projectsProfile?.plan == null && (
-                          <PurchaseActivePlanLabel />
-                        )}
+                        {profile?.projectsProfile != null &&
+                          profile?.projectsProfile?.plan == null && (
+                            <PurchaseActivePlanLabel />
+                          )}
+                      </div>
+                      <div className="mt-5 w-full">
+                        <PricingButtonSection
+                          countryCode={countryCode}
+                          planType="FREE"
+                        />
                       </div>
                     </div>
                   ) : paymentConfig != null ? (
@@ -658,7 +682,6 @@ export default function ProjectsPricingTable({
                     'py-3 text-left',
                     index > 0 && ['border-t', themeBorderColor],
                   )}
-                  colSpan={2}
                   scope="row">
                   <span className="flex items-center gap-3">
                     <Text
@@ -719,7 +742,7 @@ export default function ProjectsPricingTable({
       {/* Below lg */}
       <div
         className={clsx(
-          'mx-auto flex flex-col lg:hidden',
+          'mx-auto flex flex-col xl:hidden',
           'max-w-lg',
           tableClassName,
           ['divide-y', themeDivideColor],
@@ -739,9 +762,18 @@ export default function ProjectsPricingTable({
                     {name}
                   </Text>
                   {(profile?.projectsProfile?.plan === type ||
-                    (profile?.projectsProfile?.plan == null &&
+                    (profile?.projectsProfile != null &&
+                      profile?.projectsProfile?.plan == null &&
                       type === 'FREE')) && <PurchaseActivePlanLabel />}
                 </div>
+                {type === 'FREE' && (
+                  <div className="mt-5">
+                    <PricingButtonSection
+                      countryCode={countryCode}
+                      planType="FREE"
+                    />
+                  </div>
+                )}
                 {paymentConfig != null && type !== 'FREE' && (
                   <ProjectsPricingPriceCell
                     className="mt-8"

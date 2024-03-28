@@ -715,10 +715,6 @@
     "defaultMessage": "Edit profile",
     "description": "Label for edit projects profile button"
   },
-  "4tgadO": {
-    "defaultMessage": "Impress recruiters with entire component libraries or design systems built from scratch. Our component tracks cover components from various use cases and industries.",
-    "description": "Subtitle of the 'Component tracks' marketing section on Projects home page"
-  },
   "4uXotU": {
     "defaultMessage": "Italic",
     "description": "Italic tooltip for Richtext toolbar"
@@ -1963,10 +1959,6 @@
     "defaultMessage": "Build a {challengeName} with everything you need provided to you - professional designs, user stories, how-to-guides, official solutions and more.",
     "description": "Description of Projects challenge page"
   },
-  "FUjO3W": {
-    "defaultMessage": "Build entire design systems or component libraries with our Component Tracks",
-    "description": "Heading of the 'Component tracks' marketing section on Projects home page"
-  },
   "FXfZQF": {
     "defaultMessage": "Unverified email",
     "description": "Title of verify email page"
@@ -2447,10 +2439,6 @@
     "defaultMessage": "See all",
     "description": "See all button label in browse series section in blog homepage"
   },
-  "Jyrm8/": {
-    "defaultMessage": "You're here for portfolio or side projects",
-    "description": "Title of the 'Component tracks' marketing section on Projects home page"
-  },
   "K/Nz6V": {
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
     "description": "Description of Interview Preparation Quiz page"
@@ -2719,10 +2707,6 @@
     "defaultMessage": "Create a free account to track your progress",
     "description": "CTA to create a free account for non-logged in users"
   },
-  "LjXg3C": {
-    "defaultMessage": "You're here to just build!",
-    "description": "Title of the 'Projects' marketing section on Projects home page"
-  },
   "Ll7iob": {
     "defaultMessage": "Get Started",
     "description": "Title of Get Started page"
@@ -2907,10 +2891,6 @@
     "defaultMessage": "Starter",
     "description": "Starter level blog"
   },
-  "NGGXSc": {
-    "defaultMessage": "Find any project you can dream of",
-    "description": "Heading of the 'Projects' marketing section on Projects home page"
-  },
   "NL7HsI": {
     "defaultMessage": "Preview solution",
     "description": "Label for preview solution button"
@@ -3074,10 +3054,6 @@
   "Od0Qjl": {
     "defaultMessage": "Skills used",
     "description": "Label for \"Skills used\" text input"
-  },
-  "OfeY0a": {
-    "defaultMessage": "View all {trackCount} component tracks",
-    "description": "Label of 'Component tracks' view all button in Projects home page"
   },
   "OjLxYa": {
     "defaultMessage": "<bold>{count}</bold>",
@@ -3863,10 +3839,6 @@
     "defaultMessage": "Activity",
     "description": "Profile settings tab title"
   },
-  "UelR8r": {
-    "defaultMessage": "Build towards your goals",
-    "description": "Heading of the 'Build towards your goals' marketing section on Projects home page"
-  },
   "UiHdWK": {
     "defaultMessage": "Study plan to prepare for front end interviews in 1 week",
     "description": "Title of 1 Week Preparation Plan page"
@@ -4186,10 +4158,6 @@
   "X1UVMv": {
     "defaultMessage": "We add more questions and guides from time to time, available for free to premium subscribers.",
     "description": "Subtitle for free continuous updates feature"
-  },
-  "X1lkot": {
-    "defaultMessage": "Locked",
-    "description": "Locked status"
   },
   "X55xMA": {
     "defaultMessage": "Premium Feature",
@@ -5803,10 +5771,6 @@
     "defaultMessage": "edited {editedAtTime}",
     "description": "Updated time stamp for submission detail page"
   },
-  "khoims": {
-    "defaultMessage": "We have a large bank of {projectCount}+ projects organized in 3 structured ways to help you achieve your objectives.",
-    "description": "Subtitle of the 'Build towards your goals' marketing section on Projects home page"
-  },
   "kj9QHG": {
     "defaultMessage": "Build a whole component library or design system for your portfolio",
     "description": "Description for recommended action for new projects platform user"
@@ -5939,10 +5903,6 @@
     "defaultMessage": "Challenges completed",
     "description": "Number of project challenges completed"
   },
-  "lWZZ9l": {
-    "defaultMessage": "Search a keyword or sort by popularity, difficulty or skills",
-    "description": "Subtitle of the 'Projects' marketing section on Projects home page"
-  },
   "ldOgfx": {
     "defaultMessage": "Easy",
     "description": "Easy question difficulty"
@@ -6062,6 +6022,10 @@
   "md057S": {
     "defaultMessage": "{points} rep",
     "description": "Reputation points to be gained"
+  },
+  "mhZ4FL": {
+    "defaultMessage": "{name} in progress",
+    "description": "User is working on this challenge"
   },
   "mjEvFf": {
     "defaultMessage": "Step 2",
@@ -6298,6 +6262,10 @@
   "ooGnHf": {
     "defaultMessage": "Popularity: Most to least upvotes",
     "description": "Sorting option for discussions comment - popularity"
+  },
+  "ouJSar": {
+    "defaultMessage": "{name} completed",
+    "description": "User has completed on this challenge"
   },
   "ouzs0n": {
     "defaultMessage": "Page name must contain at most {maxLength} character(s).",
@@ -6738,10 +6706,6 @@
   "sH/wZI": {
     "defaultMessage": "You have completed this project",
     "description": "Description for projects completed status"
-  },
-  "sLFGSE": {
-    "defaultMessage": "Explore {projectCount}+ projects",
-    "description": "Label of 'Projects' view all button in Projects home page"
   },
   "sM1Ppu": {
     "defaultMessage": "{discountPercentage}% off all plans",
@@ -7418,10 +7382,6 @@
   "xyS+2S": {
     "defaultMessage": "<bold>{author}</bold> asked a question on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone asking a question on the challenge forum"
-  },
-  "y0zT5M": {
-    "defaultMessage": "Wide variety of projects",
-    "description": "Title of the 'Build towards your goals' marketing section on Projects home page"
   },
   "y1/vKv": {
     "defaultMessage": "Deployment and submission checklist and guide",
