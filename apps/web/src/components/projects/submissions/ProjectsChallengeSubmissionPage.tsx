@@ -34,7 +34,7 @@ function parseGithubRepositoryUrl(url: string) {
   const urlObject = new URL(url);
   const [repoOwner, repoName] = urlObject.pathname.split('/').slice(-2);
 
-  return { branchName: 'main', repoName, repoOwner };
+  return { repoName, repoOwner };
 }
 
 type Props = Readonly<{
@@ -69,7 +69,7 @@ export default function ProjectsChallengeSubmissionPage({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [submissionId]);
 
-  const { branchName, repoName, repoOwner } = useMemo(
+  const { repoName, repoOwner } = useMemo(
     () => parseGithubRepositoryUrl(repositoryUrl),
     [repositoryUrl],
   );
@@ -187,7 +187,6 @@ export default function ProjectsChallengeSubmissionPage({
                 />
               </Heading>
               <GithubRepositoryCodeViewer
-                branchName={branchName}
                 className={clsx('h-[500px] rounded-t-lg', [
                   'border-x border-t',
                   themeBorderColor,

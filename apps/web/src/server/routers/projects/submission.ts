@@ -204,15 +204,26 @@ export const projectsChallengeSubmissionItemRouter = router({
   getGitHubRepositoryFilePaths: publicProcedure
     .input(
       z.object({
-        branchName: z.string(),
         repoName: z.string(),
         repoOwner: z.string(),
       }),
     )
-    .query(async ({ input: { branchName, repoName, repoOwner } }) => {
+    .query(async ({ input: { repoName, repoOwner } }) => {
       try {
+        const repo = await fetch(
+          `${githubApiUrl}/repos/${repoOwner}/${repoName}`,
+          {
+            headers: {
+              Accept: 'application/vnd.github+json',
+              Authorization: `token ${process.env.GITHUB_TOKEN}`,
+            },
+            method: 'GET',
+          },
+        );
+        const repoJson = await repo.json();
+
         const response = await fetch(
-          `${githubApiUrl}/repos/${repoOwner}/${repoName}/git/trees/${branchName}?recursive=1`,
+          `${githubApiUrl}/repos/${repoOwner}/${repoName}/git/trees/${repoJson.default_branch}?recursive=1`,
           {
             headers: {
               Accept: 'application/vnd.github+json',

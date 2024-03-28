@@ -10,7 +10,6 @@ import Spinner from '~/components/ui/Spinner';
 import MonacoCodeEditor from '~/components/workspace/common/editor/MonacoCodeEditor';
 
 type Props = Readonly<{
-  branchName: string;
   className?: string;
   repoName: string;
   repoOwner: string;
@@ -26,14 +25,12 @@ export default function GithubRepositoryCodeViewer({
   className,
   repoName,
   repoOwner,
-  branchName,
 }: Props) {
   const intl = useIntl();
 
   const { data: filePaths, isInitialLoading: isFetchingFilePaths } =
     trpc.projects.submission.getGitHubRepositoryFilePaths.useQuery(
       {
-        branchName,
         repoName,
         repoOwner,
       },
