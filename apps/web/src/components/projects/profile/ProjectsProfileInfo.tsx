@@ -48,7 +48,7 @@ export default function ProjectsProfileInfo({
   return (
     <div className="flex flex-col gap-6 md:gap-8">
       <Section>
-        <div className="flex gap-6 md:items-center">
+        <div className="flex items-center gap-6">
           <ProjectsProfileAvatar
             points={projectsProfile.points}
             size="3xl"
@@ -78,53 +78,48 @@ export default function ProjectsProfileInfo({
           </div>
         </div>
       </Section>
-      <div className="flex flex-col justify-between gap-8 md:flex-row">
-        <div className="flex w-full flex-col gap-8 md:w-2/5">
-          {userProfile.bio && <ProjectsProfileBio bio={userProfile.bio} />}
-          {projectsProfile.motivations &&
-            projectsProfile.motivations.length > 0 && (
-              <ProjectsProfileMotivation
-                motivations={projectsProfile.motivations}
-              />
-            )}
-        </div>
-        <div className="flex w-full flex-col gap-8 md:w-2/5">
-          {projectsProfile.skillsProficient.length > 0 && (
-            <ProjectsProfileSkillsList
-              heading={intl.formatMessage({
-                defaultMessage: 'Proficient skills',
-                description:
-                  'Projects profile tech stack proficient section title',
-                id: 'WyHdb2',
-              })}
-              skills={projectsProfile.skillsProficient}
-              tooltipMessage={intl.formatMessage({
-                defaultMessage:
-                  'Familiar with these skills / tools / frameworks',
-                description:
-                  'Projects profile tech stack proficient section title',
-                id: '2yhoAr',
-              })}
+      <div className="grid grid-cols-2 gap-4 md:gap-8">
+        {userProfile.bio && <ProjectsProfileBio bio={userProfile.bio} />}
+        {projectsProfile.motivations &&
+          projectsProfile.motivations.length > 0 && (
+            <ProjectsProfileMotivation
+              motivations={projectsProfile.motivations}
             />
           )}
-          {projectsProfile.skillsToGrow.length > 0 && (
-            <ProjectsProfileSkillsList
-              heading={intl.formatMessage({
-                defaultMessage: 'Hoping to grow in',
-                description:
-                  'Projects profile tech stack I am hoping to grow section title',
-                id: 'M1iUIY',
-              })}
-              skills={projectsProfile.skillsToGrow}
-              tooltipMessage={intl.formatMessage({
-                defaultMessage: 'Hoping to grow in skills / tools / frameworks',
-                description:
-                  'Projects profile tech stack I am hoping to grow section title',
-                id: 'P3mHDw',
-              })}
-            />
-          )}
-        </div>
+        {projectsProfile.skillsProficient.length > 0 && (
+          <ProjectsProfileSkillsList
+            heading={intl.formatMessage({
+              defaultMessage: 'Proficient skills',
+              description:
+                'Projects profile tech stack proficient section title',
+              id: 'WyHdb2',
+            })}
+            skills={projectsProfile.skillsProficient}
+            tooltipMessage={intl.formatMessage({
+              defaultMessage: 'Familiar with these skills / tools / frameworks',
+              description:
+                'Projects profile tech stack proficient section title',
+              id: '2yhoAr',
+            })}
+          />
+        )}
+        {projectsProfile.skillsToGrow.length > 0 && (
+          <ProjectsProfileSkillsList
+            heading={intl.formatMessage({
+              defaultMessage: 'Hoping to grow in',
+              description:
+                'Projects profile tech stack I am hoping to grow section title',
+              id: 'M1iUIY',
+            })}
+            skills={projectsProfile.skillsToGrow}
+            tooltipMessage={intl.formatMessage({
+              defaultMessage: 'Hoping to grow in skills / tools / frameworks',
+              description:
+                'Projects profile tech stack I am hoping to grow section title',
+              id: 'P3mHDw',
+            })}
+          />
+        )}
       </div>
     </div>
   );
