@@ -3295,10 +3295,6 @@
     "defaultMessage": "<bold>You</bold> replied to <bold>yourself</bold> on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you replying to yourself on the challenge forum"
   },
-  "Q5Ta4B": {
-    "defaultMessage": "Number of challenges in the recommended skill plan of this skill",
-    "description": "Tooltip for skill plan challenges label"
-  },
   "Q7EpE5": {
     "defaultMessage": "HTML Questions",
     "description": "HTML questions category long title"
@@ -3658,6 +3654,10 @@
   "Sj1CaY": {
     "defaultMessage": "Practice developing inclusive and accessible web experiences.",
     "description": "Description for interview preparation focus area"
+  },
+  "SlcOi4": {
+    "defaultMessage": "Number of challenges completed in skill plan",
+    "description": "Tooltip for skill plan challenges label"
   },
   "Sp5xdN": {
     "defaultMessage": "{numberOfBlogs} articles",

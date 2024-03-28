@@ -11,7 +11,7 @@ type Props = Readonly<{
 }>;
 
 export default async function Page({ params }: Props) {
-  const { locale } = params;
+  const { locale, username } = params;
   const [{ viewerProjectsProfile }, { tracks }, userProfile] =
     await Promise.all([
       readViewerProjectsProfile(),
@@ -21,7 +21,7 @@ export default async function Page({ params }: Props) {
           projectsProfile: true,
         },
         where: {
-          username: params.username,
+          username,
         },
       }),
     ]);

@@ -4,10 +4,18 @@ import Text from '~/components/ui/Text';
 import type { ProjectsSkillRoadmapSectionData } from '../types';
 
 type Props = Readonly<{
+  canOpenDetails?: boolean;
   skillsRoadmap: ProjectsSkillRoadmapSectionData;
+  userProfile: React.ComponentProps<
+    typeof ProjectsSkillRoadmapGroupCard
+  >['userProfile'];
 }>;
 
-export default function ProjectsSkillRoadmapSection({ skillsRoadmap }: Props) {
+export default function ProjectsSkillRoadmapSection({
+  canOpenDetails,
+  skillsRoadmap,
+  userProfile,
+}: Props) {
   return (
     <div className="flex max-w-4xl flex-col gap-10">
       {skillsRoadmap.map((levelItem) => (
@@ -17,7 +25,12 @@ export default function ProjectsSkillRoadmapSection({ skillsRoadmap }: Props) {
           </Text>
           <div className="flex flex-col gap-4">
             {levelItem.items.map((group) => (
-              <ProjectsSkillRoadmapGroupCard key={group.key} group={group} />
+              <ProjectsSkillRoadmapGroupCard
+                key={group.key}
+                canOpenDetails={canOpenDetails}
+                group={group}
+                userProfile={userProfile}
+              />
             ))}
           </div>
         </div>

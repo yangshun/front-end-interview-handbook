@@ -15,7 +15,8 @@ type Props = Readonly<{
 
 export default function ProjectsSkillRoadmapGroupHeading({ group }: Props) {
   const { description, points, totalChallenges, completedChallenges } = group;
-  const completedAll = totalChallenges === completedChallenges;
+  const completedAll =
+    totalChallenges === completedChallenges && completedChallenges > 0;
 
   return (
     <div className="flex w-full flex-col gap-2">

@@ -19,11 +19,15 @@ import type { ProjectsSkillRoadmapSectionData } from '../types';
 type Props = Readonly<{
   children: ReactNode;
   skillsRoadmap: ProjectsSkillRoadmapSectionData;
+  userProfile: React.ComponentProps<
+    typeof ProjectsSkillRoadmapSection
+  >['userProfile'];
 }>;
 
 export default function ProjectsSkillRoadmapLayout({
   children,
   skillsRoadmap,
+  userProfile,
 }: Props) {
   const router = useI18nRouter();
   const segment = useSelectedLayoutSegment();
@@ -49,7 +53,11 @@ export default function ProjectsSkillRoadmapLayout({
         </Section>
       </div>
       <Section>
-        <ProjectsSkillRoadmapSection skillsRoadmap={skillsRoadmap} />
+        <ProjectsSkillRoadmapSection
+          canOpenDetails={true}
+          skillsRoadmap={skillsRoadmap}
+          userProfile={userProfile}
+        />
         <SlideOut
           enterFrom="end"
           isShown={segment != null}

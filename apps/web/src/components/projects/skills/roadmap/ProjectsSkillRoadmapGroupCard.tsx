@@ -19,7 +19,11 @@ import { ProjectsSkillIcons } from '../data/ProjectsSkillIcons';
 import type { ProjectsSkillRoadmapSectionGroup } from '../types';
 
 type Props = Readonly<{
+  canOpenDetails?: boolean;
   group: ProjectsSkillRoadmapSectionGroup;
+  userProfile: React.ComponentProps<
+    typeof ProjectsSkillRoadmapItemSummary
+  >['userProfile'];
 }>;
 
 function SkillItemDiamond() {
@@ -42,9 +46,14 @@ function SkillItemDiamond() {
   );
 }
 
-export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
+export default function ProjectsSkillRoadmapGroupCard({
+  canOpenDetails,
+  group,
+  userProfile,
+}: Props) {
   const [isExpanded, setIsExpanded] = useState(
-    group.completedChallenges < group.totalChallenges,
+    group.totalChallenges === 0 ||
+      group.completedChallenges < group.totalChallenges,
   );
   const intl = useIntl();
 
@@ -105,7 +114,11 @@ export default function ProjectsSkillRoadmapGroupCard({ group }: Props) {
                   )}>
                   <SkillItemDiamond />
                 </div>
-                <ProjectsSkillRoadmapItemSummary skillSummary={skillSummary} />
+                <ProjectsSkillRoadmapItemSummary
+                  canOpenDetails={canOpenDetails}
+                  skillSummary={skillSummary}
+                  userProfile={userProfile}
+                />
               </div>
             ))}
           </div>
