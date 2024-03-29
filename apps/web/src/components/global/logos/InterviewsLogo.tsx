@@ -8,6 +8,8 @@ export default function InterviewsLogo({ height = 20 }: Props) {
   return (
     <svg
       className={themeFillBrandColor}
+      data-theme="interviews"
+      fill="none"
       height={height}
       viewBox="0 0 144 32"
       xmlns="http://www.w3.org/2000/svg">

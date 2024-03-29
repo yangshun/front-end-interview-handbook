@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect } from 'react';
+
 import useProjectsRedirectToOnboardingIfNecessary from '../hooks/useProjectsRedirectToOnboardingIfNecessary';
 
 type Props = Readonly<{
@@ -9,22 +11,23 @@ type Props = Readonly<{
 export default function ProjectsRootLayout({ children }: Props) {
   useProjectsRedirectToOnboardingIfNecessary();
 
+  useEffect(() => {
+    document.body.dataset.theme = 'projects';
+
+    return () => {
+      delete document.body.dataset.theme;
+    };
+  }, []);
+
   return (
     <>
-      <style id="theme-variables">
-        {`:root{${Object.entries({
-          dark: '#2FBC78',
-          darker: '#165737',
-          darkest: '#092417',
-          default: '#36D387',
-          light: '#3FF59D',
-          lighter: '#7EFFC1',
-          lightest: '#C9FFE5',
-        })
-          .map(([shade, hex]) => `--brand-${shade}: ${hex};`)
-          .join('')}}`}
-      </style>
-      {children ?? null}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `try { document.body.dataset.theme = 'projects'; } catch (_) { }`,
+        }}
+        id="app-theme"
+      />
+      {children}
     </>
   );
 }

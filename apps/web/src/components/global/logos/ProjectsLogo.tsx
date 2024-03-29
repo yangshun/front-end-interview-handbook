@@ -9,6 +9,7 @@ export default function ProjectsLogo({ height = 20 }: Props) {
   return (
     <svg
       className={themeFillBrandColor}
+      data-theme="projects"
       fill="none"
       height={height}
       viewBox="0 0 144 32"

@@ -1,0 +1,20 @@
+:root,
+[data-theme='interviews'] {
+  --brand-darkest: #3a2888;
+  --brand-darker: #5133cf;
+  --brand-dark: #7063f3;
+  --brand-default: #948cf9;
+  --brand-light: #bab5fd;
+  --brand-lighter: #d6d5fe;
+  --brand-lightest: #f3f0ff;
+}
+
+[data-theme='projects'] {
+  --brand-darkest: #092417;
+  --brand-darker: #165737;
+  --brand-dark: #2fbc78;
+  --brand-default: #36d387;
+  --brand-light: #3ff59d;
+  --brand-lighter: #7effc1;
+  --brand-lightest: #c9ffe5;
+}

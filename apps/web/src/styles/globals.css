@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import './font.css';
+@import './themes.css';
 
 * {
   box-sizing: border-box;

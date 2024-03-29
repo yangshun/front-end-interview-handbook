@@ -1,5 +1,7 @@
 'use client';
 
+import clsx from 'clsx';
+
 import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
 import AppThemeSelect from '~/components/global/dark/AppThemeSelect';
 import AccordionExamples from '~/components/ui/Accordion/AccordionExamples';
@@ -38,13 +40,20 @@ import ToastExamples from '~/components/ui/Toast/ToastExamples';
 import TooltipExamples from '~/components/ui/Tooltip/TooltipExamples';
 import TypeaheadExamples from '~/components/ui/Typeahead/TypeaheadExamples';
 
+import ProductThemeSelect from './ProductThemeSelect';
+
 export default function UILibraryPage() {
   const { appThemePreference, setAppThemePreference } =
     useAppThemePreferences();
 
   return (
     <div className="grid gap-y-24 py-12 lg:py-24">
-      <div className="z-fixed fixed bottom-4 right-4">
+      <div
+        className={clsx(
+          'flex flex-col gap-2',
+          'z-fixed fixed bottom-4 right-4',
+        )}>
+        <ProductThemeSelect />
         <AppThemeSelect
           colorScheme={appThemePreference}
           display="block"
