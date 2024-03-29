@@ -23,6 +23,7 @@ loader.config({
 type Props = Readonly<
   {
     filePath: string;
+    keepCurrentModel?: boolean;
     onFocus?: () => void;
     onMount?: (codeEditor: editor.IStandaloneCodeEditor) => void;
     value: string | null;
@@ -47,6 +48,7 @@ export default function MonacoCodeEditor({
   onFocus,
   wordWrap = false,
   readOnly = false,
+  keepCurrentModel = true,
 }: Props) {
   const monaco = useMonaco();
   const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
@@ -61,7 +63,7 @@ export default function MonacoCodeEditor({
   return (
     <div ref={editorContainerRef} className="size-full" onFocus={onFocus}>
       <MonacoEditor
-        keepCurrentModel={true}
+        keepCurrentModel={keepCurrentModel}
         language={language}
         loading={
           <EmptyState

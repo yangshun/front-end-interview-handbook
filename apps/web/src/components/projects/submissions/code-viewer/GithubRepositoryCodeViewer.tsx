@@ -99,6 +99,7 @@ export default function GithubRepositoryCodeViewer({
     return (
       <MonacoCodeEditor
         filePath={activeFile}
+        keepCurrentModel={false}
         readOnly={true}
         value={fileContents}
         wordWrap={true}
