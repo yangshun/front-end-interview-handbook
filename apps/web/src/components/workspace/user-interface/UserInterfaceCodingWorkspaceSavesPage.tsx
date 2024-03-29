@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import footerlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
-import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
+import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import type {
   QuestionFramework,
   QuestionMetadata,
@@ -45,7 +45,7 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
   const router = useI18nRouter();
   const { metadata, skeletonBundle } = question;
 
-  const { appTheme } = useAppThemePreferences();
+  const { colorScheme } = useColorSchemePreferences();
 
   const { files: defaultFiles, workspace } = skeletonBundle;
 
@@ -74,7 +74,7 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
           style={{
             height: footerlessContainerHeight,
           }}
-          theme={appTheme === 'dark' ? 'dark' : undefined}>
+          theme={colorScheme === 'dark' ? 'dark' : undefined}>
           <UserInterfaceCodingWorkspace
             activeTabScrollIntoView={true}
             canViewPremiumContent={canViewPremiumContent}

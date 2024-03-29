@@ -23,8 +23,8 @@ import useUserProfile from '~/hooks/user/useUserProfile';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
-import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
-import useAppThemeOptions from '~/components/global/dark/useAppThemeOptions';
+import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
+import useColorSchemeOptions from '~/components/global/color-scheme/useColorSchemeOptions';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
@@ -127,25 +127,25 @@ function useSidebarItems(): Readonly<{
   };
 }
 
-function AppThemeSubMenu() {
-  const { appThemePreference, appTheme, setAppThemePreference } =
-    useAppThemePreferences();
+function ColorSchemeSubMenu() {
+  const { colorSchemePreference, colorScheme, setColorSchemePreference } =
+    useColorSchemePreferences();
 
-  const appThemeOptions = useAppThemeOptions();
+  const colorSchemeOptions = useColorSchemeOptions();
   const Icon =
-    appThemeOptions.filter((option) => option.value === appTheme)?.[0].icon ??
-    RiMoonLine;
+    colorSchemeOptions.filter((option) => option.value === colorScheme)?.[0]
+      .icon ?? RiMoonLine;
 
   return (
     <DropdownMenu.Sub icon={Icon} label="Theme">
-      {appThemeOptions.map(({ icon, label, value }) => (
+      {colorSchemeOptions.map(({ icon, label, value }) => (
         <DropdownMenu.Item
           key={value}
           icon={icon}
-          isSelected={appThemePreference === value}
+          isSelected={colorSchemePreference === value}
           label={label}
           onClick={() => {
-            setAppThemePreference(value);
+            setColorSchemePreference(value);
           }}
         />
       ))}
@@ -331,7 +331,7 @@ export function ProjectsSidebarExpanded({
             label="More"
             showChevron={false}
             size="sm">
-            <AppThemeSubMenu />
+            <ColorSchemeSubMenu />
             {profile && (
               <DropdownMenu.Item
                 href="/projects/settings"
@@ -430,7 +430,7 @@ function ProjectsSidebarCollapsed({
                 label="Discord"
               />
             )}
-            <AppThemeSubMenu />
+            <ColorSchemeSubMenu />
             {profile && (
               <DropdownMenu.Item
                 href="/projects/settings"

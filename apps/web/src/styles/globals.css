@@ -46,7 +46,7 @@ a {
   }
 }
 
-[data-mode='dark'] {
+[data-color-scheme='dark'] {
   color-scheme: dark; /* Makes some default elements (e.g. scrollbar) dark */
 }
 

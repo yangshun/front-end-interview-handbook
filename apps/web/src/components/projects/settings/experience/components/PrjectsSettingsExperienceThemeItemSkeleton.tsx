@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import type { AppTheme } from '~/components/global/dark/AppThemePreferencesProvider';
+import type { ColorScheme } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 
 function Shape({
   width,
@@ -10,7 +10,7 @@ function Shape({
 }: {
   className?: string;
   height?: number;
-  theme: AppTheme;
+  theme: ColorScheme;
   width?: number;
 }) {
   return (
@@ -28,7 +28,7 @@ function Shape({
 export default function ProjectsSettingsExperienceThemeItemSkeleton({
   theme,
 }: {
-  theme: AppTheme;
+  theme: ColorScheme;
 }) {
   const mediumColor = '!bg-[#eab308]';
 

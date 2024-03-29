@@ -11,7 +11,7 @@ import { I18nProvider } from '~/next-i18nostic/src';
 import type { Database } from '~/supabase/database.types';
 
 import AppContextProvider from './AppContextProvider';
-import AppThemePreferencesProvider from './dark/AppThemePreferencesProvider';
+import ColorSchemePreferencesProvider from './color-scheme/ColorSchemePreferencesProvider';
 import ScrollManagementProvider from './ScrollManagementProvider';
 import TrpcClientProvider from './TrpcClientProvider';
 import UserPreferencesProvider from './UserPreferencesProvider';
@@ -44,7 +44,7 @@ export default function GlobalProviders({
           defaultLocale={nextI18nosticConfig.defaultLocale}
           locale={locale}
           messages={intlMessages}>
-          <AppThemePreferencesProvider>
+          <ColorSchemePreferencesProvider>
             <SessionContextProvider supabaseClient={supabaseClient}>
               <AppContextProvider>
                 <ScrollManagementProvider>
@@ -58,7 +58,7 @@ export default function GlobalProviders({
                 </ScrollManagementProvider>
               </AppContextProvider>
             </SessionContextProvider>
-          </AppThemePreferencesProvider>
+          </ColorSchemePreferencesProvider>
         </IntlProvider>
       </I18nProvider>
     </TrpcClientProvider>

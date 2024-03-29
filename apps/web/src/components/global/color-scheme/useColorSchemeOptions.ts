@@ -1,12 +1,12 @@
 import { RiComputerLine, RiMoonLine, RiSunLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import type { AppThemePreference } from '~/components/global/dark/AppThemePreferencesProvider';
+import type { ColorSchemePreference } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 
-export default function useAppThemeOptions(): Array<{
+export default function useColorSchemeOptions(): Array<{
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   label: string;
-  value: AppThemePreference;
+  value: ColorSchemePreference;
 }> {
   const intl = useIntl();
 
@@ -15,8 +15,8 @@ export default function useAppThemeOptions(): Array<{
       icon: RiSunLine,
       label: intl.formatMessage({
         defaultMessage: 'Light',
-        description: 'Light theme option label',
-        id: 'o6ktM9',
+        description: 'Light color scheme option label',
+        id: 'IYc+7l',
       }),
       value: 'light',
     },
@@ -24,8 +24,8 @@ export default function useAppThemeOptions(): Array<{
       icon: RiMoonLine,
       label: intl.formatMessage({
         defaultMessage: 'Dark',
-        description: 'Dark theme option label',
-        id: 'lqvY0+',
+        description: 'Dark color scheme option label',
+        id: 'Zm3csd',
       }),
       value: 'dark',
     },
@@ -33,8 +33,8 @@ export default function useAppThemeOptions(): Array<{
       icon: RiComputerLine,
       label: intl.formatMessage({
         defaultMessage: 'System',
-        description: 'System theme option label',
-        id: 'UTE1L6',
+        description: 'System color scheme option label',
+        id: 'GR83Ca',
       }),
       value: 'system',
     },

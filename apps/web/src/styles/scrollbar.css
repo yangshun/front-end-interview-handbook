@@ -28,7 +28,7 @@
     border-radius: 4px;
   }
 
-  [data-mode='dark'] .thin-scrollbar::-webkit-scrollbar-thumb {
+  [data-color-scheme='dark'] .thin-scrollbar::-webkit-scrollbar-thumb {
     background: #ffffff22;
   }
 
@@ -36,7 +36,7 @@
     background: #00000044;
   }
 
-  [data-mode='dark'] .thin-scrollbar::-webkit-scrollbar-thumb:hover {
+  [data-color-scheme='dark'] .thin-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #ffffff44;
   }
 }

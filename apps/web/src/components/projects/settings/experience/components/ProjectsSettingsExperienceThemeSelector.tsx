@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
-import type { AppThemePreference } from '~/components/global/dark/AppThemePreferencesProvider';
-import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
-import useAppThemeOptions from '~/components/global/dark/useAppThemeOptions';
+import type { ColorSchemePreference } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
+import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
+import useColorSchemeOptions from '~/components/global/color-scheme/useColorSchemeOptions';
 import ProjectsSettingsExperienceThemeItemSkeleton from '~/components/projects/settings/experience/components/PrjectsSettingsExperienceThemeItemSkeleton';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -16,10 +16,13 @@ import {
 import * as RadixRadioGroup from '@radix-ui/react-radio-group';
 
 export default function ProjectsSettingsExperienceThemeSelector() {
-  const { appThemePreference, setAppThemePreference, resolvedSystemAppTheme } =
-    useAppThemePreferences();
+  const {
+    colorSchemePreference,
+    setColorSchemePreference,
+    resolvedSystemColorScheme,
+  } = useColorSchemePreferences();
 
-  const appThemeOptions = useAppThemeOptions();
+  const colorSchemeOptions = useColorSchemeOptions();
 
   return (
     <Section>
@@ -33,11 +36,11 @@ export default function ProjectsSettingsExperienceThemeSelector() {
         </Heading>
         <RadixRadioGroup.Root
           className={clsx('flex flex-wrap gap-x-6 gap-y-6')}
-          value={appThemePreference}
+          value={colorSchemePreference}
           onValueChange={(val) => {
-            setAppThemePreference(val as AppThemePreference);
+            setColorSchemePreference(val as ColorSchemePreference);
           }}>
-          {appThemeOptions.map((option) => (
+          {colorSchemeOptions.map((option) => (
             <div
               key={option.value}
               className={clsx(
@@ -46,13 +49,13 @@ export default function ProjectsSettingsExperienceThemeSelector() {
                 themeGlassyBorder,
               )}
               onClick={() =>
-                setAppThemePreference(option.value as AppThemePreference)
+                setColorSchemePreference(option.value as ColorSchemePreference)
               }>
               <div className="mt-4 flex flex-col gap-2">
                 <ProjectsSettingsExperienceThemeItemSkeleton
                   theme={
                     option.value === 'system'
-                      ? resolvedSystemAppTheme
+                      ? resolvedSystemColorScheme
                       : option.value
                   }
                 />

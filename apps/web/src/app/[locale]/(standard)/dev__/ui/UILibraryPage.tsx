@@ -2,8 +2,8 @@
 
 import clsx from 'clsx';
 
-import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
-import AppThemeSelect from '~/components/global/dark/AppThemeSelect';
+import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
+import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
 import AccordionExamples from '~/components/ui/Accordion/AccordionExamples';
 import AlertExamples from '~/components/ui/Alert/AlertExamples';
 import AnchorExamples from '~/components/ui/Anchor/AnchorExamples';
@@ -43,8 +43,8 @@ import TypeaheadExamples from '~/components/ui/Typeahead/TypeaheadExamples';
 import ProductThemeSelect from './ProductThemeSelect';
 
 export default function UILibraryPage() {
-  const { appThemePreference, setAppThemePreference } =
-    useAppThemePreferences();
+  const { colorSchemePreference, setColorSchemePreference } =
+    useColorSchemePreferences();
 
   return (
     <div className="grid gap-y-24 py-12 lg:py-24">
@@ -54,10 +54,10 @@ export default function UILibraryPage() {
           'z-fixed fixed bottom-4 right-4',
         )}>
         <ProductThemeSelect />
-        <AppThemeSelect
-          colorScheme={appThemePreference}
+        <ColorSchemeSelect
+          colorScheme={colorSchemePreference}
           display="block"
-          onChange={setAppThemePreference}
+          onChange={setColorSchemePreference}
         />
       </div>
       <Container>

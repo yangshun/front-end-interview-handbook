@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { useId, useMemo } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
+import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -24,7 +24,7 @@ type PortfolioFeature = {
 
 function usePortfolioFeatures(): Array<PortfolioFeature> {
   const intl = useIntl();
-  const { appTheme } = useAppThemePreferences();
+  const { colorScheme } = useColorSchemePreferences();
 
   return useMemo(
     () => [
@@ -37,7 +37,7 @@ function usePortfolioFeatures(): Array<PortfolioFeature> {
           id: 'aTEHV0',
         }),
         imgSrc:
-          appTheme === 'light'
+          colorScheme === 'light'
             ? 'img/marketing/projects/beautiful-designs-light.svg'
             : 'img/marketing/projects/beautiful-designs-dark.svg',
         key: 'beautiful-designs',
@@ -57,7 +57,7 @@ function usePortfolioFeatures(): Array<PortfolioFeature> {
           id: 'yw92sr',
         }),
         imgSrc:
-          appTheme === 'light'
+          colorScheme === 'light'
             ? 'img/marketing/projects/personalized-projects-light.svg'
             : 'img/marketing/projects/personalized-projects-dark.svg',
         key: 'personalized-projects',
@@ -78,7 +78,7 @@ function usePortfolioFeatures(): Array<PortfolioFeature> {
           id: 'EMiuDR',
         }),
         imgSrc:
-          appTheme === 'light'
+          colorScheme === 'light'
             ? 'img/marketing/projects/build-entire-component-tracks-light.svg'
             : 'img/marketing/projects/build-entire-component-tracks-dark.svg',
         key: 'build-entire-component-tracks',
@@ -91,7 +91,7 @@ function usePortfolioFeatures(): Array<PortfolioFeature> {
         }),
       },
     ],
-    [appTheme, intl],
+    [colorScheme, intl],
   );
 }
 

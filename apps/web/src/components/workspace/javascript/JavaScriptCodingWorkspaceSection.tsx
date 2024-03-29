@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
-import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
+import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import type {
   QuestionCodingWorkingLanguage,
   QuestionJavaScript,
@@ -36,7 +36,7 @@ export default function JavaScriptCodingWorkspaceSection({
   timeoutLoggerInstance,
   embed = false,
 }: Props) {
-  const { appTheme } = useAppThemePreferences();
+  const { colorScheme } = useColorSchemePreferences();
 
   const { workspace, files, skeleton } = question;
   const loadedCode = loadLocalJavaScriptQuestionCode(
@@ -79,7 +79,7 @@ export default function JavaScriptCodingWorkspaceSection({
           },
           visibleFiles: [workspace.main, workspace.run],
         }}
-        theme={appTheme === 'dark' ? 'dark' : undefined}>
+        theme={colorScheme === 'dark' ? 'dark' : undefined}>
         <JavaScriptCodingWorkspace
           canViewPremiumContent={canViewPremiumContent}
           defaultFiles={skeletonFiles}

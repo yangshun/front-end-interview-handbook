@@ -1,4 +1,4 @@
-import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
+import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import type { QuestionUserInterfaceBundle } from '~/components/interviews/questions/common/QuestionsTypes';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
@@ -15,12 +15,12 @@ type Props = Readonly<{
 export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
   bundle,
 }: Props) {
-  const { appTheme } = useAppThemePreferences();
+  const { colorScheme } = useColorSchemePreferences();
   const { workspace, files } = bundle;
   const { dispatch } = useUserInterfaceCodingWorkspaceTilesContext();
 
   return (
-    <div className="flex size-full flex-col">
+    <div className="size-full flex flex-col">
       <Banner size="xs" variant="primary">
         You're viewing a preview of the solution.{' '}
         <Anchor
@@ -54,7 +54,7 @@ export default function UserInterfaceCodingWorkspaceSolutionPreviewTab({
               'sp-wrapper': '!w-full !h-full !text-sm flex-1',
             },
           }}
-          theme={appTheme === 'dark' ? 'dark' : undefined}>
+          theme={colorScheme === 'dark' ? 'dark' : undefined}>
           <SandpackPreview showNavigator={true} showOpenInCodeSandbox={false} />
         </SandpackProvider>
       </div>

@@ -1,9 +1,9 @@
-[data-mode='dark'] .glassbox {
+[data-color-scheme='dark'] .glassbox {
   background: hsla(0, 0%, 9%, 0.3);
   position: relative;
 }
 
-[data-mode='dark'] .glassbox::before {
+[data-color-scheme='dark'] .glassbox::before {
   background: conic-gradient(
       from 90deg at 50% 50%,
       #3f3f4640 0deg,

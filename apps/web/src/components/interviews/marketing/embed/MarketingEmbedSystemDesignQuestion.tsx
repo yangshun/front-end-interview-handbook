@@ -593,7 +593,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
                 tabs={[
                   { label: 'Requirements', value: 'requirements' },
                   { label: 'Architecture', value: 'architecture' },
-                  { label: 'Data Model', value: 'data-model' },
+                  { label: 'Data Model', value: 'data-color-schemel' },
                   { label: 'API', value: 'interface' },
                   { label: 'Optimizations', value: 'optimizations' },
                 ]}
@@ -604,7 +604,7 @@ export default function MarketingEmbedSystemDesignQuestion() {
             <Prose textSize="sm">
               {selectedTab === 'requirements' && <Requirements />}
               {selectedTab === 'architecture' && <Architecture />}
-              {selectedTab === 'data-model' && <DataModel />}
+              {selectedTab === 'data-color-schemel' && <DataModel />}
               {selectedTab === 'interface' && <Interface />}
               {selectedTab === 'optimizations' && <Optimizations />}
               <Divider />

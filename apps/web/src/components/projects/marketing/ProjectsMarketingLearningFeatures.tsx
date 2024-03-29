@@ -20,7 +20,7 @@ import {
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
+import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
@@ -48,7 +48,7 @@ type LearningFeature = {
 
 function useLearningFeatures(): Array<LearningFeature> {
   const intl = useIntl();
-  const { appTheme } = useAppThemePreferences();
+  const { colorScheme } = useColorSchemePreferences();
 
   return useMemo(
     () => [
@@ -61,7 +61,7 @@ function useLearningFeatures(): Array<LearningFeature> {
           id: 'l/ErWd',
         }),
         imgSrc:
-          appTheme === 'light'
+          colorScheme === 'light'
             ? 'img/marketing/projects/learn-by-building-light.svg'
             : 'img/marketing/projects/learn-by-building-dark.svg',
         key: 'learn-by-building',
@@ -104,7 +104,7 @@ function useLearningFeatures(): Array<LearningFeature> {
           id: 'mlADLk',
         }),
         imgSrc:
-          appTheme === 'light'
+          colorScheme === 'light'
             ? 'img/marketing/projects/start-building-light.svg'
             : 'img/marketing/projects/start-building-dark.svg',
         key: 'start-building',
@@ -157,7 +157,7 @@ function useLearningFeatures(): Array<LearningFeature> {
           id: '7WbXyE',
         }),
         imgSrc:
-          appTheme === 'light'
+          colorScheme === 'light'
             ? 'img/marketing/projects/practical-foundation-light.svg'
             : 'img/marketing/projects/practical-foundation-dark.svg',
         key: 'practical-foundation',
@@ -209,7 +209,7 @@ function useLearningFeatures(): Array<LearningFeature> {
           id: 'LDJsoJ',
         }),
         imgSrc:
-          appTheme === 'light'
+          colorScheme === 'light'
             ? 'img/marketing/projects/train-any-front-end-skill-light.svg'
             : 'img/marketing/projects/train-any-front-end-skill-dark.svg',
         key: 'train-any-frontend-skill',
@@ -261,7 +261,7 @@ function useLearningFeatures(): Array<LearningFeature> {
           id: 'c7uUxL',
         }),
         imgSrc:
-          appTheme === 'light'
+          colorScheme === 'light'
             ? 'img/marketing/projects/gamify-your-learning-light.svg'
             : 'img/marketing/projects/gamify-your-learning-dark.svg',
         key: 'gamify-your-learning',
@@ -313,7 +313,7 @@ function useLearningFeatures(): Array<LearningFeature> {
           id: 'Ludb5F',
         }),
         imgSrc:
-          appTheme === 'light'
+          colorScheme === 'light'
             ? 'img/marketing/projects/learn-together-light.svg'
             : 'img/marketing/projects/learn-together-dark.svg',
         key: 'learn-together',
@@ -357,7 +357,7 @@ function useLearningFeatures(): Array<LearningFeature> {
         }),
       },
     ],
-    [appTheme, intl],
+    [colorScheme, intl],
   );
 }
 

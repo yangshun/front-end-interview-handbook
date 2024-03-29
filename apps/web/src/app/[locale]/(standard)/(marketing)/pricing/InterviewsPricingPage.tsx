@@ -72,7 +72,7 @@ export default function InterviewsPricingPage({
         'lg:pt-8',
         'bg-[#070708]',
       )}
-      data-mode="dark">
+      data-color-scheme="dark">
       <InterviewsPricingSection
         countryCode={countryCode}
         countryName={countryName}

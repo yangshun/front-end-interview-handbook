@@ -10,7 +10,7 @@ import MarketingAffiliateWhyJoinUs from './MarketingAffiliateWhyJoinUs';
 
 export default function AffiliatePage() {
   return (
-    <div className="bg-[#070708]" data-mode="dark">
+    <div className="bg-[#070708]" data-color-scheme="dark">
       <MarketingAffiliateHero />
       <Section>
         <MarketingAffiliateHowDoesItWork />

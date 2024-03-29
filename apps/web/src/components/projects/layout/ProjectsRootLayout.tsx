@@ -25,7 +25,7 @@ export default function ProjectsRootLayout({ children }: Props) {
         dangerouslySetInnerHTML={{
           __html: `try { document.body.dataset.theme = 'projects'; } catch (_) { }`,
         }}
-        id="app-theme"
+        id="product-theme"
       />
       {children}
     </>

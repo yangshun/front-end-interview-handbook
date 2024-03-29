@@ -54,7 +54,7 @@ export default function DropdownMenuSub({
       <Portal>
         <SubContent
           className={dropdownContentClassName}
-          data-mode={__forceDark ? 'dark' : undefined}>
+          data-color-scheme={__forceDark ? 'dark' : undefined}>
           {children}
         </SubContent>
       </Portal>

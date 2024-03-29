@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function PortfolioReviewPage() {
   return (
-    <main className="bg-neutral-950" data-mode="dark">
+    <main className="bg-neutral-950" data-color-scheme="dark">
       <ResumeReviewHero />
       <ResumeReviewLogoWall />
       <ResumeReviewProcess />

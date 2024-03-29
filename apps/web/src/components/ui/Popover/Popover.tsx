@@ -41,7 +41,7 @@ export default function Popover({
         <Content
           align={align}
           className={clsx(popoverContentClassName, panelWidthClasses[width])}
-          data-mode={__forceDark ? 'dark' : undefined}
+          data-color-scheme={__forceDark ? 'dark' : undefined}
           side={side}
           sideOffset={8}>
           {children}

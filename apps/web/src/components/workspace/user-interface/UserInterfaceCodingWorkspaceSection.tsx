@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
-import { useAppThemePreferences } from '~/components/global/dark/AppThemePreferencesProvider';
+import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import type {
   QuestionFramework,
   QuestionMetadata,
@@ -42,7 +42,7 @@ export default function UserInterfaceCodingWorkspaceSection({
   timeoutLoggerInstance,
   onFrameworkChange,
 }: Props) {
-  const { appTheme } = useAppThemePreferences();
+  const { colorScheme } = useColorSchemePreferences();
 
   const loadedFiles = loadLocalUserInterfaceQuestionCode(
     question,
@@ -87,7 +87,7 @@ export default function UserInterfaceCodingWorkspaceSection({
           },
           visibleFiles: workspace?.visibleFiles ?? undefined,
         }}
-        theme={appTheme === 'dark' ? 'dark' : undefined}>
+        theme={colorScheme === 'dark' ? 'dark' : undefined}>
         <UserInterfaceCodingWorkspace
           activeTabScrollIntoView={activeTabScrollIntoView}
           canViewPremiumContent={canViewPremiumContent}

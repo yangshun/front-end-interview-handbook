@@ -21,7 +21,7 @@ import {
 } from '~/data/QuestionFormats';
 
 import I18nSelect from '~/components/common/i18n/I18nSelect';
-import AppThemeSelect from '~/components/global/dark/AppThemeSelect';
+import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Badge from '~/components/ui/Badge';
@@ -39,10 +39,10 @@ import {
 
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
-import NavAppThemeDropdown from './NavAppThemeDropdown';
+import NavColorSchemeDropdown from './NavColorSchemeDropdown';
 import NavLocaleDropdown from './NavLocaleDropdown';
 import NavProfileIcon from './NavProfileIcon';
-import { useAppThemePreferences } from '../dark/AppThemePreferencesProvider';
+import { useColorSchemePreferences } from '../color-scheme/ColorSchemePreferencesProvider';
 import LogoLink from '../logos/LogoLink';
 
 import { useUser } from '@supabase/auth-helpers-react';
@@ -619,8 +619,8 @@ function useUserNavigationLinks() {
 // }
 
 export default function NavbarImpl() {
-  const { appThemePreference, setAppThemePreference } =
-    useAppThemePreferences();
+  const { colorSchemePreference, setColorSchemePreference } =
+    useColorSchemePreferences();
   const user = useUser();
   const { isLoading: isUserProfileLoading, userProfile } = useUserProfile();
   const intl = useIntl();
@@ -637,7 +637,7 @@ export default function NavbarImpl() {
     <>
       {/* <SearchButton /> */}
       <NavLocaleDropdown />
-      <NavAppThemeDropdown />
+      <NavColorSchemeDropdown />
       {!isPremium && (
         <Button
           href="/pricing"
@@ -687,10 +687,10 @@ export default function NavbarImpl() {
               router.push(pathname, { locale: newLocale });
             }}
           />
-          <AppThemeSelect
-            colorScheme={appThemePreference}
+          <ColorSchemeSelect
+            colorScheme={colorSchemePreference}
             display="block"
-            onChange={setAppThemePreference}
+            onChange={setColorSchemePreference}
           />
         </div>
         {isLoggedIn && (

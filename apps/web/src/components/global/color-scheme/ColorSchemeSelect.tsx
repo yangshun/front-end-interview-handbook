@@ -1,25 +1,25 @@
 import { useIntl } from 'react-intl';
 
-import useAppThemeOptions from '~/components/global/dark/useAppThemeOptions';
+import useColorSchemeOptions from '~/components/global/color-scheme/useColorSchemeOptions';
 import type { SelectDisplay } from '~/components/ui/Select';
 import Select from '~/components/ui/Select';
 
-import type { AppThemePreference } from './AppThemePreferencesProvider';
+import type { ColorSchemePreference } from './ColorSchemePreferencesProvider';
 
 type Props = Readonly<{
-  colorScheme: AppThemePreference;
+  colorScheme: ColorSchemePreference;
   display?: SelectDisplay;
-  onChange: (appThemePreference: AppThemePreference) => void;
+  onChange: (colorSchemePreference: ColorSchemePreference) => void;
 }>;
 
-export default function AppThemeSelect({
+export default function ColorSchemeSelect({
   display,
   colorScheme,
   onChange,
 }: Props) {
   const intl = useIntl();
 
-  const appThemeOptions = useAppThemeOptions();
+  const colorSchemeOptions = useColorSchemeOptions();
 
   return (
     <Select
@@ -30,7 +30,7 @@ export default function AppThemeSelect({
         description: 'Change site theme button label',
         id: 'n4aKYo',
       })}
-      options={appThemeOptions}
+      options={colorSchemeOptions}
       size="sm"
       value={colorScheme}
       onChange={onChange}

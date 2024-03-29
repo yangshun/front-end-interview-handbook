@@ -8,7 +8,7 @@ import VercelAnalytics from '~/components/global/analytics/VercelAnalytics';
 import WebVitals from '~/components/global/analytics/WebVitals';
 import GlobalBannerDisplayScript from '~/components/global/banners/GlobalBannerDisplayScript';
 import I18nBetaBanner from '~/components/global/banners/I18nBetaBanner';
-import AppThemeScript from '~/components/global/dark/AppThemeScript';
+import ColorSchemeScript from '~/components/global/color-scheme/ColorSchemeScript';
 import FirstPromoter from '~/components/global/FirstPromoter';
 import GlobalProviders from '~/components/global/GlobalProviders';
 import { Toaster } from '~/components/global/toasts/Toaster';
@@ -27,15 +27,14 @@ type Props = Readonly<{
 export default function RootLayout({ children, intlMessages, locale }: Props) {
   return (
     <html
-      // The default is dark.
-      data-mode="dark"
+      data-color-scheme="dark"
       lang={locale.split('-')[0]}
       suppressHydrationWarning={true}
       // So that browsers don't offer translations for a supported locale.
       translate={nextI18nConfig.locales.includes(locale) ? 'no' : undefined}>
       <head>
         {/* Important to inject in head to get it to run as early as possible. */}
-        <AppThemeScript />
+        <ColorSchemeScript />
         <GlobalBannerDisplayScript />
       </head>
       <body
