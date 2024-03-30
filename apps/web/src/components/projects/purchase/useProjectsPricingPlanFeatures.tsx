@@ -41,12 +41,11 @@ export default function useProjectsPricingPlanFeatures(
     },
     componentTracks: {
       description: (
-        <div className="flex flex-col gap-y-1.5 font-medium">
+        <div className="flex flex-col">
           <FormattedMessage
-            defaultMessage="<keywords>Component tracks are collections of components which make up component libraries for specific practical use cases e.g. Marketing, E-Commerce, or even design systems. Building component tracks can leave a strong impression on potential employers and recruiters, showcasing your expertise and versatility in building a variety of components for common use cases, which is much more impressive than building individual projects.</keywords>"
+            defaultMessage="Component tracks are collections of components which make up component libraries for specific practical use cases e.g. Marketing, E-Commerce, or even design systems. Building component tracks can leave a strong impression on potential employers and recruiters, showcasing your expertise and versatility in building a variety of components for common use cases, which is much more impressive than building individual projects."
             description="Description for component tracks feature"
-            id="zKAE+G"
-            values={{ keywords: (chunks) => <span>{chunks}</span> }}
+            id="Qg2LjE"
           />
         </div>
       ),
@@ -65,21 +64,29 @@ export default function useProjectsPricingPlanFeatures(
     },
     credits: {
       description: (
-        <div className="flex flex-col gap-y-1.5 font-medium">
-          <FormattedMessage
-            defaultMessage="<keywords>Upon purchasing premium, you will be given a number of project unlocks. A project unlock gives you access to all premium features in a free project (figma files, official solutions & guides from senior engineers), OR can unlock a premium challenge.</keywords><keywords>Even when you are not actively subscribed, unspent unlocks will roll over to the next month and remain accessible when you repurchase premium.</keywords>"
-            description="Description for unlocks feature"
-            id="ptZwYq"
-            values={{ keywords: (chunks) => <span>{chunks}</span> }}
-          />
+        <div className="flex flex-col gap-y-2">
+          <p>
+            <FormattedMessage
+              defaultMessage="Upon purchasing premium, you will be given a number of premium credits. A premium credit gives you access to all premium features in a free project (Figma files, official solutions & guides from senior engineers), or can unlock a premium challenge."
+              description="Description of premium feature"
+              id="uAAJxp"
+            />
+          </p>
+          <p>
+            <FormattedMessage
+              defaultMessage="Even when you are not actively subscribed, unspent premium credits will roll over to the next month. However, they can only be used when you are an active premium member."
+              description="Description of premium feature"
+              id="D4BYZm"
+            />
+          </p>
         </div>
       ),
       plan: {
         ANNUAL: intl.formatMessage(
           {
-            defaultMessage: '{count} unlock credits every year',
+            defaultMessage: '{count} premium credits every year',
             description: 'Label for unlocks feature for annual plan',
-            id: 'NrCAxf',
+            id: 'Mdr+6V',
           },
           {
             count: annualPlan.credits,
@@ -87,9 +94,9 @@ export default function useProjectsPricingPlanFeatures(
         ),
         MONTH: intl.formatMessage(
           {
-            defaultMessage: '{count} unlock credits every month',
+            defaultMessage: '{count} premium credits every month',
             description: 'Label for unlocks feature for month plan',
-            id: '2vqeIa',
+            id: 'HBTTrj',
           },
           {
             count: monthPlan.credits,
@@ -112,12 +119,16 @@ export default function useProjectsPricingPlanFeatures(
     },
     skillRoadmap: {
       description: (
-        <div className="flex flex-col gap-y-1.5 font-medium">
+        <div className="flex flex-col gap-y-2">
           <FormattedMessage
-            defaultMessage="<keywords>We provide a roadmap of all the core skills needed to be a great front end engineer, from beginner to advanced. For each skill, we suggest good resources for you to study and projects you can build on our platform to learn the skill. This roadmap is curated by senior engineers with extensive experience in the industry, ensuring the quality and trustworthiness of the content.</keywords><keywords>Additionally, we offer a gamified progress tracking system to monitor your proficiency in applying these skills across our projects</keywords>"
+            defaultMessage="We provide a roadmap of all the core skills needed to be a great front end engineer, from beginner to advanced. For each skill, we suggest good resources for you to study and projects you can build on our platform to learn the skill. This roadmap is curated by senior engineers with extensive experience in the industry, ensuring the quality and trustworthiness of the content."
             description="Description for skill roadmap feature"
-            id="HOtpix"
-            values={{ keywords: (chunks) => <span>{chunks}</span> }}
+            id="RWWOGp"
+          />
+          <FormattedMessage
+            defaultMessage="Additionally, we offer a gamified progress tracking system to monitor your proficiency in applying these skills across our projects."
+            description="Description for skill roadmap feature"
+            id="/kvO93"
           />
         </div>
       ),

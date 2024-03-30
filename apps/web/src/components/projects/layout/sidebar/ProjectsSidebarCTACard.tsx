@@ -25,19 +25,19 @@ function UnlockCreditsTooltip({ children }: Readonly<{ children: ReactNode }>) {
     <Tooltip
       asChild={true}
       label={
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-y-2">
           <p>
             <FormattedMessage
-              defaultMessage="While most projects on our platform are free, we offer premium features on each project like project figma files and official guides / solutions. Upon purchasing premium, you will be given a number of unlock credits. An unlock credit gives you access to all premium features in a project."
+              defaultMessage="While most projects on our platform are free, we offer premium features on each project like Figma files and official guides / solutions. Upon purchasing premium, you will be given a number of premium credits. A premium credit gives you access to all premium features in a project."
               description="Description of premium feature"
-              id="ciaCr5"
+              id="O2hH3T"
             />
           </p>
           <p>
             <FormattedMessage
-              defaultMessage="Even when you are not actively subscribed, unspent credits will roll over to the next month. However, they can only be used when you are an active premium member."
+              defaultMessage="Even when you are not actively subscribed, unspent premium credits will roll over to the next month. However, they can only be used when you are an active premium member."
               description="Description of premium feature"
-              id="Wx4yJ/"
+              id="D4BYZm"
             />
           </p>
         </div>
@@ -65,14 +65,17 @@ function FreePlanVersion({ unlocks }: Readonly<{ unlocks: number }>) {
         </div>
         <Text className="block" color="secondary" size="body3">
           <FormattedMessage
-            defaultMessage="Access to {freeChallengeCount}+ free challenges. {unlocks, plural, =0 {No access to <tooltip>project credits</tooltip>} one {1 <tooltip>project credit</tooltip> unused} other {# <tooltip>project credits</tooltip> unused}}"
+            defaultMessage="Access to {freeChallengeCount}+ free challenges. {unlocks, plural, =0 {No access to <tooltip>premium credits</tooltip>} one {<tooltip>1 premium credit</tooltip> unused} other {<tooltip># premium credits</tooltip> unused}}"
             description="Subtitle of Free Plan CTA card in Projects sidebar"
-            id="0F1/fV"
+            id="rXnCpL"
             values={{
+              // TODO(projects): Make this number dynamic.
               freeChallengeCount: 50,
               tooltip: (chunks) => (
                 <UnlockCreditsTooltip>
-                  <Text weight="medium">{chunks}</Text>
+                  <Text className="underline" weight="medium">
+                    {chunks}
+                  </Text>
                 </UnlockCreditsTooltip>
               ),
               unlocks,
@@ -119,9 +122,9 @@ function RenewalTooltip({
     <Tooltip
       label={
         <FormattedMessage
-          defaultMessage="{creditCount} new credits will be added when your subscription renews on <bold>{date}</bold>"
+          defaultMessage="{creditCount} new premium credits will be added when your subscription renews on <bold>{date}</bold>"
           description="Information about subscription"
-          id="ahkd5M"
+          id="7SOBHl"
           values={{
             bold: (chunks) => (
               <Text className="whitespace-nowrap" color="inherit" weight="bold">
@@ -199,26 +202,31 @@ function PremiumVersion({
           id: 'F09XFi',
         })}
       </Text>
-      <UnlockCreditsTooltip>
-        <Text className="block underline" color="secondary" size="body3">
-          <FormattedMessage
-            defaultMessage="<bold>{credits}</bold>/{totalCredits} project credits left"
-            description="Number of unlock credits left"
-            id="DyRVuV"
-            values={{
-              bold: (chunks) => <Text size="body2">{chunks}</Text>,
-              credits,
-              totalCredits,
-            }}
-          />
-        </Text>
-      </UnlockCreditsTooltip>
+      <Text className="block" color="secondary" size="body3">
+        <FormattedMessage
+          defaultMessage="<bold>{credits}</bold>/{totalCredits} <tooltip>premium credits</tooltip> left"
+          description="Number of premium credits left"
+          id="HTxeQV"
+          values={{
+            bold: (chunks) => <Text size="body2">{chunks}</Text>,
+            credits,
+            tooltip: (chunks) => (
+              <UnlockCreditsTooltip>
+                <Text className="underline" color="inherit" weight="medium">
+                  {chunks}
+                </Text>
+              </UnlockCreditsTooltip>
+            ),
+            totalCredits,
+          }}
+        />
+      </Text>
       <ProgressBar
         key={themeGradientPinkPurple.startColor}
         label={intl.formatMessage({
-          defaultMessage: 'Credits remaining',
-          description: 'Number of unlock credits remaining',
-          id: 'PSuOJh',
+          defaultMessage: 'Premium credits remaining',
+          description: 'Number of premium credits left',
+          id: 'DOTuWP',
         })}
         progressClass={themeGradientPinkPurple.className}
         total={totalCredits}

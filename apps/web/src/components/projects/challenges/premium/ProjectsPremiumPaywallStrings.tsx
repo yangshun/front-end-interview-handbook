@@ -16,9 +16,9 @@ export function useProjectsChallengePaywallTitle(
     case 'SUBSCRIBE':
     case 'INSUFFICIENT_CREDITS':
       return intl.formatMessage({
-        defaultMessage: 'Premium project',
+        defaultMessage: 'Premium challenge',
         description: 'Title for a premium project paywall',
-        id: 'h6BTcK',
+        id: '4gesVU',
       });
     case 'RESUBSCRIBE_TO_UNLOCK':
       return intl.formatMessage({
@@ -34,9 +34,9 @@ export function useProjectsChallengePaywallTitle(
       });
     case 'UNLOCK':
       return intl.formatMessage({
-        defaultMessage: 'Unlock this premium project',
+        defaultMessage: 'Unlock this premium challenge',
         description: 'Title for a premium project paywall',
-        id: '9YJJA+',
+        id: 'IDanmC',
       });
   }
 }
@@ -52,24 +52,24 @@ export function useProjectsChallengePaywallSubtitle(
     case 'SUBSCRIBE':
       return intl.formatMessage({
         defaultMessage:
-          'Purchase premium to get access to premium challenges, official guides, production-ready Figma files, and exclusive component tracks and skill plans.',
+          'Purchase premium to get access to premium challenges, production-ready Figma design files, official guides, solutions, and exclusive component tracks and skill plans.',
         description: 'Subtitle for a premium project paywall',
-        id: 'MKQ8Ea',
+        id: 'f5Z9tM',
       });
     case 'RESUBSCRIBE_TO_ACCESS':
       return (
         <FormattedMessage
-          defaultMessage="You have previously unlocked this challenge. Resubscribe to premium to regain access to this challenge and all of its premium features, including official guides and Figma files."
+          defaultMessage="You have previously unlocked this challenge. Resubscribe to premium to regain access to this challenge and all of its premium features, including the  the Figma design files, official guides, and solutions."
           description="Subtitle for project paywall"
-          id="XkVpPb"
+          id="Qkj3kc"
         />
       );
     case 'RESUBSCRIBE_TO_UNLOCK':
       return (
         <FormattedMessage
-          defaultMessage="You have <bold>{amountLeft}</bold> unlock credit(s) left. Resubscribe to premium to unlock this challenge and all of its premium features, including official guides and Figma files."
+          defaultMessage="You have <bold>{amountLeft}</bold> premium credit(s) left. Resubscribe to premium to unlock this challenge and access all its premium features,  including the Figma design files, official guides, and solutions."
           description="Subtitle for project paywall"
-          id="bbVBZ5"
+          id="62VJlJ"
           values={{
             amountLeft: credits,
             bold: (chunks) => <Text weight="bold">{chunks}</Text>,
@@ -79,9 +79,9 @@ export function useProjectsChallengePaywallSubtitle(
     case 'UNLOCK':
       return (
         <FormattedMessage
-          defaultMessage="You have <bold>{amountLeft}</bold>/{totalAmount} unlock credit(s) left. Unlock this challenge to access it and all of its premium features, including official guides and Figma files."
+          defaultMessage="You have <bold>{amountLeft}</bold>/{totalAmount} premium credit(s) left. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions."
           description="Subtitle for project paywall"
-          id="Xt0q7u"
+          id="r4LDrI"
           values={{
             amountLeft: credits,
             bold: (chunks) => <Text weight="bold">{chunks}</Text>,
@@ -95,9 +95,9 @@ export function useProjectsChallengePaywallSubtitle(
     case 'INSUFFICIENT_CREDITS':
       return (
         <FormattedMessage
-          defaultMessage="You have no credits left for this cycle."
+          defaultMessage="You have no premium credits left for this cycle."
           description="Subtitle for project paywall"
-          id="u7th6x"
+          id="WqVQZk"
         />
       );
   }
@@ -114,20 +114,23 @@ export function useProjectsChallengeSubmissionPaywallTitle(
     case 'UNLOCK':
       return intl.formatMessage({
         defaultMessage: 'User submission for premium challenge',
-        description: 'Title for a premium project paywall',
-        id: 'lslZ4H',
+        description:
+          'Title for a paywall of a submission for a premium project',
+        id: '5t66sB',
       });
     case 'RESUBSCRIBE_TO_UNLOCK':
       return intl.formatMessage({
         defaultMessage: 'Resubscribe to unlock',
-        description: 'Title for a premium project paywall',
-        id: 'Euaee/',
+        description:
+          'Title for a paywall of a submission for a premium project',
+        id: 'j+cFfc',
       });
     case 'RESUBSCRIBE_TO_ACCESS':
       return intl.formatMessage({
         defaultMessage: 'Resubscribe to access',
-        description: 'Title for a premium project paywall',
-        id: 'OTyn9U',
+        description:
+          'Title for a paywall of a submission for a premium project',
+        id: 'ks4qo1',
       });
   }
 }
@@ -158,9 +161,9 @@ export function useProjectsChallengeSubmissionPaywallSubtitle(
     case 'RESUBSCRIBE_TO_UNLOCK':
       return (
         <FormattedMessage
-          defaultMessage="Resubscribe to premium to learn from user submissions for premium challenges. You have <bold>{amountLeft}</bold> unlock credit(s) left."
+          defaultMessage="Resubscribe to premium to learn from user submissions for premium challenges. You have <bold>{amountLeft}</bold> premium credit(s) left."
           description="Subtitle for project paywall"
-          id="6ryk3B"
+          id="QJPZWQ"
           values={{
             amountLeft: credits,
             bold: (chunks) => <Text weight="bold">{chunks}</Text>,
@@ -170,9 +173,9 @@ export function useProjectsChallengeSubmissionPaywallSubtitle(
     case 'UNLOCK':
       return (
         <FormattedMessage
-          defaultMessage="Unlock this challenge to learn from user submissions for premium challenges. You have <bold>{amountLeft}</bold>/{totalAmount} unlock credit(s) left. "
+          defaultMessage="Unlock this challenge to learn from user submissions for premium challenges. You have <bold>{amountLeft}</bold>/{totalAmount} premium credit(s) left. "
           description="Subtitle for project paywall"
-          id="xE/NtU"
+          id="u6hx4I"
           values={{
             amountLeft: credits,
             bold: (chunks) => <Text weight="bold">{chunks}</Text>,
@@ -186,9 +189,9 @@ export function useProjectsChallengeSubmissionPaywallSubtitle(
     case 'INSUFFICIENT_CREDITS':
       return (
         <FormattedMessage
-          defaultMessage="You have no credits left for this cycle. Please wait for the next cycle to unlock this challenge"
+          defaultMessage="You have no premium credits left for this cycle. Please wait for new premium credits to be added when the next cycle starts."
           description="Subtitle for project paywall"
-          id="FociSH"
+          id="1pqvM+"
         />
       );
   }

@@ -215,6 +215,10 @@
     "defaultMessage": "3 simple steps to start earning",
     "description": "Title for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
   },
+  "/kvO93": {
+    "defaultMessage": "Additionally, we offer a gamified progress tracking system to monitor your proficiency in applying these skills across our projects.",
+    "description": "Description for skill roadmap feature"
+  },
   "/nidaR": {
     "defaultMessage": "Create your developer profile on GreatFrontEnd. Showcase your skills, experiences and connect with the community.",
     "description": "Description of projects onboarding profile page"
@@ -270,10 +274,6 @@
   "0D9NcL": {
     "defaultMessage": "Data Structures & Algorithms",
     "description": "Data structures and algorithm questions"
-  },
-  "0F1/fV": {
-    "defaultMessage": "Access to {freeChallengeCount}+ free challenges. {unlocks, plural, =0 {No access to <tooltip>project credits</tooltip>} one {1 <tooltip>project credit</tooltip> unused} other {# <tooltip>project credits</tooltip> unused}}",
-    "description": "Subtitle of Free Plan CTA card in Projects sidebar"
   },
   "0GT0SI": {
     "defaultMessage": "Cancel",
@@ -423,6 +423,10 @@
     "defaultMessage": "YOE / Job status",
     "description": "Label for experience filter for submissions list"
   },
+  "1pqvM+": {
+    "defaultMessage": "You have no premium credits left for this cycle. Please wait for new premium credits to be added when the next cycle starts.",
+    "description": "Subtitle for project paywall"
+  },
   "1q1I7J": {
     "defaultMessage": "Vercel",
     "description": "Label for \"Vercel\" option in Deployment Info"
@@ -506,10 +510,6 @@
   "2vDjTb": {
     "defaultMessage": "Discover study plans tailored to your needs to help your prepare for your upcoming technical interviews.",
     "description": "Description for study plans page"
-  },
-  "2vqeIa": {
-    "defaultMessage": "{count} unlock credits every month",
-    "description": "Label for unlocks feature for month plan"
   },
   "2w8GaX": {
     "defaultMessage": "Claim {discountPercentage}% off all plans by completing simple social tasks!",
@@ -707,6 +707,10 @@
     "defaultMessage": "Specs by product managers",
     "description": "Title of 'Specs by product managers' sub-feature in Projects marketing page"
   },
+  "4gesVU": {
+    "defaultMessage": "Premium challenge",
+    "description": "Title for a premium project paywall"
+  },
   "4kQ6Kr": {
     "defaultMessage": "Exclusive to currently enrolled students at accredited educational institutions.",
     "description": "Condition for promotion"
@@ -823,6 +827,10 @@
     "defaultMessage": "Companies",
     "description": "Companies section label"
   },
+  "5t66sB": {
+    "defaultMessage": "User submission for premium challenge",
+    "description": "Title for a paywall of a submission for a premium project"
+  },
   "5usorl": {
     "defaultMessage": "React Questions",
     "description": "React questions category long title"
@@ -838,6 +846,10 @@
   "6/Qdew": {
     "defaultMessage": "Start project",
     "description": "Label for \"Start project\" button on Projects project page"
+  },
+  "62VJlJ": {
+    "defaultMessage": "You have <bold>{amountLeft}</bold> premium credit(s) left. Resubscribe to premium to unlock this challenge and access all its premium features, including the Figma design files, official guides, and solutions.",
+    "description": "Subtitle for project paywall"
   },
   "641P5n": {
     "defaultMessage": "Sign Out",
@@ -931,10 +943,6 @@
     "defaultMessage": "How it works",
     "description": "Heading of the 'How it works' marketing section on Projects home page"
   },
-  "6ryk3B": {
-    "defaultMessage": "Resubscribe to premium to learn from user submissions for premium challenges. You have <bold>{amountLeft}</bold> unlock credit(s) left.",
-    "description": "Subtitle for project paywall"
-  },
   "6w1Z0V": {
     "defaultMessage": "Practice Questions",
     "description": "Section title for links to question lists by category and format"
@@ -1018,6 +1026,10 @@
   "7Rr7Yf": {
     "defaultMessage": "{minutes} min read",
     "description": "Blog read duration label"
+  },
+  "7SOBHl": {
+    "defaultMessage": "{creditCount} new premium credits will be added when your subscription renews on <bold>{date}</bold>",
+    "description": "Information about subscription"
   },
   "7SbsXo": {
     "defaultMessage": "All the assets you need to build a {challengeName}, including design assets, technical specs, starter code, and more",
@@ -1163,6 +1175,10 @@
     "defaultMessage": "Don’t worry about losing steam. Track your progress and level up as you",
     "description": "Description for \"Gamified learning and building\" feature marketing section on Projects home page"
   },
+  "8Z5qAk": {
+    "defaultMessage": "Purchase premium to unlock access to this design file and other features like official guides and solutions. Build accurately and learn to work with production-level specs.",
+    "description": "Unlock premium access for a project"
+  },
   "8aQEL8": {
     "defaultMessage": "Your existing code will be discarded, are you sure?",
     "description": "Text on browser confirmation pop-up when user attempts to use the reset button to reset their code"
@@ -1298,10 +1314,6 @@
   "9RYs96": {
     "defaultMessage": "Review community submissions",
     "description": "Recommended action for new projects platform user"
-  },
-  "9YJJA+": {
-    "defaultMessage": "Unlock this premium project",
-    "description": "Title for a premium project paywall"
   },
   "9dQ21j": {
     "defaultMessage": "Set new profile photo",
@@ -1667,6 +1679,10 @@
     "defaultMessage": "Study and practice the exact questions and concepts you need to prepare for front end interviews within a week",
     "description": "Description of 1 Week Preparation Plan page"
   },
+  "D4BYZm": {
+    "defaultMessage": "Even when you are not actively subscribed, unspent premium credits will roll over to the next month. However, they can only be used when you are an active premium member.",
+    "description": "Description of premium feature"
+  },
   "D5IZKC": {
     "defaultMessage": "Problem Solving Questions",
     "description": "Title for sidebar on problem solving situation questions in behavioral interviews"
@@ -1731,6 +1747,10 @@
     "defaultMessage": "Practice UI and JavaScript/TypeScript Interview Questions with Solutions",
     "description": "Title of Interview Preparation Coding page"
   },
+  "DOTuWP": {
+    "defaultMessage": "Premium credits remaining",
+    "description": "Number of premium credits left"
+  },
   "DP3Y2U": {
     "defaultMessage": "Behavioral Interview",
     "description": "Short title for behavioral interview guidebook"
@@ -1786,10 +1806,6 @@
   "Dt7sc8": {
     "defaultMessage": "Tackle real-world front end projects designed by ex-FAANG engineers. Elevate your skills, build your portfolio, and connect with an active community.",
     "description": "Description of Projects page"
-  },
-  "DyRVuV": {
-    "defaultMessage": "<bold>{credits}</bold>/{totalCredits} project credits left",
-    "description": "Number of unlock credits left"
   },
   "Dynazi": {
     "defaultMessage": "(Save {discountPercentage}% vs monthly)",
@@ -1983,10 +1999,6 @@
     "defaultMessage": "See all",
     "description": "Link to see all submissions"
   },
-  "FociSH": {
-    "defaultMessage": "You have no credits left for this cycle. Please wait for the next cycle to unlock this challenge",
-    "description": "Subtitle for project paywall"
-  },
   "FonVOb": {
     "defaultMessage": "All question progress has been reset.",
     "description": "Message shown when question reset progress action succeeds."
@@ -2143,6 +2155,10 @@
     "defaultMessage": "<strong>Note</strong>: We have some basic policies on affiliate conduct. Please read the agreement carefully in the sign up process.",
     "description": "Tip at the bottom of the 'How does it work' section on the 'Become an Affiliate' page to highlight the affiliate agreement"
   },
+  "HBTTrj": {
+    "defaultMessage": "{count} premium credits every month",
+    "description": "Label for unlocks feature for month plan"
+  },
   "HCrCHg": {
     "defaultMessage": "Challenge status",
     "description": "Label for Status filter for projects list"
@@ -2175,10 +2191,6 @@
     "defaultMessage": "Implement popular JavaScript library and utility functions",
     "description": "Description of JavaScript utility function questions"
   },
-  "HOtpix": {
-    "defaultMessage": "<keywords>We provide a roadmap of all the core skills needed to be a great front end engineer, from beginner to advanced. For each skill, we suggest good resources for you to study and projects you can build on our platform to learn the skill. This roadmap is curated by senior engineers with extensive experience in the industry, ensuring the quality and trustworthiness of the content.</keywords><keywords>Additionally, we offer a gamified progress tracking system to monitor your proficiency in applying these skills across our projects</keywords>",
-    "description": "Description for skill roadmap feature"
-  },
   "HP34xZ": {
     "defaultMessage": "Completed profiles get 3x more responses",
     "description": "Subtitle for Complete profile card on Projects dashboard page"
@@ -2186,6 +2198,10 @@
   "HRk5Ic": {
     "defaultMessage": "Help others review their code and answer questions",
     "description": "Description for \"Help others review their code and answer questions\" feature on Projects home page"
+  },
+  "HTxeQV": {
+    "defaultMessage": "<bold>{credits}</bold>/{totalCredits} <tooltip>premium credits</tooltip> left",
+    "description": "Number of premium credits left"
   },
   "HaIAzk": {
     "defaultMessage": "Light",
@@ -2262,6 +2278,10 @@
   "IBaiFq": {
     "defaultMessage": "You are replying",
     "description": "Label for replying to discussion post on project discussions page"
+  },
+  "IDanmC": {
+    "defaultMessage": "Unlock this premium challenge",
+    "description": "Title for a premium project paywall"
   },
   "IG13JQ": {
     "defaultMessage": "How it works",
@@ -2583,6 +2603,10 @@
     "defaultMessage": "Create a new account",
     "description": "Subtitle of Sign Up page"
   },
+  "KtacJv": {
+    "defaultMessage": "You have unlocked this project",
+    "description": "Label for \"Start project\" button on Projects project page"
+  },
   "Ku3VdX": {
     "defaultMessage": "Uber",
     "description": "Company name for Uber"
@@ -2795,10 +2819,6 @@
     "defaultMessage": "See all",
     "description": "Link to all focus areas page"
   },
-  "MKQ8Ea": {
-    "defaultMessage": "Purchase premium to get access to premium challenges, official guides, production-ready Figma files, and exclusive component tracks and skill plans.",
-    "description": "Subtitle for a premium project paywall"
-  },
   "MKt3gG": {
     "defaultMessage": "Profile set up | GreatFrontEnd Projects - Real-world project challenges",
     "description": "Title of projects onboarding profile page"
@@ -2830,6 +2850,10 @@
   "MdGGzJ": {
     "defaultMessage": "User Interface Questions",
     "description": "Front End User Interface interview questions"
+  },
+  "Mdr+6V": {
+    "defaultMessage": "{count} premium credits every year",
+    "description": "Label for unlocks feature for annual plan"
   },
   "MeV/ww": {
     "defaultMessage": "Microsoft",
@@ -2967,10 +2991,6 @@
     "defaultMessage": "Strengthen your proficiency in JavaScript through writing Lodash functions from scratch.",
     "description": "Description for interview preparation focus area"
   },
-  "NrCAxf": {
-    "defaultMessage": "{count} unlock credits every year",
-    "description": "Label for unlocks feature for annual plan"
-  },
   "Nt+P5A": {
     "defaultMessage": "Simulate real interview conditions, no need for any setup!",
     "description": "Subtitle for in-browser coding workspace feature"
@@ -2990,6 +3010,10 @@
   "O2h4/M": {
     "defaultMessage": "Project brief",
     "description": "Tab title for projects challenges"
+  },
+  "O2hH3T": {
+    "defaultMessage": "While most projects on our platform are free, we offer premium features on each project like Figma files and official guides / solutions. Upon purchasing premium, you will be given a number of premium credits. A premium credit gives you access to all premium features in a project.",
+    "description": "Description of premium feature"
   },
   "O57nUH": {
     "defaultMessage": "Exclusive private Discord channel access for life.",
@@ -3195,10 +3219,6 @@
     "defaultMessage": "You are on the <bold>Lifetime</bold> plan.",
     "description": "Text describing user's subscription plan."
   },
-  "PSuOJh": {
-    "defaultMessage": "Credits remaining",
-    "description": "Number of unlock credits remaining"
-  },
   "PWyAGW": {
     "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
     "description": "Subtitle for paywall over company tagging"
@@ -3291,6 +3311,10 @@
     "defaultMessage": "Front end system design resources are virtually non-existent. This is the only place you'll find in-depth solutions for front end system design questions along with our proven answering framework.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
   },
+  "QJPZWQ": {
+    "defaultMessage": "Resubscribe to premium to learn from user submissions for premium challenges. You have <bold>{amountLeft}</bold> premium credit(s) left.",
+    "description": "Subtitle for project paywall"
+  },
   "QJaxVF": {
     "defaultMessage": "Our focus is currently on expanding our question base. New coding and system design questions are added to the platform on a weekly basis.",
     "description": "Question base section subtitle - first paragraph"
@@ -3335,6 +3359,10 @@
     "defaultMessage": "React Coding Questions",
     "description": "Description for React questions title"
   },
+  "Qg2LjE": {
+    "defaultMessage": "Component tracks are collections of components which make up component libraries for specific practical use cases e.g. Marketing, E-Commerce, or even design systems. Building component tracks can leave a strong impression on potential employers and recruiters, showcasing your expertise and versatility in building a variety of components for common use cases, which is much more impressive than building individual projects.",
+    "description": "Description for component tracks feature"
+  },
   "QggKKV": {
     "defaultMessage": "How does it work?",
     "description": "Section label for 'How does it work' section on the 'Become an Affiliate'  page to explain how the affiliate program works"
@@ -3350,6 +3378,10 @@
   "QkImfr": {
     "defaultMessage": "After completion",
     "description": "Hint for \"Project Deployment & Completion\" tab on Projects project page"
+  },
+  "Qkj3kc": {
+    "defaultMessage": "You have previously unlocked this challenge. Resubscribe to premium to regain access to this challenge and all of its premium features, including the the Figma design files, official guides, and solutions.",
+    "description": "Subtitle for project paywall"
   },
   "QokfmI": {
     "defaultMessage": "{skillsCount, plural, =0 {No skills used} one {1 skill used} other {# skills used}}",
@@ -3450,6 +3482,10 @@
   "RTBOas": {
     "defaultMessage": "JavaScript",
     "description": "Label for JavaScript language"
+  },
+  "RWWOGp": {
+    "defaultMessage": "We provide a roadmap of all the core skills needed to be a great front end engineer, from beginner to advanced. For each skill, we suggest good resources for you to study and projects you can build on our platform to learn the skill. This roadmap is curated by senior engineers with extensive experience in the industry, ensuring the quality and trustworthiness of the content.",
+    "description": "Description for skill roadmap feature"
   },
   "RY1Vtk": {
     "defaultMessage": "Ready to submit?",
@@ -3967,10 +4003,6 @@
     "defaultMessage": "CASHBACK",
     "description": "Amount cashback/discount"
   },
-  "VkZQZm": {
-    "defaultMessage": "Purchase premium to unlock access to this Figma design file (and other features like official guides and solutions). Build accurately and learn to work with production-level specs.",
-    "description": "Unlock premium access for a project"
-  },
   "VlLGKt": {
     "defaultMessage": "Payment Success",
     "description": "Title of Payment Success page"
@@ -4135,13 +4167,13 @@
     "defaultMessage": "Complete projects, with rep awarded by difficulty",
     "description": "Description for \"Complete projects, with rep awarded by difficulty\" feature on Projects home page"
   },
+  "WqVQZk": {
+    "defaultMessage": "You have no premium credits left for this cycle.",
+    "description": "Subtitle for project paywall"
+  },
   "Wtrj0o": {
     "defaultMessage": "Take the structured route to front end learning by building projects according to our skills roadmap. Learn any front end core skill you may need.",
     "description": "Description of Projects skills roadmap page"
-  },
-  "Wx4yJ/": {
-    "defaultMessage": "Even when you are not actively subscribed, unspent credits will roll over to the next month. However, they can only be used when you are an active premium member.",
-    "description": "Description of premium feature"
   },
   "WyHdb2": {
     "defaultMessage": "Proficient skills",
@@ -4227,10 +4259,6 @@
     "defaultMessage": "Projects you may be interested in",
     "description": "Title for projects you may be interested in section on project submission success page"
   },
-  "XkVpPb": {
-    "defaultMessage": "You have previously unlocked this challenge. Resubscribe to premium to regain access to this challenge and all of its premium features, including official guides and Figma files.",
-    "description": "Subtitle for project paywall"
-  },
   "Xka4d3": {
     "defaultMessage": "Tip: Many users have reimbursed GreatFrontEnd Premium as part of their company's flexible benefits or learning and training budget.",
     "description": "Tip at the bottom of the Pricing section to let users they can reimburse their purchase of GreatFrontEnd with their company's learning budgets"
@@ -4246,10 +4274,6 @@
   "Xmdm8f": {
     "defaultMessage": "Suggests best projects for skill",
     "description": "Title of 'Recommended projects to build' sub-feature in Projects marketing page"
-  },
-  "Xt0q7u": {
-    "defaultMessage": "You have <bold>{amountLeft}</bold>/{totalAmount} unlock credit(s) left. Unlock this challenge to access it and all of its premium features, including official guides and Figma files.",
-    "description": "Subtitle for project paywall"
   },
   "XuTNeQ": {
     "defaultMessage": "Component tracks | GreatFrontEnd Projects - Real-world project challenges",
@@ -4559,10 +4583,6 @@
     "defaultMessage": "Font size",
     "description": "Select label to choose console font size"
   },
-  "ahkd5M": {
-    "defaultMessage": "{creditCount} new credits will be added when your subscription renews on <bold>{date}</bold>",
-    "description": "Information about subscription"
-  },
   "akHBWv": {
     "defaultMessage": "Outdent line",
     "description": "Text describing outdent line command in the coding workspace shortcuts menu"
@@ -4707,10 +4727,6 @@
     "defaultMessage": "Title is required.",
     "description": "Error message"
   },
-  "bbVBZ5": {
-    "defaultMessage": "You have <bold>{amountLeft}</bold> unlock credit(s) left. Resubscribe to premium to unlock this challenge and all of its premium features, including official guides and Figma files.",
-    "description": "Subtitle for project paywall"
-  },
   "belvJ0": {
     "defaultMessage": "Svelte Coding Questions",
     "description": "Description for Svelte questions title"
@@ -4818,10 +4834,6 @@
   "chadI5": {
     "defaultMessage": "Status",
     "description": "Label for \"Years of experience replacement status\" choices on Projects profile onboarding page"
-  },
-  "ciaCr5": {
-    "defaultMessage": "While most projects on our platform are free, we offer premium features on each project like project figma files and official guides / solutions. Upon purchasing premium, you will be given a number of unlock credits. An unlock credit gives you access to all premium features in a project.",
-    "description": "Description of premium feature"
   },
   "cicVHX": {
     "defaultMessage": "Delhi, India",
@@ -5071,6 +5083,10 @@
     "defaultMessage": "Review Cashback",
     "description": "Promotion title"
   },
+  "f5Z9tM": {
+    "defaultMessage": "Purchase premium to get access to premium challenges, production-ready Figma design files, official guides, solutions, and exclusive component tracks and skill plans.",
+    "description": "Subtitle for a premium project paywall"
+  },
   "f89otf": {
     "defaultMessage": "Algorithm Questions",
     "description": "Algorithm Coding Interview Questions"
@@ -5319,10 +5335,6 @@
     "defaultMessage": "Discounted rate for a typical job hunt duration.",
     "description": "Supporting statement for a quarterly pricing plan"
   },
-  "h6BTcK": {
-    "defaultMessage": "Premium project",
-    "description": "Title for a premium project paywall"
-  },
   "hBwVFF": {
     "defaultMessage": "Theme preferences",
     "description": "Title for Theme preferences in projects settings page"
@@ -5502,6 +5514,10 @@
   "j+MqYO": {
     "defaultMessage": "Premium Content Coming Soon",
     "description": "System design questions paywall"
+  },
+  "j+cFfc": {
+    "defaultMessage": "Resubscribe to unlock",
+    "description": "Title for a paywall of a submission for a premium project"
   },
   "j06fZl": {
     "defaultMessage": "Strikethrough",
@@ -5799,6 +5815,10 @@
     "defaultMessage": "Last month",
     "description": "Title for last month list of comments"
   },
+  "ks4qo1": {
+    "defaultMessage": "Resubscribe to access",
+    "description": "Title for a paywall of a submission for a premium project"
+  },
   "kvLlxS": {
     "defaultMessage": "Security",
     "description": "Security topic for quiz questions"
@@ -5914,10 +5934,6 @@
   "lmBDjV": {
     "defaultMessage": "Quiz Questions",
     "description": "Header for quiz questions"
-  },
-  "lslZ4H": {
-    "defaultMessage": "User submission for premium challenge",
-    "description": "Title for a premium project paywall"
   },
   "lspF70": {
     "defaultMessage": "For Side Projects",
@@ -6195,6 +6211,10 @@
     "defaultMessage": "Practice building all sorts of user interfaces: components, apps, games, etc, in the framework of your choice.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
   },
+  "oQYa8+": {
+    "defaultMessage": "You have unlocked this Figma file",
+    "description": "Tooltip for premium Figma file download button"
+  },
   "oR0ECI": {
     "defaultMessage": "Marked question as incomplete",
     "description": "Success message shown when a question is marked as complete"
@@ -6415,10 +6435,6 @@
     "defaultMessage": "Copy line (empty selection)",
     "description": "Text describing command to copy line(s) in the coding workspace shortcuts menu"
   },
-  "ptZwYq": {
-    "defaultMessage": "<keywords>Upon purchasing premium, you will be given a number of project unlocks. A project unlock gives you access to all premium features in a free project (figma files, official solutions & guides from senior engineers), OR can unlock a premium challenge.</keywords><keywords>Even when you are not actively subscribed, unspent unlocks will roll over to the next month and remain accessible when you repurchase premium.</keywords>",
-    "description": "Description for unlocks feature"
-  },
   "puP8B5": {
     "defaultMessage": "Collapse {replyCount, plural, =0 {none} one {# reply} other {# replies}}",
     "description": "Label for collapse replies button"
@@ -6579,6 +6595,10 @@
     "defaultMessage": "Prepare for tackling data structures and algorithms questions in front end interviews",
     "description": "Title for interview preparation focus area"
   },
+  "r4LDrI": {
+    "defaultMessage": "You have <bold>{amountLeft}</bold>/{totalAmount} premium credit(s) left. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions.",
+    "description": "Subtitle for project paywall"
+  },
   "r5RGzk": {
     "defaultMessage": "<bold>{completedCount}</bold>/{totalCount} skill plan challenges",
     "description": "Rep count label in Projects"
@@ -6614,6 +6634,10 @@
   "rWhQtZ": {
     "defaultMessage": "Full list of shortcuts can be found on the <link>Visual Studio Code website</link>.",
     "description": "Text in coding workspace shortcuts that provides user with the link to the full list of shortcuts"
+  },
+  "rXnCpL": {
+    "defaultMessage": "Access to {freeChallengeCount}+ free challenges. {unlocks, plural, =0 {No access to <tooltip>premium credits</tooltip>} one {<tooltip>1 premium credit</tooltip> unused} other {<tooltip># premium credits</tooltip> unused}}",
+    "description": "Subtitle of Free Plan CTA card in Projects sidebar"
   },
   "rZaG+f": {
     "defaultMessage": "Unpin one or more existing submissions to pin a new one.",
@@ -6911,9 +6935,13 @@
     "defaultMessage": "FAQ",
     "description": "Link to FAQ page"
   },
-  "u7th6x": {
-    "defaultMessage": "You have no credits left for this cycle.",
+  "u6hx4I": {
+    "defaultMessage": "Unlock this challenge to learn from user submissions for premium challenges. You have <bold>{amountLeft}</bold>/{totalAmount} premium credit(s) left.",
     "description": "Subtitle for project paywall"
+  },
+  "uAAJxp": {
+    "defaultMessage": "Upon purchasing premium, you will be given a number of premium credits. A premium credit gives you access to all premium features in a free project (Figma files, official solutions & guides from senior engineers), or can unlock a premium challenge.",
+    "description": "Description of premium feature"
   },
   "uBhDCw": {
     "defaultMessage": "A forum where you can clarify doubts",
@@ -7263,10 +7291,6 @@
     "defaultMessage": "Prepare for tackling form questions in front end interviews",
     "description": "Title for interview preparation focus area"
   },
-  "xE/NtU": {
-    "defaultMessage": "Unlock this challenge to learn from user submissions for premium challenges. You have <bold>{amountLeft}</bold>/{totalAmount} unlock credit(s) left.",
-    "description": "Subtitle for project paywall"
-  },
   "xEvm93": {
     "defaultMessage": "Features",
     "description": "Link to features page"
@@ -7518,10 +7542,6 @@
   "zIZsqX": {
     "defaultMessage": "See all",
     "description": "See all articles"
-  },
-  "zKAE+G": {
-    "defaultMessage": "<keywords>Component tracks are collections of components which make up component libraries for specific practical use cases e.g. Marketing, E-Commerce, or even design systems. Building component tracks can leave a strong impression on potential employers and recruiters, showcasing your expertise and versatility in building a variety of components for common use cases, which is much more impressive than building individual projects.</keywords>",
-    "description": "Description for component tracks feature"
   },
   "zL/JCy": {
     "defaultMessage": "Not signed in",
