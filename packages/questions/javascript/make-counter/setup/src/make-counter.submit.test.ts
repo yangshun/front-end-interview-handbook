@@ -41,5 +41,16 @@ describe('makeCounter', () => {
         expect(counter()).toBe(-2);
       });
     });
+
+    test('isolated instances', () => {
+      const counterA = makeCounter(5);
+      const counterB = makeCounter(10);
+
+      expect(counterA()).toBe(5);
+      expect(counterB()).toBe(10);
+
+      expect(counterA()).toBe(6);
+      expect(counterB()).toBe(11);
+    });
   });
 });

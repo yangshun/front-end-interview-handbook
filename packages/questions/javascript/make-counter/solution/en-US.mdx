@@ -2,8 +2,10 @@ import MDXCodeBlock from 'MDXCodeBlock';
 
 import makeCounterJs from '../setup/src/make-counter.js';
 import makeCounterTs from '../setup/src/make-counter.ts';
-import makeCounterPostfixIncrement from '../setup/src/make-counter-postfix-increment';
-import makeCounterMutateParameter from '../setup/src/make-counter-mutate-parameter';
+import makeCounterPostfixIncrementJs from '../setup/src/make-counter-postfix-increment.js';
+import makeCounterPostfixIncrementTs from '../setup/src/make-counter-postfix-increment.ts';
+import makeCounterMutateParameterJs from '../setup/src/make-counter-mutate-parameter.js';
+import makeCounterMutateParameterTs from '../setup/src/make-counter-mutate-parameter.ts';
 
 ## Solution
 
@@ -22,15 +24,25 @@ It's necessary to initialize `count` with one less than `initialValue` because i
 
 ### Solution 2: Postfix increment
 
-In the earlier solution, it is a little awkward to decrement `initialValue` by 1 only to increment it later. Thankfully we can use the postfix increment operator to increment a variable **after** the value has been returned.
+In the previous solution, it is a little awkward to decrement `initialValue` by 1 only to increment it later. Thankfully we can use the postfix increment operator to increment a variable **after** the value has been returned.
 
-<MDXCodeBlock>{makeCounterPostfixIncrement}</MDXCodeBlock>
+<MDXCodeBlock
+  languages={{
+    jsx: makeCounterPostfixIncrementJs,
+    tsx: makeCounterPostfixIncrementTs,
+  }}
+/>
 
 ### Solution 3: One-liner
 
 We can make the solution even shorter by not initializing a `count` variable and incrementing the `defaultValue` instead. Mutating a function's parameters is usually not recommended due to causing of side effects. However in this case `initialValue` is a primitive and incrementing it will not cause any side effects.
 
-<MDXCodeBlock>{makeCounterMutateParameter}</MDXCodeBlock>
+<MDXCodeBlock
+  languages={{
+    jsx: makeCounterMutateParameterJs,
+    tsx: makeCounterMutateParameterTs,
+  }}
+/>
 
 ## Resources
 
