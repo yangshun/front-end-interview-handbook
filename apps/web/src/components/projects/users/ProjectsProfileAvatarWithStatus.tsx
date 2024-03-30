@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { RiCheckLine, RiLoader4Line } from 'react-icons/ri';
+import { RiCheckLine, RiLoader2Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { avatarVariants } from '~/components/ui/Avatar/AvatarStyles';
@@ -34,7 +34,7 @@ const statusClasses: Record<
   },
   IN_PROGRESS: {
     className: 'bg-brand-dark dark:bg-brand',
-    icon: RiLoader4Line,
+    icon: RiLoader2Line,
   },
 };
 

@@ -101,5 +101,3 @@ export type ProjectsBaseScreenshot = Readonly<{
 }>;
 
 export type FieldView = 'onboarding' | 'profile';
-
-export type ProjectsStatusBadgeType = 'challenge' | 'skill' | 'track';

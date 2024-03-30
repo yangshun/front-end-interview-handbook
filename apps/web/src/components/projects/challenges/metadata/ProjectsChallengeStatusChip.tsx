@@ -1,4 +1,4 @@
-import { RiCheckFill, RiLoader4Line } from 'react-icons/ri';
+import { RiCheckFill, RiLoader2Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Chip from '~/components/ui/Chip';
@@ -39,7 +39,7 @@ export default function ProjectsChallengeStatusChip({ label, status }: Props) {
     case 'IN_PROGRESS':
       return (
         <Chip
-          icon={RiLoader4Line}
+          icon={RiLoader2Line}
           label={intl.formatMessage({
             defaultMessage: 'In progress',
             description: 'In progress status',

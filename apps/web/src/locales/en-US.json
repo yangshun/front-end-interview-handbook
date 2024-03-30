@@ -1263,6 +1263,10 @@
     "defaultMessage": "Know the recommended projects to do to progress from beginner to advanced with the skills roadmap",
     "description": "Description for \"Skills roadmap\" feature on Projects home page"
   },
+  "9FjmkH": {
+    "defaultMessage": "You have completed this challenge",
+    "description": "Description for projects completed status"
+  },
   "9Ftt1s": {
     "defaultMessage": "Filter by component track of original project brief",
     "description": "Tooltip for Component track filter for submissions list"
@@ -2047,6 +2051,10 @@
     "defaultMessage": "Welcome to GreatFrontEnd Projects!",
     "description": "Title for Projects onboarding page"
   },
+  "GR83Ca": {
+    "defaultMessage": "System",
+    "description": "System color scheme option label"
+  },
   "GSfE/S": {
     "defaultMessage": "Label for \"Completed projects\" progress bar of a Projects component track",
     "description": "{completedCount} out of {totalCount} challenges"
@@ -2282,6 +2290,10 @@
   "IXY4CG": {
     "defaultMessage": "Reference official guides for practical software development, code from top submissions and clarify doubts in the community.",
     "description": "Description of 'Learn while building' feature in Projects marketing page"
+  },
+  "IYc+7l": {
+    "defaultMessage": "Light",
+    "description": "Light color scheme option label"
   },
   "Ia88Vb": {
     "defaultMessage": "Related articles",
@@ -3583,6 +3595,10 @@
     "defaultMessage": "Change password",
     "description": "Title of Change Password page"
   },
+  "SNCrTv": {
+    "defaultMessage": "You are currently working on this challenge",
+    "description": "Description for projects in progress status"
+  },
   "SSiHbz": {
     "defaultMessage": "Add LinkedIn",
     "description": "Title for Add LinkedIn task on Projects dashboard page"
@@ -3806,10 +3822,6 @@
   "UQh7Xv": {
     "defaultMessage": "Filter by log level",
     "description": "Select label to filter console log by level"
-  },
-  "UTE1L6": {
-    "defaultMessage": "System",
-    "description": "System theme option label"
   },
   "UTPE3y": {
     "defaultMessage": "Dashboard",
@@ -4466,6 +4478,10 @@
   "Zdojj9": {
     "defaultMessage": "Other",
     "description": "Label for \"Other\" onboarding option in Projects"
+  },
+  "Zm3csd": {
+    "defaultMessage": "Dark",
+    "description": "Dark color scheme option label"
   },
   "Zm61qF": {
     "defaultMessage": "Edit your submission for the {challengeName} challenge. Include new strategies and insights, enriching the knowledge base.",
@@ -5923,10 +5939,6 @@
     "defaultMessage": "Quiz Questions",
     "description": "Header for quiz questions"
   },
-  "lqvY0+": {
-    "defaultMessage": "Dark",
-    "description": "Dark theme option label"
-  },
   "lspF70": {
     "defaultMessage": "For Side Projects",
     "description": "Link to Projects homepage for side projects"
@@ -6170,10 +6182,6 @@
   "o3nhZ8": {
     "defaultMessage": "Session status",
     "description": "Completed and in progress challenges"
-  },
-  "o6ktM9": {
-    "defaultMessage": "Light",
-    "description": "Light theme option label"
   },
   "o9kmTM": {
     "defaultMessage": "<bold>{author}</bold> posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
@@ -6683,10 +6691,6 @@
     "defaultMessage": "Behavioral Interview Study Guides",
     "description": "Behavioral interview study guides"
   },
-  "sCt8M+": {
-    "defaultMessage": "You are currently working on this project",
-    "description": "Description for projects in progress status"
-  },
   "sGF5oQ": {
     "defaultMessage": "Types of Questions",
     "description": "Types of front end system design interview questions"
@@ -6702,10 +6706,6 @@
   "sGwT8p": {
     "defaultMessage": "Your account email contains \".edu\", \".ac\" or certain other valid institutions. Reach out to us if you believe your school should qualify.",
     "description": "Condition for promotion"
-  },
-  "sH/wZI": {
-    "defaultMessage": "You have completed this project",
-    "description": "Description for projects completed status"
   },
   "sM1Ppu": {
     "defaultMessage": "{discountPercentage}% off all plans",

@@ -108,6 +108,7 @@ export default function ProjectsChallengeSubmissionCard({
               <ProjectsStatusBadge
                 entity="challenge"
                 status={challenge.status}
+                variant="icon"
               />
             )}
           </div>

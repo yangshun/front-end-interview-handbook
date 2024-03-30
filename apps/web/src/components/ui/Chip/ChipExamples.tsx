@@ -1,7 +1,7 @@
 import {
   RiCheckFill,
   RiCursorFill,
-  RiLoader4Line,
+  RiLoader2Line,
   RiLockLine,
 } from 'react-icons/ri';
 
@@ -27,7 +27,7 @@ export default function ChipExamples() {
           variant="special"
         />
         <Chip
-          icon={RiLoader4Line}
+          icon={RiLoader2Line}
           isLabelHidden={true}
           label="Loading"
           variant="primary"
