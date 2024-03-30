@@ -343,6 +343,10 @@
     "defaultMessage": "Practice makes perfect. With our collection of over {count} front end questions, you get all-rounded coverage for your preparation — HTML, CSS, JavaScript, algorithms, DOM APIs, accessibility, performance, front end fundamentals, and more.",
     "description": "Title of question examples section on getting started page"
   },
+  "0rR1Bo": {
+    "defaultMessage": "Impress recruiters with component libraries and designs systems",
+    "description": "Title of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
+  },
   "0ttv+M": {
     "defaultMessage": "Adjust your filters a bit, and let's see what we can find!",
     "description": "Subtitle for empty state when no projects are returned from application of filters on projects list"
@@ -1447,6 +1451,10 @@
     "defaultMessage": "Submissions",
     "description": "Link to submissions page"
   },
+  "BCfuA5": {
+    "defaultMessage": "Whether you are complete beginner or an established engineer looking to fill a modern skill gap, our <link>Skills Roadmap</link> tells you the exact projects to build to train the skill you need - whether you are a complete beginner or senior engineer filling a skill gap.",
+    "description": "Description of 'Train any front end skill' feature in Projects marketing page"
+  },
   "BDGx19": {
     "defaultMessage": "Verifying",
     "description": "Label for button"
@@ -1594,6 +1602,10 @@
   "CfSKv4": {
     "defaultMessage": "Other skills you are using which are not within the skills roadmap. Also helps community members understand more about the tech stack. If you don't see the tag you need, email us.",
     "description": "Description for \"Other tech stack used\" text input"
+  },
+  "CgQLIL": {
+    "defaultMessage": "Everything else apart from the actual technical execution has been prepared for you. Just click \"Start project\", and we will take care of everything else",
+    "description": "Description of 'Start building' feature in Projects marketing page"
   },
   "Cjz59k": {
     "defaultMessage": "Click here to try out the actual workspace instead of this embed.",
@@ -1830,10 +1842,6 @@
   "EM2v4V": {
     "defaultMessage": "By creators of",
     "description": "Text above logos on Hero section of HomePage. To let users know that the authors of this platform have also created the stated products."
-  },
-  "EMiuDR": {
-    "defaultMessage": "Impress recruiters with entire component libraries or design systems built from scratch. Our component tracks cover component from various use cases and industries.",
-    "description": "Description of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
   },
   "ENNKyg": {
     "defaultMessage": "View subscription plans",
@@ -2547,10 +2555,6 @@
     "defaultMessage": "Show side menu",
     "description": "Screenreader text for the button that expands the side menu"
   },
-  "KlTu61": {
-    "defaultMessage": "Recommended projects to build",
-    "description": "Title of 'Recommended projects to build' sub-feature in Projects marketing page"
-  },
   "KmiBbk": {
     "defaultMessage": "I would like to sign up for GreatFrontEnd's newsletter to receive interview tips and question updates",
     "description": "Label of checkbox to sign up for newsletter on Email Sign Up page"
@@ -2602,10 +2606,6 @@
   "LChIT/": {
     "defaultMessage": "Show completed challenges",
     "description": "Description of completed challenges filter"
-  },
-  "LDJsoJ": {
-    "defaultMessage": "Whether you are complete beginner or an established engineer looking to fill a modern skill gap, our skills roadmap tell you the exact projects to build to train the skill you need.",
-    "description": "Description of 'Train any front end skill' feature in Projects marketing page"
   },
   "LEA1HM": {
     "defaultMessage": "GitHub repository URL",
@@ -3306,6 +3306,10 @@
   "Qc3ZiZ": {
     "defaultMessage": "Edit your submission",
     "description": "Title for the challenge submission edit page"
+  },
+  "Qd5BTL": {
+    "defaultMessage": "Holistic front end skill roadmap",
+    "description": "Title of 'Roadmap of front end skills' sub-feature in Projects marketing page"
   },
   "QdCE6p": {
     "defaultMessage": "Main",
@@ -4231,6 +4235,10 @@
     "defaultMessage": "Update",
     "description": "Update existing URL in a form"
   },
+  "Xmdm8f": {
+    "defaultMessage": "Suggests best projects for skill",
+    "description": "Title of 'Recommended projects to build' sub-feature in Projects marketing page"
+  },
   "Xt0q7u": {
     "defaultMessage": "You have <bold>{amountLeft}</bold>/{totalAmount} unlock credit(s) left. Unlock this challenge to access it and all of its premium features, including official guides and Figma files.",
     "description": "Subtitle for project paywall"
@@ -4259,10 +4267,6 @@
     "defaultMessage": "Settings",
     "description": "App settings label"
   },
-  "XzL/lN": {
-    "defaultMessage": "Roadmap of front end skills",
-    "description": "Title of 'Roadmap of front end skills' sub-feature in Projects marketing page"
-  },
   "Y2R80N": {
     "defaultMessage": "Unpin",
     "description": "Unpin button label"
@@ -4282,6 +4286,10 @@
   "YBlo/J": {
     "defaultMessage": "As mentioned above, there are many ways to host your project for free. Our recommend hosts are:",
     "description": "Text for Deployment Info in Projects"
+  },
+  "YENFnJ": {
+    "defaultMessage": "Our <link>Component Tracks</link> allow you to build entire design systems or component libraries from scratch - including very practical ones like Marketing, E-Commerce and Web Applications.",
+    "description": "Description of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
   },
   "YGqz7y": {
     "defaultMessage": "Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.",
@@ -4362,10 +4370,6 @@
   "YpJ3q8": {
     "defaultMessage": "Reply to comment",
     "description": "Label for discussion post reply input"
-  },
-  "YuAorn": {
-    "defaultMessage": "Practical dev guides",
-    "description": "Title of 'Practical dev guides' sub-feature in Projects marketing page"
   },
   "YwBuE7": {
     "defaultMessage": "The skills you are using in this project, which are in our skills roadmap. Helps us track your progress on skills development",
@@ -4570,10 +4574,6 @@
   "aplNQq": {
     "defaultMessage": "Explore projects",
     "description": "Label for Explore projects button in Projects marketing hero section"
-  },
-  "apqdxI": {
-    "defaultMessage": "Build personalized projects, instead of the same thing as everyone else",
-    "description": "Title of 'Personalized projects' feature in Projects marketing page"
   },
   "apypGU": {
     "defaultMessage": "If you are logged in with OAuth (e.g. GitHub), you can set a password here to use email and password to log in instead.",
@@ -4986,10 +4986,6 @@
   "eC4GRM": {
     "defaultMessage": "Filter user submissions by whether you have completed their corresponding challenges",
     "description": "Tooltip for Status filter for projects list"
-  },
-  "eDIEUs": {
-    "defaultMessage": "Build entire design systems or component libraries with our Component Tracks",
-    "description": "Title of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
   },
   "eG2r74": {
     "defaultMessage": "Build an entire library of {trackName} components from scratch. Use it for your portfolio, or as a component toolkit for future projects",
@@ -6015,10 +6011,6 @@
     "defaultMessage": "Step 2",
     "description": "Title for \"Step 2\" tab on Projects project page"
   },
-  "mlADLk": {
-    "defaultMessage": "Everything that you need, including professional design, API specs, starter code and image files are all ready for you. Just click \"Start project\" and we will take care of everything",
-    "description": "Description of 'Start building' feature in Projects marketing page"
-  },
   "mnJ9uY": {
     "defaultMessage": "Practice building Lodash utility functions",
     "description": "Title for interview preparation focus area"
@@ -6791,6 +6783,10 @@
     "defaultMessage": "Track your personal milestones, view achievement stats, and see all your project and community activities in one place.",
     "description": "Description of Projects Dashboard page"
   },
+  "tJexBp": {
+    "defaultMessage": "Practical guides",
+    "description": "Title of 'Practical guides' sub-feature in Projects marketing page"
+  },
   "tK6m9g": {
     "defaultMessage": "Build entire component libraries or design systems from scratch for your portfolio or as a toolkit for future projects.",
     "description": "Description of Projects component tracks page"
@@ -7194,6 +7190,10 @@
   "wGf7+G": {
     "defaultMessage": "Start the project and download starter code and assets",
     "description": "Instruction for projects"
+  },
+  "wIGIux": {
+    "defaultMessage": "Build personalized projects, instead of the same as everyone else",
+    "description": "Title of 'Personalized projects' feature in Projects marketing page"
   },
   "wO0zga": {
     "defaultMessage": "Skills roadmap",

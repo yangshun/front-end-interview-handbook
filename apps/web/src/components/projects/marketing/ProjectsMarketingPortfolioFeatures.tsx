@@ -5,6 +5,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
+import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -15,12 +16,12 @@ import {
   themeRadialGlowBackground,
 } from '~/components/ui/theme';
 
-type PortfolioFeature = {
-  description: string;
+type PortfolioFeature = Readonly<{
+  description: React.ReactNode;
   imgSrc: string;
   key: string;
   title: string;
-};
+}>;
 
 function usePortfolioFeatures(): Array<PortfolioFeature> {
   const intl = useIntl();
@@ -63,20 +64,25 @@ function usePortfolioFeatures(): Array<PortfolioFeature> {
         key: 'personalized-projects',
         title: intl.formatMessage({
           defaultMessage:
-            'Build personalized projects, instead of the same thing as everyone else',
+            'Build personalized projects, instead of the same as everyone else',
           description:
             "Title of 'Personalized projects' feature in Projects marketing page",
-          id: 'apqdxI',
+          id: 'wIGIux',
         }),
       },
       {
-        description: intl.formatMessage({
-          defaultMessage:
-            'Impress recruiters with entire component libraries or design systems built from scratch. Our component tracks cover component from various use cases and industries.',
-          description:
-            "Description of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page",
-          id: 'EMiuDR',
-        }),
+        description: (
+          <FormattedMessage
+            defaultMessage="Our <link>Component Tracks</link> allow you to build entire design systems or component libraries from scratch - including very practical ones like Marketing, E-Commerce and Web Applications."
+            description="Description of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page"
+            id="YENFnJ"
+            values={{
+              link: (chunks) => (
+                <Anchor href="/projects/tracks">{chunks}</Anchor>
+              ),
+            }}
+          />
+        ),
         imgSrc:
           colorScheme === 'light'
             ? 'img/marketing/projects/build-entire-component-tracks-light.svg'
@@ -84,10 +90,10 @@ function usePortfolioFeatures(): Array<PortfolioFeature> {
         key: 'build-entire-component-tracks',
         title: intl.formatMessage({
           defaultMessage:
-            'Build entire design systems or component libraries with our Component Tracks',
+            'Impress recruiters with component libraries and designs systems',
           description:
             "Title of 'Build entire design systems or component libraries with our Component Tracks' feature in Projects marketing page",
-          id: 'eDIEUs',
+          id: '0rR1Bo',
         }),
       },
     ],

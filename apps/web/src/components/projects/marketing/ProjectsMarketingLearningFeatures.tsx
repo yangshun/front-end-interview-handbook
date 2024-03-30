@@ -22,6 +22,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
+import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -34,8 +35,8 @@ import {
 
 import ProjectsMarketingFeaturedIcon from './ProjectsMarketingFeaturedIcon';
 
-type LearningFeature = {
-  description: string;
+type LearningFeature = Readonly<{
+  description: React.ReactNode;
   imgSrc: string;
   key: string;
   subFeatures: Array<{
@@ -44,7 +45,7 @@ type LearningFeature = {
     label: string;
   }>;
   title: string;
-};
+}>;
 
 function useLearningFeatures(): Array<LearningFeature> {
   const intl = useIntl();
@@ -98,10 +99,10 @@ function useLearningFeatures(): Array<LearningFeature> {
       {
         description: intl.formatMessage({
           defaultMessage:
-            'Everything that you need, including professional design, API specs, starter code and image files are all ready for you. Just click "Start project" and we will take care of everything',
+            'Everything else apart from the actual technical execution has been prepared for you. Just click "Start project", and we will take care of everything else',
           description:
             "Description of 'Start building' feature in Projects marketing page",
-          id: 'mlADLk',
+          id: 'CgQLIL',
         }),
         imgSrc:
           colorScheme === 'light'
@@ -176,10 +177,10 @@ function useLearningFeatures(): Array<LearningFeature> {
             icon: RiGlobalLine,
             key: 'practical-dev-guides',
             label: intl.formatMessage({
-              defaultMessage: 'Practical dev guides',
+              defaultMessage: 'Practical guides',
               description:
-                "Title of 'Practical dev guides' sub-feature in Projects marketing page",
-              id: 'YuAorn',
+                "Title of 'Practical guides' sub-feature in Projects marketing page",
+              id: 'tJexBp',
             }),
           },
           {
@@ -201,13 +202,18 @@ function useLearningFeatures(): Array<LearningFeature> {
         }),
       },
       {
-        description: intl.formatMessage({
-          defaultMessage:
-            'Whether you are complete beginner or an established engineer looking to fill a modern skill gap, our skills roadmap tell you the exact projects to build to train the skill you need.',
-          description:
-            "Description of 'Train any front end skill' feature in Projects marketing page",
-          id: 'LDJsoJ',
-        }),
+        description: (
+          <FormattedMessage
+            defaultMessage="Whether you are complete beginner or an established engineer looking to fill a modern skill gap, our <link>Skills Roadmap</link> tells you the exact projects to build to train the skill you need - whether you are a complete beginner or senior engineer filling a skill gap."
+            description="Description of 'Train any front end skill' feature in Projects marketing page"
+            id="BCfuA5"
+            values={{
+              link: (chunks) => (
+                <Anchor href="/projects/skills">{chunks}</Anchor>
+              ),
+            }}
+          />
+        ),
         imgSrc:
           colorScheme === 'light'
             ? 'img/marketing/projects/train-any-front-end-skill-light.svg'
@@ -218,20 +224,20 @@ function useLearningFeatures(): Array<LearningFeature> {
             icon: RiTerminalWindowLine,
             key: 'roadmap-of-front-end-skills',
             label: intl.formatMessage({
-              defaultMessage: 'Roadmap of front end skills',
+              defaultMessage: 'Holistic front end skill roadmap',
               description:
                 "Title of 'Roadmap of front end skills' sub-feature in Projects marketing page",
-              id: 'XzL/lN',
+              id: 'Qd5BTL',
             }),
           },
           {
             icon: RiPagesLine,
             key: 'recommended-projects-to-build',
             label: intl.formatMessage({
-              defaultMessage: 'Recommended projects to build',
+              defaultMessage: 'Suggests best projects for skill',
               description:
                 "Title of 'Recommended projects to build' sub-feature in Projects marketing page",
-              id: 'KlTu61',
+              id: 'Xmdm8f',
             }),
           },
           {
