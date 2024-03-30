@@ -1055,10 +1055,6 @@
     "defaultMessage": "Blog",
     "description": "Link to blog page"
   },
-  "7meg5a": {
-    "defaultMessage": "Submit your solution on the platform for code reviews from a large community of engineers.",
-    "description": "Description of 'Submit your solution for feedback' feature in Projects marketing page"
-  },
   "7solt2": {
     "defaultMessage": "Filter logs",
     "description": "Placeholder for filter input of console logs"
@@ -1519,10 +1515,6 @@
     "defaultMessage": "A structured way to approach system design questions",
     "description": "Sidebar link for front end system design interview"
   },
-  "BnHLZU": {
-    "defaultMessage": "Submit your solution for feedback",
-    "description": "Title of 'Submit your solution for feedback' feature in Projects marketing page"
-  },
   "BrhcC+": {
     "defaultMessage": "Bio must contain at most {maxLength} character(s).",
     "description": "Error message when bio is too long"
@@ -1919,10 +1911,6 @@
     "defaultMessage": "Real-time support from the team and the growing community.",
     "description": "Lifetime membership feature of real-time support."
   },
-  "F95lg1": {
-    "defaultMessage": "Download assets",
-    "description": "Title of 'Download assets' feature in Projects marketing page"
-  },
   "F9Zh+J": {
     "defaultMessage": "{number} bite-sized focus areas that collectively cover the key topics required for front end interviews. If you prefer the topical approach, use these lists to systematically approach your preparation.",
     "description": "Tooltip of recommended focus areas"
@@ -2286,10 +2274,6 @@
   "IXT5w0": {
     "defaultMessage": "Question Language",
     "description": "Coding question language"
-  },
-  "IXY4CG": {
-    "defaultMessage": "Reference official guides for practical software development, code from top submissions and clarify doubts in the community.",
-    "description": "Description of 'Learn while building' feature in Projects marketing page"
   },
   "IYc+7l": {
     "defaultMessage": "Light",
@@ -3498,10 +3482,6 @@
   "RjpadL": {
     "defaultMessage": "Reference practical guides, learn from other's submissions and ask any questions in the",
     "description": "Instruction for projects"
-  },
-  "RmL0wL": {
-    "defaultMessage": "Select a project by skill or component out of {projectCount}+ projects.",
-    "description": "Description of 'Start a project' feature in Projects marketing page"
   },
   "RnHcaK": {
     "defaultMessage": "An account is required to purchase premium",
@@ -5319,10 +5299,6 @@
     "defaultMessage": "Medium",
     "description": "Medium question difficulty"
   },
-  "gv/ty5": {
-    "defaultMessage": "We'll provide starter code, production-grade Figma assets and even APIs as relevant.",
-    "description": "Description of 'Download assets' feature in Projects marketing page"
-  },
   "gvLQbK": {
     "defaultMessage": "Premium Discord",
     "description": "Link to the premium Discord server"
@@ -5910,10 +5886,6 @@
   "lNxRzi": {
     "defaultMessage": "Practice developing inclusive and accessible web experiences. Explore the principles and techniques of web accessibility, including semantic HTML, ARIA roles, keyboard navigation, and screen reader compatibility, a skill which differentiates senior from junior front end engineers.",
     "description": "Description for interview preparation focus area"
-  },
-  "lUACcQ": {
-    "defaultMessage": "Start a project",
-    "description": "Title of 'Start a project' feature in Projects marketing page"
   },
   "lWQA1A": {
     "defaultMessage": "Challenges completed",
@@ -6930,10 +6902,6 @@
   "u0dndi": {
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all Quiz coding questions"
-  },
-  "u1BtZ5": {
-    "defaultMessage": "Learn while building",
-    "description": "Title of 'Learn while building' feature in Projects marketing page"
   },
   "u2/Gcr": {
     "defaultMessage": "This is a user submission for a premium challenge. Subscribe to premium to learn from user submission of premium challenges.",

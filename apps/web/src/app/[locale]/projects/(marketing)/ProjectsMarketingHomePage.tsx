@@ -6,6 +6,7 @@ import { useRef } from 'react';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
 import ProjectsMarketingFeaturedChallengesMarquee from '~/components/projects/marketing/ProjectsMarketingFeaturedChallengesMarquee';
+import ProjectsMarketingFeaturesRow from '~/components/projects/marketing/ProjectsMarketingFeaturesRow';
 import ProjectsMarketingFutureToolkit from '~/components/projects/marketing/ProjectsMarketingFutureToolkit';
 import ProjectsMarketingHero from '~/components/projects/marketing/ProjectsMarketingHero';
 import ProjectsMarketingHowItWorks from '~/components/projects/marketing/ProjectsMarketingHowItWorks';
@@ -32,12 +33,13 @@ export default function ProjectsMarketingHomePage({
   });
 
   return (
-    <main className="bg-white pb-24 dark:bg-[#070708]">
+    <main className="bg-white pb-24 dark:bg-neutral-900">
       <ProjectsMarketingHero />
       <Section>
         <ProjectsMarketingFeaturedChallengesMarquee
           featuredChallenges={featuredChallenges}
         />
+        <ProjectsMarketingFeaturesRow />
         <ProjectsMarketingHowItWorks />
         <ProjectsMarketingLearningFeatures />
         <ProjectsMarketingPortfolioFeatures />

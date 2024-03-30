@@ -1,65 +1,103 @@
 'use client';
 
-// TODO: Remove unused
+import { useMemo } from 'react';
+import {
+  RiCheckboxMultipleLine,
+  RiDiscussLine,
+  RiNodeTree,
+} from 'react-icons/ri';
+import { FormattedMessage } from 'react-intl';
 
-import clsx from 'clsx';
-
+import Anchor from '~/components/ui/Anchor';
+import Container from '~/components/ui/Container';
+import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
+import Text from '~/components/ui/Text';
 
-import Heading from '../../ui/Heading';
-import Text from '../../ui/Text';
-import { themeGlassyBorder, themeTextSubtitleColor } from '../../ui/theme';
+import ProjectsMarketingFeaturedIcon from './ProjectsMarketingFeaturedIcon';
 
-export type Feature = Readonly<{
-  description: string;
+type ProjectMarketingHeroFeature = {
+  content: React.ReactNode;
+  icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   key: string;
-  name: string;
-}>;
+};
 
-type Props = Readonly<{
-  features: ReadonlyArray<Feature>;
-  title: string;
-}>;
+export default function ProjectsMarketingFeaturesRow() {
+  const heroFeatures: Array<ProjectMarketingHeroFeature> = useMemo(
+    () => [
+      {
+        content: (
+          <FormattedMessage
+            defaultMessage="Build projects to learn any front end skill using our <link>Skills roadmap</link>"
+            description="Caption for Projects marketing hero section skills roadmap feature"
+            id="rUKlWg"
+            values={{
+              // TODO: Update the link href
+              link: (chunks) => <Anchor href="#">{chunks}</Anchor>,
+            }}
+          />
+        ),
+        icon: RiNodeTree,
+        key: 'skills',
+      },
+      {
+        content: (
+          <FormattedMessage
+            defaultMessage="Every project is part of <link>reusable component libraries</link> for your future projects"
+            description="Caption for Projects marketing hero section component libraries feature"
+            id="ES78kz"
+            values={{
+              link: (chunks) => (
+                // TODO: Update the link href
+                <Anchor href="#">{chunks}</Anchor>
+              ),
+            }}
+          />
+        ),
+        icon: RiCheckboxMultipleLine,
+        key: 'component-libraries',
+      },
+      {
+        content: (
+          <FormattedMessage
+            defaultMessage="Guides & solutions from Sr. Engineers and code reviews from <link>community</link>"
+            description="Caption for Projects marketing hero section community feature"
+            id="4uyrtd"
+            values={{
+              link: (chunks) => (
+                // TODO: Update the link href
+                <Anchor href="#">{chunks}</Anchor>
+              ),
+            }}
+          />
+        ),
+        icon: RiDiscussLine,
+        key: 'community',
+      },
+    ],
+    [],
+  );
 
-export default function MarketingFeaturesRow({ title, features }: Props) {
   return (
-    <div>
+    <Container className="py-24">
       <Heading className="sr-only" level="custom">
-        {title}
+        Features
       </Heading>
       <Section>
-        <div className="mx-auto grid max-w-sm grid-cols-1 gap-x-8 gap-y-12 md:max-w-3xl md:grid-cols-2 lg:max-w-full lg:grid-cols-4">
-          {features.map(({ description, key, name }, index) => (
-            <div
-              key={key}
-              className="flex flex-row items-start gap-6 lg:flex-col">
-              <span
-                aria-hidden="true"
-                className={clsx(
-                  'size-12 flex shrink-0 items-center justify-center rounded-full p-3 dark:bg-neutral-800/70',
-                  themeGlassyBorder,
-                )}>
-                <Text
-                  className={clsx('text-primary', themeTextSubtitleColor)}
-                  size="body1">
-                  {index + 1}
-                </Text>
-              </span>
-              <div className="flex flex-col gap-2">
-                <Heading
-                  className={themeTextSubtitleColor}
-                  color="custom"
-                  level="heading6">
-                  {name}
-                </Heading>
-                <Text color="secondary" size="body2">
-                  {description}
-                </Text>
-              </div>
+        <div className="grid grid-cols-3">
+          {heroFeatures.map(({ content, icon, key }) => (
+            <div key={key} className="flex flex-col items-center gap-y-4">
+              <ProjectsMarketingFeaturedIcon icon={icon} />
+              <Text
+                className="text-balance text-center"
+                color="subtitle"
+                size="body2">
+                {content}
+              </Text>
             </div>
           ))}
         </div>
       </Section>
-    </div>
+    </Container>
   );
 }

@@ -1,87 +1,20 @@
 import clsx from 'clsx';
-import { useMemo } from 'react';
 import {
   RiArrowRightLine,
   RiArrowRightSLine,
   RiBardLine,
-  RiCheckboxMultipleLine,
-  RiDiscussLine,
-  RiNodeTree,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import MarketingHeroBackground from '~/components/marketing/MarketingHeroBackground';
 import Anchor from '~/components/ui/Anchor';
+import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import { themeTextBrandColor, themeTextColor } from '~/components/ui/theme';
 
-import ProjectsMarketingFeaturedIcon from './ProjectsMarketingFeaturedIcon';
-import Button from '../../ui/Button';
-
-type ProjectMarketingHeroFeature = {
-  content: React.ReactNode;
-  icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  key: string;
-};
-
 export default function ProjectsMarketingHero() {
   const intl = useIntl();
-
-  const heroFeatures: Array<ProjectMarketingHeroFeature> = useMemo(
-    () => [
-      {
-        content: (
-          <FormattedMessage
-            defaultMessage="Build projects to learn any front end skill using our <link>Skills roadmap</link>"
-            description="Caption for Projects marketing hero section skills roadmap feature"
-            id="rUKlWg"
-            values={{
-              // TODO: Update the link href
-              link: (chunks) => <Anchor href="#">{chunks}</Anchor>,
-            }}
-          />
-        ),
-        icon: RiNodeTree,
-        key: 'skills',
-      },
-      {
-        content: (
-          <FormattedMessage
-            defaultMessage="Every project is part of <link>reusable component libraries</link> for your future projects"
-            description="Caption for Projects marketing hero section component libraries feature"
-            id="ES78kz"
-            values={{
-              link: (chunks) => (
-                // TODO: Update the link href
-                <Anchor href="#">{chunks}</Anchor>
-              ),
-            }}
-          />
-        ),
-        icon: RiCheckboxMultipleLine,
-        key: 'component-libraries',
-      },
-      {
-        content: (
-          <FormattedMessage
-            defaultMessage="Guides & solutions from Sr. Engineers and code reviews from <link>community</link>"
-            description="Caption for Projects marketing hero section community feature"
-            id="4uyrtd"
-            values={{
-              link: (chunks) => (
-                // TODO: Update the link href
-                <Anchor href="#">{chunks}</Anchor>
-              ),
-            }}
-          />
-        ),
-        icon: RiDiscussLine,
-        key: 'community',
-      },
-    ],
-    [],
-  );
 
   return (
     <div className="relative isolate lg:mx-8">
@@ -129,19 +62,6 @@ export default function ProjectsMarketingHero() {
                     id="uyAWFS"
                   />
                 </Heading>
-              </div>
-              <div className="mb-12 grid grid-cols-3">
-                {heroFeatures.map(({ content, icon, key }) => (
-                  <div key={key} className="flex flex-col items-center gap-y-4">
-                    <ProjectsMarketingFeaturedIcon icon={icon} />
-                    <Text
-                      className="text-balance text-center"
-                      color="subtitle"
-                      size="body2">
-                      {content}
-                    </Text>
-                  </div>
-                ))}
               </div>
               <Text
                 className="mx-auto block max-w-sm text-center text-base md:max-w-3xl md:text-lg xl:text-xl"

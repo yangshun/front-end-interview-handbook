@@ -15,10 +15,10 @@ export default function ProjectsMarketingFeaturedChallengesMarquee({
   const isViewerPremium = profile?.projectsProfile?.premium ?? false;
 
   return (
-    <div className="-mt-14 mb-16 h-auto lg:mb-32">
+    <div className="-mt-20 h-auto">
       <Marquee
         maskEdges={false}
-        periodSeconds={featuredChallenges.length * 5}
+        periodSeconds={featuredChallenges.length * 10}
         startEndGap={24}>
         <div className="flex gap-x-6 [&_>_*]:w-[352px]">
           {featuredChallenges.map((challenge) => (
