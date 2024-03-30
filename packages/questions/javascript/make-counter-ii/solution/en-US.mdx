@@ -2,7 +2,8 @@ import MDXCodeBlock from 'MDXCodeBlock';
 
 import makeCounterJs from '../setup/src/make-counter-ii.js';
 import makeCounterTs from '../setup/src/make-counter-ii.ts';
-import makeCounterClass from '../setup/src/make-counter-ii-class';
+import makeCounterClassJs from '../setup/src/make-counter-ii-class.js';
+import makeCounterClassTs from '../setup/src/make-counter-ii-class.ts';
 
 ## Solution
 
@@ -22,4 +23,6 @@ import makeCounterClass from '../setup/src/make-counter-ii-class';
 
 We can also create a separate `Counter` class that contains the 4 required methods. The `makeCounter` function will simply be a wrapper than returns an instance of `Counter` initialized with the `initialValue`. The main difference here is that we need to use instance variables to keep track of the current value and the `initialValue` since we cannot rely on closures.
 
-<MDXCodeBlock>{makeCounterClass}</MDXCodeBlock>
+<MDXCodeBlock
+  languages={{ jsx: makeCounterClassJs, tsx: makeCounterClassTs }}
+/>

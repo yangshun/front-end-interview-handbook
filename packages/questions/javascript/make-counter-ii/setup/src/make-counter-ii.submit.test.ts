@@ -84,4 +84,19 @@ describe('makeCounter', () => {
       expect(counter.increment()).toBe(6);
     });
   });
+
+  test('isolated instances', () => {
+    const counterA = makeCounter(5);
+    const counterB = makeCounter(10);
+
+    expect(counterA.get()).toBe(5);
+    expect(counterB.get()).toBe(10);
+
+    expect(counterA.decrement()).toBe(4);
+    expect(counterA.decrement()).toBe(3);
+    expect(counterA.get()).toBe(3);
+
+    expect(counterB.get()).toBe(10);
+    expect(counterB.increment()).toBe(11);
+  });
 });
