@@ -1,21 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
+import type { ProductTheme } from '~/components/global/product-theme/ProductThemeManager';
+import useProductTheme from '~/components/global/product-theme/useProductTheme';
 import Select from '~/components/ui/Select';
 
 export default function ProductThemeSelect() {
-  const [theme, setTheme] = useState('interviews');
+  const [theme, setTheme] = useState<ProductTheme>(
+    (typeof window !== 'undefined'
+      ? (document.body.dataset.theme as ProductTheme)
+      : null) ?? 'interviews',
+  );
 
-  function onChange(value: string) {
+  useProductTheme(theme);
+
+  function onChange(value: ProductTheme) {
     setTheme(value);
   }
-
-  useEffect(() => {
-    document.body.dataset.theme = theme;
-
-    return () => {
-      delete document.body.dataset.theme;
-    };
-  }, [theme]);
 
   return (
     <Select

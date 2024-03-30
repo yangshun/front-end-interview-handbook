@@ -37,9 +37,7 @@ export default function RootLayout({ children, intlMessages, locale }: Props) {
         <ColorSchemeScript />
         <GlobalBannerDisplayScript />
       </head>
-      <body
-        className={clsx('antialiased', themeBackgroundColor)}
-        data-theme="interviews">
+      <body className={clsx('antialiased', themeBackgroundColor)}>
         <HydrationFailureLogging />
         <GlobalProviders intlMessages={intlMessages} locale={locale}>
           <GoogleAnalytics />

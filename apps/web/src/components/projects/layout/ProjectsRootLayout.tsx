@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { ProductThemeScript } from '~/components/global/product-theme/ProductThemeScript';
 
 import useProjectsRedirectToOnboardingIfNecessary from '../hooks/useProjectsRedirectToOnboardingIfNecessary';
 
@@ -11,22 +11,9 @@ type Props = Readonly<{
 export default function ProjectsRootLayout({ children }: Props) {
   useProjectsRedirectToOnboardingIfNecessary();
 
-  useEffect(() => {
-    document.body.dataset.theme = 'projects';
-
-    return () => {
-      delete document.body.dataset.theme;
-    };
-  }, []);
-
   return (
     <>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `try { document.body.dataset.theme = 'projects'; } catch (_) { }`,
-        }}
-        id="product-theme"
-      />
+      <ProductThemeScript theme="projects" />
       {children}
     </>
   );
