@@ -13,6 +13,8 @@ import {
   themeBrandShadow,
   themeTextBrandColor,
   themeTextColor,
+  themeTextSuccessColor,
+  themeTextWarningColor,
 } from '~/components/ui/theme';
 
 import Heading from '../Heading';
@@ -72,14 +74,14 @@ const classes: Record<
   success: {
     backgroundClass: 'bg-success-lightest dark:bg-neutral-800/70',
     icon: RiCheckboxCircleFill,
-    iconClass: 'text-success',
-    titleClass: 'text-success',
+    iconClass: themeTextSuccessColor,
+    titleClass: themeTextSuccessColor,
   },
   warning: {
     backgroundClass: 'bg-warning-lighter dark:bg-neutral-800/70',
     icon: RiErrorWarningFill,
-    iconClass: 'text-warning',
-    titleClass: 'text-warning',
+    iconClass: themeTextWarningColor,
+    titleClass: themeTextWarningColor,
   },
 };
 

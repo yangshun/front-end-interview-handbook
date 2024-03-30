@@ -4,6 +4,8 @@ import {
   themeTextBrandColor,
   themeTextSecondaryColor,
   themeTextSubtitleColor,
+  themeTextSuccessColor,
+  themeTextWarningColor,
 } from '~/components/ui/theme';
 
 export type BadgeVariant =
@@ -67,14 +69,14 @@ const variantClasses: Record<
   success: {
     backgroundClass: 'bg-success-lightest dark:bg-success-darker',
     borderClass: 'border border-success dark:border-success-light',
-    iconClass: 'text-success dark:text-success-light',
-    textClass: 'text-success dark:text-success-light',
+    iconClass: themeTextSuccessColor,
+    textClass: themeTextSuccessColor,
   },
   warning: {
     backgroundClass: 'bg-warning-lightest dark:bg-warning-darker',
     borderClass: 'border border-warning dark:border-warning-light',
-    iconClass: 'text-warning dark:text-warning-light',
-    textClass: 'text-warning dark:text-warning-light',
+    iconClass: themeTextWarningColor,
+    textClass: themeTextWarningColor,
   },
 };
 

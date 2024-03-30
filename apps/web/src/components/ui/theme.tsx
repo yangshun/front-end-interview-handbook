@@ -32,9 +32,13 @@ export const themeTextInvertColor = clsx(
 );
 export const themeTextDarkColor = clsx('text-neutral-900');
 export const themeTextLightColor = clsx('text-neutral-100');
+
 // Text colors -- semantic.
 export const themeTextSuccessColor = clsx(
   'text-success dark:text-success-light',
+);
+export const themeTextWarningColor = clsx(
+  'text-warning dark:text-warning-light',
 );
 export const themeTextDangerColor = clsx('text-danger');
 export const themeTextPlaceholderColor = themeTextFaintColor;
