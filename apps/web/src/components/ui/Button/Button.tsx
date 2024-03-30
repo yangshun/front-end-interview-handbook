@@ -203,7 +203,11 @@ const variantDisabledClasses: Record<ButtonVariant, string> = {
     'disabled:text-neutral-300 dark:disabled:text-neutral-700',
     'disabled:bg-transparent',
   ),
-  special: clsx(''),
+  special: clsx(
+    'disabled:border-neutral-300 dark:disabled:border-neutral-700',
+    'disabled:text-neutral-300 dark:disabled:text-neutral-700',
+    'disabled:bg-neutral-300 dark:disabled:bg-neutral-900',
+  ),
   success: clsx(
     'disabled:border-transparent',
     'disabled:text-white dark:disabled:text-neutral-700',
