@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import type { FAQItems } from '~/data/faqs/FAQs';
@@ -33,7 +34,11 @@ export default function MarketingGeneralFAQSection() {
 
   return (
     <Container
-      className="max-lg:theme-bg-radial-glow relative isolate flex flex-col gap-y-12 py-24 max-lg:rounded-t-3xl lg:py-32"
+      className={clsx(
+        'relative isolate flex flex-col gap-y-12',
+        'py-24 lg:py-32',
+        'max-lg:theme-bg-radial-glow max-lg:rounded-t-3xl',
+      )}
       variant="narrow">
       <MarketingSectionHeader
         description={

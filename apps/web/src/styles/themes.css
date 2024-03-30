@@ -12,8 +12,8 @@
   --brand-gradient-radial-light: #e9d5ff;
   --brand-gradient-radial-dark: #8383fd;
 
-  --brand-gradient-arrow-start: #a855f7;
-  --brand-gradient-arrow-stop: #6366f1;
+  --brand-gradient-linear-start: #a855f7;
+  --brand-gradient-linear-stop: #6366f1;
 
   --brand-gradient-triangle-start: #8383fd;
   --brand-gradient-triangle-stop: #6366f1;
@@ -32,8 +32,8 @@
   --brand-gradient-radial-light: rgb(var(--brand-default));
   --brand-gradient-radial-dark: #5fdd74;
 
-  --brand-gradient-arrow-start: #c6fdd0;
-  --brand-gradient-arrow-stop: rgb(var(--brand-default));
+  --brand-gradient-linear-start: #c6fdd0;
+  --brand-gradient-linear-stop: rgb(var(--brand-default));
 
   --brand-gradient-triangle-start: rgb(var(--brand-default));
   --brand-gradient-triangle-stop: rgb(var(--brand-default));

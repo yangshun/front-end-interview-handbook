@@ -14,46 +14,48 @@ function Background(props: React.ComponentProps<'svg'>) {
   return (
     <svg
       fill="none"
-      viewBox="0 0 1104 368"
-      width="100%"
+      height="522"
+      preserveAspectRatio="none"
+      viewBox="0 0 1104 522"
+      width="1104"
       xmlns="http://www.w3.org/2000/svg"
       {...props}>
       <rect
-        fill="url(#paint0_radial_1280_65051)"
-        height="368"
+        fill="url(#paint0_radial_8335_5217)"
+        height="522"
         rx="48"
         width="1104"
       />
       <mask
-        height="368"
-        id="mask0_1280_65051"
+        height="522"
+        id="mask0_8335_5217"
         maskUnits="userSpaceOnUse"
         style={{ maskType: 'luminance' }}
         width="1104"
         x="0"
         y="0">
-        <rect fill="white" height="368" rx="48" width="1104" />
+        <rect fill="white" height="522" rx="48" width="1104" />
       </mask>
-      <g mask="url(#mask0_1280_65051)">
-        <g filter="url(#filter0_f_1280_65051)">
+      <g mask="url(#mask0_8335_5217)">
+        <g filter="url(#filter0_f_8335_5217)">
           <path
-            clipRule="evenodd"
-            d="M73.1423 450.414C53.5705 495.9 107.331 537.635 146.545 507.398L377.138 329.588C409.811 304.394 397.576 252.444 357.093 244.479L215.036 216.531C192.845 212.165 170.617 223.881 161.678 244.656L73.1423 450.414Z"
-            fill="url(#paint1_linear_1280_65051)"
-            fillRule="evenodd"
+            clip-rule="evenodd"
+            d="M91.1194 469.338C71.9102 515.061 126.202 556.337 165.122 525.6L398.649 341.171C430.741 315.826 418.469 264.525 378.381 256.447L234.516 227.458C212.113 222.944 189.634 234.851 180.782 255.921L91.1194 469.338Z"
+            fill="url(#paint1_linear_8335_5217)"
+            fill-rule="evenodd"
           />
         </g>
       </g>
       <defs>
         <filter
-          colorInterpolationFilters="sRGB"
+          color-interpolation-filters="sRGB"
           filterUnits="userSpaceOnUse"
-          height="573.882"
-          id="filter0_f_1280_65051"
-          width="598.705"
-          x="-66.9278"
-          y="79.709">
-          <feFlood floodOpacity="0" result="BackgroundImageFix" />
+          height="581.539"
+          id="filter0_f_8335_5217"
+          width="601.641"
+          x="-48.7891"
+          y="90.5937">
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
           <feBlend
             in="SourceGraphic"
             in2="BackgroundImageFix"
@@ -61,30 +63,39 @@ function Background(props: React.ComponentProps<'svg'>) {
             result="shape"
           />
           <feGaussianBlur
-            result="effect1_foregroundBlur_1280_65051"
+            result="effect1_foregroundBlur_8335_5217"
             stdDeviation="67.957"
           />
         </filter>
         <radialGradient
           cx="0"
           cy="0"
-          gradientTransform="translate(552) rotate(90) scale(392.842 1178.53)"
+          gradientTransform="translate(552) rotate(90) scale(557.238 1178.53)"
           gradientUnits="userSpaceOnUse"
-          id="paint0_radial_1280_65051"
+          id="paint0_radial_8335_5217"
           r="1">
-          <stop stopColor="#8383FD" />
-          <stop offset="0.223497" stopColor="#8383FD" stopOpacity="0.64" />
-          <stop offset="1" stopColor="#0F172A" stopOpacity="0.01" />
+          <stop stop-color="var(--brand-gradient-radial-dark)" />
+          <stop
+            offset="0.223497"
+            stop-color="var(--brand-gradient-radial-dark)"
+            stop-opacity="0.64"
+          />
+          <stop offset="1" stop-color="white" stop-opacity="0.01" />
         </radialGradient>
+        {/* Triangle */}
         <linearGradient
           gradientUnits="userSpaceOnUse"
-          id="paint1_linear_1280_65051"
-          x1="-106.578"
-          x2="7.58278"
-          y1="498.066"
-          y2="138.31">
-          <stop stopColor="#A855F7" />
-          <stop offset="1" stopColor="#6366F1" stopOpacity="0.01" />
+          id="paint1_linear_8335_5217"
+          x1="-87.5784"
+          x2="31.6394"
+          y1="515.708"
+          y2="148.891">
+          <stop stop-color="var(--brand-gradient-linear-start)" />
+          <stop
+            offset="1"
+            stop-color="var(--brand-gradient-linear-stop)"
+            stop-opacity="0.01"
+          />
         </linearGradient>
       </defs>
     </svg>

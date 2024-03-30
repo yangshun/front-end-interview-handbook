@@ -3,6 +3,7 @@ import { motion, useInView, useMotionValue } from 'framer-motion';
 import { useId, useRef, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import LogoMark from '~/components/global/logos/LogoMark';
 import Anchor from '~/components/ui/Anchor';
 import Container from '~/components/ui/Container';
 import {
@@ -32,30 +33,6 @@ const chartHeight = 240;
 // The number of extra axis lines to draw on either side of an axis.
 // So that the border of the chart cannot be seen.
 const chartExtraLines = 2;
-
-function GFEIcon() {
-  return (
-    <svg
-      fill="none"
-      height="21"
-      viewBox="0 0 27 21"
-      width="27"
-      xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M9.98523 0L13.307 3.39343L6.65492 10.1832L13.307 16.9759L9.97668 20.3751L0 10.1919L9.98523 0Z"
-        fill="#8D71FE"
-      />
-      <path
-        d="M16.6392 13.5888L13.3125 16.9844L16.6392 20.3799L19.9659 16.9844L16.6392 13.5888Z"
-        fill="#8D71FE"
-      />
-      <path
-        d="M23.292 13.5855L26.6195 10.1892L19.9646 3.39648L13.3125 10.1892L16.64 13.5855L19.9646 10.1892L23.292 13.5855Z"
-        fill="#8D71FE"
-      />
-    </svg>
-  );
-}
 
 function Chart({
   activePointIndex,
@@ -162,24 +139,6 @@ function Chart({
           <clipPath id={`${id}-clip`}>
             <path d={`${path} V ${height + paddingY} H ${paddingX} Z`} />
           </clipPath>
-          <linearGradient id={`${id}-gradient`} x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stopColor="#818cf8" />
-            <stop offset="100%" stopColor="#818cf8" stopOpacity="0" />
-          </linearGradient>
-          <linearGradient
-            gradientTransform="rotate(224.29)"
-            id={`${id}-chart-line-gradient`}>
-            <stop offset="44.99%" stopColor="rgba(141, 113, 254, 0.08)" />
-            <stop offset="76.87%" stopColor="#8D71FE" />
-            <stop offset="101.29%" stopColor="rgba(141, 113, 254, 0.0001)" />
-          </linearGradient>
-          <linearGradient
-            gradientTransform="rotate(180)"
-            id={`${id}-highlighted-axis-line-gradient`}>
-            <stop offset="0%" stopColor="rgba(203, 213, 225, 0.0001)" />
-            <stop offset="52.62%" stopColor="#CBD5E1" />
-            <stop offset="100%" stopColor="rgba(203, 213, 225, 0.0001)" />
-          </linearGradient>
           <linearGradient
             gradientTransform="rotate(180)"
             gradientUnits="userSpaceOnUse"
@@ -212,7 +171,7 @@ function Chart({
             {...(isInView
               ? {
                   animate: { pathLength: 1 },
-                  stroke: 'rgba(141, 113, 254, 1)',
+                  stroke: 'rgb(var(--brand-default))',
                 }
               : {})}
             onAnimationComplete={() => setInteractionEnabled(true)}
@@ -283,7 +242,7 @@ function Chart({
               themeGlassyBorder,
               themeBackgroundLayerEmphasized,
             )}>
-            <GFEIcon />
+            <LogoMark />
           </div>
         </div>
       )}

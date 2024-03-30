@@ -130,8 +130,8 @@ export default function MarketingHeroBackground(
           x2="986.754"
           y1="494.676"
           y2="790.36">
-          <stop stopColor="var(--brand-gradient-arrow-start)" />
-          <stop offset="1" stopColor="var(--brand-gradient-arrow-stop)" />
+          <stop stopColor="var(--brand-gradient-linear-start)" />
+          <stop offset="1" stopColor="var(--brand-gradient-linear-stop)" />
         </linearGradient>
         {/* Triangle */}
         <linearGradient

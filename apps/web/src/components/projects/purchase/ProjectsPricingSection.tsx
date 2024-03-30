@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
+import BrandGlowBackground from '~/components/marketing/BrandGlowBackground';
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
-import PurpleGlowBackground from '~/components/marketing/PurpleGlowBackground';
 import PurchasePPPDiscountAlert from '~/components/purchase/PurchasePPPDiscountAlert';
 import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '~/components/purchase/PurchasePricingConfig';
 import PurchaseProhibitedCountryAlert from '~/components/purchase/PurchaseProhibitedCountryAlert';
@@ -71,7 +71,7 @@ export default function ProjectsPricingSection({
             {/* Pricing table */}
             <div className="relative mt-8">
               <div aria-hidden="true" className="absolute right-0 top-0 -z-10">
-                <PurpleGlowBackground />
+                <BrandGlowBackground />
               </div>
               <Heading className="sr-only" level="custom">
                 <FormattedMessage

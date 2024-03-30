@@ -179,6 +179,6 @@ export const themeRadialGlowBackground = clsx(
 
 // Shadow colors.
 export const themeBrandShadow =
-  'shadow-[0px_0px_24px_8px_rgba(148,_140,_249,_0.4)]';
+  'shadow-[0px_0px_24px_8px_rgb(var(--brand-default),_0.4)]';
 export const themeBrandShadowHover =
-  'hover:shadow-[0px_0px_24px_8px_rgba(148,_140,_249,_0.4)]';
+  'hover:shadow-[0px_0px_24px_8px_rgb(var(--brand-default),_0.4)]';

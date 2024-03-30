@@ -18,8 +18,8 @@ import type {
   InterviewsPricingPlanPaymentConfigLocalizedRecord,
   InterviewsPricingPlanType,
 } from '~/components/interviews/purchase/InterviewsPricingPlans';
+import BrandGlowBackground from '~/components/marketing/BrandGlowBackground';
 import MarketingSectionHeader from '~/components/marketing/MarketingSectionHeader';
-import PurpleGlowBackground from '~/components/marketing/PurpleGlowBackground';
 import { SocialDiscountAlert } from '~/components/promotions/social/SocialDiscountAlert';
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 import PurchasePriceAnnualComparison from '~/components/purchase/comparison/PurchasePriceAnnualComparison';
@@ -807,7 +807,7 @@ export default function InterviewsPricingSection({
             {/* Pricing table */}
             <div className="relative mt-10 sm:mt-20">
               <div aria-hidden="true" className="absolute right-0 top-0 -z-10">
-                <PurpleGlowBackground />
+                <BrandGlowBackground />
               </div>
               <Heading className="sr-only" level="custom">
                 <FormattedMessage

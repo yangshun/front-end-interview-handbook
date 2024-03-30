@@ -1,4 +1,4 @@
-export default function PurpleGlowBackground() {
+export default function BrandGlowBackground() {
   return (
     <svg
       fill="none"
@@ -44,8 +44,12 @@ export default function PurpleGlowBackground() {
           x2="151.568"
           y1="436.014"
           y2="65.2011">
-          <stop stopColor="#A855F7" />
-          <stop offset="1" stopColor="#6366F1" stopOpacity="0.01" />
+          <stop stopColor="var(--brand-gradient-linear-start)" />
+          <stop
+            offset="1"
+            stopColor="var(--brand-gradient-linear-stop)"
+            stopOpacity="0.01"
+          />
         </linearGradient>
       </defs>
     </svg>

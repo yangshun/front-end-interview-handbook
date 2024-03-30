@@ -14,7 +14,6 @@ import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
 import {
   themeBorderEmphasizeColor,
-  themeRadialGlowBackground,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
@@ -82,10 +81,15 @@ function Background(props: React.ComponentProps<'svg'>) {
           gradientUnits="userSpaceOnUse"
           id="paint0_radial_8335_5217"
           r="1">
-          <stop stop-color="#8383FD" />
-          <stop offset="0.223497" stop-color="#8383FD" stop-opacity="0.64" />
+          <stop stop-color="rgb(var(--brand-default))" />
+          <stop
+            offset="0.223497"
+            stop-color="rgb(var(--brand-dark))"
+            stop-opacity="0.70"
+          />
           <stop offset="1" stop-color="white" stop-opacity="0.01" />
         </radialGradient>
+        {/* Triangle */}
         <linearGradient
           gradientUnits="userSpaceOnUse"
           id="paint1_linear_8335_5217"
@@ -93,8 +97,12 @@ function Background(props: React.ComponentProps<'svg'>) {
           x2="31.6394"
           y1="515.708"
           y2="148.891">
-          <stop stop-color="#A855F7" />
-          <stop offset="1" stop-color="#6366F1" stop-opacity="0.01" />
+          <stop stop-color="rgb(var(--brand-light))" />
+          <stop
+            offset="1"
+            stop-color="rgb(var(--brand-dark))"
+            stop-opacity="0.01"
+          />
         </linearGradient>
       </defs>
     </svg>
@@ -173,7 +181,7 @@ building projects - no spam!"
           />
         </div>
         <form
-          className="flex w-full flex-col gap-x-2 gap-y-6 sm:max-w-lg sm:flex-row"
+          className="flex w-full flex-col gap-x-2 gap-y-6 sm:max-w-lg sm:flex-row sm:items-center"
           onSubmit={(event) => {
             event.preventDefault();
             event.stopPropagation();
@@ -212,7 +220,7 @@ building projects - no spam!"
               description: 'Button label for a newsletter subscription section',
               id: 'Id0zS8',
             })}
-            size="lg"
+            size="md"
             type="submit"
             variant="primary"
           />
@@ -234,7 +242,6 @@ building projects - no spam!"
     <div
       className={clsx(
         'isolate rounded-t-3xl lg:rounded-t-[48px] lg:before:hidden',
-        themeRadialGlowBackground,
       )}>
       <div className="hidden lg:contents">{content}</div>
       <div className={clsx('lg:hidden')}>{content}</div>

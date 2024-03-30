@@ -20,6 +20,7 @@ a {
   text-decoration: none;
 }
 
+/* There's also themeRadialGlowBackground */
 @layer utilities {
   .theme-bg-radial-glow {
     position: relative;
@@ -36,8 +37,8 @@ a {
     background-size: cover;
     background-image: radial-gradient(
       78.57% 78.57% at 50.65% 0.84%,
-      #e9d5ff 0%,
-      #8383fd 0%,
+      var(--brand-gradient-radial-light) 0%,
+      var(--brand-gradient-radial-dark) 0%,
       rgba(15, 23, 42, 0.0001) 100%
     );
     opacity: 0.5;
