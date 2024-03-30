@@ -20,18 +20,26 @@ import projectsSkillExtractGroups from '../../skills/metadata/projectsSkillExtra
 import ProjectsSkillGroupList from '../../skills/metadata/ProjectsSkillGroupList';
 import ProjectsCompletedUsersTag from '../../stats/ProjectsCompletedUsersTag';
 
-type ChallengeCardType = 'hover' | 'normal';
-
-type Props = Readonly<{
+type BaseProps = Readonly<{
   challenge: ProjectsChallengeItem;
   isViewerPremium: boolean;
-  type?: ChallengeCardType;
 }>;
+
+type Props =
+  | (BaseProps &
+      Readonly<{
+        raiseOnHover?: boolean;
+        variant: 'card';
+      }>)
+  | (BaseProps &
+      Readonly<{
+        variant: 'hovercard';
+      }>);
 
 export default function ProjectsChallengeCard({
   challenge,
   isViewerPremium,
-  type = 'normal',
+  ...props
 }: Props) {
   const intl = useIntl();
   const {
@@ -59,11 +67,11 @@ export default function ProjectsChallengeCard({
         'flex flex-col',
         'rounded-lg',
         'relative isolate',
-        type === 'normal' && [
+        props.variant === 'card' && [
           themeGlassyBorder,
           themeBackgroundCardAltColor,
           'transition-all',
-          'hover:-translate-y-1',
+          props.raiseOnHover && 'hover:-translate-y-1',
         ],
       )}>
       <div className="relative">
@@ -71,7 +79,7 @@ export default function ProjectsChallengeCard({
           alt={title}
           className={clsx(
             'aspect-[16/9] w-full object-cover',
-            type === 'hover' ? 'rounded-md' : 'rounded-t-lg',
+            props.variant === 'hovercard' ? 'rounded-md' : 'rounded-t-lg',
           )}
           src={imageUrl}
         />
@@ -89,7 +97,7 @@ export default function ProjectsChallengeCard({
       <div
         className={clsx(
           'flex grow flex-col gap-4',
-          type === 'normal' ? 'p-4' : 'pt-4',
+          props.variant === 'card' ? 'p-4' : 'pt-4',
         )}>
         <div className="flex flex-wrap gap-x-4 gap-y-2">
           <ProjectsChallengeDifficultyTag
@@ -120,7 +128,7 @@ export default function ProjectsChallengeCard({
           />
         </div>
         <div className="flex items-center gap-4">
-          {type === 'normal' && (
+          {props.variant === 'card' && (
             <Button
               className="z-[1]"
               href={href}

@@ -26,6 +26,7 @@ export default function ProjectsMarketingFeaturedChallengesMarquee({
               key={challenge.metadata.slug}
               challenge={challenge}
               isViewerPremium={isViewerPremium}
+              variant="card"
             />
           ))}
         </div>

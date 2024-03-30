@@ -141,6 +141,7 @@ export default function ProjectsProfileProgressAllChallengesTab({
                       key={session.id}
                       challenge={session.challenge}
                       isViewerPremium={isViewerPremium}
+                      variant="card"
                     />
                   ) : null,
                 )}

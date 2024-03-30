@@ -22,6 +22,7 @@ export default function ProjectsChallengeGridList({
           key={challenge.metadata.slug}
           challenge={challenge}
           isViewerPremium={isViewerPremium}
+          variant="card"
         />
       ))}
     </div>

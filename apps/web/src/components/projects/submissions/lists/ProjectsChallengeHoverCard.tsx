@@ -35,7 +35,7 @@ export default function ProjectsChallengeHoverCard({ slug }: Props) {
         <ProjectsChallengeCard
           challenge={data}
           isViewerPremium={profile?.projectsProfile?.premium ?? false}
-          type="hover"
+          variant="hovercard"
         />
       )}
     </div>
