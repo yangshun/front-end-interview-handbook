@@ -435,6 +435,10 @@
     "defaultMessage": "Edit on GitHub",
     "description": "Edit on GitHub button"
   },
+  "201SF4": {
+    "defaultMessage": "This submission is for a premium challenge you have previously unlocked. Resubscribe to premium to learn from user submissions for premium challenges.",
+    "description": "Subtitle for project paywall"
+  },
   "23bxK1": {
     "defaultMessage": "Blogs List",
     "description": "Screen reader text indicating the blog list component on blog homepage"
@@ -863,10 +867,6 @@
     "defaultMessage": "Learning features",
     "description": "Learning features of the product in Projects marketing page"
   },
-  "6Hdxa+": {
-    "defaultMessage": "This is a user submission for a premium challenge. Resubscribe to premium to learn from user submissions of this challenge. You have <bold>{amountLeft}</bold> unlock credit(s) left.",
-    "description": "Subtitle for project paywall"
-  },
   "6Qxjzw": {
     "defaultMessage": "Build the project guided by us - refer to official guides, solutions, reference other user's submissions, and discuss with the community",
     "description": "Step 3 of the \"How it works\" section on the Projects home page"
@@ -930,6 +930,10 @@
   "6pmA7h": {
     "defaultMessage": "How it works",
     "description": "Heading of the 'How it works' marketing section on Projects home page"
+  },
+  "6ryk3B": {
+    "defaultMessage": "Resubscribe to premium to learn from user submissions for premium challenges. You have <bold>{amountLeft}</bold> unlock credit(s) left.",
+    "description": "Subtitle for project paywall"
   },
   "6w1Z0V": {
     "defaultMessage": "Practice Questions",
@@ -1978,6 +1982,10 @@
   "Fgr6w/": {
     "defaultMessage": "See all",
     "description": "Link to see all submissions"
+  },
+  "FociSH": {
+    "defaultMessage": "You have no credits left for this cycle. Please wait for the next cycle to unlock this challenge",
+    "description": "Subtitle for project paywall"
   },
   "FonVOb": {
     "defaultMessage": "All question progress has been reset.",
@@ -3547,10 +3555,6 @@
     "defaultMessage": "Review must not be generated or written with the assistance of artificial intelligence.",
     "description": "Condition for promotion"
   },
-  "SE0f/s": {
-    "defaultMessage": "This is a user submission for a premium challenge. Unlock this challenge to learn from user submissions of this challenge. You have <bold>{amountLeft}</bold>/{totalAmount} unlock credit(s) left.",
-    "description": "Subtitle for project paywall"
-  },
   "SG08/K": {
     "defaultMessage": "Challenge unlocked successfully",
     "description": "Label to unlock a premium project"
@@ -4030,6 +4034,10 @@
   "WDJgWl": {
     "defaultMessage": "Questions",
     "description": "Front end system design interviews questions"
+  },
+  "WEMJz4": {
+    "defaultMessage": "Subscribe to premium to learn from user submissions for premium challenges.",
+    "description": "Subtitle for a premium project paywall"
   },
   "WETxAT": {
     "defaultMessage": "Challenge difficulty",
@@ -5907,6 +5915,10 @@
     "defaultMessage": "Quiz Questions",
     "description": "Header for quiz questions"
   },
+  "lslZ4H": {
+    "defaultMessage": "User submission for premium challenge",
+    "description": "Title for a premium project paywall"
+  },
   "lspF70": {
     "defaultMessage": "For Side Projects",
     "description": "Link to Projects homepage for side projects"
@@ -6519,10 +6531,6 @@
     "defaultMessage": "First time preparing for front end interviews?",
     "description": "Link to front end interview guidebook"
   },
-  "qbLzCm": {
-    "defaultMessage": "User submission for a premium challenge",
-    "description": "Title for a premium project paywall"
-  },
   "qcjD4a": {
     "defaultMessage": "Coding Questions",
     "description": "Coding interview questions"
@@ -6647,10 +6655,6 @@
     "defaultMessage": "Nothing at all! Just click \"Start project\", and we will take care of everything else and guide you along the way.",
     "description": "FAQ answer for projects platform"
   },
-  "rzxWUB": {
-    "defaultMessage": "This is a user submission for a premium challenge. You have no credits left for this cycle.",
-    "description": "Subtitle for project paywall"
-  },
   "s7CwKz": {
     "defaultMessage": "Behavioral Interview Study Guides",
     "description": "Behavioral interview study guides"
@@ -6750,10 +6754,6 @@
   "t+sW3R": {
     "defaultMessage": "Filter by forum type",
     "description": "Tooltip for forum type filter for contribution list"
-  },
-  "t1uAvn": {
-    "defaultMessage": "This is a user submission for a premium challenge you have previously unlocked. Resubscribe to premium to regain access to this challenge and learn from user submissions of this challenge.",
-    "description": "Subtitle for project paywall"
   },
   "t2Ll2e": {
     "defaultMessage": "Run your code with <button>custom test cases</button> before submitting.",
@@ -6898,10 +6898,6 @@
   "u0dndi": {
     "defaultMessage": "View All Questions",
     "description": "Link label to the list of all Quiz coding questions"
-  },
-  "u2/Gcr": {
-    "defaultMessage": "This is a user submission for a premium challenge. Subscribe to premium to learn from user submission of premium challenges.",
-    "description": "Subtitle for a premium project paywall"
   },
   "u2sucM": {
     "defaultMessage": "<bold>{author}</bold> made a post on <bold>{recipient}</bold>'s submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
@@ -7266,6 +7262,10 @@
   "xBj9I5": {
     "defaultMessage": "Prepare for tackling form questions in front end interviews",
     "description": "Title for interview preparation focus area"
+  },
+  "xE/NtU": {
+    "defaultMessage": "Unlock this challenge to learn from user submissions for premium challenges. You have <bold>{amountLeft}</bold>/{totalAmount} unlock credit(s) left.",
+    "description": "Subtitle for project paywall"
   },
   "xEvm93": {
     "defaultMessage": "Features",

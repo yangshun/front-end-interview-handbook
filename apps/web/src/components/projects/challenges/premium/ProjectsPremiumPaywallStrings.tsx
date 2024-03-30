@@ -113,9 +113,9 @@ export function useProjectsChallengeSubmissionPaywallTitle(
     case 'INSUFFICIENT_CREDITS':
     case 'UNLOCK':
       return intl.formatMessage({
-        defaultMessage: 'User submission for a premium challenge',
+        defaultMessage: 'User submission for premium challenge',
         description: 'Title for a premium project paywall',
-        id: 'qbLzCm',
+        id: 'lslZ4H',
       });
     case 'RESUBSCRIBE_TO_UNLOCK':
       return intl.formatMessage({
@@ -143,24 +143,24 @@ export function useProjectsChallengeSubmissionPaywallSubtitle(
     case 'SUBSCRIBE':
       return intl.formatMessage({
         defaultMessage:
-          'This is a user submission for a premium challenge. Subscribe to premium to learn from user submission of premium challenges.',
+          'Subscribe to premium to learn from user submissions for premium challenges.',
         description: 'Subtitle for a premium project paywall',
-        id: 'u2/Gcr',
+        id: 'WEMJz4',
       });
     case 'RESUBSCRIBE_TO_ACCESS':
       return (
         <FormattedMessage
-          defaultMessage="This is a user submission for a premium challenge you have previously unlocked. Resubscribe to premium to regain access to this challenge and learn from user submissions of this challenge."
+          defaultMessage="This submission is for a premium challenge you have previously unlocked. Resubscribe to premium to learn from user submissions for premium challenges."
           description="Subtitle for project paywall"
-          id="t1uAvn"
+          id="201SF4"
         />
       );
     case 'RESUBSCRIBE_TO_UNLOCK':
       return (
         <FormattedMessage
-          defaultMessage="This is a user submission for a premium challenge. Resubscribe to premium to learn from user submissions of this challenge. You have <bold>{amountLeft}</bold> unlock credit(s) left."
+          defaultMessage="Resubscribe to premium to learn from user submissions for premium challenges. You have <bold>{amountLeft}</bold> unlock credit(s) left."
           description="Subtitle for project paywall"
-          id="6Hdxa+"
+          id="6ryk3B"
           values={{
             amountLeft: credits,
             bold: (chunks) => <Text weight="bold">{chunks}</Text>,
@@ -170,9 +170,9 @@ export function useProjectsChallengeSubmissionPaywallSubtitle(
     case 'UNLOCK':
       return (
         <FormattedMessage
-          defaultMessage="This is a user submission for a premium challenge. Unlock this challenge to learn from user submissions of this challenge. You have <bold>{amountLeft}</bold>/{totalAmount} unlock credit(s) left. "
+          defaultMessage="Unlock this challenge to learn from user submissions for premium challenges. You have <bold>{amountLeft}</bold>/{totalAmount} unlock credit(s) left. "
           description="Subtitle for project paywall"
-          id="SE0f/s"
+          id="xE/NtU"
           values={{
             amountLeft: credits,
             bold: (chunks) => <Text weight="bold">{chunks}</Text>,
@@ -186,9 +186,9 @@ export function useProjectsChallengeSubmissionPaywallSubtitle(
     case 'INSUFFICIENT_CREDITS':
       return (
         <FormattedMessage
-          defaultMessage="This is a user submission for a premium challenge. You have no credits left for this cycle."
+          defaultMessage="You have no credits left for this cycle. Please wait for the next cycle to unlock this challenge"
           description="Subtitle for project paywall"
-          id="rzxWUB"
+          id="FociSH"
         />
       );
   }

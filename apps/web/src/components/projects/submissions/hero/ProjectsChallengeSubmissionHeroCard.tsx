@@ -54,7 +54,7 @@ export default function ProjectsChallengeSubmissionHeroCard({
           : themeBackgroundCardAltColor,
       )}>
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <Text color="secondary" size="body2" weight="medium">
             {intl.formatMessage({
               defaultMessage: 'Challenge brief',
@@ -62,6 +62,9 @@ export default function ProjectsChallengeSubmissionHeroCard({
               id: '/BGC+5',
             })}
           </Text>
+          {challengeAccess === 'premium' && (
+            <ProjectsPremiumBadge size="md" unlocked={userUnlocked} />
+          )}
           <ProjectsStatusBadge entity="challenge" status={status} />
         </div>
         <RiArrowRightLine
@@ -73,25 +76,20 @@ export default function ProjectsChallengeSubmissionHeroCard({
           )}
         />
       </div>
-      <div className="flex items-center gap-x-3">
-        <Anchor
-          className={textVariants({
-            className: 'z-[1]',
-            size: 'body0',
-            weight: 'bold',
-          })}
-          href={href}
-          variant="flat">
-          {title}
-        </Anchor>
-        {challengeAccess === 'premium' && (
-          <ProjectsPremiumBadge size="sm" unlocked={userUnlocked} />
-        )}
-      </div>
+      <Anchor
+        className={textVariants({
+          className: 'relative z-[1]',
+          size: 'body0',
+          weight: 'bold',
+        })}
+        href={href}
+        variant="flat">
+        {title}
+      </Anchor>
       <Text className="line-clamp-3" color="secondary" size="body3">
         {description}
       </Text>
-      <div className="z-[1] flex items-center gap-4">
+      <div className="relative z-[1] flex items-center gap-4">
         <ProjectsChallengeDifficultyTag
           difficulty={difficulty}
           variant="inline"
