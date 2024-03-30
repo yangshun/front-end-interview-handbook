@@ -1,12 +1,13 @@
 :root,
 [data-theme='interviews'] {
-  --brand-darkest: #3a2888;
-  --brand-darker: #5133cf;
-  --brand-dark: #7063f3;
-  --brand-default: #948cf9;
-  --brand-light: #bab5fd;
-  --brand-lighter: #d6d5fe;
-  --brand-lightest: #f3f0ff;
+  /* We use RGB values so that transparency can be tweaked dynamically by Tailwind modifiers. */
+  --brand-darkest: 58, 40, 136; /* #3a2888; */
+  --brand-darker: 81, 51, 207; /* #5133cf; */
+  --brand-dark: 112, 99, 243; /* #7063f3; */
+  --brand-default: 148, 140, 249; /* #948cf9; */
+  --brand-light: 186, 181, 253; /* #bab5fd; */
+  --brand-lighter: 214, 213, 254; /* #d6d5fe; */
+  --brand-lightest: 243, 240, 255; /* #f3f0ff; */
 
   --brand-gradient-radial-light: #e9d5ff;
   --brand-gradient-radial-dark: #8383fd;
@@ -19,20 +20,21 @@
 }
 
 [data-theme='projects'] {
-  --brand-darkest: #092417;
-  --brand-darker: #165737;
-  --brand-dark: #2fbc78;
-  --brand-default: #36d387;
-  --brand-light: #3ff59d;
-  --brand-lighter: #7effc1;
-  --brand-lightest: #c9ffe5;
+  /* We use RGB values so that transparency can be tweaked dynamically by Tailwind modifiers. */
+  --brand-darkest: 9, 36, 23; /* #092417; */
+  --brand-darker: 22, 87, 55; /* #165737; */
+  --brand-dark: 47, 188, 120; /* #2fbc78; */
+  --brand-default: 54, 211, 135; /* #36d387; */
+  --brand-light: 63, 245, 157; /* #3ff59d; */
+  --brand-lighter: 126, 255, 193; /* #7effc1; */
+  --brand-lightest: 201, 255, 229; /* #c9ffe5; */
 
-  --brand-gradient-radial-light: var(--brand-default);
+  --brand-gradient-radial-light: rgb(var(--brand-default));
   --brand-gradient-radial-dark: #5fdd74;
 
   --brand-gradient-arrow-start: #c6fdd0;
-  --brand-gradient-arrow-stop: var(--brand-default);
+  --brand-gradient-arrow-stop: rgb(var(--brand-default));
 
-  --brand-gradient-triangle-start: var(--brand-default);
-  --brand-gradient-triangle-stop: var(--brand-default);
+  --brand-gradient-triangle-start: rgb(var(--brand-default));
+  --brand-gradient-triangle-stop: rgb(var(--brand-default));
 }

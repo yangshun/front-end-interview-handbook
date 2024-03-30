@@ -17,13 +17,13 @@ const neutral = {
 };
 
 const brand = {
-  lightest: 'var(--brand-lightest)',
-  lighter: 'var(--brand-lighter)',
-  light: 'var(--brand-light)',
-  DEFAULT: 'var(--brand-default)',
-  dark: 'var(--brand-dark)',
-  darker: 'var(--brand-darker)',
-  darkest: 'var(--brand-darkest)',
+  lightest: 'rgb(var(--brand-lightest))',
+  lighter: 'rgb(var(--brand-lighter))',
+  light: 'rgb(var(--brand-light))',
+  DEFAULT: 'rgb(var(--brand-default))',
+  dark: 'rgb(var(--brand-dark))',
+  darker: 'rgb(var(--brand-darker))',
+  darkest: 'rgb(var(--brand-darkest))',
 };
 
 const green = {
