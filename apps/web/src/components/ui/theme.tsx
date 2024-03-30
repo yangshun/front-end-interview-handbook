@@ -173,7 +173,8 @@ export const themeGradientPinkPurple: ThemeGradient<'#EC4899', '#818CF8'> = {
 };
 
 export const themeRadialGlowBackground = clsx(
-  'relative before:rounded-[inherit] before:opacity-50 before:-z-10 before:top-0 before:left-0 before:right-0 before:absolute before:bg-top before:bg-cover before:w-full before:h-[600px] before:bg-[radial-gradient(78.57%_78.57%_at_50.65%_0.84%,_#E9D5FF_0%,_#8383FD_0%,_rgba(15,_23,_42,_0.0001)_100%)]',
+  'relative before:rounded-[inherit] before:opacity-50 before:-z-10 before:top-0 before:left-0 before:right-0 before:absolute before:bg-top before:bg-cover before:w-full before:h-[500px]',
+  'before:bg-[radial-gradient(78.57%_78.57%_at_50.65%_0.84%,_var(--brand-gradient-radial-light)_0%,_var(--brand-gradient-radial-dark)_0%,_rgba(15,_23,_42,_0.0001)_100%)]',
 );
 
 // Shadow colors.

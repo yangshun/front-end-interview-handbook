@@ -87,22 +87,30 @@ export default function ProjectsMarketingHero() {
     <div className="relative isolate lg:mx-8">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -z-10 -mb-28 -mt-28 flex h-[calc(100%_+_112px)] w-full justify-center overflow-hidden rounded-b-3xl lg:rounded-b-[48px]">
+        className="pointer-events-none absolute -z-10 -my-28 flex h-[calc(100%_+_112px)] w-full justify-center overflow-hidden rounded-b-3xl lg:rounded-b-[48px]">
         <MarketingHeroBackground className="h-full min-w-[1200px]" />
       </div>
       <div className="relative pb-32 pt-0">
         <div className="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:pt-24">
           <div className="flex flex-col items-center gap-y-8">
             <div className="flex flex-col items-center">
-              <a
+              <Anchor
                 className={clsx(
-                  'bg-indigo/10 mb-4 flex items-center gap-1 rounded-full border px-3 py-1',
-                  'border-neutral-800/20 dark:border-neutral-200/20',
+                  'flex items-center gap-1 px-3 py-1',
+                  'rounded-full',
+                  'mb-4',
                   themeTextBrandColor,
-                  'dark:hover:border-brand hover:border-brand-dark transition-colors',
+                  [
+                    'border',
+                    'border-neutral-800/20 dark:border-neutral-200/20',
+                    'hover:border-brand-dark dark:hover:border-brand',
+                  ],
+                  'bg-[#2fbc78]/10 dark:bg-[#36d387]/10',
+                  'transition-colors',
                 )}
-                // TODO: Update the link href
-                href="#">
+                // TODO(projects): Update the link href
+                href="#"
+                variant="unstyled">
                 <RiBardLine />
                 <Text color="inherit" size="body2" weight="medium">
                   <FormattedMessage
@@ -112,7 +120,7 @@ export default function ProjectsMarketingHero() {
                   />
                 </Text>
                 <RiArrowRightSLine className={themeTextColor} />
-              </a>
+              </Anchor>
               <div className="mb-10 flex flex-col items-center gap-y-6 sm:gap-y-7">
                 <Heading className="max-w-3xl text-center" level="heading1">
                   <FormattedMessage

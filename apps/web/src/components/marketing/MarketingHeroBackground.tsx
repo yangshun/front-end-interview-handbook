@@ -115,10 +115,14 @@ export default function MarketingHeroBackground(
           gradientUnits="userSpaceOnUse"
           id="paint0_radial_401_76334"
           r="1">
-          <stop stopColor="#E9D5FF" />
-          <stop offset="0.223497" stopColor="#8383FD" />
+          <stop stopColor="var(--brand-gradient-radial-light)" />
+          <stop
+            offset="0.223497"
+            stopColor="var(--brand-gradient-radial-dark)"
+          />
           <stop offset="1" stopColor="#0F172A" stopOpacity="0.01" />
         </radialGradient>
+        {/* Arrow */}
         <linearGradient
           gradientUnits="userSpaceOnUse"
           id="paint1_linear_401_76334"
@@ -126,9 +130,10 @@ export default function MarketingHeroBackground(
           x2="986.754"
           y1="494.676"
           y2="790.36">
-          <stop stopColor="#A855F7" />
-          <stop offset="1" stopColor="#6366F1" />
+          <stop stopColor="var(--brand-gradient-arrow-start)" />
+          <stop offset="1" stopColor="var(--brand-gradient-arrow-stop)" />
         </linearGradient>
+        {/* Triangle */}
         <linearGradient
           gradientUnits="userSpaceOnUse"
           id="paint2_linear_401_76334"
@@ -136,8 +141,12 @@ export default function MarketingHeroBackground(
           x2="386.568"
           y1="61.9859"
           y2="432.799">
-          <stop stopColor="#8383FD" />
-          <stop offset="1" stopColor="#6366F1" stopOpacity="0.01" />
+          <stop stopColor="var(--brand-gradient-triangle-start)" />
+          <stop
+            offset="1"
+            stopColor="var(--brand-gradient-triangle-stop)"
+            stopOpacity="0.01"
+          />
         </linearGradient>
       </defs>
     </svg>

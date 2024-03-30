@@ -7,6 +7,15 @@
   --brand-light: #bab5fd;
   --brand-lighter: #d6d5fe;
   --brand-lightest: #f3f0ff;
+
+  --brand-gradient-radial-light: #e9d5ff;
+  --brand-gradient-radial-dark: #8383fd;
+
+  --brand-gradient-arrow-start: #a855f7;
+  --brand-gradient-arrow-stop: #6366f1;
+
+  --brand-gradient-triangle-start: #8383fd;
+  --brand-gradient-triangle-stop: #6366f1;
 }
 
 [data-theme='projects'] {
@@ -17,4 +26,13 @@
   --brand-light: #3ff59d;
   --brand-lighter: #7effc1;
   --brand-lightest: #c9ffe5;
+
+  --brand-gradient-radial-light: var(--brand-default);
+  --brand-gradient-radial-dark: #5fdd74;
+
+  --brand-gradient-arrow-start: #c6fdd0;
+  --brand-gradient-arrow-stop: var(--brand-default);
+
+  --brand-gradient-triangle-start: var(--brand-default);
+  --brand-gradient-triangle-stop: var(--brand-default);
 }
