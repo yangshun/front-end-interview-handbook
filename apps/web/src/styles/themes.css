@@ -1,13 +1,13 @@
 :root,
 [data-theme='interviews'] {
-  /* We use RGB values so that transparency can be tweaked dynamically by Tailwind modifiers. */
-  --brand-darkest: 58, 40, 136; /* #3a2888; */
-  --brand-darker: 81, 51, 207; /* #5133cf; */
-  --brand-dark: 112, 99, 243; /* #7063f3; */
-  --brand-default: 148, 140, 249; /* #948cf9; */
-  --brand-light: 186, 181, 253; /* #bab5fd; */
-  --brand-lighter: 214, 213, 254; /* #d6d5fe; */
-  --brand-lightest: 243, 240, 255; /* #f3f0ff; */
+  /* We use HSL values so that transparency can be tweaked dynamically by Tailwind modifiers. */
+  --brand-darkest: 251 55% 35%; /* #3a2888; */
+  --brand-darker: 252 62% 51%; /* #5133cf; */
+  --brand-dark: 245 86% 67%; /* #7063f3; */
+  --brand-default: 244 90% 76%; /* #948cf9; */
+  --brand-light: 244 95% 85%; /* #bab5fd; */
+  --brand-lighter: 241 95% 92%; /* #d6d5fe; */
+  --brand-lightest: 252 100% 97%; /* #f3f0ff; */
 
   --brand-gradient-radial-light: #e9d5ff;
   --brand-gradient-radial-dark: #8383fd;
@@ -20,21 +20,21 @@
 }
 
 [data-theme='projects'] {
-  /* We use RGB values so that transparency can be tweaked dynamically by Tailwind modifiers. */
-  --brand-darkest: 9, 36, 23; /* #092417; */
-  --brand-darker: 22, 87, 55; /* #165737; */
-  --brand-dark: 47, 188, 120; /* #2fbc78; */
-  --brand-default: 54, 211, 135; /* #36d387; */
-  --brand-light: 63, 245, 157; /* #3ff59d; */
-  --brand-lighter: 126, 255, 193; /* #7effc1; */
-  --brand-lightest: 201, 255, 229; /* #c9ffe5; */
+  /* We use HSL values so that transparency can be tweaked dynamically by Tailwind modifiers. */
+  --brand-darkest: 151 60% 9%; /* #092417; */
+  --brand-darker: 150 60% 21%; /* #165737; */
+  --brand-dark: 151 60% 46%; /* #2fbc78; */
+  --brand-default: 151 64% 52%; /* #36d387; */
+  --brand-light: 151 90% 60%; /* #3ff59d; */
+  --brand-lighter: 151 100% 75%; /* #7effc1; */
+  --brand-lightest: 151 100% 89%; /* #c9ffe5; */
 
-  --brand-gradient-radial-light: rgb(var(--brand-default));
+  --brand-gradient-radial-light: hsl(var(--brand-default));
   --brand-gradient-radial-dark: #5fdd74;
 
   --brand-gradient-linear-start: #c6fdd0;
-  --brand-gradient-linear-stop: rgb(var(--brand-default));
+  --brand-gradient-linear-stop: hsl(var(--brand-default));
 
-  --brand-gradient-triangle-start: rgb(var(--brand-default));
-  --brand-gradient-triangle-stop: rgb(var(--brand-default));
+  --brand-gradient-triangle-start: hsl(var(--brand-default));
+  --brand-gradient-triangle-stop: hsl(var(--brand-default));
 }

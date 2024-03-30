@@ -37,7 +37,11 @@
 }
 
 .shiny::before {
-  background: linear-gradient(#8383fd 0%, #e9d5ff 75%, transparent 100%);
+  background: linear-gradient(
+    var(--brand-gradient-radial-dark) 0%,
+    var(--brand-gradient-radial-light) 75%,
+    transparent 100%
+  );
   border-radius: inherit;
   content: '';
   inset: 0px;

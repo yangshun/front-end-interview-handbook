@@ -17,13 +17,13 @@ const neutral = {
 };
 
 const brand = {
-  lightest: 'rgb(var(--brand-lightest))',
-  lighter: 'rgb(var(--brand-lighter))',
-  light: 'rgb(var(--brand-light))',
-  DEFAULT: 'rgb(var(--brand-default))',
-  dark: 'rgb(var(--brand-dark))',
-  darker: 'rgb(var(--brand-darker))',
-  darkest: 'rgb(var(--brand-darkest))',
+  lightest: 'hsl(var(--brand-lightest))',
+  lighter: 'hsl(var(--brand-lighter))',
+  light: 'hsl(var(--brand-light))',
+  DEFAULT: 'hsl(var(--brand-default))',
+  dark: 'hsl(var(--brand-dark))',
+  darker: 'hsl(var(--brand-darker))',
+  darkest: 'hsl(var(--brand-darkest))',
 };
 
 const green = {
@@ -103,9 +103,6 @@ module.exports = {
       fontSize: {
         '2xs': ['0.625rem', { lineHeight: '0.875rem' }],
         '3xs': ['0.5rem', { lineHeight: '0.594rem' }],
-      },
-      boxShadow: {
-        glow: '0 0 4px rgb(0 0 0 / 0.1)',
       },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],

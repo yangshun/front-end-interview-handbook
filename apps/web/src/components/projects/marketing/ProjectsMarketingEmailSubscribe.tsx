@@ -81,10 +81,10 @@ function Background(props: React.ComponentProps<'svg'>) {
           gradientUnits="userSpaceOnUse"
           id="paint0_radial_8335_5217"
           r="1">
-          <stop stopColor="rgb(var(--brand-default))" />
+          <stop stopColor="hsl(var(--brand-default))" />
           <stop
             offset="0.223497"
-            stopColor="rgb(var(--brand-dark))"
+            stopColor="hsl(var(--brand-dark))"
             stopOpacity="0.70"
           />
           <stop offset="1" stopColor="white" stopOpacity="0.01" />
@@ -97,10 +97,10 @@ function Background(props: React.ComponentProps<'svg'>) {
           x2="31.6394"
           y1="515.708"
           y2="148.891">
-          <stop stopColor="rgb(var(--brand-light))" />
+          <stop stopColor="hsl(var(--brand-light))" />
           <stop
             offset="1"
-            stopColor="rgb(var(--brand-dark))"
+            stopColor="hsl(var(--brand-dark))"
             stopOpacity="0.01"
           />
         </linearGradient>

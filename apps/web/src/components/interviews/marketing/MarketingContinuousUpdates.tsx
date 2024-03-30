@@ -171,7 +171,7 @@ function Chart({
             {...(isInView
               ? {
                   animate: { pathLength: 1 },
-                  stroke: 'rgb(var(--brand-default))',
+                  stroke: 'hsl(var(--brand-default))',
                 }
               : {})}
             onAnimationComplete={() => setInteractionEnabled(true)}
