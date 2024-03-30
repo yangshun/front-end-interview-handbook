@@ -111,7 +111,9 @@ export default function ProjectsChallengeAssetsPage({
     'responsive-breakpoints',
   );
 
-  const showPaywall = viewerAccess.viewChallenge !== 'YES';
+  const showPaywall =
+    viewerAccess.viewChallenge !== 'UNLOCKED' &&
+    viewerAccess.viewChallenge !== 'ACCESSIBLE_TO_EVERYONE';
   const overlay = showPaywall ? (
     <ProjectsChallengeContentPaywall
       slug={metadata.slug}

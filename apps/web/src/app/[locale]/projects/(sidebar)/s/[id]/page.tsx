@@ -140,7 +140,10 @@ export default async function Page({ params }: Props) {
     viewerUnlockedAccess,
   );
 
-  if (viewerAccess.viewSubmission !== 'YES') {
+  if (
+    viewerAccess.viewSubmission !== 'UNLOCKED' &&
+    viewerAccess.viewSubmission !== 'ACCESSIBLE_TO_EVERYONE'
+  ) {
     return (
       <ProjectsChallengeSubmissionLockedPage
         challenge={challenge}

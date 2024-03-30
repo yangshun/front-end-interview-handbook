@@ -3,6 +3,7 @@ import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 import { useState } from 'react';
 import {
   RiArrowRightLine,
+  RiDownload2Fill,
   RiLock2Line,
   RiLockUnlockLine,
 } from 'react-icons/ri';
@@ -21,13 +22,20 @@ import type { ProjectsSubscriptionPlan } from '@prisma/client';
 type Placement = 'ASSETS_PAGE' | 'GET_STARTED_DIALOG';
 
 function DownloadSection({
+  access,
   downloadHref,
   placement,
 }: Readonly<{
+  access: ProjectsPremiumAccessControlType;
   downloadHref: string;
   placement: Placement;
 }>) {
   const intl = useIntl();
+  const label = intl.formatMessage({
+    defaultMessage: 'Figma design file',
+    description: 'Download Figma file button label',
+    id: 'RGdxr7',
+  });
 
   return (
     <div
@@ -35,28 +43,43 @@ function DownloadSection({
         'flex flex-col gap-4',
         placement === 'GET_STARTED_DIALOG' && 'items-start',
       )}>
-      <Button
-        addonPosition="start"
-        href={downloadHref}
-        icon={RiLockUnlockLine}
-        label={intl.formatMessage({
-          defaultMessage: 'Figma design file',
-          description: 'Download Figma file button label',
-          id: 'RGdxr7',
-        })}
-        size="lg"
-        variant="special"
-      />
-      <Text
-        className="block"
-        color="secondary"
-        size={placement === 'ASSETS_PAGE' ? 'body3' : 'body2'}>
-        {intl.formatMessage({
-          defaultMessage: 'Download your unlocked Figma file',
-          description: 'Download a premium Figma file',
-          id: 'uoPJJV',
-        })}
-      </Text>
+      {access === 'ACCESSIBLE_TO_EVERYONE' && (
+        <Button
+          addonPosition="start"
+          href={downloadHref}
+          icon={RiDownload2Fill}
+          label={label}
+          size="lg"
+          variant="secondary"
+        />
+      )}
+      {access === 'UNLOCKED' && (
+        <>
+          <Button
+            addonPosition="start"
+            href={downloadHref}
+            icon={RiLockUnlockLine}
+            label={label}
+            size="lg"
+            tooltip={intl.formatMessage({
+              defaultMessage: 'You have unlocked this Figma file',
+              description: 'Tooltip for premium Figma file download button',
+              id: 'oQYa8+',
+            })}
+            variant="special"
+          />
+          <Text
+            className="block"
+            color="secondary"
+            size={placement === 'ASSETS_PAGE' ? 'body3' : 'body2'}>
+            {intl.formatMessage({
+              defaultMessage: 'Download your unlocked Figma file',
+              description: 'Download a premium Figma file',
+              id: 'uoPJJV',
+            })}
+          </Text>
+        </>
+      )}
     </div>
   );
 }
@@ -147,7 +170,7 @@ function SubscribeSection({
       <Button
         addonPosition="start"
         href="/projects/pricing"
-        icon={RiLockUnlockLine}
+        icon={RiLock2Line}
         isDisabled={true}
         label={intl.formatMessage({
           defaultMessage: 'Figma design file',
@@ -163,9 +186,9 @@ function SubscribeSection({
         size={placement === 'ASSETS_PAGE' ? 'body3' : 'body2'}>
         {intl.formatMessage({
           defaultMessage:
-            'Purchase premium to unlock access to this Figma design file (and other features like official guides and solutions). Build accurately and learn to work with production-level specs.',
+            'Purchase premium to unlock access to this design file and other features like official guides and solutions. Build accurately and learn to work with production-level specs.',
           description: 'Unlock premium access for a project',
-          id: 'VkZQZm',
+          id: '8Z5qAk',
         })}
       </Text>
       {placement === 'ASSETS_PAGE' && (
@@ -207,7 +230,7 @@ function ResubscribeSection({
       <Button
         addonPosition="start"
         href="/projects/pricing"
-        icon={RiLockUnlockLine}
+        icon={RiLock2Line}
         label={intl.formatMessage({
           defaultMessage: 'Figma design file',
           description: 'Download Figma file button label',
@@ -262,7 +285,7 @@ function InsufficientCreditsSection({
       )}>
       <Button
         addonPosition="start"
-        icon={RiLockUnlockLine}
+        icon={RiLock2Line}
         isDisabled={true}
         label={intl.formatMessage({
           defaultMessage: 'Figma design file',
@@ -296,9 +319,11 @@ export default function ProjectsChallengeFigmaDesignPaywall({
   viewerProjectsProfile,
 }: Props) {
   switch (viewerFigmaAccess) {
-    case 'YES':
+    case 'UNLOCKED':
+    case 'ACCESSIBLE_TO_EVERYONE':
       return (
         <DownloadSection
+          access={viewerFigmaAccess}
           downloadHref={challengeMetadata.downloadDesignFileHref}
           placement={placement}
         />

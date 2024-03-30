@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiArrowLeftLine, RiLock2Line } from 'react-icons/ri';
+import { RiArrowLeftLine, RiLock2Line, RiLockUnlockLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/metadata/ProjectsChallengeDifficultyTag';
@@ -99,7 +99,7 @@ export default function ProjectsChallengeHeader({
             <Heading level="heading5">{title}</Heading>
             {access === 'premium' && (
               <ProjectsPremiumBadge
-                unlocked={viewerAccess.viewChallenge === 'YES'}
+                unlocked={viewerAccess.viewChallenge === 'UNLOCKED'}
               />
             )}
           </div>
@@ -136,7 +136,7 @@ export default function ProjectsChallengeHeader({
             />
           ) : (
             <div className="flex items-center gap-x-4 gap-y-4 lg:flex-col lg:items-end">
-              {viewerAccess.viewChallenge === 'YES' ? (
+              {viewerAccess.viewChallenge === 'ACCESSIBLE_TO_EVERYONE' ? (
                 <Button
                   label={intl.formatMessage({
                     defaultMessage: 'Start project',
@@ -148,8 +148,29 @@ export default function ProjectsChallengeHeader({
                   variant="primary"
                   onClick={startProject}
                 />
+              ) : viewerAccess.viewChallenge === 'UNLOCKED' ? (
+                <Button
+                  addonPosition="start"
+                  icon={RiLockUnlockLine}
+                  isDisabled={true}
+                  label={intl.formatMessage({
+                    defaultMessage: 'Start project',
+                    description:
+                      'Label for "Start project" button on Projects project page',
+                    id: '6/Qdew',
+                  })}
+                  size="md"
+                  tooltip={intl.formatMessage({
+                    defaultMessage: 'You have unlocked this project',
+                    description:
+                      'Label for "Start project" button on Projects project page',
+                    id: 'KtacJv',
+                  })}
+                  variant="secondary"
+                />
               ) : (
                 <Button
+                  addonPosition="start"
                   icon={RiLock2Line}
                   isDisabled={true}
                   label={intl.formatMessage({

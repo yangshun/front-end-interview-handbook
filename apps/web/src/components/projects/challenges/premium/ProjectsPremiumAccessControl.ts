@@ -3,12 +3,13 @@ import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
 export type ProjectsPremiumAccessControlType =
+  | 'ACCESSIBLE_TO_EVERYONE'
   | 'INSUFFICIENT_CREDITS'
   | 'RESUBSCRIBE_TO_ACCESS'
   | 'RESUBSCRIBE_TO_UNLOCK'
   | 'SUBSCRIBE'
   | 'UNLOCK'
-  | 'YES';
+  | 'UNLOCKED';
 
 export type ProjectsPremiumAccessControlFields = Readonly<{
   downloadFigma: ProjectsPremiumAccessControlType;
@@ -23,9 +24,9 @@ export default function ProjectsPremiumAccessControl(
 ): ProjectsPremiumAccessControlFields {
   if (challengeAccess === 'free') {
     return {
-      downloadFigma: 'YES',
-      viewChallenge: 'YES',
-      viewSubmission: 'YES',
+      downloadFigma: 'ACCESSIBLE_TO_EVERYONE',
+      viewChallenge: 'ACCESSIBLE_TO_EVERYONE',
+      viewSubmission: 'ACCESSIBLE_TO_EVERYONE',
     };
   }
 
@@ -34,7 +35,7 @@ export default function ProjectsPremiumAccessControl(
 
     if (viewerProjectsProfile?.premium) {
       if (viewerUnlockedAccess) {
-        return 'YES';
+        return 'UNLOCKED';
       }
 
       return credits > 0 ? 'UNLOCK' : 'INSUFFICIENT_CREDITS';
@@ -55,8 +56,8 @@ export default function ProjectsPremiumAccessControl(
   if (challengeAccess === 'free-plus') {
     return {
       downloadFigma: viewerAccess,
-      viewChallenge: 'YES',
-      viewSubmission: 'YES',
+      viewChallenge: 'ACCESSIBLE_TO_EVERYONE',
+      viewSubmission: 'ACCESSIBLE_TO_EVERYONE',
     };
   }
 

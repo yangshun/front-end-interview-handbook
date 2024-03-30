@@ -31,7 +31,9 @@ export default function ProjectsChallengeBriefPage({
   viewerProjectsProfile,
   viewerAccess,
 }: Props) {
-  const showPaywall = viewerAccess.viewChallenge !== 'YES';
+  const showPaywall =
+    viewerAccess.viewChallenge !== 'UNLOCKED' &&
+    viewerAccess.viewChallenge !== 'ACCESSIBLE_TO_EVERYONE';
 
   // TODO(projects): Add real images url
   const images = [

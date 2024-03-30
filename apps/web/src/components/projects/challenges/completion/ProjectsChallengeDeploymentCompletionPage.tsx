@@ -52,7 +52,9 @@ export default function ProjectsChallengeDeploymentCompletionPage({
   const { startProject, accessAllSteps, fetchingCanAccessAllSteps } =
     useProjectsChallengeSessionContext();
 
-  const showPaywall = viewerAccess.viewChallenge !== 'YES';
+  const showPaywall =
+    viewerAccess.viewChallenge !== 'UNLOCKED' &&
+    viewerAccess.viewChallenge !== 'ACCESSIBLE_TO_EVERYONE';
   const overlay = showPaywall ? (
     <ProjectsChallengeContentPaywall
       slug={metadata.slug}
