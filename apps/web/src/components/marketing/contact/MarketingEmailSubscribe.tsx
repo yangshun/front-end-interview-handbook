@@ -39,23 +39,23 @@ function Background(props: React.ComponentProps<'svg'>) {
       <g mask="url(#mask0_8335_5217)">
         <g filter="url(#filter0_f_8335_5217)">
           <path
-            clip-rule="evenodd"
+            clipRule="evenodd"
             d="M91.1194 469.338C71.9102 515.061 126.202 556.337 165.122 525.6L398.649 341.171C430.741 315.826 418.469 264.525 378.381 256.447L234.516 227.458C212.113 222.944 189.634 234.851 180.782 255.921L91.1194 469.338Z"
             fill="url(#paint1_linear_8335_5217)"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           />
         </g>
       </g>
       <defs>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
           height="581.539"
           id="filter0_f_8335_5217"
           width="601.641"
           x="-48.7891"
           y="90.5937">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             in="SourceGraphic"
             in2="BackgroundImageFix"
@@ -74,13 +74,13 @@ function Background(props: React.ComponentProps<'svg'>) {
           gradientUnits="userSpaceOnUse"
           id="paint0_radial_8335_5217"
           r="1">
-          <stop stop-color="var(--brand-gradient-radial-dark)" />
+          <stop stopColor="var(--brand-gradient-radial-dark)" />
           <stop
             offset="0.223497"
-            stop-color="var(--brand-gradient-radial-dark)"
-            stop-opacity="0.64"
+            stopColor="var(--brand-gradient-radial-dark)"
+            stopOpacity="0.64"
           />
-          <stop offset="1" stop-color="white" stop-opacity="0.01" />
+          <stop offset="1" stopColor="white" stopOpacity="0.01" />
         </radialGradient>
         {/* Triangle */}
         <linearGradient
@@ -90,11 +90,11 @@ function Background(props: React.ComponentProps<'svg'>) {
           x2="31.6394"
           y1="515.708"
           y2="148.891">
-          <stop stop-color="var(--brand-gradient-linear-start)" />
+          <stop stopColor="var(--brand-gradient-linear-start)" />
           <stop
             offset="1"
-            stop-color="var(--brand-gradient-linear-stop)"
-            stop-opacity="0.01"
+            stopColor="var(--brand-gradient-linear-stop)"
+            stopOpacity="0.01"
           />
         </linearGradient>
       </defs>

@@ -89,14 +89,14 @@ function ReputationIncreaseBackground({ className }: { className?: string }) {
       </g>
       <defs>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
           height="263"
           id="filter0_f_3457_204864"
           width="287"
           x="6.5"
           y="7">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
             in="SourceGraphic"
             in2="BackgroundImageFix"
@@ -109,14 +109,14 @@ function ReputationIncreaseBackground({ className }: { className?: string }) {
           />
         </filter>
         <filter
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
           height="114.167"
           id="filter1_d_3457_204864"
           width="99"
           x="100"
           y="4.5">
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             result="hardAlpha"
@@ -155,8 +155,8 @@ function ReputationIncreaseBackground({ className }: { className?: string }) {
           x2="54.1952"
           y1="79.1304"
           y2="155.611">
-          <stop stop-color="#948CF9" />
-          <stop offset="1" stop-color="#948CF9" stop-opacity="0" />
+          <stop stopColor="#948CF9" />
+          <stop offset="1" stopColor="#948CF9" stopOpacity="0" />
         </linearGradient>
       </defs>
     </svg>
