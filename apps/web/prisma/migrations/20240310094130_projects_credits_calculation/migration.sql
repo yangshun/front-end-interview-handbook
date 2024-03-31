@@ -2,11 +2,14 @@ CREATE OR REPLACE FUNCTION projects_recalculate_credits() returns trigger as $$
 BEGIN
     UPDATE public."ProjectsProfile"
     SET credits = (
-        SELECT SUM(CASE WHEN type = 'CREDIT' THEN amount ELSE -amount END)
+        -- Use COALESCE to handle NULL case
+        SELECT COALESCE(SUM(CASE WHEN type = 'CREDIT' THEN amount ELSE -amount END), 0)
         FROM public."ProjectsChallengeCreditTransaction"
-        WHERE "profileId" = NEW."profileId"
+        -- Select the appropriate profileId
+        WHERE "profileId" = COALESCE(NEW."profileId", OLD."profileId")
     )
-    WHERE id = NEW."profileId";
+    -- Select the appropriate profileId
+    WHERE id = COALESCE(NEW."profileId", OLD."profileId");
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql SECURITY definer;
