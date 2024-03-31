@@ -33,7 +33,7 @@ const statusClasses: Record<
     icon: RiCheckLine,
   },
   IN_PROGRESS: {
-    className: 'bg-brand-dark dark:bg-brand',
+    className: 'bg-warning',
     icon: RiLoader2Line,
   },
 };

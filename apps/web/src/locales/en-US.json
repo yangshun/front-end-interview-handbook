@@ -5143,10 +5143,6 @@
     "defaultMessage": "Quiz",
     "description": "Label for quiz questions"
   },
-  "fKFJZE": {
-    "defaultMessage": "Completed",
-    "description": "Completed status"
-  },
   "fO8U+i": {
     "defaultMessage": "Will this be a timed challenge?",
     "description": "FAQ question for projects platform"
@@ -7330,10 +7326,6 @@
   "xU32y0": {
     "defaultMessage": "3 subcategories of questions: JavaScript, User Interfaces & Data Structures and Algorithms",
     "description": "Description of coding interview preparation"
-  },
-  "xVBxp3": {
-    "defaultMessage": "In progress",
-    "description": "In progress status"
   },
   "xVsq55": {
     "defaultMessage": "{numUsers} completed",

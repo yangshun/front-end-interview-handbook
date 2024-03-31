@@ -96,6 +96,7 @@ export default function ProjectsSkillRoadmapItemDetails({
             completedChallenges != null && (
               <ProjectsChallengeProgressTag
                 completed={completedChallenges}
+                iconClassName="size-4"
                 showProgress={false}
                 tooltip={intl.formatMessage({
                   defaultMessage:
@@ -140,6 +141,7 @@ export default function ProjectsSkillRoadmapItemDetails({
               completedChallenges != null && (
                 <ProjectsChallengeProgressTag
                   completed={completedChallenges}
+                  iconClassName="size-4"
                   tooltip={intl.formatMessage({
                     defaultMessage:
                       'Number of challenges completed in skill plan',

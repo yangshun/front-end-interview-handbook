@@ -3,6 +3,7 @@ import { RiCheckboxCircleLine, RiCheckLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Badge from '~/components/ui/Badge';
+import Chip from '~/components/ui/Chip';
 import { themeTextSuccessColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
@@ -15,6 +16,8 @@ type Props = Readonly<{
   entity: ProjectsStatusBadgeType;
   variant?: ProjectsStatusBadgeVariant;
 }>;
+
+const Icon = RiCheckboxCircleLine;
 
 export default function ProjectsStatusBadgeCompleted({
   entity,
@@ -57,9 +60,18 @@ export default function ProjectsStatusBadgeCompleted({
         <Badge icon={RiCheckLine} label={label} size="sm" variant="success" />
       )}
       {variant === 'icon' && (
-        <RiCheckboxCircleLine
+        <Icon
           aria-label={label}
           className={clsx('size-5 shrink-0', themeTextSuccessColor)}
+        />
+      )}
+      {variant === 'chip' && (
+        <Chip
+          icon={Icon}
+          isLabelHidden={true}
+          label={label}
+          size="sm"
+          variant="success"
         />
       )}
     </Tooltip>

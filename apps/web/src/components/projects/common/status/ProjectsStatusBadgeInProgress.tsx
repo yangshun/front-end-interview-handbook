@@ -3,6 +3,7 @@ import { RiLoader2Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import Badge from '~/components/ui/Badge';
+import Chip from '~/components/ui/Chip';
 import { themeTextWarningColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
@@ -63,6 +64,15 @@ export default function ProjectsStatusBadgeInProgress({
         <Icon
           aria-label={label}
           className={clsx('size-5 shrink-0', themeTextWarningColor)}
+        />
+      )}
+      {variant === 'chip' && (
+        <Chip
+          icon={Icon}
+          isLabelHidden={true}
+          label={label}
+          size="sm"
+          variant="warning"
         />
       )}
     </Tooltip>

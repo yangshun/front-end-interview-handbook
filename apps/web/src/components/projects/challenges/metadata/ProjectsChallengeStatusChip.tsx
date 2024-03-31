@@ -1,6 +1,5 @@
-import { RiCheckFill, RiLoader2Line } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
-
+import ProjectsStatusBadgeCompleted from '~/components/projects/common/status/ProjectsStatusBadgeCompleted';
+import ProjectsStatusBadgeInProgress from '~/components/projects/common/status/ProjectsStatusBadgeInProgress';
 import Chip from '~/components/ui/Chip';
 
 import type { ProjectsChallengeSessionStatus } from '@prisma/client';
@@ -10,44 +9,16 @@ type Props = Readonly<{
   status: ProjectsChallengeSessionStatus | 'NOT_STARTED';
 }>;
 
-const size = 'sm';
-const commonProps = {
-  isLabelHidden: true,
-  size,
-} as const;
+const commonProps = { entity: 'challenge', variant: 'chip' } as const;
 
 export default function ProjectsChallengeStatusChip({ label, status }: Props) {
-  const intl = useIntl();
-
   switch (status) {
     case 'NOT_STARTED':
     case 'STOPPED':
-      return <Chip label={String(label)} size={size} variant="neutral" />;
+      return <Chip label={String(label)} size="sm" variant="neutral" />;
     case 'COMPLETED':
-      return (
-        <Chip
-          icon={RiCheckFill}
-          label={intl.formatMessage({
-            defaultMessage: 'Completed',
-            description: 'Completed status',
-            id: 'fKFJZE',
-          })}
-          variant="success"
-          {...commonProps}
-        />
-      );
+      return <ProjectsStatusBadgeCompleted {...commonProps} />;
     case 'IN_PROGRESS':
-      return (
-        <Chip
-          icon={RiLoader2Line}
-          label={intl.formatMessage({
-            defaultMessage: 'In progress',
-            description: 'In progress status',
-            id: 'xVBxp3',
-          })}
-          variant="primary"
-          {...commonProps}
-        />
-      );
+      return <ProjectsStatusBadgeInProgress {...commonProps} />;
   }
 }
