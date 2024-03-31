@@ -3,11 +3,9 @@ import { z } from 'zod';
 
 import { projectsReputationFirstSessionConfig } from '~/components/projects/reputation/ProjectsReputationPointsConfig';
 import { projectsSkillListInputOptionalSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
+import { readProjectsTrackList } from '~/components/projects/tracks/data/ProjectsTrackReader';
 
-import {
-  readProjectsChallengeList,
-  readProjectsTrackList,
-} from '~/db/projects/ProjectsReader';
+import { readProjectsChallengeList } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 
 import { projectsUserProcedure } from './procedures';

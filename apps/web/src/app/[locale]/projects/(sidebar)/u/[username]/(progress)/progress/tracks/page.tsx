@@ -1,10 +1,12 @@
 import { notFound } from 'next/navigation';
 
 import ProjectsProfileProgressTracksTab from '~/components/projects/profile/progress/ProjectsProfileProgressTracksTab';
-import { projectsTrackChallengeHistoricalStatuses } from '~/components/projects/tracks/data/ProjectsTrackReader';
+import {
+  fetchProjectsTrackChallengeHistoricalStatuses,
+  readProjectsTrackList,
+} from '~/components/projects/tracks/data/ProjectsTrackReader';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
-import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 
 type Props = Readonly<{
@@ -31,7 +33,7 @@ export default async function Page({ params }: Props) {
     await Promise.all([
       readViewerProjectsProfile(),
       readProjectsTrackList(locale, userProfile.id),
-      projectsTrackChallengeHistoricalStatuses(userProfile.id),
+      fetchProjectsTrackChallengeHistoricalStatuses(userProfile.id),
     ]);
 
   return (

@@ -112,15 +112,13 @@ export async function readProjectsSkillMetadata(
 > {
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
-  const skillMetadata = allProjectsSkillMetadata.find(
-    (skillItem) =>
-      skillItem._raw.flattenedPath ===
-      `projects/skills/${slug}/${requestedLocale}`,
-  )!;
 
   return {
     loadedLocale: requestedLocale,
-    skillMetadata,
+    skillMetadata: allProjectsSkillMetadata.find(
+      (skillMetadataItem) =>
+        skillMetadataItem.slug === slug && skillMetadataItem._raw.flattenedPath,
+    )!,
   };
 }
 

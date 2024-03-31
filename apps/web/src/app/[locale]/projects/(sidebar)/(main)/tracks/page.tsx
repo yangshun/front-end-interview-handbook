@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 
-import { projectsTrackChallengeHistoricalStatuses } from '~/components/projects/tracks/data/ProjectsTrackReader';
+import {
+  fetchProjectsTrackChallengeHistoricalStatuses,
+  readProjectsTrackList,
+} from '~/components/projects/tracks/data/ProjectsTrackReader';
 import ProjectsTracksListPage from '~/components/projects/tracks/ProjectsTracksListPage';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
-import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
@@ -46,7 +48,7 @@ export default async function Page({ params }: Props) {
     await Promise.all([
       readViewerProjectsProfile(viewer),
       readProjectsTrackList(locale, viewer?.id),
-      projectsTrackChallengeHistoricalStatuses(viewer?.id),
+      fetchProjectsTrackChallengeHistoricalStatuses(viewer?.id),
     ]);
 
   return (

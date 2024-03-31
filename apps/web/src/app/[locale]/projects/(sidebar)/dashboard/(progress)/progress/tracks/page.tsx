@@ -1,10 +1,12 @@
 import { notFound } from 'next/navigation';
 
 import ProjectsProfileProgressTracksTab from '~/components/projects/profile/progress/ProjectsProfileProgressTracksTab';
-import { projectsTrackChallengeHistoricalStatuses } from '~/components/projects/tracks/data/ProjectsTrackReader';
+import {
+  fetchProjectsTrackChallengeHistoricalStatuses,
+  readProjectsTrackList,
+} from '~/components/projects/tracks/data/ProjectsTrackReader';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
-import { readProjectsTrackList } from '~/db/projects/ProjectsReader';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
@@ -25,7 +27,7 @@ export default async function Page({ params }: Props) {
     await Promise.all([
       readViewerProjectsProfile(viewer),
       readProjectsTrackList(locale, viewer.id),
-      projectsTrackChallengeHistoricalStatuses(viewer.id),
+      fetchProjectsTrackChallengeHistoricalStatuses(viewer.id),
     ]);
 
   return (

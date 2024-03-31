@@ -1,12 +1,15 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { projectsTrackChallengeHistoricalStatuses } from '~/components/projects/tracks/data/ProjectsTrackReader';
+import {
+  fetchProjectsTrackChallengeHistoricalStatuses,
+  readProjectsTrackItem,
+  readProjectsTrackMetadata,
+} from '~/components/projects/tracks/data/ProjectsTrackReader';
 import ProjectsTrackDetailsLockedPage from '~/components/projects/tracks/ProjectsTrackDetailsLockedPage';
 import ProjectsTrackDetailsPage from '~/components/projects/tracks/ProjectsTrackDetailsPage';
 import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
-import { readProjectsTrack } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
@@ -17,9 +20,9 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
-  const [intl, { track }] = await Promise.all([
+  const [intl, { trackMetadata }] = await Promise.all([
     getIntlServerOnly(locale),
-    readProjectsTrack(slug, locale),
+    readProjectsTrackMetadata(slug, locale),
   ]);
 
   return defaultMetadata({
@@ -31,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'eG2r74',
       },
       {
-        trackName: track.metadata.title,
+        trackName: trackMetadata.title,
       },
     ),
     locale,
@@ -44,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'LLX6d1',
       },
       {
-        trackName: track.metadata.title,
+        trackName: trackMetadata.title,
       },
     ),
   });
@@ -58,7 +61,7 @@ export default async function Page({ params }: Props) {
   const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
   const [{ viewerProjectsProfile }, { track }] = await Promise.all([
     readViewerProjectsProfile(viewer),
-    readProjectsTrack(slug, locale, viewer?.id),
+    readProjectsTrackItem(slug, locale, viewer?.id),
   ]);
 
   if (track == null) {
@@ -79,7 +82,7 @@ export default async function Page({ params }: Props) {
 
   if (viewer?.id != null) {
     challengeHistoricalStatuses =
-      await projectsTrackChallengeHistoricalStatuses(viewer.id, slug);
+      await fetchProjectsTrackChallengeHistoricalStatuses(viewer.id, slug);
   }
 
   return (

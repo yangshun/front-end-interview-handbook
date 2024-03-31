@@ -2,8 +2,7 @@ import type {
   ProjectsChallengeAPIWriteup,
   ProjectsChallengeGuide,
   ProjectsChallengeMetadata,
-  ProjectsChallengeStyleGuide,
-  ProjectsTrackMetadata,
+  ProjectsChallengeStyleGuide
 } from 'contentlayer/generated';
 import {
   allProjectsChallengeAPIWriteups,
@@ -12,10 +11,8 @@ import {
   allProjectsChallengeStyleGuides,
   allProjectsTrackMetadata,
 } from 'contentlayer/generated';
-import { sum } from 'lodash-es';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import type { ProjectsTrackItem } from '~/components/projects/tracks/data/ProjectsTracksData';
 import type { ProjectsProfileAvatarDataSlim } from '~/components/projects/types';
 
 import prisma from '~/server/prisma';
@@ -376,95 +373,6 @@ export async function readProjectsChallengeMetadata(
   return {
     challengeMetadata,
     loadedLocale: requestedLocale,
-  };
-}
-
-export async function readProjectsTrackList(
-  requestedLocale = 'en-US',
-  userId?: string | null,
-): Promise<{
-  loadedLocale: string;
-  tracks: ReadonlyArray<ProjectsTrackItem>;
-}> {
-  const [{ challenges }, { trackMetadataList }] = await Promise.all([
-    readProjectsChallengeList(requestedLocale, userId),
-    readProjectsTrackMetadataList(requestedLocale),
-  ]);
-
-  const tracks = trackMetadataList.map((trackMetadata) => {
-    const trackChallenges = challenges.filter(
-      (challenge) => challenge.metadata.track === trackMetadata.slug,
-    );
-    const points = sum(
-      trackChallenges.map((challengeItem) => challengeItem.metadata.points),
-    );
-
-    return {
-      challenges: trackChallenges,
-      metadata: trackMetadata,
-      points,
-    };
-  });
-
-  return {
-    loadedLocale: requestedLocale,
-    tracks,
-  };
-}
-
-export async function readProjectsTrackMetadataList(
-  requestedLocale = 'en-US',
-): Promise<{
-  loadedLocale: string;
-  trackMetadataList: ReadonlyArray<ProjectsTrackMetadata>;
-}> {
-  return {
-    loadedLocale: requestedLocale,
-    trackMetadataList: allProjectsTrackMetadata.filter((trackMetadata) =>
-      trackMetadata._raw.flattenedPath.endsWith(requestedLocale),
-    ),
-  };
-}
-
-export async function readProjectsTrack(
-  slugParam: string,
-  requestedLocale = 'en-US',
-  userId?: string | null,
-): Promise<
-  Readonly<{
-    loadedLocale: string;
-    track: ProjectsTrackItem;
-  }>
-> {
-  const { challenges } = await readProjectsChallengeList(
-    requestedLocale,
-    userId,
-  );
-
-  // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
-
-  const { trackMetadataList } =
-    await readProjectsTrackMetadataList(requestedLocale);
-
-  const trackMetadata = trackMetadataList.find(
-    (trackMetadataItem) => trackMetadataItem.slug === slug,
-  )!;
-
-  const trackChallenges = challenges.filter(
-    (challenge) => challenge.metadata.track === trackMetadata.slug,
-  );
-  const points = sum(
-    trackChallenges.map((challenge) => challenge.metadata.points),
-  );
-
-  return {
-    loadedLocale: requestedLocale,
-    track: {
-      challenges: trackChallenges,
-      metadata: trackMetadata,
-      points,
-    },
   };
 }
 
