@@ -57,9 +57,9 @@ export default function ProjectsChallengeUnlockAccessDialog({
         router.refresh();
       }}>
       <FormattedMessage
-        defaultMessage="You will have <bold>{count}</bold> credit(s) remaining after unlocking this challenge, proceed to unlock challenge?"
+        defaultMessage="You will have {count, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} remaining after unlocking this challenge. Proceed to unlock challenge?"
         description="Confirmation text for unlocking a premium challenge"
-        id="Rv4HTW"
+        id="CWWOj5"
         values={{
           bold: (chunks) => <Text weight="medium">{chunks}</Text>,
           count: credits - 1,

@@ -351,6 +351,10 @@
     "defaultMessage": "Adjust your filters a bit, and let's see what we can find!",
     "description": "Subtitle for empty state when no projects are returned from application of filters on projects list"
   },
+  "0vBaIF": {
+    "defaultMessage": "You have {amountLeft, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} remaining. Resubscribe to premium to unlock this challenge and access all its premium features, including the Figma design files, official guides, and solutions.",
+    "description": "Subtitle for project paywall"
+  },
   "0xSU4h": {
     "defaultMessage": "Study list session stopped",
     "description": "Success message for stopping a study plan"
@@ -846,10 +850,6 @@
   "6/Qdew": {
     "defaultMessage": "Start project",
     "description": "Label for \"Start project\" button on Projects project page"
-  },
-  "62VJlJ": {
-    "defaultMessage": "You have <bold>{amountLeft}</bold> premium credit(s) left. Resubscribe to premium to unlock this challenge and access all its premium features, including the Figma design files, official guides, and solutions.",
-    "description": "Subtitle for project paywall"
   },
   "641P5n": {
     "defaultMessage": "Sign Out",
@@ -1606,6 +1606,10 @@
   "CVCCIm": {
     "defaultMessage": "User submissions | GreatFrontEnd Projects - Real-world project challenges",
     "description": "Title of Projects submissions page"
+  },
+  "CWWOj5": {
+    "defaultMessage": "You will have {count, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} remaining after unlocking this challenge. Proceed to unlock challenge?",
+    "description": "Confirmation text for unlocking a premium challenge"
   },
   "CXs8z4": {
     "defaultMessage": "Practice Front End Quiz Interview Questions With Solutions",
@@ -3307,10 +3311,6 @@
     "defaultMessage": "Front end system design resources are virtually non-existent. This is the only place you'll find in-depth solutions for front end system design questions along with our proven answering framework.",
     "description": "Subtitle for an example list of User Interface Questions on marketing pages"
   },
-  "QJPZWQ": {
-    "defaultMessage": "Resubscribe to premium to learn from user submissions for premium challenges. You have <bold>{amountLeft}</bold> premium credit(s) left.",
-    "description": "Subtitle for project paywall"
-  },
   "QJaxVF": {
     "defaultMessage": "Our focus is currently on expanding our question base. New coding and system design questions are added to the platform on a weekly basis.",
     "description": "Question base section subtitle - first paragraph"
@@ -3542,10 +3542,6 @@
   "RuN/vS": {
     "defaultMessage": "Horizontal rule",
     "description": "Label for horizontal rule"
-  },
-  "Rv4HTW": {
-    "defaultMessage": "You will have <bold>{count}</bold> credit(s) remaining after unlocking this challenge, proceed to unlock challenge?",
-    "description": "Confirmation text for unlocking a premium challenge"
   },
   "RvPm3x": {
     "defaultMessage": "DOM Manipulation",
@@ -3818,6 +3814,10 @@
   "U9XHwD": {
     "defaultMessage": "Learn to ask insightful questions at the end of the interview",
     "description": "How to ask insightful questions during behavioral interviews"
+  },
+  "UAKmWa": {
+    "defaultMessage": "Resubscribe to premium to learn from user submissions for premium challenges. You have {amountLeft, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} left.",
+    "description": "Subtitle for project paywall"
   },
   "UBPrBM": {
     "defaultMessage": "Yelp",
@@ -4787,6 +4787,10 @@
     "defaultMessage": "Sharpen your skills in asynchronous programming by practicing the use of async/await, Promises, and callback functions. Dive into scenarios that require asynchronous operations, such as making API requests and delayed code execution.",
     "description": "Description for interview preparation focus area"
   },
+  "c7dkVm": {
+    "defaultMessage": "Unlock this challenge to learn from user submissions for premium challenges. You have <bold>{amountLeft}</bold>/{totalAmount} premium credits remaining.",
+    "description": "Subtitle for project paywall"
+  },
   "c7eREh": {
     "defaultMessage": "Status",
     "description": "Label for Status filter for projects list"
@@ -5010,6 +5014,10 @@
   "eC4GRM": {
     "defaultMessage": "Filter user submissions by whether you have completed their corresponding challenges",
     "description": "Tooltip for Status filter for projects list"
+  },
+  "eF5lt/": {
+    "defaultMessage": "You have <bold>{amountLeft}</bold>/{totalAmount} premium credits remaining. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions.",
+    "description": "Subtitle for project paywall"
   },
   "eG2r74": {
     "defaultMessage": "Build an entire library of {trackName} components from scratch. Use it for your portfolio, or as a component toolkit for future projects",
@@ -6607,10 +6615,6 @@
     "defaultMessage": "Prepare for tackling data structures and algorithms questions in front end interviews",
     "description": "Title for interview preparation focus area"
   },
-  "r4LDrI": {
-    "defaultMessage": "You have <bold>{amountLeft}</bold>/{totalAmount} premium credit(s) left. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions.",
-    "description": "Subtitle for project paywall"
-  },
   "r5RGzk": {
     "defaultMessage": "<bold>{completedCount}</bold>/{totalCount} skill plan challenges",
     "description": "Rep count label in Projects"
@@ -6950,10 +6954,6 @@
   "u3bYHM": {
     "defaultMessage": "FAQ",
     "description": "Link to FAQ page"
-  },
-  "u6hx4I": {
-    "defaultMessage": "Unlock this challenge to learn from user submissions for premium challenges. You have <bold>{amountLeft}</bold>/{totalAmount} premium credit(s) left.",
-    "description": "Subtitle for project paywall"
   },
   "uAAJxp": {
     "defaultMessage": "Upon purchasing premium, you will be given a number of premium credits. A premium credit gives you access to all premium features in a free project (Figma files, official solutions & guides from senior engineers), or can unlock a premium challenge.",
