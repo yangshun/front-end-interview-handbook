@@ -16,17 +16,19 @@ type Props = Readonly<{
   onCancel?: () => void;
   onConfirm: () => void;
   title?: string;
+  trigger?: ReactNode;
 }>;
 
 export default function ConfirmationDialog({
   children,
+  confirmButtonLabel,
   confirmButtonVariant = 'primary',
   isConfirming = false,
   isShown,
   onCancel,
   onConfirm,
   title,
-  confirmButtonLabel,
+  trigger,
 }: Props) {
   const intl = useIntl();
 
@@ -71,6 +73,7 @@ export default function ConfirmationDialog({
           id: '6Us9sa',
         })
       }
+      trigger={trigger}
       onClose={() => onCancel?.()}>
       <div className={textVariants({ color: 'subtitle', size: 'body2' })}>
         {children}

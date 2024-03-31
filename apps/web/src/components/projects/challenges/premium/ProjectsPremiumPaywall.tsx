@@ -23,22 +23,24 @@ function UnlockButton({
 
   return (
     <div>
-      <Button
-        label={intl.formatMessage({
-          defaultMessage: 'Unlock challenge',
-          description: 'Unlock premium access for a project',
-          id: 'LlhHTu',
-        })}
-        size="md"
-        variant="primary"
-        onClick={() => {
-          setUnlockDialogShown(true);
-        }}
-      />
       <ProjectsChallengeUnlockAccessDialog
         credits={credits}
         isShown={unlockDialogShown}
         slug={slug}
+        trigger={
+          <Button
+            label={intl.formatMessage({
+              defaultMessage: 'Unlock challenge',
+              description: 'Unlock premium access for a project',
+              id: 'LlhHTu',
+            })}
+            size="md"
+            variant="primary"
+            onClick={() => {
+              setUnlockDialogShown(true);
+            }}
+          />
+        }
         onClose={() => {
           setUnlockDialogShown(false);
         }}

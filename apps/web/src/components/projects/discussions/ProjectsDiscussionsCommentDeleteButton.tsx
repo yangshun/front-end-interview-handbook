@@ -26,18 +26,6 @@ export default function ProjectsDiscussionsCommentDeleteButton({
 
   return (
     <div>
-      <Button
-        addonPosition="start"
-        icon={RiDeleteBinFill}
-        iconClassName={themeTextSubtleColor}
-        label={intl.formatMessage({
-          defaultMessage: 'Delete',
-          description: 'Delete button label',
-          id: 'WodcPq',
-        })}
-        variant="tertiary"
-        onClick={onClick}
-      />
       <ConfirmationDialog
         confirmButtonLabel={intl.formatMessage({
           defaultMessage: 'Delete',
@@ -52,6 +40,20 @@ export default function ProjectsDiscussionsCommentDeleteButton({
           description: 'Delete comment confirmation dialog title',
           id: 'hm0ODb',
         })}
+        trigger={
+          <Button
+            addonPosition="start"
+            icon={RiDeleteBinFill}
+            iconClassName={themeTextSubtleColor}
+            label={intl.formatMessage({
+              defaultMessage: 'Delete',
+              description: 'Delete button label',
+              id: 'WodcPq',
+            })}
+            variant="tertiary"
+            onClick={onClick}
+          />
+        }
         onCancel={onDismiss}
         onConfirm={() => {
           deleteCommentMutation.mutate(

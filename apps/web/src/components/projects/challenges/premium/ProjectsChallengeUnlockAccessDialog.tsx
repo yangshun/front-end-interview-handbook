@@ -13,12 +13,14 @@ type Props = Readonly<{
   isShown: boolean;
   onClose: () => void;
   slug: string;
+  trigger: React.ReactNode;
 }>;
 
 export default function ProjectsChallengeUnlockAccessDialog({
   credits,
   isShown,
   slug,
+  trigger,
   onClose,
 }: Props) {
   const intl = useIntl();
@@ -36,6 +38,7 @@ export default function ProjectsChallengeUnlockAccessDialog({
         description: 'Label to unlock a premium project',
         id: 'cdmGUV',
       })}
+      trigger={trigger}
       onCancel={() => {
         onClose();
       }}

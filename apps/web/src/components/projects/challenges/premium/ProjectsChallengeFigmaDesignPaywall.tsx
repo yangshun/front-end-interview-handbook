@@ -100,6 +100,7 @@ function UnlockSection({
 }>) {
   const intl = useIntl();
   const [unlockDialogShown, setUnlockDialogShown] = useState(false);
+  const [unlockDialogShown2, setUnlockDialogShown2] = useState(false);
 
   const subtitle = useProjectsChallengePaywallSubtitle(
     'UNLOCK',
@@ -114,18 +115,28 @@ function UnlockSection({
         'flex flex-col gap-4',
         placement === 'GET_STARTED_DIALOG' && 'items-start',
       )}>
-      <Button
-        addonPosition="start"
-        icon={RiLock2Line}
-        label={intl.formatMessage({
-          defaultMessage: 'Figma design file',
-          description: 'Download Figma file button label',
-          id: 'RGdxr7',
-        })}
-        size="lg"
-        variant="special"
-        onClick={() => {
-          setUnlockDialogShown(true);
+      <ProjectsChallengeUnlockAccessDialog
+        credits={credits}
+        isShown={unlockDialogShown}
+        slug={slug}
+        trigger={
+          <Button
+            addonPosition="start"
+            icon={RiLock2Line}
+            label={intl.formatMessage({
+              defaultMessage: 'Figma design file',
+              description: 'Download Figma file button label',
+              id: 'RGdxr7',
+            })}
+            size="lg"
+            variant="special"
+            onClick={() => {
+              setUnlockDialogShown(true);
+            }}
+          />
+        }
+        onClose={() => {
+          setUnlockDialogShown(false);
         }}
       />
       <Text
@@ -135,29 +146,31 @@ function UnlockSection({
         {subtitle}
       </Text>
       {placement === 'ASSETS_PAGE' && (
-        <Button
-          className="-ms-3 self-start"
-          icon={RiArrowRightLine}
-          label={intl.formatMessage({
-            defaultMessage: 'Unlock challenge',
-            description: 'Unlock premium access for a project',
-            id: 'LlhHTu',
-          })}
-          size="sm"
-          variant="tertiary"
-          onClick={() => {
-            setUnlockDialogShown(true);
+        <ProjectsChallengeUnlockAccessDialog
+          credits={credits}
+          isShown={unlockDialogShown2}
+          slug={slug}
+          trigger={
+            <Button
+              className="-ms-3 self-start"
+              icon={RiArrowRightLine}
+              label={intl.formatMessage({
+                defaultMessage: 'Unlock challenge',
+                description: 'Unlock premium access for a project',
+                id: 'LlhHTu',
+              })}
+              size="sm"
+              variant="tertiary"
+              onClick={() => {
+                setUnlockDialogShown2(true);
+              }}
+            />
+          }
+          onClose={() => {
+            setUnlockDialogShown2(false);
           }}
         />
       )}
-      <ProjectsChallengeUnlockAccessDialog
-        credits={credits}
-        isShown={unlockDialogShown}
-        slug={slug}
-        onClose={() => {
-          setUnlockDialogShown(false);
-        }}
-      />
     </div>
   );
 }
