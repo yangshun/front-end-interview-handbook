@@ -86,11 +86,13 @@ function DownloadSection({
 
 function UnlockSection({
   credits = 0,
+  creditsAtStartOfCycle = 0,
   plan = null,
   placement,
   slug,
 }: Readonly<{
   credits?: number;
+  creditsAtStartOfCycle?: number;
   placement: Placement;
   plan?: ProjectsSubscriptionPlan | null;
   slug: string;
@@ -98,7 +100,12 @@ function UnlockSection({
   const intl = useIntl();
   const [unlockDialogShown, setUnlockDialogShown] = useState(false);
 
-  const subtitle = useProjectsChallengePaywallSubtitle('UNLOCK', credits, plan);
+  const subtitle = useProjectsChallengePaywallSubtitle(
+    'UNLOCK',
+    credits,
+    creditsAtStartOfCycle,
+    plan,
+  );
 
   return (
     <div
@@ -212,14 +219,21 @@ function SubscribeSection({
 function ResubscribeSection({
   access,
   credits = 0,
+  creditsAtStartOfCycle = 0,
   placement,
 }: Readonly<{
   access: ProjectsPremiumAccessControlType;
   credits?: number;
+  creditsAtStartOfCycle?: number;
   placement: Placement;
 }>) {
   const intl = useIntl();
-  const subtitle = useProjectsChallengePaywallSubtitle(access, credits, null);
+  const subtitle = useProjectsChallengePaywallSubtitle(
+    access,
+    credits,
+    creditsAtStartOfCycle,
+    null,
+  );
 
   return (
     <div
@@ -273,6 +287,7 @@ function InsufficientCreditsSection({
   const intl = useIntl();
   const subtitle = useProjectsChallengePaywallSubtitle(
     'INSUFFICIENT_CREDITS',
+    0,
     0,
     plan,
   );

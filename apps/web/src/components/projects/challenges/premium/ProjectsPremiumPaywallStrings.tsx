@@ -44,6 +44,7 @@ export function useProjectsChallengePaywallTitle(
 export function useProjectsChallengePaywallSubtitle(
   access: ProjectsPremiumAccessControlType,
   credits: number,
+  creditsAtStartOfCycle: number,
   plan: ProjectsSubscriptionPlan | null,
 ) {
   const intl = useIntl();
@@ -86,6 +87,7 @@ export function useProjectsChallengePaywallSubtitle(
             amountLeft: credits,
             bold: (chunks) => <Text weight="bold">{chunks}</Text>,
             totalAmount: Math.max(
+              creditsAtStartOfCycle,
               credits,
               projectsPaidPlanFeatures[plan!]?.credits || 0,
             ),
@@ -138,6 +140,7 @@ export function useProjectsChallengeSubmissionPaywallTitle(
 export function useProjectsChallengeSubmissionPaywallSubtitle(
   access: ProjectsPremiumAccessControlType,
   credits: number,
+  creditsAtStartOfCycle: number,
   plan: ProjectsSubscriptionPlan | null,
 ) {
   const intl = useIntl();
@@ -180,6 +183,7 @@ export function useProjectsChallengeSubmissionPaywallSubtitle(
             amountLeft: credits,
             bold: (chunks) => <Text weight="bold">{chunks}</Text>,
             totalAmount: Math.max(
+              creditsAtStartOfCycle,
               credits,
               projectsPaidPlanFeatures[plan!]?.credits || 0,
             ),

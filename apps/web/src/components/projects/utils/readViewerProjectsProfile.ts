@@ -30,6 +30,7 @@ export default async function readViewerProjectsProfile(
   const projectsProfile = await prisma.projectsProfile.findFirst({
     select: {
       credits: true,
+      creditsAtStartOfCycle: true,
       id: true,
       plan: true,
       premium: true,

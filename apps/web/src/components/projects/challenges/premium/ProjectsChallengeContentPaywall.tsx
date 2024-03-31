@@ -22,6 +22,7 @@ export default function ProjectsChallengeContentPaywall({
   const subtitle = useProjectsChallengePaywallSubtitle(
     viewerContentAccess,
     viewerProjectsProfile?.credits ?? 0,
+    viewerProjectsProfile?.creditsAtStartOfCycle ?? 0,
     viewerProjectsProfile?.plan ?? null,
   );
 

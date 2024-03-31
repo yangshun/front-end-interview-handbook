@@ -85,6 +85,7 @@ export type ProjectsProfileAvatarData = ProjectsProfileAvatarDataSlim &
 
 export type ProjectsViewerProjectsProfile = Readonly<{
   credits: number;
+  creditsAtStartOfCycle: number;
   plan: ProjectsSubscriptionPlan | null;
   premium: boolean;
 }>;

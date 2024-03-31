@@ -35,9 +35,10 @@ export async function projectsCustomerAddPlan(
   planName: ProjectsSubscriptionPlan,
   invoice: Stripe.Invoice,
 ) {
-  const { id: projectsProfileId } =
+  const { id: projectsProfileId, credits } =
     await prisma.projectsProfile.findFirstOrThrow({
       select: {
+        credits: true,
         id: true,
       },
       where: {
@@ -47,10 +48,12 @@ export async function projectsCustomerAddPlan(
       },
     });
   const features = projectsPaidPlanFeatures[planName];
+  const creditsForPlan = features.credits ?? 0;
 
   await prisma.$transaction([
     prisma.projectsProfile.updateMany({
       data: {
+        creditsAtStartOfCycle: credits + creditsForPlan,
         plan: planName,
         premium: true,
       },
@@ -60,7 +63,7 @@ export async function projectsCustomerAddPlan(
     }),
     prisma.projectsChallengeCreditTransaction.create({
       data: {
-        amount: features.credits || 0,
+        amount: creditsForPlan,
         profileId: projectsProfileId,
         stripeInvoiceId: invoice.id,
         type: 'CREDIT',

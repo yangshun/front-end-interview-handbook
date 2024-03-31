@@ -10,7 +10,7 @@ import Card from '~/components/ui/Card';
 import ProgressBar from '~/components/ui/ProgressBar';
 import Text from '~/components/ui/Text';
 import {
-  themeGradientPinkPurple,
+  themeGradientGreenYellow,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
@@ -48,7 +48,7 @@ function UnlockCreditsTooltip({ children }: Readonly<{ children: ReactNode }>) {
   );
 }
 
-function FreePlanVersion({ unlocks }: Readonly<{ unlocks: number }>) {
+function FreePlanVersion({ credits: unlocks }: Readonly<{ credits: number }>) {
   const intl = useIntl();
 
   return (
@@ -144,10 +144,12 @@ function RenewalTooltip({
 }
 
 function PremiumVersion({
-  plan,
   credits,
+  creditsAtStartOfCycle,
+  plan,
 }: Readonly<{
   credits: number;
+  creditsAtStartOfCycle: number;
   plan: ProjectsSubscriptionPlan;
 }>) {
   const intl = useIntl();
@@ -178,7 +180,11 @@ function PremiumVersion({
     },
   };
   const planConfig = planConfigs[plan];
-  const totalCredits = Math.max(credits, planConfig.creditsPerInterval);
+  const totalCredits = Math.max(
+    creditsAtStartOfCycle,
+    credits,
+    planConfig.creditsPerInterval,
+  );
 
   return (
     <div className="flex flex-col items-stretch gap-2 p-3">
@@ -222,13 +228,12 @@ function PremiumVersion({
         />
       </Text>
       <ProgressBar
-        key={themeGradientPinkPurple.startColor}
         label={intl.formatMessage({
           defaultMessage: 'Premium credits remaining',
           description: 'Number of premium credits left',
           id: 'DOTuWP',
         })}
-        progressClass={themeGradientPinkPurple.className}
+        progressClass={themeGradientGreenYellow.className}
         total={totalCredits}
         value={credits}
       />
@@ -249,10 +254,11 @@ export function ProjectsSidebarCTACard() {
       profile.projectsProfile.plan != null ? (
         <PremiumVersion
           credits={profile.projectsProfile.credits}
+          creditsAtStartOfCycle={profile.projectsProfile.creditsAtStartOfCycle}
           plan={profile.projectsProfile.plan}
         />
       ) : (
-        <FreePlanVersion unlocks={profile.projectsProfile?.credits ?? 0} />
+        <FreePlanVersion credits={profile.projectsProfile?.credits ?? 0} />
       )}
     </Card>
   );
