@@ -207,9 +207,12 @@ async function processOneTimePlan(
   firstPromoterTrackingId?: string,
 ) {
   const { origin } = absoluteUrl(req);
+  const queryParams = req.query as CheckoutQueryParams;
   const { urls, productId } = planPaymentConfig;
 
-  const cancelUrl = `${origin}${urls.cancel}?cancel=1&plan=${planType}`;
+  const cancelUrl = `${
+    queryParams.cancel_url || origin + urls.cancel
+  }?checkout_cancel=1&plan=${planType}`;
   const successUrl = `${origin}${urls.success}?plan=${planType}`;
 
   const session = await stripe.checkout.sessions.create({
