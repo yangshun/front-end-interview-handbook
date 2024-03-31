@@ -1,6 +1,7 @@
 'use client';
 
 import type { ProjectsSkillMetadata } from 'contentlayer/generated';
+import { sumBy } from 'lodash-es';
 import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -52,13 +53,12 @@ export default function ProjectsSkillRoadmapItemDetails({
   const [totalRoadmapPoints, completedChallenges] =
     challengesQuery.data != null
       ? [
-          challengesQuery.data.challenges.reduce(
-            (acc, item) => item.metadata.points + acc,
-            0,
+          sumBy(
+            challengesQuery.data.challenges,
+            (item) => item.metadata.points,
           ),
-          challengesQuery.data.challenges.reduce(
-            (acc, item) => Number(item.status === 'COMPLETED') + acc,
-            0,
+          sumBy(challengesQuery.data.challenges, (item) =>
+            Number(item.status === 'COMPLETED'),
           ),
         ]
       : [null, null];

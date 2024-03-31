@@ -3,6 +3,7 @@ import {
   allProjectsChallengeMetadata,
   allProjectsSkillMetadata,
 } from 'contentlayer/generated';
+import { sumBy } from 'lodash-es';
 
 import {
   challengeItemAddTrackMetadata,
@@ -48,9 +49,9 @@ export async function fetchProjectsSkillsRoadmapSectionData(
           challengesSlugsAllSet.add(challengeMetadata.slug);
         });
 
-        const skillReputation = skillRoadmapChallenges.reduce(
-          (acc, item) => item.points + acc,
-          0,
+        const skillReputation = sumBy(
+          skillRoadmapChallenges,
+          (challengeItem) => challengeItem.points,
         );
 
         totalReputation += skillReputation;

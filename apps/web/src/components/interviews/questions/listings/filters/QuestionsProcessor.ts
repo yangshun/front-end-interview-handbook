@@ -1,4 +1,4 @@
-import { groupBy } from 'lodash-es';
+import { groupBy, sumBy } from 'lodash-es';
 
 import type {
   QuestionDifficulty,
@@ -143,5 +143,5 @@ export function countQuestionsByPremium<T extends QuestionMetadata>(
 export function countQuestionsTotalDurationMins<T extends QuestionMetadata>(
   questions: ReadonlyArray<T>,
 ): number {
-  return questions.reduce((acc, metadata) => acc + metadata.duration, 0);
+  return sumBy(questions, (metadata) => metadata.duration);
 }

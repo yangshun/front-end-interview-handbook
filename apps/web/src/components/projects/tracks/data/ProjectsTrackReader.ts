@@ -1,6 +1,6 @@
 import type { ProjectsTrackMetadata } from 'contentlayer/generated';
 import { allProjectsTrackMetadata } from 'contentlayer/generated';
-import { sum } from 'lodash-es';
+import { sumBy } from 'lodash-es';
 
 import { readProjectsChallengeList } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
@@ -87,8 +87,9 @@ export async function readProjectsTrackList(
     const trackChallenges = challenges.filter(
       (challenge) => challenge.metadata.track === trackMetadata.slug,
     );
-    const points = sum(
-      trackChallenges.map((challengeItem) => challengeItem.metadata.points),
+    const points = sumBy(
+      trackChallenges,
+      (challengeItem) => challengeItem.metadata.points,
     );
 
     return {
@@ -139,8 +140,9 @@ export async function readProjectsTrackItem(
   const trackChallenges = challenges.filter(
     (challenge) => challenge.metadata.track === trackMetadata.slug,
   );
-  const points = sum(
-    trackChallenges.map((challenge) => challenge.metadata.points),
+  const points = sumBy(
+    trackChallenges,
+    (challenge) => challenge.metadata.points,
   );
 
   return {

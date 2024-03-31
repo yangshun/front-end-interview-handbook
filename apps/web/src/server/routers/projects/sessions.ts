@@ -1,4 +1,5 @@
 import { allProjectsChallengeMetadata } from 'contentlayer/generated';
+import { sumBy } from 'lodash-es';
 import { z } from 'zod';
 
 import { projectsReputationFirstSessionConfig } from '~/components/projects/reputation/ProjectsReputationPointsConfig';
@@ -246,13 +247,13 @@ export const projectsSessionsRouter = router({
               (session) => session.slug === challenge.metadata.slug,
             ),
         );
-        const pointsCompleted = completedChallengesForTrack.reduce(
-          (total, challenge) => total + challenge.metadata.points,
-          0,
+        const pointsCompleted = sumBy(
+          completedChallengesForTrack,
+          (challenge) => challenge.metadata.points,
         );
-        const totalPoints = track.challenges.reduce(
-          (total, challenge) => total + challenge.metadata.points,
-          0,
+        const totalPoints = sumBy(
+          track.challenges,
+          (challenge) => challenge.metadata.points,
         );
         const percentageCompleted = (pointsCompleted / totalPoints) * 100;
         const numChallengesCompleted = completedChallengesForTrack.length;
