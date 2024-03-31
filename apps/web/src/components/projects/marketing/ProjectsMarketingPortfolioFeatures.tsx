@@ -117,11 +117,11 @@ export default function ProjectsMarketingPortfolioFeatures() {
           <MarketingSectionHeader
             heading={
               <FormattedMessage
-                defaultMessage="Our projects are designed to make for an <emph>impressive</emph> portfolio, even for seniors"
+                defaultMessage="Our projects are designed to make for an <em>impressive</em> portfolio, even for seniors"
                 description="Heading of the 'Portfolio features' marketing section on Projects home page"
-                id="7u1etJ"
+                id="Ui0v53"
                 values={{
-                  emph: (chunks) => <i>{chunks}</i>,
+                  em: (chunks) => <em>{chunks}</em>,
                 }}
               />
             }
@@ -143,38 +143,44 @@ export default function ProjectsMarketingPortfolioFeatures() {
               id: '6H0D7u',
             })}
             className="flex flex-col gap-y-16 lg:gap-y-32">
-            {features.map((feature) => (
-              <li
-                key={feature.key}
-                aria-labelledby={`${id}-${feature.key}`}
-                className="flex flex-col items-center gap-x-28 gap-y-12 lg:flex-row lg:even:flex-row-reverse">
-                <div
-                  className={clsx(
-                    'aspect-[453/328] h-fit w-full max-w-[453px] shrink-0 rounded-lg lg:w-auto',
-                    themeBackgroundCardColor,
-                    themeGlassyBorder,
-                  )}>
-                  <Image
-                    alt=""
-                    className="size-full"
-                    height={328}
-                    src={feature.imgSrc}
-                    width={453}
-                  />
-                </div>
-                <div className="flex flex-col">
-                  <Heading
-                    className="mb-4"
-                    id={`${id}-${feature.key}`}
-                    level="heading4">
-                    {feature.title}
-                  </Heading>
-                  <Section>
-                    <Text color="secondary">{feature.description}</Text>
-                  </Section>
-                </div>
-              </li>
-            ))}
+            {features.map((feature) => {
+              const featureId = `${id}-${feature.key}`;
+
+              return (
+                <li
+                  key={feature.key}
+                  aria-labelledby={featureId}
+                  className="flex flex-col items-center gap-x-28 gap-y-12 lg:flex-row lg:even:flex-row-reverse">
+                  <div
+                    className={clsx(
+                      'aspect-[453/328] h-fit w-full max-w-[453px] shrink-0 rounded-lg lg:w-auto',
+                      themeBackgroundCardColor,
+                      themeGlassyBorder,
+                    )}>
+                    <Image
+                      alt=""
+                      className="size-full"
+                      height={328}
+                      src={feature.imgSrc}
+                      width={453}
+                    />
+                  </div>
+                  <div className="flex flex-col gap-4">
+                    <Heading
+                      className="text-pretty"
+                      id={featureId}
+                      level="heading4">
+                      {feature.title}
+                    </Heading>
+                    <Section>
+                      <Text className="text-pretty" color="secondary">
+                        {feature.description}
+                      </Text>
+                    </Section>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </Section>
       </Container>

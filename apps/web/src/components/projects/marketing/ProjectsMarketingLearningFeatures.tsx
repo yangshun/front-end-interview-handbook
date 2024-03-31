@@ -407,59 +407,68 @@ export default function ProjectsMarketingLearningFeatures() {
               id: '6H0D7u',
             })}
             className="flex flex-col gap-y-16 lg:gap-y-32">
-            {features.map((feature) => (
-              <li
-                key={feature.key}
-                aria-labelledby={`${id}-${feature.key}`}
-                className="flex flex-col items-center gap-x-28 gap-y-12 lg:flex-row lg:items-start lg:even:flex-row-reverse">
-                <div
-                  className={clsx(
-                    'aspect-[453/328] h-fit w-full max-w-[453px] shrink-0 rounded-lg lg:w-auto',
-                    themeBackgroundCardColor,
-                    themeGlassyBorder,
-                  )}>
-                  <Image
-                    alt=""
-                    className="size-full"
-                    height={328}
-                    src={feature.imgSrc}
-                    width={453}
-                  />
-                </div>
-                <div className="flex flex-col">
-                  <Heading
-                    className="mb-4"
-                    id={`${id}-${feature.key}`}
-                    level="heading4">
-                    {feature.title}
-                  </Heading>
-                  <Section>
-                    <Text color="secondary">{feature.description}</Text>
-                    <ul
-                      aria-label={intl.formatMessage({
-                        defaultMessage: 'Subfeatures',
-                        description:
-                          'Subfeatures of a feature in Projects marketing page',
-                        id: 'tvsV5d',
-                      })}
-                      className="mt-10 grid grid-cols-2 gap-6 lg:grid-cols-3">
-                      {feature.subFeatures.map((subFeature) => (
-                        <li
-                          key={subFeature.key}
-                          className="flex flex-col items-start gap-y-4 xl:gap-y-6">
-                          <ProjectsMarketingFeaturedIcon
-                            icon={subFeature.icon}
-                          />
-                          <Text color="secondary" size="body1">
-                            {subFeature.label}
-                          </Text>
-                        </li>
-                      ))}
-                    </ul>
-                  </Section>
-                </div>
-              </li>
-            ))}
+            {features.map((feature) => {
+              const featureId = `${id}-${feature.key}`;
+
+              return (
+                <li
+                  key={feature.key}
+                  aria-labelledby={featureId}
+                  className="flex flex-col items-center gap-x-28 gap-y-12 lg:flex-row lg:items-start lg:even:flex-row-reverse">
+                  <div
+                    className={clsx(
+                      'aspect-[453/328] h-fit w-full max-w-[453px] shrink-0 rounded-lg lg:w-auto',
+                      themeBackgroundCardColor,
+                      themeGlassyBorder,
+                    )}>
+                    <Image
+                      alt=""
+                      className="size-full"
+                      height={328}
+                      src={feature.imgSrc}
+                      width={453}
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <Heading
+                      className="text-pretty mb-4"
+                      id={featureId}
+                      level="heading4">
+                      {feature.title}
+                    </Heading>
+                    <Section>
+                      <Text className="text-pretty" color="secondary">
+                        {feature.description}
+                      </Text>
+                      <ul
+                        aria-label={intl.formatMessage({
+                          defaultMessage: 'Subfeatures',
+                          description:
+                            'Subfeatures of a feature in Projects marketing page',
+                          id: 'tvsV5d',
+                        })}
+                        className="mt-10 grid grid-cols-2 gap-6 lg:grid-cols-3">
+                        {feature.subFeatures.map((subFeature) => (
+                          <li
+                            key={subFeature.key}
+                            className="flex flex-col items-start gap-y-4 xl:gap-y-6">
+                            <ProjectsMarketingFeaturedIcon
+                              icon={subFeature.icon}
+                            />
+                            <Text
+                              className="text-pretty"
+                              color="secondary"
+                              size="body1">
+                              {subFeature.label}
+                            </Text>
+                          </li>
+                        ))}
+                      </ul>
+                    </Section>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </Section>
       </Container>
