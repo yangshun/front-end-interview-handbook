@@ -33,6 +33,7 @@ const variantClasses: Record<
     backgroundClass: string;
     borderClass: string;
     iconClass: string;
+    paddingClass: string;
     textClass: string;
   }>
 > = {
@@ -40,42 +41,49 @@ const variantClasses: Record<
     backgroundClass: 'bg-danger-lightest dark:bg-danger-darker',
     borderClass: 'border border-danger',
     iconClass: 'text-danger',
+    paddingClass: 'py-px',
     textClass: 'text-danger',
   },
   info: {
     backgroundClass: 'bg-info-lightest dark:bg-info-darker',
     borderClass: 'border border-info dark:border-info-light',
     iconClass: 'text-info dark:text-info-light',
+    paddingClass: 'py-px',
     textClass: 'text-info dark:text-info-light',
   },
   neutral: {
     backgroundClass: 'bg-neutral-50 dark:bg-neutral-800',
     borderClass: '',
     iconClass: 'text-neutral-500',
+    paddingClass: 'py-px',
     textClass: themeTextSecondaryColor,
   },
   primary: {
     backgroundClass: 'bg-brand-lightest dark:bg-neutral-800',
     borderClass: 'border border-brand-dark dark:border-brand',
     iconClass: themeTextBrandColor,
+    paddingClass: 'py-px',
     textClass: themeTextBrandColor,
   },
   special: {
     backgroundClass: 'shiny bg-brand-lightest dark:bg-neutral-800',
     borderClass: '',
     iconClass: themeTextBrandColor,
+    paddingClass: 'py-0.5',
     textClass: themeTextSubtitleColor,
   },
   success: {
     backgroundClass: 'bg-success-lightest dark:bg-success-darker',
     borderClass: 'border border-success dark:border-success-light',
     iconClass: themeTextSuccessColor,
+    paddingClass: 'py-px',
     textClass: themeTextSuccessColor,
   },
   warning: {
     backgroundClass: 'bg-warning-lightest dark:bg-warning-darker',
     borderClass: 'border border-warning dark:border-warning-light',
     iconClass: themeTextWarningColor,
+    paddingClass: 'py-px',
     textClass: themeTextWarningColor,
   },
 };
@@ -98,17 +106,18 @@ export default function Badge({
   variant,
   iconClassName,
 }: Props) {
-  const { backgroundClass, borderClass, textClass, iconClass } =
+  const { backgroundClass, borderClass, textClass, iconClass, paddingClass } =
     variantClasses[variant];
 
   return (
     <span
       className={clsx(
         'inline-flex items-center',
-        'relative rounded-full py-px',
+        'relative rounded-full',
         sizeClasses[size],
         backgroundClass,
         borderClass,
+        paddingClass,
         className,
       )}>
       {Icon && (
