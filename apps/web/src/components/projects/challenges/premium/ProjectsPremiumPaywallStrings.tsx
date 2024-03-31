@@ -43,9 +43,9 @@ export function useProjectsChallengePaywallTitle(
 
 export function useProjectsChallengePaywallSubtitle(
   access: ProjectsPremiumAccessControlType,
-  credits: number,
-  creditsAtStartOfCycle: number,
-  plan: ProjectsSubscriptionPlan | null,
+  credits = 0,
+  creditsAtStartOfCycle = 0,
+  plan: ProjectsSubscriptionPlan | null = null,
 ) {
   const intl = useIntl();
 

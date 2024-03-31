@@ -120,16 +120,20 @@ export default function useProjectsPricingPlanFeatures(
     skillRoadmap: {
       description: (
         <div className="flex flex-col gap-y-2">
-          <FormattedMessage
-            defaultMessage="We provide a roadmap of all the core skills needed to be a great front end engineer, from beginner to advanced. For each skill, we suggest good resources for you to study and projects you can build on our platform to learn the skill. This roadmap is curated by senior engineers with extensive experience in the industry, ensuring the quality and trustworthiness of the content."
-            description="Description for skill roadmap feature"
-            id="RWWOGp"
-          />
-          <FormattedMessage
-            defaultMessage="Additionally, we offer a gamified progress tracking system to monitor your proficiency in applying these skills across our projects."
-            description="Description for skill roadmap feature"
-            id="/kvO93"
-          />
+          <p>
+            <FormattedMessage
+              defaultMessage="We provide a roadmap of all the core skills needed to be a great front end engineer, from beginner to advanced. For each skill, we suggest good resources for you to study and projects you can build on our platform to learn the skill. This roadmap is curated by senior engineers with extensive experience in the industry, ensuring the quality and trustworthiness of the content."
+              description="Description for skill roadmap feature"
+              id="RWWOGp"
+            />
+          </p>
+          <p>
+            <FormattedMessage
+              defaultMessage="Additionally, we offer a gamified progress tracking system to monitor your proficiency in applying these skills across our projects."
+              description="Description for skill roadmap feature"
+              id="/kvO93"
+            />
+          </p>
         </div>
       ),
       plan: {

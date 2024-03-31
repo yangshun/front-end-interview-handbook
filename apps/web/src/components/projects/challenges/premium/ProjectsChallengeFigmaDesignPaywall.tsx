@@ -15,6 +15,7 @@ import Text from '~/components/ui/Text';
 import ProjectsChallengeUnlockAccessDialog from './ProjectsChallengeUnlockAccessDialog';
 import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessControl';
 import { useProjectsChallengePaywallSubtitle } from './ProjectsPremiumPaywallStrings';
+import ProjectsPremiumPricingTableDialog from './ProjectsPremiumPricingTableDialog';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
@@ -167,6 +168,17 @@ function SubscribeSection({
   placement: Placement;
 }>) {
   const intl = useIntl();
+  const title = intl.formatMessage({
+    defaultMessage: 'Premium is required to unlock this project',
+    description: 'Unlock premium access for a project',
+    id: 'eWwVqI',
+  });
+  const subtitle = intl.formatMessage({
+    defaultMessage:
+      'Purchase premium to unlock access to this design file and other features like official guides and solutions. Build accurately and learn to work with production-level specs.',
+    description: 'Unlock premium access for a project',
+    id: '8Z5qAk',
+  });
 
   return (
     <div
@@ -174,42 +186,47 @@ function SubscribeSection({
         'flex flex-col gap-4',
         placement === 'GET_STARTED_DIALOG' && 'items-start',
       )}>
-      <Button
-        addonPosition="start"
-        href="/projects/pricing"
-        icon={RiLock2Line}
-        isDisabled={true}
-        label={intl.formatMessage({
-          defaultMessage: 'Figma design file',
-          description: 'Download Figma file button label',
-          id: 'RGdxr7',
-        })}
-        size="lg"
-        variant="special"
+      <ProjectsPremiumPricingTableDialog
+        subtitle={subtitle}
+        title={title}
+        trigger={
+          <Button
+            addonPosition="start"
+            icon={RiLock2Line}
+            isDisabled={true}
+            label={intl.formatMessage({
+              defaultMessage: 'Figma design file',
+              description: 'Download Figma file button label',
+              id: 'RGdxr7',
+            })}
+            size="lg"
+            variant="special"
+          />
+        }
       />
       <Text
         className="block"
         color="secondary"
         size={placement === 'ASSETS_PAGE' ? 'body3' : 'body2'}>
-        {intl.formatMessage({
-          defaultMessage:
-            'Purchase premium to unlock access to this design file and other features like official guides and solutions. Build accurately and learn to work with production-level specs.',
-          description: 'Unlock premium access for a project',
-          id: '8Z5qAk',
-        })}
+        {subtitle}
       </Text>
       {placement === 'ASSETS_PAGE' && (
-        <Button
-          className="-ms-3 self-start"
-          href="/projects/pricing"
-          icon={RiArrowRightLine}
-          label={intl.formatMessage({
-            defaultMessage: 'View plans',
-            description: 'View pricing plans',
-            id: 'L+jocg',
-          })}
-          size="sm"
-          variant="tertiary"
+        <ProjectsPremiumPricingTableDialog
+          subtitle={subtitle}
+          title={title}
+          trigger={
+            <Button
+              className="-ms-3 self-start"
+              icon={RiArrowRightLine}
+              label={intl.formatMessage({
+                defaultMessage: 'View plans',
+                description: 'View pricing plans',
+                id: 'L+jocg',
+              })}
+              size="sm"
+              variant="tertiary"
+            />
+          }
         />
       )}
     </div>
@@ -228,6 +245,11 @@ function ResubscribeSection({
   placement: Placement;
 }>) {
   const intl = useIntl();
+  const title = intl.formatMessage({
+    defaultMessage: 'Premium is required to unlock this project',
+    description: 'Unlock premium access for a project',
+    id: 'eWwVqI',
+  });
   const subtitle = useProjectsChallengePaywallSubtitle(
     access,
     credits,
@@ -241,17 +263,22 @@ function ResubscribeSection({
         'flex flex-col gap-4',
         placement === 'GET_STARTED_DIALOG' && 'items-start',
       )}>
-      <Button
-        addonPosition="start"
-        href="/projects/pricing"
-        icon={RiLock2Line}
-        label={intl.formatMessage({
-          defaultMessage: 'Figma design file',
-          description: 'Download Figma file button label',
-          id: 'RGdxr7',
-        })}
-        size="lg"
-        variant="special"
+      <ProjectsPremiumPricingTableDialog
+        subtitle={subtitle}
+        title={title}
+        trigger={
+          <Button
+            addonPosition="start"
+            icon={RiLock2Line}
+            label={intl.formatMessage({
+              defaultMessage: 'Figma design file',
+              description: 'Download Figma file button label',
+              id: 'RGdxr7',
+            })}
+            size="lg"
+            variant="special"
+          />
+        }
       />
       <Text
         className="block"
@@ -260,17 +287,22 @@ function ResubscribeSection({
         {subtitle}
       </Text>
       {placement === 'ASSETS_PAGE' && (
-        <Button
-          className="-ms-3 self-start"
-          href="/projects/pricing"
-          icon={RiArrowRightLine}
-          label={intl.formatMessage({
-            defaultMessage: 'View plans',
-            description: 'View pricing plans',
-            id: 'L+jocg',
-          })}
-          size="sm"
-          variant="tertiary"
+        <ProjectsPremiumPricingTableDialog
+          subtitle={subtitle}
+          title={title}
+          trigger={
+            <Button
+              className="-ms-3 self-start"
+              icon={RiArrowRightLine}
+              label={intl.formatMessage({
+                defaultMessage: 'View plans',
+                description: 'View pricing plans',
+                id: 'L+jocg',
+              })}
+              size="sm"
+              variant="tertiary"
+            />
+          }
         />
       )}
     </div>
@@ -279,18 +311,12 @@ function ResubscribeSection({
 
 function InsufficientCreditsSection({
   placement,
-  plan = null,
 }: Readonly<{
   placement: Placement;
   plan?: ProjectsSubscriptionPlan | null;
 }>) {
   const intl = useIntl();
-  const subtitle = useProjectsChallengePaywallSubtitle(
-    'INSUFFICIENT_CREDITS',
-    0,
-    0,
-    plan,
-  );
+  const subtitle = useProjectsChallengePaywallSubtitle('INSUFFICIENT_CREDITS');
 
   return (
     <div
@@ -364,11 +390,6 @@ export default function ProjectsChallengeFigmaDesignPaywall({
         />
       );
     case 'INSUFFICIENT_CREDITS':
-      return (
-        <InsufficientCreditsSection
-          placement={placement}
-          plan={viewerProjectsProfile?.plan}
-        />
-      );
+      return <InsufficientCreditsSection placement={placement} />;
   }
 }

@@ -9,6 +9,7 @@ import Text from '~/components/ui/Text';
 
 import ProjectsChallengeUnlockAccessDialog from './ProjectsChallengeUnlockAccessDialog';
 import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessControl';
+import ProjectsPremiumPricingTableDialog from './ProjectsPremiumPricingTableDialog';
 
 function UnlockButton({
   credits,
@@ -74,16 +75,20 @@ export default function ProjectsPremiumPaywall({
     }
 
     return (
-      <Button
-        href="/projects/pricing"
-        label={intl.formatMessage({
-          defaultMessage: 'View subscription plans',
-          description:
-            'Label for View subscription plans button on Projects project page',
-          id: '9POdEK',
-        })}
-        size="md"
-        variant="primary"
+      <ProjectsPremiumPricingTableDialog
+        subtitle={subtitle}
+        title={title}
+        trigger={
+          <Button
+            label={intl.formatMessage({
+              defaultMessage: 'View subscription plans',
+              description: 'Button label to view subscription plans',
+              id: 'W/I1wt',
+            })}
+            size="md"
+            variant="primary"
+          />
+        }
       />
     );
   })();

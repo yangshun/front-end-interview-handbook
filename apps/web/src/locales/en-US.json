@@ -1303,10 +1303,6 @@
     "defaultMessage": "For Beginners",
     "description": "Link to Projects homepage for beginners"
   },
-  "9POdEK": {
-    "defaultMessage": "View subscription plans",
-    "description": "Label for View subscription plans button on Projects project page"
-  },
   "9Q8e4/": {
     "defaultMessage": "JavaScript Polyfills",
     "description": "Name of focus area questions"
@@ -4039,6 +4035,10 @@
     "defaultMessage": "Guided by well-known senior engineers",
     "description": "Title of 'Guided by well-known senior engineers' feature in marketing page"
   },
+  "W/I1wt": {
+    "defaultMessage": "View subscription plans",
+    "description": "Button label to view subscription plans"
+  },
   "W1Vfmc": {
     "defaultMessage": "The skills / tools / frameworks you are hoping to grow in. Cannot find the tag you need? Email us at {supportEmail}",
     "description": "Description for tech stack field"
@@ -4326,6 +4326,10 @@
   "YGqz7y": {
     "defaultMessage": "Gain proficiency in front end fundamentals by implementing JavaScript and DOM APIs from scratch.",
     "description": "Description for interview preparation focus area"
+  },
+  "YIry1B": {
+    "defaultMessage": "Pricing plans",
+    "description": "Title for projects pricing plans"
   },
   "YJ9REP": {
     "defaultMessage": "Submission summary must contain at least {minLength} character(s).",
@@ -5034,6 +5038,10 @@
   "eVJIGT": {
     "defaultMessage": "System Design Questions",
     "description": "Front End system design interview questions"
+  },
+  "eWwVqI": {
+    "defaultMessage": "Premium is required to unlock this project",
+    "description": "Unlock premium access for a project"
   },
   "ee862n": {
     "defaultMessage": "The definitive guide to front end / web developer interviews.",
@@ -6563,6 +6571,10 @@
     "defaultMessage": "Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two.",
     "description": "Subtitle for contact us section"
   },
+  "qnBYb6": {
+    "defaultMessage": "Premium component track",
+    "description": "Premium projects component track"
+  },
   "qoTBLI": {
     "defaultMessage": "Know where to find important info",
     "description": "Label for \"Know where to find important info\" step in dialog on Projects project page"
@@ -6734,6 +6746,10 @@
   "saFHOR": {
     "defaultMessage": "Learn new skills, improve your techniques and stay updated on latest front end trends and developments.",
     "description": "Description of GreatFrontEnd blog homepage"
+  },
+  "sfJ1Oa": {
+    "defaultMessage": "Purchase premium to get access to all component tracks as well as exclusive skills, official how-to guides and production-ready Figma files.",
+    "description": "Subtitle for premium projects component track"
   },
   "sjLtW1": {
     "defaultMessage": "Manage subscription",

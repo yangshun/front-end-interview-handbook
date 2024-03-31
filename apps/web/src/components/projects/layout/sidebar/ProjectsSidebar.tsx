@@ -48,6 +48,7 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 import { ProjectsSidebarCTACard } from './ProjectsSidebarCTACard';
 import ProjectsSidebarProductMenu from './ProjectsSidebarProductMenu';
 import { ProjectsSidebarProfileHeader } from './ProjectsSidebarProfileHeader';
+import ProjectsPremiumPricingTableDialog from '../../challenges/premium/ProjectsPremiumPricingTableDialog';
 import useProfileWithProjectsProfile from '../../common/useProfileWithProjectsProfile';
 
 type SidebarItem = SidebarLink;
@@ -273,16 +274,19 @@ export function ProjectsSidebarExpanded({
       <ProjectsSidebarProfileHeader />
       {profile == null && (
         <div className={clsx('w-full px-3', fadeInClass)}>
-          <Button
-            display="block"
-            href="/projects/pricing"
-            label={intl.formatMessage({
-              defaultMessage: 'Get full access',
-              description: 'Button CTA to encourage upgrading',
-              id: 'GPFB6p',
-            })}
-            size="xs"
-            variant="primary"
+          <ProjectsPremiumPricingTableDialog
+            trigger={
+              <Button
+                display="block"
+                label={intl.formatMessage({
+                  defaultMessage: 'Get full access',
+                  description: 'Button CTA to encourage upgrading',
+                  id: 'GPFB6p',
+                })}
+                size="xs"
+                variant="primary"
+              />
+            }
           />
         </div>
       )}

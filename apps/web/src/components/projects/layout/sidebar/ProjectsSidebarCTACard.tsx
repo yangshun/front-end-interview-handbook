@@ -15,6 +15,7 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
+import ProjectsPremiumPricingTableDialog from '../../challenges/premium/ProjectsPremiumPricingTableDialog';
 import useProfileWithProjectsProfile from '../../common/useProfileWithProjectsProfile';
 import { projectsPaidPlanFeatures } from '../../purchase/ProjectsPricingFeaturesConfig';
 
@@ -83,23 +84,26 @@ function FreePlanVersion({ credits: unlocks }: Readonly<{ credits: number }>) {
           />
         </Text>
       </div>
-      <Button
-        href="/projects/pricing"
-        label={
-          unlocks > 0
-            ? intl.formatMessage({
-                defaultMessage: 'Resubscribe',
-                description: 'Button CTA to encourage upgrading',
-                id: 'Q0gWLB',
-              })
-            : intl.formatMessage({
-                defaultMessage: 'Get full access',
-                description: 'Button CTA to encourage upgrading',
-                id: 'GPFB6p',
-              })
+      <ProjectsPremiumPricingTableDialog
+        trigger={
+          <Button
+            label={
+              unlocks > 0
+                ? intl.formatMessage({
+                    defaultMessage: 'Resubscribe',
+                    description: 'Button CTA to encourage upgrading',
+                    id: 'Q0gWLB',
+                  })
+                : intl.formatMessage({
+                    defaultMessage: 'Get full access',
+                    description: 'Button CTA to encourage upgrading',
+                    id: 'GPFB6p',
+                  })
+            }
+            size="sm"
+            variant="primary"
+          />
         }
-        size="sm"
-        variant="primary"
       />
     </div>
   );

@@ -406,12 +406,6 @@ function FeatureItem({
   );
 }
 
-type Props = Readonly<{
-  countryCode: string;
-  planList: ReadonlyArray<ProjectsPricingPlanItem>;
-  showPPPMessage: boolean;
-}>;
-
 function ProjectsPricingPriceCell({
   className,
   countryCode,
@@ -549,7 +543,15 @@ function ProjectsPricingPriceCell({
   );
 }
 
+type Props = Readonly<{
+  background?: boolean;
+  countryCode: string;
+  planList: ReadonlyArray<ProjectsPricingPlanItem>;
+  showPPPMessage: boolean;
+}>;
+
 export default function ProjectsPricingTable({
+  background = false,
   countryCode,
   planList,
   showPPPMessage,
@@ -564,7 +566,7 @@ export default function ProjectsPricingTable({
   const tableClassName = clsx(
     'rounded-3xl',
     ['border', themeBorderColor],
-    'bg-white/20 dark:bg-neutral-800/20',
+    background ? 'dark:bg-neutral-900' : 'bg-white/20 dark:bg-neutral-800/20',
   );
 
   return (
