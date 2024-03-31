@@ -18,7 +18,7 @@ export default function fill<T>(
     end += length;
   }
 
-  for (let i = start; i < Math.min(end, array.length); i++) {
+  for (let i = start; i < Math.min(end, length); i++) {
     array[i] = value;
   }
 

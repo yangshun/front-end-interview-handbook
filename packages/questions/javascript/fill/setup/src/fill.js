@@ -20,7 +20,7 @@ export default function fill(array, value, start = 0, end = array.length) {
     end += length;
   }
 
-  for (let i = start; i < Math.min(end, array.length); i++) {
+  for (let i = start; i < Math.min(end, length); i++) {
     array[i] = value;
   }
 
