@@ -3,6 +3,7 @@ import {
   RiCursorFill,
   RiLoader2Line,
   RiLockLine,
+  RiStarFill,
 } from 'react-icons/ri';
 
 import Chip from './Chip';
@@ -21,16 +22,22 @@ export default function ChipExamples() {
           variant="success"
         />
         <Chip
-          icon={RiLockLine}
+          icon={RiStarFill}
           isLabelHidden={true}
-          label="Locked"
-          variant="special"
+          label="Loading"
+          variant="primary"
         />
         <Chip
           icon={RiLoader2Line}
           isLabelHidden={true}
-          label="Loading"
-          variant="primary"
+          label="In-progress"
+          variant="warning"
+        />
+        <Chip
+          icon={RiLockLine}
+          isLabelHidden={true}
+          label="Locked"
+          variant="special"
         />
         <Chip
           icon={RiCheckFill}

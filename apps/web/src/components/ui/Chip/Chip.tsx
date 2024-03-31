@@ -10,7 +10,8 @@ export type ChipVariant =
   | 'primary'
   | 'secondary'
   | 'special'
-  | 'success';
+  | 'success'
+  | 'warning';
 
 type Props = Readonly<
   {
@@ -74,6 +75,12 @@ const variantClasses: Record<
     iconClass: 'text-white dark:text-neutral-900',
     textClass: 'text-white dark:text-neutral-100',
   },
+  warning: {
+    backgroundClass: 'bg-warning',
+    borderClass: '',
+    iconClass: 'text-white',
+    textClass: 'text-white',
+  },
 };
 
 const sizeClasses: Record<ChipSize, string> = {
@@ -114,7 +121,7 @@ export default function Chip({
         borderClass,
         className,
       )}>
-      {Icon && <Icon className={clsx(iconClass, 'size-3', iconClassName)} />}
+      {Icon && <Icon className={clsx(iconClass, 'size-4', iconClassName)} />}
       {!isLabelHidden && (
         <span className={clsx(textClass, textSizeClasses[size])}>{label}</span>
       )}
