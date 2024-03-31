@@ -5,35 +5,17 @@ import {
   projectsReputationProfileFieldConfig,
   projectsReputationProfileSignUpConfig,
 } from '~/components/projects/reputation/ProjectsReputationPointsConfig';
+import { projectsReputationConnectOrCreateShape } from '~/components/projects/reputation/ProjectsReputationUtils';
 
 import prisma from '~/server/prisma';
-
-function createConnectOrCreate({
-  key: key,
-  profileId: profileId,
-  points: points,
-}: Readonly<{ key: string; points: number; profileId: string }>) {
-  return {
-    create: {
-      key,
-      points,
-    },
-    where: {
-      profileId_key: {
-        key,
-        profileId,
-      },
-    },
-  };
-}
 
 type RequestBody = Readonly<{
   projectsProfileId: string;
 }>;
 
 // This route exists to recalculate the points for a projects user whenever
-// they update their profile. If they have been awards points for some
-// fields and later remove, so be it.
+// they update their profile. If they have been awarded points for some
+// fields and later remove those fields, it's fine.
 export async function POST(req: NextRequest) {
   const { searchParams } = req.nextUrl;
 
@@ -63,7 +45,7 @@ export async function POST(req: NextRequest) {
   }
 
   const connectOrCreateItems = [
-    createConnectOrCreate({
+    projectsReputationConnectOrCreateShape({
       ...projectsReputationProfileSignUpConfig(),
       profileId: projectsProfileId,
     }),
@@ -76,7 +58,7 @@ export async function POST(req: NextRequest) {
     projectsProfile.motivations.length > 0
   ) {
     connectOrCreateItems.push(
-      createConnectOrCreate({
+      projectsReputationConnectOrCreateShape({
         ...projectsReputationProfileFieldConfig('motivation'),
         profileId: projectsProfileId,
       }),
@@ -90,7 +72,7 @@ export async function POST(req: NextRequest) {
     projectsProfile.skillsProficient.length > 0
   ) {
     connectOrCreateItems.push(
-      createConnectOrCreate({
+      projectsReputationConnectOrCreateShape({
         ...projectsReputationProfileFieldConfig('skills_proficient'),
         profileId: projectsProfileId,
       }),
@@ -104,7 +86,7 @@ export async function POST(req: NextRequest) {
     projectsProfile.skillsToGrow.length > 0
   ) {
     connectOrCreateItems.push(
-      createConnectOrCreate({
+      projectsReputationConnectOrCreateShape({
         ...projectsReputationProfileFieldConfig('skills_to_grow'),
         profileId: projectsProfileId,
       }),
@@ -115,7 +97,7 @@ export async function POST(req: NextRequest) {
 
   if (projectsProfile?.userProfile.bio) {
     connectOrCreateItems.push(
-      createConnectOrCreate({
+      projectsReputationConnectOrCreateShape({
         ...projectsReputationProfileFieldConfig('bio'),
         profileId: projectsProfileId,
       }),
@@ -126,7 +108,7 @@ export async function POST(req: NextRequest) {
 
   if (projectsProfile?.userProfile.avatarUrl) {
     connectOrCreateItems.push(
-      createConnectOrCreate({
+      projectsReputationConnectOrCreateShape({
         ...projectsReputationProfileFieldConfig('avatar'),
         profileId: projectsProfileId,
       }),
@@ -137,7 +119,7 @@ export async function POST(req: NextRequest) {
 
   if (projectsProfile?.userProfile.linkedInUsername) {
     connectOrCreateItems.push(
-      createConnectOrCreate({
+      projectsReputationConnectOrCreateShape({
         ...projectsReputationProfileFieldConfig('linkedin'),
         profileId: projectsProfileId,
       }),
@@ -148,7 +130,7 @@ export async function POST(req: NextRequest) {
 
   if (projectsProfile?.userProfile.githubUsername) {
     connectOrCreateItems.push(
-      createConnectOrCreate({
+      projectsReputationConnectOrCreateShape({
         ...projectsReputationProfileFieldConfig('github'),
         profileId: projectsProfileId,
       }),
@@ -159,7 +141,7 @@ export async function POST(req: NextRequest) {
 
   if (projectsProfile?.userProfile.website) {
     connectOrCreateItems.push(
-      createConnectOrCreate({
+      projectsReputationConnectOrCreateShape({
         ...projectsReputationProfileFieldConfig('website'),
         profileId: projectsProfileId,
       }),
@@ -170,7 +152,7 @@ export async function POST(req: NextRequest) {
 
   if (allComplete) {
     connectOrCreateItems.push(
-      createConnectOrCreate({
+      projectsReputationConnectOrCreateShape({
         ...projectsReputationProfileCompleteConfig(),
         profileId: projectsProfileId,
       }),

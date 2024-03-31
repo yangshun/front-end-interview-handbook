@@ -2,7 +2,7 @@ import type {
   ProjectsChallengeAPIWriteup,
   ProjectsChallengeGuide,
   ProjectsChallengeMetadata,
-  ProjectsChallengeStyleGuide
+  ProjectsChallengeStyleGuide,
 } from 'contentlayer/generated';
 import {
   allProjectsChallengeAPIWriteups,
@@ -353,6 +353,7 @@ export function challengeItemAddTrackMetadata(
   };
 }
 
+// TODO(projects): memoize the results to improve performance.
 export async function readProjectsChallengeMetadata(
   slugParam: string,
   requestedLocale = 'en-US',
@@ -366,8 +367,8 @@ export async function readProjectsChallengeMetadata(
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
   const challengeMetadata = allProjectsChallengeMetadata.find(
     (challengeItem) =>
-      challengeItem._raw.flattenedPath ===
-      `projects/challenges/${slug}/${requestedLocale}`,
+      challengeItem.slug === slug &&
+      challengeItem._raw.flattenedPath.endsWith(requestedLocale),
   )!;
 
   return {

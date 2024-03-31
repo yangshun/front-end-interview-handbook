@@ -1,8 +1,13 @@
+import { sumBy } from 'lodash-es';
+
 import prisma from '~/server/prisma';
 
 import {
   projectsReputationDiscussionsCommentConfig,
   projectsReputationDiscussionsCommentVoteConfig,
+  projectsReputationSubmissionDifficultyConfig,
+  projectsReputationSubmissionRoadmapSkillConfig,
+  projectsReputationSubmissionTechStackConfig,
   projectsReputationSubmissionVoteConfig,
 } from './ProjectsReputationPointsConfig';
 
@@ -11,6 +16,25 @@ import type {
   ProjectsDiscussionCommentVote,
 } from '@prisma/client';
 import { type ProjectsDiscussionComment } from '@prisma/client';
+
+export function projectsReputationConnectOrCreateShape({
+  key: key,
+  profileId: profileId,
+  points: points,
+}: Readonly<{ key: string; points: number; profileId: string }>) {
+  return {
+    create: {
+      key,
+      points,
+    },
+    where: {
+      profileId_key: {
+        key,
+        profileId,
+      },
+    },
+  };
+}
 
 export async function projectsReputationCommentAwardPoints(
   comment: ProjectsDiscussionComment,
@@ -75,6 +99,73 @@ export async function projectsReputationCommentVoteRevokePoints(
       key: projectsReputationDiscussionsCommentVoteConfig(deletedVote.id).key,
     },
   });
+}
+
+export async function projectsReputationSubmissionAwardPoints(
+  submission: Readonly<{
+    profileId: string;
+    roadmapSkills: ReadonlyArray<string>;
+    slug: string;
+    techStackSkills: ReadonlyArray<string>;
+  }>,
+) {
+  const {
+    slug,
+    profileId: projectsProfileId,
+    roadmapSkills,
+    techStackSkills,
+  } = submission;
+
+  const difficultyPointsConfig =
+    await projectsReputationSubmissionDifficultyConfig(slug);
+  const connectOrCreateItems = [
+    projectsReputationConnectOrCreateShape({
+      ...difficultyPointsConfig,
+      profileId: projectsProfileId,
+    }),
+  ];
+
+  const roadmapSkillsRepRecords = await Promise.all(
+    roadmapSkills.map((skill) =>
+      projectsReputationSubmissionRoadmapSkillConfig(slug, skill),
+    ),
+  );
+
+  // Sort by descending.
+  roadmapSkillsRepRecords.sort((a, b) => b.points - a.points);
+  // Take the first 4.
+  connectOrCreateItems.push(
+    ...roadmapSkillsRepRecords.slice(0, 4).map((config) =>
+      projectsReputationConnectOrCreateShape({
+        ...config,
+        profileId: projectsProfileId,
+      }),
+    ),
+  );
+
+  const techStackRepRecords = techStackSkills.map((techStackSkill) =>
+    projectsReputationConnectOrCreateShape({
+      ...projectsReputationSubmissionTechStackConfig(slug, techStackSkill),
+      profileId: projectsProfileId,
+    }),
+  );
+
+  connectOrCreateItems.push(...techStackRepRecords);
+
+  const totalPoints = sumBy(connectOrCreateItems, (item) => item.create.points);
+
+  await prisma.projectsProfile.update({
+    data: {
+      reputation: {
+        connectOrCreate: connectOrCreateItems,
+      },
+    },
+    where: {
+      id: projectsProfileId,
+    },
+  });
+
+  return totalPoints;
 }
 
 export async function projectsReputationSubmissionVoteAwardPoints(

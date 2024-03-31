@@ -45,16 +45,20 @@ export default function ProjectsChallengeSubmitPage({
         variant: 'danger',
       });
     },
-    onSuccess: (submission) => {
+    onSuccess: ({ submission, points }) => {
       takeScreenshotMutation.mutate({ submissionId: submission.id });
 
       showToast({
-        description: intl.formatMessage({
-          // TODO(projects): Actual rep gained.
-          defaultMessage: 'You have gained XXX rep!',
-          description: 'Success message after submitting a project',
-          id: 'JiDkSH',
-        }),
+        description: intl.formatMessage(
+          {
+            defaultMessage: 'You have gained {points} reputation points!',
+            description: 'Success message after submitting a project',
+            id: 'fv5WXh',
+          },
+          {
+            points,
+          },
+        ),
         title: intl.formatMessage({
           defaultMessage: 'Congratulations!',
           description: 'Success message',

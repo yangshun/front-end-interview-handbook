@@ -2427,10 +2427,6 @@
     "defaultMessage": "Quiz Questions",
     "description": "Front end quiz interview questions"
   },
-  "JiDkSH": {
-    "defaultMessage": "You have gained XXX rep!",
-    "description": "Success message after submitting a project"
-  },
   "JinTBm": {
     "defaultMessage": "Upvotes received",
     "description": "Number of upvotes received"
@@ -5238,6 +5234,10 @@
   "fv+TLc": {
     "defaultMessage": "Back to study plans",
     "description": "Link text to navigate to study plans page"
+  },
+  "fv5WXh": {
+    "defaultMessage": "You have gained {points} reputation points!",
+    "description": "Success message after submitting a project"
   },
   "fzfMZ2": {
     "defaultMessage": "Explore series | Blog",

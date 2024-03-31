@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 import {
+  projectsReputationSubmissionAwardPoints,
   projectsReputationSubmissionVoteAwardPoints,
   projectsReputationSubmissionVoteRevokePoints,
 } from '~/components/projects/reputation/ProjectsReputationUtils';
@@ -128,7 +129,7 @@ export const projectsChallengeSubmissionItemRouter = router({
             });
           }
 
-          return await tx.projectsChallengeSubmission.create({
+          const submission = await tx.projectsChallengeSubmission.create({
             data: {
               deploymentUrls: deploymentUrls as Prisma.JsonArray,
               implementation,
@@ -141,6 +142,11 @@ export const projectsChallengeSubmissionItemRouter = router({
               title,
             },
           });
+
+          const points =
+            await projectsReputationSubmissionAwardPoints(submission);
+
+          return { points, submission };
         });
 
         return txRes;
@@ -417,7 +423,7 @@ export const projectsChallengeSubmissionItemRouter = router({
         },
         ctx: { projectsProfileId },
       }) => {
-        const res = await prisma.projectsChallengeSubmission.update({
+        const submission = await prisma.projectsChallengeSubmission.update({
           data: {
             deploymentUrls,
             editedAt: new Date(),
@@ -434,7 +440,10 @@ export const projectsChallengeSubmissionItemRouter = router({
           },
         });
 
-        return res;
+        const points =
+          await projectsReputationSubmissionAwardPoints(submission);
+
+        return { points, submission };
       },
     ),
   userCompletedTimes: projectsChallengeProcedure.query(

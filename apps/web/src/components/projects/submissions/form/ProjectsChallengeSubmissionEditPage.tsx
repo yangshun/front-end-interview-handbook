@@ -48,7 +48,7 @@ export default function ProjectsChallengeSubmissionEditPage({
         variant: 'danger',
       });
     },
-    onSuccess: (submission_) => {
+    onSuccess: ({ submission: submission_ }) => {
       showToast({
         description: intl.formatMessage({
           defaultMessage:
