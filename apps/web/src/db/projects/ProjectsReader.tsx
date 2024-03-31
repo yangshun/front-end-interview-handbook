@@ -3,7 +3,6 @@ import type {
   ProjectsChallengeGuide,
   ProjectsChallengeMetadata,
   ProjectsChallengeStyleGuide,
-  ProjectsSkillMetadata,
   ProjectsTrackMetadata,
 } from 'contentlayer/generated';
 import {
@@ -11,13 +10,11 @@ import {
   allProjectsChallengeGuides,
   allProjectsChallengeMetadata,
   allProjectsChallengeStyleGuides,
-  allProjectsSkillMetadata,
   allProjectsTrackMetadata,
 } from 'contentlayer/generated';
 import { sum } from 'lodash-es';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import type { ProjectsSkillKey } from '~/components/projects/skills/types';
 import type { ProjectsTrackItem } from '~/components/projects/tracks/data/ProjectsTracksData';
 import type { ProjectsProfileAvatarDataSlim } from '~/components/projects/types';
 
@@ -56,128 +53,6 @@ export async function fetchSessionsForUserGroupedBySlug(
   });
 
   return sessionsForUserGrouped;
-}
-
-export async function fetchChallengeStatusForUserFilteredBySkillsGroupedBySlug(
-  skillSlug: string,
-  userId?: string | null,
-): Promise<Record<string, ProjectsChallengeSessionStatus> | null> {
-  if (userId == null) {
-    return null;
-  }
-
-  const sessionsForUserGrouped: Record<string, ProjectsChallengeSessionStatus> =
-    {};
-
-  const [sessionsForUser, submissions] = await Promise.all([
-    prisma.projectsChallengeSession.findMany({
-      orderBy: {
-        createdAt: 'asc',
-      },
-      where: {
-        projectsProfile: {
-          userProfile: {
-            id: userId,
-          },
-        },
-        roadmapSkills: {
-          has: skillSlug,
-        },
-        status: {
-          not: 'STOPPED',
-        },
-      },
-    }),
-    prisma.projectsChallengeSubmission.findMany({
-      distinct: ['slug'],
-      where: {
-        projectsProfile: {
-          userId,
-        },
-        roadmapSkills: {
-          has: skillSlug,
-        },
-      },
-    }),
-  ]);
-
-  sessionsForUser?.forEach((session) => {
-    sessionsForUserGrouped[session.slug] = session.status;
-  });
-
-  submissions.forEach((submission) => {
-    sessionsForUserGrouped[submission.slug] = 'COMPLETED';
-  });
-
-  return sessionsForUserGrouped;
-}
-
-/**
- * For each skill, contains a map of challenge slug -> status.
- * Note that challenge slugs can be outside of the skill plan's
- * recommended challenges since any skill can be added to submissions.
- */
-export async function fetchChallengeStatusForUserGroupedBySkills(
-  userId?: string | null,
-): Promise<
-  Record<ProjectsSkillKey, Record<string, ProjectsChallengeSessionStatus>>
-> {
-  if (userId == null) {
-    return {};
-  }
-
-  const skillsChallengeStatus: Record<
-    ProjectsSkillKey,
-    Record<string, ProjectsChallengeSessionStatus>
-  > = {};
-
-  const [sessionsForUser, submissions] = await Promise.all([
-    prisma.projectsChallengeSession.findMany({
-      orderBy: {
-        createdAt: 'asc',
-      },
-      where: {
-        projectsProfile: {
-          userProfile: {
-            id: userId,
-          },
-        },
-        status: {
-          not: 'STOPPED',
-        },
-      },
-    }),
-    prisma.projectsChallengeSubmission.findMany({
-      distinct: ['slug'],
-      where: {
-        projectsProfile: {
-          userId,
-        },
-      },
-    }),
-  ]);
-
-  sessionsForUser?.forEach((session) => {
-    session.roadmapSkills.forEach((skill) => {
-      if (!skillsChallengeStatus[skill]) {
-        skillsChallengeStatus[skill] = {};
-      }
-
-      skillsChallengeStatus[skill][session.slug] = session.status;
-    });
-  });
-
-  submissions.forEach((submission) => {
-    submission.roadmapSkills.forEach((skill) => {
-      if (!skillsChallengeStatus[skill]) {
-        skillsChallengeStatus[skill] = {};
-      }
-
-      skillsChallengeStatus[skill][submission.slug] = 'COMPLETED';
-    });
-  });
-
-  return skillsChallengeStatus;
 }
 
 export async function fetchChallengeAccessForUserGroupedBySlug(
@@ -462,7 +337,7 @@ export async function readProjectsChallengeItem(
   };
 }
 
-function challengeItemAddTrackMetadata(
+export function challengeItemAddTrackMetadata(
   challengeItem: Omit<ProjectsChallengeItem, 'track'>,
 ): ProjectsChallengeItem {
   return {
@@ -501,68 +376,6 @@ export async function readProjectsChallengeMetadata(
   return {
     challengeMetadata,
     loadedLocale: requestedLocale,
-  };
-}
-
-export async function readProjectsChallengesForSkill(
-  slugParam: string,
-  requestedLocale = 'en-US',
-  userId?: string | null,
-): Promise<
-  Readonly<{
-    challenges: ReadonlyArray<ProjectsChallengeItem>;
-    loadedLocale: string;
-  }>
-> {
-  // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
-
-  const [challengeStatuses, challengeAccessSet] = await Promise.all([
-    fetchChallengeStatusForUserFilteredBySkillsGroupedBySlug(slugParam, userId),
-    fetchChallengeAccessForUserGroupedBySlug(userId),
-  ]);
-
-  const challenges = allProjectsChallengeMetadata
-    .filter((challengeItem) =>
-      challengeItem._raw.flattenedPath.endsWith(requestedLocale),
-    )
-    .filter((challengeItem) => challengeItem.skills.includes(slug))
-    .map((challengeMetadata) =>
-      challengeItemAddTrackMetadata({
-        completedCount: null,
-        completedProfiles: [],
-        metadata: challengeMetadata,
-        status: challengeStatuses?.[challengeMetadata.slug] ?? null,
-        userUnlocked: challengeAccessSet?.has(challengeMetadata.slug) ?? null,
-      }),
-    );
-
-  return {
-    challenges,
-    loadedLocale: requestedLocale,
-  };
-}
-
-export async function readProjectsSkillMetadata(
-  slugParam: string,
-  requestedLocale = 'en-US',
-): Promise<
-  Readonly<{
-    loadedLocale: string;
-    skillMetadata: ProjectsSkillMetadata;
-  }>
-> {
-  // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
-  const skillMetadata = allProjectsSkillMetadata.find(
-    (skillItem) =>
-      skillItem._raw.flattenedPath ===
-      `projects/skills/${slug}/${requestedLocale}`,
-  )!;
-
-  return {
-    loadedLocale: requestedLocale,
-    skillMetadata,
   };
 }
 

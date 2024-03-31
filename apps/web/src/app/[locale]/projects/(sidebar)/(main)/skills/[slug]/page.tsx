@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 import { projectsSkillLabel } from '~/components/projects/skills/data/ProjectsSkillListData';
+import { readProjectsSkillMetadata } from '~/components/projects/skills/data/ProjectsSkillReader';
 import ProjectsSkillRoadmapItemDetails from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItemDetails';
 
-import { readProjectsSkillMetadata } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';

@@ -1,5 +1,5 @@
 import ProjectsProfileProgressSkillsTab from '~/components/projects/profile/progress/ProjectsProfileProgressSkillsTab';
-import { projectsSkillsRoadmapSectionData } from '~/components/projects/skills/data/ProjectsSkillReader';
+import { fetchProjectsSkillsRoadmapSectionData } from '~/components/projects/skills/data/ProjectsSkillReader';
 
 import prisma from '~/server/prisma';
 type Props = Readonly<{
@@ -14,7 +14,9 @@ export default async function Page({ params }: Props) {
     },
   });
 
-  const skillsRoadmap = await projectsSkillsRoadmapSectionData(userProfile?.id);
+  const skillsRoadmap = await fetchProjectsSkillsRoadmapSectionData(
+    userProfile?.id,
+  );
 
   return (
     <ProjectsProfileProgressSkillsTab

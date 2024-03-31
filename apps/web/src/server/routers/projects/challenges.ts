@@ -1,8 +1,8 @@
 import { z } from 'zod';
 
 import type { ProjectsChallengeHistoricalStatuses } from '~/components/projects/challenges/types';
+import { readProjectsChallengesForSkill } from '~/components/projects/skills/data/ProjectsSkillReader';
 
-import { readProjectsChallengesForSkill } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 import { publicProcedure, router } from '~/server/trpc';
 
