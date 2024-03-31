@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
@@ -52,7 +52,7 @@ export function ProjectsSidebarProfileHeader() {
         <>
           <Avatar alt="N/A" size="lg" src="" />
           <div className="flex flex-col gap-1">
-            <Text size="body2" weight="medium">
+            <Text color="secondary" size="body2" weight="medium">
               <FormattedMessage
                 defaultMessage="Not signed in"
                 description="Label showing not signed in in profile header of Projects sidebar"
@@ -60,7 +60,7 @@ export function ProjectsSidebarProfileHeader() {
               />
             </Text>
             <Text size="body3" weight="medium">
-              <Anchor href={signInUpHref()}>
+              <Anchor href={signInUpHref()} variant="blend">
                 {signInUpLabel}
                 <RiArrowRightLine className="size-4 ms-1 inline-flex shrink-0" />
               </Anchor>

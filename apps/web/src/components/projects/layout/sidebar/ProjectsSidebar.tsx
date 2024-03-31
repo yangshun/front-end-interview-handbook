@@ -258,6 +258,10 @@ export function ProjectsSidebarExpanded({
   const { isLoading, profile } = useProfileWithProjectsProfile();
   const intl = useIntl();
   const sideBarItems = useSidebarItems();
+  const fadeInClass = [
+    'transition-opacity duration-500',
+    isLoading && 'select-none opacity-0',
+  ];
 
   return (
     <nav
@@ -267,18 +271,29 @@ export function ProjectsSidebarExpanded({
       ])}>
       <ProjectsSidebarProductMenu variant="full" />
       <ProjectsSidebarProfileHeader />
-      <ul className="flex grow flex-col gap-2">
+      {profile == null && (
+        <div className={clsx('w-full px-3', fadeInClass)}>
+          <Button
+            display="block"
+            href="/projects/pricing"
+            label={intl.formatMessage({
+              defaultMessage: 'Get full access',
+              description: 'Button CTA to encourage upgrading',
+              id: 'GPFB6p',
+            })}
+            size="xs"
+            variant="primary"
+          />
+        </div>
+      )}
+      <ul className={clsx('flex grow flex-col gap-2', fadeInClass)}>
         {sideBarItems.top.map(({ key: childKey, ...link }) => (
           <li key={childKey}>
             <SidebarLinkButton {...link} />
           </li>
         ))}
       </ul>
-      <div
-        className={clsx(
-          'flex flex-col gap-y-5 transition-opacity duration-500',
-          isLoading && 'select-none opacity-0',
-        )}>
+      <div className={clsx('flex flex-col gap-y-5', fadeInClass)}>
         <Divider />
         <ul className="flex flex-col gap-2">
           {sideBarItems.bottom.map(({ key: childKey, ...link }) => (
