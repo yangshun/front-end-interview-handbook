@@ -14,7 +14,6 @@ import { themeRadialGlowBackground } from '~/components/ui/theme';
 
 import type { ProjectsPricingPlanPaymentConfigLocalizedRecord } from './ProjectsPricingPlans';
 import ProjectsPricingTable from './ProjectsPricingTable';
-import useProjectsPricingPlansList from './useProjectsPricingPlansList';
 
 type Props = Readonly<{
   countryCode: string;
@@ -23,6 +22,7 @@ type Props = Readonly<{
   heading?: React.ReactNode;
   plansPaymentConfig: ProjectsPricingPlanPaymentConfigLocalizedRecord;
   title?: React.ReactNode;
+  useCurrentPageAsCancelUrl: boolean;
 }>;
 
 export default function ProjectsPricingSection({
@@ -32,8 +32,8 @@ export default function ProjectsPricingSection({
   heading,
   title,
   description,
+  useCurrentPageAsCancelUrl,
 }: Props) {
-  const planList = useProjectsPricingPlansList(plansPaymentConfig);
   const annualPlan = plansPaymentConfig.ANNUAL;
 
   const showPPPMessage =
@@ -83,8 +83,9 @@ export default function ProjectsPricingSection({
               <Section>
                 <ProjectsPricingTable
                   countryCode={countryCode}
-                  planList={planList}
+                  plansPaymentConfig={plansPaymentConfig}
                   showPPPMessage={showPPPMessage}
+                  useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
                 />
               </Section>
               {/* Footnotes */}

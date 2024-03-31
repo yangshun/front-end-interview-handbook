@@ -35,7 +35,7 @@ export default function InterviewsPricingPage({
     'plan',
   ) as InterviewsPricingPlanType | null;
 
-  const cancelSearchParam = searchParams?.get('cancel');
+  const cancelSearchParam = searchParams?.get('checkout_cancel');
 
   useEffect(() => {
     if (cancelSearchParam && planSearchParam != null) {

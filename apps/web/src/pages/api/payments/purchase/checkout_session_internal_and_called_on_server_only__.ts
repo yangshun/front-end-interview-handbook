@@ -15,13 +15,15 @@ import type {
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
 
 type BaseCheckoutQueryParams = Readonly<{
+  // Optional cancel URL if user cancels checkout.
+  cancel_url?: string;
   // Two-letter ISO country code.
   country_code: string;
   // First promoter tracking ID.
   first_promoter_tid?: string;
   // Email to send the receipt to.
   receipt_email?: string;
-  // Stripe customer ID (cus_xxxxx)
+  // Stripe customer ID (cus_xxxxx).
   stripe_customer_id: string;
 }>;
 
@@ -149,6 +151,7 @@ async function processSubscriptionPlan(
   firstPromoterTrackingId?: string,
 ) {
   const { recurring, urls, productId } = planPaymentConfig;
+  const queryParams = req.query as CheckoutQueryParams;
 
   const priceObject = await stripe.prices.create({
     currency,
@@ -162,8 +165,10 @@ async function processSubscriptionPlan(
 
   const { origin } = absoluteUrl(req);
 
-  const cancelUrl = `${origin}${urls.cancel}?cancel=1&plan=${planType}`;
-  const successUrl = `${origin}${urls.success}?plan=${planType}`;
+  const cancelUrl = `${
+    queryParams.cancel_url || origin + urls.cancel
+  }?checkout_cancel=1&plan=${planType}`;
+  const successUrl = `${origin + urls.success}?plan=${planType}`;
 
   const session = await stripe.checkout.sessions.create({
     allow_promotion_codes: planPaymentConfig.allowPromoCode,

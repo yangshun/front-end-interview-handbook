@@ -8,21 +8,25 @@ import ProjectsSettingsBillingPaymentSection from './components/ProjectsSettings
 import ProjectsSettingsBillingSubscriptionSection from './components/ProjectsSettingsBillingSubscriptionSection';
 
 export default function ProjectsSettingsBillingPage() {
-  const { data: pricingPlans, isLoading } =
-    trpc.purchases.projectsPlans.useQuery();
+  const { data, isLoading } = trpc.purchases.projectsPlans.useQuery();
+
+  if (isLoading || data == null) {
+    return (
+      <div className="py-20">
+        <Spinner display="block" size="lg" />
+      </div>
+    );
+  }
+
+  const { country, plans } = data;
 
   return (
     <div className="flex flex-col gap-12">
-      {isLoading ? (
-        <Spinner display="block" size="lg" />
-      ) : (
-        <>
-          <ProjectsSettingsBillingSubscriptionSection
-            pricingPlans={pricingPlans!}
-          />
-          <ProjectsSettingsBillingPaymentSection />
-        </>
-      )}
+      <ProjectsSettingsBillingSubscriptionSection
+        countryCode={country.code}
+        plansPaymentConfig={plans}
+      />
+      <ProjectsSettingsBillingPaymentSection />
     </div>
   );
 }

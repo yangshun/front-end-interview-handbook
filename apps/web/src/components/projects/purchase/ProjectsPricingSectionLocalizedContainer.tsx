@@ -41,6 +41,7 @@ export default function ProjectsPricingSectionLocalizedContainer() {
           id="KsNZvV"
         />
       }
+      useCurrentPageAsCancelUrl={false}
     />
   );
 }

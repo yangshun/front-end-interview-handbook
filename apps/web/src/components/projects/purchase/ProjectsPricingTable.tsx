@@ -42,11 +42,13 @@ import {
 } from './ProjectsPricingFeaturesConfig';
 import type {
   ProjectsPricingPlanPaymentConfigLocalized,
+  ProjectsPricingPlanPaymentConfigLocalizedRecord,
   ProjectsSubscriptionPlanIncludingFree,
 } from './ProjectsPricingPlans';
 import type { ProjectsSubscriptionPlanFeature } from './useProjectsPricingPlanFeatures';
 import useProjectsPricingPlanFeatures from './useProjectsPricingPlanFeatures';
-import type { ProjectsPricingPlanItem } from './useProjectsPricingPlansList';
+import useProjectsPricingPlansList from './useProjectsPricingPlansList';
+import useProjectsPurchaseCancelLogging from './useProjectsPurchaseCancelLogging';
 import useProfileWithProjectsProfile from '../common/useProfileWithProjectsProfile';
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
@@ -58,15 +60,17 @@ function PricingButton({
   isDisabled,
   isLoading,
   label,
+  tooltip,
   variant,
   onClick,
 }: Readonly<{
   href?: AnchorProps['href'];
-  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  isDisabled?: boolean;
-  isLoading?: boolean;
-  label: string;
-  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  icon?: React.ComponentProps<typeof Button>['icon'];
+  isDisabled?: React.ComponentProps<typeof Button>['isDisabled'];
+  isLoading?: React.ComponentProps<typeof Button>['isLoading'];
+  label: React.ComponentProps<typeof Button>['label'];
+  onClick?: React.ComponentProps<typeof Button>['onClick'];
+  tooltip?: React.ComponentProps<typeof Button>['tooltip'];
   variant: React.ComponentProps<typeof Button>['variant'];
 }>) {
   return (
@@ -79,6 +83,7 @@ function PricingButton({
       label={label}
       size="md"
       target="_self"
+      tooltip={tooltip}
       type="button"
       variant={variant}
       onClick={onClick}
@@ -144,9 +149,11 @@ function PricingButtonNonLoggedIn({
 function PricingButtonNonPremium({
   planType,
   paymentConfig,
+  useCurrentPageAsCancelUrl,
 }: Readonly<{
   paymentConfig: ProjectsPricingPlanPaymentConfigLocalized;
   planType: ProjectsSubscriptionPlan;
+  useCurrentPageAsCancelUrl: boolean;
 }>) {
   const intl = useIntl();
   const { isLoading } = useProfileWithProjectsProfile();
@@ -174,6 +181,9 @@ function PricingButtonNonPremium({
         url.format({
           pathname: '/api/payments/purchase/checkout',
           query: {
+            cancel_url: useCurrentPageAsCancelUrl
+              ? window.location.href
+              : undefined,
             plan_type: planTypeParam,
             product_domain: 'projects',
           },
@@ -289,10 +299,12 @@ function PricingButtonSection({
   countryCode,
   paymentConfig,
   planType,
+  useCurrentPageAsCancelUrl,
 }: Readonly<{
   countryCode: string;
   paymentConfig?: ProjectsPricingPlanPaymentConfigLocalized;
   planType: ProjectsSubscriptionPlanIncludingFree;
+  useCurrentPageAsCancelUrl: boolean;
 }>) {
   const intl = useIntl();
   const { isLoading: isUserLoading } = useSessionContext();
@@ -321,6 +333,7 @@ function PricingButtonSection({
         <PricingButtonNonPremium
           paymentConfig={paymentConfig}
           planType={planType}
+          useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
         />
       );
     }
@@ -335,6 +348,12 @@ function PricingButtonSection({
             defaultMessage: 'Manage subscription',
             description: 'Manage user membership subscription button label',
             id: 'sjLtW1',
+          })}
+          tooltip={intl.formatMessage({
+            defaultMessage:
+              'Manage your subscription and renewal status on Stripe billing portal',
+            description: 'Manage user membership subscription button label',
+            id: 'S2VtP2',
           })}
           variant="secondary"
           onClick={async () => {
@@ -413,6 +432,7 @@ function ProjectsPricingPriceCell({
   paymentConfig,
   planType,
   numberOfMonths,
+  useCurrentPageAsCancelUrl,
 }: Readonly<{
   className: string;
   countryCode: string;
@@ -420,6 +440,7 @@ function ProjectsPricingPriceCell({
   paymentConfig: ProjectsPricingPlanPaymentConfigLocalized;
   planType: ProjectsSubscriptionPlan;
   showPPPMessage: boolean;
+  useCurrentPageAsCancelUrl: boolean;
 }>) {
   const { profile } = useProfileWithProjectsProfile();
 
@@ -525,6 +546,7 @@ function ProjectsPricingPriceCell({
           countryCode={countryCode}
           paymentConfig={paymentConfig}
           planType={planType}
+          useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
         />
       </div>
       {!profile?.projectsProfile?.premium && (
@@ -546,16 +568,21 @@ function ProjectsPricingPriceCell({
 type Props = Readonly<{
   background?: boolean;
   countryCode: string;
-  planList: ReadonlyArray<ProjectsPricingPlanItem>;
+  plansPaymentConfig: ProjectsPricingPlanPaymentConfigLocalizedRecord;
   showPPPMessage: boolean;
+  useCurrentPageAsCancelUrl: boolean;
 }>;
 
 export default function ProjectsPricingTable({
   background = false,
   countryCode,
-  planList,
+  plansPaymentConfig,
   showPPPMessage,
+  useCurrentPageAsCancelUrl,
 }: Props) {
+  useProjectsPurchaseCancelLogging(plansPaymentConfig);
+
+  const planList = useProjectsPricingPlansList(plansPaymentConfig);
   const { profile } = useProfileWithProjectsProfile();
   const features = useProjectsPricingPlanFeatures({
     ANNUAL: annualPlanFeatures,
@@ -652,6 +679,7 @@ export default function ProjectsPricingTable({
                         <PricingButtonSection
                           countryCode={countryCode}
                           planType="FREE"
+                          useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
                         />
                       </div>
                     </div>
@@ -663,6 +691,7 @@ export default function ProjectsPricingTable({
                       paymentConfig={paymentConfig}
                       planType={type}
                       showPPPMessage={showPPPMessage}
+                      useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
                     />
                   ) : null}
                 </td>
@@ -773,6 +802,7 @@ export default function ProjectsPricingTable({
                     <PricingButtonSection
                       countryCode={countryCode}
                       planType="FREE"
+                      useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
                     />
                   </div>
                 )}
@@ -784,6 +814,7 @@ export default function ProjectsPricingTable({
                     paymentConfig={paymentConfig}
                     planType={type}
                     showPPPMessage={showPPPMessage}
+                    useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
                   />
                 )}
                 <div className={clsx('mt-6', [themeDivideColor, 'divide-y'])}>

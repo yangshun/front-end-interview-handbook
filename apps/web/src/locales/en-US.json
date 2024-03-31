@@ -3563,6 +3563,10 @@
     "defaultMessage": "Login to track your progress and access premium",
     "description": "Description of Login page"
   },
+  "S2VtP2": {
+    "defaultMessage": "Manage your subscription and renewal status on Stripe billing portal",
+    "description": "Manage user membership subscription button label"
+  },
   "S4nrpS": {
     "defaultMessage": "{trackName} Track",
     "description": "Title for track in Continue tracks and skills section on Projects dashboard page"

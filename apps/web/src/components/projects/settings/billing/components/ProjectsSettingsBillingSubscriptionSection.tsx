@@ -2,20 +2,18 @@ import { FormattedMessage } from 'react-intl';
 
 import type { ProjectsPricingPlanPaymentConfigLocalizedRecord } from '~/components/projects/purchase/ProjectsPricingPlans';
 import ProjectsPricingTable from '~/components/projects/purchase/ProjectsPricingTable';
-import useProjectsPricingPlansList from '~/components/projects/purchase/useProjectsPricingPlansList';
 import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '~/components/purchase/PurchasePricingConfig';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 function PricingTable({
   countryCode,
-  plans,
+  plansPaymentConfig,
 }: Readonly<{
   countryCode: string;
-  plans: ProjectsPricingPlanPaymentConfigLocalizedRecord;
+  plansPaymentConfig: ProjectsPricingPlanPaymentConfigLocalizedRecord;
 }>) {
-  const planList = useProjectsPricingPlansList(plans);
-  const annualPlan = plans.ANNUAL;
+  const annualPlan = plansPaymentConfig.ANNUAL;
 
   const showPPPMessage =
     annualPlan.conversionFactor <
@@ -24,21 +22,21 @@ function PricingTable({
   return (
     <ProjectsPricingTable
       countryCode={countryCode}
-      planList={planList}
+      plansPaymentConfig={plansPaymentConfig}
       showPPPMessage={showPPPMessage}
+      useCurrentPageAsCancelUrl={true}
     />
   );
 }
 
 type Props = Readonly<{
-  pricingPlans: {
-    country: { code: string };
-    plans: ProjectsPricingPlanPaymentConfigLocalizedRecord;
-  };
+  countryCode: string;
+  plansPaymentConfig: ProjectsPricingPlanPaymentConfigLocalizedRecord;
 }>;
 
 export default function ProjectsSettingsBillingSubscriptionSection({
-  pricingPlans,
+  countryCode,
+  plansPaymentConfig,
 }: Props) {
   return (
     <Section>
@@ -51,8 +49,8 @@ export default function ProjectsSettingsBillingSubscriptionSection({
           />
         </Heading>
         <PricingTable
-          countryCode={pricingPlans.country.code}
-          plans={pricingPlans.plans}
+          countryCode={countryCode}
+          plansPaymentConfig={plansPaymentConfig}
         />
       </div>
     </Section>

@@ -3,7 +3,6 @@ import { useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import ProjectsPricingTable from '~/components/projects/purchase/ProjectsPricingTable';
-import useProjectsPricingPlansList from '~/components/projects/purchase/useProjectsPricingPlansList';
 import PurchasePPPDiscountAlert from '~/components/purchase/PurchasePPPDiscountAlert';
 import { MAXIMUM_PPP_CONVERSION_FACTOR_TO_DISPLAY_BEFORE_PRICE } from '~/components/purchase/PurchasePricingConfig';
 import PurchaseProhibitedCountryAlert from '~/components/purchase/PurchaseProhibitedCountryAlert';
@@ -23,7 +22,6 @@ function PricingTableSection({
   }>;
   plansPaymentConfig: ProjectsPricingPlanPaymentConfigLocalizedRecord;
 }>) {
-  const planList = useProjectsPricingPlansList(plansPaymentConfig);
   const annualPlan = plansPaymentConfig.ANNUAL;
 
   const showPPPMessage =
@@ -42,8 +40,9 @@ function PricingTableSection({
       <ProjectsPricingTable
         background={true}
         countryCode={country.code}
-        planList={planList}
+        plansPaymentConfig={plansPaymentConfig}
         showPPPMessage={showPPPMessage}
+        useCurrentPageAsCancelUrl={true}
       />
     </div>
   );

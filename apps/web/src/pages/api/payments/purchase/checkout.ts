@@ -135,8 +135,10 @@ export default async function handler(req: NextRequest) {
       'product_domain',
     ) as CheckoutProductDomain;
     const planType = searchParams.get('plan_type');
+    const cancelUrl = searchParams.get('cancel_url');
 
     const commonQueryParams = {
+      cancel_url: cancelUrl ?? '',
       country_code: countryCode,
       // First Promoter tracking ID.
       first_promoter_tid: req.cookies.get('_fprom_tid')?.value,
