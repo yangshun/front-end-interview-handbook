@@ -101,6 +101,11 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       required: true,
       type: 'number',
     },
+    pointsForSkillGroups: {
+      description: 'Reputation gained by using skills for the project',
+      required: true,
+      type: 'json',
+    },
     skills: {
       description: 'Skills for the project',
       of: { type: 'string' },
