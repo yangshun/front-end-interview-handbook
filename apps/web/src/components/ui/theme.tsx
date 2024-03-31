@@ -176,9 +176,3 @@ export const themeRadialGlowBackground = clsx(
   'relative before:rounded-[inherit] before:opacity-50 before:-z-10 before:top-0 before:left-0 before:right-0 before:absolute before:bg-top before:bg-cover before:w-full before:h-[500px]',
   'before:bg-[radial-gradient(78.57%_78.57%_at_50.65%_0.84%,_var(--brand-gradient-radial-light)_0%,_var(--brand-gradient-radial-dark)_0%,_rgba(15,_23,_42,_0.0001)_100%)]',
 );
-
-// Shadow colors.
-export const themeBrandShadow =
-  'shadow-[0px_0px_24px_8px_hsl(var(--brand-default),_0.4)]';
-export const themeBrandShadowHover =
-  'hover:shadow-[0px_0px_24px_8px_hsl(var(--brand-default),_0.4)]';

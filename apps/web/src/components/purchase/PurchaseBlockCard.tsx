@@ -10,7 +10,6 @@ import {
   themeBackgroundColor,
   themeBorderBrandColor,
   themeBorderColor,
-  themeBrandShadow,
   themeGlassyBorder,
   themeTextSubtitleColor,
 } from '~/components/ui/theme';
@@ -44,7 +43,7 @@ export default function PurchaseBlockCard({
         [
           'border',
           glow
-            ? [themeBorderBrandColor, themeBrandShadow]
+            ? [themeBorderBrandColor, 'shadow-glow shadow-brand/40']
             : [themeGlassyBorder, themeBorderColor],
         ],
       )}>

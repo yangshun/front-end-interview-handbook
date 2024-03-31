@@ -1,8 +1,6 @@
 import clsx from 'clsx';
 import type { ReactNode } from 'react';
 
-import { themeBrandShadow } from '~/components/ui/theme';
-
 type Props = Readonly<{
   children: ReactNode;
 }>;
@@ -11,14 +9,18 @@ export default function MarketingHeroBrowserWindowFrame({ children }: Props) {
   return (
     <div
       className={clsx(
-        'w-full overflow-hidden rounded-lg ring-1 ring-neutral-900/5 sm:rounded-xl',
-        'bg-white/60 backdrop-blur dark:bg-neutral-950/10',
-        ['border-brand border', themeBrandShadow],
+        'w-full overflow-hidden',
+        'ring-1 ring-neutral-900/5',
+        'rounded-lg sm:rounded-xl',
+        'bg-white/60 dark:bg-neutral-950/10',
+        'border-brand border',
+        'shadow-glow shadow-brand/40',
+        'backdrop-blur',
       )}>
       <div
         className={clsx(
           'grid grid-cols-[3rem_1fr_3rem] md:grid-cols-[4rem_1fr_4rem]',
-          'items-center gap-6 border-b border-neutral-200 px-4 py-3 md:px-6 dark:border-transparent',
+          'items-center gap-6 border-b border-neutral-200 px-4 py-3 dark:border-transparent md:px-6',
         )}>
         <div className="flex items-center gap-x-2">
           <div className="size-3 rounded-full bg-[#EC6A5F]" />

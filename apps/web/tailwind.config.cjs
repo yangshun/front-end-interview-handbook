@@ -131,6 +131,9 @@ module.exports = {
         7.5: '0.075',
         15: '0.15',
       },
+      boxShadow: {
+        glow: '0 0 24px 8px var(--tw-shadow)',
+      },
       letterSpacing: {
         1: '.015625em',
         2: '.03125em',

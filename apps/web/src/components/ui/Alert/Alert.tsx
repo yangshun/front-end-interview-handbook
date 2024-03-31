@@ -10,7 +10,6 @@ import {
 
 import {
   themeBorderBrandColor,
-  themeBrandShadow,
   themeTextBrandColor,
   themeTextColor,
   themeTextSuccessColor,
@@ -66,7 +65,10 @@ const classes: Record<
   },
   special: {
     backgroundClass: 'bg-white dark:bg-neutral-800/70',
-    borderClass: clsx('border', themeBorderBrandColor, themeBrandShadow),
+    borderClass: clsx(
+      ['border', themeBorderBrandColor],
+      'shadow-glow shadow-brand/40',
+    ),
     icon: RiStarFill,
     iconClass: themeTextColor,
     titleClass: themeTextColor,

@@ -20,6 +20,27 @@ a {
   text-decoration: none;
 }
 
+[data-color-scheme='dark'] {
+  color-scheme: dark; /* Makes some default elements (e.g. scrollbar) dark */
+}
+
+.prose h5 {
+  padding-top: 1rem;
+}
+
+.prose figcaption {
+  font-size: 0.75em;
+  text-align: center;
+}
+
+.blur-overlay {
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
+}
+
+@import './banner.css';
+@import './fancy.css';
+@import './scrollbar.css';
+
 /* There's also themeRadialGlowBackground */
 @layer utilities {
   .theme-bg-radial-glow {
@@ -46,24 +67,3 @@ a {
     border-radius: inherit;
   }
 }
-
-[data-color-scheme='dark'] {
-  color-scheme: dark; /* Makes some default elements (e.g. scrollbar) dark */
-}
-
-.prose h5 {
-  padding-top: 1rem;
-}
-
-.prose figcaption {
-  font-size: 0.75em;
-  text-align: center;
-}
-
-.blur-overlay {
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
-}
-
-@import './banner.css';
-@import './fancy.css';
-@import './scrollbar.css';
