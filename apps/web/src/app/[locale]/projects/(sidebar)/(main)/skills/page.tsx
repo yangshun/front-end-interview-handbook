@@ -33,5 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
+  // This page is rendered entirely by the layout.
+  // It's a hacky way to render the skills details dialog
+  // with a separate URL without unmounting the skills roadmap list.
   return null;
 }

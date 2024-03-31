@@ -1083,10 +1083,6 @@
     "defaultMessage": "Underline",
     "description": "Underline tooltip for Richtext toolbar"
   },
-  "7u1etJ": {
-    "defaultMessage": "Our projects are designed to make for an <emph>impressive</emph> portfolio, even for seniors",
-    "description": "Heading of the 'Portfolio features' marketing section on Projects home page"
-  },
   "7uB2Jj": {
     "defaultMessage": "{price} billed yearly",
     "description": "Description of billing frequency for annual plan"
@@ -3875,6 +3871,10 @@
     "defaultMessage": "Activity",
     "description": "Profile settings tab title"
   },
+  "Ui0v53": {
+    "defaultMessage": "Our projects are designed to make for an <em>impressive</em> portfolio, even for seniors",
+    "description": "Heading of the 'Portfolio features' marketing section on Projects home page"
+  },
   "UiHdWK": {
     "defaultMessage": "Study plan to prepare for front end interviews in 1 week",
     "description": "Title of 1 Week Preparation Plan page"
@@ -5119,6 +5119,10 @@
     "defaultMessage": "Start a project",
     "description": "Label for Start a project button on Projects dashboard page"
   },
+  "fF83z4": {
+    "defaultMessage": "Practice using {skillName} by completing relevant challenges",
+    "description": "Description of Projects skill details page"
+  },
   "fG/W54": {
     "defaultMessage": "Our projects are composable with different themes - choose the theme you want to personalize your project",
     "description": "Description for \"Design systems\" feature on Projects home page"
@@ -5766,6 +5770,10 @@
   "kL0yEH": {
     "defaultMessage": "You can't find it elsewhere",
     "description": "Label for an example list of System Design Questions on marketing pages"
+  },
+  "kMoUxI": {
+    "defaultMessage": "{skillName} | Skills | GreatFrontEnd Projects - Real-world project challenges",
+    "description": "Title of Projects skill details page"
   },
   "kPJCx6": {
     "defaultMessage": "Limited",
