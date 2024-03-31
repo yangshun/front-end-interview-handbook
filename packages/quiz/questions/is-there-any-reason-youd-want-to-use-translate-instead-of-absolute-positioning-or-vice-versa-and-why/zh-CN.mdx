@@ -4,4 +4,4 @@ title: 您是否有任何理由想使用 `translate()` 而不是 `absolute` 定�
 
 `translate()` 是 CSS `transform`属性的一个可能值。 当使用 `translate()`时，该元素仍占用其原有空间(类似\`position: relative')。 但是当改变元素的绝对定位时，这些元素会从页面的流程中被移除，周围元素的定位也会受到影响。 因此必须重新计算页面布局。
 
-更改 `transform` 或 `opacity` 并不会触发浏览器的回流或重绘，而是会触发组合。 另一方面，改变绝对定位触发器`reflow`。 `transform` 导致浏览器为元素创建一个 GPU 层，但改变绝对定位属性使用 CPU 。 因此，`translate()`是更有效的，并将导致更短的绘制时间，以实现更平滑的动画。
+更改 `transform` 或 `opacity` 并不会触发浏览器的回流或重绘，而是在合成层单独计算和绘制。 另外改变绝对定位会触发回流。 使用`transform`浏览器会在GPU层中进行渲染，而`absolute`则在CPU层面进行 。 因此，`translate()`是更有效的，并将导致更短的绘制时间，以实现更平滑的动画。
