@@ -4,7 +4,7 @@
   "createdAt": "2024-01-04",
   "difficulty": "starter",
   "track": "apps",
-  "access": "free",
+  "access": "free-plus",
   "points": 300,
   "pointsForSkillGroups": {
     "html": 50,

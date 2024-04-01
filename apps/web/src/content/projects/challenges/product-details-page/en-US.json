@@ -4,7 +4,7 @@
   "createdAt": "2024-01-06",
   "difficulty": "mid",
   "track": "e-commerce",
-  "access": "premium",
+  "access": "free-plus",
   "points": 400,
   "pointsForSkillGroups": {
     "html": 50,
