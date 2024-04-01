@@ -17,7 +17,8 @@ type Props = Readonly<{
   variant?: ProjectsStatusBadgeVariant;
 }>;
 
-const Icon = RiCheckboxCircleLine;
+const IconCheckboxCircle = RiCheckboxCircleLine;
+const IconCheck = RiCheckLine;
 
 export default function ProjectsStatusBadgeCompleted({
   entity,
@@ -57,17 +58,17 @@ export default function ProjectsStatusBadgeCompleted({
   return (
     <Tooltip label={tooltip}>
       {variant === 'badge' && (
-        <Badge icon={RiCheckLine} label={label} size="sm" variant="success" />
+        <Badge icon={IconCheck} label={label} size="sm" variant="success" />
       )}
       {variant === 'icon' && (
-        <Icon
+        <IconCheckboxCircle
           aria-label={label}
           className={clsx('size-5 shrink-0', themeTextSuccessColor)}
         />
       )}
       {variant === 'chip' && (
         <Chip
-          icon={Icon}
+          icon={IconCheck}
           isLabelHidden={true}
           label={label}
           size="sm"
