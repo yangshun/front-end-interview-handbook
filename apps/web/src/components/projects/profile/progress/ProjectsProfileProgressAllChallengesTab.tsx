@@ -37,9 +37,9 @@ export default function ProjectsProfileProgressAllChallengesTab({
 }: Props) {
   const intl = useIntl();
   const [showAsSubmissions, setShowAsSubmissions] = useState(false);
-  const [challengeFilter, setChallengeFilter] =
+  const [challengeStatusFilter, setChallengeStatusFilter] =
     useSessionStorage<ProjectsChallengeSessionStatus>(
-      `gfe:all-challenges:challenge-filter`,
+      `gfe:projects:all-challenges:status-filter`,
       'IN_PROGRESS',
     );
   const { name: filterName, options: filterOptions } =
@@ -49,7 +49,7 @@ export default function ProjectsProfileProgressAllChallengesTab({
     trpc.projects.sessions.list.useQuery(
       {
         orderBy: 'desc',
-        statuses: [challengeFilter],
+        statuses: [challengeStatusFilter],
         userId: targetUserId,
       },
       {
@@ -89,7 +89,7 @@ export default function ProjectsProfileProgressAllChallengesTab({
 
   const {
     currentPageItems: currentPageItemsSubmissions,
-    totalPages: totalPagesSubmissionss,
+    totalPages: totalPagesSubmissions,
     setCurrentPage: setCurrentPageSubmissions,
     currentPage: currentPageSubmissions,
   } = usePagination({
@@ -129,7 +129,7 @@ export default function ProjectsProfileProgressAllChallengesTab({
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex flex-row items-center gap-8">
+      <div className="flex flex-row items-center gap-4">
         <fieldset>
           <legend className="sr-only">{filterName}</legend>
           <div className={clsx('flex flex-wrap items-center gap-2')}>
@@ -139,25 +139,26 @@ export default function ProjectsProfileProgressAllChallengesTab({
                 icon={Icon}
                 label={String(option.label)}
                 purpose="tab"
-                selected={challengeFilter === option.value}
+                selected={challengeStatusFilter === option.value}
                 tooltip={option.tooltip}
                 onClick={() => {
                   if (option.value !== 'COMPLETED') {
                     setShowAsSubmissions(false);
                   }
-                  setChallengeFilter(option.value);
+                  setChallengeStatusFilter(option.value);
                 }}
               />
             ))}
           </div>
         </fieldset>
-        {challengeFilter === 'COMPLETED' && (
+        {challengeStatusFilter === 'COMPLETED' && (
           <CheckboxInput
             label={intl.formatMessage({
               defaultMessage: 'Show as submissions',
               description: 'Checkbox label for showing as submissions',
               id: '6O2Mng',
             })}
+            size="sm"
             value={showAsSubmissions}
             onChange={(value) => {
               setShowAsSubmissions(value);
@@ -165,11 +166,12 @@ export default function ProjectsProfileProgressAllChallengesTab({
           />
         )}
       </div>
+      {/* TODO(projects): extract out as components. */}
       {(() => {
         if (showAsSubmissions) {
           if (isLoadingSubmissions) {
             return (
-              <div className="flex h-20 w-full items-center justify-center">
+              <div className="flex h-80 w-full items-center justify-center">
                 <Spinner size="md" />
               </div>
             );
@@ -190,10 +192,10 @@ export default function ProjectsProfileProgressAllChallengesTab({
                     />
                   ))}
                 </div>
-                {totalPagesSubmissionss > 1 && (
+                {totalPagesSubmissions > 1 && (
                   <div className="flex items-center justify-between">
                     <Pagination
-                      count={totalPagesSubmissionss}
+                      count={totalPagesSubmissions}
                       page={currentPageSubmissions}
                       onPageChange={(value) => setCurrentPageSubmissions(value)}
                     />
@@ -208,7 +210,7 @@ export default function ProjectsProfileProgressAllChallengesTab({
 
         if (isLoadingSessions) {
           return (
-            <div className="flex h-20 w-full items-center justify-center">
+            <div className="flex h-80 w-full items-center justify-center">
               <Spinner size="md" />
             </div>
           );
