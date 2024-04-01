@@ -88,7 +88,7 @@ Optimal loading sequence prioritizes the loading of essential resources, like CS
 ### Implementation
 
 1. Identify critical resources for the initial view.
-1. Use `&lt;link rel="preload">` for these resources in the HTML head.
+1. Use `<link rel="preload">` for these resources in the HTML head.
 1. Lazy load non-critical resources.
 
 ### Resources
@@ -109,7 +109,7 @@ Through the prefetching technique, resources are loaded in the background before
 ### Implementation
 
 1. Identify resources for future use.
-1. Use `&lt;link rel="prefetch">` to instruct the browser to load these in idle time.
+1. Use `<link rel="prefetch">` to instruct the browser to load these in idle time.
 1. Monitor and adjust based on user behavior.
 
 ### Resources
@@ -131,7 +131,7 @@ Unlike prefetching, which depends on future navigation, preloading focuses on th
 ### Implementation
 
 1. Determine essential resources for the next steps.
-1. Use `&lt;link rel="preload">` for these resources, specifying the type with `as`.
+1. Use `<link rel="preload">` for these resources, specifying the type with `as`.
 
 ### Resources
 
@@ -177,7 +177,7 @@ Tree shaking is an optimization technique used to eliminate unused code from the
 ### Resources
 
 - [Tree Shaking | Webpack](https://webpack.js.org/guides/tree-shaking/)
-- [A Comprehensive Guide to JavaScript Tree Shaking](https://blog.bitsrc.io/a-comprehensive-guide-to-tree-shaking-in-javascript-62d9a0e32cd4)
+- [Tree Shaking | MDN Web Docs](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking)
 
 ---
 
