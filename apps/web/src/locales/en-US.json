@@ -2927,6 +2927,10 @@
     "defaultMessage": "Jump to matching bracket",
     "description": "Text describing jump command in the coding workspace shortcuts menu"
   },
+  "NBSMFm": {
+    "defaultMessage": "Manage on Stripe",
+    "description": "Manage user membership subscription button label"
+  },
   "NBmwqq": {
     "defaultMessage": "Skills used",
     "description": "Label for skills roadmap input on project submit page"
@@ -3298,6 +3302,10 @@
   "PvVu6g": {
     "defaultMessage": "View focus areas",
     "description": "Link label to view all focus areas"
+  },
+  "Pw1evM": {
+    "defaultMessage": "All of our payments are processed using <link>Stripe</link>; we do not directly store your payment and billing information. If you would like to change them, please use Stripe's customer billing portal to do so. {goToStripeCTA}",
+    "description": "Description for payments and billing section of projects setting page"
   },
   "PyDwDF": {
     "defaultMessage": "Close",
@@ -4130,10 +4138,6 @@
   "WK23Hh": {
     "defaultMessage": "Only Marketing track",
     "description": "Label for component tracks feature for free plan"
-  },
-  "WN9SL4": {
-    "defaultMessage": "All of our payments are processed using <link>Stripe</link> - we do not directly store your payment and billing information. If you would like to change them, please use Stripe's customer billing portal to do so. {goToStripeCTA}",
-    "description": "Description for payments and billing section of projects setting page"
   },
   "WNERnb": {
     "defaultMessage": "End session",

@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { RiArrowRightLine } from 'react-icons/ri';
+import { RiExternalLinkLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -34,9 +34,9 @@ export default function ProjectsSettingsBillingPaymentSection() {
         </Heading>
         <Text className="block" color="secondary" size="body1">
           <FormattedMessage
-            defaultMessage="All of our payments are processed using <link>Stripe</link> - we do not directly store your payment and billing information. If you would like to change them, please use Stripe's customer billing portal to do so. {goToStripeCTA}"
+            defaultMessage="All of our payments are processed using <link>Stripe</link>; we do not directly store your payment and billing information. If you would like to change them, please use Stripe's customer billing portal to do so. {goToStripeCTA}"
             description="Description for payments and billing section of projects setting page"
-            id="WN9SL4"
+            id="Pw1evM"
             values={{
               goToStripeCTA: (
                 <Button
@@ -44,7 +44,7 @@ export default function ProjectsSettingsBillingPaymentSection() {
                     'h-4 border-none !p-0',
                     anchorVariants({ variant: 'default' }),
                   )}
-                  icon={RiArrowRightLine}
+                  icon={RiExternalLinkLine}
                   isDisabled={billingPortalMutation.isLoading}
                   isLoading={billingPortalMutation.isLoading}
                   label={intl.formatMessage({

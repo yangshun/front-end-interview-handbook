@@ -6,6 +6,7 @@ import {
   RiCloseCircleFill,
   RiQuestionFill,
 } from 'react-icons/ri';
+import { RiExternalLinkFill } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 import url from 'url';
 
@@ -342,12 +343,13 @@ function PricingButtonSection({
       // User is already subscribed, link to billing page.
       return (
         <PricingButton
+          icon={RiExternalLinkFill}
           isDisabled={billingPortalMutation.isLoading}
           isLoading={billingPortalMutation.isLoading}
           label={intl.formatMessage({
-            defaultMessage: 'Manage subscription',
+            defaultMessage: 'Manage on Stripe',
             description: 'Manage user membership subscription button label',
-            id: 'sjLtW1',
+            id: 'NBSMFm',
           })}
           tooltip={intl.formatMessage({
             defaultMessage:
