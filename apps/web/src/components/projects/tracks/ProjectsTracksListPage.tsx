@@ -13,13 +13,14 @@ import type { ProjectsChallengeHistoricalStatuses } from '../challenges/types';
 type Props = Readonly<{
   challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses;
   isViewerPremium: boolean;
+  isViewingOwnProfile: boolean;
   projectTracks: ReadonlyArray<ProjectsTrackItem>;
 }>;
 
 export default function ProjectsTracksListPage({
   challengeHistoricalStatuses,
-  projectTracks,
   isViewerPremium,
+  projectTracks,
 }: Props) {
   return (
     <div className="flex flex-col gap-9">
@@ -46,6 +47,7 @@ export default function ProjectsTracksListPage({
           challengeHistoricalStatuses={challengeHistoricalStatuses}
           defaultOpen={true}
           isViewerPremium={isViewerPremium}
+          isViewingOwnProfile={isViewingOwnProfile}
           projectTracks={projectTracks}
           userProfile={null}
         />

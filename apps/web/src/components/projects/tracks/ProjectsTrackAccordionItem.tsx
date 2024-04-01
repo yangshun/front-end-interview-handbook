@@ -14,8 +14,8 @@ import {
 } from '~/components/ui/theme';
 
 import type { ProjectsTrackItem } from './data/ProjectsTracksData';
+import ProjectsTrackAccordionHeader from './ProjectsTrackAccordionHeader';
 import ProjectsTrackChallengeChip from './ProjectsTrackChallengeChip';
-import ProjectsTrackHeader from './ProjectsTrackHeader';
 import ProjectsTrackPaywall from './ProjectsTrackPaywall';
 import type { ProjectsChallengeHistoricalStatuses } from '../challenges/types';
 import { projectsChallengeCountCompletedIncludingHistorical } from '../challenges/utils/ProjectsChallengeUtils';
@@ -26,6 +26,7 @@ import * as Accordion from '@radix-ui/react-accordion';
 type Props = Readonly<{
   challengeStatuses?: ProjectsChallengeHistoricalStatuses;
   isViewerPremium: boolean;
+  isViewingOwnProfile: boolean;
   track: ProjectsTrackItem;
   userProfile: React.ComponentProps<
     typeof ProjectsTrackChallengeChip
@@ -34,8 +35,9 @@ type Props = Readonly<{
 
 export default function ProjectsTrackAccordionItem({
   challengeStatuses = {},
-  track,
   isViewerPremium,
+  isViewingOwnProfile,
+  track,
   userProfile,
 }: Props) {
   const intl = useIntl();
@@ -57,12 +59,13 @@ export default function ProjectsTrackAccordionItem({
         <Accordion.Header asChild={true}>
           <Accordion.Trigger className="outline-brand group rounded-lg">
             <div className="flex items-center justify-between gap-2 p-6">
-              <ProjectsTrackHeader
+              <ProjectsTrackAccordionHeader
                 completedCount={projectsChallengeCountCompletedIncludingHistorical(
                   challengeStatuses ?? {},
                   challenges,
                 )}
                 isViewerPremium={isViewerPremium}
+                isViewingOwnProfile={isViewingOwnProfile}
                 track={track}
               />
               <RiArrowDownSLine

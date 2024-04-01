@@ -30,7 +30,7 @@ type Props =
         showProgress: false;
       }>);
 
-export default function ProjectsTrackHeader({
+export default function ProjectsTrackAccordionHeader({
   isViewerPremium,
   metadata,
   points,

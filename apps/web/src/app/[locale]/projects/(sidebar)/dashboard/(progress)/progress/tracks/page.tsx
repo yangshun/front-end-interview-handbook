@@ -34,6 +34,7 @@ export default async function Page({ params }: Props) {
     <ProjectsProfileProgressTracksTab
       challengeHistoricalStatuses={challengeHistoricalStatuses}
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
+      isViewingOwnProfile={true}
       projectTracks={tracks}
       userProfile={null}
     />

@@ -29,17 +29,21 @@ export default async function Page({ params }: Props) {
     return notFound();
   }
 
-  const [{ viewerProjectsProfile }, { tracks }, challengeHistoricalStatuses] =
-    await Promise.all([
-      readViewerProjectsProfile(),
-      readProjectsTrackList(locale, userProfile.id),
-      fetchProjectsTrackChallengeHistoricalStatuses(userProfile.id),
-    ]);
+  const [
+    { viewerId, viewerProjectsProfile },
+    { tracks },
+    challengeHistoricalStatuses,
+  ] = await Promise.all([
+    readViewerProjectsProfile(),
+    readProjectsTrackList(locale, userProfile.id),
+    fetchProjectsTrackChallengeHistoricalStatuses(userProfile.id),
+  ]);
 
   return (
     <ProjectsProfileProgressTracksTab
       challengeHistoricalStatuses={challengeHistoricalStatuses}
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
+      isViewingOwnProfile={viewerId != null && viewerId === userProfile.id}
       projectTracks={tracks}
       userProfile={userProfile}
     />

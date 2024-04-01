@@ -55,6 +55,7 @@ export default async function Page({ params }: Props) {
     <ProjectsTracksListPage
       challengeHistoricalStatuses={challengeHistoricalStatuses}
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
+      isViewingOwnProfile={viewer != null}
       projectTracks={tracks}
     />
   );

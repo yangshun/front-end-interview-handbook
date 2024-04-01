@@ -8,6 +8,7 @@ type Props = Readonly<{
   challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses;
   defaultOpen?: boolean;
   isViewerPremium: boolean;
+  isViewingOwnProfile: boolean;
   projectTracks: ReadonlyArray<ProjectsTrackItem>;
   userProfile: React.ComponentProps<
     typeof ProjectsTrackAccordionItem
@@ -19,6 +20,7 @@ export default function ProjectsTrackSection({
   defaultOpen,
   projectTracks,
   isViewerPremium,
+  isViewingOwnProfile,
   userProfile,
 }: Props) {
   return (
@@ -33,6 +35,7 @@ export default function ProjectsTrackSection({
           key={projectTrack.metadata.slug}
           challengeStatuses={challengeHistoricalStatuses}
           isViewerPremium={isViewerPremium}
+          isViewingOwnProfile={isViewingOwnProfile}
           track={projectTrack}
           userProfile={userProfile}
         />

@@ -9,12 +9,14 @@ import ProjectsStatusBadgeCompleted from '../common/status/ProjectsStatusBadgeCo
 type Props = Readonly<{
   completedCount?: number;
   isViewerPremium: boolean;
+  isViewingOwnProfile: boolean;
   track: ProjectsTrackItem;
 }>;
 
-export default function ProjectsTrackHeader({
+export default function ProjectsTrackAccordionHeader({
   completedCount = 0,
   isViewerPremium,
+  isViewingOwnProfile,
   track,
 }: Props) {
   const { points, metadata, challenges } = track;
@@ -39,7 +41,7 @@ export default function ProjectsTrackHeader({
         <ProjectsChallengeReputationTag points={points} variant="flat" />
         <ProjectsChallengeProgressTag
           completed={completedCount}
-          showProgress={false}
+          showProgress={isViewingOwnProfile}
           total={challenges.length}
         />
       </div>
