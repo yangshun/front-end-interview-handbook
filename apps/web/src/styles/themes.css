@@ -11,6 +11,7 @@
 
   --brand-gradient-radial-light: #e9d5ff;
   --brand-gradient-radial-dark: #8383fd;
+  --brand-gradient-radial-stop-color: #0f172a;
 
   --brand-gradient-linear-start: #a855f7;
   --brand-gradient-linear-stop: #6366f1;
@@ -29,12 +30,19 @@
   --brand-lighter: 151 100% 75%; /* #7effc1; */
   --brand-lightest: 151 100% 89%; /* #c9ffe5; */
 
-  --brand-gradient-radial-light: hsl(var(--brand-default));
-  --brand-gradient-radial-dark: #5fdd74;
+  --brand-gradient-radial-light: #dbfbe1;
+  --brand-gradient-radial-dark: #36d387;
+  --brand-gradient-radial-stop-color: #f0f0f0;
 
   --brand-gradient-linear-start: #c6fdd0;
-  --brand-gradient-linear-stop: hsl(var(--brand-default));
+  --brand-gradient-linear-stop: #36d387;
 
-  --brand-gradient-triangle-start: hsl(var(--brand-default));
-  --brand-gradient-triangle-stop: hsl(var(--brand-default));
+  --brand-gradient-triangle-start: #36d387;
+  --brand-gradient-triangle-stop: #36d387;
+}
+
+[data-color-scheme='dark'][data-theme='projects'] {
+  --brand-gradient-radial-light: #c9ffe5;
+  --brand-gradient-radial-dark: #2fbc78;
+  --brand-gradient-radial-stop-color: #0f172a;
 }

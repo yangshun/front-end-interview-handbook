@@ -111,7 +111,7 @@ export default function MarketingHeroBackground(
         <radialGradient
           cx="0"
           cy="0"
-          gradientTransform="translate(688 718) rotate(-90) scale(877.183 1681.06)"
+          gradientTransform="translate(688 918) rotate(-90) scale(877.183 1681.06)"
           gradientUnits="userSpaceOnUse"
           id="paint0_radial_401_76334"
           r="1">
@@ -120,7 +120,11 @@ export default function MarketingHeroBackground(
             offset="0.223497"
             stopColor="var(--brand-gradient-radial-dark)"
           />
-          <stop offset="1" stopColor="#0F172A" stopOpacity="0.01" />
+          <stop
+            offset="1"
+            stopColor="var(--brand-gradient-radial-stop-color)"
+            stopOpacity="0.01"
+          />
         </radialGradient>
         {/* Arrow */}
         <linearGradient
