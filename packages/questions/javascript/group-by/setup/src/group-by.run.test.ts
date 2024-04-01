@@ -2,7 +2,7 @@ import groupBy from './group-by';
 
 describe('groupBy', () => {
   test('empty array', () => {
-    expect(groupBy([], 'length')).toEqual({});
+    expect(groupBy([], (o: any) => o)).toEqual({});
   });
 
   test('function iteratees', () => {
@@ -13,7 +13,7 @@ describe('groupBy', () => {
   });
 
   test('multiple element arrays', () => {
-    expect(groupBy(['one', 'two', 'three'], 'length')).toEqual({
+    expect(groupBy(['one', 'two', 'three'], (o: string) => o.length)).toEqual({
       3: ['one', 'two'],
       5: ['three'],
     });

@@ -3,12 +3,7 @@ title: Group By
 excerpt: Implement a function that groups values in an array based on a function or property name
 ---
 
-Implement a function `groupBy(array, iteratee)` that takes a array and an `iteratee` function or a property name string, and groups the values in the array based on the `iteratee`.
-
-`iteratee`s can either be:
-
-- Functions: `iteratee` functions is invoked with one argument: _(value)_.
-- Strings: The property of an object. E.g. `'length'` can be used to return the number of elements of arrays.
+Implement a function `groupBy(array, iteratee)` that takes a array and an `iteratee` function, and groups the values in the array based on the `iteratee`.
 
 ```js
 groupBy(array, iteratee);
@@ -21,7 +16,7 @@ groupBy(array, iteratee);
 
 ## Returns
 
-_(Object)_: Returns the composed aggregate object.
+_`(Object)`_: Returns the composed aggregate object.
 
 ## Examples
 
@@ -29,23 +24,17 @@ _(Object)_: Returns the composed aggregate object.
 groupBy([6.1, 4.2, 6.3], Math.floor);
 // => { '4': [4.2], '6': [6.1, 6.3] }
 
-// Group by string length
-groupBy(['one', 'two', 'three'], 'length');
-// => { '3': ['one', 'two'], '5': ['three'] }
-
-const users = [
-  { user: 'barney', age: 36 },
-  { user: 'fred', age: 40 },
-];
-
-// Group by a property of the objects
-groupBy(users, 'age');
-// => { '36': [{'user': 'barney', 'age': 36}], '40': [{'user': 'fred', 'age': 40}] }
+groupBy([{ n: 3 }, { n: 5 }, { n: 3 }], (o) => o.n);
+// => { '3': [{ n: 3 }, { n: 3 }], '5': { n: 5 } }
 ```
 
-## Notes
+The function should return `{}` when `array` is empty and treat `null` / `undefined` keys after going through `iteratee` as it is.
 
-In JavaScript, numbers might be converted to floating point numbers. You might want to make sure that keys are converted to strings before using them. This ensures they are not accidentally converted to floating point representations.
+```js
+groupBy([], (o) => o); // => {}
+
+groupBy([{ n: 1 }, { n: 2 }], (o) => o.m); // => { undefined: [{ n: 1 }, { n: 2 }] }
+```
 
 ## Resources
 

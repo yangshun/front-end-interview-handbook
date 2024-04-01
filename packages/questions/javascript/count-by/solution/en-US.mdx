@@ -2,7 +2,8 @@ import MDXCodeBlock from 'MDXCodeBlock';
 
 import countByJs from '../setup/src/count-by.js';
 import countByTs from '../setup/src/count-by.ts';
-import countByAlt from '../setup/src/count-by-alt';
+import countByAltJs from '../setup/src/count-by-alt.js';
+import countByAltTs from '../setup/src/count-by-alt.ts';
 
 ## Solution
 
@@ -17,7 +18,7 @@ import countByAlt from '../setup/src/count-by-alt';
 
 An alternative way to increment the `result` counter is to use the [nullish coalescing assignment operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment) to set the value to 0 if `key` doesn't exist within `result`. Note that using nullish coalescing assignment operator means you might be accessing inherited properties, which is not desired, but since the object is created via `Object.create(null)`, there will not be inherited properties and is safe to use.
 
-<MDXCodeBlock>{countByAlt}</MDXCodeBlock>
+<MDXCodeBlock languages={{ jsx: countByAltJs, tsx: countByAltTs }} />
 
 ## Resources
 

@@ -2,7 +2,7 @@ import groupBy from './group-by';
 
 describe('groupBy', () => {
   test('empty array', () => {
-    expect(groupBy([], 'length')).toEqual({});
+    expect(groupBy([], (o: any) => o)).toEqual({});
   });
 
   describe('function iteratees', () => {
@@ -30,18 +30,22 @@ describe('groupBy', () => {
 
   describe('property iteratees', () => {
     test('single-element arrays', () => {
-      expect(groupBy(['one'], 'length')).toEqual({ 3: ['one'] });
+      expect(groupBy(['one'], (o: string) => o.length)).toEqual({ 3: ['one'] });
     });
 
     test('two-element arrays', () => {
-      expect(groupBy(['one', 'two'], 'length')).toEqual({ 3: ['one', 'two'] });
+      expect(groupBy(['one', 'two'], (o: string) => o.length)).toEqual({
+        3: ['one', 'two'],
+      });
     });
 
     test('multiple element arrays', () => {
-      expect(groupBy(['one', 'two', 'three'], 'length')).toEqual({
-        3: ['one', 'two'],
-        5: ['three'],
-      });
+      expect(groupBy(['one', 'two', 'three'], (o: string) => o.length)).toEqual(
+        {
+          3: ['one', 'two'],
+          5: ['three'],
+        },
+      );
     });
 
     test('groups elements of array of objects by a property', () => {
@@ -51,7 +55,7 @@ describe('groupBy', () => {
         { user: 'pebbles', age: 1 },
       ];
 
-      expect(groupBy(users, 'age')).toEqual({
+      expect(groupBy(users, (o: any) => o.age)).toEqual({
         36: [{ user: 'barney', age: 36 }],
         40: [{ user: 'fred', age: 40 }],
         1: [{ user: 'pebbles', age: 1 }],
@@ -62,7 +66,13 @@ describe('groupBy', () => {
   test('does not mutate the original array', () => {
     const arr = ['one', 'two', 'three'];
     const copy = arr.slice();
-    groupBy(arr, 'length');
+    groupBy(arr, (o: string) => o.length);
     expect(arr).toEqual(copy);
+  });
+
+  test('false values', () => {
+    expect(groupBy([{ n: 1 }, { n: 2 }], (o: any) => o.m)).toEqual({
+      undefined: [{ n: 1 }, { n: 2 }],
+    });
   });
 });
