@@ -1,0 +1,8 @@
+{
+  "run": "/src/without.run.test.ts",
+  "submit": "/src/without.submit.test.ts",
+  "skeleton": {
+    "js": "/src/without.skeleton.js",
+    "ts": "/src/without.skeleton.ts"
+  }
+}

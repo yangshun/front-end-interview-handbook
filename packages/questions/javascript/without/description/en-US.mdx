@@ -1,0 +1,39 @@
+---
+title: Without
+excerpt: Implement a function that creates an array excluding all given values.
+---
+
+Implement a function `without(array, values)` that creates an array of `array` values not included in the `values` specified using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero) for equality comparisons. The order and references of result values are determined by the first array.
+
+```js
+without(array, ...values);
+```
+
+## Arguments
+
+1. `array` _(Array)_: The array to inspect.
+1. `values` _(Array)_: The values to exclude.
+
+## Returns
+
+_`(Array)`_: Returns the new array of filtered values.
+
+## Examples
+
+```js
+without([1, 2, 3], 2, 3); // => [1]
+
+without([1, 2, 3], 2, 3, 1, 4); // => []
+
+without(['a', 'b', 'c', 'a'], 'a', 'b'); // => ['c']
+```
+
+The function should return the original `array` values if no `values` is specified.
+
+```js
+without([1, 2, 3]); // => [1, 2, 3]
+```
+
+## Resources
+
+- [Lodash `_.without`](https://lodash.com/docs/#without)

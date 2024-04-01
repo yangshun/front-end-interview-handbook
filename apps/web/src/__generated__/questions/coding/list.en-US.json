@@ -5020,6 +5020,36 @@
   {
     "author": null,
     "companies": [],
+    "created": 1711929600,
+    "difficulty": "easy",
+    "duration": 10,
+    "excerpt": "Implement a function that creates an array excluding all given values.",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/without",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "difference",
+      "union"
+    ],
+    "slug": "without",
+    "subtitle": null,
+    "title": "Without",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
     "created": 1684022400,
     "difficulty": "hard",
     "duration": 60,
