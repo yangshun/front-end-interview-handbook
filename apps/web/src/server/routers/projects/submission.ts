@@ -104,52 +104,61 @@ export const projectsChallengeSubmissionItemRouter = router({
           },
         );
 
-        // Write to database first.
-        const txRes = await prisma.$transaction(async (tx) => {
-          if (existingSession == null) {
-            await tx.projectsChallengeSession.create({
-              data: {
+        return await prisma.$transaction(
+          async (tx) => {
+            const [submission, points] = await Promise.all([
+              tx.projectsChallengeSubmission.create({
+                data: {
+                  deploymentUrls: deploymentUrls as Prisma.JsonArray,
+                  implementation,
+                  profileId: projectsProfileId,
+                  repositoryUrl,
+                  roadmapSkills,
+                  slug,
+                  summary,
+                  techStackSkills,
+                  title,
+                },
+              }),
+              projectsReputationSubmissionAwardPoints(tx, {
                 profileId: projectsProfileId,
+                roadmapSkills,
                 slug,
-                status: 'COMPLETED',
-                stoppedAt: new Date(),
-              },
-            });
-          } else {
-            await tx.projectsChallengeSession.updateMany({
-              data: {
-                status: 'COMPLETED',
-                stoppedAt: new Date(),
-              },
-              where: {
-                profileId: projectsProfileId,
-                slug,
-                status: 'IN_PROGRESS',
-              },
-            });
-          }
+                techStackSkills,
+              }),
+              (async () => {
+                if (existingSession == null) {
+                  await tx.projectsChallengeSession.create({
+                    data: {
+                      profileId: projectsProfileId,
+                      slug,
+                      status: 'COMPLETED',
+                      stoppedAt: new Date(),
+                    },
+                  });
+                } else {
+                  await tx.projectsChallengeSession.updateMany({
+                    data: {
+                      status: 'COMPLETED',
+                      stoppedAt: new Date(),
+                    },
+                    where: {
+                      profileId: projectsProfileId,
+                      slug,
+                      status: 'IN_PROGRESS',
+                    },
+                  });
+                }
+              })(),
+            ]);
 
-          const submission = await tx.projectsChallengeSubmission.create({
-            data: {
-              deploymentUrls: deploymentUrls as Prisma.JsonArray,
-              implementation,
-              profileId: projectsProfileId,
-              repositoryUrl,
-              roadmapSkills,
-              slug,
-              summary,
-              techStackSkills,
-              title,
-            },
-          });
-
-          const points =
-            await projectsReputationSubmissionAwardPoints(submission);
-
-          return { points, submission };
-        });
-
-        return txRes;
+            return { points, submission };
+          },
+          {
+            // Since there are 3 queries increase the timeout.
+            timeout: 10000,
+          },
+        );
       },
     ),
   delete: projectsUserProcedure
@@ -423,27 +432,37 @@ export const projectsChallengeSubmissionItemRouter = router({
         },
         ctx: { projectsProfileId },
       }) => {
-        const submission = await prisma.projectsChallengeSubmission.update({
-          data: {
-            deploymentUrls,
-            editedAt: new Date(),
-            implementation,
-            repositoryUrl,
-            roadmapSkills,
-            summary,
-            techStackSkills,
-            title,
-          },
-          where: {
-            id: submissionId,
-            profileId: projectsProfileId,
-          },
-        });
+        return await prisma.$transaction(
+          async (tx) => {
+            const submission = await tx.projectsChallengeSubmission.update({
+              data: {
+                deploymentUrls,
+                editedAt: new Date(),
+                implementation,
+                repositoryUrl,
+                roadmapSkills,
+                summary,
+                techStackSkills,
+                title,
+              },
+              where: {
+                id: submissionId,
+                profileId: projectsProfileId,
+              },
+            });
 
-        const points =
-          await projectsReputationSubmissionAwardPoints(submission);
+            // Have to do in sequence since the slug has to be fetched from the submission.
+            const points = await projectsReputationSubmissionAwardPoints(
+              tx,
+              submission,
+            );
 
-        return { points, submission };
+            return { points, submission };
+          },
+          {
+            timeout: 10000,
+          },
+        );
       },
     ),
   userCompletedTimes: projectsChallengeProcedure.query(

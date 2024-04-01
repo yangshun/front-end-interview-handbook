@@ -1,5 +1,6 @@
 import { sumBy } from 'lodash-es';
 
+import type { PrismaTransactionClient } from '~/server/prisma';
 import prisma from '~/server/prisma';
 
 import {
@@ -102,6 +103,7 @@ export async function projectsReputationCommentVoteRevokePoints(
 }
 
 export async function projectsReputationSubmissionAwardPoints(
+  prismaClient: PrismaTransactionClient,
   submission: Readonly<{
     profileId: string;
     roadmapSkills: ReadonlyArray<string>;
@@ -154,7 +156,7 @@ export async function projectsReputationSubmissionAwardPoints(
 
   const totalPoints = sumBy(connectOrCreateItems, (item) => item.create.points);
 
-  await prisma.projectsProfile.update({
+  await prismaClient.projectsProfile.update({
     data: {
       reputation: {
         connectOrCreate: connectOrCreateItems,

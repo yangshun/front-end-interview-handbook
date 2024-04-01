@@ -36,6 +36,12 @@ const prismaClientSingleton = () => {
 
 export type PrismaClientGFE = ReturnType<typeof prismaClientSingleton>;
 
+// https://stackoverflow.com/a/77859316
+export type PrismaTransactionClient = Omit<
+  PrismaClientGFE,
+  '$connect' | '$disconnect' | '$extends' | '$on' | '$transaction' | '$use'
+>;
+
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClientGFE | undefined;
 };
