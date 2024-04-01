@@ -1,11 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import {
-  RiArrowRightLine,
-  RiFlashlightLine,
-  RiRocketLine,
-} from 'react-icons/ri';
+import { RiArrowRightLine, RiFlashlightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -24,6 +20,8 @@ import {
   themeTextBrandColor_GroupHover,
   themeTextFaintColor,
 } from '~/components/ui/theme';
+
+import ProjectsChallengeProgressTag from '../challenges/metadata/ProjectsChallengeProgressTag';
 
 const trackGradient = themeGradientPinkPurple;
 
@@ -153,23 +151,11 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
                         )}
                       </Text>
                     </div>
-                    <div className="flex flex-row items-center gap-1.5">
-                      <RiRocketLine className={clsx(themeIconColor)} />
-                      <Text color="secondary" size="body3">
-                        <FormattedMessage
-                          defaultMessage="<bold>{completed}</bold>/{totalCount} challenges"
-                          description="Line describing the number of questions completed by user over the total number of questions"
-                          id="q4Qfra"
-                          values={{
-                            bold: (chunks) => (
-                              <Text size="body2">{chunks}</Text>
-                            ),
-                            completed: track.numChallengesCompleted,
-                            totalCount: track.numChallenges,
-                          }}
-                        />
-                      </Text>
-                    </div>
+                    <ProjectsChallengeProgressTag
+                      completed={track.numChallengesCompleted}
+                      showProgress={false}
+                      total={track.numChallenges}
+                    />
                   </div>
                 </div>
                 <RiArrowRightLine

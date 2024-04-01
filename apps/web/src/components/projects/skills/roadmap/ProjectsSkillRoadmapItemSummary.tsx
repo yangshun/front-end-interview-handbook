@@ -1,6 +1,5 @@
 import clsx from 'clsx';
-import { RiArrowRightLine, RiRocketLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
+import { RiArrowRightLine } from 'react-icons/ri';
 
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import Anchor from '~/components/ui/Anchor';
@@ -16,6 +15,7 @@ import {
 
 import { projectsSkillLabel } from '../data/ProjectsSkillListData';
 import type { ProjectsSkillSummaryItem } from '../types';
+import ProjectsChallengeProgressTag from '../../challenges/metadata/ProjectsChallengeProgressTag';
 import ProjectsProfileAvatarWithStatus from '../../users/ProjectsProfileAvatarWithStatus';
 
 type Props = Readonly<{
@@ -73,26 +73,11 @@ export default function ProjectsSkillRoadmapItemSummary({
             points={skillSummary.points}
             variant="flat"
           />
-          <div
-            className={clsx('flex items-center gap-2', themeTextSubtleColor)}>
-            <RiRocketLine className="size-4" />
-            <Text color="inherit" size="body2">
-              <FormattedMessage
-                defaultMessage="<bold>{completedCount}</bold>/{totalCount} challenges"
-                description="Rep count label in Projects"
-                id="26Xmcd"
-                values={{
-                  bold: (chunks) => (
-                    <Text color="secondary" size="body2" weight="medium">
-                      {chunks}
-                    </Text>
-                  ),
-                  completedCount: skillSummary.completedChallenges,
-                  totalCount: skillSummary.totalChallenges,
-                }}
-              />
-            </Text>
-          </div>
+          <ProjectsChallengeProgressTag
+            completed={skillSummary.completedChallenges}
+            showProgress={false}
+            total={skillSummary.totalChallenges}
+          />
         </div>
       </div>
       <div
