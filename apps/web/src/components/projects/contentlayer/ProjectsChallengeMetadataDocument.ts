@@ -1,4 +1,5 @@
 import { defineDocumentType } from 'contentlayer/source-files';
+import { sumBy } from 'lodash-es';
 import path from 'node:path';
 
 import {
@@ -6,6 +7,7 @@ import {
   projectDifficultyOptions,
   projectTrackOptions,
 } from '../challenges/types';
+import { projectsSkillDetermineGroup } from '../skills/data/ProjectsSkillUtils';
 
 function parseProjectSlug(sourceFilePath: string) {
   return sourceFilePath.split(path.sep)[2];
@@ -50,6 +52,24 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       resolve: (doc) =>
         `/projects/challenges/${parseProjectSlug(doc._raw.sourceFilePath)}`,
       type: 'string',
+    },
+    points: {
+      description: 'Total points (base + skills)',
+      resolve: (doc) => {
+        return (
+          doc.pointsBase +
+          sumBy(
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error: ContentLayer uses some custom array structure.
+            (doc.skills as Readonly<{ _array: Array<string> }>)._array,
+            (skill) =>
+              doc.pointsForSkillGroups[
+                projectsSkillDetermineGroup(skill) ?? ''
+              ] ?? 0,
+          )
+        );
+      },
+      type: 'number',
     },
     resourcesHref: {
       description: 'Link to projects resources step contents',
@@ -96,7 +116,7 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       required: true,
       type: 'string',
     },
-    points: {
+    pointsBase: {
       description: 'Reputation gained by completing the project',
       required: true,
       type: 'number',

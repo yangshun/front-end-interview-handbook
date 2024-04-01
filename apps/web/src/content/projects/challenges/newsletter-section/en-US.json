@@ -5,7 +5,7 @@
   "difficulty": "starter",
   "track": "marketing",
   "access": "free-plus",
-  "points": 500,
+  "pointsBase": 500,
   "pointsForSkillGroups": {
     "html": 50,
     "css": 50

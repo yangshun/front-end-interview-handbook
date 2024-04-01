@@ -5,7 +5,7 @@
   "difficulty": "starter",
   "track": "apps",
   "access": "free-plus",
-  "points": 300,
+  "pointsBase": 300,
   "pointsForSkillGroups": {
     "html": 50,
     "css": 50

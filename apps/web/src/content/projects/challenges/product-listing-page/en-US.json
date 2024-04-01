@@ -5,7 +5,7 @@
   "difficulty": "mid",
   "track": "e-commerce",
   "access": "premium",
-  "points": 700,
+  "pointsBase": 700,
   "pointsForSkillGroups": {
     "html": 50,
     "css": 50

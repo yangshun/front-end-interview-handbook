@@ -5,7 +5,7 @@
   "difficulty": "mid",
   "track": "marketing",
   "access": "premium",
-  "points": 400,
+  "pointsBase": 400,
   "pointsForSkillGroups": {
     "html": 50,
     "css": 50
