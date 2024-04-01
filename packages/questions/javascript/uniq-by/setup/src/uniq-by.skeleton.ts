@@ -1,6 +1,6 @@
 export default function uniqBy<T>(
-  array: Array<any>,
-  iteratee: Function | string = (value: any) => value,
+  array: Array<T>,
+  iteratee: Function = (value: T) => value,
 ): Array<T> {
   throw 'Not implemented!';
 }

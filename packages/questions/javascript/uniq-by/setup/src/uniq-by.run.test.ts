@@ -2,7 +2,7 @@ import uniqBy from './uniq-by';
 
 describe('uniqBy', () => {
   test('empty array', () => {
-    expect(uniqBy([], 'm')).toEqual([]);
+    expect(uniqBy([], (o: any) => o.m)).toEqual([]);
   });
 
   test('one value', () => {
@@ -14,7 +14,7 @@ describe('uniqBy', () => {
   });
 
   test('duplicate values', () => {
-    expect(uniqBy([{ x: 1 }, { x: 2 }, { x: 1 }], 'x')).toEqual([
+    expect(uniqBy([{ x: 1 }, { x: 2 }, { x: 1 }], (o: any) => o.x)).toEqual([
       { x: 1 },
       { x: 2 },
     ]);

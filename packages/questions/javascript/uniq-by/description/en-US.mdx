@@ -3,29 +3,35 @@ title: Unique By
 excerpt: Implement a function to remove all duplicate values from an array based on a specific criteria
 ---
 
-Implement a function `uniqBy` that takes in an array and returns a duplicate-free version of the array where only the first occurrence of each element based on a function `iteratee` is kept. The order of result values is determined by the order they occur in the By.
+Implement a function `uniqBy` that takes in an array and returns a duplicate-free version of `array` where only the first occurrence of each element based on a function `iteratee` is kept. The order of result values is determined by the order they occur in `array`.
+
+```js
+uniqBy(array, iteratee);
+```
 
 ## Arguments
 
 1. `array` _(Array)_: The array to iterate over.
-1. `iteratee` _(Function)_: The iteratee invoked per element.
+1. `iteratee` _(Function)_: The iteratee invoked per element. The function is invoked with one argument: (value).
 
 ## Returns
 
-_(Array)_: Returns the unique array.
+_`(Array)`_: Returns the unique array.
 
 ## Examples
 
 ```js
 uniqBy([2.1, 1.2, 2.3], Math.floor); // => [2.1, 1.2]
-uniqBy([{ x: 1 }, { x: 2 }, { x: 1 }], 'x'); // => [{ x: 1 }, { x: 2 }]
+
+uniqBy([{ x: 1 }, { x: 2 }, { x: 1 }], (o) => o.x); // => [{ x: 1 }, { x: 2 }]
 ```
 
-The function should return an empty array if `array` is empty and always include the first value.
+The function should return an empty array if `array` is empty and leave the treat false values as-is.
 
 ```js
-sumBy([], 'm'); // => []
-sumBy([{ n: 1 }, { m: 2 }], 'm'); // => [{ n: 1 }, { m: 2 }]
+uniqBy([], (o) => o.m); // => []
+
+uniqBy([{ n: 1 }, { m: 2 }], (o) => o.m); // => [{ n: 1 }, { m: 2 }]
 ```
 
 ## Resources

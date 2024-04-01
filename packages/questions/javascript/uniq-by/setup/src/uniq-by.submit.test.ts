@@ -2,24 +2,23 @@ import uniqBy from './uniq-by';
 
 describe('uniqBy', () => {
   test('empty array', () => {
-    expect(uniqBy([])).toEqual([]);
+    expect(uniqBy([], (value: any) => value)).toEqual([]);
   });
 
   test('duplicate values', () => {
-    expect(uniqBy([2, 1, 2])).toEqual([2, 1]);
-    expect(uniqBy([2, 2, 1])).toEqual([2, 1]);
-    expect(uniqBy([2, 1, 2, 3])).toEqual([2, 1, 3]);
+    expect(uniqBy([2, 1, 2], (value: any) => value)).toEqual([2, 1]);
+    expect(uniqBy([2, 2, 1], (value: any) => value)).toEqual([2, 1]);
+    expect(uniqBy([2, 1, 2, 3], (value: any) => value)).toEqual([2, 1, 3]);
   });
 
   test('iteratee as a string', () => {
-    expect(uniqBy([{ n: 1 }, { n: 2 }, { n: 1 }], 'n')).toEqual([
+    expect(uniqBy([{ n: 1 }, { n: 2 }, { n: 1 }], (o: any) => o.n)).toEqual([
       { n: 1 },
       { n: 2 },
     ]);
-    expect(uniqBy([{ age: 30 }, { age: 22 }, { age: 22 }], 'age')).toEqual([
-      { age: 30 },
-      { age: 22 },
-    ]);
+    expect(
+      uniqBy([{ age: 30 }, { age: 22 }, { age: 22 }], (o: any) => o.age),
+    ).toEqual([{ age: 30 }, { age: 22 }]);
   });
 
   test('iteratee as a function', () => {
@@ -38,8 +37,11 @@ describe('uniqBy', () => {
   });
 
   test('non-existent property', () => {
-    expect(uniqBy([{ n: 1 }, { n: 2 }], 'm')).toEqual([{ n: 1 }]);
-    expect(uniqBy([{ n: 1 }, { m: 2 }], 'm')).toEqual([{ n: 1 }, { m: 2 }]);
+    expect(uniqBy([{ n: 1 }, { n: 2 }], (o: any) => o.m)).toEqual([{ n: 1 }]);
+    expect(uniqBy([{ n: 1 }, { m: 2 }], (o: any) => o.m)).toEqual([
+      { n: 1 },
+      { m: 2 },
+    ]);
   });
 
   test('mixed data types', () => {
