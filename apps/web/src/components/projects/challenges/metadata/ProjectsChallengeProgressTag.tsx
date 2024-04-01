@@ -9,7 +9,6 @@ import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
   completed: number;
-  iconClassName?: string;
   showProgress?: boolean;
   tooltip?: string;
   total: number;
@@ -18,7 +17,6 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeProgressTag({
   completed,
-  iconClassName = 'size-5',
   showProgress = true,
   tooltip,
   total,
@@ -28,7 +26,7 @@ export default function ProjectsChallengeProgressTag({
 
   const contents = (
     <div className={clsx('flex items-center gap-1', themeTextSubtleColor)}>
-      <RiRocketLine className={iconClassName} />
+      <RiRocketLine aria-hidden={true} className="size-4 shrink-0" />
       <Text color="inherit" size="body3">
         {variant === 'normal' && (
           <FormattedMessage

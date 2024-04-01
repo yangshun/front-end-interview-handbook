@@ -28,7 +28,7 @@ export default function ProjectsTrackHeader({
           {title}
         </Text>
         {metadata.premium && (
-          <ProjectsPremiumBadge unlocked={isViewerPremium} />
+          <ProjectsPremiumBadge size="sm" unlocked={isViewerPremium} />
         )}
         {completed && <ProjectsStatusBadgeCompleted entity="track" />}
       </div>
@@ -39,6 +39,7 @@ export default function ProjectsTrackHeader({
         <ProjectsChallengeReputationTag points={points} variant="flat" />
         <ProjectsChallengeProgressTag
           completed={completedCount}
+          showProgress={false}
           total={challenges.length}
         />
       </div>

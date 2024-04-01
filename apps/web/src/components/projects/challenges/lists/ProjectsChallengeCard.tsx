@@ -83,16 +83,16 @@ export default function ProjectsChallengeCard({
           )}
           src={imageUrl}
         />
+        <div className="absolute start-3 top-3 flex items-center gap-1">
+          {challengeAccess === 'premium' && (
+            <ProjectsPremiumBadge size="sm" unlocked={userUnlocked} />
+          )}
+        </div>
         {status != null && (
           <div className="absolute bottom-3 start-3 z-[1]">
             <ProjectsStatusBadge entity="challenge" status={status} />
           </div>
         )}
-        <div className="absolute start-3 top-3 flex items-center gap-1">
-          {challengeAccess === 'premium' && (
-            <ProjectsPremiumBadge unlocked={userUnlocked} />
-          )}
-        </div>
       </div>
       <div
         className={clsx(

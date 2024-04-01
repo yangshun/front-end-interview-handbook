@@ -61,7 +61,7 @@ export default function ProjectsTrackHeader({
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <Heading level="heading5">{title}</Heading>
               {metadata.premium && (
-                <ProjectsPremiumBadge unlocked={isViewerPremium} />
+                <ProjectsPremiumBadge size="sm" unlocked={isViewerPremium} />
               )}
               {showProgress &&
                 'completedCount' in props &&
