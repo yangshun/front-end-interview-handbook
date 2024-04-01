@@ -20,6 +20,7 @@ type Props = Readonly<{
 export default function ProjectsTracksListPage({
   challengeHistoricalStatuses,
   isViewerPremium,
+  isViewingOwnProfile,
   projectTracks,
 }: Props) {
   return (
