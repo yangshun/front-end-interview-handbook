@@ -1,21 +1,26 @@
 'use client';
 
 import clsx from 'clsx';
+import { useState } from 'react';
 import { RiRocketLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
+import { useSessionStorage } from 'usehooks-ts';
 
 import { trpc } from '~/hooks/trpc';
 import usePagination from '~/hooks/usePagination';
 
 import FilterButton from '~/components/common/FilterButton';
 import ProjectsChallengeCard from '~/components/projects/challenges/lists/ProjectsChallengeCard';
-import useProjectsSessionStatusFilter from '~/components/projects/profile/progress/useProjectsSessionStatusFilter';
+import useProjectsAllChallengesFilterOptions from '~/components/projects/profile/progress/useProjectsAllChallengesFilterOptions';
+import CheckboxInput from '~/components/ui/CheckboxInput';
 import EmptyState from '~/components/ui/EmptyState';
 import Pagination from '~/components/ui/Pagination';
 import Spinner from '~/components/ui/Spinner';
 import { themeTextColor } from '~/components/ui/theme';
 
-import { ProjectsChallengeSessionStatus } from '@prisma/client';
+import ProjectsChallengeSubmissionCard from '../../submissions/lists/ProjectsChallengeSubmissionCard';
+
+import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 type Props = Readonly<{
   isViewerPremium: boolean;
@@ -31,47 +36,66 @@ export default function ProjectsProfileProgressAllChallengesTab({
   targetUserId,
 }: Props) {
   const intl = useIntl();
+  const [showAsSubmissions, setShowAsSubmissions] = useState(false);
+  const [challengeFilter, setChallengeFilter] =
+    useSessionStorage<ProjectsChallengeSessionStatus>(
+      `gfe:all-challenges:challenge-filter`,
+      'IN_PROGRESS',
+    );
+  const { name: filterName, options: filterOptions } =
+    useProjectsAllChallengesFilterOptions();
 
-  const [challengeFilter, challengeFilterOptions] =
-    useProjectsSessionStatusFilter({
-      initialValue: 'IN_PROGRESS',
-      namespace: 'all-challenges',
-    });
+  const { data: sessions, isLoading: isLoadingSessions } =
+    trpc.projects.sessions.list.useQuery(
+      {
+        orderBy: 'desc',
+        statuses: [challengeFilter],
+        userId: targetUserId,
+      },
+      {
+        enabled: !showAsSubmissions,
+      },
+    );
+  const shownSessions = sessions?.filter((session, index, self) => {
+    return (
+      self.findIndex(
+        (s) => s.challenge?.metadata.slug === session.challenge?.metadata.slug,
+      ) === index
+    );
+  });
 
-  const { data: allSessions, isLoading } = trpc.projects.sessions.list.useQuery(
-    {
-      orderBy: 'desc',
-      statuses: [
-        ProjectsChallengeSessionStatus.IN_PROGRESS,
-        ProjectsChallengeSessionStatus.COMPLETED,
-      ],
-      userId: targetUserId,
-    },
-  );
-
-  const shownSessions = allSessions
-    ?.filter((session) => {
-      return challengeFilterOptions.matches(session);
-    })
-    .filter((session, index, self) => {
-      return (
-        self.findIndex(
-          (s) =>
-            s.challenge?.metadata.slug === session.challenge?.metadata.slug,
-        ) === index
-      );
-    });
+  const { data: submissions, isLoading: isLoadingSubmissions } =
+    trpc.projects.submissions.listCompleted.useQuery(
+      {
+        orderBy: 'desc',
+        userId: targetUserId,
+      },
+      {
+        enabled: showAsSubmissions,
+      },
+    );
 
   // Pagination
   const {
-    currentPageItems: currentPageSessions,
-    totalPages,
-    setCurrentPage,
-    currentPage,
+    currentPageItems: currentPageItemsSessions,
+    totalPages: totalPagesSessions,
+    setCurrentPage: setCurrentPageSessions,
+    currentPage: currentPageSessions,
   } = usePagination({
     deps: [],
     itemsPerPage: ITEMS_PER_PAGE,
     totalList: shownSessions,
+  });
+
+  const {
+    currentPageItems: currentPageItemsSubmissions,
+    totalPages: totalPagesSubmissionss,
+    setCurrentPage: setCurrentPageSubmissions,
+    currentPage: currentPageSubmissions,
+  } = usePagination({
+    deps: [],
+    itemsPerPage: ITEMS_PER_PAGE,
+    totalList: submissions,
   });
 
   const emptyState = (
@@ -105,11 +129,11 @@ export default function ProjectsProfileProgressAllChallengesTab({
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex flex-row gap-4">
+      <div className="flex flex-row items-center gap-8">
         <fieldset>
-          <legend className="sr-only">{challengeFilterOptions.name}</legend>
+          <legend className="sr-only">{filterName}</legend>
           <div className={clsx('flex flex-wrap items-center gap-2')}>
-            {challengeFilterOptions.options.map(({ icon: Icon, ...option }) => (
+            {filterOptions.map(({ icon: Icon, ...option }) => (
               <FilterButton
                 key={option.value}
                 icon={Icon}
@@ -117,25 +141,84 @@ export default function ProjectsProfileProgressAllChallengesTab({
                 purpose="tab"
                 selected={challengeFilter === option.value}
                 tooltip={option.tooltip}
-                onClick={() => challengeFilterOptions.onChange(option.value)}
+                onClick={() => {
+                  if (option.value !== 'COMPLETED') {
+                    setShowAsSubmissions(false);
+                  }
+                  setChallengeFilter(option.value);
+                }}
               />
             ))}
           </div>
         </fieldset>
+        {challengeFilter === 'COMPLETED' && (
+          <CheckboxInput
+            label={intl.formatMessage({
+              defaultMessage: 'Show as submissions',
+              description: 'Checkbox label for showing as submissions',
+              id: '6O2Mng',
+            })}
+            value={showAsSubmissions}
+            onChange={(value) => {
+              setShowAsSubmissions(value);
+            }}
+          />
+        )}
       </div>
       {(() => {
-        if (isLoading) {
+        if (showAsSubmissions) {
+          if (isLoadingSubmissions) {
+            return (
+              <div className="flex h-20 w-full items-center justify-center">
+                <Spinner size="md" />
+              </div>
+            );
+          }
+
+          if (
+            currentPageItemsSubmissions &&
+            currentPageItemsSubmissions.length !== 0
+          ) {
+            return (
+              <div className="flex flex-col gap-4">
+                <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-6">
+                  {currentPageItemsSubmissions.map((submission) => (
+                    <ProjectsChallengeSubmissionCard
+                      key={submission.id}
+                      challenge={submission.challenge}
+                      submission={submission}
+                    />
+                  ))}
+                </div>
+                {totalPagesSubmissionss > 1 && (
+                  <div className="flex items-center justify-between">
+                    <Pagination
+                      count={totalPagesSubmissionss}
+                      page={currentPageSubmissions}
+                      onPageChange={(value) => setCurrentPageSubmissions(value)}
+                    />
+                  </div>
+                )}
+              </div>
+            );
+          }
+
+          return emptyState;
+        }
+
+        if (isLoadingSessions) {
           return (
             <div className="flex h-20 w-full items-center justify-center">
               <Spinner size="md" />
             </div>
           );
         }
-        if (currentPageSessions && currentPageSessions.length !== 0) {
+
+        if (currentPageItemsSessions && currentPageItemsSessions.length !== 0) {
           return (
             <div className="flex flex-col gap-4">
               <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-6">
-                {currentPageSessions.map((session) =>
+                {currentPageItemsSessions.map((session) =>
                   session.challenge ? (
                     <ProjectsChallengeCard
                       key={session.id}
@@ -146,12 +229,12 @@ export default function ProjectsProfileProgressAllChallengesTab({
                   ) : null,
                 )}
               </div>
-              {totalPages > 1 && (
+              {totalPagesSessions > 1 && (
                 <div className="flex items-center justify-between">
                   <Pagination
-                    count={totalPages}
-                    page={currentPage}
-                    onPageChange={(value) => setCurrentPage(value)}
+                    count={totalPagesSessions}
+                    page={currentPageSessions}
+                    onPageChange={(value) => setCurrentPageSessions(value)}
                   />
                 </div>
               )}

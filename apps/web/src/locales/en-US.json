@@ -883,6 +883,14 @@
     "defaultMessage": "Learning features",
     "description": "Learning features of the product in Projects marketing page"
   },
+  "6Hdxa+": {
+    "defaultMessage": "This is a user submission for a premium challenge. Resubscribe to premium to learn from user submissions of this challenge. You have <bold>{amountLeft}</bold> unlock credit(s) left.",
+    "description": "Subtitle for project paywall"
+  },
+  "6O2Mng": {
+    "defaultMessage": "Show as submissions",
+    "description": "Checkbox label for showing as submissions"
+  },
   "6Qxjzw": {
     "defaultMessage": "Build the project guided by us - refer to official guides, solutions, reference other user's submissions, and discuss with the community",
     "description": "Step 3 of the \"How it works\" section on the Projects home page"
