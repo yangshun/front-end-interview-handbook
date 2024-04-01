@@ -106,7 +106,7 @@ export async function readProjectsChallengeList(
   const [
     sessionsForUserGroupedBySlug,
     challengeAccessSet,
-    countsGroupedBySlug,
+    completedCountsGroupedBySlug,
     completedProfileIdsGroupedBySlug,
   ] = await Promise.all([
     fetchSessionsForUserGroupedBySlug(userId),
@@ -190,7 +190,8 @@ export async function readProjectsChallengeList(
     )
     .map((challengeMetadata) =>
       challengeItemAddTrackMetadata({
-        completedCount: countsGroupedBySlug?.[challengeMetadata.slug] ?? null,
+        completedCount:
+          completedCountsGroupedBySlug?.[challengeMetadata.slug] ?? null,
         completedProfiles:
           completedProfileIdsGroupedBySlug?.[challengeMetadata.slug] ?? [],
         metadata: challengeMetadata,

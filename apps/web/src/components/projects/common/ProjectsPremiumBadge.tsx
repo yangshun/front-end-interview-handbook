@@ -11,10 +11,6 @@ type Props = Readonly<{
 export default function ProjectsPremiumBadge({ unlocked, size }: Props) {
   const intl = useIntl();
 
-  if (unlocked == null) {
-    return null;
-  }
-
   return (
     <Badge
       icon={unlocked ? RiLockUnlockLine : RiLock2Line}

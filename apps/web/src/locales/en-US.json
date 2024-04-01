@@ -883,10 +883,6 @@
     "defaultMessage": "Learning features",
     "description": "Learning features of the product in Projects marketing page"
   },
-  "6Hdxa+": {
-    "defaultMessage": "This is a user submission for a premium challenge. Resubscribe to premium to learn from user submissions of this challenge. You have <bold>{amountLeft}</bold> unlock credit(s) left.",
-    "description": "Subtitle for project paywall"
-  },
   "6O2Mng": {
     "defaultMessage": "Show as submissions",
     "description": "Checkbox label for showing as submissions"
@@ -1322,10 +1318,6 @@
   "9dQ21j": {
     "defaultMessage": "Set new profile photo",
     "description": "Label for new profile photo button"
-  },
-  "9dlNpY": {
-    "defaultMessage": "We currently offer student discounts at up to 40% off plans if you sign in / up with your .edu student email account. Alumni are excluded from this discount. Please read more at our Student Discount Terms and Conditions.",
-    "description": "Answer on projects pricing's FAQ section - student discounts"
   },
   "9fclPT": {
     "defaultMessage": "Practice writing JavaScript and DOM API Polyfills",
@@ -2403,10 +2395,6 @@
     "defaultMessage": "Preparation Plans",
     "description": "Preparation plans section title"
   },
-  "JE/F6W": {
-    "defaultMessage": "Yes, rest assured that unused credits will roll over to the next month or year and never expire.",
-    "description": "Answer on projects pricing's FAQ section - unused credits"
-  },
   "JIWdeN": {
     "defaultMessage": "Continue tracks and skills",
     "description": "Title for Continue tracks and skills section on Projects dashboard page"
@@ -3302,6 +3290,10 @@
   "Ptmnjq": {
     "defaultMessage": "Free continuous updates",
     "description": "Title for free continuous updates feature"
+  },
+  "PuEgKi": {
+    "defaultMessage": "Yes, rest assured that unused credits will roll over to the next month or year and never expire.",
+    "description": "Answer on projects pricing's FAQ section - unused credits"
   },
   "PvVu6g": {
     "defaultMessage": "View focus areas",
@@ -7302,6 +7294,10 @@
   "wIGIux": {
     "defaultMessage": "Build personalized projects, instead of the same as everyone else",
     "description": "Title of 'Personalized projects' feature in Projects marketing page"
+  },
+  "wKANGc": {
+    "defaultMessage": "We currently offer student discounts at up to 40% off plans if you sign in / up with your .edu student email account. Alumni are excluded from this discount. Please read more at our Student Discount Terms and Conditions.",
+    "description": "Answer on projects pricing's FAQ section - student discounts"
   },
   "wO0zga": {
     "defaultMessage": "Skills roadmap",
