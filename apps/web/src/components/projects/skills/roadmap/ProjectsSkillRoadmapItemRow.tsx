@@ -19,15 +19,15 @@ import ProjectsChallengeProgressTag from '../../challenges/metadata/ProjectsChal
 import ProjectsProfileAvatarWithStatus from '../../users/ProjectsProfileAvatarWithStatus';
 
 type Props = Readonly<{
-  canOpenDetails?: boolean;
+  isViewingOwnProfile?: boolean;
   skillSummary: ProjectsSkillSummaryItem;
   userProfile: React.ComponentProps<
     typeof ProjectsProfileAvatarWithStatus
   >['userProfile'];
 }>;
 
-export default function ProjectsSkillRoadmapItemSummary({
-  canOpenDetails,
+export default function ProjectsSkillRoadmapItemRow({
+  isViewingOwnProfile,
   skillSummary,
   userProfile,
 }: Props) {
@@ -42,7 +42,7 @@ export default function ProjectsSkillRoadmapItemSummary({
         'rounded-lg px-4 py-3',
         'transition-colors',
         ['border', themeBorderElementColor],
-        canOpenDetails && [
+        isViewingOwnProfile && [
           themeBorderBrandColor_Hover,
           themeOutlineElement_FocusVisible,
           themeOutlineElementBrandColor_FocusVisible,
@@ -50,7 +50,7 @@ export default function ProjectsSkillRoadmapItemSummary({
       )}>
       <div className="flex w-full flex-col gap-1 md:flex-row md:items-center md:gap-4">
         <div className="flex-1">
-          {canOpenDetails ? (
+          {isViewingOwnProfile ? (
             <Anchor
               className="relative z-[1]"
               href={href}
@@ -75,30 +75,33 @@ export default function ProjectsSkillRoadmapItemSummary({
           />
           <ProjectsChallengeProgressTag
             completed={skillSummary.completedChallenges}
-            showProgress={false}
+            gapClass="gap-4"
+            showProgress={isViewingOwnProfile}
             total={skillSummary.totalChallenges}
           />
         </div>
       </div>
-      <div
-        className={clsx(
-          'z-[1] flex transition-colors',
-          userProfile == null && 'opacity-0',
-        )}>
-        <ProjectsProfileAvatarWithStatus
-          status={
-            skillSummary.completedChallenges > 0 &&
-            skillSummary.completedChallenges === skillSummary.totalChallenges
-              ? 'COMPLETED'
-              : skillSummary.completedChallenges > 0 ||
-                  skillSummary.inProgressChallenges > 0
-                ? 'IN_PROGRESS'
-                : undefined
-          }
-          userProfile={userProfile}
-        />
-      </div>
-      {canOpenDetails && (
+      {!isViewingOwnProfile && (
+        <div
+          className={clsx(
+            'z-[1] flex transition-colors',
+            userProfile == null && 'opacity-0',
+          )}>
+          <ProjectsProfileAvatarWithStatus
+            status={
+              skillSummary.completedChallenges > 0 &&
+              skillSummary.completedChallenges === skillSummary.totalChallenges
+                ? 'COMPLETED'
+                : skillSummary.completedChallenges > 0 ||
+                    skillSummary.inProgressChallenges > 0
+                  ? 'IN_PROGRESS'
+                  : undefined
+            }
+            userProfile={userProfile}
+          />
+        </div>
+      )}
+      {isViewingOwnProfile && (
         <>
           <RiArrowRightLine
             aria-hidden={true}

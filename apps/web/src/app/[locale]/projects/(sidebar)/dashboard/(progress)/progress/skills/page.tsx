@@ -13,7 +13,7 @@ export default async function Page() {
 
   return (
     <ProjectsProfileProgressSkillsTab
-      canOpenDetails={true}
+      isViewingOwnProfile={true}
       skillsRoadmap={skillsRoadmap}
       userProfile={viewerProfile}
     />

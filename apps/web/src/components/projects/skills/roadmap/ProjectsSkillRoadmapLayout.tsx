@@ -54,7 +54,7 @@ export default function ProjectsSkillRoadmapLayout({
       </div>
       <Section>
         <ProjectsSkillRoadmapSection
-          canOpenDetails={true}
+          isViewingOwnProfile={true}
           skillsRoadmap={skillsRoadmap}
           userProfile={userProfile}
         />

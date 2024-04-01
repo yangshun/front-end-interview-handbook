@@ -9,6 +9,7 @@ import Tooltip from '~/components/ui/Tooltip';
 
 type Props = Readonly<{
   completed: number;
+  gapClass?: string;
   showProgress?: boolean;
   tooltip?: string;
   total: number;
@@ -17,6 +18,7 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeProgressTag({
   completed,
+  gapClass = 'gap-1',
   showProgress = true,
   tooltip,
   total,
@@ -65,11 +67,12 @@ export default function ProjectsChallengeProgressTag({
   );
 
   return (
-    <div className={clsx('flex items-center gap-1')}>
+    <div className={clsx('flex items-center', gapClass)}>
       {tooltip ? <Tooltip label={tooltip}>{contents}</Tooltip> : contents}
       {showProgress && (
         <div>
           <ProgressBar
+            backgroundClass="neutral-200/70 dark:bg-neutral-700"
             heightClass="h-1.5"
             label={intl.formatMessage(
               {

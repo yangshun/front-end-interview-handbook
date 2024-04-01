@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 
 type Props = Readonly<{
+  backgroundClass?: string;
   heightClass?: string;
   label: string;
   progressClass?: string;
@@ -9,6 +10,7 @@ type Props = Readonly<{
 }>;
 
 export default function ProgressBar({
+  backgroundClass = 'bg-neutral-200/70 dark:bg-neutral-800',
   progressClass = 'bg-green',
   heightClass = 'h-2',
   value,
@@ -24,8 +26,9 @@ export default function ProgressBar({
       aria-valuemin={0}
       aria-valuenow={value}
       className={clsx(
-        'w-full rounded-full bg-neutral-200/70 dark:bg-neutral-800',
+        'w-full rounded-full',
         'min-w-[120px]',
+        backgroundClass,
         heightClass,
       )}
       role="progressbar">

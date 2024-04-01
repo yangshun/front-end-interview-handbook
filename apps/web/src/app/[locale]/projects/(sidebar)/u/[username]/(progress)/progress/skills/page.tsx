@@ -20,7 +20,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <ProjectsProfileProgressSkillsTab
-      canOpenDetails={false}
+      isViewingOwnProfile={false}
       skillsRoadmap={skillsRoadmap}
       userProfile={userProfile}
     />

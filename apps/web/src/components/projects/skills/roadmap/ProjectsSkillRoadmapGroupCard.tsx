@@ -6,7 +6,7 @@ import { RiAddCircleLine, RiIndeterminateCircleLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import ProjectsSkillRoadmapGroupHeading from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapGroupHeading';
-import ProjectsSkillRoadmapItemSummary from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItemSummary';
+import ProjectsSkillRoadmapItemRow from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItemRow';
 import Button from '~/components/ui/Button';
 import {
   themeBackgroundLayerEmphasized,
@@ -19,10 +19,10 @@ import { ProjectsSkillIcons } from '../data/ProjectsSkillIcons';
 import type { ProjectsSkillRoadmapSectionGroup } from '../types';
 
 type Props = Readonly<{
-  canOpenDetails?: boolean;
   group: ProjectsSkillRoadmapSectionGroup;
+  isViewingOwnProfile?: boolean;
   userProfile: React.ComponentProps<
-    typeof ProjectsSkillRoadmapItemSummary
+    typeof ProjectsSkillRoadmapItemRow
   >['userProfile'];
 }>;
 
@@ -47,7 +47,7 @@ function SkillItemDiamond() {
 }
 
 export default function ProjectsSkillRoadmapGroupCard({
-  canOpenDetails,
+  isViewingOwnProfile,
   group,
   userProfile,
 }: Props) {
@@ -114,8 +114,8 @@ export default function ProjectsSkillRoadmapGroupCard({
                   )}>
                   <SkillItemDiamond />
                 </div>
-                <ProjectsSkillRoadmapItemSummary
-                  canOpenDetails={canOpenDetails}
+                <ProjectsSkillRoadmapItemRow
+                  isViewingOwnProfile={isViewingOwnProfile}
                   skillSummary={skillSummary}
                   userProfile={userProfile}
                 />

@@ -4,7 +4,7 @@ import Text from '~/components/ui/Text';
 import type { ProjectsSkillRoadmapSectionData } from '../types';
 
 type Props = Readonly<{
-  canOpenDetails?: boolean;
+  isViewingOwnProfile?: boolean;
   skillsRoadmap: ProjectsSkillRoadmapSectionData;
   userProfile: React.ComponentProps<
     typeof ProjectsSkillRoadmapGroupCard
@@ -12,7 +12,7 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsSkillRoadmapSection({
-  canOpenDetails,
+  isViewingOwnProfile,
   skillsRoadmap,
   userProfile,
 }: Props) {
@@ -27,8 +27,8 @@ export default function ProjectsSkillRoadmapSection({
             {levelItem.items.map((group) => (
               <ProjectsSkillRoadmapGroupCard
                 key={group.key}
-                canOpenDetails={canOpenDetails}
                 group={group}
+                isViewingOwnProfile={isViewingOwnProfile}
                 userProfile={userProfile}
               />
             ))}
