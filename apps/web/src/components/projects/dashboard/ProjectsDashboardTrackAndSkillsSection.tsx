@@ -148,7 +148,7 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
                             id: 'w5+zQe',
                           },
                           {
-                            difficulty: 'Starter', // TODO: get difficulty
+                            difficulty: 'Starter', // TODO(projects): get difficulty
                           },
                         )}
                       </Text>

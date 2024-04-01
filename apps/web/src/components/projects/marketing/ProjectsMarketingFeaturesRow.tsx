@@ -32,8 +32,9 @@ export default function ProjectsMarketingFeaturesRow() {
             description="Caption for Projects marketing hero section skills roadmap feature"
             id="rUKlWg"
             values={{
-              // TODO: Update the link href
-              link: (chunks) => <Anchor href="#">{chunks}</Anchor>,
+              link: (chunks) => (
+                <Anchor href="/projects/skills">{chunks}</Anchor>
+              ),
             }}
           />
         ),
@@ -48,8 +49,7 @@ export default function ProjectsMarketingFeaturesRow() {
             id="ES78kz"
             values={{
               link: (chunks) => (
-                // TODO: Update the link href
-                <Anchor href="#">{chunks}</Anchor>
+                <Anchor href="/projects/tracks">{chunks}</Anchor>
               ),
             }}
           />
@@ -65,8 +65,7 @@ export default function ProjectsMarketingFeaturesRow() {
             id="4uyrtd"
             values={{
               link: (chunks) => (
-                // TODO: Update the link href
-                <Anchor href="#">{chunks}</Anchor>
+                <Anchor href="/projects/submissions">{chunks}</Anchor>
               ),
             }}
           />

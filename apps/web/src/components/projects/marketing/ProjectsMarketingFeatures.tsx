@@ -1,4 +1,3 @@
-// TODO: Remove unused
 import clsx from 'clsx';
 import { FormattedMessage, useIntl } from 'react-intl';
 
