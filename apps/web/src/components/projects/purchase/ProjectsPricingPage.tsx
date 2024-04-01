@@ -3,6 +3,9 @@
 import clsx from 'clsx';
 import { FormattedMessage } from 'react-intl';
 
+import Section from '~/components/ui/Heading/HeadingContext';
+
+import ProjectsPricingFAQSection from './ProjectsPricingFAQSection';
 import type { ProjectsPricingPlanPaymentConfigLocalizedRecord } from './ProjectsPricingPlans';
 import ProjectsPricingPromotions from './ProjectsPricingPromotions';
 import ProjectsPricingSection from './ProjectsPricingSection';
@@ -43,8 +46,10 @@ export default function ProjectsPricingPage({
           useCurrentPageAsCancelUrl={true}
         />
         <ProjectsPricingPromotions />
+        <Section>
+          <ProjectsPricingFAQSection />
+        </Section>
       </div>
-      {/* TODO(projects): Add FAQ section: <Section></Section> */}
     </div>
   );
 }

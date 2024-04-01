@@ -363,6 +363,10 @@
     "defaultMessage": "Tech stack",
     "description": "Section title for tech stack"
   },
+  "11Z2Fw": {
+    "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
+    "description": "Subtitle of projects pricing's FAQ section"
+  },
   "15O0qb": {
     "defaultMessage": "Get Started",
     "description": "Link to get started page"
@@ -1311,6 +1315,10 @@
     "defaultMessage": "Set new profile photo",
     "description": "Label for new profile photo button"
   },
+  "9dlNpY": {
+    "defaultMessage": "We currently offer student discounts at up to 40% off plans if you sign in / up with your .edu student email account. Alumni are excluded from this discount. Please read more at our Student Discount Terms and Conditions.",
+    "description": "Answer on projects pricing's FAQ section - student discounts"
+  },
   "9fclPT": {
     "defaultMessage": "Practice writing JavaScript and DOM API Polyfills",
     "description": "Title for interview preparation focus area"
@@ -1434,6 +1442,10 @@
   "AmBMf9": {
     "defaultMessage": "No questions",
     "description": "Title for empty state when application of filters return no results"
+  },
+  "AwOPCW": {
+    "defaultMessage": "Do you offer refunds?",
+    "description": "Question on projects pricing's FAQ section - offer refunds"
   },
   "AzJz7v": {
     "defaultMessage": "Menu",
@@ -1762,6 +1774,10 @@
   "DTIb2e": {
     "defaultMessage": "Pagination",
     "description": "Pagination label"
+  },
+  "Db9ssR": {
+    "defaultMessage": "Does the subscription auto-renew?",
+    "description": "Question on projects pricing's FAQ section - auto renew"
   },
   "DbEF7d": {
     "defaultMessage": "Master the art of building interactive and user-friendly forms.",
@@ -2379,6 +2395,10 @@
     "defaultMessage": "Preparation Plans",
     "description": "Preparation plans section title"
   },
+  "JE/F6W": {
+    "defaultMessage": "Yes, rest assured that unused credits will roll over to the next month or year and never expire.",
+    "description": "Answer on projects pricing's FAQ section - unused credits"
+  },
   "JIWdeN": {
     "defaultMessage": "Continue tracks and skills",
     "description": "Title for Continue tracks and skills section on Projects dashboard page"
@@ -2663,6 +2683,10 @@
     "defaultMessage": "{trackName} track | GreatFrontEnd Projects - Real-world project challenges",
     "description": "Title of Projects component track page"
   },
+  "LLXnUM": {
+    "defaultMessage": "Yes, our subscription auto-renews at the end of each billing period. An email reminder will be sent a few days before that - so you can cancel it if you wish from the Billing tab of the Settings page.",
+    "description": "Answer on projects pricing's FAQ section - auto renew"
+  },
   "LNBK2M": {
     "defaultMessage": "Our services are unavailable at your location.",
     "description": "Message explaining that the website does not transact with the user's location."
@@ -2826,6 +2850,10 @@
   "MOxuKN": {
     "defaultMessage": "Select question category",
     "description": "Tab label to select another question category"
+  },
+  "MVgsuv": {
+    "defaultMessage": "We provide a refund policy based on the principle of \"fair use\" during the initial 14-day period of your first subscription. The concept of fair use implies that if you download a couple of premium assets such as designs or premium challenges and realize that our service isn't suitable for you, we are more than happy to process a refund. However, if you download three or more premium assets and then request a refund, we retain the right to decline your request. To initiate a refund, please send an email to <link>projects@greatfrontend.com</link> within 14 days of commencing your subscription.",
+    "description": "Answer on projects pricing's FAQ section - offer refunds"
   },
   "MWe9uf": {
     "defaultMessage": "Tips for answering questions on your motivation to join the role",
@@ -3134,6 +3162,10 @@
   "P/M97j": {
     "defaultMessage": "Go to Stripe",
     "description": "Label for CTA for stripe"
+  },
+  "P/kxU9": {
+    "defaultMessage": "You can easily cancel your subscription at any time in the Billing tab of the Settings page. The current subscription will only end at the end of the current billing period (not immediately!).",
+    "description": "Answer on projects pricing's FAQ section - cancel subscription"
   },
   "P2baTC": {
     "defaultMessage": "Coding Format",
@@ -4014,6 +4046,10 @@
   "Vp6BGE": {
     "defaultMessage": "At least {minLength} character(s).",
     "description": "Error message"
+  },
+  "VrTcVl": {
+    "defaultMessage": "Are there student discounts available?",
+    "description": "Question on projects pricing's FAQ section - student discounts"
   },
   "Vtp5JU": {
     "defaultMessage": "A long time ago",
@@ -5307,6 +5343,10 @@
     "defaultMessage": "Premium Question",
     "description": "Title on question paywall displayed on premium question's pages"
   },
+  "gdu/01": {
+    "defaultMessage": "Can I cancel my subscription any time?",
+    "description": "Question on projects pricing's FAQ section - cancel subscription"
+  },
   "ghmPBf": {
     "defaultMessage": "Solved previously, mark as completed",
     "description": "Label for questions solved in the past"
@@ -5502,6 +5542,10 @@
   "imHjx3": {
     "defaultMessage": "Tip",
     "description": "Tip badge label for Deployment step in project submission checklist"
+  },
+  "inG9hv": {
+    "defaultMessage": "Do unused credits roll over?",
+    "description": "Question on projects pricing's FAQ section - unused credits"
   },
   "iq1rXh": {
     "defaultMessage": "Settings",
@@ -6127,6 +6171,10 @@
     "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
     "description": "Larry Almeida's testimonial"
   },
+  "nL4iPh": {
+    "defaultMessage": "We offer bulk discounts at attractive rates for group trainings. Please send an email to <link>institutions@greatfrontend.com</link> with your company email and address, and we would be happy to assist.",
+    "description": "Answer on projects pricing's FAQ section - institutions and organizations discounts"
+  },
   "nNCpzS": {
     "defaultMessage": "Basic details",
     "description": "Section title for user onboarding form"
@@ -6534,6 +6582,10 @@
   "qMWBqm": {
     "defaultMessage": "Easy code reviews",
     "description": "Title for \"Easy code reviews\" feature on Projects home page"
+  },
+  "qNqNCX": {
+    "defaultMessage": "Are there discounts available for institutions and organizations?",
+    "description": "Question on projects pricing's FAQ section - institutions and organizations discounts"
   },
   "qR0ILp": {
     "defaultMessage": "Assets",
