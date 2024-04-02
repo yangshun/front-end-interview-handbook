@@ -91,6 +91,7 @@ export async function fetchProjectsSkillsRoadmapSectionData(
         items,
         key: groupItem.key,
         points: totalReputation,
+        premium: groupItem.premium,
         tagClassname: groupItem.tagClassname,
         totalChallenges,
       };

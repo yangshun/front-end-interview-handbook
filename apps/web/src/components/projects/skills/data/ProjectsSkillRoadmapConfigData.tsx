@@ -7,6 +7,7 @@ export const skillsRoadmapConfig = [
 
         items: ['html-basics', 'html-semantics', 'html-forms', 'html-a11y'],
         key: 'html',
+        premium: false,
         tagClassname:
           'bg-orange-600 text-white dark:bg-neutral-700 dark:text-orange-600',
       },
@@ -20,6 +21,7 @@ export const skillsRoadmapConfig = [
           'javascript-web-storage',
         ],
         key: 'javascript',
+        premium: false,
         tagClassname:
           'bg-yellow-500 text-black dark:bg-neutral-700 dark:text-yellow-500',
       },
@@ -29,6 +31,7 @@ export const skillsRoadmapConfig = [
 
         items: ['css-layout', 'css-flex', 'css-grid'],
         key: 'css',
+        premium: false,
         tagClassname:
           'bg-sky-500 text-white dark:bg-neutral-700 dark:text-sky-500',
       },
@@ -40,22 +43,24 @@ export const skillsRoadmapConfig = [
       {
         description:
           "Is a collection of software tools that automates the process of installing, upgrading, configuring, and removing software packages for a computer's operating system in a consistent manner.",
-
         items: ['npm', 'yarn', 'pnpm'],
+
         key: 'package-managers',
+        premium: true,
         tagClassname: 'bg-red text-white dark:bg-neutral-700 dark:text-red',
       },
       {
         description:
           'Cascading Style Sheets is a style sheet language used for specifying the presentation and styling of a document written in a markup language such as HTML or XML.',
-
         items: [
           'css-preprocessors',
           'css-architecture',
           'css-modern',
           'css-frameworks',
         ],
+
         key: 'css-advanced',
+        premium: true,
         tagClassname:
           'bg-green-dark text-white dark:bg-neutral-700 dark:text-green',
       },

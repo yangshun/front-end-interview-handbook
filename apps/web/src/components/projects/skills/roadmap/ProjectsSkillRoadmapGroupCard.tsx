@@ -20,6 +20,7 @@ import type { ProjectsSkillRoadmapSectionGroup } from '../types';
 
 type Props = Readonly<{
   group: ProjectsSkillRoadmapSectionGroup;
+  isViewerPremium: boolean;
   isViewingOwnProfile?: boolean;
   userProfile: React.ComponentProps<
     typeof ProjectsSkillRoadmapItemRow
@@ -47,8 +48,9 @@ function SkillItemDiamond() {
 }
 
 export default function ProjectsSkillRoadmapGroupCard({
-  isViewingOwnProfile,
   group,
+  isViewerPremium,
+  isViewingOwnProfile,
   userProfile,
 }: Props) {
   const [isExpanded, setIsExpanded] = useState(
@@ -102,7 +104,10 @@ export default function ProjectsSkillRoadmapGroupCard({
               <Icon className="size-4" />
             </div>
           </div>
-          <ProjectsSkillRoadmapGroupHeading group={group} />
+          <ProjectsSkillRoadmapGroupHeading
+            group={group}
+            isViewerPremium={isViewerPremium}
+          />
         </div>
         {isExpanded && (
           <div className="ml-[6px] flex flex-col gap-2">
@@ -115,7 +120,9 @@ export default function ProjectsSkillRoadmapGroupCard({
                   <SkillItemDiamond />
                 </div>
                 <ProjectsSkillRoadmapItemRow
+                  isViewerPremium={isViewerPremium}
                   isViewingOwnProfile={isViewingOwnProfile}
+                  premium={group.premium}
                   skillSummary={skillSummary}
                   userProfile={userProfile}
                 />

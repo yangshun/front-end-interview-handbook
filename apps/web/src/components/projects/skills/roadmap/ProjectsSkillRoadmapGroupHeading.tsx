@@ -7,24 +7,35 @@ import Text from '~/components/ui/Text';
 
 import type { ProjectsSkillRoadmapSectionGroup } from '../types';
 import ProjectsChallengeProgressTag from '../../challenges/metadata/ProjectsChallengeProgressTag';
+import ProjectsPremiumBadge from '../../common/ProjectsPremiumBadge';
 
 type Props = Readonly<{
   group: ProjectsSkillRoadmapSectionGroup;
+  isViewerPremium: boolean;
 }>;
 
-export default function ProjectsSkillRoadmapGroupHeading({ group }: Props) {
+export default function ProjectsSkillRoadmapGroupHeading({
+  group,
+  isViewerPremium,
+}: Props) {
   const intl = useIntl();
 
-  const { description, points, totalChallenges, completedChallenges } = group;
+  const { description, points, premium, totalChallenges, completedChallenges } =
+    group;
   const completedAll =
     totalChallenges === completedChallenges && completedChallenges > 0;
 
   return (
     <div className="flex w-full flex-col gap-2">
       <div className="flex flex-row flex-wrap justify-between gap-2">
-        <Text size="body1" weight="medium">
-          {group.key}
-        </Text>
+        <div className="flex items-center gap-3">
+          <Text size="body1" weight="medium">
+            {group.key}
+          </Text>
+          {premium && (
+            <ProjectsPremiumBadge size="sm" unlocked={isViewerPremium} />
+          )}
+        </div>
         {completedAll ? (
           <ProjectsStatusBadgeCompleted entity="skill" />
         ) : (

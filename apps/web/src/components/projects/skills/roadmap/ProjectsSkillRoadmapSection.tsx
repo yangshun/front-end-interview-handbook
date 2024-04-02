@@ -4,6 +4,7 @@ import Text from '~/components/ui/Text';
 import type { ProjectsSkillRoadmapSectionData } from '../types';
 
 type Props = Readonly<{
+  isViewerPremium: boolean;
   isViewingOwnProfile?: boolean;
   skillsRoadmap: ProjectsSkillRoadmapSectionData;
   userProfile: React.ComponentProps<
@@ -12,6 +13,7 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsSkillRoadmapSection({
+  isViewerPremium,
   isViewingOwnProfile,
   skillsRoadmap,
   userProfile,
@@ -28,6 +30,7 @@ export default function ProjectsSkillRoadmapSection({
               <ProjectsSkillRoadmapGroupCard
                 key={group.key}
                 group={group}
+                isViewerPremium={isViewerPremium}
                 isViewingOwnProfile={isViewingOwnProfile}
                 userProfile={userProfile}
               />

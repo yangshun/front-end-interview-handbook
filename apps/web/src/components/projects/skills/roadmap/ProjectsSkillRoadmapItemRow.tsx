@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { RiArrowRightLine } from 'react-icons/ri';
+import { RiArrowRightLine, RiLockLine, RiLockUnlockLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
@@ -10,6 +10,7 @@ import {
   themeBorderElementColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
+  themeTextBrandColor,
   themeTextBrandColor_GroupHover,
   themeTextSubtleColor,
 } from '~/components/ui/theme';
@@ -20,7 +21,9 @@ import ProjectsChallengeProgressTag from '../../challenges/metadata/ProjectsChal
 import ProjectsProfileAvatarWithStatus from '../../users/ProjectsProfileAvatarWithStatus';
 
 type Props = Readonly<{
+  isViewerPremium: boolean;
   isViewingOwnProfile?: boolean;
+  premium: boolean;
   skillSummary: ProjectsSkillSummaryItem;
   userProfile: React.ComponentProps<
     typeof ProjectsProfileAvatarWithStatus
@@ -29,6 +32,8 @@ type Props = Readonly<{
 
 export default function ProjectsSkillRoadmapItemRow({
   isViewingOwnProfile,
+  isViewerPremium,
+  premium,
   skillSummary,
   userProfile,
 }: Props) {
@@ -52,7 +57,28 @@ export default function ProjectsSkillRoadmapItemRow({
         ],
       )}>
       <div className="flex w-full flex-col gap-1 md:flex-row md:items-center md:gap-4">
-        <div className="flex-1">
+        <div className="flex flex-1 items-center gap-2">
+          {premium &&
+            (isViewerPremium ? (
+              <RiLockUnlockLine
+                aria-label={intl.formatMessage({
+                  defaultMessage: 'Premium challenge that is unlocked',
+                  description: 'Label for projects premium challenge',
+                  id: '0izE97',
+                })}
+                className={clsx('size-4 shrink-0', themeTextBrandColor)}
+              />
+            ) : (
+              <RiLockLine
+                aria-hidden={true}
+                aria-label={intl.formatMessage({
+                  defaultMessage: 'Premium challenge that is locked',
+                  description: 'Label for projects premium challenge',
+                  id: 'tGFT2g',
+                })}
+                className={clsx('size-4 shrink-0', themeTextBrandColor)}
+              />
+            ))}
           {isViewingOwnProfile ? (
             <Anchor
               className="relative z-[1]"

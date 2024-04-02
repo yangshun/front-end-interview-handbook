@@ -34,6 +34,7 @@ export type ProjectsSkillRoadmapSectionGroup = Readonly<{
   items: ReadonlyArray<ProjectsSkillSummaryItem>;
   key: ProjectsSkillGroupType;
   points: number;
+  premium: boolean;
   tagClassname: string;
   totalChallenges: number;
 }>;

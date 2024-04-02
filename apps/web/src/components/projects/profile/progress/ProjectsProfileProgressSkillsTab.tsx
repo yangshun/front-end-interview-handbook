@@ -5,6 +5,7 @@ import ProjectsSkillRoadmapSection from '~/components/projects/skills/roadmap/Pr
 import type { ProjectsSkillRoadmapSectionData } from '../../skills/types';
 
 type Props = Readonly<{
+  isViewerPremium: boolean;
   isViewingOwnProfile?: boolean;
   skillsRoadmap: ProjectsSkillRoadmapSectionData;
   userProfile: React.ComponentProps<
@@ -13,12 +14,14 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsProfileProgressSkillsTab({
+  isViewerPremium,
   isViewingOwnProfile,
   skillsRoadmap,
   userProfile,
 }: Props) {
   return (
     <ProjectsSkillRoadmapSection
+      isViewerPremium={isViewerPremium}
       isViewingOwnProfile={isViewingOwnProfile}
       skillsRoadmap={skillsRoadmap}
       userProfile={userProfile}

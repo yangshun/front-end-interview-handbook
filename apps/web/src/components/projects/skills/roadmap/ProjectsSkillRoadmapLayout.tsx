@@ -19,6 +19,7 @@ import type { ProjectsSkillRoadmapSectionData } from '../types';
 
 type Props = Readonly<{
   children: ReactNode;
+  isViewerPremium: boolean;
   skillsRoadmap: ProjectsSkillRoadmapSectionData;
   userProfile: React.ComponentProps<
     typeof ProjectsSkillRoadmapSection
@@ -27,6 +28,7 @@ type Props = Readonly<{
 
 export default function ProjectsSkillRoadmapLayout({
   children,
+  isViewerPremium,
   skillsRoadmap,
   userProfile,
 }: Props) {
@@ -55,6 +57,7 @@ export default function ProjectsSkillRoadmapLayout({
       </div>
       <Section>
         <ProjectsSkillRoadmapSection
+          isViewerPremium={isViewerPremium}
           isViewingOwnProfile={true}
           skillsRoadmap={skillsRoadmap}
           userProfile={userProfile}
