@@ -1,5 +1,5 @@
-export default function union(...arrays: Array<Array<number>>): Array<number> {
-  const result = new Set<number>();
+export default function union<T>(...arrays: Array<Array<T>>): Array<T> {
+  const result = new Set<T>();
 
   arrays.forEach((array) => {
     array.forEach((item) => {

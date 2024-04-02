@@ -5,20 +5,32 @@ excerpt: Implement a function that creates an array of unique values, in order, 
 
 Implement a function `union(array)` that creates an array of unique values, in order, from all given arrays.
 
+```js
+union(arrays);
+```
+
 ## Arguments
 
 1. `[arrays]` _(...Array)_: The arrays to inspect
 
 ## Returns
 
-_(Array)_: Returns the new array of combined values.
+_`(Array)`_: Returns the new array of combined values.
 
 ## Examples
 
 ```js
 union([4, 2, 8, 6]); // => [4, 2, 8, 6]
+
 union([2], [1, 2]); // => [2, 1]
+
 union([1, 2, 2]); // => [1, 2]
+```
+
+The function should return an empty array if `array` is empty.
+
+```js
+unionBy([]); // => []
 ```
 
 ## Resources

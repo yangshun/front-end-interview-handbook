@@ -7,11 +7,15 @@ import unionSetTS from '../setup/src/union-set.ts';
 
 ## Solution
 
+### Solution 1: Using `array` to store the union values
+
 This solution iterates through all the array elements, checks if there is any same value in `result` and push if there isn't.
 
 <MDXCodeBlock languages={{ jsx: unionJs, tsx: unionTS }} />
 
-Another solution will be using a set instead of array for `result` as sets automatically ensures uniqueness.
+### Solution 2: Use `Set` instead of array
+
+Another solution will be using a set instead of array for `result` as sets can check for existence of items efficiently.
 
 <MDXCodeBlock languages={{ jsx: unionSetJs, tsx: unionSetTS }} />
 

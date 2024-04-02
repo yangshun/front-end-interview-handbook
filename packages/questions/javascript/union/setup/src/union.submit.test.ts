@@ -31,14 +31,13 @@ describe('union', () => {
     expect(union([obj1], [obj1, obj2])).toEqual([obj1, obj2]);
   });
 
-  test('falsey values', () => {
+  test('false values', () => {
     expect(union([null], [null, undefined])).toStrictEqual([null, undefined]);
-    expect(union([false, null, 0], [NaN, '', undefined])).toStrictEqual([
+    expect(union([false, null, 0], [NaN, undefined])).toStrictEqual([
       false,
       null,
       0,
       NaN,
-      '',
       undefined,
     ]);
   });

@@ -1,3 +1,3 @@
-export default function union(...arrays: Array<any>): Array<any> {
+export default function union<T>(...arrays: Array<Array<T>>): Array<T> {
   throw 'Not implemented!';
 }
