@@ -14,6 +14,7 @@ import Text, { textVariants } from '~/components/ui/Text';
 import { useI18nRouter } from '~/next-i18nostic/src';
 
 import { projectsSkillLabel } from '../data/ProjectsSkillListData';
+import { projectsSkillDetermineGroup } from '../data/ProjectsSkillUtils';
 import type { ProjectsSkillRoadmapSectionData } from '../types';
 
 type Props = Readonly<{
@@ -69,15 +70,26 @@ export default function ProjectsSkillRoadmapLayout({
                 size: 'body1',
                 weight: 'bold',
               })}>
-              {/* TODO(projects): remove hardcoding */}
-              <Text color="subtle">HTML</Text>
-              <RiArrowRightSLine
-                aria-hidden={true}
-                className={textVariants({
-                  className: 'size-6 shrink-0',
-                  color: 'secondary',
-                })}
-              />
+              {(() => {
+                const skillGroup = projectsSkillDetermineGroup(segment!);
+
+                if (skillGroup == null) {
+                  return null;
+                }
+
+                return (
+                  <>
+                    <Text color="subtle">{projectsSkillLabel(skillGroup)}</Text>
+                    <RiArrowRightSLine
+                      aria-hidden={true}
+                      className={textVariants({
+                        className: 'size-6 shrink-0',
+                        color: 'secondary',
+                      })}
+                    />
+                  </>
+                );
+              })()}
               <Text color="default">{projectsSkillLabel(segment!)}</Text>
             </div>
           }
