@@ -62,7 +62,7 @@ export async function projectsReputationSubmissionRoadmapSkillConfig(
   const { challengeMetadata } =
     await readProjectsChallengeMetadata(challengeSlug);
   const { pointsForSkillGroups } = challengeMetadata;
-  const skillGroup = projectsSkillDetermineGroup(skillKey);
+  const skillGroup = projectsSkillDetermineGroup(skillKey)?.key;
   const points = pointsForSkillGroups[skillGroup || ''] ?? DEFAULT_SKILL_POINTS;
 
   return {

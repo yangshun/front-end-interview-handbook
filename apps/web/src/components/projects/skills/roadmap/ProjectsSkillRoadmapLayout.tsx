@@ -76,13 +76,15 @@ export default function ProjectsSkillRoadmapLayout({
               {(() => {
                 const skillGroup = projectsSkillDetermineGroup(segment!);
 
-                if (skillGroup == null) {
+                if (skillGroup?.key == null) {
                   return null;
                 }
 
                 return (
                   <>
-                    <Text color="subtle">{projectsSkillLabel(skillGroup)}</Text>
+                    <Text color="subtle">
+                      {projectsSkillLabel(skillGroup.key)}
+                    </Text>
                     <RiArrowRightSLine
                       aria-hidden={true}
                       className={textVariants({

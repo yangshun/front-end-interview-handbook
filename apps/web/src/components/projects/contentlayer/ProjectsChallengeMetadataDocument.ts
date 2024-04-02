@@ -64,7 +64,7 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
             (doc.skills as Readonly<{ _array: Array<string> }>)._array,
             (skill) =>
               doc.pointsForSkillGroups[
-                projectsSkillDetermineGroup(skill) ?? ''
+                projectsSkillDetermineGroup(skill)?.key ?? ''
               ] ?? 0,
           )
         );
