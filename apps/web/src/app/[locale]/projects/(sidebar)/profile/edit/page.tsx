@@ -66,7 +66,7 @@ export default async function Page() {
 
   const { projectsProfile } = viewerProfile;
 
-  // If no projects profile
+  // If no user profile, which is impossible.
   if (projectsProfile == null) {
     return redirect(`/projects/onboarding`);
   }
