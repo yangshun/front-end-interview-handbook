@@ -2,7 +2,12 @@
 
 import clsx from 'clsx';
 import { useRef } from 'react';
-import { RiPlayLine } from 'react-icons/ri';
+import {
+  RiLogoutBoxLine,
+  RiPlayLine,
+  RiUserLine,
+  RiWallet3Line,
+} from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
@@ -573,6 +578,7 @@ function useUserNavigationLinks() {
   const userNavigation: ReadonlyArray<NavLinkItem> = [
     {
       href: '/profile',
+      icon: RiUserLine,
       itemKey: 'profile',
       label: intl.formatMessage({
         defaultMessage: 'Profile',
@@ -589,7 +595,26 @@ function useUserNavigationLinks() {
       type: 'link',
     },
     {
+      href: '/profile/billing',
+      icon: RiWallet3Line,
+      itemKey: 'settings',
+      label: intl.formatMessage({
+        defaultMessage: 'Billing',
+        description: 'Link label to the billing page',
+        id: '45Wusd',
+      }),
+      onClick: () => {
+        gtag.event({
+          action: `nav.billing.click`,
+          category: 'engagement',
+          label: 'Billing',
+        });
+      },
+      type: 'link',
+    },
+    {
       href: logoutHref(),
+      icon: RiLogoutBoxLine,
       itemKey: 'logout',
       label: logoutLabel,
       onClick: () => {
