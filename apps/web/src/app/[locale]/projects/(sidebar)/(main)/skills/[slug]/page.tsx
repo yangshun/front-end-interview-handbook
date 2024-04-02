@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 import { projectsSkillLabel } from '~/components/projects/skills/data/ProjectsSkillListData';
 import { readProjectsSkillMetadata } from '~/components/projects/skills/data/ProjectsSkillReader';
 import ProjectsSkillRoadmapItemDetails from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItemDetails';
+import ProjectsSkillRoadmapItemLockedPage from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItemLockedPage';
+import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -50,10 +53,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale, slug } = params;
 
-  const [viewer, { skillMetadata }] = await Promise.all([
-    readViewerFromToken(),
+  const viewer = await readViewerFromToken();
+  const [{ viewerProjectsProfile }, { skillMetadata }] = await Promise.all([
+    readViewerProjectsProfile(viewer),
     readProjectsSkillMetadata(slug, locale),
   ]);
+
+  if (skillMetadata == null) {
+    // TODO(projects): add custom not found page for projects.
+    notFound();
+  }
+
+  if (skillMetadata.premium && !viewerProjectsProfile?.premium) {
+    return <ProjectsSkillRoadmapItemLockedPage skillMetadata={skillMetadata} />;
+  }
 
   return (
     <ProjectsSkillRoadmapItemDetails

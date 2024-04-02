@@ -331,6 +331,10 @@
     "defaultMessage": "Search Angular questions",
     "description": "Placeholder for search input of Angular question list"
   },
+  "0izE97": {
+    "defaultMessage": "Premium challenge that is unlocked",
+    "description": "Label for projects premium challenge"
+  },
   "0mKzkX": {
     "defaultMessage": "Practice questions by framework or language",
     "description": "Title for question framework category links in navbar"
@@ -2866,6 +2870,10 @@
   "MYi0uz": {
     "defaultMessage": "Previous",
     "description": "Button to go back to the previous page"
+  },
+  "MYlNB6": {
+    "defaultMessage": "Premium skill",
+    "description": "Premium projects skill roadmap item"
   },
   "MZyEk9": {
     "defaultMessage": "Only foundational skills",
@@ -6903,6 +6911,10 @@
     "defaultMessage": "Track your personal milestones, view achievement stats, and see all your project and community activities in one place.",
     "description": "Description of Projects Dashboard page"
   },
+  "tGFT2g": {
+    "defaultMessage": "Premium challenge that is locked",
+    "description": "Label for projects premium challenge"
+  },
   "tJexBp": {
     "defaultMessage": "Practical guides",
     "description": "Title of 'Practical guides' sub-feature in Projects marketing page"
@@ -7182,6 +7194,10 @@
   "vLdUUt": {
     "defaultMessage": "View other's code and learn from their approach",
     "description": "Description for recommended action for new projects platform user"
+  },
+  "vNvx2g": {
+    "defaultMessage": "Purchase premium to get access to all skill plans as well as exclusive component tracks, official how-to guides and production-ready Figma files.",
+    "description": "Subtitle for premium projects skill roadmap"
   },
   "vSWYET": {
     "defaultMessage": "Save changes",

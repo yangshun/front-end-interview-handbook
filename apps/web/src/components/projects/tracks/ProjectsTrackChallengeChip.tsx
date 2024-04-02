@@ -19,7 +19,7 @@ export default function ProjectsTrackChallengeChip({
   userProfile,
 }: Props) {
   return userProfile == null || status == null ? (
-    <div className={clsx('flex items-center', 'h-6')}>
+    <div className={clsx('flex items-center')}>
       <ProjectsChallengeStatusChip
         label={index}
         status={status ?? 'NOT_STARTED'}

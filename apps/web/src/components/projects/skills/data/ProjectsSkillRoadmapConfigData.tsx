@@ -31,7 +31,7 @@ export const skillsRoadmapConfig = [
 
         items: ['css-layout', 'css-flex', 'css-grid'],
         key: 'css',
-        premium: false,
+        premium: true,
         tagClassname:
           'bg-sky-500 text-white dark:bg-neutral-700 dark:text-sky-500',
       },
