@@ -2,6 +2,12 @@
 
 import clsx from 'clsx';
 import { useRef } from 'react';
+import {
+  RiLogoutBoxLine,
+  RiSettings3Line,
+  RiUserLine,
+  RiWallet3Line,
+} from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
@@ -161,6 +167,7 @@ function useUserNavigationLinks() {
   const userNavigation: ReadonlyArray<NavLinkItem> = [
     {
       href: '/projects/profile',
+      icon: RiUserLine,
       itemKey: 'profile',
       label: intl.formatMessage({
         defaultMessage: 'Profile',
@@ -177,7 +184,44 @@ function useUserNavigationLinks() {
       type: 'link',
     },
     {
+      href: '/projects/settings',
+      icon: RiSettings3Line,
+      itemKey: 'settings',
+      label: intl.formatMessage({
+        defaultMessage: 'Settings',
+        description: 'Link label to the settings page',
+        id: 'kS8Lwx',
+      }),
+      onClick: () => {
+        gtag.event({
+          action: `nav.settings.click`,
+          category: 'engagement',
+          label: 'Settings',
+        });
+      },
+      type: 'link',
+    },
+    {
+      href: '/projects/settings/billing',
+      icon: RiWallet3Line,
+      itemKey: 'settings',
+      label: intl.formatMessage({
+        defaultMessage: 'Billing',
+        description: 'Link label to the billing page',
+        id: '45Wusd',
+      }),
+      onClick: () => {
+        gtag.event({
+          action: `nav.billing.click`,
+          category: 'engagement',
+          label: 'Billing',
+        });
+      },
+      type: 'link',
+    },
+    {
       href: logoutHref(),
+      icon: RiLogoutBoxLine,
       itemKey: 'logout',
       label: logoutLabel,
       onClick: () => {

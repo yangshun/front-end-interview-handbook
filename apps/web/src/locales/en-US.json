@@ -679,6 +679,10 @@
     "defaultMessage": "GreatFrontEnd uses Monaco Editor, the same code editor used in Visual Studio Code (VS Code). Most editor shortcuts in VS Code should work here as well. Here's a list of common shortcuts for your reference:",
     "description": "Description within code editor shortcuts"
   },
+  "45Wusd": {
+    "defaultMessage": "Billing",
+    "description": "Link label to the billing page"
+  },
   "47LloU": {
     "defaultMessage": "Enjoy {discountPercentage}% off all plans by <follow>following us on social media</follow>. Check out other <promotion>promotions</promotion>!",
     "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
@@ -5862,6 +5866,10 @@
   "kQgKV1": {
     "defaultMessage": "Learning progress cleared",
     "description": "Success message for clearing study plan progress"
+  },
+  "kS8Lwx": {
+    "defaultMessage": "Settings",
+    "description": "Link label to the settings page"
   },
   "kTyRGU": {
     "defaultMessage": "Step 3",
