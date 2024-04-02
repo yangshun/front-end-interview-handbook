@@ -1,7 +1,7 @@
 import GlobalBanner from '~/components/global/banners/GlobalBanner';
 import FeedbackWidget from '~/components/global/feedback/FeedbackWidget';
-import InterviewsNavbar from '~/components/interviews/common/InterviewsNavbar';
 import FooterProjects from '~/components/projects/common/layout/ProjectsFooter';
+import ProjectsNavbarMarketing from '~/components/projects/common/layout/ProjectsNavbarMarketing';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 type Props = Readonly<{
@@ -14,7 +14,7 @@ export default function ProjectsMarketingLayout({ children }: Props) {
       <FeedbackWidget position="end" />
       <GlobalBanner />
       <div className="flex min-h-screen flex-col">
-        <InterviewsNavbar />
+        <ProjectsNavbarMarketing />
         <div className="grow">{children}</div>
         <Section>
           <FooterProjects />

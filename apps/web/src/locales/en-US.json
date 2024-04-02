@@ -319,6 +319,10 @@
     "defaultMessage": "Take care not to upload any premium Figma or guide files. Doing so will cause an immediate membership termination. <link>View terms</link>",
     "description": "Warning message for GitHub repo step in project submission checklist"
   },
+  "0dpOm/": {
+    "defaultMessage": "Get full access",
+    "description": "Get full access button on the top right corner of the navigation bar to allow users to start evaluating plans and make a purchase"
+  },
   "0gmEji": {
     "defaultMessage": "Browse series",
     "description": "Browse series section title in blog homepage"
@@ -683,6 +687,10 @@
     "defaultMessage": "Edit profile photo",
     "description": "Label for edit profile photo button on projects profile"
   },
+  "4B5GBU": {
+    "defaultMessage": "Get full access",
+    "description": "Get full access button label"
+  },
   "4BBxZ1": {
     "defaultMessage": "Start project",
     "description": "Label for Start Project button on Projects project assets page"
@@ -859,10 +867,6 @@
     "defaultMessage": "Start project",
     "description": "Label for \"Start project\" button on Projects project page"
   },
-  "641P5n": {
-    "defaultMessage": "Sign Out",
-    "description": "Link label to the sign out page"
-  },
   "64hnWF": {
     "defaultMessage": "Add another URL",
     "description": "Button label to add another URL to a project submission"
@@ -1027,10 +1031,6 @@
     "defaultMessage": "Start coding!",
     "description": "Label for \"Start coding!\" step in dialog on Projects project page"
   },
-  "7P0wF0": {
-    "defaultMessage": "Get Full Access",
-    "description": "Get full access button label"
-  },
   "7Po5ci": {
     "defaultMessage": "Know your fundamentals",
     "description": "Label for an example list of Quiz Questions on marketing pages"
@@ -1138,6 +1138,10 @@
   "87c2KI": {
     "defaultMessage": "Created: Newest to oldest",
     "description": "Sorting option for discussions comment - sort by created"
+  },
+  "8K48rR": {
+    "defaultMessage": "Features",
+    "description": "Link to features section"
   },
   "8KFYWs": {
     "defaultMessage": "Intro to Quiz Questions",
@@ -1482,6 +1486,10 @@
   "BDGx19": {
     "defaultMessage": "Verifying",
     "description": "Label for button"
+  },
+  "BDbpLJ": {
+    "defaultMessage": "Sign out",
+    "description": "Link label to the sign out page"
   },
   "BGn++d": {
     "defaultMessage": "Quiz Questions",
@@ -2246,6 +2254,10 @@
   "Hfco/k": {
     "defaultMessage": "Pricing | GreatFrontEnd Projects - Real-world project challenges",
     "description": "Title of Pricing page"
+  },
+  "Hh2IoR": {
+    "defaultMessage": "Sign in / up",
+    "description": "Link label to the sign in / up page"
   },
   "Hj6BTz": {
     "defaultMessage": "An error has occurred. Please try again later and contact support if the error persists.",
@@ -3159,10 +3171,6 @@
     "defaultMessage": "Marked question as completed",
     "description": "Success message shown when a question was marked as complete"
   },
-  "OugnPX": {
-    "defaultMessage": "Get Full Access",
-    "description": "Link label to the pricing page"
-  },
   "OumyBP": {
     "defaultMessage": "Showcase your knowledge of web accessibility in front end interviews",
     "description": "Title for interview preparation focus area"
@@ -3222,10 +3230,6 @@
   "PDz3Oi": {
     "defaultMessage": "Free project challenges",
     "description": "Label for free challenges feature"
-  },
-  "PFRVpF": {
-    "defaultMessage": "Get Full Access",
-    "description": "Get full access button on the top right corner of the navigation bar to allow users to start evaluating plans and make a purchase"
   },
   "PGFsFr": {
     "defaultMessage": "3 Months Plan",
@@ -5531,6 +5535,10 @@
     "defaultMessage": "What's new",
     "description": "Sidebar label for What's New"
   },
+  "iFI7xH": {
+    "defaultMessage": "Challenges",
+    "description": "Link to challenges section"
+  },
   "iHLvVo": {
     "defaultMessage": "Find official guides, reference code from top submissions, and use our discussion forum to ask questions.",
     "description": "Description for Important Info Guide section on Before You Get Started dialog"
@@ -6027,6 +6035,10 @@
     "defaultMessage": "Spread the word and get rewarded",
     "description": "Title of the Hero section of the 'Become An Affiliate' page"
   },
+  "lhtwHD": {
+    "defaultMessage": "Get full access",
+    "description": "Link label to the pricing page"
+  },
   "lmBDjV": {
     "defaultMessage": "Quiz Questions",
     "description": "Header for quiz questions"
@@ -6331,6 +6343,10 @@
     "defaultMessage": "Software Engineer",
     "description": "Gouse Basha's job title"
   },
+  "ocv3nH": {
+    "defaultMessage": "Submissions",
+    "description": "Link to projects submissions page"
+  },
   "ofFMGr": {
     "defaultMessage": "Check out other available <link>promotions</link>.",
     "description": "Promotional message"
@@ -6566,10 +6582,6 @@
   "q2NV/N": {
     "defaultMessage": "Must have completed at least {quantity} coding or system design questions (to ensure sufficient experience before reviewing).",
     "description": "Condition for promotion"
-  },
-  "q3MA2w": {
-    "defaultMessage": "Sign In / Up",
-    "description": "Link label to the sign in / up page"
   },
   "q4xRCW": {
     "defaultMessage": "Amazing to see such a comprehensive resource for front end dev interviews. Coming from a more traditional backend role I found this website to be a treasure trove of knowledge and it really takes you from a beginner to advanced level.",

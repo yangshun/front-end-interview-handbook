@@ -11,10 +11,7 @@ function useFooterNavigation() {
   const navigation: FooterNavigation = [
     {
       key: 'main',
-      // For Beginners
-      // For Experienced
-      // For Portfolios
-      // For Side Projects
+      // TODO(projects): find out correct links.
       links: [
         {
           href: '/projects?mode=beginner',

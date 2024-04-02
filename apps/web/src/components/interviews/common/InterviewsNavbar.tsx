@@ -552,7 +552,7 @@ function useNavLinks(
             gtag.event({
               action: `nav.sign_in.click`,
               category: 'engagement',
-              label: 'Sign In / Up',
+              label: signInUpLabel,
             });
           },
           position: 'end',
@@ -596,7 +596,7 @@ function useUserNavigationLinks() {
         gtag.event({
           action: `nav.sign_out.click`,
           category: 'engagement',
-          label: 'Sign Out',
+          label: logoutLabel,
         });
       },
       type: 'link',
@@ -605,18 +605,6 @@ function useUserNavigationLinks() {
 
   return userNavigation;
 }
-
-// Will need this in future.
-// function SearchButton() {
-//   return (
-//     <button
-//       type="button"
-//       className="bg-neutral-50 shrink-0 rounded-full p-1 text-neutral-400 hover:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-50 focus:ring-brand">
-//       <span className="sr-only">Search website</span>
-//       <SearchIcon className="size-6" aria-hidden="true" />
-//     </button>
-//   );
-// }
 
 export default function InterviewsNavbar() {
   const { colorSchemePreference, setColorSchemePreference } =
@@ -635,17 +623,16 @@ export default function InterviewsNavbar() {
 
   const endAddOnItems = (
     <>
-      {/* <SearchButton /> */}
       <NavLocaleDropdown />
       <NavColorSchemeDropdown />
       {!isPremium && (
         <Button
           href="/pricing"
           label={intl.formatMessage({
-            defaultMessage: 'Get Full Access',
+            defaultMessage: 'Get full access',
             description:
               'Get full access button on the top right corner of the navigation bar to allow users to start evaluating plans and make a purchase',
-            id: 'PFRVpF',
+            id: '0dpOm/',
           })}
           size="sm"
           variant="primary"
@@ -653,7 +640,7 @@ export default function InterviewsNavbar() {
             gtag.event({
               action: `nav.get_full_access.click`,
               category: 'ecommerce',
-              label: 'Get Full Access',
+              label: 'Get full access',
             });
           }}
         />
@@ -720,9 +707,9 @@ export default function InterviewsNavbar() {
               display="block"
               href="/pricing"
               label={intl.formatMessage({
-                defaultMessage: 'Get Full Access',
+                defaultMessage: 'Get full access',
                 description: 'Link label to the pricing page',
-                id: 'OugnPX',
+                id: 'lhtwHD',
               })}
               variant="primary"
               onClick={() => {
@@ -730,7 +717,7 @@ export default function InterviewsNavbar() {
                 gtag.event({
                   action: `nav.get_full_access.click`,
                   category: 'ecommerce',
-                  label: 'Get Full Access',
+                  label: 'Get full access',
                 });
               }}
             />

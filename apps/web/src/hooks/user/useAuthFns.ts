@@ -37,9 +37,9 @@ export function useAuthSignInUp() {
       router.push(signInUpHref(hrefProps)),
     signInUpHref,
     signInUpLabel: intl.formatMessage({
-      defaultMessage: 'Sign In / Up',
+      defaultMessage: 'Sign in / up',
       description: 'Link label to the sign in / up page',
-      id: 'q3MA2w',
+      id: 'Hh2IoR',
     }),
   };
 }
@@ -63,9 +63,9 @@ export function useAuthLogout() {
   return {
     logoutHref,
     logoutLabel: intl.formatMessage({
-      defaultMessage: 'Sign Out',
+      defaultMessage: 'Sign out',
       description: 'Link label to the sign out page',
-      id: '641P5n',
+      id: 'BDbpLJ',
     }),
     navigateToLogoutPage: (hrefProps: HrefProps | undefined = {}) =>
       router.push(logoutHref(hrefProps)),

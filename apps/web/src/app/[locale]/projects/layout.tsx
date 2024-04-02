@@ -7,7 +7,7 @@ type Props = Readonly<{
 }>;
 
 export default async function Layout({ children }: Props) {
-  // TODO(projects): Remove this file when launching.
+  // TODO(projects): Remove this check when launching.
   if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') {
     redirect('/');
   }

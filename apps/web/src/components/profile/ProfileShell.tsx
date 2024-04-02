@@ -168,9 +168,9 @@ export default function ProfileShell({ user, children }: Props) {
                                 display="block"
                                 href="/pricing"
                                 label={intl.formatMessage({
-                                  defaultMessage: 'Get Full Access',
+                                  defaultMessage: 'Get full access',
                                   description: 'Get full access button label',
-                                  id: '7P0wF0',
+                                  id: '4B5GBU',
                                 })}
                                 size="xs"
                                 variant="primary"
