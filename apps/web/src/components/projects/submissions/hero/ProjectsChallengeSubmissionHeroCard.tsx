@@ -63,7 +63,7 @@ export default function ProjectsChallengeSubmissionHeroCard({
             })}
           </Text>
           {challengeAccess === 'premium' && (
-            <ProjectsPremiumBadge size="md" unlocked={userUnlocked} />
+            <ProjectsPremiumBadge size="sm" unlocked={userUnlocked} />
           )}
           <ProjectsStatusBadge entity="challenge" status={status} />
         </div>
