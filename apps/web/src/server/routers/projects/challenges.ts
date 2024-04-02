@@ -48,7 +48,20 @@ export const projectsChallengesRouter = router({
     .query(async ({ input: { skillSlug, userId } }) => {
       const challengeStatuses: ProjectsChallengeHistoricalStatuses = {};
 
-      const [challengeSessionRows, submissions] = await Promise.all([
+      const [repPoints, challengeSessionRows, submissions] = await Promise.all([
+        prisma.projectsReputationPoint.aggregate({
+          _sum: {
+            points: true,
+          },
+          where: {
+            key: {
+              endsWith: `skill.${skillSlug}`,
+            },
+            projectsProfile: {
+              userId,
+            },
+          },
+        }),
         prisma.projectsChallengeSession.findMany({
           orderBy: {
             updatedAt: 'asc',
@@ -101,6 +114,6 @@ export const projectsChallengesRouter = router({
         }
       });
 
-      return challengeStatuses;
+      return { challengeStatuses, points: repPoints._sum.points };
     }),
 });

@@ -42,7 +42,7 @@ export default function ProjectsSkillRoadmapItemDetails({
         enabled: viewerId != null,
       },
     );
-  const { data: challengeStatuses } =
+  const { data: skillPlanProgressData } =
     trpc.projects.challenges.skillPlanProgress.useQuery(
       { skillSlug: skillMetadata.slug, userId: viewerId! },
       {
@@ -70,16 +70,18 @@ export default function ProjectsSkillRoadmapItemDetails({
           {skillMetadata.title}
         </Heading>
         <div className="flex flex-wrap gap-x-6">
-          {/* TODO(projects): fetch actual rep */}
-          <ProjectsChallengeReputationTag
-            points={1200}
-            tooltip={intl.formatMessage({
-              defaultMessage:
-                'Reputation you have gained from completing challenges using this skill, including challenges not in the recommended skill plan',
-              description: 'Tooltip for reputation label',
-              id: 'sU6jXI',
-            })}
-          />
+          {(skillPlanProgressData?.points ?? 0) > 0 && (
+            <ProjectsChallengeReputationTag
+              labelVariant="gained"
+              points={skillPlanProgressData?.points ?? 0}
+              tooltip={intl.formatMessage({
+                defaultMessage:
+                  'Reputation you have gained from completing challenges using this skill, including challenges not in the recommended skill plan',
+                description: 'Tooltip for reputation label',
+                id: 'sU6jXI',
+              })}
+            />
+          )}
           {countSubmissionsUsingSkills?.data != null &&
             countSubmissionsUsingSkills?.data > 0 && (
               <ProjectsChallengesCompletedTag
@@ -154,7 +156,7 @@ export default function ProjectsSkillRoadmapItemDetails({
             <Spinner display="block" size="md" />
           ) : (
             <ProjectsChallengeList
-              challengeStatuses={challengeStatuses}
+              challengeStatuses={skillPlanProgressData?.challengeStatuses}
               challenges={challengesQuery.data.challenges}
             />
           )}
