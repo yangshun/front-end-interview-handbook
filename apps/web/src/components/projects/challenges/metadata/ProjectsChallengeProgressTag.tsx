@@ -32,9 +32,9 @@ export default function ProjectsChallengeProgressTag({
       <Text color="inherit" size="body3">
         {variant === 'normal' && (
           <FormattedMessage
-            defaultMessage="<bold>{completedCount}</bold>/{totalCount} challenges"
+            defaultMessage="{totalCount, plural, one {<bold>{completedCount}</bold>/# challenge} other {<bold>{completedCount}</bold>/# challenges}}"
             description="Rep count label in Projects"
-            id="26Xmcd"
+            id="23zW1O"
             values={{
               bold: (chunks) => (
                 <Text color="secondary" size="body2" weight="medium">

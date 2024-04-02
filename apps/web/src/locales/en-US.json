@@ -455,8 +455,8 @@
     "defaultMessage": "Blogs List",
     "description": "Screen reader text indicating the blog list component on blog homepage"
   },
-  "26Xmcd": {
-    "defaultMessage": "<bold>{completedCount}</bold>/{totalCount} challenges",
+  "23zW1O": {
+    "defaultMessage": "{totalCount, plural, one {<bold>{completedCount}</bold>/# challenge} other {<bold>{completedCount}</bold>/# challenges}}",
     "description": "Rep count label in Projects"
   },
   "2CZvP8": {
@@ -1171,10 +1171,6 @@
     "defaultMessage": "Join Premium Discord",
     "description": "Join Discord channel"
   },
-  "8Y+L3K": {
-    "defaultMessage": "<bold>{count}</bold> challenges completed",
-    "description": "Completed project challenges label"
-  },
   "8YgB5f": {
     "defaultMessage": "Don’t worry about losing steam. Track your progress and level up as you",
     "description": "Description for \"Gamified learning and building\" feature marketing section on Projects home page"
@@ -1770,6 +1766,10 @@
   "DQayC1": {
     "defaultMessage": "The email address you want to use to log in.",
     "description": "Email field description"
+  },
+  "DSJ98t": {
+    "defaultMessage": "{count, plural, =0 {No challenges completed} one {<bold>1</bold> challenge completed} other {<bold>#</bold> challenges completed}}",
+    "description": "Completed project challenges label"
   },
   "DTIb2e": {
     "defaultMessage": "Pagination",

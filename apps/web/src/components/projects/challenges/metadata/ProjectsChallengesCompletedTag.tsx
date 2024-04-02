@@ -17,12 +17,15 @@ export default function ProjectsChallengesCompletedTag({
 }: Props) {
   const contents = (
     <div className={clsx('flex items-center gap-1', themeTextSubtleColor)}>
-      <RiCheckboxCircleLine className={clsx('size-4')} />
+      <RiCheckboxCircleLine
+        aria-hidden={true}
+        className={clsx('size-4 shrink-0')}
+      />
       <Text color="inherit" size="body3">
         <FormattedMessage
-          defaultMessage="<bold>{count}</bold> challenges completed"
+          defaultMessage="{count, plural, =0 {No challenges completed} one {<bold>1</bold> challenge completed} other {<bold>#</bold> challenges completed}}"
           description="Completed project challenges label"
-          id="8Y+L3K"
+          id="DSJ98t"
           values={{
             bold: (chunks) => (
               <Text color="secondary" size="body2" weight="medium">
