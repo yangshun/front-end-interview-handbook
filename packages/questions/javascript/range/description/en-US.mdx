@@ -13,18 +13,22 @@ Implement a function `range([start=0], end, [step=1])` that creates an array of 
 
 ## Returns
 
-_(Array)_: Returns the range of numbers.
+_`(Array)`_: Returns the range of numbers.
 
 ## Examples
 
 ```js
 range(4); // => [0, 1, 2, 3]
+
 range(-4); // => [0, -1, -2, -3]
+
 range(1, 5); // => [1, 2, 3, 4]
+
 range(0, 20, 5); // => [0, 5, 10, 15]
+
 range(0, -4, -1); // => [0, -1, -2, -3]
+
 range(1, 4, 0); // => [1, 1, 1]
-range(0); // => []
 ```
 
 The function should return an empty array if `start` is equal to `end`.

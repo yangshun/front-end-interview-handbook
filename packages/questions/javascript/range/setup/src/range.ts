@@ -6,12 +6,6 @@ export default function range(
   step?: number,
 ): Array<number>;
 
-/**
- * @param {number} start - The start of the range.
- * @param {number} end - The end of the range.
- * @param {number} step - The value to increment or decrement by.
- * @returns {Array<number>} An array of numbers in the specified range.
- */
 export default function range(
   start: number = 0,
   end?: number,
