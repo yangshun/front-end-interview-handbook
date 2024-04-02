@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import Text from '~/components/ui/Text';
 
 import type { ProjectsChallengeSubmissionAugmented } from '../types';
-import RelativeTimestamp from '../../common/RelativeTimestamp';
+import RelativeTimestamp from '../../../common/datetime/RelativeTimestamp';
 
 type Props = Readonly<{
   submission: ProjectsChallengeSubmissionAugmented;

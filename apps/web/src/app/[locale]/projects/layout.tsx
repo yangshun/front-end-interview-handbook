@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 
-import ProjectsRootLayout from '~/components/projects/layout/ProjectsRootLayout';
+import ProjectsRootLayout from '~/components/projects/common/layout/ProjectsRootLayout';
 
 type Props = Readonly<{
   children: React.ReactElement;

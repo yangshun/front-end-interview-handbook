@@ -20,7 +20,7 @@ import ProjectsChallengeSkillsTag from '../metadata/ProjectsChallengeSkillsTag';
 import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
 import ProjectsChallengeCurrentProjectSessionCard from '../session/ProjectsChallengeCurrentSessionCard';
 import { useProjectsChallengeSessionContext } from '../session/ProjectsChallengeSessionContext';
-import ProjectsPremiumBadge from '../../common/ProjectsPremiumBadge';
+import ProjectsPremiumBadge from '../../purchase/ProjectsPremiumBadge';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{

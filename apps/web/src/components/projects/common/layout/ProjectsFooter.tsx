@@ -2,8 +2,8 @@
 
 import { useIntl } from 'react-intl';
 
-import type { FooterNavigation } from './Footer';
-import Footer from './Footer';
+import type { FooterNavigation } from '~/components/global/footers/Footer';
+import Footer from '~/components/global/footers/Footer';
 
 function useFooterNavigation() {
   const intl = useIntl();
@@ -64,7 +64,7 @@ function useFooterNavigation() {
       key: 'info',
       links: [
         {
-          href: '#',
+          href: '/projects#features',
           key: 'features',
           name: intl.formatMessage({
             defaultMessage: 'Features',
@@ -82,7 +82,7 @@ function useFooterNavigation() {
           }),
         },
         {
-          href: '#',
+          href: '/projects/pricing',
           key: 'pricing',
           name: intl.formatMessage({
             defaultMessage: 'Pricing',

@@ -1,7 +1,7 @@
 import GlobalBanner from '~/components/global/banners/GlobalBanner';
 import FeedbackWidget from '~/components/global/feedback/FeedbackWidget';
-import FooterProjects from '~/components/global/footers/FooterProjects';
 import InterviewsNavbar from '~/components/interviews/common/InterviewsNavbar';
+import FooterProjects from '~/components/projects/common/layout/ProjectsFooter';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 type Props = Readonly<{

@@ -15,9 +15,9 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import ProjectsPremiumPricingTableDialog from '../../challenges/premium/ProjectsPremiumPricingTableDialog';
-import useProfileWithProjectsProfile from '../../common/useProfileWithProjectsProfile';
-import { projectsPaidPlanFeatures } from '../../purchase/ProjectsPricingFeaturesConfig';
+import useProfileWithProjectsProfile from '../../useProfileWithProjectsProfile';
+import ProjectsPremiumPricingTableDialog from '../../../challenges/premium/ProjectsPremiumPricingTableDialog';
+import { projectsPaidPlanFeatures } from '../../../purchase/ProjectsPricingFeaturesConfig';
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
 

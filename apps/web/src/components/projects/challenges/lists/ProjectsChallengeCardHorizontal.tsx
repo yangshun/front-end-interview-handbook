@@ -12,7 +12,7 @@ import {
 } from '~/components/ui/theme';
 
 import type { ProjectsChallengeItem } from '../types';
-import ProjectsPremiumBadge from '../../common/ProjectsPremiumBadge';
+import ProjectsPremiumBadge from '../../purchase/ProjectsPremiumBadge';
 import projectsSkillExtractGroups from '../../skills/metadata/projectsSkillExtractGroups';
 import ProjectsSkillGroupList from '../../skills/metadata/ProjectsSkillGroupList';
 

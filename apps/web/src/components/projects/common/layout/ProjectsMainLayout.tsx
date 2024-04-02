@@ -2,7 +2,7 @@
 
 import { FormattedMessage } from 'react-intl';
 
-import ProjectsMainLayoutTabs from '~/components/projects/common/ProjectsMainLayoutTabs';
+import ProjectsMainLayoutTabs from '~/components/projects/common/layout/ProjectsMainLayoutTabs';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 

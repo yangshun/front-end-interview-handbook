@@ -9,7 +9,7 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import RelativeTimestamp from '~/components/projects/common/RelativeTimestamp';
+import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import RichText from '~/components/ui/RichTextEditor/RichText';

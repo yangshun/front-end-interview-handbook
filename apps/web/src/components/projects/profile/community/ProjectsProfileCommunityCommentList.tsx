@@ -14,7 +14,7 @@ import {
 import ProjectsProfileCommunityChallengeCommentLog from './ProjectsProfileCommunityChallengeCommentLog';
 import type { ProjectsProfileCommunityComment } from './ProjectsProfileCommunitySection';
 import ProjectsProfileCommunitySubmissionCommentLog from './ProjectsProfileCommunitySubmissionCommentLog';
-import RelativeTimestamp from '../../common/RelativeTimestamp';
+import RelativeTimestamp from '../../../common/datetime/RelativeTimestamp';
 
 type Props = Readonly<{
   comments: ReadonlyArray<ProjectsProfileCommunityComment>;

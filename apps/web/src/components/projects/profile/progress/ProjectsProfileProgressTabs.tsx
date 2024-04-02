@@ -8,8 +8,8 @@ import Tabs from '~/components/ui/Tabs';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-import type { ProjectsMainLayoutTabCategory } from '../../common/useProjectsMainLayoutTabs';
-import useProjectsMainLayoutTabs from '../../common/useProjectsMainLayoutTabs';
+import type { ProjectsMainLayoutTabCategory } from '../../common/layout/useProjectsMainLayoutTabs';
+import useProjectsMainLayoutTabs from '../../common/layout/useProjectsMainLayoutTabs';
 
 type Props = Readonly<{
   baseUrl: string;

@@ -9,7 +9,7 @@ import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
 import ProjectsChallengeProgressTag from '../challenges/metadata/ProjectsChallengeProgressTag';
-import ProjectsPremiumBadge from '../common/ProjectsPremiumBadge';
+import ProjectsPremiumBadge from '../purchase/ProjectsPremiumBadge';
 
 type BaseProps = Readonly<{
   isViewerPremium: boolean;

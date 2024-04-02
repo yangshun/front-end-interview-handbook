@@ -7,7 +7,7 @@ import Text from '~/components/ui/Text';
 
 import type { ProjectsSkillRoadmapSectionGroup } from '../types';
 import ProjectsChallengeProgressTag from '../../challenges/metadata/ProjectsChallengeProgressTag';
-import ProjectsPremiumBadge from '../../common/ProjectsPremiumBadge';
+import ProjectsPremiumBadge from '../../purchase/ProjectsPremiumBadge';
 
 type Props = Readonly<{
   group: ProjectsSkillRoadmapSectionGroup;

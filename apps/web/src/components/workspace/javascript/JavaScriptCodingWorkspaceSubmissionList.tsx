@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import { trpc } from '~/hooks/trpc';
 
-import Timestamp from '~/components/common/Timestamp';
+import Timestamp from '~/components/common/datetime/Timestamp';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionLanguages from '~/components/interviews/questions/metadata/QuestionLanguages';

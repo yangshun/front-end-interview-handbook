@@ -3,8 +3,8 @@
 import clsx from 'clsx';
 import { useToggle } from 'usehooks-ts';
 
-import ProjectsNavbar from '~/components/projects/layout/ProjectsNavbar';
-import ProjectsSidebar from '~/components/projects/layout/sidebar';
+import ProjectsNavbar from '~/components/projects/common/layout/ProjectsNavbar';
+import ProjectsSidebar from '~/components/projects/common/layout/sidebar';
 import Container from '~/components/ui/Container';
 
 type Props = Readonly<{

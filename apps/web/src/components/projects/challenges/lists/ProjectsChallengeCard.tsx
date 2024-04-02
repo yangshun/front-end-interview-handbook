@@ -14,8 +14,8 @@ import {
 } from '~/components/ui/theme';
 
 import type { ProjectsChallengeItem } from '../types';
-import ProjectsPremiumBadge from '../../common/ProjectsPremiumBadge';
 import ProjectsStatusBadge from '../../common/status/ProjectsStatusBadge';
+import ProjectsPremiumBadge from '../../purchase/ProjectsPremiumBadge';
 import projectsSkillExtractGroups from '../../skills/metadata/projectsSkillExtractGroups';
 import ProjectsSkillGroupList from '../../skills/metadata/ProjectsSkillGroupList';
 import ProjectsCompletedUsersTag from '../../stats/ProjectsCompletedUsersTag';

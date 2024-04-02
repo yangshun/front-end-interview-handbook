@@ -21,7 +21,7 @@ import ProjectsTrackPageHeader from './ProjectsTrackPageHeader';
 import ProjectsChallengeDifficultyTag from '../challenges/metadata/ProjectsChallengeDifficultyTag';
 import type { ProjectsChallengeHistoricalStatuses } from '../challenges/types';
 import { projectsChallengeCountCompletedIncludingHistorical } from '../challenges/utils/ProjectsChallengeUtils';
-import ProjectsPremiumBadge from '../common/ProjectsPremiumBadge';
+import ProjectsPremiumBadge from '../purchase/ProjectsPremiumBadge';
 
 type Props = Readonly<{
   challengeHistoricalStatuses: ProjectsChallengeHistoricalStatuses;

@@ -16,8 +16,8 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-import ProjectsPremiumBadge from '../../common/ProjectsPremiumBadge';
 import ProjectsStatusBadge from '../../common/status/ProjectsStatusBadge';
+import ProjectsPremiumBadge from '../../purchase/ProjectsPremiumBadge';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;

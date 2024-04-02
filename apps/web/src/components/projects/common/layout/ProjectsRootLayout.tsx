@@ -2,7 +2,7 @@
 
 import { ProductThemeScript } from '~/components/global/product-theme/ProductThemeScript';
 
-import useProjectsRedirectToOnboardingIfNecessary from '../hooks/useProjectsRedirectToOnboardingIfNecessary';
+import useProjectsRedirectToOnboardingIfNecessary from '../../hooks/useProjectsRedirectToOnboardingIfNecessary';
 
 type Props = Readonly<{
   children: React.ReactElement;

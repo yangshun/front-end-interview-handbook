@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import { trpc } from '~/hooks/trpc';
 
-import Timestamp from '~/components/common/Timestamp';
+import Timestamp from '~/components/common/datetime/Timestamp';
 import Anchor from '~/components/ui/Anchor';
 import Spinner from '~/components/ui/Spinner';
 import Text from '~/components/ui/Text';

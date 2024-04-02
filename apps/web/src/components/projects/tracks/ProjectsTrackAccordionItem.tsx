@@ -19,7 +19,7 @@ import ProjectsTrackChallengeChip from './ProjectsTrackChallengeChip';
 import ProjectsTrackPaywall from './ProjectsTrackPaywall';
 import type { ProjectsChallengeHistoricalStatuses } from '../challenges/types';
 import { projectsChallengeCountCompletedIncludingHistorical } from '../challenges/utils/ProjectsChallengeUtils';
-import ProjectsPremiumBadge from '../common/ProjectsPremiumBadge';
+import ProjectsPremiumBadge from '../purchase/ProjectsPremiumBadge';
 
 import * as Accordion from '@radix-ui/react-accordion';
 

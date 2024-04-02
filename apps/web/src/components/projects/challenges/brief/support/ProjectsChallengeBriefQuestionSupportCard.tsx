@@ -7,9 +7,9 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
 import ProjectsChallengeBriefSupportCard from '~/components/projects/challenges/brief/support/ProjectsChallengeBriefSupportCard';
-import RelativeTimestamp from '~/components/projects/common/RelativeTimestamp';
 import DiscussionsCommentRepliesThreadLines from '~/components/projects/discussions/ProjectsDiscussionsCommentRepliesThreadLines';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Button from '~/components/ui/Button';

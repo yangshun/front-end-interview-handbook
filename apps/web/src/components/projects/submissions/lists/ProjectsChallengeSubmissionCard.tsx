@@ -2,8 +2,8 @@ import clsx from 'clsx';
 import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
 import UserProfileInformationRow from '~/components/profile/info/UserProfileInformationRow';
-import RelativeTimestamp from '~/components/projects/common/RelativeTimestamp';
 import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
 import Anchor from '~/components/ui/Anchor';
 import {

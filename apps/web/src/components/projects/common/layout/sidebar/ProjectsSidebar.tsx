@@ -48,8 +48,8 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 import { ProjectsSidebarCTACard } from './ProjectsSidebarCTACard';
 import ProjectsSidebarProductMenu from './ProjectsSidebarProductMenu';
 import { ProjectsSidebarProfileHeader } from './ProjectsSidebarProfileHeader';
-import ProjectsPremiumPricingTableDialog from '../../challenges/premium/ProjectsPremiumPricingTableDialog';
-import useProfileWithProjectsProfile from '../../common/useProfileWithProjectsProfile';
+import useProfileWithProjectsProfile from '../../useProfileWithProjectsProfile';
+import ProjectsPremiumPricingTableDialog from '../../../challenges/premium/ProjectsPremiumPricingTableDialog';
 
 type SidebarItem = SidebarLink;
 

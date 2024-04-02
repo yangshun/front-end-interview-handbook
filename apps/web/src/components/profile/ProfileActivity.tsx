@@ -26,7 +26,7 @@ import { getQuestionMetadata } from '~/db/QuestionsProgressClient';
 import { hashQuestion } from '~/db/QuestionsUtils';
 
 import ProfileActivityResetProgressButton from './ProfileActivityResetProgressButton';
-import Timestamp from '../common/Timestamp';
+import Timestamp from '../common/datetime/Timestamp';
 
 function NoCompletedQuestions() {
   const intl = useIntl();

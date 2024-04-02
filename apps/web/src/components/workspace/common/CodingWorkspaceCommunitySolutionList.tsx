@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import Timestamp from '~/components/common/Timestamp';
+import Timestamp from '~/components/common/datetime/Timestamp';
 import QuestionFrameworkIcon from '~/components/interviews/questions/metadata/QuestionFrameworkIcon';
 import QuestionLanguages from '~/components/interviews/questions/metadata/QuestionLanguages';
 import EmptyState from '~/components/ui/EmptyState';

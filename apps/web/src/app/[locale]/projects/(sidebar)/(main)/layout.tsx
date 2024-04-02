@@ -1,4 +1,4 @@
-import ProjectsMainLayout from '~/components/projects/common/ProjectsMainLayout';
+import ProjectsMainLayout from '~/components/projects/common/layout/ProjectsMainLayout';
 
 type Props = Readonly<{
   children: React.ReactNode;
