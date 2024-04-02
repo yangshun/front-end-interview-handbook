@@ -1,4 +1,4 @@
-import Navbar from '~/components/global/navbar/NavbarImpl';
+import InterviewsNavbar from '~/components/interviews/common/InterviewsNavbar';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -8,7 +8,7 @@ type Props = Readonly<{
 export default function StandardLayoutWithoutGlobalBanner({ children }: Props) {
   return (
     <div className="flex min-h-screen flex-col" data-theme="projects">
-      <Navbar />
+      <InterviewsNavbar />
       {children}
     </div>
   );

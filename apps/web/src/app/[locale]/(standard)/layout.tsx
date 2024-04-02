@@ -1,7 +1,7 @@
 import GlobalBanner from '~/components/global/banners/GlobalBanner';
 import FeedbackWidget from '~/components/global/feedback/FeedbackWidget';
-import FooterInterviews from '~/components/global/footers/FooterInterviews';
-import Navbar from '~/components/global/navbar/NavbarImpl';
+import InterviewsFooter from '~/components/interviews/common/InterviewsFooter';
+import InterviewsNavbar from '~/components/interviews/common/InterviewsNavbar';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 type Props = Readonly<{
@@ -14,10 +14,10 @@ export default function StandardLayout({ children }: Props) {
       <FeedbackWidget position="end" />
       <GlobalBanner />
       <div className="flex min-h-screen flex-col">
-        <Navbar />
+        <InterviewsNavbar />
         <div className="grow">{children}</div>
         <Section>
-          <FooterInterviews />
+          <InterviewsFooter />
         </Section>
       </div>
     </>

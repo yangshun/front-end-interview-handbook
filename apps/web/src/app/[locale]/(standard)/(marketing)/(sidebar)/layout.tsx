@@ -1,13 +1,13 @@
-import SidebarContainer from '~/components/common/SidebarContainer';
+import InterviewsSidebarContainer from '~/components/interviews/common/InterviewsSidebarContainer';
 
 type Props = Readonly<{
   children: React.ReactNode;
 }>;
 
-export default function SidebarLayout({ children }: Props) {
+export default function Layout({ children }: Props) {
   return (
     <div className="flex">
-      <SidebarContainer />
+      <InterviewsSidebarContainer />
       <div className="relative w-0 grow">{children}</div>
     </div>
   );

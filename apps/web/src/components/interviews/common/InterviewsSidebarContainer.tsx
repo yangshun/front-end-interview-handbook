@@ -4,14 +4,16 @@ import clsx from 'clsx';
 import { useState } from 'react';
 
 import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
-import Sidebar from '~/components/common/Sidebar';
+import InterviewsSidebar from '~/components/interviews/common/InterviewsSidebar';
 import { themeBorderColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
   initialCollapsed?: boolean;
 }>;
 
-export default function SidebarContainer({ initialCollapsed = false }: Props) {
+export default function InterviewsSidebarContainer({
+  initialCollapsed = false,
+}: Props) {
   const [isCollapsed, setIsCollapsed] = useState(initialCollapsed);
 
   return (
@@ -25,7 +27,7 @@ export default function SidebarContainer({ initialCollapsed = false }: Props) {
         height: FooterlessContainerHeight,
         top: `var(--nav-top-offset)`,
       }}>
-      <Sidebar
+      <InterviewsSidebar
         isCollapsed={isCollapsed}
         onCollapseChange={() => setIsCollapsed(!isCollapsed)}
       />

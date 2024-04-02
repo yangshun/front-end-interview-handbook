@@ -5,8 +5,8 @@ import { useIntl } from 'react-intl';
 import { useGuidesData } from '~/data/Guides';
 import { useQuestionFormatLists } from '~/data/QuestionFormats';
 
-import type { FooterNavigation } from './Footer';
-import Footer from './Footer';
+import type { FooterNavigation } from '../../global/footers/Footer';
+import Footer from '../../global/footers/Footer';
 
 function useFooterNavigation() {
   const intl = useIntl();
@@ -191,7 +191,7 @@ function useFooterNavigation() {
   return navigation;
 }
 
-export default function FooterInterviews() {
+export default function InterviewsFooter() {
   const navigation = useFooterNavigation();
 
   return <Footer navigation={navigation} />;

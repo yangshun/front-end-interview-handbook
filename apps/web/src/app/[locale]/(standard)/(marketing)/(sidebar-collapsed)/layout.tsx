@@ -1,4 +1,4 @@
-import SidebarContainer from '~/components/common/SidebarContainer';
+import SidebarContainer from '~/components/interviews/common/InterviewsSidebarContainer';
 
 type Props = Readonly<{
   children: React.ReactNode;

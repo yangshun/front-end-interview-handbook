@@ -39,11 +39,11 @@ import {
 
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
-import NavColorSchemeDropdown from './NavColorSchemeDropdown';
-import NavLocaleDropdown from './NavLocaleDropdown';
-import NavProfileIcon from './NavProfileIcon';
-import { useColorSchemePreferences } from '../color-scheme/ColorSchemePreferencesProvider';
-import LogoLink from '../logos/LogoLink';
+import { useColorSchemePreferences } from '../../global/color-scheme/ColorSchemePreferencesProvider';
+import LogoLink from '../../global/logos/LogoLink';
+import NavColorSchemeDropdown from '../../global/navbar/NavColorSchemeDropdown';
+import NavLocaleDropdown from '../../global/navbar/NavLocaleDropdown';
+import NavProfileIcon from '../../global/navbar/NavProfileIcon';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -618,7 +618,7 @@ function useUserNavigationLinks() {
 //   );
 // }
 
-export default function NavbarImpl() {
+export default function InterviewsNavbar() {
   const { colorSchemePreference, setColorSchemePreference } =
     useColorSchemePreferences();
   const user = useUser();

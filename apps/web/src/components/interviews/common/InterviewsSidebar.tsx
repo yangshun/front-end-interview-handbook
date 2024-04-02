@@ -183,7 +183,7 @@ type Props = Readonly<{
   onCollapseChange: () => void;
 }>;
 
-export default function Sidebar({
+export default function InterviewsSidebar({
   isCollapsed = false,
   onCollapseChange,
 }: Props) {

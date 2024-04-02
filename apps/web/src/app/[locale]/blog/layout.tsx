@@ -1,7 +1,7 @@
 import BlogSidebarContainer from '~/components/blog/layout/BlogSidebarContainer';
 import GlobalBanner from '~/components/global/banners/GlobalBanner';
-import FooterInterviews from '~/components/global/footers/FooterInterviews';
-import Navbar from '~/components/global/navbar/NavbarImpl';
+import InterviewsFooter from '~/components/interviews/common/InterviewsFooter';
+import InterviewsNavbar from '~/components/interviews/common/InterviewsNavbar';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -12,12 +12,12 @@ export default function BlogLayout({ children }: Props) {
     <>
       <GlobalBanner />
       <div className="flex flex-col">
-        <Navbar />
+        <InterviewsNavbar />
         <div className="flex">
           <BlogSidebarContainer />
           <div className="relative w-0 grow pb-8">{children}</div>
         </div>
-        <FooterInterviews />
+        <InterviewsFooter />
       </div>
     </>
   );

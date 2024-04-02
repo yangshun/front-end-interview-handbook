@@ -1,5 +1,5 @@
 import GlobalBanner from '~/components/global/banners/GlobalBanner';
-import Navbar from '~/components/global/navbar/NavbarImpl';
+import InterviewsNavbar from '~/components/interviews/common/InterviewsNavbar';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -9,7 +9,7 @@ export default function FooterlessLayout({ children }: Props) {
   return (
     <>
       <GlobalBanner />
-      <Navbar />
+      <InterviewsNavbar />
       {children}
     </>
   );
