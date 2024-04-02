@@ -1,20 +1,16 @@
-export default function unionBy(
-  iteratee: Function | string,
+export default function unionBy<T>(
+  iteratee: (value: T) => any,
   ...arrays: Array<any>
-): Array<any> {
-  const result: Array<any> = [];
+): Array<T> {
+  const result: Array<T> = [];
   const compare = new Set<number>();
-
-  // If `iteratee` is a string, convert into function.
-  const iterateeFunc =
-    typeof iteratee === 'function' ? iteratee : (value: any) => value[iteratee];
 
   // Push the unique `item` based on `iteratee` into `result` while keeping the comparison value in `compare`.
   arrays.forEach((array) => {
-    array.forEach((item: any) => {
-      if (!compare.has(iterateeFunc(item))) {
+    array.forEach((item: T) => {
+      if (!compare.has(iteratee(item))) {
         result.push(item);
-        compare.add(iterateeFunc(item));
+        compare.add(iteratee(item));
       }
     });
   });

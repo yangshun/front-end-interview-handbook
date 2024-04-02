@@ -3,23 +3,37 @@ title: Union By
 excerpt: Implement a function that creates an array of unique values, in order, from all given arrays.
 ---
 
-Implement a function `unionBy(array)` that creates an array of unique values, in order, from all given arrays and accepts `iteratee` which is invoked for each element of each arrays to generate the criterion by which uniqueness is computed. The iteratee is invoked with one argument.
+Implement a function `unionBy(array)` that creates an array of unique values, in order, from all given arrays and accepts `iteratee` which is invoked for each element of each arrays to generate the criterion by which uniqueness is computed.
+
+```js
+unionBy(iteratee, arrays);
+```
 
 ## Arguments
 
-1. `iteratee` _(Function)_: The iteratee invoked per element
+1. `iteratee` _(Function)_: The iteratee invoked per element. The function is invoked with one argument: (value).
 1. `[arrays]` _(...Array)_: The arrays to inspect
 
 ## Returns
 
-_(Array)_: Returns the new array of combined values.
+_`(Array)`_: Returns the new array of combined values.
 
 ## Examples
 
 ```js
 unionBy((value: any) => value, [2], [1, 2]); // => [2, 1]
+
 unionBy(Math.floor, [2.1], [1.2, 2.3]); // => [2.1, 1.2]
-unionBy('x', [{ x: 1 }], [{ x: 2 }, { x: 1 }]); // => [{ 'x': 1 }, { 'x': 2 }]
+
+unionBy((o) => o.x, [{ x: 1 }], [{ x: 2 }, { x: 1 }]); // => [{ 'x': 1 }, { 'x': 2 }]
+```
+
+The function should return an empty array if `array` is empty and leave the treat false values as-is.
+
+```js
+unionBy((o) => o.m, []); // => []
+
+unionBy((o) => o.m, [{ n: 1 }], [{ m: 2 }]); // => [{ n: 1 }, { m: 2 }]
 ```
 
 ## Resources

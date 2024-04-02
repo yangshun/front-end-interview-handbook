@@ -1,6 +1,6 @@
-export default function unionBy(
-  iteratee: Function | string,
+export default function unionBy<T>(
+  iteratee: (value: T) => any,
   ...arrays: Array<any>
-): Array<any> {
+): Array<T> {
   throw 'Not implemented!';
 }

@@ -2,11 +2,11 @@ import unionBy from './union-by';
 
 describe('unionBy', () => {
   test('empty array', () => {
-    expect(unionBy('x', [])).toEqual([]);
+    expect(unionBy((o: any) => o.x, [])).toEqual([]);
   });
 
   test('string iteratee', () => {
-    expect(unionBy('x', [{ x: 1 }], [{ x: 2 }, { x: 1 }])).toEqual([
+    expect(unionBy((o: any) => o.x, [{ x: 1 }], [{ x: 2 }, { x: 1 }])).toEqual([
       { x: 1 },
       { x: 2 },
     ]);

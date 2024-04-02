@@ -2,7 +2,7 @@ import unionBy from './union-by';
 
 describe('unionBy', () => {
   test('empty arrays', () => {
-    expect(unionBy('id', [], [])).toEqual([]);
+    expect(unionBy((o: any) => o.id, [], [])).toEqual([]);
   });
 
   test('primitive values with identity iteratee', () => {
