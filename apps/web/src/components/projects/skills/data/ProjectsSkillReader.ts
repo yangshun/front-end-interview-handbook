@@ -33,10 +33,6 @@ export async function fetchProjectsSkillsRoadmapSectionData(
   return skillsRoadmapConfig.map((difficulty) => ({
     ...difficulty,
     items: difficulty.items.map((groupItem) => {
-      let totalReputation = 0;
-      const challengesSlugsAllSet = new Set();
-      const challengesSlugsCompletedSet = new Set();
-
       const items = groupItem.items.map((skillKey) => {
         const skillRoadmapChallenges = challenges.filter((challengeItem) =>
           challengeItem.skills.includes(skillKey),
@@ -45,16 +41,10 @@ export async function fetchProjectsSkillsRoadmapSectionData(
           skillRoadmapChallenges.map((challengeItem) => challengeItem.slug),
         );
 
-        skillRoadmapChallenges.forEach((challengeMetadata) => {
-          challengesSlugsAllSet.add(challengeMetadata.slug);
-        });
-
         const skillReputation = sumBy(
           skillRoadmapChallenges,
           (challengeItem) => challengeItem.points,
         );
-
-        totalReputation += skillReputation;
 
         const skillTotalChallenges = skillRoadmapChallenges.length;
         const challengeStatusesForSkill = skillsChallengeStatus[skillKey] ?? {};
@@ -70,7 +60,6 @@ export async function fetchProjectsSkillsRoadmapSectionData(
             }
 
             if (status === 'COMPLETED') {
-              challengesSlugsCompletedSet.add(challengeSlug);
               skillCompletedChallengesSet.add(challengeSlug);
             }
 
@@ -89,14 +78,21 @@ export async function fetchProjectsSkillsRoadmapSectionData(
         };
       });
 
+      const totalReputation = sumBy(items, (item) => item.points);
+      const totalCompletedChallenges = sumBy(
+        items,
+        (item) => item.completedChallenges,
+      );
+      const totalChallenges = sumBy(items, (item) => item.totalChallenges);
+
       return {
-        completedChallenges: challengesSlugsCompletedSet.size,
+        completedChallenges: totalCompletedChallenges,
         description: groupItem.description,
         items,
         key: groupItem.key,
         points: totalReputation,
         tagClassname: groupItem.tagClassname,
-        totalChallenges: challengesSlugsAllSet.size,
+        totalChallenges,
       };
     }),
   }));
