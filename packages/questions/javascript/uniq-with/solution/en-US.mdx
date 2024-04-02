@@ -5,7 +5,10 @@ import uniqueWithTs from '../setup/src/uniq-with.ts';
 
 ## Solution
 
-We can use the array function `findIndex` to iterate through each element in the `result` array to check if there was the same value when compared by `comparator`.
+Here's a solution that filters unique elements based obn a `comparator`. It iterates through the `array`, calls `findIndex` to check for uniqueness based on `comparator`.
+
+1. Create an empty `result` array to store the unique items.
+1. Iterate through `array` and check if the current element is unique with items in `result` based on `comparator` using `findIndex`. If `findIndex` gives -1, meaning value is unique, append the element into `result`.
 
 <MDXCodeBlock languages={{ jsx: uniqueWithJs, tsx: uniqueWithTs }} />
 

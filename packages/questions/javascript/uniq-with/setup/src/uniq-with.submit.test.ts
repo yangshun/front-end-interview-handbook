@@ -2,16 +2,16 @@ import uniqWith from './uniq-with';
 
 describe('uniqWith', () => {
   test('empty array', () => {
-    expect(uniqWith([])).toEqual([]);
+    expect(uniqWith([], (a, b) => a === b)).toEqual([]);
   });
 
   test('duplicate values', () => {
-    expect(uniqWith([2, 1, 2])).toEqual([2, 1]);
-    expect(uniqWith([2, 2, 1])).toEqual([2, 1]);
-    expect(uniqWith([2, 1, 2, 3])).toEqual([2, 1, 3]);
+    expect(uniqWith([2, 1, 2], (a, b) => a === b)).toEqual([2, 1]);
+    expect(uniqWith([2, 2, 1], (a, b) => a === b)).toEqual([2, 1]);
+    expect(uniqWith([2, 1, 2, 3], (a, b) => a === b)).toEqual([2, 1, 3]);
   });
 
-  test('iteratee as a string', () => {
+  test('nested arrays', () => {
     expect(
       uniqWith([{ n: 1 }, { n: 2 }, { n: 1 }], (a, b) => a.n === b.n),
     ).toEqual([{ n: 1 }, { n: 2 }]);
@@ -21,9 +21,6 @@ describe('uniqWith', () => {
         (a, b) => a['age'] === b['age'],
       ),
     ).toEqual([{ age: 30 }, { age: 22 }]);
-  });
-
-  test('iteratee as a function', () => {
     expect(
       uniqWith(
         [{ data: { score: 10 } }, { data: { score: 10 } }],
@@ -45,5 +42,18 @@ describe('uniqWith', () => {
     expect(
       uniqWith([1, '2', 3], (a: any, b: any) => Number(a) === Number(b)),
     ).toEqual([1, '2', 3]);
+  });
+
+  test('non-existent value', () => {
+    expect(uniqWith([{ n: 1 }, { m: 2 }], (a, b) => a.m === b.m)).toEqual([
+      { n: 1 },
+      { m: 2 },
+    ]);
+  });
+
+  test('falsey values', () => {
+    expect(uniqWith([false, null, undefined, null], (a, b) => a === b)).toEqual(
+      [false, null, undefined],
+    );
   });
 });

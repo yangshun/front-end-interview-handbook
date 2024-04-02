@@ -2,11 +2,11 @@ import uniqWith from './uniq-with';
 
 describe('uniqWith', () => {
   test('empty array', () => {
-    expect(uniqWith([])).toEqual([]);
+    expect(uniqWith([], (a, b) => a === b)).toEqual([]);
   });
 
   test('one value', () => {
-    expect(uniqWith([0])).toEqual([0]);
+    expect(uniqWith([0], (a, b) => a === b)).toEqual([0]);
   });
 
   test('different values', () => {
