@@ -2,7 +2,7 @@ import Marquee from '~/components/ui/Marquee';
 
 import ProjectsChallengeCard from '../challenges/lists/ProjectsChallengeCard';
 import type { ProjectsChallengeItem } from '../challenges/types';
-import useProfileWithProjectsProfile from '../common/useProfileWithProjectsProfile';
+import useUserProfileWithProjectsProfile from '../common/useUserProfileWithProjectsProfile';
 
 type Props = Readonly<{
   featuredChallenges: ReadonlyArray<ProjectsChallengeItem>;
@@ -11,8 +11,8 @@ type Props = Readonly<{
 export default function ProjectsMarketingFeaturedChallengesMarquee({
   featuredChallenges,
 }: Props) {
-  const { profile } = useProfileWithProjectsProfile();
-  const isViewerPremium = profile?.projectsProfile?.premium ?? false;
+  const { userProfile } = useUserProfileWithProjectsProfile();
+  const isViewerPremium = userProfile?.projectsProfile?.premium ?? false;
 
   return (
     <div className="-mt-20 h-auto">

@@ -15,7 +15,7 @@ import {
 } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import useProfileWithProjectsProfile from '../../useProfileWithProjectsProfile';
+import useUserProfileWithProjectsProfile from '../../useUserProfileWithProjectsProfile';
 import ProjectsPremiumPricingTableDialog from '../../../challenges/premium/ProjectsPremiumPricingTableDialog';
 import { projectsPaidPlanFeatures } from '../../../purchase/ProjectsPricingFeaturesConfig';
 
@@ -246,23 +246,25 @@ function PremiumVersion({
 }
 
 export function ProjectsSidebarCTACard() {
-  const { profile } = useProfileWithProjectsProfile();
+  const { userProfile } = useUserProfileWithProjectsProfile();
 
-  if (profile == null) {
+  if (userProfile == null) {
     return null;
   }
 
   return (
     <Card disableSpotlight={true} padding={false} pattern={false}>
-      {profile.projectsProfile?.premium &&
-      profile.projectsProfile.plan != null ? (
+      {userProfile.projectsProfile?.premium &&
+      userProfile.projectsProfile.plan != null ? (
         <PremiumVersion
-          credits={profile.projectsProfile.credits}
-          creditsAtStartOfCycle={profile.projectsProfile.creditsAtStartOfCycle}
-          plan={profile.projectsProfile.plan}
+          credits={userProfile.projectsProfile.credits}
+          creditsAtStartOfCycle={
+            userProfile.projectsProfile.creditsAtStartOfCycle
+          }
+          plan={userProfile.projectsProfile.plan}
         />
       ) : (
-        <FreePlanVersion credits={profile.projectsProfile?.credits ?? 0} />
+        <FreePlanVersion credits={userProfile.projectsProfile?.credits ?? 0} />
       )}
     </Card>
   );

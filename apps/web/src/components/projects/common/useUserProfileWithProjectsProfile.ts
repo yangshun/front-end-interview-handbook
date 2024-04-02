@@ -1,7 +1,7 @@
 import { trpc } from '~/hooks/trpc';
 
-export default function useProfileWithProjectsProfile() {
+export default function useUserProfileWithProjectsProfile() {
   const { isLoading, data } = trpc.projects.profile.viewer.useQuery();
 
-  return { isLoading, profile: data };
+  return { isLoading, userProfile: data };
 }

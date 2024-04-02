@@ -48,7 +48,7 @@ import { useI18nPathname } from '~/next-i18nostic/src';
 import { ProjectsSidebarCTACard } from './ProjectsSidebarCTACard';
 import ProjectsSidebarProductMenu from './ProjectsSidebarProductMenu';
 import { ProjectsSidebarProfileHeader } from './ProjectsSidebarProfileHeader';
-import useProfileWithProjectsProfile from '../../useProfileWithProjectsProfile';
+import useUserProfileWithProjectsProfile from '../../useUserProfileWithProjectsProfile';
 import ProjectsPremiumPricingTableDialog from '../../../challenges/premium/ProjectsPremiumPricingTableDialog';
 
 type SidebarItem = SidebarLink;
@@ -256,7 +256,7 @@ export function ProjectsSidebarExpanded({
 }: Readonly<{
   onCollapseClick?: () => void;
 }>) {
-  const { isLoading, profile } = useProfileWithProjectsProfile();
+  const { isLoading, userProfile } = useUserProfileWithProjectsProfile();
   const intl = useIntl();
   const sideBarItems = useSidebarItems();
   const fadeInClass = [
@@ -272,7 +272,7 @@ export function ProjectsSidebarExpanded({
       ])}>
       <ProjectsSidebarProductMenu variant="full" />
       <ProjectsSidebarProfileHeader />
-      {profile == null && (
+      {userProfile == null && (
         <div className={clsx('w-full px-3', fadeInClass)}>
           <ProjectsPremiumPricingTableDialog
             trigger={
@@ -311,7 +311,7 @@ export function ProjectsSidebarExpanded({
       </div>
       <div className="flex justify-between gap-4 pt-2">
         <div className="flex gap-4">
-          {profile?.projectsProfile?.premium ? (
+          {userProfile?.projectsProfile?.premium ? (
             <Button
               href={SocialLinks.discordPremium.href}
               icon={RiDiscordLine}
@@ -351,7 +351,7 @@ export function ProjectsSidebarExpanded({
             showChevron={false}
             size="sm">
             <ColorSchemeSubMenu />
-            {profile && (
+            {userProfile && (
               <DropdownMenu.Item
                 href="/projects/settings"
                 icon={RiSettings3Line}
@@ -385,7 +385,7 @@ function ProjectsSidebarCollapsed({
 }: Readonly<{
   onCollapseClick: () => void;
 }>) {
-  const { profile } = useProfileWithProjectsProfile();
+  const { userProfile } = useUserProfileWithProjectsProfile();
   const intl = useIntl();
   const sideBarItems = useSidebarItems();
 
@@ -397,12 +397,12 @@ function ProjectsSidebarCollapsed({
         ['border-e', themeBorderColor],
       )}>
       <ProjectsSidebarProductMenu variant="compact" />
-      {profile && (
+      {userProfile && (
         <ProjectsProfileAvatar
           mode="link"
-          points={profile.projectsProfile?.points}
+          points={userProfile.projectsProfile?.points}
           size="lg"
-          userProfile={profile}
+          userProfile={userProfile}
         />
       )}
       <ul className="flex grow flex-col gap-1">
@@ -431,7 +431,7 @@ function ProjectsSidebarCollapsed({
             showChevron={false}
             side="right"
             size="sm">
-            {profile?.projectsProfile?.premium ? (
+            {userProfile?.projectsProfile?.premium ? (
               <DropdownMenu.Item
                 color="active"
                 href={SocialLinks.discordPremium.href}
@@ -450,7 +450,7 @@ function ProjectsSidebarCollapsed({
               />
             )}
             <ColorSchemeSubMenu />
-            {profile && (
+            {userProfile && (
               <DropdownMenu.Item
                 href="/projects/settings"
                 icon={RiSettings3Line}

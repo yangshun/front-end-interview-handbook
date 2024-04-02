@@ -2,7 +2,7 @@ import DiscussionsCommentList from '~/components/projects/discussions/ProjectsDi
 
 import ProjectsChallengeDiscussionsNewComment from './ProjectsChallengeDiscussionsNewComment';
 import type { ProjectsChallengeItem } from '../types';
-import useProfileWithProjectsProfile from '../../common/useProfileWithProjectsProfile';
+import useUserProfileWithProjectsProfile from '../../common/useUserProfileWithProjectsProfile';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -11,13 +11,11 @@ type Props = Readonly<{
 export default function ProjectsChallengeDiscussionsSection({
   challenge,
 }: Props) {
-  const { profile } = useProfileWithProjectsProfile();
-  const viewer = profile?.projectsProfile
+  const { userProfile } = useUserProfileWithProjectsProfile();
+  const viewer = userProfile?.projectsProfile
     ? {
-        points: profile.projectsProfile.points,
-        userProfile: {
-          ...profile,
-        },
+        points: userProfile.projectsProfile.points,
+        userProfile,
       }
     : null;
 

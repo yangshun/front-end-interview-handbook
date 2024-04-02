@@ -11,11 +11,11 @@ import Avatar from '~/components/ui/Avatar';
 import Text from '~/components/ui/Text';
 import { themeBackgroundGlimmerColor } from '~/components/ui/theme';
 
-import useProfileWithProjectsProfile from '../../useProfileWithProjectsProfile';
+import useUserProfileWithProjectsProfile from '../../useUserProfileWithProjectsProfile';
 import ProjectsProfileDisplayNameLink from '../../../users/ProjectsProfileDisplayNameLink';
 
 export function ProjectsSidebarProfileHeader() {
-  const { isLoading, profile } = useProfileWithProjectsProfile();
+  const { isLoading, userProfile } = useUserProfileWithProjectsProfile();
   const { signInUpLabel, signInUpHref } = useAuthSignInUp();
 
   return (
@@ -48,7 +48,7 @@ export function ProjectsSidebarProfileHeader() {
             />
           </div>
         </>
-      ) : profile == null ? (
+      ) : userProfile == null ? (
         <>
           <Avatar alt="N/A" size="lg" src="" />
           <div className="flex flex-col gap-1">
@@ -71,17 +71,17 @@ export function ProjectsSidebarProfileHeader() {
         <>
           <ProjectsProfileAvatar
             mode="link"
-            points={profile.projectsProfile?.points}
+            points={userProfile.projectsProfile?.points}
             size="lg"
-            userProfile={profile}
+            userProfile={userProfile}
           />
           <div className="flex flex-col gap-1">
             <Text className="line-clamp-2" size="body2" weight="medium">
-              <ProjectsProfileDisplayNameLink userProfile={profile} />
+              <ProjectsProfileDisplayNameLink userProfile={userProfile} />
             </Text>
-            {profile.projectsProfile?.points && (
+            {userProfile.projectsProfile?.points && (
               <ProjectsUserReputation
-                points={profile.projectsProfile?.points}
+                points={userProfile.projectsProfile?.points}
               />
             )}
           </div>

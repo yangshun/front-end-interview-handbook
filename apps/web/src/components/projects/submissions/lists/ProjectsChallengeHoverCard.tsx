@@ -7,7 +7,7 @@ import Spinner from '~/components/ui/Spinner';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-import useProfileWithProjectsProfile from '../../common/useProfileWithProjectsProfile';
+import useUserProfileWithProjectsProfile from '../../common/useUserProfileWithProjectsProfile';
 
 type Props = Readonly<{
   slug: string;
@@ -15,7 +15,7 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeHoverCard({ slug }: Props) {
   const { locale } = useI18nPathname();
-  const { profile } = useProfileWithProjectsProfile();
+  const { userProfile } = useUserProfileWithProjectsProfile();
   const { data, isLoading } = trpc.projects.challenge.hovercard.useQuery({
     locale: locale ?? 'en-US',
     slug,
@@ -34,7 +34,7 @@ export default function ProjectsChallengeHoverCard({ slug }: Props) {
       ) : (
         <ProjectsChallengeCard
           challenge={data}
-          isViewerPremium={profile?.projectsProfile?.premium ?? false}
+          isViewerPremium={userProfile?.projectsProfile?.premium ?? false}
           variant="hovercard"
         />
       )}

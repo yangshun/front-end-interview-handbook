@@ -50,7 +50,7 @@ import type { ProjectsSubscriptionPlanFeature } from './useProjectsPricingPlanFe
 import useProjectsPricingPlanFeatures from './useProjectsPricingPlanFeatures';
 import useProjectsPricingPlansList from './useProjectsPricingPlansList';
 import useProjectsPurchaseCancelLogging from './useProjectsPurchaseCancelLogging';
-import useProfileWithProjectsProfile from '../common/useProfileWithProjectsProfile';
+import useUserProfileWithProjectsProfile from '../common/useUserProfileWithProjectsProfile';
 
 import type { ProjectsSubscriptionPlan } from '@prisma/client';
 import { useSessionContext } from '@supabase/auth-helpers-react';
@@ -157,7 +157,7 @@ function PricingButtonNonPremium({
   useCurrentPageAsCancelUrl: boolean;
 }>) {
   const intl = useIntl();
-  const { isLoading } = useProfileWithProjectsProfile();
+  const { isLoading } = useUserProfileWithProjectsProfile();
   const [checkoutSessionHref, setCheckoutSessionHref] = useState<string | null>(
     null,
   );
@@ -309,8 +309,8 @@ function PricingButtonSection({
 }>) {
   const intl = useIntl();
   const { isLoading: isUserLoading } = useSessionContext();
-  const { profile, isLoading: isUserProfileLoading } =
-    useProfileWithProjectsProfile();
+  const { userProfile, isLoading: isUserProfileLoading } =
+    useUserProfileWithProjectsProfile();
   const billingPortalMutation = trpc.purchases.billingPortal.useMutation();
 
   const isPending = isUserLoading || isUserProfileLoading;
@@ -319,8 +319,8 @@ function PricingButtonSection({
     return null;
   }
 
-  if (profile?.projectsProfile) {
-    if (!profile?.projectsProfile.premium) {
+  if (userProfile?.projectsProfile) {
+    if (!userProfile?.projectsProfile.premium) {
       if (paymentConfig == null) {
         return null;
       }
@@ -339,7 +339,7 @@ function PricingButtonSection({
       );
     }
 
-    if (profile.projectsProfile.plan === planType) {
+    if (userProfile.projectsProfile.plan === planType) {
       // User is already subscribed, link to billing page.
       return (
         <PricingButton
@@ -444,7 +444,7 @@ function ProjectsPricingPriceCell({
   showPPPMessage: boolean;
   useCurrentPageAsCancelUrl: boolean;
 }>) {
-  const { profile } = useProfileWithProjectsProfile();
+  const { userProfile } = useUserProfileWithProjectsProfile();
 
   return (
     <div className={className}>
@@ -531,7 +531,7 @@ function ProjectsPricingPriceCell({
             'md:min-h-8 pb-2 md:pb-0',
           )}
           size="body3">
-          {profile?.projectsProfile?.plan === planType ? (
+          {userProfile?.projectsProfile?.plan === planType ? (
             <span className="hidden lg:inline">
               <PurchaseActivePlanLabel />
             </span>
@@ -551,7 +551,7 @@ function ProjectsPricingPriceCell({
           useCurrentPageAsCancelUrl={useCurrentPageAsCancelUrl}
         />
       </div>
-      {!profile?.projectsProfile?.premium && (
+      {!userProfile?.projectsProfile?.premium && (
         <Text
           className="mt-2 block whitespace-nowrap text-center"
           color="secondary"
@@ -585,7 +585,7 @@ export default function ProjectsPricingTable({
   useProjectsPurchaseCancelLogging(plansPaymentConfig);
 
   const planList = useProjectsPricingPlansList(plansPaymentConfig);
-  const { profile } = useProfileWithProjectsProfile();
+  const { userProfile } = useUserProfileWithProjectsProfile();
   const features = useProjectsPricingPlanFeatures({
     ANNUAL: annualPlanFeatures,
     FREE: freePlanFeatures,
@@ -672,8 +672,8 @@ export default function ProjectsPricingTable({
                         />
                       </Text>
                       <div className="min-h-8 mt-2 flex items-center justify-center">
-                        {profile?.projectsProfile != null &&
-                          profile?.projectsProfile?.plan == null && (
+                        {userProfile?.projectsProfile != null &&
+                          userProfile?.projectsProfile?.plan == null && (
                             <PurchaseActivePlanLabel />
                           )}
                       </div>
@@ -794,9 +794,9 @@ export default function ProjectsPricingTable({
                   <Text color="subtitle" size="body1" weight="medium">
                     {name}
                   </Text>
-                  {(profile?.projectsProfile?.plan === type ||
-                    (profile?.projectsProfile != null &&
-                      profile?.projectsProfile?.plan == null &&
+                  {(userProfile?.projectsProfile?.plan === type ||
+                    (userProfile?.projectsProfile != null &&
+                      userProfile?.projectsProfile?.plan == null &&
                       type === 'FREE')) && <PurchaseActivePlanLabel />}
                 </div>
                 {type === 'FREE' && (

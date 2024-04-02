@@ -11,7 +11,7 @@ import {
 
 import ProjectsChallengeSubmissionDiscussionsNewComment from './ProjectsChallengeSubmissionDiscussionsNewComment';
 import type { ProjectsChallengeSubmissionAugmented } from '../types';
-import useProfileWithProjectsProfile from '../../common/useProfileWithProjectsProfile';
+import useUserProfileWithProjectsProfile from '../../common/useUserProfileWithProjectsProfile';
 
 type Props = Readonly<{
   submission: ProjectsChallengeSubmissionAugmented;
@@ -20,13 +20,11 @@ type Props = Readonly<{
 export default function ProjectsChallengeSubmissionDiscussionsSection({
   submission,
 }: Props) {
-  const { profile } = useProfileWithProjectsProfile();
-  const viewer = profile?.projectsProfile
+  const { userProfile } = useUserProfileWithProjectsProfile();
+  const viewer = userProfile?.projectsProfile
     ? {
-        points: profile.projectsProfile.points,
-        userProfile: {
-          ...profile,
-        },
+        points: userProfile.projectsProfile.points,
+        userProfile,
       }
     : null;
 
