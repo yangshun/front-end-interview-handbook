@@ -10,6 +10,7 @@ export type NavBaseItem = Readonly<{
 export type NavLinkItem = NavBaseItem &
   Readonly<{
     href: AnchorProps['href'];
+    icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
     labelAddon?: React.ReactNode;
     type: 'link';
   }>;

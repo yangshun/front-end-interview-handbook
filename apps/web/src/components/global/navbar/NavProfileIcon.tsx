@@ -25,9 +25,9 @@ type Props = Readonly<{
 }>;
 
 export default function NavProfileIcon({
+  avatarUrl,
   userIdentifierString,
   navItems,
-  avatarUrl,
 }: Props) {
   return (
     <Root>
