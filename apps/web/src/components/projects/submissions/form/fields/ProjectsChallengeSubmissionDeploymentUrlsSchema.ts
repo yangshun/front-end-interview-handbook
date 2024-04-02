@@ -87,9 +87,9 @@ export function getProjectsChallengeSubmissionDeploymentUrlsAttributes(
   });
   const description = intl.formatMessage({
     defaultMessage:
-      "The URL where your solution is hosted. Find our recommended free hosting providers if you haven't already.",
+      "The URL where your solution is hosted. Click 'Deployment instructions' to get suggestions on recommended free hosting providers.",
     description: 'Form description',
-    id: 'djQlZs',
+    id: 'eHjHnz',
   });
   const namePlaceholder = intl.formatMessage({
     defaultMessage: 'Homepage',

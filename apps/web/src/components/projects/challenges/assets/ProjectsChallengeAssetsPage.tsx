@@ -205,10 +205,10 @@ export default function ProjectsChallengeAssetsPage({
                   href={metadata.downloadStarterFilesHref}
                   icon={RiCodeSSlashLine}
                   label={intl.formatMessage({
-                    defaultMessage: 'Starter code + assets',
+                    defaultMessage: 'Starter assets',
                     description:
                       'Label for Starter Code button on Projects project assets page',
-                    id: 'Nemz26',
+                    id: '5Y6H2W',
                   })}
                   size="lg"
                   variant="secondary"

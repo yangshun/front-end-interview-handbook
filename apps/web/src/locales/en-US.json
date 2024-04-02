@@ -815,6 +815,10 @@
     "defaultMessage": "Facing trouble? <link>Email us</link>",
     "description": "Section label for seasonal promotion details"
   },
+  "5Y6H2W": {
+    "defaultMessage": "Starter assets",
+    "description": "Label for Starter Code button on Projects project assets page"
+  },
   "5ZA7Hl": {
     "defaultMessage": "Browse all submissions",
     "description": "Browser all submissions"
@@ -3015,10 +3019,6 @@
     "defaultMessage": "Star our GitHub repo",
     "description": "Title for task"
   },
-  "Nemz26": {
-    "defaultMessage": "Starter code + assets",
-    "description": "Label for Starter Code button on Projects project assets page"
-  },
   "NgxUnY": {
     "defaultMessage": "Difficulty",
     "description": "Question difficulty label"
@@ -5027,10 +5027,6 @@
     "defaultMessage": "This is the unique username used to identify you. Use a maximum of {maxLength} character(s).",
     "description": "Username field description"
   },
-  "djQlZs": {
-    "defaultMessage": "The URL where your solution is hosted. Find our recommended free hosting providers if you haven't already.",
-    "description": "Form description"
-  },
   "dk2vXq": {
     "defaultMessage": "Terms of Service",
     "description": "Title of Terms of Service page"
@@ -5090,6 +5086,10 @@
   "eG2r74": {
     "defaultMessage": "Build an entire library of {trackName} components from scratch. Use it for your portfolio, or as a component toolkit for future projects",
     "description": "Description of Projects component track page"
+  },
+  "eHjHnz": {
+    "defaultMessage": "The URL where your solution is hosted. Click 'Deployment instructions' to get suggestions on recommended free hosting providers.",
+    "description": "Form description"
   },
   "eNCfLw": {
     "defaultMessage": "When your site URL was submitted, we automatically take screenshots of your pages. You can manually trigger retake with this button if your site has been updated",
