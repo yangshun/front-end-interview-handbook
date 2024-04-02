@@ -19,8 +19,6 @@ type Props = Readonly<{
   }> | null;
 }>;
 
-export type UserLevelWithAvatarSize = '2xl' | '3xl' | 'lg' | 'xl';
-
 const statusClasses: Record<
   Status,
   Readonly<{

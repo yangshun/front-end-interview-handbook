@@ -39,11 +39,13 @@ export default function ProjectsTrackAccordionHeader({
       </Text>
       <div className="flex flex-wrap gap-4">
         <ProjectsChallengeReputationTag points={points} variant="flat" />
-        <ProjectsChallengeProgressTag
-          completed={completedCount}
-          showProgress={isViewingOwnProfile}
-          total={challenges.length}
-        />
+        {isViewingOwnProfile && (
+          <ProjectsChallengeProgressTag
+            completed={completedCount}
+            showProgress={true}
+            total={challenges.length}
+          />
+        )}
       </div>
     </div>
   );

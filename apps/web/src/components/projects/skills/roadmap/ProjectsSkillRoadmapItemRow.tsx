@@ -100,6 +100,7 @@ export default function ProjectsSkillRoadmapItemRow({
             userProfile == null && 'opacity-0',
           )}>
           <ProjectsProfileAvatarWithStatus
+            size="xs"
             status={
               skillSummary.completedChallenges > 0 &&
               skillSummary.completedChallenges === skillSummary.totalChallenges

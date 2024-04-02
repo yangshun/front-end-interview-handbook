@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import ProjectsChallengeStatusChip from '../challenges/metadata/ProjectsChallengeStatusChip';
 import ProjectsProfileAvatarWithStatus from '../users/ProjectsProfileAvatarWithStatus';
 
@@ -16,13 +18,16 @@ export default function ProjectsTrackChallengeChip({
   status,
   userProfile,
 }: Props) {
-  return userProfile == null ? (
-    <ProjectsChallengeStatusChip
-      label={index}
-      status={status ?? 'NOT_STARTED'}
-    />
+  return userProfile == null || status == null ? (
+    <div className={clsx('flex items-center', 'h-6')}>
+      <ProjectsChallengeStatusChip
+        label={index}
+        status={status ?? 'NOT_STARTED'}
+      />
+    </div>
   ) : (
     <ProjectsProfileAvatarWithStatus
+      size="xs"
       status={status !== 'STOPPED' ? status : null}
       userProfile={userProfile}
     />
