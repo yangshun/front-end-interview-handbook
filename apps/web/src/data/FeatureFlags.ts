@@ -6,3 +6,7 @@ export const JS_COMMUNITY_SOLUTIONS_IS_LIVE =
 const epochTime = 1712556000; // Epoch for 8 APR 2024 14:00:00 SGT
 
 export const PROJECT_LAUNCH_DATE = fromUnixTime(epochTime);
+
+// TODO(projects): change it if activation available
+export const PROJECT_ACTIVATION_AVAILABLE = false;
+
