@@ -25,9 +25,8 @@ import Tabs from '~/components/ui/Tabs';
 import Text from '~/components/ui/Text';
 import { themeBorderColor } from '~/components/ui/theme';
 
-import ExclusiveTicket from '../promotions/tickets/ExclusiveTicket';
+import ComingSoonTicket from '../promotions/new-product/ComingSoonTicket';
 import Badge from '../ui/Badge';
-import Tooltip from '../ui/Tooltip';
 
 import type { User } from '@supabase/auth-helpers-nextjs';
 
@@ -184,24 +183,7 @@ export default function ProfileShell({ user, children }: Props) {
                                 new Date(
                                   profileDataQuery.data?.createdAt,
                                 ).getTime(),
-                              ) && (
-                                <ExclusiveTicket
-                                  addOnElement={
-                                    <Tooltip label="Arriving Jan – Feb 2024">
-                                      <Badge
-                                        label="Coming soon"
-                                        size="sm"
-                                        variant="warning"
-                                      />
-                                    </Tooltip>
-                                  }
-                                  padding="sm"
-                                  ratio="wide"
-                                  subtitle="2 months free"
-                                  tooltip="Ticket for exclusive beta access to our new mystery product dropping in Jan – Feb 2024"
-                                  width={240}
-                                />
-                              )}
+                              ) && <ComingSoonTicket width={240} />}
                           </div>
                           <div className="flex items-center gap-x-2">
                             <RiMailLine
