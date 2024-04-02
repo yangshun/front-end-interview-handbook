@@ -46,7 +46,7 @@ export default function PurchasePaymentSuccessSection({
             className={clsx('size-10 shrink-0', 'dark:text-brand text-white')}
           />
         </span>
-        <Heading className="text-center" level="heading4">
+        <Heading className="text-pretty text-center" level="heading4">
           {title}
         </Heading>
       </div>
