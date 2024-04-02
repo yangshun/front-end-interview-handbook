@@ -20,6 +20,7 @@ type Props = Readonly<{
   links: ReadonlyArray<NavbarPrimaryItem>;
   logo?: React.ReactNode;
   mobileSidebarBottomItems?: React.ReactNode;
+  productMenu?: React.ReactNode;
   renderMobileSidebarAddOnItems?: ({
     closeMobileNav,
   }: Readonly<{ closeMobileNav: () => void }>) => React.ReactNode;
@@ -34,6 +35,7 @@ function Navbar(
     isLoading,
     links,
     logo,
+    productMenu,
     renderMobileSidebarAddOnItems,
     mobileSidebarBottomItems,
     transparent = false,
@@ -64,7 +66,10 @@ function Navbar(
       <div className="max-w-8xl mx-auto px-4 sm:px-6">
         <div className="flex h-[var(--navbar-height)] items-center justify-between md:justify-start md:gap-4">
           <div className="flex items-center justify-start lg:w-0 lg:grow">
-            {logo}
+            <div className="flex items-center gap-4">
+              {logo}
+              {productMenu}
+            </div>
             <nav className="hidden items-center space-x-4 lg:ml-10 lg:flex lg:w-0 lg:flex-1">
               {leftLinks.map((navItem) => (
                 <NavbarItem key={navItem.itemKey} {...navItem} />
