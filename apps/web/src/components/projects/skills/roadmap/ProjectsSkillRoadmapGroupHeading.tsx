@@ -1,10 +1,9 @@
 import clsx from 'clsx';
-import { RiFireLine } from 'react-icons/ri';
-import { FormattedMessage } from 'react-intl';
+import { useIntl } from 'react-intl';
 
+import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import ProjectsStatusBadgeCompleted from '~/components/projects/common/status/ProjectsStatusBadgeCompleted';
 import Text from '~/components/ui/Text';
-import { themeTextSubtleColor } from '~/components/ui/theme';
 
 import type { ProjectsSkillRoadmapSectionGroup } from '../types';
 import ProjectsChallengeProgressTag from '../../challenges/metadata/ProjectsChallengeProgressTag';
@@ -14,6 +13,8 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsSkillRoadmapGroupHeading({ group }: Props) {
+  const intl = useIntl();
+
   const { description, points, totalChallenges, completedChallenges } = group;
   const completedAll =
     totalChallenges === completedChallenges && completedChallenges > 0;
@@ -27,23 +28,26 @@ export default function ProjectsSkillRoadmapGroupHeading({ group }: Props) {
         {completedAll ? (
           <ProjectsStatusBadgeCompleted entity="skill" />
         ) : (
-          <div className={clsx('flex gap-4', themeTextSubtleColor)}>
-            <div className="flex items-center gap-1">
-              <RiFireLine className={clsx('size-4')} />
-              <Text color="inherit" size="body3">
-                <FormattedMessage
-                  defaultMessage="+{points} rep (in total)"
-                  description="Total rep count increase label in Projects"
-                  id="Lvmetb"
-                  values={{
-                    points,
-                  }}
-                />
-              </Text>
-            </div>
+          <div className={clsx('flex gap-4')}>
+            <ProjectsChallengeReputationTag
+              labelVariant="total"
+              points={points}
+              tooltip={intl.formatMessage({
+                defaultMessage:
+                  'Sum of reputation that can be gained from completing skill plans of all skills within the group',
+                description: 'Tooltip for skill group',
+                id: 'A8Sqf/',
+              })}
+            />
             <ProjectsChallengeProgressTag
               completed={completedChallenges}
               showProgress={false}
+              tooltip={intl.formatMessage({
+                defaultMessage:
+                  'Number of challenges you have completed across skill plans within the group',
+                description: 'Tooltip for skill group',
+                id: 'KBFTuo',
+              })}
               total={totalChallenges}
             />
           </div>

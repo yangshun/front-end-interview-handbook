@@ -126,15 +126,14 @@ export default function ProjectsSkillRoadmapItemDetails({
             Recommended projects to do to advance this skill progressively.
           </Text>
           <div className="flex flex-wrap gap-x-6">
-            {/* TODO(projects): Add in skill plan completion rep */}
             {totalRoadmapPoints != null && (
               <ProjectsChallengeReputationTag
                 points={totalRoadmapPoints}
                 tooltip={intl.formatMessage({
                   defaultMessage:
-                    'Reputation that can be gained from completing the entire skill plan',
+                    'Reputation that can be gained from completing all challenges in the recommended skill plan of this skill',
                   description: 'Tooltip for reputation label',
-                  id: 'vd036v',
+                  id: 'IIctLn',
                 })}
               />
             )}

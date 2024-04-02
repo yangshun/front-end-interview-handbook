@@ -1351,6 +1351,10 @@
     "defaultMessage": "Read more",
     "description": "Read more"
   },
+  "A8Sqf/": {
+    "defaultMessage": "Sum of reputation that can be gained from completing skill plans of all skills within the group",
+    "description": "Tooltip for skill group"
+  },
   "ABJ7ip": {
     "defaultMessage": "<bold>{completedQuestions}</bold>/{totalQuestions} completed",
     "description": "Line describing the number of questions completed by user over the total number of questions"
@@ -2303,6 +2307,10 @@
     "defaultMessage": "To challenge",
     "description": "Link label to go back to the challenge details page"
   },
+  "IIctLn": {
+    "defaultMessage": "Reputation that can be gained from completing all challenges in the recommended skill plan of this skill",
+    "description": "Tooltip for reputation label"
+  },
   "IIyxmO": {
     "defaultMessage": "End project session?",
     "description": "Title for end project session dialog"
@@ -2498,6 +2506,10 @@
   "KBBRmA": {
     "defaultMessage": "While working on project",
     "description": "Hint for \"Tips, Resources and Discussions\" tab on Projects project page"
+  },
+  "KBFTuo": {
+    "defaultMessage": "Number of challenges you have completed across skill plans within the group",
+    "description": "Tooltip for skill group"
   },
   "KBewzV": {
     "defaultMessage": "Before you get started",
@@ -2770,10 +2782,6 @@
   "Lv6+nn": {
     "defaultMessage": "React, HTML, JavaScript",
     "description": "Placeholder for tech stack field"
-  },
-  "Lvmetb": {
-    "defaultMessage": "+{points} rep (in total)",
-    "description": "Total rep count increase label in Projects"
   },
   "Lwa7+3": {
     "defaultMessage": "Have any doubts or need help? Ask in the community and discuss with others.",
@@ -3134,6 +3142,10 @@
   "OrN/z/": {
     "defaultMessage": "Share your questions or thoughts",
     "description": "Placeholder for discussion post input text area"
+  },
+  "OrjlW6": {
+    "defaultMessage": "{points} rep (in total)",
+    "description": "Reputation points to be gained"
   },
   "Ou1LIp": {
     "defaultMessage": "Marked question as completed",
@@ -5074,6 +5086,10 @@
   "eQwU0l": {
     "defaultMessage": "Copy line up",
     "description": "Text describing command to copy lines up in the coding workspace shortcuts menu"
+  },
+  "eR4o0Q": {
+    "defaultMessage": "{points} rep gained",
+    "description": "Reputation points to be gained"
   },
   "eRu+ff": {
     "defaultMessage": "Browse project solutions from our community. Interact with each unique submission, share your expertise, and evolve alongside our collaborative coding community.",
@@ -7178,10 +7194,6 @@
   "vbwUYs": {
     "defaultMessage": "Clarify any doubts on a project in project-specific forums",
     "description": "Description for \"Learn from others\" feature on Projects home page"
-  },
-  "vd036v": {
-    "defaultMessage": "Reputation that can be gained from completing the entire skill plan",
-    "description": "Tooltip for reputation label"
   },
   "vegaR1": {
     "defaultMessage": "Sort by",

@@ -7,14 +7,15 @@ import {
   themeBackgroundLayerEmphasized,
   themeBorderSubtleColor,
   themeTextBrandColor,
-  themeTextSecondaryColor,
 } from '~/components/ui/theme';
+import { themeTextSubtleColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
 type TagVariant = 'filled' | 'flat' | 'underline';
 
 type Props = Readonly<{
   className?: string;
+  labelVariant?: 'default' | 'gained' | 'total';
   points: number;
   tooltip?: string;
   variant?: TagVariant;
@@ -23,6 +24,7 @@ type Props = Readonly<{
 export default function ProjectsChallengeReputationTag({
   points,
   className,
+  labelVariant = 'default',
   variant = 'flat',
   tooltip,
 }: Props) {
@@ -30,6 +32,7 @@ export default function ProjectsChallengeReputationTag({
     <div
       className={clsx(
         'flex items-center gap-1',
+        themeTextSubtleColor,
         variant === 'filled' && [
           'rounded-full px-3 py-1',
           themeBackgroundLayerEmphasized,
@@ -37,10 +40,7 @@ export default function ProjectsChallengeReputationTag({
         className,
       )}>
       <RiFireLine
-        className={clsx(
-          'size-4',
-          variant === 'filled' ? themeTextBrandColor : themeTextSecondaryColor,
-        )}
+        className={clsx('size-4', variant === 'filled' && themeTextBrandColor)}
       />
       <Text
         className={clsx(
@@ -51,17 +51,39 @@ export default function ProjectsChallengeReputationTag({
             themeBorderSubtleColor,
           ],
         )}
-        color={variant === 'filled' ? 'default' : 'secondary'}
+        color={variant === 'filled' ? 'default' : 'inherit'}
         size="body3"
         weight={variant === 'filled' ? 'medium' : 'normal'}>
-        <FormattedMessage
-          defaultMessage="{points} rep"
-          description="Reputation points to be gained"
-          id="md057S"
-          values={{
-            points,
-          }}
-        />
+        {labelVariant === 'default' && (
+          <FormattedMessage
+            defaultMessage="{points} rep"
+            description="Reputation points to be gained"
+            id="md057S"
+            values={{
+              points,
+            }}
+          />
+        )}
+        {labelVariant === 'gained' && (
+          <FormattedMessage
+            defaultMessage="{points} rep gained"
+            description="Reputation points to be gained"
+            id="eR4o0Q"
+            values={{
+              points,
+            }}
+          />
+        )}
+        {labelVariant === 'total' && (
+          <FormattedMessage
+            defaultMessage="{points} rep (in total)"
+            description="Reputation points to be gained"
+            id="OrjlW6"
+            values={{
+              points,
+            }}
+          />
+        )}
       </Text>
     </div>
   );

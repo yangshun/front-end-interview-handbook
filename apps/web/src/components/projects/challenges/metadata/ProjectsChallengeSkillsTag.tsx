@@ -35,7 +35,7 @@ export default function ProjectsChallengeSkillsTag({
         <button className={clsx('flex items-center gap-1')} type="button">
           <RiNodeTree
             aria-hidden={true}
-            className={clsx('size-4', themeTextSecondaryColor)}
+            className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
           />
           <Text
             className={clsx(

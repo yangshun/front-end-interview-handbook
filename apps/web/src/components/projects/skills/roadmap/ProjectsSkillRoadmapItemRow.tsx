@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
+import { useIntl } from 'react-intl';
 
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
 import Anchor from '~/components/ui/Anchor';
@@ -31,6 +32,8 @@ export default function ProjectsSkillRoadmapItemRow({
   skillSummary,
   userProfile,
 }: Props) {
+  const intl = useIntl();
+
   const href = `/projects/skills/${skillSummary.key}`;
   const label = projectsSkillLabel(skillSummary.key);
 
@@ -67,16 +70,25 @@ export default function ProjectsSkillRoadmapItemRow({
             </Text>
           )}
         </div>
-        <div className="flex gap-4">
+        <div className={clsx('flex gap-4', 'relative z-[1]')}>
           <ProjectsChallengeReputationTag
-            className="gap-2"
             points={skillSummary.points}
-            variant="flat"
+            tooltip={intl.formatMessage({
+              defaultMessage:
+                'Reputation that can be gained from completing all challenges in the recommended skill plan of this skill',
+              description: 'Tooltip for reputation label',
+              id: 'IIctLn',
+            })}
           />
           <ProjectsChallengeProgressTag
             completed={skillSummary.completedChallenges}
             gapClass="gap-4"
             showProgress={isViewingOwnProfile}
+            tooltip={intl.formatMessage({
+              defaultMessage: 'Number of challenges completed in skill plan',
+              description: 'Tooltip for skill plan challenges label',
+              id: 'SlcOi4',
+            })}
             total={skillSummary.totalChallenges}
           />
         </div>
