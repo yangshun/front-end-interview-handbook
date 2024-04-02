@@ -6547,10 +6547,6 @@
     "defaultMessage": "Sign In / Up",
     "description": "Link label to the sign in / up page"
   },
-  "q4Qfra": {
-    "defaultMessage": "<bold>{completed}</bold>/{totalCount} challenges",
-    "description": "Line describing the number of questions completed by user over the total number of questions"
-  },
   "q4xRCW": {
     "defaultMessage": "Amazing to see such a comprehensive resource for front end dev interviews. Coming from a more traditional backend role I found this website to be a treasure trove of knowledge and it really takes you from a beginner to advanced level.",
     "description": "Anonymous Front End Engineer's testimonial"

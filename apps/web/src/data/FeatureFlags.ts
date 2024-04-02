@@ -1,2 +1,8 @@
+import { fromUnixTime } from 'date-fns';
+
 export const JS_COMMUNITY_SOLUTIONS_IS_LIVE =
   process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production';
+
+const epochTime = 1712556000; // Epoch for 8 APR 2024 14:00:00 SGT
+
+export const PROJECT_LAUNCH_DATE = fromUnixTime(epochTime);
