@@ -330,7 +330,7 @@ export default function ProjectsNavbarMarketing() {
       endAddOnItems={endAddOnItems}
       isLoading={isUserProfileLoading}
       links={links}
-      logo={<LogoLink />}
+      logo={<LogoLink href="/projects" />}
       mobileSidebarBottomItems={mobileSidebarBottomItems}
       productMenu={<NavProductDropdownMenu value="projects" />}
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
