@@ -140,12 +140,16 @@ export default function GlobalBanner() {
         )}
         <Anchor
           href={redirectUrl}
+          variant="unstyled"
           onClick={() => {
             /**
-             * Dismissing the global banner on link click
-             * as projects page also have global banner which is currently showing same content
+             * Dismissing the global banner on link click when counter is finished
+             * as it redirects to projects homepage
+             * and projects page also have global banner which is currently showing same content
              *  */
-            setShowGlobalBanner(false);
+            if (finished) {
+              setShowGlobalBanner(false);
+            }
           }}>
           <RiArrowRightLine aria-hidden={true} className="size-4 shrink-0" />
         </Anchor>
