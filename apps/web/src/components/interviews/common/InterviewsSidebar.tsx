@@ -208,7 +208,7 @@ export default function InterviewsSidebar({
     <div className="size-full flex flex-1 grow flex-col justify-between p-4">
       <div className={clsx('grid gap-2')}>
         {navigation.map((item) => {
-          const itemInterationClasses = clsx(
+          const itemInteractionClasses = clsx(
             [
               themeOutlineElement_FocusVisible,
               themeOutlineElementBrandColor_FocusVisible,
@@ -219,7 +219,7 @@ export default function InterviewsSidebar({
             'group flex w-full items-center gap-x-2',
             'rounded p-2',
             'text-xs font-medium',
-            itemInterationClasses,
+            itemInteractionClasses,
           );
           const label = (
             <Text

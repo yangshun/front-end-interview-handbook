@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import { useIsClient, useLocalStorage } from 'usehooks-ts';
 
+import InterviewsLogo from '~/components/global/logos/InterviewsLogo';
 import LogoMark from '~/components/global/logos/LogoMark';
 import ProjectsLogo from '~/components/global/logos/ProjectsLogo';
 import NavProductDropdownMenuContent from '~/components/global/navbar/NavProductDropdownMenuContent';
@@ -19,6 +20,7 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 const indicatorKey = 'gfe:product-menu-unseen-indicator:0';
 
 type Props = Readonly<{
+  value: 'interviews' | 'projects';
   variant: 'compact' | 'full';
 }>;
 
@@ -35,7 +37,7 @@ const buttonBaseClassname = clsx(
   themeBackgroundElementPressedStateColor_Active,
 );
 
-export default function ProjectsSidebarProductMenu({ variant }: Props) {
+export default function NavProductMenuSelector({ variant, value }: Props) {
   const isClient = useIsClient();
   const [showUnseenIndicator, setShowUnseenIndicator] = useLocalStorage(
     indicatorKey,
@@ -52,15 +54,19 @@ export default function ProjectsSidebarProductMenu({ variant }: Props) {
           <button
             aria-label="Select product"
             className={clsx(
-              'flex items-center justify-between',
-              'p-3',
-              'shrink-0',
               'group',
+              'flex items-center justify-between',
+              'shrink-0',
+              'p-3',
               buttonBaseClassname,
             )}
             type="button">
             <div className="flex gap-1">
-              <ProjectsLogo height={32} />
+              {value === 'interviews' ? (
+                <InterviewsLogo height={32} />
+              ) : (
+                <ProjectsLogo height={32} />
+              )}
               {isClient && showUnseenIndicator && (
                 <span
                   className={clsx(
