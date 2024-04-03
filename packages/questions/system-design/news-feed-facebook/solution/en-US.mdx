@@ -184,7 +184,7 @@ Posts: K, L, M, N, O, A, B, C, D, E, F, G, H, I, J
                       ^^^^^^^^^^^^^ Page 2 also contains A - E
 ```
 
-Clients can try be smart and de-duplicate posts by not showing posts that are already visible. However this requires custom logic and the client will have to make a new request to make up for the lack of new posts which costs an extra network roundtrip. For use cases where the number of items can reduce over time, pages can end up missing some items instead.
+Clients can try to be smart and de-duplicate posts by not showing posts that are already visible. However this requires custom logic and the client will have to make a new request to make up for the lack of new posts which costs an extra network roundtrip. For use cases where the number of items can reduce over time, pages can end up missing some items instead.
 
 **Page size cannot be easily changed**: Another downside of offset-based pagination is that the client cannot change the page size for subsequent queries since the offset is a product of the page size and the page being requested.
 
