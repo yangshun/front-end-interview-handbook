@@ -18,6 +18,7 @@ import { useColorSchemePreferences } from '~/components/global/color-scheme/Colo
 import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
 import LogoLink from '~/components/global/logos/LogoLink';
 import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
+import NavProductDropdownMenu from '~/components/global/navbar/NavProductDropdownMenu';
 import NavProfileIcon from '~/components/global/navbar/NavProfileIcon';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
@@ -367,6 +368,7 @@ export default function ProjectsNavbarMarketing() {
       links={links}
       logo={<LogoLink />}
       mobileSidebarBottomItems={mobileSidebarBottomItems}
+      productMenu={<NavProductDropdownMenu value="projects" />}
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
       style={{ top: 'var(--banner-height)' }}
       transparent={!isSticky}
