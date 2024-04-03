@@ -47,36 +47,18 @@ function useNavLinks(
 
   const links: ReadonlyArray<NavbarPrimaryItem | null> = [
     {
-      href: '/projects#features',
-      itemKey: 'features',
-      label: intl.formatMessage({
-        defaultMessage: 'Features',
-        description: 'Link to features section',
-        id: '8K48rR',
-      }),
-      onClick: () => {
-        gtag.event({
-          action: `nav.features.click`,
-          category: 'engagement',
-          label: 'Features',
-        });
-      },
-      position: 'start',
-      type: 'link',
-    },
-    {
       href: '/projects/challenges',
       itemKey: 'challenges',
       label: intl.formatMessage({
-        defaultMessage: 'Challenges',
+        defaultMessage: 'Project challenges',
         description: 'Link to challenges section',
-        id: 'iFI7xH',
+        id: 'bl/F9i',
       }),
       onClick: () => {
         gtag.event({
           action: `nav.challenges.click`,
           category: 'engagement',
-          label: 'Challenges',
+          label: 'Project challenges',
         });
       },
       position: 'start',
@@ -95,24 +77,6 @@ function useNavLinks(
           action: `nav.submissions.click`,
           category: 'engagement',
           label: 'Submissions',
-        });
-      },
-      position: 'start',
-      type: 'link',
-    },
-    {
-      href: '/blog',
-      itemKey: 'blog',
-      label: intl.formatMessage({
-        defaultMessage: 'Blog',
-        description: 'Link to blog',
-        id: 'pBR3LI',
-      }),
-      onClick: () => {
-        gtag.event({
-          action: `nav.blog.click`,
-          category: 'engagement',
-          label: 'Blog',
         });
       },
       position: 'start',

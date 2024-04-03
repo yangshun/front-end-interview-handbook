@@ -1147,10 +1147,6 @@
     "defaultMessage": "Created: Newest to oldest",
     "description": "Sorting option for discussions comment - sort by created"
   },
-  "8K48rR": {
-    "defaultMessage": "Features",
-    "description": "Link to features section"
-  },
   "8KFYWs": {
     "defaultMessage": "Intro to Quiz Questions",
     "description": "Introduction to front end quiz questions"
@@ -4811,6 +4807,10 @@
     "defaultMessage": "Filter by roadmap skills used by the creator",
     "description": "Label for skills filter"
   },
+  "bl/F9i": {
+    "defaultMessage": "Project challenges",
+    "description": "Link to challenges section"
+  },
   "bnqijt": {
     "defaultMessage": "Post",
     "description": "Label for post button on project discussions page"
@@ -5542,10 +5542,6 @@
   "iFFbCA": {
     "defaultMessage": "What's new",
     "description": "Sidebar label for What's New"
-  },
-  "iFI7xH": {
-    "defaultMessage": "Challenges",
-    "description": "Link to challenges section"
   },
   "iHLvVo": {
     "defaultMessage": "Find official guides, reference code from top submissions, and use our discussion forum to ask questions.",
