@@ -14,25 +14,38 @@ import SidebarLinkButton from '~/components/global/sidebar/SidebarLinkButton';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
-import { themeBorderColor } from '~/components/ui/theme';
 
 import SidebarAuthDropdownItem from './SidebarAuthDropdownItem';
 import SidebarColorSchemeSubMenu from './SidebarColorSchemeSubMenu';
 import NavProductMenuSelector from '../navbar/NavProductMenuSelector';
 
-type SidebarItem = SidebarLink;
-
-export type SidebarLink = Readonly<{
-  href: string;
+type SidebarBaseItem = Readonly<{
+  currentMatchRegex?: RegExp;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   key: string;
   label: string;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
-  scrollToTop?: boolean;
 }>;
 
+type SidebarLink = Readonly<{
+  href: string;
+  scrollToTop?: boolean;
+  type: 'link';
+}> &
+  SidebarBaseItem;
+
+type SidebarMenu = Readonly<{
+  items: ReadonlyArray<
+    Readonly<{ labelAddon?: React.ReactNode }> & SidebarLink
+  >;
+  type: 'menu';
+}> &
+  SidebarBaseItem;
+
+export type SidebarItem = SidebarLink | SidebarMenu;
+
 export type SidebarItems = Readonly<{
-  bottom: ReadonlyArray<SidebarItem>;
+  bottom?: ReadonlyArray<SidebarItem>;
   top: ReadonlyArray<SidebarItem>;
 }>;
 
@@ -49,7 +62,7 @@ export function SidebarCollapsed({
   onCollapseClick: () => void;
   product: React.ComponentProps<typeof NavProductMenuSelector>['value'];
   sidebarItems: SidebarItems;
-  topAddonElements: React.ReactNode;
+  topAddonElements?: React.ReactNode;
 }>) {
   const intl = useIntl();
 
@@ -59,25 +72,30 @@ export function SidebarCollapsed({
         'flex flex-col items-center gap-y-4',
         'relative h-full',
         'px-3 py-4',
-        ['border-e', themeBorderColor],
       )}>
-      <NavProductMenuSelector value={product} variant="compact" />
+      {product === 'projects' && (
+        <NavProductMenuSelector value={product} variant="compact" />
+      )}
       {topAddonElements}
       <ul className="flex grow flex-col gap-1">
-        {sidebarItems.top.map(({ key: childKey, ...link }) => (
-          <li key={childKey}>
-            <SidebarLinkButton isLabelHidden={true} {...link} />
+        {sidebarItems.top.map((item) => (
+          <li key={item.key}>
+            <SidebarLinkButton isLabelHidden={true} {...item} />
           </li>
         ))}
       </ul>
-      <Divider className="w-full" />
-      <ul className="flex flex-col gap-1">
-        {sidebarItems.bottom.map(({ key: childKey, ...link }) => (
-          <li key={childKey}>
-            <SidebarLinkButton isLabelHidden={true} {...link} />
-          </li>
-        ))}
-      </ul>
+      {sidebarItems.bottom != null && (
+        <>
+          <Divider className="w-full" />
+          <ul className="flex flex-col gap-1">
+            {sidebarItems.bottom.map((item) => (
+              <li key={item.key}>
+                <SidebarLinkButton isLabelHidden={true} {...item} />
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
       <Divider className="w-full" />
       <div className="flex flex-col items-center gap-6">
         <div className="flex flex-col items-center gap-4">
@@ -149,8 +167,8 @@ export function SidebarExpanded({
   moreMenuItems: React.ReactElement | false | null | undefined;
   onCollapseClick?: () => void;
   product: React.ComponentProps<typeof NavProductMenuSelector>['value'];
-  renderBottomAddonElements: (fadeInClassname: string) => React.ReactNode;
-  renderTopAddonElements: (fadeInClassname: string) => React.ReactNode;
+  renderBottomAddonElements?: (fadeInClassname: string) => React.ReactNode;
+  renderTopAddonElements?: (fadeInClassname: string) => React.ReactNode;
   sidebarItems: SidebarItems;
 }>) {
   const intl = useIntl();
@@ -160,30 +178,32 @@ export function SidebarExpanded({
   );
 
   return (
-    <nav
-      className={clsx('flex flex-col gap-y-4', 'relative h-full p-4', [
-        'border-e',
-        themeBorderColor,
-      ])}>
-      <NavProductMenuSelector value={product} variant="full" />
-      {renderTopAddonElements(fadeInClass)}
+    <nav className={clsx('flex flex-col gap-y-4', 'relative h-full p-4')}>
+      {product === 'projects' && (
+        <NavProductMenuSelector value={product} variant="full" />
+      )}
+      {renderTopAddonElements?.(fadeInClass)}
       <ul className={clsx('flex grow flex-col gap-2', fadeInClass)}>
-        {sidebarItems.top.map(({ key: childKey, ...link }) => (
-          <li key={childKey}>
-            <SidebarLinkButton {...link} />
+        {sidebarItems.top.map((item) => (
+          <li key={item.key}>
+            <SidebarLinkButton {...item} />
           </li>
         ))}
       </ul>
       <div className={clsx('flex flex-col gap-y-5', fadeInClass)}>
-        <Divider />
-        <ul className="flex flex-col gap-2">
-          {sidebarItems.bottom.map(({ key: childKey, ...link }) => (
-            <li key={childKey}>
-              <SidebarLinkButton {...link} />
-            </li>
-          ))}
-        </ul>
-        {renderBottomAddonElements(fadeInClass)}
+        {sidebarItems.bottom && (
+          <>
+            <Divider />
+            <ul className="flex flex-col gap-2">
+              {sidebarItems.bottom.map((item) => (
+                <li key={item.key}>
+                  <SidebarLinkButton {...item} />
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+        {renderBottomAddonElements?.(fadeInClass)}
         <Divider />
       </div>
       <div className="flex justify-between gap-4 pt-2">

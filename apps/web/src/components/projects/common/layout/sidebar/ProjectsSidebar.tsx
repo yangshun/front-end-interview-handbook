@@ -40,6 +40,7 @@ function useSidebarItems(): SidebarItems {
           id: 'J6IHpl',
         }),
         scrollToTop: false,
+        type: 'link',
       },
       {
         href: '/projects/pricing',
@@ -50,6 +51,7 @@ function useSidebarItems(): SidebarItems {
           description: 'Label for Pricing sidebar item in Projects sidebar',
           id: 'VbvRHt',
         }),
+        type: 'link',
       },
     ],
     top: [
@@ -62,6 +64,7 @@ function useSidebarItems(): SidebarItems {
           description: 'Label for Dashboard sidebar item in Projects sidebar',
           id: '50s+NV',
         }),
+        type: 'link',
       },
       {
         href: '/projects/challenges',
@@ -72,6 +75,7 @@ function useSidebarItems(): SidebarItems {
           description: 'Projects sidebar label',
           id: 'lGeTSB',
         }),
+        type: 'link',
       },
       {
         href: '/projects/submissions',
@@ -83,6 +87,7 @@ function useSidebarItems(): SidebarItems {
             'Label for All submissions sidebar item in Projects sidebar',
           id: 'HqUmNE',
         }),
+        type: 'link',
       },
     ],
   };

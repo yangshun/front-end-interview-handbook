@@ -6,6 +6,7 @@ import { useToggle } from 'usehooks-ts';
 import ProjectsNavbar from '~/components/projects/common/layout/ProjectsNavbar';
 import ProjectsSidebar from '~/components/projects/common/layout/sidebar';
 import Container from '~/components/ui/Container';
+import { themeBorderColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -22,6 +23,7 @@ export default function ProjectsSidebarLayout({ children }: Props) {
           'hidden lg:block',
           'sticky top-0',
           'h-dvh shrink-0 overflow-y-hidden',
+          ['border-e', themeBorderColor],
           isCollapsed ? 'w-[68px]' : 'w-60',
         )}>
         <ProjectsSidebar

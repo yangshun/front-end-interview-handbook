@@ -19,8 +19,9 @@ export default function InterviewsSidebarContainer({
   return (
     <aside
       className={clsx(
-        'sticky hidden shrink-0 overflow-visible border-r md:block',
-        themeBorderColor,
+        'hidden md:block',
+        'sticky shrink-0 overflow-visible',
+        ['border-e', themeBorderColor],
         isCollapsed ? 'w-[68px]' : 'w-60',
       )}
       style={{
@@ -29,7 +30,7 @@ export default function InterviewsSidebarContainer({
       }}>
       <InterviewsSidebar
         isCollapsed={isCollapsed}
-        onCollapseChange={() => setIsCollapsed(!isCollapsed)}
+        onCollapseClick={() => setIsCollapsed(!isCollapsed)}
       />
     </aside>
   );
