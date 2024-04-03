@@ -204,9 +204,9 @@ function useLearningFeatures(): Array<LearningFeature> {
       {
         description: (
           <FormattedMessage
-            defaultMessage="Whether you are complete beginner or an established engineer looking to fill a modern skill gap, our <link>Skills Roadmap</link> tells you the exact projects to build to train the skill you need - whether you are a complete beginner or senior engineer filling a skill gap."
+            defaultMessage="Our <link>Skills Roadmap</link> tells you the exact projects to build to train the skill you need - whether you are a complete beginner or senior engineer filling a skill gap."
             description="Description of 'Train any front end skill' feature in Projects marketing page"
-            id="BCfuA5"
+            id="SEXvzM"
             values={{
               link: (chunks) => (
                 <Anchor href="/projects/skills">{chunks}</Anchor>

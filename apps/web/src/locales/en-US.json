@@ -1491,10 +1491,6 @@
     "defaultMessage": "Submissions",
     "description": "Link to submissions page"
   },
-  "BCfuA5": {
-    "defaultMessage": "Whether you are complete beginner or an established engineer looking to fill a modern skill gap, our <link>Skills Roadmap</link> tells you the exact projects to build to train the skill you need - whether you are a complete beginner or senior engineer filling a skill gap.",
-    "description": "Description of 'Train any front end skill' feature in Projects marketing page"
-  },
   "BDGx19": {
     "defaultMessage": "Verifying",
     "description": "Label for button"
@@ -3650,6 +3646,10 @@
   "SAjGy/": {
     "defaultMessage": "Review must not be generated or written with the assistance of artificial intelligence.",
     "description": "Condition for promotion"
+  },
+  "SEXvzM": {
+    "defaultMessage": "Our <link>Skills Roadmap</link> tells you the exact projects to build to train the skill you need - whether you are a complete beginner or senior engineer filling a skill gap.",
+    "description": "Description of 'Train any front end skill' feature in Projects marketing page"
   },
   "SG08/K": {
     "defaultMessage": "Challenge unlocked successfully",
