@@ -15,6 +15,7 @@ import useIsSticky from '~/hooks/useIsSticky';
 import { useAuthLogout, useAuthSignInUp } from '~/hooks/user/useAuthFns';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
+import { FEATURE_FLAGS_PROJECTS_LAUNCHED } from '~/data/FeatureFlags';
 import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
 import { useFocusAreas } from '~/data/focus-areas/FocusAreasHooks';
 import { useGuidesData } from '~/data/Guides';
@@ -27,6 +28,7 @@ import {
 
 import I18nSelect from '~/components/common/i18n/I18nSelect';
 import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
+import NavProductDropdownMenu from '~/components/global/navbar/NavProductDropdownMenu';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Badge from '~/components/ui/Badge';
@@ -771,6 +773,11 @@ export default function InterviewsNavbar() {
       links={links}
       logo={<LogoLink />}
       mobileSidebarBottomItems={mobileSidebarBottomItems}
+      productMenu={
+        FEATURE_FLAGS_PROJECTS_LAUNCHED ? (
+          <NavProductDropdownMenu value="interviews" />
+        ) : undefined
+      }
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
       style={{ top: 'var(--banner-height)' }}
       transparent={!isSticky}
