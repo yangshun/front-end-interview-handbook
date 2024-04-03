@@ -113,7 +113,6 @@ export default function ProjectsSkillRoadmapItemDetails({
           <div className="flex flex-wrap gap-x-6">
             {totalRoadmapPoints != null && (
               <ProjectsChallengeReputationTag
-                labelVariant="to-be-gained"
                 points={totalRoadmapPoints}
                 tooltip={intl.formatMessage({
                   defaultMessage:

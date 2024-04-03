@@ -1791,10 +1791,6 @@
     "defaultMessage": "The email address you want to use to log in.",
     "description": "Email field description"
   },
-  "DSJ98t": {
-    "defaultMessage": "{count, plural, =0 {No challenges completed} one {<bold>1</bold> challenge completed} other {<bold>#</bold> challenges completed}}",
-    "description": "Completed project challenges label"
-  },
   "DTIb2e": {
     "defaultMessage": "Pagination",
     "description": "Pagination label"
@@ -2310,10 +2306,6 @@
   "I5iXtu": {
     "defaultMessage": "Solution for {questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions",
     "description": "Title of Front End Interview UI Coding Questions solution page"
-  },
-  "IB1RF5": {
-    "defaultMessage": "{points} rep to be gained",
-    "description": "Reputation points to be gained"
   },
   "IBP/D0": {
     "defaultMessage": "Tell us your email if you want us to follow up with you.",
@@ -5447,6 +5439,10 @@
     "defaultMessage": "What to expect and how to prepare most efficiently",
     "description": "What to expect in behavioral interviews"
   },
+  "hEf/+c": {
+    "defaultMessage": "{count, plural, =0 {No challenges} one {<bold>1</bold> challenge} other {<bold>#</bold> challenges}} completed using skill",
+    "description": "Completed project challenges label"
+  },
   "hEu8WR": {
     "defaultMessage": "{repRemaining} rep to <emph>level {nextLevel}</emph>",
     "description": "Rep remaining to next level"
@@ -6722,10 +6718,6 @@
   "r1cPM9": {
     "defaultMessage": "Prepare for tackling data structures and algorithms questions in front end interviews",
     "description": "Title for interview preparation focus area"
-  },
-  "r5RGzk": {
-    "defaultMessage": "<bold>{completedCount}</bold>/{totalCount} skill plan challenges",
-    "description": "Rep count label in Projects"
   },
   "r661ID": {
     "defaultMessage": "Edit submission | GreatFrontEnd Projects - Real-world project challenges",

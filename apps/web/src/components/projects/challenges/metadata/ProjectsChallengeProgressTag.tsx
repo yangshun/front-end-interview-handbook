@@ -13,7 +13,6 @@ type Props = Readonly<{
   showProgress?: boolean;
   tooltip?: string;
   total: number;
-  variant?: 'normal' | 'skills-roadmap';
 }>;
 
 export default function ProjectsChallengeProgressTag({
@@ -22,7 +21,6 @@ export default function ProjectsChallengeProgressTag({
   showProgress = true,
   tooltip,
   total,
-  variant = 'normal',
 }: Props) {
   const intl = useIntl();
 
@@ -30,38 +28,20 @@ export default function ProjectsChallengeProgressTag({
     <div className={clsx('flex items-center gap-1', themeTextSubtleColor)}>
       <RiRocketLine aria-hidden={true} className="size-4 shrink-0" />
       <Text color="inherit" size="body3">
-        {variant === 'normal' && (
-          <FormattedMessage
-            defaultMessage="{totalCount, plural, one {<bold>{completedCount}</bold>/# challenge} other {<bold>{completedCount}</bold>/# challenges}}"
-            description="Rep count label in Projects"
-            id="23zW1O"
-            values={{
-              bold: (chunks) => (
-                <Text color="secondary" size="body2" weight="medium">
-                  {chunks}
-                </Text>
-              ),
-              completedCount: completed,
-              totalCount: total,
-            }}
-          />
-        )}
-        {variant === 'skills-roadmap' && (
-          <FormattedMessage
-            defaultMessage="<bold>{completedCount}</bold>/{totalCount} skill plan challenges"
-            description="Rep count label in Projects"
-            id="r5RGzk"
-            values={{
-              bold: (chunks) => (
-                <Text color="secondary" size="body2" weight="medium">
-                  {chunks}
-                </Text>
-              ),
-              completedCount: completed,
-              totalCount: total,
-            }}
-          />
-        )}
+        <FormattedMessage
+          defaultMessage="{totalCount, plural, one {<bold>{completedCount}</bold>/# challenge} other {<bold>{completedCount}</bold>/# challenges}}"
+          description="Rep count label in Projects"
+          id="23zW1O"
+          values={{
+            bold: (chunks) => (
+              <Text color="secondary" size="body2" weight="medium">
+                {chunks}
+              </Text>
+            ),
+            completedCount: completed,
+            totalCount: total,
+          }}
+        />
       </Text>
     </div>
   );

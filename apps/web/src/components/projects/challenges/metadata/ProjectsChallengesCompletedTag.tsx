@@ -23,9 +23,9 @@ export default function ProjectsChallengesCompletedTag({
       />
       <Text color="inherit" size="body3">
         <FormattedMessage
-          defaultMessage="{count, plural, =0 {No challenges completed} one {<bold>1</bold> challenge completed} other {<bold>#</bold> challenges completed}}"
+          defaultMessage="{count, plural, =0 {No challenges} one {<bold>1</bold> challenge} other {<bold>#</bold> challenges}} completed using skill"
           description="Completed project challenges label"
-          id="DSJ98t"
+          id="hEf/+c"
           values={{
             bold: (chunks) => (
               <Text color="secondary" size="body2" weight="medium">
