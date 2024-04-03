@@ -4,6 +4,8 @@ import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
 import useProjectsDashboardRecommendedActions from '~/components/projects/dashboard/useProjectsDashboardRecommendedActions';
 import { motivationReasonValue } from '~/components/projects/misc';
 import type {
@@ -97,15 +99,13 @@ function getRecommendedActions(
   return recommendedActions.slice(0, 3);
 }
 
-type Props = Readonly<{
-  motivations: Array<string>;
-}>;
-
-export default function ProjectsDashboardRecommendedActionsSection({
-  motivations,
-}: Props) {
+export default function ProjectsDashboardRecommendedActionsSection() {
   const intl = useIntl();
   const actions = useProjectsDashboardRecommendedActions();
+
+  const { data: userProfile } = trpc.projects.profile.viewer.useQuery();
+  const motivations = userProfile?.projectsProfile?.motivations ?? [];
+
   const recommendedActions = getRecommendedActions(actions, motivations);
 
   return (

@@ -20,24 +20,60 @@ import ProjectsDashboardRecommendedActionsSection from './ProjectsDashboardRecom
 import ProjectsDashboardTrackAndSkillsSection from './ProjectsDashboardTrackAndSkillsSection';
 import ProjectsDashboardTrendingSubmissionsSection from './ProjectsDashboardTrendingSubmissionsSection';
 
-import { useUser } from '@supabase/auth-helpers-react';
-
 type Props = Readonly<{
   children: React.ReactNode;
+  viewer: {
+    id: string;
+  } | null;
 }>;
 
-export default function ProjectsDashboardPage({ children }: Props) {
+export default function ProjectsDashboardPage({ children, viewer }: Props) {
   const intl = useIntl();
-  const user = useUser();
 
-  const { data: profileStatistics } =
+  const { data: profileStatistics, isLoading: isProfileStatisticsLoading } =
     trpc.projects.profile.dashboardStatisticsSelf.useQuery();
   const { data: startedBefore } =
     trpc.projects.sessions.startedBefore.useQuery();
-  const { data: userProfile } = trpc.projects.profile.viewer.useQuery();
   const { signInUpHref } = useAuthSignInUp();
 
   const baseUrl = '/projects/dashboard';
+
+  const getProjectsProfileStats = () => {
+    // If viewer is null then we need to show overlay and fake data
+    if (viewer === null) {
+      return (
+        <ProjectsProfileStats
+          codeReviews={232}
+          completedChallenges={5653}
+          isViewingOwnProfile={false}
+          submissionViews={4}
+          upvotes={842}
+        />
+      );
+    }
+    // If profile stats is loading then we show `-` as loading state
+    if (isProfileStatisticsLoading) {
+      return (
+        <ProjectsProfileStats
+          codeReviews={0}
+          completedChallenges={0}
+          isViewingOwnProfile={true} // This is always true as you can get to this page if you are viewing your own profile
+          submissionViews={0}
+          upvotes={0}
+        />
+      );
+    }
+
+    return (
+      <ProjectsProfileStats
+        codeReviews={profileStatistics?.codeReviews}
+        completedChallenges={profileStatistics?.completedChallenges}
+        isViewingOwnProfile={true} // This is always true as you can get to this page if you are viewing your own profile
+        submissionViews={profileStatistics?.submissionViews ?? 0}
+        upvotes={profileStatistics?.upvotes}
+      />
+    );
+  };
 
   return (
     <BlurOverlay
@@ -65,7 +101,7 @@ export default function ProjectsDashboardPage({ children }: Props) {
           />
         </div>
       }
-      showOverlay={userProfile?.projectsProfile == null}>
+      showOverlay={viewer == null}>
       <div className="flex flex-col gap-16">
         <div className="flex flex-col gap-8">
           <div className="relative flex flex-col gap-6 lg:flex-row lg:justify-between">
@@ -80,29 +116,10 @@ export default function ProjectsDashboardPage({ children }: Props) {
               <ProjectsDashboardCompleteProfileCard />
             </div>
           </div>
-          <Section>
-            {profileStatistics ? (
-              <ProjectsProfileStats
-                codeReviews={profileStatistics?.codeReviews}
-                completedChallenges={profileStatistics?.completedChallenges}
-                isViewingOwnProfile={user?.id === userProfile?.id}
-                submissionViews={profileStatistics?.submissionViews ?? 0}
-                upvotes={profileStatistics?.upvotes}
-              />
-            ) : (
-              // Fake data for blurred overlay
-              <ProjectsProfileStats
-                codeReviews={232}
-                completedChallenges={5653}
-                isViewingOwnProfile={false}
-                submissionViews={4}
-                upvotes={842}
-              />
-            )}
-          </Section>
+          <Section>{getProjectsProfileStats()}</Section>
         </div>
         <Section>
-          {userProfile && startedBefore ? (
+          {viewer && startedBefore ? (
             <div
               className={clsx(
                 'grid grid-cols-1 lg:grid-cols-2',
@@ -119,11 +136,9 @@ export default function ProjectsDashboardPage({ children }: Props) {
               <ProjectsDashboardTrendingSubmissionsSection />
             </div>
           ) : (
-            <ProjectsDashboardRecommendedActionsSection
-              motivations={userProfile?.projectsProfile?.motivations ?? []}
-            />
+            <ProjectsDashboardRecommendedActionsSection />
           )}
-          {userProfile && (
+          {viewer && (
             <div className="flex flex-col gap-8">
               <ProjectsProfileTabs
                 baseUrl={baseUrl}
