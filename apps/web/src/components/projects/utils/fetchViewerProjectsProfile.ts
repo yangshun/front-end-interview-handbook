@@ -3,7 +3,7 @@ import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 import type { ProjectsViewerProjectsProfile } from '../types';
 
-export default async function readViewerProjectsProfile(
+export default async function fetchViewerProjectsProfile(
   userParam?: Readonly<{
     email: string; // User Email.
     id: string; // User ID.

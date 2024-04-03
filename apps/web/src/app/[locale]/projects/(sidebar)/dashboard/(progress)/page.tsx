@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import ProjectsProfileProgressSection from '~/components/projects/profile/progress/ProjectsProfileProgressSection';
-import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
+import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -37,7 +37,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  const { viewerId, viewerProjectsProfile } = await readViewerProjectsProfile();
+  const { viewerId, viewerProjectsProfile } =
+    await fetchViewerProjectsProfile();
 
   if (viewerId == null) {
     return notFound();

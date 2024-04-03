@@ -1,7 +1,7 @@
 import prisma from '~/server/prisma';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
-export default async function readViewerProjectsChallengeAccess(
+export default async function fetchViewerProjectsChallengeAccess(
   slug: string,
 ): Promise<boolean> {
   const viewer = await readViewerFromToken();

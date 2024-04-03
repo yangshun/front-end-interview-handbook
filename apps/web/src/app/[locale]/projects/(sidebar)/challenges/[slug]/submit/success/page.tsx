@@ -1,7 +1,7 @@
 import type { Metadata } from 'next/types';
 
 import ProjectsChallengeSubmissionSuccessPage from '~/components/projects/submissions/ProjectsChallengeSubmissionSuccessPage';
-import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
+import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import {
   readProjectsChallengeList,
@@ -56,7 +56,7 @@ export default async function Page({ params }: Props) {
   const viewer = await readViewerFromToken();
 
   const [{ viewerProjectsProfile }, { challenges }] = await Promise.all([
-    readViewerProjectsProfile(viewer),
+    fetchViewerProjectsProfile(viewer),
     readProjectsChallengeList(locale, viewer?.id),
   ]);
 

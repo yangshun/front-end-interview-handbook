@@ -5,7 +5,7 @@ import {
   readProjectsTrackList,
 } from '~/components/projects/tracks/data/ProjectsTrackReader';
 import ProjectsTracksListPage from '~/components/projects/tracks/ProjectsTracksListPage';
-import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
+import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -46,7 +46,7 @@ export default async function Page({ params }: Props) {
   const viewer = await readViewerFromToken();
   const [{ viewerProjectsProfile }, { tracks }, challengeHistoricalStatuses] =
     await Promise.all([
-      readViewerProjectsProfile(viewer),
+      fetchViewerProjectsProfile(viewer),
       readProjectsTrackList(locale, viewer?.id),
       fetchProjectsTrackChallengeHistoricalStatuses(viewer?.id),
     ]);

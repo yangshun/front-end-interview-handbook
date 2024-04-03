@@ -5,7 +5,7 @@ import { projectsSkillLabel } from '~/components/projects/skills/data/ProjectsSk
 import { readProjectsSkillMetadata } from '~/components/projects/skills/data/ProjectsSkillReader';
 import ProjectsSkillRoadmapItemDetails from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItemDetails';
 import ProjectsSkillRoadmapItemLockedPage from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItemLockedPage';
-import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
+import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -55,7 +55,7 @@ export default async function Page({ params }: Props) {
 
   const viewer = await readViewerFromToken();
   const [{ viewerProjectsProfile }, { skillMetadata }] = await Promise.all([
-    readViewerProjectsProfile(viewer),
+    fetchViewerProjectsProfile(viewer),
     readProjectsSkillMetadata(slug, locale),
   ]);
 

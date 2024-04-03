@@ -5,7 +5,7 @@ import {
   fetchProjectsTrackChallengeHistoricalStatuses,
   readProjectsTrackList,
 } from '~/components/projects/tracks/data/ProjectsTrackReader';
-import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
+import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
@@ -25,7 +25,7 @@ export default async function Page({ params }: Props) {
 
   const [{ viewerProjectsProfile }, { tracks }, challengeHistoricalStatuses] =
     await Promise.all([
-      readViewerProjectsProfile(viewer),
+      fetchViewerProjectsProfile(viewer),
       readProjectsTrackList(locale, viewer.id),
       fetchProjectsTrackChallengeHistoricalStatuses(viewer.id),
     ]);

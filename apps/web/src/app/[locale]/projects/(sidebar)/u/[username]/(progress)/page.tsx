@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import ProjectsProfileProgressSection from '~/components/projects/profile/progress/ProjectsProfileProgressSection';
-import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
+import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const [{ viewerId, viewerProjectsProfile }, userProfile] = await Promise.all([
-    readViewerProjectsProfile(),
+    fetchViewerProjectsProfile(),
     prisma.profile.findUnique({
       include: {
         projectsProfile: true,

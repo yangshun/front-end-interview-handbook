@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { fetchViewerProfile } from '~/components/auth/fetchViewerProfile';
 import { fetchProjectsSkillsRoadmapSectionData } from '~/components/projects/skills/data/ProjectsSkillReader';
 import ProjectsSkillRoadmapLayout from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapLayout';
-import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
+import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
@@ -16,7 +16,7 @@ export default async function Layout({ children }: Props) {
   const [viewerProfile, { viewerProjectsProfile }, skillsRoadmap] =
     await Promise.all([
       fetchViewerProfile(viewer),
-      readViewerProjectsProfile(viewer),
+      fetchViewerProjectsProfile(viewer),
       fetchProjectsSkillsRoadmapSectionData(viewer?.id),
     ]);
 

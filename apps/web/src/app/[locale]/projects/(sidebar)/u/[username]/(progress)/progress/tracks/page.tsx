@@ -5,7 +5,7 @@ import {
   fetchProjectsTrackChallengeHistoricalStatuses,
   readProjectsTrackList,
 } from '~/components/projects/tracks/data/ProjectsTrackReader';
-import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
+import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import prisma from '~/server/prisma';
 
@@ -34,7 +34,7 @@ export default async function Page({ params }: Props) {
     { tracks },
     challengeHistoricalStatuses,
   ] = await Promise.all([
-    readViewerProjectsProfile(),
+    fetchViewerProjectsProfile(),
     readProjectsTrackList(locale, userProfile.id),
     fetchProjectsTrackChallengeHistoricalStatuses(userProfile.id),
   ]);

@@ -2,8 +2,8 @@ import type { Metadata } from 'next/types';
 
 import ProjectsPremiumAccessControl from '~/components/projects/challenges/premium/ProjectsPremiumAccessControl';
 import ProjectsChallengeResourcesPage from '~/components/projects/challenges/resources/ProjectsChallengeResourcesPage';
-import readViewerProjectsChallengeAccess from '~/components/projects/utils/readViewerProjectsChallengeAccess';
-import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
+import fetchViewerProjectsChallengeAccess from '~/components/projects/utils/fetchViewerProjectsChallengeAccess';
+import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import {
   readProjectsChallengeItem,
@@ -61,8 +61,8 @@ export default async function Page({ params }: Props) {
     { challenge },
     { resourceProjectsChallengeGuides },
   ] = await Promise.all([
-    readViewerProjectsProfile(),
-    readViewerProjectsChallengeAccess(slug),
+    fetchViewerProjectsProfile(),
+    fetchViewerProjectsChallengeAccess(slug),
     readProjectsChallengeItem(slug, locale),
     readProjectsChallengeResourceGuideList(locale),
   ]);

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import ProjectsChallengeListPage from '~/components/projects/challenges/lists/ProjectsChallengeListPage';
-import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
+import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { readProjectsChallengeList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
@@ -41,7 +41,7 @@ export default async function Page({ params }: Props) {
   const { locale } = params;
   const viewer = await readViewerFromToken();
   const [{ viewerProjectsProfile }, { challenges }] = await Promise.all([
-    readViewerProjectsProfile(viewer),
+    fetchViewerProjectsProfile(viewer),
     readProjectsChallengeList(locale, viewer?.id),
   ]);
 

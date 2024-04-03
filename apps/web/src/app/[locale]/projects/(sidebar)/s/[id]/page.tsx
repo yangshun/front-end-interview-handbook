@@ -6,8 +6,8 @@ import { convertToPlainObject } from '~/lib/convertToPlainObject';
 import ProjectsPremiumAccessControl from '~/components/projects/challenges/premium/ProjectsPremiumAccessControl';
 import ProjectsChallengeSubmissionLockedPage from '~/components/projects/submissions/ProjectsChallengeSubmissionLockedPage';
 import ProjectsChallengeSubmissionPage from '~/components/projects/submissions/ProjectsChallengeSubmissionPage';
-import readViewerProjectsChallengeAccess from '~/components/projects/utils/readViewerProjectsChallengeAccess';
-import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
+import fetchViewerProjectsChallengeAccess from '~/components/projects/utils/fetchViewerProjectsChallengeAccess';
+import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import {
   readProjectsChallengeItem,
@@ -86,7 +86,7 @@ export default async function Page({ params }: Props) {
   const { locale, id: submissionId } = params;
   const [{ viewerId, viewerProjectsProfile }, submission, commentCount] =
     await Promise.all([
-      readViewerProjectsProfile(),
+      fetchViewerProjectsProfile(),
       prisma.projectsChallengeSubmission.findFirst({
         include: {
           _count: {
@@ -130,7 +130,7 @@ export default async function Page({ params }: Props) {
   }
 
   const [viewerUnlockedAccess, { challenge }] = await Promise.all([
-    readViewerProjectsChallengeAccess(submission.slug),
+    fetchViewerProjectsChallengeAccess(submission.slug),
     readProjectsChallengeItem(submission.slug, locale, viewerId),
   ]);
 

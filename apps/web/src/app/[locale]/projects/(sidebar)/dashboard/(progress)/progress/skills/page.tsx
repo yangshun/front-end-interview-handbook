@@ -1,7 +1,7 @@
 import { fetchViewerProfile } from '~/components/auth/fetchViewerProfile';
 import ProjectsProfileProgressSkillsTab from '~/components/projects/profile/progress/ProjectsProfileProgressSkillsTab';
 import { fetchProjectsSkillsRoadmapSectionData } from '~/components/projects/skills/data/ProjectsSkillReader';
-import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
+import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
@@ -10,7 +10,7 @@ export default async function Page() {
   const [viewerProfile, { viewerProjectsProfile }, skillsRoadmap] =
     await Promise.all([
       fetchViewerProfile(viewer),
-      readViewerProjectsProfile(viewer),
+      fetchViewerProjectsProfile(viewer),
       fetchProjectsSkillsRoadmapSectionData(viewer?.id),
     ]);
 

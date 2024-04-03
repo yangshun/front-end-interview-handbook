@@ -8,7 +8,7 @@ import {
 } from '~/components/projects/tracks/data/ProjectsTrackReader';
 import ProjectsTrackDetailsLockedPage from '~/components/projects/tracks/ProjectsTrackDetailsLockedPage';
 import ProjectsTrackDetailsPage from '~/components/projects/tracks/ProjectsTrackDetailsPage';
-import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
+import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -60,7 +60,7 @@ export default async function Page({ params }: Props) {
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
   const [{ viewerProjectsProfile }, { track }] = await Promise.all([
-    readViewerProjectsProfile(viewer),
+    fetchViewerProjectsProfile(viewer),
     readProjectsTrackItem(slug, locale, viewer?.id),
   ]);
 

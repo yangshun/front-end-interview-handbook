@@ -2,8 +2,8 @@ import type { Metadata } from 'next/types';
 
 import ProjectsChallengeDeploymentCompletionPage from '~/components/projects/challenges/completion/ProjectsChallengeDeploymentCompletionPage';
 import ProjectsPremiumAccessControl from '~/components/projects/challenges/premium/ProjectsPremiumAccessControl';
-import readViewerProjectsChallengeAccess from '~/components/projects/utils/readViewerProjectsChallengeAccess';
-import readViewerProjectsProfile from '~/components/projects/utils/readViewerProjectsProfile';
+import fetchViewerProjectsChallengeAccess from '~/components/projects/utils/fetchViewerProjectsChallengeAccess';
+import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import {
   readProjectsChallengeItem,
@@ -55,8 +55,8 @@ export default async function Page({ params }: Props) {
   const { slug, locale } = params;
   const [{ viewerProjectsProfile }, viewerUnlockedAccess, { challenge }] =
     await Promise.all([
-      readViewerProjectsProfile(),
-      readViewerProjectsChallengeAccess(slug),
+      fetchViewerProjectsProfile(),
+      fetchViewerProjectsChallengeAccess(slug),
       readProjectsChallengeItem(slug, locale),
     ]);
 

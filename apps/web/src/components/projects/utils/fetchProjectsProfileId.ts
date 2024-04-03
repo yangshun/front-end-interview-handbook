@@ -1,6 +1,6 @@
 import prisma from '~/server/prisma';
 
-export default async function getProjectsProfileId(
+export default async function fetchProjectsProfileId(
   user: Readonly<{ id: string }>,
 ) {
   const profile = await prisma.projectsProfile.findUnique({
