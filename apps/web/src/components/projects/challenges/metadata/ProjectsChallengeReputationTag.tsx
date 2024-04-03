@@ -15,7 +15,7 @@ type TagVariant = 'filled' | 'flat' | 'underline';
 
 type Props = Readonly<{
   className?: string;
-  labelVariant?: 'default' | 'gained' | 'total';
+  labelVariant?: 'default' | 'gained-skill' | 'to-be-gained' | 'total';
   points: number;
   tooltip?: string;
   variant?: TagVariant;
@@ -56,19 +56,29 @@ export default function ProjectsChallengeReputationTag({
         weight={variant === 'filled' ? 'medium' : 'normal'}>
         {labelVariant === 'default' && (
           <FormattedMessage
-            defaultMessage="{points} rep"
+            defaultMessage="{points} rep for this skill"
             description="Reputation points to be gained"
-            id="md057S"
+            id="EBysdw"
             values={{
               points,
             }}
           />
         )}
-        {labelVariant === 'gained' && (
+        {labelVariant === 'gained-skill' && (
           <FormattedMessage
             defaultMessage="{points} rep gained"
             description="Reputation points to be gained"
             id="eR4o0Q"
+            values={{
+              points,
+            }}
+          />
+        )}
+        {labelVariant === 'to-be-gained' && (
+          <FormattedMessage
+            defaultMessage="{points} rep to be gained"
+            description="Reputation points to be gained"
+            id="IB1RF5"
             values={{
               points,
             }}

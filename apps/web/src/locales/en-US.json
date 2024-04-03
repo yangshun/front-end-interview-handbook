@@ -1871,6 +1871,10 @@
     "defaultMessage": "I want to use React on this project, but it's not listed as one of the skills. Can I still use it?",
     "description": "FAQ question for projects platform"
   },
+  "EBysdw": {
+    "defaultMessage": "{points} rep for this skill",
+    "description": "Reputation points to be gained"
+  },
   "ECkWMR": {
     "defaultMessage": "Stop session",
     "description": "Label to stop study plan"
@@ -2306,6 +2310,10 @@
   "I5iXtu": {
     "defaultMessage": "Solution for {questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions",
     "description": "Title of Front End Interview UI Coding Questions solution page"
+  },
+  "IB1RF5": {
+    "defaultMessage": "{points} rep to be gained",
+    "description": "Reputation points to be gained"
   },
   "IBP/D0": {
     "defaultMessage": "Tell us your email if you want us to follow up with you.",
@@ -6142,10 +6150,6 @@
   "mcOOtE": {
     "defaultMessage": "Host the project for free on our recommended hosts and submit your project URL for reviews",
     "description": "Instruction for projects"
-  },
-  "md057S": {
-    "defaultMessage": "{points} rep",
-    "description": "Reputation points to be gained"
   },
   "mhZ4FL": {
     "defaultMessage": "{name} in progress",

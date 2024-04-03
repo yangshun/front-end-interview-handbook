@@ -72,7 +72,7 @@ export default function ProjectsSkillRoadmapItemDetails({
         <div className="flex flex-wrap gap-x-6">
           {(skillPlanProgressData?.points ?? 0) > 0 && (
             <ProjectsChallengeReputationTag
-              labelVariant="gained"
+              labelVariant="gained-skill"
               points={skillPlanProgressData?.points ?? 0}
               tooltip={intl.formatMessage({
                 defaultMessage:
@@ -94,21 +94,6 @@ export default function ProjectsSkillRoadmapItemDetails({
                 })}
               />
             )}
-          {challengesQuery.data?.challenges != null &&
-            completedChallenges != null && (
-              <ProjectsChallengeProgressTag
-                completed={completedChallenges}
-                showProgress={false}
-                tooltip={intl.formatMessage({
-                  defaultMessage:
-                    'Number of challenges completed in skill plan',
-                  description: 'Tooltip for skill plan challenges label',
-                  id: 'SlcOi4',
-                })}
-                total={challengesQuery.data.challenges.length}
-                variant="skills-roadmap"
-              />
-            )}
         </div>
         <Text className="block" color="secondary" size="body3">
           {skillMetadata.description}
@@ -128,6 +113,7 @@ export default function ProjectsSkillRoadmapItemDetails({
           <div className="flex flex-wrap gap-x-6">
             {totalRoadmapPoints != null && (
               <ProjectsChallengeReputationTag
+                labelVariant="to-be-gained"
                 points={totalRoadmapPoints}
                 tooltip={intl.formatMessage({
                   defaultMessage:
