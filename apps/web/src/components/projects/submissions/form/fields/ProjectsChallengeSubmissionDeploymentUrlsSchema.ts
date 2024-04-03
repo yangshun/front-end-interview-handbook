@@ -2,9 +2,10 @@ import type { IntlShape } from 'react-intl';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
+import { URL_REGEX } from '~/components/projects/misc';
+
 const MIN_LENGTH = 2;
 const MAX_LENGTH = 50;
-const URL_REGEX = /^(https?:\/\/)?(www\.)?[a-z0-9-]+\.[a-z]{2,}(\/.*)?$/;
 
 function urlSchema(options?: { urlMessage: string }) {
   const { urlMessage } = options ?? {};

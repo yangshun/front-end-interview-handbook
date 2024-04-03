@@ -2,7 +2,7 @@ import type { IntlShape } from 'react-intl';
 import { useIntl } from 'react-intl';
 import { z } from 'zod';
 
-const URL_REGEX = /^(https?:\/\/)?(www\.)?[a-z0-9-]+\.[a-z]{2,}(\/.*)?$/;
+import { URL_REGEX } from '~/components/projects/misc';
 
 function projectsProfileWebsiteSchema(options?: {
   required: boolean;

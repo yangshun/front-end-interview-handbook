@@ -54,3 +54,6 @@ export function getFormattedNumber(num: number) {
 
   return (num / item.value).toFixed(digits).replace(rx, '$1') + item.symbol;
 }
+
+export const URL_REGEX =
+  /^(https?:\/\/)?(www\.)?([a-z0-9-]+\.)+[a-z]{2,}(\/.*)?$/i;
