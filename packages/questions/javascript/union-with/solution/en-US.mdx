@@ -1,0 +1,18 @@
+import MDXCodeBlock from 'MDXCodeBlock';
+
+import unionWithJs from '../setup/src/union-with.js';
+import unionWithTs from '../setup/src/union-with.ts';
+
+## Solution
+
+We can use the array function `findIndex` to iterate through each element in the `result` array to check if there was the same value when compared by `comparator`.
+
+<MDXCodeBlock languages={{ jsx: unionWithJs, tsx: unionWithTs }} />
+
+## Edge Cases
+
+To handle mixed data types, the `comparator` function must be able to process them by either converting the elements to a common type.
+
+## Resources
+
+- [Lodash `_.unionWith`](https://lodash.com/docs/#unionWith)

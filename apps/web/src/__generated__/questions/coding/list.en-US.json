@@ -4975,6 +4975,37 @@
     "topics": []
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1712016000,
+    "difficulty": "medium",
+    "duration": 15,
+    "excerpt": "Implement a function that creates an array of unique values, in order, from all given arrays, based on a specific comparison criteria",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/union-with",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [
+      "uniq-with",
+      "union",
+      "union-by"
+    ],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "union-with",
+    "subtitle": null,
+    "title": "Union With",
+    "topics": []
+  },
+  {
     "author": "yangshun",
     "companies": [],
     "created": 1655164800,

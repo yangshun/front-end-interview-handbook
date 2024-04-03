@@ -1,0 +1,41 @@
+---
+title: Union With
+excerpt: Implement a function that creates an array of unique values, in order, from all given arrays, based on a specific comparison criteria
+---
+
+Implement a function `unionWith(array)` that creates an array of unique values, in order, from all given arrays and accepts `comparator` which is invoked for each pair of elements to check for their uniqueness.
+
+```js
+unionWith(comparator, arrays);
+```
+
+## Arguments
+
+1. `comparator` _(Function)_: The comparator invoked per element. The function is invoked with two arguments.
+1. `[arrays]` _(...Array)_: The arrays to inspect
+
+## Returns
+
+_`(Array)`_: Returns the new array of combined values.
+
+## Examples
+
+```js
+unionWith((a, b) => a === b, [2], [1, 2]); // => [2, 1]
+
+unionWith((a, b) => Math.floor(a) === Math.floor(b), [2.1], [1.2, 2.3]); // => [2.1, 1.2]
+
+unionWith((a, b) => a.x === b.x, [{ x: 1 }], [{ x: 2 }, { x: 1 }]); // => [{ 'x': 1 }, { 'x': 2 }]
+```
+
+The function should return an empty array if `array` is empty and leave the treat false values as-is.
+
+```js
+unionWith((a, b) => a === b, []); // => []
+
+unionWith((a, b) => a.m === b.m, [{ n: 1 }], [{ m: 2 }]); // => [{ n: 1 }, { m: 2 }]
+```
+
+## Resources
+
+- [Lodash `_.unionWith`](https://lodash.com/docs/#unionWith)
