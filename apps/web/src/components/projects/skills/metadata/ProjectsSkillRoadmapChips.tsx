@@ -80,15 +80,15 @@ export default function ProjectsSkillRoadmapChips({ skills, ...props }: Props) {
   }> = [];
 
   skillsRoadmapConfig.forEach((levelItem) => {
-    levelItem.items.forEach((groupItem) => {
-      const skillsWithinGroup = groupItem.items.filter((skillKey) =>
+    levelItem.items.forEach((parentSkillItem) => {
+      const skillsWithinParent = parentSkillItem.items.filter((skillKey) =>
         skills.includes(skillKey),
       );
 
-      if (skillsWithinGroup.length > 0) {
+      if (skillsWithinParent.length > 0) {
         addedRoadmapSkills.push({
-          childSkills: skillsWithinGroup,
-          parentSkill: groupItem.key,
+          childSkills: skillsWithinParent,
+          parentSkill: parentSkillItem.key,
         });
       }
     });
@@ -96,11 +96,11 @@ export default function ProjectsSkillRoadmapChips({ skills, ...props }: Props) {
 
   return (
     <div className="flex flex-wrap gap-2">
-      {addedRoadmapSkills.map((group) => (
+      {addedRoadmapSkills.map((item) => (
         <ProjectsSkillParentChip
-          key={group.parentSkill}
-          childSkills={group.childSkills}
-          parentSkill={group.parentSkill}
+          key={item.parentSkill}
+          childSkills={item.childSkills}
+          parentSkill={item.parentSkill}
           {...props}
         />
       ))}

@@ -5,8 +5,8 @@ import { useState } from 'react';
 import { RiAddCircleLine, RiIndeterminateCircleLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import ProjectsSkillRoadmapGroupHeading from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapGroupHeading';
 import ProjectsSkillRoadmapItemRow from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItemRow';
+import ProjectsSkillRoadmapParentHeading from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapParentHeading';
 import Button from '~/components/ui/Button';
 import {
   themeBackgroundLayerEmphasized,
@@ -16,10 +16,10 @@ import {
 } from '~/components/ui/theme';
 
 import { ProjectsSkillIcons } from '../data/ProjectsSkillIcons';
-import type { ProjectsSkillRoadmapSectionGroup } from '../types';
+import type { ProjectsSkillRoadmapSectionParent } from '../types';
 
 type Props = Readonly<{
-  group: ProjectsSkillRoadmapSectionGroup;
+  group: ProjectsSkillRoadmapSectionParent;
   isViewerPremium: boolean;
   isViewingOwnProfile?: boolean;
   userProfile: React.ComponentProps<
@@ -47,7 +47,7 @@ function SkillItemDiamond() {
   );
 }
 
-export default function ProjectsSkillRoadmapGroupCard({
+export default function ProjectsSkillRoadmapParentCard({
   group,
   isViewerPremium,
   isViewingOwnProfile,
@@ -104,7 +104,7 @@ export default function ProjectsSkillRoadmapGroupCard({
               <Icon className="size-4" />
             </div>
           </div>
-          <ProjectsSkillRoadmapGroupHeading
+          <ProjectsSkillRoadmapParentHeading
             group={group}
             isViewerPremium={isViewerPremium}
           />

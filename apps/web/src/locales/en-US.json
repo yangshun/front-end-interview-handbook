@@ -459,6 +459,10 @@
     "defaultMessage": "This submission is for a premium challenge you have previously unlocked. Resubscribe to premium to learn from user submissions for premium challenges.",
     "description": "Subtitle for project paywall"
   },
+  "228NCy": {
+    "defaultMessage": "Number of challenges you have completed across skill plans of child skills",
+    "description": "Tooltip for skill group"
+  },
   "23bxK1": {
     "defaultMessage": "Blogs List",
     "description": "Screen reader text indicating the blog list component on blog homepage"
@@ -490,6 +494,10 @@
   "2QyluM": {
     "defaultMessage": "Add proficient skills",
     "description": "Title for Add Proficient Skills task on Projects dashboard page"
+  },
+  "2SCQ46": {
+    "defaultMessage": "Sum of reputation that can be gained from completing skill plans of all child skills",
+    "description": "Tooltip for parent skill"
   },
   "2SDdF5": {
     "defaultMessage": "Support",
@@ -706,6 +714,10 @@
   "4FirvF": {
     "defaultMessage": "Reset progress",
     "description": "Label to reset study plan progress"
+  },
+  "4G2EHJ": {
+    "defaultMessage": "{points} rep gained for this skill",
+    "description": "Reputation points to be gained"
   },
   "4KjsB6": {
     "defaultMessage": "Number of challenges completed using this skill, including challenges not in the recommended skill plan",
@@ -1363,10 +1375,6 @@
     "defaultMessage": "Read more",
     "description": "Read more"
   },
-  "A8Sqf/": {
-    "defaultMessage": "Sum of reputation that can be gained from completing skill plans of all skills within the group",
-    "description": "Tooltip for skill group"
-  },
   "ABJ7ip": {
     "defaultMessage": "<bold>{completedQuestions}</bold>/{totalQuestions} completed",
     "description": "Line describing the number of questions completed by user over the total number of questions"
@@ -1870,10 +1878,6 @@
   "EBw1EY": {
     "defaultMessage": "I want to use React on this project, but it's not listed as one of the skills. Can I still use it?",
     "description": "FAQ question for projects platform"
-  },
-  "EBysdw": {
-    "defaultMessage": "{points} rep for this skill",
-    "description": "Reputation points to be gained"
   },
   "ECkWMR": {
     "defaultMessage": "Stop session",
@@ -2534,10 +2538,6 @@
   "KBBRmA": {
     "defaultMessage": "While working on project",
     "description": "Hint for \"Tips, Resources and Discussions\" tab on Projects project page"
-  },
-  "KBFTuo": {
-    "defaultMessage": "Number of challenges you have completed across skill plans within the group",
-    "description": "Tooltip for skill group"
   },
   "KBewzV": {
     "defaultMessage": "Before you get started",
@@ -5111,10 +5111,6 @@
     "defaultMessage": "Copy line up",
     "description": "Text describing command to copy lines up in the coding workspace shortcuts menu"
   },
-  "eR4o0Q": {
-    "defaultMessage": "{points} rep gained",
-    "description": "Reputation points to be gained"
-  },
   "eRu+ff": {
     "defaultMessage": "Browse project solutions from our community. Interact with each unique submission, share your expertise, and evolve alongside our collaborative coding community.",
     "description": "Page subtitle"
@@ -6150,6 +6146,10 @@
   "mcOOtE": {
     "defaultMessage": "Host the project for free on our recommended hosts and submit your project URL for reviews",
     "description": "Instruction for projects"
+  },
+  "md057S": {
+    "defaultMessage": "{points} rep",
+    "description": "Reputation points to be gained"
   },
   "mhZ4FL": {
     "defaultMessage": "{name} in progress",

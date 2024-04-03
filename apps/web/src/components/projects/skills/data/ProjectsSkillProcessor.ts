@@ -5,8 +5,8 @@ function projectsSkillsAllRoadmapSkills(): ReadonlyArray<ProjectsSkillKey> {
   const skills: Array<ProjectsSkillKey> = [];
 
   skillsRoadmapConfig.forEach((levelItem) => {
-    levelItem.items.forEach((groupItem) => {
-      skills.push(...groupItem.items);
+    levelItem.items.forEach((skillParent) => {
+      skills.push(...skillParent.items);
     });
   });
 

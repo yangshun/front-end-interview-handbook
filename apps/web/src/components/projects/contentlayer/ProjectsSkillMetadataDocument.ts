@@ -1,7 +1,7 @@
 import { defineDocumentType } from 'contentlayer/source-files';
 import path from 'node:path';
 
-import { projectsSkillDetermineGroup } from '../skills/data/ProjectsSkillUtils';
+import { projectsSkillDetermineParentSkill } from '../skills/data/ProjectsSkillUtils';
 
 function parseSkillSlug(sourceFilePath: string) {
   return sourceFilePath.split(path.posix.sep)[2];
@@ -16,11 +16,11 @@ export const ProjectsSkillMetadataGuideDocument = defineDocumentType(() => ({
       type: 'string',
     },
     premium: {
-      description: 'Whether the skill is premium (determined by skill group)',
+      description: 'Whether the skill is premium (determined by parent skill)',
       resolve: (doc) => {
         const slug = parseSkillSlug(doc._raw.sourceFilePath);
 
-        return projectsSkillDetermineGroup(slug)?.premium ?? false;
+        return projectsSkillDetermineParentSkill(slug)?.premium ?? false;
       },
       type: 'boolean',
     },

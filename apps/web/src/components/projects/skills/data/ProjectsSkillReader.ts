@@ -32,8 +32,8 @@ export async function fetchProjectsSkillsRoadmapSectionData(
 
   return skillsRoadmapConfig.map((difficulty) => ({
     ...difficulty,
-    items: difficulty.items.map((groupItem) => {
-      const items = groupItem.items.map((skillKey) => {
+    items: difficulty.items.map((parentSkillItem) => {
+      const items = parentSkillItem.items.map((skillKey) => {
         const skillRoadmapChallenges = challenges.filter((challengeItem) =>
           challengeItem.skills.includes(skillKey),
         );
@@ -87,12 +87,12 @@ export async function fetchProjectsSkillsRoadmapSectionData(
 
       return {
         completedChallenges: totalCompletedChallenges,
-        description: groupItem.description,
+        description: parentSkillItem.description,
         items,
-        key: groupItem.key,
+        key: parentSkillItem.key,
         points: totalReputation,
-        premium: groupItem.premium,
-        tagClassname: groupItem.tagClassname,
+        premium: parentSkillItem.premium,
+        tagClassname: parentSkillItem.tagClassname,
         totalChallenges,
       };
     }),

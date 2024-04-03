@@ -3,7 +3,7 @@ import type { ProjectsSkillGroupType } from './data/ProjectsSkillIcons';
 export type ProjectsSkillKey = string;
 
 // Core config.
-export type ProjectsSkillRoadmapGroupConfig = Readonly<{
+export type ProjectsSkillRoadmapParentConfig = Readonly<{
   description: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   items: ReadonlyArray<ProjectsSkillKey>;
@@ -12,7 +12,7 @@ export type ProjectsSkillRoadmapGroupConfig = Readonly<{
 }>;
 
 export type ProjectsSkillRoadmapDifficultyConfig = Readonly<{
-  items: ReadonlyArray<ProjectsSkillRoadmapGroupConfig>;
+  items: ReadonlyArray<ProjectsSkillRoadmapParentConfig>;
   title: string;
 }>;
 
@@ -28,7 +28,7 @@ export type ProjectsSkillSummaryItem = Readonly<{
   totalChallenges: number;
 }>;
 
-export type ProjectsSkillRoadmapSectionGroup = Readonly<{
+export type ProjectsSkillRoadmapSectionParent = Readonly<{
   completedChallenges: number;
   description: string;
   items: ReadonlyArray<ProjectsSkillSummaryItem>;
@@ -40,7 +40,7 @@ export type ProjectsSkillRoadmapSectionGroup = Readonly<{
 }>;
 
 export type ProjectsSkillRoadmapSectionDifficulty = Readonly<{
-  items: ReadonlyArray<ProjectsSkillRoadmapSectionGroup>;
+  items: ReadonlyArray<ProjectsSkillRoadmapSectionParent>;
   title: string;
 }>;
 

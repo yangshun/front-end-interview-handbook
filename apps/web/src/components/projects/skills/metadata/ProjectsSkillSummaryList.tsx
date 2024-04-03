@@ -3,8 +3,8 @@ import clsx from 'clsx';
 import ProjectsSkillList from '~/components/projects/skills/metadata/ProjectsSkillList';
 import Text from '~/components/ui/Text';
 
-import projectsSkillExtractGroups from './projectsSkillExtractGroups';
-import ProjectsSkillGroupList from './ProjectsSkillGroupList';
+import ProjectsSkillParentSkillList from './ProjectsSkillParentSkillList';
+import { projectsSkillExtractParents } from '../data/ProjectsSkillUtils';
 import type { ProjectsSkillKey } from '../types';
 
 type Props = Readonly<{
@@ -21,7 +21,7 @@ export default function ProjectsSkillSummaryList({
   roadmapSkills,
   techStackSkills,
 }: Props) {
-  const groups = projectsSkillExtractGroups(roadmapSkills);
+  const groups = projectsSkillExtractParents(roadmapSkills);
 
   return (
     <div
@@ -33,7 +33,7 @@ export default function ProjectsSkillSummaryList({
         </Text>
       )}
       <div className="shrink-0">
-        <ProjectsSkillGroupList skillGroups={groups} />
+        <ProjectsSkillParentSkillList parentSkills={groups} />
       </div>
       <div className="shrink-0">
         <ProjectsSkillList

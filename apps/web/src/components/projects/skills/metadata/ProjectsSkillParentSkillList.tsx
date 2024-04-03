@@ -5,28 +5,28 @@ import { textVariants } from '~/components/ui/Text';
 import { projectsSkillLabel } from '../data/ProjectsSkillListData';
 
 type Props = Readonly<{
-  skillGroups: ReadonlyArray<{
+  parentSkills: ReadonlyArray<{
     className: string;
     key: string;
   }>;
 }>;
 
-export default function ProjectsSkillGroupList({ skillGroups }: Props) {
-  if (skillGroups.length === 0) {
+export default function ProjectsSkillParentSkillList({ parentSkills }: Props) {
+  if (parentSkills.length === 0) {
     return null;
   }
 
   return (
     <ul className="flex flex-wrap items-center gap-2">
-      {skillGroups.map((skillGroupItem) => (
+      {parentSkills.map((parentSkillItem) => (
         <li
-          key={skillGroupItem.key}
+          key={parentSkillItem.key}
           className={clsx(
             'inline-flex items-center rounded px-2 py-0.5',
-            skillGroupItem.className,
+            parentSkillItem.className,
             textVariants({ size: 'body3', weight: 'bold' }),
           )}>
-          {projectsSkillLabel(skillGroupItem.key)}
+          {projectsSkillLabel(parentSkillItem.key)}
         </li>
       ))}
     </ul>

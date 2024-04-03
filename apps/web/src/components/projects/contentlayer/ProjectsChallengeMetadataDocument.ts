@@ -7,7 +7,7 @@ import {
   projectDifficultyOptions,
   projectTrackOptions,
 } from '../challenges/types';
-import { projectsSkillDetermineGroup } from '../skills/data/ProjectsSkillUtils';
+import { projectsSkillDetermineParentSkill } from '../skills/data/ProjectsSkillUtils';
 
 function parseProjectSlug(sourceFilePath: string) {
   return sourceFilePath.split(path.sep)[2];
@@ -64,7 +64,7 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
             (doc.skills as Readonly<{ _array: Array<string> }>)._array,
             (skill) =>
               doc.pointsForSkillGroups[
-                projectsSkillDetermineGroup(skill)?.key ?? ''
+                projectsSkillDetermineParentSkill(skill)?.key ?? ''
               ] ?? 0,
           )
         );

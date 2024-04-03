@@ -26,9 +26,9 @@ export default function ProjectsSkillRoadmapSelection({
             {levelItem.title}
           </Text>
           <div key={levelItem.title} className="flex flex-col">
-            {levelItem.items.map((groupItem, index) => (
+            {levelItem.items.map((parentSkillItem, index) => (
               <div
-                key={groupItem.key}
+                key={parentSkillItem.key}
                 className={clsx(
                   'relative flex flex-col gap-2',
                   index < levelItem.items.length - 1 && 'pb-6',
@@ -54,12 +54,12 @@ export default function ProjectsSkillRoadmapSelection({
                     color="secondary"
                     size="body3"
                     weight="bold">
-                    {groupItem.key}
+                    {parentSkillItem.key}
                   </Text>
                 </div>
                 <div className="relative ml-5 inline-flex self-start">
                   <div className="flex gap-4">
-                    {groupItem.items.map((skillKey) => {
+                    {parentSkillItem.items.map((skillKey) => {
                       const selected = value.includes(skillKey);
 
                       return (

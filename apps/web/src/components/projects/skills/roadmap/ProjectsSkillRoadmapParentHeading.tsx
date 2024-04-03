@@ -5,16 +5,16 @@ import ProjectsChallengeReputationTag from '~/components/projects/challenges/met
 import ProjectsStatusBadgeCompleted from '~/components/projects/common/status/ProjectsStatusBadgeCompleted';
 import Text from '~/components/ui/Text';
 
-import type { ProjectsSkillRoadmapSectionGroup } from '../types';
+import type { ProjectsSkillRoadmapSectionParent } from '../types';
 import ProjectsChallengeProgressTag from '../../challenges/metadata/ProjectsChallengeProgressTag';
 import ProjectsPremiumBadge from '../../purchase/ProjectsPremiumBadge';
 
 type Props = Readonly<{
-  group: ProjectsSkillRoadmapSectionGroup;
+  group: ProjectsSkillRoadmapSectionParent;
   isViewerPremium: boolean;
 }>;
 
-export default function ProjectsSkillRoadmapGroupHeading({
+export default function ProjectsSkillRoadmapParentHeading({
   group,
   isViewerPremium,
 }: Props) {
@@ -45,9 +45,9 @@ export default function ProjectsSkillRoadmapGroupHeading({
               points={points}
               tooltip={intl.formatMessage({
                 defaultMessage:
-                  'Sum of reputation that can be gained from completing skill plans of all skills within the group',
-                description: 'Tooltip for skill group',
-                id: 'A8Sqf/',
+                  'Sum of reputation that can be gained from completing skill plans of all child skills',
+                description: 'Tooltip for parent skill',
+                id: '2SCQ46',
               })}
             />
             <ProjectsChallengeProgressTag
@@ -55,9 +55,9 @@ export default function ProjectsSkillRoadmapGroupHeading({
               showProgress={false}
               tooltip={intl.formatMessage({
                 defaultMessage:
-                  'Number of challenges you have completed across skill plans within the group',
+                  'Number of challenges you have completed across skill plans of child skills',
                 description: 'Tooltip for skill group',
-                id: 'KBFTuo',
+                id: '228NCy',
               })}
               total={totalChallenges}
             />

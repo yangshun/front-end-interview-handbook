@@ -56,9 +56,9 @@ export default function ProjectsChallengeReputationTag({
         weight={variant === 'filled' ? 'medium' : 'normal'}>
         {labelVariant === 'default' && (
           <FormattedMessage
-            defaultMessage="{points} rep for this skill"
+            defaultMessage="{points} rep"
             description="Reputation points to be gained"
-            id="EBysdw"
+            id="md057S"
             values={{
               points,
             }}
@@ -66,9 +66,9 @@ export default function ProjectsChallengeReputationTag({
         )}
         {labelVariant === 'gained-skill' && (
           <FormattedMessage
-            defaultMessage="{points} rep gained"
+            defaultMessage="{points} rep gained for this skill"
             description="Reputation points to be gained"
-            id="eR4o0Q"
+            id="4G2EHJ"
             values={{
               points,
             }}

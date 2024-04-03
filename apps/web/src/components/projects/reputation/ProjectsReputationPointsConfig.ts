@@ -1,6 +1,6 @@
 import { readProjectsChallengeMetadata } from '~/db/projects/ProjectsReader';
 
-import { projectsSkillDetermineGroup } from '../skills/data/ProjectsSkillUtils';
+import { projectsSkillDetermineParentSkill } from '../skills/data/ProjectsSkillUtils';
 import type { ProjectsSkillKey } from '../skills/types';
 
 // Profile.
@@ -62,8 +62,9 @@ export async function projectsReputationSubmissionRoadmapSkillConfig(
   const { challengeMetadata } =
     await readProjectsChallengeMetadata(challengeSlug);
   const { pointsForSkillGroups } = challengeMetadata;
-  const skillGroup = projectsSkillDetermineGroup(skillKey)?.key;
-  const points = pointsForSkillGroups[skillGroup || ''] ?? DEFAULT_SKILL_POINTS;
+  const parentSkill = projectsSkillDetermineParentSkill(skillKey)?.key;
+  const points =
+    pointsForSkillGroups[parentSkill || ''] ?? DEFAULT_SKILL_POINTS;
 
   return {
     key: `projects.submission.${challengeSlug}.skill.${skillKey}`,

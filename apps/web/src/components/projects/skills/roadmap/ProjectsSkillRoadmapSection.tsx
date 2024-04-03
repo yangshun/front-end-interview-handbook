@@ -1,4 +1,4 @@
-import ProjectsSkillRoadmapGroupCard from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapGroupCard';
+import ProjectsSkillRoadmapParentCard from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapParentCard';
 import Text from '~/components/ui/Text';
 
 import type { ProjectsSkillRoadmapSectionData } from '../types';
@@ -8,7 +8,7 @@ type Props = Readonly<{
   isViewingOwnProfile?: boolean;
   skillsRoadmap: ProjectsSkillRoadmapSectionData;
   userProfile: React.ComponentProps<
-    typeof ProjectsSkillRoadmapGroupCard
+    typeof ProjectsSkillRoadmapParentCard
   >['userProfile'];
 }>;
 
@@ -27,7 +27,7 @@ export default function ProjectsSkillRoadmapSection({
           </Text>
           <div className="flex flex-col gap-4">
             {levelItem.items.map((group) => (
-              <ProjectsSkillRoadmapGroupCard
+              <ProjectsSkillRoadmapParentCard
                 key={group.key}
                 group={group}
                 isViewerPremium={isViewerPremium}

@@ -13,8 +13,8 @@ import {
 
 import type { ProjectsChallengeItem } from '../types';
 import ProjectsPremiumBadge from '../../purchase/ProjectsPremiumBadge';
-import projectsSkillExtractGroups from '../../skills/metadata/projectsSkillExtractGroups';
-import ProjectsSkillGroupList from '../../skills/metadata/ProjectsSkillGroupList';
+import { projectsSkillExtractParents } from '../../skills/data/ProjectsSkillUtils';
+import ProjectsSkillParentSkillList from '../../skills/metadata/ProjectsSkillParentSkillList';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -73,8 +73,8 @@ export default function ProjectsChallengeCard({ challenge }: Props) {
           </Text>
         </div>
         <div className="z-[1] flex">
-          <ProjectsSkillGroupList
-            skillGroups={projectsSkillExtractGroups(skills)}
+          <ProjectsSkillParentSkillList
+            parentSkills={projectsSkillExtractParents(skills)}
           />
         </div>
         <div className="flex items-center gap-4">
