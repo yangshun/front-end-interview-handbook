@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import useCountdownTimer from '~/hooks/useCountdownTime';
 
 import {
-  FEATURE_FLAGS_PROJECTS_LAUNCHED,
+  FEATURE_FLAGS_SHOW_MYSTERY_PRODUCT,
   PROJECT_LAUNCH_DATE,
 } from '~/data/FeatureFlags';
 
@@ -118,7 +118,9 @@ export default function NavProductDropdownMenuContent() {
         logo={InterviewsLogo}
         subtitle="Learn and train for your front end interviews"
       />
-      {FEATURE_FLAGS_PROJECTS_LAUNCHED ? (
+      {FEATURE_FLAGS_SHOW_MYSTERY_PRODUCT ? (
+        <NavProductDropdownMenuItemCountdown />
+      ) : (
         <NavProductDropdownMenuItem
           beta={true}
           href="/projects"
@@ -126,8 +128,6 @@ export default function NavProductDropdownMenuContent() {
           logo={ProjectsLogo}
           subtitle="Build real-world projects to learn skills or for portfolio"
         />
-      ) : (
-        <NavProductDropdownMenuItemCountdown />
       )}
     </DropdownMenu.Content>
   );
