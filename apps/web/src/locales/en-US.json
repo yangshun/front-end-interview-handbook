@@ -599,10 +599,6 @@
     "defaultMessage": "Submission deleted!",
     "description": "Delete challenge success message"
   },
-  "3VAr/X": {
-    "defaultMessage": "{submissionTitle} | {username} | {challengeName} | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Projects submission page"
-  },
   "3WHiQS": {
     "defaultMessage": "Cheatsheet",
     "description": "One-page summary sheet for front end system design interviews"
@@ -5210,6 +5206,10 @@
   "fJYFo8": {
     "defaultMessage": "Quiz",
     "description": "Label for quiz questions"
+  },
+  "fMV5UU": {
+    "defaultMessage": "{submissionTitle} | {username} | {challengeName}",
+    "description": "Title of Projects submission page"
   },
   "fO8U+i": {
     "defaultMessage": "Will this be a timed challenge?",

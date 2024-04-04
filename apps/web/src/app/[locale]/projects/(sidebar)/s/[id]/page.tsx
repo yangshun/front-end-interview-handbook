@@ -68,10 +68,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     pathname: `/projects/s/${submissionId}`,
     title: intl.formatMessage(
       {
-        defaultMessage:
-          '{submissionTitle} | {username} | {challengeName} | GreatFrontEnd Projects - Real-world project challenges',
+        defaultMessage: '{submissionTitle} | {username} | {challengeName}',
         description: 'Title of Projects submission page',
-        id: '3VAr/X',
+        id: 'fMV5UU',
       },
       {
         challengeName: challengeMetadata.title,
