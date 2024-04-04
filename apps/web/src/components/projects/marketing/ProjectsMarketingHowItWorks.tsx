@@ -85,16 +85,23 @@ function HowItWorksStepContainer({
   children,
   className,
   onClick,
+  onHover,
 }: {
   children: React.ReactNode;
   className?: string;
   onClick?: () => void;
+  onHover?: () => void;
 }) {
   const canClick = !!onClick;
+  const canHover = !!onHover;
 
-  if (canClick) {
+  if (canClick || canHover) {
     return (
-      <button className={className} type="button" onClick={onClick}>
+      <button
+        className={className}
+        type="button"
+        onClick={onClick}
+        onMouseOver={onHover}>
         {children}
       </button>
     );
@@ -108,10 +115,12 @@ function HowItWorksStep({
   index,
   selected,
   onClick,
+  onHover,
 }: {
   index: number;
   label: string;
   onClick?: () => void;
+  onHover?: () => void;
   selected?: boolean;
 }) {
   return (
@@ -120,7 +129,8 @@ function HowItWorksStep({
         'flex items-center gap-4 rounded px-3 py-4 transition',
         selected && ['text-brand', themeBackgroundElementEmphasizedStateColor],
       )}
-      onClick={onClick}>
+      onClick={onClick}
+      onHover={onHover}>
       <Chip
         aria-hidden={true}
         className="transition"
@@ -239,6 +249,7 @@ export default function ProjectsMarketingHowItWorks() {
                     label={step.label}
                     selected={selectedStepIndex === index}
                     onClick={() => setSelectedStepIndex(index)}
+                    onHover={() => setSelectedStepIndex(index)}
                   />
                 </li>
               ))}
