@@ -13,7 +13,7 @@ export type ProjectsChallengeItemStepsTabType =
   | 'completion'
   | 'resources';
 
-function useProjectDetailsStepsTabs(challenge: ProjectsChallengeItem) {
+export function useProjectDetailsStepsTabs(challenge: ProjectsChallengeItem) {
   const intl = useIntl();
   const { metadata } = challenge;
 

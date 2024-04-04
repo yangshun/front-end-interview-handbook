@@ -1,5 +1,8 @@
 'use client';
 
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
+
 import ProjectsChallengeHeader from './ProjectsChallengeHeader';
 import ProjectsChallengeGetStartedDialog from '../get-started/ProjectsChallengeGetStartedDialog';
 import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
@@ -29,15 +32,20 @@ export function ProjectsChallengeHeaderLayoutImpl({
     startSession,
     isStartSessionLoading,
   } = useProjectsChallengeSessionContext();
+  const tabsRef = useRef(null);
+  const isTabsInView = useInView(tabsRef);
 
   return (
     <div className="flex flex-col items-stretch gap-10">
       <ProjectsChallengeHeader
         challenge={challenge}
+        isTabsInView={isTabsInView}
         viewerAccess={viewerAccess}
         viewerProjectsProfile={viewerProjectsProfile}
       />
-      <ProjectsChallengeStepsTabsImpl challenge={challenge} />
+      <div ref={tabsRef}>
+        <ProjectsChallengeStepsTabsImpl challenge={challenge} />
+      </div>
       {children}
       <ProjectsChallengeGetStartedDialog
         challenge={challenge}

@@ -59,6 +59,10 @@
     "defaultMessage": "Includes a hi-fidelity design and interaction specifications for this project.",
     "description": "Description for Download Figma Design content section on Before You Get Started dialog"
   },
+  "+SjaQc": {
+    "defaultMessage": "Submit project",
+    "description": "Label for \"Submit project\" button on Projects project page"
+  },
   "+Yk101": {
     "defaultMessage": "Step 3",
     "description": "Title for \"Step 3\" tab on Projects project page"
