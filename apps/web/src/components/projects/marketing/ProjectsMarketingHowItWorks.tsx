@@ -161,7 +161,7 @@ function CardStackCard({
     <div className={clsx('size-full absolute top-0', className)}>
       <div
         className={clsx(
-          'size-full overflow-clip rounded-lg border',
+          'size-full relative overflow-clip rounded-lg border',
           themeBorderColor,
           themeBackgroundElementColor,
         )}
@@ -188,7 +188,7 @@ function CardStack({
   return (
     <div
       className={clsx(
-        'relative flex h-[340px] w-[446px] shrink-0 items-stretch',
+        'relative flex h-[241px] w-auto shrink-0 items-stretch md:h-[340px] md:w-[446px]',
         size === 'lg' && 'mb-10',
         size === 'sm' && 'mb-6',
       )}>
@@ -255,12 +255,7 @@ export default function ProjectsMarketingHowItWorks() {
               ))}
             </ol>
             <CardStack size="lg">
-              <Image
-                alt=""
-                height={340}
-                src={steps[selectedStepIndex].imgSrc}
-                width={446}
-              />
+              <Image alt="" fill={true} src={steps[selectedStepIndex].imgSrc} />
             </CardStack>
           </div>
           <div className="flex gap-[72px] lg:hidden">
@@ -268,17 +263,14 @@ export default function ProjectsMarketingHowItWorks() {
               {steps.map((step, index) => (
                 <li key={step.key} className={clsx('relative flex flex-col')}>
                   {index !== steps.length - 1 && (
-                    <div className="absolute -bottom-[88px] start-7 top-4 border-s border-dashed border-neutral-400 dark:border-neutral-600"></div>
+                    <div className="absolute -bottom-[88px] start-4 top-4 border-s border-dashed border-neutral-400 dark:border-neutral-600"></div>
                   )}
-                  <HowItWorksStep index={index} label={step.label} />
-                  <div className="mt-2 ps-16">
+                  <div className="-mx-3">
+                    <HowItWorksStep index={index} label={step.label} />
+                  </div>
+                  <div className="mt-2 ps-12">
                     <CardStack size="sm">
-                      <Image
-                        alt=""
-                        height={340}
-                        src={step.imgSrc}
-                        width={446}
-                      />
+                      <Image alt="" fill={true} src={step.imgSrc} />
                     </CardStack>
                   </div>
                 </li>
