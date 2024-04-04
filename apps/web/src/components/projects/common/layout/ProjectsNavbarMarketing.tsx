@@ -14,6 +14,8 @@ import gtag from '~/lib/gtag';
 import useIsSticky from '~/hooks/useIsSticky';
 import { useAuthLogout, useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
+import { FEATURE_FLAGS_PROJECTS_LAUNCHED } from '~/data/FeatureFlags';
+
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
 import LogoLink from '~/components/global/logos/LogoLink';
@@ -332,7 +334,11 @@ export default function ProjectsNavbarMarketing() {
       links={links}
       logo={<LogoLink href="/projects" />}
       mobileSidebarBottomItems={mobileSidebarBottomItems}
-      productMenu={<NavProductDropdownMenu value="projects" />}
+      productMenu={
+        <NavProductDropdownMenu
+          value={FEATURE_FLAGS_PROJECTS_LAUNCHED ? 'projects' : 'mystery'}
+        />
+      }
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
       style={{ top: 'var(--banner-height)' }}
       transparent={!isSticky}

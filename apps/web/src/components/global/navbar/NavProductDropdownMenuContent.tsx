@@ -1,5 +1,13 @@
 import clsx from 'clsx';
 
+import useCountdownTimer from '~/hooks/useCountdownTime';
+
+import {
+  FEATURE_FLAGS_PROJECTS_LAUNCHED,
+  PROJECT_LAUNCH_DATE,
+} from '~/data/FeatureFlags';
+
+import Timer from '~/components/countdown/timer/Timer';
 import InterviewsLogo from '~/components/global/logos/InterviewsLogo';
 import ProjectsLogo from '~/components/global/logos/ProjectsLogo';
 import Anchor from '~/components/ui/Anchor';
@@ -11,6 +19,8 @@ import {
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBorderElementColor,
 } from '~/components/ui/theme';
+
+import MysteryProductLogo from '../logos/MysteryProductLogo';
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
@@ -53,6 +63,43 @@ function NavProductDropdownMenuItem({
   );
 }
 
+function NavProductDropdownMenuItemCountdown() {
+  const { days, hours, minutes, seconds } =
+    useCountdownTimer(PROJECT_LAUNCH_DATE);
+
+  return (
+    <DropdownMenu.Item
+      asChild={true}
+      className={clsx(
+        'relative flex flex-col gap-3 rounded p-4',
+        'select-none outline-none',
+        themeBackgroundElementEmphasizedStateColor_Hover,
+        themeBackgroundElementEmphasizedStateColor_Focus,
+      )}>
+      <Anchor
+        aria-label="New product coming soon"
+        href="/coming-soon"
+        variant="unstyled">
+        <div className="flex justify-between">
+          <MysteryProductLogo height={32} />
+          <span>
+            <Badge label="Upcoming" size="sm" variant="warning" />
+          </span>
+        </div>
+        <div>
+          <Timer
+            days={days}
+            hours={hours}
+            minutes={minutes}
+            seconds={seconds}
+            variant="special"
+          />
+        </div>
+      </Anchor>
+    </DropdownMenu.Item>
+  );
+}
+
 export default function NavProductDropdownMenuContent() {
   return (
     <DropdownMenu.Content
@@ -71,13 +118,17 @@ export default function NavProductDropdownMenuContent() {
         logo={InterviewsLogo}
         subtitle="Learn and train for your front end interviews"
       />
-      <NavProductDropdownMenuItem
-        beta={true}
-        href="/projects"
-        label="GreatFrontEnd Projects"
-        logo={ProjectsLogo}
-        subtitle="Build real-world projects to learn skills or for portfolio"
-      />
+      {FEATURE_FLAGS_PROJECTS_LAUNCHED ? (
+        <NavProductDropdownMenuItem
+          beta={true}
+          href="/projects"
+          label="GreatFrontEnd Projects"
+          logo={ProjectsLogo}
+          subtitle="Build real-world projects to learn skills or for portfolio"
+        />
+      ) : (
+        <NavProductDropdownMenuItemCountdown />
+      )}
     </DropdownMenu.Content>
   );
 }

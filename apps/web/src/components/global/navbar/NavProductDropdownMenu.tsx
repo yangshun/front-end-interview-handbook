@@ -3,6 +3,7 @@ import React from 'react';
 import {
   RiArrowDownSLine,
   RiBriefcaseLine,
+  RiQuestionLine,
   RiRocketLine,
 } from 'react-icons/ri';
 
@@ -18,7 +19,7 @@ import {
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
-type ProductValue = 'interviews' | 'projects';
+type ProductValue = 'interviews' | 'mystery' | 'projects';
 
 type Props = Readonly<{
   value: ProductValue;
@@ -35,6 +36,10 @@ export default function NavProductDropdownMenu({ value }: Props) {
     interviews: {
       icon: RiBriefcaseLine,
       label: 'Interviews',
+    },
+    mystery: {
+      icon: RiQuestionLine,
+      label: '???',
     },
     projects: {
       icon: RiRocketLine,

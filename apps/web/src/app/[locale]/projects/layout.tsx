@@ -1,5 +1,7 @@
 import { redirect } from 'next/navigation';
 
+import { FEATURE_FLAGS_PROJECTS_LAUNCHED } from '~/data/FeatureFlags';
+
 import ProjectsRootLayout from '~/components/projects/common/layout/ProjectsRootLayout';
 
 type Props = Readonly<{
@@ -7,8 +9,7 @@ type Props = Readonly<{
 }>;
 
 export default async function Layout({ children }: Props) {
-  // TODO(projects): Remove this check when launching.
-  if (process.env.NEXT_PUBLIC_VERCEL_ENV === 'production') {
+  if (!FEATURE_FLAGS_PROJECTS_LAUNCHED) {
     redirect('/');
   }
 
