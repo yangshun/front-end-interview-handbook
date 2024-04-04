@@ -2039,6 +2039,10 @@
     "defaultMessage": "Manage your subscription status and payment methods on the Stripe billing portal.",
     "description": "Call to action text to uppgrade plan."
   },
+  "G38r8R": {
+    "defaultMessage": "Email rate limit exceeded. Please try again later",
+    "description": "Sign up error message"
+  },
   "G3byny": {
     "defaultMessage": "Created: Oldest to newest",
     "description": "Sorting option for discussions comment - sort by created"

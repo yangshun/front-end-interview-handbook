@@ -53,7 +53,18 @@ export default function SupabaseAuthForgottenPassword({
 
     setLoading(false);
     if (resetError) {
-      setError(resetError.message);
+      if (resetError.status === 429) {
+        setError(
+          intl.formatMessage({
+            defaultMessage: 'Email rate limit exceeded. Please try again later',
+            description: 'Sign up error message',
+            id: 'G38r8R',
+          }),
+        );
+      } else {
+        setError(resetError.message);
+      }
+
       logMessage({
         level: 'error',
         message: resetError.message,
@@ -106,7 +117,18 @@ export default function SupabaseAuthForgottenPassword({
             type="email"
             onChange={setEmail}
           />
-          {error && <Alert variant="danger">{error}</Alert>}
+          {error && (
+            <Alert
+              title={intl.formatMessage({
+                defaultMessage: 'An error has occurred',
+                description:
+                  'Title of alert indicating an error on Email Sign In/Up Page',
+                id: 'YM1bnf',
+              })}
+              variant="danger">
+              {error}
+            </Alert>
+          )}
           <Button
             display="block"
             isDisabled={loading}

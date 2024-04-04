@@ -69,7 +69,18 @@ export default function SupabaseAuthEmailSignUp({
     const { user: signUpUser, session: signUpSession } = data;
 
     if (signUpError) {
-      setError(signUpError.message);
+      if (signUpError.status === 429) {
+        setError(
+          intl.formatMessage({
+            defaultMessage: 'Email rate limit exceeded. Please try again later',
+            description: 'Sign up error message',
+            id: 'G38r8R',
+          }),
+        );
+      } else {
+        setError(signUpError.message);
+      }
+
       logEvent('auth.sign_up.fail', {
         email,
         message: signUpError.message,
