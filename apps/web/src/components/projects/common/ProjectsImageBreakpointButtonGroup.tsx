@@ -18,19 +18,19 @@ export default function ProjectsImageBreakpointButtonGroup({
 }: Props) {
   const intl = useIntl();
 
-  const tabletDimension = ProjectsImageBreakpointDimensions.tablet;
-  const mobileDimension = ProjectsImageBreakpointDimensions.mobile;
-
   const breakpoints = [
     {
       icon: RiComputerLine,
       label: intl.formatMessage(
         {
-          defaultMessage: 'Desktop (>={width}px)',
+          defaultMessage: 'Desktop ({width}px x {height}px)',
           description: 'Responsive breakpoint category',
-          id: 'MkmUuv',
+          id: '0tjrX1',
         },
-        { width: tabletDimension.width },
+        {
+          height: ProjectsImageBreakpointDimensions.desktop.height,
+          width: ProjectsImageBreakpointDimensions.desktop.width,
+        },
       ),
       value: 'desktop',
     },
@@ -38,11 +38,14 @@ export default function ProjectsImageBreakpointButtonGroup({
       icon: RiTabletLine,
       label: intl.formatMessage(
         {
-          defaultMessage: 'Tablet ({minWidth}px-{maxWidth}px)',
+          defaultMessage: 'Tablet ({width}px x {height}px)',
           description: 'Responsive breakpoint category',
-          id: 'aXu9RL',
+          id: 'aadNm4',
         },
-        { maxWidth: tabletDimension.width, minWidth: mobileDimension.width },
+        {
+          height: ProjectsImageBreakpointDimensions.tablet.height,
+          width: ProjectsImageBreakpointDimensions.tablet.width,
+        },
       ),
       value: 'tablet',
     },
@@ -50,11 +53,14 @@ export default function ProjectsImageBreakpointButtonGroup({
       icon: RiSmartphoneLine,
       label: intl.formatMessage(
         {
-          defaultMessage: 'Mobile (<={width}px)',
+          defaultMessage: 'Mobile ({width}px x {height}px)',
           description: 'Responsive breakpoint category',
-          id: 'jfkK0C',
+          id: 'jwZwsD',
         },
-        { width: mobileDimension.width },
+        {
+          height: ProjectsImageBreakpointDimensions.mobile.height,
+          width: ProjectsImageBreakpointDimensions.mobile.width,
+        },
       ),
       value: 'mobile',
     },
