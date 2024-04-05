@@ -1,24 +1,20 @@
 import { FormattedMessage } from 'react-intl';
 
-import { trpc } from '~/hooks/trpc';
-
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import ProjectsChallengeSubmissionCard from '../submissions/lists/ProjectsChallengeSubmissionCard';
+import type { ProjectsChallengeSubmissionAugmented } from '../submissions/types';
 
 type Props = Readonly<{
-  projectsProfileId: string;
+  pinnedSubmissions:
+    | ReadonlyArray<ProjectsChallengeSubmissionAugmented>
+    | undefined;
 }>;
 
 export default function ProjectsProfilePinnedSubmissions({
-  projectsProfileId,
+  pinnedSubmissions,
 }: Props) {
-  const { data: pinnedSubmissions } =
-    trpc.projects.submissions.listPinned.useQuery({
-      projectsProfileId,
-    });
-
   if (pinnedSubmissions == null || pinnedSubmissions.length === 0) {
     return null;
   }

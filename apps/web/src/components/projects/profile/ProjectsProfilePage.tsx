@@ -7,11 +7,16 @@ import ProjectsProfilePinnedSubmissions from '~/components/projects/profile/Proj
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
 import ProjectsProfileTabs from '~/components/projects/profile/ProjectsProfileTabs';
 
+import type { ProjectsChallengeSubmissionAugmented } from '../submissions/types';
+
 import type { Profile, ProjectsProfile } from '@prisma/client';
 
 type Props = Readonly<{
   children: React.ReactNode;
   isViewingOwnProfile: boolean;
+  pinnedSubmissions:
+    | ReadonlyArray<ProjectsChallengeSubmissionAugmented>
+    | undefined;
   userProfile: Profile &
     Readonly<{
       projectsProfile: ProjectsProfile;
@@ -21,6 +26,7 @@ type Props = Readonly<{
 export default function ProjectsProfilePage({
   children,
   userProfile,
+  pinnedSubmissions,
   isViewingOwnProfile,
 }: Props) {
   const projectsProfileId = userProfile.projectsProfile.id;
@@ -49,7 +55,7 @@ export default function ProjectsProfilePage({
       </div>
       <div className="mt-[60px]">
         <ProjectsProfilePinnedSubmissions
-          projectsProfileId={projectsProfileId}
+          pinnedSubmissions={pinnedSubmissions}
         />
       </div>
       <div className="mt-[72px] flex flex-col gap-8">

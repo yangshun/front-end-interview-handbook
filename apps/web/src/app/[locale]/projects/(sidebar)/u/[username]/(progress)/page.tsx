@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import ProjectsProfileProgressSection from '~/components/projects/profile/progress/ProjectsProfileProgressSection';
+import ProjectsProfileProgressAllChallengesTab from '~/components/projects/profile/progress/ProjectsProfileProgressAllChallengesTab';
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { getIntlServerOnly } from '~/i18n';
@@ -68,7 +68,7 @@ export default async function Page({ params }: Props) {
   const isViewingOwnProfile = viewerId === userProfile.id;
 
   return (
-    <ProjectsProfileProgressSection
+    <ProjectsProfileProgressAllChallengesTab
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
       isViewingOwnProfile={isViewingOwnProfile}
       targetUserId={userProfile.id}

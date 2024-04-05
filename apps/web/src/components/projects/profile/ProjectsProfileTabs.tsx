@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
@@ -41,8 +41,21 @@ export default function ProjectsProfileTabs({
     return tab?.value ?? 'progress';
   }, [pathname, tabs]);
 
+  const tabsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (value !== 'progress') {
+      // Scroll - 'progress' tab scroll handled by inner tabs
+      tabsRef.current?.scrollIntoView({
+        behavior: 'auto',
+        block: 'start',
+      });
+    }
+  }, [value]);
+
   return (
     <Tabs
+      ref={tabsRef}
       endAddOn={
         showStartNewProject ? (
           <Button

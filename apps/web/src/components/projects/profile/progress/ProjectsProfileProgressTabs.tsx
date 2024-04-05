@@ -22,7 +22,9 @@ export default function ProjectsProfileProgressTabs({ baseUrl }: Props) {
   const DEFAULT_TAB = 'challenges';
   const progressTabs: ReadonlyArray<TabItem<ProjectsMainLayoutTabCategory>> =
     mainLayoutTabs.map((tab) => ({
-      href: baseUrl + (tab.key === DEFAULT_TAB ? '' : `/progress/${tab.key}`),
+      href:
+        baseUrl +
+        (tab.key === DEFAULT_TAB ? '/progress' : `/progress/${tab.key}`),
       key: tab.key,
       label: tab.label,
       type: tab.type,
@@ -38,13 +40,14 @@ export default function ProjectsProfileProgressTabs({ baseUrl }: Props) {
   const tabsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (value !== DEFAULT_TAB) {
+    if (progressTabs.some((t) => t.href === pathname)) {
       // User accessed a specific URL
       tabsRef.current?.scrollIntoView({
         behavior: 'auto',
+        block: 'start',
       });
     }
-  }, [value]);
+  }, [progressTabs, pathname]);
 
   return (
     <Tabs
