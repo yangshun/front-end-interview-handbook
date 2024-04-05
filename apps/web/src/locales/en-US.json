@@ -2451,6 +2451,10 @@
     "defaultMessage": "Progress",
     "description": "Question progress"
   },
+  "JQa3Or": {
+    "defaultMessage": "Can't find the answer you are looking for? <link>Reach out to us!</link>",
+    "description": "Subtitle of Homepage's FAQ section, encouraging users to contact us if none of the FAQs resolve their problems"
+  },
   "JUhFP/": {
     "defaultMessage": "Minimum {minNumber} characters. Letters and digits required.",
     "description": "Password creation criteria"
