@@ -4843,6 +4843,10 @@
     "defaultMessage": "Submit",
     "description": "Feedback widget submit button label"
   },
+  "c4N2O5": {
+    "defaultMessage": "Not signed in",
+    "description": "Label indicating user is not signed in"
+  },
   "c5f6aC": {
     "defaultMessage": "Sharpen your skills in asynchronous programming by practicing the use of async/await, Promises, and callback functions. Dive into scenarios that require asynchronous operations, such as making API requests and delayed code execution.",
     "description": "Description for interview preparation focus area"
@@ -7654,10 +7658,6 @@
   "zIZsqX": {
     "defaultMessage": "See all",
     "description": "See all articles"
-  },
-  "zL/JCy": {
-    "defaultMessage": "Not signed in",
-    "description": "Label showing not signed in in profile header of Projects sidebar"
   },
   "zMpEuy": {
     "defaultMessage": "Popularity: Least to most completed",

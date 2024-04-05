@@ -3,19 +3,17 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
 
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
+import useUserProfile from '~/hooks/user/useUserProfile';
 
-import ProjectsProfileAvatar from '~/components/projects/users/ProjectsProfileAvatar';
-import ProjectsUserReputation from '~/components/projects/users/ProjectsUserReputation';
+import UserProfileDisplayName from '~/components/profile/info/UserProfileDisplayName';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
+import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Text from '~/components/ui/Text';
 import { themeBackgroundGlimmerColor } from '~/components/ui/theme';
 
-import useUserProfileWithProjectsProfile from '../../useUserProfileWithProjectsProfile';
-import ProjectsProfileDisplayNameLink from '../../../users/ProjectsProfileDisplayNameLink';
-
-export function ProjectsSidebarProfileHeader() {
-  const { isLoading, userProfile } = useUserProfileWithProjectsProfile();
+export function InterviewsSidebarProfileHeader() {
+  const { isLoading, userProfile } = useUserProfile();
   const { signInUpLabel, signInUpHref } = useAuthSignInUp();
 
   return (
@@ -69,21 +67,11 @@ export function ProjectsSidebarProfileHeader() {
         </>
       ) : (
         <>
-          <ProjectsProfileAvatar
-            mode="link"
-            points={userProfile.projectsProfile?.points}
-            size="lg"
-            userProfile={userProfile}
-          />
+          <UserAvatar size="lg" userProfile={userProfile} />
           <div className="flex flex-col gap-1">
             <Text className="line-clamp-2" size="body2" weight="medium">
-              <ProjectsProfileDisplayNameLink userProfile={userProfile} />
+              <UserProfileDisplayName userProfile={userProfile} />
             </Text>
-            {userProfile.projectsProfile?.points && (
-              <ProjectsUserReputation
-                points={userProfile.projectsProfile?.points}
-              />
-            )}
           </div>
         </>
       )}

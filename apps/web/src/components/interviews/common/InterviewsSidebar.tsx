@@ -9,12 +9,12 @@ import {
   SidebarExpanded,
 } from '~/components/global/sidebar/Sidebar';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
-import { ProjectsSidebarProfileHeader } from '~/components/projects/common/layout/sidebar/ProjectsSidebarProfileHeader';
 import { SocialDiscountSidebarMention } from '~/components/promotions/social/SocialDiscountSidebarMention';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
 
+import { InterviewsSidebarProfileHeader } from './InterviewsSidebarProfileHeader';
 import useInterviewsSidebarLinks from './useInterviewsSidebarLinks';
 
 function SettingsMenuItem() {
@@ -59,7 +59,7 @@ export function InterviewsSidebarExpanded({
             'px-3 py-2',
             fadeInClass,
           )}>
-          <ProjectsSidebarProfileHeader />
+          <InterviewsSidebarProfileHeader />
           {userProfile == null && (
             <Button
               display="block"
