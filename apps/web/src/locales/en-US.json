@@ -7375,10 +7375,6 @@
     "defaultMessage": "Your Message",
     "description": "Feedback widget textarea title"
   },
-  "wfod1+": {
-    "defaultMessage": "GreatFrontEnd is hiring! Check out our <link>jobs page</link>!",
-    "description": "Text on Promo Banner"
-  },
   "wnW+2J": {
     "defaultMessage": "You have completed this track",
     "description": "Description for projects track completed status"

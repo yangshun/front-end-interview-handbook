@@ -1,13 +1,14 @@
 import clsx from 'clsx';
 
+import type { TextColor } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 
 import type { TimeContainerVariant } from '../time-container/TimeContainer';
 import TimeContainer from '../time-container/TimeContainer';
 
-function TimeSeparator() {
+function TimeSeparator({ color = 'light' }: { color?: TextColor }) {
   return (
-    <Text size="body2" weight="medium">
+    <Text color={color} size="body2" weight="medium">
       :
     </Text>
   );

@@ -7,7 +7,14 @@ type Props = Readonly<{
 // TODO(projects): Find a way to merge it with Standard layout
 export default function StandardLayoutWithoutGlobalBanner({ children }: Props) {
   return (
-    <div className="flex min-h-screen flex-col" data-theme="projects">
+    <div
+      className="flex min-h-screen flex-col"
+      data-theme="projects"
+      style={
+        {
+          '--banner-height': 0,
+        } as React.CSSProperties
+      }>
       <InterviewsNavbar />
       {children}
     </div>

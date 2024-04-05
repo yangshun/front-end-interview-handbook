@@ -10,7 +10,7 @@ type Props = Readonly<{
   label: string;
 }>;
 
-function CountdownCard({ count, label }: Props) {
+export default function CountdownCard({ count, label }: Props) {
   return (
     <div className="flex flex-col items-center gap-2 px-2">
       <div
@@ -20,7 +20,9 @@ function CountdownCard({ count, label }: Props) {
           'p-4 sm:p-6',
           themeGlassyBorder,
         )}>
-        <Heading level="heading3">{count}</Heading>
+        <Heading level="heading3" suppressHydrationWarning={true}>
+          {count}
+        </Heading>
       </div>
       <Text size="body0" weight="medium">
         {label}
@@ -28,5 +30,3 @@ function CountdownCard({ count, label }: Props) {
     </div>
   );
 }
-
-export default CountdownCard;

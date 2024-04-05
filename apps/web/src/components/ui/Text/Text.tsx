@@ -1,17 +1,18 @@
-import type { ForwardedRef } from 'react';
+import type { ForwardedRef, HTMLAttributes } from 'react';
 import React, { forwardRef } from 'react';
 
 import type { TextColor, TextSize, TextWeight } from './TextStyles';
 import { textVariants } from './TextStyles';
 
-type Props = Readonly<{
-  children?: React.ReactNode;
-  className?: string;
-  color?: TextColor;
-  id?: string;
-  size?: TextSize;
-  weight?: TextWeight;
-}>;
+type Props = HTMLAttributes<HTMLSpanElement> &
+  Readonly<{
+    children?: React.ReactNode;
+    className?: string;
+    color?: TextColor;
+    id?: string;
+    size?: TextSize;
+    weight?: TextWeight;
+  }>;
 
 function Text(
   { children, color, className, size, weight, ...props }: Props,
