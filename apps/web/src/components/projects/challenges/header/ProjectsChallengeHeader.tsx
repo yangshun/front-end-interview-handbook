@@ -72,7 +72,6 @@ export default function ProjectsChallengeHeader({
         addonPosition="start"
         display="block"
         icon={RiLockUnlockLine}
-        isDisabled={true}
         label={intl.formatMessage({
           defaultMessage: 'Start project',
           description:
