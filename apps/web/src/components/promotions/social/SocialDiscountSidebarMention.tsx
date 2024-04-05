@@ -5,6 +5,7 @@ import { RiArrowRightLine } from 'react-icons/ri';
 import { trpc } from '~/hooks/trpc';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
+import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 import {
@@ -17,6 +18,7 @@ import Ticket from '../tickets/Ticket';
 
 type Props = Readonly<{
   height?: number;
+  ratio?: 'normal' | 'wide';
   subtitle?: ReactNode;
   title: ReactNode;
   width?: number;
@@ -27,15 +29,16 @@ function SocialDiscountSpecialTicket({
   subtitle,
   height,
   width,
+  ratio = 'wide',
 }: Props) {
   return (
-    <Ticket height={height} padding="md" width={width}>
+    <Ticket height={height} padding="md" ratio={ratio} width={width}>
       <div className="flex h-full flex-col items-center justify-center">
         <Text className="text-2xl" size="inherit" weight="bold">
           {title}
         </Text>
         {subtitle && (
-          <Text className="px-2 text-center" color="secondary" size="body3">
+          <Text className="text-2xs px-1 text-center" color="secondary">
             {subtitle}
           </Text>
         )}
@@ -67,12 +70,12 @@ function SocialDiscountSidebarMentionImpl() {
                 </Text>
                 <div className="flex flex-col items-center gap-4 pt-2">
                   <SocialDiscountSpecialTicket
+                    height={76}
                     subtitle={socialDiscountLabels.existingPromoSubtitle(
                       promoCode.expires_at!,
                       promoCode.coupon.percent_off,
                     )}
                     title={promoCode?.code}
-                    width={182}
                   />
                   <div className="w-full">
                     <Button
@@ -89,30 +92,23 @@ function SocialDiscountSidebarMentionImpl() {
           }
 
           return (
-            <>
-              <Text className="block" size="body3" weight="medium">
-                {socialDiscountLabels.title}
-              </Text>
-              <div className="flex flex-col items-center gap-4 pt-2">
-                <SocialDiscountSpecialTicket
-                  subtitle={socialDiscountLabels.ticketSubtitle}
-                  title={socialDiscountLabels.ticketTitle}
-                  width={182}
-                />
+            <div className="flex flex-col items-center gap-4">
+              <SocialDiscountSpecialTicket
+                height={76}
+                subtitle={socialDiscountLabels.ticketSubtitle}
+                title={socialDiscountLabels.ticketTitle}
+                width={182}
+              />
+              <Anchor href="/rewards/social" variant="flat">
                 <Text className="block" color="secondary" size="body3">
-                  {socialDiscountLabels.subtitle}
-                </Text>
-                <div className="w-full">
-                  <Button
-                    addonPosition="end"
-                    href="/rewards/social"
-                    icon={RiArrowRightLine}
-                    label={socialDiscountLabels.ctaLabel}
-                    variant="secondary"
+                  {socialDiscountLabels.subtitle}{' '}
+                  <RiArrowRightLine
+                    aria-hidden={true}
+                    className="size-3 inline-flex shrink-0"
                   />
-                </div>
-              </div>
-            </>
+                </Text>
+              </Anchor>
+            </div>
           );
         })()}
       </div>

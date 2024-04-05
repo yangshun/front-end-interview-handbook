@@ -44,9 +44,9 @@ export function useSocialDiscountLabels() {
     }),
     subtitle: (
       <FormattedMessage
-        defaultMessage="Complete simple social tasks like following our social accounts to get a <bold>{discountPercentage}% discount</bold> off all plans."
+        defaultMessage="Complete simple tasks like following our social accounts to get <bold>{discountPercentage}% discount</bold> off!"
         description="Rewards discount message"
-        id="iSRvKo"
+        id="Y+aWAQ"
         values={{
           bold: (chunks) => (
             <Text size="inherit" weight="medium">
