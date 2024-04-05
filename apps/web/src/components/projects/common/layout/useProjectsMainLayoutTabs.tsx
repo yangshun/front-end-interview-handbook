@@ -8,10 +8,10 @@ import { useIntl } from 'react-intl';
 export type ProjectsMainLayoutTabCategory = 'challenges' | 'skills' | 'tracks';
 
 type TabItem = Readonly<{
-  href: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   key: ProjectsMainLayoutTabCategory;
   label: string;
+  relativePathname: string;
   type: 'link';
 }>;
 
@@ -20,7 +20,6 @@ export default function useProjectsMainLayoutTabs(): ReadonlyArray<TabItem> {
 
   return [
     {
-      href: '/projects/challenges',
       icon: RiRocketLine,
       key: 'challenges',
       label: intl.formatMessage({
@@ -28,10 +27,10 @@ export default function useProjectsMainLayoutTabs(): ReadonlyArray<TabItem> {
         description: 'All projects item label',
         id: 'uCT1Lh',
       }),
+      relativePathname: '/challenges',
       type: 'link',
     },
     {
-      href: '/projects/skills',
       icon: RiNodeTree,
       key: 'skills',
       label: intl.formatMessage({
@@ -39,10 +38,10 @@ export default function useProjectsMainLayoutTabs(): ReadonlyArray<TabItem> {
         description: 'Projects skills roadmap item label',
         id: 'n1RgqQ',
       }),
+      relativePathname: '/skills',
       type: 'link',
     },
     {
-      href: '/projects/tracks',
       icon: RiCheckboxMultipleLine,
       key: 'tracks',
       label: intl.formatMessage({
@@ -50,6 +49,7 @@ export default function useProjectsMainLayoutTabs(): ReadonlyArray<TabItem> {
         description: 'Projects component tracks item label',
         id: 'dKoCFD',
       }),
+      relativePathname: '/tracks',
       type: 'link',
     },
   ] as const;

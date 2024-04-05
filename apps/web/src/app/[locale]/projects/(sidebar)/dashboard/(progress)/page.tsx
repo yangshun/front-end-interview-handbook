@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-
-import ProjectsProfileProgressAllChallengesTab from '~/components/projects/profile/progress/ProjectsProfileProgressAllChallengesTab';
-import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
+
+import Page from './progress/page';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -36,19 +34,4 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page() {
-  const { viewerId, viewerProjectsProfile } =
-    await fetchViewerProjectsProfile();
-
-  if (viewerId == null) {
-    return notFound();
-  }
-
-  return (
-    <ProjectsProfileProgressAllChallengesTab
-      isViewerPremium={viewerProjectsProfile?.premium ?? false}
-      isViewingOwnProfile={true}
-      targetUserId={viewerId}
-    />
-  );
-}
+export default Page;

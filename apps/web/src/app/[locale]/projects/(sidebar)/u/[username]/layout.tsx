@@ -1,7 +1,6 @@
 import { notFound, redirect } from 'next/navigation';
 
 import ProjectsProfilePage from '~/components/projects/profile/ProjectsProfilePage';
-import { projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus } from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListUtil';
 
 import prisma from '~/server/prisma';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
@@ -42,37 +41,9 @@ export default async function Layout({ children, params }: Props) {
     return notFound();
   }
 
-  const submissions = await prisma.projectsChallengeSubmission.findMany({
-    include: {
-      _count: {
-        select: {
-          votes: true,
-        },
-      },
-    },
-    orderBy: {
-      createdAt: 'desc',
-    },
-    take: 3,
-    where: {
-      pins: {
-        some: {
-          profileId: projectsProfile.id,
-        },
-      },
-    },
-  });
-
-  const pinnedSubmissions =
-    await projectsChallengeSubmissionListAugmentChallengeWithCompletionStatus(
-      viewer?.id ?? null,
-      submissions,
-    );
-
   return (
     <ProjectsProfilePage
       isViewingOwnProfile={isViewingOwnProfile}
-      pinnedSubmissions={pinnedSubmissions}
       userProfile={{
         ...userProfile,
         projectsProfile,

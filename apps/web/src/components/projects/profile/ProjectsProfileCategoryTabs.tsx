@@ -17,7 +17,9 @@ type Props = Readonly<{
   showStartNewProject?: boolean;
 }>;
 
-export default function ProjectsProfileTabs({
+const DEFAULT_TAB: ProjectsProfileTabCategory = 'progress';
+
+export default function ProjectsProfileCategoryTabs({
   baseUrl,
   showStartNewProject = false,
 }: Props) {
@@ -27,31 +29,42 @@ export default function ProjectsProfileTabs({
   const categoryTabs = useProjectsProfileCategoryTabs();
 
   const tabs = categoryTabs.map((tab) => {
-    const { href: relativeHref, ...tabWithoutHref } = tab;
+    const { relativePath: basePathname, ...tabWithoutHref } = tab;
 
     return {
       ...tabWithoutHref,
-      href: baseUrl + relativeHref,
+      href: baseUrl + basePathname,
     };
   });
 
   const value: ProjectsProfileTabCategory = useMemo(() => {
     const tab = tabs.find((t) => t.href === pathname);
 
-    return tab?.value ?? 'progress';
+    return tab?.value ?? DEFAULT_TAB;
   }, [pathname, tabs]);
 
   const tabsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (value !== 'progress') {
-      // Scroll - 'progress' tab scroll handled by inner tabs
-      tabsRef.current?.scrollIntoView({
-        behavior: 'auto',
-        block: 'start',
-      });
+    if (tabs.find((t) => t.href === pathname)) {
+      if (
+        tabsRef?.current?.offsetTop &&
+        // Only scroll if tab contents are not clearly in view.
+        Math.abs(window.scrollY - tabsRef?.current?.offsetTop) < 200
+      ) {
+        return;
+      }
+
+      // TODO(projects): hack to let data load first and scroll only
+      // when the page layout is not likely to be still loading.
+      setTimeout(() => {
+        tabsRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }, 1000);
     }
-  }, [value]);
+  }, [pathname, tabs]);
 
   return (
     <Tabs

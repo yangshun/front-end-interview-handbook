@@ -12,13 +12,13 @@ import useProjectsMainLayoutTabs from './useProjectsMainLayoutTabs';
 export default function ProjectsMainLayoutTabs() {
   const { pathname } = useI18nPathname();
   const intl = useIntl();
-  const tabs_ = useProjectsMainLayoutTabs();
-  const tabs: ReadonlyArray<TabItem<ProjectsMainLayoutTabCategory>> = tabs_.map(
-    (tab) => ({
+  const mainLayoutTabs = useProjectsMainLayoutTabs();
+  const tabs: ReadonlyArray<TabItem<ProjectsMainLayoutTabCategory>> =
+    mainLayoutTabs.map((tab) => ({
       ...tab,
+      href: '/projects' + tab.relativePathname,
       value: tab.key,
-    }),
-  );
+    }));
 
   const value: ProjectsMainLayoutTabCategory = useMemo(() => {
     const tab = tabs.find((t) => (pathname ?? '').startsWith(t.href ?? ''));

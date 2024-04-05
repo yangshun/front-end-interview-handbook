@@ -8,8 +8,8 @@ import { trpc } from '~/hooks/trpc';
 import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import BlurOverlay from '~/components/common/BlurOverlay';
+import ProjectsProfileCategoryTabs from '~/components/projects/profile/ProjectsProfileCategoryTabs';
 import ProjectsProfileStats from '~/components/projects/profile/ProjectsProfileStats';
-import ProjectsProfileTabs from '~/components/projects/profile/ProjectsProfileTabs';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -140,7 +140,7 @@ export default function ProjectsDashboardPage({ children, viewer }: Props) {
           )}
           {viewer && (
             <div className="flex flex-col gap-8">
-              <ProjectsProfileTabs
+              <ProjectsProfileCategoryTabs
                 baseUrl={baseUrl}
                 showStartNewProject={true}
               />

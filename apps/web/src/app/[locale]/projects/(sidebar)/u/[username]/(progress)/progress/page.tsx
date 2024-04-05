@@ -1,3 +1,3 @@
-import Page from '../page';
+import Page from './challenges/page';
 
 export default Page;

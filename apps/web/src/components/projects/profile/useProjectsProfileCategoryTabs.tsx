@@ -1,12 +1,12 @@
 import { RiDiscussLine, RiRocketLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-export type ProjectsProfileTabCategory = 'contributions' | 'progress';
+export type ProjectsProfileTabCategory = 'community' | 'progress';
 
 type TabItem = Readonly<{
-  href: string;
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   label: string;
+  relativePath: string;
   value: ProjectsProfileTabCategory;
 }>;
 
@@ -15,24 +15,24 @@ export default function useProjectsProfileCategoryTabs(): ReadonlyArray<TabItem>
 
   return [
     {
-      href: '/',
       icon: RiRocketLine,
       label: intl.formatMessage({
         defaultMessage: 'Project progress',
         description: 'Project progress item label',
         id: '1i1F/f',
       }),
+      relativePath: '/progress',
       value: 'progress',
     },
     {
-      href: '/community',
       icon: RiDiscussLine,
       label: intl.formatMessage({
         defaultMessage: 'Community contributions',
         description: 'Community contributions item label',
         id: 'jb3oKk',
       }),
-      value: 'contributions',
+      relativePath: '/community',
+      value: 'community',
     },
   ];
 }

@@ -15,16 +15,15 @@ type Props = Readonly<{
   baseUrl: string;
 }>;
 
+const DEFAULT_TAB: ProjectsMainLayoutTabCategory = 'challenges';
+
 export default function ProjectsProfileProgressTabs({ baseUrl }: Props) {
   const { pathname } = useI18nPathname();
   const intl = useIntl();
   const mainLayoutTabs = useProjectsMainLayoutTabs();
-  const DEFAULT_TAB = 'challenges';
   const progressTabs: ReadonlyArray<TabItem<ProjectsMainLayoutTabCategory>> =
     mainLayoutTabs.map((tab) => ({
-      href:
-        baseUrl +
-        (tab.key === DEFAULT_TAB ? '/progress' : `/progress/${tab.key}`),
+      href: baseUrl + '/progress' + tab.relativePathname,
       key: tab.key,
       label: tab.label,
       type: tab.type,
@@ -40,12 +39,23 @@ export default function ProjectsProfileProgressTabs({ baseUrl }: Props) {
   const tabsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (progressTabs.some((t) => t.href === pathname)) {
-      // User accessed a specific URL
-      tabsRef.current?.scrollIntoView({
-        behavior: 'auto',
-        block: 'start',
-      });
+    if (progressTabs.some((tab) => tab.href === pathname)) {
+      if (
+        tabsRef?.current?.offsetTop &&
+        // Only scroll if tab contents are not clearly in view.
+        Math.abs(window.scrollY - tabsRef?.current?.offsetTop) < 300
+      ) {
+        return;
+      }
+
+      // TODO(projects): hack to let data load first and scroll only
+      // when the page layout is not likely to be still loading.
+      setTimeout(() => {
+        tabsRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }, 1000);
     }
   }, [progressTabs, pathname]);
 
