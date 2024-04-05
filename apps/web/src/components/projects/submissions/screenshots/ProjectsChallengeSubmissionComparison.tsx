@@ -28,12 +28,9 @@ export default function ProjectsChallengeSubmissionComparison({
       label: item.label,
       // TODO(projects): Pick from challenge assets
       screenshots: {
-        desktop:
-          'https://source.unsplash.com/random/1080x700?random=${page.label}',
-        mobile:
-          'https://source.unsplash.com/random/1080x700?random=${page.label}',
-        tablet:
-          'https://source.unsplash.com/random/1080x700?random=${page.label}',
+        desktop: '/img/projects/desktop-2x.png',
+        mobile: '/img/projects/mobile-2x.png',
+        tablet: '/img/projects/tablet-2x.png',
       },
     }),
   );
