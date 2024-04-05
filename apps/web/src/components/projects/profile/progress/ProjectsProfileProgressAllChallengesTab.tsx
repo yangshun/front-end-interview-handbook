@@ -36,7 +36,7 @@ export default function ProjectsProfileProgressAllChallengesTab({
   targetUserId,
 }: Props) {
   const intl = useIntl();
-  const [showAsSubmissions, setShowAsSubmissions] = useState(false);
+  const [showAsSubmissions, setShowAsSubmissions] = useState(true);
   const [challengeStatusFilter, setChallengeStatusFilter] =
     useSessionStorage<ProjectsChallengeSessionStatus>(
       `gfe:projects:all-challenges:status-filter`,
@@ -44,6 +44,9 @@ export default function ProjectsProfileProgressAllChallengesTab({
     );
   const { name: filterName, options: filterOptions } =
     useProjectsAllChallengesFilterOptions();
+
+  const fetchSubmissions =
+    challengeStatusFilter === 'COMPLETED' && showAsSubmissions;
 
   const { data: sessions, isLoading: isLoadingSessions } =
     trpc.projects.sessions.list.useQuery(
@@ -53,16 +56,15 @@ export default function ProjectsProfileProgressAllChallengesTab({
         userId: targetUserId,
       },
       {
-        enabled: !showAsSubmissions,
+        enabled: !fetchSubmissions,
       },
     );
-  const shownSessions = sessions?.filter((session, index, self) => {
-    return (
+  const shownSessions = sessions?.filter(
+    (session, index, self) =>
       self.findIndex(
         (s) => s.challenge?.metadata.slug === session.challenge?.metadata.slug,
-      ) === index
-    );
-  });
+      ) === index,
+  );
 
   const { data: submissions, isLoading: isLoadingSubmissions } =
     trpc.projects.submissions.listCompleted.useQuery(
@@ -71,7 +73,7 @@ export default function ProjectsProfileProgressAllChallengesTab({
         userId: targetUserId,
       },
       {
-        enabled: showAsSubmissions,
+        enabled: fetchSubmissions,
       },
     );
 
@@ -142,9 +144,6 @@ export default function ProjectsProfileProgressAllChallengesTab({
                 selected={challengeStatusFilter === option.value}
                 tooltip={option.tooltip}
                 onClick={() => {
-                  if (option.value !== 'COMPLETED') {
-                    setShowAsSubmissions(false);
-                  }
                   setChallengeStatusFilter(option.value);
                 }}
               />
@@ -168,7 +167,7 @@ export default function ProjectsProfileProgressAllChallengesTab({
       </div>
       {/* TODO(projects): extract out as components. */}
       {(() => {
-        if (showAsSubmissions) {
+        if (fetchSubmissions) {
           if (isLoadingSubmissions) {
             return (
               <div className="flex h-80 w-full items-center justify-center">
