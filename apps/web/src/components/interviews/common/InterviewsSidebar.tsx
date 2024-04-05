@@ -15,9 +15,7 @@ import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
 
-import useInterviewsNavLinks from './useInterviewsNavLinks';
-
-import { useUser } from '@supabase/auth-helpers-react';
+import useInterviewsSidebarLinks from './useInterviewsSidebarLinks';
 
 function SettingsMenuItem() {
   const intl = useIntl();
@@ -112,11 +110,9 @@ export default function InterviewsSidebar({
   isCollapsed,
   onCollapseClick,
 }: Props) {
-  const user = useUser();
   const { userProfile } = useUserProfile();
-  const isLoggedIn = user != null;
   const isPremium = userProfile?.isPremium ?? false;
-  const sidebarItems = useInterviewsNavLinks(isLoggedIn, isPremium);
+  const sidebarItems = useInterviewsSidebarLinks(isPremium);
 
   return isCollapsed ? (
     <InterviewsSidebarCollapsed
