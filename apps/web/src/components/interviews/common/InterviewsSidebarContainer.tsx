@@ -3,7 +3,6 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 
-import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
 import InterviewsSidebar from '~/components/interviews/common/InterviewsSidebar';
 import { themeBorderColor } from '~/components/ui/theme';
 
@@ -20,14 +19,11 @@ export default function InterviewsSidebarContainer({
     <aside
       className={clsx(
         'hidden md:block',
-        'sticky shrink-0 overflow-visible',
+        'sticky top-0',
+        'h-dvh shrink-0 overflow-y-hidden',
         ['border-e', themeBorderColor],
         isCollapsed ? 'w-[68px]' : 'w-60',
-      )}
-      style={{
-        height: FooterlessContainerHeight,
-        top: `var(--nav-top-offset)`,
-      }}>
+      )}>
       <InterviewsSidebar
         isCollapsed={isCollapsed}
         onCollapseClick={() => setIsCollapsed(!isCollapsed)}

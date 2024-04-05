@@ -22,7 +22,7 @@ export function ProjectsSidebarProfileHeader() {
     <div
       className={clsx(
         'flex items-center gap-3',
-        'w-full px-3 py-2',
+        'w-full',
         isLoading && 'opacity-25',
       )}>
       {isLoading ? (

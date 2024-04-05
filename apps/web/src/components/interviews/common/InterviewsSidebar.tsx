@@ -1,144 +1,23 @@
 'use client';
 
-import {
-  RiBookOpenLine,
-  RiCalendar2Line,
-  RiFocus2Line,
-  RiHome3Line,
-  RiSettings3Line,
-  RiWindowLine,
-} from 'react-icons/ri';
+import clsx from 'clsx';
+import { RiSettings3Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import { useGuidesData } from '~/data/Guides';
-
-import type { SidebarItems } from '~/components/global/sidebar/Sidebar';
 import {
   SidebarCollapsed,
   SidebarExpanded,
 } from '~/components/global/sidebar/Sidebar';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
+import { ProjectsSidebarProfileHeader } from '~/components/projects/common/layout/sidebar/ProjectsSidebarProfileHeader';
 import { SocialDiscountSidebarMention } from '~/components/promotions/social/SocialDiscountSidebarMention';
-import Badge from '~/components/ui/Badge';
+import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
+import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
 
-function useSidebarItems(): SidebarItems {
-  const guidesData = useGuidesData();
+import useInterviewsNavLinks from './useInterviewsNavLinks';
 
-  const intl = useIntl();
-
-  return {
-    top: [
-      {
-        currentMatchRegex: /^\/prepare\/(coding|quiz|system|behavioral)/,
-        href: '/prepare',
-        icon: RiHome3Line,
-        key: 'dashboard',
-        label: intl.formatMessage({
-          defaultMessage: 'Prep dashboard',
-          description:
-            'Sidebar label for Front End Interview Prep Dashboard page',
-          id: 'y4l5Q0',
-        }),
-        type: 'link',
-      },
-      {
-        currentMatchRegex: /^\/questions\//,
-        href: '/questions',
-        icon: RiWindowLine,
-        key: 'questions',
-        label: intl.formatMessage({
-          defaultMessage: 'Practice by framework',
-          description: 'Sidebar label for Questions list page',
-          id: '5c7RMQ',
-        }),
-        type: 'link',
-      },
-      {
-        currentMatchRegex: /guidebook/,
-        icon: RiBookOpenLine,
-        items: [
-          {
-            href: guidesData['front-end-interview-guidebook'].href,
-            icon: guidesData['front-end-interview-guidebook'].icon,
-            key: guidesData['front-end-interview-guidebook'].key,
-            label: guidesData['front-end-interview-guidebook'].name,
-            labelAddon: (
-              <Badge
-                label={intl.formatMessage({
-                  defaultMessage: 'Free',
-                  description:
-                    'Label to indicate that the item is free of charge',
-                  id: 'VcLkXG',
-                })}
-                size="sm"
-                variant="success"
-              />
-            ),
-            type: 'link',
-          },
-          {
-            href: guidesData['front-end-system-design-guidebook'].href,
-            icon: guidesData['front-end-system-design-guidebook'].icon,
-            key: guidesData['front-end-system-design-guidebook'].key,
-            label: guidesData['front-end-system-design-guidebook'].name,
-            type: 'link',
-          },
-          {
-            href: guidesData['behavioral-interview-guidebook'].href,
-            icon: guidesData['behavioral-interview-guidebook'].icon,
-            key: guidesData['behavioral-interview-guidebook'].key,
-            label: guidesData['behavioral-interview-guidebook'].name,
-            labelAddon: (
-              <Badge
-                label={intl.formatMessage({
-                  defaultMessage: 'Free',
-                  description: 'Label to indicate the item is free',
-                  id: 'Aa86vz',
-                })}
-                size="sm"
-                variant="success"
-              />
-            ),
-            type: 'link',
-          },
-        ],
-        key: 'guides',
-        label: intl.formatMessage({
-          defaultMessage: 'Interview guides',
-          description: 'Sidebar label for Interview Guides category',
-          id: 'CIPW07',
-        }),
-        type: 'menu',
-      },
-      {
-        currentMatchRegex:
-          /^\/(study-plans|prepare\/(one-week|one-month|three-months))/,
-        href: '/study-plans',
-        icon: RiCalendar2Line,
-        key: 'study-plans',
-        label: intl.formatMessage({
-          defaultMessage: 'Study plans',
-          description: 'Sidebar label for Study Plans category',
-          id: 'WNRcvy',
-        }),
-        type: 'link',
-      },
-      {
-        currentMatchRegex: /^\/focus-areas/,
-        href: '/focus-areas',
-        icon: RiFocus2Line,
-        key: 'focus-areas',
-        label: intl.formatMessage({
-          defaultMessage: 'Focus areas',
-          description: 'Sidebar label for interview focus area category',
-          id: 'PXLoIh',
-        }),
-        type: 'link',
-      },
-    ],
-  };
-}
+import { useUser } from '@supabase/auth-helpers-react';
 
 function SettingsMenuItem() {
   const intl = useIntl();
@@ -157,21 +36,47 @@ function SettingsMenuItem() {
 }
 
 export function InterviewsSidebarExpanded({
+  sidebarItems,
   onCollapseClick,
 }: Readonly<{
   onCollapseClick?: () => void;
+  sidebarItems: ReadonlyArray<NavbarPrimaryItem>;
 }>) {
-  const sidebarItems = useSidebarItems();
-  const { userProfile } = useUserProfile();
+  const { isUserProfileLoading, userProfile } = useUserProfile();
+  const intl = useIntl();
+  const isPremium = userProfile?.isPremium ?? false;
 
   return (
     <SidebarExpanded
-      // No dynamic data, can just show right away.
-      isLoading={false}
-      isViewerPremium={userProfile?.isPremium ?? false}
+      isLoading={isUserProfileLoading}
+      isViewerPremium={isPremium}
       moreMenuItems={userProfile && <SettingsMenuItem />}
       product="interviews"
       renderBottomAddonElements={() => <SocialDiscountSidebarMention />}
+      renderTopAddonElements={(fadeInClass) => (
+        <div
+          className={clsx(
+            'flex flex-col gap-4',
+            'w-full',
+            'px-3 py-2',
+            fadeInClass,
+          )}>
+          <ProjectsSidebarProfileHeader />
+          {userProfile == null && (
+            <Button
+              display="block"
+              href="/pricing"
+              label={intl.formatMessage({
+                defaultMessage: 'Get full access',
+                description: 'Button CTA to encourage upgrading',
+                id: 'GPFB6p',
+              })}
+              size="xs"
+              variant="primary"
+            />
+          )}
+        </div>
+      )}
       sidebarItems={sidebarItems}
       onCollapseClick={onCollapseClick}
     />
@@ -183,7 +88,7 @@ function InterviewsSidebarCollapsed({
   onCollapseClick,
 }: Readonly<{
   onCollapseClick: () => void;
-  sidebarItems: SidebarItems;
+  sidebarItems: ReadonlyArray<NavbarPrimaryItem>;
 }>) {
   const { userProfile } = useUserProfile();
 
@@ -207,7 +112,11 @@ export default function InterviewsSidebar({
   isCollapsed,
   onCollapseClick,
 }: Props) {
-  const sidebarItems = useSidebarItems();
+  const user = useUser();
+  const { userProfile } = useUserProfile();
+  const isLoggedIn = user != null;
+  const isPremium = userProfile?.isPremium ?? false;
+  const sidebarItems = useInterviewsNavLinks(isLoggedIn, isPremium);
 
   return isCollapsed ? (
     <InterviewsSidebarCollapsed
@@ -215,6 +124,9 @@ export default function InterviewsSidebar({
       onCollapseClick={onCollapseClick}
     />
   ) : (
-    <InterviewsSidebarExpanded onCollapseClick={onCollapseClick} />
+    <InterviewsSidebarExpanded
+      sidebarItems={sidebarItems}
+      onCollapseClick={onCollapseClick}
+    />
   );
 }

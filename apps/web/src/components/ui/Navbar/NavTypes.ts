@@ -2,6 +2,7 @@ import type { Props as AnchorProps } from '../Anchor';
 import type { PopoverContentAlignment } from '../Popover';
 
 export type NavBaseItem = Readonly<{
+  currentMatchRegex?: RegExp;
   itemKey: string;
   label: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
@@ -12,10 +13,12 @@ export type NavLinkItem = NavBaseItem &
     href: AnchorProps['href'];
     icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
     labelAddon?: React.ReactNode;
+    scrollToTop?: boolean;
     type: 'link';
   }>;
 
 export type NavPrimaryItem = Readonly<{
+  icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   position: 'end' | 'start';
 }>;
 

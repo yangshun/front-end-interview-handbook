@@ -28,69 +28,69 @@ import ProjectsPremiumPricingTableDialog from '../../../challenges/premium/Proje
 function useSidebarItems(): SidebarItems {
   const intl = useIntl();
 
-  return {
-    bottom: [
-      {
-        href: '/projects#features',
-        icon: RiShiningLine,
-        key: 'features',
-        label: intl.formatMessage({
-          defaultMessage: 'Features',
-          description: 'Label for Features sidebar item in Projects sidebar',
-          id: 'J6IHpl',
-        }),
-        scrollToTop: false,
-        type: 'link',
-      },
-      {
-        href: '/projects/pricing',
-        icon: RiPriceTag3Line,
-        key: 'pricing',
-        label: intl.formatMessage({
-          defaultMessage: 'Pricing',
-          description: 'Label for Pricing sidebar item in Projects sidebar',
-          id: 'VbvRHt',
-        }),
-        type: 'link',
-      },
-    ],
-    top: [
-      {
-        href: '/projects/dashboard',
-        icon: RiHome3Line,
-        key: 'dashboard',
-        label: intl.formatMessage({
-          defaultMessage: 'Dashboard',
-          description: 'Label for Dashboard sidebar item in Projects sidebar',
-          id: '50s+NV',
-        }),
-        type: 'link',
-      },
-      {
-        href: '/projects/challenges',
-        icon: RiRocketLine,
-        key: 'challenges',
-        label: intl.formatMessage({
-          defaultMessage: 'Project challenges',
-          description: 'Projects sidebar label',
-          id: 'lGeTSB',
-        }),
-        type: 'link',
-      },
-      {
-        href: '/projects/submissions',
-        icon: RiCodeSSlashLine,
-        key: 'all-submissions',
-        label: intl.formatMessage({
-          defaultMessage: 'User submissions',
-          description:
-            'Label for All submissions sidebar item in Projects sidebar',
-          id: 'HqUmNE',
-        }),
-        type: 'link',
-      },
-    ],
-  };
+  return [
+    {
+      href: '/projects/dashboard',
+      icon: RiHome3Line,
+      itemKey: 'dashboard',
+      label: intl.formatMessage({
+        defaultMessage: 'Dashboard',
+        description: 'Sidebar navigation label',
+        id: 'R9G9bY',
+      }),
+      position: 'start',
+      type: 'link',
+    },
+    {
+      href: '/projects/challenges',
+      icon: RiRocketLine,
+      itemKey: 'challenges',
+      label: intl.formatMessage({
+        defaultMessage: 'Project challenges',
+        description: 'Sidebar navigation label',
+        id: 'OelRg0',
+      }),
+      position: 'start',
+      type: 'link',
+    },
+    {
+      href: '/projects/submissions',
+      icon: RiCodeSSlashLine,
+      itemKey: 'all-submissions',
+      label: intl.formatMessage({
+        defaultMessage: 'User submissions',
+        description: 'Sidebar navigation label',
+        id: 'e2P6am',
+      }),
+      position: 'start',
+      type: 'link',
+    },
+    {
+      href: '/projects#features',
+      icon: RiShiningLine,
+      itemKey: 'features',
+      label: intl.formatMessage({
+        defaultMessage: 'Features',
+        description: 'Sidebar navigation label',
+        id: 'IveIL+',
+      }),
+      position: 'end',
+      scrollToTop: false,
+      type: 'link',
+    },
+    {
+      href: '/projects/pricing',
+      icon: RiPriceTag3Line,
+      itemKey: 'pricing',
+      label: intl.formatMessage({
+        defaultMessage: 'Pricing',
+        description: 'Sidebar navigation label',
+        id: '9qO5Il',
+      }),
+      position: 'end',
+      type: 'link',
+    },
+  ];
 }
 
 function SettingsMenuItem() {
@@ -126,27 +126,31 @@ export function ProjectsSidebarExpanded({
       product="projects"
       renderBottomAddonElements={() => <ProjectsSidebarCTACard />}
       renderTopAddonElements={(fadeInClass) => (
-        <>
+        <div
+          className={clsx(
+            'flex flex-col gap-4',
+            'w-full',
+            'px-3 py-2',
+            fadeInClass,
+          )}>
           <ProjectsSidebarProfileHeader />
           {userProfile == null && (
-            <div className={clsx('w-full px-3', fadeInClass)}>
-              <ProjectsPremiumPricingTableDialog
-                trigger={
-                  <Button
-                    display="block"
-                    label={intl.formatMessage({
-                      defaultMessage: 'Get full access',
-                      description: 'Button CTA to encourage upgrading',
-                      id: 'GPFB6p',
-                    })}
-                    size="xs"
-                    variant="primary"
-                  />
-                }
-              />
-            </div>
+            <ProjectsPremiumPricingTableDialog
+              trigger={
+                <Button
+                  display="block"
+                  label={intl.formatMessage({
+                    defaultMessage: 'Get full access',
+                    description: 'Button CTA to encourage upgrading',
+                    id: 'GPFB6p',
+                  })}
+                  size="xs"
+                  variant="primary"
+                />
+              }
+            />
           )}
-        </>
+        </div>
       )}
       sidebarItems={sidebarItems}
       onCollapseClick={onCollapseClick}

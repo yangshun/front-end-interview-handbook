@@ -14,40 +14,15 @@ import SidebarLinkButton from '~/components/global/sidebar/SidebarLinkButton';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
+import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
 
 import SidebarAuthDropdownItem from './SidebarAuthDropdownItem';
 import SidebarColorSchemeSubMenu from './SidebarColorSchemeSubMenu';
 import NavProductMenuSelector from '../navbar/NavProductMenuSelector';
 
-type SidebarBaseItem = Readonly<{
-  currentMatchRegex?: RegExp;
-  icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
-  key: string;
-  label: string;
-  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
-}>;
+export type SidebarItem = NavbarPrimaryItem;
 
-type SidebarLink = Readonly<{
-  href: string;
-  scrollToTop?: boolean;
-  type: 'link';
-}> &
-  SidebarBaseItem;
-
-type SidebarMenu = Readonly<{
-  items: ReadonlyArray<
-    Readonly<{ labelAddon?: React.ReactNode }> & SidebarLink
-  >;
-  type: 'menu';
-}> &
-  SidebarBaseItem;
-
-export type SidebarItem = SidebarLink | SidebarMenu;
-
-export type SidebarItems = Readonly<{
-  bottom?: ReadonlyArray<SidebarItem>;
-  top: ReadonlyArray<SidebarItem>;
-}>;
+export type SidebarItems = ReadonlyArray<NavbarPrimaryItem>;
 
 export function SidebarCollapsed({
   moreMenuItems,
@@ -65,6 +40,8 @@ export function SidebarCollapsed({
   topAddonElements?: React.ReactNode;
 }>) {
   const intl = useIntl();
+  const startItems = sidebarItems.filter((item) => item.position === 'start');
+  const endItems = sidebarItems.filter((item) => item.position === 'end');
 
   return (
     <nav
@@ -78,18 +55,18 @@ export function SidebarCollapsed({
       )}
       {topAddonElements}
       <ul className="flex grow flex-col gap-1">
-        {sidebarItems.top.map((item) => (
-          <li key={item.key}>
+        {startItems.map((item) => (
+          <li key={item.itemKey}>
             <SidebarLinkButton isLabelHidden={true} {...item} />
           </li>
         ))}
       </ul>
-      {sidebarItems.bottom != null && (
+      {endItems.length > 0 && (
         <>
           <Divider className="w-full" />
           <ul className="flex flex-col gap-1">
-            {sidebarItems.bottom.map((item) => (
-              <li key={item.key}>
+            {endItems.map((item) => (
+              <li key={item.itemKey}>
                 <SidebarLinkButton isLabelHidden={true} {...item} />
               </li>
             ))}
@@ -176,27 +153,27 @@ export function SidebarExpanded({
     'transition-opacity duration-500',
     isLoading && 'select-none opacity-0',
   );
+  const startItems = sidebarItems.filter((item) => item.position === 'start');
+  const endItems = sidebarItems.filter((item) => item.position === 'end');
 
   return (
     <nav className={clsx('flex flex-col gap-y-4', 'relative h-full p-4')}>
-      {product === 'projects' && (
-        <NavProductMenuSelector value={product} variant="full" />
-      )}
+      <NavProductMenuSelector value={product} variant="full" />
       {renderTopAddonElements?.(fadeInClass)}
       <ul className={clsx('flex grow flex-col gap-2', fadeInClass)}>
-        {sidebarItems.top.map((item) => (
-          <li key={item.key}>
+        {startItems.map((item) => (
+          <li key={item.itemKey}>
             <SidebarLinkButton {...item} />
           </li>
         ))}
       </ul>
-      <div className={clsx('flex flex-col gap-y-5', fadeInClass)}>
-        {sidebarItems.bottom && (
+      <div className={clsx('flex flex-col gap-y-4', fadeInClass)}>
+        {endItems.length > 0 && (
           <>
             <Divider />
             <ul className="flex flex-col gap-2">
-              {sidebarItems.bottom.map((item) => (
-                <li key={item.key}>
+              {endItems.map((item) => (
+                <li key={item.itemKey}>
                   <SidebarLinkButton {...item} />
                 </li>
               ))}
@@ -206,7 +183,7 @@ export function SidebarExpanded({
         {renderBottomAddonElements?.(fadeInClass)}
         <Divider />
       </div>
-      <div className="flex justify-between gap-4 pt-2">
+      <div className="flex justify-between gap-4">
         <div className="flex gap-4">
           <Button
             href={SocialLinks.linkedin.href}

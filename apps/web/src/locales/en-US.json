@@ -783,10 +783,6 @@
     "defaultMessage": "Select question format",
     "description": "Label for tabs to select sample interview question format"
   },
-  "50s+NV": {
-    "defaultMessage": "Dashboard",
-    "description": "Label for Dashboard sidebar item in Projects sidebar"
-  },
   "54g6sz": {
     "defaultMessage": "Preserve logs",
     "description": "Checkbox label to preserve logs in the console in the coding workspace"
@@ -842,10 +838,6 @@
   "5bW/ye": {
     "defaultMessage": "Created: Oldest to newest",
     "description": "Sorting option for projects list - sort by created"
-  },
-  "5c7RMQ": {
-    "defaultMessage": "Practice by framework",
-    "description": "Sidebar label for Questions list page"
   },
   "5gYLMr": {
     "defaultMessage": "Once you're done, host your project with <tooltip>our recommended hosts</tooltip> and submit your project URL for code reviews.",
@@ -1359,6 +1351,10 @@
     "defaultMessage": "Others",
     "description": "Label for \"Others\" option in YOE replacement"
   },
+  "9qO5Il": {
+    "defaultMessage": "Pricing",
+    "description": "Sidebar navigation label"
+  },
   "9rPKTB": {
     "defaultMessage": "<bold>You</bold> posted on the challenge forum for <link>{challengeTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you making a post on the challenge forum"
@@ -1426,10 +1422,6 @@
   "AZInep": {
     "defaultMessage": "{completedCount} completed",
     "description": "Label for number of completed users for a project"
-  },
-  "Aa86vz": {
-    "defaultMessage": "Free",
-    "description": "Label to indicate the item is free"
   },
   "AaYDa2": {
     "defaultMessage": "Implementation details",
@@ -1618,10 +1610,6 @@
   "CH1iWB": {
     "defaultMessage": "Payment Success | GreatFrontEnd Projects - Real-world project challenges",
     "description": "Title of Payment Success page"
-  },
-  "CIPW07": {
-    "defaultMessage": "Interview guides",
-    "description": "Sidebar label for Interview Guides category"
   },
   "CNjnh0": {
     "defaultMessage": "Not written for this question.",
@@ -2287,10 +2275,6 @@
     "defaultMessage": "<bold>You</bold> contributed a code review for <bold>{recipient}</bold> on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you reviewing a submission"
   },
-  "HqUmNE": {
-    "defaultMessage": "User submissions",
-    "description": "Label for All submissions sidebar item in Projects sidebar"
-  },
   "HtFDkf": {
     "defaultMessage": "Official guides",
     "description": "Title for \"Official guides\" feature on Projects home page"
@@ -2411,6 +2395,10 @@
     "defaultMessage": "Moreover, out of the resources in the market for front end interview preparation, our platform boasts the largest number of questions with solutions written by experienced Senior Front End Engineers previously from FAANG, who were also ex-interviewers.",
     "description": "Paragraph 2 answer to 'Is it really worth it to buy GreatFrontEnd?' on Homepage's FAQ sections"
   },
+  "IveIL+": {
+    "defaultMessage": "Features",
+    "description": "Sidebar navigation label"
+  },
   "J/UPQZ": {
     "defaultMessage": "For learning",
     "description": "Title of the 'We help you learn through building - without tutorial hell' marketing section on Projects home page"
@@ -2418,10 +2406,6 @@
   "J1pqvo": {
     "defaultMessage": "From beginner to advanced",
     "description": "Label for skill roadmap feature for annual plan"
-  },
-  "J6IHpl": {
-    "defaultMessage": "Features",
-    "description": "Label for Features sidebar item in Projects sidebar"
   },
   "J7VxuG": {
     "defaultMessage": "Social Rewards Discount",
@@ -3135,6 +3119,10 @@
     "defaultMessage": "Skills used",
     "description": "Label for \"Skills used\" text input"
   },
+  "OelRg0": {
+    "defaultMessage": "Project challenges",
+    "description": "Sidebar navigation label"
+  },
   "OjLxYa": {
     "defaultMessage": "<bold>{count}</bold>",
     "description": "Number of incomplete challenges in projects dashboard"
@@ -3274,10 +3262,6 @@
   "PWyAGW": {
     "defaultMessage": "Purchase premium to unlock filtering questions by companies.",
     "description": "Subtitle for paywall over company tagging"
-  },
-  "PXLoIh": {
-    "defaultMessage": "Focus areas",
-    "description": "Sidebar label for interview focus area category"
   },
   "PbcB1O": {
     "defaultMessage": "If you haven’t started a job in SWE or front end yet, select another status to display in place of your YOE",
@@ -3486,6 +3470,10 @@
   "R68iHH": {
     "defaultMessage": "Search Svelte questions",
     "description": "Placeholder for search input of Svelte question list"
+  },
+  "R9G9bY": {
+    "defaultMessage": "Dashboard",
+    "description": "Sidebar navigation label"
   },
   "RBApo9": {
     "defaultMessage": "Promotions",
@@ -4063,14 +4051,6 @@
     "defaultMessage": "Get the right practical foundation from the get-go",
     "description": "Title of 'Practical foundation' feature in Projects marketing page"
   },
-  "VbvRHt": {
-    "defaultMessage": "Pricing",
-    "description": "Label for Pricing sidebar item in Projects sidebar"
-  },
-  "VcLkXG": {
-    "defaultMessage": "Free",
-    "description": "Label to indicate that the item is free of charge"
-  },
   "VfNkH+": {
     "defaultMessage": "CASHBACK",
     "description": "Amount cashback/discount"
@@ -4178,10 +4158,6 @@
   "WNERnb": {
     "defaultMessage": "End session",
     "description": "Label for \"End session\" button on current project session card"
-  },
-  "WNRcvy": {
-    "defaultMessage": "Study plans",
-    "description": "Sidebar label for Study Plans category"
   },
   "WPoLv8": {
     "defaultMessage": "Cancel",
@@ -4374,6 +4350,10 @@
   "XysLlX": {
     "defaultMessage": "Settings",
     "description": "App settings label"
+  },
+  "Y+aWAQ": {
+    "defaultMessage": "Complete simple tasks like following our social accounts to get <bold>{discountPercentage}% discount</bold> off!",
+    "description": "Rewards discount message"
   },
   "Y2R80N": {
     "defaultMessage": "Unpin",
@@ -4895,6 +4875,10 @@
     "defaultMessage": "Open in new tab",
     "description": "Indication that text has been copied"
   },
+  "cIZicH": {
+    "defaultMessage": "Our focus now is on expanding our challenge base. New challenges are added to the platform on a weekly basis.",
+    "description": "Question base section subtitle - first paragraph"
+  },
   "cJWhQr": {
     "defaultMessage": "Skills you are hoping to grow in",
     "description": "Label for tech stack field"
@@ -5082,6 +5066,10 @@
   "e1ohyq": {
     "defaultMessage": "Learn from others",
     "description": "Label for Learn from others sidebar item in Projects sidebar"
+  },
+  "e2P6am": {
+    "defaultMessage": "User submissions",
+    "description": "Sidebar navigation label"
   },
   "eBp6vh": {
     "defaultMessage": "Reset Progress",
@@ -5587,10 +5575,6 @@
     "defaultMessage": "Signing Out",
     "description": "Title of Logout page"
   },
-  "iSRvKo": {
-    "defaultMessage": "Complete simple social tasks like following our social accounts to get a <bold>{discountPercentage}% discount</bold> off all plans.",
-    "description": "Rewards discount message"
-  },
   "ibMNT0": {
     "defaultMessage": "<bold>{author}</bold> contributed a code review for <bold>{recipient}</bold> on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone reviewing a submission"
@@ -6018,10 +6002,6 @@
   "lGUj4P": {
     "defaultMessage": "View study plans",
     "description": "Link label to view all study plans"
-  },
-  "lGeTSB": {
-    "defaultMessage": "Project challenges",
-    "description": "Projects sidebar label"
   },
   "lJF2aI": {
     "defaultMessage": "See child skills ({count})",
@@ -6807,6 +6787,10 @@
     "defaultMessage": "Notify Me",
     "description": "Button label for a newsletter subscription section"
   },
+  "rzOz2q": {
+    "defaultMessage": "We're still growing our challenge base",
+    "description": "Challenge base section title"
+  },
   "rzu02O": {
     "defaultMessage": "Nothing at all! Just click \"Start project\", and we will take care of everything else and guide you along the way.",
     "description": "FAQ answer for projects platform"
@@ -7522,10 +7506,6 @@
   "y3aYKb": {
     "defaultMessage": "User Interface",
     "description": "Front end user interface questions"
-  },
-  "y4l5Q0": {
-    "defaultMessage": "Prep dashboard",
-    "description": "Sidebar label for Front End Interview Prep Dashboard page"
   },
   "y4v8AZ": {
     "defaultMessage": "Component libraries",

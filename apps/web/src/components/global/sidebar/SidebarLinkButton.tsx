@@ -1,7 +1,11 @@
 import clsx from 'clsx';
+import { useState } from 'react';
+import { RiArrowRightSLine } from 'react-icons/ri';
 
 import Anchor from '~/components/ui/Anchor';
-import DropdownMenu from '~/components/ui/DropdownMenu';
+import NavbarPopover from '~/components/ui/Navbar/NavbarPopover';
+import NavbarPopoverTabs from '~/components/ui/Navbar/NavbarPopoverTabs';
+import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundElementEmphasizedStateColor,
@@ -16,12 +20,12 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-import type { SidebarItem } from './Sidebar';
+import { Content, Portal, Root, Trigger } from '@radix-ui/react-popover';
 
-type Props = Readonly<{
-  isLabelHidden?: boolean;
-}> &
-  SidebarItem;
+type Props = NavbarPrimaryItem &
+  Readonly<{
+    isLabelHidden?: boolean;
+  }>;
 
 export default function SidebarLinkButton({
   currentMatchRegex,
@@ -31,6 +35,7 @@ export default function SidebarLinkButton({
   onClick,
   ...props
 }: Props) {
+  const [open, setOpen] = useState(false);
   const { pathname } = useI18nPathname();
   const activeClassName = clsx(
     themeTextBrandColor,
@@ -55,9 +60,14 @@ export default function SidebarLinkButton({
     'transition-colors',
   );
 
-  const iconElement = <Icon className="size-5 shrink-0" />;
+  const iconElement =
+    Icon != null ? <Icon className="size-5 shrink-0" /> : null;
   const labelElement = !isLabelHidden && (
-    <Text color="inherit" size="body2" weight={isSelected ? 'bold' : 'medium'}>
+    <Text
+      className="grow text-start"
+      color="inherit"
+      size="body2"
+      weight={isSelected ? 'bold' : 'medium'}>
       {label}
     </Text>
   );
@@ -91,30 +101,66 @@ export default function SidebarLinkButton({
     );
   }
 
+  const trigger = (
+    <Trigger
+      aria-label={isLabelHidden ? label : undefined}
+      className={clsx(
+        commonClass,
+        isSelected || open ? activeClassName : defaultClassName,
+      )}>
+      {iconElement}
+      {labelElement}
+      {!isLabelHidden && (
+        <RiArrowRightSLine aria-hidden="true" className="size-4 shrink-0" />
+      )}
+    </Trigger>
+  );
+
   return (
-    <DropdownMenu
-      side="right"
-      trigger={
-        <button
-          aria-label={isLabelHidden ? label : undefined}
+    <Root>
+      {isLabelHidden ? (
+        <Tooltip asChild={true} label={label} side="right">
+          {trigger}
+        </Tooltip>
+      ) : (
+        trigger
+      )}
+      <Portal>
+        <Content
+          align={props.align}
           className={clsx(
-            commonClass,
-            isSelected ? activeClassName : defaultClassName,
+            'z-popover',
+            'rounded-lg',
+            'shadow-lg',
+            // TODO: Increase max-width as number of items increase.
+            'w-screen max-w-5xl',
           )}
-          type="button">
-          {iconElement}
-          {labelElement}
-        </button>
-      }>
-      {props.items.map((popoverItem) => (
-        <DropdownMenu.Item
-          key={popoverItem.key}
-          endAddOn={popoverItem.labelAddon}
-          href={popoverItem.href}
-          icon={popoverItem.icon}
-          label={popoverItem.label}
-        />
-      ))}
-    </DropdownMenu>
+          side="right"
+          sideOffset={8}>
+          {(() => {
+            switch (props.type) {
+              case 'popover':
+                return (
+                  <NavbarPopover
+                    items={props.items}
+                    onClose={() => {
+                      setOpen(false);
+                    }}
+                  />
+                );
+              case 'popover-tabs':
+                return (
+                  <NavbarPopoverTabs
+                    items={props.items}
+                    onClose={() => {
+                      setOpen(false);
+                    }}
+                  />
+                );
+            }
+          })()}
+        </Content>
+      </Portal>
+    </Root>
   );
 }
