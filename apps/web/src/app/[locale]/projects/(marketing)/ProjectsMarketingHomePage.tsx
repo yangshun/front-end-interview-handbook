@@ -12,6 +12,7 @@ import ProjectsMarketingHero from '~/components/projects/marketing/ProjectsMarke
 import ProjectsMarketingHowItWorks from '~/components/projects/marketing/ProjectsMarketingHowItWorks';
 import ProjectsMarketingLearningFeatures from '~/components/projects/marketing/ProjectsMarketingLearningFeatures';
 import ProjectsMarketingPortfolioFeatures from '~/components/projects/marketing/ProjectsMarketingPortfolioFeatures';
+import ProjectsMarketingPortfolioMarquee from '~/components/projects/marketing/ProjectsMarketingPortfolioMarquee';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 const ProjectsMarketingHomePageBottom = dynamic(
@@ -43,6 +44,7 @@ export default function ProjectsMarketingHomePage({
         <ProjectsMarketingHowItWorks />
         <ProjectsMarketingLearningFeatures />
         <ProjectsMarketingPortfolioFeatures />
+        <ProjectsMarketingPortfolioMarquee />
         <ProjectsMarketingFutureToolkit />
         <div ref={loadBottomHalfMarkerRef} />
         {showBottomHalf && <ProjectsMarketingHomePageBottom />}

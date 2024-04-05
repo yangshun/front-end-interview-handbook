@@ -3931,6 +3931,10 @@
     "defaultMessage": "Stack",
     "description": "Label for tech stack used in project"
   },
+  "Ue7Ujc": {
+    "defaultMessage": "Here are some awesome ideas for your portfolio, imagined for you",
+    "description": "Heading of the 'Here are some awesome ideas for your portfolio, imagined for you' marketing section on Projects home page"
+  },
   "UeYQmR": {
     "defaultMessage": "Activity",
     "description": "Profile settings tab title"
