@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import ProjectsProfileProgressAllChallengesTab from '~/components/projects/profile/progress/ProjectsProfileProgressAllChallengesTab';
+import ProjectsProfileProgressSectionAllChallenges from '~/components/projects/profile/progress/ProjectsProfileProgressSectionAllChallenges';
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 export default async function Page() {
@@ -12,7 +12,7 @@ export default async function Page() {
   }
 
   return (
-    <ProjectsProfileProgressAllChallengesTab
+    <ProjectsProfileProgressSectionAllChallenges
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
       isViewingOwnProfile={true}
       targetUserId={viewerId}

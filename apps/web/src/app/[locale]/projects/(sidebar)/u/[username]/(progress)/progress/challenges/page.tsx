@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 
-import ProjectsProfileProgressAllChallengesTab from '~/components/projects/profile/progress/ProjectsProfileProgressAllChallengesTab';
+import ProjectsProfileProgressSectionAllChallenges from '~/components/projects/profile/progress/ProjectsProfileProgressSectionAllChallenges';
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import prisma from '~/server/prisma';
@@ -30,7 +30,7 @@ export default async function Page({ params }: Props) {
   const isViewingOwnProfile = viewerId === userProfile.id;
 
   return (
-    <ProjectsProfileProgressAllChallengesTab
+    <ProjectsProfileProgressSectionAllChallenges
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
       isViewingOwnProfile={isViewingOwnProfile}
       targetUserId={userProfile.id}

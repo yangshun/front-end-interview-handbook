@@ -23,7 +23,7 @@ type Props = Readonly<{
   targetUserId: string;
 }>;
 
-export default function ProjectsProfileProgressAllChallengesTab({
+export default function ProjectsProfileProgressSectionAllChallenges({
   isViewingOwnProfile,
   isViewerPremium,
   targetUserId,

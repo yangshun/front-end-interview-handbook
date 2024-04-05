@@ -1,5 +1,5 @@
-import ProjectsProfileProgressSkillsTab from '~/components/projects/profile/progress/ProjectsProfileProgressSkillsTab';
 import { fetchProjectsSkillsRoadmapSectionData } from '~/components/projects/skills/data/ProjectsSkillReader';
+import ProjectsSkillRoadmapSection from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapSection';
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import prisma from '~/server/prisma';
@@ -25,7 +25,7 @@ export default async function Page({ params }: Props) {
   );
 
   return (
-    <ProjectsProfileProgressSkillsTab
+    <ProjectsSkillRoadmapSection
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
       isViewingOwnProfile={false}
       skillsRoadmap={skillsRoadmap}

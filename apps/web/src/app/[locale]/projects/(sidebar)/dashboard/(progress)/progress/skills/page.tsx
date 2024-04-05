@@ -1,6 +1,6 @@
 import { fetchViewerProfile } from '~/components/auth/fetchViewerProfile';
-import ProjectsProfileProgressSkillsTab from '~/components/projects/profile/progress/ProjectsProfileProgressSkillsTab';
 import { fetchProjectsSkillsRoadmapSectionData } from '~/components/projects/skills/data/ProjectsSkillReader';
+import ProjectsSkillRoadmapSection from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapSection';
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
@@ -15,7 +15,7 @@ export default async function Page() {
     ]);
 
   return (
-    <ProjectsProfileProgressSkillsTab
+    <ProjectsSkillRoadmapSection
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
       isViewingOwnProfile={true}
       skillsRoadmap={skillsRoadmap}

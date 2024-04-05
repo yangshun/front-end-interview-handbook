@@ -1,3 +1,5 @@
+'use client';
+
 import clsx from 'clsx';
 import { RiArrowDownSLine, RiArrowRightLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
