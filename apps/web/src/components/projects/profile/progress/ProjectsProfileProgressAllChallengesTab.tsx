@@ -6,19 +6,14 @@ import { RiRocketLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 import { useSessionStorage } from 'usehooks-ts';
 
-import { trpc } from '~/hooks/trpc';
-import usePagination from '~/hooks/usePagination';
-
 import FilterButton from '~/components/common/FilterButton';
-import ProjectsChallengeCard from '~/components/projects/challenges/lists/ProjectsChallengeCard';
 import useProjectsAllChallengesFilterOptions from '~/components/projects/profile/progress/useProjectsAllChallengesFilterOptions';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import EmptyState from '~/components/ui/EmptyState';
-import Pagination from '~/components/ui/Pagination';
-import Spinner from '~/components/ui/Spinner';
 import { themeTextColor } from '~/components/ui/theme';
 
-import ProjectsChallengeSubmissionCard from '../../submissions/lists/ProjectsChallengeSubmissionCard';
+import ProjectsProfileProgressChallengeList from './ProjectsProfileProgressChallengeList';
+import ProjectsProfileProgressSubmissionList from './ProjectsProfileProgressSubmissionList';
 
 import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
@@ -27,8 +22,6 @@ type Props = Readonly<{
   isViewingOwnProfile: boolean;
   targetUserId: string;
 }>;
-
-const ITEMS_PER_PAGE = 6;
 
 export default function ProjectsProfileProgressAllChallengesTab({
   isViewingOwnProfile,
@@ -45,60 +38,8 @@ export default function ProjectsProfileProgressAllChallengesTab({
   const { name: filterName, options: filterOptions } =
     useProjectsAllChallengesFilterOptions();
 
-  const fetchSubmissions =
+  const showSubmissionList =
     challengeStatusFilter === 'COMPLETED' && showAsSubmissions;
-
-  const { data: sessions, isLoading: isLoadingSessions } =
-    trpc.projects.sessions.list.useQuery(
-      {
-        orderBy: 'desc',
-        statuses: [challengeStatusFilter],
-        userId: targetUserId,
-      },
-      {
-        enabled: !fetchSubmissions,
-      },
-    );
-  const shownSessions = sessions?.filter(
-    (session, index, self) =>
-      self.findIndex(
-        (s) => s.challenge?.metadata.slug === session.challenge?.metadata.slug,
-      ) === index,
-  );
-
-  const { data: submissions, isLoading: isLoadingSubmissions } =
-    trpc.projects.submissions.listCompleted.useQuery(
-      {
-        orderBy: 'desc',
-        userId: targetUserId,
-      },
-      {
-        enabled: fetchSubmissions,
-      },
-    );
-
-  // Pagination
-  const {
-    currentPageItems: currentPageItemsSessions,
-    totalPages: totalPagesSessions,
-    setCurrentPage: setCurrentPageSessions,
-    currentPage: currentPageSessions,
-  } = usePagination({
-    deps: [],
-    itemsPerPage: ITEMS_PER_PAGE,
-    totalList: shownSessions,
-  });
-
-  const {
-    currentPageItems: currentPageItemsSubmissions,
-    totalPages: totalPagesSubmissions,
-    setCurrentPage: setCurrentPageSubmissions,
-    currentPage: currentPageSubmissions,
-  } = usePagination({
-    deps: [],
-    itemsPerPage: ITEMS_PER_PAGE,
-    totalList: submissions,
-  });
 
   const emptyState = (
     <EmptyState
@@ -165,86 +106,19 @@ export default function ProjectsProfileProgressAllChallengesTab({
           />
         )}
       </div>
-      {/* TODO(projects): extract out as components. */}
-      {(() => {
-        if (fetchSubmissions) {
-          if (isLoadingSubmissions) {
-            return (
-              <div className="flex h-80 w-full items-center justify-center">
-                <Spinner size="md" />
-              </div>
-            );
-          }
-
-          if (
-            currentPageItemsSubmissions &&
-            currentPageItemsSubmissions.length !== 0
-          ) {
-            return (
-              <div className="flex flex-col gap-4">
-                <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-6">
-                  {currentPageItemsSubmissions.map((submission) => (
-                    <ProjectsChallengeSubmissionCard
-                      key={submission.id}
-                      challenge={submission.challenge}
-                      submission={submission}
-                    />
-                  ))}
-                </div>
-                {totalPagesSubmissions > 1 && (
-                  <div className="flex items-center justify-between">
-                    <Pagination
-                      count={totalPagesSubmissions}
-                      page={currentPageSubmissions}
-                      onPageChange={(value) => setCurrentPageSubmissions(value)}
-                    />
-                  </div>
-                )}
-              </div>
-            );
-          }
-
-          return emptyState;
-        }
-
-        if (isLoadingSessions) {
-          return (
-            <div className="flex h-80 w-full items-center justify-center">
-              <Spinner size="md" />
-            </div>
-          );
-        }
-
-        if (currentPageItemsSessions && currentPageItemsSessions.length !== 0) {
-          return (
-            <div className="flex flex-col gap-4">
-              <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-6">
-                {currentPageItemsSessions.map((session) =>
-                  session.challenge ? (
-                    <ProjectsChallengeCard
-                      key={session.id}
-                      challenge={session.challenge}
-                      isViewerPremium={isViewerPremium}
-                      variant="card"
-                    />
-                  ) : null,
-                )}
-              </div>
-              {totalPagesSessions > 1 && (
-                <div className="flex items-center justify-between">
-                  <Pagination
-                    count={totalPagesSessions}
-                    page={currentPageSessions}
-                    onPageChange={(value) => setCurrentPageSessions(value)}
-                  />
-                </div>
-              )}
-            </div>
-          );
-        }
-
-        return emptyState;
-      })()}
+      {showSubmissionList ? (
+        <ProjectsProfileProgressSubmissionList
+          emptyState={emptyState}
+          targetUserId={targetUserId}
+        />
+      ) : (
+        <ProjectsProfileProgressChallengeList
+          challengeStatus={challengeStatusFilter}
+          emptyState={emptyState}
+          isViewerPremium={isViewerPremium}
+          targetUserId={targetUserId}
+        />
+      )}
     </div>
   );
 }
