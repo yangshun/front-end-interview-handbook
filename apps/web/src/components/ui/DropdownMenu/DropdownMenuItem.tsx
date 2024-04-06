@@ -15,6 +15,7 @@ export type Props = Readonly<{
   icon?: (props: React.ComponentProps<'svg'>) => JSX.Element;
   isSelected?: boolean;
   label: React.ReactNode;
+  locale?: AnchorProps['locale'];
   onClick?: React.MouseEventHandler<HTMLElement>;
 }>;
 
@@ -22,6 +23,7 @@ export default function DropdownMenuItem({
   color,
   endAddOn,
   href,
+  locale,
   icon: Icon,
   isSelected = false,
   label,
@@ -38,6 +40,7 @@ export default function DropdownMenuItem({
       />
     ),
     className: dropdownContentItemClassName,
+    locale,
     onClick,
   };
 
