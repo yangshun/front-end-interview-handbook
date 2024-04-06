@@ -23,7 +23,7 @@ import type { ProjectsChallengeHistoricalStatuses } from '../challenges/types';
 import { projectsChallengeCountCompletedIncludingHistorical } from '../challenges/utils/ProjectsChallengeUtils';
 import ProjectsPremiumBadge from '../purchase/ProjectsPremiumBadge';
 
-import AccordionPrimitive from '@radix-ui/react-accordion';
+import * as AccordionPrimitive from '@radix-ui/react-accordion';
 
 type Props = Readonly<{
   challengeStatuses?: ProjectsChallengeHistoricalStatuses;
