@@ -117,7 +117,7 @@ export default function SidebarLinkItem({
   );
 
   return (
-    <PopoverPrimitive.Root>
+    <PopoverPrimitive.Root open={open} onOpenChange={setOpen}>
       {isLabelHidden ? (
         <Tooltip asChild={true} label={label} side="right">
           {trigger}
