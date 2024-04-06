@@ -10,6 +10,7 @@ import {
   SidebarCollapsed,
   SidebarExpanded,
 } from '~/components/global/sidebar/Sidebar';
+import SidebarI18nSubMenu from '~/components/global/sidebar/SidebarI18nSubMenu';
 import { SocialDiscountSidebarMention } from '~/components/promotions/social/SocialDiscountSidebarMention';
 import Anchor from '~/components/ui/Anchor';
 import UserAvatar from '~/components/ui/Avatar/UserAvatar';
@@ -20,19 +21,22 @@ import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
 import { InterviewsSidebarProfileHeader } from './InterviewsSidebarProfileHeader';
 import useInterviewsSidebarLinks from './useInterviewsSidebarLinks';
 
-function SettingsMenuItem() {
+function MoreMenuItems() {
   const intl = useIntl();
 
   return (
-    <DropdownMenu.Item
-      href="/profile"
-      icon={RiUserLine}
-      label={intl.formatMessage({
-        defaultMessage: 'Profile',
-        description: 'Navigation menu item label',
-        id: 'VT494Q',
-      })}
-    />
+    <>
+      <SidebarI18nSubMenu />
+      <DropdownMenu.Item
+        href="/profile"
+        icon={RiUserLine}
+        label={intl.formatMessage({
+          defaultMessage: 'Profile',
+          description: 'Navigation menu item label',
+          id: 'VT494Q',
+        })}
+      />
+    </>
   );
 }
 
@@ -51,7 +55,7 @@ export function InterviewsSidebarExpanded({
     <SidebarExpanded
       isLoading={isLoading}
       isViewerPremium={isPremium}
-      moreMenuItems={userProfile && <SettingsMenuItem />}
+      moreMenuItems={userProfile && <MoreMenuItems />}
       product="interviews"
       renderBottomAddonElements={() => <SocialDiscountSidebarMention />}
       renderTopAddonElements={(fadeInClass) => (
@@ -96,7 +100,7 @@ function InterviewsSidebarCollapsed({
   return (
     <SidebarCollapsed
       isViewerPremium={userProfile?.premium ?? false}
-      moreMenuItems={userProfile && <SettingsMenuItem />}
+      moreMenuItems={userProfile && <MoreMenuItems />}
       product="interviews"
       sidebarItems={sidebarItems}
       topAddonElements={
