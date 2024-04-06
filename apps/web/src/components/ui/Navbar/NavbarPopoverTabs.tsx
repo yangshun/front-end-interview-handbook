@@ -7,13 +7,12 @@ import {
   themeBackgroundElementEmphasizedStateColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBackgroundLayerEmphasized,
-  themeGlassyBorder,
+  themeBorderEmphasizeColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
-  themeTextBrandColor_GroupHover,
-  themeTextSubtitleColor,
 } from '~/components/ui/theme';
 
+import NavbarFeatureIcon from './NavbarFeatureIcon';
 import type { NavPopoverGroupItem, NavPopoverLinkItem } from './NavTypes';
 import Button from '../Button';
 import Text from '../Text';
@@ -31,17 +30,7 @@ function NavbarPopoverLink({
   const el =
     sublabel != null ? (
       <div className="group flex flex-col items-start gap-4">
-        <div
-          className={clsx(
-            'rounded-full p-3 dark:bg-neutral-800/70',
-            themeGlassyBorder,
-            themeTextSubtitleColor,
-          )}>
-          <Icon
-            aria-hidden="true"
-            className="group-hover:text-brand-dark dark:group-hover:text-brand size-6 transition-colors"
-          />
-        </div>
+        <NavbarFeatureIcon icon={Icon} />
         <div className="flex flex-col gap-y-1">
           <Text
             className="flex items-center gap-2"
@@ -58,21 +47,7 @@ function NavbarPopoverLink({
       </div>
     ) : (
       <div className="group flex items-center gap-x-4">
-        <div
-          className={clsx(
-            'rounded-full p-3 dark:bg-neutral-800/70',
-            themeGlassyBorder,
-            themeTextSubtitleColor,
-          )}>
-          <Icon
-            aria-hidden="true"
-            className={clsx(
-              'size-6',
-              themeTextBrandColor_GroupHover,
-              'transition-colors',
-            )}
-          />
-        </div>
+        <NavbarFeatureIcon icon={Icon} />
         <Text
           className="flex flex-wrap items-center gap-2"
           size="body2"
@@ -86,7 +61,6 @@ function NavbarPopoverLink({
     'group flex grow',
     themeOutlineElement_FocusVisible,
     themeOutlineElementBrandColor_FocusVisible,
-    href != null && themeBackgroundElementEmphasizedStateColor_Hover,
   );
 
   if (href == null) {
@@ -117,8 +91,11 @@ export default function NavbarPopoverTabs({
   return (
     <div
       className={clsx(
-        'flex overflow-hidden rounded-lg shadow-lg dark:shadow-none',
-        themeGlassyBorder,
+        'flex',
+        'overflow-hidden',
+        'rounded-lg',
+        'shadow-lg dark:shadow-none',
+        ['border', themeBorderEmphasizeColor],
         themeBackgroundLayerEmphasized,
       )}>
       <TabsPrimitive.Root
@@ -165,7 +142,8 @@ export default function NavbarPopoverTabs({
               value={item.itemKey}>
               <div
                 className={clsx(
-                  'relative grid grow gap-4 px-8 py-10',
+                  'relative grid grow gap-4',
+                  'px-8 py-10',
                   (item.items.length === 2 || item.items.length === 4) &&
                     'grid-cols-2',
                   (item.items.length === 3 || item.items.length > 4) &&
@@ -190,7 +168,8 @@ export default function NavbarPopoverTabs({
                 ))}
               </div>
               {item.supplementaryItem != null && (
-                <div className={clsx('flex w-full justify-end px-8 pb-6')}>
+                <div
+                  className={clsx('flex justify-end', 'w-full', 'px-8 pb-6')}>
                   <Button
                     className={clsx('-mb-3 -me-6')}
                     href={item.supplementaryItem.href}

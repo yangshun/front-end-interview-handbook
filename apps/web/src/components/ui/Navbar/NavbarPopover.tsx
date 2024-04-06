@@ -3,10 +3,10 @@ import clsx from 'clsx';
 import Anchor from '~/components/ui/Anchor';
 import {
   themeBackgroundLayerColor,
-  themeGlassyBorder,
-  themeTextSubtitleColor,
+  themeBorderEmphasizeColor,
 } from '~/components/ui/theme';
 
+import NavbarFeatureIcon from './NavbarFeatureIcon';
 import type {
   NavPopoverChildItem,
   NavPopoverGroupItem,
@@ -25,17 +25,7 @@ function NavbarPopoverLink({
   const el =
     sublabel != null ? (
       <>
-        <div
-          className={clsx(
-            'rounded-full p-3 dark:bg-neutral-800/70',
-            themeGlassyBorder,
-            themeTextSubtitleColor,
-          )}>
-          <Icon
-            aria-hidden="true"
-            className="group-hover:text-brand-dark dark:group-hover:text-brand size-6"
-          />
-        </div>
+        <NavbarFeatureIcon icon={Icon} />
         <div className="flex flex-col gap-y-1">
           <Text
             className="flex items-center gap-2"
@@ -52,17 +42,7 @@ function NavbarPopoverLink({
       </>
     ) : (
       <div className="flex flex-col gap-y-4">
-        <div
-          className={clsx(
-            'rounded-full p-3 dark:bg-neutral-800/70',
-            themeGlassyBorder,
-            themeTextSubtitleColor,
-          )}>
-          <Icon
-            aria-hidden="true"
-            className="group-hover:text-brand-dark dark:group-hover:text-brand size-6"
-          />
-        </div>
+        <NavbarFeatureIcon icon={Icon} />
         <div className="ml-4">
           <Text
             className="flex items-center gap-2"
@@ -132,8 +112,8 @@ export default function NavbarPopover({
     <div
       className={clsx(
         'overflow-hidden rounded-lg shadow-lg dark:shadow-none',
+        ['border', themeBorderEmphasizeColor],
         themeBackgroundLayerColor,
-        themeGlassyBorder,
       )}>
       <ul
         className={clsx(

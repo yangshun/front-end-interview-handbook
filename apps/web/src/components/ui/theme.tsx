@@ -136,6 +136,9 @@ export const themeBorderBrandColor = clsx(
 export const themeBorderBrandColor_Hover = clsx(
   'hover:border-brand-dark dark:hover:border-brand',
 );
+export const themeBorderBrandColor_GroupHover = clsx(
+  'group-hover:border-brand-dark dark:group-hover:border-brand',
+);
 
 export const themeOutlineElement_FocusVisible = clsx(
   'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
