@@ -3,8 +3,8 @@ import clsx from 'clsx';
 import type { TextColor } from '~/components/ui/Text';
 import Text, { textVariants } from '~/components/ui/Text';
 
-import type { TimeContainerVariant } from '../time-container/TimeContainer';
-import TimeContainer from '../time-container/TimeContainer';
+import type { TimeContainerVariant } from './TimeContainer';
+import TimeContainer from './TimeContainer';
 
 function TimeSeparator() {
   return (

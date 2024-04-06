@@ -2,14 +2,12 @@
 
 import clsx from 'clsx';
 import { useRef } from 'react';
-import { RiUserLine, RiWallet3Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 import useIsSticky from '~/hooks/useIsSticky';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
-import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
 import I18nSelect from '~/components/global/i18n/I18nSelect';
@@ -22,7 +20,6 @@ import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
 import Navbar from '~/components/ui/Navbar/Navbar';
-import type { NavLinkItem } from '~/components/ui/Navbar/NavTypes';
 import Text from '~/components/ui/Text';
 import {
   themeBackgroundLayerEmphasized_Hover,
@@ -31,62 +28,21 @@ import {
 
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
+import useInterviewsLoggedInLinks from './useInterviewsLoggedInLinks';
 import useInterviewsNavLinks from './useInterviewsNavLinks';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
-function useUserNavigationLinks() {
-  const intl = useIntl();
-  const commonNavItems = useCommonNavItems();
-
-  const userNavigation: ReadonlyArray<NavLinkItem> = [
-    {
-      href: '/profile',
-      icon: RiUserLine,
-      itemKey: 'profile',
-      label: intl.formatMessage({
-        defaultMessage: 'Profile',
-        description: 'Link label to the profile page',
-        id: 'BwHkBU',
-      }),
-      onClick: () => {
-        gtag.event({
-          action: `nav.profile.click`,
-          category: 'engagement',
-          label: 'Profile',
-        });
-      },
-      type: 'link',
-    },
-    {
-      href: '/profile/billing',
-      icon: RiWallet3Line,
-      itemKey: 'billing',
-      label: intl.formatMessage({
-        defaultMessage: 'Billing',
-        description: 'Link label to the billing page',
-        id: '45Wusd',
-      }),
-      onClick: () => {
-        gtag.event({
-          action: `nav.billing.click`,
-          category: 'engagement',
-          label: 'Billing',
-        });
-      },
-      type: 'link',
-    },
-    commonNavItems.logout,
-  ];
-
-  return userNavigation;
-}
-
 type Props = Readonly<{
   hideOnDesktop?: boolean;
+  // TODO(projects): remove clean mode after Projects is launched.
+  mysteryMode?: boolean;
 }>;
 
-export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
+export default function InterviewsNavbar({
+  hideOnDesktop = false,
+  mysteryMode = false,
+}: Props) {
   const { colorSchemePreference, setColorSchemePreference } =
     useColorSchemePreferences();
   const user = useUser();
@@ -94,8 +50,9 @@ export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
   const intl = useIntl();
   const isLoggedIn = user != null;
   const isPremium = userProfile?.premium ?? false;
-  const navLinks = useInterviewsNavLinks(isLoggedIn, isPremium);
-  const userNavigationLinks = useUserNavigationLinks();
+  const navLinksFull = useInterviewsNavLinks(isLoggedIn, isPremium);
+  const links = mysteryMode ? [] : navLinksFull;
+  const loggedInLinks = useInterviewsLoggedInLinks();
   const { locale, pathname } = useI18nPathname();
   const router = useI18nRouter();
   const navbarRef = useRef(null);
@@ -105,7 +62,7 @@ export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
     <>
       <NavI18nDropdown />
       <NavColorSchemeDropdown />
-      {!isPremium && (
+      {!isPremium && !mysteryMode && (
         <Button
           href="/pricing"
           label={intl.formatMessage({
@@ -128,7 +85,7 @@ export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
       {isLoggedIn && (
         <NavProfileIcon
           avatarUrl={userProfile?.avatarUrl ?? user?.user_metadata?.avatar_url}
-          navItems={userNavigationLinks}
+          navItems={loggedInLinks}
           userIdentifierString={userProfile?.name ?? user?.email}
         />
       )}
@@ -162,7 +119,7 @@ export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
         </div>
         {isLoggedIn && (
           <div className="grid gap-y-1 px-2">
-            {userNavigationLinks.map((props) => (
+            {loggedInLinks.map((props) => (
               <Anchor
                 key={props.itemKey}
                 className={clsx(
@@ -224,10 +181,14 @@ export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
       className={clsx(hideOnDesktop && 'lg:hidden')}
       endAddOnItems={endAddOnItems}
       isLoading={isUserProfileLoading}
-      links={navLinks}
+      links={links}
       logo={<LogoLink />}
       mobileSidebarBottomItems={mobileSidebarBottomItems}
-      productMenu={<NavProductDropdownMenu value="interviews" />}
+      productMenu={
+        <NavProductDropdownMenu
+          value={mysteryMode ? 'mystery' : 'interviews'}
+        />
+      }
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
       style={{ top: 'var(--banner-height)' }}
       transparent={!isSticky}

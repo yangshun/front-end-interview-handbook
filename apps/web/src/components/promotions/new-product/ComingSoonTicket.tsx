@@ -7,7 +7,7 @@ import {
   PROJECT_LAUNCH_DATE,
 } from '~/data/FeatureFlags';
 
-import Timer from '~/components/countdown/timer/Timer';
+import Timer from '~/components/countdown/Timer';
 import ProjectsLogo from '~/components/global/logos/ProjectsLogo';
 import type { BadgeVariant } from '~/components/ui/Badge';
 import Badge from '~/components/ui/Badge';

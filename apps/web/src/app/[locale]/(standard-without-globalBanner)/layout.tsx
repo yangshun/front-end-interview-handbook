@@ -15,7 +15,7 @@ export default function StandardLayoutWithoutGlobalBanner({ children }: Props) {
           '--banner-height': 0,
         } as React.CSSProperties
       }>
-      <InterviewsNavbar />
+      <InterviewsNavbar mysteryMode={true} />
       {children}
     </div>
   );

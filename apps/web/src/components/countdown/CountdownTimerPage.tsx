@@ -1,18 +1,26 @@
 'use client';
 
+import clsx from 'clsx';
+
+import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
+import useUserProfile from '~/hooks/user/useUserProfile';
+
 import { PROJECT_LAUNCH_DATE } from '~/data/FeatureFlags';
 
 import Badge from '~/components/ui/Badge';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 
-import CountdownCard from './countdown-card/CountdownCard';
-import CountdownContainer from './countdown-container/CountdownContainer';
+import CountdownCard from './CountdownCard';
+import CountdownContainer from './CountdownContainer';
+import Text from '../ui/Text';
 import useCountdownTimer from '../../hooks/useCountdownTime';
 
 function CountdownTimerPage() {
   const { days, hours, minutes, seconds, finished } =
     useCountdownTimer(PROJECT_LAUNCH_DATE);
+  const { signInUpHref } = useAuthSignInUp();
+  const { isLoading, userProfile } = useUserProfile();
 
   if (finished) {
     return (
@@ -43,6 +51,39 @@ function CountdownTimerPage() {
         <CountdownCard count={hours} label="Hours" />
         <CountdownCard count={minutes} label="Minutes" />
         <CountdownCard count={seconds} label="Seconds" />
+      </div>
+      <div
+        className={clsx(
+          'flex flex-col items-center gap-8',
+          'max-w-prose transition-opacity',
+          'h-20',
+          isLoading && 'opacity-0',
+        )}>
+        {userProfile == null ? (
+          <>
+            <Text color="secondary" size="body0">
+              Sign up for an account to receive email updates once we launch
+            </Text>
+            <Button
+              href={signInUpHref()}
+              label="Sign up"
+              size="lg"
+              variant="primary"
+            />
+          </>
+        ) : (
+          <>
+            <Text color="secondary" size="body0">
+              Keep a lookout for our launch email
+            </Text>
+            <Button
+              href="/"
+              label="Return to homepage"
+              size="lg"
+              variant="secondary"
+            />
+          </>
+        )}
       </div>
     </CountdownContainer>
   );

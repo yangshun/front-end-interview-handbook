@@ -9,7 +9,7 @@ import {
 } from '~/data/FeatureFlags';
 
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
-import Timer from '~/components/countdown/timer/Timer';
+import Timer from '~/components/countdown/Timer';
 import InterviewsLogo from '~/components/global/logos/InterviewsLogo';
 import MysteryProductLogo from '~/components/global/logos/MysteryProductLogo';
 import ProjectsLogo from '~/components/global/logos/ProjectsLogo';

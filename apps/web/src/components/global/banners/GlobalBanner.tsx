@@ -7,7 +7,7 @@ import useCountdownTimer from '~/hooks/useCountdownTime';
 
 import { PROJECT_LAUNCH_DATE } from '~/data/FeatureFlags';
 
-import Timer from '~/components/countdown/timer/Timer';
+import Timer from '~/components/countdown/Timer';
 import Anchor from '~/components/ui/Anchor';
 import Banner from '~/components/ui/Banner';
 import Text from '~/components/ui/Text';
