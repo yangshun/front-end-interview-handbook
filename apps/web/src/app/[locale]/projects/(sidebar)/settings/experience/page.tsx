@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import ProjectsSettingsExperiencePage from '~/components/projects/settings/experience/ProjectsSettingsExperiencePage';
 
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -16,13 +16,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const intl = await getIntlServerOnly(locale);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     locale,
     pathname: '/projects/settings/experience',
     title: intl.formatMessage({
-      defaultMessage: 'Experience | Settings | Projects',
+      defaultMessage: 'Experience | Settings',
       description: 'Title of experience (theme) settngs page',
-      id: 'EZwKD2',
+      id: 'HP/djb',
     }),
   });
 }

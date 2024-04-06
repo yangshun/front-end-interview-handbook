@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import ProjectsSettingsBillingPage from '~/components/projects/settings/billing/ProjectsSettingsBillingPage';
 
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -16,13 +16,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const intl = await getIntlServerOnly(locale);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     locale,
     pathname: '/projects/settings/billing',
     title: intl.formatMessage({
-      defaultMessage: 'Billing | Settings | Projects',
+      defaultMessage: 'Billing | Settings',
       description: 'Title of billing page',
-      id: 'jI3O/d',
+      id: 'sCpKTY',
     }),
   });
 }

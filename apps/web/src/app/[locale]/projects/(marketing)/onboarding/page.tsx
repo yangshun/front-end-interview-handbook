@@ -3,14 +3,14 @@ import type { Metadata } from 'next/types';
 import ProjectsOnboardingReasonPage from '~/components/projects/onboarding/ProjectsOnboardingReasonPage';
 
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: intl.formatMessage({
       defaultMessage:
         'Tell us your motivations so that we can tailor your experience',
@@ -20,10 +20,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     pathname: '/projects/onboarding',
     title: intl.formatMessage({
-      defaultMessage:
-        'Your motivations | GreatFrontEnd Projects - Real-world project challenges',
+      defaultMessage: 'Your motivations',
       description: 'Title of projects onboarding motivations page',
-      id: 'pKAIU6',
+      id: '2BOlBd',
     }),
   });
 }

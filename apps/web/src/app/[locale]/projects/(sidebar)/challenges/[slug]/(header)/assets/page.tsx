@@ -12,7 +12,7 @@ import {
   readProjectsChallengeStyleGuide,
 } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     readProjectsChallengeMetadata(slug, locale),
   ]);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: intl.formatMessage(
       {
         defaultMessage:
@@ -41,10 +41,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     pathname: `/projects/challenges/${slug}/assets`,
     title: intl.formatMessage(
       {
-        defaultMessage:
-          'Challenge: {challengeName} | Assets | GreatFrontEnd Projects - Real-world project challenges',
+        defaultMessage: 'Challenge: {challengeName} | Assets',
         description: 'Title of Projects challenge assets page',
-        id: 'NVb3mO',
+        id: '2+sEvv',
       },
       {
         challengeName: challengeMetadata.title,

@@ -8,14 +8,14 @@ import ProjectsPricingPage from '~/components/projects/purchase/ProjectsPricingP
 import { SOCIAL_DISCOUNT_PERCENTAGE } from '~/components/promotions/social/SocialDiscountConfig';
 
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: intl.formatMessage(
       {
         defaultMessage:
@@ -30,10 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     pathname: '/projects/pricing',
     title: intl.formatMessage({
-      defaultMessage:
-        'Pricing | GreatFrontEnd Projects - Real-world project challenges',
+      defaultMessage: 'Pricing',
       description: 'Title of Pricing page',
-      id: 'Hfco/k',
+      id: 'PeXK7/',
     }),
   });
 }

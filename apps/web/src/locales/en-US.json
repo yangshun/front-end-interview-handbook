@@ -139,10 +139,6 @@
     "defaultMessage": "Support you can expect",
     "description": "Title for Expected Support section on Projects project page"
   },
-  "/+z694": {
-    "defaultMessage": "Coupons | Settings | Projects",
-    "description": "Title of coupons page"
-  },
   "//v4RL": {
     "defaultMessage": "Deploying your project",
     "description": "Title for Deployment Info in Projects"
@@ -467,6 +463,10 @@
     "defaultMessage": "Edit on GitHub",
     "description": "Edit on GitHub button"
   },
+  "2+sEvv": {
+    "defaultMessage": "Challenge: {challengeName} | Assets",
+    "description": "Title of Projects challenge assets page"
+  },
   "201SF4": {
     "defaultMessage": "This submission is for a premium challenge you have previously unlocked. Resubscribe to premium to learn from user submissions for premium challenges.",
     "description": "Subtitle for project paywall"
@@ -482,6 +482,10 @@
   "23zW1O": {
     "defaultMessage": "{totalCount, plural, one {<bold>{completedCount}</bold>/# challenge} other {<bold>{completedCount}</bold>/# challenges}}",
     "description": "Rep count label in Projects"
+  },
+  "2BOlBd": {
+    "defaultMessage": "Your motivations",
+    "description": "Title of projects onboarding motivations page"
   },
   "2CZvP8": {
     "defaultMessage": "Title",
@@ -831,6 +835,10 @@
     "defaultMessage": "Clear Console",
     "description": "Button tooltip to clear the console in the coding workspace"
   },
+  "5VyWIQ": {
+    "defaultMessage": "Payment success",
+    "description": "Title of Payment Success page"
+  },
   "5XwjUN": {
     "defaultMessage": "Facing trouble? <link>Email us</link>",
     "description": "Section label for seasonal promotion details"
@@ -918,6 +926,10 @@
   "6O2Mng": {
     "defaultMessage": "Show as submissions",
     "description": "Checkbox label for showing as submissions"
+  },
+  "6PvIkG": {
+    "defaultMessage": "Challenge: {challengeName}",
+    "description": "Title of Projects challenge page"
   },
   "6Qxjzw": {
     "defaultMessage": "Build the project guided by us - refer to official guides, solutions, reference other user's submissions, and discuss with the community",
@@ -1022,6 +1034,10 @@
   "79YODs": {
     "defaultMessage": "Let's begin!",
     "description": "Title for Start Coding content section on Before You Get Started dialog"
+  },
+  "7ERPcF": {
+    "defaultMessage": "User submissions | Mentor others",
+    "description": "Page title of projects mentor page"
   },
   "7HLv+l": {
     "defaultMessage": "Try these questions next",
@@ -1207,6 +1223,10 @@
     "defaultMessage": "Your existing code will be discarded, are you sure?",
     "description": "Text on browser confirmation pop-up when user attempts to use the reset button to reset their code"
   },
+  "8bcHtK": {
+    "defaultMessage": "Progress | Dashboard",
+    "description": "Title of progress section on dashboard page"
+  },
   "8cguZA": {
     "defaultMessage": "Clarify doubts in forums",
     "description": "Title of 'Clarify doubts in forums' sub-feature in Projects marketing page"
@@ -1315,6 +1335,10 @@
     "defaultMessage": "Filter by component track of original project brief",
     "description": "Tooltip for Component track filter for submissions list"
   },
+  "9KGyJX": {
+    "defaultMessage": "Profile set up",
+    "description": "Title of projects onboarding profile page"
+  },
   "9KrOcn": {
     "defaultMessage": "The only platform with front end system design questions with official solutions written by senior engineers.",
     "description": "Subtitle for front end system design feature"
@@ -1322,6 +1346,10 @@
   "9LT8eh": {
     "defaultMessage": "Email",
     "description": "Label of email field on Sign In/Up page"
+  },
+  "9NUuQM": {
+    "defaultMessage": "Tracks | Progress | {name}",
+    "description": "Title of user profile progress tracks page"
   },
   "9New5b": {
     "defaultMessage": "For Beginners",
@@ -1378,6 +1406,10 @@
   "A0i9qA": {
     "defaultMessage": "Read more",
     "description": "Read more"
+  },
+  "A7OrXR": {
+    "defaultMessage": "Skills | Progress | {name}",
+    "description": "Title of user profile skills page"
   },
   "ABJ7ip": {
     "defaultMessage": "<bold>{completedQuestions}</bold>/{totalQuestions} completed",
@@ -1543,10 +1575,6 @@
     "defaultMessage": "<bold>{author}</bold> replied to <bold>{recipient}</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for someone replying to someone on the challenge forum"
   },
-  "BVN+yQ": {
-    "defaultMessage": "User submissions | Mentor others | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Page title of projects mentor page"
-  },
   "BfCWYl": {
     "defaultMessage": "Select at least 1 skill that was used",
     "description": "Error message"
@@ -1611,10 +1639,6 @@
     "defaultMessage": "We recommend well-rated submissions using the same stack for your reference",
     "description": "Description for \"Learn from good code\" item in Expected Support section on Projects project page"
   },
-  "CH1iWB": {
-    "defaultMessage": "Payment Success | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Payment Success page"
-  },
   "CNjnh0": {
     "defaultMessage": "Not written for this question.",
     "description": "Text that apppears if a solution has not been written for the question"
@@ -1626,10 +1650,6 @@
   "CSUPyv": {
     "defaultMessage": "Username must contain at most {maxLength} character(s).",
     "description": "Error message when username is too long"
-  },
-  "CVCCIm": {
-    "defaultMessage": "User submissions | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Projects submissions page"
   },
   "CWWOj5": {
     "defaultMessage": "You will have {count, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} remaining after unlocking this challenge. Proceed to unlock challenge?",
@@ -1903,13 +1923,9 @@
     "defaultMessage": "Every project is part of <link>reusable component libraries</link> for your future projects",
     "description": "Caption for Projects marketing hero section component libraries feature"
   },
-  "EZwKD2": {
-    "defaultMessage": "Experience | Settings | Projects",
-    "description": "Title of experience (theme) settngs page"
-  },
-  "Ebkh8j": {
-    "defaultMessage": "Challenge: {challengeName} | Resources | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Projects challenge resources page"
+  "EaMmzf": {
+    "defaultMessage": "Edit submission",
+    "description": "Title of Projects edit submission page"
   },
   "EflBca": {
     "defaultMessage": "Started: {daysSinceStarted} days",
@@ -2051,6 +2067,10 @@
     "defaultMessage": "Changes saved successfully!",
     "description": "Update challenge success message"
   },
+  "G8ONGa": {
+    "defaultMessage": "Challenge: {challengeName} | Resources",
+    "description": "Title of Projects challenge resources page"
+  },
   "G9r7uh": {
     "defaultMessage": "Coding questions supported in Vanilla JavaScript and React, with support for more libraries coming soon!",
     "description": "Subtitle for bringing your own framework feature"
@@ -2082,6 +2102,10 @@
   "GM9dpG": {
     "defaultMessage": "Failed to reset progress. Please try again.",
     "description": "Message shown when question reset progress action fails."
+  },
+  "GO8CZI": {
+    "defaultMessage": "{skillName} | Skills",
+    "description": "Title of Projects skill details page"
   },
   "GObvI2": {
     "defaultMessage": "Perfect for short term job hunts.",
@@ -2142,6 +2166,10 @@
   "GohLa0": {
     "defaultMessage": "Skills you are proficient in",
     "description": "Label for tech stack field"
+  },
+  "Gqq8RF": {
+    "defaultMessage": "Build front end real-world projects",
+    "description": "Title of Projects page"
   },
   "Gttxsq": {
     "defaultMessage": "Try these popular Svelte questions",
@@ -2223,6 +2251,10 @@
     "defaultMessage": "Implement popular JavaScript library and utility functions",
     "description": "Description of JavaScript utility function questions"
   },
+  "HP/djb": {
+    "defaultMessage": "Experience | Settings",
+    "description": "Title of experience (theme) settngs page"
+  },
   "HP34xZ": {
     "defaultMessage": "Completed profiles get 3x more responses",
     "description": "Subtitle for Complete profile card on Projects dashboard page"
@@ -2254,10 +2286,6 @@
   "HdWLAV": {
     "defaultMessage": "Test your code",
     "description": "Title of test panel for coding workspace"
-  },
-  "Hfco/k": {
-    "defaultMessage": "Pricing | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Pricing page"
   },
   "Hh2IoR": {
     "defaultMessage": "Sign in / up",
@@ -2303,6 +2331,10 @@
     "defaultMessage": "Solution for {questionTitle} in {questionFramework} | Front End Interview UI Coding Questions with Solutions",
     "description": "Title of Front End Interview UI Coding Questions solution page"
   },
+  "I8aJD5": {
+    "defaultMessage": "Community | {name}",
+    "description": "Title of Projects Dashboard page"
+  },
   "IBP/D0": {
     "defaultMessage": "Tell us your email if you want us to follow up with you.",
     "description": "Feedback widget text to request for optional email input for following up"
@@ -2342,6 +2374,10 @@
   "IUYG0x": {
     "defaultMessage": "It is a <strong>one-time purchase, with no recurring subscription</strong>. You get access to all the content in GreatFrontEnd's interview platform forever, along with any future updates. This will be useful and relevant for all future job hunts.",
     "description": "Answer to 'What does lifetime access mean?' on Homepage's FAQ sections"
+  },
+  "IWsI3H": {
+    "defaultMessage": "%s | GreatFrontEnd Projects - Real-world project challenges",
+    "description": "SEO title with placeholder, please leave the %s untouched"
   },
   "IXT5w0": {
     "defaultMessage": "Question Language",
@@ -2394,6 +2430,10 @@
   "ImDbLo": {
     "defaultMessage": "Total time",
     "description": "Total time needed to complete the questions"
+  },
+  "IuGYUN": {
+    "defaultMessage": "Community | Dashboard",
+    "description": "Title of community section on dashboard page"
   },
   "IuWsYS": {
     "defaultMessage": "Moreover, out of the resources in the market for front end interview preparation, our platform boasts the largest number of questions with solutions written by experienced Senior Front End Engineers previously from FAANG, who were also ex-interviewers.",
@@ -2515,10 +2555,6 @@
     "defaultMessage": "Curated learning resources",
     "description": "Title of 'Curated learning resources' sub-feature in Projects marketing page"
   },
-  "K1+hjv": {
-    "defaultMessage": "Build front end real-world projects | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Projects page"
-  },
   "K6BzpD": {
     "defaultMessage": "Intermediate",
     "description": "Intermediate blog"
@@ -2562,6 +2598,10 @@
   "KU/uns": {
     "defaultMessage": "Previous",
     "description": "Previous step button label"
+  },
+  "KUKb7F": {
+    "defaultMessage": "{name} | Profile",
+    "description": "Title of a user profile page"
   },
   "KXNpDt": {
     "defaultMessage": "Software Engineer",
@@ -2659,6 +2699,10 @@
     "defaultMessage": "{numberOfQuestions} questions",
     "description": "Number of questions in a list"
   },
+  "L1Wgz6": {
+    "defaultMessage": "Tracks | Progress | Dashboard",
+    "description": "Title of tracks section on dashboard page"
+  },
   "L33SIl": {
     "defaultMessage": "Popularity: Least to most upvotes",
     "description": "Sorting option for discussions comment - popularity"
@@ -2703,10 +2747,6 @@
     "defaultMessage": "Submission successfully unpinned!",
     "description": "Submission unpin toaster"
   },
-  "LLX6d1": {
-    "defaultMessage": "{trackName} track | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Projects component track page"
-  },
   "LLXnUM": {
     "defaultMessage": "Yes, our subscription auto-renews at the end of each billing period. An email reminder will be sent a few days before that - so you can cancel it if you wish from the Billing tab of the Settings page.",
     "description": "Answer on projects pricing's FAQ section - auto renew"
@@ -2731,6 +2771,10 @@
     "defaultMessage": "Completed",
     "description": "Label to indicate that a question has been completed"
   },
+  "LQa3R3": {
+    "defaultMessage": "User submissions | Learn from others",
+    "description": "Title of projects learn from others page"
+  },
   "LREMMc": {
     "defaultMessage": "Retry task",
     "description": "Label for button to start task"
@@ -2738,6 +2782,10 @@
   "LSKN5A": {
     "defaultMessage": "Unlock all premium content including official solutions, company tags, and study plans.",
     "description": "Feature of quarterly pricing plan"
+  },
+  "LSQPwj": {
+    "defaultMessage": "Skills roadmap",
+    "description": "Title of Projects skills roadmap page"
   },
   "LSdhYS": {
     "defaultMessage": "Series",
@@ -2854,10 +2902,6 @@
   "MJyQhr": {
     "defaultMessage": "See all",
     "description": "Link to all focus areas page"
-  },
-  "MKt3gG": {
-    "defaultMessage": "Profile set up | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of projects onboarding profile page"
   },
   "MNAkQc": {
     "defaultMessage": "To build <keywords>side projects</keywords>",
@@ -2991,10 +3035,6 @@
     "defaultMessage": "Close menu",
     "description": "Button to close menu"
   },
-  "NVb3mO": {
-    "defaultMessage": "Challenge: {challengeName} | Assets | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Projects challenge assets page"
-  },
   "NXw886": {
     "defaultMessage": "Other",
     "description": "Label for other input for yoe replacement status on projects profile page"
@@ -3015,10 +3055,6 @@
     "defaultMessage": "Practice Questions",
     "description": "Title of question examples section on getting started page"
   },
-  "NjU3F1": {
-    "defaultMessage": "Dashboard | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Projects Dashboard page"
-  },
   "NjnYqU": {
     "defaultMessage": "Sort by",
     "description": "Label for sort button for projects discussion post list"
@@ -3026,6 +3062,10 @@
   "NkqgLg": {
     "defaultMessage": "API",
     "description": "Project assets category label"
+  },
+  "NlQpYx": {
+    "defaultMessage": "Challenges",
+    "description": "Title of Challenges page"
   },
   "NoFZV/": {
     "defaultMessage": "Strengthen your proficiency in JavaScript through writing Lodash functions from scratch.",
@@ -3303,6 +3343,10 @@
     "defaultMessage": "No",
     "description": "No option label"
   },
+  "Potyfh": {
+    "defaultMessage": "{trackName} track",
+    "description": "Title of Projects component track page"
+  },
   "PowG3S": {
     "defaultMessage": "Manage your subscription",
     "description": "Title for manage your subscription section"
@@ -3378,6 +3422,10 @@
   "QYVlxD": {
     "defaultMessage": "Premium User",
     "description": "Tooltip for premium icon"
+  },
+  "Qaxh+6": {
+    "defaultMessage": "User submissions",
+    "description": "Title of Projects submissions page"
   },
   "Qc3ZiZ": {
     "defaultMessage": "Edit your submission",
@@ -3530,6 +3578,10 @@
   "RTBOas": {
     "defaultMessage": "JavaScript",
     "description": "Label for JavaScript language"
+  },
+  "RUj4TG": {
+    "defaultMessage": "Challenges | Progress | {name}",
+    "description": "Title of user profile challenge page"
   },
   "RWWOGp": {
     "defaultMessage": "We provide a roadmap of all the core skills needed to be a great front end engineer, from beginner to advanced. For each skill, we suggest good resources for you to study and projects you can build on our platform to learn the skill. This roadmap is curated by senior engineers with extensive experience in the industry, ensuring the quality and trustworthiness of the content.",
@@ -4335,10 +4387,6 @@
     "defaultMessage": "Suggests best projects for skill",
     "description": "Title of 'Recommended projects to build' sub-feature in Projects marketing page"
   },
-  "XuTNeQ": {
-    "defaultMessage": "Component tracks | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Projects component tracks page"
-  },
   "XuVGsX": {
     "defaultMessage": "Account",
     "description": "Profile account tab title"
@@ -4586,6 +4634,10 @@
   "Zui1cu": {
     "defaultMessage": "Focus areas",
     "description": "Title of focus areas page"
+  },
+  "a0Osa7": {
+    "defaultMessage": "Challenge: {challengeName} | Completion steps",
+    "description": "Title of Projects challenge completion page"
   },
   "a3gDom": {
     "defaultMessage": "Social links",
@@ -4939,6 +4991,10 @@
     "defaultMessage": "User submissions",
     "description": "Projects submissions page title"
   },
+  "ctbPZV": {
+    "defaultMessage": "GreatFrontEnd Projects",
+    "description": "Title of Projects product"
+  },
   "cvjpKx": {
     "defaultMessage": "There are many ways to host your site. Our recommended hosts are:",
     "description": "Description for recommended hosts in project challenge FAQs"
@@ -5058,10 +5114,6 @@
   "e+03Yz": {
     "defaultMessage": "Try out some Front End questions!",
     "description": "Subtext for call to action when no questions are completed."
-  },
-  "e+C+FH": {
-    "defaultMessage": "User submissions | Learn from others | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of projects learn from others page"
   },
   "e/31yG": {
     "defaultMessage": "Challenges",
@@ -5523,6 +5575,10 @@
     "defaultMessage": "Search HTML questions",
     "description": "Placeholder for search input of HTML question list"
   },
+  "i0RFBu": {
+    "defaultMessage": "Coupons | Settings",
+    "description": "Title of coupons page"
+  },
   "i1Qhhq": {
     "defaultMessage": "What do I need to prepare before starting a challenge?",
     "description": "FAQ question for projects platform"
@@ -5666,10 +5722,6 @@
   "jGQnYd": {
     "defaultMessage": "Search coding questions",
     "description": "Placeholder for search input of coding question list"
-  },
-  "jI3O/d": {
-    "defaultMessage": "Billing | Settings | Projects",
-    "description": "Title of billing page"
   },
   "jIpXy+": {
     "defaultMessage": "Coming Soon",
@@ -5867,10 +5919,6 @@
     "defaultMessage": "You can't find it elsewhere",
     "description": "Label for an example list of System Design Questions on marketing pages"
   },
-  "kMoUxI": {
-    "defaultMessage": "{skillName} | Skills | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Projects skill details page"
-  },
   "kPJCx6": {
     "defaultMessage": "Limited",
     "description": "Label for rewards campaign"
@@ -5938,6 +5986,10 @@
   "koTXam": {
     "defaultMessage": "In-browser coding workspace",
     "description": "Title for in-browser coding workspace feature"
+  },
+  "kp/6uR": {
+    "defaultMessage": "Challenge: {challengeName} | Submission successful",
+    "description": "Title of Projects challenge submission success page"
   },
   "kpP56G": {
     "defaultMessage": "Last month",
@@ -6079,10 +6131,6 @@
     "defaultMessage": "Close menu",
     "description": "Close menu"
   },
-  "lyHn7S": {
-    "defaultMessage": "Challenge: {challengeName} | Submit your work | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Projects challenge submission page"
-  },
   "lyjVwD": {
     "defaultMessage": "1 Month Plan",
     "description": "Long label for one month study plan"
@@ -6110,6 +6158,10 @@
   "m9Hj73": {
     "defaultMessage": "90% of projects are <bold>free to do</bold>",
     "description": "Caption for Explore projects button in Projects marketing hero section"
+  },
+  "mACTSv": {
+    "defaultMessage": "Skills | Progress | Dashboard",
+    "description": "Title of skills section on dashboard page"
   },
   "mDcqlX": {
     "defaultMessage": "<count>{questionCount}</count> <questions>questions</questions>",
@@ -6227,6 +6279,10 @@
     "defaultMessage": "System Design",
     "description": "Label for system design questions"
   },
+  "nAvA8M": {
+    "defaultMessage": "Progress | {name}",
+    "description": "Title of user profile progress page"
+  },
   "nJYzIr": {
     "defaultMessage": "I could have spent my time scouring the internet for resources. Instead I choose to invest my money wisely. GreatFrontEnd turned out to be a fantastic resource with its curated Study Plans, interactive Practice Questions and Guides that cover all your typical big tech interview needs. Their quiz questions helped me to recap my knowledge on the days before my interview. I especially appreciated the System Design Guide with solutions that cover a range of front end design problems along with frameworks that are easy to remember and apply to any problem type.",
     "description": "Larry Almeida's testimonial"
@@ -6298,10 +6354,6 @@
   "o+1cag": {
     "defaultMessage": "Clear Console",
     "description": "Button label to clear the console in the coding workspace"
-  },
-  "o/ObTI": {
-    "defaultMessage": "Challenge: {challengeName} | Submission successful | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Projects challenge submission success page"
   },
   "o3nhZ8": {
     "defaultMessage": "Session status",
@@ -6471,10 +6523,6 @@
     "defaultMessage": "{price} billed per month.",
     "description": "Description of billing frequency for monthly plan"
   },
-  "pEnyIr": {
-    "defaultMessage": "Activity | Settings | Projects",
-    "description": "Title of activities page for projects"
-  },
   "pJA5oJ": {
     "defaultMessage": "Code review",
     "description": "Label for question badge"
@@ -6482,10 +6530,6 @@
   "pJja0T": {
     "defaultMessage": "Add website",
     "description": "Title for Add Website task on Projects dashboard page"
-  },
-  "pKAIU6": {
-    "defaultMessage": "Your motivations | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of projects onboarding motivations page"
   },
   "pM/ZPq": {
     "defaultMessage": "Network",
@@ -6687,6 +6731,10 @@
     "defaultMessage": "Email us at <email>contact@greatfrontend.com</email> or use one of the options below. We usually get back within a day or two.",
     "description": "Subtitle for contact us section"
   },
+  "qkSNy+": {
+    "defaultMessage": "Challenges | Progress | Dashboard",
+    "description": "Title of challenges section on dashboard page"
+  },
   "qnBYb6": {
     "defaultMessage": "Premium component track",
     "description": "Premium projects component track"
@@ -6723,10 +6771,6 @@
     "defaultMessage": "Prepare for tackling data structures and algorithms questions in front end interviews",
     "description": "Title for interview preparation focus area"
   },
-  "r661ID": {
-    "defaultMessage": "Edit submission | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Projects edit submission page"
-  },
   "r8JR1/": {
     "defaultMessage": "Read less",
     "description": "Read less"
@@ -6762,10 +6806,6 @@
   "rZaG+f": {
     "defaultMessage": "Unpin one or more existing submissions to pin a new one.",
     "description": "Dialog subtitle for pinned submission"
-  },
-  "rZtR76": {
-    "defaultMessage": "Skills roadmap | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Projects skills roadmap page"
   },
   "rfI2w+": {
     "defaultMessage": "Cancel",
@@ -6806,6 +6846,10 @@
   "s7CwKz": {
     "defaultMessage": "Behavioral Interview Study Guides",
     "description": "Behavioral interview study guides"
+  },
+  "sCpKTY": {
+    "defaultMessage": "Billing | Settings",
+    "description": "Title of billing page"
   },
   "sGF5oQ": {
     "defaultMessage": "Types of Questions",
@@ -7019,10 +7063,6 @@
     "defaultMessage": "Internationalization",
     "description": "Internationalization topic for quiz questions"
   },
-  "tpddLF": {
-    "defaultMessage": "{username} | Profile | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Projects profile page"
-  },
   "trXVQB": {
     "defaultMessage": "Search CSS questions",
     "description": "Placeholder for search input of CSS question list"
@@ -7067,6 +7107,10 @@
     "defaultMessage": "FAQ",
     "description": "Link to FAQ page"
   },
+  "u59kYU": {
+    "defaultMessage": "Challenge: {challengeName} | Submit your work",
+    "description": "Title of Projects challenge submission page"
+  },
   "uAAJxp": {
     "defaultMessage": "Upon purchasing premium, you will be given a number of premium credits. A premium credit gives you access to all premium features in a free project (Figma files, official solutions & guides from senior engineers), or can unlock a premium challenge.",
     "description": "Description of premium feature"
@@ -7110,10 +7154,6 @@
   "ub441I": {
     "defaultMessage": "Help others improve",
     "description": "Title for recommended action for new projects platform user"
-  },
-  "ueKEhB": {
-    "defaultMessage": "Challenges | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Challenges page"
   },
   "ueUG6Q": {
     "defaultMessage": "JPEG design files for mobile & desktop layouts",
@@ -7166,6 +7206,10 @@
   "usTItb": {
     "defaultMessage": "Senior Software Engineer — Front End, UserTesting",
     "description": "Prashanth Reddy's job title"
+  },
+  "uxNShP": {
+    "defaultMessage": "Activity | Settings",
+    "description": "Title of activities page for projects"
   },
   "uy8H0k": {
     "defaultMessage": "URL is invalid. Check if you've typed it correctly.",
@@ -7387,6 +7431,10 @@
     "defaultMessage": "You will have to use your own IDE, just as any developer should for a real project. If you're a complete beginner and are not sure what an IDE is, we will have a basic guide within Step 3's tab teaching you how to download and set-up an IDE for the first time.",
     "description": "FAQ answer for projects platform"
   },
+  "wwf4o6": {
+    "defaultMessage": "Dashboard",
+    "description": "Title of Projects Dashboard page"
+  },
   "wzQGxj": {
     "defaultMessage": "Start in minutes",
     "description": "Button leading user to sign up to be an affiliate on the Hero section of the 'Become An Affiliate' page"
@@ -7395,13 +7443,13 @@
     "defaultMessage": "Skills",
     "description": "Label for Skills filter for projects list"
   },
-  "x/Au3h": {
-    "defaultMessage": "Challenge: {challengeName} | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Projects challenge page"
-  },
   "x2Q8mM": {
     "defaultMessage": "Just launched Beta",
     "description": "Project marketing hero section badge"
+  },
+  "x6+x/5": {
+    "defaultMessage": "Edit profile",
+    "description": "Title of Projects edit profile page"
   },
   "x8+4jJ": {
     "defaultMessage": "Top {questionCount} front end interview coding questions to practice, with detailed solutions and explanations by ex-interviewers at FAANG.",
@@ -7446,10 +7494,6 @@
   "xYKCsE": {
     "defaultMessage": "Сoncise step by step practical guides",
     "description": "Short description for \"Official guides\" feature on Projects home page"
-  },
-  "xZfExD": {
-    "defaultMessage": "Challenge: {challengeName} | Completion steps | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Projects challenge completion page"
   },
   "xbmWBx": {
     "defaultMessage": "Framework",
@@ -7630,10 +7674,6 @@
   "zBgQ/Y": {
     "defaultMessage": "Invalid LinkedIn username or URL",
     "description": "Error message when linkedin username or url is invalid"
-  },
-  "zDGZ2c": {
-    "defaultMessage": "Edit Profile | GreatFrontEnd Projects - Real-world project challenges",
-    "description": "Title of Projects edit profile page"
   },
   "zDt/bH": {
     "defaultMessage": "Next",

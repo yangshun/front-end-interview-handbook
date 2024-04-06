@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import ProjectsSettingsGeneralPage from '~/components/projects/settings/general/ProjectsSettingsGeneralPage';
 
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const intl = await getIntlServerOnly(locale);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     locale,
     pathname: '/projects/settings',
     title: intl.formatMessage({

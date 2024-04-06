@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const intl = await getIntlServerOnly(locale);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: intl.formatMessage({
       defaultMessage:
         'Take the structured route to front end learning by building projects according to our skills roadmap. Learn any front end core skill you may need.',
@@ -24,10 +24,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     pathname: '/projects/skills',
     title: intl.formatMessage({
-      defaultMessage:
-        'Skills roadmap | GreatFrontEnd Projects - Real-world project challenges',
+      defaultMessage: 'Skills roadmap',
       description: 'Title of Projects skills roadmap page',
-      id: 'rZtR76',
+      id: 'LSQPwj',
     }),
   });
 }

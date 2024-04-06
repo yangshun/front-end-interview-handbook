@@ -4,7 +4,7 @@ import ProjectsChallengeSubmissionListLearnPage from '~/components/projects/subm
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const intl = await getIntlServerOnly(locale);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: intl.formatMessage({
       defaultMessage:
         "Explore user submissions handpicked for your growth - based on your profile, skills you're keen to learn, and the projects you've completed.",
@@ -27,10 +27,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     pathname: '/projects/submissions/learn',
     title: intl.formatMessage({
-      defaultMessage:
-        'User submissions | Learn from others | GreatFrontEnd Projects - Real-world project challenges',
+      defaultMessage: 'User submissions | Learn from others',
       description: 'Title of projects learn from others page',
-      id: 'e+C+FH',
+      id: 'LQa3R3',
     }),
   });
 }

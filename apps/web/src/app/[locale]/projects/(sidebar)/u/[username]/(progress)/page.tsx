@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 import prisma from '~/server/prisma';
 
 import Page from './progress/page';
@@ -28,19 +28,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return notFound();
   }
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: userProfile!.bio ?? '',
     locale,
     pathname: `/projects/u/${username}`,
     title: intl.formatMessage(
       {
-        defaultMessage:
-          '{username} | Profile | GreatFrontEnd Projects - Real-world project challenges',
-        description: 'Title of Projects profile page',
-        id: 'tpddLF',
+        defaultMessage: '{name} | Profile',
+        description: 'Title of a user profile page',
+        id: 'KUKb7F',
       },
       {
-        username,
+        name: userProfile.name || userProfile.username,
       },
     ),
   });

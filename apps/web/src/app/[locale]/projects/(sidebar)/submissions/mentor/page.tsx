@@ -4,7 +4,7 @@ import ProjectsChallengeSubmissionListMentorPage from '~/components/projects/sub
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const intl = await getIntlServerOnly(locale);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: intl.formatMessage({
       defaultMessage:
         'Find user submissions suggested for your review, based on your completed challenges, skills, and experience.',
@@ -27,10 +27,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     pathname: '/projects/submissions/mentor',
     title: intl.formatMessage({
-      defaultMessage:
-        'User submissions | Mentor others | GreatFrontEnd Projects - Real-world project challenges',
+      defaultMessage: 'User submissions | Mentor others',
       description: 'Page title of projects mentor page',
-      id: 'BVN+yQ',
+      id: '7ERPcF',
     }),
   });
 }

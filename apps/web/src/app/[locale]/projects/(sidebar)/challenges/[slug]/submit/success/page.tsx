@@ -8,7 +8,7 @@ import {
   readProjectsChallengeMetadata,
 } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     readProjectsChallengeMetadata(slug, locale),
   ]);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: intl.formatMessage(
       {
         defaultMessage:
@@ -39,10 +39,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     pathname: `/projects/challenges/${slug}/submit/success`,
     title: intl.formatMessage(
       {
-        defaultMessage:
-          'Challenge: {challengeName} | Submission successful | GreatFrontEnd Projects - Real-world project challenges',
+        defaultMessage: 'Challenge: {challengeName} | Submission successful',
         description: 'Title of Projects challenge submission success page',
-        id: 'o/ObTI',
+        id: 'kp/6uR',
       },
       {
         challengeName: challengeMetadata.title,

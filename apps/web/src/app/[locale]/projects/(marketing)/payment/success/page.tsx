@@ -4,7 +4,7 @@ import type { Metadata } from 'next/types';
 import fetchProjectsPricingPlanPaymentConfigLocalizedRecord from '~/components/projects/purchase/fetchProjectsPricingPlanPaymentConfigLocalizedRecord';
 
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 
 import ProjectsPaymentSuccessPage from './ProjectsPaymentSuccessPage';
 
@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const intl = await getIntlServerOnly(locale);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: intl.formatMessage({
       defaultMessage:
         "Your payment was successful! You're now ready to unlock premium front-end challenges, engage with experts, and accelerate your learning journey.",
@@ -29,10 +29,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     pathname: '/projects/payment/success',
     title: intl.formatMessage({
-      defaultMessage:
-        'Payment Success | GreatFrontEnd Projects - Real-world project challenges',
+      defaultMessage: 'Payment success',
       description: 'Title of Payment Success page',
-      id: 'CH1iWB',
+      id: '5VyWIQ',
     }),
   });
 }

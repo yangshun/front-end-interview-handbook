@@ -3,14 +3,14 @@ import type { Metadata } from 'next/types';
 import ProjectsOnboardingProfilePage from '~/components/projects/onboarding/ProjectsOnboardingProfilePage';
 
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = params;
 
   const intl = await getIntlServerOnly(locale);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: intl.formatMessage({
       defaultMessage:
         'Create your developer profile on GreatFrontEnd. Showcase your skills, experiences and connect with the community.',
@@ -20,10 +20,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     pathname: '/projects/onboarding/profile',
     title: intl.formatMessage({
-      defaultMessage:
-        'Profile set up | GreatFrontEnd Projects - Real-world project challenges',
+      defaultMessage: 'Profile set up',
       description: 'Title of projects onboarding profile page',
-      id: 'MKt3gG',
+      id: '9KGyJX',
     }),
   });
 }

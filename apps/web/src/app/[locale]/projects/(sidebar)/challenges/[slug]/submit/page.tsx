@@ -8,7 +8,7 @@ import {
   readProjectsChallengeMetadata,
 } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 import prisma from '~/server/prisma';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     readProjectsChallengeMetadata(slug, locale),
   ]);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: intl.formatMessage(
       {
         defaultMessage:
@@ -39,10 +39,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     pathname: `/projects/challenges/${slug}/submit`,
     title: intl.formatMessage(
       {
-        defaultMessage:
-          'Challenge: {challengeName} | Submit your work | GreatFrontEnd Projects - Real-world project challenges',
+        defaultMessage: 'Challenge: {challengeName} | Submit your work',
         description: 'Title of Projects challenge submission page',
-        id: 'lyHn7S',
+        id: 'u59kYU',
       },
       {
         challengeName: challengeMetadata.title,

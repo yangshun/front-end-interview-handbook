@@ -14,7 +14,7 @@ import {
   readProjectsChallengeMetadata,
 } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 import prisma from '~/server/prisma';
 
 type Props = Readonly<{
@@ -62,10 +62,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
   );
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: description.length < 50 ? fallbackDescription : description,
     locale,
     pathname: `/projects/s/${submissionId}`,
+    template: '%s',
     title: intl.formatMessage(
       {
         defaultMessage: '{submissionTitle} | {username} | {challengeName}',

@@ -10,7 +10,7 @@ import {
   readProjectsChallengeMetadata,
 } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 
 type Props = Readonly<{
   params: Readonly<{ locale: string; slug: string }>;
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     readProjectsChallengeMetadata(slug, locale),
   ]);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: intl.formatMessage(
       {
         defaultMessage:
@@ -39,10 +39,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     pathname: `/projects/challenges/${slug}/completion`,
     title: intl.formatMessage(
       {
-        defaultMessage:
-          'Challenge: {challengeName} | Completion steps | GreatFrontEnd Projects - Real-world project challenges',
+        defaultMessage: 'Challenge: {challengeName} | Completion steps',
         description: 'Title of Projects challenge completion page',
-        id: 'xZfExD',
+        id: 'a0Osa7',
       },
       {
         challengeName: challengeMetadata.title,

@@ -6,7 +6,7 @@ import type { ReactNode } from 'react';
 import ProjectsSettingsLayout from '~/components/projects/settings/ProjectsSettingsLayout';
 
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const intl = await getIntlServerOnly(locale);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     locale,
     pathname: '/projects/settings',
     title: intl.formatMessage({

@@ -11,7 +11,7 @@ import ProjectsTrackDetailsPage from '~/components/projects/tracks/ProjectsTrack
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     readProjectsTrackMetadata(slug, locale),
   ]);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: intl.formatMessage(
       {
         defaultMessage:
@@ -41,10 +41,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     pathname: `/projects/tracks/${slug}`,
     title: intl.formatMessage(
       {
-        defaultMessage:
-          '{trackName} track | GreatFrontEnd Projects - Real-world project challenges',
+        defaultMessage: '{trackName} track',
         description: 'Title of Projects component track page',
-        id: 'LLX6d1',
+        id: 'Potyfh',
       },
       {
         trackName: trackMetadata.title,

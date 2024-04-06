@@ -2,7 +2,7 @@ import type { Metadata } from 'next/types';
 
 import { readProjectsChallengeList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 
 import ProjectsMarketingHomePage from './ProjectsMarketingHomePage';
 
@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const intl = await getIntlServerOnly(locale);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: intl.formatMessage({
       defaultMessage:
         'Tackle real-world front end projects designed by ex-FAANG engineers. Elevate your skills, build your portfolio, and connect with an active community.',
@@ -23,10 +23,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     pathname: '/projects',
     title: intl.formatMessage({
-      defaultMessage:
-        'Build front end real-world projects | GreatFrontEnd Projects - Real-world project challenges',
+      defaultMessage: 'Build front end real-world projects',
       description: 'Title of Projects page',
-      id: 'K1+hjv',
+      id: 'Gqq8RF',
     }),
   });
 }

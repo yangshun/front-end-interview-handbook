@@ -5,7 +5,7 @@ import url from 'node:url';
 import ProjectsProfileEditPage from '~/components/projects/profile/edit/ProjectsProfileEditPage';
 
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 import prisma from '~/server/prisma';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const intl = await getIntlServerOnly(locale);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: intl.formatMessage({
       defaultMessage:
         'Update your profile to reflect your latest achievements and interests, making it easier for the community to connect with you',
@@ -28,10 +28,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     pathname: '/projects/profile/edit',
     title: intl.formatMessage({
-      defaultMessage:
-        'Edit Profile | GreatFrontEnd Projects - Real-world project challenges',
+      defaultMessage: 'Edit profile',
       description: 'Title of Projects edit profile page',
-      id: 'zDGZ2c',
+      id: 'x6+x/5',
     }),
   });
 }

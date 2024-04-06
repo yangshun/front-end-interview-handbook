@@ -8,7 +8,7 @@ import ProjectsSkillRoadmapItemLockedPage from '~/components/projects/skills/roa
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     readProjectsSkillMetadata(slug, locale),
   ]);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: intl.formatMessage(
       {
         defaultMessage:
@@ -38,10 +38,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     pathname: `/projects/skills/${slug}`,
     title: intl.formatMessage(
       {
-        defaultMessage:
-          '{skillName} | Skills | GreatFrontEnd Projects - Real-world project challenges',
+        defaultMessage: '{skillName} | Skills',
         description: 'Title of Projects skill details page',
-        id: 'kMoUxI',
+        id: 'GO8CZI',
       },
       {
         skillName: projectsSkillLabel(skillMetadata.slug),

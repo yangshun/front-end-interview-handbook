@@ -10,7 +10,7 @@ import {
   readProjectsChallengeMetadata,
 } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 import prisma from '~/server/prisma';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
   );
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: intl.formatMessage(
       {
         defaultMessage:
@@ -48,12 +48,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     ),
     locale,
-    pathname: `/projects/s/${submissionId}`,
+    pathname: `/projects/s/${submissionId}/edit`,
     title: intl.formatMessage({
-      defaultMessage:
-        'Edit submission | GreatFrontEnd Projects - Real-world project challenges',
+      defaultMessage: 'Edit submission',
       description: 'Title of Projects edit submission page',
-      id: 'r661ID',
+      id: 'EaMmzf',
     }),
   });
 }

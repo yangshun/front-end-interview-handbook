@@ -11,6 +11,8 @@ type PageMetadata = Readonly<{
   imageUrl?: string;
   locale: string;
   pathname: string;
+  siteName?: string;
+  template?: string;
   title: string;
 }>;
 
@@ -18,6 +20,8 @@ export default function defaultMetadata({
   description,
   locale,
   pathname,
+  siteName,
+  template,
   title,
   imageUrl,
 }: PageMetadata): Metadata {
@@ -30,22 +34,22 @@ export default function defaultMetadata({
       metadataBase: new URL(getSiteUrl()),
       openGraph: {
         description,
-        images: imageUrl ?? '/img/seo/og.jpg',
+        images: imageUrl || '/img/seo/og.jpg',
         locale,
-        siteName: 'GreatFrontEnd',
+        siteName: siteName || 'GreatFrontEnd',
         title,
         type: 'website',
         url: pathname,
       },
       title: {
         default: title,
-        template: '%s | GreatFrontEnd',
+        template: template || '%s | GreatFrontEnd',
       },
       twitter: {
         card: 'summary_large_image',
         creator: '@greatfrontend',
         description,
-        images: imageUrl ?? '/img/seo/og.jpg',
+        images: imageUrl || '/img/seo/og.jpg',
         site: '@greatfrontend',
         title,
       },

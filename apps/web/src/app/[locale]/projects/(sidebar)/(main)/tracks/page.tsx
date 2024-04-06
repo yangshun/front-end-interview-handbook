@@ -8,7 +8,7 @@ import ProjectsTracksListPage from '~/components/projects/tracks/ProjectsTracksL
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const intl = await getIntlServerOnly(locale);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: intl.formatMessage({
       defaultMessage:
         'Build entire component libraries or design systems from scratch for your portfolio or as a toolkit for future projects.',
@@ -32,10 +32,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     pathname: '/projects/tracks',
     title: intl.formatMessage({
-      defaultMessage:
-        'Component tracks | GreatFrontEnd Projects - Real-world project challenges',
+      defaultMessage: 'Component tracks',
       description: 'Title of Projects component tracks page',
-      id: 'XuTNeQ',
+      id: 'fg9e1P',
     }),
   });
 }

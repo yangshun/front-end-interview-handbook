@@ -5,7 +5,7 @@ import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerP
 
 import { readProjectsChallengeList } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const intl = await getIntlServerOnly(locale);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     description: intl.formatMessage({
       defaultMessage:
         'Start building from our large repository of real-world front end project challenges. Hone core front end skills and build an impressive project portfolio.',
@@ -29,10 +29,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     locale,
     pathname: '/projects/challenges',
     title: intl.formatMessage({
-      defaultMessage:
-        'Challenges | GreatFrontEnd Projects - Real-world project challenges',
+      defaultMessage: 'Challenges',
       description: 'Title of Challenges page',
-      id: 'ueKEhB',
+      id: 'NlQpYx',
     }),
   });
 }

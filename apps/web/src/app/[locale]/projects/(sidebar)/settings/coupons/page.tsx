@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import ProfileCoupons from '~/components/profile/ProfileCoupons';
 
 import { getIntlServerOnly } from '~/i18n';
-import defaultMetadata from '~/seo/defaultMetadata';
+import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -16,13 +16,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const intl = await getIntlServerOnly(locale);
 
-  return defaultMetadata({
+  return defaultProjectsMetadata(intl, {
     locale,
     pathname: '/projects/settings/coupons',
     title: intl.formatMessage({
-      defaultMessage: 'Coupons | Settings | Projects',
+      defaultMessage: 'Coupons | Settings',
       description: 'Title of coupons page',
-      id: '/+z694',
+      id: 'i0RFBu',
     }),
   });
 }
