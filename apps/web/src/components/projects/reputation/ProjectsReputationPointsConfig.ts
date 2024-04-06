@@ -1,88 +1,12 @@
-import { readProjectsChallengeMetadata } from '~/db/projects/ProjectsReader';
-
-import { projectsSkillDetermineParentSkill } from '../skills/data/ProjectsSkillUtils';
-import type { ProjectsSkillKey } from '../skills/types';
-
-// Profile.
-export const projectsReputationProfileSignUpConfig = () => ({
-  key: `projects.profile.sign_up`,
-  points: 20,
-});
-
-export const projectsReputationProfileFieldConfig = (field: string) => ({
-  key: `projects.profile.field.${field}`,
-  points: 100,
-});
-
-export const projectsReputationProfileCompleteConfig = () => ({
-  key: `projects.profile.complete`,
-  points: 50,
-});
-
-// Sessions.
-export const projectsReputationFirstSessionConfig = () => ({
-  key: `projects.session.first`,
-  points: 20,
-});
-
-// Discussions.
-export const projectsReputationDiscussionsCommentConfig = (
-  commentId: string,
-) => ({
-  key: `projects.discussions.comment.${commentId}`,
-  points: 20,
-});
-
-export const projectsReputationDiscussionsCommentVoteConfig = (
-  voteId: string,
-) => ({
-  key: `projects.discussions.comment.vote.${voteId}`,
-  points: 10,
-});
-
-// Submissions.
-export async function projectsReputationSubmissionDifficultyConfig(
-  challengeSlug: string,
-) {
-  const { challengeMetadata } =
-    await readProjectsChallengeMetadata(challengeSlug);
-
-  return {
-    key: `projects.submission.${challengeSlug}`,
-    points: challengeMetadata.points,
-  };
-}
-
-const DEFAULT_SKILL_POINTS = 25;
-
-export async function projectsReputationSubmissionRoadmapSkillConfig(
-  challengeSlug: string,
-  skillKey: ProjectsSkillKey,
-) {
-  const { challengeMetadata } =
-    await readProjectsChallengeMetadata(challengeSlug);
-  const { pointsForSkillGroups } = challengeMetadata;
-  const parentSkill = projectsSkillDetermineParentSkill(skillKey)?.key;
-  const points =
-    pointsForSkillGroups[parentSkill || ''] ?? DEFAULT_SKILL_POINTS;
-
-  return {
-    key: `projects.submission.${challengeSlug}.skill.${skillKey}`,
-    points,
-  };
-}
-
-export function projectsReputationSubmissionTechStackConfig(
-  challengeSlug: string,
-  skillKey: ProjectsSkillKey,
-) {
-  return {
-    key: `projects.submission.${challengeSlug}.stack.${skillKey}`,
-    points: 2,
-  };
-}
-
-export const projectsReputationSubmissionVoteConfig = (voteId: string) => ({
-  key: `projects.submission.vote.${voteId}`,
-  points: 10,
-});
+// Keep this file simple because it needs to run on both server and client.
+export const ProjectsReputationPointsConfig = {
+  DISCUSSIONS_COMMENT: 20,
+  DISCUSSIONS_COMMENT_VOTE: 10,
+  PROFILE_COMPLETE: 50,
+  PROFILE_FIELD: 100,
+  PROFILE_SIGN_UP: 20,
+  SESSION_FIRST: 20,
+  SUBMISSION_SKILL_DEFAULT: 25,
+  SUBMISSION_TECH_STACK: 2,
+  SUBMISSION_VOTE: 10,
+};

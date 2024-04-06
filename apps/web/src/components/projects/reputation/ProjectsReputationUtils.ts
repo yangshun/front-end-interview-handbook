@@ -10,7 +10,7 @@ import {
   projectsReputationSubmissionRoadmapSkillConfig,
   projectsReputationSubmissionTechStackConfig,
   projectsReputationSubmissionVoteConfig,
-} from './ProjectsReputationPointsConfig';
+} from './ProjectsReputationPointsItemCalculator';
 
 import type {
   ProjectsChallengeSubmissionVote,

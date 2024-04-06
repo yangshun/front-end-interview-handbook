@@ -20,7 +20,7 @@ import { useProjectsProfileBioSchema } from '../profile/fields/ProjectsProfileBi
 import { useProjectsProfileGitHubSchema } from '../profile/fields/ProjectsProfileGithubSchema';
 import { useProjectsProfileLinkedInSchema } from '../profile/fields/ProjectsProfileLinkedInSchema';
 import { useProjectsProfileWebsiteSchema } from '../profile/fields/ProjectsProfileWebsiteSchema';
-import { projectsReputationProfileFieldConfig } from '../reputation/ProjectsReputationPointsConfig';
+import { ProjectsReputationPointsConfig } from '../reputation/ProjectsReputationPointsConfig';
 import { useProjectsSkillListInputSchema } from '../skills/form/ProjectsSkillListInputSchema';
 import type { ProjectsSkillKey } from '../skills/types';
 
@@ -118,7 +118,7 @@ export default function ProjectsOnboardingProfileStep2() {
         <div className="relative">
           <ProjectsChallengeReputationTag
             className="absolute end-0 top-0"
-            points={projectsReputationProfileFieldConfig('bio').points}
+            points={ProjectsReputationPointsConfig.PROFILE_FIELD}
             variant="filled"
           />
           <ProjectsProfileBioInput control={control} />

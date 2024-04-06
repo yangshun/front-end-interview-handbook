@@ -2,7 +2,7 @@ import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { sumBy } from 'lodash-es';
 import { z } from 'zod';
 
-import { projectsReputationFirstSessionConfig } from '~/components/projects/reputation/ProjectsReputationPointsConfig';
+import { projectsReputationFirstSessionConfig } from '~/components/projects/reputation/ProjectsReputationPointsItemCalculator';
 import { projectsSkillListInputOptionalSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 import { readProjectsTrackList } from '~/components/projects/tracks/data/ProjectsTrackReader';
 

@@ -6,7 +6,7 @@ import ProjectsProfileGithubInput from './ProjectsProfileGithubInput';
 import ProjectsProfileLinkedInInput from './ProjectsProfileLinkedInInput';
 import ProjectsProfileWebsiteInput from './ProjectsProfileWebsiteInput';
 import type { ProjectsOnboardingProfileStep2FormValues } from '../../onboarding/ProjectsOnboardingProfileStep2';
-import { projectsReputationProfileFieldConfig } from '../../reputation/ProjectsReputationPointsConfig';
+import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 import type { ProjectsProfileEditFormValues } from '../../types';
 
 type Values =
@@ -28,7 +28,7 @@ export default function ProjectsProfileSocialInput({
         {showReputationCountIncreaseTag && (
           <ProjectsChallengeReputationTag
             className="absolute end-0 top-0"
-            points={projectsReputationProfileFieldConfig('github').points}
+            points={ProjectsReputationPointsConfig.PROFILE_FIELD}
             variant="filled"
           />
         )}
@@ -38,7 +38,7 @@ export default function ProjectsProfileSocialInput({
         {showReputationCountIncreaseTag && (
           <ProjectsChallengeReputationTag
             className="absolute end-0 top-0"
-            points={projectsReputationProfileFieldConfig('linkedin').points}
+            points={ProjectsReputationPointsConfig.PROFILE_FIELD}
             variant="filled"
           />
         )}
@@ -48,7 +48,7 @@ export default function ProjectsProfileSocialInput({
         {showReputationCountIncreaseTag && (
           <ProjectsChallengeReputationTag
             className="absolute end-0 top-0"
-            points={projectsReputationProfileFieldConfig('website').points}
+            points={ProjectsReputationPointsConfig.PROFILE_FIELD}
             variant="filled"
           />
         )}

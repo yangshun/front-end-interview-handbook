@@ -4,7 +4,7 @@ import {
   projectsReputationProfileCompleteConfig,
   projectsReputationProfileFieldConfig,
   projectsReputationProfileSignUpConfig,
-} from '~/components/projects/reputation/ProjectsReputationPointsConfig';
+} from '~/components/projects/reputation/ProjectsReputationPointsItemCalculator';
 import { projectsReputationConnectOrCreateShape } from '~/components/projects/reputation/ProjectsReputationUtils';
 
 import prisma from '~/server/prisma';
