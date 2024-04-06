@@ -78,6 +78,7 @@ async function takeScreenshotForViewport(
 
   const screenshotBuffer = await page.screenshot({
     fullPage: true,
+    quality: 100, // TODO(projects): lower for non-premium.
     type: 'webp',
   });
 
