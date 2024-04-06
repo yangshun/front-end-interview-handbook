@@ -20,13 +20,13 @@ export default function BlogCopyLinkButton({ href }: { href: string }) {
         isCopied
           ? intl.formatMessage({
               defaultMessage: 'Copied',
-              description: 'Blog link copied button label',
-              id: 'vC8ERT',
+              description: 'Copied state button label',
+              id: '+gYfrY',
             })
           : intl.formatMessage({
               defaultMessage: 'Copy link',
-              description: 'Blog copy Link button label',
-              id: 'p6XoAn',
+              description: 'Copy button label',
+              id: 'dFjMzR',
             })
       }
       size="sm"

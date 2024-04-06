@@ -87,6 +87,10 @@
     "defaultMessage": "Search by challenge name / brief",
     "description": "Search placeholder for challenge listing"
   },
+  "+gYfrY": {
+    "defaultMessage": "Copied",
+    "description": "Copied state button label"
+  },
   "+hNsjW": {
     "defaultMessage": "Сoncise step by step practical guides",
     "description": "Short description for \"Skills roadmap\" feature on Projects home page"
@@ -570,6 +574,10 @@
   "3HUfI+": {
     "defaultMessage": "You are doing great things for the Front End community. Especially for those who are Junior engineers like me, advanced solutions covering various aspects of front end development help a lot. Thank you to the team.",
     "description": "Anonymous Software Engineer's testimonial"
+  },
+  "3IiqOd": {
+    "defaultMessage": "Copy promo code",
+    "description": "Copy button label"
   },
   "3JSDTC": {
     "defaultMessage": "Personal website",
@@ -4035,6 +4043,10 @@
     "defaultMessage": "You have an unused promo code",
     "description": "Rewards discount message"
   },
+  "VT494Q": {
+    "defaultMessage": "Profile",
+    "description": "Navigation menu item label"
+  },
   "VVf84T": {
     "defaultMessage": "Password",
     "description": "Label of password field on Change Password page"
@@ -4982,6 +4994,10 @@
   "dAHBqv": {
     "defaultMessage": "Theme",
     "description": "Label for select that changes the theme of the editor"
+  },
+  "dFjMzR": {
+    "defaultMessage": "Copy link",
+    "description": "Copy button label"
   },
   "dFz30c": {
     "defaultMessage": "Reset",
@@ -6435,10 +6451,6 @@
     "defaultMessage": "USA",
     "description": "Anand Dharne's location"
   },
-  "p6XoAn": {
-    "defaultMessage": "Copy link",
-    "description": "Blog copy Link button label"
-  },
   "p97ubP": {
     "defaultMessage": "Coming Soon",
     "description": "Front end system design questions that are coming soon"
@@ -7202,10 +7214,6 @@
   "vAyAVU": {
     "defaultMessage": "Style guide for fonts, colors, etc.",
     "description": "Provided resource for project"
-  },
-  "vC8ERT": {
-    "defaultMessage": "Copied",
-    "description": "Blog link copied button label"
   },
   "vHNURr": {
     "defaultMessage": "View all filters",

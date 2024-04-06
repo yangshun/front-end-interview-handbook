@@ -1,12 +1,14 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiPercentLine } from 'react-icons/ri';
+import { RiCheckLine, RiFileCopyLine, RiPercentLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
+import useCopyToClipboardWithRevert from '~/hooks/useCopyToClipboardWithRevert';
 
 import Anchor from '~/components/ui/Anchor';
+import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -19,6 +21,35 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
   dateStyle: 'medium',
   timeStyle: 'short',
 });
+
+function CopyCodeButton({ code }: { code: string }) {
+  const intl = useIntl();
+
+  const [isCopied, onCopy] = useCopyToClipboardWithRevert(1000);
+
+  return (
+    <Button
+      icon={isCopied ? RiCheckLine : RiFileCopyLine}
+      isLabelHidden={true}
+      label={
+        isCopied
+          ? intl.formatMessage({
+              defaultMessage: 'Copied',
+              description: 'Copied state button label',
+              id: '+gYfrY',
+            })
+          : intl.formatMessage({
+              defaultMessage: 'Copy promo code',
+              description: 'Copy button label',
+              id: '3IiqOd',
+            })
+      }
+      size="xs"
+      variant="tertiary"
+      onClick={() => onCopy(code)}
+    />
+  );
+}
 
 export default function ProfileCoupons() {
   const intl = useIntl();
@@ -74,29 +105,42 @@ export default function ProfileCoupons() {
                 themeDivideColor,
               )}>
               <thead>
-                <th className="py-3 pl-4 pr-3 text-left">
-                  <Text size="body2" weight="medium">
-                    Promo code
-                  </Text>
-                </th>
-                <th className="py-3 pl-4 pr-3 text-left">
-                  <Text size="body2" weight="medium">
-                    Discount
-                  </Text>
-                </th>
-                <th className="py-3 pl-4 pr-3 text-left">
-                  <Text size="body2" weight="medium">
-                    Expires
-                  </Text>
-                </th>
+                <tr>
+                  <th className="py-3 pl-4 pr-3 text-left">
+                    <Text size="body2" weight="medium">
+                      Promo name
+                    </Text>
+                  </th>
+                  <th className="py-3 pl-4 pr-3 text-left">
+                    <Text size="body2" weight="medium">
+                      Code
+                    </Text>
+                  </th>
+                  <th className="py-3 pl-4 pr-3 text-left">
+                    <Text size="body2" weight="medium">
+                      Discount
+                    </Text>
+                  </th>
+                  <th className="py-3 pl-4 pr-3 text-left">
+                    <Text size="body2" weight="medium">
+                      Expires
+                    </Text>
+                  </th>
+                </tr>
               </thead>
               <tbody className={clsx('divide-y', themeDivideColor)}>
                 {profilePromoCodes.data?.data.map((promoCode) => (
                   <tr key={promoCode.id} className="py-2">
                     <td className="py-3 pl-4 pr-3">
-                      <Text size="body2" weight="bold">
-                        {promoCode.code}
-                      </Text>
+                      <Text size="body2">{promoCode.coupon.name}</Text>
+                    </td>
+                    <td className="py-3 pl-4 pr-3">
+                      <span className="flex items-center gap-1">
+                        <Text size="body2" weight="bold">
+                          {promoCode.code}
+                        </Text>
+                        <CopyCodeButton code={promoCode.code} />
+                      </span>
                     </td>
                     <td className="py-3 pl-4 pr-3">
                       <Text color="secondary" size="body2">
@@ -104,11 +148,11 @@ export default function ProfileCoupons() {
                       </Text>
                     </td>
                     <td className="py-3 pl-4 pr-3">
-                      {promoCode.expires_at && (
-                        <Text color="secondary" size="body2">
-                          {dateFormatter.format(promoCode.expires_at * 1000)}
-                        </Text>
-                      )}
+                      <Text color="secondary" size="body2">
+                        {promoCode.expires_at
+                          ? dateFormatter.format(promoCode.expires_at * 1000)
+                          : 'N/A'}
+                      </Text>
                     </td>
                   </tr>
                 ))}
