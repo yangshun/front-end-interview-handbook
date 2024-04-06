@@ -2,7 +2,7 @@
 
 import { RiArrowLeftLine } from 'react-icons/ri';
 
-import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
+import { viewportHeightMinusNavAndBanner } from '~/components/common/ViewportHeights';
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionMetadataSection from '~/components/interviews/questions/metadata/QuestionMetadataSection';
@@ -21,7 +21,7 @@ export default function CodingWorkspacePaywallPage({ metadata }: Props) {
       <div
         className="flex flex-col items-center gap-y-8 py-16 sm:justify-center"
         style={{
-          height: FooterlessContainerHeight,
+          height: viewportHeightMinusNavAndBanner,
         }}>
         <div className="flex flex-col gap-y-4 text-center">
           <Heading level="heading3">{metadata.title}</Heading>

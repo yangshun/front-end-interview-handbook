@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 
-import footerlessContainerHeight from '~/components/common/FooterlessContainerHeight';
+import { viewportHeightMinusNavAndBanner } from '~/components/common/ViewportHeights';
 import CodingPreferencesProvider from '~/components/global/CodingPreferencesProvider';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import type {
@@ -72,7 +72,7 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
             visibleFiles: workspace?.visibleFiles ?? undefined,
           }}
           style={{
-            height: footerlessContainerHeight,
+            height: viewportHeightMinusNavAndBanner,
           }}
           theme={colorScheme === 'dark' ? 'dark' : undefined}>
           <UserInterfaceCodingWorkspace

@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 
 import BlogSidebar from '~/components/blog/layout/BlogSidebar';
-import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
+import { viewportHeightMinusNavAndBanner } from '~/components/common/ViewportHeights';
 import { themeBorderColor } from '~/components/ui/theme';
 
 export default function SidebarContainer() {
@@ -14,7 +14,7 @@ export default function SidebarContainer() {
         themeBorderColor,
       )}
       style={{
-        height: FooterlessContainerHeight,
+        height: viewportHeightMinusNavAndBanner,
         top: `var(--nav-top-offset)`,
       }}>
       <BlogSidebar />

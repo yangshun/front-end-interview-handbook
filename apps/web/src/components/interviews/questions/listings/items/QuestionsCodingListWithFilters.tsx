@@ -9,7 +9,7 @@ import {
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import FilterButton from '~/components/common/FilterButton';
-import FooterlessContainerHeight from '~/components/common/FooterlessContainerHeight';
+import { viewportHeightMinusNavAndBanner } from '~/components/common/ViewportHeights';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type {
@@ -561,7 +561,7 @@ export default function QuestionsCodingListWithFilters({
           <section
             className={clsx('sticky overflow-y-auto')}
             style={{
-              maxHeight: FooterlessContainerHeight,
+              maxHeight: viewportHeightMinusNavAndBanner,
               top: `var(--nav-top-offset)`,
             }}>
             <Heading className="sr-only" level="custom">

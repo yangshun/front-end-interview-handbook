@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import useScrollToTop from '~/hooks/useScrollToTop';
 
 import SidebarCollapser from '~/components/common/SidebarCollapser';
+import { viewportHeightMinusBanner } from '~/components/common/ViewportHeights';
 import { useUserPreferences } from '~/components/global/UserPreferencesProvider';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import Anchor from '~/components/ui/Anchor';
@@ -38,7 +39,12 @@ export default function QuestionsQuizContentLayout({
 
   return (
     <div className="flex w-full">
-      <div className="h-dvh sticky top-0 flex">
+      <div
+        className="sticky flex"
+        style={{
+          height: viewportHeightMinusBanner,
+          top: `var(--banner-height)`,
+        }}>
         {showSidebar && (
           <Section>
             <nav className="hidden w-[270px] overflow-y-auto text-base lg:block lg:text-sm 2xl:w-96">
