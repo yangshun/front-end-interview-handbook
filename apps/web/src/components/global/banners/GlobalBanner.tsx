@@ -85,7 +85,7 @@ export default function GlobalBanner() {
       )}
       data-theme="projects">
       <Banner
-        className={clsx('h-12')} // Sync with banner.css.
+        className="h-10" // Sync with banner.css.
         size="xs"
         variant="primary"
         onHide={() => {

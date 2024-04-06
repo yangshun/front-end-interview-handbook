@@ -1,7 +1,7 @@
 :root {
   --navbar-height: 52px;
   --navbar-border: 1px;
-  --banner-height: 48px; /* Sync height with GlobalBanner.tsx */
+  --banner-height: 40px; /* Sync height with GlobalBanner.tsx */
   --nav-top-offset: calc(
     var(--navbar-height) + var(--navbar-border) + var(--banner-height)
   );
