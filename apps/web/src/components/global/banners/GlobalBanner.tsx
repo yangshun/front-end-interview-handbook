@@ -51,6 +51,7 @@ export default function GlobalBanner() {
 
         {finished === false && (
           <Timer
+            color="light"
             days={days}
             hours={hours}
             minutes={minutes}

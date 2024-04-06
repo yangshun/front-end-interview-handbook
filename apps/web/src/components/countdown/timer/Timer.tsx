@@ -1,14 +1,14 @@
 import clsx from 'clsx';
 
 import type { TextColor } from '~/components/ui/Text';
-import Text from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 
 import type { TimeContainerVariant } from '../time-container/TimeContainer';
 import TimeContainer from '../time-container/TimeContainer';
 
-function TimeSeparator({ color = 'light' }: { color?: TextColor }) {
+function TimeSeparator() {
   return (
-    <Text color={color} size="body2" weight="medium">
+    <Text color="inherit" size="body2" weight="medium">
       :
     </Text>
   );
@@ -16,6 +16,7 @@ function TimeSeparator({ color = 'light' }: { color?: TextColor }) {
 
 type Props = Readonly<{
   className?: string;
+  color?: TextColor;
   days: string;
   hours: string;
   minutes: string;
@@ -24,6 +25,7 @@ type Props = Readonly<{
 }>;
 
 export default function Timer({
+  color,
   days,
   hours,
   minutes,
@@ -32,7 +34,12 @@ export default function Timer({
   className,
 }: Props) {
   return (
-    <div className={clsx('flex items-center gap-1', className)}>
+    <div
+      className={clsx(
+        'flex items-center gap-1',
+        textVariants({ color }),
+        className,
+      )}>
       <TimeContainer value={days} variant={variant} />
       <TimeSeparator />
       <TimeContainer value={hours} variant={variant} />
