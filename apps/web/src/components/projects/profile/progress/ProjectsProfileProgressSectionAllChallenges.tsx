@@ -1,6 +1,5 @@
 'use client';
 
-import clsx from 'clsx';
 import { useState } from 'react';
 import { RiRocketLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
@@ -72,10 +71,10 @@ export default function ProjectsProfileProgressSectionAllChallenges({
 
   return (
     <div className="flex flex-col gap-8">
-      <div className="flex flex-row items-center gap-4">
+      <div className="flex flex-row flex-wrap items-center gap-4">
         <fieldset>
           <legend className="sr-only">{filterName}</legend>
-          <div className={clsx('flex flex-wrap items-center gap-2')}>
+          <div className="flex flex-wrap items-center gap-2">
             {filterOptions.map(({ icon: Icon, ...option }) => (
               <FilterButton
                 key={option.value}
