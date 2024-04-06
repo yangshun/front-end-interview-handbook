@@ -1,4 +1,4 @@
-import SidebarContainer from '~/components/interviews/common/InterviewsSidebarContainer';
+import InterviewsSidebarContainer from '~/components/interviews/common/InterviewsSidebarContainer';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -7,7 +7,7 @@ type Props = Readonly<{
 export default function SidebarCollapsedLayout({ children }: Props) {
   return (
     <div className="flex">
-      <SidebarContainer initialCollapsed={true} />
+      <InterviewsSidebarContainer initialCollapsed={true} />
       <div className="relative w-0 grow">{children}</div>
     </div>
   );
