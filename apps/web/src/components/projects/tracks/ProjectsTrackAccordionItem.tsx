@@ -23,7 +23,7 @@ import type { ProjectsChallengeHistoricalStatuses } from '../challenges/types';
 import { projectsChallengeCountCompletedIncludingHistorical } from '../challenges/utils/ProjectsChallengeUtils';
 import ProjectsPremiumBadge from '../purchase/ProjectsPremiumBadge';
 
-import * as Accordion from '@radix-ui/react-accordion';
+import AccordionPrimitive from '@radix-ui/react-accordion';
 
 type Props = Readonly<{
   challengeStatuses?: ProjectsChallengeHistoricalStatuses;
@@ -48,7 +48,7 @@ export default function ProjectsTrackAccordionItem({
   const { href, slug } = metadata;
 
   return (
-    <Accordion.Item value={slug}>
+    <AccordionPrimitive.Item value={slug}>
       <Card
         className={clsx(
           'flex flex-col overflow-visible',
@@ -58,8 +58,8 @@ export default function ProjectsTrackAccordionItem({
         disableSpotlight={true}
         padding={false}
         pattern={false}>
-        <Accordion.Header asChild={true}>
-          <Accordion.Trigger className="outline-brand group rounded-lg">
+        <AccordionPrimitive.Header asChild={true}>
+          <AccordionPrimitive.Trigger className="outline-brand group rounded-lg">
             <div className="flex items-center justify-between gap-2 p-6">
               <ProjectsTrackAccordionHeader
                 completedCount={projectsChallengeCountCompletedIncludingHistorical(
@@ -77,9 +77,9 @@ export default function ProjectsTrackAccordionItem({
                 )}
               />
             </div>
-          </Accordion.Trigger>
-        </Accordion.Header>
-        <Accordion.Content className="-mt-4 p-6">
+          </AccordionPrimitive.Trigger>
+        </AccordionPrimitive.Header>
+        <AccordionPrimitive.Content className="-mt-4 p-6">
           {track.metadata.premium && !isViewerPremium ? (
             <div>
               <ProjectsTrackPaywall />
@@ -170,8 +170,8 @@ export default function ProjectsTrackAccordionItem({
               </Anchor>
             </>
           )}
-        </Accordion.Content>
+        </AccordionPrimitive.Content>
       </Card>
-    </Accordion.Item>
+    </AccordionPrimitive.Item>
   );
 }

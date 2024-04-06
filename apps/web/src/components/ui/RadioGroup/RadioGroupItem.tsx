@@ -6,7 +6,7 @@ import {
   themeOutlineElementBrandColor_FocusVisible,
 } from '../theme';
 
-import * as RadixRadioGroup from '@radix-ui/react-radio-group';
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 
 export type RadioGroupItemProps<T extends string> = Readonly<{
   label: string;
@@ -21,7 +21,7 @@ export default function RadioGroupItem<T extends string>({
 
   return (
     <div key={value} className="flex items-center gap-2 py-1">
-      <RadixRadioGroup.Item
+      <RadioGroupPrimitive.Item
         className={clsx(
           'size-5 rounded-full border',
           themeBorderElementColor,
@@ -29,7 +29,7 @@ export default function RadioGroupItem<T extends string>({
         )}
         id={id}
         value={value}>
-        <RadixRadioGroup.Indicator
+        <RadioGroupPrimitive.Indicator
           className={clsx(
             'flex items-center justify-center',
             'size-full',
@@ -37,7 +37,7 @@ export default function RadioGroupItem<T extends string>({
             'after:size-3 after:rounded-full',
           )}
         />
-      </RadixRadioGroup.Item>
+      </RadioGroupPrimitive.Item>
       <label className="cursor-pointer text-sm" htmlFor={id}>
         {label}
       </label>

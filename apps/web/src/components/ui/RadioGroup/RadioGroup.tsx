@@ -7,7 +7,7 @@ import type { LabelDescriptionStyle } from '../Label';
 import Label from '../Label';
 import Text from '../Text';
 
-import * as RadixRadioGroup from '@radix-ui/react-radio-group';
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 
 type RadioGroupDirection = 'horizontal' | 'vertical';
 
@@ -60,7 +60,7 @@ function RadioGroup<T extends string>(
           label={label}
         />
       </div>
-      <RadixRadioGroup.Root
+      <RadioGroupPrimitive.Root
         ref={ref}
         aria-describedby={
           hasError || description != null ? messageId : undefined
@@ -75,7 +75,7 @@ function RadioGroup<T extends string>(
         value={value}
         onValueChange={onChange}>
         {children}
-      </RadixRadioGroup.Root>
+      </RadioGroupPrimitive.Root>
       {errorMessage && (
         <Text className="mt-2 block" color="error" id={messageId} size="body3">
           {errorMessage}

@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import React from 'react';
 
-import * as Accordion from '@radix-ui/react-accordion';
+import * as AccordionPrimitive from '@radix-ui/react-accordion';
 
 type Props = Readonly<{
   children: React.ReactNode;
@@ -19,7 +19,7 @@ export default function ProjectsTrackAccordion({
   disabled,
 }: Props) {
   return (
-    <Accordion.Root
+    <AccordionPrimitive.Root
       className={clsx(
         'flex flex-col gap-y-6',
         disabled && 'pointer-events-none',
@@ -29,6 +29,6 @@ export default function ProjectsTrackAccordion({
       disabled={disabled}
       type="multiple">
       {children}
-    </Accordion.Root>
+    </AccordionPrimitive.Root>
   );
 }

@@ -18,7 +18,7 @@ import type { NavPopoverGroupItem, NavPopoverLinkItem } from './NavTypes';
 import Button from '../Button';
 import Text from '../Text';
 
-import * as Tabs from '@radix-ui/react-tabs';
+import * as TabsPrimitive from '@radix-ui/react-tabs';
 
 function NavbarPopoverLink({
   label,
@@ -121,18 +121,18 @@ export default function NavbarPopoverTabs({
         themeGlassyBorder,
         themeBackgroundLayerEmphasized,
       )}>
-      <Tabs.Root
+      <TabsPrimitive.Root
         className="flex w-full"
         orientation="vertical"
         value={value}
         onValueChange={setValue}>
-        <Tabs.List
+        <TabsPrimitive.List
           className={clsx(
             'flex w-1/4 shrink-0 flex-col gap-y-2 p-4',
             themeBackgroundColor,
           )}>
           {items.map(({ itemKey, label }) => (
-            <Tabs.Trigger
+            <TabsPrimitive.Trigger
               key={itemKey}
               className={clsx(
                 'block w-full rounded-md p-3',
@@ -150,12 +150,12 @@ export default function NavbarPopoverTabs({
                 weight="medium">
                 {label}
               </Text>
-            </Tabs.Trigger>
+            </TabsPrimitive.Trigger>
           ))}
-        </Tabs.List>
+        </TabsPrimitive.List>
         <div className="flex w-full grow items-center">
           {items.map((item) => (
-            <Tabs.Content
+            <TabsPrimitive.Content
               key={item.itemKey}
               className={clsx(
                 'outline-none',
@@ -206,10 +206,10 @@ export default function NavbarPopoverTabs({
                   />
                 </div>
               )}
-            </Tabs.Content>
+            </TabsPrimitive.Content>
           ))}
         </div>
-      </Tabs.Root>
+      </TabsPrimitive.Root>
     </div>
   );
 }

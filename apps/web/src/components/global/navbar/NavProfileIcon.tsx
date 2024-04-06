@@ -16,7 +16,7 @@ import {
   themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
 
-import { Content, Portal, Root, Trigger } from '@radix-ui/react-dropdown-menu';
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 type Props = Readonly<{
   avatarUrl?: string; // Can be name or email.
@@ -30,8 +30,8 @@ export default function NavProfileIcon({
   navItems,
 }: Props) {
   return (
-    <Root>
-      <Trigger
+    <DropdownMenuPrimitive.Root>
+      <DropdownMenuPrimitive.Trigger
         className={clsx(
           'group inline-flex shrink-0 items-center justify-center',
           'rounded-full',
@@ -54,9 +54,9 @@ export default function NavProfileIcon({
           />
         </span>
         <Avatar alt={userIdentifierString ?? ''} src={avatarUrl} />
-      </Trigger>
-      <Portal>
-        <Content
+      </DropdownMenuPrimitive.Trigger>
+      <DropdownMenuPrimitive.Portal>
+        <DropdownMenuPrimitive.Content
           align="end"
           className={dropdownContentClassName}
           sideOffset={8}>
@@ -72,8 +72,8 @@ export default function NavProfileIcon({
               <DropdownMenu.Item key={navItem.itemKey} {...navItem} />
             ))}
           </div>
-        </Content>
-      </Portal>
-    </Root>
+        </DropdownMenuPrimitive.Content>
+      </DropdownMenuPrimitive.Portal>
+    </DropdownMenuPrimitive.Root>
   );
 }

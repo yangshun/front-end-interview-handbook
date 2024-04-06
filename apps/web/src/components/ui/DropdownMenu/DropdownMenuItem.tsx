@@ -6,7 +6,7 @@ import type { Props as AnchorProps } from '../Anchor';
 import Anchor from '../Anchor';
 import type { TextColor } from '../Text';
 
-import { Item } from '@radix-ui/react-dropdown-menu';
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 export type Props = Readonly<{
   color?: TextColor;
@@ -42,12 +42,12 @@ export default function DropdownMenuItem({
   };
 
   return (
-    <Item asChild={true}>
+    <DropdownMenuPrimitive.Item asChild={true}>
       {href == null ? (
         <button type="button" {...props} />
       ) : (
         <Anchor href={href} variant="unstyled" {...props} />
       )}
-    </Item>
+    </DropdownMenuPrimitive.Item>
   );
 }

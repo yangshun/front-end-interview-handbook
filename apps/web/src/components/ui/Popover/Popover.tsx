@@ -3,7 +3,7 @@ import React from 'react';
 
 import { popoverContentClassName } from './popoverStyles';
 
-import { Content, Portal, Root, Trigger } from '@radix-ui/react-popover';
+import * as PopoverPrimitive from '@radix-ui/react-popover';
 
 export type PopoverContentAlignment = 'center' | 'end' | 'start';
 export type PopoverContentWidth = 'lg' | 'md' | 'sm';
@@ -35,18 +35,20 @@ export default function Popover({
   width = 'md',
 }: Props) {
   return (
-    <Root>
-      <Trigger asChild={asChild}>{trigger}</Trigger>
-      <Portal>
-        <Content
+    <PopoverPrimitive.Root>
+      <PopoverPrimitive.Trigger asChild={asChild}>
+        {trigger}
+      </PopoverPrimitive.Trigger>
+      <PopoverPrimitive.Portal>
+        <PopoverPrimitive.Content
           align={align}
           className={clsx(popoverContentClassName, panelWidthClasses[width])}
           data-color-scheme={__forceDark ? 'dark' : undefined}
           side={side}
           sideOffset={8}>
           {children}
-        </Content>
-      </Portal>
-    </Root>
+        </PopoverPrimitive.Content>
+      </PopoverPrimitive.Portal>
+    </PopoverPrimitive.Root>
   );
 }

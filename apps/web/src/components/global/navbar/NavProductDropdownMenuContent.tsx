@@ -22,7 +22,7 @@ import {
 
 import MysteryProductLogo from '../logos/MysteryProductLogo';
 
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 function NavProductDropdownMenuItem({
   beta = false,
@@ -38,7 +38,7 @@ function NavProductDropdownMenuItem({
   subtitle: string;
 }>) {
   return (
-    <DropdownMenu.Item
+    <DropdownMenuPrimitive.Item
       asChild={true}
       className={clsx(
         'relative flex flex-col gap-3 rounded p-4',
@@ -59,7 +59,7 @@ function NavProductDropdownMenuItem({
           {subtitle}
         </Text>
       </Anchor>
-    </DropdownMenu.Item>
+    </DropdownMenuPrimitive.Item>
   );
 }
 
@@ -68,7 +68,7 @@ function NavProductDropdownMenuItemCountdown() {
     useCountdownTimer(PROJECT_LAUNCH_DATE);
 
   return (
-    <DropdownMenu.Item
+    <DropdownMenuPrimitive.Item
       asChild={true}
       className={clsx(
         'relative flex flex-col gap-3 rounded p-4',
@@ -96,13 +96,13 @@ function NavProductDropdownMenuItemCountdown() {
           />
         </div>
       </Anchor>
-    </DropdownMenu.Item>
+    </DropdownMenuPrimitive.Item>
   );
 }
 
 export default function NavProductDropdownMenuContent() {
   return (
-    <DropdownMenu.Content
+    <DropdownMenuPrimitive.Content
       align="start"
       className={clsx(
         'flex flex-col gap-2',
@@ -129,6 +129,6 @@ export default function NavProductDropdownMenuContent() {
           subtitle="Build real-world projects to learn skills or for portfolio"
         />
       )}
-    </DropdownMenu.Content>
+    </DropdownMenuPrimitive.Content>
   );
 }

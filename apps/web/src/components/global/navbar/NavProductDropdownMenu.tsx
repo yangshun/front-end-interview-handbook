@@ -17,7 +17,7 @@ import {
   themeTextSubtleColor,
 } from '~/components/ui/theme';
 
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 type ProductValue = 'interviews' | 'mystery' | 'projects';
 
@@ -50,8 +50,8 @@ export default function NavProductDropdownMenu({ value }: Props) {
   const { icon: Icon, label } = labels[value];
 
   return (
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger asChild={true}>
+    <DropdownMenuPrimitive.Root>
+      <DropdownMenuPrimitive.Trigger asChild={true}>
         <Button
           addonPosition="start"
           className={clsx(
@@ -72,10 +72,10 @@ export default function NavProductDropdownMenu({ value }: Props) {
           label={label}
           variant="unstyled"
         />
-      </DropdownMenu.Trigger>
-      <DropdownMenu.Portal>
+      </DropdownMenuPrimitive.Trigger>
+      <DropdownMenuPrimitive.Portal>
         <NavProductDropdownMenuContent />
-      </DropdownMenu.Portal>
-    </DropdownMenu.Root>
+      </DropdownMenuPrimitive.Portal>
+    </DropdownMenuPrimitive.Root>
   );
 }

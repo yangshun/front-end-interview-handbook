@@ -18,7 +18,7 @@ import {
   themeTextSubtitleColor,
 } from '~/components/ui/theme';
 
-import * as Slider from '@radix-ui/react-slider';
+import * as SliderPrimitive from '@radix-ui/react-slider';
 
 const features = [
   'Coding Questions',
@@ -77,7 +77,7 @@ function SliderSection() {
           * Based on average order value
         </Text>
       </div>
-      <Slider.Root
+      <SliderPrimitive.Root
         className="relative flex h-4 w-full items-center"
         id="weeks"
         max={100}
@@ -85,15 +85,15 @@ function SliderSection() {
         step={1}
         value={[sales]}
         onValueChange={([val]) => setSales(val)}>
-        <Slider.Track
+        <SliderPrimitive.Track
           className={clsx(
             'grow-1 relative !h-3 w-full rounded-full',
             themeBackgroundChipColor,
           )}>
-          <Slider.Range className="bg-brand-dark absolute h-full rounded" />
-        </Slider.Track>
-        <Slider.Thumb className="bg-brand-dark hover:bg-brand-darker focus:ring-brand-darker size-8 block rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-offset-2" />
-      </Slider.Root>
+          <SliderPrimitive.Range className="bg-brand-dark absolute h-full rounded" />
+        </SliderPrimitive.Track>
+        <SliderPrimitive.Thumb className="bg-brand-dark hover:bg-brand-darker focus:ring-brand-darker size-8 block rounded-full shadow-sm focus:outline-none focus:ring-4 focus:ring-offset-2" />
+      </SliderPrimitive.Root>
       <Text
         className="mt-8 block text-center text-2xl"
         color="secondary"

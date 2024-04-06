@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import type { ComponentPropsWithoutRef, ElementRef } from 'react';
 import { forwardRef } from 'react';
 
-import { Overlay } from '@radix-ui/react-dialog';
+import * as DialogPrimitive from '@radix-ui/react-dialog';
 
 type DialogBaseOverlayPurpose = 'dialog' | 'slideout';
 
@@ -16,10 +16,10 @@ type Props = Readonly<{
 }>;
 
 const DialogBaseOverlay = forwardRef<
-  ElementRef<typeof Overlay>,
-  ComponentPropsWithoutRef<typeof Overlay> & Props
+  ElementRef<typeof DialogPrimitive.Overlay>,
+  ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay> & Props
 >(({ className, purpose, ...props }, ref) => (
-  <Overlay
+  <DialogPrimitive.Overlay
     className={clsx(
       'fixed inset-0',
       'bg-neutral-950/60',

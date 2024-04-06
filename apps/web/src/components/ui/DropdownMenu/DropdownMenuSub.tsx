@@ -9,12 +9,7 @@ import {
 } from './dropdownStyles';
 import type { TextColor } from '../Text';
 
-import {
-  Portal,
-  Sub,
-  SubContent,
-  SubTrigger,
-} from '@radix-ui/react-dropdown-menu';
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 type ChildItem = React.ReactElement<DropdownMenuItemProps>;
 
@@ -39,8 +34,8 @@ export default function DropdownMenuSub({
   onClick,
 }: Props) {
   return (
-    <Sub>
-      <SubTrigger
+    <DropdownMenuPrimitive.Sub>
+      <DropdownMenuPrimitive.SubTrigger
         className={clsx(dropdownContentItemClassName)}
         onClick={onClick}>
         <DropdownMenuItemContent
@@ -50,14 +45,14 @@ export default function DropdownMenuSub({
           label={label}
           usage="trigger"
         />
-      </SubTrigger>
-      <Portal>
-        <SubContent
+      </DropdownMenuPrimitive.SubTrigger>
+      <DropdownMenuPrimitive.Portal>
+        <DropdownMenuPrimitive.SubContent
           className={dropdownContentClassName}
           data-color-scheme={__forceDark ? 'dark' : undefined}>
           {children}
-        </SubContent>
-      </Portal>
-    </Sub>
+        </DropdownMenuPrimitive.SubContent>
+      </DropdownMenuPrimitive.Portal>
+    </DropdownMenuPrimitive.Sub>
   );
 }

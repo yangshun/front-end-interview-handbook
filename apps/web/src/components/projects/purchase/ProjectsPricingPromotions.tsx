@@ -21,7 +21,7 @@ import {
   themeTextInvertColor,
 } from '~/components/ui/theme';
 
-import * as Tabs from '@radix-ui/react-tabs';
+import * as TabsPrimitive from '@radix-ui/react-tabs';
 
 function LimitedRibbon() {
   return (
@@ -90,7 +90,7 @@ export default function ProjectsPricingPromotions() {
 
   return (
     <Container variant="4xl">
-      <Tabs.Root
+      <TabsPrimitive.Root
         className="flex flex-col gap-8"
         value={alertValue}
         onValueChange={(newValue) => {
@@ -100,7 +100,7 @@ export default function ProjectsPricingPromotions() {
         }}>
         <div className="min-h-28">
           {alerts.map((alert) => (
-            <Tabs.Content key={alert.value} value={alert.value}>
+            <TabsPrimitive.Content key={alert.value} value={alert.value}>
               <Alert
                 key={alert.value}
                 icon={alert.icon}
@@ -117,12 +117,15 @@ export default function ProjectsPricingPromotions() {
                 </div>
                 <LimitedRibbon />
               </Alert>
-            </Tabs.Content>
+            </TabsPrimitive.Content>
           ))}
         </div>
-        <Tabs.List className="flex justify-center gap-4">
+        <TabsPrimitive.List className="flex justify-center gap-4">
           {alerts.map((alert) => (
-            <Tabs.Trigger key={alert.value} asChild={true} value={alert.value}>
+            <TabsPrimitive.Trigger
+              key={alert.value}
+              asChild={true}
+              value={alert.value}>
               <button
                 aria-label={alert.title}
                 className={clsx(
@@ -136,10 +139,10 @@ export default function ProjectsPricingPromotions() {
                 )}
                 type="button"
               />
-            </Tabs.Trigger>
+            </TabsPrimitive.Trigger>
           ))}
-        </Tabs.List>
-      </Tabs.Root>
+        </TabsPrimitive.List>
+      </TabsPrimitive.Root>
     </Container>
   );
 }

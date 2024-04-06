@@ -11,7 +11,7 @@ import Section from '../Heading/HeadingContext';
 import Text from '../Text';
 import { themeBackgroundLayerColor, themeBorderColor } from '../theme';
 
-import * as SlideOutPrimitive from '@radix-ui/react-dialog';
+import * as DialogPrimitive from '@radix-ui/react-dialog';
 
 type SlideOutSize = 'lg' | 'md' | 'sm' | 'xl' | 'xs';
 type SlideOutEnterFrom = 'end' | 'start';
@@ -30,19 +30,19 @@ const enterFromClasses: Record<SlideOutEnterFrom, string> = {
     'inset-y-0 left-0 h-full border-r data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left',
 };
 
-export const SlideOutRoot = SlideOutPrimitive.Root;
+export const SlideOutRoot = DialogPrimitive.Root;
 
 SlideOutRoot.displayName = 'SlideOutRoot';
 
-export const SlideOutTrigger = SlideOutPrimitive.Trigger;
+export const SlideOutTrigger = DialogPrimitive.Trigger;
 
-export const SlideOutClose = SlideOutPrimitive.Close;
+export const SlideOutClose = DialogPrimitive.Close;
 
-export const SlideOutPortal = SlideOutPrimitive.Portal;
+export const SlideOutPortal = DialogPrimitive.Portal;
 
 export const SlideOutOverlay = React.forwardRef<
-  React.ElementRef<typeof SlideOutPrimitive.Overlay>,
-  React.ComponentPropsWithoutRef<typeof SlideOutPrimitive.Overlay>
+  React.ElementRef<typeof DialogPrimitive.Overlay>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
 >(({ ...props }, ref) => (
   <DialogBaseOverlay {...props} ref={ref} purpose="slideout" />
 ));
@@ -50,7 +50,7 @@ export const SlideOutOverlay = React.forwardRef<
 SlideOutOverlay.displayName = 'SlideOutOverlay';
 
 type SlideOutContentProps = React.ComponentPropsWithoutRef<
-  typeof SlideOutPrimitive.Content
+  typeof DialogPrimitive.Content
 > &
   Readonly<{
     children: React.ReactNode;
@@ -62,12 +62,12 @@ type SlideOutContentProps = React.ComponentPropsWithoutRef<
   }>;
 
 export const SlideOutContent = React.forwardRef<
-  React.ElementRef<typeof SlideOutPrimitive.Content>,
+  React.ElementRef<typeof DialogPrimitive.Content>,
   SlideOutContentProps
 >(({ enterFrom = 'end', size, className, children, ...props }, ref) => (
   <SlideOutPortal>
     <SlideOutOverlay />
-    <SlideOutPrimitive.Content
+    <DialogPrimitive.Content
       ref={ref}
       className={clsx(
         ['h-full w-full', sizeClasses[size]],
@@ -86,11 +86,11 @@ export const SlideOutContent = React.forwardRef<
       )}
       {...props}>
       {children}
-    </SlideOutPrimitive.Content>
+    </DialogPrimitive.Content>
   </SlideOutPortal>
 ));
 
-SlideOutContent.displayName = SlideOutPrimitive.Content.displayName;
+SlideOutContent.displayName = DialogPrimitive.Content.displayName;
 
 export function SlideOutHeader({
   className,
@@ -105,7 +105,7 @@ export function SlideOutHeader({
       )}
       {...props}>
       {children}
-      <SlideOutPrimitive.Close
+      <DialogPrimitive.Close
         className={clsx(
           'flex items-center justify-center',
           'absolute right-4 top-4 -mr-2',
@@ -122,22 +122,22 @@ export function SlideOutHeader({
           />
         </span>
         <RiCloseLine aria-hidden="true" className="size-6" />
-      </SlideOutPrimitive.Close>
+      </DialogPrimitive.Close>
     </div>
   );
 }
 SlideOutHeader.displayName = 'SlideOutHeader';
 
 export const SlideOutTitle = React.forwardRef<
-  React.ElementRef<typeof SlideOutPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof SlideOutPrimitive.Title>
+  React.ElementRef<typeof DialogPrimitive.Title>,
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
 >(({ className, children, ...props }, ref) => (
-  <SlideOutPrimitive.Title
+  <DialogPrimitive.Title
     ref={ref}
     className={clsx('flex items-center justify-between gap-x-4', className)}
     {...props}>
     <Heading level="heading5">{children}</Heading>
-  </SlideOutPrimitive.Title>
+  </DialogPrimitive.Title>
 ));
 
 SlideOutTitle.displayName = 'SlideOutTitle';

@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import DialogBaseOverlay from '../ui/Dialog/DialogBaseOverlay';
 
-import { Close, Content, Portal, Root, Trigger } from '@radix-ui/react-dialog';
+import * as DialogPrimitive from '@radix-ui/react-dialog';
 
 export default function MDXImage({ alt, ...props }: ComponentProps<'img'>) {
   const [canExpand, setCanExpand] = useState(false);
@@ -37,11 +37,11 @@ export default function MDXImage({ alt, ...props }: ComponentProps<'img'>) {
   return !canExpand ? (
     image
   ) : (
-    <Root>
-      <Trigger asChild={true}>{image}</Trigger>
-      <Portal>
+    <DialogPrimitive.Root>
+      <DialogPrimitive.Trigger asChild={true}>{image}</DialogPrimitive.Trigger>
+      <DialogPrimitive.Portal>
         <DialogBaseOverlay purpose="dialog" />
-        <Content
+        <DialogPrimitive.Content
           className={clsx(
             'fixed left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4',
             'max-h-[80%] max-w-screen-lg',
@@ -55,15 +55,15 @@ export default function MDXImage({ alt, ...props }: ComponentProps<'img'>) {
             'data-[state=open]:slide-in-from-left-1/2 data-[state=closed]:slide-out-to-left-1/2',
             'data-[state=open]:slide-in-from-top-[48%] data-[state=closed]:slide-out-to-top-[48%]',
           )}>
-          <Close asChild={true}>
+          <DialogPrimitive.Close asChild={true}>
             <img
               alt={alt}
               className="inline-block h-full cursor-zoom-out object-contain"
               {...props}
             />
-          </Close>
-        </Content>
-      </Portal>
-    </Root>
+          </DialogPrimitive.Close>
+        </DialogPrimitive.Content>
+      </DialogPrimitive.Portal>
+    </DialogPrimitive.Root>
   );
 }

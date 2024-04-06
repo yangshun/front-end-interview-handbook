@@ -14,7 +14,7 @@ import {
   themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
 
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 // Increment number whenever the indicator is to be shown again.
 const indicatorKey = 'gfe:product-menu-unseen-indicator:0';
@@ -45,11 +45,11 @@ export default function NavProductMenuSelector({ variant, value }: Props) {
   );
 
   return (
-    <DropdownMenu.Root
+    <DropdownMenuPrimitive.Root
       onOpenChange={() => {
         setShowUnseenIndicator(false);
       }}>
-      <DropdownMenu.Trigger asChild={true}>
+      <DropdownMenuPrimitive.Trigger asChild={true}>
         {variant === 'full' ? (
           <button
             aria-label="Select product"
@@ -107,10 +107,10 @@ export default function NavProductMenuSelector({ variant, value }: Props) {
             )}
           </button>
         )}
-      </DropdownMenu.Trigger>
-      <DropdownMenu.Portal>
+      </DropdownMenuPrimitive.Trigger>
+      <DropdownMenuPrimitive.Portal>
         <NavProductDropdownMenuContent />
-      </DropdownMenu.Portal>
-    </DropdownMenu.Root>
+      </DropdownMenuPrimitive.Portal>
+    </DropdownMenuPrimitive.Root>
   );
 }

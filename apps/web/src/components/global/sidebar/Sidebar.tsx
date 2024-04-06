@@ -10,7 +10,7 @@ import { useIntl } from 'react-intl';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
-import SidebarLinkButton from '~/components/global/sidebar/SidebarLinkButton';
+import SidebarLinkItem from '~/components/global/sidebar/SidebarItem';
 import Button from '~/components/ui/Button';
 import Divider from '~/components/ui/Divider';
 import DropdownMenu from '~/components/ui/DropdownMenu';
@@ -55,7 +55,7 @@ export function SidebarCollapsed({
       <ul className="flex grow flex-col gap-1">
         {startItems.map((item) => (
           <li key={item.itemKey}>
-            <SidebarLinkButton isLabelHidden={true} {...item} />
+            <SidebarLinkItem isLabelHidden={true} {...item} />
           </li>
         ))}
       </ul>
@@ -65,7 +65,7 @@ export function SidebarCollapsed({
           <ul className="flex flex-col gap-1">
             {endItems.map((item) => (
               <li key={item.itemKey}>
-                <SidebarLinkButton isLabelHidden={true} {...item} />
+                <SidebarLinkItem isLabelHidden={true} {...item} />
               </li>
             ))}
           </ul>
@@ -161,7 +161,7 @@ export function SidebarExpanded({
       <ul className={clsx('flex grow flex-col gap-2', fadeInClass)}>
         {startItems.map((item) => (
           <li key={item.itemKey}>
-            <SidebarLinkButton {...item} />
+            <SidebarLinkItem {...item} />
           </li>
         ))}
       </ul>
@@ -172,7 +172,7 @@ export function SidebarExpanded({
             <ul className="flex flex-col gap-2">
               {endItems.map((item) => (
                 <li key={item.itemKey}>
-                  <SidebarLinkButton {...item} />
+                  <SidebarLinkItem {...item} />
                 </li>
               ))}
             </ul>

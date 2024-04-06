@@ -20,14 +20,14 @@ import Tooltip from '~/components/ui/Tooltip';
 
 import { useI18nPathname } from '~/next-i18nostic/src';
 
-import { Content, Portal, Root, Trigger } from '@radix-ui/react-popover';
+import * as PopoverPrimitive from '@radix-ui/react-popover';
 
 type Props = NavbarPrimaryItem &
   Readonly<{
     isLabelHidden?: boolean;
   }>;
 
-export default function SidebarLinkButton({
+export default function SidebarLinkItem({
   currentMatchRegex,
   isLabelHidden = false,
   label,
@@ -102,7 +102,7 @@ export default function SidebarLinkButton({
   }
 
   const trigger = (
-    <Trigger
+    <PopoverPrimitive.Trigger
       aria-label={isLabelHidden ? label : undefined}
       className={clsx(
         commonClass,
@@ -113,11 +113,11 @@ export default function SidebarLinkButton({
       {!isLabelHidden && (
         <RiArrowRightSLine aria-hidden="true" className="size-4 shrink-0" />
       )}
-    </Trigger>
+    </PopoverPrimitive.Trigger>
   );
 
   return (
-    <Root>
+    <PopoverPrimitive.Root>
       {isLabelHidden ? (
         <Tooltip asChild={true} label={label} side="right">
           {trigger}
@@ -125,8 +125,8 @@ export default function SidebarLinkButton({
       ) : (
         trigger
       )}
-      <Portal>
-        <Content
+      <PopoverPrimitive.Portal>
+        <PopoverPrimitive.Content
           align={props.align}
           className={clsx(
             'z-popover',
@@ -159,8 +159,8 @@ export default function SidebarLinkButton({
                 );
             }
           })()}
-        </Content>
-      </Portal>
-    </Root>
+        </PopoverPrimitive.Content>
+      </PopoverPrimitive.Portal>
+    </PopoverPrimitive.Root>
   );
 }

@@ -10,7 +10,7 @@ import { dropdownContentClassName } from './dropdownStyles';
 import Button from '../Button';
 import type { TooltipContentAlignment, TooltipContentSide } from '../Tooltip';
 
-import { Content, Portal, Root, Trigger } from '@radix-ui/react-dropdown-menu';
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 export type DropdownMenuTriggerLabelColor = 'default' | 'inherit';
 export type DropdownMenuTriggerSize = 'md' | 'sm' | 'xs';
@@ -70,13 +70,13 @@ export default function DropdownMenu({
   ...props
 }: Props) {
   return (
-    <Root
+    <DropdownMenuPrimitive.Root
       onOpenChange={(open) => {
         if (!open) {
           onClose?.();
         }
       }}>
-      <Trigger asChild={asChild}>
+      <DropdownMenuPrimitive.Trigger asChild={asChild}>
         {'trigger' in props ? (
           props.trigger
         ) : (
@@ -95,9 +95,9 @@ export default function DropdownMenu({
             variant={props.variant ?? 'secondary'}
           />
         )}
-      </Trigger>
-      <Portal>
-        <Content
+      </DropdownMenuPrimitive.Trigger>
+      <DropdownMenuPrimitive.Portal>
+        <DropdownMenuPrimitive.Content
           align={align}
           className={dropdownContentClassName}
           data-color-scheme={__forceDark ? 'dark' : undefined}
@@ -105,8 +105,8 @@ export default function DropdownMenu({
           sideOffset={8}
           onCloseAutoFocus={onCloseAutoFocus}>
           {children}
-        </Content>
-      </Portal>
-    </Root>
+        </DropdownMenuPrimitive.Content>
+      </DropdownMenuPrimitive.Portal>
+    </DropdownMenuPrimitive.Root>
   );
 }

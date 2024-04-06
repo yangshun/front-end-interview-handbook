@@ -15,7 +15,7 @@ import type { TextColor } from '../Text';
 import Text from '../Text';
 import { themeTextInvertColor } from '../theme';
 
-import * as ToastPrimitives from '@radix-ui/react-toast';
+import * as ToastPrimitive from '@radix-ui/react-toast';
 
 export type ToastVariant =
   | 'danger'
@@ -86,13 +86,13 @@ const classes: Record<
   },
 };
 
-const ToastProvider = ToastPrimitives.Provider;
+const ToastProvider = ToastPrimitive.Provider;
 
 const ToastViewport = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Viewport>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Viewport>
+  React.ElementRef<typeof ToastPrimitive.Viewport>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitive.Viewport>
 >(({ className, ...props }, ref) => (
-  <ToastPrimitives.Viewport
+  <ToastPrimitive.Viewport
     ref={ref}
     className={clsx(
       'fixed top-0 sm:bottom-0 sm:left-0 sm:top-auto',
@@ -106,7 +106,7 @@ const ToastViewport = React.forwardRef<
   />
 ));
 
-ToastViewport.displayName = ToastPrimitives.Viewport.displayName;
+ToastViewport.displayName = ToastPrimitive.Viewport.displayName;
 
 export const ToastRootImpl = forwardRef<
   React.ElementRef<'div'>,
@@ -143,10 +143,10 @@ export const ToastRootImpl = forwardRef<
 ));
 
 const ToastClose = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Close>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Close>
+  React.ElementRef<typeof ToastPrimitive.Close>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitive.Close>
 >(({ className, ...props }, ref) => (
-  <ToastPrimitives.Close
+  <ToastPrimitive.Close
     ref={ref}
     className={clsx(
       'inline-flex items-center justify-center',
@@ -164,17 +164,17 @@ const ToastClose = React.forwardRef<
       />
     </span>
     <RiCloseLine aria-hidden="true" className="size-5 shrink-0" />
-  </ToastPrimitives.Close>
+  </ToastPrimitive.Close>
 ));
 
-ToastClose.displayName = ToastPrimitives.Close.displayName;
+ToastClose.displayName = ToastPrimitive.Close.displayName;
 
 const ToastTitle = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Title>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Title>
+  React.ElementRef<typeof ToastPrimitive.Title>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitive.Title>
 >(({ className, children, ...props }, ref) => {
   return (
-    <ToastPrimitives.Title ref={ref} asChild={true} {...props}>
+    <ToastPrimitive.Title ref={ref} asChild={true} {...props}>
       <Text
         className={clsx('block grow', className)}
         color="inherit"
@@ -182,25 +182,25 @@ const ToastTitle = React.forwardRef<
         weight="medium">
         {children}
       </Text>
-    </ToastPrimitives.Title>
+    </ToastPrimitive.Title>
   );
 });
 
-ToastTitle.displayName = ToastPrimitives.Title.displayName;
+ToastTitle.displayName = ToastPrimitive.Title.displayName;
 
 const ToastDescription = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Description>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description> &
+  React.ElementRef<typeof ToastPrimitive.Description>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitive.Description> &
     Readonly<{ textColor: TextColor }>
 >(({ className, children, textColor, ...props }, ref) => (
-  <ToastPrimitives.Description ref={ref} asChild={true} {...props}>
+  <ToastPrimitive.Description ref={ref} asChild={true} {...props}>
     <Text className={clsx('block', className)} color={textColor} size="body3">
       {children}
     </Text>
-  </ToastPrimitives.Description>
+  </ToastPrimitive.Description>
 ));
 
-ToastDescription.displayName = ToastPrimitives.Description.displayName;
+ToastDescription.displayName = ToastPrimitive.Description.displayName;
 
 export function ToastImpl({
   className,
@@ -261,16 +261,16 @@ type Props = Readonly<{
 }>;
 
 export type ToastProps = Omit<
-  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Root>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitive.Root>,
   'children' | 'title'
 > &
   Props;
 
 const Toast = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitives.Root>,
+  React.ElementRef<typeof ToastPrimitive.Root>,
   ToastProps
 >(({ maxWidth, description, icon, title, variant, onClose, ...props }, ref) => (
-  <ToastPrimitives.Root ref={ref} asChild={true} {...props}>
+  <ToastPrimitive.Root ref={ref} asChild={true} {...props}>
     <ToastImpl
       description={description}
       icon={icon}
@@ -279,7 +279,7 @@ const Toast = React.forwardRef<
       variant={variant}
       onClose={onClose}
     />
-  </ToastPrimitives.Root>
+  </ToastPrimitive.Root>
 ));
 
 export default Toast;

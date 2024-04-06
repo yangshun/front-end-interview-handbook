@@ -17,7 +17,7 @@ import NavbarPopoverTabs from './NavbarPopoverTabs';
 import type { NavbarPrimaryItem } from './NavTypes';
 import Anchor from '../Anchor';
 
-import { Content, Portal, Root, Trigger } from '@radix-ui/react-popover';
+import * as PopoverPrimitive from '@radix-ui/react-popover';
 
 export default function NavbarItem({
   onClick,
@@ -54,8 +54,8 @@ export default function NavbarItem({
   }
 
   return (
-    <Root open={open} onOpenChange={setOpen}>
-      <Trigger
+    <PopoverPrimitive.Root open={open} onOpenChange={setOpen}>
+      <PopoverPrimitive.Trigger
         className={clsx(
           commonStyles,
           open
@@ -70,9 +70,9 @@ export default function NavbarItem({
             'size-5 group-hover:text-neutral-500',
           )}
         />
-      </Trigger>
-      <Portal>
-        <Content
+      </PopoverPrimitive.Trigger>
+      <PopoverPrimitive.Portal>
+        <PopoverPrimitive.Content
           align={props.align}
           className={clsx(
             'z-popover',
@@ -104,8 +104,8 @@ export default function NavbarItem({
                 );
             }
           })()}
-        </Content>
-      </Portal>
-    </Root>
+        </PopoverPrimitive.Content>
+      </PopoverPrimitive.Portal>
+    </PopoverPrimitive.Root>
   );
 }

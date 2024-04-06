@@ -25,13 +25,7 @@ import {
   themeTextSecondaryColor,
 } from '../ui/theme';
 
-import {
-  Content,
-  Item,
-  Portal,
-  Root,
-  Trigger,
-} from '@radix-ui/react-dropdown-menu';
+import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
 export default function GuidesDropdownMenu() {
   const guidesData = useGuidesData();
@@ -51,8 +45,8 @@ export default function GuidesDropdownMenu() {
   const label = selectedGuide.shortName;
 
   return (
-    <Root>
-      <Trigger
+    <DropdownMenuPrimitive.Root>
+      <DropdownMenuPrimitive.Trigger
         className={clsx(
           'group inline-flex flex-1 items-center justify-between gap-2',
           'rounded',
@@ -87,9 +81,9 @@ export default function GuidesDropdownMenu() {
           aria-hidden="true"
           className={clsx('size-4 shrink-0', themeTextSecondaryColor)}
         />
-      </Trigger>
-      <Portal>
-        <Content
+      </DropdownMenuPrimitive.Trigger>
+      <DropdownMenuPrimitive.Portal>
+        <DropdownMenuPrimitive.Content
           align="start"
           className={dropdownContentClassName}
           sideOffset={8}>
@@ -98,7 +92,7 @@ export default function GuidesDropdownMenu() {
               const isSelected = pathname ? href.startsWith(pathname) : false;
 
               return (
-                <Item key={key} asChild={true}>
+                <DropdownMenuPrimitive.Item key={key} asChild={true}>
                   <Anchor
                     className={clsx(dropdownContentItemClassName, 'gap-2')}
                     href={href}
@@ -124,12 +118,12 @@ export default function GuidesDropdownMenu() {
                       {shortName}
                     </Text>
                   </Anchor>
-                </Item>
+                </DropdownMenuPrimitive.Item>
               );
             },
           )}
-        </Content>
-      </Portal>
-    </Root>
+        </DropdownMenuPrimitive.Content>
+      </DropdownMenuPrimitive.Portal>
+    </DropdownMenuPrimitive.Root>
   );
 }

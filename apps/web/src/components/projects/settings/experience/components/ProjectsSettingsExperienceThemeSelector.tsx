@@ -13,7 +13,7 @@ import {
   themeGlassyBorder,
 } from '~/components/ui/theme';
 
-import * as RadixRadioGroup from '@radix-ui/react-radio-group';
+import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 
 export default function ProjectsSettingsExperienceThemeSelector() {
   const {
@@ -34,7 +34,7 @@ export default function ProjectsSettingsExperienceThemeSelector() {
             id="hBwVFF"
           />
         </Heading>
-        <RadixRadioGroup.Root
+        <RadioGroupPrimitive.Root
           className={clsx('flex flex-wrap gap-x-6 gap-y-6')}
           value={colorSchemePreference}
           onValueChange={(val) => {
@@ -63,7 +63,7 @@ export default function ProjectsSettingsExperienceThemeSelector() {
               </div>
             </div>
           ))}
-        </RadixRadioGroup.Root>
+        </RadioGroupPrimitive.Root>
       </div>
     </Section>
   );
