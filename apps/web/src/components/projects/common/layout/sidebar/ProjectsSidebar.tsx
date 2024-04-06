@@ -1,14 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import {
-  RiCodeSSlashLine,
-  RiHome3Line,
-  RiPriceTag3Line,
-  RiRocketLine,
-  RiSettings3Line,
-  RiShiningLine,
-} from 'react-icons/ri';
+import { RiSettings3Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import type { SidebarItems } from '~/components/global/sidebar/Sidebar';
@@ -22,76 +15,9 @@ import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import { ProjectsSidebarCTACard } from './ProjectsSidebarCTACard';
 import { ProjectsSidebarProfileHeader } from './ProjectsSidebarProfileHeader';
+import useProjectsSidebarLinks from './useProjectsSidebarLinks';
 import useUserProfileWithProjectsProfile from '../../useUserProfileWithProjectsProfile';
 import ProjectsPremiumPricingTableDialog from '../../../challenges/premium/ProjectsPremiumPricingTableDialog';
-
-function useSidebarItems(): SidebarItems {
-  const intl = useIntl();
-
-  return [
-    {
-      href: '/projects/dashboard',
-      icon: RiHome3Line,
-      itemKey: 'dashboard',
-      label: intl.formatMessage({
-        defaultMessage: 'Dashboard',
-        description: 'Sidebar navigation label',
-        id: 'R9G9bY',
-      }),
-      position: 'start',
-      type: 'link',
-    },
-    {
-      href: '/projects/challenges',
-      icon: RiRocketLine,
-      itemKey: 'challenges',
-      label: intl.formatMessage({
-        defaultMessage: 'Project challenges',
-        description: 'Sidebar navigation label',
-        id: 'OelRg0',
-      }),
-      position: 'start',
-      type: 'link',
-    },
-    {
-      href: '/projects/submissions',
-      icon: RiCodeSSlashLine,
-      itemKey: 'all-submissions',
-      label: intl.formatMessage({
-        defaultMessage: 'User submissions',
-        description: 'Sidebar navigation label',
-        id: 'e2P6am',
-      }),
-      position: 'start',
-      type: 'link',
-    },
-    {
-      href: '/projects#features',
-      icon: RiShiningLine,
-      itemKey: 'features',
-      label: intl.formatMessage({
-        defaultMessage: 'Features',
-        description: 'Sidebar navigation label',
-        id: 'IveIL+',
-      }),
-      position: 'end',
-      scrollToTop: false,
-      type: 'link',
-    },
-    {
-      href: '/projects/pricing',
-      icon: RiPriceTag3Line,
-      itemKey: 'pricing',
-      label: intl.formatMessage({
-        defaultMessage: 'Pricing',
-        description: 'Sidebar navigation label',
-        id: '9qO5Il',
-      }),
-      position: 'end',
-      type: 'link',
-    },
-  ];
-}
 
 function SettingsMenuItem() {
   const intl = useIntl();
@@ -111,11 +37,12 @@ function SettingsMenuItem() {
 
 export function ProjectsSidebarExpanded({
   onCollapseClick,
+  sidebarItems,
 }: Readonly<{
   onCollapseClick?: () => void;
+  sidebarItems: SidebarItems;
 }>) {
   const intl = useIntl();
-  const sidebarItems = useSidebarItems();
   const { isLoading, userProfile } = useUserProfileWithProjectsProfile();
 
   return (
@@ -197,7 +124,10 @@ export default function ProjectsSidebar({
   isCollapsed,
   onCollapseClick,
 }: Props) {
-  const sidebarItems = useSidebarItems();
+  const { userProfile } = useUserProfileWithProjectsProfile();
+  const sidebarItems = useProjectsSidebarLinks(
+    userProfile?.projectsProfile?.premium ?? false,
+  );
 
   return isCollapsed ? (
     <ProjectsSidebarCollapsed
@@ -205,6 +135,9 @@ export default function ProjectsSidebar({
       onCollapseClick={onCollapseClick}
     />
   ) : (
-    <ProjectsSidebarExpanded onCollapseClick={onCollapseClick} />
+    <ProjectsSidebarExpanded
+      sidebarItems={sidebarItems}
+      onCollapseClick={onCollapseClick}
+    />
   );
 }

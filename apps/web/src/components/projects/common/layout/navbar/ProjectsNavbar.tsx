@@ -2,20 +2,15 @@
 
 import clsx from 'clsx';
 import { useRef } from 'react';
-import {
-  RiLogoutBoxLine,
-  RiSettings3Line,
-  RiUserLine,
-  RiWallet3Line,
-} from 'react-icons/ri';
+import { RiSettings3Line, RiUserLine, RiWallet3Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 import useIsSticky from '~/hooks/useIsSticky';
-import { useAuthLogout, useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { FEATURE_FLAGS_SHOW_MYSTERY_PRODUCT } from '~/data/FeatureFlags';
 
+import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
 import LogoLink from '~/components/global/logos/LogoLink';
@@ -26,110 +21,21 @@ import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
 import Navbar from '~/components/ui/Navbar/Navbar';
-import type {
-  NavbarPrimaryItem,
-  NavLinkItem,
-} from '~/components/ui/Navbar/NavTypes';
-import Text from '~/components/ui/Text';
+import type { NavLinkItem } from '~/components/ui/Navbar/NavTypes';
+import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundLayerEmphasized_Hover,
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-import useUserProfileWithProjectsProfile from '../useUserProfileWithProjectsProfile';
+import useProjectsNavLinks from './useProjectsNavLinks';
+import useUserProfileWithProjectsProfile from '../../useUserProfileWithProjectsProfile';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
-function useNavLinks(
-  isLoggedIn: boolean,
-  isPremium: boolean,
-): ReadonlyArray<NavbarPrimaryItem> {
-  const intl = useIntl();
-  const { signInUpLabel, signInUpHref } = useAuthSignInUp();
-
-  const links: ReadonlyArray<NavbarPrimaryItem | null> = [
-    {
-      href: '/projects/challenges',
-      itemKey: 'challenges',
-      label: intl.formatMessage({
-        defaultMessage: 'Project challenges',
-        description: 'Link to challenges section',
-        id: 'bl/F9i',
-      }),
-      onClick: () => {
-        gtag.event({
-          action: `nav.challenges.click`,
-          category: 'engagement',
-          label: 'Project challenges',
-        });
-      },
-      position: 'start',
-      type: 'link',
-    },
-    {
-      href: '/projects/submissions',
-      itemKey: 'submissions',
-      label: intl.formatMessage({
-        defaultMessage: 'Submissions',
-        description: 'Link to projects submissions page',
-        id: 'ocv3nH',
-      }),
-      onClick: () => {
-        gtag.event({
-          action: `nav.submissions.click`,
-          category: 'engagement',
-          label: 'Submissions',
-        });
-      },
-      position: 'start',
-      type: 'link',
-    },
-    !isPremium
-      ? {
-          href: '/projects/pricing',
-          itemKey: 'pricing',
-          label: intl.formatMessage({
-            defaultMessage: 'Pricing',
-            description: 'Link label to the pricing page',
-            id: 'VlrCm6',
-          }),
-          onClick: () => {
-            gtag.event({
-              action: `nav.pricing.click`,
-              category: 'ecommerce',
-              label: 'Pricing',
-            });
-          },
-          position: 'end',
-          type: 'link',
-        }
-      : null,
-    !isLoggedIn
-      ? {
-          href: signInUpHref(),
-          itemKey: 'login',
-          label: signInUpLabel,
-          onClick: () => {
-            gtag.event({
-              action: `nav.sign_in.click`,
-              category: 'engagement',
-              label: signInUpLabel,
-            });
-          },
-          position: 'end',
-          type: 'link',
-        }
-      : null,
-  ];
-
-  return links.filter(
-    (item) => item != null,
-  ) as ReadonlyArray<NavbarPrimaryItem>;
-}
-
 function useUserNavigationLinks() {
   const intl = useIntl();
-  const { logoutLabel, logoutHref } = useAuthLogout();
+  const commonNavItems = useCommonNavItems();
 
   const userNavigation: ReadonlyArray<NavLinkItem> = [
     {
@@ -171,7 +77,7 @@ function useUserNavigationLinks() {
     {
       href: '/projects/settings/billing',
       icon: RiWallet3Line,
-      itemKey: 'settings',
+      itemKey: 'billing',
       label: intl.formatMessage({
         defaultMessage: 'Billing',
         description: 'Link label to the billing page',
@@ -186,20 +92,7 @@ function useUserNavigationLinks() {
       },
       type: 'link',
     },
-    {
-      href: logoutHref(),
-      icon: RiLogoutBoxLine,
-      itemKey: 'logout',
-      label: logoutLabel,
-      onClick: () => {
-        gtag.event({
-          action: `nav.sign_out.click`,
-          category: 'engagement',
-          label: logoutLabel,
-        });
-      },
-      type: 'link',
-    },
+    commonNavItems.logout,
   ];
 
   return userNavigation;
@@ -219,7 +112,7 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
   const intl = useIntl();
   const isLoggedIn = user != null;
   const isPremium = userProfile?.projectsProfile?.premium ?? false;
-  const links = useNavLinks(isLoggedIn, isPremium);
+  const navLinks = useProjectsNavLinks(isLoggedIn, isPremium);
   const userNavigationLinks = useUserNavigationLinks();
 
   const navbarRef = useRef(null);
@@ -278,7 +171,10 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
               <Anchor
                 key={props.itemKey}
                 className={clsx(
-                  'group flex items-center rounded px-2 py-2 text-xs font-medium',
+                  'group flex items-center',
+                  'px-2 py-2',
+                  'rounded',
+                  textVariants({ size: 'body3', weight: 'medium' }),
                   themeTextSecondaryColor,
                   themeBackgroundLayerEmphasized_Hover,
                 )}
@@ -336,7 +232,7 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
       className={clsx(hideOnDesktop && 'lg:hidden')}
       endAddOnItems={endAddOnItems}
       isLoading={isUserProfileLoading}
-      links={links}
+      links={navLinks}
       logo={<LogoLink href="/projects" />}
       mobileSidebarBottomItems={mobileSidebarBottomItems}
       productMenu={

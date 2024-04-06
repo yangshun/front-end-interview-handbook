@@ -4811,10 +4811,6 @@
     "defaultMessage": "Filter by roadmap skills used by the creator",
     "description": "Label for skills filter"
   },
-  "bl/F9i": {
-    "defaultMessage": "Project challenges",
-    "description": "Link to challenges section"
-  },
   "bnqijt": {
     "defaultMessage": "Post",
     "description": "Label for post button on project discussions page"
@@ -6366,10 +6362,6 @@
   "obU6+a": {
     "defaultMessage": "Software Engineer",
     "description": "Gouse Basha's job title"
-  },
-  "ocv3nH": {
-    "defaultMessage": "Submissions",
-    "description": "Link to projects submissions page"
   },
   "ofFMGr": {
     "defaultMessage": "Check out other available <link>promotions</link>.",

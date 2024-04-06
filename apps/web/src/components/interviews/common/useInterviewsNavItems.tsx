@@ -1,7 +1,6 @@
 import {
   RiBookOpenLine,
   RiHome3Line,
-  RiPagesLine,
   RiPlayLine,
   RiPriceTag3Line,
   RiShiningLine,
@@ -10,7 +9,6 @@ import {
 import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
-import { useAuthSignInUp } from '~/hooks/user/useAuthFns';
 
 import { getFocusAreaTheme } from '~/data/focus-areas/FocusAreas';
 import { useFocusAreas } from '~/data/focus-areas/FocusAreasHooks';
@@ -27,33 +25,12 @@ import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
 
 export default function useInterviewsNavItems() {
   const intl = useIntl();
-  const { signInUpLabel, signInUpHref } = useAuthSignInUp();
 
   const questionTechnologyLists = useQuestionTechnologyLists();
   const questionFormatLists = useQuestionFormatLists();
   const preparationPlans = usePreparationPlans();
   const focusAreas = useFocusAreas();
   const guidesData = useGuidesData();
-
-  const blog: NavbarPrimaryItem = {
-    href: '/blog',
-    icon: RiPagesLine,
-    itemKey: 'blog',
-    label: intl.formatMessage({
-      defaultMessage: 'Blog',
-      description: 'Link to blog',
-      id: 'pBR3LI',
-    }),
-    onClick: () => {
-      gtag.event({
-        action: `nav.blog.click`,
-        category: 'engagement',
-        label: 'Blog',
-      });
-    },
-    position: 'start',
-    type: 'link',
-  };
 
   const dashboard: NavbarPrimaryItem = {
     currentMatchRegex: /\prepare$/,
@@ -194,20 +171,6 @@ export default function useInterviewsNavItems() {
     },
     position: 'start',
     type: 'popover',
-  };
-  const login: NavbarPrimaryItem = {
-    href: signInUpHref(),
-    itemKey: 'login',
-    label: signInUpLabel,
-    onClick: () => {
-      gtag.event({
-        action: `nav.sign_in.click`,
-        category: 'engagement',
-        label: signInUpLabel,
-      });
-    },
-    position: 'end',
-    type: 'link',
   };
   const practice: NavbarPrimaryItem = {
     align: 'center',
@@ -560,11 +523,9 @@ export default function useInterviewsNavItems() {
   };
 
   return {
-    blog,
     dashboard,
     features,
     guides,
-    login,
     practice,
     pricing,
   };

@@ -8,11 +8,11 @@ import {
   PROJECT_LAUNCH_DATE,
 } from '~/data/FeatureFlags';
 
+import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import Timer from '~/components/countdown/timer/Timer';
 import InterviewsLogo from '~/components/global/logos/InterviewsLogo';
 import MysteryProductLogo from '~/components/global/logos/MysteryProductLogo';
 import ProjectsLogo from '~/components/global/logos/ProjectsLogo';
-import useInterviewsNavItems from '~/components/interviews/common/useInterviewsNavItems';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
 import Text, { textVariants } from '~/components/ui/Text';
@@ -103,7 +103,7 @@ function NavProductDropdownMenuItemCountdown() {
 }
 
 export default function NavProductDropdownMenuContent() {
-  const items = useInterviewsNavItems();
+  const items = useCommonNavItems();
 
   return (
     <DropdownMenuPrimitive.Content

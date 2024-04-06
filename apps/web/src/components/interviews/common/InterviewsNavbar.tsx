@@ -2,15 +2,15 @@
 
 import clsx from 'clsx';
 import { useRef } from 'react';
-import { RiLogoutBoxLine, RiUserLine, RiWallet3Line } from 'react-icons/ri';
+import { RiUserLine, RiWallet3Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import gtag from '~/lib/gtag';
 import useIsSticky from '~/hooks/useIsSticky';
-import { useAuthLogout } from '~/hooks/user/useAuthFns';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
 import I18nSelect from '~/components/common/i18n/I18nSelect';
+import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
 import NavProductDropdownMenu from '~/components/global/navbar/NavProductDropdownMenu';
 import Anchor from '~/components/ui/Anchor';
@@ -37,7 +37,7 @@ import { useUser } from '@supabase/auth-helpers-react';
 
 function useUserNavigationLinks() {
   const intl = useIntl();
-  const { logoutLabel, logoutHref } = useAuthLogout();
+  const commonNavItems = useCommonNavItems();
 
   const userNavigation: ReadonlyArray<NavLinkItem> = [
     {
@@ -61,7 +61,7 @@ function useUserNavigationLinks() {
     {
       href: '/profile/billing',
       icon: RiWallet3Line,
-      itemKey: 'settings',
+      itemKey: 'billing',
       label: intl.formatMessage({
         defaultMessage: 'Billing',
         description: 'Link label to the billing page',
@@ -76,20 +76,7 @@ function useUserNavigationLinks() {
       },
       type: 'link',
     },
-    {
-      href: logoutHref(),
-      icon: RiLogoutBoxLine,
-      itemKey: 'logout',
-      label: logoutLabel,
-      onClick: () => {
-        gtag.event({
-          action: `nav.sign_out.click`,
-          category: 'engagement',
-          label: logoutLabel,
-        });
-      },
-      type: 'link',
-    },
+    commonNavItems.logout,
   ];
 
   return userNavigation;
@@ -107,7 +94,7 @@ export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
   const intl = useIntl();
   const isLoggedIn = user != null;
   const isPremium = userProfile?.premium ?? false;
-  const links = useInterviewsNavLinks(isLoggedIn, isPremium);
+  const navLinks = useInterviewsNavLinks(isLoggedIn, isPremium);
   const userNavigationLinks = useUserNavigationLinks();
   const { locale, pathname } = useI18nPathname();
   const router = useI18nRouter();
@@ -237,7 +224,7 @@ export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
       className={clsx(hideOnDesktop && 'lg:hidden')}
       endAddOnItems={endAddOnItems}
       isLoading={isUserProfileLoading}
-      links={links}
+      links={navLinks}
       logo={<LogoLink />}
       mobileSidebarBottomItems={mobileSidebarBottomItems}
       productMenu={<NavProductDropdownMenu value="interviews" />}
