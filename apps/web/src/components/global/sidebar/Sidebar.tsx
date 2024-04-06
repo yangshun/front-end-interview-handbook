@@ -50,9 +50,7 @@ export function SidebarCollapsed({
         'relative h-full',
         'px-3 py-4',
       )}>
-      {product === 'projects' && (
-        <NavProductMenuSelector value={product} variant="compact" />
-      )}
+      <NavProductMenuSelector value={product} variant="compact" />
       {topAddonElements}
       <ul className="flex grow flex-col gap-1">
         {startItems.map((item) => (

@@ -13,7 +13,6 @@ export default function useInterviewsNavLinks(
     navItems.practice,
     navItems.guides,
     navItems.blog,
-    !isPremium ? navItems.features : null,
     !isPremium ? navItems.pricing : null,
     !isLoggedIn ? navItems.login : null,
   ];

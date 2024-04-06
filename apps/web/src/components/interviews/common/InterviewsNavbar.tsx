@@ -95,7 +95,11 @@ function useUserNavigationLinks() {
   return userNavigation;
 }
 
-export default function InterviewsNavbar() {
+type Props = Readonly<{
+  hideOnDesktop?: boolean;
+}>;
+
+export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
   const { colorSchemePreference, setColorSchemePreference } =
     useColorSchemePreferences();
   const user = useUser();
@@ -230,6 +234,7 @@ export default function InterviewsNavbar() {
   return (
     <Navbar
       ref={navbarRef}
+      className={clsx(hideOnDesktop && 'lg:hidden')}
       endAddOnItems={endAddOnItems}
       isLoading={isUserProfileLoading}
       links={links}

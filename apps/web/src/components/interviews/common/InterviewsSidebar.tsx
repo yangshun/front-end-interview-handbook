@@ -1,15 +1,18 @@
 'use client';
 
 import clsx from 'clsx';
-import { RiSettings3Line } from 'react-icons/ri';
+import { RiUserLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
+
+import useUserProfile from '~/hooks/user/useUserProfile';
 
 import {
   SidebarCollapsed,
   SidebarExpanded,
 } from '~/components/global/sidebar/Sidebar';
-import { useUserProfile } from '~/components/global/UserProfileProvider';
 import { SocialDiscountSidebarMention } from '~/components/promotions/social/SocialDiscountSidebarMention';
+import Anchor from '~/components/ui/Anchor';
+import UserAvatar from '~/components/ui/Avatar/UserAvatar';
 import Button from '~/components/ui/Button';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
@@ -22,12 +25,12 @@ function SettingsMenuItem() {
 
   return (
     <DropdownMenu.Item
-      href="/settings"
-      icon={RiSettings3Line}
+      href="/profile"
+      icon={RiUserLine}
       label={intl.formatMessage({
-        defaultMessage: 'Settings',
-        description: 'App settings label',
-        id: 'XysLlX',
+        defaultMessage: 'Profile',
+        description: 'Navigation menu item label',
+        id: 'VT494Q',
       })}
     />
   );
@@ -40,13 +43,13 @@ export function InterviewsSidebarExpanded({
   onCollapseClick?: () => void;
   sidebarItems: ReadonlyArray<NavbarPrimaryItem>;
 }>) {
-  const { isUserProfileLoading, userProfile } = useUserProfile();
+  const { isLoading, userProfile } = useUserProfile();
   const intl = useIntl();
-  const isPremium = userProfile?.isPremium ?? false;
+  const isPremium = userProfile?.premium ?? false;
 
   return (
     <SidebarExpanded
-      isLoading={isUserProfileLoading}
+      isLoading={isLoading}
       isViewerPremium={isPremium}
       moreMenuItems={userProfile && <SettingsMenuItem />}
       product="interviews"
@@ -92,10 +95,20 @@ function InterviewsSidebarCollapsed({
 
   return (
     <SidebarCollapsed
-      isViewerPremium={userProfile?.isPremium ?? false}
+      isViewerPremium={userProfile?.premium ?? false}
       moreMenuItems={userProfile && <SettingsMenuItem />}
       product="interviews"
       sidebarItems={sidebarItems}
+      topAddonElements={
+        userProfile && (
+          <Anchor
+            aria-label={userProfile.name ?? userProfile.username}
+            href="/profile"
+            variant="unstyled">
+            <UserAvatar size="lg" userProfile={userProfile} />
+          </Anchor>
+        )
+      }
       onCollapseClick={onCollapseClick}
     />
   );
@@ -111,7 +124,7 @@ export default function InterviewsSidebar({
   onCollapseClick,
 }: Props) {
   const { userProfile } = useUserProfile();
-  const isPremium = userProfile?.isPremium ?? false;
+  const isPremium = userProfile?.premium ?? false;
   const sidebarItems = useInterviewsSidebarLinks(isPremium);
 
   return isCollapsed ? (

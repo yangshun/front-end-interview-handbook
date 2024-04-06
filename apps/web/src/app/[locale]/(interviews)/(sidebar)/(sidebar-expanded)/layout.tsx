@@ -4,7 +4,7 @@ type Props = Readonly<{
   children: React.ReactNode;
 }>;
 
-export default function Layout({ children }: Props) {
+export default function SidebarExpandedLayout({ children }: Props) {
   return (
     <div className="flex">
       <InterviewsSidebarContainer />

@@ -67,7 +67,12 @@ export function InterviewsSidebarProfileHeader() {
         </>
       ) : (
         <>
-          <UserAvatar size="lg" userProfile={userProfile} />
+          <Anchor
+            aria-label={userProfile.name ?? userProfile.username}
+            href="/profile"
+            variant="unstyled">
+            <UserAvatar size="lg" userProfile={userProfile} />
+          </Anchor>
           <div className="flex flex-col gap-1">
             <Text className="line-clamp-2" size="body2" weight="medium">
               <UserProfileDisplayName userProfile={userProfile} />

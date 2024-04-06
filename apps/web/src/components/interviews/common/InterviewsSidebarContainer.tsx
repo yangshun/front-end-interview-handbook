@@ -18,7 +18,7 @@ export default function InterviewsSidebarContainer({
   return (
     <aside
       className={clsx(
-        'hidden md:block',
+        'hidden lg:block',
         'sticky top-0',
         'h-dvh shrink-0 overflow-y-hidden',
         ['border-e', themeBorderColor],

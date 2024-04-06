@@ -8,13 +8,13 @@ type Props = Readonly<{
   children: React.ReactNode;
 }>;
 
-export default function StandardLayout({ children }: Props) {
+export default function SidebarLayout({ children }: Props) {
   return (
     <>
       <FeedbackWidget position="end" />
       <GlobalBanner />
       <div className="flex min-h-screen flex-col">
-        <InterviewsNavbar />
+        <InterviewsNavbar hideOnDesktop={true} />
         <div className="grow">{children}</div>
         <Section>
           <InterviewsFooter />
