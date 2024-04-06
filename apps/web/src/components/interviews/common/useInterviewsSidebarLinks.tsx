@@ -5,7 +5,7 @@ import useInterviewsNavItems from './useInterviewsNavItems';
 export default function useInterviewsSidebarLinks(
   isPremium: boolean,
 ): ReadonlyArray<NavbarPrimaryItem> {
-  const navItems = useInterviewsNavItems();
+  const navItems = useInterviewsNavItems('sidebar');
 
   const links: ReadonlyArray<NavbarPrimaryItem | null> = [
     navItems.dashboard,

@@ -23,7 +23,7 @@ import {
 import Badge from '~/components/ui/Badge';
 import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
 
-export default function useInterviewsNavItems() {
+export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   const intl = useIntl();
 
   const questionTechnologyLists = useQuestionTechnologyLists();
@@ -44,7 +44,7 @@ export default function useInterviewsNavItems() {
     }),
     onClick: () => {
       gtag.event({
-        action: `nav.dashboard.click`,
+        action: `${placement}.dashboard.click`,
         category: 'engagement',
         label: 'Dashboard',
       });
@@ -63,7 +63,7 @@ export default function useInterviewsNavItems() {
     }),
     onClick: () => {
       gtag.event({
-        action: `nav.features.click`,
+        action: `${placement}.features.click`,
         category: 'ecommerce',
         label: 'Features',
       });
@@ -98,7 +98,7 @@ export default function useInterviewsNavItems() {
             ),
             onClick: () => {
               gtag.event({
-                action: `nav.guides.feig.click`,
+                action: `${placement}.guides.feig.click`,
                 category: 'engagement',
                 label: 'Front End Interview Guidebook',
               });
@@ -113,7 +113,7 @@ export default function useInterviewsNavItems() {
             label: guidesData['front-end-system-design-guidebook'].name,
             onClick: () => {
               gtag.event({
-                action: `nav.guides.fesdg.click`,
+                action: `${placement}.guides.fesdg.click`,
                 category: 'engagement',
                 label: 'Front End System Design Guidebook',
               });
@@ -140,7 +140,7 @@ export default function useInterviewsNavItems() {
             ),
             onClick: () => {
               gtag.event({
-                action: `nav.guides.big.click`,
+                action: `${placement}.guides.big.click`,
                 category: 'engagement',
                 label: 'Behavioral Interview Guidebook',
               });
@@ -164,7 +164,7 @@ export default function useInterviewsNavItems() {
     }),
     onClick: () => {
       gtag.event({
-        action: `nav.guides.click`,
+        action: `${placement}.guides.click`,
         category: 'engagement',
         label: 'Guides',
       });
@@ -190,7 +190,7 @@ export default function useInterviewsNavItems() {
             label: questionFormatLists.coding.longName,
             onClick: () => {
               gtag.event({
-                action: `nav.practice.questions.coding.click`,
+                action: `${placement}.practice.questions.coding.click`,
                 category: 'engagement',
                 label: 'Coding Questions',
               });
@@ -205,7 +205,7 @@ export default function useInterviewsNavItems() {
             label: questionFormatLists['system-design'].longName,
             onClick: () => {
               gtag.event({
-                action: `nav.practice.questions.system_design.click`,
+                action: `${placement}.practice.questions.system_design.click`,
                 category: 'engagement',
                 label: 'System Design Questions',
               });
@@ -231,7 +231,7 @@ export default function useInterviewsNavItems() {
             ),
             onClick: () => {
               gtag.event({
-                action: `nav.practice.questions.quiz.click`,
+                action: `${placement}.practice.questions.quiz.click`,
                 category: 'engagement',
                 label: 'Quiz Questions',
               });
@@ -269,7 +269,7 @@ export default function useInterviewsNavItems() {
             label: questionTechnologyLists.js.longName,
             onClick: () => {
               gtag.event({
-                action: `nav.practice.topic.javascript.click`,
+                action: `${placement}.practice.topic.javascript.click`,
                 category: 'engagement',
                 label: 'JavaScript Questions',
               });
@@ -283,7 +283,7 @@ export default function useInterviewsNavItems() {
             label: questionTechnologyLists.html.longName,
             onClick: () => {
               gtag.event({
-                action: `nav.practice.topic.html.click`,
+                action: `${placement}.practice.topic.html.click`,
                 category: 'engagement',
                 label: 'HTML Questions',
               });
@@ -297,7 +297,7 @@ export default function useInterviewsNavItems() {
             label: questionTechnologyLists.css.longName,
             onClick: () => {
               gtag.event({
-                action: `nav.practice.topic.css.click`,
+                action: `${placement}.practice.topic.css.click`,
                 category: 'engagement',
                 label: 'CSS Questions',
               });
@@ -311,7 +311,7 @@ export default function useInterviewsNavItems() {
             label: questionTechnologyLists.react.longName,
             onClick: () => {
               gtag.event({
-                action: `nav.practice.topic.react.click`,
+                action: `${placement}.practice.topic.react.click`,
                 category: 'engagement',
                 label: 'React Questions',
               });
@@ -325,7 +325,7 @@ export default function useInterviewsNavItems() {
             label: questionTechnologyLists.angular.name,
             onClick: () => {
               gtag.event({
-                action: `nav.practice.topic.angular.click`,
+                action: `${placement}.practice.topic.angular.click`,
                 category: 'engagement',
                 label: 'Angular',
               });
@@ -339,7 +339,7 @@ export default function useInterviewsNavItems() {
             label: questionTechnologyLists.svelte.name,
             onClick: () => {
               gtag.event({
-                action: `nav.practice.topic.svelte.click`,
+                action: `${placement}.practice.topic.svelte.click`,
                 category: 'engagement',
                 label: 'Svelte',
               });
@@ -364,7 +364,7 @@ export default function useInterviewsNavItems() {
             ),
             onClick: () => {
               gtag.event({
-                action: `nav.practice.topic.vue.click`,
+                action: `${placement}.practice.topic.vue.click`,
                 category: 'engagement',
                 label: 'Vue',
               });
@@ -389,7 +389,7 @@ export default function useInterviewsNavItems() {
             label: preparationPlans['one-week'].longName,
             onClick: () => {
               gtag.event({
-                action: `nav.practice.plans.one_week.click`,
+                action: `${placement}.practice.plans.one_week.click`,
                 category: 'engagement',
                 label: '1 Week Plan',
               });
@@ -404,7 +404,7 @@ export default function useInterviewsNavItems() {
             label: preparationPlans['one-month'].longName,
             onClick: () => {
               gtag.event({
-                action: `nav.practice.plans.one_month.click`,
+                action: `${placement}.practice.plans.one_month.click`,
                 category: 'engagement',
                 label: '1 Month Plan',
               });
@@ -419,7 +419,7 @@ export default function useInterviewsNavItems() {
             label: preparationPlans['three-months'].longName,
             onClick: () => {
               gtag.event({
-                action: `nav.practice.plans.three_months.click`,
+                action: `${placement}.practice.plans.three_months.click`,
                 category: 'engagement',
                 label: '3 Months Plan',
               });
@@ -467,7 +467,7 @@ export default function useInterviewsNavItems() {
           label: focusAreas[focusArea].longName,
           onClick: () => {
             gtag.event({
-              action: `nav.practice.focus_areas.${focusAreas[focusArea].type}.click`,
+              action: `${placement}.practice.focus_areas.${focusAreas[focusArea].type}.click`,
               category: 'engagement',
               label: focusAreas[focusArea].longName,
             });
@@ -494,10 +494,10 @@ export default function useInterviewsNavItems() {
       },
     ],
     label: intl.formatMessage({
-      defaultMessage: 'Practice Questions',
+      defaultMessage: 'Practice questions',
       description:
         'Section title for links to question lists by category and format',
-      id: '6w1Z0V',
+      id: 'hphZ3y',
     }),
     position: 'start',
     type: 'popover-tabs',
@@ -513,7 +513,7 @@ export default function useInterviewsNavItems() {
     }),
     onClick: () => {
       gtag.event({
-        action: `nav.pricing.click`,
+        action: `${placement}.pricing.click`,
         category: 'ecommerce',
         label: 'Pricing',
       });

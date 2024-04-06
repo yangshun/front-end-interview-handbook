@@ -27,9 +27,12 @@ export default function NavbarItem({
   const [open, setOpen] = useState(false);
 
   const commonStyles = clsx(
-    'inline-flex cursor-pointer items-center gap-2 px-3 py-1',
+    'group',
+    'inline-flex items-center gap-2',
+    'px-3 py-1',
+    'rounded-full',
     'text-[0.8125rem] font-medium whitespace-nowrap',
-    'group rounded-full',
+    'cursor-pointer',
     [
       themeOutlineElement_FocusVisible,
       themeOutlineElementBrandColor_FocusVisible,

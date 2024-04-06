@@ -8,7 +8,7 @@ export default function useProjectsNavLinks(
   isPremium: boolean,
 ): ReadonlyArray<NavbarPrimaryItem> {
   const commonNavItems = useCommonNavItems();
-  const projectsNavItems = useProjectsNavItems();
+  const projectsNavItems = useProjectsNavItems('nav');
 
   const links: ReadonlyArray<NavbarPrimaryItem | null> = [
     projectsNavItems.dashboard,

@@ -983,10 +983,6 @@
     "defaultMessage": "How it works",
     "description": "Heading of the 'How it works' marketing section on Projects home page"
   },
-  "6w1Z0V": {
-    "defaultMessage": "Practice Questions",
-    "description": "Section title for links to question lists by category and format"
-  },
   "6y6SUS": {
     "defaultMessage": "Mark as complete",
     "description": "Mark question as complete"
@@ -5506,6 +5502,10 @@
   "hoQUfU": {
     "defaultMessage": "Importance: High to Low",
     "description": "Sorting option on quiz questions page - from High to Low"
+  },
+  "hphZ3y": {
+    "defaultMessage": "Practice questions",
+    "description": "Section title for links to question lists by category and format"
   },
   "hqzG5o": {
     "defaultMessage": "Choose your pricing plan",

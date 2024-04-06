@@ -7,9 +7,11 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import gtag from '~/lib/gtag';
+
 import type { NavbarPrimaryItem } from '~/components/ui/Navbar/NavTypes';
 
-export default function useProjectsNavItems() {
+export default function useProjectsNavItems(placement: 'nav' | 'sidebar') {
   const intl = useIntl();
 
   const dashboard: NavbarPrimaryItem = {
@@ -21,6 +23,13 @@ export default function useProjectsNavItems() {
       description: 'Sidebar navigation label',
       id: 'R9G9bY',
     }),
+    onClick: () => {
+      gtag.event({
+        action: `${placement}.dashboard.click`,
+        category: 'engagement',
+        label: 'Dashboard',
+      });
+    },
     position: 'start',
     type: 'link',
   };
@@ -33,6 +42,13 @@ export default function useProjectsNavItems() {
       description: 'Sidebar navigation label',
       id: 'OelRg0',
     }),
+    onClick: () => {
+      gtag.event({
+        action: `${placement}.challenges.click`,
+        category: 'engagement',
+        label: 'Projects challenges',
+      });
+    },
     position: 'start',
     type: 'link',
   };
@@ -45,6 +61,13 @@ export default function useProjectsNavItems() {
       description: 'Sidebar navigation label',
       id: 'e2P6am',
     }),
+    onClick: () => {
+      gtag.event({
+        action: `${placement}.submissions.click`,
+        category: 'engagement',
+        label: 'User submissions',
+      });
+    },
     position: 'start',
     type: 'link',
   };
@@ -57,6 +80,13 @@ export default function useProjectsNavItems() {
       description: 'Sidebar navigation label',
       id: 'IveIL+',
     }),
+    onClick: () => {
+      gtag.event({
+        action: `${placement}.features.click`,
+        category: 'engagement',
+        label: 'Features',
+      });
+    },
     position: 'end',
     scrollToTop: false,
     type: 'link',
@@ -70,6 +100,13 @@ export default function useProjectsNavItems() {
       description: 'Sidebar navigation label',
       id: '9qO5Il',
     }),
+    onClick: () => {
+      gtag.event({
+        action: `${placement}.pricing.click`,
+        category: 'ecommerce',
+        label: 'Pricing',
+      });
+    },
     position: 'end',
     type: 'link',
   };

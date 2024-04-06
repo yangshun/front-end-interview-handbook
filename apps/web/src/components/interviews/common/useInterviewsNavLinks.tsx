@@ -8,7 +8,7 @@ export default function useInterviewsNavLinks(
   isPremium: boolean,
 ): ReadonlyArray<NavbarPrimaryItem> {
   const commonNavItems = useCommonNavItems();
-  const interviewsNavItems = useInterviewsNavItems();
+  const interviewsNavItems = useInterviewsNavItems('nav');
 
   const links: ReadonlyArray<NavbarPrimaryItem | null> = [
     interviewsNavItems.dashboard,

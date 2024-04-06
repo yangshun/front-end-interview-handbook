@@ -5,7 +5,7 @@ import useProjectsNavItems from '../useProjectsNavItems';
 export default function useProjectsSidebarLinks(
   isPremium: boolean,
 ): ReadonlyArray<NavbarPrimaryItem> {
-  const navItems = useProjectsNavItems();
+  const navItems = useProjectsNavItems('sidebar');
 
   const links: ReadonlyArray<NavbarPrimaryItem | null> = [
     navItems.dashboard,
