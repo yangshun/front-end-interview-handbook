@@ -18,10 +18,10 @@ function CountdownTimerPage() {
     return (
       <CountdownContainer>
         <Heading className="text-center" level="heading1">
-          The wait is over, let’s start
+          The wait is over, let's start
         </Heading>
         <Button
-          href="/projects"
+          href="/unveil"
           label="Unveil the product"
           size="lg"
           variant="primary"
