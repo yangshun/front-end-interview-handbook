@@ -1,6 +1,7 @@
 import {
   RiBookOpenLine,
   RiHome3Line,
+  RiPagesLine,
   RiPlayLine,
   RiPriceTag3Line,
   RiShiningLine,
@@ -36,6 +37,7 @@ export default function useInterviewsNavItems() {
 
   const blog: NavbarPrimaryItem = {
     href: '/blog',
+    icon: RiPagesLine,
     itemKey: 'blog',
     label: intl.formatMessage({
       defaultMessage: 'Blog',

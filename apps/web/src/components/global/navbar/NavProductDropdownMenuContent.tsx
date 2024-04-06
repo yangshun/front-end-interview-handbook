@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { RiAwardLine } from 'react-icons/ri';
 
 import useCountdownTimer from '~/hooks/useCountdownTime';
 
@@ -9,18 +10,19 @@ import {
 
 import Timer from '~/components/countdown/timer/Timer';
 import InterviewsLogo from '~/components/global/logos/InterviewsLogo';
+import MysteryProductLogo from '~/components/global/logos/MysteryProductLogo';
 import ProjectsLogo from '~/components/global/logos/ProjectsLogo';
+import useInterviewsNavItems from '~/components/interviews/common/useInterviewsNavItems';
 import Anchor from '~/components/ui/Anchor';
 import Badge from '~/components/ui/Badge';
-import Text from '~/components/ui/Text';
+import Text, { textVariants } from '~/components/ui/Text';
 import {
   themeBackgroundElementColor,
+  themeBackgroundElementEmphasizedStateColor,
   themeBackgroundElementEmphasizedStateColor_Focus,
   themeBackgroundElementEmphasizedStateColor_Hover,
   themeBorderElementColor,
 } from '~/components/ui/theme';
-
-import MysteryProductLogo from '../logos/MysteryProductLogo';
 
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 
@@ -101,34 +103,75 @@ function NavProductDropdownMenuItemCountdown() {
 }
 
 export default function NavProductDropdownMenuContent() {
+  const items = useInterviewsNavItems();
+
   return (
     <DropdownMenuPrimitive.Content
       align="start"
       className={clsx(
-        'flex flex-col gap-2',
-        'w-[360px] rounded-lg p-4',
+        'flex flex-col',
+        'w-[360px] rounded-lg',
         ['border', themeBorderElementColor],
         themeBackgroundElementColor,
         'z-dropdown',
       )}
       sideOffset={8}>
-      <NavProductDropdownMenuItem
-        href="/prepare"
-        label="GreatFrontEnd Interviews"
-        logo={InterviewsLogo}
-        subtitle="Learn and train for your front end interviews"
-      />
-      {FEATURE_FLAGS_SHOW_MYSTERY_PRODUCT ? (
-        <NavProductDropdownMenuItemCountdown />
-      ) : (
+      <div className={clsx('flex flex-col gap-2', 'p-4')}>
         <NavProductDropdownMenuItem
-          beta={true}
-          href="/projects"
-          label="GreatFrontEnd Projects"
-          logo={ProjectsLogo}
-          subtitle="Build real-world projects to learn skills or for portfolio"
+          href="/prepare"
+          label="GreatFrontEnd Interviews"
+          logo={InterviewsLogo}
+          subtitle="Learn and train for your front end interviews"
         />
-      )}
+        {FEATURE_FLAGS_SHOW_MYSTERY_PRODUCT ? (
+          <NavProductDropdownMenuItemCountdown />
+        ) : (
+          <NavProductDropdownMenuItem
+            beta={true}
+            href="/projects"
+            label="GreatFrontEnd Projects"
+            logo={ProjectsLogo}
+            subtitle="Build real-world projects to learn skills or for portfolio"
+          />
+        )}
+      </div>
+      <div
+        className={clsx(
+          'flex flex-col gap-1',
+          'px-4 py-2',
+          themeBackgroundElementEmphasizedStateColor,
+        )}>
+        <Anchor
+          className={clsx(
+            'inline-flex items-center gap-2 p-3',
+            textVariants({
+              color: 'inherit',
+              size: 'body2',
+              weight: 'medium',
+            }),
+          )}
+          href={items.blog.href}
+          variant="secondary">
+          {items.blog.icon != null && (
+            <items.blog.icon aria-hidden={true} className="size-4 shrink-0" />
+          )}
+          {items.blog.label}
+        </Anchor>
+        <Anchor
+          className={clsx(
+            'inline-flex items-center gap-2 p-3',
+            textVariants({
+              color: 'inherit',
+              size: 'body2',
+              weight: 'medium',
+            }),
+          )}
+          href="/affiliates"
+          variant="secondary">
+          <RiAwardLine className="size-4 shrink-0" />
+          Become an affiliate
+        </Anchor>
+      </div>
     </DropdownMenuPrimitive.Content>
   );
 }
