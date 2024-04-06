@@ -9,7 +9,10 @@ import Divider from '~/components/ui/Divider';
 import ProjectsChallengeSubmissionDeploymentUrlsField from './fields/ProjectsChallengeSubmissionDeploymentUrlsField';
 import { useProjectsChallengeSubmissionDeploymentUrlsSchema } from './fields/ProjectsChallengeSubmissionDeploymentUrlsSchema';
 import ProjectsChallengeSubmissionImplementationField from './fields/ProjectsChallengeSubmissionImplementationField';
-import { useProjectsChallengeSubmissionImplementationSchema } from './fields/ProjectsChallengeSubmissionImplementationSchema';
+import {
+  getSubmissionImplementationInitialValue,
+  useProjectsChallengeSubmissionImplementationSchema,
+} from './fields/ProjectsChallengeSubmissionImplementationSchema';
 import ProjectsChallengeSubmissionRepositoryUrlField from './fields/ProjectsChallengeSubmissionRepositoryUrlField';
 import { useProjectsChallengeSubmissionRepositoryUrlSchema } from './fields/ProjectsChallengeSubmissionRepositoryUrlSchema';
 import ProjectsChallengeSubmissionRoadmapSkillsField from './fields/ProjectsChallengeSubmissionRoadmapSkillsField';
@@ -84,7 +87,7 @@ type Props =
 
 const defaultValuesEmpty = Object.freeze({
   deploymentUrls: [],
-  implementation: '',
+  implementation: getSubmissionImplementationInitialValue(),
   repositoryUrl: '',
   roadmapSkills: [],
   summary: '',

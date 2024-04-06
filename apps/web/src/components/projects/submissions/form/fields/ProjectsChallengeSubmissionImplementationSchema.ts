@@ -18,10 +18,8 @@ const MAX_LENGTH = 1000;
 
 const editor = createHeadlessEditor(RichTextEditorConfig);
 
-const getEditorInitialValue = () => {
-  const editorInstance = createHeadlessEditor(RichTextEditorConfig);
-
-  editorInstance.update(
+export function getSubmissionImplementationInitialValue() {
+  editor.update(
     () => {
       const root = $getRoot();
 
@@ -33,7 +31,7 @@ const getEditorInitialValue = () => {
       headingNode1.append($createTextNode('Tech stack and approach'));
       paragraphNode1.append(
         $createTextNode(
-          '// TODO: Write about how you approached the task, including the tools and stack you used',
+          '// E.g. Write about how you approached the task, including the tools and stack you used',
         ),
       );
       root.append(headingNode1);
@@ -48,7 +46,7 @@ const getEditorInitialValue = () => {
 
       paragraphNode2.append(
         $createTextNode(
-          '// TODO: Help the community by sharing the resources and tips that helped you achieve this task',
+          '// E.g. Help the community by sharing the resources and tips that helped you achieve this task',
         ),
       );
       root.append(headingNode2);
@@ -61,7 +59,7 @@ const getEditorInitialValue = () => {
 
       paragraphNode3.append(
         $createTextNode(
-          '// TODO: Provide a list of questions or notes for the community when they are reviewing your project, such as specific things you were not sure of',
+          '// E.g. Provide a list of questions or notes for the community when they are reviewing your project, such as specific things you were not sure of',
         ),
       );
 
@@ -71,8 +69,8 @@ const getEditorInitialValue = () => {
     { discrete: true },
   );
 
-  return JSON.stringify(editorInstance.getEditorState());
-};
+  return JSON.stringify(editor.getEditorState());
+}
 
 function projectsChallengeSubmissionImplementationSchema(options?: {
   maxMessage: string;
@@ -137,7 +135,6 @@ export function getProjectsChallengeSubmissionImplementationAttributes(
     id: 'EO+aoa',
   });
 
-  const initialValue = getEditorInitialValue();
   const maxMessage = intl.formatMessage(
     {
       defaultMessage:
@@ -163,7 +160,6 @@ export function getProjectsChallengeSubmissionImplementationAttributes(
 
   return {
     description,
-    initialValue,
     label,
     validation: {
       maxLength: MAX_LENGTH,

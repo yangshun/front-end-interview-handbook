@@ -34,10 +34,11 @@ export default function ProjectsChallengeSubmissionImplementationField({
           : undefined
       }
       label={attrs.label}
+      maxLength={attrs.validation.maxLength}
       required={attrs.validation.required}
       {...field}
       minHeight="300px"
-      value={field.value || attrs.initialValue}
+      value={field.value}
       onChange={(newValue) => {
         field.onChange({
           target: {
