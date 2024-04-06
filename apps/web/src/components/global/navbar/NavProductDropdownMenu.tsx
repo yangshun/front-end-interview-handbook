@@ -3,7 +3,6 @@ import React from 'react';
 import {
   RiArrowDownSLine,
   RiBriefcaseLine,
-  RiQuestionLine,
   RiRocketLine,
 } from 'react-icons/ri';
 
@@ -38,7 +37,7 @@ export default function NavProductDropdownMenu({ value }: Props) {
       label: 'Interviews',
     },
     mystery: {
-      icon: RiQuestionLine,
+      icon: RiRocketLine,
       label: '???',
     },
     projects: {

@@ -4,14 +4,14 @@ import clsx from 'clsx';
 import { useToggle } from 'usehooks-ts';
 
 import { viewportHeightMinusBanner } from '~/components/common/ViewportHeights';
-import InterviewsSidebar from '~/components/interviews/common/InterviewsSidebar';
+import ProjectsSidebar from '~/components/projects/common/layout/sidebar/ProjectsSidebar';
 import { themeBorderColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
   initialCollapsed?: boolean;
 }>;
 
-export default function InterviewsSidebarContainer({
+export default function ProjectsSidebarContainer({
   initialCollapsed = false,
 }: Props) {
   const [isCollapsed, toggleIsCollapsed] = useToggle(initialCollapsed);
@@ -29,7 +29,7 @@ export default function InterviewsSidebarContainer({
         height: viewportHeightMinusBanner,
         top: `var(--banner-height)`,
       }}>
-      <InterviewsSidebar
+      <ProjectsSidebar
         isCollapsed={isCollapsed}
         onCollapseClick={toggleIsCollapsed}
       />

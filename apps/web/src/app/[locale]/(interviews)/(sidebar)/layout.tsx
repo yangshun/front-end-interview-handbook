@@ -8,7 +8,7 @@ type Props = Readonly<{
   children: React.ReactNode;
 }>;
 
-export default function SidebarLayout({ children }: Props) {
+export default function InterviewsSidebarLayout({ children }: Props) {
   return (
     <>
       <FeedbackWidget position="end" />

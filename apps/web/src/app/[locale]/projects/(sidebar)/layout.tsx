@@ -1,9 +1,27 @@
-import ProjectsSidebarLayout from '~/components/projects/common/layout/sidebar/ProjectsSidebarLayout';
+import GlobalBanner from '~/components/global/banners/GlobalBanner';
+import FeedbackWidget from '~/components/global/feedback/FeedbackWidget';
+import ProjectsNavbar from '~/components/projects/common/layout/ProjectsNavbar';
+import ProjectsSidebarContainer from '~/components/projects/common/layout/sidebar/ProjectsSidebarContainer';
+import Container from '~/components/ui/Container';
 
 type Props = Readonly<{
   children: React.ReactNode;
 }>;
 
-export default async function Layout({ children }: Props) {
-  return <ProjectsSidebarLayout>{children}</ProjectsSidebarLayout>;
+export default function ProjectsSidebarLayout({ children }: Props) {
+  return (
+    <>
+      <FeedbackWidget position="end" />
+      <GlobalBanner />
+      <div className="flex min-h-screen flex-col">
+        <ProjectsNavbar hideOnDesktop={true} />
+        <div className="flex">
+          <ProjectsSidebarContainer />
+          <div className="w-full lg:w-0 lg:grow">
+            <Container className="py-4 lg:py-16">{children}</Container>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
