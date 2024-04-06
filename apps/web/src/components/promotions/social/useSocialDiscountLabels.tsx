@@ -23,20 +23,32 @@ export function useSocialDiscountLabels() {
       id: 'TDZuZW',
     }),
     existingPromoSubtitle: (
-      expiryDate: number,
+      expiryDate: number | null,
       discountPercentage: number | null = SOCIAL_DISCOUNT_PERCENTAGE,
     ) =>
-      intl.formatMessage(
-        {
-          defaultMessage: '{discountPercentage}% off, expires on {expiryDate}',
-          description: 'Rewards discount message',
-          id: '8tpjrI',
-        },
-        {
-          discountPercentage,
-          expiryDate: dateFormatter.format(expiryDate * 1000),
-        },
-      ),
+      expiryDate == null
+        ? intl.formatMessage(
+            {
+              defaultMessage: '{discountPercentage}% off',
+              description: 'Rewards discount message',
+              id: 'T4ajXP',
+            },
+            {
+              discountPercentage,
+            },
+          )
+        : intl.formatMessage(
+            {
+              defaultMessage:
+                '{discountPercentage}% off, expires on {expiryDate}',
+              description: 'Rewards discount message',
+              id: '8tpjrI',
+            },
+            {
+              discountPercentage,
+              expiryDate: dateFormatter.format(expiryDate * 1000),
+            },
+          ),
     existingPromoTitle: intl.formatMessage({
       defaultMessage: 'You have an unused promo code',
       description: 'Rewards discount message',

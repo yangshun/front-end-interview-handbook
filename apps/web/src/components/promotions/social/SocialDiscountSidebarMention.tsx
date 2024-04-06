@@ -64,41 +64,39 @@ function SocialDiscountSidebarMentionImpl() {
             const promoCode = promoCodes?.data[0];
 
             return (
-              <>
-                <Text className="block" size="body3" weight="medium">
+              <div className="flex flex-col items-start gap-2">
+                <Text
+                  className="text-pretty block"
+                  size="body3"
+                  weight="medium">
                   {socialDiscountLabels.existingPromoTitle}
                 </Text>
-                <div className="flex flex-col items-center gap-4 pt-2">
+                <div>
                   <SocialDiscountSpecialTicket
                     height={76}
                     subtitle={socialDiscountLabels.existingPromoSubtitle(
-                      promoCode.expires_at!,
+                      promoCode.expires_at,
                       promoCode.coupon.percent_off,
                     )}
                     title={promoCode?.code}
                   />
-                  <div className="w-full">
-                    <Button
-                      addonPosition="end"
-                      href="/pricing"
-                      icon={RiArrowRightLine}
-                      label={socialDiscountLabels.existingPromoCtaLabel}
-                      variant="secondary"
-                    />
-                  </div>
                 </div>
-              </>
+                <Button
+                  addonPosition="end"
+                  href="/pricing"
+                  icon={RiArrowRightLine}
+                  label={socialDiscountLabels.existingPromoCtaLabel}
+                  variant="secondary"
+                />
+              </div>
             );
           }
 
           return (
-            <div className="flex flex-col items-center gap-4">
-              <SocialDiscountSpecialTicket
-                height={76}
-                subtitle={socialDiscountLabels.ticketSubtitle}
-                title={socialDiscountLabels.ticketTitle}
-                width={182}
-              />
+            <div className="flex flex-col gap-1.5">
+              <Text className="block" size="body3" weight="medium">
+                {socialDiscountLabels.title}
+              </Text>
               <Anchor href="/rewards/social" variant="flat">
                 <Text className="block" color="secondary" size="body3">
                   {socialDiscountLabels.subtitle}{' '}
