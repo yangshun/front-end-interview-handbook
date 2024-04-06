@@ -17,7 +17,7 @@ import { themeBorderColor } from '~/components/ui/theme';
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
 import LogoLink from '../logos/LogoLink';
-import I18nSelect from '../../common/i18n/I18nSelect';
+import I18nSelect from '../i18n/I18nSelect';
 
 type FooterLink = Readonly<{
   href: string;

@@ -9,10 +9,15 @@ import gtag from '~/lib/gtag';
 import useIsSticky from '~/hooks/useIsSticky';
 import useUserProfile from '~/hooks/user/useUserProfile';
 
-import I18nSelect from '~/components/common/i18n/I18nSelect';
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
+import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
 import ColorSchemeSelect from '~/components/global/color-scheme/ColorSchemeSelect';
+import I18nSelect from '~/components/global/i18n/I18nSelect';
+import LogoLink from '~/components/global/logos/LogoLink';
+import NavColorSchemeDropdown from '~/components/global/navbar/NavColorSchemeDropdown';
+import NavI18nDropdown from '~/components/global/navbar/NavI18nDropdown';
 import NavProductDropdownMenu from '~/components/global/navbar/NavProductDropdownMenu';
+import NavProfileIcon from '~/components/global/navbar/NavProfileIcon';
 import Anchor from '~/components/ui/Anchor';
 import Avatar from '~/components/ui/Avatar';
 import Button from '~/components/ui/Button';
@@ -27,11 +32,6 @@ import {
 import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
 
 import useInterviewsNavLinks from './useInterviewsNavLinks';
-import { useColorSchemePreferences } from '../../global/color-scheme/ColorSchemePreferencesProvider';
-import LogoLink from '../../global/logos/LogoLink';
-import NavColorSchemeDropdown from '../../global/navbar/NavColorSchemeDropdown';
-import NavLocaleDropdown from '../../global/navbar/NavLocaleDropdown';
-import NavProfileIcon from '../../global/navbar/NavProfileIcon';
 
 import { useUser } from '@supabase/auth-helpers-react';
 
@@ -103,7 +103,7 @@ export default function InterviewsNavbar({ hideOnDesktop = false }: Props) {
 
   const endAddOnItems = (
     <>
-      <NavLocaleDropdown />
+      <NavI18nDropdown />
       <NavColorSchemeDropdown />
       {!isPremium && (
         <Button

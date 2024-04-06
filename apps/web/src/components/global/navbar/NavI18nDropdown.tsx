@@ -4,12 +4,11 @@ import { useIntl } from 'react-intl';
 import DropdownMenu from '~/components/ui/DropdownMenu';
 
 import i18nLabelOptions from '~/i18n/i18nLabelOptions';
-import { useI18nPathname, useI18nRouter } from '~/next-i18nostic/src';
+import { useI18nPathname } from '~/next-i18nostic/src';
 
-export default function NavLocaleDropdown() {
+export default function NavI18nDropdown() {
   const intl = useIntl();
   const { pathname, locale } = useI18nPathname();
-  const router = useI18nRouter();
 
   return (
     <DropdownMenu
@@ -26,15 +25,10 @@ export default function NavLocaleDropdown() {
       {i18nLabelOptions.map(({ label, locale: localeItem }) => (
         <DropdownMenu.Item
           key={localeItem}
+          href={pathname == null ? undefined : pathname}
           isSelected={locale === localeItem}
           label={label}
-          onClick={() => {
-            if (pathname == null) {
-              return;
-            }
-
-            router.push(pathname, { locale: localeItem });
-          }}
+          locale={localeItem}
         />
       ))}
     </DropdownMenu>
