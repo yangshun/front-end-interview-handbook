@@ -1,10 +1,10 @@
 'use client';
 
 import clsx from 'clsx';
-import type { EditorState, LexicalEditor } from 'lexical';
+import { $getRoot, type EditorState, type LexicalEditor } from 'lexical';
 import type { FormEventHandler, ForwardedRef } from 'react';
 import type { MutableRefObject } from 'react';
-import { forwardRef, useId, useRef, useState } from 'react';
+import { forwardRef, useEffect, useId, useRef, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import type { LabelDescriptionStyle } from '~/components/ui/Label';
@@ -21,8 +21,10 @@ import RichTextEditorLinkPlugin from './plugin/RichTextEditorLinkPlugin';
 import RichTextEditorRefPlugin from './plugin/RichTextEditorRefPlugin';
 import { RichTextEditorConfig } from './RichTextEditorConfig';
 import { proseStyle } from '../Prose';
+import TextMaxLengthLabel from '../Text/TextMaxLengthLabel';
 import { themeBackgroundElementColor } from '../theme';
 
+import { createHeadlessEditor } from '@lexical/headless';
 import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin';
 import { ClearEditorPlugin } from '@lexical/react/LexicalClearEditorPlugin';
 import { LexicalComposer } from '@lexical/react/LexicalComposer';
@@ -45,6 +47,7 @@ type Props = Readonly<{
   id?: string;
   isLabelHidden?: boolean;
   label: string;
+  maxLength?: number;
   minHeight?: string;
   onBlur?: FormEventHandler<HTMLDivElement>;
   onChange?: (value: string) => void;
@@ -63,6 +66,8 @@ const stateClasses: Record<State, string> = {
   ),
 };
 
+const editor = createHeadlessEditor(RichTextEditorConfig);
+
 function RichTextEditor(
   {
     autoFocus = false,
@@ -74,6 +79,7 @@ function RichTextEditor(
     id: idParam,
     isLabelHidden = false,
     label,
+    maxLength,
     minHeight = '50px',
     required,
     value,
@@ -91,6 +97,16 @@ function RichTextEditor(
   const state = hasError ? 'error' : 'normal';
   const [floatingAnchorElem, setFloatingAnchorElem] =
     useState<HTMLDivElement | null>(null);
+  const [valueLength, setValueLength] = useState(0);
+
+  const hasBottomSection = hasError || maxLength != null;
+
+  useEffect(() => {
+    const editorState = editor.parseEditorState(value ?? '{}');
+    const textContent = editorState.read(() => $getRoot().getTextContent());
+
+    setValueLength(textContent.length);
+  }, [value]);
 
   const onUpdate = (editorState: EditorState) => {
     onChange?.(JSON.stringify(editorState));
@@ -176,7 +192,7 @@ function RichTextEditor(
             <OnChangePlugin onChange={onUpdate} />
           </div>
         </div>
-        {hasError && (
+        {hasBottomSection && (
           <div
             className={clsx(
               'mt-2 flex w-full',
@@ -186,6 +202,12 @@ function RichTextEditor(
               <Text className="block" color="error" id={messageId} size="body3">
                 {errorMessage}
               </Text>
+            )}
+            {maxLength && (
+              <TextMaxLengthLabel
+                maxLength={maxLength}
+                valueLength={valueLength}
+              />
             )}
           </div>
         )}
