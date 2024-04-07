@@ -6,7 +6,7 @@ import {
   SELECTION_CHANGE_COMMAND,
 } from 'lexical';
 import { useCallback, useEffect, useState } from 'react';
-import { RiFontSize2, RiH1, RiH2 } from 'react-icons/ri';
+import { RiFontSize2, RiHeading } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import DropdownMenu from '~/components/ui/DropdownMenu';
@@ -18,7 +18,7 @@ import { $createHeadingNode, $isHeadingNode } from '@lexical/rich-text';
 import { $setBlocksType } from '@lexical/selection';
 import { mergeRegister } from '@lexical/utils';
 
-export type RichTextEditorTextType = 'h3' | 'h4' | 'paragraph';
+export type RichTextEditorTextType = 'heading' | 'paragraph';
 
 export default function RichTextEditorTextTypePlugin() {
   const intl = useIntl();
@@ -40,22 +40,13 @@ export default function RichTextEditorTextTypePlugin() {
       value: 'paragraph',
     },
     {
-      icon: RiH1,
+      icon: RiHeading,
       label: intl.formatMessage({
-        defaultMessage: 'Large title',
-        description: 'Label for heading 1',
-        id: 'KaTEhO',
+        defaultMessage: 'Heading',
+        description: 'Label for heading',
+        id: 'e5o4mU',
       }),
-      value: 'h3',
-    },
-    {
-      icon: RiH2,
-      label: intl.formatMessage({
-        defaultMessage: 'Small title',
-        description: 'Label for heading 2',
-        id: 'DKTFrZ',
-      }),
-      value: 'h4',
+      value: 'heading',
     },
   ];
 
@@ -109,11 +100,11 @@ export default function RichTextEditorTextTypePlugin() {
       const selection = $getSelection();
 
       if ($isRangeSelection(selection)) {
-        if (type === 'paragraph') {
-          $setBlocksType(selection, () => $createParagraphNode());
-        } else {
-          $setBlocksType(selection, () => $createHeadingNode(type));
-        }
+        $setBlocksType(selection, () =>
+          type === 'heading'
+            ? $createHeadingNode('h4')
+            : $createParagraphNode(),
+        );
       }
     });
     setTimeout(() => {

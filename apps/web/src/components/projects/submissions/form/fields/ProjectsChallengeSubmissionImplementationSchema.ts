@@ -26,7 +26,7 @@ export function getSubmissionImplementationInitialValue() {
       $getSelection();
 
       root.append(
-        $createHeadingNode('h3').append(
+        $createHeadingNode('h4').append(
           $createTextNode('Tech stack and approach'),
         ),
       );
@@ -39,7 +39,7 @@ export function getSubmissionImplementationInitialValue() {
       );
 
       root.append(
-        $createHeadingNode('h3').append(
+        $createHeadingNode('h4').append(
           $createTextNode('Useful resources and lessons learnt'),
         ),
       );
@@ -52,7 +52,7 @@ export function getSubmissionImplementationInitialValue() {
       );
 
       root.append(
-        $createHeadingNode('h3').append(
+        $createHeadingNode('h4').append(
           $createTextNode('Notes/questions for community'),
         ),
       );

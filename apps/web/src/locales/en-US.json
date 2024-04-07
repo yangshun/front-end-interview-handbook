@@ -1787,10 +1787,6 @@
     "defaultMessage": "more challenges",
     "description": "Progress percentage label in Continue Learning section in preparation dashboard"
   },
-  "DKTFrZ": {
-    "defaultMessage": "Small title",
-    "description": "Label for heading 2"
-  },
   "DLky7V": {
     "defaultMessage": "Practice UI and JavaScript/TypeScript Interview Questions with Solutions",
     "description": "Title of Interview Preparation Coding page"
@@ -2614,10 +2610,6 @@
   "KZWEcx": {
     "defaultMessage": "Please enter a different email address.",
     "description": "Email validation error message"
-  },
-  "KaTEhO": {
-    "defaultMessage": "Large title",
-    "description": "Label for heading 1"
   },
   "KbLzJO": {
     "defaultMessage": "Bullet list",
@@ -5142,6 +5134,10 @@
   "e2P6am": {
     "defaultMessage": "User submissions",
     "description": "Sidebar navigation label"
+  },
+  "e5o4mU": {
+    "defaultMessage": "Heading",
+    "description": "Label for heading"
   },
   "eBp6vh": {
     "defaultMessage": "Reset Progress",
