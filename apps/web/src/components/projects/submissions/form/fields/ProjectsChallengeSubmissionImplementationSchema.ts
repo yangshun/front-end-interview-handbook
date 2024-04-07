@@ -25,46 +25,44 @@ export function getSubmissionImplementationInitialValue() {
 
       $getSelection();
 
-      const paragraphNode1 = $createParagraphNode();
-      const headingNode1 = $createHeadingNode('h3');
-
-      headingNode1.append($createTextNode('Tech stack and approach'));
-      paragraphNode1.append(
-        $createTextNode(
-          '// E.g. Write about how you approached the task, including the tools and stack you used',
+      root.append(
+        $createHeadingNode('h3').append(
+          $createTextNode('Tech stack and approach'),
         ),
       );
-      root.append(headingNode1);
-      root.append(paragraphNode1);
-
-      const paragraphNode2 = $createParagraphNode();
-      const headingNode2 = $createHeadingNode('h3');
-
-      headingNode2.append(
-        $createTextNode('Useful resources and lessons learnt'),
-      );
-
-      paragraphNode2.append(
-        $createTextNode(
-          '// E.g. Help the community by sharing the resources and tips that helped you achieve this task',
-        ),
-      );
-      root.append(headingNode2);
-      root.append(paragraphNode2);
-
-      const paragraphNode3 = $createParagraphNode();
-      const headingNode3 = $createHeadingNode('h3');
-
-      headingNode3.append($createTextNode('Notes / Questions for Community'));
-
-      paragraphNode3.append(
-        $createTextNode(
-          '// E.g. Provide a list of questions or notes for the community when they are reviewing your project, such as specific things you were not sure of',
+      root.append(
+        $createParagraphNode().append(
+          $createTextNode(
+            '// E.g. Write about how you approached the task, including the tools and stack you used',
+          ),
         ),
       );
 
-      root.append(headingNode3);
-      root.append(paragraphNode3);
+      root.append(
+        $createHeadingNode('h3').append(
+          $createTextNode('Useful resources and lessons learnt'),
+        ),
+      );
+      root.append(
+        $createParagraphNode().append(
+          $createTextNode(
+            '// E.g. Help the community by sharing the resources and tips that helped you achieve this task',
+          ),
+        ),
+      );
+
+      root.append(
+        $createHeadingNode('h3').append(
+          $createTextNode('Notes/questions for community'),
+        ),
+      );
+      root.append(
+        $createParagraphNode().append(
+          $createTextNode(
+            '// E.g. Provide a list of questions or notes for the community when they are reviewing your project, such as specific things you were not sure of',
+          ),
+        ),
+      );
     },
     { discrete: true },
   );

@@ -102,10 +102,14 @@ function RichTextEditor(
   const hasBottomSection = hasError || maxLength != null;
 
   useEffect(() => {
-    const editorState = editor.parseEditorState(value ?? '{}');
-    const textContent = editorState.read(() => $getRoot().getTextContent());
+    try {
+      const editorState = editor.parseEditorState(value ?? '{}');
+      const textContent = editorState.read(() => $getRoot().getTextContent());
 
-    setValueLength(textContent.length);
+      setValueLength(textContent.length);
+    } catch {
+      // Ignore error.
+    }
   }, [value]);
 
   const onUpdate = (editorState: EditorState) => {

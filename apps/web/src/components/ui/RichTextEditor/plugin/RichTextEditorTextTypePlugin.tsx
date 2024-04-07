@@ -6,7 +6,7 @@ import {
   SELECTION_CHANGE_COMMAND,
 } from 'lexical';
 import { useCallback, useEffect, useState } from 'react';
-import { RiFontSize2, RiH1, RiH2, RiH3 } from 'react-icons/ri';
+import { RiFontSize2, RiH1, RiH2 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import DropdownMenu from '~/components/ui/DropdownMenu';
@@ -18,7 +18,7 @@ import { $createHeadingNode, $isHeadingNode } from '@lexical/rich-text';
 import { $setBlocksType } from '@lexical/selection';
 import { mergeRegister } from '@lexical/utils';
 
-export type RichTextEditorTextType = 'h1' | 'h2' | 'h3' | 'paragraph';
+export type RichTextEditorTextType = 'h3' | 'h4' | 'paragraph';
 
 export default function RichTextEditorTextTypePlugin() {
   const intl = useIntl();
@@ -42,29 +42,20 @@ export default function RichTextEditorTextTypePlugin() {
     {
       icon: RiH1,
       label: intl.formatMessage({
-        defaultMessage: 'Heading 1',
+        defaultMessage: 'Large title',
         description: 'Label for heading 1',
-        id: 'td/xb6',
+        id: 'KaTEhO',
       }),
-      value: 'h1',
+      value: 'h3',
     },
     {
       icon: RiH2,
       label: intl.formatMessage({
-        defaultMessage: 'Heading 2',
+        defaultMessage: 'Small title',
         description: 'Label for heading 2',
-        id: 'gAcM0t',
+        id: 'DKTFrZ',
       }),
-      value: 'h2',
-    },
-    {
-      icon: RiH3,
-      label: intl.formatMessage({
-        defaultMessage: 'Heading 3',
-        description: 'Label for heading 3',
-        id: 'F4qs12',
-      }),
-      value: 'h3',
+      value: 'h4',
     },
   ];
 
