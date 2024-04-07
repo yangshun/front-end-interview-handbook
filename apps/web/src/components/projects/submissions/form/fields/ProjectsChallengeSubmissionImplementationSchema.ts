@@ -14,7 +14,7 @@ import { createHeadlessEditor } from '@lexical/headless';
 import { $createHeadingNode } from '@lexical/rich-text';
 
 const MIN_LENGTH = 80;
-const MAX_LENGTH = 1000;
+const MAX_LENGTH = 20_000;
 
 const editor = createHeadlessEditor(RichTextEditorConfig);
 
