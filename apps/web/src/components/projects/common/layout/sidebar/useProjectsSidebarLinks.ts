@@ -11,7 +11,7 @@ export default function useProjectsSidebarLinks(
     navItems.dashboard,
     navItems.challenges,
     navItems.submissions,
-    !isPremium ? navItems.features : null,
+    navItems.features,
     !isPremium ? navItems.pricing : null,
   ];
 

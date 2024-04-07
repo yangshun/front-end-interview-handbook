@@ -11,7 +11,7 @@ export default function useInterviewsSidebarLinks(
     navItems.dashboard,
     navItems.practice,
     navItems.guides,
-    !isPremium ? navItems.features : null,
+    navItems.features,
     !isPremium ? navItems.pricing : null,
   ];
 
