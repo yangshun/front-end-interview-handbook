@@ -168,6 +168,8 @@ export const projectsCommentsRouter = router({
     }),
   listUserComments: publicProcedure
     .input(
+      // TODO(projects): paginate this query because each comment can be mapped
+      // to a submission and it can be very expensive for users with many comments.
       z.object({
         contributionType: z.array(z.string()),
         domainList: z.array(z.enum(domains)),
@@ -255,7 +257,7 @@ export const projectsCommentsRouter = router({
           where,
         });
 
-        const commentsWithInfo = Promise.all(
+        const commentsWithInfo = await Promise.all(
           comments.map(async (comment) => {
             if (
               comment.domain ===
@@ -265,8 +267,9 @@ export const projectsCommentsRouter = router({
                 (challenge) => challenge.slug === comment.entityId,
               );
 
-              if (!challengeMetadata?.href || !challengeMetadata?.title) {
-                return comment;
+              // Non-existent challenge, ignore comment.
+              if (challengeMetadata == null) {
+                return null;
               }
 
               return {
@@ -283,25 +286,27 @@ export const projectsCommentsRouter = router({
             ) {
               const submission =
                 await prisma.projectsChallengeSubmission.findUnique({
-                  select: {
-                    projectsProfile: true,
-                    title: true,
+                  include: {
+                    projectsProfile: {
+                      include: {
+                        userProfile: true,
+                      },
+                    },
                   },
                   where: {
                     id: comment.entityId,
                   },
                 });
 
-              const submissionAuthor = await prisma.profile.findUnique({
-                select: {
-                  name: true,
-                },
-                where: {
-                  id: submission?.projectsProfile?.userId,
-                },
-              });
+              // Non-existent submission, possibly deleted. Ignore comment.
+              if (submission == null) {
+                return null;
+              }
 
-              if (!submission?.title || !submissionAuthor?.name) {
+              const submissionAuthorName =
+                submission?.projectsProfile?.userProfile.name;
+
+              if (!submission?.title || !submissionAuthorName) {
                 return comment;
               }
 
@@ -309,7 +314,7 @@ export const projectsCommentsRouter = router({
                 ...comment,
                 entity: {
                   href: `/projects/s/${comment.entityId}`,
-                  recipient: submissionAuthor.name,
+                  recipient: submissionAuthorName,
                   title: submission.title,
                 },
               };
@@ -319,7 +324,10 @@ export const projectsCommentsRouter = router({
           }),
         );
 
-        return commentsWithInfo;
+        // Typesafe way to filter out nulls.
+        return commentsWithInfo.flatMap((comment) =>
+          comment != null ? [comment] : [],
+        );
       },
     ),
   reply: projectsUserProcedure

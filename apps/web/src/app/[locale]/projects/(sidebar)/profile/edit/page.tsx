@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
-import url from 'node:url';
 
 import { redirectToLoginPageIfNotLoggedIn } from '~/components/auth/redirectToLoginPageIfNotLoggedIn';
 import ProjectsProfileEditPage from '~/components/projects/profile/edit/ProjectsProfileEditPage';
