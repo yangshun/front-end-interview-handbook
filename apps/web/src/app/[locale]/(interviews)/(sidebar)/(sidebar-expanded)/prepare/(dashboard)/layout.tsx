@@ -1,4 +1,4 @@
-import DashboardLayout from '~/components/interviews/dashboard/DashboardLayout';
+import InterviewsDashboardLayout from '~/components/interviews/dashboard/InterviewsDashboardLayout';
 
 import { fetchQuestionsListCount } from '~/db/QuestionsListReader';
 
@@ -12,8 +12,9 @@ export default async function DashboardPageLayout({ children }: Props) {
   ]);
 
   return (
-    <DashboardLayout questionTotalAvailableCount={questionTotalAvailableCount}>
+    <InterviewsDashboardLayout
+      questionTotalAvailableCount={questionTotalAvailableCount}>
       {children}
-    </DashboardLayout>
+    </InterviewsDashboardLayout>
   );
 }

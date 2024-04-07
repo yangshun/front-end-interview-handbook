@@ -1,6 +1,6 @@
 import type { Metadata } from 'next/types';
 
-import type { EmbedUIQuestion } from '~/components/interviews/marketing/embed/MarketingEmbedUIQuestion';
+import type { EmbedUIQuestion } from '~/components/interviews/marketing/embed/InterviewsMarketingEmbedUIQuestion';
 import { sortQuestions } from '~/components/interviews/questions/listings/filters/QuestionsProcessor';
 import { QuestionCount } from '~/components/interviews/questions/listings/stats/QuestionCount';
 
@@ -17,7 +17,7 @@ import {
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-import MarketingHomePage from './MarketingHomePage';
+import InterviewsMarketingHomePage from './InterviewsMarketingHomePage';
 
 export const dynamic = 'force-static';
 
@@ -110,7 +110,7 @@ export default async function Page({ params }: Props) {
   ]);
 
   return (
-    <MarketingHomePage
+    <InterviewsMarketingHomePage
       javaScriptEmbedExample={{
         ...javaScriptEmbedExample,
         skeleton: {

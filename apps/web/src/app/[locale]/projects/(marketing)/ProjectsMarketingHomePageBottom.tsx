@@ -1,6 +1,6 @@
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import MarketingContinuousUpdates from '~/components/interviews/marketing/MarketingContinuousUpdates';
+import InterviewsMarketingContinuousUpdates from '~/components/interviews/marketing/InterviewsMarketingContinuousUpdates';
 import ProjectsMarketingContactUs from '~/components/projects/marketing/ProjectsMarketingContactUs';
 import ProjectsPricingPromotions from '~/components/projects/purchase/ProjectsPricingPromotions';
 import ProjectsPricingSectionLocalizedContainer from '~/components/projects/purchase/ProjectsPricingSectionLocalizedContainer';
@@ -16,7 +16,7 @@ export default function ProjectsMarketingHomePageBottom() {
       <ProjectsPricingSectionLocalizedContainer />
       <ProjectsPricingPromotions />
       <ProjectMarketingGeneralFAQSection />
-      <MarketingContinuousUpdates
+      <InterviewsMarketingContinuousUpdates
         title={intl.formatMessage({
           defaultMessage: "We're still growing our challenge base",
           description: 'Challenge base section title',
@@ -31,7 +31,7 @@ export default function ProjectsMarketingHomePageBottom() {
             id="cIZicH"
           />
         </Text>
-      </MarketingContinuousUpdates>
+      </InterviewsMarketingContinuousUpdates>
       <ProjectsMarketingContactUs />
     </>
   );

@@ -3,7 +3,7 @@ import type { Metadata } from 'next/types';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-import PrepareSystemDesignPage from './PrepareSystemDesignPage';
+import InterviewsDashboardPrepareSystemDesignPage from './InterviewsDashboardPrepareSystemDesignPage';
 
 export const dynamic = 'force-static';
 
@@ -37,5 +37,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page() {
-  return <PrepareSystemDesignPage />;
+  return <InterviewsDashboardPrepareSystemDesignPage />;
 }

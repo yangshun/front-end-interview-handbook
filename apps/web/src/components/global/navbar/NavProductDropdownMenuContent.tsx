@@ -118,7 +118,7 @@ export default function NavProductDropdownMenuContent() {
       sideOffset={8}>
       <div className={clsx('flex flex-col gap-2', 'p-4')}>
         <NavProductDropdownMenuItem
-          href="/prepare"
+          href="/"
           label="GreatFrontEnd Interviews"
           logo={InterviewsLogo}
           subtitle="Learn and train for your front end interviews"

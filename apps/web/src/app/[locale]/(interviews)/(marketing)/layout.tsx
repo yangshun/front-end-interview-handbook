@@ -2,7 +2,7 @@ import GlobalBanner from '~/components/global/banners/GlobalBanner';
 import FeedbackWidget from '~/components/global/feedback/FeedbackWidget';
 import InterviewsFooter from '~/components/interviews/common/InterviewsFooter';
 import InterviewsNavbar from '~/components/interviews/common/InterviewsNavbar';
-import MarketingRecentPurchasesToasts from '~/components/interviews/marketing/MarketingRecentPurchasesToasts';
+import InterviewsMarketingRecentPurchasesToasts from '~/components/interviews/marketing/InterviewsMarketingRecentPurchasesToasts';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 type Props = Readonly<{
@@ -21,7 +21,7 @@ export default function InterviewsMarketingLayout({ children }: Props) {
           <InterviewsFooter />
         </Section>
       </div>
-      <MarketingRecentPurchasesToasts />
+      <InterviewsMarketingRecentPurchasesToasts />
     </>
   );
 }

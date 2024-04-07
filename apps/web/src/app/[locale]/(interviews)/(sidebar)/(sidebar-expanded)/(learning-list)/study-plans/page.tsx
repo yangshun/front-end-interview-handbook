@@ -11,7 +11,7 @@ import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-import StudyPlansPage from './StudyPlansPage';
+import InterviewsStudyPlansPage from './InterviewsStudyPlansPage';
 
 export const dynamic = 'force-static';
 
@@ -72,7 +72,7 @@ export default async function Page({ params }: Props) {
   ]);
 
   return (
-    <StudyPlansPage
+    <InterviewsStudyPlansPage
       plansDifficultySummary={{
         'one-month': difficultySummaryOneMonth,
         'one-week': difficultySummaryOneWeek,

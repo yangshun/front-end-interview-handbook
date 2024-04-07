@@ -11,7 +11,7 @@ import {
 import AmazonLogo from '~/components/icons/AmazonLogo';
 import GoogleLogo from '~/components/icons/GoogleLogo';
 import MetaLogo from '~/components/icons/MetaLogo';
-import MarketingFeaturesRow from '~/components/interviews/marketing/MarketingFeaturesRow';
+import InterviewsMarketingFeaturesRow from '~/components/interviews/marketing/InterviewsMarketingFeaturesRow';
 import Button from '~/components/ui/Button';
 import Container from '~/components/ui/Container';
 
@@ -73,7 +73,7 @@ export default function ResumeReviewHero() {
       <Container>
         <svg
           aria-hidden="true"
-          className="absolute inset-0 -z-10 size-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]">
+          className="size-full absolute inset-0 -z-10 stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]">
           <defs>
             <pattern
               height={200}
@@ -186,7 +186,10 @@ export default function ResumeReviewHero() {
               ))}
             </div>
           </div>
-          <MarketingFeaturesRow features={summaryFeatures} title="Features" />
+          <InterviewsMarketingFeaturesRow
+            features={summaryFeatures}
+            title="Features"
+          />
         </div>
       </Container>
     </div>

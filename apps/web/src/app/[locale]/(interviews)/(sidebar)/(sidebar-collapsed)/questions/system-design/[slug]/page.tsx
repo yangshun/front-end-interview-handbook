@@ -10,7 +10,7 @@ import {
   readViewerFromToken,
 } from '~/supabase/SupabaseServerGFE';
 
-import QuestionsSystemDesignPage from './QuestionsSystemDesignPage';
+import InterviewsQuestionsSystemDesignPage from './InterviewsQuestionsSystemDesignPage';
 
 type Props = Readonly<{
   params: Readonly<{
@@ -76,7 +76,7 @@ export default async function Page({ params }: Props) {
         pathname={question.metadata.href}
         title={`Front End System Design: ${question.metadata.title}`}
       />
-      <QuestionsSystemDesignPage
+      <InterviewsQuestionsSystemDesignPage
         canViewPremiumContent={canViewPremiumContent}
         isQuestionLocked={isQuestionLocked}
         question={{

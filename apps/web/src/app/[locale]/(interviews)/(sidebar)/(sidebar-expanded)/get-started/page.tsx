@@ -12,7 +12,7 @@ import {
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-import GetStartedPage from './GetStartedPage';
+import InterviewsMarketingGetStartedPage from './InterviewsMarketingGetStartedPage';
 
 export const dynamic = 'force-static';
 
@@ -66,7 +66,7 @@ export default async function Page({ params }: Props) {
   ]);
 
   return (
-    <GetStartedPage
+    <InterviewsMarketingGetStartedPage
       javaScriptQuestions={sortQuestions(
         javaScriptQuestions.filter((question) => question.featured),
         'importance',

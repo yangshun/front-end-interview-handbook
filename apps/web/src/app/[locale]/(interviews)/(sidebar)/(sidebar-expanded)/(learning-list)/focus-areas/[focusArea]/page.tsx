@@ -14,7 +14,7 @@ import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteUrl } from '~/seo/siteUrl';
 
-import FocusAreaPage from './FocusAreaPage';
+import InterviewsFocusAreaPage from './InterviewsFocusAreaPage';
 
 async function getFocusAreaSEO(focusAreaType: FocusAreaType, locale: string) {
   const intl = await getIntlServerOnly(locale);
@@ -94,7 +94,7 @@ export default async function Page({ params }: Props) {
         }}
         useAppDir={true}
       />
-      <FocusAreaPage
+      <InterviewsFocusAreaPage
         codingQuestions={codingQuestionsForPlan}
         focusArea={focusArea}
         quizQuestions={sortQuestions(

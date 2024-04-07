@@ -1787,6 +1787,10 @@
     "defaultMessage": "more challenges",
     "description": "Progress percentage label in Continue Learning section in preparation dashboard"
   },
+  "DKTFrZ": {
+    "defaultMessage": "Small title",
+    "description": "Label for heading 2"
+  },
   "DLky7V": {
     "defaultMessage": "Practice UI and JavaScript/TypeScript Interview Questions with Solutions",
     "description": "Title of Interview Preparation Coding page"
@@ -1970,10 +1974,6 @@
   "F4esBf": {
     "defaultMessage": "Our projects are never one-off - they always fit into some component library or design system which can be composed into your very own toolset to build future projects",
     "description": "Description for \"Never waste your time building one-off projects\" feature marketing section on Projects home page"
-  },
-  "F4qs12": {
-    "defaultMessage": "Heading 3",
-    "description": "Label for heading 3"
   },
   "F5oV3L": {
     "defaultMessage": "Delete line",
@@ -2614,6 +2614,10 @@
   "KZWEcx": {
     "defaultMessage": "Please enter a different email address.",
     "description": "Email validation error message"
+  },
+  "KaTEhO": {
+    "defaultMessage": "Large title",
+    "description": "Label for heading 1"
   },
   "KbLzJO": {
     "defaultMessage": "Bullet list",
@@ -5399,10 +5403,6 @@
     "defaultMessage": "{replyCount, plural, one {Show # reply} other {Show # replies}}",
     "description": "Label for more replies button on project discussions page"
   },
-  "gAcM0t": {
-    "defaultMessage": "Heading 2",
-    "description": "Label for heading 2"
-  },
   "gAep7Q": {
     "defaultMessage": "Follow on LinkedIn",
     "description": "Link to the LinkedIn page"
@@ -7034,10 +7034,6 @@
   "tcKl41": {
     "defaultMessage": "Design, architecture and optimization decisions for common front end apps",
     "description": "Description of system design interview preparation"
-  },
-  "td/xb6": {
-    "defaultMessage": "Heading 1",
-    "description": "Label for heading 1"
   },
   "tdTeVR": {
     "defaultMessage": "To submission",

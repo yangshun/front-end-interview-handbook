@@ -6,8 +6,8 @@ import { useEffect } from 'react';
 
 import gtag from '~/lib/gtag';
 
-import MarketingFeatures from '~/components/interviews/marketing/MarketingFeatures';
-import MarketingTestimonialsSection from '~/components/interviews/marketing/testimonials/MarketingTestimonialsSection';
+import InterviewsMarketingFeatures from '~/components/interviews/marketing/InterviewsMarketingFeatures';
+import InterviewsMarketingTestimonialsSection from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialsSection';
 import InterviewsPricingFAQSection from '~/components/interviews/purchase/InterviewsPricingFAQSection';
 import type {
   InterviewsPricingPlanPaymentConfigLocalizedRecord,
@@ -79,10 +79,10 @@ export default function InterviewsPricingPage({
         plans={plans}
       />
       <Section>
-        <MarketingFeatures />
+        <InterviewsMarketingFeatures />
         <div>
           <InterviewsPricingFAQSection />
-          <MarketingTestimonialsSection />
+          <InterviewsMarketingTestimonialsSection />
         </div>
       </Section>
     </div>

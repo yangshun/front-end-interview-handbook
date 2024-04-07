@@ -8,7 +8,7 @@ import {
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-import PrepareCodingPage from './PrepareCodingPage';
+import InterviewsDashboardPrepareCodingPage from './InterviewsDashboardPrepareCodingPage';
 
 export const dynamic = 'force-static';
 
@@ -62,7 +62,7 @@ export default async function Page({ params }: Props) {
   ]);
 
   return (
-    <PrepareCodingPage
+    <InterviewsDashboardPrepareCodingPage
       questionCompletionCount={questionCompletionCount}
       questionTotalAvailableCount={questionTotalAvailableCount}
       questions={codingQuestions}

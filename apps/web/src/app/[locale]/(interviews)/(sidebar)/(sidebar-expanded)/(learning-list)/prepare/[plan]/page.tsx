@@ -18,7 +18,7 @@ import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 import { getSiteUrl } from '~/seo/siteUrl';
 
-import StudyPlanPage from './StudyPlanPage';
+import InterviewsStudyPlanPage from './InterviewsStudyPlanPage';
 
 async function getPreparationPlansSEO(
   planType: PreparationPlanType,
@@ -100,7 +100,7 @@ export default async function Page({ params }: Props) {
         }}
         useAppDir={true}
       />
-      <StudyPlanPage
+      <InterviewsStudyPlanPage
         codingQuestions={codingQuestionsForPlan}
         difficultySummary={difficultySummary}
         plan={preparationPlan}

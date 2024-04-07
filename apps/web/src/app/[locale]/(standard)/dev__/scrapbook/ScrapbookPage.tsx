@@ -11,11 +11,11 @@ import {
 } from 'react-icons/ri';
 import { TbBinaryTree } from 'react-icons/tb';
 
-import DashboardContinueLearning from '~/components/interviews/dashboard/DashboardContinueLearning';
-import DashboardStudyGuideList from '~/components/interviews/dashboard/DashboardStudyGuideList';
-import MarketingCompaniesMarquee from '~/components/interviews/marketing/MarketingCompaniesMarquee';
-import MarketingHomepageFeaturesRow from '~/components/interviews/marketing/MarketingHomepageFeaturesRow';
-import MarketingQuestionCardMarquee from '~/components/interviews/marketing/MarketingQuestionCardMarquee';
+import InterviewsDashboardContinueLearning from '~/components/interviews/dashboard/InterviewsDashboardContinueLearning';
+import InterviewsDashboardStudyGuideList from '~/components/interviews/dashboard/InterviewsDashboardStudyGuideList';
+import InterviewsMarketingCompaniesMarquee from '~/components/interviews/marketing/InterviewsMarketingCompaniesMarquee';
+import InterviewsMarketingHomepageFeaturesRow from '~/components/interviews/marketing/InterviewsMarketingHomepageFeaturesRow';
+import InterviewsMarketingQuestionCardMarquee from '~/components/interviews/marketing/InterviewsMarketingQuestionCardMarquee';
 import type { QuestionMetadata } from '~/components/interviews/questions/common/QuestionsTypes';
 import QuestionListingTopicFilters from '~/components/interviews/questions/listings/filters/QuestionListingTopicFilters';
 import QuestionsLearningListTitleSection from '~/components/interviews/questions/listings/learning/QuestionsLearningListTitleSection';
@@ -329,7 +329,7 @@ export default function ScrapbookPage() {
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
               <div className="inline-flex flex-col items-start gap-y-6">
-                <DashboardStudyGuideList
+                <InterviewsDashboardStudyGuideList
                   href="#"
                   items={[
                     {
@@ -358,7 +358,7 @@ export default function ScrapbookPage() {
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
               <div className="inline-grid grid-cols-1">
-                <DashboardContinueLearning
+                <InterviewsDashboardContinueLearning
                   items={[
                     {
                       completedCount: 30,
@@ -421,24 +421,24 @@ export default function ScrapbookPage() {
           <div>
             <UIExamplesGroup darkMode="vertical">
               <div>
-                <MarketingHomepageFeaturesRow />
+                <InterviewsMarketingHomepageFeaturesRow />
               </div>
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="vertical">
               <div>
-                <MarketingCompaniesMarquee />
+                <InterviewsMarketingCompaniesMarquee />
               </div>
             </UIExamplesGroup>
             <UIExamplesGroup darkMode="horizontal">
               <div className="flex flex-col gap-8">
                 <Heading level="heading4">Question marquees</Heading>
-                <MarketingQuestionCardMarquee
+                <InterviewsMarketingQuestionCardMarquee
                   periodSeconds={120}
                   questions={mockQuestions}
                   rows={1}
                 />
                 <Divider />
-                <MarketingQuestionCardMarquee
+                <InterviewsMarketingQuestionCardMarquee
                   periodSeconds={60}
                   questions={mockQuestions}
                   rows={2}

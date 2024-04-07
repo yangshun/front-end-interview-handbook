@@ -13,7 +13,7 @@ import { fetchQuestionsBySlug } from '~/db/QuestionsListReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultMetadata from '~/seo/defaultMetadata';
 
-import FocusAreaListPage from './FocusAreaListPage';
+import InterviewsFocusAreaListPage from './InterviewsFocusAreaListPage';
 
 export const dynamic = 'force-static';
 
@@ -88,7 +88,7 @@ export default async function Page({ params }: Props) {
   );
 
   return (
-    <FocusAreaListPage
+    <InterviewsFocusAreaListPage
       difficultySummary={{
         accessibility: difficultySummaryA11y,
         'async-operations': difficultySummaryAsync,
