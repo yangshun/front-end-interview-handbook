@@ -15,6 +15,7 @@ export default function useProjectsRedirectToOnboardingIfNecessary() {
   useEffect(() => {
     if (
       userProfile != null &&
+      // Redirect to onboarding page if projectsProfile has not been set up.
       userProfile?.projectsProfile == null &&
       !EXCLUSIONS.includes(pathname ?? '')
     ) {

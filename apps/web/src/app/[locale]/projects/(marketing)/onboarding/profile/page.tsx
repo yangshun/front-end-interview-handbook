@@ -1,5 +1,6 @@
 import type { Metadata } from 'next/types';
 
+import { redirectToLoginPageIfNotLoggedIn } from '~/components/auth/redirectToLoginPageIfNotLoggedIn';
 import ProjectsOnboardingProfilePage from '~/components/projects/onboarding/ProjectsOnboardingProfilePage';
 
 import { getIntlServerOnly } from '~/i18n';
@@ -31,6 +32,8 @@ type Props = Readonly<{
   params: Readonly<{ locale: string }>;
 }>;
 
-export default function Page() {
+export default async function Page() {
+  await redirectToLoginPageIfNotLoggedIn('/projects/onboarding/profile');
+
   return <ProjectsOnboardingProfilePage />;
 }
