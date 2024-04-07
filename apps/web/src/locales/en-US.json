@@ -4303,6 +4303,10 @@
     "defaultMessage": "Skills is required.",
     "description": "Error message"
   },
+  "X154OD": {
+    "defaultMessage": "Step 2 (optional)",
+    "description": "Step 2 of onboarding process"
+  },
   "X1UVMv": {
     "defaultMessage": "We add more questions and guides from time to time, available for free to premium subscribers.",
     "description": "Subtitle for free continuous updates feature"
@@ -6370,6 +6374,10 @@
   "oC86Nx": {
     "defaultMessage": "Views on submissions",
     "description": "Number of views on the project submissions"
+  },
+  "oF/Vtk": {
+    "defaultMessage": "Step 1",
+    "description": "Step 1 of onboarding process"
   },
   "oFz9cs": {
     "defaultMessage": "{commentCount, plural, =0 {No comments} one {# comment} other {# comments}}",

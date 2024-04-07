@@ -13,9 +13,25 @@ import ProjectsOnboardingProfileStep1 from './ProjectsOnboardingProfileStep1';
 import ProjectsOnboardingProfileStep2 from './ProjectsOnboardingProfileStep2';
 
 function useTabs() {
+  const intl = useIntl();
+
   const tabs = [
-    { label: 'Step 1', value: 'step-1' },
-    { label: 'Step 2', value: 'step-2' },
+    {
+      label: intl.formatMessage({
+        defaultMessage: 'Step 1',
+        description: 'Step 1 of onboarding process',
+        id: 'oF/Vtk',
+      }),
+      value: 'step-1',
+    },
+    {
+      label: intl.formatMessage({
+        defaultMessage: 'Step 2 (optional)',
+        description: 'Step 2 of onboarding process',
+        id: 'X154OD',
+      }),
+      value: 'step-2',
+    },
   ];
 
   return tabs;
