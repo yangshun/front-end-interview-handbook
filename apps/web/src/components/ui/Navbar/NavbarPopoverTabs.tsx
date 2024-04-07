@@ -3,10 +3,10 @@ import { useState } from 'react';
 
 import Anchor from '~/components/ui/Anchor';
 import {
+  themeBackgroundCardAltColor,
   themeBackgroundColor,
   themeBackgroundElementEmphasizedStateColor,
   themeBackgroundElementEmphasizedStateColor_Hover,
-  themeBackgroundLayerEmphasized,
   themeBorderEmphasizeColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
@@ -29,9 +29,9 @@ function NavbarPopoverLink({
 }: NavPopoverLinkItem) {
   const el =
     sublabel != null ? (
-      <div className="group flex flex-col items-start gap-4">
+      <div className="group flex items-start gap-4 xl:flex-col">
         <NavbarFeatureIcon icon={Icon} />
-        <div className="flex flex-col gap-y-1">
+        <div className="flex flex-col gap-y-0.5 xl:gap-y-1">
           <Text
             className="flex items-center gap-2"
             size="body1"
@@ -96,7 +96,7 @@ export default function NavbarPopoverTabs({
         'rounded-lg',
         'shadow-lg dark:shadow-none',
         ['border', themeBorderEmphasizeColor],
-        themeBackgroundLayerEmphasized,
+        themeBackgroundColor,
       )}>
       <TabsPrimitive.Root
         className="flex w-full"
@@ -105,8 +105,8 @@ export default function NavbarPopoverTabs({
         onValueChange={setValue}>
         <TabsPrimitive.List
           className={clsx(
-            'flex w-1/4 shrink-0 flex-col gap-y-2 p-4',
-            themeBackgroundColor,
+            'min-w-60 flex w-1/4 shrink-0 flex-col gap-y-2 p-4',
+            themeBackgroundCardAltColor,
           )}>
           {items.map(({ itemKey, label }) => (
             <TabsPrimitive.Trigger
@@ -142,12 +142,13 @@ export default function NavbarPopoverTabs({
               value={item.itemKey}>
               <div
                 className={clsx(
-                  'relative grid grow gap-4',
-                  'px-8 py-10',
+                  'relative',
+                  'grid grow gap-x-6 gap-y-6',
+                  'p-6 xl:px-8 xl:py-10',
                   (item.items.length === 2 || item.items.length === 4) &&
-                    'grid-cols-2',
+                    'xl:grid-cols-2',
                   (item.items.length === 3 || item.items.length > 4) &&
-                    'grid-cols-3',
+                    'xl:grid-cols-3',
                 )}>
                 {item.items.map((childItem) => (
                   <div

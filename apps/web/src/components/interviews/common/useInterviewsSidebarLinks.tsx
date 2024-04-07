@@ -9,7 +9,10 @@ export default function useInterviewsSidebarLinks(
 
   const links: ReadonlyArray<NavbarPrimaryItem | null> = [
     navItems.dashboard,
-    navItems.practice,
+    {
+      ...navItems.practice,
+      align: 'start',
+    },
     navItems.guides,
     navItems.features,
     !isPremium ? navItems.pricing : null,

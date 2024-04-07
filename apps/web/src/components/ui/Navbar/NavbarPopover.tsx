@@ -24,9 +24,9 @@ function NavbarPopoverLink({
 }: NavPopoverLinkItem) {
   const el =
     sublabel != null ? (
-      <>
+      <div className={clsx('group flex items-start gap-4 xl:flex-col')}>
         <NavbarFeatureIcon icon={Icon} />
-        <div className="flex flex-col gap-y-1">
+        <div className="flex flex-col gap-y-0.5 xl:gap-y-1">
           <Text
             className="flex items-center gap-2"
             size="body1"
@@ -39,9 +39,9 @@ function NavbarPopoverLink({
             </Text>
           )}
         </div>
-      </>
+      </div>
     ) : (
-      <div className="flex flex-col gap-y-4">
+      <div className="group flex flex-col gap-y-4">
         <NavbarFeatureIcon icon={Icon} />
         <div className="ml-4">
           <Text
@@ -54,12 +54,8 @@ function NavbarPopoverLink({
       </div>
     );
 
-  const item = (
-    <div className={clsx('group flex flex-col items-start gap-y-4')}>{el}</div>
-  );
-
   if (href == null) {
-    return item;
+    return el;
   }
 
   return (
@@ -68,7 +64,7 @@ function NavbarPopoverLink({
       suppressHydrationWarning={true}
       variant="unstyled"
       onClick={onClick}>
-      {item}
+      {el}
     </Anchor>
   );
 }
@@ -79,9 +75,9 @@ function NavbarPopoverGroup({ label, items, onClick }: NavPopoverGroupItem) {
       <span className="sr-only">{label}</span>
       <ul
         className={clsx(
-          'grid gap-x-6',
-          items.length === 2 && 'grid-cols-2',
-          items.length === 3 && 'grid-cols-3',
+          'grid gap-6',
+          items.length === 2 && 'xl:grid-cols-2',
+          items.length === 3 && 'xl:grid-cols-3',
         )}
         role="list">
         {items.map(({ onClick: onItemClick, ...item }) => (
@@ -117,7 +113,8 @@ export default function NavbarPopover({
       )}>
       <ul
         className={clsx(
-          'relative grid divide-x px-8 py-10',
+          'relative grid divide-x',
+          'p-6 xl:px-8 xl:py-10',
           items.length === 2 && 'grid-cols-2',
           items.length === 3 && 'grid-cols-3',
           items.length === 4 && 'grid-cols-4',

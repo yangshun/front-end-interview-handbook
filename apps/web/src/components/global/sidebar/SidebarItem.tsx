@@ -132,8 +132,7 @@ export default function SidebarLinkItem({
             'z-popover',
             'rounded-lg',
             'shadow-lg',
-            // TODO: Increase max-width as number of items increase.
-            'w-screen max-w-5xl',
+            'max-w-3xl xl:max-w-5xl',
           )}
           side="right"
           sideOffset={8}>

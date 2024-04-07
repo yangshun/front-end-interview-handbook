@@ -81,8 +81,7 @@ export default function NavbarItem({
             'z-popover',
             'rounded-lg',
             'shadow-lg',
-            // TODO: Increase max-width as number of items increase.
-            'w-screen max-w-5xl',
+            'w-screen max-w-3xl xl:max-w-5xl',
           )}
           sideOffset={8}>
           {(() => {
