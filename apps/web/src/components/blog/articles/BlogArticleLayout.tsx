@@ -46,8 +46,10 @@ export default function BlogArticleLayout({
             )}>
             {metadata.isSeriesArticle && navigation && (
               <div
-                className="sticky hidden xl:contents"
-                style={{ top: 'var(--nav-top-offset)' }}>
+                className={clsx(
+                  'hidden xl:contents',
+                  'sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]',
+                )}>
                 <SidebarLinksList
                   navigation={[
                     {

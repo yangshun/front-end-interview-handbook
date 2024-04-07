@@ -34,7 +34,7 @@ export default function SidebarCollapser() {
       aria-label={title}
       className={clsx(
         'hidden items-center justify-center p-1 lg:flex',
-        'z-sticky absolute top-[80px] -ml-px h-10 translate-x-full',
+        'absolute top-[80px] -ml-px h-10 translate-x-full',
         showSidebar ? 'right-px' : 'right-0',
         themeTextSecondaryColor,
         themeBackgroundElementColor,

@@ -3,20 +3,17 @@
 import clsx from 'clsx';
 
 import BlogSidebar from '~/components/blog/layout/BlogSidebar';
-import { viewportHeightMinusNavAndBanner } from '~/components/common/ViewportHeights';
 import { themeBorderColor } from '~/components/ui/theme';
 
 export default function SidebarContainer() {
   return (
     <aside
       className={clsx(
-        'sticky hidden h-full w-60 shrink-0 overflow-visible border-r lg:block',
-        themeBorderColor,
-      )}
-      style={{
-        height: viewportHeightMinusNavAndBanner,
-        top: `var(--nav-top-offset)`,
-      }}>
+        'hidden lg:block',
+        'w-60 shrink-0 overflow-visible',
+        'sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]',
+        ['border-r', themeBorderColor],
+      )}>
       <BlogSidebar />
     </aside>
   );

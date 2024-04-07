@@ -3,7 +3,6 @@
 import clsx from 'clsx';
 import { useToggle } from 'usehooks-ts';
 
-import { viewportHeightMinusBanner } from '~/components/common/ViewportHeights';
 import ProjectsSidebar from '~/components/projects/common/layout/sidebar/ProjectsSidebar';
 import { themeBorderColor } from '~/components/ui/theme';
 
@@ -20,15 +19,11 @@ export default function ProjectsSidebarContainer({
     <aside
       className={clsx(
         'hidden lg:block',
-        'sticky',
+        'sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]',
         'shrink-0 overflow-y-hidden',
         ['border-e', themeBorderColor],
         isCollapsed ? 'w-[68px]' : 'w-60',
-      )}
-      style={{
-        height: viewportHeightMinusBanner,
-        top: `var(--banner-height)`,
-      }}>
+      )}>
       <ProjectsSidebar
         isCollapsed={isCollapsed}
         onCollapseClick={toggleIsCollapsed}

@@ -51,8 +51,8 @@ export default function GuidesLayoutSidebar({ children }: Props) {
     <div
       className="theme-bg-radial-glow before:opacity-30"
       style={{
-        marginTop: 'calc(var(--nav-top-offset) * -1)',
-        paddingTop: 'var(--nav-top-offset)',
+        marginTop: 'calc(var(--global-sticky-height) * -1)',
+        paddingTop: 'var(--global-sticky-height)',
       }}>
       <div className="flex w-full">{children}</div>
     </div>

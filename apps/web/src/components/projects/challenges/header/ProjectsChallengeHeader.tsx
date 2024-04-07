@@ -110,7 +110,8 @@ export default function ProjectsChallengeHeader({
       <div
         className={clsx(
           'flex-col gap-4 md:flex-row md:items-center md:gap-6',
-          'z-sticky sticky top-0 w-full',
+          'sticky top-[var(--global-sticky-height)]',
+          'w-full',
           'py-3',
           ['border-b', themeBorderColor],
           themeBackgroundColor,

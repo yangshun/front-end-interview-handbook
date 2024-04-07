@@ -37,7 +37,7 @@ a {
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), transparent);
 }
 
-@import './banner.css';
+@import './sticky.css';
 @import './fancy.css';
 @import './scrollbar.css';
 

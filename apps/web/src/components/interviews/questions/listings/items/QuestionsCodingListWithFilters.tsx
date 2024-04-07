@@ -9,7 +9,6 @@ import {
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import FilterButton from '~/components/common/FilterButton';
-import { viewportHeightMinusNavAndBanner } from '~/components/common/ViewportHeights';
 import { useUserProfile } from '~/components/global/UserProfileProvider';
 import QuestionPaywall from '~/components/interviews/questions/common/QuestionPaywall';
 import type {
@@ -559,11 +558,10 @@ export default function QuestionsCodingListWithFilters({
             {...difficultyCount}
           />
           <section
-            className={clsx('sticky overflow-y-auto')}
-            style={{
-              maxHeight: viewportHeightMinusNavAndBanner,
-              top: `var(--nav-top-offset)`,
-            }}>
+            className={clsx(
+              'overflow-y-auto',
+              'sticky top-[var(--global-sticky-height)] h-[calc(100vh_-_var(--global-sticky-height))]',
+            )}>
             <Heading className="sr-only" level="custom">
               <FormattedMessage
                 defaultMessage="Filters"

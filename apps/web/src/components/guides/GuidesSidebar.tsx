@@ -149,9 +149,9 @@ export function GuidesSidebar({
       className={clsx('flex w-[280px] shrink-0 flex-col', sticky && 'sticky')}
       style={{
         height: sticky
-          ? 'calc(100vh - 24px - var(--nav-top-offset))'
+          ? 'calc(100vh - 24px - var(--global-sticky-height))'
           : undefined,
-        top: 'calc(24px + var(--nav-top-offset))',
+        top: 'calc(24px + var(--global-sticky-height))',
       }}>
       <div className="flex w-full grow-0">
         <GuidesDropdownMenu />

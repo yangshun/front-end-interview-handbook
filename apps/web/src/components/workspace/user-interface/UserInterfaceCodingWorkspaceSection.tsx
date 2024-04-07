@@ -82,7 +82,7 @@ export default function UserInterfaceCodingWorkspaceSection({
               '!w-full !text-sm',
               embed
                 ? '!h-full'
-                : '!bg-neutral-50 dark:!bg-[#070708] !pt-3 lg:!h-[calc(100vh_-_var(--nav-top-offset))]',
+                : '!bg-neutral-50 dark:!bg-[#070708] !pt-3 lg:!h-[calc(100vh_-_var(--global-sticky-height))]',
             ),
           },
           visibleFiles: workspace?.visibleFiles ?? undefined,

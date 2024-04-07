@@ -229,8 +229,8 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
   return (
     <Navbar
       ref={navbarRef}
-      className={clsx(hideOnDesktop && 'lg:hidden')}
       endAddOnItems={endAddOnItems}
+      hideOnDesktop={hideOnDesktop}
       isLoading={isUserProfileLoading}
       links={navLinks}
       logo={<LogoLink href="/projects" />}
@@ -241,7 +241,6 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
         />
       }
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
-      style={{ top: 'var(--banner-height)' }}
       transparent={!isSticky}
     />
   );

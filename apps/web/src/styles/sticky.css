@@ -1,8 +1,10 @@
 :root {
-  --navbar-height: 52px;
-  --navbar-border: 1px;
   --banner-height: 40px; /* Sync height with GlobalBanner.tsx */
-  --nav-top-offset: calc(
+
+  --navbar-height: 0px;
+  --navbar-border: 0px;
+
+  --global-sticky-height: calc(
     var(--navbar-height) + var(--navbar-border) + var(--banner-height)
   );
 }

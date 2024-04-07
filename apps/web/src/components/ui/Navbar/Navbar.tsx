@@ -16,6 +16,7 @@ import Button from '../Button';
 type Props = Readonly<{
   className?: string;
   endAddOnItems?: React.ReactNode;
+  hideOnDesktop?: boolean;
   isLoading: boolean;
   links: ReadonlyArray<NavbarPrimaryItem>;
   logo?: React.ReactNode;
@@ -39,7 +40,7 @@ function Navbar(
     renderMobileSidebarAddOnItems,
     mobileSidebarBottomItems,
     transparent = false,
-    style,
+    hideOnDesktop = false,
   }: Props,
   ref: React.Ref<HTMLDivElement>,
 ) {
@@ -56,15 +57,31 @@ function Navbar(
     <div
       ref={ref}
       className={clsx(
-        'z-sticky sticky top-0 backdrop-blur',
+        'z-sticky sticky top-[var(--banner-height)] backdrop-blur',
         ['border-b', themeBorderColor],
         transparent && 'bg-white dark:bg-neutral-900/60',
         'transition-[background-color]',
+        hideOnDesktop && 'lg:hidden',
         className,
+      )}>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `:root { --navbar-height: 52px; --navbar-border: 1px; }`,
+        }}
+      />
+      {hideOnDesktop && (
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `@media (min-width: 1024px) { :root { --navbar-height: 0px; --navbar-border: 0px; } }`,
+          }}
+        />
       )}
-      style={style}>
       <div className="max-w-8xl mx-auto px-4 sm:px-6">
-        <div className="flex h-[var(--navbar-height)] items-center justify-between md:justify-start md:gap-4">
+        <div
+          className={clsx(
+            'flex items-center justify-between md:justify-start md:gap-4',
+            'h-[var(--navbar-height)]',
+          )}>
           <div className="flex items-center justify-start lg:w-0 lg:grow">
             <div className="flex items-center gap-4">
               {logo}

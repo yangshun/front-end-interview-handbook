@@ -117,9 +117,9 @@ export function SidebarLinksList({
       )}
       style={{
         height: sticky
-          ? 'calc(100vh - 38px - var(--nav-top-offset))'
+          ? 'calc(100vh - 38px - var(--global-sticky-height))'
           : undefined,
-        top: 'calc(38px + var(--nav-top-offset))',
+        top: 'calc(38px + var(--global-sticky-height))',
       }}>
       <div className="flex flex-col gap-8">
         {navigation.map((navigationItem) => (

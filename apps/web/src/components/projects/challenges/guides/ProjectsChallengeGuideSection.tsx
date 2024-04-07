@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import type { ProjectsChallengeGuide } from 'contentlayer/generated';
 import { useRef, useState } from 'react';
 import { RiMenu2Line } from 'react-icons/ri';
@@ -66,8 +67,10 @@ export default function ProjectsChallengeGuideSection({
   return (
     <div ref={guideRef} className="flex flex-col gap-4 xl:flex-row xl:gap-6">
       <div
-        className="sticky hidden xl:contents"
-        style={{ top: 'var(--nav-top-offset)' }}>
+        className={clsx(
+          'hidden xl:contents',
+          'sticky top-[var(--global-sticky-height)]',
+        )}>
         <SidebarLinksList
           activeItem={activeGuideSlug}
           className="w-[252px]"

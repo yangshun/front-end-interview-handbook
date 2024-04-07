@@ -55,11 +55,13 @@ export default function GuidesNavbar({
     <div
       ref={navbarRef}
       className={clsx(
-        'z-sticky sticky border-b lg:hidden',
-        [!isSticky && 'bg-white dark:bg-neutral-900/60', 'backdrop-blur'],
-        themeBorderColor,
+        'lg:hidden',
+        'z-sticky sticky top-[var(--global-sticky-height)]',
+        !isSticky && 'bg-white dark:bg-neutral-900/60',
+        'backdrop-blur',
+        [themeBorderColor, 'border-b'],
       )}
-      style={{ top: 'var(--nav-top-offset)' }}>
+      style={{ top: 'var(--global-sticky-height)' }}>
       <Container className="flex h-10 items-center justify-between">
         <SlideOut
           enterFrom="start"

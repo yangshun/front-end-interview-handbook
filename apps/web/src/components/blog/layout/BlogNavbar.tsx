@@ -38,11 +38,11 @@ export default function BlogNavbar({ seriesContents }: Props) {
     <div
       ref={navbarRef}
       className={clsx(
-        'z-sticky sticky border-b lg:hidden',
+        'lg:hidden',
+        'z-sticky sticky top-[var(--global-sticky-height)]',
         [!isSticky && 'bg-white dark:bg-neutral-900/60', 'backdrop-blur'],
-        themeBorderColor,
-      )}
-      style={{ top: 'var(--nav-top-offset)' }}>
+        [themeBorderColor, 'border-b'],
+      )}>
       <Container className="flex h-10 items-center justify-between">
         <SlideOut
           enterFrom="start"

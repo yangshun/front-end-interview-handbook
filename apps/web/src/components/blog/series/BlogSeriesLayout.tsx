@@ -49,8 +49,10 @@ export default function BlogSeriesLayout({
           <div className="flex justify-center gap-x-10 gap-y-8 md:gap-y-10 2xl:gap-y-12">
             {metadata.isSeriesArticle && navigation && (
               <div
-                className="sticky hidden xl:contents"
-                style={{ top: 'var(--nav-top-offset)' }}>
+                className={clsx(
+                  'hidden xl:contents',
+                  'sticky top-[var(--global-sticky-height)]',
+                )}>
                 <SidebarLinksList
                   navigation={[
                     {

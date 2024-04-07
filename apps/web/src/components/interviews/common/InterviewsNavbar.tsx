@@ -178,8 +178,8 @@ export default function InterviewsNavbar({
   return (
     <Navbar
       ref={navbarRef}
-      className={clsx(hideOnDesktop && 'lg:hidden')}
       endAddOnItems={endAddOnItems}
+      hideOnDesktop={hideOnDesktop}
       isLoading={isUserProfileLoading}
       links={links}
       logo={<LogoLink />}
@@ -190,7 +190,6 @@ export default function InterviewsNavbar({
         />
       }
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}
-      style={{ top: 'var(--banner-height)' }}
       transparent={!isSticky}
     />
   );
