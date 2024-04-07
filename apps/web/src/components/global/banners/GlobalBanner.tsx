@@ -188,7 +188,7 @@ export default function GlobalBanner() {
       )}
       data-theme="projects">
       <Banner
-        className="h-10" // Sync with sticky.css.
+        className="h-9" // Sync with sticky.css.
         size="sm"
         variant="primary"
         onHide={() => {

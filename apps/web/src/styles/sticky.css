@@ -1,5 +1,5 @@
 :root {
-  --banner-height: 40px; /* Sync height with GlobalBanner.tsx */
+  --banner-height: 36px; /* Sync height with GlobalBanner.tsx */
 
   --navbar-height: 0px;
   --navbar-border: 0px;
