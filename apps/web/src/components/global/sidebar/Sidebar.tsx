@@ -5,6 +5,8 @@ import {
   RiDiscordLine,
   RiLinkedinFill,
   RiMoreLine,
+  RiPhoneLine,
+  RiScales3Line,
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
@@ -237,6 +239,39 @@ export function SidebarExpanded({
             size="sm">
             <SidebarColorSchemeSubMenu />
             {moreMenuItems}
+            <DropdownMenu.Item
+              href="/contact"
+              icon={RiPhoneLine}
+              label={intl.formatMessage({
+                defaultMessage: 'Contact us',
+                description: 'Link to contact page',
+                id: 'dRUyU9',
+              })}
+            />
+            <DropdownMenu.Sub
+              icon={RiScales3Line}
+              label={intl.formatMessage({
+                defaultMessage: 'Legal',
+                description: 'Link to legal page',
+                id: 'J7b0BM',
+              })}>
+              <DropdownMenu.Item
+                href="/legal/privacy-policy"
+                label={intl.formatMessage({
+                  defaultMessage: 'Privacy policy',
+                  description: 'Link to privacy policy page',
+                  id: 'RxU5TE',
+                })}
+              />
+              <DropdownMenu.Item
+                href="/legal/terms"
+                label={intl.formatMessage({
+                  defaultMessage: 'Terms of service',
+                  description: 'Link to terms of service page',
+                  id: 'WYR3gj',
+                })}
+              />
+            </DropdownMenu.Sub>
             <Divider />
             <SidebarAuthDropdownItem />
           </DropdownMenu>

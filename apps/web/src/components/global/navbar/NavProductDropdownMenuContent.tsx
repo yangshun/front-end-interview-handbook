@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { RiAwardLine } from 'react-icons/ri';
+import { RiAwardLine, RiBriefcaseLine } from 'react-icons/ri';
 
 import useCountdownTimer from '~/hooks/useCountdownTime';
 
@@ -170,6 +170,20 @@ export default function NavProductDropdownMenuContent() {
           variant="secondary">
           <RiAwardLine className="size-4 shrink-0" />
           Become an affiliate
+        </Anchor>
+        <Anchor
+          className={clsx(
+            'inline-flex items-center gap-2 p-3',
+            textVariants({
+              color: 'inherit',
+              size: 'body2',
+              weight: 'medium',
+            }),
+          )}
+          href="/jobs"
+          variant="secondary">
+          <RiBriefcaseLine className="size-4 shrink-0" />
+          We're hiring
         </Anchor>
       </div>
     </DropdownMenuPrimitive.Content>
