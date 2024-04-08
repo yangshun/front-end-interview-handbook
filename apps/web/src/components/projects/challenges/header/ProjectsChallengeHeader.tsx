@@ -113,7 +113,7 @@ export default function ProjectsChallengeHeader({
           'flex-col gap-4 md:flex-row md:items-center md:gap-6',
           'z-sticky sticky top-[var(--global-sticky-height)]',
           'w-full',
-          'py-3',
+          'pb-3 pt-4',
           ['border-b', themeBorderColor],
           themeBackgroundColor,
           showStickyStepsBar ? 'flex' : 'hidden',
@@ -123,6 +123,7 @@ export default function ProjectsChallengeHeader({
             <ProjectsChallengeStepsTabItems
               challenge={challenge}
               className="block w-full"
+              compact={true}
               label={intl.formatMessage({
                 defaultMessage: 'Project steps',
                 description: 'Label for Project steps tabs',
@@ -153,7 +154,6 @@ export default function ProjectsChallengeHeader({
           )}
         </div>
       </div>
-
       <div>
         <div className="flex justify-between gap-4">
           <Button

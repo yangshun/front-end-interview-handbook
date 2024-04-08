@@ -18,10 +18,12 @@ import {
 
 function ProjectsChallengeStepsTabItem({
   challenge,
+  compact,
   item,
   onSelect,
 }: Readonly<{
   challenge: ProjectsChallengeItem;
+  compact?: boolean;
   item: ProjectStepsTabItem;
   onSelect?: (value: ProjectsChallengeItemStepsTabType) => void;
 }>) {
@@ -53,7 +55,7 @@ function ProjectsChallengeStepsTabItem({
       className={clsx(
         'group shrink-0 md:grow',
         'w-[160px] md:min-w-[206px]',
-        'pt-4',
+        compact ? 'pt-2' : 'pt-4',
         'border-t-2',
         isSelected
           ? themeBorderBrandColor
@@ -68,14 +70,17 @@ function ProjectsChallengeStepsTabItem({
       <Text
         className="block"
         color={isSelected ? 'active' : 'inherit'}
-        size="body1"
+        size={compact ? 'body2' : 'body1'}
         weight="bold">
         {tabItemTitle}
         {accessAllSteps && !hasRead && (
           <span className="bg-red size-2 mb-2 ms-1 inline-block rounded-full" />
         )}
       </Text>
-      <Text className="block" color="secondary" size="body1">
+      <Text
+        className="block"
+        color="secondary"
+        size={compact ? 'body2' : 'body1'}>
         {tabItemSubtitle}
       </Text>
     </Anchor>
@@ -85,12 +90,14 @@ function ProjectsChallengeStepsTabItem({
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
   className?: string;
+  compact?: boolean;
   label: string;
   onSelect?: (value: ProjectsChallengeItemStepsTabType) => void;
   tabs: ReadonlyArray<ProjectStepsTabItem>;
 }>;
 
 export default function ProjectsChallengeStepsTabItems({
+  compact,
   label,
   tabs,
   challenge,
@@ -110,6 +117,7 @@ export default function ProjectsChallengeStepsTabItems({
         <ProjectsChallengeStepsTabItem
           key={String(tabItem.value)}
           challenge={challenge}
+          compact={compact}
           item={tabItem}
           onSelect={onSelect}
         />
