@@ -1,0 +1,8 @@
+{
+  "run": "/src/negate.run.test.ts",
+  "submit": "/src/negate.submit.test.ts",
+  "skeleton": {
+    "js": "/src/negate.skeleton.js",
+    "ts": "/src/negate.skeleton.ts"
+  }
+}

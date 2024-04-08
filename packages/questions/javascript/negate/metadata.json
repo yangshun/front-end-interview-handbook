@@ -1,0 +1,12 @@
+{
+  "slug": "negate",
+  "created": "2024-04-04T00:00:00.000Z",
+  "languages": ["js", "ts"],
+  "companies": [],
+  "premium": true,
+  "duration": 10,
+  "published": true,
+  "importance": "low",
+  "difficulty": "medium",
+  "similar_questions": []
+}

@@ -1,0 +1,30 @@
+---
+title: Negate
+excerpt: Implement a function that creates a function that negates the result of the predicate function
+---
+
+Implement a function `negate(predicate)` that creates a function that negates the result of the predicate function. The predicate is invoked with the `this` binding and arguments of the created function.
+
+```js
+negate(predicate);
+```
+
+## Arguments
+
+1. `predicate` _(Function)_: The predicate to negate.
+
+## Returns
+
+_`(Function)`_: Returns the new negated function.
+
+## Examples
+
+```js
+const isOdd = negate(isEven);
+isOdd(1); // => true
+isOdd(2); // => false
+```
+
+## Resources
+
+- [Lodash `_.negate`](https://lodash.com/docs/#negate)

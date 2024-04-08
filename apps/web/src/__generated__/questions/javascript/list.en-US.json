@@ -2440,6 +2440,33 @@
   {
     "author": null,
     "companies": [],
+    "created": 1712188800,
+    "difficulty": "medium",
+    "duration": 10,
+    "excerpt": "Implement a function that creates a function that negates the result of the predicate function",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/negate",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [],
+    "slug": "negate",
+    "subtitle": null,
+    "title": "Negate",
+    "topics": []
+  },
+  {
+    "author": null,
+    "companies": [],
     "created": 1683331200,
     "difficulty": "easy",
     "duration": 5,
