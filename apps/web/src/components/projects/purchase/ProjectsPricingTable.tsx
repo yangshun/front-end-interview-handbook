@@ -26,6 +26,7 @@ import Text from '~/components/ui/Text';
 import {
   themeBorderColor,
   themeDivideColor,
+  themeGlassyBorder,
   themeTextDangerColor,
   themeTextSubtleColor,
   themeTextSuccessColor,
@@ -594,8 +595,8 @@ export default function ProjectsPricingTable({
 
   const tableClassName = clsx(
     'rounded-3xl',
-    ['border', themeBorderColor],
-    background ? 'dark:bg-neutral-900' : 'bg-white/20 dark:bg-neutral-800/20',
+    themeGlassyBorder,
+    background ? 'dark:bg-neutral-900' : 'bg-white/20 dark:bg-neutral-900/20',
   );
 
   return (
