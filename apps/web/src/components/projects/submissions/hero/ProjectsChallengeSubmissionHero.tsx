@@ -98,6 +98,13 @@ export default function ProjectsChallengeSubmissionHero({
     />
   );
 
+  const actionsButton = isViewingOwnSubmission && (
+    <div className="flex items-center gap-2">
+      {pinButton}
+      {editButton}
+    </div>
+  );
+
   const views = (
     <ProjectsChallengeSubmissionHeroViews views={submission.views} />
   );
@@ -148,12 +155,7 @@ export default function ProjectsChallengeSubmissionHero({
           <div className="flex h-full flex-col items-start justify-between gap-2">
             <div className="flex w-full justify-between gap-2">
               {backButton}
-              {isViewingOwnSubmission && (
-                <div className="flex items-center gap-2">
-                  {pinButton}
-                  {editButton}
-                </div>
-              )}
+              {actionsButton}
             </div>
             <div className="size-full flex flex-col justify-between gap-x-16 gap-y-2 xl:flex-row xl:items-center">
               <div className="flex flex-col gap-1">
@@ -188,7 +190,7 @@ export default function ProjectsChallengeSubmissionHero({
         <div ref={mobileHeroRef} className="flex flex-col gap-4">
           <div className="flex flex-wrap justify-between gap-4">
             {backButton}
-            {isViewingOwnSubmission && pinButton}
+            {actionsButton}
           </div>
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
