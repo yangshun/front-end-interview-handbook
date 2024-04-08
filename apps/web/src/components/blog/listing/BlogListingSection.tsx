@@ -1,16 +1,17 @@
 import clsx from 'clsx';
-import { allSeries } from 'contentlayer/generated';
+import { allBlogSeries } from 'contentlayer/generated';
 import { FormattedMessage } from 'react-intl';
 
+import { readBlogPostsAll } from '~/components/blog/data/BlogReader';
 import BlogListWithFilters from '~/components/blog/listing/BlogListingWithFilters';
 import BlogBrowseSeries from '~/components/blog/series/BlogBrowseSeries';
 import Heading from '~/components/ui/Heading';
 
-import { getAllPosts } from '~/contentlayer/utils';
-
 export default function BlogListingSection() {
-  const blogs = getAllPosts();
-  const sortedSeries = allSeries.slice().sort((a, b) => a.ranking - b.ranking);
+  const posts = readBlogPostsAll();
+  const sortedSeries = allBlogSeries
+    .slice()
+    .sort((a, b) => a.ranking - b.ranking);
 
   return (
     <div className="flex flex-col gap-y-4">
@@ -24,9 +25,9 @@ export default function BlogListingSection() {
       <div className="xl:grid xl:grid-cols-12 xl:gap-x-6">
         <div className="xl:col-span-9">
           <BlogListWithFilters
-            blogs={blogs}
             layout="embedded"
             namespace="blog-listing"
+            posts={posts}
           />
         </div>
         <aside

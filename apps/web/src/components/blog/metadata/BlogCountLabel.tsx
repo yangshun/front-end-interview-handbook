@@ -5,7 +5,7 @@ import { useId } from 'react';
 import { RiFileList3Line } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import type { FilterTab } from '~/components/blog/filters/BlogTypeTabs';
+import type { BlogFilterTab } from '~/components/blog/filters/BlogTypeTabs';
 import type { TextSize } from '~/components/ui/Text';
 import Text from '~/components/ui/Text';
 import { themeIconColor } from '~/components/ui/theme';
@@ -15,7 +15,7 @@ type Props = Readonly<{
   count: number;
   showIcon?: boolean;
   size?: TextSize;
-  type?: FilterTab;
+  type?: BlogFilterTab;
 }>;
 
 export default function BlogCountLabel({

@@ -2,19 +2,19 @@ import { useIntl } from 'react-intl';
 
 import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 
-export type FilterTab = 'articles' | 'series';
+export type BlogFilterTab = 'articles' | 'series';
 
 type Props = Readonly<{
-  onSelect: (value: FilterTab) => void;
-  value: FilterTab;
+  onSelect: (value: BlogFilterTab) => void;
+  value: BlogFilterTab;
 }>;
 
-const DEFAULT_TABS: ReadonlyArray<FilterTab> = ['articles', 'series'];
+const DEFAULT_TABS: ReadonlyArray<BlogFilterTab> = ['articles', 'series'];
 
 export default function BlogTypeTabs({ value, onSelect }: Props) {
   const intl = useIntl();
 
-  function getLabelForTab(value_: FilterTab) {
+  function getLabelForTab(value_: BlogFilterTab) {
     switch (value_) {
       case 'articles': {
         return intl.formatMessage({
@@ -35,7 +35,7 @@ export default function BlogTypeTabs({ value, onSelect }: Props) {
 
   const tabItems: ReadonlyArray<{
     label: string;
-    value: FilterTab;
+    value: BlogFilterTab;
   }> = DEFAULT_TABS.map((tab) => ({
     label: getLabelForTab(tab),
     value: tab,

@@ -2,17 +2,18 @@ import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import BlogCard from '~/components/blog/listing/BlogCard';
+import { readBlogPostsAll } from '~/components/blog/data/BlogReader';
+import BlogPostCard from '~/components/blog/listing/BlogPostCard';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import { getAllPosts } from '~/contentlayer/utils';
+const ROW_SIZE = 3;
 
 export default function BlogWhatsNewSection() {
   const intl = useIntl();
 
-  const blogs = getAllPosts().slice(0, 3);
+  const posts = readBlogPostsAll().slice(0, ROW_SIZE);
 
   return (
     <div className="flex flex-col gap-y-4">
@@ -30,8 +31,8 @@ export default function BlogWhatsNewSection() {
           icon={RiArrowRightLine}
           label={intl.formatMessage({
             defaultMessage: 'See all',
-            description: 'See all new blogs',
-            id: 'xgFUi6',
+            description: 'See all new posts',
+            id: 'n3eIzi',
           })}
           size="md"
           variant="tertiary"
@@ -41,15 +42,15 @@ export default function BlogWhatsNewSection() {
         <div
           className={clsx(
             'grid gap-6 lg:grid-cols-2',
-            blogs.length === 3 && 'xl:grid-cols-3',
+            posts.length === ROW_SIZE && 'xl:grid-cols-3',
           )}>
-          {blogs.map((metadata, index) => (
+          {posts.map((metadata, index) => (
             <div
               key={metadata.href}
               className={clsx(
-                index >= 2 && 'lg:col-span-2 xl:col-span-1 xl:block',
+                index >= ROW_SIZE - 1 && 'lg:col-span-2 xl:col-span-1 xl:block',
               )}>
-              <BlogCard metadata={metadata} titleLines={2} />
+              <BlogPostCard metadata={metadata} titleLines={2} />
             </div>
           ))}
         </div>

@@ -1,10 +1,11 @@
 'use client';
 
-import { allCategories } from 'contentlayer/generated';
+import { allBlogCategories } from 'contentlayer/generated';
 import { useState } from 'react';
 import { RiArrowLeftLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import { readBlogSeriesAll } from '~/components/blog/data/BlogReader';
 import BlogList from '~/components/blog/filters/items/BlogList';
 import BlogExploreSeriesDropdown from '~/components/blog/series/BlogExploreSeriesDropdown';
 import { BlogExploreSeriesSidebar } from '~/components/blog/series/BlogExploreSeriesSidebar';
@@ -12,13 +13,11 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
-import { getAllSeries } from '~/contentlayer/utils';
-
 export default function BlogExplorePage() {
   const intl = useIntl();
-  const [activeItem, setActiveItem] = useState(allCategories[0].source);
+  const [activeItem, setActiveItem] = useState(allBlogCategories[0].source);
 
-  const allSeries = getAllSeries(activeItem);
+  const allSeries = readBlogSeriesAll(activeItem);
 
   return (
     <div className="flex flex-col gap-y-10">
@@ -57,14 +56,14 @@ export default function BlogExplorePage() {
         <div className="hidden lg:contents">
           <BlogExploreSeriesSidebar
             activeItem={activeItem}
-            navigation={allCategories}
+            navigation={allBlogCategories}
             onChange={setActiveItem}
           />
         </div>
         <div className="block w-full lg:hidden">
           <BlogExploreSeriesDropdown
             activeItem={activeItem}
-            navigation={allCategories}
+            navigation={allBlogCategories}
             onChange={setActiveItem}
           />
         </div>

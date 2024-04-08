@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { Post } from 'contentlayer/generated';
+import type { BlogPost } from 'contentlayer/generated';
 import { RiArrowRightLine } from 'react-icons/ri';
 
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
@@ -24,7 +24,7 @@ type Props = Readonly<{
   type?: 'default' | 'wide';
 }>;
 
-export default function BlogCard({
+export default function BlogPostCard({
   metadata,
   type = 'default',
   showArrow = true,
@@ -34,12 +34,13 @@ export default function BlogCard({
   return (
     <div
       className={clsx(
-        'group relative flex h-full items-center justify-between overflow-hidden rounded-lg',
+        'group relative isolate',
+        'flex h-full items-center justify-between',
         type === 'wide' && 'gap-x-6 px-8 py-5',
         type === 'default' && 'gap-x-4 py-6 pl-6 pr-4',
+        'overflow-hidden rounded-lg',
         themeBackgroundCardWhiteOnLightColor,
         themeGlassyBorder,
-        'isolate',
       )}>
       {type === 'wide' && metadata.imageUrl && (
         <img
@@ -91,19 +92,19 @@ export default function BlogCard({
         </div>
         <div
           className={clsx(
+            'relative z-[1]',
             'flex w-full flex-wrap items-center gap-x-6 gap-y-2',
-            'relative z-10',
           )}>
           {type === 'wide' && (
             <BlogLevelLabel showIcon={true} value={metadata.level} />
           )}
-          {(metadata as Post).createdAt && !metadata.isSeries && (
+          {(metadata as BlogPost).createdAt && !metadata.isSeries && (
             <Text
               className="block whitespace-nowrap"
               color="secondary"
               size="body3">
               <BlogTimestamp
-                date={new Date((metadata as Post).createdAt).getTime()}
+                date={new Date((metadata as BlogPost).createdAt).getTime()}
               />
             </Text>
           )}

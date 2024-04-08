@@ -1,15 +1,15 @@
 'use client';
 
-import type { Post } from 'contentlayer/generated';
+import type { BlogPost } from 'contentlayer/generated';
 
 import BlogRelatedArticlesSection from '~/components/blog/BlogRelatedArticlesSection';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
+import { readBlogPostsForNavigation } from '~/components/blog/data/BlogReader';
 import BlogCopyLinkButton from '~/components/blog/metadata/BlogCopyLinkButton';
 import BlogShareButton from '~/components/blog/metadata/BlogShareButton';
 import ArticlePagination from '~/components/common/ArticlePagination';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-import { getAllPostsForNavigation } from '~/contentlayer/utils';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 type Props = Readonly<{
@@ -20,9 +20,9 @@ type Props = Readonly<{
 export default function BlogArticleMainLayout({ children, metadata }: Props) {
   const { pathname } = useI18nPathname();
 
-  const flatNavigationItems = getAllPostsForNavigation({
+  const flatNavigationItems = readBlogPostsForNavigation({
     isSeriesArticle: metadata.isSeriesArticle,
-    seriesSource: (metadata as Post).series,
+    seriesSource: (metadata as BlogPost).series,
   }).map((post) => ({
     href: post.href,
     slug: post.slug,
@@ -44,10 +44,10 @@ export default function BlogArticleMainLayout({ children, metadata }: Props) {
               items={flatNavigationItems}
             />
           </Section>
-          {(metadata as Post).relatedPosts && (
+          {(metadata as BlogPost).relatedPosts && (
             <Section>
               <BlogRelatedArticlesSection
-                relatedPosts={(metadata as Post).relatedPosts || []}
+                relatedPosts={(metadata as BlogPost).relatedPosts || []}
               />
             </Section>
           )}

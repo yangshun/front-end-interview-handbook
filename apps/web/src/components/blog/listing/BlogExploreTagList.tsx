@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
-import type { FilterTab } from '~/components/blog/filters/BlogTypeTabs';
+import type { BlogFilterTab } from '~/components/blog/filters/BlogTypeTabs';
 import BlogTypeTabs from '~/components/blog/filters/BlogTypeTabs';
 import BlogListingWithFilters from '~/components/blog/listing/BlogListingWithFilters';
 
@@ -12,20 +12,20 @@ type Props = Readonly<{
 }>;
 
 export default function BlogExploreTagList({ articles, series, tag }: Props) {
-  const [selectedTab, setSelectedTab] = useState<FilterTab>('articles');
+  const [selectedTab, setSelectedTab] = useState<BlogFilterTab>('articles');
 
-  const filteredByTagBlogs = (
+  const postsFilteredByTag = (
     selectedTab === 'articles' ? articles : series
-  ).filter((blog) => blog.tags.includes(tag));
+  ).filter((postItem) => postItem.tags.includes(tag));
 
   return (
     <div className="flex flex-col gap-4">
       <BlogTypeTabs value={selectedTab} onSelect={setSelectedTab} />
       <BlogListingWithFilters
         key={selectedTab}
-        blogs={filteredByTagBlogs}
         layout="explore"
         namespace={`explore-${selectedTab}-${tag}`}
+        posts={postsFilteredByTag}
         showFilters={selectedTab === 'articles'}
         type={selectedTab}
       />

@@ -13,14 +13,14 @@ import type {
   BlogSortField,
   BlogViewField,
 } from '~/components/blog/BlogTypes';
-import BlogListingFilters from '~/components/blog/filters/BlogListingFilters';
 import {
-  filterBlogs,
-  sortBlogsMultiple,
-} from '~/components/blog/filters/BlogsProcessor';
-import type { FilterTab } from '~/components/blog/filters/BlogTypeTabs';
+  filterBlogPosts,
+  sortBlogPostsMultiple,
+} from '~/components/blog/data/BlogPostsProcessor';
+import BlogListingFilters from '~/components/blog/filters/BlogListingFilters';
+import type { BlogFilterTab } from '~/components/blog/filters/BlogTypeTabs';
 import BlogViewDropdown from '~/components/blog/filters/BlogViewDropdown';
-import useBlogFilters from '~/components/blog/filters/hooks/useBlogFilters';
+import useBlogPostFilters from '~/components/blog/filters/hooks/useBlogPostFilters';
 import BlogList from '~/components/blog/filters/items/BlogList';
 import BlogCountLabel from '~/components/blog/metadata/BlogCountLabel';
 import FilterButton from '~/components/common/FilterButton';
@@ -33,17 +33,17 @@ import SlideOut from '~/components/ui/SlideOut';
 import TextInput from '~/components/ui/TextInput';
 
 export type Props = Readonly<{
-  blogs: ReadonlyArray<BlogMetadata>;
   layout?: 'embedded' | 'explore' | 'full';
   namespace: string;
+  posts: ReadonlyArray<BlogMetadata>;
   showFilters?: boolean;
-  type?: Readonly<FilterTab>;
+  type?: Readonly<BlogFilterTab>;
 }>;
 
 export default function BlogListingWithFilters({
   layout = 'full',
   namespace,
-  blogs,
+  posts,
   showFilters = true,
   type = 'articles',
 }: Props) {
@@ -61,18 +61,18 @@ export default function BlogListingWithFilters({
     tagFilters,
     tagFilterOptions,
     filters,
-  } = useBlogFilters({ namespace });
+  } = useBlogPostFilters({ namespace });
 
   // Processing.
-  const sortedBlogs = sortBlogsMultiple(blogs, [
+  const sortedBlogPosts = sortBlogPostsMultiple(posts, [
     {
       field: sortField,
       isAscendingOrder,
     },
   ]);
 
-  const processedBlogs = filterBlogs(
-    sortedBlogs,
+  const processedPosts = filterBlogPosts(
+    sortedBlogPosts,
     filters.map(([_, filterFn]) => filterFn),
   );
 
@@ -249,7 +249,7 @@ export default function BlogListingWithFilters({
   const listMetadata = (
     <div className="flex items-center justify-between">
       <BlogCountLabel
-        count={processedBlogs.length}
+        count={processedPosts.length}
         showIcon={true}
         type={type}
       />
@@ -275,7 +275,7 @@ export default function BlogListingWithFilters({
             />
           </Heading>
           <Section>
-            <BlogList posts={processedBlogs} type={type} view={viewField} />
+            <BlogList posts={processedPosts} type={type} view={viewField} />
           </Section>
         </div>
       </div>

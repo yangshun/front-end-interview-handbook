@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { Category } from 'contentlayer/generated';
+import type { BlogCategory } from 'contentlayer/generated';
 
 import Section from '~/components/ui/Heading/HeadingContext';
 import {
@@ -14,7 +14,7 @@ function LinksList({
   onChange,
 }: Readonly<{
   activeItem: string;
-  items: ReadonlyArray<Category>;
+  items: ReadonlyArray<BlogCategory>;
   onChange: (value: string) => void;
 }>) {
   return (
@@ -44,7 +44,7 @@ function LinksList({
 
 type BlogExploreSeriesSidebar = Readonly<{
   activeItem: string;
-  navigation: ReadonlyArray<Category>;
+  navigation: ReadonlyArray<BlogCategory>;
   onChange: (value: string) => void;
   sticky?: boolean;
 }>;

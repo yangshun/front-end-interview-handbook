@@ -1,10 +1,10 @@
-import type { Category } from 'contentlayer/generated';
+import type { BlogCategory } from 'contentlayer/generated';
 
 import Select from '~/components/ui/Select';
 
 type Props = Readonly<{
   activeItem: string;
-  navigation: ReadonlyArray<Category>;
+  navigation: ReadonlyArray<BlogCategory>;
   onChange: (value: string) => void;
 }>;
 

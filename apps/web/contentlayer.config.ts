@@ -5,11 +5,11 @@ import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
 
-import { BlogAuthorDocument } from './src/contentlayer/document/BlogAuthorDocument';
-import { BlogCategoryDocument } from './src/contentlayer/document/BlogCategoryDocument';
-import { BlogPostDocument } from './src/contentlayer/document/BlogPostDocument';
-import { BlogSeriesDocument } from './src/contentlayer/document/BlogSeriesDocument';
-import { BlogSubseriesDocument } from './src/contentlayer/document/BlogSubseriesDocument';
+import { BlogAuthorDocument } from './src/components/blog/contentlayer/BlogAuthorDocument';
+import { BlogCategoryDocument } from './src/components/blog/contentlayer/BlogCategoryDocument';
+import { BlogPostDocument } from './src/components/blog/contentlayer/BlogPostDocument';
+import { BlogSeriesDocument } from './src/components/blog/contentlayer/BlogSeriesDocument';
+import { BlogSubseriesDocument } from './src/components/blog/contentlayer/BlogSubseriesDocument';
 import { ProjectsChallengeBriefDocument } from './src/components/projects/contentlayer/ProjectsChallengeBriefDocument';
 import { ProjectsChallengeMetadataDocument } from './src/components/projects/contentlayer/ProjectsChallengeMetadataDocument';
 import { ProjectsChallengeStyleGuideDocument } from './src/components/projects/contentlayer/ProjectsChallengeStyleGuideDocument';

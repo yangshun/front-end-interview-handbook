@@ -48,6 +48,7 @@ export const BlogPostDocument = defineDocumentType(() => ({
     description: { required: true, type: 'string' },
     imageUrl: { required: false, type: 'string' },
     level: { required: true, type: 'string' },
+    published: { required: true, type: 'boolean' },
     relatedPosts: {
       of: RelatedPost,
       required: false,
@@ -59,5 +60,5 @@ export const BlogPostDocument = defineDocumentType(() => ({
     title: { required: true, type: 'string' },
   },
   filePathPattern: `blog/posts/*.mdx`,
-  name: 'Post',
+  name: 'BlogPost',
 }));

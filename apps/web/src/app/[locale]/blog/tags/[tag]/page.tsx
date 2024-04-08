@@ -1,6 +1,10 @@
 import type { Metadata } from 'next';
 
-import { getAllPosts, getAllSeries } from '~/contentlayer/utils';
+import {
+  readBlogPostsAll,
+  readBlogSeriesAll,
+} from '~/components/blog/data/BlogReader';
+
 import { getIntlServerOnly } from '~/i18n';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
@@ -16,7 +20,7 @@ type Props = Readonly<{
 
 export async function generateStaticParams() {
   const tagsSet = new Set(
-    getAllPosts()
+    readBlogPostsAll()
       .map((post) => post.tags)
       .flat(),
   );
@@ -55,8 +59,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { tag } = params;
 
-  const articles = getAllPosts();
-  const series = getAllSeries();
+  const articles = readBlogPostsAll();
+  const series = readBlogSeriesAll();
 
   return <BlogExploreTagPage articles={articles} series={series} tag={tag} />;
 }

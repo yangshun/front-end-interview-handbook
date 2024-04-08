@@ -1,7 +1,7 @@
 'use client';
 
 import clsx from 'clsx';
-import type { Post } from 'contentlayer/generated';
+import type { BlogPost } from 'contentlayer/generated';
 import { useState } from 'react';
 import {
   RiArrowDownSLine,
@@ -40,7 +40,7 @@ export default function ArticleViewCard({ metadata }: Props) {
           'max-h-full': isExpanded,
         })}>
         <BlogArticle metadata={metadata} view="card">
-          <BlogMdx code={(metadata as Post)?.body.code || ''} />
+          <BlogMdx code={(metadata as BlogPost)?.body.code || ''} />
         </BlogArticle>
       </div>
       <div className="flex items-center justify-between">

@@ -3,10 +3,9 @@ import type { RelatedPost } from 'contentlayer/generated';
 import { FormattedMessage } from 'react-intl';
 
 import BlogRelatedArticleCard from '~/components/blog/articles/BlogRelatedArticleCard';
+import { readBlogPostsAll } from '~/components/blog/data/BlogReader';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-
-import { getAllPosts } from '~/contentlayer/utils';
 
 type Props = Readonly<{
   relatedPosts: Array<RelatedPost>;
@@ -25,7 +24,7 @@ export default function BlogRelatedArticlesSection({ relatedPosts }: Props) {
       <Section>
         <div className={clsx('grid gap-6 lg:grid-cols-2')}>
           {relatedPosts.map(({ slug }, index) => {
-            const post = getAllPosts().find(
+            const post = readBlogPostsAll().find(
               (postItem) => postItem.slug === slug.trim(),
             )!;
 

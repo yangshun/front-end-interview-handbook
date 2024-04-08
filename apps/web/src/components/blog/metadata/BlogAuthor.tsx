@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { Post } from 'contentlayer/generated';
+import type { BlogPost } from 'contentlayer/generated';
 import { useId } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -55,7 +55,7 @@ export default function BlogAuthor({ metadata }: Props) {
                 description="Blog read duration label"
                 id="7Rr7Yf"
                 values={{
-                  minutes: (metadata as Post).readingTime,
+                  minutes: (metadata as BlogPost).readingTime,
                 }}
               />
             </Text>
@@ -65,7 +65,7 @@ export default function BlogAuthor({ metadata }: Props) {
               color="inherit"
               size="body3">
               <BlogTimestamp
-                date={new Date((metadata as Post).createdAt).getTime()}
+                date={new Date((metadata as BlogPost).createdAt).getTime()}
               />
             </Text>
           </div>

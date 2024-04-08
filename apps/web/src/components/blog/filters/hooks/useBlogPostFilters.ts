@@ -8,7 +8,7 @@ type Props = Readonly<{
   namespace: string;
 }>;
 
-export default function useBlogFilters({ namespace }: Props) {
+export default function useBlogPostFilters({ namespace }: Props) {
   // Filtering.
   const [query, setQuery] = useBlogSearchFilter({ namespace });
   const [levelFilters, levelFilterOptions] = useBlogLevelFilter({

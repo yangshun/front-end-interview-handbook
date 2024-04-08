@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { Post } from 'contentlayer/generated';
+import type { BlogPost } from 'contentlayer/generated';
 
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
 import BlogTags from '~/components/blog/metadata/BlogTags';
@@ -41,7 +41,7 @@ export default function BlogRelatedArticleCard({ metadata }: Props) {
             color="secondary"
             size="body3">
             <BlogTimestamp
-              date={new Date((metadata as Post).createdAt).getTime()}
+              date={new Date((metadata as BlogPost).createdAt).getTime()}
             />
           </Text>
           {metadata.tags.length > 0 && (

@@ -7,6 +7,7 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import { buildBlogNavigationTree } from '~/components/blog/data/BlogReader';
 import Anchor from '~/components/ui/Anchor';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -19,7 +20,6 @@ import {
   themeTextSecondaryColor,
 } from '~/components/ui/theme';
 
-import { buildNavigationTree } from '~/contentlayer/utils';
 import { useI18nPathname } from '~/next-i18nostic/src';
 
 export type BlogSeriesNavigationLink<T = Record<string, unknown>> = Readonly<
@@ -66,7 +66,7 @@ type BlogSidebarLink = BlogSidebarItem &
 
 function useBlogSidebarNavigation() {
   const intl = useIntl();
-  const navigationTree = buildNavigationTree();
+  const navigationTree = buildBlogNavigationTree();
 
   const navigation: ReadonlyArray<BlogSidebarLink | BlogSidebarSeries> = [
     {

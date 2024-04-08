@@ -32,5 +32,5 @@ export const BlogSeriesDocument = defineDocumentType(() => ({
     title: { required: true, type: 'string' },
   },
   filePathPattern: `blog/series/*.json`,
-  name: 'Series',
+  name: 'BlogSeries',
 }));

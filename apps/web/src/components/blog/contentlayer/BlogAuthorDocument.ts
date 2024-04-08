@@ -15,5 +15,5 @@ export const BlogAuthorDocument = defineDocumentType(() => ({
     title: { required: true, type: 'string' },
   },
   filePathPattern: `blog/author/*.json`,
-  name: 'Author',
+  name: 'BlogAuthor',
 }));

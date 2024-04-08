@@ -1,9 +1,9 @@
 import type {
-  Author,
-  Category,
-  Post,
-  Series,
-  Subseries,
+  BlogAuthor,
+  BlogCategory,
+  BlogPost,
+  BlogSeries,
+  BlogSubseries as BlogSubseriesOrig,
 } from 'contentlayer/generated';
 
 import type { BlogSeriesNavigationLink } from '~/components/blog/layout/BlogSidebar';
@@ -18,8 +18,8 @@ export type BlogViewField = 'article' | 'list';
 
 export type BlogMetadata = Readonly<{
   readonly articlesCount?: number;
-  readonly author?: Author;
-  readonly category?: Category;
+  readonly author?: BlogAuthor;
+  readonly category?: BlogCategory;
   readonly hasSubseries?: boolean;
   readonly imageUrl?: string;
   readonly isSeries?: boolean;
@@ -27,9 +27,9 @@ export type BlogMetadata = Readonly<{
   readonly level: BlogLevel;
   readonly tags: ReadonlyArray<string>;
 }> &
-  (Post | Series);
+  (BlogPost | BlogSeries);
 
-export type BlogSubseries = Subseries & {
+export type BlogSubseries = BlogSubseriesOrig & {
   readonly items: ReadonlyArray<BlogMetadata>;
   readonly readingTime: number;
 };

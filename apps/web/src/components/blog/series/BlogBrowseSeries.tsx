@@ -1,4 +1,4 @@
-import type { Series } from 'contentlayer/generated';
+import type { BlogSeries } from 'contentlayer/generated';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -9,7 +9,7 @@ import Text from '~/components/ui/Text';
 
 type Props = Readonly<{
   href: string;
-  seriesList: ReadonlyArray<Series>;
+  seriesList: ReadonlyArray<BlogSeries>;
 }>;
 
 export default function BlogBrowseSeries({

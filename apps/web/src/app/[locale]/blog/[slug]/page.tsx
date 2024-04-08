@@ -1,4 +1,4 @@
-import type { Post } from 'contentlayer/generated';
+import type { BlogPost } from 'contentlayer/generated';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -6,12 +6,12 @@ import BlogArticleLayout from '~/components/blog/articles/BlogArticleLayout';
 import BlogArticleMainLayout from '~/components/blog/articles/BlogArticleMainLayout';
 import BlogMdx from '~/components/blog/articles/BlogMdx';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
-
 import {
-  getAllPosts,
-  getPostFromSlug,
-  getSeriesPostNavigation,
-} from '~/contentlayer/utils';
+  readBlogPost,
+  readBlogPostsAll,
+  readBlogSeriesPostNavigation,
+} from '~/components/blog/data/BlogReader';
+
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -24,7 +24,7 @@ type Props = Readonly<{
 
 export async function generateStaticParams() {
   return generateStaticParamsWithLocale(
-    getAllPosts().map((post) => ({
+    readBlogPostsAll().map((post) => ({
       slug: post.slug,
     })),
   );
@@ -32,7 +32,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
-  const post = getPostFromSlug(slug || '');
+  const post = readBlogPost(slug || '');
 
   return defaultMetadata({
     description: post?.description,
@@ -44,13 +44,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function getBlogContent(slug: string) {
-  const post = getPostFromSlug(slug || '');
+  const post = readBlogPost(slug || '');
 
   if (post) {
     let seriesArticleNavigation = null;
 
-    if ((post as Post).series) {
-      seriesArticleNavigation = getSeriesPostNavigation(post as Post, {
+    if ((post as BlogPost).series) {
+      seriesArticleNavigation = readBlogSeriesPostNavigation(post as BlogPost, {
         ascending: true,
       });
     }
@@ -58,7 +58,7 @@ function getBlogContent(slug: string) {
     return {
       blogMetadata: {
         ...post,
-        isSeriesArticle: !!(post as Post).series,
+        isSeriesArticle: !!(post as BlogPost).series,
       } as BlogMetadata,
       seriesArticleNavigation,
     };
@@ -76,7 +76,7 @@ export default function Page({ params }: Props) {
       metadata={blogMetadata}
       navigation={seriesArticleNavigation}>
       <BlogArticleMainLayout metadata={blogMetadata}>
-        <BlogMdx code={(blogMetadata as Post)?.body.code || ''} />
+        <BlogMdx code={(blogMetadata as BlogPost)?.body.code || ''} />
       </BlogArticleMainLayout>
     </BlogArticleLayout>
   );

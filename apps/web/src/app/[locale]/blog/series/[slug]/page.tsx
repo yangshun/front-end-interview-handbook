@@ -1,19 +1,19 @@
-import type { Post, Series } from 'contentlayer/generated';
+import type { BlogPost, BlogSeries } from 'contentlayer/generated';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import BlogArticleMainLayout from '~/components/blog/articles/BlogArticleMainLayout';
 import type { BlogMetadata } from '~/components/blog/BlogTypes';
+import {
+  readBlogPostsAll,
+  readBlogSeries,
+  readBlogSeriesAll,
+  readBlogSubseriesAndPosts,
+} from '~/components/blog/data/BlogReader';
 import BlogList from '~/components/blog/filters/items/BlogList';
 import BlogSeriesLayout from '~/components/blog/series/BlogSeriesLayout';
 import BlogSubseriesSection from '~/components/blog/subseries/BlogSubseriesSection';
 
-import {
-  getAllPosts,
-  getAllSeries,
-  getSeriesFromSlug,
-  getSubseriesAndPosts,
-} from '~/contentlayer/utils';
 import { generateStaticParamsWithLocale } from '~/next-i18nostic/src';
 import defaultMetadata from '~/seo/defaultMetadata';
 
@@ -26,7 +26,7 @@ type Props = Readonly<{
 
 export async function generateStaticParams() {
   return generateStaticParamsWithLocale(
-    getAllSeries().map((series) => ({
+    readBlogSeriesAll().map((series) => ({
       slug: series.slug,
     })),
   );
@@ -34,7 +34,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
-  const series = getSeriesFromSlug(slug || '');
+  const series = readBlogSeries(slug || '');
 
   return defaultMetadata({
     description: series?.description,
@@ -45,10 +45,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 function getBlogContent(slug: string) {
-  const series = getSeriesFromSlug(slug || '');
+  const series = readBlogSeries(slug || '');
 
   if (series) {
-    const subseriesData = getSubseriesAndPosts(series as Series, {
+    const subseriesData = readBlogSubseriesAndPosts(series as BlogSeries, {
       ascending: true,
     });
 
@@ -63,8 +63,9 @@ function getBlogContent(slug: string) {
       };
     }
 
-    const posts = getAllPosts({ ascending: true }).filter(
-      (postItem) => (postItem as Post).series === (series as Series).source,
+    const posts = readBlogPostsAll({ ascending: true }).filter(
+      (postItem) =>
+        (postItem as BlogPost).series === (series as BlogSeries).source,
     );
 
     return {

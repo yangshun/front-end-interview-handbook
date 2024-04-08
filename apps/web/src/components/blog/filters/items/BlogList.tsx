@@ -1,19 +1,19 @@
 'use client';
 
 import clsx from 'clsx';
-import type { Post } from 'contentlayer/generated';
+import type { BlogPost } from 'contentlayer/generated';
 import { useIntl } from 'react-intl';
 
 import type { BlogMetadata, BlogViewField } from '~/components/blog/BlogTypes';
-import type { FilterTab } from '~/components/blog/filters/BlogTypeTabs';
+import type { BlogFilterTab } from '~/components/blog/filters/BlogTypeTabs';
 import BlogArticleViewCard from '~/components/blog/listing/BlogArticleViewCard';
-import BlogCard from '~/components/blog/listing/BlogCard';
+import BlogPostCard from '~/components/blog/listing/BlogPostCard';
 import EmptyState from '~/components/ui/EmptyState';
 
 type Props = Readonly<{
   posts: ReadonlyArray<BlogMetadata>;
   showSeriesTag?: boolean;
-  type?: Readonly<FilterTab>;
+  type?: Readonly<BlogFilterTab>;
   view?: BlogViewField;
 }>;
 
@@ -61,8 +61,8 @@ export default function BlogList({
       {posts.map((post) => {
         return (
           <li key={post.href}>
-            {view === 'list' || !(post as Post)?.body?.code ? (
-              <BlogCard
+            {view === 'list' || !(post as BlogPost)?.body?.code ? (
+              <BlogPostCard
                 metadata={post}
                 showSeriesTag={showSeriesTag}
                 titleLines={2}
