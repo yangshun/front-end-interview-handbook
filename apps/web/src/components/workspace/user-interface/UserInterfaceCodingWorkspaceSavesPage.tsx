@@ -65,13 +65,10 @@ export default function UserInterfaceCodingWorkspaceSavesPage({
               'sp-stack': 'h-full',
               'sp-wrapper': clsx(
                 '!w-full !text-sm flex-1',
-                '!bg-neutral-50 dark:!bg-[#070708] !pt-3',
+                '!bg-neutral-50 dark:!bg-[#070708] !pt-3 lg:!h-[calc(100vh_-_var(--global-sticky-height))]',
               ),
             },
             visibleFiles: workspace?.visibleFiles ?? undefined,
-          }}
-          style={{
-            height: 'var(--global-sticky-height)',
           }}
           theme={colorScheme === 'dark' ? 'dark' : undefined}>
           <UserInterfaceCodingWorkspace
