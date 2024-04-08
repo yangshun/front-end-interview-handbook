@@ -71,6 +71,7 @@ export default function CountdownTimerPage() {
               href={signInUpHref()}
               label="Sign up"
               size="lg"
+              suppressHydrationWarning={true}
               variant="primary"
             />
           </>

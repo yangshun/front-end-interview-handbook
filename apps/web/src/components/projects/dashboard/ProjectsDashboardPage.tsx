@@ -97,6 +97,7 @@ export default function ProjectsDashboardPage({ children, viewer }: Props) {
               id: 'iCm44V',
             })}
             size="lg"
+            suppressHydrationWarning={true}
             variant="primary"
           />
         </div>
