@@ -100,9 +100,10 @@ export default function ProjectsChallengeSubmissionPage({
             />
           )}
           {(deploymentUrls.length > 0 || repositoryUrl) && (
-            <div className="flex gap-4">
+            <div className="flex w-full gap-4 md:w-auto">
               {deploymentUrls.length > 0 && (
                 <Button
+                  className="flex-1 md:flex-none"
                   href={deploymentUrls[0].href}
                   icon={RiShareCircleLine}
                   label={intl.formatMessage({
@@ -116,6 +117,7 @@ export default function ProjectsChallengeSubmissionPage({
               )}
               {repositoryUrl && (
                 <Button
+                  className="flex-1 md:flex-none"
                   href={repositoryUrl}
                   icon={RiShareCircleLine}
                   label={intl.formatMessage({
@@ -131,7 +133,10 @@ export default function ProjectsChallengeSubmissionPage({
           )}
         </div>
         {submission.summary && (
-          <Text className="my-8 block max-w-prose" size="body2">
+          <Text
+            className="my-8 block max-w-prose"
+            color="secondary"
+            size="body2">
             {submission.summary}
           </Text>
         )}

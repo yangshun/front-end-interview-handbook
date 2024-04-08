@@ -10,7 +10,7 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeSubmissionHeroViews({ views }: Props) {
   return (
-    <div className="flex items-center gap-1">
+    <div className="flex flex-1 items-center gap-1 md:flex-none">
       <RiEyeFill className={clsx('size-4', themeTextColor)} />
       <Text size="body3">{views}</Text>
     </div>

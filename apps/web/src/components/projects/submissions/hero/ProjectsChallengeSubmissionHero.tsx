@@ -91,6 +91,7 @@ export default function ProjectsChallengeSubmissionHero({
 
   const commentButton = (
     <FilterButton
+      className="flex-1 md:flex-none"
       icon={RiMessage2Fill}
       label={String(submission.comments ?? 0)}
       purpose="button"

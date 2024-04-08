@@ -37,7 +37,7 @@ export default function ProjectsChallengeSubmissionAuthorProfile({
           />
           <ProjectsProfileSocialLinks userProfile={userProfile} />
         </div>
-        <div className="flex items-center gap-x-4">
+        <div className="flex flex-wrap items-center gap-4">
           <UserProfileInformationRow size="body3" userProfile={userProfile} />
           <ProjectsUserReputation points={points} />
         </div>

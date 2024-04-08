@@ -51,6 +51,7 @@ export default function ProjectsChallengeSubmissionHeroVoteButton({
 
   return (
     <FilterButton
+      className="flex-1 md:flex-none"
       icon={RiThumbUpFill}
       isDisabled={isLoading || vote.isLoading || unvote.isLoading}
       label={String(votes)}
