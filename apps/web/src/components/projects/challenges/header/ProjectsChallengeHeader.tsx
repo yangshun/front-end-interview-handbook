@@ -86,6 +86,7 @@ export default function ProjectsChallengeHeader({
           id: 'KtacJv',
         })}
         variant="secondary"
+        onClick={startProject}
       />
     ) : (
       <Button
