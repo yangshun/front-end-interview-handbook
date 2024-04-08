@@ -1922,6 +1922,35 @@
     "topics": []
   },
   {
+    "author": null,
+    "companies": [],
+    "created": 1712102400,
+    "difficulty": "medium",
+    "duration": 20,
+    "excerpt": "Implement a function that compares object and source to determine if they contain equivalent property values",
+    "featured": false,
+    "format": "javascript",
+    "frameworkDefault": null,
+    "frameworks": [],
+    "href": "/questions/javascript/is-match",
+    "importance": "low",
+    "languages": [
+      "js",
+      "ts"
+    ],
+    "nextQuestions": [],
+    "premium": true,
+    "published": true,
+    "ranking": 100,
+    "similarQuestions": [
+      "conforms-to"
+    ],
+    "slug": "is-match",
+    "subtitle": null,
+    "title": "Is Match",
+    "topics": []
+  },
+  {
     "author": "yangshun",
     "companies": [],
     "created": 1655510400,

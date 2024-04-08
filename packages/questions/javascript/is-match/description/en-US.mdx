@@ -1,0 +1,43 @@
+---
+title: Is Match
+excerpt: Implement a function that compares object and source to determine if they contain equivalent property values
+---
+
+Implement a function `isMatch(object, source)` that performs a partial deep comparison between object and source to determine if object contains equivalent property values.
+
+```js
+isMatch(object, source);
+```
+
+## Arguments
+
+1. `object` _(Object)_: The object to inspect.
+1. `source` _(Object)_: The object of property to match.
+
+## Returns
+
+_`(boolean)`_: Returns true if object is a match, else false.
+
+## Examples
+
+```js
+isMatch({ a: 1, b: 2 }, { b: 2 });
+// => true
+
+isMatch({ a: 1, b: 2 }, { b: 1 });
+// => false
+```
+
+Partial comparisons will match empty array and empty object source values against any array or object value, respectively.
+
+```js
+const object = { a: 1, b: ['x', 'y'], c: { key: 'value' } };
+
+isMatch(object, { b: [] }); // => true
+
+isMatch(object, { c: {} }); // => true
+```
+
+## Resources
+
+- [Lodash `_.isMatch`](https://lodash.com/docs/#isMatch)

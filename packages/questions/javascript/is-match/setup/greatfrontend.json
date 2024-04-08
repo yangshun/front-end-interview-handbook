@@ -1,0 +1,8 @@
+{
+  "run": "/src/is-match.run.test.ts",
+  "submit": "/src/is-match.submit.test.ts",
+  "skeleton": {
+    "js": "/src/is-match.skeleton.js",
+    "ts": "/src/is-match.skeleton.ts"
+  }
+}
