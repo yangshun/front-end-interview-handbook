@@ -9,7 +9,7 @@ type Props = Readonly<{
 
 function CountdownContainer({ children }: Props) {
   return (
-    <Container className="pb-8 pt-20">
+    <Container className="pb-8 pt-8 md:pt-20">
       <div className="relative flex flex-col items-center gap-12">
         <div className="-z-1 absolute bottom-[70%]">
           <GrayedOutLogoMark height={240} width={313} />

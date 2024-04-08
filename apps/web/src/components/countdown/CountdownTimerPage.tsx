@@ -16,7 +16,7 @@ import CountdownContainer from './CountdownContainer';
 import Text from '../ui/Text';
 import useCountdownTimer from '../../hooks/useCountdownTime';
 
-function CountdownTimerPage() {
+export default function CountdownTimerPage() {
   const { days, hours, minutes, seconds, finished } =
     useCountdownTimer(PROJECT_LAUNCH_DATE);
   const { signInUpHref } = useAuthSignInUp();
@@ -25,7 +25,7 @@ function CountdownTimerPage() {
   if (finished) {
     return (
       <CountdownContainer>
-        <Heading className="text-center" level="heading1">
+        <Heading className="text-pretty text-center" level="heading1">
           The wait is over, let's start
         </Heading>
         <Button
@@ -42,7 +42,7 @@ function CountdownTimerPage() {
     <CountdownContainer>
       <div className="flex flex-col items-center gap-3">
         <Badge label="Coming soon" variant="special" />
-        <Heading className="text-center" level="heading1">
+        <Heading className="text-pretty text-center" level="heading1">
           New product coming soon
         </Heading>
       </div>
@@ -61,7 +61,10 @@ function CountdownTimerPage() {
         )}>
         {userProfile == null ? (
           <>
-            <Text color="secondary" size="body0">
+            <Text
+              className="text-pretty text-center"
+              color="secondary"
+              size="body0">
               Sign up for an account to receive email updates once we launch
             </Text>
             <Button
@@ -73,7 +76,10 @@ function CountdownTimerPage() {
           </>
         ) : (
           <>
-            <Text color="secondary" size="body0">
+            <Text
+              className="text-pretty text-center"
+              color="secondary"
+              size="body0">
               Keep a lookout for our launch email
             </Text>
             <Button
@@ -88,5 +94,3 @@ function CountdownTimerPage() {
     </CountdownContainer>
   );
 }
-
-export default CountdownTimerPage;
