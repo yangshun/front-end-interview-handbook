@@ -7,7 +7,7 @@ type Props = Readonly<{
   children: React.ReactNode;
 }>;
 
-function CountdownContainer({ children }: Props) {
+export default function CountdownContainer({ children }: Props) {
   return (
     <Container className="pb-8 pt-8 md:pt-20">
       <div className="relative flex flex-col items-center gap-12">
@@ -19,5 +19,3 @@ function CountdownContainer({ children }: Props) {
     </Container>
   );
 }
-
-export default CountdownContainer;
