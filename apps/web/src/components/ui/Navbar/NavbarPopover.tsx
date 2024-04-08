@@ -1,4 +1,6 @@
 import clsx from 'clsx';
+import { useEffect } from 'react';
+import { useMediaQuery } from 'usehooks-ts';
 
 import Anchor from '~/components/ui/Anchor';
 import {
@@ -102,8 +104,18 @@ export default function NavbarPopover({
   onClose,
 }: Readonly<{
   items: ReadonlyArray<NavPopoverChildItem>;
-  onClose: () => void;
+  onClose: (event?: React.MouseEvent<HTMLElement>) => void;
 }>) {
+  const laptopAndAbove = useMediaQuery('(min-width: 1024px)');
+
+  useEffect(() => {
+    // Automatically close when popover is still open and
+    // screen has been resized to be below laptop.
+    if (!laptopAndAbove) {
+      onClose();
+    }
+  }, [onClose, laptopAndAbove]);
+
   return (
     <div
       className={clsx(
