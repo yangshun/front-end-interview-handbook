@@ -51,6 +51,7 @@ type BaseProps = Readonly<{
   label: string;
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
   size?: ButtonSize;
+  suppressHydrationWarning?: boolean;
   tooltip?: ReactNode;
   tooltipAlign?: TooltipContentAlignment;
   tooltipSide?: TooltipContentSide;
