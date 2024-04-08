@@ -44,7 +44,7 @@ Empty keys should be treated as if that "layer" doesn't exist.
 ```js
 const object = {
   foo: {
-    '': { '': 1, 1bar: 2 },
+    '': { '': 1, bar: 2 },
   },
 };
 squashObject(object); // { foo: 1, 'foo.bar': 2 }
