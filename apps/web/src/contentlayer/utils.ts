@@ -10,7 +10,14 @@ import type { BlogLevel, BlogMetadata } from '~/components/blog/BlogTypes';
 import { sortBlogsMultiple } from '~/components/blog/filters/BlogsProcessor';
 
 export function getPostFromSlug(slug: string) {
-  const post = allPosts.find((blogPost) => blogPost.slug === slug);
+  const post = allPosts
+    .filter((postItem) =>
+      // Only show published posts on production.
+      process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
+        ? postItem.published
+        : true,
+    )
+    .find((postItem) => postItem.slug === slug);
 
   return post ? getTypeCastedMetadata(post) : null;
 }
@@ -111,11 +118,18 @@ export function getSubseriesAndPosts(
 
 export function getAllPosts(options: PostSortingOptions = {}) {
   const { ascending = false } = options;
-  const blogs = allPosts.map((post) => {
-    const postMetadata = getTypeCastedMetadata(post);
+  const blogs = allPosts
+    .filter((postItem) =>
+      // Only show published posts on production.
+      process.env.NEXT_PUBLIC_VERCEL_ENV === 'production'
+        ? postItem.published
+        : true,
+    )
+    .map((postItem) => {
+      const postMetadata = getTypeCastedMetadata(postItem);
 
-    return { ...postMetadata } as BlogMetadata;
-  });
+      return { ...postMetadata } as BlogMetadata;
+    });
 
   return sortBlogsMultiple(blogs, [
     {
