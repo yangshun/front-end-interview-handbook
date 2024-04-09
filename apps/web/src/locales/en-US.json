@@ -6299,6 +6299,10 @@
     "defaultMessage": "Collapse",
     "description": "Label for \"Collapse\" button on current project session card"
   },
+  "n3eIzi": {
+    "defaultMessage": "See all",
+    "description": "See all new posts"
+  },
   "n4aKYo": {
     "defaultMessage": "Theme",
     "description": "Change site theme button label"
@@ -7538,10 +7542,6 @@
   "xegXNt": {
     "defaultMessage": "Step-by-step guides on how to approach the challenge",
     "description": "FAQ answer for projects platform"
-  },
-  "xgFUi6": {
-    "defaultMessage": "See all",
-    "description": "See all new blogs"
   },
   "xiEHQ1": {
     "defaultMessage": "Job title",

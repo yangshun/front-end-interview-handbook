@@ -85,7 +85,7 @@ export default function ProjectsChallengeHeader({
             'Label for "Start project" button on Projects project page',
           id: 'KtacJv',
         })}
-        variant="secondary"
+        variant="primary"
         onClick={startProject}
       />
     ) : (
