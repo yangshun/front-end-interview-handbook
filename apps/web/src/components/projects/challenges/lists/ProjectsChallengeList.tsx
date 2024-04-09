@@ -21,15 +21,20 @@ export default function ProjectsChallengeList({
   className,
   challenges,
 }: Props) {
+  const singleCardHeight = 100 / challenges.length;
+  const dashedLineHeight = (challenges.length - 1) * singleCardHeight;
+  const dashedLineTopOffset = singleCardHeight / 2;
+
   return (
     <div className={clsx('relative flex flex-col gap-4', className)}>
       <div
-        className={clsx(
-          'absolute start-3 -translate-x-1/2 translate-y-[100px]',
-          ['border-l border-dashed', themeBorderElementColor],
-        )}
+        className={clsx('absolute start-3 -translate-x-1/2', [
+          'border-l border-dashed',
+          themeBorderElementColor,
+        ])}
         style={{
-          height: `${((challenges.length - 1) / challenges.length) * 100}%`,
+          height: `${dashedLineHeight}%`,
+          top: `${dashedLineTopOffset}%`,
         }}
       />
       {challenges.map((challenge, index) => (
