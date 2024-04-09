@@ -7,6 +7,7 @@ import ProjectsPricingSectionLocalizedContainer from '~/components/projects/purc
 import Text from '~/components/ui/Text';
 
 import ProjectMarketingGeneralFAQSection from './ProjectMarketingGeneralFAQSection';
+import ProjectMarketingReadyToStart from './ProjectMarketingReadyToStart';
 
 export default function ProjectsMarketingHomePageBottom() {
   const intl = useIntl();
@@ -16,6 +17,7 @@ export default function ProjectsMarketingHomePageBottom() {
       <ProjectsPricingSectionLocalizedContainer />
       <ProjectsPricingPromotions />
       <ProjectMarketingGeneralFAQSection />
+      <ProjectMarketingReadyToStart />
       <InterviewsMarketingContinuousUpdates
         title={intl.formatMessage({
           defaultMessage: "We're still growing our challenge base",

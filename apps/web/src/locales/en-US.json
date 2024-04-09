@@ -1887,6 +1887,10 @@
     "defaultMessage": "I want to use React on this project, but it's not listed as one of the skills. Can I still use it?",
     "description": "FAQ question for projects platform"
   },
+  "ECjV1e": {
+    "defaultMessage": "Ready to start building?",
+    "description": "Ready to start building section title"
+  },
   "ECkWMR": {
     "defaultMessage": "Stop session",
     "description": "Label to stop study plan"
@@ -2654,6 +2658,10 @@
   "KjD2cI": {
     "defaultMessage": "Duration: High to Low",
     "description": "Sorting option for question list - sort by duration from high to low"
+  },
+  "Kl+fdC": {
+    "defaultMessage": "Select a project",
+    "description": "Select a project on ready to start page"
   },
   "KlEAfS": {
     "defaultMessage": "Show side menu",
@@ -3874,6 +3882,10 @@
   "TaIXVz": {
     "defaultMessage": "Purchase premium to unlock full access to exclusive System Design content including high quality solutions and companies which ask this question.",
     "description": "System design questions paywall"
+  },
+  "Tdn+OY": {
+    "defaultMessage": "Starting is as easy as clicking a Start project button, and we will take you through every step of the way.",
+    "description": "Ready to start section subtitle"
   },
   "TebaLD": {
     "defaultMessage": "Continue learning",
