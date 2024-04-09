@@ -2091,6 +2091,10 @@
     "defaultMessage": "Paragraph",
     "description": "Label for Normal"
   },
+  "GJbSo1": {
+    "defaultMessage": "User onboarding",
+    "description": "Title for Projects onboarding page"
+  },
   "GJt7KQ": {
     "defaultMessage": "Build user interface apps and components in JavaScript frameworks",
     "description": "Description of front end user interface questions"

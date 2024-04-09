@@ -61,9 +61,16 @@ export default function ProjectsOnboardingReasonPage() {
     <FormProvider {...methods}>
       <main>
         <Container
-          className="flex flex-col items-center gap-12 pb-24 pt-8"
+          className="flex flex-col items-center gap-12 pb-24 pt-16"
           variant="narrow">
           <div className="flex flex-col items-center gap-4">
+            <Text className="text-center" color="active" size="body1">
+              <FormattedMessage
+                defaultMessage="User onboarding"
+                description="Title for Projects onboarding page"
+                id="GJbSo1"
+              />
+            </Text>
             <Heading level="heading5">
               <FormattedMessage
                 defaultMessage="Welcome to GreatFrontEnd Projects!"
