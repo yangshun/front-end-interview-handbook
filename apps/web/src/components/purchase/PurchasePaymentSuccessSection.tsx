@@ -91,7 +91,7 @@ export default function PurchasePaymentSuccessSection({
                   </div>
                   <div className="min-w-0 flex-1">
                     <Heading
-                      className="inline-flex gap-4 text-base font-medium"
+                      className="inline-flex flex-wrap gap-1 text-base font-medium md:gap-4"
                       level="custom">
                       <Anchor href={action.href} variant="blend">
                         <span aria-hidden="true" className="absolute inset-0" />
