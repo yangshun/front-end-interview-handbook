@@ -9,8 +9,8 @@ import countByAltTs from '../setup/src/count-by-alt.ts';
 
 ### Solution 1: Standard method of basic functions
 
-1. Create an empty `results` object to store the count of occurrences of each key.
-1. Iterate through the array and determine the key for each element by calling `iteratee(element)`. If the key does not exist within the `results` object, set the value for that key to 0. Next we can increment the value for that key.
+1. Create an empty `result` object to store the count of occurrences of each key.
+1. Iterate through the array and determine the key for each element by calling `iteratee(element)`. If the key does not exist within the `result` object, set the value for that key to 0. Next we can increment the value for that key.
 
 <MDXCodeBlock languages={{ jsx: countByJs, tsx: countByTs }} />
 
