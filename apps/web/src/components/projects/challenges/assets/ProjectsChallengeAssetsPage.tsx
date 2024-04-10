@@ -7,10 +7,10 @@ import type {
 } from 'contentlayer/generated';
 import { useState } from 'react';
 import {
-  RiBrush2Fill,
   RiCheckboxCircleFill,
   RiCodeSSlashLine,
   RiDragMove2Fill,
+  RiPaletteLine,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -57,11 +57,11 @@ function useOnlineAssetsTabs(hasStyleGuide: boolean, hasAPIWriteup: boolean) {
 
   if (hasStyleGuide) {
     tabs.push({
-      icon: RiBrush2Fill,
+      icon: RiPaletteLine,
       label: intl.formatMessage({
-        defaultMessage: 'Basic style guide',
+        defaultMessage: 'Style guide',
         description: 'Project assets category label',
-        id: 'jVhr66',
+        id: 'H1aK4/',
       }),
       value: 'style-guide',
     });
