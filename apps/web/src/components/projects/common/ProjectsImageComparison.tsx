@@ -22,6 +22,8 @@ import {
   themeOutlineElementBrandColor_FocusVisible,
 } from '~/components/ui/theme';
 
+import ProjectsImageViewer from './ProjectsImageViewer';
+
 type CommonProps = Readonly<{
   baseScreenshots: Array<ProjectsBaseScreenshot>;
   showDimensions?: boolean;
@@ -45,7 +47,7 @@ type Props = Readonly<
     )
 >;
 
-export default function ProjectsComparison({
+export default function ProjectsImageComparison({
   title,
   baseScreenshots,
   deploymentUrls,
@@ -114,10 +116,10 @@ export default function ProjectsComparison({
       {/* Image Comparison Slider */}
       <div className="flex-1">
         {mode === 'display' ? (
-          <img
+          <ProjectsImageViewer
             alt={pages[selectedScreenIndex].label}
-            className={clsx('aspect-[4/3] w-full')}
             src={pages[selectedScreenIndex].original}
+            width={width}
           />
         ) : (
           <ProjectsChallengeSubmissionImageComparisonSlider
@@ -132,14 +134,14 @@ export default function ProjectsComparison({
           className={clsx(
             'col-span-1 flex flex-col justify-center md:col-span-2',
           )}>
+          <Text color="secondary" size="body1" weight="medium">
+            {pages[selectedScreenIndex].label}
+          </Text>
           {showDimensions && (
             <Text color="secondary" size="body3" weight="medium">
               {width}px &times; {height}px
             </Text>
           )}
-          <Text color="secondary" size="body1" weight="medium">
-            {pages[selectedScreenIndex].label}
-          </Text>
           {deploymentUrls && (
             <Text className="block truncate whitespace-nowrap" size="body2">
               <Anchor

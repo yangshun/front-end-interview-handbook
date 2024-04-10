@@ -1,5 +1,5 @@
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import ProjectsComparison from '~/components/projects/common/ProjectsComparison';
+import ProjectsImageComparison from '~/components/projects/common/ProjectsImageComparison';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -13,9 +13,9 @@ export default function ProjectsChallengeAssetsResponsiveBreakpointsTab({
     {
       label: 'Homepage',
       screenshots: {
-        desktop: challenge.metadata.imageUrl,
-        mobile: challenge.metadata.imageUrl,
-        tablet: challenge.metadata.imageUrl,
+        desktop: '/img/projects/desktop.png',
+        mobile: '/img/projects/mobile.png',
+        tablet: '/img/projects/tablet.png',
       },
     },
     {
@@ -32,7 +32,7 @@ export default function ProjectsChallengeAssetsResponsiveBreakpointsTab({
   ];
 
   return (
-    <ProjectsComparison
+    <ProjectsImageComparison
       baseScreenshots={baseScreenshots}
       mode="display"
       showDimensions={true}

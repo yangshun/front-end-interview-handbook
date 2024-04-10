@@ -1,6 +1,6 @@
 import { useIntl } from 'react-intl';
 
-import ProjectsComparison from '~/components/projects/common/ProjectsComparison';
+import ProjectsImageComparison from '~/components/projects/common/ProjectsImageComparison';
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/projects/submissions/types';
 import type { ProjectsBaseScreenshot } from '~/components/projects/types';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -40,7 +40,7 @@ export default function ProjectsChallengeSubmissionComparison({
 
   return (
     <Section>
-      <ProjectsComparison
+      <ProjectsImageComparison
         allowRetakeScreenshot={allowRetakeScreenshot}
         baseScreenshots={baseScreenshots}
         deploymentUrls={deploymentUrls}
