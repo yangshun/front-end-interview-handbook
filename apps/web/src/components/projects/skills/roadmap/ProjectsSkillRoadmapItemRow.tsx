@@ -2,7 +2,10 @@ import clsx from 'clsx';
 import { RiArrowRightLine, RiLockLine, RiLockUnlockLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import ProjectsChallengeFractionalCompletedTag from '~/components/projects/challenges/metadata/ProjectsChallengeFractionalCompletedTag';
+import ProjectsChallengeProgressbar from '~/components/projects/challenges/metadata/ProjectsChallengeProgressbar';
 import ProjectsChallengeReputationTag from '~/components/projects/challenges/metadata/ProjectsChallengeReputationTag';
+import ProjectsProfileAvatarWithStatus from '~/components/projects/users/ProjectsProfileAvatarWithStatus';
 import Anchor from '~/components/ui/Anchor';
 import Text from '~/components/ui/Text';
 import {
@@ -17,8 +20,6 @@ import {
 
 import { projectsSkillLabel } from '../data/ProjectsSkillListData';
 import type { ProjectsSkillSummaryItem } from '../types';
-import ProjectsChallengeProgressTag from '../../challenges/metadata/ProjectsChallengeProgressTag';
-import ProjectsProfileAvatarWithStatus from '../../users/ProjectsProfileAvatarWithStatus';
 
 type Props = Readonly<{
   isViewerPremium: boolean;
@@ -96,7 +97,11 @@ export default function ProjectsSkillRoadmapItemRow({
             </Text>
           )}
         </div>
-        <div className={clsx('flex gap-4', 'relative z-[1]')}>
+        <div
+          className={clsx(
+            'flex flex-wrap items-center gap-4',
+            'relative z-[1]',
+          )}>
           <ProjectsChallengeReputationTag
             points={skillSummary.points}
             tooltip={intl.formatMessage({
@@ -106,10 +111,8 @@ export default function ProjectsSkillRoadmapItemRow({
               id: 'IIctLn',
             })}
           />
-          <ProjectsChallengeProgressTag
+          <ProjectsChallengeFractionalCompletedTag
             completed={skillSummary.completedChallenges}
-            gapClass="gap-4"
-            showProgress={isViewingOwnProfile}
             tooltip={intl.formatMessage({
               defaultMessage: 'Number of challenges completed in skill plan',
               description: 'Tooltip for skill plan challenges label',
@@ -117,6 +120,14 @@ export default function ProjectsSkillRoadmapItemRow({
             })}
             total={skillSummary.totalChallenges}
           />
+          {isViewingOwnProfile && (
+            <div className="w-full md:w-auto">
+              <ProjectsChallengeProgressbar
+                completed={skillSummary.completedChallenges}
+                total={skillSummary.totalChallenges}
+              />
+            </div>
+          )}
         </div>
       </div>
       {!isViewingOwnProfile && (
