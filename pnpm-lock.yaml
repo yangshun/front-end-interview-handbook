@@ -282,6 +282,9 @@ importers:
       '@trpc/server':
         specifier: ^10.18.0
         version: 10.44.1
+      '@use-gesture/react':
+        specifier: ^10.3.1
+        version: 10.3.1(react@18.2.0)
       '@vercel/analytics':
         specifier: ^1.1.1
         version: 1.1.1
@@ -6714,6 +6717,19 @@ packages:
     dependencies:
       '@typescript-eslint/types': 6.13.2
       eslint-visitor-keys: 3.4.3
+    dev: false
+
+  /@use-gesture/core@10.3.1:
+    resolution: {integrity: sha512-WcINiDt8WjqBdUXye25anHiNxPc0VOrlT8F6LLkU6cycrOGUDyY/yyFmsg3k8i5OLvv25llc0QC45GhR/C8llw==}
+    dev: false
+
+  /@use-gesture/react@10.3.1(react@18.2.0):
+    resolution: {integrity: sha512-Yy19y6O2GJq8f7CHf7L0nxL8bf4PZCPaVOCgJrusOeFHY1LvHgYXnmnXg6N5iwAnbgbZCDjo60SiM6IPJi9C5g==}
+    peerDependencies:
+      react: '>= 16.8.0'
+    dependencies:
+      '@use-gesture/core': 10.3.1
+      react: 18.2.0
     dev: false
 
   /@vercel/analytics@1.1.1:
