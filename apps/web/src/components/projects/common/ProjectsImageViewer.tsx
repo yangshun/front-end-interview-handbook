@@ -60,7 +60,7 @@ export default function ProjectsImageViewer({ alt, src, width }: Props) {
     (data) => {
       if (data.ctrlKey) {
         data.event.preventDefault();
-        setZoomLevelWithClamp(zoomLevel + data.event.wheelDeltaY / 50);
+        setZoomLevelWithClamp(zoomLevel - data.event.deltaY / 50);
       }
     },
     { eventOptions: { passive: false }, target: wrapperRef },
