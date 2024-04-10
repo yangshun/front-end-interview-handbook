@@ -100,7 +100,7 @@ export default function InterviewsMarketingCompaniesMarquee() {
           {logos.map((logo) => (
             <div
               key={logo.src}
-              className="user-select-none flex items-center"
+              className="flex select-none items-center"
               style={{
                 height: logo.height,
                 width: logo.width,
