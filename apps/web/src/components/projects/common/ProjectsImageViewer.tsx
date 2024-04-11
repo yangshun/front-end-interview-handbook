@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { clamp } from 'lodash-es';
 import { useEffect, useRef, useState } from 'react';
-import { RiZoomInLine, RiZoomOutLine } from 'react-icons/ri';
-import { useWindowSize } from 'usehooks-ts';
+import { RiLayoutGridLine, RiZoomInLine, RiZoomOutLine } from 'react-icons/ri';
+import { useToggle, useWindowSize } from 'usehooks-ts';
 
 import Button from '~/components/ui/Button';
 
@@ -10,6 +10,12 @@ import { useWheel } from '@use-gesture/react';
 
 type Props = Readonly<{
   alt: string;
+  grid: {
+    columnGap: number;
+    columns: number;
+    containerWidth: number;
+    sidePadding: number;
+  };
   src: string;
   width: number;
 }>;
@@ -17,10 +23,11 @@ type Props = Readonly<{
 const MIN_ZOOM_LEVEL = 20;
 const MAX_ZOOM_LEVEL = 200;
 
-export default function ProjectsImageViewer({ alt, src, width }: Props) {
+export default function ProjectsImageViewer({ alt, src, width, grid }: Props) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const [zoomLevel, setZoomLevel] = useState(50);
+  const [showGrid, toggleGrid] = useToggle(false);
   const [imageSmallerThanWrapper, setImageSmallerThanWrapper] = useState({
     height: true,
     width: true,
@@ -66,9 +73,18 @@ export default function ProjectsImageViewer({ alt, src, width }: Props) {
     { eventOptions: { passive: false }, target: wrapperRef },
   );
 
+  const { columnGap, sidePadding, columns, containerWidth } = grid;
+
   return (
-    <div className="relative max-h-full">
-      <div className="absolute bottom-6 right-6 flex flex-col gap-1">
+    <div className="relative isolate max-h-full">
+      <div className="absolute bottom-6 right-6 z-[1] flex flex-col gap-1">
+        <Button
+          icon={RiLayoutGridLine}
+          isLabelHidden={true}
+          label="Toggle grid"
+          variant="secondary"
+          onClick={() => toggleGrid()}
+        />
         <Button
           icon={RiZoomInLine}
           isLabelHidden={true}
@@ -95,16 +111,46 @@ export default function ProjectsImageViewer({ alt, src, width }: Props) {
           imageSmallerThanWrapper.width ? 'justify-center' : 'justify-baseline',
           'touch-none',
         )}>
-        <img
-          ref={imageRef}
-          alt={alt}
-          className="pointer-events-none max-w-none touch-none select-none"
-          src={src}
-          style={{
-            width: (width * zoomLevel) / 100,
-          }}
-          onLoad={recalculate}
-        />
+        <div className="relative" style={{ width: (width * zoomLevel) / 100 }}>
+          {showGrid && (
+            <div className="absolute inset-0">
+              <div className="h-full">
+                <div
+                  className="relative mx-auto flex h-full"
+                  style={{ width: `${(containerWidth / width) * 100}%` }}>
+                  <div
+                    className="bg-red/20 h-full"
+                    style={{ width: `${(sidePadding / width) * 100}%` }}
+                  />
+                  <div
+                    className="grid h-full grow"
+                    style={{
+                      gap: `${(columnGap / width) * 100}%`,
+                      gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
+                    }}>
+                    {Array.from({ length: columns }, (_, index) => (
+                      <div key={index} className="bg-red/10 h-full" />
+                    ))}
+                  </div>
+                  <div
+                    className="bg-red/20 h-full"
+                    style={{ width: `${(sidePadding / width) * 100}%` }}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+          <img
+            ref={imageRef}
+            alt={alt}
+            className="pointer-events-none max-w-none touch-none select-none"
+            src={src}
+            style={{
+              width: (width * zoomLevel) / 100,
+            }}
+            onLoad={recalculate}
+          />
+        </div>
       </div>
     </div>
   );

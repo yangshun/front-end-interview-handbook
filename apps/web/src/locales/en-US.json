@@ -2203,6 +2203,10 @@
     "defaultMessage": "<bold>You</bold> asked <bold>{recipient}</bold> a question on their submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",
     "description": "Log message for you asking question on a submission"
   },
+  "H1aK4/": {
+    "defaultMessage": "Style guide",
+    "description": "Project assets category label"
+  },
   "H39M2g": {
     "defaultMessage": "What to expect for Front End System Design interviews",
     "description": "Sidebar link title for front end system design interviews"
@@ -5802,10 +5806,6 @@
   "jVSwXw": {
     "defaultMessage": "Purchase premium to unlock full access to the question.",
     "description": "Subtitle on question paywall appearing on the question pages of premium questions"
-  },
-  "jVhr66": {
-    "defaultMessage": "Basic style guide",
-    "description": "Project assets category label"
   },
   "jYsoqB": {
     "defaultMessage": "Component libraries for your portfolio",

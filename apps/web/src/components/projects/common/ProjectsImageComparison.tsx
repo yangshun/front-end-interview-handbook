@@ -118,6 +118,7 @@ export default function ProjectsImageComparison({
         {mode === 'display' ? (
           <ProjectsImageViewer
             alt={pages[selectedScreenIndex].label}
+            grid={ProjectsImageBreakpointDimensions[selectedBreakpoint].grid}
             src={pages[selectedScreenIndex].original}
             width={width}
           />
