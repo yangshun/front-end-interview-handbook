@@ -12,7 +12,7 @@ Front End Interview Handbook is now part of [GreatFrontEnd](https://www.greatfro
 ## JavaScript
 
 - Write a `getElementsByClassName` function.
-  - [Practice question](https://www.greatfrontend.com/questions/javascript/get-elements-by-class-name) (Free)
+  - [Practice question](https://www.greatfrontend.com/questions/javascript/get-elements-by-class-name) (Paid)
 
 ## User interface coding
 
