@@ -64,7 +64,11 @@ export default function ProjectsOnboardingReasonPage() {
           className="flex flex-col items-center gap-12 pb-24 pt-16"
           variant="narrow">
           <div className="flex flex-col items-center gap-4">
-            <Text className="text-center" color="active" size="body1">
+            <Text
+              className="text-pretty block text-center"
+              color="active"
+              size="body2"
+              weight="medium">
               <FormattedMessage
                 defaultMessage="User onboarding"
                 description="Title for Projects onboarding page"
