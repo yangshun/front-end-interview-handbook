@@ -35,14 +35,16 @@ export default function ProjectsChallengeCard({ challenge }: Props) {
 
   return (
     <div
-      className={clsx('flex', 'rounded-lg', 'relative isolate', [
-        themeGlassyBorder,
-        themeBackgroundCardAltColor,
-      ])}>
+      className={clsx(
+        'flex flex-col sm:flex-row',
+        'overflow-clip rounded-lg',
+        'relative isolate',
+        [themeGlassyBorder, themeBackgroundCardAltColor],
+      )}>
       <div className="relative shrink-0">
         <img
           alt={title}
-          className={clsx('h-full w-[188px] object-cover', 'rounded-s-lg')}
+          className={clsx('h-full w-full sm:w-[188px]', 'object-cover')}
           src={imageUrl}
         />
         <div className="absolute start-2 top-2 flex items-center gap-1">
