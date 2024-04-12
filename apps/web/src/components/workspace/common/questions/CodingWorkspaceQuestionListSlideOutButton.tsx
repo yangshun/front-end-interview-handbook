@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { RiArrowLeftSLine, RiArrowRightSLine } from 'react-icons/ri';
 import { useSessionStorage } from 'usehooks-ts';
 
@@ -33,7 +34,7 @@ export default function CodingWorkspaceQuestionListSlideOutButton({
     QuestionsCodingFiltersNamespaceKey,
     'prepare-coding',
   );
-  // Filtering
+  // Filtering.
   const { filters } = useQuestionCodingFilters({
     namespace,
   });
@@ -80,13 +81,18 @@ export default function CodingWorkspaceQuestionListSlideOutButton({
       <div className="flex gap-x-2">
         <Button
           addonPosition="start"
+          className={clsx(prevQuestionButtonDisabled && 'opacity-50')}
           href={prevQuestionButtonDisabled ? undefined : prevQuestion?.href}
           icon={RiArrowLeftSLine}
           isDisabled={prevQuestionButtonDisabled}
           isLabelHidden={true}
           label="Previous question"
           size="xs"
-          tooltip="Previous question"
+          tooltip={
+            prevQuestionButtonDisabled
+              ? undefined
+              : `Previous question: ${prevQuestion?.title}`
+          }
           variant="secondary"
         />
         <CodingWorkspaceQuestionListSlideOut
@@ -95,13 +101,18 @@ export default function CodingWorkspaceQuestionListSlideOutButton({
         />
         <Button
           addonPosition="start"
+          className={clsx(nextQuestionButtonDisabled && 'opacity-50')}
           href={nextQuestionButtonDisabled ? undefined : nextQuestion?.href}
           icon={RiArrowRightSLine}
           isDisabled={nextQuestionButtonDisabled}
           isLabelHidden={true}
           label="Next question"
           size="xs"
-          tooltip="Next question"
+          tooltip={
+            nextQuestionButtonDisabled
+              ? undefined
+              : `Next question: ${nextQuestion?.title}`
+          }
           variant="secondary"
         />
       </div>
