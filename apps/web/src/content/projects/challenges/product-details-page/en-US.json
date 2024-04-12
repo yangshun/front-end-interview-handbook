@@ -11,5 +11,6 @@
     "css": 50
   },
   "skills": ["html-basics", "css-basics", "css-flex"],
-  "imageUrl": "https://cdn.dribbble.com/users/1126703/screenshots/14754111/media/edba9f450220b63f19831b1ae87651c2.png?resize=1600x1200&vertical=center"
+  "coverImage": "https://cdn.dribbble.com/users/1126703/screenshots/14754111/media/edba9f450220b63f19831b1ae87651c2.png?resize=1600x1200&vertical=center",
+  "galleryImages": []
 }

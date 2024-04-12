@@ -11,5 +11,6 @@
     "css": 50
   },
   "skills": ["css-basics", "javascript-foundations", "javascript-browser-dom"],
-  "imageUrl": "https://cdn.dribbble.com/userupload/4504017/file/original-3f06a1a1a343f6ba661331c1cc7395e6.png?resize=1504x1128"
+  "coverImage": "https://cdn.dribbble.com/userupload/4504017/file/original-3f06a1a1a343f6ba661331c1cc7395e6.png?resize=1504x1128",
+  "galleryImages": []
 }

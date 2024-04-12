@@ -126,7 +126,7 @@ export default function ProjectsTrackAccordionItem({
                               'rounded',
                               'bg-neutral-200 dark:bg-neutral-800',
                             )}
-                            src={challenge.metadata.imageUrl}
+                            src={challenge.metadata.coverImage}
                           />
                           {challenge.metadata.access === 'premium' && (
                             <span className="absolute start-1 top-1">

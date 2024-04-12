@@ -11,5 +11,10 @@
     "css": 50
   },
   "skills": ["html-basics", "html-semantics", "html-forms"],
-  "imageUrl": "https://cdn.dribbble.com/users/1126703/screenshots/16876407/media/89b13f3110eb445fee98616f4ba8a153.png?resize=840x630&vertical=center"
+  "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/newsletter-section/cover.jpg",
+  "galleryImages": [
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/newsletter-section/gallery/Desktop.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/newsletter-section/gallery/Tablet.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/newsletter-section/gallery/Mobile.jpg"
+  ]
 }

@@ -68,7 +68,7 @@ export default function ProjectsDashboardContinueProjectsSection() {
               <img
                 alt={session.challenge.title}
                 className="h-[70px] w-[90px] rounded object-cover"
-                src={session.challenge.imageUrl}
+                src={session.challenge.coverImage}
               />
               <div className="flex grow flex-col gap-1">
                 <Anchor

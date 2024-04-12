@@ -94,7 +94,7 @@ export default function ProjectsTrackDetailsPage({
                   'object-cover',
                   'rounded-s-lg',
                 )}
-                src={challenge.metadata.imageUrl}
+                src={challenge.metadata.coverImage}
               />
               <div className="flex grow flex-col items-start gap-4 py-4">
                 <div className="flex flex-col items-start gap-2">

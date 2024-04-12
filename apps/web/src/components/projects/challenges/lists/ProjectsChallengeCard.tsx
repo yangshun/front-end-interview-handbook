@@ -55,7 +55,7 @@ export default function ProjectsChallengeCard({
     difficulty,
     description,
     skills,
-    imageUrl,
+    coverImage,
     points,
     href,
     access: challengeAccess,
@@ -81,7 +81,7 @@ export default function ProjectsChallengeCard({
             'aspect-[16/9] w-full object-cover',
             props.variant === 'hovercard' ? 'rounded-md' : 'rounded-t-lg',
           )}
-          src={imageUrl}
+          src={coverImage}
         />
         <div className="absolute start-3 top-3 flex items-center gap-1">
           {challengeAccess === 'premium' && (

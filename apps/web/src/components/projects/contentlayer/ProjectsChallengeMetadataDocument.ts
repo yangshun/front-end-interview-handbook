@@ -80,7 +80,7 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       type: 'string',
     },
     slug: {
-      description: 'Unique identifier of the project',
+      description: 'Unique identifier of the challenge',
       resolve: (doc) => parseProjectSlug(doc._raw.sourceFilePath),
       type: 'string',
     },
@@ -100,9 +100,14 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       required: true,
       type: 'enum',
     },
+    coverImage: {
+      description: 'Cover image for the challenge',
+      required: true,
+      type: 'string',
+    },
     createdAt: { required: true, type: 'date' },
     description: {
-      description: 'Short description of the project',
+      description: 'Short description of the challenge',
       required: true,
       type: 'string',
     },
@@ -111,29 +116,30 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       required: true,
       type: 'enum',
     },
-    imageUrl: {
-      description: 'Cover image for the project',
+    galleryImages: {
+      description: 'Gallery images for the challenge',
+      of: { type: 'string' },
       required: true,
-      type: 'string',
+      type: 'list',
     },
     pointsBase: {
-      description: 'Reputation gained by completing the project',
+      description: 'Reputation gained by completing the challenge',
       required: true,
       type: 'number',
     },
     pointsForSkillGroups: {
-      description: 'Reputation gained by using skills for the project',
+      description: 'Reputation gained by using skills for the challenge',
       required: true,
       type: 'json',
     },
     skills: {
-      description: 'Skills for the project',
+      description: 'Skills for the challenge',
       of: { type: 'string' },
       required: true,
       type: 'list',
     },
     title: {
-      description: 'Title of the project',
+      description: 'Title of the challenge',
       required: true,
       type: 'string',
     },
