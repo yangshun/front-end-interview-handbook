@@ -281,6 +281,7 @@ model ProjectsChallengeCreditTransaction {
 
 model ProjectsChallengeSubmission {
   id              String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  shortId         String   @unique @default(dbgenerated("SUBSTRING((gen_random_uuid())::text FROM 1 FOR 8)")) @db.Citext
   profileId       String   @db.Uuid
   slug            String
   title           String

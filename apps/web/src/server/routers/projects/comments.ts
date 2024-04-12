@@ -1,4 +1,5 @@
 import { allProjectsChallengeMetadata } from 'contentlayer/generated';
+import { kebabCase, lowerCase } from 'lodash-es';
 import { z } from 'zod';
 
 import { discussionsCommentBodySchemaServer } from '~/components/projects/discussions/ProjectsDiscussionsCommentBodySchema';
@@ -313,7 +314,7 @@ export const projectsCommentsRouter = router({
               return {
                 ...comment,
                 entity: {
-                  href: `/projects/s/${comment.entityId}`,
+                  href: submission.hrefs.detail,
                   recipient: submissionAuthorName,
                   title: submission.title,
                 },

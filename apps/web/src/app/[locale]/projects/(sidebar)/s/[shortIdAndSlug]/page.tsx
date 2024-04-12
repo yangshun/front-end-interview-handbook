@@ -1,3 +1,4 @@
+import { kebabCase, lowerCase } from 'lodash-es';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -18,13 +19,14 @@ import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 import prisma from '~/server/prisma';
 
 type Props = Readonly<{
-  params: Readonly<{ id: string; locale: string }>;
+  params: Readonly<{ locale: string; shortIdAndSlug: string }>;
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, id: submissionId } = params;
+  const { locale, shortIdAndSlug } = params;
+  const shortId = shortIdAndSlug.split('-').at(-1);
 
-  const [intl, submissionDetails] = await Promise.all([
+  const [intl, submission] = await Promise.all([
     getIntlServerOnly(locale),
     prisma.projectsChallengeSubmission.findUnique({
       include: {
@@ -39,16 +41,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
       },
       where: {
-        id: submissionId,
+        shortId,
       },
     }),
   ]);
+
+  if (submission == null) {
+    return notFound();
+  }
+
   const { challengeMetadata } = await readProjectsChallengeMetadata(
-    submissionDetails?.slug ?? '',
+    submission?.slug ?? '',
     locale,
   );
 
-  const description = submissionDetails?.summary ?? '';
+  const description = submission?.summary ?? '';
   const fallbackDescription = intl.formatMessage(
     {
       defaultMessage:
@@ -58,14 +65,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     {
       challengeName: challengeMetadata.title,
-      username: submissionDetails?.projectsProfile?.userProfile?.username,
+      username: submission?.projectsProfile?.userProfile?.username,
     },
   );
 
   return defaultProjectsMetadata(intl, {
     description: description.length < 50 ? fallbackDescription : description,
     locale,
-    pathname: `/projects/s/${submissionId}`,
+    pathname: `/projects/s/${shortId}/${kebabCase(
+      lowerCase(submission.title),
+    )}`,
     template: '%s',
     title: intl.formatMessage(
       {
@@ -75,59 +84,61 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
       {
         challengeName: challengeMetadata.title,
-        submissionTitle: submissionDetails?.title,
-        username: submissionDetails?.projectsProfile?.userProfile?.username,
+        submissionTitle: submission?.title,
+        username: submission?.projectsProfile?.userProfile?.username,
       },
     ),
   });
 }
 
 export default async function Page({ params }: Props) {
-  const { locale, id: submissionId } = params;
-  const [{ viewerId, viewerProjectsProfile }, submission, commentCount] =
-    await Promise.all([
-      fetchViewerProjectsProfile(),
-      prisma.projectsChallengeSubmission.findFirst({
-        include: {
-          _count: {
-            select: {
-              votes: true,
-            },
+  const { locale, shortIdAndSlug } = params;
+  const shortId = shortIdAndSlug.split('-').at(-1);
+
+  const [{ viewerId, viewerProjectsProfile }, submission] = await Promise.all([
+    fetchViewerProjectsProfile(),
+    prisma.projectsChallengeSubmission.findFirst({
+      include: {
+        _count: {
+          select: {
+            votes: true,
           },
-          projectsProfile: {
-            include: {
-              userProfile: {
-                select: {
-                  avatarUrl: true,
-                  company: true,
-                  currentStatus: true,
-                  githubUsername: true,
-                  id: true,
-                  linkedInUsername: true,
-                  name: true,
-                  startWorkDate: true,
-                  title: true,
-                  username: true,
-                },
+        },
+        projectsProfile: {
+          include: {
+            userProfile: {
+              select: {
+                avatarUrl: true,
+                company: true,
+                currentStatus: true,
+                githubUsername: true,
+                id: true,
+                linkedInUsername: true,
+                name: true,
+                startWorkDate: true,
+                title: true,
+                username: true,
               },
             },
           },
         },
-        where: {
-          id: submissionId,
-        },
-      }),
-      prisma.projectsDiscussionComment.count({
-        where: {
-          domain: 'PROJECTS_SUBMISSION',
-          entityId: submissionId,
-        },
-      }),
-    ]);
+      },
+      where: {
+        shortId,
+      },
+    }),
+  ]);
 
   if (submission == null) {
     return notFound();
   }
+
+  const commentCount = await prisma.projectsDiscussionComment.count({
+    where: {
+      domain: 'PROJECTS_SUBMISSION',
+      entityId: submission.id,
+    },
+  });
 
   const [viewerUnlockedAccess, { challenge }] = await Promise.all([
     fetchViewerProjectsChallengeAccess(submission.slug),

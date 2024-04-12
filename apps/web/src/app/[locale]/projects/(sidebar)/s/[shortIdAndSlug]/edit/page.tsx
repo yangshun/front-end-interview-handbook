@@ -15,23 +15,22 @@ import prisma from '~/server/prisma';
 import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 type Props = Readonly<{
-  params: Readonly<{ id: string; locale: string }>;
+  params: Readonly<{ locale: string; shortIdAndSlug: string }>;
 }>;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, id: submissionId } = params;
+  const { locale, shortIdAndSlug } = params;
+  const shortId = shortIdAndSlug.split('-').at(-1);
 
   const intl = await getIntlServerOnly(locale);
 
-  const submissionDetails = await prisma.projectsChallengeSubmission.findUnique(
-    {
-      where: {
-        id: submissionId,
-      },
+  const submission = await prisma.projectsChallengeSubmission.findUnique({
+    where: {
+      shortId,
     },
-  );
+  });
   const { challengeMetadata } = await readProjectsChallengeMetadata(
-    submissionDetails?.slug ?? '',
+    submission?.slug ?? '',
     locale,
   );
 
@@ -48,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       },
     ),
     locale,
-    pathname: `/projects/s/${submissionId}/edit`,
+    pathname: `/projects/s/${shortId}/edit`,
     title: intl.formatMessage({
       defaultMessage: 'Edit submission',
       description: 'Title of Projects edit submission page',
@@ -58,16 +57,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const { locale } = params;
-  const { id: submissionId } = params;
+  const { locale, shortIdAndSlug } = params;
+  const shortId = shortIdAndSlug.split('-').at(-1);
 
   const viewer = await readViewerFromToken();
   const submission = await prisma.projectsChallengeSubmission.findFirst({
     where: {
-      id: submissionId,
       projectsProfile: {
         userId: viewer?.id,
       },
+      shortId,
     },
   });
 

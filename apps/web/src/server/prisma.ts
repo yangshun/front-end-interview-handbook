@@ -2,6 +2,8 @@
  * @link https://prisma.io/docs/support/help-articles/nextjs-prisma-client-dev-practices
  */
 
+import { kebabCase, lowerCase } from 'lodash-es';
+
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/projects/submissions/types';
 
 import { PrismaClient } from '@prisma/client';
@@ -16,10 +18,17 @@ const prismaClientSingleton = () => {
             submission.deploymentUrls as ProjectsChallengeSubmissionDeploymentUrls,
         },
         hrefs: {
-          compute: (submission) => ({
-            detail: `/projects/s/${submission.id}`,
-            edit: `/projects/s/${submission.id}/edit`,
-          }),
+          compute: (submission) => {
+            const shortIdAndSlug =
+              kebabCase(lowerCase(submission.title)) +
+              '-' +
+              String(submission.shortId);
+
+            return {
+              detail: `/projects/s/${shortIdAndSlug}`,
+              edit: `/projects/s/${shortIdAndSlug}/edit`,
+            };
+          },
         },
         imgSrc: {
           compute: (submission) =>
