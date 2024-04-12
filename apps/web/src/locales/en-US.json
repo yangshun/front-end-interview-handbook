@@ -719,10 +719,6 @@
     "defaultMessage": "Get full access",
     "description": "Get full access button label"
   },
-  "4BBxZ1": {
-    "defaultMessage": "Start project",
-    "description": "Label for Start Project button on Projects project assets page"
-  },
   "4Bt00L": {
     "defaultMessage": "Don't have an account? <link>Sign up for free</link>",
     "description": "Prompt for account creation on Email Sign In page"
@@ -3790,10 +3786,6 @@
   "SdYw31": {
     "defaultMessage": "Nothing found just yet",
     "description": "Title for empty state when application of filters return no results"
-  },
-  "Se4xmG": {
-    "defaultMessage": "Start project",
-    "description": "Start Project button label"
   },
   "Sj1CaY": {
     "defaultMessage": "Practice developing inclusive and accessible web experiences.",

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiArrowLeftLine, RiLock2Line, RiLockUnlockLine } from 'react-icons/ri';
+import { RiArrowLeftLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { useIsMounted } from 'usehooks-ts';
 
@@ -24,6 +24,7 @@ import ProjectsChallengeCurrentProjectSessionCard from '../session/ProjectsChall
 import { useProjectsChallengeSessionContext } from '../session/ProjectsChallengeSessionContext';
 import ProjectsChallengeStepsTabItems from '../steps/ProjectsChallengeStepsTabItems';
 import { useProjectDetailsStepsTabs } from '../steps/ProjectsChallengeStepsTabsImpl';
+import ProjectsStartButton from '../../common/ProjectsStartButton';
 import ProjectsPremiumBadge from '../../purchase/ProjectsPremiumBadge';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
@@ -47,63 +48,11 @@ export default function ProjectsChallengeHeader({
   const { access, description, difficulty, points, skills, title, submitHref } =
     metadata;
 
-  const { session, startProject, isGetLatestSessionFetched } =
+  const { session, isGetLatestSessionFetched } =
     useProjectsChallengeSessionContext();
   const [isHowItWorksDialogShown, setIsHowItWorksDialogShown] = useState(false);
   const hasSession = session != null;
   const showStickyStepsBar = isMounted() ? !isTabsInView : false;
-
-  const startProjectCTA =
-    viewerAccess.viewChallenge === 'ACCESSIBLE_TO_EVERYONE' ? (
-      <Button
-        display="block"
-        label={intl.formatMessage({
-          defaultMessage: 'Start project',
-          description:
-            'Label for "Start project" button on Projects project page',
-          id: '6/Qdew',
-        })}
-        size="md"
-        variant="primary"
-        onClick={startProject}
-      />
-    ) : viewerAccess.viewChallenge === 'UNLOCKED' ? (
-      <Button
-        addonPosition="start"
-        display="block"
-        icon={RiLockUnlockLine}
-        label={intl.formatMessage({
-          defaultMessage: 'Start project',
-          description:
-            'Label for "Start project" button on Projects project page',
-          id: '6/Qdew',
-        })}
-        size="md"
-        tooltip={intl.formatMessage({
-          defaultMessage: 'You have unlocked this project',
-          description:
-            'Label for "Start project" button on Projects project page',
-          id: 'KtacJv',
-        })}
-        variant="primary"
-        onClick={startProject}
-      />
-    ) : (
-      <Button
-        addonPosition="start"
-        display="block"
-        icon={RiLock2Line}
-        isDisabled={true}
-        label={intl.formatMessage({
-          defaultMessage: 'Start project',
-          description:
-            'Label for "Start project" button on Projects project page',
-          id: '6/Qdew',
-        })}
-        size="md"
-        variant="secondary"
-      />
-    );
 
   return (
     <>
@@ -150,7 +99,7 @@ export default function ProjectsChallengeHeader({
               variant="primary"
             />
           ) : (
-            startProjectCTA
+            <ProjectsStartButton viewerAccess={viewerAccess} />
           )}
         </div>
       </div>
@@ -249,7 +198,7 @@ export default function ProjectsChallengeHeader({
               />
             ) : (
               <div className="flex items-center gap-x-4 gap-y-4 lg:flex-col lg:items-end">
-                {startProjectCTA}
+                <ProjectsStartButton viewerAccess={viewerAccess} />
                 <ProjectsCompletedUsersTag
                   avatarBorderClassName="border-white dark:border-neutral-900"
                   count={completedCount}

@@ -10,7 +10,6 @@ import {
   RiCheckboxCircleFill,
   RiCodeSSlashLine,
   RiDragMove2Fill,
-  RiLockUnlockLine,
   RiPaletteLine,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -37,6 +36,7 @@ import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContent
 import ProjectsChallengeFigmaDesignPaywall from '../premium/ProjectsChallengeFigmaDesignPaywall';
 import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
 import ProjectsChallengeMdxContent from '../../common/ProjectsChallengeMdxContent';
+import ProjectsStartButton from '../../common/ProjectsStartButton';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type OnlineAssetsTabType = 'api' | 'responsive-breakpoints' | 'style-guide';
@@ -101,7 +101,7 @@ export default function ProjectsChallengeAssetsPage({
   const intl = useIntl();
   const { metadata } = challenge;
 
-  const { startProject, accessAllSteps, fetchingCanAccessAllSteps } =
+  const { accessAllSteps, fetchingCanAccessAllSteps } =
     useProjectsChallengeSessionContext();
   const resources = useProjectsChallengeProvidedResources();
   const onlineAssetsTabs = useOnlineAssetsTabs(
@@ -163,23 +163,9 @@ export default function ProjectsChallengeAssetsPage({
               ))}
             </ul>
           </div>
-          <Button
-            addonPosition="start"
-            icon={
-              viewerAccess.viewChallenge === 'UNLOCKED'
-                ? RiLockUnlockLine
-                : undefined
-            }
-            label={intl.formatMessage({
-              defaultMessage: 'Start project',
-              description:
-                'Label for Start Project button on Projects project assets page',
-              id: '4BBxZ1',
-            })}
-            size="md"
-            variant="primary"
-            onClick={startProject}
-          />
+          <div>
+            <ProjectsStartButton viewerAccess={viewerAccess} />
+          </div>
         </>
       )}
     </div>

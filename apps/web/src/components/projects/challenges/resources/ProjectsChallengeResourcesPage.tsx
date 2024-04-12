@@ -6,7 +6,6 @@ import { useState } from 'react';
 import {
   RiClipboardFill,
   RiCodeSSlashFill,
-  RiLockUnlockLine,
   RiQuestionAnswerFill,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -16,7 +15,6 @@ import ProjectsChallengeDiscussionsSection from '~/components/projects/challenge
 import ProjectsChallengeReferenceSubmissions from '~/components/projects/challenges/resources/ProjectsChallengeReferenceSubmissions';
 import { useProjectsChallengeSessionContext } from '~/components/projects/challenges/session/ProjectsChallengeSessionContext';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import Button from '~/components/ui/Button';
 import EmptyState from '~/components/ui/EmptyState';
 import Heading from '~/components/ui/Heading';
 import Spinner from '~/components/ui/Spinner';
@@ -27,6 +25,7 @@ import { themeBorderColor } from '~/components/ui/theme';
 import ProjectsChallengeGuideSection from '../guides/ProjectsChallengeGuideSection';
 import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
 import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
+import ProjectsStartButton from '../../common/ProjectsStartButton';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type TipsResourcesDiscussionsTabType = 'discussions' | 'guides' | 'references';
@@ -71,7 +70,7 @@ export default function ProjectsChallengeResourcesPage({
   const [tipsResourcesDiscussionsTab, setTipsResourcesDiscussionsTab] =
     useState<TipsResourcesDiscussionsTabType>('discussions');
 
-  const { startProject, accessAllSteps, fetchingCanAccessAllSteps } =
+  const { accessAllSteps, fetchingCanAccessAllSteps } =
     useProjectsChallengeSessionContext();
 
   const showPaywall =
@@ -101,22 +100,9 @@ export default function ProjectsChallengeResourcesPage({
               id="5ozhak"
             />
           </Heading>
-          <Button
-            addonPosition="start"
-            icon={
-              viewerAccess.viewChallenge === 'UNLOCKED'
-                ? RiLockUnlockLine
-                : undefined
-            }
-            label={intl.formatMessage({
-              defaultMessage: 'Start project',
-              description: 'Start Project button label',
-              id: 'Se4xmG',
-            })}
-            size="md"
-            variant="primary"
-            onClick={startProject}
-          />
+          <div>
+            <ProjectsStartButton viewerAccess={viewerAccess} />
+          </div>
         </>
       )}
     </div>

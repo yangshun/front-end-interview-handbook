@@ -5,7 +5,6 @@ import {
   RiArrowRightLine,
   RiCodeLine,
   RiGithubFill,
-  RiLockUnlockLine,
   RiShareCircleLine,
 } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
@@ -33,6 +32,7 @@ import {
 import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
 import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
 import { useProjectsChallengeSessionContext } from '../session/ProjectsChallengeSessionContext';
+import ProjectsStartButton from '../../common/ProjectsStartButton';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{
@@ -50,7 +50,7 @@ export default function ProjectsChallengeDeploymentCompletionPage({
   const { submitHref } = metadata;
   const intl = useIntl();
 
-  const { startProject, accessAllSteps, fetchingCanAccessAllSteps } =
+  const { accessAllSteps, fetchingCanAccessAllSteps } =
     useProjectsChallengeSessionContext();
 
   const showPaywall =
@@ -80,22 +80,9 @@ export default function ProjectsChallengeDeploymentCompletionPage({
               id="AjKgye"
             />
           </Heading>
-          <Button
-            addonPosition="start"
-            icon={
-              viewerAccess.viewChallenge === 'UNLOCKED'
-                ? RiLockUnlockLine
-                : undefined
-            }
-            label={intl.formatMessage({
-              defaultMessage: 'Start project',
-              description: 'Start Project button label',
-              id: 'Se4xmG',
-            })}
-            size="md"
-            variant="primary"
-            onClick={startProject}
-          />
+          <div>
+            <ProjectsStartButton viewerAccess={viewerAccess} />
+          </div>
         </>
       )}
     </div>
