@@ -1,17 +1,8 @@
-import clsx from 'clsx';
-
 import MetricCard from '~/components/common/MetricCard';
-import Card from '~/components/ui/Card';
 import CardContainer from '~/components/ui/Card/CardContainer';
 import Section from '~/components/ui/Heading/HeadingContext';
-import Text from '~/components/ui/Text';
-import {
-  themeBackgroundChipColor,
-  themeTextSecondaryColor,
-} from '~/components/ui/theme';
 
 import useProjectsProfileStats from '../hooks/useProjectsProfileStats';
-import { getFormattedNumber } from '../misc';
 
 type Props = Readonly<{
   codeReviews: number | undefined;

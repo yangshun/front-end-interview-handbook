@@ -1,5 +1,4 @@
 import { allProjectsChallengeMetadata } from 'contentlayer/generated';
-import { kebabCase, lowerCase } from 'lodash-es';
 import { z } from 'zod';
 
 import { discussionsCommentBodySchemaServer } from '~/components/projects/discussions/ProjectsDiscussionsCommentBodySchema';

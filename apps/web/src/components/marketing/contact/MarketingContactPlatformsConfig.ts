@@ -1,5 +1,4 @@
 import { RiMailLine } from 'react-icons/ri';
-import { useIntl } from 'react-intl';
 
 import { SocialLinks } from '~/data/SocialLinks';
 
