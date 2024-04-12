@@ -24,45 +24,52 @@ const graph1 = {
 };
 
 breadthFirstSearch(graph1, 'A'); // ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+```
 
-        A
-      / | \
-     B  C  D
-   / |   |   | \
-  E  F   G   H  I
-         |
-         J
+<center>
+  <img
+    src="/img/questions/breadth-first-search/graph1a.png"
+    alt="Illustration of graph1 from node 'A' "
+    style={{ width: '50%' }}
+  />
+</center>
 
+```js
 breadthFirstSearch(graph1, 'B'); // ['B', 'E', 'F', 'D', 'I', 'J']
+```
 
-    B
-   / \
-  E   F
-  |
-  D
- / \
-I   J
+<center>
+  <img
+    src="/img/questions/breadth-first-search/graph1b.png"
+    alt="Illustration of graph1 from node 'B' "
+    style={{ width: '30%' }}
+  />
+</center>
 
-
+```js
 const graph2 = {
-  'A': ['B', 'C'],
-  'B': ['D', 'E'],
-  'C': ['F', 'G'],
-  'D': [],
-  'E': [],
-  'F': [],
-  'G': [],
+  A: ['B', 'C'],
+  B: ['D', 'E'],
+  C: ['F', 'G'],
+  D: [],
+  E: [],
+  F: [],
+  G: [],
 };
 
-breadthFirstSearch(graph2, 'A')); // ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+breadthFirstSearch(graph2, 'A'); // ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+```
 
-       A
-     /   \
-    B     C
-  /  \   /   \
- D   E  F    G
+<center>
+  <img
+    src="/img/questions/breadth-first-search/graph2a.png"
+    alt="Illustration of graph2 from node 'A' "
+    style={{ width: '50%' }}
+  />
+</center>
 
-breadthFirstSearch(graph2, 'E')); // ['E']
+```js
+breadthFirstSearch(graph2, 'E'); // ['E']
 ```
 
 A `Queue` data structure is also provided for you at the bottom of the skeleton code.
