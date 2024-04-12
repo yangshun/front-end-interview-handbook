@@ -5,6 +5,7 @@ import {
   RiArrowRightLine,
   RiCodeLine,
   RiGithubFill,
+  RiLockUnlockLine,
   RiShareCircleLine,
 } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
@@ -80,6 +81,12 @@ export default function ProjectsChallengeDeploymentCompletionPage({
             />
           </Heading>
           <Button
+            addonPosition="start"
+            icon={
+              viewerAccess.viewChallenge === 'UNLOCKED'
+                ? RiLockUnlockLine
+                : undefined
+            }
             label={intl.formatMessage({
               defaultMessage: 'Start project',
               description: 'Start Project button label',

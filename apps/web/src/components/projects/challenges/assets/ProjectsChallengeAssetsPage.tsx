@@ -10,6 +10,7 @@ import {
   RiCheckboxCircleFill,
   RiCodeSSlashLine,
   RiDragMove2Fill,
+  RiLockUnlockLine,
   RiPaletteLine,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -163,6 +164,12 @@ export default function ProjectsChallengeAssetsPage({
             </ul>
           </div>
           <Button
+            addonPosition="start"
+            icon={
+              viewerAccess.viewChallenge === 'UNLOCKED'
+                ? RiLockUnlockLine
+                : undefined
+            }
             label={intl.formatMessage({
               defaultMessage: 'Start project',
               description:

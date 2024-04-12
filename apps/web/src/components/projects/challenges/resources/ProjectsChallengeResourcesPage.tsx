@@ -6,6 +6,7 @@ import { useState } from 'react';
 import {
   RiClipboardFill,
   RiCodeSSlashFill,
+  RiLockUnlockLine,
   RiQuestionAnswerFill,
 } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
@@ -101,6 +102,12 @@ export default function ProjectsChallengeResourcesPage({
             />
           </Heading>
           <Button
+            addonPosition="start"
+            icon={
+              viewerAccess.viewChallenge === 'UNLOCKED'
+                ? RiLockUnlockLine
+                : undefined
+            }
             label={intl.formatMessage({
               defaultMessage: 'Start project',
               description: 'Start Project button label',
