@@ -7,16 +7,14 @@ import Spinner from '~/components/ui/Spinner';
 import { themeBackgroundBrandColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
-  image: Readonly<{
-    label: string;
-    original: string;
-    screenshot: string | null | undefined;
-  }>;
+  image: string | null | undefined;
   maxWidth?: number;
+  originalImage: string;
 }>;
 
 export default function ProjectsChallengeSubmissionImageComparisonSlider({
   image,
+  originalImage,
   maxWidth,
 }: Props) {
   const parentRef = useRef<HTMLDivElement>(null);
@@ -67,9 +65,9 @@ export default function ProjectsChallengeSubmissionImageComparisonSlider({
               </div>
             </div>
           }
-          leftImage={image.screenshot ?? ''}
+          leftImage={image ?? ''}
           leftImageCss={{ objectFit: 'contain', objectPosition: 'top' }}
-          rightImage={image.original}
+          rightImage={originalImage}
           rightImageCss={{ objectFit: 'contain', objectPosition: 'top' }}
           skeleton={
             <div

@@ -11,10 +11,22 @@
     "css": 50
   },
   "skills": ["html-basics", "html-semantics", "html-forms"],
-  "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/newsletter-section/cover.jpg",
+  "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/newsletter-section/cover.jpg",
   "galleryImages": [
-    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/newsletter-section/gallery/Desktop.jpg",
-    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/newsletter-section/gallery/Tablet.jpg",
-    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/projects-images/newsletter-section/gallery/Mobile.jpg"
-  ]
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/newsletter-section/gallery/Desktop.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/newsletter-section/gallery/Tablet.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/newsletter-section/gallery/Mobile.jpg"
+  ],
+  "specImages": {
+    "default": [
+      {
+        "label": "main",
+        "images": {
+          "desktop": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/newsletter-section/specs/Desktop.jpg",
+          "tablet": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/newsletter-section/specs/Tablet.jpg",
+          "mobile": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/newsletter-section/specs/Mobile.jpg"
+        }
+      }
+    ]
+  }
 }

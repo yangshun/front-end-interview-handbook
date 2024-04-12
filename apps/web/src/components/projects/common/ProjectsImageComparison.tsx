@@ -10,7 +10,6 @@ import {
 } from '~/components/projects/common/ProjectsImageBreakpoints';
 import ProjectsChallengeSubmissionImageComparisonSlider from '~/components/projects/submissions/ProjectsChallengeSubmissionImageComparisonSlider';
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/projects/submissions/types';
-import type { ProjectsBaseScreenshot } from '~/components/projects/types';
 import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
@@ -23,15 +22,16 @@ import {
 } from '~/components/ui/theme';
 
 import ProjectsImageViewer from './ProjectsImageViewer';
+import type { ProjectsChallengeVariantImages } from '../challenges/types';
 
-type CommonProps = Readonly<{
-  baseScreenshots: Array<ProjectsBaseScreenshot>;
+type BaseProps = Readonly<{
   showDimensions?: boolean;
+  specImagesForVariant: ProjectsChallengeVariantImages;
   title?: string;
 }>;
 
 type Props = Readonly<
-  CommonProps &
+  BaseProps &
     (
       | {
           allowRetakeScreenshot?: boolean;
@@ -49,7 +49,7 @@ type Props = Readonly<
 
 export default function ProjectsImageComparison({
   title,
-  baseScreenshots,
+  specImagesForVariant,
   deploymentUrls,
   showDimensions,
   mode,
@@ -59,20 +59,34 @@ export default function ProjectsImageComparison({
   const [selectedBreakpoint, setSelectedBreakpoint] =
     useState<ProjectsImageBreakpointCategory>('desktop');
   const [selectedScreenIndex, setSelectedScreenIndex] = useState(0);
-  const pages = baseScreenshots.map((baseItem) => {
-    const deploymentUrl = deploymentUrls?.find(
-      (item) => item.label === baseItem.label,
+
+  const deploymentImagesForBreakpointWithComparison = (
+    deploymentUrls ?? []
+  ).map((deploymentUrlItem) => {
+    const matchingComparisonImage = specImagesForVariant?.find(
+      (comparisonImage) => comparisonImage.label === deploymentUrlItem.label,
     );
 
     return {
-      label: deploymentUrl?.label || baseItem.label,
-      original: baseItem.screenshots?.[selectedBreakpoint],
-      screenshot: deploymentUrl?.screenshots?.[selectedBreakpoint] ?? '',
+      image: deploymentUrlItem?.images?.[selectedBreakpoint] ?? '',
+      label: deploymentUrlItem?.label,
+      original: matchingComparisonImage?.images?.[selectedBreakpoint] ?? '',
     };
   });
+  const specImagesForBreakpoint = specImagesForVariant.map(
+    (comparisonImage) => ({
+      image: comparisonImage.images[selectedBreakpoint],
+      label: comparisonImage.label,
+    }),
+  );
 
   const { width, height } =
     ProjectsImageBreakpointDimensions[selectedBreakpoint];
+
+  const imageList =
+    mode === 'display'
+      ? specImagesForBreakpoint
+      : deploymentImagesForBreakpointWithComparison;
 
   return (
     <div
@@ -117,15 +131,26 @@ export default function ProjectsImageComparison({
       <div className="flex-1">
         {mode === 'display' ? (
           <ProjectsImageViewer
-            alt={pages[selectedScreenIndex].label}
+            alt={specImagesForVariant[selectedScreenIndex].label}
             grid={ProjectsImageBreakpointDimensions[selectedBreakpoint].grid}
-            src={pages[selectedScreenIndex].original}
+            src={
+              specImagesForVariant[selectedScreenIndex].images[
+                selectedBreakpoint
+              ]
+            }
             width={width}
           />
         ) : (
           <ProjectsChallengeSubmissionImageComparisonSlider
-            image={pages[selectedScreenIndex]}
+            image={
+              deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
+                .image
+            }
             maxWidth={width}
+            originalImage={
+              deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
+                .original
+            }
           />
         )}
       </div>
@@ -136,7 +161,7 @@ export default function ProjectsImageComparison({
             'col-span-1 flex flex-col justify-center md:col-span-2',
           )}>
           <Text color="secondary" size="body1" weight="medium">
-            {pages[selectedScreenIndex].label}
+            {imageList[selectedScreenIndex].label}
           </Text>
           {showDimensions && (
             <Text color="secondary" size="body3" weight="medium">
@@ -164,11 +189,13 @@ export default function ProjectsImageComparison({
             'flex justify-center gap-2',
             'col-span-2 md:col-span-4',
           )}>
-          {pages.map((page, index) => (
+          {imageList.map((page, index) => (
             <button
               key={page.label}
+              aria-label={page.label}
               className={clsx(
-                'size-12 overflow-clip rounded border',
+                'size-12 overflow-clip rounded',
+                'border',
                 index === selectedScreenIndex
                   ? themeBorderBrandColor
                   : themeBorderElementColor,
@@ -180,7 +207,7 @@ export default function ProjectsImageComparison({
               <img
                 alt={page.label}
                 className="size-full object-cover"
-                src={page.screenshot || page.original}
+                src={page.image}
               />
             </button>
           ))}

@@ -138,6 +138,11 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       required: true,
       type: 'list',
     },
+    specImages: {
+      description: 'Images used for comparison',
+      required: false,
+      type: 'json',
+    },
     title: {
       description: 'Title of the challenge',
       required: true,

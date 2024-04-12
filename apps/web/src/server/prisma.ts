@@ -31,12 +31,16 @@ const prismaClientSingleton = () => {
           },
         },
         imgSrc: {
-          compute: (submission) =>
-            (
-              submission.deploymentUrls as ProjectsChallengeSubmissionDeploymentUrls
-            )[0].screenshots?.desktop ??
-            // TODO(projects): Replace with placeholder.
-            'https://source.unsplash.com/random/48x48',
+          compute: (submission) => {
+            const pages =
+              submission.deploymentUrls as ProjectsChallengeSubmissionDeploymentUrls;
+
+            /* TODO(projects): Replace with placeholder.*/
+            return (
+              pages.find((page) => page.label === 'main')?.images?.desktop ??
+              'https://source.unsplash.com/random/48x48'
+            );
+          },
         },
       },
     },

@@ -88,13 +88,15 @@ export default function ProjectsChallengeBriefImageCarousel({ images }: Props) {
           gap: `${GAP_BETWEEN_IMAGE}px`,
           gridTemplateColumns: `repeat(${images.length}, 1fr)`,
         }}>
-        {images.map((image, index) => {
+        {images.map((image) => {
           return (
             <img
               key={image}
-              alt={`Project challenge image ${index + 1}`}
+              // TODO(projects): parse file name.
+              alt=""
               className="h-[266px] w-full snap-center rounded-lg object-cover md:h-[372px]"
-              src={image}
+              // TODO(projects): parse then add query parameters.
+              src={`${image}?width=${750}&resize=contain`}
               style={{
                 maxWidth: `${imageWidth}px`,
                 minWidth: `${imageWidth}px`,

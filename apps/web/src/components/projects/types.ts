@@ -96,9 +96,14 @@ export type ProjectsProfileAvatarDataSlim = Readonly<{
   username: string;
 }>;
 
+export type ProjectsDeviceImages = Record<
+  ProjectsImageBreakpointCategory,
+  string
+>;
+
 export type ProjectsBaseScreenshot = Readonly<{
+  images: ProjectsDeviceImages;
   label: string;
-  screenshots: Record<ProjectsImageBreakpointCategory, string>;
 }>;
 
 export type FieldView = 'onboarding' | 'profile';

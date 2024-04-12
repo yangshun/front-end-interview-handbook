@@ -2,38 +2,28 @@ import { useIntl } from 'react-intl';
 
 import ProjectsImageComparison from '~/components/projects/common/ProjectsImageComparison';
 import type { ProjectsChallengeSubmissionDeploymentUrls } from '~/components/projects/submissions/types';
-import type { ProjectsBaseScreenshot } from '~/components/projects/types';
 import Section from '~/components/ui/Heading/HeadingContext';
 
 import { useI18nRouter } from '~/next-i18nostic/src';
 
 import useProjectsChallengeSubmissionTakeScreenshotMutation from './useProjectsChallengeSubmissionTakeScreenshotMutation';
+import type { ProjectsChallengeVariantImages } from '../../challenges/types';
 
 type Props = Readonly<{
   allowRetakeScreenshot?: boolean;
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
+  specImagesForVariant: ProjectsChallengeVariantImages;
   submissionId: string;
 }>;
 
 export default function ProjectsChallengeSubmissionComparison({
   allowRetakeScreenshot,
+  specImagesForVariant,
   deploymentUrls,
   submissionId,
 }: Props) {
   const intl = useIntl();
   const router = useI18nRouter();
-
-  const baseScreenshots: Array<ProjectsBaseScreenshot> = deploymentUrls.map(
-    (item) => ({
-      label: item.label,
-      // TODO(projects): Pick from challenge assets
-      screenshots: {
-        desktop: '/img/projects/desktop.png',
-        mobile: '/img/projects/mobile.png',
-        tablet: '/img/projects/tablet.png',
-      },
-    }),
-  );
 
   const takeScreenshotMutation =
     useProjectsChallengeSubmissionTakeScreenshotMutation('comparison');
@@ -42,10 +32,10 @@ export default function ProjectsChallengeSubmissionComparison({
     <Section>
       <ProjectsImageComparison
         allowRetakeScreenshot={allowRetakeScreenshot}
-        baseScreenshots={baseScreenshots}
         deploymentUrls={deploymentUrls}
         isTakingScreenshot={takeScreenshotMutation.isLoading}
         mode="compare"
+        specImagesForVariant={specImagesForVariant}
         title={intl.formatMessage({
           defaultMessage: 'Solution vs Design comparison',
           description: 'Solution vs design comparison title',

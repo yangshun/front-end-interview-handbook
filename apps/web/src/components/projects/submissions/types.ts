@@ -18,8 +18,8 @@ export type ProjectsChallengeSubmissionExtended = Prisma.Result<
 
 export type ProjectsChallengeSubmissionDeploymentUrlItem = {
   href: string;
+  images?: Record<ProjectsImageBreakpointCategory, string>;
   label: string;
-  screenshots?: Record<ProjectsImageBreakpointCategory, string>;
   updatedAt?: Date | null;
 };
 

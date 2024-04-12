@@ -194,7 +194,22 @@ export async function readProjectsChallengeList(
           completedCountsGroupedBySlug?.[challengeMetadata.slug] ?? null,
         completedProfiles:
           completedProfileIdsGroupedBySlug?.[challengeMetadata.slug] ?? [],
-        metadata: challengeMetadata,
+        metadata: {
+          ...challengeMetadata,
+          // TODO(projects): remove when all challenges have real images.
+          specImages: challengeMetadata.specImages ?? {
+            default: [
+              {
+                images: {
+                  desktop: '/img/projects/desktop.png',
+                  mobile: '/img/projects/mobile.png',
+                  tablet: '/img/projects/tablet.png',
+                },
+                label: 'main',
+              },
+            ],
+          },
+        },
         status: sessionsForUserGroupedBySlug?.[challengeMetadata.slug] ?? null,
         userUnlocked: challengeAccessSet?.has(challengeMetadata.slug) ?? null,
       }),
@@ -327,7 +342,22 @@ export async function readProjectsChallengeItem(
     challenge: challengeItemAddTrackMetadata({
       completedCount,
       completedProfiles: completedUsers,
-      metadata: challengeMetadata,
+      metadata: {
+        ...challengeMetadata,
+        // TODO(projects): remove when all challenges have real images.
+        specImages: challengeMetadata.specImages ?? {
+          default: [
+            {
+              images: {
+                desktop: '/img/projects/desktop.png',
+                mobile: '/img/projects/mobile.png',
+                tablet: '/img/projects/tablet.png',
+              },
+              label: 'main',
+            },
+          ],
+        },
+      },
       status: viewerSessionStatus,
       userUnlocked: viewerUnlocked,
     }),
@@ -373,7 +403,22 @@ export async function readProjectsChallengeMetadata(
   )!;
 
   return {
-    challengeMetadata,
+    challengeMetadata: {
+      ...challengeMetadata,
+      // TODO(projects): remove when all challenges have real images.
+      specImages: challengeMetadata.specImages ?? {
+        default: [
+          {
+            images: {
+              desktop: '/img/projects/desktop.png',
+              mobile: '/img/projects/mobile.png',
+              tablet: '/img/projects/tablet.png',
+            },
+            label: 'main',
+          },
+        ],
+      },
+    },
     loadedLocale: requestedLocale,
   };
 }

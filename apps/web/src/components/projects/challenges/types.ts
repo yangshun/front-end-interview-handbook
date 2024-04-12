@@ -1,7 +1,10 @@
 import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 
 import type { ProjectsSkillKey } from '../skills/types';
-import type { ProjectsProfileAvatarDataSlim } from '../types';
+import type {
+  ProjectsDeviceImages,
+  ProjectsProfileAvatarDataSlim,
+} from '../types';
 
 import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
@@ -18,6 +21,13 @@ export type ProjectsChallengeDifficulty =
 
 export const projectAccessOptions = ['free', 'free-plus', 'premium'];
 export type ProjectsChallengeAccess = (typeof projectAccessOptions)[number];
+
+export type ProjectsChallengeVariantPageImages = Readonly<{
+  images: ProjectsDeviceImages;
+  label: string;
+}>;
+export type ProjectsChallengeVariantImages =
+  ReadonlyArray<ProjectsChallengeVariantPageImages>;
 
 export const projectTrackOptions = [
   'apps',
