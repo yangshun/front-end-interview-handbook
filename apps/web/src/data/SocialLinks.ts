@@ -21,6 +21,7 @@ export const SocialLinks: Record<
     icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
     key: string;
     name: string;
+    userCount: number | null;
   }>
 > = {
   discord: {
@@ -28,35 +29,41 @@ export const SocialLinks: Record<
     icon: RiDiscordFill,
     key: 'discord',
     name: 'Discord',
+    userCount: 681,
   },
   discordPremium: {
     href: 'https://discord.gg/8suTg77xXz',
     icon: RiDiscordFill,
     key: 'discord-premium',
     name: 'Discord',
+    userCount: 3015,
   },
   github: {
     href: 'https://www.github.com/greatfrontend',
     icon: RiGithubFill,
     key: 'github',
     name: 'GitHub',
+    userCount: 1804,
   },
   linkedin: {
     href: 'https://www.linkedin.com/company/greatfrontend',
     icon: RiLinkedinBoxFill,
     key: 'linkedin',
     name: 'LinkedIn',
+    userCount: 14147,
   },
   reddit: {
     href: 'https://reddit.com/r/greatfrontend',
     icon: RiRedditFill,
     key: 'reddit',
     name: 'Reddit',
+    userCount: null,
   },
   twitter: {
     href: 'https://www.twitter.com/greatfrontend',
     icon: RiTwitterFill,
     key: 'twitter',
     name: 'Twitter',
+    userCount: 1786,
   },
 };

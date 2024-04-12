@@ -8,20 +8,17 @@ type ContactPlatform = Readonly<{
   icon: (props: React.ComponentProps<'svg'>) => JSX.Element;
   key: string;
   name: string;
+  userCount: number | null;
 }>;
 
 function usePlatforms() {
-  const intl = useIntl();
   const platforms: ReadonlyArray<ContactPlatform> = [
     {
       href: 'mailto:contact@greatfrontend.com',
       icon: RiMailLine,
       key: 'email',
-      name: intl.formatMessage({
-        defaultMessage: 'Email',
-        description: 'Email',
-        id: 'y8zzVx',
-      }),
+      name: 'Email',
+      userCount: null,
     },
     SocialLinks.github,
     SocialLinks.twitter,

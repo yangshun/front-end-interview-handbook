@@ -6,6 +6,7 @@ import { trpc } from '~/hooks/trpc';
 
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
+import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 import TextInput from '~/components/ui/TextInput';
@@ -199,7 +200,7 @@ export default function MarketingEmailSubscribe() {
   );
 
   return (
-    <>
+    <Container variant="narrow">
       <div className="hidden lg:contents">{content}</div>
       <Card
         classNameOuter="lg:hidden"
@@ -208,6 +209,6 @@ export default function MarketingEmailSubscribe() {
         pattern={false}>
         {content}
       </Card>
-    </>
+    </Container>
   );
 }

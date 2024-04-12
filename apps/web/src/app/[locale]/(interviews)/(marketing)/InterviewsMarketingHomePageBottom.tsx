@@ -5,7 +5,9 @@ import InterviewsMarketingContinuousUpdates from '~/components/interviews/market
 import InterviewsMarketingGeneralFAQSection from '~/components/interviews/marketing/InterviewsMarketingGeneralFAQSection';
 import InterviewsMarketingTestimonialsSection from '~/components/interviews/marketing/testimonials/InterviewsMarketingTestimonialsSection';
 import InterviewsPricingSectionLocalizedContainer from '~/components/interviews/purchase/InterviewsPricingSectionLocalizedContainer';
+import MarketingCommunitySection from '~/components/marketing/contact/MarketingCommunitySection';
 import MarketingContactUs from '~/components/marketing/contact/MarketingContactUs';
+import MarketingEmailSubscribe from '~/components/marketing/contact/MarketingEmailSubscribe';
 import Text from '~/components/ui/Text';
 
 export default function InterviewsMarketingHomePageBottom() {
@@ -44,6 +46,10 @@ export default function InterviewsMarketingHomePageBottom() {
         </Text>
       </InterviewsMarketingContinuousUpdates>
       <InterviewsMarketingGeneralFAQSection />
+      <MarketingEmailSubscribe />
+      <div className="mt-12 md:mt-24 lg:mt-36" />
+      <MarketingCommunitySection />
+      <div className="mt-12 md:mt-24 lg:mt-36" />
       <MarketingContactUs />
     </>
   );

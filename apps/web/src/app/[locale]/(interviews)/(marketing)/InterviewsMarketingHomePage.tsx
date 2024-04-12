@@ -18,7 +18,7 @@ import type {
 import SocialDiscountToast from '~/components/promotions/social/SocialDiscountToast';
 import Section from '~/components/ui/Heading/HeadingContext';
 
-const MarketingHomePageBottom = dynamic(
+const InterviewsMarketingHomePageBottom = dynamic(
   () => import('./InterviewsMarketingHomePageBottom'),
   { ssr: false },
 );
@@ -68,7 +68,7 @@ export default function InterviewsMarketingHomePage({
           systemDesignQuestions={systemDesignQuestions}
           userInterfaceQuestions={userInterfaceQuestions}
         />
-        {showBottomHalf && <MarketingHomePageBottom />}
+        {showBottomHalf && <InterviewsMarketingHomePageBottom />}
       </Section>
       <SocialDiscountToast />
     </main>

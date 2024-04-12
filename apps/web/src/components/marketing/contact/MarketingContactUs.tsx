@@ -17,15 +17,14 @@ import { themeBackgroundEmphasized } from '~/components/ui/theme';
 import logEvent from '~/logging/logEvent';
 
 import MarketingContactPlatformsConfig from './MarketingContactPlatformsConfig';
-import MarketingEmailSubscribe from './MarketingEmailSubscribe';
 
 export default function MarketingContactUs() {
   return (
-    <Container className="flex flex-col gap-y-12 md:gap-y-16 lg:gap-y-24">
-      <MarketingEmailSubscribe />
+    <Container variant="narrow">
       <div
         className={clsx(
-          'rounded-2xl p-8 px-4 md:p-16 lg:rounded-[48px] lg:p-20',
+          'p-8 px-4 md:p-16 lg:p-20',
+          'rounded-2xl lg:rounded-[48px]',
           themeBackgroundEmphasized,
         )}>
         <div className="mx-auto grid max-w-3xl gap-y-8">
@@ -85,7 +84,7 @@ export default function MarketingContactUs() {
                       label: platform.name,
                     });
                   }}>
-                  <platform.icon className="size-6" />
+                  <platform.icon className="size-8" />
                   <span className="sr-only">{platform.name}</span>
                 </Anchor>
               ))}

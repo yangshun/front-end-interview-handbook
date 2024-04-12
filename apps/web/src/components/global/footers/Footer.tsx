@@ -57,10 +57,10 @@ function useCommonFooterLinks() {
       },
     ],
     social: [
-      SocialLinks.twitter,
+      SocialLinks.linkedin,
       SocialLinks.discord,
       SocialLinks.github,
-      SocialLinks.linkedin,
+      SocialLinks.twitter,
     ],
   };
 }
