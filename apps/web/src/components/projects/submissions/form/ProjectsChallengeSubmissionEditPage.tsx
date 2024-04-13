@@ -17,7 +17,10 @@ import { useI18nRouter } from '~/next-i18nostic/src';
 import ProjectsChallengeSubmissionForm from './ProjectsChallengeSubmissionForm';
 import useProjectsChallengeSubmissionTakeScreenshotMutation from '../screenshots/useProjectsChallengeSubmissionTakeScreenshotMutation';
 import type { ProjectsChallengeSubmissionExtended } from '../types';
-import type { ProjectsChallengeItem } from '../../challenges/types';
+import type {
+  ProjectsChallengeItem,
+  ProjectsChallengeVariantImages,
+} from '../../challenges/types';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
@@ -130,6 +133,10 @@ export default function ProjectsChallengeSubmissionEditPage({
         <Section>
           <ProjectsChallengeSubmissionForm
             cancelButtonHref={submission.hrefs.detail}
+            challengeDefaultPages={(
+              challenge.metadata.specImages
+                .default as ProjectsChallengeVariantImages
+            ).map(({ label }) => label)}
             challengeDefaultSkills={challenge.metadata.skills}
             defaultValues={submission}
             isDeleting={deleteSubmissionMutation.isLoading}

@@ -66,7 +66,8 @@ function useProjectsChallengeSubmissionFormSchema() {
 
 type BaseProps = Readonly<{
   cancelButtonHref: string;
-  challengeDefaultSkills?: ReadonlyArray<ProjectsSkillKey>;
+  challengeDefaultPages: ReadonlyArray<string>;
+  challengeDefaultSkills: ReadonlyArray<ProjectsSkillKey>;
   defaultValues?: Partial<ProjectsChallengeSubmissionFormValues>;
   isDisabled: boolean;
   isSaving: boolean;
@@ -95,16 +96,27 @@ const defaultValuesEmpty = Object.freeze({
   title: '',
 });
 
+function getDefaultValues(challengeDefaultPages: ReadonlyArray<string>) {
+  return {
+    ...defaultValuesEmpty,
+    deploymentUrls: challengeDefaultPages.map((label) => ({ href: '', label })),
+  };
+}
+
 export default function ProjectsChallengeSubmissionForm({
   cancelButtonHref,
   challengeDefaultSkills,
+  challengeDefaultPages = [],
   defaultValues: defaultValuesParam,
   isDisabled,
   isSaving,
   onSubmit,
   ...props
 }: Props) {
-  const defaultValues = { ...defaultValuesEmpty, ...defaultValuesParam };
+  const defaultValues = {
+    ...getDefaultValues(challengeDefaultPages),
+    ...defaultValuesParam,
+  };
 
   const intl = useIntl();
   const projectsChallengeSubmissionFormSchema =
@@ -135,7 +147,10 @@ export default function ProjectsChallengeSubmissionForm({
             />
           </div>
           <Divider />
-          <ProjectsChallengeSubmissionDeploymentUrlsField control={control} />
+          <ProjectsChallengeSubmissionDeploymentUrlsField
+            challengeDefaultPages={challengeDefaultPages}
+            control={control}
+          />
           <Divider />
           <div className="grid gap-6 lg:grid-cols-2">
             <ProjectsChallengeSubmissionSummaryField control={control} />

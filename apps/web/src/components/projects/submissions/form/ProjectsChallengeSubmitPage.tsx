@@ -7,7 +7,10 @@ import { useIntl } from 'react-intl';
 import { trpc } from '~/hooks/trpc';
 
 import { useToast } from '~/components/global/toasts/useToast';
-import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
+import type {
+  ProjectsChallengeItem,
+  ProjectsChallengeVariantImages,
+} from '~/components/projects/challenges/types';
 import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
@@ -99,6 +102,10 @@ export default function ProjectsChallengeSubmitPage({
         <Section>
           <ProjectsChallengeSubmissionForm
             cancelButtonHref={challenge.metadata.completionHref}
+            challengeDefaultPages={(
+              challenge.metadata.specImages
+                .default as ProjectsChallengeVariantImages
+            ).map(({ label }) => label)}
             challengeDefaultSkills={challenge.metadata.skills}
             defaultValues={{
               roadmapSkills: session.roadmapSkills,

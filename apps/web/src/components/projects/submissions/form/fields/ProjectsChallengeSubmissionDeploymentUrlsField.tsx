@@ -5,11 +5,10 @@ import { useController } from 'react-hook-form';
 import { RiAddLine, RiCloseLine, RiPencilLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import Anchor from '~/components/ui/Anchor';
 import Button from '~/components/ui/Button';
 import Label from '~/components/ui/Label';
 import Text from '~/components/ui/Text';
-import { themeBorderElementColor } from '~/components/ui/theme';
+import TextInput from '~/components/ui/TextInput';
 
 import ProjectsChallengeSubmissionDeploymentUrlItemFormDialog from './ProjectsChallengeSubmissionDeploymentUrlItemFormDialog';
 import { getProjectsChallengeSubmissionDeploymentUrlsAttributes } from './ProjectsChallengeSubmissionDeploymentUrlsSchema';
@@ -17,14 +16,16 @@ import type { ProjectsChallengeSubmissionFormValues } from '../ProjectsChallenge
 import ProjectsChallengeSubmitPageDeploymentDialog from '../ProjectsChallengeSubmitPageDeploymentDialog';
 
 type Props = Readonly<{
+  challengeDefaultPages: ReadonlyArray<string>;
   control: Control<ProjectsChallengeSubmissionFormValues>;
 }>;
 
 const fieldName = 'deploymentUrls';
 
-const maximumUrls = 4;
+const MAXIMUM_URLS = 4;
 
 export default function ProjectsChallengeSubmissionDeploymentUrlsField({
+  challengeDefaultPages,
   control,
 }: Props) {
   const intl = useIntl();
@@ -66,24 +67,36 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
           <div className="grid gap-6 lg:grid-cols-2">
             {field.value.map((item, index) => (
               <div
-                key={item.href}
-                className={clsx(
-                  'flex items-center justify-between gap-4',
-                  'rounded px-3 py-0.5',
-                  ['border', themeBorderElementColor],
-                )}>
-                <Text
-                  className={clsx(
-                    'flex items-center gap-2',
-                    'w-full truncate whitespace-nowrap',
-                  )}
-                  size="body2">
-                  <span>{item.label}</span>{' '}
-                  <Anchor href={item.href}>{item.href}</Anchor>
-                </Text>
-                <div className="-me-2 flex shrink-0">
+                key={item.label}
+                className={clsx('flex items-end justify-between')}>
+                <div className="grow">
+                  <TextInput
+                    errorMessage={
+                      formState.dirtyFields.deploymentUrls?.[index]?.href ||
+                      formState.submitCount > 0
+                        ? formState.errors.deploymentUrls?.[index]?.href
+                            ?.message
+                        : undefined
+                    }
+                    label={item.label}
+                    placeholder={attrs.urlPlaceholder}
+                    value={item.href}
+                    onChange={(value) => {
+                      field.onChange([
+                        ...field.value.slice(0, index),
+                        {
+                          href: value,
+                          label: item.label,
+                        },
+                        ...field.value.slice(index + 1),
+                      ]);
+                    }}
+                  />
+                </div>
+                {!challengeDefaultPages.includes(item.label) && (
                   <Button
                     addonPosition="start"
+                    className="ms-2"
                     icon={RiPencilLine}
                     isLabelHidden={true}
                     label="Edit"
@@ -96,9 +109,12 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
                       });
                     }}
                   />
-                  {field.value.length > 1 && (
+                )}
+                {field.value.length > 1 &&
+                  !challengeDefaultPages.includes(item.label) && (
                     <Button
                       addonPosition="start"
+                      className="ms-2"
                       icon={RiCloseLine}
                       isLabelHidden={true}
                       label="Delete"
@@ -116,13 +132,12 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
                       }}
                     />
                   )}
-                </div>
               </div>
             ))}
           </div>
         )}
       </div>
-      {field.value.length < maximumUrls && (
+      {field.value.length < MAXIMUM_URLS && (
         <div>
           <Button
             addonPosition="start"
@@ -142,7 +157,7 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
                     id: 'SGaDHr',
                   })
             }
-            size="md"
+            size="xs"
             variant="secondary"
             onClick={() => {
               setDialogMode({ type: 'add' });

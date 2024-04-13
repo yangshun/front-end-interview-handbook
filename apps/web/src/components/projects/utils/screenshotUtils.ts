@@ -153,7 +153,7 @@ export async function generateScreenshots(
 
       return {
         ...deploymentUrl,
-        screenshots,
+        images: screenshots,
         updatedAt: new Date(),
       };
     }),

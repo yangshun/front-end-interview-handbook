@@ -56,12 +56,12 @@ function projectsChallengeSubmissionDeploymentUrlsSchema(options?: {
     .array(
       projectsChallengeSubmissionDeploymentUrlItemSchema(options).extend({
         href: urlSchema({ urlMessage: urlMessage ?? '' }),
+        images: z.record(z.string().min(1), z.string().min(1)).optional(),
         label: z
           .string()
           .min(MIN_LENGTH, { message: minMessage })
           .max(MAX_LENGTH, { message: maxMessage })
           .trim(),
-        screenshots: z.record(z.string().min(1), z.string().min(1)).optional(),
       }),
     )
     .min(1, {
