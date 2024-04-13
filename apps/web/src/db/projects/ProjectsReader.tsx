@@ -209,6 +209,9 @@ export async function readProjectsChallengeList(
               },
             ],
           },
+          specLabels: challengeMetadata.specLabels ?? {
+            main: 'Main page',
+          },
         },
         status: sessionsForUserGroupedBySlug?.[challengeMetadata.slug] ?? null,
         userUnlocked: challengeAccessSet?.has(challengeMetadata.slug) ?? null,
@@ -357,6 +360,9 @@ export async function readProjectsChallengeItem(
             },
           ],
         },
+        specLabels: challengeMetadata.specLabels ?? {
+          main: 'Main page',
+        },
       },
       status: viewerSessionStatus,
       userUnlocked: viewerUnlocked,
@@ -417,6 +423,9 @@ export async function readProjectsChallengeMetadata(
             label: 'main',
           },
         ],
+      },
+      specLabels: challengeMetadata.specLabels ?? {
+        main: 'Main page',
       },
     },
     loadedLocale: requestedLocale,

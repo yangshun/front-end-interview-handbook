@@ -124,6 +124,13 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
     },
     specImages: {
       description: 'Images used for comparison',
+      // TODO(projects): switch to true when every project has this field.
+      required: false,
+      type: 'json',
+    },
+    specLabels: {
+      description: 'Labels for spec pages. Should tally with specImages field',
+      // TODO(projects): switch to true when every project has this field.
       required: false,
       type: 'json',
     },
