@@ -10,7 +10,6 @@ export default function ProjectsChallengeAssetsResponsiveBreakpointsTab({
 }: Props) {
   return (
     <ProjectsImageDisplay
-      showDimensions={true}
       specImagesForVariant={challenge.metadata.specImages.default}
     />
   );

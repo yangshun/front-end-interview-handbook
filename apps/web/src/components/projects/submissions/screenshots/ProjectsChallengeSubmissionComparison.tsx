@@ -34,7 +34,6 @@ export default function ProjectsChallengeSubmissionComparison({
         allowRetakeScreenshot={allowRetakeScreenshot}
         deploymentUrls={deploymentUrls}
         isTakingScreenshot={takeScreenshotMutation.isLoading}
-        mode="compare"
         specImagesForVariant={specImagesForVariant}
         title={intl.formatMessage({
           defaultMessage: 'Solution vs Design comparison',

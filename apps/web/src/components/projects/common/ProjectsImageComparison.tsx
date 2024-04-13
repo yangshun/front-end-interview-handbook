@@ -100,17 +100,35 @@ export default function ProjectsImageComparison({
       )}
       {/* Image Comparison Slider */}
       <div className="flex-1">
-        <ProjectsChallengeSubmissionImageComparisonSlider
-          image={
-            deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
-              .image
-          }
-          maxWidth={width}
-          originalImage={
-            deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
-              .original
-          }
-        />
+        {deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
+          .original ? (
+          <ProjectsChallengeSubmissionImageComparisonSlider
+            aspectRatio="7/3"
+            image={
+              deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
+                .image
+            }
+            maxWidth={width}
+            originalImage={
+              deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
+                .original
+            }
+          />
+        ) : (
+          <ProjectsImageViewer
+            alt={
+              deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
+                .label
+            }
+            aspectRatio="7/3"
+            grid={ProjectsImageBreakpointDimensions[selectedBreakpoint].grid}
+            src={
+              deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
+                .image
+            }
+            width={width}
+          />
+        )}
       </div>
       {/* Footer */}
       <div

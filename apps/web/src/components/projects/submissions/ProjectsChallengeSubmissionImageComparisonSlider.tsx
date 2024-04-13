@@ -7,6 +7,7 @@ import Spinner from '~/components/ui/Spinner';
 import { themeBackgroundBrandColor } from '~/components/ui/theme';
 
 type Props = Readonly<{
+  aspectRatio: '5/3' | '7/3';
   image: string | null | undefined;
   maxWidth?: number;
   originalImage: string;
@@ -15,6 +16,7 @@ type Props = Readonly<{
 export default function ProjectsChallengeSubmissionImageComparisonSlider({
   image,
   originalImage,
+  aspectRatio,
   maxWidth,
 }: Props) {
   const parentRef = useRef<HTMLDivElement>(null);
@@ -43,9 +45,15 @@ export default function ProjectsChallengeSubmissionImageComparisonSlider({
   }, []);
 
   return (
-    <div ref={parentRef} className="w-full overflow-y-auto">
+    <div
+      ref={parentRef}
+      className={clsx(
+        'w-full overflow-auto',
+        aspectRatio === '5/3' && 'aspect-[5/3]',
+        aspectRatio === '7/3' && 'aspect-[7/3]',
+      )}>
       <div
-        className="mx-auto max-h-[272px] min-h-[272px] md:max-h-[610px] md:min-h-[610px]"
+        className="mx-auto"
         style={{
           maxWidth: maxWidth ? `${maxWidth}px` : '100%',
         }}>

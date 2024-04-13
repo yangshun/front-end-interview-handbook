@@ -50,6 +50,7 @@ export default function ProjectsImageComparison({
       <div className="flex-1">
         <ProjectsImageViewer
           alt={specImagesForVariant[selectedScreenIndex].label}
+          aspectRatio="5/3"
           grid={ProjectsImageBreakpointDimensions[selectedBreakpoint].grid}
           src={
             specImagesForVariant[selectedScreenIndex].images[selectedBreakpoint]

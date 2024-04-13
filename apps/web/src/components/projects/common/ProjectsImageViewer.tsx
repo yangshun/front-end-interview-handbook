@@ -10,6 +10,7 @@ import { useWheel } from '@use-gesture/react';
 
 type Props = Readonly<{
   alt: string;
+  aspectRatio: '5/3' | '7/3';
   grid: {
     columnGap: number;
     columns: number;
@@ -23,7 +24,13 @@ type Props = Readonly<{
 const MIN_ZOOM_LEVEL = 20;
 const MAX_ZOOM_LEVEL = 200;
 
-export default function ProjectsImageViewer({ alt, src, width, grid }: Props) {
+export default function ProjectsImageViewer({
+  alt,
+  aspectRatio,
+  src,
+  width,
+  grid,
+}: Props) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const [zoomLevel, setZoomLevel] = useState(50);
@@ -104,7 +111,9 @@ export default function ProjectsImageViewer({ alt, src, width, grid }: Props) {
         key={src}
         ref={wrapperRef}
         className={clsx(
-          'aspect-[5/3] w-full overflow-auto',
+          'w-full overflow-auto',
+          aspectRatio === '5/3' && 'aspect-[5/3]',
+          aspectRatio === '7/3' && 'aspect-[7/3]',
           (imageSmallerThanWrapper.height || imageSmallerThanWrapper.width) &&
             'flex',
           imageSmallerThanWrapper.height ? 'items-center' : 'items-baseline',
