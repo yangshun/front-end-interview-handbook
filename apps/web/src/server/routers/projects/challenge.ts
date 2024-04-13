@@ -74,6 +74,59 @@ export const projectsChallengeRouter = router({
 
       return sessions > 0;
     }),
+  downloadDesignFiles: projectsUserProcedure
+    .input(
+      z.object({
+        slug: z.string(),
+      }),
+    )
+    .mutation(async ({ input: { slug }, ctx: { viewer } }) => {
+      const [
+        { challengeMetadata },
+        { viewerProjectsProfile },
+        viewerUnlockedAccess,
+      ] = await Promise.all([
+        readProjectsChallengeMetadata(slug),
+        fetchViewerProjectsProfile(viewer),
+        fetchViewerProjectsChallengeAccess(slug, viewer),
+      ]);
+
+      const viewerAccess = ProjectsPremiumAccessControl(
+        challengeMetadata.access,
+        viewerProjectsProfile,
+        viewerUnlockedAccess,
+      );
+
+      if (
+        viewerAccess.downloadStarterFiles !== 'ACCESSIBLE_TO_EVERYONE' &&
+        viewerAccess.downloadStarterFiles !== 'UNLOCKED'
+      ) {
+        throw new TRPCError({
+          code: 'UNAUTHORIZED',
+          message: 'Not authorized to download file',
+        });
+      }
+
+      const supabaseAdmin = createSupabaseAdminClientGFE_SERVER_ONLY();
+      const { data, error } = await supabaseAdmin.storage
+        .from('projects')
+        .createSignedUrl(
+          `challenges/${challengeMetadata.slug}/${challengeMetadata.slug}.fig`,
+          300,
+          {
+            download: `${challengeMetadata.slug}-figma.fig`,
+          },
+        );
+
+      if (error) {
+        throw new TRPCError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: 'Error creating signed URL',
+        });
+      }
+
+      return data;
+    }),
   downloadStarterFiles: projectsUserProcedure
     .input(
       z.object({

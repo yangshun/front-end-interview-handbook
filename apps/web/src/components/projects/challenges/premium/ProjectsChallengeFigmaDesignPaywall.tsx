@@ -9,6 +9,8 @@ import {
 } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
+import { trpc } from '~/hooks/trpc';
+
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
@@ -24,12 +26,12 @@ type Placement = 'ASSETS_PAGE' | 'GET_STARTED_DIALOG';
 
 function DownloadSection({
   access,
-  downloadHref,
+  slug,
   placement,
 }: Readonly<{
   access: ProjectsPremiumAccessControlType;
-  downloadHref: string;
   placement: Placement;
+  slug: string;
 }>) {
   const intl = useIntl();
   const label = intl.formatMessage({
@@ -37,6 +39,21 @@ function DownloadSection({
     description: 'Download Figma file button label',
     id: 'RGdxr7',
   });
+
+  const downloadDesignFilesMutation =
+    trpc.projects.challenge.downloadDesignFiles.useMutation();
+
+  const downloadProps = {
+    isDisabled: downloadDesignFilesMutation.isLoading,
+    isLoading: downloadDesignFilesMutation.isLoading,
+    onClick: async () => {
+      const { signedUrl } = await downloadDesignFilesMutation.mutateAsync({
+        slug,
+      });
+
+      window.location.href = signedUrl;
+    },
+  };
 
   return (
     <div
@@ -47,18 +64,17 @@ function DownloadSection({
       {access === 'ACCESSIBLE_TO_EVERYONE' && (
         <Button
           addonPosition="start"
-          href={downloadHref}
           icon={RiDownload2Fill}
           label={label}
           size="lg"
           variant="secondary"
+          {...downloadProps}
         />
       )}
       {access === 'UNLOCKED' && (
         <>
           <Button
             addonPosition="start"
-            href={downloadHref}
             icon={RiLockUnlockLine}
             label={label}
             size="lg"
@@ -68,6 +84,7 @@ function DownloadSection({
               id: 'oQYa8+',
             })}
             variant="special"
+            {...downloadProps}
           />
           <Text
             className="block"
@@ -378,8 +395,8 @@ export default function ProjectsChallengeFigmaDesignPaywall({
       return (
         <DownloadSection
           access={viewerFigmaAccess}
-          downloadHref={challengeMetadata.downloadDesignFileHref}
           placement={placement}
+          slug={challengeMetadata.slug}
         />
       );
     case 'UNLOCK':

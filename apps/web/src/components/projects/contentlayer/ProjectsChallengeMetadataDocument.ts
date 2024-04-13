@@ -31,22 +31,6 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
         )}/completion`,
       type: 'string',
     },
-    downloadDesignFileHref: {
-      description: 'Link to download design files',
-      resolve: (doc) =>
-        `/projects/challenges/${parseProjectSlug(
-          doc._raw.sourceFilePath,
-        )}/download/design`,
-      type: 'string',
-    },
-    downloadStarterFilesHref: {
-      description: 'Link to download starter files',
-      resolve: (doc) =>
-        `/projects/challenges/${parseProjectSlug(
-          doc._raw.sourceFilePath,
-        )}/download/starter`,
-      type: 'string',
-    },
     href: {
       description: 'Link to project details page, also the brief page',
       resolve: (doc) =>
