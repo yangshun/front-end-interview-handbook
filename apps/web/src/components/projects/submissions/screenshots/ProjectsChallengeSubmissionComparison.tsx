@@ -13,12 +13,14 @@ type Props = Readonly<{
   allowRetakeScreenshot?: boolean;
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
   specImagesForVariant: ProjectsChallengeVariantImages;
+  specLabels: Record<string, string>;
   submissionId: string;
 }>;
 
 export default function ProjectsChallengeSubmissionComparison({
   allowRetakeScreenshot,
   specImagesForVariant,
+  specLabels,
   deploymentUrls,
   submissionId,
 }: Props) {
@@ -35,6 +37,7 @@ export default function ProjectsChallengeSubmissionComparison({
         deploymentUrls={deploymentUrls}
         isTakingScreenshot={takeScreenshotMutation.isLoading}
         specImagesForVariant={specImagesForVariant}
+        specLabels={specLabels}
         title={intl.formatMessage({
           defaultMessage: 'Solution vs Design comparison',
           description: 'Solution vs design comparison title',

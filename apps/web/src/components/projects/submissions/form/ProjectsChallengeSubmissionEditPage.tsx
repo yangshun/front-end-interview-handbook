@@ -133,11 +133,12 @@ export default function ProjectsChallengeSubmissionEditPage({
         <Section>
           <ProjectsChallengeSubmissionForm
             cancelButtonHref={submission.hrefs.detail}
-            challengeDefaultPages={(
+            challengeDefaultSkills={challenge.metadata.skills}
+            challengeDefaultSpecPageLabels={challenge.metadata.specLabels}
+            challengeDefaultSpecPages={(
               challenge.metadata.specImages
                 .default as ProjectsChallengeVariantImages
             ).map(({ label }) => label)}
-            challengeDefaultSkills={challenge.metadata.skills}
             defaultValues={submission}
             isDeleting={deleteSubmissionMutation.isLoading}
             isDisabled={

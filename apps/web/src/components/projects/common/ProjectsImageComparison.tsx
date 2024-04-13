@@ -30,14 +30,18 @@ type Props = Readonly<{
   isTakingScreenshot: boolean;
   onTakeScreenshot: () => void;
   specImagesForVariant: ProjectsChallengeVariantImages;
+  specLabels: Record<string, string>;
   title?: string;
 }>;
 
 export default function ProjectsImageComparison({
+  allowRetakeScreenshot,
+  isTakingScreenshot,
   title,
+  specLabels,
   specImagesForVariant,
+  onTakeScreenshot,
   deploymentUrls,
-  ...props
 }: Props) {
   const intl = useIntl();
   const [selectedBreakpoint, setSelectedBreakpoint] =
@@ -75,12 +79,12 @@ export default function ProjectsImageComparison({
             'px-4 py-4 md:px-6',
           )}>
           <Heading level="heading6">{title}</Heading>
-          {'allowRetakeScreenshot' in props && props.allowRetakeScreenshot && (
+          {allowRetakeScreenshot && (
             <Button
               addonPosition="start"
               icon={RiImageLine}
-              isDisabled={props.isTakingScreenshot}
-              isLoading={props.isTakingScreenshot}
+              isDisabled={isTakingScreenshot}
+              isLoading={isTakingScreenshot}
               label={intl.formatMessage({
                 defaultMessage: 'Retake screenshot',
                 description: 'Retake screenshot button label',
@@ -93,7 +97,7 @@ export default function ProjectsImageComparison({
                 id: 'eNCfLw',
               })}
               variant="secondary"
-              onClick={props.onTakeScreenshot}
+              onClick={onTakeScreenshot}
             />
           )}
         </div>
@@ -141,12 +145,16 @@ export default function ProjectsImageComparison({
           ['border-t', themeBorderElementColor],
         )}>
         <div className={clsx('col-span-1 flex flex-col justify-center')}>
-          <Text color="secondary" size="body1" weight="medium">
-            {
-              deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
-                .label
-            }
-          </Text>
+          {deploymentImagesForBreakpointWithComparison.length > 1 && (
+            <Text color="secondary" size="body1" weight="medium">
+              {specLabels[
+                deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
+                  .label
+              ] ||
+                deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
+                  .label}
+            </Text>
+          )}
           {deploymentUrls && (
             <Text className="block truncate whitespace-nowrap" size="body2">
               <Anchor

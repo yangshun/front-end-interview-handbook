@@ -17,7 +17,7 @@
     "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/newsletter-section/gallery/Tablet.jpg",
     "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/newsletter-section/gallery/Mobile.jpg"
   ],
-  "specPageLabelNames": {
+  "specLabels": {
     "main": "Main page"
   },
   "specImages": {

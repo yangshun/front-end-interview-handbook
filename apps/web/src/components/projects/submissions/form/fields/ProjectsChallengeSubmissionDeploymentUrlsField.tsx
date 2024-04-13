@@ -16,7 +16,8 @@ import type { ProjectsChallengeSubmissionFormValues } from '../ProjectsChallenge
 import ProjectsChallengeSubmitPageDeploymentDialog from '../ProjectsChallengeSubmitPageDeploymentDialog';
 
 type Props = Readonly<{
-  challengeDefaultPages: ReadonlyArray<string>;
+  challengeDefaultSpecPageLabels: Record<string, string>;
+  challengeDefaultSpecPages: ReadonlyArray<string>;
   control: Control<ProjectsChallengeSubmissionFormValues>;
 }>;
 
@@ -25,7 +26,8 @@ const fieldName = 'deploymentUrls';
 const MAXIMUM_URLS = 4;
 
 export default function ProjectsChallengeSubmissionDeploymentUrlsField({
-  challengeDefaultPages,
+  challengeDefaultSpecPageLabels,
+  challengeDefaultSpecPages,
   control,
 }: Props) {
   const intl = useIntl();
@@ -78,7 +80,9 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
                             ?.message
                         : undefined
                     }
-                    label={item.label}
+                    label={
+                      challengeDefaultSpecPageLabels[item.label] || item.label
+                    }
                     placeholder={attrs.urlPlaceholder}
                     value={item.href}
                     onChange={(value) => {
@@ -93,7 +97,7 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
                     }}
                   />
                 </div>
-                {!challengeDefaultPages.includes(item.label) && (
+                {!challengeDefaultSpecPages.includes(item.label) && (
                   <Button
                     addonPosition="start"
                     className="ms-2"
@@ -111,7 +115,7 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
                   />
                 )}
                 {field.value.length > 1 &&
-                  !challengeDefaultPages.includes(item.label) && (
+                  !challengeDefaultSpecPages.includes(item.label) && (
                     <Button
                       addonPosition="start"
                       className="ms-2"

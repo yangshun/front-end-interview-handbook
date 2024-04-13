@@ -66,8 +66,9 @@ function useProjectsChallengeSubmissionFormSchema() {
 
 type BaseProps = Readonly<{
   cancelButtonHref: string;
-  challengeDefaultPages: ReadonlyArray<string>;
   challengeDefaultSkills: ReadonlyArray<ProjectsSkillKey>;
+  challengeDefaultSpecPageLabels: Record<string, string>;
+  challengeDefaultSpecPages: ReadonlyArray<string>;
   defaultValues?: Partial<ProjectsChallengeSubmissionFormValues>;
   isDisabled: boolean;
   isSaving: boolean;
@@ -106,7 +107,8 @@ function getDefaultValues(challengeDefaultPages: ReadonlyArray<string>) {
 export default function ProjectsChallengeSubmissionForm({
   cancelButtonHref,
   challengeDefaultSkills,
-  challengeDefaultPages = [],
+  challengeDefaultSpecPages,
+  challengeDefaultSpecPageLabels,
   defaultValues: defaultValuesParam,
   isDisabled,
   isSaving,
@@ -114,7 +116,7 @@ export default function ProjectsChallengeSubmissionForm({
   ...props
 }: Props) {
   const defaultValues = {
-    ...getDefaultValues(challengeDefaultPages),
+    ...getDefaultValues(challengeDefaultSpecPages),
     ...defaultValuesParam,
   };
 
@@ -148,7 +150,8 @@ export default function ProjectsChallengeSubmissionForm({
           </div>
           <Divider />
           <ProjectsChallengeSubmissionDeploymentUrlsField
-            challengeDefaultPages={challengeDefaultPages}
+            challengeDefaultSpecPageLabels={challengeDefaultSpecPageLabels}
+            challengeDefaultSpecPages={challengeDefaultSpecPages}
             control={control}
           />
           <Divider />

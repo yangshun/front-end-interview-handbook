@@ -19,10 +19,12 @@ import type { ProjectsChallengeVariantImages } from '../challenges/types';
 
 type Props = Readonly<{
   specImagesForVariant: ProjectsChallengeVariantImages;
+  specLabels: Record<string, string>;
 }>;
 
 export default function ProjectsImageComparison({
   specImagesForVariant,
+  specLabels,
 }: Props) {
   const [selectedBreakpoint, setSelectedBreakpoint] =
     useState<ProjectsImageBreakpointCategory>('desktop');
@@ -70,7 +72,8 @@ export default function ProjectsImageComparison({
         <div className={clsx('col-span-1 flex flex-col justify-center')}>
           {specImagesForBreakpoint.length > 1 && (
             <Text color="secondary" size="body1" weight="medium">
-              {specImagesForBreakpoint[selectedScreenIndex].label}
+              {specLabels[specImagesForBreakpoint[selectedScreenIndex].label] ||
+                specImagesForBreakpoint[selectedScreenIndex].label}
             </Text>
           )}
           <Text color="secondary" size="body3" weight="medium">
