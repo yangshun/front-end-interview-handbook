@@ -150,9 +150,9 @@ export default function ProjectsChallengeSubmissionListWithFilters({
               <div className="flex items-center justify-between">
                 <Text color="secondary" size="body3">
                   <FormattedMessage
-                    defaultMessage="Showing {startCount} to {endCount} out of {totalCount} projects"
-                    description="Projects listing label"
-                    id="HIz7N5"
+                    defaultMessage="Showing {startCount} to {endCount} out of {totalCount} submissions"
+                    description="Pagination label"
+                    id="f8ishg"
                     values={{
                       endCount:
                         (currentPage - 1) * ITEMS_PER_PAGE +

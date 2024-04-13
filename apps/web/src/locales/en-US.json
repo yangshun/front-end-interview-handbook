@@ -2243,10 +2243,6 @@
     "defaultMessage": "<emph>+ {points}</emph><small>reputation points</small>",
     "description": "Reputation point increase on project submission success page"
   },
-  "HIz7N5": {
-    "defaultMessage": "Showing {startCount} to {endCount} out of {totalCount} projects",
-    "description": "Projects listing label"
-  },
   "HMJJLh": {
     "defaultMessage": "Hone your computer science fundamentals by implementing important data structures and algorithms from scratch.",
     "description": "Description for interview preparation focus area"
@@ -5270,6 +5266,10 @@
   "f89otf": {
     "defaultMessage": "Algorithm Questions",
     "description": "Algorithm Coding Interview Questions"
+  },
+  "f8ishg": {
+    "defaultMessage": "Showing {startCount} to {endCount} out of {totalCount} submissions",
+    "description": "Pagination label"
   },
   "fAZVc9": {
     "defaultMessage": "Live site URL",
