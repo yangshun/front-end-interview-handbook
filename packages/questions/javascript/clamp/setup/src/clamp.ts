@@ -3,5 +3,13 @@ export default function clamp(
   lower: number,
   upper: number,
 ): number {
-  return Math.min(upper, Math.max(lower, value));
+  if (value < lower) {
+    return lower;
+  }
+
+  if (value > upper) {
+    return upper;
+  }
+
+  return value;
 }
