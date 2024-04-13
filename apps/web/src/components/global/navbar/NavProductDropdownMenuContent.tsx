@@ -4,8 +4,9 @@ import { RiAwardLine, RiBriefcaseLine } from 'react-icons/ri';
 import useCountdownTimer from '~/hooks/useCountdownTime';
 
 import {
-  FEATURE_FLAGS_SHOW_MYSTERY_PRODUCT,
   PROJECT_LAUNCH_DATE,
+  PROJECTS_SHOW_MYSTERY_PRODUCT,
+  PROJECTS_SHOW_TEASER,
 } from '~/data/FeatureFlags';
 
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
@@ -123,17 +124,18 @@ export default function NavProductDropdownMenuContent() {
           logo={InterviewsLogo}
           subtitle="Learn and train for your front end interviews"
         />
-        {FEATURE_FLAGS_SHOW_MYSTERY_PRODUCT ? (
-          <NavProductDropdownMenuItemCountdown />
-        ) : (
-          <NavProductDropdownMenuItem
-            beta={true}
-            href="/projects"
-            label="GreatFrontEnd Projects"
-            logo={ProjectsLogo}
-            subtitle="Build real-world projects to learn skills or for portfolio"
-          />
-        )}
+        {PROJECTS_SHOW_TEASER &&
+          (PROJECTS_SHOW_MYSTERY_PRODUCT ? (
+            <NavProductDropdownMenuItemCountdown />
+          ) : (
+            <NavProductDropdownMenuItem
+              beta={true}
+              href="/projects"
+              label="GreatFrontEnd Projects"
+              logo={ProjectsLogo}
+              subtitle="Build real-world projects to learn skills or for portfolio"
+            />
+          ))}
       </div>
       <div
         className={clsx(

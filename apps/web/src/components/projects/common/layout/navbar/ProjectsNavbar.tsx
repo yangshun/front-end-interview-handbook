@@ -8,7 +8,7 @@ import { useIntl } from 'react-intl';
 import gtag from '~/lib/gtag';
 import useIsSticky from '~/hooks/useIsSticky';
 
-import { FEATURE_FLAGS_SHOW_MYSTERY_PRODUCT } from '~/data/FeatureFlags';
+import { PROJECTS_SHOW_MYSTERY_PRODUCT } from '~/data/FeatureFlags';
 
 import useCommonNavItems from '~/components/common/navigation/useCommonNavItems';
 import { useColorSchemePreferences } from '~/components/global/color-scheme/ColorSchemePreferencesProvider';
@@ -237,7 +237,7 @@ export default function ProjectsNavbar({ hideOnDesktop = false }: Props) {
       mobileSidebarBottomItems={mobileSidebarBottomItems}
       productMenu={
         <NavProductDropdownMenu
-          value={FEATURE_FLAGS_SHOW_MYSTERY_PRODUCT ? 'mystery' : 'projects'}
+          value={PROJECTS_SHOW_MYSTERY_PRODUCT ? 'mystery' : 'projects'}
         />
       }
       renderMobileSidebarAddOnItems={renderMobileSidebarAddOnItems}

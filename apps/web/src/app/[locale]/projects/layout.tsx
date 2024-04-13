@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
-import { FEATURE_FLAGS_PROJECTS_LAUNCHED } from '~/data/FeatureFlags';
+import { PROJECTS_IS_LIVE } from '~/data/FeatureFlags';
 
 import ProjectsRootLayout from '~/components/projects/common/layout/ProjectsRootLayout';
 
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Layout({ children }: Props) {
-  if (!FEATURE_FLAGS_PROJECTS_LAUNCHED) {
+  if (!PROJECTS_IS_LIVE) {
     redirect('/');
   }
 

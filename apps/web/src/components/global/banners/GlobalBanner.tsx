@@ -107,7 +107,7 @@ function MarketingMessage() {
     />
   );
 
-  return !isPremium ? weAreHiringMessage : perpetualSaleMessage;
+  return isPremium ? weAreHiringMessage : perpetualSaleMessage;
 }
 
 function ComingSoonCountdown({
@@ -200,11 +200,7 @@ export default function GlobalBanner() {
             isUserProfileLoading ? 'opacity-0' : 'opacity-100',
           )}
           suppressHydrationWarning={true}>
-          {showCountdownMessage ? (
-            <ComingSoonCountdown onClose={() => setShowGlobalBanner(false)} />
-          ) : (
-            <MarketingMessage />
-          )}
+          <MarketingMessage />
         </span>
       </Banner>
     </div>
