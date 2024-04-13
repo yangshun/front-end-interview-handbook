@@ -24,35 +24,19 @@ import {
 import ProjectsImageViewer from './ProjectsImageViewer';
 import type { ProjectsChallengeVariantImages } from '../challenges/types';
 
-type BaseProps = Readonly<{
-  showDimensions?: boolean;
+type Props = Readonly<{
+  allowRetakeScreenshot?: boolean;
+  deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
+  isTakingScreenshot: boolean;
+  onTakeScreenshot: () => void;
   specImagesForVariant: ProjectsChallengeVariantImages;
   title?: string;
 }>;
-
-type Props = Readonly<
-  BaseProps &
-    (
-      | {
-          allowRetakeScreenshot?: boolean;
-          deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
-          isTakingScreenshot: boolean;
-          mode: 'compare';
-          onTakeScreenshot: () => void;
-        }
-      | {
-          deploymentUrls?: ProjectsChallengeSubmissionDeploymentUrls;
-          mode: 'display';
-        }
-    )
->;
 
 export default function ProjectsImageComparison({
   title,
   specImagesForVariant,
   deploymentUrls,
-  showDimensions,
-  mode,
   ...props
 }: Props) {
   const intl = useIntl();
@@ -73,20 +57,7 @@ export default function ProjectsImageComparison({
       original: matchingComparisonImage?.images?.[selectedBreakpoint] ?? '',
     };
   });
-  const specImagesForBreakpoint = specImagesForVariant.map(
-    (comparisonImage) => ({
-      image: comparisonImage.images[selectedBreakpoint],
-      label: comparisonImage.label,
-    }),
-  );
-
-  const { width, height } =
-    ProjectsImageBreakpointDimensions[selectedBreakpoint];
-
-  const imageList =
-    mode === 'display'
-      ? specImagesForBreakpoint
-      : deploymentImagesForBreakpointWithComparison;
+  const { width } = ProjectsImageBreakpointDimensions[selectedBreakpoint];
 
   return (
     <div
@@ -129,45 +100,35 @@ export default function ProjectsImageComparison({
       )}
       {/* Image Comparison Slider */}
       <div className="flex-1">
-        {mode === 'display' ? (
-          <ProjectsImageViewer
-            alt={specImagesForVariant[selectedScreenIndex].label}
-            grid={ProjectsImageBreakpointDimensions[selectedBreakpoint].grid}
-            src={
-              specImagesForVariant[selectedScreenIndex].images[
-                selectedBreakpoint
-              ]
-            }
-            width={width}
-          />
-        ) : (
-          <ProjectsChallengeSubmissionImageComparisonSlider
-            image={
-              deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
-                .image
-            }
-            maxWidth={width}
-            originalImage={
-              deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
-                .original
-            }
-          />
-        )}
+        <ProjectsChallengeSubmissionImageComparisonSlider
+          image={
+            deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
+              .image
+          }
+          maxWidth={width}
+          originalImage={
+            deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
+              .original
+          }
+        />
       </div>
       {/* Footer */}
-      <div className="grid-col-2 grid w-full gap-2 px-4 py-4 md:grid-cols-8 md:px-6">
-        <div
-          className={clsx(
-            'col-span-1 flex flex-col justify-center md:col-span-2',
-          )}>
+      <div
+        className={clsx(
+          'grid grid-cols-2 gap-4',
+          deploymentImagesForBreakpointWithComparison.length > 1 &&
+            'md:grid-cols-4',
+          'px-4 py-4 md:px-6',
+          'w-full',
+          ['border-t', themeBorderElementColor],
+        )}>
+        <div className={clsx('col-span-1 flex flex-col justify-center')}>
           <Text color="secondary" size="body1" weight="medium">
-            {imageList[selectedScreenIndex].label}
+            {
+              deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
+                .label
+            }
           </Text>
-          {showDimensions && (
-            <Text color="secondary" size="body3" weight="medium">
-              {width}px &times; {height}px
-            </Text>
-          )}
           {deploymentUrls && (
             <Text className="block truncate whitespace-nowrap" size="body2">
               <Anchor
@@ -178,40 +139,38 @@ export default function ProjectsImageComparison({
             </Text>
           )}
         </div>
-        <div className="col-span-1 flex items-center justify-end md:order-last md:col-span-2">
+        <div className="col-span-1 flex items-center justify-end md:order-last">
           <ProjectsImageBreakpointButtonGroup
             breakpoint={selectedBreakpoint}
             setBreakpoint={setSelectedBreakpoint}
           />
         </div>
-        <div
-          className={clsx(
-            'flex justify-center gap-2',
-            'col-span-2 md:col-span-4',
-          )}>
-          {imageList.map((page, index) => (
-            <button
-              key={page.label}
-              aria-label={page.label}
-              className={clsx(
-                'size-12 overflow-clip rounded',
-                'border',
-                index === selectedScreenIndex
-                  ? themeBorderBrandColor
-                  : themeBorderElementColor,
-                themeOutlineElement_FocusVisible,
-                themeOutlineElementBrandColor_FocusVisible,
-              )}
-              type="button"
-              onClick={() => setSelectedScreenIndex(index)}>
-              <img
-                alt={page.label}
-                className="size-full object-cover"
-                src={page.image}
-              />
-            </button>
-          ))}
-        </div>
+        {deploymentImagesForBreakpointWithComparison.length > 1 && (
+          <div className={clsx('flex justify-center gap-2', 'col-span-2')}>
+            {deploymentImagesForBreakpointWithComparison.map((page, index) => (
+              <button
+                key={page.label}
+                aria-label={page.label}
+                className={clsx(
+                  'size-12 overflow-clip rounded',
+                  'border',
+                  index === selectedScreenIndex
+                    ? themeBorderBrandColor
+                    : themeBorderElementColor,
+                  themeOutlineElement_FocusVisible,
+                  themeOutlineElementBrandColor_FocusVisible,
+                )}
+                type="button"
+                onClick={() => setSelectedScreenIndex(index)}>
+                <img
+                  alt={page.label}
+                  className="size-full object-cover"
+                  src={page.image}
+                />
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
