@@ -1,4 +1,4 @@
-import { JS_COMMUNITY_SOLUTIONS_IS_LIVE } from '~/data/FeatureFlags';
+import { INTERVIEWS_JS_COMMUNITY_SOLUTIONS_IS_LIVE } from '~/data/FeatureFlags';
 
 import type { TilesPanelConfig } from '~/react-tiling/types';
 
@@ -52,7 +52,7 @@ export function getJavaScriptCodingWorkspaceLayoutTwoColumns(
         activeTabId: 'description',
         collapsible: true,
         id: 'left-column',
-        tabs: JS_COMMUNITY_SOLUTIONS_IS_LIVE
+        tabs: INTERVIEWS_JS_COMMUNITY_SOLUTIONS_IS_LIVE
           ? [descriptionTab, solutionTab, communitySolutionsTab, submissionsTab]
           : [descriptionTab, solutionTab, submissionsTab],
         type: 'item',
@@ -104,7 +104,7 @@ export function getJavaScriptCodingWorkspaceLayoutThreeColumns(
         collapsible: true,
         defaultSize: 35,
         id: 'left-column',
-        tabs: JS_COMMUNITY_SOLUTIONS_IS_LIVE
+        tabs: INTERVIEWS_JS_COMMUNITY_SOLUTIONS_IS_LIVE
           ? [descriptionTab, solutionTab, communitySolutionsTab, submissionsTab]
           : [descriptionTab, solutionTab, submissionsTab],
         type: 'item',
@@ -146,7 +146,7 @@ export function getJavaScriptCodingWorkspaceLayoutGrid(
         activeTabId: 'description',
         collapsible: true,
         id: 'left-column',
-        tabs: JS_COMMUNITY_SOLUTIONS_IS_LIVE
+        tabs: INTERVIEWS_JS_COMMUNITY_SOLUTIONS_IS_LIVE
           ? [descriptionTab, solutionTab, communitySolutionsTab]
           : [descriptionTab, solutionTab],
         type: 'item',

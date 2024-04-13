@@ -5,7 +5,7 @@ import type {
   JavaScriptCodingWorkspacePredefinedTabsContents,
   JavaScriptCodingWorkspacePredefinedTabsType,
 } from './JavaScriptCodingWorkspaceTypes';
-import { JS_COMMUNITY_SOLUTIONS_IS_LIVE } from '../../../data/FeatureFlags';
+import { INTERVIEWS_JS_COMMUNITY_SOLUTIONS_IS_LIVE } from '../../../data/FeatureFlags';
 
 export default function JavaScriptCodingWorkspaceNewTab({
   predefinedTabs,
@@ -24,7 +24,7 @@ export default function JavaScriptCodingWorkspaceNewTab({
       <div className="flex flex-wrap gap-2">
         {Object.entries(predefinedTabs)
           .filter(([tabType]) =>
-            JS_COMMUNITY_SOLUTIONS_IS_LIVE
+            INTERVIEWS_JS_COMMUNITY_SOLUTIONS_IS_LIVE
               ? true
               : tabType !== 'community_solutions' &&
                 tabType !== 'community_solution_create',

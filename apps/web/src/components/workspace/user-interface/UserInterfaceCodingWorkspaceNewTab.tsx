@@ -1,5 +1,7 @@
 import { RiCodeLine } from 'react-icons/ri';
 
+import { INTERVIEWS_UI_COMMUNITY_SOLUTIONS_IS_LIVE } from '~/data/FeatureFlags';
+
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
@@ -50,20 +52,27 @@ export default function UserInterfaceCodingWorkspaceNewTab({
           Tabs
         </Text>
         <div className="flex flex-wrap gap-2">
-          {Object.entries(predefinedTabs).map(([tabType, tabDetails]) => (
-            <Button
-              key={tabType}
-              addonPosition="start"
-              icon={tabDetails.icon}
-              label={tabDetails.label}
-              variant="secondary"
-              onClick={() => {
-                onSelectTabType({
-                  type: tabType as UserInterfaceCodingWorkspacePredefinedTabsType,
-                });
-              }}
-            />
-          ))}
+          {Object.entries(predefinedTabs)
+            .filter(([tabType]) =>
+              INTERVIEWS_UI_COMMUNITY_SOLUTIONS_IS_LIVE
+                ? true
+                : tabType !== 'community_solutions' &&
+                  tabType !== 'community_solution_create',
+            )
+            .map(([tabType, tabDetails]) => (
+              <Button
+                key={tabType}
+                addonPosition="start"
+                icon={tabDetails.icon}
+                label={tabDetails.label}
+                variant="secondary"
+                onClick={() => {
+                  onSelectTabType({
+                    type: tabType as UserInterfaceCodingWorkspacePredefinedTabsType,
+                  });
+                }}
+              />
+            ))}
         </div>
       </div>
       {unopenedFiles.length > 0 && (
