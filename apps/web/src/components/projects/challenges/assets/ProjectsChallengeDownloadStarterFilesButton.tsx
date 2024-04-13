@@ -3,6 +3,7 @@ import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useToast } from '~/components/global/toasts/useToast';
 import Button from '~/components/ui/Button';
 
 type Props = Readonly<{
@@ -14,6 +15,7 @@ export default function ProjectsChallengeDownloadStarterFilesButton({
   slug,
   size,
 }: Props) {
+  const { showToast } = useToast();
   const intl = useIntl();
   const downloadStarterFilesMutation =
     trpc.projects.challenge.downloadStarterFiles.useMutation();
@@ -33,11 +35,26 @@ export default function ProjectsChallengeDownloadStarterFilesButton({
       size={size}
       variant="primary"
       onClick={async () => {
-        const { signedUrl } = await downloadStarterFilesMutation.mutateAsync({
-          slug,
-        });
-
-        window.location.href = signedUrl;
+        downloadStarterFilesMutation.mutate(
+          {
+            slug,
+          },
+          {
+            onError() {
+              showToast({
+                title: intl.formatMessage({
+                  defaultMessage: 'Error downloading file',
+                  description: 'Error message',
+                  id: 'ETNZXt',
+                }),
+                variant: 'danger',
+              });
+            },
+            onSuccess({ signedUrl }) {
+              window.location.href = signedUrl;
+            },
+          },
+        );
       }}
     />
   );

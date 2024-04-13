@@ -11,6 +11,7 @@ import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
 
+import { useToast } from '~/components/global/toasts/useToast';
 import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
@@ -39,6 +40,7 @@ function DownloadSection({
     description: 'Download Figma file button label',
     id: 'RGdxr7',
   });
+  const { showToast } = useToast();
 
   const downloadDesignFilesMutation =
     trpc.projects.challenge.downloadDesignFiles.useMutation();
@@ -47,11 +49,26 @@ function DownloadSection({
     isDisabled: downloadDesignFilesMutation.isLoading,
     isLoading: downloadDesignFilesMutation.isLoading,
     onClick: async () => {
-      const { signedUrl } = await downloadDesignFilesMutation.mutateAsync({
-        slug,
-      });
-
-      window.location.href = signedUrl;
+      downloadDesignFilesMutation.mutate(
+        {
+          slug,
+        },
+        {
+          onError() {
+            showToast({
+              title: intl.formatMessage({
+                defaultMessage: 'Error downloading file',
+                description: 'Error message',
+                id: 'ETNZXt',
+              }),
+              variant: 'danger',
+            });
+          },
+          onSuccess({ signedUrl }) {
+            window.location.href = signedUrl;
+          },
+        },
+      );
     },
   };
 

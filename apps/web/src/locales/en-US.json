@@ -1919,6 +1919,10 @@
     "defaultMessage": "Every project is part of <link>reusable component libraries</link> for your future projects",
     "description": "Caption for Projects marketing hero section component libraries feature"
   },
+  "ETNZXt": {
+    "defaultMessage": "Error downloading file",
+    "description": "Error message"
+  },
   "EaMmzf": {
     "defaultMessage": "Edit submission",
     "description": "Title of Projects edit submission page"
