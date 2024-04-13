@@ -9,15 +9,15 @@ import Chip from '~/components/ui/Chip';
 import Dialog from '~/components/ui/Dialog';
 import Text from '~/components/ui/Text';
 
-type Props = Readonly<{
-  isShown: boolean;
-  onClose: () => void;
-}>;
-
 type HowItWorksStep = Readonly<{
   card: React.ReactNode;
   description: ReactNode;
   id: string;
+}>;
+
+type Props = Readonly<{
+  isShown: boolean;
+  onClose: () => void;
 }>;
 
 export default function ProjectsChallengeHowItWorksDialog({
@@ -37,7 +37,6 @@ export default function ProjectsChallengeHowItWorksDialog({
     },
     {
       card: <ProjectsChallengeHowItWorksAssetCard />,
-
       description: intl.formatMessage({
         defaultMessage:
           'Start the project and download starter code and assets',

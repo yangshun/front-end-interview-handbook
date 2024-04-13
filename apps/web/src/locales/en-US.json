@@ -815,10 +815,6 @@
     "defaultMessage": "Responsive breakpoints",
     "description": "Project assets category label"
   },
-  "5DXHOF": {
-    "defaultMessage": "Download starter files",
-    "description": "Label for \"Download starter files\" button on Projects project page"
-  },
   "5Gjt4J": {
     "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
     "description": "Error toast for project"
@@ -838,10 +834,6 @@
   "5XwjUN": {
     "defaultMessage": "Facing trouble? <link>Email us</link>",
     "description": "Section label for seasonal promotion details"
-  },
-  "5Y6H2W": {
-    "defaultMessage": "Starter assets",
-    "description": "Label for Starter Code button on Projects project assets page"
   },
   "5ZA7Hl": {
     "defaultMessage": "Browse all submissions",
@@ -4083,10 +4075,6 @@
     "defaultMessage": "Try these popular React questions",
     "description": "Title for featured questions section"
   },
-  "VElW3O": {
-    "defaultMessage": "Download starter code + image assets",
-    "description": "Label for \"Download starter code + image assets\" button on Projects project page"
-  },
   "VJ8xZy": {
     "defaultMessage": "Prices will be increased as more content is being added to the website.",
     "description": "Tip at the bottom of the Pricing section to let users know that we would increase prices gradually as the content becomes more complete"
@@ -6606,6 +6594,10 @@
   "pXuTMr": {
     "defaultMessage": "Specs mimicking projects encountered as a full-timer",
     "description": "Short description for \"Real world specs\" feature on Projects home page"
+  },
+  "pYk6+0": {
+    "defaultMessage": "Starter files",
+    "description": "Label for \"Download starter files\" button on Projects project page"
   },
   "pZq6+F": {
     "defaultMessage": "Supercharge your growth with concise step-by-step guides for practical development",
