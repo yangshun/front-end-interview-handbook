@@ -13,11 +13,14 @@
   --brand-gradient-radial-dark: #8383fd;
   --brand-gradient-radial-stop-color: #0f172a;
 
+  --brand-gradient-hero-triangle-start: #8383fd;
+  --brand-gradient-hero-triangle-stop: #6366f103;
+
+  --brand-gradient-hero-arrow-start: #a855f7;
+  --brand-gradient-hero-arrow-stop: #6366f103;
+
   --brand-gradient-linear-start: #a855f7;
   --brand-gradient-linear-stop: #6366f1;
-
-  --brand-gradient-triangle-start: #8383fd;
-  --brand-gradient-triangle-stop: #6366f1;
 }
 
 [data-theme='projects'] {
@@ -34,11 +37,14 @@
   --brand-gradient-radial-dark: #36d387;
   --brand-gradient-radial-stop-color: #f0f0f0;
 
+  --brand-gradient-hero-triangle-start: #36d387;
+  --brand-gradient-hero-triangle-stop: #36d38703;
+
+  --brand-gradient-hero-arrow-start: #c6fdd0;
+  --brand-gradient-hero-arrow-stop: #36d38703;
+
   --brand-gradient-linear-start: #c6fdd0;
   --brand-gradient-linear-stop: #36d387;
-
-  --brand-gradient-triangle-start: #36d387;
-  --brand-gradient-triangle-stop: #36d387;
 }
 
 [data-color-scheme='dark'][data-theme='projects'] {

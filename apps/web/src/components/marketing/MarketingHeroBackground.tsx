@@ -126,17 +126,6 @@ export default function MarketingHeroBackground(
             stopOpacity="0.01"
           />
         </radialGradient>
-        {/* Arrow */}
-        <linearGradient
-          gradientUnits="userSpaceOnUse"
-          id="paint1_linear_401_76334"
-          x1="974.464"
-          x2="986.754"
-          y1="494.676"
-          y2="790.36">
-          <stop stopColor="var(--brand-gradient-linear-start)" />
-          <stop offset="1" stopColor="var(--brand-gradient-linear-stop)" />
-        </linearGradient>
         {/* Triangle */}
         <linearGradient
           gradientUnits="userSpaceOnUse"
@@ -145,12 +134,22 @@ export default function MarketingHeroBackground(
           x2="386.568"
           y1="61.9859"
           y2="432.799">
-          <stop stopColor="var(--brand-gradient-triangle-start)" />
+          <stop stopColor="var(--brand-gradient-hero-triangle-start)" />
           <stop
             offset="1"
-            stopColor="var(--brand-gradient-triangle-stop)"
-            stopOpacity="0.01"
+            stopColor="var(--brand-gradient-hero-triangle-stop)"
           />
+        </linearGradient>
+        {/* Arrow */}
+        <linearGradient
+          gradientUnits="userSpaceOnUse"
+          id="paint1_linear_401_76334"
+          x1="974.464"
+          x2="986.754"
+          y1="494.676"
+          y2="790.36">
+          <stop stopColor="var(--brand-gradient-hero-arrow-start)" />
+          <stop offset="1" stopColor="var(--brand-gradient-hero-arrow-stop)" />
         </linearGradient>
       </defs>
     </svg>
