@@ -17,7 +17,6 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import BlurOverlay from '~/components/common/BlurOverlay';
 import { useProjectsChallengeSessionContext } from '~/components/projects/challenges/session/ProjectsChallengeSessionContext';
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
-import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Spinner from '~/components/ui/Spinner';
@@ -31,6 +30,7 @@ import {
 } from '~/components/ui/theme';
 
 import ProjectsChallengeAssetsResponsiveBreakpointsTab from './ProjectsChallengeAssetsResponsiveBreakpointsTab';
+import ProjectsChallengeDownloadStarterFilesButton from './ProjectsChallengeDownloadStarterFilesButton';
 import useProjectsChallengeProvidedResources from './useProjectsChallengeProvidedResources';
 import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
 import ProjectsChallengeFigmaDesignPaywall from '../premium/ProjectsChallengeFigmaDesignPaywall';
@@ -193,18 +193,9 @@ export default function ProjectsChallengeAssetsPage({
             </Heading>
             <Section>
               <div className="flex flex-col gap-4">
-                <Button
-                  addonPosition="start"
-                  href={metadata.downloadStarterFilesHref}
-                  icon={RiCodeSSlashLine}
-                  label={intl.formatMessage({
-                    defaultMessage: 'Starter assets',
-                    description:
-                      'Label for Starter Code button on Projects project assets page',
-                    id: '5Y6H2W',
-                  })}
+                <ProjectsChallengeDownloadStarterFilesButton
                   size="lg"
-                  variant="secondary"
+                  slug={metadata.slug}
                 />
                 <ProjectsChallengeFigmaDesignPaywall
                   challengeMetadata={metadata}

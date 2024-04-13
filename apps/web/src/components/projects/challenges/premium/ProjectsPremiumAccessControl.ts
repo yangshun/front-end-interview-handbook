@@ -13,6 +13,7 @@ export type ProjectsPremiumAccessControlType =
 
 export type ProjectsPremiumAccessControlFields = Readonly<{
   downloadFigma: ProjectsPremiumAccessControlType;
+  downloadStarterFiles: ProjectsPremiumAccessControlType;
   viewChallenge: ProjectsPremiumAccessControlType;
   viewSubmission: ProjectsPremiumAccessControlType;
 }>;
@@ -25,6 +26,7 @@ export default function ProjectsPremiumAccessControl(
   if (challengeAccess === 'free') {
     return {
       downloadFigma: 'ACCESSIBLE_TO_EVERYONE',
+      downloadStarterFiles: 'ACCESSIBLE_TO_EVERYONE',
       viewChallenge: 'ACCESSIBLE_TO_EVERYONE',
       viewSubmission: 'ACCESSIBLE_TO_EVERYONE',
     };
@@ -56,6 +58,7 @@ export default function ProjectsPremiumAccessControl(
   if (challengeAccess === 'free-plus') {
     return {
       downloadFigma: viewerAccess,
+      downloadStarterFiles: 'ACCESSIBLE_TO_EVERYONE',
       viewChallenge: 'ACCESSIBLE_TO_EVERYONE',
       viewSubmission: 'ACCESSIBLE_TO_EVERYONE',
     };
@@ -63,6 +66,7 @@ export default function ProjectsPremiumAccessControl(
 
   return {
     downloadFigma: viewerAccess,
+    downloadStarterFiles: viewerAccess,
     viewChallenge: viewerAccess,
     viewSubmission: viewerAccess,
   };

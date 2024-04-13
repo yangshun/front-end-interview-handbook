@@ -1,20 +1,16 @@
-import { RiCodeSSlashLine } from 'react-icons/ri';
-import { FormattedMessage, useIntl } from 'react-intl';
-import { useMediaQuery } from 'usehooks-ts';
+import { FormattedMessage } from 'react-intl';
 
-import Button from '~/components/ui/Button';
 import Text from '~/components/ui/Text';
 
+import ProjectsChallengeDownloadStarterFilesButton from '../assets/ProjectsChallengeDownloadStarterFilesButton';
+
 type Props = Readonly<{
-  starterFilesHref: string;
+  slug: string;
 }>;
 
 export default function ProjectsChallengeGetStartedDownloadStarterFiles({
-  starterFilesHref,
+  slug,
 }: Props) {
-  const intl = useIntl();
-  const isMobileAndBelow = useMediaQuery('(max-width: 768px)');
-
   return (
     <div className="flex flex-col items-start gap-4">
       <Text color="secondary" size="body2">
@@ -24,28 +20,7 @@ export default function ProjectsChallengeGetStartedDownloadStarterFiles({
           id="ynLgE+"
         />
       </Text>
-      <Button
-        addonPosition="start"
-        href={starterFilesHref}
-        icon={RiCodeSSlashLine}
-        label={
-          isMobileAndBelow
-            ? intl.formatMessage({
-                defaultMessage: 'Download starter files',
-                description:
-                  'Label for "Download starter files" button on Projects project page',
-                id: '5DXHOF',
-              })
-            : intl.formatMessage({
-                defaultMessage: 'Download starter code + image assets',
-                description:
-                  'Label for "Download starter code + image assets" button on Projects project page',
-                id: 'VElW3O',
-              })
-        }
-        size="md"
-        variant="primary"
-      />
+      <ProjectsChallengeDownloadStarterFilesButton size="md" slug={slug} />
     </div>
   );
 }

@@ -50,7 +50,7 @@ function useDialogSteps({
     {
       content: (
         <ProjectsChallengeGetStartedDownloadStarterFiles
-          starterFilesHref={challenge.metadata.downloadStarterFilesHref}
+          slug={challenge.metadata.slug}
         />
       ),
       id: 'download-starter-files',

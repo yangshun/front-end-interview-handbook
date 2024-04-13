@@ -3,8 +3,16 @@ import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 
 export default async function fetchViewerProjectsChallengeAccess(
   slug: string,
+  userParam?: Readonly<{
+    email: string; // User Email.
+    id: string; // User ID.
+  }> | null,
 ): Promise<boolean> {
-  const viewer = await readViewerFromToken();
+  let viewer = userParam ?? null;
+
+  if (viewer == null) {
+    viewer = await readViewerFromToken();
+  }
 
   if (viewer == null) {
     return false;
