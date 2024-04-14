@@ -18,7 +18,7 @@ import { ProjectsChallengeGuideDocument } from './src/components/projects/conten
 import { ProjectsTrackMetadataDocument } from './src/components/projects/contentlayer/ProjectsTrackMetadataDocument';
 import { JobsPostingDocument } from './src/contentlayer/document/JobsPostingDocument';
 import { ProjectsSkillMetadataDocument } from './src/components/projects/contentlayer/ProjectsSkillMetadataDocument';
-import { ProjectsSkillDescriptionDocument } from './src/components/projects/contentlayer/ProjectsSkillDescriptionDocument';
+import { ProjectsSkillInfoDocument } from './src/components/projects/contentlayer/ProjectsSkillInfoDocument';
 
 export default makeSource({
   contentDirPath: 'src/content',
@@ -34,7 +34,7 @@ export default makeSource({
     ProjectsChallengeAPIWriteupDocument,
     ProjectsChallengeGuideDocument,
     ProjectsSkillMetadataDocument,
-    ProjectsSkillDescriptionDocument,
+    ProjectsSkillInfoDocument,
     ProjectsTrackMetadataDocument,
     JobsPostingDocument,
   ],

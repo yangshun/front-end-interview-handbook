@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import {
-  readProjectsSkillDescription,
+  readProjectsSkillInfo,
   readProjectsSkillMetadata,
 } from '~/components/projects/skills/data/ProjectsSkillReader';
 import ProjectsSkillRoadmapItemDetails from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItemDetails';
@@ -19,9 +19,9 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
-  const [intl, { skillDescription }] = await Promise.all([
+  const [intl, { skillInfo }] = await Promise.all([
     getIntlServerOnly(locale),
-    readProjectsSkillDescription(slug, locale),
+    readProjectsSkillInfo(slug, locale),
   ]);
 
   return defaultProjectsMetadata(intl, {
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'fF83z4',
       },
       {
-        skillName: skillDescription.title,
+        skillName: skillInfo.title,
       },
     ),
     locale,
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'GO8CZI',
       },
       {
-        skillName: skillDescription.title,
+        skillName: skillInfo.title,
       },
     ),
   });
@@ -55,11 +55,11 @@ export default async function Page({ params }: Props) {
   const { locale, slug } = params;
 
   const viewer = await readViewerFromToken();
-  const [{ viewerProjectsProfile }, skillMetadata, { skillDescription }] =
+  const [{ viewerProjectsProfile }, skillMetadata, { skillInfo }] =
     await Promise.all([
       fetchViewerProjectsProfile(viewer),
       readProjectsSkillMetadata(slug),
-      readProjectsSkillDescription(slug, locale),
+      readProjectsSkillInfo(slug, locale),
     ]);
 
   if (skillMetadata == null) {
@@ -68,14 +68,12 @@ export default async function Page({ params }: Props) {
   }
 
   if (skillMetadata.premium && !viewerProjectsProfile?.premium) {
-    return (
-      <ProjectsSkillRoadmapItemLockedPage skillDescription={skillDescription} />
-    );
+    return <ProjectsSkillRoadmapItemLockedPage skillInfo={skillInfo} />;
   }
 
   return (
     <ProjectsSkillRoadmapItemDetails
-      skillDescription={skillDescription}
+      skillInfo={skillInfo}
       skillMetadata={skillMetadata}
       viewerId={viewer?.id}
     />

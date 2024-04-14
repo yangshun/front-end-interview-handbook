@@ -1,7 +1,7 @@
 'use client';
 
 import type {
-  ProjectsSkillDescription,
+  ProjectsSkillInfo,
   ProjectsSkillMetadata,
 } from 'contentlayer/generated';
 import { sumBy } from 'lodash-es';
@@ -23,13 +23,13 @@ import ProjectsChallengeReputationTag from '../../challenges/metadata/ProjectsCh
 import ProjectsChallengesCompletedTag from '../../challenges/metadata/ProjectsChallengesCompletedTag';
 
 type Props = Readonly<{
-  skillDescription: ProjectsSkillDescription;
+  skillInfo: ProjectsSkillInfo;
   skillMetadata: ProjectsSkillMetadata;
   viewerId?: string;
 }>;
 
 export default function ProjectsSkillRoadmapItemDetails({
-  skillDescription,
+  skillInfo,
   skillMetadata,
   viewerId,
 }: Props) {
@@ -72,7 +72,7 @@ export default function ProjectsSkillRoadmapItemDetails({
     <div className="flex flex-col gap-y-8 pb-8">
       <div className="flex flex-col gap-y-4">
         <Heading level="heading6" tag="h1">
-          {skillDescription.title}
+          {skillInfo.title}
         </Heading>
         <div className="flex flex-wrap gap-x-6">
           {(skillPlanProgressData?.points ?? 0) > 0 && (
@@ -101,13 +101,13 @@ export default function ProjectsSkillRoadmapItemDetails({
             )}
         </div>
         <Text className="block" color="secondary" size="body3">
-          {skillDescription.description}
+          {skillInfo.description}
         </Text>
       </div>
       <Section level={2}>
         <Divider color="emphasized" />
         <Prose textSize="sm">
-          <ProjectsChallengeMdxContent mdxCode={skillDescription.body.code} />
+          <ProjectsChallengeMdxContent mdxCode={skillInfo.body.code} />
         </Prose>
         <Divider color="emphasized" />
         <div className="flex flex-col gap-y-4">

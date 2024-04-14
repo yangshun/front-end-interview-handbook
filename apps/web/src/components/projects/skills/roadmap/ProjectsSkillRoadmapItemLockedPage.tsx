@@ -1,6 +1,6 @@
 'use client';
 
-import type { ProjectsSkillDescription } from 'contentlayer/generated';
+import type { ProjectsSkillInfo } from 'contentlayer/generated';
 
 import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
@@ -10,20 +10,20 @@ import Text from '~/components/ui/Text';
 import ProjectsSkillRoadmapItemPaywall from './ProjectsSkillRoadmapItemPaywall';
 
 type Props = Readonly<{
-  skillDescription: ProjectsSkillDescription;
+  skillInfo: ProjectsSkillInfo;
 }>;
 
 export default function ProjectsSkillRoadmapItemLockedPage({
-  skillDescription,
+  skillInfo,
 }: Props) {
   return (
     <div className="flex flex-col gap-y-8 pb-8">
       <div className="flex flex-col gap-y-4">
         <Heading level="heading6" tag="h1">
-          {skillDescription.title}
+          {skillInfo.title}
         </Heading>
         <Text className="block" color="secondary" size="body3">
-          {skillDescription.description}
+          {skillInfo.description}
         </Text>
       </div>
       <Section level={2}>

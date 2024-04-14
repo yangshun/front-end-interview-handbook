@@ -1,9 +1,9 @@
 import type {
-  ProjectsSkillDescription,
+  ProjectsSkillInfo,
   ProjectsSkillMetadata,
 } from 'contentlayer/generated';
 import {
-  allProjectsSkillDescriptions,
+  allProjectsSkillInfos,
   allProjectsSkillMetadata,
 } from 'contentlayer/generated';
 import { sumBy } from 'lodash-es';
@@ -112,27 +112,25 @@ export async function readProjectsSkillMetadata(
   )!;
 }
 
-export async function readProjectsSkillDescription(
+export async function readProjectsSkillInfo(
   slugParam: string,
   requestedLocale = 'en-US',
 ): Promise<
   Readonly<{
     loadedLocale: string;
-    skillDescription: ProjectsSkillDescription;
+    skillInfo: ProjectsSkillInfo;
   }>
 > {
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
 
-  const skillDescription = allProjectsSkillDescriptions.find(
-    (descriptionItem) =>
-      descriptionItem._raw.flattenedPath ===
-      `projects/skills/${slug}/description/${requestedLocale}`,
+  const skillInfo = allProjectsSkillInfos.find(
+    (infoItem) => infoItem.slug === slug && infoItem.locale === requestedLocale,
   )!;
 
   return {
     loadedLocale: requestedLocale,
-    skillDescription,
+    skillInfo,
   };
 }
 
