@@ -175,8 +175,8 @@ export default function useInterviewsNavItems(placement: 'nav' | 'sidebar') {
   };
   const practice: NavbarPrimaryItem = {
     align: 'center',
-    currentMatchRegex:
-      /^(\/prepare\/(coding|quiz|system|behavioral))|\/questions\/|\/focus-areas\//,
+    // TODO: Adding the regex causes this item to be active during SSR for /prepare. Disabling first.
+    // currentMatchRegex: /^(\/prepare\/(coding|quiz|system|behavioral))|\/questions\/|\/focus-areas\//,
     icon: RiTerminalWindowLine,
     itemKey: 'practice-questions',
     items: [
