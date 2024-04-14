@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { RiArrowLeftLine, RiArrowRightLine, RiCheckLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
@@ -144,9 +145,16 @@ export default function ProjectsChallengeGetStartedDialog({
 }: Props) {
   const intl = useIntl();
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
+  const searchParams = useSearchParams();
+
+  const skillRoadmapPlanSkill = searchParams?.get('skill_plan');
   const [skills, setSkills] =
     useState<ProjectsChallengeSessionSkillsFormValues>({
-      roadmapSkills: challenge.metadata.skills,
+      // Add in skill from query param which indicate
+      // user come from skill roadmap plan page.
+      roadmapSkills: skillRoadmapPlanSkill
+        ? [...challenge.metadata.skills, skillRoadmapPlanSkill]
+        : challenge.metadata.skills,
       techStackSkills: [],
     });
 

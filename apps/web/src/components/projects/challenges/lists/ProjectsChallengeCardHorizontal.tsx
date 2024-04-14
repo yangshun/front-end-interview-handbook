@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { RiArrowRightLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
+import url from 'url';
 
 import ProjectsChallengeDifficultyTag from '~/components/projects/challenges/metadata/ProjectsChallengeDifficultyTag';
 import Anchor from '~/components/ui/Anchor';
@@ -15,12 +16,17 @@ import type { ProjectsChallengeItem } from '../types';
 import ProjectsPremiumBadge from '../../purchase/ProjectsPremiumBadge';
 import { projectsSkillExtractParents } from '../../skills/data/ProjectsSkillUtils';
 import ProjectsSkillParentSkillList from '../../skills/metadata/ProjectsSkillParentSkillList';
+import type { ProjectsSkillKey } from '../../skills/types';
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
+  skillRoadmapKey?: ProjectsSkillKey;
 }>;
 
-export default function ProjectsChallengeCard({ challenge }: Props) {
+export default function ProjectsChallengeCard({
+  challenge,
+  skillRoadmapKey,
+}: Props) {
   const intl = useIntl();
   const { metadata, userUnlocked } = challenge;
   const {
@@ -32,6 +38,16 @@ export default function ProjectsChallengeCard({ challenge }: Props) {
     href,
     access: challengeAccess,
   } = metadata;
+
+  // For users going to the challenge from the roadmap page,
+  // we append the skill to the URL so that challenge completion
+  // will give them rep and count towards this skill's progress.
+  const hrefWithSkill = url.format({
+    pathname: href,
+    query: {
+      skill_plan: skillRoadmapKey,
+    },
+  });
 
   return (
     <div
@@ -66,7 +82,7 @@ export default function ProjectsChallengeCard({ challenge }: Props) {
               size: 'body1',
               weight: 'bold',
             })}
-            href={href}
+            href={hrefWithSkill}
             variant="flat">
             {title}
           </Anchor>
@@ -82,7 +98,7 @@ export default function ProjectsChallengeCard({ challenge }: Props) {
         <div className="flex items-center gap-4">
           <Button
             className="z-[1]"
-            href={href}
+            href={hrefWithSkill}
             icon={RiArrowRightLine}
             label={intl.formatMessage({
               defaultMessage: 'Go to project',
@@ -93,7 +109,11 @@ export default function ProjectsChallengeCard({ challenge }: Props) {
           />
         </div>
       </div>
-      <Anchor aria-label={title} className="absolute inset-0" href={href} />
+      <Anchor
+        aria-label={title}
+        className="absolute inset-0"
+        href={hrefWithSkill}
+      />
     </div>
   );
 }

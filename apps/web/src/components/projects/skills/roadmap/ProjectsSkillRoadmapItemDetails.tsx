@@ -147,6 +147,7 @@ export default function ProjectsSkillRoadmapItemDetails({
             <ProjectsChallengeList
               challengeStatuses={skillPlanProgressData?.challengeStatuses}
               challenges={challengesQuery.data.challenges}
+              skillRoadmapKey={skillMetadata.slug}
             />
           )}
         </div>

@@ -9,17 +9,20 @@ import type {
   ProjectsChallengeItem,
 } from '../types';
 import { projectsChallengeDetermineStatus_DEPRECATED } from '../utils/ProjectsChallengeUtils';
+import type { ProjectsSkillKey } from '../../skills/types';
 
 type Props = Readonly<{
   challengeStatuses?: ProjectsChallengeHistoricalStatuses;
   challenges: ReadonlyArray<ProjectsChallengeItem>;
   className?: string;
+  skillRoadmapKey?: ProjectsSkillKey;
 }>;
 
 export default function ProjectsChallengeList({
   challengeStatuses = {},
   className,
   challenges,
+  skillRoadmapKey,
 }: Props) {
   const singleCardHeight = 100 / challenges.length;
   const dashedLineHeight = (challenges.length - 1) * singleCardHeight;
@@ -48,7 +51,10 @@ export default function ProjectsChallengeList({
               )}
             />
           </div>
-          <ProjectsChallengeCardHorizontal challenge={challenge} />
+          <ProjectsChallengeCardHorizontal
+            challenge={challenge}
+            skillRoadmapKey={skillRoadmapKey}
+          />
         </div>
       ))}
     </div>
