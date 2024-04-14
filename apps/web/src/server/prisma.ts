@@ -15,7 +15,12 @@ const prismaClientSingleton = () => {
       projectsChallengeSubmission: {
         deploymentUrls: {
           compute: (submission) =>
-            submission.deploymentUrls as ProjectsChallengeSubmissionDeploymentUrls,
+            (
+              submission.deploymentUrls as ProjectsChallengeSubmissionDeploymentUrls
+            )?.map((page) => ({
+              ...page,
+              updatedAt: page.updatedAt ? new Date(page.updatedAt) : null,
+            })),
         },
         hrefs: {
           compute: (submission) => {

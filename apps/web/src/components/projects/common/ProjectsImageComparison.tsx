@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useState } from 'react';
-import { RiImageLine } from 'react-icons/ri';
+import { RiImageLine, RiInformationLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import ProjectsImageBreakpointButtonGroup from '~/components/projects/common/ProjectsImageBreakpointButtonGroup';
@@ -19,7 +19,9 @@ import {
   themeBorderElementColor,
   themeOutlineElement_FocusVisible,
   themeOutlineElementBrandColor_FocusVisible,
+  themeTextSecondaryColor,
 } from '~/components/ui/theme';
+import Tooltip from '~/components/ui/Tooltip';
 
 import ProjectsImageViewer from './ProjectsImageViewer';
 import type { ProjectsChallengeVariantImages } from '../challenges/types';
@@ -33,6 +35,11 @@ type Props = Readonly<{
   specLabels: Record<string, string>;
   title?: string;
 }>;
+
+const dateFormatter = new Intl.DateTimeFormat(undefined, {
+  dateStyle: 'medium',
+  timeStyle: 'short',
+});
 
 export default function ProjectsImageComparison({
   allowRetakeScreenshot,
@@ -156,12 +163,37 @@ export default function ProjectsImageComparison({
             </Text>
           )}
           {deploymentUrls && (
-            <Text className="block truncate whitespace-nowrap" size="body2">
+            <Text
+              className="flex gap-2 truncate whitespace-nowrap"
+              size="body2">
               <Anchor
                 href={deploymentUrls[selectedScreenIndex].href}
                 warnAboutExternalLink={true}>
                 {deploymentUrls[selectedScreenIndex].href}
               </Anchor>
+              {(() => {
+                const timestamp = deploymentUrls[selectedScreenIndex].updatedAt;
+
+                if (timestamp == null) {
+                  return null;
+                }
+
+                const label = `Generated on ${dateFormatter.format(
+                  new Date(timestamp),
+                )}`;
+
+                return (
+                  <Tooltip label={label}>
+                    <RiInformationLine
+                      aria-label={label}
+                      className={clsx(
+                        'size-4 shrink-0',
+                        themeTextSecondaryColor,
+                      )}
+                    />
+                  </Tooltip>
+                );
+              })()}
             </Text>
           )}
         </div>
