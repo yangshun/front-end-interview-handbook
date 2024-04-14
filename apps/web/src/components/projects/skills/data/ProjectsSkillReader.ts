@@ -36,12 +36,17 @@ export async function fetchProjectsSkillsRoadmapSectionData(
     ...difficulty,
     items: difficulty.items.map((parentSkillItem) => {
       const items = parentSkillItem.items.map((skillKey) => {
-        const skillRoadmapChallenges = challengeMetadataList.filter(
-          (challengeItem) => challengeItem.skills.includes(skillKey),
-        );
-        const skillRoadmapChallengeSlugs = new Set(
-          skillRoadmapChallenges.map((challengeItem) => challengeItem.slug),
-        );
+        const { skillItem } = readProjectsSkillItem(skillKey);
+        const skillRoadmapChallengeSlugs =
+          skillItem.metadata != null ? skillItem.metadata.challenges : [];
+
+        const skillRoadmapChallenges = skillRoadmapChallengeSlugs
+          .map((challengeSlug) =>
+            challengeMetadataList.find(
+              (challengeItem) => challengeItem.slug === challengeSlug,
+            ),
+          )
+          .flatMap((challenge) => (challenge != null ? [challenge] : []));
 
         const skillReputation = sumBy(
           skillRoadmapChallenges,
@@ -57,7 +62,7 @@ export async function fetchProjectsSkillsRoadmapSectionData(
         Object.entries(challengeStatusesForSkill).map(
           ([challengeSlug, status]) => {
             // This challenge is not relevant to the skill, can be ignored.
-            if (!skillRoadmapChallengeSlugs.has(challengeSlug)) {
+            if (!skillRoadmapChallengeSlugs.includes(challengeSlug)) {
               return;
             }
 
@@ -75,6 +80,7 @@ export async function fetchProjectsSkillsRoadmapSectionData(
           completedChallenges: skillCompletedChallengesSet.size,
           inProgressChallenges: skillInProgressChallengesSet.size,
           key: skillKey,
+          name: skillItem.info?.title || skillKey,
           points: skillReputation,
           totalChallenges: skillTotalChallenges,
         };
@@ -101,9 +107,9 @@ export async function fetchProjectsSkillsRoadmapSectionData(
   }));
 }
 
-export async function readProjectsSkillMetadata(
+export function readProjectsSkillMetadata(
   slugParam: string,
-): Promise<ProjectsSkillMetadata> {
+): ProjectsSkillMetadata {
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
 
@@ -112,15 +118,13 @@ export async function readProjectsSkillMetadata(
   )!;
 }
 
-export async function readProjectsSkillInfo(
+export function readProjectsSkillInfo(
   slugParam: string,
   requestedLocale = 'en-US',
-): Promise<
-  Readonly<{
-    loadedLocale: string;
-    skillInfo: ProjectsSkillInfo;
-  }>
-> {
+): Readonly<{
+  loadedLocale: string;
+  skillInfo: ProjectsSkillInfo;
+}> {
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
 
@@ -131,6 +135,30 @@ export async function readProjectsSkillInfo(
   return {
     loadedLocale: requestedLocale,
     skillInfo,
+  };
+}
+
+export function readProjectsSkillItem(
+  slugParam: string,
+  requestedLocale = 'en-US',
+): Readonly<{
+  loadedLocale: string;
+  skillItem: {
+    info: ProjectsSkillInfo;
+    metadata: ProjectsSkillMetadata;
+  };
+}> {
+  // So that we handle typos like extra characters.
+  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
+  const metadata = readProjectsSkillMetadata(slug);
+  const { skillInfo } = readProjectsSkillInfo(slug, requestedLocale);
+
+  return {
+    loadedLocale: requestedLocale,
+    skillItem: {
+      info: skillInfo,
+      metadata,
+    },
   };
 }
 
@@ -153,9 +181,17 @@ export async function readProjectsChallengeItemsForSkill(
   ]);
 
   const { challengeMetadataList } = await readProjectsChallengeMetadataList();
+  const { skillItem } = readProjectsSkillItem(slug);
+  const skillRoadmapChallengeSlugs =
+    skillItem.metadata != null ? skillItem.metadata.challenges : [];
 
-  const challenges = challengeMetadataList
-    .filter((challengeItem) => challengeItem.skills.includes(slug))
+  const skillRoadmapChallenges = skillRoadmapChallengeSlugs
+    .map((challengeSlug) =>
+      challengeMetadataList.find(
+        (challengeItem) => challengeItem.slug === challengeSlug,
+      ),
+    )
+    .flatMap((challenge) => (challenge != null ? [challenge] : []))
     .map((challengeMetadata) =>
       challengeItemAddTrackMetadata({
         completedCount: null,
@@ -167,7 +203,7 @@ export async function readProjectsChallengeItemsForSkill(
     );
 
   return {
-    challenges,
+    challenges: skillRoadmapChallenges,
     loadedLocale: requestedLocale,
   };
 }
