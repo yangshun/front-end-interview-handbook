@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 import type { ProjectsChallengeHistoricalStatuses } from '~/components/projects/challenges/types';
-import { readProjectsChallengesForSkill } from '~/components/projects/skills/data/ProjectsSkillReader';
+import { readProjectsChallengeItemsForSkill } from '~/components/projects/skills/data/ProjectsSkillReader';
 
 import prisma from '~/server/prisma';
 import { publicProcedure, router } from '~/server/trpc';
@@ -36,7 +36,7 @@ export const projectsChallengesRouter = router({
       }),
     )
     .query(async ({ input: { skillSlug, locale }, ctx: { viewer } }) => {
-      return readProjectsChallengesForSkill(skillSlug, locale, viewer?.id);
+      return readProjectsChallengeItemsForSkill(skillSlug, locale, viewer?.id);
     }),
   skillPlanProgress: publicProcedure
     .input(

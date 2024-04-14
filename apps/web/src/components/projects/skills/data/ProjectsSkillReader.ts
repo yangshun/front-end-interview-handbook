@@ -1,13 +1,11 @@
 import type { ProjectsSkillMetadata } from 'contentlayer/generated';
-import {
-  allProjectsChallengeMetadata,
-  allProjectsSkillMetadata,
-} from 'contentlayer/generated';
+import { allProjectsSkillMetadata } from 'contentlayer/generated';
 import { sumBy } from 'lodash-es';
 
 import {
   challengeItemAddTrackMetadata,
   fetchChallengeAccessForUserGroupedBySlug,
+  readProjectsChallengeMetadataList,
 } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 
@@ -23,9 +21,7 @@ import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 export async function fetchProjectsSkillsRoadmapSectionData(
   targetUserId?: string,
 ): Promise<ProjectsSkillRoadmapSectionData> {
-  const challenges = allProjectsChallengeMetadata.filter((challengeItem) =>
-    challengeItem._raw.flattenedPath.endsWith('en-US'),
-  );
+  const { challengeMetadataList } = await readProjectsChallengeMetadataList();
 
   const skillsChallengeStatus =
     await fetchChallengeStatusForUserGroupedBySkills(targetUserId);
@@ -34,8 +30,8 @@ export async function fetchProjectsSkillsRoadmapSectionData(
     ...difficulty,
     items: difficulty.items.map((parentSkillItem) => {
       const items = parentSkillItem.items.map((skillKey) => {
-        const skillRoadmapChallenges = challenges.filter((challengeItem) =>
-          challengeItem.skills.includes(skillKey),
+        const skillRoadmapChallenges = challengeMetadataList.filter(
+          (challengeItem) => challengeItem.skills.includes(skillKey),
         );
         const skillRoadmapChallengeSlugs = new Set(
           skillRoadmapChallenges.map((challengeItem) => challengeItem.slug),
@@ -120,7 +116,7 @@ export async function readProjectsSkillMetadata(
   };
 }
 
-export async function readProjectsChallengesForSkill(
+export async function readProjectsChallengeItemsForSkill(
   slugParam: string,
   requestedLocale = 'en-US',
   userId?: string | null,
@@ -138,10 +134,9 @@ export async function readProjectsChallengesForSkill(
     fetchChallengeAccessForUserGroupedBySlug(userId),
   ]);
 
-  const challenges = allProjectsChallengeMetadata
-    .filter((challengeItem) =>
-      challengeItem._raw.flattenedPath.endsWith(requestedLocale),
-    )
+  const { challengeMetadataList } = await readProjectsChallengeMetadataList();
+
+  const challenges = challengeMetadataList
     .filter((challengeItem) => challengeItem.skills.includes(slug))
     .map((challengeMetadata) =>
       challengeItemAddTrackMetadata({

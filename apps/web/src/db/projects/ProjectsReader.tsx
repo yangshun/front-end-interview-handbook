@@ -432,6 +432,43 @@ export async function readProjectsChallengeMetadata(
   };
 }
 
+export async function readProjectsChallengeMetadataList(
+  requestedLocale = 'en-US',
+): Promise<
+  Readonly<{
+    challengeMetadataList: ReadonlyArray<ProjectsChallengeMetadata>;
+    loadedLocale: string;
+  }>
+> {
+  const challengeMetadataList = allProjectsChallengeMetadata.filter(
+    (challengeItem) =>
+      challengeItem._raw.flattenedPath.endsWith(requestedLocale),
+  );
+
+  return {
+    challengeMetadataList: challengeMetadataList.map((metadata) => ({
+      ...metadata,
+      // TODO(projects): remove when all challenges have real images.
+      specImages: metadata.specImages ?? {
+        default: [
+          {
+            images: {
+              desktop: '/img/projects/desktop.png',
+              mobile: '/img/projects/mobile.png',
+              tablet: '/img/projects/tablet.png',
+            },
+            label: 'main',
+          },
+        ],
+      },
+      specLabels: metadata.specLabels ?? {
+        main: 'Main page',
+      },
+    })),
+    loadedLocale: requestedLocale,
+  };
+}
+
 export async function readProjectsChallengeStyleGuide(
   slugParam: string,
   requestedLocale = 'en-US',
