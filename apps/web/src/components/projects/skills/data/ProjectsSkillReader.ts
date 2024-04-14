@@ -1,5 +1,11 @@
-import type { ProjectsSkillMetadata } from 'contentlayer/generated';
-import { allProjectsSkillMetadata } from 'contentlayer/generated';
+import type {
+  ProjectsSkillDescription,
+  ProjectsSkillMetadata,
+} from 'contentlayer/generated';
+import {
+  allProjectsSkillDescriptions,
+  allProjectsSkillMetadata,
+} from 'contentlayer/generated';
 import { sumBy } from 'lodash-es';
 
 import {
@@ -97,22 +103,36 @@ export async function fetchProjectsSkillsRoadmapSectionData(
 
 export async function readProjectsSkillMetadata(
   slugParam: string,
+): Promise<ProjectsSkillMetadata> {
+  // So that we handle typos like extra characters.
+  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
+
+  return allProjectsSkillMetadata.find(
+    (skillMetadataItem) => skillMetadataItem.slug === slug,
+  )!;
+}
+
+export async function readProjectsSkillDescription(
+  slugParam: string,
   requestedLocale = 'en-US',
 ): Promise<
   Readonly<{
     loadedLocale: string;
-    skillMetadata: ProjectsSkillMetadata;
+    skillDescription: ProjectsSkillDescription;
   }>
 > {
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
 
+  const skillDescription = allProjectsSkillDescriptions.find(
+    (descriptionItem) =>
+      descriptionItem._raw.flattenedPath ===
+      `projects/skills/${slug}/description/${requestedLocale}`,
+  )!;
+
   return {
     loadedLocale: requestedLocale,
-    skillMetadata: allProjectsSkillMetadata.find(
-      (skillMetadataItem) =>
-        skillMetadataItem.slug === slug && skillMetadataItem._raw.flattenedPath,
-    )!,
+    skillDescription,
   };
 }
 

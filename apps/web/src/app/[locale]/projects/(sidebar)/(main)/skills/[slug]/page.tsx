@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { projectsSkillLabel } from '~/components/projects/skills/data/ProjectsSkillListData';
-import { readProjectsSkillMetadata } from '~/components/projects/skills/data/ProjectsSkillReader';
+import {
+  readProjectsSkillDescription,
+  readProjectsSkillMetadata,
+} from '~/components/projects/skills/data/ProjectsSkillReader';
 import ProjectsSkillRoadmapItemDetails from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItemDetails';
 import ProjectsSkillRoadmapItemLockedPage from '~/components/projects/skills/roadmap/ProjectsSkillRoadmapItemLockedPage';
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
@@ -17,9 +19,9 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
-  const [intl, { skillMetadata }] = await Promise.all([
+  const [intl, { skillDescription }] = await Promise.all([
     getIntlServerOnly(locale),
-    readProjectsSkillMetadata(slug, locale),
+    readProjectsSkillDescription(slug, locale),
   ]);
 
   return defaultProjectsMetadata(intl, {
@@ -31,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'fF83z4',
       },
       {
-        skillName: projectsSkillLabel(skillMetadata.slug),
+        skillName: skillDescription.title,
       },
     ),
     locale,
@@ -43,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'GO8CZI',
       },
       {
-        skillName: projectsSkillLabel(skillMetadata.slug),
+        skillName: skillDescription.title,
       },
     ),
   });
@@ -53,10 +55,12 @@ export default async function Page({ params }: Props) {
   const { locale, slug } = params;
 
   const viewer = await readViewerFromToken();
-  const [{ viewerProjectsProfile }, { skillMetadata }] = await Promise.all([
-    fetchViewerProjectsProfile(viewer),
-    readProjectsSkillMetadata(slug, locale),
-  ]);
+  const [{ viewerProjectsProfile }, skillMetadata, { skillDescription }] =
+    await Promise.all([
+      fetchViewerProjectsProfile(viewer),
+      readProjectsSkillMetadata(slug),
+      readProjectsSkillDescription(slug, locale),
+    ]);
 
   if (skillMetadata == null) {
     // TODO(projects): add custom not found page for projects.
@@ -64,11 +68,14 @@ export default async function Page({ params }: Props) {
   }
 
   if (skillMetadata.premium && !viewerProjectsProfile?.premium) {
-    return <ProjectsSkillRoadmapItemLockedPage skillMetadata={skillMetadata} />;
+    return (
+      <ProjectsSkillRoadmapItemLockedPage skillDescription={skillDescription} />
+    );
   }
 
   return (
     <ProjectsSkillRoadmapItemDetails
+      skillDescription={skillDescription}
       skillMetadata={skillMetadata}
       viewerId={viewer?.id}
     />

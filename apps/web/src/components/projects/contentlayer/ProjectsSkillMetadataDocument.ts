@@ -7,7 +7,7 @@ function parseSkillSlug(sourceFilePath: string) {
   return sourceFilePath.split(path.posix.sep)[2];
 }
 
-export const ProjectsSkillMetadataGuideDocument = defineDocumentType(() => ({
+export const ProjectsSkillMetadataDocument = defineDocumentType(() => ({
   computedFields: {
     href: {
       description: 'Link to project skill page',
@@ -30,24 +30,15 @@ export const ProjectsSkillMetadataGuideDocument = defineDocumentType(() => ({
       type: 'string',
     },
   },
-  contentType: 'mdx',
+  contentType: 'data',
   fields: {
-    description: {
-      description: 'Description of the skill',
+    challenges: {
+      description: 'Challenges for this skill on the skills roadmap',
+      of: { type: 'string' },
       required: true,
-      type: 'string',
-    },
-    premium: {
-      description: 'Whether the skill is premium',
-      required: true,
-      type: 'boolean',
-    },
-    title: {
-      description: 'Name of the skill',
-      required: true,
-      type: 'string',
+      type: 'list',
     },
   },
-  filePathPattern: 'projects/skills/*/*.mdx',
+  filePathPattern: 'projects/skills/*/metadata.json',
   name: 'ProjectsSkillMetadata',
 }));
