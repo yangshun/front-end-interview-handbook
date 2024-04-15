@@ -181,26 +181,29 @@ export default function InterviewsMarketingGetStartedPage({
   const intl = useIntl();
 
   return (
-    <Container>
-      <div className="flex flex-col gap-y-12 py-12 lg:gap-y-16 lg:py-16">
-        <Heading level="heading3">
-          {intl.formatMessage({
-            defaultMessage: 'Get Started',
-            description: 'Title of get started page',
-            id: 'cktXm2',
-          })}
-        </Heading>
-        <Section>
-          <PreparationPlansSection />
-          <Divider />
-          <PracticeQuestionsSection
-            javaScriptQuestions={javaScriptQuestions}
-            quizQuestions={quizQuestions}
-            systemDesignQuestions={systemDesignQuestions}
-            userInterfaceQuestions={userInterfaceQuestions}
-          />
-        </Section>
-      </div>
+    <Container
+      className={clsx(
+        'flex flex-col',
+        'py-4 md:py-6 lg:py-8 xl:py-16',
+        'gap-y-12 lg:gap-y-16',
+      )}>
+      <Heading level="heading3">
+        {intl.formatMessage({
+          defaultMessage: 'Get Started',
+          description: 'Title of get started page',
+          id: 'cktXm2',
+        })}
+      </Heading>
+      <Section>
+        <PreparationPlansSection />
+        <Divider />
+        <PracticeQuestionsSection
+          javaScriptQuestions={javaScriptQuestions}
+          quizQuestions={quizQuestions}
+          systemDesignQuestions={systemDesignQuestions}
+          userInterfaceQuestions={userInterfaceQuestions}
+        />
+      </Section>
     </Container>
   );
 }

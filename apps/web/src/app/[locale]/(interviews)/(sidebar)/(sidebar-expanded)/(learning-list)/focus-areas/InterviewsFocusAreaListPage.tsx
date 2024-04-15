@@ -126,7 +126,7 @@ export default function InterviewsFocusAreaListPage({
     <Container
       className={clsx(
         'flex flex-col',
-        'py-4 md:py-6 lg:py-8',
+        'py-4 md:py-6 lg:py-8 xl:py-16',
         'gap-y-8 md:gap-y-10 2xl:gap-y-12',
       )}>
       <div className="flex flex-col gap-3">

@@ -18,7 +18,9 @@ export default function ProjectsSidebarLayout({ children }: Props) {
         <div className="flex">
           <ProjectsSidebarContainer />
           <div className="w-full lg:w-0 lg:grow">
-            <Container className="py-4 lg:py-16">{children}</Container>
+            <Container className="py-4 md:py-6 lg:py-8 xl:py-16">
+              {children}
+            </Container>
           </div>
         </div>
       </div>

@@ -78,7 +78,13 @@ export default function QuestionQuizContents({
 
   return (
     <div>
-      <div className="mx-auto w-full max-w-xl px-4 py-12 sm:max-w-3xl sm:px-6 md:max-w-4xl lg:px-8 2xl:max-w-5xl">
+      <div
+        className={clsx(
+          'mx-auto',
+          'w-full max-w-xl sm:max-w-3xl md:max-w-4xl 2xl:max-w-5xl',
+          'px-4 md:px-6 lg:px-8',
+          'py-6 lg:py-8 xl:py-16',
+        )}>
         <div className="grid gap-y-6">
           <div className="overflow-auto">
             <Text className="mb-1 block" color="secondary" size="body2">

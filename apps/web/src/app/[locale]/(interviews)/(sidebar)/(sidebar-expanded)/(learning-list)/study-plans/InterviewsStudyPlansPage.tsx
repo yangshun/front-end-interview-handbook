@@ -50,7 +50,10 @@ function PreparationPlanCard({
   return (
     <div
       className={clsx(
-        'group relative flex flex-1 items-center gap-6 rounded-lg px-8 py-5',
+        'group relative',
+        'flex flex-1 items-center gap-6',
+        'rounded-lg',
+        'px-8 py-5',
         'bg-white transition dark:bg-neutral-800/70 dark:hover:bg-neutral-800/80',
         themeGlassyBorder,
       )}>
@@ -155,7 +158,7 @@ export default function InterviewsStudyPlansPage({
     <Container
       className={clsx(
         'flex flex-col',
-        'py-4 md:py-6 lg:py-8',
+        'py-4 md:py-6 lg:py-8 xl:py-16',
         'gap-y-8 md:gap-y-10 2xl:gap-y-12',
       )}>
       <div className="flex flex-col gap-3">

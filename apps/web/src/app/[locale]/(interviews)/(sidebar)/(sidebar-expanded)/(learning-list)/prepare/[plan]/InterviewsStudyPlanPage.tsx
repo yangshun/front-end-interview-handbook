@@ -80,7 +80,12 @@ export default function InterviewsStudyPlanPage({
   ]);
 
   return (
-    <div className="relative flex flex-col gap-y-12 py-6">
+    <div
+      className={clsx(
+        'flex flex-col gap-y-12',
+        'py-4 md:py-6 lg:py-8 xl:py-16',
+        'relative',
+      )}>
       <Container className="relative flex flex-col gap-y-5">
         <div>
           <Button
