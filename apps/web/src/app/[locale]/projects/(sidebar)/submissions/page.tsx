@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import ProjectsChallengeSubmissionListAllPage from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListAllPage';
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
+import { readProjectsChallengeInfoDict } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
 
@@ -34,11 +35,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 }
 
-export default async function Page() {
+export default async function Page({ params }: Props) {
+  const { locale } = params;
   const { viewerProjectsProfile } = await fetchViewerProjectsProfile();
+  const { challengeInfoDict } = readProjectsChallengeInfoDict(locale);
 
   return (
     <ProjectsChallengeSubmissionListAllPage
+      challengeInfoDict={challengeInfoDict}
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
     />
   );

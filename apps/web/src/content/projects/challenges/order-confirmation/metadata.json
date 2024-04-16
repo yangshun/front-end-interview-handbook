@@ -1,6 +1,4 @@
 {
-  "title": "Order Confirmation",
-  "description": "Build a page that plays a crucial role in concluding the user's journey on an e-commerce platform",
   "createdAt": "2024-01-08",
   "difficulty": "mid",
   "track": "e-commerce",
@@ -12,5 +10,17 @@
   },
   "skills": ["html-basics", "css-basics"],
   "coverImage": "https://cdn.dribbble.com/users/1126703/screenshots/16053286/media/15fb9ef3524b1a437f50d190ebc53e6a.png?resize=1600x1200&vertical=center",
-  "galleryImages": []
+  "galleryImages": [],
+  "specImages": {
+    "default": [
+      {
+        "images": {
+          "desktop": "/img/projects/desktop.png",
+          "mobile": "/img/projects/mobile.png",
+          "tablet": "/img/projects/tablet.png"
+        },
+        "label": "main"
+      }
+    ]
+  }
 }

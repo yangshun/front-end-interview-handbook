@@ -49,7 +49,7 @@ export default function ProjectsSettingsActivityPage() {
                   href={session.challenge?.metadata.href}
                   variant="unstyled">
                   <span aria-hidden="true" className="absolute inset-0" />
-                  {session.challenge?.metadata.title}
+                  {session.challenge?.info.title}
                 </Anchor>
               </Text>
             </div>

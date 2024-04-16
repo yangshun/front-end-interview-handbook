@@ -1,4 +1,7 @@
-import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
+import type {
+  ProjectsChallengeInfo,
+  ProjectsChallengeMetadata,
+} from 'contentlayer/generated';
 
 import type { PrismaClientGFE } from '~/server/prisma';
 
@@ -48,6 +51,7 @@ export type ProjectsChallengeSubmissionAugmented =
         votes: number;
       };
       challenge?: Readonly<{
+        info: ProjectsChallengeInfo;
         metadata: ProjectsChallengeMetadata;
         status: ProjectsChallengeSessionStatus | null;
       }>;

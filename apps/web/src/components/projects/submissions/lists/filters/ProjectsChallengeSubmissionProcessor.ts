@@ -1,12 +1,23 @@
-import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
+import type {
+  ProjectsChallengeInfo,
+  ProjectsChallengeMetadata,
+} from 'contentlayer/generated';
 
 export function filterProjectsChallengeSubmission<
   T extends ProjectsChallengeMetadata,
 >(
-  projects: ReadonlyArray<T>,
-  filters: ReadonlyArray<(project: T) => boolean>,
+  challengeMetadataList: ReadonlyArray<T>,
+  challengeInfoDict: Record<string, ProjectsChallengeInfo>,
+  filters: ReadonlyArray<
+    (challengeMetadata: T, challengeInfo: ProjectsChallengeInfo) => boolean
+  >,
 ): ReadonlyArray<T> {
-  return projects.filter((project) =>
-    filters.every((filter) => filter(project)),
+  return challengeMetadataList.filter((challengeMetadataItem) =>
+    filters.every((filterOp) =>
+      filterOp(
+        challengeMetadataItem,
+        challengeInfoDict[challengeMetadataItem.slug],
+      ),
+    ),
   );
 }

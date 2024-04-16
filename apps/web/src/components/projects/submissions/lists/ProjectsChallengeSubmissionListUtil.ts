@@ -3,6 +3,7 @@ import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import {
   fetchSessionsForUserGroupedBySlug,
   fetchSubmissionCommentCountsGroupedById,
+  readProjectsChallengeInfoDict,
 } from '~/db/projects/ProjectsReader';
 
 import type { ProjectsChallengeSubmissionAugmented as ProjectsChallengeSubmissionAugmented } from '../types';
@@ -10,14 +11,17 @@ import type { ProjectsChallengeSubmissionAugmented as ProjectsChallengeSubmissio
 export function projectsChallengeSubmissionListAugmentChallenge<
   T extends ProjectsChallengeSubmissionAugmented,
 >(submissions: ReadonlyArray<T>) {
+  const { challengeInfoDict } = readProjectsChallengeInfoDict();
+
   return submissions.map((submission) => {
     const challengeMetadata = allProjectsChallengeMetadata.find(
-      (project) => project.slug === submission.slug,
+      (challenge) => challenge.slug === submission.slug,
     )!;
 
     return {
       ...submission,
       challenge: {
+        info: challengeInfoDict[submission.slug],
         metadata: challengeMetadata,
         status: null,
       },

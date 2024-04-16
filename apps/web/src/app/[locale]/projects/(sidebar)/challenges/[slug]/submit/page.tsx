@@ -4,8 +4,8 @@ import type { Metadata } from 'next/types';
 import ProjectsChallengeSubmitPage from '~/components/projects/submissions/form/ProjectsChallengeSubmitPage';
 
 import {
+  readProjectsChallengeInfo,
   readProjectsChallengeItem,
-  readProjectsChallengeMetadata,
 } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
@@ -18,10 +18,8 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
-  const [intl, { challengeMetadata }] = await Promise.all([
-    getIntlServerOnly(locale),
-    readProjectsChallengeMetadata(slug, locale),
-  ]);
+  const [intl] = await Promise.all([getIntlServerOnly(locale)]);
+  const { challengeInfo } = readProjectsChallengeInfo(slug, locale);
 
   return defaultProjectsMetadata(intl, {
     description: intl.formatMessage(
@@ -32,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'B4AISh',
       },
       {
-        challengeName: challengeMetadata.title,
+        challengeName: challengeInfo.title,
       },
     ),
     locale,
@@ -44,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'u59kYU',
       },
       {
-        challengeName: challengeMetadata.title,
+        challengeName: challengeInfo.title,
       },
     ),
   });

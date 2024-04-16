@@ -1,4 +1,7 @@
-import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
+import type {
+  ProjectsChallengeInfo,
+  ProjectsChallengeMetadata,
+} from 'contentlayer/generated';
 
 import type { ProjectsSkillKey } from '../skills/types';
 import type {
@@ -48,10 +51,8 @@ export type ProjectsChallengeTrackPayload = Readonly<{
 export type ProjectsChallengeItem = Readonly<{
   completedCount: number | null;
   completedProfiles: ReadonlyArray<ProjectsProfileAvatarDataSlim>;
-  metadata: ProjectsChallengeMetadata &
-    Readonly<{
-      skills: ReadonlyArray<ProjectsSkillKey>;
-    }>;
+  info: ProjectsChallengeInfo;
+  metadata: ProjectsChallengeMetadata;
   status: ProjectsChallengeSessionStatus | null;
   track: ProjectsChallengeTrackPayload;
   userUnlocked: boolean | null;

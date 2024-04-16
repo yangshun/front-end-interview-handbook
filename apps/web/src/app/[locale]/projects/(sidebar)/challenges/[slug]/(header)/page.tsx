@@ -7,8 +7,8 @@ import fetchViewerProjectsChallengeAccess from '~/components/projects/utils/fetc
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import {
+  readProjectsChallengeInfo,
   readProjectsChallengeItem,
-  readProjectsChallengeMetadata,
 } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
@@ -19,23 +19,11 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
-  const [intl, { challengeMetadata }] = await Promise.all([
-    getIntlServerOnly(locale),
-    readProjectsChallengeMetadata(slug, locale),
-  ]);
+  const [intl] = await Promise.all([getIntlServerOnly(locale)]);
+  const { challengeInfo } = readProjectsChallengeInfo(slug, locale);
 
   return defaultProjectsMetadata(intl, {
-    description: intl.formatMessage(
-      {
-        defaultMessage:
-          'Build a {challengeName} with everything you need provided to you - professional designs, user stories, how-to-guides, official solutions and more.',
-        description: 'Description of Projects challenge page',
-        id: 'FTzU6l',
-      },
-      {
-        challengeName: challengeMetadata.title,
-      },
-    ),
+    description: challengeInfo.description,
     locale,
     pathname: `/projects/challenges/${slug}`,
     title: intl.formatMessage(
@@ -45,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: '6PvIkG',
       },
       {
-        challengeName: challengeMetadata.title,
+        challengeName: challengeInfo.title,
       },
     ),
   });

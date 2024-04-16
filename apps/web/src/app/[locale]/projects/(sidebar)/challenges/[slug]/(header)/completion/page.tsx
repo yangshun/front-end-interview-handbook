@@ -6,8 +6,8 @@ import fetchViewerProjectsChallengeAccess from '~/components/projects/utils/fetc
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import {
+  readProjectsChallengeInfo,
   readProjectsChallengeItem,
-  readProjectsChallengeMetadata,
 } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
@@ -18,10 +18,8 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
-  const [intl, { challengeMetadata }] = await Promise.all([
-    getIntlServerOnly(locale),
-    readProjectsChallengeMetadata(slug, locale),
-  ]);
+  const [intl] = await Promise.all([getIntlServerOnly(locale)]);
+  const { challengeInfo } = readProjectsChallengeInfo(slug, locale);
 
   return defaultProjectsMetadata(intl, {
     description: intl.formatMessage(
@@ -32,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'XliVbn',
       },
       {
-        challengeName: challengeMetadata.title,
+        challengeName: challengeInfo.title,
       },
     ),
     locale,
@@ -44,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'a0Osa7',
       },
       {
-        challengeName: challengeMetadata.title,
+        challengeName: challengeInfo.title,
       },
     ),
   });

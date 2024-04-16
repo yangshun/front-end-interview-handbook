@@ -16,32 +16,32 @@ export default function useProjectsChallengesFilters() {
   const [selectedStatus] = useProjectsChallengeFilterState('status');
 
   const projectsMatchesTextQuery = (
-    project: ProjectsChallengeItem,
+    challenge: ProjectsChallengeItem,
     searchQuery: string,
   ) =>
-    project.metadata.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    project.metadata.description
+    challenge.info.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    challenge.info.description
       ?.toLowerCase()
       .includes(searchQuery.toLowerCase());
 
-  const filterByComponentTrack = (project: ProjectsChallengeItem) =>
+  const filterByComponentTrack = (challenge: ProjectsChallengeItem) =>
     selectedComponentTrack.length === 0 ||
-    selectedComponentTrack.includes(project.track.slug);
+    selectedComponentTrack.includes(challenge.track.slug);
 
-  const filterByDifficulty = (project: ProjectsChallengeItem) =>
+  const filterByDifficulty = (challenge: ProjectsChallengeItem) =>
     selectedDifficulty.length === 0 ||
-    selectedDifficulty.includes(project.metadata.difficulty);
+    selectedDifficulty.includes(challenge.metadata.difficulty);
 
-  const filterBySkills = (project: ProjectsChallengeItem) =>
+  const filterBySkills = (challenge: ProjectsChallengeItem) =>
     selectedSkills.length === 0 ||
-    project.metadata.skills.some((skill) => selectedSkills.includes(skill));
+    challenge.metadata.skills.some((skill) => selectedSkills.includes(skill));
 
-  const filterByStatus = (project: ProjectsChallengeItem) =>
+  const filterByStatus = (challenge: ProjectsChallengeItem) =>
     selectedStatus.length === 0 ||
-    selectedStatus.includes(project.status ?? '') ||
+    selectedStatus.includes(challenge.status ?? '') ||
     (selectedStatus.includes('NOT_STARTED') &&
-      project.status !== 'IN_PROGRESS' &&
-      project.status !== 'COMPLETED');
+      challenge.status !== 'IN_PROGRESS' &&
+      challenge.status !== 'COMPLETED');
 
   const filters: ReadonlyArray<
     [number, (project: ProjectsChallengeItem) => boolean]

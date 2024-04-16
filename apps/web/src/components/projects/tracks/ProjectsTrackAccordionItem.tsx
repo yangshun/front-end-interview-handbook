@@ -119,7 +119,7 @@ export default function ProjectsTrackAccordionItem({
                         )}>
                         <div className="relative">
                           <img
-                            alt={challenge.metadata.title}
+                            alt={challenge.info.title}
                             className={clsx(
                               'object-fill',
                               'h-[100px] w-full',
@@ -138,10 +138,10 @@ export default function ProjectsTrackAccordionItem({
                           )}
                         </div>
                         <Text className="truncate" size="body2" weight="medium">
-                          {challenge.metadata.title}
+                          {challenge.info.title}
                         </Text>
                         <Anchor
-                          aria-label={challenge.metadata.title}
+                          aria-label={challenge.info.title}
                           className="absolute inset-0"
                           href={challenge.metadata.href}
                         />

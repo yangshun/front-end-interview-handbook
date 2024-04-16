@@ -1,5 +1,8 @@
 import clsx from 'clsx';
-import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
+import type {
+  ProjectsChallengeInfo,
+  ProjectsChallengeMetadata,
+} from 'contentlayer/generated';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import RelativeTimestamp from '~/components/common/datetime/RelativeTimestamp';
@@ -32,6 +35,7 @@ import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 
 type Props = Readonly<{
   challenge?: Readonly<{
+    info: ProjectsChallengeInfo;
     metadata: ProjectsChallengeMetadata;
     status: ProjectsChallengeSessionStatus | null;
   }>;
@@ -100,7 +104,7 @@ export default function ProjectsChallengeSubmissionCard({
                       </HovercardPortal>
                     </Hovercard>
                   ),
-                  title: challenge?.metadata.title,
+                  title: challenge?.info.title,
                 }}
               />
             </Text>

@@ -103,7 +103,7 @@ export default function ProjectsChallengeSubmitPage({
           <ProjectsChallengeSubmissionForm
             cancelButtonHref={challenge.metadata.completionHref}
             challengeDefaultSkills={challenge.metadata.skills}
-            challengeDefaultSpecPageLabels={challenge.metadata.specLabels}
+            challengeDefaultSpecPageLabels={challenge.info.specLabels}
             challengeDefaultSpecPages={(
               challenge.metadata.specImages
                 .default as ProjectsChallengeVariantImages

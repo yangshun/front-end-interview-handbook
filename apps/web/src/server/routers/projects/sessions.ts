@@ -6,7 +6,10 @@ import { projectsReputationFirstSessionConfig } from '~/components/projects/repu
 import { projectsSkillListInputOptionalSchemaServer } from '~/components/projects/skills/form/ProjectsSkillListInputSchema';
 import { readProjectsTrackList } from '~/components/projects/tracks/data/ProjectsTrackReader';
 
-import { readProjectsChallengeList } from '~/db/projects/ProjectsReader';
+import {
+  readProjectsChallengeInfoDict,
+  readProjectsChallengeList,
+} from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 
 import { projectsUserProcedure } from './procedures';
@@ -108,14 +111,20 @@ export const projectsSessionsRouter = router({
         },
       });
 
+      const { challengeInfoDict } = readProjectsChallengeInfoDict();
+
       return sessions.map((session) => {
-        const challenge = allProjectsChallengeMetadata.find(
-          (project) => project.slug === session.slug,
+        const challengeMetadata = allProjectsChallengeMetadata.find(
+          (challengeMetadataItem) =>
+            challengeMetadataItem.slug === session.slug,
         )!;
 
         return {
           ...session,
-          challenge,
+          challenge: {
+            info: challengeInfoDict[session.slug],
+            metadata: challengeMetadata,
+          },
         };
       });
     }),

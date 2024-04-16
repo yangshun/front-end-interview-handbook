@@ -47,7 +47,7 @@ function ProjectsChallengeGridListWithFiltersImpl({
   const intl = useIntl();
   const [searchQuery, setSearchQuery] = useState('');
   const {
-    filters,
+    filterItems,
     value: selectedFilters,
     updateSearchParams,
     getStringTypeSearchParams,
@@ -229,10 +229,15 @@ function ProjectsChallengeGridListWithFiltersImpl({
           />
         </div>
         <div className="hidden flex-wrap gap-3 md:flex">
-          {filters
-            .filter((filter) => (isViewerPremium ? true : !filter.premium))
-            .map((filter) => (
-              <ProjectsChallengeListFilter key={filter.id} filter={filter} />
+          {filterItems
+            .filter((filterItem) =>
+              isViewerPremium ? true : !filterItem.premium,
+            )
+            .map((filterItem) => (
+              <ProjectsChallengeListFilter
+                key={filterItem.id}
+                filter={filterItem}
+              />
             ))}
           {sortAndFilterButton}
         </div>

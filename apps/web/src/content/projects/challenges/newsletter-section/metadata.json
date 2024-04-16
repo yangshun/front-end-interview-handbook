@@ -1,6 +1,4 @@
 {
-  "title": "Newsletter Section",
-  "description": "Implement an intuitive and engaging design to maximize conversions",
   "createdAt": "2024-01-09",
   "difficulty": "starter",
   "track": "marketing",
@@ -17,9 +15,6 @@
     "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/newsletter-section/gallery/Tablet.jpg",
     "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/newsletter-section/gallery/Mobile.jpg"
   ],
-  "specLabels": {
-    "main": "Main page"
-  },
   "specImages": {
     "default": [
       {

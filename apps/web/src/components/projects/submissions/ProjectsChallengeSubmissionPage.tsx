@@ -145,7 +145,7 @@ export default function ProjectsChallengeSubmissionPage({
             allowRetakeScreenshot={isViewingOwnSubmission}
             deploymentUrls={deploymentUrls}
             specImagesForVariant={challenge.metadata.specImages.default}
-            specLabels={challenge.metadata.specLabels}
+            specLabels={challenge.info.specLabels}
             submissionId={submissionId}
           />
         </div>

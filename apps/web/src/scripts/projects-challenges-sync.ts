@@ -4,28 +4,24 @@ import allProjectsChallengeMetadata from '../../.contentlayer/generated/Projects
 
 async function syncChallenges() {
   await Promise.all(
-    allProjectsChallengeMetadata
-      .filter((challengeItem) =>
-        challengeItem._raw.flattenedPath.endsWith('en-US'),
-      )
-      .map((challengeMetadata) =>
-        Prisma.projectsChallengeDetails.upsert({
-          create: {
-            difficulty: projectDifficultyOptions.indexOf(
-              challengeMetadata.difficulty,
-            ),
-            slug: challengeMetadata.slug,
-          },
-          update: {
-            difficulty: projectDifficultyOptions.indexOf(
-              challengeMetadata.difficulty,
-            ),
-          },
-          where: {
-            slug: challengeMetadata.slug,
-          },
-        }),
-      ),
+    allProjectsChallengeMetadata.map((challengeMetadata) =>
+      Prisma.projectsChallengeDetails.upsert({
+        create: {
+          difficulty: projectDifficultyOptions.indexOf(
+            challengeMetadata.difficulty,
+          ),
+          slug: challengeMetadata.slug,
+        },
+        update: {
+          difficulty: projectDifficultyOptions.indexOf(
+            challengeMetadata.difficulty,
+          ),
+        },
+        where: {
+          slug: challengeMetadata.slug,
+        },
+      }),
+    ),
   );
 }
 

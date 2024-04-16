@@ -1,12 +1,14 @@
 import type {
   ProjectsChallengeAPIWriteup,
   ProjectsChallengeGuide,
+  ProjectsChallengeInfo,
   ProjectsChallengeMetadata,
   ProjectsChallengeStyleGuide,
 } from 'contentlayer/generated';
 import {
   allProjectsChallengeAPIWriteups,
   allProjectsChallengeGuides,
+  allProjectsChallengeInfos,
   allProjectsChallengeMetadata,
   allProjectsChallengeStyleGuides,
   allProjectsTrackMetadata,
@@ -184,39 +186,20 @@ export async function readProjectsChallengeList(
     })(),
   ]);
 
-  const challenges = allProjectsChallengeMetadata
-    .filter((challengeItem) =>
-      challengeItem._raw.flattenedPath.endsWith(requestedLocale),
-    )
-    .map((challengeMetadata) =>
-      challengeItemAddTrackMetadata({
-        completedCount:
-          completedCountsGroupedBySlug?.[challengeMetadata.slug] ?? null,
-        completedProfiles:
-          completedProfileIdsGroupedBySlug?.[challengeMetadata.slug] ?? [],
-        metadata: {
-          ...challengeMetadata,
-          // TODO(projects): remove when all challenges have real images.
-          specImages: challengeMetadata.specImages ?? {
-            default: [
-              {
-                images: {
-                  desktop: '/img/projects/desktop.png',
-                  mobile: '/img/projects/mobile.png',
-                  tablet: '/img/projects/tablet.png',
-                },
-                label: 'main',
-              },
-            ],
-          },
-          specLabels: challengeMetadata.specLabels ?? {
-            main: 'Main page',
-          },
-        },
-        status: sessionsForUserGroupedBySlug?.[challengeMetadata.slug] ?? null,
-        userUnlocked: challengeAccessSet?.has(challengeMetadata.slug) ?? null,
-      }),
-    );
+  const { challengeInfoDict } = readProjectsChallengeInfoDict(requestedLocale);
+
+  const challenges = allProjectsChallengeMetadata.map((challengeMetadata) =>
+    challengeItemAddTrackMetadata({
+      completedCount:
+        completedCountsGroupedBySlug?.[challengeMetadata.slug] ?? null,
+      completedProfiles:
+        completedProfileIdsGroupedBySlug?.[challengeMetadata.slug] ?? [],
+      info: challengeInfoDict[challengeMetadata.slug],
+      metadata: challengeMetadata,
+      status: sessionsForUserGroupedBySlug?.[challengeMetadata.slug] ?? null,
+      userUnlocked: challengeAccessSet?.has(challengeMetadata.slug) ?? null,
+    }),
+  );
 
   return {
     challenges,
@@ -241,6 +224,7 @@ export async function readProjectsChallengeItem(
     slug,
     requestedLocale,
   );
+  const { challengeInfo } = readProjectsChallengeInfo(slug, requestedLocale);
 
   const [completedCount, completedUsers, viewerUnlocked, viewerSessionStatus] =
     await Promise.all([
@@ -345,25 +329,8 @@ export async function readProjectsChallengeItem(
     challenge: challengeItemAddTrackMetadata({
       completedCount,
       completedProfiles: completedUsers,
-      metadata: {
-        ...challengeMetadata,
-        // TODO(projects): remove when all challenges have real images.
-        specImages: challengeMetadata.specImages ?? {
-          default: [
-            {
-              images: {
-                desktop: '/img/projects/desktop.png',
-                mobile: '/img/projects/mobile.png',
-                tablet: '/img/projects/tablet.png',
-              },
-              label: 'main',
-            },
-          ],
-        },
-        specLabels: challengeMetadata.specLabels ?? {
-          main: 'Main page',
-        },
-      },
+      info: challengeInfo,
+      metadata: challengeMetadata,
       status: viewerSessionStatus,
       userUnlocked: viewerUnlocked,
     }),
@@ -403,68 +370,69 @@ export async function readProjectsChallengeMetadata(
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
   const challengeMetadata = allProjectsChallengeMetadata.find(
-    (challengeItem) =>
-      challengeItem.slug === slug &&
-      challengeItem._raw.flattenedPath.endsWith(requestedLocale),
+    (challengeItem) => challengeItem.slug === slug,
   )!;
 
   return {
-    challengeMetadata: {
-      ...challengeMetadata,
-      // TODO(projects): remove when all challenges have real images.
-      specImages: challengeMetadata.specImages ?? {
-        default: [
-          {
-            images: {
-              desktop: '/img/projects/desktop.png',
-              mobile: '/img/projects/mobile.png',
-              tablet: '/img/projects/tablet.png',
-            },
-            label: 'main',
-          },
-        ],
-      },
-      specLabels: challengeMetadata.specLabels ?? {
-        main: 'Main page',
-      },
-    },
+    challengeMetadata,
     loadedLocale: requestedLocale,
   };
 }
 
-export async function readProjectsChallengeMetadataList(
+export function readProjectsChallengeInfo(
+  slugParam: string,
   requestedLocale = 'en-US',
-): Promise<
-  Readonly<{
-    challengeMetadataList: ReadonlyArray<ProjectsChallengeMetadata>;
-    loadedLocale: string;
-  }>
-> {
-  const challengeMetadataList = allProjectsChallengeMetadata.filter(
+): Readonly<{
+  challengeInfo: ProjectsChallengeInfo;
+  loadedLocale: string;
+}> {
+  // So that we handle typos like extra characters.
+  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
+  const challengeInfo = allProjectsChallengeInfos.find(
     (challengeItem) =>
-      challengeItem._raw.flattenedPath.endsWith(requestedLocale),
+      challengeItem.slug === slug && challengeItem.locale === requestedLocale,
+  )!;
+
+  return {
+    challengeInfo,
+    loadedLocale: requestedLocale,
+  };
+}
+
+export function readProjectsChallengeInfoList(
+  requestedLocale = 'en-US',
+): Readonly<{
+  challengeInfoList: ReadonlyArray<ProjectsChallengeInfo>;
+  loadedLocale: string;
+}> {
+  const challengeInfoList = allProjectsChallengeInfos.filter(
+    (challengeInfoItem) => challengeInfoItem.locale === requestedLocale,
   );
 
   return {
-    challengeMetadataList: challengeMetadataList.map((metadata) => ({
-      ...metadata,
-      // TODO(projects): remove when all challenges have real images.
-      specImages: metadata.specImages ?? {
-        default: [
-          {
-            images: {
-              desktop: '/img/projects/desktop.png',
-              mobile: '/img/projects/mobile.png',
-              tablet: '/img/projects/tablet.png',
-            },
-            label: 'main',
-          },
-        ],
-      },
-      specLabels: metadata.specLabels ?? {
-        main: 'Main page',
-      },
-    })),
+    challengeInfoList,
+    loadedLocale: requestedLocale,
+  };
+}
+
+export function readProjectsChallengeInfoDict(
+  requestedLocale = 'en-US',
+): Readonly<{
+  challengeInfoDict: Record<string, ProjectsChallengeInfo>;
+  loadedLocale: string;
+}> {
+  const { challengeInfoList } = readProjectsChallengeInfoList();
+  const challengeInfoDict: Record<string, ProjectsChallengeInfo> =
+    challengeInfoList.reduce(
+      (prev, infoItem) => ({
+        ...prev,
+        [infoItem.slug]: infoItem,
+      }),
+      {},
+    );
+
+  return {
+    challengeInfoDict,
     loadedLocale: requestedLocale,
   };
 }

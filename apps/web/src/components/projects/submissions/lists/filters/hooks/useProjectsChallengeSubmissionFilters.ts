@@ -1,4 +1,7 @@
-import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
+import type {
+  ProjectsChallengeInfo,
+  ProjectsChallengeMetadata,
+} from 'contentlayer/generated';
 import { useState } from 'react';
 
 import useProjectsYOEReplacementOptions from '~/components/projects/hooks/useProjectsYOEReplacementOptions';
@@ -27,27 +30,36 @@ export default function useProjectsChallengeSubmissionFilters() {
     useProjectsChallengeSubmissionFilterState('tech-stack-skills');
 
   const projectsMatchesTextQuery = (
-    project: ProjectsChallengeMetadata,
+    _challengeMetadata: ProjectsChallengeMetadata,
+    challengeInfo: ProjectsChallengeInfo,
     searchQuery: string | null,
   ) =>
-    project.title.toLowerCase().includes((searchQuery ?? '').toLowerCase()) ||
-    project.description
+    challengeInfo.title
+      .toLowerCase()
+      .includes((searchQuery ?? '').toLowerCase()) ||
+    challengeInfo.description
       ?.toLowerCase()
       .includes((searchQuery ?? '').toLowerCase());
 
-  const filterByComponentTrack = (project: ProjectsChallengeMetadata) =>
+  const filterByComponentTrack = (
+    challengeMetadata: ProjectsChallengeMetadata,
+  ) =>
     selectedComponentTrack.length === 0 ||
-    selectedComponentTrack.includes(project.track);
+    selectedComponentTrack.includes(challengeMetadata.track);
 
-  const filterByDifficulty = (project: ProjectsChallengeMetadata) =>
+  const filterByDifficulty = (challengeMetadata: ProjectsChallengeMetadata) =>
     selectedDifficulty.length === 0 ||
-    selectedDifficulty.includes(project.difficulty);
+    selectedDifficulty.includes(challengeMetadata.difficulty);
 
   const filters: ReadonlyArray<
-    (project: ProjectsChallengeMetadata) => boolean
+    (
+      challengeMetadata: ProjectsChallengeMetadata,
+      challengeInfo: ProjectsChallengeInfo,
+    ) => boolean
   > = [
     // Query.
-    (project) => projectsMatchesTextQuery(project, query),
+    (challengeMetadata, challengeInfo) =>
+      projectsMatchesTextQuery(challengeMetadata, challengeInfo, query),
     // Component Track.
     filterByComponentTrack,
     // Difficulty.

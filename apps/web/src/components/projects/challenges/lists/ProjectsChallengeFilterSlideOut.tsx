@@ -101,7 +101,7 @@ export default function ProjectsChallengeFilterSlideOut({
   const intl = useIntl();
 
   const {
-    filters: initialFilters,
+    filterItems: initialFilters,
     value: initialSelectedFilters,
     getArrayTypeSearchParams,
     getStringTypeSearchParams,
@@ -123,7 +123,7 @@ export default function ProjectsChallengeFilterSlideOut({
           status: [],
         });
       },
-      filters: initialFilters,
+      filterItems: initialFilters,
       getArrayTypeSearchParams,
       getStringTypeSearchParams,
       setFilterValue: (

@@ -115,7 +115,7 @@ export default function ProjectsDashboardTrendingSubmissionsSection() {
                         description="Link to brief for project challenge"
                         id="XyQeEv"
                         values={{
-                          challengeTitle: submission.challenge.metadata.title,
+                          challengeTitle: submission.challenge.info.title,
                           link: (chunks) => (
                             <Anchor
                               className="relative z-[1]"

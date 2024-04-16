@@ -9,6 +9,7 @@ import {
   projectsReputationCommentVoteRevokePoints,
 } from '~/components/projects/reputation/ProjectsReputationUtils';
 
+import { readProjectsChallengeInfo } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 
 import { projectsUserProcedure } from './procedures';
@@ -266,9 +267,12 @@ export const projectsCommentsRouter = router({
               const challengeMetadata = allProjectsChallengeMetadata.find(
                 (challenge) => challenge.slug === comment.entityId,
               );
+              const { challengeInfo } = readProjectsChallengeInfo(
+                comment.entityId,
+              );
 
               // Non-existent challenge, ignore comment.
-              if (challengeMetadata == null) {
+              if (challengeMetadata == null || challengeInfo == null) {
                 return null;
               }
 
@@ -276,7 +280,7 @@ export const projectsCommentsRouter = router({
                 ...comment,
                 entity: {
                   href: challengeMetadata.href,
-                  title: challengeMetadata.title,
+                  title: challengeInfo.title,
                 },
               };
             }

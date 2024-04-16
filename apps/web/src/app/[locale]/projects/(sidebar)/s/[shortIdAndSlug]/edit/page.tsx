@@ -6,8 +6,8 @@ import { convertToPlainObject } from '~/lib/convertToPlainObject';
 import ProjectsChallengeSubmissionEditPage from '~/components/projects/submissions/form/ProjectsChallengeSubmissionEditPage';
 
 import {
+  readProjectsChallengeInfo,
   readProjectsChallengeItem,
-  readProjectsChallengeMetadata,
 } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
@@ -22,14 +22,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, shortIdAndSlug } = params;
   const shortId = shortIdAndSlug.split('-').at(-1);
 
-  const intl = await getIntlServerOnly(locale);
+  const [intl, submission] = await Promise.all([
+    getIntlServerOnly(locale),
+    prisma.projectsChallengeSubmission.findUnique({
+      where: {
+        shortId,
+      },
+    }),
+  ]);
 
-  const submission = await prisma.projectsChallengeSubmission.findUnique({
-    where: {
-      shortId,
-    },
-  });
-  const { challengeMetadata } = await readProjectsChallengeMetadata(
+  const { challengeInfo } = readProjectsChallengeInfo(
     submission?.slug ?? '',
     locale,
   );
@@ -43,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'Zm61qF',
       },
       {
-        challengeName: challengeMetadata.title,
+        challengeName: challengeInfo.title,
       },
     ),
     locale,

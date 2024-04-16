@@ -1,5 +1,6 @@
 'use client';
 
+import type { ProjectsChallengeInfo } from 'contentlayer/generated';
 import { FormattedMessage } from 'react-intl';
 
 import ProjectsChallengeSubmissionFilterContextProvider from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
@@ -9,10 +10,12 @@ import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
 type Props = Readonly<{
+  challengeInfoDict: Record<string, ProjectsChallengeInfo>;
   isViewerPremium: boolean;
 }>;
 
 export default function ProjectsChallengeSubmissionListMentorPage({
+  challengeInfoDict,
   isViewerPremium,
 }: Props) {
   return (
@@ -38,6 +41,7 @@ export default function ProjectsChallengeSubmissionListMentorPage({
       <Section>
         <ProjectsChallengeSubmissionFilterContextProvider>
           <ProjectsChallengeSubmissionListWithFilters
+            challengeInfoDict={challengeInfoDict}
             isViewerPremium={isViewerPremium}
             type="mentor"
           />

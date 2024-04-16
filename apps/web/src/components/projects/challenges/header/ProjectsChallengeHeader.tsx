@@ -44,9 +44,10 @@ export default function ProjectsChallengeHeader({
   const intl = useIntl();
   const isMounted = useIsMounted();
   const tabs = useProjectDetailsStepsTabs(challenge);
-  const { completedCount, completedProfiles, metadata, track } = challenge;
-  const { access, description, difficulty, points, skills, title, submitHref } =
-    metadata;
+  const { completedCount, completedProfiles, metadata, info, track } =
+    challenge;
+  const { access, difficulty, points, skills, submitHref } = metadata;
+  const { title, description } = info;
 
   const { session, isGetLatestSessionFetched } =
     useProjectsChallengeSessionContext();

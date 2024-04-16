@@ -66,9 +66,9 @@ export default function ProjectsDashboardContinueProjectsSection() {
             )}>
             <div className="flex w-full items-center gap-4">
               <img
-                alt={session.challenge.title}
+                alt={session.challenge.info.title}
                 className="h-[70px] w-[90px] rounded object-cover"
-                src={session.challenge.coverImage}
+                src={session.challenge.metadata.coverImage}
               />
               <div className="flex grow flex-col gap-1">
                 <Anchor
@@ -77,13 +77,13 @@ export default function ProjectsDashboardContinueProjectsSection() {
                     size: 'body1',
                     weight: 'medium',
                   })}
-                  href={session.challenge.href}
+                  href={session.challenge.metadata.href}
                   variant="flat">
-                  {session.challenge.title}
+                  {session.challenge.info.title}
                 </Anchor>
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
                   <ProjectsChallengeReputationTag
-                    points={session.challenge.points}
+                    points={session.challenge.metadata.points}
                   />
                   <div className="flex items-center gap-1.5">
                     <RiTimeLine className={clsx(themeIconColor)} />
@@ -115,9 +115,9 @@ export default function ProjectsDashboardContinueProjectsSection() {
               />
             </div>
             <Anchor
-              aria-label={session.challenge.title}
+              aria-label={session.challenge.info.title}
               className="absolute inset-0"
-              href={session.challenge.href}
+              href={session.challenge.metadata.href}
             />
           </li>
         ))}

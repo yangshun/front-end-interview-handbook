@@ -11,8 +11,8 @@ import fetchViewerProjectsChallengeAccess from '~/components/projects/utils/fetc
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import {
+  readProjectsChallengeInfo,
   readProjectsChallengeItem,
-  readProjectsChallengeMetadata,
 } from '~/db/projects/ProjectsReader';
 import { getIntlServerOnly } from '~/i18n';
 import defaultProjectsMetadata from '~/seo/defaultProjectsMetadata';
@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return notFound();
   }
 
-  const { challengeMetadata } = await readProjectsChallengeMetadata(
+  const { challengeInfo } = readProjectsChallengeInfo(
     submission?.slug ?? '',
     locale,
   );
@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       id: 'BOh0kv',
     },
     {
-      challengeName: challengeMetadata.title,
+      challengeName: challengeInfo.title,
       username: submission?.projectsProfile?.userProfile?.username,
     },
   );
@@ -83,7 +83,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'fMV5UU',
       },
       {
-        challengeName: challengeMetadata.title,
+        challengeName: challengeInfo.title,
         submissionTitle: submission?.title,
         username: submission?.projectsProfile?.userProfile?.username,
       },

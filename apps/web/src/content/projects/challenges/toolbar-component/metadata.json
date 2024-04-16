@@ -1,6 +1,4 @@
 {
-  "title": "Toolbar component",
-  "description": "Provides a consistent and modular way to organize and present actions or features",
   "createdAt": "2024-01-04",
   "difficulty": "starter",
   "track": "apps",
@@ -12,5 +10,17 @@
   },
   "skills": ["css-basics", "javascript-foundations", "javascript-browser-dom"],
   "coverImage": "https://cdn.dribbble.com/userupload/4504017/file/original-3f06a1a1a343f6ba661331c1cc7395e6.png?resize=1504x1128",
-  "galleryImages": []
+  "galleryImages": [],
+  "specImages": {
+    "default": [
+      {
+        "images": {
+          "desktop": "/img/projects/desktop.png",
+          "mobile": "/img/projects/mobile.png",
+          "tablet": "/img/projects/tablet.png"
+        },
+        "label": "main"
+      }
+    ]
+  }
 }

@@ -80,6 +80,8 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
   contentType: 'data',
   fields: {
     access: {
+      description:
+        'User access configuration, whether they need to be paid to subscribe',
       options: projectAccessOptions,
       required: true,
       type: 'enum',
@@ -90,11 +92,6 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       type: 'string',
     },
     createdAt: { required: true, type: 'date' },
-    description: {
-      description: 'Short description of the challenge',
-      required: true,
-      type: 'string',
-    },
     difficulty: {
       options: projectDifficultyOptions,
       required: true,
@@ -128,17 +125,6 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       required: false,
       type: 'json',
     },
-    specLabels: {
-      description: 'Labels for spec pages. Should tally with specImages field',
-      // TODO(projects): switch to true when every project has this field.
-      required: false,
-      type: 'json',
-    },
-    title: {
-      description: 'Title of the challenge',
-      required: true,
-      type: 'string',
-    },
     track: {
       // Unfortunately there's no easy way to make this rely on all the available slugs in the track model.
       // One way is references but they are quite underwhelming at the moment so we're not using them.
@@ -147,6 +133,6 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       type: 'enum',
     },
   },
-  filePathPattern: 'projects/challenges/*/*.json',
+  filePathPattern: 'projects/challenges/*/metadata.json',
   name: 'ProjectsChallengeMetadata',
 }));

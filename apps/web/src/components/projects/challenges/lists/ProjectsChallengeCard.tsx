@@ -49,17 +49,17 @@ export default function ProjectsChallengeCard({
     status,
     track,
     userUnlocked,
+    info,
   } = challenge;
   const {
-    title,
     difficulty,
-    description,
     skills,
     coverImage,
     points,
     href,
     access: challengeAccess,
   } = metadata;
+  const { title, description } = info;
 
   return (
     <div

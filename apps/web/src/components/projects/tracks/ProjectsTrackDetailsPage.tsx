@@ -88,7 +88,7 @@ export default function ProjectsTrackDetailsPage({
                 themeOutlineElementBrandColor_FocusVisible,
               )}>
               <img
-                alt={challenge.metadata.title}
+                alt={challenge.info.title}
                 className={clsx(
                   'h-full w-[104px] md:w-[130px]',
                   'object-cover',
@@ -108,7 +108,7 @@ export default function ProjectsTrackDetailsPage({
                       href={challenge.metadata.href}
                       variant="flat">
                       <Text size="body1" weight="medium">
-                        {challenge.metadata.title}
+                        {challenge.info.title}
                       </Text>
                     </Anchor>
                     {challenge.metadata.access === 'premium' && (
@@ -124,7 +124,7 @@ export default function ProjectsTrackDetailsPage({
                     className="hidden lg:block"
                     color="secondary"
                     size="body3">
-                    {challenge.metadata.description}
+                    {challenge.info.description}
                   </Text>
                 </div>
                 <div className="z-[1]">
@@ -145,7 +145,7 @@ export default function ProjectsTrackDetailsPage({
                 />
               </div>
               <Anchor
-                aria-label={challenge.metadata.title}
+                aria-label={challenge.info.title}
                 className="absolute inset-0"
                 href={challenge.metadata.href}
               />

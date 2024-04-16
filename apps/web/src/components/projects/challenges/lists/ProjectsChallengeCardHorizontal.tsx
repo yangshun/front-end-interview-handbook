@@ -28,16 +28,15 @@ export default function ProjectsChallengeCard({
   skillRoadmapKey,
 }: Props) {
   const intl = useIntl();
-  const { metadata, userUnlocked } = challenge;
+  const { info, metadata, userUnlocked } = challenge;
   const {
-    title,
     difficulty,
-    description,
     skills,
     coverImage,
     href,
     access: challengeAccess,
   } = metadata;
+  const { title, description } = info;
 
   // For users going to the challenge from the roadmap page,
   // we append the skill to the URL so that challenge completion

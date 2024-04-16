@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import type { ProjectsChallengeInfo } from 'contentlayer/generated';
 import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { RiCodeSSlashLine } from 'react-icons/ri';
 import { FormattedMessage } from 'react-intl';
@@ -28,11 +29,13 @@ import {
 const ITEMS_PER_PAGE = 12;
 
 type Props = Readonly<{
+  challengeInfoDict: Record<string, ProjectsChallengeInfo>;
   isViewerPremium: boolean;
   type: ProjectsChallengeSubmissionTabType;
 }>;
 
 export default function ProjectsChallengeSubmissionListWithFilters({
+  challengeInfoDict,
   isViewerPremium,
   type,
 }: Props) {
@@ -54,6 +57,7 @@ export default function ProjectsChallengeSubmissionListWithFilters({
   // Processing.
   const processedChallenges = filterProjectsChallengeSubmission(
     allProjectsChallengeMetadata,
+    challengeInfoDict,
     filtersChallengesOpts.map((filterFn) => filterFn),
   );
   const {

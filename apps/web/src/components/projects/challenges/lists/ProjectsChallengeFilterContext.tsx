@@ -47,11 +47,11 @@ export type ProjectsChallengeFilterKey =
   | 'skills'
   | 'status';
 
-function useFilters() {
+function useFilterItems() {
   const intl = useIntl();
 
   return useMemo(() => {
-    const filters: Array<ProjectsChallengeFilter> = [
+    const filterItems: Array<ProjectsChallengeFilter> = [
       {
         id: 'component-track',
         label: intl.formatMessage({
@@ -179,13 +179,13 @@ function useFilters() {
       },
     ];
 
-    return filters;
+    return filterItems;
   }, [intl]);
 }
 
 type ProjectsChallengeFilterContextType = {
   clearAll: () => void;
-  filters: Array<ProjectsChallengeFilter>;
+  filterItems: Array<ProjectsChallengeFilter>;
   getArrayTypeSearchParams: (key: string) => Array<string> | undefined;
   getStringTypeSearchParams: (key: string) => string | null;
   setFilterValue: (
@@ -202,7 +202,7 @@ type ProjectsChallengeFilterContextType = {
 export const ProjectsChallengeFilterContext =
   createContext<ProjectsChallengeFilterContextType>({
     clearAll: () => {},
-    filters: [],
+    filterItems: [],
     getArrayTypeSearchParams: () => [],
     getStringTypeSearchParams: () => '',
     setFilterValue: () => {},
@@ -262,7 +262,7 @@ export default function ProjectsChallengeFilterContextProvider({
     status: initialStatus ?? [],
   });
 
-  const filters = useFilters();
+  const filterItems = useFilterItems();
 
   useEffect(() => {
     // Update search params in the current url
@@ -291,7 +291,7 @@ export default function ProjectsChallengeFilterContextProvider({
   const value = useMemo(() => {
     return {
       clearAll,
-      filters,
+      filterItems,
       getArrayTypeSearchParams,
       getStringTypeSearchParams,
       setFilterValue,
@@ -300,7 +300,7 @@ export default function ProjectsChallengeFilterContextProvider({
       value: selectedFilters,
     };
   }, [
-    filters,
+    filterItems,
     clearAll,
     selectedFilters,
     setFilterValue,

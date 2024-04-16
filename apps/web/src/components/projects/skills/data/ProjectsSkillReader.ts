@@ -3,6 +3,7 @@ import type {
   ProjectsSkillMetadata,
 } from 'contentlayer/generated';
 import {
+  allProjectsChallengeMetadata,
   allProjectsSkillInfos,
   allProjectsSkillMetadata,
 } from 'contentlayer/generated';
@@ -11,7 +12,7 @@ import { sumBy } from 'lodash-es';
 import {
   challengeItemAddTrackMetadata,
   fetchChallengeAccessForUserGroupedBySlug,
-  readProjectsChallengeMetadataList,
+  readProjectsChallengeInfoDict,
 } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 
@@ -27,8 +28,6 @@ import type { ProjectsChallengeSessionStatus } from '@prisma/client';
 export async function fetchProjectsSkillsRoadmapSectionData(
   targetUserId?: string,
 ): Promise<ProjectsSkillRoadmapSectionData> {
-  const { challengeMetadataList } = await readProjectsChallengeMetadataList();
-
   const skillsChallengeStatus =
     await fetchChallengeStatusForUserGroupedBySkills(targetUserId);
 
@@ -42,7 +41,7 @@ export async function fetchProjectsSkillsRoadmapSectionData(
 
         const skillRoadmapChallenges = skillRoadmapChallengeSlugs
           .map((challengeSlug) =>
-            challengeMetadataList.find(
+            allProjectsChallengeMetadata.find(
               (challengeItem) => challengeItem.slug === challengeSlug,
             ),
           )
@@ -180,14 +179,14 @@ export async function readProjectsChallengeItemsForSkill(
     fetchChallengeAccessForUserGroupedBySlug(userId),
   ]);
 
-  const { challengeMetadataList } = await readProjectsChallengeMetadataList();
+  const { challengeInfoDict } = readProjectsChallengeInfoDict(requestedLocale);
   const { skillItem } = readProjectsSkillItem(slug);
   const skillRoadmapChallengeSlugs =
     skillItem.metadata != null ? skillItem.metadata.challenges : [];
 
   const skillRoadmapChallenges = skillRoadmapChallengeSlugs
     .map((challengeSlug) =>
-      challengeMetadataList.find(
+      allProjectsChallengeMetadata.find(
         (challengeItem) => challengeItem.slug === challengeSlug,
       ),
     )
@@ -196,6 +195,7 @@ export async function readProjectsChallengeItemsForSkill(
       challengeItemAddTrackMetadata({
         completedCount: null,
         completedProfiles: [],
+        info: challengeInfoDict[challengeMetadata.slug],
         metadata: challengeMetadata,
         status: challengeStatuses?.[challengeMetadata.slug] ?? null,
         userUnlocked: challengeAccessSet?.has(challengeMetadata.slug) ?? null,
