@@ -1,6 +1,6 @@
 {
   "title": "Hero Section (Simple)",
-  "description": "Build a responsive, minimal hero section with a side image",
+  "description": "Build a responsive, minimal hero section that includes an image",
   "specLabels": {
     "main": "Main page"
   }
