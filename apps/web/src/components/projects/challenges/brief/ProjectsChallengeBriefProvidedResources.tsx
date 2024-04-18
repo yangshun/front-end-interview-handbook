@@ -1,18 +1,27 @@
 import ProjectsChallengeProvidedResourceCard from '../assets/ProjectsChallengeProvidedResourceCard';
-import useProjectsChallengeProvidedResources from '../assets/useProjectsChallengeProvidedResources';
+import useProjectsChallengeProvidedResourcesOptions from '../assets/useProjectsChallengeProvidedResourcesOptions';
+import type { ProjectsChallengeResource } from '../types';
 
-export default function ProjectsChallengeBriefProvidedResources() {
-  const resources = useProjectsChallengeProvidedResources();
+type Props = Readonly<{
+  resources: ReadonlyArray<ProjectsChallengeResource>;
+}>;
+
+export default function ProjectsChallengeBriefProvidedResources({
+  resources,
+}: Props) {
+  const resourceOptions = useProjectsChallengeProvidedResourcesOptions();
 
   return (
     <div className="flex flex-col items-stretch gap-4">
-      {resources.map(({ id, icon, label }) => (
-        <ProjectsChallengeProvidedResourceCard
-          key={id}
-          icon={icon}
-          label={label}
-        />
-      ))}
+      {resources
+        .map((resource) => resourceOptions[resource])
+        .map(({ id, icon, label }) => (
+          <ProjectsChallengeProvidedResourceCard
+            key={id}
+            icon={icon}
+            label={label}
+          />
+        ))}
     </div>
   );
 }

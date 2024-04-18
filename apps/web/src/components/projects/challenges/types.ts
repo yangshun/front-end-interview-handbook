@@ -22,6 +22,18 @@ export const projectDifficultyOptions = [
 export type ProjectsChallengeDifficulty =
   (typeof projectDifficultyOptions)[number];
 
+export const projectChallengeResourceOptions = [
+  'api',
+  'design-files',
+  'image-assets',
+  'readme',
+  'starter-code',
+  'style-guide',
+];
+
+export type ProjectsChallengeResource =
+  (typeof projectChallengeResourceOptions)[number];
+
 export const projectAccessOptions = ['free', 'free-plus', 'premium'];
 export type ProjectsChallengeAccess = (typeof projectAccessOptions)[number];
 

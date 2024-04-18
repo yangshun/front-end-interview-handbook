@@ -4,6 +4,7 @@ import path from 'node:path';
 
 import {
   projectAccessOptions,
+  projectChallengeResourceOptions,
   projectDifficultyOptions,
   projectTrackOptions,
 } from '../challenges/types';
@@ -112,6 +113,11 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       description: 'Reputation gained by using skills for the challenge',
       required: true,
       type: 'json',
+    },
+    resources: {
+      of: { options: projectChallengeResourceOptions, type: 'enum' },
+      required: true,
+      type: 'list',
     },
     skills: {
       description: 'Skills for the challenge',

@@ -10,6 +10,14 @@
     "javascript": 50
   },
   "skills": [],
+  "resources": [
+    "design-files",
+    "image-assets",
+    "readme",
+    "starter-code",
+    "style-guide",
+    "api"
+  ],
   "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/hero-section-simple/cover.jpg",
   "galleryImages": [
     "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/hero-section-simple/gallery/Desktop.jpg",

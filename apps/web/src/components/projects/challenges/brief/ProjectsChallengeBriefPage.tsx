@@ -89,7 +89,9 @@ export default function ProjectsChallengeBriefPage({
               />
             </Heading>
             <Section>
-              <ProjectsChallengeBriefProvidedResources />
+              <ProjectsChallengeBriefProvidedResources
+                resources={challenge.metadata.resources}
+              />
             </Section>
           </div>
         </div>

@@ -9,6 +9,14 @@
     "css": 50
   },
   "skills": ["html-basics", "css-basics"],
+  "resources": [
+    "design-files",
+    "image-assets",
+    "readme",
+    "starter-code",
+    "style-guide",
+    "api"
+  ],
   "coverImage": "https://cdn.dribbble.com/users/1126703/screenshots/16053286/media/15fb9ef3524b1a437f50d190ebc53e6a.png?resize=1600x1200&vertical=center",
   "galleryImages": [],
   "specImages": {

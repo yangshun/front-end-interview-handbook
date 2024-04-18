@@ -9,6 +9,13 @@
     "css": 50
   },
   "skills": ["html-basics", "html-semantics", "html-forms"],
+  "resources": [
+    "design-files",
+    "image-assets",
+    "readme",
+    "starter-code",
+    "style-guide"
+  ],
   "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/newsletter-section/cover.jpg",
   "galleryImages": [
     "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/newsletter-section/gallery/Desktop.jpg",

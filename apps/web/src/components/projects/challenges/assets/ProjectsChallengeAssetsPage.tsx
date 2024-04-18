@@ -31,7 +31,7 @@ import {
 
 import ProjectsChallengeAssetsResponsiveBreakpointsTab from './ProjectsChallengeAssetsResponsiveBreakpointsTab';
 import ProjectsChallengeDownloadStarterFilesButton from './ProjectsChallengeDownloadStarterFilesButton';
-import useProjectsChallengeProvidedResources from './useProjectsChallengeProvidedResources';
+import useProjectsChallengeProvidedResourcesOptions from './useProjectsChallengeProvidedResourcesOptions';
 import ProjectsChallengeContentPaywall from '../premium/ProjectsChallengeContentPaywall';
 import ProjectsChallengeFigmaDesignPaywall from '../premium/ProjectsChallengeFigmaDesignPaywall';
 import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
@@ -103,7 +103,7 @@ export default function ProjectsChallengeAssetsPage({
 
   const { accessAllSteps, fetchingCanAccessAllSteps } =
     useProjectsChallengeSessionContext();
-  const resources = useProjectsChallengeProvidedResources();
+  const resourceOptions = useProjectsChallengeProvidedResourcesOptions();
   const onlineAssetsTabs = useOnlineAssetsTabs(
     styleGuide != null,
     apiWriteup != null,
@@ -152,15 +152,17 @@ export default function ProjectsChallengeAssetsPage({
               />
             </Text>
             <ul className="mt-4">
-              {resources.map(({ id, label }) => (
-                <li key={id} className="flex gap-2.5">
-                  <RiCheckboxCircleFill
-                    aria-hidden={true}
-                    className={clsx('mt-1 h-3 w-3 shrink-0', themeTextColor)}
-                  />
-                  <Text size="body2">{label}</Text>
-                </li>
-              ))}
+              {metadata.resources
+                .map((resource) => resourceOptions[resource])
+                .map(({ id, label }) => (
+                  <li key={id} className="flex gap-2.5">
+                    <RiCheckboxCircleFill
+                      aria-hidden={true}
+                      className={clsx('mt-1 h-3 w-3 shrink-0', themeTextColor)}
+                    />
+                    <Text size="body2">{label}</Text>
+                  </li>
+                ))}
             </ul>
           </div>
           <div>
