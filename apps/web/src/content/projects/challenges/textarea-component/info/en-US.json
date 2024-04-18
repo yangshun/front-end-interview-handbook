@@ -1,0 +1,7 @@
+{
+  "title": "Textarea Component",
+  "description": "Build a textarea component used for collecting multiple lines of user input",
+  "specLabels": {
+    "main": "Main page"
+  }
+}
