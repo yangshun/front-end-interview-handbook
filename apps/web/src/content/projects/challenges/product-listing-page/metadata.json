@@ -16,17 +16,21 @@
     "starter-code",
     "style-guide"
   ],
-  "coverImage": "https://cdn.dribbble.com/users/1126703/screenshots/14777296/media/a45cb597893f7d13ad1163afd8b7f96e.png?resize=1600x1200&vertical=center",
-  "galleryImages": [],
+  "coverImage": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/todo-replace-me/cover.jpg",
+  "galleryImages": [
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/todo-replace-me/gallery/Desktop.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/todo-replace-me/gallery/Tablet.jpg",
+    "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/todo-replace-me/gallery/Mobile.jpg"
+  ],
   "specImages": {
     "default": [
       {
+        "label": "main",
         "images": {
-          "desktop": "/img/projects/desktop.png",
-          "mobile": "/img/projects/mobile.png",
-          "tablet": "/img/projects/tablet.png"
-        },
-        "label": "main"
+          "desktop": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/todo-replace-me/specs/Desktop.jpg",
+          "tablet": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/todo-replace-me/specs/Tablet.jpg",
+          "mobile": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/todo-replace-me/specs/Mobile.jpg"
+        }
       }
     ]
   }
