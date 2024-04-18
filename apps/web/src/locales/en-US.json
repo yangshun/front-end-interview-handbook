@@ -55,10 +55,6 @@
     "defaultMessage": "Component track",
     "description": "Label for Component Track filter for projects list"
   },
-  "+SiVOr": {
-    "defaultMessage": "Includes a hi-fidelity design and interaction specifications for this project.",
-    "description": "Description for Download Figma Design content section on Before You Get Started dialog"
-  },
   "+SjaQc": {
     "defaultMessage": "Submit project",
     "description": "Label for \"Submit project\" button on Projects project page"
@@ -198,10 +194,6 @@
   "/c/hHN": {
     "defaultMessage": "We use this to calculate your YOE and keep it updated",
     "description": "Description for \"When did you start work\" input on Projects profile onboarding page"
-  },
-  "/dWN/a": {
-    "defaultMessage": "Project Deployment & Completion",
-    "description": "Subtitle for \"Project Deployment & Completion\" tab on Projects project page"
   },
   "/ftlBv": {
     "defaultMessage": "Undo",
@@ -2015,10 +2007,6 @@
     "defaultMessage": "General",
     "description": "Title for FAQ section"
   },
-  "FTzU6l": {
-    "defaultMessage": "Build a {challengeName} with everything you need provided to you - professional designs, user stories, how-to-guides, official solutions and more.",
-    "description": "Description of Projects challenge page"
-  },
   "FXfZQF": {
     "defaultMessage": "Unverified email",
     "description": "Title of verify email page"
@@ -2474,6 +2462,10 @@
   "JKBRGr": {
     "defaultMessage": "Enter your email",
     "description": "Placeholder text for email input field"
+  },
+  "JLYqCO": {
+    "defaultMessage": "Includes starter code, image assets, images of the designs, along with a README to help you get started.",
+    "description": "Help text for Download starter files button for projects"
   },
   "JPbOCy": {
     "defaultMessage": "Vue",
@@ -3922,10 +3914,6 @@
   "U022No": {
     "defaultMessage": "Palantir",
     "description": "Company name for Palantir"
-  },
-  "U10C4D": {
-    "defaultMessage": "Tips, Resources and Discussions",
-    "description": "Subtitle for \"Tips, Resources and Discussions\" tab on Projects project page"
   },
   "U17xuY": {
     "defaultMessage": "Filter by the creator’s years of experience or their job status",
@@ -6107,6 +6095,10 @@
     "defaultMessage": "Theme",
     "description": "Select label to choose console theme in console settings"
   },
+  "lMZILF": {
+    "defaultMessage": "Project completion",
+    "description": "Subtitle for \"Project Deployment & Completion\" tab on Projects project page"
+  },
   "lNxRzi": {
     "defaultMessage": "Practice developing inclusive and accessible web experiences. Explore the principles and techniques of web accessibility, including semantic HTML, ARIA roles, keyboard navigation, and screen reader compatibility, a skill which differentiates senior from junior front end engineers.",
     "description": "Description for interview preparation focus area"
@@ -6715,6 +6707,10 @@
     "defaultMessage": "Are there discounts available for institutions and organizations?",
     "description": "Question on projects pricing's FAQ section - institutions and organizations discounts"
   },
+  "qQeXuR": {
+    "defaultMessage": "Hi-fidelity design and interaction specifications for this challenge.",
+    "description": "Help text for Download Figma file button for projects"
+  },
   "qR0ILp": {
     "defaultMessage": "Assets",
     "description": "Subtitle for \"Assets\" tab on Projects project page"
@@ -6814,6 +6810,10 @@
   "r9Az7V": {
     "defaultMessage": "Great start!",
     "description": "Toast title for project session started"
+  },
+  "rGbEEY": {
+    "defaultMessage": "Resources & discussions",
+    "description": "Subtitle for \"Tips, Resources and Discussions\" tab on Projects project page"
   },
   "rH3Vfz": {
     "defaultMessage": "Ask any questions in community",
@@ -7654,10 +7654,6 @@
   "ymmDf7": {
     "defaultMessage": "Premium",
     "description": "Label for premium"
-  },
-  "ynLgE+": {
-    "defaultMessage": "Includes assets, JPG images of the design files, and a basic style guide. There's also a README to help you get started.",
-    "description": "Description for Download Starter Files content section on Before You Get Started dialog"
   },
   "yptiXw": {
     "defaultMessage": "Filter by difficulty",

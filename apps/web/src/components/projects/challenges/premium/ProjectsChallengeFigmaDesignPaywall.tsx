@@ -3,10 +3,10 @@ import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
 import { useState } from 'react';
 import {
   RiArrowRightLine,
-  RiDownload2Fill,
   RiLock2Line,
   RiLockUnlockLine,
 } from 'react-icons/ri';
+import { RxFigmaLogo } from 'react-icons/rx';
 import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -72,6 +72,8 @@ function DownloadSection({
     },
   };
 
+  const buttonSize = placement === 'GET_STARTED_DIALOG' ? 'md' : 'lg';
+
   return (
     <div
       className={clsx(
@@ -81,9 +83,9 @@ function DownloadSection({
       {access === 'ACCESSIBLE_TO_EVERYONE' && (
         <Button
           addonPosition="start"
-          icon={RiDownload2Fill}
+          icon={RxFigmaLogo}
           label={label}
-          size="lg"
+          size={buttonSize}
           variant="secondary"
           {...downloadProps}
         />
@@ -94,7 +96,7 @@ function DownloadSection({
             addonPosition="start"
             icon={RiLockUnlockLine}
             label={label}
-            size="lg"
+            size={buttonSize}
             tooltip={intl.formatMessage({
               defaultMessage: 'You have unlocked this Figma file',
               description: 'Tooltip for premium Figma file download button',

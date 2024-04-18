@@ -15,9 +15,9 @@ export default function ProjectsChallengeGetStartedDownloadStarterFiles({
     <div className="flex flex-col items-start gap-4">
       <Text color="secondary" size="body2">
         <FormattedMessage
-          defaultMessage="Includes assets, JPG images of the design files, and a basic style guide. There's also a README to help you get started."
-          description="Description for Download Starter Files content section on Before You Get Started dialog"
-          id="ynLgE+"
+          defaultMessage="Includes starter code, image assets, images of the designs, along with a README to help you get started."
+          description="Help text for Download starter files button for projects"
+          id="JLYqCO"
         />
       </Text>
       <ProjectsChallengeDownloadStarterFilesButton size="md" slug={slug} />

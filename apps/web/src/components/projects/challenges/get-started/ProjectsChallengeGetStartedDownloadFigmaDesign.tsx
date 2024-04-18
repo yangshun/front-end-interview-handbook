@@ -22,9 +22,9 @@ export default function ProjectsChallengeGetStartedDownloadFigmaDesign({
     <div className="flex flex-col items-start gap-4">
       <Text color="secondary" size="body2">
         <FormattedMessage
-          defaultMessage="Includes a hi-fidelity design and interaction specifications for this project."
-          description="Description for Download Figma Design content section on Before You Get Started dialog"
-          id="+SiVOr"
+          defaultMessage="Hi-fidelity design and interaction specifications for this challenge."
+          description="Help text for Download Figma file button for projects"
+          id="qQeXuR"
         />
       </Text>
       <ProjectsChallengeFigmaDesignPaywall

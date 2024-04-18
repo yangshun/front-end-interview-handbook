@@ -42,10 +42,10 @@ export default function ProjectsChallengeGetStartedImportantInfoGuideBanner() {
       }),
       href: '#',
       subtitle: intl.formatMessage({
-        defaultMessage: 'Tips, Resources and Discussions',
+        defaultMessage: 'Resources & discussions',
         description:
           'Subtitle for "Tips, Resources and Discussions" tab on Projects project page',
-        id: 'U10C4D',
+        id: 'rGbEEY',
       }),
       title: intl.formatMessage({
         defaultMessage: 'Step 3',
@@ -63,10 +63,10 @@ export default function ProjectsChallengeGetStartedImportantInfoGuideBanner() {
       }),
       href: '#',
       subtitle: intl.formatMessage({
-        defaultMessage: 'Project Deployment & Completion',
+        defaultMessage: 'Project completion',
         description:
           'Subtitle for "Project Deployment & Completion" tab on Projects project page',
-        id: '/dWN/a',
+        id: 'lMZILF',
       }),
       title: intl.formatMessage({
         defaultMessage: 'Step 4',

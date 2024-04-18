@@ -1,4 +1,4 @@
-import { RiCodeSSlashLine } from 'react-icons/ri';
+import { RiFolderDownloadLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
 import { trpc } from '~/hooks/trpc';
@@ -23,7 +23,7 @@ export default function ProjectsChallengeDownloadStarterFilesButton({
   return (
     <Button
       addonPosition="start"
-      icon={RiCodeSSlashLine}
+      icon={RiFolderDownloadLine}
       isDisabled={downloadStarterFilesMutation.isLoading}
       isLoading={downloadStarterFilesMutation.isLoading}
       label={intl.formatMessage({
