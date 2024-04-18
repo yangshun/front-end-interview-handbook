@@ -33,6 +33,9 @@ type Props = Readonly<{
   onTakeScreenshot: () => void;
   specImagesForVariant: ProjectsChallengeVariantImages;
   specLabels: Record<string, string>;
+  specShowGridLayoutButton: React.ComponentProps<
+    typeof ProjectsImageViewer
+  >['specShowGridLayoutButton'];
   title?: string;
 }>;
 
@@ -46,6 +49,7 @@ export default function ProjectsImageComparison({
   isTakingScreenshot,
   title,
   specLabels,
+  specShowGridLayoutButton,
   specImagesForVariant,
   onTakeScreenshot,
   deploymentUrls,
@@ -133,6 +137,7 @@ export default function ProjectsImageComparison({
             }
             aspectRatio="7/3"
             grid={ProjectsImageBreakpointDimensions[selectedBreakpoint].grid}
+            specShowGridLayoutButton={specShowGridLayoutButton}
             src={
               deploymentImagesForBreakpointWithComparison[selectedScreenIndex]
                 .image

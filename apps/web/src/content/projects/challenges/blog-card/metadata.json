@@ -16,6 +16,7 @@
     "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/blog-card/gallery/Tablet.jpg",
     "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/blog-card/gallery/Mobile.jpg"
   ],
+  "specShowGridLayoutButton": false,
   "specImages": {
     "default": [
       {

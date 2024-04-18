@@ -20,9 +20,13 @@ import type { ProjectsChallengeVariantImages } from '../challenges/types';
 type Props = Readonly<{
   specImagesForVariant: ProjectsChallengeVariantImages;
   specLabels: Record<string, string>;
+  specShowGridLayoutButton: React.ComponentProps<
+    typeof ProjectsImageViewer
+  >['specShowGridLayoutButton'];
 }>;
 
-export default function ProjectsImageComparison({
+export default function ProjectsImageDisplay({
+  specShowGridLayoutButton,
   specImagesForVariant,
   specLabels,
 }: Props) {
@@ -54,6 +58,7 @@ export default function ProjectsImageComparison({
           alt={specImagesForVariant[selectedScreenIndex].label}
           aspectRatio="5/3"
           grid={ProjectsImageBreakpointDimensions[selectedBreakpoint].grid}
+          specShowGridLayoutButton={specShowGridLayoutButton}
           src={
             specImagesForVariant[selectedScreenIndex].images[selectedBreakpoint]
           }

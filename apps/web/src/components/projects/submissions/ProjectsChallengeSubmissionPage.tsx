@@ -146,6 +146,9 @@ export default function ProjectsChallengeSubmissionPage({
             deploymentUrls={deploymentUrls}
             specImagesForVariant={challenge.metadata.specImages.default}
             specLabels={challenge.info.specLabels}
+            specShowGridLayoutButton={
+              challenge.metadata.specShowGridLayoutButton
+            }
             submissionId={submissionId}
           />
         </div>

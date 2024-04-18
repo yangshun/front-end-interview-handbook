@@ -12,6 +12,7 @@ export default function ProjectsChallengeAssetsResponsiveBreakpointsTab({
     <ProjectsImageDisplay
       specImagesForVariant={challenge.metadata.specImages.default}
       specLabels={challenge.info.specLabels}
+      specShowGridLayoutButton={challenge.metadata.specShowGridLayoutButton}
     />
   );
 }

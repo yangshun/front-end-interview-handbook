@@ -125,6 +125,13 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       required: false,
       type: 'json',
     },
+    specShowGridLayoutButton: {
+      default: true,
+      description:
+        'Whether to show grid layout button in specs gallery of assets tab',
+      required: false,
+      type: 'boolean',
+    },
     track: {
       // Unfortunately there's no easy way to make this rely on all the available slugs in the track model.
       // One way is references but they are quite underwhelming at the moment so we're not using them.

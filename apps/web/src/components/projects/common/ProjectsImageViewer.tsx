@@ -17,6 +17,7 @@ type Props = Readonly<{
     containerWidth: number;
     sidePadding: number;
   };
+  specShowGridLayoutButton: boolean;
   src: string;
   width: number;
 }>;
@@ -27,6 +28,7 @@ const MAX_ZOOM_LEVEL = 200;
 export default function ProjectsImageViewer({
   alt,
   aspectRatio,
+  specShowGridLayoutButton,
   src,
   width,
   grid,
@@ -85,13 +87,15 @@ export default function ProjectsImageViewer({
   return (
     <div className="relative isolate max-h-full">
       <div className="absolute bottom-6 right-6 z-[1] flex flex-col gap-1">
-        <Button
-          icon={RiLayoutGridLine}
-          isLabelHidden={true}
-          label="Toggle grid"
-          variant="secondary"
-          onClick={() => toggleGrid()}
-        />
+        {specShowGridLayoutButton && (
+          <Button
+            icon={RiLayoutGridLine}
+            isLabelHidden={true}
+            label="Toggle grid"
+            variant="secondary"
+            onClick={() => toggleGrid()}
+          />
+        )}
         <Button
           icon={RiZoomInLine}
           isLabelHidden={true}

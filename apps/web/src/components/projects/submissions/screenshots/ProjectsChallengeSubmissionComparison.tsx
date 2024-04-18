@@ -14,6 +14,9 @@ type Props = Readonly<{
   deploymentUrls: ProjectsChallengeSubmissionDeploymentUrls;
   specImagesForVariant: ProjectsChallengeVariantImages;
   specLabels: Record<string, string>;
+  specShowGridLayoutButton: React.ComponentProps<
+    typeof ProjectsImageComparison
+  >['specShowGridLayoutButton'];
   submissionId: string;
 }>;
 
@@ -22,6 +25,7 @@ export default function ProjectsChallengeSubmissionComparison({
   specImagesForVariant,
   specLabels,
   deploymentUrls,
+  specShowGridLayoutButton,
   submissionId,
 }: Props) {
   const intl = useIntl();
@@ -38,6 +42,7 @@ export default function ProjectsChallengeSubmissionComparison({
         isTakingScreenshot={takeScreenshotMutation.isLoading}
         specImagesForVariant={specImagesForVariant}
         specLabels={specLabels}
+        specShowGridLayoutButton={specShowGridLayoutButton}
         title={intl.formatMessage({
           defaultMessage: 'Solution vs Design comparison',
           description: 'Solution vs design comparison title',
