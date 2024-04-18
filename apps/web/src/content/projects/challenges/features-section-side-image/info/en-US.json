@@ -1,0 +1,8 @@
+{
+  "title": "Features Section (Side image)",
+  "description": "Build a responsive 2-column features section component that can show an image on either the left or right column",
+  "specLabels": {
+    "image-left": "Image on left",
+    "image-right": "Image on right"
+  }
+}
