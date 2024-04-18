@@ -1,43 +1,29 @@
-### Objective
+In this challenge, you will develop a responsive newsletter subscription section from the given designs. The section will contain a form where users can enter their emails to sign up for the newsletter. You should ensure that the form is responsive, implements client-side validation and submits the details to an API endpoint.
 
-The Newsletter Signup Section aims to seamlessly capture user interest and encourage them to subscribe to our newsletters. This section serves as the initial point of interaction, requiring an intuitive and engaging design to maximize conversions.
+### User Stories
 
-### Key Features
+- **As a potential subscriber**, I want clear confirmation that my email has been accepted or instructions on correction if it hasn't, so I can confidently complete the subscription process.
+- **As a user interested in subscribing**, I expect to submit my details through a secure and efficient process, so that my subscription preferences are promptly registered with the service.
 
-1. **User-Friendly Form:**
+### Implementation Requirements
 
-   - Implement a concise and straightforward signup form with fields for essential information like name and email address.
-
-2. **Clear Call-to-Action (CTA):**
-
-   - Design a prominent and visually appealing CTA button that clearly communicates the action of subscribing.
-
-3. **Engaging Copy:**
-
-   - Craft compelling and concise copy to convey the value of subscribing, highlighting benefits and exclusive content.
-
-4. **Visual Appeal:**
-
-   - Use visually appealing graphics or imagery to complement the signup form and create an inviting atmosphere.
-
-5. **Privacy Assurance:**
-
-   - Include a brief note assuring users about the privacy of their information and a link to the privacy policy.
-
-6. **Error Handling:**
-   - Implement real-time validation and clear error messages to assist users in providing accurate information.
-
-### Technological Considerations
-
-- **Responsive Design:**
-
-  - Ensure the signup section is optimized for various devices, providing a consistent and user-friendly experience.
-
-- **Accessibility:**
-  - Incorporate accessibility features, such as appropriate labels and ARIA attributes, to make the signup form usable for everyone.
-
-### Success Criteria
-
-- High conversion rate of visitors to subscribers.
-- Minimal friction in the signup process.
-- Positive user feedback regarding the clarity of information and ease of signup.
+- **Design fidelity**: Aim to follow the design as closely as possible. All elements in the design should be present, using the specified text color, font size, font weight, spacing, dimensions, etc.
+- **Responsive behavior**:
+  - **Text size**: Should be responsive; font size is larger for wider devices, smaller for narrow devices.
+  - **Responsive layout**: The layout should reorganize responsively. The content should stack vertically on smaller screens and align horizontally as the screen width increases.
+  - **Element adaptability**: Ensure that text elements and images resize appropriately without distortion or loss of quality.
+- **Interactivity**:
+  - **Button states**: Implement and style buttons to reflect different states - normal, hover, focus, and disabled.
+  - **Input field states**: Implement and style input fields to reflect different states - normal, focused, filled, disabled, error, error filled, error focused.
+- **Client-side validation:** Implement email validation on the client to catch errors before they reach the server, ensuring a smoother user experience.
+  - **Format check**: Validate that the email entered matches the standard email format (e.g., user@example.com), providing immediate feedback if the format is incorrect.
+  - **Required**: Ensure the email field is not left blank. If the field is empty upon submission attempt.
+  - **[Stretch goal] Customize error messages for better UX**:
+    - Format check → "Please enter a valid email address."
+    - Required → "Email address is required."
+- **API submission**: On successful validation, the form should submit the data to the provided API endpoint, handling responses and errors gracefully to inform the user of the subscription status:
+  - **Success feedback**: After API submission, parse the successful response and confirm subscription to the user with "Subscription successful! Please check your email to confirm.".
+  - **API error response**: Handle any API error responses (e.g., 400 Bad Request, 500 Internal Server Error) by displaying an appropriate message such as "Failed to subscribe. Please ensure your email is correct or try again later.".
+- **Cross-browser compatibility**: Check that your solution works for major browsers including Chrome, Firefox, and Safari.
+- **[Stretch goal] Performance optimization**: Optimize image assets and code for quick load times, ensuring a smooth and responsive user experience.
+- **[Stretch goal] Accessibility and semantics**: Ensure that the form is accessible according to WCAG guidelines. Use semantic HTML and ARIA roles where necessary, proper `alt` tags for images and ensure that buttons can be navigated to and selected using keyboard controls.
