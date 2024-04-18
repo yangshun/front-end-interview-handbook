@@ -1,6 +1,6 @@
 {
   "title": "Contact Section",
-  "description": "Build an accessible and inviting contact interface that encourages user inquiries and engagement",
+  "description": "Build a responsive contact section with form validation and submission functionality",
   "specLabels": {
     "main": "Main page"
   }
