@@ -65,15 +65,20 @@ export default function ProjectsChallengeGuideSection({
   };
 
   return (
-    <div ref={guideRef} className="flex flex-col gap-4 xl:flex-row xl:gap-6">
+    <div ref={guideRef} className="flex flex-col gap-4 xl:flex-row xl:gap-12">
       <div
         className={clsx(
           'hidden xl:contents',
-          'sticky top-[var(--global-sticky-height)]',
+          'sticky top-[calc(var(--global-sticky-height)_+_200px)]',
         )}>
         <SidebarLinksList
           activeItem={activeGuideSlug}
-          className="w-[252px]"
+          className={clsx(
+            'sticky',
+            // 100px for the sticky challenges steps bar.
+            'h-[calc(100vh_-_100px_-_var(--global-sticky-height))]',
+            'top-[calc(var(--global-sticky-height)_+_100px)]',
+          )}
           navigation={sidebarNavigation}
           onSelect={onGuideChange}
         />
@@ -112,7 +117,7 @@ export default function ProjectsChallengeGuideSection({
           />
         </SlideOut>
       </div>
-      <div className="flex flex-col gap-6 md:gap-12">
+      <div className="flex flex-col gap-6">
         <Heading level="heading4">{projectGuide.title}</Heading>
         {projectGuide != null && (
           <div className="pt-2">

@@ -98,29 +98,16 @@ type SidebarLinksListProps = Readonly<{
   className?: string;
   navigation: Array<NavigationType>;
   onSelect?: (value: string) => void;
-  sticky?: boolean;
 }>;
 
 export function SidebarLinksList({
-  sticky = true,
   navigation,
   className,
   onSelect,
   activeItem,
 }: SidebarLinksListProps) {
   return (
-    <nav
-      className={clsx(
-        'flex w-[280px] shrink-0 flex-col gap-4',
-        sticky && 'sticky',
-        className,
-      )}
-      style={{
-        height: sticky
-          ? 'calc(100vh - 38px - var(--global-sticky-height))'
-          : undefined,
-        top: 'calc(38px + var(--global-sticky-height))',
-      }}>
+    <nav className={clsx('flex w-[280px] shrink-0 flex-col gap-4', className)}>
       <div className="flex flex-col gap-8">
         {navigation.map((navigationItem) => (
           <div key={navigationItem.title || navigationItem.subtitle}>
