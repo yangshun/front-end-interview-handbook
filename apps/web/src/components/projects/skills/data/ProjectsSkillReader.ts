@@ -110,7 +110,7 @@ export function readProjectsSkillMetadata(
   slugParam: string,
 ): ProjectsSkillMetadata {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
 
   return allProjectsSkillMetadata.find(
     (skillMetadataItem) => skillMetadataItem.slug === slug,
@@ -125,7 +125,7 @@ export function readProjectsSkillInfo(
   skillInfo: ProjectsSkillInfo;
 }> {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
 
   const skillInfo = allProjectsSkillInfos.find(
     (infoItem) => infoItem.slug === slug && infoItem.locale === requestedLocale,
@@ -148,7 +148,7 @@ export function readProjectsSkillItem(
   };
 }> {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
   const metadata = readProjectsSkillMetadata(slug);
   const { skillInfo } = readProjectsSkillInfo(slug, requestedLocale);
 
@@ -172,7 +172,7 @@ export async function readProjectsChallengeItemsForSkill(
   }>
 > {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
 
   const [challengeStatuses, challengeAccessSet] = await Promise.all([
     fetchChallengeStatusForUserFilteredBySkillsGroupedBySlug(slugParam, userId),

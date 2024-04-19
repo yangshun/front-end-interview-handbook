@@ -57,7 +57,7 @@ export default async function Page({ params }: Props) {
 
   const viewer = await readViewerFromToken();
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
+  const slug = decodeURIComponent(rawSlug).replaceAll(/[^\da-zA-Z-]/g, '');
   const [{ viewerProjectsProfile }, { track }] = await Promise.all([
     fetchViewerProjectsProfile(viewer),
     readProjectsTrackItem(slug, locale, viewer?.id),

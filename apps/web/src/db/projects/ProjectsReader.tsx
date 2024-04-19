@@ -218,7 +218,7 @@ export async function readProjectsChallengeItem(
   }>
 > {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
 
   const { challengeMetadata } = await readProjectsChallengeMetadata(
     slug,
@@ -368,7 +368,7 @@ export async function readProjectsChallengeMetadata(
   }>
 > {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
   const challengeMetadata = allProjectsChallengeMetadata.find(
     (challengeItem) => challengeItem.slug === slug,
   )!;
@@ -387,7 +387,7 @@ export function readProjectsChallengeInfo(
   loadedLocale: string;
 }> {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
   const challengeInfo = allProjectsChallengeInfos.find(
     (challengeItem) =>
       challengeItem.slug === slug && challengeItem.locale === requestedLocale,
@@ -447,7 +447,7 @@ export async function readProjectsChallengeStyleGuide(
   }>
 > {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
 
   const styleGuide =
     allProjectsChallengeStyleGuides.find(
@@ -472,7 +472,7 @@ export async function readProjectsChallengeAPIWriteup(
   }>
 > {
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(slugParam).replaceAll(/[^a-zA-Z-]/g, '');
+  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
 
   const apiWriteup =
     allProjectsChallengeAPIWriteups.find(

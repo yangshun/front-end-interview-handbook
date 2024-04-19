@@ -44,7 +44,7 @@ function frameworkAgnosticLinks(
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug: rawSlug, rest } = params;
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
+  const slug = decodeURIComponent(rawSlug).replaceAll(/[^\da-zA-Z-]/g, '');
 
   const intl = await getIntlServerOnly(locale);
   const {
@@ -124,7 +124,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { slug: rawSlug, rest, locale } = params;
   // So that we handle typos like extra characters.
-  const slug = decodeURIComponent(rawSlug).replaceAll(/[^a-zA-Z-]/g, '');
+  const slug = decodeURIComponent(rawSlug).replaceAll(/[^\da-zA-Z-]/g, '');
   const {
     mode,
     framework: parsedFramework,
