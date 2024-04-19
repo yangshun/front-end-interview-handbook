@@ -1,0 +1,122 @@
+---
+title: Git guide
+---
+
+Git and GitHub are commonly-encountered terms when it comes to software development. This guide gives you an introduction to the two terms and how can you use them while building your projects.
+
+### What is Git and GitHub?
+
+[Git](https://git-scm.com/) is a distributed version control system created by Linus Torvalds in 2005. It's primarily used to track changes in source code during software development, enabling reverting to previous versions if something goes wrong. Though less relevant to the context of working on solo projects, Git also supports branching and merging, which facilitates concurrent development, allowing teams to work on different features offline and simultaneously without disrupting the main project. It is by far the most popular version control system used across the industry.
+
+[GitHub](https://github.com/), which is owned by Microsoft, is a cloud-based platform best known for hosting Git repositories, aka storing your code along with the changes. It provides a collaborative environment where developers can store, share, and work on code together, making it an essential tool for both open source and private projects. GitHub enhances the development process with features like issue tracking, pull requests, and code reviews, as well as integrations with various third-party tools. GitHub has become a vital community hub where developers contribute to projects, learn from each other, and build their professional networks. If you haven't already, do [follow GreatFrontEnd on GitHub](https://github.com/greatfrontend)!
+
+### Basic Git terms you must know
+
+- **Repository (Repo)**: A database storing the history of all changes to a project. This includes all the project files and each file's revision history. Repositories can be local (on your computer) or remote (on a server).
+- **Commit**: A snapshot of your repository at a specific point in time. Commits include a header which contains metadata like the author, the commit message, and the date.
+- **Branch**: A lightweight movable pointer to a specific commit. Branches help you to create separate environments within a repository, where you can develop features, fix bugs, or safely experiment with new ideas.
+- **Staging area**: A file, generally contained in your Git directory, that stores information about what will go into your next commit. It is also known as the "index," but is often referred to as the staging area.
+
+### Common Git commands
+
+Git offers a variety of commands that are essential for managing projects, collaborating with other developers, and maintaining the history of your code.
+
+Here are some of the Git commands you must know as a developer:
+
+#### 1. `git init`
+
+Initializes a new Git repository. This command creates a new `.git` directory in your current directory, which turns it into a Git repository and starts tracking changes. If you are using [GitHub](https://github.com/), it'd be easier to create your new repository on GitHub then clone the newly-created repository.
+
+```bash
+git init
+```
+
+#### 2. `git clone`
+
+Clones a repository into your local filesystem. This is used to get a copy of an existing Git repository from another server, such as [GitHub](https://github.com/). It's usually only done once per repository.
+
+```bash
+git clone https://github.com/username/repository.git
+```
+
+#### 3. `git add`
+
+Adds files to the staging area before committing. It tells Git you want to include updates to a particular file in the next commit.
+
+```bash
+git add filename.txt   # Adds a single file
+git add .              # Adds all changes in the current directory
+```
+
+#### 4. `git commit`
+
+Add a new record of the changes to the local repository, akin to saving your progress in a game. Each commit has an associated message which is a description explaining why a particular change was made. The commit will only contain file changes from the previous commit and is identified by a unique commit hash made up of the file changes and the commit message.
+
+```bash
+git commit -m "Fix bug in navbar"
+```
+
+#### 5. `git status`
+
+Shows the status of changes as untracked, modified, or staged. This command is helpful for seeing what changes are being tracked and their status.
+
+```bash
+git status
+```
+
+#### 6. `git push`
+
+Pushes your changes to a remote repository (usually a server on the cloud, e.g. GitHub). This command is used after committing your changes and is used to share your changes with others.
+
+```bash
+git push origin main  # Pushes changes to the main branch of the origin remote
+git push              # Defaults to origin and with the current branch
+```
+
+#### 7. `git pull`
+
+Fetches and merges changes from the remote repository to your working directory. This is used to keep your local repository up-to-date with others' changes. If you are working alone on a repository and only push from your local repository, then you will likely not have to do git pull since your local repository is always the latest version and updates to the remote repository always originate from your local repository.
+
+```bash
+git pull origin main
+git pull # Defaults to origin and with the current branch
+```
+
+#### 8. `git branch`
+
+Lists all the local branches in your repository or creates a new branch.
+
+```bash
+git branch             # List all branches
+git branch new-feature # Create a new branch called 'new-feature'
+```
+
+#### 9. `git checkout`
+
+Switches branches or restores working tree files. It's used to switch between different versions of a repository.
+
+```bash
+git checkout new-feature    # Switches to branch 'new-feature'
+git checkout -b new-feature # Creates and switches to new branch 'new-feature'
+git checkout ab2345         # Switches to a specific commit
+```
+
+#### 10. `git merge`
+
+Merges two branches together. This command is typically used to combine the changes from a feature branch back into the main branch.
+
+```bash
+git merge new-feature
+```
+
+### Git clients
+
+If you prefer a more visual approach to managing your Git repositories, Git clients provide a graphical user interface to streamline and simplify the management of Git repositories, making it more accessible, especially for those less comfortable with command line operations. Additionally, Git clients help in visualizing project history and branch structures, improving both individual and team collaboration and efficiency in managing version control tasks. Even experienced developers opt to use Git clients or some sort of visualization when reading Git history.
+
+Here are some free options for Git clients that are supported across various operating systems:
+
+- **[SourceTree](https://www.sourcetreeapp.com/)**: A free Git client by Atlassian that offers a visual interface to manage both Git and Mercurial repositories. This is our recommended option.
+- **[GitHub Desktop](https://desktop.github.com/)**: Designed to simplify how you use GitHub on your computer, this client helps you contribute to projects directly from Windows or macOS.
+- **[GitKraken](https://www.gitkraken.com/)**: Known for its beautiful interface, this cross-platform client supports Git and can integrate with GitHub, GitLab, and Bitbucket.
+
+**Bonus**: For VS Code users, [GitLens](https://www.gitkraken.com/gitlens) is a helpful extension by the company behind GitKraken that gives you valuable insights into code authorship all within the editor.
