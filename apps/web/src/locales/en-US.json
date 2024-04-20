@@ -1295,6 +1295,10 @@
     "defaultMessage": "You have ended this project session. Returning you to the project detail page.",
     "description": "Toast subtitle for project session ended"
   },
+  "9D27sg": {
+    "defaultMessage": "Discussions",
+    "description": "Projects forum"
+  },
   "9DlLF1": {
     "defaultMessage": "GreatFrontEnd",
     "description": "Title of GreatFrontEnd page"
@@ -1970,6 +1974,10 @@
   "F74ozi": {
     "defaultMessage": "Real-time support from the team and the growing community.",
     "description": "Lifetime membership feature of real-time support."
+  },
+  "F8wNUD": {
+    "defaultMessage": "Starter code with content copy",
+    "description": "Provided resource for project"
   },
   "F9Zh+J": {
     "defaultMessage": "{number} bite-sized focus areas that collectively cover the key topics required for front end interviews. If you prefer the topical approach, use these lists to systematically approach your preparation.",
@@ -3155,6 +3163,10 @@
     "defaultMessage": "New here? <link>How it works</link>",
     "description": "Link to 'How it works' page on Projects project page"
   },
+  "Ob2cWZ": {
+    "defaultMessage": "API specifications or sample data",
+    "description": "Provided resource for project"
+  },
   "Oc17My": {
     "defaultMessage": "Unvote comment",
     "description": "Vote button label"
@@ -3178,10 +3190,6 @@
   "Ol2L0M": {
     "defaultMessage": "View GitHub profile",
     "description": "Link to GitHub profile"
-  },
-  "OoBbFR": {
-    "defaultMessage": "HTML file with pre-written content",
-    "description": "Provided resource for project"
   },
   "OoOyEp": {
     "defaultMessage": "More on <link>Review Cashback Discount Terms and Conditions</link>",
@@ -3498,6 +3506,10 @@
   "Qw+A0/": {
     "defaultMessage": "Add skills",
     "description": "Add skills used for challenge"
+  },
+  "QwEkIl": {
+    "defaultMessage": "Guides",
+    "description": "Projects guides"
   },
   "QxlS4d": {
     "defaultMessage": "Difficulty: Hard to Easy",
@@ -4218,6 +4230,10 @@
   "WNERnb": {
     "defaultMessage": "End session",
     "description": "Label for \"End session\" button on current project session card"
+  },
+  "WPmd3v": {
+    "defaultMessage": "Guides & discussions",
+    "description": "Tab title for projects challenges"
   },
   "WPoLv8": {
     "defaultMessage": "Cancel",
@@ -6215,6 +6231,10 @@
     "defaultMessage": "[For complete beginners] Basic general development guides, such as how to download and use an IDE, how to use tools like Github and Figma",
     "description": "FAQ answer for projects platform"
   },
+  "mVYEky": {
+    "defaultMessage": "Reference code",
+    "description": "Reference code for projects"
+  },
   "mb7erW": {
     "defaultMessage": "Importance",
     "description": "Label for question importance - how important it is to practice this question"
@@ -7558,10 +7578,6 @@
   "xsaQ0d": {
     "defaultMessage": "Student Discount",
     "description": "Promotion title"
-  },
-  "xtiHTC": {
-    "defaultMessage": "Resources & discussions",
-    "description": "Tab title for projects challenges"
   },
   "xyPOJe": {
     "defaultMessage": "{points} Reputation",

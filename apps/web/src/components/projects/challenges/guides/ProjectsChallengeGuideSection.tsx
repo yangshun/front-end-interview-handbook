@@ -8,6 +8,7 @@ import ArticlePagination from '~/components/common/ArticlePagination';
 import { SidebarLinksList } from '~/components/common/SidebarLinksList';
 import ProjectsChallengeMdxContent from '~/components/projects/common/ProjectsChallengeMdxContent';
 import Button from '~/components/ui/Button';
+import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import SlideOut from '~/components/ui/SlideOut';
 
@@ -117,13 +118,14 @@ export default function ProjectsChallengeGuideSection({
           />
         </SlideOut>
       </div>
-      <div className="flex flex-col gap-6">
+      <div className={clsx('flex flex-col gap-6', 'w-full pt-4')}>
         <Heading level="heading4">{projectGuide.title}</Heading>
         {projectGuide != null && (
           <div className="pt-2">
             <ProjectsChallengeMdxContent mdxCode={projectGuide.body.code} />
           </div>
         )}
+        <Divider />
         <ArticlePagination
           activeItem={activeGuideSlug}
           items={projectGuides}

@@ -31,20 +31,34 @@ import type { ProjectsViewerProjectsProfile } from '../../types';
 type TipsResourcesDiscussionsTabType = 'discussions' | 'guides' | 'references';
 
 function useTipsResourcesDiscussionsTabs() {
+  const intl = useIntl();
+
   const tabs: Array<TabItem<TipsResourcesDiscussionsTabType>> = [
     {
-      icon: RiQuestionAnswerFill,
-      label: 'Discussions',
-      value: 'discussions',
-    },
-    {
       icon: RiClipboardFill,
-      label: 'Guides',
+      label: intl.formatMessage({
+        defaultMessage: 'Guides',
+        description: 'Projects guides',
+        id: 'QwEkIl',
+      }),
       value: 'guides',
     },
     {
+      icon: RiQuestionAnswerFill,
+      label: intl.formatMessage({
+        defaultMessage: 'Discussions',
+        description: 'Projects forum',
+        id: '9D27sg',
+      }),
+      value: 'discussions',
+    },
+    {
       icon: RiCodeSSlashFill,
-      label: 'Reference code',
+      label: intl.formatMessage({
+        defaultMessage: 'Reference code',
+        description: 'Reference code for projects',
+        id: 'mVYEky',
+      }),
       value: 'references',
     },
   ];
@@ -68,7 +82,7 @@ export default function ProjectsChallengeResourcesPage({
   const intl = useIntl();
   const tipsResourcesDiscussionsTabs = useTipsResourcesDiscussionsTabs();
   const [tipsResourcesDiscussionsTab, setTipsResourcesDiscussionsTab] =
-    useState<TipsResourcesDiscussionsTabType>('discussions');
+    useState<TipsResourcesDiscussionsTabType>('guides');
 
   const { accessAllSteps, fetchingCanAccessAllSteps } =
     useProjectsChallengeSessionContext();

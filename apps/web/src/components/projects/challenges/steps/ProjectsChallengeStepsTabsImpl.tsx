@@ -64,9 +64,9 @@ export function useProjectDetailsStepsTabs(challenge: ProjectsChallengeItem) {
       }),
       href: metadata.resourcesHref,
       subtitle: intl.formatMessage({
-        defaultMessage: 'Resources & discussions',
+        defaultMessage: 'Guides & discussions',
         description: 'Tab title for projects challenges',
-        id: 'xtiHTC',
+        id: 'WPmd3v',
       }),
       title: intl.formatMessage({
         defaultMessage: 'Step 3',
