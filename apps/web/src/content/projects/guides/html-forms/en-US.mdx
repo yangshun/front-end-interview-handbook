@@ -1,0 +1,179 @@
+---
+title: Building good HTML forms
+---
+
+Surprisingly, building a form with great user experience and accessibility isn't all that easy - but it also isn't that hard once you know the things to pay attention to.
+
+In this guide, we'll demonstrate the basics of building good, accessible HTML forms by building a simple signup form.
+
+### 1. Add relevant `type` attribute value to `<input>`
+
+First and foremost, start with an `<input>` field. `<input>` are the backbone of HTML forms and depending on the `type` attribute value, browsers render these controls differently to assist the user in filling up the form. Common values include `text`, `email`, `number`, `url`, `checkbox`, `file`, etc.
+
+```jsx
+<input type="email" />
+```
+
+### 2. Add a `<label>` and associate it with the `<input>`
+
+All `<input>` tags should have an associated `<label>` for accessibility purposes. This is necessary so that users of assistive technologies can tell what the input is for. Clicking or touching a label will also focus on the label's associated form control.
+
+The `<label>` and the `<input>` are linked using `for` and `id` attributes respectively.
+
+```jsx
+<label for="email-input">Email</label>
+<input id="email-input" type="email" />
+```
+
+The alternative is to use `aria-label` on `<input>` but it is better to have a visible label using `<label>`.
+
+### 3. Wrap within a `<form>`
+
+Next, the elements should be wrapped within a `<form>`. This enables the browser's enter-to-submit behavior, aka users can hit <kbd>Enter</kbd> to submit the form.
+
+```jsx
+<form>
+  <label for="email-input">Email</label>
+  <input id="email-input" type="email" />
+</form>
+```
+
+### 4. Add relevant attributes values to `<form>`
+
+The `<form>` tag accepts some attributes:
+
+- `action`: Specifies the URL of the server that will receive the submitted form data.
+- `method`: Defines the HTTP method used to send the form data. Common values are:
+  - `POST` Form data is sent as part of the request body.
+  - `GET`: Form data is appended to the URL as search/query parameters.
+- `enctype`: Specifies how the form data should be encoded when submitting it to the server. It's particularly important when you're uploading files.
+
+```jsx
+<form method="POST" action="/users/signup">
+  <label for="email-input">Email</label>
+  <input id="email-input" type="email" />
+</form>
+```
+
+### 5. Add submit buttons
+
+While not all users are aware they can hit <kbd>Enter</kbd> to submit the form, Submit buttons are universally understood mechanisms for form submissions. If the `type` attribute of the `<button>` is not specified, the default value used is `<button type="submit">`. When such `<button>`s are used within a `<form>`, triggering them will cause form submissions.
+
+```jsx
+<form method="POST" action="/users/signup">
+  <label for="email-input">Email</label>
+  <input id="email-input" type="email" />
+  <button>Sign up</button>
+</form>
+```
+
+An alternative way to create a Submit button is by using the `<input>` tag with `type="submit`.
+
+```jsx
+<form method="POST" action="/users/signup">
+  <label for="email-input">Email</label>
+  <input id="email-input" type="email" />
+  <input type="submit" value="Sign up">
+</form>
+```
+
+### 6. Add the `name` attribute to `<input>`
+
+`<input>` elements with the `name` attribute will be included in the form submission data as part of the name/value pairs.
+
+```jsx
+<form method="POST" action="/users/signup">
+  <label for="email-input">Email</label>
+  <input id="email-input" name="userEmail" type="email" />
+  <button>Sign up</button>
+</form>
+```
+
+With the `name` attribute specified, when the form is submitted:
+
+- For `<form method="GET">`, a HTTP `GET` request will be made to `/users/signup?userEmail=john.doe@gmail.com`.
+- For `<form method="POST">`, a HTTP `POST` request will be made to `/users/signup` and with the body as `userEmail=john.doe@gmail.com`.
+
+If there are more form fields, the key-values pairs are concatenated with `&` as the delimiter. E.g. `userEmail=john.doe@gmail.com&password=securepassword123`.
+
+The value of an `<input>` element without a `name` attribute is not included in the data submitted to the server. The `name` attribute acts as a key for the form data, pairing it with the `value` attribute of the input element. If the `name` attribute is missing, the form data associated with that input will not be part of the HTTP request when the form is submitted. Hence all form control input elements should have the `name` attribute specified.
+
+### 7. Add the `autocomplete` attribute to `<input>`
+
+By adding the `autocomplete` attribute, browsers will offer suggestions based on the value and the user's autofill data such as addresses and payment methods.
+
+```jsx
+<form method="POST" action="/users/signup">
+  <label for="email-input">Email</label>
+  <input autocomplete="email" id="email-input" name="userEmail" type="email" />
+  <button>Sign up</button>
+</form>
+```
+
+Possible values include `email`, `family-name`, `new-password`, `street-address`, etc. Refer to the [full list of values on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values). Autocomplete is especially useful for shipping and billing address forms on checkout pages.
+
+### 8. Add browser validation
+
+By specifying attributes like `required`, `minlength`, `pattern`, on `<input>`, the browser can help to validate that the user's input matches these requirements before the form is submitted to the server.
+
+```jsx
+<form method="POST" action="/users/signup">
+  <label for="email-input">Email</label>
+  <input
+    autocomplete="email"
+    id="email-input"
+    name="userEmail"
+    required
+    type="email"
+  />
+  <label for="password-input">Password</label>
+  <input
+    autocomplete="new-password"
+    id="password-input"
+    minlength="8"
+    name="userPassword"
+    required
+    type="password"
+  />
+  <button>Sign up</button>
+</form>
+```
+
+Note that browser validation alone is insufficient! Malicious personnel can directly hit your server endpoints without using your HTML form. You should still validate and sanitize all user input on the server.
+
+### 9. Form control descriptions can be linked with `aria-describedby`
+
+For `<input>`s which benefit from additional descriptions / hint text, they can be associated with the element that contain the descriptive text, which could be a `<span>`, `<div>` or any other suitable HTML elements.
+
+```jsx
+<form method="POST" action="/users/signup">
+  <label for="email-input">Email</label>
+  <input
+    autocomplete="email"
+    id="email-input"
+    name="userEmail"
+    required
+    type="email"
+  />
+  <label for="password-input">Password</label>
+  <input
+    aria-describedby="password-hint"
+    autocomplete="new-password"
+    id="password-input"
+    minlength="8"
+    name="userPassword"
+    required
+    type="password"
+  />
+  <div id="password-hint">
+    Your password must be at least 8 characters long.
+  </div>
+  <button>Sign up</button>
+</form>
+```
+
+When a user focuses on the password input field, assistive technologies like screen readers will read the input label along with the additional instructions provided in the `<div>`. This helps users understand the requirements for the password field more clearly.
+
+---
+
+There you have it, a fully accessible sign up form in HTML that does not require any JavaScript.
