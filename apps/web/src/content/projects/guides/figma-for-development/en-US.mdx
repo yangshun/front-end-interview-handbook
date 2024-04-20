@@ -1,0 +1,113 @@
+---
+title: Using Figma for development
+---
+
+### What is Figma?
+
+Figma is a cloud-based graphic design and user interface (UI) design tool that allows users to create, collaborate, and prototype digital products in real-time. It's a popular platform for designers, product teams, and organizations to design and develop websites, mobile apps, software, and other digital experiences. In this age, Figma is the de facto tool for designing digital user interfaces.
+
+### Why is Figma important?
+
+As a Front End Developer, you do not have to learn how to create designs with Figma but you need to have a basic level of familiarity with it as you will most likely be interacting with designs created using Figma a lot at your job. Your company's product designers will likely be handing you a Figma design and you have to code it out using front end technologies. Hence it is crucial to be comfortable enough with Figma to know how to navigate the designs you're handed and inspect element properties.
+
+### Opening a Figma file
+
+If you have a `.fig` Figma file, they can be opened within the Figma web app or the desktop app. View the file by clicking on the "Import" button on the top right hand corner within your Figma dashboard.
+
+### Main elements of a Figma workspace
+
+![Figma workspace anatomy](/img/projects/guides/figma/figma-anatomy.png)
+
+- **Toolbar**: Located on the top, it provides access to various tools, such as selection, drawing, tools, and zoom level, among others.
+- **Left sidebar**:
+  - **Pages panel (top)**: Displays a list of pages within a Figma file.
+  - **Layers Panel (bottom)**: Displays a hierarchical list of all layers, frames, and components within the current page.
+- **Right sidebar**:
+  - **Nothing selected**: Displays page-wide styles and variables.
+  - **Object is selected**: Displays and allows editing of the selected layer's properties, such as size, position, and styling.
+- **Canvas**: The central area that displays the rendered objects and allows for selection of the objects.
+
+### Layer types
+
+Within the left panel is the layers hierarchy tree of the Figma file, similar to a DOM tree for a webpage. You can select layers by clicking on objects within the canvas.
+
+There are many types of layers, but not all are very relevant so we will only cover the most important ones in this guide.
+
+#### Frames
+
+Basic rectangular container elements, similar to `<div>`s. They can have strokes (borders), fills (colors/images), dimensions, children objects, apply a layout grid and add constraints, which allows for precise control over the behavior of layers while the frame is resizing.
+
+By default, frames are absolute-positioned, which is similar to CSS' `position: absolute`. However, frames can also use ["Auto layout"](https://www.figma.com/community/file/784448220678228461), which makes them behave like CSS flexboxes (`display: flex`). Frames that are using auto layout mode:
+
+- Are responsive and adapt its size according to the contents of the children.
+- Can customize the direction of its children (`flex-direction`).
+- Can specify gap between child items (`gap`).
+- Can specify horizontal and vertical padding (`padding`).
+
+The majority of designs for user interfaces these days are using auto layout.
+
+![Figma auto layout frame](/img/projects/guides/figma/frame-auto-layout.png)
+
+#### Text
+
+Text layers are used to render text. The font family, size, weight, line height, letter spacing, alignment, color, etc can be customized. Note that in web development you don't necessarily need a separate element/object for rendering text and styling it; the styling can be applied to the container.
+
+![Text frame](/img/projects/guides/figma/frame-text.png)
+
+### Inspecting object properties
+
+After selecting an object/layer you can see details about it within the inspect panel on the right. You can see properties such as:
+
+- **Size**: Width, height, border radius, etc.
+- **Auto layout**: Direction, gap, padding, etc.
+- **Typography**: Font size, font family, weight, etc.
+- **Fill**: Depending on the type of object, the fill color can represent either the `background-color` (Frame) or `color` (Text).
+- **Stroke**: Borders properties like color, width, opacity, border style, etc.
+- **Effects**: Shadows, blurs, etc.
+
+![Object properties](/img/projects/guides/figma/object-properties.png)
+
+You can click on the attributes to copy it to your clipboard. Most of these properties can be converted to CSS equivalents.
+
+While holding <kbd>Alt</kbd> and hovering over objects, you will be able to view the spacing between objects.
+
+### Styles
+
+Tweaking the properties on an object is similar to inline styling on the web; they have to be repeatedly applied if multiple objects have the same styling and changing the properties on one object does not affect the other, which may or may not be desired. Where we have CSS classes on the web to reuse styling across multiple elements, Figma has a similar offering called styles. Figma styles are a feature that allows designers to create and manage reusable design elements, such as colors, typography, spacing, and effects, across their designs.
+
+If you come across objects that are customized but their properties do not show up in the inspect panel, that is likely due to a Figma style being applied on the object. Figma offers various types of styles, including:
+
+- **Color styles**: Define reusable colors and color combinations.
+- **Text styles**: Create consistent typography, including font, size, and spacing.
+- **Effect styles**: Apply reusable effects, such as shadows, borders, and gradients.
+- **Grid styles**: Define reusable grid systems for consistent spacing and alignment.
+
+For such elements, you might have to click on the style to see what the underlying properties are.
+
+![Text style](/img/projects/guides/figma/style-text.png)
+
+In this screenshot above, the "Talk to our team" text frame has a custom text style called `text-6xl-60/semibold` applied that gives it its font family, weight, size, and line height.
+
+If you have "Edit" permissions for a file, by pressing <kbd>Esc</kbd> or clicking on the background of the canvas area, you will be able to see available styles in the right sidebar.
+
+#### Grid styles (layout grid)
+
+Layout grids are used to organize and structure the content of a website or application, making it easier to create responsive designs that adapt to different screen sizes and devices. Page-level designs often follow a layout grid where there's the contents fit within a maximum container width with a fixed number of columns evenly-spaced within the container.
+
+Understanding the grid layout used is essential for implementing page sections and knowing how much horizontal spacing to use between elements in a section.
+
+Within a file, press <kbd>Shift</kbd> + <kbd>G</kbd> to toggle the visibility of the "Layout Grids".
+
+With "Layout Grids" turned on, you can see there is a grid style applies to the frame that uses 12 columns and the form on the right side takes up 6 columns. Container widths, side padding and spacing values can be found in the style guide tab of the challenge's "Assets" tab.
+
+![Grid style](/img/projects/guides/figma/style-grid.png)
+
+### Next steps
+
+There's much more to Figma, but the above should be sufficient to get you started. If you prefer a more video-based or hands-on approach to learning Figma as a developer, here are some useful resources:
+
+- Videos:
+  - [Intro to Figma for Developers by Scrimba](https://www.youtube.com/watch?v=fZ-OU_7aBv4)
+- Figma tutorial within Figma:
+  - [Figma Onboarding Kit for Developers](https://www.figma.com/community/file/1202517341060356377)
+  - [Figma 101 for Developers](https://www.figma.com/community/file/1199577674592933191)
