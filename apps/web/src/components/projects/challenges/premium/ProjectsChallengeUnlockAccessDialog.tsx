@@ -65,6 +65,7 @@ export default function ProjectsChallengeUnlockAccessDialog({
         id="CWWOj5"
         values={{
           bold: (chunks) => <Text weight="medium">{chunks}</Text>,
+          // TODO(projects): include pre-reqs.
           count: credits - 1,
         }}
       />

@@ -34,10 +34,22 @@ export const projectsChallengeRouter = router({
         },
       });
 
-      if (!projectsProfile.premium || projectsProfile.credits <= 0) {
+      if (!projectsProfile.premium) {
         throw new TRPCError({
           code: 'UNAUTHORIZED',
-          message: 'Non-premium or no credits remaining',
+          message: 'Non-premium user',
+        });
+      }
+
+      const { challengeMetadata } = await readProjectsChallengeMetadata(slug);
+
+      // TODO(projects): calculate based on pre-reqs and unlocked.
+      const creditsRequired = challengeMetadata.baseCredits;
+
+      if (projectsProfile.credits - creditsRequired < 0) {
+        throw new TRPCError({
+          code: 'UNAUTHORIZED',
+          message: 'Insufficient credits remaining',
         });
       }
 
@@ -49,7 +61,7 @@ export const projectsChallengeRouter = router({
               slug,
             },
           },
-          amount: 1,
+          amount: creditsRequired,
           profileId: projectsProfileId,
           type: 'DEBIT' as const,
         },
