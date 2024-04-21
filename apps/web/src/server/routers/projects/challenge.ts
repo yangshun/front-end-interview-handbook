@@ -41,7 +41,7 @@ export const projectsChallengeRouter = router({
         });
       }
 
-      const { challengeMetadata } = await readProjectsChallengeMetadata(slug);
+      const challengeMetadata = readProjectsChallengeMetadata(slug);
 
       // TODO(projects): calculate based on pre-reqs and unlocked.
       const creditsRequired = challengeMetadata.baseCredits;
@@ -93,15 +93,12 @@ export const projectsChallengeRouter = router({
       }),
     )
     .mutation(async ({ input: { slug }, ctx: { viewer } }) => {
-      const [
-        { challengeMetadata },
-        { viewerProjectsProfile },
-        viewerUnlockedAccess,
-      ] = await Promise.all([
-        readProjectsChallengeMetadata(slug),
-        fetchViewerProjectsProfile(viewer),
-        fetchViewerProjectsChallengeAccess(slug, viewer),
-      ]);
+      const challengeMetadata = readProjectsChallengeMetadata(slug);
+      const [{ viewerProjectsProfile }, viewerUnlockedAccess] =
+        await Promise.all([
+          fetchViewerProjectsProfile(viewer),
+          fetchViewerProjectsChallengeAccess(slug, viewer),
+        ]);
 
       const viewerAccess = ProjectsPremiumAccessControl(
         challengeMetadata.access,
@@ -146,15 +143,12 @@ export const projectsChallengeRouter = router({
       }),
     )
     .mutation(async ({ input: { slug }, ctx: { viewer } }) => {
-      const [
-        { challengeMetadata },
-        { viewerProjectsProfile },
-        viewerUnlockedAccess,
-      ] = await Promise.all([
-        readProjectsChallengeMetadata(slug),
-        fetchViewerProjectsProfile(viewer),
-        fetchViewerProjectsChallengeAccess(slug, viewer),
-      ]);
+      const challengeMetadata = readProjectsChallengeMetadata(slug);
+      const [{ viewerProjectsProfile }, viewerUnlockedAccess] =
+        await Promise.all([
+          fetchViewerProjectsProfile(viewer),
+          fetchViewerProjectsChallengeAccess(slug, viewer),
+        ]);
 
       const viewerAccess = ProjectsPremiumAccessControl(
         challengeMetadata.access,

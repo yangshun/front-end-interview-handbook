@@ -226,10 +226,7 @@ export async function readProjectsChallengeItem(
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
 
-  const { challengeMetadata } = await readProjectsChallengeMetadata(
-    slug,
-    requestedLocale,
-  );
+  const challengeMetadata = readProjectsChallengeMetadata(slug);
   const { challengeInfo } = readProjectsChallengeInfo(slug, requestedLocale);
 
   const [completedCount, completedUsers, viewerUnlocked, viewerSessionStatus] =
@@ -371,25 +368,16 @@ export function challengeItemAddTrackMetadata(
 }
 
 // TODO(projects): memoize the results to improve performance.
-export async function readProjectsChallengeMetadata(
+export function readProjectsChallengeMetadata(
   slugParam: string,
-  requestedLocale = 'en-US',
-): Promise<
-  Readonly<{
-    challengeMetadata: ProjectsChallengeMetadata;
-    loadedLocale: string;
-  }>
-> {
+): ProjectsChallengeMetadata {
   // So that we handle typos like extra characters.
   const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
   const challengeMetadata = allProjectsChallengeMetadata.find(
     (challengeItem) => challengeItem.slug === slug,
   )!;
 
-  return {
-    challengeMetadata,
-    loadedLocale: requestedLocale,
-  };
+  return challengeMetadata;
 }
 
 export function readProjectsChallengeInfo(
