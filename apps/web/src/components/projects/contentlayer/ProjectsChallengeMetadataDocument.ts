@@ -87,6 +87,13 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       required: true,
       type: 'enum',
     },
+    baseCredits: {
+      default: 1,
+      description:
+        'Credits required to unlock full access for the challenge, excluding pre-requisites',
+      required: false,
+      type: 'number',
+    },
     coverImage: {
       description: 'Cover image for the challenge',
       required: true,
