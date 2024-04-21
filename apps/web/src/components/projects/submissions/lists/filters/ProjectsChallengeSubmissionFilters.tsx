@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { RiSearchLine, RiSortDesc } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import type { ProjectsChallengeSubmissionFilter } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
+import type { ProjectsChallengeSubmissionFilterOption } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import ProjectsChallengeSubmissionFilterDropdown from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterDropdown';
 import ProjectsChallengeSubmissionFilterSlideOut from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterSlideOut';
 import DropdownMenu from '~/components/ui/DropdownMenu';
@@ -13,7 +13,7 @@ import type { ProjectsChallengeSubmissionSortField } from '../../types';
 
 type Props = Readonly<{
   filterSize: number;
-  filters: ReadonlyArray<ProjectsChallengeSubmissionFilter>;
+  filters: ReadonlyArray<ProjectsChallengeSubmissionFilterOption>;
   isAscendingOrder: boolean;
   isViewerPremium: boolean;
   query: string;

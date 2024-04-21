@@ -38,7 +38,7 @@ export default function ProjectsTrackDetailsPage({
   track,
   userProfile,
 }: Props) {
-  const { challenges, points, metadata } = track;
+  const { challenges, points } = track;
   const completionCount = projectsChallengeCountCompletedIncludingHistorical(
     challengeHistoricalStatuses ?? {},
     challenges,
@@ -49,10 +49,10 @@ export default function ProjectsTrackDetailsPage({
       <ProjectsTrackPageHeader
         completedCount={completionCount}
         isViewerPremium={isViewerPremium}
-        metadata={metadata}
         points={points}
         showProgress={true}
         totalCount={challenges.length}
+        track={track}
       />
       <div className={clsx('relative flex flex-col gap-4')}>
         {challenges.map((challenge, index) => (

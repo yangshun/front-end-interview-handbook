@@ -1,4 +1,3 @@
-import { allProjectsTrackMetadata } from 'contentlayer/generated';
 import {
   createContext,
   useCallback,
@@ -12,6 +11,7 @@ import { useIntl } from 'react-intl';
 import useFilterSearchParams from '~/hooks/useFilterSearchParams';
 
 import useProjectsYOEReplacementOptions from '~/components/projects/hooks/useProjectsYOEReplacementOptions';
+import type { ProjectsTrackItem } from '~/components/projects/tracks/data/ProjectsTracksData';
 
 export type ProjectsChallengeSubmissionFilterType =
   | 'checkbox'
@@ -19,7 +19,7 @@ export type ProjectsChallengeSubmissionFilterType =
   | 'tech-stack-selection';
 
 export type ProjectsChallengeSubmissionFilterViewType = 'both' | 'slideout';
-export type ProjectsChallengeSubmissionFilter = {
+export type ProjectsChallengeSubmissionFilterOption = Readonly<{
   id: ProjectsChallengeSubmissionFilterKey;
   label: string;
   longLabel?: string;
@@ -31,7 +31,7 @@ export type ProjectsChallengeSubmissionFilter = {
   tooltip?: string;
   type: ProjectsChallengeSubmissionFilterType;
   view: ProjectsChallengeSubmissionFilterViewType;
-};
+}>;
 
 export type ProjectsChallengeSubmissionFilterKey =
   | 'component-track'
@@ -41,13 +41,13 @@ export type ProjectsChallengeSubmissionFilterKey =
   | 'status'
   | 'tech-stack-skills';
 
-function useFilters() {
+function useFilterOptions(tracks: ReadonlyArray<ProjectsTrackItem>) {
   const intl = useIntl();
   const { yoeReplacementOptions: experienceOptions } =
     useProjectsYOEReplacementOptions();
 
   return useMemo(() => {
-    const filters: Array<ProjectsChallengeSubmissionFilter> = [
+    const filters: Array<ProjectsChallengeSubmissionFilterOption> = [
       {
         id: 'status',
         label: intl.formatMessage({
@@ -86,9 +86,9 @@ function useFilters() {
           description: 'Label for Component Track filter for submissions list',
           id: 'cotxax',
         }),
-        options: allProjectsTrackMetadata.map((trackMetadata) => ({
-          label: trackMetadata.title,
-          value: trackMetadata.slug,
+        options: tracks.map((trackItem) => ({
+          label: trackItem.info.title,
+          value: trackItem.metadata.slug,
         })),
         premium: true,
         tooltip: intl.formatMessage({
@@ -208,12 +208,12 @@ function useFilters() {
     ];
 
     return filters;
-  }, [intl, experienceOptions]);
+  }, [intl, tracks, experienceOptions]);
 }
 
 type ProjectsChallengeSubmissionFilterContextType = Readonly<{
   clearAll: () => void;
-  filters: Array<ProjectsChallengeSubmissionFilter>;
+  filters: Array<ProjectsChallengeSubmissionFilterOption>;
   getArrayTypeSearchParams: (key: string) => Array<string> | undefined;
   getStringTypeSearchParams: (key: string) => string | null;
   setFilterValue: (
@@ -269,10 +269,12 @@ export function useProjectsChallengeSubmissionFilterContext() {
 
 type Props = Readonly<{
   children: React.ReactNode;
+  tracks: ReadonlyArray<ProjectsTrackItem>;
 }>;
 
 export default function ProjectsChallengeSubmissionFilterContextProvider({
   children,
+  tracks,
 }: Props) {
   const {
     updateSearchParams,
@@ -299,7 +301,7 @@ export default function ProjectsChallengeSubmissionFilterContextProvider({
     'tech-stack-skills': initialTechStackSkills ?? [],
   });
 
-  const filters = useFilters();
+  const filterOptions = useFilterOptions(tracks);
 
   useEffect(() => {
     // Update search params in the current url
@@ -330,7 +332,7 @@ export default function ProjectsChallengeSubmissionFilterContextProvider({
   const value = useMemo(() => {
     return {
       clearAll,
-      filters,
+      filters: filterOptions,
       getArrayTypeSearchParams,
       getStringTypeSearchParams,
       setFilterValue,
@@ -339,7 +341,7 @@ export default function ProjectsChallengeSubmissionFilterContextProvider({
       value: selectedFilters,
     };
   }, [
-    filters,
+    filterOptions,
     clearAll,
     selectedFilters,
     setFilterValue,

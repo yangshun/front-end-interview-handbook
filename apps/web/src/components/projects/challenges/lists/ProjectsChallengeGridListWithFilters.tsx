@@ -32,18 +32,17 @@ import ProjectsChallengeFilterContextProvider, {
 import ProjectsChallengeFilterSlideOut from './ProjectsChallengeFilterSlideOut';
 import ProjectsChallengeListFilter from './ProjectsChallengeListFilter';
 import type { ProjectsChallengeItem } from '../types';
-
-type Props = Readonly<{
-  challenges: ReadonlyArray<ProjectsChallengeItem>;
-  isViewerPremium: boolean;
-}>;
+import type { ProjectsTrackItem } from '../../tracks/data/ProjectsTracksData';
 
 const ITEMS_PER_PAGE = 12;
 
 function ProjectsChallengeGridListWithFiltersImpl({
   challenges,
   isViewerPremium,
-}: Props) {
+}: Readonly<{
+  challenges: ReadonlyArray<ProjectsChallengeItem>;
+  isViewerPremium: boolean;
+}>) {
   const intl = useIntl();
   const [searchQuery, setSearchQuery] = useState('');
   const {
@@ -314,12 +313,19 @@ function ProjectsChallengeGridListWithFiltersImpl({
   );
 }
 
+type Props = Readonly<{
+  challenges: ReadonlyArray<ProjectsChallengeItem>;
+  isViewerPremium: boolean;
+  tracks: ReadonlyArray<ProjectsTrackItem>;
+}>;
+
 export default function ProjectsChallengeGridListWithFilters({
   challenges,
   isViewerPremium,
+  tracks,
 }: Props) {
   return (
-    <ProjectsChallengeFilterContextProvider>
+    <ProjectsChallengeFilterContextProvider tracks={tracks}>
       <ProjectsChallengeGridListWithFiltersImpl
         challenges={challenges}
         isViewerPremium={isViewerPremium}

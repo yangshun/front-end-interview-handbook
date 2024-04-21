@@ -5,12 +5,12 @@ import FilterButton from '~/components/common/FilterButton';
 import ProjectsSkillRoadmapSelectionDialog from '~/components/projects/skills/form/ProjectsSkillRoadmapSelectionDialog';
 
 import {
-  type ProjectsChallengeFilter,
+  type ProjectsChallengeFilterOption,
   useProjectsChallengeFilterState,
 } from '../ProjectsChallengeFilterContext';
 
 type Props = Readonly<{
-  filter: ProjectsChallengeFilter;
+  filter: ProjectsChallengeFilterOption;
 }>;
 
 export default function ProjectsChallengeSkillsFilterInput({ filter }: Props) {

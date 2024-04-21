@@ -1,4 +1,3 @@
-import type { ProjectsTrackMetadata } from 'contentlayer/generated';
 import { RiArrowLeftLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
@@ -8,14 +7,15 @@ import Button from '~/components/ui/Button';
 import Heading from '~/components/ui/Heading';
 import Text from '~/components/ui/Text';
 
+import type { ProjectsTrackItem } from './data/ProjectsTracksData';
 import ProjectsChallengeProgressTag from '../challenges/metadata/ProjectsChallengeProgressTag';
 import ProjectsPremiumBadge from '../purchase/ProjectsPremiumBadge';
 
 type BaseProps = Readonly<{
   isViewerPremium: boolean;
-  metadata: ProjectsTrackMetadata;
   points: number;
   showProgress: boolean;
+  track: ProjectsTrackItem;
 }>;
 
 type Props =
@@ -30,15 +30,15 @@ type Props =
         showProgress: false;
       }>);
 
-export default function ProjectsTrackAccordionHeader({
+export default function ProjectsTrackPageHeader({
   isViewerPremium,
-  metadata,
+  track,
   points,
   showProgress,
   ...props
 }: Props) {
   const intl = useIntl();
-  const { description, title } = metadata;
+  const { description, title } = track.info;
 
   return (
     <div className="flex flex-col gap-4">
@@ -60,7 +60,7 @@ export default function ProjectsTrackAccordionHeader({
           <div className="flex flex-col gap-2">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <Heading level="heading5">{title}</Heading>
-              {metadata.premium && (
+              {track.metadata.premium && (
                 <ProjectsPremiumBadge size="sm" unlocked={isViewerPremium} />
               )}
               {showProgress &&

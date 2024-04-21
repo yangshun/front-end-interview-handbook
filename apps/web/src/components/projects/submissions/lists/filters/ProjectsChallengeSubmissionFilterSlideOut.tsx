@@ -11,8 +11,8 @@ import {
 import ProjectsSkillRoadmapSelectionInput from '~/components/projects/skills/form/ProjectsSkillRoadmapSelectionInput';
 import ProjectsSkillTechStackInput from '~/components/projects/skills/form/ProjectsSkillTechStackInput';
 import type {
-  ProjectsChallengeSubmissionFilter,
   ProjectsChallengeSubmissionFilterKey,
+  ProjectsChallengeSubmissionFilterOption,
 } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import {
   ProjectsChallengeSubmissionFilterContext,
@@ -40,7 +40,7 @@ function FilterSection({
   options,
   type,
   tooltip,
-}: ProjectsChallengeSubmissionFilter) {
+}: ProjectsChallengeSubmissionFilterOption) {
   const [selectedOptions, setSelectedOptions] =
     useProjectsChallengeSubmissionFilterState(id);
   const intl = useIntl();

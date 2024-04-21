@@ -1,13 +1,13 @@
 import { RiArrowDownSLine } from 'react-icons/ri';
 
 import FilterButton from '~/components/common/FilterButton';
-import type { ProjectsChallengeSubmissionFilter } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
+import type { ProjectsChallengeSubmissionFilterOption } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import { useProjectsChallengeSubmissionFilterState } from '~/components/projects/submissions/lists/filters/ProjectsChallengeSubmissionFilterContext';
 import CheckboxInput from '~/components/ui/CheckboxInput';
 import Popover from '~/components/ui/Popover';
 
 type Props = Readonly<{
-  filter: ProjectsChallengeSubmissionFilter;
+  filter: ProjectsChallengeSubmissionFilterOption;
 }>;
 
 export default function ProjectsChallengeSubmissionFilterDropdown({

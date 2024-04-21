@@ -3,8 +3,8 @@ import { notFound } from 'next/navigation';
 
 import {
   fetchProjectsTrackChallengeHistoricalStatuses,
+  readProjectsTrackInfo,
   readProjectsTrackItem,
-  readProjectsTrackMetadata,
 } from '~/components/projects/tracks/data/ProjectsTrackReader';
 import ProjectsTrackDetailsLockedPage from '~/components/projects/tracks/ProjectsTrackDetailsLockedPage';
 import ProjectsTrackDetailsPage from '~/components/projects/tracks/ProjectsTrackDetailsPage';
@@ -20,10 +20,8 @@ type Props = Readonly<{
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = params;
-  const [intl, { trackMetadata }] = await Promise.all([
-    getIntlServerOnly(locale),
-    readProjectsTrackMetadata(slug, locale),
-  ]);
+  const [intl] = await Promise.all([getIntlServerOnly(locale)]);
+  const { trackInfo } = readProjectsTrackInfo(slug, locale);
 
   return defaultProjectsMetadata(intl, {
     description: intl.formatMessage(
@@ -34,7 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'eG2r74',
       },
       {
-        trackName: trackMetadata.title,
+        trackName: trackInfo.title,
       },
     ),
     locale,
@@ -46,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         id: 'Potyfh',
       },
       {
-        trackName: trackMetadata.title,
+        trackName: trackInfo.title,
       },
     ),
   });
@@ -70,10 +68,7 @@ export default async function Page({ params }: Props) {
 
   if (track.metadata.premium && !viewerProjectsProfile?.premium) {
     return (
-      <ProjectsTrackDetailsLockedPage
-        metadata={track.metadata}
-        points={track.points}
-      />
+      <ProjectsTrackDetailsLockedPage points={track.points} track={track} />
     );
   }
 

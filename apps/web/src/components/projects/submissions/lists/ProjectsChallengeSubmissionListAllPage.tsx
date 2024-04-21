@@ -9,14 +9,18 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
+import type { ProjectsTrackItem } from '../../tracks/data/ProjectsTracksData';
+
 type Props = Readonly<{
   challengeInfoDict: Record<string, ProjectsChallengeInfo>;
   isViewerPremium: boolean;
+  tracks: ReadonlyArray<ProjectsTrackItem>;
 }>;
 
 export default function ProjectsChallengeSubmissionListAllPage({
   challengeInfoDict,
   isViewerPremium,
+  tracks,
 }: Props) {
   return (
     <div className="flex flex-col gap-9">
@@ -39,7 +43,7 @@ export default function ProjectsChallengeSubmissionListAllPage({
         </Section>
       </div>
       <Section>
-        <ProjectsChallengeSubmissionFilterContextProvider>
+        <ProjectsChallengeSubmissionFilterContextProvider tracks={tracks}>
           <ProjectsChallengeSubmissionListWithFilters
             challengeInfoDict={challengeInfoDict}
             isViewerPremium={isViewerPremium}

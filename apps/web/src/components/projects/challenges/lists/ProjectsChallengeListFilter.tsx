@@ -1,11 +1,11 @@
 import type { ProjectsChallengeFilterDropdown } from '~/components/projects/challenges/lists/ProjectsChallengeFilterContext';
-import { type ProjectsChallengeFilter } from '~/components/projects/challenges/lists/ProjectsChallengeFilterContext';
+import { type ProjectsChallengeFilterOption } from '~/components/projects/challenges/lists/ProjectsChallengeFilterContext';
 
 import ProjectsChallengePopoverFilterInput from './filters/ProjectsChallengePopoverFilterInput';
 import ProjectsChallengeSkillsFilterInput from './filters/ProjectsChallengeSkillsFilterInput';
 
 type Props = Readonly<{
-  filter: ProjectsChallengeFilter;
+  filter: ProjectsChallengeFilterOption;
 }>;
 
 export default function ProjectsChallengeListFilter({ filter }: Props) {

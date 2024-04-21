@@ -11,10 +11,13 @@ import {
   allProjectsChallengeInfos,
   allProjectsChallengeMetadata,
   allProjectsChallengeStyleGuides,
-  allProjectsTrackMetadata,
 } from 'contentlayer/generated';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
+import {
+  readProjectsTrackInfo,
+  readProjectsTrackMetadata,
+} from '~/components/projects/tracks/data/ProjectsTrackReader';
 import type { ProjectsProfileAvatarDataSlim } from '~/components/projects/types';
 
 import prisma from '~/server/prisma';
@@ -189,16 +192,19 @@ export async function readProjectsChallengeList(
   const { challengeInfoDict } = readProjectsChallengeInfoDict(requestedLocale);
 
   const challenges = allProjectsChallengeMetadata.map((challengeMetadata) =>
-    challengeItemAddTrackMetadata({
-      completedCount:
-        completedCountsGroupedBySlug?.[challengeMetadata.slug] ?? null,
-      completedProfiles:
-        completedProfileIdsGroupedBySlug?.[challengeMetadata.slug] ?? [],
-      info: challengeInfoDict[challengeMetadata.slug],
-      metadata: challengeMetadata,
-      status: sessionsForUserGroupedBySlug?.[challengeMetadata.slug] ?? null,
-      userUnlocked: challengeAccessSet?.has(challengeMetadata.slug) ?? null,
-    }),
+    challengeItemAddTrackMetadata(
+      {
+        completedCount:
+          completedCountsGroupedBySlug?.[challengeMetadata.slug] ?? null,
+        completedProfiles:
+          completedProfileIdsGroupedBySlug?.[challengeMetadata.slug] ?? [],
+        info: challengeInfoDict[challengeMetadata.slug],
+        metadata: challengeMetadata,
+        status: sessionsForUserGroupedBySlug?.[challengeMetadata.slug] ?? null,
+        userUnlocked: challengeAccessSet?.has(challengeMetadata.slug) ?? null,
+      },
+      requestedLocale,
+    ),
   );
 
   return {
@@ -326,34 +332,41 @@ export async function readProjectsChallengeItem(
     ]);
 
   return {
-    challenge: challengeItemAddTrackMetadata({
-      completedCount,
-      completedProfiles: completedUsers,
-      info: challengeInfo,
-      metadata: challengeMetadata,
-      status: viewerSessionStatus,
-      userUnlocked: viewerUnlocked,
-    }),
+    challenge: challengeItemAddTrackMetadata(
+      {
+        completedCount,
+        completedProfiles: completedUsers,
+        info: challengeInfo,
+        metadata: challengeMetadata,
+        status: viewerSessionStatus,
+        userUnlocked: viewerUnlocked,
+      },
+      requestedLocale,
+    ),
     loadedLocale: requestedLocale,
   };
 }
 
 export function challengeItemAddTrackMetadata(
   challengeItem: Omit<ProjectsChallengeItem, 'track'>,
+  requestedLocale = 'en-US',
 ): ProjectsChallengeItem {
+  const { trackMetadata } = readProjectsTrackMetadata(
+    challengeItem.metadata.track,
+    requestedLocale,
+  );
+  const { trackInfo } = readProjectsTrackInfo(
+    challengeItem.metadata.track,
+    requestedLocale,
+  );
+
   return {
     ...challengeItem,
-    track: (() => {
-      const trackItem = allProjectsTrackMetadata.find(
-        (trackMetadata) => trackMetadata.slug === challengeItem.metadata.track,
-      )!;
-
-      return {
-        href: trackItem.href,
-        slug: trackItem.slug,
-        title: trackItem.title,
-      };
-    })(),
+    track: {
+      href: trackMetadata.href,
+      slug: trackMetadata.slug,
+      title: trackInfo.title,
+    },
   };
 }
 

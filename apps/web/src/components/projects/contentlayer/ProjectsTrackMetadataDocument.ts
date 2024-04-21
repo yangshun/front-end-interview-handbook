@@ -14,29 +14,19 @@ export const ProjectsTrackMetadataDocument = defineDocumentType(() => ({
       type: 'string',
     },
     slug: {
-      description: 'Unique identifier of the project',
+      description: 'Unique identifier of the track',
       resolve: (doc) => parseTrackSlug(doc._raw.sourceFilePath),
       type: 'string',
     },
   },
   contentType: 'data',
   fields: {
-    description: {
-      description: 'Short description of the project',
-      required: true,
-      type: 'string',
-    },
     premium: {
       description: 'Whether the track is premium',
       required: true,
       type: 'boolean',
     },
-    title: {
-      description: 'Name of the track',
-      required: true,
-      type: 'string',
-    },
   },
-  filePathPattern: 'projects/tracks/*/*.json',
+  filePathPattern: 'projects/tracks/*/metadata.json',
   name: 'ProjectsTrackMetadata',
 }));

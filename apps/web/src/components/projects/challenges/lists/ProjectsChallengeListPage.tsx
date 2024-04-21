@@ -8,14 +8,18 @@ import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
 import Text from '~/components/ui/Text';
 
+import type { ProjectsTrackItem } from '../../tracks/data/ProjectsTracksData';
+
 type Props = Readonly<{
   challenges: ReadonlyArray<ProjectsChallengeItem>;
   isViewerPremium: boolean;
+  tracks: ReadonlyArray<ProjectsTrackItem>;
 }>;
 
 export default function ProjectsChallengeListPage({
   challenges,
   isViewerPremium,
+  tracks,
 }: Props) {
   return (
     <div className="flex flex-col gap-9">
@@ -41,6 +45,7 @@ export default function ProjectsChallengeListPage({
         <ProjectsChallengeGridListWithFilters
           challenges={challenges}
           isViewerPremium={isViewerPremium}
+          tracks={tracks}
         />
       </Section>
     </div>

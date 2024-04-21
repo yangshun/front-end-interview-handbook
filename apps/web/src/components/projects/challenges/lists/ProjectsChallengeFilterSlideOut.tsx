@@ -16,8 +16,8 @@ import SlideOut from '~/components/ui/SlideOut';
 import Text from '~/components/ui/Text';
 
 import type {
-  ProjectsChallengeFilter,
   ProjectsChallengeFilterKey,
+  ProjectsChallengeFilterOption,
 } from './ProjectsChallengeFilterContext';
 import {
   ProjectsChallengeFilterContext,
@@ -33,7 +33,7 @@ function FilterSection({
   id,
   options,
   type,
-}: ProjectsChallengeFilter) {
+}: ProjectsChallengeFilterOption) {
   const [selectedOptions, setSelectedOptions] =
     useProjectsChallengeFilterState(id);
   const intl = useIntl();

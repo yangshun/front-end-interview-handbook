@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import ProjectsChallengeListPage from '~/components/projects/challenges/lists/ProjectsChallengeListPage';
+import { readProjectsTrackList } from '~/components/projects/tracks/data/ProjectsTrackReader';
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { readProjectsChallengeList } from '~/db/projects/ProjectsReader';
@@ -39,15 +40,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Page({ params }: Props) {
   const { locale } = params;
   const viewer = await readViewerFromToken();
-  const [{ viewerProjectsProfile }, { challenges }] = await Promise.all([
-    fetchViewerProjectsProfile(viewer),
-    readProjectsChallengeList(locale, viewer?.id),
-  ]);
+  const [{ viewerProjectsProfile }, { challenges }, { tracks }] =
+    await Promise.all([
+      fetchViewerProjectsProfile(viewer),
+      readProjectsChallengeList(locale, viewer?.id),
+      readProjectsTrackList(locale),
+    ]);
 
   return (
     <ProjectsChallengeListPage
       challenges={challenges}
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
+      tracks={tracks}
     />
   );
 }

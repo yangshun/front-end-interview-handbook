@@ -130,7 +130,7 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
                         id: 'S4nrpS',
                       },
                       {
-                        trackName: track.metadata.title,
+                        trackName: track.info.title,
                       },
                     )}
                   </Anchor>
@@ -169,7 +169,7 @@ export default function ProjectsDashboardTrackAndSkillsSection() {
               </div>
             </div>
             <Anchor
-              aria-label={track.metadata.title}
+              aria-label={track.info.title}
               className="absolute inset-0"
               href={track.metadata.href}
             />

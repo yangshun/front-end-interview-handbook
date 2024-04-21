@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import ProjectsChallengeSubmissionListLearnPage from '~/components/projects/submissions/lists/ProjectsChallengeSubmissionListLearnPage';
+import { readProjectsTrackList } from '~/components/projects/tracks/data/ProjectsTrackReader';
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import { readProjectsChallengeInfoDict } from '~/db/projects/ProjectsReader';
@@ -37,13 +38,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const { locale } = params;
-  const { viewerProjectsProfile } = await fetchViewerProjectsProfile();
+  const [{ viewerProjectsProfile }, { tracks }] = await Promise.all([
+    fetchViewerProjectsProfile(),
+    readProjectsTrackList(locale),
+  ]);
   const { challengeInfoDict } = readProjectsChallengeInfoDict(locale);
 
   return (
     <ProjectsChallengeSubmissionListLearnPage
       challengeInfoDict={challengeInfoDict}
       isViewerPremium={viewerProjectsProfile?.premium ?? false}
+      tracks={tracks}
     />
   );
 }
