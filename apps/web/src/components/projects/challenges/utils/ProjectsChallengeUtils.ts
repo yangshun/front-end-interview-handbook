@@ -19,24 +19,3 @@ export function projectsChallengeCountCompletedIncludingHistorical(
     },
   ).length;
 }
-
-// TODO(projects): delete this.
-export function projectsChallengeDetermineStatus_DEPRECATED(
-  challengeStatuses: ProjectsChallengeHistoricalStatuses,
-  slug: string,
-) {
-  if (!challengeStatuses[slug]) {
-    return 'NOT_STARTED';
-  }
-
-  const { currentStatus } = challengeStatuses[slug];
-
-  switch (currentStatus) {
-    case 'COMPLETED':
-      return 'COMPLETED';
-    case 'IN_PROGRESS':
-      return 'IN_PROGRESS';
-    case 'STOPPED':
-      return 'NOT_STARTED';
-  }
-}

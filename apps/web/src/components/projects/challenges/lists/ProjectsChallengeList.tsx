@@ -8,7 +8,6 @@ import type {
   ProjectsChallengeHistoricalStatuses,
   ProjectsChallengeItem,
 } from '../types';
-import { projectsChallengeDetermineStatus_DEPRECATED } from '../utils/ProjectsChallengeUtils';
 import type { ProjectsSkillKey } from '../../skills/types';
 
 type Props = Readonly<{
@@ -19,7 +18,6 @@ type Props = Readonly<{
 }>;
 
 export default function ProjectsChallengeList({
-  challengeStatuses = {},
   className,
   challenges,
   skillRoadmapKey,
@@ -45,10 +43,7 @@ export default function ProjectsChallengeList({
           <div className="relative flex items-center">
             <ProjectsChallengeStatusChip
               label={index + 1}
-              status={projectsChallengeDetermineStatus_DEPRECATED(
-                challengeStatuses,
-                challenge.metadata.slug,
-              )}
+              status={challenge.status ?? 'NOT_STARTED'}
             />
           </div>
           <ProjectsChallengeCardHorizontal
