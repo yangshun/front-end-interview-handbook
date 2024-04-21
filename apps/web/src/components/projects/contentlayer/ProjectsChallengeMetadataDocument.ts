@@ -121,6 +121,13 @@ export const ProjectsChallengeMetadataDocument = defineDocumentType(() => ({
       required: true,
       type: 'json',
     },
+    preReqs: {
+      default: [],
+      description: 'Pre-req challenges to be unlocked to access this challenge',
+      of: { type: 'string' },
+      required: false,
+      type: 'list',
+    },
     resources: {
       of: { options: projectChallengeResourceOptions, type: 'enum' },
       required: true,

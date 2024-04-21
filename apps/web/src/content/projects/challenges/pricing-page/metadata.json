@@ -2,7 +2,17 @@
   "createdAt": "2024-04-17",
   "difficulty": "starter",
   "track": "marketing",
-  "access": "free",
+  "access": "free-plus",
+  "baseCredits": 0,
+  "preReqs": [
+    "navbar-component",
+    "pricing-section-tiers",
+    "faq-section",
+    "feature-section-grid",
+    "testimonials-section",
+    "contact-section",
+    "footer-section-simple"
+  ],
   "pointsBase": 500,
   "pointsForSkillGroups": {
     "html": 50,

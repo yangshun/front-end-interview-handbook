@@ -416,6 +416,19 @@ export function readProjectsChallengeInfoList(
   };
 }
 
+export function readProjectsChallengeMetadataDict(): Record<
+  string,
+  ProjectsChallengeMetadata
+> {
+  return allProjectsChallengeMetadata.reduce(
+    (prev, metadata) => ({
+      ...prev,
+      [metadata.slug]: metadata,
+    }),
+    {},
+  );
+}
+
 export function readProjectsChallengeInfoDict(
   requestedLocale = 'en-US',
 ): Readonly<{

@@ -1,12 +1,17 @@
+import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
+import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { z } from 'zod';
 
 import ProjectsPremiumAccessControl from '~/components/projects/challenges/premium/ProjectsPremiumAccessControl';
+import { projectsChallengeCalculateTotalCreditsNeededForChallenge } from '~/components/projects/challenges/utils/ProjectsChallengeUtils.server';
 import fetchViewerProjectsChallengeAccess from '~/components/projects/utils/fetchViewerProjectsChallengeAccess';
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import {
+  readProjectsChallengeInfoDict,
   readProjectsChallengeItem,
   readProjectsChallengeMetadata,
+  readProjectsChallengeMetadataDict,
 } from '~/db/projects/ProjectsReader';
 import prisma from '~/server/prisma';
 import { publicProcedure, router } from '~/server/trpc';
@@ -204,6 +209,30 @@ export const projectsChallengeRouter = router({
         ...challenge,
         // Don't display status in hovercard.
         status: null,
+      };
+    }),
+  unlockCreditsDetails: projectsUserProcedure
+    .input(
+      z.object({
+        slug: z.string(),
+      }),
+    )
+    .query(async ({ input: { slug }, ctx: { viewer } }) => {
+      const data =
+        await projectsChallengeCalculateTotalCreditsNeededForChallenge(
+          slug,
+          viewer,
+        );
+
+      const challengeMetadataDict = readProjectsChallengeMetadataDict();
+      const { challengeInfoDict } = readProjectsChallengeInfoDict();
+
+      return {
+        ...data,
+        challengesToUnlock: data.challengesToUnlock.map((challengeSlug) => ({
+          info: challengeInfoDict[challengeSlug],
+          metadata: challengeMetadataDict[challengeSlug],
+        })),
       };
     }),
 });
