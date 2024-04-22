@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { RiArrowLeftLine } from 'react-icons/ri';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { useIsMounted } from 'usehooks-ts';
@@ -20,6 +21,7 @@ import ProjectsChallengeCompletedCountButton from './ProjectsChallengeCompletedC
 import ProjectsChallengeHowItWorksDialog from './ProjectsChallengeHowItWorksDialog';
 import ProjectsChallengeSkillsTag from '../metadata/ProjectsChallengeSkillsTag';
 import type { ProjectsPremiumAccessControlFields } from '../premium/ProjectsPremiumAccessControl';
+import ProjectsChallengeAddSkillFromSkillPlanDialog from '../session/ProjectsChallengeAddSkillFromSkillPlanDialog';
 import ProjectsChallengeCurrentProjectSessionCard from '../session/ProjectsChallengeCurrentSessionCard';
 import { useProjectsChallengeSessionContext } from '../session/ProjectsChallengeSessionContext';
 import ProjectsChallengeStepsTabItems from '../steps/ProjectsChallengeStepsTabItems';
@@ -52,8 +54,39 @@ export default function ProjectsChallengeHeader({
   const { session, isGetLatestSessionFetched } =
     useProjectsChallengeSessionContext();
   const [isHowItWorksDialogShown, setIsHowItWorksDialogShown] = useState(false);
+  const [
+    isAddSkillFromSkillPlanDialogShown,
+    setIsAddSkillFromSkillPlanDialogShown,
+  ] = useState(false);
+  const [
+    hasShownAddSkillFromSkillPlanDialogShown,
+    setHasShownAddSkillFromSkillPlanDialogShown,
+  ] = useState(false);
+
   const hasSession = session != null;
   const showStickyStepsBar = isMounted() ? !isTabsInView : false;
+
+  const searchParams = useSearchParams();
+
+  const skillRoadmapPlanSkill = searchParams?.get('skill_plan');
+
+  useEffect(() => {
+    if (
+      !hasSession ||
+      skillRoadmapPlanSkill == null ||
+      session.roadmapSkills.includes(skillRoadmapPlanSkill) ||
+      hasShownAddSkillFromSkillPlanDialogShown
+    ) {
+      return;
+    }
+
+    setIsAddSkillFromSkillPlanDialogShown(true);
+  }, [
+    hasSession,
+    hasShownAddSkillFromSkillPlanDialogShown,
+    session,
+    skillRoadmapPlanSkill,
+  ]);
 
   return (
     <>
@@ -213,6 +246,15 @@ export default function ProjectsChallengeHeader({
           isShown={isHowItWorksDialogShown}
           onClose={() => {
             setIsHowItWorksDialogShown(false);
+          }}
+        />
+        <ProjectsChallengeAddSkillFromSkillPlanDialog
+          isShown={isAddSkillFromSkillPlanDialogShown}
+          session={session!}
+          skillToAdd={skillRoadmapPlanSkill!}
+          onClose={() => {
+            setHasShownAddSkillFromSkillPlanDialogShown(true);
+            setIsAddSkillFromSkillPlanDialogShown(false);
           }}
         />
       </div>
