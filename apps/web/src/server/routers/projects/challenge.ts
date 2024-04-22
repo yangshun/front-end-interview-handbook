@@ -20,56 +20,6 @@ import { projectsUserProcedure } from './procedures';
 import { TRPCError } from '@trpc/server';
 
 export const projectsChallengeRouter = router({
-  accessUnlock: projectsUserProcedure
-    .input(
-      z.object({
-        slug: z.string(),
-      }),
-    )
-    .mutation(async ({ input: { slug }, ctx: { projectsProfileId } }) => {
-      const projectsProfile = await prisma.projectsProfile.findFirstOrThrow({
-        select: {
-          credits: true,
-          premium: true,
-        },
-        where: {
-          id: projectsProfileId,
-        },
-      });
-
-      if (!projectsProfile.premium) {
-        throw new TRPCError({
-          code: 'UNAUTHORIZED',
-          message: 'Non-premium user',
-        });
-      }
-
-      const challengeMetadata = readProjectsChallengeMetadata(slug);
-
-      // TODO(projects): calculate based on pre-reqs and unlocked.
-      const creditsRequired = challengeMetadata.baseCredits;
-
-      if (projectsProfile.credits - creditsRequired < 0) {
-        throw new TRPCError({
-          code: 'UNAUTHORIZED',
-          message: 'Insufficient credits remaining',
-        });
-      }
-
-      return prisma.projectsChallengeCreditTransaction.create({
-        data: {
-          access: {
-            create: {
-              profileId: projectsProfileId,
-              slug,
-            },
-          },
-          amount: creditsRequired,
-          profileId: projectsProfileId,
-          type: 'DEBIT' as const,
-        },
-      });
-    }),
   canAccessAllSteps: projectsUserProcedure
     .input(
       z.object({
@@ -209,6 +159,65 @@ export const projectsChallengeRouter = router({
         status: null,
       };
     }),
+  unlockAccess: projectsUserProcedure
+    .input(
+      z.object({
+        slug: z.string(),
+      }),
+    )
+    .mutation(
+      async ({ input: { slug }, ctx: { projectsProfileId, viewer } }) => {
+        const projectsProfile = await prisma.projectsProfile.findFirstOrThrow({
+          select: {
+            credits: true,
+            premium: true,
+          },
+          where: {
+            id: projectsProfileId,
+          },
+        });
+
+        if (!projectsProfile.premium) {
+          throw new TRPCError({
+            code: 'UNAUTHORIZED',
+            message: 'Non-premium user',
+          });
+        }
+
+        const challengeMetadataDict = readProjectsChallengeMetadataDict();
+
+        const { creditsRequired, challengesToUnlock } =
+          await projectsChallengeCalculateTotalCreditsNeededForChallenge(
+            slug,
+            viewer,
+          );
+
+        if (projectsProfile.credits - creditsRequired < 0) {
+          throw new TRPCError({
+            code: 'UNAUTHORIZED',
+            message: 'Insufficient credits remaining',
+          });
+        }
+
+        return await prisma.$transaction(
+          challengesToUnlock.map((challengeSlug) =>
+            prisma.projectsChallengeCreditTransaction.create({
+              data: {
+                access: {
+                  create: {
+                    profileId: projectsProfileId,
+                    slug: challengeSlug,
+                  },
+                },
+                amount: challengeMetadataDict[challengeSlug].baseCredits,
+                profileId: projectsProfileId,
+                type: 'DEBIT',
+              },
+            }),
+          ),
+        );
+      },
+    ),
   unlockCreditsDetails: projectsUserProcedure
     .input(
       z.object({

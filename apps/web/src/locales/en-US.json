@@ -703,6 +703,10 @@
     "defaultMessage": "Enjoy {discountPercentage}% off all plans by <follow>following us on social media</follow>. Check out other <promotion>promotions</promotion>!",
     "description": "Text on Promo Banner appearing almost on all application pages to inform user of a discount"
   },
+  "47jdAi": {
+    "defaultMessage": "{count, plural, one {1 credit} other {# credits}}",
+    "description": "Number of credits"
+  },
   "4AetUb": {
     "defaultMessage": "Edit profile photo",
     "description": "Label for edit profile photo button on projects profile"
@@ -1667,6 +1671,10 @@
     "defaultMessage": "Completed Questions",
     "description": "Heading for list of completed questions."
   },
+  "Cqx/J0": {
+    "defaultMessage": "The following challenges will be unlocked:",
+    "description": "Confirmation text for unlocking a premium challenge"
+  },
   "CrNgUe": {
     "defaultMessage": "Questions List",
     "description": "Screenreader text for question list"
@@ -1882,10 +1890,6 @@
   "ECkWMR": {
     "defaultMessage": "Stop session",
     "description": "Label to stop study plan"
-  },
-  "ECyY7k": {
-    "defaultMessage": "You have unlocked all pre-requisite challenges, so this challenge can be unlocked without spending any credits. Proceed to unlock challenge?",
-    "description": "Message about unlocking challenges"
   },
   "EHPx/Z": {
     "defaultMessage": "Solving Common Questions",
@@ -3518,10 +3522,6 @@
   "QwEkIl": {
     "defaultMessage": "Guides",
     "description": "Projects guides"
-  },
-  "QwzkgH": {
-    "defaultMessage": "The following pre-requisite challenges will be unlocked at the same time:",
-    "description": "Confirmation text for unlocking a premium challenge"
   },
   "QxlS4d": {
     "defaultMessage": "Difficulty: Hard to Easy",
@@ -5391,10 +5391,6 @@
     "defaultMessage": "on your first order amount",
     "description": "GFE discount"
   },
-  "fpNb/O": {
-    "defaultMessage": "Unlocking this challenge requires {count, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}}.",
-    "description": "Confirmation text for unlocking a premium challenge"
-  },
   "frl+Af": {
     "defaultMessage": "Prev",
     "description": "Label for button leading to the previous page"
@@ -6407,6 +6403,10 @@
     "defaultMessage": "Warnings",
     "description": "Select label for warning log level in console filter"
   },
+  "nyzajq": {
+    "defaultMessage": "Unlocking this challenge requires a total of {count, plural, one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}}.",
+    "description": "Confirmation text for unlocking a premium challenge"
+  },
   "o+1cag": {
     "defaultMessage": "Clear Console",
     "description": "Button label to clear the console in the coding workspace"
@@ -6858,6 +6858,10 @@
   "rH3Vfz": {
     "defaultMessage": "Ask any questions in community",
     "description": "Label for \"Ask any questions in community\" item in Expected Support section on Projects project page"
+  },
+  "rIxZsj": {
+    "defaultMessage": "This challenge can be unlocked without spending any credits because you have unlocked all pre-requisite challenges. Proceed to unlock challenge?",
+    "description": "Message about unlocking challenges"
   },
   "rNKP7U": {
     "defaultMessage": "<bold>You</bold> replied to <bold>yourself</bold> on the submission <link>{submissionTitle}</link>: <comment>\"{description}\"</comment>",

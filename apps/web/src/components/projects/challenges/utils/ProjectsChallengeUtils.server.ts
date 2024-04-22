@@ -7,7 +7,6 @@ import { readViewerFromToken } from '~/supabase/SupabaseServerGFE';
 export async function projectsChallengeCalculateTotalCreditsNeededForChallenge(
   slug: string,
   userParam?: Readonly<{
-    email: string; // User Email.
     id: string; // User ID.
   }> | null,
 ) {
@@ -41,15 +40,13 @@ export async function projectsChallengeCalculateTotalCreditsNeededForChallenge(
     (challengeSlug) => challengeMetadataDict[challengeSlug].baseCredits,
   );
 
-  // Filter out the free and unlocked challenges.
-  const challengesToUnlock = challengesInvolved.filter(
-    (challengeSlug) =>
-      !(
-        challengeMetadataDict[challengeSlug].access === 'free' ||
-        challengeMetadataDict[challengeSlug].baseCredits === 0 ||
-        challengeUnlockedSet.has(challengeSlug)
-      ),
-  );
+  const challengesToUnlock = challengesInvolved
+    // Filter out free challenges.
+    .filter(
+      (challengeSlug) => challengeMetadataDict[challengeSlug].access !== 'free',
+    )
+    // Filter out unlocked challenges.
+    .filter((challengeSlug) => !challengeUnlockedSet.has(challengeSlug));
 
   // Credits required taking into account unlocked challenges.
   const creditsRequired = sumBy(
