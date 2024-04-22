@@ -31,7 +31,7 @@ export default function ProjectsChallengeUnlockAccessDialog({
 
   return (
     <ConfirmationDialog
-      isConfirming={unlockAccessMutation.isLoading}
+      isLoading={unlockAccessMutation.isLoading}
       isShown={isShown}
       title={intl.formatMessage({
         defaultMessage: 'Unlock premium challenge',

@@ -225,7 +225,8 @@ export default function QuestionsLearningListTitleSection({
               </div>
               <ConfirmationDialog
                 confirmButtonVariant="danger"
-                isConfirming={stopSessionMutation.isLoading}
+                isDisabled={stopSessionMutation.isLoading}
+                isLoading={stopSessionMutation.isLoading}
                 isShown={showStopStudyPlanConfirmation}
                 title={intl.formatMessage({
                   defaultMessage: 'Stop session',
@@ -263,7 +264,8 @@ export default function QuestionsLearningListTitleSection({
                 />
               </ConfirmationDialog>
               <ConfirmationDialog
-                isConfirming={resetSessionProgressMutation.isLoading}
+                isDisabled={resetSessionProgressMutation.isLoading}
+                isLoading={resetSessionProgressMutation.isLoading}
                 isShown={showResetProgressConfirmation}
                 title={intl.formatMessage({
                   defaultMessage: 'Reset progress',

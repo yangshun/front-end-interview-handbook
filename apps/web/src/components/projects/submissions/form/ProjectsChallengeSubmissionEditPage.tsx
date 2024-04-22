@@ -160,7 +160,8 @@ export default function ProjectsChallengeSubmissionEditPage({
         </Section>
         <ConfirmationDialog
           confirmButtonVariant="danger"
-          isConfirming={deleteSubmissionMutation.isLoading}
+          isDisabled={deleteSubmissionMutation.isLoading}
+          isLoading={deleteSubmissionMutation.isLoading}
           isShown={showDeleteConfirmation}
           title={intl.formatMessage({
             defaultMessage: 'Confirm delete submission?',

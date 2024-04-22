@@ -33,7 +33,8 @@ export default function ProjectsDiscussionsCommentDeleteButton({
           id: 'WodcPq',
         })}
         confirmButtonVariant="danger"
-        isConfirming={deleteCommentMutation.isLoading}
+        isDisabled={deleteCommentMutation.isLoading}
+        isLoading={deleteCommentMutation.isLoading}
         isShown={dialogShown}
         title={intl.formatMessage({
           defaultMessage: 'Delete comment?',

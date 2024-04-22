@@ -83,7 +83,8 @@ export default function UserInterfaceCodingWorkspaceSavesListItemActions({
       </DropdownMenu>
       <ConfirmationDialog
         confirmButtonVariant="danger"
-        isConfirming={userInterfaceSaveDeleteMutation.isLoading}
+        isDisabled={userInterfaceSaveDeleteMutation.isLoading}
+        isLoading={userInterfaceSaveDeleteMutation.isLoading}
         isShown={isDeleting}
         title={`Delete "${saveName}"`}
         onCancel={() => {

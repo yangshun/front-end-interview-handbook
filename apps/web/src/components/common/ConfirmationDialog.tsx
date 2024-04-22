@@ -11,7 +11,8 @@ type Props = Readonly<{
   children?: ReactNode;
   confirmButtonLabel?: string;
   confirmButtonVariant?: ButtonVariant;
-  isConfirming?: boolean;
+  isDisabled?: boolean;
+  isLoading?: boolean;
   isShown: boolean;
   onCancel?: () => void;
   onConfirm: () => void;
@@ -23,7 +24,8 @@ export default function ConfirmationDialog({
   children,
   confirmButtonLabel,
   confirmButtonVariant = 'primary',
-  isConfirming = false,
+  isLoading = false,
+  isDisabled = false,
   isShown,
   onCancel,
   onConfirm,
@@ -37,8 +39,8 @@ export default function ConfirmationDialog({
       isShown={isShown}
       primaryButton={
         <Button
-          isDisabled={isConfirming}
-          isLoading={isConfirming}
+          isDisabled={isDisabled}
+          isLoading={isLoading}
           label={
             confirmButtonLabel ??
             intl.formatMessage({
@@ -54,7 +56,7 @@ export default function ConfirmationDialog({
       }
       secondaryButton={
         <Button
-          isDisabled={isConfirming}
+          isDisabled={isLoading}
           label={intl.formatMessage({
             defaultMessage: 'Cancel',
             description: 'Cancel button label in confirmation dialog',
