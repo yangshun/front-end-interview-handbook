@@ -1,0 +1,45 @@
+## Submit contact message API
+
+To test your contact section, we have provided a HTTP endpoint that will return success/error response depending on the request body:
+
+- Endpoint: https://www.greatfrontend.com/api/projects/challenges/contact
+- HTTP Method: `POST`
+- Content Type: `json`
+
+### Request
+
+All of the following fields should be present in the request body in order for the request to be successful.
+
+| Attribute | Type     | Description                 |
+| --------- | -------- | --------------------------- |
+| `name`    | `string` | Name of the sender          |
+| `email`   | `string` | Email address of the sender |
+| `message` | `string` | Message body                |
+
+### Response
+
+#### Success
+
+Success responses will have a HTTP status code of 200 and contain the `message` field in the response body.
+
+```json
+{
+  "message": "Submission successful! We will get back to you in 3-5 days via email."
+}
+```
+
+#### Error
+
+Error responses will have a HTTP status code of 400 or 500 and contain the `error` field in the response body.
+
+```json
+{
+  "error": "Message cannot be empty."
+}
+```
+
+### Example
+
+To test APIs, you're recommended to install the [Thunder Client for VS Code extension](https://www.thunderclient.com/), a lightweight REST client for testing APIs right within VS Code.
+
+![Contact API using Thunder Client](/img/projects/api/contact.png)
