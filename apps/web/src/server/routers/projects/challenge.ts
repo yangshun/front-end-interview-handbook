@@ -1,5 +1,3 @@
-import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
-import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { z } from 'zod';
 
 import ProjectsPremiumAccessControl from '~/components/projects/challenges/premium/ProjectsPremiumAccessControl';

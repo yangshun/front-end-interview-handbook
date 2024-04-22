@@ -1,5 +1,3 @@
-import type { ProjectsChallengeMetadata } from 'contentlayer/generated';
-import { allProjectsChallengeMetadata } from 'contentlayer/generated';
 import { sumBy } from 'lodash-es';
 
 import { readProjectsChallengeMetadataDict } from '~/db/projects/ProjectsReader';

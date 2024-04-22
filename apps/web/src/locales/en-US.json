@@ -811,6 +811,10 @@
     "defaultMessage": "Something went wrong. Try again later or contact <link>support@greatfrontend.com</link>!",
     "description": "Error toast for project"
   },
+  "5M4u9n": {
+    "defaultMessage": "You have <bold>{amountLeft}</bold> premium credits remaining. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions.",
+    "description": "Subtitle for project paywall"
+  },
   "5MW6Tr": {
     "defaultMessage": "Forum type",
     "description": "Label for forum type filter for contribution list"
@@ -1639,10 +1643,6 @@
     "defaultMessage": "Be part of our large community of passionate Front End Engineers across the world",
     "description": "Description of community page"
   },
-  "CWWOj5": {
-    "defaultMessage": "You will have {count, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} remaining after unlocking this challenge. Proceed to unlock challenge?",
-    "description": "Confirmation text for unlocking a premium challenge"
-  },
   "CXs8z4": {
     "defaultMessage": "Practice Front End Quiz Interview Questions With Solutions",
     "description": "Title of Interview Preparation Quiz page"
@@ -1882,6 +1882,10 @@
   "ECkWMR": {
     "defaultMessage": "Stop session",
     "description": "Label to stop study plan"
+  },
+  "ECyY7k": {
+    "defaultMessage": "You have unlocked all pre-requisite challenges, so this challenge can be unlocked without spending any credits. Proceed to unlock challenge?",
+    "description": "Message about unlocking challenges"
   },
   "EHPx/Z": {
     "defaultMessage": "Solving Common Questions",
@@ -3403,6 +3407,10 @@
     "defaultMessage": "No coupons available",
     "description": "Title of empty state on coupons page"
   },
+  "QAo9q9": {
+    "defaultMessage": "You will have {countRemaining, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} remaining after unlocking this challenge. Proceed to unlock challenge?",
+    "description": "Confirmation text for unlocking a premium challenge"
+  },
   "QHtJPS": {
     "defaultMessage": "Practice end-to-end",
     "description": "Practice questions for all stages"
@@ -3510,6 +3518,10 @@
   "QwEkIl": {
     "defaultMessage": "Guides",
     "description": "Projects guides"
+  },
+  "QwzkgH": {
+    "defaultMessage": "The following pre-requisite challenges will be unlocked at the same time:",
+    "description": "Confirmation text for unlocking a premium challenge"
   },
   "QxlS4d": {
     "defaultMessage": "Difficulty: Hard to Easy",
@@ -4851,6 +4863,10 @@
     "defaultMessage": "Composable themes",
     "description": "Title for \"Composable themes\" feature on Projects home page"
   },
+  "bT5MuR": {
+    "defaultMessage": "Insufficient credits",
+    "description": "Title for unlocking a premium challenge"
+  },
   "bWymcE": {
     "defaultMessage": "Guide to preparing for Front End-focused System Design questions in front end / web developer interviews",
     "description": "Front end system design guidebook description"
@@ -4974,10 +4990,6 @@
   "cZVPou": {
     "defaultMessage": "HTML",
     "description": "Label for HTML language"
-  },
-  "cdmGUV": {
-    "defaultMessage": "Unlock premium challenge",
-    "description": "Label to unlock a premium project"
   },
   "cgIBe4": {
     "defaultMessage": "Review must be at least {wordCount} words long or a video of at least {videoDurationInSeconds}s.",
@@ -5174,10 +5186,6 @@
   "eC4GRM": {
     "defaultMessage": "Filter user submissions by whether you have completed their corresponding challenges",
     "description": "Tooltip for Status filter for projects list"
-  },
-  "eF5lt/": {
-    "defaultMessage": "You have <bold>{amountLeft}</bold>/{totalAmount} premium credits remaining. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions.",
-    "description": "Subtitle for project paywall"
   },
   "eG2r74": {
     "defaultMessage": "Build an entire library of {trackName} components from scratch. Use it for your portfolio, or as a component toolkit for future projects",
@@ -5382,6 +5390,10 @@
   "fmPah2": {
     "defaultMessage": "on your first order amount",
     "description": "GFE discount"
+  },
+  "fpNb/O": {
+    "defaultMessage": "Unlocking this challenge requires {count, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}}.",
+    "description": "Confirmation text for unlocking a premium challenge"
   },
   "frl+Af": {
     "defaultMessage": "Prev",
@@ -6267,6 +6279,10 @@
     "defaultMessage": "Find out more about the team who built GreatFrontEnd and why we did it",
     "description": "Description of About Us page"
   },
+  "mtMKkm": {
+    "defaultMessage": "Unlocking this challenge requires {countRequired, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} but you only have {countAvailable, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} available.",
+    "description": "Confirmation text for unlocking a premium challenge"
+  },
   "mukCc2": {
     "defaultMessage": "Add",
     "description": "Add a URL to a form"
@@ -6602,6 +6618,10 @@
   "pRxRs2": {
     "defaultMessage": "Hear from our users",
     "description": "Title of testimonials section"
+  },
+  "pSJKPJ": {
+    "defaultMessage": "Unlock premium challenge",
+    "description": "Title for unlocking a premium challenge"
   },
   "pWwyKQ": {
     "defaultMessage": "You're about to open a link:",
