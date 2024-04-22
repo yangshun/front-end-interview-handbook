@@ -6,11 +6,13 @@
   "baseCredits": 0,
   "preReqs": [
     "navbar-component",
-    "pricing-section-tiers",
-    "faq-section",
-    "features-section-grid",
-    "testimonials-section",
-    "contact-section",
+    "about-us-page",
+    "contact-us-page",
+    "features-page",
+    "marketing-landing-page",
+    "pricing-page",
+    "404-page",
+    "cookie-consent",
     "footer-section-simple"
   ],
   "pointsBase": 500,

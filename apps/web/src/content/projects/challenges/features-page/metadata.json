@@ -7,8 +7,8 @@
   "preReqs": [
     "navbar-component",
     "hero-section-feature-bullets",
-    "feature-section-grid",
-    "feature-section-side-image",
+    "features-section-grid",
+    "features-section-side-image",
     "testimonials-section",
     "faq-section",
     "contact-section",
