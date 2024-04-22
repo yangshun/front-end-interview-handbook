@@ -123,27 +123,18 @@ function DownloadSection({
 
 function UnlockSection({
   credits = 0,
-  creditsAtStartOfCycle = 0,
-  plan = null,
   placement,
   slug,
 }: Readonly<{
   credits?: number;
-  creditsAtStartOfCycle?: number;
   placement: Placement;
-  plan?: ProjectsSubscriptionPlan | null;
   slug: string;
 }>) {
   const intl = useIntl();
   const [unlockDialogShown, setUnlockDialogShown] = useState(false);
   const [unlockDialogShown2, setUnlockDialogShown2] = useState(false);
 
-  const subtitle = useProjectsChallengePaywallSubtitle(
-    'UNLOCK',
-    credits,
-    creditsAtStartOfCycle,
-    plan,
-  );
+  const subtitle = useProjectsChallengePaywallSubtitle('UNLOCK', credits);
 
   return (
     <div
@@ -285,12 +276,10 @@ function SubscribeSection({
 function ResubscribeSection({
   access,
   credits = 0,
-  creditsAtStartOfCycle = 0,
   placement,
 }: Readonly<{
   access: ProjectsPremiumAccessControlType;
   credits?: number;
-  creditsAtStartOfCycle?: number;
   placement: Placement;
 }>) {
   const intl = useIntl();
@@ -299,12 +288,7 @@ function ResubscribeSection({
     description: 'Unlock premium access for a project',
     id: 'eWwVqI',
   });
-  const subtitle = useProjectsChallengePaywallSubtitle(
-    access,
-    credits,
-    creditsAtStartOfCycle,
-    null,
-  );
+  const subtitle = useProjectsChallengePaywallSubtitle(access, credits);
 
   return (
     <div
@@ -423,7 +407,6 @@ export default function ProjectsChallengeFigmaDesignPaywall({
         <UnlockSection
           credits={viewerProjectsProfile?.credits}
           placement={placement}
-          plan={viewerProjectsProfile?.plan}
           slug={challengeMetadata.slug}
         />
       );

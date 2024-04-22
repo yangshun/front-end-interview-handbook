@@ -44,8 +44,6 @@ export function useProjectsChallengePaywallTitle(
 export function useProjectsChallengePaywallSubtitle(
   access: ProjectsPremiumAccessControlType,
   credits = 0,
-  creditsAtStartOfCycle = 0,
-  plan: ProjectsSubscriptionPlan | null = null,
 ) {
   const intl = useIntl();
 
@@ -80,17 +78,12 @@ export function useProjectsChallengePaywallSubtitle(
     case 'UNLOCK':
       return (
         <FormattedMessage
-          defaultMessage="You have <bold>{amountLeft}</bold>/{totalAmount} premium credits remaining. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions."
+          defaultMessage="You have <bold>{amountLeft}</bold> premium credits remaining. Unlock this project to access all premium features for this challenge, including the Figma design files, official guides, and solutions."
           description="Subtitle for project paywall"
-          id="eF5lt/"
+          id="5M4u9n"
           values={{
             amountLeft: credits,
             bold: (chunks) => <Text weight="bold">{chunks}</Text>,
-            totalAmount: Math.max(
-              creditsAtStartOfCycle,
-              credits,
-              projectsPaidPlanFeatures[plan!]?.credits || 0,
-            ),
           }}
         />
       );
