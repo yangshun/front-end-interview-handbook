@@ -1411,6 +1411,10 @@
     "defaultMessage": "<bold>{completedQuestions}</bold>/{totalQuestions} completed",
     "description": "Line describing the number of questions completed by user over the total number of questions"
   },
+  "ADJi+V": {
+    "defaultMessage": "Proceed to unlock challenge?",
+    "description": "Confirmation text for unlocking a premium challenge"
+  },
   "AEDpDO": {
     "defaultMessage": "The company you currently work at. This information can be made private on more sensitive products like interviews.",
     "description": "Description for \"Company\" input on Projects profile onboarding page"
@@ -3422,10 +3426,6 @@
   "QAFkOT": {
     "defaultMessage": "No coupons available",
     "description": "Title of empty state on coupons page"
-  },
-  "QAo9q9": {
-    "defaultMessage": "You will have {countRemaining, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} remaining after unlocking this challenge. Proceed to unlock challenge?",
-    "description": "Confirmation text for unlocking a premium challenge"
   },
   "QHtJPS": {
     "defaultMessage": "Practice end-to-end",
@@ -6990,6 +6990,10 @@
   "saFHOR": {
     "defaultMessage": "Learn new skills, improve your techniques and stay updated on latest front end trends and developments.",
     "description": "Description of GreatFrontEnd blog homepage"
+  },
+  "sdLEml": {
+    "defaultMessage": "You will have {countRemaining, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} remaining after unlocking this challenge.",
+    "description": "Confirmation text for unlocking a premium challenge"
   },
   "sfJ1Oa": {
     "defaultMessage": "Purchase premium to get access to all component tracks as well as exclusive skills, official how-to guides and production-ready Figma files.",

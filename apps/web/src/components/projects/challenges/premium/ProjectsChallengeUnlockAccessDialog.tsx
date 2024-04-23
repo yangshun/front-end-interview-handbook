@@ -188,13 +188,20 @@ export default function ProjectsChallengeUnlockAccessDialog({
               )}
               <Text className="block">
                 <FormattedMessage
-                  defaultMessage="You will have {countRemaining, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} remaining after unlocking this challenge. Proceed to unlock challenge?"
+                  defaultMessage="You will have {countRemaining, plural, =0 {no premium credits} one {<bold>1</bold> premium credit} other {<bold>#</bold> premium credits}} remaining after unlocking this challenge."
                   description="Confirmation text for unlocking a premium challenge"
-                  id="QAo9q9"
+                  id="sdLEml"
                   values={{
                     bold: (chunks) => <Text weight="medium">{chunks}</Text>,
                     countRemaining: credits - data?.creditsRequired,
                   }}
+                />
+              </Text>
+              <Text className="block">
+                <FormattedMessage
+                  defaultMessage="Proceed to unlock challenge?"
+                  description="Confirmation text for unlocking a premium challenge"
+                  id="ADJi+V"
                 />
               </Text>
             </div>
