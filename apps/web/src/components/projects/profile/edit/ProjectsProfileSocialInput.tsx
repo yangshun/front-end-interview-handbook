@@ -5,13 +5,10 @@ import ProjectsChallengeReputationTag from '~/components/projects/challenges/met
 import ProjectsProfileGithubInput from './ProjectsProfileGithubInput';
 import ProjectsProfileLinkedInInput from './ProjectsProfileLinkedInInput';
 import ProjectsProfileWebsiteInput from './ProjectsProfileWebsiteInput';
-import type { ProjectsOnboardingProfileStep2FormValues } from '../../onboarding/ProjectsOnboardingProfileStep2';
 import { ProjectsReputationPointsConfig } from '../../reputation/ProjectsReputationPointsConfig';
 import type { ProjectsProfileEditFormValues } from '../../types';
 
-type Values =
-  | ProjectsOnboardingProfileStep2FormValues
-  | ProjectsProfileEditFormValues;
+type Values = ProjectsProfileEditFormValues;
 
 type Props = Readonly<{
   control: Control<Values>;

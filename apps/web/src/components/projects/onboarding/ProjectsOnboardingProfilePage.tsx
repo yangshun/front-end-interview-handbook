@@ -1,46 +1,21 @@
 'use client';
 
-import React, { useState } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
+import { useSearchParams } from 'next/navigation';
+import { FormattedMessage } from 'react-intl';
 
 import Container from '~/components/ui/Container';
 import Heading from '~/components/ui/Heading';
 import Section from '~/components/ui/Heading/HeadingContext';
-import TabsUnderline from '~/components/ui/Tabs/TabsUnderline';
 import Text from '~/components/ui/Text';
 
+import { useI18nRouter } from '~/next-i18nostic/src';
+
 import ProjectsOnboardingProfileStep1 from './ProjectsOnboardingProfileStep1';
-import ProjectsOnboardingProfileStep2 from './ProjectsOnboardingProfileStep2';
-
-function useTabs() {
-  const intl = useIntl();
-
-  const tabs = [
-    {
-      label: intl.formatMessage({
-        defaultMessage: 'Step 1',
-        description: 'Step 1 of onboarding process',
-        id: 'oF/Vtk',
-      }),
-      value: 'step-1',
-    },
-    {
-      label: intl.formatMessage({
-        defaultMessage: 'Step 2 (optional)',
-        description: 'Step 2 of onboarding process',
-        id: 'X154OD',
-      }),
-      value: 'step-2',
-    },
-  ];
-
-  return tabs;
-}
 
 export default function ProjectsOnboardingProfilePage() {
-  const tabs = useTabs();
-  const [tab, setTab] = useState<(typeof tabs)[number]['value']>('step-1');
-  const intl = useIntl();
+  const router = useI18nRouter();
+  const searchParams = useSearchParams();
+  const nextPathname = searchParams?.get('next') || '/projects/challenges';
 
   return (
     <main>
@@ -64,28 +39,11 @@ export default function ProjectsOnboardingProfilePage() {
           </Text>
         </div>
         <Section>
-          <div className="flex flex-col gap-8">
-            <TabsUnderline
-              alignment="stretch"
-              label={intl.formatMessage({
-                defaultMessage: 'Select step',
-                description:
-                  'Label for tabs to select step in Projects profile onboarding page',
-                id: 'n76no0',
-              })}
-              tabs={tabs}
-              value={tab}
-              onSelect={setTab}
-            />
-            {tab === 'step-1' && (
-              <ProjectsOnboardingProfileStep1
-                onFinish={() => {
-                  setTab('step-2');
-                }}
-              />
-            )}
-            {tab === 'step-2' && <ProjectsOnboardingProfileStep2 />}
-          </div>
+          <ProjectsOnboardingProfileStep1
+            onFinish={() => {
+              router.push(nextPathname);
+            }}
+          />
         </Section>
       </Container>
     </main>

@@ -5,12 +5,9 @@ import { useIntl } from 'react-intl';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import Anchor from '~/components/ui/Anchor';
 
-import type { ProjectsOnboardingProfileStep2FormValues } from '../../onboarding/ProjectsOnboardingProfileStep2';
 import ProjectsSkillTechStackInput from '../../skills/form/ProjectsSkillTechStackInput';
 
-type Values =
-  | ProjectsOnboardingProfileStep2FormValues
-  | ProjectsProfileEditFormValues;
+type Values = ProjectsProfileEditFormValues;
 
 type Props = Readonly<{
   control: Control<Values>;

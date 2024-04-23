@@ -292,69 +292,6 @@ export const projectsProfileRouter = router({
       },
     });
   }),
-  onboardingStep2Update: userProcedure
-    .input(
-      z.object({
-        bio: projectsProfileBioSchemaServer,
-        githubUsername: useProjectsProfileGitHubSchemaServer,
-        linkedInUsername: useProjectsProfileLinkedInSchemaServer,
-        skillsProficient: projectsSkillListInputOptionalSchemaServer,
-        skillsToGrow: projectsSkillListInputOptionalSchemaServer,
-        website: projectsProfileWebsiteSchemaServer,
-      }),
-    )
-    .mutation(
-      async ({
-        input: {
-          bio,
-          githubUsername,
-          linkedInUsername,
-          website,
-          skillsProficient,
-          skillsToGrow,
-        },
-        ctx: { viewer, req },
-      }) => {
-        const projectsProfileFields = {
-          skillsProficient,
-          skillsToGrow,
-        };
-
-        const result = await prisma.profile.update({
-          data: {
-            bio,
-            githubUsername,
-            linkedInUsername,
-            projectsProfile: {
-              upsert: {
-                create: projectsProfileFields,
-                update: projectsProfileFields,
-              },
-            },
-            website,
-          },
-          select: {
-            projectsProfile: {
-              select: {
-                id: true,
-              },
-            },
-          },
-          where: {
-            id: viewer.id,
-          },
-        });
-
-        if (result) {
-          fetchProjectsProfileRecalculatePoints(
-            req,
-            result.projectsProfile?.id,
-          );
-        }
-
-        return result;
-      },
-    ),
   update: projectsUserProcedure
     .input(
       z

@@ -6,12 +6,9 @@ import Heading from '~/components/ui/Heading';
 
 import ProjectsProfileSkillsProficientInput from './ProjectsProfileSkillsProficientInput';
 import ProjectsProfileSkillsToImproveInput from './ProjectsProfileSkillsToImproveInput';
-import type { ProjectsOnboardingProfileStep2FormValues } from '../../onboarding/ProjectsOnboardingProfileStep2';
 
 // TODO(projects): remove onboarding type from this union.
-type Values =
-  | ProjectsOnboardingProfileStep2FormValues
-  | ProjectsProfileEditFormValues;
+type Values = ProjectsProfileEditFormValues;
 
 export default function ProjectsProfileSkillSection() {
   const { control } = useFormContext<Values>();

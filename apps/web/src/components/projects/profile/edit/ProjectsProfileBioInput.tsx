@@ -2,15 +2,12 @@ import type { Control } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
 import { useIntl } from 'react-intl';
 
-import type { ProjectsOnboardingProfileStep2FormValues } from '~/components/projects/onboarding/ProjectsOnboardingProfileStep2';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import TextArea from '~/components/ui/TextArea';
 
 import { getProjectsProfileBioAttrs } from '../fields/ProjectsProfileBioSchema';
 
-type Values =
-  | ProjectsOnboardingProfileStep2FormValues
-  | ProjectsProfileEditFormValues;
+type Values = ProjectsProfileEditFormValues;
 
 type Props = Readonly<{
   control: Control<Values>;

@@ -9,11 +9,7 @@ import Heading from '~/components/ui/Heading';
 import { themeTextFaintColor } from '~/components/ui/theme';
 import Tooltip from '~/components/ui/Tooltip';
 
-import type { ProjectsOnboardingProfileStep2FormValues } from '../../onboarding/ProjectsOnboardingProfileStep2';
-
-type Values =
-  | ProjectsOnboardingProfileStep2FormValues
-  | ProjectsProfileEditFormValues;
+type Values = ProjectsProfileEditFormValues;
 
 export default function ProjectsProfileSocialSection() {
   const intl = useIntl();

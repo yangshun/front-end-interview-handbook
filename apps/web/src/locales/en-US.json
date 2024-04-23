@@ -1971,10 +1971,6 @@
     "defaultMessage": "Resubscribe to unlock",
     "description": "Title for a premium project paywall"
   },
-  "EyErSi": {
-    "defaultMessage": "Skills",
-    "description": "Section title for user onboarding form"
-  },
   "F+dxo7": {
     "defaultMessage": "Recommended focus areas",
     "description": "Title of recommended focus areas section on preparation page"
@@ -4343,10 +4339,6 @@
     "defaultMessage": "Skills is required.",
     "description": "Error message"
   },
-  "X154OD": {
-    "defaultMessage": "Step 2 (optional)",
-    "description": "Step 2 of onboarding process"
-  },
   "X1UVMv": {
     "defaultMessage": "We add more questions and guides from time to time, available for free to premium subscribers.",
     "description": "Subtitle for free continuous updates feature"
@@ -4554,10 +4546,6 @@
   "Yezbh0": {
     "defaultMessage": "Level up in your skills or complete component track",
     "description": "Description for \"Level up in your skills or complete component track\" feature on Projects home page"
-  },
-  "YgydxS": {
-    "defaultMessage": "Bio & social links",
-    "description": "Label for Social Links section of Projects profile onboarding page"
   },
   "YpJ3q8": {
     "defaultMessage": "Reply to comment",
@@ -5403,10 +5391,6 @@
     "defaultMessage": "Prev",
     "description": "Label for button leading to the previous page"
   },
-  "fs9YFE": {
-    "defaultMessage": "Skip for now",
-    "description": "Label for \"Skip for now\" button on Projects profile onboarding page"
-  },
   "ft4ubO": {
     "defaultMessage": "You won't find the same depth or quality elsewhere.",
     "description": "Subtitle of the 'Features' marketing section on Homepage"
@@ -5646,10 +5630,6 @@
   "i9ojv3": {
     "defaultMessage": "All filters",
     "description": "Label for All Filters button for projects list"
-  },
-  "iBfH9v": {
-    "defaultMessage": "Get started",
-    "description": "Label for Get Started button on Projects profile onboarding page"
   },
   "iCRUOb": {
     "defaultMessage": "Answering \"Why Work Here\"",
@@ -6327,10 +6307,6 @@
     "defaultMessage": "Theme",
     "description": "Change site theme button label"
   },
-  "n76no0": {
-    "defaultMessage": "Select step",
-    "description": "Label for tabs to select step in Projects profile onboarding page"
-  },
   "n9Ii7+": {
     "defaultMessage": "System Design",
     "description": "Label for system design questions"
@@ -6434,10 +6410,6 @@
   "oC86Nx": {
     "defaultMessage": "Views on submissions",
     "description": "Number of views on the project submissions"
-  },
-  "oF/Vtk": {
-    "defaultMessage": "Step 1",
-    "description": "Step 1 of onboarding process"
   },
   "oFz9cs": {
     "defaultMessage": "{commentCount, plural, =0 {No comments} one {# comment} other {# comments}}",

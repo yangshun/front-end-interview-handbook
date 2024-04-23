@@ -3,14 +3,11 @@ import { Controller } from 'react-hook-form';
 import { RiGlobalLine } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
 
-import type { ProjectsOnboardingProfileStep2FormValues } from '~/components/projects/onboarding/ProjectsOnboardingProfileStep2';
 import { getProjectsProfileWebsiteAttributes } from '~/components/projects/profile/fields/ProjectsProfileWebsiteSchema';
 import type { ProjectsProfileEditFormValues } from '~/components/projects/types';
 import TextInput from '~/components/ui/TextInput';
 
-type Values =
-  | ProjectsOnboardingProfileStep2FormValues
-  | ProjectsProfileEditFormValues;
+type Values = ProjectsProfileEditFormValues;
 
 type Props = Readonly<{
   control: Control<Values>;
