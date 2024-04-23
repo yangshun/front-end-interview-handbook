@@ -15,9 +15,16 @@ import Divider from '~/components/ui/Divider';
 import Heading from '~/components/ui/Heading';
 import SlideOut from '~/components/ui/SlideOut';
 
+import ProjectsChallengeGuidePaywall from '../premium/ProjectsChallengeGuidePaywall';
+import type { ProjectsPremiumAccessControlType } from '../premium/ProjectsPremiumAccessControl';
+import type { ProjectsViewerProjectsProfile } from '../../types';
+
 type Props = Readonly<{
   challengeGuide: ProjectsChallengeGuide | null;
   commonGuides: ReadonlyArray<ProjectsCommonGuide>;
+  slug: string;
+  viewerGuidesAccess: ProjectsPremiumAccessControlType;
+  viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 
 const CHALLENGE_GUIDE_SLUG = 'challenge-guide';
@@ -25,6 +32,9 @@ const CHALLENGE_GUIDE_SLUG = 'challenge-guide';
 export default function ProjectsChallengeGuideSection({
   challengeGuide,
   commonGuides,
+  slug,
+  viewerGuidesAccess,
+  viewerProjectsProfile,
 }: Props) {
   const intl = useIntl();
   const guideRef: React.RefObject<HTMLDivElement> = useRef(null);
@@ -33,6 +43,11 @@ export default function ProjectsChallengeGuideSection({
     challengeGuide ? CHALLENGE_GUIDE_SLUG : commonGuides[0].slug,
   );
   const [isLeftSidebarOpen, setIsLeftSidebarOpen] = useState(false);
+
+  const showPaywall =
+    activeGuideSlug === CHALLENGE_GUIDE_SLUG &&
+    viewerGuidesAccess !== 'UNLOCKED' &&
+    viewerGuidesAccess !== 'ACCESSIBLE_TO_EVERYONE';
 
   const challengeGuides = challengeGuide
     ? [
@@ -168,11 +183,18 @@ export default function ProjectsChallengeGuideSection({
           projectGuide?.title && (
             <Heading level="heading4">{projectGuide?.title}</Heading>
           )}
-        {projectGuide != null && (
-          <div className="pt-2">
-            <ProjectsChallengeMdxContent mdxCode={projectGuide.body.code} />
-          </div>
-        )}
+        {projectGuide != null &&
+          (showPaywall ? (
+            <ProjectsChallengeGuidePaywall
+              slug={slug}
+              viewerGuideAccess={viewerGuidesAccess}
+              viewerProjectsProfile={viewerProjectsProfile}
+            />
+          ) : (
+            <div className="pt-2">
+              <ProjectsChallengeMdxContent mdxCode={projectGuide.body.code} />
+            </div>
+          ))}
         <Divider />
         <ArticlePagination
           activeItem={activeGuideSlug}

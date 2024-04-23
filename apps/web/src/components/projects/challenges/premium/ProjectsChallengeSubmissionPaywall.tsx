@@ -29,6 +29,7 @@ export default function ProjectsChallengeSubmissionPaywall({
   return (
     <ProjectsPremiumPaywall
       credits={credits}
+      size="lg"
       slug={slug}
       subtitle={subtitle}
       title={title!}

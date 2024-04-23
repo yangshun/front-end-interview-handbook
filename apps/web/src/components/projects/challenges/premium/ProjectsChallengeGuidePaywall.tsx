@@ -1,3 +1,8 @@
+import clsx from 'clsx';
+import { RiLockLine } from 'react-icons/ri';
+
+import { themeBorderColor, themeTextSubtleColor } from '~/components/ui/theme';
+
 import type { ProjectsPremiumAccessControlType } from './ProjectsPremiumAccessControl';
 import ProjectsPremiumPaywall from './ProjectsPremiumPaywall';
 import {
@@ -8,12 +13,12 @@ import type { ProjectsViewerProjectsProfile } from '../../types';
 
 type Props = Readonly<{
   slug: string;
-  viewerContentAccess: ProjectsPremiumAccessControlType;
+  viewerGuideAccess: ProjectsPremiumAccessControlType;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
 }>;
 
-export default function ProjectsChallengeContentPaywall({
-  viewerContentAccess,
+export default function ProjectsChallengeGuidePaywall({
+  viewerGuideAccess: viewerContentAccess,
   viewerProjectsProfile,
   slug,
 }: Props) {
@@ -25,13 +30,21 @@ export default function ProjectsChallengeContentPaywall({
   );
 
   return (
-    <ProjectsPremiumPaywall
-      credits={credits}
-      size="lg"
-      slug={slug}
-      subtitle={subtitle}
-      title={title!}
-      viewerContentAccess={viewerContentAccess}
-    />
+    <div className={clsx('rounded-md p-12', ['border', themeBorderColor])}>
+      <ProjectsPremiumPaywall
+        credits={credits}
+        icon={
+          <RiLockLine
+            aria-hidden={true}
+            className={clsx('size-10 shrink-0', themeTextSubtleColor)}
+          />
+        }
+        size="md"
+        slug={slug}
+        subtitle={subtitle}
+        title={title!}
+        viewerContentAccess={viewerContentAccess}
+      />
+    </div>
   );
 }

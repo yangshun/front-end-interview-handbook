@@ -15,6 +15,7 @@ export type ProjectsPremiumAccessControlFields = Readonly<{
   downloadFigma: ProjectsPremiumAccessControlType;
   downloadStarterFiles: ProjectsPremiumAccessControlType;
   viewChallenge: ProjectsPremiumAccessControlType;
+  viewGuides: ProjectsPremiumAccessControlType;
   viewSubmission: ProjectsPremiumAccessControlType;
 }>;
 
@@ -28,6 +29,7 @@ export default function ProjectsPremiumAccessControl(
       downloadFigma: 'ACCESSIBLE_TO_EVERYONE',
       downloadStarterFiles: 'ACCESSIBLE_TO_EVERYONE',
       viewChallenge: 'ACCESSIBLE_TO_EVERYONE',
+      viewGuides: 'ACCESSIBLE_TO_EVERYONE',
       viewSubmission: 'ACCESSIBLE_TO_EVERYONE',
     };
   }
@@ -60,14 +62,17 @@ export default function ProjectsPremiumAccessControl(
       downloadFigma: viewerAccess,
       downloadStarterFiles: 'ACCESSIBLE_TO_EVERYONE',
       viewChallenge: 'ACCESSIBLE_TO_EVERYONE',
+      viewGuides: viewerAccess,
       viewSubmission: 'ACCESSIBLE_TO_EVERYONE',
     };
   }
 
+  // Premium challenges.
   return {
     downloadFigma: viewerAccess,
     downloadStarterFiles: viewerAccess,
     viewChallenge: viewerAccess,
+    viewGuides: viewerAccess,
     viewSubmission: viewerAccess,
   };
 }

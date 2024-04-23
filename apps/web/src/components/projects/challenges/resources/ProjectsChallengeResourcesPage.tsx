@@ -152,6 +152,9 @@ export default function ProjectsChallengeResourcesPage({
               <ProjectsChallengeGuideSection
                 challengeGuide={challengeGuide}
                 commonGuides={commonGuides}
+                slug={challenge.metadata.slug}
+                viewerGuidesAccess={viewerAccess.viewGuides}
+                viewerProjectsProfile={viewerProjectsProfile}
               />
             ) : (
               tipsResourcesDiscussionsTab === 'references' && (

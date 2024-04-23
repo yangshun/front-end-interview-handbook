@@ -51,6 +51,8 @@ function UnlockButton({
 
 type Props = Readonly<{
   credits: number;
+  icon?: ReactNode;
+  size: 'lg' | 'md';
   slug: string;
   subtitle: ReactNode;
   title: string;
@@ -59,6 +61,8 @@ type Props = Readonly<{
 
 export default function ProjectsPremiumPaywall({
   credits,
+  icon,
+  size,
   slug,
   subtitle,
   title,
@@ -96,13 +100,36 @@ export default function ProjectsPremiumPaywall({
   })();
 
   return (
-    <div className={clsx('mx-auto max-w-xl', 'text-center')}>
-      <Heading className="text-pretty" level="heading5">
-        {title}
-      </Heading>
-      <Text className="text-pretty mt-4 block" color="subtitle" size="body1">
-        {subtitle}
-      </Text>
+    <div
+      className={clsx(
+        'flex flex-col items-center gap-4',
+        'mx-auto max-w-xl',
+        'text-center',
+      )}>
+      {icon}
+      {size === 'lg' ? (
+        <div className="flex flex-col gap-4">
+          <Heading className="text-pretty" level="heading5">
+            {title}
+          </Heading>
+          <Text
+            className="text-pretty mt-4 block"
+            color="subtitle"
+            size="body1">
+            {subtitle}
+          </Text>
+        </div>
+      ) : (
+        <div className="flex flex-col gap-1">
+          <Text className="text-pretty block" size="body1" weight="medium">
+            {title}
+          </Text>
+          <Text className="text-pretty block" color="secondary" size="body2">
+            {subtitle}
+          </Text>
+        </div>
+      )}
+
       {action && <div className="mt-7">{action}</div>}
     </div>
   );
