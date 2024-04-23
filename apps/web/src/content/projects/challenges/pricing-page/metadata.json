@@ -38,9 +38,9 @@
       {
         "label": "main",
         "images": {
-          "desktop": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/todo-replace-me/specs/Desktop.jpg",
-          "tablet": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/todo-replace-me/specs/Tablet.jpg",
-          "mobile": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/todo-replace-me/specs/Mobile.jpg"
+          "desktop": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/pricing-page/specs/Desktop.jpg",
+          "tablet": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/pricing-page/specs/Tablet.jpg",
+          "mobile": "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/render/image/public/projects-images/pricing-page/specs/Mobile.jpg"
         }
       }
     ]
