@@ -2,6 +2,6 @@
   "title": "Hero Section (Feature bullets)",
   "description": "Build a responsive, minimal hero section which includes an image and a few bullet points for key features",
   "specLabels": {
-    "main": "Main page"
+    "main": "Hero section"
   }
 }

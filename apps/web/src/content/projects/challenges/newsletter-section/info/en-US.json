@@ -2,6 +2,6 @@
   "title": "Newsletter Section",
   "description": "Build a responsive newsletter subscription section with both client-side and server-side validation",
   "specLabels": {
-    "main": "Main page"
+    "main": "Newsletter section"
   }
 }

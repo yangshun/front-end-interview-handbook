@@ -2,6 +2,6 @@
   "title": "Blog Card",
   "description": "Build a simple blog card displaying details of a blog article",
   "specLabels": {
-    "main": "Main page"
+    "main": "Blog card"
   }
 }

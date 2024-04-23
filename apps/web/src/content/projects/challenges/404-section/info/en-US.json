@@ -2,6 +2,6 @@
   "title": "404 Section",
   "description": "Build a responsive and minimal 404 section to indicate that a requested page was not found",
   "specLabels": {
-    "main": "Main page"
+    "main": "404 Section"
   }
 }

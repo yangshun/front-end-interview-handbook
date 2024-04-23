@@ -2,6 +2,6 @@
   "title": "Badge Component",
   "description": "Build a badge component that can be used for displaying numbers and short text",
   "specLabels": {
-    "main": "Main page"
+    "main": "Badge component"
   }
 }

@@ -2,6 +2,6 @@
   "title": "Text Input Component",
   "description": "Build a text input component used for collecting user input",
   "specLabels": {
-    "main": "Main page"
+    "main": "Text input component"
   }
 }

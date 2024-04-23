@@ -2,6 +2,6 @@
   "title": "Cookie Consent",
   "description": "Build a responsive cookie banner and preferences dialog backed by a cookie consent management system",
   "specLabels": {
-    "main": "Main page"
+    "main": "Cookie consent"
   }
 }

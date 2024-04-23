@@ -2,6 +2,6 @@
   "title": "Profile Card",
   "description": "Build a simple profile card featuring a user's basic information and links to their social media profiles",
   "specLabels": {
-    "main": "Main page"
+    "main": "Profile card"
   }
 }

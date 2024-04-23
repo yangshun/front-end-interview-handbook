@@ -2,6 +2,6 @@
   "title": "Button Component",
   "description": "Build a button component capable of showing different states, sizes and icon configurations",
   "specLabels": {
-    "main": "Main page"
+    "main": "Button component"
   }
 }
