@@ -1,0 +1,189 @@
+---
+title: Image Performance Techniques
+description: Improve your website's speed and user experience through these image performance techniques.
+imageUrl: /img/blog/image-performance.jpg
+tags:
+  - resources
+level: starter
+createdAt: 2024-04-22
+published: false
+author: blog/author/feilin.json
+category: blog/category/real-world-front-end.json
+---
+
+Other than front end performance techniques, image performance is also crucial in developing a web application, especially if your website contains a lot of them. This article contains multiple ways we can do to make image loading more efficient and thus, reduce the time needed to display.
+
+## Content Delivery Network
+
+Content delivery network (CDN) saves a copy of our web content on many servers around the world. This is to allow content to be delivered to users from their nearest server.
+
+### Benefits
+
+- Reduce latency
+- Enhance reliability and scalability
+
+### Implementation
+
+1. Choose a CDN provider.
+2. Set up the CDN by pointing it to the website's static content ie. images.
+3. Update to show images from the CDN's URLs.
+
+### Resources
+
+- [What is a CDN (Content Delivery Network)? | AWS](https://aws.amazon.com/what-is/cdn/)
+- [What is a content delivery network (CDN)? How do CDNs work? | Cloudflare](https://www.cloudflare.com/learning/cdn/what-is-a-cdn/)
+
+## Optimal Image Formats
+
+Having optimal image formats, such as WebP or AVIF, can reduce sizes while maintaining quality. These formats use advanced compression techniques, making web pages load faster.
+
+### Benefits
+
+- Reduce image sizes significantly
+- Maintain high quality
+
+### Implementation
+
+1. Convert the images to modern formats like WebP or AVIF using conversion tools.
+2. Use `<picture>` to provide multiple sources in different formats, letting the browser choose the most compatible and efficient one.
+
+### Resources
+
+- [Which is the Best Image Format for Your Website? | ImageKit](https://imagekit.io/blog/best-image-format-for-web/)
+- [13 Best Image Formats and When to Use Them | Hostinger](https://www.hostinger.com/tutorials/best-image-formats)
+
+## Responsive Images
+
+To have responsive images, where images adjust their own size to the current display size, we can provide multiple sources for the image, allowing the browser to select the most appropriate version.
+
+### Benefits
+
+- Save bandwidth on smaller devices
+- Improve visual quality on larger screens
+
+### Implementation
+
+1. Define different image sizes for various screen resolutions and save them.
+2. Use srcset in `<img>` to list these image sources of different sizes to match various display sizes.
+
+### Resources
+
+- [Responsive images | MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images)
+- [Responsive images | web.dev](https://web.dev/learn/design/responsive-images)
+
+## Adaptive Images
+
+Adaptive images involve detecting network speed and serving different image qualities accordingly. Users with slower connections will receive lower-quality images as compared to those with faster connections.
+
+### Benefits
+
+- Enhance user experience on slow networks
+- Reduce unnecessary data usage
+
+### Implementation
+
+1. Implement JS to detect the network condition using the Network Information API.
+2. Based on the network speed, dynamically load and display images of appropriate quality by modifying the source attributes.
+
+### Resources
+
+- [Adaptive images in HTML | Adaptive Images](https://adaptive-images.com/)
+- [How To Solve Adaptive Images In Responsive Web Design](https://www.smashingmagazine.com/2013/06/clown-car-technique-solving-for-adaptive-images-in-responsive-web-design/)
+
+## Offscreen Image
+
+Images that are offscreen, or not in the viewport, are not loaded until they are needed. This means that the images are only loaded when they are about to become visible / nearing the viewport.
+
+### Benefits
+
+- Improve initial page load time
+- Save bandwidth by not loading hidden images
+
+### Implementation
+
+1. Identify images that are initially offscreen when the page loads.
+2. Use JS or CSS to delay loading these images until they are near the viewport.
+
+### Resources
+
+- [How to Defer Offscreen Images (With and Without Plugins) | Cloudways](https://www.cloudways.com/blog/defer-offscreen-images/)
+- [Defer offscreen images | Chrome for Developers](https://developer.chrome.com/docs/lighthouse/performance/offscreen-images)
+
+## Lazy Loading
+
+With lazy loading, similar to offscreen images, images and iframes are loaded only as they approach the user's viewport. This can significantly reduce initial page load times and save bandwidth.
+
+### Benefits
+
+- Reduce initial page weight
+- Improve initial load time, especially pages with many images
+
+### Implementation
+
+1. Add `loading="lazy"` to `<img>` and `<iframe>`.
+
+### Resources
+
+- [Lazy loading | MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/Performance/Lazy_loading)
+- [Browser-level image lazy loading for the web | web.dev](https://web.dev/articles/browser-level-image-lazy-loading)
+
+## Progressive JPEGs
+
+Progressive JPEGs load in layers, improving in clarity and detail with each layer, so that users see a low-quality version of the image almost immediately, which progressively improves until the image fully loads. This enhances the user experience by providing visual content faster.
+
+### Benefits
+
+- Improve perceived load time
+- Enhance user engagement with immediate visual feedback
+
+### Implementation
+
+1. Convert JPEG to progressive format using editing tools or conversion software.
+
+### Resources
+
+- [Progressive JPEG images: What Is It and How It Can Improve Website Performance | Hostinger](https://www.hostinger.com/tutorials/website/improving-website-performance-using-progressive-jpeg-images)
+- [Progressive jpegs (PJPEG): the key to loading images faster on your website | ImageKit](https://imagekit.io/blog/progressive-jpeg/)
+
+## Preloading
+
+Preloading allows us to specify which images should be loaded early, even before the browser encounters the image tags. This is particularly useful for images that are crucial to the user experience but might be discovered late by the browser, such as later sections of the page or carousels.
+
+### Benefits
+
+- Ensure important images are loaded early
+- Improve performance of above-the-fold content
+
+### Implementation
+
+1. Identify critical images that should be loaded early in the page life cycle.
+2. Use the `<link rel="preload">` in `<head>` to specify these images, setting `as="image"`.
+
+### Resources
+
+- [Preloading responsive images | Web.dev](https://web.dev/articles/preload-responsive-images)
+- [Preloading optional fonts | Web.dev](https://web.dev/preload-optional-fonts/)
+
+## Compression
+
+Compression reduces file sizes by getting rid of unnecessary data, speeding up loading times. Effective compression balances size and quality, allowing images to load quickly without an obvious loss in quality.
+
+### Benefits
+
+- Reduce image sizes
+- Speed up loading times
+
+### Implementation
+
+1. Use compression tools.
+
+### Resources
+
+- [Compression in HTTP - MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Compression)
+- [Introduction to Brotli Compression | CSS Tricks](https://css-tricks.com/brotli-compression/)
+
+---
+
+![Image Performance Cheatsheet](/img/blog/image-performance-cheatsheet.jpg)
+
+Enhancing image performance requires the combination of various techniques. By applying the above techniques, we can significantly improve the loading speed and efficiency of our web applications. Ultimately, staying updated of the latest trends in image optimization and web standards is essential for remaining competitive in web development.
