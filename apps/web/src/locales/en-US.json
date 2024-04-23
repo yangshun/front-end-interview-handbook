@@ -1163,6 +1163,10 @@
     "defaultMessage": "Created: Newest to oldest",
     "description": "Sorting option for discussions comment - sort by created"
   },
+  "8Jk9Qv": {
+    "defaultMessage": "Guides",
+    "description": "Project guides category title"
+  },
   "8KFYWs": {
     "defaultMessage": "Intro to Quiz Questions",
     "description": "Introduction to front end quiz questions"
@@ -3635,10 +3639,6 @@
     "defaultMessage": "Activity",
     "description": "Profile activity tab title"
   },
-  "Reu6X0": {
-    "defaultMessage": "Curated resources",
-    "description": "Project curated resources title"
-  },
   "RfVhtP": {
     "defaultMessage": "Use now",
     "description": "Button label for use now button"
@@ -4138,6 +4138,10 @@
   "VZ4Yky": {
     "defaultMessage": "Get the right practical foundation from the get-go",
     "description": "Title of 'Practical foundation' feature in Projects marketing page"
+  },
+  "VeRWF3": {
+    "defaultMessage": "Challenge guide",
+    "description": "Project guides category title"
   },
   "VfNkH+": {
     "defaultMessage": "CASHBACK",
@@ -6371,6 +6375,10 @@
     "defaultMessage": "Amazon logo",
     "description": "Amazon company logo"
   },
+  "nep7MF": {
+    "defaultMessage": "External resources",
+    "description": "Project curated resources title"
+  },
   "nepkqj": {
     "defaultMessage": "Cancel",
     "description": "Label for cancel button for projects profile edit page"
@@ -6715,6 +6723,10 @@
     "defaultMessage": "Amazing to see such a comprehensive resource for front end dev interviews. Coming from a more traditional backend role I found this website to be a treasure trove of knowledge and it really takes you from a beginner to advanced level.",
     "description": "Anonymous Front End Engineer's testimonial"
   },
+  "q6xeLh": {
+    "defaultMessage": "General guides",
+    "description": "Project guides category title"
+  },
   "q9FxEg": {
     "defaultMessage": "Language",
     "description": "Question programming language"
@@ -6894,10 +6906,6 @@
   "rfI2w+": {
     "defaultMessage": "Cancel",
     "description": "Label for button to cancel action"
-  },
-  "rgAZc7": {
-    "defaultMessage": "Official guides",
-    "description": "Project official guide title"
   },
   "rhLand": {
     "defaultMessage": "Navigate to preparation area",

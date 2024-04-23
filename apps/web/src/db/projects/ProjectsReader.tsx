@@ -1,5 +1,6 @@
 import type {
   ProjectsChallengeAPIWriteup,
+  ProjectsChallengeGuide,
   ProjectsChallengeInfo,
   ProjectsChallengeMetadata,
   ProjectsChallengeStyleGuide,
@@ -7,6 +8,7 @@ import type {
 } from 'contentlayer/generated';
 import {
   allProjectsChallengeAPIWriteups,
+  allProjectsChallengeGuides,
   allProjectsChallengeInfos,
   allProjectsChallengeMetadata,
   allProjectsChallengeStyleGuides,
@@ -497,6 +499,30 @@ export async function readProjectsChallengeAPIWriteup(
 
   return {
     apiWriteup,
+    loadedLocale: requestedLocale,
+  };
+}
+
+export async function readProjectsChallengeGuide(
+  slugParam: string,
+  requestedLocale = 'en-US',
+): Promise<
+  Readonly<{
+    challengeGuide: ProjectsChallengeGuide | null;
+    loadedLocale: string;
+  }>
+> {
+  // So that we handle typos like extra characters.
+  const slug = decodeURIComponent(slugParam).replaceAll(/[^\da-zA-Z-]/g, '');
+
+  const challengeGuide =
+    allProjectsChallengeGuides.find(
+      (guideItem) =>
+        guideItem.challenge === slug && guideItem.locale === requestedLocale,
+    ) ?? null;
+
+  return {
+    challengeGuide,
     loadedLocale: requestedLocale,
   };
 }

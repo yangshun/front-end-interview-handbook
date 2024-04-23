@@ -1,7 +1,10 @@
 'use client';
 
 import clsx from 'clsx';
-import type { ProjectsCommonGuide } from 'contentlayer/generated';
+import type {
+  ProjectsChallengeGuide,
+  ProjectsCommonGuide,
+} from 'contentlayer/generated';
 import { useState } from 'react';
 import {
   RiClipboardFill,
@@ -68,6 +71,7 @@ function useTipsResourcesDiscussionsTabs() {
 
 type Props = Readonly<{
   challenge: ProjectsChallengeItem;
+  challengeGuide: ProjectsChallengeGuide | null;
   commonGuides: ReadonlyArray<ProjectsCommonGuide>;
   viewerAccess: ProjectsPremiumAccessControlFields;
   viewerProjectsProfile: ProjectsViewerProjectsProfile | null;
@@ -75,6 +79,7 @@ type Props = Readonly<{
 
 export default function ProjectsChallengeResourcesPage({
   challenge,
+  challengeGuide,
   commonGuides,
   viewerProjectsProfile,
   viewerAccess,
@@ -144,7 +149,10 @@ export default function ProjectsChallengeResourcesPage({
             tipsResourcesDiscussionsTab === 'discussions' ? (
               <ProjectsChallengeDiscussionsSection challenge={challenge} />
             ) : tipsResourcesDiscussionsTab === 'guides' ? (
-              <ProjectsChallengeGuideSection commonGuides={commonGuides} />
+              <ProjectsChallengeGuideSection
+                challengeGuide={challengeGuide}
+                commonGuides={commonGuides}
+              />
             ) : (
               tipsResourcesDiscussionsTab === 'references' && (
                 <ProjectsChallengeReferenceSubmissions challenge={challenge} />

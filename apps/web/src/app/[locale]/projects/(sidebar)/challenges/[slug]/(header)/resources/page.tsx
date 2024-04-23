@@ -6,6 +6,7 @@ import fetchViewerProjectsChallengeAccess from '~/components/projects/utils/fetc
 import fetchViewerProjectsProfile from '~/components/projects/utils/fetchViewerProjectsProfile';
 
 import {
+  readProjectsChallengeGuide,
   readProjectsChallengeInfo,
   readProjectsChallengeItem,
   readProjectsCommonGuideList,
@@ -56,11 +57,13 @@ export default async function Page({ params }: Props) {
     { viewerProjectsProfile },
     viewerUnlockedAccess,
     { challenge },
+    { challengeGuide },
     { commonGuides },
   ] = await Promise.all([
     fetchViewerProjectsProfile(),
     fetchViewerProjectsChallengeAccess(slug),
     readProjectsChallengeItem(slug, locale),
+    readProjectsChallengeGuide(slug, locale),
     readProjectsCommonGuideList(locale),
   ]);
 
@@ -73,6 +76,7 @@ export default async function Page({ params }: Props) {
   return (
     <ProjectsChallengeResourcesPage
       challenge={challenge}
+      challengeGuide={challengeGuide}
       commonGuides={commonGuides}
       viewerAccess={viewerAccess}
       viewerProjectsProfile={viewerProjectsProfile}
