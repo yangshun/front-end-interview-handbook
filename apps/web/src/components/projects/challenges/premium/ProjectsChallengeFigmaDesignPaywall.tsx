@@ -21,8 +21,6 @@ import { useProjectsChallengePaywallSubtitle } from './ProjectsPremiumPaywallStr
 import ProjectsPremiumPricingTableDialog from './ProjectsPremiumPricingTableDialog';
 import type { ProjectsViewerProjectsProfile } from '../../types';
 
-import type { ProjectsSubscriptionPlan } from '@prisma/client';
-
 type Placement = 'ASSETS_PAGE' | 'GET_STARTED_DIALOG';
 
 function DownloadSection({
@@ -233,7 +231,6 @@ function SubscribeSection({
           <Button
             addonPosition="start"
             icon={RiLock2Line}
-            isDisabled={true}
             label={intl.formatMessage({
               defaultMessage: 'Figma design file',
               description: 'Download Figma file button label',
@@ -346,7 +343,6 @@ function InsufficientCreditsSection({
   placement,
 }: Readonly<{
   placement: Placement;
-  plan?: ProjectsSubscriptionPlan | null;
 }>) {
   const intl = useIntl();
   const subtitle = useProjectsChallengePaywallSubtitle('INSUFFICIENT_CREDITS');
