@@ -1,0 +1,69 @@
+## Statistics API
+
+To test your statistics section, we have provided a HTTP endpoint that returns dynamic metrics so that your section can show the latest data in real-time:
+
+- Endpoint: https://www.greatfrontend.com/api/projects/challenges/statistics-metrics
+- HTTP Method: `GET`
+- Content Type: `json`
+
+### Request
+
+| Attribute | Type | Required | Description            |
+| --------- | ---- | -------- | ---------------------- |
+| `latest`  | -    | No       | Returns latest metrics |
+
+### Response
+
+`GET`: https://www.greatfrontend.com/api/projects/challenges/statistics-metrics
+
+```json
+{
+  "data": [
+    {
+      "metric": "downloads",
+      "value": 25664890
+    },
+    {
+      "metric": "paid_users",
+      "value": 17219
+    },
+    {
+      "metric": "library_images",
+      "value": 190654321
+    }
+  ]
+}
+```
+
+**Note**: The values in the response are intentionally hardcoded to match the design for screenshot comparison purposes. To get the latest data, append the `latest` query parameter.
+
+#### Latest data
+
+`GET`: https://www.greatfrontend.com/api/projects/challenges/statistics-metrics?latest
+
+```json
+{
+  "data": [
+    {
+      "metric": "downloads",
+      "value": 25667938
+    },
+    {
+      "metric": "paid_users",
+      "value": 17981
+    },
+    {
+      "metric": "library_images",
+      "value": 190654575
+    }
+  ]
+}
+```
+
+### Example
+
+To test APIs, you're recommended to install the [Thunder Client for VS Code extension](https://www.thunderclient.com/), a lightweight REST client for testing APIs right within VS Code.
+
+![Statistics metrics API using Thunder Client](/img/projects/api/statistics-metrics.png)
+
+However since this is a `GET` API, you can simply visit the URL in the browser: https://www.greatfrontend.com/api/projects/challenges/statistics-metrics
