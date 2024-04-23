@@ -36,17 +36,17 @@ export function getProjectsChallengeSubmissionRepositoryUrlAttributes(
   intl: IntlShape,
 ) {
   const label = intl.formatMessage({
-    defaultMessage: 'GitHub repository URL',
+    defaultMessage: 'GitHub repository or subdirectory URL',
     description: 'Form label',
-    id: 'LEA1HM',
+    id: 'wkkRGq',
   });
   const description = intl.formatMessage({
     defaultMessage:
-      'The URL of your GitHub repository. We will also use it to pull files onto the platform for code reviews.',
+      'URL to the root or a subdirectory of your GitHub repository. We will use it to pull files onto the platform for code reviews.',
     description: 'Form description',
-    id: 'pvPxFe',
+    id: 'LiRxEy',
   });
-  const placeholder = 'https://github.com/[username]/[repository-name]';
+  const placeholder = 'https://github.com/username/repository-name';
   const urlMessage = intl.formatMessage({
     defaultMessage: 'Invalid GitHub repository URL',
     description: 'Error message',

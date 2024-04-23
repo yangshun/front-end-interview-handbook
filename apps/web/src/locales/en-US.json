@@ -2735,10 +2735,6 @@
     "defaultMessage": "Show completed challenges",
     "description": "Description of completed challenges filter"
   },
-  "LEA1HM": {
-    "defaultMessage": "GitHub repository URL",
-    "description": "Form label"
-  },
   "LEh5WZ": {
     "defaultMessage": "Clear all",
     "description": "Label for clear all button"
@@ -2838,6 +2834,10 @@
   "Lh00HQ": {
     "defaultMessage": "Create a free account to track your progress",
     "description": "CTA to create a free account for non-logged in users"
+  },
+  "LiRxEy": {
+    "defaultMessage": "URL to the root or a subdirectory of your GitHub repository. We will use it to pull files onto the platform for code reviews.",
+    "description": "Form description"
   },
   "Ll7iob": {
     "defaultMessage": "Get Started",
@@ -6651,10 +6651,6 @@
     "defaultMessage": "Top Svelte coding interview questions to build the most commonly-asked front end UI components and applications.",
     "description": "Description for Svelte questions page"
   },
-  "pvPxFe": {
-    "defaultMessage": "The URL of your GitHub repository. We will also use it to pull files onto the platform for code reviews.",
-    "description": "Form description"
-  },
   "pz1v44": {
     "defaultMessage": "Next",
     "description": "Next button label"
@@ -7470,6 +7466,10 @@
   "wfod1+": {
     "defaultMessage": "GreatFrontEnd is hiring! Check out our <link>jobs page</link>!",
     "description": "Text on Promo Banner"
+  },
+  "wkkRGq": {
+    "defaultMessage": "GitHub repository or subdirectory URL",
+    "description": "Form label"
   },
   "wnW+2J": {
     "defaultMessage": "You have completed this track",
