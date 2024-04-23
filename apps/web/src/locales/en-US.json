@@ -307,6 +307,10 @@
     "defaultMessage": "Intermediate",
     "description": "Intermediate level blog"
   },
+  "0Z5awQ": {
+    "defaultMessage": "Feel free to include any custom pages you have added for this challenge. They will be featured on the submission page.",
+    "description": "Button tooltip for adding another URL to a project submission"
+  },
   "0ZZ4Vl": {
     "defaultMessage": "In progress",
     "description": "Projects challenge in progress"
@@ -886,10 +890,6 @@
   "6/Qdew": {
     "defaultMessage": "Start project",
     "description": "Label for \"Start project\" button on Projects project page"
-  },
-  "64hnWF": {
-    "defaultMessage": "Add another URL",
-    "description": "Button label to add another URL to a project submission"
   },
   "680b8U": {
     "defaultMessage": "Vanilla JS Questions",
@@ -1862,6 +1862,10 @@
   "Dzv5LY": {
     "defaultMessage": "Explore skills roadmap",
     "description": "Recommended action for new projects platform user"
+  },
+  "E3cH5c": {
+    "defaultMessage": "Add custom page",
+    "description": "Button label to add another URL to a project submission"
   },
   "E5x8uP": {
     "defaultMessage": "Undergrad CS",
@@ -3730,10 +3734,6 @@
   "SG08/K": {
     "defaultMessage": "Challenge unlocked successfully",
     "description": "Label to unlock a premium project"
-  },
-  "SGaDHr": {
-    "defaultMessage": "Add a URL",
-    "description": "Button label to add a URL to a project submission"
   },
   "SId1Gq": {
     "defaultMessage": "All rounded coverage to bring you to the next level.",
@@ -6235,10 +6235,6 @@
     "defaultMessage": "Prepare end-to-end for front end interviews",
     "description": "Title for question format category links in navbar"
   },
-  "mRxkm4": {
-    "defaultMessage": "Live site URL",
-    "description": "Project submission URL"
-  },
   "mU5c9N": {
     "defaultMessage": "After completion",
     "description": "Tab label for projects challenges"
@@ -7794,6 +7790,10 @@
   "zUR/Om": {
     "defaultMessage": "The page you requested could not be found",
     "description": "Description of 404 page"
+  },
+  "zUz27Y": {
+    "defaultMessage": "Custom page",
+    "description": "Project submission page"
   },
   "zeK111": {
     "defaultMessage": "E.g. \"Responsive solution with React and Tailwind CSS\"",

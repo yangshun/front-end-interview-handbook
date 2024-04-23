@@ -146,22 +146,20 @@ export default function ProjectsChallengeSubmissionDeploymentUrlsField({
           <Button
             addonPosition="start"
             icon={RiAddLine}
-            label={
-              field.value.length > 0
-                ? intl.formatMessage({
-                    defaultMessage: 'Add another URL',
-                    description:
-                      'Button label to add another URL to a project submission',
-                    id: '64hnWF',
-                  })
-                : intl.formatMessage({
-                    defaultMessage: 'Add a URL',
-                    description:
-                      'Button label to add a URL to a project submission',
-                    id: 'SGaDHr',
-                  })
-            }
+            label={intl.formatMessage({
+              defaultMessage: 'Add custom page',
+              description:
+                'Button label to add another URL to a project submission',
+              id: 'E3cH5c',
+            })}
             size="xs"
+            tooltip={intl.formatMessage({
+              defaultMessage:
+                'Feel free to include any custom pages you have added for this challenge. They will be featured on the submission page.',
+              description:
+                'Button tooltip for adding another URL to a project submission',
+              id: '0Z5awQ',
+            })}
             variant="secondary"
             onClick={() => {
               setDialogMode({ type: 'add' });

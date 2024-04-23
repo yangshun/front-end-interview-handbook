@@ -87,9 +87,9 @@ export default function ProjectsChallengeSubmissionDeploymentUrlItemFormDialog({
         />
       }
       title={intl.formatMessage({
-        defaultMessage: 'Live site URL',
-        description: 'Project submission URL',
-        id: 'mRxkm4',
+        defaultMessage: 'Custom page',
+        description: 'Project submission page',
+        id: 'zUz27Y',
       })}
       wrapChildren={(children) => (
         <form
