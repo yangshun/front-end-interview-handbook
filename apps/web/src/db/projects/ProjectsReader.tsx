@@ -466,8 +466,8 @@ export async function readProjectsChallengeStyleGuide(
   const styleGuide =
     allProjectsChallengeStyleGuides.find(
       (styleGuideItem) =>
-        styleGuideItem._raw.flattenedPath ===
-        `projects/challenges/${slug}/style-guide/${requestedLocale}`,
+        styleGuideItem.challenge === slug &&
+        styleGuideItem.locale === requestedLocale,
     ) ?? null;
 
   return {
@@ -490,9 +490,9 @@ export async function readProjectsChallengeAPIWriteup(
 
   const apiWriteup =
     allProjectsChallengeAPIWriteups.find(
-      (styleGuideItem) =>
-        styleGuideItem._raw.flattenedPath ===
-        `projects/challenges/${slug}/api/${requestedLocale}`,
+      (apiWriteupItem) =>
+        apiWriteupItem.challenge === slug &&
+        apiWriteupItem.locale === requestedLocale,
     ) ?? null;
 
   return {
