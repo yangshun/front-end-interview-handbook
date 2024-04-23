@@ -10,17 +10,17 @@ import { BlogCategoryDocument } from './src/components/blog/contentlayer/BlogCat
 import { BlogPostDocument } from './src/components/blog/contentlayer/BlogPostDocument';
 import { BlogSeriesDocument } from './src/components/blog/contentlayer/BlogSeriesDocument';
 import { BlogSubseriesDocument } from './src/components/blog/contentlayer/BlogSubseriesDocument';
+import { ProjectsCommonGuideDocument } from './src/components/projects/contentlayer/ProjectsCommonGuideDocument';
 import { ProjectsChallengeBriefDocument } from './src/components/projects/contentlayer/ProjectsChallengeBriefDocument';
 import { ProjectsChallengeInfoDocument } from './src/components/projects/contentlayer/ProjectsChallengeInfoDocument';
 import { ProjectsChallengeMetadataDocument } from './src/components/projects/contentlayer/ProjectsChallengeMetadataDocument';
 import { ProjectsChallengeStyleGuideDocument } from './src/components/projects/contentlayer/ProjectsChallengeStyleGuideDocument';
 import { ProjectsChallengeAPIWriteupDocument } from './src/components/projects/contentlayer/ProjectsChallengeAPIWriteupDocument';
-import { ProjectsChallengeGuideDocument } from './src/components/projects/contentlayer/ProjectsChallengeGuideDocument';
 import { ProjectsTrackMetadataDocument } from './src/components/projects/contentlayer/ProjectsTrackMetadataDocument';
 import { ProjectsTrackInfoDocument } from './src/components/projects/contentlayer/ProjectsTrackInfoDocument';
-import { JobsPostingDocument } from './src/contentlayer/document/JobsPostingDocument';
 import { ProjectsSkillMetadataDocument } from './src/components/projects/contentlayer/ProjectsSkillMetadataDocument';
 import { ProjectsSkillInfoDocument } from './src/components/projects/contentlayer/ProjectsSkillInfoDocument';
+import { JobsPostingDocument } from './src/contentlayer/document/JobsPostingDocument';
 
 export default makeSource({
   contentDirPath: 'src/content',
@@ -30,12 +30,12 @@ export default makeSource({
     BlogPostDocument,
     BlogSeriesDocument,
     BlogSubseriesDocument,
+    ProjectsCommonGuideDocument,
     ProjectsChallengeBriefDocument,
     ProjectsChallengeInfoDocument,
     ProjectsChallengeMetadataDocument,
     ProjectsChallengeStyleGuideDocument,
     ProjectsChallengeAPIWriteupDocument,
-    ProjectsChallengeGuideDocument,
     ProjectsSkillMetadataDocument,
     ProjectsSkillInfoDocument,
     ProjectsTrackMetadataDocument,

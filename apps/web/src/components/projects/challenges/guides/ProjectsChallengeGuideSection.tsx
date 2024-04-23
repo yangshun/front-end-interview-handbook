@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { ProjectsChallengeGuide } from 'contentlayer/generated';
+import type { ProjectsCommonGuide } from 'contentlayer/generated';
 import { useRef, useState } from 'react';
 import { RiMenu2Line } from 'react-icons/ri';
 import { useIntl } from 'react-intl';
@@ -13,25 +13,23 @@ import Heading from '~/components/ui/Heading';
 import SlideOut from '~/components/ui/SlideOut';
 
 type Props = Readonly<{
-  projectGuides: Array<ProjectsChallengeGuide>;
+  commonGuides: ReadonlyArray<ProjectsCommonGuide>;
 }>;
 
-export default function ProjectsChallengeGuideSection({
-  projectGuides,
-}: Props) {
+export default function ProjectsChallengeGuideSection({ commonGuides }: Props) {
   const intl = useIntl();
   const guideRef: React.RefObject<HTMLDivElement> = useRef(null);
 
-  const [activeGuideSlug, setActiveGuideSlug] = useState(projectGuides[0].slug);
+  const [activeGuideSlug, setActiveGuideSlug] = useState(commonGuides[0].slug);
   const [isLeftSidebarOpen, setIsLeftSidebarOpen] = useState(false);
   const projectGuide =
-    projectGuides.find((guide) => guide.slug === activeGuideSlug) ||
-    projectGuides[0];
+    commonGuides.find((guide) => guide.slug === activeGuideSlug) ||
+    commonGuides[0];
 
   // TODO(projects):  Remove hardcoded resources links
   const sidebarNavigation = [
     {
-      items: projectGuides,
+      items: commonGuides,
       title: intl.formatMessage({
         defaultMessage: 'Official guides',
         description: 'Project official guide title',
@@ -128,7 +126,7 @@ export default function ProjectsChallengeGuideSection({
         <Divider />
         <ArticlePagination
           activeItem={activeGuideSlug}
-          items={projectGuides}
+          items={commonGuides}
           onSelect={onGuideChange}
         />
       </div>

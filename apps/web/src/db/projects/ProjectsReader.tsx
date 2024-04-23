@@ -1,16 +1,16 @@
 import type {
   ProjectsChallengeAPIWriteup,
-  ProjectsChallengeGuide,
   ProjectsChallengeInfo,
   ProjectsChallengeMetadata,
   ProjectsChallengeStyleGuide,
+  ProjectsCommonGuide,
 } from 'contentlayer/generated';
 import {
   allProjectsChallengeAPIWriteups,
-  allProjectsChallengeGuides,
   allProjectsChallengeInfos,
   allProjectsChallengeMetadata,
   allProjectsChallengeStyleGuides,
+  allProjectsCommonGuides,
 } from 'contentlayer/generated';
 
 import type { ProjectsChallengeItem } from '~/components/projects/challenges/types';
@@ -501,21 +501,20 @@ export async function readProjectsChallengeAPIWriteup(
   };
 }
 
-export async function readProjectsChallengeResourceGuideList(
+export async function readProjectsCommonGuideList(
   requestedLocale = 'en-US',
 ): Promise<
   Readonly<{
+    commonGuides: Array<ProjectsCommonGuide>;
     loadedLocale: string;
-    resourceProjectsChallengeGuides: Array<ProjectsChallengeGuide>;
   }>
 > {
-  const resourceProjectsChallengeGuides = allProjectsChallengeGuides.filter(
-    (resourceGuideItem) =>
-      resourceGuideItem._raw.flattenedPath.endsWith(requestedLocale),
+  const commonGuides = allProjectsCommonGuides.filter((commonGuideItem) =>
+    commonGuideItem._raw.flattenedPath.endsWith(requestedLocale),
   );
 
   return {
+    commonGuides,
     loadedLocale: requestedLocale,
-    resourceProjectsChallengeGuides,
   };
 }
